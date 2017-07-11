@@ -1,0 +1,146 @@
+site_name: eZ Platform Developer Documentation
+repo_url: https://github.com/ezsystems/developer-documentation
+copyright: "Copyright 1999-2017 eZ Systems AS and others"
+pages:
+    - 'Documentation': 'index.md'
+    - Getting started:
+        - 'Get started with eZ Platform': 'getting_started/get_started_with_ez_platform.md'
+        - 'Requirements and system configuration': 'getting_started/requirements_and_system_configuration.md'
+        - Installation:
+            - 'Install eZ Platform': 'getting_started/install_ez_platform.md'
+            - 'Install using Composer': 'getting_started/install_using_composer.md'
+            - 'Install manually': 'getting_started/install_manually' # Incl. installation_guide_for_os_x, installation_guide_for_unix_based_systems, setup_folder_rights, set_up_swap_on_debian_8.x, manual_installation_on_windows
+            - 'Install using Docker': 'getting_started/install_using_docker.md'
+            - 'Starting eZ Platform': 'getting_started/starting_ez_platform.md' # Incl. starting_ez_platform, web_server, phps_built_in_server, hello_world!
+            - 'Troubleshooting': 'getting_started/troubleshooting.md' # Incl. avoiding_problems
+        - Going deeper:
+            - 'eZ Platform features': 'getting_started/ez_platform_features.md' # Incl. ez_platform_features, ez_platform_demo, using_composer_to_install_the_demo, taking_a_look_around
+            - 'eZ Enterprise': 'getting_started/ez_enterprise.md' # Incl. get_started_with_ez_enterprise, ez_enterprise_features
+            - 'About Composer': 'getting_started/about_composer.md' # Incl. using_composer, composer_for_frontend_developers, composer_for_system_administrators
+    - Tutorials:
+        - eZ Platform Beginner tutorial:
+            - 'Building a bicycle route tracker in eZ Platform': 'tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md'
+            - '1. Getting ready': 'tutorials/platform_beginner/1_getting_ready.md'
+            - '2. Creating your content model': 'tutorials/platform_beginner/2_creating_your_content_model.md'
+            - '3. Customizing the general layout': 'tutorials/platform_beginner/3_customizing_the_general_layout.md'
+            - '4. Displaying content of a ride': 'tutorials/platform_beginner/4_displaying_content_of_a_ride.md'
+            - '5. Displaying the list of rides on the homepage': 'tutorials/platform_beginner/5_displaying_the_list_of_rides_on_the_homepage.md' # Incl. step_2_-_display_the_list_of_rides_on_the_homepage, congrats, part_3_adding_features
+        - eZ Enterprise Beginner tutorial:
+            - 'eZ Enterprise beginner tutorial - It&#39s a dog&#39s world!': 'tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world.md'
+            - '1. Getting your starter website': 'tutorials/enterprise_beginner/1_getting_your_starter_website.md'
+            - '2. Preparing the Landing Page': 'tutorials/enterprise_beginner/2_preparing_the_landing_page.md'
+            - '3. Using existing blocks': 'tutorials/enterprise_beginner/3_using_existing_blocks.md'
+            - '4. Creating a custom block': 'tutorials/enterprise_beginner/4_creating_a_custom_block.md'
+        - Field Type Creation Tutorial:
+            - 'Creating a Tweet Field Type': 'tutorials/field_type/creating_a_tweet_field_type.md'
+            - '1. Build the bundle': 'tutorials/field_type/1_build_the_bundle.md' # Incl. build_the_bundle, create_the_bundle, structure_the_bundle.md
+            - '2. Implement the Tweet&#92Value Class': 'tutorials/field_type/2_implement_the_tweetvalue_class.md'
+            - '3. Implement the Tweet&#92Type Class': 'tutorials/field_type/3_implement_the_tweettype_class.md'
+            - '4. Register the Field Type as a service': 'tutorials/field_type/4_register_the_field_type_as_a_service.md'
+            - '5. Implement the legacy storage engine': 'tutorials/field_type/5_implement_the_legacy_storage_engine_converter.md'
+            - '6. Introduce a template': 'tutorials/field_type/6_introduce_a_template.md'
+        - Extending PlatformUI with new navigation:
+            - 'Extending PlatformUI with new navigation': 'tutorials/extending_platformui/extending_platformui_with_new_navigation.md'
+            - '1. Create the extension bundle': 'tutorials/extending_platformui/1_create_the_extension_bundle.md'
+            - '2. Set up the configuration': 'tutorials/extending_platformui/2_set_up_the_configuration.md'
+            - '3. Alter the JavaScript application routing': 'tutorials/extending_platformui/3_alter_the_javascript_application_routing.md'
+            - '4. Define a view': 'tutorials/extending_platformui/4_define_a_view.md'
+            - '5. Configure the navigation': 'tutorials/extending_platformui/5_configure_the_navigation.md'
+            - '6. Build the content list': 'tutorials/extending_platformui/6_build_the_content_list.md'
+            - '7. Paginate results': 'tutorials/extending_platformui/7_paginate_results.md'
+            - '8. Filter by Content Type': 'tutorials/extending_platformui/8_filter_by_content_type.md'
+            - 'Conclusion': 'tutorials/extending_platformui/conclusion.md'
+    - API:
+        - 'API': 'api/api.md'
+        - REST API guide:
+            - 'REST API guide': 'api/rest_api_guide.md' # Incl. rest_api_guide, getting_started_with_the_rest_api
+            - 'REST API usage': 'api/general_rest_usage.md' # Incl. general_rest_api_usage, rest_api_authentication, error_handling, rest_api_countries_list
+            - 'Extending the REST API': 'api/extending_the_rest_api.md'
+            - 'JS client': 'api/js_client.md' # Incl. js_client, using_the_javascript_rest_api_client
+            - 'REST API reference': 'api/rest_api_reference.md'
+        - Public PHP API:
+            - 'Public PHP API': 'api/public_php_api.md' # Incl. public_php_api, public_api_guide, gettig_started_with_the_public_api, browsing_finding_viewing, managing_content, working_with_locations, other_recipes
+        - 'Field Type API and best practices': 'api/field_type_api_and_best_practices.md' # Incl. field_type_api_and_best_practices, field_type_template, register_field_type, settings_schema_and_allowed_validators
+    - Guide:
+        - 'Guide to eZ Platform': 'guide/guide_to_ez_platform.md'
+        - Introduction:
+            - 'Introduction': 'guide/introduction.md' # Incl. what_is_ez_platform_enterprise_edition, what_is_ez_platform
+            - 'Architecture': 'guide/architecture.md'
+            - 'Content model': 'guide/content_model.md' # Incl. content_model_-_content_is_king, content_items_content_types_and_fields
+            - 'Field Type reference': 'guide/field_type_reference.md' # Incl. all field type ref. pages
+        - 'Bundles': 'guide/bundles.md'
+        - 'Best practices': 'guide/best_practices.md'
+        - 'Content rendering': 'guide/content_rendering.md' # Incl. content_rendering, all twig function ref. pages
+        - 'Clustering': 'guide/clustering.md'
+        - 'Design': 'guide/design.md'
+        - 'DevOps': 'guide/devops.md'
+        - 'Docker tools': 'guide/docker_tools.md'
+        - 'Environments': 'guide/environments.md'
+        - 'Extending eZ Platform': 'guide/extending_ez_platform.md'
+        - 'File management': 'guide/file_management.md'
+        - 'HTTP cache': 'guide/http_cache.md'
+        - 'Images': 'guide/images.md'
+        - 'Internationalization': 'guide/internationalization.md'
+        - 'Multisite': 'guide/multisite.md'
+        - 'Performance': 'guide/performance.md'
+        - 'Recommendation': 'guide/recommendation.md'
+        - 'Repository': 'guide/repository.md' # Incl. repository, role_policies_map, signals_reference, all limitation ref. pages
+        - 'Search': 'guide/search.md' # Incl. search, solr_bundle, elasticsearch_bundle, legacy_search_engine_bundle, search_criteria_reference, sort_clauses_reference
+        - 'Security': 'guide/security.md'
+        - 'Service container': 'guide/service_container.md'
+        - 'Sessions': 'guide/sessions.md'
+        - 'SiteAccess': 'guide/siteaccess.md'
+        - 'User-generated content': 'guide/user_generated_content.md' # TODO
+    - Cookbook:
+        - 'Authenticating a user with multiple user providers': 'cookbook/authenticating_a_user_with_multiple_user_providers.md'
+        - 'Converting request paremeters into API objects': 'cookbook/converting_request_parameters_into_api_objects.md'
+        - 'Creating custom notification for Flex Workflow': 'cookbook/creating_custom_notifications_for_flex_workflow.md'
+        - 'Creating Landing Page blocks (Enterprise)': 'cookbook/creating_landing_page_blocks_(enterprise).md'
+        - 'Creating Landing Page layouts (Enterprise)': 'cookbook/creating_landing_page_layouts_(enterprise).md'
+        - 'Displaying children of a Content item': 'cookbook/displaying_children_of_a_content_item.md'
+        - 'Displaying content with simple templates': 'cookbook/displaying_content_with_simple_templates.md'
+        - 'Executing long-running console commands': 'cookbook/executing_long_running_console_commands.md'
+        - 'Exposing Siteaccess_aware configuration for your bundle': 'cookbook/exposing_siteaccess_aware_configuration_for_your_bundle.md'
+        - 'Importing settings from a bundle': 'cookbook/importing_settings_from_a_bundle.md'
+        - 'Injecting parameters in content views': 'cookbook/injecting_parameters_in_content_views.md'
+        - 'Listening to core events': 'cookbook/listening_to_core_events.md'
+        - 'Making cross-origin HTTP requests': 'cookbook/making_cross_origin_http_requests.md'
+        - 'Paginating API search results': 'cookbook/paginating_api_search_results.md'
+        - 'Retrieving root location': 'cookbook/retrieving_root_location.md'
+        - 'Using RouteReference': 'cookbook/using_routereference.md'
+    - Resources and community:
+        - 'Resources': 'community_resources/resources.md'
+        - 'Professional training services': 'community_resources/professional_training_services.md'
+        - 'Contributing': 'community_resources/contributing.md' # Incl. github_101, report_and_follow_issues_-_the_bugtracker, contribute_to_documentation, contributing_translations, development_guidelines
+    - Migrating to eZ Platform:
+        - 'Migrating from eZ Publish Platform': 'migrating/migrating_from_ez_publish_platform.md' # Incl. migrating_from_ez_publish_platform, upgrading_from_5.4.x_and_2014.11_to_16.xx, migrating_legacy_page_field_(ezflow)_to_landing_page_(enterprise)
+        - 'Migrating from eZ Publish': 'migrating/migrating_from_ez_publish.md'
+    - Releases:
+        - 'Updating eZ Platform': 'releases/updating_ez_platform.md'
+        - 'eZ Platform v1.10.0': 'releases/ez_platform_v1.10.0.md'
+        - 'eZ Platform v1.9.0': 'releases/ez_platform_v1.9.0.md'
+        - 'eZ Platform v1.8.0': 'releases/ez_platform_v1.8.0.md'
+        - 'eZ Platform v1.7.0 LTS': 'releases/ez_platform_v1.7.0_lts.md'
+        - 'eZ Platform v1.6.0': 'releases/ez_platform_and_ez_enterprise_v1.6.0.md'
+        - eZ Enterprise release notes:
+            - 'eZ Enterprise v1.5.0': 'releases/ez_enterprise_v1.5.0_release_notes.md'
+            - 'eZ Enterprise v1.4.0': 'releases/ez_enterprise_v1.4_release_notes.md'
+            - 'eZ Studio 2016.04': 'releases/ez_studio_2016.04_release_notes.md'
+            - 'eZ Studio 16.02': 'releases/ez_studio_16.02_release_notes.md'
+            - 'eZ Studio 15.12.1': 'releases/ez_studio_15.12.1_release_notes.md'
+            - 'eZ Studio 15.12': 'releases/ez_studio_15.12_release_notes.md'
+        - eZ Platform release notes:
+            - 'eZ Platform v1.5.1': 'releases/ez_platform_1.5.1_release_notes.md'
+            - 'eZ Platform v1.5.0': 'releases/ez_platform_v1.5.0_release_notes.md'
+            - 'eZ Platform v1.4.2': 'releases/ez_platform_1.4.2_release_notes.md'
+            - 'eZ Platform v1.4.0': 'releases/ez_platform_v1.4.0_release_notes.md'
+            - 'eZ Platform 2016.04': 'releases/ez_platform_2016.04_release_notes.md'
+            - 'eZ Platform 16.02': 'releases/ez_platform_16.02_release_notes.md'
+            - 'eZ Platform 15.12.1': 'releases/ez_platform_15.12.1_release_notes.md'
+            - 'eZ Platform 15.12': 'releases/ez_platform_15.12_release_notes.md'
+            - 'Earlier releases': 'releases/earlier_releases.md' # Incl. ez_platform_15.11_release_notes, ez_platform_15.09_release_notes, ez_platform_15.07_release_notes, ez_platform_15.05_release_notes, ez_platform_15.03_release_notes, ez_platform_15.01_release_notes
+theme: readthedocs
+markdown_extensions:
+    - markdown.extensions.admonition
+    - markdown.extensions.toc:
+        permalink: True
