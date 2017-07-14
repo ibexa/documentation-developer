@@ -1,0 +1,2056 @@
+1.  [Developer](index.html)
+2.  [Documentation](Documentation_31429504.html)
+3.  [The Complete Guide to eZ Platform](The-Complete-Guide-to-eZ-Platform_31429526.html)
+
+# Content Rendering
+
+# Introduction
+
+## The ViewController
+
+eZ Platform comes with a native controller to display your content, known as the **`ViewController`** . It is called each time you try to reach a Content item from its **Url Alias** (human readable, translatable URI generated for any content based on URL patterns defined per Content Type). It is able to render any content created in the admin interface or via the [Public API Guide](Public-API-Guide_31430303.html).
+
+It can also be called straight by its direct URI: 
+
+`/view/content/<contentId>/full/true/<locationId>`
+
+` /view/content/<contentId>`
+
+A Content item can also have different **view types** (full page, abstract in a list, block in a landing page, etc.). By default the view type is **full** (for full page), but it can be anything (*line*, *block, etc*.).
+
+# Configuration
+
+## View provider configuration
+
+The **configured ViewProvider** allows you to configure template selection when using the `ViewController`, either directly from a URL or via a sub-request.
+
+eZ Publish 4.x terminology
+
+In eZ Publish 4.x, it was known as **template override system *by configuration*** (`override.ini`).
+However this only reflects old overrides for `node/view/*.tpl` and `content/view/*.tpl`.
+
+### Principle
+
+The **configured ViewProvider** takes its configuration from your siteaccess in the `           content_view         ` section. This configuration is a hash built in the following way:
+
+**app/config/ezplatform.yml**
+
+``` brush:
+ezpublish:
+    system:
+        # Can be a valid siteaccess, siteaccess group or even "global"
+        front_siteaccess:
+            # Configuring the ViewProvider
+            content_view:
+                # The view type (full/line are standard, but you can use custom ones)
+                full:
+                    # A simple unique key for your matching ruleset
+                    folderRuleset:
+                        # The template identifier to load, following the Symfony bundle notation for templates
+                        # See http://symfony.com/doc/current/book/controller.html#rendering-templates
+                        template: eZDemoBundle:full:small_folder.html.twig
+                        # Hash of matchers to use, with their corresponding values to match against
+                        match:
+                            # Key is the matcher "identifier" (class name or service identifier)
+                            # Value will be passed to the matcher's setMatchingConfig() method.
+                            Identifier\ContentType: [small_folder, folder]
+```
+
+Important note about template matching
+
+**Template matching will NOT work if your content contains a Field Type that is not supported by the repository**. It can be the case when you are in the process of migrating from eZ Publish 4.x, where custom datatypes have been developed.
+
+In this case the repository will throw an exception, which is caught in the `ViewController`, and *if* you are using LegacyBridge it will end up doing a [**fallback to legacy kernel**](https://doc.ez.no/display/EZP/Legacy+template+fallback).
+
+The list of Field Types supported out of the box [is available here](Field-Types-reference_31430495.html).
+
+Tip
+
+You can define your template selection rules in a different configuration file. [Read the cookbook recipe to learn more about it](Importing-settings-from-a-bundle_31429803.html) .
+
+You can also [use your own custom controller to render a content/location](#ContentRendering-Customcontrollers) .
+
+#### Deprecated `location_view         `
+
+Until eZ Publish Platform 5.4, the main view action was `location_view`. This is deprecated since eZ Platform 15.12 (1.0). Only `content_view` should be used to view content, with a location as an option.
+
+Existing `location_view` rules will be, *when possible*, converted transparently to `content_view`, with a deprecation notice. However, it is not possible to do so when the rule uses a custom controller.
+In any case, `location_view` rules should be converted to `content_view` ones, as `location_view` will be removed in the next kernel major version.
+
+## View Matchers
+
+To be able to select the right templates for the right conditions, the view provider uses matcher objects which implement the `eZ\Publish\Core\MVC\Symfony\View\ContentViewProvider\Configured\Matcher` interface.
+
+#### Matcher identifier
+
+The matcher identifier can comply to 3 different formats:
+
+1.  **Relative qualified class name** (e.g. `Identifier\ContentType`). This is the most common case and used for native matchers. It will then be relative to `eZ\Publish\Core\MVC\Symfony\Matcher\ContentBased`.
+2.  **Full qualified class name** (e.g. `\Foo\Bar\MyMatcher`). This is a way to specify a **custom matcher** that doesn't need specific dependency injection. Please note that it **must** start with a `\`.
+3.  **Service identifier**, as defined in Symfony service container. This is the way to specify a more **complex custom matcher** that has dependencies.
+
+Injecting the Repository
+
+If your matcher needs the repository, simply make it implement `eZ\Publish\Core\MVC\RepositoryAwareInterface` or extend the `eZ\Publish\Core\MVC\RepositoryAware` abstract class. The repository will then be correctly injected before matching.
+
+#### Matcher value
+
+The value associated with the matcher is being passed to its `setMatchingConfig()` method. It can be anything that is supported by the matcher.
+
+Native matchers support both **scalar values** or **arrays of scalar values**. Passing an array amounts to applying a logical OR.
+
+#### Combining matchers
+
+It is possible to combine multiple matchers:
+
+``` brush:
+# ...
+match:
+    Identifier\ContentType: [small_folder, folder]
+    Identifier\ParentContentType: frontpage
+```
+
+The example above can be translated as "Match any content whose **ContentType** identifier is ***small\_folder* OR *folder*** , **AND** having *frontpage* as **ParentContentType** identifier".
+
+### Available matchers
+
+The following table presents all native matchers.
+
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Identifier</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Id\Content</code></td>
+<td>Matches the ID number of the Content item.</td>
+</tr>
+<tr class="even">
+<td><code>Id\ContentType</code></td>
+<td>Matches the ID number of the Content Type that the Content item is an instance of.</td>
+</tr>
+<tr class="odd">
+<td><code>Id\ContentTypeGroup</code></td>
+<td><span>Matches the ID number of the group containing the Content Type that the Content item is an instance of.<br />
+</span></td>
+</tr>
+<tr class="even">
+<td><code>Id\Location</code></td>
+<td>Matches the ID number of a Location.<br />
+<em>In the case of a Content item, matched against the main location.</em></td>
+</tr>
+<tr class="odd">
+<td><code>Id\ParentContentType</code></td>
+<td>Matches the ID number of the parent Content Type.<br />
+<em>In the case of a Content item, matched against the main location.</em></td>
+</tr>
+<tr class="even">
+<td><code>Id\ParentLocation</code></td>
+<td><p>Matches the ID number of the parent Location.<br />
+<em>In the case of a Content item, matched against the main location.</em></p></td>
+</tr>
+<tr class="odd">
+<td><code>Id\Remote</code></td>
+<td>Matches the remoteId of either content or Location, depending on the object matched.</td>
+</tr>
+<tr class="even">
+<td><code>Id\Section</code></td>
+<td>Matches the ID number of the Section that the Content item belongs to.</td>
+</tr>
+<tr class="odd">
+<td><code>Id\State</code></td>
+<td><em>Not supported yet.</em></td>
+</tr>
+<tr class="even">
+<td><code>Identifier\ContentType</code></td>
+<td><span>Matches the identifier of the Content Type that the Content item is an instance of.</span></td>
+</tr>
+<tr class="odd">
+<td><code>Identifier\ParentContentType</code></td>
+<td><p><span>Matches the identifier of the parent Content Type.<br />
+<em>In the case of a Content item, matched against the main Location.</em> </span></p></td>
+</tr>
+<tr class="even">
+<td><code>Identifier\Section</code></td>
+<td>Matches the identifier of the Section that the Content item belongs to.</td>
+</tr>
+<tr class="odd">
+<td><code>Identifier\State</code></td>
+<td><em>Not supported yet.</em></td>
+</tr>
+<tr class="even">
+<td><code>Depth</code></td>
+<td><span>Matches the depth of the Location. The depth of a top level Location is 1.</span></td>
+</tr>
+<tr class="odd">
+<td><code>UrlAlias</code></td>
+<td><p><span>Matches the virtual URL of the Location (i.e. <code>/My/Content-Uri</code>).</span></p>
+<p><span> <strong>Important: Matches when the UrlAlias of the location starts with the value passed.</strong><br />
+<em>Not supported for Content (aka content_view).</em> </span></p></td>
+</tr>
+</tbody>
+</table>
+
+## Default view templates
+
+Content view uses default templates to render content unless custom view rules are used.
+
+Those templates can be customized by means of container- and siteaccess-aware parameters.
+
+### Overriding the default template for common view types
+
+Templates for the most common view types (content/full, line, embed, or block) can be customized by setting one the `ezplatform.default.content_view_templates` variables:
+
+| Controller                                              | ViewType | Parameter                                         | Default value                                           |
+|---------------------------------------------------------|----------|---------------------------------------------------|---------------------------------------------------------|
+| `ez_content:viewAction`                                 | `full`   | `ezplatform.default_view_templates.content.full`  | `"EzPublishCoreBundle:default:content/full.html.twig"`  |
+| `                 ez_content:viewAction               ` | `line`   | `ezplatform.default_view_templates.content.line`  | `"EzPublishCoreBundle:default:content/line.html.twig"`  |
+| `                 ez_content:viewAction               ` | `embed`  | `ezplatform.default_view_templates.content.embed` | `"EzPublishCoreBundle:default:content/embed.html.twig"` |
+| `ez_page:viewAction`                                    | `n/a`    | `ezplatform.default_view_templates.block`         | `"EzPublishCoreBundle:default:block/block.html.twig"`   |
+
+#### Example
+
+Add this configuration to `app/config/config.yml` to use `app/Resources/content/view/full.html.twig` as the default template when viewing Content with the `full` view type:
+
+``` brush:
+parameters:
+    ezplatform.default_view_templates.content.full: "content/view/full.html.twig"
+```
+
+### Customizing the default controller
+
+The controller used to render content by default can also be changed. The `ezsettings.default.content_view_defaults` container parameter contains a hash that defines how content is rendered by default. It contains a set of classic [content view rules for the common view types](https://github.com/ezsystems/ezpublish-kernel/blob/v6.0.0/eZ/Bundle/EzPublishCoreBundle/Resources/config/default_settings.yml#L21-L33). This hash can be redefined to whatever suits your requirements, including custom controllers, or even matchers.
+
+# Usage
+
+## Content view templates
+
+A content view template is like any other template, with several specific aspects.
+
+### Available variables
+
+<table>
+<thead>
+<tr class="header">
+<th>Variable name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong><code>location</code></strong></td>
+<td><a href="https://github.com/ezsystems/ezp-next/blob/master/eZ/Publish/Core/Repository/Values/Content/Location.php" class="external-link">eZ\Publish\Core\Repository\Values\Content\Location</a></td>
+<td>The Location object. Contains meta information on the content (<a href="https://github.com/ezsystems/ezp-next/blob/master/eZ/Publish/Core/Repository/Values/Content/ContentInfo.php" class="external-link">ContentInfo</a>)<br />
+(only when accessing a Location) </td>
+</tr>
+<tr class="even">
+<td><code>                 content               </code></td>
+<td><a href="https://github.com/ezsystems/ezp-next/blob/master/eZ/Publish/Core/Repository/Values/Content/Content.php" class="external-link">eZ\Publish\Core\Repository\Values\Content\Content</a></td>
+<td>The Content item, containing all Fields and version information (<a href="https://github.com/ezsystems/ezp-next/blob/master/eZ/Publish/Core/Repository/Values/Content/VersionInfo.php" class="external-link">VersionInfo</a>)</td>
+</tr>
+<tr class="odd">
+<td><code>                 noLayout               </code></td>
+<td>Boolean</td>
+<td>If true, indicates if the Content item/Location is to be displayed without any pagelayout (i.e. AJAX, sub-requests, etc.).<br />
+It's generally <code>false</code> when displaying a Content item in view type <strong>full</strong>.</td>
+</tr>
+<tr class="even">
+<td><code>                 viewBaseLayout               </code></td>
+<td>String</td>
+<td>The base layout template to use when the view is requested to be generated outside of the pagelayout (when <code>noLayout</code> is true).</td>
+</tr>
+</tbody>
+</table>
+
+### Template inheritance and sub-requests
+
+Like any template, a content view template can use [template inheritance](http://symfony.com/doc/current/book/templating.html#template-inheritance-and-layouts). However keep in mind that your content may be also requested via [sub-requests](http://symfony.com/doc/current/book/templating.html#embedding-controllers) (see below how to render [embedded content items](#ContentRendering-EmbeddingContentitems)), in which case you probably don't want the global layout to be used.
+
+If you use different templates for embedded content views, this should not be a problem. If you'd rather use the same template, you can use an extra `noLayout` view parameter for the sub-request, and conditionally extend an empty pagelayout:
+
+``` brush:
+{% extends noLayout ? viewbaseLayout : "AcmeDemoBundle::pagelayout.html.twig" %}
+
+{% block content %}
+...
+{% endblock %}
+```
+
+## Content and Location view providers
+
+### View\\Manager & View\\Provider
+
+The role of the `           (eZ\Publish\Core\MVC\Symfony\)View\Manager         ` is to select the right template for displaying a given Content item or Location. It aggregates objects called *Content and Location view providers* which respectively implement the `eZ\Publish\Core\MVC\Symfony\View\Provider\Content` and `eZ\Publish\Core\MVC\Symfony\View\Provider\Location` interfaces.
+
+Each time a content item is to be displayed through the `Content\ViewController`, the `View\Manager` iterates over the registered Content or Location `View\Provider` objects and calls `getView` `()`.
+
+#### Provided View\\Provider implementations
+
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>                  View provider configuration                </code></td>
+<td><p>Based on application configuration.<br />
+Formerly known as <em>Template override system</em>.</p></td>
+</tr>
+<tr class="even">
+<td><p><code>eZ\Publish\Core\MVC\Legacy\View\Provider\Content</code></p>
+<p><code>eZ\Publish\Core\MVC\Legacy\View\Provider\Location</code></p></td>
+<td><p>Forwards view selection to the legacy kernel by running the old content/view module.<br />
+Pagelayout used is the one configured in <code>ezpublish_legacy.&lt;scope&gt;.view_default_layout</code>.<br />
+For more details about the <code>&lt;scope&gt;</code> please refer to the <a href="https://doc.ez.no/display/DEVELOPER/SiteAccess#SiteAccess-Configuration">scope configuration</a> documentation.</p></td>
+</tr>
+</tbody>
+</table>
+
+### Custom View\\Provider
+
+#### Difference between `View\Provider\Location` and `View\Provider\Content`
+
+-   A `View\Provider\Location` only deals with `Location` objects and implements `eZ\Publish\Core\MVC\Symfony\View\Provider\Location` interface.
+-   A `View\Provider\Content` only deals with `ContentInfo` objects and implements `eZ\Publish\Core\MVC\Symfony\View\Provider\Content` interface.
+
+#### When to develop a custom `View\Provider\(Location|Content)`
+
+-   You want a custom template selection based on a very specific state of your application
+-   You depend on external resources for view selection
+-   You want to override the default one (based on configuration) for some reason
+
+`View\Provider` objects need to be properly registered in the service container with the `           ezpublish.location_view_provider         ` or `           ezpublish.content_view_provider         ` service tag.
+
+``` brush:
+parameters:
+    acme.location_view_provider.class: Acme\DemoBundle\Content\MyLocationViewProvider
+
+services:
+    acme.location_view_provider:
+        class: %ezdemo.location_view_provider.class%
+        tags:
+            - {name: ezpublish.location_view_provider, priority: 30}
+```
+
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tag attribute name</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>priority</td>
+<td><p>An integer giving the priority to the <code>                   View\Provider\(Content|Location)                 </code> in the <code>View\Manager</code>.</p>
+<p>The priority range is <strong>from -255 to 255</strong></p></td>
+</tr>
+</tbody>
+</table>
+
+#### Example
+
+**Custom View\\Provider\\Location**
+
+``` brush:
+<?php
+
+namespace Acme\DemoBundle\Content;
+
+use eZ\Publish\Core\MVC\Symfony\View\ContentView;
+use eZ\Publish\Core\MVC\Symfony\View\Provider\Location as LocationViewProvider;
+use eZ\Publish\API\Repository\Values\Content\Location;
+
+class MyLocationViewProvider implements LocationViewProvider
+{
+    /**
+     * Returns a ContentView object corresponding to $location, or void if not applicable
+     *
+     * @param \eZ\Publish\API\Repository\Values\Content\Location $location
+     * @param string $viewType
+     * @return \eZ\Publish\Core\MVC\Symfony\View\ContentView|null
+     */
+    public function getView( Location $location, $viewType )
+    {
+        // Let's check location Id
+        switch ( $location->id )
+        {
+            // Special template for home page, passing "foo" variable to the template
+            case 2:
+                return new ContentView( "AcmeDemoBundle:$viewType:home.html.twig", array( 'foo' => 'bar' ) );
+        }
+
+        // ContentType identifier (formerly "class identifier")
+        switch ( $location->contentInfo->contentType->identifier )
+        {
+            // For view full, it will load AcmeDemoBundle:full:small_folder.html.twig
+            case 'folder':
+                return new ContentView( "AcmeDemoBundle:$viewType:small_folder.html.twig" );
+        }
+    }
+}
+```
+
+## Rendering Content items
+
+### Content item Fields
+
+As stated above, a view template receives the requested Content item, holding all Fields.
+
+In order to display the Fields' value the way you want, you can either manipulate the Field Value object itself, or use a custom template.
+
+#### Getting raw Field value
+
+Having access to the Content item in the template, you can use [its public methods](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Repository/Values/Content/Content.php) to access all the information you need. You can also use the **ez\_field\_value** helper to get the [field's value only](Field-Types-reference_31430495.html). It will return the correct language if there are several, based on language priorities.
+
+``` brush:
+{# With the following, myFieldValue will be in the Content item's main language #}
+{# Starting with v1.10, it will also take languages you provided to API on retrieval into account #}
+{% set myFieldValue = content.getFieldValue( 'some_field_identifier' ) %}
+ 
+{# Here myTranslatedFieldValue will be in the current language if a translation is available (read from siteaccess configuration). If not, the Content item's main language will be used #}
+{% set myTranslatedFieldValue = ez_field_value( content, 'some_field_identifier' ) %}
+```
+
+#### Using the Field Type's template block
+
+All built-in Field Types come with [their own Twig template](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/views/content_fields.html.twig). You can render any Field using this default template using the `ez_render_field()` helper.
+
+``` brush:
+{{ ez_render_field( content, 'some_field_identifier' ) }}
+```
+
+Refer to [ez\_render\_field](ez_render_field_32114041.html)  for further information.
+
+As this makes use of reusable templates, **using `ez_render_field()` is the recommended way and is to be considered the best practice**.
+
+### Content name
+
+The **name** of a Content item is its generic "title", generated by the repository based on the Content Type's naming pattern. It often takes the form of a normalized value of the first field, but might be a concatenation of several fields. There are 2 different ways to access this special property:
+
+-   Through the name property of ContentInfo (not translated).
+-   Through VersionInfo with the TranslationHelper (translated).
+
+#### Translated name
+
+The *translated name* is held in a `VersionInfo` object, in the names property which consists of hash indexed by locale. You can easily retrieve it in the right language via the `TranslationHelper` service.
+
+``` brush:
+{# In v1.10 and higher, languages provided to API will be taken into account so you can do this: #}
+<h2>Translated content name: {{ content.name }}</h2>
+
+{# In earlier versions the same is available using twig translation helper ez_content_name() #}
+<h2>Translated content name: {{ ez_content_name( content ) }}</h2>
+<h3>Also works from ContentInfo: {{ ez_content_name( content.contentInfo ) }}</h3>
+```
+
+The helper will by default follow the prioritized languages order. If there is no translation for your prioritized languages, the helper will always return the name in the main language.
+
+You can also **force a locale** in a second argument:
+
+``` brush:
+{# Force fre-FR locale. #}
+<h2>{{ ez_content_name( content, 'fre-FR' ) }}</h2>
+```
+
+Name property on ContenInfo
+
+This property is the actual content name, but **in the main language only** (so it is not translated).
+
+``` brush:
+<h2>Content name: {{ content.contentInfo.name }}</h2>
+```
+
+In PHP that would be:
+
+``` brush:
+$contentName = $content->getContentInfo->getName();
+```
+
+So make sure to use `$content->getName() or $versionInfo->getName()` so your code takes translations into account.
+
+ 
+
+#### Exposing additional variables
+
+It is possible to expose additional variables in a content view template. See [parameters injection in content views](Injecting-parameters-in-content-views_31430331.html).
+
+## Embedding images
+
+V1.4
+
+The Rich Text Field allows you to embed other Content items within the Field.
+
+Content items that are identified as images will be rendered in the Rich Text Field using a dedicated template.
+
+You can determine which Content Types will be treated as images and rendered using this template in the `ezplatform.content_view.image_embed_content_types_identifiers` parameter. By default it is set to cover the Image Content Type, but you can add other types that you want to be treated as images, for example:
+
+``` brush:
+parameters:
+    ezplatform.content_view.image_embed_content_types_identifiers: ['image', 'photo', 'banner']
+```
+
+The template used when rendering embedded images can be set in the `ezplatform.default_view_templates.content.embed_image` container parameter:
+
+``` brush:
+parameters:
+    ezplatform.default_view_templates.content.embed_image: 'content/view/embed/image.html.twig
+```
+
+## Adding Links
+
+### Links to other Locations
+
+Linking to other locations is fairly easy and is done with a [native `path()` Twig helper](http://symfony.com/doc/2.3/book/templating.html#linking-to-pages) (or `url()` if you want to generate absolute URLs). You just have to pass it the Location object and `path()` will generate the URLAlias for you.
+
+``` brush:
+{# Assuming "location" variable is a valid eZ\Publish\API\Repository\Values\Content\Location object #}
+<a href="{{ path( location ) }}">Some link to a location</a>
+```
+
+If you don't have the Location object, but only its ID, you can generate the URLAlias the following way:
+
+``` brush:
+<a href="{{ path( "ez_urlalias", {"locationId": 123} ) }}">Some link to a location, with its Id only</a>
+```
+
+You can also use the Content ID. In that case the generated link will point to the Content item's main Location.
+
+``` brush:
+<a href="{{ path( "ez_urlalias", {"contentId": 456} ) }}">Some link from a contentId</a>
+```
+
+Under the hood
+
+In the backend, `path()` uses the Router to generate links.
+
+This makes it also easy to generate links from PHP, via the `router` service.
+
+See also: [Cross-siteaccess links](https://doc.ez.no/display/DEVELOPER/SiteAccess#SiteAccess-Cross-siteacesslinks)
+
+## Embedding Content items
+
+Rendering an embedded content from a Twig template is pretty straightforward as you just need to **do a subrequest with `ez_content` controller**.
+
+### Using `ez_content` controller
+
+This controller is exactly the same as [the ViewController presented above](#ContentRendering-TheViewController). It has one main `viewAction`, that renders a Content item.
+
+You can use this controller from templates with the following syntax:
+
+``` brush:
+{{ render(controller("ez_content:viewAction", {"contentId": 123, "viewType": "line"})) }}
+```
+
+The example above renders the Content item whose ID is **123** with the view type **line**.
+
+Reference of `ez_content` controller follows the syntax of *controllers as a service*, [as explained in Symfony documentation](http://symfony.com/doc/current/cookbook/controller/service.html).
+
+#### Available arguments
+
+As with any controller, you can pass arguments to `ez_content:viewLocation` or `ez_content:viewContent` to fit your needs.
+
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>contentId</code></td>
+<td><p>ID of the Content item you want to render.<br />
+<strong>Only for <code>ez_content:viewContent</code></strong>  </p></td>
+<td>integer</td>
+<td>N/A</td>
+</tr>
+<tr class="even">
+<td><code>locationId</code></td>
+<td>ID of the Location you want to render.<br />
+<strong>Only for <code>ez_content:viewLocation</code></strong>  </td>
+<td>integer</td>
+<td>Content item's main location, if defined</td>
+</tr>
+<tr class="odd">
+<td><code>viewType</code></td>
+<td><p>The view type you want to render your Content item/Location in.<br />
+Will be used by the ViewManager to select a corresponding template, according to defined rules. </p>
+<p>Example: full, line, my_custom_view, etc.</p></td>
+<td>string</td>
+<td>full</td>
+</tr>
+<tr class="even">
+<td><code>layout</code></td>
+<td><p>Indicates if the sub-view needs to use the main layout (see<span class="confluence-link"> </span> <a href="#ContentRendering-Availablevariables"><span class="confluence-link">available variables in a view template</span></a>)</p>
+<p> </p></td>
+<td>boolean</td>
+<td>false</td>
+</tr>
+<tr class="odd">
+<td><code>params</code></td>
+<td><p>Hash of variables you want to inject to sub-template, key being the exposed variable name.</p>
+<div class="code panel pdl" style="border-width: 1px;">
+<div class="codeContent panelContent pdl">
+<pre class="brush: php; gutter: false; theme: Eclipse" style="font-size:12px;"><code>{{ render(
+      controller( 
+          &quot;ez_content:viewAction&quot;, 
+          {
+              &quot;contentId&quot;: 123,
+              &quot;viewType&quot;: &quot;line&quot;,
+              &quot;params&quot;: { &quot;some_variable&quot;: &quot;some_value&quot; }
+          }
+      )
+) }}</code></pre>
+</div>
+</div></td>
+<td>hash</td>
+<td>empty hash</td>
+</tr>
+</tbody>
+</table>
+
+## Rendering blocks
+
+You can specify which controller will be called for a specific block view match, much like defining custom controllers for location view or content view match.
+
+Also, since there are two possible actions with which one can view a block: `ez_page:viewBlock` and `ez_page:viewBlockById`, it is possible to specify a controller action with a signature matching either one of the original actions.
+
+Example of configuration in `app/config/ezplatform.yml`:
+
+``` brush:
+ezpublish:
+    system:
+        eng_frontend_group:
+            block_view:
+                ContentGrid:
+                    template: NetgenSiteBundle:block:content_grid.html.twig
+                    controller: NetgenSiteBundle:Block:viewContentGridBlock
+                    match:
+                        Type: ContentGrid
+```
+
+## Schedule block (Enterprise)
+
+### Introduction
+
+Schedule block is an Enterprise-only feature that enables you to plan content to be published at a predetermined time in the future.
+
+Schedule blocks are placed on a Landing Page and can be configured like any other block. This includes providing different templates for the editor to choose in the Studio UI.
+
+A Schedule block consists of a number of slots. Each slot can hold one Content item.
+
+The number of slots and their order is defined in the template. A template for a Schedule block must include the `data-studio-slots-container` and `data-studio-slot` attributes to enable placing Content in the slots. See [the demo bundle for an example](https://github.com/ezsystems/ezstudio-demo-bundle/blob/master/Resources/views/blocks/schedule_grid-4.html.twig#L3).
+
+### Behavior
+
+![Schedule block slot with options](attachments/31429679/34081338.png "Schedule block slot with options")
+
+You can preview the content added to a Schedule block in full, as it is viewed in PlatformUI, by activating the **Preview** button.
+
+When content is added to the block, it is initially assigned an airtime equal to the current time. The airtime can then be changed to a date and time in the future. Content items are ordered in the block according to the airtime. When you add more items to a block than there are slots, oldest content (i.e., with earliest airtime), is pushed off the block.
+
+A Schedule block tracks all content that is added, deleted and pushed off it. In the back office (both in View and Edit mode) you can see all activity (adding, deleting or overflow) in a block using the timeline at the top of the editor. Colored stripes on the timeline indicate when any change to the block happens. You can see the details of changes by selecting any colored stripe. **Full list** in the timeline bar gives you access to all changes. When you view it in Edit mode, it displays all changes in the selected Schedule block; when you select the list in Edit mode, you will see all changes in all blocks on the page.
+
+Overflow enables you to combine multiple Schedule blocks in one flow. It is set up in the editor. Overflow defines what happens with content that is pushed off a full block.
+
+![Schedule block with overflow options](attachments/31429679/34081339.png "Schedule block with overflow options")
+
+Each Schedule block that has overflow enabled can have one target block defined. When a Content item is pushed off the block, it will overflow to the designated block. In target block the items will be ordered according to the original airtime, not the order in which they were overflown.
+
+You can chain more than two Schedule blocks in this way. It is also possible for multiple Schedule blocks to overflow into one. However, it is not possible to build a circular overflow (where a chain of overflowing items eventually points to the original block). This is disabled in the UI.
+
+The **Remove item** action removes the item from the block (but does not delete the Content item itself). When an item is removed, other content is pulled back to fill its place. This also happens to content that has already been pushed off the block – it will be pulled back even from a target overflow block.
+
+#### Special Schedule block use cases
+
+-   **Enabling and disabling overflow.** When you enable overflow, items which have already overflown to a target block will be removed from preview, but will stay in the history of the source block. If some items have already been pushed off a block and you enable overflow on it afterwards, the moved items will still overflow to the target block. When the target block of overflow is deleted, overflow will turn off automatically.
+
+-   **Multi-block configuration.** You can have more than one block overflow to a single target block. Content items will remember their history. This means that if content is removed in the source blocks, items will be pulled back into their original blocks.
+
+-   **Multiple copies of the same Content item.** You cannot add the same Content item multiple times to the same Schedule block. If two copies would end up in the same block, e.g. as a result of overflow, the older copy will be removed.
+
+#### Example
+
+A typical example of using a Schedule block is a "Featured" articles block which overflows to a regular "List" of articles.
+
+A multi-block setup can be used to collect items from two blocks into one list. In the example below two featured blocks at the top, "Places" and "Tastes", both overflow to a single list, where content is ordered according to its airtime:
+
+![Schedule block example with multiple blocks](attachments/31429679/34081340.png "Schedule block example with multiple blocks")
+
+## []()Custom controllers
+
+In some cases, displaying a Content item/Location via the built-in `ViewController` is not sufficient to show everything you want. In such cases you may want to **use your own custom controller** to display the current Content item/Location instead.
+
+Typical use cases include access to:
+
+-   Settings (coming from `ConfigResolver` or `ServiceContainer`)
+-   Current Content item's `ContentType` object
+-   Current Location's parent
+-   Current Location's children count
+-   Main Location and alternative Locations for the current Content item
+-   etc.
+
+There are three ways in which you can apply a custom controller:
+
+-   Configure a custom controller alongside regular matcher rules to use **both** your custom controller and the `ViewController` (recommended).
+-   **Override** the built-in `ViewController` with the custom controller in a specific situation.
+-   **Replace** the `ViewController` with the custom controller for the whole bundle.
+
+### Enriching ViewController with a custom controller
+
+**This is the recommended way of using a custom controller**
+
+To use your custom controller on top of the built-in `ViewController` you need to point to both the controller and the template in the configuration, for example:
+
+**ezplatform.yml**
+
+``` brush:
+ezpublish:
+    system:
+        default:
+            content_view:
+                full:
+                    article:
+                        controller: AcmeTestBundle:Default:articleViewEnhanced
+                        template: AcmeTestBundle:full:article.html.twig
+                        match:
+                            Identifier\ContentType: [article]
+```
+
+With this configuration, the following controller will forward the request to the built-in `ViewController` with some additional parameters:
+
+**Controller**
+
+``` brush:
+<?php
+
+namespace Acme\TestBundle\Controller;
+
+use Symfony\Component\HttpFoundation\Response;
+use eZ\Bundle\EzPublishCoreBundle\Controller;
+
+class DefaultController extends Controller
+{
+    public function articleViewEnhancedAction( $locationId, $viewType, $layout = false, array $params = array() )
+    {
+        // Add custom parameters to existing ones.
+        $params += array( 'myCustomVariable' => "Hey, I'm a custom message!" );
+        // Forward the request to the original ViewController
+        // And get the response. Possibly alter it (here we change the smax-age for cache).
+        $response = $this->get( 'ez_content' )->viewLocation( $locationId, $viewType, $layout, $params );
+        $response->setSharedMaxAge( 600 );
+
+        return $response;
+    }
+}
+```
+
+Always ensure that you add new parameters to existing `$params` associative array using [**`+`** union operator](http://php.net/manual/en/language.operators.array.php) or `array_merge()`. **Not doing so (e.g. only passing your custom parameters array) can result in unexpected issues with content preview**. Previewed content and other parameters are indeed passed in `$params`.
+
+These parameters can then be used in templates, for example:
+
+**article.html.twig**
+
+``` brush:
+{% extends noLayout ? viewbaseLayout : "eZDemoBundle::pagelayout.html.twig" %}
+
+{% block content %}
+    <h1>{{ ez_render_field( content, 'title' ) }}</h1>
+    <h2>{{ myCustomVariable }}</h2>
+    {{ ez_render_field( content, 'body' ) }}
+{% endblock %}
+```
+
+### Using only your custom controller
+
+If you want to apply only your custom controller in a given match situation and not use the `ViewController` at all, in the configuration you need to indicate the controller, but no template, for example:
+
+**ezplatform.yml**
+
+``` brush:
+ezpublish:
+    system:
+        default:
+            content_view:
+                full:
+                    folder:
+                        controller: AcmeTestBundle:Default:viewFolder
+                        match:
+                            Identifier\ContentType: [folder]
+                            Identifier\Section: [standard]
+```
+
+In this example, as the `ViewController` is not applied, the custom controller takes care of the whole process of displaying content, including pointing to the template to be used (in this case, `AcmeTestBundle::custom_controller_folder.html.twig`):
+
+**Controller**
+
+``` brush:
+<?php
+
+namespace Acme\TestBundle\Controller;
+
+use Symfony\Component\HttpFoundation\Response;
+use eZ\Bundle\EzPublishCoreBundle\Controller;
+
+class DefaultController extends Controller
+{
+    public function viewFolderAction( $locationId, $layout = false, $params = array() )
+    {
+        $repository = $this->getRepository();
+        $location = $repository->getLocationService()->loadLocation( $locationId );
+        // Check if content is not already passed. Can be the case when using content preview.
+        $content = isset( $params['content'] ) ? $params['content'] : $repository->getContentService()->loadContentByContentInfo( $location->getContentInfo() )
+        $response = new Response();
+        $response->headers->set( 'X-Location-Id', $locationId );
+        // Caching for 1h and make the cache vary on user hash
+        $response->setSharedMaxAge( 3600 );
+        $response->setVary( 'X-User-Hash' );
+        return $this->render(
+            'AcmeTestBundle::custom_controller_folder.html.twig',
+            array(
+                'location' => $location,
+                'content' => $content,
+                'foo' => 'Hey world!!!',
+                'osTypes' => array( 'osx', 'linux', 'windows' )
+            ) + $params
+        );
+    }
+}
+```
+
+Here again custom parameters can be used in the template, e.g.:
+
+**custom\_controller\_folder.html.twig**
+
+``` brush:
+{% extends "eZDemoBundle::pagelayout.html.twig" %}
+
+{% block content %}
+<h1>{{ ez_render_field( content, 'title' ) }}</h1>
+    <h1>{{ foo }}</h1>
+    <ul>
+    {% for os in osTypes %}
+        <li>{{ os }}</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
+```
+
+### Overriding the built-in ViewController
+
+One other way to keep control of what is passed to the view is to use your own controller instead of the built-in `ViewController`. As base `ViewController` is defined as a service, with a service alias, this can be easily achieved from your bundle's configuration:
+
+``` brush:
+parameters:
+    my.custom.view_controller.class: Acme\TestBundle\MyViewController
+
+services:
+    my.custom.view_controller:
+        class: %my.custom.view_controller.class%
+        arguments: [@some_dependency, @other_dependency]
+
+    # Change the alias here and make it point to your own controller
+    ez_content:
+        alias: my.custom.view_controller
+```
+
+Doing so will completely override the built-in `ViewController`! Use this at your own risk!
+
+### Custom controller structure
+
+Your custom controller can be any kind of [controller supported by Symfony](http://symfony.com/doc/current/book/page_creation.html#step-2-create-the-controller) (including [controllers as a service](http://symfony.com/doc/current/cookbook/controller/service.html)).
+
+The only requirement here is that your action method must have a similar signature to `ViewController::viewLocation()` or `ViewController::viewContent()` (depending on what you're matching of course). However, note that not all arguments are mandatory, since [Symfony is clever enough to know what to inject into your action method](http://symfony.com/doc/current/book/routing.html#route-parameters-and-controller-arguments). That is why **you aren't forced to mimic the `ViewController`'s signature strictly**. For example, if you omit `$layout` and `$params` arguments, it will still be valid. Symfony will just avoid injecting them into your action method.
+
+#### Built-in ViewController signatures
+
+**viewLocation() signature**
+
+``` brush:
+/**
+ * Main action for viewing content through a location in the repository.
+ *
+ * @param int $locationId
+ * @param string $viewType
+ * @param boolean $layout
+ * @param array $params
+ *
+ * @throws \Symfony\Component\Security\Core\Exception\AccessDeniedException
+ * @throws \Exception
+ *
+ * @return \Symfony\Component\HttpFoundation\Response
+ */
+public function viewLocation( $locationId, $viewType, $layout = false, array $params = array() )
+```
+
+**viewContent() signature**
+
+``` brush:
+/**
+ * Main action for viewing content.
+ *
+ * @param int $contentId
+ * @param string $viewType
+ * @param boolean $layout
+ * @param array $params
+ *
+ * @throws \Symfony\Component\Security\Core\Exception\AccessDeniedException
+ * @throws \Exception
+ *
+ * @return \Symfony\Component\HttpFoundation\Response
+ */
+public function viewContent( $contentId, $viewType, $layout = false, array $params = array() )
+```
+
+Controller selection doesn't apply to `block_view` since you can already [use your own controller to display blocks](https://doc.ez.no/display/DEVELOPER/Content+Rendering#ContentRendering-Renderingblocks).
+
+Caching
+
+When you use your own controller, **it is your responsibility to define cache rules**, like with every custom controller!
+
+So don't forget to **set cache rules** and the appropriate **`X-Location-Id` header** in the returned `Response` object.
+
+[See built-in ViewController](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/MVC/Symfony/Controller/Content/ViewController.php#L76) for more details on this.
+
+## Query controller
+
+V1.4
+
+The Query controller is a predefined custom content view controller that runs a Repository Query.
+
+It is meant to be used as a custom controller in a view configuration, along with match rules. It can use properties of the viewed Content item or Location as parameters to the Query. It makes it easy to retrieve content without writing custom PHP code and display the results in a template.
+
+### Use-case examples
+
+-   List of Blog posts in a Blog
+-   List of Images in a Gallery
+
+### Usage example
+
+We will take the blog posts use case mentioned above as an example. It assumes a "Blog" container that contains a set of "Blog post" items. The goal is, when viewing a Blog, to list the Blog posts it contains.
+
+Three items are required:
+
+-   a `LocationChildren` QueryType - It will generate a Query retrieving the children of a given location id
+-   a View template - It will render the Blog, and list the Blog posts it contains
+-   a `content_view` configuration - It will instruct Platform, when viewing a Content item of type Blog, to use the Query Controller, the view template, and the `LocationChildren` QueryType. It will also map the id of the viewed Blog to the QueryType parameters, and set which twig variable the results will be assigned to.
+
+#### The LocationChildren QueryType
+
+QueryTypes are described in more detail in the [next section](#ContentRendering-QueryTypesobjects). In short, a QueryType can build a Query object, optionally based on a set of parameters. The following example will build a Query that retrieves the sub-items of a Location:
+
+**src/AppBundle/QueryType/LocationChildrenQueryType.php**
+
+``` brush:
+<?php
+namespace AppBundle\QueryType;
+
+use eZ\Publish\API\Repository\Values\Content\LocationQuery;
+use eZ\Publish\API\Repository\Values\Content\Query\Criterion\ParentLocationId;
+use eZ\Publish\Core\QueryType\QueryType;
+
+class LocationChildrenQueryType implements QueryType
+{
+    public function getQuery(array $parameters = [])
+    {
+        return new LocationQuery([
+            'filter' => new ParentLocationId($parameters['parentLocationId']),
+        ]);
+    }
+
+    public function getSupportedParameters()
+    {
+        return ['parentLocationId'];
+    }
+
+    public static function getName()
+    {
+        return 'LocationChildren';
+    }
+}
+```
+
+Any class will be registered as a QueryType when it:
+
+-   implements the QueryType interface,
+-   is located in the QueryType subfolder of a bundle, and in a file named "SomethingQueryType.php"
+
+If the QueryType has dependencies, it can be manually tagged as a service using the `ezpublish.query_type` service tag, but it is not required in that case.
+
+#### The content\_view configuration
+
+We now need a view configuration that matches content items of type "Blog", and uses the QueryController to fetch the blog posts:
+
+**app/config/ezplatform.yml**
+
+``` brush:
+ezpublish:
+      system:
+            site_group:
+                content_view:
+                    full:
+                        blog:
+                            controller: "ez_query:locationQueryAction"
+                            template: "content/view/full/blog.html.twig"
+                            match:
+                                Identifier\ContentType: "blog"
+                            params:
+                                query:
+                                    query_type: 'LocationChildren'
+                                    parameters:
+                                        parentLocationId: "@=location.id"
+                                    assign_results_to: 'blog_posts'
+```
+
+The view's controller action is set to the QueryController's `locationQuery` action (`ez_query:locationQueryAction`). Other actions are available that run a different type of search (contentInfo or content).
+
+The QueryController is configured in the `query` array, inside the `params` of the content\_view block:
+
+-   `query_type` specifies the QueryType to use, based on its name.
+-   `parameters` is a hash where parameters from the QueryType are set. Arbitrary values can be used, as well as properties from the currently viewed location and content. In that case, the id of the currently viewed location is mapped to the QueryType's `parentLocationId` parameter: `             parentLocationId: "@=location.id"           `
+-    `assign_results_to` sets which twig variable the search results will be assigned to.
+
+#### The view template
+
+Results from the search are assigned to the `blog_posts` variable as a `SearchResult` object. In addition, since the usual view controller is used, the currently viewed `location` and `content` are also available.
+
+**app/Resources/views/content/full/blog.html.twig**
+
+``` brush:
+<h1>{{ ez_content_name(content) }}</h1>
+
+{% for blog_post in blog_posts.searchHits %}
+  <h2>{{ ez_content_name(blog_post.valueObject.contentInfo) }}</h2>
+{% endfor %}
+```
+
+### Configuration details
+
+#### `controller`
+
+Three Controller Actions are available, each for a different type of search:
+
+-   `locationQueryAction` runs a Location Search
+-   `contentQueryAction` runs a Content Search
+-   `contentInfoQueryAction` runs a Content Info search
+
+ 
+
+See [Search](Search_31429673.html) documentation page for more details about different types of search
+
+#### `params`
+
+The Query is configured in a `query` hash in `params`, you could specify the QueryType name, additional parameters and the Twig variable that you will assign the results to for use in the template.
+
+-   #### `query_type`
+
+    -   Name of the Query Type that will be used to run the query, defined by the class name.
+
+-   #### `parameters`
+
+    -   Query Type parameters that can be provided in two ways:
+
+    1.  As scalar values, for example an identifier, an id, etc.
+    2.  Using the Expression language. This simple script language, similar to Twig syntax, lets you write expressions that get value from the current content and/or location:
+
+    -   -   For example, `@=location.id                   ` will be evaluated to the currently viewed location's ID.`                     content`, `location` and `view` are available as variables in expressions.
+
+-   #### `assign_results_to`
+
+    -   This is the name of the Twig variable that will be assigned the results.
+    -   Note that the results are the SearchResult object returned by the SearchService.
+
+### Query Types objects
+
+QueryTypes are objects that build a Query. They are different from [Public API queries](https://doc.ez.no/display/DEVELOPER/Public+API+Guide).
+
+To make a new QueryType available to the Query Controller, you need to create a PHP class that implements the QueryType interface, then register it as such in the Service Container.
+
+For more information about the [Service Container](Service-Container_31432100.html), read the page
+
+### The QueryType interface
+
+There you can view the PHP QueryType interface. Three methods are described:
+
+1.  `getQuery()`
+2.  `getSupportedParameters()`
+3.  `getName()`
+
+****  Expand source
+
+``` brush:
+interface QueryType
+{
+ /**
+ * Builds and returns the Query object
+ *
+ * The Query can be either a Content or a Location one.
+ *
+ * @param array $parameters A hash of parameters that will be used to build the Query
+ * @return \eZ\Publish\API\Repository\Values\Content\Query
+ */
+ public function getQuery(array $parameters = []);
+
+ /**
+ * Returns an array listing the parameters supported by the QueryType
+ * @return array
+ */
+ public function getSupportedParameters();
+
+ /**
+ * Returns the QueryType name
+ * @return string
+ */
+ public static function getName();
+}
+```
+
+#### Parameters
+
+A QueryType may accept parameters, including string, arrays and other types, depending on the implementation. They can be used in any way, such as:
+
+-   customizing an element's value (limit, ContentType identifier, etc)
+-   conditionally adding/removing criteria from the query
+-   setting the limit/offset
+
+The implementations should use Symfony's `OptionsResolver` for parameters handling and resolution.
+
+### QueryType example: latest content
+
+Let's see an example for QueryType creation.
+
+This QueryType returns a Query that searches for **the 10 last published Content items, order by reverse publishing date**.
+It accepts an optional `type` parameter, that can be set to a ContentType identifier:
+
+ 
+
+``` brush:
+<?php
+namespace AppBundle\QueryType;
+use eZ\Publish\Core\QueryType\QueryType;
+use eZ\Publish\API\Repository\Values\Content\Query;
+class LatestContentQueryType implements QueryType
+{
+    public function getQuery(array $parameters = [])
+    {
+        $criteria[] = new Query\Criterion\Visibility(Query\Criterion\Visibility::VISIBLE);
+        if (isset($parameters['type'])) {
+            $criteria[] = new Query\Criterion\ContentTypeIdentifier($parameters['type']);
+        }
+        // 10 is the default limit we set, but you can have one defined in the parameters
+        return new Query([
+            'filter' => new Query\Criterion\LogicalAnd($criteria),
+            'sortClauses' => [new Query\SortClause\DatePublished()],
+            'limit' => isset($parameters['limit']) ? $parameters['limit'] : 10,
+        ]);
+    }
+    public static function getName()
+    {
+        return 'AppBundle:LatestContent';
+    }
+    /**
+     * Returns an array listing the parameters supported by the QueryType.
+     * @return array
+     */
+    public function getSupportedParameters()
+    {
+        return ['type', 'limit'];
+    }
+}
+```
+
+### Naming of QueryTypes
+
+Each QueryType is named after what is returned by `getName()`. **Names must be unique.** A warning will be thrown during compilation if there is a conflict, and the resulting behavior will be unpredictable.
+
+QueryType names should use a unique namespace, in order to avoid conflicts with other bundles. We recommend that the name is prefixed with the bundle's name: `AcmeBundle:LatestContent`. A vendor/company's name could also work for QueryTypes that are reusable throughout projects: `Acme:LatestContent`.
+
+### Registering the QueryType into the service container
+
+In addition to creating a class for a `QueryType`, you must also register the QueryType with the Service Container. This can be done in two ways: by convention, and with a service tag.
+
+#### By convention
+
+Any class named `<Bundle>\QueryType\*QueryType`, that implements the QueryType interface, will be registered as a custom QueryType.
+Example: `AppBundle\QueryType\LatestContentQueryType`.
+
+#### Using a service tag
+
+If the proposed convention doesn't work for you, QueryTypes can be manually tagged in the service declaration:
+
+``` brush:
+acme.query.latest_content:
+    class: AppBundle\Query\LatestContent
+    tags:
+        - {name: ezpublish.query_type}
+```
+
+The effect is exactly the same as registering by convention.
+
+More content...
+
+Follow the FieldType creation Tutorial and learn how to [Register the Field Type as a service](https://doc.ez.no/display/DOCWRITERS/Register+the+Field+Type+as+a+service)
+
+### The OptionsResolverBasedQueryType abstract class
+
+An abstract class based on Symfony's `OptionsResolver` eases implementation of QueryTypes with parameters.
+
+It provides final implementations of `getQuery()` and `getDefinedParameters()`.
+
+A `doGetQuery()` method must be implemented instead of `getQuery()`. It is called with the parameters processed by the OptionsResolver, meaning that the values have been validated, and default values have been set.
+
+In addition, the `configureOptions(OptionsResolver $resolver)` method must configure the OptionsResolver.
+
+The LatestContentQueryType can benefit from the abstract implementation:
+
+-   validate that `type` is a string, but make it optional
+-   validate that `limit` is an int, with a default value of 10
+
+ 
+
+For further information see the [Symfony's Options Resolver documentation page](http://symfony.com/doc/current/components/options_resolver.html)
+
+``` brush:
+<?php
+namespace AppBundle\QueryType;
+use eZ\Publish\API\Repository\Values\Content\Query;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+class OptionsBasedLatestContentQueryType extends OptionsResolverBasedQueryType implements QueryType
+{
+    protected function doGetQuery(array $parameters)
+    {
+        $criteria[] = new Query\Criterion\Visibility(Query\Criterion\Visibility::VISIBLE);
+        if (isset($parameters['type'])) {
+            $criteria[] = new Query\Criterion\ContentTypeIdentifier($parameters['type']);
+        }
+        return new Query([
+            'criterion' => new Query\Criterion\LogicalAnd($criteria),
+            'sortClauses' => [new Query\SortClause\DatePublished()],
+            'limit' => $parameters,
+        ]);
+    }
+    public static function getName()
+    {
+        return 'AppBundle:LatestContent';
+    }
+    protected function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setAllowedTypes('type', 'string');
+        $resolver->setAllowedValues('limit', 'int');
+        $resolver->setDefault('limit', 10);
+    }
+}
+```
+
+### Using QueryTypes from PHP code
+
+All QueryTypes are registered in a registry, the QueryType registry.
+
+It is available from the container as `ezpublish.query_type.registry`
+
+``` brush:
+<?php
+class MyCommand extends ContainerAwareCommand
+{
+    protected function execute(InputInterface $input, OutputInterface $output)
+    {
+        $queryType     = $this->getContainer()->get('ezpublish.query_type.registry')->getQueryType('AcmeBundle:LatestContent');
+        $query         = $queryType->getQuery(['type' => 'article']);
+        $searchResults = $this->getContainer()->get('ezpublish.api.service.search')->findContent($query);
+        foreach ($searchResults->searchHits as $searchHit) {
+            $output->writeln($searchHit->valueObject->contentInfo->name);
+        }
+    }
+}
+```
+
+## ESI
+
+Just like for regular Symfony controllers, you can take advantage of ESI and use different cache levels:
+
+**Using ESI**
+
+``` brush:
+{{ render_esi(controller("ez_content:viewAction", {"contentId": 123, "viewType": "line"})) }}
+```
+
+Only scalable variables can be sent via render\_esi (not object)
+
+## Asynchronous rendering
+
+Symfony also supports asynchronous content rendering with the help of [hinclude.js](http://mnot.github.com/hinclude/) library.
+
+**Asynchronous rendering**
+
+``` brush:
+{{ render_hinclude(controller("ez_content:viewAction", {"contentId": 123, "viewType": "line"})) }}
+```
+
+Only scalable variables can be sent via render\_hinclude (not object)
+
+### Display a default text
+
+If you want to display a default text while a controller is loaded asynchronously, you have to pass a second parameter to your render\_hinclude twig function.
+
+**Display a default text during asynchronous loading of a controller**
+
+``` brush:
+{{ render_hinclude(controller('EzCorporateDesignBundle:Header:userLinks'), {'default': "<div style='color:red'>loading</div>"}) }}
+```
+
+See also: [Custom controllers](#ContentRendering-Customcontrollers)
+
+[hinclude.js](http://mnot.github.com/hinclude/) needs to be properly included in your layout to work.
+
+Please [refer to Symfony documentation](http://symfony.com/doc/current/book/templating.html#asynchronous-content-with-hinclude-js) for all available options.
+
+# Reference
+
+Symfony & Twig template functions/filters/tags
+
+For template functionality provided by Symfony Framework, see [Symfony Twig Extensions Reference page](http://symfony.com/doc/current/reference/twig_reference.html). For those provided by the underlying Twig template engine, see [Twig Reference page](http://twig.sensiolabs.org/documentation#reference)
+
+## Twig functions reference
+
+See [Twig Functions Reference](Twig-Functions-Reference_32114025.html) for detailed information on all available Twig functions.
+
+# Extensibility
+
+## Events
+
+### Introduction
+
+This section presents the events that are triggered by eZ Platform.
+
+### eZ Publish Core
+
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Event name</th>
+<th>Triggered when...</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong><code>ezpublish.siteaccess</code></strong></td>
+<td>After the SiteAccess matching has occurred.</td>
+<td><p>Gives further control on the matched SiteAccess.</p>
+<p>The event listener method receives an <code>eZ\Publish\Core\MVC\Symfony\Event\PostSiteAccessMatchEvent</code> object.</p></td>
+</tr>
+<tr class="even">
+<td><strong><code>ezpublish.pre_content_view</code></strong></td>
+<td>Right before a view is rendered for a Content item, via the content view controller.</td>
+<td><p>This event is triggered by the view manager and allows you to inject additional parameters to the content view template.</p>
+The event listener method receives an <code>eZ\Publish\Core\MVC\Symfony\Event\PreContentViewEvent </code>object.
+<p> </p></td>
+</tr>
+<tr class="odd">
+<td><code>                 ezpublish.api.contentException               </code></td>
+<td>The API throws an exception that could not be caught internally (missing field type, internal error...).</td>
+<td><p>This event allows further programmatic handling (like rendering a custom view) for the exception thrown.</p>
+<p>The event listener method receives an <code>eZ\Publish\Core\MVC\Symfony\Event\APIContentExceptionEvent</code> object.</p></td>
+</tr>
+</tbody>
+</table>
+
+#### In this topic:
+
+-   [Introduction](#ContentRendering-Introduction)
+    -   [The ViewController](#ContentRendering-TheViewController)
+-   [Configuration](#ContentRendering-Configuration)
+    -   [View provider configuration](#ContentRendering-Viewproviderconfiguration)
+    -   [View Matchers](#ContentRendering-ViewMatchers)
+    -   [Default view templates](#ContentRendering-Defaultviewtemplates)
+-   [Usage](#ContentRendering-Usage)
+    -   [Content view templates](#ContentRendering-Contentviewtemplates)
+    -   [Content and Location view providers](#ContentRendering-ContentandLocationviewproviders)
+    -   [Rendering Content items](#ContentRendering-RenderingContentitems)
+    -   [Embedding images](#ContentRendering-Embeddingimages)
+    -   [Adding Links](#ContentRendering-AddingLinks)
+    -   [Embedding Content items](#ContentRendering-EmbeddingContentitems)
+    -   [Rendering blocks](#ContentRendering-Renderingblocks)
+    -   [Schedule block (Enterprise)](#ContentRendering-Scheduleblock(Enterprise))
+    -   [Custom controllers](#ContentRendering-Customcontrollers)
+    -   [Query controller](#ContentRendering-Querycontroller)
+    -   [ESI](#ContentRendering-ESI)
+    -   [Asynchronous rendering](#ContentRendering-Asynchronousrendering)
+-   [Reference](#ContentRendering-Reference)
+    -   [Twig functions reference](#ContentRendering-Twigfunctionsreference)
+-   [Extensibility](#ContentRendering-Extensibility)
+    -   [Events](#ContentRendering-Events)
+
+#### Related topics:
+
+[Injecting parameters in content views](Injecting-parameters-in-content-views_31430331.html)
+
+## Attachments:
+
+![](images/icons/bullet_blue.gif) [schedule-block-slot-options.png](attachments/31429679/34081338.png) (image/png)
+![](images/icons/bullet_blue.gif) [schedule-with-overflow.png](attachments/31429679/34081339.png) (image/png)
+![](images/icons/bullet_blue.gif) [schedule\_example.png](attachments/31429679/34081340.png) (image/png)
+
+
+# Twig Functions Reference
+
+In addition to the [native functions provided by Twig](http://twig.sensiolabs.org/doc/functions/index.html), eZ Platform offers the following:
+
+# ez\_content\_name
+
+#### Description
+
+`ez_content_name()` is a Twig helper which allows displaying a Content item's name in the current language.
+
+If the current language cannot be found as a translation for content, the name in the main language is always returned. This behavior is identical when forcing a language.
+
+Usage with v1.10 and higher
+
+If languages were specified during retrieval of Content object, you can render name directly using `$content->getName()` (Twig: `content.name`) and it will take the prioritised languages into account. If not, it falls back to the main language, just like **ez\_content\_name()** does. For usage with ContentInfo, see examples below.
+
+#### Prototype and Arguments
+
+`ez_content_name( eZ\Publish\API\Repository\Values\Content\Content content[, string forcedLanguage] )ez_content_name(contentInfo[, string forcedLanguage] ) `
+
+| Argument name    | Type                                                                                                            | Description                                                                                            |
+|------------------|-----------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+| `content`        | `eZ\Publish\API\Repository\Values\Content\Content`**or**`eZ\Publish\API\Repository\Values\Content\ContentInfo ` | Content or ContentInfo object the displayable field belongs to.                                        |
+| `forcedLanguage` | `string`                                                                                                        | Locale we want the content name translation in (e.g. "fre-FR"). Null by default (takes current locale) |
+
+#### Usage
+
+ 
+
+``` brush:
+<h2>Content name in current language: {{ ez_content_name( content ) }}</h2>
+<h2>Content name in current language, from ContentInfo: {{ ez_content_name( content.contentInfo ) }}</h2>
+<h2>Content name in french (forced): {{ ez_content_name( content, "fre-FR" ) }}</h2>
+```
+
+#### Equivalent PHP code
+
+##### Getting the translated name for a Content item
+
+``` brush:
+// Assuming we're in a controller action
+$translationHelper = $this->get( 'ezpublish.translation_helper' );
+ 
+// From Content
+$translatedContentName = $translationHelper->getTranslatedContentName( $content );
+// From ContentInfo
+$translatedContentName = $translationHelper->getTranslatedContentNameByContentInfo( $contentInfo );
+```
+
+##### Forcing a specific language
+
+``` brush:
+// Assuming we're in a controller action
+$translatedContentName = $this->get( 'ezpublish.translation_helper' )->getTranslatedName( $content, 'fre-FR' );
+```
+
+# ez\_field\_description
+
+#### Description
+
+`ez_field_description()` is a Twig helper which returns a Content item's field FieldDefinition description in the current language.
+
+This can be useful when you don't want to use a sub-request and custom controller to be able to display this information.
+
+If the current language cannot be found as a translation for content, the main language will be used. This behavior is identical when forcing a language using **forcedLanguage.**
+
+#### Prototype and Arguments
+
+`ez_field_description( Content|ContentInfo content, string fieldDefIdentifier[, string forcedLanguage] )`
+
+| Argument name        | Type                                                                                                         | Description                                                                                                |
+|----------------------|--------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
+| `content`            | `eZ\Publish\API\Repository\Values\Content\Content `or`eZ\Publish\API\Repository\Values\Content\ContentInfo ` | Content / ContentInfo object the **fieldDefIdentifier** belongs to.                                        |
+| `fieldDefIdentifier` | `string`                                                                                                     | Identifier of the field we want to get the FieldDefinition description from.                               |
+| `forcedLanguage`     | `string`                                                                                                     | Language we want to force (e.g. "eng-US"), otherwise takes prioritized languages from SiteAccess settings. |
+
+#### Usage
+
+``` brush:
+<p id="ez-content-article-title-description">{{ ez_field_description( content, "title" ) }}</p>
+```
+
+
+# ez\_field\_name
+
+#### Description
+
+`ez_field_name()` is a Twig helper which returns a Content item's field FieldDefinition name in the current language.
+
+This can be useful when you don't want to use a sub-request and custom controller to be able to display this information.
+
+If the current language cannot be found as a translation for content, the main language will be used. This behavior is identical when forcing a language using **forcedLanguage.**
+
+#### Prototype and Arguments
+
+`ez_field_name( Content|ContentInfo content, string fieldDefIdentifier[, string forcedLanguage] )`
+
+| Argument name        | Type                                                                                                         | Description                                                                                                  |
+|----------------------|--------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| `content`            | `eZ\Publish\API\Repository\Values\Content\Content `or`eZ\Publish\API\Repository\Values\Content\ContentInfo ` | Content / ContentInfo object the **fieldDefIdentifier** belongs to.                                          |
+| `fieldDefIdentifier` | `string`                                                                                                     | Identifier of the field we want to get the FieldDefinition name from.                                        |
+| `forcedLanguage`     | `string`                                                                                                     | Language we want to force (e.g. "`jpn-JP`"), otherwise takes prioritized languages from SiteAccess settings. |
+
+#### Usage
+
+``` brush:
+<label for="ez-content-article-title">{{ ez_field_name( content, "title" ) }}</label>
+```
+
+
+# ez\_field\_value
+
+#### Description
+
+`ez_field_value()` is a Twig helper which returns a Content item's field value in the current language.
+
+This can be useful when you don't want to use [ez\_render\_field](#ez_field_value-ez_render_field)  and manage the rendering by yourself.
+
+If the current language cannot be found as a translation for content, the main language will be used. This behavior is identical when forcing a language using **forcedLanguage.**
+
+Usage with v1.10 and higher
+
+If languages were specified during retrieval of Content object, you can get field value directly using `content->getFieldValue('title')` and it will take the prioritised languages into account. If not, it falls back to the main language, just like **ez\_field\_value()** does.
+
+#### Prototype and Arguments
+
+`ez_field_value( eZ\Publish\API\Repository\Values\Content\Content content, string fieldDefIdentifier[, string forcedLanguage] )`
+
+| Argument name        | Type                                               | Description                                                                                            |
+|----------------------|----------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+| `content`            | `eZ\Publish\API\Repository\Values\Content\Content` | Content object the field referred to with **fieldDefIdentifier** belongs to.                           |
+| `fieldDefIdentifier` | `string`                                           | Identifier of the field we want to get the value from.                                                 |
+| `forcedLanguage`     | `string`                                           | Locale we want the content name translation in (e.g. "fre-FR"). Null by default (takes current locale) |
+
+#### Usage
+
+``` brush:
+<h2>My title value: {{ ez_field_value( content, "title" ) }}</h2>
+```
+
+
+# ez\_field
+
+V1.2
+
+#### Description
+
+`ez_field()` is a Twig helper which returns a field value in the current language.
+
+Note that other Twig helpers are available to display specific information of the field ; they all start with ez\_field\_.
+
+If the current language cannot be found as a translation for content, the main language will be used. This behavior is identical when forcing a language using **forcedLanguage.**
+
+Usage with v1.10 and higher
+
+If languages were specified during retrieval of Content object, you can get field directly using `content->getField('title')` and it will take the prioritised languages into account. If not, it falls back to the main language, just like **ez\_field()** does.
+
+#### Prototype and Arguments
+
+`ez_field( eZ\Publish\API\Repository\Values\Content\Content content, string fieldDefIdentifier[, string forcedLanguage] )`
+
+| Argument name        | Type                                               | Description                                                                                            |
+|----------------------|----------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+| `content`            | `eZ\Publish\API\Repository\Values\Content\Content` | Content object the field referred to with **fieldDefIdentifier** belongs to.                           |
+| `fieldDefIdentifier` | `string`                                           | Identifier of the field we want to get the value from.                                                 |
+| `forcedLanguage`     | `string`                                           | Locale we want the content name translation in (e.g. "fre-FR"). Null by default (takes current locale) |
+
+#### Usage
+
+``` brush:
+<h2>My title's id: {{ ez_field( content, "title" ).id }}</h2>
+```
+
+
+# ez\_file\_size
+
+#### Description
+
+`ez_file_size()` is a Twig helper (Twig filter) which is mostly a byte calculator. It will convert a number from byte to the correct suffix (from B to EB). The output pattern will also vary with the current language of the site access (e.g. choosing between coma or point pattern).
+
+It returns a string.
+
+The byte factor is 1000 instead of 1024 to be more familiar for users.
+
+#### Prototype and Arguments
+
+** **integer **number\_of\_bytes**|ez\_file\_size( integer **number\_of\_decimal** )
+
+| Argument name       | Type      | Description                                      |
+|---------------------|-----------|--------------------------------------------------|
+| number\_of\_bytes   | `integer` | The number in byte we want to convert            |
+| `number_of_decimal` | `integer` | The number of decimal we want our output to have |
+
+#### Usage
+
+``` brush:
+{{ 42698273|ez_file_size( 3 ) }} //Output with french site access : 42,698 MB
+
+{{ 42698273|ez_file_size( 4 ) }} //Output with english site access : 42.6983 MB
+```
+
+
+# ez\_first\_filled\_image\_field
+
+#### Description
+
+`ez_first_filled_image_field` is a Twig helper which returns the identifier of the first image field that is not empty.
+
+#### Prototype and Arguments
+
+`ez_first_filled_image_field ( eZ\Publish\API\Repository\Values\Content\Content content )`
+
+| Argument name | Type                                               | Description                       |
+|---------------|----------------------------------------------------|-----------------------------------|
+| `content`     | `eZ\Publish\API\Repository\Values\Content\Content` | Content item the Fields belong to |
+
+
+# ez\_image\_alias
+
+#### Description
+
+`ez_image_alias()` is a Twig helper that lets you display a selected variant (alias) of an image.
+
+#### Prototype and Arguments
+
+`ez_image_alias( eZ\Publish\API\Repository\Values\Content\Field field, eZ\Publish\API\Repository\Values\Content\VersionInfo versionInfo, string variantName )`
+
+| Argument name | Type                                                   | Description                               |
+|---------------|--------------------------------------------------------|-------------------------------------------|
+| `field`       | `eZ\Publish\API\Repository\Values\Content\Field`       | The image Field                           |
+| `versionInfo` | `eZ\Publish\API\Repository\Values\Content\VersionInfo` | The VersionInfo that the field belongs to |
+| `variantName` | `string`                                               | Name of the image alias to be used        |
+
+
+
+# ez\_is\_field\_empty
+
+#### Description
+
+`ez_is_field_empty()` is a Twig helper which checks if a Content item's field value is considered empty in the current language.
+
+It returns a boolean value (`true` or `false`).
+
+If the current language cannot be found as a translation for content, the main language will be used. This behavior is identical when forcing a language.
+
+#### Prototype and Arguments
+
+`ez_is_field_empty( eZ\Publish\API\Repository\Values\Content\Content content, eZ\Publish\API\Repository\Values\Content\Field`|string **fieldDefIdentifier**\[, string **forcedLanguage**\] **)**
+
+| Argument name        | Type                                                       | Description                                                                                            |
+|----------------------|------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+| `content`            | `eZ\Publish\API\Repository\Values\Content\Content`         | Content object the displayable field belongs to.                                                       |
+| `fieldDefIdentifier` | `eZ\Publish\API\Repository\Values\Content\Field or string` | The field we want to check or its identifier.                                                          |
+| `forcedLanguage`     | `string`                                                   | Locale we want the content name translation in (e.g. "fre-FR"). Null by default (takes current locale) |
+
+#### Usage
+
+##### Using the Field identifier as parameter
+
+``` brush:
+{# Display "description" field if not empty #}
+{% if not ez_is_field_empty( content, "description" ) %}
+    <div class="description">
+        {{ ez_render_field( content, "description" ) }}
+    </div>
+{% endif %}
+```
+
+##### Using the Field as parameter
+
+``` brush:
+{# Display "description" field if not empty #}
+{% if not ez_is_field_empty( content, field ) %}
+    <div class="description">
+        {{ ez_render_field( content, field.fieldDefIdentifier ) }}
+    </div>
+{% endif %}
+```
+
+##### Checking if field exists before use
+
+``` brush:
+{# Display "description" field if it exists and is not empty #}
+{% if content.fields.description is defined and not ez_is_field_empty( content, "description" ) %}
+    <div class="description">
+        {{ ez_render_field( content, "description" ) }}
+    </div>
+{% endif %}
+```
+
+
+# ez\_render\_field
+
+#### Description
+
+`ez_render_field()` is a Twig helper allowing you to display a Content item's Field value, taking advantage of the template block exposed by the Field Type used.
+
+Template blocks for built-in Field Types [reside in EzPublishCoreBundle](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/views/content_fields.html.twig).
+
+#### Prototype and Arguments
+
+`ez_render_field( eZ\Publish\API\Repository\Values\Content\Content content, string fieldDefinitionIdentifier[, hash params] )`
+
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Argument name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>content</code></td>
+<td><code>eZ\Publish\API\Repository\Values\Content\Content</code></td>
+<td>Content object the displayable field belongs to.</td>
+</tr>
+<tr class="even">
+<td><code>fieldDefinitionIdentifier</code></td>
+<td><code>string</code></td>
+<td>The identifier the Field is referenced by.</td>
+</tr>
+<tr class="odd">
+<td><code>params</code></td>
+<td><code>hash</code></td>
+<td><p>Hash of parameters that will be passed to the template block.</p>
+<p>By default you can pass 2 entries:</p>
+<ul>
+<li><strong><code>lang</code></strong> (to override the current language, must be a valid locale with xxx-YY format)</li>
+<li><strong><code>template</code></strong> (to override the template to use, see below)</li>
+<li><code>attr</code> (hash of HTML attributes you want to add to the inner markup)</li>
+<li><code>parameters</code> (arbitrary parameters to pass to the template block)</li>
+</ul>
+<div class="confluence-information-macro confluence-information-macro-information">
+<span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+<div class="confluence-information-macro-body">
+Some Field Types might expect specific entries under the <code>parameters</code> key, like the <a href="MapLocation-Field-Type_31430523.html">MapLocation Field Type</a>.
+</div>
+</div></td>
+</tr>
+</tbody>
+</table>
+
+#### Override a field template block
+
+In some cases, you may not want to use the built-in field template block as it might not fit your markup needs. In this case, you can choose to override the template block to use by specifying your own template. You can do this inline when calling `ez_render_field()`, or globally by prepending a field template to use by the helper.
+
+Your template block must comply to a regular Field Type template block, [as explained in the Field Type documentation](Field-Type-template_31430773.html).
+
+##### Inline override
+
+You can easily use the template you need by filling the `template` entry in the `params` argument.
+
+``` brush:
+{{ ez_render_field( 
+       content, 
+       'my_field_identifier',
+       { 'template': 'AcmeTestBundle:fields:my_field_template.html.twig' }
+   ) }}
+```
+
+The code above will load `my_field_template.html.twig` located in `AcmeTestBundle/Resources/views/fields/`.
+
+``` brush:
+{# AcmeTestBundle/Resources/views/fields/my_field_template.html.twig #}
+{# Assuming "my_field_identifier" from above template example is an ezkeyword field. #}
+{% block ezkeyword_field %}
+    {% spaceless %}
+        {% if field.value.values|length() > 0 %}
+        <ul>
+            {% for keyword in field.value.values %}
+            <li>{{ keyword }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    {% endspaceless %}
+{% endblock %}
+```
+
+Overriding a block and calling the parent
+
+When overriding a field template block, it is possible to call the "parent." For this, you need to import original template horizontally, using [**`use`** Twig tag](http://twig.sensiolabs.org/doc/tags/use.html).
+
+``` brush:
+{# AcmeTestBundle/Resources/views/fields/my_field_template.html.twig #}
+{# Assuming "my_field_identifier" from above template example is an ezkeyword field. #}
+ 
+{% use "EzPublishCoreBundle::content_fields.html.twig" with ezkeyword_field as base_ezkeyword_field %}
+ 
+{# Surround base block with a simple div #}
+{% block ezkeyword_field %}
+    <div class="ezkeyword">
+        {{ block("base_ezkeyword_field") }}
+    </div>
+{% endblock %}
+```
+
+ 
+
+##### Inline override using current template
+
+If you want to override a specific field template only once (i.e. because your override would be only valid in your current template), you can specify the current template to be the source of the field block.
+
+**Inline override using current template**
+
+``` brush:
+{% extends "MyBundle::pagelayout.html.twig" %}
+
+{% block content %}
+    {# Note that "tags" is a field using ezkeyword fieldType #}
+    <div class="tags">{{ ez_render_field( content, "tags" , { "template": _self } ) }}</div>
+{% endblock %}
+
+{# Here begins the inline block for my ezkeyword field #}
+{% block ezkeyword_field %}
+    {% spaceless %}
+        {% if field.value.values|length() > 0 %}
+        <ul>
+            {% for keyword in field.value.values %}
+            <li>{{ keyword }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    {% endspaceless %}
+{% endblock %}
+```
+
+Limitation
+
+**Using `_self` will only work if your current template is extending another one.**
+
+This is basically the same limitation as for [Symfony form themes](http://symfony.com/doc/current/book/forms.html#global-form-theming).
+
+##### Global override
+
+In the case where you want to systematically reuse a field template instead of the default one, you can append it to the field templates list to use by `ez_render_field()`.
+
+To make your template available, you must register it to the system.
+
+**app/config/ezplatform.yml**
+
+``` brush:
+ezpublish:
+    system:
+        my_siteaccess:
+            field_templates:
+                - 
+                    template: "AcmeTestBundle:fields:my_field_template.html.twig"
+                    # Priority is optional (default is 0). The higher it is, the higher your template gets in the list.
+                    priority: 10
+```
+
+You can define these rules in a dedicated file instead of `app/config/ezplatform.yml`. Read the [cookbook recipe to learn more about it](https://doc.ez.no/display/DEVELOPER/Importing+settings+from+a+bundle).
+
+
+# ez\_trans\_prop
+
+#### Description
+
+`ez_trans_prop()` is a generic, low level Twig helper which gets the translated value of a multi valued(translations) property.
+
+If the current language cannot be found as a translation for content, the main language (see [further down for details](#ez_trans_prop-ez_trans_prop-Mainlanguageuse)) will be used if this is supported by the provided **object**. This behavior is identical when forcing a language using **forcedLanguage.**
+
+Usage with v1.10 and higher
+
+If languages were specified during retrieval of a given value object, you can get translated values directly in several cases now, including examples below. For further info see [Internationalization](Internationalization_31429671.html).
+
+#### Prototype and Arguments
+
+`ez_trans_prop( ValueObject object, string property[, string forcedLanguage] )`
+
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Argument name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>object</code></td>
+<td><code>eZ\Publish\API\Repository\Values\ValueObject</code></td>
+<td>ValueObject object <strong>property</strong> belongs to.</td>
+</tr>
+<tr class="even">
+<td>property</td>
+<td><code>string</code></td>
+<td>Property to get translated value from, logic is using one of the following <em>(in this order)</em>:
+<ul>
+<li><em>object method</em> &quot;get{<strong>property</strong>}&quot; <em><br />
+</em></li>
+<li><em>object property</em>  &quot;{<strong>property</strong>}s&quot;</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td><code>forcedLanguage</code></td>
+<td><code>string</code></td>
+<td>Optional language we want to force <em>(e.g. &quot;<code>eng-US</code>&quot;)</em>, otherwise takes prioritized languages from SiteAccess settings.</td>
+</tr>
+</tbody>
+</table>
+
+##### Main language use
+
+Main language is attempted to be applied in the following way for Value objects that support this:
+
+-   *When attribute is retrieved via object property*: Use **mainLanguageCode** property if it exists as fallback language, but only if either **alwaysAvailable** property does not exists or is true.
+
+<!-- -->
+
+-   **When attribute is *retrieved* via object *method*: Provide `$language = null` as the only argument to the method, depends on logic of ValueObject if this gives a fallback value or not
+
+#### Usage of ez\_trans\_prop
+
+Example below shows how this function can be used to get the Content name with exact same result as using `ez_content_name(content)`
+
+``` brush:
+{{ ez_trans_prop( versionInfo, "name" ) }}
+```
+
+Example for `ContentType->names`:
+
+``` brush:
+{{ ez_trans_prop( contentType, "name" ) }}
+```
+
+
+# ez\_urlalias
+
+#### Description
+
+`ez_urlalias` is a not a real Twig helper, but a **special route name** for generating URLs for a Location from the given parameters.
+
+#### Prototype and Arguments
+
+**path(**  eZ\\Publish\\API\\Repository\\Values\\Content\\Location|string name\[, array parameters\]\[, bool absolute\]  **)**
+
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Argument name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>name</td>
+<td><span class="sd">string | \eZ\Publish\API\Repository\Values\Content\Location<br />
+</span></td>
+<td><span class="sd">The name of the route or a Location instance</span></td>
+</tr>
+<tr class="even">
+<td>parameters</td>
+<td>array</td>
+<td><p><span>An hash of parameters:</span></p>
+<ul>
+<li><code>                     locationId                   </code></li>
+<li><span> <code>contentId</code> <span>(as of 5.4 / 2014.11) </span> </span></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td>absolute</td>
+<td>boolean</td>
+<td><span class="sd">Whether to generate an absolute URL</span></td>
+</tr>
+</tbody>
+</table>
+
+#### Working with Location
+
+Linking to other Locations is fairly easy and is done with [native `path()` Twig helper](http://symfony.com/doc/2.3/book/templating.html#linking-to-pages) (or `url()` if you want to generate absolute URLs). You just have to pass it the Location object and `path()` will generate the URLAlias for you.
+
+``` brush:
+{# Assuming "location" variable is a valid eZ\Publish\API\Repository\Values\Content\Location object #}
+<a href="{{ path( location ) }}">Some link to a location</a>
+```
+
+ 
+
+#### I don't have the Location object
+
+##### Generating a link from a Location ID
+
+``` brush:
+<a href="{{ path( "ez_urlalias", {"locationId": 123} ) }}">Some link to a location, with its Id only</a>
+```
+
+ 
+
+##### Generating a link from a Content ID
+
+``` brush:
+<a href="{{ path( "ez_urlalias", {"contentId": 456} ) }}">Some link from a contentId</a>
+```
+
+ 
+
+**Important: Links generated from a Content ID will point to its main location.**
+
+#### Error management
+
+For Location alias setup 301 redirect to Location's current URL when:
+
+1.  alias is history
+2.  alias is custom with forward flag true
+3.  requested URL is not case-sensitive equal with the one loaded
+
+Under the hood
+
+In the backend, `path()` uses the Router to generate links.
+
+This makes it also easy to generate links from PHP, via the `router` service.
