@@ -1,6 +1,7 @@
 site_name: eZ Platform Developer Documentation
 repo_url: https://github.com/ezsystems/developer-documentation
 copyright: "Copyright 1999-2017 eZ Systems AS and others"
+site_favicon: img/favicon.ico
 pages:
     - 'Documentation': 'index.md'
     - Getting started:
@@ -18,6 +19,7 @@ pages:
             - 'eZ Enterprise': 'getting_started/ez_enterprise.md'
             - 'About Composer': 'getting_started/about_composer.md'
     - Tutorials:
+        - 'Tutorials': 'tutorials/tutorials.md'
         - eZ Platform Beginner tutorial:
             - 'Building a bicycle route tracker in eZ Platform': 'tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md'
             - '1. Getting ready': 'tutorials/platform_beginner/1_getting_ready.md'
@@ -41,15 +43,15 @@ pages:
             #- '6. Introduce a template': 'tutorials/field_type/6_introduce_a_template.md'
         - Extending PlatformUI with new navigation:
             - 'Extending PlatformUI with new navigation': 'tutorials/extending_platformui/extending_platformui_with_new_navigation.md'
-            - '1. Create the extension bundle': 'tutorials/extending_platformui/1_create_the_extension_bundle.md'
-            - '2. Set up the configuration': 'tutorials/extending_platformui/2_set_up_the_configuration.md'
-            - '3. Alter the JavaScript application routing': 'tutorials/extending_platformui/3_alter_the_javascript_application_routing.md'
-            - '4. Define a view': 'tutorials/extending_platformui/4_define_a_view.md'
-            - '5. Configure the navigation': 'tutorials/extending_platformui/5_configure_the_navigation.md'
-            - '6. Build the content list': 'tutorials/extending_platformui/6_build_the_content_list.md'
-            - '7. Paginate results': 'tutorials/extending_platformui/7_paginate_results.md'
-            - '8. Filter by Content Type': 'tutorials/extending_platformui/8_filter_by_content_type.md'
-            - 'Conclusion': 'tutorials/extending_platformui/conclusion.md'
+            #- '1. Create the extension bundle': 'tutorials/extending_platformui/1_create_the_extension_bundle.md'
+            #- '2. Set up the configuration': 'tutorials/extending_platformui/2_set_up_the_configuration.md'
+            #- '3. Alter the JavaScript application routing': 'tutorials/extending_platformui/3_alter_the_javascript_application_routing.md'
+            #- '4. Define a view': 'tutorials/extending_platformui/4_define_a_view.md'
+            #- '5. Configure the navigation': 'tutorials/extending_platformui/5_configure_the_navigation.md'
+            #- '6. Build the content list': 'tutorials/extending_platformui/6_build_the_content_list.md'
+            #- '7. Paginate results': 'tutorials/extending_platformui/7_paginate_results.md'
+            #- '8. Filter by Content Type': 'tutorials/extending_platformui/8_filter_by_content_type.md'
+            #- 'Conclusion': 'tutorials/extending_platformui/conclusion.md'
     - API:
         - 'API': 'api/api.md'
         - REST API guide:
@@ -68,10 +70,10 @@ pages:
             - 'Architecture': 'guide/architecture.md'
             - 'Content model': 'guide/content_model.md'
             - 'Field Type reference': 'guide/field_type_reference.md'
-        - 'Bundles': 'guide/bundles.md'
         - 'Best practices': 'guide/best_practices.md'
-        - 'Content rendering': 'guide/content_rendering.md'
+        - 'Bundles': 'guide/bundles.md'
         - 'Clustering': 'guide/clustering.md'
+        - 'Content rendering': 'guide/content_rendering.md'
         - 'Design': 'guide/design.md'
         - 'DevOps': 'guide/devops.md'
         - 'Docker tools': 'guide/docker_tools.md'
@@ -92,6 +94,7 @@ pages:
         - 'SiteAccess': 'guide/siteaccess.md'
         - 'User-generated content': 'guide/user_generated_content.md'
     - Cookbook:
+        - 'Cookbook': 'cookbook/cookbook.md'
         - 'Authenticating a user with multiple user providers': 'cookbook/authenticating_a_user_with_multiple_user_providers.md'
         - 'Converting request paremeters into API objects': 'cookbook/converting_request_parameters_into_api_objects.md'
         - 'Creating custom notification for Flex Workflow': 'cookbook/creating_custom_notifications_for_flex_workflow.md'
@@ -100,7 +103,7 @@ pages:
         - 'Displaying children of a Content item': 'cookbook/displaying_children_of_a_content_item.md'
         - 'Displaying content with simple templates': 'cookbook/displaying_content_with_simple_templates.md'
         - 'Executing long-running console commands': 'cookbook/executing_long_running_console_commands.md'
-        - 'Exposing Siteaccess_aware configuration for your bundle': 'cookbook/exposing_siteaccess_aware_configuration_for_your_bundle.md'
+        - 'Exposing Siteaccess-aware configuration for your bundle': 'cookbook/exposing_siteaccess_aware_configuration_for_your_bundle.md'
         - 'Importing settings from a bundle': 'cookbook/importing_settings_from_a_bundle.md'
         - 'Injecting parameters in content views': 'cookbook/injecting_parameters_in_content_views.md'
         - 'Listening to core events': 'cookbook/listening_to_core_events.md'
@@ -113,9 +116,11 @@ pages:
         - 'Professional training services': 'community_resources/professional_training_services.md'
         - 'Contributing': 'community_resources/contributing.md'
     - Migrating to eZ Platform:
+        - 'Migrating to eZ Platform': 'migrating/migrating.md'
         - 'Migrating from eZ Publish Platform': 'migrating/migrating_from_ez_publish_platform.md'
         - 'Migrating from eZ Publish': 'migrating/migrating_from_ez_publish.md'
     - Releases:
+        - 'eZ Platform releases': 'releases/releases.md'
         - 'Updating eZ Platform': 'releases/updating_ez_platform.md'
         - 'eZ Platform v1.10.0': 'releases/ez_platform_v1.10.0.md'
         - 'eZ Platform v1.9.0': 'releases/ez_platform_v1.9.0.md'
@@ -140,7 +145,11 @@ pages:
             - 'eZ Platform 15.12': 'releases/ez_platform_15.12_release_notes.md'
             - 'Earlier releases': 'releases/earlier_releases.md'
 theme: readthedocs
+#theme_dir: templates
+#extra_css: [css/custom.css, css/font-awesome.min.css]
+#extra_javascript: [js/scrollspy.js, js/extra.js]
 markdown_extensions:
     - markdown.extensions.admonition
+    - pymdownx.superfences
     - markdown.extensions.toc:
         permalink: True

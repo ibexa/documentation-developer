@@ -1,13 +1,8 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [Tutorials](Tutorials_31429522.html)
-4.  [eZ Enterprise Beginner Tutorial - It's a Dog's World](32868209.html)
+# Step 3 - Using existing blocks
 
-# Step 3 - Using existing blocks 
+!!! tip
 
-Created by Dominika Kurek, last modified on Jul 05, 2017
-
-You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/ezstudio-beginner-tutorial/tree/step3).
+    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/ezstudio-beginner-tutorial/tree/step3).
 
 In this step you'll add a Content List block and two Schedule blocks and customize them.
 
@@ -17,21 +12,22 @@ In this step pay close attention to the order of tasks. If you overlook a config
 
 At this point you can start adding blocks to the Landing Page. This is done in the Studio UI Edit mode by simply dragging the required block from the menu on the right to the correct zone on the page.
 
-![Content List block dragged onto a page](attachments/32868245/32868238.gif)
+![Content List block dragged onto a page](img/enterprise_tut_drag_block.gif)
 
 Not all the blocks we have planned are available to you just yet, so let's start with the simplest one. Drag a Content List block from the menu to the right column, click the (still empty) block and enter its settings. Here you give a name to the block and decide what it will display. Choose the Dog Breed Catalog folder as the Parent, select Dog Breed as the Content Type to be displayed, and choose a limit. In our case we'll display the first three Dog Breeds we have in our database.
 
-![Window with Content List options](attachments/32868245/32868237.png)
+![Window with Content List options](img/enterprise_tut_content_list_window.png)
 
 When you click Submit, you should see a preview of what the block will look like with the dog breed information displayed.
 
-![Content List Unstyled](attachments/32868245/32868244.png "Content List Unstyled")As you can see, the block is displayed using a very basic, unstyled template. Built-in blocks have default templates already included in the installation, and it's this one that is being used right now. But you can override it according to your needs, and add templates for new custom blocks that you create (which we'll do in the next step). Publish the page now and we'll start configuring the block.
+![Content List Unstyled](img/enterprise_tut_content_list_unstyled.png "Content List Unstyled")
+
+As you can see, the block is displayed using a very basic, unstyled template. Built-in blocks have default templates already included in the installation, and it's this one that is being used right now. But you can override it according to your needs, and add templates for new custom blocks that you create (which we'll do in the next step). Publish the page now and we'll start configuring the block.
 
 First let's create an override template for the Content List block. Create a `blocks` folder under `app/Resources/views` and place the new template file in it:
 
-**app/Resources/views/blocks/contentlist.html.twig**
-
-``` brush:
+``` html
+<!--app/Resources/views/blocks/contentlist.html.twig-->
 <div>
     <h3 class="heading">{{ parentName }}</h3>
     {% if contentArray|length > 0 %}
@@ -60,9 +56,8 @@ First let's create an override template for the Content List block. Create a `b
 
 Then we add a configuration that will tell the app to use this template instead of the default one. Go to the `layouts.yml` file that you created previously when preparing the Landing Page layout and add the following code:
 
-**in app/config/layouts.yml**
-
-``` brush:
+``` yaml
+# in app/config/layouts.yml
 blocks:
     contentlist:
         views:
@@ -73,11 +68,10 @@ blocks:
 
 This block should be placed at the end of the file, within the `ez_systems_landing_page_field_type` key. Watch your indentation!
 
-One more thing is required to make the template work. The twig file specifies an [image alias](Images_31430179.html) – a thumbnail of the Dog Breed image that will be displayed in the block. To configure this image alias, open the `app/config/image_variations.yml` file and add the following code under the `image_variations` key (once again, mind the indentation):
+One more thing is required to make the template work. The twig file specifies an [image alias](../../guide/images.md) – a thumbnail of the Dog Breed image that will be displayed in the block. To configure this image alias, open the `app/config/image_variations.yml` file and add the following code under the `image_variations` key (once again, mind the indentation):
 
-**in app/config/image\_variations.yml**
-
-``` brush:
+``` yaml
+# in app/config/image_variations.yml
 content_list:
     reference: null
     filters:
@@ -87,9 +81,8 @@ content_list:
 
 Finally, we should add some styling to the block. Add the following CSS to the end of the `web/assets/css/style.css` file:
 
-**in web/assets/css/style.css**
-
-``` brush:
+``` css
+/* in web/assets/css/style.css */
 /* Landing Page */
 @media only screen and (min-width: 992px) {
     aside > div {
@@ -117,7 +110,7 @@ Finally, we should add some styling to the block. Add the following CSS to the e
 
 If you refresh the front page now, you should see the new look of the Content List block.
 
-![Content List Styled](attachments/32868245/32868243.png "Content List Styled")
+![Content List Styled](img/enterprise_tut_content_list_styled.png "Content List Styled")
 
 ### Create a Schedule block for Featured Articles
 
@@ -125,9 +118,8 @@ The next block to go with is the Schedule block that will air articles at predet
 
 The process of creating a new layout may already look familiar to you. First, let's add a configuration that will point to the layout. Go to the `layouts.yml` again and add the following code under `blocks`:
 
-**in app/config/layouts.yml**
-
-``` brush:
+``` yaml
+# in app/config/layouts.yml
 schedule:
     views:
         schedule_featured:
@@ -137,9 +129,8 @@ schedule:
 
 As you can see, the configuration at this point defines one view for the schedule block that we called `schedule_featured` and points to a `schedule_featured.html.twig` file that will house its template. Place this new template file in `app/Resources/views/blocks`:
 
-**app/Resources/views/blocks/schedule\_featured.html.twig**
-
-``` brush:
+``` html
+<!--app/Resources/views/blocks/schedule_featured.html.twig-->
 {% spaceless %}
     <div class="schedule-layout schedule-layout--grid">
         <div class="featured-articles-block">
@@ -167,9 +158,8 @@ When you look at the template, you can see three blocks, each of which will rend
 
 For the app to know which template file to use in such a case, we need to modify the `views.yml` file again. Add the following code to this file, at the same level as the `full` key:
 
-**in app/config/views.yml:**
-
-``` brush:
+``` yaml
+# in app/config/views.yml:
 featured:
     article:
         template: "featured/article.html.twig"
@@ -179,9 +169,8 @@ featured:
 
 Now make a `featured` subfolder in the folder that houses your templates and create the following `article.html.twig` file in it:
 
-**app/Resources/views/featured/article.html.twig**
-
-``` brush:
+``` html
+<!--app/Resources/views/featured/article.html.twig-->
 {% set imageAlias = ez_image_alias(content.getField('image'), content.versionInfo, 'featured_article') %}
 <div class="featured-article" style="background-image: url('{{ imageAlias.uri }}');">
     <h4><a class="featured-article-link" href="{{ path('ez_urlalias', {'contentId': content.id}) }}">{{ ez_content_name(content) }}</a></h4>
@@ -190,9 +179,8 @@ Now make a `featured` subfolder in the folder that houses your templates and cr
 
 Like in the case of the Content List block, the template specifies an image alias. Let's add it in `app/config/image_variations.yml` under the `image_variations` key:
 
-**in app/config/image\_variations.yml**
-
-``` brush:
+``` yaml
+# in app/config/image\_variations.yml
 featured_article:
     reference: null
     filters:
@@ -201,9 +189,8 @@ featured_article:
 
 The Block would already be operational now, but let's first update the stylesheet. Add the following CSS to the end of the `web/assets/css/style.css` file:
 
-**in web/assets/css/style.css**
-
-``` brush:
+``` css
+/* in web/assets/css/style.css */
 /* Featured articles schedule block */
 .featured-article-container {
     background-size: cover;
@@ -244,15 +231,14 @@ Now click the Add content (plus) icon, navigate to and choose one of the Article
 
 At this point we have configured our Schedule block to work well with Articles only. If you try to add Content of any other type, you will see an error. This is because there is no `featured` view for content other than Articles defined at the moment. If you'd like some more practice or want to make your website more foolproof, you can create such templates for all other Content Types in the database.
 
-![Front Page after adding Featured Block](attachments/32868245/32868241.png "Front Page after adding Featured Block")
+![Front Page after adding Featured Block](img/enterprise_tut_page_with_featured_articles.png "Front Page after adding Featured Block")
 
 ### Create a Schedule block for Other Articles
 
 Now we'll proceed with preparing the second Schedule block for our Landing Page. The procedure will be very similar as in the first case. First, let's add the new block to configuration by adding this code to `layouts.yml`:
 
-**in app/config/layouts.yml**
-
-``` brush:
+``` yaml
+# in app/config/layouts.yml
 schedule_list:
     template: blocks/schedule_list.html.twig
     name: List Schedule Block
@@ -260,9 +246,8 @@ schedule_list:
 
 Next, we provide a template for the block:
 
-**app/Resources/views/blocks/schedule\_list.html.twig**
-
-``` brush:
+``` html
+<!--app/Resources/views/blocks/schedule_list.html.twig-->
 {% spaceless %}
     <div class="other-articles-block">
         <h4 class="heading">{{ 'Other Articles'|trans }}</h4>
@@ -284,9 +269,8 @@ Next, we provide a template for the block:
 
 We also need a template for the `list` view for Articles:
 
-**app/Resources/views/list/article.html.twig**
-
-``` brush:
+``` html
+<!--app/Resources/views/list/article.html.twig-->
 <div class="other-article">
     <div class="other-article-image">
         {{ ez_render_field(content, 'image', {
@@ -303,9 +287,8 @@ We also need a template for the `list` view for Articles:
 
 and an entry in `views.yml`:
 
-**in app/config/views.yml:**
-
-``` brush:
+``` yaml
+# in app/config/views.yml:
 list:
     article:
         template: "list/article.html.twig"
@@ -315,7 +298,7 @@ list:
 
 Like before, we must add one more image alias to the `image_variations.yml` file:
 
-``` brush:
+``` yaml
 other_article:
     reference: null
     filters:
@@ -325,9 +308,8 @@ other_article:
 
 As the last thing, let's provide the new block with some styling. Add the following to the end of the `web/assets/css/style.css` file:
 
-**in web/assets/css/style.css**
-
-``` brush:
+``` css
+/* in web/assets/css/style.css */
 /* Other articles schedule block */
 .other-articles-block {
     padding-top: 20px;
@@ -356,7 +338,7 @@ As the last thing, let's provide the new block with some styling. Add the follow
 
 With this done, you should be able to add a new Schedule block to the Front Page and select the List Schedule block layout. Give the block an easily recognizable name, such as "Other Articles". Add two Articles to it to see how their look will differ from the featured ones.
 
-![The Page after adding a List Schedule Block](attachments/32868245/32868240.png "The Page after adding a List Schedule Block")
+![The Page after adding a List Schedule Block](img/enterprise_tut_after_list_schedule_block.png "The Page after adding a List Schedule Block")
 
 ### Set up overflow
 
@@ -364,40 +346,4 @@ Now let's make use of the overflow functionality. In the settings of the Feature
 
 You can try this out now. Add one more Article to the Featured Articles block. You will see a message warning you that some content will be pushed out. When you confirm, the pushed out Article will move to the top of the Other Articles block.
 
-![Overflow push-out warning](attachments/32868245/32868239.png "Overflow push-out warning")
-
- 
-
-------------------------------------------------------------------------
-
- 
-
- ⬅ Previous: [Step 2 - Preparing the Landing Page](Step-2---Preparing-the-Landing-Page_32868235.html)
-
-Next: [Step 4 - Creating a custom block](Step-4---Creating-a-custom-block_32868249.html) ➡
-
-**Tutorial path**
-
-## Attachments:
-
-![](images/icons/bullet_blue.gif) [iadw\_featured\_articles.png](attachments/32868245/32869512.png) (image/png)
-![](images/icons/bullet_blue.gif) [iadw\_drag\_block.gif](attachments/32868245/32869513.gif) (image/gif)
-![](images/icons/bullet_blue.gif) [iadw\_content\_list\_window.png](attachments/32868245/32868237.png) (image/png)
-![](images/icons/bullet_blue.gif) [iadw\_overflow\_warning.png](attachments/32868245/32868239.png) (image/png)
-![](images/icons/bullet_blue.gif) [iadw\_content\_list\_unstyled.png](attachments/32868245/32868244.png) (image/png)
-![](images/icons/bullet_blue.gif) [iadw\_content\_list\_styled.png](attachments/32868245/32868533.png) (image/png)
-![](images/icons/bullet_blue.gif) [iadw\_page\_with\_featured\_articles.png](attachments/32868245/32868534.png) (image/png)
-![](images/icons/bullet_blue.gif) [iadw\_after\_list\_schedule\_block.png](attachments/32868245/32868535.png) (image/png)
-![](images/icons/bullet_blue.gif) [iadw\_page\_with\_featured\_articles.png](attachments/32868245/32869511.png) (image/png)
-![](images/icons/bullet_blue.gif) [iadw\_content\_list\_styled.png](attachments/32868245/32868243.png) (image/png)
-![](images/icons/bullet_blue.gif) [iadw\_after\_list\_schedule\_block.png](attachments/32868245/32869510.png) (image/png)
-![](images/icons/bullet_blue.gif) [iadw\_drag\_block.gif](attachments/32868245/32868238.gif) (image/gif)
-![](images/icons/bullet_blue.gif) [iadw\_after\_list\_schedule\_block.png](attachments/32868245/32868240.png) (image/png)
-![](images/icons/bullet_blue.gif) [iadw\_page\_with\_featured\_articles.png](attachments/32868245/32868241.png) (image/png)
-![](images/icons/bullet_blue.gif) [iadw\_featured\_articles.png](attachments/32868245/32868242.png) (image/png)
-
-
-
-
-
-
+![Overflow push-out warning](img/enterprise_tut_overflow_warning.png "Overflow push-out warning")

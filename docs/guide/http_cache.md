@@ -1,50 +1,44 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [The Complete Guide to eZ Platform](The-Complete-Guide-to-eZ-Platform_31429526.html)
+# HTTP Cache
 
-# HTTP Cache 
+## Introduction
 
-Created by Dominika Kurek, last modified on Jul 10, 2017
-
-# Introduction
-
-## Smart HTTP cache clearing
+### Smart HTTP cache clearing
 
 **Smart HTTP cache clearing** refers to the ability to clear cache for Locations/content that is in relation with the content being currently cleared.
 
 When published, any Content item usually has at least one Location, identified by its URL. Therefore, HTTP cache being bound to URLs, if a Content item is updated (a new version is published), we want HTTP cache for all its Locations to be cleared, so the content itself can be updated everywhere it is supposed to be displayed. Sometimes, clearing cache for the content's Locations is not sufficient. You can, for instance, have an excerpt of it displayed in a list from the parent Location, or from within a relation. In this case, cache for the parent Location and/or the relation need to be cleared as well (at least if an ESI is not used).
 
-### The mechanism
+#### The mechanism
 
 **Smart HTTP cache clearing** is an event-based mechanism. Whenever a content item needs its cache cleared, the cache purger service sends an `ezpublish.cache_clear.content` event (also identified by `eZ\Publish\Core\MVC\Symfony\MVCEvents::CACHE_CLEAR_CONTENT` constant) and passes an `eZ\Publish\Core\MVC\Symfony\Event\ContentCacheClearEvent` event object. This object contains the ContentInfo object we need to clear the cache for. Every listener for this event can add Location objects to the *cache clear list*.
 
 Once the event is dispatched, the purger passes collected Location objects to the purge client, which will effectively send the cache `BAN` request.
 
-Note
+!!! note
 
-The event is dispatched with a dedicated event dispatcher, `ezpublish.http_cache.event_dispatcher`.
+    The event is dispatched with a dedicated event dispatcher, `ezpublish.http_cache.event_dispatcher`.
 
-### Default behavior
+#### Default behavior
 
 By default, following Locations will be added to the cache clear list:
 
--   All Locations assigned to content (`AssignedLocationsListener`)
--   Parent Location of all Content item's Locations (`ParentLocationsListener`)
--   Locations for content's relations, including reverse relations (`RelatedLocationsListener`)
+- All Locations assigned to content (`AssignedLocationsListener`)
+- Parent Location of all Content item's Locations (`ParentLocationsListener`)
+- Locations for content's relations, including reverse relations (`RelatedLocationsListener`)
 
-### Implementing a custom listener
+#### Implementing a custom listener
 
 By design, smart HTTP cache clearing is extensible. One can easily implement an event listener/subscriber to the `ezpublish.cache_clear.content` event and add Locations to the cache clear list.
 
-#### Example
+##### Example
 
 Here's a very simple custom listener example, adding an arbitrary Location to the list.
 
-Important
+!!! note "Important"
 
-Cache clear listener services **must** be tagged as `ezpublish.http_cache.event_subscriber` or `ezpublish.http_cache.event_listener`.
+    Cache clear listener services **must** be tagged as `ezpublish.http_cache.event_subscriber` or `ezpublish.http_cache.event_listener`.
 
-``` brush:
+``` php
 namespace Acme\AcmeTestBundle\EventListener;
 
 use eZ\Publish\API\Repository\LocationService;
@@ -82,7 +76,7 @@ class ArbitraryLocationsListener implements EventSubscriberInterface
 }
 ```
 
-``` brush:
+``` php
 parameters:
     acme.cache_clear.arbitrary_locations_listener.class: Acme\AcmeTestBundle\EventListener\ArbitraryLocationsListener
 
@@ -94,22 +88,19 @@ services:
             - { name: ezpublish.http_cache.event_subscriber }
 ```
 
-## Content Cache
-
- 
+### Content Cache
 
 eZ Platform uses [Symfony HttpCache](http://symfony.com/doc/current/book/http_cache.html) to manage content "view" cache with an [expiration model](http://symfony.com/doc/current/book/http_cache.html#http-expiration-and-validation). In addition it is extended *(using FOSHttpCache)* to add several advanced features. For content coming from the CMS the following is taken advantage of out of the box:
 
--   To be able to always keep cache up to date, cache is made "content-aware" to allow updates to content to trigger *cache invalidation.*
-    -   Uses a custom `X-Location-Id` header, which both Symfony and Varnish Proxy are able to invalidate cache on *(for details see [Cache purge](https://doc.ez.no/display/DEVELOPER/HTTP+Cache#HTTPCache-CachePurge).)*
--   To be able to also cache requests by logged-in users, cache is made "[context-aware](#HTTPCache-Context-awareHTTPCache) ."
-    -   Uses a custom vary header `X-User-Hash` to allow pages to var by user rights *(so not per unique user, that is better served by browser cache.)*
+- To be able to always keep cache up to date, cache is made "content-aware" to allow updates to content to trigger *cache invalidation.*
+    - Uses a custom `X-Location-Id` header, which both Symfony and Varnish Proxy are able to invalidate cache on *(for details see [Cache purge](#cache-purge).)*
+- To be able to also cache requests by logged-in users, cache is made "[context-aware](#context-aware-http-cache)."
+    - Uses a custom vary header `X-User-Hash` to allow pages to var by user rights *(so not per unique user, that is better served by browser cache.)*
 
-### Cache and Expiration Configuration
+#### Cache and Expiration Configuration
 
-**ezplatform.yml**
-
-``` brush:
+``` yaml
+# ezplatform.yml
 ezpublish:
     system:
         my_siteaccess:
@@ -119,11 +110,11 @@ ezpublish:
                 default_ttl: 60       # Number of seconds an Http response is valid in cache (if ttl_cache is true)
 ```
 
-### Making your controller response content-aware
+#### Making your controller response content-aware
 
 Sometimes you need your controller's cache to be invalidated at the same time as specific content changes (i.e. [ESI sub-requests with `render` twig helper](http://symfony.com/doc/current/book/http_cache.html#using-esi-in-symfony2), for a menu for instance). To be able to do that, you just need to add `X-Location-Id` header to the response object:
 
-``` brush:
+``` php
 use Symfony\Component\HttpFoundation\Response;
  
 // Inside a controller action
@@ -133,11 +124,11 @@ $response->headers->set('X-Location-Id', 123);
 $response->setSharedMaxAge(3600);
 ```
 
-### Making your controller response context-aware
+#### Making your controller response context-aware
 
 If the content you're rendering depends on a user's permissions, then you should make the response context-aware:
 
-``` brush:
+``` php
 use Symfony\Component\HttpFoundation\Response;
  
 // Inside a controller action
@@ -146,39 +137,37 @@ $response = new Response();
 $response->setVary('X-User-Hash');
 ```
 
-# Configuration
+## Configuration
 
-## Cache Purge
+### Cache Purge
 
 This page explains the content cache purge *(aka invalidate)* mechanism used when publishing content from the UI or from a container-aware script, resulting in cache being invalidated either in the built-in Symfony Reverse Proxy, or on the much faster Varnish reverse proxy.
 
 Note that if you use a non-reverse proxy that does not support purge headers, shared content will stay in the cache for the whole duration defined by s-maxage, without the possibility of clearing it.
 
-### Overview
+#### Overview
 
-eZ Platform returns content-related responses with an `X-Location-Id` header that are stored together by the configured HTTP cache. This allows you to clear *(invalidate)* HTTP cache representing specifically a given Content item. On publishing the content, a cache purger is triggered with the Content ID in question, which in turn figures out affected content Locations based on [Smart HTTP cache clearing](https://doc.ez.no/display/DEVELOPER/HTTP+Cache#HTTPCache-SmartHTTPcacheclearing) logic. The returned Location IDs are sent for purge using the purge type explained further below.
+eZ Platform returns content-related responses with an `X-Location-Id` header that are stored together by the configured HTTP cache. This allows you to clear *(invalidate)* HTTP cache representing specifically a given Content item. On publishing the content, a cache purger is triggered with the Content ID in question, which in turn figures out affected content Locations based on [Smart HTTP cache clearing](#smart-http-cache-clearing) logic. The returned Location IDs are sent for purge using the purge type explained further below.
 
-### Purge types
+#### Purge types
 
-#### Symfony Proxy: Local purge type
+##### Symfony Proxy: Local purge type
 
 By default, invalidation requests will be emulated and sent to the Symfony Proxy cache Store. Cache purge will thus be synchronous, meaning no HTTP purge requests will be sent around when publishing.
 
-**ezplatform.yml**
-
-``` brush:
+``` yaml
+# ezplatform.yml
 ezpublish:
     http_cache:
         purge_type: local
 ```
 
-### Varnish: HTTP purge type
+#### Varnish: HTTP purge type
 
 With Varnish you can configure one or several servers that should be purged over HTTP. This purge type is asynchronous, and flushed by the end of Symfony kernel-request/console cycle *(during terminate event)*. Settings for purge servers can be configured per site group or site access:
 
-**ezplatform.yml**
-
-``` brush:
+``` yaml
+# ezplatform.yml
 ezpublish:
     http_cache:
         purge_type: http
@@ -189,84 +178,82 @@ ezpublish:
                 purge_servers: ["http://varnish.server1", "http://varnish.server2", "http://varnish.server3"]
 ```
 
-For further information on setting up Varnish, see [Using Varnish](https://doc.ez.no/display/DEVELOPER/HTTP+Cache#HTTPCache-UsingVarnish).
+For further information on setting up Varnish, see [Using Varnish](#using-varnish).
 
-### Purging
+#### Purging
 
 While purging on content, updates are handled for you; on actions against the eZ Platform APIs, there are times you might have to purge manually.
 
-#### Manual by code
+##### Manual by code
 
-Manual purging from code which takes [Smart HTTP cache clearing](https://doc.ez.no/display/DEVELOPER/HTTP+Cache#HTTPCache-SmartHTTPcacheclearing) logic into account, this is using the service also used internally for cache clearing on content updates:
+Manual purging from code which takes [Smart HTTP cache clearing](#smart-http-cache-clearing) logic into account, this is using the service also used internally for cache clearing on content updates:
 
-``` brush:
+``` yaml
 // Purging cache based on content id, this will trigger cache clear of all locations found by Smart HttpCache clear
 // typically self, parent, related, ..
 $container->get('ezpublish.http_cache.purger')->purgeForContent(55);
 ```
 
-#### Manually by command with Symfony Proxy
+##### Manually by command with Symfony Proxy
 
 Symfony Proxy stores its cache in the Symfony cache directory, so a regular `cache:clear` commands will clear it:
 
-``` brush:
+``` bash
 php app/console --env=prod cache:clear
 ```
 
-#### Manual by HTTP BAN request on Varnish
+##### Manual by HTTP BAN request on Varnish
 
 When using Varnish and in need to purge content directly, then the following examples show how this is done internally by our FOSPurgeClient, and in turn FOSHttpCache Varnish proxy client:
 
 For purging all:
 
-``` brush:
-BAN / HTTP 1.1 
-Host: localhost 
-X-Location-Id: .* 
+```
+BAN / HTTP 1.1
+Host: localhost
+X-Location-Id: .*
 ```
 
 Or with given location ids *(here 123 and 234)*: 
 
-``` brush:
-BAN / HTTP 1.1 
-Host: localhost 
+```
+BAN / HTTP 1.1
+Host: localhost
 X-Location-Id: ^(123|234)$
 ```
 
-     
-
-## Using Varnish
+### Using Varnish
 
 eZ Platform being built on top of Symfony, it uses standard HTTP cache headers. By default the Symfony reverse proxy, written in PHP, is used to handle cache, but it can be easily replaced with any other reverse proxy like Varnish.
 
-*Use of Varnish is a requirement for use in Clustering setup, for overview of clustering feature see [Clustering](Clustering_31430387.html). *
-
- 
+*Use of Varnish is a requirement for use in Clustering setup, for overview of clustering feature see [Clustering](clustering.md).*
 
 ### Prerequisites
 
--   A working Varnish 3 or Varnish 4 setup.
+- A working Varnish 3 or Varnish 4 setup.
 
 ### Recommended VCL base files
 
 For Varnish to work properly with eZ, you'll need to use one of the provided files as a basis:
 
--   [Varnish 3 VCL example](https://github.com/ezsystems/ezplatform/blob/master/doc/varnish/vcl/varnish3.vcl)
--   [Varnish 4 VCL example](https://github.com/ezsystems/ezplatform/blob/master/doc/varnish/vcl/varnish4.vcl)
+- [Varnish 3 VCL example](https://github.com/ezsystems/ezplatform/blob/master/doc/varnish/vcl/varnish3.vcl)
+- [Varnish 4 VCL example](https://github.com/ezsystems/ezplatform/blob/master/doc/varnish/vcl/varnish4.vcl)
 
-> **Note:** Http cache management is done with the help of [FOSHttpCacheBundle](http://foshttpcachebundle.readthedocs.org/). You may need to tweak your VCL further on according to [FOSHttpCache documentation](http://foshttpcache.readthedocs.org/en/latest/varnish-configuration.html) in order to use features supported by it.
+!!! note
 
-### Configure eZ Publish
+    Http cache management is done with the help of [FOSHttpCacheBundle](http://foshttpcachebundle.readthedocs.org/). You may need to tweak your VCL further on according to [FOSHttpCache documentation](http://foshttpcache.readthedocs.org/en/latest/varnish-configuration.html) in order to use features supported by it.
 
-#### Update your Virtual Host
+#### Configure eZ Publish
+
+##### Update your Virtual Host
 
 Somehow we need to tell php process that we are behind a Varnish proxy and not the built in Symfony Http Proxy. If you use fastcgi/fpm you can pass these directly to php process, but you can in all cases also specify them in your web server config.
 
-#### On apache:
+##### On apache:
 
-**my\_virtualhost.conf**
+```
+# my_virtualhost.conf
 
-``` brush:
 <VirthualHost *:80>
     # Configure your VirtualHost with rewrite rules and stuff
  
@@ -279,24 +266,24 @@ Somehow we need to tell php process that we are behind a Varnish proxy and not t
 </VirtualHost>
 ```
 
-#### On nginx:
+##### On nginx:
 
-**mysite.com**
+```
+# mysite.com
 
-``` brush:
 fastcgi_param SYMFONY_HTTP_CACHE 0;
 # Configure IP of your Varnish server to be trusted proxy
 # Replace fake IP address below by your Varnish IP address
 fastcgi_param SYMFONY_TRUSTED_PROXIES "193.22.44.22";
 ```
 
-### Update YML configuration
+#### Update YML configuration
 
 Secondly we need to tell eZ Platform to change to use http based purge client *(specifically FosHttpCache Varnish purge client is used)*, and specify url Varnish can be reached on:
 
-**ezplatform.yml**
+``` yaml
+# ezplatform.yml
 
-``` brush:
 ezpublish:
     http_cache:
         purge_type: http
@@ -309,23 +296,21 @@ ezpublish:
                 purge_servers: [http://my.varnish.server:8081]
 ```
 
- 
+## Usage
 
-# Usage
+### Context-aware HTTP cache
 
-## Context-aware HTTP cache
-
-### Use case
+#### Use case
 
 As it is based on Symfony 2, eZ Platform uses HTTP cache extended with features like content awareness. However, this cache management is only available for anonymous users due to HTTP restrictions.
 
 It is of course possible to make HTTP cache vary thanks to the `Vary` response header, but this header can only be based on one of the request headers (e.g. `Accept-Encoding`). Thus, to make the cache vary on a specific context *(for example a hash based on a user roles and limitations)*, this context must be present in the original request.
 
-### Feature
+#### Feature
 
 As the response can vary on a request header, the base solution is to make the kernel do a sub-request in order to retrieve the user context hash (aka **user hash**). Once the *user hash* has been retrieved, it's injected in the original request in the `X-User-Hash` custom header, making it possible to *vary* the HTTP response on this header:
 
-``` brush:
+``` php
 <?php
 use Symfony\Component\HttpFoundation\Response;
 
@@ -338,38 +323,38 @@ $response->setVary('X-User-Hash');
 
 This solution is implemented in Symfony reverse proxy (aka *HttpCache*) and is also accessible to dedicated reverse proxies like Varnish.
 
-Note that sharing ESIs across SiteAccesses is not possible by design (see [![](https://jira.ez.no/images/icons/issuetypes/bug.png)EZP-22535](https://jira.ez.no/browse/EZP-22535?src=confmacro) - Cached ESI can not be shared across pages/siteaccesses due to "pathinfo" property Closed for technical details)
+!!! note
 
-Vary by User
+    Note that sharing ESIs across SiteAccesses is not possible by design (see [![](https://jira.ez.no/images/icons/issuetypes/bug.png)EZP-22535](https://jira.ez.no/browse/EZP-22535?src=confmacro) - Cached ESI can not be shared across pages/siteaccesses due to "pathinfo" property Closed for technical details)
 
-In cases where you need to deliver content uniquely to a given user, and tricks like using JavaScript and cookie values, hinclude, or disabling cache is not an option. Then remaining option is to vary response by cookie:
+!!! tip "Vary by User"
 
-``` brush:
-$response->setVary('Cookie');
-```
+    In cases where you need to deliver content uniquely to a given user, and tricks like using JavaScript and cookie values, hinclude, or disabling cache is not an option. Then remaining option is to vary response by cookie:
 
-Unfortunately this is not optimal as it will by default vary by all cookies, including those set by add trackers, analytics tools, recommendation services, etc. However, as long as *your* application backend does not need these cookies, you can solve this by stripping everything but the session cookie. Example for Varnish can be found in the default VCL examples in part dealing with User Hash, for single-server setup this can easily be accomplished in Apache / Nginx as well.
+    ``` php
+    $response->setVary('Cookie');
+    ```
 
- 
+    Unfortunately this is not optimal as it will by default vary by all cookies, including those set by add trackers, analytics tools, recommendation services, etc. However, as long as *your* application backend does not need these cookies, you can solve this by stripping everything but the session cookie. Example for Varnish can be found in the default VCL examples in part dealing with User Hash, for single-server setup this can easily be accomplished in Apache / Nginx as well.
 
-### HTTP cache clear
+#### HTTP cache clear
 
 As eZ Platform uses [FOSHttpCacheBundle](http://foshttpcachebundle.readthedocs.org/), this impacts the following features:
 
--   HTTP cache purge
--   User context hash
+- HTTP cache purge
+- User context hash
 
 Varnish proxy client from FOSHttpCache lib is used for clearing eZ HTTP cache, even when using Symfony HttpCache. A single `BAN` request is sent to registered purge servers, containing a `X-Location-Id` header. This header contains all Location IDs for which objects in cache need to be cleared.
 
-### Symfony reverse proxy
+#### Symfony reverse proxy
 
 Symfony reverse proxy (aka HttpCache) is supported out of the box, all you have to do is to activate it.
 
-### Varnish
+#### Varnish
 
-Please refer to [Using Varnish](https://doc.ez.no/display/DEVELOPER/HTTP+Cache#HTTPCache-UsingVarnish)
+Please refer to [Using Varnish](#using-varnish)
 
-### User context hash
+#### User context hash
 
 [FOSHttpCacheBundle *User Context feature*](http://foshttpcachebundle.readthedocs.org/en/latest/features/user-context.html) is activated by default.
 
@@ -377,36 +362,34 @@ As the response can vary on a request header, the base solution is to make the k
 
 Name of the [user hash header is configurable in FOSHttpCacheBundle](http://foshttpcachebundle.readthedocs.org/en/latest/reference/configuration/user-context.html). By default eZ Platform sets it to `**X-User-Hash**`.
 
-``` brush:
-<?php 
+``` php
+<?php
 use Symfony\Component\HttpFoundation\Response;
- 
+
 // ...
- 
+
 // Inside a controller action
 $response = new Response();
 $response->setVary('X-User-Hash');
 ```
 
- 
-
 This solution is [implemented in Symfony reverse proxy (aka *HttpCache*)](http://foshttpcachebundle.readthedocs.org/en/latest/features/symfony-http-cache.html) and is also accessible to [dedicated reverse proxies like Varnish](http://foshttpcache.readthedocs.org/en/latest/varnish-configuration.html).
 
-### Workflow
+#### Workflow
 
 Please refer to [FOSHttpCacheBundle documentation on how user context feature works](http://foshttpcachebundle.readthedocs.org/en/latest/features/user-context.html#how-it-works).
 
-### User hash generation
+#### User hash generation
 
 Please refer to [FOSHttpCacheBundle documentation on how user hashes are being generated](http://foshttpcachebundle.readthedocs.org/en/latest/features/user-context.html#generating-hashes).
 
 eZ Platform already interferes with the hash generation process by adding current user permissions and limitations. You can also interfere in this process by [implementing custom context provider(s)](http://foshttpcachebundle.readthedocs.org/en/latest/reference/configuration/user-context.html#custom-context-providers).
 
-#### User hash generation with Varnish 3
+##### User hash generation with Varnish 3
 
 The behavior described here comes out of the box with Symfony reverse proxy, but it's of course possible to use Varnish to achieve the same.
 
-``` brush:
+```
 # Varnish 3 style for eZ Platform
 # Our Backend - We assume that eZ Platform Web server listen on port 80 on the same machine.
 backend ezplatform {
@@ -533,9 +516,9 @@ sub vcl_deliver {
 }
 ```
 
-#### User hash generation with Varnish 4
+##### User hash generation with Varnish 4
 
-``` brush:
+```
 // Varnish 4 style for eZ Platform
 // Complete VCL example
 
@@ -666,7 +649,7 @@ sub vcl_deliver {
 }
 ```
 
-#### New anonymous X-User-Hash
+##### New anonymous X-User-Hash
 
 The anonymous X-User-Hash is generated based on the *anonymous user*, *group* and *role*. The `38015b703d82206ebc01d17a39c727e5` hash that is provided in the code above will work only when these three variables are left unchanged. Once you change the default permissions and settings, the X-User-Hash will change and Varnish won't be able to effectively handle cache anymore.
 
@@ -684,7 +667,7 @@ The easiest way to find the new hash is:
 
 You should get a result like this:
 
-``` brush:
+```
 HTTP/1.1 200 OK
 Date: Mon, 03 Oct 2016 15:34:08 GMT
 Server: Apache/2.4.18 (Ubuntu)
@@ -697,82 +680,33 @@ Content-Type: application/vnd.fos.user-context-hash
 
 **4.** Now, replace the existing X-User-Hash value with the new one:
 
-``` brush:
+```
 # Note: This needs update every time anonymous user role assignments change.
 set req.http.X-User-Hash = "b1731d46b0e7a375a5b024e950fdb8d49dd25af85a5c7dd5116ad2a18cda82cb";
 ```
 
 **5.** Restart the Varnish server and everything should work fine.
 
-#### Default options for FOSHttpCacheBundle defined in eZ
+##### Default options for FOSHttpCacheBundle defined in eZ
 
 The following configuration is defined in eZ by default for FOSHttpCacheBundle. You may override these settings.
 
-``` brush:
-fos_http_cache: 
-    proxy_client: 
+``` yaml
+fos_http_cache:
+    proxy_client:
         # "varnish" is used, even when using Symfony HttpCache.
         default: varnish
-        varnish: 
+        varnish:
             # Means http_cache.purge_servers defined for current SiteAccess.
             servers: [$http_cache.purge_servers$]
 
-    user_context: 
+    user_context:
         enabled: true
         # User context hash is cached during 10min
         hash_cache_ttl: 600
         user_hash_header: X-User-Hash
 ```
 
- 
-
-### Credits
+#### Credits
 
 This feature is based on [Context aware HTTP caching post](http://asm89.github.io/2012/09/26/context-aware-http-caching.html) by [asm89](https://github.com/asm89).
-
-#### In this topic:
-
--   [Introduction](#HTTPCache-Introduction)
-    -   [Smart HTTP cache clearing](#HTTPCache-SmartHTTPcacheclearing)
-        -   [The mechanism](#HTTPCache-Themechanism)
-        -   [Default behavior](#HTTPCache-Defaultbehavior)
-        -   [Implementing a custom listener](#HTTPCache-Implementingacustomlistener)
-    -   [Content Cache](#HTTPCache-ContentCache)
-        -   [Cache and Expiration Configuration](#HTTPCache-CacheandExpirationConfiguration)
-        -   [Making your controller response content-aware](#HTTPCache-Makingyourcontrollerresponsecontent-aware)
-        -   [Making your controller response context-aware](#HTTPCache-Makingyourcontrollerresponsecontext-aware)
--   [Configuration](#HTTPCache-Configuration)
-    -   [Cache Purge](#HTTPCache-CachePurge)
-        -   [Overview](#HTTPCache-Overview)
-        -   [Purge types](#HTTPCache-Purgetypes)
-        -   [Varnish: HTTP purge type](#HTTPCache-Varnish:HTTPpurgetype)
-        -   [Purging](#HTTPCache-Purging)
-    -   [Using Varnish](#HTTPCache-UsingVarnish)
-        -   [Prerequisites](#HTTPCache-Prerequisites)
-        -   [Recommended VCL base files](#HTTPCache-RecommendedVCLbasefiles)
-        -   [Configure eZ Publish](#HTTPCache-ConfigureeZPublish)
-        -   [Update YML configuration](#HTTPCache-UpdateYMLconfiguration)
--   [Usage](#HTTPCache-Usage)
-    -   [Context-aware HTTP cache](#HTTPCache-Content-awareHTTPCacheContext-awareHTTPcache)
-        -   [Use case](#HTTPCache-Usecase)
-        -   [Feature](#HTTPCache-Feature)
-        -   [HTTP cache clear](#HTTPCache-HTTPcacheclear)
-        -   [Symfony reverse proxy](#HTTPCache-Symfonyreverseproxy)
-        -   [Varnish](#HTTPCache-Varnish)
-        -   [User context hash](#HTTPCache-Usercontexthash)
-        -   [Workflow](#HTTPCache-Workflow)
-        -   [User hash generation](#HTTPCache-Userhashgeneration)
-        -   [Credits](#HTTPCache-Credits)
-
-#### Related:
-
--   [Overview of steps to set up Cluster](Steps-to-set-up-Cluster_31432321.html)[:](#HTTPCache-Persistencecacheconfiguration)
-    -   [Set up DFS IO Handler](Clustering_31430387.html)
-    -   [Configure Persistence Cache](Repository_31432023.html#Repository-Persistencecacheconfiguration)
-    -   [Configure sessions](Sessions_31429667.html)
-
-
-
-
-
-
