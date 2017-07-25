@@ -1,24 +1,18 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [The Complete Guide to eZ Platform](The-Complete-Guide-to-eZ-Platform_31429526.html)
+# Images
 
-# Images 
-
-Created by Dominika Kurek, last modified on Apr 07, 2017
-
-# Introduction
+## Introduction
 
 Image variations (image aliases) allow you to define and use different versions of the same image. You generate variations based on filters which modify aspects such as size and proportions, quality or decorations.
 
 Image variations are generated with [LiipImagineBundle](https://github.com/liip/LiipImagineBundle), using the underlying [Imagine library from avalanche123](http://imagine.readthedocs.org/en/latest/). This bundle supports GD, Imagick or Gmagick PHP extensions, and allows you to define flexible filters in PHP. Image files are stored using the `IOService,` and are completely independent from the `ezimage` Field Type. They are generated only once and cleared on demand (e.g. on content removal).
 
-# Configuration
+## Configuration
 
-Custom image variations are defined in `ezplatform.yml` or any imported semantic configuration file. The definition is [dynamic](https://doc.ez.no/display/DEVELOPER/SiteAccess#SiteAccess-Configuration), so it can be configured per siteaccess and all the other scopes.
+Custom image variations are defined in `ezplatform.yml` or any imported semantic configuration file. The definition is [dynamic](sitaAccess/md#configuration), so it can be configured per SiteAccess and all the other scopes.
 
-**Example image variation definition**
+``` yaml
+# Example image variation definition
 
-``` brush:
 ezpublish:
     system:
         my_siteaccess:
@@ -41,21 +35,20 @@ ezpublish:
                         - { name: geometry/scalewidth, params: [770] }
 ```
 
-Important
+!!! note
 
-Each variation name **must be unique**. It may contain `_` or `-` or numbers, but no spaces.
+    Each variation name **must be unique**. It may contain `_` or `-` or numbers, but no spaces.
 
 The following parameters are set for each variation:
 
--   `reference`: Name of a reference variation to base the variation on. If set to `null` (or `~`, which means `null` in YAML), the variation will take the original image for reference. It can be any available variation configured in the `ezpublish` namespace, or a `filter_set` defined in the `liip_imagine` namespace.
+- `reference`: Name of a reference variation to base the variation on. If set to `null` (or `~`, which means `null` in YAML), the variation will take the original image for reference. It can be any available variation configured in the `ezpublish` namespace, or a `filter_set` defined in the `liip_imagine` namespace.
+- `filters`: Array of filter definitions (hashes containing `name` and `params` keys). See possible values [below](#reference).
 
--   `filters`: Array of filter definitions (hashes containing `name` and `params` keys). See possible values [below](#Images-Reference).
-
-## Default image variations
+### Default image variations
 
 A few basic image variations are included by default in eZ Platform in the `default_settings.yml` config file:
 
-``` brush:
+``` yaml
 ezsettings.default.image_variations:
     reference:
         reference: ~
@@ -79,15 +72,15 @@ ezsettings.default.image_variations:
             geometry/scaledownonly: [300, 300]
 ```
 
-# Usage
+## Usage
 
-## Filter usage examples
+### Filter usage examples
 
-##### Scaling with an eZ Platform filter
+###### Scaling with an eZ Platform filter
 
 This configuration defines a `medium` image variation that is scaled to a width of 700 px.
 
-``` brush:
+``` yaml
 ezpublish:
     system:
         my_siteaccess:
@@ -99,13 +92,13 @@ ezpublish:
                             params: [770]
 ```
 
-##### Image quality with a liip filter
+###### Image quality with a liip filter
 
 This configuration adds a limit to the image quality using a liip filter.
 
 You can use both an eZ Platform and a liip filter for the same image variation, in this case `medium`.
 
-``` brush:
+``` yaml
 ezpublish:
     system:
         my_siteaccess:
@@ -119,13 +112,15 @@ liip_imagine:
             jpeg_quality: 50
 ```
 
-Notice that the `liip_imagine` key is not placed under `image_variations`, but at the same level as `ezpublish`.
+!!! note
 
-## Post-Processors
+    Notice that the `liip_imagine` key is not placed under `image_variations`, but at the same level as `ezpublish`.
+
+### Post-Processors
 
 LiipImagineBundle supports [post-processors on image aliases](http://symfony.com/doc/master/bundles/LiipImagineBundle/post-processors.html). It is possible to specify them in image variation configuration:
 
-``` brush:
+``` yaml
 ezpublish:
     system:
         my_siteaccess:
@@ -140,17 +135,17 @@ ezpublish:
 
 Please refer to [post-processors documentation in LiipImagineBundle](http://symfony.com/doc/master/bundles/LiipImagineBundle/post-processors.html) for details.
 
-## Drivers
+### Drivers
 
 LiipImagineBundle supports GD (default), Imagick and GMagick PHP extensions and only works on image blobs (no command line tool is needed). See the [bundle's documentation to learn more on that topic](http://symfony.com/doc/master/bundles/LiipImagineBundle/configuration.html).
 
-## Upgrade
+### Upgrade
 
-#### Instantiate `LiipImagineBundle` in your kernel class
+##### Instantiate `LiipImagineBundle` in your kernel class
 
 If you were using ImageMagick, install [Imagick](http://php.net/imagick) or [Gmagick](http://php.net/gmagick) PHP extensions and activate the driver in `liip_imagine `([see LiipImagineBundle configuration documentation for more information](http://symfony.com/doc/master/bundles/LiipImagineBundle/configuration.html)):
 
-``` brush:
+``` yaml
 # ezplatform.yml or config.yml
 liip_imagine:
     # Driver can be either "imagick", "gmagick" or "gd", depending on the PHP extension you're using.
@@ -159,32 +154,34 @@ liip_imagine:
 
 GD will be used by default if no driver is specified.
 
-## Purging aliases
+### Purging aliases
 
 It is possible to use the Liip Imagine console tool to clear generated aliases.
 
-``` brush:
+``` bash
 $ php app/console liip:imagine:cache:remove --filters=large
 $ php app/console liip:imagine:cache:remove -v
 ```
 
 The first example will clear the image files for the `large` alias. The second will clear all the generated aliases (be careful), and list the removed files (`-v).`
 
-The naming scheme change introduced by this feature wasn't enabled by default on 5.4.x. As part of migration you'll need to adapt to the new schema to get the benefit of this more efficient purge method. More technical information can be found on the [pull request](https://github.com/ezsystems/ezpublish-kernel/pull/1276).
+!!! note
 
-Code injection in image EXIF
+    The naming scheme change introduced by this feature wasn't enabled by default on 5.4.x. As part of migration you'll need to adapt to the new schema to get the benefit of this more efficient purge method. More technical information can be found on the [pull request](https://github.com/ezsystems/ezpublish-kernel/pull/1276).
 
-EXIF metadata of an image may contain e.g. HTML, JavaScript, or PHP code. eZ Platform is itself does not parse EXIF metadata, but third-party bundles need to be secured against this eventuality. Images should be treated like any other user-submitted data - make sure the metadata is properly escaped before use.
+!!! note "Code injection in image EXIF"
 
-## Resolving image URLs
+    EXIF metadata of an image may contain e.g. HTML, JavaScript, or PHP code. eZ Platform is itself does not parse EXIF metadata, but third-party bundles need to be secured against this eventuality. Images should be treated like any other user-submitted data - make sure the metadata is properly escaped before use.
+
+### Resolving image URLs
 
 You can use LiipImagine's `liip``:image:cache:resolve` script to resolve the path to image variations generated from the original image, with one or more paths as arguments. See [LiipImagineBundle documentation](http://symfony.com/doc/current/bundles/LiipImagineBundle/commands.html#resolve-cache) for more information.
 
 Note that paths to repository images must be relative to the `var/<site>/storage/images` directory, for example: `7/4/2/0/247-1-eng-GB/test.jpg`.
 
-# Reference
+## Reference
 
-## Available filters
+### Available filters
 
 In addition to [filters exposed by LiipImagineBundle](http://symfony.com/doc/master/bundles/LiipImagineBundle/configuration.html), the following are available:
 
@@ -207,39 +204,16 @@ In addition to [filters exposed by LiipImagineBundle](http://symfony.com/doc/mas
 
 LiipImagineBundle supports additional settings, it is possible to combine filters from the list above to [the ones provided in LiipImagineBundle](http://symfony.com/doc/master/bundles/LiipImagineBundle/filters.html) or custom ones.
 
-## Discarded filters
+### Discarded filters
 
 The following filters exist in the Imagine library but are not used in eZ Platform due to incompatibility:
 
--   `flatten`. Obsolete, images are automatically flattened.
--   `bordercolor`
--   `border/width`
--   `colorspace/transparent`
--   `colorspace`
+- `flatten`. Obsolete, images are automatically flattened.
+- `bordercolor`
+- `border/width`
+- `colorspace/transparent`
+- `colorspace`
 
-## Custom filters
+### Custom filters
 
 Please refer to [LiipImagineBundle documentation on custom filters](http://symfony.com/doc/master/bundles/LiipImagineBundle/filters.html#custom-filters). [Imagine library documentation](http://imagine.readthedocs.org/en/latest/) may also be useful.
-
-#### In this topic:
-
--   [Introduction](#Images-Introduction)
--   [Configuration](#Images-Configuration)
-    -   [Default image variations](#Images-Defaultimagevariations)
--   [Usage](#Images-Usage)
-    -   [Filter usage examples](#Images-Filterusageexamples)
-    -   [Post-Processors](#Images-Post-Processors)
-    -   [Drivers](#Images-Drivers)
-    -   [Upgrade](#Images-Upgrade)
-    -   [Purging aliases](#Images-Purgingaliases)
-    -   [Resolving image URLs](#Images-ResolvingimageURLs)
--   [Reference](#Images-Reference)
-    -   [Available filters](#Images-Availablefilters)
-    -   [Discarded filters](#Images-Discardedfilters)
-    -   [Custom filters](#Images-Customfilters)
-
-
-
-
-
-

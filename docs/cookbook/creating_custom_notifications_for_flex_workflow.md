@@ -1,10 +1,4 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [Cookbook](Cookbook_31429528.html)
-
-# Creating custom notifications for Flex Workflow 
-
-Created by Dominika Kurek on Feb 15, 2017
+# Creating custom notifications for Flex Workflow
 
 To create a custom notification you have to provide two plugins in the `flex-workflow` bundle, one for the `notificationsPopupView` and second for the `notificationIndicatorView`.
 
@@ -12,7 +6,7 @@ We will start from creating a plugin for `notificationIndicatorView` which is re
 
 We have to start from adding dependencies in yui.yml (placed in `./Resources/config/yui.yml`): 
 
-``` brush:
+``` yaml
 mb-notificationmessagecreatorplugin:
     requires: ['plugin', 'ez-pluginregistry']
     dependencyOf: ['fw-notificationindicatorview']
@@ -21,7 +15,7 @@ mb-notificationmessagecreatorplugin:
 
 Now we can create our plugin (as we declared in the yui.yml, we need to create it in `./js/plugins`), it will be stored in a file named `mb-notificationmessagecreatorplugin.js`: 
 
-``` brush:
+``` javascript
 YUI.add('mb-notificationmessagecreatorplugin', function (Y) {
     'use strict';
 
@@ -51,7 +45,7 @@ YUI.add('mb-notificationmessagecreatorplugin', function (Y) {
              * 2. The callback to be invoked to create the message in the notification bar.
              */
 
- 
+
            notificationIndicatorView.addNotificationMessageCreator('myNotificationType',
  this._createNotificationMessage.bind(this));
         },
@@ -85,7 +79,7 @@ YUI.add('mb-notificationmessagecreatorplugin', function (Y) {
 
 Now we can create a plugin for the `notificationsPopupView`, it will be responsible for creating a proper notification struct, again we start from creating dependency in yui.yml: 
 
-``` brush:
+``` yaml
 mb-notificationstructparserplugin:
     requires: ['plugin', 'ez-pluginregistry']
     dependencyOf: ['fw-notificationspopupview']
@@ -94,7 +88,7 @@ mb-notificationstructparserplugin:
 
 And we create a plugin named `mb-notificationstructparserplugin`:
 
-``` brush:
+``` javascript
 YUI.add('mb-notificationstructparserplugin', function (Y) {
     'use strict';
 
@@ -177,16 +171,4 @@ YUI.add('mb-notificationstructparserplugin', function (Y) {
 
 Now we can clear cache (`php app/console --env=prod cache:clear`) and our notification should be displayed properly. In the image below you can check what is what in the notification struct:  
 
-![](attachments/33555728/33555726.png)
-
- 
-
-## Attachments:
-
-![](images/icons/bullet_blue.gif) [notification.png](attachments/33555728/33555726.png) (image/png)
-
-
-
-
-
-
+![Notification](img/notification.png)

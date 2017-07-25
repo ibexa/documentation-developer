@@ -1,16 +1,10 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [The Complete Guide to eZ Platform](The-Complete-Guide-to-eZ-Platform_31429526.html)
+# Internationalization
 
-# Internationalization 
-
-Created by Dominika Kurek, last modified by André Rømcke on Jun 19, 2017
-
-# Introduction
+## Introduction
 
 eZ Platform offers the ability of creating different language versions of all content in the repository.
 
-## Using multiple languages
+### Using multiple languages
 
 The system allows for multiple language versions (translations) of a Content item to be created. Translations are created per version of the item, so each version of the content can have a different set of translations.
 
@@ -18,7 +12,7 @@ At minimum, a version always has one translation which by default is the *initia
 
 Different translations of the same Content item can be edited separately. This means that different users can work on translations into different languages at the same time.
 
-## Translatable and untranslatable Fields
+### Translatable and untranslatable Fields
 
 Language versions actually concern translating values of the Fields of a Content item. Every Field in its definition in a Content Type can be set to be Translatable or not.
 
@@ -28,38 +22,38 @@ When a Field is not flagged as Translatable, its value will be copied from the i
 
 For example, let's say that you need to store information about marathon contestants and their results. You build a "contestant" Content Type using the following Fields: name, photo, age, nationality, time reached. Allowing the translation of anything else than nationality would be pointless, since the values stored by the other Fields are the same regardless of the language used to describe the runner. In other words, the name, photo, age and time reached would be the same in, for example, both English and Norwegian.
 
-### Access control
+#### Access control
 
-It is possible to control whether a User or User group is able to translate content or not. This can be done by adding a Language limitation to Policies that allow creating or editing content. This limitation lets you define which Role can work with which languages in the system. (For more information of the permissions system, see [Permissions](https://doc.ez.no/display/DEVELOPER/Repository#Repository-Permissions).)
+It is possible to control whether a User or User group is able to translate content or not. This can be done by adding a Language limitation to Policies that allow creating or editing content. This limitation lets you define which Role can work with which languages in the system. (For more information of the permissions system, see [Permissions](repository.md#permissions).)
 
 In addition, it is also possible to control access to the global translation list by using the Content/Translations Policy. This makes it possible to allow users other than the site administrator to add and remove translations that can be used.
 
-## How to create different language versions?
+### How to create different language versions?
 
-The multilanguage system operates based on a global translation list that contains all languages available in the installation. Languages can be added to this list from the Admin Panel in the user interface. **The new language must then be added to the** **[SiteAccess](SiteAccess_31429665.html)** **configuration**. Once this is done, any user with proper permissions can create Content item versions in these languages in the user interface.
+The multilanguage system operates based on a global translation list that contains all languages available in the installation. Languages can be added to this list from the Admin Panel in the user interface. **The new language must then be added to the [SiteAccess](siteaccess.md) configuration**. Once this is done, any user with proper permissions can create Content item versions in these languages in the user interface.
 
-## How to make translations available to the visitor?
+### How to make translations available to the visitor?
 
 Once more than one language is defined in the global translation list and there is content in different languages, the question is how can this be exposed to use by the visitor. There are two ways to do this:
 
-1.  Implement a mechanism called **Language Switcher** . It lets you create links that allow switching between different translations of a Content item.
-2.  If you want to have completely separate versions of the website, each with content in its own language, you can use siteaccesses. In this case, depending on the uri used to access the website, a different site will open, with a language set in configuration settings. All Content items will then be displayed in this primary language.
+1. Implement a mechanism called **Language Switcher** . It lets you create links that allow switching between different translations of a Content item.
+1. If you want to have completely separate versions of the website, each with content in its own language, you can use siteaccesses. In this case, depending on the uri used to access the website, a different site will open, with a language set in configuration settings. All Content items will then be displayed in this primary language.
 
-## Multilanguage and permissions
+### Multilanguage and permissions
 
-[LanguageLimitation](LanguageLimitation_31430465.html) allows you to limit users' editing rights depending on the language of the Content item. See [Permissions](https://doc.ez.no/display/DEVELOPER/Repository#Repository-Permissions) and [List of Limitations](List-of-Limitations_31430459.html) for more information.
+[LanguageLimitation](repository.md#languagelimitation) allows you to limit users' editing rights depending on the language of the Content item. See [Permissions](repository.md#permissions) and [List of Limitations](repository.md#list-of-limitations) for more information.
 
-# Configuration
+## Configuration
 
 One of the basic ways of using multiple languages is setting up a separate siteaccess for each language.
 
-##   Explicit *translation siteaccesses*   
+### Explicit *translation siteaccesses*   
 
- Configuration is not mandatory, but can help to distinguish which siteaccesses can be considered  *translation siteaccesses* .
+Configuration is not mandatory, but can help to distinguish which siteaccesses can be considered  *translation siteaccesses* .
 
-**ezplatform.yml**
+``` yaml
+# ezplatform.yml
 
-``` brush:
 ezpublish:
     siteaccess:
         default_siteaccess: eng
@@ -89,19 +83,21 @@ ezpublish:
             languages: [eng-GB]
 ```
 
-**Note**: Top prioritized language is always used for as the siteaccess language reference (e.g. `fre-FR` for `fre` siteaccess in the example above).
+!!! note
+
+    Top prioritized language is always used for as the siteaccess language reference (e.g. `fre-FR` for `fre` siteaccess in the example above).
 
 If several translation siteaccesses share the same language reference, **the first declared siteaccess always wins**.
 
-## More complex translation setup
+### More complex translation setup
 
 There are some cases where your siteaccesses share settings (repository, content settings, etc.), but you don't want all of them to share the same `translation_siteaccesses` setting. This can be for example the case when you use separate siteaccesses for mobile versions of a website.
 
 Solution is as easy as defining new groups:
 
-**ezplatform.yml**
+``` yaml
+# ezplatform.yml
 
-``` brush:
 ezpublish:
     siteaccess:
         default_siteaccess: eng
@@ -155,14 +151,14 @@ ezpublish:
             languages: [fre-FR, eng-GB]
 ```
 
-## Using implicit *related siteaccesses*
+### Using implicit *related siteaccesses*
 
 If `translation_siteaccesses` setting is not provided, implicit *related siteaccesses* will be used instead. Siteaccesses are considered *related* if they share:
 
--   The same repository
--   The same root location Id (see [Multisite feature](Multisite_31430389.html))
+- The same repository
+- The same root location Id (see [Multisite feature](multisite.md))
 
-## Fallback languages and missing translations
+### Fallback languages and missing translations
 
 When setting up siteaccesses with different language versions, you can specify a list of preset languages for each siteaccess. When this siteaccess is used, the system will go through this list. If a Content item is unavailable in the first (prioritized) language, it will attempt to use the next language in the list, and so on. Thanks to this you can have a fallback in case of a lacking translation.
 
@@ -172,17 +168,17 @@ Note that if a language is not provided in the list of prioritized languages and
 
 This is different than in legacy, where this behavior was covered by a global control switch [`ShowUntranslatedObjects`](https://doc.ez.no/eZ-Publish/Technical-manual/4.x/Reference/Configuration-files/site.ini/RegionalSettings/ShowUntranslatedObjects/(language)/eng-GB).
 
-# Usage
+## Usage
 
-## Language Switcher
+### Language Switcher
 
-### Description
+#### Description
 
 A Content item can be translated into several languages. Those languages are configured in the system and exposed in siteaccesses via a prioritized list of languages:
 
-**ezplatform.yml**
+``` yaml
+# ezplatform.yml
 
-``` brush:
 ezpublish
     system:
         eng:
@@ -192,19 +188,19 @@ ezpublish
             languages: [fre-FR, eng-GB]
 ```
 
- When visiting a Content item, it may be useful to let the user switch from one translation to another, more appropriate to them. This is precisely the goal of the language switcher.
+When visiting a Content item, it may be useful to let the user switch from one translation to another, more appropriate to them. This is precisely the goal of the language switcher.
 
- The language switcher relies on the  [Cross-SiteAccess linking feature](https://doc.ez.no/display/DEVELOPER/SiteAccess#SiteAccess-Cross-siteacesslinks)  to generate links to the Content item's translation, and on  [RouteReference feature](Internationalization_31429671.html) .
+The language switcher relies on the [Cross-SiteAccess linking feature](siteaccess.md#cross-siteacess-links) to generate links to the Content item's translation, and on RouteReference feature.
 
-Tip
+!!! tip
 
- If you install the DemoBundle with at least 2 different languages, you will be able to see the Language Switcher and to test it.
+    If you install the DemoBundle with at least 2 different languages, you will be able to see the Language Switcher and to test it.
 
-### In a template
+#### In a template
 
-To generate a language switch link, you need to generate the  `RouteReference` , with the  `language`  parameter. This can easily be done with  `ez_route()`  Twig function:
+To generate a language switch link, you need to generate the `RouteReference`, with the `language` parameter. This can easily be done with `ez_route()` Twig function:
 
-``` brush:
+``` html
 {# Given that "location" variable is a valid Location object #}
 <a href="{{ url( ez_route( location, {"language": "fre-FR"} ) ) }}">{{ ez_content_name( content ) }}</a>
 
@@ -212,9 +208,9 @@ To generate a language switch link, you need to generate the  `RouteReference` 
 <a href="{{ url( ez_route( 'my_route', {"language": "fre-FR"} ) ) }}">My link</a>
 ```
 
- You can also omit the route, in this case, the current route will be used (i.e. switch the current page):
+You can also omit the route, in this case, the current route will be used (i.e. switch the current page):
 
-``` brush:
+``` html
 {# Using Twig named parameters #}
 <a href="{{ url( ez_route( params={"language": "fre-FR"} ) ) }}">My link</a>
 
@@ -222,18 +218,18 @@ To generate a language switch link, you need to generate the  `RouteReference` 
 <a href="{{ url( ez_route( null, {"language": "fre-FR"} ) ) }}">My link</a>
 ```
 
-### Using sub-requests
+#### Using sub-requests
 
 When using sub-requests, you lose the context of the master request (e.g. current route, current location, etc.). This is because sub-requests can be displayed separately, with ESI or Hinclude.
 
 If you want to render language switch links in a sub-request with a correct `RouteReference`, you must pass it as an argument to your sub-controller from the master request.
 
-``` brush:
+``` html
 {# Render the language switch links in a sub-controller #}
 {{ render( controller( 'AcmeTestBundle:Default:languages', {'routeRef': ez_route()} ) ) }}
 ```
 
-``` brush:
+``` php
 namespace Acme\TestBundle\Controller;
 
 use eZ\Bundle\EzPublishCoreBundle\Controller;
@@ -248,7 +244,7 @@ class DefaultController extends Controller
 }
 ```
 
-``` brush:
+``` html
 {# languages.html.twig #}
 
 {# Looping over all available languages to display the links #}
@@ -260,14 +256,14 @@ class DefaultController extends Controller
 {% endfor %}
 ```
 
--   `ezpublish.translationSiteAccess( language )` returns the siteaccess name for provided language (or `null` if it cannot be found)
--   `ezpublish.availableLanguages()` returns the list of available languages.
+- `ezpublish.translationSiteAccess( language )` returns the siteaccess name for provided language (or `null` if it cannot be found)
+- `ezpublish.availableLanguages()` returns the list of available languages.
 
-### Using PHP
+#### Using PHP
 
-You can easily generate language switch links from PHP too, with the  `RouteReferenceGenerator`  service:
+You can easily generate language switch links from PHP too, with the `RouteReferenceGenerator` service:
 
-``` brush:
+``` php
 // Assuming we're in a controller
 /** @var \eZ\Publish\Core\MVC\Symfony\Routing\Generator\RouteReferenceGeneratorInterface $routeRefGenerator */
 $routeRefGenerator = $this->get( 'ezpublish.route_reference.generator' );
@@ -275,83 +271,47 @@ $routeRef = $routeRefGenerator->generate( $location, array( 'language' => 'fre-F
 $link = $this->generateUrl( $routeRef );
 ```
 
- You can also retrieve all available languages with the  `TranslationHelper` :
+You can also retrieve all available languages with the `TranslationHelper`:
 
-``` brush:
+``` php
 /** @var \eZ\Publish\Core\Helper\TranslationHelper $translationHelper */
 $translationHelper = $this->get( 'ezpublish.translation_helper' );
 $availableLanguages = $translationHelper->getAvailableLanguages();
 ```
 
-## Value objects
+### Value objects
 
 Starting with **V1.10** you should be able to use translatable properties of API value objects directly without having to specify languages when doing so. This is true for the following methods where available:
 
--   Available on `Content, VersionInfo, ContentType, FieldDefinition, ContentTypeGroup, ObjectState, ObjectStateGroup`:
-    -   `getName()`
--   Available on `ContentType, FieldDefinition, ContentTypeGroup, ObjectState, ObjectStateGroup`:
-    -   `getDescription()`
--   Available on `Content`:
-    -   `getField()`
-    -   `getFieldValue()`
-    -   `getFieldsByLanguage()`
+- Available on `Content, VersionInfo, ContentType, FieldDefinition, ContentTypeGroup, ObjectState, ObjectStateGroup`:
+    - `getName()`
+- Available on `ContentType, FieldDefinition, ContentTypeGroup, ObjectState, ObjectStateGroup`:
+    - `getDescription()`
+- Available on `Content`:
+    - `getField()`
+    - `getFieldValue()`
+    - `getFieldsByLanguage()`
 
-In earlier versions you would have to always use translation helpers for these, for examples see [Content Rendering](Content-Rendering_31429679.html). Translation helpers are available in Twig via [Twig functions](Twig-Functions-Reference_32114025.html), and in PHP via "`ezpublish.translation_helper"` service.
+In earlier versions you would have to always use translation helpers for these, for examples see [Content Rendering](content_rendering.md). Translation helpers are available in Twig via [Twig functions](content_rendering#twig-functions-reference), and in PHP via "`ezpublish.translation_helper"` service.
 
-## Translating UI of eZ Platform
+### Translating UI of eZ Platform
 
-#### Installing new UI translations
+##### Installing new UI translations
 
 If you want to install a new language in your project, you just have to install the corresponding package.
 
 For example, if you want to translate your application into French, you just have to run:
 
-            composer require ezplatform-i18n/ezplatform-i18n-fr_fr
-          
+    `composer require ezplatform-i18n/ezplatform-i18n-fr_fr`
 
 and then clear the cache.
 
 Now you can reload your eZ Platform administration page which will be translated in French (if your browser is configured to fr\_FR.)
 
-#### In-context UI translation
+##### In-context UI translation
 
 V1.8
 
 Since eZ Platform 1.7.0, the interface has been fully translatable. Version 1.8.0 introduces official support for [Crowdin](http://crowdin.com) as a translation management system. In addition, it integrates support for in-context translation, a feature that allows you to translate strings from the interface, *in context*.
 
-To learn how to contribute to a translation using Crowdin, see [Contributing translations](Contributing-translations_34079215.html).
-
- 
-
-#### In this topic:
-
--   [Introduction](#Internationalization-Introduction)
-    -   [Using multiple languages](#Internationalization-Usingmultiplelanguages)
-    -   [Translatable and untranslatable Fields](#Internationalization-TranslatableanduntranslatableFields)
-        -   [Access control](#Internationalization-Accesscontrol)
-    -   [How to create different language versions?](#Internationalization-Howtocreatedifferentlanguageversions?)
-    -   [How to make translations available to the visitor?](#Internationalization-Howtomaketranslationsavailabletothevisitor?)
-    -   [Multilanguage and permissions](#Internationalization-Multilanguageandpermissions)
--   [Configuration](#Internationalization-Configuration)
-    -   [Explicit translation siteaccesses](#Internationalization-Explicittranslationsiteaccesses)
-    -   [More complex translation setup](#Internationalization-Morecomplextranslationsetup)
-    -   [Using implicit related siteaccesses](#Internationalization-Usingimplicitrelatedsiteaccesses)
-    -   [Fallback languages and missing translations](#Internationalization-Fallbacklanguagesandmissingtranslations)
--   [Usage](#Internationalization-Usage)
-    -   [Language Switcher](#Internationalization-LanguageSwitcher)
-        -   [Description](#Internationalization-Description)
-        -   [In a template](#Internationalization-Inatemplate)
-        -   [Using sub-requests](#Internationalization-Usingsub-requests)
-        -   [Using PHP](#Internationalization-UsingPHP)
-    -   [Value objects](#Internationalization-Valueobjects)
-    -   [Translating UI of eZ Platform](#Internationalization-TranslatingUIofeZPlatform)
-
-## Attachments:
-
-![](images/icons/bullet_blue.gif) [incontext-translation-ezplatform-crowdin.png](attachments/31429671/33554862.png) (image/png)
-
-
-
-
-
-
+To learn how to contribute to a translation using Crowdin, see [Contributing translations](../community_resources/contributing.md#contributing-translations).

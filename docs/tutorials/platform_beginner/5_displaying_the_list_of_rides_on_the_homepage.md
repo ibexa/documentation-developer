@@ -1,27 +1,13 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [Tutorials](Tutorials_31429522.html)
-4.  [Building a Bicycle Route Tracker in eZ Platform](Building-a-Bicycle-Route-Tracker-in-eZ-Platform_31431606.html)
-5.  [Part 2: Working on the Ride](31431613.html)
-
 # Step 2 - Display the list of Rides on the homepage
 
-Created by Philippe Vincent-Royol, last modified by Sarah Haïm-Lubczanski on Nov 22, 2016
-
--   1 [Customize your homepage template](#Step2-DisplaythelistofRidesonthehomepage-Customizeyourhomepagetemplate)
--   2 [Create your sub controller to display list of Rides](#Step2-DisplaythelistofRidesonthehomepage-CreateyoursubcontrollertodisplaylistofRides)
--   3 [Create template to display the list of Rides](#Step2-DisplaythelistofRidesonthehomepage-CreatetemplatetodisplaythelistofRides)
--   4 [Use a custom template to display view line of a Ride](#Step2-DisplaythelistofRidesonthehomepage-UseacustomtemplatetodisplayviewlineofaRide)
-
-![](attachments/32866555/32866553.png?effects=drop-shadow)
+![Ride List view](img/bike_tutorial_ride_list.png)
 
 ## Customize your homepage template
 
 Let's modify the `Resources/views/content/full/root_folder.html.twig ` adding a call to a subrequest to display the list of all existing Rides with pagination:
 
-**root\_folder.html.twig**
-
-``` brush:
+``` html
+<!--root\_folder.html.twig-->
 {% extends "pagelayout.html.twig" %}
 
 {% block content %}
@@ -34,16 +20,17 @@ Let's modify the `Resources/views/content/full/root_folder.html.twig ` adding a
  {% endblock %}
 ```
 
- For the moment, we use a simple `render()` Twig function but when we talk about cache, we will use `render_esi`.
+!!! note
+
+    For the moment, we use a simple `render()` Twig function but when we talk about cache, we will use `render_esi`.
 
 ## Create your sub controller to display list of Rides
 
-Create your `/src/AppBundle/Controller/HomepageController.php `with the method `getAllRidesAction`:**
-**
+Create your `/src/AppBundle/Controller/HomepageController.php `with the method `getAllRidesAction`:
 
-**HomepageController.php**
+``` php
+// HomepageController.php
 
-``` brush:
 <?php
 namespace AppBundle\Controller;
 use eZ\Publish\API\Repository\Values\Content\Query;
@@ -97,13 +84,12 @@ class HomepageController extends Controller
 
 ## Create template to display the list of Rides
 
-Create `app/Resources/views/list/rides.html.twig `template. You use a &lt;table&gt; to display the list of rides. The &lt;thead&gt; of the &lt;table&gt; is in this Ride list template and each &lt;tr&gt; (line of the table) is in the line ride template.
+Create `app/Resources/views/list/rides.html.twig `template. You use a `<table>` to display the list of rides. The `<head>` of the `<table>` is in this Ride list template and each `<tr>` (line of the table) is in the line ride template.
 
-So each time you use the line Ride template, you have to remember the choice of using a &lt;tr&gt;.
+So each time you use the line Ride template, you have to remember the choice of using a `<tr>`.
 
-**rides.html.twig**
-
-``` brush:
+``` html
+<!--rides.html.twig-->
 <div class="row regular-content-size">
   <div class="col-xs-10 col-xs-offset-1 box-style">
     <h3 class="center bottom-plus new-header">List of all Rides</h3>
@@ -140,9 +126,8 @@ To do so, you need to configure your Bundle to inject override configuration.
 
 You add the rule for the line\_ride template to be used in your `app/config/ezplatform.yml `file.
 
-**ezplatform.yml**
-
-``` brush:
+``` yaml
+# ezplatform.yml
 system:
     site_group:
         content_view:
@@ -155,11 +140,10 @@ system:
 
 Create your `app/Resources/views/line/ride.html.twig `template.
 
-*Remember, it's only one line of a table, so you will find a &lt;tr&gt; tag with some &lt;td&gt; tags.*
+*Remember, it's only one line of a table, so you will find a `<tr>` tag with some `<td>` tags.*
 
-**ride.html.twig**
-
-``` brush:
+``` html
+<!--ride.html.twig-->
 <tr>
     <td>
         <strong>
@@ -186,33 +170,9 @@ Create your `app/Resources/views/line/ride.html.twig `template.
 </tr>
 ```
 
-Go to the homepage of your Tutorial website, and you will see the list of Rides !
+Go to the homepage of your Tutorial website, and you will see the list of Rides!
 
- 
-
- 
-
-⬅ Previous: [Step 1 - Display content of a Ride](Step-1---Display-content-of-a-Ride_31431852.html)
-
-Next: [Congrats!](https://doc.ez.no/pages/viewpage.action?pageId=31431873) ➡
-
- 
-
- 
-
-**Tutorial path**
-
-## Attachments:
-
-![](images/icons/bullet_blue.gif) [Beginners\_Tutorial-RideList-view.png](attachments/32866555/32866553.png) (image/png)
-![](images/icons/bullet_blue.gif) [part2-step2-end.png](attachments/32866555/32866554.png) (image/png)
-
-
-# Congrats!
-
-Created by Sarah Haïm-Lubczanski, last modified on Nov 22, 2016
-
-![](attachments/thumbnails/30711113/30711865)
+## Congrats!
 
 ### Success: you have just built your first website
 
@@ -220,53 +180,16 @@ Now you have created your first website with eZ Platform.
 
 The website is simple and efficient.
 
-**You learned**
+**You learned:**
 
--   How to do a quick install of eZ Platform
--   How the files in an eZ Platform project are organized
--   Where you should put your asset files
--   How to param your eZ Platform to use templating
--   How to use Twig templates to display the content from your database
+- How to do a quick install of eZ Platform
+- How the files in an eZ Platform project are organized
+- Where you should put your asset files
+- How to param your eZ Platform to use templating
+- How to use Twig templates to display the content from your database
 
- 
+!!! note "WORK IN PROGRESS"
 
-WORK IN PROGRESS
+    This tutorial is a work in progress, let us know on [Slack](http://share.ez.no/get-involved/exchange#slack) or [Forums](http://share.ez.no/forums/suggestions) what Features you want to implement first after this Tutorial. Thank you!
 
-> This tutorial will evolve quickly, let us know on [Slack](http://share.ez.no/get-involved/exchange#slack), [Forums](http://share.ez.no/forums/suggestions) or even comments on this page what Features you want to implement first after this Tutorial. Thank you!
-
-**Tutorial path**
-
-
-# Part 3: Adding features
-
-Created by Sarah Haïm-Lubczanski, last modified on Nov 22, 2016
-
-**A sneak peek...**
-
-If you would like a sneak peak at our efforts, take a look at the [Beginner Tutorial Component in Jira](https://jira.ez.no/issues/?jql=component%20%3D%20%22Beginner%20Tutorial%22%20AND%20project%20%3D%20EZP).
-
-**We're constantly improving and extending this tutorial, and our process is open.**
-
-We're preparing a lot of training material on the Bike Ride theme for you for tutorials, developer training, and certification:
-
--   [Bike Ride Tutorial in JIRA](https://jira.ez.no/issues/?jql=component%20%3D%20%22BikeRide%2FTutorial%22%20AND%20project%20%3D%20EZP)
--   [Bike Ride Developer Training in JIRA](https://jira.ez.no/issues/?jql=component%20%3D%20%22BikeRide%2FDevTrain%22)
--   [Bike Ride Certification Course in JIRA](https://jira.ez.no/issues/?jql=component%20%3D%20%22BikeRide%2FCert%22)
-
-**Want to join in the fun ?**
-
-Read about how you can [Contribute to Documentation](Contribute-to-Documentation_31429594.html)!
-
-Questions ?
-
-If you have any questions, feel free to reach out to us or our [awesome community](http://share.ez.no/get-involved/exchange) for help!
-
- 
-
- 
-
- 
-
-TO BE CONTINUED
-
- 
+    If you would like a sneak peek at our efforts, take a look at the [Beginner Tutorial Component in Jira](https://jira.ez.no/issues/?jql=component%20%3D%20%22Beginner%20Tutorial%22%20AND%20project%20%3D%20EZP).
