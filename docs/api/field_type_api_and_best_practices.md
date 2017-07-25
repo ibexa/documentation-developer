@@ -1,10 +1,7 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [API](API_31429524.html)
+
 
 # Field Type API and best practices
 
-Created by Dominika Kurek, last modified by Michał Maciej Kusztelak on May 08, 2017
 
 # Field Type API & best practices
 
@@ -71,7 +68,7 @@ Otherwise the regular `{FieldType}->getName()` method is used.
 
 **Example from fieldtype\_services.yml**
 
-``` brush:
+``` yaml:
 # Nameable services (for fieldtypes that need advance name handling)
     ezpublish.fieldType.ezobjectrelation.nameable_field:
         class: %ezpublish.fieldType.ezobjectrelation.nameable_field.class%
@@ -149,7 +146,7 @@ This method is supposed to return the actual index data for the provided `eZ\Pub
 
 To be able to query data properly an indexable field type also is required to return search specification. You must return a hash map of `eZ\Publish\SPI\Persistence\Content\Search\FieldType` instances from this method, which could look like:
 
-``` brush:
+```
 array(
     'url'  => new Search\FieldType\StringField(),
     'text' => new Search\FieldType\StringField(),
@@ -224,7 +221,7 @@ If you want to configure the handling of your field, you can always add a specia
 
 You could also define a custom field definition dedicatedly for certain fields, like for the name field in an article:
 
-``` brush:
+```
 <field name="article/name/value_s" type="string" indexed="true" stored="true" required="false"/>
 ```
 
@@ -391,7 +388,7 @@ It is recommended to use a simple hash map format for the settings schema reture
 
 An example schema could look like this:
 
-``` brush:
+```
 array(
     'backupData' => array(
         'type' => 'bool',
@@ -418,7 +415,7 @@ The schema for validator configuration should have a similar format than the set
 
 For example, for the `ezstring` type, the validator schema could be:
 
-``` brush:
+```
 array(
     'stringLength' => array(
         'minStringLength' => array(
@@ -466,7 +463,7 @@ The integration tests with the Persistence SPI can be found in `eZ\Publish\SPI\T
 
 Running the test is fairly simple: Just specify the global `phpunit.xml` for PHPUnit configuration and make it execute a single test or a directory of tests, for example:
 
-``` brush:
+``` bash:
 $ phpunit -c phpunit.xml eZ/Publish/SPI/Tests/FieldType
 ```
 
@@ -482,50 +479,12 @@ Note that the In-Memory stubs for the Public API integration test suite, do not 
 
 If your Field Type needs to convert data between `storeFieldData()` and `getFieldData()`, you need to implement a `eZ\Publish\API\Repository\Tests\Stubs\PseudoExternalStorage` in addition, which performs this task. Running the tests against the Business Layer implementation of the Public API is not affected by this.
 
- 
-
-<!-- -->
-
- 
-
-#### In this topic:
-
--   [Field Type API & best practices](#FieldTypeAPIandbestpractices-FieldTypeAPI&bestpractices)
-    -   [Public API interaction](#FieldTypeAPIandbestpractices-PublicAPIinteraction)
-        -   [FieldDefinition handling](#FieldTypeAPIandbestpractices-FieldDefinitionhandling)
-        -   [Value handling](#FieldTypeAPIandbestpractices-Valuehandling)
-        -   [Storage conversion](#FieldTypeAPIandbestpractices-Storageconversion)
-    -   [Searching](#FieldTypeAPIandbestpractices-Searching)
-        -   [Search Field Values](#FieldTypeAPIandbestpractices-SearchFieldValues)
-        -   [Search Field Types](#FieldTypeAPIandbestpractices-SearchFieldTypes)
-        -   [Configuring Solr](#FieldTypeAPIandbestpractices-ConfiguringSolr)
-    -   [Storing external data](#FieldTypeAPIandbestpractices-Storingexternaldata)
-    -   [Legacy Storage conversion](#FieldTypeAPIandbestpractices-LegacyStorageconversion)
-        -   [Registering a converter](#FieldTypeAPIandbestpractices-Registeringaconverter)
-    -   [REST API interaction](#FieldTypeAPIandbestpractices-RESTAPIinteraction)
-        -   [Extension points](#FieldTypeAPIandbestpractices-Extensionpoints)
-    -   [Best practices](#FieldTypeAPIandbestpractices-Bestpractices)
-        -   [Gateway based Storage](#FieldTypeAPIandbestpractices-GatewaybasedStorage)
-        -   [Settings schema](#FieldTypeAPIandbestpractices-Settingsschema)
-        -   [Validator schema](#FieldTypeAPIandbestpractices-Validatorschema)
-    -   [Registering a Field Type](#FieldTypeAPIandbestpractices-RegisteringaFieldType)
-    -   [Templating](#FieldTypeAPIandbestpractices-Templating)
-    -   [Testing](#FieldTypeAPIandbestpractices-Testing)
-        -   [Persistence SPI](#FieldTypeAPIandbestpractices-PersistenceSPI)
-        -   [Public API](#FieldTypeAPIandbestpractices-PublicAPI)
-
-## Attachments:
-
-![](images/icons/bullet_blue.gif) [create\_content\_sequence.png](attachments/31430767/31430764.png) (image/png)
-![](images/icons/bullet_blue.gif) [create\_content\_sequence.svg](attachments/31430767/31430765.svg) (image/svg+xml)
-![](images/icons/bullet_blue.gif) [field\_type\_overview.png](attachments/31430767/31430766.png) (image/png)
 
 
-# Field Type template
+## Field Type template
 
-Created by Dominika Kurek, last modified by David Christian Liedle on May 04, 2017
 
-# Defining your Field Type template
+## Defining your Field Type template
 
 In order to be used by [`ez_render_field()` Twig helper](ez_render_field_32114041.html), you need to define a **template containing a block** dedicated to the Field display.
 
@@ -535,7 +494,7 @@ You will find examples with built-in Field Types in [EzPublishCoreBundle/Resourc
 
 **Template for a FieldType with "myfieldtype" identifier**
 
-``` brush:
+```
 {% block myfieldtype_field %}
 {# Your code here #}
 {% endblock %}
@@ -606,7 +565,7 @@ To make your template available, you must register it to the system.
 
 **app/config/ezplatform.yml**
 
-``` brush:
+``` yaml:
 ezpublish:
     system:
         my_siteaccess:
@@ -621,8 +580,6 @@ You can define these rules in a dedicated file instead of `app/config/ezplatform
 
 
 # Register Field Type
-
-Created by Dominika Kurek, last modified on Jul 06, 2017
 
 # Introduction
 
@@ -642,7 +599,7 @@ This part relates to the [base FieldType class that interacts with the Publish A
 
 Let's take a basic example from `ezstring` configuration.
 
-``` brush:
+```
 parameters:
     ezpublish.fieldType.ezstring.class: eZ\Publish\Core\FieldType\TextLine\Type
  
@@ -676,7 +633,7 @@ Those converters also need to be correctly exposed as services.
 
 **Field Type converter for ezstring**
 
-``` brush:
+```
 parameters:
     ezpublish.fieldType.ezstring.converter.class: eZ\Publish\Core\Persistence\Legacy\Content\FieldValue\Converter\TextLine
  
@@ -731,7 +688,7 @@ Here is an example for **ezurl** field type:
 
 **External storage handler for ezurl**
 
-``` brush:
+```
 parameters:
     ezpublish.fieldType.ezurl.externalStorage.class: eZ\Publish\Core\FieldType\Url\UrlStorage
  
@@ -752,7 +709,7 @@ As stated in the [Field Type best practices](Field-Type-API-and-best-practices_3
 
 **Storage gateway for ezurl**
 
-``` brush:
+```
 parameters:
     ezpublish.fieldType.ezurl.storage_gateway.class: eZ\Publish\Core\FieldType\Url\UrlStorage\Gateway\LegacyStorage
  
@@ -791,11 +748,10 @@ The gateway configuration for basic field types are located in [EzPublishCoreBun
 
 
 
-# Settings schema and allowed validators
+## Settings schema and allowed validators
 
-Created by Dominika Kurek, last modified on Apr 22, 2016
 
-# Internal Field Type conventions and best practices
+## Internal Field Type conventions and best practices
 
 FieldType-&gt;$settingsSchema and FieldType-&gt;$allowedValidators are intentionally left free-form, to give broadest freedom to Field Type developers. However, for internal Field Types (aka those delivered with eZ Platform), a common standard should be established as best practice. The purpose of this page is to collect and unify this standard.
 

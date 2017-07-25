@@ -1,10 +1,7 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [API](API_31429524.html)
+
 
 # JS Client
 
-Created by Dominika Kurek, last modified on Feb 16, 2017
 
 The JavaScript REST API Client is a JavaScript library meant to ease the use of the eZ Platform REST API. For now, it can only be used in a web browser.
 
@@ -13,7 +10,6 @@ See [Using the JavaScript REST API Client](Using-the-JavaScript-REST-API-Client_
 
 # Using the JavaScript REST API Client
 
-Created by Dominika Kurek, last modified on Oct 03, 2016
 
 The JavaScript REST API Client is a JavaScript library meant to ease the use of the eZ Platform REST API. For now, it can only be used in a web browser.
 
@@ -25,7 +21,7 @@ Since the JavaScript REST Client is one of the foundations of [the Platform Back
 
 **Embedding the JavaScript REST Client**
 
-``` brush:
+``` php:
 <script src="{{ asset('bundles/ezplatformuiassets/vendors/ez-js-rest-client/dist/CAPI.js') }}"></script>
 <!-- or the minified version -->
 <!-- <script src="{{ asset('bundles/ezplatformuiassets/vendors/ez-js-rest-client/dist/CAPI-min.js') }}"></script> -->
@@ -37,7 +33,7 @@ Alternatively, the JavaScript REST Client can be installed directly in any proje
 
 **Installing with bower**
 
-``` brush:
+``` php:
 $ bower install --save ezsystems/ez-js-rest-client
 ```
 
@@ -77,7 +73,7 @@ The Session Auth Agent expects an object describing the existing Session or cont
 
 **Session Authentication (new session)**
 
-``` brush:
+``` php:
 var capi,
     credentials = {
         login: 'admin',
@@ -103,7 +99,7 @@ If the user already has a session, the agent expects an object describing the se
 
 **Session Authentication (existing session)**
 
-``` brush:
+``` :
 var capi,
     sessionInfo = {
         name: 'eZSESSID', // name of the session, might also be something like eZSESSID98defd6ee70dfb1dea416cecdf391f58
@@ -131,7 +127,7 @@ When configured in the Basic Authentication, the basic auth agent just expects t
 
 **Basic Authentication**
 
-``` brush:
+``` php:
 var capi,
     credentials = {
         login: 'admin',
@@ -157,7 +153,7 @@ To load a ContentInfo, you need [the Content Service](http://ezsystems.github.io
 
 **Loading a ContentInfo**
 
-``` brush:
+``` php:
 var capi, contentService,
     contentRestId = '/api/ezp/v2/content/objects/1',
     credentials = {
@@ -188,7 +184,7 @@ To move a Location, [the Content Service](http://ezsystems.github.io/javascript-
 
 **Moving a Location**
 
-``` brush:
+``` php:
 var capi, contentService,
     locationRestId = '/api/ezp/v2/content/locations/1/43/53', // Media/Multimedia in a default install
     newParentLocationRestId = '/api/ezp/v2/content/locations/1/43/52', // Media/Files in a default install
@@ -217,7 +213,7 @@ Searching for Content or Location can be done with [REST views](https://github.c
 
 **REST views**
 
-``` brush:
+``` php:
 var capi, contentService, query,
     credentials = {
         login: 'admin',

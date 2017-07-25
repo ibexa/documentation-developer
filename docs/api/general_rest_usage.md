@@ -1,11 +1,7 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [API](API_31429524.html)
-4.  [REST API Guide](REST-API-Guide_31430286.html)
+
 
 # General REST usage
 
-Created by Dominika Kurek, last modified on Apr 22, 2016
 
 As explained in the [introduction](REST-API-Guide_31430286.html), the REST API is based on a very limited list of general principles:
 
@@ -25,7 +21,7 @@ The only requirement for this verb is usually the resource URI, and the accept h
 
 **Load ContentInfo request**
 
-``` brush:
+```
 GET /content/objects/23 HTTP/1.1
 Accept: application/vnd.ez.api.ContentInfo+xml
 ```
@@ -40,7 +36,7 @@ The API will reply with:
 
 **Load ContentInfo response**
 
-``` brush:
+```
 HTTP/1.1 200 OK
 Accept-Patch: application/vnd.ez.api.ContentUpdate+xml;charset=utf8
 Content-Type: application/vnd.ez.api.ContentInfo+xml
@@ -83,7 +79,7 @@ This request header is the request counterpart of the Location response header. 
 
 **Load ContentInfo response body**  Expand source
 
-``` brush:
+``` xml:
 <?xml version="1.0" encoding="UTF-8"?>
 <Content href="/content/objects/23" id="23"
   media-type="application/vnd.ez.api.Content+xml" remoteId="qwert123">
@@ -132,7 +128,7 @@ URI parameters are of course also used. They usually serve as filters / options 
 
 **GET request with limit parameter**
 
-``` brush:
+```
 GET /content/objects/59/versions/2/relations&limit=5 HTTP/1.1
 Accept: application/vnd.ez.api.RelationList+xml
 ```
@@ -147,7 +143,7 @@ In addition to the usual GET, POST, PUT and DELETE HTTP verbs, the API supports 
 
 **PATCH HTTP request**
 
-``` brush:
+```
 POST /content/objects/59 HTTP/1.1
 X-HTTP-Method-Override: PATCH
 ```
@@ -164,7 +160,7 @@ Due to this, we decided not to enable siteaccess matching with REST. In order to
 
 **X-Siteaccess header example**
 
-``` brush:
+```
 GET / HTTP/1.1
 Host: api.example.com
 Accept: application/vnd.ez.api.Root+json
@@ -173,19 +169,10 @@ X-Siteaccess: ezdemo_site_admin
 
  
 
-#### In this topic:
-
--   [Anatomy of a REST call](#GeneralRESTusage-AnatomyofaRESTcall)
-    -   [What we can learn from a GET request](#GeneralRESTusage-WhatwecanlearnfromaGETrequest)
--   [Request parameters](#GeneralRESTusage-Requestparameters)
--   [Custom HTTP verbs](#GeneralRESTusage-CustomHTTPverbs)
--   [Specifying a siteaccess](#GeneralRESTusage-Specifyingasiteaccess)
-
 
 
 # REST API Authentication
 
-Created by Dominika Kurek, last modified on Apr 22, 2016
 
 The REST API supports two authentication methods: session, and basic. 
 
@@ -214,7 +201,7 @@ To enable HTTP Basic authentication, you need to edit app`/config/security.yml`,
 
 **ezplatform.yml**
 
-``` brush:
+``` yaml:
         ezpublish_rest:
             pattern: ^/api/ezp/v2
             stateless: true
@@ -228,16 +215,14 @@ Most HTTP client libraries as well as REST libraries do support this method one 
 
 **Raw HTTP request with basic authentication**
 
-``` brush:
+```
 GET / HTTP/1.1
 Host: api.example.com
 Accept: application/vnd.ez.api.Root+json
 Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
 ```
 
-# Error handling
-
-Created by Dominika Kurek, last modified on Apr 22, 2016
+## Error handling
 
 Error handling in the REST API is fully based on HTTP error codes. As a web developer, you are probably familiar with the most common ones: 401 Unauthorized, 404 Not Found or 500 Internal Server Error. The REST API uses those, along with a few more, to allow proper error handling.
 
@@ -271,9 +256,8 @@ Returned when an accept header sent with the requested isn't supported.
 
 It is up to you, in your client implementation, to handle those codes by checking if an error code (4xx or 5xx) was returned instead of the expected 2xx or 3xx.
 
-# REST API Countries list
+## REST API Countries list
 
-Created by Dominika Kurek, last modified on Apr 22, 2016
 
 Countries list is a REST service that gives access to an [ISO-3166](http://en.wikipedia.org/wiki/ISO_3166) formatted list of world countries. It is useful when presenting a country options list from any application.
 
@@ -283,7 +267,7 @@ To send a GET request to the REST API Countries list, you have to provide the Co
 
 **Countries list request**
 
-``` brush:
+```
 Resource: /api/ezp/v2/services/countries
 Method: GET
 Content-Type: application/vnd.ez.api.CountriesList+xml
@@ -297,7 +281,7 @@ See the [General REST usage documentation page](General-REST-usage_31430291.html
 
 **Countries list request**
 
-``` brush:
+```
 GET /api/ezp/v2/services/countries
 Host: example.com
 Accept: application/vnd.ez.api.CountriesList+xml
@@ -309,7 +293,7 @@ The HTTP response will it be with a 200 OK Header.
 
 **Countries list response headers**
 
-``` brush:
+```
 HTTP/1.1 200
 Content-Type: application/vnd.ez.api.CountriesList+xml
 ```
@@ -327,7 +311,7 @@ See [the ISO-3166 glossary](http://www.iso.org/iso/home/standards/country_codes/
 
 **Body XML Response**
 
-``` brush:
+``` xml:
 <CountriesList>
   <Country id="AF">
     <name>Afghanistan</name

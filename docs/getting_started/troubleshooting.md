@@ -1,11 +1,8 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [Get Started with eZ Platform](Get-Started-with-eZ-Platform_31429520.html)
-4.  [Step 1: Installation](31429538.html)
 
-# Avoiding Problems 
 
-Created by Dominika Kurek, last modified by David Christian Liedle on Aug 18, 2016
+# Avoiding Problems
+
+
 
 WORK-IN-PROGRESS
 
@@ -28,9 +25,3 @@ For instance, if one of those Field definitions is configured to accept files up
 If you accepted all the defaults when doing a \`composer install\`, but realize you need to go back and change some of those options, look in \`app/config/parameters.yml\` – that's where they're stored.
 
  
-
-
-
-
-
-

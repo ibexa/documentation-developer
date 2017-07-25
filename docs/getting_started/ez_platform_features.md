@@ -1,11 +1,7 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [Get Started with eZ Platform](Get-Started-with-eZ-Platform_31429520.html)
-4.  [Step 2: Going Deeper](31429542.html)
+
 
 # eZ Platform Features
 
-Created by Dominika Kurek on Sep 23, 2016
 
 # Main eZ Platform Features
 
@@ -39,8 +35,6 @@ For a comprehensive discussion of all features, take a look at [the Guide to eZ 
 
 
 # eZ Platform Demo
-
-Created by Dominika Kurek, last modified on May 05, 2016
 
 When installing eZ Platform you have two distributions to choose from: you can select a clean installation which is empty and instantly ready for you to start working on your own website. Alternatively, you can choose to install a Demo, a sample website that lets you look around and get to know the system.
 
@@ -77,8 +71,6 @@ Demo and clean versions of eZ Platform are stored in separate repositories on Gi
 
 # Using Composer to Install the Demo
 
-Created by Dominika Kurek, last modified on Sep 05, 2016
-
 Besides a "clean" eZ Platform installation there is an option to install eZ Platform with demo content. Demo installation is prepared for the presentation of how eZ Platform works and handles the content using real life examples.
 
 Installation of eZ Platform Demo is very similar to a standard "clean" installation. Demo provides some previously prepared content and is stored in a separate github repository - you can find it [here.](https://github.com/ezsystems/ezplatform-demo)
@@ -87,7 +79,7 @@ Installation requires Composer global installation. You can find more informatio
 
 To perform eZ Platform demo installation use commands below in the terminal/bash/command-line interface. 
 
-``` brush:
+``` bash:
 composer create-project --no-dev --keep-vcs ezsystems/ezplatform-demo
 cd ezplatform-demo
   
@@ -101,8 +93,6 @@ It is not recommended to start your own project on demo installation.
 
 
 # Taking a look around
-
-Created by Dominika Kurek, last modified by Sarah Haïm-Lubczanski on May 17, 2016
 
 Once you have the Demo installed, take a look around it to familiarize yourself with the interface of eZ Platform.
 
@@ -128,15 +118,3 @@ The Admin Panel lets you manage the details of your installation, including buil
 ## Project structure
 
 You can also take a look at the way the project files are structured on the example of the Demo Bundle. See [Structuring an eZ Platform Project](https://doc.ez.no/pages/viewpage.action?pageId=31429687) for more information.
-
-#### Related topics:
-
-[eZ Platform Demo](eZ-Platform-Demo_31429540.html)
-
-[Content Model: Content is King!](31429709.html)
-
-[Get Started with eZ Enterprise](Get-Started-with-eZ-Enterprise_31429569.html)
-
-## Attachments:
-
-![](images/icons/bullet_blue.gif) [navigation\_hub.png](attachments/31429563/31430968.png) (image/png)

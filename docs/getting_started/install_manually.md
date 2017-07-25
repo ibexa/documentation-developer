@@ -1,11 +1,5 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [Get Started with eZ Platform](Get-Started-with-eZ-Platform_31429520.html)
-4.  [Step 1: Installation](31429538.html)
-
 # Manual Installation Guides
 
-Created by Michał Maciej Kusztelak, last modified by Dominika Kurek on Mar 28, 2017
 
 ### Introduction
 
@@ -30,12 +24,10 @@ Hi! You are about to install eZ Platform on your machine and this guide is here 
 
 # Installation Guide for OS X
 
-Created by Michał Maciej Kusztelak, last modified on Jun 22, 2016
 
 ## Preparation:
 
-###
-1. Install MySQL 
+### 1. Install MySQL 
 
 Download from the [official MySQL webpage](https://www.mysql.com/) is strongly recommended.
 
@@ -46,38 +38,38 @@ These files can be edited using a terminal editor like vi or nano, or a simple t
 
 a. Edit Apache2 configuration file:
 
-``` brush:
+``` bash:
 sudo vi /private/etc/apache2/httpd.conf
 ```
 
 b. Uncomment the following line:
 
-``` brush:
+``` bash:
 LoadModule php5_module libexec/apache2/libphp5.so
 ```
 
 c. If you can't locate the `php.ini` file on your machine, it's probably under `php.ini.default`. Create a new `php.ini` file based on defaults:
 
-``` brush:
+``` bash:
 sudo cp /private/etc/php.ini.default /private/etc/php.ini
 ```
 
 d. Open the file in a text editor (in this example, in vi):
 
-``` brush:
+``` bash:
 sudo vi /private/etc/php.ini
 ```
 
 e. Locate `date.timezone` and `pdo_mysql.default_socket` and provide them with values as in the example below:
 
-``` brush:
+``` bash:
 date.timezone = "Europe/Warsaw"
 pdo_mysql.default_socket = /tmp/mysql.sock
 ```
 
 f. Increase `memory_limit` value for eZ Platform:
 
-``` brush:
+``` bash:
 memory_limit = 4G
 ```
 
@@ -85,39 +77,39 @@ memory_limit = 4G
 
 a. Edit Apache2 configuration file:
 
-``` brush:
+``` bash:
 sudo vi /private/etc/apache2/httpd.conf
 ```
 
 b. Uncomment and modify the following lines:
 
-``` brush:
+``` bash:
 LoadModule vhost_alias_module libexec/apache2/mod_vhost_alias.so
 LoadModule rewrite_module libexec/apache2/mod_rewrite.so
 ```
 
 c. Comment the following line:
 
-``` brush:
+``` bash:
 Include /private/etc/apache2/extra/httpd-vhosts.conf
 ```
 
 d. Add the following line to the file:
 
-``` brush:
+``` bash:
 Include /private/etc/apache2/users/*.conf
 ```
 
 e. Change permissions for virtual hosts storage directory (775):
 
-``` brush:
+``` bash:
 sudo chmod -R 775 /private/etc/apache2/users
 sudo chmod 775 /private/etc/apache2
 ```
 
 ### 4. Start Apache2 daemon using terminal
 
-``` brush:
+``` bash:
 sudo apachectl start
 ```
 
@@ -125,7 +117,7 @@ sudo apachectl start
 
 Composer is a dependency manager that allows you to install packages directly in the project. It is also checking all packages' versions on a regular basis to make sure they are up-to-date and to avoid inconsistencies.
 
-``` brush:
+``` bash:
 curl -sS https://getcomposer.org/installer | php
 mkdir -p /usr/local/bin
 php -d memory_limit=-1 composer.phar
@@ -135,7 +127,7 @@ php -d memory_limit=-1 composer.phar
 
 Create new database (you can substitute `ez1` with the database name you want to use):
 
-``` brush:
+``` bash:
 /usr/local/mysql/bin/mysql -u root -e 'create database ez1;'
 ```
 
@@ -143,7 +135,7 @@ Create new database (you can substitute `ez1` with the database name you want t
 
 Brew is a package manager for OS X, if you haven't used it already you are going to love what it does!
 
-``` brush:
+``` bash:
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
@@ -151,7 +143,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 a. Install PEAR/PECL extension:
 
-``` brush:
+``` bash:
 cd /usr/lib/php
 curl -O https://pear.php.net/go-pear.phar
 php -d detect_unicode=0 go-pear.phar
@@ -164,13 +156,13 @@ sudo pear config-set auto_discover 1
 
 b. Install autoconf:
 
-``` brush:
+``` bash:
 brew install autoconf
 ```
 
 c. Install intl:
 
-``` brush:
+``` bash:
 brew install icu4c
 sudo pecl install intl
 ```
@@ -179,13 +171,13 @@ d. The path to the ICU libraries and headers is: `/usr/local/opt/icu4c/`.
 
 Edit `/private/etc/php.ini` and add following line:
 
-``` brush:
+``` bash:
 extension=intl.so
 ```
 
 e. Enable opcache extension for PHP (suggested, but not required) by adding:
 
-``` brush:
+``` bash:
 zend_extension=opcache.so
 ```
 
@@ -196,7 +188,7 @@ zend_extension=opcache.so
 
 a. Go to the folder with your installation and set up directory permissions:
 
-``` brush:
+``` bash:
 chmod 775 ../ez1.lh
 chmod 775 ../../workspace
 chmod 775 ../../../Documents
@@ -206,7 +198,7 @@ chmod 775 ../../../Documents
 
 b. Download archive from [share.ez.no/downloads](http://share.ez.no/downloads/downloads). Extract the eZ Platform archive to a directory, then execute post install scripts.
 
-``` brush:
+``` bash:
 cd /<directory>/
 php -d memory_limit=-1 composer.phar run-script post-install-cmd
 ```
@@ -215,29 +207,29 @@ php -d memory_limit=-1 composer.phar run-script post-install-cmd
 
 c. Copy the virtual host template:
 
-``` brush:
+``` bash:
 sudo cp doc/apache2/vhost.template /private/etc/apache2/users/ez1.lh.conf
 ```
 
 d. Edit the new virtual host:
 
-``` brush:
+``` bash:
 sudo vi /private/etc/apache2/users/ez1.lh.conf
 ```
 
-e. Modify virtual host file **vhost.template. **
+e. Modify virtual host file **vhost.template.**
 
 Replace the `---USER_ID---` variable (used in lines 10 and 17) with your current user ID. Use `whoami` command to get effective user ID of the currently logged user. If you want to use the default virtual host template (delivered with eZ Platform package) all you have to do is set up lines 7, 8, 9, 10, 17, 25 and 33:
 
 f. Restart Apache 2 server:
 
-``` brush:
+``` bash:
 sudo apachectl restart
 ```
 
 g. Install required dependencies using Composer:
 
-``` brush:
+``` bash:
 composer install
 ```
 
@@ -245,7 +237,7 @@ When Composer asks you for the token you must log in to your GitHub account and 
 
 h. Change directory permissions:
 
-``` brush:
+``` bash:
 rm -rf app/cache/* app/logs/*
 sudo chmod +a "_www allow delete,write,append,file_inherit,directory_inherit" app/{cache,logs,config} web
 sudo chmod +a "`whoami` allow delete,write,append,file_inherit,directory_inherit" app/{cache,logs,config} web
@@ -253,7 +245,7 @@ sudo chmod +a "`whoami` allow delete,write,append,file_inherit,directory_inherit
 
 i. Install eZ Platform:
 
-``` brush:
+``` bash:
 php app/console ezplatform:install clean
 ```
 
@@ -263,7 +255,7 @@ You will be able to see your page under <http://ez1.lh> (or the address you chos
 
 a. Install PHP 5.6 with opcache extension:
 
-``` brush:
+``` bash:
 brew install -v homebrew/php/php56
 chmod -R ug+w $(brew --prefix php56)/lib/php
 brew install -v php56-opcache
@@ -271,13 +263,13 @@ brew install -v php56-opcache
 
 b. Add proper `date.timezone` settings:
 
-``` brush:
+``` bash:
 sudo vi /usr/local/etc/php/5.6/php.ini
 ```
 
 c. Uncomment and modify:
 
-``` brush:
+``` bash:
 date.timezone = "Europe/Warsaw"
 (…)
 Increase memory_limit value for eZ Platform:
@@ -287,37 +279,37 @@ memory_limit = 4G
 
 d. Disable errors showing:
 
-``` brush:
+``` bash:
 display_errors = Off
 ```
 
 e. Change default PHP parser used by Apache:
 
-``` brush:
+``` bash:
 sudo vi /private/etc/apache2/httpd.conf
 ```
 
 f. Find and comment the following line:
 
-``` brush:
+``` bash:
 # LoadModule php5_module libexec/apache2/libphp5.so
 ```
 
 g. Add below:
 
-``` brush:
+``` bash:
 LoadModule php5_module /usr/local/opt/php56/libexec/apache2/libphp5.so
 ```
 
 e. Install intl extension for PHP 5.6:
 
-``` brush:
+``` bash:
 brew install php56-intl
 ```
 
 f. Restart Apache:
 
-``` brush:
+``` bash:
 sudo apachectl restart
 ```
 
@@ -326,7 +318,6 @@ sudo apachectl restart
 
 # Installation Guide for Unix-Based Systems
 
-Created by Michał Maciej Kusztelak, last modified by Sarah Haïm-Lubczanski on Sep 06, 2016
 
 ## 1. Install a LAMP Stack (\*NIX, Apache, MySQL, PHP5+)
 
@@ -348,13 +339,13 @@ You'll need Composer, the PHP command line dependency manager.
 
 a. Install Composer by running the following command on the terminal of the machine upon which you're installing eZ Platform:
 
-``` brush:
+``` bash:
 php -r "readfile('https://getcomposer.org/installer');" | php
 ```
 
 b. Move the downloaded composer.phar file to a globally-available path:
 
-``` brush:
+``` bash:
 mv composer.phar /usr/local/bin/composer
 ```
 
@@ -367,7 +358,7 @@ Expand the archive into `/var/www/ezplatform` or the folder name or your choosin
 
 For developers interested in working with the latest version of eZ Platform, you may also clone the latest from our GitHub repository:
 
-``` brush:
+``` bash:
 cd /var/www
 git clone https://github.com/ezsystems/ezplatform.git /var/www/ezplatform
 ```
@@ -378,7 +369,7 @@ You can rename the destination folder to whatever you like. This is where eZ Pla
 
 Create new database (you can substitute `ezplatform` with the database name you want to use, but keep it in mind as you run the installation script):
 
-``` brush:
+``` bash:
 /usr/bin/mysql -u root -e 'create database ezplatform;'
 ```
 
@@ -390,7 +381,7 @@ This is the step where you want to make sure you have [swap configured for your 
 
 ### a. Run composer install:
 
-``` brush:
+``` bash:
 cd /var/www/ezplatform
 php -d memory_limit=-1 /usr/local/bin/composer install
 ```
@@ -401,7 +392,7 @@ Next, you'll be asked to specify a database driver. You may press return to acce
 
 ### b. Run eZ Platform's installer:
 
-``` brush:
+``` bash:
 php -d memory_limit=-1 /var/www/ezplatform/app/console ezplatform:install --env prod clean
 ```
 
@@ -431,13 +422,13 @@ Instead of manually editing the vhost.template file, you may instead [use the i
 
 a. Copy the vhost template file from its home in the doc folder:
 
-``` brush:
+``` bash:
 cp /var/www/ezplatform/doc/apache2/vhost.template /etc/apache2/sites-available/ezplatform.conf
 ```
 
 b. Edit the file, substituting the %placeholders% with the appropriate values for your desired config:
 
-``` brush:
+``` bash:
 vi /etc/apache2/sites-available/ezplatform.conf
 ```
 
@@ -453,7 +444,7 @@ For a DEV environment, you can change
 
 Be sure to specify `/var/www/ezplatform/web` as the `DocumentRoot` and `Directory`. Uncomment the line that starts with \#if\[SYMFONY\_ENV\] and set the value, something like this:
 
-``` brush:
+``` bash:
 # Environment.
 # Possible values: "prod" and "dev" out-of-the-box, other values possible with proper configuration
 # Defaults to "prod" if omitted (uses SetEnvIf so value can be used in rewrite rules)
@@ -464,27 +455,27 @@ SetEnvIf Request_URI ".*" SYMFONY_ENV=dev
 
 Make sure you've got the `libapache2-mod-php5` module installed for Apache2 to use PHP5.x, and have the rewrite module enabled:
 
-``` brush:
+``` bash:
 apt-get -y install libapache2-mod-php5
 a2enmod rewrite
 ```
 
 a. You'll need the web user set as the owner/group on all your files to avoid a 500 error:
 
-``` brush:
+``` bash:
 chown -R www-data:www-data /var/www/ezplatform
 ```
 
 b. With your vhost file properly prepared and located in /etc/apache2/sites-available/ezplatform.conf, enable the VirtualHost and disable the default:
 
-``` brush:
+``` bash:
 a2ensite ezplatform
 a2dissite 000-default.conf
 ```
 
 ## 9. Restart server (Apache)
 
-``` brush:
+``` bash:
 service apache2 restart
 ```
 
@@ -495,13 +486,13 @@ Created by Sarah Haïm-Lubczanski, last modified on Sep 06, 2016
 For security reasons, there is no need for web server to have access to write to other directories.
 
 ## Set the owner and clean directories*
-*
+
 
 First, change `www-data` to your web server user.
 
 ### Clean the cache/ and logs/ directories
 
-``` brush:
+``` bash:
 $ rm -rf app/cache/* app/logs/*
 ```
 
@@ -511,7 +502,7 @@ $ rm -rf app/cache/* app/logs/*
 
 **Using ACL on a Linux/BSD system that supports chmod +a**
 
-``` brush:
+``` bash:
 $ sudo chmod +a "www-data allow delete,write,append,file_inherit,directory_inherit" \
   app/cache app/logs web
 $ sudo chmod +a "`whoami` allow delete,write,append,file_inherit,directory_inherit" \
@@ -524,7 +515,7 @@ Some systems don't support chmod +a, but do support another utility called setfa
 
 **Using ACL on a Linux/BSD system that does not support chmod +a**
 
-``` brush:
+``` bash:
 $ sudo setfacl -R -m u:www-data:rwx -m u:`whoami`:rwx \
   app/cache app/logs web
 $ sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx \
@@ -537,7 +528,7 @@ Some systems don't support ACL at all. You will need to set your web server's us
 
 **Using chown on Linux/BSD/OS X systems that don't support ACL**
 
-``` brush:
+``` bash:
 $ sudo chown -R www-data:www-data app/cache app/logs web
 $ sudo find {app/{cache,logs},web} -type d | xargs sudo chmod -R 775
 $ sudo find {app/{cache,logs},web} -type f | xargs sudo chmod -R 664
@@ -550,7 +541,7 @@ If you can't use ACL and aren't allowed to change owner, you can use chmod, maki
 
 **Using chmod on a Linux/BSD/OS X system where you can't change owner**
 
-``` brush:
+``` bash:
 $ sudo find {app/{cache,logs},web} -type d | xargs sudo chmod -R 777
 $ sudo find {app/{cache,logs},web} -type f | xargs sudo chmod -R 666
 ```
@@ -561,7 +552,7 @@ It may also possible to add the group ownership inheritance flag so new files in
 
 **It may also possible to add the group ownership inheritance flag**
 
-``` brush:
+``` bash:
 $ sudo chmod g+s {app/{cache,logs},web}
 ```
 
@@ -587,7 +578,7 @@ Via the command line, you can set up and enable swap on your Debian machine via 
 
 **Set up Swap**
 
-``` brush:
+``` bash:
 fallocate -l 4G /swapfile
 chmod 600 /swapfile
 mkswap /swapfile
@@ -605,7 +596,7 @@ You should see the changes effected immediately, and can check via the command l
 
 **Test the Result**
 
-``` brush:
+``` bash:
 # You should see swap in use now:
 free -m
 
@@ -619,41 +610,40 @@ cat /proc/sys/vm/vfs_cache_pressure
 
 # Manual Installation on Windows
 
-Created by Michał Maciej Kusztelak, last modified on Jul 05, 2016
 
 ## Preparation:
 
 ### 1. Set up PHP
 
 This step requires the modification of two files: Apache2 configuration file and `php.ini`.
-These files can be edited using a terminal editor like vi or nano, or a simple text editor. file name is **httpd.conf **and by default it is located in this directory:
+These files can be edited using a terminal editor like vi or nano, or a simple text editor. file name is **httpd.conf** and by default it is located in this directory:
 
-``` brush:
+``` bash:
 C:\Program Files\Apache Software Foundation\Apache2.2\conf
 ```
 
 a. Uncomment the following line:
 
-``` brush:
+``` bash:
 LoadModule php5_module libexec/apache2/libphp5.so
 ```
 
 b. Locate php.ini file. By default it should be in the following directory:
 
-``` brush:
+``` bash:
 C:\program files\php\php.ini
 ```
 
 c. Open the file in a text editor and locate `date.timezone` and `pdo_mysql.default_socket` and provide them with values as in the example below:
 
-``` brush:
+``` bash:
 date.timezone = "Europe/Warsaw"
 pdo_mysql.default_socket = /tmp/mysql.sock
 ```
 
 d. Increase `memory_limit` value for eZ Platform:
 
-``` brush:
+``` bash:
 memory_limit = 4G
 ```
 
@@ -661,26 +651,26 @@ memory_limit = 4G
 
 a. Edit Apache2 configuration file:
 
-``` brush:
+``` bash:
 c:\Program Files\Apache Software Foundation\Apache2.2\conf
 ```
 
 b. Uncomment and modify the following lines:
 
-``` brush:
+``` bash:
 LoadModule vhost_alias_module libexec/apache2/mod_vhost_alias.so
 LoadModule rewrite_module libexec/apache2/mod_rewrite.so
 ```
 
 c. Comment the following line:
 
-``` brush:
+``` bash:
 Include /private/etc/apache2/extra/httpd-vhosts.conf
 ```
 
 d. Add the following line to the file:
 
-``` brush:
+``` bash:
 Include /private/etc/apache2/users/*.conf
 ```
 
@@ -688,7 +678,7 @@ Include /private/etc/apache2/users/*.conf
 
 ### 3. Start Apache2 daemon using Command Line
 
-``` brush:
+``` bash:
 httpd.exe
 ```
 
@@ -696,7 +686,7 @@ httpd.exe
 
 Composer is a dependency manager that allows you to install packages directly in the project. It is also checking all packages' versions on a regular basis to make sure they are up-to-date and to avoid inconsistencies.
 
-``` brush:
+``` bash:
 curl -sS https://getcomposer.org/installer | php
 php -d memory_limit=-1 composer.phar
 ```
@@ -705,7 +695,7 @@ php -d memory_limit=-1 composer.phar
 
 Create new database (you can substitute `ez1` with the database name you want to use):
 
-``` brush:
+``` bash:
 mysql -uroot -ppassword -e "CREATE DATABASE ez1"
 ```
 
@@ -713,7 +703,7 @@ mysql -uroot -ppassword -e "CREATE DATABASE ez1"
 
 a. Install PEAR/PECL extension:
 
-``` brush:
+``` bash:
 cd c:\program files\php\php.ini
 curl -O https://pear.php.net/go-pear.phar
 php -d detect_unicode=0 go-pear.phar
@@ -726,24 +716,23 @@ pear config-set auto_discover 1
 
 b. Edit `php.ini` and add following line:
 
-``` brush:
+``` bash:
 extension=intl.so
 ```
 
 c. Enable opcache extension for PHP (suggested, but not required) by adding:
 
-``` brush:
+``` bash:
 zend_extension=opcache.so
 ```
 
 ## Installation:
 
-###
-7. Install eZ Platform
+### 7. Install eZ Platform
 
 a. Download archive from [share.ez.no/downloads](http://share.ez.no/downloads/downloads). Extract the eZ Platform archive to a directory, then execute post install scripts.
 
-``` brush:
+``` bash:
 cd /<directory>/
 php -d memory_limit=-1 composer.phar run-script post-install-cmd
 ```
@@ -752,23 +741,23 @@ php -d memory_limit=-1 composer.phar run-script post-install-cmd
 
 b. Copy the virtual host template:
 
-``` brush:
+``` bash:
 COPY c:\Program Files\Apache Software Foundation\Apache2.2\vhost.template c:\Program Files\Apache Software Foundation\Apache2.2\users/ez1.lh.conf
 ```
 
-d. Modify virtual host file **vhost.template. **
+d. Modify virtual host file **vhost.template.**
 
 Replace the `---USER_ID---` variable (used in lines 10 and 17) with your current user ID. Use `whoami` command to get effective user ID of the currently logged user. If you want to use the default virtual host template (delivered with eZ Platform package) all you have to do is set up lines 7, 8, 9, 10, 17, 25 and 33:
 
 e. Restart Apache 2 server:
 
-``` brush:
+``` bash:
 httpd.exe -k restart
 ```
 
 f. Install required dependencies using Composer:
 
-``` brush:
+``` bash:
 composer install
 ```
 
@@ -776,7 +765,7 @@ When Composer asks you for the token you must log in to your GitHub account and 
 
 h. Install eZ Platform:
 
-``` brush:
+``` bash:
 php app/console ezplatform:install clean
 ```
 
