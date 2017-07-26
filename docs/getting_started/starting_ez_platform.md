@@ -6,15 +6,11 @@
 
 Once you have your eZ Platform installed, all you need to do to start it is to run your Apache server. Then you can access your eZ Platform's front and back office. To access the UI backend, add `/ez` to your installation URL.
 
-When it comes to the server, you can use the following options:
-
--   [Web Server](Web-Server_31429554.html)
--   [PHP's built-in server](31429556.html)
 
  
-### Web Server
+## Web Server
 
-### Configuration files
+## Configuration files
 
 You can find configuration files in the `doc/` directory of the software, for the following web server engines:
 
@@ -34,7 +30,7 @@ For help text, execute: `./bin/vhost.sh -h`
 
  
 
-``` bash:
+``` bash
 ./bin/vhost.sh [-h|--help]
 ```
 
@@ -42,7 +38,7 @@ For help text, execute: `./bin/vhost.sh -h`
 
 ### Usage
 
-``` bash:
+``` bash
 $> ./bin/vhost.sh --basedir=/var/www/ezplatform \\
 
   --template-file=doc/apache2/vhost.template \\
@@ -92,7 +88,7 @@ The following example will start the webserver on <http://127.0.0.1:8000> on y
 
 **Debug example**
 
-``` bash:
+``` bash
 php app/console server:run
 ```
 
@@ -100,7 +96,7 @@ The following example will start the webserver on [http://localhost:8000](http:
 
 **Testing/Demo example**
 
-``` bash:
+``` bash
 php app/console server:run --env=prod localhost:8000
 ```
 
@@ -112,7 +108,7 @@ As with any Symfony command, you may execute the command with a `-h` flag to get
 
 **Help info example**
 
-``` bash:
+``` bash
 php app/console server:run -h
 ```
 
@@ -139,6 +135,6 @@ password: publish
 
 A clean installation of eZ Platform is empty, so you only get a single page with a rudimentary content model. This is a blank canvas for you to create and customize your own structure.
 
-If you'd like to take a look at an example of using the system to construct a fully functional page, you can also [install eZ Platform with the Demo Bundle](eZ-Platform-Demo_31429540.html).
+If you'd like to take a look at an example of using the system to construct a fully functional page, you can also [install eZ Platform with the Demo Bundle](../getting_started/install_ez_platform.md).
 
  

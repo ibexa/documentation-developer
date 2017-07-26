@@ -19,7 +19,7 @@ Composer is a command-line tool, so the main way to install it is via command li
 
 **Composer download in current folder:**
 
-``` bash:
+``` bash
 php -r "readfile('https://getcomposer.org/installer');" | php
 ```
 
@@ -58,13 +58,13 @@ Composer will ask to do this for you on updates, however if it is disabled, you 
 
 * Option A: Store your credentials in the project directory:
 
-``` bash:
+``` bash
 composer config http-basic.updates.ez.no <installation-key> <token-password>
 ```
 
 * Option B: If you'd rather want to install it globally in [COMPOSER\_HOME](https://getcomposer.org/doc/03-cli.md#composer-home) directory for machine-wide use:
 
-``` bash:
+``` bash
 composer config --global http-basic.updates.ez.no <installation-key> <token-password>
 ```
 
@@ -78,7 +78,7 @@ Updating eZ software via Composer is nothing different then [updating other pro
 
 **composer update**
 
-``` bash:
+``` bash
 php -d memory_limit=-1 composer.phar update --no-dev --prefer-dist
 ```
 
@@ -90,7 +90,7 @@ At this stage you might need to manually clear Symfony's `prod` environment clas
 
 **Optional prod class cache clearing**
 
-``` bash:
+``` bash
 rm -f app/cache/prod/*.php
 ```
 
@@ -108,7 +108,7 @@ Installing eZ software packages via Composer is nothing different then [instal
 
 **composer install (package installation)**
 
-``` bash:
+``` bash
 php -d memory_limit=-1 composer.phar install --no-dev --prefer-dist
 ```
 
@@ -124,7 +124,7 @@ Requiring eZ software packages via Composer is also done in same way as [requ
 
 **composer install (package installation)**
 
-``` bash:
+``` bash
 php -d memory_limit=-1 composer.phar require --prefer-dist ezcommunity/ez-price-bundle:~1.0.0@beta
 ```
 
@@ -189,7 +189,7 @@ Increase the verbosity of messages: 1 for normal output, 2 for more verbose outp
 
 #### Usage:
 
-``` bash:
+``` bash
 php -d memory_limit=-1 composer.phar <command> --verbose (-v|vv|vvv)
 ```
 
@@ -201,7 +201,7 @@ The `install` command reads the composer.lock file from the current directory, p
 
 ### Usage
 
-``` bash:
+``` bash
 php -d memory_limit=-1 composer.phar install --dry-run --prefer-dist
 ```
 
@@ -209,7 +209,7 @@ In this example the `dry-run` option is mentioned to prevent you from doing anyt
 
 ### Documentation with complete usage:
 
-``` bash:
+``` bash
 php -d memory_limit=-1 composer.phar install [--prefer-source] [--prefer-dist] [--dry-run] [--dev] [--no-dev] [--no-plugins] [--no-custom-installers] [--no-scripts] [--no-progress] [-v|vv|vvv|--verbose] [-o|--optimize-autoloader] [packages1] ... [packagesN]
 ```
 
@@ -221,13 +221,13 @@ php -d memory_limit=-1 composer.phar install [--prefer-source] [--prefer-dist] [
 
 To limit the update operation to a few packages, you can list the package(s) you want to update as such:
 
-``` bash:
+``` bash
 php -d memory_limit=-1 composer.phar update vendor/package1 foo/mypackage
 ```
 
  You may also use an asterisk (\*) pattern to limit the update operation to package(s) from a specific vendor:
 
-``` bash:
+``` bash
 php -d memory_limit=-1 composer.phar update vendor/package1 foo/*
 ```
 
@@ -268,7 +268,7 @@ The `show` command displays detailed information about a package, or lists all a
 
 ### Usage:
 
-``` bash:
+``` bash
  php composer.phar show [-i|--installed] [-p|--platform] [-a|--available] [-s|--self] [-N|--name-only] [-P|--path] [package] [version]
 ```
 
@@ -278,7 +278,7 @@ The `require` command adds required packages to your composer.json and installs 
 
 ### Usage:
 
-``` bash:
+``` bash
 php composer.phar require [--dev] [--prefer-source] [--prefer-dist] [--no-progress] [--no-update] [--update-no-dev] [--update-with-dependencies] [packages1] ... [packagesN]
 ```
 
@@ -299,13 +299,13 @@ The `search` command searches for packages by its name.
 
 ### Example :
 
-``` bash:
+``` bash
 $> php composer.phar search symfony composer
 ```
 
  can return to you a list like this:
 
-``` bash:
+``` bash
 symfony/assetic-bundle Integrates Assetic into Symfony2
 symfony/monolog-bundle Symfony MonologBundle
 ezsystems/ngsymfonytools-bundle Bundle of the legacy netgen/ngsymfonytools extension
@@ -343,7 +343,7 @@ The `validate` command validates a given composer.json.
 
 ###  Usage
 
-``` bash:
+``` bash
  $> php composer.phar validate [--no-check-all] [file]
 ```
 

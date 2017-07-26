@@ -6,17 +6,17 @@
 
 If you don't have it already, install Composer, the command-line package manager for PHP. You'll have to have a copy of Git installed on your machine. The following command uses PHP to download and run the Composer installer, and should be entered on your terminal and executed by pressing Return or Enter:
 
-``` bash:
+``` bash
 php -r "readfile('https://getcomposer.org/installer');" | php
 ```
 
-For further information about Composer usage see [Using Composer](Using-Composer_31431588.html) .
+For further information about Composer usage see [Using Composer](../getting_started/about_composer.md) .
 
 ## eZ Platform Installation
 
 The commands below assume you have Composer installed globally, a copy of git on your system, and your **MySQL/MariaDB server *already set up* with a database**. Once you've got all the required PHP extensions installed, you can get eZ Platform up and running with the following commands:
 
-``` bash:
+``` bash
 composer create-project --no-dev --keep-vcs ezsystems/ezplatform ezplatform
 cd ezplatform
 
@@ -32,11 +32,11 @@ For more information about the availables options with Composer commands, see[th
 
 ### Installing another distribution
 
-eZ Platform exists in several distributions, listed in [Step 1: Installation](31429538.html), some with their own installer as shown in the example below. To install the Enterprise Edition you need an eZ Enterprise subscription and have to [set up Composer for that](Using-Composer_31431588.html).
+eZ Platform exists in several distributions, listed in [Step 1: Installation](../guide/install_ez_platform.md), some with their own installer as shown in the example below. To install the Enterprise Edition you need an eZ Enterprise subscription and have to [set up Composer for that](../getting_started/about_composer.md).
 
 **eZ Platform Enterprise Edition**
 
-``` bash:
+``` bash
 composer create-project --no-dev --keep-vcs ezsystems/ezplatform-ee
 cd ezplatform-ee
 
@@ -78,16 +78,13 @@ What was described above concerns stable releases, however [Composer lets you sp
 
 Example:
 
-``` bash:
+``` bash
 composer create-project --no-dev --keep-vcs ezsystems/ezplatform-demo ezplatform @beta
 cd ezplatform
 
 php app/console ezplatform:install demo
 ```
 
-#### Related:
 
--   [Installation Guide for OS X](Installation-Guide-for-OS-X_31431738.html)
--   [Installation Guide for Unix-Based Systems](Installation-Guide-for-Unix-Based-Systems_31431755.html)
 
  

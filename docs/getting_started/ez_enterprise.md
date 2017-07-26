@@ -12,7 +12,7 @@ From the developer's point of view, working with eZ Enterprise is not much diffe
 ### eZ Enterprise Features
 
 
-## ![](docs/getting_started/img/Landing_Page.png)Landing Pages
+## ![](docs/getting_started/img/Landing_page.png)Landing Pages
 
 eZ Enterprise's Studio UI lets you create block-based Landing Pages using drag-and-drop. This makes building them easy for editors even with no web design experience or HTML knowledge, using prebuilt elements such as headers, banners, image galleries, content lists, tags and more. At the same time, developers can customize Landing Pages by creating adaptable layouts and offering their own custom blocks to be placed in them.
 

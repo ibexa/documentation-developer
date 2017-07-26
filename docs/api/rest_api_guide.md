@@ -59,8 +59,9 @@ Responses returned by the API will also use custom headers to indicate informati
 
 ## Installation
 
-No special preparations are necessary to use the REST API. As long as your eZ Platform is correctly configured, the REST API is available on your site using the URI `/api/ezp/v2/`. If you have installed eZ Platform in a subfolder, prepend the path with this subfolder: http://example.com/**su****b/folder/ezpublish**/api/ezp/v2/.
+No special preparations are necessary to use the REST API. As long as your eZ Platform is correctly configured, the REST API is available on your site using the URI `/api/ezp/v2/`. If you have installed eZ Platform in a subfolder, prepend the path with this subfolder: http://example.com/**sub/folder/ezpublish**/api/ezp/v2/.
 
+!!! note
 Please note that the `/api/ezp/v2` prefix will be used in all REST hrefs, but not in URIs.
 
 ## Configuration
@@ -73,7 +74,7 @@ To enable basic auth based authentication, you need to edit `app/config/security
 
 **security.yml**
 
-```yaml:
+```yaml
 security:
     # ...
     firewalls:
@@ -96,7 +97,7 @@ One of the main reasons for this API is to help implement JavaScript / AJAX inte
 
 **REST API with JavaScript**
 
-```javascript:
+```javascript
 <pre id="rest-output"></pre>
 <script>
 var resource = '/api/ezp/v2/content/objects/59',

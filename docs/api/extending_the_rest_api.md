@@ -24,7 +24,7 @@ Let's create a very simple controller, that has a `sayHello()` method, that take
 
 **My/Bundle/RestBundle/Rest/Controller/DefaultController.php**
 
-``` php:
+``` php
 namespace My\Bundle\RestBundle\Rest\Controller;
  
 use eZ\Publish\Core\REST\Server\Controller as BaseController;
@@ -44,7 +44,7 @@ As said earlier, your REST routes are required to use the REST URI prefix. To do
 
 **app/config/routing.yml**
 
-``` yaml:
+```
 myRestBundle_rest_routes:
     resource: "@MyRestBundle/Resources/config/routing_rest.yml"
     prefix:   %ezpublish_rest.path_prefix%
@@ -56,7 +56,7 @@ Next, you need to create the REST route. We need to define the route's [controll
 
 **My/Bundle/RestBundle/Resources/config/routing\_rest.yml**
 
-``` yaml:
+``` yaml
 myRestBundle_hello_world:
     pattern: /my_rest_bundle/hello/{name}
     defaults:
@@ -74,7 +74,7 @@ Let's say that our Controller will return a `My\Bundle\RestBundle\Rest\Values\He
 
 **My/Bundle/RestBundle/Rest/Values/Hello.php**
 
-``` php:
+``` php
 namespace My\Bundle\RestBundle\Rest\Values;
  
 class Hello
@@ -92,7 +92,7 @@ We will return an instance of this class from our `sayHello()` controller method
 
 **My/Bundle/RestBundle/Rest/Controller/DefaultController.php**
 
-``` php:
+``` php
 namespace My\Bundle\RestBundle\Controller;
 
 use eZ\Publish\Core\REST\Server\Controller as BaseController;
@@ -117,7 +117,7 @@ Let's create the service for our ValueObjectVisitor first.
 
 **My/Bundle/RestBundle/Resources/config/services.yml**
 
-``` yaml:
+``` yaml
 services:
     myRestBundle.value_object_visitor.hello:
         parent: ezpublish_rest.output.value_object_visitor.base
@@ -135,7 +135,7 @@ It will receive as arguments:
 
 **My/Bundle/RestBundle/Rest/Controller/Default.php**
 
-``` php:
+``` php
 namespace My\Bundle\RestBundle\Rest\ValueObjectVisitor;
 
 use eZ\Publish\Core\REST\Common\Output\ValueObjectVisitor;
@@ -176,7 +176,7 @@ Let's see what it would look like with a Content-Type of application/vnd.my.Gree
 
 **application/vnd.my.Greetings+xml**
 
-``` xml:
+``` xml
 <?xml version="1.0" encoding="utf-8"?>
 <Greetings>
     <name>John doe</name>
@@ -187,7 +187,7 @@ First, we need to create a service with the appropriate tag in services.yml.
 
 **My/Bundle/RestBundle/Resources/config/services.yml**
 
-``` yaml:
+``` yaml
 services:
     myRestBundle.input_parser.Greetings:
         parent: ezpublish_rest.input.parser
@@ -204,7 +204,7 @@ For convenience, we will consider that our input parser returns an instance of o
 
 **My/Bundle/RestBundle/Rest/InputParser/Greetings.php**
 
-``` php:
+``` php
 namespace My\Bundle\RestBundle\Rest\InputParser;
  
 use eZ\Publish\Core\REST\Common\Input\BaseParser;
@@ -232,7 +232,7 @@ class Greetings extends BaseParser
 
 **My/Bundle/RestBundle/Resources/config/services.yml**
 
-``` yaml:
+``` yaml
 services:
     myRestBundle.controller.default:
         class: My\Bundle\RestBundle\Rest\Controller\Default

@@ -3,7 +3,7 @@
 # General REST usage
 
 
-As explained in the [introduction](REST-API-Guide_31430286.html), the REST API is based on a very limited list of general principles:
+As explained in the [introduction](../api/rest_api_guide.md), the REST API is based on a very limited list of general principles:
 
 -   each resource (uri) interacts with a part of the system (Content, URL aliases, User Groups, etc.),
 -   for each resource, one or more verbs are available, each having a different effect (delete a Content item, get a URL Alias, list user groups, etc.),
@@ -11,11 +11,11 @@ As explained in the [introduction](REST-API-Guide_31430286.html), the REST API i
 
 ## Anatomy of a REST call
 
-### What we can learn from a GET request
+## What we can learn from a GET request
 
 This verb is used to query the API for information. It is one of the two operations web browsers implement, and the one most commonly used.
 
-#### Request
+## Request
 
 The only requirement for this verb is usually the resource URI, and the accept header. On top of that, cache request headers can be added, like `If-None-Match`, but those aren't fully implemented yet in eZ Publish 5.0.
 
@@ -45,17 +45,17 @@ Content-Length: xxx
 
 The length of our content, provided by the Content-Length header, isn't *that* useful.
 
-##### HTTP Code
+## HTTP Code
 
 The API responded here with a standard 200 OK HTTP response code, which is the expected response code for a "normal" GET request. Some GET requests, like [getting a Content item's current version](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#13241%C2%A0%C2%A0%C2%A0get-current-version), may reply with a 301 Moved permanently, or 307 Temporary redirect code.
 
 Errors will be indicated with HTTP error codes, like 404 for Not Found, or 500 for Internal server error. The [REST specifications](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst) provide the list of every HTTP response code you can expect from implemented resources.
 
-##### Content-Type header
+## Content-Type header
 
 As long as a response contains an actual HTTP body, the Content-Type header will be used to specify which Content-Type is contained in the response. In that case, a ContentInfo (`Content-Type: application/vnd.ez.api.ContentInfo`) in XML (`Content-Type: application/vnd.ez.api.ContentInfo+xml`)
 
-##### Accept-Patch header
+## Accept-Patch header
 
 This is a very interesting one.
 
@@ -65,21 +65,21 @@ This last part means that if we send a PATCH /content/objects/23 request with a 
 
 REST will use the `Accept-Patch` header to indicate how to **modify** the returned **data**.
 
-##### Other headers: Location
+## Other headers: Location
 
 Depending on the resource, request & response headers will vary. For instance, [creating content](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#13231%C2%A0%C2%A0%C2%A0creating-content), or [getting a Content item's current version](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#13241%C2%A0%C2%A0%C2%A0get-current-version) will both send a `Location` header to provide you with the requested resource's ID.
 
 Those particular headers generally match a specific list of HTTP response codes. Location is sent by `201 Created`, `301 Moved permanently,` `307 Temporary redirect responses`. This list isn't finished, but you can expect those HTTP responses to provide you with a Location header.
 
-##### Other headers: Destination
+## Other headers: Destination
 
 This request header is the request counterpart of the Location response header. It is used in a COPY / MOVE operation, like [copying a Content item](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#13236%C2%A0%C2%A0%C2%A0copy-content), on a resource to indicate where the resource should be moved to, using the ID of the destination.
 
-#### Response body
+## Response body
 
 **Load ContentInfo response body**  Expand source
 
-``` xml:
+``` xml
 <?xml version="1.0" encoding="UTF-8"?>
 <Content href="/content/objects/23" id="23"
   media-type="application/vnd.ez.api.Content+xml" remoteId="qwert123">
@@ -105,7 +105,7 @@ As explained above, the API has told us that we could modify content object 23 b
 
 The REST API data structs mostly match a PHP Public API value object
 
-#### Value objects representation
+## Value objects representation
 
 Value objects like [ContentInfo](https://github.com/ezsystems/ezp-next/blob/master/eZ/Publish/API/Repository/Values/Content/ContentInfo.php) basically feature two types of fields: basic, local fields (modified, name...) and foreign field(s) references (sectionId, mainLocationId).
 
@@ -201,7 +201,7 @@ To enable HTTP Basic authentication, you need to edit app`/config/security.yml`,
 
 **ezplatform.yml**
 
-``` yaml:
+``` yaml
         ezpublish_rest:
             pattern: ^/api/ezp/v2
             stateless: true
@@ -311,7 +311,7 @@ See [the ISO-3166 glossary](http://www.iso.org/iso/home/standards/country_codes/
 
 **Body XML Response**
 
-``` xml:
+``` xml
 <CountriesList>
   <Country id="AF">
     <name>Afghanistan</name

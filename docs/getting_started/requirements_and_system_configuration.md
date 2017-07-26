@@ -8,7 +8,7 @@ If you're using a PaaS provider such as our partner [Platform.sh](https://platfo
 
 # Server
 
-eZ software is built to rely on existing technologies and standards. The minimal setup is `PHP`,  `MySQL/MariaDB`, and `Apache/Nginx`. Recommendation for production setups is to use `Varnish`, and  `Memcached`, `NFS` `and ``Solr` in a [clustered setup](Clustering_31430387.html).
+eZ software is built to rely on existing technologies and standards. The minimal setup is `PHP`,  `MySQL/MariaDB`, and `Apache/Nginx`. Recommendation for production setups is to use `Varnish`, and  `Memcached`, `NFS` `and ``Solr` in a [clustered setup](../guide/clustering.md).
 
 For supported versions of these technologies see Recommended and Supported setups below.
 
@@ -118,7 +118,7 @@ Oracle Java/Open JDK: 7 *or* 8 (needed\\ for\\ Solr,\\ [version\\ 8\\ recommend
 
 GraphicsMagick *or* ImageMagick *or* GD
 
-**[Clustering](Clustering_31430387.html)**
+**[Clustering](../guide/clustering.md)**
 
 Linux NFS\\ (for\\ IO,\\ aka\\ binary\\ files\\ stored\\ in\\ content\\ repository)
 Memcached (for\\ Persistence\\ cache\\ &\\ Sessions)
