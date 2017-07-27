@@ -1,7 +1,4 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [API](API_31429524.html)
-4.  [REST API Guide](REST-API-Guide_31430286.html)
+
 
 # Extending the REST API
 
@@ -27,7 +24,7 @@ Let's create a very simple controller, that has a `sayHello()` method, that take
 
 **My/Bundle/RestBundle/Rest/Controller/DefaultController.php**
 
-``` brush:
+``` php
 namespace My\Bundle\RestBundle\Rest\Controller;
  
 use eZ\Publish\Core\REST\Server\Controller as BaseController;
@@ -47,7 +44,7 @@ As said earlier, your REST routes are required to use the REST URI prefix. To do
 
 **app/config/routing.yml**
 
-``` brush:
+```
 myRestBundle_rest_routes:
     resource: "@MyRestBundle/Resources/config/routing_rest.yml"
     prefix:   %ezpublish_rest.path_prefix%
@@ -59,7 +56,7 @@ Next, you need to create the REST route. We need to define the route's [controll
 
 **My/Bundle/RestBundle/Resources/config/routing\_rest.yml**
 
-``` brush:
+``` yaml
 myRestBundle_hello_world:
     pattern: /my_rest_bundle/hello/{name}
     defaults:
@@ -77,7 +74,7 @@ Let's say that our Controller will return a `My\Bundle\RestBundle\Rest\Values\He
 
 **My/Bundle/RestBundle/Rest/Values/Hello.php**
 
-``` brush:
+``` php
 namespace My\Bundle\RestBundle\Rest\Values;
  
 class Hello
@@ -95,7 +92,7 @@ We will return an instance of this class from our `sayHello()` controller method
 
 **My/Bundle/RestBundle/Rest/Controller/DefaultController.php**
 
-``` brush:
+``` php
 namespace My\Bundle\RestBundle\Controller;
 
 use eZ\Publish\Core\REST\Server\Controller as BaseController;
@@ -120,7 +117,7 @@ Let's create the service for our ValueObjectVisitor first.
 
 **My/Bundle/RestBundle/Resources/config/services.yml**
 
-``` brush:
+``` yaml
 services:
     myRestBundle.value_object_visitor.hello:
         parent: ezpublish_rest.output.value_object_visitor.base
@@ -138,7 +135,7 @@ It will receive as arguments:
 
 **My/Bundle/RestBundle/Rest/Controller/Default.php**
 
-``` brush:
+``` php
 namespace My\Bundle\RestBundle\Rest\ValueObjectVisitor;
 
 use eZ\Publish\Core\REST\Common\Output\ValueObjectVisitor;
@@ -163,7 +160,7 @@ The easiest way to handle cache is to re-use the `           CachedValue       
 
 When you want the response to be cached, return an instance of CachedValue, with your Value Object as the argument. You can also pass a location id using the second argument, so that the Response is tagged with it:
 
-``` brush:
+```
 return new CachedValue($helloValue, ['locationId', 42]);
 ```
 
@@ -179,7 +176,7 @@ Let's see what it would look like with a Content-Type of application/vnd.my.Gree
 
 **application/vnd.my.Greetings+xml**
 
-``` brush:
+``` xml
 <?xml version="1.0" encoding="utf-8"?>
 <Greetings>
     <name>John doe</name>
@@ -190,7 +187,7 @@ First, we need to create a service with the appropriate tag in services.yml.
 
 **My/Bundle/RestBundle/Resources/config/services.yml**
 
-``` brush:
+``` yaml
 services:
     myRestBundle.input_parser.Greetings:
         parent: ezpublish_rest.input.parser
@@ -207,7 +204,7 @@ For convenience, we will consider that our input parser returns an instance of o
 
 **My/Bundle/RestBundle/Rest/InputParser/Greetings.php**
 
-``` brush:
+``` php
 namespace My\Bundle\RestBundle\Rest\InputParser;
  
 use eZ\Publish\Core\REST\Common\Input\BaseParser;
@@ -235,7 +232,7 @@ class Greetings extends BaseParser
 
 **My/Bundle/RestBundle/Resources/config/services.yml**
 
-``` brush:
+``` yaml
 services:
     myRestBundle.controller.default:
         class: My\Bundle\RestBundle\Rest\Controller\Default
@@ -252,7 +249,7 @@ You can register newly added resources so that they show up in the REST root res
 
 New resources can be registered with code like this:
 
-``` brush:
+```
 ez_publish_rest:
     system:
         default:
@@ -275,14 +272,3 @@ This syntax is based on [Symfony's expression language](http://symfony.com/doc/c
 The above configuration will add the following entry to the root resource:
 
 `<someresource media-type="application/vnd.ez.api.Content+xml" href="/api/ezp/v2/content/objects/2"/>`
-
-#### In this topic:
-
--   [Requirements](#ExtendingtheRESTAPI-Requirements)
-    -   [Controller](#ExtendingtheRESTAPI-Controller)
-    -   [Route](#ExtendingtheRESTAPI-Route)
--   [Controller action](#ExtendingtheRESTAPI-Controlleraction)
--   [ValueObjectVisitor](#ExtendingtheRESTAPI-ValueObjectVisitor)
-    -   [Cache handling](#ExtendingtheRESTAPI-Cachehandling)
--   [Input parser](#ExtendingtheRESTAPI-Inputparser)
--   [Registering resources in the REST root](#ExtendingtheRESTAPI-RegisteringresourcesintheRESTroot)

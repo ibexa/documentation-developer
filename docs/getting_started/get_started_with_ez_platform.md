@@ -1,9 +1,6 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
 
-# Get Started with eZ Platform 
+# Get Started with eZ Platform
 
-Created by Dominika Kurek, last modified on May 19, 2017
 
 # Quickstart with eZ Platform
 
@@ -26,16 +23,6 @@ If you've worked with **other CMS's** before, see [Migrating to eZ Platform](htt
 
  
 
-![](attachments/31429520/32866977.png)
+![](docs/getting_started/img/ibex-mountain-small.png)
 
  
-
-## Attachments:
-
-![](images/icons/bullet_blue.gif) [ibex-mountain-small.png](attachments/31429520/32866977.png) (image/png)
-
-
-
-
-
-

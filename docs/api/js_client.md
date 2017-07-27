@@ -1,43 +1,39 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [API](API_31429524.html)
+
 
 # JS Client
 
-Created by Dominika Kurek, last modified on Feb 16, 2017
 
 The JavaScript REST API Client is a JavaScript library meant to ease the use of the eZ Platform REST API. For now, it can only be used in a web browser.
 
 See [Using the JavaScript REST API Client](Using-the-JavaScript-REST-API-Client_31430299.html) for a guide on how to use the client, and view the [generated JS API Client reference](http://ezsystems.github.io/javascript-rest-client/).
 
 
-# Using the JavaScript REST API Client
+## Using the JavaScript REST API Client
 
-Created by Dominika Kurek, last modified on Oct 03, 2016
 
 The JavaScript REST API Client is a JavaScript library meant to ease the use of the eZ Platform REST API. For now, it can only be used in a web browser.
 
 ## Installation
 
-### In the PlatformUIAssetsBundle
+## In the PlatformUIAssetsBundle
 
-Since the JavaScript REST Client is one of the foundations of [the Platform Backend Interface](Extending-eZ-Platform-UI_31429689.html), the client is provided by the [PlatformUIAssetsBundle](https://github.com/ezsystems/PlatformUIAssetsBundle) which is installed by default. As a result, the client is directly available and can be embedded in any Platform-generated page with the following Twig code:
+Since the JavaScript REST Client is one of the foundations of [the Platform Backend Interface](../guide/extending_ez_platform_ui.md), the client is provided by the [PlatformUIAssetsBundle](https://github.com/ezsystems/PlatformUIAssetsBundle) which is installed by default. As a result, the client is directly available and can be embedded in any Platform-generated page with the following Twig code:
 
 **Embedding the JavaScript REST Client**
 
-``` brush:
+``` php
 <script src="{{ asset('bundles/ezplatformuiassets/vendors/ez-js-rest-client/dist/CAPI.js') }}"></script>
 <!-- or the minified version -->
 <!-- <script src="{{ asset('bundles/ezplatformuiassets/vendors/ez-js-rest-client/dist/CAPI-min.js') }}"></script> -->
 ```
 
-### With Bower
+## With Bower
 
 Alternatively, the JavaScript REST Client can be installed directly in any project with [Bower](http://bower.io/):
 
 **Installing with bower**
 
-``` brush:
+``` php
 $ bower install --save ezsystems/ez-js-rest-client
 ```
 
@@ -62,22 +58,22 @@ In essence, the operations available through those services are asynchronous, so
 1.  `error`: depending on the success of the operation, this parameter is either `false` or a [`CAPIError`](http://ezsystems.github.io/javascript-rest-client/classes/CAPIError.html) instance representing the error
 2.  `response`: it's always of a [`Response`](http://ezsystems.github.io/javascript-rest-client/classes/Response.html) instance allowing you to retrieve any information from the REST API response
 
-### Instantiation and authentication
+## Instantiation and authentication
 
 [The `eZ.CAPI` constructor function](http://ezsystems.github.io/javascript-rest-client/classes/CAPI.html) expects two parameters:
 
 1.  the API end point URI
-2.  an authentication agent instance to configure the client for [the authentication mechanism configuration in eZ Platform](REST-API-Authentication_31430293.html).
+2.  an authentication agent instance to configure the client for [the authentication mechanism configuration in eZ Platform](../general_rest_usage.md#REST-API-Authentication).
 
 The JavaScript REST Client comes with two authentication agents for the Session and Basic Auth authentication mechanism.
 
-#### Session auth
+## Session auth
 
 The Session Auth Agent expects an object describing the existing Session or containing the credentials for the user to create the corresponding session. So if the user is not yet authenticated, the client can be instantiated with:
 
 **Session Authentication (new session)**
 
-``` brush:
+``` php
 var capi,
     credentials = {
         login: 'admin',
@@ -103,7 +99,7 @@ If the user already has a session, the agent expects an object describing the se
 
 **Session Authentication (existing session)**
 
-``` brush:
+```
 var capi,
     sessionInfo = {
         name: 'eZSESSID', // name of the session, might also be something like eZSESSID98defd6ee70dfb1dea416cecdf391f58
@@ -125,13 +121,13 @@ capi.isLoggedIn(function (error, response) {
 });
 ```
 
-#### Basic auth
+## Basic auth
 
 When configured in the Basic Authentication, the basic auth agent just expects the user's credentials:
 
 **Basic Authentication**
 
-``` brush:
+``` php
 var capi,
     credentials = {
         login: 'admin',
@@ -151,13 +147,13 @@ capi.logIn(function (error, response) {
 });
 ```
 
-### Loading a ContentInfo or a Content
+## Loading a ContentInfo or a Content
 
 To load a ContentInfo, you need [the Content Service](http://ezsystems.github.io/javascript-rest-client/classes/ContentService.html), it is returned by the `getContentService` method on the client instance:
 
 **Loading a ContentInfo**
 
-``` brush:
+``` php
 var capi, contentService,
     contentRestId = '/api/ezp/v2/content/objects/1',
     credentials = {
@@ -182,13 +178,13 @@ contentService.loadContentInfo(contentRestId, function (error, response) {
 
 If you run this example, you should see in the browser network panel a GET HTTP request to <http://example.com/api/ezp/v2/content/objects/1> with the necessary headers to get a JSON representation of the ContentInfo. If you want to load the Content instead, you can use [the `loadContent` method](http://ezsystems.github.io/javascript-rest-client/classes/ContentService.html#method_loadContent).
 
-### Moving a Location
+## Moving a Location
 
 To move a Location, [the Content Service](http://ezsystems.github.io/javascript-rest-client/classes/ContentService.html) is also needed, this operation will generate a MOVE HTTP request. If configured for the session authentication mechanism, the client will automatically add the CSRF Token.
 
 **Moving a Location**
 
-``` brush:
+``` php
 var capi, contentService,
     locationRestId = '/api/ezp/v2/content/locations/1/43/53', // Media/Multimedia in a default install
     newParentLocationRestId = '/api/ezp/v2/content/locations/1/43/52', // Media/Files in a default install
@@ -211,13 +207,13 @@ contentService.moveSubtree(locationRestId, newParentLocationRestId, function (er
 })
 ```
 
-### Searching for Content or Location
+## Searching for Content or Location
 
-Searching for Content or Location can be done with [REST views](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#views). REST views can be configured with the [search engine criteria](Search_31429673.html#Search-SearchCriteriaReference) to match some Content items or Locations:
+Searching for Content or Location can be done with [REST views](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#views). REST views can be configured with the [search engine criteria](../guide/search_criteria_reference.md) to match some Content items or Locations:
 
 **REST views**
 
-``` brush:
+``` php
 var capi, contentService, query,
     credentials = {
         login: 'admin',

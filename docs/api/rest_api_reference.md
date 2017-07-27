@@ -1,11 +1,7 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [API](API_31429524.html)
-4.  [REST API Guide](REST-API-Guide_31430286.html)
 
-# REST API reference 
 
-Created by Dominika Kurek, last modified on Apr 22, 2016
+# REST API reference
+
 
 The complete reference (specification) of the REST API resources is found bundled with your software, or online:
 
@@ -33,17 +29,3 @@ Then throughout the chapter, grouped into sub-chapters, is the detailed document
 -   Most of the time, a request + response example
 
  
-
- 
-
-#### Related topics:
-
-[REST API Guide](REST-API-Guide_31430286.html)
-
-[Getting started with the REST API](Getting-started-with-the-REST-API_31430289.html)
-
-
-
-
-
-

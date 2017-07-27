@@ -1,10 +1,6 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [Get Started with eZ Platform](Get-Started-with-eZ-Platform_31429520.html)
 
-# Step 0: Requirements & System Configuration 
 
-Created by Dominika Kurek, last modified on Jul 13, 2017
+# Step 0: Requirements & System Configuration
 
 # Platform as a Service (PaaS)
 
@@ -12,7 +8,7 @@ If you're using a PaaS provider such as our partner [Platform.sh](https://platfo
 
 # Server
 
-eZ software is built to rely on existing technologies and standards. The minimal setup is `PHP`,  `MySQL/MariaDB`, and `Apache/Nginx`. Recommendation for production setups is to use `Varnish`, and  `Memcached`, `NFS` `and ``Solr` in a [clustered setup](Clustering_31430387.html).
+eZ software is built to rely on existing technologies and standards. The minimal setup is `PHP`,  `MySQL/MariaDB`, and `Apache/Nginx`. Recommendation for production setups is to use `Varnish`, and  `Memcached`, `NFS` `and ``Solr` in a [clustered setup](../guide/clustering.md).
 
 For supported versions of these technologies see Recommended and Supported setups below.
 
@@ -72,7 +68,7 @@ PHP 5.6 (latest\\ via\\ [RHSCL](https://access.redhat.com/documentation/en/red-h
 php5-cli
 php5-fpm (for\\ use\\ with\\ nginx)
 php5-readline
-php5-mysqlnd *or *php5-pgsql
+php5-mysqlnd *or* php5-pgsql
 php5-json
 php5-xsl
 php5-intl
@@ -86,14 +82,14 @@ php5-memcached (recommended,\\ improves\\ performance)
 php-cli
 php-fpm (for\\ use\\ with\\ nginx)
 php-readline
-php-mysql *or *php-pgsql
+php-mysql *or* php-pgsql
 php-json
 php-xml
 php-mbstring
 php-intl
 php-mcrypt
 php-curl
-php-gd *or *php-imagick
+php-gd *or* php-imagick
 
 php-memcached (recommended,\\ via\\ [pecl](https://pecl.php.net/package/memcached))
 
@@ -101,13 +97,13 @@ php-memcached (recommended,\\ via\\ [pecl](https://pecl.php.net/package/memcache
 
 php-cli
 php-fpm (for\\ use\\ with\\ nginx)
-php-mysqlnd *or *php-pgsql
+php-mysqlnd *or* php-pgsql
 php-xml
 php-mbstring
 php-process
 php-intl
 php-pear (optional,\\ provides\\ *pecl*)
-php-gd *or *php-imagick (via\\ [pecl](https://pecl.php.net/package/imagick))
+php-gd *or* php-imagick (via\\ [pecl](https://pecl.php.net/package/imagick))
 php-memcached (recommended,\\ via\\ [pecl](https://pecl.php.net/package/memcached))
 
 **Search**
@@ -122,7 +118,7 @@ Oracle Java/Open JDK: 7 *or* 8 (needed\\ for\\ Solr,\\ [version\\ 8\\ recommend
 
 GraphicsMagick *or* ImageMagick *or* GD
 
-**[Clustering](Clustering_31430387.html)**
+**[Clustering](../guide/clustering.md)**
 
 Linux NFS\\ (for\\ IO,\\ aka\\ binary\\ files\\ stored\\ in\\ content\\ repository)
 Memcached (for\\ Persistence\\ cache\\ &\\ Sessions)
@@ -218,26 +214,4 @@ Please note that the user interface might not look or behave exactly the same ac
 
  
 
-#### In this topic:
-
--   [Platform as a Service (PaaS)](#Step0:Requirements&SystemConfiguration-PlatformasaService(PaaS))
--   [Server](#Step0:Requirements&SystemConfiguration-Server)
-    -   [Recommended setups](#Step0:Requirements&SystemConfiguration-Recommendedsetups)
-    -   [Supported setups](#Step0:Requirements&SystemConfiguration-Supportedsetups)
-    -   [Development & Experimental setups](#Step0:Requirements&SystemConfiguration-Development&Experimentalsetups)
--   [Client](#Step0:Requirements&SystemConfiguration-clientClient)
-    -   [Recommended browsers](#Step0:Requirements&SystemConfiguration-Recommendedbrowsers)
-    -   [Supported browsers](#Step0:Requirements&SystemConfiguration-Supportedbrowsers)
-
-#### Related:
-
--   [Clustering](Clustering_31430387.html)
--   [Performance](Performance_33555232.html)
-
  
-
-
-
-
-
-

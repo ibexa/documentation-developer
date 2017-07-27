@@ -1,10 +1,8 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [API](API_31429524.html)
+
 
 # REST API Guide
 
-Created by Dominika Kurek, last modified by David Christian Liedle on Jul 11, 2016
+
 
 The REST API v2 introduced in eZ Platform allows you to interact with an eZ Platform installation using the HTTP protocol, following a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) interaction model.
 
@@ -52,33 +50,18 @@ Other headers will be used in HTTP requests for specifying the siteaccess to int
 
 Responses returned by the API will also use custom headers to indicate information about the executed operation.
 
- 
-
-#### In this topic:
-
--   [Accessing the REST API](#RESTAPIGuide-AccessingtheRESTAPI)
--   [Basics](#RESTAPIGuide-Basics)
-    -   [Resources](#RESTAPIGuide-Resources)
-    -   [HTTP verbs](#RESTAPIGuide-HTTPverbs)
-    -   [Media type headers](#RESTAPIGuide-Mediatypeheaders)
-    -   [Other headers](#RESTAPIGuide-Otherheaders)
-
-#### Related topics:
-
--   [REST API reference](REST-API-reference_31430594.html)
--   [Getting started with the REST API](Getting-started-with-the-REST-API_31430289.html)
 
 
 
 
 # Getting started with the REST API
 
-Created by Dominika Kurek, last modified on Apr 22, 2016
 
 ## Installation
 
-No special preparations are necessary to use the REST API. As long as your eZ Platform is correctly configured, the REST API is available on your site using the URI `/api/ezp/v2/`. If you have installed eZ Platform in a subfolder, prepend the path with this subfolder: http://example.com/**su****b/folder/ezpublish**/api/ezp/v2/.
+No special preparations are necessary to use the REST API. As long as your eZ Platform is correctly configured, the REST API is available on your site using the URI `/api/ezp/v2/`. If you have installed eZ Platform in a subfolder, prepend the path with this subfolder: http://example.com/**sub/folder/ezpublish**/api/ezp/v2/.
 
+!!! note
 Please note that the `/api/ezp/v2` prefix will be used in all REST hrefs, but not in URIs.
 
 ## Configuration
@@ -91,7 +74,7 @@ To enable basic auth based authentication, you need to edit `app/config/security
 
 **security.yml**
 
-``` brush:
+```yaml
 security:
     # ...
     firewalls:
@@ -114,7 +97,7 @@ One of the main reasons for this API is to help implement JavaScript / AJAX inte
 
 **REST API with JavaScript**
 
-``` brush:
+```javascript
 <pre id="rest-output"></pre>
 <script>
 var resource = '/api/ezp/v2/content/objects/59',
