@@ -1,4 +1,3 @@
-
 # Field Type API & best practices
 
 eZ Platform can support arbitrary data to be stored in the fields of a content item. In order to support custom data, besides the standard data types, a developer needs to create a custom **Field Type**.
@@ -7,7 +6,7 @@ The implementation of a custom Field Type is done based on the Field Type SPI an
 
 In order to provide custom functionality for a Field Type, the SPI interacts with multiple layers of the eZ Platform architecture, as shown in the following diagram:
 
- ![](docs/api/img/field_type_overview.png)
+![](img/field_type_overview.png)
 
 On the top layer, the Field Type needs to provide conversion from and to a simple PHP hash value to support the REST API. The generated hash value may only consist of scalar values and hashes. It must not contain objects or arrays with numerical indexes that aren't sequential and/or don't start with zero.
 
@@ -21,16 +20,15 @@ On the bottom level, a Field Type can additionally hook into the Persistence SPI
 
 The following sequence diagram visualizes the process of creating a new `Content` across all layers, especially focused on the interaction with a `FieldType`.
 
-![](docs/api/img/create_content_sequence.png)
+![](img/create_content_sequence.png)
  
-
 In the next lines/pages, this document explains how to implement a custom Field Type based on the SPI and what is expected from it. As a code example, please refer to the Url FieldType, which has been implemented as a reference.
 
 ## Public API interaction
 
 The interaction with the Public API is done through the interface `eZ\Publish\SPI\FieldType\FieldType`. A custom Field Type must provide an implementation of this interface. In addition, it is considered best practice to provide a value object class for storing the custom field value provided by the Field Type.
 
-## FieldDefinition handling
+### FieldDefinition handling
 
 In order to make use of a custom Field Type, the user must apply it in a `eZ\Publish\API\Repository\Values\ContentType\FieldDefinition` of a custom Content Type. The user may in addition provide settings for the Field Type and a validator configuration.  Since the Public API cannot know anything about these, their handling is delegated to the Field Type itself through the following methods:
 
@@ -56,7 +54,7 @@ It is important to note that while the schema definitions of the `FieldType` may
 
 This will also apply to all user interfaces and the REST API, which therefore must provide extension points to register handling code for custom `FieldType`. These extensions are not defined, yet.
 
-## Name of the Field Type
+#### Name of the Field Type
 
 If you implement Nameable as an extra service, and register this Service using the tag `nameable`, the method `{FieldType}Nameable->getFieldName()` will be used to retrieve the name.
 
@@ -74,9 +72,7 @@ Otherwise the regular `{FieldType}->getName()` method is used.
             - {name: ezpublish.fieldType.nameable, alias: ezobjectrelation}
 ```
 
- 
-
-## Value handling
+### Value handling
 
 A field type needs to deal with the custom value format provided by it. In order for the public API to work properly, it delegates working with such custom field values to the corresponding Field Type. The `SPI\FieldType\FieldType` interface therefore provides the following methods:
 
@@ -90,15 +86,15 @@ Note: The method must assert structural consistency of the value, but must not v
 
 Through settings, the `FieldType` can specify, that the user may define a default value for the `Field` of the type. If no such default is provided by the user, the `FieldType` itself is asked for an "empty value" as the final fallback. The value chain for a specific field is therefore like this, when a `Field` of the `FieldType` is filled out:
 
-    1. Is a value provided by the filling user?
-    2.  Is a default provided by the `FieldDefinition`?
-    3.  Take the empty value provided by the `FieldType`
+1. Is a value provided by the filling user?
+2.  Is a default provided by the `FieldDefinition`?
+3.  Take the empty value provided by the `FieldType`
 
 `validate()`
 
 In contrast to `acceptValue()` this method validates the plausibility of the given value, based on the `FieldType` settings and validator configuration, stored in the corresponding `FieldDefinition`.
 
-## Storage conversion
+### Storage conversion
 
 As said above, the value format of a `FieldType` is free form. However, in order to make eZ Publish store the value in it's database, it must comply to certain rules at storage time. To not restrict the value itself, a `FieldValue` must be converted to the storage specific format used by the Persistence SPI: `eZ\Publish\SPI\Persistence\Content\FieldValue`. After restoring a Field of `FieldType`, the conversion must be undone. The following methods of the `FieldType` are responsible for that:
 
@@ -118,7 +114,7 @@ The data to be stored in the eZ Publish database. This may either be a scalar va
 
 `$externalData`
 
-The arbitrary data stored in this field will not be touched by any of the eZ Publish components directly, but will be hold available for [Storing external data](../api/Field_Type_API_and_best_practices.md#Storing-external-data).
+The arbitrary data stored in this field will not be touched by any of the eZ Publish components directly, but will be hold available for [Storing external data](#storing-external-data).
 
 `$sortKey`
 
@@ -151,7 +147,7 @@ array(
 
  This example from the `Url` field type shows that the field type will always return two indexable values, both strings. They have the names `url` and `text` respectively.
 
-## Search Field Values
+### Search Field Values
 
 The search field values, returned by the `getIndexData` method are simple value objects consisting of the following properties:
 
@@ -167,7 +163,7 @@ The value of the field
 
 An `eZ\Publish\SPI\Persistence\Content\Search\FieldType` instance, describing the type information of the field.
 
-## Search Field Types
+### Search Field Types
 
 There are bunch of available search field types, which are automagically handled by our Search backend configuration. When using those there is no requirement to adapt , for example, the Solr configuration in any way. You can always use custom field types, though, but these might require re-configuration of the search backend. For Solr this would mean adapting the schema.xml.
 
@@ -209,7 +205,7 @@ Field used for IDs. Basically acts like the string field, but will not be querie
 
 Custom field, for custom search data types. Will probably require additional configuration in the search backend.
 
-## Configuring Solr
+### Configuring Solr
 
 As mentioned before, if you are using the standard type definitions **there is no need to configure the search backend in any way**. Everything will work fine. The field definitions are handled using `dynamicField` definitions in Solr, for example.
 
@@ -249,9 +245,9 @@ Must delete external data for the given `Field`, if exists.
 
 See search service
 
-Each of the above methods receive a $context array, which contains information on the underlying storage and the environment. This context can be used to store data in the eZ Publish data storage, but outside of the normal structures (e.g. a custom table in an SQL database). Note that the Field Type must take care on it's own for being compliant to different data sources and that 3rd parties can extend the data source support easily. For more information about this, take a look at the [Best practices](../api/Field_Type_API_and_best_practices.md#Best-practices) section.
+Each of the above methods receive a $context array, which contains information on the underlying storage and the environment. This context can be used to store data in the eZ Publish data storage, but outside of the normal structures (e.g. a custom table in an SQL database). Note that the Field Type must take care on it's own for being compliant to different data sources and that 3rd parties can extend the data source support easily. For more information about this, take a look at the [Best practices](#best-practices) section.
 
-### Legacy Storage conversion
+## Legacy Storage conversion
 
 The `FieldType` system is designed for future storage back ends of eZ Publish. However, the old database schema (*Legacy Storage*) must still be supported. Since this database cannot store arbitrary value information as provided by a `FieldType`, another conversion step must take place if the Legacy Storage is used.
 
@@ -277,13 +273,13 @@ Converts the other way around.
 
 Returns the storage column which is used for indexing.
 
-## Registering a converter
+### Registering a converter
 
 The registration of a `Converter` currently works through the `$config` parameter of `eZ\Publish\Core\Persistence\Legacy\Handler`. See the class documentation for further details.
 
- 
+!!! note
 
-For global service container integration, see [Register Field Type](../api/Field_Type_API_and_best_practices.md#Register-field-type).
+    For global service container integration, see [Register Field Type](#register-field-type).
 
 ## REST API interaction
 
@@ -313,7 +309,7 @@ Converts FieldType validator configuration to a simple hash format.
 
 Converts the other way around.
 
-## Extension points
+### Extension points
 
 Some `FieldTypes` will require additional processing, for example a `FieldType` storing a binary file, or one having more complex settings or validator configuration. For this purpose specific implementations of an abstract class `eZ\Publish\Core\REST\Common\FieldTypeProcessor` are used. This class provides following methods:
 
@@ -343,13 +339,13 @@ Performs manipulations on a outgoing validator configuration hash, previously ge
 
 Base implementations of these methods simply return the given hash, so you can implement only the methods your `FieldType` requires. Some `FieldTypes` coming with the eZ Publish installation already implement processors and you are encouraged to take a look at them.
 
-For details on registering a `FieldType` processor, see [Register Field Type](../api/Field_Type_API_and_best_practices.md#Register-field-type).
+For details on registering a `FieldType` processor, see [Register Field Type](#register-field-type).
 
 ## Best practices
 
 In this chapter, best practices for implementing a custom FieldType are collected. We highly encourage following these practices to be future proof.
 
-## Gateway based Storage
+### Gateway based Storage
 
 In order to allow the usage of a `FieldType` that uses external data with different data storages, it is recommended to implement a gateway infrastructure and a registry for the gateways. In order to ease this action, the Core implementation of `FieldType` s provides corresponding interfaces and base classes. These can also be used for custom field types.
 
@@ -373,7 +369,7 @@ This protected method is used by the implementation to retrieve the correct `Sto
 
 As a reference for the usage of these infrastructure, the Keyword, Url and User types can be examined.
 
-## Settings schema
+### Settings schema
 
 It is recommended to use a simple hash map format for the settings schema retured by eZ\\Publish\\SPI\\FieldType\\FieldType::getSettingsSchema(), which follows these rules:
 
@@ -397,9 +393,7 @@ array(
 );
 ```
 
- 
-
-## Validator schema
+### Validator schema
 
 The schema for validator configuration should have a similar format than the settings schema has, except it has an additional level, to group settings for a certain validation mechanism:
 
@@ -428,13 +422,13 @@ array(
 
 ## Registering a Field Type
 
-To register a Field Type, see [Register Field Type](../api/Field_Type_API_and_best_practices.md#Register-field-type).
+To register a Field Type, see [Register Field Type](#register-field-type).
 
 To be integrated in unit and integration tests, Field Types need to be registered through the `service.ini` in `eZ/Publish/Core/settings`.
 
 ## Templating
 
-A FieldType always need a piece of template to be correctly displayed. See [Field Type template](../guide/Field_Type_API_and_best_practices.md#Field-Type-template).
+A FieldType always need a piece of template to be correctly displayed. See [Field Type template](#field-type-template).
 
 ## Testing
 
@@ -445,15 +439,13 @@ A FieldType always need a piece of template to be correctly displayed. See [Fie
 
 For both test environments, infrastructure is already in place, so that you can easily implement the required tests for your custom `FieldType`
 
-## Persistence SPI
+### Persistence SPI
 
 This type of integration test ensures, that a Field Type stores its data properly on basis of different Persistence SPI implementations.
 
- 
+!!! note
 
-**Note:** By now, only the Legacy Storage implementation exists.
-
- 
+    By now, only the Legacy Storage implementation exists.
 
 The integration tests with the Persistence SPI can be found in `eZ\Publish\SPI\Tests\FieldType`. In order to implement a test for your custom `FieldType`, you need to extend the common base class `eZ\Publish\SPI\Tests\FieldType\BaseIntegrationTest` and implement it's abstract methods. As a reference the `KeywordIntegrationTest`, `UrlIntegrationTest` and `UserIntegrationTest` can deal.
 
@@ -465,24 +457,22 @@ $ phpunit -c phpunit.xml eZ/Publish/SPI/Tests/FieldType
 
 in order to run all `FieldType` tests.
 
-## Public API
+### Public API
 
 On a second level, the interaction between an implementation of the Public API (aka the Business Layer) and the Field Type is tested. Again, there is a common base class as the infrastructural basis for such tests, which resides in `eZ\Publish\API\Repository\Tests\FieldType\BaseIntegrationTest`.
 
- 
+!!! note 
 
-Note that the In-Memory stubs for the Public API integration test suite, do not perform actual Field Type calls, but mainly emulate the behavior of a Field Type for simplicity reasons.
+    Note that the In-Memory stubs for the Public API integration test suite, do not perform actual Field Type calls, but mainly emulate the behavior of a Field Type for simplicity reasons.
 
-If your Field Type needs to convert data between `storeFieldData()` and `getFieldData()`, you need to implement a `eZ\Publish\API\Repository\Tests\Stubs\PseudoExternalStorage` in addition, which performs this task. Running the tests against the Business Layer implementation of the Public API is not affected by this.
-
-
+    If your Field Type needs to convert data between `storeFieldData()` and `getFieldData()`, you need to implement a `eZ\Publish\API\Repository\Tests\Stubs\PseudoExternalStorage` in addition, which performs this task. Running the tests against the Business Layer implementation of the Public API is not affected by this.
 
 ## Field Type template
 
 
-## Defining your Field Type template
+### Defining your Field Type template
 
-In order to be used by [`ez_render_field()` Twig helper](../guide/twig_functions_reference.md), you need to define a **template containing a block** dedicated to the Field display.
+In order to be used by [`ez_render_field()` Twig helper](../guide/content_rendering.md#twig-functions-reference), you need to define a **template containing a block** dedicated to the Field display.
 
 This block consists on a piece of template receiving specific variables you can use to make the display vary.
 
@@ -498,8 +488,7 @@ You will find examples with built-in Field Types in [EzPublishCoreBundle/Resourc
 
 By convention, your block **must** be named `<fieldTypeIdentifier>_field`.
 
-## Exposed variables
-
+### Exposed variables
 
 | Name | Type | Description |
 |------|------|-------------|
@@ -510,20 +499,17 @@ By convention, your block **must** be named `<fieldTypeIdentifier>_field`.
 |parameters | hash | Options passed to ez_render_field() under the parameters key |
 |attr | hash | The attributes to add the generate the HTML markup. Contains at least a class entry, containing <fieldtypeidentifier>-field |
 
-
-## Reusing blocks
+### Reusing blocks
 
 To ease Field Type template development, you can take advantage of all defined blocks by using the [block() function](http://twig.sensiolabs.org/doc/functions/block.html).
 
 You can for example take advantage of `simple_block_field`, `simple_inline_field` or `field_attributes` blocks provided in [content\_fields.html.twig](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/views/content_fields.html.twig#L413).
 
-Warning
+!!! caution
 
-To be able to reuse built-in blocks, **your template must inherit from `EzPublishCoreBundle::content_fields.html.twig`**.
+    To be able to reuse built-in blocks, **your template must inherit from `EzPublishCoreBundle::content_fields.html.twig`**.
 
-## Registering your template
-
- 
+### Registering your template
 
 To make your template available, you must register it to the system.
 
@@ -540,30 +526,26 @@ ezpublish:
                     priority: 10
 ```
 
-You can define these rules in a dedicated file instead of `app/config/ezplatform.yml`. Read the [cookbook recipe to learn more about it](../cookbook/Importing_settings_from_a_bundle.md).
+You can define these rules in a dedicated file instead of `app/config/ezplatform.yml`. Read the [cookbook recipe to learn more about it](../cookbook/importing_settings_from_a_bundle.md).
 
 
-# Register Field Type
+## Register Field Type
 
-## Introduction
+This section explains how to register a custom Field Type in eZ Platform.
 
-This document explains how to register a custom Field Type in eZ Platform. It will not contain the development part as it is already covered [in the API section](../api/Field_Type_API_and_best_practices.md).
-
-Please be sure you first have read the [basic documentation on how to develop a custom Field Type](../api/Field_Type_API_and_best_practices.md).
-
-## Service container configuration
+### Service container configuration
 
 To be able to declare a FieldType, you need to have [registered a bundle in your application kernel](http://symfony.com/doc/master/book/page_creation.html#the-bundle-system).
 
 This bundle needs to expose some configuration for the service container somehow (read [related Symfony documentation](http://symfony.com/doc/master/book/service_container.html#importing-other-container-configuration-resources))
 
-## Basic configuration
+#### Basic configuration
 
-This part relates to the [base FieldType class that interacts with the Publish API](../api/Field_Type_API_and_best_practices.md#PublicAPI).
+This part relates to the [base FieldType class that interacts with the Publish API](#public-api).
 
 Let's take a basic example from `ezstring` configuration.
 
-```
+``` yaml
 parameters:
     ezpublish.fieldType.ezstring.class: eZ\Publish\Core\FieldType\TextLine\Type
  
@@ -587,17 +569,17 @@ Tagging your field type service with **`ezpublish.fieldType`** is mandatory to b
 
 Basic field types configuration is located in [EzPublishCoreBundle/Resources/config/fieldtypes.yml](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/fieldtypes.yml).
 
-## Legacy Storage Engine
+#### Legacy Storage Engine
 
-## Converter
+##### Converter
 
-As stated in [Field Type API & best practices](../api/Field_Type_API_and_best_practices.md#Legacy-storage-conversion), a conversion of Field Type values is needed in order to properly store the data into the *old* database schema (aka *Legacy Storage*).
+As stated [above](#legacy-storage-conversion), a conversion of Field Type values is needed in order to properly store the data into the *old* database schema (aka *Legacy Storage*).
 
 Those converters also need to be correctly exposed as services.
 
 **Field Type converter for ezstring**
 
-```
+``` yaml
 parameters:
     ezpublish.fieldType.ezstring.converter.class: eZ\Publish\Core\Persistence\Legacy\Content\FieldValue\Converter\TextLine
  
@@ -620,15 +602,15 @@ As for the tag attributes:
 
 The converter configuration for basic field types are located in [eZ/Publish/Core/settings/fieldtype\_external\_storages.yml](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/fieldtype_external_storages.yml).
 
-## External storage
+##### External storage
 
-A Field Type has the [ability to store its value (or part of it) in external data sources](Field_Type_API_and_best_practices.md#Storing-external-data). This is made possible through the `eZ\Publish\SPI\FieldType\FieldStorage` interface. Thus, if one wants to use this functionality, he needs to define a service implementing this interface and tagged as **`ezpublish.fieldType.externalStorageHandler`** to be recognized by the Repository.
+A Field Type has the [ability to store its value (or part of it) in external data sources](#storing-external-data). This is made possible through the `eZ\Publish\SPI\FieldType\FieldStorage` interface. Thus, if one wants to use this functionality, he needs to define a service implementing this interface and tagged as **`ezpublish.fieldType.externalStorageHandler`** to be recognized by the Repository.
 
 Here is an example for **ezurl** field type:
 
 **External storage handler for ezurl**
 
-```
+``` yaml
 parameters:
     ezpublish.fieldType.ezurl.externalStorage.class: eZ\Publish\Core\FieldType\Url\UrlStorage
  
@@ -639,17 +621,17 @@ services:
             - {name: ezpublish.fieldType.externalStorageHandler, alias: ezurl}
 ```
 
-The configuration is straight forward. Nothing specific except the **`ezpublish.fieldType.externalStorageHandler `**tag, the `alias` attribute still begin the *fieldTypeIdentifier*.
+The configuration is straight forward. Nothing specific except the **`ezpublish.fieldType.externalStorageHandler `** tag, the `alias` attribute still begin the *fieldTypeIdentifier*.
 
 External storage configuration for basic field types is located in [EzPublishCoreBundle/Resources/config/fieldtypes.yml](https://github.com/ezsystems/ezp-next/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/fieldtypes.yml).
 
-## Gateway based storage
+##### Gateway based storage
 
-As stated in the [Field Type best practices](Field-Type-API-and-best-practices_31430767.html#FieldTypeAPIandbestpractices-GatewaybasedStorage), in order to be storage agnostic and external storage handler should use a *storage gateway*. This can be done by implementing another service implementing `eZ\Publish\Core\FieldType\StorageGateway` and being tagged as `ezpublish.fieldType.externalStorageHandler.gateway`.
+As stated in the [Field Type best practices](#gateway-based-storage), in order to be storage agnostic and external storage handler should use a *storage gateway*. This can be done by implementing another service implementing `eZ\Publish\Core\FieldType\StorageGateway` and being tagged as `ezpublish.fieldType.externalStorageHandler.gateway`.
 
 **Storage gateway for ezurl**
 
-```
+``` yaml
 parameters:
     ezpublish.fieldType.ezurl.storage_gateway.class: eZ\Publish\Core\FieldType\Url\UrlStorage\Gateway\LegacyStorage
  
@@ -671,19 +653,17 @@ Also note that there can be several gateways per field type (one per storage eng
 
 The gateway configuration for basic field types are located in [EzPublishCoreBundle/Resources/config/storage\_engines.yml](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage_engines.yml).
 
-
-
 ## Settings schema and allowed validators
 
-
-## Internal Field Type conventions and best practices
+### Internal Field Type conventions and best practices
 
 FieldType-&gt;$settingsSchema and FieldType-&gt;$allowedValidators are intentionally left free-form, to give broadest freedom to Field Type developers. However, for internal Field Types (aka those delivered with eZ Platform), a common standard should be established as best practice. The purpose of this page is to collect and unify this standard.
 
-## Settings schema
+#### Settings schema
 
 The general format of the settings schema of a Field Type is a hashmap of setting names, assigned to their type and default value, e.g.:
 
+```
     array(
         'myFancySetting' => array(
             'type' => 'int',
@@ -694,6 +674,7 @@ The general format of the settings schema of a Field Type is a hashmap of settin
             'default' => 'Sindelfingen',
         ),
     );
+```
 
 The type should be either a valid PHP type shortcut (TB discussed) or one of the following special types:
 
@@ -701,9 +682,7 @@ The type should be either a valid PHP type shortcut (TB discussed) or one of the
 -   Choice (an enumeration)
 -   &lt;&lt;&lt;YOUR TYPE HERE&gt;&gt;&gt;
 
- 
-
-## Validators
+#### Validators
 
 Validators are internally handled through a special ValidatorService … (TBD: Explain service and how it works)
 

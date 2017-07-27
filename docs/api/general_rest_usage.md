@@ -1,9 +1,7 @@
-
-
 # General REST usage
 
 
-As explained in the [introduction](../api/rest_api_guide.md), the REST API is based on a very limited list of general principles:
+As explained in the [introduction](rest_api_guide.md), the REST API is based on a very limited list of general principles:
 
 -   each resource (uri) interacts with a part of the system (Content, URL aliases, User Groups, etc.),
 -   for each resource, one or more verbs are available, each having a different effect (delete a Content item, get a URL Alias, list user groups, etc.),
@@ -11,11 +9,11 @@ As explained in the [introduction](../api/rest_api_guide.md), the REST API is ba
 
 ## Anatomy of a REST call
 
-## What we can learn from a GET request
+### What we can learn from a GET request
 
 This verb is used to query the API for information. It is one of the two operations web browsers implement, and the one most commonly used.
 
-## Request
+### Request
 
 The only requirement for this verb is usually the resource URI, and the accept header. On top of that, cache request headers can be added, like `If-None-Match`, but those aren't fully implemented yet in eZ Publish 5.0.
 
@@ -45,17 +43,17 @@ Content-Length: xxx
 
 The length of our content, provided by the Content-Length header, isn't *that* useful.
 
-## HTTP Code
+###### HTTP Code
 
 The API responded here with a standard 200 OK HTTP response code, which is the expected response code for a "normal" GET request. Some GET requests, like [getting a Content item's current version](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#13241%C2%A0%C2%A0%C2%A0get-current-version), may reply with a 301 Moved permanently, or 307 Temporary redirect code.
 
 Errors will be indicated with HTTP error codes, like 404 for Not Found, or 500 for Internal server error. The [REST specifications](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst) provide the list of every HTTP response code you can expect from implemented resources.
 
-## Content-Type header
+###### Content-Type header
 
 As long as a response contains an actual HTTP body, the Content-Type header will be used to specify which Content-Type is contained in the response. In that case, a ContentInfo (`Content-Type: application/vnd.ez.api.ContentInfo`) in XML (`Content-Type: application/vnd.ez.api.ContentInfo+xml`)
 
-## Accept-Patch header
+###### Accept-Patch header
 
 This is a very interesting one.
 
@@ -65,17 +63,17 @@ This last part means that if we send a PATCH /content/objects/23 request with a 
 
 REST will use the `Accept-Patch` header to indicate how to **modify** the returned **data**.
 
-## Other headers: Location
+###### Other headers: Location
 
 Depending on the resource, request & response headers will vary. For instance, [creating content](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#13231%C2%A0%C2%A0%C2%A0creating-content), or [getting a Content item's current version](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#13241%C2%A0%C2%A0%C2%A0get-current-version) will both send a `Location` header to provide you with the requested resource's ID.
 
 Those particular headers generally match a specific list of HTTP response codes. Location is sent by `201 Created`, `301 Moved permanently,` `307 Temporary redirect responses`. This list isn't finished, but you can expect those HTTP responses to provide you with a Location header.
 
-## Other headers: Destination
+###### Other headers: Destination
 
 This request header is the request counterpart of the Location response header. It is used in a COPY / MOVE operation, like [copying a Content item](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#13236%C2%A0%C2%A0%C2%A0copy-content), on a resource to indicate where the resource should be moved to, using the ID of the destination.
 
-## Response body
+#### Response body
 
 **Load ContentInfo response body**  Expand source
 
@@ -105,7 +103,7 @@ As explained above, the API has told us that we could modify content object 23 b
 
 The REST API data structs mostly match a PHP Public API value object
 
-## Value objects representation
+#### Value objects representation
 
 Value objects like [ContentInfo](https://github.com/ezsystems/ezp-next/blob/master/eZ/Publish/API/Repository/Values/Content/ContentInfo.php) basically feature two types of fields: basic, local fields (modified, name...) and foreign field(s) references (sectionId, mainLocationId).
 
@@ -167,11 +165,7 @@ Accept: application/vnd.ez.api.Root+json
 X-Siteaccess: ezdemo_site_admin
 ```
 
- 
-
-
-
-# REST API Authentication
+## REST API Authentication
 
 
 The REST API supports two authentication methods: session, and basic. 
@@ -181,13 +175,13 @@ The REST API supports two authentication methods: session, and basic. 
 
 Session-based is the default authentication method, as this is needed for UI.
 
-## Session based authentication
+### Session based authentication
 
 This authentication method requires a Session cookie to be sent with each request.
 
 If this authentication method is used with a web browser, this session cookie is automatically available as soon as your visitor logs in. Add it as a cookie to your REST requests, and the user will be authenticated.
 
-### Logging in
+#### Logging in
 
 It is also possible to create a session for the visitor if they aren't logged in yet. This is done by sending a **`POST`** request to `/user/sessions`. Logging out is done using a **`DELETE`** request on the same resource.
 
@@ -195,7 +189,7 @@ More information
 
 [Session-based authentication chapter of the REST specifications](https://github.com/ezsystems/ezp-next/blob/master/doc/specifications/rest/REST-API-V2.rst#123%C2%A0%C2%A0%C2%A0session-based-authentication)
 
-## HTTP Basic authentication
+### HTTP Basic authentication
 
 To enable HTTP Basic authentication, you need to edit app`/config/security.yml`, and add/uncomment the following block. Note that this is enabled by default.
 
@@ -222,46 +216,46 @@ Accept: application/vnd.ez.api.Root+json
 Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
 ```
 
-## Error handling
+### Error handling
 
 Error handling in the REST API is fully based on HTTP error codes. As a web developer, you are probably familiar with the most common ones: 401 Unauthorized, 404 Not Found or 500 Internal Server Error. The REST API uses those, along with a few more, to allow proper error handling.
 
 The complete list of error codes used and the conditions in which they apply are specified in the [reference documentation](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst).
 
-## General error codes
+### General error codes
 
 A few error codes apply to most resources (if they *are* applicable)
 
-### 500 Internal Server Error
+#### 500 Internal Server Error
 
 The server encountered an unexpected condition, usually an exception, which prevented it from fulfilling the request: database down, permissions or configuration error.
 
-### 501 Not Implemented
+#### 501 Not Implemented
 
 Returned when the requested method has not yet been implemented. As of eZ Publish 5.0, most of User, User group, Content, Location and Content Type have been implemented. Some of their methods, as well as other features, may return a 501.
 
-### 404 Not Found
+#### 404 Not Found
 
 Returned when the request failed because the request object was not found. You should be familiar with this one.
 
-### 405 Method Not Allowed
+#### 405 Method Not Allowed
 
 Returned when the requested REST API resource doesn't support the HTTP verb that was used.
 
-### 406 Not Acceptable
+#### 406 Not Acceptable
 
 Returned when an accept header sent with the requested isn't supported.
 
-## Error handling in your REST implementation
+### Error handling in your REST implementation
 
 It is up to you, in your client implementation, to handle those codes by checking if an error code (4xx or 5xx) was returned instead of the expected 2xx or 3xx.
 
-## REST API Countries list
+### REST API Countries list
 
 
 Countries list is a REST service that gives access to an [ISO-3166](http://en.wikipedia.org/wiki/ISO_3166) formatted list of world countries. It is useful when presenting a country options list from any application.
 
-## Get the list of countries
+### Get the list of countries
 
 To send a GET request to the REST API Countries list, you have to provide the Content Type header `application/vnd.ez.api.CountriesList+xml`.
 
@@ -273,11 +267,7 @@ Method: GET
 Content-Type: application/vnd.ez.api.CountriesList+xml
 ```
 
-See the [General REST usage documentation page](General-REST-usage_31430291.html) for further information.[](https://gist.github.com/bdunogier/8665017#example)
-
-### Usage example
-
- 
+#### Usage example
 
 **Countries list request**
 
@@ -287,8 +277,6 @@ Host: example.com
 Accept: application/vnd.ez.api.CountriesList+xml
 ```
 
- 
-
 The HTTP response will it be with a 200 OK Header.
 
 **Countries list response headers**
@@ -297,8 +285,6 @@ The HTTP response will it be with a 200 OK Header.
 HTTP/1.1 200
 Content-Type: application/vnd.ez.api.CountriesList+xml
 ```
-
- 
 
 And the body of the Response is XML formatted country list with names and codes according to the ISO-3166 standard. 
 
