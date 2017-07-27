@@ -1,5 +1,3 @@
-
-
 # REST API reference
 
 
@@ -27,5 +25,3 @@ Then throughout the chapter, grouped into sub-chapters, is the detailed document
 -   Which headers are supported, and how to use them
 -   Which error codes can occur
 -   Most of the time, a request + response example
-
- 

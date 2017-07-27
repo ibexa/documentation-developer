@@ -1,15 +1,10 @@
 # Manual Installation Guides
 
-
 ### Introduction
 
 Hi! You are about to install eZ Platform on your machine and this guide is here to make sure that the whole process of preparation and installation is fast and easy. This guide consists of a three paths that differ slightly; you should choose the one that meets your operating system:
 
-[Microsoft Windows](../getting_started/install_manually.md#Manual_Installation_on_Windows), [Mac OS X](../getting_started/install_manually.md#Installation_Guide_for_OS_X) or other [Unix-Based Systems](../getting_started/install_manually.md#Installation_Guide_for_Unix-Based_Systems).
-
- 
-
- 
+[Microsoft Windows](install_manually.md#manual-installation-on-windows), [Mac OS X](install_manually.md#installation-guide-for-os-x) or other [Unix-Based Systems](install_manually.md#installation-guide-for-unix-based-systems).
 
 **Installation guides can be followed with any eZ Symfony distribution, you can find a list of available distributions from eZ in a table below:**
 
@@ -20,18 +15,15 @@ Hi! You are about to install eZ Platform on your machine and this guide is here 
 | eZ Platform Enterprise Edition *- "clean"* | [support.ez.no/Downloads](https://support.ez.no/Downloads)                | BUL (***requires eZ Enterprise subscription)*** | [ezsystems/ezplatform-ee](https://github.com/ezsystems/ezplatform-ee) ([INSTALL.md](https://github.com/ezsystems/ezstudio/blob/master/INSTALL.md)) |
 | eZ Platform Enterprise Edition - *"demo"*  | [support.ez.no/Downloads](https://support.ez.no/Downloads)                | BUL (***requires eZ Enterprise subscription)*** | [ezsystems/ezplatform-ee-demo](https://github.com/ezsystems/ezplatform-ee-demo)                                                                    |
 
- 
+## Installation Guide for OS X
 
-# Installation Guide for OS X
+### Preparation:
 
-
-## Preparation:
-
-### 1. Install MySQL 
+#### 1. Install MySQL 
 
 Download from the [official MySQL webpage](https://www.mysql.com/) is strongly recommended.
 
-### 2. Set up PHP
+#### 2. Set up PHP
 
 This step requires the modification of two files: Apache2 configuration file and `php.ini`.
 These files can be edited using a terminal editor like vi or nano, or a simple text editor such as TextEdit or Atom.
@@ -73,7 +65,7 @@ f. Increase `memory_limit` value for eZ Platform:
 memory_limit = 4G
 ```
 
-### 3. Set up virtual host and start Apache2
+#### 3. Set up virtual host and start Apache2
 
 a. Edit Apache2 configuration file:
 
@@ -107,13 +99,13 @@ sudo chmod -R 775 /private/etc/apache2/users
 sudo chmod 775 /private/etc/apache2
 ```
 
-### 4. Start Apache2 daemon using terminal
+#### 4. Start Apache2 daemon using terminal
 
 ``` bash
 sudo apachectl start
 ```
 
-### 5. Install Composer globally
+#### 5. Install Composer globally
 
 Composer is a dependency manager that allows you to install packages directly in the project. It is also checking all packages' versions on a regular basis to make sure they are up-to-date and to avoid inconsistencies.
 
@@ -123,7 +115,7 @@ mkdir -p /usr/local/bin
 php -d memory_limit=-1 composer.phar
 ```
 
-### 6. Create a new database for eZ Platform
+#### 6. Create a new database for eZ Platform
 
 Create new database (you can substitute `ez1` with the database name you want to use):
 
@@ -131,7 +123,7 @@ Create new database (you can substitute `ez1` with the database name you want t
 /usr/local/mysql/bin/mysql -u root -e 'create database ez1;'
 ```
 
-### 7. Install Brew package manager
+#### 7. Install Brew package manager
 
 Brew is a package manager for OS X, if you haven't used it already you are going to love what it does!
 
@@ -139,7 +131,7 @@ Brew is a package manager for OS X, if you haven't used it already you are going
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-### 8. Install additional requirements for eZ Platform
+#### 8. Install additional requirements for eZ Platform
 
 a. Install PEAR/PECL extension:
 
@@ -181,10 +173,9 @@ e. Enable opcache extension for PHP (suggested, but not required) by adding:
 zend_extension=opcache.so
 ```
 
-## Installation:
+### Installation:
 
-###
-9. Install eZ Platform
+#### 9. Install eZ Platform
 
 a. Go to the folder with your installation and set up directory permissions:
 
@@ -194,16 +185,12 @@ chmod 775 ../../workspace
 chmod 775 ../../../Documents
 ```
 
- 
-
 b. Download archive from [share.ez.no/downloads](http://share.ez.no/downloads/downloads). Extract the eZ Platform archive to a directory, then execute post install scripts.
 
 ``` bash
 cd /<directory>/
 php -d memory_limit=-1 composer.phar run-script post-install-cmd
 ```
-
- 
 
 c. Copy the virtual host template:
 
@@ -251,7 +238,7 @@ php app/console ezplatform:install clean
 
 You will be able to see your page under <http://ez1.lh> (or the address you chose in preparation). Please note that a clean install of eZ Platform doesn’t include DemoBundle anymore.
 
-### 10. Optional
+#### 10. Optional
 
 a. Install PHP 5.6 with opcache extension:
 
@@ -313,17 +300,13 @@ f. Restart Apache:
 sudo apachectl restart
 ```
 
+## Installation Guide for Unix-Based Systems
 
+### 1. Install a LAMP Stack (\*NIX, Apache, MySQL, PHP5+)
 
+Depending on your selected \*NIX distribution, you may need to install part or all of the LAMP stack required to run eZ Platform or eZ Enterprise. Before getting started, make sure you review our [requirements](requirements_and_system_configuration.md) page to see the systems we support and use for testing. You can try using an unsupported configuration, but your results may vary.
 
-# Installation Guide for Unix-Based Systems
-
-
-## 1. Install a LAMP Stack (\*NIX, Apache, MySQL, PHP5+)
-
-Depending on your selected \*NIX distribution, you may need to install part or all of the LAMP stack required to run eZ Platform or eZ Enterprise. Before getting started, make sure you review our [requirements](https://doc.ez.no/pages/viewpage.action?pageId=31429536) page to see the systems we support and use for testing. You can try using an unsupported configuration, but your results may vary.
-
-Please not that, while OS X *is* a \*NIX-based system, it has its own unique requirements listed in our [Installation Guide for OS X](../getting_started/install_manually.md#Installation_Guide_for_OS_X). Developer-maintained installation notes are kept in our GitHub repository at this location as well: <https://github.com/ezsystems/ezplatform/blob/master/INSTALL.md>
+Please not that, while OS X *is* a \*NIX-based system, it has its own unique requirements listed in our [Installation Guide for OS X](install_manually.md#installation-guide-for-os-x). Developer-maintained installation notes are kept in our GitHub repository at this location as well: <https://github.com/ezsystems/ezplatform/blob/master/INSTALL.md>
 
 You may use your system's package manager (yum, apt-get, etc.) to obtain a copy of Apache, MySQL, and PHP, or download the latest versions from the official websites and install manually:
 
@@ -331,9 +314,9 @@ You may use your system's package manager (yum, apt-get, etc.) to obtain a copy 
 -   [MySQL](http://dev.mysql.com/downloads/mysql/)
 -   [PHP 5.6+](http://php.net)
 
-For Debian 8.5, for example, we'd recommend using `apt-get` to install `apache2`, `mysql-server`, `mysql-client`, and `php5-*` (all the packages listed in the [requirements](https://doc.ez.no/pages/viewpage.action?pageId=31429536)), as well as `git` for version control. If the system on which you're doing the install has only 1 or 2 GB of RAM, be sure to [set up swap](https://doc.ez.no/display/DEVELOPER/Set+up+Swap+on+Debian+8.x) so you don't run out of RAM when running the composer scripts later on.
+For Debian 8.5, for example, we'd recommend using `apt-get` to install `apache2`, `mysql-server`, `mysql-client`, and `php5-*` (all the packages listed in the [requirements](requirements_and_system_configuration.md)), as well as `git` for version control. If the system on which you're doing the install has only 1 or 2 GB of RAM, be sure to [set up swap](#set-up-swap-on-debian-8xx) so you don't run out of RAM when running the composer scripts later on.
 
-## 2. Get Composer
+### 2. Get Composer
 
 You'll need Composer, the PHP command line dependency manager.
 
@@ -349,7 +332,7 @@ b. Move the downloaded composer.phar file to a globally-available path:
 mv composer.phar /usr/local/bin/composer
 ```
 
-## 3. Download the desired version of eZ Platform or eZ Enterprise
+### 3. Download the desired version of eZ Platform or eZ Enterprise
 
 -   If you are installing eZ Platform, download the latest archive from <http://share.ez.no/latest>
 -   For licensed eZ Enterprise customers, download your file here: <https://support.ez.no/Downloads>
@@ -365,7 +348,7 @@ git clone https://github.com/ezsystems/ezplatform.git /var/www/ezplatform
 
 You can rename the destination folder to whatever you like. This is where eZ Platform will live, and you'll point your virtual host to this folder to use as its root. You may choose to download an archive file from [share.ez.no/downloads](http://share.ez.no/downloads/downloads) instead of cloning from GitHub, and extract the eZ Platform archive to a similar directory. The subsequent steps are identical, regardless of the method you choose to obtain eZ Platform.
 
-## 4. Create a new database for eZ Platform
+### 4. Create a new database for eZ Platform
 
 Create new database (you can substitute `ezplatform` with the database name you want to use, but keep it in mind as you run the installation script):
 
@@ -373,13 +356,13 @@ Create new database (you can substitute `ezplatform` with the database name yo
 /usr/bin/mysql -u root -e 'create database ezplatform;'
 ```
 
-## 5. Run the Installation Scripts
+### 5. Run the Installation Scripts
 
 Composer will look inside the composer.json file and install all of the required packages to run eZ Platform. There's a script in the app folder called console that will install eZ Platform for your desired environment as well (dev/prod).
 
-This is the step where you want to make sure you have [swap configured for your machine](https://doc.ez.no/display/DEVELOPER/Set+up+Swap+on+Debian+8.x) if it does not have an abundance of RAM.
+This is the step where you want to make sure you have [swap configured for your machine](#set-up-swap-on-debian-8xx) if it does not have an abundance of RAM.
 
-### a. Run composer install:
+#### a. Run composer install:
 
 ``` bash
 cd /var/www/ezplatform
@@ -390,7 +373,7 @@ Once the installer gets to the point that it creates `app/config/parameters.yml`
 
 Next, you'll be asked to specify a database driver. You may press return to accept the default for this option, as well as the next several (`database_host, database_port, database_name, database_user`) unless you have customized those values and need to enter them as configured on your installation. If you set a password for your database user, enter it when prompted for `database_password`. The installer should continue once you've completed this manual portion of the installation process.
 
-### b. Run eZ Platform's installer:
+#### b. Run eZ Platform's installer:
 
 ``` bash
 php -d memory_limit=-1 /var/www/ezplatform/app/console ezplatform:install --env prod clean
@@ -402,23 +385,23 @@ If Composer asks you for your token, you must log in to your GitHub account and 
 
 Please note that a clean install of eZ Platform doesn’t include the DemoBundle anymore.
 
-## 6. Setup the folder rights (\*NIX users)
+### 6. Setup the folder rights (\*NIX users)
 
 Like most things, [Symfony documentation](http://symfony.com/doc/current/book/installation.html#checking-symfony-application-configuration-and-setup) applies here, meaning `app/cache` and `app/logs` need to be writable by cli and web server user.
 
 Furthermore, future files and directories created by these two users will need to inherit those access rights. *For security reasons, there is no need for web server to have access to write to other directories.*
 
-Then, go to the [Setup folder rights](../getting_started/install_manually.md#Setup-folder-rights) page for the next steps of this settings.
+Then, go to the [Setup folder rights](../getting_started/install_manually.md#setup-folder-rights) page for the next steps of this settings.
 
-## 7. Set up a Virtual Host
+### 7. Set up a Virtual Host
 
 For our example, we'll demonstrate using Apache2 as part of the traditional LAMP stack.
 
-### Option A: Scripted Configuration
+#### Option A: Scripted Configuration
 
-Instead of manually editing the vhost.template file, you may instead [use the included shell script](../getting_started/starting_ez_platform.md#Web-server): /var/www/ezplatform/bin/vhost.sh to generate a configured .conf file. Check out the source of `vhost.sh` to see the options provided. Additional information is included in our [Web Server](../getting_started/starting_ez_platform.md#Web-server) documentation here as well.
+Instead of manually editing the vhost.template file, you may instead [use the included shell script](../getting_started/starting_ez_platform.md#Web-server): /var/www/ezplatform/bin/vhost.sh to generate a configured .conf file. Check out the source of `vhost.sh` to see the options provided. Additional information is included in our [Web Server](starting_ez_platform.md#web-server) documentation here as well.
 
-### Option B: Manual Edits
+#### Option B: Manual Edits
 
 a. Copy the vhost template file from its home in the doc folder:
 
@@ -451,7 +434,7 @@ Be sure to specify `/var/www/ezplatform/web` as the `DocumentRoot` and `Director
 SetEnvIf Request_URI ".*" SYMFONY_ENV=dev
 ```
 
-## 8. Server Configuration (Apache as example)
+### 8. Server Configuration (Apache as example)
 
 Make sure you've got the `libapache2-mod-php5` module installed for Apache2 to use PHP5.x, and have the rewrite module enabled:
 
@@ -473,31 +456,31 @@ a2ensite ezplatform
 a2dissite 000-default.conf
 ```
 
-## 9. Restart server (Apache)
+### 9. Restart server (Apache)
 
 ``` bash
 service apache2 restart
 ```
 
-# Setup folder rights
+### Setup folder rights
 
 
 For security reasons, there is no need for web server to have access to write to other directories.
 
-## Set the owner and clean directories*
+#### Set the owner and clean directories*
 
 
 First, change `www-data` to your web server user.
 
-### Clean the cache/ and logs/ directories
+##### Clean the cache/ and logs/ directories
 
 ``` bash
 $ rm -rf app/cache/* app/logs/*
 ```
 
-## Use the right option according to your system.
+#### Use the right option according to your system.
 
-### A. Using ACL on a *Linux/BSD *system that supports chmod +a
+##### A. Using ACL on a *Linux/BSD *system that supports chmod +a
 
 **Using ACL on a Linux/BSD system that supports chmod +a**
 
@@ -508,7 +491,7 @@ $ sudo chmod +a "`whoami` allow delete,write,append,file_inherit,directory_inher
   app/cache app/logs web
 ```
 
-### B. Using ACL on a *Linux/BSD *system that does not support chmod +a
+##### B. Using ACL on a *Linux/BSD *system that does not support chmod +a
 
 Some systems don't support chmod +a, but do support another utility called setfacl. You may need to enable ACL support on your partition and install setfacl before using it (as is the case with Ubuntu), in this way:
 
@@ -521,7 +504,7 @@ $ sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx \
   app/cache app/logs web
 ```
 
-### C. Using chown on *Linux/BSD/OS X* systems that don't support ACL
+##### C. Using chown on *Linux/BSD/OS X* systems that don't support ACL
 
 Some systems don't support ACL at all. You will need to set your web server's user as the owner of the required directories:
 
@@ -533,8 +516,7 @@ $ sudo find {app/{cache,logs},web} -type d | xargs sudo chmod -R 775
 $ sudo find {app/{cache,logs},web} -type f | xargs sudo chmod -R 664
 ```
 
-### D. Using chmod  on a *Linux/BSD/OS X* system where you can't change owner**
-**
+##### D. Using chmod on a *Linux/BSD/OS X* system where you can't change owner
 
 If you can't use ACL and aren't allowed to change owner, you can use chmod, making the files writable by everybody. Note that this method really isn't recommended as it allows any user to do anything:
 
@@ -555,7 +537,7 @@ It may also possible to add the group ownership inheritance flag so new files in
 $ sudo chmod g+s {app/{cache,logs},web}
 ```
 
-### E. Setup folder rights on Windows
+##### E. Setup folder rights on Windows
 
 For your choice of web server you'll need to make sure web server user has read access to `<root-dir>`, and write access to the following directories:
 
@@ -563,15 +545,15 @@ For your choice of web server you'll need to make sure web server user has read 
 -   app/logs
 
 
-# Set up Swap on Debian 8.x
+### Set up Swap on Debian 8.x
 
 Created by David Christian Liedle, last modified on Jul 11, 2016
 
-# Overview
+#### Overview
 
 Swap space allows your system to utilize the hard drive to supplement capacity when RAM runs short. Composer install will fail if there is insufficient RAM available, but adding swap will allow it to complete installation.
 
-# Solution
+#### Solution
 
 Via the command line, you can set up and enable swap on your Debian machine via the following commands (as root):
 
@@ -589,7 +571,7 @@ sysctl vm.vfs_cache_pressure=50
 echo "vm.vfs_cache_pressure=50" >> /etc/sysctl.conf
 ```
 
-# Testing the Result
+#### Testing the Result
 
 You should see the changes effected immediately, and can check via the command line:
 
@@ -606,13 +588,11 @@ cat /proc/sys/vm/swappiness
 cat /proc/sys/vm/vfs_cache_pressure
 ```
 
+## Manual Installation on Windows
 
-# Manual Installation on Windows
+### Preparation:
 
-
-## Preparation:
-
-### 1. Set up PHP
+#### 1. Set up PHP
 
 This step requires the modification of two files: Apache2 configuration file and `php.ini`.
 These files can be edited using a terminal editor like vi or nano, or a simple text editor. file name is **httpd.conf** and by default it is located in this directory:
@@ -646,7 +626,7 @@ d. Increase `memory_limit` value for eZ Platform:
 memory_limit = 4G
 ```
 
-### 2. Set up virtual host and start Apache2
+#### 2. Set up virtual host and start Apache2
 
 a. Edit Apache2 configuration file:
 
@@ -673,15 +653,13 @@ d. Add the following line to the file:
 Include /private/etc/apache2/users/*.conf
 ```
 
- 
-
-### 3. Start Apache2 daemon using Command Line
+#### 3. Start Apache2 daemon using Command Line
 
 ``` bash
 httpd.exe
 ```
 
-### 4. Install Composer globally
+#### 4. Install Composer globally
 
 Composer is a dependency manager that allows you to install packages directly in the project. It is also checking all packages' versions on a regular basis to make sure they are up-to-date and to avoid inconsistencies.
 
@@ -690,7 +668,7 @@ curl -sS https://getcomposer.org/installer | php
 php -d memory_limit=-1 composer.phar
 ```
 
-### 5. Create a new database for eZ Platform
+#### 5. Create a new database for eZ Platform
 
 Create new database (you can substitute `ez1` with the database name you want to use):
 
@@ -698,7 +676,7 @@ Create new database (you can substitute `ez1` with the database name you want 
 mysql -uroot -ppassword -e "CREATE DATABASE ez1"
 ```
 
-### 6. Install additional requirements for eZ Platform
+#### 6. Install additional requirements for eZ Platform
 
 a. Install PEAR/PECL extension:
 
@@ -725,9 +703,9 @@ c. Enable opcache extension for PHP (suggested, but not required) by adding:
 zend_extension=opcache.so
 ```
 
-## Installation:
+### Installation:
 
-### 7. Install eZ Platform
+#### 7. Install eZ Platform
 
 a. Download archive from [share.ez.no/downloads](http://share.ez.no/downloads/downloads). Extract the eZ Platform archive to a directory, then execute post install scripts.
 
@@ -735,8 +713,6 @@ a. Download archive from [share.ez.no/downloads](http://share.ez.no/downloads/
 cd /<directory>/
 php -d memory_limit=-1 composer.phar run-script post-install-cmd
 ```
-
- 
 
 b. Copy the virtual host template:
 
