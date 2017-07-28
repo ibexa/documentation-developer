@@ -147,6 +147,7 @@ theme: readthedocs
 #theme_dir: templates
 #extra_css: [css/custom.css, css/font-awesome.min.css]
 #extra_javascript: [js/scrollspy.js, js/extra.js]
+extra_javascript: [js/fix_search.js]
 markdown_extensions:
     - markdown.extensions.admonition
     - pymdownx.superfences
