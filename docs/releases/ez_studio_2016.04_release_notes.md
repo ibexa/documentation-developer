@@ -1,27 +1,10 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [Releases](Releases_31429534.html)
-4.  [Release Notes](Release-Notes_32867905.html)
-5.  [eZ Enterprise Release notes](eZ-Enterprise-Release-notes_31430108.html)
-
-# eZ Studio 2016.04 Release notes 
-
-Created by Dominika Kurek, last modified on Jan 30, 2017
-
--   [Quick links](#eZStudio2016.04Releasenotes-Quicklinks)
--   [Changes since 16.02](#eZStudio2016.04Releasenotes-Changessince16.02)
-    -   [Summary of changes](#eZStudio2016.04Releasenotes-Summaryofchanges)
-    -   [Full list of improvements](#eZStudio2016.04Releasenotes-Fulllistofimprovements)
-    -   [Full list of bugfixes](#eZStudio2016.04Releasenotes-Fulllistofbugfixes)
--   [Updating](#eZStudio2016.04Releasenotes-Updating)
-
- 
+# eZ Studio 2016.04 Release notes
 
 The 16.04 release of eZ Studio is available as of 28 April 2016.
 
 The semantic version of this release is v1.3.0.
 
-For the release notes of the corresponding *(and included)* eZ Platform release, see [eZ Platform 2016.04 Release notes](eZ-Platform-2016.04-Release-notes_31431643.html)
+For the release notes of the corresponding *(and included)* eZ Platform release, see [eZ Platform 2016.04 Release notes](../releases/ez_platform_2016.04_release_notes.md)
 
  
 
@@ -43,22 +26,22 @@ For the release notes of the corresponding *(and included)* eZ Platform release,
 
 ### Summary of changes
 
--   Included a mechanism for migrating legacy Flow content to eZ Studio Landing Pages. See [Migrating legacy Page field (ezflow) to Landing Page (Enterprise)](31431405.html).
+-   Included a mechanism for migrating legacy Flow content to eZ Studio Landing Pages.
 -   You can now preview and edit previous versions of content in Page mode.
 
 In Page mode a new Versions button in available in the Studio toolbar. Click it to view a list of all versions of the current Content item.
 
-![](attachments/31431648/31431647.png)
+![](releases/img/button.png)
 
 When you point to a Content item in the list, two icons appear. You can choose to view a selected version, or to edit in:
 
-![](attachments/31431648/31431646.png)
+![](releases/img/verions_window.png)
 
 -   Visual change to studio toolbar: addition of a Version button and an Options menu
 
 The Options menu allows you to copy the URL of the current Content item, and to send the item to Trash:
 
-![](attachments/31431648/31431645.png)
+![](releases/img/options_menu.png)
 
 -   You can now send content to Trash directly from Page mode.
 
@@ -66,7 +49,7 @@ Use the new Options menu to send a Content item to trash. You then need to go to
 
 -   When installing, you can now choose Studio with demo content, or a clean installation.
 
-The main meta repository has been split in two: **ezstudio** with clean installer and **ezstudio-demo** with demo content. See the [Updating eZ Platform](Updating-eZ-Platform_31431770.html) guide to learn how to select the repository to update to.
+The main meta repository has been split in two: **ezstudio** with clean installer and **ezstudio-demo** with demo content. See the [Updating eZ Platform](docs/releases/updating_ez_platform.md) guide to learn how to select the repository to update to.
 
  
 
@@ -152,16 +135,4 @@ The main meta repository has been split in two: **ezstudio** with clean installe
 
 ## Updating
 
-To update to this version, follow the [Updating eZ Platform](Updating-eZ-Platform_31431770.html) guide and use v1.3.0 as `<version>`.
-
-## Attachments:
-
-![](images/icons/bullet_blue.gif) [options\_menu.png](attachments/31431648/31431645.png) (image/png)
-![](images/icons/bullet_blue.gif) [verions\_window.png](attachments/31431648/31431646.png) (image/png)
-![](images/icons/bullet_blue.gif) [button.png](attachments/31431648/31431647.png) (image/png)
-
-
-
-
-
-
+To update to this version, follow the [Updating eZ Platform](docs/releases/updating_ez_platform.md) guide and use v1.3.0 as `<version>`.

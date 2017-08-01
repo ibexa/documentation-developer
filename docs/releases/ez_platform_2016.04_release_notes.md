@@ -1,35 +1,16 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [Releases](Releases_31429534.html)
-4.  [Release Notes](Release-Notes_32867905.html)
-5.  [eZ Platform Release notes](eZ-Platform-Release-notes_31429935.html)
+# eZ Platform 2016.04 Release notes
 
-# eZ Platform 2016.04 Release notes 
-
-Created by Dominika Kurek, last modified by André Rømcke on Jun 19, 2016
-
--   [Quick links](#eZPlatform2016.04Releasenotes-Quicklinks)
--   [Changes since 16.02](#eZPlatform2016.04Releasenotes-Changessince16.02)
-    -   [Managing sub-items](#eZPlatform2016.04Releasenotes-Managingsub-items)
-    -   [Field category support](#eZPlatform2016.04Releasenotes-Fieldcategorysupport)
-    -   [Name pattern support for Relation, Relation List and Selection Field Types](#eZPlatform2016.04Releasenotes-NamepatternsupportforRelation,RelationListandSelectionFieldTypes)
-    -   [Improved system information admin panel](#eZPlatform2016.04Releasenotes-Improvedsysteminformationadminpanel)
-    -   [Improved trash management](#eZPlatform2016.04Releasenotes-Improvedtrashmanagement)
-    -   [Pagelayout setting](#eZPlatform2016.04Releasenotes-Pagelayoutsetting)
-    -   [Grid sub-items view](#eZPlatform2016.04Releasenotes-Gridsub-itemsview)
--   [Documentation and developer ressources](#eZPlatform2016.04Releasenotes-Documentationanddeveloperressources)
--   [Updating](#eZPlatform2016.04Releasenotes-Updating)
 
 The 16.04 release of eZ Platform is available as of April 28th, 2016.
 The semantic version of this release is v1.3.0.
 
-For the release notes of the corresponding eZ Studio release, see [eZ Studio 2016.04 Release notes](eZ-Studio-2016.04-Release-notes_31431648.html)
+For the release notes of the corresponding eZ Studio release, see [eZ Studio 2016.04 Release notes](../releases/ez_studio_2016.04_release_notes.md)
 
 ## Quick links
 
--   [Installation instructions](https://doc.ez.no/display/TECHDOC/Installation)
--   [Requirements](https://doc.ez.no/display/TECHDOC/Requirements)
--   Download: See <http://share.ez.no/downloads/downloads/ez-platform-1.3.0>
+-   [Installation instructions](../getting_started/install_ez_platform.md)
+-   [Requirements](../releases/updating_ez_platform.md)
+-   [Download](http://share.ez.no/downloads/downloads/ez-platform-1.3.0)
 
 ## Changes since 16.02
 
@@ -41,7 +22,7 @@ It's now possible to define ordering criterias for sub-items. It's also possible
 
  
 
-| ![](attachments/31431643/31431642.png) | ![](attachments/31431643/31431641.png) |
+| ![](releases/img/sub-items_ordering.png) | ![](releases/img/setting_priorities.png) |
 |----------------------------------------|----------------------------------------|
 
 [More about the ordering of sub-items](https://jira.ez.no/browse/EZP-25351)
@@ -50,7 +31,7 @@ It's now possible to define ordering criterias for sub-items. It's also possible
 
 Fields can now be assigned to a category from the Content Type management UI, again making it possible to organize fields for editors in relevant categories.
 
-![](attachments/31431643/31431640.png)
+![](releases/img/field_categories.png)
 
 ### Name pattern support for Relation, Relation List and Selection Field Types
 
@@ -70,7 +51,7 @@ Items that were trashed can now be restored. Trash can be empty, permanently del
 
 The user interface introduced a more contextual right action bar for that purpose.
 
-![](attachments/31431643/31431639.png)
+![](releases/img/trash_mgmt.png)
 
 [More about trash management](https://jira.ez.no/browse/EZP-25305)
 
@@ -78,7 +59,7 @@ The user interface introduced a more contextual right action bar for that purpos
 
 A global pagelayout template can now be defined using siteaccess aware settings:
 
-``` brush:
+``` bash
 ezpublish:
   system:
     default:
@@ -97,23 +78,6 @@ As of the 16.04 release, the feature is only being introduced, and the icon is i
 
 More importantly, this has been done to make it possible to developers to extend the user interface in this way. By default, eZ Platform will provide a list view and a grid view but developer will then be able to add their own views for specific context, content type or sections that might have specific business logic.
 
-## Documentation and developer ressources
-
-During the 2016.04 release, we put work into also improving developer resources. [Doc.ez.no](http://doc.ez.no) has been improved continuously throughout the release, and our [beginner tutorial](https://doc.ez.no/display/TECHDOC/Beginner+Tutorial) for developer as well. We will keep working on those ressources during further releases. Please don't hesitate to send feedback.
-
 ## Updating
 
-To update to this version, follow the [Updating eZ Platform](Updating-eZ-Platform_31431770.html) guide and use **v1.3.0** as version.
-
-## Attachments:
-
-![](images/icons/bullet_blue.gif) [Trash Management.png](attachments/31431643/31431639.png) (image/png)
-![](images/icons/bullet_blue.gif) [field categories.png](attachments/31431643/31431640.png) (image/png)
-![](images/icons/bullet_blue.gif) [setting priorities.png](attachments/31431643/31431641.png) (image/png)
-![](images/icons/bullet_blue.gif) [sub-items ordering.png](attachments/31431643/31431642.png) (image/png)
-
-
-
-
-
-
+To update to this version, follow the [Updating eZ Platform](docs/releases/updating_ez_platform.md) guide and use **v1.3.0** as version.

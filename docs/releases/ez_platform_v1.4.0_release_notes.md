@@ -1,21 +1,14 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [Releases](Releases_31429534.html)
-4.  [Release Notes](Release-Notes_32867905.html)
-5.  [eZ Platform Release notes](eZ-Platform-Release-notes_31429935.html)
 
-# eZ Platform v1.4.0 Release notes 
-
-Created by Dominika Kurek, last modified by André Rømcke on Jul 05, 2016
+# eZ Platform v1.4.0 Release notes
 
 The v1.4.0 release of eZ Platform is available as of 30 June 2016.
 
-For the release notes of the corresponding eZ Studio release, see [eZ Enterprise v1.4 Release notes](eZ-Enterprise-v1.4-Release-notes_32113415.html).
+For the release notes of the corresponding eZ Studio release, see [eZ Enterprise v1.4 Release notes](../releases/ez_enterprise_v1.4_release_notes.md).
 
 ## Quick links
 
--   [Installation instructions](31429538.html)
--   [Requirements](31429536.html)
+-   [Installation instructions](../getting_started/install_ez_platform.md)
+-   [Requirements](../getting_started/requirements_and_system_configuration.md)
 -   [Download](http://share.ez.no/latest)
 
 ## Changes since v1.3
@@ -38,19 +31,19 @@ When logging in to the app you are now greeted with a Dashboard which you can us
 -   **My Drafts:** All your current Content item drafts.
 -   **My Content:** All Content items that you have modified.
 
-![Dashboard](attachments/32113421/32113446.png)
+![Dashboard](releases/img/dashboard.png)
 
 ### Managing Content item versions
 
 In the View mode you now have a new tab: **Versions**. It lists all versions of the current Content item, including archived and published versions, as well as drafts. You can view any version, edit an existing draft, delete versions or create a new draft from an existing version.
 
-![Versions of a Content item in Versions tab](attachments/32113421/32113448.png)
+![Versions of a Content item in Versions tab](releases/img/versions_tab.png)
 
 ### Full text search
 
 Full text search is now available, accessible in the Universal Discovery Widget (in the **Search** tab), and in the discovery bar (on the left on the screen).
 
-![](attachments/32113421/32113513.png)
+![](releases/img/ui_simple_search.png)
 
 This feature is provided as a preview in this release, available from a separate bundle: `PlatformUISearchPrototypeBundle`
 
@@ -64,37 +57,37 @@ It is now possible to swap two Content items in their Locations. You can do it i
 
 Thanks go to [Carlos Revillo](https://doc.ez.no/display/~desorden) for the contribution.
 
-![Location swap ](attachments/32113421/32113420.png)
+![Location swap ](releases/img/location_swap.png)
 
 ### User registration
 
 Registering new users is now available through a `/register` route.
 
-![User registration form](attachments/32113421/32113419.png)
+![User registration form](releases/img/user_registration_form.png)
 
 ### User-Generated Content improved
 
 User-generated content, accessible through the ` content/create/nodraft` route, now covers more Field Types, including Selection and Checkbox, as needed by User Registration.
 
-See [User Generated Content](User-Generated-Content_31432025.html) for more information.
+See [User Generated Content](../guide/user_generated_content.md) for more information.
 
 ### Query Controller
 
 Added a Query controller which makes it easier to run a repository query and display the results in a template, with built-in "children" query controller you will no longer need to create own controllers whenever you need to simply list up children of a location.
 
-See the [Query controller page](Content-Rendering_31429679.html#ContentRendering-Querycontroller) for more information.
+See the [Query controller page](../guide/content_rendering.md) for more information.
 
-![](attachments/32113421/32113469.png)
+
 
 ### Docker Tools Beta
 
 In this release we are starting to share tools to help you use Docker with eZ Platform. What we share today has gone through several iterations to try to become as simple as possible. It uses plain Docker and Docker Compose to avoid having to learn anything specific with these tools, and it uses official docker images to take advantage of continued innovation by Docker Inc. and the ecosystem.
 
-Further reading: [Docker Tools](Docker-Tools_31429544.html)
+Further reading: [Docker Tools](../guide/docker_tools.md)
 
 ## Updating
 
-To update to this version, follow the [Updating eZ Platform](Updating-eZ-Platform_31431770.html) guide and use v1.4.0 as `<version>`.
+To update to this version, follow the [Updating eZ Platform](docs/releases/updating_ez_platform.md) guide and use v1.4.0 as `<version>`.
 
  
 
@@ -114,34 +107,4 @@ To update to this version, follow the [Updating eZ Platform](Updating-eZ-Platfo
 | content-on-the-fly-prototype-bundle | 0.1.1         |
 | platform-ui-search-prototype-bundle | 0.1.3         |
 
-#### In this topic:
-
--   [Quick links](#eZPlatformv1.4.0Releasenotes-Quicklinks)
--   [Changes since v1.3](#eZPlatformv1.4.0Releasenotes-Changessincev1.3)
-    -   [Content on the fly](#eZPlatformv1.4.0Releasenotes-Contentonthefly)
-    -   [Dashboard](#eZPlatformv1.4.0Releasenotes-Dashboard)
-    -   [Managing Content item versions](#eZPlatformv1.4.0Releasenotes-ManagingContentitemversions)
-    -   [Full text search](#eZPlatformv1.4.0Releasenotes-Fulltextsearch)
-    -   [Location swap](#eZPlatformv1.4.0Releasenotes-Locationswap)
-    -   [User registration](#eZPlatformv1.4.0Releasenotes-Userregistration)
-    -   [User-Generated Content improved](#eZPlatformv1.4.0Releasenotes-User-GeneratedContentimproved)
-    -   [Query Controller](#eZPlatformv1.4.0Releasenotes-QueryController)
-    -   [Docker Tools Beta](#eZPlatformv1.4.0Releasenotes-DockerToolsBeta)
--   [Updating](#eZPlatformv1.4.0Releasenotes-Updating)
--   [Packages versions in this release](#eZPlatformv1.4.0Releasenotes-Packagesversionsinthisrelease)
-
-## Attachments:
-
-![](images/icons/bullet_blue.gif) [user\_registration\_form.png](attachments/32113421/32113422.png) (image/png)
-![](images/icons/bullet_blue.gif) [location\_swap.png](attachments/32113421/32113420.png) (image/png)
-![](images/icons/bullet_blue.gif) [user\_registration\_form.png](attachments/32113421/32113419.png) (image/png)
-![](images/icons/bullet_blue.gif) [dashboard.png](attachments/32113421/32113446.png) (image/png)
-![](images/icons/bullet_blue.gif) [versions\_tab.png](attachments/32113421/32113448.png) (image/png)
-![](images/icons/bullet_blue.gif) [docker-logo.png](attachments/32113421/32113469.png) (image/png)
-![](images/icons/bullet_blue.gif) [UI Simple Fulltext Search.png](attachments/32113421/32113513.png) (image/png)
-
-
-
-
-
-
+#

@@ -1,24 +1,16 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [Releases](Releases_31429534.html)
-4.  [Release Notes](Release-Notes_32867905.html)
-5.  [eZ Enterprise Release notes](eZ-Enterprise-Release-notes_31430108.html)
-
-# eZ Enterprise v1.4 Release notes 
-
-Created by Dominika Kurek, last modified on Jul 05, 2017
+# eZ Enterprise v1.4 Release notes
 
 The v1.4.0 release of eZ Enterprise is available as of 30 June 2016. (We've [simplified](http://share.ez.no/blogs/ez/ez-systems-release-cycles-and-version-names-simplified) version names.)
 
-For the release notes of the corresponding *(and included)* eZ Platform release, see [eZ Platform v1.4.0 Release notes](eZ-Platform-v1.4.0-Release-notes_32113421.html)
+For the release notes of the corresponding *(and included)* eZ Platform release, see [eZ Platform v1.4.0 Release notes](../releases/ez_platform_v1.4.0_release_notes.md)
 
  
 
 ## Quick links
 
--   [Installation instructions](31429538.html)
--    [Requirements](31429536.html)
--   Download:
+-   [Installation instructions](../getting_started/install_ez_platform.md)
+-   [Requirements](../getting_started/requirements_and_system_configuration)
+-   [Download](http://share.ez.no/downloads/downloads)
 
     -   As Customer with eZ Enterprise subscription: <https://support.ez.no/Downloads> *( [BUL](http://ez.no/About-our-Software/Licenses-and-agreements/eZ-Business-Use-License-Agreement-eZ-BUL-Version-2.1?return=/About-our-Software/Licenses-and-agreements/eZ-Business-Use-License-Agreement-eZ-BUL-Version-2.1?processed=1457699707&return=%2FAbout-our-Software%2FLicenses-and-agreements%2FeZ-Business-Use-License-Agreement-eZ-BUL-Version-2.1?return=%2FAbout-our-Software%2FLicenses-and-agreements%2FeZ-Business-Use-License-Agreement-eZ-BUL-Version-2.1)* * License)*
 
@@ -87,18 +79,4 @@ Significant improvements include:
 
 ## Updating
 
-To update to this version, follow the [Updating eZ Platform](Updating-eZ-Platform_31431770.html) guide and use v1.4.0 as `<version>`.
-
-#### In this topic:
-
--   [Quick links](#eZEnterprisev1.4Releasenotes-Quicklinks)
--   [Changes since 2016.04](#eZEnterprisev1.4Releasenotes-Changessince2016.04)
-    -   [Summary of changes](#eZEnterprisev1.4Releasenotes-Summaryofchanges)
-    -   [Full list of improvements and bugfixes](#eZEnterprisev1.4Releasenotes-Fulllistofimprovementsandbugfixes)
--   [Updating](#eZEnterprisev1.4Releasenotes-Updating)
-
-
-
-
-
-
+To update to this version, follow the [Updating eZ Platform](docs/releases/updating_ez_platform.md) guide and use v1.4.0 as `<version>`.

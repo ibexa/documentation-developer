@@ -1,17 +1,10 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [Releases](Releases_31429534.html)
-4.  [Release Notes](Release-Notes_32867905.html)
-5.  [eZ Platform Release notes](eZ-Platform-Release-notes_31429935.html)
+# eZ Platform 15.12 Release notes
 
-# eZ Platform 15.12 Release notes 
-
-Created by Dominika Kurek, last modified by David Christian Liedle on Oct 31, 2016
 
 #### Quick links
 
--   [Installation instructions](https://doc.ez.no/display/DEVELOPER/Step+1%3A+Installation)[](https://github.com/ezsystems/ezplatform/blob/v15.05/INSTALL.md)
--   [Requirements](https://doc.ez.no/pages/viewpage.action?pageId=31429536)
+-   [Installation instructions](../getting_started/install_ez_platform.md)[](https://github.com/ezsystems/ezplatform/blob/v15.05/INSTALL.md)
+-   [Requirements](../getting_started/requirements_and_system_configuration.md)
 -   Download: See [share.ez.no/downloads](http://share.ez.no/downloads/downloads/ez-platform-15.12)
 
 15.12 is the first stable release of eZ Platform. 
@@ -69,36 +62,3 @@ Epics tentatively\* planned for first LTS release:  [0 issue](https://jira.ez.
 *'\* Some of these features will not be in the stable releases, the once we first and foremost will aim for having in the release are those mentioned on the [Roadmap](http://ez.no/Blog/What-to-Expect-from-eZ-Studio-and-eZ-Platform).*
 
  
-
-## Attachments:
-
-![](images/icons/bullet_blue.gif) [notifications.gif](attachments/31430093/31430069.gif) (image/gif)
-![](images/icons/bullet_blue.gif) [Solr\_Logo\_on\_white.png](attachments/31430093/31430070.png) (image/png)
-![](images/icons/bullet_blue.gif) [Platform 2015.07 - roles UI.PNG](attachments/31430093/31430071.png) (image/png)
-![](images/icons/bullet_blue.gif) [Platform 2015.07 - choose translation.PNG](attachments/31430093/31430072.png) (image/png)
-![](images/icons/bullet_blue.gif) [eZ Platform 2015.07 - add translation.gif](attachments/31430093/31430073.gif) (image/gif)
-![](images/icons/bullet_blue.gif) [platform-custom-policies.png](attachments/31430093/31430074.png) (image/png)
-![](images/icons/bullet_blue.gif) [locations\_tab.png](attachments/31430093/31430075.png) (image/png)
-![](images/icons/bullet_blue.gif) [PlatformUI-navigation-bar.png](attachments/31430093/31430076.png) (image/png)
-![](images/icons/bullet_blue.gif) [Please Help.jpg](attachments/31430093/31430077.jpg) (image/jpeg)
-![](images/icons/bullet_blue.gif) [privacy cookie.PNG](attachments/31430093/31430078.png) (image/png)
-![](images/icons/bullet_blue.gif) [move-copy-send to trash.PNG](attachments/31430093/31430079.png) (image/png)
-![](images/icons/bullet_blue.gif) [content\_download.PNG](attachments/31430093/31430080.png) (image/png)
-![](images/icons/bullet_blue.gif) [variations purging.PNG](attachments/31430093/31430081.png) (image/png)
-![](images/icons/bullet_blue.gif) [content type edition.PNG](attachments/31430093/31430082.png) (image/png)
-![](images/icons/bullet_blue.gif) [symfony\_black\_02.png](attachments/31430093/31430083.png) (image/png)
-![](images/icons/bullet_blue.gif) [symfony\_black\_03.png](attachments/31430093/31430084.png) (image/png)
-![](images/icons/bullet_blue.gif) [RichText editor.png](attachments/31430093/31430085.png) (image/png)
-![](images/icons/bullet_blue.gif) [Ventoux-Square.jpg](attachments/31430093/31430086.jpg) (image/jpeg)
-![](images/icons/bullet_blue.gif) [Getting-Started-with-eZ-Publish-Platform.jpg](attachments/31430093/31430087.jpg) (image/jpeg)
-![](images/icons/bullet_blue.gif) [Platform screenshoot alpha1.gif](attachments/31430093/31430088.gif) (image/gif)
-![](images/icons/bullet_blue.gif) [Screen Shot 2015-05-12 at 19.16.38 .png](attachments/31430093/31430089.png) (image/png)
-![](images/icons/bullet_blue.gif) [PrivacyCookieBundle.png](attachments/31430093/31430090.png) (image/png)
-![](images/icons/bullet_blue.gif) [Screen Shot 2015-05-12 at 11.46.48 .png](attachments/31430093/31430091.png) (image/png)
-![](images/icons/bullet_blue.gif) [iStock\_000032478246XLarge - banner doc.jpg](attachments/31430093/31430092.jpg) (image/jpeg)
-
-
-
-
-
-

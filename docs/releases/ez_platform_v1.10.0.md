@@ -1,11 +1,5 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [Releases](Releases_31429534.html)
-4.  [Release Notes](Release-Notes_32867905.html)
+# eZ Platform v1.10.0
 
-# eZ Platform v1.10.0 
-
-Created by André Rømcke, last modified by Roland Benedetti on Jul 11, 2017
 
 **The FAST TRACK v1.10.0 release of eZ Platform and eZ Platform Enterprise Edition is available as of June 28, 2017.**
 
@@ -13,15 +7,9 @@ If you are looking for the Long Term Support (LTS) release, see[ https://ezplat
 
 Upgrade notes
 
-This release contains special steps to follow further described in [Updating eZ Platform](Updating-eZ-Platform_31431770.html).
+This release contains special steps to follow further described in [Updating eZ Platform](docs/releases/updating_ez_platform.md).
 
  
-
--   [Notable changes since v1.9.0](#eZPlatformv1.10.0-Notablechangessincev1.9.0)
-    -   [eZ Platform](#eZPlatformv1.10.0-eZPlatform)
-    -   [eZ Platform Enterprise Edition - Studio](#eZPlatformv1.10.0-eZPlatformEnterpriseEdition-Studio)
-    -   [eZ Platform Enterprise Edition - Studio Demo](#eZPlatformv1.10.0-eZPlatformEnterpriseEdition-StudioDemo)
--   [Full list of new features, improvements and bug fixes since v1.9.0](#eZPlatformv1.10.0-Fulllistofnewfeatures,improvementsandbugfixessincev1.9.0)
 
 # Notable changes since v1.9.0
 
@@ -31,7 +19,7 @@ This release contains special steps to follow further described in [Updating eZ 
 
 This release introduces the ability to add tables in the RichText editor, enabling you to list up tabular data using table headings, merged table cells and more.
 
-![](attachments/34080523/34081094.gif)
+![](releases/img/platformui-table.gif)
 
 This is a first step. We aim to provide more in terms of table support in the editor later. For the time being images and embedding are not supported within the table, as you won't be able to move them out or edit them. We also don't provide yet ability to style the table within the editor.
 
@@ -41,7 +29,7 @@ This is a first step. We aim to provide more in terms of table support in the ed
 
 This is a new way to handle design, theming and design overrides, similar to what we had in eZ Publish. It enables you to define different Themes which are collections of assets and templates. You can then assemble Themes (that can override each other) to define Designs, and eventually, assign a Design to a SiteAccess. This is a powerful concept that we will aim to use in our out-of-the-box templates and demo sites. It comes especially handy when using eZ Platform for a multisite installation and willing to reuse design parts. Further info can be found in the [Bundle documentation](https://github.com/ezsystems/ezplatform-design-engine/tree/master/doc).
 
-![](attachments/34080523/34081091.png)
+![](releases/img/newdesigntable.png)
 
 ### API: Simplified usage with translations
 
@@ -53,7 +41,7 @@ For objects such as Content, ContentType, Field Definitions and more, to get tra
 
 **Typical use of API prior to v1.10:**
 
-``` brush:
+``` bash
 $content = $this->contentService->loadContent(
     42,
     $this->configResolver->getParameter('languages')
@@ -68,7 +56,7 @@ As long as languages are provided to API when retrieving a given object, this ca
 
 **As of v1.10:**
 
-``` brush:
+``` bash
 $content = $this->contentService->loadContent(
     42,
     $this->configResolver->getParameter('languages')
@@ -82,11 +70,9 @@ $value = $content->getFieldValue('body');
 
 ### SOLR: Index time boosting & Improved Facets support
 
-One of the new features in 1.10 *(Solr Bundle 1.4)* is the possibility to [configure index time boosting](Solr-Bundle_31430592.html), which enables you to properly tune the search results to be relevant for your content architecture.
+One of the new features in 1.10 *(Solr Bundle 1.4)* is the possibility to [configure index time boosting](../guide/solr_bundle.md), which enables you to properly tune the search results to be relevant for your content architecture.
 
-In addition to that, we made progress on providing native support for faceted search within eZ Platform when using the Solr Bundle. You can now use facets based on ContentTypes, Sections and Users, see [Browsing, finding, viewing](31430307.html) page for how to use them. We plan to provide more facets natively in the coming releases.
-
-![](attachments/34080523/34080517.png)
+In addition to that, we made progress on providing native support for faceted search within eZ Platform when using the Solr Bundle. You can now use facets based on ContentTypes, Sections and Users, see [Browsing, finding, viewing](../guide/guide_to_ez_platform.md) page for how to use them. We plan to provide more facets natively in the coming releases.
 
 ### Cluster migration script
 
@@ -103,7 +89,7 @@ Starting with 1.10, a new command `ezplatform:io:migrate-files` has been added
 
 -   Form deletion is managed more gracefully, including warnings and the option to download collected data before deleting a form ([EZEE-1400](https://jira.ez.no/browse/EZEE-1400))
 
-![Deleting a form with data](attachments/34080523/34081057.gif "Deleting a form with data")
+![Deleting a form with data](releases/img/delete-form.gif "Deleting a form with data")
 
 -   [EZEE-1411](https://jira.ez.no/browse/EZEE-1411): Schedule block logic has been updated and improved.
 
@@ -114,32 +100,11 @@ Starting with 1.10, a new command `ezplatform:io:migrate-files` has been added
 
 # Full list of new features, improvements and bug fixes since v1.9.0
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><h3 id="eZPlatformv1.10.0-eZPlatform.1">eZ Platform</h3></th>
-<th><h3 id="eZPlatformv1.10.0-eZStudio">eZ Studio</h3></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><a href="https://github.com/ezsystems/ezplatform/releases/tag/v1.10.0" class="external-link">List of changes for final of eZ Platform v1.10.0 on Github</a></td>
-<td><a href="https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.10.0" class="external-link">List of changes for final for eZ Platform Enterprise Edition v1.10.0 on Github</a></td>
-</tr>
-<tr class="even">
-<td><a href="https://github.com/ezsystems/ezplatform/releases/tag/v1.10.0-rc2" class="external-link">List of changes for rc2 of eZ Platform v1.10.0 on Github</a></td>
-<td><a href="https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.10.0-rc1" class="external-link">List of changes for rc1 for eZ Platform Enterprise Edition v1.10.0 on Github</a></td>
-</tr>
-<tr class="odd">
-<td><a href="https://github.com/ezsystems/ezplatform/releases/tag/v1.10.0-beta3" class="external-link">List of changes for beta3 of eZ Platform v1.10.0 on Github</a></td>
-<td><a href="https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.10.0-beta1" class="external-link">List of changes for beta1 of eZ Platform Enterprise Edition v1.10.0 on Github</a></td>
-</tr>
-</tbody>
-</table>
+| eZ Platform | eZ Studio |
+|-------------|-----------|
+| [List of changes for final of eZ Platform v1.10.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.10.0) | [List of changes for final for eZ Platform Enterprise Edition v1.10.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.10.0) |
+| [List of changes for rc2 of eZ Platform v1.10.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.10.0-rc2) | [List of changes for rc1 for eZ Platform Enterprise Edition v1.10.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.10.0-rc1) |
+| [List of changes for beta3 of eZ Platform v1.10.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.10.0-beta3) | [List of changes for beta1 of eZ Platform Enterprise Edition v1.10.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.10.0-beta1) |
 
 ### Acknowledgements
 
@@ -147,9 +112,9 @@ Kudos to [@emodric](https://twitter.com/emodric) for the Tags bundle, [@pspanja]
 
 ### Installation
 
-[Installation Guide](https://doc.ez.no/display/DEVELOPER/Step+1%3A+Installation)
+[Installation Guide](docs/getting_started/install_ez_platform.md)
 
-[Technical Requirements](31429536.html)
+[Technical Requirements](docs/getting_started/requirements_and_system_configuration.md)
 
 ### Download
 
@@ -169,36 +134,12 @@ Kudos to [@emodric](https://twitter.com/emodric) for the Tags bundle, [@pspanja]
 
 If you would like to request an eZ Enterprise Demo instance: <http://ez.no/Forms/Discover-eZ-Studio>
 
- 
+
 
 ### Updating
 
-To update to this version, follow the [Updating eZ Platform](https://doc.ez.no/display/DEVELOPER/Updating+eZ+Platform) guide and use v1.10.0 as `<version>`.
+To update to this version, follow the [Updating eZ Platform](docs/releases/updating_ez_platform.md) guide and use v1.10.0 as `<version>`.
 
-**Note:** When updating eZ Platform Enterprise Edition, you need to [add the new EzSystemsPlatformEEAssetsBundle](Updating-eZ-Platform_31431770.html#UpdatingeZPlatform-3.Updatetheapp)
+**Note:** When updating eZ Platform Enterprise Edition, you need to [add the new EzSystemsPlatformEEAssetsBundle](docs/releases/updating_ez_platform.md#update_the_app)
 
  
-
-## Attachments:
-
-![](images/icons/bullet_blue.gif) [eztags.gif](attachments/34080523/34080514.gif) (image/gif)
-![](images/icons/bullet_blue.gif) [contentbrowse.gif](attachments/34080523/34080515.gif) (image/gif)
-![](images/icons/bullet_blue.gif) [catsfromtheMET.gif](attachments/34080523/34080516.gif) (image/gif)
-![](images/icons/bullet_blue.gif) [Solr\_Logo\_on\_white.png](attachments/34080523/34080517.png) (image/png)
-![](images/icons/bullet_blue.gif) [sub-items-improved.png](attachments/34080523/34080518.png) (image/png)
-![](images/icons/bullet_blue.gif) [demo-tags.png](attachments/34080523/34080519.png) (image/png)
-![](images/icons/bullet_blue.gif) [section-details.png](attachments/34080523/34080520.png) (image/png)
-![](images/icons/bullet_blue.gif) [multifile-upload.png](attachments/34080523/34080521.png) (image/png)
-![](images/icons/bullet_blue.gif) [content\_browse\_button.png](attachments/34080523/34080522.png) (image/png)
-![](images/icons/bullet_blue.gif) [c506a0e0-2cf7-11e7-8bf0-a25de26e4552-1.png](attachments/34080523/34081001.png) (image/png)
-![](images/icons/bullet_blue.gif) [delete-form.gif](attachments/34080523/34081057.gif) (image/gif)
-![](images/icons/bullet_blue.gif) [platformui-table.gif](attachments/34080523/34081085.gif) (image/gif)
-![](images/icons/bullet_blue.gif) [Screen Shot 2017-06-27 at 5.07.45 PM.png](attachments/34080523/34081088.png) (image/png)
-![](images/icons/bullet_blue.gif) [Screen Shot 2017-06-27 at 5.12.26 PM.png](attachments/34080523/34081091.png) (image/png)
-![](images/icons/bullet_blue.gif) [platformui-table.gif](attachments/34080523/34081094.gif) (image/gif)
-
-
-
-
-
-
