@@ -1,24 +1,11 @@
-<<<<<<< HEAD
-
-
-# Step 0: Requirements & System Configuration
-=======
 # Requirements and System Configuration
 
 ## Platform as a Service (PaaS)
 
 If you're using a PaaS provider such as our partner [Platform.sh](https://platform.sh/hosting/php/ez/), where we have an single-server setup, and in the future also clustered setup, you can [skip](starting_ez_platform.md#hello-world) this step.
->>>>>>> acceptance_tests
 
 ## Server
 
-<<<<<<< HEAD
-If you're using a PaaS provider such as our partner [Platform.sh](https://platform.sh/hosting/php/ez/), where we have an single-server setup, and in the future also clustered setup, you can [skip](https://doc.ez.no/pages/viewpage.action?pageId=31429552) this step.
-
-# Server
-
-=======
->>>>>>> acceptance_tests
 eZ software is built to rely on existing technologies and standards. The minimal setup is `PHP`,  `MySQL/MariaDB`, and `Apache/Nginx`. Recommendation for production setups is to use `Varnish`, and  `Memcached`, `NFS` `and ``Solr` in a [clustered setup](../guide/clustering.md).
 
 For supported versions of these technologies see Recommended and Supported setups below.
@@ -27,100 +14,6 @@ For supported versions of these technologies see Recommended and Supported setup
 
 These setups are tested by QA and are generally recommended setups. For security and performance we furthermore recommend use of the newer versions of components below.
 
-<<<<<<< HEAD
- 
-Debian
-
-Ubuntu
-RHEL / CentOS
-**Operating system**
-
-8.x "Jessie"
-
-16.04LTS
-
-7.x
-
-**Web Server**
-
-Nginx 1.6
-Apache 2.4 (prefork\\ mode)
-
-Nginx 1.10
-Apache 2.4 (prefork\\ mode)
-
-Nginx 1.8 (latest\\ via\\ [RHSCL](https://access.redhat.com/documentation/en/red-hat-software-collections/))
-Apache 2.4 (prefork\\ mode)
-
-**DBMS**
-
-MariaDB 10.0
-MySQL 5.5
-
-MySQL 5.7
-MariaDB 10.0
-
-MariaDB 10.1 (latest\\ via\\ [RHSCL](https://access.redhat.com/documentation/en/red-hat-software-collections/))
-MariaDB 10.0 (latest\\ via\\ [RHSCL](https://access.redhat.com/documentation/en/red-hat-software-collections/))
-MySQL 5.6 (latest\\ via\\ [RHSCL](https://access.redhat.com/documentation/en/red-hat-software-collections/))
-MariaDB 5.5
-
-**PHP**
-
-PHP 5.6 (via\\ libapache2-mod-php5\\ for\\ Apache)
-
-PHP 7.0 
-
-PHP 7.0 (latest\\ via\\ [RHSCL](https://access.redhat.com/documentation/en/red-hat-software-collections/))
-
-PHP 5.6 (latest\\ via\\ [RHSCL](https://access.redhat.com/documentation/en/red-hat-software-collections/))
-
-**PHP packages**
-
-php5-cli
-php5-fpm (for\\ use\\ with\\ nginx)
-php5-readline
-php5-mysqlnd *or* php5-pgsql
-php5-json
-php5-xsl
-php5-intl
-php5-mcrypt
-php5-curl
-php5-gd
-php5-imagick (optional)
-php5-twig (optional,\\ improves\\ performance)
-php5-memcached (recommended,\\ improves\\ performance)
-
-php-cli
-php-fpm (for\\ use\\ with\\ nginx)
-php-readline
-php-mysql *or* php-pgsql
-php-json
-php-xml
-php-mbstring
-php-intl
-php-mcrypt
-php-curl
-php-gd *or* php-imagick
-
-php-memcached (recommended,\\ via\\ [pecl](https://pecl.php.net/package/memcached))
-
- 
-
-php-cli
-php-fpm (for\\ use\\ with\\ nginx)
-php-mysqlnd *or* php-pgsql
-php-xml
-php-mbstring
-php-process
-php-intl
-php-pear (optional,\\ provides\\ *pecl*)
-php-gd *or* php-imagick (via\\ [pecl](https://pecl.php.net/package/imagick))
-php-memcached (recommended,\\ via\\ [pecl](https://pecl.php.net/package/memcached))
-
-**Search**
-Solr (recommended,\\ for\\ better\\ performance\\ and\\ scalability\\ of\\ all\\ API\\ Queries)
-=======
 ||Debian|Ubuntu|RHEL / CentOS|
 |------|------|------|------|
 |Operating system|8.x "Jessie"|16.04LTS|7.x|
@@ -128,7 +21,6 @@ Solr (recommended,\\ for\\ better\\ performance\\ and\\ scalability\\ of\\ all\\
 |DBMS|MariaDB 10.0</br>MySQL 5.5|MySQL 5.7</br>MariaDB 10.0|MariaDB 10.1 *(latest via RHSCL)*</br>MariaDB 10.0 *(latest via RHSCL)*</br>MySQL 5.6 *(latest via RHSCL)*</br>MariaDB 5.5|
 |PHP|PHP 5.6 *(via libapache2-mod-php5 for Apache)*|PHP 7.0|PHP 7.0 *(latest via RHSCL)*</br>PHP 5.6 *(latest via RHSCL)*|
 |PHP packages|php5-cli</br>php5-fpm *(for use with nginx)*</br>php5-readline</br>php5-mysqlnd or php5-pgsql</br>php5-json</br>php5-xsl</br>php5-intl</br>php5-mcrypt</br>php5-curl</br>php5-gd</br>php5-imagick *(optional)*</br>php5-twig *(optional, improves performance)*</br>php5-memcached</br> *(recommended, improves performance)*|php-cli</br>php-fpm *(for use with nginx)*</br>php-readline</br>php-mysql or php-pgsql</br>php-json</br>php-xml</br>php-mbstring</br>php-intl</br>php-mcrypt</br>php-curl</br>php-gd or php-imagick</br>php-memcached *(recommended, via [pecl](https://pecl.php.net/package/memcached))*|php-cli</br>php-fpm *(for use with nginx)*</br>php-mysqlnd or php-pgsql</br>php-xml</br>php-mbstring</br>php-process</br>php-intl</br>php-pear *(optional, provides pecl)*</br>php-gd or php-imagick *(via [pecl](https://pecl.php.net/package/imagick))*</br>php-memcached *(recommended, via [pecl](https://pecl.php.net/package/memcached))*|
->>>>>>> acceptance_tests
 
 |||
 |------|------|
@@ -138,30 +30,7 @@ Solr (recommended,\\ for\\ better\\ performance\\ and\\ scalability\\ of\\ all\\
 |Filesystem|Linux ext3 / ext4|
 |Package manager|Composer|
 
-<<<<<<< HEAD
-Oracle Java/Open JDK: 7 *or* 8 (needed\\ for\\ Solr,\\ [version\\ 8\\ recommended](https://lucene.apache.org/solr/4_10_4/SYSTEM_REQUIREMENTS.html))
-
-**Graphic Handler**
-
-GraphicsMagick *or* ImageMagick *or* GD
-
-**[Clustering](../guide/clustering.md)**
-
-Linux NFS\\ (for\\ IO,\\ aka\\ binary\\ files\\ stored\\ in\\ content\\ repository)
-Memcached (for\\ Persistence\\ cache\\ &\\ Sessions)
-Varnish (for\\ HttpCache)
-
-**Filesystem**
-
-Linux ext3 / ext4
-
-**Package manager**
-Composer
-
-## Supported setups
-=======
 ### Supported setups
->>>>>>> acceptance_tests
 
 WORK IN PROGRESS FOR FUTURE RELEASE, SEE ABOVE FOR NOW
 
@@ -234,10 +103,4 @@ These setups have been undergone some additional manual testing and is known to 
 -   Opera® most recent stable version, or higher, desktop *and* mobile 
 
 Please note that the user interface might not look or behave exactly the same across all browsers as it will gracefully degrade if browser does not support certain features.
-<<<<<<< HEAD
 
- 
-
- 
-=======
->>>>>>> acceptance_tests

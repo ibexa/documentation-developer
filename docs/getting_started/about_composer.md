@@ -1,31 +1,16 @@
-<<<<<<< HEAD
-
 # Using Composer
 
-=======
-# About Composer
->>>>>>> acceptance_tests
+## About Composer
 
 Keeping your system up-to-date is important to make sure it is running optimally and securely. The update mechanism in eZ software is using the *de facto* standard PHP packaging system called [Composer](https://getcomposer.org/). 
 
 This makes it easy to adapt package installs and updates to your workflow, allowing you to test new/updated packages in a development environment, place the changes in your version control system (git, Subversion, Mercurial, etc.), pull in those changes to a staging environment and, when approved, put them in production.
 
-<<<<<<< HEAD
- 
-
-=======
 !!! note "[Composer](https://getcomposer.org/) is an opensource PHP packaging system to manage dependencies."
->>>>>>> acceptance_tests
 
     This makes it easy to adapt package installs and updates to your workflow, allowing you to test new/updated packages in a development environment, put the changes in your version control system (git, Subversion, Mercurial, etc.), pull in those changes on a staging environment and, when approved, put it in production.
 
-<<<<<<< HEAD
-This makes it easy to adapt package installs and updates to your workflow, allowing you to test new/updated packages in a development environment, put the changes in your version control system (git, Subversion, Mercurial, etc.), pull in those changes on a staging environment and, when approved, put it in production.
-
 ### Installing Composer
-=======
-## Installing Composer
->>>>>>> acceptance_tests
 
 Composer is a command-line tool, so the main way to install it is via command line from inside the root directory of the (eZ) software:
 
@@ -37,11 +22,7 @@ php -r "readfile('https://getcomposer.org/installer');" | php
 
 By doing it this way you will need to execute further Composer commands using `php composer.phar`. If you'd rather prefer to install Composer globally on your machine instead of inside each and every project that uses it, then follow [these instructions in online Composer documentation](https://getcomposer.org/doc/00-intro.md#globally).
 
-<<<<<<< HEAD
 ### Prerequisite to using composer with eZ Enterprise software
-=======
-## Prerequisite to using composer with eZ Enterprise software
->>>>>>> acceptance_tests
 
 **This section describes features available only in eZ Enterprise.**
 
@@ -84,11 +65,7 @@ composer config http-basic.updates.ez.no <installation-key> <token-password>
 composer config --global http-basic.updates.ez.no <installation-key> <token-password>
 ```
 
-<<<<<<< HEAD
 ### Update workflow Using Composer
-=======
-## Update workflow Using Composer
->>>>>>> acceptance_tests
 
 This section describes the best practice for using Composer, essentially it suggests treating updates like other code/configuration/\* changes on your project, tackling them on a development machine before staging them for rollout on staging/production.  
 
@@ -134,11 +111,7 @@ php -d memory_limit=-1 composer.phar install --no-dev --prefer-dist
 
     Here the importance of `composer.lock` comes in, as this command will tell Composer to install packages in exactly the same version as defined in this file. If you don't keep track of `composer.lock`, it will instead just install always the latest version of a package and won't allow you to stage updates before moving towards production.
 
-<<<<<<< HEAD
 ### General notes on use of Composer
-=======
-## General notes on use of Composer
->>>>>>> acceptance_tests
 
 ### Installing additional packages via Composer
 
@@ -187,15 +160,7 @@ Best practice for Bundles is described in Symfony documentation under [Best Pra
     -   `ezpublish-legacy-extension` | For standalone 4.x (legacy) extensions, to be used with [ezpublish-legacy-installer](https://github.com/ezsystems/ezpublish-legacy-installer)
     -   `ezpublish-bundle | For eZ Publish Platform 5.x bundles, may optionally be a "legacy bundle".`
 
-<<<<<<< HEAD
-
-
-
-#### Composer for Frontend Developers
-
-=======
 ## Composer for Frontend Developers
->>>>>>> acceptance_tests
 
 If you are a web designer or working on the CSS on your website, this page contains is all you need to know about Composer.
 
@@ -203,11 +168,7 @@ If you are a web designer or working on the CSS on your website, this page conta
 
     This makes it easy to adapt package installs and updates to your workflow, allowing you to test new/updated packages in a development environment, put the changes in your version control system (git, Subversion, Mercurial, etc.), pull in those changes on a staging environment and, when approved, put it in production.
 
-<<<<<<< HEAD
-#### Troubleshooting
-=======
 ### Troubleshooting
->>>>>>> acceptance_tests
 
 You may experience some latency in dependency resolution: everything is going normally.
 
@@ -225,11 +186,7 @@ php -d memory_limit=-1 composer.phar <command> --verbose (-v|vv|vvv)
 
 ### Useful commands
 
-<<<<<<< HEAD
-### install
-=======
 #### install
->>>>>>> acceptance_tests
 
 The `install` command reads the composer.lock file from the current directory, processes it, and downloads and installs all the libraries and dependencies outlined in that file. If the file does not exist it will look for composer.json and do the same.
 
@@ -247,11 +204,7 @@ In this example the `dry-run` option is mentioned to prevent you from doing anyt
 php -d memory_limit=-1 composer.phar install [--prefer-source] [--prefer-dist] [--dry-run] [--dev] [--no-dev] [--no-plugins] [--no-custom-installers] [--no-scripts] [--no-progress] [-v|vv|vvv|--verbose] [-o|--optimize-autoloader] [packages1] ... [packagesN]
 ```
 
-<<<<<<< HEAD
-### Update
-=======
 #### Update
->>>>>>> acceptance_tests
 
  The `update` command reads the composer.json file from the current directory, processes it, and updates, removes or installs all the dependencies.
 
@@ -271,14 +224,9 @@ php -d memory_limit=-1 composer.phar update vendor/package1 foo/*
 
 ## Composer for System Administrators
 
-<<<<<<< HEAD
-## Composer for System Administrators
-
-=======
 !!! note "[Composer](https://getcomposer.org/) is an opensource PHP packaging system to manage dependencies."
 
     This makes it easy to adapt package installs and updates to your workflow, allowing you to test new/updated packages in a development environment, put the changes in your version control system (git, Subversion, Mercurial, etc.), pull in those changes on a staging environment and, when approved, put it in production.
->>>>>>> acceptance_tests
 
 !!! note "composer.phar or composer?"
 
@@ -325,11 +273,7 @@ The `require` command adds required packages to your composer.json and installs 
 php composer.phar require [--dev] [--prefer-source] [--prefer-dist] [--no-progress] [--no-update] [--update-no-dev] [--update-with-dependencies] [packages1] ... [packagesN]
 ```
 
-<<<<<<< HEAD
-### Interesting options
-=======
 ##### Interesting options
->>>>>>> acceptance_tests
 
                    |   
    --prefer-source | Forces installation from package sources when possible, including VCS information.
@@ -338,13 +282,7 @@ php composer.phar require [--dev] [--prefer-source] [--prefer-dist] [--no-progre
    --no-update     | Disables the automatic update of the dependencies
    --update-with-dependencies | Allows inherited dependencies to be updated with explicit dependencies
 
-<<<<<<< HEAD
- 
-
-## search
-=======
 #### search
->>>>>>> acceptance_tests
 
 The `search` command searches for packages by its name.
 
@@ -398,11 +336,7 @@ The `validate` command validates a given composer.json.
  $> php composer.phar validate [--no-check-all] [file]
 ```
 
-<<<<<<< HEAD
-### Interesting options
-=======
 ##### Interesting options
->>>>>>> acceptance_tests
 
 |option | description |
 |-------|-------------|
@@ -410,11 +344,7 @@ The `validate` command validates a given composer.json.
 | --profile | Display timing and memory usage info |
 | --working-dir (-d) | If specified, use the given directory as a working directory |
 
-<<<<<<< HEAD
-# Automate installation
-=======
 ### Automate installation
->>>>>>> acceptance_tests
 
 Note that you can add some scripts to the Composer dependencies installation.
 

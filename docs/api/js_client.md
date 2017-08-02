@@ -241,4 +241,5 @@ contentService.createView(query, function (error, response) {
 !!! note "REST views"
 
     REST views are designed to be persisted but this feature is not yet implemented. As a result, when calling `createView`, the POST request does not create the view but directly returns the results.
+
  

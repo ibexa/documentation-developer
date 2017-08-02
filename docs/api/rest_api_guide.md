@@ -16,7 +16,7 @@ The API provides a set of URIs, each of them identifying and providing access to
 
 ### HTTP verbs
 
-It uses HTTP verbs ( **`GET`** , **`POST`** , but also **`PUT`** , **`DELETE`** , etc...), as well as HTTP headers to specify the type of request. Depending on the used HTTP verb, different actions will be possible. Example:
+It uses HTTP verbs ( **`GET`** , **`POST`** , but also **`PUT`** , **`DELETE`** , etc...), as well as HTTP headers to specify the type of request. Depending on the used HTTP verb, different actions will be possible. Example:
 
 -   `GET  /content/objects/2` will provide you with data about Content \#2,
 -   `PATCH  /content/objects/2` will update the Content \#2's metadata (section, main language, main location...),
@@ -25,7 +25,7 @@ It uses HTTP verbs ( **`GET`** , **`POST`** , but also **`PUT`** , **`DELETE`** 
 
 !!! note "Caution with custom HTTP verbs"
 
-    Using custom HTTP verbs, those besides the standard (GET, POST, PUT, DELETE, OPTIONS, TRACE), can cause issues with several HTTP proxies, network firewall/security solutions and simpler web servers. To avoid issues with this REST API allows you to set these using a HTTP header instead using HTTP verb POST. Example: `X-HTTP-Method-Override: PUBLISH`
+    Using custom HTTP verbs, those besides the standard (GET, POST, PUT, DELETE, OPTIONS, TRACE), can cause issues with several HTTP proxies, network firewall/security solutions and simpler web servers. To avoid issues with this REST API allows you to set these using a HTTP header instead using HTTP verb POST. Example: `X-HTTP-Method-Override: PUBLISH`
 
 ### Media type headers
 
@@ -48,7 +48,7 @@ Responses returned by the API will also use custom headers to indicate informati
 
 ### Installation
 
-No special preparations are necessary to use the REST API. As long as your eZ Platform is correctly configured, the REST API is available on your site using the URI `/api/ezp/v2/`. If you have installed eZ Platform in a subfolder, prepend the path with this subfolder: http://example.com/**sub/folder/ezpublish**/api/ezp/v2/.
+No special preparations are necessary to use the REST API. As long as your eZ Platform is correctly configured, the REST API is available on your site using the URI `/api/ezp/v2/`. If you have installed eZ Platform in a subfolder, prepend the path with this subfolder: http://example.com/**sub/folder/ezpublish**/api/ezp/v2/.
 
 !!! note
 

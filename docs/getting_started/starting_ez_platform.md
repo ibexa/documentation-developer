@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-
-
-# Starting eZ Platform
-
-
-
-Once you have your eZ Platform installed, all you need to do to start it is to run your Apache server. Then you can access your eZ Platform's front and back office. To access the UI backend, add `/ez` to your installation URL.
-
-
- 
-## Web Server
-
-## Configuration files
-=======
 # Starting eZ Platform
 
 Once you have your eZ Platform installed, all you need to do to start it is to run your Apache server. Then you can access your eZ Platform's front and back office. To access the UI backend, add `/ez` to your installation URL.
@@ -20,7 +5,6 @@ Once you have your eZ Platform installed, all you need to do to start it is to r
 ## Web Server
 
 ### Configuration files
->>>>>>> acceptance_tests
 
 You can find configuration files in the `doc/` directory of the software, for the following web server engines:
 
@@ -36,26 +20,14 @@ and also configuration files for
 In addition to that, you have a Bash script for generating a virtual host configuration based on template, containing variables among the once define below.
 For help text, execute: `./bin/vhost.sh -h`
 
-<<<<<<< HEAD
 ### Help
 
- 
-
-=======
-#### Help
-
->>>>>>> acceptance_tests
 ``` bash
 ./bin/vhost.sh [-h|--help]
 ```
 
-#### Usage
-
-<<<<<<< HEAD
 ### Usage
 
-=======
->>>>>>> acceptance_tests
 ``` bash
 $> ./bin/vhost.sh --basedir=/var/www/ezplatform \\
 
@@ -66,32 +38,6 @@ $> ./bin/vhost.sh --basedir=/var/www/ezplatform \\
 
 Default values will be fetched from the environment variables `$env_list`, but might be overridden using the arguments listed below.
 
-<<<<<<< HEAD
-### Arguments
-
-              Option  | Description
-    --basedir=<path>  | Root path to where the eZ installation is placed, used for <path>/web
-    --template-file=<file.template> | The file to use as a template for the generated output file
-    --host-name=localhost | Primary host name, default "localhost"
-    --host-alias=* .localhost | Space separated list of host aliases, default ".localhost"
-    --ip=127.0.0.1/* | IP address web server should accept traffic on
-    --port=80 | Port number web server should accept traffic on
-    --sf-env=prod/dev | Symfony environment used for the virtual host, default is prod
-    --sf-debug=0/1 | Set if Symfony debug should be on, by default on if env is dev
-    --trusted-proxies=127.0.0.1/* | Comma separated trusted proxies(e.g. Varnish), that we can get client IP from.
-    --sf-http-cache=0/1 | To disable Symfony HTTP cache proxy for using a different reverse proxy. By default disabled when env is "dev", enabled otherwise.
-    --sf-http-cache-class=<class-file.php> | To specify a different class than the default one, to use as the Symfony proxy
-    --sf-classloader-file=<class-file.php> | To specify a different class than the default one, to use for PHP auto loading
-    --body-size-limit =<int>| Limit in megabytes for max sizeof request body, 0 value disables limit
-    --request-timeout=<int> | Limit in seconds before timeout of request, 0 value disables timeout limit
-
-
-
-## PHP's built-in server
-
-
-## Description
-=======
 #### Arguments
 
 |Option  | Description|
@@ -114,7 +60,6 @@ Default values will be fetched from the environment variables `$env_list`, but m
 ## PHP's built-in server
 
 ### Description
->>>>>>> acceptance_tests
 
 PHP, in 5.4 and later, comes with a [built-in webserver for development purposes](http://php.net/manual/en/features.commandline.webserver.php). This is very handy, as it allows you to **kickstart development quickly**, avoiding having to install and configure [Apache](https://github.com/ezsystems/ezplatform/tree/master/doc/apache2) / [Nginx](https://github.com/ezsystems/ezplatform/tree/master/doc/nginx). All you need here is PHP 5.4+ with command line binary.
 
@@ -158,13 +103,7 @@ php app/console server:run -h
 
 <http://symfony.com/doc/current/cookbook/web_server/built_in.html>
 
-<<<<<<< HEAD
-
-
-# Hello World!
-=======
 ## Hello World!
->>>>>>> acceptance_tests
 
 Now your installation is ready and you're on your way to starting work with eZ Platform.
 
@@ -175,10 +114,6 @@ password: `publish`
 
 A clean installation of eZ Platform is empty, so you only get a single page with a rudimentary content model. This is a blank canvas for you to create and customize your own structure.
 
-<<<<<<< HEAD
-If you'd like to take a look at an example of using the system to construct a fully functional page, you can also [install eZ Platform with the Demo Bundle](../getting_started/install_ez_platform.md).
-=======
 If you'd like to take a look at an example of using the system to construct a fully functional page, you can also [install eZ Platform with the Demo Bundle](install_ez_platform.md).
->>>>>>> acceptance_tests
 
  

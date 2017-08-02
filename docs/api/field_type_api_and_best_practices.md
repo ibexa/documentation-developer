@@ -339,7 +339,7 @@ Performs manipulations on a outgoing validator configuration hash, previously ge
 
 Base implementations of these methods simply return the given hash, so you can implement only the methods your `FieldType` requires. Some `FieldTypes` coming with the eZ Publish installation already implement processors and you are encouraged to take a look at them.
 
-For details on registering a `FieldType` processor, see [Register Field Type](#register-field-type).
+For details on registering a `FieldType` processor, see [Register Field Type](#register-field-type).
 
 ## Best practices
 
@@ -461,7 +461,7 @@ in order to run all `FieldType` tests.
 
 On a second level, the interaction between an implementation of the Public API (aka the Business Layer) and the Field Type is tested. Again, there is a common base class as the infrastructural basis for such tests, which resides in `eZ\Publish\API\Repository\Tests\FieldType\BaseIntegrationTest`.
 
-!!! note
+!!! note 
 
     Note that the In-Memory stubs for the Public API integration test suite, do not perform actual Field Type calls, but mainly emulate the behavior of a Field Type for simplicity reasons.
 
@@ -621,13 +621,13 @@ services:
             - {name: ezpublish.fieldType.externalStorageHandler, alias: ezurl}
 ```
 
-The configuration is straight forward. Nothing specific except the **`ezpublish.fieldType.externalStorageHandler `** tag, the `alias` attribute still begin the *fieldTypeIdentifier*.
+The configuration is straight forward. Nothing specific except the **`ezpublish.fieldType.externalStorageHandler `** tag, the `alias` attribute still begin the *fieldTypeIdentifier*.
 
 External storage configuration for basic field types is located in [EzPublishCoreBundle/Resources/config/fieldtypes.yml](https://github.com/ezsystems/ezp-next/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/fieldtypes.yml).
 
 ##### Gateway based storage
 
-As stated in the [Field Type best practices](#gateway-based-storage), in order to be storage agnostic and external storage handler should use a *storage gateway*. This can be done by implementing another service implementing `eZ\Publish\Core\FieldType\StorageGateway` and being tagged as `ezpublish.fieldType.externalStorageHandler.gateway`.
+As stated in the [Field Type best practices](#gateway-based-storage), in order to be storage agnostic and external storage handler should use a *storage gateway*. This can be done by implementing another service implementing `eZ\Publish\Core\FieldType\StorageGateway` and being tagged as `ezpublish.fieldType.externalStorageHandler.gateway`.
 
 **Storage gateway for ezurl**
 
@@ -647,7 +647,7 @@ services:
 | alias | Represents the fieldTypeIdentifier (just like for the FieldType service) |
 | identifier | Identifier for the gateway. Must be unique per storage engine. LegacyStorage is the convention name for Legacy Storage Engine. |
 
-For this to work properly, your storage handler must inherit from `eZ\Publish\Core\FieldType\GatewayBasedStorage`.
+For this to work properly, your storage handler must inherit from `eZ\Publish\Core\FieldType\GatewayBasedStorage`.
 
 Also note that there can be several gateways per field type (one per storage engine basically).
 

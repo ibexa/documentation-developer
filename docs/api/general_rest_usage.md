@@ -167,8 +167,7 @@ X-Siteaccess: ezdemo_site_admin
 
 ## REST API Authentication
 
-
-The REST API supports two authentication methods: session, and basic.
+The REST API supports two authentication methods: session, and basic. 
 
 -   **Session-based authentication** is meant to be used for AJAX operations. It will let you re-use the visitor's session to execute operations with their permissions.
 -   **Basic authentication** is often used when writing cross-server procedures, when one remote application executes operations on one/several eZ Platform instances (remote publishing, maintenance, etc).
@@ -286,7 +285,7 @@ HTTP/1.1 200
 Content-Type: application/vnd.ez.api.CountriesList+xml
 ```
 
-And the body of the Response is XML formatted country list with names and codes according to the ISO-3166 standard.
+And the body of the Response is XML formatted country list with names and codes according to the ISO-3166 standard. 
 
 ISO-3166
 

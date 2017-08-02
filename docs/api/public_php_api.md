@@ -1,6 +1,6 @@
 # eZ Platform Public PHP API
 
-The PHP API is also commonly referred to as the "*Public API*". Currently it exposes a Repository which allows you to create, read, update, manage and delete all objects available in eZ Platform, first and foremost content, but also related objects like Sections, Locations, Content Types, Content Type groups, languages and so on.
+The PHP API is also commonly referred to as the "*Public API*". Currently it exposes a Repository which allows you to create, read, update, manage and delete all objects available in eZ Platform, first and foremost content, but also related objects like Sections, Locations, Content Types, Content Type groups, languages and so on.
 
 ### eZ Platform API Repository
 
@@ -15,21 +15,21 @@ It will allow you to create, retrieve, update and delete all the eZ Platform obj
 $repository = $container->get( 'ezpublish.api.repository' );
 ```
 
-By itself, the repository doesn't do much. It allows three types of operations: user authentication (getting / changing the current user), issuing transactions, and obtaining services.
+By itself, the repository doesn't do much. It allows three types of operations: user authentication (getting / changing the current user), issuing transactions, and obtaining services. 
 
 !!! tip "Inline objects documentation"
 
-    Pay attention to the inline phpdoc block in this code stub. It tells your IDE that `$repository` is an instance of  `\eZ\Publish\API\Repository\Repository`. If your IDE supports this feature, you will get code completion on the `$repository` object. This helper is a huge time saver when it comes to learning about the eZ Platform API.
+    Pay attention to the inline phpdoc block in this code stub. It tells your IDE that `$repository` is an instance of  `\eZ\Publish\API\Repository\Repository`. If your IDE supports this feature, you will get code completion on the `$repository` object. This helper is a huge time saver when it comes to learning about the eZ Platform API.
 
 ### The service container
 
 The above code snippet implies that the [service container](http://symfony.com/doc/2.0/book/service_container.html) is available in the context you are writing your code in.
 
-In controllers, this generally is done by extending the Symfony `Controller` class. It comes with a `get()` method that calls the service container. In command line scripts, it requires that you extend the [`ContainerAwareCommand`](http://api.symfony.com/2.1/Symfony/Bundle/FrameworkBundle/Command/ContainerAwareCommand.html) base class instead of `Controller`. This class provides you with a `getContainer()` method that returns the service container.
+In controllers, this generally is done by extending the Symfony `Controller` class. It comes with a `get()` method that calls the service container. In command line scripts, it requires that you extend the [`ContainerAwareCommand`](http://api.symfony.com/2.1/Symfony/Bundle/FrameworkBundle/Command/ContainerAwareCommand.html) base class instead of `Controller`. This class provides you with a `getContainer()` method that returns the service container.
 
 !!! note "Getting the repository from eZ Platform controllers"
 
-    In order to make it even easier to obtain the repository from controllers code, eZ Platform controllers extend a custom  [Controller](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Bundle/EzPublishCoreBundle/Controller.html) class that provides a [`getRepository()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Bundle/EzPublishCoreBundle/Controller.html#method_getRepository) method which directly returns the repository from the service container.
+    In order to make it even easier to obtain the repository from controllers code, eZ Platform controllers extend a custom  [Controller](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Bundle/EzPublishCoreBundle/Controller.html) class that provides a [`getRepository()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Bundle/EzPublishCoreBundle/Controller.html#method_getRepository) method which directly returns the repository from the service container.
 
     You can and should of course do the same in your custom controllers.
 
@@ -41,7 +41,7 @@ Logging in to the Repository is covered in other recipes of the Cookbook.
 
 ### Services
 
-The main entry point to the repository's features are services. The Public API breaks down access to Content, User, Content Types and other features into various services. Those services are obtained via the [Repository](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Repository.html), using `get`\[ServiceName\]`()` methods: `getContentService()`, `getUserService()`, etc.
+The main entry point to the repository's features are services. The Public API breaks down access to Content, User, Content Types and other features into various services. Those services are obtained via the [Repository](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Repository.html), using `get`\[ServiceName\]`()` methods: `getContentService()`, `getUserService()`, etc.
 
 Throughout the Cookbook, you will be guided through the various capabilities those services have, and how you can use them to implement your projects.
 
@@ -104,13 +104,13 @@ $ cd /path/to/ezplatform
 
 Then use the app/console application with the `generate:bundle` command to start the bundle generation wizard.
 
-Let's follow the instructions provided by the wizard. Our objective is to create a bundle named `EzSystems/Bundles/CookBookBundle`, located in the `src` directory.
+Let's follow the instructions provided by the wizard. Our objective is to create a bundle named `EzSystems/Bundles/CookBookBundle`, located in the `src` directory.
 
 ``` bash
 $ php app/console generate:bundle
 ```
 
-The wizard will first ask about our bundle's namespace. Each bundle's namespace should feature a vendor name (in our own case: `EzSystems`), optionally followed by a sub-namespace (we could have chosen to use `Bundle`), and end with the actual bundle's name, suffixed with Bundle: `CookbookBundle`.
+The wizard will first ask about our bundle's namespace. Each bundle's namespace should feature a vendor name (in our own case: `EzSystems`), optionally followed by a sub-namespace (we could have chosen to use `Bundle`), and end with the actual bundle's name, suffixed with Bundle: `CookbookBundle`.
 
 **Bundle namespace**
 
@@ -128,7 +128,7 @@ Use / instead of \ for the namespace delimiter to avoid any problem.
 Bundle namespace: EzSystems/CookbookBundle
 ```
 
-You will then be asked about the Bundle's name, used to reference your bundle in your code. We can go with the default, `EzSystemsCookbookBundle`. Just hit Enter to accept the default.
+You will then be asked about the Bundle's name, used to reference your bundle in your code. We can go with the default, `EzSystemsCookbookBundle`. Just hit Enter to accept the default.
 
 **Bundle name**
 
@@ -140,7 +140,7 @@ Based on the namespace, we suggest EzSystemsCookbookBundle.
 Bundle name [EzSystemsCookbookBundle]:
 ```
 
-The next question is your bundle's location. By default, the script offers to place it in the `src` folder. This is perfectly acceptable unless you have a good reason to place it somewhere else. Just hit Enter to accept the default.
+The next question is your bundle's location. By default, the script offers to place it in the `src` folder. This is perfectly acceptable unless you have a good reason to place it somewhere else. Just hit Enter to accept the default.
 
 **Bundle directory**
 
@@ -196,16 +196,16 @@ Confirm automatic update of the Routing [yes]?
 Importing the bundle routing resource: OK
 
   You can now start using the generated code!
-
+ 
 ```
 
 Your bundle should be generated and activated. Let's now see how you can interact with the Public API by creating a command line script, and a custom controller route and action.
 
 #### Creating a command line script in your bundle
 
-Writing a command line script with Symfony 2 is *very* easy. The framework and its bundles ship with a few scripts. They are all started using `php app/console <command>`. You can get the complete list of existing command line scripts by executing `php app/console list` from the eZ Platform root.
+Writing a command line script with Symfony 2 is *very* easy. The framework and its bundles ship with a few scripts. They are all started using `php app/console <command>`. You can get the complete list of existing command line scripts by executing `php app/console list` from the eZ Platform root.
 
-In this chapter, we will create a new command, identified as `ezpublish:cookbook:hello`, that takes an optional name argument, and greets that name. To do so, we need one thing: a class with a name ending with "Command" that extends `Symfony\Component\Console\Command\Command`. Note that in our case, we use `ContainerAwareCommand` instead of `Command`, since we need the dependency injection container to interact with the Public API. In your bundle's directory (`src/EzSystems/CookbookBundle`), create a new directory named `Command`, and in this directory, a new file named `HelloCommand.php`.
+In this chapter, we will create a new command, identified as `ezpublish:cookbook:hello`, that takes an optional name argument, and greets that name. To do so, we need one thing: a class with a name ending with "Command" that extends `Symfony\Component\Console\Command\Command`. Note that in our case, we use `ContainerAwareCommand` instead of `Command`, since we need the dependency injection container to interact with the Public API. In your bundle's directory (`src/EzSystems/CookbookBundle`), create a new directory named `Command`, and in this directory, a new file named `HelloCommand.php`.
 
 Add this code to the file:
 
@@ -241,9 +241,9 @@ class HelloCommand extends \Symfony\Bundle\FrameworkBundle\Command\ContainerAwar
 
 This is the skeleton for a command line script.
 
-One class with a name ending with "Command" (`HelloCommand`), extends `Symfony\Bundle\FrameworkBundle\Command\Command`, and is part of our bundle's Command namespace. It has two methods: `configure()`, and `execute()`. We also import several classes & interfaces with the use keyword. The first two, `InputInterface` and `OutputInterface` are used to 'typehint' the objects that will allow us to provide input & output management in our script.
+One class with a name ending with "Command" (`HelloCommand`), extends `Symfony\Bundle\FrameworkBundle\Command\Command`, and is part of our bundle's Command namespace. It has two methods: `configure()`, and `execute()`. We also import several classes & interfaces with the use keyword. The first two, `InputInterface` and `OutputInterface` are used to 'typehint' the objects that will allow us to provide input & output management in our script.
 
-`Configure` will be used to set your command's name, as well as its options and arguments. `Execute` will contain the actual implementation of your command. Let's start by creating the `configure()` method.
+`Configure` will be used to set your command's name, as well as its options and arguments. `Execute` will contain the actual implementation of your command. Let's start by creating the `configure()` method.
 
 **TestCommand::configure()**
 
@@ -259,9 +259,9 @@ protected function configure()
 }
 ```
 
-First, we use `setName()` to set our command's name to "`ezpublish:cookbook:hello`". We then use `setDefinition()` to add an argument, named `name`, to our command.
+First, we use `setName()` to set our command's name to "`ezpublish:cookbook:hello`". We then use `setDefinition()` to add an argument, named `name`, to our command.
 
-You can read more about argument definitions and further options in the [Symfony 2 Console documentation](http://symfony.com/doc/2.0/components/console/introduction.html). Once this is done, if you run `php app/console list`, you should see `ezpublish:cookbook:hello` listed in the available commands. If you run it, it will however still do nothing.
+You can read more about argument definitions and further options in the [Symfony 2 Console documentation](http://symfony.com/doc/2.0/components/console/introduction.html). Once this is done, if you run `php app/console list`, you should see `ezpublish:cookbook:hello` listed in the available commands. If you run it, it will however still do nothing.
 
 Let's just add something very simple to our `execute()` method so that our command actually does something.
 
@@ -290,7 +290,7 @@ Hello world
 
 #### Creating a custom route with a controller action
 
-In this short chapter, we will see how to create a new route that will catch a custom URL and execute a controller action. We want to create a new route, `/cookbook/test`, that displays a simple 'Hello world' message. This tutorial is a simplified version of the official one that can be found on <http://symfony.com/doc/current/book/controller.html>.
+In this short chapter, we will see how to create a new route that will catch a custom URL and execute a controller action. We want to create a new route, `/cookbook/test`, that displays a simple 'Hello world' message. This tutorial is a simplified version of the official one that can be found on <http://symfony.com/doc/current/book/controller.html>.
 
 During our bundle's generation, we have chosen to generate the bundle with default code snippets. Fortunately, almost everything we need is part of those snippets. We just need to do some editing, in particular in two locations: `src/EzSystems/Resources/CookbookBundle/config/routing.yml` and `src/EzSystems/CookbookBundle/Controllers/DefaultController.php`. The first one will be used to configure our route (`/cookbook/test`) as well as the controller action the route should execute, while the latter will contain the actual action's code.
 
@@ -418,7 +418,7 @@ try
 
 Everything starting from line 5 is about getting our Content and iterating over its Fields. You can see that the whole logic is part of a `try/catch` block. Since the Public API uses Exceptions for error handling, this is strongly encouraged, as it will allow you to conditionally catch the various errors that may happen. We will cover the exceptions we expect in a later paragraph.
 
-The first thing we do is use the Content Service to load a Content item using its ID, 66: `$contentService->loadContent ( 66 )`. As you can see on the API doc page, this method expects a Content ID, and returns a [Content Value Object](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Content.html).
+The first thing we do is use the Content Service to load a Content item using its ID, 66: `$contentService->loadContent ( 66 )`. As you can see on the API doc page, this method expects a Content ID, and returns a [Content Value Object](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Content.html).
 
 ``` php
 foreach( $contentType->fieldDefinitions as $fieldDefinition )
@@ -509,7 +509,7 @@ catch( \eZ\Publish\API\Repository\Exceptions\UnauthorizedException $e )
 }
 ```
 
-As for the ContentService, `loadLocation()` returns a Value Object, here a `Location`. Errors are handled with exceptions: `NotFoundException` if the Location ID couldn't be found, and `UnauthorizedException` if the current repository user isn't allowed to view this Location.
+As for the ContentService, `loadLocation()` returns a Value Object, here a `Location`. Errors are handled with exceptions: `NotFoundException` if the Location ID couldn't be found, and `UnauthorizedException` if the current repository user isn't allowed to view this Location.
 
 **Iterating over a Location's children**
 
@@ -531,7 +531,7 @@ Note that unlike `loadLocation()`, we don't need to care for permissions here: t
 
 !!! note "Full code"
 
-    Should you need more advanced children fetching methods, the `SearchService` is what you are looking for.
+    Should you need more advanced children fetching methods, the `SearchService` is what you are looking for.
 
 ### Viewing Content Metadata
 
@@ -603,11 +603,11 @@ foreach ( $locations as $location )
 }
 ```
 
-We first use `LocationService::loadLocations()` to **get** the **Locations** for our `ContentInfo`. This method returns an array of [`Location`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Location.html) Value Objects. In this example, we print out the Location's path string (/path/to/content). We also use [URLAliasService::reverseLookup()](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/URLAliasService.html#method_reverseLookup) to get the Location's main [URLAlias](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/URLAlias.html).
+We first use `LocationService::loadLocations()` to **get** the **Locations** for our `ContentInfo`. This method returns an array of [`Location`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Location.html) Value Objects. In this example, we print out the Location's path string (/path/to/content). We also use [URLAliasService::reverseLookup()](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/URLAliasService.html#method_reverseLookup) to get the Location's main [URLAlias](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/URLAlias.html).
 
 #### Relations
 
-We now want to list relations from and to our Content. Since relations are versioned, we need to feed the [`ContentService::loadRelations()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/ContentService.html#method_loadRelations) with a `VersionInfo` object. We can get the current version's `VersionInfo` using [`ContentService::loadVersionInfo()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/ContentService.html#method_loadVersionInfo). If we had been looking for an archived version, we could have specified the version number as the second argument to this method.
+We now want to list relations from and to our Content. Since relations are versioned, we need to feed the [`ContentService::loadRelations()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/ContentService.html#method_loadRelations) with a `VersionInfo` object. We can get the current version's `VersionInfo` using [`ContentService::loadVersionInfo()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/ContentService.html#method_loadVersionInfo). If we had been looking for an archived version, we could have specified the version number as the second argument to this method.
 
 **Browsing a Content's relations**
 
@@ -727,8 +727,6 @@ In this recipe, we will run a simple full text search over every compatible attr
 
 We introduce here a new object: `Query`. It is used to build up a Content query based on a set of `Criterion` objects.
 
-
-
 ```php
 $query = new \eZ\Publish\API\Repository\Values\Content\Query();
 // Use 'query' over 'filter' for FullText to get hit score (relevancy) with Solr/Elastic
@@ -740,8 +738,6 @@ $query->query = new Query\Criterion\FullText( $text );
 Multiple criteria can be grouped together using "logical criteria", such as [LogicalAnd](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Query/Criterion/LogicalAnd.html) or [LogicalOr](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Query/Criterion/LogicalOr.html). Since in this case we only want to run a text search, we simply use a [`FullText`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Query/Criterion/FullText.html) criterion object.
 
 The full list of criteria can be found on your installation in the following directory [vendor/ezsystems/ezpublish-kernel/eZ/Publish/API/Repository/Values/Content/Query/Criterion](https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/API/Repository/Values/Content/Query/Criterion). Additionally you may look at integration tests like [vendor/ezsystems/ezpublish-kernel/eZ/Publish/API/Repository/Tests/SearchServiceTest.php](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Tests/SearchServiceTest.php) for more details on how these are used.
-
-
 
 ##### Running the search query and using the results
 
@@ -769,8 +765,6 @@ Tip
 V1.7.0
 
 You can use the method $parentL`ocation->getSortClauses()` to return an array of Sort Clauses for direct use on `LocationQuery->sortClauses`.
-
-
 
 #### Performing an advanced search
 
@@ -858,9 +852,9 @@ $query->filter = new Criterion\LogicalAnd(
 $result = $searchService->findContent( $query );
 ```
 
-A `ParentLocationId` criterion limits the search to the children of location 2. An array of "`ContentTypeId"` Criteria to limit the search to Content of ContentType's with id 1 or 2 grouped in a `LogicalOr` operator. Those two criteria are grouped with a `LogicalAnd` operator. As always the query is executed as before, with `SearchService::findContent()`.
+A `ParentLocationId` criterion limits the search to the children of location 2. An array of "`ContentTypeId"` Criteria to limit the search to Content of ContentType's with id 1 or 2 grouped in a `LogicalOr` operator. Those two criteria are grouped with a `LogicalAnd` operator. As always the query is executed as before, with `SearchService::findContent()`.
 
-Want to do a subtree filter? Change the location filter to use the Subtree criterion filter as shown in the advanced search example above.
+Want to do a subtree filter? Change the location filter to use the Subtree criterion filter as shown in the advanced search example above.
 
 ##### Using in() instead of OR
 
@@ -885,9 +879,9 @@ $query->filter = new Criterion\LogicalAnd(
 $result = $searchService->findContent( $query );
 ```
 
-**Tip**
+!!! tip
 
-All filter criteria are capable of doing an "IN" selection, the ParentLocationId above could, for example, have been provided "array( 2, 43 )" to include second level children in both your content tree (2) and your media tree (43).
+    All filter criteria are capable of doing an "IN" selection, the ParentLocationId above could, for example, have been provided "array( 2, 43 )" to include second level children in both your content tree (2) and your media tree (43).
 
 #### Performing a Faceted Search
 
@@ -895,8 +889,8 @@ All filter criteria are capable of doing an "IN" selection, the ParentLocationId
 
     Faceted Search is not fully implemented yet.
 
-    -   Implemented Facets SOLR BUNDLE &gt;=1.4: `User, ContentType, & Section` , see:   [![](https://jira.ez.no/images/icons/issuetypes/epic.png)EZP-26465](https://jira.ez.no/browse/EZP-26465?src=confmacro) - Search Facets M1 Development
-    -   Not Implemented Facets: `CriterionFacet, DateRangeFacet, FieldFacet, FieldRangeFacet, LocationFacet (meant for Location search), & TermFacet`
+    -   Implemented Facets SOLR BUNDLE &gt;=1.4: `User, ContentType, & Section` , see:   [![](https://jira.ez.no/images/icons/issuetypes/epic.png)EZP-26465](https://jira.ez.no/browse/EZP-26465?src=confmacro) - Search Facets M1 Development
+    -   Not Implemented Facets: `CriterionFacet, DateRangeFacet, FieldFacet, FieldRangeFacet, LocationFacet (meant for Location search), & TermFacet`
 
     You can register [custom facet builder visitors](https://github.com/ezsystems/ezplatform-solr-search-engine/blob/v1.1.1/lib/Resources/config/container/solr/facet_builder_visitors.yml) with Solr for Content(Info) and SOLR BUNDLE &gt;=1.4 Location search.
 
@@ -937,7 +931,7 @@ list( $userId, $articleCount ) = $result->facets[0]->entries;
 
 In many cases you might need the number of Content items matching a search, but with no need to do anything else with the results.
 
-Thanks to the fact that the "searchHits" property of the [`SearchResult`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Search/SearchResult.html) object always refers to the total amount, it is enough to run a standard search and set $limit to 0. This way no results will be retrieved, and the search will not be slowed down, even when the number of matching results is huge.
+Thanks to the fact that the "searchHits" property of the [`SearchResult`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Search/SearchResult.html) object always refers to the total amount, it is enough to run a standard search and set $limit to 0. This way no results will be retrieved, and the search will not be slowed down, even when the number of matching results is huge.
 
 ``` php
 use eZ\Publish\API\Repository\Values\Content\Query;

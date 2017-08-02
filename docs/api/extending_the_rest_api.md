@@ -150,10 +150,6 @@ class Hello extends ValueObjectVisitor
 }
 ```
 
-Do not hesitate to look into the built-in ValueObjectVisitors, in `eZ/Publish/Core/REST/Server/Output/ValueObjectVisitor`, for more examples.
-
-### Cache handling
-
 The easiest way to handle cache is to re-use the `CachedValue` Value Object. It acts as a proxy, and adds the cache headers, depending on the configuration, for a given object and set of options.
 
 When you want the response to be cached, return an instance of CachedValue, with your Value Object as the argument. You can also pass a location id using the second argument, so that the Response is tagged with it:

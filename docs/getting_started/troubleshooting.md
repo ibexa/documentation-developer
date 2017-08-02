@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-
-
 # Avoiding Problems
-
-
-=======
-# Avoiding Problems
->>>>>>> acceptance_tests
 
 WORK-IN-PROGRESS
 

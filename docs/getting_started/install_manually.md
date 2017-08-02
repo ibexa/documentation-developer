@@ -1,22 +1,10 @@
 # Manual Installation Guides
 
-<<<<<<< HEAD
-
-=======
->>>>>>> acceptance_tests
 ### Introduction
 
 Hi! You are about to install eZ Platform on your machine and this guide is here to make sure that the whole process of preparation and installation is fast and easy. This guide consists of a three paths that differ slightly; you should choose the one that meets your operating system:
 
-<<<<<<< HEAD
-[Microsoft Windows](../getting_started/install_manually.md#Manual_Installation_on_Windows), [Mac OS X](../getting_started/install_manually.md#Installation_Guide_for_OS_X) or other [Unix-Based Systems](../getting_started/install_manually.md#Installation_Guide_for_Unix-Based_Systems).
-
- 
-
- 
-=======
 [Microsoft Windows](install_manually.md#manual-installation-on-windows), [Mac OS X](install_manually.md#installation-guide-for-os-x) or other [Unix-Based Systems](install_manually.md#installation-guide-for-unix-based-systems).
->>>>>>> acceptance_tests
 
 **Installation guides can be followed with any eZ Symfony distribution, you can find a list of available distributions from eZ in a table below:**
 
@@ -29,16 +17,9 @@ Hi! You are about to install eZ Platform on your machine and this guide is here 
 
 ## Installation Guide for OS X
 
-<<<<<<< HEAD
-
-## Preparation:
-
-### 1. Install MySQL 
-=======
 ### Preparation:
 
 #### 1. Install MySQL 
->>>>>>> acceptance_tests
 
 Download from the [official MySQL webpage](https://www.mysql.com/) is strongly recommended.
 
@@ -325,18 +306,7 @@ sudo apachectl restart
 
 Depending on your selected \*NIX distribution, you may need to install part or all of the LAMP stack required to run eZ Platform or eZ Enterprise. Before getting started, make sure you review our [requirements](requirements_and_system_configuration.md) page to see the systems we support and use for testing. You can try using an unsupported configuration, but your results may vary.
 
-<<<<<<< HEAD
-# Installation Guide for Unix-Based Systems
-
-
-## 1. Install a LAMP Stack (\*NIX, Apache, MySQL, PHP5+)
-
-Depending on your selected \*NIX distribution, you may need to install part or all of the LAMP stack required to run eZ Platform or eZ Enterprise. Before getting started, make sure you review our [requirements](https://doc.ez.no/pages/viewpage.action?pageId=31429536) page to see the systems we support and use for testing. You can try using an unsupported configuration, but your results may vary.
-
-Please not that, while OS X *is* a \*NIX-based system, it has its own unique requirements listed in our [Installation Guide for OS X](../getting_started/install_manually.md#Installation_Guide_for_OS_X). Developer-maintained installation notes are kept in our GitHub repository at this location as well: <https://github.com/ezsystems/ezplatform/blob/master/INSTALL.md>
-=======
 Please not that, while OS X *is* a \*NIX-based system, it has its own unique requirements listed in our [Installation Guide for OS X](install_manually.md#installation-guide-for-os-x). Developer-maintained installation notes are kept in our GitHub repository at this location as well: <https://github.com/ezsystems/ezplatform/blob/master/INSTALL.md>
->>>>>>> acceptance_tests
 
 You may use your system's package manager (yum, apt-get, etc.) to obtain a copy of Apache, MySQL, and PHP, or download the latest versions from the official websites and install manually:
 
@@ -421,11 +391,7 @@ Like most things, [Symfony documentation](http://symfony.com/doc/current/book/in
 
 Furthermore, future files and directories created by these two users will need to inherit those access rights. *For security reasons, there is no need for web server to have access to write to other directories.*
 
-<<<<<<< HEAD
-Then, go to the [Setup folder rights](../getting_started/install_manually.md#Setup-folder-rights) page for the next steps of this settings.
-=======
-Then, go to the [Setup folder rights](../getting_started/install_manually.md#setup-folder-rights) page for the next steps of this settings.
->>>>>>> acceptance_tests
+Then, go to the [Setup folder rights](install_manually.md#Setup-folder-rights) page for the next steps of this settings.
 
 ### 7. Set up a Virtual Host
 
@@ -433,11 +399,7 @@ For our example, we'll demonstrate using Apache2 as part of the traditional LAMP
 
 #### Option A: Scripted Configuration
 
-<<<<<<< HEAD
-Instead of manually editing the vhost.template file, you may instead [use the included shell script](../getting_started/starting_ez_platform.md#Web-server): /var/www/ezplatform/bin/vhost.sh to generate a configured .conf file. Check out the source of `vhost.sh` to see the options provided. Additional information is included in our [Web Server](../getting_started/starting_ez_platform.md#Web-server) documentation here as well.
-=======
-Instead of manually editing the vhost.template file, you may instead [use the included shell script](../getting_started/starting_ez_platform.md#Web-server): /var/www/ezplatform/bin/vhost.sh to generate a configured .conf file. Check out the source of `vhost.sh` to see the options provided. Additional information is included in our [Web Server](starting_ez_platform.md#web-server) documentation here as well.
->>>>>>> acceptance_tests
+Instead of manually editing the vhost.template file, you may instead [use the included shell script](starting_ez_platform.md#Web-server): /var/www/ezplatform/bin/vhost.sh to generate a configured .conf file. Check out the source of `vhost.sh` to see the options provided. Additional information is included in our [Web Server](starting_ez_platform.md#web-server) documentation here as well.
 
 #### Option B: Manual Edits
 
@@ -505,12 +467,7 @@ service apache2 restart
 
 For security reasons, there is no need for web server to have access to write to other directories.
 
-<<<<<<< HEAD
-## Set the owner and clean directories*
-=======
-#### Set the owner and clean directories*
->>>>>>> acceptance_tests
-
+#### Set the owner and clean directories
 
 First, change `www-data` to your web server user.
 
@@ -634,14 +591,7 @@ cat /proc/sys/vm/vfs_cache_pressure
 
 ### Preparation:
 
-<<<<<<< HEAD
-
-## Preparation:
-
-### 1. Set up PHP
-=======
 #### 1. Set up PHP
->>>>>>> acceptance_tests
 
 This step requires the modification of two files: Apache2 configuration file and `php.ini`.
 These files can be edited using a terminal editor like vi or nano, or a simple text editor. file name is **httpd.conf** and by default it is located in this directory:
@@ -704,11 +654,6 @@ Include /private/etc/apache2/users/*.conf
 
 #### 3. Start Apache2 daemon using Command Line
 
-<<<<<<< HEAD
-### 3. Start Apache2 daemon using Command Line
-
-=======
->>>>>>> acceptance_tests
 ``` bash
 httpd.exe
 ```
@@ -759,11 +704,7 @@ zend_extension=opcache.so
 
 ### Installation:
 
-<<<<<<< HEAD
-### 7. Install eZ Platform
-=======
 #### 7. Install eZ Platform
->>>>>>> acceptance_tests
 
 a. Download archive from [share.ez.no/downloads](http://share.ez.no/downloads/downloads). Extract the eZ Platform archive to a directory, then execute post install scripts.
 
