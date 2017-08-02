@@ -7,7 +7,7 @@ For the release notes of the corresponding eZ Studio release, see [eZ Studio 16.
 ## Quick links
 
 -   [Installation instructions]((../getting_started/install_ez_platform.md))[](https://github.com/ezsystems/ezplatform/blob/v15.05/INSTALL.md)
--   [Requirements](docs/releases/updating_ez_platform.md)
+-   [Requirements](../getting_started/requirements_and_system_configuration.md)
 -   Download: See [share.ez.no/downloads](http://share.ez.no/downloads/downloads/ez-platform-16.02)
 
 ## Changes since 15.12.1
@@ -20,9 +20,9 @@ For list of issues fixed in 16.02 see [52 issues](https://jira.ez.no/secure/Issu
 
 Added option to choose image variations for images embedded in Rich text Fields.
 
-![Image element options](releases/img/online_editor_image_options.png)
+![Image element options](img/online_editor_image_options.png)
 
-![Image aligned left in a block of text](releases/img/aligned_image.png)
+![Image aligned left in a block of text](img/aligned_image.png)
 
 #### **Image alignment**
 
@@ -37,7 +37,7 @@ Added option to choose image variations for images embedded in Rich text Fields.
 
 Added an (unordered) List element in the Online Editor.
 
-![](releases/img/oe_list.png)
+![](img/oe_list.png)
 
 ### Permissions
 
@@ -47,7 +47,7 @@ Added role versioning to better handle editing of roles.
 
 Content items moved to Trash can be viewed and trash can be emptied.
 
-![Trash screen](releases/img/trash.png)
+![Trash screen](img/trash.png)
 
 ### Preview of upgrade support from eZ Publish Platform 5.4/2014.11
 
@@ -57,7 +57,7 @@ This release contains migrations tools for migrating XmlText to RichText, this i
 
 eZ Platform now also comes[in a new demo version](https://github.com/ezsystems/ezplatform-demo) that better showcases eZ Platform in use with a provided web site and corresponding  content:
 
-![](releases/img/demow.jpg)
+![](img/demow.jpg)
 
 ### Easier install & testing
 

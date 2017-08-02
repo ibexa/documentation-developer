@@ -11,22 +11,22 @@ The eZ Platform User Interface has been improved in many ways during this releas
 
 -   Visual preview of the selected item in the UDW, as a first step in the revamp of the UDW finder. See [EZP-25793](https://jira.ez.no/browse/EZP-25793) to see what is planned for the feature further along the line.
 
-![Content preview in UDW](releases/img/better_udw.png)
+![Content preview in UDW](img/better_udw.png)
 
 -   [EZP-26240](https://jira.ez.no/browse/EZP-26240): Server side content validation errors will now be reflected in the UI if the app validation is removed, providing more details.
 -   [EZP-26191](https://jira.ez.no/browse/EZP-26191): Draft conflict screen on dashboard:
 
-![Draft conflict screen](releases/img/draft_conflict_screen.png)
+![Draft conflict screen](img/draft_conflict_screen.png)
 
 -   [EZP-26004](https://jira.ez.no/browse/EZP-26004) & [EZP-26003](https://jira.ez.no/browse/EZP-26003): Search in PlatformUI:
 
-![Search in Platform UI](releases/img/search.png)
+![Search in Platform UI](img/search.png)
 
 Minor styling on different parts, stability on session and error management making the user interface feel more stable.
 
 For developers there were also one such styling change, eZ logo now better matches the Symfony 2.8 web debug toolbar:
 
-![](releases/img/dev_mode.png)
+![](img/dev_mode.png)
 
  
 
@@ -54,16 +54,16 @@ Beyond eZ Platform and eZ Studio, each release is built and shipped together wit
 
 -   Selective rendering of "premium" content for registered end users only. Content is either rendered in full when the end user belongs to the "Members" group, or only as a teaser with a Register button:
 
-![Premium content](releases/img/premium_content.png)
+![Premium content](img/premium_content.png)
 
 -   Registering new users based on the new UGC framework introduced in v1.5.0. It is accessible through the `/register` route:
 
-![Registration form](releases/img/register.png)
+![Registration form](img/register.png)
 
 -   Authentication
 -   Revamp and improvement of the integration of the Recommendation bundle:
 
-![Recommended articles in Studio Demo](releases/img/recommended_articles.png)
+![Recommended articles in Studio Demo](img/recommended_articles.png)
 
 Other bugs have been fixed in the demo bundle data.
 
@@ -106,6 +106,6 @@ If you would like to request an eZ Enterprise Demo instance: <http://ez.no/Forms
 
 ### Updating
 
-**eZ Platform**: To update to this version, follow the [Updating eZ Platform](docs/releases/updating_ez_platform.md) guide and use v1.6.0 as `<version>`.
+**eZ Platform**: To update to this version, follow the [Updating eZ Platform](../releases/updating_ez_platform.md) guide and use v1.6.0 as `<version>`.
 
  

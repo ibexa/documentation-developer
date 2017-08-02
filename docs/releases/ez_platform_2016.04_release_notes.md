@@ -22,7 +22,7 @@ It's now possible to define ordering criterias for sub-items. It's also possible
 
  
 
-| ![](releases/img/sub-items_ordering.png) | ![](releases/img/setting_priorities.png) |
+| ![](img/sub-items_ordering.png) | ![](img/setting_priorities.png) |
 |----------------------------------------|----------------------------------------|
 
 [More about the ordering of sub-items](https://jira.ez.no/browse/EZP-25351)
@@ -31,7 +31,7 @@ It's now possible to define ordering criterias for sub-items. It's also possible
 
 Fields can now be assigned to a category from the Content Type management UI, again making it possible to organize fields for editors in relevant categories.
 
-![](releases/img/field_categories.png)
+![](img/field_categories.png)
 
 ### Name pattern support for Relation, Relation List and Selection Field Types
 
@@ -51,7 +51,7 @@ Items that were trashed can now be restored. Trash can be empty, permanently del
 
 The user interface introduced a more contextual right action bar for that purpose.
 
-![](releases/img/trash_mgmt.png)
+![](img/trash_mgmt.png)
 
 [More about trash management](https://jira.ez.no/browse/EZP-25305)
 
@@ -80,4 +80,4 @@ More importantly, this has been done to make it possible to developers to extend
 
 ## Updating
 
-To update to this version, follow the [Updating eZ Platform](docs/releases/updating_ez_platform.md) guide and use **v1.3.0** as version.
+To update to this version, follow the [Updating eZ Platform](../releases/updating_ez_platform.md) guide and use **v1.3.0** as version.

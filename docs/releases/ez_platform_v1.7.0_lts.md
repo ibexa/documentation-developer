@@ -19,17 +19,17 @@ With the LTS release, the [new product naming](http://ez.no/Blog/eZ-Announces-Na
 ## eZ Platform (Open Source)
 
 -   **i18n! Internationalization of the eZ Platform** User Interface is now possible. The new system selects the language to use based on the browser settings of the end user. The system makes it possible to create translations for eZ Platform UI. Studio internationalization, as well as translations ready to use will be shipped in further releases. Community members are more than welcome to contribute to the translation process.
-    ![](releases/img/i18n.png)
+    ![](img/i18n.png)
 
 <!-- -->
 
 -   **Universal Discovery Widget** ("UDW") provides a range of small improvements. The most noticeable one is the preview of content which is more usable and also provides a way to get a full preview of the content object.
 
-![](releases/img/udwre.png)
+![](img/udwre.png)
 
 -   The Admin Panel now provides a way to get a very clean **digest view of Content Types** configured in the system, with the ability to clearly get access to properties and field definitions.
 
-![](releases/img/contenttypeviews.png)
+![](img/contenttypeviews.png)
 
 -   The online editor also brings a range of improvements that improve the editorial experience. The most noticeable one is to offer the possibility to switch from Headings to Paragraph styles for the same element.
 
@@ -65,15 +65,15 @@ With the LTS release, the [new product naming](http://ez.no/Blog/eZ-Announces-Na
 
 -   You can now use our eZ Personalization service to create highly personalized landing pages. The Studio **Personalization Block** available out of the box lets the editor simply create a block that will render a list of content items personalized to each and every visitor. The interface lets the editor decide which of the Personalization scenarios configured in the eZ Personalization back end should be used, as well as the template to be used for rendering.
 
-![](releases/img/personalizationblock.png)
+![](img/personalizationblock.png)
 
 -   You can now take advantage of the **Date-Based Publishing** feature – when editing a draft, instead of publishing the content immediately you can select the date and time at which it will be automatically published. All your content scheduled to be published are accessible in a dedicated widget on the dashboard.
 
-![](releases/img/future_publication_window.png)
+![](img/future_publication_window.png)
 
 -   Create forms in your Landing Page using the **Form Builder**. A special Form Block allows you to add forms with different types of fields to the Landing Page. This system has been designed to be extended, so that you can create your own form fields. The system also provide an interface to access the data that has been collected, and download it as CSV files.
 
-![](releases/img/form-builder-1.png)
+![](img/form-builder-1.png)
 
 Submitted results can be previewed in the UI or downloaded in a CSV file, and a designated person will be notified of submissions by email.
 
@@ -81,7 +81,7 @@ Submitted results can be previewed in the UI or downloaded in a CSV file, and a 
 
 The Enterprise demo site has been significantly improved featuring a new **Product Content Type** that is used to show products in the Tasteful Planet demo. The product we used are meals that, in a non-demo ideal world, would be available to order and consume. This ordering part is not in the demo, nevertheless, the content looks really yummy... Other improvements includes the good setup of all content type field categories and the demonstration of basic SEO field types. Demo content itself has also been upgraded with more content to better demonstrate the capabilities.
 
-![](attachments/32868941/productcontenttype.png)
+![](img/productcontenttype.png)
 
  
 
@@ -117,4 +117,4 @@ If you would like to request an Enterprise Demo instance: <http://ez.no/Forms/Di
 
 ### Updating
 
-**eZ Platform**: To update to this version, follow the [Updating eZ Platform](docs/releases/updating_ez_platform.md) guide and use v1.7.0 as `<version>`.
+**eZ Platform**: To update to this version, follow the [Updating eZ Platform](../releases/updating_ez_platform.md) guide and use v1.7.0 as `<version>`.

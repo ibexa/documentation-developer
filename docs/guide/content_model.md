@@ -1,17 +1,8 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [The Complete Guide to eZ Platform](The-Complete-Guide-to-eZ-Platform_31429526.html)
-4.  [Under the Hood: How eZ Platform Works](31429659.html)
-
 # Content Model: Content is King!
-
-Created by Dominika Kurek, last modified on Mar 15, 2017
 
 Everyone knows that Content is King, and in eZ Platform, everything is Content!
 
 Take a look at the content model underlying eZ Platform.
-
- 
 
 ### Content model overview
 
@@ -19,17 +10,9 @@ The content structure in eZ is based on ideas borrowed from Object-Oriented prog
 
 In this understanding an "object" in the eZ Platform is called a Content Item and represents a single piece of content: an article, a blog post, an image, a product, etc. Each Content item is an instance of a "class," called a Content Type.
 
- 
-
- 
-
 An introduction to the eZ content model aimed at non-developer users, is available at [Under the hood, concepts and organization](https://doc.ez.no/display/USER/2.+Under+the+hood%2C+concepts+and+organization).
 
- 
-
-# Content items, Content Types and Fields
-
-Created by Dominika Kurek, last modified on Jun 22, 2016
+## Content items, Content Types and Fields
 
 # Content items
 
@@ -45,7 +28,9 @@ Aside from the Fields, each Content item is also characterized by general data t
 
 **Name** – a user-friendly name for the Content item. The name is generated automatically based on a pattern specified in the Content Type definition.
 
-Content item Name is always searchable, even if the Field(s) used to generate it are not.
+!!! note
+
+    Content item Name is always searchable, even if the Field(s) used to generate it are not.
 
 **Type** – the Content Type on which the Content item is based.
 
@@ -61,11 +46,9 @@ Content item Name is always searchable, even if the Field(s) used to generate it
 
 **Versions** – total number of versions of this Content item. A new version is created every time the Content item is modified and it is this new version that is edited. The previous / published version along with earlier versions remain untouched and its status changed to *Archived*. A Content item always has at least one version. 
 
-![Diagram of an example Content item](attachments/31430275/31431657.png)
+![Diagram of an example Content item](img/content_model_item_diagram.png)
 
 The Fields that are available in a Content item are defined by the Content Type to which the Content item belongs.
-
- 
 
 # Content Types
 
@@ -75,27 +58,31 @@ Each Content Type is characterized by a set of metadata which define the general
 
 **Name** – a user-friendly name that describes the Content Type. This name is used in the interface, but not internally by the system. It can consist of letters, digits, spaces and special characters; the maximum length is 255 characters. (Mandatory.)
 
-Note that even if your Content Type defines a Field meant to store a name for the Content item (for example, a title of an article or product name), this will not be the same as this Name, as this one is a piece of metadata, not a Field.
+!!! note
+
+    Note that even if your Content Type defines a Field meant to store a name for the Content item (for example, a title of an article or product name), this will not be the same as this Name, as this one is a piece of metadata, not a Field.
 
 **Identifier** – an identifier for internal use in configuration files, templates, PHP code, etc. It must be unique, can only contain lowercase letters, digits and underscores; the maximum length is 50 characters. (Mandatory.)
 
 **Description** – a detailed description of the Content Type. (Optional.)
 
-**Content name pattern** – a pattern for naming a new Content item based on this Content Type. The pattern usually consists of [Field identifiers](#Contentitems,ContentTypesandFields-Field_identifier) that tell the system about which Fields it should use when generating the name of a Content item. Each Field identifier has to be surrounded with angle brackets. Text outside the angle brackets will be included literally. If no pattern is provided, the system will automatically use the first Field. (Optional.)
+**Content name pattern** – a pattern for naming a new Content item based on this Content Type. The pattern usually consists of Field identifiers that tell the system about which Fields it should use when generating the name of a Content item. Each Field identifier has to be surrounded with angle brackets. Text outside the angle brackets will be included literally. If no pattern is provided, the system will automatically use the first Field. (Optional.)
 
 **URL alias name pattern** – a pattern which controls how the virtual URLs of the Locations will be generated when Content items are created based on this Content Type. Note that only the last part of the virtual URL is affected. The pattern works in the same way as the Content name pattern. Text outside the angle brackets will be converted using the selected method of URL transformation. If no pattern is provided, the system will automatically use the name of the Content item itself. (Optional.)
 
 **Container** – a flag which indicates if Content items based on this Content Type are allowed to have sub-items or not.
 
-This flag was added for convenience and only affects the interface. In other words, it doesn't control any actual low-level logic, it simply controls the way the graphical user interface behaves.
+!!! note
+
+    This flag was added for convenience and only affects the interface. In other words, it doesn't control any actual low-level logic, it simply controls the way the graphical user interface behaves.
 
 **Default field for sorting children** – rule for sorting sub-items. If the instances of this Content Type can serve as containers, their children will be sorted according to what is selected here.
 
 **Default sort order** – another rule for sorting sub-items. This decides the sort order for the criterion chosen above.
 
-**Default content availability** – a flag which indicates if Content items of this Content Type should be available even without a corresponding language version. If this flag is not set, a Content item of this Type will not be available when it does not have a language version corresponding to the current siteaccess. By setting this flag you can make instances of this Content Type available regardless of the language criterion.
+**Default content availability** – a flag which indicates if Content items of this Content Type should be available even without a corresponding language version. If this flag is not set, a Content item of this Type will not be available when it does not have a language version corresponding to the current SiteAccess. By setting this flag you can make instances of this Content Type available regardless of the language criterion.
 
-![Creating a new Content Type](attachments/31430275/31431659.png)
+![Creating a new Content Type](img/admin_panel_new_content_type.png)
 
 ### Field definitions
 
@@ -103,27 +90,25 @@ Aside from the metadata, a Content Type contains any number of Field definitions
 
 A Content Type and its Field definitions can be modified after creation, even if there are already Content items based on it in the system. When a Content Type is modified, each of its instances will be changed as well. If a new Field definition is added to a Content Type, this Field will appear (empty) in every relevant Content item. If a Field definition is deleted from the Content Type, all the corresponding Fields will be removed from Content items of this type.
 
-![Diagram of an example Content Type](attachments/31430275/31431660.png)
+![Diagram of an example Content Type](img/content_model_type_diagram.png)
 
-V1.3
+!!! note
 
-You can assign each Field defined in a Content Type to a group by selecting one of the groups in the Category drop-down. [Available groups can be configured in the content repository](Repository_31432023.html#Repository-ContentRepositoryConfiguration).
+    V1.3
 
- 
+    You can assign each Field defined in a Content Type to a group by selecting one of the groups in the Category drop-down. [Available groups can be configured in the content repository](repository.md#content-repository-configuration).
 
- 
-
-# Fields
+## Fields
 
 A Field is the smallest unit of storage in the content model and the building block that all Content items consist of. Every Field belongs to a Field Type.
 
-### Field value validation
+#### Field value validation
 
 The values entered in a field may undergo validation, which means the system makes sure that they are correct for the chosen Field Type and can be used without a problem.
 
 Whether validation is performed or not depends on the settings of a particular Field Type. Validation cannot be turned off for a Field if its Field Type supports it.
 
-### Field details
+#### Field details
 
 Aside from the Field Type, the Field definition in a Content Type provides the following information:
 
@@ -137,36 +122,12 @@ Aside from the Field Type, the Field definition in a Content Type provides the f
 
 Note that the Required flag is in no way related to Field validation. A Field's value is validated whether the Field is set as required or not.
 
-[**Searchable**](Search_31429673.html)– a flag which indicates if the value of the Field will be indexed for searching.
+**[Searchable](search.md)** – a flag which indicates if the value of the Field will be indexed for searching.
 
 The Searchable flag is not available for some Fields, because some Field Types do not allow searching through their values.
 
-**[Translatable](Internationalization_31429671.html)** – a flag which indicates if the value of the Field can be translated. This is independent of the Field Type, which means that even Fields of Types such as "Float" or "Image" can be set as translatable.
-
- 
+**[Translatable](internationalization.md)** – a flag which indicates if the value of the Field can be translated. This is independent of the Field Type, which means that even Fields of Types such as "Float" or "Image" can be set as translatable.
 
 Depending on the Field Type, there may also be other, specific information to fill in. For example, the "Country" Field Type allows you to select the default country, as well as to allow selecting multiple countries at the same time.
 
-![Diagram of content model](attachments/31430275/31431661.png)
-
- 
-
-#### In this topic:
-
--   [Content items](#Contentitems,ContentTypesandFields-Content_itemsContentitems)
-    -   [Content item general information](#Contentitems,ContentTypesandFields-Contentitemgeneralinformation)
--   [Content Types](#Contentitems,ContentTypesandFields-Content_TypesContentTypes)
-    -   [Content Type metadata](#Contentitems,ContentTypesandFields-ContentTypemetadata)
-    -   [Field definitions](#Contentitems,ContentTypesandFields-Fielddefinitions)
--   [Fields](#Contentitems,ContentTypesandFields-FieldsFields)
-    -   [Field value validation](#Contentitems,ContentTypesandFields-Fieldvaluevalidation)
-    -   [Field details](#Contentitems,ContentTypesandFields-Fielddetails)
-
- 
-
-## Attachments:
-
-![](images/icons/bullet_blue.gif) [content\_model\_item\_diagram.png](attachments/31430275/31431657.png) (image/png)
-![](images/icons/bullet_blue.gif) [Admin Panel - New Content Type.png](attachments/31430275/31431659.png) (image/png)
-![](images/icons/bullet_blue.gif) [content\_model\_type\_diagram.png](attachments/31430275/31431660.png) (image/png)
-![](images/icons/bullet_blue.gif) [content\_model\_diagram.png](attachments/31430275/31431661.png) (image/png)
+![Diagram of content model](img/content_model_diagram.png)

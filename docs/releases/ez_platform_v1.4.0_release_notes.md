@@ -31,19 +31,19 @@ When logging in to the app you are now greeted with a Dashboard which you can us
 -   **My Drafts:** All your current Content item drafts.
 -   **My Content:** All Content items that you have modified.
 
-![Dashboard](releases/img/dashboard.png)
+![Dashboard](img/dashboard.png)
 
 ### Managing Content item versions
 
 In the View mode you now have a new tab: **Versions**. It lists all versions of the current Content item, including archived and published versions, as well as drafts. You can view any version, edit an existing draft, delete versions or create a new draft from an existing version.
 
-![Versions of a Content item in Versions tab](releases/img/versions_tab.png)
+![Versions of a Content item in Versions tab](img/versions_tab.png)
 
 ### Full text search
 
 Full text search is now available, accessible in the Universal Discovery Widget (in the **Search** tab), and in the discovery bar (on the left on the screen).
 
-![](releases/img/ui_simple_search.png)
+![](img/ui_simple_search.png)
 
 This feature is provided as a preview in this release, available from a separate bundle: `PlatformUISearchPrototypeBundle`
 
@@ -57,13 +57,13 @@ It is now possible to swap two Content items in their Locations. You can do it i
 
 Thanks go to [Carlos Revillo](https://doc.ez.no/display/~desorden) for the contribution.
 
-![Location swap ](releases/img/location_swap.png)
+![Location swap ](img/location_swap.png)
 
 ### User registration
 
 Registering new users is now available through a `/register` route.
 
-![User registration form](releases/img/user_registration_form.png)
+![User registration form](img/user_registration_form.png)
 
 ### User-Generated Content improved
 
@@ -87,7 +87,7 @@ Further reading: [Docker Tools](../guide/docker_tools.md)
 
 ## Updating
 
-To update to this version, follow the [Updating eZ Platform](docs/releases/updating_ez_platform.md) guide and use v1.4.0 as `<version>`.
+To update to this version, follow the [Updating eZ Platform](../releases/updating_ez_platform.md) guide and use v1.4.0 as `<version>`.
 
  
 

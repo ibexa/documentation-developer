@@ -13,25 +13,25 @@ For the release notes of the corresponding *(and included)* eZ Platform sub-rele
 
 -   Enhanced Landing Page drag-and-drop interactions, including a better visualization of dropping blocks onto the page:
 
-![Dropping a block onto a Landing Page](releases/img/LP_drag_and_drop_improved.png)
+![Dropping a block onto a Landing Page](img/LP_drag_and_drop_improved.png)
 
  
 
 -   Timeline toolbar now covers all changes in all Schedule Blocks on a given Landing Page.
 -   Timeline toolbar is now also available in View mode on Landing Pages:
 
-![Landing Page in View mode with a Timeline](releases/img/LP_in_view_mode.png)
+![Landing Page in View mode with a Timeline](img/LP_in_view_mode.png)
 
  
 
 -   Added an Approval Timeline which lists all review requests for a given Content item:
 
-![Approval timeline screen](releases/img/approval_timeline.png)
+![Approval timeline screen](img/approval_timeline.png)
 
 -   Modified template of the notification email sent to reviewers from Flex Workflow.
 -   Minor UI improvements (including: updated icons, labels, date picker and others):
 
-![Datepicker](releases/img/new_datepicker.png)
+![Datepicker](img/new_datepicker.png)
 
  
 

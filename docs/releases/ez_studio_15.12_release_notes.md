@@ -34,7 +34,7 @@ Editing in Page mode is facilitated by the **Studio toolbar**, which boasts the 
 -   Quickly copying the URL of a page for previewing in a different browser
 -   Previewing the page optimized for devices with various screen sizes
 
-![Landing Page editing](releases/img/landing_page_general_screen.png)
+![Landing Page editing](img/landing_page_general_screen.png)
 
  
 
@@ -61,7 +61,7 @@ Landing Page management allows you to:
     -   **Tag** block - enters custom HTML into a page.
     -   **Video** block - places a video clip with a player in your Landing Page.
 
-![Elements menu](releases/img/landing_page_elements_menu.png)
+![Elements menu](img/landing_page_elements_menu.png)
 
  
 
@@ -71,7 +71,7 @@ Landing Page management allows you to:
 
 It is a toolbar you can use to easily jump to any selected point in time and to preview what the page will look like then. In conjunction with the Schedule block you can use it to plan when new Content items will be aired on a page.
 
-![](releases/img/timeline_releasenotes.png)
+![](img/timeline_releasenotes.png)
 
  
 
@@ -79,7 +79,7 @@ It is a toolbar you can use to easily jump to any selected point in time and to 
 
 **Flex Workflow** manages the process of reviewing Content. You can use it to create drafts of your Content and send them for review. Reviewers will receive a notification of your request and will be able to collaborate with you on further versions of the Content item.
 
-![Sending content for review](releases/img/flex_sending_for_review.png)
+![Sending content for review](img/flex_sending_for_review.png)
 
  
 
@@ -89,14 +89,14 @@ eZ Studio comes with a Demo Bundle which showcases its capabilities on the examp
 
  
 
-![Sample of the Studio Demo Bundle website](releases/img/studio_demo_bundle_demo.png)
+![Sample of the Studio Demo Bundle website](img/studio_demo_bundle_demo.png)
 
 # 3. Further information
 
 Release:
 
--   [Installation instructions](https://doc.ez.no/display/DEVELOPER/Step+1%3A+Installation)
--   [Requirements](https://doc.ez.no/pages/viewpage.action?pageId=31429536)
+-   [Installation instructions](../getting_started/install_ez_platform.md)
+-   [Requirements](../getting_started/requirements_and_system_configuration.md)
 -   Download: See <https://support.ez.no/Downloads/eZ-Studio-15.12>
 -   Corresponding eZ Platform release: [eZ Platform 15.12 Release notes](../releases/ez_platform_15.12_release_notes.md)
 

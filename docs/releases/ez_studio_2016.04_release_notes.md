@@ -4,14 +4,14 @@ The 16.04 release of eZ Studio is available as of 28 April 2016.
 
 The semantic version of this release is v1.3.0.
 
-For the release notes of the corresponding *(and included)* eZ Platform release, see [eZ Platform 2016.04 Release notes](../releases/ez_platform_2016.04_release_notes.md)
+For the release notes of the corresponding *(and included)* eZ Platform release, see [eZ Platform 2016.04 Release notes](../../ez_platform_2016.04_release_notes.md)
 
  
 
 ## Quick links
 
--   [Installation instructions](https://doc.ez.no/display/TECHDOC/Installation)
--    [Requirements](https://doc.ez.no/display/TECHDOC/Requirements)
+-   [Installation instructions](../getting_started/install_ez_platform.md)
+-    [Requirements](../getting_started/requirements_and_system_configuration.md)
 -   Download:
 
     -   As Customer with eZ Enterprise subscription: <https://support.ez.no/Downloads> *( [BUL](http://ez.no/About-our-Software/Licenses-and-agreements/eZ-Business-Use-License-Agreement-eZ-BUL-Version-2.1?return=/About-our-Software/Licenses-and-agreements/eZ-Business-Use-License-Agreement-eZ-BUL-Version-2.1?processed=1457699707&return=%2FAbout-our-Software%2FLicenses-and-agreements%2FeZ-Business-Use-License-Agreement-eZ-BUL-Version-2.1?return=%2FAbout-our-Software%2FLicenses-and-agreements%2FeZ-Business-Use-License-Agreement-eZ-BUL-Version-2.1)* * License)*
@@ -31,17 +31,17 @@ For the release notes of the corresponding *(and included)* eZ Platform release,
 
 In Page mode a new Versions button in available in the Studio toolbar. Click it to view a list of all versions of the current Content item.
 
-![](releases/img/button.png)
+![](img/button.png)
 
 When you point to a Content item in the list, two icons appear. You can choose to view a selected version, or to edit in:
 
-![](releases/img/verions_window.png)
+![](img/verions_window.png)
 
 -   Visual change to studio toolbar: addition of a Version button and an Options menu
 
 The Options menu allows you to copy the URL of the current Content item, and to send the item to Trash:
 
-![](releases/img/options_menu.png)
+![](img/options_menu.png)
 
 -   You can now send content to Trash directly from Page mode.
 
@@ -49,7 +49,7 @@ Use the new Options menu to send a Content item to trash. You then need to go to
 
 -   When installing, you can now choose Studio with demo content, or a clean installation.
 
-The main meta repository has been split in two: **ezstudio** with clean installer and **ezstudio-demo** with demo content. See the [Updating eZ Platform](docs/releases/updating_ez_platform.md) guide to learn how to select the repository to update to.
+The main meta repository has been split in two: **ezstudio** with clean installer and **ezstudio-demo** with demo content. See the [Updating eZ Platform](../releases/updating_ez_platform.md) guide to learn how to select the repository to update to.
 
  
 
@@ -135,4 +135,4 @@ The main meta repository has been split in two: **ezstudio** with clean installe
 
 ## Updating
 
-To update to this version, follow the [Updating eZ Platform](docs/releases/updating_ez_platform.md) guide and use v1.3.0 as `<version>`.
+To update to this version, follow the [Updating eZ Platform](../releases/updating_ez_platform.md) guide and use v1.3.0 as `<version>`.

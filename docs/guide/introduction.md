@@ -1,21 +1,10 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [The Complete Guide to eZ Platform](The-Complete-Guide-to-eZ-Platform_31429526.html)
-
 # Introduction
 
-Created by Dominika Kurek, last modified on May 12, 2016
-
 So, what is eZ Platform actually? And what is eZ Enterprise? Why should you bother with them? What makes them special? Read through this introduction to find out.
-
  
-# What is eZ Platform?
-
-Created by Dominika Kurek, last modified by Rafał Toborek on Dec 20, 2016
+## What is eZ Platform?
 
 eZ Platform is an open-source, Symfony-based CMS. With its modern architecture and flexibility it lets you customize, extend and scale your sites and apps with ease. It is built on top of the Symfony full-stack framework and enables you to tailor your content model and distribute your content however you like.
-
- 
 
 **Take control of your content:**
 
@@ -33,17 +22,11 @@ Developers who use Symfony can start customizing and extending eZ Platform right
 
 eZ carries a substantially low level of technical debt compared to many other CMSs.
 
-
-
-# What is eZ Platform Enterprise Edition?
-
-Created by Dominika Kurek, last modified on Jul 05, 2017
+## What is eZ Platform Enterprise Edition?
 
 eZ Platform Enterprise Edition is a commercial addition and extension to eZ Platform. It makes use of everything that the platform has to offer, and expands it capabilities.
 
 Enterprise contains a new intuitive, easy-to-learn editing interface called Studio UI, but also adds new functionalities to the existing interfaces. The main features available in eZ Enterprise are:
-
- 
 
 **Inline editing of content:**
 
@@ -55,18 +38,18 @@ eZ Enterprise's Studio UI lets you create block-based Landing Pages using drag-a
 
 You can quickly switch between working on and previewing Landing Pages, which makes for comfortable editing and better control of your content.
 
-[Creating Landing Page blocks (Enterprise)](34079831.html) shows how to create and customize you own blocks.
+[Creating Landing Page blocks (Enterprise)](../cookbook/creating_landing_page_blocks_(enterprise).md) shows how to create and customize you own blocks.
 
 **Scheduling automatic publication of content on Landing Pages:**
 
 Using a special Schedule block you can set up content on your Landing Pages to be published according to a custom schedule, at predefined dates and times. A Timeline slider lets you preview what the pages will look like at any time.
 
- [Scheduling](https://doc.ez.no/display/USER/5.+Publishing#id-5.Publishing-Scheduling(Enterprise)) (User doc) presents how to use this block to plan airtimes.
+[Scheduling](content_rendering/#schedule-block-enterprise) presents how to use this block to plan airtimes.
 
 **Content review workflow:**
 
 Flex Workflow is a collaboration feature. You can send your content draft to any user and let them look through, modify it and send it onward through your review process.
 
- [Review workflow](https://doc.ez.no/display/USER/5.+Publishing#id-5.Publishing-Reviewworkflow(Enterprise)) (User doc) describes how to send and receive content for review.
+[Review workflow](https://doc.ez.no/display/USER/5.+Publishing#id-5.Publishing-Reviewworkflow(Enterprise)) (User doc) describes how to send and receive content for review.
 
  

@@ -1,20 +1,14 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [Cookbook](Cookbook_31429528.html)
+# Authenticating a user with multiple user providers
 
-# Authenticating a user with multiple user providers 
-
-Created by Dominika Kurek, last modified on May 17, 2016
-
-# Description
+## Description
 
 Symfony provides native support for [multiple user providers](http://symfony.com/doc/2.3/book/security.html#using-multiple-user-providers). This makes it easy to integrate any kind of login handlers, including SSO and existing 3rd party bundles (e.g. [FR3DLdapBundle](https://github.com/Maks3w/FR3DLdapBundle), [HWIOauthBundle](https://github.com/hwi/HWIOAuthBundle), [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle), [BeSimpleSsoAuthBundle](http://github.com/BeSimple/BeSimpleSsoAuthBundle), etc.).
 
 However, to be able to use *external* user providers with eZ, a valid eZ user needs to be injected into the repository. This is mainly for the kernel to be able to manage content-related permissions (but not limited to this).
 
-Depending on your context, you will either want to create an eZ user `on-the-fly`, return an existing user, or even always use a generic user.
+Depending on your context, you will either want to create an eZ user *on-the-fly*, return an existing user, or even always use a generic user.
 
-# Solution
+## Solution
 
 Whenever an *external* user is matched (i.e. one that does not come from eZ repository, like coming from LDAP), eZ kernel fires an `MVCEvents::INTERACTIVE_LOGIN` event. Every service listening to this event will receive an `eZ\Publish\Core\MVC\Symfony\Event\InteractiveLoginEvent` object which contains the original security token (that holds the matched user) and the request.
 
@@ -34,13 +28,12 @@ It is possible to customize the user class used by extending `ezpublish.securit
 
 You can override `getUser()` to return whatever user class you want, as long as it implements `eZ\Publish\Core\MVC\Symfony\Security\UserInterface`.
 
-# Example
+## Example
 
 Here is a very simple example using the in-memory user provider.
 
-**app/config/security.yml**
-
-``` brush:
+``` yaml
+# app/config/security.yml
 security:
     providers:
         # Chaining in_memory and ezpublish user providers
@@ -61,9 +54,8 @@ security:
 
 ### Implementing the listener
 
-**services.yml in your AcmeTestBundle**
-
-``` brush:
+``` yaml
+# services.yml in your AcmeTestBundle
 parameters:
     acme_test.interactive_event_listener.class: Acme\TestBundle\EventListener\InteractiveLoginListener
 
@@ -77,9 +69,8 @@ services:
 
 Do not mix `MVCEvents::INTERACTIVE_LOGIN` event (specific to eZ Platform) and `SecurityEvents::INTERACTIVE_LOGIN` event (fired by Symfony security component)
 
-**Interactive login listener**
-
-``` brush:
+``` php
+// Interactive login listener
 <?php
 namespace Acme\TestBundle\EventListener;
 
@@ -115,21 +106,3 @@ class InteractiveLoginListener implements EventSubscriberInterface
     }
 } 
 ```
-
-**
-**
-
-#### In this topic:
-
--   [Description](#Authenticatingauserwithmultipleuserproviders-Description)
--   [Solution](#Authenticatingauserwithmultipleuserproviders-Solution)
-    -   [User exposed and security token](#Authenticatingauserwithmultipleuserproviders-Userexposedandsecuritytoken)
-    -   [Customizing the user class](#Authenticatingauserwithmultipleuserproviders-Customizingtheuserclass)
--   [Example](#Authenticatingauserwithmultipleuserproviders-Example)
-    -   [Implementing the listener](#Authenticatingauserwithmultipleuserproviders-Implementingthelistener)
-
-
-
-
-
-

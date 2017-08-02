@@ -8,7 +8,7 @@ If you are looking for the Long Term Support (LTS) release, see[ https://ezplat
 
 Upgrade notes
 
-This release contains special steps to follow further described in [Updating eZ Platform](Updating-eZ-Platform_31431770.html).
+This release contains special steps to follow further described in [Updating eZ Platform](../releases/updating_ez_platform.md).
 
 
 
@@ -20,14 +20,14 @@ This release contains special steps to follow further described in [Updating eZ 
 
 -   In Universal Discovery Widget (UDW) the browse view now uses a completely new browser widget, which replaces Treeview. This solves limitations on how many items you can browse for, and provides a more intuitive user experience.
 
-![](releases/img/udw.png)
+![](img/udw.png)
 
 -   Improvements in the Online Editor:
     -   You now have the ability to rearrange elements in the editor by moving them up and down.
-    -   You can now add links to internal content items in the Online Editor, decide in which tab the link should open, and set link title:![](releases/img/link-options-oe.png)
+    -   You can now add links to internal content items in the Online Editor, decide in which tab the link should open, and set link title:![](img/link-options-oe.png)
 -   Improvements to the Sub-Items view of a Content Item: You can now sort content items by clicking column headings
 
-![](releases/img/subitem-sorting.png)
+![](img/subitem-sorting.png)
 
 -   The main titles of the ContentTypeView now expand and retract with an accordion function
 -   Updated and added icons for the Admin Interface
@@ -66,7 +66,7 @@ This release contains special steps to follow further described in [Updating eZ 
 
  
 
-![](releases/img/formb.png)
+![](img/formb.png)
 
 ### Under the Hood
 
@@ -76,43 +76,22 @@ This release contains special steps to follow further described in [Updating eZ 
 
 -   You can now search and filter products in the Product Page of the EE Demo distribution:
 
-![](releases/img/demo-product-filters.png)
+![](img/demo-product-filters.png)
 
 # Full list of new features, improvements and bug fixes since v1.7.0 LTS:
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><h3 id="eZPlatformv1.8.0-eZPlatform.1">eZ Platform</h3></th>
-<th><h3 id="eZPlatformv1.8.0-eZEnterprise">eZ Enterprise</h3></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><a href="https://github.com/ezsystems/ezplatform/releases/tag/v1.8.0" class="external-link">List of changes for final of eZ Platform v1.8.0 on GitHub</a></td>
-<td><a href="https://github.com/ezsystems/ezstudio/releases/tag/v1.8.0" class="external-link">List of changes for final for eZ Platform Enterprise Edition v1.8.0 on <span>GitHub</span></a> <span> </span></td>
-</tr>
-<tr class="even">
-<td><a href="https://github.com/ezsystems/ezplatform/releases/tag/v1.8.0-rc1" class="external-link">List of changes for rc1 of eZ Platform v1.8.0 on GitHub</a></td>
-<td><span><a href="https://github.com/ezsystems/ezstudio/releases/tag/v1.8.0-rc1" class="external-link">List of changes for rc1 of eZ Platform Enterprise Edition v1.8.0 on GitHub</a><br />
-</span></td>
-</tr>
-<tr class="odd">
-<td><a href="https://github.com/ezsystems/ezplatform/releases/tag/v1.8.0-beta1" class="external-link">List of changes for beta1 of eZ Platform v1.8.0 on Github</a></td>
-<td><a href="https://github.com/ezsystems/ezstudio/releases/tag/v1.8.0-beta2" class="external-link">List of changes for beta2 of eZ Platform Enterprise Edition v1.8.0 on Github</a></td>
-</tr>
-</tbody>
-</table>
+| eZ Plaform   | eZ Studio  |
+|--------------|------------|
+| [List of changes for final of eZ Platform v1.8.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.8.0)         | [List of changes for final for eZ Platform Enterprise Edition v1.8.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.8.0)       |
+| [List of changes for rc1 of eZ Platform v1.8.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.8.0-rc1)         | [List of changes for rc1 for eZ Platform Enterprise Edition v1.8.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.8.0-rc1)       |
+| [List of changes for beta1 of eZ Platform v1.8.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.8.0-beta1)         | [List of changes for beta2 of eZ Platform Enterprise Edition v1.8.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.8.0-beta2)       |
+
 
 ### Installation
 
 [Installation Guide](../getting_started/install_ez_platform.md)
 
- [Technical Requirements](docs/getting_started/requirements_and_system_configuration.md)
+ [Technical Requirements](../getting_started/requirements_and_system_configuration.md)
 
 ### Download
 
@@ -135,6 +114,6 @@ If you would like to request an Enterprise Demo instance: <http://ez.no/Forms/Di
 
 ### Updating
 
-**eZ Platform**: To update to this version, follow the [Updating eZ Platform](docs/releases/updating_ez_platform.md) guide and use v1.8.0 as `<version>`.
+**eZ Platform**: To update to this version, follow the [Updating eZ Platform](../releases/updating_ez_platform.md) guide and use v1.8.0 as `<version>`.
 
  

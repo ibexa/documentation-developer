@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 
 # Installation Using Composer
 
+=======
+# Installation Using Composer
+>>>>>>> acceptance_tests
 
 ## Get Composer
 
@@ -10,7 +14,11 @@ If you don't have it already, install Composer, the command-line package manage
 php -r "readfile('https://getcomposer.org/installer');" | php
 ```
 
+<<<<<<< HEAD
 For further information about Composer usage see [Using Composer](../getting_started/about_composer.md) .
+=======
+For further information about Composer usage see [Using Composer](about_composer.md).
+>>>>>>> acceptance_tests
 
 ## eZ Platform Installation
 
@@ -26,13 +34,18 @@ php app/console ezplatform:install clean
 php app/console assetic:dump
 ```
 
-For more information about the availables options with Composer commands, see[the Composer documentation](https://getcomposer.org/doc/03-cli.md).
+!!! note
 
- 
+    For more information about the availables options with Composer commands, see [the Composer documentation](https://getcomposer.org/doc/03-cli.md).
+
 
 ### Installing another distribution
 
+<<<<<<< HEAD
 eZ Platform exists in several distributions, listed in [Step 1: Installation](../guide/install_ez_platform.md), some with their own installer as shown in the example below. To install the Enterprise Edition you need an eZ Enterprise subscription and have to [set up Composer for that](../getting_started/about_composer.md).
+=======
+eZ Platform exists in several distributions, listed in [Installation eZ Platform](install_ez_platform.md), some with their own installer as shown in the example below. To install the Enterprise Edition you need an eZ Enterprise subscription and have to [set up Composer for that](about_composer.md).
+>>>>>>> acceptance_tests
 
 **eZ Platform Enterprise Edition**
 
@@ -84,7 +97,10 @@ cd ezplatform
 
 php app/console ezplatform:install demo
 ```
+<<<<<<< HEAD
 
 
 
  
+=======
+>>>>>>> acceptance_tests

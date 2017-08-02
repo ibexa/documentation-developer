@@ -1,31 +1,25 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [Cookbook](Cookbook_31429528.html)
+# Displaying children of a Content item
 
-# Displaying children of a Content item 
-
-Created by Dominika Kurek, last modified on Nov 28, 2016
-
-# Description
+## Description
 
 One of the basic design tasks you may need to complete when creating your website is configuring one page to display all of its children. Examples are having a blog display blog posts, of a folder that shows all articles it contains.
 
-# Solution
+## Solution
 
 There are two ways to make a Content item display its children:
 
-1.  [Using a Custom Controller](#DisplayingchildrenofaContentitem-UsingaCustomController)
-2.  [Using the Query Controller](#DisplayingchildrenofaContentitem-UsingtheQueryController)
+1.  [Using a Custom Controller](#using-a-custom-controller)
+2.  [Using the Query Controller](#using-the-query-controller)
 
 This recipe will show how to use both those methods to display all children of a Content item with the Content Type Folder.
 
-## Using a Custom Controller
+### Using a Custom Controller
 
-There are three different ways of using a Custom Controller that you can learn about in the [Custom Controller page](https://doc.ez.no/display/DEVELOPER/Content+Rendering#ContentRendering-Customcontrollers). In this case we will be applying the first of these, that is using the Custom Controller alongside the built-in ViewController.
+There are three different ways of using a Custom Controller that you can learn about in the [Custom Controller page](../guide/content_rendering.md#custom-controllers). In this case we will be applying the first of these, that is using the Custom Controller alongside the built-in ViewController.
 
 Configuring for the use of a Custom Controller starts with pointing to it in your standard view configuration (which you can keep in `ezplatform.yml` or a separate file, for example `views.yml`):
 
-``` brush:
+``` yaml
 folder:
     controller: app.controller.folder:showAction
     template: "full/folder.html.twig"
@@ -35,9 +29,8 @@ folder:
 
 Besides the standard view config, under the `controller` key you need to provide here the path to the Controller and the action. They are defined in the following file:
 
-**AppBundle/Controller/FolderController.php**
-
-``` brush:
+``` php
+// AppBundle/Controller/FolderController.php
 <?php
 
 namespace AppBundle\Controller;
@@ -118,9 +111,8 @@ class FolderController {
 
 As you can see, this Controller makes use of the `generateChildCriterion`, which means you need to provide a file containing this function:
 
-**AppBundle/Criteria/Children.php**
-
-``` brush:
+``` php
+// AppBundle/Criteria/Children.php
 <?php
 
 namespace AppBundle\Criteria;
@@ -152,9 +144,8 @@ class Children
 
 Next, you must register these two services:
 
-**AppBundle/Resources/config/services.yml**
-
-``` brush:
+``` yaml
+# AppBundle/Resources/config/services.yml
 services:
 
     app.criteria.children:
@@ -170,9 +161,8 @@ services:
 
 Finally, let's use the Controller in a template:
 
-**app/Resources/views/full/folder.html.twig**
-
-``` brush:
+``` html
+<!--app/Resources/views/full/folder.html.twig-->
 <h1>{{ ez_content_name(content) }}</h1>
 
 {% for item in items %}
@@ -182,7 +172,7 @@ Finally, let's use the Controller in a template:
 
 This template makes use of the `items` specified in the Controller file to list every child of the folder.
 
-## Using the Query Controller
+### Using the Query Controller
 
 The Query Controller is a predefined custom content view Controller that runs a Repository Query.
 
@@ -190,9 +180,8 @@ If you need to create a simple query it's easier to use the Query Controller tha
 
 The main file in this case is a `LocationChildrenQueryType.php` file which generates a Query that retrieves the children of the current Location.
 
-**AppBundle/QueryType/LocationChildrenQueryType.php**
-
-``` brush:
+``` php
+// AppBundle/QueryType/LocationChildrenQueryType.php
 <?php
 namespace AppBundle\QueryType;
 
@@ -223,7 +212,7 @@ class LocationChildrenQueryType implements QueryType
 
 Next, in your standard view configuration file include a block that indicates when this Controller will be used. It is similar to regular view config, but contains additional information:
 
-``` brush:
+``` yaml
 folder:
     controller: "ez_query:locationQueryAction"
     template: "full/folder.html.twig"
@@ -239,9 +228,8 @@ folder:
 
 In this case the `controller` key points to the Query Controller's `locationQuery` action. `assign_results_to` identifies the parameter containing all the retrieved children that will later be used in the templates:
 
-**app/Resources/views/full/folder.html.twig**
-
-``` brush:
+``` html
+<!--app/Resources/views/full/folder.html.twig-->
 <h1>{{ ez_content_name(content) }}</h1>
 
 {% for item in items.searchHits %}
@@ -250,20 +238,3 @@ In this case the `controller` key points to the Query Controller's `locationQuer
 ```
 
 This template makes use of the `items` specified in `assign_results_to` to list every child of the folder.
-
-#### In this topic:
-
--   [Description](#DisplayingchildrenofaContentitem-Description)
--   [Solution](#DisplayingchildrenofaContentitem-Solution)
-    -   [Using a Custom Controller](#DisplayingchildrenofaContentitem-UsingaCustomController)
-    -   [Using the Query Controller](#DisplayingchildrenofaContentitem-UsingtheQueryController)
-
-#### Related topics:
-
-[Custom Controller](https://doc.ez.no/display/DEVELOPER/Content+Rendering#ContentRendering-Customcontrollers)
-
-
-
-
-
-

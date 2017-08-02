@@ -1,12 +1,6 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [The Complete Guide to eZ Platform](The-Complete-Guide-to-eZ-Platform_31429526.html)
+# SiteAccess
 
-# SiteAccess 
-
-Created by Dominika Kurek, last modified on Jun 07, 2017
-
-# Introduction
+## Introduction
 
 eZ Platform allows you to maintain multiple sites in one installation using a feature called **siteaccesses**.
 
@@ -14,41 +8,39 @@ In short, a siteaccess is a set of configuration settings that is used when the 
 
 When the user accesses the site, the system analyzes the uri and compares it to rules specified in the configuration. If it finds a set of fitting rules, this siteaccess is used.
 
-## What does a siteaccess do?
+### What does a siteaccess do?
 
 A siteaccess overrides the default configuration. This means that if the siteaccess does not specify some aspect of the configuration, the default values will be used. The default configuration is also used when no siteaccess can be matched to a situation. 
 
 A siteaccess can decide many things about the website, for example the database, language or var directory that are used.
 
-## How is a siteaccess selected?
+### How is a siteaccess selected?
 
 A siteaccess is selected using one or more matchers – rules based on the uri or its parts. Example matching criteria are elements of the uri, host name (or its parts), port number, etc.
 
-For detailed information on how siteaccess matchers work, see [Siteaccess Matching](https://doc.ez.no/display/DEVELOPER/SiteAccess#SiteAccess-SiteaccessMatching).
+For detailed information on how siteaccess matchers work, see [Siteaccess Matching](#siteaccess-matching).
 
-## What can you use siteaccesses for?
+### What can you use siteaccesses for?
 
 Typical uses of a siteaccess are:
 
--   different language versions of the same site identified by a uri part; one siteaccess for one language
--   two different versions of a website: one siteaccess with a public interface for visitors and one with a restricted interface for administrators
-
- 
+- different language versions of the same site identified by a uri part; one siteaccess for one language
+- two different versions of a website: one siteaccess with a public interface for visitors and one with a restricted interface for administrators
 
 Both the rules for siteaccess matching and its effects are located in the main **app/config/ezplatform.yml** configuration file.
 
 If you need to change between siteaccesses in Page mode, do not use any functions in the page itself (for example, a language switcher). This may cause unexpected errors. Instead, switch between siteaccesses using the siteaccess bar above the page.
 
-## Use case: multilanguage sites
+### Use case: multilanguage sites
 
 A site has content in two languages: English and Norwegian. It has one URI per language: http://example.com/eng and http://example.com/nor. Uri parts of each language (eng, nor) are mapped to a *siteaccess*, commonly named like the uri part: `eng`, `nor`. Using semantic configuration, each of these siteaccesses can be assigned a prioritized list of languages it should display:
 
--   The English site would display content in English and ignore Norwegian content;
--   The Norwegian site would display content in Norwegian but also in English *if it does not exist in Norwegian*.
+- The English site would display content in English and ignore Norwegian content;
+- The Norwegian site would display content in Norwegian but also in English *if it does not exist in Norwegian*.
 
 Such configuration would look like this:
 
-``` brush:
+``` yaml
 ezpublish:
     siteaccess:
         # There are two siteaccess
@@ -63,7 +55,7 @@ ezpublish:
 
 
 ezpublish:
-    # root node for configuration per siteaccess 
+    # root node for configuration per siteaccess
     system:
         # Configuration for the 'eng' siteaccess
         eng:
@@ -72,13 +64,13 @@ ezpublish:
             languages: [nor-NO, eng-GB]
 ```
 
-## The default scope
+### The default scope
 
 When no particular context is required, it is fine to use the \`default\` scope instead of specifying a siteaccess.
 
-# Configuration
+## Configuration
 
-## Basics
+### Basics
 
 Important
 
@@ -93,13 +85,12 @@ eZ Platform core configuration is prefixed by **ezsettings** namespace, while *i
 
 For configuration that is meant to be exposed to an end-user (or end-developer), it's usually a good idea to also [implement semantic configuration](http://symfony.com/doc/current/components/config/definition.html).
 
-Note that it is also possible to [implement SiteAccess aware semantic configuration](Exposing-SiteAccess-aware-configuration-for-your-bundle_31429794.html).
+Note that it is also possible to [implement SiteAccess aware semantic configuration](../cookbook/exposing_siteaccess_aware_configuration_for_your_bundle.md).
 
-### Example
+#### Example
 
-**Configuration**
-
-``` brush:
+``` yaml
+# Configuration
 parameters:
     myapp.parameter.name: someValue
     myapp.boolean.param: true
@@ -108,38 +99,36 @@ parameters:
         an_array: [apple, banana, pear]
 ```
 
-**Usage from a controller**
-
-``` brush:
-// Inside a controller
+``` php
+// Usage inside a controller
 $myParameter = $this->container->getParameter( 'myapp.parameter.name' );
 ```
 
-## Dynamic configuration with the ConfigResolver
+### Dynamic configuration with the ConfigResolver
 
-In eZ Platform it is fairly common to have different settings depending on the current siteaccess (e.g. languages, [view provider](Content-Rendering_31429679.html#ContentRendering-Viewproviderconfiguration) configuration).
+In eZ Platform it is fairly common to have different settings depending on the current siteaccess (e.g. languages, [view provider](content_rendering.md#view-provider-configuration) configuration).
 
-### Scope
+#### Scope
 
-**Dynamic configuration **can be resolved depending on a *scope*. It gives the opportunity to define settings for a given siteaccess, for instance, like in the [legacy INI override system](http://doc.ez.no/eZ-Publish/Technical-manual/4.x/Concepts-and-basics/Configuration).
+**Dynamic configuration** can be resolved depending on a *scope*. It gives the opportunity to define settings for a given siteaccess, for instance, like in the [legacy INI override system](http://doc.ez.no/eZ-Publish/Technical-manual/4.x/Concepts-and-basics/Configuration).
 
 Available scopes are:
 
-1.  `global`
-2.  SiteAccess
-3.  SiteAccess group
-4.  `default`
+1. `global`
+2. SiteAccess
+3. SiteAccess group
+4. `default`
 
 The scopes are applied in the order presented. This means that `global` overrides all other scopes. If `global` is not defined, the configuration will then try to match a SiteAccess, and then a SiteAccess group. Finally, if no other scope is matched, `default` will be applied.
 
 In short: if you want a match that will always apply, regardless of SiteAccesses use `global`. To define a fallback, use `default`.
 
-``` brush:
+``` yaml
 ezpublish:
     system:
         global:
             # If set, this value will be used regardless of any other var_dir configuration
-            #var_dir: var/global 
+            #var_dir: var/global
         site:
             # This var_dir will be used for the 'site' SiteAccess
             var_dir: var/site
@@ -153,12 +142,12 @@ ezpublish:
 
 Note that you should avoid defining a setting twice within the same scope, as this will cause a [silent failure](https://github.com/symfony/symfony/issues/11538).
 
-This mechanism is not limited to eZ Platform internal settings (aka ***ezsettings* namespace**) and is applicable for specific needs (bundle-related, project-related, etc.).
+This mechanism is not limited to eZ Platform internal settings (aka *ezsettings* namespace) and is applicable for specific needs (bundle-related, project-related, etc.).
 
 Always prefer semantic configuration especially for internal eZ settings.
 Manually editing internal eZ settings is possible, but at your own risk, as unexpected behavior can occur.
 
-### ConfigResolver Usage
+#### ConfigResolver Usage
 
 Dynamic configuration is handled by a **config resolver**. It consists in a service object mainly exposing `hasParameter()` and `getParameter()` methods. The idea is to check the different *scopes* available for a given *namespace* to find the appropriate parameter.
 
@@ -166,9 +155,8 @@ In order to work with the config resolver, your dynamic settings must comply int
 
 The following configuration is **an example of internal usage** inside the code of eZ Platform.
 
-**Namespace + scope example**
-
-``` brush:
+``` yaml
+# Namespace + scope example
 parameters:
     # Some internal configuration
     ezsettings.default.content.default_ttl: 60
@@ -185,7 +173,7 @@ parameters:
     #myapp.global.some.setting: This is a global value
 ```
 
-``` brush:
+``` php
 // Inside a controller, assuming siteaccess being "ezdemo_site"
 /** @var $configResolver \eZ\Publish\Core\MVC\ConfigResolverInterface **/
 $configResolver = $this->getConfigResolver();
@@ -208,19 +196,17 @@ $fooSettingAdmin = $configResolver->getParameter( 'foo', 'myapp', 'ezdemo_site_a
 
 Both `getParameter()` and `hasParameter()` can take 3 different arguments:
 
-1.  `$paramName` (i.e. the name of the parameter you need)
-2.  `$namespace` (i.e. your application namespace, *myapp* in the previous example. If null, the default namespace will be used, which is **ezsettings** by default)
-3.  `$scope` (i.e. a siteaccess name. If null, the current siteaccess will be used)
+1. `$paramName` (i.e. the name of the parameter you need)
+2. `$namespace` (i.e. your application namespace, *myapp* in the previous example. If null, the default namespace will be used, which is **ezsettings** by default)
+3. `$scope` (i.e. a siteaccess name. If null, the current siteaccess will be used)
 
-### Inject the ConfigResolver in your services
+#### Inject the ConfigResolver in your services
 
-Instead of injecting the whole ConfigResolver service, you may directly [inject your SiteAccess-aware settings (aka dynamic settings) into your own services](https://doc.ez.no/display/DEVELOPER/SiteAccess#SiteAccess-DynamicSettingsInjection).
-
- 
+Instead of injecting the whole ConfigResolver service, you may directly [inject your SiteAccess-aware settings (aka dynamic settings) into your own services](#dynamic-settings-injection).
 
 You can use the **ConfigResolver** in your own services whenever needed. To do this, just inject the `ezpublish.config.resolver service`:
 
-``` brush:
+``` yaml
 parameters:
     my_service.class: My\Cool\Service
  
@@ -230,7 +216,7 @@ services:
         arguments: [@ezpublish.config.resolver]
 ```
 
-``` brush:
+``` php
 <?php
 namespace My\Cool;
  
@@ -253,13 +239,13 @@ class Service
 }
 ```
 
-## Custom locale configuration
+### Custom locale configuration
 
 If you need to use a custom locale they can also be configurable in `ezplatform.yml`, adding them to the *conversion map*:
 
-``` brush:
+``` yaml
 ezpublish:
-    # Locale conversion map between eZ Publish format (i.e. fre-FR) to POSIX (i.e. fr_FR). 
+    # Locale conversion map between eZ Publish format (i.e. fre-FR) to POSIX (i.e. fr_FR).
     # The key is the eZ Publish locale. Check locale.yml in EzPublishCoreBundle to see natively supported locales.
     locale_conversion:
         eng-DE: en_DE
@@ -267,7 +253,7 @@ ezpublish:
 
 A locale *conversion map* example [can be found in the `core` bundle, on `locale.yml`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/locale.yml).
 
-## Siteaccess Matching
+### Siteaccess Matching
 
 Siteaccess matching is done through **eZ\\Publish\\MVC\\SiteAccess\\Matcher** objects. You can configure this matching and even develop custom matchers.
 
@@ -275,9 +261,8 @@ To be usable, every siteaccess must be provided a matcher.
 
 You can configure siteaccess matching in your main **app/config/ezplatform.yml**:
 
-**ezplatform.yml**
-
-``` brush:
+``` yaml
+# ezplatform.yml
 ezpublish:
     siteaccess:
         default_siteaccess: ezdemo_site
@@ -303,10 +288,10 @@ ezpublish:
 
 You need to set several parameters:
 
--   **ezpublish.siteaccess.default\_siteaccess**
--   **ezpublish.siteaccess.list**
--   *(optional)* **ezpublish.siteaccess.groups**
--   **ezpublish.siteaccess.match**
+- **ezpublish.siteaccess.default\_siteaccess**
+- **ezpublish.siteaccess.list**
+- *(optional)* **ezpublish.siteaccess.groups**
+- **ezpublish.siteaccess.match**
 
 **ezpublish.siteaccess.default\_siteaccess** is the default siteaccess that will be used if matching was not successful. This ensures that a siteaccess is always defined.
 
@@ -322,254 +307,239 @@ A siteaccess configuration has always precedence on the group configuration.
 
 Every **custom matcher** can be specified with a **fully qualified class name** (e.g. `\My\SiteAccess\Matcher`) or by a **service identifier prefixed by @** (e.g. `@my_matcher_service`).
 
--   In the case of a fully qualified class name, the matching configuration will be passed in the constructor.
--   In the case of a service, it must implement `eZ\Bundle\EzPublishCoreBundle\SiteAccess\Matcher`. The matching configuration will be passed to `setMatchingConfiguration()`.
+- In the case of a fully qualified class name, the matching configuration will be passed in the constructor.
+- In the case of a service, it must implement `eZ\Bundle\EzPublishCoreBundle\SiteAccess\Matcher`. The matching configuration will be passed to `setMatchingConfiguration()`.
 
 Make sure to type the matcher in correct case. If it is in wrong case like "Uri" instead of "URI," it will happily work on systems like Mac OS X because of case insensitive file system, but will fail when you deploy it to a Linux server. This is a known artifact of [PSR-0 autoloading](http://www.php-fig.org/psr/psr-0/) of PHP classes.
 
-### Available matchers
+#### Available matchers
 
-<table>
-<colgroup>
-<col width="25%" />
-<col width="25%" />
-<col width="25%" />
-<col width="25%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Name</th>
-<th>Description</th>
-<th>Configuration</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>URIElement</code></td>
-<td>Maps a URI element to a siteaccess.<br />
-This is the default matcher used when choosing<br />
-URI matching in setup wizard. </td>
-<td><p>The element number you want to match (starting from 1).</p>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeContent panelContent pdl">
-<pre class="brush: php; gutter: false; theme: Eclipse" style="font-size:12px;"><code>ezpublish:
+###### URIElement
+
+Maps a URI element to a siteaccess. This is the default matcher used when choosing URI matching in setup wizard. 	
+
+**Configuration.** The element number you want to match (starting from 1).
+
+``` yaml
+ezpublish:
     siteaccess:
         match:
-            URIElement: 1</code></pre>
-</div>
-</div>
-<p><span> <strong>Important:</strong> When using a value &gt; 1, it will concatenate the elements with _</span></p></td>
-<td><p><strong>URI:</strong> <code>/ezdemo_site/foo/bar</code></p>
-<p>Element number: 1<br />
-Matched siteaccess: ezdemo_site</p>
-<p>Element number: 2<br />
-Matched siteaccess: ezdemo_site_foo</p></td>
-</tr>
-<tr class="even">
-<td><code>URIText</code></td>
-<td>Matches URI using <em>pre</em> and/or <em>post</em> sub-strings<br />
-in the first URI segment</td>
-<td><p>The prefix and/or suffix (none are required)</p>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeContent panelContent pdl">
-<pre class="brush: php; gutter: false; theme: Eclipse" style="font-size:12px;"><code>ezpublish:
+            URIElement: 1
+```
+
+*Important:* When using a value > 1, it will concatenate the elements with \_
+
+**Example.** URI: `/ezdemo_site/foo/bar`
+
+Element number: 1; Matched siteaccess: `ezdemo_site`
+
+Element number: 2; Matched siteaccess: `ezdemo_site_foo`
+
+###### URIText
+
+Matches URI using pre and/or post sub-strings in the first URI segment
+
+**Configuration.** The prefix and/or suffix (none are required)
+
+``` yaml
+ezpublish:
     siteaccess:
         match:
             URIText:
                 prefix: foo
-                suffix: bar</code></pre>
-</div>
-</div></td>
-<td><p><strong>URI:</strong> <code>/footestbar/my/content</code></p>
-<p>Prefix: foo<br />
-Suffix: bar<br />
-Matched siteaccess: test </p></td>
-</tr>
-<tr class="odd">
-<td><code>HostElement</code></td>
-<td>Maps an element in the host name to a siteaccess.</td>
-<td><p>The element number you want to match (starting from 1).</p>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeContent panelContent pdl">
-<pre class="brush: php; gutter: false; theme: Eclipse" style="font-size:12px;"><code>ezpublish:
+                suffix: bar
+```
+
+**Example.** URI: `/footestbar/my/content`
+
+Prefix: `foo`; Suffix: `bar`; Matched siteaccess: `test`
+
+###### HostElement
+
+Maps an element in the host name to a siteaccess.
+
+**Configuration.** The element number you want to match (starting from 1).
+
+``` yaml
+ezpublish:
     siteaccess:
         match:
-            HostElement: 2</code></pre>
-</div>
-</div></td>
-<td><p><strong>Host name:</strong> <code>www.example.com</code></p>
-<p>Element number: 2<br />
-Matched siteaccess: example </p></td>
-</tr>
-<tr class="even">
-<td><code>HostText</code></td>
-<td>Matches a siteaccess in the host name,<br />
-using <em>pre</em> and/or <em>post</em> sub-strings.</td>
-<td><p>The prefix and/or suffix (none are required)</p>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeContent panelContent pdl">
-<pre class="brush: php; gutter: false; theme: Eclipse" style="font-size:12px;"><code>ezpublish:
+            HostElement: 2
+```
+
+**Example.** Host name: `www.example.com`
+
+Element number: 2; Matched siteaccess: `example`
+
+###### HostText
+
+Matches a siteaccess in the host name, using pre and/or post sub-strings.
+
+The prefix and/or suffix (none are required)
+
+``` yaml
+ezpublish:
     siteaccess:
         match:
             HostText:
                 prefix: www.
-                suffix: .com</code></pre>
-</div>
-</div></td>
-<td><p><strong>Host name</strong>: <code>www.foo.com</code></p>
-<p>Prefix: www.<br />
-Suffix: .com<br />
-Matched siteaccess: foo </p></td>
-</tr>
-<tr class="odd">
-<td><code>Map\Host</code></td>
-<td>Maps a host name to a siteaccess.</td>
-<td><p>A hash map of host/siteaccess</p>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeContent panelContent pdl">
-<pre class="brush: php; gutter: false; theme: Eclipse" style="font-size:12px;"><code>ezpublish:
+                suffix: .com
+```
+
+**Example.** Host name: `www.foo.com`
+
+Prefix: `www.`; Suffix: `.com`; Matched siteaccess: `foo`
+
+###### Map\\Host
+
+Maps a host name to a siteaccess.
+
+**Configuration.** A hash map of host/siteaccess
+
+``` yaml
+ezpublish:
     siteaccess:
         match:
             Map\Host:
                 www.foo.com: foo_front
                 adm.foo.com: foo_admin
                 www.bar-stuff.fr: bar_front
-                adm.bar-stuff.fr: bar_admin</code></pre>
-</div>
-</div>
-<div class="confluence-information-macro confluence-information-macro-warning">
-<span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span>
-<div class="confluence-information-macro-body">
-<p>In eZ Enterprise, when using the <code>Map\Host</code> matcher, you need to provide the following line in your Twig template (e.g. in the head of the main template file):</p>
-<p><code>{{ multidomain_access() }}</code></p>
-</div>
-</div></td>
-<td><strong>Map</strong>:
-<ul>
-<li><a href="http://www.foo.com" class="external-link">www.foo.com</a> =&gt; foo_front</li>
-<li><a href="http://admin.foo.com" class="external-link">admin.foo.com</a> =&gt; foo_admin </li>
-</ul>
-<p><strong>Host name</strong>: <a href="http://www.example.com" class="external-link">www.example.com</a></p>
-<p>Matched siteaccess: foo_front</p></td>
-</tr>
-<tr class="even">
-<td><code>Map\URI</code></td>
-<td>Maps a URI to a siteaccess</td>
-<td><p>A hash map of URI/siteaccess</p>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeContent panelContent pdl">
-<pre class="brush: php; gutter: false; theme: Eclipse" style="font-size:12px;"><code>ezpublish:
+                adm.bar-stuff.fr: bar_admin
+```
+
+!!! caution
+
+    In eZ Enterprise, when using the Map\Host matcher, you need to provide the following line in your Twig template (e.g. in the head of the main template file):
+
+    `{{ multidomain_access() }}`
+
+**Example.** Map:
+
+- `www.foo.com` => `foo_front`
+- `admin.foo.com` => `foo_admin`
+
+Host name: `www.example.com`
+
+Matched siteaccess: `foo_front`
+
+###### Map\\URI
+
+Maps a URI to a siteaccess
+
+**Configuration.** A hash map of URI/siteaccess
+
+```yaml
+ezpublish:
     siteaccess:
         match:
             Map\URI:
                 something: ezdemo_site
-                foobar: ezdemo_site_admin</code></pre>
-</div>
-</div>
-<div class="confluence-information-macro confluence-information-macro-warning">
-<span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span>
-<div class="confluence-information-macro-body">
-<p>The name of the <code>Map\URI</code> matcher must be the same as the siteaccess name. This also means that only one URI can be addressed by the same matcher.</p>
-</div>
-</div></td>
-<td><p><strong>URI:</strong> <code>/something/my/content</code></p>
-<p>Map:</p>
-<ul>
-<li>something =&gt; ezdemo_site</li>
-<li>foobar =&gt; ezdemo_site_admin</li>
-</ul>
-<p>Matched siteaccess: ezdemo_site</p></td>
-</tr>
-<tr class="odd">
-<td><code>Map\Port</code></td>
-<td>Maps a port to a siteaccess</td>
-<td><p>A has map of Port/siteaccess</p>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeContent panelContent pdl">
-<pre class="brush: php; gutter: false; theme: Eclipse" style="font-size:12px;"><code>ezpublish:
+                foobar: ezdemo_site_admin
+```
+
+!!! caution
+
+    The name of the Map\URI matcher must be the same as the siteaccess name. This also means that only one URI can be addressed by the same matcher.
+
+
+**Example.** URI: `/something/my/content`
+
+Map:
+
+- `something` => `ezdemo_site`
+- `foobar` => `ezdemo_site_admin`
+
+Matched siteaccess: `ezdemo_site`
+
+###### Map\\Port
+
+Maps a port to a siteaccess
+
+**Configuration.** A hash map of Port/siteaccess
+
+``` yaml
+ezpublish:
     siteaccess:
         match:
             Match\Port:
                 80: foo
-                8080: bar</code></pre>
-</div>
-</div></td>
-<td><p><strong>URL:</strong> <code>             http://ezpublish.dev:8080/my/content           </code></p>
-<p>Map:</p>
-<ul>
-<li>80: foo</li>
-<li>8080: bar</li>
-</ul>
-<p>Matched siteaccess: bar</p></td>
-</tr>
-<tr class="even">
-<td><code>Regex\Host</code></td>
-<td>Matches against a regexp and extracts a portion of it</td>
-<td><p>The regexp to match against<br />
-and the captured element to use</p>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeContent panelContent pdl">
-<pre class="brush: php; gutter: false; theme: Eclipse" style="font-size:12px;"><code>ezpublish:
+                8080: bar
+```
+
+**Example.** URL: `http://ezpublish.dev:8080/my/content`
+
+Map:
+
+- `80`: `foo`
+- `8080`: `bar`
+
+Matched siteaccess: `bar`
+
+###### Regex\\Host
+
+Matches against a regexp and extracts a portion of it
+
+**Configuration.** The regexp to match against and the captured element to use
+
+``` yaml
+ezpublish:
     siteaccess:
         match:
             Regex\Host:
-                regex: &quot;^(\\w+_sa)$&quot;
+                regex: "^(\\w+_sa)$"
                 # Default is 1
-                itemNumber: 1</code></pre>
-</div>
-</div></td>
-<td><p><strong>Host name:</strong> <code>example_sa</code></p>
-<p>regex: <code>^(\\w+)_sa$</code><br />
-itemNumber: 1</p>
-<p>Matched siteaccess: example</p></td>
-</tr>
-<tr class="odd">
-<td><code>Regex\URI</code></td>
-<td>Matches against a regexp and extracts a portion of it</td>
-<td><p><span>The regexp to match against<br />
-and the captured element to use</span></p>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeContent panelContent pdl">
-<pre class="brush: php; gutter: false; theme: Eclipse" style="font-size:12px;"><code>ezpublish:
+                itemNumber: 1
+```
+
+**Example.** Host name: `example_sa`
+
+regex: `^(\\w+)_sa$`
+
+itemNumber: 1
+
+Matched siteaccess: `example`
+
+###### Regex\\URI
+
+Matches against a regexp and extracts a portion of it
+
+**Configuration.** The regexp to match against and the captured element to use
+
+``` yaml
+ezpublish:
     siteaccess:
         match:
             Regex\URI:
-                regex: &quot;^/foo(\\w+)bar&quot;
+                regex: "^/foo(\\w+)bar"
                 # Default is 1
-                itemNumber: 1</code></pre>
-</div>
-</div>
-<p><span><br />
-</span></p></td>
-<td><p><strong>URI:</strong> <code>/footestbar/something</code></p>
-<p>regex: ^/foo(\\w+)bar<br />
-itemNumber: 1</p>
-<p>Matched siteaccess: test </p></td>
-</tr>
-</tbody>
-</table>
+                itemNumber: 1
+```
 
-### Compound siteaccess matcher
+**Example.** URI: `/footestbar/something`
+
+regex: `^/foo(\\w+)bar`; itemNumber: 1
+
+Matched siteaccess: `test`
+
+#### Compound siteaccess matcher
 
 The Compound siteaccess matcher allows you to combine several matchers together:
 
--   <http://example.com/en> matches site\_en (match on host=[example.com](http://example.com) *and* URIElement(1)=en)
--   <http://example.com/fr> matches site\_fr (match on host=[example.com](http://example.com) *and* URIElement(1)=fr)
--   <http://admin.example.com> matches site\_admin (match on host=[admin.example.com](http://admin.example.com))
+- <http://example.com/en> matches site\_en (match on host=[example.com](http://example.com) *and* URIElement(1)=en)
+- <http://example.com/fr> matches site\_fr (match on host=[example.com](http://example.com) *and* URIElement(1)=fr)
+- <http://admin.example.com> matches site\_admin (match on host=[admin.example.com](http://admin.example.com))
 
-Compound matchers cover the legacy  ***host\_uri*** matching feature.
+Compound matchers cover the legacy **host\_uri** matching feature.
 
 They are based on logical combinations, or/and, using logical compound matchers:
 
--   `Compound\LogicalAnd`
--   `Compound\LogicalOr`
+- `Compound\LogicalAnd`
+- `Compound\LogicalOr`
 
 Each compound matcher will specify two or more sub-matchers. A rule will match if all the matchers, combined with the logical matcher, are positive. The example above would have used `Map\Host` and `Map\Uri`., combined with a `LogicalAnd`. When both the URI and host match, the siteaccess configured with "match" is used.
 
-**ezplatform.yml**
-
-``` brush:
+``` yaml
+# ezplatform.yml
 ezpublish:
     siteaccess:
         match:
@@ -594,13 +564,13 @@ ezpublish:
                 admin.example.com: site_admin
 ```
 
-### Matching by request header
+#### Matching by request header
 
 It is possible to define which siteaccess to use by setting an **X-Siteaccess** header in your request. This can be useful for REST requests.
 
 In such case, **X-Siteaccess** must be the **siteaccess name** (e.g. *ezdemo\_site*).
 
-### Matching by environment variable
+#### Matching by environment variable
 
 It is also possible to define which siteaccess to use directly via an **EZPUBLISH\_SITEACCESS** environment variable.
 
@@ -608,9 +578,8 @@ This is recommended if you want to get **performance gain** since no matching lo
 
 You can define this environment variable directly from your web server configuration:
 
-**Apache VirtualHost example**
-
-``` brush:
+``` xml
+<!--Apache VirtualHost example-->
 # This configuration assumes that mod_env is activated
 <VirtualHost *:80>
     DocumentRoot "/path/to/ezpublish5/web/folder"
@@ -620,25 +589,27 @@ You can define this environment variable directly from your web server configura
 </VirtualHost>
 ```
 
-This can also be done via PHP-FPM configuration file, if you use it. See  [PHP-FPM documentation](http://php.net/manual/en/install.fpm.configuration.php#example-60)  for more information.
+!!! tip
 
-Note about precedence
+    This can also be done via PHP-FPM configuration file, if you use it. See  [PHP-FPM documentation](http://php.net/manual/en/install.fpm.configuration.php#example-60)  for more information.
 
- The precedence order for siteaccess matching is the following (the first matched wins):
+!!! note "Note about precedence"
 
-1.  Request header
-2.  Environment variable
-3.  Configured matchers
+    The precedence order for siteaccess matching is the following (the first matched wins):
 
-### URILexer and semanticPathinfo
+    1.  Request header
+    2.  Environment variable
+    3.  Configured matchers
+
+#### URILexer and semanticPathinfo
 
 In some cases, after matching a siteaccess, it is neecessary to modify the original request URI. This is for example needed with URI-based matchers since the siteaccess is contained in the original URI and it is not part of the route itself.
 
 The problem is addressed by *analyzing* this URI and by modifying it when needed through the **URILexer** interface.
 
-**URILexer interface**
+``` php
+// URILexer interface
 
-``` brush:
 /**
  * Interface for SiteAccess matchers that need to alter the URI after matching.
  * This is useful when you have the siteaccess in the URI like "/<siteaccessName>/my/awesome/uri"
@@ -664,28 +635,25 @@ interface URILexer
 
 Once modified, the URI is stored in the ***semanticPathinfo*** request attribute, and the original pathinfo is not modified.
 
-# Usage
+## Usage
 
-## Cross-siteacess links
+### Cross-siteaccess links
 
 When using the *multisite* feature, it is sometimes useful to be able to **generate cross-links** between the different sites.
 This allows you to link different resources referenced in the same content repository, but configured independently with different tree roots.
 
-**Twig example**
-
-``` brush:
- {# Linking a location #} 
+``` html
+<!--Twig example-->
+{# Linking a location #}
 <a href="{{ url( 'ez_urlalias', {'locationId': 42, 'siteaccess': 'some_siteaccess_name'} ) }}">{{ ez_content_name( content ) }}</a>
 
-{# Linking a regular route #} 
+{# Linking a regular route #}
 <a href="{{ url( "some_route_name", {"siteaccess": "some_siteaccess_name"} ) }}">Hello world!</a>
 ```
 
-See [ez\_urlalias](ez_urlalias_32114047.html) documentation page, for more information about linking to a Location
+See [ez\_urlalias](content_rendering.md#ez95urlalias) documentation page, for more information about linking to a Location
 
-**PHP example**
-
-``` brush:
+``` php
 namespace Acme\TestBundle\Controller;
 
 use eZ\Bundle\EzPublishCoreBundle\Controller as BaseController;
@@ -715,32 +683,30 @@ class MyController extends BaseController
 }
 ```
 
-     
+!!! note "Important"
 
-Important
+    As siteaccess matchers can involve hosts and ports, it is **highly recommended** to generate cross-siteaccess links in an absolute form (e.g. using `url()` Twig helper).
 
-As siteaccess matchers can involve hosts and ports, it is **highly recommended** to generate cross-siteaccess links in an absolute form (e.g. using `url()` Twig helper).
+#### Troubleshooting
 
-### Troubleshooting
+- The **first matcher succeeding always wins**, so be careful when using *catch-all* matchers like `URIElement`.
+- If passed siteaccess name is not a valid one, an `InvalidArgumentException` will be thrown.
+- If matcher used to match the provided siteaccess doesn't implement `VersatileMatcher`, the link will be generated for the current siteaccess.
+- When using `Compound\LogicalAnd`, all inner matchers **must match**. If at least one matcher doesn't implement `VersatileMatcher`, it will fail.
+- When using `Compound\LogicalOr`, the first inner matcher succeeding will win.
 
--   The **first matcher succeeding always wins**, so be careful when using *catch-all* matchers like `URIElement`.
--   If passed siteaccess name is not a valid one, an `InvalidArgumentException` will be thrown.
--   If matcher used to match the provided siteaccess doesn't implement `VersatileMatcher`, the link will be generated for the current siteaccess.
--   When using `Compound\LogicalAnd`, all inner matchers **must match**. If at least one matcher doesn't implement `VersatileMatcher`, it will fail.
--   When using `Compound\LogicalOr`, the first inner matcher succeeding will win.
-
-### Under the hood
+#### Under the hood
 
 To implement this feature, a new `VersatileMatcher` was added to allow siteaccess matchers to be able to *reverse-match*.
 All existing matchers implement this new interface, except the Regexp based matchers which have been deprecated.
 
 The siteaccess router has been added a `matchByName()` method to reflect this addition. Abstract URLGenerator and `DefaultRouter` have been updated as well.
 
-Note
+!!! note
 
-Siteaccess router public methods have also been extracted to a new interface, `SiteAccessRouterInterface`.
+    Siteaccess router public methods have also been extracted to a new interface, `SiteAccessRouterInterface`.
 
-### Navigating between siteaccesses - limitations
+#### Navigating between siteaccesses - limitations
 
 There are two known limitations to moving between siteaccesses in eZ Enteprise's Landing Pages:
 
@@ -748,47 +714,46 @@ There are two known limitations to moving between siteaccesses in eZ Enteprise's
 
 **2.** When navigating between siteaccesses in the back office using the top bar, you are always redirected to the main page, not to the Content item you started from.
 
-## Dynamic Settings Injection
+### Dynamic Settings Injection
 
 Before 5.4, if you wanted to implement a service needing siteaccess-aware settings (e.g. language settings), you needed to inject the whole `ConfigResolver` (`ezpublish.config.resolver`) and get the needed settings from it. This was neither very convenient nor explicit.
 
 The goal of this feature is to allow developers to inject these dynamic settings explicitly from their service definition (yml, xml, annotation, etc.).
 
-### Syntax
+#### Syntax
 
 Static container parameters follow the `%<parameter_name>%` syntax in Symfony.
 
 Dynamic parameters have the following: `$<parameter_name>[; <namespace>[; <scope>]]$`, default namespace being `ezsettings`, and default scope being the current siteaccess.
 
-For more information, see [ConfigResolver documentation](https://doc.ez.no/display/DEVELOPER/SiteAccess#SiteAccess-Configuration).
+For more information, see [ConfigResolver documentation](#configuration).
 
-### DynamicSettingParser
+#### DynamicSettingParser
 
 This feature also introduces a *DynamicSettingParser* service that can be used for adding support of the dynamic settings syntax.
 This service has `ezpublish.config.dynamic_setting.parser` for ID and implements` eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\SiteAccessAware\DynamicSettingParserInterface`.
 
-### Limitations
+#### Limitations
 
 A few limitations still remain:
 
--   It is not possible to use dynamic settings in your semantic configuration (e.g. `config.yml` or `ezplatform.yml`) as they are meant primarily for parameter injection in services.
--   It is not possible to define an array of options having dynamic settings. They will not be parsed. Workaround is to use separate arguments/setters.
--   Injecting dynamic settings in request listeners is **not recommended**, as it won't be resolved with the correct scope (request listeners are **instantiated before SiteAccess match**). Workaround is to inject the ConfigResolver instead, and resolving the setting in your `onKernelRequest` method (or equivalent).
+- It is not possible to use dynamic settings in your semantic configuration (e.g. `config.yml` or `ezplatform.yml`) as they are meant primarily for parameter injection in services.
+- It is not possible to define an array of options having dynamic settings. They will not be parsed. Workaround is to use separate arguments/setters.
+- Injecting dynamic settings in request listeners is **not recommended**, as it won't be resolved with the correct scope (request listeners are **instantiated before SiteAccess match**). Workaround is to inject the ConfigResolver instead, and resolving the setting in your `onKernelRequest` method (or equivalent).
 
-### Examples
+#### Examples
 
-#### Injecting an eZ parameter
+##### Injecting an eZ parameter
 
 Defining a simple service needing `languages` parameter (i.e. prioritized languages).
 
-Note
+!!! note
 
-Internally, `languages` parameter is defined as `ezsettings.<siteaccess_name>.languages`, `ezsettings` being eZ internal *namespace*.
+    Internally, `languages` parameter is defined as `ezsettings.<siteaccess_name>.languages`, `ezsettings` being eZ internal *namespace*.
 
-#### **Before 5.4
-**
+##### Before 5.4
 
-``` brush:
+``` yaml
 parameters:
     acme_test.my_service.class: Acme\TestBundle\MyServiceClass
 
@@ -800,10 +765,7 @@ services:
 namespace Acme\TestBundle;
 ```
 
-**
-**
-
-``` brush:
+``` php
 use eZ\Publish\Core\MVC\ConfigResolverInterface;
 
 class MyServiceClass
@@ -822,9 +784,9 @@ class MyServiceClass
 }
 ```
 
-#### After, with setter injection (preferred)
+##### After, with setter injection (preferred)
 
-``` brush:
+``` yaml
 parameters:
     acme_test.my_service.class: Acme\TestBundle\MyServiceClass
 
@@ -835,7 +797,7 @@ services:
             - [setLanguages, ["$languages$"]]
 ```
 
-``` brush:
+``` php
 namespace Acme\TestBundle;
 
 class MyServiceClass
@@ -854,15 +816,13 @@ class MyServiceClass
 }
 ```
 
- 
+!!! caution "Important"
 
- 
+    Ensure you always add `null` as a default value, especially if the argument is type-hinted.
 
-**Important**: Ensure you always add `null` as a default value, especially if the argument is type-hinted.
+##### After, with constructor injection
 
-#### After, with constructor injection
-
-``` brush:
+``` yaml
 parameters:
     acme_test.my_service.class: Acme\TestBundle\MyServiceClass
 
@@ -872,7 +832,7 @@ services:
         arguments: ["$languages$"]
 ```
 
-``` brush:
+``` php
 namespace Acme\TestBundle;
 
 class MyServiceClass
@@ -891,21 +851,15 @@ class MyServiceClass
 }
 ```
 
- 
+!!! tip
 
- 
+    Setter injection for dynamic settings should always be preferred, as it makes it possible to update your services that depend on them when ConfigResolver is updating its scope (e.g. when previewing content in a given SiteAccess). **However, only one dynamic setting should be injected by setter** .
 
-Tip
+    **Constructor injection will make your service be reset in that case.**
 
-Setter injection for dynamic settings should always be preferred, as it makes it possible to update your services that depend on them when ConfigResolver is updating its scope (e.g. when previewing content in a given SiteAccess). **However, only one dynamic setting should be injected by setter** .
+##### Injecting 3rd party parameters
 
-**Constructor injection will make your service be reset in that case.**
-
-#### Injecting 3rd party parameters
-
- 
-
-``` brush:
+``` yaml
 parameters:
     acme_test.my_service.class: Acme\TestBundle\MyServiceClass
     # "acme" is our parameter namespace.
@@ -923,7 +877,7 @@ services:
             - [setSomeParameter, ["$some_parameter;acme$"]]
 ```
 
-``` brush:
+``` php
 namespace Acme\TestBundle;
 class MyServiceClass
 {
@@ -935,48 +889,3 @@ class MyServiceClass
     }
 }
 ```
-
-#### In this topic:
-
--   [Introduction](#SiteAccess-Introduction)
-    -   [What does a siteaccess do?](#SiteAccess-Whatdoesasiteaccessdo?)
-    -   [How is a siteaccess selected?](#SiteAccess-Howisasiteaccessselected?)
-    -   [What can you use siteaccesses for?](#SiteAccess-Whatcanyouusesiteaccessesfor?)
-    -   [Use case: multilanguage sites](#SiteAccess-Usecase:multilanguagesites)
-    -   [The default scope](#SiteAccess-Thedefaultscope)
--   [Configuration](#SiteAccess-Configuration)
-    -   [Basics](#SiteAccess-Basics)
-        -   [Example](#SiteAccess-Example)
-    -   [Dynamic configuration with the ConfigResolver](#SiteAccess-DynamicconfigurationwiththeConfigResolver)
-        -   [Scope](#SiteAccess-Scope)
-        -   [ConfigResolver Usage](#SiteAccess-ConfigResolverUsage)
-        -   [Inject the ConfigResolver in your services](#SiteAccess-InjecttheConfigResolverinyourservices)
-    -   [Custom locale configuration](#SiteAccess-Customlocaleconfiguration)
-    -   [Siteaccess Matching](#SiteAccess-SiteaccessMatching)
-        -   [Available matchers](#SiteAccess-Availablematchers)
-        -   [Compound siteaccess matcher](#SiteAccess-Compoundsiteaccessmatcher)
-        -   [Matching by request header](#SiteAccess-Matchingbyrequestheader)
-        -   [Matching by environment variable](#SiteAccess-Matchingbyenvironmentvariable)
-        -   [URILexer and semanticPathinfo](#SiteAccess-URILexerandsemanticPathinfo)
--   [Usage](#SiteAccess-Usage)
-    -   [Cross-siteacess links](#SiteAccess-Cross-siteacesslinks)
-        -   [Troubleshooting](#SiteAccess-Troubleshooting)
-        -   [Under the hood](#SiteAccess-Underthehood)
-        -   [Navigating between siteaccesses - limitations](#SiteAccess-Navigatingbetweensiteaccesses-limitations)
-    -   [Dynamic Settings Injection](#SiteAccess-DynamicSettingsInjection)
-        -   [Syntax](#SiteAccess-Syntax)
-        -   [DynamicSettingParser](#SiteAccess-DynamicSettingParser)
-        -   [Limitations](#SiteAccess-Limitations)
-        -   [Examples](#SiteAccess-Examples)
-
-#### Related topics:
-
-[Cross-siteaccess links](https://doc.ez.no/display/DEVELOPER/SiteAccess#SiteAccess-Cross-siteacesslinks)
-
-[Setting the Index Page](Multisite_31430389.html#Multisite-SettingTheIndexPage)
-
-
-
-
-
-

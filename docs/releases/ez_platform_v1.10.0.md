@@ -7,7 +7,7 @@ If you are looking for the Long Term Support (LTS) release, see[ https://ezplat
 
 Upgrade notes
 
-This release contains special steps to follow further described in [Updating eZ Platform](docs/releases/updating_ez_platform.md).
+This release contains special steps to follow further described in [Updating eZ Platform](../releases/updating_ez_platform.md).
 
  
 
@@ -19,7 +19,7 @@ This release contains special steps to follow further described in [Updating eZ 
 
 This release introduces the ability to add tables in the RichText editor, enabling you to list up tabular data using table headings, merged table cells and more.
 
-![](releases/img/platformui-table.gif)
+![](img/platformui-table.gif)
 
 This is a first step. We aim to provide more in terms of table support in the editor later. For the time being images and embedding are not supported within the table, as you won't be able to move them out or edit them. We also don't provide yet ability to style the table within the editor.
 
@@ -29,7 +29,7 @@ This is a first step. We aim to provide more in terms of table support in the ed
 
 This is a new way to handle design, theming and design overrides, similar to what we had in eZ Publish. It enables you to define different Themes which are collections of assets and templates. You can then assemble Themes (that can override each other) to define Designs, and eventually, assign a Design to a SiteAccess. This is a powerful concept that we will aim to use in our out-of-the-box templates and demo sites. It comes especially handy when using eZ Platform for a multisite installation and willing to reuse design parts. Further info can be found in the [Bundle documentation](https://github.com/ezsystems/ezplatform-design-engine/tree/master/doc).
 
-![](releases/img/newdesigntable.png)
+![](img/newdesigntable.png)
 
 ### API: Simplified usage with translations
 
@@ -89,7 +89,7 @@ Starting with 1.10, a new command `ezplatform:io:migrate-files` has been added
 
 -   Form deletion is managed more gracefully, including warnings and the option to download collected data before deleting a form ([EZEE-1400](https://jira.ez.no/browse/EZEE-1400))
 
-![Deleting a form with data](releases/img/delete-form.gif "Deleting a form with data")
+![Deleting a form with data](img/delete-form.gif "Deleting a form with data")
 
 -   [EZEE-1411](https://jira.ez.no/browse/EZEE-1411): Schedule block logic has been updated and improved.
 
@@ -138,8 +138,8 @@ If you would like to request an eZ Enterprise Demo instance: <http://ez.no/Forms
 
 ### Updating
 
-To update to this version, follow the [Updating eZ Platform](docs/releases/updating_ez_platform.md) guide and use v1.10.0 as `<version>`.
+To update to this version, follow the [Updating eZ Platform](../releases/updating_ez_platform.md) guide and use v1.10.0 as `<version>`.
 
-**Note:** When updating eZ Platform Enterprise Edition, you need to [add the new EzSystemsPlatformEEAssetsBundle](docs/releases/updating_ez_platform.md#update_the_app)
+**Note:** When updating eZ Platform Enterprise Edition, you need to [add the new EzSystemsPlatformEEAssetsBundle](../releases/updating_ez_platform.md#update_the_app)
 
  

@@ -30,7 +30,7 @@ We upgraded the versions for Flysystem and Stash. See below for more details.
 
 In this version, you have a new tab "Versions" under which you will be able to manage Versions and Drafts.
 
-![](releases/img/featuring_articles.png)
+![](img/featuring_articles.png)
 
 See the video screencast for a demonstration of this feature.
 
@@ -91,7 +91,7 @@ For full list of changes see issue list in JIRA:  [44 issues](https://jira.ez.n
 
 ## Updating
 
-To update to this version, follow the [Updating eZ Platform](docs/releases/updating_ez_platform.md) guide and use `v1.5.0` as `<version>`.
+To update to this version, follow the [Updating eZ Platform](../releases/updating_ez_platform.md) guide and use `v1.5.0` as `<version>`.
 
 ### New eZ packages in this release
 

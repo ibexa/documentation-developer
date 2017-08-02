@@ -29,11 +29,11 @@ When you are selected as a reviewer for a Content item, you receive a notificati
 
 As a reviewer you also receive notifications in your user profile. When you are logged in, a number appears next to your profile picture (in the top right corner of the screen) which shows how many requests for review you have received.
 
-![](releases/img/flex_workflow_notification_in_profile.png)
+![](img/flex_workflow_notification_in_profile.png)
 
 Click your profile and choose View notifications. You can see a Notifications window with a list of all requests:
 
-![Flex workflow notification window](releases/img/flex_workflow_window.png)
+![Flex workflow notification window](img/flex_workflow_window.png)
 
  
 
@@ -46,11 +46,11 @@ Click your profile and choose View notifications. You can see a Notifications wi
 -   Timeline toolbar shows all changes in all Schedule Blocks on a given Landing Page, both in View and in Edit modes.
 -   UI improvement: updated the look of the Items airing and Full list.
 
-![Full list of items airing](releases/img/timeline_view_list.png)
+![Full list of items airing](img/timeline_view_list.png)
 
 -   UI improvement: sliders added to the time selection modal when selecting airtime for Schedule block.
 
-![Schedule block Airtime settings window](release/img/schedule_block_airtime_settings.png)
+![Schedule block Airtime settings window](img/schedule_block_airtime_settings.png)
 
 -   Various bug fixes.
 
@@ -175,7 +175,7 @@ Choose Languages and click Create a new language. Create a language for each of 
 
 Then, click **Roles** and select the Anonymous Role. Click Edit limitations next to the following function:
 
-![](releases/img/adding_siteaccess_limitations_rn16.02.png)
+![](img/adding_siteaccess_limitations_rn16.02.png)
 
 Select all available siteaccesses and click Save.
 
