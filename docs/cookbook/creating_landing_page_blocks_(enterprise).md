@@ -415,7 +415,7 @@ The presented configuration is introduced to make defining blocks faster and mor
 
 - The `name` attribute can be omitted and values are going to be generated automatically in the following fashion: `new_value` =&gt; `New Value`
 - For now `category` is not needed for blocks - it's for future purposes.
-- In most cases blocks have only a single view, therefore you can define it as: `views: EzSystemsLandingPageBlockTemplateBundle::template.html.twig`.`                        `
+- In most cases blocks have only a single view, therefore you can define it as: `views: EzSystemsLandingPageBlockTemplateBundle::template.html.twig`.
 - In case of multiple views you can omit `name` and simplify it as follows:
 
 ``` yaml

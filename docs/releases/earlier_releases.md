@@ -1,5 +1,6 @@
+# Earlier releases
 
-# eZ Platform 15.11 Release notes
+## eZ Platform 15.11 Release notes
 
 #### Quick links
 
@@ -9,9 +10,9 @@
 
 eZ Platform beta 8 is now available for testing. This releases focuses on cleanup, stabilization and the online editor.
 
-# Highlights
+### Highlights
 
-## Platform no longer comes with the demo
+#### Platform no longer comes with the demo
 
 The `ezsystems/ezplatform` package has been completely cleaned from any reference to the demo and DemoBundle. In addition, we have moved closer from the symfony-standard distribution:
 
@@ -21,13 +22,13 @@ The `ezsystems/ezplatform` package has been completely cleaned from any referen
 
 This change should make it much easier to get started on a project. It also enforces a better separation, on our side, of demo related and application related changes.
 
-## Platform UI performances improvements
+#### Platform UI performances improvements
 
 -   The tree now uses location search instead of content search, leading to fewer HTTP queries ([EZP-24873](https://jira.ez.no/browse/EZP-24873))
 -   The breadcrumb has been changed to use the new `AncestorOf` criterion, and should perform much better ([EZP-24871](https://jira.ez.no/browse/EZP-24871))
 -   A new "combine" YUI semantic setting has also been introduced. This prepares for the [combo loader feature](https://github.com/ezsystems/PlatformUIBundle/pull/427) that is being worked on. Once approved this should significantly shorten the loading time of the backoffice.
 
-## Online editor embeds
+#### Online editor embeds
 
 Embed elements can now be added to RichText fields. The editor will be shown the Universal Discovery Widget to browse for the embedded content ([EZP-24894](https://jira.ez.no/browse/EZP-24894)).
 
@@ -40,7 +41,7 @@ In addition, bugs were fixed on the Online Editor:
 -   Heading 1 is now fully visible when editing ([EZP-24970](https://jira.ez.no/browse/EZP-24970))
 -   Saved RichText content is now free from unwanted markup and tags ([EZP-24967](https://jira.ez.no/browse/EZP-24967), [EZP-24971](https://jira.ez.no/browse/EZP-24971))
 
-## Role, policies and languages management
+#### Role, policies and languages management
 
 Policies ([EZP-24713](https://jira.ez.no/browse/EZP-24713)), roles ([EZP-24700](https://jira.ez.no/browse/EZP-24700)) and languages ([EZP-22658](https://jira.ez.no/browse/EZP-22658)) management have been implemented. Role assignment with limitations is being finished, and should be part of the next release.
 
@@ -52,7 +53,7 @@ In addition, the following improvements have been made
 -   Field definitions position is now calculated automatically ([EZP-24569](https://jira.ez.no/browse/EZP-24569))
 -   The preview will now use the previewed content's title ([EZP-24927](https://jira.ez.no/browse/EZP-24927))
 
-## Bug fixes
+#### Bug fixes
 
 -   The main location of content can be changed ([EZP-24901](https://jira.ez.no/browse/EZP-24901))
 -   Proper feedback will be given when an uploaded file exceeds the maximal size ([EZP-25037](https://jira.ez.no/browse/EZP-25037))
@@ -75,19 +76,19 @@ In addition, the following improvements have been made
 -   Hitting enter in a repository form doesn't report an error anymore ([EZP-24942](https://jira.ez.no/browse/EZP-24942))
 -   Notifications will be correct after publishing content ([EZP-25035](https://jira.ez.no/browse/EZP-25035))
 
-## Platform
+#### Platform
 
-### XmlText moved to its own package
+##### XmlText moved to its own package
 
 The XmlText FieldType has been moved to its own package ([EZP-24925](https://jira.ez.no/browse/EZP-24925)). It can be installed by requiring `ezsystems/ezplatform-xmltext-fieldtype`.
 
-### Default view templates
+##### Default view templates
 
 Default templates were added for most views ([EZP-25121](https://jira.ez.no/browse/EZP-25121)). This means that any content will be shown on the site, even if no custom view rule was created for it yet. It will work for content view, with the `full`, `line` and `embed` view types. The default templates can be overridden using container parameters, and customized per siteaccess by means of siteaccess aware settings.
 
  
 
-## Changelog
+### Changelog
 
 *Changes* (Stories, Improvements and bug fixes) can be found in our issue tracker:  [72 issues](https://jira.ez.no/secure/IssueNavigator.jspa?reset=true&jqlQuery=fixVersion%3D%222015.11%22+AND+project+%3D+EZP+AND+issuetype+in+%28Story%2C+Improvement%2C+Bug%29+order+by+issuetype+++&src=confmacro)  *(some are still pending additional documentation changes)*
 
@@ -104,9 +105,9 @@ Epics tentatively\* planned for first LTS release:  [0 issue](https://jira.ez.
 *'\* Some of these features will not be in the stable releases, the once we first and foremost will aim for having in the release are those mentioned on the [Roadmap](http://ez.no/Blog/What-to-Expect-from-eZ-Studio-and-eZ-Platform).*
 
 
-# eZ Platform 15.09 Release notes
+## eZ Platform 15.09 Release notes
 
-# eZ Platform beta now available for testing
+### eZ Platform beta now available for testing
 
 #### Quick links
 
@@ -116,23 +117,23 @@ Epics tentatively\* planned for first LTS release:  [0 issue](https://jira.ez.
 
 The fifth release of eZ Platform, 15.09, is the first in "beta" stability. It builds upon the **15.07** September alpha release. It most notably provides many new UI features, both in this download and continues to provide a few more additional UI features during it's beta period until end of month.
 
-# Highlights
+### Highlights
 
 Along with the improvements and fixes listed below, the most notable changes are the sub-items list in PlatformUI, location & relation tabs, and policies support in custom bundles.
 
-## Platform UI sub-items list
+#### Platform UI sub-items list
 
 Sub-items will now be listed in PlatformUI. This is a minimum viable feature. In further releases, this will be expanded to improve UX with ability to change sub-items views and ability to easily add subitems. For now the sub-items list view enables repository browsing via the content view. 
 
 Story: [EZP-24824](https://jira.ez.no/browse/EZP-24824)
 
-## Platform UI languages improvements
+#### Platform UI languages improvements
 
 The list of content languages configured in the system is now correctly passed on to the UI ([EZP-24865](https://jira.ez.no/browse/EZP-24865)), avoiding errors on language selection. 
 
 The language of the edited content can now be selected during editing ([EZP-23768](https://jira.ez.no/browse/EZP-23768))
 
-## New PlatformUI content tabs
+#### New PlatformUI content tabs
 
 Dedicated tabs have been added for relations ([EZP-24509](https://jira.ez.no/browse/EZP-24509)) and locations ([EZP-24815](https://jira.ez.no/browse/EZP-24815)) of any Content. Both will list a content's relations and locations.
 
@@ -140,7 +141,7 @@ The location tab also allows to manage (add, remove, hide/unhide) locations, as 
 
 ![](img/locations_tab.png)
 
-## Other UI improvements
+#### Other UI improvements
 
  
 
@@ -154,7 +155,7 @@ The location tab also allows to manage (add, remove, hide/unhide) locations, as 
 
 ![](img/PlatformUI-navigation-bar.png)
 
-## Custom repository policies support
+#### Custom repository policies support
 
 Bundles can now declare custom modules, policies and limitations.
 
@@ -162,7 +163,7 @@ Links: [documentation](https://github.com/ezsystems/ezpublish-kernel/blob/master
 
 ![](img/platform_custom_policies.png)
 
-## Repository and Platform improvements
+#### Repository and Platform improvements
 
 -   Solr support for fullText location search ([EZP-24802](https://jira.ez.no/browse/EZP-24802))
 -   ezcontentobject\_attribute stores always available flag to all fields
@@ -174,7 +175,7 @@ Links: [documentation](https://github.com/ezsystems/ezpublish-kernel/blob/master
 
  
 
-## Changelog
+### Changelog
 
 *Changes* (Stories, Improvements and bug fixes) can be found in our issue tracker:  [67 issues](https://jira.ez.no/secure/IssueNavigator.jspa?reset=true&jqlQuery=fixVersion%3D%222015.07%22+AND+project+%3D+EZP+AND+issuetype+in+%28Story%2C+Improvement%2C+Bug%29+order+by+issuetype++++++++&src=confmacro)  *(some are still pending additional documentation changes)*
 
@@ -191,9 +192,9 @@ Epics tentatively\* planned for first LTS release:  [0 issue](https://jira.ez.
 *'\* Some of these features will not be in the stable releases, the once we first and foremost will aim for having in the release are those mentioned on the [Roadmap](http://ez.no/Blog/What-to-Expect-from-eZ-Studio-and-eZ-Platform).*
 
 
-# eZ Platform 15.07 Release notes
+## eZ Platform 15.07 Release notes
 
-# eZ Platform "Alpha4" available for testing
+### eZ Platform "Alpha4" available for testing
 
 #### Quick links
 
@@ -205,11 +206,11 @@ Epics tentatively\* planned for first LTS release:  [0 issue](https://jira.ez.
 
 The fourth alpha release of eZ Platform,15.07, builds upon the **15.05** July release.  It most noticeably adds support for Solr, as well as many UI enhancements and additions. It also contains most improvements and fixes that are part of the 5.4.3 and 5.4.4 [enterprise releases](http://ez.no/Products/The-eZ-Publish-Platform).
 
-# Highlights
+### Highlights
 
 With the many improvements and fixes listed at the bottom, the main changes are:
 
-## RichText editor improvements
+#### RichText editor improvements
 
 -   The active element is now highlighted ([EZP-24769](https://jira.ez.no/browse/EZP-24769))
 -   The contextual toolbar now works on the following elements:
@@ -219,7 +220,7 @@ With the many improvements and fixes listed at the bottom, the main changes are:
 
  
 
-## Content language display selection
+#### Content language display selection
 
 On Content that has translations, a dropdown will now list the available languages. Selecting one of them will display the Content in that language instead. The Edit button will now use the currently active translation.
 
@@ -227,7 +228,7 @@ Stories: [EZP-23765](https://jira.ez.no/browse/EZP-23765), [EZP-24549](https:/
 
 ![](img/choose_translation.png)
 
-## Translate content
+#### Translate content
 
 When there are multiple languages configured, translations can be added and edited.
 
@@ -237,7 +238,7 @@ Story: [EZP-23766](https://jira.ez.no/browse/EZP-23766)
 
 ![](img/add_translation.gif)
 
-## Roles management UI prototype
+#### Roles management UI prototype
 
 An UI to manage Roles and Policies has been started, and can be previewed.
 
@@ -249,7 +250,7 @@ As can be seen in the epic, this feature is being worked on, and will quickly ev
 
 ![](img/rules_ui.png)
 
-## Other UI changes
+#### Other UI changes
 
 -   **Details of locations** can now be viewed from the backoffice: content id, creator, modification date, remote id... ([EZP-24512](https://jira.ez.no/browse/EZP-24512))
 -   **Interactive confirmation messages** as well as **notifications** can now be triggered by server side admin pages ([EZP-24652](https://jira.ez.no/browse/EZP-24652), [EZP-24536](https://jira.ez.no/browse/EZP-24536))
@@ -257,7 +258,7 @@ As can be seen in the epic, this feature is being worked on, and will quickly ev
 -   **Section Management** has been reworked, and moved from [ezsystems/platform-ui-bundle](https://github.com/ezsystems/PlaformUIBundle) to [ezsystems/repository-forms](https://github.com/ezsystems/repository-forms) ([EZP-24380](https://jira.ez.no/browse/EZP-24380))
 -   Configuration can now be sent to the PlatformUI JS app ([EZP-24129](https://jira.ez.no/browse/EZP-24129))
 
-## Native Solr support
+#### Native Solr support
 
 Until now, the `SearchService` was using the Legacy database search implementation. It was quite limited, and performed very badly. The Solr implementation has been worked on since last summer, and finally made it into the product.
 
@@ -269,12 +270,12 @@ Source: [ezsystems/ezplatform-solr-search-engine](https://github.com/ezsystems/
 Epic: [EZP-22944](https://jira.ez.no/browse/EZP-22944)
 
 
-## Other Platform changes
+#### Other Platform changes
 
 -   Locations returned by the REST API will now **include the ContentInfo**[.](https://jira.ez.no/browse/EZP-24672) This should avoid quite a few calls only to get the name, or basic info about the Location's Content ([EZP-24672](https://jira.ez.no/browse/EZP-24672))
 -   The **REST API** will now let you **search for Location** in addition to Content. While the existing resource remains valid, note that `/views` should be used instead of `/content/views` ([EZP-24671](https://jira.ez.no/browse/EZP-24671))
 
-## Changelog
+### Changelog
 
 *Changes* (Stories, Improvements and bug fixes) can be found in our issue tracker:  [67 issues](https://jira.ez.no/secure/IssueNavigator.jspa?reset=true&jqlQuery=fixVersion%3D%222015.07%22+AND+project+%3D+EZP+AND+issuetype+in+%28Story%2C+Improvement%2C+Bug%29+order+by+issuetype+++++++&src=confmacro)  *(some are still pending additional documentation changes)*
 
@@ -291,9 +292,9 @@ Epics tentatively\* planned for first LTS release:  [0 issue](https://jira.ez.
 *'\* Some of these features will not be in the stable releases, the once we first and foremost will aim for having in the release are those mentioned on the [Roadmap](http://ez.no/Blog/What-to-Expect-from-eZ-Studio-and-eZ-Platform).*
 
 
-# eZ Platform 15.05 Release notes
+## eZ Platform 15.05 Release notes
 
-# eZ Platform "Alpha3" available for testing
+### eZ Platform "Alpha3" available for testing
 
 ![](img/richtext.png)
 
@@ -309,11 +310,11 @@ Epics tentatively\* planned for first LTS release:  [0 issue](https://jira.ez.
 
 The third alpha release of eZ Platform,15.05 builds upon the **15.03** March release adding additional support for editing- and browsing-capabilities.
 
-# Highlights
+### Highlights
 
 Besides lots of smaller improvements and fixes found bellow, and mentioned above for the 5.x sub release, the main changes are: 
 
-## Improved Symfony 2.7/3.0 support
+#### Improved Symfony 2.7/3.0 support
 
 ![](img/symfony_black_02.png)
 
@@ -325,7 +326,7 @@ More info: [Symfony 2.7/3.0 epic](https://jira.ez.no/browse/EZP-24094), [Symfon
 
  
 
-## Content Type administration UI
+#### Content Type administration UI
 
 Content types can now be created or edited from PlatformUI, inside the Admin panel. The feature isn't visually integrated yet, but already covers most FieldTypes. Progress can be followed on the Epic above.
 
@@ -335,13 +336,13 @@ More info: [Content type management epic](http://jira.ez.no/browse/EZP-24070),�
 
  
 
-## Image variations purging
+#### Image variations purging
 
 ![](img/variations_purging.png)
 
 Image variations generated by Imagine can now be purged using the application console. It can either clear all variations, or variations of a particular alias:
 
-``` brush:
+``` bash
 # Clear all variations of the large and gallery aliases/filters
 php ezpublish/console liip:imagine:cache:remove --filters=large --filters=gallery -v
 ```
@@ -352,9 +353,9 @@ More info: [Technical specifications](https://github.com/ezsystems/ezpublish-ke
 
  
 
-## content/download controller for Binary Files
+#### content/download controller for Binary Files
 
-## Downloading of binary file is now natively supported, and doesn't require a legacy fallback anymore.
+#### Downloading of binary file is now natively supported, and doesn't require a legacy fallback anymore.
 
 A new controller and route have been added, and the Image and BinaryFile content field templates have been updated. Permissions are transparently checked during download, and HTTP resume is supported. The [Route Reference API](../api/rest_api_reference.md), provides facilities to generate the right path from templates, and a valid URI is exposed over REST.
 
@@ -364,7 +365,7 @@ More info:  [Specificaftions](https://github.com/ezsystems/ezpublish-kernel/blo
 
 ![](img/content_download.png)
 
-## Platform UI : move, copy and send content to trash
+#### Platform UI : move, copy and send content to trash
 
 ![](img/m_c_t.png)
 
@@ -373,7 +374,7 @@ Thanks to the addition of the Universal Discovery Widget in 2015.03, those funct
 More info: [Content CRUD UI epic](https://jira.ez.no/browse/EZP-22993) 
  
 
-## Platform UI notifications
+#### Platform UI notifications
 
 Notifications will now be displayed upon certain events in the backoffice.
 
@@ -385,7 +386,7 @@ More info: [UI notifications epic](https://jira.ez.no/browse/EZP-24340)
 
 ![](img/notifications.gif)
 
-## Rich text editing prototype based on Alloy
+#### Rich text editing prototype based on Alloy
 
 ![](img/rt_edit.png)
 
@@ -396,7 +397,7 @@ To see it in action, you need to create a new Content Type with a RichText Field
 More info: [Alloy Editor](http://alloyeditor.com/), [RichText editing epic](https://jira.ez.no/browse/EZP-22949), [prototype screencast](https://www.youtube.com/watch?v=o1r44rmYsdY)
 
 
-## Re-usable privacy cookie handling
+#### Re-usable privacy cookie handling
 
 The [ezsystems/privacy-cookie-bundle](https://packagist.org/packages/ezsystems/privacy-cookie-bundle) package, introduced in the 15.03 release, has been made much more flexible. It now comes with a Factory interface and a Banner value object, so that it is easy to pick the banner's content in different ways.
 
@@ -406,13 +407,13 @@ More info: [github repository](http://github.com/ezsystems/EzSystemsPrivacyCooki
 
 ![](img/ez_cookie.png)
 
-## Other notable changes
+#### Other notable changes
 
 -   Legacy storage engine performances improvements
     -    [![](https://jira.ez.no/images/icons/issuetypes/bug.png)EZP-24499](https://jira.ez.no/browse/EZP-24499?src=confmacro) - loading Content with many languages & attributes & locations leads to high memory usage Closed
     -    [![](https://jira.ez.no/images/icons/issuetypes/improvement.png)EZP-24539](https://jira.ez.no/browse/EZP-24539?src=confmacro) - Avoid expensive sorting sql when not needed in Search Closed
 
-## Changelog
+### Changelog
 
 *Changes* (Stories, Improvements and bug fixes) can be found in our issue tracker:  [51 issues](https://jira.ez.no/secure/IssueNavigator.jspa?reset=true&jqlQuery=fixVersion%3D%222015.05%22+AND+project+%3D+EZP+AND+issuetype+in+%28Story%2C+Improvement%2C+Bug%29+order+by+issuetype++++&src=confmacro)  *(some are still pending additional documentation changes)*
 
@@ -429,11 +430,11 @@ Epics tentatively\* planned for first LTS release:  [0 issue](https://jira.ez.
 *'\* Some of these features will not be in the stable releases, the once we first and foremost will aim for having in the release are those mentioned on the [Roadmap](http://ez.no/Blog/What-to-Expect-from-eZ-Studio-and-eZ-Platform).*
 
 
-# eZ Platform 15.03 Release notes
+## eZ Platform 15.03 Release notes
 
-## eZ Platform "Alpha2" available for testing
+### eZ Platform "Alpha2" available for testing
 
-##### 13th May 2015
+**13th May 2015**
 
 ![Preview of Platform UI Alpha2 during editing an image](img/tuxi.png "Preview of Platform UI during editing an image")
 
@@ -446,11 +447,11 @@ Epics tentatively\* planned for first LTS release:  [0 issue](https://jira.ez.
 -   Download: See [share.ez.no/downloads](http://share.ez.no/downloads/downloads/ez-platform-15.03-alpha), or see *Install* for how to install via composer.
 
 
-## Highlights
+### Highlights
 
 Besides lots of smaller improvements and fixes found bellow, and mentioned above for the 5.x sub release, the main visual changes are: 
 
-### Platform UI Bundle with Universal Discovery Widget
+#### Platform UI Bundle with Universal Discovery Widget
 
 One important feature in eZ Publish, and also now eZ Platform, is being able to browse for content you want to select. In eZ Platform we call this Universal Discovery Widget, and in this release you can see more or less the completion of first part of this with possibility to select by browsing the tree (location structure): [EZP-23893](https://jira.ez.no/browse/EZP-23893)
 This is used for Relation, Relation List and Section assignment selection so far, and before July release we hope to complete this part with inclusion of [EZP-24067](https://jira.ez.no/browse/EZP-24067)
@@ -459,13 +460,13 @@ This is used for Relation, Relation List and Section assignment selection so far
 
 
 
-### Demo Bundle with privacy cookie banner
+#### Demo Bundle with privacy cookie banner
 
 |                                        |                                                                                                                                                                                                                                                                                     |
 |----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ![](img/cookiebundle.png) | Available in this release is a new [PrivacyCookieBundle](https://github.com/ezsystems/EzSystemsPrivacyCookieBundle), providing easy access to setup warning and remembering user input for Privacy banners needed to comply with EU directive commonly referred to as "Cookie law". |
 
-### Other notable changes
+#### Other notable changes
 
 -    [![](https://jira.ez.no/images/icons/issuetypes/improvement.png)EZP-24015](https://jira.ez.no/browse/EZP-24015?src=confmacro) - Improve Language Switcher flags and logic Closed
 -    [![](https://jira.ez.no/images/icons/issuetypes/story.png)EZP-23730](https://jira.ez.no/browse/EZP-23730?src=confmacro) - As an editor, I want to see the content of the media fields Closed
@@ -474,7 +475,7 @@ This is used for Relation, Relation List and Section assignment selection so far
 
  
 
-## Changelog
+### Changelog
 
 *Changes* (Stories, Improvements and bug fixes) can be found in our issue tracker:  [47 issues](https://jira.ez.no/secure/IssueNavigator.jspa?reset=true&jqlQuery=fixVersion%3D%222015.03%22+AND+project+%3D+EZP+AND+issuetype+in+%28Story%2C+Improvement%2C+Bug%29+order+by+issuetype++&src=confmacro)  *(some are still pending additional documentation changes)*
 
@@ -489,40 +490,40 @@ This is used for Relation, Relation List and Section assignment selection so far
 
 
 
-# eZ Platform 15.01 Release notes
+## eZ Platform 15.01 Release notes
 
-## Introducing eZ Platform, "Alpha1"
+### Introducing eZ Platform, "Alpha1"
 
-##### 4th March 2015
+**4th March 2015**
 
 ![](img/palfa1.png)
 
 Welcome to the first release of eZ Platform, 15.01 serves two purposes: As first alpha release of eZ Platform, and also as eZ Publish Community edition v2015.01 by installing optional legacy packages. Further information about eZ Platform (and eZ Studio), and what you can expect, can be found [here](http://ez.no/Blog/What-to-Expect-from-eZ-Studio-and-eZ-Platform)
 
-### Quick links
+#### Quick links
 -   [Install](https://github.com/ezsystems/ezplatform/blob/master/INSTALL.md)
 -   [Requirements](../getting_started/requirements_and_system_configuration.md)
 -   Upgrading: *As this is a alpha release, there is no upgrade instructions yet, this is planned for Beta during the Summer.*
 
 -   Download: See [share.ez.no/downloads](http://share.ez.no/downloads/downloads/ez-platform-15.01-alpha), or see *Install* for how to install via composer.
 
-## Highlights
+### Highlights
 
-### Legacy is "gone"
+#### Legacy is "gone"
 
 This major milestone, and is what makes the first release of eZ Platform possible. This is further covered in [Core Development blog post](http://share.ez.no/blogs/core-development-team/farewell-ez-publish-legacy-welcome-ez-platform). But in short: the related libraries, services and configuration have been externalized to a new package: [ezsystems/legacy-bridge](https://packagist.org/packages/ezsystems/legacy-bridge). And since the eZ Platform is still in alpha, ezpublish-legacy and legacy-bridge v2015.01 can still easily be installed.
 
-### Ships with Platform UI Bundle v0.5
+#### Ships with Platform UI Bundle v0.5
 
 Platform UI, [revealed last july](http://share.ez.no/blogs/core-development-team/the-future-ez-publish-platform-backend-ui-is-here), has received its first tag: [v0.5](https://github.com/ezsystems/PlatformUIBundle/tree/v0.5.0). It is pre-installed and pre-configured in this release, and it can be accessed via `<example.com>/shell`.
 
 See [blog post from December](http://share.ez.no/blogs/core-development-team/platformui-december-2014-status)for further information about the new User Interface.
 
-### Prototype of native installer
+#### Prototype of native installer
 
 Since we can't rely on legacy anymore, prototype of a native installer has been added, as a console script: `ezpublish/console ezplatform:install`. It is meant to be very simple, fast, easy to automate, and easy to extend.
 
-## Changelog
+### Changelog
 
 *Changes* (Stories, Improvements and bug fixes) can be found in our issue tracker:  [87 issues](https://jira.ez.no/secure/IssueNavigator.jspa?reset=true&jqlQuery=fixVersion%3D%222015.01%22+AND+project+%3D+EZP+AND+issuetype+in+%28Story%2C+Improvement%2C+Bug%29+order+by+issuetype+&src=confmacro)
 

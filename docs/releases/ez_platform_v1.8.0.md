@@ -12,11 +12,11 @@ This release contains special steps to follow further described in [Updating eZ 
 
 
 
-# Notable Changes Since v1.7.0 LTS
+## Notable Changes Since v1.7.0 LTS
 
-## eZ Platform
+### eZ Platform
 
-### User Interface
+#### User Interface
 
 -   In Universal Discovery Widget (UDW) the browse view now uses a completely new browser widget, which replaces Treeview. This solves limitations on how many items you can browse for, and provides a more intuitive user experience.
 
@@ -33,7 +33,7 @@ This release contains special steps to follow further described in [Updating eZ 
 -   Updated and added icons for the Admin Interface
 -   The whole interface of PlatformUI is now translatable using Crowdin, including in-context translation where you can navigate the interface while translating. A glossary has been established to aid in unified usage of terminology throughout. [Contributions welcome](https://crowdin.com/project/ezplatform)!
 
-### Under the Hood
+#### Under the Hood
 
 -   New opt-in approach to HttpCache to improve usability as well as performance by means of:
     -   Cache multi-tagging: allowing you to tag pages with a path, location, type, parent, etc. so the repository can clear cache in a more targeted, accurate, and flexible way, getting rid of any "clear all" situations on complex operations.
@@ -51,9 +51,9 @@ This release contains special steps to follow further described in [Updating eZ 
 
  *For the complete list of fixes and improvements, see the GitHub release notes: <https://github.com/ezsystems/ezplatform/releases/tag/v1.8.0>*
 
-## eZ Platform Enterprise Edition
+### eZ Platform Enterprise Edition
 
-### Studio
+#### Studio
 
 -   New fields are available for the Form Builder:
     -   URL
@@ -68,17 +68,17 @@ This release contains special steps to follow further described in [Updating eZ 
 
 ![](img/formb.png)
 
-### Under the Hood
+#### Under the Hood
 
 -   StudioUI is now fully ready for Internationalization
 
-## Updated eZ Platform/EE Demo Distributions
+### Updated eZ Platform/EE Demo Distributions
 
 -   You can now search and filter products in the Product Page of the EE Demo distribution:
 
 ![](img/demo-product-filters.png)
 
-# Full list of new features, improvements and bug fixes since v1.7.0 LTS:
+## Full list of new features, improvements and bug fixes since v1.7.0 LTS:
 
 | eZ Plaform   | eZ Studio  |
 |--------------|------------|
@@ -114,6 +114,6 @@ If you would like to request an Enterprise Demo instance: <http://ez.no/Forms/Di
 
 ### Updating
 
-**eZ Platform**: To update to this version, follow the [Updating eZ Platform](../releases/updating_ez_platform.md) guide and use v1.8.0 as `<version>`.
+**eZ Platform**: To update to this version, follow the [Updating eZ Platform](updating_ez_platform.md) guide and use v1.8.0 as `<version>`.
 
  

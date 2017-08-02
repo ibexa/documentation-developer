@@ -283,7 +283,7 @@ You can now run the command from the eZ Platform root.
 
 **Hello world**
 
-``` brush:
+``` bash
 $ php app/console ezpublish:cookbook:hello world
 Hello world
 ```
@@ -488,7 +488,7 @@ Full code
 
 <https://github.com/ezsystems/CookbookBundle/blob/master/Command/BrowseLocationsCommand.php>
 
-In this code, we introduce the [LocationService](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/LocationService.html). This service is used to interact with Locations. We use two methods from this service: [`loadLocation()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/LocationService.html#method_loadLocation), and `     loadLocationChildren()   `.
+In this code, we introduce the [LocationService](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/LocationService.html). This service is used to interact with Locations. We use two methods from this service: [`loadLocation()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/LocationService.html#method_loadLocation), and `loadLocationChildren()`.
 
 **Loading a Location**
 
@@ -535,7 +535,7 @@ Note that unlike `loadLocation()`, we don't need to care for permissions here: t
 
 ### Viewing Content Metadata
 
-Content is a central piece in the Public API. You will often need to start from a Content item, and dig in from its metadata. Basic content metadata is made available through `     ContentInfo   ` objects. This Value Object mostly provides primitive fields: `contentTypeId`, `publishedDate` or `mainLocationId`. But it is also used to request further Content-related Value Objects from various services.
+Content is a central piece in the Public API. You will often need to start from a Content item, and dig in from its metadata. Basic content metadata is made available through `ContentInfo` objects. This Value Object mostly provides primitive fields: `contentTypeId`, `publishedDate` or `mainLocationId`. But it is also used to request further Content-related Value Objects from various services.
 
 The full example implements an `ezpublish:cookbook:view_content_metadata` command that prints out all the available metadata, given a Content ID.
 
@@ -559,7 +559,7 @@ $userService = $repository->getUserService();
 
 #### Setting the Repository User
 
-In a command line script, the repository runs as if executed by the anonymous user. In order to identify it as a different user, you need to use the `         UserService       ` as follows (in this example `14` is the ID of the administrator user):
+In a command line script, the repository runs as if executed by the anonymous user. In order to identify it as a different user, you need to use the `UserService` as follows (in this example `14` is the ID of the administrator user):
 
 ``` php
 $administratorUser = $userService->loadUser( 14 );

@@ -1,9 +1,9 @@
 
 # eZ Studio 15.12.1 Release notes
 
-The first sub-release of [eZ Studio 15.12](../releases/ez_platform_15.12_release_notes.md) is available as of February 2nd.
+The first sub-release of [eZ Studio 15.12](ez_platform_15.12_release_notes.md) is available as of February 2nd.
 
-For the release notes of the corresponding *(and included)* eZ Platform sub-release, see [eZ Platform 15.12.1 Release Notes](../releases/ez_platform_15.12.1_release_notes.md).
+For the release notes of the corresponding *(and included)* eZ Platform sub-release, see [eZ Platform 15.12.1 Release Notes](ez_platform_15.12.1_release_notes.md).
 
  
 
@@ -40,7 +40,7 @@ For the release notes of the corresponding *(and included)* eZ Platform sub-rele
 
  
 
-### Full list of improvements
+## Full list of improvements
 
  
 
@@ -74,7 +74,7 @@ For the release notes of the corresponding *(and included)* eZ Platform sub-rele
 
  
 
-### Full list of bugfixes
+## Full list of bugfixes
 
  
 

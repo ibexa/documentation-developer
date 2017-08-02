@@ -408,7 +408,7 @@ $settings = array(
 
 ### Template rendering
 
-The template called by [the **ez\_render\_field()** Twig function](content_rendering.md#ez59render59field) while rendering a Date field has access to the following parameters:
+The template called by [the **ez\_render\_field()** Twig function](content_rendering.md/#ez95render95field) while rendering a Date field has access to the following parameters:
 
 | Parameter | Type     | Default | Description                                                                                                                       |
 |-----------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------|
@@ -520,7 +520,7 @@ $settings = array(
 
 ### Template rendering
 
-The template called by [the **ez\_render\_field()** Twig function](content_rendering.md/ez95render95field) while rendering a Date field has access to the following parameters:
+The template called by [the **ez\_render\_field()** Twig function](content_rendering.md/#ez95render95field) while rendering a Date field has access to the following parameters:
 
 | Parameter | Type     | Default | Description                                                                                                                       |
 |-----------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------|
@@ -839,7 +839,7 @@ When displayed using `ez_render_field`, an Image Field will output this type of
 <img src="var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB/image_medium.png" width="844" height="430" alt="Alternative text" />
 ```
 
-The template called by [the **ez\_render\_field()** Twig function](content_rendering.md#ez95render95field) while rendering a Image field accepts the following the parameters:
+The template called by [the **ez\_render\_field()** Twig function](content_rendering.md/#ez95render95field) while rendering a Image field accepts the following the parameters:
 
 | Parameter | Type     | Default        | Description |
 |-----------|----------|----------------|-------------|
@@ -1426,7 +1426,7 @@ $MapLocationValue = new MapLocation\Value(
 
 ### Template rendering
 
-The template called by [the **ez\_render\_field()** Twig function](content_rendering.md#ez95render95field) while rendering a Map Location field accepts the following the parameters:
+The template called by [the **ez\_render\_field()** Twig function](content_rendering.md/#ez95render95field) while rendering a Map Location field accepts the following the parameters:
 
 |Parameter|Type|Default|Description|
 |------|------|------|------|

@@ -3,9 +3,9 @@
 
 **The 1.6.0 release of eZ Platform and Enterprise is available as of October 27th 2016.**
 
-# Notable changes since v1.5.0
+## Notable changes since v1.5.0
 
-## eZ Platform
+### eZ Platform
 
 The eZ Platform User Interface has been improved in many ways during this release, some visible and some more under the hood.
 
@@ -44,7 +44,7 @@ Under the hood, quite a bit of work happened at the kernel level:
     -   [EZP-26326](https://jira.ez.no/browse/EZP-26326): Implemented "Filter" and "Query" REST Query parameters to be in sync with the PHP API
     -   Low-hanging-fruit: Made behat REST HTTP client use [standard HTTP verbs](http://restful-api-design.readthedocs.io/en/latest/methods.html) for improved standards compliance
 
-## eZ Enterprise
+### eZ Enterprise
 
 In eZ Enterprise, most of the new eZ Studio feature development is being worked on in a branch for the next December release, with the **Form Builder** as well as **Date-based Publishing** being the major features. As a result, this release is mostly focused on consolidation and stabilization of eZ Studio with a lot of bug fixes and enhancement brought to the product.
 
@@ -67,7 +67,7 @@ Beyond eZ Platform and eZ Studio, each release is built and shipped together wit
 
 Other bugs have been fixed in the demo bundle data.
 
-# Full list of new features, improvements and bug fixes since v1.5.0
+## Full list of new features, improvements and bug fixes since v1.5.0
 
 
 | eZ Platform  | eZ Studio   |

@@ -3,9 +3,9 @@
 # eZ Platform 15.12.1 Release Notes
 
 
-The first sub-release of [eZ Platform 15.12](../releases/ez_platform-15.12_release-notes.md) is now available for update.
+The first sub-release of [eZ Platform 15.12](ez_platform_15.12_release_notes.md) is now available for update.
 
-For the release notes of the corresponding eZ Studio sub-release, see [eZ Studio 15.12.1 Release Notes](../releases/ez_studio_15.12.1_Release_notes.md).
+For the release notes of the corresponding eZ Studio sub-release, see [eZ Studio 15.12.1 Release Notes](ez_studio_15.12.1_release_notes.md).
 
 ## Changes since 15.12
 

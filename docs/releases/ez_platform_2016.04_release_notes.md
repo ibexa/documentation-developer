@@ -4,12 +4,12 @@
 The 16.04 release of eZ Platform is available as of April 28th, 2016.
 The semantic version of this release is v1.3.0.
 
-For the release notes of the corresponding eZ Studio release, see [eZ Studio 2016.04 Release notes](../releases/ez_studio_2016.04_release_notes.md)
+For the release notes of the corresponding eZ Studio release, see [eZ Studio 2016.04 Release notes](ez_studio_2016.04_release_notes.md)
 
-## Quick links
+### Quick links
 
 -   [Installation instructions](../getting_started/install_ez_platform.md)
--   [Requirements](../releases/updating_ez_platform.md)
+-   [Requirements](updating_ez_platform.md)
 -   [Download](http://share.ez.no/downloads/downloads/ez-platform-1.3.0)
 
 ## Changes since 16.02
@@ -80,4 +80,4 @@ More importantly, this has been done to make it possible to developers to extend
 
 ## Updating
 
-To update to this version, follow the [Updating eZ Platform](../releases/updating_ez_platform.md) guide and use **v1.3.0** as version.
+To update to this version, follow the [Updating eZ Platform](updating_ez_platform.md) guide and use **v1.3.0** as version.
