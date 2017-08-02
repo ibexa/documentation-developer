@@ -138,7 +138,7 @@ Dedicated tabs have been added for relations ([EZP-24509](https://jira.ez.no/bro
 
 The location tab also allows to manage (add, remove, hide/unhide) locations, as well as select a new main location (currently not working).
 
-![](releases/img/locations_tab.png)
+![](img/locations_tab.png)
 
 ## Other UI improvements
 
@@ -152,7 +152,7 @@ The location tab also allows to manage (add, remove, hide/unhide) locations, as 
 
  
 
-![](releases/img/PlatformUI-navigation-bar.png)
+![](img/PlatformUI-navigation-bar.png)
 
 ## Custom repository policies support
 
@@ -160,7 +160,7 @@ Bundles can now declare custom modules, policies and limitations.
 
 Links: [documentation](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/security/permissions/policies_extensibility.md), [EZP-24862](https://jira.ez.no/browse/EZP-24862).
 
-![](releases/img/platform_custom_policies.png)
+![](img/platform_custom_policies.png)
 
 ## Repository and Platform improvements
 
