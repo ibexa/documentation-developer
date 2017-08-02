@@ -1,5 +1,3 @@
-
-
 # REST API reference
 
 
@@ -17,7 +15,7 @@ Online version for latest version:
 
 ## About the REST specification structure
 
-Resources are grouped by chapters: [Content](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#content), [Content Types](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#content-types) and [User](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#user-management). In each of those chapters, you will first get an overview, with a table crossing every resource with every applicable HTTP verb, and giving you a summary of the action.
+Resources are grouped by chapters: [Content](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#content), [Content Types](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#content-types) and [User](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#user-management). In each of those chapters, you will first get an overview, with a table crossing every resource with every applicable HTTP verb, and giving you a summary of the action.
 
 Then throughout the chapter, grouped into sub-chapters, is the detailed documentation for every resource, with:
 
@@ -27,5 +25,3 @@ Then throughout the chapter, grouped into sub-chapters, is the detailed document
 -   Which headers are supported, and how to use them
 -   Which error codes can occur
 -   Most of the time, a request + response example
-
- 
