@@ -103,3 +103,4 @@ These setups have been undergone some additional manual testing and is known to 
 -   Opera® most recent stable version, or higher, desktop *and* mobile 
 
 Please note that the user interface might not look or behave exactly the same across all browsers as it will gracefully degrade if browser does not support certain features.
+

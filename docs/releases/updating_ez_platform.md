@@ -1,10 +1,6 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [Releases](Releases_31429534.html)
 
-# Updating eZ Platform 
+# Updating eZ Platform
 
-Created by Dominika Kurek, last modified by André Rømcke on Jul 11, 2017
 
 This page explains how to update eZ Platform to a new version.
 
@@ -24,7 +20,7 @@ If you intend to skip a version (for example, update directly from v1.3 to v1.5 
 
 **From your master branch**
 
-``` brush:
+``` bash
 git checkout -b <branch_name>
 ```
 
@@ -34,7 +30,7 @@ This creates a new project branch for the update based on your current project b
 
 **From your new update branch**
 
-``` brush:
+``` bash
 git remote add ezplatform http://github.com/ezsystems/ezplatform.git
 or
 git remote add ezplatform-ee http://github.com/ezsystems/ezplatform-ee.git
@@ -46,7 +42,7 @@ If you are unsure which version to pull, run `git ls-remote --tags` to list all 
 
 **From your new update branch**
 
-``` brush:
+``` bash
 git pull ezplatform <version>
 or
 git pull ezplatform-ee <version>
@@ -60,7 +56,7 @@ If you get a **lot** of conflicts (on the `doc` folder for instance), and eZ P
 
 **From your new update branch**
 
-``` brush:
+``` bash
 git checkout --theirs composer.lock && git add composer.lock
 ```
 
@@ -68,7 +64,7 @@ If you do not keep a copy in the branch, you may also run:
 
 **From your new update branch**
 
-``` brush:
+``` bash
 git rm composer.lock
 ```
 
@@ -80,13 +76,13 @@ Conflicts in `composer.json` need to be fixed manually. If you're not familiar 
 
 **From your new update branch**
 
-``` brush:
+``` bash
 git checkout --theirs composer.json && git diff HEAD composer.json
 ```
 
 You should see what was changed, as compared to your own version, in the diff output. The update changes the requirements for all of the `ezsystems/` packages. Those changes should be left untouched. All of the other changes will be removals of what you added for your own project. Use `git checkout -p` to selectively cancel those changes:
 
-``` brush:
+``` bash
 git checkout -p composer.json
 ```
 
@@ -109,7 +105,7 @@ There shouldn't be many, and you should be able to figure out which value is the
 
 At this point, you should have a `composer.json` file with the correct requirements. Run `composer update` to update the dependencies. 
 
-``` brush:
+``` bash
 composer update
 ```
 
@@ -147,7 +143,7 @@ v1.8.0 introduced a new `content/publish` permission separated out of the `con
 
 To make sure existing users will be able to both edit and publish content, those with the `content/edit` permission will be given the `content/publish` permission by the following database update script:
 
-``` brush:
+``` bash
 mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.7.0-to-6.8.0.sql
 ```
 
@@ -159,7 +155,7 @@ Solr Bundle v1.4 introduced among other things index time boosting feature, this
 
 To make sure indexing continues to work, apply the following change, restart solr and reindex your content:
 
-``` brush:
+``` xml
 diff --git a/lib/Resources/config/solr/schema.xml b/lib/Resources/config/solr/schema.xml
 index 49a17a9..80c4cd7 100644
 --- a/lib/Resources/config/solr/schema.xml
@@ -175,7 +171,7 @@ index 49a17a9..80c4cd7 100644
      <dynamicField name="*_f" type="float" indexed="true" stored="true"/>
 @@ -104,13 +104,6 @@ should not remove or drastically change the existing definitions.
      <dynamicField name="*_c" type="currency" indexed="true" stored="true"/>
- 
+
      <!--
 -      Full text field is indexed through proxy fields matching '*_fulltext' pattern.
 -    -->
@@ -197,7 +193,7 @@ EZ ENTERPRISE
 
 To enable the Form Builder feature in eZ Platform Enterprise Edition, import the following file:
 
-``` brush:
+``` bash
 mysql -p -u <database_user> <database_name> < vendor/ezsystems/ezstudio-form-builder/bundle/Resources/install/form_builder.sql
 ```
 
@@ -209,13 +205,13 @@ EZ ENTERPRISE
 
 To enable the Date-Based Publisher feature in Enterprise, import the following file:
 
-``` brush:
+``` bash
 mysql -p -u <database_user> <database_name> < vendor/ezsystems/date-based-publisher/bundle/Resources/install/datebasedpublisher_scheduled_version.sql
 ```
 
 In order to activate Date-Based Publisher open console (terminal) and use:
 
-``` brush:
+``` bash
 crontab -e
 ```
 
@@ -223,13 +219,13 @@ and add below configuration at the end of edited file.
 
 For production environment:
 
-``` brush:
+``` bash
 * * * * *   (cd /path/to/your/ezplatform-ee-project && app/console ezpublish:cron:run -e=prod)
 ```
 
 For development environment:
 
-``` brush:
+``` bash
 * * * * *   (cd /path/to/your/ezplatform-ee-project && app/console ezpublish:cron:run -e=dev)
 ```
 
@@ -245,7 +241,7 @@ Since v1.8 you can add a File field to the Form block on a Landing Page. Files u
 
 If you are upgrading to v1.8 you need to create this folder and assign it to a new specific Section. Then, add them in the config (for example, in `app/config/default_parameters.yml`, depending on how your configuration is set up):
 
-``` brush:
+``` bash
     #Location id of the root for form uploads
     form_builder.upload_folder.location_id: <folder location id>
 
@@ -257,13 +253,13 @@ If you are upgrading to v1.8 you need to create this folder and assign it to a n
 
 The web assets must be dumped again if you are using the `prod` environment. In `dev` this happens automatically:
 
-``` brush:
+``` bash
 php app/console assetic:dump -e=prod
 ```
 
 If you encounter problems, additionally clear the cache and install assets:
 
-``` brush:
+``` bash
 php app/console cache:clear -e=prod
 php app/console assets:install --symlink -e=prod
 php app/console assetic:dump -e=prod
@@ -273,7 +269,7 @@ php app/console assetic:dump -e=prod
 
 Once all the conflicts have been resolved, and `composer.lock` updated, the merge can be committed. Note that you may or may not keep `composer.lock`, depending on your version management workflow. If you do not wish to keep it, run `git reset HEAD <file>` to remove it from the changes. Run `git commit`, and adapt the message if necessary. You can now verify the project and once the update has been approved, go back to `master`, and merge your update branch:
 
-``` brush:
+``` bash
 git checkout master
 git merge <branch_name>
 ```
@@ -283,25 +279,3 @@ git merge <branch_name>
 **Your eZ Platform should now be up-to-date with the chosen version!**
 
  
-
-#### Related:
-
--   [Coming to eZ Platform from eZ Publish Platform](Coming-to-eZ-Platform-from-eZ-Publish-Platform_31429598.html)
--   [Migration from eZ Publish](Migration-from-eZ-Publish_31430320.html)
-
-#### In this topic:
-
--   [Version-specific steps](#UpdatingeZPlatform-Version-specificsteps)
--   [Update procedure](#UpdatingeZPlatform-Updateprocedure)
-    -   [1. Check out a version](#UpdatingeZPlatform-1.Checkoutaversion)
-    -   [2. Merge composer.json](#UpdatingeZPlatform-2.Mergecomposer.json)
-    -   [3. Update the app](#UpdatingeZPlatform-3.Updatetheapp)
-    -   [4. Update database](#UpdatingeZPlatform-4.Updatedatabase)
-    -   [5. Dump assets](#UpdatingeZPlatform-5.Dumpassets)
-    -   [6. Commit, test and merge](#UpdatingeZPlatform-6.Commit,testandmerge)
-
-
-
-
-
-

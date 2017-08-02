@@ -1,15 +1,10 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [Releases](Releases_31429534.html)
-4.  [Release Notes](Release-Notes_32867905.html)
-5.  [eZ Platform Release notes](eZ-Platform-Release-notes_31429935.html)
 
 # eZ Platform 15.11 Release notes
 
 #### Quick links
 
 -   [Installation instructions](https://github.com/ezsystems/ezplatform/tag/1.0.0-beta8/INSTALL.md)[](https://github.com/ezsystems/ezplatform/blob/v15.05/INSTALL.md)
--   [Requirements](https://doc.ez.no/display/TMPA/Requirements+5.4)
+-   [Requirements](../getting_started/requirements_and_system_configuration.md)
 -   Download: See [share.ez.no/downloads](http://share.ez.no/downloads/downloads/ez-platform-15.09)
 
 eZ Platform beta 8 is now available for testing. This releases focuses on cleanup, stabilization and the online editor.
@@ -108,35 +103,6 @@ Epics tentatively\* planned for first LTS release:  [0 issue](https://jira.ez.
 
 *'\* Some of these features will not be in the stable releases, the once we first and foremost will aim for having in the release are those mentioned on the [Roadmap](http://ez.no/Blog/What-to-Expect-from-eZ-Studio-and-eZ-Platform).*
 
- 
-
-## Attachments:
-
-![](images/icons/bullet_blue.gif) [platform-custom-policies.png](attachments/31430067/31430043.png) (image/png)
-![](images/icons/bullet_blue.gif) [locations\_tab.png](attachments/31430067/31430044.png) (image/png)
-![](images/icons/bullet_blue.gif) [PlatformUI-navigation-bar.png](attachments/31430067/31430045.png) (image/png)
-![](images/icons/bullet_blue.gif) [Please Help.jpg](attachments/31430067/31430046.jpg) (image/jpeg)
-![](images/icons/bullet_blue.gif) [privacy cookie.PNG](attachments/31430067/31430047.png) (image/png)
-![](images/icons/bullet_blue.gif) [move-copy-send to trash.PNG](attachments/31430067/31430048.png) (image/png)
-![](images/icons/bullet_blue.gif) [content\_download.PNG](attachments/31430067/31430049.png) (image/png)
-![](images/icons/bullet_blue.gif) [variations purging.PNG](attachments/31430067/31430050.png) (image/png)
-![](images/icons/bullet_blue.gif) [content type edition.PNG](attachments/31430067/31430051.png) (image/png)
-![](images/icons/bullet_blue.gif) [symfony\_black\_02.png](attachments/31430067/31430052.png) (image/png)
-![](images/icons/bullet_blue.gif) [symfony\_black\_03.png](attachments/31430067/31430053.png) (image/png)
-![](images/icons/bullet_blue.gif) [RichText editor.png](attachments/31430067/31430054.png) (image/png)
-![](images/icons/bullet_blue.gif) [Ventoux-Square.jpg](attachments/31430067/31430055.jpg) (image/jpeg)
-![](images/icons/bullet_blue.gif) [Getting-Started-with-eZ-Publish-Platform.jpg](attachments/31430067/31430056.jpg) (image/jpeg)
-![](images/icons/bullet_blue.gif) [Platform screenshoot alpha1.gif](attachments/31430067/31430057.gif) (image/gif)
-![](images/icons/bullet_blue.gif) [Screen Shot 2015-05-12 at 19.16.38 .png](attachments/31430067/31430058.png) (image/png)
-![](images/icons/bullet_blue.gif) [PrivacyCookieBundle.png](attachments/31430067/31430059.png) (image/png)
-![](images/icons/bullet_blue.gif) [Screen Shot 2015-05-12 at 11.46.48 .png](attachments/31430067/31430060.png) (image/png)
-![](images/icons/bullet_blue.gif) [iStock\_000032478246XLarge - banner doc.jpg](attachments/31430067/31430061.jpg) (image/jpeg)
-![](images/icons/bullet_blue.gif) [notifications.gif](attachments/31430067/31430062.gif) (image/gif)
-![](images/icons/bullet_blue.gif) [Solr\_Logo\_on\_white.png](attachments/31430067/31430063.png) (image/png)
-![](images/icons/bullet_blue.gif) [Platform 2015.07 - roles UI.PNG](attachments/31430067/31430064.png) (image/png)
-![](images/icons/bullet_blue.gif) [Platform 2015.07 - choose translation.PNG](attachments/31430067/31430065.png) (image/png)
-![](images/icons/bullet_blue.gif) [eZ Platform 2015.07 - add translation.gif](attachments/31430067/31430066.gif) (image/gif)
-
 
 # eZ Platform 15.09 Release notes
 
@@ -145,14 +111,14 @@ Epics tentatively\* planned for first LTS release:  [0 issue](https://jira.ez.
 #### Quick links
 
 -   [Installation instructions](https://github.com/ezsystems/ezplatform/blob/release-2015.09.01/INSTALL.md)[](https://github.com/ezsystems/ezplatform/blob/v15.05/INSTALL.md)
--   [Requirements](https://doc.ez.no/display/TMPA/Requirements+5.4)
+-   [Requirements](../getting_started/requirements_and_system_configuration.md)
 -   Download: See [share.ez.no/downloads](http://share.ez.no/downloads/downloads/ez-platform-15.09), or see *Install* for how to install via composer.
 
-The fifth release of eZ Platform, 15.09, is the first in "beta" stability. It builds upon the [15.07](eZ-Platform-15.07-Release-notes_31429990.html) September alpha release. It most notably provides many new UI features, both in this download and continues to provide a few more additional UI features during it's beta period until end of month.
+The fifth release of eZ Platform, 15.09, is the first in "beta" stability. It builds upon the **15.07** September alpha release. It most notably provides many new UI features, both in this download and continues to provide a few more additional UI features during it's beta period until end of month.
 
 # Highlights
 
-Along with the [improvements and fixes](#eZPlatform15.09Releasenotes-changelog) listed at the bottom, the most notable changes are the sub-items list in PlatformUI, location & relation tabs, and policies support in custom bundles.
+Along with the improvements and fixes listed below, the most notable changes are the sub-items list in PlatformUI, location & relation tabs, and policies support in custom bundles.
 
 ## Platform UI sub-items list
 
@@ -172,7 +138,7 @@ Dedicated tabs have been added for relations ([EZP-24509](https://jira.ez.no/bro
 
 The location tab also allows to manage (add, remove, hide/unhide) locations, as well as select a new main location (currently not working).
 
-![](attachments/31430041/31430018.png)
+![](img/locations_tab.png)
 
 ## Other UI improvements
 
@@ -186,7 +152,7 @@ The location tab also allows to manage (add, remove, hide/unhide) locations, as 
 
  
 
-![](attachments/31430041/31430019.png)
+![](img/PlatformUI-navigation-bar.png)
 
 ## Custom repository policies support
 
@@ -194,7 +160,7 @@ Bundles can now declare custom modules, policies and limitations.
 
 Links: [documentation](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/security/permissions/policies_extensibility.md), [EZP-24862](https://jira.ez.no/browse/EZP-24862).
 
-![](attachments/31430041/31430017.png)
+![](img/platform_custom_policies.png)
 
 ## Repository and Platform improvements
 
@@ -224,35 +190,6 @@ Epics tentatively\* planned for first LTS release:  [0 issue](https://jira.ez.
 
 *'\* Some of these features will not be in the stable releases, the once we first and foremost will aim for having in the release are those mentioned on the [Roadmap](http://ez.no/Blog/What-to-Expect-from-eZ-Studio-and-eZ-Platform).*
 
- 
-
-## Attachments:
-
-![](images/icons/bullet_blue.gif) [platform-custom-policies.png](attachments/31430041/31430017.png) (image/png)
-![](images/icons/bullet_blue.gif) [locations\_tab.png](attachments/31430041/31430018.png) (image/png)
-![](images/icons/bullet_blue.gif) [PlatformUI-navigation-bar.png](attachments/31430041/31430019.png) (image/png)
-![](images/icons/bullet_blue.gif) [Please Help.jpg](attachments/31430041/31430020.jpg) (image/jpeg)
-![](images/icons/bullet_blue.gif) [privacy cookie.PNG](attachments/31430041/31430021.png) (image/png)
-![](images/icons/bullet_blue.gif) [move-copy-send to trash.PNG](attachments/31430041/31430022.png) (image/png)
-![](images/icons/bullet_blue.gif) [content\_download.PNG](attachments/31430041/31430023.png) (image/png)
-![](images/icons/bullet_blue.gif) [variations purging.PNG](attachments/31430041/31430024.png) (image/png)
-![](images/icons/bullet_blue.gif) [content type edition.PNG](attachments/31430041/31430025.png) (image/png)
-![](images/icons/bullet_blue.gif) [symfony\_black\_02.png](attachments/31430041/31430026.png) (image/png)
-![](images/icons/bullet_blue.gif) [symfony\_black\_03.png](attachments/31430041/31430027.png) (image/png)
-![](images/icons/bullet_blue.gif) [RichText editor.png](attachments/31430041/31430028.png) (image/png)
-![](images/icons/bullet_blue.gif) [Ventoux-Square.jpg](attachments/31430041/31430029.jpg) (image/jpeg)
-![](images/icons/bullet_blue.gif) [Getting-Started-with-eZ-Publish-Platform.jpg](attachments/31430041/31430030.jpg) (image/jpeg)
-![](images/icons/bullet_blue.gif) [Platform screenshoot alpha1.gif](attachments/31430041/31430031.gif) (image/gif)
-![](images/icons/bullet_blue.gif) [Screen Shot 2015-05-12 at 19.16.38 .png](attachments/31430041/31430032.png) (image/png)
-![](images/icons/bullet_blue.gif) [PrivacyCookieBundle.png](attachments/31430041/31430033.png) (image/png)
-![](images/icons/bullet_blue.gif) [Screen Shot 2015-05-12 at 11.46.48 .png](attachments/31430041/31430034.png) (image/png)
-![](images/icons/bullet_blue.gif) [iStock\_000032478246XLarge - banner doc.jpg](attachments/31430041/31430035.jpg) (image/jpeg)
-![](images/icons/bullet_blue.gif) [notifications.gif](attachments/31430041/31430036.gif) (image/gif)
-![](images/icons/bullet_blue.gif) [Solr\_Logo\_on\_white.png](attachments/31430041/31430037.png) (image/png)
-![](images/icons/bullet_blue.gif) [Platform 2015.07 - roles UI.PNG](attachments/31430041/31430038.png) (image/png)
-![](images/icons/bullet_blue.gif) [Platform 2015.07 - choose translation.PNG](attachments/31430041/31430039.png) (image/png)
-![](images/icons/bullet_blue.gif) [eZ Platform 2015.07 - add translation.gif](attachments/31430041/31430040.gif) (image/gif)
-
 
 # eZ Platform 15.07 Release notes
 
@@ -261,16 +198,16 @@ Epics tentatively\* planned for first LTS release:  [0 issue](https://jira.ez.
 #### Quick links
 
 -   [Installation instructions](https://github.com/ezsystems/ezplatform/blob/v0.10.0/INSTALL.md)[](https://github.com/ezsystems/ezplatform/blob/v15.05/INSTALL.md)
--   [Requirements](https://doc.ez.no/display/TMPA/Requirements+5.4) *(currently same as eZ Publish Platform 5.4)*
+-   [Requirements](../getting_started/requirements_and_system_configuration.md)
 -   Upgrading: *As this is a alpha release, there is no upgrade instructions yet, this is planned for Beta.*
 
 -   Download: See [share.ez.no/downloads](http://share.ez.no/downloads/downloads/ez-platform-15.07), or see *Install* for how to install via composer.
 
-The fourth alpha release of eZ Platform,15.07, builds upon the [15.05](eZ-Platform-15.05-Release-notes_31429968.html) July release.  It most noticeably adds support for Solr, as well as many UI enhancements and additions. It also contains most improvements and fixes that are part of the 5.4.3 and 5.4.4 [enterprise releases](http://ez.no/Products/The-eZ-Publish-Platform).
+The fourth alpha release of eZ Platform,15.07, builds upon the **15.05** July release.  It most noticeably adds support for Solr, as well as many UI enhancements and additions. It also contains most improvements and fixes that are part of the 5.4.3 and 5.4.4 [enterprise releases](http://ez.no/Products/The-eZ-Publish-Platform).
 
 # Highlights
 
-With the many [improvements and fixes](#eZPlatform15.07Releasenotes-changelog) listed at the bottom, the main changes are:
+With the many improvements and fixes listed at the bottom, the main changes are:
 
 ## RichText editor improvements
 
@@ -288,7 +225,7 @@ On Content that has translations, a dropdown will now list the available languag
 
 Stories: [EZP-23765](https://jira.ez.no/browse/EZP-23765), [EZP-24549](https://jira.ez.no/browse/EZP-24549)
 
-![](attachments/31429990/31429972.png)
+![](img/choose_translation.png)
 
 ## Translate content
 
@@ -298,7 +235,7 @@ Story: [EZP-23766](https://jira.ez.no/browse/EZP-23766)
 
  
 
-![](attachments/31429990/31429973.gif)
+![](img/add_translation.gif)
 
 ## Roles management UI prototype
 
@@ -310,7 +247,7 @@ Epic: [EZP-24071](https://jira.ez.no/browse/EZP-24071)
 
 As can be seen in the epic, this feature is being worked on, and will quickly evolve over the next weeks.
 
-![](attachments/31429990/31429971.png)
+![](img/rules_ui.png)
 
 ## Other UI changes
 
@@ -324,15 +261,13 @@ As can be seen in the epic, this feature is being worked on, and will quickly ev
 
 Until now, the `SearchService` was using the Legacy database search implementation. It was quite limited, and performed very badly. The Solr implementation has been worked on since last summer, and finally made it into the product.
 
-After [configuration and setup](https://doc.ez.no/display/EZP/Solr+Search+Engine+Bundle#SolrSearchEngineBundle-HowtosetupSolrSearchengine), Solr will be used by the SearchService for all of your Location, Content and ContentInfo queries. It has very advanced multilanguage capabilities, and will offer great performances whenever you need to grab Content or Locations from the Repository. 
+After [configuration and setup](../guide/solr_bundle.md), Solr will be used by the SearchService for all of your Location, Content and ContentInfo queries. It has very advanced multilanguage capabilities, and will offer great performances whenever you need to grab Content or Locations from the Repository. 
 
 Note that as it is lifts off many limitations, this feature will also be made available to Enterprise customers eZ Publish Platform 5.4 via a specific update.
 
-Documentation: [https://doc.ez.no/display/EZP/Solr+Search+Engine+Bundle
-](https://doc.ez.no/display/EZP/Solr+Search+Engine+Bundle)Source: [ezsystems/ezplatform-solr-search-engine](https://github.com/ezsystems/ezplatform-solr-search-engine)
+Source: [ezsystems/ezplatform-solr-search-engine](https://github.com/ezsystems/ezplatform-solr-search-engine)
 Epic: [EZP-22944](https://jira.ez.no/browse/EZP-22944)
 
-![](attachments/31429990/31429970.png)
 
 ## Other Platform changes
 
@@ -355,47 +290,24 @@ Epics tentatively\* planned for first LTS release:  [0 issue](https://jira.ez.
 
 *'\* Some of these features will not be in the stable releases, the once we first and foremost will aim for having in the release are those mentioned on the [Roadmap](http://ez.no/Blog/What-to-Expect-from-eZ-Studio-and-eZ-Platform).*
 
-## Attachments:
-
-![](images/icons/bullet_blue.gif) [Solr\_Logo\_on\_white.png](attachments/31429990/31429970.png) (image/png)
-![](images/icons/bullet_blue.gif) [Platform 2015.07 - roles UI.PNG](attachments/31429990/31429971.png) (image/png)
-![](images/icons/bullet_blue.gif) [Platform 2015.07 - choose translation.PNG](attachments/31429990/31429972.png) (image/png)
-![](images/icons/bullet_blue.gif) [eZ Platform 2015.07 - add translation.gif](attachments/31429990/31429973.gif) (image/gif)
-![](images/icons/bullet_blue.gif) [privacy cookie.PNG](attachments/31429990/31429974.png) (image/png)
-![](images/icons/bullet_blue.gif) [move-copy-send to trash.PNG](attachments/31429990/31429975.png) (image/png)
-![](images/icons/bullet_blue.gif) [content\_download.PNG](attachments/31429990/31429976.png) (image/png)
-![](images/icons/bullet_blue.gif) [variations purging.PNG](attachments/31429990/31429977.png) (image/png)
-![](images/icons/bullet_blue.gif) [content type edition.PNG](attachments/31429990/31429978.png) (image/png)
-![](images/icons/bullet_blue.gif) [symfony\_black\_02.png](attachments/31429990/31429979.png) (image/png)
-![](images/icons/bullet_blue.gif) [symfony\_black\_03.png](attachments/31429990/31429980.png) (image/png)
-![](images/icons/bullet_blue.gif) [RichText editor.png](attachments/31429990/31429981.png) (image/png)
-![](images/icons/bullet_blue.gif) [Ventoux-Square.jpg](attachments/31429990/31429982.jpg) (image/jpeg)
-![](images/icons/bullet_blue.gif) [Getting-Started-with-eZ-Publish-Platform.jpg](attachments/31429990/31429983.jpg) (image/jpeg)
-![](images/icons/bullet_blue.gif) [Platform screenshoot alpha1.gif](attachments/31429990/31429984.gif) (image/gif)
-![](images/icons/bullet_blue.gif) [Screen Shot 2015-05-12 at 19.16.38 .png](attachments/31429990/31429985.png) (image/png)
-![](images/icons/bullet_blue.gif) [PrivacyCookieBundle.png](attachments/31429990/31429986.png) (image/png)
-![](images/icons/bullet_blue.gif) [Screen Shot 2015-05-12 at 11.46.48 .png](attachments/31429990/31429987.png) (image/png)
-![](images/icons/bullet_blue.gif) [iStock\_000032478246XLarge - banner doc.jpg](attachments/31429990/31429988.jpg) (image/jpeg)
-![](images/icons/bullet_blue.gif) [notifications.gif](attachments/31429990/31429989.gif) (image/gif)
-
 
 # eZ Platform 15.05 Release notes
 
 # eZ Platform "Alpha3" available for testing
 
-![](attachments/31429968/31429960.png)
+![](img/richtext.png)
 
 #### Quick links
 
 -   [Installation instructions](https://github.com/ezsystems/ezplatform/blob/v0.9.0/INSTALL.md)[](https://github.com/ezsystems/ezplatform/blob/v15.05/INSTALL.md)
--   [Requirements](https://doc.ez.no/display/TMPA/Requirements+5.4) *(currently same as eZ Publish Platform 5.4)*
+-   [Requirements](../getting_started/requirements_and_system_configuration.md)
 -   Upgrading: *As this is a alpha release, there is no upgrade instructions yet, this is planned for Beta.*
 
 -   Download: See [share.ez.no/downloads](http://share.ez.no/downloads/downloads/ez-platform-15.05-alpha), or see *Install* for how to install via composer.
 
 *July 6th 2015*
 
-The third alpha release of eZ Platform,15.05 builds upon the [15.03](eZ-Platform-15.03-Release-notes_31429950.html) March release adding additional support for editing- and browsing-capabilities. It also contains several underlying improvements and fixes that will be part of the [5.3.6](https://doc.ez.no/display/TMPA/5.3.5+Release+Notes) and [5.4.3](https://doc.ez.no/display/TMPA/5.4.2+Release+Notes) maintenance versions that will be released soon.
+The third alpha release of eZ Platform,15.05 builds upon the **15.03** March release adding additional support for editing- and browsing-capabilities.
 
 # Highlights
 
@@ -403,9 +315,9 @@ Besides lots of smaller improvements and fixes found bellow, and mentioned above
 
 ## Improved Symfony 2.7/3.0 support
 
-![](attachments/31429968/31429958.png)
+![](img/symfony_black_02.png)
 
-Symfony 2.7 LTS is now fully supported, and no deprecation errors should be thrown anymore. This should also ensure compatibility with the 2.8 and 3.0 releases planned for november this year.
+Symfony 2.7 LTS is now fully supported, and no deprecation errors should be thrown anymore. This should also ensure compatibility with the 2.8 and 3.0 releases planned for November this year.
 
 Dynamic settings have been refactored to use the [Expression Language](http://symfony.com/fr/doc/current/components/expression_language/index.html) instead of fake services.
 
@@ -423,17 +335,9 @@ More info: [Content type management epic](http://jira.ez.no/browse/EZP-24070),�
 
  
 
- 
-
- 
-
- 
-
-![](attachments/31429968/31429957.png?effects=border-simple,blur-border)
-
 ## Image variations purging
 
-![](attachments/31429968/31429956.png?effects=border-simple,blur-border)
+![](img/variations_purging.png)
 
 Image variations generated by Imagine can now be purged using the application console. It can either clear all variations, or variations of a particular alias:
 
@@ -452,28 +356,21 @@ More info: [Technical specifications](https://github.com/ezsystems/ezpublish-ke
 
 ## Downloading of binary file is now natively supported, and doesn't require a legacy fallback anymore.
 
-A new controller and route have been added, and the Image and BinaryFile content field templates have been updated. Permissions are transparently checked during download, and HTTP resume is supported. The [Route Reference API](https://doc.ez.no/display/EZP/RouteReference), provides facilities to generate the right path from templates, and a valid URI is exposed over REST.
+A new controller and route have been added, and the Image and BinaryFile content field templates have been updated. Permissions are transparently checked during download, and HTTP resume is supported. The [Route Reference API](../api/rest_api_reference.md), provides facilities to generate the right path from templates, and a valid URI is exposed over REST.
 
-More info: [Documentation](/pages/createpage.action?spaceKey=DEVELOPER&title=Usage%3A+Binary+and+Media+download+todelete&linkCreation=true&fromPageId=31429968), [Specificaftions](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/proposed/content_download/content_download.md), [Implementation story](https://jira.ez.no/browse/EZP-23550), [Content view module epic](https://jira.ez.no/browse/EZP-24144).
+More info:  [Specificaftions](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/proposed/content_download/content_download.md), [Implementation story](https://jira.ez.no/browse/EZP-23550), [Content view module epic](https://jira.ez.no/browse/EZP-24144).
 
  
 
-![](attachments/31429968/31429955.png?effects=border-simple,blur-border)
+![](img/content_download.png)
 
 ## Platform UI : move, copy and send content to trash
 
-![](attachments/31429968/31429954.png)
+![](img/m_c_t.png)
 
 Thanks to the addition of the Universal Discovery Widget in 2015.03, those functions have been added to PlatformUI.
 
 More info: [Content CRUD UI epic](https://jira.ez.no/browse/EZP-22993) 
-
- 
-
- 
-
- 
-
  
 
 ## Platform UI notifications
@@ -486,11 +383,11 @@ More info: [UI notifications epic](https://jira.ez.no/browse/EZP-24340)
 
  
 
-![](attachments/31429968/31429952.gif)
+![](img/notifications.gif)
 
 ## Rich text editing prototype based on Alloy
 
-![](attachments/31429968/31429960.png)
+![](img/rt_edit.png)
 
 A prototype of the WYSWIGYG editor for the RichText FieldType has been added. It is based on Alloy Editor, itself based on CKEditor. 
 
@@ -498,11 +395,6 @@ To see it in action, you need to create a new Content Type with a RichText Field
 
 More info: [Alloy Editor](http://alloyeditor.com/), [RichText editing epic](https://jira.ez.no/browse/EZP-22949), [prototype screencast](https://www.youtube.com/watch?v=o1r44rmYsdY)
 
-**
-**
-
-**
-**
 
 ## Re-usable privacy cookie handling
 
@@ -512,7 +404,7 @@ The built-in implementation uses a configuration file based Factory, allowing yo
 
 More info: [github repository](http://github.com/ezsystems/EzSystemsPrivacyCookieBundle) 
 
-![](attachments/31429968/31429953.png?effects=border-simple,blur-border)
+![](img/ez_cookie.png)
 
 ## Other notable changes
 
@@ -536,24 +428,6 @@ Epics tentatively\* planned for first LTS release:  [0 issue](https://jira.ez.
 
 *'\* Some of these features will not be in the stable releases, the once we first and foremost will aim for having in the release are those mentioned on the [Roadmap](http://ez.no/Blog/What-to-Expect-from-eZ-Studio-and-eZ-Platform).*
 
-## Attachments:
-
-![](images/icons/bullet_blue.gif) [notifications.gif](attachments/31429968/31429952.gif) (image/gif)
-![](images/icons/bullet_blue.gif) [privacy cookie.PNG](attachments/31429968/31429953.png) (image/png)
-![](images/icons/bullet_blue.gif) [move-copy-send to trash.PNG](attachments/31429968/31429954.png) (image/png)
-![](images/icons/bullet_blue.gif) [content\_download.PNG](attachments/31429968/31429955.png) (image/png)
-![](images/icons/bullet_blue.gif) [variations purging.PNG](attachments/31429968/31429956.png) (image/png)
-![](images/icons/bullet_blue.gif) [content type edition.PNG](attachments/31429968/31429957.png) (image/png)
-![](images/icons/bullet_blue.gif) [symfony\_black\_02.png](attachments/31429968/31429958.png) (image/png)
-![](images/icons/bullet_blue.gif) [symfony\_black\_03.png](attachments/31429968/31429959.png) (image/png)
-![](images/icons/bullet_blue.gif) [RichText editor.png](attachments/31429968/31429960.png) (image/png)
-![](images/icons/bullet_blue.gif) [Ventoux-Square.jpg](attachments/31429968/31429961.jpg) (image/jpeg)
-![](images/icons/bullet_blue.gif) [Getting-Started-with-eZ-Publish-Platform.jpg](attachments/31429968/31429962.jpg) (image/jpeg)
-![](images/icons/bullet_blue.gif) [Platform screenshoot alpha1.gif](attachments/31429968/31429963.gif) (image/gif)
-![](images/icons/bullet_blue.gif) [Screen Shot 2015-05-12 at 19.16.38 .png](attachments/31429968/31429964.png) (image/png)
-![](images/icons/bullet_blue.gif) [PrivacyCookieBundle.png](attachments/31429968/31429965.png) (image/png)
-![](images/icons/bullet_blue.gif) [Screen Shot 2015-05-12 at 11.46.48 .png](attachments/31429968/31429966.png) (image/png)
-![](images/icons/bullet_blue.gif) [iStock\_000032478246XLarge - banner doc.jpg](attachments/31429968/31429967.jpg) (image/jpeg)
 
 # eZ Platform 15.03 Release notes
 
@@ -561,19 +435,16 @@ Epics tentatively\* planned for first LTS release:  [0 issue](https://jira.ez.
 
 ##### 13th May 2015
 
-![Preview of Platform UI Alpha2 during editing an image](attachments/31429950/31429945.png "Preview of Platform UI during editing an image")
+![Preview of Platform UI Alpha2 during editing an image](img/tuxi.png "Preview of Platform UI during editing an image")
 
 #### Quick links
 
 -   [Install](https://github.com/ezsystems/ezplatform/blob/master/INSTALL.md)
--   [Requirements](https://doc.ez.no/display/TMPA/Requirements+5.4) *(currently same as eZ Publish Platform 5.4)*
+-   [Requirements](../getting_started/requirements_and_system_configuration.md)
 -   Upgrading: *As this is a alpha release, there is no upgrade instructions yet, this is planned for Beta during the Summer.*
 
 -   Download: See [share.ez.no/downloads](http://share.ez.no/downloads/downloads/ez-platform-15.03-alpha), or see *Install* for how to install via composer.
 
-The second alpha release of eZ Platform,15.03, builds upon the [15.01](eZ-Platform-15.01-Release-notes_31429941.html) March release adding additional support for editing- and browsing-capabilities. It also contains several underlying improvements and fixes developed for [5.3.5](https://doc.ez.no/display/TMPA/5.3.5+Release+Notes) and [5.4.2](https://doc.ez.no/display/TMPA/5.4.2+Release+Notes), that has also been released recently.
-
-*Next release is planned to be released beginning of June, and will preview several additional features currently not exposed yet.*
 
 ## Highlights
 
@@ -581,71 +452,18 @@ Besides lots of smaller improvements and fixes found bellow, and mentioned above
 
 ### Platform UI Bundle with Universal Discovery Widget
 
- 
+One important feature in eZ Publish, and also now eZ Platform, is being able to browse for content you want to select. In eZ Platform we call this Universal Discovery Widget, and in this release you can see more or less the completion of first part of this with possibility to select by browsing the tree (location structure): [EZP-23893](https://jira.ez.no/browse/EZP-23893)
+This is used for Relation, Relation List and Section assignment selection so far, and before July release we hope to complete this part with inclusion of [EZP-24067](https://jira.ez.no/browse/EZP-24067)
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img src="attachments/31429950/31429943.png" class="confluence-embedded-image confluence-thumbnail" width="300" /></span></td>
-<td><p>One important feature in eZ Publish, and also now eZ Platform, is being able to browse for content you want to select. In eZ Platform we call this Universal Discovery Widget, and in this release you can see more or less the completion of first part of this with possibility to select by browsing the tree (location structure): <span class="jira-issue resolved"> <a href="https://jira.ez.no/browse/EZP-23893?src=confmacro" class="jira-issue-key"><img src="https://jira.ez.no/images/icons/issuetypes/epic.png" class="icon" />EZP-23893</a> - <span class="summary">UDW : Basic tree</span> <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-success jira-macro-single-issue-export-pdf">Closed</span> </span></p>
-<p>This is used for Relation, Relation List and Section assignment selection so far, and before July release we hope to complete this part with inclusion of <span class="jira-issue"> <a href="https://jira.ez.no/browse/EZP-24067?src=confmacro" class="jira-issue-key"><img src="https://jira.ez.no/images/icons/issuetypes/epic.png" class="icon" />EZP-24067</a> - <span class="summary">Sub items widget</span> <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-current jira-macro-single-issue-export-pdf">QA</span> </span></p>
-<p>Future tentatively planned ways to browse for content includes:</p>
-<p></p>
-<div id="refresh-module-927678158">
-<p></p>
-<div id="jira-issues-927678158" style="width: 100%;  overflow: auto;">
-<table>
-<tbody>
-<tr class="odd">
-<td><span class="jim-table-header-content">Summary</span></td>
-<td><span class="jim-table-header-content">Updated</span></td>
-<td><span class="jim-table-header-content">P</span></td>
-<td><span class="jim-table-header-content">Status</span></td>
-</tr>
-<tr class="even">
-<td><a href="https://jira.ez.no/browse/EZP-24284?src=confmacro">UDW - Search</a></td>
-<td>Jul 04, 2017</td>
-<td><img src="https://jira.ez.no/images/icons/priorities/critical.png" alt="Critical" class="icon" /></td>
-<td><span class="aui-lozenge aui-lozenge-subtle aui-lozenge-success"> Closed </span></td>
-</tr>
-<tr class="odd">
-<td><a href="https://jira.ez.no/browse/EZP-24285?src=confmacro">UDW - recent content</a></td>
-<td>Jun 30, 2016</td>
-<td><img src="https://jira.ez.no/images/icons/priorities/major.png" alt="High" class="icon" /></td>
-<td><span class="aui-lozenge aui-lozenge-subtle aui-lozenge-complete"> Open </span></td>
-</tr>
-<tr class="even">
-<td><a href="https://jira.ez.no/browse/EZP-24286?src=confmacro">UDW : Bookmark</a></td>
-<td>Jun 30, 2016</td>
-<td><img src="https://jira.ez.no/images/icons/priorities/minor.png" alt="Medium" class="icon" /></td>
-<td><span class="aui-lozenge aui-lozenge-subtle aui-lozenge-complete"> Open </span></td>
-</tr>
-<tr class="odd">
-<td><a href="https://jira.ez.no/browse/EZP-24287?src=confmacro">UDW : ID</a></td>
-<td>Jun 30, 2016</td>
-<td><img src="https://jira.ez.no/images/icons/priorities/trivial.png" alt="Low" class="icon" /></td>
-<td><span class="aui-lozenge aui-lozenge-subtle aui-lozenge-complete"> Open </span></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="refresh-issues-bottom">
-<span id="total-issues-count-927678158"> <a href="https://jira.ez.no/secure/IssueNavigator.jspa?reset=true&amp;jqlQuery=key+in+%28EZP-24284%2C+EZP-24285%2C+EZP-24286%2C+EZP-24287%29++order+by+priority+&amp;src=confmacro" title="View all matching issues in JIRA.">4 issues</a> </span>
-</div>
-</div></td>
-</tr>
-</tbody>
-</table>
+![](img/pick_cont.png)
+
+
 
 ### Demo Bundle with privacy cookie banner
 
 |                                        |                                                                                                                                                                                                                                                                                     |
 |----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ![](attachments/31429950/31429944.png) | Available in this release is a new [PrivacyCookieBundle](https://github.com/ezsystems/EzSystemsPrivacyCookieBundle), providing easy access to setup warning and remembering user input for Privacy banners needed to comply with EU directive commonly referred to as "Cookie law". |
+| ![](img/cookiebundle.png) | Available in this release is a new [PrivacyCookieBundle](https://github.com/ezsystems/EzSystemsPrivacyCookieBundle), providing easy access to setup warning and remembering user input for Privacy banners needed to comply with EU directive commonly referred to as "Cookie law". |
 
 ### Other notable changes
 
@@ -669,15 +487,6 @@ Besides lots of smaller improvements and fixes found bellow, and mentioned above
 
 *'\* Some of these features will not be in the stable releases, the once we first and foremost will aim for having in the release are those mentioned on the [Roadmap](http://ez.no/Blog/What-to-Expect-from-eZ-Studio-and-eZ-Platform).*
 
-## Attachments:
-
-![](images/icons/bullet_blue.gif) [Screen Shot 2015-05-12 at 19.16.38 .png](attachments/31429950/31429943.png) (image/png)
-![](images/icons/bullet_blue.gif) [PrivacyCookieBundle.png](attachments/31429950/31429944.png) (image/png)
-![](images/icons/bullet_blue.gif) [Screen Shot 2015-05-12 at 11.46.48 .png](attachments/31429950/31429945.png) (image/png)
-![](images/icons/bullet_blue.gif) [iStock\_000032478246XLarge - banner doc.jpg](attachments/31429950/31429946.jpg) (image/jpeg)
-![](images/icons/bullet_blue.gif) [Ventoux-Square.jpg](attachments/31429950/31429947.jpg) (image/jpeg)
-![](images/icons/bullet_blue.gif) [Getting-Started-with-eZ-Publish-Platform.jpg](attachments/31429950/31429948.jpg) (image/jpeg)
-![](images/icons/bullet_blue.gif) [Platform screenshoot alpha1.gif](attachments/31429950/31429949.gif) (image/gif)
 
 
 # eZ Platform 15.01 Release notes
@@ -686,26 +495,16 @@ Besides lots of smaller improvements and fixes found bellow, and mentioned above
 
 ##### 4th March 2015
 
-<table>
-<colgroup>
-<col width="100%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><span class="confluence-embedded-file-wrapper"><img src="attachments/31429941/31429937.gif" class="confluence-embedded-image" /></span></td>
-</tr>
-<tr class="even">
-<td><p>Welcome to the first release of eZ Platform, 15.01 serves two purposes: As first alpha release of eZ Platform, and also as eZ Publish Community edition v2015.01 by installing optional legacy packages. Further information about eZ Platform (and eZ Studio), and what you can expect, can be found in <a href="http://ez.no/Blog/What-to-Expect-from-eZ-Studio-and-eZ-Platform" class="external-link">recent blog post on ez.no</a>.</p>
-<h4 id="eZPlatform15.01Releasenotes-Quicklinks">Quick links</h4>
-<ul>
-<li><span style="color: rgb(0,51,102);"><span style="color: rgb(0,51,102);"><a href="https://github.com/ezsystems/ezplatform/blob/master/INSTALL.md" class="external-link">Install</a></span></span></li>
-<li><span style="color: rgb(0,51,102);"><a href="https://doc.ez.no/display/TMPA/Requirements+5.4">Requirements</a> <span style="color: rgb(128,128,128);"><em>(currently same as eZ Publish Platform 5.4)</em></span></span></li>
-<li><p><span style="color: rgb(0,0,0);">Upgrading: <span style="color: rgb(128,128,128);"><em>As this is a alpha release, there is no upgrade instructions yet, this will be available starting with the beta, currently <a href="http://ez.no/Blog/What-Releases-to-Expect-from-eZ-in-2015" class="external-link">scheduled</a> for May</em></span></span></p></li>
-<li><p>Download: <em>Download</em> from <a href="http://share.ez.no/downloads/downloads/ez-platform-15.01-alpha" class="external-link">share.ez.no/downloads</a> or see <em>Install</em> for how to install via composer</p></li>
-</ul></td>
-</tr>
-</tbody>
-</table>
+![](img/palfa1.png)
+
+Welcome to the first release of eZ Platform, 15.01 serves two purposes: As first alpha release of eZ Platform, and also as eZ Publish Community edition v2015.01 by installing optional legacy packages. Further information about eZ Platform (and eZ Studio), and what you can expect, can be found [here](http://ez.no/Blog/What-to-Expect-from-eZ-Studio-and-eZ-Platform)
+
+### Quick links
+-   [Install](https://github.com/ezsystems/ezplatform/blob/master/INSTALL.md)
+-   [Requirements](../getting_started/requirements_and_system_configuration.md)
+-   Upgrading: *As this is a alpha release, there is no upgrade instructions yet, this is planned for Beta during the Summer.*
+
+-   Download: See [share.ez.no/downloads](http://share.ez.no/downloads/downloads/ez-platform-15.01-alpha), or see *Install* for how to install via composer.
 
 ## Highlights
 
@@ -733,12 +532,3 @@ Since we can't rely on legacy anymore, prototype of a native installer has been 
 -   General "Known issues" in *Platform stack* compared to* Legacy*:  [7 issues](https://jira.ez.no/secure/IssueNavigator.jspa?reset=true&jqlQuery=project+%3D+EZP+AND+affectedVersion+%3D%22Known+Issues+5.x+Stack%22+AND+resolution+%3D+Unresolved+ORDER+BY+priority+&src=confmacro)
 -   Epics currently planned for first stable release:  [6 issues](https://jira.ez.no/secure/IssueNavigator.jspa?reset=true&jqlQuery=project+%3D+EZP+AND+issuetype+%3D+Epic+AND+fixVersion%3DPollux+AND+resolution+%3D+Unresolved+ORDER+BY+priority+&src=confmacro)
 -   Epics currently planned for first LTS release:  [0 issue](https://jira.ez.no/secure/IssueNavigator.jspa?reset=true&jqlQuery=project+%3D+EZP+AND+issuetype+%3D+Epic+AND+fixVersion%3D%22Mauna+Kea%22+AND+resolution+%3D+Unresolved+ORDER+BY+priority++&src=confmacro)
-
- 
-
-## Attachments:
-
-![](images/icons/bullet_blue.gif) [Platform screenshoot alpha1.gif](attachments/31429941/31429937.gif) (image/gif)
-![](images/icons/bullet_blue.gif) [iStock\_000032478246XLarge - banner doc.jpg](attachments/31429941/31429938.jpg) (image/jpeg)
-![](images/icons/bullet_blue.gif) [Ventoux-Square.jpg](attachments/31429941/31429939.jpg) (image/jpeg)
-![](images/icons/bullet_blue.gif) [Getting-Started-with-eZ-Publish-Platform.jpg](attachments/31429941/31429940.jpg) (image/jpeg)

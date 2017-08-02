@@ -83,3 +83,4 @@ cd ezplatform
 
 php app/console ezplatform:install demo
 ```
+

@@ -77,9 +77,9 @@ security:
 
 ### Testing the API
 
-A standard web browser is not sufficient to fully test the API. You can, however, try opening the root resource with it, using the session authentication: http://example.com/api/ezp/v2/. Depending on how your browser understands XML, it will either download the XML file, or open it in the browser.
+A standard web browser is not sufficient to fully test the API. You can, however, try opening the root resource with it, using the session authentication: http://example.com/api/ezp/v2/. Depending on how your browser understands XML, it will either download the XML file, or open it in the browser.
 
-To test further, you can use browser extensions, like [Advanced REST client for Chrome](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo) or [RESTClient for Firefox](https://addons.mozilla.org/firefox/addon/restclient/), or dedicated tools. For command line users, [HTTPie](https://github.com/jkbr/httpie) is a good tool.
+To test further, you can use browser extensions, like [Advanced REST client for Chrome](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo) or [RESTClient for Firefox](https://addons.mozilla.org/firefox/addon/restclient/), or dedicated tools. For command line users, [HTTPie](https://github.com/jkbr/httpie) is a good tool.
 
 #### JavaScript example
 

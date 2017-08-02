@@ -28,7 +28,7 @@ Accept: application/vnd.ez.api.ContentInfo+xml
 
 The API will reply with:
 
--   an **HTTP response code**,
+-   an **HTTP response code**,
 -   a few **headers**,
 -   the XML representation of the ContentInfo for content with ID 23 in XML format, as specified in the Accept header.
 
@@ -41,31 +41,31 @@ Content-Type: application/vnd.ez.api.ContentInfo+xml
 Content-Length: xxx
 ```
 
-The length of our content, provided by the Content-Length header, isn't *that* useful.
+The length of our content, provided by the Content-Length header, isn't *that* useful.
 
 ###### HTTP Code
 
-The API responded here with a standard 200 OK HTTP response code, which is the expected response code for a "normal" GET request. Some GET requests, like [getting a Content item's current version](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#13241%C2%A0%C2%A0%C2%A0get-current-version), may reply with a 301 Moved permanently, or 307 Temporary redirect code.
+The API responded here with a standard 200 OK HTTP response code, which is the expected response code for a "normal" GET request. Some GET requests, like [getting a Content item's current version](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#13241%C2%A0%C2%A0%C2%A0get-current-version), may reply with a 301 Moved permanently, or 307 Temporary redirect code.
 
 Errors will be indicated with HTTP error codes, like 404 for Not Found, or 500 for Internal server error. The [REST specifications](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst) provide the list of every HTTP response code you can expect from implemented resources.
 
 ###### Content-Type header
 
-As long as a response contains an actual HTTP body, the Content-Type header will be used to specify which Content-Type is contained in the response. In that case, a ContentInfo (`Content-Type: application/vnd.ez.api.ContentInfo`) in XML (`Content-Type: application/vnd.ez.api.ContentInfo+xml`)
+As long as a response contains an actual HTTP body, the Content-Type header will be used to specify which Content-Type is contained in the response. In that case, a ContentInfo (`Content-Type: application/vnd.ez.api.ContentInfo`) in XML (`Content-Type: application/vnd.ez.api.ContentInfo+xml`)
 
 ###### Accept-Patch header
 
 This is a very interesting one.
 
-It tells us we can modify the received content by patching (`Accept-Patch: application/vnd.ez.api.ContentUpdate+xml;charset=utf8`) it with a [ContentUpdateStruct](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/ContentUpdateStruct.php) (`Accept-Patch: application/vnd.ez.api.ContentUpdate+xml;charset=utf8`) in XML (`Accept-Patch: application/vnd.ez.api.ContentUpdate+xml;charset=utf8`) format. Of course, JSON would also work, with the proper format.
+It tells us we can modify the received content by patching (`Accept-Patch: application/vnd.ez.api.ContentUpdate+xml;charset=utf8`) it with a [ContentUpdateStruct](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/ContentUpdateStruct.php) (`Accept-Patch: application/vnd.ez.api.ContentUpdate+xml;charset=utf8`) in XML (`Accept-Patch: application/vnd.ez.api.ContentUpdate+xml;charset=utf8`) format. Of course, JSON would also work, with the proper format.
 
-This last part means that if we send a PATCH /content/objects/23 request with a [ContentUpdateStruct](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/ContentUpdateStruct.php) XML payload, we will update this Content. 
+This last part means that if we send a PATCH /content/objects/23 request with a [ContentUpdateStruct](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/ContentUpdateStruct.php) XML payload, we will update this Content.
 
 REST will use the `Accept-Patch` header to indicate how to **modify** the returned **data**.
 
 ###### Other headers: Location
 
-Depending on the resource, request & response headers will vary. For instance, [creating content](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#13231%C2%A0%C2%A0%C2%A0creating-content), or [getting a Content item's current version](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#13241%C2%A0%C2%A0%C2%A0get-current-version) will both send a `Location` header to provide you with the requested resource's ID.
+Depending on the resource, request & response headers will vary. For instance, [creating content](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#13231%C2%A0%C2%A0%C2%A0creating-content), or [getting a Content item's current version](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#13241%C2%A0%C2%A0%C2%A0get-current-version) will both send a `Location` header to provide you with the requested resource's ID.
 
 Those particular headers generally match a specific list of HTTP response codes. Location is sent by `201 Created`, `301 Moved permanently,` `307 Temporary redirect responses`. This list isn't finished, but you can expect those HTTP responses to provide you with a Location header.
 
@@ -75,7 +75,7 @@ This request header is the request counterpart of the Location response header. 
 
 #### Response body
 
-**Load ContentInfo response body**  Expand source
+**Load ContentInfo response body**  Expand source
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -97,7 +97,7 @@ This request header is the request counterpart of the Location response header. 
 </Content>
 ```
 
-The XML body is a serialized version of a [ContentInfo](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/ContentInfo.php) struct. Most REST API calls will actually involve exchanging XML / JSON representations of the public API. This consistency, which we took very seriously, was a hard requirement for us, as it makes documentation much better by requiring *less* of it.
+The XML body is a serialized version of a [ContentInfo](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/ContentInfo.php) struct. Most REST API calls will actually involve exchanging XML / JSON representations of the public API. This consistency, which we took very seriously, was a hard requirement for us, as it makes documentation much better by requiring *less* of it.
 
 As explained above, the API has told us that we could modify content object 23 by sending a `vendor/application/vnd.ez.ContentUpdate+xml`. This media type again matches a Value in the API, [ContentUpdateStruct](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/ContentUpdateStruct.php).
 
@@ -105,7 +105,7 @@ The REST API data structs mostly match a PHP Public API value object
 
 #### Value objects representation
 
-Value objects like [ContentInfo](https://github.com/ezsystems/ezp-next/blob/master/eZ/Publish/API/Repository/Values/Content/ContentInfo.php) basically feature two types of fields: basic, local fields (modified, name...) and foreign field(s) references (sectionId, mainLocationId).
+Value objects like [ContentInfo](https://github.com/ezsystems/ezp-next/blob/master/eZ/Publish/API/Repository/Values/Content/ContentInfo.php) basically feature two types of fields: basic, local fields (modified, name...) and foreign field(s) references (sectionId, mainLocationId).
 
 Local fields will be represented in XML / JSON with a primitive type (integer, string), while foreign key references will be represented as a link to another resource. This resource will be identified with its URI (`/content/objects/23/locations`), and the media-type that should be requested when calling that resource (`media-type="application/vnd.ez.api.LocationList+xml"`). Depending on how much data you need, you may choose to crawl those relations, or to ignore them.
 
@@ -113,7 +113,7 @@ XSD files
 
 For each XML structure known to the REST API, you can find XSD files in the XSD folder of the specifications. Those will allow you to validate your XML, and learn about every option those XML structures feature.
 
-<https://github.com/ezsystems/ezpublish-kernel/tree/master/doc/specifications/rest/xsd> 
+<https://github.com/ezsystems/ezpublish-kernel/tree/master/doc/specifications/rest/xsd>
 
 ## Request parameters
 
@@ -122,7 +122,7 @@ So far, we have seen that responses will depend on:
 -   The URI,
 -   Request headers, like the Accept one
 
-URI parameters are of course also used. They usually serve as filters / options for the requested resource. For instance, they can be used to customize a list's offset/limit, to filter a list, specify which fields you want from a content... For almost all resources, those parameters must be provided as GET ones. This request would return the 5 first relations for Version 2 of Content 59:
+URI parameters are of course also used. They usually serve as filters / options for the requested resource. For instance, they can be used to customize a list's offset/limit, to filter a list, specify which fields you want from a content... For almost all resources, those parameters must be provided as GET ones. This request would return the 5 first relations for Version 2 of Content 59:
 
 **GET request with limit parameter**
 
@@ -137,7 +137,7 @@ Resources that accept a reference to another resource expect this reference to b
 
 ## Custom HTTP verbs
 
-In addition to the usual GET, POST, PUT and DELETE HTTP verbs, the API supports a few custom ones: COPY, MOVE (<http://tools.ietf.org/html/rfc2518>), PATCH (<http://tools.ietf.org/html/rfc5789>) and PUBLISH. While it should generally not be a problem, some HTTP servers may fail to recognize those. If you face this situation, you can customize a standard verb (POST, PUT) with the `X-HTTP-Method-Override` header.
+In addition to the usual GET, POST, PUT and DELETE HTTP verbs, the API supports a few custom ones: COPY, MOVE (<http://tools.ietf.org/html/rfc2518>), PATCH (<http://tools.ietf.org/html/rfc5789>) and PUBLISH. While it should generally not be a problem, some HTTP servers may fail to recognize those. If you face this situation, you can customize a standard verb (POST, PUT) with the `X-HTTP-Method-Override` header.
 
 **PATCH HTTP request**
 
@@ -152,9 +152,9 @@ Both methods are always mentioned, when applicable, in the specifications.
 
 One of the principles of REST is that the same resource (Content, Location, ContentType, etc.) should be unique. The purpose is mostly to make it simple to cache your REST API using a reverse proxy like Varnish. If the same resource is available at multiple locations, cache purging becomes much more complex.
 
-Due to this, we decided not to enable siteaccess matching with REST. In order to specify a siteaccess when talking to the REST API, a custom header, `X-Siteaccess`, needs to be provided. If it isn't, the default one will be used:
+Due to this, we decided not to enable siteaccess matching with REST. In order to specify a siteaccess when talking to the REST API, a custom header, `X-Siteaccess`, needs to be provided. If it isn't, the default one will be used:
 
- 
+
 
 **X-Siteaccess header example**
 
@@ -166,7 +166,6 @@ X-Siteaccess: ezdemo_site_admin
 ```
 
 ## REST API Authentication
-
 
 The REST API supports two authentication methods: session, and basic. 
 
@@ -183,7 +182,7 @@ If this authentication method is used with a web browser, this session cookie is
 
 #### Logging in
 
-It is also possible to create a session for the visitor if they aren't logged in yet. This is done by sending a **`POST`** request to `/user/sessions`. Logging out is done using a **`DELETE`** request on the same resource.
+It is also possible to create a session for the visitor if they aren't logged in yet. This is done by sending a **`POST`** request to `/user/sessions`. Logging out is done using a **`DELETE`** request on the same resource.
 
 More information
 
@@ -203,7 +202,7 @@ To enable HTTP Basic authentication, you need to edit app`/config/security.yml`,
                 realm: eZ Publish REST API
 ```
 
-Basic authentication requires the username and password to be sent *(username:password)*, based 64 encoded, with each request, as explained in [RFC 2617](http://tools.ietf.org/html/rfc2617).
+Basic authentication requires the username and password to be sent *(username:password)*, based 64 encoded, with each request, as explained in [RFC 2617](http://tools.ietf.org/html/rfc2617).
 
 Most HTTP client libraries as well as REST libraries do support this method one way or another.
 
@@ -218,13 +217,13 @@ Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
 
 ### Error handling
 
-Error handling in the REST API is fully based on HTTP error codes. As a web developer, you are probably familiar with the most common ones: 401 Unauthorized, 404 Not Found or 500 Internal Server Error. The REST API uses those, along with a few more, to allow proper error handling.
+Error handling in the REST API is fully based on HTTP error codes. As a web developer, you are probably familiar with the most common ones: 401 Unauthorized, 404 Not Found or 500 Internal Server Error. The REST API uses those, along with a few more, to allow proper error handling.
 
 The complete list of error codes used and the conditions in which they apply are specified in the [reference documentation](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst).
 
 ### General error codes
 
-A few error codes apply to most resources (if they *are* applicable)
+A few error codes apply to most resources (if they *are* applicable)
 
 #### 500 Internal Server Error
 
@@ -293,7 +292,7 @@ ISO-3166
 The **country codes** can be represented either as a two-letter code (alpha-2) which is recommended as the general purpose code, a three-letter code (alpha-3) which is more closely related to the country name and a three digit numeric code (numeric-3) which can be useful if you need to avoid using Latin script.
 
 See [the ISO-3166 glossary](http://www.iso.org/iso/home/standards/country_codes/country_codes_glossary.htm) for more information.
- 
+
 
 **Body XML Response**
 
@@ -315,4 +314,4 @@ See [the ISO-3166 glossary](http://www.iso.org/iso/home/standards/country_codes/
 </CountriesList>
 ```
 
- 
+ 

@@ -391,7 +391,7 @@ Like most things, [Symfony documentation](http://symfony.com/doc/current/book/in
 
 Furthermore, future files and directories created by these two users will need to inherit those access rights. *For security reasons, there is no need for web server to have access to write to other directories.*
 
-Then, go to the [Setup folder rights](../getting_started/install_manually.md#setup-folder-rights) page for the next steps of this settings.
+Then, go to the [Setup folder rights](install_manually.md#Setup-folder-rights) page for the next steps of this settings.
 
 ### 7. Set up a Virtual Host
 
@@ -399,7 +399,7 @@ For our example, we'll demonstrate using Apache2 as part of the traditional LAMP
 
 #### Option A: Scripted Configuration
 
-Instead of manually editing the vhost.template file, you may instead [use the included shell script](../getting_started/starting_ez_platform.md#Web-server): /var/www/ezplatform/bin/vhost.sh to generate a configured .conf file. Check out the source of `vhost.sh` to see the options provided. Additional information is included in our [Web Server](starting_ez_platform.md#web-server) documentation here as well.
+Instead of manually editing the vhost.template file, you may instead [use the included shell script](starting_ez_platform.md#Web-server): /var/www/ezplatform/bin/vhost.sh to generate a configured .conf file. Check out the source of `vhost.sh` to see the options provided. Additional information is included in our [Web Server](starting_ez_platform.md#web-server) documentation here as well.
 
 #### Option B: Manual Edits
 
@@ -467,8 +467,7 @@ service apache2 restart
 
 For security reasons, there is no need for web server to have access to write to other directories.
 
-#### Set the owner and clean directories*
-
+#### Set the owner and clean directories
 
 First, change `www-data` to your web server user.
 

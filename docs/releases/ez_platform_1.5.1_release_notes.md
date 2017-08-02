@@ -1,19 +1,11 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [Releases](Releases_31429534.html)
-4.  [Release Notes](Release-Notes_32867905.html)
-5.  [eZ Platform Release notes](eZ-Platform-Release-notes_31429935.html)
-6.  [eZ Platform v1.5.0 Release notes](eZ-Platform-v1.5.0-Release-notes_32114891.html)
+# eZ Platform 1.5.1 Release notes
 
-# eZ Platform 1.5.1 Release notes 
-
-Created by Sarah Haïm-Lubczanski, last modified on Sep 23, 2016
 
 ###### September 20th 2016
 
 eZ announces the availability of 1.5.1, a maintenance release available for all users of eZ Platform 1.5.0.
 
-Follow the [eZ Platform Update Instructions](Updating-eZ-Platform_31431770.html) to apply this update to your platforms.
+Follow the [eZ Platform Update Instructions](../releases/updating_ez_platform.md) to apply this update to your platforms.
 
 # Package Details
 
@@ -44,15 +36,3 @@ Below is a list of notable bugs/features/enhancements done in the release.
 -   [\[EZP-26145\]](https://jira.ez.no/browse/EZP-26145) - Unable to undo in the RichText editor
 -   [\[EZP-26149\]](https://jira.ez.no/browse/EZP-26149) - Slashes in view parameters cause php notice
 -   [\[EZP-26292\]](https://jira.ez.no/browse/EZP-26292) - Can't edit Landing Page after changing default layout zone Id
-
- 
-
-## Attachments:
-
-![](images/icons/bullet_blue.gif) [Getting-Started-with-eZ-Publish-Platform.jpg](attachments/32866922/32866921.jpg) (image/jpeg)
-
-
-
-
-
-

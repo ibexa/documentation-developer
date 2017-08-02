@@ -1,12 +1,6 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [Releases](Releases_31429534.html)
-4.  [Release Notes](Release-Notes_32867905.html)
-5.  [eZ Platform Release notes](eZ-Platform-Release-notes_31429935.html)
 
-# eZ Platform v1.5.0 Release notes 
+# eZ Platform v1.5.0 Release notes
 
-Created by Sarah Haïm-Lubczanski, last modified on Sep 05, 2016
 
 The 1.5.0 release of eZ Platform is available as of September 1st 2016.
 
@@ -14,9 +8,9 @@ For the release notes of the corresponding eZ Studio release, see [eZ Enterpris
 
 ## Quick links
 
--   [Installation instructions](https://doc.ez.no/display/DEVELOPER/Step+1%3A+Installation)
+-   [Installation instructions](../getting_started/install_ez_platform.md)
 
--   [Requirements](https://doc.ez.no/pages/viewpage.action?pageId=31429536)
+-   [Requirements](../getting_started/requirements_and_system_configuration.md)
 
 -   [Download](http://share.ez.no/latest)
 
@@ -32,25 +26,11 @@ We upgraded the versions for Flysystem and Stash. See below for more details.
 
  
 
-#### In this topic:
-
--   [Quick links](#eZPlatformv1.5.0Releasenotes-Quicklinks)
--   [Changes since 1.4.0](#eZPlatformv1.5.0Releasenotes-Changessince1.4.0)
-    -   [In this topic:](#eZPlatformv1.5.0Releasenotes-Inthistopic:)
--   [Version Management](#eZPlatformv1.5.0Releasenotes-VersionManagement)
--   [FullText search with Legacy (SQL) Engine](#eZPlatformv1.5.0Releasenotes-FullTextsearchwithLegacy(SQL)Engine)
--   [Preparations for Symfony 3 support](#eZPlatformv1.5.0Releasenotes-PreparationsforSymfony3support)
--   [Other notable improvements](#eZPlatformv1.5.0Releasenotes-Othernotableimprovements)
--   [Full list of changes](#eZPlatformv1.5.0Releasenotes-Fulllistofchanges)
-
-[Updating](#eZPlatformv1.5.0Releasenotes-Updating)
--   [New eZ packages in this release](#eZPlatformv1.5.0Releasenotes-NeweZpackagesinthisrelease)
-
 ### Version Management
 
 In this version, you have a new tab "Versions" under which you will be able to manage Versions and Drafts.
 
-![](attachments/32114891/32115355.png)
+![](img/featuring_articles.png)
 
 See the video screencast for a demonstration of this feature.
 
@@ -111,54 +91,14 @@ For full list of changes see issue list in JIRA:  [44 issues](https://jira.ez.n
 
 ## Updating
 
-To update to this version, follow the [Updating eZ Platform](Updating-eZ-Platform_31431770.html) guide and use `v1.5.0` as `<version>`.
+To update to this version, follow the [Updating eZ Platform](../releases/updating_ez_platform.md) guide and use `v1.5.0` as `<version>`.
 
 ### New eZ packages in this release
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><p>Package Name</p></th>
-<th><p>1.5.0 version</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>ezplatform-solr-search-engine</p></td>
-<td><p>1.1.0</p></td>
-</tr>
-<tr class="even">
-<td><p>ezpublish-kernel</p></td>
-<td><p>6.5.0</p></td>
-</tr>
-<tr class="odd">
-<td><p>platform-ui-assets-bundle</p></td>
-<td><p>3.0.0</p></td>
-</tr>
-<tr class="even">
-<td><p>repository-forms</p></td>
-<td><p>1.4.0</p></td>
-</tr>
-<tr class="odd">
-<td><p>platform-ui-bundle</p></td>
-<td><p>1.5.0</p></td>
-</tr>
-</tbody>
-</table>
-
- 
-
-## Attachments:
-
-![](images/icons/bullet_blue.gif) [Draft demo.webm](attachments/32114891/32115229.webm) (video/webm)
-![](images/icons/bullet_blue.gif) [featuring-articles\_eZ\_Platform\_-\_eZ\_Platform\_UI\_-\_2016-08-31\_17.44.15.png](attachments/32114891/32115355.png) (image/png)
-
-
-
-
-
-
+| Package name | 1.5.0 version |
+|--------------|---------------|
+| ezplatform-solr-search-engine | 1.1.0 |
+| ezpublissh-kernel | 6.5.0 |
+| platform-ui-assets-bundle | 3.0.0 |
+| repository-forms | 1.4.0 |
+| platform-ui-bundle | 1.5.0 |

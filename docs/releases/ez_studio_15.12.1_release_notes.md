@@ -1,27 +1,9 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [Releases](Releases_31429534.html)
-4.  [Release Notes](Release-Notes_32867905.html)
-5.  [eZ Enterprise Release notes](eZ-Enterprise-Release-notes_31430108.html)
-6.  [eZ Studio 15.12 Release notes](eZ-Studio-15.12-Release-notes_31430118.html)
 
-# eZ Studio 15.12.1 Release notes 
+# eZ Studio 15.12.1 Release notes
 
-Created by Dominika Kurek on Apr 18, 2016
+The first sub-release of [eZ Studio 15.12](../releases/ez_platform_15.12_release_notes.md) is available as of February 2nd.
 
-#### Table of contents:
-
--   [Changes since 15.12](#eZStudio15.12.1Releasenotes-Changessince15.12)
-    -   [Summary of changes](#eZStudio15.12.1Releasenotes-Summaryofchanges)
-    -   [Full list of improvements](#eZStudio15.12.1Releasenotes-Fulllistofimprovements)
-    -   [Full list of bugfixes](#eZStudio15.12.1Releasenotes-Fulllistofbugfixes)
--   [Upgrading a 15.12 Studio project](#eZStudio15.12.1Releasenotes-Upgradinga15.12Studioproject)
-
- 
-
-The first sub-release of [eZ Studio 15.12](eZ-Studio-15.12-Release-notes_31430118.html) is available as of February 2nd.
-
-For the release notes of the corresponding *(and included)* eZ Platform sub-release, see [eZ Platform 15.12.1 Release Notes](eZ-Platform-15.12.1-Release-Notes_31430110.html).
+For the release notes of the corresponding *(and included)* eZ Platform sub-release, see [eZ Platform 15.12.1 Release Notes](../releases/ez_platform_15.12.1_release_notes.md).
 
  
 
@@ -31,25 +13,25 @@ For the release notes of the corresponding *(and included)* eZ Platform sub-rele
 
 -   Enhanced Landing Page drag-and-drop interactions, including a better visualization of dropping blocks onto the page:
 
-![Dropping a block onto a Landing Page](attachments/31430124/31430123.png)
+![Dropping a block onto a Landing Page](img/LP_drag_and_drop_improved.png)
 
  
 
 -   Timeline toolbar now covers all changes in all Schedule Blocks on a given Landing Page.
 -   Timeline toolbar is now also available in View mode on Landing Pages:
 
-![Landing Page in View mode with a Timeline](attachments/31430124/31430122.png)
+![Landing Page in View mode with a Timeline](img/LP_in_view_mode.png)
 
  
 
 -   Added an Approval Timeline which lists all review requests for a given Content item:
 
-![Approval timeline screen](attachments/31430124/31430120.png)
+![Approval timeline screen](img/approval_timeline.png)
 
 -   Modified template of the notification email sent to reviewers from Flex Workflow.
 -   Minor UI improvements (including: updated icons, labels, date picker and others):
 
-![Datepicker](attachments/31430124/31430121.png)
+![Datepicker](img/new_datepicker.png)
 
  
 
@@ -139,7 +121,7 @@ b) the branch you are upgrading on:
 
 **From your master branch**
 
-``` brush:
+``` bash
 git checkout -b upgrade-1.1.0
 ```
 
@@ -147,7 +129,7 @@ In case of different localization of the sources, add `ezsystems/ezstudio` as an
 
 **From the upgrade-1.1.0 branch**
 
-``` brush:
+``` bash
 git remote add ezstudio http://github.com/ezsystems/ezstudio.git
 ```
 
@@ -155,7 +137,7 @@ Then pull the tag into your branch:
 
 **From the upgrade-1.1.0 branch**
 
-``` brush:
+``` bash
 git pull ezstudio v1.1.0
 ```
 
@@ -167,7 +149,7 @@ The latter can be ignored, as it will be regenerated when we execute composer up
 
 **From the upgrade-1.1.0 branch**
 
-``` brush:
+``` bash
 git checkout --theirs composer.lock && git add composer.lock
 ```
 
@@ -179,13 +161,13 @@ Conflicts in `composer.json` need to be fixed manually. If you're not familiar 
 
 **From the upgrade-1.1.0 branch**
 
-``` brush:
+``` bash
 git checkout --theirs composer.json && git diff composer.json
 ```
 
 You should see what was changed, as compared to your own version, in the diff output. The 1.1.0 tag changes the requirements for all of the `ezsystems/` packages. Those should be left untouched. All of the other changes should be removals of your project's additions. You can use `git checkout -p` to selectively cancel those changes:
 
-``` brush:
+``` bash
 git checkout -p composer.json
 ```
 
@@ -195,7 +177,7 @@ Answer `no` (do not discard) to the requirement changes of `ezsystems` depend
 
 You may also checkout your own composer.json, and run the following commands to update the `ezsystems` packages requirements from v1.0.x to v1.1.0:
 
-``` brush:
+``` bash
 git checkout --ours composer.json
 composer require --no-update "ezsystems/ezpublish-kernel:~6.1.0"
 composer require --no-update "ezsystems/platform-ui-bundle:~1.1.0"
@@ -209,8 +191,8 @@ composer require --dev --no-update "ezsystems/behatbundle:~6.1.0"
 composer require --no-update "php:~5.5|~7.0"
 
 # As there are some bugs with Symfony 2.8, make sure to pull in Symfony 2.7 LTS updates
-composer require --no-update "symfony/symfony:~2.7.0" 
- 
+composer require --no-update "symfony/symfony:~2.7.0"
+
 # This command will remove platform.php: "5.4.4" as php 5.4 is no longer supported
 composer config --unset platform.php
 ```
@@ -228,7 +210,7 @@ There shouldn't be many, and you should be able to figure out which value is the
 
 At this point, you should have a composer.json file with the correct requirements. Run `composer update` to update the dependencies. 
 
-``` brush:
+``` bash
 composer update --with-dependencies ezsystems/ezpublish-kernel ezsystems/platform-ui-bundle ezsystems/repository-forms ezsystems/studio-ui-bundle ezsystems/ezstudio-demo-bundle ezsystems/landing-page-fieldtype-bundle ezsystems/flex-workflow
 ```
 
@@ -242,24 +224,9 @@ Because from this release onwards eZ Platform is compatible only with PHP 5.5 an
 
 Once all the conflicts have been resolved, and `composer.lock` updated, the merge can be committed. Note that you may or may not keep `composer.lock`, depending on your version management workflow. If you do not wish to keep it, run `git reset HEAD <file>` to remove it from the changes. Run `git commit`, and adapt the message if necessary. You can now test the project, run integration tests... once the upgrade has been approved, go back to `master`, and merge the `upgrade-1.1.0` branch:
 
-``` brush:
+``` bash
 git checkout master
 git merge upgrade-1.1.0
 ```
 
  
-
- 
-
-## Attachments:
-
-![](images/icons/bullet_blue.gif) [approval\_timeline.png](attachments/31430124/31430120.png) (image/png)
-![](images/icons/bullet_blue.gif) [new\_datepicker.png](attachments/31430124/31430121.png) (image/png)
-![](images/icons/bullet_blue.gif) [LP\_in\_view\_mode.png](attachments/31430124/31430122.png) (image/png)
-![](images/icons/bullet_blue.gif) [LP\_drag\_and\_drop\_improved.png](attachments/31430124/31430123.png) (image/png)
-
-
-
-
-
-

@@ -91,3 +91,4 @@ The Admin Panel lets you manage the details of your installation, including buil
 #### Project structure
 
 You can also take a look at the way the project files are structured on the example of the Demo Bundle. See [Structuring an eZ Platform Project](../guide/best_practices.md) for more information.
+

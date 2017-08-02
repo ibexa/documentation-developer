@@ -213,7 +213,7 @@ Searching for Content or Location can be done with [REST views](https://github.c
 
 ``` php
 var capi, contentService, query,
-    credentials = {
+    credentials = {
         login: 'admin',
         password: 'publish',
     };
@@ -241,4 +241,5 @@ contentService.createView(query, function (error, response) {
 !!! note "REST views"
 
     REST views are designed to be persisted but this feature is not yet implemented. As a result, when calling `createView`, the POST request does not create the view but directly returns the results.
- 
+
+ 

@@ -24,9 +24,9 @@ Let's create a very simple controller, that has a `sayHello()` method, that take
 
 ``` php
 namespace My\Bundle\RestBundle\Rest\Controller;
- 
+
 use eZ\Publish\Core\REST\Server\Controller as BaseController;
- 
+
 class DefaultController extends BaseController
 {
     public function sayHello( $name )
@@ -74,11 +74,11 @@ Let's say that our Controller will return a `My\Bundle\RestBundle\Rest\Values\He
 
 ``` php
 namespace My\Bundle\RestBundle\Rest\Values;
- 
+
 class Hello
 {
     public $name;
- 
+
     public function __construct( $name )
     {
         $this->name = $name;
@@ -109,7 +109,7 @@ And that's it. Outputting this object in the Response requires that we create a 
 
 ## ValueObjectVisitor
 
-A ValueObjectVisitor will take a Value returned by a REST controller, whatever the class, and will transform it into data that can be converted, either to json or XML. Those visitors are registered as services, and tagged with `ezpublish_rest.output.value_object_visitor`. The tag attribute says which class this Visitor applies to.
+A ValueObjectVisitor will take a Value returned by a REST controller, whatever the class, and will transform it into data that can be converted, either to json or XML. Those visitors are registered as services, and tagged with `ezpublish_rest.output.value_object_visitor`. The tag attribute says which class this Visitor applies to.
 
 Let's create the service for our ValueObjectVisitor first.
 
@@ -124,12 +124,12 @@ services:
             - { name: ezpublish_rest.output.value_object_visitor, type: My\Bundle\RestBundle\Rest\Values\Hello }
 ```
 
-Let's create our visitor next. It must extend the  `eZ\Publish\Core\REST\Common\Output\ValueObjectVisitor` abstract class, and implement the `visit()` method.
+Let's create our visitor next. It must extend the  `eZ\Publish\Core\REST\Common\Output\ValueObjectVisitor` abstract class, and implement the `visit()` method.
 It will receive as arguments:
 
--   `$visitor`: The output visitor. Can be used to set custom response headers ( `setHeader( $name, $value )`), HTTP status code ( `setStatus( $statusCode )` )...
+-   `$visitor`: The output visitor. Can be used to set custom response headers ( `setHeader( $name, $value )`), HTTP status code ( `setStatus( $statusCode )` )...
 -   `$generator`: The actual Response generator. It provides you with a DOM like API.
--   `$data`: the visited data, the exact object you returned from the controller 
+-   `$data`: the visited data, the exact object you returned from the controller
 
 **My/Bundle/RestBundle/Rest/Controller/Default.php**
 
@@ -150,11 +150,7 @@ class Hello extends ValueObjectVisitor
 }
 ```
 
-Do not hesitate to look into the built-in ValueObjectVisitors, in `eZ/Publish/Core/REST/Server/Output/ValueObjectVisitor`, for more examples.
-
-### Cache handling
-
-The easiest way to handle cache is to re-use the `CachedValue` Value Object. It acts as a proxy, and adds the cache headers, depending on the configuration, for a given object and set of options.
+The easiest way to handle cache is to re-use the `CachedValue` Value Object. It acts as a proxy, and adds the cache headers, depending on the configuration, for a given object and set of options.
 
 When you want the response to be cached, return an instance of CachedValue, with your Value Object as the argument. You can also pass a location id using the second argument, so that the Response is tagged with it:
 
@@ -164,7 +160,7 @@ return new CachedValue($helloValue, ['locationId', 42]);
 
 ## Input parser
 
-What we have seen above covers requests that don't require an input payload, such as GET or DELETE. If you need to provide your controller with parameters, either in JSON or XML, the parameter struct requires an Input Parser so that the payload can be converted to an actual ValueObject.
+What we have seen above covers requests that don't require an input payload, such as GET or DELETE. If you need to provide your controller with parameters, either in JSON or XML, the parameter struct requires an Input Parser so that the payload can be converted to an actual ValueObject.
 
 Each payload is dispatched to its Input Parser based on the request's Content-Type header. For example, a request with a Content-Type of `application/vnd.ez.api.ContentCreate` will be parsed by `eZ\Publish\Core\REST\Server\Input\Parser\ContentCreate`. This parser will build and return a `ContentCreateStruct` that can then be used to create content with the Public API.
 
@@ -196,7 +192,7 @@ services:
 
 The mediaType attribute of the ezpublish\_rest.input.parser tag maps our Content Type to the input parser.
 
-Let's implement our parser. It must extend eZ\\Publish\\Core\\REST\\Server\\Input\\Parser, and implement the `parse()` method. It accepts as an argument the input payload, `$data`, as an array, and an instance of `ParsingDispatcher` that can be used to forward parsing of embedded content.
+Let's implement our parser. It must extend eZ\\Publish\\Core\\REST\\Server\\Input\\Parser, and implement the `parse()` method. It accepts as an argument the input payload, `$data`, as an array, and an instance of `ParsingDispatcher` that can be used to forward parsing of embedded content.
 
 For convenience, we will consider that our input parser returns an instance of our `Value\Hello` class.
 
@@ -204,7 +200,7 @@ For convenience, we will consider that our input parser returns an instance of o
 
 ``` php
 namespace My\Bundle\RestBundle\Rest\InputParser;
- 
+
 use eZ\Publish\Core\REST\Common\Input\BaseParser;
 use eZ\Publish\Core\REST\Common\Input\ParsingDispatcher;
 use My\Bundle\RestBundle\Rest\Value\Hello;
@@ -213,12 +209,12 @@ use eZ\Publish\Core\REST\Common\Exceptions;
 
 class Greetings extends BaseParser
 {
-    /**
+    /**
      * @return My\Bundle\RestBundle\Rest\Value\Hello
      */
     public function parse( array $data, ParsingDispatcher $parsingDispatcher )
     {
-        // re-using the REST exceptions will make sure that those already have a ValueObjectVisitor
+        // re-using the REST exceptions will make sure that those already have a ValueObjectVisitor
         if ( !isset( $data['name'] ) )
             throw new Exceptions\Parser( "Missing or invalid 'name' element for Greetings." );
 
@@ -239,7 +235,7 @@ services:
 
 Do not hesitate to look into the built-in InputParsers, in `eZ/Publish/Core/REST/Server/Input/Parser`, for more examples.
 
- 
+
 
 ## Registering resources in the REST root
 
@@ -259,13 +255,13 @@ ez_publish_rest:
 
 with `someresource` being a unique key.
 
- 
+
 
 The `router.generate` call dynamically renders a URI based on the name of the route and the optional parameters that are passed as the other arguments (in the code above this is the `contentId`).
 
 This syntax is based on [Symfony's expression language](http://symfony.com/doc/current/components/expression_language/index.html), an extensible component that allows limited / readable scripting to be used outside code context.
 
- 
+
 
 The above configuration will add the following entry to the root resource:
 

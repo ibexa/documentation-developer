@@ -1,4 +1,6 @@
-# About Composer
+# Using Composer
+
+## About Composer
 
 Keeping your system up-to-date is important to make sure it is running optimally and securely. The update mechanism in eZ software is using the *de facto* standard PHP packaging system called [Composer](https://getcomposer.org/). 
 
@@ -8,7 +10,7 @@ This makes it easy to adapt package installs and updates to your workflow, allow
 
     This makes it easy to adapt package installs and updates to your workflow, allowing you to test new/updated packages in a development environment, put the changes in your version control system (git, Subversion, Mercurial, etc.), pull in those changes on a staging environment and, when approved, put it in production.
 
-## Installing Composer
+### Installing Composer
 
 Composer is a command-line tool, so the main way to install it is via command line from inside the root directory of the (eZ) software:
 
@@ -20,7 +22,7 @@ php -r "readfile('https://getcomposer.org/installer');" | php
 
 By doing it this way you will need to execute further Composer commands using `php composer.phar`. If you'd rather prefer to install Composer globally on your machine instead of inside each and every project that uses it, then follow [these instructions in online Composer documentation](https://getcomposer.org/doc/00-intro.md#globally).
 
-## Prerequisite to using composer with eZ Enterprise software
+### Prerequisite to using composer with eZ Enterprise software
 
 **This section describes features available only in eZ Enterprise.**
 
@@ -47,7 +49,7 @@ Support agreement expiry
 
 If your Support agreement expires, your authentication token(s) will no longer work. They will become active again if the agreement is renewed, but this process may take up to 24 hours. (If the agreement is renewed before the expiry date, there will be no disruption of service.)
 
-#### Optional: Save authentication information in auth.json to avoid repeatedly typing it
+### Optional: Save authentication information in auth.json to avoid repeatedly typing it
 
 Composer will ask to do this for you on updates, however if it is disabled, you can create an `auth.json` file manually in one of the following ways:
 
@@ -63,7 +65,7 @@ composer config http-basic.updates.ez.no <installation-key> <token-password>
 composer config --global http-basic.updates.ez.no <installation-key> <token-password>
 ```
 
-## Update workflow Using Composer
+### Update workflow Using Composer
 
 This section describes the best practice for using Composer, essentially it suggests treating updates like other code/configuration/\* changes on your project, tackling them on a development machine before staging them for rollout on staging/production.  
 
@@ -109,7 +111,7 @@ php -d memory_limit=-1 composer.phar install --no-dev --prefer-dist
 
     Here the importance of `composer.lock` comes in, as this command will tell Composer to install packages in exactly the same version as defined in this file. If you don't keep track of `composer.lock`, it will instead just install always the latest version of a package and won't allow you to stage updates before moving towards production.
 
-## General notes on use of Composer
+### General notes on use of Composer
 
 ### Installing additional packages via Composer
 

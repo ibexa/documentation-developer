@@ -1,18 +1,7 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [Releases](Releases_31429534.html)
-4.  [Release Notes](Release-Notes_32867905.html)
+# eZ Platform and eZ Enterprise v1.6.0
 
-# eZ Platform and eZ Enterprise v1.6.0 
-
-Created by Roland Benedetti, last modified by Dominika Kurek on Jan 30, 2017
 
 **The 1.6.0 release of eZ Platform and Enterprise is available as of October 27th 2016.**
-
--   [Notable changes since v1.5.0](#eZPlatformandeZEnterprisev1.6.0-Notablechangessincev1.5.0)
-    -   [eZ Platform](#eZPlatformandeZEnterprisev1.6.0-eZPlatform)
-    -   [eZ Enterprise](#eZPlatformandeZEnterprisev1.6.0-eZEnterprise)
--   [Full list of new features, improvements and bug fixes since v1.5.0](#eZPlatformandeZEnterprisev1.6.0-Fulllistofnewfeatures,improvementsandbugfixessincev1.5.0)
 
 # Notable changes since v1.5.0
 
@@ -22,22 +11,22 @@ The eZ Platform User Interface has been improved in many ways during this releas
 
 -   Visual preview of the selected item in the UDW, as a first step in the revamp of the UDW finder. See [EZP-25793](https://jira.ez.no/browse/EZP-25793) to see what is planned for the feature further along the line.
 
-![Content preview in UDW](attachments/32867909/32868022.png)
+![Content preview in UDW](img/better_udw.png)
 
 -   [EZP-26240](https://jira.ez.no/browse/EZP-26240): Server side content validation errors will now be reflected in the UI if the app validation is removed, providing more details.
 -   [EZP-26191](https://jira.ez.no/browse/EZP-26191): Draft conflict screen on dashboard:
 
-![Draft conflict screen](attachments/32867909/32868024.png)
+![Draft conflict screen](img/draft_conflict_screen.png)
 
 -   [EZP-26004](https://jira.ez.no/browse/EZP-26004) & [EZP-26003](https://jira.ez.no/browse/EZP-26003): Search in PlatformUI:
 
-![Search in Platform UI](attachments/32867909/32868025.png)
+![Search in Platform UI](img/search.png)
 
 Minor styling on different parts, stability on session and error management making the user interface feel more stable.
 
 For developers there were also one such styling change, eZ logo now better matches the Symfony 2.8 web debug toolbar:
 
-![](attachments/32867909/32868320.png)
+![](img/dev_mode.png)
 
  
 
@@ -65,53 +54,35 @@ Beyond eZ Platform and eZ Studio, each release is built and shipped together wit
 
 -   Selective rendering of "premium" content for registered end users only. Content is either rendered in full when the end user belongs to the "Members" group, or only as a teaser with a Register button:
 
-![Premium content](attachments/32867909/32868026.png)
+![Premium content](img/premium_content.png)
 
 -   Registering new users based on the new UGC framework introduced in v1.5.0. It is accessible through the `/register` route:
 
-![Registration form](attachments/32867909/32868027.png)
+![Registration form](img/register.png)
 
 -   Authentication
 -   Revamp and improvement of the integration of the Recommendation bundle:
 
-![Recommended articles in Studio Demo](attachments/32867909/32868028.png)
+![Recommended articles in Studio Demo](img/recommended_articles.png)
 
 Other bugs have been fixed in the demo bundle data.
 
 # Full list of new features, improvements and bug fixes since v1.5.0
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><h3 id="eZPlatformandeZEnterprisev1.6.0-eZPlatform.1">eZ Platform</h3></th>
-<th><h3 id="eZPlatformandeZEnterprisev1.6.0-eZStudio">eZ Studio</h3></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><a href="https://github.com/ezsystems/ezplatform/releases/tag/v1.6.0" class="external-link">List of changes for final of eZ Platform v1.6.0 on Github</a></td>
-<td><a href="https://github.com/ezsystems/ezstudio/releases/tag/v1.6.0" class="external-link">List of changes for final of eZ Studio v1.6.0 on Github</a></td>
-</tr>
-<tr class="even">
-<td><a href="https://github.com/ezsystems/ezplatform/releases/tag/v1.6.0-rc1" class="external-link">List of changes for rc1 of eZ Platform v1.6.0 on Github</a></td>
-<td><a href="https://github.com/ezsystems/ezstudio/releases/tag/v1.6.0-rc1" class="external-link">List of changes for rc1 for eZ Studio v1.6.0 on Github</a></td>
-</tr>
-<tr class="odd">
-<td><a href="https://github.com/ezsystems/ezplatform/releases/tag/v1.6.0-beta1" class="external-link">List of changes for beta1 of eZ Platform v1.6.0 on Github</a></td>
-<td><a href="https://github.com/ezsystems/ezstudio/releases/tag/v1.6.0-beta1" class="external-link">List of changes for beta1 of eZ Studio v1.6.0 on Github</a></td>
-</tr>
-</tbody>
-</table>
+
+| eZ Platform  | eZ Studio   |
+|--------------|-------------|
+| [List of changes for final of eZ Platform v1.6.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.6.0)         | [List of changes for final of eZ Studio v1.6.0 on Github](https://github.com/ezsystems/ezstudio/releases/tag/v1.6.0)        |
+| [List of changes for rc1 of eZ Platform v1.6.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.6.0-rc1)         | [List of changes for rc1 for eZ Studio v1.6.0 on Github](https://github.com/ezsystems/ezstudio/releases/tag/v1.6.0-rc1)        |
+| [List of changes for beta1 of eZ Platform v1.6.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.6.0-beta1)         | [List of changes for beta1 of eZ Studio v1.6.0 on Github](https://github.com/ezsystems/ezstudio/releases/tag/v1.6.0-beta1)        |
+
+
 
 ### Installation
 
-[Installation Guide](https://doc.ez.no/display/DEVELOPER/Step+1%3A+Installation)
+[Installation Guide](../getting_started/install_ez_platform.md)
 
-[Technical Requirements](31429536.html)
+[Technical Requirements](../getting_started/requirements_and_system_configuration.md)
 
 ### Download
 
@@ -135,22 +106,6 @@ If you would like to request an eZ Enterprise Demo instance: <http://ez.no/Forms
 
 ### Updating
 
-**eZ Platform**: To update to this version, follow the [Updating eZ Platform](https://doc.ez.no/display/DEVELOPER/Updating+eZ+Platform) guide and use v1.6.0 as `<version>`.
+**eZ Platform**: To update to this version, follow the [Updating eZ Platform](../releases/updating_ez_platform.md) guide and use v1.6.0 as `<version>`.
 
  
-
-## Attachments:
-
-![](images/icons/bullet_blue.gif) [better\_udw.png](attachments/32867909/32868022.png) (image/png)
-![](images/icons/bullet_blue.gif) [draft\_conflict\_screen.png](attachments/32867909/32868024.png) (image/png)
-![](images/icons/bullet_blue.gif) [search.png](attachments/32867909/32868025.png) (image/png)
-![](images/icons/bullet_blue.gif) [premium\_content.png](attachments/32867909/32868026.png) (image/png)
-![](images/icons/bullet_blue.gif) [register.png](attachments/32867909/32868027.png) (image/png)
-![](images/icons/bullet_blue.gif) [recommended\_articles.png](attachments/32867909/32868028.png) (image/png)
-![](images/icons/bullet_blue.gif) [eZ Platform 1.6.0 in dev mode.png](attachments/32867909/32868320.png) (image/png)
-
-
-
-
-
-

@@ -1,21 +1,14 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [Releases](Releases_31429534.html)
-4.  [Release Notes](Release-Notes_32867905.html)
-5.  [eZ Enterprise Release notes](eZ-Enterprise-Release-notes_31430108.html)
+# eZ Enterprise v1.5.0 Release notes
 
-# eZ Enterprise v1.5.0 Release notes 
-
-Created by Dominika Kurek, last modified on Jan 30, 2017
 
 The v1.5.0 release of eZ Studio is available as of 1st of September 2016.
 
-For the release notes of the corresponding *(and included)* eZ Platform release, see [eZ Platform v1.5.0 Release notes](eZ-Platform-v1.5.0-Release-notes_32114891.html)
+For the release notes of the corresponding *(and included)* eZ Platform release, see [eZ Platform v1.5.0 Release notes](../releases/ez_platform_v1.5.0_release_notes.md)
 
 ## Quick links
 
--   [Installation instructions](31429538.html)
--   [Requirements](31429536.html)
+-   [Installation instructions](../getting_started/install_ez_platform.md)
+-   [Requirements](../getting_started/requirements_and_system_configuration.md)
 -   Download:
 
     -   As Customer with eZ Enterprise subscription: <https://support.ez.no/Downloads>*([BUL](http://ez.no/About-our-Software/Licenses-and-agreements/eZ-Business-Use-License-Agreement-eZ-BUL-Version-2.1?return=/About-our-Software/Licenses-and-agreements/eZ-Business-Use-License-Agreement-eZ-BUL-Version-2.1?processed=1457699707&return=%2FAbout-our-Software%2FLicenses-and-agreements%2FeZ-Business-Use-License-Agreement-eZ-BUL-Version-2.1?return=%2FAbout-our-Software%2FLicenses-and-agreements%2FeZ-Business-Use-License-Agreement-eZ-BUL-Version-2.1) License)*
@@ -94,19 +87,4 @@ Major changes in this release centered around [Landing Page improvements](https:
 
 ## Updating
 
-To update to this version, follow the [Updating eZ Platform](Updating-eZ-Platform_31431770.html) guide and use `v1.5.0` as `<version>`.
-
-#### In this topic:
-
--   [Quick links](#eZEnterprisev1.5.0Releasenotes-Quicklinks)
--   [Changes since v1.4.0](#eZEnterprisev1.5.0Releasenotes-Changessincev1.4.0)
-    -   [Summary of changes](#eZEnterprisev1.5.0Releasenotes-Summaryofchanges)
-    -   [Full list of improvements](#eZEnterprisev1.5.0Releasenotes-Fulllistofimprovements)
-    -   [Full list of bugfixes](#eZEnterprisev1.5.0Releasenotes-Fulllistofbugfixes)
--   [Updating](#eZEnterprisev1.5.0Releasenotes-Updating)
-
-
-
-
-
-
+To update to this version, follow the [Updating eZ Platform](../releases/updating_ez_platform.md) guide and use `v1.5.0` as `<version>`.

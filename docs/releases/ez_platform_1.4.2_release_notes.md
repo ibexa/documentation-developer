@@ -1,21 +1,13 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [Releases](Releases_31429534.html)
-4.  [Release Notes](Release-Notes_32867905.html)
-5.  [eZ Platform Release notes](eZ-Platform-Release-notes_31429935.html)
-6.  [eZ Platform v1.4.0 Release notes](eZ-Platform-v1.4.0-Release-notes_32113421.html)
+# eZ Platform 1.4.2 Release Notes
 
-# eZ Platform 1.4.2 Release Notes 
-
-Created by Sarah Haïm-Lubczanski, last modified on Sep 23, 2016
 
 ###### September 20th 2016
 
 eZ announces the availability of 1.4.2, a maintenance release available for all users of eZ Platform 1.4.0.
 
-Follow the [eZ Platform Update Instructions](Updating-eZ-Platform_31431770.html) to apply this update to your platforms.
+Follow the [eZ Platform Update Instructions](../releases/updating_ez_platform.md) to apply this update to your platforms.
 
-# Package Details
+
 
 ## Package updates
 
@@ -58,13 +50,3 @@ Here are the ezsystems packages that have received an update as part of this rel
 | [EZP-26228](https://jira.ez.no/browse/EZP-26228?src=confmacro) | [Delete content breaks content listing](https://jira.ez.no/browse/EZP-26228?src=confmacro)                                                                | [![Bug](https://jira.ez.no/images/icons/issuetypes/bug.png)](https://jira.ez.no/browse/EZP-26228?src=confmacro) | Aug 31, 2016 | Sep 08, 2016 |
 
  [20 issues](https://jira.ez.no/secure/IssueNavigator.jspa?reset=true&jqlQuery=project%3DEZP+AND+fixVersion+in+%28+%221.4.2%22+%29+ORDER+BY+issuetype+DESC%2C+key+ASC+++++++++++++&src=confmacro "View all matching issues in JIRA.")
-
-## Attachments:
-
-![](images/icons/bullet_blue.gif) [Getting-Started-with-eZ-Publish-Platform.jpg](attachments/32866909/32866908.jpg) (image/jpeg)
-
-
-
-
-
-

@@ -1,21 +1,15 @@
-1.  [Developer](index.html)
-2.  [Documentation](Documentation_31429504.html)
-3.  [Releases](Releases_31429534.html)
-4.  [Release Notes](Release-Notes_32867905.html)
-5.  [eZ Platform Release notes](eZ-Platform-Release-notes_31429935.html)
-6.  [eZ Platform 15.12 Release notes](eZ-Platform-15.12-Release-notes_31430093.html)
 
-# eZ Platform 15.12.1 Release Notes 
 
-Created by Dominika Kurek, last modified by David Christian Liedle on Oct 31, 2016
+# eZ Platform 15.12.1 Release Notes
 
-The first sub-release of [eZ Platform 15.12](eZ-Platform-15.12-Release-notes_31430093.html) is now available for update.
 
-For the release notes of the corresponding eZ Studio sub-release, see [eZ Studio 15.12.1 Release Notes](eZ-Studio-15.12.1-Release-notes_31430124.html).
+The first sub-release of [eZ Platform 15.12](../releases/ez_platform-15.12_release-notes.md) is now available for update.
+
+For the release notes of the corresponding eZ Studio sub-release, see [eZ Studio 15.12.1 Release Notes](../releases/ez_studio_15.12.1_Release_notes.md).
 
 ## Changes since 15.12
 
-As already deprecated on [requirements](https://doc.ez.no/pages/viewpage.action?pageId=31429536) page, this release **does not support PHP 5.4** any longer.
+As already deprecated on [requirements](../getting_started/requirements_and_system_configuration.md) page, this release **does not support PHP 5.4** any longer.
 
 For list of issues fixed in 15.12.1 see [13 issues](https://jira.ez.no/secure/IssueNavigator.jspa?reset=true&jqlQuery=fixVersion+in+%28%222015.12.1%22%29+AND+project+%3D+EZP+AND+issuetype+in+%28Story%2C+Improvement%2C+Bug%29+order+by+issuetype+++++&src=confmacro) , below is a list of notable bugs/features/enhancements done in the release. 
 
@@ -25,12 +19,12 @@ For list of issues fixed in 15.12.1 see [13 issues](https://jira.ez.no/secure/Is
 -   PHP Internal web server "works", further fixes in 16.02 to make it tested and supported for dev use.
 -   Installers don't write to config anymore, only folders mentioned in directory permissions are written to.
 -   Info on where to find [demo install](https://github.com/ezsystems/ezplatform-demo) of eZ Platform added.
--   Several improvements done on [doc.ez.no](http://doc.ez.no) and specifically [doc.ez.no/display/TECHDOC](http://doc.ez.no/display/TECHDOC).
+
 
 ### Kernel
 
 -   \[API\] Fix publishing to only update modified time, leaving published time to be time of first publish like in legacy
--   \[Twig\] New **ez\_field** function, unlike **ez\_field\_value**  returns whole Field - find more information [here.](Content-Rendering_31429679.html)
+-   \[Twig\] New **ez\_field** function, unlike **ez\_field\_value**  returns whole Field - find more information [here.](../guide/content_rendering.md)
 -    [![](https://jira.ez.no/images/icons/issuetypes/bug.png)EZP-24467](https://jira.ez.no/browse/EZP-24467?src=confmacro) - \[API\] When moving an object to an hidden container, the moved object doesn't have the hidden by superior status Closed
 -    [![](https://jira.ez.no/images/icons/issuetypes/bug.png)EZP-25366](https://jira.ez.no/browse/EZP-25366?src=confmacro) - Kernel issue: By doing a subtree copy with subitems using ObjectRelation, the Relation is broken on the copy until you republish it. Closed
 
@@ -38,9 +32,9 @@ For list of issues fixed in 15.12.1 see [13 issues](https://jira.ez.no/secure/Is
 
 -   Improvements to policy & limitation handling, more coming in 16.02
 -   Display language names instead of language code
--   API doc js-rest-client: <http://ezsystems.github.io/javascript-rest-client/>
--   API doc Platform UI: <http://ezsystems.github.io/platformui-javascript-api/>
--   Tutorials for extending UI: <https://doc.ez.no/display/TECHDOC/Extending+Tutorials>
+-   [API doc js-rest-client](http://ezsystems.github.io/javascript-rest-client/)
+-   [API doc Platform UI](http://ezsystems.github.io/platformui-javascript-api/)
+-   [Tutorials for extending UI](../guide/extending_ez_platform_ui.md)
 
 ### New projects in work for future releases
 
@@ -70,7 +64,7 @@ Existing 15.12 (1.0) projects can also easily be updated using Composer. From th
 
 **From your master branch**
 
-``` brush:
+``` bash
 git checkout -b upgrade-1.1.0
 ```
 
@@ -78,7 +72,7 @@ If it's not there, add ezsystems/ezplatform as an upstream remote:
 
 **From the upgrade-1.1.0 branch**
 
-``` brush:
+``` bash
 git remote add ezplatform http://github.com/ezsystems/ezplatform.git
 ```
 
@@ -86,7 +80,7 @@ Then pull the tag into your branch:
 
 **From the upgrade-1.1.0 branch**
 
-``` brush:
+``` bash
 git pull ezplatform v1.1.0
 ```
 
@@ -98,7 +92,7 @@ The latter can be ignored, as it will be regenerated when we execute composer up
 
 **From the upgrade-1.1.0 branch**
 
-``` brush:
+``` bash
 git checkout --theirs composer.lock && git add composer.lock
 ```
 
@@ -112,13 +106,13 @@ Conflicts in `composer.json` need to be fixed manually. If you're not familiar 
 
 **From the upgrade-1.1.0 branch**
 
-``` brush:
+``` bash
 git checkout --theirs composer.json && git diff composer.json
 ```
 
 You should see what was changed, as compared to your own version, in the diff output. The 1.1.0-rc1 tag changes the requirements for all of the `ezsystems/` packages. Those should be left untouched. All of the other changes should be removals of your project's additions. You can use `git checkout -p` to selectively cancel those changes:
 
-``` brush:
+``` bash
 git checkout -p composer.json
 ```
 
@@ -128,7 +122,7 @@ Answer `no` (do not discard) to the requirement changes of `ezsystems` depend
 
 You may also checkout your own `composer.json`, and run the following commands to update the `ezsystems` packages requirements from v1.0.x to v1.1.0:
 
-``` brush:
+``` bash
 git checkout --ours composer.json
 composer require --no-update "ezsystems/ezpublish-kernel:~6.1.0"
 composer require --no-update "ezsystems/platform-ui-bundle:~1.1.0"
@@ -157,7 +151,7 @@ There shouldn't be many, and you should be able to figure out which value is the
 
 At this point, you should have a composer.json file with the correct requirements. Run `composer update` to update the dependencies. 
 
-``` brush:
+``` bash
 composer update --with-dependencies ezsystems/ezpublish-kernel ezsystems/platform-ui-bundle ezsystems/behatbundle
 ```
 
@@ -171,13 +165,7 @@ Because from this release onwards eZ Platform is compatible only with PHP 5.5 an
 
 Once all the conflicts have been resolved, and `composer.lock` updated, the merge can be committed. Note that you may or may not keep `composer.lock`, depending on your version management workflow. If you do not wish to keep it, run `git reset HEAD <file>` to remove it from the changes. Run `git commit`, and adapt the message if necessary. You can now test the project, run integration tests... once the upgrade has been approved, go back to `master`, and merge the `upgrade-1.1.0` branch:
 
-``` brush:
+``` bash
 git checkout master
 git merge upgrade-1.1.0
 ```
-
-
-
-
-
-

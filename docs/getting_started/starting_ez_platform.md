@@ -20,13 +20,13 @@ and also configuration files for
 In addition to that, you have a Bash script for generating a virtual host configuration based on template, containing variables among the once define below.
 For help text, execute: `./bin/vhost.sh -h`
 
-#### Help
+### Help
 
 ``` bash
 ./bin/vhost.sh [-h|--help]
 ```
 
-#### Usage
+### Usage
 
 ``` bash
 $> ./bin/vhost.sh --basedir=/var/www/ezplatform \\
