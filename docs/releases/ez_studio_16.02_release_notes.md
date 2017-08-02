@@ -3,14 +3,14 @@
 # eZ Studio 16.02 Release notes
 
 
-The 16.02 *(v1.2.0)* release of eZ Studio is available as of March 3rd, and includes all features and improvements of [15.12.1](../releases/ez_platform_15.12.1_release_notes.md) from February 5th.
+The 16.02 *(v1.2.0)* release of eZ Studio is available as of March 3rd, and includes all features and improvements of [15.12.1](ez_platform_15.12.1_release_notes.md) from February 5th.
 
-For the release notes of the corresponding *(and included)* eZ Platform release, see [eZ Platform 16.02 Release notes](../releases/ez_platform_16.02_release_notes.md).
+For the release notes of the corresponding *(and included)* eZ Platform release, see [eZ Platform 16.02 Release notes](ez_platform_16.02_release_notes.md).
 
-## Quick links
+### Quick links
 
 -   [Installation instructions](https://github.com/ezsystems/ezplatform/blob/v15.05/INSTALL.md)
--   [Requirements](../releases/requirements_and_system_configuration.md)
+-   [Requirements](requirements_and_system_configuration.md)
 -   Download:
 
     -   As Customer with eZ Enterprise subscription: <https://support.ez.no/Downloads> *([BUL](http://ez.no/About-our-Software/Licenses-and-agreements/eZ-Business-Use-License-Agreement-eZ-BUL-Version-2.1?return=/About-our-Software/Licenses-and-agreements/eZ-Business-Use-License-Agreement-eZ-BUL-Version-2.1?processed=1457699707&return=%2FAbout-our-Software%2FLicenses-and-agreements%2FeZ-Business-Use-License-Agreement-eZ-BUL-Version-2.1?return=%2FAbout-our-Software%2FLicenses-and-agreements%2FeZ-Business-Use-License-Agreement-eZ-BUL-Version-2.1) License)*

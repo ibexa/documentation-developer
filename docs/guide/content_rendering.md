@@ -57,13 +57,13 @@ ezpublish:
 
     In this case the repository will throw an exception, which is caught in the `ViewController`, and *if* you are using LegacyBridge it will end up doing a [**fallback to legacy kernel**](https://doc.ez.no/display/EZP/Legacy+template+fallback).
 
-    The list of Field Types supported out of the box [is available here](Field-Types-reference_31430495.html).
+    The list of Field Types supported out of the box [is available here](field-types-reference.md).
 
 !!! tip
 
-    You can define your template selection rules in a different configuration file. [Read the cookbook recipe to learn more about it](Importing-settings-from-a-bundle_31429803.html) .
+    You can define your template selection rules in a different configuration file. [Read the cookbook recipe to learn more about it](../cookbook/importing_settings_from_a_bundle.md).
 
-    You can also [use your own custom controller to render a content/location](#ContentRendering-Customcontrollers) .
+    You can also [use your own custom controller to render a content/location](#custom-controllers) .
 
 ##### Deprecated `location_view`
 
@@ -286,7 +286,7 @@ In order to display the Fields' value the way you want, you can either manipulat
 
 ##### Getting raw Field value
 
-Having access to the Content item in the template, you can use [its public methods](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Repository/Values/Content/Content.php) to access all the information you need. You can also use the **ez\_field\_value** helper to get the [field's value only](#ez-field-value). It will return the correct language if there are several, based on language priorities.
+Having access to the Content item in the template, you can use [its public methods](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Repository/Values/Content/Content.php) to access all the information you need. You can also use the **ez\_field\_value** helper to get the [field's value only](#ez95field95value). It will return the correct language if there are several, based on language priorities.
 
 ``` html
 {# With the following, myFieldValue will be in the Content item's main language #}
@@ -305,7 +305,7 @@ All built-in Field Types come with [their own Twig template](https://github.com/
 {{ ez_render_field( content, 'some_field_identifier' ) }}
 ```
 
-Refer to [ez\_render\_field](#ez-render-field) for further information.
+Refer to [ez\_render\_field](#ez95render95field) for further information.
 
 !!! tip
 
@@ -358,7 +358,7 @@ You can also **force a locale** in a second argument:
 
 ##### Exposing additional variables
 
-It is possible to expose additional variables in a content view template. See [parameters injection in content views](Injecting-parameters-in-content-views_31430331.html).
+It is possible to expose additional variables in a content view template. See [parameters injection in content views](../cookbook/injecting_parameters_in_content_views.md).
 
 ### Embedding images
 
@@ -1291,7 +1291,7 @@ If the current language cannot be found as a translation for content, the main l
 
 `ez_field_value()` is a Twig helper which returns a Content item's field value in the current language.
 
-This can be useful when you don't want to use [ez\_render\_field](#ez-render-field)  and manage the rendering by yourself.
+This can be useful when you don't want to use [ez\_render\_field](#ez95render95field)  and manage the rendering by yourself.
 
 !!! note
 

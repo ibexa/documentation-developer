@@ -1086,7 +1086,7 @@ In the `section/assign` Policy you can combine this with `SectionLimitation` to 
 |------|------|------|
 |`<Session_id>`|`<Session_name>`|All valid section ids can be set as value(s)|
 
-## ObjectStateLimitation
+#### ObjectStateLimitation
 
 A Limitation to specify if the User has access to Content with a specific ObjectState.
 

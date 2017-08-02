@@ -1,11 +1,11 @@
 # eZ Platform 1.4.2 Release Notes
 
 
-###### September 20th 2016
+**September 20th 2016**
 
 eZ announces the availability of 1.4.2, a maintenance release available for all users of eZ Platform 1.4.0.
 
-Follow the [eZ Platform Update Instructions](../releases/updating_ez_platform.md) to apply this update to your platforms.
+Follow the [eZ Platform Update Instructions](updating_ez_platform.md) to apply this update to your platforms.
 
 
 

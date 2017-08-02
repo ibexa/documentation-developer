@@ -1,6 +1,6 @@
-# Using Composer
+# About Composer
 
-## About Composer
+## Using Composer
 
 Keeping your system up-to-date is important to make sure it is running optimally and securely. The update mechanism in eZ software is using the *de facto* standard PHP packaging system called [Composer](https://getcomposer.org/). 
 

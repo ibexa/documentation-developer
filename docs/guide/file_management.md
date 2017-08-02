@@ -4,7 +4,7 @@
 
 eZ Platform supports multiple binary file handling mechanisms by means of an `IOHandler` interface. This feature is used by the [BinaryFile](field_type_reference.md#binaryfield-field-type), [Media](field_type_reference.md#media-field-type) and [Image](field_type_reference.md#image-field-type) Field Types.
 
-## Native IO handler
+### Native IO handler
 
 The IO API is organized around two types of handlers:
 

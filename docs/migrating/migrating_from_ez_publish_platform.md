@@ -30,7 +30,7 @@ eZ Publish Platform introduced a new Symfony-based technology stack that could b
 
 This section describes how to upgrade your existing  eZ Publish Platform  5.4/2014.11 installation to eZ Platform and eZ Enterprise. Make sure that you have a working backup of the site before you do the actual upgrade, and that the installation you are performing the upgrade on is offline.
 
-## Note on Paths
+### Note on Paths
 
 - `<old-ez-root>/`: The root directory where the 5.4/2014.11 installation is located in, for example: `/home/myuser/old_www/` or `/var/sites/ezp/`.
 - `<new-ez-root>/`: The root directory where the installation is located in, for example: `/home/myuser/new_www/` or `/var/sites/[ezplatform|ezplatform-ee]/`.

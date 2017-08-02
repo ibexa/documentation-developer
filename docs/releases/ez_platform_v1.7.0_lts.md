@@ -14,9 +14,9 @@ As of v1.7.0, PHP requirements have been updated to remove PHP 5.5, leaving PHP 
 With the LTS release, the [new product naming](http://ez.no/Blog/eZ-Announces-Name-Changes-to-Product-Portfolio) takes effect: "eZ Platform" for the Open Source edition, and "eZ Platform Enterprise Edition" for subscribers.
 
 
-# Notable Changes Since v1.6.0
+## Notable Changes Since v1.6.0
 
-## eZ Platform (Open Source)
+### eZ Platform (Open Source)
 
 -   **i18n! Internationalization of the eZ Platform** User Interface is now possible. The new system selects the language to use based on the browser settings of the end user. The system makes it possible to create translations for eZ Platform UI. Studio internationalization, as well as translations ready to use will be shipped in further releases. Community members are more than welcome to contribute to the translation process.
     ![](img/i18n.png)
@@ -40,7 +40,7 @@ With the LTS release, the [new product naming](http://ez.no/Blog/eZ-Announces-Na
 -   Search:
     -   Solr Search Engine: Plugins, extend the Solr index with custom data on Content, Translation and Location block level ([EZP-26368](https://jira.ez.no/browse/EZP-26368))
         -   For when you need to extend the index with additional data not applicable for FieldType custom fields feature
-        -   *[See Solr Bundle documentation for more info ](Solr-Bundle_31430592.html)*
+        -   *[See Solr Bundle documentation for more info ](../guide/search.md#solr-bundle)*
     -   Solr Search Engine: Support for FieldRelation on location search ([EZP-26756](http://jira.ez.no/browse/EZP-26756))
     -   Legacy Search Engine: Improve word boundaries detection ([EZP-26499](http://jira.ez.no/browse/EZP-26499))
     -   ezplatform:reindex added, a generic command for reindexing search index on the SiteAccess configured search engine ([EZP-26098](http://jira.ez.no/browse/EZP-26098))
@@ -59,9 +59,9 @@ With the LTS release, the [new product naming](http://ez.no/Blog/eZ-Announces-Na
 
  
 
-*For more fixes and improvements scroll down for full change log. *
+*For more fixes and improvements scroll down for full change log.*
 
-## eZ Platform Enterprise Edition (with Studio)
+### eZ Platform Enterprise Edition (with Studio)
 
 -   You can now use our eZ Personalization service to create highly personalized landing pages. The Studio **Personalization Block** available out of the box lets the editor simply create a block that will render a list of content items personalized to each and every visitor. The interface lets the editor decide which of the Personalization scenarios configured in the eZ Personalization back end should be used, as well as the template to be used for rendering.
 
@@ -77,7 +77,7 @@ With the LTS release, the [new product naming](http://ez.no/Blog/eZ-Announces-Na
 
 Submitted results can be previewed in the UI or downloaded in a CSV file, and a designated person will be notified of submissions by email.
 
-## Updated Demo Sites
+### Updated Demo Sites
 
 The Enterprise demo site has been significantly improved featuring a new **Product Content Type** that is used to show products in the Tasteful Planet demo. The product we used are meals that, in a non-demo ideal world, would be available to order and consume. This ordering part is not in the demo, nevertheless, the content looks really yummy... Other improvements includes the good setup of all content type field categories and the demonstration of basic SEO field types. Demo content itself has also been upgraded with more content to better demonstrate the capabilities.
 
@@ -85,7 +85,7 @@ The Enterprise demo site has been significantly improved featuring a new **Produ
 
  
 
-# Full list of new features, improvements and bug fixes since v1.6.0:
+## Full list of new features, improvements and bug fixes since v1.6.0:
 
 
 
@@ -117,4 +117,4 @@ If you would like to request an Enterprise Demo instance: <http://ez.no/Forms/Di
 
 ### Updating
 
-**eZ Platform**: To update to this version, follow the [Updating eZ Platform](../releases/updating_ez_platform.md) guide and use v1.7.0 as `<version>`.
+**eZ Platform**: To update to this version, follow the [Updating eZ Platform](updating_ez_platform.md) guide and use v1.7.0 as `<version>`.

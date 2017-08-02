@@ -3,9 +3,9 @@
 
 The v1.4.0 release of eZ Platform is available as of 30 June 2016.
 
-For the release notes of the corresponding eZ Studio release, see [eZ Enterprise v1.4 Release notes](../releases/ez_enterprise_v1.4_release_notes.md).
+For the release notes of the corresponding eZ Studio release, see [eZ Enterprise v1.4 Release notes](ez_enterprise_v1.4_release_notes.md).
 
-## Quick links
+### Quick links
 
 -   [Installation instructions](../getting_started/install_ez_platform.md)
 -   [Requirements](../getting_started/requirements_and_system_configuration.md)
@@ -87,7 +87,7 @@ Further reading: [Docker Tools](../guide/docker_tools.md)
 
 ## Updating
 
-To update to this version, follow the [Updating eZ Platform](../releases/updating_ez_platform.md) guide and use v1.4.0 as `<version>`.
+To update to this version, follow the [Updating eZ Platform](updating_ez_platform.md) guide and use v1.4.0 as `<version>`.
 
  
 
@@ -106,5 +106,3 @@ To update to this version, follow the [Updating eZ Platform](../releases/updati
 | comments-bundle                     | 6.0.0         |
 | content-on-the-fly-prototype-bundle | 0.1.1         |
 | platform-ui-search-prototype-bundle | 0.1.3         |
-
-#

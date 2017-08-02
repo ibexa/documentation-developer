@@ -379,7 +379,7 @@ Next, you'll be asked to specify a database driver. You may press return to acce
 php -d memory_limit=-1 /var/www/ezplatform/app/console ezplatform:install --env prod clean
 ```
 
-Don't forget to substitute any custom folder name you may have chosen in place of `ezplatform/` after `/var/www/` in the examples above. As you can see, this example shows a clean production installation. We're telling PHP to run Symfony's console to execute the ezplatform install script. You can get an informative output to learn more about the console script's capabilities by swapping in these parameters: `           config:dump-reference ezpublish         `
+Don't forget to substitute any custom folder name you may have chosen in place of `ezplatform/` after `/var/www/` in the examples above. As you can see, this example shows a clean production installation. We're telling PHP to run Symfony's console to execute the ezplatform install script. You can get an informative output to learn more about the console script's capabilities by swapping in these parameters: `config:dump-reference ezpublish`
 
 If Composer asks you for your token, you must log in to your GitHub account and edit your profile. Go to the Personal access tokens link and Generate new token with default settings. Be aware that the token will be shown only once, so do not refresh the page until you paste the token into the Composer prompt. This operation is performed only once when you install eZ Platform for the first time.
 
