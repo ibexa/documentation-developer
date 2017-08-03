@@ -317,25 +317,6 @@ After this configuration is complete the Dashboard should display the new block.
 
 ## Extending the Landing Page (Enterprise)
 
-### Block templates
-
-EZ ENTERPRISE
-
-All Landing Page blocks, both those that come out of the box and [custom ones](../cookbook/creating_landing_page_blocks_(enterprise).md), can have multiple templates. This allows you to create different styles for each block and let the editor choose them when adding the block from the UI. The templates are defined in your configuration files like in the following example, with `simplelist` and `special` being the template names:
-
-``` yaml
-# app/config/block_templates.yml
-blocks:
-    contentlist:
-        views:
-            simplelist:
-                template: blocks/contentlist_simple.html.twig
-                name: Simple Content List
-            special:
-                template: blocks/contentlist_special.html.twig
-                name: Special Content List
-```
-
 ### Extending the Form Builder
 
 EZ ENTERPRISE

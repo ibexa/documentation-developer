@@ -292,9 +292,3 @@ For example, if you want to translate your application into French, you just hav
 and then clear the cache.
 
 Now you can reload your eZ Platform administration page which will be translated in French (if your browser is configured to fr\_FR.)
-
-##### In-context UI translation
-
-[Crowdin](http://crowdin.com) is the translation management system for eZ Platform. In addition, it integrates support for in-context translation, a feature that allows you to translate strings from the interface, *in context*.
-
-To learn how to contribute to a translation using Crowdin, see [Contributing translations](../community_resources/contributing.md#contributing-translations).
