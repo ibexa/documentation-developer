@@ -1433,7 +1433,6 @@ The template called by [the **ez\_render\_field()** Twig function](content_rende
 |`draggable`|`boolean`|`true`|Whether to enable draggable map|
 |`height`|`string|false`|`"200px"`|The height of the rendered map with its unit (for example "200px" or "20em"), set to false to not set any height style inline.|
 |`mapType`|`string`|`"ROADMAP"`|[One of the GMap types of map](https://developers.google.com/maps/documentation/javascript/maptypes#BasicMapTypes)|
-|`scrollWheel`|`boolean`|`true`|Allows you to disable scroll wheel starting to zoom when mouse comes over the map as user scrolls down a page.|
 |`showInfo`|`booolean`|`true`|Whether to show a latitude, longitude and the address outside of the map|
 |`showMap`|`boolean`|`true`|Whether to show a Google Map|
 |`width`|`string|false`|`"500px"`|The width of the rendered map with its unit (for example "500px" or "50em"), set to false to not set any width style inline.|
@@ -1443,22 +1442,6 @@ Example:
 
 ``` html
 {{ ez_render_field(content, 'location', {'parameters': {'width': '100%', 'height': '330px', 'showMap': true, 'showInfo': false}}) }}
-```
-
-#### Configuration
-
-| Config | Site Access/Group aware | Description |
-|--------|-------------------------|-------------|
-| api\_keys.google\_maps | yes | Google maps requires use of a API key for severing maps to web pages, this setting allows you to specify your personal [Google Maps API key](https://developers.google.com/maps/documentation/javascript/get-api-key) used during template rendering. |
-
-Example use:
-
-``` yaml
-# ezplatform.yml
-ezpublish:
-    system:
-        site_group:
-            api_keys: { google_maps: "MY_KEY" }
 ```
 
 ## Media Field Type
