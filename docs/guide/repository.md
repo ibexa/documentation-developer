@@ -1349,7 +1349,6 @@ If a function is absent from the tables below, it means that no Limitations can 
 |view_embed|true|true|true|true|true|-|-|-|
 |create|true|true|-|true|true|-|true|ParentOwner</br>ParentGroup</br>ParentClass</br>ParentDepth|
 |edit|true|true|true|true|true|true|true|State|
-|publish|true|true|true|true|true|true|true|State|
 |manage_locations|true|true|true|-|true|-|-|-|
 |hide|true|true|true|true|true|true|true|State|
 |translate|true|true|true|true|true|true|-|

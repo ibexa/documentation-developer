@@ -56,10 +56,6 @@ You need to configure both metadata and binarydata handlers.
 
 As the binarydata handler, create a new Flysystem local adapter configured to read/write to the NFS mount point on each local server. As metadata handler handler, create a dfs one, configured with a doctrine connection. 
 
-!!! tip
-
-    The default database install will now include the dfs table *in the same database*
-
 For production, we strongly recommend creating the DFS table in its own database, using the `vendor/ezsystems/ezpublish-kernel/data/mysql/dfs_schema.sql` file.
 In our example, we will use one named `dfs`. 
 
