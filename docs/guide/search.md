@@ -324,7 +324,7 @@ Status of features:
 - Solr 6 support *(Solr Bundle &gt;= v1.3)* DONE
     - Scoring for Location queries and sorting by them by default DONE
 - Work in progress:
-    - Faceting *(possible to [write your own](../api/public_php_api.md#performing-a-faceted-search) since v1.0, ContentType/Section/User implemented since v1.4, suggested further changes to the API for Faceting can be found [here](https://github.com/ezsystems/ezpublish-kernel/pull/1960))*
+    - Faceting *(possible to [write your own](../api/public_php_api.md#performing-a-faceted-search), ContentType/Section/User implemented, suggested further changes to the API for Faceting can be found [here](https://github.com/ezsystems/ezpublish-kernel/pull/1960))*
     - Index time Boosting *(Solr Bundle &gt;= v1.4)* DONE
 - Future:
     - Solr cloud support
@@ -631,7 +631,7 @@ The configuration above will result in the following boosting (Content Type / Fi
 
 SOLR BUNDLE &gt;= 1.2
 
-Starting with eZ Platform 1.7: as a developer you will often find the need to index some additional data in the search engine. The use cases for this are varied, for example the data could come from an external source *(e.g. from recommendation system)*, or from an internal source. The common use case for the latter is indexing data through the Location hierarchy, for example from the parent Location to the child Location, or in the opposite direction, indexing child data on the parent Location. The reason might be you want to find the content with fulltext search, or you want to simplify search for a complicated data model. To do this effectively, you first need to understand how the data is indexed with Solr Search engine. Documents are indexed per translation, as Content blocks. In Solr, a block is a nested document structure. In our case, parent document represents Content, and Locations are indexed as child documents of the Content. To avoid duplication, full text data is indexed on the Content document only. Knowing this, you have the option to index additional data on:
+As a developer you will often find the need to index some additional data in the search engine. The use cases for this are varied, for example the data could come from an external source *(e.g. from recommendation system)*, or from an internal source. The common use case for the latter is indexing data through the Location hierarchy, for example from the parent Location to the child Location, or in the opposite direction, indexing child data on the parent Location. The reason might be you want to find the content with fulltext search, or you want to simplify search for a complicated data model. To do this effectively, you first need to understand how the data is indexed with Solr Search engine. Documents are indexed per translation, as Content blocks. In Solr, a block is a nested document structure. In our case, parent document represents Content, and Locations are indexed as child documents of the Content. To avoid duplication, full text data is indexed on the Content document only. Knowing this, you have the option to index additional data on:
 
 - all block documents (meaning Content and its Locations, all translations)
 - all block documents per translation
@@ -916,8 +916,6 @@ Implementation and availability of a handler sometimes depends on search engine
 For how to use each and every Sort Clause, see list below as it depends on the Sort Clause Value constructor, but *in general* you should be aware of the following common concept:
 
 - `sortDirection`: The direction to perform the sort, either `Query::SORT_ASC`*(default)* or `Query::SORT_DESC`
-
-V1.6.0
 
 You can use the method `SearchService::getSortClauseFromLocation( Location $location )` to return an array of Sort Clauses that you can use on `LocationQuery->sortClauses`.
 
