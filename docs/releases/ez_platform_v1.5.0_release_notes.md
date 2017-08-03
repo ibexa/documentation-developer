@@ -6,7 +6,7 @@ The 1.5.0 release of eZ Platform is available as of September 1st 2016.
 
 For the release notes of the corresponding eZ Studio release, see [eZ Enterprise v1.5.0 Release notes](eZ-Enterprise-v1.5.0-Release-notes_32114946.html)
 
-## Quick links
+### Quick links
 
 -   [Installation instructions](../getting_started/install_ez_platform.md)
 
@@ -85,13 +85,13 @@ This release has received lots of fixes to remove deprecation warnings when runn
 
     -   Docker: Added Redis support and some more inline documentation ([see `doc/` folder](https://github.com/ezsystems/ezplatform/blob/ff191377fc68c53478c68da892f9eb79dce6347e/doc/docker-compose/redis.yml))
 
-### Full list of changes
+## Full list of changes
 
 For full list of changes see issue list in JIRA:  [44 issues](https://jira.ez.no/secure/IssueNavigator.jspa?reset=true&jqlQuery=project%3DEZP+and+fixVersion%3D1.5.0+&src=confmacro)
 
 ## Updating
 
-To update to this version, follow the [Updating eZ Platform](../releases/updating_ez_platform.md) guide and use `v1.5.0` as `<version>`.
+To update to this version, follow the [Updating eZ Platform](updating_ez_platform.md) guide and use `v1.5.0` as `<version>`.
 
 ### New eZ packages in this release
 

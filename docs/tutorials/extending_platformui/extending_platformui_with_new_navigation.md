@@ -6,6 +6,6 @@
 
 This tutorial aims at providing a step-by-step guide on how to extend the JavaScript application provided by [the PlatformUI bundle](https://github.com/ezsystems/PlatformUIBundle).
 
-**[The steps of this Tutorial are available in its repository on GitHub](https://github.com/ezsystems/ExtendingPlatformUIConferenceBundle/blob/documentation/docs/tutorial/index.md)**
+**[The steps of this Tutorial are available in its repository on GitHub](https://github.com/ezsystems/ExtendingPlatformUIConferenceBundle/blob/master/docs/tutorial/index.md)**
 
  

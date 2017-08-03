@@ -1,15 +1,15 @@
 # eZ Platform 1.5.1 Release notes
 
 
-###### September 20th 2016
+**September 20th 2016**
 
 eZ announces the availability of 1.5.1, a maintenance release available for all users of eZ Platform 1.5.0.
 
 Follow the [eZ Platform Update Instructions](../releases/updating_ez_platform.md) to apply this update to your platforms.
 
-# Package Details
+## Package Details
 
-## Package updates
+### Package updates
 
 Here are the ezsystems packages that have received an update as part of this release:
 

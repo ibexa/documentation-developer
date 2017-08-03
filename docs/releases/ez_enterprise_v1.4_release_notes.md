@@ -2,11 +2,11 @@
 
 The v1.4.0 release of eZ Enterprise is available as of 30 June 2016. (We've [simplified](http://share.ez.no/blogs/ez/ez-systems-release-cycles-and-version-names-simplified) version names.)
 
-For the release notes of the corresponding *(and included)* eZ Platform release, see [eZ Platform v1.4.0 Release notes](../releases/ez_platform_v1.4.0_release_notes.md)
+For the release notes of the corresponding *(and included)* eZ Platform release, see [eZ Platform v1.4.0 Release notes](ez_platform_v1.4.0_release_notes.md)
 
  
 
-## Quick links
+### Quick links
 
 -   [Installation instructions](../getting_started/install_ez_platform.md)
 -   [Requirements](../getting_started/requirements_and_system_configuration)
@@ -34,7 +34,7 @@ Significant improvements include:
 
  
 
-### Full list of improvements and bugfixes
+## Full list of improvements and bugfixes
 
 |                                                              |                                                                                                                                                                  |                                                                                                                                |
 |--------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|

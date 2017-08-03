@@ -3,9 +3,9 @@
 
 The v1.5.0 release of eZ Studio is available as of 1st of September 2016.
 
-For the release notes of the corresponding *(and included)* eZ Platform release, see [eZ Platform v1.5.0 Release notes](../releases/ez_platform_v1.5.0_release_notes.md)
+For the release notes of the corresponding *(and included)* eZ Platform release, see [eZ Platform v1.5.0 Release notes](ez_platform_v1.5.0_release_notes.md)
 
-## Quick links
+### Quick links
 
 -   [Installation instructions](../getting_started/install_ez_platform.md)
 -   [Requirements](../getting_started/requirements_and_system_configuration.md)
@@ -27,7 +27,7 @@ Major changes in this release centered around [Landing Page improvements](https:
 
  
 
-### Full list of improvements
+## Full list of improvements
 
  
 
@@ -54,7 +54,7 @@ Major changes in this release centered around [Landing Page improvements](https:
 
  
 
-### Full list of bugfixes
+## Full list of bugfixes
 
  
 

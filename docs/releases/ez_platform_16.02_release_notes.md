@@ -1,10 +1,10 @@
 # eZ Platform 16.02 Release notes
 
-The 16.02 *(v1.2.0)* release of eZ Platform is available as of March 3rd, and includes all features and improvements of [15.12.1](../releases/ez_platform_15.12.1_release_notes.md) from February 5th.
+The 16.02 *(v1.2.0)* release of eZ Platform is available as of March 3rd, and includes all features and improvements of [15.12.1](ez_platform_15.12.1_release_notes.md) from February 5th.
 
-For the release notes of the corresponding eZ Studio release, see [eZ Studio 16.02 Release notes](../releases/ez_studio_15.12.1_release_notes.md).
+For the release notes of the corresponding eZ Studio release, see [eZ Studio 16.02 Release notes](ez_studio_15.12.1_release_notes.md).
 
-## Quick links
+### Quick links
 
 -   [Installation instructions]((../getting_started/install_ez_platform.md))[](https://github.com/ezsystems/ezplatform/blob/v15.05/INSTALL.md)
 -   [Requirements](../getting_started/requirements_and_system_configuration.md)
@@ -51,7 +51,7 @@ Content items moved to Trash can be viewed and trash can be emptied.
 
 ### Preview of upgrade support from eZ Publish Platform 5.4/2014.11
 
-This release contains migrations tools for migrating XmlText to RichText, this is explained in the new [5.4.x/2014.11 upgrade documentation page](../releases/updating_ez_platform.md).
+This release contains migrations tools for migrating XmlText to RichText, this is explained in the new [5.4.x/2014.11 upgrade documentation page](updating_ez_platform.md).
 
 ### eZ Platform Demo
 
@@ -82,7 +82,7 @@ php app/console server:run --env=prod 
 ### And also
 
 -   Display Content Type name when browsing content in UI
--   New `ez_field` Twig function to get full translated field, and not just value like existing `ez_field_value` does contributed by [@rihards](../releases/ez_platform_16.02_release_notes.md)
+-   New `ez_field` Twig function to get full translated field, and not just value like existing `ez_field_value` does contributed by [@rihards]()
 -   Installers don't write configuration anymore, making eZ Platform and eZ Studio installation possible on cloud hosting platforms like platform.sh
 -   Product pages inside UI now works without warnings on https contributed by [@nmeirik](https://github.com/nmeirik)
 -   System Info tab in Admin UI now displays correct version of eZ Platform, and there is also a new Packages tab for composer info

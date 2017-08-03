@@ -8,7 +8,7 @@ Image variations are generated with [LiipImagineBundle](https://github.com/liip
 
 ## Configuration
 
-Custom image variations are defined in `ezplatform.yml` or any imported semantic configuration file. The definition is [dynamic](sitaAccess/md#configuration), so it can be configured per SiteAccess and all the other scopes.
+Custom image variations are defined in `ezplatform.yml` or any imported semantic configuration file. The definition is [dynamic](siteaccess.md#configuration), so it can be configured per SiteAccess and all the other scopes.
 
 ``` yaml
 # Example image variation definition
