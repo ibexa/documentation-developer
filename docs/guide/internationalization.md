@@ -279,21 +279,6 @@ $translationHelper = $this->get( 'ezpublish.translation_helper' );
 $availableLanguages = $translationHelper->getAvailableLanguages();
 ```
 
-### Value objects
-
-Starting with **V1.10** you should be able to use translatable properties of API value objects directly without having to specify languages when doing so. This is true for the following methods where available:
-
-- Available on `Content, VersionInfo, ContentType, FieldDefinition, ContentTypeGroup, ObjectState, ObjectStateGroup`:
-    - `getName()`
-- Available on `ContentType, FieldDefinition, ContentTypeGroup, ObjectState, ObjectStateGroup`:
-    - `getDescription()`
-- Available on `Content`:
-    - `getField()`
-    - `getFieldValue()`
-    - `getFieldsByLanguage()`
-
-In earlier versions you would have to always use translation helpers for these, for examples see [Content Rendering](content_rendering.md). Translation helpers are available in Twig via [Twig functions](content_rendering#twig-functions-reference), and in PHP via "`ezpublish.translation_helper"` service.
-
 ### Translating UI of eZ Platform
 
 ##### Installing new UI translations
@@ -310,8 +295,6 @@ Now you can reload your eZ Platform administration page which will be translated
 
 ##### In-context UI translation
 
-V1.8
-
-Since eZ Platform 1.7.0, the interface has been fully translatable. Version 1.8.0 introduces official support for [Crowdin](http://crowdin.com) as a translation management system. In addition, it integrates support for in-context translation, a feature that allows you to translate strings from the interface, *in context*.
+[Crowdin](http://crowdin.com) is the translation management system for eZ Platform. In addition, it integrates support for in-context translation, a feature that allows you to translate strings from the interface, *in context*.
 
 To learn how to contribute to a translation using Crowdin, see [Contributing translations](../community_resources/contributing.md#contributing-translations).

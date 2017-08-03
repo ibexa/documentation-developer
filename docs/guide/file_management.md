@@ -42,8 +42,6 @@ The 'default' flysystem adapter's directory is based on your site settings, and 
 
 #### Configure the permissions of generated files
 
-V1.5
-
 ``` yaml
 ezpublish:
     system:
@@ -172,8 +170,6 @@ Three UrlDecorator services are introduced:
 In addition, a UrlRedecorator service, `ezpublish.core.io.image_fieldtype.legacy_url_redecorator`, uses both decorators above to convert URIs between what is used on the new stack, and what format legacy expects (relative urls from the ezpublish root).
 
 ## Multi-file upload
-
-V1.9
 
 Multi-file upload is a functionality that enables you to upload multiple binary files in bulk.
 

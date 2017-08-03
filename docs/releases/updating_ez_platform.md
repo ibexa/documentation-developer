@@ -117,20 +117,6 @@ On PHP conflict | 16.02 and later requires PHP 5.5 or higher
 
 Because from release 16.02 onwards eZ Platform is compatible only with PHP 5.5 and higher, the update command above will fail if you use an older PHP version. Please update PHP to proceed.
 
-**Adding EzSystemsPlatformEEAssetsBundle**
-
-V1.10
-
-ENTERPRISE
-
-When upgrading to v1.10, you need to enable the new `EzSystemsPlatformEEAssetsBundle` by adding:
-
-`new EzSystems\PlatformEEAssetsBundle\EzSystemsPlatformEEAssetsBundle(),`
-
-in `app/AppKernel.php`.
-
- 
-
 ## 4. Update database
 
 This step is only relevant for some releases:
@@ -148,8 +134,6 @@ mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-k
 ```
 
 **Solr Bundle 1.4: Index time boosting**
-
-V1.10 / V1.9.1 / V1.7.4
 
 Solr Bundle v1.4 introduced among other things index time boosting feature, this involves a slight change to the solr scheme that will need to be applied to your config.
 
