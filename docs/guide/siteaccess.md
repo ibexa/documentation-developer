@@ -64,6 +64,8 @@ ezpublish:
             languages: [nor-NO, eng-GB]
 ```
 
+**Important note:** The new site access should be recognised by the system however, the user "Anonymous" will not have read access to a new site access until it is explicitly given via the Admin > Roles panel. Without read access the user "Anonymous" will simply be directed to the default login page.
+
 ### The default scope
 
 When no particular context is required, it is fine to use the \`default\` scope instead of specifying a siteaccess.
