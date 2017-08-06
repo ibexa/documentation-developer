@@ -64,6 +64,10 @@ ezpublish:
             languages: [nor-NO, eng-GB]
 ```
 
+!!! note
+
+    The new SiteAccess should be recognized by the system, however, an anonymous user will not have read access to a new SiteAccess until it is [explicitly given via the Admin > Roles panel](repository.md#use-cases). Without read access the anonymous user will simply be directed to the default login page.
+
 ### The default scope
 
 When no particular context is required, it is fine to use the \`default\` scope instead of specifying a siteaccess.
