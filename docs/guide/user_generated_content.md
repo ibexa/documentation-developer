@@ -4,15 +4,13 @@
 
 ### Content Edit
 
-V1.2
-
 eZ Platform comes with content edition features via the Symfony stack. They are meant, in addition the PlatformUI's editing capabilities, to allow the implementation of User Generated Content from the frontend.
 
 ## Usage
 
 ### Creating a content item without using a draft
 
-As of eZ Platform 1.2, a new `/content/edit/nodraft` route is available. It will show a Content item creation form for a given Content Type:
+The `/content/edit/nodraft` route shows a Content item creation form for a given Content Type:
 
 | argument                | type      | description                                                                |
 |-------------------------|-----------|----------------------------------------------------------------------------|
@@ -20,16 +18,11 @@ As of eZ Platform 1.2, a new `/content/edit/nodraft` route is available. It wil
 | `languageCode`          | `string`  | Language code the content item must be created in. Example: `eng-GB`       |
 | `parentLocationId`      | `integer` | ID of the Location the content item must be created in. Example: `2`       |
 
-For now a very limited subset of Field Types is supported. These are:
-
-- V1.2` TextLine` and `TextBlock`
-- V1.4 `Selection`, `Checkbox` and `User`
+For now a very limited subset of Field Types is supported. These are `TextLine`, `TextBlock`, `Selection`, `Checkbox` and `User`.
 
 More will be added in the near future.
 
 ### Registering new users
-
-V1.4
 
 You can allow your users to create accounts by employing the `/register` route. This route leads to a registration form that, when filled in, creates a new User Content item in the repository.
 

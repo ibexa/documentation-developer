@@ -2,8 +2,6 @@
 
 ## Description
 
-V1.2
-
 A Landing Page has a customizable layout with multiple zones where you can place predefined blocks with content.
 
 By default eZ Enterprise comes with a number of preset layouts. You can, however, add custom layouts with zones to your configuration.

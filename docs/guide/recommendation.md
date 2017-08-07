@@ -252,9 +252,7 @@ If you want to access a specific image alias through API, you need to add the `
 
 to retrieve the `rss` alias of the image.
 
-V1.6
-
-As of v1.6, one more parameter is available: `sa`, which takes the siteaccess name and defines the siteaccess whose content will be displayed.
+The additional `sa` parameter takes the siteaccess name and defines the siteaccess whose content will be displayed.
 
 ### Troubleshooting
 

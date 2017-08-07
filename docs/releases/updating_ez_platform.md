@@ -149,8 +149,6 @@ mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-k
 
 **Solr Bundle 1.4: Index time boosting**
 
-V1.10 / V1.9.1 / V1.7.4
-
 Solr Bundle v1.4 introduced among other things index time boosting feature, this involves a slight change to the solr scheme that will need to be applied to your config.
 
 To make sure indexing continues to work, apply the following change, restart solr and reindex your content:
