@@ -58,8 +58,6 @@ As the binarydata handler, create a new Flysystem local adapter configured to re
 
 !!! tip
 
-    V1.8.0
-
     The default database install will now include the dfs table *in the same database*
 
 For production, we strongly recommend creating the DFS table in its own database, using the `vendor/ezsystems/ezpublish-kernel/data/mysql/dfs_schema.sql` file.

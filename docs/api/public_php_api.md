@@ -452,7 +452,7 @@ Since we didn't specify any language code, our Field object is returned in the g
 
 If you want to take SiteAccess languages into account, you have two options:
 
--   V1.10 By providing prioritized languages on `load()` this will be taken into account by the returned Content object when retrieving translated properties like fields, for example:
+-   By providing prioritized languages on `load()` this will be taken into account by the returned Content object when retrieving translated properties like fields, for example:
     `$contentService->loadContent( 66, $configResolver->getParameter('languages'));`
     -   *Note: As of v2.0 this is planned to be done for you when you don't specify languages.*
 -   Or you can take advantage of TranslationHelpers as described in [Content Rendering](Content-Rendering_31429679.html).
@@ -570,8 +570,6 @@ This may be crucial when writing maintenance or synchronization scripts.
 
 This is of course not required in template functions or controller code, as the HTTP layer will take care of identifying the user, and automatically set it in the repository.
 
-V1.6
-
 Since v1.6.0, as the `setCurrentUser` method is deprecated, you need to use the following code (here for the `admin` user, to be replaced with a different login as needed):
 
 ``` php
@@ -687,23 +685,6 @@ if ( !empty( $versionInfoArray ) )
 
 We use the `ContentService::loadVersions()` method and get an array of `VersionInfo` objects.
 
-##### Version statuses
-
-V1.11
-
-From v1.11 you can use `VersionInfo->isDraft()`, `VersionInfo->isArchived()`, and `VersionInfo->isPublished()` to check version status. This replaces using `STATUS_` constants as the recommended way to do it. For example:
-
-Previously: `if ($content->getVersionInfo()->status === VersionInfo::STATUS_DRAFT)`
-Now: `if ($content->getVersionInfo()->isDraft())`
-
-The new methods also enable you to use the following in Twig templates:
-
--   `version.draft`
-
--   `version.published`
-
--   `version.archived`
-
 ### Search
 
 In this section we will cover how the [`SearchService`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/SearchService.html) can be used to search for Content, by using a [`Query`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Query.html) and a combinations of [`Criteria`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Query/Criterion.html) you will get a [`SearchResult`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Search/SearchResult.html) object back containing list of Content and count of total hits. In the future this object will also include facets, spell checking and "more like this" when running on a backend that supports it *(for instance Solr)*.
@@ -761,8 +742,6 @@ Tip
 
 
 #### Retrieving Sort Clauses for parent location
-
-V1.7.0
 
 You can use the method $parentL`ocation->getSortClauses()` to return an array of Sort Clauses for direct use on `LocationQuery->sortClauses`.
 
@@ -960,8 +939,6 @@ As seen earlier, the Repository executes operations with a user's credentials. I
 $user = $userService->loadUserByCredentials( $username, $password );
 $repository->setCurrentUser( $user );
 ```
-
-V1.6
 
 Since v1.6.0, as the `setCurrentUser` method is deprecated, you need to use the following code:
 

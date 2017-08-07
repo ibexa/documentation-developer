@@ -130,7 +130,7 @@ Technically, a Section is simply a triplet: a number, a name and an identifier. 
 
 When a new Content item is created, its Section ID is set to the default Section (which is usually Standard). When the item is published it is assigned to the same Section as its parent. Because Content must always be in a Section, unassigning happens by choosing a different Section to move it into. If a Content item has multiple Location assignments then it is always the Section ID of the item referenced by the parent of the main Location that will be used. In addition, if the main Location of a Content item with multiple Location assignments is changed then the Section ID of that item will be updated.
 
-V1.11 Since v1.11 (and v1.10.1) when content is moved to a different Location, the item itself and all of its subtree will be assigned to the Section of the new Location.
+When content is moved to a different Location, the item itself and all of its subtree will be assigned to the Section of the new Location.
 
 Sections can only be removed if no Content items are assigned to them. Even then, it should be done carefully. When a Section is deleted, it is only its definition itself that will be removed. Other references to the Section will remain and thus the system will most likely be in an inconsistent state.That is why removing Sections may corrupt permission settings, template output and other things in the system.
 
@@ -396,8 +396,6 @@ Legacy storage engine uses [Doctrine DBAL](http://docs.doctrine-project.org/proj
 
 #### Field groups configuration
 
-V1.3
-
 Field groups, used in content and Content Type editing, can be configured from the repository section. Values entered there are field group *identifiers*:
 
 ``` yaml
@@ -419,8 +417,6 @@ user_data: User data
 ```
 
 #### Limit of archived Content item versions
-
-V1.7
 
 `default_version_archive_limit` controls the number of archived versions per Content item that will be stored in the repository, by default set to 5. This setting is configured in the following way (typically in `ezplatform.yml`):
 
@@ -1355,7 +1351,7 @@ If a function is absent from the tables below, it means that no Limitations can 
 |view_embed|true|true|true|true|true|-|-|-|
 |create|true|true|-|true|true|-|true|ParentOwner</br>ParentGroup</br>ParentClass</br>ParentDepth|
 |edit|true|true|true|true|true|true|true|State|
-|V1.8 publish|true|true|true|true|true|true|true|State|
+|publish|true|true|true|true|true|true|true|State|
 |manage_locations|true|true|true|-|true|-|-|-|
 |hide|true|true|true|true|true|true|true|State|
 |translate|true|true|true|true|true|true|-|
