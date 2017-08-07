@@ -390,7 +390,7 @@ sed -i.bak '/<updateRequestProcessorChain name="add-unknown-fields-to-the-schema
  
 # Start Solr (but apply autocommit settings below first if you need to)
 /opt/solr/bin/solr -s ez
-/opt/solr/bin/solr create_core -c collection1 -d server/ez/template
+/opt/solr/bin/solr create_core -c collection1 -d /opt/solr/server/ez/template
 ```
 
 ##### Further configuration
