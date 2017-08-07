@@ -388,17 +388,18 @@ Secondly, copy configuration files needed for eZ Solr Search Engine bundle, *her
 
 ``` bash
 # Make sure to replace the /opt/solr/ path with where you have placed Solr
-mkdir -p /opt/solr/server/ez/template
-cp -R vendor/ezsystems/ezplatform-solr-search-engine/lib/Resources/config/solr/* /opt/solr/server/ez/template
-cp /opt/solr/server/solr/configsets/basic_configs/conf/{currency.xml,solrconfig.xml,stopwords.txt,synonyms.txt,elevate.xml} /opt/solr/server/ez/template
-cp /opt/solr/server/solr/solr.xml /opt/solr/server/ez
+cd /opt/solr
+mkdir -p server/ez/template
+cp -R <ezplatform-solr-search-engine>/lib/Resources/config/solr/* server/ez/template
+cp server/solr/configsets/basic_configs/conf/{currency.xml,solrconfig.xml,stopwords.txt,synonyms.txt,elevate.xml} server/ez/template
+cp server/solr/solr.xml server/ez
 
 # Modify solrconfig.xml to remove the section that doesn't agree with your schema
-sed -i.bak '/<updateRequestProcessorChain name="add-unknown-fields-to-the-schema">/,/<\/updateRequestProcessorChain>/d' /opt/solr/server/ez/template/solrconfig.xml
+sed -i.bak '/<updateRequestProcessorChain name="add-unknown-fields-to-the-schema">/,/<\/updateRequestProcessorChain>/d' server/ez/template/solrconfig.xml
  
 # Start Solr (but apply autocommit settings below first if you need to)
-/opt/solr/bin/solr -s ez
-/opt/solr/bin/solr create_core -c collection1 -d server/ez/template
+bin/solr -s ez
+bin/solr create_core -c collection1 -d server/ez/template
 ```
 
 ##### Further configuration
