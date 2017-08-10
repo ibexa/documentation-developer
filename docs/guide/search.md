@@ -365,9 +365,16 @@ Secondly, copy configuration files needed for eZ Solr Search Engine bundle, in t
 
 ``` bash
 # Make sure to replace the /opt/solr/ path with where you have placed Solr
-cp -R vendor/ezsystems/ezplatform-solr-search-engine/lib/Resources/config/solr/* /opt/solr/example/solr/collection1/conf/
+mkdir -p /opt/solr/example/multicore/collection1/conf
+cp -R vendor/ezsystems/ezplatform-solr-search-engine/lib/Resources/config/solr/* /opt/solr/example/multicore/collection1/conf
+cp /opt/solr/example/solr/collection1/conf/{currency.xml,stopwords.txt,synonyms.txt} /opt/solr/example/multicore/collection1/conf
+## Remove default cores configuration and add core configuration
+sed -i.bak 's/<core name=".*" instanceDir=".*" \/>//g' /opt/solr/example/multicore/solr.xml
+sed -i.bak "s/<shardHandlerFactory/<core name=\"collection1\" instanceDir=\"collection1\" \/><shardHandlerFactory/g" /opt/solr/example/multicore/solr.xml
+cp /opt/solr/example/multicore/core0/conf/solrconfig.xml /opt/solr/example/multicore/collection1/conf
+sed -i.bak s/opt/solr/example/multicore/core0/collection1/g /opt/solr/example/multicore/collection1/conf/solrconfig.xml
 
-/opt/solr/bin/solr start -f 
+/opt/solr/bin/solr start -f -Dsolr.solr.home=multicore
 ```
 
 ###### Solr 6
