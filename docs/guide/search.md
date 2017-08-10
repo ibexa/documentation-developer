@@ -380,9 +380,9 @@ sed -i.bak s/core0/collection1/g multicore/collection1/conf/solrconfig.xml
 
 ###### Solr 6
 
-SOLR BUNDLE &gt;= 1.3.0First download and extract Solr, in Solr Bundle 1.3 and higher we also support Solr 6 *(currently tested with Solr 6.4.2)*:
+SOLR BUNDLE &gt;= 1.3.0First download and extract Solr, in Solr Bundle 1.3 and higher we also support Solr 6 *(currently tested with Solr 6.6.0)*:
 
-- [solr-6.4.2.tgz](http://archive.apache.org/dist/lucene/solr/6.4.2/solr-6.4.2.tgz) or [solr-6.4.2.zip](http://archive.apache.org/dist/lucene/solr/6.4.2/solr-6.4.2.zip)
+- [solr-6.6.0.tgz](http://archive.apache.org/dist/lucene/solr/6.6.0/solr-6.6.0.tgz) or [solr-6.6.0.zip](http://archive.apache.org/dist/lucene/solr/6.6.0/solr-6.6.0.zip)
 
 Secondly, copy configuration files needed for eZ Solr Search Engine bundle, *here from the root of your project to the place you extracted Solr*:
 
