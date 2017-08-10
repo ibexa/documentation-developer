@@ -375,7 +375,7 @@ sed -i.bak "s/<shardHandlerFactory/<core name=\"collection1\" instanceDir=\"coll
 cp multicore/core0/conf/solrconfig.xml multicore/collection1/conf
 sed -i.bak s/core0/collection1/g multicore/collection1/conf/solrconfig.xml
 
-/opt/solr/bin/solr start -f -Dsolr.solr.home=multicore
+/opt/solr/bin/solr start -f -a "-Dsolr.solr.home=multicore"
 ```
 
 ###### Solr 6
