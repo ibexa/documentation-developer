@@ -1,0 +1,104 @@
+body, input {
+    font-family: "Maven Pro", sans-serif;
+    color: #63605d;
+}
+
+body {
+    -webkit-font-smoothing: initial;
+}
+
+.md-typeset {
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-print-color-adjust: exact;
+}
+
+.md-typeset a {
+    color: #2a9dc7;
+}
+
+.md-typeset a:hover {
+    color: #f15a22;
+}
+
+.md-nav__title {
+    display: block;
+    padding: 1.6rem 1.2rem 0;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: #f15a22;
+}
+
+.md-nav__link:hover {
+    color: #f15a22;
+}
+
+.md-nav--secondary {
+    transition: border-left .25s;
+    border-top: .4rem solid #f15a22;
+    border-left: none;
+    background-color: whitesmoke;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+.md-nav__item--nested>.md-nav__link {
+    color: inherit;
+    font-weight: 600;
+}
+
+.md-header {
+    background-color: #3a3b3c;
+    color: #fff;
+}
+
+.md-search__form {
+    width: 35rem;
+}
+
+.md-typeset code {
+    color: #63605d;
+}
+
+.md-typeset h1 {
+    margin: 0 0 1rem;
+    color: #f15a22;
+    font-size: 34px;
+    line-height: 1;
+    font-weight: 500;
+}
+
+.md-typeset h2 {
+    font-size: 27px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.md-typeset h3 {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.md-footer-meta {
+    background: #3a3a3a;
+}
+
+.md-footer-nav {
+    background-color: #4c4c4c;
+    color: #fff;
+    margin-top: 50px;
+}
+
+.md-icon--home {
+    padding: .5rem;
+}
+
+.md-icon--home:before {
+    content: url('../images/eZ-Brandmark.png');
+}
+
+.admonition.tip:before {
+   content: "lightbulb_outline";
+}

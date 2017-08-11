@@ -1,1 +1,4 @@
-pymdown-extensions
+mkdocs>=0.16
+pygments>=2.2
+pymdown-extensions>=2.0
+
