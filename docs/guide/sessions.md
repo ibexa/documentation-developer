@@ -92,8 +92,6 @@ For setting up eZ Platform using memcached you'll need to configure the session 
 
 ###### Storing sessions in Redis using pecl package redis
 
-EXPERIMENTAL
-
 For setting up eZ Platform using [Redis pecl package](https://pecl.php.net/package/redis) you'll need to configure the session save handler settings in php.ini as documented [here](https://github.com/phpredis/phpredis#php-session-handler).
 
 ###### Alternative storing sessions in database using PDO
