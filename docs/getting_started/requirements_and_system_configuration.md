@@ -6,7 +6,7 @@ If you're using a PaaS provider such as our partner [Platform.sh](https://platfo
 
 ## Server
 
-eZ software is built to rely on existing technologies and standards. The minimal setup is `PHP`,  `MySQL/MariaDB`, and `Apache/Nginx`. Recommendation for production setups is to use `Varnish`, and  `Memcached`, `NFS` `and ``Solr` in a [clustered setup](../guide/clustering.md).
+eZ software is built to rely on existing technologies and standards. The minimal setup is `PHP`,  `MySQL/MariaDB`, and `Apache/Nginx`. Recommendation for production setups is to use `Varnish`, and  `Memcached`/`Redis`, `NFS` `and ``Solr` in a [clustered setup](../guide/clustering.md).
 
 For supported versions of these technologies see Recommended and Supported setups below.
 
@@ -17,16 +17,17 @@ These setups are tested by QA and are generally recommended setups. For security
 ||Debian|Ubuntu|RHEL / CentOS|
 |------|------|------|------|
 |Operating system|8.x "Jessie"|16.04LTS|7.x|
-|Web Server|Nginx 1.6</br>Apache 2.4 *(prefork mode)*|Nginx 1.10</br>Apache 2.4 *(prefork mode)*|Nginx 1.8 *(latest via [RHSCL](https://access.redhat.com/documentation/en/red-hat-software-collections/))*</br>Apache 2.4 *(prefork mode)*|
+|Web Server|Nginx 1.6</br>Apache 2.4 *(prefork mode)*|Nginx 1.10</br>Apache 2.4 *(prefork mode)*|Nginx 1.10 *(latest via [RHSCL](https://access.redhat.com/documentation/en/red-hat-software-collections/))*</br>Apache 2.4 *(prefork mode)*|
 |DBMS|MariaDB 10.0</br>MySQL 5.5|MySQL 5.7</br>MariaDB 10.0|MariaDB 10.1 *(latest via RHSCL)*</br>MariaDB 10.0 *(latest via RHSCL)*</br>MySQL 5.6 *(latest via RHSCL)*</br>MariaDB 5.5|
 |PHP|PHP 5.6 *(via libapache2-mod-php5 for Apache)*|PHP 7.0|PHP 7.0 *(latest via RHSCL)*</br>PHP 5.6 *(latest via RHSCL)*|
-|PHP packages|php5-cli</br>php5-fpm *(for use with nginx)*</br>php5-readline</br>php5-mysqlnd or php5-pgsql</br>php5-json</br>php5-xsl</br>php5-intl</br>php5-mcrypt</br>php5-curl</br>php5-gd</br>php5-imagick *(optional)*</br>php5-twig *(optional, improves performance)*</br>php5-memcached</br> *(recommended, improves performance)*|php-cli</br>php-fpm *(for use with nginx)*</br>php-readline</br>php-mysql or php-pgsql</br>php-json</br>php-xml</br>php-mbstring</br>php-intl</br>php-mcrypt</br>php-curl</br>php-gd or php-imagick</br>php-memcached *(recommended, via [pecl](https://pecl.php.net/package/memcached))*|php-cli</br>php-fpm *(for use with nginx)*</br>php-mysqlnd or php-pgsql</br>php-xml</br>php-mbstring</br>php-process</br>php-intl</br>php-pear *(optional, provides pecl)*</br>php-gd or php-imagick *(via [pecl](https://pecl.php.net/package/imagick))*</br>php-memcached *(recommended, via [pecl](https://pecl.php.net/package/memcached))*|
+|PHP packages|php5-cli</br>php5-fpm *(for use with nginx)*</br>php5-readline</br>php5-mysqlnd or php5-pgsql</br>php5-json</br>php5-xsl</br>php5-intl</br>php5-mcrypt</br>php5-curl</br>php5-gd</br>*or* php5-imagick</br>php5-twig *(optional, improves performance on php 5.x)*|php-cli</br>php-fpm *(for use with nginx)*</br>php-readline</br>php-mysql or php-pgsql</br>php-json</br>php-xml</br>php-mbstring</br>php-intl</br>php-mcrypt</br>php-curl</br>php-gd or php-imagick|php-cli</br>php-fpm *(for use with nginx)*</br>php-mysqlnd or php-pgsql</br>php-xml</br>php-mbstring</br>php-process</br>php-intl</br>php-pear *(optional, provides pecl)*</br>php-gd or php-imagick *(via [pecl](https://pecl.php.net/package/imagick))*</br>php-memcached *(recommended, via [pecl](https://pecl.php.net/package/memcached))*|
+|Cluster PHP packages</br>*Also recommended for single server setup, improves performance of cache clearing operations.*|php5-memcached *or* php-redis *(via [pecl](https://pecl.php.net/package/redis))*|php-memcached *(via [pecl](https://pecl.php.net/package/memcached)) or* php-redis *(via [pecl](https://pecl.php.net/package/redis))*|php-memcached *(via [pecl](https://pecl.php.net/package/memcached)) or* php-redis *(via [pecl](https://pecl.php.net/package/redis))*|
 
 |||
 |------|------|
 |Search|Solr (recommended, for better performance and scalability of all API Queries):</br></br>Solr 4.10</br>*Solr 6 SOLR BUNDLE >= 1.3, CURRENTLY TESTED WITH SOLR 6.4.2*</br></br>Oracle Java/Open JDK: 7 or 8 (needed for Solr, version 8 recommended)|
 |Graphic Handler|GraphicsMagick or ImageMagick or GD|
-|[Clustering](../guide/clustering.md)|Linux NFS *(for IO, aka binary files stored in content repository)*</br>Memcached *(for Persistence cache & Sessions)*</br>Varnish *(for HttpCache)*|
+|[Clustering](../guide/clustering.md)|Linux NFS *or* S3 *(for IO, aka binary files stored in content repository)*</br>Memcached *or* Redis *(for Persistence cache & Sessions)*</br>Varnish *(for HttpCache)*|
 |Filesystem|Linux ext3 / ext4|
 |Package manager|Composer|
 
@@ -39,10 +40,10 @@ Supported setups are those we perform automated testing on. For security and per
 -   OS: Linux
 -   Web Servers:
     -   Apache 2.2, 2.4, with required modules `mod_php`, `mod_rewrite`, `mod_env` and recommended: `mod_setenvif`, `mod_expires`
-    -   Nginx 1.6, 1.8. 1.10
+    -   Nginx 1.6, 1.8. 1.10, 1.12
 -   DBMS
     -   MySQL 5.5, 5.6, 5.7
-    -   MariaDB 5.5, 10.0, 10.1
+    -   MariaDB 5.5, 10.0, 10.1, 10.2
 -   PHP
     -   5.6
     -   7.0 - 7.1
@@ -64,7 +65,7 @@ Supported setups are those we perform automated testing on. For security and per
     -   xml
     -   xsl
     -   zip
-    -   php-memcached *(3.x on PHP 7, 2.2 on PHP 5)*
+    -   php-memcached *(3.x on PHP 7, 2.2 on PHP 5) or* [php-redis](https://pecl.php.net/package/redis)
 
 ### Development & Experimental setups
 
@@ -73,17 +74,16 @@ eZ Platform, the foundation of all eZ software, can theoretically run and execu
 Examples of Development setups:
 
 -   OS: Windows, Mac OS X, Linux
--   Filesystem: NTFS, , HFS+, ...
+-   Filesystem: NTFS, HFS+, ...
 
 Examples of Experimental setups:
 
 -   OS: Any system supported by PHP
--   Persistence Cache: Redis *(php-redis is known to be unstable with Stash under load, if you experience this consider using custom Predis Stash driver)*
 -   Filesystem: BTRFS, AUFS, APFS, ...
--   IO: S3, Azure, (S)FTP, GridFS, [...](https://flysystem.thephpleague.com/core-concepts/#adapters)
--   Databases: Postgres, MSSQL, Oracle *(As\\ in\\ technically\\ supported\\ by\\ Doctrine\\ DBAL\\ which\\ we\\ use,\\ but\\ none\\ supported\\ by\\ our\\ installer\\ at\\ the moment,\\ and\\ Oracle\\ and\\ MSSQL\\ is\\ not\\ covered\\ by\\ automated\\ testing)*
+-   IO: Azure, (S)FTP, GridFS, [...](https://flysystem.thephpleague.com/core-concepts/#adapters)
+-   Databases: Postgres, MSSQL, Oracle *(As in technically supported by Doctrine DBAL which we use, but none supported by our installer at the moment, and Oracle and MSSQL is not covered by automated testing)*
 
-**While all these options are not supported by eZ Systems**, they are community supported, meaning contributions and efforts made to improve support for these technologies are welcome and can contribute to the technology being supported by the eZ Systems team in the future.
+**While all these options are not actively supported by eZ Systems**, they are community supported. Meaning you can use them with both open source edition and enterprise edition, however if you encounter issues best way to handle them is via contribution,  and any such efforts made to improve support for these technologies can contribute to the technology being supported by eZ Systems in the near future.
 
 ## Client
 
@@ -93,9 +93,9 @@ eZ software is developed to work with *any* web browser that support modern sta
 
 These setups have been undergone some additional manual testing and is known to work.
 
--   Mozilla® Firefox® most recent stable version (tested\\ on\\ Firefox\\ 50)
--   Google Chrome™ most recent stable version (tested\\ on\\ Chrome\\ 55) 
--   Microsoft® Edge® most recent stable version (tested\\ on Edge\\ 38) 
+-   Mozilla® Firefox® most recent stable version
+-   Google Chrome™ most recent stable version
+-   Microsoft® Edge® most recent stable version
 
 ### Supported browsers
 
@@ -103,4 +103,3 @@ These setups have been undergone some additional manual testing and is known to 
 -   Opera® most recent stable version, or higher, desktop *and* mobile 
 
 Please note that the user interface might not look or behave exactly the same across all browsers as it will gracefully degrade if browser does not support certain features.
-
