@@ -1723,12 +1723,13 @@ This Field Type validates whether the provided relation exists, but before it do
 
 #### Settings
 
-The field definition of this Field Type can be configured with two options:
+The field definition of this Field Type can be configured with three options:
 
 |Name|Type|Default value|Description|
 |------|------|------|------|
 |`selectionMethod`|`int`|`self::SELECTION_BROWSE`|This setting defines the selection method. It expects an integer (0/1). 0 stands for `self::SELECTION_BROWSE`, 1 stands for `self::SELECTION_DROPDOWN`. **Note**: Dropdown is not implemented in Platform UI yet, only browse is used currently.|
 |`selectionRoot`|`string`|`null`|This setting defines the selection root.|
+|`selectionContentTypes`|`array`|`[]`|An array of ContentType ids that are allowed for related Content|
 
 ``` php
 // Relation FieldType example settings
@@ -1737,7 +1738,8 @@ use eZ\Publish\Core\FieldType\Relation\Type;
 
 $settings = array(
     "selectionMethod" => 1,
-    "selectionRoot" => null
+    "selectionRoot" => null,
+    "selectionContentTypes" => []
 );
 ```
 
