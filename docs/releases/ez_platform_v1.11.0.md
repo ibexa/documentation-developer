@@ -6,6 +6,28 @@ If you are looking for the Long Term Support (LTS) release, see [https://ezplatf
 
 ## Notable changes since v1.10.0
 
+### eZ Platform
+
+#### Improved way of writing Field Type gateways
+
+[EZP-26885](https://jira.ez.no/browse/EZP-26885): you now have access to the Doctrine connection instead of
+the Zeta Components Database connection-like object which has been exposed to Field Types until now.
+The former way will be removed in a future version.
+
+#### Content Type limitation for Relation (single) field
+
+[EZP-24800](https://jira.ez.no/browse/EZP-24800): you can now specify a Content Type limitation for the Relation field,
+just like with the Relation List field. This enables you to limit what kind of relations Editors can select also on singular relation fields.
+
+![Adding a new Relation (single) Field with allowed Content Types](img\relation_single_allowed_cts.png)
+
+This has been made possible by initial legacy contribution from [@slaci](https://github.com/slaci), and [@peterkeung](https://github.com/peterkeung),
+who ported this feature over from Relation List to Relation.
+
+#### API endpoint for removing translations
+
+[EZP-27417](https://jira.ez.no/browse/EZP-27417) provides an API endpoint to remove a given translation completely from a Content item.
+
 ### eZ Platform Enterprise Edition
 
 #### Collection block
@@ -31,6 +53,21 @@ With this step the clickrecommended event now includes detailed feedback informa
 This is very important for the analysis of statistics to measure the performance of recommendations.
 
 See [EZEE-1611](https://jira.ez.no/browse/EZEE-1611) for details.
+
+#### Official Enterprise Support for Legacy Bridge
+
+Starting with this release we are going to officially support an alternative (and often simpler) way to gradually migrate
+from eZ Publish to eZ Platform. From now on, also as an Enterprise user, you can use Legacy Bridge.
+There is also a corresponding new eZ Publish legacy release called 2017.08 available for both community and enterprise users.
+As with eZ Platform itself, Enterprise users will receive full support, maintenance, and security bug handling
+as they are used to for this setup, under similar constraints as 5.x setup had.
+
+!!! note
+
+    Not supported for new installs. The Legacy Bridge integration does not have same performance,
+    scalability or integrated experience as pure Platform setup. There are known edge cases where for instance cache or search index
+    won't be immediately updated when using a bridged setup, which one of the many reasons why we recommend
+    a pure platform setup where that is possible.
 
 ## Full list of new features, improvements and bug fixes since v1.10.0
 
