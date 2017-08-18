@@ -30,7 +30,12 @@ In addition, it is also possible to control access to the global translation lis
 
 ### How to create different language versions?
 
-The multilanguage system operates based on a global translation list that contains all languages available in the installation. Languages can be added to this list from the Admin Panel in the user interface. **The new language must then be added to the [SiteAccess](siteaccess.md) configuration**. Once this is done, any user with proper permissions can create Content item versions in these languages in the user interface.
+The multilanguage system operates based on a global translation list that contains all languages available in the installation. Languages can be added to this list from the Admin Panel in the user interface. After adding a language be sure to dump all assets to the file system:
+```
+php app/console assetic:dump
+```
+
+**The new language must then be added to the [SiteAccess](siteaccess.md) configuration**. Once this is done, any user with proper permissions can create Content item versions in these languages in the user interface.
 
 ### How to make translations available to the visitor?
 
