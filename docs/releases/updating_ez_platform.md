@@ -135,6 +135,16 @@ in `app/AppKernel.php`.
 
 This step is only relevant for some releases:
 
+**ezsearch_return_count table removal**
+
+V1.11
+
+v1.11.0 removes `ezsearch_return_count` table, aligning with eZ Publish legacy since 5.4/2014.11 to avoid issues for those using upgrade install with our withouth legacy bridge. To fix this apply the following database update script if your install is not an eZ Publish upgrade where it was already removed:
+
+``` bash
+mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.10.0-to-6.11.0.sql
+```
+
 **content/publish permission**
 
 V1.8
