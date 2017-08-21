@@ -12,7 +12,7 @@ If you are looking for the Long Term Support (LTS) release, see [https://ezplatf
 
 [EZP-26885](https://jira.ez.no/browse/EZP-26885): you now have access to the Doctrine connection instead of
 the Zeta Components Database connection-like object which has been exposed to Field Types until now.
-The former way will be removed in a future version.
+The former way will be removed in a future major version.
 
 #### Content Type limitation for Relation (single) field
 
@@ -21,8 +21,7 @@ just like with the Relation List field. This enables you to limit what kind of r
 
 ![Adding a new Relation (single) Field with allowed Content Types](img\relation_single_allowed_cts.png)
 
-This has been made possible by initial legacy contribution from [@slaci](https://github.com/slaci), and [@peterkeung](https://github.com/peterkeung),
-who ported this feature over from Relation List to Relation.
+This has been made possible by initial legacy contribution from [@peterkeung](https://github.com/peterkeung), and [@slaci](https://github.com/slaci) who ported this feature over to eZ Platform so that both could go in.
 
 #### API endpoint for removing translations
 
@@ -56,18 +55,20 @@ See [EZEE-1611](https://jira.ez.no/browse/EZEE-1611) for details.
 
 #### Official Enterprise Support for Legacy Bridge
 
-Starting with this release we are going to officially support an alternative (and often simpler) way to gradually migrate
+Starting with this release we are going to officially support an alternative _(and pherhaps simpler)_ way to gradually migrate
 from eZ Publish to eZ Platform. From now on, also as an Enterprise user, you can use Legacy Bridge.
-There is also a corresponding new eZ Publish legacy release called 2017.08 available for both community and enterprise users.
-As with eZ Platform itself, Enterprise users will receive full support, maintenance, and security bug handling
-as they are used to for this setup, under similar constraints as 5.x setup had.
+There is a corresponding new eZ Publish legacy release called 2017.08 available for this, for both community and enterprise users.
+Unlike eZ Publish 5.4LTS this should be seen as a Fast Track release of legacy, in the sense that it's tailored for those that want
+more modern eZ Platform version and Symfony version to be able to take advantage of all new features of the platform to faciclitate
+the migration. More info on this in seperate blog post soon. As with eZ Platform itself, Enterprise users will receive the same
+full support, maintenance, and priority security patch handling as they are used to for this setup.
 
 !!! note
 
-    Not supported for new installs. The Legacy Bridge integration does not have same performance,
+    Not supported for clean/new installs, for use with migrations. The Legacy Bridge integration does not have same performance,
     scalability or integrated experience as pure Platform setup. There are known edge cases where for instance cache or search index
-    won't be immediately updated when using a bridged setup, which one of the many reasons why we recommend
-    a pure platform setup where that is possible.
+    won't always be immediately updated across the two systems using the bridge, which one of the many reasons why we recommend
+    a pure Platform setup where that is possible.
 
 ## Full list of new features, improvements and bug fixes since v1.10.0
 
