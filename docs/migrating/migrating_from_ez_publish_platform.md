@@ -115,11 +115,11 @@ Move over registration of _your_ bundles you have from src and from composer pac
 
 ##### 2.5 Optional: Install Legacy bridge
 
-If you don't plan to migrate directly to pure eZ Platform setup, you can optionally instal legacy bridge and gradually take the code migration afterwards. For how see https://github.com/ezsystems/LegacyBridge/blob/master/INSTALL.md
+If you don't plan to migrate content directly to newer eZ Platform Field types, you can optionally instal legacy bridge and gradually take  code & subsequent content migration afterwards. For install instructions see [here](https://github.com/ezsystems/LegacyBridge/blob/master/INSTALL.md).
 
 !!! note 
 
-    The Legacy Bridge integration does not have same performance, scalability or integrated experience as pure Platform setup. There are known edge cases where for instance cache or search index won't always be immediately updated across the two systems using the bridge, which is one of the many reasons why we recommend a pure Platform setup where that is possible.
+    The Legacy Bridge integration does not have same performance, scalability or integrated experience as pure Platform setup. Like on eZ Publish Platform 5.x there are known edge cases where for instance cache or search index won't always be immediately updated across the two systems using the bridge, which is one of the many reasons why we recommend a pure Platform setup where that is possible.
 
 #####  2.5 Binary files
 
