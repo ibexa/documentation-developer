@@ -532,6 +532,23 @@ ez_search_engine_solr:
                 main_translations: endpoint6
 ```
 
+##### Solr Basic HTTP Authorization
+Solr core can be secured with Basic HTTP Authorization. See more information here: [Solr Basic Authentication Plugin](https://cwiki.apache.org/confluence/display/solr/Basic+Authentication+Plugin).
+In the example below we configured Solr Bundle to work with secured Solr core.
+
+``` yaml
+# config.yml
+ez_search_engine_solr:
+    endpoints:
+        endpoint0:
+            dsn: %solr_dsn%
+            core: core0
+            user: example
+            pass: password
+```
+
+Obviously, you should pass credentials for every configured and HTTP Basic secured Solr core. Configuration for multi core setup is exactly the same.
+
 #### Step 3: Configuring repository with the specific search engine
 
 The following is an example of configuring Solr Search Engine, where `connection` name is same as in the example above, and engine is set to `solr`:
