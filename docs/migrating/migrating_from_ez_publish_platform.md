@@ -4,25 +4,20 @@ eZ Publish Platform (5.x) was a transitional version of the eZ CMS, bridging the
 
 eZ Publish Platform introduced a new Symfony-based technology stack that could be run along the old (*legacy*) one. This fluid change allows eZ Publish users to migrate to eZ Platform Enterprise Edition for Developers in two steps, using the 5.x version as an intermediary stepping stone.
 
-## Upgrading from 5.4.x and 2014.11 to 16.xx
+## Upgrading eZ Publish Platform 5.4.x (Enterprise-) / 2014.11 (Community-edition) to eZ Platform v1.11 or higher
 
-!!! caution "Beta"
+!!! caution "Things to be aware when planning a migration"
 
-    Instructions and scripts provided here are open for testing and feedback, and for eZ Enterprise users eZ will take care about bugs over support, however until 2017 when features like custom tags are in place, and community provides feedback on how this works "in the wild", this will continue to be labeled as beta.
-
-    Topics you should be aware of when planning an upgrade:
+    1. While these instructions below are fully supported, we are aware that the community/partners/customers are coming from a wide range of different versions of eZ Publish, some with issues that does not surface before attempting to do an migration. So we and the community are activly gathering feedback on slack and/or support channels for Enterprise customers to gradually improve the migration scripts and instructions. So reach out before you start so others that have done this before you can support you.
+    
+    2. As of eZ Platform v1.11 Legacy Bridge is an supported option for 1.x and future 2.x series, this means you can plan for a more gradually migration if you want, just like you could on eZ Publish Platform 5.x, with a more feature rich version of eZ Platform and with 2.x also more recent version of Symfony. This is a great option for those that want latests features and are comfortable with more frequent releases.
+    
+    3. Additionally there are some other topics to be aware for the code migration from eZ Publish to eZ Platform:
 
     - [Field Types reference](../guide/field_type_reference.md) for overview of Field Types that exists and not on eZ Platform
-    - RichText Field Type capabilities, currently not covering [Custom Tags](https://jira.ez.no/browse/EZP-25357)
+    - eZ Platform RichText Field Type capabilities, currently not covering [Custom Tags](https://jira.ez.no/browse/EZP-25357)
     - Symfony 2.8, this is also the case on later 5.4.x versions, but not the first once including 2014.11
-    - API changes, while we have a strict Backwards Compatibility focus, some deprecated API features where removed, some changes where done to internal parts of the system, and as planned eZ Publish legacy and legacy bridge was removed. See [ezpublish-kernel:doc/bc/changes-6.0.md](https://github.com/ezsystems/ezpublish-kernel/blob/v6.6.0/doc/bc/changes-6.0.md)
-
-!!! note
-
-    Instructions for upgrading from eZ Publish to eZ Platform and eZ Enterprise are in preview starting release [16.02](../releases/ez_platform_16.02_release_notes.md). The status of the upgrade is:
-
-    - eZ Platform: **XmlText to RichText migration**: *In Beta, and described below.*
-    - eZ Enterprise: **Flow to Landing Page migration**: *Scheduled for beta version with 16.04.*
+    - API changes, while we have a strict Backwards Compatibility focus, some deprecated API features where removed, some changes where done to internal parts of the system. See [ezpublish-kernel:doc/bc/changes-6.0.md](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.0/doc/bc/changes-6.0.md)
 
 !!! note
 
@@ -38,14 +33,14 @@ This section describes how to upgrade your existing  eZ Publish Platform  5.4
 ## Check for requirements
 
 - Information regarding system requirements can be found on the [Requirements documentation page](../getting_started/requirements_and_system_configuration.md); notable changes include:
-    - PHP 5.5.9 or higher
-    - MySQL or MariaDB 5.5 or higher
-    - Browser from 2015 or newer for use with backend UI
+    - PHP 5.6, 7.0 or higher
+    - MariaDB or MySQL 5.5 or higher _(Postgres possible for upgrades, but not yet supported by installer for new installations)_
+    - Browser from 2016 or newer for use with eZ Platform backend UI
 - This page assumes you have composer installed on the machine and that it is a somewhat recent version. See [About Composer](../getting_started/about_composer.md).
 
 ## Upgrade steps
 
-### Step 1: Extract latest eZ Platform/Enterprise 16.02.x installation
+### Step 1: Extract latest eZ Platform/Enterprise 1.11 or higher installation
 
 The easiest way to upgrade the distribution files is to extract a clean installation of eZ Platform / eZ Enterprise to a separate directory.
 
@@ -67,11 +62,16 @@ Assuming you have own composer packages *(libraries and bundles, but not eZ Publ
 
 Adapt the command with your `vendor`, `package`, version number, and add `"–dev"` if a given package is for dev use. Also check if there are other changes in `composer.json` you should move over.
 
-###### 2.2.2 Temporarily install XmlText Field Type
+###### 2.2.2 Install XmlText Field Type
 
-While no longer bundled, the XmlText Field Type exists and is needed to perform migration from eZ Publish's XmlText to the new docbook-based format used by RichText Field Type. From `<new-ez-root>` execute:
+While no longer bundled, the XmlText Field Type exists and is needed to perform migration from eZ Publish's XmlText to the new docbook-based format used by RichText Field Type. Or if you plan to use legacy bridge for a while before migrating content you'll need this for rendering content with XMLText. From `<new-ez-root>` execute:
 
-`composer require --no-update --dev "ezsystems/ezplatform-xmltext-fieldtype:^1.1.0"`
+`composer require --no-update --dev "ezsystems/ezplatform-xmltext-fieldtype:^1.3.0"`
+
+!!! note
+
+    As of v1.3, be aware this Field Type now uses the <link>Content View system</link introduced in eZ Platform 1.0, so make sure you adapt custom templates and override rules if you plan to use this for rednering content _(in legacy bridge setup)_. 
+
 
 ##### 2.3. Config
 
@@ -108,9 +108,18 @@ To move over your own custom configurations, follow the conventions below and ma
 
 ##### 2.4. Bundles
 
-Move over registration of bundles you have from src and from composer packages, from old to new kernel:
+Move over registration of _your_ bundles you have from src and from composer packages, from old to new kernel:
 
 `<old-ez-root>/ezpublish/EzPublishKernel.php => <new-ez-root>/app/AppKernel.php`
+
+
+##### 2.5 Optional: Install Legacy bridge
+
+If you don't plan to migrate directly to pure eZ Platform setup, you can optionally instal legacy bridge and gradually take the code migration afterwards. For how see https://github.com/ezsystems/LegacyBridge/blob/master/INSTALL.md
+
+!!! note 
+
+    The Legacy Bridge integration does not have same performance, scalability or integrated experience as pure Platform setup. There are known edge cases where for instance cache or search index won't always be immediately updated across the two systems using the bridge, which is one of the many reasons why we recommend a pure Platform setup where that is possible.
 
 #####  2.5 Binary files
 
@@ -124,7 +133,7 @@ Binary files can simply be copied from the old to the new installation:
 
 #####  2.6 Re-apply permissions and update composer
 
-Since writable directories and files have been replaced / copied, their permissions might have changed. Re-apply permissions as explained in the installation instructions. TODO: LINK
+Since writable directories and files have been replaced / copied, their permissions might have changed. Re-apply permissions as explained in [the installation instructions](../getting_started/install_manually.md#setup-folder-rights).
 
 When that is done, execute the following to update and install all packages from within `<new-ez-root>`:
 
