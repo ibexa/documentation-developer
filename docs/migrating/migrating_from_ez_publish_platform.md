@@ -153,27 +153,27 @@ Add the following new bundle to your new kernel file, `<new-ez-root>/app/AppKern
 
 ##### 3.1. Execute update SQL
 
-Import to your database the changes provided in one of the following files, optionally read inline comments as you might not need to run some cleanup queries:
+Import to your database the changes provided in one of the following files, it's also recommended to read inline comments as you might not need to run some of the queries:
 
-`MySQL: <new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.1.0-to-6.2.0.sql`
+`MySQL: <new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-5.4.0-to-6.11.0.sql`
 
-`Postgres: <new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-6.1.0-to-6.2.0.sql`
+`Postgres: <new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-5.4.0-to-6.11.0.sql`
 
-!!! note
+##### 3.2. Once you are ready to migrate content to Platform field types
 
-    *Instructions on purpose does not use `dbupdate-5.4.0-to-6.2.0.sql` [as it contains issues with the sql, and the sql update file above contains all relevant schema updates.](https://github.com/ezsystems/ezpublish-kernel/blob/v6.2.0/data/update/mysql/dbupdate-5.4.0-to-6.2.0.sql)*
+Steps here should only be done once you are ready to move away from legacy and Legacy Bridge, as these field types are not supported by legacy. In other words content you have migrated will not be editable in legacy admininterface anymore, but rather in the more modern eZ Platform backend UI, allowing you to take full advantage of what the Platform has to offer in terms of performance and scale.
 
-##### 3.2. Execute XmlText Migration script
+###### 3.2.1 Migrate XmlText cotent to RichText
 
-For migrating content from the XmlText format to the new RichText format, a migration script exists, execute the following from &lt;new-ez-root&gt;:
+If you are ready to migrate your contnet to eZ Platform format and start using pure eZ Platform setup, For migrating content from the XmlText format to the new RichText format, a migration script exists, execute the following from &lt;new-ez-root&gt;:
 
 `php app/console ezxmltext:convert-to-richtext -v`
 
-The migration script is currently in beta, which is why command example is suggested with verbose flag. Feedback on how it works and on how we can improve it is welcome [on the repository](https://github.com/ezsystems/ezplatform-xmltext-fieldtype).
+The command example is suggesting use with verbose flag. This is optional, but suggested as we are activly gathering feedback on how it works woth older eZ Publish content, and on how we can improve it both [on issue in the repository](https://github.com/ezsystems/ezplatform-xmltext-fieldtype), and on slack.
 
-##### 3.3. Migrate Page field to Landing Page (eZ Enterprise only)
+###### 3.2.2 Migrate Page field to Landing Page (eZ Platform Enterprise only)
 
-If you have Page field (ezflow) content and an eZ Enterprise subscription, you can use a script to migrate your Page content to eZ Enterprise Landing Page. See [Migrating legacy Page field (ezflow) to Landing Page (Enterprise)](#migrating-legacy-page-field-ezflow-to-landing-page-enterprise) for more information.
+If you have Page field (ezflow) content and an eZ Enterprise subscription, you can use a script to migrate your Page content to eZ Enterprise Landing Page, to use pure eZ Platform setup. See [Migrating legacy Page field (ezflow) to Landing Page (Enterprise)](#migrating-legacy-page-field-ezflow-to-landing-page-enterprise) for more information.
 
 ### Step 4: Re-configure web server & proxy
 
