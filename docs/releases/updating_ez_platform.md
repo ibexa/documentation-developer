@@ -133,13 +133,13 @@ in `app/AppKernel.php`.
 
 ## 4. Update database
 
-This step is only relevant for some releases:
+These steps are only relevant for some releases:
 
 **ezsearch_return_count table removal**
 
 V1.11
 
-v1.11.0 removes `ezsearch_return_count` table, aligning with eZ Publish legacy since 5.4/2014.11 to avoid issues for those using upgrade install with our withouth legacy bridge. To fix this apply the following database update script if your install is not an eZ Publish upgrade where it was already removed:
+v1.11.0 removes the `ezsearch_return_count` table, which had been removed in eZ Publish legacy since 5.4/2014.11. This avoids issues which would occur when you upgrade using legacy bridge. Apply the following database update script if your installation has not had the table removed by an earlier eZ Publish upgrade:
 
 ``` bash
 mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.10.0-to-6.11.0.sql
