@@ -161,11 +161,11 @@ Import to your database the changes provided in one of the following files, it's
 
 ##### 3.2. Once you are ready to migrate content to Platform field types
 
-Steps here should only be done once you are ready to move away from legacy and Legacy Bridge, as these field types are not supported by legacy. In other words content you have migrated will not be editable in legacy admininterface anymore, but rather in the more modern eZ Platform backend UI, allowing you to take full advantage of what the Platform has to offer in terms of performance and scale.
+Steps here should only be done once you are ready to move away from legacy and Legacy Bridge, as these field types are not supported by legacy. In other words content you have migrated will not be editable in legacy admininterface anymore, but rather in the more modern eZ Platform backend UI, allowing you to take full advantage of what the Platform has to offer.
 
 ###### 3.2.1 Migrate XmlText cotent to RichText
 
-If you are ready to migrate your contnet to eZ Platform format and start using pure eZ Platform setup, For migrating content from the XmlText format to the new RichText format, a migration script exists, execute the following from &lt;new-ez-root&gt;:
+If you are ready to migrate your content to eZ Platform format and start using pure eZ Platform setup, For migrating content from the XmlText format to the new RichText format, a migration script exists, execute the following from &lt;new-ez-root&gt;:
 
 `php app/console ezxmltext:convert-to-richtext -v`
 
