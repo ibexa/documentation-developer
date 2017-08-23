@@ -324,7 +324,7 @@ Status of features:
 - Solr 6 support *(Solr Bundle &gt;= v1.3)* DONE
     - Scoring for Location queries and sorting by them by default DONE
 - Work in progress:
-    - Faceting *(possible to [write your own](../api/public_php_api.md#performing-a-faceted-search) since v1.0, ContentType/Section/User implemented since v1.4, suggested further changes to the API for Faceting can be found [here](https://github.com/ezsystems/ezpublish-kernel/pull/1960))*
+    - Faceting *(possible to [write your own](../api/public_php_api.md#performing-a-faceted-search), ContentType/Section/User implemented, suggested further changes to the API for Faceting can be found [here](https://github.com/ezsystems/ezpublish-kernel/pull/1960))*
     - Index time Boosting *(Solr Bundle &gt;= v1.4)* DONE
 - Future:
     - Solr cloud support
@@ -365,32 +365,41 @@ Secondly, copy configuration files needed for eZ Solr Search Engine bundle, in t
 
 ``` bash
 # Make sure to replace the /opt/solr/ path with where you have placed Solr
-cp -R vendor/ezsystems/ezplatform-solr-search-engine/lib/Resources/config/solr/* /opt/solr/example/solr/collection1/conf/
-
-/opt/solr/bin/solr start -f 
+cd /opt/solr/example
+mkdir -p multicore/collection1/conf
+cp -R <ezplatform-solr-search-engine>/lib/Resources/config/solr/* multicore/collection1/conf
+cp solr/collection1/conf/{currency.xml,stopwords.txt,synonyms.txt} multicore/collection1/conf
+## Remove default cores configuration and add core configuration
+sed -i.bak 's/<core name=".*" instanceDir=".*" \/>//g' multicore/solr.xml
+sed -i.bak "s/<shardHandlerFactory/<core name=\"collection1\" instanceDir=\"collection1\" \/><shardHandlerFactory/g" multicore/solr.xml
+cp multicore/core0/conf/solrconfig.xml multicore/collection1/conf
+sed -i.bak s/core0/collection1/g multicore/collection1/conf/solrconfig.xml
+cd /opt/solr
+bin/solr start -f -a "-Dsolr.solr.home=multicore"
 ```
 
 ###### Solr 6
 
-SOLR BUNDLE &gt;= 1.3.0First download and extract Solr, in Solr Bundle 1.3 and higher we also support Solr 6 *(currently tested with Solr 6.4.2)*:
+SOLR BUNDLE &gt;= 1.3.0First download and extract Solr, in Solr Bundle 1.3 and higher we also support Solr 6 *(currently tested with Solr 6.6.0)*:
 
-- [solr-6.4.2.tgz](http://archive.apache.org/dist/lucene/solr/6.4.2/solr-6.4.2.tgz) or [solr-6.4.2.zip](http://archive.apache.org/dist/lucene/solr/6.4.2/solr-6.4.2.zip)
+- [solr-6.6.0.tgz](http://archive.apache.org/dist/lucene/solr/6.6.0/solr-6.6.0.tgz) or [solr-6.6.0.zip](http://archive.apache.org/dist/lucene/solr/6.6.0/solr-6.6.0.zip)
 
 Secondly, copy configuration files needed for eZ Solr Search Engine bundle, *here from the root of your project to the place you extracted Solr*:
 
 ``` bash
 # Make sure to replace the /opt/solr/ path with where you have placed Solr
-mkdir -p /opt/solr/server/ez/template
-cp -R vendor/ezsystems/ezplatform-solr-search-engine/lib/Resources/config/solr/* /opt/solr/server/ez/template
-cp /opt/solr/server/solr/configsets/basic_configs/conf/{currency.xml,solrconfig.xml,stopwords.txt,synonyms.txt,elevate.xml} /opt/solr/server/ez/template
-cp /opt/solr/server/solr/solr.xml /opt/solr/server/ez
+cd /opt/solr
+mkdir -p server/ez/template
+cp -R <ezplatform-solr-search-engine>/lib/Resources/config/solr/* server/ez/template
+cp server/solr/configsets/basic_configs/conf/{currency.xml,solrconfig.xml,stopwords.txt,synonyms.txt,elevate.xml} server/ez/template
+cp server/solr/solr.xml server/ez
 
 # Modify solrconfig.xml to remove the section that doesn't agree with your schema
-sed -i.bak '/<updateRequestProcessorChain name="add-unknown-fields-to-the-schema">/,/<\/updateRequestProcessorChain>/d' /opt/solr/server/ez/template/solrconfig.xml
+sed -i.bak '/<updateRequestProcessorChain name="add-unknown-fields-to-the-schema">/,/<\/updateRequestProcessorChain>/d' server/ez/template/solrconfig.xml
  
 # Start Solr (but apply autocommit settings below first if you need to)
-/opt/solr/bin/solr -s ez
-/opt/solr/bin/solr create_core -c collection1 -d server/ez/template
+bin/solr -s ez
+bin/solr create_core -c collection1 -d server/ez/template
 ```
 
 ##### Further configuration
@@ -523,6 +532,23 @@ ez_search_engine_solr:
                 main_translations: endpoint6
 ```
 
+##### Solr Basic HTTP Authorization
+Solr core can be secured with Basic HTTP Authorization. See more information here: [Solr Basic Authentication Plugin](https://cwiki.apache.org/confluence/display/solr/Basic+Authentication+Plugin).
+In the example below we configured Solr Bundle to work with secured Solr core.
+
+``` yaml
+# config.yml
+ez_search_engine_solr:
+    endpoints:
+        endpoint0:
+            dsn: %solr_dsn%
+            core: core0
+            user: example
+            pass: password
+```
+
+Obviously, you should pass credentials for every configured and HTTP Basic secured Solr core. Configuration for multi core setup is exactly the same.
+
 #### Step 3: Configuring repository with the specific search engine
 
 The following is an example of configuring Solr Search Engine, where `connection` name is same as in the example above, and engine is set to `solr`:
@@ -631,7 +657,7 @@ The configuration above will result in the following boosting (Content Type / Fi
 
 SOLR BUNDLE &gt;= 1.2
 
-Starting with eZ Platform 1.7: as a developer you will often find the need to index some additional data in the search engine. The use cases for this are varied, for example the data could come from an external source *(e.g. from recommendation system)*, or from an internal source. The common use case for the latter is indexing data through the Location hierarchy, for example from the parent Location to the child Location, or in the opposite direction, indexing child data on the parent Location. The reason might be you want to find the content with fulltext search, or you want to simplify search for a complicated data model. To do this effectively, you first need to understand how the data is indexed with Solr Search engine. Documents are indexed per translation, as Content blocks. In Solr, a block is a nested document structure. In our case, parent document represents Content, and Locations are indexed as child documents of the Content. To avoid duplication, full text data is indexed on the Content document only. Knowing this, you have the option to index additional data on:
+As a developer you will often find the need to index some additional data in the search engine. The use cases for this are varied, for example the data could come from an external source *(e.g. from recommendation system)*, or from an internal source. The common use case for the latter is indexing data through the Location hierarchy, for example from the parent Location to the child Location, or in the opposite direction, indexing child data on the parent Location. The reason might be you want to find the content with fulltext search, or you want to simplify search for a complicated data model. To do this effectively, you first need to understand how the data is indexed with Solr Search engine. Documents are indexed per translation, as Content blocks. In Solr, a block is a nested document structure. In our case, parent document represents Content, and Locations are indexed as child documents of the Content. To avoid duplication, full text data is indexed on the Content document only. Knowing this, you have the option to index additional data on:
 
 - all block documents (meaning Content and its Locations, all translations)
 - all block documents per translation
@@ -916,8 +942,6 @@ Implementation and availability of a handler sometimes depends on search engine
 For how to use each and every Sort Clause, see list below as it depends on the Sort Clause Value constructor, but *in general* you should be aware of the following common concept:
 
 - `sortDirection`: The direction to perform the sort, either `Query::SORT_ASC`*(default)* or `Query::SORT_DESC`
-
-V1.6.0
 
 You can use the method `SearchService::getSortClauseFromLocation( Location $location )` to return an array of Sort Clauses that you can use on `LocationQuery->sortClauses`.
 

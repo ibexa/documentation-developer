@@ -175,10 +175,6 @@ Until we swap the Front Page with the current Home, you can access the new page 
 
 ### Replacing the front page
 
-!!! caution
-
-    This part only works from v1.7.0 onward. If you are using an earlier version, skip this last section and as a workaround in the next steps access your new Front Page directly by its URI, for example: `tutorial.lh/Front-Page`.
-
 Now for the last part in this step: let's replace the current Home with your new Front Page.
 
 To swap the two Content items, go to Home in Platform UI (if you are in the Studio UI, switch by clicking Content at the top). Open the Locations tab, click Select Content Item under Content Location Swap and select the newly created Front Page. The two pages should now be swapped, with the new Landing Page becoming the first item in the Content tree. It will now be the first page that visitors to your website see. We will momentarily start filling it up with content.

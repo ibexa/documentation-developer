@@ -132,8 +132,6 @@ The Universal Discovery Widget is a side view triggered when the user needs to p
 
 ## Extending the Dashboard
 
-V1.4
-
 eZ Platform contains a Dashboard which shows the user the most relevant Content items divided into blocks for a quick overview.
 
 Aside from the built-in blocks you can extend the Dashboard with new ones and remove existing ones.
@@ -321,8 +319,6 @@ After this configuration is complete the Dashboard should display the new block.
 
 ### Block templates
 
-V.1.8
-
 EZ ENTERPRISE
 
 All Landing Page blocks, both those that come out of the box and [custom ones](../cookbook/creating_landing_page_blocks_(enterprise).md), can have multiple templates. This allows you to create different styles for each block and let the editor choose them when adding the block from the UI. The templates are defined in your configuration files like in the following example, with `simplelist` and `special` being the template names:
@@ -340,9 +336,27 @@ blocks:
                 name: Special Content List
 ```
 
-### Extending the Form Builder
+Some blocks can have slightly more complex configuration. An example is the Collection block, which requires an `options` key.
+This key defines which Content Types can be added to it.
+See [this example from the Studio Demo](https://github.com/ezsystems/ezstudio-demo-bundle/blob/master/Resources/config/default_layouts.yml#L160):
 
-V1.7
+``` yaml
+blocks:
+    collection:
+        views:
+            content:
+                template: eZStudioDemoBundle:blocks:collection.content.html.twig
+                name: Content List View
+                options:
+                    match: [article, blog_post]
+            gallery:
+                template: eZStudioDemoBundle:blocks:collection.content.html.twig
+                name: Gallery View
+                options:
+                    match: [image]
+```
+
+### Extending the Form Builder
 
 EZ ENTERPRISE
 
@@ -571,9 +585,7 @@ It has to be registered as a tagged Symfony service, like this:
 
 #### Other Form Builder fields
 
-V1.8
-
-Form Builder fields introduced in v1.8 require additional configuration.
+The following form Builder fields require additional configuration.
 
 ##### Date field
 
@@ -616,8 +628,6 @@ for example:
 ## Further extensibility
 
 ### Content Type icons
-
-V1.4
 
 A Content item can be treated as an instance of a Content Type. The type of a Content item is very important information to provide to the user. The Content Type to which a Content item belongs is represented graphically using an icon near the Content item name. Essentially, the Content Types are project-specific so the icons can be easily configured and extended by integrators.
 

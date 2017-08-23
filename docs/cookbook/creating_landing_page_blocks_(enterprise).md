@@ -2,8 +2,6 @@
 
 ## Description
 
-V1.2
-
 A Landing Page has a customizable layout with multiple zones where you can place predefined blocks with content.
 
 By default eZ Enterprise comes with a number of preset Landing Page blocks. You can, however, add custom blocks to your configuration. There are two ways to do this: the full way and an [easier, YAML-based method](#defining-landing-page-blocks-in-the-configuration-file).
@@ -348,7 +346,7 @@ class TagBlock extends AbstractBlockType implements BlockType
 }
 ```
 
-!!! tip "V1.7"
+!!! tip
 
     If you want to make sure that your block is only available in the Element menu in a specific situation, you can override the `isAvailable` method, which makes the block accessible by default:
 

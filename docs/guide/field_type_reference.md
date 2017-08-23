@@ -21,7 +21,7 @@ A Field Type is the smallest possible entity of storage. It determines how a spe
 | [Image](#image-field-type) | Validates and stores an image. | No | Yes |
 | [Integer](#integer-field-type) | Validates and stores an integer value. | Yes | Yes |
 | [ISBN](#isbn-field-type) | Handles International Standard Book Number (ISBN) in 10-digit or 13-digit format.  | Yes | Yes |
-| [Keyword](#keyword-field-type) | Stores keywords. | Yes\* &gt;= 1.7.0 | Yes |
+| [Keyword](#keyword-field-type) | Stores keywords. | Yes\* | Yes |
 | [Landing Page](#landing-page-field-type-enterprise) | Stores a page with a layout consisting of multiple zones. | N/A | N/A |
 | [MapLocation](#maplocation-field-type) | Stores map coordinates. | Yes, with MapLocationDistance criterion | Yes |
 | [Media](#media-field-type) | Validates and stores a media file. | No | Yes |
@@ -31,7 +31,7 @@ A Field Type is the smallest possible entity of storage. It determines how a spe
 | [RelationList](#relationlist-field-type) | Validates and stores a list of relations to Content items. | Yes, with FieldRelation criterion | Yes |
 | [RichText](#richtext-field-type) | Validates and stores structured rich text in docbook xml format, and exposes it in several formats. | Yes\*  | Yes |
 | [Selection](#selection-field-type) | Validates and stores a single selection or multiple choices from a list of options. | Yes\* | Yes |
-| [TextBlock](#textblock-field-type) | Validates and stores a larger block of text. | Yes\* &gt;= 1.7.1 | Yes |
+| [TextBlock](#textblock-field-type) | Validates and stores a larger block of text. | Yes\* | Yes |
 | [TextLine](#textline-field-type) | Validates and stores a single line of text. | Yes | Yes |
 | [Time](#time-field-type) | Stores time information. | Yes | Yes |
 | [Url](#url-field-type) | Stores a URL / address. | No | Yes |
@@ -43,7 +43,7 @@ A Field Type is the smallest possible entity of storage. It determines how a spe
 
 |FieldType|Description|Searchable|Editing support in Platform UI|Planned to be included in the future|
 |------|------|------|------|------|
-|[Tags](https://github.com/netgen/TagsBundle)|Tags field and full fledge taxonomy management|Yes|Yes >= 3.0.0 (BUNDLE VERSION)|Yes >= 1.9.0 (IN STUDIO DEMO INSTALL)|
+|[Tags](https://github.com/netgen/TagsBundle)|Tags field and full fledge taxonomy management|Yes|Yes >= 3.0.0 (BUNDLE VERSION)|Yes (IN STUDIO DEMO INSTALL)|
 |[Price](https://github.com/ezcommunity/EzPriceBundle)|Price field for product catalog use|Yes|No|Yes|
 |[Matrix](https://github.com/ezcommunity/EzMatrixFieldTypeBundle)|Matrix field for matrix data|Yes|No|Yes|
 |[XmlText](#xmltext-field-type)|Validates and stores multiple lines of formatted text using xml format.|Yes|Partial *(Raw xml editing)*|No *(has been superseded by RichText)*|
@@ -1144,7 +1144,7 @@ This Field Type supports `IntegerValueValidator`, defining maximal and minimal 
 |Name|Type|Default value|Description|
 |------|------|------|------|
 |`minIntegerValue`|`int`|`0`|This setting defines the minimum value this FieldType will allow as input.|
-|`maxIntegerValue`|`int`|`false` (or `null` in v1.5.2, v1.6.1)|This setting defines the maximum value this FieldType will allow as input.|
+|`maxIntegerValue`|`int`|`null`|This setting defines the maximum value this FieldType will allow as input.|
 
 ``` php
 // Example of validator configuration in PHP
@@ -1433,7 +1433,7 @@ The template called by [the **ez\_render\_field()** Twig function](content_rende
 |`draggable`|`boolean`|`true`|Whether to enable draggable map|
 |`height`|`string|false`|`"200px"`|The height of the rendered map with its unit (for example "200px" or "20em"), set to false to not set any height style inline.|
 |`mapType`|`string`|`"ROADMAP"`|[One of the GMap types of map](https://developers.google.com/maps/documentation/javascript/maptypes#BasicMapTypes)|
-|`scrollWheel`|`boolean`|`true`|>= 1.7.4, 1.9.1, 1.10.0 Allows you to disable scroll wheel starting to zoom when mouse comes over the map as user scrolls down a page.|
+|`scrollWheel`|`boolean`|`true`|Allows you to disable scroll wheel starting to zoom when mouse comes over the map as user scrolls down a page.|
 |`showInfo`|`booolean`|`true`|Whether to show a latitude, longitude and the address outside of the map|
 |`showMap`|`boolean`|`true`|Whether to show a Google Map|
 |`width`|`string|false`|`"500px"`|The width of the rendered map with its unit (for example "500px" or "50em"), set to false to not set any width style inline.|
@@ -1446,8 +1446,6 @@ Example:
 ```
 
 #### Configuration
-
-&gt;= 1.7.4, 1.9.1, 1.10.0 
 
 | Config | Site Access/Group aware | Description |
 |--------|-------------------------|-------------|
@@ -1725,12 +1723,13 @@ This Field Type validates whether the provided relation exists, but before it do
 
 #### Settings
 
-The field definition of this Field Type can be configured with two options:
+The field definition of this Field Type can be configured with three options:
 
 |Name|Type|Default value|Description|
 |------|------|------|------|
 |`selectionMethod`|`int`|`self::SELECTION_BROWSE`|This setting defines the selection method. It expects an integer (0/1). 0 stands for `self::SELECTION_BROWSE`, 1 stands for `self::SELECTION_DROPDOWN`. **Note**: Dropdown is not implemented in Platform UI yet, only browse is used currently.|
 |`selectionRoot`|`string`|`null`|This setting defines the selection root.|
+|`selectionContentTypes`|`array`|`[]`|An array of ContentType ids that are allowed for related Content|
 
 ``` php
 // Relation FieldType example settings
@@ -1739,7 +1738,8 @@ use eZ\Publish\Core\FieldType\Relation\Type;
 
 $settings = array(
     "selectionMethod" => 1,
-    "selectionRoot" => null
+    "selectionRoot" => null,
+    "selectionContentTypes" => []
 );
 ```
 

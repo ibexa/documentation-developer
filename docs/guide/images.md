@@ -74,6 +74,14 @@ ezsettings.default.image_variations:
 
 ## Usage
 
+### Render within a twig template
+
+Each image variation can be called within a twig template by passing `alias` with the parameters: 
+
+```twig
+ez_render_field( content, 'image', { parameters: { 'alias': 'medium' } } )
+```
+
 ### Filter usage examples
 
 ###### Scaling with an eZ Platform filter

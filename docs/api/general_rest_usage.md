@@ -192,6 +192,10 @@ More information
 
 To enable HTTP Basic authentication, you need to edit app`/config/security.yml`, and add/uncomment the following block. Note that this is enabled by default.
 
+!!! caution
+
+    Until [https://jira.ez.no/browse/EZP-22192](https://jira.ez.no/browse/EZP-22192) is implemented, enabling basic authentication in REST will prevent PlatformUI from working.
+
 **ezplatform.yml**
 
 ``` yaml

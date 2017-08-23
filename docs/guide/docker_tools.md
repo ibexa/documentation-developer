@@ -16,7 +16,7 @@ If you would like to join our efforts *(development, documentation, feedback, an
 
 !!! note "Project use"
 
-    For usage with your own project based on eZ Platform or eZ Enterprise starting with v1.4.0 you'll find documentation for project use in `doc/docker-compose/README.md`.
+    For usage with your own project based on eZ Platform or eZ Enterprise you'll find documentation for project use in `doc/docker-compose/README.md`.
 
 What follows below is instructions for setting up a simple single-server instance of eZ Platform demo using Docker. This is here shown on your own machine, however using [Docker Machine](https://docs.docker.com/machine/) you may point this to a variety of servers and services.
 

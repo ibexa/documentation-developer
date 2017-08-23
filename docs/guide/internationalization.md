@@ -30,7 +30,12 @@ In addition, it is also possible to control access to the global translation lis
 
 ### How to create different language versions?
 
-The multilanguage system operates based on a global translation list that contains all languages available in the installation. Languages can be added to this list from the Admin Panel in the user interface. **The new language must then be added to the [SiteAccess](siteaccess.md) configuration**. Once this is done, any user with proper permissions can create Content item versions in these languages in the user interface.
+The multilanguage system operates based on a global translation list that contains all languages available in the installation. Languages can be added to this list from the Admin Panel in the user interface. After adding a language be sure to dump all assets to the file system:
+```
+php app/console assetic:dump
+```
+
+**The new language must then be added to the [SiteAccess](siteaccess.md) configuration**. Once this is done, any user with proper permissions can create Content item versions in these languages in the user interface.
 
 ### How to make translations available to the visitor?
 
@@ -281,7 +286,7 @@ $availableLanguages = $translationHelper->getAvailableLanguages();
 
 ### Value objects
 
-Starting with **V1.10** you should be able to use translatable properties of API value objects directly without having to specify languages when doing so. This is true for the following methods where available:
+You are able to use translatable properties of API value objects directly without having to specify languages when doing so. This is true for the following methods where available:
 
 - Available on `Content, VersionInfo, ContentType, FieldDefinition, ContentTypeGroup, ObjectState, ObjectStateGroup`:
     - `getName()`
@@ -310,8 +315,6 @@ Now you can reload your eZ Platform administration page which will be translated
 
 ##### In-context UI translation
 
-V1.8
-
-Since eZ Platform 1.7.0, the interface has been fully translatable. Version 1.8.0 introduces official support for [Crowdin](http://crowdin.com) as a translation management system. In addition, it integrates support for in-context translation, a feature that allows you to translate strings from the interface, *in context*.
+[Crowdin](http://crowdin.com) is the translation management system for eZ Platform. In addition, it integrates support for in-context translation, a feature that allows you to translate strings from the interface, *in context*.
 
 To learn how to contribute to a translation using Crowdin, see [Contributing translations](../community_resources/contributing.md#contributing-translations).
