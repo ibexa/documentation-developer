@@ -613,21 +613,22 @@ Here is an example for **ezurl** field type:
 ``` yaml
 parameters:
     ezpublish.fieldType.ezurl.externalStorage.class: eZ\Publish\Core\FieldType\Url\UrlStorage
-
 services:
     ezpublish.fieldType.ezurl.externalStorage:
         class: %ezpublish.fieldType.ezurl.externalStorage.class%
+        arguments:
+            - "@ezpublish.fieldType.ezurl.storage_gateway"
         tags:
             - {name: ezpublish.fieldType.externalStorageHandler, alias: ezurl}
 ```
 
-The configuration is straight forward. Nothing specific except the **`ezpublish.fieldType.externalStorageHandler `** tag, the `alias` attribute still begin the *fieldTypeIdentifier*.
+The configuration requires providing the **`ezpublish.fieldType.externalStorageHandler `** tag, with the `alias` attribute being the *fieldTypeIdentifier*. You also have to inject the gateway in `arguments`, [see below](#gateway-based-storage_1).
 
-External storage configuration for basic field types is located in [EzPublishCoreBundle/Resources/config/fieldtypes.yml](https://github.com/ezsystems/ezp-next/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/fieldtypes.yml).
+External storage configuration for basic field types is located in [eZ/Publish/Core/settings/fieldtype_external_storages.yml](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/fieldtype_external_storages.yml).
 
 ##### Gateway based storage
 
-As stated in the [Field Type best practices](#gateway-based-storage), in order to be storage agnostic and external storage handler should use a *storage gateway*. This can be done by implementing another service implementing `eZ\Publish\Core\FieldType\StorageGateway` and being tagged as `ezpublish.fieldType.externalStorageHandler.gateway`.
+As stated in the [Field Type best practices](#gateway-based-storage), in order to be storage agnostic and external storage handler should use a *storage gateway*. This can be done using another service implementing `eZ\Publish\SPI\FieldType\StorageGateway`, to be injected into external storage handler ([see above](#external-storage)).
 
 **Storage gateway for ezurl**
 
@@ -638,20 +639,16 @@ parameters:
 services:
     ezpublish.fieldType.ezurl.storage_gateway:
         class: %ezpublish.fieldType.ezurl.storage_gateway.class%
-        tags:
-            - {name: ezpublish.fieldType.externalStorageHandler.gateway, alias: ezurl, identifier: LegacyStorage}
+        arguments: ["@ezpublish.api.storage_engine.legacy.connection"]
 ```
 
-| Attribute name | Usage |
-|----------------|-------|
-| alias | Represents the fieldTypeIdentifier (just like for the FieldType service) |
-| identifier | Identifier for the gateway. Must be unique per storage engine. LegacyStorage is the convention name for Legacy Storage Engine. |
+`ezpublish.api.storage_engine.legacy.connection` is of type `\Doctrine\DBAL\Connection`. If your gateway still uses an implementation of `\eZ\Publish\Core\Persistence\Database\DatabaseHandler` (a.k.a `\eZ\Publish\Core\Persistence\Doctrine\ConnectionHandler`), instead of the `ezpublish.api.storage_engine.legacy.connection` you can pass the `ezpublish.api.storage_engine.legacy.dbhandler` service.
 
-For this to work properly, your storage handler must inherit from `eZ\Publish\Core\FieldType\GatewayBasedStorage`.
+For this to work properly, your storage handler must inherit from `eZ\Publish\SPI\FieldType\GatewayBasedStorage`.
 
 Also note that there can be several gateways per field type (one per storage engine basically).
 
-The gateway configuration for basic field types are located in [EzPublishCoreBundle/Resources/config/storage\_engines.yml](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage_engines.yml).
+The gateway configuration for basic field types are located in [eZ/Publish/Core/settings/storage_engines/legacy/external_storage_gateways.yml](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/storage_engines/legacy/external_storage_gateways.yml).
 
 ## Settings schema and allowed validators
 
@@ -687,5 +684,3 @@ The type should be either a valid PHP type shortcut (TB discussed) or one of the
 Validators are internally handled through a special ValidatorService … (TBD: Explain service and how it works)
 
 The following validators are available and carry the defined settings … (TBD: Collect validators and their settings)
-
- 
