@@ -144,13 +144,29 @@ pages:
             - 'eZ Platform 15.12.1': 'releases/ez_platform_15.12.1_release_notes.md'
             - 'eZ Platform 15.12': 'releases/ez_platform_15.12_release_notes.md'
             - 'Earlier releases': 'releases/earlier_releases.md'
-theme: readthedocs
-#theme_dir: templates
-#extra_css: [css/custom.css, css/font-awesome.min.css]
-#extra_javascript: [js/scrollspy.js, js/extra.js]
-extra_javascript: [js/fix_search.js]
+#theme: material
+theme_dir: material
+extra_css: [fonts/MavenPro.css, css/custom.css]
+extra_javascript: [js/jquery.min.js, js/custom.js]
 markdown_extensions:
-    - markdown.extensions.admonition
-    - pymdownx.superfences
-    - markdown.extensions.toc:
-        permalink: True
+  - markdown.extensions.admonition
+  - markdown.extensions.codehilite(guess_lang=false)
+  - markdown.extensions.def_list
+  - markdown.extensions.footnotes
+  - markdown.extensions.meta
+  - markdown.extensions.toc(permalink=true)
+  - pymdownx.arithmatex
+  - pymdownx.betterem(smart_enable=all)
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist(custom_checkbox=true)
+  - pymdownx.tilde
+
+#extra:
+#    font:
+#        text: 'Maven Pro'
