@@ -2,7 +2,7 @@
 
 ## Welcome to the eZ Platform Developer documentation!
 
-This is the center for eZ Platform documentation for developers and system administrators. Here you'll find information about installing, administrating, managing, customizing and extending eZ Platform. The latest version is [v1.10.0](https://ezplatform.com/) ([Release Notes](releases/ez_platform_v1.10.0.md)), available on the eZ Developer Hub: <https://ezplatform.com/>
+This is the center for eZ Platform documentation for developers and system administrators. Here you'll find information about installing, administrating, managing, customizing and extending eZ Platform. The latest version is [v1.11.0](https://ezplatform.com/) ([Release Notes](releases/ez_platform_v1.11.0.md)), available on the eZ Developer Hub: <https://ezplatform.com/>
 
 **New to eZ Platform? See [Get Started with eZ Platform](getting_started/get_started_with_ez_platform.md)**
 
