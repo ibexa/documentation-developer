@@ -94,7 +94,7 @@ full support, maintenance, and priority security patch handling as they are used
 #### eZ Enterprise
 
 - [Customers: eZ Enterprise subscription (BUL License)](https://support.ez.no/Downloads)
-- [Partners: Test & Trial software access (TTL License)](https://support.ez.no/Downloads)
+- [Partners: Test & Trial software access (TTL License)](https://ez.no/Partner-Portal/Software-Downloads-Release-Info)
 
 If you would like to request an eZ Enterprise Demo instance: <http://ez.no/Forms/Discover-eZ-Studio>
 
