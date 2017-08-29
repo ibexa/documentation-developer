@@ -440,7 +440,7 @@ This limit is enforced on publishing a new version and only covers archived vers
 
     Current implementation uses a caching library called [Stash](http://stash.tedivm.com/) (via [StashBundle](https://github.com/tedivm/TedivmStashBundle)). Stash supports the following cache backends: FileSystem, Memcache, APC, Sqlite, Redis and BlackHole.
 
-*Use of Memcached (or, experimentally, Redis) is a requirement for use in Clustering setup. For an overview of this feature, see [Clustering](clustering.md).*
+*Use of Memcached or Redis is a requirement for use in Clustering setup. For an overview of this feature, see [Clustering](clustering.md).*
 
 !!! note
 
