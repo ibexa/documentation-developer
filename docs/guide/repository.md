@@ -589,8 +589,6 @@ Please also note that the default value for `apc.shm_size` is 128MB. However, 2
 
 #### Redis
 
-EXPERIMENTAL
-
 This cache backend is using [Redis, a in-memory data structure store](http://redis.io/), via [Redis pecl extension](https://pecl.php.net/package/redis). This is an alternative cache solution for [multi server (cluster) setups](clustering.md), besides using Memcached.
 
 **Available settings**
