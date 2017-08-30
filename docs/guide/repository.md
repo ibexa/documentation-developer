@@ -438,7 +438,7 @@ This limit is enforced on publishing a new version and only covers archived vers
 
     Current implementation uses a caching library called [Stash](http://stash.tedivm.com/) (via [StashBundle](https://github.com/tedivm/TedivmStashBundle)). Stash supports the following cache backends: FileSystem, Memcache, APC, Sqlite, Redis and BlackHole.
 
-*Use of Memcached (or, experimentally, Redis) is a requirement for use in Clustering setup. For an overview of this feature, see [Clustering](clustering.md).*
+*Use of Memcached or Redis is a requirement for use in Clustering setup. For an overview of this feature, see [Clustering](clustering.md).*
 
 !!! note
 
@@ -586,8 +586,6 @@ Please also note that the default value for `apc.shm_size` is 128MB. However, 2
 | `namespace` | A namespace to prefix cache keys with to avoid key conflicts with other eZ Platform sites on same eZ Platform installation; default is `null`. |
 
 #### Redis
-
-EXPERIMENTAL
 
 This cache backend is using [Redis, a in-memory data structure store](http://redis.io/), via [Redis pecl extension](https://pecl.php.net/package/redis). This is an alternative cache solution for [multi server (cluster) setups](clustering.md), besides using Memcached.
 
