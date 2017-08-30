@@ -182,3 +182,7 @@ If `--to` is omitted, the first non-default IO configuration will be used.
 During the command execution the files should not be modified. To avoid surprises you are advised to create a backup and/or execute a dry run before doing the actual update, using the `--dry-run` switch.
 
 Since this command can run for a very long time, to avoid memory exhaustion run it in the production environment using the `--env=prod` switch.
+
+### Clustering using Amazon AWS S3
+
+See [Setting up Amazon AWS S3 clustering](../cookbook/setting-up-amazon-aws-s3-clustering.md).
