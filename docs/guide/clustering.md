@@ -11,7 +11,7 @@ This diagram illustrates how clustering of eZ Platform is typically set up, the 
 The minimal requirements are the following *(with what is currently supported in italics)*:
 
 - Shared HTTP cache *(using Varnish)*
-- Shared Persistence cache and Sessions *(using Memcached, or experimentally also Redis)*
+- Shared Persistence cache and Sessions *(using Memcached, or Redis)*
 - Shared Database *(using MySQL/MariaDB)*
 - Shared Filesystem *(using NFS, or experimentally also S3)*
 
