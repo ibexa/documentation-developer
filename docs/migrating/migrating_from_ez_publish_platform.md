@@ -6,18 +6,18 @@ eZ Publish Platform introduced a new Symfony-based technology stack that could b
 
 ## Upgrading eZ Publish Platform 5.4.x (Enterprise-) / 2014.11 (Community-edition) to eZ Platform v1.11 or higher
 
-!!! caution "Things to be aware when planning a migration"
+!!! caution "Things to be aware of when planning a migration"
 
-    1. While these instructions below are fully supported, we are aware that the community/partners/customers are coming from a wide range of different versions of eZ Publish, some with issues that does not surface before attempting to do an migration. So we and the community are activly gathering feedback on slack and/or support channels for Enterprise customers to gradually improve the migration scripts and instructions. So reach out before you start so others that have done this before you can support you.
-    
-    2. As of eZ Platform v1.11 Legacy Bridge is an supported option for 1.x and future 2.x series, this means you can plan for a more gradually migration if you want, just like you could on eZ Publish Platform 5.x, with a more feature rich version of eZ Platform and with 2.x also more recent version of Symfony. This is a great option for those that want latests features and are comfortable with more frequent releases.
-    
-    3. Additionally there are some other topics to be aware for the code migration from eZ Publish to eZ Platform:
+    1. While the instructions below are fully supported, we are aware that the community, partners and customers come from a wide range of different versions of eZ Publish, some with issues that do not surface before attempting a migration. That's why we and the community are actively gathering feedback on Slack and/or support channels for Enterprise customers to gradually improve the migration scripts and instructions. Reach out before you start so others who have done this before you can support you.
 
-    - [Field Types reference](../guide/field_type_reference.md) for overview of Field Types that exists and not on eZ Platform
-    - eZ Platform RichText Field Type capabilities, currently not covering [Custom Tags](https://jira.ez.no/browse/EZP-25357)
-    - Symfony 2.8, this is also the case on later 5.4.x versions, but not the first once including 2014.11
-    - API changes, while we have a strict Backwards Compatibility focus, some deprecated API features where removed, some changes where done to internal parts of the system. See [ezpublish-kernel:doc/bc/changes-6.0.md](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.0/doc/bc/changes-6.0.md)
+    1. As of eZ Platform v1.11, Legacy Bridge is a supported option for 1.x and future 2.x series. This means you can plan for a more gradual migration if you want, just like you could on eZ Publish Platform 5.x, with a more feature-rich version of eZ Platform and (with 2.x) also more recent version of Symfony. This is a great option for those who want the latest features and are comfortable with more frequent releases.
+
+    1. Additionally there are some other topics to be aware of for the code migration from eZ Publish to eZ Platform:
+
+        - [Field Types reference](../guide/field_type_reference.md) for overview of Field Types that do and don't exist in eZ Platform
+        - eZ Platform RichText Field Type capabilities, currently not covering [Custom Tags](https://jira.ez.no/browse/EZP-25357)
+        - Symfony 2.8, this is also the case on later 5.4.x versions, but not the first ones including 2014.11
+        - API changes. While we have a strict backwards compatibility focus, some deprecated API features were removed and some changes where done to internal parts of the system. See [ezpublish-kernel:doc/bc/changes-6.0.md](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.0/doc/bc/changes-6.0.md)
 
 !!! note
 
@@ -34,7 +34,7 @@ This section describes how to upgrade your existing  eZ Publish Platform  5.4
 
 - Information regarding system requirements can be found on the [Requirements documentation page](../getting_started/requirements_and_system_configuration.md); notable changes include:
     - PHP 5.6, 7.0 or higher
-    - MariaDB or MySQL 5.5 or higher _(Postgres possible for upgrades, but not yet supported by installer for new installations)_
+    - MariaDB or MySQL 5.5 or higher _(Postgres possible for upgrades, but not yet supported by the installer for new installations)_
     - Browser from 2016 or newer for use with eZ Platform backend UI
 - This page assumes you have composer installed on the machine and that it is a somewhat recent version. See [About Composer](../getting_started/about_composer.md).
 
@@ -64,13 +64,13 @@ Adapt the command with your `vendor`, `package`, version number, and add `"–d
 
 ###### 2.2.2 Install XmlText Field Type
 
-While no longer bundled, the XmlText Field Type exists and is needed to perform migration from eZ Publish's XmlText to the new docbook-based format used by RichText Field Type. Or if you plan to use legacy bridge for a while before migrating content you'll need this for rendering content with XMLText. From `<new-ez-root>` execute:
+While no longer bundled, the XmlText Field Type still exists and is needed to perform a migration from eZ Publish's XmlText to the new docbook-based format used by the RichText Field Type. If you plan to use Legacy Bridge for a while before migrating content, you'll also need this for rendering content with XMLText. From `<new-ez-root>` execute:
 
 `composer require --no-update --dev "ezsystems/ezplatform-xmltext-fieldtype:^1.3.0"`
 
 !!! note
 
-    As of v1.3, be aware this Field Type now uses the <link>Content View system</link introduced in eZ Platform 1.0, so make sure you adapt custom templates and override rules if you plan to use this for rednering content _(in legacy bridge setup)_. 
+    As of v1.3, be aware this Field Type now uses the [Content View system] introduced in eZ Platform 1.0, so make sure you adapt custom templates and override rules if you plan to use this for rendering content _(in Legacy Bridge setup)_.
 
 
 ##### 2.3. Config
@@ -113,13 +113,13 @@ Move over registration of _your_ bundles you have from src and from composer pac
 `<old-ez-root>/ezpublish/EzPublishKernel.php => <new-ez-root>/app/AppKernel.php`
 
 
-##### 2.5 Optional: Install Legacy bridge
+##### Optional: Install Legacy Bridge
 
-If you don't plan to migrate content directly to newer eZ Platform Field types, you can optionally instal legacy bridge and gradually take  code & subsequent content migration afterwards. For install instructions see [here](https://github.com/ezsystems/LegacyBridge/blob/master/INSTALL.md).
+If you don't plan to migrate content directly to newer eZ Platform Field Types, you can optionally install Legacy Bridge and gradually handle code and subsequent content migration afterwards. For installation instructions see [here](https://github.com/ezsystems/LegacyBridge/blob/master/INSTALL.md).
 
-!!! note 
+!!! note
 
-    The Legacy Bridge integration does not have same performance, scalability or integrated experience as pure Platform setup. Like on eZ Publish Platform 5.x there are known edge cases where for instance cache or search index won't always be immediately updated across the two systems using the bridge, which is one of the many reasons why we recommend a pure Platform setup where that is possible.
+    The Legacy Bridge integration does not have the same performance, scalability or integrated experience as a pure Platform setup. Like on eZ Publish Platform 5.x there are known edge cases where, for instance, cache or search index won't always be immediately updated across the two systems using the bridge. This is one of the many reasons why we recommend a pure Platform setup where that is possible.
 
 #####  2.5 Binary files
 
@@ -153,27 +153,27 @@ Add the following new bundle to your new kernel file, `<new-ez-root>/app/AppKern
 
 ##### 3.1. Execute update SQL
 
-Import to your database the changes provided in one of the following files, it's also recommended to read inline comments as you might not need to run some of the queries:
+Import to your database the changes provided in one of the following files. It's also recommended to read inline comments as you might not need to run some of the queries:
 
 `MySQL: <new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-5.4.0-to-6.11.0.sql`
 
 `Postgres: <new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-5.4.0-to-6.11.0.sql`
 
-##### 3.2. Once you are ready to migrate content to Platform field types
+##### 3.2. Once you are ready to migrate content to Platform Field Types
 
-Steps here should only be done once you are ready to move away from legacy and Legacy Bridge, as these field types are not supported by legacy. In other words content you have migrated will not be editable in legacy admininterface anymore, but rather in the more modern eZ Platform backend UI, allowing you to take full advantage of what the Platform has to offer.
+Steps here should only be done once you are ready to move away from legacy and Legacy Bridge, as the following Field Types are not supported by legacy. In other words, content you have migrated will not be editable in legacy admin interface anymore, but rather in the more modern eZ Platform backend UI, allowing you to take full advantage of what the Platform has to offer.
 
-###### 3.2.1 Migrate XmlText cotent to RichText
+###### 3.2.1 Migrate XmlText content to RichText
 
-If you are ready to migrate your content to eZ Platform format and start using pure eZ Platform setup, For migrating content from the XmlText format to the new RichText format, a migration script exists, execute the following from &lt;new-ez-root&gt;:
+If you are ready to migrate your content to the eZ Platform format and start using pure eZ Platform setup, you can use a  script to migrate content from the XmlText format to the new RichText format. Execute the following from &lt;new-ez-root&gt;:
 
 `php app/console ezxmltext:convert-to-richtext -v`
 
-The command example is suggesting use with verbose flag. This is optional, but suggested as we are activly gathering feedback on how it works woth older eZ Publish content, and on how we can improve it both [on issue in the repository](https://github.com/ezsystems/ezplatform-xmltext-fieldtype), and on slack.
+The command example suggests using the verbose flag. This is optional, but recommended as we are actively gathering feedback on how it works with older eZ Publish content, and on how we can improve it both [via issues in the repository](https://github.com/ezsystems/ezplatform-xmltext-fieldtype), and on Slack.
 
 ###### 3.2.2 Migrate Page field to Landing Page (eZ Platform Enterprise only)
 
-If you have Page field (ezflow) content and an eZ Enterprise subscription, you can use a script to migrate your Page content to eZ Enterprise Landing Page, to use pure eZ Platform setup. See [Migrating legacy Page field (ezflow) to Landing Page (Enterprise)](#migrating-legacy-page-field-ezflow-to-landing-page-enterprise) for more information.
+If you have Page field (ezflow) content and an eZ Enterprise subscription, you can use a script to migrate your Page content to eZ Enterprise Landing Page, to use a pure eZ Platform setup. See [Migrating legacy Page field (ezflow) to Landing Page (Enterprise)](#migrating-legacy-page-field-ezflow-to-landing-page-enterprise) for more information.
 
 ### Step 4: Re-configure web server & proxy
 
