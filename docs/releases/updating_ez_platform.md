@@ -14,7 +14,7 @@ If you intend to skip a version (for example, update directly from v1.3 to v1.5 
 
 # Update procedure
 
-## 1. Check out a version
+## 1. Check out a tagged version
 
 **1.1.** From the project's root, create a new branch from the project's master, or from the branch you're updating on:
 
@@ -47,6 +47,8 @@ git pull ezplatform <version>
 or
 git pull ezplatform-ee <version>
 ```
+
+> Don't forget the `v` here, you want to pull the tag `<version>` and not the branch `<version>` (i.e: `v1.11` and not `1.11`)
 
 At this stage you may get conflicts, which are a normal part of the procedure and no reason to worry. The most common ones will be on `composer.json` and `composer.lock`.
 
