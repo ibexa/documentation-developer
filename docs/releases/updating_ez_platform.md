@@ -1,20 +1,19 @@
-
 # Updating eZ Platform
 
 
 This page explains how to update eZ Platform to a new version.
 
-In the instructions below, replace` <version>` with the version of eZ Platform you are updating to (for example: `v1.7.0`). If you are testing a release candidate, use the[latest rc tag](https://github.com/ezsystems/ezplatform/releases) (for example: `v1.7.1-rc1`).
+In the instructions below, replace` <version>` with the version of eZ Platform you are updating to (for example: `v1.7.0`). If you are testing a release candidate, use the [latest rc tag](https://github.com/ezsystems/ezplatform/releases) (for example: `v1.7.1-rc1`).
 
-# Version-specific steps
+## Version-specific steps
 
-**Some versions introduce new features that require taking special steps; they are marked on this page with yellow tags.**
+**Some versions introduce new features that require taking special steps; look out for colored bars with version numbers.**
 
 If you intend to skip a version (for example, update directly from v1.3 to v1.5 without getting v1.4), remember to look at all the intermediate steps as well – this means you need to perform both the steps for v1.4 and v1.5.
 
-# Update procedure
+## Update procedure
 
-## 1. Check out a version
+### 1. Check out a version
 
 **1.1.** From the project's root, create a new branch from the project's master, or from the branch you're updating on:
 
@@ -68,7 +67,7 @@ If you do not keep a copy in the branch, you may also run:
 git rm composer.lock
 ```
 
-## 2. Merge composer.json
+### 2. Merge composer.json
 
 #### Manual merging
 
@@ -101,7 +100,7 @@ There shouldn't be many, and you should be able to figure out which value is the
 -   Edit the file, and identify the conflicting changes. If a setting you have modified has also been changed by us, you should be able to figure out which value is the right one.
 -   Run `git add conflicting-file` to add the changes
 
-## 3. Update the app
+### 3. Update the app
 
 At this point, you should have a `composer.json` file with the correct requirements. Run `composer update` to update the dependencies. 
 
@@ -117,21 +116,13 @@ On PHP conflict | 16.02 and later requires PHP 5.5 or higher
 
 Because from release 16.02 onwards eZ Platform is compatible only with PHP 5.5 and higher, the update command above will fail if you use an older PHP version. Please update PHP to proceed.
 
-## 4. Update database
+### 4. Update database
 
-This step is only relevant for some releases:
+Some versions require updates to the database. Look through [the list of database update scripts](https://github.com/ezsystems/ezpublish-kernel/tree/master/data/update/mysql) for a script for the version you are updating to (database version numbers correspond to the `ezpublish-kernel` version). If you find one, apply it like this:
 
-**content/publish permission**
+`mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.7.0-to-6.8.0.sql`
 
-V1.8
-
-v1.8.0 introduced a new `content/publish` permission separated out of the `content/edit` permission. `edit` now covers only editing content, without the right to publishing it. For that you need the `publish` permission. `edit` without `publish` can be used in conjunction with the Content review workflow to ensure that a user cannot publish content themselves, but must pass it on for review.
-
-To make sure existing users will be able to both edit and publish content, those with the `content/edit` permission will be given the `content/publish` permission by the following database update script:
-
-``` bash
-mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.7.0-to-6.8.0.sql
-```
+These steps are only relevant for some releases:
 
 **Solr Bundle 1.4: Index time boosting**
 
@@ -171,69 +162,49 @@ index 49a17a9..80c4cd7 100644
 
 **Form Builder**
 
-V1.7
+!!! caution "V1.7"
 
-EZ ENTERPRISE
+!!! enterprise "EZ ENTERPRISE"
 
-To enable the Form Builder feature in eZ Platform Enterprise Edition, import the following file:
+    To enable the Form Builder feature in eZ Platform Enterprise Edition, import the following file:
 
-``` bash
-mysql -p -u <database_user> <database_name> < vendor/ezsystems/ezstudio-form-builder/bundle/Resources/install/form_builder.sql
-```
+    ``` bash
+    mysql -p -u <database_user> <database_name> < vendor/ezsystems/ezstudio-form-builder/bundle/Resources/install/form_builder.sql
+    ```
 
 **Date Based Publisher**
 
-V1.7
+!!! caution "V1.7"
 
-EZ ENTERPRISE
+!!! enterprise "EZ ENTERPRISE"
 
-To enable the Date-Based Publisher feature in Enterprise, import the following file:
+    To enable the Date-Based Publisher feature in Enterprise, import the following file:
 
-``` bash
-mysql -p -u <database_user> <database_name> < vendor/ezsystems/date-based-publisher/bundle/Resources/install/datebasedpublisher_scheduled_version.sql
-```
+    ``` bash
+    mysql -p -u <database_user> <database_name> < vendor/ezsystems/date-based-publisher/bundle/Resources/install/datebasedpublisher_scheduled_version.sql
+    ```
 
-In order to activate Date-Based Publisher open console (terminal) and use:
+    In order to activate Date-Based Publisher open console (terminal) and use:
 
-``` bash
-crontab -e
-```
+    ``` bash
+    crontab -e
+    ```
 
-and add below configuration at the end of edited file.
+    and add below configuration at the end of edited file.
 
-For production environment:
+    For production environment:
 
-``` bash
-* * * * *   (cd /path/to/your/ezplatform-ee-project && app/console ezpublish:cron:run -e=prod)
-```
+    ``` bash
+    * * * * *   (cd /path/to/your/ezplatform-ee-project && app/console ezpublish:cron:run -e=prod)
+    ```
 
-For development environment:
+    For development environment:
 
-``` bash
-* * * * *   (cd /path/to/your/ezplatform-ee-project && app/console ezpublish:cron:run -e=dev)
-```
+    ``` bash
+    * * * * *   (cd /path/to/your/ezplatform-ee-project && app/console ezpublish:cron:run -e=dev)
+    ```
 
-**Folder for form-uploaded files**
-
-V1.8
-
-EZ ENTERPRISE
-
-To complete this step you have to [dump assets](#UpdatingeZPlatform-5.Dumpassets) first.
-
-Since v1.8 you can add a File field to the Form block on a Landing Page. Files uploaded through such a form will be automatically placed in a specific folder in the repository.
-
-If you are upgrading to v1.8 you need to create this folder and assign it to a new specific Section. Then, add them in the config (for example, in `app/config/default_parameters.yml`, depending on how your configuration is set up):
-
-``` bash
-    #Location id of the root for form uploads
-    form_builder.upload_folder.location_id: <folder location id>
-
-    #Section identifier for form uploads
-    form_builder.upload_folder.section_identifier: <section identifier>
-```
-
-## 5. Dump assets
+### 5. Dump assets
 
 The web assets must be dumped again if you are using the `prod` environment. In `dev` this happens automatically:
 
@@ -249,7 +220,7 @@ php app/console assets:install --symlink -e=prod
 php app/console assetic:dump -e=prod
 ```
 
-## 6. Commit, test and merge
+### 6. Commit, test and merge
 
 Once all the conflicts have been resolved, and `composer.lock` updated, the merge can be committed. Note that you may or may not keep `composer.lock`, depending on your version management workflow. If you do not wish to keep it, run `git reset HEAD <file>` to remove it from the changes. Run `git commit`, and adapt the message if necessary. You can now verify the project and once the update has been approved, go back to `master`, and merge your update branch:
 
@@ -258,8 +229,4 @@ git checkout master
 git merge <branch_name>
 ```
 
- 
-
 **Your eZ Platform should now be up-to-date with the chosen version!**
-
- 
