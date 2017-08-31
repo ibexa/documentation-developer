@@ -143,3 +143,33 @@ RewriteRule ^/var/([^/]+/)?storage/images(-versioned)?/.* /app.php [L]
 ```
 rewrite "^/var/([^/]+/)?storage/images(-versioned)?/(.*)" "/app.php" break;
 ```
+
+## Migration
+
+If you are migrating an existing single server site to a cluster, and not setting up a cluster from scratch, you need to migrate your files. Once you have configured your binarydata and metadata handlers, you can run the `ezplatform:io:migrate-files` command. You can also use it when you are migrating from one data handler to another, e.g. from NFS to Amazon S3.
+
+This command shows which handlers are configured (example output):
+
+```
+> php app/console ezplatform:io:migrate-files --list-io-handlers
+Configured meta data handlers: default, dfs, aws_s3
+Configured binary data handlers: default, nfs, aws_s3
+```
+
+You can do the actual migration like this (example parameters):
+
+```
+> php app/console ezplatform:io:migrate-files --from=default,default --to=dfs,nfs --env=prod
+```
+
+The `--from` and `--to` values must be specified as `<metadata_handler>,<binarydata_handler>`.
+If `--from` is omitted, the default IO configuration will be used.
+If `--to` is omitted, the first non-default IO configuration will be used.
+
+!!! tip
+
+    The command must be executed with the same permissions as the web server.
+
+During the command execution the files should not be modified. To avoid surprises you are advised to create a backup and/or execute a dry run before doing the actual update, using the `--dry-run` switch.
+
+Since this command can run for a very long time, to avoid memory exhaustion run it in the production environment using the `--env=prod` switch.
