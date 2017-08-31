@@ -11,6 +11,7 @@ pages:
             - 'Install eZ Platform': 'getting_started/install_ez_platform.md'
             - 'Install using Composer': 'getting_started/install_using_composer.md'
             - 'Install manually': 'getting_started/install_manually.md'
+            - 'Install using Docker': 'getting_started/install_using_docker.md'
             - 'Starting eZ Platform': 'getting_started/starting_ez_platform.md'
             - 'Troubleshooting': 'getting_started/troubleshooting.md'
         - Going deeper:
@@ -75,7 +76,6 @@ pages:
         - 'Content rendering': 'guide/content_rendering.md'
         - 'Design': 'guide/design.md'
         - 'DevOps': 'guide/devops.md'
-        - 'Docker tools': 'guide/docker_tools.md'
         - 'Environments': 'guide/environments.md'
         - 'Extending eZ Platform UI': 'guide/extending_ez_platform_ui.md'
         - 'File management': 'guide/file_management.md'
