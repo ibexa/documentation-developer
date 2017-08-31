@@ -146,7 +146,7 @@ rewrite "^/var/([^/]+/)?storage/images(-versioned)?/(.*)" "/app.php" break;
 
 ## Migration
 
-If you are migrating an existing single server site to a cluster, and not setting up a cluster from scratch, you need to migrate your files. Once you have configured your binarydata and metadata handlers, you can run the `ezplatform:io:migrate-files` command. You can also use it when you are migrating from one data handler to another, e.g. from NFS to Amazon S3.
+If you are migrating an existing single-server site to a cluster, and not setting up a cluster from scratch, you need to migrate your files. Once you have configured your binarydata and metadata handlers, you can run the `ezplatform:io:migrate-files` command. You can also use it when you are migrating from one data handler to another, e.g. from NFS to Amazon S3.
 
 This command shows which handlers are configured (example output):
 
