@@ -113,7 +113,7 @@ Move over registration of _your_ bundles you have from src and from composer pac
 `<old-ez-root>/ezpublish/EzPublishKernel.php => <new-ez-root>/app/AppKernel.php`
 
 
-##### Optional: Install Legacy Bridge
+##### 2.5. Optional: Install Legacy Bridge
 
 If you don't plan to migrate content directly to newer eZ Platform Field Types, you can optionally install Legacy Bridge and gradually handle code and subsequent content migration afterwards. For installation instructions see [here](https://github.com/ezsystems/LegacyBridge/blob/master/INSTALL.md).
 
@@ -121,7 +121,7 @@ If you don't plan to migrate content directly to newer eZ Platform Field Types, 
 
     The Legacy Bridge integration does not have the same performance, scalability or integrated experience as a pure Platform setup. Like on eZ Publish Platform 5.x there are known edge cases where, for instance, cache or search index won't always be immediately updated across the two systems using the bridge. This is one of the many reasons why we recommend a pure Platform setup where that is possible.
 
-#####  2.5 Binary files
+#####  2.6 Binary files
 
 Binary files can simply be copied from the old to the new installation:
 
@@ -131,7 +131,7 @@ Binary files can simply be copied from the old to the new installation:
 
     In the eZ Publish Platform 5.x install `web/var` is a symlink to `ezpublish_legacy/var`, so if you can't find it in path above you can instead copy the storage files from the similar `ezpublish_legacy` path.
 
-#####  2.6 Re-apply permissions and update composer
+#####  2.7 Re-apply permissions and update composer
 
 Since writable directories and files have been replaced / copied, their permissions might have changed. Re-apply permissions as explained in [the installation instructions](../getting_started/install_manually.md#setup-folder-rights).
 
@@ -143,7 +143,7 @@ When that is done, execute the following to update and install all packages from
 
     At the end of the process, you will be asked for values for parameters.yml not already moved from old installation, or new *(as defined in parameters.yml.dist)*.
 
-##### 2.7 Register EzSystemsEzPlatformXmlTextFieldTypeBundle
+##### 2.8 Register EzSystemsEzPlatformXmlTextFieldTypeBundle
 
 Add the following new bundle to your new kernel file, `<new-ez-root>/app/AppKernel.php`:
 
