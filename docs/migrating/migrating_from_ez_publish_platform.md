@@ -66,7 +66,7 @@ Adapt the command with your `vendor`, `package`, version number, and add `"–d
 
 While no longer bundled, the XmlText Field Type still exists and is needed to perform a migration from eZ Publish's XmlText to the new docbook-based format used by the RichText Field Type. If you plan to use Legacy Bridge for a while before migrating content, you'll also need this for rendering content with XMLText. From `<new-ez-root>` execute:
 
-`composer require --no-update --dev "ezsystems/ezplatform-xmltext-fieldtype:^1.3.0"`
+`composer require --no-update "ezsystems/ezplatform-xmltext-fieldtype:^1.3.0"`
 
 !!! note
 
