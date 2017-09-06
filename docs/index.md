@@ -20,7 +20,7 @@ This is the center for eZ Platform documentation for developers and system admin
 
 **Need Release Notes & older versions? See [Releases](releases/releases.md)**
 
-**Looking for eZ Publish (Legacy, from version 3.x to 5.x.) documentation? See [Legacy documentation](https://doc.ez.no/eZ-Publish)
+**Looking for eZ Publish (Legacy, from version 3.x to 5.x.) documentation? See [Legacy documentation](https://doc.ez.no/eZ-Publish)**
 
 !!! tip "Not a developer?"
 
