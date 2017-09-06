@@ -121,6 +121,31 @@ If you don't plan to migrate content directly to newer eZ Platform Field Types, 
 
     The Legacy Bridge integration does not have the same performance, scalability or integrated experience as a pure Platform setup. Like on eZ Publish Platform 5.x there are known edge cases where, for instance, cache or search index won't always be immediately updated across the two systems using the bridge. This is one of the many reasons why we recommend a pure Platform setup where that is possible.
 
+
+###### 2.5.1 Setup symlinks for legacy folders (QA: IGNORE THIS FOR NOW, WILL ADD THIS BEFORE LAST PASS)
+
+As eZ Publish legacy is installed via composer, we need to take care about placing some files outside it's generated `ezpublish_legacy/` folder, and for instance use symlink to place them inside on install.
+
+1. For your your versioned files for legacy _(design/settings/extension/..)_, It's a bit up to you how you orginize this, however one way of doing it is to place your files only relevant to this install in `src/legacy_files/\*`.
+
+2. Same goes for `var/<site>/storage` folder, however as this is typically not versioned in git, amke sure to mark folder you create for this as ignored by git once the folder and corresponding `.keep` file has been added to your checkout.
+
+3. [Optional] Automation of symlink setup: _<TODO: Add once there is a script in legacy bridge for this>_
+
+###### 2.5.2 Upgrade the legacy distribution files
+
+The easiest way to upgrade the distribution files is to copy the directories that contain site-specific files from the existing 5.4 installation into "/<ezplatform>/ezpublish_legacy". Make sure you copy the following directories:
+- ezpublish_legacy/design/<your_designs> (_do NOT include built-in designs: admin, base, standard or admin2)_
+- ezpublish_legacy/var/storage/packages
+- ezpublish_legacy/settings/siteaccess/<your_siteaccesses>
+- ezpublish_legacy/settings/override/*
+- ezpublish_legacy/extension/* _(do NOT include the built-in / composer provided ones, like: ezflow, ezjscore, ezoe, ezodf, ezie, - ezmultiupload, ezmbpaex, ez_network, ezprestapiprovider, ezscriptmonitor, ezsi, ezfind)_
+- ezpublish_legacy/config.php & ezpublish_legacy/config.cluster.php _(if applicable)_
+
+!!! note
+
+    Since writable directories and files have been replaced / copied, their permissions might have changed. You most likly  need to reconfigure webserver user permissions as instructed further down.
+
 #####  2.6 Binary files
 
 Binary files can simply be copied from the old to the new installation:
@@ -129,7 +154,7 @@ Binary files can simply be copied from the old to the new installation:
 
 !!! note
 
-    In the eZ Publish Platform 5.x install `web/var` is a symlink to `ezpublish_legacy/var`, so if you can't find it in path above you can instead copy the storage files from the similar `ezpublish_legacy` path.
+    In the eZ Publish Platform 5.x install `web/var` is a symlink to `ezpublish_legacy/var`, so if you can't find it in path above you can instead copy the storage files from the similar `ezpublish_legacy/var[/<site_name>]/storage` path.
 
 #####  2.7 Re-apply permissions and update composer
 
