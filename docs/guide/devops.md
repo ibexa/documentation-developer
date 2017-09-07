@@ -64,7 +64,7 @@ When using the Symfony dev [environment](environments.md), the system out of the
 If you are running out of memory and don't need to keep track of cache hits and misses. Then StashBundle tracking, represented by the `stash.tracking` setting, and persistence cache logging, represented by the setting `parameters.ezpublish.spi.persistence.cache.persistenceLogger.enableCallLogging`, can optionally be disabled.
 
 ``` yaml
-# config\_dev.yml
+# config_dev.yml
 stash:
     tracking: false                  # Default is true in dev
     tracking_values: false           # Default is false in dev, to only track cache keys not values
