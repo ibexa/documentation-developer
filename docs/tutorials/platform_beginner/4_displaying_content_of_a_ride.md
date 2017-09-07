@@ -324,4 +324,4 @@ Add the following lines (at the end of the Ride full view file, before the closi
 
 Then check the Ride page again to see the Points of Interest!
 
-Remember: `http://&lt;yourhost&gt;/view/content/&lt;ContentId&gt;/&lt;language&gt;/full/true/&lt;LocationId&gt;`
+Remember: `http://<yourhost>/view/content/<ContentId>/<language>/full/true/<LocationId>`
