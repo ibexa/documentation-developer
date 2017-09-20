@@ -50,6 +50,7 @@ Overall, for production setup:
     - But pure read performance is slower, especially if not optimizing next point.
 - Reduce latency where you can, for instance place memcached/redis on same servers as running php.
     - This is important for eZ Publish 5.x and eZ Platform 1.x which uses Stash cache library, eZ Platform 2.x which uses Symfony Cache is far less affected by this.
+- If you use Redis, make sure to tune it for in-memory cache usage. Its persistence feature is not needed for use with eZ Platform cache and will severely slow down execution time.
 
 ### Search
 
