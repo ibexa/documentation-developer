@@ -135,6 +135,20 @@ For PHP 5.6 and up you'll get a notable performance improvement by making compos
 
 When dealing with [updates.ez.no](http://updates.ez.no) packages, you might get this if you somehow tell composer to download dev packages, or tell it to download from source. Currently our [updates.ez.no](http://updates.ez.no) service only support distribution packages in alpha stability or higher, so make sure to check what stability and avoid use of `--prefer-source` *(this is the reason examples above are using `--prefer-dist`).*
 
+#### Conflict with roave/security-advisories
+
+When you use composer update or require, a package may conflict with `roave/security-advisories`:
+``` bash
+Your requirements could not be resolved to an installable set of packages.
+  Problem 1
+    - ezsystems/ezpublish-legacy v5.4.10 conflicts with roave/security-advisories[dev-master].
+    (...)
+```
+
+This means there is a known security bug in the specific version of the package, ezsystems/ezpublish-legacy v5.4.10 in this case. In most cases this means that a fix is available in a newer version, such as v5.4.10.1. If you increase your requirement to that version, the conflict is resolved.
+
+In the rare case that there is no fixed version, you can revert your requirement to an older version which does not have the bug. If you have to use the version with the bug (not recommended) you can `composer remove roave/security-advisories`. In that case, please require it again when the bug is fixed and the package is updated: `composer require roave/security-advisories:dev-master`
+
 ### Best practice for Bundles
 
 Best practice for Bundles is described in Symfony documentation under [Best Practices for Reusable Bundles](http://symfony.com/doc/current/cookbook/bundles/best_practices.html), with eZ bundles there is some notable exceptions:
