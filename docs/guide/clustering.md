@@ -107,11 +107,11 @@ ezpublish:
 
 !!! tip
 
-    If you are looking to setup S3 or other [Flysystem](https://flysystem.thephpleague.com/)/thridparty adapters like Google Cloud Storage, these needs to be configured as binary handler. The rest here will still stay the same, dfs meta handler will take care about caching the lookups to avoid slow IO lookups.
+    If you are looking to set up S3 or other [Flysystem](https://flysystem.thephpleague.com/)/third-party adapters like Google Cloud Storage, this needs to be configured as binary handler. The rest here will still stay the same, the dfs meta handler will take care of caching the lookups to avoid slow IO lookups.
 
 ##### Customizing the storage directory
 
-eZ Publish 5.x required the NFS adapter directory to be set to `$var_dir$/$storage_dir$` part for the NFS path. This is no longer required with eZ Platform _(unless you plan to use legacy-bridge)_, but the default prefix used to serve binary files will still match this expectation.
+eZ Publish 5.x required the NFS adapter directory to be set to `$var_dir$/$storage_dir$` part for the NFS path. This is no longer required with eZ Platform _(unless you plan to use Legacy Bridge)_, but the default prefix used to serve binary files will still match this expectation.
 
 If you decide to change this setting, make sure you also set `io.url_prefix` to a matching value. If you set the NFS adapter's directory to "/path/to/nfs/storage", use this configuration so that the files can be served by Symfony:
 
@@ -137,9 +137,9 @@ You can read more about that on [Binary files URL handling](file_management.md#u
 
 #### Web server rewrite rules
 
-The default eZ Platform rewrite rules will let image requests be served directly from disk. In cluster setup, files matching `^/var/([^/]+/)?storage/images(-versioned)?/.*` have to be passed through `/web/app.php` instead.
+The default eZ Platform rewrite rules will let image requests be served directly from disk. In a cluster setup, files matching `^/var/([^/]+/)?storage/images(-versioned)?/.*` have to be passed through `/web/app.php` instead.
 
-In any case, this specific rewrite rule must be placed before of the ones that "ignore" image files and just let the web server serve the files directly.
+In any case, this specific rewrite rule must be placed before the ones that "ignore" image files and just let the web server serve the files directly.
 
 ##### Apache
 
@@ -147,7 +147,7 @@ In any case, this specific rewrite rule must be placed before of the ones that "
 RewriteRule ^/var/([^/]+/)?storage/images(-versioned)?/.* /app.php [L]
 ```
 
-_Place (or uncomment the one already there) before the standard image rewrite rule in your vhost config._
+_Place this before the standard image rewrite rule in your vhost config (or uncomment if already there)_
 
 ##### nginx
 
@@ -155,7 +155,7 @@ _Place (or uncomment the one already there) before the standard image rewrite ru
 rewrite "^/var/([^/]+/)?storage/images(-versioned)?/(.*)" "/app.php" break;
 ```
 
-_Place (or uncomment the one already there) before include of ez_params.d/ez_rewrite_params in your vhost config._
+_Place this before the include of `ez_params.d`/`ez_rewrite_params` in your vhost config (or uncomment if already there)._
 
 ## Migration
 
