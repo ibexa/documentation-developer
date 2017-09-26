@@ -6,14 +6,14 @@ Clustering in eZ Platform refers to setting up your install with several web ser
 
 ### Server setup overview
 
-This diagram illustrates how clustering of eZ Platform is typically set up, the parts illustrate the different roles needed for a successful cluster setup. The number of web servers, Memcached servers, Solr servers, Varnish servers, Database servers, NFS servers, as well as whether some servers play several of these roles *(typically running Memcached across the web server)* is up to you and your performance needs.
+This diagram illustrates how clustering of eZ Platform is typically set up, the parts illustrate the different roles needed for a successful cluster setup. The number of web servers, Memcached/Redis servers, Solr servers, Varnish servers, Database servers, NFS servers, as well as whether some servers play several of these roles *(typically running Memcached/Redis across the web server)* is up to you and your performance needs.
 
 The minimal requirements are the following *(with what is currently supported in italics)*:
 
 - Shared HTTP cache *(using Varnish)*
 - Shared Persistence cache and Sessions *(using Memcached, or Redis)*
 - Shared Database *(using MySQL/MariaDB)*
-- Shared Filesystem *(using NFS, or experimentally also S3)*
+- Shared Filesystem *(using NFS, or S3)*
 
 For further details on requirements, see [Requirements page](../getting_started/requirements_and_system_configuration.md).
 
@@ -22,7 +22,7 @@ While this is not a complete list, further recommendations include:
 - Using [Solr](search.md#solr-bundle) for better search and better search performance
 - Using a CDN for improved performance and faster ping time worldwide
 - Using Active/Passive Database for failover
-- In general: Make sure to use later versions of PHP and MySQL/MariaDB within [what is supported](../getting_started/requirements_and_system_configuration.md) for your eZ Platform version to get more performance out of each server.
+- In general: Make sure to use later versions of PHP and MySQL/MariaDB within [what is supported](../getting_started/requirements_and_system_configuration.md) for your eZ Platform version to get more performance out of each server, however numbers might vary so make sure to test this when upgrading.
 
 ![](img/server_setup.png)
 
@@ -104,9 +104,14 @@ ezpublish:
                 binarydata_handler: nfs
 ```
 
+
+!!! tip
+
+    If you are looking to set up S3 or other [Flysystem](https://flysystem.thephpleague.com/)/third-party adapters like Google Cloud Storage, this needs to be configured as binary handler. The rest here will still stay the same, the dfs meta handler will take care of caching the lookups to avoid slow IO lookups.
+
 ##### Customizing the storage directory
 
-eZ Publish 5.x required the NFS adapter directory to be set to `$var_dir$/$storage_dir$` part for the NFS path. This is no longer required with eZ Platform, but the default prefix used to serve binary files will still match this expectation.
+eZ Publish 5.x required the NFS adapter directory to be set to `$var_dir$/$storage_dir$` part for the NFS path. This is no longer required with eZ Platform _(unless you plan to use Legacy Bridge)_, but the default prefix used to serve binary files will still match this expectation.
 
 If you decide to change this setting, make sure you also set `io.url_prefix` to a matching value. If you set the NFS adapter's directory to "/path/to/nfs/storage", use this configuration so that the files can be served by Symfony:
 
@@ -132,9 +137,9 @@ You can read more about that on [Binary files URL handling](file_management.md#u
 
 #### Web server rewrite rules
 
-The default eZ Platform rewrite rules will let image requests be served directly from disk. With native support, files matching `^/var/([^/]+/)?storage/images(-versioned)?/.*` have to be passed through `/web/app.php`.
+The default eZ Platform rewrite rules will let image requests be served directly from disk. In a cluster setup, files matching `^/var/([^/]+/)?storage/images(-versioned)?/.*` have to be passed through `/web/app.php` instead.
 
-In any case, this specific rewrite rule must be placed without the ones that "ignore" image files and just let the web server serve the files.
+In any case, this specific rewrite rule must be placed before the ones that "ignore" image files and just let the web server serve the files directly.
 
 ##### Apache
 
@@ -142,11 +147,15 @@ In any case, this specific rewrite rule must be placed without the ones that "ig
 RewriteRule ^/var/([^/]+/)?storage/images(-versioned)?/.* /app.php [L]
 ```
 
+_Place this before the standard image rewrite rule in your vhost config (or uncomment if already there)_
+
 ##### nginx
 
 ```
 rewrite "^/var/([^/]+/)?storage/images(-versioned)?/(.*)" "/app.php" break;
 ```
+
+_Place this before the include of `ez_params.d`/`ez_rewrite_params` in your vhost config (or uncomment if already there)._
 
 ## Migration
 
