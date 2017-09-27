@@ -1,8 +1,11 @@
 # Setting up Amazon AWS S3 clustering
 
-!!! note
+When setting up clustering, you can use Amazon AWS S3 as a binary handler,
+meaning AWS S3 will be used to store binary files.
 
-    Using Amazon AWS S3 clustering is still in an experimental stage.
+!!! tip
+
+    Before you start, you should be familiar with the [clustering](../guide/clustering.md) documentation.
 
 ## Set up AWS S3 account
 
@@ -76,5 +79,5 @@ Clear all caches and reload, and that's it.
 
 ## Migrate your existing binary data to S3
 
-Since 1.7.4 you can migrate existing binary data to S3 using the `php app/console ezplatform:io:migrate-files` command
+Since 1.7.4 you can [migrate existing binary data](../guide/clustering.md#migration) to S3 using the `php app/console ezplatform:io:migrate-files` command
 which was added in [EZP-25946](https://jira.ez.no/browse/EZP-25946).

@@ -103,7 +103,7 @@ ezpublish:
 
 !!! tip
 
-    If you are looking to set up S3 or other [Flysystem](https://flysystem.thephpleague.com/)/third-party adapters like Google Cloud Storage, this needs to be configured as binary handler. The rest here will still stay the same, the dfs meta handler will take care of caching the lookups to avoid slow IO lookups.
+    If you are looking to [set up S3](../cookbook/setting_up_amazon_aws_s3_clustering.md) or other [Flysystem](https://flysystem.thephpleague.com/)/third-party adapters like Google Cloud Storage, this needs to be configured as binary handler. The rest here will still stay the same, the dfs meta handler will take care of caching the lookups to avoid slow IO lookups.
 
 ##### Customizing the storage directory
 
@@ -185,4 +185,4 @@ Since this command can run for a very long time, to avoid memory exhaustion run 
 
 ### Clustering using Amazon AWS S3
 
-See [Setting up Amazon AWS S3 clustering](../cookbook/setting-up-amazon-aws-s3-clustering.md).
+See [Setting up Amazon AWS S3 clustering](../cookbook/setting_up_amazon_aws_s3_clustering.md).
