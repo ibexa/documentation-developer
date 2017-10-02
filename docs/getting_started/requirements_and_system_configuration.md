@@ -6,7 +6,7 @@ If you're using a PaaS provider such as our partner [Platform.sh](https://platfo
 
 ## Server
 
-eZ software is built to rely on existing technologies and standards. The minimal setup is `PHP`,  `MySQL/MariaDB`, and `Apache/Nginx`. Recommendation for production setups is to use `Varnish`, and  `Memcached`/`Redis`, `NFS` `and ``Solr` in a [clustered setup](../guide/clustering.md).
+eZ software is built to rely on existing technologies and standards. The minimal setup is `PHP`,  `MySQL/MariaDB`, and `Apache/Nginx`. Recommendation for production setups is to use `Varnish`, and  `Memcached`/`Redis`, `NFS` and `Solr` in a [clustered setup](../guide/clustering.md).
 
 For supported versions of these technologies see Recommended and Supported setups below.
 
