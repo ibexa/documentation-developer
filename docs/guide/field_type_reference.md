@@ -682,7 +682,7 @@ $floatFieldCreateStruct = $contentTypeService->newFieldDefinitionCreateStruct( "
 
 // Accept only numbers between 0.1 and 203.99
 $floatFieldCreateStruct->validatorConfiguration = array(
-    "FileSizeValidator" => array(  
+    "FileSizeValidator" => array(
         "minFloatValue" => 0.1,
         "maxFloatValue" => 203.99
     )
@@ -720,89 +720,6 @@ The `value` property of an Image Field will return an `\eZ\Publish\Core\FieldTy
 |`fileSize`|int|`37931`|The original image's size, in bytes|
 |`uri`|string|`var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB/image.png`|The original image's URI|
 |`imageId`|string|`240-1480`|A special image ID, used by REST|
-
-## Float Field Type
-
-This Field Type represents a float value.
-
-| Name    | Internal name | Expected input |
-|---------|---------------|----------------|
-| `Float` | `ezfloat`     | `float`        |
-
-### Description
-
-This Field Type stores numeric values which will be provided as floats.
-
-### PHP API Field Type 
-
-#### Input expectations
-
-The Field Type expects a number as input. Both decimal and integer numbers are accepted.
-
-|Type|Example|
-|------|------|
-|`float`|`194079.572`|
-|`int`|`144`|
-
-#### Value object
-
-###### Properties
-
-The Value class of this field type contains the following properties:
-
-| Property | Type    | Description                                                        |
-|----------|---------|--------------------------------------------------------------------|
-| `$value` | `float` | This property will be used to store the value provided as a float. |
-
-``` php
-// Value object content example
-
-use eZ\Publish\Core\FieldType\Float\Type;
-
-// Instantiates a Float Value object
-$floatValue = new Type\Value();
-
-$float->value = 284.773
-```
-
-###### Constructor
-
-The `Float``\Value` constructor will initialize a new Value object with the value provided. It expects a numeric value with or without decimals.
-
-``` php
-// Constructor example
-
-use eZ\Publish\Core\FieldType\Float\Type;
-
-// Instantiates a Float Value object
-$floatValue = new Type\Value( 284.773 );
-```
-
-#### Validation
-
-This Field Type supports `FloatValueValidator`, defining maximal and minimal float value:
-
-|Name|Type|Default value|Description|
-|------|------|------|------|
-|`minFloatValue`|`float`|`null`|This setting defines the minimum value this FieldType will allow as input.|
-|`maxFloatValue`|`float`|`null`|This setting defines the maximum value this FieldType will allow as input.|
-
-``` php
-// Validator configuration example in PHP
-
-use eZ\Publish\Core\FieldType\Float\Type;
-
-$contentTypeService = $repository->getContentTypeService();
-$floatFieldCreateStruct = $contentTypeService->newFieldDefinitionCreateStruct( "float", "ezfloat" );
-
-// Accept only numbers between 0.1 and 203.99
-$floatFieldCreateStruct->validatorConfiguration = array(
-    "FileSizeValidator" => array(  
-        "minFloatValue" => 0.1,
-        "maxFloatValue" => 203.99
-    )
-);
-```
 
 #### Settings
 
@@ -1325,18 +1242,18 @@ As a whole a sample layout could look as follows:
 {# a layer of the required "data-studio-zones-container" attribute, in which zones will be displayed #}
 <div data-studio-zones-container>
      {# a layer of the required attribute for the displayed zone #}
-     <div data-studio-zone="{{ zones[0].id }}">                                     
+     <div data-studio-zone="{{ zones[0].id }}">
         {# If a zone with [0] index contains any blocks #}
-        {% if zones[0].blocks %}                                                    
+        {% if zones[0].blocks %}
             {# for each block #}
-            {% for block in blocks %}                                               
+            {% for block in blocks %}
                 {# create a new layer with appropriate id #}
-                <div class="landing-page__block block_{{ block.type }}">            
-                    {# render the block by using the "ez_block:renderBlockAction" controller #}   
+                <div class="landing-page__block block_{{ block.type }}">
+                    {# render the block by using the "ez_block:renderBlockAction" controller #}
                     {# contentInfo.id is the id of the current content item, block.id is the id of the current block #}
-                    {{ render_esi(controller('ez_block:renderBlockAction', {        
-                            'contentId': contentInfo.id,                            
-                            'blockId': block.id                                     
+                    {{ render_esi(controller('ez_block:renderBlockAction', {
+                            'contentId': contentInfo.id,
+                            'blockId': block.id
                         })) 
                     }}
                 </div>
@@ -1799,7 +1716,7 @@ $relationListValue = new RelationList\Value(
     array(
         $contentInfo1->id,
         $contentInfo2->id,
-        170     
+        170
     )
 );
 ```
