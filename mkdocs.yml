@@ -95,6 +95,7 @@ pages:
     - Cookbook:
         - 'Authenticating a user with multiple user providers': 'cookbook/authenticating_a_user_with_multiple_user_providers.md'
         - 'Converting request paremeters into API objects': 'cookbook/converting_request_parameters_into_api_objects.md'
+        - 'Creating content with binary attachments via REST API': 'cookbook/creating_content_with_binary_attachments_via_rest_api.md'
         - 'Creating custom notification for Flex Workflow': 'cookbook/creating_custom_notifications_for_flex_workflow.md'
         - 'Creating Landing Page blocks (Enterprise)': 'cookbook/creating_landing_page_blocks_(enterprise).md'
         - 'Creating Landing Page layouts (Enterprise)': 'cookbook/creating_landing_page_layouts_(enterprise).md'
