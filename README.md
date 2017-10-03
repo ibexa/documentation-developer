@@ -13,11 +13,11 @@ an open source CMS based on the Symfony Full Stack Framework in PHP.
 1. Old docs site (no longer in use): https://doc.ez.no/display/MAIN/eZ+Documentation+Center
 
 ## How to Contribute
-https://ez-systems-developer-documentation.readthedocs-hosted.com/en/master/community_resources/contributing/#contribute-to-documentation
+https://doc.ezplatform.com/en/master/community_resources/contributing/#contribute-to-documentation
 
 Invite yourself to the community Slack and join `#documentation-contrib`
 
 https://ez-community-on-slack.herokuapp.com/
 
 ## Where to View
-https://ez-systems-developer-documentation.readthedocs-hosted.com/
+https://doc.ezplatform.com
