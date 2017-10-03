@@ -120,6 +120,21 @@ ezpublish:
 
 If not specified, the `index_page` is the configured content root.
 
+### Multisite with different repositories
+
+!!! caution
+
+    Only one repository (database) can be used per domain.
+    This does not prohibit using subdomains, but they must all use the same repository, for example:
+
+    - `ez.no` domain can use `ez.repo`
+    - `doc.ez.no` domain can use `doc.repo`
+
+    But the following configuration would be invalid:
+
+    - `ez.no` domain can use `ez.repo`
+    - `ez.no/doc` **cannot** use `doc.repo`, as it is under the same domain.
+
 ## Different designs for multiple sites
 
 eZ Platform does not apply a [Legacy template fallback](https://doc.ez.no/display/EZP/Legacy+template+fallback) like eZ Publish did.
