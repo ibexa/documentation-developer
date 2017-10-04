@@ -30,9 +30,15 @@ ezpublish:
 
 ### Configuration parameters
 
+The two configuration parameters, `location_id` and `excluded_uri_prefixes` are taken into account in several places,
+for example in URL alias lookups for incoming web requests, and URL alias path generation in Twig templates.
+In addition you need to consider them when generating site paths in your layout, or other places rendering site/tree structure.
+
 #### `location_id`
 
-`content.tree_root.location_id` sets the Location ID of the content root. The API is limited to ("jailed" within) this root, and nothing above this level will be accessible by default. This parameter can be filtered using the `excluded_uri_prefixes` parameter.
+`content.tree_root.location_id` sets the Location ID of the content root of your site
+and nothing above this level will be accessible by default.
+This parameter can be filtered using the `excluded_uri_prefixes` parameter.
 
 #### `excluded_uri_prefixes`
 
@@ -64,12 +70,13 @@ ezpublish:
 This is your content structure:
 
 ```
-├── General
-│   └── Articles
-│       └── Mammals
-├── Children
-│   └── Articles
-│       └── Lions
+├── Content
+│   ├── General
+│   │   └── Articles
+│   │       └── Mammals
+│   └── Children
+│       └── Articles
+│           └── Lions
 └── Media
     └── Images
         └── Animal-photos
@@ -120,20 +127,26 @@ ezpublish:
 
 If not specified, the `index_page` is the configured content root.
 
-### Multisite with different repositories
+### Limitations when using with multisite URI matching with multi-repository setup
 
 !!! caution
 
     Only one repository (database) can be used per domain.
-    This does not prohibit using subdomains, but they must all use the same repository, for example:
+    This does not prohibit using [different repositories](repository.md#multi-repository-setup) on different subdomains.
+    However, when using URI matching for multisite setup, all SiteAccesses sharing domain also need to share repository.
+    For example:
 
-    - `ez.no` domain can use `ez.repo`
-    - `doc.ez.no` domain can use `doc.repo`
+    - `ez.no` domain can use `ez_repo`
+    - `doc.ez.no` domain can use `doc_repo`
 
     But the following configuration would be invalid:
 
-    - `ez.no` domain can use `ez.repo`
-    - `ez.no/doc` **cannot** use `doc.repo`, as it is under the same domain.
+    - `ez.no` domain can use `ez_repo`
+    - `ez.no/doc` **cannot** use `doc_repo`, as it is under the same domain.
+
+    Invalid configuration will cause problems for different parts of the system,
+    for example back-end UI, REST interface and other non-SiteAccess-aware Symfony routes
+    such as `/_fos_user_context_hash` used by [HTTP cache](http_cache.md).
 
 ## Different designs for multiple sites
 
