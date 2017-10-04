@@ -4,8 +4,6 @@
 
 This installation guide can be followed with any eZ distribution based on the Symfony framework. Here's a list of available distributions from eZ:
 
-This installation guide can be followed with any eZ distribution based on the Symfony framework. Here's a list of available distributions from eZ:
-
 |Type | Archive | License | GIT/Composer|
 |------|------|------|------|
 |**eZ Platform**</br> *"clean distribution"* | [share.ez.no/downloads/downloads](share.ez.no/downloads/downloads) | GPLv2 | [ezsystems/ezplatform](https://github.com/ezsystems/ezplatform) ([INSTALL.md](https://github.com/ezsystems/ezplatform/blob/master/INSTALL.md))|
