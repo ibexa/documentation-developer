@@ -2,7 +2,7 @@
 
 eZ Publish Platform (5.x) was a transitional version of the eZ CMS, bridging the gap between the earlier generation called eZ Publish (sometimes referred to as *legacy*), and the current eZ Platform and eZ Platform Enterprise Edition for Developers.
 
-eZ Publish Platform introduced a new Symfony-based technology stack that could be run along the old (*legacy*) one, this bridging is still possible using something called Legacy Bridge, an optional package for eZ Platform. This fluid change allows eZ Publish users to migrate to eZ Platform in two steps, using the bridging as an intermediary stepping stone.
+eZ Publish Platform introduced a new Symfony-based technology stack that could be run along the old (*legacy*) one. This bridging is still possible using something called Legacy Bridge, an optional package for eZ Platform. This fluid change allows eZ Publish users to migrate to eZ Platform in two steps, using the bridging as an intermediary stepping stone.
 
 ## Upgrading eZ Publish Platform 5.4.x (Enterprise-) / 2014.11 (Community-edition) to eZ Platform v1.11 or higher
 
@@ -121,31 +121,31 @@ If you don't plan to migrate content directly to newer eZ Platform Field Types, 
 
     The Legacy Bridge integration does not have the same performance, scalability or integrated experience as a pure Platform setup. Like on eZ Publish Platform 5.x there are known edge cases where, for instance, cache or search index won't always be immediately updated across the two systems using the bridge. This is one of the many reasons why we recommend a pure Platform setup where that is possible.
 
+###### 2.5.1 Set up symlinks for legacy folders
 
-###### 2.5.1 Setup symlinks for legacy folders
+As eZ Publish legacy is installed via composer, we need to take care of placing some files outside its generated `<new-ez-root>/ezpublish_legacy/` folder, and for instance use symlink to place them inside during installation.
 
-As eZ Publish legacy is installed via composer, we need to take care about placing some files outside it's generated `<new-ez-root>/ezpublish_legacy/` folder, and for instance use symlink to place them inside on install.
+1. For design and settings files that you typically version in git, you can now take advantage of Legacy Bridge's built-in symlink convention. So as installation already hinted about, you can generate a structure and set up symlinks using `app/console ezpublish:legacy:symlink -c`. This will create folders you can use below in `<new-ez-root>/src/legacy_files/`.
 
-1. For design & settings files that you'd typically would want to version in GIT, you can now take advantage of Legacy Bridges bultin symlink convention for this. So as installation already hinted about, you can generate structure and setup symlinks using `app/console ezpublish:legacy:symlink -c`, this will create folders you can use below in `<new-ez-root>/src/legacy_files/`.
-
-2. Same goes for `<new-ez-root>/ezpublish_legacy/var/[<site>/]storage` folder, however as this is typically not versioned in git it's no predefined convention for this. If you create a folder within your project structure for symlinking into this folder, as opposed to a mount somwhere else, just make sure to mark folder you create for this as ignored by git once the folder and corresponding `.keep` file has been added to your checkout. Example below will assume `<new-ez-root>/src/legacy_files/storage` was created for this purpose, if you opt for something else just adjust instructions.
+1. The same goes for the `<new-ez-root>/ezpublish_legacy/var/[<site>/]storage` folder. However, as it is typically not versioned in git, there's no predefined convention for this. If you create a folder within your project structure for symlinking into this folder, as opposed to a mount somewhere else, make sure to mark this folder as ignored by git once it and the corresponding `.keep` file have been added to your checkout. The example below will assume `<new-ez-root>/src/legacy_files/storage` was created for this purpose, if you opt for something else just adjust the instructions.
 
 ###### 2.5.2 Upgrade the legacy distribution files
 
-The easiest way to upgrade the distribution files is to copy the directories that contain site-specific files from the existing 5.4 installation into "/<ezplatform>/ezpublish_legacy". Make sure you copy the following directories:
+The easiest way to upgrade the distribution files is to copy the directories that contain site-specific files from the existing 5.4 installation into `/<ezplatform>/ezpublish_legacy`. Make sure you copy the following directories:
+
 - `<old-ez-root>/ezpublish_legacy/design/<your_designs>` => `<new-ez-root>/src/legacy_files/design/<your_designs>`
-  - _Do NOT include built-in designs: admin, base, standard or admin2_
+    - *Do NOT include built-in designs: admin, base, standard or admin2*
 - `<old-ez-root>/ezpublish_legacy/design/<your_designs>` => `<new-ez-root>/src/legacy_files/design/<your_designs>`
 - `<old-ez-root>/ezpublish_legacy/settings/siteaccess/<your_siteaccesses>` => `<new-ez-root>/src/legacy_files/settings/siteaccess/<your_siteaccesses>`
 - `<old-ez-root>/ezpublish_legacy/settings/override/*` => `<new-ez-root>/src/legacy_files/settings/override/*`
-- Other folders to move over _(or potentially setup symlinks for)_ if applicable:
-  - ezpublish_legacy/var/storage/packages
-  - ezpublish_legacy/extension/* _(do NOT include the built-in / composer provided ones, like: ezflow, ezjscore, ezoe, ezodf, ezie, - ezmultiupload, ezmbpaex, ez_network, ezprestapiprovider, ezscriptmonitor, ezsi, ezfind)_
-  - ezpublish_legacy/config.php & ezpublish_legacy/config.cluster.php
+- Other folders to move over *(or potentially setup symlinks for)* if applicable:
+    - ezpublish_legacy/var/storage/packages
+    - ezpublish_legacy/extension/\* *(do NOT include the built-in / composer provided ones, like: ezflow, ezjscore, ezoe, ezodf, ezie, ezmultiupload, ezmbpaex, ez_network, ezprestapiprovider, ezscriptmonitor, ezsi, ezfind)*
+    - ezpublish_legacy/config.php and ezpublish_legacy/config.cluster.php
 
 !!! note
 
-    Since writable directories and files have been replaced / copied, their permissions might have changed. You most likly  need to reconfigure webserver user permissions as instructed further down.
+    Since writable directories and files have been replaced / copied, their permissions might have changed. You most likely need to reconfigure webserver user permissions as instructed further down.
 
 #####  2.6 Binary files
 
@@ -197,9 +197,9 @@ Steps here should only be done once you are ready to move away from legacy and L
 
 The command example suggests using the verbose flag. This is optional, but recommended as we are actively gathering feedback on how it works with older eZ Publish content, and on how we can improve it both [via issues in the repository](https://github.com/ezsystems/ezplatform-xmltext-fieldtype), and on Slack.
 
-###### 3.2.2 Migrate Page field to Landing Page (eZ Platform Enterprise only)
+###### 3.2.2 Migrate Page field to Landing Page (eZ Enterprise only)
 
-**If** you use Page field (ezflow) and a eZ Enterprise subscription, and are ready to migrate your eZ Publish Flow content to the eZ Platform Enterprise Landing Page format. You can use a script to migrate your Page content to Landing Page, to start using a pure eZ Platform Enterpise setup. See [Migrating legacy Page field (ezflow) to Landing Page (Enterprise)](#migrating-legacy-page-field-ezflow-to-landing-page-enterprise) for more information.
+**If** you use Page field (ezflow) and an eZ Enterprise subscription, and are ready to migrate your eZ Publish Flow content to the eZ Enterprise Landing Page format. You can use a script to migrate your Page content to Landing Page, to start using a pure eZ Enterprise setup. See [Migrating legacy Page field (ezflow) to Landing Page (Enterprise)](#migrating-legacy-page-field-ezflow-to-landing-page-enterprise) for more information.
 
 ### Step 4: Re-configure web server & proxy
 
