@@ -1050,7 +1050,7 @@ We can now use `ContentService::updateContent()` to apply our `ContentUpdateStru
 
 In the two previous examples, you have seen that we set the ContentUpdateStruct's `initialLanguageCode` property. To translate an object to a new language, set the locale to a new one.
 
-**translating**
+#### translating
 
 ``` php
 $contentUpdateStruct->initialLanguageCode = 'ger-DE';
@@ -1060,7 +1060,7 @@ $contentUpdateStruct->setField( 'body', $newbody );
 
 It is possible to create or update content in multiple languages at once. There is one restriction: only one language can be set a version's language. This language is the one that will get a flag in the back office. However, you can set values in other languages for your attributes, using the `setField` method's third argument.
 
-**update multiple languages**
+#### update multiple languages
 
 ``` php
 // set one language for new version
@@ -1074,6 +1074,48 @@ $contentUpdateStruct->setField( 'body', $newfrenchbody );
 ```
 
 Since we don't specify a locale for the last two fields, they are set for the `UpdateStruct`'s `initialLanguageCode`, fre-FR.
+
+#### delete translations
+
+##### delete translations from a Content item version
+
+To delete translations from a Content item version, use the `deleteTranslationFromDraft` method on `ContentService`.
+
+```
+public function deleteTranslationFromDraft(VersionInfo $versionInfo, string $languageCode) : Content
+```
+
+This method returns a Content draft without the specified translation.
+
+!!! note
+
+    To remove the main translation, the main language needs to be changed manually
+    using the `ContentService::updateContentMetadata` method first.
+    Otherwise the method will throw an `\eZ\Publish\API\Repository\Exceptions\BadStateException`.
+
+
+The PHP API consumer is responsible for creating a Content item version draft and publishing it after translation removal.
+
+Since the returned Content draft is to be published, both search and HTTP cache are already handled
+by `PublishVersion` slots once the call to `publishVersion()` is made.
+
+Example:
+
+``` php
+$repository->beginTransaction();
+/** @var \eZ\Publish\API\Repository\Repository $repository */
+try {
+    $versionInfo = $contentService->loadVersionInfoById($contentId, $versionNo);
+    $contentDraft = $contentService->createContentDraft($versionInfo->contentInfo, $versionInfo);
+    $contentDraft = $contentService->deleteTranslationFromDraft($contentDraft->versionInfo, $languageCode);
+    $contentService->publishVersion($contentDraft->versionInfo);
+
+    $repository->commit();
+} catch (\Exception $e) {
+    $repository->rollback();
+    throw $e;
+}
+```
 
 ### Creating Content containing an image
 
