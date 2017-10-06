@@ -78,7 +78,7 @@ The following example will start the webserver on <http://127.0.0.1:8000> on y
 **Debug example**
 
 ``` bash
-php app/console server:run
+php bin/console server:run
 ```
 
 The following example will start the webserver on [http://localhost:8000](http://localhost:8000/) on your machine, in Symfony prod environment for demo/testing use:
@@ -86,7 +86,7 @@ The following example will start the webserver on [http://localhost:8000](http:
 **Testing/Demo example**
 
 ``` bash
-php app/console server:run --env=prod localhost:8000
+php bin/console server:run --env=prod localhost:8000
 ```
 
 ##### **Help with the command**
@@ -96,7 +96,7 @@ As with any Symfony command, you may execute the command with a `-h` flag to get
 **Help info example**
 
 ``` bash
-php app/console server:run -h
+php bin/console server:run -h
 ```
 
 #### Further reading:
@@ -107,7 +107,7 @@ php app/console server:run -h
 
 Now your installation is ready and you're on your way to starting work with eZ Platform.
 
-To access the back office of your installation, append `/ez` to its path: `<your_installation path>/ez>`. You will be prompted for the username and password, which by default are:
+To access the back office of your installation, append `/admin` to its path: `<your_installation path>/admin>`. You will be prompted for the username and password, which by default are:
 
 username: `admin`
 password: `publish`

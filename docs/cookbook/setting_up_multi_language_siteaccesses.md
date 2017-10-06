@@ -19,7 +19,7 @@ Here is the full guide on [Internationalization](../guide/internationalization.m
 1. Log into your eZ Platform admin.
 1. Navigate to the Admin Panel -> Languages tab.
 1. Click "Create a new language" and follow the on-screen prompts to register your new language (e.g. `fre-FR`).
-1. After saving the new language, refresh the eZ Platform admin assets: `php app/console assetic:dump`.
+1. After saving the new language, refresh the eZ Platform admin assets: `php bin/console assetic:dump`.
 
 That's it! Reload the admin and you can now start translating content.
 
@@ -99,7 +99,7 @@ Further down the `ezplatform.yml` is the system section which comes with the def
 That's it! `ezplatform.yml` with SiteAccesses should now be configured. Clear to cache to complete the job:
 
 ```
-php app/console cache:clear
+php bin/console cache:clear
 ```
 
 ## 3. Setting the permissions for the new `fr` and `en` SiteAccesses
@@ -134,7 +134,7 @@ In `ezplatform.yml` set the `default_siteaccess` to `en`, this will act as the [
 Clear the cache again:
 
 ```
-php app/console cache:clear
+php bin/console cache:clear
 ```
 
 ## Conclusion

@@ -233,7 +233,7 @@ sudo chmod +a "`whoami` allow delete,write,append,file_inherit,directory_inherit
 i. Install eZ Platform:
 
 ``` bash
-php app/console ezplatform:install clean
+php bin/console ezplatform:install clean
 ```
 
 You will be able to see your page under <http://ez1.lh> (or the address you chose in preparation). Please note that a clean install of eZ Platform doesn’t include DemoBundle anymore.
@@ -376,7 +376,7 @@ Next, you'll be asked to specify a database driver. You may press return to acce
 #### b. Run eZ Platform's installer:
 
 ``` bash
-php -d memory_limit=-1 /var/www/ezplatform/app/console ezplatform:install --env prod clean
+php -d memory_limit=-1 /var/www/ezplatform/bin/console ezplatform:install --env prod clean
 ```
 
 Don't forget to substitute any custom folder name you may have chosen in place of `ezplatform/` after `/var/www/` in the examples above. As you can see, this example shows a clean production installation. We're telling PHP to run Symfony's console to execute the ezplatform install script. You can get an informative output to learn more about the console script's capabilities by swapping in these parameters: `config:dump-reference ezpublish`
@@ -738,7 +738,7 @@ When Composer asks you for the token you must log in to your GitHub account and 
 h. Install eZ Platform:
 
 ``` bash
-php app/console ezplatform:install clean
+php bin/console ezplatform:install clean
 ```
 
 You will be able to see your page under <http://ez1.lh> (or the address you chose in preparation). Please note that a clean install of eZ Platform doesn’t include DemoBundle anymore.

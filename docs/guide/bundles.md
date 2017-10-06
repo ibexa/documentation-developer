@@ -44,7 +44,7 @@ EzPublishCoreBundle is contained in [ezpublish-kernel](https://github.com/ezsyst
 To get an overview of EzPublishCoreBundle's configuration, run the following command-line script:
 
 ``` bash
-php app/console config:dump-reference ezpublish
+php bin/console config:dump-reference ezpublish
 ```
 
 #### PlatformUIBundle

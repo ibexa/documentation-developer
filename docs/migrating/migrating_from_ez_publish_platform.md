@@ -196,7 +196,7 @@ Steps here should only be done once you are ready to move away from legacy and L
 
 **If** you are ready to migrate your eZ Publish XMLText content to the eZ Platform RichText format and start using pure eZ Platform setup, you can use a script to migrate content from the XmlText format to the new RichText format. Execute the following from &lt;new-ez-root&gt;:
 
-`php app/console ezxmltext:convert-to-richtext -v`
+`php bin/console ezxmltext:convert-to-richtext -v`
 
 The command example suggests using the verbose flag. This is optional, but recommended as we are actively gathering feedback on how it works with older eZ Publish content, and on how we can improve it both [via issues in the repository](https://github.com/ezsystems/ezplatform-xmltext-fieldtype), and on Slack.
 
@@ -227,8 +227,8 @@ As was the case starting 5.4, one notable change is that `SetEnvIf` is now use
 Assets from the various bundles need to be made available for the webserver through the web/ document root. Execute the following commands from `<new-ez-root>`:
 
 ``` bash
-php app/console assets:install --env=prod --symlink
-php app/console assetic:dump --env=prod
+php bin/console assets:install --env=prod --symlink
+php bin/console assetic:dump --env=prod
 ```
 
 ## Potential pitfalls
@@ -295,7 +295,7 @@ new EzSystems\EzFlowMigrationToolkitBundle\EzSystemsEzFlowMigrationToolkitBundle
 **3.** Clear cache.
 
 ``` bash
-app/console cache:clear
+bin/console cache:clear
 ```
 
 **4.** Run the script with the following parameters:
@@ -306,13 +306,13 @@ app/console cache:clear
 **Script command**
 
 ``` bash
-app/console ezflow:migrate <legacy path> —ini=<block definitions> [—ini=<another block definition> ...]
+bin/console ezflow:migrate <legacy path> —ini=<block definitions> [—ini=<another block definition> ...]
 ```
 
 **Example of the migration script command**
 
 ``` bash
-app/console ezflow:migrate /var/www/legacy.application.com/ —ini=extension/myapplication/settings/block.ini.append.php
+bin/console ezflow:migrate /var/www/legacy.application.com/ —ini=extension/myapplication/settings/block.ini.append.php
 ```
 
 **5.** You will be warned about the need to create a backup of your database. **Proceed only if you are sure you have done it.**

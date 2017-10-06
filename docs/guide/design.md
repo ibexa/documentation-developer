@@ -206,7 +206,7 @@ The following example shows how to create a customized version of a template fro
 Create a new bundle to host your design using the dedicated command (from your app installation):
 
 ``` bash
-php app/console generate:bundle
+php bin/console generate:bundle
 ```
 
 ### Configuring bundle to inherit from another

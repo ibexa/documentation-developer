@@ -240,7 +240,7 @@ $container->get('ezpublish.http_cache.purger')->purgeForContent(55);
 Symfony Proxy stores its cache in the Symfony cache directory, so a regular `cache:clear` commands will clear it:
 
 ``` bash
-php app/console --env=prod cache:clear
+php bin/console --env=prod cache:clear
 ```
 
 ##### Manual by HTTP BAN request on Varnish

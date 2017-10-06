@@ -18,7 +18,7 @@ The site will use two Content Types: **Ride** and **Point of interest**
 
 ![Relation between Ride and Point of Interest](img/bike_tutorial_poi_relation.png "This is an overview of the content model we will implement an N-N relationship model")
 
-Go to the admin interface (`<yourdomain>/ez`), and authenticate with the default username: `admin` and the default password: `publish`. 
+Go to the admin interface (`<yourdomain>/admin`), and authenticate with the default username: `admin` and the default password: `publish`. 
 
 Click on **Admin Panel** in the Navigation hub, and choose **Content types** in the sub menu:
 

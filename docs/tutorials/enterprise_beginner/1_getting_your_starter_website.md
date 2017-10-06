@@ -22,7 +22,7 @@ See [Install eZ Platform](../../getting_started/install_ez_platform.md) for a gu
 
 ### 2. Create Content Types
 
-Log in to the back end – add `/ez` to your installation's address (e.g. `tutorial.lh/ez`) and log in using `admin` as the login and `publish` as the password. In the Admin Panel go to Content Types and create two Content Types (under the Content category) with the following settings:
+Log in to the back end – add `/admin` to your installation's address (e.g. `tutorial.lh/admin`) and log in using `admin` as the login and `publish` as the password. In the Admin Panel go to Content Types and create two Content Types (under the Content category) with the following settings:
 
 #### Dog Breed
 

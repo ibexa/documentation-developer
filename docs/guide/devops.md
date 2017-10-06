@@ -11,7 +11,7 @@ This page describes commands involved in clearing cache from the command line.
 Out of the box Symfony provides a command to perform cache clearing. It will delete all file-based caches, which mainly consist of Twig template, Symfony container, and Symfony route cache, but also everything else stored in cache folder. Out of the box on a single-server setup this includes "Content cache". For further information on use, see the help text of the command:
 
 ``` bash
-php app/console --env=prod cache:clear -h
+php bin/console --env=prod cache:clear -h
 ```
 
 !!! note
