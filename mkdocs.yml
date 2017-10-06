@@ -144,6 +144,7 @@ pages:
             - 'eZ Platform 15.12.1': 'releases/ez_platform_15.12.1_release_notes.md'
             - 'eZ Platform 15.12': 'releases/ez_platform_15.12_release_notes.md'
             - 'Earlier releases': 'releases/earlier_releases.md'
+    - 'References': 'references.md'
 #theme: material
 theme_dir: material
 extra_css: [fonts/MavenPro.css, css/custom.css]
