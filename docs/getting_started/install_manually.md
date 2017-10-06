@@ -314,7 +314,7 @@ You may use your system's package manager (yum, apt-get, etc.) to obtain a copy 
 -   [MySQL](http://dev.mysql.com/downloads/mysql/)
 -   [PHP 5.6+](http://php.net)
 
-For Debian 8.5, for example, we'd recommend using `apt-get` to install `apache2`, `mysql-server`, `mysql-client`, and `php5-*` (all the packages listed in the [requirements](requirements_and_system_configuration.md)), as well as `git` for version control. If the system on which you're doing the install has only 1 or 2 GB of RAM, be sure to [set up swap](#set-up-swap-on-debian-8xx) so you don't run out of RAM when running the composer scripts later on.
+For Debian 8.5, for example, we'd recommend using `apt-get` to install `apache2`, `mysql-server`, `mysql-client`, and `php5-*` (all the packages listed in the [requirements](requirements_and_system_configuration.md)), as well as `git` for version control. If the system on which you're doing the install has only 1 or 2 GB of RAM, be sure to [set up swap](#set-up-swap-on-debian-8x) so you don't run out of RAM when running the composer scripts later on.
 
 ### 2. Get Composer
 
