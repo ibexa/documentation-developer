@@ -687,6 +687,12 @@ set req.http.X-User-Hash = "b1731d46b0e7a375a5b024e950fdb8d49dd25af85a5c7dd5116a
 
 **5.** Restart the Varnish server and everything should work fine.
 
+##### Known limitations of the user hash generation
+
+A few limitations are known:
+
+* If you are using uri-based SiteAccesses matching, the default SiteAccess on the domain needs to point to the same repository, because `/_fos_user_context_hash` is not SiteAccess-aware by default (see `ezpublish.default_router.non_siteaccess_aware_routes` parameter). Varnish does not have knowledge about SiteAccesses, so it won't be able to get user content hash if the default siteaccess relies on URI.  
+
 ##### Default options for FOSHttpCacheBundle defined in eZ
 
 The following configuration is defined in eZ by default for FOSHttpCacheBundle. You may override these settings.
