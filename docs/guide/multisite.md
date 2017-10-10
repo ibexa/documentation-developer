@@ -31,7 +31,7 @@ ezpublish:
 ### Configuration parameters
 
 The two configuration parameters, `location_id` and `excluded_uri_prefixes` are taken into account in several places,
-for example in URL alias lookups for incoming web requests, and URL alias path generation in Twig templates.
+for example in URL alias lookups for incoming web requests, and [URL alias path generation in Twig templates](content_rendering.md#adding-links).
 In addition you need to consider them when generating site paths in your layout, or other places rendering site/tree structure.
 
 #### `location_id`
@@ -52,16 +52,16 @@ In the example above, the Media and Images folders will be accessible using thei
 
 ## Configuration example
 
-To see how multisite can be used, let's look at an example of two sites using the same eZ Platform instance: a general site and a children's site.
+To see how multisite can be used, let's look at an example of two sites using the same eZ Platform instance: a general company site and a site for a specific event.
 Separate SiteAccess groups are set up for the two sites:
 
 ``` yaml
 ezpublish:
     siteaccess:
-        list: [site, kids]
+        list: [site, event]
         groups:
             site_group: [site]
-            kids_group: [kids]
+            event_group: [event]
         default_siteaccess: site
         match:
             URIElement: 1
@@ -73,42 +73,42 @@ This is your content structure:
 ├── Content
 │   ├── General
 │   │   └── Articles
-│   │       └── Mammals
-│   └── Children
+│   │       └── Article1
+│   └── Event
 │       └── Articles
-│           └── Lions
+│           └── Article2
 └── Media
     └── Images
-        └── Animal-photos
+        └── Logos
 ```
 
-You can now set the root level for `kids_group` to only access the "Children" Location and its sub-items:
+You can now set the root level for `event_group` to only access the "Event" Location and its sub-items:
 
 ``` yaml
 ezpublish:
     system:
-        kids_group:
+        event_group:
             content:
                 tree_root:
-                    # LocationId of "Children"
+                    # LocationId of "Event"
                     location_id: 57
 ```
 
-Thanks to this config, you can access `<your site>/kids/Articles/Lions`, but not `<your site>/kids/General/Articles/Mammals`.
+Thanks to this config, you can access `<your site>/event/Articles/Article2`, but not `<your site>/event/General/Articles/Article1`.
 
-In the next step, you need to reuse some content between sites, for example "Animal-photos" from "Media".
-You can allow the children's site to access them, even though they are in a different part of the tree, via `excluded_uri_prefixes`:
+In the next step, you need to reuse some content between sites, for example "Logos" from "Media".
+You can allow the event site to access them, even though they are in a different part of the tree, via `excluded_uri_prefixes`:
 
 ``` yaml
-        kids_group:
+        event_group:
             content:
                 tree_root:
                     location_id: 57
-                    excluded_uri_prefixes: [ /media/images/animal-photos ]
+                    excluded_uri_prefixes: [ /media/images/logos ]
 ```
 
-At this point, using the `kids` SiteAccess, you gain access to `<your site>/kids/Media/Images/Animal-photos`,
-despite the fact that it is not a sub-item of the "Children" Location.
+At this point, using the `event` SiteAccess, you gain access to `<your site>/event/Media/Images/Logos`,
+despite the fact that it is not a sub-item of the "Event" Location.
 
 ### Setting the Index Page
 
@@ -120,9 +120,9 @@ You can configure the Index Page separately for each SiteAccess. Place the param
 
 ezpublish:
     system:
-        kids_group:
+        event_group:
             # The page to show when accessing IndexPage (/)
-            index_page: /KidsFrontPage
+            index_page: /EventFrontPage
 ```
 
 If not specified, the `index_page` is the configured content root.
@@ -161,7 +161,7 @@ views
 ├── pagelayout.html.twig
 │   └── full
 │       └── article.html.twig
-│   └── kids
+│   └── event
 │       ├── pagelayout.html.twig
 │       └── full
 │           └── article.html.twig
@@ -184,20 +184,20 @@ ezpublish:
                         template: "full/news.html.twig"
                         match:
                             Identifier\ContentType: [news]
-        kids:
-            pagelayout: kids/pagelayout.html.twig
+        event:
+            pagelayout: event/pagelayout.html.twig
             content_view:
                 full:
                     article:
-                        template: "kids/full/article.html.twig"
+                        template: "event/full/article.html.twig"
                         match:
                             Identifier\ContentType: [article]
 ```
 
-This config defines views that will be used for the `kids` SiteAccess:
-a separate `kids/pagelayout.html.twig` and a template to be used for articles.
-When no view is defined under `kids`, such as in the case of the `news` Content Type,
-the template defined under `default` will apply. `default` will also be used for all SiteAccesses other than `kids`.
+This config defines views that will be used for the `event` SiteAccess:
+a separate `event/pagelayout.html.twig` and a template to be used for articles.
+When no view is defined under `event`, such as in the case of the `news` Content Type,
+the template defined under `default` will apply. `default` will also be used for all SiteAccesses other than `event`.
 
 To load the base (default) layout in templates you now need to use `{% extends noLayout == true ? viewbaseLayout : pagelayout %}`.
 (See [Template inheritance and sub-requests](content_rendering.md#template-inheritance-and-sub-requests) for more information).
