@@ -546,8 +546,6 @@ For your choice of web server you'll need to make sure web server user has read 
 
 ### Set up Swap on Debian 8.x
 
-Created by David Christian Liedle, last modified on Jul 11, 2016
-
 #### Overview
 
 Swap space allows your system to utilize the hard drive to supplement capacity when RAM runs short. Composer install will fail if there is insufficient RAM available, but adding swap will allow it to complete installation.
