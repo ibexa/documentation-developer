@@ -107,8 +107,48 @@ ezpublish:
             content:
                 view_cache: true      # Activates HttpCache for content
                 ttl_cache: true       # Activates expiration based HttpCache for content (very fast)
-                default_ttl: 60       # Number of seconds an Http response is valid in cache (if ttl_cache is true)
+                default_ttl: 60       # Number of seconds an Http response cache is valid (if ttl_cache is true, and if no custom s-maxage is set)
 ```
+
+##### Cache and Expiration Configuration for error pages
+
+It is normal to want to set the `default_ttl` setting above high to have a high hit cache ratio on you install, and as the system takes care about purges there aren't many cases where cache becomes stale.
+
+However a few redirect and error pages are served via the ContentView system, and if you do set `default_ttl` high above you should make sure to set those to a much lower ttl to avoid issues casued by that. For this we can use [FOSHttpCacheBundle matching rules](http://foshttpcachebundle.readthedocs.io/en/1.3/reference/configuration/headers.html) feature to specify different ttl time:
+``` yaml
+fos_http_cache:
+    cache_control:
+        rules:
+            # Make sure cacheable (fresh) responses from eZ Platform which are errors/redirect gets lower ttl (then default_ttl)
+            -
+                match:
+                    match_response: "response.isFresh() && ( response.isServerError() || response.isClientError() || response.isRedirect() )"
+                headers:
+                    overwrite: true
+                    cache_control:
+                        max_age: 5
+                        s_maxage: 20
+```
+
+Similarly if you want to apply performance tuning to avoid crawlers hitting the setup to much, we can also setup caching of generic 404's and similar error pages in the following way:
+
+``` yaml
+fos_http_cache:
+    cache_control:
+        rules:
+            # Example of performance tuning, force TTL on 404 pages to avoid crawlers / ... taking to much load
+            # Should not be set to high, as cached 404's can cause issues for future routes, url aliases, wildcards, ..
+            -
+                match:
+                    match_response: "!response.isFresh() && response.isNotFound()"
+                headers:
+                    overwrite: true
+                    cache_control:
+                        public: true
+                        max_age: 0
+                        s_maxage: 20
+```
+
 
 #### Making your controller response content-aware
 
