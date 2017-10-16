@@ -53,15 +53,14 @@ In the example above, the Media and Images folders will be accessible using thei
 ## Configuration example
 
 To see how multisite can be used, let's look at an example of two sites using the same eZ Platform instance: a general company site and a site for a specific event.
-Separate SiteAccess groups are set up for the two sites:
+Separate SiteAccesses are set up for the two sites:
 
 ``` yaml
 ezpublish:
     siteaccess:
         list: [site, event]
         groups:
-            site_group: [site]
-            event_group: [event]
+            site_group: [site, event]
         default_siteaccess: site
         match:
             URIElement: 1
@@ -82,12 +81,12 @@ This is your content structure:
         └── Logos
 ```
 
-You can now set the root level for `event_group` to only access the "Event" Location and its sub-items:
+You can now set the root level for `event` to only access the "Event" Location and its sub-items:
 
 ``` yaml
 ezpublish:
     system:
-        event_group:
+        event:
             content:
                 tree_root:
                     # LocationId of "Event"
@@ -100,7 +99,7 @@ In the next step, you need to reuse some content between sites, for example "Log
 You can allow the event site to access them, even though they are in a different part of the tree, via `excluded_uri_prefixes`:
 
 ``` yaml
-        event_group:
+        event:
             content:
                 tree_root:
                     location_id: 57
@@ -120,7 +119,7 @@ You can configure the Index Page separately for each SiteAccess. Place the param
 
 ezpublish:
     system:
-        event_group:
+        event:
             # The page to show when accessing IndexPage (/)
             index_page: /EventFrontPage
 ```
