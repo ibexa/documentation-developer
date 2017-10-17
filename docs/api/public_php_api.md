@@ -750,7 +750,7 @@ As explained in the previous chapter, Criterion objects are grouped together usi
 
 ``` php
 use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
-use eZ\Publish\API\Repository\Values\Content;
+use eZ\Publish\API\Repository\Values\Content\Query;
 
 // [...]
 
@@ -806,7 +806,7 @@ Following the examples above we now change it a bit to combine several criteria 
 
 ``` javascript
 use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
-use eZ\Publish\API\Repository\Values\Content;
+use eZ\Publish\API\Repository\Values\Content\Query;
 
 // [...]
 
@@ -838,7 +838,7 @@ You can also use the [`ContentTypeIdentifier`](http://apidoc.ez.no/sami/trunk/NS
 
 ``` php
 use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
-use eZ\Publish\API\Repository\Values\Content;
+use eZ\Publish\API\Repository\Values\Content\Query;
 
 // [...]
 
