@@ -273,7 +273,7 @@ These algorithms produce longer hashes, and so the length of the `password_hash`
 # MySQL
 ALTER TABLE ezuser CHANGE password_hash password_hash VARCHAR(255) default NULL;
 
-#PostgreSQL
+# PostgreSQL
 ALTER TABLE ezuser ALTER COLUMN password_hash TYPE VARCHAR(255);
 ```
 
