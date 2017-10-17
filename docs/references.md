@@ -8,6 +8,7 @@
     - [Twig helpers list](guide/design.md#twig-helper)
     - [Available image variation filters](guide/images.md#available-filters)
     - [Available SiteAccess matchers](guide/siteaccess.md#available-matchers)
+    - [Available View Matchers](guide/content_rendering.md#available-matchers)
 - Repository:
     - [Services: Public API reference](guide/repository.md#services-public-api)
     - [Signals reference](guide/repository.md#signals-reference)
