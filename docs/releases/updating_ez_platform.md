@@ -263,8 +263,6 @@ If you are upgrading to v1.8 you need to create this folder and assign it to a n
 
 **Increased password hash length**
 
-V1.12
-
 v1.12.0 improves password security by introducing support for PHP's `PASSWORD_BCRYPT` and `PASSWORD_DEFAULT` hashing algorithms. By default `PASSWORD_DEFAULT` is used. This currently uses bcrypt, but this may change in the future as PHP adds support for new and stronger algorithms.
 
 These algorithms produce longer hashes, and so the length of the `password_hash` column of the `ezuser` table must be increased, like this:
