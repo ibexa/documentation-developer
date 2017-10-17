@@ -261,6 +261,22 @@ If you are upgrading to v1.8 you need to create this folder and assign it to a n
     form_builder.upload_folder.section_identifier: <section identifier>
 ```
 
+**Increased password hash length**
+
+V1.12
+
+v1.12.0 improves password security by introducing support for PHP's `PASSWORD_BCRYPT` and `PASSWORD_DEFAULT` hashing algorithms. By default `PASSWORD_DEFAULT` is used. This currently uses bcrypt, but this may change in the future as PHP adds support for new and stronger algorithms.
+
+These algorithms produce longer hashes, and so the length of the `password_hash` column of the `ezuser` table must be increased, like this:
+
+``` sql
+# MySQL
+ALTER TABLE ezuser CHANGE password_hash password_hash VARCHAR(255) default NULL;
+
+#PostgreSQL
+ALTER TABLE ezuser ALTER COLUMN password_hash TYPE VARCHAR(255);
+```
+
 ## 5. Dump assets
 
 The web assets must be dumped again if you are using the `prod` environment. In `dev` this happens automatically:
