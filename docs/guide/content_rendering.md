@@ -50,7 +50,7 @@ ezpublish:
 
     In this case the repository will throw an exception, which is caught in the `ViewController`, and *if* you are using Legacy Bridge it will end up doing a [fallback to legacy kernel](https://doc.ez.no/display/EZP/Legacy+template+fallback).
 
-    The list of Field Types supported out of the box [is available here](field-types-reference.md).
+    The list of Field Types supported out of the box [is available here](field_type_reference.md).
 
 !!! tip
 
@@ -263,7 +263,7 @@ In order to display the Fields' value the way you want, you can either manipulat
 
 #### Getting raw Field value
 
-As you have access to the Content item in the template, you can use [its public methods](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Repository/Values/Content/Content.php) to access all the information you need. You can also use the `ez_field_value` helper to get the [Field's value only](#ez95field95value). It will return the correct language if there are several, based on language priorities.
+As you have access to the Content item in the template, you can use [its public methods](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Repository/Values/Content/Content.php) to access all the information you need. You can also use the `ez_field_value` helper to get the [Field's value only](#ez_field_value). It will return the correct language if there are several, based on language priorities.
 
 ``` html
 {# With the following, myFieldValue will be in the Content item's main language, regardless of the current language #}
@@ -281,7 +281,7 @@ All built-in Field Types come with [their own Twig template](https://github.com/
 {{ ez_render_field( content, 'some_field_identifier' ) }}
 ```
 
-Refer to [`ez_render_field`](#ez95render95field) for further information.
+Refer to [`ez_render_field`](#ez_render_field) for further information.
 
 !!! tip
 
@@ -381,7 +381,7 @@ You can also use the Content ID. In that case the generated link will point to t
 
     This makes it also easy to generate links from PHP, via the `router` service.
 
-See also: [Cross-siteaccess links](siteaccess.md#cross-siteaccess-links)
+See also: [Cross-SiteAccess links](siteaccess.md#cross-siteaccess-links)
 
 ### Embedding Content items
 
@@ -389,7 +389,7 @@ To render an embedded content from a Twig template you need to **do a subrequest
 
 #### Using the `ez_content` controller
 
-This controller is exactly the same as [the ViewController presented above](#the-view-controller). It has one main `viewAction` that renders a Content item.
+This controller is exactly the same as [the ViewController presented above](#the-viewcontroller). It has one main `viewAction` that renders a Content item.
 
 You can use this controller from templates with the following syntax:
 
@@ -532,7 +532,7 @@ Typical use cases include access to:
 There are three ways in which you can apply a custom controller:
 
 - Configure a custom controller alongside regular matcher rules to use **both** your custom controller and the `ViewController` (recommended).
-- [**Override**](#overriding-the-builtin-viewcontroller) the built-in `ViewController` with the custom controller in a specific situation.
+- [**Override**](#overriding-the-built-in-viewcontroller) the built-in `ViewController` with the custom controller in a specific situation.
 - **Replace** the `ViewController` with the custom controller for the whole bundle.
 
 ### Enriching ViewController with a custom controller
@@ -735,10 +735,6 @@ public function viewLocation( $locationId, $viewType, $layout = false, array $pa
 public function viewContent( $contentId, $viewType, $layout = false, array $params = array() )
 ```
 
-!!! note
-
-    Controller selection doesn't apply to `block_view` since you can already [use your own controller to display blocks](#rendering-blocks).
-
 !!! caution "Caching"
 
     When you use your own controller, **it is your responsibility to define cache rules**, like with every custom controller!
@@ -770,7 +766,7 @@ Three items are required:
 
 #### The LocationChildren QueryType
 
-QueryTypes are described in more detail in the [next section](#query-types-objects). In short, a QueryType can build a Query object, optionally based on a set of parameters. The following example will build a Query that retrieves the sub-items of a Location:
+QueryTypes are described in more detail in the [next section](#querytype-objects). In short, a QueryType can build a Query object, optionally based on a set of parameters. The following example will build a Query that retrieves the sub-items of a Location:
 
 ``` php
 // src/AppBundle/QueryType/LocationChildrenQueryType.php
@@ -1188,7 +1184,7 @@ If the Content item does not have a translation in the current language, the mai
 
 `ez_field_value()` is a Twig helper which returns a Content item's Field value in the current language.
 
-This can be useful when you don't want to use [`ez_render_field`](#ez95render95field) and manage the rendering by yourself.
+This can be useful when you don't want to use [`ez_render_field`](#ez_render_field) and manage the rendering by yourself.
 
 If the Content item does not have a translation in the current language, the main language will be used. This behavior is identical when forcing a language using **forcedLanguage**.
 
@@ -1575,7 +1571,7 @@ For a Location alias set up a 301 redirect to the Location's current URL when:
 
 !!! note "Under the hood"
 
-    In the backend, `path()` uses the Router to generate links.
+    In the back end, `path()` uses the Router to generate links.
 
     This makes it also easy to generate links from PHP, via the `router` service.
 
