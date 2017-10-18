@@ -689,6 +689,10 @@ We use the `ContentService::loadVersions()` method and get an array of `VersionI
 
 In this section we will cover how the [`SearchService`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/SearchService.html) can be used to search for Content, by using a [`Query`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Query.html) and a combinations of [`Criteria`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Query/Criterion.html) you will get a [`SearchResult`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Search/SearchResult.html) object back containing list of Content and count of total hits. In the future this object will also include facets, spell checking and "more like this" when running on a backend that supports it *(for instance Solr)*.
 
+!!! note
+
+    To actually find anything using API described in this section, you need to create some content (articles, folders) under eZ Platform root.
+
 ##### Difference between filter and query
 
 Query object contains two properties you can set criteria on, `filter` and `query`, and while you can mix and match use and use both at the same time, there is one distinction between the two:
@@ -755,7 +759,7 @@ As explained in the previous chapter, Criterion objects are grouped together usi
 
 ``` php
 use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
-use eZ\Publish\API\Repository\Values\Content;
+use eZ\Publish\API\Repository\Values\Content\Query;
 
 // [...]
 
@@ -811,7 +815,7 @@ Following the examples above we now change it a bit to combine several criteria 
 
 ``` javascript
 use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
-use eZ\Publish\API\Repository\Values\Content;
+use eZ\Publish\API\Repository\Values\Content\Query;
 
 // [...]
 
@@ -843,7 +847,7 @@ You can also use the [`ContentTypeIdentifier`](http://apidoc.ez.no/sami/trunk/NS
 
 ``` php
 use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
-use eZ\Publish\API\Repository\Values\Content;
+use eZ\Publish\API\Repository\Values\Content\Query;
 
 // [...]
 
