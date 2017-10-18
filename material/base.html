@@ -117,6 +117,7 @@
               {% block content %}
                 {% if config.edit_uri %}
                   <a href="{{ page.edit_url }}" title="{{ lang.t('edit.link.title') }}" class="md-icon md-content__icon">edit</a>
+                  <a href="{{ page.edit_url|replace('/edit/', '/blob/') }}" title="{{ lang.t('show.link.title') }}" class="md-icon md-content__icon">description</a>
                 {% endif %}
                 {% if not "\x3ch1" in page.content %}
                   <h1>{{ page.title | default(config.site_name, true)}}</h1>
