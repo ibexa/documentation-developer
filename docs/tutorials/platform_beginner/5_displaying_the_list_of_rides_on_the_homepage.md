@@ -1,4 +1,4 @@
-# Step 2 - Display the list of Rides on the homepage
+# Step 5 - Display the list of Rides on the homepage
 
 ![Ride List view](img/bike_tutorial_ride_list.png)
 

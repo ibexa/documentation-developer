@@ -11,6 +11,7 @@ pages:
             - 'Install eZ Platform': 'getting_started/install_ez_platform.md'
             - 'Install using Composer': 'getting_started/install_using_composer.md'
             - 'Install manually': 'getting_started/install_manually.md'
+            - 'Install using Docker': 'getting_started/install_using_docker.md'
             - 'Starting eZ Platform': 'getting_started/starting_ez_platform.md'
             - 'Troubleshooting': 'getting_started/troubleshooting.md'
         - Going deeper:
@@ -75,7 +76,6 @@ pages:
         - 'Content rendering': 'guide/content_rendering.md'
         - 'Design': 'guide/design.md'
         - 'DevOps': 'guide/devops.md'
-        - 'Docker tools': 'guide/docker_tools.md'
         - 'Environments': 'guide/environments.md'
         - 'Extending eZ Platform UI': 'guide/extending_ez_platform_ui.md'
         - 'File management': 'guide/file_management.md'
@@ -93,9 +93,9 @@ pages:
         - 'SiteAccess': 'guide/siteaccess.md'
         - 'User-generated content': 'guide/user_generated_content.md'
     - Cookbook:
-        - 'Cookbook': 'cookbook/cookbook.md'
         - 'Authenticating a user with multiple user providers': 'cookbook/authenticating_a_user_with_multiple_user_providers.md'
         - 'Converting request paremeters into API objects': 'cookbook/converting_request_parameters_into_api_objects.md'
+        - 'Creating content with binary attachments via REST API': 'cookbook/creating_content_with_binary_attachments_via_rest_api.md'
         - 'Creating custom notification for Flex Workflow': 'cookbook/creating_custom_notifications_for_flex_workflow.md'
         - 'Creating Landing Page blocks (Enterprise)': 'cookbook/creating_landing_page_blocks_(enterprise).md'
         - 'Creating Landing Page layouts (Enterprise)': 'cookbook/creating_landing_page_layouts_(enterprise).md'
@@ -109,17 +109,17 @@ pages:
         - 'Making cross-origin HTTP requests': 'cookbook/making_cross_origin_http_requests.md'
         - 'Paginating API search results': 'cookbook/paginating_api_search_results.md'
         - 'Retrieving root location': 'cookbook/retrieving_root_location.md'
+        - 'Setting up Amazon AWS S3 clustering': 'cookbook/setting_up_amazon_aws_s3_clustering.md'
+        - 'Setting up multi-language SiteAccesses and corresponding translations': 'cookbook/setting_up_multi_language_siteaccesses.md'
         - 'Using RouteReference': 'cookbook/using_routereference.md'
     - Resources and community:
         - 'Resources': 'community_resources/resources.md'
         - 'Professional training services': 'community_resources/professional_training_services.md'
         - 'Contributing': 'community_resources/contributing.md'
     - Migrating to eZ Platform:
-        - 'Migrating to eZ Platform': 'migrating/migrating.md'
         - 'Migrating from eZ Publish Platform': 'migrating/migrating_from_ez_publish_platform.md'
         - 'Migrating from eZ Publish': 'migrating/migrating_from_ez_publish.md'
     - Releases:
-        - 'eZ Platform releases': 'releases/releases.md'
         - 'Updating eZ Platform': 'releases/updating_ez_platform.md'
         - 'eZ Platform v1.7.0 LTS': 'releases/ez_platform_v1.7.0_lts.md'
         - 'eZ Platform v1.6.0': 'releases/ez_platform_and_ez_enterprise_v1.6.0.md'
@@ -140,6 +140,7 @@ pages:
             - 'eZ Platform 15.12.1': 'releases/ez_platform_15.12.1_release_notes.md'
             - 'eZ Platform 15.12': 'releases/ez_platform_15.12_release_notes.md'
             - 'Earlier releases': 'releases/earlier_releases.md'
+    - 'References': 'references.md'
 #theme: material
 theme_dir: material
 extra_css: [fonts/MavenPro.css, css/custom.css]

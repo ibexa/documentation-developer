@@ -6,14 +6,14 @@ Clustering in eZ Platform refers to setting up your install with several web ser
 
 ### Server setup overview
 
-This diagram illustrates how clustering of eZ Platform is typically set up, the parts illustrate the different roles needed for a successful cluster setup. The number of web servers, Memcached servers, Solr servers, Varnish servers, Database servers, NFS servers, as well as whether some servers play several of these roles *(typically running Memcached across the web server)* is up to you and your performance needs.
+This diagram illustrates how clustering of eZ Platform is typically set up, the parts illustrate the different roles needed for a successful cluster setup. The number of web servers, Memcached/Redis servers, Solr servers, Varnish servers, Database servers, NFS servers, as well as whether some servers play several of these roles *(typically running Memcached/Redis across the web server)* is up to you and your performance needs.
 
 The minimal requirements are the following *(with what is currently supported in italics)*:
 
 - Shared HTTP cache *(using Varnish)*
 - Shared Persistence cache and Sessions *(using Memcached, or Redis)*
 - Shared Database *(using MySQL/MariaDB)*
-- Shared Filesystem *(using NFS, or experimentally also S3)*
+- Shared Filesystem *(using NFS, or S3)*
 
 For further details on requirements, see [Requirements page](../getting_started/requirements_and_system_configuration.md).
 
@@ -22,7 +22,7 @@ While this is not a complete list, further recommendations include:
 - Using [Solr](search.md#solr-bundle) for better search and better search performance
 - Using a CDN for improved performance and faster ping time worldwide
 - Using Active/Passive Database for failover
-- In general: Make sure to use later versions of PHP and MySQL/MariaDB within [what is supported](../getting_started/requirements_and_system_configuration.md) for your eZ Platform version to get more performance out of each server.
+- In general: Make sure to use later versions of PHP and MySQL/MariaDB within [what is supported](../getting_started/requirements_and_system_configuration.md) for your eZ Platform version to get more performance out of each server, however numbers might vary so make sure to test this when upgrading.
 
 ![](img/server_setup.png)
 
@@ -100,9 +100,14 @@ ezpublish:
                 binarydata_handler: nfs
 ```
 
+
+!!! tip
+
+    If you are looking to [set up S3](../cookbook/setting_up_amazon_aws_s3_clustering.md) or other [Flysystem](https://flysystem.thephpleague.com/)/third-party adapters like Google Cloud Storage, this needs to be configured as binary handler. The rest here will still stay the same, the dfs meta handler will take care of caching the lookups to avoid slow IO lookups.
+
 ##### Customizing the storage directory
 
-eZ Publish 5.x required the NFS adapter directory to be set to `$var_dir$/$storage_dir$` part for the NFS path. This is no longer required with eZ Platform, but the default prefix used to serve binary files will still match this expectation.
+eZ Publish 5.x required the NFS adapter directory to be set to `$var_dir$/$storage_dir$` part for the NFS path. This is no longer required with eZ Platform _(unless you plan to use Legacy Bridge)_, but the default prefix used to serve binary files will still match this expectation.
 
 If you decide to change this setting, make sure you also set `io.url_prefix` to a matching value. If you set the NFS adapter's directory to "/path/to/nfs/storage", use this configuration so that the files can be served by Symfony:
 
@@ -128,9 +133,9 @@ You can read more about that on [Binary files URL handling](file_management.md#u
 
 #### Web server rewrite rules
 
-The default eZ Platform rewrite rules will let image requests be served directly from disk. With native support, files matching `^/var/([^/]+/)?storage/images(-versioned)?/.*` have to be passed through `/web/app.php`.
+The default eZ Platform rewrite rules will let image requests be served directly from disk. In a cluster setup, files matching `^/var/([^/]+/)?storage/images(-versioned)?/.*` have to be passed through `/web/app.php` instead.
 
-In any case, this specific rewrite rule must be placed without the ones that "ignore" image files and just let the web server serve the files.
+In any case, this specific rewrite rule must be placed before the ones that "ignore" image files and just let the web server serve the files directly.
 
 ##### Apache
 
@@ -138,8 +143,46 @@ In any case, this specific rewrite rule must be placed without the ones that "ig
 RewriteRule ^/var/([^/]+/)?storage/images(-versioned)?/.* /app.php [L]
 ```
 
+_Place this before the standard image rewrite rule in your vhost config (or uncomment if already there)_
+
 ##### nginx
 
 ```
 rewrite "^/var/([^/]+/)?storage/images(-versioned)?/(.*)" "/app.php" break;
 ```
+
+_Place this before the include of `ez_params.d`/`ez_rewrite_params` in your vhost config (or uncomment if already there)._
+
+## Migration
+
+If you are migrating an existing single-server site to a cluster, and not setting up a cluster from scratch, you need to migrate your files. Once you have configured your binarydata and metadata handlers, you can run the `ezplatform:io:migrate-files` command. You can also use it when you are migrating from one data handler to another, e.g. from NFS to Amazon S3.
+
+This command shows which handlers are configured (example output):
+
+```
+> php app/console ezplatform:io:migrate-files --list-io-handlers
+Configured meta data handlers: default, dfs, aws_s3
+Configured binary data handlers: default, nfs, aws_s3
+```
+
+You can do the actual migration like this (example parameters):
+
+```
+> php app/console ezplatform:io:migrate-files --from=default,default --to=dfs,nfs --env=prod
+```
+
+The `--from` and `--to` values must be specified as `<metadata_handler>,<binarydata_handler>`.
+If `--from` is omitted, the default IO configuration will be used.
+If `--to` is omitted, the first non-default IO configuration will be used.
+
+!!! tip
+
+    The command must be executed with the same permissions as the web server.
+
+During the command execution the files should not be modified. To avoid surprises you are advised to create a backup and/or execute a dry run before doing the actual update, using the `--dry-run` switch.
+
+Since this command can run for a very long time, to avoid memory exhaustion run it in the production environment using the `--env=prod` switch.
+
+### Clustering using Amazon AWS S3
+
+See [Setting up Amazon AWS S3 clustering](../cookbook/setting_up_amazon_aws_s3_clustering.md).
