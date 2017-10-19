@@ -1,5 +1,7 @@
 # Creating custom notifications for Flex Workflow
 
+TODO Review for v2
+
 To create a custom notification you have to provide two plugins in the `flex-workflow` bundle, one for the `notificationsPopupView` and second for the `notificationIndicatorView`.
 
 We will start from creating a plugin for `notificationIndicatorView` which is responsible for displaying a text in the notification bar (this green stripe in the bottom when you get new notification)

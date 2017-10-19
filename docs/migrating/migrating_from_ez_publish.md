@@ -1,5 +1,7 @@
 # Migration from eZ Publish
 
+TODO Decide if this can be adapted for 2.x, or do we need a special "1.x to 2.x migration" page.
+
 eZ Publish was eZ Platform's predecessor, a CMS in development for five major versions and several years.
 
 Users of eZ Publish will find eZ Platform largely similar to what they know. The improvements and enhancements did not turn the fundamental concepts underlying the system, such as the content model, upside down. However, specific features, solutions and recipes may work differently between the two versions.

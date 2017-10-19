@@ -2,9 +2,18 @@
 
 ## Back-end interface
 
-The back-end interface is produced by [the ezplatform-admin-ui Bundle](https://github.com/ezsystems/ezplatform-admin-ui) together with [ezplatform-admin-ui-modules](https://github.com/ezsystems/ezplatform-admin-ui-modules), which handles specific parts of the application. This interface is accessible in your browser at `http://[uri_of_platform]/admin`.
+The back-end interface is produced by [the ezplatform-admin-ui Bundle](https://github.com/ezsystems/ezplatform-admin-ui)
+together with [ezplatform-admin-ui-modules](https://github.com/ezsystems/ezplatform-admin-ui-modules),
+which contains React modules that handle specific parts of the application.
+This interface is accessible in your browser at `http://[uri_of_platform]/admin`.
 
 ## TODO Technical architecture
+
+## TODO General extensibility
+
+What is extensible - summary
+
+Where to place
 
 ## TODO Menu
 
@@ -16,7 +25,7 @@ The module is highly configurable. It can be extended with new tabs.
 
 ### How to use it?
 
-QUESTION What's the use of this? Where is it located?
+TODO Where to place this?
 
 With vanilla JS:
 

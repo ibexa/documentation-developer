@@ -61,7 +61,7 @@ Default values will be fetched from the environment variables `$env_list`, but m
 
 ### Description
 
-PHP, in 5.4 and later, comes with a [built-in webserver for development purposes](http://php.net/manual/en/features.commandline.webserver.php). This is very handy, as it allows you to **kickstart development quickly**, avoiding having to install and configure [Apache](https://github.com/ezsystems/ezplatform/tree/master/doc/apache2) / [Nginx](https://github.com/ezsystems/ezplatform/tree/master/doc/nginx). All you need here is PHP 5.4+ with command line binary.
+PHP comes with a [built-in webserver for development purposes](http://php.net/manual/en/features.commandline.webserver.php). This is very handy, as it allows you to **kickstart development quickly**, avoiding having to install and configure [Apache](https://github.com/ezsystems/ezplatform/tree/master/doc/apache2) / [Nginx](https://github.com/ezsystems/ezplatform/tree/master/doc/nginx). All you need here is PHP 5.4+ with command line binary.
 
 ### Usage
 

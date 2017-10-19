@@ -1172,14 +1172,14 @@ A Limitation to specify that only Users with at least one common *direct* User g
 
 #### Retrieving the Role Policies
 
-To retrieve the Roles Policies, on a working eZ Platform instance, in dev environment open the file `app/cache/dev/appDevDebugProjectContainer.xml`
+To retrieve the Roles Policies, on a working eZ Platform instance, in dev environment open the file `var/cache/dev/appDevDebugProjectContainer.xml`
 
 If you can not find the file, please reload the homepage. The cache will be regenerated.
 
 Then open it and look for `ezpublish.api.role.policy_map`, it will look like this:
 
 ``` xml
-<!--ezpublish.api.role.policy\_map entry in the app/cache/dev/appDevDebugProjectContainer.xml file-->
+<!--ezpublish.api.role.policy\_map entry in the var/cache/dev/appDevDebugProjectContainer.xml file-->
 
     <parameter key="ezpublish.api.role.policy_map" type="collection">
         <parameter key="content" type="collection">           

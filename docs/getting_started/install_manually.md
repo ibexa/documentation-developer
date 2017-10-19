@@ -17,6 +17,8 @@ Hi! You are about to install eZ Platform on your machine and this guide is here 
 
 ## Installation Guide for OS X
 
+TODO update install guide
+
 ### Preparation:
 
 #### 1. Install MySQL 
@@ -225,7 +227,7 @@ When Composer asks you for the token you must log in to your GitHub account and 
 h. Change directory permissions:
 
 ``` bash
-rm -rf app/cache/* app/logs/*
+rm -rf var/cache/* var/logs/*
 sudo chmod +a "_www allow delete,write,append,file_inherit,directory_inherit" app/{cache,logs,config} web
 sudo chmod +a "`whoami` allow delete,write,append,file_inherit,directory_inherit" app/{cache,logs,config} web
 ```
@@ -387,7 +389,7 @@ Please note that a clean install of eZ Platform doesn’t include the DemoBundle
 
 ### 6. Setup the folder rights (\*NIX users)
 
-Like most things, [Symfony documentation](http://symfony.com/doc/current/book/installation.html#checking-symfony-application-configuration-and-setup) applies here, meaning `app/cache` and `app/logs` need to be writable by cli and web server user.
+Like most things, [Symfony documentation](http://symfony.com/doc/current/book/installation.html#checking-symfony-application-configuration-and-setup) applies here, meaning `var/cache` and `var/logs` need to be writable by cli and web server user.
 
 Furthermore, future files and directories created by these two users will need to inherit those access rights. *For security reasons, there is no need for web server to have access to write to other directories.*
 
@@ -474,7 +476,7 @@ First, change `www-data` to your web server user.
 ##### Clean the cache/ and logs/ directories
 
 ``` bash
-$ rm -rf app/cache/* app/logs/*
+$ rm -rf var/cache/* var/logs/*
 ```
 
 #### Use the right option according to your system.
@@ -485,9 +487,9 @@ $ rm -rf app/cache/* app/logs/*
 
 ``` bash
 $ sudo chmod +a "www-data allow delete,write,append,file_inherit,directory_inherit" \
-  app/cache app/logs web
+  var/cache var/logs web
 $ sudo chmod +a "`whoami` allow delete,write,append,file_inherit,directory_inherit" \
-  app/cache app/logs web
+  var/cache var/logs web
 ```
 
 ##### B. Using ACL on a *Linux/BSD *system that does not support chmod +a
@@ -498,9 +500,9 @@ Some systems don't support chmod +a, but do support another utility called setfa
 
 ``` bash
 $ sudo setfacl -R -m u:www-data:rwx -m u:`whoami`:rwx \
-  app/cache app/logs web
+  var/cache var/logs web
 $ sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx \
-  app/cache app/logs web
+  var/cache var/logs web
 ```
 
 ##### C. Using chown on *Linux/BSD/OS X* systems that don't support ACL
@@ -510,7 +512,7 @@ Some systems don't support ACL at all. You will need to set your web server's us
 **Using chown on Linux/BSD/OS X systems that don't support ACL**
 
 ``` bash
-$ sudo chown -R www-data:www-data app/cache app/logs web
+$ sudo chown -R www-data:www-data var/cache var/logs web
 $ sudo find {app/{cache,logs},web} -type d | xargs sudo chmod -R 775
 $ sudo find {app/{cache,logs},web} -type f | xargs sudo chmod -R 664
 ```
@@ -540,8 +542,8 @@ $ sudo chmod g+s {app/{cache,logs},web}
 
 For your choice of web server you'll need to make sure web server user has read access to `<root-dir>`, and write access to the following directories:
 
--   app/cache
--   app/logs
+-   var/cache
+-   var/logs
 
 
 ### Set up Swap on Debian 8.x
