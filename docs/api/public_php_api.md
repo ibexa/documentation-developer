@@ -702,6 +702,10 @@ Query object contains two properties you can set criteria on, `filter` and `quer
 
 #### Performing a simple full text search
 
+!!! tip "Checking feature support per search engine"
+
+    To find out if a given search engine supports advanced full text capabilities, use the [`supports($capabilityFlag)`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/SPI/Search/Capable.php#L25) method.
+
 Full code
 
 <https://github.com/ezsystems/CookbookBundle/blob/master/Command/FindContentCommand.php>
