@@ -201,6 +201,11 @@ The command example suggests using the verbose flag. This is optional, but recom
 
 **If** you use Page field (ezflow) and an eZ Enterprise subscription, and are ready to migrate your eZ Publish Flow content to the eZ Enterprise Landing Page format. You can use a script to migrate your Page content to Landing Page, to start using a pure eZ Enterprise setup. See [Migrating legacy Page field (ezflow) to Landing Page (Enterprise)](#migrating-legacy-page-field-ezflow-to-landing-page-enterprise) for more information.
 
+###### 3.2.3 Add Date Based Publisher schema (eZ Enterprise only)
+
+For date based publisher feature, there is an additional table, you can import it to your database using the following sql file:
+`<new-ez-root>/vendor/ezsystems/date-based-publisher/bundle/Resources/install/datebasedpublisher_scheduled_version.sql`
+
 ### Step 4: Re-configure web server & proxy
 
 #### Varnish *(optional)*
