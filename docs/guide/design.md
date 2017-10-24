@@ -66,7 +66,7 @@ This is what individual keys in the configuration mean:
 
 !!! note
 
-    In earlier version `location_view` was used as the view provider. It is now deprecated.
+    In earlier version `location_view` was used as the view provider. It has been deprecated since eZ Platform 1.x.
 
 - `full` and `line` determine the kind of view to be used (see below).
 - `article` and `blog_post` are the keys that start the configuration for one individual case of using a template. You can name these keys any way you want, and you can have as many of them as you need.

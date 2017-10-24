@@ -20,7 +20,7 @@ The **ViewProvider** allows you to configure template selection when using the `
 
 #### Principle
 
-The ViewProvider takes its configuration from your SiteAccess in the `content_view` section. This configuration is a hash built in the following way:
+The ViewProvider takes its configuration from your SiteAccess in the `content_view` section. This configuration is [necessary for views to be defined](design.md#design-basics) and is a hash built in the following way:
 
 ``` yaml
 #app/config/ezplatform.yml
@@ -56,7 +56,7 @@ ezpublish:
 
     You can define your template selection rules, alongside other settings, in a different bundle. [Read the cookbook recipe to learn more about it](../cookbook/importing_settings_from_a_bundle.md).
 
-    You can also [use your own custom controller to render a content/location](#custom-controllers).
+    You can also [use your own custom controller to render a Content/Location](#custom-controllers).
 
 ## View Matchers
 
@@ -107,13 +107,13 @@ The following table presents all native matchers.
 |`Id\Location`|Matches the ID number of a Location. *In the case of a Content item, matched against the main location.*|
 |`Id\ParentContentType`|Matches the ID number of the parent Content Type. *In the case of a Content item, matched against the main location.*|
 |`Id\ParentLocation`|Matches the ID number of the parent Location. *In the case of a Content item, matched against the main location.*|
-|`Id\Remote`|Matches the remoteId of either content or Location, depending on the object matched.|
+|`Id\Remote`|Matches the remoteId of either Content or Location, depending on the object matched.|
 |`Id\Section`|	Matches the ID number of the Section that the Content item belongs to.|
 |`Identifier\ContentType`|Matches the identifier of the Content Type that the Content item is an instance of.|
 |`Identifier\ParentContentType`|Matches the identifier of the parent Content Type. *In the case of a Content item, matched against the main Location.*|
 |`Identifier\Section`|Matches the identifier of the Section that the Content item belongs to.|
 |`Depth`|Matches the depth of the Location. The depth of a top level Location is 1.|
-|`UrlAlias`|Matches the virtual URL of the Location (i.e. `/My/Content-Uri`). **Important: Matches when the UrlAlias of the location starts with the value passed.** *Not supported for Content (aka content_view).*|
+|`UrlAlias`|Matches the virtual URL of the Location (i.e. `/My/Content-Uri`). **Important: Matches when the UrlAlias of the Location starts with the value passed.** *Not supported for Content (aka content_view).*|
 
 ### Content view templates
 
@@ -121,14 +121,14 @@ The following table presents all native matchers.
 
 |Variable name|Type|Description|
 |------|------|------|
-|`location`|[eZ\Publish\Core\Repository\Values\Content\Location](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Repository/Values/Content/Location.php)|The Location object. Contains meta information on the content (ContentInfo) (only when accessing a Location) |
+|`location`|[eZ\Publish\Core\Repository\Values\Content\Location](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Repository/Values/Content/Location.php)|The Location object. Contains meta information on the Content (ContentInfo) (only when accessing a Location) |
 |`content`|[eZ\Publish\Core\Repository\Values\Content\Content](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Repository/Values/Content/Content.php)|The Content item, containing all Fields and version information (VersionInfo)|
 |`noLayout`|Boolean|If true, indicates if the Content item/Location is to be displayed without any pagelayout (i.e. AJAX, sub-requests, etc.). It's generally `false` when displaying a Content item in view type **full**.|
 |`viewBaseLayout`|String|The base layout template to use when the view is requested to be generated outside of the pagelayout (when `noLayout` is true).|
 
 #### Template inheritance and sub-requests
 
-Like any template, a content view template can use [template inheritance](http://symfony.com/doc/current/book/templating.html#template-inheritance-and-layouts). However keep in mind that your content may be also requested via [sub-requests](http://symfony.com/doc/current/book/templating.html#embedding-controllers) (see below how to render [embedded content items](#embedding-content-items)), in which case you probably don't want the global layout to be used.
+Like any template, a content view template can use [template inheritance](http://symfony.com/doc/current/book/templating.html#template-inheritance-and-layouts). However keep in mind that your Content may be also requested via [sub-requests](http://symfony.com/doc/current/book/templating.html#embedding-controllers) (see below how to render [embedded Content items](#embedding-content-items)), in which case you probably don't want the global layout to be used.
 
 If you use different templates for embedded content views, this should not be a problem. If you'd rather use the same template, you can use an extra `noLayout` view parameter for the sub-request, and conditionally extend an empty pagelayout:
 
@@ -196,7 +196,7 @@ Each time a Content item is to be displayed through the `Content\ViewController`
 
 - You want a custom template selection based on a very specific state of your application
 - You depend on external resources for view selection
-- You want to override the default one view provider (based on configuration) for some reason
+- You want to override the default one view provider (based on configuration)
 
 `View\Provider` objects need to be properly registered in the service container with the `ezpublish.location_view_provider` or `ezpublish.content_view_provider` service tag.
 
@@ -299,7 +299,7 @@ The **name** of a Content item is its generic "title", generated by the reposito
 The *translated name* is held in a `VersionInfo` object, in the `names` property which consists of a hash indexed by locale. You can easily retrieve it in the right language via the `TranslationHelper` service.
 
 ``` html
-<h2>Translated content name: {{ ez_content_name( content ) }}</h2>
+<h2>Translated Content name: {{ ez_content_name( content ) }}</h2>
 <h3>Also works from ContentInfo: {{ ez_content_name( content.contentInfo ) }}</h3>
 ```
 
@@ -314,7 +314,7 @@ You can also **force a locale** in a second argument:
 
 !!! note "Name property in ContentInfo"
 
-    This property is the actual content name, but **in the main language only** (so it is not translated).
+    This property is the actual Content name, but **in the main language only** (so it is not translated).
 
     ``` html
     <h2>Content name: {{ content.contentInfo.name }}</h2>
@@ -356,7 +356,7 @@ parameters:
 
 #### Links to other Locations
 
-Linking to other locations is done with a [native `path()` Twig helper](http://symfony.com/doc/2.3/book/templating.html#linking-to-pages) (or `url()` if you want to generate absolute URLs). When you pass it the Location object, `path()` will generate the URLAlias.
+Linking to other Locations is done with a [native `path()` Twig helper](http://symfony.com/doc/2.3/book/templating.html#linking-to-pages) (or `url()` if you want to generate absolute URLs). When you pass it the Location object, `path()` will generate the URLAlias.
 
 ``` html
 {# Assuming "location" variable is a valid eZ\Publish\API\Repository\Values\Content\Location object #}
@@ -385,7 +385,7 @@ See also: [Cross-SiteAccess links](siteaccess.md#cross-siteaccess-links)
 
 ### Embedding Content items
 
-To render an embedded content from a Twig template you need to **do a subrequest with the `ez_content` controller**.
+To render an embedded Content from a Twig template you need to **do a subrequest with the `ez_content` controller**.
 
 #### Using the `ez_content` controller
 
@@ -460,7 +460,7 @@ For example:
 
     You can connect more than two Schedule blocks in this way, one after the other. It is also possible for multiple Schedule blocks to overflow into one. However, it is not possible to build a circular overflow (where a sequence of overflowing items eventually points to the original block). This is disabled in the UI.
 
-    The **Remove item** action removes the item from the block (but does not delete the Content item itself). When an item is removed, other content is pulled back to fill its place. This also happens to content that has already been pushed off the block – it will be pulled back even from a target overflow block.
+    The **Remove item** action removes the item from the block (but does not delete the Content item itself. Deleting a Content item is possible from Content structure). When an item is removed, other content is pulled back to fill its place. This also happens to content that has already been pushed off the block – it will be pulled back even from a target overflow block.
 
     ##### Special Schedule block use cases
 
@@ -582,7 +582,7 @@ class DefaultController extends Controller
 }
 ```
 
-Always ensure that you add new parameters to an existing `$params` associative array using the [**`+`** union operator](http://php.net/manual/en/language.operators.array.php) or `array_merge()`. **Not doing so (only passing your custom parameters array) can result in unexpected issues with content preview**. Previewed content and other parameters are indeed passed in `$params`.
+Always ensure that you add new parameters to an existing `$params` associative array using the [**`+`** union operator](http://php.net/manual/en/language.operators.array.php) or `array_merge()`. **Not doing so (only passing your custom parameters array) can result in unexpected issues with content preview**. Previewed Content and other parameters are indeed passed in `$params`.
 
 These parameters can then be used in templates, for example:
 
@@ -632,7 +632,7 @@ class DefaultController extends Controller
     {
         $repository = $this->getRepository();
         $location = $repository->getLocationService()->loadLocation( $locationId );
-        // Check if content is not already passed. Can be the case when using content preview.
+        // Check if Content is not already passed. Can be the case when using content preview.
         $content = isset( $params['content'] ) ? $params['content'] : $repository->getContentService()->loadContentByContentInfo( $location->getContentInfo() )
         $response = new Response();
         $response->headers->set( 'X-Location-Id', $locationId );
@@ -834,7 +834,7 @@ The view's controller action is set to the QueryController's `locationQuery` act
 The QueryController is configured in the `query` array, inside the `params` of the `content_view` block:
 
 - `query_type` specifies the QueryType to use, based on its name.
-- `parameters` is a hash where parameters from the QueryType are set. Arbitrary values can be used, as well as properties from the currently viewed Location and content. In that case, the id of the currently viewed Location is mapped to the QueryType's `parentLocationId` parameter: `parentLocationId: "@=location.id"`
+- `parameters` is a hash where parameters from the QueryType are set. Arbitrary values can be used, as well as properties from the currently viewed Location and Content. In that case, the id of the currently viewed Location is mapped to the QueryType's `parentLocationId` parameter: `parentLocationId: "@=location.id"`
 - `assign_results_to` sets which Twig variable the search results will be assigned to.
 
 #### The view template
@@ -869,7 +869,7 @@ The Query is configured in a `query` hash in `params`, you could specify the Que
 - `query_type` - Name of the Query Type that will be used to run the query, defined by the class name.
 - `parameters` - Query Type parameters that can be provided in two ways:
         1. As scalar values, for example an identifier, an id, etc.
-        1. Using the Expression language. This simple script language, similar to Twig syntax, lets you write expressions that get value from the current content and/or location:
+        1. Using the Expression language. This simple script language, similar to Twig syntax, lets you write expressions that get value from the current Content and/or Location:
             - For example, `@=location.id` will be evaluated to the currently viewed location's ID.`content`, `location` and `view` are available as variables in expressions.
 - `assign_results_to`
     - This is the name of the Twig variable that will be assigned the results.
@@ -976,7 +976,7 @@ QueryType names should use a unique namespace, in order to avoid conflicts with 
 
 ### Registering the QueryType into the service container
 
-In addition to creating a class for a `QueryType`, you must also register the QueryType with the service container. This can be done in two ways: by convention, and with a service tag.
+In addition to creating a class for a `QueryType`, you must also register the QueryType with the Service Container. This can be done in two ways: by convention, and with a service tag.
 
 #### By convention
 
@@ -1196,7 +1196,7 @@ If the Content item does not have a translation in the current language, the mai
 |----------------------|----------------------------------------------------|--------------------------------------------------------------------------------------------------------|
 | `content`            | `eZ\Publish\API\Repository\Values\Content\Content` | Content object the field referred to with `fieldDefIdentifier` belongs to.                           |
 | `fieldDefIdentifier` | `string`                                           | Identifier of the field you want to get the value from.                                                 |
-| `forcedLanguage`     | `string`                                           | Locale you want the content name translation in (e.g. "fre-FR"). Null by default (takes current locale) |
+| `forcedLanguage`     | `string`                                           | Locale you want the Content name translation in (e.g. "fre-FR"). Null by default (takes current locale) |
 
 ##### Usage
 
@@ -1224,7 +1224,7 @@ If the Content item does not have a translation in the current language, the mai
 |----------------------|----------------------------------------------------|--------------------------------------------------------------------------------------------------------|
 | `content`            | `eZ\Publish\API\Repository\Values\Content\Content` | Content object the field referred to with `fieldDefIdentifier` belongs to.                           |
 | `fieldDefIdentifier` | `string`                                           | Identifier of the field you want to get the value from.                                                 |
-| `forcedLanguage`     | `string`                                           | Locale you want the content name translation in (e.g. "fre-FR"). Null by default (takes current locale) |
+| `forcedLanguage`     | `string`                                           | Locale you want the Content name translation in (e.g. "fre-FR"). Null by default (takes current locale) |
 
 ##### Usage
 
@@ -1313,7 +1313,7 @@ If the Content item does not have a translation in the current language, the mai
 |---------------|------|-------------|
 | `content` | `eZ\Publish\API\Repository\Values\Content\Content` | Content item the displayed Field belongs to. |
 | `fieldDefIdentifier` | `eZ\Publish\API\Repository\Values\Content\Field or string` | The Field you want to check or its identifier. |
-| `forcedLanguage` | `string` | Locale you want the content name translation in (e.g. "fre-FR"). Null by default (takes current locale) |
+| `forcedLanguage` | `string` | Locale you want the Content name translation in (e.g. "fre-FR"). Null by default (takes current locale) |
 
 ##### Usage
 
@@ -1459,7 +1459,7 @@ If you want to override a specific Field template only once (i.e. because your o
 
 ###### Global override
 
-In the case where you want to systematically reuse you own Field template instead of the default one, you can append it to the Field templates list to use by `ez_render_field()`.
+In the case where you want to systematically reuse your own Field template instead of the default one, you can append it to the Field templates list to use by `ez_render_field()`.
 
 To make your template available, you must register it to the system.
 
