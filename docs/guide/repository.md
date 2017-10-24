@@ -767,10 +767,12 @@ It is also possible to skip custom Location and global URL aliases altogether an
 
 !!! note "Enabling EzPublishMigrationBundle bundle"
 
-    The URL Alias regeneration command is not available by default because the bundle with the feature is not enabled in the App Kernel. To enable it, add the following to your `dev` environment bundles in `app/AppKernel.php`:
+    The URL Alias regeneration command is not available in a default installation, because \
+    the bundle with the feature is not enabled in the App Kernel. To enable it, add the \
+    following to your `dev` environment bundles in `app/AppKernel.php`:
 
     ``` $bundles[] = new \eZ\Bundle\EzPublishMigrationBundle\EzPublishMigrationBundle(); ```
-
+    
 ## Reference
 
 ### Services: Public API
