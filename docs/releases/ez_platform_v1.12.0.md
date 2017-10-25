@@ -26,6 +26,21 @@ You can now remove translations from Content item Versions through the PHP API.
 
 See the [section on deleting translations](../api/public_php_api.md#delete-translations) for more information.
 
+You also have a new endpoint available for deleting a single Version, see [EZP-27864](https://jira.ez.no/browse/EZP-27864) for more information.
+
+#### Improved Security for password storage
+
+1.12 introduces and enables by default more secure user passwords hashing using bcrypt,
+and is future-proofed for new hashing formats being added to PHP, like Argon2i coming with PHP 7.2.
+
+This feature is added both in eZ Platform and the accompanying eZ Publish legacy 2017.10 release for projects looking to migrate to a newer version of Platform and take advantage of the new features.
+
+#### Improved Varnish performance
+
+This release switches default HTTPCache usage to use ezplatform-http-cache package, which uses Varnish xkey allowing: soft purge, better cache clearing logic and longer ttl.
+
+For Varnish users be aware thus change implies new VCL and requriment for varnish-moduels package, see [below](#updating).
+
 ## Full list of new features, improvements and bug fixes since v1.11.0
 
 | eZ Platform   | eZ Enterprise  |
@@ -59,9 +74,24 @@ To update to this version, follow the [Updating eZ Platform](updating_ez_platfo
 
 !!! caution "BC: Change for Varnish users"
 
-    This release enables ezplatform-http-cache Bundle by default as it has a more future proof approach for HttpCache.
+    This release enables the [ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache) Bundle by default as it has a more future-proof approach for HttpCache:
+    - Cache tagging is more reliable at clearing all affected cache on, for instance, subtree operations
+    - More performant using [xkey](https://github.com/varnish/varnish-modules/blob/master/docs/vmod_xkey.rst) _("Surrogate Key")_ and soft purging, over BAN and growing ban list
 
-    See https://github.com/ezsystems/ezplatform/releases/tag/v1.12.0-beta2 for more information.
+    This means:
+    - There is a new VCL
+    - Requires Varnish 4.1+ with `varnish-modules` _(incl. xkey)_, or Varnish Plus where it is built in
+
+    Further reading in [doc/varnish/varnish.md](https://github.com/ezsystems/ezplatform/blob/master/doc/varnish/varnish.md).
+
+    #### How to still use the old VCL and the old X-Location-Id headers
+
+    In all 1.x releases you will still be able to revert this and use the old deprecated system if you need to. To do that:
+    - Keep using the VCL for BAN
+    - Disable _(comment out)_ `EzSystemsPlatformHttpCacheBundle` in `app/AppKernel.php`
+    - Change `app/AppCache.php` back to extend `eZ\Bundle\EzPublishCoreBundle\HttpCache`
+
+    That's it, other changes added in 1.12 like increased cache ttl and `fos_http_cache` cache control rules for error pages should work also with BAN setup, and are thus optional.
 
 !!! note "React"
 
