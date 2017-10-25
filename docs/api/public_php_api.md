@@ -704,7 +704,7 @@ Query object contains two properties you can set criteria on, `filter` and `quer
 
 !!! tip "Checking feature support per search engine"
 
-    To find out if a given search engine supports advanced full text capabilities, use the [`supports($capabilityFlag)`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/SearchService.php#L187-L197) method.
+    To find out if a given search engine supports advanced full text capabilities, use the [`$searchService->supports($capabilityFlag)`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/SearchService.php#L187-L197) method.
 
 Full code
 
