@@ -758,12 +758,23 @@ $cacheService->clear('content', 'info');
 
 ### Regenerating URL Aliases
 
-The command ezplatform:regenerate:legacy\_storage\_url\_aliases command regenerates URL aliases for Locations and migrates existing custom Location and global URL aliases to a separate database table. The separate table must be named `__migration_ezurlalias_ml` and should be created manually to be identical (but empty) as the existing table `ezurlalias_ml` before the command is executed.
+The command `ezplatform:regenerate:legacy_storage_url_aliases` command regenerates URL aliases for Locations and migrates existing custom Location and global URL aliases to a separate database table. The separate table must be named `__migration_ezurlalias_ml` and should be created manually to be identical (but empty) as the existing table `ezurlalias_ml` before the command is executed.
 
 After the script finishes, to complete migration the table should be renamed to `ezurlalias_ml` manually. Using available options for `action` argument, you can back up custom Location and global URL aliases separately and inspect them before restoring them to the migration table. They will be stored in backup tables named `__migration_backup_custom_alias` and `__migration_backup_global_alias` (created automatically).
 
 It is also possible to skip custom Location and global URL aliases altogether and regenerate only automatically created URL aliases for Locations (use the `autogenerate` action to achieve this). During the script execution the database should not be modified. Since this script can potentially run for a very long time, to avoid memory exhaustion run it in production environment using the `--env=prod` switch.
 
+
+!!! note "Enabling EzPublishMigrationBundle bundle"
+
+    The URL Alias regeneration command is not available in a default installation, because
+    the bundle with the feature is not enabled in the App Kernel. To enable it, add the
+    following to your `dev` environment bundles in `app/AppKernel.php`:
+
+    ```
+    $bundles[] = new \eZ\Bundle\EzPublishMigrationBundle\EzPublishMigrationBundle();
+    ```
+    
 ## Reference
 
 ### Services: Public API
