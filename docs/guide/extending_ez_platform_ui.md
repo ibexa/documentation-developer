@@ -105,11 +105,10 @@ The Navigation Hub is a side view displaying the top menu.
 
 ![Navigation hub](img/nav_hub.png)
 
-It displays 4 **Navigation zones**:
+It displays 3 **Navigation zones**:
 
 - *Content*
 - *Page*
-- *Performance*
 - *Admin Panel*
 
 A zone can contain an arbitrary number of **Navigation zone items**. By default, the *Content* zone has 2 navigation items: *Content structure* and *Media library*.
