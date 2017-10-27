@@ -757,3 +757,47 @@ fos_http_cache:
 #### Credits
 
 This feature is based on [Context aware HTTP caching post](http://asm89.github.io/2012/09/26/context-aware-http-caching.html) by [asm89](https://github.com/asm89).
+
+### HTTP cache tagging
+
+ezplatform-http-cache enables HTTP cache tagging.
+This allows you to add tags to cached content, which simplifies selective cache invalidation.
+
+#### ResponseTaggers API
+
+ResponseTaggers take a `Response`, a `ResponseConfigurator` and any value object,
+and add tags to the Response based on the value.
+
+##### Example
+
+This adds the `content-<contentId>`, `location-<mainLocationId>` and `content-type-<contentTypeId>` tags
+to the Response:
+
+```php
+$contentInfoResponseTagger->tag($response, $configurator, $contentInfo);
+```
+
+##### ResponseConfigurator
+
+A `ResponseCacheConfigurator` configures an HTTP Response object:
+makes the response public, adds tags, sets the shared max age, etc.
+It is provided to `ResponseTaggers` who use it to add the tags to the Response.
+
+The `ConfigurableResponseCacheConfigurator` (`ezplatform.view_cache.response_configurator`)
+is configured in `view_cache` and only enables cache if it is enabled in the configuration.
+
+##### Delegator and Value Taggers
+
+Even though they share the same API, ResponseTaggers are of two types, reflected by their namespace:
+Delegator and Value.
+
+Delegator Taggers will extract another value, or several, from the given value, and pass it on to another tagger.
+For instance, a `ContentView` is covered by both the `ContentValueViewTagger` and the `LocationValueViewTagger`.
+The first will extract the `Content` from the `ContentView`, and pass it to the `ContentInfoTagger`.
+The second will extract the `Location`, and pass it to the `LocationViewTagger`.
+
+##### Dispatcher Tagger
+
+While it is more efficient to use a known tagger directly, sometimes you don't know what object you want to tag with.
+The Dispatcher ResponseTagger will accept any value, and will pass it to every tagger registered with the service tag
+`ezplatform.http_response_tagger`.
