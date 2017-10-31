@@ -78,17 +78,16 @@ password: publish
 
 #### Back office interface overview
 
-The navigation hub at the top lets you switch between eZ Platform interface (Content) and interfaces for eZ Enterprise solutions (Page and Performance), as well as the Admin Panel.
+The navigation hub at the top lets you switch between eZ Platform interface (Content) and interfaces for eZ Enterprise solutions (Page), as well as the Admin Panel.
 
 ![Navigation hub](img/navigation_hub.png)
 
 The Content mode is the part of the interface which is the main workspace of editors and users. It is responsible for creating, editing and managing content.
 
-Page and Performance modes are available if your have an eZ Enterprise subscription. Take a look at [eZ Enterprise](ez_enterprise.md) to learn more.
+The Page mode is available if your have an eZ Enterprise subscription. Take a look at [eZ Enterprise](ez_enterprise.md) to learn more.
 
 The Admin Panel lets you manage the details of your installation, including building the content model and managing permissions.
 
 #### Project structure
 
 You can also take a look at the way the project files are structured on the example of the Demo Bundle. See [Structuring an eZ Platform Project](../guide/best_practices.md) for more information.
-
