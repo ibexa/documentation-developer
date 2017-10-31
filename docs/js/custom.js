@@ -9,6 +9,16 @@ $(document).ready(function () {
             clearInterval(update);
             $('.rst-current-version span:first').html(' Change version');
             $('.rst-other-versions .injected').html($('.rst-other-versions .injected dl:first').clone());
+
+            //replace url in version switcher
+            var resourceUrl = document.location.href.replace(
+                $('.rst-other-versions .injected strong dd a').attr('href'),
+                ''
+            );
+
+            $('.rst-other-versions .injected dd a').each( function() {
+                $(this).attr('href', $(this).attr('href') + resourceUrl);
+            });
         }
     }, 300);
 
