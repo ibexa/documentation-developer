@@ -148,3 +148,68 @@ a.external:after {
 .md-nav__link--active {
     font-weight: 700;
 }
+
+.md-search-result__item {
+    list-style: none;
+}
+
+.md-search__loader {
+    padding: 1rem 1rem 1rem 4.8rem;
+    font-size: 15pt;
+    display: block;
+    color: rgba(0,0,0,.54);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(10%,#fff),to(hsla(0,0%,100%,0))),-webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.26)),color-stop(35%,rgba(0,0,0,.07)),color-stop(60%,transparent));
+    background: linear-gradient(180deg,#fff 10%,hsla(0,0%,100%,0)),linear-gradient(180deg,rgba(0,0,0,.26),rgba(0,0,0,.07) 35%,transparent 60%);
+    background-attachment: local,scroll;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-size: 100% 2rem,100% 1rem;
+    box-shadow: inset 0 .1rem 0 rgba(0,0,0,.07);
+}
+
+.md-search__loader:not(.md-search__loader--active) {
+    display: none;
+}
+
+.md-search__loader:before {
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+    content: "";
+    top: 3px;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    transform-origin: 46% 54%;
+    -webkit-transform-origin: 46% 54%;
+    -moz-transform-origin: 46% 54%;
+    -ms-transform-origin: 46% 54%;
+    -o-transform-origin: 46% 54%;
+    -webkit-animation: loader_spin 1s linear infinite;
+    -moz-animation: loader_spin 1s linear infinite;
+    animation: loader_spin 1s linear infinite;
+    background: url("../images/loading.svg") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+
+.md-search__loader--hide {
+    display: none;
+}
+
+@-moz-keyframes loader_spin {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes loader_spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes loader_spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
