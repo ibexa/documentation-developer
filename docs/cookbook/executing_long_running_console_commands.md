@@ -14,40 +14,6 @@ To avoid quickly running out of memory while executing such commands you should 
     1. See [Environments](../guide/environments.md) for further information on Symfony environments.
     1. See [Logging and debug configuration](../guide/devops.md#logging-and-debug-configuration) for some of different features enabled in development environments, which by design uses memory.
 
-1. Avoid Stash ([Persistence cache](../guide/repository.md#persistence-cache-configuration)) using to much memory in prod:
-
-    1. If your system is running, or you need to use cache, then disable Stash InMemory cache as it does not limit the amount of items in cache and grows exponentially:
-
-        ``` yaml
-        # config\prod.yml (snippet, not a full example for stash config)
-        stash:
-            caches:
-                default:
-                    inMemory: false
-        ```
-
-        Also if you use FileSystem driver, make sure `memKeyLimit` is set to a low number, default should be 200 and can be lowered like this:
-
-        ``` yaml
-        # config\prod.yml
-        stash:
-            caches:
-                default:
-                    FileSystem:
-                        memKeyLimit: 100
-        ```
-
-    1. If your setup is offline and cache is cold, there is no risk of stale cache and you can actually completely disable Stash cache. This will improve performance of import scripts:
-
-        ``` yaml
-        # config\prod.yml (full example)
-        stash:
-            caches:
-                default:
-                    drivers: [ BlackHole ]
-                    inMemory: false
-        ```
-
 1. For logging using monolog, if you use either the default `fingers_crossed`, or `buffer` handler, make sure to specify `buffer_size` to limit how large the buffer grows before it gets flushed:
 
     ``` yaml

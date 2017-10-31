@@ -589,7 +589,6 @@ Some exceptions might happen on indexing if you have not configured your setup c
     - Solr Bundle on purpose does not commit changes directly on Repository updates *(on indexing)*, but lets you control this using Solr configuration. Adjust Solr **autoSoftCommit** *visibility of change to search index)* and/or **autoCommit** (hard commit, for durability and replication) to balance performance and load on your Solr instance against needs you have for "[NRT](https://cwiki.apache.org/confluence/display/solr/Near+Real+Time+Searching)".
 - Running out of memory during indexing
     - In general make sure to run indexing using prod environment to avoid debuggers and loggers from filing up memory.
-    - Stash: Disable in\_memory cache as recommended on [Persistence cache](repository.md#persistence-cache) for long running scripts.
     - Flysystem: You can find further info in: <https://jira.ez.no/browse/EZP-25325>.
 
 The last step is to execute the initial indexation of data:

@@ -286,7 +286,7 @@ To allow anonymous users to register through the `/register` route, you need to 
 
 Persistence cache can best be described as an implementation of `SPI\Persistence` that decorates the main backend implementation *(currently: "Legacy Storage Engine")*.
 
-As shown in the illustration, this is done in the exact same way as the SignalSlot feature is a custom implementation of API\\Repository decorating the main Repository. In the case of Persistence Cache, instead of sending events on calls passed on to the decorated implementation, most of the load calls are cached, and calls that perform changes purge the affected caches. This is done using a Cache service which is provided by StashBundle; this Service wraps around the Stash library to provide Symfony logging / debugging functionality, and allows cache handlers *(Memcached, Redis, Filesystem, etc.)* to be configured using Symfony configuration. For how to reuse this Cache service in your own custom code, see below.
+As shown in the illustration, this is done in the exact same way as the SignalSlot feature is a custom implementation of API\\Repository decorating the main Repository. In the case of Persistence Cache, instead of sending events on calls passed on to the decorated implementation, most of the load calls are cached, and calls that perform changes purge the affected caches. Cache handlers *(Memcached, Redis, Filesystem, etc.)* can configured using Symfony configuration. For how to reuse this Cache service in your own custom code, see below.
 
 ##### Transparent cache
 
@@ -438,7 +438,7 @@ This limit is enforced on publishing a new version and only covers archived vers
 
 !!! note "Tech Note"
 
-    Current implementation uses a caching library called [Stash](http://stash.tedivm.com/) (via [StashBundle](https://github.com/tedivm/TedivmStashBundle)). Stash supports the following cache backends: FileSystem, Memcache, APC, Sqlite, Redis and BlackHole.
+    Current implementation uses Symfony cache. It supports the following cache backends: APCu, Array, Chain, Doctrine, Filesystem, Memcached, PDO & Doctrine DBAL, Php Array, Proxy, Redis.
 
 *Use of Memcached or Redis is a requirement for use in Clustering setup. For an overview of this feature, see [Clustering](clustering.md).*
 
@@ -452,20 +452,8 @@ The cache system is exposed as a "cache" service, and can be reused by any other
 
 #### Configuration
 
-By default, configuration currently uses **FileSystem**, with` %kernel.cache_dir%/stash` to store cache files.
-
-The configuration is placed in `app/config/config.yml` and looks like this:
-
-``` yaml
-# Default config.yml
-stash:
-    caches:
-        default:
-            drivers:
-                - FileSystem
-            inMemory: true
-            registerDoctrineAdapter: false
-```
+By default, configuration currently uses **FileSystem** to store cache files, which is defined in [`default_parameters.yml`](https://github.com/ezsystems/ezplatform/blob/2.0/app/config/default_parameters.yml#L22).
+You can select a different cache backend and configure it's parameters in the relevant file in the `cache_pool` folder.
 
 !!! note "Note for inMemory cache with long running scripts"
 
@@ -484,108 +472,13 @@ ezpublish:
     system:
         # "site_group" refers to the group configured in site access
         site_group:
-            # "default" refers to the cache pool, the one configured on stash.caches above
+            # "default" refers to the cache pool, the one configured above
             cache_pool_name: "default"
 ```
 
 !!! note "One cache pool for each repository"
 
     If your installation has several repositories *(databases)*, make sure every group of sites using different repositories also uses a different cache pool.
-
-#### Stash cache backend configuration
-
-##### General settings
-
-To check which cache settings are available for your installation, run the following command in your terminal:
-
-``` bash
-php app/console config:dump-reference stash
-```
-
-##### FileSystem
-
-This cache backend uses the local filesystem, by default the Symfony cache folder. As this is per server, it **does not support** [**multi server (cluster) setups**](clustering.md)!
-
-!!! note
-
-    **We strongly discourage you from storing cache files on NFS**, as it defeats the purpose of the cache: speed.
-
-###### Available settings
-
-|Setting|Description|
-|------|------|
-|`path`|The path where the cache is placed; default is ``%kernel.cache_dir%/stash`, effectively `app/cache/<env>/stash`|
-|`dirSplit`|Number of times the cache key should be split up to avoid having too many files in each folder; default is 2.|
-|`filePermissions`|The permissions of the cache file; default is 0660.|
-|`dirPermissions`|The permission of the cache file directories (see dirSplit); default is 0770.|
-|`memKeyLimit`|Limit on how many key to path entries are kept in memory during execution at a time to avoid having to recalculate the path on key lookups; default is 200.|
-|`keyHashFunction`|Algorithm used for creating paths; default is md5. Use crc32 on Windows to avoid path length issues.|
-
-!!! note "Issues with Microsoft Windows"
-
-    If you are using a Windows OS, you may encounter an issue regarding **long paths for cache directory name**. The paths are long because Stash uses md5 to generate unique keys that are sanitized really quickly.
-
-    Solution is to **change the hash algorithm** used by Stash.
-
-    **Specifying key hash function**
-
-    ``` yaml
-    stash:
-        caches:
-            default:
-                drivers:
-                    - FileSystem
-                inMemory: true
-                registerDoctrineAdapter: false
-                FileSystem:
-                    keyHashFunction: 'crc32'
-    ```
-
-    **This configuration is only recommended for Windows users**.
-
-    Note: You can also define the **path** where you want the cache files to be generated to be able to get even shorter system path for cache files.
-
-##### FileSystem cache backend troubleshooting
-
-By default, Stash Filesystem cache backend stores cache to a sub-folder named after the environment (`i.e. app/cache/dev`, `app/cache/prod`). This can lead to the following issue: if different environments are used for operations, persistence cache (manipulating content, mostly) will be affected and cache can become inconsistent.
-
-To prevent this, there are 2 solutions:
-
-###### 1. Manual
-
-**Always** use the same environment, for web, command line, cronjobs etc.
-
-###### 2. Share stash cache across Symfony environments (prod / dev / ..)
-
-Either by using another Stash cache backend, or by setting Stash to use a shared cache folder that does not depend on the environment.
-
-``` yaml
-# ezplatform.yml
-stash:
-    caches:
-        default:
-            FileSystem:
-                path: "%kernel.root_dir%/cache/common"
-```
-
-This will store stash cache to `app/cache/common.`
-
-##### APC & APCu
-
-This cache backend is using shard memory with APC's user cache feature. As this is per server, it **does not support [multi server (cluster) setups](clustering.md)** .
-
-!!! note "Not supported because of following limitation"
-
-    As APC(u) user cache is not shared between processes, it is not possible to clear the user cache from CLI, even if you set `apc.enable_cli` to On. That is why publishing content from a command line script won't let you properly clear SPI Persistence cache.
-
-Please also note that the default value for `apc.shm_size` is 128MB. However, 256MB is recommended for APC to work properly. For more details please refer to the [APC configuration manual](http://www.php.net/manual/en/apc.configuration.php#ini.apc.shm-size).
-
-**Available settings**
-
-|Setting||
-|-----|-----|
-| `ttl` | The time to live of the cache in seconds; default is 500 (8.3 minutes)                                                                         |
-| `namespace` | A namespace to prefix cache keys with to avoid key conflicts with other eZ Platform sites on same eZ Platform installation; default is `null`. |
 
 #### Redis
 
@@ -602,28 +495,18 @@ This cache backend is using [Redis, a in-memory data structure store](http://re
 **Example**
 
 ``` yaml
-# config.yml example
-stash:
-    caches:
-        default:
-            drivers: [ Redis ]
-            Redis:
-                servers:
-                    -
-                        server: 'redis1.ez.no'
-                        port: 6379
-                    -
-                        server: 'redis2.ez.no'
-                        port: 6379
+services:
+    cache.redis:
+        parent: cache.adapter.redis
+        tags:
+            - name: cache.pool
+              clearer: cache.app_clearer
+              provider: 'redis://secret@example.com:1234/13'
 ```
 
 ##### Memcache(d)
 
 This cache backend is using [Memcached, a distributed caching solution](http://memcached.org/). This is the main supported cache solution for [multi server (cluster) setups](clustering.md), besides using Redis.
-
-!!! note
-
-    Stash supports both the [php-memcache](http://php.net/memcache) and [php-memcached](http://php.net/memcached) extensions. **However** only php-memcached is officially supported as php-memcache is missing many features and is less stable.
 
 **Available settings**
 
@@ -656,37 +539,25 @@ When using Memcache cache backend, you *may* use inMemory to reduce network traf
 
 ##### Example with Memcache(d)
 
-Note that `app/config/config.yml` contains the default stash configuration. To apply the configuration below, make sure you update the existing configuration, or remove it if you want to use another configuration file.
-
 ``` yaml
-stash:
-    caches:
-        default:
-            drivers: [ Memcache ]
-            inMemory: true
-            registerDoctrineAdapter: false
-            Memcache:
-                prefix_key: ezdemo_
-                retry_timeout: 1
-                servers:
-                    -
-                        server: 127.0.0.1
-                        port: 11211
+services:
+    cache.memcached:
+        parent: cache.adapter.memcached
+        tags:
+            - name: cache.pool
+              clearer: cache.app_clearer
+              provider: 'memcached://user:pass@localhost?weight=33'
 ```
 
 !!! caution "Connection errors issue"
 
-    If memcached does display connection errors when using the default (ascii) protocol, then switching to binary protocol *(in the stash configuration and memcached daemon)* should resolve the issue.
+    If memcached does display connection errors when using the default (ascii) protocol, then switching to binary protocol *(in the configuration and memcached daemon)* should resolve the issue.
 
 ## Usage
 
 ### Using Cache Service
 
 Using the internal cache service allows you to use an interface and to not have to care whether the system has been configured to place the cache in Memcached or on File system. And as eZ Platform requires that instances use a cluster-aware cache in Cluster setup, you can safely assume your cache is shared *(and invalidated)* across all web servers.
-
-!!! caution "Interface will change in the future"
-
-    Current implementation uses a caching library called [Stash](http://stash.tedivm.com/), via [StashBundle](https://github.com/tedivm/TedivmStashBundle). We plan to move to a PSR-6 compatible cache service capable of supporting cache Tagging and multi get/set in the future, when that happens the interface of the cache service will change!
 
 !!! note "Use unique vendor prefix for Cache key!"
 
@@ -706,7 +577,7 @@ In your Symfony services configuration you can simply define that you require th
             - @ezpublish.cache_pool
 ```
 
-The "cache" service is an instance of the following class: `Tedivm\StashBundle\Service\CacheService`
+The "cache" service is an instance of `Symfony\Component\Cache\Adapter\TagAwareAdapter` and implements the `Psr\Cache\CacheItemPoolInterface` interface.
 
 ##### Via Symfony Container
 
@@ -715,7 +586,6 @@ Like any other service, it is also possible to get the "cache" service via conta
 ``` php
 // Getting the cache service in PHP
 
-/** @var $cacheService \Tedivm\StashBundle\Service\CacheService */
 $cacheService = $container->get('ezpublish.cache_pool');
 ```
 
@@ -734,8 +604,6 @@ Example usage of the cache service:
     return $myObject;
 ```
 
-For more info on usage, take a look at [Stash's documentation](http://stash.tedivm.com/).
-
 #### Clearing Persistence cache
 
 Persistence cache uses a separate Cache Pool decorator which by design prefixes cache keys with "ez\_spi". Clearing persistence cache can thus be done in the following way:
@@ -752,7 +620,6 @@ $cacheService->clear();
 // To clear a specific cache item (check source code in eZ\Publish\Core\Persistence\Cache\*Handlers for further info)
 $cacheService->clear('content', 'info', $contentId);
 
-// Stash cache is hierarchical, so you can clear all content/info cache like so:
 $cacheService->clear('content', 'info');
 ```
 
@@ -774,7 +641,7 @@ It is also possible to skip custom Location and global URL aliases altogether an
     ```
     $bundles[] = new \eZ\Bundle\EzPublishMigrationBundle\EzPublishMigrationBundle();
     ```
-    
+
 ## Reference
 
 ### Services: Public API
