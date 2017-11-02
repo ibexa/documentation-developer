@@ -64,7 +64,6 @@ pages:
             - 'Public PHP API': 'api/public_php_api.md'
         - 'Field Type API and best practices': 'api/field_type_api_and_best_practices.md'
     - Guide:
-        - 'Guide to eZ Platform': 'guide/guide_to_ez_platform.md'
         - Introduction:
             - 'Introduction': 'guide/introduction.md'
             - 'Architecture': 'guide/architecture.md'

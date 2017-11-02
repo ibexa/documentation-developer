@@ -95,7 +95,7 @@ $myParameter = $this->container->getParameter( 'myapp.parameter.name' );
 
 ### Specific configuration
 
-The configuration of specific aspects of eZ Platform is described precisely in the respective topics in the [Guide to eZ Platform](guide_to_ez_platform.md).
+The configuration of specific aspects of eZ Platform is described precisely in the respective topics in the [Guide to eZ Platform](introduction.md).
 
 #### Selected configuration topics:
 
