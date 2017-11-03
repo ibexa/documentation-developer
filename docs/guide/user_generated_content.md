@@ -1,32 +1,40 @@
-# User Generated Content
+# User-Generated Content
 
-## Introduction
+## Creating content
 
-### Content Edit
+eZ Platform comes with content edition features via the Symfony stack. They are meant to allow the implementation of user-generated content from the front end, without entering the PlatformUI back end.
 
-eZ Platform comes with content edition features via the Symfony stack. They are meant, in addition the PlatformUI's editing capabilities, to allow the implementation of User Generated Content from the frontend.
+### Creating a Content item without using a draft
 
-## Usage
+The `/content/create/nodraft` route shows a Content item creation form for a given Content Type:
 
-### Creating a content item without using a draft
-
-The `/content/edit/nodraft` route shows a Content item creation form for a given Content Type:
-
-| argument                | type      | description                                                                |
+| Argument                | Type      | Description                                                                |
 |-------------------------|-----------|----------------------------------------------------------------------------|
-| `contentTypeIdentifier` | `string`  | The identifier of the content type to create. Example: `folder`, `article` |
-| `languageCode`          | `string`  | Language code the content item must be created in. Example: `eng-GB`       |
-| `parentLocationId`      | `integer` | ID of the Location the content item must be created in. Example: `2`       |
+| `contentTypeIdentifier` | `string`  | The identifier of the Content Type to create. Example: `folder`, `article` |
+| `languageCode`          | `string`  | Language code the Content item must be created in. Example: `eng-GB`       |
+| `parentLocationId`      | `integer` | ID of the Location the Content item must be created in. Example: `2`       |
 
-For now a very limited subset of Field Types is supported. These are `TextLine`, `TextBlock`, `Selection`, `Checkbox` and `User`.
+This means that `/content/create/nodraft/folder/eng-GB/2` will enable you to create a Folder in English as a child of LocationId 2.
 
-More will be added in the near future.
+For now a limited subset of Field Types is supported:
 
-### Registering new users
+- `TextLine`
+- `TextBlock`
+- `Selection`
+- `Checkbox`
+- `User`
+- `Date`
+- `DateAndTime`
+- `Time`
+- `Integer`
+- `Float`
+- `URL`
+
+## Registering new users
 
 You can allow your users to create accounts by employing the `/register` route. This route leads to a registration form that, when filled in, creates a new User Content item in the repository.
 
-##### User Groups
+### User Groups
 
 By default, new Users generated in this way are placed in the Guest accounts group. You can select a different default group in the following section of configuration:
 
@@ -38,11 +46,11 @@ ezpublish:
                 group_id: <userGroupContentId>
 ```
 
-##### Registration form templates
+### Registration form templates
 
-You can use custom templates for the registration form and for the registration confirmation page.
+You can use custom templates for the registration form and registration confirmation page.
 
-These templates are defined with the following configuration:
+The templates are defined with the following configuration:
 
 ``` yaml
 ezpublish:
@@ -54,7 +62,11 @@ ezpublish:
                     confirmation: 'user/registration_confirmation.html.twig'
 ```
 
-with the following templates in `app/Resources/views/user/registration_form.html.twig`:
+With this configuration you place the templates in `app/Resources/views/user/registration_form.html.twig` and `app/Resources/views/user/registration_confirmation.html.twig`.
+
+Here are default templates that you can reuse and/or modify:
+
+**Registration form:**
 
 ``` html
 {% extends noLayout is defined and noLayout == true ? viewbaseLayout : pagelayout %}
@@ -67,7 +79,7 @@ with the following templates in `app/Resources/views/user/registration_form.html
 {% endblock %}
 ```
 
-and in `app/Resources/views/user/registration_confirmation.html.twig`:
+**Registration confirmation:**
 
 ``` html
 {% extends noLayout is defined and noLayout == true ? viewbaseLayout : pagelayout %}
@@ -79,14 +91,11 @@ and in `app/Resources/views/user/registration_confirmation.html.twig`:
 {% endblock %}
 ```
 
-### Repository Forms
+## Repository Forms
 
-- Repository: <http://github.com/ezsystems/repository-forms>
-- Package: <http://packagist.org/packages/ezsystems/repository-forms>
-
-This package provides form-based interaction for the Repository Value objects.
+[Repository Forms](http://github.com/ezsystems/repository-forms) is a bundle which provides form-based interaction for the Repository Value objects.
 
 It is currently used by:
 
 - `ezsystems/platform-ui-bundle` for most management interfaces: Sections, Content Types, Roles, Policies, etc.
-- `ezsystems/ezpublish-kernel` for user registration, and user generated content
+- `ezsystems/ezpublish-kernel` for user registration and user generated content
