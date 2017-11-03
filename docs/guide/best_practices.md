@@ -125,3 +125,26 @@ This means that editing a field in a form that is already published may lead to 
 For example: If you decide to gather a wider range of information from viewers, using a form that consist of many Form Fields is the best idea. However, after some time, it may seem reasonable to re-use one of the fields by changing its name and to collect information that requires the same field type. Let's say the field **Name** is renamed to **Full Name** in order to make it more clear for viewers and collect more accurate data. What happens here is that all entries from field's old version and all entries from updated field are now saved under the same unique ID. 
 
 Best practice is to remove the old field and create a new one with a new unique ID if there is a risk of inconsistency.
+
+## Various configuration settings
+
+### Default page
+
+You can define the default page that will be shown after user login.
+This overrides Symfony's `default_target_path`, and enables you to configure redirection per SiteAccess.
+
+``` yaml
+# ezplatform.yml
+ezpublish:
+    system:
+        ezdemo_site:
+            default_page: "/Getting-Started"
+
+        ezdemo_site_admin:
+            # For admin, redirect to dashboard after login.
+            default_page: "/content/dashboard"
+```
+
+This setting **does not change Symfony behavior** regarding redirection after login. If set, it will only substitute the value set for `default_target_path`. It is therefore still possible to specify a custom target path using a dedicated form parameter.
+
+**Order of precedence is not modified.**
