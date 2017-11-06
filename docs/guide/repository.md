@@ -438,7 +438,9 @@ This limit is enforced on publishing a new version and only covers archived vers
 
 !!! note "Tech Note"
 
-    Current implementation uses Symfony cache. It supports the following cache backends: APCu, Array, Chain, Doctrine, Filesystem, Memcached, PDO & Doctrine DBAL, Php Array, Proxy, Redis.
+    Current implementation uses Symfony cache. It technically supports the following cache backends:
+    [APCu, Array, Chain, Doctrine, Filesystem, Memcached, PDO & Doctrine DBAL, Php Array, Proxy, Redis](https://symfony.com/doc/current/components/cache/cache_pools.html#creating-cache-pools).
+    We recommend using Redis for clustering and Filesystem for single server.
 
 *Use of Memcached or Redis is a requirement for use in Clustering setup. For an overview of this feature, see [Clustering](clustering.md).*
 
@@ -472,8 +474,8 @@ ezpublish:
     system:
         # "site_group" refers to the group configured in site access
         site_group:
-            # "default" refers to the cache pool, the one configured above
-            cache_pool_name: "default"
+            # by default cache service is set to cache.app via parameter '%env(CACHE_POOL)%'
+            cache_service_name: '%env(CACHE_POOL)%'
 ```
 
 !!! note "One cache pool for each repository"
@@ -492,6 +494,10 @@ This cache backend is using [Redis, a in-memory data structure store](http://re
 |`password`|Optional setting if there is a password to connection to a given Redis server in plain text over the network.|
 |`database`|Optional setting to specify a given Redis database to use.|
 
+!!! note
+
+    To use this, you need to set `cache_service_name` to `cache.redis`.
+
 **Example**
 
 ``` yaml
@@ -504,7 +510,7 @@ services:
               provider: 'redis://secret@example.com:1234/13'
 ```
 
-##### Memcache(d)
+#### Memcached
 
 This cache backend is using [Memcached, a distributed caching solution](http://memcached.org/). This is the main supported cache solution for [multi server (cluster) setups](clustering.md), besides using Redis.
 
@@ -535,9 +541,13 @@ This cache backend is using [Memcached, a distributed caching solution](http://m
 
 \* All settings except `servers `are only available with memcached PHP extension. For more information on these settings and which version of php-memcached they are available in, see: <http://php.net/Memcached>
 
-When using Memcache cache backend, you *may* use inMemory to reduce network traffic as long as you are aware of its limitations mentioned above. However you should disable in web servers where there is concurrency on updates, for instance on dedicated editorial server.
+When using Memcached cache backend, you *may* use inMemory to reduce network traffic as long as you are aware of its limitations mentioned above. However you should disable in web servers where there is concurrency on updates, for instance on dedicated editorial server.
 
-##### Example with Memcache(d)
+!!! note
+
+    To use this, you need to set `cache_service_name` to `cache.memcached`.
+
+**Example**
 
 ``` yaml
 services:
@@ -558,6 +568,11 @@ services:
 ### Using Cache Service
 
 Using the internal cache service allows you to use an interface and to not have to care whether the system has been configured to place the cache in Memcached or on File system. And as eZ Platform requires that instances use a cluster-aware cache in Cluster setup, you can safely assume your cache is shared *(and invalidated)* across all web servers.
+
+!!! note
+
+    Current implementation uses a caching library called TagAwareAdapter which implements `Psr\Cache\CacheItemPoolInterface`,
+    and therefore is compatible with PSR-6.
 
 !!! note "Use unique vendor prefix for Cache key!"
 
@@ -586,7 +601,8 @@ Like any other service, it is also possible to get the "cache" service via conta
 ``` php
 // Getting the cache service in PHP
 
-$cacheService = $container->get('ezpublish.cache_pool');
+/** @var \Symfony\Component\Cache\Adapter\TagAwareAdapterInterface */
+$pool = $container->get('ezpublish.cache_pool');
 ```
 
 #### Using the cache service
@@ -595,14 +611,20 @@ Example usage of the cache service:
 
 ``` php
 // Example
-    $cacheItem = $cacheService->getItem('myApp', 'object', $id);
-    $myObject = $cacheItem->get();
-    if ($cacheItem->isMiss()) {
-        $myObject = $container->get('my_app.backend_service')->loadObject($id)
-        $cacheItem->set($myObject);
-    }
-    return $myObject;
+$cacheItem = $pool->getItem("myApp-object-${id}");
+if ($cacheItem->isHit()) {
+    return $cacheItem->get();
+}
+
+$myObject = $container->get('my_app.backend_service')->loadObject($id)
+$cacheItem->set($myObject);
+$cacheItem->tag(['myApp-category-' . $myObject->categoryId]);
+$pool->save($cacheItem);
+
+return $myObject;
 ```
+
+For more info on usage, take a look at [Symfony Cache's documentation](https://symfony.com/doc/3.4/components/cache.html).
 
 #### Clearing Persistence cache
 
@@ -614,13 +636,14 @@ Persistence cache uses a separate Cache Pool decorator which by design prefixes 
 /** @var $cacheService \eZ\Publish\Core\Persistence\Cache\CacheServiceDecorator */
 $cacheService = $container->get('ezpublish.cache_pool.spi.cache.decorator');
  
-// To clear all cache
-$cacheService->clear();
- 
-// To clear a specific cache item (check source code in eZ\Publish\Core\Persistence\Cache\*Handlers for further info)
-$cacheService->clear('content', 'info', $contentId);
+// To clear all cache (not recommended without a good reason)
+$pool->clear();
 
-$cacheService->clear('content', 'info');
+// To clear a specific cache item (check source for more examples in eZ\Publish\Core\Persistence\Cache\*)
+$pool->deleteItems(["ez-content-info-$contentId"]);
+
+// Symfony cache is tag-based, so you can clear all cache related to a Content item like this:
+$pool->invalidateTags(["content-$contentId"]);
 ```
 
 ### Regenerating URL Aliases
@@ -675,6 +698,7 @@ All signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
 !!! note "Transactions"
 
     Signals are sent after transactions are executed, making signals transaction safe.
+
 
 #### ContentService
 
