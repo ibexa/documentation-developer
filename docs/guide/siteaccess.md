@@ -54,7 +54,7 @@ Various system settings can be set per SiteAccess or SiteAccess group under the 
 
 ### Example: multilanguage sites
 
-A site has content in two languages: English and Norwegian. It has one URI per language: `http://example.com/eng` and `http://example.com/nor`. Uri parts of each language (eng, nor) are mapped to a *SiteAccess*, commonly named like the uri part: `eng`, `nor`. Using semantic configuration, each of these SiteAccesses can be assigned a prioritized list of languages it should display:
+A site has content in two languages: English and Norwegian. It has one URI per language: `http://example.com/eng` and `http://example.com/nor`. Uri parts of each language (eng, nor) are mapped to a *SiteAccess*, commonly named like the URI part: `eng`, `nor`. Using semantic configuration, each of these SiteAccesses can be assigned a prioritized list of languages it should display:
 
 - The English site would display content in English and ignore Norwegian content;
 - The Norwegian site would display content in Norwegian but also in English *if it does not exist in Norwegian*.
@@ -87,7 +87,7 @@ ezpublish:
 
 !!! note
 
-    A new SiteAccess is recognized by the system, but an anonymous user will not have read access to it until it is [explicitly given via the Admin > Roles panel](repository.md#use-cases). Without read access the anonymous user will simply be directed to the default login page.
+    A new SiteAccess is recognized by the system, but an Anonymous User will not have read access to it until it is [explicitly given via the Admin > Roles panel](repository.md#use-cases). Without read access the Anonymous User will simply be directed to the default login page.
 
 ## Scope
 
