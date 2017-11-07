@@ -120,9 +120,9 @@ On PHP conflict | 16.02 and later requires PHP 5.5 or higher
 
 Because from release 16.02 onwards eZ Platform is compatible only with PHP 5.5 and higher, the update command above will fail if you use an older PHP version. Please update PHP to proceed.
 
-!!! Common errors
+!!! caution "Common errors"
 
-If you experienced issues during the update, please check [Common errors](https://doc.ezplatform.com/en/master/getting_started/about_composer/#cloning-failed-using-an-ssh-key) section.
+    If you experienced issues during the update, please check [Common errors](../getting_started/about_composer/#cloning-failed-using-an-ssh-key) section.
 
 ### 4. Update database
 
