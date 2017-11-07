@@ -1,6 +1,6 @@
 # Recommendation
 
-The Recommendation Bundle extends the functionality of eZ with a recommendation engine, powered by [YOOCHOOSE](https://yoochoose.com/). It allows you to track the way visitors use your website and suggests recommended content to them based on their behavior.
+The Recommendation Bundle extends the functionality of eZ Platform with a recommendation engine, powered by [YOOCHOOSE](https://yoochoose.com/). It allows you to track the way visitors use your website and suggests recommended content to them based on their behavior.
 
 See [YOOCHOOSE documentation](https://yoochoose.com/Personalization-Solution/Documentation) to learn how the recommendation engine works from the YOOCHOOSE side.
 
@@ -10,12 +10,8 @@ The Recommendation Bundle is installed in a similar way as any other Symfony bun
 
 ### Requirements
 
-- PHP 5.4.4 *or higher PHP 5.x version*
-- Symfony 2.7 *or higher Symfony 2.x version*
-- eZ Platform/Enterprise v1.0+, with the REST API configured to use sessions and publicly open to the YOOCHOOSE servers
+- eZ Platform/Enterprise with the REST API configured to use sessions and publicly open to the YOOCHOOSE servers
 - A YOOCHOOSE license
-
-This bundle is independent from the `ezrecommendation` extension used in legacy, and does not require it.
 
 ### Step 1: Installation
 
@@ -35,7 +31,7 @@ $bundles = array(
 );
 ```
 
-**3.** Import additional routing by adding following lines to your `routing.yml` file:
+**3.** Import additional routing by adding the following lines to your `routing.yml` file:
 
 ``` yaml
 recommendationBundleRestRoutes:
@@ -69,7 +65,7 @@ Keep in mind that legacy support is disabled by default. To enable legacy search
 
 ### Step 2: Configuration
 
-The bundle's configuration is siteaccess-aware. This is an example of settings *(config.yml)*:
+The bundle's configuration is SiteAccess-aware. This is an example of settings *(config.yml)*:
 
 ``` yaml
 ez_recommendation:
@@ -87,14 +83,12 @@ The following parameters need to be included in the settings file:
 
 | Parameter                            | Description                                                                                                    |
 |--------------------------------------|----------------------------------------------------------------------------------------------------------------|
-| yoochoose.customer\_id               | Your YOOCHOOSE customer ID.                                                                                    |
-| yoochoose.license\_key               | Your YOOCHOOSE license key.                                                                                    |
-| server\_uri                          | The URI your site's REST API can be accessed from.                                                             |
-| recommender.included\_content\_types | Content Types on which the tracking script will be shown. See [Tracking](#tracking) below for more information. |
+| `yoochoose.customer_id`              | Your YOOCHOOSE customer ID.                                                                                    |
+| `yoochoose.license_key`              | Your YOOCHOOSE license key.                                                                                    |
+| `server_uri`                         | The URI your site's REST API can be accessed from.                                                             |
+| `recommender.included_content_types` | Content Types on which the tracking script will be shown. See [Tracking](#tracking) below for more information. |
 
 If content's author or image are stored in different field, you can specify it in **parameters.yml:**
-
-**Format**
 
 ``` yaml
     ez_recommendation.field_identifiers:
@@ -103,8 +97,6 @@ If content's author or image are stored in different field, you can specify it i
 ```
 
 For example:
-
-**Actual example**
 
 ``` yaml
     ez_recommendation.field_identifiers:
@@ -168,7 +160,7 @@ Events from the site need to be sent to YOOCHOOSE so that recommendations can be
 
 **2.** Configure settings under the `recommender.included_content_types` parameter (see the `default_settings.yml` file delivered with this bundle). Here you can define for which Content Types tracking script will be shown.
 
-In the YOOCHOOSE documentation you can find more information about [tracking in general](https://doc.ez.no/display/EZSERVICES/Tracking+API) and about the [generic asynchronous javascript tracker](https://doc.ez.no/display/EZSERVICES/Tracking+with+yct.js).
+In the YOOCHOOSE documentation you can find more information about [tracking in general](https://doc.ezplatform.com/projects/ezservices/en/latest/personalization/developer_guide/tracking_api/) and about the [generic asynchronous javascript tracker](https://doc.ezplatform.com/projects/ezservices/en/latest/personalization/developer_guide/tracking_with_yct/).
 
 Additionally, in case of missing content owner ID, there's an option in `default_settings.yml` to set up the default content author:
 
@@ -182,7 +174,7 @@ In order to allow displaying recommendations on your site you must add portions 
 
 Implementation is very easy and can be performed in just a few steps (assuming that the `EzSystemsRecommendationBundle` is properly configured and enabled in `AppKernel.php`):
 
-##### To enable displaying recommendations
+#### To enable displaying recommendations
 
 **1.** Add the following JavaScript assets to your header template:
 
@@ -210,16 +202,16 @@ Implementation is very easy and can be performed in just a few steps (assuming t
 ) }}
 ```
 
-##### Parameters
+#### Parameters
 
 | Parameter   | Type   | Description   |
 |-------------|--------|---------------|
-| contentId   | int    | In content-based views the Twig variable holding the content ID (the content you want to get recommendations for). |
-| scenario    | string | Scenario used to display recommendations. You can create custom scenarios at the YOOCHOOSE dashboard. |
-| limit       | int    | Number of recommendations to show. |
-| contentType | string | Content Types you are expecting in response. |
-| template    | string | HandleBars template name (your templates are stored in the `ezsystems/recommendation-bundle/Resources/public/views` directory. Take a look at `default.html.twig` which includes a default template that can be used to prepare customized versions). |
-| fields      | array  | Fields which are required and will be requested from the recommender engine. These field names are also used inside HandleBars templates. |
+| `contentId`   | int    | In content-based views the Twig variable holding the content ID (the content you want to get recommendations for). |
+| `scenario`    | string | Scenario used to display recommendations. You can create custom scenarios in the YOOCHOOSE dashboard. |
+| `limit`       | int    | Number of recommendations to show. |
+| `contentType` | string | Content Types you are expecting in response. |
+| `template`    | string | HandleBars template name (your templates are stored in the `ezsystems/recommendation-bundle/Resources/public/views` directory. Take a look at `default.html.twig` which includes a default template that can be used to prepare customized versions). |
+| `fields`      | array  | Fields which are required and will be requested from the recommender engine. These field names are also used inside HandleBars templates. |
 
 Sample integration can take the following form:
 
@@ -236,23 +228,21 @@ Sample integration can take the following form:
 
 You can also bypass named arguments using standard value passing as arguments.
 
-##### Item ID
+#### Item ID
 
 The item ID is usually set to the viewed ContentId. Depending on requirements, it can be set to a different value, in collaboration with YOOCHOOSE.
 
-##### Displaying image aliases
+#### Displaying image variations
 
 Displaying image variations defined with image aliases is not currently supported out of the box.
 
 You can work around this limitation by creating your own template (based on <https://github.com/ezsystems/ezstudio-demo/blob/master/app/Resources/EzSystemsRecommendationBundle/views/recommendations.html.twig>) or your own Twig extension (based on <https://github.com/ezsystems/EzSystemsRecommendationBundle/blob/master/Twig/RecommendationTwigExtension.php#L214>).
 
-If you want to access a specific image alias through API, you need to add the `image` parameter to the request url with name of alias as its value, for example:
+If you want to access a specific image variation through API, you need to add the `image` parameter to the request URL with name of the variation as its value. For example, to retrieve the `rss` variation of the image, use:
 
 `/api/ezp/v2/ez_recommendation/v1/contenttypes/16?lang=eng-GB&fields=title,description,image,intro,name&page=1&page_size=20&image=rss`
 
-to retrieve the `rss` alias of the image.
-
-The additional `sa` parameter takes the siteaccess name and defines the siteaccess whose content will be displayed.
+The additional `sa` parameter takes the SiteAccess name and defines the SiteAccess whose content will be displayed.
 
 ### Troubleshooting
 
@@ -274,4 +264,4 @@ You can replace `info` with `debug` for more verbosity.
 
 [API doc for YOOCHOOSE Service](http://docs.ezreco.apiary.io/)
 
-[Developer Guides for YOOCHOOSE Service](https://doc.ez.no/display/EZSERVICES/Developer+Guide)
+[Developer Guides for YOOCHOOSE Service](https://doc.ezplatform.com/projects/ezservices/en/latest/personalization/developer_guide/tracking_api/)
