@@ -122,7 +122,7 @@ Because from release 16.02 onwards eZ Platform is compatible only with PHP 5.5 a
 
 !!! caution "Common errors"
 
-    If you experienced issues during the update, please check [Common errors](../getting_started/about_composer/#cloning-failed-using-an-ssh-key) section.
+    If you experienced issues during the update, please check [Common errors](../getting_started/about_composer/#cloning-failed-using-an-ssh-key) section on the Composer about page.
 
 ### 4. Update database
 
