@@ -71,7 +71,7 @@ If you do not keep a copy in the branch, you may also run:
 git rm composer.lock
 ```
 
-### 2. Merge composer.json
+## 2. Merge composer.json
 
 #### Manual merging
 
@@ -104,7 +104,7 @@ There shouldn't be many, and you should be able to figure out which value is the
 -   Edit the file, and identify the conflicting changes. If a setting you have modified has also been changed by us, you should be able to figure out which value is the right one.
 -   Run `git add conflicting-file` to add the changes
 
-### 3. Update the app
+## 3. Update the app
 
 At this point, you should have a `composer.json` file with the correct requirements. Run `composer update` to update the dependencies. 
 
@@ -124,7 +124,7 @@ Because from release 16.02 onwards eZ Platform is compatible only with PHP 5.5 a
 
     If you experienced issues during the update, please check [Common errors](../getting_started/about_composer/#cloning-failed-using-an-ssh-key) section on the Composer about page.
 
-### 4. Update database
+## 4. Update database
 
 Some versions require updates to the database. Look through [the list of database update scripts](https://github.com/ezsystems/ezpublish-kernel/tree/master/data/update/mysql) for a script for the version you are updating to (database version numbers correspond to the `ezpublish-kernel` version). If you find one, apply it like this:
 
@@ -212,7 +212,7 @@ index 49a17a9..80c4cd7 100644
     * * * * *   (cd /path/to/your/ezplatform-ee-project && app/console ezpublish:cron:run -e=dev)
     ```
 
-### 5. Dump assets
+## 5. Dump assets
 
 The web assets must be dumped again if you are using the `prod` environment. In `dev` this happens automatically:
 
@@ -228,7 +228,7 @@ php app/console assets:install --symlink -e=prod
 php app/console assetic:dump -e=prod
 ```
 
-### 6. Commit, test and merge
+## 6. Commit, test and merge
 
 Once all the conflicts have been resolved, and `composer.lock` updated, the merge can be committed. Note that you may or may not keep `composer.lock`, depending on your version management workflow. If you do not wish to keep it, run `git reset HEAD <file>` to remove it from the changes. Run `git commit`, and adapt the message if necessary. You can now verify the project and once the update has been approved, go back to `master`, and merge your update branch:
 
