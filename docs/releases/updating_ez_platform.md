@@ -71,7 +71,7 @@ If you do not keep a copy in the branch, you may also run:
 git rm composer.lock
 ```
 
-## 2. Merge composer.json
+### 2. Merge composer.json
 
 #### Manual merging
 
@@ -104,7 +104,7 @@ There shouldn't be many, and you should be able to figure out which value is the
 -   Edit the file, and identify the conflicting changes. If a setting you have modified has also been changed by us, you should be able to figure out which value is the right one.
 -   Run `git add conflicting-file` to add the changes
 
-## 3. Update the app
+### 3. Update the app
 
 At this point, you should have a `composer.json` file with the correct requirements. Run `composer update` to update the dependencies. 
 
@@ -132,6 +132,7 @@ Because from release 16.02 onwards eZ Platform is compatible only with PHP 5.5 a
 
     in `app/AppKernel.php`.
 
+
 !!! caution "Common errors"
 
     If you experienced issues during the update, please check [Common errors](../getting_started/about_composer/#cloning-failed-using-an-ssh-key) section on the Composer about page.
@@ -150,9 +151,11 @@ These steps are only relevant for some releases:
 
     v1.11.0 removes the `ezsearch_return_count` table, which had been removed in eZ Publish legacy since 5.4/2014.11. This avoids issues which would occur when you upgrade using legacy bridge. Apply the following database update script if your installation has not had the table removed by an earlier eZ Publish upgrade:
 
+
     ``` bash
     mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.10.0-to-6.11.0.sql
     ```
+
 
 **content/publish permission**
 
@@ -162,9 +165,11 @@ These steps are only relevant for some releases:
 
     To make sure existing users will be able to both edit and publish content, those with the `content/edit` permission will be given the `content/publish` permission by the following database update script:
 
+
     ``` bash
     mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.7.0-to-6.8.0.sql
     ```
+
 
 **Solr Bundle 1.4: Index time boosting**
 
@@ -217,7 +222,7 @@ index 49a17a9..80c4cd7 100644
     ``` bash
         #Location id of the root for form uploads
         form_builder.upload_folder.location_id: <folder location id>
-
+    
         #Section identifier for form uploads
         form_builder.upload_folder.section_identifier: <section identifier>
     ```
@@ -227,18 +232,26 @@ index 49a17a9..80c4cd7 100644
 !!! caution "V1.12"
 
     v1.12.0 improves password security by introducing support for PHP's `PASSWORD_BCRYPT` and `PASSWORD_DEFAULT` hashing algorithms. By default `PASSWORD_DEFAULT` is used. This currently uses bcrypt, but this may change in the future as PHP adds support for new and stronger algorithms.
+    Apply the following database update script to change the schema and enable the storage of longer passwords:
+    Note that the script is available for PostGreSQL as well.
+
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/data/update/mysql/dbupdate-6.11.0-to-6.12.0.sql
+    ```
+
 
     These algorithms produce longer hashes, and so the length of the `password_hash` column of the `ezuser` table must be increased, like this:
 
     ``` sql
     # MySQL
     ALTER TABLE ezuser CHANGE password_hash password_hash VARCHAR(255) default NULL;
-
+    
     # PostgreSQL
     ALTER TABLE ezuser ALTER COLUMN password_hash TYPE VARCHAR(255);
     ```
 
-## 5. Dump assets
+
+### 5. Dump assets
 
 The web assets must be dumped again if you are using the `prod` environment. In `dev` this happens automatically:
 
@@ -254,7 +267,7 @@ php app/console assets:install --symlink -e=prod
 php app/console assetic:dump -e=prod
 ```
 
-## 6. Commit, test and merge
+### 6. Commit, test and merge
 
 Once all the conflicts have been resolved, and `composer.lock` updated, the merge can be committed. Note that you may or may not keep `composer.lock`, depending on your version management workflow. If you do not wish to keep it, run `git reset HEAD <file>` to remove it from the changes. Run `git commit`, and adapt the message if necessary. You can now verify the project and once the update has been approved, go back to `master`, and merge your update branch:
 
