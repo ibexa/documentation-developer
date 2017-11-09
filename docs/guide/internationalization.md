@@ -94,6 +94,20 @@ ezpublish:
 
 If several translation siteaccesses share the same language reference, **the first declared siteaccess always wins**.
 
+#### Custom locale configuration
+
+If you need to use a custom locale they can also be configurable in `ezplatform.yml`, adding them to the *conversion map*:
+
+``` yaml
+ezpublish:
+    # Locale conversion map between eZ Publish format (e.g. fre-FR) to POSIX (e.g. fr_FR).
+    # The key is the eZ Publish locale. Check locale.yml in EzPublishCoreBundle to see natively supported locales.
+    locale_conversion:
+        eng-DE: en_DE
+```
+
+A locale *conversion map* example [can be found in the `core` bundle, on `locale.yml`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/locale.yml).
+
 ### More complex translation setup
 
 There are some cases where your siteaccesses share settings (repository, content settings, etc.), but you don't want all of them to share the same `translation_siteaccesses` setting. This can be for example the case when you use separate siteaccesses for mobile versions of a website.
