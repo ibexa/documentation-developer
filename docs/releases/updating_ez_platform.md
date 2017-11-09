@@ -133,6 +133,9 @@ Because from release 16.02 onwards eZ Platform is compatible only with PHP 5.5 a
     in `app/AppKernel.php`.
 
 
+!!! caution "Common errors"
+
+    If you experienced issues during the update, please check [Common errors](../getting_started/about_composer/#cloning-failed-using-an-ssh-key) section on the Composer about page.
 
 ## 4. Update database
 
@@ -148,9 +151,11 @@ These steps are only relevant for some releases:
 
     v1.11.0 removes the `ezsearch_return_count` table, which had been removed in eZ Publish legacy since 5.4/2014.11. This avoids issues which would occur when you upgrade using legacy bridge. Apply the following database update script if your installation has not had the table removed by an earlier eZ Publish upgrade:
 
-    ​``` bash
+
+    ``` bash
     mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.10.0-to-6.11.0.sql
-    ​```
+    ```
+
 
 **content/publish permission**
 
@@ -160,9 +165,11 @@ These steps are only relevant for some releases:
 
     To make sure existing users will be able to both edit and publish content, those with the `content/edit` permission will be given the `content/publish` permission by the following database update script:
 
-    ​``` bash
+
+    ``` bash
     mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.7.0-to-6.8.0.sql
-    ​```
+    ```
+
 
 **Solr Bundle 1.4: Index time boosting**
 
@@ -212,13 +219,13 @@ index 49a17a9..80c4cd7 100644
 
     If you are upgrading to v1.8 you need to create this folder and assign it to a new specific Section. Then, add them in the config (for example, in `app/config/default_parameters.yml`, depending on how your configuration is set up):
 
-    ​``` bash
+    ``` bash
         #Location id of the root for form uploads
         form_builder.upload_folder.location_id: <folder location id>
     
         #Section identifier for form uploads
         form_builder.upload_folder.section_identifier: <section identifier>
-    ​```
+    ```
 
 **Increased password hash length**
 
@@ -228,20 +235,21 @@ index 49a17a9..80c4cd7 100644
     Apply the following database update script to change the schema and enable the storage of longer passwords:
     Note that the script is available for PostGreSQL as well.
 
-    ​``` bash
+    ``` bash
     mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/data/update/mysql/dbupdate-6.11.0-to-6.12.0.sql
-    ​```
+    ```
 
 
     These algorithms produce longer hashes, and so the length of the `password_hash` column of the `ezuser` table must be increased, like this:
 
-    ​``` sql
+    ``` sql
     # MySQL
     ALTER TABLE ezuser CHANGE password_hash password_hash VARCHAR(255) default NULL;
     
     # PostgreSQL
     ALTER TABLE ezuser ALTER COLUMN password_hash TYPE VARCHAR(255);
-    ​```
+    ```
+
 
 ### 5. Dump assets
 
