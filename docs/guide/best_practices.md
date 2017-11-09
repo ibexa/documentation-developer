@@ -56,6 +56,43 @@ Configuration can be made environment-specific using separate files for each env
 
 Here you can read more about [how configuration is handled in Symfony](http://symfony.com/doc/current/best_practices/configuration.html).
 
+### Configuration handling
+
+!!! note
+
+    Configuration is tightly related to the service container.
+    To fully understand the following content, you need to be familiar with [Symfony's service container](service_container.md) and [its configuration](http://symfony.com/doc/current/book/service_container.html#service-parameters).
+
+Basic configuration handling in eZ Platform is similar to what is commonly possible with Symfony.
+You can define key/value pairs in [your configuration files](http://symfony.com/doc/current/book/service_container.html#importing-other-container-configuration-resources),
+under the main `parameters` key (see for example [parameters.yml](https://github.com/ezsystems/ezplatform/blob/master/app/config/parameters.yml.dist#L2)).
+
+Internally and by convention, keys follow a **dot syntax**, where the different segments follow your configuration hierarchy. Keys are usually prefixed by a *namespace* corresponding to your application. Values can be anything, including arrays and deep hashes.
+
+eZ Platform core configuration is prefixed by `ezsettings` namespace, while *internal* configuration (not to be used directly) is prefixed by `ezpublish` namespace.
+
+For configuration that is meant to be exposed to an end-user (or end-developer),
+it's usually a good idea to also [implement semantic configuration](http://symfony.com/doc/current/components/config/definition.html).
+
+Note that it is also possible to [implement SiteAccess-aware semantic configuration](../cookbook/exposing_siteaccess_aware_configuration_for_your_bundle.md).
+
+#### Example
+
+``` yaml
+# Configuration
+parameters:
+    myapp.parameter.name: someValue
+    myapp.boolean.param: true
+    myapp.some.hash:
+        foo: bar
+        an_array: [apple, banana, pear]
+```
+
+``` php
+// Usage inside a controller
+$myParameter = $this->container->getParameter( 'myapp.parameter.name' );
+```
+
 ### Specific configuration
 
 The configuration of specific aspects of eZ Platform is described precisely in the respective topics in the [Guide to eZ Platform](guide_to_ez_platform.md).
