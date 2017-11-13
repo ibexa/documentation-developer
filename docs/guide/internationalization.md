@@ -46,7 +46,7 @@ Once more than one language is defined in the global translation list and there 
 
 When viewing a Content item, it may be useful to let the user switch from one translation to another, more appropriate to them. This is precisely the goal of the language switcher.
 
-The language switcher relies on the [Cross-SiteAccess linking feature](siteaccess.md#cross-siteacess-links) to generate links to the Content item's translation, and on RouteReference feature.
+The language switcher relies on the [Cross-SiteAccess linking feature](siteaccess.md#cross-siteaccess-links) to generate links to the Content item's translation, and on RouteReference feature.
 
 #### In a template
 

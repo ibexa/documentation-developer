@@ -2,7 +2,7 @@
 
 The Recommendation Bundle extends the functionality of eZ Platform with a recommendation engine, powered by [YOOCHOOSE](https://yoochoose.com/). It allows you to track the way visitors use your website and suggests recommended content to them based on their behavior.
 
-See [YOOCHOOSE documentation](https://yoochoose.com/Personalization-Solution/Documentation) to learn how the recommendation engine works from the YOOCHOOSE side.
+See [eZ Services documentation](https://doc.ezplatform.com/projects/ezservices) to learn how the recommendation engine works from the YOOCHOOSE side.
 
 ## Installing the Recommendation Bundle
 

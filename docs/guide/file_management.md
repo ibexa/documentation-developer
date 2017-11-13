@@ -61,7 +61,7 @@ Default values are 0644 for files and 0755 for directories.
 
 ### The native Flysystem handler
 
-[league/flysystem](https://github.com/ezsystems/ezpublish-kernel/blob/native_io_spec/doc/specifications/io/flysystem.thephpleague.com) (along with [FlysystemBundle](https://github.com/1up-lab/OneupFlysystemBundle/)) is an abstract file handling library.
+[league/flysystem](http://flysystem.thephpleague.com/) (along with [FlysystemBundle](https://github.com/1up-lab/OneupFlysystemBundle/)) is an abstract file handling library.
 
 eZ Platform uses it as the default way to read and write content in form of binary files. Flysystem can use the `local` filesystem (this is the default and officially supported configuration), but is also able to read/write to `sftp`, `zip` or cloud filesystems (`azure`, `rackspace`, `S3`).
 

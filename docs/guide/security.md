@@ -101,7 +101,7 @@ ezpublish:
 
 By default, Symfony redirects to the [URI configured in `security.yml` as `default_target_path`](http://symfony.com/doc/2.3/reference/configuration/security.html). If not set, it will default to `/`.
 
-This setting can be set by siteaccess, via [`default_page` setting](bundles.md#default-page).
+This setting can be set by siteaccess, via [`default_page` setting](best_practices.md#default-page).
 
 #### Access control
 
