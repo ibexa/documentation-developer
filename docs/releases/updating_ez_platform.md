@@ -228,7 +228,7 @@ index 49a17a9..80c4cd7 100644
 
     v1.12.0 improves password security by introducing support for PHP's `PASSWORD_BCRYPT` and `PASSWORD_DEFAULT` hashing algorithms. By default `PASSWORD_DEFAULT` is used. This currently uses bcrypt, but this may change in the future as PHP adds support for new and stronger algorithms.
     Apply the following database update script to change the schema and enable the storage of longer passwords:
-    Note that the script is available for PostGresQL as well.
+    Note that the script is available for PostgreSQL as well.
 
     ​``` bash
     mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/data/update/mysql/dbupdate-6.11.0-to-6.12.0.sql
