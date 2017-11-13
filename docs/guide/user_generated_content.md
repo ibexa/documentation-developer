@@ -90,12 +90,3 @@ Here are default templates that you can reuse and/or modify:
     </p>
 {% endblock %}
 ```
-
-## Repository Forms
-
-[Repository Forms](http://github.com/ezsystems/repository-forms) is a bundle which provides form-based interaction for the Repository Value objects.
-
-It is currently used by:
-
-- `ezsystems/platform-ui-bundle` for most management interfaces: Sections, Content Types, Roles, Policies, etc.
-- `ezsystems/ezpublish-kernel` for user registration and user generated content
