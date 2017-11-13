@@ -1,19 +1,15 @@
-```markdown
-
-```
-
 # Step 6 - Enabling account registration
 
-We are trying to let our friends write their bike trips directly into our website. We would like to let them create Rides. As an Administrator of the website you could create the Users yourself but In order to let them create their own content, first, you want to let them create their own accounts.
+We are trying to let our friends write their bike trips directly into our website. We would like to let them create Rides. As an Administrator of the website you could create the Users yourself but in order to let them place their own content, first, you want to let them create their own accounts.
 
-## Add the registration possible
+## Make registration possible
 
-From the Admin Panel, go to the _Roles_ management screen, click on _Anonymous_ Role name link to edit it.
+From the Admin Panel, go to the _Roles_ management screen and click on the _Anonymous_ Role name to edit it.
 
-![step_6_role_mgmt_screen](/home/shaim/www/developer-documentation/docs/tutorials/platform_beginner/img/step_6_role_mgmt_screen.png)
+![step_6_role_mgmt_screen](/img/step_6_role_mgmt_screen.png)
 
 For the Anonymous User, you will add the _User/Register_ policy. This will enable the access to the Register form for everyone on your website.
-![step6_admin_anonymous_policies](/home/shaim/www/developer-documentation/docs/tutorials/platform_beginner/img/step6_admin_anonymous_policies.png)
+![step6_admin_anonymous_policies](/img/step6_admin_anonymous_policies.png)
 
 
 
@@ -28,8 +24,8 @@ Then go to the URL: http://127.0.0.1/register and create a new user.
 The Users are created in the _Guest accounts_ group, and the User you have just created will have the Roles used by the _Guest accounts_ User group.
 Now, we have 2 options:
 
-* **Add the right to create Rides to _Guest accounts_.** This will enable the Ride creation for whoever having registered on Go Bike website. In this case, you may not want to give the Publish Content permission.
-* **Create a group dedicated to our Go Bike Members** and give to this group the right to create Rides. Then you will have to add the Users to the Go Bike Members group so they can benefit from the Roles of the group. In this case, once the User is "_validated_" as trusted, they will be able to create and publish their own content.
+* **Add the right to create Rides to _Guest accounts_.** This will enable the Ride creation for whoever has registered on the Go Bike website. In this case, you may not want to give the Publish Content permission.
+* **Create a group dedicated to our Go Bike Members** and give this group the right to create Rides. Then you will have to add the Users to the Go Bike Members group so they can benefit from the Roles of the group. In this case, once the User is "_validated_" as trusted, they will be able to create and publish their own content.
 
 In this Tutorial, you will use the second option.
 
@@ -39,7 +35,7 @@ From the Admin Panel in the _Users_ screen, click on the *Create* button and _fi
 
 ## Create a Folder for the Rides from the Go Bike Members
 
-In the Content creation screen, select _Folder_ and create a new Folder named `members-rides ` into the Folder `all-rides` already existing. The Go Bike Members will have the access rights in creation mode only in this Folder.
+In the Content creation screen, select _Folder_ and create a new Folder named `Members Rides` into the Folder `All Rides` already existing. The Go Bike Members will have the access rights in creation mode only in this Folder.
 
 ## Set permissions for Go Bike Members
 
@@ -49,12 +45,13 @@ Now, you will set the Policies for the _Bikers_ Role.
 
 - User/Login
 - User/Password
-- Content/Create with Limitations: only Rides and Points of Interest in the `members-ride` subtree only
+- Content/Create with Limitations: only Rides and Points of Interest in the `Members Rides` subtree only
 - Content/edit where owner is _"Self"_
+- Content/read
 
 
 !!! note
-    The Limitations are powerful to finetune the permission management of the Users.
+    The Limitations are a powerful tool for fine-tuning the permission management of the Users.
     See [the documentation about Limitations for a more technical approach] (guide/repository/#usergrouplimitation)
     
     See also the Cookbook [Authenticating a user with multiple user providers](cookbook/authenticating_a_user_with_multiple_user_providers/)
