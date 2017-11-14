@@ -15,7 +15,7 @@ For the Anonymous User, you will add the _User/Register_ policy. This will enabl
 
 !!! note
 
-​    See the documentation about [Registering new users to learn how to assign a group](https://doc.ezplatform.com/en/1.7/guide/user_generated_content/#registering-new-users) to the newly registered Users.
+​    See the documentation about [Registering new users to learn how to assign a group](guide/user_generated_content/#registering-new-users) to the newly registered Users.
 
 
 
