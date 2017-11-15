@@ -457,13 +457,6 @@ The cache system is exposed as a "cache" service, and can be reused by any other
 By default, configuration currently uses **FileSystem** to store cache files, which is defined in [`default_parameters.yml`](https://github.com/ezsystems/ezplatform/blob/2.0/app/config/default_parameters.yml#L22).
 You can select a different cache backend and configure it's parameters in the relevant file in the `cache_pool` folder.
 
-!!! note "Note for inMemory cache with long running scripts"
-
-    Use `inMemory` with caution, and avoid it completely for long running scripts for the following reasons:
-
-    - It does not have any limits, so can result in the application running out of PHP memory.
-    - Its cache pool is by design a PHP variable and is not shared across requests/processes/servers, so data becomes stale if any other concurrent activity happens towards the repository.
-
 ##### Multi repository setup
 
 In `ezplatform.yml` you can specify which cache pool you want to use on a siteaccess or sitegroup level. The following example shows use in a sitegroup:
@@ -486,13 +479,8 @@ ezpublish:
 
 This cache backend is using [Redis, a in-memory data structure store](http://redis.io/), via [Redis pecl extension](https://pecl.php.net/package/redis). This is an alternative cache solution for [multi server (cluster) setups](clustering.md), besides using Memcached.
 
-**Available settings**
-
-|||
-|------|------|
-|`servers`|Array of Redis servers:</br>`server`: Host or IP of your Redis server</br>`port`: Port that Redis is listening to (default: 6379)</br>`ttl`: Optional float value of connection timeout in seconds</br>`socket`: Optional boolean value to specify if server refers to a socket (default: false)|
-|`password`|Optional setting if there is a password to connection to a given Redis server in plain text over the network.|
-|`database`|Optional setting to specify a given Redis database to use.|
+See [Redis Cache Adapter in Symfony documentation](https://symfony.com/doc/3.4/components/cache/adapters/redis_adapter.html#configure-the-connection)
+for information on how to configure Redis.
 
 !!! note
 
@@ -514,34 +502,8 @@ services:
 
 This cache backend is using [Memcached, a distributed caching solution](http://memcached.org/). This is the main supported cache solution for [multi server (cluster) setups](clustering.md), besides using Redis.
 
-**Available settings**
-
-|Setting|Description"
-|------|------|
-|`servers`|Array of Memcached servers, with host/IP, port and weight</br>`server`: Host or IP of your Memcached server</br>`port`: Port that Memcached is listening to (defaults to 11211)</br>weight: Weight of the server, when using several Memcached servers|
-|`prefix_key`|A namespace to prefix cache keys with to avoid key conflicts with other eZ Platform sites on same eZ Platform installation (default is an empty string). Must be the same on all servers with the same installation. See [Memcached prefix_key option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-prefix-key)|
-|`compression`|default true. [See Memcached compression option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-compression)|
-|`libketama_compatible`|default false.  See [Memcached libketama_compatible option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-libketama-compatible)|
-|`buffer_writes`|default false.  See [Memcached buffer_writes option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-buffer-writes)|
-|`binary_protocol`|default false.  See [Memcached binary_protocol option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-binary-protocol)|
-|`no_block`|default false.  See [Memcached no_block option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-no-block)|
-|`tcp_nodelay`|default false.  See [Memcached tcp_nodelay option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-tcp-nodelay)|
-|`connection_timeout`|default 1000.  See [Memcached connection_timeout option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-connection-timeout)|
-|`retry_timeout`|default 0.  See [Memcached retry_timeout option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-memcached-timeout)|
-|`send_timeout`|default 0.  See [Memcached send_timeout option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-send-timeout)|
-|`recv_timeout`|default 0.  See [Memcached recv_timeout option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-recv-timeout)|
-|`poll_timeout`|default 1000.  See [Memcached poll_timeout option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-poll-timeout)|
-|`cache_lookups`|default false.  See [Memcached cache_lookups option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-cache-lookups)|
-|`server_failure_limit`|default 0.  See [PHP Memcached documentation](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-server-failure-limit)|
-|`socket_send_size`|See [Memcached socket_send_size option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-socket-send-size)|
-|`socket_recv_size`|See [Memcached socket_recv_size option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-socket-recv-size)|
-|`serializer`|See [Memcached serializer option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-serializer)|
-|`hash`|See [Memcached hash option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-hash)|
-|`distribution`|Specifies the method of distributing item keys to the servers. See [Memcached distribution option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-distribution) \*|
-
-\* All settings except `servers `are only available with memcached PHP extension. For more information on these settings and which version of php-memcached they are available in, see: <http://php.net/Memcached>
-
-When using Memcached cache backend, you *may* use inMemory to reduce network traffic as long as you are aware of its limitations mentioned above. However you should disable in web servers where there is concurrency on updates, for instance on dedicated editorial server.
+See [Memcached Cache Adapter in Symfony documentation](https://symfony.com/doc/3.4/components/cache/adapters/memcached_adapter.html#configure-the-connection)
+for information on how to configure Memcached.
 
 !!! note
 
