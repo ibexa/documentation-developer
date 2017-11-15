@@ -763,6 +763,31 @@ This feature is based on [Context aware HTTP caching post](http://asm89.github.
 ezplatform-http-cache enables HTTP cache tagging.
 This allows you to add tags to cached content, which simplifies selective cache invalidation.
 
+#### Using tags
+
+Understanding tags is the key to making the most of `ezplatform-http-cache`.
+They work in a similar way to [persistence cache tags in eZ Platform v2](https://github.com/ezsystems/ezpublish-kernel/tree/7.0/doc/specifications/cache/persistence):
+
+- Tags form a secondary set of keys assigned to every cache item, on top of the "primary key" which is the URI
+- Like an index in a database, a tag is typically used for anything relevant that represents the given cache item
+- Tags are used for cache invalidation
+
+As a practical example, you can tag every article response, and when the article Content Type is updated,
+you can tell Varnish that all articles should be considered stale and be updated in the background
+when someone requests them.
+
+##### Available tags
+
+- `content-<content-id>` - Used on anything that is affected by changes to content, that is content itself, Locations, and so on.
+- `content-type-<content-type-id>` - For use when the Content Type changes, affecting content of its type.
+- `location-<location-id>` - Used for clearing all cache relevant for a given location.
+- `parent-<parent-location-id>` - Useful for clearing all children of a parent, or in all siblings.
+- `path-<location-id>` - For operations that change the tree itself, like move, remove, etc.
+- `relation-<content-id>` - For use when updates affect their all reverse relations.
+Note that the system does not add this tag to responses itself, just purges if present.
+Response tagging using this tag is currently meant to be done inline in the template logic / views
+based on your decision.
+
 #### ResponseTaggers API
 
 ResponseTaggers take a `Response`, a `ResponseConfigurator` and any value object,
