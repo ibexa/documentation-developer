@@ -2,9 +2,7 @@
 
 ## Content model overview
 
-The content structure in eZ is based on ideas borrowed from object-oriented programming, as seen in popular languages such as C\#, Java or PHP.
-
-In this understanding an "object" in the eZ Platform is called a Content item and represents a single piece of content: an article, a blog post, an image, a product, etc. Each Content item is an instance of a "class," called a Content Type.
+The content structure in eZ Platform is based on "objects". An "object" in eZ Platform is called a Content item and represents a single piece of content: an article, a blog post, an image, a product, etc. Each Content item is an instance of a "class," called a Content Type.
 
 An introduction to the eZ content model aimed at non-developer users, is available at [Under the hood, concepts and organization](https://doc.ezplatform.com/projects/userguide/en/latest/under_the_hood/).
 
@@ -12,7 +10,7 @@ An introduction to the eZ content model aimed at non-developer users, is availab
 
 A Content item is the basic unit of content that is managed in eZ Platform.
 
-A Content item is made up of different Fields and their values, as defined by the [Content Type](#content-types). These [Fields](#fields) can cover data ranging from single variables or text lines to media files or blocks of formatted text.
+A Content item is made up of different Fields and their values, as defined by the [Content Type](#content-types). These [Fields](#fields) can cover data ranging from single variables and text lines to media files or blocks of formatted text.
 
 Aside from the Fields, each Content item also has the following general information:
 

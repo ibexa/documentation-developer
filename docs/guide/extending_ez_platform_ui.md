@@ -577,7 +577,7 @@ There are three ways of choosing Content Type icons:
 
 #### Pick an icon for a custom Content Type from existing icons
 
-In such a case you need to pick the icon code using the [the Icomoon application](https://icomoon.io/app/). To ease that process and the readability of the code, we'll use ligatures in the font icon so that the CSS code for a custom Content Type could look like:
+In such a case you need to pick the icon code using an icon font. In these examples we use [the Icomoon application](https://icomoon.io/app/). To ease that process and the readability of the code, we'll use ligatures in the font icon so that the CSS code for a custom Content Type could look like:
 
 ``` css
  /* in a custom CSS file included with `css.yml` */
@@ -589,7 +589,7 @@ In such a case you need to pick the icon code using the [the Icomoon application
 
 #### Add custom icons
 
-If the icons we provide do not fit a custom Content Type, then a new custom icon font has to be added. To generate the icon, the Icomoon app can be used (or any other tool). Then, using a custom CSS stylesheet, this font can be included and the `ez-contenttype-icon-<content type identifier>` can be configured to use that font.
+If the icons we provide do not fit a custom Content Type, then a new custom icon font has to be added. To generate the icon, the Icomoon app can be used (or another icon font generation tool). Then, using a custom CSS stylesheet, this font can be included and the `ez-contenttype-icon-<content type identifier>` can be configured to use that font.
 
 Example:
 

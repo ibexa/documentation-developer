@@ -9,7 +9,7 @@ eZ Platform supports multiple binary file handling mechanisms by means of an `I
 The IO API is organized around two types of handlers, both used by the IOService:
 
 - `eZ\Publish\IO\IOMetadataHandler`: Stores and reads metadata (validity, size, etc.)
-- `eZ\Publish\IO\IOBinarydataHandler`: Stores and reads binary data (actual contents)
+- `eZ\Publish\IO\IOBinarydataHandler`: Stores and reads the actual binary data
 
 IO handlers can be configured using semantic configuration and are configurable per SiteAccess.
 This is the default configuration:

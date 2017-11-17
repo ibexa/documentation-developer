@@ -23,7 +23,7 @@ php app/console assetic:dump
 
 Language versions consist of translated values of the Content item's Fields. In the Content Type definition every Field is set to be Translatable or not.
 
-eZ Platform does not decide by itself which Fields can be translated and which cannot. For some Field values the need for a translation can be obvious, for example for the body of an article. In other cases, for instance images without text, numbers or e-mail addresses, translation is usually unnecessary. Despite that, eZ Platform gives you the possibility to mark any Field as translatable regardless of its Field Type. It is only your decision to exclude the translation possibility for those Fields where it makes no sense.
+eZ Platform does not decide by itself which Fields can be translated and which cannot. For some Field values the need for a translation can be obvious, for example for the body of an article. In other cases, for instance images without text, integer numbers or e-mail addresses, translation is usually unnecessary. Despite that, eZ Platform gives you the possibility to mark any Field as translatable regardless of its Field Type. It is only your decision to exclude the translation possibility for those Fields where it makes no sense.
 
 When a Field is not flagged as Translatable, its value will be copied from the initial/main translation when a new language version is created. This copied value cannot be modified. When a Field is Translatable, you will have to enter its value in a new language version manually.
 
