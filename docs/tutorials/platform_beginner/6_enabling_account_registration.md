@@ -6,18 +6,14 @@ We are trying to let our friends write their bike trips directly into our websit
 
 From the Admin Panel, go to the _Roles_ management screen and click on the _Anonymous_ Role name to edit it.
 
-![step_6_role_mgmt_screen](/img/step_6_role_mgmt_screen.png)
+![step_6_role_mgmt_screen](img/step_6_role_mgmt_screen.png)
 
 For the Anonymous User, you will add the _User/Register_ policy. This will enable the access to the Register form for everyone on your website.
-![step6_admin_anonymous_policies](/img/step6_admin_anonymous_policies.png)
-
-
+![step6_admin_anonymous_policies](img/step6_admin_anonymous_policies.png)
 
 !!! note
 
-​    See the documentation about [Registering new users to learn how to assign a group](guide/user_generated_content/#registering-new-users) to the newly registered Users.
-
-
+    See the documentation about [Registering new users to learn how to assign a group](../../guide/user_generated_content/#registering-new-users) to the newly registered Users.
 
 Then go to the URL: http://127.0.0.1/register and create a new user.
 
@@ -52,9 +48,9 @@ Now, you will set the Policies for the _Bikers_ Role.
 
 !!! note
     The Limitations are a powerful tool for fine-tuning the permission management of the Users.
-    See [the documentation about Limitations for a more technical approach] (guide/repository/#usergrouplimitation)
-    
-    See also the Cookbook [Authenticating a user with multiple user providers](cookbook/authenticating_a_user_with_multiple_user_providers/)
+    See [the documentation about Limitations for a more technical approach](../../guide/repository/#usergrouplimitation)
+
+    See also the Cookbook [Authenticating a user with multiple user providers](../../cookbook/authenticating_a_user_with_multiple_user_providers/)
 
 Once the Policies are set, assign your Role *Bikers* to the User Group *Go Bike Members*.
 
