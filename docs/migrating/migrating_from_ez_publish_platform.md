@@ -135,7 +135,6 @@ The easiest way to upgrade the distribution files is to copy the directories tha
 
 - `<old-ez-root>/ezpublish_legacy/design/<your_designs>` => `<new-ez-root>/src/legacy_files/design/<your_designs>`
     - *Do NOT include built-in designs: admin, base, standard or admin2*
-- `<old-ez-root>/ezpublish_legacy/design/<your_designs>` => `<new-ez-root>/src/legacy_files/design/<your_designs>`
 - `<old-ez-root>/ezpublish_legacy/settings/siteaccess/<your_siteaccesses>` => `<new-ez-root>/src/legacy_files/settings/siteaccess/<your_siteaccesses>`
 - `<old-ez-root>/ezpublish_legacy/settings/override/*` => `<new-ez-root>/src/legacy_files/settings/override/*`
 - Other folders to move over *(or potentially setup symlinks for)* if applicable:
