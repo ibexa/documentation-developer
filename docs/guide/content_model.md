@@ -1,28 +1,20 @@
-# Content Model: Content is King!
+# Content Model
 
-Everyone knows that Content is King, and in eZ Platform, everything is Content!
+## Content model overview
 
-Take a look at the content model underlying eZ Platform.
+The content structure in eZ Platform is based on "objects". An "object" in eZ Platform is called a Content item and represents a single piece of content: an article, a blog post, an image, a product, etc. Each Content item is an instance of a "class," called a Content Type.
 
-### Content model overview
+An introduction to the eZ content model aimed at non-developer users, is available at [Under the hood, concepts and organization](https://doc.ezplatform.com/projects/userguide/en/latest/under_the_hood/).
 
-The content structure in eZ is based on ideas borrowed from Object-Oriented programming, as seen in popular languages such as C\#, Java or PHP.
+## Content items
 
-In this understanding an "object" in the eZ Platform is called a Content Item and represents a single piece of content: an article, a blog post, an image, a product, etc. Each Content item is an instance of a "class," called a Content Type.
+A Content item is the basic unit of content that is managed in eZ Platform.
 
-An introduction to the eZ content model aimed at non-developer users, is available at [Under the hood, concepts and organization](https://doc.ez.no/display/USER/2.+Under+the+hood%2C+concepts+and+organization).
+A Content item is made up of different Fields and their values, as defined by the [Content Type](#content-types). These [Fields](#fields) can cover data ranging from single variables and text lines to media files or blocks of formatted text.
 
-## Content items, Content Types and Fields
+Aside from the Fields, each Content item also has the following general information:
 
-# Content items
-
-A Content item is the basic unit of content that is managed in the platform.
-
-The substance of a Content item is made up of different Fields and their values, as defined by the Content Type. These Fields can cover data ranging from single variables or text lines to media files or passages of formatted text.
-
-Aside from the Fields, each Content item is also characterized by general data that controls the Content item's place in the system.
-
-### Content item general information
+#### Content item general information
 
 **Content ID** – a unique number by which the Content item is identified in the system. These numbers are not recycled, so if an item is deleted, its ID number will not be reused when a new one is created.
 
@@ -34,13 +26,13 @@ Aside from the Fields, each Content item is also characterized by general data t
 
 **Type** – the Content Type on which the Content item is based.
 
-**Owner** – a reference to the user who initially created the Content item. This reference is set by the system the first time the Content item is published. The ownership of an item cannot be modified and will not change even if the owner is removed from the system.
+**Owner** – the user who initially created the Content item. It is set by the system the first time the Content item is published. The ownership of an item cannot be modified and will not change even if the owner is removed from the system.
 
-**Creation time** – exact date and time when the Content item was published for the first time. This is set by the system and cannot be modified.
+**Creation time** – date and time when the Content item was published for the first time. This is set by the system and cannot be modified.
 
-**Modification time** – exact date and time when the Content item was last modified. This is set by the system and cannot be modified manually, but will change every time the item is published again.
+**Modification time** – date and time when the Content item was last modified. This is set by the system and cannot be modified manually, but will change every time the item is published again.
 
-**Status** – the current state of the Content item. It can have three statuses: 0 – Draft, 1 – Published and 2 – Archived. When an item is created, its status is set to *draft*. After publishing the status changes to *published*. When a published Content item is moved to Trash, this item becomes *archived*. If a published item is removed from the Trash (or removed without being put in the Trash first), it will be permanently deleted. 
+**Status** – the current state of the Content item. It can have three statuses: 0 – Draft, 1 – Published and 2 – Archived. When an item is created, its status is set to *draft*. After publishing the status changes to *published*. When a published Content item is moved to Trash, the item becomes *archived*. If a published item is removed from the Trash (or removed without being put in the Trash first), it will be permanently deleted. 
 
 **Section ID** – the unique number of the Section to which the Content item belongs. New Content items are placed in the Standard section by default. This behavior can be changed, but content must always belong to some Section.
 
@@ -48,9 +40,9 @@ Aside from the Fields, each Content item is also characterized by general data t
 
 ![Diagram of an example Content item](img/content_model_item_diagram.png)
 
-The Fields that are available in a Content item are defined by the Content Type to which the Content item belongs.
+The Fields of a Content item are defined by the Content Type to which the Content item belongs.
 
-# Content Types
+## Content Types
 
 ### Content Type metadata
 
@@ -60,13 +52,13 @@ Each Content Type is characterized by a set of metadata which define the general
 
 !!! note
 
-    Note that even if your Content Type defines a Field meant to store a name for the Content item (for example, a title of an article or product name), this will not be the same as this Name, as this one is a piece of metadata, not a Field.
+    Note that even if your Content Type defines a Field intended as a name for the Content item (for example, a title of an article or product name), do not confuse it with this Name, which is a piece of metadata, not a Field.
 
 **Identifier** – an identifier for internal use in configuration files, templates, PHP code, etc. It must be unique, can only contain lowercase letters, digits and underscores; the maximum length is 50 characters. (Mandatory.)
 
 **Description** – a detailed description of the Content Type. (Optional.)
 
-**Content name pattern** – a pattern for naming a new Content item based on this Content Type. The pattern usually consists of Field identifiers that tell the system about which Fields it should use when generating the name of a Content item. Each Field identifier has to be surrounded with angle brackets. Text outside the angle brackets will be included literally. If no pattern is provided, the system will automatically use the first Field. (Optional.)
+**Content name pattern** – a pattern that defines what name a new Content item based on this Content Type gets. The pattern usually consists of Field identifiers that tell the system which Fields it should use when generating the name of a Content item. Each Field identifier has to be surrounded with angle brackets. Text outside the angle brackets will be included literally. If no pattern is provided, the system will automatically use the first Field. (Optional.)
 
 **URL alias name pattern** – a pattern which controls how the virtual URLs of the Locations will be generated when Content items are created based on this Content Type. Note that only the last part of the virtual URL is affected. The pattern works in the same way as the Content name pattern. Text outside the angle brackets will be converted using the selected method of URL transformation. If no pattern is provided, the system will automatically use the name of the Content item itself. (Optional.)
 
@@ -86,7 +78,7 @@ Each Content Type is characterized by a set of metadata which define the general
 
 ### Field definitions
 
-Aside from the metadata, a Content Type contains any number of Field definitions (but has to contain at least one). They determine what Fields of what Field Types will be included in all Content items created based on this Content Type.
+Aside from the metadata, a Content Type contains any number of Field definitions (but has to contain at least one). They determine what Fields of what Field Types will be included in all Content items based on this Content Type.
 
 A Content Type and its Field definitions can be modified after creation, even if there are already Content items based on it in the system. When a Content Type is modified, each of its instances will be changed as well. If a new Field definition is added to a Content Type, this Field will appear (empty) in every relevant Content item. If a Field definition is deleted from the Content Type, all the corresponding Fields will be removed from Content items of this type.
 
@@ -98,15 +90,15 @@ A Content Type and its Field definitions can be modified after creation, even if
 
 ## Fields
 
-A Field is the smallest unit of storage in the content model and the building block that all Content items consist of. Every Field belongs to a Field Type.
+A Field is the smallest unit of storage in the content model and the building block of all Content items. Every Field belongs to a Field Type.
 
-#### Field value validation
+### Field value validation
 
-The values entered in a field may undergo validation, which means the system makes sure that they are correct for the chosen Field Type and can be used without a problem.
+The values entered in a Field may undergo validation, which means the system makes sure that they are correct for the chosen Field Type and can be used without a problem.
 
 Whether validation is performed or not depends on the settings of a particular Field Type. Validation cannot be turned off for a Field if its Field Type supports it.
 
-#### Field details
+### Field details
 
 Aside from the Field Type, the Field definition in a Content Type provides the following information:
 
@@ -116,7 +108,7 @@ Aside from the Field Type, the Field definition in a Content Type provides the f
 
 **Description** – a detailed description of the Field.
 
-**Required** – a flag which indicates if the Field must have a value for the system to accept the Content item. In other words, if a Field is flagged as Required, a user will not be able to save or publish a Content item without filling in this Field.
+**Required** – a flag which indicates if the Field is required for the system to accept the Content item. In other words, if a Field is flagged as Required, a user will not be able to save or publish a Content item without filling in this Field.
 
 Note that the Required flag is in no way related to Field validation. A Field's value is validated whether the Field is set as required or not.
 

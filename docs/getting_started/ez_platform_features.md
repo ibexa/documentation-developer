@@ -26,7 +26,7 @@ eZ Platform is based on Symfony full stack and takes advantage of Symfony's bund
 
 eZ Platform is extensible at all levels, from content model to content rendering to interface.
 
-For a comprehensive discussion of all features, take a look at [the Guide to eZ Platform](../guide/guide_to_ez_platform.md).
+For a comprehensive discussion of all features, take a look at [the Guide to eZ Platform](../guide/introduction.md).
 
 ## eZ Platform Demo
 
@@ -91,4 +91,3 @@ The Admin Panel lets you manage the details of your installation, including buil
 #### Project structure
 
 You can also take a look at the way the project files are structured on the example of the Demo Bundle. See [Structuring an eZ Platform Project](../guide/best_practices.md) for more information.
-
