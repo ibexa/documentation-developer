@@ -1,8 +1,8 @@
 # Extending eZ Platform UI
 
-## Backoffice interface
+## Back-end interface
 
-The backend interface is produced by [the PlatformUI Bundle](https://github.com/ezsystems/PlatformUIBundle) which provides a JavaScript Single Page Application based on [the YUI App Framework](http://yuilibrary.com/yui/docs/app/). This application is accessible in your browser at **http://\[uri\_of\_platform\]/ez**.
+The back-end interface is produced by [PlatformUIBundle](https://github.com/ezsystems/PlatformUIBundle) which provides a JavaScript Single Page Application based on [the YUI App Framework](http://yuilibrary.com/yui/docs/app/). This interface is accessible in your browser at `http://[uri_of_platform]/ez`.
 
 ### Technical architecture
 
@@ -12,7 +12,7 @@ The PlatformUI application code is divided into different types of components:
 - **Models:** models are the main objects handled by the application, they represent our main domain objects (Content, Location, Content Type, etc.)
 - **View services:** view services act between the Application and the Views. They are configured on the routes and the main responsibility of a view service is to provide the model (or other data) to the views and to perform the operations requested by the user (removing a Content item, copying, etc.)
 - **Views:** views generate the user interface and handle the user interaction (clicking, form submitting, etc.). A view can have several sub-views which can have further sub-views themselves.
-- **Plugins:** plugins can enhance the application, the view services or the views for instance to provide additional features or to tweak the behavior of the plugged component.
+- **Plugins:** plugins can enhance the application, the view services or the views, for instance to provide additional features or to tweak the behavior of the plugged component.
 
 The following chart depicts the interaction between those components:
 
@@ -30,7 +30,7 @@ The views represent a large part of the application and each of them can be used
 
 A view used as a main view is configured at the route level to be displayed when the user navigates to that route.
 
-For instance, when reaching `/ez`, the user is redirected to the `loginForm` route (`/ez#/login`) and this route is configured in the following way in the application component:
+For instance, when reaching `/ez`, the user is redirected to the `loginForm` route (`/ez#/login`), which is configured in the following way in the application component:
 
 ```
 {
@@ -69,7 +69,7 @@ For instance, the view used to display a Location is divided into several views 
 
 ##### Side view
 
-A view can also be used as a side view. As its name suggests a side view can represent anything that is not part of the main view.
+A view can also be used as a side view. As its name suggests, a side view can represent anything that is not part of the main view.
 
 For instance, when displaying a Location, the top menu (the Navigation hub) or the left toolbar (the Discovery Bar) are side views.
 
@@ -79,21 +79,21 @@ The side views are also used for various widgets providing a service used severa
 
 #### View services
 
-The view services act between the Application and the Views for both the main views and the side views. They are responsible for providing the required data needed by a main view or a side view to be rendered. A view service will also receive the events triggered by the view to react or provide the additional data. For that, the view services receive an instance of the JavaScript REST Client.
+The view services act between the application and the views for both the main views and the side views. They are responsible for providing the required data needed by a main view or a side view to be rendered. A view service will also receive the events triggered by the view to react or provide additional data. For that, the view services receive an instance of the JavaScript REST Client.
 
 ### How are pages generated?
 
-Depending on the part of the PlatformUI Application you are using, the page may be generated in two different ways. From an end-user perspective, this is almost transparent but as a developer it is important to understand how the page is generated to be able to extend it.
+Depending on the part of the PlatformUI application you are using, the page may be generated in two different ways. From an end-user perspective, this is almost transparent but as a developer it is important to understand how the page is generated to be able to extend it.
 
-#### Browser side rendering
+#### Browser-side rendering
 
-The pages in the content part (as opposed to admin related pages) are fully rendered in the browser. For instance, when displaying a Location in PlatformUI, the corresponding view service loads the Location model and the *related* models (Content, Content Type, etc.) with the eZ Platform REST API (through the JavaScript REST Client) and gives them the LocationView to be displayed directly by this view and/or by its sub-views. If you open the browser developer tools in the network panel, you can see the REST requests needed to build the page and they only contain a JSON structure.
+The pages in the content part (as opposed to admin-related pages) are fully rendered in the browser. For instance, when displaying a Location in PlatformUI, the corresponding view service loads the Location model and the *related* models (Content, Content Type, etc.) with the eZ Platform REST API (through the JavaScript REST Client) and gives them the LocationView to be displayed directly by this view and/or by its sub-views. If you open the browser developer tools in the network panel, you can see the REST requests needed to build the page and they only contain a JSON structure.
 
 ![Network panel with REST requests](img/network_panel.png)
 
-#### Server side rendering
+#### Server-side rendering
 
-The pages in the admin are build in a more traditional way as they are partly rendered server side. For those pages, the view service fetches one (or several) HTML fragment(s) from the server. This HTML fragment follows a very simple structure and can be generated by any means on the server and of course, in PlatformUI this is done in a quite standard Symfony controller. By opening the browser developer tools in the network panel you can see the requests needed to build the section list page.
+The pages in the admin are built in a more traditional way as they are partly rendered server side. For those pages, the view service fetches one (or several) HTML fragment(s) from the server. This HTML fragment follows a very simple structure and can be generated by any means on the server. In PlatformUI this is done in a quite standard Symfony controller. By opening the browser developer tools in the network panel you can see the requests needed to build the section list page.
 
 ![Network panel](img/network_panel2.png)
 
@@ -101,7 +101,7 @@ The pages in the admin are build in a more traditional way as they are partly re
 
 #### Navigation hub
 
-The Navigation Hub is a side view displaying the top menu.
+The Navigation hub is a side view displaying the top menu.
 
 ![Navigation hub](img/nav_hub.png)
 
@@ -120,9 +120,9 @@ Bar views provide a set of potential actions for the user.
 
 ![Location view](img/locationview2.png)
 
-When navigating in the Content zone, the **Discovery Bar View** allows you to discover content while the **Action Bar View** on the right allows you to act on the Content item being viewed (edit, move, copy, etc.).
+When navigating in the Content zone, the **Discovery Bar View** enables you to browse through content while the **Action Bar View** on the right enables you to act on the Content item being viewed (edit, move, copy, etc.).
 
-When editing a Content item, the **Edit Action Bar View** on the right allows you to act on the Content item being edited.
+When editing a Content item, the **Edit Action Bar View** on the right enables you to act on the Content item being edited.
 
 #### Universal Discovery Widget
 
@@ -134,20 +134,20 @@ The Universal Discovery Widget is a side view triggered when the user needs to p
 
 eZ Platform contains a Dashboard which shows the user the most relevant Content items divided into blocks for a quick overview.
 
-Aside from the built-in blocks you can extend the Dashboard with new ones and remove existing ones.
+You can remove existing built-in blocks from the Dashboard and extend it with new ones.
 
-It can be done in four steps:
+Adding Dashboard blocks can be done in four steps:
 
-1. Create a block view
-1. Create a template
-1. Create a plugin for the view
-1. Add modules to configuration
+1. [Create a block view](#create-a-block-view)
+1. [Create a template](#create-a-template)
+1. [Create a plugin for the view](#create-a-plugin-for-the-view)
+1. [Add modules to configuration](#add-modules-to-configuration)
 
 #### Create a block view
 
-The first step is creating a view that will be added to the Dashboard. You can do it based on the Dashboard Block Asynchronous View. Thanks to this you only need to provide the data to display in the table.
+The first step is creating a view that will be added to the Dashboard. You can do it based on the Dashboard Block Asynchronous View. Then you only provide the data to display in the table.
 
-Using the Dashboard Block Asynchronous View you need to set an `identifier` of the block. The asynchronous view fires the `_fireLoadDataEvent` method to get the data. The data must find itself in an array with the `items` attribute.
+Using the Dashboard Block Asynchronous View you set an `identifier` of the block. The asynchronous view fires the `_fireLoadDataEvent` method to get the data. The data must find itself in an array with the `items` attribute.
 
 If you want to create a completely different view, without a table, you can use the Dashboard Block Base View.
 
@@ -205,7 +205,7 @@ If you don't intend to change the structure of the item, there's no need to over
 
 #### Create a template
 
-Now you have to create a template for the view, for example:
+Now create a template for the view, for example:
 
 ``` html
 <h2 class="ez-block-title">Images</h2>
@@ -250,7 +250,7 @@ You may notice that the template is prepared to handle the `loadingError`, becau
 
 #### Create a plugin for the view
 
-The next step is adding the view and the template to the Dashboard. To do this, you need to create a plugin for the Dashboard view.
+The next step is adding the view and the template to the Dashboard. To do this, create a plugin for the Dashboard view.
 
 In the initializer you can use the public `addBlock` method from the Dashboard view. In this method you only have to provide the instance of your view. Here you also set some properties for your new view: `bubbleTargets` to make sure that the events will bubble up to the other views, and `priority` where you can set the order of blocks in the Dashboard (higher number goes first).
 
@@ -286,11 +286,11 @@ YUI.add('ezs-dashboardblocksplugin', function (Y) {
 });
 ```
 
-If for whatever reason you want to remove a block, use another public method, `removeBlock`, and provide it with just the block identifier.
+If you want to remove a block, use another public method, `removeBlock`, and provide it with just the block identifier.
 
 #### Add modules to configuration
 
-The last thing you have to do is add new modules to the yml configuration:
+The last thing to do is add the new modules to the yml configuration:
 
 ``` yaml
 ezs-dashboardblocksplugin:
@@ -315,294 +315,245 @@ In this example the plugin is added as a dependency of the Dashboard block view,
 
 After this configuration is complete the Dashboard should display the new block.
 
-## Extending the Landing Page (Enterprise)
+!!! enterprise
 
-### Extending the Form Builder
+    ## Extending the Form Builder
 
-EZ ENTERPRISE
+    Form Builder Bundle comes a number of types of fields, but it was designed to be easy to extend by adding new ones.
 
-Form Builder Bundle currently comes with three basic types of fields: Single Line Text, Paragraph Text and Email.
+    ### Field definitions
 
-It was designed to be easy to extend by adding new types of fields.
+    Default field definitions are available in `Resources\config\default_fields.yml`.
 
-#### Field definitions
+    #### Field definition structure
 
-Default field definitions are available in `Resources\config\default_fields.yml`.
+    Field definitions are contained under the `fields` key. Each definition has its own key, e.g. `single_line_text`. Each definition must contain two sections:
 
-##### Field definition structure
+    - `identifier` - name of the definition used on the front end
+    - `displayName` - name displayed in the Page mode editor in the `fields` tab
 
-Field definitions are contained under the `fields` key. Each definition has its own key, e.g. `single_line_text`. Each definition must contain two sections:
+    The definition can also contain the following optional sections:
 
-- `identifier` - name of the definition used on the front end
-- `displayName` - name displayed in the Page mode editor in the `fields` tab
+    - `validators` - defines validators that the field will use. This must contain the validator's identifier and the values that will be checked during validation, for example:
 
-The definition can also contain the following optional sections:
+    ``` yaml
+            validators:
+                - { identifier: required, value: 1 }
+    ```
 
-- `validators` - defines validators that the field will use. This must contain the validator's identifier and the values that will be checked during validation, for example:
+    - `attributes` - contains the field's attributes. You can place here custom attributes for new fields, like in <https://github.com/ezsystems/ezstudio-form-builder/blob/master/bundle/Resources/config/default_fields.yml#L33>. There are also [four default attributes](https://github.com/ezsystems/ezstudio-form-builder/blob/master/lib/Core/Definition/FieldDefinition.php#L16-L19) that are used for every field: `LABEL_NAME`, `LABEL_HELP_TEXT`, `LABEL_ADMIN_LABEL` and `LABEL_PLACEHOLDER_TEXT`. If you wish, you can override them in your configuration.
 
-``` yaml
-        validators:
-            - { identifier: required, value: 1 }
-```
+    - `views` - provides a list of views that will be used to display the field. At least one view must be defined, with the keys `name`, `thumbnail` and `template`, for example:
 
-- `attributes` - contains the field's attributes. You can place here custom attributes for new fields, like in <https://github.com/ezsystems/ezstudio-form-builder/blob/master/bundle/Resources/config/default_fields.yml#L33>. There are also [four default attributes](https://github.com/ezsystems/ezstudio-form-builder/blob/master/lib/Core/Definition/FieldDefinition.php#L16-L19) that are used for every field: `LABEL_NAME`, `LABEL_HELP_TEXT`, `LABEL_ADMIN_LABEL` and `LABEL_PLACEHOLDER_TEXT`. If you wish, you can override them in your configuration.
+    ``` yaml
+            views:
+                basic:
+                    name: Form Test Line Text Basic
+                    thumbnail: /bundles/ezsystemsformbuilder/images/thumbnails/single_line_text/basic.svg
+                    template: EzSystemsFormBuilderBundle:fields:single_line_text/basic.html.twig
+    ```
 
-- `views` - provides a list of views that will be used to display the field. At least one view must be defined, with the keys `name`, `thumbnail` and `template`, for example:
+    #### Adding a new field definition
 
-``` yaml
-        views:
-            basic:
-                name: Form Test Line Text Basic
-                thumbnail: /bundles/ezsystemsformbuilder/images/thumbnails/single_line_text/basic.svg
-                template: EzSystemsFormBuilderBundle:fields:single_line_text/basic.html.twig
-```
+    This procedure assumes you are creating a separate Bundle to house your new type of form field.
 
-##### Adding a new field definition
+    ##### 1. Create a YAML file with field definition
 
-This procedure assumes you are creating a separate Bundle to house your new type of form field.
+    Create a YAML configuration file, e.g. `Resources\config\extended_fields.yml`, with the following code:
 
-###### 1. Create a YAML file with field definition
+    ``` yaml
+    fields:
+        test_text:
+            identifier: testLineText
+            displayName: 'Test Line Text'
+            validators:
+                - { identifier: required, value: 1 }
+            attributes:
+                name: 'test line attribute'
+            views:
+                basic:
+                    name: Form Test Line Text Basic
+                    thumbnail: /bundles/ezsystemsformbuilder/images/thumbnails/single_line_text/basic.svg
+                    template: EzSystemsFormBuilderBundle:fields:single_line_text/basic.html.twig
+    ```
 
-Create a YAML configuration file, e.g. `Resources\config\extended_fields.yml`, with the following code:
+    You can also provide additional options using the `options:` key. For example, you can make sure that the data entered in a field will not to be stored in the database, like for example in the [built-in Captcha field](https://github.com/ezsystems/ezstudio-form-builder/blob/5fd44dc5419a2e969f2a17acbda794f321e5c946/bundle/Resources/config/default_fields.yml#L134).
 
-``` yaml
-fields:
-    test_text:
-        identifier: testLineText
-        displayName: 'Test Line Text'
-        validators:
-            - { identifier: required, value: 1 }
-        attributes:
-            name: 'test line attribute'
-        views:
-            basic:
-                name: Form Test Line Text Basic
-                thumbnail: /bundles/ezsystemsformbuilder/images/thumbnails/single_line_text/basic.svg
-                template: EzSystemsFormBuilderBundle:fields:single_line_text/basic.html.twig
-```
+    When creating a new template for the field definition, remember to add the mandatory `ezform-field` class and `field.id` as shown below: 
 
-You can also provide additional options using the `options:` key. For example, you can make sure that the data entered in a field will not to be stored in the database, like for example in the [built-in Captcha field](https://github.com/ezsystems/ezstudio-form-builder/blob/5fd44dc5419a2e969f2a17acbda794f321e5c946/bundle/Resources/config/default_fields.yml#L134).
+    ``` html
+    {% extends 'EzSystemsFormBuilderBundle:fields:field.html.twig' %}
+    {% block input %}
+        <input type="text" class="ezform-field ..." id="{{ field.id }}" placeholder="{{ field.placeholderText }}">
+    {% endblock %}
+    ```
 
-When creating a new template for the field definition, remember to add mandatory `ezform-field` class and `field.id` as shown below: 
+    ##### 2. Modify the `DependencyInjection\TestExtension.php` class
 
-``` html
-{% extends 'EzSystemsFormBuilderBundle:fields:field.html.twig' %}
-{% block input %}
-    <input type="text" class="ezform-field ..." id="{{ field.id }}" placeholder="{{ field.placeholderText }}">
-{% endblock %}
-```
+    The class must implement the` PrependExtensionInterface` interface:
 
-###### 2. Modify the `DependencyInjection\TestExtension.php` class
+    ``` php
+    class TestExtension implements PrependExtensionInterface
+    ```
 
-The class must implement the` PrependExtensionInterface` interface:
+    In the `prepend` method in `TestExtension.php` add the following lines at the end:
 
-``` php
-class TestExtension implements PrependExtensionInterface
-```
-
-In the `prepend` method in `TestExtension.php` add the following lines at the end:
-
-``` php
-public function prepend(ContainerBuilder $container)
-    {
-    ...
-        $configFile = __DIR__ . '/../Resources/config/extended_fields.yml';
-        $config = Yaml::parse(file_get_contents($configFile));
-        $container->loadFromExtension('ez_systems_form_builder', $config);
-        $container->addResource(new FileResource($configFile));    
-    }
-```
-
-#### Validators
-
-##### Creating your own validators
-
-You can create your own validators by reproducing the following configuration:
-
-###### Validator configuration
-
-A validator implements the `EzSystems\FormBuilder\SPI\ValidatorInterface.php` interface and extends the abstract class `EzSystems\FormBuilder\Core\Validator\Validator.php`.
-
-The interface requires the implementation of the following methods:
-
-- `validate`
-- `getLabel`
-- `getErrorMessage`
-- `setLimitation`
-- `getValueType`
-
-The `validate` method is the one that contains the logic for the validation. It returns `true` when validation is successful, or `false` when the data does not validate:
-
-``` php
-    /**
-     * @return bool
-     */
-    public function validate($value);
-```
-
-The `getLabel` method returns a string with the name of the validator that will be used in the editor:
-
-``` php
-    /**
-     * @return string
-     */
-    public function getLabel();
-```
-
-The `getErrorMessage` method returns error message(s) to appear when the `validate` method returns `false`:
-
-``` php
-    /**
-     * @return array
-     */
-    public function getErrorMessage();
-```
-
-The `setLimitation` method allows the configuration of limitations. Its default implementation is contained in the `Validator` abstract class:
-
-``` php
-    /**
-     * @param mixed $limitation
-     */
-    public function setLimitation($limitation);
-```
-
-The `getValueType` method returns the name of the checked value type:
-
-``` php
-    /**
-     * @return string
-     */
-    public function getValueType();
-```
-
-Currently the abstract class `Validator` has three value types (defined in `Core\Validator\Validator.php`):
-
-``` php
-    const TYPE_INTEGER = 'integer';
-    const TYPE_STRING = 'string';
-    const TYPE_BOOL = 'bool';
-```
-
-The validator must be tagged as `form_builder.field_validator`. Due to this the `Resources\config\validator_services.yml` file contains two entries, one in the `parameters` section:
-
-``` yaml
-form_builder.validator.example.class: EzSystems\FormBuilder\Core\Validator\ExampleValidator
-```
-
-and one in the `services` section:
-
-``` yaml
-form_builder.validator.example:
-        class: '%form_builder.validator.example.class%'
-        tags:
-            - { name: form_builder.field_validator, alias: example }
-```
-
-#### Signal slots
-
-Whenever a form is submitted and stored in a database, `lib\Core\SignalSlot\Signal\FormSubmit` emits signal in a `submitForm` service. You can create your own listeners, called Signal slots, to capture the FormSubmit signal.
-
-Below you can find an example of a custom Signal slot. It saves submission to a text file. 
-
-``` php
-<?php
-namespace AppBundle\SignalSlot;
-use Symfony\Component\Filesystem\Filesystem;
-use eZ\Publish\Core\SignalSlot\Slot;
-use eZ\Publish\Core\SignalSlot\Signal;
-class HandleSubmission extends Slot
-{
-    /**
-     * Receive the given $signal and react on it.
-     *
-     * @param EzSystems\FormBuilder\Core\SignalSlot\Signal\FormSubmit $signal
-     */
-    public function receive(Signal $signal)
-    {
-        $fs = new Filesystem();
-        $formId = $signal->formId;
-        $submission = $signal->submission;
-        $created = $submission->created->format("Y-m-d.H:i:s");
-        $dataRows = [];
-        foreach ($submission->fields as $field) {
-            $dataRows[] = "{$field->label}: {$field->value}";
+    ``` php
+    public function prepend(ContainerBuilder $container)
+        {
+        ...
+            $configFile = __DIR__ . '/../Resources/config/extended_fields.yml';
+            $config = Yaml::parse(file_get_contents($configFile));
+            $container->loadFromExtension('ez_systems_form_builder', $config);
+            $container->addResource(new FileResource($configFile));    
         }
-        $fs->mkdir("forms/{$formId}");
-        $fs->dumpFile("forms/{$formId}/{$created}.txt", implode("\n", $dataRows));
+    ```
+
+    ### Validators
+
+    #### Creating your own validators
+
+    You can create your own validators by reproducing the following configuration:
+
+    ##### Validator configuration
+
+    A validator implements the `EzSystems\FormBuilder\SPI\ValidatorInterface.php` interface and extends the abstract class `EzSystems\FormBuilder\Core\Validator\Validator.php`.
+
+    The interface requires the implementation of the following methods:
+
+    |Method|Returns|Parameters|Description|
+    |---|---|---|---|
+    |`validate`|bool|$value|Contains the logic for the validation. It returns `true` when validation is successful, or `false` when the data does not validate|
+    |`getLabel`|string||Returns a string with the name of the validator that will be used in the editor
+    |`getErrorMessage`|array||Returns error message(s) to appear when the `validate` method returns `false`
+    |`setLimitation`|mixed $limitation|$limitation|Allows the configuration of limitations. Its default implementation is contained in the `Validator` abstract class
+    |`getValueType`|string||Returns the name of the checked value type|
+
+    Currently the abstract class `Validator` has three value types (defined in `Core\Validator\Validator.php`):
+
+    ``` php
+        const TYPE_INTEGER = 'integer';
+        const TYPE_STRING = 'string';
+        const TYPE_BOOL = 'bool';
+    ```
+
+    The validator must be tagged as `form_builder.field_validator`. Due to this the `Resources\config\validator_services.yml` file contains two entries, one in the `parameters` section:
+
+    ``` yaml
+    form_builder.validator.example.class: EzSystems\FormBuilder\Core\Validator\ExampleValidator
+    ```
+
+    and one in the `services` section:
+
+    ``` yaml
+    form_builder.validator.example:
+            class: '%form_builder.validator.example.class%'
+            tags:
+                - { name: form_builder.field_validator, alias: example }
+    ```
+
+    ### Signal slots
+
+    Whenever a form is submitted and stored in a database, `lib\Core\SignalSlot\Signal\FormSubmit` emits a signal in a `submitForm` service. You can create your own listeners, called Signal slots, to capture the FormSubmit signal.
+
+    Below you can find an example of a custom Signal slot. It saves submission to a text file. 
+
+    ``` php
+    <?php
+    namespace AppBundle\SignalSlot;
+    use Symfony\Component\Filesystem\Filesystem;
+    use eZ\Publish\Core\SignalSlot\Slot;
+    use eZ\Publish\Core\SignalSlot\Signal;
+    class HandleSubmission extends Slot
+    {
+        /**
+         * Receive the given $signal and react on it.
+         *
+         * @param EzSystems\FormBuilder\Core\SignalSlot\Signal\FormSubmit $signal
+         */
+        public function receive(Signal $signal)
+        {
+            $fs = new Filesystem();
+            $formId = $signal->formId;
+            $submission = $signal->submission;
+            $created = $submission->created->format("Y-m-d.H:i:s");
+            $dataRows = [];
+            foreach ($submission->fields as $field) {
+                $dataRows[] = "{$field->label}: {$field->value}";
+            }
+            $fs->mkdir("forms/{$formId}");
+            $fs->dumpFile("forms/{$formId}/{$created}.txt", implode("\n", $dataRows));
+        }
     }
-}
-```
+    ```
 
-It has to be registered as a tagged Symfony service, like this:
+    It has to be registered as a tagged Symfony service, like this:
 
-``` yaml
-    app_bundle.handle_submission:
-        class: "AppBundle\SignalSlot\HandleSubmission"
-        tags:
-            - { name: ezpublish.api.slot, signal: '\EzSystems\FormBuilder\Core\SignalSlot\Signal\FormSubmit' }
- 
-```
+    ``` yaml
+        app_bundle.handle_submission:
+            class: "AppBundle\SignalSlot\HandleSubmission"
+            tags:
+                - { name: ezpublish.api.slot, signal: '\EzSystems\FormBuilder\Core\SignalSlot\Signal\FormSubmit' }
+     
+    ```
 
-#### Other Form Builder fields
+    ### Other Form Builder fields
 
-The following form Builder fields require additional configuration.
+    The following form Builder fields require additional configuration.
 
-##### Date field
+    #### Date field
 
-To make use of the Date field you need to add the necessary assets. The assets should be added in page head with the following code:
+    To make use of a datepicker in the Date field you need to add the necessary assets. The assets should be added in page head with the following code:
 
-``` html
-{% javascripts
-    ...
-    'bundles/ezsystemsformbuilder/js/vendors/*/*.js'
-%}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
-{% endjavascripts %}
-```
+    ``` html
+    {% javascripts
+        ...
+        'bundles/ezsystemsformbuilder/js/vendors/*/*.js'
+    %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    ```
 
-``` html
-{% stylesheets filter='cssrewrite'
-    ...
-    'bundles/ezsystemsformbuilder/css/vendors/*/*.css'
-%}
-    <link rel="stylesheet" type="text/css" href="{{ asset_url }}">
-{% endstylesheets %}
-```
+    ``` html
+    {% stylesheets filter='cssrewrite'
+        ...
+        'bundles/ezsystemsformbuilder/css/vendors/*/*.css'
+    %}
+        <link rel="stylesheet" type="text/css" href="{{ asset_url }}">
+    {% endstylesheets %}
+    ```
 
-###### Adding new date format
+    ##### Adding new date format
 
-If you wish to add a new date format, the `alias` in the date field config must follow this pattern:
+    If you wish to add a new date format, the `alias` in the date field config must follow this pattern:
 
-`d` or `D` - day of the month (1-2 digits)
-`dd` or `DD` - day of the month (2 digits)
-`m` or `M` - month of the year (1-2 digits)
-`mm` or `MM` - month (2 digits)
-`yy` or `YY` - year (2 digits)
-`yyyy` or `YYYY` - year (4 digits)
+    `d` or `D` - day of the month (1-2 digits)
+    `dd` or `DD` - day of the month (2 digits)
+    `m` or `M` - month of the year (1-2 digits)
+    `mm` or `MM` - month (2 digits)
+    `yy` or `YY` - year (2 digits)
+    `yyyy` or `YYYY` - year (4 digits)
 
-for example:
+    for example:
 
-`d-m-yyyy` - `16-1-2017`
-`mm/dd/yy` - `01/16/17`
+    `d-m-yyyy` - `16-1-2017`
+    `mm/dd/yy` - `01/16/17`
 
-## Further extensibility
+## Custom Content Type icons
 
-### Content Type icons
+The Content Type to which a Content item belongs is represented graphically using an icon near the Content item name. Essentially, the Content Types are project-specific so the icons can be easily configured and extended by integrators.
 
-A Content item can be treated as an instance of a Content Type. The type of a Content item is very important information to provide to the user. The Content Type to which a Content item belongs is represented graphically using an icon near the Content item name. Essentially, the Content Types are project-specific so the icons can be easily configured and extended by integrators.
-
-##### Font icons + CSS
+### Font icons + CSS
 
 Icons in the PlatformUI interface are provided by an icon font. For Content Types, the idea is to expand that concept so that while generating the interface, we end up with a code similar to:
 
 ``` html
- <h1 class="ez-contenttype-icon ez-contenttype-icon-folder">Folder Name</h1>
+<h1 class="ez-contenttype-icon ez-contenttype-icon-folder">Folder Name</h1>
 ```
 
 With such classes, the `h1` is specified to display a Content Type icon. The class `ez-contenttype-icon` makes sure the element is styled for that and gets the default Content Type icon. The second class is specific to the Content Type based on its identifier and if it's defined in one of the CSS files, the element will get the custom Content Type icon defined there.
 
-#### Adding new Content Type icons
+### Adding new Content Type icons
 
 The extensibility of Content Type icons is tackled differently depending on the use case, but it relies on the ability to embed a custom CSS file in PlatformUI with `css.yml`.
 
@@ -624,9 +575,9 @@ To prevent the need to configure/extend the system, we provide several pre-confi
 
 There are three ways of choosing Content Type icons:
 
-##### Pick an icon for a custom Content Type from existing icons
+#### Pick an icon for a custom Content Type from existing icons
 
-In such a case you need to pick the icon code. For that, [the icomoon application](https://icomoon.io/app/) can be used until the UI guidelines are up-to-date and reference the available icons. To ease that process and the readability of the code, we'll use ligatures in the font icon so that the CSS code for a custom Content Type could look like:
+In such a case you need to pick the icon code using an icon font. In these examples we use [the Icomoon application](https://icomoon.io/app/). To ease that process and the readability of the code, we'll use ligatures in the font icon so that the CSS code for a custom Content Type could look like:
 
 ``` css
  /* in a custom CSS file included with `css.yml` */
@@ -636,9 +587,9 @@ In such a case you need to pick the icon code. For that, [the icomoon applicatio
 }
 ```
 
-##### Add custom icons
+#### Add custom icons
 
-If the icons we provide do not fit a custom Content Type, then a new custom icon font has to be added. To generate the icon, the Icomoon App can be used (or any other tool). Then, using a custom CSS stylesheet, this font can be included and the `ez-contenttype-icon-<content type identifier>` can be configured to use that font.
+If the icons we provide do not fit a custom Content Type, then a new custom icon font has to be added. To generate the icon, the Icomoon app can be used (or another icon font generation tool). Then, using a custom CSS stylesheet, this font can be included and the `ez-contenttype-icon-<content type identifier>` can be configured to use that font.
 
 Example:
 
@@ -661,7 +612,7 @@ Example:
 /* repeated as many times as needed for each custom Content Type */
 ```
 
-##### Completely override the icon set
+#### Completely override the icon set
 
 The solution for this use case is very close to the previous one. A custom icon font will have to be produced, loaded with a custom CSS file, and then the `ez-contenttype-icon` style has to be changed to use that new font.
 
@@ -687,7 +638,7 @@ Example:
 }
 ```
 
-### Custom Javascript
+## Custom Javascript
 
 Custom Javascript can be added to PlatformUI using the following configuration block:
 
