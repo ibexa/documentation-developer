@@ -70,7 +70,7 @@ While no longer bundled, the XmlText Field Type still exists and is needed to p
 
 !!! note
 
-    As of v1.3, be aware this Field Type now uses the [Content View system] introduced in eZ Platform 1.0, so make sure you adapt custom templates and override rules if you plan to use this for rendering content _(in Legacy Bridge setup)_.
+    As of v1.3, be aware this Field Type now uses the Content View system introduced in eZ Platform 1.0, so make sure you adapt custom templates and override rules if you plan to use this for rendering content _(in Legacy Bridge setup)_.
 
 
 ##### 2.3. Config
@@ -82,7 +82,7 @@ To move over your own custom configurations, follow the conventions below and ma
 - `<old-ez-root>/ezpublish/config/config.yml =>  <new-ez-root>/app/config/config.yml`
     -  *For system/framework config, and for defining global db, cache, search settings.*
 - `<old-ez-root>/ezpublish/config/ezpublish.yml => <new-ez-root>/app/config/ezplatform.yml`
-    -  *For site access, site groups and repository settings.*
+    -  *For SiteAccess, site groups and repository settings.*
 
 !!! note "Changes to repository configuration"
 
@@ -91,7 +91,7 @@ To move over your own custom configurations, follow the conventions below and ma
     ``` yaml
     # Default ezplatform.yml repositories configuration with comments
     ezpublish:
-        # Repositories configuration, setup default repository to support solr if enabled
+        # Repositories configuration, set up default repository to support solr if enabled
         repositories:
             default:
                 # For storage engine use kernel default (current LegacyStorageEngine)
@@ -102,9 +102,9 @@ To move over your own custom configurations, follow the conventions below and ma
                     connection: default
     ```
 
-!!! note "Make sure to adapt siteaccess names"
+!!! note "Make sure to adapt SiteAccess names"
 
-    In the default configurations in **ezplatform.yml** you'll find existing siteaccesses like **site**, and depending on installation perhaps a few others, all under site group **site\_group**. Make sure to change those to what you had in **ezpublish.yml** to avoid issues with having to login to your website, given user/login policy rules will need to be updated if you change names of siteaccess as part of the upgrade.
+    In the default configurations in **ezplatform.yml** you'll find existing SiteAccesses like `site`, and depending on installation perhaps a few others, all under a site group called `site\_group`. Make sure to change those to what you had in **ezpublish.yml** to avoid issues with having to log in to your website, given user/login policy rules will need to be updated if you change names of SiteAccess as part of the upgrade.
 
 ##### 2.4. Bundles
 
@@ -137,7 +137,7 @@ The easiest way to upgrade the distribution files is to copy the directories tha
     - *Do NOT include built-in designs: admin, base, standard or admin2*
 - `<old-ez-root>/ezpublish_legacy/settings/siteaccess/<your_siteaccesses>` => `<new-ez-root>/src/legacy_files/settings/siteaccess/<your_siteaccesses>`
 - `<old-ez-root>/ezpublish_legacy/settings/override/*` => `<new-ez-root>/src/legacy_files/settings/override/*`
-- Other folders to move over *(or potentially setup symlinks for)* if applicable:
+- Other folders to move over *(or potentially set up symlinks for)* if applicable:
     - ezpublish_legacy/var/storage/packages
     - ezpublish_legacy/extension/\* *(do NOT include the built-in / composer provided ones, like: ezflow, ezjscore, ezoe, ezodf, ezie, ezmultiupload, ezmbpaex, ez_network, ezprestapiprovider, ezscriptmonitor, ezsi, ezfind)*
     - ezpublish_legacy/config.php and ezpublish_legacy/config.cluster.php
@@ -154,7 +154,7 @@ Binary files can simply be copied from the old to the new installation:
 
 !!! note
 
-    In the eZ Publish Platform 5.x install `web/var` is a symlink to `ezpublish_legacy/var`, so if you can't find it in path above you can instead copy the storage files to the similar `ezpublish_legacy/var[/<site_name>]/storage` path.
+    In the eZ Publish Platform 5.x installation `web/var` is a symlink to `ezpublish_legacy/var`, so if you can't find it in path above you can instead copy the storage files to the similar `ezpublish_legacy/var[/<site_name>]/storage` path.
 
 #####  2.7 Re-apply permissions and update composer
 
@@ -186,7 +186,7 @@ Import to your database the changes provided in one of the following files. It's
 
 ##### 3.2. Once you are ready to migrate content to Platform Field Types
 
-Steps here should only be done once you are ready to move away from legacy and Legacy Bridge, as the following Field Types are not supported by legacy. In other words, content you have migrated will not be editable in legacy admin interface anymore, but rather in the more modern eZ Platform backend UI, allowing you to take full advantage of what the Platform has to offer.
+Steps here should only be done once you are ready to move away from legacy and Legacy Bridge, as the following Field Types are not supported by legacy. In other words, content you have migrated will not be editable in legacy admin interface anymore, but rather in the more modern eZ Platform back-end UI, allowing you to take full advantage of what the Platform has to offer.
 
 ###### 3.2.1 Migrate XmlText content to RichText
 
@@ -198,15 +198,15 @@ The command example suggests using the verbose flag. This is optional, but recom
 
 ###### 3.2.2 Migrate Page field to Landing Page (eZ Enterprise only)
 
-**If** you use Page field (ezflow) and an eZ Enterprise subscription, and are ready to migrate your eZ Publish Flow content to the eZ Enterprise Landing Page format. You can use a script to migrate your Page content to Landing Page, to start using a pure eZ Enterprise setup. See [Migrating legacy Page field (ezflow) to Landing Page (Enterprise)](#migrating-legacy-page-field-ezflow-to-landing-page-enterprise) for more information.
+**If** you use Page field (ezflow) and an eZ Enterprise subscription, and are ready to migrate your eZ Publish Flow content to the eZ Enterprise Landing Page forma, you can use a script to migrate your Page content to Landing Page, to start using a pure eZ Enterprise setup. See [Migrating legacy Page field (ezflow) to Landing Page (Enterprise)](#migrating-legacy-page-field-ezflow-to-landing-page-enterprise) for more information.
 
 ###### 3.2.3 Add other eZ Enterprise schemas (eZ Enterprise only)
 
-For date based publisher & form builder, there are additional tables, you can import them to your database using the following sql files:
+For date-based publisher and form builder, there are additional tables, you can import them to your database using the following sql files:
 `<new-ez-root>/vendor/ezsystems/date-based-publisher/bundle/Resources/install/datebasedpublisher_scheduled_version.sql`
-`<new-ez-root>/vendor/ezsystems/ezstudio-form-builder/bundle/Resources/install/form_builder.sql
+`<new-ez-root>/vendor/ezsystems/ezstudio-form-builder/bundle/Resources/install/form_builder.sql`
 
-### Step 4: Re-configure web server & proxy
+### Step 4: Re-configure web server and proxy
 
 #### Varnish *(optional)*
 
@@ -220,7 +220,7 @@ As was the case starting 5.4, one notable change is that `SetEnvIf` is now use
 
 ### Step 5: Link assets
 
-Assets from the various bundles need to be made available for the webserver through the web/ document root, execute the following commands from `<new-ez-root>`:
+Assets from the various bundles need to be made available for the webserver through the web/ document root. Execute the following commands from `<new-ez-root>`:
 
 ``` bash
 php app/console assets:install --env=prod --symlink
@@ -231,7 +231,7 @@ php app/console assetic:dump --env=prod
 
 ##### Unstyled login screen after upgrade
 
-It is possible that after the upgrade your admin screen will be unstyled. This may happen because the new siteaccess will not be available in the database. You can fix it by editing the permissions for the Anonymous user. Go to Roles in the Admin Panel and edit the Limitations of the Anonymous user's user/login policy. Add all siteaccesses to the Limitation, save, and clear the browser cache. The login screen should now show proper styling.
+It is possible that after the upgrade your admin screen will be unstyled. This may happen because the new SiteAccess will not be available in the database. You can fix it by editing the permissions for the Anonymous user. Go to Roles in the Admin Panel and edit the Limitations of the Anonymous user's user/login policy. Add all SiteAccesses to the Limitation, save, and clear the browser cache. The login screen should now show proper styling.
 
 ##### Translating URLs
 
@@ -331,6 +331,3 @@ At this point you can already view the initial effects of the migration, but the
 The `MigrationBundle` generates placeholders for layouts in the form of frames with a data dump.
 
 For blocks that could not be mapped to existing Landing Page blocks, it will also generate PHP file templates that you need to fill with your own business logic.
-
- 
- 
