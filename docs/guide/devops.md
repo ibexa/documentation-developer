@@ -53,7 +53,7 @@ Logging in eZ Platform consists of two parts, several debug systems that integra
 
 #### Debugging in dev environment
 
-When using the Symfony dev [environment](environments.md), the system out of the box tracks additional metrics for you to be able to debug issues, this includes [Stash](http://stash.tedivm.com/) cache use *(done by [StashBundle](https://github.com/tedivm/TedivmStashBundle))*, and a [persistence cache](repository.md#persistence-cache-configuration) use.
+When using the Symfony dev [environment](environments.md), the system out of the box tracks additional metrics for you to be able to debug issues, this includes Symfony cache use, and a [persistence cache](repository.md#persistence-cache-configuration) use.
 
 ##### Reducing memory use
 
@@ -61,18 +61,10 @@ When using the Symfony dev [environment](environments.md), the system out of the
 
     For long running scripts, instead head over to [Executing long-running console commands](../cookbook/executing_long_running_console_commands.md) for some much more relevant info.
 
-If you are running out of memory and don't need to keep track of cache hits and misses. Then StashBundle tracking, represented by the `stash.tracking` setting, and persistence cache logging, represented by the setting `parameters.ezpublish.spi.persistence.cache.persistenceLogger.enableCallLogging`, can optionally be disabled.
+If you are running out of memory and don't need to keep track of cache hits and misses, then persistence cache logging, represented by the setting `parameters.ezpublish.spi.persistence.cache.persistenceLogger.enableCallLogging`, can optionally be disabled.
 
 ``` yaml
 # config_dev.yml
-stash:
-    tracking: false                  # Default is true in dev
-    tracking_values: false           # Default is false in dev, to only track cache keys not values
-    caches:
-        default:
-            inMemory: false          # Default is true, but this uses a lot of php memory
-            registerDoctrineAdapter: false
-
 parameters:
     ezpublish.spi.persistence.cache.persistenceLogger.enableCallLogging: false
 ```
