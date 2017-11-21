@@ -15,7 +15,7 @@ eZ Platform comes with a collection of Field Types that can be used to build pow
 | [Author](#author-field-type) | Stores a list of authors, each consisting of author name and author email. | No | Yes |
 | [BinaryFile](#binaryfield-field-type) | Stores a file.| Yes | Yes |
 | [Checkbox](#checkbox-field-type) | Stores a boolean value. | Yes | Yes |
-| [Country](#country-field-type) | Stores country names as a string. | Yes[^1^](#1) | Yes |
+| [Country](#country-field-type) | Stores country names as a string. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
 | [DateAndTime](#dateandtime-field-type) | Stores a full date including time information. | Yes | Yes |
 | [Date](#date-field-type) | Stores date information. | Yes | Yes  |
 | [EmailAddress](#emailaddress-field-type) | Validates and stores an email address. | Yes  | Yes  |
@@ -23,25 +23,25 @@ eZ Platform comes with a collection of Field Types that can be used to build pow
 | [Image](#image-field-type) | Validates and stores an image. | No | Yes |
 | [Integer](#integer-field-type) | Validates and stores an integer value. | Yes | Yes |
 | [ISBN](#isbn-field-type) | Handles International Standard Book Number (ISBN) in 10-digit or 13-digit format.  | Yes | Yes |
-| [Keyword](#keyword-field-type) | Stores keywords. | Yes[^1^](#1) | Yes |
+| [Keyword](#keyword-field-type) | Stores keywords. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
 | [Landing Page](#landing-page-field-type) | Stores a Landing Page with a layout consisting of multiple zones. | N/A | N/A |
 | [MapLocation](#maplocation-field-type) | Stores map coordinates. | Yes, with MapLocationDistance criterion | Yes |
 | [Media](#media-field-type) | Validates and stores a media file. | No | Yes |
 | [Null](#null-field-type) | Used as fallback for missing Field Types and for testing purposes. | N/A | N/A |
-| [Rating] | No longer supported. |  |  |
+| [Rating](#rating-field-type) | No longer supported. |  |  |
 | [Relation](#relation-field-type) | Validates and stores a relation to a Content item. | Yes, with both Field and FieldRelation criterions | Yes |
 | [RelationList](#relationlist-field-type) | Validates and stores a list of relations to Content items. | Yes, with FieldRelation criterion | Yes |
-| [RichText](#richtext-field-type) | Validates and stores structured rich text in REVIEW docbook xml format, and exposes it in several formats. | Yes[^1^](#1)  | Yes |
-| [Selection](#selection-field-type) | Validates and stores a single selection or multiple choices from a list of options. | Yes[^1^](#1) | Yes |
-| [TextBlock](#textblock-field-type) | Validates and stores a larger block of text. | Yes[^1^](#1) | Yes |
+| [RichText](#richtext-field-type) | Validates and stores structured rich text in DocBook xml format, and exposes it in several formats. | Yes[^1^](#1-note-on-legacy-search-engine)  | Yes |
+| [Selection](#selection-field-type) | Validates and stores a single selection or multiple choices from a list of options. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
+| [TextBlock](#textblock-field-type) | Validates and stores a larger block of text. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
 | [TextLine](#textline-field-type) | Validates and stores a single line of text. | Yes | Yes |
 | [Time](#time-field-type) | Stores time information. | Yes | Yes |
 | [Url](#url-field-type) | Stores a URL / address. | No | Yes |
 | [User](#user-field-type) | Validates and stores information about a user. | No | No |
 
-###### [1]
+###### ^[1]^ Note on Legacy Search Engine
 
-Legacy Search/Storage Engine index is limited to REVIEW 255 characters in database design,
+Legacy Search/Storage Engine index is limited to 255 characters in database design,
 so formatted or unformatted text blocks will only index the first part.
 In case of multiple selection Field Types like Keyword, Selection, Country and so on,
 only the first choices are indexed, and only as a text blob separated by string separator.
@@ -53,19 +53,19 @@ Proper indexing of these Field Types is done with [Solr Search Bundle](search.md
 |------|------|------|------|------|
 | [XmlText](#xmltext-field-type)|Validates and stores multiple lines of formatted text using xml format.|Yes|Partial *(Raw xml editing)*|No *(has been superseded by [RichText](#richtext-field-type))*</br>The XmlText Field Type is not enabled by default in eZ Platform.|
 
-### QUESTION Field Types provided by Community
+### Field Types provided by Community
 
 |FieldType|Description|Searchable|Editing support in Platform UI|Planned to be included in the future|
 |------|------|------|------|------|
 |[Tags](https://github.com/netgen/TagsBundle)|Tags Field and full-fledged taxonomy management|Yes|Yes, since Netgen Tags v3.0.0|No (but can be previewed in Studio Demo)|
-| REVIEW [Price](https://github.com/ezcommunity/EzPriceBundle)|Price Field for use in product catalogs|Yes|No|Yes|
-| REVIEW [Matrix](https://github.com/ezcommunity/EzMatrixFieldTypeBundle)|Matrix Field for matrix data|Yes|No|Yes|
+|[Price](https://github.com/ezcommunity/EzPriceBundle)|Price Field for use in product catalogs|Yes|No|Yes|
+|[Matrix](https://github.com/ezcommunity/EzMatrixFieldTypeBundle)|Matrix Field for matrix data|Yes|No|Yes|
 
 ### Generate new Field Type
 
 You can learn how to create a new Field Type by following the [Creating a Tweet Field Type](../tutorials/field_type/creating_a_tweet_field_type.md) tutorial
 
-REVIEW You can also make use of the [Field Type Generator Bundle](https://github.com/Smile-SA/EzFieldTypeGeneratorBundle) from our partner Smile.
+You can also make use of the [Field Type Generator Bundle](https://github.com/Smile-SA/EzFieldTypeGeneratorBundle) from our partner Smile.
 It helps you get started by creating a skeleton for a Field Type, including templates for the editorial interface. 
 
 ## Author Field Type
@@ -78,9 +78,9 @@ This Field Type allows the storage and retrieval of one or more authors. For eac
 
 ## BinaryField Field Type
 
-This Field Type represents and handles a single binary file. REVIEW It also counts the number of times the file has been downloaded from the `content/download` module.
+This Field Type represents and handles a single binary file. It also counts the number of times the file has been downloaded from the `content/download` module.
 
-It is capable of handling virtually any file type and is typically used for storing legacy document types such as PDF files, Word documents, spreadsheets, etc. REVIEW The maximum allowed file size is determined by the "Max file size" class attribute edit parameter and the `upload_max_filesize` directive in the main PHP configuration file (`php.ini`).
+It is capable of handling virtually any file type and is typically used for storing legacy document types such as PDF files, Word documents, spreadsheets, etc. The maximum allowed file size is determined by the "Max file size" class attribute edit parameter and the `upload_max_filesize` directive in the main PHP configuration file (`php.ini`).
 
 | Name         | Internal name  | Expected input | Output  |
 |--------------|----------------|----------------|---------|
@@ -219,11 +219,11 @@ array(
 );
 ```
 
-TODO Note: When you set an array directly on Content field you don't need to provide all this information, the Field Type will assume it is a hash and in this case will accept a simplified structure described below under [To / From Hash format](#to-from-hash-format).
+When you set an array directly on a Content field you don't need to provide all this information, the Field Type will assume it is a hash and in this case will accept a simplified structure described below under [To / From Hash format](#to-from-hash-format).
 
 #### Validation
 
-TODO This Field Type validates if the multiple countries are allowed by the Field definition, and if the Alpha2 is valid according to the countries configured in eZ Platform.
+This Field Type validates whether multiple countries are allowed by the Field definition, and whether the Alpha2 is valid according to the countries configured in eZ Platform.
 
 #### Settings
 
@@ -242,7 +242,7 @@ $settings = array(
 
 #### To / From Hash format
 
-TODO The format used for serialization is simpler than the full format, this is also available when setting value on the content field, by setting the value to an array instead of the Value object. Example of that shown below:
+The format used for serialization is simpler than the full format. It is also available when setting value on the content field, by setting the value to an array instead of the Value object. Example of that shown below:
 
 ``` php
 // Value object content example
@@ -366,7 +366,7 @@ The Field definition of this Field Type can be configured with one option:
 
 |Name|Type|Default value|Description|
 |------|------|------|------|
-|`defaultType`|`mixed`|`Type::DEFAULT_EMPTY`|One of the `DEFAULT_*` constants, used by the administration interface for setting the default Field value. TODO See below for more details.|
+|`defaultType`|`mixed`|`Type::DEFAULT_EMPTY`|One of the `DEFAULT_*` constants, used by the administration interface for setting the default Field value. See below for more details.|
 
 Following `defaultType` default value options are available as constants in the `eZ\Publish\Core\FieldType\Date\Type` class:
 
@@ -468,7 +468,7 @@ The Field definition of this Field Type can be configured with several options:
 |Name|Type|Default value|Description|
 |------|------|------|------|
 |`useSeconds`|`boolean`|`false`|Used to control displaying of seconds in the output.|
-|`defaultType`|`mixed`|`Type::DEFAULT_EMPTY`|One of the `DEFAULT_*` constants, used by the administration interface for setting the default Field value. TODO See below for more details.|
+|`defaultType`|`mixed`|`Type::DEFAULT_EMPTY`|One of the `DEFAULT_*` constants, used by the administration interface for setting the default Field value. See below for more details.|
 |`dateInterval`|`null|\DateInterval`|`null`|This setting complements `defaultType` setting and can be used only when the latter is set to `Type::DEFAULT_CURRENT_DATE_ADJUSTED`. In that case the default input value when using administration interface will be adjusted by the given `\DateInterval`.|
 
 Following `defaultType` default value options are available as constants in the `eZ\Publish\Core\FieldType\DateAndTime\Type` class:
@@ -656,12 +656,9 @@ This Field Type does not support settings.
 
 ## Image Field Type
 
-TODO reorg <- use this for others?
-
-Field Type identifier: `ezimage`
-Validators: File size
-Value object: `\eZ\Publish\Core\FieldType\Image\Value`
-Associated Services: `ezpublish.fieldType.ezimage.variation_service`
+| Name    | Internal name |
+|---------|---------------|
+| `Image` | `ezimage`     |
 
 The Image Field Type allows you to store an image file.
 
@@ -711,6 +708,10 @@ The Image Field Type supports one FieldDefinition option: the maximum size for t
 
 ### Using an Image Field
 
+!!! tip
+
+    To read more about handling images and image variations, see [the Images documentation](images.md).
+
 #### Template Rendering
 
 When displayed using `ez_render_field`, an Image Field will output this type of HTML:
@@ -749,12 +750,6 @@ The variation's properties can be used to generate the required output:
 #### With the REST API
 
 Image Fields within REST are exposed by the `application/vnd.ez.api.Content` media-type. An Image Field will look like this:
-
-!!! note "inputUri"
-
-    TODO From 5.2 version, new images must be input using the `inputUri` property from `Image\Value`.
-
-    **The keys `id` and `path` still work, but a deprecation warning will be thrown.**
 
 ``` xml
 <field>
@@ -927,8 +922,6 @@ Within this folder, images will be named like the uploaded file, suffixed with a
 - MyImage\_large.png
 - MyImage\_rss.png
 
-TODO link to images.md
-
 ## Integer Field Type
 
 This Field Type represents an integer value.
@@ -1036,8 +1029,6 @@ The constructor for this value object will initialize a new Value object with t
 #### Validation
 
 The input passed into this Field Type is subject of ISBN validation depending on the Field settings in its FieldDefinition stored in the Content Type. An example of this Field setting is shown below and will control if input is validated as ISBN-13 or ISBN-10:
-
-TODO fix codeblock
 
 ``` php
 Array
@@ -1433,7 +1424,7 @@ This Field Type is used as fallback and for testing purposes.
 
 ### Description
 
-TODO As integration with Legacy Stack requires that all Field Types are also handled on 5.x stack side, Null Field Type is provided as a dummy for legacy Field Types that are not really implemented on 5.x side.
+The Null Field Type serves as an aid when migrating from eZ Publish Platform and earlier versions. It is a dummy for legacy Field Types that are not implemented in eZ Platform.
 
 Null Field Type will accept anything provided as a value, but will not store anything to the database, nor will it read any data from the database.
 
@@ -1464,47 +1455,12 @@ services:
 
 ## Rating Field Type
 
-TODO
+!!! caution
 
-This Field Type is used to provide rating functionality.
+    The Rating Field Type is available in the back-end interface, but it does not have editing templates,
+    which makes it unusable in practice.
 
-Rating Field Type does not provide the APIs for actual rating, this part is provided by Legacy Stack extension that can be found at <https://github.com/ezsystems/ezstarrating>.
-
-|Name|Internal name|Expected input|
-|------|------|------|
-|`Rating`|`ezsrrating`|`boolean`|
-
-### PHP API Field Type 
-
-#### Input expectations
-
-| Type      | Description                                  | Example |
-|-----------|----------------------------------------------|---------|
-| `boolean` | Indicates if the rating is enabled or disabled | `true`  |
-
-#### Value Object
-
-###### Properties
-
-`eZ\Publish\Core\FieldType\Rating\Value` offers the following properties:
-
-| Property     | Type      | Description                                  | Example |
-|--------------|-----------|----------------------------------------------|---------|
-| `isDisabled` | `boolean` | Denotes if the rating is enabled or disabled | `true`  |
-
-#### Hash format
-
-Hash matches the Value Object, having only one property:
-
-- `isDisabled`
-
-#### Settings
-
-The Field Type does not support settings.
-
-#### Validation
-
-The Field Type does not support validation.
+    Follow [EZP-25802](https://jira.ez.no/browse/EZP-25802) for future progress on this Field Type.
 
 ## Relation Field Type
 
@@ -1560,7 +1516,7 @@ The Field definition of this Field Type can be configured with two options:
 
 |Name|Type|Default value|Description|
 |------|------|------|------|
-|`selectionMethod`|`int`|`self::SELECTION_BROWSE`| TODO This setting defines the selection method. It expects an integer (0/1). 0 stands for `self::SELECTION_BROWSE`, 1 stands for `self::SELECTION_DROPDOWN`. **Note**: Dropdown is not implemented in Platform UI yet, only browse is used currently.|
+|`selectionMethod`|`int`|`self::SELECTION_BROWSE`| *This setting is not implemented yet, only one selection method is available.* |
 |`selectionRoot`|`string`|`null`|This setting defines the selection root.|
 
 ``` php
@@ -1569,14 +1525,10 @@ The Field definition of this Field Type can be configured with two options:
 use eZ\Publish\Core\FieldType\Relation\Type;
 
 $settings = array(
-    "selectionMethod" => 1,
+    "selectionMethod" => 0,
     "selectionRoot" => null
 );
 ```
-
-TODO
-
-Note: These settings are meant for future use in user interface when allowing users to select relations.
 
 ## RelationList Field Type
 
@@ -1641,6 +1593,10 @@ This Field Type validates if:
 - the `selectionDefaultLocation` specified is `null`, `string` or `integer`. If the type validation fails a validation error is thrown.
 - the value specified in `selectionContentTypes` is an array. If not, a validation error in given.
 
+!!! note
+
+    The dropdown selection method is not implemented yet.
+
 #### Settings
 
 The Field definition of this Field Type can be configured with the following options:
@@ -1656,11 +1612,7 @@ Following selection methods are available:
 | Name                | Description                                                                                                   |
 |---------------------|---------------------------------------------------------------------------------------------------------------|
 | `SELECTION_BROWSE`   | Selection will use browse mode                                                                                |
-| `SELECTION_DROPDOWN` | Selection control will use dropdown control containing the Content list in the default Location for selection |
-
-TODO
-
-Note: Dropdown not implemented in Platform UI yet, only browse is used currently.
+| `SELECTION_DROPDOWN` | *Not implemented yet* |
 
 ``` php
 // Example of using settings in PHP
@@ -1700,7 +1652,7 @@ Currently supported input formats are described in the table below:
 
 |Name|Description|
 |------|------|
-| TODO eZ Publish Docbook variant|FieldType's internal format|
+|eZ Platform's DocBook variant|FieldType's internal format|
 |XHTML5 editing format|Typically used with in-browser HTML editor|
 |Legacy eZXML format|Compatibility with legacy eZXML format, used by [XmlText Field Type](#xmltext-field-type)|
 
@@ -1952,8 +1904,6 @@ The constructor for this Value object will initialize a new Value object with t
 
 The input passed into this Field Type is subject to validation by the `StringLengthValidator` validator. The length of the string provided must be between the minimum length defined in `minStringLength` and the maximum defined in `maxStringLength`. The default value for both properties is 0, which means that the validation is disabled by default.
 To set the validation properties, the `validateValidatorConfiguration()` method needs to be inspected, which will receive an array with `minStringLength` and `maxStringLength` like in the following representation:
-
-TODO code
 
 ```
 Array
