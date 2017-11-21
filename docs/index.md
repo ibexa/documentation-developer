@@ -14,7 +14,7 @@ This is the center for eZ Platform documentation for developers and system admin
 
 **Ready to learn? Take a look at the [Tutorials](tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md)**
 
-**Want an overview of the system? Read the [Guide to eZ Platform](guide/guide_to_ez_platform.md)**
+**Want an overview of the system? Read the [Guide to eZ Platform](guide/introduction.md)**
 
 **Want to get involved? Check out the [Community Resources](community_resources/contributing.md)**
 
