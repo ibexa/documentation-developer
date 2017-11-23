@@ -1,7 +1,5 @@
 # SiteAccess
 
-TODO admin SiteAccess
-
 ## Introduction
 
 eZ Platform enables you to maintain multiple sites in one installation using a feature called **SiteAccesses**.
@@ -28,6 +26,10 @@ Typical uses of a SiteAccess are:
 !!! enterprise
 
     If you need to change between SiteAccesses in Page mode, do not use any functions in the page itself (for example, a language switcher). This may cause unexpected errors. Instead, switch between SiteAccesses using the SiteAccess bar above the page.
+
+#### `admin` SiteAccess
+
+The back-office UI of eZ Platform is housed in a predefined `admin` SiteAccess.
 
 ## Configuring SiteAccesses
 
