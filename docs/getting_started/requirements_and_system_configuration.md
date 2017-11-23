@@ -19,8 +19,8 @@ These setups are tested by QA and are generally recommended setups. For security
 |Operating system|8.x "Jessie"|16.04LTS|7.x|
 |Web Server|Nginx 1.6</br>Apache 2.4 *(prefork mode)*|Nginx 1.10</br>Apache 2.4 *(prefork mode)*|Nginx 1.10 *(latest via [RHSCL](https://access.redhat.com/documentation/en/red-hat-software-collections/))*</br>Apache 2.4 *(prefork mode)*|
 |DBMS|MariaDB 10.0</br>MySQL 5.5|MariaDB 10.0</br>MySQL 5.7\*|MariaDB 10.1 *(latest via RHSCL)*</br>MariaDB 10.0 *(latest via RHSCL)*</br>MySQL 5.6 *(latest via RHSCL)*</br>MariaDB 5.5|
-|PHP|TEMP PHP 7.1 *(via libapache2-mod-php5 for Apache)*|PHP 7.1|PHP 7.1 *(latest via RHSCL)*</br>PHP 5.6 *(latest via RHSCL)*|
-|TODO PHP packages|php5-cli</br>php5-fpm *(for use with nginx)*</br>php5-readline</br>php5-mysqlnd or php5-pgsql</br>php5-json</br>php5-xsl</br>php5-intl</br>php5-mcrypt</br>php5-curl</br>php5-gd</br>*or* php5-imagick</br>php5-twig *(optional, improves performance on php 5.x)*|php-cli</br>php-fpm *(for use with nginx)*</br>php-readline</br>php-mysql or php-pgsql</br>php-json</br>php-xml</br>php-mbstring</br>php-intl</br>php-mcrypt</br>php-curl</br>php-gd or php-imagick|php-cli</br>php-fpm *(for use with nginx)*</br>php-mysqlnd or php-pgsql</br>php-xml</br>php-mbstring</br>php-process</br>php-intl</br>php-pear *(optional, provides pecl)*</br>php-gd or php-imagick *(via [pecl](https://pecl.php.net/package/imagick))*</br>php-memcached *(recommended, via [pecl](https://pecl.php.net/package/memcached))*|
+|PHP|PHP 7.1 *(via libapache2-mod-php5 for Apache)*|PHP 7.1|PHP 7.1 *(latest via RHSCL)*</br>PHP 5.6 *(latest via RHSCL)*|
+|PHP packages|php5-cli</br>php5-fpm *(for use with nginx)*</br>php5-readline</br>php5-mysqlnd or php5-pgsql</br>php5-json</br>php5-xsl</br>php5-intl</br>php5-mcrypt</br>php5-curl</br>php5-gd</br>*or* php5-imagick</br>php5-twig *(optional, improves performance on php 5.x)*|php-cli</br>php-fpm *(for use with nginx)*</br>php-readline</br>php-mysql or php-pgsql</br>php-json</br>php-xml</br>php-mbstring</br>php-intl</br>php-mcrypt</br>php-curl</br>php-gd or php-imagick|php-cli</br>php-fpm *(for use with nginx)*</br>php-mysqlnd or php-pgsql</br>php-xml</br>php-mbstring</br>php-process</br>php-intl</br>php-pear *(optional, provides pecl)*</br>php-gd or php-imagick *(via [pecl](https://pecl.php.net/package/imagick))*</br>php-memcached *(recommended, via [pecl](https://pecl.php.net/package/memcached))*|
 |Cluster PHP packages</br>*Also recommended for single server setup, improves performance of cache clearing operations.*|php5-memcached *or* php-redis *(via [pecl](https://pecl.php.net/package/redis))*|php-memcached *(via [pecl](https://pecl.php.net/package/memcached)) or* php-redis *(via [pecl](https://pecl.php.net/package/redis))*|php-memcached *(via [pecl](https://pecl.php.net/package/memcached)) or* php-redis *(via [pecl](https://pecl.php.net/package/redis))*|
 
 |||
@@ -45,8 +45,7 @@ Supported setups are those we perform automated testing on. For security and per
     -   MySQL 5.5, 5.6\*, 5.7\*
     -   MariaDB 5.5, 10.0, 10.1, 10.2\*
 -   PHP
-    -   5.6
-    -   7.0 - 7.1
+    -   7.1
 
 -   PHP extensions/modules
     -   curl
@@ -65,7 +64,7 @@ Supported setups are those we perform automated testing on. For security and per
     -   xml
     -   xsl
     -   zip
-    -   php-memcached *(3.x on PHP 7, 2.2 on PHP 5) or* [php-redis](https://pecl.php.net/package/redis)
+    -   php-memcached *(3.x) or* [php-redis](https://pecl.php.net/package/redis)
 
 _\* Note: Mysql 5.7 and MariaDB 10.2 changes how certain queries are parsed and is known to have issues with content attribute sorting  queries in  legacy because of that at the moment, MySQL 5.6 technically works but executes several hundred times slower on said queries. Because of this we overall recommend MariaDB 10.1 and 10.0, and don't offically support MySQL 5.6/5.7 and MariaDB 10.2 in use with legacy at the moment._
 
