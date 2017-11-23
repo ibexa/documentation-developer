@@ -17,8 +17,6 @@ Hi! You are about to install eZ Platform on your machine and this guide is here 
 
 ## Installation Guide for OS X
 
-TODO update install guide
-
 ### Preparation:
 
 #### 1. Install MySQL 

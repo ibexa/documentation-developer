@@ -1,7 +1,5 @@
 # Extending PlatformUI with new navigation
 
-QUESTION Reuse or remake in future?
-
 !!! tip "Getting the code"
 
     The code created in this tutorial is available on GitHub: <https://github.com/ezsystems/ExtendingPlatformUIConferenceBundle>.

@@ -1,7 +1,5 @@
 # Coming to eZ Platform from eZ Publish Platform
 
-TODO Decide if this can be adapted for 2.x, or do we need a special "1.x to 2.x migration" page.
-
 eZ Publish Platform (5.x) was a transitional version of the eZ CMS, bridging the gap between the earlier generation called eZ Publish (sometimes referred to as *legacy*), and the current eZ Platform and eZ Platform Enterprise Edition for Developers.
 
 eZ Publish Platform introduced a new Symfony-based technology stack that could be run along the old (*legacy*) one. This bridging is still possible using something called Legacy Bridge, an optional package for eZ Platform. This fluid change allows eZ Publish users to migrate to eZ Platform in two steps, using the bridging as an intermediary stepping stone.
