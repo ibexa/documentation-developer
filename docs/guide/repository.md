@@ -207,6 +207,23 @@ If you add a Node Limitation and point to the same Location, the user will be ab
 
 Note that when a Policy has more than one Limitation, all of them have to apply, or the Policy will not work. For example, a Location Limitation on Location 1/2 and Subtree Limitation on 1/2/55 cannot work together, because no Location can satisfy both those requirements at the same time. If you want to combine more than one Limitation with the *or* relation, not *and*, you can split your Policy in two, each with one of these Limitations.
 
+###### Multi-file upload
+
+Creating content through multi-file upload is treated in the same way as regular creation.
+To enable upload, you need you set the following permissions:
+
+- `content/create`
+- `content/read`
+- `content/versionread`
+- `content/publish`
+
+You can control what Content items can be uploaded and where using Limitations on the `content/create` and `content/publish` Policies.
+
+A Node Limitation limits uploading to a specific Location in the tree. A Class Limitation controls the Content Types that are allowed.
+For example, you can set the Node Limitation on a "Pictures" Folder, and add a Class Limitation
+which only allows Content items of type "Image". This ensures that only files of type "image" can be uploaded,
+and only to the "Pictures" Folder.
+
 ###### Manage Locations
 
 To add a new Location to a Content item, the Policies required for publishing content are enough. To allow the user to remove a Location, you need to grant them the following Policies:
