@@ -56,13 +56,22 @@ Next, you need to create the REST route. We need to define the route's [controll
 
 ``` yaml
 myRestBundle_hello_world:
-    pattern: /my_rest_bundle/hello/{name}
+    path: /my_rest_bundle/hello/{name}
     defaults:
         _controller: myRestBundle.controller.default:sayHello
     methods: [GET]
 ```
 
 Due to [![](https://jira.ez.no/images/icons/issuetypes/bug.png)EZP-23016](https://jira.ez.no/browse/EZP-23016?src=confmacro) - Custom REST API routes (v2) are not accessible from the legacy backend Closed , custom REST routes must be prefixed with `ezpublish_rest_`, or they won't be detected correctly.
+
+**My/Bundle/RestBundle/Resources/config/services.yml**
+
+``` yaml
+services:
+    myRestBundle.controller.default:
+        class: My\Bundle\RestBundle\Rest\Controller\Default
+        parent: ezpublish_rest.controller.base
+```
 
 ## Controller action
 
@@ -155,8 +164,27 @@ The easiest way to handle cache is to re-use the `CachedValue` Value Object. It 
 When you want the response to be cached, return an instance of CachedValue, with your Value Object as the argument. You can also pass a location id using the second argument, so that the Response is tagged with it:
 
 ```
-return new CachedValue($helloValue, ['locationId', 42]);
+use eZ\Publish\Core\REST\Server\Values\CachedValue;
+//...
+    public function sayHello( $name )
+    {
+        return new CachedValue(
+          new HelloValue( $name ),
+          ['locationId'=> 42]
+        );
+
+    }
+
 ```
+Below you find the correspondent response header when using varnish as reverse proxy up 1.12:
+```
+Age →30
+Cache-Control →private, no-cache
+Via →1.1 varnish-v4
+X-Cache →HIT
+X-Cache-Hits →2
+```
+
 
 ## Input parser
 
@@ -223,18 +251,43 @@ class Greetings extends BaseParser
     }
 }
 ```
-
-**My/Bundle/RestBundle/Resources/config/services.yml**
-
-``` yaml
-services:
-    myRestBundle.controller.default:
-        class: My\Bundle\RestBundle\Rest\Controller\Default
-        parent: ezpublish_rest.controller.base
+You should then add a new method to the previous `DefaultController` to handle the new post request:
 ```
+use eZ\Publish\Core\REST\Common\Message;
+//...
+    public function sayHelloUsingPost()
+    {
+
+      $createStruct = $this->inputDispatcher->parse(
+          new Message(
+              array('Content-Type' => $request->headers->get('Content-Type')),
+              $request->getContent()
+          )
+      );
+
+      $name =  $createStruct->name ;
+
+      //...
+
+    }
+
+```
+The `inputDispatcher` is responsible to match the `Content-Type` sent in the header with the Greetings InputParser class.
+
+Finally, a new Route should be added to routing_rest.yml
+``` yaml
+myRestBundle_hello_world_using_post:
+    path: /my_rest_bundle/hello/
+    defaults:
+        _controller: myRestBundle.controller.default:sayHelloUsingPost
+    methods: [POST]
+```
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Post Requests are not able to access the repository without performing a user authentication. More information [REST API Authentication ](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#authentication).</p>
+</div>
 
 Do not hesitate to look into the built-in InputParsers, in `eZ/Publish/Core/REST/Server/Input/Parser`, for more examples.
-
 
 
 ## Registering resources in the REST root
