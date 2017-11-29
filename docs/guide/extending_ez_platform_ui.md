@@ -30,9 +30,9 @@ The module is highly configurable. It can be extended with new tabs.
 With vanilla JS:
 
 ``` js
-const container = document.querySelector('#udw');
+const container = document.querySelector('#react-udw');
 
-ReactDOM.render(React.createElement(UniversalDiscovery.default, {
+ReactDOM.render(React.createElement(eZ.modules.UniversalDiscovery, {
     onConfirm: {Function},
     onCancel: {Function},
 }), container);
@@ -144,7 +144,7 @@ It provides an interface for listing the sub items of any location.
 With vanilla JS:
 
 ``` js
-React.createElement(SubItemsList.default, {
+React.createElement(eZ.modules.SubItems, {
     parentLocationId: {Number},
     restInfo: {
         token: {String},
@@ -225,7 +225,7 @@ It provides an interface to publish content based on dropped files while uploadi
 With vanilla JS:
 
 ``` js
-React.createElement(MultiFileUpload.default, {
+React.createElement(eZ.modules.MultiFileUpload, {
     onAfterUpload: {Function},
     adminUiConfig: {
         multiFileUpload: {
