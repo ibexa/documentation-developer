@@ -121,6 +121,7 @@ pages:
         - 'Migrating from eZ Publish': 'migrating/migrating_from_ez_publish.md'
     - Releases:
         - 'Updating eZ Platform': 'releases/updating_ez_platform.md'
+        - 'eZ Platform v1.13.0 LTS': 'releases/ez_platform_v1.13.0_lts.md'
         - 'eZ Platform v1.12.0': 'releases/ez_platform_v1.12.0.md'
         - 'eZ Platform v1.11.0': 'releases/ez_platform_v1.11.0.md'
         - 'eZ Platform v1.10.0': 'releases/ez_platform_v1.10.0.md'
