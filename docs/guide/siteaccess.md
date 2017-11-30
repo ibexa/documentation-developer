@@ -182,6 +182,16 @@ Every custom matcher can be specified with a fully qualified class name (e.g. `\
 
 ### Available matchers
 
+- [URIElement](#urielement)
+- [URIText](#uritext)
+- [HostElement](#hostelement)
+- [HostText](#hosttext)
+- [Map\Host](#map92host)
+- [Map\URI](#map92uri)
+- [Map\Port](#map92port)
+- [Regex\Host](#regex92host)
+- [Regex\URI](#regex92uri)
+
 #### URIElement
 
 Maps a URI element to a SiteAccess. This is the default matcher used when choosing URI matching in setup wizard. 	

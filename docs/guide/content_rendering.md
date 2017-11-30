@@ -1080,6 +1080,19 @@ class MyCommand extends ContainerAwareCommand
 
 In addition to the [native functions provided by Twig](http://twig.sensiolabs.org/doc/functions/index.html), eZ Platform offers the following:
 
+- [`ez_content_name`](#ez_content_name) - displays a Content item's name in the current language
+- [`ez_field_description`](#ez_field_description) - returns the description from the FieldDefinition of a Content item's Field in the current language
+- [`ez_field_name`](#ez_field_name) - returns the name from the FieldDefinition of a Content item's Field in the current language
+- [`ez_field_value`](#ez_field_value) - returns a Content item's Field value in the current language
+- [`ez_field`](#ez_field) - returns a Field value in the current language
+- [`ez_file_size`](#ez_file_size) - returns the size of a file as string
+- [`ez_first_filled_image_field`](#ez_first_filled_image_field) - returns the identifier of the first image field that is not empty
+- [`ez_image_alias`](#ez_image_alias) - displays a selected variation of an image
+- [`ez_is_field_empty`](#ez_is_field_empty) - checks if a Content item's Field value is considered empty in the current language
+- [`ez_render_field`](#ez_render_field) - displays a Content item's Field value, taking advantage of the template block exposed by the Field Type used
+- [`ez_trans_prop`](#ez_trans_prop) - gets the translated value of a multi valued(translations) property
+- [`ez_urlalias`](#ez_urlalias) - is a special route name for generating URLs for a Location from the given parameters
+
 #### `ez_content_name`
 
 ##### Description
