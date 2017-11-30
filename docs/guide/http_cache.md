@@ -337,78 +337,80 @@ ezpublish:
                 purge_servers: [http://my.varnish.server:8081]
 ```
 
-#### Serving Varnish through Fastly
+!!! enterprise
 
-[Fastly](https://www.fastly.com/) delivers Varnish as a service. See [Fastly documentation](https://docs.fastly.com/guides/basic-concepts/how-fastlys-cdn-service-works) to read how it works.
+    #### Serving Varnish through Fastly
 
-#### Configuring Fastly
+    [Fastly](https://www.fastly.com/) delivers Varnish as a service. See [Fastly documentation](https://docs.fastly.com/guides/basic-concepts/how-fastlys-cdn-service-works) to read how it works.
 
-##### purge_type
+    #### Configuring Fastly
 
-To use Fastly, set `purge_type` to `fastly`.
+    ##### purge_type
 
-##### purge_server
+    To use Fastly, set `purge_type` to `fastly`.
 
-`purge_server` must be set to `https://api.fastly.com`.
+    ##### purge_server
 
-Both `purge_type` and `purge_server` can be set in one of the following ways:
+    `purge_server` must be set to `https://api.fastly.com`.
 
-- is `app/config/ezplatform.yml`
-- by adding the parameter `purge_type` or `purge_server` respectively in `app/config/parameters.yml`
-- by setting the `HTTPCACHE_PURGE_TYPE` environment variable.
+    Both `purge_type` and `purge_server` can be set in one of the following ways:
 
-It is recommended to use either `app/config/parameters.yml` or the environment variable.
+    - is `app/config/ezplatform.yml`
+    - by adding the parameter `purge_type` or `purge_server` respectively in `app/config/parameters.yml`
+    - by setting the `HTTPCACHE_PURGE_TYPE` environment variable.
 
-Note that in `app/config/ezplatform.yml`, the `purge_server` setting is an array while `purge_server` in
-`app/config/parameters.yml` and the `HTTPCACHE_PURGE_SERVER` environment variable should be a string.
+    It is recommended to use either `app/config/parameters.yml` or the environment variable.
 
-##### Fastly service ID and API token
+    Note that in `app/config/ezplatform.yml`, the `purge_server` setting is an array while `purge_server` in
+    `app/config/parameters.yml` and the `HTTPCACHE_PURGE_SERVER` environment variable should be a string.
 
-You also need to provide your Fastly service ID and API token in the configuration.
+    ##### Fastly service ID and API token
 
-The service ID can be obtained by logging in on http://fastly.com and clicking `CONFIGURE` in the top menu,
-then `Show service ID` at the top left of the page.
+    You also need to provide your Fastly service ID and API token in the configuration.
 
-See [this Fastly guide](https://docs.fastly.com/guides/account-management-and-security/using-api-tokens) for
-instructions on how to generate a Fastly API token.
-The token needs `purge_select` and `purge_all` scope.
+    The service ID can be obtained by logging in on http://fastly.com and clicking `CONFIGURE` in the top menu,
+    then `Show service ID` at the top left of the page.
 
-You may specify service ID and token:
+    See [this Fastly guide](https://docs.fastly.com/guides/account-management-and-security/using-api-tokens) for
+    instructions on how to generate a Fastly API token.
+    The token needs `purge_select` and `purge_all` scope.
 
-- using the `service_id` and `key` settings (sub elements of "fastly") in `app/config/ezplatform.yml`
-- by setting the parameters `fastly_service_id` and `fastly_key` in `app/config/parameters.yml`
-- by setting the environment variables `FASTLY_SERVICE_ID` and `FASTLY_KEY`
+    You may specify service ID and token:
 
-Unless you need different settings per SiteAccess it is recommended to either use `app/config/parameters.yml`
-or the environment variables.
+    - using the `service_id` and `key` settings (sub elements of "fastly") in `app/config/ezplatform.yml`
+    - by setting the parameters `fastly_service_id` and `fastly_key` in `app/config/parameters.yml`
+    - by setting the environment variables `FASTLY_SERVICE_ID` and `FASTLY_KEY`
 
-##### Clear the cache
+    Unless you need different settings per SiteAccess it is recommended to either use `app/config/parameters.yml`
+    or the environment variables.
 
-``` bash
-php app/console cache:clear -vv --env=prod;
-```
+    ##### Clear the cache
 
-#### Configuration on platform.sh
+    ``` bash
+    php app/console cache:clear -vv --env=prod;
+    ```
 
-If you want to use Fastly on platform.sh it is recommended to set the setting using the environment variables because
-you then don't need to store service ID and keys in git.
+    #### Configuration on platform.sh
 
-In order to create new variables on an environment, select your environment (for instance "Master") in the platform.sh
-dashboard. Then click "Configure environment" and "VARIABLES". To add a variable, click the "Add variable" button.
-When providing the name for the variable, remember to prefix the name with `env:`", or else platform.sh will only add the
-settings as part of the $PLATFORM_VARIABLE. Do **not** enable the "JSON value" checkbox.
+    If you want to use Fastly on platform.sh it is recommended to set the setting using the environment variables because
+    you then don't need to store service ID and keys in git.
 
-Example:
+    In order to create new variables on an environment, select your environment (for instance "Master") in the platform.sh
+    dashboard. Then click "Configure environment" and "VARIABLES". To add a variable, click the "Add variable" button.
+    When providing the name for the variable, remember to prefix the name with `env:`", or else platform.sh will only add the
+    settings as part of the $PLATFORM_VARIABLE. Do **not** enable the "JSON value" checkbox.
 
-```
-Name: env:HTTPCACHE_PURGE_TYPE
-Value: fastly
-```
+    Example:
 
-Repeat the procedure to set all environment variables mentioned earlier in this document.
+    ```
+    Name: env:HTTPCACHE_PURGE_TYPE
+    Value: fastly
+    ```
 
-You may export the variables as project variables instead of environment variables. Besides clicking "Configure Project"
-instead of "Click environment" you follow the same procedure. Ensure that the "Visible at runtime" checkbox is enabled.
+    Repeat the procedure to set all environment variables mentioned earlier in this document.
+
+    You may export the variables as project variables instead of environment variables. Besides clicking "Configure Project"
+    instead of "Click environment" you follow the same procedure. Ensure that the "Visible at runtime" checkbox is enabled.
 
 ## Usage
 
