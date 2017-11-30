@@ -1125,6 +1125,18 @@ try {
 }
 ```
 
+##### delete translation from all versions
+
+To delete a translation from all Content item versions, use the `deleteTranslation` method on `ContentService`.
+
+```
+public function deleteTranslation(ContentInfo $contentInfo, $languageCode);
+```
+
+This operation is permanent, so the user should be warned about that.
+
+The `deleteTranslation` method emits the [`DeleteTranslationSignal`](https://github.com/ezsystems/ezpublish-kernel/blob/6.13/eZ/Publish/Core/SignalSlot/Signal/ContentService/DeleteTranslationSignal.php).
+
 ### Creating Content containing an image
 
 !!! note "Full code"
