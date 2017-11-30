@@ -833,6 +833,25 @@ Certain limitations also serve as RoleLimitations, which means they can be used 
 | `evaluate` | Evaluating if the user has access to a given object in a certain context (for instance the context can be Locations when the object is `Content`), under the condition of the `Limitation` value(s). |
 | `getCriterion` | Generates a `Criterion` using `Limitation` value and current user which `SearchService` by default applies to search criteria for filtering search based on permissions. |
 
+#### Available Limitations
+
+- [BlockingLimitation](#blockinglimitation)
+- [ContentTypeLimitation](#contenttypelimitation)
+- [LanguageLimitation](#languagelimitation)
+- [LocationLimitation](#locationlimitation)
+- [NewObjectStateLimitation](#newobjectstatelimitation)
+- [NewSectionLimitation](#newsectionlimitation)
+- [ObjectStateLimitation](#objectstatelimitation)
+- [OwnerLimitation](#ownerlimitation)
+- [ParentContentTypeLimitation](#parentcontenttypelimitation)
+- [ParentDepthLimitation](#parentdepthlimitation)
+- [ParentOwnerLimitation](#parentownerlimitation)
+- [ParentUserGroupLimitation](#parentusergrouplimitation)
+- [SectionLimitation](#sectionlimitation)
+- [SiteAccessLimitation](#siteaccesslimitation)
+- [SubtreeLimitation](#subtreelimitation)
+- [UserGroupLimitation](#usergrouplimitation)
+
 #### BlockingLimitation
 
 A generic Limitation type to use when no other Limitation has been implemented. Without any limitation assigned, a LimitationNotFoundException is thrown.
