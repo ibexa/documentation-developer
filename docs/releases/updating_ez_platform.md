@@ -156,7 +156,7 @@ These steps are only relevant for some releases:
 
 **content/publish permission**
 
-!! caution "V1.8"
+!!! caution "V1.8"
 
     v1.8.0 introduced a new `content/publish` permission separated out of the `content/edit` permission. `edit` now covers only editing content, without the right to publishing it. For that you need the `publish` permission. `edit` without `publish` can be used in conjunction with the Content review workflow to ensure that a user cannot publish content themselves, but must pass it on for review.
 
@@ -230,20 +230,26 @@ index 49a17a9..80c4cd7 100644
     Apply the following database update script to change the schema and enable the storage of longer passwords:
     Note that the script is available for PostgreSQL as well.
 
-    ​``` bash
+    ``` bash
     mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/data/update/mysql/dbupdate-6.11.0-to-6.12.0.sql
-    ​```
+    ```
 
 
     These algorithms produce longer hashes, and so the length of the `password_hash` column of the `ezuser` table must be increased, like this:
-
-    ​``` sql
-    # MySQL
-    ALTER TABLE ezuser CHANGE password_hash password_hash VARCHAR(255) default NULL;
     
-    # PostgreSQL
+    **MySQL**
+    
+    ​``` sql
+    ALTER TABLE ezuser CHANGE password_hash password_hash VARCHAR(255) default NULL;
+    ​```
+    
+    
+    **PostgreSQL**
+    
+    ​``` sql
     ALTER TABLE ezuser ALTER COLUMN password_hash TYPE VARCHAR(255);
     ​```
+    
 
 ## 5. Dump assets
 
