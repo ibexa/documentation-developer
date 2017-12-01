@@ -19,6 +19,10 @@ The maximum number of Content items that can be copied this way can be set in co
 
 [EZEE-1780](https://jira.ez.no/browse/EZEE-1780) makes ezplatform-http-cache extensible in third party bundles.
 
+### Fastly
+
+Following [EZEE-1781](https://jira.ez.no/browse/EZEE-1781) you can [serve Varnish through Fastly](../guide/http_cache.md#serving-varnish-through-fastly).
+
 ## Full list of new features, improvements and bug fixes since v1.12.0
 
 | eZ Platform   | eZ Enterprise  |
