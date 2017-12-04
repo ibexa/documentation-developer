@@ -240,11 +240,9 @@ You will be able to see your page under <http://ez1.lh> (or the address you chos
 
 !!! enterprise
 
-    j. Enable Date-based Publisher
+    ###### Enable Date-based Publisher
 
-    To enable delayed publishing of Content using the Date-based publisher, run the following line:
-
-    `php app/console ezstudio:scheduled:publish --quiet --env=prod`
+    To enable delayed publishing of Content using the Date-based publisher, see [below](#enable-date-based-publisher_1)
 
 #### 10. Optional
 
@@ -395,11 +393,26 @@ Please note that a clean install of eZ Platform doesn’t include the DemoBundle
 
 !!! enterprise
 
-    j. Enable Date-based Publisher
+    ###### Enable Date-based Publisher
 
-    To enable delayed publishing of Content using the Date-based publisher, run the following line:
+    To enable delayed publishing of Content using the Date-based publisher, you need to set up cron to run the command `app/console ezstudio:scheduled:publish` periodically.
 
-    `php app/console ezstudio:scheduled:publish --quiet --env=prod`
+    For example, to check for publishing every minute, add the following script:
+
+    `echo '* * * * * cd [path-to-ezplatform]; php app/console ezstudio:scheduled:publish --quiet --env=prod' > ezp_cron.txt`
+
+    For 5-minute intervals:
+
+    `echo '*/5 * * * * cd [path-to-ezplatform]; php app/console ezstudio:scheduled:publish --quiet --env=prod' > ezp_cron.txt`
+
+    Next, append the new cron to user's crontab without destroying existing crons.
+    Assuming the web server user data is `www-data`:
+
+    `crontab -u www-data -l|cat - new_cron.txt | crontab -u www-data -`
+
+    Finally, remove the temporary file:
+
+    `rm new_cron.txt`
 
 ### 6. Setup the folder rights (\*NIX users)
 
@@ -761,8 +774,6 @@ You will be able to see your page under <http://ez1.lh> (or the address you ch
 
 !!! enterprise
 
-    j. Enable Date-based Publisher
+    ###### Enable Date-based Publisher
 
-    To enable delayed publishing of Content using the Date-based publisher, run the following line:
-
-    `php app/console ezstudio:scheduled:publish --quiet --env=prod`
+    To enable delayed publishing of Content using the Date-based publisher, see [above](#enable-date-based-publisher_1).

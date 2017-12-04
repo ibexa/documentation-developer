@@ -45,11 +45,9 @@ php app/console ezplatform:install studio-clean
 
 !!! enterprise
 
-    j. Enable Date-based Publisher
+    ###### Enable Date-based Publisher
 
-    To enable delayed publishing of Content using the Date-based publisher, run the following line:
-
-    `php app/console ezstudio:scheduled:publish --quiet --env=prod`
+    To enable delayed publishing of Content using the Date-based publisher, see [the manual installation guide](install_manually.md#enable-date-based-publisher_1).
 
 ### Installing another version
 
