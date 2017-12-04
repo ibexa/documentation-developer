@@ -238,6 +238,14 @@ php app/console ezplatform:install clean
 
 You will be able to see your page under <http://ez1.lh> (or the address you chose in preparation). Please note that a clean install of eZ Platform doesn’t include DemoBundle anymore.
 
+!!! enterprise
+
+    j. Enable Date-based Publisher
+
+    To enable delayed publishing of Content using the Date-based publisher, run the following line:
+
+    `php app/console ezstudio:scheduled:publish --quiet --env=prod`
+
 #### 10. Optional
 
 a. Install PHP 5.6 with opcache extension:
@@ -384,6 +392,14 @@ Don't forget to substitute any custom folder name you may have chosen in place o
 If Composer asks you for your token, you must log in to your GitHub account and edit your profile. Go to the Personal access tokens link and Generate new token with default settings. Be aware that the token will be shown only once, so do not refresh the page until you paste the token into the Composer prompt. This operation is performed only once when you install eZ Platform for the first time.
 
 Please note that a clean install of eZ Platform doesn’t include the DemoBundle anymore.
+
+!!! enterprise
+
+    j. Enable Date-based Publisher
+
+    To enable delayed publishing of Content using the Date-based publisher, run the following line:
+
+    `php app/console ezstudio:scheduled:publish --quiet --env=prod`
 
 ### 6. Setup the folder rights (\*NIX users)
 
@@ -742,3 +758,11 @@ php app/console ezplatform:install clean
 ```
 
 You will be able to see your page under <http://ez1.lh> (or the address you chose in preparation). Please note that a clean install of eZ Platform doesn’t include DemoBundle anymore.
+
+!!! enterprise
+
+    j. Enable Date-based Publisher
+
+    To enable delayed publishing of Content using the Date-based publisher, run the following line:
+
+    `php app/console ezstudio:scheduled:publish --quiet --env=prod`

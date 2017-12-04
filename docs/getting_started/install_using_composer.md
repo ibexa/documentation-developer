@@ -43,6 +43,14 @@ cd ezplatform-ee
 php app/console ezplatform:install studio-clean
 ```
 
+!!! enterprise
+
+    j. Enable Date-based Publisher
+
+    To enable delayed publishing of Content using the Date-based publisher, run the following line:
+
+    `php app/console ezstudio:scheduled:publish --quiet --env=prod`
+
 ### Installing another version
 
 The instructions above show how to install the latest stable version, however with Composer you can specify the version and stability as well if you want to install something else. Using `composer create-project -h` you can see how you can specify another version:
@@ -83,4 +91,3 @@ cd ezplatform
 
 php app/console ezplatform:install demo
 ```
-
