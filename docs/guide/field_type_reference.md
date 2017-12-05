@@ -42,16 +42,16 @@ eZ Platform comes with a collection of Field Types that can be used to build pow
 ###### ^[1]^ Note on Legacy Search Engine
 
 Legacy Search/Storage Engine index is limited to 255 characters in database design,
-so formatted or unformatted text blocks will only index the first part.
-In case of multiple selection Field Types like Keyword, Selection, Country and so on,
-only the first choices are indexed, and only as a text blob separated by string separator.
+so formatted and unformatted text blocks will only index the first part.
+In case of multiple selection Field Types like Keyword, Selection, Country, etc.,
+only the first choices are indexed. They are indexed only as a text blob separated by string separator.
 Proper indexing of these Field Types is done with [Solr Search Bundle](search.md#solr-bundle).
 
 ### Other Field Types
 
 |FieldType|Description|Searchable|Editing support in Platform UI|Planned to be included in the future|
 |------|------|------|------|------|
-| [XmlText](#xmltext-field-type)|Validates and stores multiple lines of formatted text using xml format.|Yes|Partial *(Raw xml editing)*|No *(has been superseded by [RichText](#richtext-field-type))*</br>The XmlText Field Type is not enabled by default in eZ Platform.|
+| [XmlText](#xmltext-field-type)|Validates and stores multiple lines of formatted text using XML format.|Yes|Partial *(Raw XML editing)*|No *(has been superseded by [RichText](#richtext-field-type))*</br>The XmlText Field Type is not enabled by default in eZ Platform.|
 
 ### Field Types provided by Community
 
@@ -146,7 +146,7 @@ When creating BinaryFile content with the REST API, it is possible to provide da
 
 ## Checkbox Field Type
 
-The Checkbox Field Type stores the current status for a checkbox input, checked of unchecked, by storing a boolean value.
+The Checkbox Field Type stores the current status for a checkbox input, checked or unchecked, by storing a boolean value.
 
 | Name       | Internal name | Expected input type |
 |------------|---------------|---------------------|
@@ -223,7 +223,7 @@ When you set an array directly on a Content field you don't need to provide all 
 
 #### Validation
 
-This Field Type validates whether multiple countries are allowed by the Field definition, and whether the Alpha2 is valid according to the countries configured in eZ Platform.
+This Field Type validates whether multiple countries are allowed by the Field definition, and whether the [Alpha2](https://www.iso.org/iso-3166-country-codes.html) is valid according to the countries configured in eZ Platform.
 
 #### Settings
 
@@ -362,7 +362,7 @@ This Field Type does not perform any special validation of the input value.
 
 #### Settings
 
-The Field definition of this Field Type can be configured with one option:
+The Field definition of this Field Type can be configured with a single option:
 
 |Name|Type|Default value|Description|
 |------|------|------|------|
