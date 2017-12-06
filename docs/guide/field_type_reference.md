@@ -1426,17 +1426,18 @@ This Field Type is used as fallback and for testing purposes.
 
 The Null Field Type serves as an aid when migrating from eZ Publish Platform and earlier versions. It is a dummy for legacy Field Types that are not implemented in eZ Platform.
 
-Null Field Type will accept anything provided as a value, but will not store anything to the database, nor will it read any data from the database.
+Null Field Type will accept anything provided as a value. When used with NullConverter, it also won't store anything to the database, nor will it read any data from the database.
 
 This Field Type does not have its own fixed internal name. Its identifier is instead configured as needed by passing it as an argument to the constructor.
 
-Following example shows how Null Field Type is used to configure dummy implementations for `ezcomcomments` and `ezpaex` legacy datatypes:
+Following example shows how Null Field Type and NullConverter are used to configure dummy implementations for `ezcomcomments` and `ezpaex` legacy datatypes:
 
 ``` yaml
 # Null Fieldtype example configuration
 
 parameters:
     ezpublish.fieldType.eznull.class: eZ\Publish\Core\FieldType\Null\Type
+    ezpublish.fieldType.eznull.converter.class: eZ\Publish\Core\Persistence\Legacy\Content\FieldValue\Converter\NullConverter
 
 services:
     ezpublish.fieldType.ezcomcomments:
@@ -1451,6 +1452,14 @@ services:
         arguments: [ "ezpaex" ]
         tags:
             - {name: ezpublish.fieldType, alias: ezpaex}
+    ezpublish.fieldType.ezcomcomments.converter:
+        class: "%ezpublish.fieldType.eznull.converter.class%"
+        tags:
+            - {name: ezpublish.storageEngine.legacy.converter, alias: ezcomcomments}
+    ezpublish.fieldType.ezpaex.converter:
+        class: "%ezpublish.fieldType.eznull.converter.class%"
+        tags:
+            - {name: ezpublish.storageEngine.legacy.converter, alias: ezpaex} 
 ```
 
 ## Rating Field Type
