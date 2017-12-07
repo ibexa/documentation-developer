@@ -183,6 +183,7 @@ Cache-Control →private, no-cache
 Via →1.1 varnish-v4
 X-Cache →HIT
 X-Cache-Hits →2
+X-Location-Id →42
 ```
 
 
