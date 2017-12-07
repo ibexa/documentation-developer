@@ -706,7 +706,7 @@ The easiest way to find the new hash is:
 
 `curl -I -H "Accept: application/vnd.fos.user-context-hash" http://<your-domain.com>/_fos_user_context_hash`
 
-Please, remember that you have to send this request to the backend, not to the Varnish.
+Please, remember that you have to send this request to the backend, not to Varnish.
 
 You should get a result like this:
 
