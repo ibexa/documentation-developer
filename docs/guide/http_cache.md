@@ -754,13 +754,15 @@ fos_http_cache:
         user_hash_header: X-User-Hash
 ```
 
-#### Credits
+!!! note "Credits"
 
-This feature is based on [Context aware HTTP caching post](http://asm89.github.io/2012/09/26/context-aware-http-caching.html) by [asm89](https://github.com/asm89).
+    This feature was originally inspired by a [Context-aware HTTP caching blog post](http://asm89.github.io/2012/09/26/context-aware-http-caching.html)
+    by [asm89](https://github.com/asm89) and has since evolved into FOSHttpCache and Varnish restart instead of curl.
+    The overall approach is the same, and the blog post is still a good read for better understanding.
 
 ### HTTP cache tagging
 
-ezplatform-http-cache enables HTTP cache tagging.
+`ezplatform-http-cache` enables HTTP cache tagging.
 This allows you to add tags to cached content, which simplifies selective cache invalidation.
 
 #### Using tags
@@ -788,12 +790,63 @@ Note that the system does not add this tag to responses itself, just purges if p
 Response tagging using this tag is currently meant to be done inline in the template logic / views
 based on your decision.
 
-#### ResponseTaggers API
+#### Response tagging process
+
+##### For Content View
+
+For Content View there is a dedicated response listener `HttpCacheResponseSubscriber`
+that triggers a set of Response taggers responsible for translating info from the objects
+involved in generating the view to corresponding tags as listed above.
+These can be found in `ezplatform-http-cache/src/ResponseTagger`.
+
+##### For responses with X-Location-Id
+
+For custom or eZ Platform controllers still using `X-Location-Id`, a dedicated response listener
+`XLocationIdResponseSubscriber` handles translating this to tags so the cache can be properly invalidated by this bundle.
+
+!!! note
+
+    This is currently marked as deprecated. For rendering content it is advised to refactor to use Content View.
+    For other needs there is an internal tag handler in the `ezplatform-http-cache` bundle that can be used,
+    however be aware it will probably change once we move to FOSHttpCache 2.x,
+    so in this case you can stay with `X-Location-Id` for the time being.
+
+#### How purge tagging is done
+
+This bundle uses Repository API Slots to listen to Signals emitted on repository operations, and depending on the
+operation triggers expiry on a specific tag or set of tags.
+
+For example on Move Location signal the following tags will be purged:
+
+```php
+/**
+ * @param \eZ\Publish\Core\SignalSlot\Signal\LocationService\MoveSubtreeSignal $signal
+ */
+protected function generateTags(Signal $signal)
+{
+    return [
+        // The tree itself being moved (all children will have this tag)
+        'path-' . $signal->locationId,
+        // old parent
+        'location-' . $signal->oldParentLocationId,
+        // old siblings
+        'parent-' . $signal->oldParentLocationId,
+        // new parent
+        'location-' . $signal->newParentLocationId,
+        // new siblings
+        'parent-' . $signal->newParentLocationId,
+    ];
+}
+```
+
+All slots can be found in `ezplatform-http-cache/src/SignalSlot`.
+
+##### ResponseTaggers API
 
 ResponseTaggers take a `Response`, a `ResponseConfigurator` and any value object,
 and add tags to the Response based on the value.
 
-##### Example
+###### Example
 
 This adds the `content-<contentId>`, `location-<mainLocationId>` and `content-type-<contentTypeId>` tags
 to the Response:
@@ -802,7 +855,7 @@ to the Response:
 $contentInfoResponseTagger->tag($response, $configurator, $contentInfo);
 ```
 
-##### ResponseConfigurator
+###### ResponseConfigurator
 
 A `ResponseCacheConfigurator` configures an HTTP Response object:
 makes the response public, adds tags, sets the shared max age, etc.
@@ -811,7 +864,7 @@ It is provided to `ResponseTaggers` who use it to add the tags to the Response.
 The `ConfigurableResponseCacheConfigurator` (`ezplatform.view_cache.response_configurator`)
 is configured in `view_cache` and only enables cache if it is enabled in the configuration.
 
-##### Delegator and Value Taggers
+###### Delegator and Value Taggers
 
 Even though they share the same API, ResponseTaggers are of two types, reflected by their namespace:
 Delegator and Value.
@@ -821,7 +874,7 @@ For instance, a `ContentView` is covered by both the `ContentValueViewTagger` an
 The first will extract the `Content` from the `ContentView`, and pass it to the `ContentInfoTagger`.
 The second will extract the `Location`, and pass it to the `LocationViewTagger`.
 
-##### Dispatcher Tagger
+###### Dispatcher Tagger
 
 While it is more efficient to use a known tagger directly, sometimes you don't know what object you want to tag with.
 The Dispatcher ResponseTagger will accept any value, and will pass it to every tagger registered with the service tag
