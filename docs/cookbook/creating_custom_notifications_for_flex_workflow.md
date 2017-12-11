@@ -169,6 +169,6 @@ YUI.add('mb-notificationstructparserplugin', function (Y) {
 });
 ```
 
-Now we can clear cache (`php app/console --env=prod cache:clear`) and our notification should be displayed properly. In the image below you can check what is what in the notification struct:  
+Now we can clear cache (`php bin/console --env=prod cache:clear`) and our notification should be displayed properly. In the image below you can check what is what in the notification struct:  
 
 ![Notification](img/notification.png)

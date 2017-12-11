@@ -301,7 +301,7 @@ $content = $searchResult->searchHits[0];
 
 ### Reindexing
 
-To (re)create the search engine index for configured search engines (per siteaccess repository), use the `php app/console ezplatform:reindex` command.
+To (re)create the search engine index for configured search engines (per siteaccess repository), use the `php bin/console ezplatform:reindex` command.
 
 ## Reference
 
@@ -571,7 +571,7 @@ ezpublish:
 While Symfony `dev` environment keeps track of changes to yml files, `prod` does not, so to make sure Symfony reads the new config we clear cache:
 
 ``` bash
-php app/console --env=prod cache:clear
+php bin/console --env=prod cache:clear
 ```
 
 #### Step 5: Run CLI indexing command
@@ -594,13 +594,13 @@ Some exceptions might happen on indexing if you have not configured your setup c
 The last step is to execute the initial indexation of data:
 
 ``` bash
-php app/console --env=prod --siteaccess=<name> ezplatform:solr_create_index
+php bin/console --env=prod --siteaccess=<name> ezplatform:solr_create_index
 ```
 
-SOLR BUNDLE &gt;= 1.2Since eZ Platform v1.7.0 the `ezplatform:solr_create_index` command is deprecated, use `php app/console ezplatform:reindex` instead:
+SOLR BUNDLE &gt;= 1.2Since eZ Platform v1.7.0 the `ezplatform:solr_create_index` command is deprecated, use `php bin/console ezplatform:reindex` instead:
 
 ``` bash
-php app/console --env=prod --siteaccess=<name> ezplatform:reindex
+php bin/console --env=prod --siteaccess=<name> ezplatform:reindex
 ```
 
 ### Configuring the Solr Search engine Bundle
@@ -828,7 +828,7 @@ ezpublish:
 Last step is to execute initial indexation of data:
 
 ``` bash
-php app/console ezplatform:elasticsearch_create_index
+php bin/console ezplatform:elasticsearch_create_index
 ```
 
 ## Legacy Search Engine Bundle

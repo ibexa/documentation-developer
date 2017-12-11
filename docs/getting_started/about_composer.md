@@ -88,7 +88,7 @@ At this stage you might need to manually clear Symfony's `prod` environment clas
 **Optional prod class cache clearing**
 
 ``` bash
-rm -f app/cache/prod/*.php
+rm -f var/cache/prod/*.php
 ```
 
 When the update has completed and local install is verified to work, make sure to version changes done to the `composer.lock` file (if you use a version control system like *git*). This file contains **all details of which versions are currently used** and makes sure the same version is used among all developers, staging and eventually production when current changes are approved for production (assuming you have a workflow for this).

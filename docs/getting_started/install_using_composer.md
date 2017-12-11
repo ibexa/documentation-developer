@@ -20,8 +20,8 @@ cd ezplatform
 
 #at the end of the install process, you will be told to perform the following commands:
 export SYMFONY_ENV="prod"
-php app/console ezplatform:install clean
-php app/console assetic:dump
+php bin/console ezplatform:install clean
+php bin/console assetic:dump
 ```
 
 !!! note
@@ -39,8 +39,8 @@ eZ Platform exists in several distributions, listed in [Installation eZ Platform
 composer create-project --no-dev --keep-vcs ezsystems/ezplatform-ee
 cd ezplatform-ee
 
-# Options are listed on php app/console ezplatform:install -h
-php app/console ezplatform:install studio-clean
+# Options are listed on php bin/console ezplatform:install -h
+php bin/console ezplatform:install studio-clean
 ```
 
 !!! enterprise
@@ -87,5 +87,5 @@ Example:
 composer create-project --no-dev --keep-vcs ezsystems/ezplatform-demo ezplatform @beta
 cd ezplatform
 
-php app/console ezplatform:install demo
+php bin/console ezplatform:install demo
 ```

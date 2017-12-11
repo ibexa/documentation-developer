@@ -164,7 +164,7 @@ If you are migrating an existing single-server site to a cluster, and not settin
 This command shows which handlers are configured (example output):
 
 ```
-> php app/console ezplatform:io:migrate-files --list-io-handlers
+> php bin/console ezplatform:io:migrate-files --list-io-handlers
 Configured meta data handlers: default, dfs, aws_s3
 Configured binary data handlers: default, nfs, aws_s3
 ```
@@ -172,7 +172,7 @@ Configured binary data handlers: default, nfs, aws_s3
 You can do the actual migration like this (example parameters):
 
 ```
-> php app/console ezplatform:io:migrate-files --from=default,default --to=dfs,nfs --env=prod
+> php bin/console ezplatform:io:migrate-files --from=default,default --to=dfs,nfs --env=prod
 ```
 
 The `--from` and `--to` values must be specified as `<metadata_handler>,<binarydata_handler>`.

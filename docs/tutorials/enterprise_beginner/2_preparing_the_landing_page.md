@@ -16,9 +16,9 @@ If at this point you view the website from the front end, you will see that the 
 
     At any point in the tutorial if you don't see the results of your last actions when viewing the page, try clearing the cache and regenerating assets:
 
-    `php app/console cache:clear`
+    `php bin/console cache:clear`
 
-    `php app/console assets:install`
+    `php bin/console assets:install`
 
 Log in to the app's back end. Through the Platform UI, go to the Home Content item, which is the first page that is shown to the visitor. There you can check what Content Type it belongs to: it is a Landing Page.
 
@@ -132,7 +132,7 @@ Now you can create your Landing Page with the new layout to see the effects of y
 
 ![Select layout window](img/enterprise_tut_select_layout.png)
 
-If the new layout is not available when creating a new Landing Page, you may need to clear the cache (using `php app/console cache:clear`) and/or reload the app.
+If the new layout is not available when creating a new Landing Page, you may need to clear the cache (using `php bin/console cache:clear`) and/or reload the app.
 
 Once you Publish, you will notice that the new, empty Landing Page unfortunately hasn't changed and still looks awful. This is because the looks of a Landing Page are actually defined in two separate templates files, and we have only prepared one of those. Our `sidebar.html.twig` file defines that way in which zones are organized and governs the displaying of zone contents. But one more general template file is needed that will be used for every Landing Page, regardless of its layout. Because we haven't created it yet, the page is instead displayed using default settings.
 
