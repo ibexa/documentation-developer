@@ -28,6 +28,7 @@ pages:
             - '4. Displaying content of a ride': 'tutorials/platform_beginner/4_displaying_content_of_a_ride.md'
             - '5. Displaying the list of rides on the homepage': 'tutorials/platform_beginner/5_displaying_the_list_of_rides_on_the_homepage.md'
             - '6. Enabling Account Registration': 'tutorials/platform_beginner/6_enabling_account_registration.md'
+            - '7. Customize the User forms':'tutorials/platform_beginner/7_customize_login_and_register_forms.md'
         - eZ Enterprise Beginner tutorial:
             - 'eZ Enterprise beginner tutorial - It&#39s a dog&#39s world!': 'tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world.md'
             - '1. Getting your starter website': 'tutorials/enterprise_beginner/1_getting_your_starter_website.md'
