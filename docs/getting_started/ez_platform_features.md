@@ -58,7 +58,7 @@ To perform eZ Platform demo installation use commands below in the terminal/bash
 composer create-project --no-dev --keep-vcs ezsystems/ezplatform-demo
 cd ezplatform-demo
   
-php app/console ezplatform:install demo
+php bin/console ezplatform:install demo
 ```
 
 Now you can check out the project structure and capabilities of the system.

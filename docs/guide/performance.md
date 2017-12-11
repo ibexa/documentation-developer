@@ -1,4 +1,4 @@
-# Performance 
+# Performance
 
 ## Introduction
 
@@ -8,7 +8,7 @@ eZ Platform can be tuned and set up in different ways so that it is able to run 
 
 If you are in a hurry then the single most important recommendations on this page is:
 
-- General: Use PHP 7.x, and dump optimized composer autoload classmap
+- General: Dump optimized composer autoload classmap
 - Dev: Use a full web server with vhost
 - Cluster: Reduce latency to Redis/Memcached, use Varnish, and use [Solr](search.md#solr-bundle)
 
@@ -35,7 +35,6 @@ Overall, for production setup:
 
 ### PHP
 
-- Use PHP 7.0 *(or, better yet, PHP 7.1 if available).*
 - Always enable opcache for php-fpm/mod\_php.
 - Prefer php-fpm and web server using it over fast-cgi for lower overall memory usage.
 

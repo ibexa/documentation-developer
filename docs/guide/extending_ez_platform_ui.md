@@ -2,317 +2,356 @@
 
 ## Back-end interface
 
-The back-end interface is produced by [PlatformUIBundle](https://github.com/ezsystems/PlatformUIBundle) which provides a JavaScript Single Page Application based on [the YUI App Framework](http://yuilibrary.com/yui/docs/app/). This interface is accessible in your browser at `http://[uri_of_platform]/ez`.
+The back-end interface is produced by [the ezplatform-admin-ui Bundle](https://github.com/ezsystems/ezplatform-admin-ui)
+together with [ezplatform-admin-ui-modules](https://github.com/ezsystems/ezplatform-admin-ui-modules),
+which contains React modules that handle specific parts of the application.
+This interface is accessible in your browser at `http://[uri_of_platform]/admin`.
 
-### Technical architecture
+## General extensibility
 
-The PlatformUI application code is divided into different types of components:
+eZ Platform's back-end interface uses React-based modules that make each part of the UI easily extensible.
+The interface uses Bootstrap, which facilitates adapting and styling the interface to your needs.
 
-- **Application:** this is the top level component, the PlatformUI application is an instance of it. It is responsible for authenticating the user and for handling the routing.
-- **Models:** models are the main objects handled by the application, they represent our main domain objects (Content, Location, Content Type, etc.)
-- **View services:** view services act between the Application and the Views. They are configured on the routes and the main responsibility of a view service is to provide the model (or other data) to the views and to perform the operations requested by the user (removing a Content item, copying, etc.)
-- **Views:** views generate the user interface and handle the user interaction (clicking, form submitting, etc.). A view can have several sub-views which can have further sub-views themselves.
-- **Plugins:** plugins can enhance the application, the view services or the views, for instance to provide additional features or to tweak the behavior of the plugged component.
+Available extensibility points:
 
-The following chart depicts the interaction between those components:
+- Menus (upcoming)
+- [Universal Discovery module](#universal-discovery-module)
+- [Sub-items list](#sub-items-list)
+- [Multi-file upload](#multi-file-upload)
 
-![Overview of PlatformUI component structure](img/architecture_platformui.png)
+## Universal Discovery module
 
-#### Views: main view, sub-view, side view
+Universal Discovery module allows you to browse the content structure and search for content
+using an interactive interface: the browse view and the search view.
+The module is highly configurable. It can be extended with new tabs.
 
-The views represent a large part of the application and each of them can be used in three different contexts:
+### How to use it?
 
-1. As the main view
-1. As a sub-view of another (sub-)view
-1. As a side view
+With vanilla JS:
 
-##### Main view
+``` js
+const container = document.querySelector('#react-udw');
 
-A view used as a main view is configured at the route level to be displayed when the user navigates to that route.
-
-For instance, when reaching `/ez`, the user is redirected to the `loginForm` route (`/ez#/login`), which is configured in the following way in the application component:
-
-```
-{
-     name: "loginForm",
-     path: "/login",
-     service: Y.eZ.LoginFormViewService,
-     sideViews: {'navigationHub': false, 'discoveryBar': false},
-     view: 'loginFormView',
-     callbacks: ['open', 'handleSideViews', 'handleMainView']
-}
+ReactDOM.render(React.createElement(eZ.modules.UniversalDiscovery, {
+    onConfirm: {Function},
+    onCancel: {Function},
+}), container);
 ```
 
-Among others things, this means the view `loginFormView` will be used as the main view when this route is matched. `loginFormView` is actually [the identifier of the view metadata registered in the `view` property of the Application](http://yuilibrary.com/yui/docs/app/#declaring-views).
+With JSX:
 
-##### Sub-view
+``` jsx
+const props = {
+    onConfirm: {Function},
+    onCancel: {Function}
+};
 
-To avoid having huge main views doing too many things in the application, the views are divided into smaller parts called sub-views.
+<UniversalDiscoveryModule {...props} />
+```
 
-![Sub-view](img/sub_views.png)
+### Adding new tabs to the Universal Discovery module
 
-For instance, the view used to display a Location is divided into several views at several levels, it contains:
+The Universal Discovery module is highly customizable. It allows you to add new tabs to the module.
 
-- An action bar view for the right toolbar, which contains:
-    - a view for the Minimize button
-    - a view for the Create button which contains:
-        - a view to list and select a Content Type
-    - a view for the Edit button
-    - ...
-- A Location View tab view which contains:
-    - the Raw Content View to display the fields which contains:
-        - A view for each fields
-        - ...
-- A Location Details tab view
-- ...
-- A sub-item list view
+``` jsx
+const props = {
+    onConfirm: {Function},
+    onCancel: {Function},
+    extraTabs: [{
+        id: {String},
+        title: {String},
+        panel: {Element}, // React component that represents content of a tab
+        attrs: {Object}
+    }]
+};
 
-##### Side view
+<UniversalDiscoveryModule {...props} />
+```
 
-A view can also be used as a side view. As its name suggests, a side view can represent anything that is not part of the main view.
+Each tab definition is an object containing properties:
 
-For instance, when displaying a Location, the top menu (the Navigation hub) or the left toolbar (the Discovery Bar) are side views.
+- **id** _{String}_ - unique tab identifier (it cannot be: `browse` or `search`)
+- **title** _{String}_ - tab button title/label
+- **panel** _{Element}_ - any kind of React component. A panel component will receive the following props:
+    - **isVisible** _{Boolean}_ - visible flag
+    - **onItemSelect** _{Function}_ - a callback to be invoked when content is selected
+    - **maxHeight** _{Number}_ - the maximum height of the panel container
+    - **id** _{String}_ - panel identifier
+    - **startingLocationId** _{Number}_ - location ID
+    - **findLocationsByParentLocationId** _{Function}_ - finds locations related to the parent location
+    - **findContentBySearchQuery** _{Function}_ - finds content matching a given text query
+    - **contentTypesMap** _{Object}_ - content types map with content type ids as keys
+    - **multiple** _{Boolean}_ - can select multiple content items flag
+    - **labels** _{Object}_ - a hash containing text messages to be placed across many places in a component
+- **attrs** {Object} - any optional list of props that should applied to the panel component.
+It can override the panel props listed above.
 
-![Location view](img/locationview.png)
+### Property list
 
-The side views are also used for various widgets providing a service used several times in the application, such as the Universal Discovery Widget.
+The `<UniversalDiscoveryModule />` module can handle additional properties.
+There are 2 types of properties: **required** and **optional**.
 
-#### View services
+#### Required properties
 
-The view services act between the application and the views for both the main views and the side views. They are responsible for providing the required data needed by a main view or a side view to be rendered. A view service will also receive the events triggered by the view to react or provide additional data. For that, the view services receive an instance of the JavaScript REST Client.
+Without all the following properties the Universal Discovery module will not work.
 
-### How are pages generated?
+**onConfirm** _{Function}_ - a callback to be invoked when a user clicks on the confirm button
+in a Universal Discovery popup. The function takes one param: `content` which is an array of content items structs.
 
-Depending on the part of the PlatformUI application you are using, the page may be generated in two different ways. From an end-user perspective, this is almost transparent but as a developer it is important to understand how the page is generated to be able to extend it.
+**onCancel** _{Function}_ - a callback to be invoked when a user clicks on the cancel button
+in a Universal Discovery popup. It takes no extra params.
 
-#### Browser-side rendering
+**restInfo** _{Function}_ - a config hash containing: token (_{String}_) and siteaccess (_{String}_).
 
-The pages in the content part (as opposed to admin-related pages) are fully rendered in the browser. For instance, when displaying a Location in PlatformUI, the corresponding view service loads the Location model and the *related* models (Content, Content Type, etc.) with the eZ Platform REST API (through the JavaScript REST Client) and gives them the LocationView to be displayed directly by this view and/or by its sub-views. If you open the browser developer tools in the network panel, you can see the REST requests needed to build the page and they only contain a JSON structure.
+#### Optional props
 
-![Network panel with REST requests](img/network_panel.png)
+Optionally, Universal Discovery module can take a following list of props:
 
-#### Server-side rendering
+- **loadContentInfo** _{Function}_ - loads content info. It takes 3 params: `restInfo`, `contentId` and `callback`
+- **loadContentTypes** _{Function}_ - loads content types data. It takes 2 params: `restInfo`, `callback`,
+- **canSelectContent** _{Function}_ - checks whether a content item can be selected. It takes one param: `content` - the content struct,
+- **findContentBySearchQuery** _{Function}_ - finds a content using a search query. It takes 3 params: `restInfo`, `query` and `callback`,
+- **findLocationsByParentLocationId** _{Function}_ - finds sub items of a given location. It takes 3 params: `restInfo`, `parentLocationId` and `callback`,
+- **title** _{String}_ - the title of Universal Discovery popup. Default value: `Find content`,
+- **multiple** _{Boolean}_ - can select multiple content items flag. Default value: `true`,
+- **activeTab** _{String}_ - active tab identifier. Default value: `browse`,
+- **startingLocationId** _{Number}_ - location ID. Default value: `1`,
+- **maxHeight** _{Number}_ - maximum height of panel container. Default value: `500`,
+- **searchResultsPerPage** _{Number}_ - max amount of items visible per page in the search results. Default value: `10`,
+- **extraTabs** _{Array}_ - optional, extra tabs. Each tab definition is an object containing the following properties (all of them are required):
+    - **id** _{String}_ - unique tab identifier (it cannot be: `browse` or `search`),
+    - **title** _{String}_ - tab button title/label,
+    - **panel** _{Element}_ - any kind of React component,
+    - **attrs** _{Object}_ - any optional list of props that should applied to the panel component.
+})),
+- **labels** _{Object}_ - a hash containing text messages to be placed across many places in a component. It contains text labels for child components:
+    - **udw** _{Object}_ - a hash of text labels for Universal Discovery module,
+    - **selectedContentItem** _{Object}_ - a hash of text labels for Selected Content Item component,
+    - **contentMetaPreview** _{Object}_ - a hash of text labels for Content Meta Preview component,
+    - **search** _{Object}_ - a hash of text labels for Search component,
+    - **searchPagination** _{Object}_ - a hash of text labels for Search Pagination component,
+    - **searchResults** _{Object}_ - a hash of text labels for Search Results component,
+    - **searchResultsItem** _{Object}_ - a hash of text labels for Search Results Item component.
+- **selectedItemsLimit** _{Number}_ - the limit of items that can be selected. Should be combined with the `multiple` attribute set to `true`. Default value is `0`, which means no limit.
 
-The pages in the admin are built in a more traditional way as they are partly rendered server side. For those pages, the view service fetches one (or several) HTML fragment(s) from the server. This HTML fragment follows a very simple structure and can be generated by any means on the server. In PlatformUI this is done in a quite standard Symfony controller. By opening the browser developer tools in the network panel you can see the requests needed to build the section list page.
+## Sub-items List
 
-![Network panel](img/network_panel2.png)
+The Sub-items List module is meant to be used as a part of the editorial interface of eZ Platform.
+It provides an interface for listing the sub items of any location.
 
-### UI Components
+### How to use it?
 
-#### Navigation hub
+With vanilla JS:
 
-The Navigation hub is a side view displaying the top menu.
-
-![Navigation hub](img/nav_hub.png)
-
-It displays 3 **Navigation zones**:
-
-- *Content*
-- *Page*
-- *Admin Panel*
-
-A zone can contain an arbitrary number of **Navigation zone items**. By default, the *Content* zone has 2 navigation items: *Content structure* and *Media library*.
-
-#### Bar views: Discovery Bar View, Action Bar View, Edit Action Bar View
-
-Bar views provide a set of potential actions for the user.
-
-![Location view](img/locationview2.png)
-
-When navigating in the Content zone, the **Discovery Bar View** enables you to browse through content while the **Action Bar View** on the right enables you to act on the Content item being viewed (edit, move, copy, etc.).
-
-When editing a Content item, the **Edit Action Bar View** on the right enables you to act on the Content item being edited.
-
-#### Universal Discovery Widget
-
-![Universal Discovery Widget](img/udw.png)
-
-The Universal Discovery Widget is a side view triggered when the user needs to pick a Content item (or a Location). It can provide several **Discovery Methods**. By default, *Browse* and *Search* are available.
-
-## Extending the Dashboard
-
-eZ Platform contains a Dashboard which shows the user the most relevant Content items divided into blocks for a quick overview.
-
-You can remove existing built-in blocks from the Dashboard and extend it with new ones.
-
-Adding Dashboard blocks can be done in four steps:
-
-1. [Create a block view](#create-a-block-view)
-1. [Create a template](#create-a-template)
-1. [Create a plugin for the view](#create-a-plugin-for-the-view)
-1. [Add modules to configuration](#add-modules-to-configuration)
-
-#### Create a block view
-
-The first step is creating a view that will be added to the Dashboard. You can do it based on the Dashboard Block Asynchronous View. Then you only provide the data to display in the table.
-
-Using the Dashboard Block Asynchronous View you set an `identifier` of the block. The asynchronous view fires the `_fireLoadDataEvent` method to get the data. The data must find itself in an array with the `items` attribute.
-
-If you want to create a completely different view, without a table, you can use the Dashboard Block Base View.
-
-In the example below an `images` block is defined which looks up all content under the `/images/` folder in the tree:
-
-``` php
-YUI.add('ezs-dashboardblockimagesview', function (Y) {
-    'use strict';
-    /**
-     * Provides the Dashboard Images Block View class
-     *
-     * @module ez-dashboardblockimagesview
-     */
-    Y.namespace('eZS');
-    var BLOCK_IDENTIFIER = 'images';
-    /**
-     * The dashboard images block view
-     *
-     * @namespace eZS
-     * @class DashboardBlockImagesView
-     * @constructor
-     * @extends eZ.DashboardBlockAsynchronousView
-     */
-    Y.eZS.DashboardBlockImagesView = Y.Base.create('dashboardBlockImagesView', Y.eZ.DashboardBlockAsynchronousView, [], {
-        initializer: function () {
-            this._set('identifier', BLOCK_IDENTIFIER);
-        },
-        _fireLoadDataEvent: function () {
-            this.fire('locationSearch', {
-                viewName: 'images-dashboard',
-                resultAttribute: 'items',
-                loadContentType: true,
-                loadContent: true,
-                search: {
-                    criteria: {SubtreeCriterion: '/1/43/51/'},
-                    limit: 10
-                }
-            });
-        },
-        _getTemplateItem: function (item) {
-            return {
-                content: item.content.toJSON(),
-                contentType: item.contentType.toJSON(),
-                location: item.location.toJSON(),
-                contentInfo: item.location.get('contentInfo').toJSON(),
-            };
-        },
-    });
+``` js
+React.createElement(eZ.modules.SubItems, {
+    parentLocationId: {Number},
+    restInfo: {
+        token: {String},
+        siteaccess: {String}
+    }
 });
 ```
 
-In the `_getTemplateItem` method you can specify the structure of the item which will be provided to the template. In the example above each item will be an object with four properties.
+With JSX:
 
-If you don't intend to change the structure of the item, there's no need to override this method.
+``` jsx
+const attrs = {
+    parentLocationId: {Number},
+    restInfo: {
+        token: {String},
+        siteaccess: {String}
+    }
+};
 
-#### Create a template
-
-Now create a template for the view, for example:
-
-``` html
-<h2 class="ez-block-title">Images</h2>
-<div class="ez-block-wrapper ez-asynchronousview">
-    {{#if loadingError}}
-    <p class="ez-asynchronousview-error ez-font-icon">
-        An error occurred while loading the images list.
-        <button class="ez-asynchronousview-retry ez-button ez-font-icon pure-button">Retry</button>
-    </p>
-    {{else}}
-    <table class="ez-block-items-table">
-        <thead class="ez-block-header">
-            <tr>
-                <th class="ez-block-head-title">Title</th>
-                <th class="ez-block-head-content-type">Content Type</th>
-                <th class="ez-block-head-version">Version</th>
-                <th class="ez-block-head-modified">Last saved</th>
-            </tr>
-        </thead>
-        <tbody class="ez-block-content">
-        {{#each items}}
-            <tr class="ez-block-row">
-                <td class="ez-block-cell">{{ contentInfo.name }}</td>
-                <td class="ez-block-cell">{{ lookup contentType.names contentInfo.mainLanguageCode }}</td>
-                <td class="ez-block-cell">{{ contentInfo.currentVersionNo }}</td>
-                <td class="ez-block-cell ez-block-cell-options">
-                    {{ contentInfo.lastModificationDate }}
-                    <div class="ez-block-row-options">
-                        <a class="ez-block-option-edit ez-font-icon" href="{{ path "editContent" id=contentInfo.id languageCode=contentInfo.mainLanguageCode }}"></a>
-                        <a class="ez-block-option-view ez-font-icon" href="{{ path "viewLocation" id=location.id languageCode=contentInfo.mainLanguageCode }}"></a>
-                    </div>
-                </td>
-            </tr>
-        {{/each}}
-        </tbody>
-    </table>
-    {{/if}}
-</div>
+<SubItemsModule {...attrs}/>
 ```
 
-You may notice that the template is prepared to handle the `loadingError`, because the asynchronous view provides it if there are problems with loading data. If no error occurs, a table with basic info about your images will be displayed.
+### Properties list
 
-#### Create a plugin for the view
+The `<SubItemsModule />` module can handle additional properties. There are 2 types of properties: **required** and **optional**. All of them are listed below.
 
-The next step is adding the view and the template to the Dashboard. To do this, create a plugin for the Dashboard view.
+#### Required props
 
-In the initializer you can use the public `addBlock` method from the Dashboard view. In this method you only have to provide the instance of your view. Here you also set some properties for your new view: `bubbleTargets` to make sure that the events will bubble up to the other views, and `priority` where you can set the order of blocks in the Dashboard (higher number goes first).
+Without all the following properties the Sub-items module will not work.
 
-``` php
-YUI.add('ezs-dashboardblocksplugin', function (Y) {
-    'use strict';
-    /**
-     * The plugin is responsible for adding a new block to the dashboard.
-     *
-     * @module ezs-dashboardblocksplugin
-     */
-    Y.namespace('eZS.Plugin');
-    Y.eZS.Plugin.DashboardBlocks = Y.Base.create('studioDashboardBlocks', Y.Plugin.Base, [], {
-        initializer: function () {
-            this.get('host').addBlock(this.get('imagesBlockView'));
-        }
-    }, {
-        NS: 'studioDashboardBlocks',
-        ATTRS: {
-            imagesBlockView: {
-                valueFn : function () {
-                    return new Y.eZS.DashboardBlockImagesView({
-                        bubbleTargets: this.get('host'),
-                        priority: 500
-                    });
-                }
-            }
-        }
-    });
-    Y.eZ.PluginRegistry.registerPlugin(
-        Y.eZS.Plugin.DashboardBlocks, ['dashboardBlocksView']
-    );
+- **parentLocationId** _{Number}_ - parent location ID.
+- **restInfo** _{Object}_ - backend config object:
+    - **token** _{String}_ - CSRF token,
+    - **siteaccess** _{String}_ - SiteAccess identifier.
+
+#### Optional properties
+
+Optionally, Sub-items module can take a following list of props:
+
+- **loadContentInfo** _{Function}_ - loads content items info. Takes 2 params:
+    - **contentIds** _{Array}_ - list of content IDs
+    - **callback** _{Function}_ - a callback invoked when content info is loaded
+- **loadContentTypes** _{Function}_ - loads content types. Takes one param:
+    - **callback** _{Function}_ - callback invoked when content types are loaded
+- **loadLocation** _{Function}_ - loads location. Takes 4 params:
+    - **locationId** _{Number}_ - location ID
+    - **limit** _{Number}_ - content items limit
+    - **offset** _{Number}_ - items offset
+    - **callback** _{Function}_ - callback invoked when location is loaded
+- **updateLocationPriority** - updates item location priority. Takes 2 params:
+    - **params** _{Object}_ - parameters hash containing:
+        - **priority** _{Number}_ - priority value
+        - **location** _{String}_ - REST location id
+        - **token** _{String}_ - CSRF token
+        - **siteaccess** _{String}_ - SiteAccess identifier
+    - **callback** _{Function}_ - callback invoked when content location priority is updated
+- **activeView** _{String}_ - active list view identifier
+- **extraActions** _{Array}_ - list of extra actions. Each action is an object containing:
+    - **component** _{Element}_ - React component class
+    - **attrs** _{Object}_ - additional component properties
+- **items** _{Array}_ - list of location sub items
+- **limit** _{Number}_ - items limit count
+- **offset** _{Number}_ - items limit offset
+- **labels** _{Object}_ - list of module labels. Contains definitions for sub components:
+    - **subItems** _{Object}_ - list of sub items module labels
+    - **tableView** _{Object}_ - list of table view component labels
+    - **tableViewItem** _{Object}_ - list of table item view component labels
+    - **loadMore** _{Object}_ - list of load more component labels
+    - **gridViewItem** _{Object}_ - list of grid item view component labels
+
+## Multi-file Upload
+
+The Multi-file Upload module is meant to be used as a part of editorial interface of eZ Platform.
+It provides an interface to publish content based on dropped files while uploading them in the interface.
+
+### How to use it?
+
+With vanilla JS:
+
+``` js
+React.createElement(eZ.modules.MultiFileUpload, {
+    onAfterUpload: {Function},
+    adminUiConfig: {
+        multiFileUpload: {
+            defaultMappings: [{
+                contentTypeIdentifier: {String},
+                contentFieldIdentifier: {String},
+                contentNameIdentifier: {String},
+                mimeTypes: [{String}, {String}, ...]
+            }],
+            fallbackContentType: {
+                contentTypeIdentifier: {String},
+                contentFieldIdentifier: {String},
+                contentNameIdentifier: {String}
+            },
+            locationMappings: [{Object}],
+            maxFileSize: {Number}
+        },
+        token: {String},
+        siteaccess: {String}
+    },
+    parentInfo: {
+        contentTypeIdentifier: {String},
+        contentTypeId: {Number},
+        locationPath: {String},
+        language: {String}
+    }
 });
 ```
 
-If you want to remove a block, use another public method, `removeBlock`, and provide it with just the block identifier.
+With JSX:
 
-#### Add modules to configuration
+``` jsx
+const attrs = {
+    onAfterUpload: {Function},
+    adminUiConfig: {
+        multiFileUpload: {
+            defaultMappings: [{
+                contentTypeIdentifier: {String},
+                contentFieldIdentifier: {String},
+                contentNameIdentifier: {String},
+                mimeTypes: [{String}, {String}, ...]
+            }],
+            fallbackContentType: {
+                contentTypeIdentifier: {String},
+                contentFieldIdentifier: {String},
+                contentNameIdentifier: {String}
+            },
+            locationMappings: [{Object}],
+            maxFileSize: {Number}
+        },
+        token: {String},
+        siteaccess: {String}
+    },
+    parentInfo: {
+        contentTypeIdentifier: {String},
+        contentTypeId: {Number},
+        locationPath: {String},
+        language: {String}
+    }
+};
 
-The last thing to do is add the new modules to the yml configuration:
-
-``` yaml
-ezs-dashboardblocksplugin:
-    requires:
-        - 'plugin'
-        - 'base'
-        - 'ez-pluginregistry'
-        - 'ezs-dashboardblockimagesview'
-    dependencyOf: ['ez-dashboardblocksview']
-    path: %ezstudioui.public_dir%/js/views/services/plugins/ezs-dashboardblocksplugin.js
-ezs-dashboardblockimagesview:
-    requires:
-        - 'ez-dashboardblockasynchronousview'
-        - 'dashboardblockimagesview-ez-template'
-    path: %ezstudioui.public_dir%/js/views/ezs-dashboardblockimagesview.js
-dashboardblockimagesview-ez-template:
-    type: 'template'
-    path: %ezstudioui.public_dir%/templates/dashboardblock-images.hbt
+<MultiFileUploadModule {...attrs}/>
 ```
 
-In this example the plugin is added as a dependency of the Dashboard block view, requiring the new images block view. The Dashboard images view in turn requires the asynchronous view.
+### Properties list
 
-After this configuration is complete the Dashboard should display the new block.
+The `<MultiFileUpload />` module can handle additional properties.
+There are 2 types of properties: **required** and **optional**. All of them are listed below.
+
+#### Required properties
+
+Without all the following properties the Multi-file Upload will not work.
+
+- **onAfterUpload** _{Function}_ - a callback to be invoked just after a file has been uploaded
+- **adminUiConfig** _{Object}_ - UI config object. It should keep the following structure:
+    - **multiFileUpload** _{Object}_  - multi file upload module config:
+        - **defaultMappings** _{Array}_ - a list of file type to content type mappings
+        Sample mapping be an object and should follow the convention:
+            - **contentTypeIdentifier** _{String}_ - Content Type identifier
+            - **contentFieldIdentifier** _{String}_ - Content field identifier
+            - **nameFieldIdentifier** _{String}_ - name field identifier
+            - **mimeTypes** _{Array}_ - a list of file typers assigned to a specific content type
+        - **fallbackContentType** _{Object}_ - a fallback content type definition. Should contain the following info:
+            - **contentTypeIdentifier** _{String}_ - Content Type identifier
+            - **contentFieldIdentifier** _{String}_ - Content Field identifier
+            - **nameFieldIdentifier** _{String}_ - name Field identifier
+        - **locationMappings** _{Array}_ - list of file type to content type mappings based on a location identifier
+        - **maxFileSize** {Number} - maximum file size allowed for uploading. It's a number of bytes
+    - **token** _{String}_ - CSRF token
+    - **siteaccess** _{String}_ - SiteAccess identifier
+- **parentInfo** _{Object}_ - parent location meta information:
+    - **contentTypeIdentifier** _{String}_ - Content Type identifier
+    - **contentTypeId** _{Number}_ - Content Type id
+    - **locationPath** _{String}_ - location path string
+    - **language** _{String}_ - language code identifier
+
+#### Optional properties
+
+Optionally, the Multi-file Upload module can take a following list of props:
+
+- **checkCanUpload** _{Function}_ - checks whether am uploaded file can be uploaded. The callback takes 4 params:
+    - **file** _{File}_ - file object,
+    - **parentInfo** _{Object}_ - parent location meta information,
+    - **config** _{Object}_ - Multi-file Upload module config,
+    - **callbacks** _{Object}_ - error callbacks list: **fileTypeNotAllowedCallback** and **fileSizeNotAllowedCallback**.
+- **createFileStruct** _{Function}_ - a function that creates a _ContentCreate_ struct. The function takes 2 params:
+    - **file** _{File}_ - file object,
+    - **params** _{Object}_ - params hash containing: **parentInfo** and **adminUiConfig** stored under the **config** key.
+- **deleteFile** _{Function}_ - a function deleting Content created from a given file. It takes 3 params:
+    - **systemInfo** _{Object}_ - hash containing information about CSRF token and siteaccess: **token** and **siteaccess**,
+    - **struct** _{Object}_ - Content struct,
+    - **callback** _{Function}_ - content deleted callback.
+- **onPopupClose** _{Function}_ - function invoked when closing a Multi-file Upload popup. It takes one param: **itemsUploaded** - the list of uploaded items.
+- **publishFile** _{Function}_ - publishes an uploaded file-based content item. Takes 3 params:
+    - **data** _{Object}_ - an object containing information about:
+        - **struct** _{Object}_ - the ContentCreate struct (),
+        - **token** _{String}_ - CSRF token,
+        - **siteaccess** _{String}_ - SiteAccess identifier,
+    - **requestEventHandlers** _{Object}_ - a list of upload event handlers:
+        - **onloadstart** _{Function}_ - on load start callback,
+        - **upload** _{Object}_ - file upload events:
+            - **onabort** _{Function}_ - on abort callback,
+            - **onload** _{Function}_ - on load callback,
+            - **onprogress** _{Function}_ - on progress callback,
+            - **ontimeout** _{Function}_ - on timeout callback.
+    - **callback** _{Function}_ - a callback invoked when an uploaded file-based content has been published.
 
 !!! enterprise
 
@@ -574,115 +613,3 @@ After this configuration is complete the Dashboard should display the new block.
 
     `d-m-yyyy` - `16-1-2017`
     `mm/dd/yy` - `01/16/17`
-
-## Custom Content Type icons
-
-The Content Type to which a Content item belongs is represented graphically using an icon near the Content item name. Essentially, the Content Types are project-specific so the icons can be easily configured and extended by integrators.
-
-### Font icons + CSS
-
-Icons in the PlatformUI interface are provided by an icon font. For Content Types, the idea is to expand that concept so that while generating the interface, we end up with a code similar to:
-
-``` html
-<h1 class="ez-contenttype-icon ez-contenttype-icon-folder">Folder Name</h1>
-```
-
-With such classes, the `h1` is specified to display a Content Type icon. The class `ez-contenttype-icon` makes sure the element is styled for that and gets the default Content Type icon. The second class is specific to the Content Type based on its identifier and if it's defined in one of the CSS files, the element will get the custom Content Type icon defined there.
-
-### Adding new Content Type icons
-
-The extensibility of Content Type icons is tackled differently depending on the use case, but it relies on the ability to embed a custom CSS file in PlatformUI with `css.yml`.
-
-To prevent the need to configure/extend the system, we provide several pre-configured icons for very common Content Types such as:
-
-- `product`
-- `author`
-- `category`
-- `gallery` / `portfolio`
-- `blog_post` / `blogpost` / `post`
-- `blog` / `weblog`
-- `news`
-- `pdf`
-- `document`
-- `photo`
-- `comment`
-- `wiki`
-- `wiki_page` / `wikipage`
-
-There are three ways of choosing Content Type icons:
-
-#### Pick an icon for a custom Content Type from existing icons
-
-In such a case you need to pick the icon code using an icon font. In these examples we use [the Icomoon application](https://icomoon.io/app/). To ease that process and the readability of the code, we'll use ligatures in the font icon so that the CSS code for a custom Content Type could look like:
-
-``` css
- /* in a custom CSS file included with `css.yml` */
-.ez-contenttype-icon-mycontenttypeidentifier:before {
-    content: "product"; /* because this icon matches the usage of such content
-    items */
-}
-```
-
-#### Add custom icons
-
-If the icons we provide do not fit a custom Content Type, then a new custom icon font has to be added. To generate the icon, the Icomoon app can be used (or another icon font generation tool). Then, using a custom CSS stylesheet, this font can be included and the `ez-contenttype-icon-<content type identifier>` can be configured to use that font.
-
-Example:
-
-``` css
-/* in a custom CSS file included with `css.yml` */
-@font-face {
-    font-family: 'my-icon-font';
-    src:url('../../fonts/my-icon-font.eot');
-    src:url('../../fonts/my-icon-font.eot?#iefix') format('embedded-opentype'),
-        url('../../fonts/my-icon-font.woff') format('woff'),
-        url('../../fonts/my-icon-font.ttf') format('truetype'),
-        url('../../fonts/my-icon-font.svg#my-icon-font') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-.ez-contenttype-icon-myidentifier:before {
-    font-family: 'my-icon-font';
-    content: "myiconcode";
-}
-/* repeated as many times as needed for each custom Content Type */
-```
-
-#### Completely override the icon set
-
-The solution for this use case is very close to the previous one. A custom icon font will have to be produced, loaded with a custom CSS file, and then the `ez-contenttype-icon` style has to be changed to use that new font.
-
-Example:
-
-``` css
-/* in a custom CSS file included with `css.yml` */
-@font-face {
-    font-family: 'my-icon-font';
-    src:url('../../fonts/my-icon-font.eot');
-    src:url('../../fonts/my-icon-font.eot?#iefix') format('embedded-opentype'),
-        url('../../fonts/my-icon-font.woff') format('woff'),
-        url('../../fonts/my-icon-font.ttf') format('truetype'),
-        url('../../fonts/my-icon-font.svg#my-icon-font') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-.ez-contenttype-icon:before {
-    font-family: 'my-icon-font'; /* replaces ez-platformui-icomoon */
-    /* no further change needed if the custom icon font uses the same
-     * codes/ligatures
-     */
-}
-```
-
-## Custom Javascript
-
-Custom Javascript can be added to PlatformUI using the following configuration block:
-
-``` yaml
-ez_platformui:
-    system:
-        default:
-            javascript:
-                files:
-                   - '<path to js file>'
-```

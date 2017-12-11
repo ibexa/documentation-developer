@@ -129,7 +129,7 @@ Changing any of these parameters without a valid reason will break all calls to 
 While Symfony `dev` environment keeps track of changes to yml files, `prod` does not, so to make sure Symfony reads the new config, clear cache:
 
 ``` bash
-php app/console --env=prod clear:cache
+php bin/console --env=prod clear:cache
 ```
 
 ## Using the Recommendation Bundle

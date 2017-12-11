@@ -167,8 +167,8 @@ GD will be used by default if no driver is specified.
 You can use the Liip Imagine console tool to clear generated variations.
 
 ``` bash
-$ php app/console liip:imagine:cache:remove --filters=large
-$ php app/console liip:imagine:cache:remove -v
+$ php bin/console liip:imagine:cache:remove --filters=large
+$ php bin/console liip:imagine:cache:remove -v
 ```
 
 The first example will clear the image files for the `large` variation. The second will clear all the generated variations (be careful), and list the removed files (`-v).`

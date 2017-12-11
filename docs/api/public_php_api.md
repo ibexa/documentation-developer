@@ -102,12 +102,12 @@ First, change the directory to your eZ Platform root.
 $ cd /path/to/ezplatform
 ```
 
-Then use the app/console application with the `generate:bundle` command to start the bundle generation wizard.
+Then use the bin/console application with the `generate:bundle` command to start the bundle generation wizard.
 
 Let's follow the instructions provided by the wizard. Our objective is to create a bundle named `EzSystems/Bundles/CookBookBundle`, located in the `src` directory.
 
 ``` bash
-$ php app/console generate:bundle
+$ php bin/console generate:bundle
 ```
 
 The wizard will first ask about our bundle's namespace. Each bundle's namespace should feature a vendor name (in our own case: `EzSystems`), optionally followed by a sub-namespace (we could have chosen to use `Bundle`), and end with the actual bundle's name, suffixed with Bundle: `CookbookBundle`.
@@ -203,7 +203,7 @@ Your bundle should be generated and activated. Let's now see how you can interac
 
 #### Creating a command line script in your bundle
 
-Writing a command line script with Symfony 2 is *very* easy. The framework and its bundles ship with a few scripts. They are all started using `php app/console <command>`. You can get the complete list of existing command line scripts by executing `php app/console list` from the eZ Platform root.
+Writing a command line script with Symfony 2 is *very* easy. The framework and its bundles ship with a few scripts. They are all started using `php bin/console <command>`. You can get the complete list of existing command line scripts by executing `php bin/console list` from the eZ Platform root.
 
 In this chapter, we will create a new command, identified as `ezpublish:cookbook:hello`, that takes an optional name argument, and greets that name. To do so, we need one thing: a class with a name ending with "Command" that extends `Symfony\Component\Console\Command\Command`. Note that in our case, we use `ContainerAwareCommand` instead of `Command`, since we need the dependency injection container to interact with the Public API. In your bundle's directory (`src/EzSystems/CookbookBundle`), create a new directory named `Command`, and in this directory, a new file named `HelloCommand.php`.
 
@@ -261,7 +261,7 @@ protected function configure()
 
 First, we use `setName()` to set our command's name to "`ezpublish:cookbook:hello`". We then use `setDefinition()` to add an argument, named `name`, to our command.
 
-You can read more about argument definitions and further options in the [Symfony 2 Console documentation](http://symfony.com/doc/2.0/components/console/introduction.html). Once this is done, if you run `php app/console list`, you should see `ezpublish:cookbook:hello` listed in the available commands. If you run it, it will however still do nothing.
+You can read more about argument definitions and further options in the [Symfony 2 Console documentation](http://symfony.com/doc/2.0/components/console/introduction.html). Once this is done, if you run `php bin/console list`, you should see `ezpublish:cookbook:hello` listed in the available commands. If you run it, it will however still do nothing.
 
 Let's just add something very simple to our `execute()` method so that our command actually does something.
 
@@ -284,7 +284,7 @@ You can now run the command from the eZ Platform root.
 **Hello world**
 
 ``` bash
-$ php app/console ezpublish:cookbook:hello world
+$ php bin/console ezpublish:cookbook:hello world
 Hello world
 ```
 

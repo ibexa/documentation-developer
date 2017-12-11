@@ -117,7 +117,7 @@ The configuration of specific aspects of eZ Platform is described precisely in t
 
     #### Clear cache if there is an issue loading layouts
 
-    If the new layout is not available when creating a new Landing Page, you may need to clear the cache (using `php app/console cache:clear`) and/or reload the app.
+    If the new layout is not available when creating a new Landing Page, you may need to clear the cache (using `php bin/console cache:clear`) and/or reload the app.
 
     ### Using Forms
 

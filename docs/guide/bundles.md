@@ -2,7 +2,7 @@
 
 ## Dealing with bundles
 
-eZ Platform is based on the Symfony2 framework and applies a similar way of organizing the app. Like in Symfony, where ["everything is a bundle"](http://symfony.com/doc/current/book/bundles.html), your eZ Platform application is going to be a collection of bundles.
+eZ Platform is based on the Symfony 3 framework and applies a similar way of organizing the app. Like in Symfony, where ["everything is a bundle"](http://symfony.com/doc/current/book/bundles.html), your eZ Platform application is going to be a collection of bundles.
 
 ### What is a bundle?
 
@@ -44,7 +44,7 @@ EzPublishCoreBundle is contained in [ezpublish-kernel](https://github.com/ezsyst
 To get an overview of EzPublishCoreBundle's configuration, run the following command-line script:
 
 ``` bash
-php app/console config:dump-reference ezpublish
+php bin/console config:dump-reference ezpublish
 ```
 
 #### PlatformUIBundle

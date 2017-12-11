@@ -6,7 +6,7 @@ This page will list many potential problems and gotchas that you may encounter w
 
 ## Enable Swap on Systems with Limited RAM
 
-If you're having difficulty completing installation on a system with limited RAM (1GB or 2GB, for example), check that you've enabled swap. This allows your Operating System to use the hard disk to supplement RAM when it runs out. Running `php -d memory_limit=-1 app/console ezplatform:install --env prod clean` on a system with swap enabled should yield success. When a system runs out of RAM, you may see \`Killed\` when trying to clear the cache (e.g., `php app/console --env=prod cache:clear` from your project's root directory).
+If you're having difficulty completing installation on a system with limited RAM (1GB or 2GB, for example), check that you've enabled swap. This allows your Operating System to use the hard disk to supplement RAM when it runs out. Running `php -d memory_limit=-1 bin/console ezplatform:install --env prod clean` on a system with swap enabled should yield success. When a system runs out of RAM, you may see \`Killed\` when trying to clear the cache (e.g., `php bin/console --env=prod cache:clear` from your project's root directory).
 
 ## Upload Size Limit
 

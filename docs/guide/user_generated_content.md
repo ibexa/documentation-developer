@@ -8,6 +8,17 @@ eZ Platform comes with content edition features via the Symfony stack. They are 
 
 The `/content/create/nodraft` route shows a Content item creation form for a given Content Type:
 
+### Creating a new draft
+
+The `content/create/draft` route allows you to create a new draft for the selected content item.
+Provide it with the Content ID as an argument.
+
+For example, `content/create/draft/59` creates a new draft of the Content item with ID 59.
+
+### Creating a content item without using a draft
+
+The `/content/edit/nodraft` route shows a Content item creation form for a given Content Type:
+
 | Argument                | Type      | Description                                                                |
 |-------------------------|-----------|----------------------------------------------------------------------------|
 | `contentTypeIdentifier` | `string`  | The identifier of the Content Type to create. Example: `folder`, `article` |
@@ -29,6 +40,34 @@ For now a limited subset of Field Types is supported:
 - `Integer`
 - `Float`
 - `URL`
+
+### Editing a Content item
+
+To edit an existing draft, use the `/content/edit/draft/`
+
+| Argument                | Type      | Description                                                              |
+|-------------------------|-----------|--------------------------------------------------------------------------|
+| `contentId`             | `integer` | ContentId of the item to edit.                                           |
+| `versionNo`             | `integer` | Number of the Version to edit. The version must be an unpublished draft. |
+| `languageCode`          | `string`  | Language code of the version. Example: `eng-GB`                          |
+
+For example, `/content/edit/draft/1/5/eng-GB` enables you to edit draft 5 of Content item 1 in English.
+
+### Content editing templates
+
+You can use custom templates for the content editing forms.
+
+Define the templates in the following configuration:
+
+``` yaml
+ezpublish:
+    system:
+        default:
+            content_edit:
+                templates:
+                    edit: 'content_edit/content_edit.html.twig'
+                    create_draft: 'content_edit/content_create_draft.html.twig'
+```
 
 ## Registering new users
 

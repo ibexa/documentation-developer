@@ -44,7 +44,7 @@ default:
 
 In the `match` section you can use different ways to identify the situation where the template will be used, not only the Content Type, see [Matchers](../guide/content_rendering.md#view-matchers).
 
-At this point all Articles should render using the new template. If you do not see changes, clear the cache (`php app/console cache:clear`).
+At this point all Articles should render using the new template. If you do not see changes, clear the cache (`php bin/console cache:clear`).
 
 ## Rendering page elements
 
