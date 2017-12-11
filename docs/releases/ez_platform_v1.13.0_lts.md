@@ -4,6 +4,14 @@
 
 ## Notable changes since v1.12.0
 
+### Link manager
+
+The new Link manager enables you to manage all links to external websites that are embedded in the whole site,
+whether in Rich Text or in URL Field.
+You can edit a link in the manager and it will be updated automatically in all Content items.
+
+
+
 ### Copying subtrees in the back office
 
 Following [EZP-27759](https://jira.ez.no/browse/EZP-27759) you can now copy a Content item with all of its sub-items in the back office.
