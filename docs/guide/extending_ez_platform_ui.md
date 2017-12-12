@@ -68,6 +68,7 @@ class MenuListener implements EventSubscriberInterface
     {
         $menu = $event->getMenu();
         $factory = $event->getFactory();
+        $options = $event->getOptions(); // options passed from the context (i.e. Content item in Content View)
 
         // your customizations
     }
