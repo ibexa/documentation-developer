@@ -14,10 +14,156 @@ The interface uses Bootstrap, which facilitates adapting and styling the interfa
 
 Available extensibility points:
 
-- Menus (upcoming)
+- [Menus](#menus)
 - [Universal Discovery module](#universal-discovery-module)
 - [Sub-items list](#sub-items-list)
 - [Multi-file upload](#multi-file-upload)
+
+## Menus
+
+Menus in eZ Platform are based on the [KnpMenuBundle](https://github.com/KnpLabs/KnpMenuBundle) and are easily extensible.
+For a general idea on how to use MenuBuilder, refer to [the official documentation](https://symfony.com/doc/master/bundles/KnpMenuBundle/index.html).
+
+Menus are extensible using event subscribers/listeners. You can hook into the following events:
+
+- `ConfigureMenuEvent::MAIN_MENU`
+- `ConfigureMenuEvent::USER_MENU`
+- `ConfigureMenuEvent::CONTENT_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::CONTENT_EDIT_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::CONTENT_CREATE_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::CONTENT_SIDEBAR_LEFT`
+- `ConfigureMenuEvent::TRASH_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::SECTION_EDIT_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::SECTION_CREATE_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::POLICY_EDIT_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::POLICY_CREATE_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::ROLE_EDIT_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::ROLE_CREATE_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::USER_EDIT_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::USER_CREATE_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::ROLE_ASSIGNMENT_CREATE_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::LANGUAGE_CREATE_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::LANGUAGE_EDIT_SIDEBAR_RIGHT`
+
+An event subscriber can be implemented as follows:
+
+``` php
+<?php
+namespace EzSystems\EzPlatformAdminUi\EventListener;
+
+use EzSystems\EzPlatformAdminUi\Menu\Event\ConfigureMenuEvent;
+use EzSystems\EzPlatformAdminUi\Menu\MainMenuBuilder;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+
+class MenuListener implements EventSubscriberInterface
+{
+    public static function getSubscribedEvents()
+    {
+        return [
+            ConfigureMenuEvent::MAIN_MENU => ['onMenuConfigure', 0],
+        ];
+    }
+
+    public function onMenuConfigure(ConfigureMenuEvent $event)
+    {
+        $menu = $event->getMenu();
+        $factory = $event->getFactory();
+        $options = $event->getOptions(); // options passed from the context (i.e. Content item in Content View)
+
+        // your customizations
+    }
+}
+```
+
+### Extending menu examples
+
+#### Add a new menu item under "Content" with custom attributes
+
+``` php
+$menu[MainMenuBuilder::ITEM_CONTENT]->addChild(
+    'form_manager',
+    [
+        'route' => '_ezpublishLocation',
+        'routeParameters' => ['locationId' => 2],
+        [
+            'linkAttributes' => [
+                'class' => 'test_class another_class',
+                'data-property' => 'value',
+            ],
+        ],
+    ]
+);
+```
+
+#### Remove the "Media" menu item from the Content tab
+
+``` php
+$menu[MainMenuBuilder::ITEM_CONTENT]->removeChild(
+    MainMenuBuilder::ITEM_CONTENT__MEDIA
+);
+```
+
+#### Add a top-level menu item with a child
+
+``` php
+$menu->addChild(
+    'menu_item_1',
+    ['label' => 'Menu Item 1', 'extras' => ['icon' => 'file']]
+);
+$menu['menu_item_1']->addChild(
+    '2nd_level_menu_item',
+    ['label' => '2nd level menu item', 'uri' => 'http://example.com']
+);
+```
+
+#### Add an item depending on a condition
+
+``` php
+$condition = true;
+if ($condition) {
+    $menu->addChild(
+        'menu_item_2',
+        ['label' => 'Menu Item 2', 'extras' => ['icon' => 'article']]
+    );
+}
+```
+
+#### Add a top-level menu item with URL redirection
+
+``` php
+$menu->addChild(
+    'menu_item_3',
+    [
+        'label' => 'Menu Item 3',
+        'uri' => 'http://example.com',
+        'extras' => ['icon' => 'article'],
+    ]
+);
+```
+
+#### Translatable labels
+
+To have translatable labels, use `translation.key` from the `messages` domain:
+
+``` php
+$menu->addChild(
+    'menu_item_3',
+    [
+        'label' => 'translation.key',
+        'uri' => 'http://example.com',
+        'extras' => ['icon' => 'article'],
+        'translation_domain' => 'messages',
+    ]
+);
+```
+
+#### Reorder menu items, i.e. reverse the order
+
+``` php
+$menu->reorderChildren(
+    array_reverse(array_keys($menu->getChildren()))
+);
+```
 
 ## Universal Discovery module
 
