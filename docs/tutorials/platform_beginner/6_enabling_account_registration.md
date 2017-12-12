@@ -44,6 +44,7 @@ Now, you will set the Policies for the _Bikers_ Role.
 - Content/Create with Limitations: only Rides and Points of Interest in the `Members Rides` subtree only
 - Content/edit where owner is _"Self"_
 - Content/read
+- Content/versionread
 
 
 !!! note
