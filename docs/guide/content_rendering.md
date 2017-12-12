@@ -521,6 +521,24 @@ See also: [Custom controllers](#custom-controllers).
 
 [Refer to Symfony documentation](http://symfony.com/doc/current/book/templating.html#asynchronous-content-with-hinclude-js) for all available options.
 
+### Rendering in preview
+
+When previewing content in the back office, the draft view is rendered using the [PreviewController](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/MVC/Symfony/Controller/Content/PreviewController.php).
+
+The first draft of a yet unpublished Content item does not have a Location, because Locations are only assigned when content is published.
+To enable rendering in such cases, the PreviewController [creates a temporary virtual Location](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Helper/PreviewLocationProvider.php#L65).
+This Location has some of the properties of the future Location, such as the parent Location ID.
+However, it does not fully replace a normal Location.
+
+If the rendering template refers directly to the Location ID of the content, an error will occur.
+To avoid such situations, you can check if the Location is virtual using the `location.isDraft` flag in Twig templates, for example:
+
+``` jinja
+{% if not location.isDraft %}
+    <a href="{{ path(location) }}">{{ ez_content_name(content) }}</a>
+{% endif %}
+```
+
 ## Custom controllers
 
 In some cases, displaying a Content item/Location via the built-in `ViewController` is not sufficient to show everything you want. In such cases you may want to **use your own custom controller** to display the current Content item/Location instead.
