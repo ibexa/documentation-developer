@@ -27,9 +27,23 @@ For a general idea on how to use MenuBuilder, refer to [the official documentati
 Menus are extensible using event subscribers/listeners. You can hook into the following events:
 
 - `ConfigureMenuEvent::MAIN_MENU`
+- `ConfigureMenuEvent::USER_MENU`
 - `ConfigureMenuEvent::CONTENT_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::CONTENT_EDIT_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::CONTENT_CREATE_SIDEBAR_RIGHT`
 - `ConfigureMenuEvent::CONTENT_SIDEBAR_LEFT`
 - `ConfigureMenuEvent::TRASH_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::SECTION_EDIT_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::SECTION_CREATE_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::POLICY_EDIT_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::POLICY_CREATE_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::ROLE_EDIT_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::ROLE_CREATE_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::USER_EDIT_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::USER_CREATE_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::ROLE_ASSIGNMENT_CREATE_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::LANGUAGE_CREATE_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::LANGUAGE_EDIT_SIDEBAR_RIGHT`
 
 An event subscriber can be implemented as follows:
 
