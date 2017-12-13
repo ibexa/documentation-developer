@@ -691,8 +691,8 @@ Using the variation Service, variations of the original image can be obtained. T
 
 | Property       | Type     | Example  | Description                          |
 |----------------|----------|----------|--------------------------------------|
-| `width`        | int      | `640`    | The variation's width in pixels      |
-| `height`       | int      | `480`    | The variation's height in pixels     |
+| `width`*       | int      | `640`    | The variation's width in pixels      |
+| `height`*      | int      | `480`    | The variation's height in pixels     |
 | `name`         | string   | `medium` | The variation's identifier           |
 | `info`         | mixed    |          | Extra info, such as EXIF data        |
 | `fileSize`     | int      |          |                                      |
@@ -701,6 +701,12 @@ Using the variation Service, variations of the original image can be obtained. T
 | `dirPath`      | string   |          |                                      |
 | `uri`          | string   |          | The variation's URI                  |
 | `lastModified` | DateTime |          | When the variation was last modified |
+
+!!! caution
+
+    Properties marked with an asterisk are currently unsupported. They are available but their value is always `null`.
+
+    Follow [EZP-27987](https://jira.ez.no/browse/EZP-27987) for future progress on this issue.
 
 #### Field Definition options
 
