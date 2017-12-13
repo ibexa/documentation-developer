@@ -1297,6 +1297,11 @@ ezpublish:
             api_keys: { google_maps: "MY_KEY" }
 ```
 
+!!! note
+
+    The option to automatically get user coordinates through the "Locate me" button
+    is only available when the back office is served through the `https://` protocol.
+
 ## Media Field Type
 
 This Field Type represents and handles a media (audio/video) binary file.
