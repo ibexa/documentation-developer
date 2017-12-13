@@ -1250,7 +1250,7 @@ If a function is absent from the tables below, it means that no Limitations can 
 |create|true|true|-|true|true|-|true|ParentOwner</br>ParentGroup</br>ParentClass</br>ParentDepth|
 |edit|true|true|true|true|true|true|true|State|
 |publish|true|true|true|true|true|true|true|State|
-|manage_locations|true|true|true|-|true|-|-|-|
+|manage_locations|true|true|true|-|true|-|-|State|
 |hide|true|true|true|true|true|true|true|State|
 |translate|true|true|true|true|true|true|-|
 |remove|true|true|true|true|true|-|-|State|
