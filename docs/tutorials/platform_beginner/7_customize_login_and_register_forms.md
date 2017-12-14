@@ -1,11 +1,55 @@
-# Step 7 - Customize the User forms
+# Step 7 - Customizing the user forms
 
-We want to have a consistent design over our web site. When using the pagelayout for the user forms, you see the design of your website. We want to welcome our new users with a pretty register page.
-
-## Use custom template for user forms
+We want to have a consistent design over our web site. When using the pagelayout for the register forms, you see the design of your website. We want to welcome our new users with a pretty register page.
 
 
-At the same level than `pagelayout` add a `user_registration` directive so the beginning of your `views.yml` file looks like this:
+We want to have a consistent design over our web site. When using the register form, it was a raw HTML form without any styling on it. We want to welcome our new users with a pretty register page.
+
+### Use a views.yml file
+
+In order to have a better file structure, we will extract the YAML keys regarding the presentation and put them into their own separate file. Create a  `views.yml` file and move the following code referring to templating to this file from `ezplatform.yml`:
+
+```yaml
+ezpublish:
+    system:
+        default:
+            pagelayout: pagelayout.html.twig
+            content_view:
+                    full:
+                        full_ride:
+                            template: "full/ride.html.twig"
+                            controller: "AppBundle:Ride:viewRideWithPOI"
+                            match:
+                                Identifier\ContentType: "ride"
+                        root_folder:
+                            template: "full/root_folder.html.twig"
+                            match:
+                                Id\Location: 2
+                    line:
+                        line_point_of_interest:
+                            template: 'line/point_of_interest.html.twig'
+                            match:
+                                Identifier\ContentType: ['point_of_interest']
+                        line_ride:
+                            template: "line/ride.html.twig"
+                            match:
+                                Identifier\ContentType: "ride"
+```
+
+And at the beginnning of the `ezplatform.yml` file, add the following lines to import the content of views.yml:
+
+```yaml
+imports:
+    - { resource: views.yml }
+```
+
+!!! note
+
+
+    You can clear the cache with the command we have seen before: `php app/console cache:clear` to check that it works like before.
+​    
+
+And at the same level than `pagelayout` add a `user` key so the beginning of your `views.yml` file looks like this:
 
 ```yaml
 ezpublish:
@@ -14,10 +58,32 @@ ezpublish:
             pagelayout: pagelayout.html.twig
             user:
                 layout: pagelayout.html.twig
+```
+
+Then clear the cache with the command we have seen before: `php app/console cache:clear` to see the consequences of the addition you made.
+
+When you get the `<yourdomain>/register` URL, you should have this view where you see that the pagelayout is used.
+
+![step6_register_page](img/step6_register_page.png)
+
+
+
+## Use custom template for register forms
+
+
+At the same level than `pagelayout` add a `user_registration` key so the beginning of your `views.yml` file looks like this:
+
+```yaml
+ezpublish:
+    system:
+        default:
+            pagelayout: 'pagelayout.html.twig'
+            user:
+                layout: 'pagelayout.html.twig''
             user_registration:
                 templates:
-                    form: user/registration_form.html.twig
-                    confirmation: user/registration_confirmation.html.twig
+                    form: 'user/registration_form.html.twig'
+                    confirmation: 'user/registration_confirmation.html.twig''
 ```
 Then clear the cache with the command we have seen before: `php app/console cache:clear` to see the consequences of the addition you made. 
 ## Create the overriding templates files
@@ -29,11 +95,11 @@ You will create 3 Twig templates to manage the registration and the login forms,
  * `registration_confirmation.html.twig`: the page the user will see after registration
 
 !!! note
-    All the Twig templates come from the eZPlatform Demo, you can retrieve it on the Github repository: https://github.com/ezsystems/ezplatform-demo/tree/master/app/Resources/views/themes/demo/user
+    All the Twig templates come from the eZPlatform Demo, you can view it on the Github repository: https://github.com/ezsystems/ezplatform-demo/tree/master/app/Resources/views/themes/demo/user
 
 ### Create the register form custom template
 
-Let's begin with the register form. Create the file `/app/Resources/views/user/registration_form.html.twig` and fill it with this Twig tags.
+Let's begin with the register form. Create the file `/app/Resources/views/user/registration_form.html.twig` and fill it with these Twig tags.
 
 ``` html
 {% extends pagelayout %}
@@ -57,7 +123,7 @@ Let's begin with the register form. Create the file `/app/Resources/views/user/r
     </div>
 {% endblock %}
 ```
-At the line 8, you see the import Twig function, that is calling the `user/registration_content_form.html.twig` file. So create this file along the previous file, and fill it with these Twig tags:
+In line 8, you see the import Twig function, that is calling the `user/registration_content_form.html.twig` file. So create this file along the previous file, and fill it with these Twig tags:
 ```html
 {% macro display_form(form) %}
     {{ form_start(form) }}
@@ -110,14 +176,14 @@ At the line 8, you see the import Twig function, that is calling the `user/regis
 If you want to check the look of your new page, first clear the cache, then get your <yourdomain>/register URL.
 
 ### Create the confirmation page template
-Now create a file `app/Resources/views/user/registration_confirmation.html.twig` along the previous files.
+Now create a file `app/Resources/views/user/registration_confirmation.html.twig` alongside the previous files.
 
-Put these Twig tags in the file:
+Place these Twig tags in the file:
 ```html
 {% extends pagelayout %}
 
 {% block page_head %}
-  {% set title = 'Registerstration complete'|trans %}
+  {% set title = 'Registration complete'|trans %}
 
   {{ parent() }}
 {% endblock %}
