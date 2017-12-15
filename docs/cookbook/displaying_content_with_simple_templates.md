@@ -6,10 +6,9 @@ This page describes basic steps needed to render content on a page.
 
 By default (without any configuration), a Content item will be rendered without any template. In your config you can tell the app to render it using different templates depending on the situation. Templates are written in the Twig templating language.
 
-Let's create a very simple template that you will use to render an article:
+Let's create a very simple template, called `article.html.twig`, that you will use to render an article:
 
-``` html
-<!--article.html.twig-->
+``` jinja
 <div>
     {# 'ez_render_field' is one of the available Twig functions.
     It will render the 'body' Field of the current 'content' #}
@@ -26,11 +25,11 @@ You can place the config in the `app/config` folder in either of two places: a s
 In `ezplatform.yml` under the `ezpublish` and `system` keys add the following config (pay attention to indentation. `default` should be indented relative to `system`):
 
 ``` yaml
-# 'default' is the siteaccess.
+# 'default' is the SiteAccess.
 default:
-    # 'content_view' indicates that we will be defining view configuration.
+    # 'content_view' indicates that you will be defining view configuration.
     content_view:
-        # 'full' is the type of view to use. We'll talk about defining other view types below.
+        # 'full' is the type of view to use. Defining other view types is described below.
         full:
             # Here starts the entry for our view. You can give it any name you want, as long as it is unique.
             article:
@@ -48,10 +47,9 @@ At this point all Articles should render using the new template. If you do not s
 
 ## Rendering page elements
 
-In the example above you used the `ez_render_field` Twig function to render the 'body' Field of the content item. Of course each Content item can have multiple fields and you can render them in different ways in the template. Other Twig functions let you access other properties of your content. To see an example, let's extend the template a bit:
+In the example above you used the `ez_render_field` Twig function to render the 'body' Field of the content item. Each Content item can have multiple fields and you can render them in different ways in the template. Other Twig functions let you access other properties of your content. To see an example, let's extend the template a bit:
 
 ``` html
-<!--article.html.twig-->
 {# This renders the Content name of the article #}
 <h1>{{ ez_content_name(content) }}</h1>
 <div>
@@ -63,11 +61,11 @@ In the example above you used the `ez_render_field` Twig function to render the 
 </div>
 ```
 
-You can also make use of different other [Twig functions](../guide/content_rendering.md#twig-functions-reference), for example [ez\_field\_value](../guide/content_rendering.md#ez95field95value), which renders the value of the Field without a template.
+You can also make use of different other [Twig functions](../guide/content_rendering.md#twig-functions-reference), for example [`ez_field_value`](../guide/content_rendering.md#ez_field_value), which renders the value of the Field without a template.
 
 ## Different views
 
-Besides the `full` view type you can create many other view types. They can be used for example when rendering children of a folder of when embedding one Content item in another. See [Content Rendering](../guide/content_rendering.md#embedding-content-items).
+Besides the `full` view type you can create many other view types. They can be used for example when rendering children of a folder or when embedding one Content item in another. See [Embedding Content items](../guide/content_rendering.md#embedding-content-items).
 
 ## Listing children
 
@@ -78,7 +76,6 @@ To see how to list children of a Content item, for example all content contained
 To add links to your templates you use the `ez_urlalias` path. To see how it works, let's add one more line to the template:
 
 ``` html
-<!--article.html.twig-->
 <h1>{{ ez_content_name(content) }}</h1>
 {# The link points to the content in Location ID 2, which is the Home Content item #}
 <a href="{{ path('ez_urlalias', {locationId: 2}) }}">Back</a>
@@ -86,4 +83,4 @@ To add links to your templates you use the `ez_urlalias` path. To see how it wor
 {# ... #}
 ```
 
-Instead of pointing to a specific content by its Location ID you can of course also use here a variable, see [this example in the Demo Bundle](https://github.com/ezsystems/ezplatform-demo/blob/e15b93ade4b8c1f9084c5adac51239d239f9f7d8/app/Resources/views/full/blog.html.twig#L25).
+Instead of pointing to a specific Content item by its Location ID you can also use here a variable, see [this example in the Demo Bundle](https://github.com/ezsystems/ezplatform-demo/blob/e15b93ade4b8c1f9084c5adac51239d239f9f7d8/app/Resources/views/full/blog.html.twig#L25).
