@@ -255,7 +255,7 @@ Optionally, Universal Discovery module can take a following list of props:
 
 - **loadContentInfo** _{Function}_ - loads content info. It takes 3 params: `restInfo`, `contentId` and `callback`
 - **loadContentTypes** _{Function}_ - loads content types data. It takes 2 params: `restInfo`, `callback`,
-- **canSelectContent** _{Function}_ - checks whether a content item can be selected. It takes one param: `content` - the content struct,
+- **canSelectContent** _{Function}_ - checks whether a content item can be selected. It takes one param: a `data` object containing an `item` property as the content struct and `itemsCount` as a number of selected items in UDW,
 - **findContentBySearchQuery** _{Function}_ - finds a content using a search query. It takes 3 params: `restInfo`, `query` and `callback`,
 - **findLocationsByParentLocationId** _{Function}_ - finds sub items of a given location. It takes 3 params: `restInfo`, `parentLocationId` and `callback`,
 - **title** _{String}_ - the title of Universal Discovery popup. Default value: `Find content`,
@@ -271,7 +271,7 @@ Optionally, Universal Discovery module can take a following list of props:
     - **attrs** _{Object}_ - any optional list of props that should applied to the panel component.
 })),
 - **labels** _{Object}_ - a hash containing text messages to be placed across many places in a component. It contains text labels for child components:
-    - **udw** _{Object}_ - a hash of text labels for Universal Discovery module,
+    - **udw** _{Object}_ - a hash of text labels for Universal Discovery module, see [universal.discovery.module.js](https://github.com/ezsystems/ezplatform-admin-ui-modules/blob/master/src/modules/universal-discovery/universal.discovery.module.js#L329) for details,
     - **selectedContentItem** _{Object}_ - a hash of text labels for Selected Content Item component,
     - **contentMetaPreview** _{Object}_ - a hash of text labels for Content Meta Preview component,
     - **search** _{Object}_ - a hash of text labels for Search component,
@@ -325,6 +325,8 @@ Without all the following properties the Sub-items module will not work.
 - **restInfo** _{Object}_ - backend config object:
     - **token** _{String}_ - CSRF token,
     - **siteaccess** _{String}_ - SiteAccess identifier.
+- **handleEditItem** _{Function}_ - callback to handle edit content action.
+- **handleViewItem** _{Function}_ - callback to handle view content action.
 
 #### Optional properties
 
@@ -336,9 +338,14 @@ Optionally, Sub-items module can take a following list of props:
 - **loadContentTypes** _{Function}_ - loads content types. Takes one param:
     - **callback** _{Function}_ - callback invoked when content types are loaded
 - **loadLocation** _{Function}_ - loads location. Takes 4 params:
-    - **locationId** _{Number}_ - location ID
-    - **limit** _{Number}_ - content items limit
-    - **offset** _{Number}_ - items offset
+    - **restInfo** _{Object}_ - REST info params:
+        - **token** _{String}_ - the user token
+        - **siteaccess** _{String}_ - the current SiteAccess
+    - **queryConfig** _{Object}_ - query config:
+        - **locationId** _{Number}_ - location ID
+        - **limit** _{Number}_ - content item limit
+        - **offset** _{Number}_ - items offset
+        - **sortClauses** _{Object}_ - the sort clauses, e.g. {LocationPriority: 'ascending'}
     - **callback** _{Function}_ - callback invoked when location is loaded
 - **updateLocationPriority** - updates item location priority. Takes 2 params:
     - **params** _{Object}_ - parameters hash containing:
@@ -354,7 +361,7 @@ Optionally, Sub-items module can take a following list of props:
 - **items** _{Array}_ - list of location sub items
 - **limit** _{Number}_ - items limit count
 - **offset** _{Number}_ - items limit offset
-- **labels** _{Object}_ - list of module labels. Contains definitions for sub components:
+- **labels** _{Object}_ - list of module labels, see [sub.items.module.js](https://github.com/ezsystems/ezplatform-admin-ui-modules/blob/master/src/modules/sub-items/sub.items.module.js#L371) for details. Contains definitions for sub components:
     - **subItems** _{Object}_ - list of sub items module labels
     - **tableView** _{Object}_ - list of table view component labels
     - **tableViewItem** _{Object}_ - list of table item view component labels
