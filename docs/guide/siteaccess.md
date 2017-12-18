@@ -29,7 +29,10 @@ Typical uses of a SiteAccess are:
 
 #### `admin` SiteAccess
 
-The back-office UI of eZ Platform is housed in a predefined `admin` SiteAccess.
+The back-office UI of eZ Platform is housed in a predefined `admin` SiteAccess in `admin_group`.
+
+If you have a multisite setup with a separate back-office interface for each site,
+you need to create your own admin SiteAccesses for each site individually and add them to this group.
 
 ## Configuring SiteAccesses
 
