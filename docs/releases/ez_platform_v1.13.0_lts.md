@@ -1,6 +1,6 @@
 # eZ Platform v1.13.0
 
-**The Long Term Support v1.13.0 release of eZ Platform and eZ Platform Enterprise Edition is available as of December 19, 2017.**
+**The Long Term Support v1.13.0 release of eZ Platform and eZ Platform Enterprise Edition is available as of December 22, 2017.**
 
 ## Notable changes since v1.12.0
 
@@ -39,7 +39,7 @@ Following [EZEE-1781](https://jira.ez.no/browse/EZEE-1781) you can [serve Varnis
 |--------------|------------|
 | [List of changes for final of eZ Platform v1.13.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.13.0) | [List of changes for final for eZ Platform Enterprise Edition v1.13.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.13.0) |
 | [List of changes for rc1 of eZ Platform v1.13.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.13.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v1.13.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.13.0-rc1) |
-| [List of changes for beta1 of eZ Platform v1.13.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.13.0-beta1) | [List of changes for beta1 of eZ Platform Enterprise Edition v1.13.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.13.0-beta1) |
+| [List of changes for beta2 of eZ Platform v1.13.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.13.0-beta2) | [List of changes for beta2 of eZ Platform Enterprise Edition v1.13.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.13.0-beta2) |
 
 ### Installation
 
