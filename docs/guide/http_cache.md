@@ -501,6 +501,9 @@ set req.http.X-User-Hash = "b1731d46b0e7a375a5b024e950fdb8d49dd25af85a5c7dd5116a
 
 5\. Restart the Varnish server.
 
+!!! tip "Different anonymous users per siteaccess"
+    You can set different anonymous user per siteaccess. You can find more information about this setting here: [anonymous_user_id](best_practices.md#anonymous_user_id) 
+
 ##### Known limitations of the user hash generation
 
 If you are using URI-based SiteAccesses matching, the default SiteAccess on the domain needs to point to the same repository, because `/_fos_user_context_hash` is not SiteAccess-aware by default (see `ezpublish.default_router.non_siteaccess_aware_routes` parameter). Varnish does not have knowledge about SiteAccesses, so it won't be able to get user content hash if the default SiteAccess relies on URI.  
