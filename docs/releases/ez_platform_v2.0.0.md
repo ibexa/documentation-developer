@@ -6,6 +6,11 @@
 
 **Release type**: Fast Track
 
+!!! note "LTS release"
+
+    Parallel to this v2.0.0 version we are releasing a Long Term Support (LTS) version based on 1.x:
+    [v1.13.0](ez_platform_v1.13.0_lts.md).
+
 ## Notable changes
 
 eZ Platform v2.0.0 introduces significant changes to the architecture, especially to the back-office interface.
