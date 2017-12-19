@@ -37,25 +37,25 @@ This tells Platform to use the `template` when rendering any content referenced 
 
     To clear the cache:
 
-    ``` bash
+    ​``` bash
     $ php bin/console cache:clear
-    ```
+    ​```
 
 ## Creating the template
 
 1. [Download index.html](https://raw.githubusercontent.com/bdunogier/platform-workshop/master/src/Workshop/TutorialBundle/Resources/public/index.html)
-1. Save it in `app/Resources/views` as `app/Resources/views/full/root_folder.html.twig`.
-1. Refresh the site's root and you should see the site's structure, but without any styles or images. Let's fix this.
-1. Edit the `root_folder.html.twig` template.
+2. Save it in `app/Resources/views` as `app/Resources/views/full/root_folder.html.twig`.
+3. Refresh the site's root and you should see the site's structure, but without any styles or images. Let's fix this.
+4. Edit the `root_folder.html.twig` template.
 
 ## Fixing the assets
 
 The first thing to do is to fix the loading of stylesheets, scripts and design images.
 
 1. [Download assets.zip](https://github.com/ezsystems/ezsc2015-beginner-tutorial/raw/master/assets.zip)
-1. Then unpack its contents to the `web` directory of your project. You will end up with `web/assets/`, containing `css`, `js` and `images` subfolders.
+2. Then unpack its contents to the `web` directory of your project. You will end up with `web/assets/`, containing `css`, `js` and `images` subfolders.
     ![File structure](img/bike_tutorial_listing_web_dir)
-1. In the template, in the` <html>` section, replace the `<link>` tags linking to bootstrap and custom CSS lines  (lines 15 to 21) with the following code:
+3. In the template, in the` <html>` section, replace the `<link>` tags linking to bootstrap and custom CSS lines  (lines 15 to 21) with the following code:
 
 ``` html
 <!--root_folder.html.twig-->
@@ -91,15 +91,23 @@ Do the same for `"images/logo_just_letters.png"`:
 <img alt="Go Bike ! logo" src="{{ asset('assets/images/logo_just_letters.png') }}" style="width:100%" />
 ```
 
+Then change every image's path in the same way.
+
+The web assets file must be regenerated for the prod environment, so run the following command:
+
+```
+php app/console assetic:dump --env=prod web
+```
+
 !!! note "Clear the cache"
 
     Each time you change the templates, you could clear the cache. It's not mandatory in dev environment.
 
     To clear the cache:
 
-    ``` bash
+    ​``` bash
     $ php bin/console cache:clear
-    ```
+    ​```
 
  
 
@@ -160,7 +168,6 @@ This defines a block named "content". Other templates can add content to it, so 
 Edit `root_folder.html.twig` and replace the whole content of the file with the following code:
 
 ``` html
-<!--root\_folder.html.twig-->
 {% extends "pagelayout.html.twig" %}
 {% block content %}
 <h3 class="center bottom-plus new-header">{{ ez_content_name(content) }}</h3>

@@ -44,26 +44,24 @@ Fill the form with this basic info: 
 
 Then create all fields with the following information: 
 
-| Name             | Identifier      | Field Type   | Required | Searchable | Translatable | Others                                                             |
-|------------------|-----------------|--------------|----------|------------|--------------|--------------------------------------------------------------------|
-| Name             | name            | Text line    | yes      | yes        | yes          |                                                                    |
-| Photo            | photo           | Image        | no       | no         | no           |                                                                    |
-| Description      | description     | Rich text    | yes      | yes        | yes          |                                                                    |
+| Name             | Identifier      | Field Type   | Required | Searchable | Translatable | Others                                   |
+| ---------------- | --------------- | ------------ | -------- | ---------- | ------------ | ---------------------------------------- |
+| Name             | name            | Text line    | yes      | yes        | yes          |                                          |
+| Photo            | photo           | Image        | no       | no         | no           |                                          |
+| Description      | description     | Rich text    | yes      | yes        | yes          |                                          |
 | Difficulty level | level           | Selection    | yes      | yes        | no           | Add a couple of Levels, such as "beginner, intermediate, advanced" |
-| Starting point   | starting\_point | Map location | yes      | yes        | no           |                                                                    |
-| Ending point     | ending\_point   | Map location | yes      | yes        | no           |                                                                    |
-| Length           | length          | Integer      | yes      | yes        | no           |                                                                    |
-| Author           | author          | Authors      | no       | yes        | yes          |                                                                    |
+| Starting point   | starting\_point | Map location | yes      | yes        | no           |                                          |
+| Ending point     | ending\_point   | Map location | yes      | yes        | no           |                                          |
+| Length           | length          | Integer      | yes      | yes        | no           |                                          |
+| Author           | author          | Authors      | no       | yes        | yes          |                                          |
 
 ## Populate your Content tree
 
-Go back to the Content tree and create a Folder named *All Rides* using the **Create** button in the Action bar on the right of the screen.
+Go back to the Content Structure page, then browse the Content tree and create a Folder named *All Rides* using the **Create** button in the Action bar on the right of the screen. Publish the Folder you have created.
 
 ![Create All Rides folder](img/bike_tutorial_create_folder.png)
 
-In the folder, create a couple of Rides, using the Create button, being on the Content "All Rides" so the new Content will be created as a child directly. Don't worry, if you created the Content elsewhere, you can move it later.
-
-![Create content](img/bike_tutorial_create_content.png)
+In the folder, create a couple of Rides, using the Create button, being on the Content "All Rides" so the new Content will be created as a child directly. Don't worry, if you created the Content elsewhere, you can move it later. Publish every Ride you have created.
 
 ## Ready for Step 3
 
