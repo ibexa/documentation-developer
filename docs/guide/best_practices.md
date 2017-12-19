@@ -35,3 +35,18 @@ You can see an example of organizing a simple project in the [companion reposito
 ### Versioning a project
 
 The recommended method is to version the whole ezplatform repository. Per installation configuration should use `parameters.yml`.
+
+### `anonymous_user_id`
+When a user that is not logged in is accessing an eZ Platform installation, the request will be handled with the permissions of the anonymous user. You can select any user on your system to represent the anonymous user.
+For instance, you can create also separated anonymous user group per siteaccess. Then, you can create the new user, assign him to the new group and make all permissions depend on siteaccess.
+Take care to give the correct permissions to the anonymous user since these permissions are available for all users on your site. 
+
+You can set `anonymous_user_id` in the way like:
+``` yaml
+# ezplatform.yml
+    system:
+        siteaccess_group:
+            anonymous_user_id: 14
+        siteaccess:
+            anonymous_user_id: 15
+```
