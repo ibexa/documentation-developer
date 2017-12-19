@@ -2,6 +2,11 @@
 
 **The Long Term Support v1.13.0 release of eZ Platform and eZ Platform Enterprise Edition is available as of December 22, 2017.**
 
+!!! note "v2 release"
+
+    Parallel to this v1.13.0 LTS version we are releasing a fast-track version in a new architecture:
+    [v2.0.0](ez_platform_v2.0.0.md).
+
 ## Notable changes since v1.12.0
 
 ### Link manager
