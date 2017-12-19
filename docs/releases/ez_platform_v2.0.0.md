@@ -28,7 +28,7 @@ See [the extensibility page](../guide/extending_ez_platform_ui.md#general-extens
 
 The features of eZ Platform remain the same as in 1.x versions. However, the look of the interface has changed significantly.
 
-[screenshot]
+![v2.0.0 interface](img/v2_general_screen.png)
 
 #### Studio
 
