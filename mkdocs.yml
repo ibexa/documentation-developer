@@ -93,6 +93,7 @@ pages:
         - 'SiteAccess': 'guide/siteaccess.md'
         - 'User-generated content': 'guide/user_generated_content.md'
     - Cookbook:
+        - 'Adding new Field Types': 'cookbook/adding_new_field_types.md'
         - 'Authenticating a user with multiple user providers': 'cookbook/authenticating_a_user_with_multiple_user_providers.md'
         - 'Converting request paremeters into API objects': 'cookbook/converting_request_parameters_into_api_objects.md'
         - 'Creating content with binary attachments via REST API': 'cookbook/creating_content_with_binary_attachments_via_rest_api.md'
