@@ -16,6 +16,7 @@ Available extensibility points:
 
 - [Menus](#menus)
 - [Tabs](#tabs)
+- [Further extensibility using Components](#further-extensibility-using-components)
 - [Universal Discovery module](#universal-discovery-module)
 - [Sub-items list](#sub-items-list)
 - [Multi-file upload](#multi-file-upload)
@@ -389,6 +390,26 @@ class OrderedTabSubscriber implements EventSubscriberInterface
     }
 }
 ```
+
+## Further extensibility using Components
+
+Components are any sort of custom elements that you can add to the back-office interface.
+
+There are several extensibility points in the AdminUI templates that you can use for this purpose.
+
+The only limitation to the application of these extensibility points is that the Component must implement the `Renderable` interface.
+
+The available extensibility points for Components are:
+
+- [`stylesheet-head`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L44)
+- [`script-head`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L45)
+- [`stylesheet-body`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L105)
+- [`script-body`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L106)
+- [`content-edit-form-before`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/content/content_edit/content_edit.html.twig#L48)
+- [`content-edit-form-after`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/content/content_edit/content_edit.html.twig#L55)
+- [`content-create-form-before`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/content/content_edit/content_create.html.twig#L40)
+- [`content-create-form-after`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/content/content_edit/content_create.html.twig#L47)
+- [`dashboard-blocks`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/dashboard/dashboard.html.twig#L19)
 
 ## Universal Discovery module
 
