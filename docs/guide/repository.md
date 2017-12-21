@@ -654,17 +654,17 @@ The Public API exposes Symfony services for all of its repository services.
 |--------------------------------------|------------------------------------------------|
 | `ezpublish.api.service.content`      | `eZ\Publish\API\Repository\ContentService`     |
 | `ezpublish.api.service.content_type` | `eZ\Publish\API\Repository\ContentTypeService` |
-| `ezpublish.api.service.location`     | `eZ\Publish\API\Repository\LocationService`    |
-| `ezpublish.api.service.url_alias`    | `eZ\Publish\API\Repository\UrlAliasService`    |
 | `ezpublish.api.service.field_type`   | `eZ\Publish\API\Repository\FieldTypeService`   |
-| `ezpublish.api.service.language`     | `eZ\Publish\API\Repository\Language`           |
-| `ezpublish.api.service.object_state` | `eZ\Publish\API\Repository\ObjectState`        |
-| `ezpublish.api.service.role`         | `eZ\Publish\API\Repository\Role`               |
-| `ezpublish.api.service.search`       | `eZ\Publish\API\Repository\Search`             |
-| `ezpublish.api.service.section`      | `eZ\Publish\API\Repository\Section`            |
-| `ezpublish.api.service.trash`        | `eZ\Publish\API\Repository\Trash`              |
-| `ezpublish.api.service.url_wildcard` | `eZ\Publish\API\Repository\UrlWildcard`        |
-| `ezpublish.api.service.user`         | `eZ\Publish\API\Repository\User`               |
+| `ezpublish.api.service.language`     | `eZ\Publish\API\Repository\LanguageService`    |
+| `ezpublish.api.service.location`     | `eZ\Publish\API\Repository\LocationService`    |
+| `ezpublish.api.service.object_state` | `eZ\Publish\API\Repository\ObjectStateService` |
+| `ezpublish.api.service.role`         | `eZ\Publish\API\Repository\RoleService`        |
+| `ezpublish.api.service.search`       | `eZ\Publish\API\Repository\SearchService`      |
+| `ezpublish.api.service.section`      | `eZ\Publish\API\Repository\SectionService`     |
+| `ezpublish.api.service.trash`        | `eZ\Publish\API\Repository\TrashService`       |
+| `ezpublish.api.service.url_alias`    | `eZ\Publish\API\Repository\URLAliasService`    |
+| `ezpublish.api.service.url_wildcard` | `eZ\Publish\API\Repository\URLWildcardService` |
+| `ezpublish.api.service.user`         | `eZ\Publish\API\Repository\UserService`        |
 
 ### Signals Reference
 
