@@ -171,11 +171,13 @@ $menu->reorderChildren(
 
 Many elements of the back-office interface, such as System Info or Location View, are built using tabs.
 
+![Tabs in System Information](img/tabs_system_info.png)
+
 You can extend existing tab groups with new tabs, or create your own tab groups.
 
 ### Adding a new tab group
 
-To create a custom tab group with additional logic you need to create it at the level of compiling the Symfony container, using a CompilerPass:
+To create a custom tab group with additional logic you need to create it at the level of compiling the Symfony container, using a [CompilerPass](https://symfony.com/doc/3.4/service_container/compiler_passes.html):
 
 ``` php
 // src/AppBundle/DependencyInjection/Compiler/CustomTabGroupPass.php
@@ -209,7 +211,7 @@ class CustomTabGroupPass implements CompilerPassInterface
 A shorter way that you can use when no custom logic is required, is to add your own tab with the new group.
 If a tab's group is not defined, it will be created automatically.
 
-A new tab group can be rendered using the `ez_platform_tabs` Twig helper:
+A new tab group can be rendered using the [`ez_platform_tabs`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Templating/Twig/TabExtension.php#L58) Twig helper:
 
 ``` jinja
 <div class="my-tabs">
@@ -295,7 +297,7 @@ The tabs will be displayed according to this value in ascending order.
 
 !!! tip
 
-    It is good practice to reserve some distance between these values, for example by multiplying them by 10.
+    It is good practice to reserve some distance between these values, for example to stagger them by step of 10.
     It may come useful if you later need to place something between the existing tabs.
 
 You can also influence tab display (e.g. order tabs, remove or modify them, etc.) by using Event Listeners:
