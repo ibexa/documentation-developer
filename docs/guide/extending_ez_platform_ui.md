@@ -326,7 +326,7 @@ Without all the following properties the Sub-items module will not work.
     - **token** _{String}_ - CSRF token,
     - **siteaccess** _{String}_ - SiteAccess identifier.
 - **handleEditItem** _{Function}_ - callback to handle edit content action.
-- **handleViewItem** _{Function}_ - callback to handle view content action.
+- **generateLink** _{Function}_ - callback to handle view content action.
 
 #### Optional properties
 
