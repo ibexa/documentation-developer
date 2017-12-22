@@ -151,3 +151,24 @@ ezpublish:
 This setting **does not change Symfony behavior** regarding redirection after login. If set, it will only substitute the value set for `default_target_path`. It is therefore still possible to specify a custom target path using a dedicated form parameter.
 
 **Order of precedence is not modified.**
+
+### AdminUI configuration
+
+[ezplatform_default_settings.yml](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/config/ezplatform_default_settings.yml)
+contains the default settings for some behaviors of the back-office interface. You can override them in your configuration.
+
+###### Default Location IDs for Content structure, Media and Users in the menu
+
+``` yaml
+# System Location IDs
+ezsettings.default.location_ids.content_structure: 2
+ezsettings.default.location_ids.media: 43
+ezsettings.default.location_ids.users: 5
+```
+
+###### Default starting Location ID for the Universal Discovery Widget
+
+``` yaml
+# Universal Discovery Widget Module
+ezsettings.default.universal_discovery_widget_module.default_location_id: 1
+```

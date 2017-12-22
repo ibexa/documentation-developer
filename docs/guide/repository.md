@@ -484,8 +484,9 @@ ezpublish:
     system:
         # "site_group" refers to the group configured in site access
         site_group:
-            # by default cache service is set to cache.app via parameter '%env(CACHE_POOL)%'
-            cache_service_name: '%env(CACHE_POOL)%'
+            # cache_pool is set to '%env(CACHE_POOL)%'
+            # env(CACHE_POOL) is set to 'cache.app'
+            cache_service_name: '%cache_pool%'
 ```
 
 !!! note "One cache pool for each repository"
@@ -610,11 +611,6 @@ For more info on usage, take a look at [Symfony Cache's documentation](https://s
 Persistence cache uses a separate Cache Pool decorator which by design prefixes cache keys with "ez\_spi". Clearing persistence cache can thus be done in the following way:
 
 ``` php
-// getting the cache service in php
-
-/** @var $cacheService \eZ\Publish\Core\Persistence\Cache\CacheServiceDecorator */
-$cacheService = $container->get('ezpublish.cache_pool.spi.cache.decorator');
- 
 // To clear all cache (not recommended without a good reason)
 $pool->clear();
 
@@ -654,17 +650,17 @@ The Public API exposes Symfony services for all of its repository services.
 |--------------------------------------|------------------------------------------------|
 | `ezpublish.api.service.content`      | `eZ\Publish\API\Repository\ContentService`     |
 | `ezpublish.api.service.content_type` | `eZ\Publish\API\Repository\ContentTypeService` |
-| `ezpublish.api.service.location`     | `eZ\Publish\API\Repository\LocationService`    |
-| `ezpublish.api.service.url_alias`    | `eZ\Publish\API\Repository\UrlAliasService`    |
 | `ezpublish.api.service.field_type`   | `eZ\Publish\API\Repository\FieldTypeService`   |
-| `ezpublish.api.service.language`     | `eZ\Publish\API\Repository\Language`           |
-| `ezpublish.api.service.object_state` | `eZ\Publish\API\Repository\ObjectState`        |
-| `ezpublish.api.service.role`         | `eZ\Publish\API\Repository\Role`               |
-| `ezpublish.api.service.search`       | `eZ\Publish\API\Repository\Search`             |
-| `ezpublish.api.service.section`      | `eZ\Publish\API\Repository\Section`            |
-| `ezpublish.api.service.trash`        | `eZ\Publish\API\Repository\Trash`              |
-| `ezpublish.api.service.url_wildcard` | `eZ\Publish\API\Repository\UrlWildcard`        |
-| `ezpublish.api.service.user`         | `eZ\Publish\API\Repository\User`               |
+| `ezpublish.api.service.language`     | `eZ\Publish\API\Repository\LanguageService`    |
+| `ezpublish.api.service.location`     | `eZ\Publish\API\Repository\LocationService`    |
+| `ezpublish.api.service.object_state` | `eZ\Publish\API\Repository\ObjectStateService` |
+| `ezpublish.api.service.role`         | `eZ\Publish\API\Repository\RoleService`        |
+| `ezpublish.api.service.search`       | `eZ\Publish\API\Repository\SearchService`      |
+| `ezpublish.api.service.section`      | `eZ\Publish\API\Repository\SectionService`     |
+| `ezpublish.api.service.trash`        | `eZ\Publish\API\Repository\TrashService`       |
+| `ezpublish.api.service.url_alias`    | `eZ\Publish\API\Repository\URLAliasService`    |
+| `ezpublish.api.service.url_wildcard` | `eZ\Publish\API\Repository\URLWildcardService` |
+| `ezpublish.api.service.user`         | `eZ\Publish\API\Repository\UserService`        |
 
 ### Signals Reference
 
