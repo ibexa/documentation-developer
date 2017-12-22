@@ -15,6 +15,7 @@ The interface uses Bootstrap, which facilitates adapting and styling the interfa
 Available extensibility points:
 
 - [Menus](#menus)
+- [Dashboard](#dashboard)
 - [Tabs](#tabs)
 - [Further extensibility using Components](#further-extensibility-using-components)
 - [Universal Discovery module](#universal-discovery-module)
@@ -165,6 +166,44 @@ $menu->addChild(
 $menu->reorderChildren(
     array_reverse(array_keys($menu->getChildren()))
 );
+```
+
+## Dashboard
+
+To extend the Dashboard, make use of an event subscriber.
+
+In the following example, the `DasboardEventSubscriber.php` reverses the order of sections of the Dashboard
+(in a default installation this makes the "Everyone" block appear above the "Me" block):
+
+``` php
+namespace AppBundle\EventListener;
+
+use EzSystems\EzPlatformAdminUi\Component\Event\RenderGroupEvent;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+
+class DashboardEventSubscriber implements EventSubscriberInterface
+{
+    public static function getSubscribedEvents()
+    {
+        return [
+            RenderGroupEvent::NAME => ['onRenderGroupEvent', 20],
+        ];
+    }
+
+    public function onRenderGroupEvent(RenderGroupEvent $event)
+    {
+        if ($event->getGroupName() !== 'dashboard-blocks') {
+            return;
+        }
+
+        $components = $event->getComponents();
+
+        $reverseOrder = array_reverse($components);
+
+        $event->setComponents($reverseOrder);
+        
+    }
+}
 ```
 
 ## Tabs
