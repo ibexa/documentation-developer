@@ -691,8 +691,8 @@ Using the variation Service, variations of the original image can be obtained. T
 
 | Property       | Type     | Example  | Description                          |
 |----------------|----------|----------|--------------------------------------|
-| `width`        | int      | `640`    | The variation's width in pixels      |
-| `height`       | int      | `480`    | The variation's height in pixels     |
+| `width`*       | int      | `640`    | The variation's width in pixels      |
+| `height`*      | int      | `480`    | The variation's height in pixels     |
 | `name`         | string   | `medium` | The variation's identifier           |
 | `info`         | mixed    |          | Extra info, such as EXIF data        |
 | `fileSize`     | int      |          |                                      |
@@ -701,6 +701,12 @@ Using the variation Service, variations of the original image can be obtained. T
 | `dirPath`      | string   |          |                                      |
 | `uri`          | string   |          | The variation's URI                  |
 | `lastModified` | DateTime |          | When the variation was last modified |
+
+!!! caution
+
+    Properties marked with an asterisk are currently unsupported. They are available but their value is always `null`.
+
+    Follow [EZP-27987](https://jira.ez.no/browse/EZP-27987) for future progress on this issue.
 
 #### Field Definition options
 
@@ -1473,6 +1479,12 @@ services:
 
 ## Relation Field Type
 
+!!! caution "Deprecated"
+
+    The Relation Field Type is deprecated since v2.0.
+
+    Use [RelationList](#relationlist-field-type) with a selection limit instead.
+
 This Field Type makes it possible to store and retrieve the value of a relation to another Content item.
 
 | Name       | Internal name      | Expected input |
@@ -1603,6 +1615,7 @@ This Field Type validates if:
 - the `selectionMethod` specified is 0 (`self::SELECTION_BROWSE)` or 1 (`self::SELECTION_DROPDOWN)`. A validation error is thrown if the value does not match.
 - the `selectionDefaultLocation` specified is `null`, `string` or `integer`. If the type validation fails a validation error is thrown.
 - the value specified in `selectionContentTypes` is an array. If not, a validation error in given.
+- the number of Content items selected in the Field is not greater than the `selectionLimit`.
 
 !!! note
 
@@ -1625,16 +1638,28 @@ Following selection methods are available:
 | `SELECTION_BROWSE`   | Selection will use browse mode                                                                                |
 | `SELECTION_DROPDOWN` | *Not implemented yet* |
 
+#### Validators
+
+|Name|Type|Default value|Description|
+|------|------|------|------|
+|`RelationListValueValidator[selectionLimit]`|`integer`|`0`|The number of Content items that can be selected in the Field. When set to 0, any number can be selected|
+
 ``` php
-// Example of using settings in PHP
+// Example of using settings and validators configuration in PHP
 
 use eZ\Publish\Core\FieldType\RelationList\Type;
 
-$settings = array(
+$fieldSettings = [
     "selectionMethod" => Type::SELECTION_BROWSE,
     "selectionDefaultLocation" => null,
     "selectionContentTypes" => array()
- );
+ ];
+
+$validators = [
+    "RelationListValueValidator" => [
+        "selectionLimit" => 0,
+    ]
+];
 ```
 
 ## RichText Field Type
