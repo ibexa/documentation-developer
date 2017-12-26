@@ -6,7 +6,7 @@ If you're using a PaaS provider such as our partner [Platform.sh](https://platfo
 
 ## Server
 
-eZ software is built to rely on existing technologies and standards. The minimal setup is `PHP`,  `MySQL/MariaDB`, and `Apache/Nginx`. Recommendation for production setups is to use `Varnish`, and  `Memcached`/`Redis`, `NFS` and `Solr` in a [clustered setup](../guide/clustering.md).
+eZ software is built to rely on existing technologies and standards. The minimal setup is `PHP`,  `MySQL/MariaDB`, and `Apache/Nginx`. Recommendation for production setups is to use `Varnish`, `Redis`, `NFS` and `Solr` in a [clustered setup](../guide/clustering.md).
 
 For supported versions of these technologies see Recommended and Supported setups below.
 
@@ -16,36 +16,39 @@ These setups are tested by QA and are generally recommended setups. For security
 
 ||Debian|Ubuntu|RHEL / CentOS|
 |------|------|------|------|
-|Operating system|8.x "Jessie"|16.04LTS|7.x|
-|Web Server|Nginx 1.6</br>Apache 2.4 *(prefork mode)*|Nginx 1.10</br>Apache 2.4 *(prefork mode)*|Nginx 1.10 *(latest via [RHSCL](https://access.redhat.com/documentation/en/red-hat-software-collections/))*</br>Apache 2.4 *(prefork mode)*|
-|DBMS|MariaDB 10.0</br>MySQL 5.5|MariaDB 10.0</br>MySQL 5.7\*|MariaDB 10.1 *(latest via RHSCL)*</br>MariaDB 10.0 *(latest via RHSCL)*</br>MySQL 5.6 *(latest via RHSCL)*</br>MariaDB 5.5|
-|PHP|PHP 7.1 *(via libapache2-mod-php5 for Apache)*|PHP 7.1|PHP 7.1 *(latest via RHSCL)*</br>PHP 5.6 *(latest via RHSCL)*|
-|PHP packages|php5-cli</br>php5-fpm *(for use with nginx)*</br>php5-readline</br>php5-mysqlnd or php5-pgsql</br>php5-json</br>php5-xsl</br>php5-intl</br>php5-mcrypt</br>php5-curl</br>php5-gd</br>*or* php5-imagick</br>php5-twig *(optional, improves performance on php 5.x)*|php-cli</br>php-fpm *(for use with nginx)*</br>php-readline</br>php-mysql or php-pgsql</br>php-json</br>php-xml</br>php-mbstring</br>php-intl</br>php-mcrypt</br>php-curl</br>php-gd or php-imagick|php-cli</br>php-fpm *(for use with nginx)*</br>php-mysqlnd or php-pgsql</br>php-xml</br>php-mbstring</br>php-process</br>php-intl</br>php-pear *(optional, provides pecl)*</br>php-gd or php-imagick *(via [pecl](https://pecl.php.net/package/imagick))*</br>php-memcached *(recommended, via [pecl](https://pecl.php.net/package/memcached))*|
-|Cluster PHP packages</br>*Also recommended for single server setup, improves performance of cache clearing operations.*|php5-memcached *or* php-redis *(via [pecl](https://pecl.php.net/package/redis))*|php-memcached *(via [pecl](https://pecl.php.net/package/memcached)) or* php-redis *(via [pecl](https://pecl.php.net/package/redis))*|php-memcached *(via [pecl](https://pecl.php.net/package/memcached)) or* php-redis *(via [pecl](https://pecl.php.net/package/redis))*|
+|Operating system|9.x "Stretch"|16.04LTS|7.x|
+|Web Server|Nginx 1.10</br>Apache 2.4 *(prefork mode)*|Nginx 1.10</br>Apache 2.4|Nginx 1.10 *(latest via [RHSCL](https://access.redhat.com/documentation/en/red-hat-software-collections/))*</br>Apache 2.4|
+|DBMS|MariaDB 10.1</br>MySQL 5.5|MariaDB 10.0</br>MySQL 5.7\*|MariaDB 10.1 *(latest via RHSCL)*</br>MariaDB 10.0 *(latest via RHSCL)*</br>MySQL 5.6 *(latest via RHSCL)*</br>MariaDB 5.5|
+|PHP|PHP 7.1|PHP 7.1|PHP 7.1 *(latest via RHSCL)*|
+|PHP packages|php-cli</br>php-fpm</br>php-readline</br>php-mysql or php-pgsql</br>php-json</br>php-xsl</br>php-intl</br>php-mcrypt</br>php-curl</br>php-gd</br>*or* php-imagick|php-cli</br>php-fpm *(for use with nginx)*</br>php-readline</br>php-mysql or php-pgsql</br>php-json</br>php-xml</br>php-mbstring</br>php-intl</br>php-mcrypt</br>php-curl</br>php-gd or php-imagick|php-cli</br>php-fpm *(for use with nginx)*</br>php-mysqlnd or php-pgsql</br>php-xml</br>php-mbstring</br>php-process</br>php-intl</br>php-pear *(optional, provides pecl)*</br>php-gd or php-imagick *(via [pecl](https://pecl.php.net/package/imagick))*</br>php-memcached *(recommended, via [pecl](https://pecl.php.net/package/memcached))*|
+|Cluster PHP packages</br>|php-redis *(via [pecl](https://pecl.php.net/package/redis))*|php-redis *(via [pecl](https://pecl.php.net/package/redis))*|php-redis *(via [pecl](https://pecl.php.net/package/redis))*|
 
 |||
 |------|------|
 |Search|Solr (recommended, for better performance and scalability of all API Queries):</br></br>Solr 4.10</br>*Solr 6 SOLR BUNDLE >= 1.3, CURRENTLY TESTED WITH SOLR 6.4.2*</br></br>Oracle Java/Open JDK: 7 or 8 (needed for Solr, version 8 recommended)|
 |Graphic Handler|GraphicsMagick or ImageMagick or GD|
-|[Clustering](../guide/clustering.md)|Linux NFS *or* S3 *(for IO, aka binary files stored in content repository)*</br>Memcached *or* Redis *(for Persistence cache & Sessions)*</br>Varnish *(for HttpCache)*|
+|[Clustering](../guide/clustering.md)|Linux NFS *or* S3 *(for IO, aka binary files stored in content repository)*</br>Redis *(for Persistence cache & Sessions)*</br>Varnish *(for HttpCache)*|
 |Filesystem|Linux ext3 / ext4|
 |Package manager|Composer|
 
 ### Supported setups
 
-WORK IN PROGRESS FOR FUTURE RELEASE, SEE ABOVE FOR NOW
-
 Supported setups are those we perform automated testing on. For security and performance we recommend use of the newer versions of components below.
 
 -   OS: Linux
 -   Web Servers:
-    -   Apache 2.2, 2.4, with required modules `mod_php`, `mod_rewrite`, `mod_env` and recommended: `mod_setenvif`, `mod_expires`
-    -   Nginx 1.6, 1.8. 1.10, 1.12
+    -   Apache 2.4, with required modules `mod_php`, `mod_rewrite`, `mod_env` and recommended: `mod_setenvif`, `mod_expires`
+    -   Nginx 1.10, 1.12
 -   DBMS
     -   MySQL 5.5, 5.6\*, 5.7\*
     -   MariaDB 5.5, 10.0, 10.1, 10.2\*
 -   PHP
     -   7.1
+
+- Cluster
+    - Redis or Memcached
+    - Solr or SQL *(but does not provide same featureset or performance as Solr)*
+    - NFS or S3
 
 -   PHP extensions/modules
     -   curl
@@ -64,7 +67,7 @@ Supported setups are those we perform automated testing on. For security and per
     -   xml
     -   xsl
     -   zip
-    -   php-memcached *(3.x) or* [php-redis](https://pecl.php.net/package/redis)
+    -   [php-redis](https://pecl.php.net/package/redis) *or* php-memcached *(3.x)*
 
 _\* Note: Mysql 5.7 and MariaDB 10.2 changes how certain queries are parsed and is known to have issues with content attribute sorting  queries in  legacy because of that at the moment, MySQL 5.6 technically works but executes several hundred times slower on said queries. Because of this we overall recommend MariaDB 10.1 and 10.0, and don't offically support MySQL 5.6/5.7 and MariaDB 10.2 in use with legacy at the moment._
 
