@@ -377,7 +377,7 @@ After this configuration is complete the Dashboard should display the new block.
                 - { identifier: required, value: 1 }
     ```
 
-    - `attributes` - contains the field's attributes. You can place here custom attributes for new fields, like in <https://github.com/ezsystems/ezstudio-form-builder/blob/master/bundle/Resources/config/default_fields.yml#L33>. There are also [four default attributes](https://github.com/ezsystems/ezstudio-form-builder/blob/master/lib/Core/Definition/FieldDefinition.php#L16-L19) that are used for every field: `LABEL_NAME`, `LABEL_HELP_TEXT`, `LABEL_ADMIN_LABEL` and `LABEL_PLACEHOLDER_TEXT`. If you wish, you can override them in your configuration.
+    - `attributes` - contains the field's attributes. You can place here custom attributes for new fields. There are also four default attributes that are used for every field: `LABEL_NAME`, `LABEL_HELP_TEXT`, `LABEL_ADMIN_LABEL` and `LABEL_PLACEHOLDER_TEXT`. If you wish, you can override them in your configuration.
 
     - `views` - provides a list of views that will be used to display the field. At least one view must be defined, with the keys `name`, `thumbnail` and `template`, for example:
 

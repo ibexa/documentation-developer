@@ -236,7 +236,7 @@ acme.landing_page.block.rss:                                             # servi
 
 ### Custom editing UI
 
-If you want to add a custom editing UI to your new block, you need to provide the code for the custom popup UI in Javascript (see the code for [eZS.ScheduleBlockView](https://github.com/ezsystems/StudioUIBundle/blob/ea683e0443bc3660e9ee25fe24e435d99e1133ff/Resources/public/js/views/blocks/ezs-scheduleblockview.js) or [eZS.TagBlockView](https://github.com/ezsystems/StudioUIBundle/blob/162d6b9b967cb549f32bc06c4405d3809d8546f0/Resources/public/js/views/blocks/ezs-tagblockview.js) for examples).
+If you want to add a custom editing UI to your new block, you need to provide the code for the custom popup UI in Javascript (see the code for `ezs-scheduleblockview.js` or `ezs-tagblockview.js` in the StudioUIBundle in your installation for examples).
 
 Once it is ready, create a plugin for `eZS.LandingPageCreatorView` that makes a use of the `addBlock` public method from `eZS.LandingPageCreatorView`, see the example below:
 
