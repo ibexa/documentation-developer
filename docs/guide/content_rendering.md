@@ -443,7 +443,7 @@ For example:
 
     A Schedule block consists of a number of slots. Each slot can hold one Content item.
 
-    The number of slots and their order is defined in the template. A template for a Schedule block must include the `data-studio-slots-container` and `data-studio-slot` attributes to enable placing Content in the slots. See [the demo bundle for an example](https://github.com/ezsystems/ezstudio-demo-bundle/blob/master/Resources/views/blocks/schedule_grid-4.html.twig#L3).
+    The number of slots and their order is defined in the template. A template for a Schedule block must include the `data-studio-slots-container` and `data-studio-slot` attributes to enable placing Content in the slots.
 
     #### Behavior
 
