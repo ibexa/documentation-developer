@@ -1044,31 +1044,44 @@ The LatestContentQueryType from the [example above](#querytype-example-latest-co
 
 ``` php
 <?php
+
 namespace AppBundle\QueryType;
+
 use eZ\Publish\API\Repository\Values\Content\Query;
+use eZ\Publish\Core\QueryType\OptionsResolverBasedQueryType;
+use eZ\Publish\Core\QueryType\QueryType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+
 class OptionsBasedLatestContentQueryType extends OptionsResolverBasedQueryType implements QueryType
 {
     protected function doGetQuery(array $parameters)
     {
-        $criteria[] = new Query\Criterion\Visibility(Query\Criterion\Visibility::VISIBLE);
+        $criteria= [
+            new Query\Criterion\Visibility(Query\Criterion\Visibility::VISIBLE)
+        ];
         if (isset($parameters['type'])) {
             $criteria[] = new Query\Criterion\ContentTypeIdentifier($parameters['type']);
         }
+
         return new Query([
-            'criterion' => new Query\Criterion\LogicalAnd($criteria),
-            'sortClauses' => [new Query\SortClause\DatePublished()],
-            'limit' => $parameters,
+            'filter' => new Query\Criterion\LogicalAnd($criteria),
+            'sortClauses' => [
+                new Query\SortClause\DatePublished()
+            ],
+            'limit' => $parameters['limit'],
         ]);
     }
+
     public static function getName()
     {
         return 'AppBundle:LatestContent';
     }
+
     protected function configureOptions(OptionsResolver $resolver)
     {
+        $resolver->setDefined(['type', 'limit']);
         $resolver->setAllowedTypes('type', 'string');
-        $resolver->setAllowedValues('limit', 'int');
+        $resolver->setAllowedTypes('limit', 'int');
         $resolver->setDefault('limit', 10);
     }
 }
