@@ -305,7 +305,8 @@ To (re)create or refresh the search engine index for configured search engines (
 
 Some examples of common usage _(using 1.7.7/1.13 and up)_:
 ```bash
-# Reindex whole index using parallel proccces (with 'auto' option which detects number of CPU cores -1, default as of 1.13)
+# Reindex whole index using parallel process
+# (with the 'auto' option which detects the number of CPU cores -1, default as of 1.13)
 php app/console ezplatform:reindex --processes=auto
 
 # Refresh part of the subtree (implies --no-purge)
@@ -314,11 +315,11 @@ php app/console ezplatform:reindex --subtree=2
 # Refresh content updated since a date (implies --no-purge)
 php app/console ezplatform:reindex --since=yesterday
 
-# Refresh (/ Delete when not found) content by ids  (implies --no-purge)
+# Refresh (or delete when not found) content by IDs  (implies --no-purge)
 php app/console ezplatform:reindex --content-ids=3,45,33
 ```
 
-For further info on possible options, see  `php app/console ezplatform:reindex --help`.
+For further info on possible options, see `php app/console ezplatform:reindex --help`.
 
 ## Reference
 
