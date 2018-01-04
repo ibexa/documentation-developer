@@ -1,45 +1,10 @@
 # Creating Landing Page blocks (Enterprise)
 
-## Description
-
 A Landing Page has a customizable layout with multiple zones where you can place predefined blocks with content.
 
 By default eZ Enterprise comes with a number of preset Landing Page blocks. You can, however, add custom blocks to your configuration. There are two ways to do this: the full way and an [easier, YAML-based method](#defining-landing-page-blocks-in-the-configuration-file).
 
-## Full customization
-
-### Block configuration
-
-In the Demo installation the layout configuration is stored in `ezstudio-demo-bundle/Resources/config/default_layouts.yml`:
-
-``` yaml
-# Example default_layouts.yml
-blocks:
-    gallery:
-        views:
-            gallery:
-                template: eZStudioDemoBundle:blocks:gallery.html.twig
-                name: Default Gallery Block template
-    keyword:
-        views:
-            keyword:
-                template: eZStudioDemoBundle:blocks:keyword.html.twig
-                name: Default Keyword Block template
-    rss:
-        views:
-            rss:
-                template: eZStudioDemoBundle:blocks:rss.html.twig
-                name: Default RSS Block template
-    tag:
-        views:
-            tag:
-                template: eZStudioDemoBundle:blocks:tag.html.twig
-                name: Default Tag Block template
-```
-
-### Creating a new block
-
-#### Creating a class for the block
+## Block Class
 
 The class for the block must implement the `BlockType` interface:
 
@@ -59,25 +24,34 @@ For example:
 
 ``` php
 <?php
-namespace AcmeDemoBundle\Block;
+namespace AcmeBundle\Block;
 
 use EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Model\AbstractBlockType;
 
-/**
-* RSS block
-* Renders feed from a given URL.
-*/
-class RSSBlock extends AbstractBlockType
+class ExampleBlock extends AbstractBlockType
 {
    // Class body
 }
 ```
 
-#### Describing a class definition
+### Class definition
 
 A block **must** have a definition set using two classes:
 
-##### BlockAttributeDefinition
+#### BlockDefinition
+
+The `BlockDefinition` class describes a block:
+
+|Attribute|Type|Definition|
+|------|------|------|
+|$type|string|block type|
+|$name|string|block name|
+|$category|string|block category|
+|$thumbnail|string|path to block thumbnail image|
+|$templates|array|array of available paths of templates</br>See [Block templates](#block-templates) below|
+|$attributes|array|array of block attributes (objects of `BlockAttributeDefinition` class)|
+
+#### BlockAttributeDefinition
 
 The `BlockAttributeDefinition` class defines the attributes of a block:
 
@@ -93,33 +67,17 @@ The `BlockAttributeDefinition` class defines the attributes of a block:
 |`$values`|array|array of chosen values|
 |`$options`|array|array of available options|
 
-#### BlockDefinition
-
-The `BlockDefinition` class describes a block:
-
-|Attribute|Type|Definition|Note|
-|------|------|------|------|
-|$type|string|block type||
-|$name|string|block name||
-|$category|string|block category||
-|$thumbnail|string|path to block thumbnail image||
-|$templates|array|array of available paths of templates|Retrieved from the config file (default_layouts.yml)|
-|$attributes|array|array of block attributes (objects of `BlockAttributeDefinition` class)||
+### Class methods
 
 When extending `AbstractBlockType` you **must** implement at least 3 methods:
 
-##### `createBlockDefinition()`
+#### `createBlockDefinition()`
 
-This method must return an `EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Definition\BlockDefinition`  object.
+This method must return an `EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Definition\BlockDefinition` object.
 
-Example of a Gallery block:
+Example of the built-in Gallery block:
 
 ``` php
-/**
- * Creates BlockDefinition object for block type.
- *
- * @return \EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Definition\BlockDefinition
- */
 public function createBlockDefinition()
 {
     return new BlockDefinition(
@@ -141,7 +99,7 @@ public function createBlockDefinition()
 }
 ```
 
-##### `getTemplateParameters(BlockValue $blockValue)`
+#### `getTemplateParameters(BlockValue $blockValue)`
 
 This method returns an array of parameters to be displayed in rendered view of block. You can access them directly in a block template (e. g. via twig `{{ title }}` ).
 
@@ -151,14 +109,9 @@ When parameters are used in the template you call them directly without the `par
 |---------|-------------|
 | `<h1>{{ title }}</h1>` | `<h1>{{ parameters.title }}</h1>` |
 
-Example of the `getTemplateParameters()` method implementation:
+`getTemplateParameters()` method implementation using the example of the built-in RSS block:
 
 ``` php
-/**
-* @param \EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Model\BlockValue $blockValue
-*
-* @return array
-*/
 public function getTemplateParameters(BlockValue $blockValue)
 {
     $attributes = $blockValue->getAttributes();
@@ -175,7 +128,7 @@ public function getTemplateParameters(BlockValue $blockValue)
 }
 ```
 
-##### `checkAttributesStructure(array $attributes)`
+#### `checkAttributesStructure(array $attributes)`
 
 This method validates the input fields for a block. You can specify your own conditions to throw the `InvalidBlockAttributeException` exception.
 
@@ -183,21 +136,14 @@ This `InvalidBlockAttributeException` exception has the following parameters:
 
 | Name           | Description                                            |
 |----------------|--------------------------------------------------------|
-|  **blockType** |  name of a block                                       |
-|  **attribute** |  name of the block's attribute which failed validation |
-|  **message**   |  a short information about an error                    |
-|  **previous**  |  previous exception, null by default                   |
+|  `blockType` |  name of a block                                       |
+|  `attribute` |  name of the block's attribute which failed validation |
+|  `message`   |  a short information about an error                    |
+|  `previous`  |  previous exception, null by default                   |
 
-For example:
+For example to validate an RSS block:
 
 ``` php
-/**
- * Checks if block's attributes are valid.
- *
- * @param array $attributes
- *
- * @throws \EzSystems\LandingPageFieldTypeBundle\Exception\InvalidBlockAttributeException
- */
 public function checkAttributesStructure(array $attributes)
 {
     if (!isset($attributes['url'])) {
@@ -214,9 +160,7 @@ public function checkAttributesStructure(array $attributes)
 }
 ```
 
-When the class is created make sure it is added to a container.
-
-#### Adding the class to the container
+## Adding the class to the container
 
 The **services.yml** file must contain info about your block class.
 
@@ -228,13 +172,46 @@ The description of your class must contain a tag which provides:
 For example:
 
 ``` yaml
-acme.landing_page.block.rss:                                             # service id
-       class: AcmeDemoBundle\FieldType\LandingPage\Model\Block\RSSBlock # block's class with namespace
-       tags:                                                            # service definition must contain tag with
-           - { name: landing_page_field_type.block_type, alias: rss}    # "landing_page_field_type.block_type" name and block name as an alias
+# service id
+acme.block.rss:
+    # block's class with namespace
+    class: AcmeBundle\Block\ExampleBlock
+    tags:
+        # service definition must contain tag with
+        # "landing_page_field_type.block_type" name and block name as an alias
+        - { name: landing_page_field_type.block_type, alias: example}
 ```
 
-### Custom editing UI
+## Block templates
+
+The templates for the new blocks are configured in your YAML config.
+
+``` yaml
+blocks:
+    example:
+        views:
+            test:
+                template: AcmeBundle:blocks:example.html.twig
+                name: Example Block View
+```
+
+## Example
+
+For a full working example of creating a new Landing Page block, see [step 4 of the Enterprise tutorial](../tutorials/enterprise_beginner/4_creating_a_custom_block.md).
+
+!!! tip
+
+    If you want to make sure that your block is only available in the Element menu in a specific situation, you can override the `isAvailable` method, which makes the block accessible by default:
+
+    ``` php
+    public function isAvailable()
+        {
+            return true;
+        }
+    ```
+
+
+## Custom editing UI
 
 If you want to add a custom editing UI to your new block, you need to provide the code for the custom popup UI in Javascript (see the code for `ezs-scheduleblockview.js` or `ezs-tagblockview.js` in the StudioUIBundle in your installation for examples).
 
@@ -263,163 +240,60 @@ YUI.add('ezs-addcustomblockplugin', function (Y) {
 });
 ```
 
-!!! note "Upcoming feature - multiple block templates"
-
-    The ability to configure different templates (views) for one Landing Page block is upcoming. See [EZS-1008](https://jira.ez.no/browse/EZS-1008) to follow its progress.
-
-### Example
-
-#### Block Class
-
-``` php
-// TagBlock.php
-<?php
-/**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
- * @license For full copyright and license information view LICENSE file distributed with this source code.
- */
-namespace EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Model\Block;
-
-use EzSystems\LandingPageFieldTypeBundle\Exception\InvalidBlockAttributeException;
-use EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Definition\BlockDefinition;
-use EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Definition\BlockAttributeDefinition;
-use EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Model\AbstractBlockType;
-use EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Model\BlockType;
-use EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Model\BlockValue;
-
-/**
- * Tag block
- * Renders simple HTML.
- */
-class TagBlock extends AbstractBlockType implements BlockType
-{
-    /**
-     * Returns array of parameters required to render block template.
-     *
-     * @param array $blockValue Block value attributes
-     *
-     * @return array Template parameters
-     */
-    public function getTemplateParameters(BlockValue $blockValue)
-    {
-        return ['block' => $blockValue];
-    }
-
-    /**
-     * Creates BlockDefinition object for block type.
-     *
-     * @return \EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Definition\BlockDefinition
-     */
-    public function createBlockDefinition()
-    {
-        return new BlockDefinition(
-            'tag',
-            'Tag Block',
-            'default',
-            'bundles/ezsystemslandingpagefieldtype/images/thumbnails/tag.svg',
-            [],
-            [
-                new BlockAttributeDefinition(
-                    'content',
-                    'Content',
-                    'text',
-                    '/[^\\s]/',
-                    'Provide html code'
-                ),
-            ]
-        );
-    }
-
-    /**
-     * Checks if block's attributes are valid.
-     *
-     * @param array $attributes
-     *
-     * @throws \EzSystems\LandingPageFieldTypeBundle\Exception\InvalidBlockAttributeException
-     */
-    public function checkAttributesStructure(array $attributes)
-    {
-        if (!isset($attributes['content'])) {
-            throw new InvalidBlockAttributeException('Tag', 'content', 'Content must be set.');
-        }
-    }
-}
-```
-
-!!! tip
-
-    If you want to make sure that your block is only available in the Element menu in a specific situation, you can override the `isAvailable` method, which makes the block accessible by default:
-
-    ``` php
-    public function isAvailable()
-        {
-            return true;
-        }
-    ```
-
-#### service.yml configuration
-
-``` yaml
-# services.yml
-ezpublish.landing_page.block.tag:
-    class: EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Model\Block\TagBlock
-    tags:
-        - { name: landing_page_field_type.block_type, alias: tag }
-```
-
-#### Block template
-
-`{{ block.attributes.content|raw }}`
-
 ## Defining Landing Page blocks in the configuration file
 
-There is an alternative way to define/configure Landing Page block types that requires modifying the `config.yml` in an application or a bundle and using the `ez_systems_landing_page_field_type` key.
+There is a faster and more developer-friendly way to create Landing Page block types
+using only the YAML configuration in an application or a bundle, under the `ez_systems_landing_page_field_type` key.
 
 ``` yaml
-# example.yml
 ez_systems_landing_page_field_type:
     blocks:
-        new_block_name:
+        example_block:
             initialize: true
-            name: New Block Name
+            name: Example Block
             category: default
             thumbnail: bundles/ezsystemslandingpageblocktemplate/images/templateblock.svg
             views:
                 default:
-                    template: EzSystemsLandingPageBlockTemplateBundle::template.html.twig
+                    template: blocks/template.html.twig
                     name: Default view
+                special:
+                    template: blocks/special_template.html.twig
+                    name: Special view
             attributes:
-                text_field:
+                handle:
                     type: text
-                    required: true
-                    inline: false
-                    values: []
-                    options: []
-                width:
-                    type: multiple
                     regex: /[\s]/
                     regexErrorMessage: Invalid text
                     required: true
                     inline: false
+                    values: []
+                    options: []
+                flavor:
+                    type: multiple
+                    required: true
+                    inline: false
                     values: [value2]
                     options:
-                        value1: label1
-                        value2: label2
+                        value1: vanilla
+                        value2: chocolate
 ```
 
-Note to developers: Configuration keys have to match `BlockDefinition` and `BlockAttributeDefinition` property names.
+!!! tip
 
-The presented configuration is introduced to make defining blocks faster and more developer-friendly. Below you can find a few important notes:
+    Configuration keys have to match `BlockDefinition` and `BlockAttributeDefinition` property names.
 
-- The `name` attribute can be omitted and values are going to be generated automatically in the following fashion: `new_value` =&gt; `New Value`
-- For now `category` is not needed for blocks - it's for future purposes.
+Below you can find a few important notes:
+
+- You can omit the `name` attribute. Values are going to be generated automatically in the following fashion: `new_value` =&gt; `New Value`
+- `category` is not is use - it will be implemeneted in the future.
 - In most cases blocks have only a single view, therefore you can define it as: `views: EzSystemsLandingPageBlockTemplateBundle::template.html.twig`.
 - In case of multiple views you can omit `name` and simplify it as follows:
 
 ``` yaml
 views:
-    default: EzSystemsLandingPageBlockTemplateBundle::template.html.twig
-    another_view: EzSystemsLandingPageBlockTemplateBundle::another_view.html.twig
+    default: blocks/template.html.twig
+    special: blocks/special_template.html.twig
 ```
 
 - When defining attributes you can omit most keys as long as you use simple types:
@@ -431,22 +305,24 @@ attributes:
     third_field: integer
 ```
 
-Keep in mind that other types such as `multiple`, `select`, `radio` have to utilize the `options` key.
+Keep in mind that other types such as `multiple`, `select`, `radio` have to use the `options` key.
 
 #### Block type class and service
 
-If parameter `intialize `is set to` true`, you no longer have to register a service associated with the new block. It will use a generic service which exposes all attribute values to the views.
+If `intialize` is set to` true`, you no longer have to register a service associated with the new block.
+It will use a generic service which exposes all attribute values to the views.
 
-You are allowed to overwrite the `ez_systems.landing_page.block.{NEW_BLOCK_IDENTIFIER}` service with your own implementation. Just make sure your class is extending the `ConfigurableBlockType` class.
+You can overwrite the `ez_systems.landing_page.block.{NEW_BLOCK_IDENTIFIER}` service with your own implementation.
+Just make sure your class extends the `ConfigurableBlockType` class.
 
 Some hints regarding custom service implementation:
 
 - do not override the `createBlockDefinition()` method unless you want to make further modifications to the `\EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Definition\BlockDefinition` object created from your YAML config. Do not forget to run `parent::createBlockDefinition()` to retrieve the original object.
-- implement other methods such as `checkAttributesStructure()` and `getTemplateParameters()`to provide more complex validation and implement the block functionality.
+- implement other methods such as `checkAttributesStructure()` and `getTemplateParameters()` to provide more complex validation and implement the block functionality.
 
 #### Overwriting existing blocks
 
-This is the way to overwrite following properties in the existing blocks:
+You can overwrite following properties in the existing blocks:
 
 - `thumbnail`
 - `name`
@@ -458,7 +334,3 @@ This is the way to overwrite following properties in the existing blocks:
     It is not possible to overwrite or add any attributes to existing blocks as there is no possibility to modify BlockType implementation, and therefore to use or display those new attributes.
 
 `\EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Model\AbstractBlockType::isFinal` indicates whether the block can be overwritten by the configuration. All blocks can be overwritten by default. 
-
-#### Test
-
-To test the new functionality you can copy [webhdx/EzLandingPageBlockTemplateBundle](https://github.com/webhdx/EzLandingPageBlockTemplateBundle) to your codebase. A new block has been already defined in `Resources/config/blocks.yml` and you can try different options there.
