@@ -10,42 +10,45 @@ For this purpose eZ Platform recommends the use of [Pagerfanta library](https://
 
 ``` php
 <?php
+
 namespace Acme\TestBundle\Controller;
 
-use eZ\Publish\Core\Pagination\Pagerfanta\ContentSearchAdapter;
-use Pagerfanta\Pagerfanta;
 use eZ\Bundle\EzPublishCoreBundle\Controller;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion\ContentTypeIdentifier;
 use eZ\Publish\API\Repository\Values\Content\Query;
+use eZ\Publish\API\Repository\Values\Content\Query\SortClause;
+use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
+use eZ\Publish\Core\Pagination\Pagerfanta\ContentSearchAdapter;
+use Symfony\Component\HttpFoundation\Request;
+use Pagerfanta\Pagerfanta;
 
 class DefaultController extends Controller
 {
-    public function myContentListAction( $locationId, $viewType, $layout = false, array $params = array() )
+    public function myContentListAction(Request $request, $locationId, $viewType, $layout = false, array $params = [])
     {
         // First build the search query.
         // Let's search for folders, sorted by publication date.
         $query = new Query();
-        $query->criterion = new ContentTypeIdentifier( 'folder' );
-        $query->sortClauses = array( new SortClause\DatePublished() );
- 
+        $query->filter = new Criterion\ContentTypeIdentifier('folder');
+        $query->sortClauses = [
+            new SortClause\DatePublished()
+        ];
+
         // Initialize the pager.
         // We pass the ContentSearchAdapter to it.
         // ContentSearchAdapter is built with your search query and the SearchService.
         $pager = new Pagerfanta(
-            new ContentSearchAdapter( $query, $this->getRepository()->getSearchService() )
+            new ContentSearchAdapter($query, $this->getRepository()->getSearchService())
         );
         // Let's list 2 folders per page, even if it doesn't really make sense ;-)
-        $pager->setMaxPerPage( 2 );
+        $pager->setMaxPerPage(2);
         // Defaults to page 1 or get "page" query parameter
-        $pager->setCurrentPage( $this->getRequest()->get( 'page', 1 ) );
+        $pager->setCurrentPage($request->get('page', 1));
 
-        return $this->render(
-            'AcmeTestBundle::my_template.html.twig',
-            array(
+        return $this->render('AcmeTestBundle::my_template.html.twig', [
                 'totalFolderCount' => $pager->getNbResults(),
                 'pagerFolder' => $pager,
-                'location' => $this->getRepository()->getLocationService()->loadLocation( $locationId ),
-            ) + $params
+                'location' => $this->getRepository()->getLocationService()->loadLocation($locationId),
+            ] + $params
         );
     }
 }
