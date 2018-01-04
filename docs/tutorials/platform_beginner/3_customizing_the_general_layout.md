@@ -93,11 +93,12 @@ Do the same for `"images/logo_just_letters.png"`:
 
 Then change every image's path in the same way.
 
-The web assets file must be regenerated for the prod environment, so run the following command:
+!!! tip
+    The web assets file must be regenerated for the prod environment, so run the following command:
 
-```
-php app/console assetic:dump --env=prod web
-```
+    ```
+    php app/console assetic:dump --env=prod web
+    ```
 
 !!! note "Clear the cache"
 
