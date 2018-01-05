@@ -303,7 +303,7 @@ $content = $searchResult->searchHits[0];
 
 To (re)create or refresh the search engine index for configured search engines (per siteaccess repository), use the `php app/console ezplatform:reindex` command.
 
-Some examples of common usage _(using 1.7.7/1.13 and up)_:
+Some examples of common usage:
 ```bash
 # Reindex whole index using parallel process
 # (with the 'auto' option which detects the number of CPU cores -1, default as of 1.13)
