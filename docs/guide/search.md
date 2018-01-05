@@ -305,7 +305,7 @@ To (re)create or refresh the search engine index for configured search engines (
 
 Some examples of common usage:
 ```bash
-# Reindex whole index using parallel process
+# Reindex whole index using parallel process (by default starts by purging the whole index)
 # (with the 'auto' option which detects the number of CPU cores -1, default as of 1.13)
 php app/console ezplatform:reindex --processes=auto
 
