@@ -443,7 +443,7 @@ For example:
 
     A Schedule block consists of a number of slots. Each slot can hold one Content item.
 
-    The number of slots and their order is defined in the template. A template for a Schedule block must include the `data-studio-slots-container` and `data-studio-slot` attributes to enable placing Content in the slots. See [the demo bundle for an example](https://github.com/ezsystems/ezstudio-demo-bundle/blob/master/Resources/views/blocks/schedule_grid-4.html.twig#L3).
+    The number of slots and their order is defined in the template. A template for a Schedule block must include the `data-studio-slots-container` and `data-studio-slot` attributes to enable placing Content in the slots.
 
     #### Behavior
 
@@ -520,6 +520,24 @@ See also: [Custom controllers](#custom-controllers).
 [hinclude.js](http://mnot.github.com/hinclude/) needs to be properly included in your layout to work.
 
 [Refer to Symfony documentation](http://symfony.com/doc/current/book/templating.html#asynchronous-content-with-hinclude-js) for all available options.
+
+### Rendering in preview
+
+When previewing content in the back office, the draft view is rendered using the [PreviewController](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/MVC/Symfony/Controller/Content/PreviewController.php).
+
+The first draft of a yet unpublished Content item does not have a Location, because Locations are only assigned when content is published.
+To enable rendering in such cases, the PreviewController [creates a temporary virtual Location](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Helper/PreviewLocationProvider.php#L65).
+This Location has some of the properties of the future Location, such as the parent Location ID.
+However, it does not fully replace a normal Location.
+
+If the rendering template refers directly to the Location ID of the content, an error will occur.
+To avoid such situations, you can check if the Location is virtual using the `location.isDraft` flag in Twig templates, for example:
+
+``` jinja
+{% if not location.isDraft %}
+    <a href="{{ path(location) }}">{{ ez_content_name(content) }}</a>
+{% endif %}
+```
 
 ## Custom controllers
 

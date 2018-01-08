@@ -69,12 +69,12 @@ It is currently used by:
 
     #### StudioUIBundle
 
-    [StudioUIBundle](https://github.com/ezsystems/StudioUIBundle) contains the Studio editing interface
+    StudioUIBundle contains the Studio editing interface
     provided in eZ Platform Enterprise Edition.
 
     #### Landing Page Field Type Bundle
 
-    [EzLandingPageFieldTypeBundle](https://github.com/ezsystems/EzLandingPageFieldTypeBundle) provides
+    EzLandingPageFieldTypeBundle provides
     the Landing Page that is at the heart of StudioUI.
 
 !!! tip
