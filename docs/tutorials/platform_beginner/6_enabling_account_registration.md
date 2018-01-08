@@ -63,6 +63,3 @@ Log in the back office as an Administrator and go to the Users page. Select the 
 
 Then log in again into the back office with your new user credentials.
 You have now the possibility to create new Rides and Points of Interest only.
-
-
-#

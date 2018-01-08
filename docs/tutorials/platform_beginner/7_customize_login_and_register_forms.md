@@ -1,6 +1,6 @@
 # Step 7 - Customizing the user forms
 
-We want to have a consistent design over our web site. When using the pagelayout for the register forms, you see the design of your website. We want to welcome our new users with a pretty register page.
+We want to have a consistent design in our web site. When using the pagelayout for the register forms, you see the same design as the rest of the website. We want to welcome our new users with a pretty register page.
 
 
 We want to have a consistent design over our web site. When using the register form, it was a raw HTML form without any styling on it. We want to welcome our new users with a pretty register page.
@@ -12,7 +12,7 @@ In order to have a better file structure, we will extract the YAML keys regardin
 ```yaml
 ezpublish:
     system:
-        default:
+        site_group:
             pagelayout: pagelayout.html.twig
             content_view:
                     full:
@@ -49,12 +49,12 @@ imports:
     You can clear the cache with the command we have seen before: `php app/console cache:clear` to check that it works like before.
 ​    
 
-And at the same level than `pagelayout` add a `user` key so the beginning of your `views.yml` file looks like this:
+And at the same level as `pagelayout` add a `user` key so the beginning of your `views.yml` file looks like this:
 
 ```yaml
 ezpublish:
     system:
-        default:
+        site_group:
             pagelayout: pagelayout.html.twig
             user:
                 layout: pagelayout.html.twig
@@ -64,26 +64,26 @@ Then clear the cache with the command we have seen before: `php app/console cach
 
 When you get the `<yourdomain>/register` URL, you should have this view where you see that the pagelayout is used.
 
-![step6_register_page](img/step6_register_page.png)
+![Complete Register page with the pagelayout](img/step6_register_page.png)
 
 
 
 ## Use custom template for register forms
 
 
-At the same level than `pagelayout` add a `user_registration` key so the beginning of your `views.yml` file looks like this:
+At the same level as `pagelayout` add a `user_registration` key so the beginning of your `views.yml` file looks like this:
 
 ```yaml
 ezpublish:
     system:
-        default:
+        site_group:
             pagelayout: 'pagelayout.html.twig'
             user:
                 layout: 'pagelayout.html.twig''
             user_registration:
                 templates:
                     form: 'user/registration_form.html.twig'
-                    confirmation: 'user/registration_confirmation.html.twig''
+                    confirmation: 'user/registration_confirmation.html.twig'
 ```
 Then clear the cache with the command we have seen before: `php app/console cache:clear` to see the consequences of the addition you made. 
 ## Create the overriding templates files
@@ -95,7 +95,7 @@ You will create 3 Twig templates to manage the registration and the login forms,
  * `registration_confirmation.html.twig`: the page the user will see after registration
 
 !!! note
-    All the Twig templates come from the eZPlatform Demo, you can view it on the Github repository: https://github.com/ezsystems/ezplatform-demo/tree/master/app/Resources/views/themes/demo/user
+    All the Twig templates come from the eZPlatform Demo, you can view them in the Github repository: https://github.com/ezsystems/ezplatform-demo/tree/master/app/Resources/views/themes/demo/user
 
 ### Create the register form custom template
 
