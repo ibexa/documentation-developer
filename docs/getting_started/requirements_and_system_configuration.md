@@ -16,9 +16,9 @@ These setups are tested by QA and are generally recommended setups. For security
 
 ||Debian|Ubuntu|RHEL / CentOS|
 |------|------|------|------|
-|Operating system|9.x "Stretch"|16.04LTS|7.x|
-|Web Server|Nginx 1.10</br>Apache 2.4 *(prefork mode)*|Nginx 1.10</br>Apache 2.4|Nginx 1.10 *(latest via [RHSCL](https://access.redhat.com/documentation/en/red-hat-software-collections/))*</br>Apache 2.4|
-|DBMS|MariaDB 10.1</br>MySQL 5.5|MariaDB 10.0</br>MySQL 5.7\*|MariaDB 10.1 *(latest via RHSCL)*</br>MariaDB 10.0 *(latest via RHSCL)*</br>MySQL 5.6 *(latest via RHSCL)*</br>MariaDB 5.5|
+|Operating system|9.x "Stretch"|17.10|7.x|
+|Web Server|Nginx 1.10</br>Apache 2.4 *(prefork mode)*|Nginx 1.12</br>Apache 2.4|Nginx 1.10 *(latest via [RHSCL](https://access.redhat.com/documentation/en/red-hat-software-collections/))*</br>Apache 2.4|
+|DBMS|MariaDB 10.1</br>MySQL 5.5|MariaDB 10.1</br>MySQL 5.7\*|MariaDB 10.1 *(latest via RHSCL)*</br>MariaDB 10.0 *(latest via RHSCL)*</br>MySQL 5.6 *(latest via RHSCL)*</br>MariaDB 5.5|
 |PHP|PHP 7.1|PHP 7.1|PHP 7.1 *(latest via RHSCL)*|
 |PHP packages|php-cli</br>php-fpm</br>php-readline</br>php-mysql or php-pgsql</br>php-json</br>php-xsl</br>php-intl</br>php-mcrypt</br>php-curl</br>php-gd</br>*or* php-imagick|php-cli</br>php-fpm *(for use with nginx)*</br>php-readline</br>php-mysql or php-pgsql</br>php-json</br>php-xml</br>php-mbstring</br>php-intl</br>php-mcrypt</br>php-curl</br>php-gd or php-imagick|php-cli</br>php-fpm *(for use with nginx)*</br>php-mysqlnd or php-pgsql</br>php-xml</br>php-mbstring</br>php-process</br>php-intl</br>php-pear *(optional, provides pecl)*</br>php-gd or php-imagick *(via [pecl](https://pecl.php.net/package/imagick))*</br>php-memcached *(recommended, via [pecl](https://pecl.php.net/package/memcached))*|
 |Cluster PHP packages</br>|php-redis *(via [pecl](https://pecl.php.net/package/redis))*|php-redis *(via [pecl](https://pecl.php.net/package/redis))*|php-redis *(via [pecl](https://pecl.php.net/package/redis))*|
@@ -33,7 +33,7 @@ These setups are tested by QA and are generally recommended setups. For security
 
 ### Supported setups
 
-Supported setups are those we perform automated testing on. For security and performance we recommend use of the newer versions of components below.
+Supported setups are those we perform automated testing on. For security and performance we in generall unless otherwise noted recommend use of the newer versions of components below.
 
 -   OS: Linux
 -   Web Servers:
@@ -78,12 +78,12 @@ eZ Platform, the foundation of all eZ software, can theoretically run and execu
 Examples of Development setups:
 
 -   OS: Windows, Mac OS X, Linux
--   Filesystem: NTFS, HFS+, ...
+-   Filesystem: NTFS, HFS+/APFS, ...
 
 Examples of Experimental setups:
 
 -   OS: Any system supported by PHP
--   Filesystem: BTRFS, AUFS, APFS, ...
+-   Filesystem: BTRFS, AUFS, ...
 -   IO: Azure, (S)FTP, GridFS, [...](https://flysystem.thephpleague.com/core-concepts/#adapters)
 -   Databases: Postgres, MSSQL, Oracle *(As in technically supported by Doctrine DBAL which we use, but none supported by our installer at the moment, and Oracle and MSSQL is not covered by automated testing)*
 
