@@ -299,9 +299,27 @@ $searchResult = $searchService->findContent( $query );
 $content = $searchResult->searchHits[0];
 ```
 
-### Reindexing
+## Reindexing
 
-To (re)create the search engine index for configured search engines (per siteaccess repository), use the `php bin/console ezplatform:reindex` command.
+To (re)create or refresh the search engine index for configured search engines (per siteaccess repository), use the `php bin/console ezplatform:reindex` command.
+
+Some examples of common usage:
+```bash
+# Reindex whole index using parallel process (by default starts by purging the whole index)
+# (with the 'auto' option which detects the number of CPU cores -1, default behavior)
+php bin/console ezplatform:reindex --processes=auto
+
+# Refresh part of the subtree (implies --no-purge)
+php bin/console ezplatform:reindex --subtree=2
+
+# Refresh content updated since a date (implies --no-purge)
+php bin/console ezplatform:reindex --since=yesterday
+
+# Refresh (or delete when not found) content by IDs  (implies --no-purge)
+php bin/console ezplatform:reindex --content-ids=3,45,33
+```
+
+For further info on possible options, see `php bin/console ezplatform:reindex --help`.
 
 ## Reference
 
