@@ -33,7 +33,7 @@ These setups are tested by QA and are generally recommended setups. For security
 
 ### Supported setups
 
-Supported setups are those we perform automated testing on. For security and performance we in generall unless otherwise noted recommend use of the newer versions of components below.
+Supported setups are those we perform automated testing on. For security and performance we generally recommend (unless otherwise noted and marked with \*) using the newer versions of components below.
 
 -   OS: Linux
 -   Web Servers:
