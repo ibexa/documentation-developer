@@ -2,9 +2,6 @@
 
 We want to have a consistent design in our web site. When using the pagelayout for the register forms, you see the same design as the rest of the website. We want to welcome our new users with a pretty register page.
 
-
-We want to have a consistent design over our web site. When using the register form, it was a raw HTML form without any styling on it. We want to welcome our new users with a pretty register page.
-
 ### Use a views.yml file
 
 In order to have a better file structure, we will extract the YAML keys regarding the presentation and put them into their own separate file. Create a  `views.yml` file and move the following code referring to templating to this file from `ezplatform.yml`:
@@ -123,7 +120,7 @@ Let's begin with the register form. Create the file `/app/Resources/views/user/r
     </div>
 {% endblock %}
 ```
-In line 8, you see the import Twig function, that is calling the `user/registration_content_form.html.twig` file. So create this file along the previous file, and fill it with these Twig tags:
+In line 10, you see the import Twig function, that is calling the `user/registration_content_form.html.twig` file. So create this file along the previous file, and fill it with these Twig tags:
 ```html
 {% macro display_form(form) %}
     {{ form_start(form) }}
@@ -209,4 +206,4 @@ Place these Twig tags in the file:
 
 ```
 
-Now you are able to customize the user registration of your website.
+This way you have learned how-to customize the user registration of your website.
