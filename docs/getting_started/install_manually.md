@@ -225,9 +225,9 @@ When Composer asks you for the token you must log in to your GitHub account and 
 h. Change directory permissions:
 
 ``` bash
-rm -rf var/cache/* var/logs/*
-sudo chmod +a "_www allow delete,write,append,file_inherit,directory_inherit" app/{cache,logs,config} web
-sudo chmod +a "`whoami` allow delete,write,append,file_inherit,directory_inherit" app/{cache,logs,config} web
+rm -rf var/cache/* var/logs/* var/sessions/*
+sudo chmod +a "_www allow delete,write,append,file_inherit,directory_inherit" var web/var
+sudo chmod +a "`whoami` allow delete,write,append,file_inherit,directory_inherit" var web/var
 ```
 
 i. Install eZ Platform:
@@ -503,7 +503,7 @@ First, change `www-data` to your web server user.
 ##### Clean the cache/ and logs/ directories
 
 ``` bash
-$ rm -rf var/cache/* var/logs/*
+rm -rf var/cache/* var/logs/* var/sessions/*
 ```
 
 #### Use the right option according to your system.
@@ -513,10 +513,8 @@ $ rm -rf var/cache/* var/logs/*
 **Using ACL on a Linux/BSD system that supports chmod +a**
 
 ``` bash
-$ sudo chmod +a "www-data allow delete,write,append,file_inherit,directory_inherit" \
-  var/cache var/logs web
-$ sudo chmod +a "`whoami` allow delete,write,append,file_inherit,directory_inherit" \
-  var/cache var/logs web
+sudo chmod +a "www-data allow delete,write,append,file_inherit,directory_inherit" var web/var
+sudo chmod +a "`whoami` allow delete,write,append,file_inherit,directory_inherit" var web/var
 ```
 
 ##### B. Using ACL on a *Linux/BSD *system that does not support chmod +a
@@ -526,10 +524,8 @@ Some systems don't support chmod +a, but do support another utility called setfa
 **Using ACL on a Linux/BSD system that does not support chmod +a**
 
 ``` bash
-$ sudo setfacl -R -m u:www-data:rwx -m u:`whoami`:rwx \
-  var/cache var/logs web
-$ sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx \
-  var/cache var/logs web
+sudo setfacl -R -m u:www-data:rwx -m u:`whoami`:rwx var web/var
+sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx var web/var
 ```
 
 ##### C. Using chown on *Linux/BSD/OS X* systems that don't support ACL
@@ -539,9 +535,9 @@ Some systems don't support ACL at all. You will need to set your web server's us
 **Using chown on Linux/BSD/OS X systems that don't support ACL**
 
 ``` bash
-$ sudo chown -R www-data:www-data var/cache var/logs web
-$ sudo find {app/{cache,logs},web} -type d | xargs sudo chmod -R 775
-$ sudo find {app/{cache,logs},web} -type f | xargs sudo chmod -R 664
+sudo chown -R www-data:www-data var web/var
+sudo find web/var var -type d | xargs sudo chmod -R 775
+sudo find web/var var -type f | xargs sudo chmod -R 664
 ```
 
 ##### D. Using chmod on a *Linux/BSD/OS X* system where you can't change owner
@@ -551,8 +547,8 @@ If you can't use ACL and aren't allowed to change owner, you can use chmod, maki
 **Using chmod on a Linux/BSD/OS X system where you can't change owner**
 
 ``` bash
-$ sudo find {app/{cache,logs},web} -type d | xargs sudo chmod -R 777
-$ sudo find {app/{cache,logs},web} -type f | xargs sudo chmod -R 666
+sudo find web/var var -type d | xargs sudo chmod -R 777
+sudo find web/var var -type f | xargs sudo chmod -R 666
 ```
 
 When using chmod, note that newly created files (such as cache) owned by the web server's user may have different/restrictive permissions. In this case, it may be required to change the umask so that the cache and log directories will be group-writable or world-writable (`umask(0002)` or `umask(0000)` respectively).
@@ -562,7 +558,7 @@ It may also possible to add the group ownership inheritance flag so new files in
 **It may also possible to add the group ownership inheritance flag**
 
 ``` bash
-$ sudo chmod g+s {app/{cache,logs},web}
+sudo chmod g+s web/var var
 ```
 
 ##### E. Setup folder rights on Windows
