@@ -846,7 +846,7 @@ ezpublish:
 Last step is to execute initial indexation of data:
 
 ``` bash
-php bin/console ezplatform:elasticsearch_create_index
+php bin/console ezplatform:reindex
 ```
 
 ## Legacy Search Engine Bundle
