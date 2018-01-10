@@ -1,17 +1,15 @@
 # Paginating API search results
 
-## Description
-
 When listing content (e.g. blog posts), pagination is a very common use case and is usually painful to implement by hand.
 
-For this purpose eZ Platform recommends the use of [Pagerfanta library](https://github.com/whiteoctober/Pagerfanta) and [proposes adapters for it](https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/Core/Pagination/Pagerfanta).
+For this purpose we recommend the use of [Pagerfanta library](https://github.com/whiteoctober/Pagerfanta) and [eZ Platform's adapters for it](https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/Core/Pagination/Pagerfanta).
 
-## Solution
+The following example shows how to use pagination on a list of all Articles in the site.
 
 ``` php
 <?php
 
-namespace Acme\TestBundle\Controller;
+namespace AppBundle\Controller;
 
 use eZ\Bundle\EzPublishCoreBundle\Controller;
 use eZ\Publish\API\Repository\Values\Content\Query;
@@ -21,32 +19,32 @@ use eZ\Publish\Core\Pagination\Pagerfanta\ContentSearchAdapter;
 use Symfony\Component\HttpFoundation\Request;
 use Pagerfanta\Pagerfanta;
 
-class DefaultController extends Controller
+class ArticleListController extends Controller
 {
     public function myContentListAction(Request $request, $locationId, $viewType, $layout = false, array $params = [])
     {
         // First build the search query.
-        // Let's search for folders, sorted by publication date.
+        // Let's search for articles, sorted by publication date.
         $query = new Query();
-        $query->filter = new Criterion\ContentTypeIdentifier('folder');
+        $query->filter = new Criterion\ContentTypeIdentifier('article');
         $query->sortClauses = [
             new SortClause\DatePublished()
         ];
 
         // Initialize the pager.
-        // We pass the ContentSearchAdapter to it.
+        // Pass the ContentSearchAdapter to it.
         // ContentSearchAdapter is built with your search query and the SearchService.
         $pager = new Pagerfanta(
             new ContentSearchAdapter($query, $this->getRepository()->getSearchService())
         );
-        // Let's list 2 folders per page, even if it doesn't really make sense ;-)
+        // Let's list only 2 articles per page, to quickly see the results
         $pager->setMaxPerPage(2);
-        // Defaults to page 1 or get "page" query parameter
+        // Get the "page" query parameter as current page or default to page 1
         $pager->setCurrentPage($request->get('page', 1));
 
-        return $this->render('AcmeTestBundle::my_template.html.twig', [
-                'totalFolderCount' => $pager->getNbResults(),
-                'pagerFolder' => $pager,
+        return $this->render('full/article_list.html.twig', [
+                'totalArticleCount' => $pager->getNbResults(),
+                'pagerArticle' => $pager,
                 'location' => $this->getRepository()->getLocationService()->loadLocation($locationId),
             ] + $params
         );
@@ -55,23 +53,22 @@ class DefaultController extends Controller
 ```
 
 ``` php
-// my_template.html.twig
 {% block content %}
-    <h1>Listing folder content objects: {{ totalFolderCount }} objects found.</h1>
+    <h1>Listing all articles: {{ totalArticleCount }} articles found.</h1>
 
     <div>
         <ul>
         {# Loop over the page results #}
-        {% for folder in pagerFolder %}
-            <li>{{ ez_content_name( folder ) }}</li>
+        {% for article in pagerArticle %}
+            <li><a href={{ path('ez_urlalias', {'contentId': article.contentInfo.id}) }}>{{ez_content_name( article ) }}</a></li>
         {% endfor %}
         </ul>
     </div>
  
-    {# Only display pagerfanta navigator if needed. #}
-    {% if pagerFolder.haveToPaginate() %}
+    {# Only display Pagerfanta navigator if needed. #}
+    {% if pagerArticle.haveToPaginate() %}
     <div class="pagerfanta">
-        {{ pagerfanta( pagerFolder, 'twitter_bootstrap_translated', {'routeName': location} ) }}
+        {{ pagerfanta( pagerArticle, 'twitter_bootstrap_translated', {'routeName': location} ) }}
     </div>
     {% endif %}
 
@@ -84,7 +81,7 @@ For more information and examples, have a look at [PagerFanta documentation](htt
 
 |Adapter class name|Description|
 |------|------|
-|`eZ\Publish\Core\Pagination\Pagerfanta\ContentSearchAdapter`|Makes the search against passed Query and returns [Content](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Content.php) objects.|
-|`eZ\Publish\Core\Pagination\Pagerfanta\ContentSearchHitAdapter`|Same as ContentSearchAdapter but returns instead [SearchHit](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Search/SearchHit.php) objects.|
+|`eZ\Publish\Core\Pagination\Pagerfanta\ContentSearchAdapter`|Makes a search against passed Query and returns [Content](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Content.php) objects.|
+|`eZ\Publish\Core\Pagination\Pagerfanta\ContentSearchHitAdapter`|Same as ContentSearchAdapter but returns [SearchHit](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Search/SearchHit.php) objects instead.|
 |`eZ\Publish\Core\Pagination\Pagerfanta\LocationSearchAdapter`|Makes a Location search against passed Query and returns Location objects.|
-|`eZ\Publish\Core\Pagination\Pagerfanta\LocationSearchHitAdapter`|Same as LocationSearchAdapter but returns instead [SearchHit](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Search/SearchHit.php) objects.|
+|`eZ\Publish\Core\Pagination\Pagerfanta\LocationSearchHitAdapter`|Same as LocationSearchAdapter but returns [SearchHit](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Search/SearchHit.php) objects instead.|
