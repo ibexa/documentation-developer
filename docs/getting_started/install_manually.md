@@ -536,8 +536,8 @@ Some systems don't support ACL at all. You will need to set your web server's us
 
 ``` bash
 sudo chown -R www-data:www-data var web/var
-sudo find {var,web/var} -type d | xargs sudo chmod -R 775
-sudo find {var,web/var} -type f | xargs sudo chmod -R 664
+sudo find web/var var -type d | xargs sudo chmod -R 775
+sudo find web/var var -type f | xargs sudo chmod -R 664
 ```
 
 ##### D. Using chmod on a *Linux/BSD/OS X* system where you can't change owner
@@ -547,8 +547,8 @@ If you can't use ACL and aren't allowed to change owner, you can use chmod, maki
 **Using chmod on a Linux/BSD/OS X system where you can't change owner**
 
 ``` bash
-sudo find {var,web/var} -type d | xargs sudo chmod -R 777
-sudo find {var,web/var} -type f | xargs sudo chmod -R 666
+sudo find web/var var -type d | xargs sudo chmod -R 777
+sudo find web/var var -type f | xargs sudo chmod -R 666
 ```
 
 When using chmod, note that newly created files (such as cache) owned by the web server's user may have different/restrictive permissions. In this case, it may be required to change the umask so that the cache and log directories will be group-writable or world-writable (`umask(0002)` or `umask(0000)` respectively).
@@ -558,7 +558,7 @@ It may also possible to add the group ownership inheritance flag so new files in
 **It may also possible to add the group ownership inheritance flag**
 
 ``` bash
-sudo chmod g+s {var,web/var}
+sudo chmod g+s web/var var
 ```
 
 ##### E. Setup folder rights on Windows
