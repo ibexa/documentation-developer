@@ -529,7 +529,7 @@ Since you can configure anonymous user per siteaccess, you need to change the de
         
 ```
 
-You need to get the new X-User-Hash for every new anonymous user / anonymous users group. It is done in exactly same way as described above ([User hash generation](http_cache.md#user-hash-generation)), but you have to remember to use siteaccess URI element and additional header which tells eZ which URI should take into account. For instance for `eng` siteaccess:
+You need to get the new X-User-Hash for every new anonymous user / anonymous users group. It is done in exactly the same way as described above ([User hash generation](http_cache.md#user-hash-generation)), but you have to remember to use siteaccess URI element and an additional header which tells eZ which URI it should take into account. For instance for `eng` siteaccess:
 
   `curl -I -H "Accept: application/vnd.fos.user-context-hash" -H "x-fos-original-url: /eng/" http://<your-domain.com>/eng/_fos_user_context_hash`
   
@@ -537,7 +537,7 @@ You need to get the new X-User-Hash for every new anonymous user / anonymous use
   
   `curl -I -H "Accept: application/vnd.fos.user-context-hash" -H "x-fos-original-url: /nor/" http://<your-domain.com>/nor/_fos_user_context_hash`
 
-Lets assume, that the new X-User-Hashes are:
+Let's assume, that the new X-User-Hashes are:
 1. For `eng` siteaccess: `baf9acf7ca78e370eac69f87f27e4ab8e674ced83750b4189e216cc05d2eb301`
 2. For `nor` siteaccess: `a33ba7050ec3b848b266ef187623417b88b9df4b90483b7ef6582aa54ee72ee7`
 
