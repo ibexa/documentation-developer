@@ -14,8 +14,9 @@ For the Anonymous User, you will add the _User/Register_ policy. This will enabl
 !!! note
 
     See the documentation about [Registering new users to learn how to assign a group](../../guide/user_generated_content/#registering-new-users) to the newly registered Users.
+Then go to the URL: http://127.0.0.1/register and create a new user. 
 
-Then go to the URL: http://127.0.0.1/register and create a new user.
+You will update the design of this page after checking that the new user is working.
 
 The Users are created in the _Guest accounts_ group, and the User you have just created will have the Roles used by the _Guest accounts_ User group.
 Now, we have 2 options:
@@ -50,7 +51,7 @@ Now, you will set the Policies for the _Bikers_ Role.
 !!! note
     The Limitations are a powerful tool for fine-tuning the permission management of the Users.
     See [the documentation about Limitations for a more technical approach](../../guide/repository/#usergrouplimitation)
-
+    
     See also the Cookbook [Authenticating a user with multiple user providers](../../cookbook/authenticating_a_user_with_multiple_user_providers/)
 
 Once the Policies are set, assign your Role *Bikers* to the User Group *Go Bike Members*.
