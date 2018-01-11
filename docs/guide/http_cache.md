@@ -501,8 +501,161 @@ set req.http.X-User-Hash = "b1731d46b0e7a375a5b024e950fdb8d49dd25af85a5c7dd5116a
 
 5\. Restart the Varnish server.
 
-!!! tip "Different anonymous users per siteaccess"
+##### New anonymous X-User-Hash based on `anonymous_user_id` setting
+
+Since you can configure anonymous user per siteaccess, you need to change the default `.vcl` template to be able to benefit from this functionality. In this example, we assumed that your siteaccesses are matched using `URLElement` matcher. Of course, it works also with other siteaccess matchers. As Varnish is not siteaccess-aware itself, it is recommended to set also different session cookie names per siteaccess.
+
+!!! tip "Different anonymous user per siteaccess"
     You can set different anonymous user per siteaccess. You can find more information about this setting here: [anonymous_user_id](best_practices.md#anonymous_user_id) 
+
+
+``` yaml
+# ezplatform.yml
+    ezpublish:
+        siteaccess:
+            list: [site, eng, nor]
+            match:
+                URIElement: 1
+        ...
+        system:
+            eng:
+                anonymous_user_id: 15
+                session:
+                    name: eZSESSID_eng
+            nor:
+                anonymous_user_id: 16
+                session:
+                    name: eZSESSID_nor
+        
+```
+
+You need to get the new X-User-Hash for every new anonymous user / anonymous users group. It is done in exactly same way as described above ([User hash generation](http_cache.md#user-hash-generation)), but you have to remember to use siteaccess URI element and additional header which tells eZ which URI should take into account. For instance for `eng` siteaccess:
+
+  `curl -I -H "Accept: application/vnd.fos.user-context-hash" -H "x-fos-original-url: /eng/" http://<your-domain.com>/eng/_fos_user_context_hash`
+  
+  and for `nor` siteaccess:
+  
+  `curl -I -H "Accept: application/vnd.fos.user-context-hash" -H "x-fos-original-url: /nor/" http://<your-domain.com>/nor/_fos_user_context_hash`
+
+Lets assume, that the new X-User-Hashes are:
+1. For `eng` siteaccess: `baf9acf7ca78e370eac69f87f27e4ab8e674ced83750b4189e216cc05d2eb301`
+2. For `nor` siteaccess: `a33ba7050ec3b848b266ef187623417b88b9df4b90483b7ef6582aa54ee72ee7`
+
+The next step is to update `ez_user_hash` sub-routine in the `.vcl` configuration as follow:
+```
+// Sub-routine to get client user hash, for context-aware HTTP cache.
+sub ez_user_hash {
+
+    // Prevent tampering attacks on the hash mechanism
+    if (req.restarts == 0
+        && (req.http.accept ~ "application/vnd.fos.user-context-hash"
+            || req.http.x-user-hash
+        )
+    ) {
+        return (synth(400));
+    }
+
+    if (req.restarts == 0 && (req.method == "GET" || req.method == "HEAD")) {
+        // Get User (Context) hash, for varying cache by what user has access to.
+        // https://doc.ez.no/display/EZP/Context+aware+HTTP+cache
+
+        // Request to eng siteaccess, so we should use other X-User-Hash for it
+        if (req.url ~ "^/eng") {
+            // Anonymous user w/o session => Use hardcoded anonymous hash to avoid backend lookup for hash
+            if (req.http.Cookie !~ "eZSESSID_eng" && !req.http.authorization) {
+                // Note: You should then update it every time anonymous user rights change.
+                set req.http.X-User-Hash = "baf9acf7ca78e370eac69f87f27e4ab8e674ced83750b4189e216cc05d2eb301";
+            }
+            // Pre-authenticate request to get shared cache, even when authenticated
+            else {
+                set req.http.x-fos-original-url    = req.url;
+                set req.http.x-fos-original-accept = req.http.accept;
+                set req.http.x-fos-original-cookie = req.http.cookie;
+                // Clean up cookie for the hash request to only keep session cookie, as hash cache will vary on cookie.
+                set req.http.cookie = ";" + req.http.cookie;
+                set req.http.cookie = regsuball(req.http.cookie, "; +", ";");
+                set req.http.cookie = regsuball(req.http.cookie, ";(eZSESSID_eng[^=]*)=", "; \1=");
+                set req.http.cookie = regsuball(req.http.cookie, ";[^ ][^;]*", "");
+                set req.http.cookie = regsuball(req.http.cookie, "^[; ]+|[; ]+$", "");
+                set req.http.accept = "application/vnd.fos.user-context-hash";
+                set req.url = "/_fos_user_context_hash";
+    
+                // Force the lookup, the backend must tell how to cache/vary response containing the user hash
+                return (hash);
+            }
+        }
+        
+        // Request to nor siteaccess, so we should use other X-User-Hash for it
+        if (req.url ~ "^/nor") {
+            // Anonymous user w/o session => Use hardcoded anonymous hash to avoid backend lookup for hash
+            if (req.http.Cookie !~ "eZSESSID_nor" && !req.http.authorization) {
+                // Note: You should then update it every time anonymous user rights change.
+                set req.http.X-User-Hash = "a33ba7050ec3b848b266ef187623417b88b9df4b90483b7ef6582aa54ee72ee7";
+            }
+            // Pre-authenticate request to get shared cache, even when authenticated
+            else {
+                set req.http.x-fos-original-url    = req.url;
+                set req.http.x-fos-original-accept = req.http.accept;
+                set req.http.x-fos-original-cookie = req.http.cookie;
+                // Clean up cookie for the hash request to only keep session cookie, as hash cache will vary on cookie.
+                set req.http.cookie = ";" + req.http.cookie;
+                set req.http.cookie = regsuball(req.http.cookie, "; +", ";");
+                set req.http.cookie = regsuball(req.http.cookie, ";(eZSESSID_nor[^=]*)=", "; \1=");
+                set req.http.cookie = regsuball(req.http.cookie, ";[^ ][^;]*", "");
+                set req.http.cookie = regsuball(req.http.cookie, "^[; ]+|[; ]+$", "");
+                set req.http.accept = "application/vnd.fos.user-context-hash";
+                set req.url = "/_fos_user_context_hash";
+    
+                // Force the lookup, the backend must tell how to cache/vary response containing the user hash
+                return (hash);
+            }
+        }
+        
+        // Request to other siteaccesses (if any), handle it as always
+        // Anonymous user w/o session => Use hardcoded anonymous hash to avoid backend lookup for hash
+        if (req.http.Cookie !~ "eZSESSID" && !req.http.authorization) {
+            // You may update this hash with the actual one for anonymous user
+            // to get a better cache hit ratio across anonymous users.
+            // Note: You should then update it every time anonymous user rights change.
+            set req.http.X-User-Hash = "38015b703d82206ebc01d17a39c727e5";
+        }
+        // Pre-authenticate request to get shared cache, even when authenticated
+        else {
+            set req.http.x-fos-original-url    = req.url;
+            set req.http.x-fos-original-accept = req.http.accept;
+            set req.http.x-fos-original-cookie = req.http.cookie;
+            // Clean up cookie for the hash request to only keep session cookie, as hash cache will vary on cookie.
+            set req.http.cookie = ";" + req.http.cookie;
+            set req.http.cookie = regsuball(req.http.cookie, "; +", ";");
+            set req.http.cookie = regsuball(req.http.cookie, ";(eZSESSID[^=]*)=", "; \1=");
+            set req.http.cookie = regsuball(req.http.cookie, ";[^ ][^;]*", "");
+            set req.http.cookie = regsuball(req.http.cookie, "^[; ]+|[; ]+$", "");
+            set req.http.accept = "application/vnd.fos.user-context-hash";
+            set req.url = "/_fos_user_context_hash";
+
+            // Force the lookup, the backend must tell how to cache/vary response containing the user hash
+            return (hash);
+        }
+    }
+
+    // Rebuild the original request which now has the hash.
+    if (req.restarts > 0
+        && req.http.accept == "application/vnd.fos.user-context-hash"
+    ) {
+        set req.url         = req.http.x-fos-original-url;
+        set req.http.accept = req.http.x-fos-original-accept;
+        set req.http.cookie = req.http.x-fos-original-cookie;
+        unset req.http.x-fos-original-url;
+        unset req.http.x-fos-original-accept;
+        unset req.http.x-fos-original-cookie;
+
+        // Force the lookup, the backend must tell not to cache or vary on the
+        // user hash to properly separate cached data.
+
+        return (hash);
+    }
+}
+```
 
 ##### Known limitations of the user hash generation
 
