@@ -323,7 +323,7 @@ If you use fastcgi/fpm you can pass these directly to PHP process, but in all ca
 
     # Configure IP of your Varnish server to be trusted proxy
     # Replace fake IP address below by your Varnish IP address
-    SetEnv SYMFONY_TRUSTED_PROXIES "193.22.44.22"
+    SetEnv SYMFONY_TRUSTED_PROXIES "127.0.0.1,193.22.44.22"
 </VirtualHost>
 ```
 
@@ -335,7 +335,7 @@ If you use fastcgi/fpm you can pass these directly to PHP process, but in all ca
 fastcgi_param SYMFONY_HTTP_CACHE 0;
 # Configure IP of your Varnish server to be trusted proxy
 # Replace fake IP address below by your Varnish IP address
-fastcgi_param SYMFONY_TRUSTED_PROXIES "193.22.44.22";
+fastcgi_param SYMFONY_TRUSTED_PROXIES "127.0.0.1,193.22.44.22";
 ```
 
 !!! caution "Trusted proxies when using SSL offloader / loadbalancer in combination with Varnish"
