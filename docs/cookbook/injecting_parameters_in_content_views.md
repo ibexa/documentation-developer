@@ -1,27 +1,25 @@
 # Injecting parameters in content views
 
-## Description
+You can dynamically inject variables in content view templates by listening to the `ezpublish.pre_content_view` event.
 
-It is possible to dynamically inject variables in content view templates by listening to the `ezpublish.pre_content_view` event.
+The event listener method receives an `eZ\Publish\Core\MVC\Symfony\Event\PreContentViewEvent` object
 
-The event listener method receives an` eZ\Publish\Core\MVC\Symfony\Event\PreContentViewEvent `object
+The following example injects `foo` and `osTypes` variables in all content view templates.
 
-## Example
-
-The following example will inject `foo` and `osTypes` variables in all content view templates.
+TODO fix example for view not contentView?
 
 ``` php
 <?php
+namespace Acme\ExampleBundle\EventListener;
 
-namespace Acme\DemoBundle\EventListener;
 use eZ\Publish\Core\MVC\Symfony\Event\PreContentViewEvent;
 
 class PreContentViewListener
 {
     public function onPreContentView( PreContentViewEvent $event )
     {
-        // Get content view object and inject whatever no need.
-        // You may add some custom business logic here.
+        // Get content view object and inject whatever you need.
+        // You may add custom business logic here.
         $contentView = $event->getContentView();
         $contentView->addParameters(
             array(
@@ -33,14 +31,15 @@ class PreContentViewListener
 }
 ```
 
+Service configuration:
+
 ``` yaml
-# Service configuration
 parameters:
-    ezdemo.pre_content_view_listener.class: Acme\DemoBundle\EventListener\PreContentViewListener
+    app.pre_content_view_listener.class: Acme\ExampleBundle\EventListener\PreContentViewListener
 
 services:
-    ezdemo.pre_content_view_listener:
-        class: %ezdemo.pre_content_view_listener.class%
+    app.pre_content_view_listener:
+        class: '%ezdemo.pre_content_view_listener.class%'
         tags:
             - {name: kernel.event_listener, event: ezpublish.pre_content_view, method: onPreContentView}
 ```
