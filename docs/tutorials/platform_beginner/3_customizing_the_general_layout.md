@@ -96,9 +96,9 @@ Then change every image's path in the same way.
 !!! tip
     The web assets file must be regenerated for the prod environment, so run the following command:
 
-    ```
+    ​```
     php app/console assetic:dump --env=prod web
-    ```
+    ​```
 
 !!! note "Clear the cache"
 

@@ -88,10 +88,10 @@ The Starting Point and Ending Point Google Maps rendering is not yet done. You w
 
 We still haven't set any matching rule for our new Content Type Ride, so let's add one that will render a specific template for a Ride Content Type. 
 
-​    !!! note
+!!! note
 
 ​    In every example, we show you a valid YAML excerpt. Keep the existing keys and add the missing content in the YAML file.
-​    YAML does not expect duplicate keys.
+​    YAML does not allow duplicate keys.
 
 ``` yaml
 # ezplatform.yml

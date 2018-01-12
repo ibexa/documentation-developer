@@ -57,7 +57,7 @@ Then create all fields with the following information: 
 
 ## Populate your Content tree
 
-Go back to the Content Structure page, then browse the Content tree and create a Folder named *All Rides* using the **Create** button in the Action bar on the right of the screen. Publish the Folder you have created.
+Go back to the Content structure page, then browse the Content tree and create a Folder named *All Rides* using the **Create** button in the Action bar on the right of the screen. Publish the Folder you have created.
 
 ![Create All Rides folder](img/bike_tutorial_create_folder.png)
 
