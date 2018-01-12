@@ -47,7 +47,7 @@ At this point all Articles should render using the new template. If you do not s
 
 ## Rendering page elements
 
-In the example above you used the `ez_render_field` Twig function to render the 'body' Field of the content item. Each Content item can have multiple fields and you can render them in different ways in the template. Other Twig functions let you access other properties of your content. To see an example, let's extend the template a bit:
+In the example above you used the `ez_render_field` Twig function to render the 'body' Field of the content item. Each Content item can have multiple fields and you can render them in different ways in the template. Other Twig functions let you access different properties of your content. To see an example, let's extend the template a bit:
 
 ``` html
 {# This renders the Content name of the article #}
@@ -61,7 +61,7 @@ In the example above you used the `ez_render_field` Twig function to render the 
 </div>
 ```
 
-You can also make use of different other [Twig functions](../guide/content_rendering.md#twig-functions-reference), for example [`ez_field_value`](../guide/content_rendering.md#ez_field_value), which renders the value of the Field without a template.
+You can also make use of other [Twig functions](../guide/content_rendering.md#twig-functions-reference), for example [`ez_field_value`](../guide/content_rendering.md#ez_field_value), which renders the value of the Field without a template.
 
 ## Different views
 

@@ -1,7 +1,7 @@
 # Executing long-running console commands
 
 This page describes how to execute long-running console commands, to make sure they don't run out of memory.
-Two examples of such commands are a custom import command or the indexing command provided by the [Solr Bundle](../guide/search.md#solr-bundle).
+Two examples of such commands are a custom import command and the indexing command provided by the [Solr Bundle](../guide/search.md#solr-bundle).
 
 ## Reducing memory usage
 
@@ -78,8 +78,8 @@ as it causes PHP to use much more memory.
 
 ## Process forking with Symfony
 
-The recommended way to completely avoid "memory leaks" in PHP in the first place is to use processes,
-and for console scripts this is typically done using process forking which is quite easy to do with Symfony.
+The recommended way to completely avoid "memory leaks" in PHP in the first place is to use processes.
+For console scripts this is typically done using process forking which is quite easily achievable with Symfony.
 
 The things you will need to do:
 

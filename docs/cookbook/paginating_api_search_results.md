@@ -1,8 +1,8 @@
 # Paginating API search results
 
-When listing content (e.g. blog posts), pagination is a very common use case and is usually painful to implement by hand.
+When listing content (e.g. blog posts), pagination is a very common use case and can be difficult to implement by hand.
 
-For this purpose we recommend the use of [Pagerfanta library](https://github.com/whiteoctober/Pagerfanta) and [eZ Platform's adapters for it](https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/Core/Pagination/Pagerfanta).
+For this purpose it is recommended to use the [Pagerfanta library](https://github.com/whiteoctober/Pagerfanta) and [eZ Platform's adapters for it](https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/Core/Pagination/Pagerfanta).
 
 The following example shows how to use pagination on a list of all Articles in the site.
 

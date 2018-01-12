@@ -1,6 +1,6 @@
 # Displaying children of a Content item
 
-One of the basic design tasks you may need to complete when creating your website is configuring one page to display all of its children. Examples are having a blog display blog posts, or a folder that shows all articles it contains.
+One of the basic design tasks you may need to complete when creating your website is configuring one page to display all of its children. For example you can have a blog display blog posts, or a folder show all articles it contains.
 
 There are two ways to make a Content item display its children:
 
@@ -45,7 +45,7 @@ class LocationChildrenQueryType implements QueryType
 }
 ```
 
-Next, in your standard view configuration file include a block that indicates when this Controller will be used. It is similar to regular view config, but contains additional information:
+Next, in your standard view configuration file add a section (under `content_view`) that indicates when this Controller will be used. It is similar to regular view config, but contains additional information:
 
 ``` yaml
 folder:
