@@ -44,18 +44,18 @@ This tells Platform to use the `template` when rendering any content referenced 
 ## Creating the template
 
 1. [Download index.html](https://raw.githubusercontent.com/bdunogier/platform-workshop/master/src/Workshop/TutorialBundle/Resources/public/index.html)
-2. Save it in `app/Resources/views` as `app/Resources/views/full/root_folder.html.twig`.
-3. Refresh the site's root and you should see the site's structure, but without any styles or images. Let's fix this.
-4. Edit the `root_folder.html.twig` template.
+1. Save it in `app/Resources/views` as `app/Resources/views/full/root_folder.html.twig`.
+1. Refresh the site's root and you should see the site's structure, but without any styles or images. Let's fix this.
+1. Edit the `root_folder.html.twig` template.
 
 ## Fixing the assets
 
 The first thing to do is to fix the loading of stylesheets, scripts and design images.
 
 1. [Download assets.zip](https://github.com/ezsystems/ezsc2015-beginner-tutorial/raw/master/assets.zip)
-2. Then unpack its contents to the `web` directory of your project. You will end up with `web/assets/`, containing `css`, `js` and `images` subfolders.
+1. Then unpack its contents to the `web` directory of your project. You will end up with `web/assets/`, containing `css`, `js` and `images` subfolders.
     ![File structure](img/bike_tutorial_listing_web_dir)
-3. In the template, in the` <html>` section, replace the `<link>` tags linking to bootstrap and custom CSS lines  (lines 15 to 21) with the following code:
+1. In the template, in the` <html>` section, replace the `<link>` tags linking to bootstrap and custom CSS lines  (lines 15 to 21) with the following code:
 
 ``` html
 <!--root_folder.html.twig-->
