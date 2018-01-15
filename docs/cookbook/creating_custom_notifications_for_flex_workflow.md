@@ -1,19 +1,26 @@
 # Creating custom notifications for Flex Workflow
 
-To create a custom notification you have to provide two plugins in the `flex-workflow` bundle, one for the `notificationsPopupView` and second for the `notificationIndicatorView`.
+!!! note
 
-We will start from creating a plugin for `notificationIndicatorView` which is responsible for displaying a text in the notification bar (this green stripe in the bottom when you get new notification)
+    This recipe assumes you have a back end for notification and want to display them
+    in the notification system used by the Flex Workflow.
 
-We have to start from adding dependencies in yui.yml (placed in `./Resources/config/yui.yml`): 
+To create a custom notification you have to provide two plugins in the `flex-workflow` bundle,
+one for the `notificationsPopupView` and second for the `notificationIndicatorView`.
+
+Start from creating a plugin for `notificationIndicatorView` which is responsible for displaying a text in the notification bar.
+
+You have to start with adding dependencies in `Resources/config/yui.yml`: 
 
 ``` yaml
 mb-notificationmessagecreatorplugin:
     requires: ['plugin', 'ez-pluginregistry']
     dependencyOf: ['fw-notificationindicatorview']
-    path: %mybundle.public_dir%/js/plugins/mb-notificationmessagecreatorplugin.js
+    path: '%mybundle.public_dir%/js/plugins/mb-notificationmessagecreatorplugin.js'
 ```
 
-Now we can create our plugin (as we declared in the yui.yml, we need to create it in `./js/plugins`), it will be stored in a file named `mb-notificationmessagecreatorplugin.js`: 
+Now you can create your plugin (as declared in `yui.yml`, you need to create it in `./js/plugins`).
+It will be stored in a file named `mb-notificationmessagecreatorplugin.js`: 
 
 ``` javascript
 YUI.add('mb-notificationmessagecreatorplugin', function (Y) {
@@ -40,11 +47,10 @@ YUI.add('mb-notificationmessagecreatorplugin', function (Y) {
 
             /**
              * This will add a message creator to the `notificationIndicatorView`.
-             * In the public method `addNotificationMessageCreator` we have to provide:
+             * In the public method `addNotificationMessageCreator` you have to provide:
              * 1. The notification type.
              * 2. The callback to be invoked to create the message in the notification bar.
              */
-
 
            notificationIndicatorView.addNotificationMessageCreator('myNotificationType',
  this._createNotificationMessage.bind(this));
@@ -60,9 +66,9 @@ YUI.add('mb-notificationmessagecreatorplugin', function (Y) {
          */
         _createNotificationMessage: function (notification) {
             /**
-             * In this method we have to return a string which will be displayed in the notification bar.
-             * To this method is passed the notification object provided from backend.
-             * In this tutorial we assume that the message is in object `data`.
+             * In this method you have to return a string which will be displayed in the notification bar.
+             * The notification object provided from back end is passed to this method.
+             * This recipes assumes that the message is in object `data`.
              */
             return notification.data.message;
         },
@@ -77,16 +83,17 @@ YUI.add('mb-notificationmessagecreatorplugin', function (Y) {
 });
 ```
 
-Now we can create a plugin for the `notificationsPopupView`, it will be responsible for creating a proper notification struct, again we start from creating dependency in yui.yml: 
+Now create a plugin for the `notificationsPopupView`. It will be responsible for creating a proper notification struct.
+Again start with creating a dependency in `yui.yml`:
 
 ``` yaml
 mb-notificationstructparserplugin:
     requires: ['plugin', 'ez-pluginregistry']
     dependencyOf: ['fw-notificationspopupview']
-    path: %mybundle.public_dir%/js/plugins/mb-notificationstructparserplugin.js
+    path: '%mybundle.public_dir%/js/plugins/mb-notificationstructparserplugin.js'
 ```
 
-And we create a plugin named `mb-notificationstructparserplugin`:
+And create a plugin named `mb-notificationstructparserplugin`:
 
 ``` javascript
 YUI.add('mb-notificationstructparserplugin', function (Y) {
@@ -113,8 +120,8 @@ YUI.add('mb-notificationstructparserplugin', function (Y) {
             var notificationsPopupView = this.get('host');
 
             /**
-             * This will add notification parser to the `notificationsPopupView`.
-             * In the public method `addNotificationStructParser` we have to provide:
+             * This will add a notification parser to `notificationsPopupView`.
+             * In the public method `addNotificationStructParser` you have to provide:
              * 1. The notification type.
              * 2. The callback to be invoked to create the proper notification struct.
              */
@@ -133,18 +140,18 @@ YUI.add('mb-notificationstructparserplugin', function (Y) {
             var creationDate = new Date(item.created * TIMESTAMP_MULTIPLIER);
 
             /**
-             * In this method we have to return an object with proper notification struct.
+             * In this method you have to return an object with proper notification struct.
              * The proper struct looks like this:
              * {
-             *     id: {Number} the notification id
-             *     isPending: {Number} is notification pending (0 or 1)
-             *     date: {String} the date of notification
-             *     time: {String} the time of notification
-             *     type: {String} the notification type
-             *     messageType: {String} the type message
-             *     link: {String} the url to redirect user on click (if omitted will only close popup)
-             *     shortText: {String} the short description text
-             *     text: {String} the long description text (if omitted only shortText will be displayed)
+             *     id {Number}: notification id
+             *     isPending {Number}: is the notification pending (0 or 1)
+             *     date {String}: the date of the notification
+             *     time {String}: the time of the notification
+             *     type {String}: notification type
+             *     messageType {String}: type message
+             *     link {String}: the URL to redirect user on click (if omitted will only close popup)
+             *     shortText {String}: short description text
+             *     text {String}: long description text (if omitted only shortText will be displayed)
              * }
              */
             return {
@@ -169,6 +176,7 @@ YUI.add('mb-notificationstructparserplugin', function (Y) {
 });
 ```
 
-Now we can clear cache (`php app/console --env=prod cache:clear`) and our notification should be displayed properly. In the image below you can check what is what in the notification struct:  
+Now you can clear cache (`php app/console --env=prod cache:clear`) and your notification should be displayed properly.
+In the image below you can check what is what in the notification struct:  
 
 ![Notification](img/notification.png)
