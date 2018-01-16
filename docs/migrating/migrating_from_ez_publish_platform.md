@@ -180,13 +180,9 @@ Add the following new bundle to your new kernel file, `<new-ez-root>/app/AppKern
 
 Import to your database the changes provided in one of the following files. It's also recommended to read inline comments as you might not need to run some of the queries:
 
-`MySQL: <new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-5.4.0-to-6.11.0.sql`
+`MySQL: <new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-5.4.0-to-6.13.0.sql`
 
-`MySQL: <new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.11.0-to-6.12.0.sql`
-
-`Postgres: <new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-5.4.0-to-6.11.0.sql`
-
-`Postgres: <new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-6.11.0-to-6.12.0.sql`
+`Postgres: <new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-5.4.0-to-6.13.0.sql`
 
 ##### 3.2. Once you are ready to migrate content to Platform Field Types
 
@@ -214,7 +210,7 @@ For date-based publisher and form builder, there are additional tables, you can 
 
 #### Varnish *(optional)*
 
-If you use Varnish, the recommended Varnish (3 and 4) VCL configuration can be found in the `doc/varnish` folder. See also the [Using Varnish](../guide/http_cache.md#using-varnish) page.
+If you use Varnish, the recommended Varnish (4 or higher) VCL configuration can be found in the `doc/varnish` folder. See also the [Using Varnish](../guide/http_cache.md#using-varnish) page.
 
 #### Web server configuration
 
