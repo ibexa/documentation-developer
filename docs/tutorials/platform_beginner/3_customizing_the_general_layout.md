@@ -37,9 +37,9 @@ This tells Platform to use the `template` when rendering any content referenced 
 
     To clear the cache:
 
-    ``` bash
+    ​``` bash
     $ php bin/console cache:clear
-    ```
+    ​```
 
 ## Creating the template
 
@@ -91,15 +91,24 @@ Do the same for `"images/logo_just_letters.png"`:
 <img alt="Go Bike ! logo" src="{{ asset('assets/images/logo_just_letters.png') }}" style="width:100%" />
 ```
 
+Then change every image's path in the same way.
+
+!!! tip
+    The web assets file must be regenerated for the prod environment, so run the following command:
+
+    ​```
+    php app/console assetic:dump --env=prod web
+    ​```
+
 !!! note "Clear the cache"
 
     Each time you change the templates, you could clear the cache. It's not mandatory in dev environment.
 
     To clear the cache:
 
-    ``` bash
+    ​``` bash
     $ php bin/console cache:clear
-    ```
+    ​```
 
  
 
@@ -160,7 +169,6 @@ This defines a block named "content". Other templates can add content to it, so 
 Edit `root_folder.html.twig` and replace the whole content of the file with the following code:
 
 ``` html
-<!--root\_folder.html.twig-->
 {% extends "pagelayout.html.twig" %}
 {% block content %}
 <h3 class="center bottom-plus new-header">{{ ez_content_name(content) }}</h3>
