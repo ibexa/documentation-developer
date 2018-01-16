@@ -4,7 +4,7 @@ We will begin by customizing the global layout of our site, in order to end up w
 
 ![Final look of the index page](img/bike_tutorial_index_final.png)
 
-First, go to the root of your eZ Platform site. You should see the root folder of the clean install, without any kind of layout. You can go to `/ez`, edit this Content item and see that this page changes. When `/` is requested, eZ Platform renders the root content using the `ez_content:viewContent` controller. We will customize this step by instructing Platform to use a custom template to render this particular item.
+First, go to the root of your eZ Platform site. You should see the root folder of the clean install, without any kind of layout. You can go to `/admin`, edit this Content item and see that this page changes. When `/` is requested, eZ Platform renders the root content using the `ez_content:viewContent` controller. We will customize this step by instructing Platform to use a custom template to render this particular item.
 
 !!! note
 
@@ -38,7 +38,7 @@ This tells Platform to use the `template` when rendering any content referenced 
     To clear the cache:
 
     ``` bash
-    $ php app/console cache:clear
+    $ php bin/console cache:clear
     ```
 
 ## Creating the template
@@ -91,6 +91,15 @@ Do the same for `"images/logo_just_letters.png"`:
 <img alt="Go Bike ! logo" src="{{ asset('assets/images/logo_just_letters.png') }}" style="width:100%" />
 ```
 
+Then change every image's path in the same way.
+
+!!! tip
+    The web assets file must be regenerated for the prod environment, so run the following command:
+
+    ​```
+    php app/console assetic:dump --env=prod web
+    ​```
+
 !!! note "Clear the cache"
 
     Each time you change the templates, you could clear the cache. It's not mandatory in dev environment.
@@ -98,7 +107,7 @@ Do the same for `"images/logo_just_letters.png"`:
     To clear the cache:
 
     ``` bash
-    $ php app/console cache:clear
+    $ php bin/console cache:clear
     ```
 
  
@@ -160,7 +169,6 @@ This defines a block named "content". Other templates can add content to it, so 
 Edit `root_folder.html.twig` and replace the whole content of the file with the following code:
 
 ``` html
-<!--root\_folder.html.twig-->
 {% extends "pagelayout.html.twig" %}
 {% block content %}
 <h3 class="center bottom-plus new-header">{{ ez_content_name(content) }}</h3>

@@ -4,10 +4,9 @@
 
 ## Customize your homepage template
 
-Let's modify the `Resources/views/content/full/root_folder.html.twig ` adding a call to a subrequest to display the list of all existing Rides with pagination:
+Let's modify the `Resources/views/full/root_folder.html.twig ` adding a call to a subrequest to display the list of all existing Rides with pagination:
 
 ``` html
-<!--root\_folder.html.twig-->
 {% extends "pagelayout.html.twig" %}
 
 {% block content %}
