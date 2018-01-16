@@ -9,7 +9,6 @@ Now let's inject and display all Points of interest within the view.
 Create a Twig template `app/Resources/views/full/ride.html.twig` and paste into it the following HTML and Twig tags:
 
 ``` html
-<!--ride.html.twig-->
 {% extends "pagelayout.html.twig" %}
 {% block content %}
   <section>
@@ -89,6 +88,11 @@ The Starting Point and Ending Point Google Maps rendering is not yet done. You w
 
 We still haven't set any matching rule for our new Content Type Ride, so let's add one that will render a specific template for a Ride Content Type. 
 
+!!! note
+
+​    In every example, we show you a valid YAML excerpt. Keep the existing keys and add the missing content in the YAML file.
+​    YAML does not allow duplicate keys.
+
 ``` yaml
 # ezplatform.yml
 default:
@@ -114,7 +118,7 @@ You can also go the URL of the content. It is a URL like this one **http://127.0
 The infos in the URL are http://&lt;yourhost&gt;/view/content/&lt;ContentId&gt;/&lt;language&gt;/full/true/&lt;LocationId&gt;
 
 You will find the Content ID and the Location ID of your Ride in the Admin, under the Details tab.
- 
+
 ![Details tab for Location ID](img/bike_tutorial_details_tab_for_locationid.png)
 
 ## Points Of Interest
