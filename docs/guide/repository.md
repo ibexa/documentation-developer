@@ -205,7 +205,7 @@ A Section Limitation can be used similarly, but a Section does not have to belon
 
 If you add a Node Limitation and point to the same Location, the user will be able to publish content directly under the selected Location, but not anywhere deeper in its subtree.
 
-Note that when a Policy has more than one Limitation, all of them have to apply, or the Policy will not work. For example, a Location Limitation on Location 1/2 and Subtree Limitation on 1/2/55 cannot work together, because no Location can satisfy both those requirements at the same time. If you want to combine more than one Limitation with the *or* relation, not *and*, you can split your Policy in two, each with one of these Limitations.
+Note that when a Policy has more than one Limitation, all of them have to apply, or the Policy will not work. For example, a Location Limitation on Location `1/2` and Subtree Limitation on `1/2/55` cannot work together, because no Location can satisfy both those requirements at the same time. If you want to combine more than one Limitation with the *or* relation, not *and*, you can split your Policy in two, each with one of these Limitations.
 
 ###### Manage Locations
 
@@ -774,7 +774,7 @@ It is also possible to skip custom Location and global URL aliases altogether an
     ```
     $bundles[] = new \eZ\Bundle\EzPublishMigrationBundle\EzPublishMigrationBundle();
     ```
-    
+
 ## Reference
 
 ### Services: Public API

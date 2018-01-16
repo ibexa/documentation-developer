@@ -969,7 +969,7 @@ We first need the required services. In this case: `ContentService`, `LocationSe
 
 #### The ContentCreateStruct
 
-As explained in [eZ Platform Public PHP API](eZ-Platform-Public-PHP-API_31429583.html), Value Objects are read only. Dedicated objects are provided for Update and Create operations: structs, like `ContentCreateStruct` or `UpdateCreateStruct`. In this case, we need to use a `ContentCreateStruct`.
+As explained in [above](#value-info-objects), Value Objects are read only. Dedicated objects are provided for Update and Create operations: structs, like `ContentCreateStruct` or `UpdateCreateStruct`. In this case, we need to use a `ContentCreateStruct`.
 
 ``` php
 $contentType = $contentTypeService->loadContentTypeByIdentifier( 'article' );
