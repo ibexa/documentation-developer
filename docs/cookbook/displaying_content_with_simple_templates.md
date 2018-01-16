@@ -73,7 +73,7 @@ To see how to list children of a Content item, for example all content contained
 
 ## Adding links
 
-To add links to your templates you use the `ez_urlalias` path. To see how it works, let's add one more line to the template:
+To add links to your templates you use the `ez_urlalias` path. To see how it works, let's add one more line to the `article.html.twig` template:
 
 ``` html
 <h1>{{ ez_content_name(content) }}</h1>

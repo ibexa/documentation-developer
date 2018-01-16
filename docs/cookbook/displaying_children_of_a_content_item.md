@@ -13,7 +13,7 @@ This recipe will show how to use both those methods to display all children of a
 
 The Query Controller is a predefined custom content view Controller that runs a Repository Query.
 
-If you need to create a simple query it's easier to use the Query Controller than to build a completely custom one, as you will not have to write custom PHP code. Like with a [Custom Controller](#using-a-custom-controller), however, you will be able to use properties of the viewed Content or Location as parameters.
+If you need to create a simple Query it's easier to use the Query Controller than to build a completely custom one, as you will not have to write custom PHP code. Like with a [Custom Controller](#using-a-custom-controller), however, you will be able to use properties of the viewed Content or Location as parameters.
 
 The main file in this case is an `AppBundle/QueryType/LocationChildrenQueryType.php` file which generates a Query that retrieves the children of the current Location.
 
@@ -45,7 +45,7 @@ class LocationChildrenQueryType implements QueryType
 }
 ```
 
-Next, in your standard view configuration file add a section (under `content_view`) that indicates when this Controller will be used. It is similar to regular view config, but contains additional information:
+Next, in your [standard view configuration](../guide/content_rendering.md#configuring-views-the-viewprovider) file add a section (under `content_view`) that indicates when this Controller will be used. It is similar to regular view config, but contains additional information:
 
 ``` yaml
 folder:

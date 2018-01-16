@@ -35,7 +35,7 @@ ez_systems_landing_page_field_type:
                     name: Second zone
 ```
 
-The following parameters need to be included in the settings of the configuration:
+The following parameters need to be included in the settings of the [configuration](../guide/best_practices.md#configuration_1):
 
 |Parameter|Type|Description|Required|
 |------|------|------|------|
@@ -60,11 +60,12 @@ The best way to display blocks in the zone is to iterate over a blocks array and
 ``` html
 <div data-studio-zones-container>
     <div data-studio-zone="{{ zones[0].id }}">
-        {# If a zone with [0] index contains any blocks #}
+        {# If the first zone (with index [0]) contains any blocks #}
         {% if zones[0].blocks %}
             {# for each block #}
             {% for block in zones[0].blocks %}
                 {# create a new layer with appropriate id #}
+                {# the div's class takes the type of the block that is placed in it #}
                 <div class="landing-page__block block_{{ block.type }}">
                     {# render the block by using the "ez_block:renderBlockAction" controller #}
                     {{ render_esi(controller('ez_block:renderBlockAction', {
@@ -77,6 +78,7 @@ The best way to display blocks in the zone is to iterate over a blocks array and
         {% endif %}
     </div>
     <div data-studio-zone="{{ zones[1].id }}">
+        {# Repeat the same for the second zone, with index [1] #}
         {% if zones[1].blocks %}
             {% for block in zones[1].blocks %}
                 <div class="landing-page__block block_{{ block.type }}">

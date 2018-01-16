@@ -173,7 +173,7 @@ For example:
 
 ``` yaml
 # service id
-acme.block.rss:
+acme.block.example:
     # block's class with namespace
     class: AcmeBundle\Block\ExampleBlock
     tags:
@@ -242,7 +242,7 @@ YUI.add('ezs-addcustomblockplugin', function (Y) {
 
 ## Defining Landing Page blocks in the configuration file
 
-There is a faster and more developer-friendly way to create Landing Page block types
+There is a faster and simpler way to create Landing Page block types
 using only the YAML configuration in an application or a bundle, under the `ez_systems_landing_page_field_type` key.
 
 ``` yaml
@@ -286,7 +286,7 @@ ez_systems_landing_page_field_type:
 Below you can find a few important notes:
 
 - You can omit the `name` attribute. Values are going to be generated automatically in the following fashion: `new_value` =&gt; `New Value`
-- `category` is not is use - it will be implemeneted in the future.
+- `category` is not in use - it will be implemented in the future.
 - In most cases blocks have only a single view, therefore you can define it as: `views: EzSystemsLandingPageBlockTemplateBundle::template.html.twig`.
 - In case of multiple views you can omit `name` and simplify it as follows:
 

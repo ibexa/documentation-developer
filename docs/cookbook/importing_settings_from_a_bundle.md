@@ -128,4 +128,4 @@ system:
 !!! note "Performance"
 
     Service container extensions are called only when the container is being compiled,
-    so performance should not be affected.
+    so performance will not be affected.
