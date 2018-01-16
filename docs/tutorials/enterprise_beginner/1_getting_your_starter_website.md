@@ -4,25 +4,25 @@
 
     You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/ezstudio-beginner-tutorial/tree/step1).
 
-To start working on the scenario of this tutorial, you need to have a minimal working website making use of fundamental eZ Platform functionalities. You need to build it by hand from the ground up, starting with a clean eZ Enterprise installation. Just remember that if you decide to change anything from the way it is shown here, you will need to double-check all code that will be provided here and make sure it fits your website.
+To start working on the scenario of this tutorial, you need to have a minimal working website. You will be shown how to build it by hand from the ground up, starting with a clean eZ Enterprise installation. Just remember that if you decide to change anything from the way it is shown here, you will need to double-check all code that will be provided here and make sure it fits your website.
 
 !!! note
 
     Remember to start working with a **clean** eZ Enterprise installation, **not** Studio Demo.
 
-    To be able to follow all steps of the tutorial, make sure you are installing eZ Enterprise v1.7.0 or later.
+    To be able to follow all steps of the tutorial, make sure you are installing eZ Enterprise v1.7.0 or later v1 edition.
 
 ## Setting up the website
 
 To set up your starter website by hand, you need to follow these steps:
 
-### 1. Get a clean eZ Enterprise installation
+### Get a clean eZ Enterprise installation
 
 See [Install eZ Platform](../../getting_started/install_ez_platform.md) for a guide to installing eZ Enterprise.
 
-### 2. Create Content Types
+### Create Content Types
 
-Log in to the back end – add `/ez` to your installation's address (e.g. `tutorial.lh/ez`) and log in using `admin` as the login and `publish` as the password. In the Admin Panel go to Content Types and create two Content Types (under the Content category) with the following settings:
+Log in to the back office – add `/ez` to your installation's address (e.g. `tutorial.lh/ez`) and log in using `admin` as the login and `publish` as the password. In the Admin Panel go to Content types tab and (under the Content category) create two content types with the following settings:
 
 #### Dog Breed
 
@@ -58,31 +58,31 @@ Log in to the back end – add `/ez` to your installation's address (e.g. `tu
 
 #### Modify existing Article Content Type
 
-You also need to make one modification of the preexisting Article Content Type. Edit this type, remove the Image field that is of the Content Relation type, and create a new Field in its place:
+You also need to make one modification to the pre-existing Article content type also situated in the Content category (Admin Panel/Content types/Content). Edit this type by removing image field that has a Content Relation (ezobjectrelation) type, and creating a new field in its place:
 
-| Name  | Identifier | Field Type | Required | Searchable | Translatable |
-|-------|------------|------------|----------|------------|--------------|
-| Image | image      | Image      |          |            | Y            |
+| Field Type | Name  | Identifier | Required | Searchable | Translatable |
+|------------|-------|------------|----------|------------|--------------|
+|   Image    | Image |   image    |          |            | Y            |
 
 ![New image Field in the Article Content Type](img/enterprise_tut_image_in_article_ct.png)
 
-Now inserting photos into articles will be easier. Reaching the final result of the tutorial without this change would require you to spend more time creating content, which we want to avoid in this case.
+Now inserting photos into articles will be easier. Reaching the final result of the tutorial without this change would require you to spend more time creating content, which you want to avoid in this case.
 
-### 3. Add template, configuration and style files
+### Add template, configuration and style files
 
-Place the [`pagelayout.html.twig`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step1/app/Resources/views/pagelayout.html.twig) and [`pagelayout_menu.html.twig`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step1/app/Resources/views/pagelayout_menu.html.twig) files in your `app/Resources/views` folder. Create a new folder, called `full`, under `views`. Place further template files in it:
+Place the [`pagelayout.html.twig`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step1/app/Resources/views/pagelayout.html.twig) and [`pagelayout_menu.html.twig`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step1/app/Resources/views/pagelayout_menu.html.twig) files in `app/Resources/views` folder. Create a new folder, called `full`, under `views`. Place further template files in it:
 
 - [`article.html.twig`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step1/app/Resources/views/full/article.html.twig)
 - [`dog_breed.html.twig`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step1/app/Resources/views/full/dog_breed.html.twig)
 - [`folder.html.twig`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step1/app/Resources/views/full/folder.html.twig)
 - [`tip.html.twig`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step1/app/Resources/views/full/tip.html.twig)
 
-Place two configuration files in your `app/config` folder:
+Place two configuration files in `app/config` folder:
 
 - [`views.yml`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step1/app/config/views.yml)
 - [`image_variations.yml`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step1/app/config/image_variations.yml)
 
-Modify the `config.yml` file that is located in this folder and add the following lines at the end of the imports block:
+Modify the `config.yml` file located in `app/config` folder and add the following lines at the end of the `imports` block:
 
 ``` yaml
 # in app/config/config.yml
@@ -90,37 +90,40 @@ Modify the `config.yml` file that is located in this folder and add the followin
     - { resource: image_variations.yml }
 ```
 
-Create an `assets/css` subfolder in the `web` folder and add this stylesheet file to it: [`style.css`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step1/web/assets/css/style.css).
+In `web/assets` folder create:
 
-Create an `images` folder under `web/assets` and add the [`header.jpg`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step1/web/assets/images/header.jpg) file to it.
+- a `css` subfolder and add this stylesheet file to it: [`style.css`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step1/web/assets/css/style.css)
+- an `images` subfolder and add the [`header.jpg`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step1/web/assets/images/header.jpg) file to it
 
-In the `src/AppBundle` folder create a `QueryType` subfolder and add `LocationChildrenQueryType.php` to it. This file allows your folders to display all content that they contain (read up on it [in the documentation](../../guide/content_rendering.md#query-controller)).
+In `src/AppBundle` folder create a `QueryType` subfolder and add [`LocationChildrenQueryType.php`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/step1/src/AppBundle/QueryType/LocationChildrenQueryType.php) to it. This file allows your folders to display all content that they contain (read up on it [in the documentation](../../guide/content_rendering.md#query-controller)).
 
-Finally, add the following files in `src/`, to create dynamic links in the top menu:
+Finally, add the following files to `src/AppBundle`, to create dynamic links in the top menu:
 
 - [`Controller/MenuController.php`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step1/src/AppBundle/Controller/MenuController.php)
 - [`DependencyInjection/AppExtension.php`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step1/src/AppBundle/DependencyInjection/AppExtension.php)
 - [`QueryType/MenuQueryType.php`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step1/src/AppBundle/QueryType/MenuQueryType.php)
 - [`Resources/config/services.yml`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step1/src/AppBundle/Resources/config/services.yml)
 
-All the files we've placed in `src/`are not the scope of this tutorial and we won't go here into detail on how they work.
+All the files you've placed in `src/AppBundle` are not the scope of this tutorial and we won't go here into detail on how they work.
 
-This is what the structure of the new and modified files should look like (excluding preexisting files):
+This is what the structure of the new and modified files should look like (excluding pre-existing files):
 
 ![File structure](img/enterprise_tut_file_structure.png)
 
-### 4. Create content
+### Create content
 
-Now return to the app and create some content for your website.
+Now return to the back office and create some content for your website.
 
-First, make three Folders under the Home Content item. Call them All Articles, Dog Breed Catalog and All Tips.
+First, make three Folders under the `Content/Content structure` tab. Call them 'All Articles', 'Dog Breed Catalog' and 'All Tips'. Remember that you save and close them by using 'Publish' button.
 
-Next, create a few Content items of proper Content Types in each of these folders:
+Next, create a few Content items of proper content types in each of these folders:
 
-- 6 Articles (at least, to best see the effects of Schedule blocks that we will deal with in step 3.)
+- 6 Articles (at least, to best see the effects of Schedule blocks that we will create in step 3.)
 - 3 Dog Breeds
 - 3 Tips
 
- When you need an image, preferably use one from our [image pack](img/photos.zip), as this will let you compare the effect of your work to screenshots in the tutorial text.
+#### Add images
+
+When you need an image, preferably use one from [image pack](img/photos.zip), this will let you compare effects of your work to screenshots in the tutorial.
 
 At this point you are ready to proceed with the next step.
