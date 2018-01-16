@@ -10,7 +10,7 @@ Hi! You are about to install eZ Platform on your machine and this guide is here 
 
 | Type                                       | Archive                                                                   | License                                         | GIT */ Composer*                                                                                                                                   |
 |--------------------------------------------|---------------------------------------------------------------------------|-------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| eZ Platform *- "clean"*                    | [share.ez.no/downloads/downloads](http://share.ez.no/downloads/downloads) | GPL                                             | [ezsystems/ezplatform](https://github.com/ezsystems/ezplatform) ([INSTALL.md](https://github.com/ezsystems/ezplatform/blob/master/INSTALL.md))     |
+| eZ Platform *- "clean"*                    | [ezplatform.com](https://ezplatform.com/#download-option) | GPL                                             | [ezsystems/ezplatform](https://github.com/ezsystems/ezplatform) ([INSTALL.md](https://github.com/ezsystems/ezplatform/blob/master/INSTALL.md))     |
 | eZ Platform *- "demo"*                     | *Available via Git / Composer*                                            | GPL                                             | [ezsystems/ezplatform-demo](https://github.com/ezsystems/ezplatform-demo)                                                                          |
 | eZ Platform Enterprise Edition *- "clean"* | [support.ez.no/Downloads](https://support.ez.no/Downloads)                | BUL (***requires eZ Enterprise subscription)*** | [ezsystems/ezplatform-ee](https://github.com/ezsystems/ezplatform-ee) ([INSTALL.md](https://github.com/ezsystems/ezstudio/blob/master/INSTALL.md)) |
 | eZ Platform Enterprise Edition - *"demo"*  | [support.ez.no/Downloads](https://support.ez.no/Downloads)                | BUL (***requires eZ Enterprise subscription)*** | [ezsystems/ezplatform-ee-demo](https://github.com/ezsystems/ezplatform-ee-demo)                                                                    |
@@ -185,7 +185,7 @@ chmod 775 ../../workspace
 chmod 775 ../../../Documents
 ```
 
-b. Download archive from [share.ez.no/downloads](http://share.ez.no/downloads/downloads). Extract the eZ Platform archive to a directory, then execute post install scripts.
+b. Download archive from [ezplatform.com](https://ezplatform.com/#download-option). Extract the eZ Platform archive to a directory, then execute post install scripts.
 
 ``` bash
 cd /<directory>/
@@ -340,7 +340,7 @@ mv composer.phar /usr/local/bin/composer
 
 ### 3. Download the desired version of eZ Platform or eZ Enterprise
 
--   If you are installing eZ Platform, download the latest archive from <http://share.ez.no/latest>
+-   If you are installing eZ Platform, download the latest archive from [ezplatform.com](https://ezplatform.com/#download-option)
 -   For licensed eZ Enterprise customers, download your file here: <https://support.ez.no/Downloads>
 
 Expand the archive into `/var/www/ezplatform` or the folder name or your choosing.
@@ -352,7 +352,7 @@ cd /var/www
 git clone https://github.com/ezsystems/ezplatform.git /var/www/ezplatform
 ```
 
-You can rename the destination folder to whatever you like. This is where eZ Platform will live, and you'll point your virtual host to this folder to use as its root. You may choose to download an archive file from [share.ez.no/downloads](http://share.ez.no/downloads/downloads) instead of cloning from GitHub, and extract the eZ Platform archive to a similar directory. The subsequent steps are identical, regardless of the method you choose to obtain eZ Platform.
+You can rename the destination folder to whatever you like. This is where eZ Platform will live, and you'll point your virtual host to this folder to use as its root. You may choose to download an archive file from [ezplatform.com](https://ezplatform.com/#download-option) instead of cloning from GitHub, and extract the eZ Platform archive to a similar directory. The subsequent steps are identical, regardless of the method you choose to obtain eZ Platform.
 
 ### 4. Create a new database for eZ Platform
 
@@ -729,7 +729,7 @@ zend_extension=opcache.so
 
 #### 7. Install eZ Platform
 
-a. Download archive from [share.ez.no/downloads](http://share.ez.no/downloads/downloads). Extract the eZ Platform archive to a directory, then execute post install scripts.
+a. Download archive from [ezplatform.com](https://ezplatform.com/#download-option). Extract the eZ Platform archive to a directory, then execute post install scripts.
 
 ``` bash
 cd /<directory>/
