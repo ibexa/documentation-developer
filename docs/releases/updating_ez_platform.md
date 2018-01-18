@@ -144,14 +144,42 @@ Some versions require updates to the database. Look through [the list of databas
 
 These steps are only relevant for some releases:
 
-**ezsearch_return_count table removal**
+**Index time boosting**
 
-!!! caution "V1.11"
+!!! caution "Solr Bundle 1.4"
 
-    v1.11.0 removes the `ezsearch_return_count` table, which had been removed in eZ Publish legacy since 5.4/2014.11. This avoids issues which would occur when you upgrade using legacy bridge. Apply the following database update script if your installation has not had the table removed by an earlier eZ Publish upgrade:
+    Solr Bundle v1.4 introduced among other things index time boosting feature, this involves a slight change to the solr scheme that will need to be applied to your config.
 
-    ``` bash
-    mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.10.0-to-6.11.0.sql
+    To make sure indexing continues to work, apply the following change, restart solr and reindex your content:
+
+    ``` xml
+    diff --git a/lib/Resources/config/solr/schema.xml b/lib/Resources/config/solr/schema.xml
+    index 49a17a9..80c4cd7 100644
+    --- a/lib/Resources/config/solr/schema.xml
+    +++ b/lib/Resources/config/solr/schema.xml
+    @@ -92,7 +92,7 @@ should not remove or drastically change the existing definitions.
+         <dynamicField name="*_s" type="string" indexed="true" stored="true"/>
+         <dynamicField name="*_ms" type="string" indexed="true" stored="true" multiValued="true"/>
+         <dynamicField name="*_l" type="long" indexed="true" stored="true"/>
+    -    <dynamicField name="*_t" type="text" indexed="true" stored="true"/>
+    +    <dynamicField name="*_t" type="text" indexed="true" stored="true" multiValued="true" omitNorms="false"/>
+         <dynamicField name="*_b" type="boolean" indexed="true" stored="true"/>
+         <dynamicField name="*_mb" type="boolean" indexed="true" stored="true" multiValued="true"/>
+         <dynamicField name="*_f" type="float" indexed="true" stored="true"/>
+    @@ -104,13 +104,6 @@ should not remove or drastically change the existing definitions.
+         <dynamicField name="*_c" type="currency" indexed="true" stored="true"/>
+
+         <!--
+    -      Full text field is indexed through proxy fields matching '*_fulltext' pattern.
+    -    -->
+    -    <field name="text" type="text" indexed="true" multiValued="true" stored="false"/>
+    -    <dynamicField name="*_fulltext" type="text" indexed="false" multiValued="true" stored="false"/>
+    -    <copyField source="*_fulltext" dest="text" />
+    -
+    -    <!--
+           This field is required since Solr 4
+         -->
+         <field name="_version_" type="long" indexed="true" stored="true" multiValued="false" />
     ```
 
 **content/publish permission**
@@ -165,42 +193,6 @@ These steps are only relevant for some releases:
     ``` bash
     mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.7.0-to-6.8.0.sql
     ```
-
-**Solr Bundle 1.4: Index time boosting**
-
-Solr Bundle v1.4 introduced among other things index time boosting feature, this involves a slight change to the solr scheme that will need to be applied to your config.
-
-To make sure indexing continues to work, apply the following change, restart solr and reindex your content:
-
-``` xml
-diff --git a/lib/Resources/config/solr/schema.xml b/lib/Resources/config/solr/schema.xml
-index 49a17a9..80c4cd7 100644
---- a/lib/Resources/config/solr/schema.xml
-+++ b/lib/Resources/config/solr/schema.xml
-@@ -92,7 +92,7 @@ should not remove or drastically change the existing definitions.
-     <dynamicField name="*_s" type="string" indexed="true" stored="true"/>
-     <dynamicField name="*_ms" type="string" indexed="true" stored="true" multiValued="true"/>
-     <dynamicField name="*_l" type="long" indexed="true" stored="true"/>
--    <dynamicField name="*_t" type="text" indexed="true" stored="true"/>
-+    <dynamicField name="*_t" type="text" indexed="true" stored="true" multiValued="true" omitNorms="false"/>
-     <dynamicField name="*_b" type="boolean" indexed="true" stored="true"/>
-     <dynamicField name="*_mb" type="boolean" indexed="true" stored="true" multiValued="true"/>
-     <dynamicField name="*_f" type="float" indexed="true" stored="true"/>
-@@ -104,13 +104,6 @@ should not remove or drastically change the existing definitions.
-     <dynamicField name="*_c" type="currency" indexed="true" stored="true"/>
-
-     <!--
--      Full text field is indexed through proxy fields matching '*_fulltext' pattern.
--    -->
--    <field name="text" type="text" indexed="true" multiValued="true" stored="false"/>
--    <dynamicField name="*_fulltext" type="text" indexed="false" multiValued="true" stored="false"/>
--    <copyField source="*_fulltext" dest="text" />
--
--    <!--
-       This field is required since Solr 4
-     -->
-     <field name="_version_" type="long" indexed="true" stored="true" multiValued="false" />
-```
 
 **Folder for form-uploaded files**
 
@@ -222,6 +214,16 @@ index 49a17a9..80c4cd7 100644
         form_builder.upload_folder.section_identifier: <section identifier>
     ```
 
+**ezsearch_return_count table removal**
+
+!!! caution "V1.11"
+
+    v1.11.0 removes the `ezsearch_return_count` table, which had been removed in eZ Publish legacy since 5.4/2014.11. This avoids issues which would occur when you upgrade using legacy bridge. Apply the following database update script if your installation has not had the table removed by an earlier eZ Publish upgrade:
+
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.10.0-to-6.11.0.sql
+    ```
+
 **Increased password hash length**
 
 !!! caution "V1.12"
@@ -236,20 +238,19 @@ index 49a17a9..80c4cd7 100644
 
 
     These algorithms produce longer hashes, and so the length of the `password_hash` column of the `ezuser` table must be increased, like this:
-    
+
     **MySQL**
-    
+
     ​``` sql
     ALTER TABLE ezuser CHANGE password_hash password_hash VARCHAR(255) default NULL;
     ​```
-    
-    
+
+
     **PostgreSQL**
-    
+
     ​``` sql
     ALTER TABLE ezuser ALTER COLUMN password_hash TYPE VARCHAR(255);
     ​```
-    
 
 ## 5. Dump assets
 
