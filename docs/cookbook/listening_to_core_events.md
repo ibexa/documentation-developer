@@ -15,7 +15,7 @@ This recipe will describe how to register a Slot for a dedicated Signal.
 ## Registering a Slot for a given Signal
 
 As described in the [SignalSlot documentation](../guide/repository.md#signal-slots),
-a lot is the eZ Platform equivalent of a Symfony event listener and must extend `eZ\Publish\Core\SignalSlot\Slot`.
+a Slot is the eZ Platform equivalent of a Symfony event listener and must extend `eZ\Publish\Core\SignalSlot\Slot`.
 
 A typical implementation is the following:
 
@@ -52,7 +52,7 @@ class OnPublishSlot extends BaseSlot
 }
 ```
 
-You now need to register `OnPublishSlot` as a service in the ServiceContainer and identified it as a valid Slot.
+You now need to register `OnPublishSlot` as a service in the ServiceContainer and identify it as a valid Slot.
 
 In `services.yml` (in your bundle):
 
@@ -69,7 +69,7 @@ services:
 ```
 
 Service tag `ezpublish.api.slot` identifies your service as a valid Slot.
-The signal part (mandatory) says that this slot is listening to `ContentService\PublishVersionSignal`
+The signal part (mandatory) says that this Slot is listening to `ContentService\PublishVersionSignal`
 (shortcut for `\eZ\Publish\Core\SignalSlot\Signal\ContentService\PublishVersionSignal`).
 
 !!! note
@@ -80,11 +80,11 @@ The signal part (mandatory) says that this slot is listening to `ContentService\
 
 !!! tip
 
-    You can register a slot for any kind of signal by setting `signal` to `*` in the service tag.
+    You can register a Slot for any kind of signal by setting `signal` to `*` in the service tag.
 
 ## Using a basic Symfony event listener
 
-eZ Platform comes with a generic slot that converts signals (including ones defined by user code)
+eZ Platform comes with a generic Slot that converts signals (including ones defined by user code)
 to regular event objects and exposes them via the EventDispatcher.
 This makes it possible to implement a simple event listener/subscriber if you're more comfortable with this approach.
 

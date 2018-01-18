@@ -1,10 +1,10 @@
 # Setting up multi-language SiteAccesses and corresponding translations
 
-Combining translated content with multiple SiteAccesses successfully can be challenging when you are new to eZ Platform.
+Combining translated content with multiple SiteAccesses successfully can be challenging for new users of eZ Platform.
 
 To achieve this for the most typical setups you need to follow three steps:
 
-1. [Create your translations](#create-a-new-translation) in the database via the eZ Platform back office.
+1. [Create your translations](#create-a-new-translation) in the database via eZ Platform back office.
 1. [Create at least two SiteAccesses](#create-new-siteaccesses) in `ezplatform.yml` to deliver the right translated content at the right time.
 1. [Set the correct permissions](#set-permissions-for-the-new-siteaccesses) for the anonymous user to read each SiteAccess.
 
@@ -78,7 +78,7 @@ siteaccess:
     For dynamic URLs you can replace `www.mysite.com` with `'%site_domain%'`
     and then enter `site_domain` as a new entry in `parameters.yml` at the same level as the database settings.
 
-Further down in `ezplatform.yml` is the `system` section which comes with the default group named `site_group` (the same one you added to earlier).
+Further down in `ezplatform.yml` is the `system` section which comes with the default group named `site_group` (the same group that you modified earlier).
 Add the new `translation_siteaccesses` here. After the `site_group` you register the SiteAccess languages:
 
 ``` yaml
@@ -105,7 +105,7 @@ php app/console cache:clear
 
 ## Set permissions for the new SiteAccesses
 
-Now allow the user Role Anonymous to read content on the new SiteAccesses:
+Now allow the Anonymous user Role to read content on the new SiteAccesses:
 
 1. Log in to the eZ Platform back office.
 1. Navigate to Admin Panel -> Roles.

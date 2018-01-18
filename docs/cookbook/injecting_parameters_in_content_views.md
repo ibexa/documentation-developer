@@ -6,8 +6,6 @@ The event listener method receives an `eZ\Publish\Core\MVC\Symfony\Event\PreCont
 
 The following example injects `foo` and `osTypes` variables in all content view templates.
 
-TODO fix example for view not contentView?
-
 ``` php
 <?php
 namespace Acme\ExampleBundle\EventListener;
@@ -19,7 +17,7 @@ class PreContentViewListener
     public function onPreContentView( PreContentViewEvent $event )
     {
         // Get content view object and inject whatever you need.
-        // You may add custom business logic here.
+        // You may also add custom business logic here.
         $contentView = $event->getContentView();
         $contentView->addParameters(
             array(

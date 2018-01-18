@@ -1,6 +1,6 @@
 # Converting request parameters into API objects
 
-In lots of cases, a request will provide a contentId or a locationId.
+In many cases, a request will provide a contentId or a locationId.
 Before using them, you will have to load an API object within your controller, for example:
 
 ``` php

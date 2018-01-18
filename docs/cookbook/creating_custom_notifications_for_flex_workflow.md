@@ -2,7 +2,7 @@
 
 !!! note
 
-    This recipe assumes you have a back end for notification and want to display them
+    This recipe assumes you have a back end for notifications and want to display them
     in the notification system used by the Flex Workflow.
 
 To create a custom notification you have to provide two plugins in the `flex-workflow` bundle,
