@@ -110,7 +110,7 @@ As you can see, the block is displayed using your new template. Built-in blocks 
 
 ### Create a Schedule block for Featured Articles
 
-The next block is the Schedule block that will air articles at predetermined times. Two different schedule blocks will be in use, so that you can learn how to customize their layouts and how the overflow functionality works.
+The next block is the Schedule block that will air articles at predetermined times. Two different Schedule blocks will be in use, so that you can learn how to customize their layouts and how the overflow functionality works.
 
 The process of creating a new layout may already look familiar to you. First, let's add a configuration that will point to the layout. Go to the `layouts.yml` in `app/config` folder again and add the following code under `blocks` on the same level as `contentlist` key:
 
@@ -123,7 +123,7 @@ schedule:
             name: Featured Schedule Block
 ```
 
-As you can see the configuration at this point defines one view for the schedule block that is called `schedule_featured` and points to a `schedule_featured.html.twig` file that will house its template. Place this new template file in `app/Resources/views/blocks`:
+As you can see the configuration at this point defines one view for the Schedule block that is called `schedule_featured` and points to a `schedule_featured.html.twig` file that will house its template. Place this new template file in `app/Resources/views/blocks`:
 
 ``` html
 <!--app/Resources/views/blocks/schedule_featured.html.twig-->
@@ -152,7 +152,7 @@ See the `data-studio-slots-container` (line 5) and `data-studio-slot` (line 7) a
 
 When you look at the template, you can see three blocks, each of which will render the Content items using the `featured` view. As you may remember, so far you only have templates for `full` view for Articles. This means you need to create a `featured` view template for it as well, otherwise you will get an error when trying to add Content to the block.
 
-For the app to know which template file to use in such case, you need to modify the `views.yml` file in `app/config` folder again. Add the following code to this file, on the same level as the `full` key:
+For the app to know which template file to use in such a case, you need to modify the `views.yml` file in `app/config` folder again. Add the following code to this file, on the same level as the `full` key:
 
 ``` yaml
 # in app/config/views.yml:
@@ -227,7 +227,7 @@ Now click the Add content (plus) icon, navigate to and choose one of the Article
 
 Try to choose different airtimes for all three of them – you will then be able to see well how the Schedule block functions. Once you are done, take a look at the Timeline at the top of the screen. You can move the slider to different times and preview what the Schedule block will look like at different hours, with content being hidden if you jumped to a point before its airtime.
 
-At this point you have configured Schedule block to work well with Articles only. If you try to add Content of any other type, you will see an error. This is because there is no `featured` view for content other than Articles defined at the moment. If you'd like some more practice or want to make your website more foolproof, you can create such templates for all other Content Types in the database.
+At this point you have configured the Schedule block to work well with Articles only. If you try to add Content of any other type, you will see an error. This is because there is no `featured` view for content other than Articles defined at the moment. If you'd like some more practice or want to make your website more foolproof, you can create such templates for all other Content Types in the database.
 
 ![Front Page after adding Featured Block](img/enterprise_tut_page_with_featured_articles.png "Front Page after adding Featured Block")
 
@@ -341,7 +341,7 @@ With this done, you should be able to add a new Schedule block to the Front Page
 
 ### Set up overflow
 
-Now you will make use of the overflow functionality. In the settings of the Featured Articles block turn on overflow and select the Other Articles block as its overflow target. This controls how content will behave once it has to leave the first block. This is behaviour you are surely familiar with from many websites: you have placed featured articles in the first Schedule block and planned the times on which they will be aired. When a new article appears in this block, the last article currently in it will be 'pushed off' and will land in the block designated as the overflow block – that means in the list of articles below. This way the most current articles are showcased at the top, while older articles are still easily accessible from the front page.
+Now you will make use of the overflow functionality. In the settings of the Featured Articles block turn on overflow and select the Other Articles block as its overflow target. This controls how content will behave once it has to leave the first block. This is behavior you are surely familiar with from many websites: you have placed featured articles in the first Schedule block and planned the times on which they will be aired. When a new article appears in this block, the last article currently in it will be 'pushed off' and will land in the block designated as the overflow block – that means in the list of articles below. This way the most current articles are showcased at the top, while older articles are still easily accessible from the front page.
 
 You can try this out now. Add one more Article to the Featured Articles block. You will see a message warning you that some content will be pushed out. When you confirm, the pushed out Article will move to the top of the Other Articles block.
 

@@ -12,9 +12,9 @@ This tutorial is intended for a beginner with basic knowledge of the workings of
 
 After going through this tutorial, you will:
 
-- Have a working knowledge of a Landing Page functionality and architecture
+- Have a working knowledge of the Landing Page functionality and architecture
 - Be able to create a Landing Page and customize its layout
-- Be able to prepare and customize content lists and schedule blocks
+- Be able to prepare and customize Content Lists and Schedule blocks
 - Be able to create a custom block
 
 ## The Story Behind the Tutorial
@@ -31,8 +31,8 @@ You will do this by means of a Landing Page, making use of its specific blocks, 
 
 A Landing Page is particularly fitted to what you need to do in this tutorial. You can build and customize it once, and later the magazine's editor can create and publish new content that will automatically land in the correct place on the front page.
 
-For showcasing articles you will use a schedule block, a special Landing Page element that lets you plan the times and order at which content will air.
+For showcasing articles you will use a Schedule block, a special Landing Page element that lets you plan the times and order at which content will air.
 
-You will display entries from the Dog Breed Catalog using a content list block. This block will automatically find all Dog Breed Content items and display their previews in a separate column.
+You will display entries from the Dog Breed Catalog using a Content List block. This block will automatically find all Dog Breed Content items and display their previews in a separate column.
 
 Finally, you will display one random tip of the day using custom block that will be build from scratch.

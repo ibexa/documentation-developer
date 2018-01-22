@@ -28,13 +28,13 @@ The page contains only one simple Tag block and is displayed without any templat
 
 ![Empty Landing Page with default layout](img/enterprise_tut_empty_single_block.png)
 
-As you saw in the final result screenshot, you need a layout with two zones: a main column and a narrower sidebar. eZ Enterprise provides only one-zone default layout so you will need to create a new one.
+As you saw in the final result screenshot, you need a layout with two zones: a main column and a narrower sidebar. eZ Enterprise provides only a one-zone default layout so you will need to create a new one.
 
 !!! note
 
-    It is not possible to change the layout of a Landing Page once it has been published. This means that after preparing new layout you will have to create a completely new Landing Page, replace the current Home with it and delete the old one.
+    It is not possible to change the layout of a Landing Page once it has been published. This means that after preparing the new layout you will have to create a completely new Landing Page, replace the current Home with it and delete the old one.
 
-Preparing new layout requires three things:
+Preparing a new layout requires three things:
 
 - **entry in configuration**
 - **thumbnail** 
@@ -76,7 +76,7 @@ Creating the file is not enough, you also need to tell the app to read and use i
 
 Take a look at the most important things that this configuration defines (for a detailed description of creating a Landing Page layout, see [Creating Landing Page layouts (Enterprise)](../../cookbook/creating_landing_page_layouts_(enterprise)):
 
-The `sidebar` is the key of the layout, but it is the `name` that is displayed in the interface when user selects a layout. The `thumbnail` links to an image file with an icon of the layout. It will also be shown when creating a new Landing Page, as a visual hint next to the name. Use the [supplied thumbnail file](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step2/web/assets/images/layouts/sidebar.png) and place it in the `web/assets/images/layouts/` folder.
+The `sidebar` is the key of the layout, but it is the `name` that is displayed in the interface when the user selects a layout. The `thumbnail` links to an image file with an icon of the layout. It will also be shown when creating a new Landing Page, as a visual hint next to the name. Use the [supplied thumbnail file](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step2/web/assets/images/layouts/sidebar.png) and place it in the `web/assets/images/layouts/` folder.
 
 The `template` points to the twig file where in the next step you will create the template for this layout. This is the most important part of the configuration, as templates are what distinguishes all layouts from one another.
 
@@ -180,7 +180,7 @@ Until the Front Page is swapped with the current Home, you can access the new pa
 
 Now let's replace the current Home with your new Front Page.
 
-To swap this two Content items, go to Home in back office (if you are in the StudioUI, switch by clicking Content at the top). Open the Locations tab, click Select Content Item under Content Location Swap and select the newly created Front Page. The two pages should now be swapped, with the new Landing Page becoming the first item in the Content tree. It will now be the first page that visitors will see. In the next step you will fill it up with the content.
+To swap these two Content items, go to Home in back office (if you are in the StudioUI, switch by clicking Content at the top). Open the Locations tab, click Select Content Item under Content Location Swap and select the newly created Front Page. The two pages should now be swapped, with the new Landing Page becoming the first item in the Content tree. It will now be the first page that visitors will see. In the next step you will fill it up with the content.
 
 You can now delete the previous Home page, as you don't need it anymore. Navigate to it in the Content mode and click Send to Trash in the menu on the right.
 

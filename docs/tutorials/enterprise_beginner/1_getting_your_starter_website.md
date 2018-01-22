@@ -22,7 +22,7 @@ See [Install eZ Platform](../../getting_started/install_ez_platform.md) for a gu
 
 ### Create Content Types
 
-Log in to the back office – add `/ez` to your installation's address (e.g. `tutorial.lh/ez`) and log in using `admin` as the login and `publish` as the password. In the Admin Panel go to Content types tab and (under the Content category) create two content types with the following settings:
+Log in to the back office – add `/ez` to your installation's address (e.g. `tutorial.lh/ez`) and log in using `admin` as the login and `publish` as the password. In the Admin Panel go to Content types tab and (under the Content category) create two Content Types with the following settings:
 
 #### Dog Breed
 
@@ -58,7 +58,7 @@ Log in to the back office – add `/ez` to your installation's address (e.g. 
 
 #### Modify existing Article Content Type
 
-You also need to make one modification to the pre-existing Article content type also situated in the Content category (Admin Panel/Content types/Content). Edit this type by removing image field that has a Content Relation (ezobjectrelation) type, and creating a new field in its place:
+You also need to make one modification to the pre-existing Article content type also situated in the Content category (Admin Panel/Content types/Content). Edit this type by removing Image Field that has a Content Relation (ezobjectrelation) type, and creating a new Field in its place:
 
 | Field Type | Name  | Identifier | Required | Searchable | Translatable |
 |------------|-------|------------|----------|------------|--------------|
@@ -116,7 +116,7 @@ Now return to the back office and create some content for your website.
 
 First, make three Folders under the `Content/Content structure` tab. Call them 'All Articles', 'Dog Breed Catalog' and 'All Tips'. Remember that you save and close them by using 'Publish' button.
 
-Next, create a few Content items of proper content types in each of these folders:
+Next, create a few Content items of proper Content Types in each of these folders:
 
 - 6 Articles (at least, to best see the effects of Schedule blocks that we will create in step 3.)
 - 3 Dog Breeds
@@ -124,6 +124,6 @@ Next, create a few Content items of proper content types in each of these folder
 
 #### Add images
 
-When you need an image, preferably use one from [image pack](img/photos.zip), this will let you compare effects of your work to screenshots in the tutorial.
+When you need an image, preferably use one from [this image pack](img/photos.zip), this will let you compare effects of your work to screenshots in the tutorial.
 
 At this point you are ready to proceed with the next step.
