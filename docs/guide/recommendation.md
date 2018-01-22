@@ -79,7 +79,7 @@ recommendationBundleRestRoutes:
 
 ### 4. Register a YOOCHOOSE account
 
-Register an account (a so-called customer ID) via your eZ Sales manager or by sending a mail to support@yoochoose.com.
+Register an account (a so-called customer ID) via your eZ Sales manager or by sending an email to support@yoochoose.com.
 
 ### 5. Allow public HTTP(S) access
 
@@ -270,7 +270,7 @@ The additional `sa` parameter takes the SiteAccess name and defines the SiteAcce
 
 ### 4. Check if the bundle provides REST data
 
-You can verify the import controller of the bundle by calling the local API. You should use the 'Accept' header and may need to add an Authorization header if some authentication is required.
+You can verify the import controller of the bundle by calling the local API. You should use the 'Accept' header and may need to add an 'Authorization' header if some authentication is required.
 
 To check if the `content` interface is working as expected, try this URI:
 
@@ -286,7 +286,7 @@ Additionally you should check if the `contenttypes` interface is working as we
 
 Both interfaces are supposed to provide content data in .json format.
 The difference is only the size of the content array in the `contentList` object.
-For the `content` interface one is returned, for the `contenttypes` interface many are returned.
+For the `content` interface one Content item is returned, for the `contenttypes` interface many are returned.
 
 ``` json
 {
@@ -337,9 +337,9 @@ After defining what Content Types should be recommended and tracked you can star
 php ezpublish/console ezreco:runexport --contentTypeIdList=16 --webHook=https://admin.yoochoose.net/api/<your_customer_id>/items --hidden=1 --mandatorId=<your_customer_id> --host=<your_ezplatform_host_with_scheme>
 ```
 
-By running this command, the bundle exporter collects all content related to the SiteAccesses of this customer id and places it in files.
+By running this command, the bundle exporter collects all content related to the SiteAccesses of this customer ID and places it in files.
 After finishing, the systems sends a POST request to the `webHook` endpoint and informs the recommender how to fetch the data.
-The recommender triggers an internal workflow so that the generated files are downloaded and imported in the recommender content store.
+The recommender triggers an internal workflow so that the generated files are downloaded and imported in the recommender's content store.
 Be patient, as this can take up to five minutes.
 
 !!! caution "Changing Content Types for recommendations"
@@ -406,7 +406,7 @@ You can log in to [admin.yoochoose.net](https://admin.yoochoose.net/), switch t
 #### Personalized Search Requests
 
 As the Search functionality is included by default you can also make a request to search for content matching certain criteria.
-It's easiest to query for the content id as value in the `q` request parameter (at least two chars, e.g. 73). 
+It's easiest to query for the content ID as value in the `q` request parameter (at least two chars, e.g. 73). 
 
 `GET https://reco.yoochoose.net/api/v4/search/<your_customer_id>/get_suggestions.json?item=5&itemtype=<your_content_type>&q=<your_content_id>&attribute=name&attribute=author&attribute=uri&attribute=<your_custom_attribute>`
 
@@ -451,7 +451,7 @@ These 'attributes' of the response can be used in Handlebars templates to render
 
 `GET https://reco.yoochoose.net/api/v2/<your_customer_id>/someuser/popular.json?contextitems=71&numrecs=5&categorypath=/&outputtypeid=<your_content_type>&attribute=name,author,uri,image`
 
-would deliver the following response *if* the content Fields were exported successfully by the export script.
+delivers the following response *if* the content Fields are exported successfully by the export script.
 
 ``` json
 {
