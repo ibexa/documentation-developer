@@ -6,7 +6,6 @@ It allows you to track the way visitors use your website and suggests recommende
 !!! tip "More information"
 
     - [eZ Services documentation](https://doc.ezplatform.com/projects/ezservices)
-    - [API doc for the YOOCHOOSE Service](http://docs.ezreco.apiary.io/)
 
 !!! note "Recommendation Bundle v1"
 
