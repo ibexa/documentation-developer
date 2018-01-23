@@ -277,11 +277,15 @@ To check if the `content` interface is working as expected, try this URI:
 
 `Accept    application/vnd.ez.api.Content+json`
 
+`Authorization    Basic xxxxxxxx`
+
 Additionally you should check if the `contenttypes` interface is working as well by calling the following URI:
 
 `GET http://{endpoint}/api/ezp/v2/ez_recommendation/v1/contenttypes/38?page=1&page_size=10`
 
 `Accept    application/vnd.ez.api.Content+json`
+
+`Authorization    Basic xxxxxxxx`
 
 Both interfaces are supposed to provide content data in .json format.
 The difference is only the size of the content array in the `contentList` object.
@@ -333,7 +337,7 @@ For the `content` interface one Content item is returned, for the `contenttypes`
 After defining what Content Types should be recommended and tracked you can start the full export with the following command:
 
 ``` bash
-php ezpublish/console ezreco:runexport --contentTypeIdList=16 --webHook=https://admin.yoochoose.net/api/<your_customer_id>/items --hidden=1 --mandatorId=<your_customer_id> --host=<your_ezplatform_host_with_scheme>
+php app/console ezreco:runexport --contentTypeIdList=16 --webHook=https://admin.yoochoose.net/api/<your_customer_id>/items --hidden=1 --mandatorId=<your_customer_id> --host=<your_ezplatform_host_with_scheme>
 ```
 
 By running this command, the bundle exporter collects all content related to the SiteAccesses of this customer ID and places it in files.
@@ -343,7 +347,7 @@ Be patient, as this can take up to five minutes.
 
 !!! caution "Changing Content Types for recommendations"
 
-    If the Content Types to be recommended are changed, a full export needs to be started again by running the `php ezpublish/console ezreco:runexport` command.
+    If the Content Types to be recommended are changed, a full export needs to be started again by running the `php app/console ezreco:runexport` command.
 
 ### Checking if the full context export was stored in the recommender engine
 
@@ -562,5 +566,5 @@ You can replace `info` with `debug` for more verbosity.
 If you see this error in the console of your browser's debugger you need to rerun the asset installer:
 
 ``` bash
-php ezpublish/console assets:install --symlink --env=prod
+php app/console assets:install --symlink --env=prod
 ```
