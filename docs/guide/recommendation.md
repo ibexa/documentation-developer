@@ -1,13 +1,13 @@
 # Personalization
 
-The Recommendation Bundle extends the functionality of eZ Platform with a personalization engine, powered by [YOOCHOOSE](https://yoochoose.com/).
-It allows you to track the way visitors use your website and suggests recommended content to them based on their behavior. You can also use the personalized search (content suggestions) and personalized newsletter features (embedding recommendations in your newsletters).
+The [eZ Systems Recommendation Bundle](https://github.com/ezsystems/EzSystemsRecommendationBundle) extends the functionality of eZ Platform with a Personalization Solution, powered by [YOOCHOOSE](https://www.yoochoose.com).
+It allows you to track the way visitors use your website and recommends content based on their behavior. You can also use the personalized search (content suggestions) and personalized newsletter features (embedding personalized content in your newsletters).
 
 !!! tip "More information"
 
     - [eZ Services documentation](https://doc.ezplatform.com/projects/ezservices)
 
-!!! note "Recommendation Bundle v1"
+!!! note "Personalization Bundle v1"
 
     This page covers Recommendation Bundle v2, which is the latest version, used with all current releases of eZ Platform.
     If you are still using Recommendation Bundle v1, contact support@yoochoose.com if you need information.
@@ -17,7 +17,7 @@ It allows you to track the way visitors use your website and suggests recommende
 1. Run composer require
 2. Enable the bundle
 3. Import additional routing
-4. Register a YOOCHOOSE account
+4. Register a Personalization Solution account
 5. Allow public HTTP(S) access
 
 ### 1. Run composer require
@@ -76,20 +76,24 @@ recommendationBundleRestRoutes:
     #         - { name: kernel.event_subscriber }
     ```
 
-### 4. Register a Recommendation Service account
+### 4. Register a Personalization Solution account
 
 Register an account (a so-called customer ID) with your eZ Sales manager. If you want to use the open source version of eZ Platform w/o any subscription please send an email to support@yoochoose.com.
 
 ### 5. Allow public HTTP(S) access
 
-Allow public HTTP(S) access to your eZ Platform installation's API for the recommendation bundle (`/api/ezp/v2/ez_recommendation/**`)
+Allow public HTTP(S) access to the recommendation bundle API (`<ezplatform-host>/api/ezp/v2/ez_recommendation/**`)
 
 !!! note "IP whitelisting if public access is not possible"
 
-    The recommendation engine servers need to access the API of an eZ Platform installation in order to sync content.
+    The Personalization Solution servers need to access the API of an eZ Platform installation in order to continuously sync content.
     If it's not possible to allow public access, the following IP Addresses can be used for whitelisting on e.g. a firewall.
 
     `54.229.102.177, 54.171.192.161, 54.77.201.13, 52.215.22.234, 52.18.150.96, 52.17.60.35, 52.17.36.104`
+    
+!!! note "If BASIC AUTH is required by policy"
+
+    If the company policy is to use BASIC AUTH on the API interfaces you need to contact support@yoochoose.com
 
 ## Configuration
 
@@ -98,10 +102,10 @@ Allow public HTTP(S) access to your eZ Platform installation's API for the recom
 
 ### 1. Define what content should be tracked and exported
 
-Visitor events (clicks, buys, ...) on the site need to be sent to the Personalization Engine so that recommendations can be calculated. The content types that are marked to be tracked are also exported to the Personalization Engine. And remember: You can primarily only recommend what you track!
+Visitor events (clicks, buys, ...) on the site need to be sent to the Personalization Solution so that recommendations can be calculated. The content types that are marked to be tracked are also exported to the Personalization Engine. And remember: You can primarily only recommend what you track!
 
 By defining the Content Types in the local `app/config/config.yml` this content will be initially exported by a script
-and then kept in sync with the recommendation engine upon every change in the eZ Platform back office.
+and then kept in sync with the Personalization Solution upon every change in the eZ Platform back office.
 
 The bundle's configuration is SiteAccess-aware. This is an example of settings (in `config.yml`):
 
