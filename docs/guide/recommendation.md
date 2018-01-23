@@ -14,11 +14,11 @@ It allows you to track the way visitors use your website and recommends content 
 
 ## Installation
 
-1. Run composer require
-2. Enable the bundle
-3. Import additional routing
-4. Register a Personalization Solution account
-5. Allow public HTTP(S) access
+1. [Run composer require](#1-run-composer-require)
+2. [Enable the bundle](#2-enable-the-bundle)
+3. [Import additional routing](#3-import-additional-routing)
+4. [Register a Personalization Solution account](#4-register-a-personalization-solution-account)
+5. [Allow public HTTP(S) access](#5-allow-public-https-access)
 
 ### 1. Run composer require
 
@@ -90,15 +90,15 @@ Allow public HTTP(S) access to the recommendation bundle API (`<ezplatform-host>
     If it's not possible to allow public access, the following IP Addresses can be used for whitelisting on e.g. a firewall.
 
     `54.229.102.177, 54.171.192.161, 54.77.201.13, 52.215.22.234, 52.18.150.96, 52.17.60.35, 52.17.36.104`
-    
+
 !!! note "If BASIC AUTH is required by policy"
 
     If the company policy is to use BASIC AUTH on the API interfaces you need to contact support@yoochoose.com
 
 ## Configuration
 
-1. Define what content should be tracked and exported
-2. Check if the bundle provides REST data
+1. [Define what content should be tracked and exported](#1-define-what-content-should-be-tracked-and-exported)
+2. [Check if the bundle provides REST data](#2-check-if-the-bundle-provides-rest-data)
 
 ### 1. Define what content should be tracked and exported
 
