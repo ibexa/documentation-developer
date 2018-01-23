@@ -1,7 +1,7 @@
-# Recommendation
+# Personalization
 
-The Recommendation Bundle extends the functionality of eZ Platform with a recommendation engine, powered by [YOOCHOOSE](https://yoochoose.com/).
-It allows you to track the way visitors use your website and suggests recommended content to them based on their behavior.
+The Recommendation Bundle extends the functionality of eZ Platform with a personalization engine, powered by [YOOCHOOSE](https://yoochoose.com/).
+It allows you to track the way visitors use your website and suggests recommended content to them based on their behavior. You can also use the personalized search (content suggestions) and personalized newsletter features (embedding recommendations in your newsletters).
 
 !!! tip "More information"
 
@@ -76,9 +76,9 @@ recommendationBundleRestRoutes:
     #         - { name: kernel.event_subscriber }
     ```
 
-### 4. Register a YOOCHOOSE account
+### 4. Register a Recommendation Service account
 
-Register an account (a so-called customer ID) via your eZ Sales manager or by sending an email to support@yoochoose.com.
+Register an account (a so-called customer ID) with your eZ Sales manager. If you want to use the open source version of eZ Platform w/o any subscription please send an email to support@yoochoose.com.
 
 ### 5. Allow public HTTP(S) access
 
@@ -93,46 +93,12 @@ Allow public HTTP(S) access to your eZ Platform installation's API for the recom
 
 ## Configuration
 
-1. Define what should be tracked
-1. Define which content should be imported
-1. Style and enable the rendering of recommendations
-1. Check if the bundle provides REST data
+1. Define what content should be tracked and exported
+2. Check if the bundle provides REST data
 
-### 1. Define what should be tracked
+### 1. Define what content should be tracked and exported
 
-Events from the site need to be sent to YOOCHOOSE so that recommendations can be adapted to visitors.
-Tracking can be set up in multiple ways, depending on existing constraints.
-
-`EzSystemsRecommendationBundle` delivers a Twig extension which helps integrate the tracking functionality into your site.
-
-#### Enable tracking
-
-Place the following snippet of code in the HEAD section of your header template:
-
-``` html
-{% if content is defined %}
-    {{ yc_track_user(content.id) }}
-{% endif %}
-```
-
-Then configure settings under the `recommender.included_content_types` parameter
-(see the `default_settings.yml` file delivered with the bundle).
-
-Here you can define for which Content Types tracking script will be shown.
-
-In the YOOCHOOSE documentation you can find more information about [tracking in general](https://doc.ezplatform.com/projects/ezservices/en/latest/personalization/developer_guide/tracking_api/)
-and about the [generic asynchronous JavaScript tracker](https://doc.ezplatform.com/projects/ezservices/en/latest/personalization/developer_guide/tracking_with_yct/).
-
-Additionally, in case of missing content owner ID, there's an option in `default_settings.yml` to set up the default content author:
-
-``` yaml
-ez_recommendation.default.author_id: 14   # ID: 14 is default ID of admin user
-```
-
-### 2. Define which content should be imported
-
-You also need to define the list of Content Types and their identifiers that should be tracked and recommended.
-You can only recommend what you are tracking.
+Visitor events (clicks, buys, ...) on the site need to be sent to the Personalization Engine so that recommendations can be calculated. The content types that are marked to be tracked are also exported to the Personalization Engine. And remember: You can primarily only recommend what you track!
 
 By defining the Content Types in the local `app/config/config.yml` this content will be initially exported by a script
 and then kept in sync with the recommendation engine upon every change in the eZ Platform back office.
@@ -160,6 +126,8 @@ The following parameters need to be included in the settings file:
 | `server_uri`                         | The URI your site's REST API can be accessed from.        |
 | `recommender.included_content_types` | Content Types on which the tracking script will be shown. |
 
+#### Advanced configuration
+
 If content's author or image are stored in a different Field, you can specify it in `parameters.yml`:
 
 ``` yaml
@@ -173,9 +141,13 @@ ez_recommendation.field_identifiers:
          blog_post: main_image
 ```
 
-#### Advanced configuration
+Additionally, in case of missing content owner ID, there's an option in `default_settings.yml` to set up the default content author:
 
-You can select advanced options for YOOCHOOSE back end using the following settings:
+``` yaml
+ez_recommendation.default.author_id: 14   # ID: 14 is default ID of admin user
+```
+
+You can edit advanced options for the Personalization Engine using the following settings:
 
 ``` yaml
 ez_recommendation:
@@ -188,88 +160,25 @@ ez_recommendation:
         script_url: 'cdn.yoochoose.net/yct.js'
 ```
 
-Changing any of these parameters without a valid reason will break all calls to YOOCHOOSE.
-It can be useful to test the API by mocking the service, or if you have a hosted version of YOOCHOOSE Recommendation service.
+Changing any of these parameters without a valid reason will break all calls to the Personalization Engine.
 
-### 3. Style and enable the rendering of recommendations
+#### Enable tracking
 
-In order to allow displaying recommendations on your site you must add portions of scripts which will integrate the recommender engine with your site.
-
-Implementation can be performed in just a few steps (assuming that `EzSystemsRecommendationBundle` is properly configured and enabled in `AppKernel.php`):
-
-#### Enable displaying recommendations
-
-Add the following JavaScript assets to your header template:
+`EzSystemsRecommendationBundle` delivers a Twig extension which helps integrate the tracking functionality into your site. Place the following snippet of code in the HEAD section of your header template:
 
 ``` html
-{% javascripts
-    '%kernel.root_dir%/../vendor/components/handlebars.js/handlebars.min.js'
-    '@EzSystemsRecommendationBundle/Resources/public/js/recommendationtemplaterenderer.js'
-    '@EzSystemsRecommendationBundle/Resources/public/js/recommendationtemplatehelper.js'
-    '@EzSystemsRecommendationBundle/Resources/public/js/recommendationrestclient.js'
-%}
+{% if content is defined %}
+    {{ yc_track_user(content.id) }}
+{% endif %}
 ```
 
-Place a dedicated Twig helper in the place where you want to display recommendations:
+!!! note "How tracking works"
 
-``` html
-{{ yc_show_recommendations(
-    contentId = content.id,
-    scenario = '',
-    limit = '',
-    contentType = '',
-    template = '',
-    fields = []
-) }}
-```
+    In the YOOCHOOSE documentation you can find more information about [tracking in general](https://doc.ezplatform.com/projects/ezservices/en/latest/personalization/developer_guide/tracking_api/) and about the [generic asynchronous JavaScript tracker (https://doc.ezplatform.com/projects/ezservices/en/latest/personalization/developer_guide/tracking_with_yct/).
 
-##### Parameters
+### 2. Check if the bundle provides REST data
 
-| Parameter   | Type   | Description   |
-|-------------|--------|---------------|
-| `contentId`   | int    | In content-based views the Twig variable holding the content ID (the content you want to get recommendations for). |
-| `scenario`    | string | Scenario used to display recommendations. You can create custom scenarios in the YOOCHOOSE dashboard. |
-| `limit`       | int    | Number of recommendations to show. |
-| `contentType` | string | Content Types you are expecting in response. |
-| `template`    | string | Handlebars template name (your templates are stored in the `ezsystems/recommendation-bundle/Resources/public/views` directory. Take a look at `default.html.twig` which includes a default template that can be used to prepare customized versions). |
-| `fields`      | array  | Fields which are required and will be requested from the recommender engine. These Field names are also used inside Handlebars templates. |
-
-Sample integration can take the following form:
-
-``` html
-{{ yc_show_recommendations(
-    contentId = content.id,
-    scenario = 'popular',
-    limit = 5,
-    contentType = 'article',
-    template = 'default',
-    fields = ['ez_publishedDate', 'ez_url', 'title', 'image', 'author', 'intro']
-) }}
-```
-
-You can also bypass named arguments using standard value passing as arguments.
-
-#### Item ID
-
-The item ID is usually set to the viewed ContentID. Depending on requirements, it can be set to a different value, in collaboration with YOOCHOOSE.
-
-#### Displaying image variations
-
-Displaying image variations is not currently supported out of the box.
-
-You can work around this limitation by creating your own template (based on [recommendations.html.twig](https://github.com/ezsystems/ezstudio-demo/blob/master/app/Resources/EzSystemsRecommendationBundle/views/recommendations.html.twig))
-or your own Twig extension (based on [RecommendationTwigExtension.php](https://github.com/ezsystems/EzSystemsRecommendationBundle/blob/master/Twig/RecommendationTwigExtension.php#L237)).
-
-If you want to access a specific image variation through API, you need to add the `image` parameter to the request URL with the name of the variation as its value.
-For example, to retrieve the `rss` variation of the image, use:
-
-`/api/ezp/v2/ez_recommendation/v1/contenttypes/16?lang=eng-GB&fields=title,description,image,intro,name&page=1&page_size=20&image=rss`
-
-The additional `sa` parameter takes the SiteAccess name and defines the SiteAccess whose content will be displayed.
-
-### 4. Check if the bundle provides REST data
-
-You can verify the import controller of the bundle by calling the local API. You should use the 'Accept' header and may need to add an 'Authorization' header if some authentication is required.
+You can verify the import controller of the bundle by calling the local API. You should use the 'Accept' header and may need to add an 'Authorization' header if authentication is required.
 
 To check if the `content` interface is working as expected, try this URI:
 
@@ -334,16 +243,15 @@ For the `content` interface one Content item is returned, for the `contenttypes`
 
 ## Running a full content export
 
-After defining what Content Types should be recommended and tracked you can start the full export with the following command:
+After defining what Content Types should be tracked and recommended  you can start the full export with the following command:
 
 ``` bash
-php app/console ezreco:runexport --contentTypeIdList=16 --webHook=https://admin.yoochoose.net/api/<your_customer_id>/items --hidden=1 --mandatorId=<your_customer_id> --host=<your_ezplatform_host_with_scheme>
+php app/console ezreco:runexport --contentTypeIdList=<contentTypeId>,<contentTypeId> --webHook=https://admin.yoochoose.net/api/<your_customer_id>/items --hidden=1 --mandatorId=<your_customer_id> --host=<your_ezplatform_host_with_scheme>
 ```
 
 By running this command, the bundle exporter collects all content related to the SiteAccesses of this customer ID and places it in files.
-After finishing, the systems sends a POST request to the `webHook` endpoint and informs the recommender how to fetch the data.
-The recommender triggers an internal workflow so that the generated files are downloaded and imported in the recommender's content store.
-Be patient, as this can take up to five minutes.
+After finishing, the systems sends a POST request to the `webHook` endpoint and informs the personalization engine to fetch the data.
+An internal workflow is then triggered so that the generated files are downloaded and imported in the personalization engine's content store. Please be patient, as this can take up to a couple of minutes.
 
 !!! caution "Changing Content Types for recommendations"
 
@@ -445,9 +353,61 @@ Example response:
 }
 ```
 
-## Fetching recommendations
+## Enabling recommendations
 
-Fetching recommendations is implemented in the bundle and can be [enabled in templates](#3-style-and-enable-the-rendering-of-recommendations). 
+In order to allow displaying recommendations on your site you must add some code which will integrate the recommender engine with your site.
+
+Implementation can be performed in just a few steps (assuming that `EzSystemsRecommendationBundle` is properly configured and enabled in `AppKernel.php`):
+
+Add the following JavaScript assets to your header template:
+
+``` html
+{% javascripts
+    '%kernel.root_dir%/../vendor/components/handlebars.js/handlebars.min.js'
+    '@EzSystemsRecommendationBundle/Resources/public/js/recommendationtemplaterenderer.js'
+    '@EzSystemsRecommendationBundle/Resources/public/js/recommendationtemplatehelper.js'
+    '@EzSystemsRecommendationBundle/Resources/public/js/recommendationrestclient.js'
+%}
+```
+
+Place a dedicated Twig helper in the place where you want to display recommendations:
+
+``` html
+{{ yc_show_recommendations(
+    contentId = content.id,
+    scenario = '',
+    limit = '',
+    contentType = '',
+    template = '',
+    fields = []
+) }}
+```
+
+### Parameters
+
+| Parameter   | Type   | Description   |
+|-------------|--------|---------------|
+| `contentId`   | int    | In content-based views the Twig variable holding the content ID (the content you want to get recommendations for). |
+| `scenario`    | string | Scenario used to display recommendations. You can create custom scenarios in the [Personalization Engine's  dashboard](https://admin.yoochoose.net). |
+| `limit`       | int    | Number of recommendations to fetch. |
+| `contentType` | string | Content Type you are expecting in response, e.g. article. |
+| `template`    | string | Handlebars template name. Your templates are stored in the `ezsystems/recommendation-bundle/Resources/public/views` directory. Take a look at `default.html.twig` which includes a default template that can be used to prepare customized versions. |
+| `fields`      | array  | Fields which are required and will be requested from the recommender engine. These Field names are also used inside Handlebars templates. |
+
+Sample integration can take the following form:
+
+``` html
+{{ yc_show_recommendations(
+    contentId = content.id,
+    scenario = 'popular',
+    limit = 5,
+    contentType = 'article',
+    template = 'default',
+    fields = ['uri', 'title', 'image', 'author', 'intro']
+) }}
+```
+
+You can also bypass named arguments using standard value passing as arguments.
 
 Recommendation responses contain all content data which is requested as attribute in the recommendation call.
 These 'attributes' of the response can be used in Handlebars templates to render and style recommendations.
@@ -543,7 +503,27 @@ delivers the following response *if* the content Fields are exported successfull
 }
 ```
 
+### Displaying image variations
+
+Displaying image variations is not currently supported out of the box.
+
+You can work around this limitation by creating your own template (based on [recommendations.html.twig](https://github.com/ezsystems/ezstudio-demo/blob/master/app/Resources/EzSystemsRecommendationBundle/views/recommendations.html.twig))
+or your own Twig extension (based on [RecommendationTwigExtension.php](https://github.com/ezsystems/EzSystemsRecommendationBundle/blob/master/Twig/RecommendationTwigExtension.php#L237)).
+
+If you want to access a specific image variation through API, you need to add the `image` parameter to the request URL with the name of the variation as its value.
+For example, to retrieve the `rss` variation of the image, use:
+
+`/api/ezp/v2/ez_recommendation/v1/contenttypes/16?lang=eng-GB&fields=title,description,image,intro,name&page=1&page_size=20&image=rss`
+
 ## Troubleshooting
+
+### "Console error: eZ is not defined"
+
+If you see this error in the console of your browser's debugger you need to rerun the asset installer:
+
+``` bash
+php app/console assets:install --symlink --env=prod
+```
 
 ### Logging
 
@@ -560,11 +540,3 @@ monolog:
 ```
 
 You can replace `info` with `debug` for more verbosity.
-
-### "eZ is not defined"
-
-If you see this error in the console of your browser's debugger you need to rerun the asset installer:
-
-``` bash
-php app/console assets:install --symlink --env=prod
-```
