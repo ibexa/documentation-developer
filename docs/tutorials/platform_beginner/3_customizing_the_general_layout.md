@@ -38,7 +38,7 @@ This tells Platform to use the `template` when rendering any content referenced 
     To clear the cache:
 
     ``` bash
-    $ php bin/console cache:clear
+    $ php app/console cache:clear
     ```
 
 ## Creating the template
