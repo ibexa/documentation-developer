@@ -1,6 +1,6 @@
 # Authenticating a user with multiple user providers
 
-Symfony provides native support for [multiple user providers](http://symfony.com/doc/2.3/book/security.html#using-multiple-user-providers). This makes it easy to integrate any kind of login handlers, including SSO and existing third party bundles (e.g. [FR3DLdapBundle](https://github.com/Maks3w/FR3DLdapBundle), [HWIOauthBundle](https://github.com/hwi/HWIOAuthBundle), [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle), [BeSimpleSsoAuthBundle](http://github.com/BeSimple/BeSimpleSsoAuthBundle), etc.).
+Symfony provides native support for [multiple user providers](http://symfony.com/doc/master/security.html#using-multiple-user-providers). This makes it easy to integrate any kind of login handlers, including SSO and existing third party bundles (e.g. [FR3DLdapBundle](https://github.com/Maks3w/FR3DLdapBundle), [HWIOauthBundle](https://github.com/hwi/HWIOAuthBundle), [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle), [BeSimpleSsoAuthBundle](http://github.com/BeSimple/BeSimpleSsoAuthBundle), etc.).
 
 However, to be able to use *external* user providers with eZ Platform, a valid Platform user needs to be injected into the repository. This is mainly for the kernel to be able to manage content-related permissions (but not limited to this).
 
@@ -10,7 +10,7 @@ Whenever an *external* user is matched (i.e. one that does not come from Platfo
 
 It's then up to the listener to retrieve a Platform user from the repository and to assign it back to the event object. This user will be injected into the repository and used for the rest of the request.
 
-If no eZ Platform user is returned, the anonymous user will be used.
+If no eZ Platform user is returned, the Anonymous User will be used.
 
 ## User exposed and security token
 
@@ -18,11 +18,11 @@ When an *external* user is matched, a different token will be injected into the
 
 Note that the *API user* is mainly used for permission checks against the repository and thus stays *under the hood*.
 
-## Customizing the user class
+## Customizing the User class
 
 It is possible to customize the user class used by extending `ezpublish.security.login_listener` service, which defaults to `eZ\Publish\Core\MVC\Symfony\Security\EventListener\SecurityListener`.
 
-You can override `getUser()` to return whatever user class you want, as long as it implements `eZ\Publish\Core\MVC\Symfony\Security\UserInterface`.
+You can override `getUser()` to return whatever User class you want, as long as it implements `eZ\Publish\Core\MVC\Symfony\Security\UserInterface`.
 
 ### Example
 
