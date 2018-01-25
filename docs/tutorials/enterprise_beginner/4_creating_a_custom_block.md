@@ -4,11 +4,11 @@
 
     You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/ezstudio-beginner-tutorial/tree/master).
 
-We are now left with the last of the planned Landing Page elements. We will create it by building a custom block for the Landing Page. You can utilize the possibility of creating custom blocks in many ways, with many complex configurations fitting your project. In this tutorial we will show the process of creating a block on a very simple example: we will display a randomly chosen Content item from a selected folder.
+The last of the planned Landing Page elements is still missing. You will create it by building a custom block for the Landing Page. You can utilize the possibility of creating custom blocks in many ways, with many complex configurations fitting your project. This tutorial will show you the process of creating a block on a very simple example: you will display a randomly chosen Content item from a selected folder.
 
-The procedure we will go through is based on (and uses parts of) a [post written on the eZ Community Blog](http://share.ez.no/blogs/core-development-team/extending-ez-studio-with-new-blocks). You can take a look there for more detailed explanation.
+The procedure you will go through is based on (and uses parts of) a [post written on the eZ Community Blog](http://share.ez.no/blogs/core-development-team/extending-ez-studio-with-new-blocks). You can take a look there for more detailed explanation.
 
-To create a custom block from scratch we will need four elements:
+To create a custom block from scratch you will need four elements:
 
 - a block definition
 - a template for the block
@@ -17,7 +17,7 @@ To create a custom block from scratch we will need four elements:
 
 ### Block definition and template
 
-A block definition contains block structure and the information that is passed from it to the template. Our definition will be contained in a `RandomBlock.php` file located in `src/AppBundle/Block` folder.
+A block definition contains block structure and the information that is passed from it to the template. Your definition will be contained in a `RandomBlock.php` file located in `src/AppBundle/Block` folder.
 
 ``` php
 // src/AppBundle/Block/RandomBlock.php
@@ -156,7 +156,7 @@ class RandomBlock extends AbstractBlockType
 }
 ```
 
-Now we need to define the block template. It will be placed in `src/AppBundle/Resources/views/blocks`:
+Now you need to define the block template. It will be placed in `src/AppBundle/Resources/views/blocks`:
 
 ``` html
 <!--src/AppBundle/Resources/views/blocks/random.html.twig-->
@@ -171,7 +171,7 @@ Now we need to define the block template. It will be placed in `src/AppBundle/R
 
 ### Block extension and configuration
 
-The next step is defining the extension that will provide block configuration to the eZ Platform Enterprise Edition app. To do this you need to make some additions to `src/AppBundle/DependencyInjection/AppExtension.php`.
+The next step is to define the extension that will provide block configuration to the eZ Platform Enterprise Edition app. To do this you need to make some additions to `src/AppBundle/DependencyInjection/AppExtension.php`.
 
 First, add these three lines after remaining `use` statements:
 
@@ -229,11 +229,9 @@ blocks:
 
 At this point the new custom block is ready to be used.
 
-Go back to editing your Front Page. You can see the new block in the Elements menu on the right. Now drag it to the Landing Page side column. Access the block's settings and choose the All Tips Folder from the menu.
+ You're left with the last cosmetic changes. First, you can see that the new Block has a broken icon in the Elements menu in StudioUI. This is because you haven't provided this icon yet. If you look back to the `RandomBlock.php` file, you can see the icon file defined as `random_block.svg`. Download [the provided file](img/enterprise_tut_random_block.svg) and place it in `web/assets/images/blocks`.
 
-We're left with the last cosmetic changes. First, you can see that the new Block has a broken icon in the Elements menu. This is because we haven't provided this icon yet. If you look back to the `RandomBlock.php` file, you can see the icon file defined as `random_block.svg`. Download [the provided file](img/enterprise_tut_random_block.svg) and place it in `web/assets/images/blocks`.
-
-Finally, let's add some styling for the new block. Add the following to the end of the `web/assets/css/style.css` file:
+Finally, add some styling for the new block. Add the following to the end of the `web/assets/css/style.css` file:
 
 ``` css
 /* in web/assets/css/style.css */
@@ -259,7 +257,9 @@ Finally, let's add some styling for the new block. Add the following to the end 
 }
 ```
 
-Now go to this new home page from the front end. You can see the Tip of the Day block display a random Tip from the Tips folder. Try to refresh the page a couple of times and you will see the tip change randomly.
+Go back to editing your Front Page. Drag new block from the Elements menu on the right to the Landing Page side column. Access the block's settings and choose the All Tips Folder from the menu. Save and publish all the changes.
+
+Refresh your home page. You can see the Tip of the Day block display a random Tip from the Tips folder. Try to refresh the page a couple of times and you will see the tip change randomly.
 
 ![Random Block with a Tip](img/enterprise_tut_random_block.png "Random Block with a Tip")
 
