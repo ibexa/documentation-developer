@@ -109,7 +109,7 @@ pages:
         - 'Listening to core events': 'cookbook/listening_to_core_events.md'
         - 'Making cross-origin HTTP requests': 'cookbook/making_cross_origin_http_requests.md'
         - 'Paginating API search results': 'cookbook/paginating_api_search_results.md'
-        - 'Retrieving root location': 'cookbook/retrieving_root_location.md'
+        - 'Retrieving root Location': 'cookbook/retrieving_root_location.md'
         - 'Setting up Amazon AWS S3 clustering': 'cookbook/setting_up_amazon_aws_s3_clustering.md'
         - 'Setting up multi-language SiteAccesses and corresponding translations': 'cookbook/setting_up_multi_language_siteaccesses.md'
         - 'Using RouteReference': 'cookbook/using_routereference.md'
