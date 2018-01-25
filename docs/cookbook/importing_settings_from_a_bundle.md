@@ -4,79 +4,70 @@
 
     The following recipe is valid for any type of settings supported by Symfony framework.
 
-## Description
+When developing your website it is best practice to use one or several custom bundles.
+However, dealing with core bundle semantic configuration can be a bit tedious
+if you maintain it in the main `app/config/ezplatform.yml` configuration file.
 
-Usually, you develop your website using one or several custom bundles as this is a best practice. However, dealing with core bundle semantic configuration can be a bit tedious if you maintain it in the main `app/config/ezplatform.yml` configuration file.
+This page shows how to import configuration from a bundle in two ways: the manual way and the implicit way.
 
-## Solution
+## Importing settings manually
 
-This recipe will show you how to import configuration from a bundle the manual way and the implicit way.
-
-### The manual way
-
-This is the simplest way of doing and it has the advantage of being explicit. The idea is to use the `imports` statement in your main `ezplatform.yml`:
+Importing manually is the simpler of the two ways and has the advantage of being explicit.
+It relies on using the `imports` statement in your main `ezplatform.yml`:
 
 ``` yaml
-# app/config/ezplatform.yml
 imports:
-    # Let's import our template selection rules that reside in our custom bundle.
-    # MyCustomBundle is the actual bundle name
-    - {resource: "@AcmeTestBundle/Resources/config/templates_rules.yml"}
+    # Import the template selection rules that reside in your custom AcmeExampleBundle.
+    - {resource: "@AcmeExampleBundle/Resources/config/templates_rules.yml"}
  
 ezpublish:
     # ...
 ```
 
+The `templates_rules.yml` should then be placed in `Resources/config` in AcmeExampleBundle.
+The configuration tree from this file will be merged with the main one.
+
 ``` yaml
-# templates\_rules.yml, placed under Resources/config folder in AcmeTestBundle
-# Here I need to reproduce the right configuration tree.
-# It will be merged with the main one
 ezpublish:
     system:
-        my_siteaccess:
-            ezpage:
-                layouts:
-                    2ZonesLayout1:
-                        name: "2 zones (layout 1)"
-                        template: "AcmeTestBundle:zone:2zoneslayout1.html.twig"
-
+        site_group:
             content_view:
                 full:
-                    article_test:
-                        template: "AcmeTestBundle:full:article_test.html.twig"
+                    article:
+                        template: "AcmeExampleBundle:full:article.html.twig"
                         match:
-                            Id\Location: [144,149]
-                    another_test:
-                        template: "::another_test.html.twig"
+                            Identifier\ContentType: [article]
+                    special:
+                        template: "::special.html.twig"
                         match:
                             Id\Content: 142
-
-            block_view:
-                campaign:
-                    template: "AcmeTestBundle:block:campaign.html.twig"
-                    match:
-                        Type: "Campaign"
 ```
 
-!!! note
+!!! caution
 
-    During the merge process, if the imported configuration files contain entries that are already defined in the main configuration file, **they will override them**.
+    The imported configuration will override the main configuration files if both cover the same settings.
 
 !!! tip
 
-    If you want to import configuration for development use only, you can do so in your `ezpublish_dev.yml` 
+    If you want to import configuration for development use only, you can do so in `ezplatform_dev.yml` 
 
-### The implicit way
+## Importing settings implicitly
 
-The following example will show you **how to implicitly load settings to configure eZ Platform kernel**. Note that this is also valid for any bundle!
+The following example shows how to implicitly load settings on the example of eZ Platform kernel.
+Note that this is also valid for any bundle.
 
-We assume here that you're aware of [service container extensions](http://symfony.com/doc/current/book/service_container.html#importing-configuration-via-container-extensions).
+This assumes you have knowledge of [service container extensions](http://symfony.com/doc/current/book/service_container.html#importing-configuration-via-container-extensions).
+
+!!! note
+
+    Configuration loaded this way will be overridden by the main `ezplatform.yml` file.
+
+In `Acme/ExampleBundle/DependencyInjection/AcmeExampleExtension`:
 
 ``` php
-// Acme/TestBundle/DependencyInjection/AcmeTestExtension
 <?php
 
-namespace Acme\TestBundle\DependencyInjection;
+namespace Acme\ExampleBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\Resource\FileResource;
@@ -91,7 +82,7 @@ use Symfony\Component\Yaml\Yaml;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class AcmeTestExtension extends Extension implements PrependExtensionInterface
+class AcmeExampleExtension extends Extension implements PrependExtensionInterface
 {
     // ...
 
@@ -104,51 +95,37 @@ class AcmeTestExtension extends Extension implements PrependExtensionInterface
      */
     public function prepend( ContainerBuilder $container )
     {
-        // Loading our YAML file containing our template rules
+        // Loading your YAML file containing template rules
         $configFile = __DIR__ . '/../Resources/config/template_rules.yml';
         $config = Yaml::parse( file_get_contents( $configFile ) );
-        // We explicitly prepend loaded configuration for "ezpublish" namespace.
-        // So it will be placed under the "ezpublish" configuration key, like in ezpublish.yml.
+        // Explicitly prepend loaded configuration for "ezpublish" namespace.
+        // It will be placed under the "ezpublish" configuration key, like in ezplatform.yml.
         $container->prependExtensionConfig( 'ezpublish', $config );
         $container->addResource( new FileResource( $configFile ) );
     }
 }
 ```
 
+In `AcmeExampleBundle/Resources/config/template_rules.yml`:
+
 ``` yaml
-# AcmeTestBundle/Resources/config/template_rules.yml
-# We explicitly prepend config for "ezpublish" namespace in service container extension, 
+# You explicitly prepended config for "ezpublish" namespace in the service container extension, 
 # so no need to repeat it here
 system:
-    ezdemo_frontend_group:
-        ezpage:
-            layouts:
-                2ZonesLayout1:
-                    name: "2 zones (layout 1)"
-                    template: "AcmeTestBundle:zone:2zoneslayout1.html.twig"
-
+    site_group:
         content_view:
             full:
-                article_test:
-                    template: "AcmeTestBundle:full:article_test.html.twig"
+                article:
+                    template: "AcmeExampleBundle:full:article.html.twig"
                     match:
-                        Id\Location: 144
-                another_test:
-                    template: "::another_test.html.twig"
+                        Identifier\ContentType: [article]
+                special:
+                    template: "::special.html.twig"
                     match:
                         Id\Content: 142
-
-        block_view:
-            campaign:
-                template: "AcmeTestBundle:block:campaign.html.twig"
-                match:
-                    Type: "Campaign"
 ```
 
-!!! note "Regarding performance"
+!!! note "Performance"
 
-    Service container extensions are called only when the container is being compiled, so there is nothing to worry about regarding performance.
-
-!!! tip
-
-    Configuration loaded this way will be overridden by the main `ezplatform.yml` file.
+    Service container extensions are called only when the container is being compiled,
+    so performance will not be affected.
