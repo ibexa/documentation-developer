@@ -107,7 +107,7 @@ Then change every image's path in the same way.
     To clear the cache:
 
     ``` bash
-    $ php bin/console cache:clear
+    $ php app/console cache:clear
     ```
 
  
