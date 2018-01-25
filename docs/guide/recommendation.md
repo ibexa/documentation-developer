@@ -200,7 +200,7 @@ Additionally you should check if the `contenttypes` interface is working as we
 
 `Authorization    Basic xxxxxxxx`
 
-Both interfaces are supposed to provide content data in .json format.
+Both interfaces are supposed to provide content data in JSON format.
 The difference is only the size of the content array in the `contentList` object.
 For the `content` interface one Content item is returned, for the `contenttypes` interface many are returned.
 
@@ -263,7 +263,11 @@ An internal workflow is then triggered so that the generated files are downloade
 
 ### Checking if the full context export was stored in the recommender engine
 
-There are three ways to check if content was transferred and stored successfully in the recommender engine.
+There are three ways to check if content was transferred and stored successfully in the recommender engine:
+
+- [REST request to the recommender's content store](#rest-request-to-the-recommenders-content-store)
+- [Recommender Backend](#recommender-backend)
+- [Personalized Search Requests](#personalized-search-requests)
 
 #### REST request to the recommender's content store
 
