@@ -275,6 +275,8 @@ To get the content of an imported item you can request the following REST resour
 
 `GET https://admin.yoochoose.net/api/<your_customer_id>/item/<your_content_type>/<your_content_id>`
 
+This way requires BASIC Auth. BASIC Auth username is the customer ID and the password is the license key.
+
 Example response:
 
 ``` xml
