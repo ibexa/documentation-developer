@@ -1,8 +1,8 @@
 # Step 1 - Getting Ready
 
-eZ Platform is a CMS written in PHP5 using Symfony2 Full Stack.
+eZ Platform is a CMS written in PHP7 using Symfony3 Full Stack.
 
-You will need a web server, a relational database and PHP5.x+ in order to follow this tutorial. An \*AMP web server is sufficient. You can use a local server on your own computer.
+You will need a web server, a relational database and PHP7.1 in order to follow this tutorial. An \*AMP web server is sufficient. You can use a local server on your own computer.
 
 Once you have [installed eZ Platform](../../getting_started/install_ez_platform.md), [configured your server](../../getting_started/requirements_and_system_configuration.md), [created your database](#database-creation), and [started your web server](../../getting_started/starting_ez_platform.md#web-server), you need to create a database for this tutorial.
 

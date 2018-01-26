@@ -14,7 +14,7 @@ For the Anonymous User, you will add the _User/Register_ policy. This will enabl
 !!! note
 
     See the documentation about [Registering new users to learn how to assign a group](../../guide/user_generated_content/#registering-new-users) to the newly registered Users.
-Then go to the URL: http://127.0.0.1/register and create a new user. 
+Then go to the URL: http://127.0.0.1/register and create a new user.
 
 You will update the design of this page after checking that the new user is working.
 
@@ -28,7 +28,7 @@ In this Tutorial, you will use the second option.
 
 ## Create a User Group for the Go Bike Members
 
-From the Admin Panel in the _Users_ screen, click on the *Create* button and _filter by Group_ by checking "_Users_" to see only the users-related Content Types. Create a User Group named `Go Bike Members`.
+From the Admin Panel in the _Users_ screen, click on the *Create* button create a User Group named `Go Bike Members`.
 
 ## Create a Folder for the Rides from the Go Bike Members
 
@@ -46,12 +46,14 @@ Now, you will set the Policies for the _Bikers_ Role.
 - Content/edit where owner is _"Self"_
 - Content/read
 - Content/versionread
+- Section/view
+- Content/reverserelatedlist
 
 
 !!! note
     The Limitations are a powerful tool for fine-tuning the permission management of the Users.
     See [the documentation about Limitations for a more technical approach](../../guide/repository/#usergrouplimitation)
-    
+
     See also the Cookbook [Authenticating a user with multiple user providers](../../cookbook/authenticating_a_user_with_multiple_user_providers/)
 
 Once the Policies are set, assign your Role *Bikers* to the User Group *Go Bike Members*.

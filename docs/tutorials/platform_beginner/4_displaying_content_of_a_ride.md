@@ -82,7 +82,7 @@ The Ride template is in a block and you use the Twig helpers to render the conte
 
     Note: the Level Field is static for now and uses the translation capacity.
 
-The Starting Point and Ending Point Google Maps rendering is not yet done. You will use the [MapLocation Field Type](../../guide/field_type_reference.md#maplocation-field-type) to render this Content Type.
+The Starting Point and Ending Point map rendering is not yet done. You will use the [MapLocation Field Type](../../guide/field_type_reference.md#maplocation-field-type) to render this Content Type.
 
 ### Add a new parameter to your override rule
 
@@ -95,7 +95,7 @@ We still haven't set any matching rule for our new Content Type Ride, so let's a
 
 ``` yaml
 # ezplatform.yml
-default:
+site_group:
     content_view:
         full:
             full_ride:
@@ -181,7 +181,7 @@ Declare a new override rule into your `app/config/ezplatform.yml`:
 ``` yaml
 # ezplatform.yml
     system:
-        default:
+        site_group:
             content_view:
                 #full views here
                 line:
@@ -290,7 +290,7 @@ Update the `/app/config/ezplatform.yml` file to mention the RideController
 
 ``` yaml
 # /app/config/ezplatform.yml
-        default:
+        site_group:
             content_view:
                 full:
                     full_ride:

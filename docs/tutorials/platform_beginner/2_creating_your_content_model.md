@@ -26,7 +26,7 @@ Click on **Admin Panel** in the Navigation hub, and choose **Content types** in 
 
 You will see a list of **Content Type Groups**. They are used to group content types in a logical way.
 
-Click on **Content** and then click on **Create a content type**. 
+Click on **Content** and then click the plus icon. 
 
 ![Create a content type button](img/bike_tutorial_create_content_type.png)
 
