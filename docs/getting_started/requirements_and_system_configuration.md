@@ -25,7 +25,7 @@ These setups are tested by QA and are generally recommended setups. For security
 
 |||
 |------|------|
-|Search|Solr (recommended, for better performance and scalability of all API Queries):</br></br>Solr 4.10</br>*Solr 6 SOLR BUNDLE >= 1.3, CURRENTLY TESTED WITH SOLR 6.4.2*</br></br>Oracle Java/Open JDK: 7 or 8 (needed for Solr, version 8 recommended)|
+|Search|Solr (recommended; for performance, features and search quality):</br></br>Solr 6 or higher *Currently tested with Solr 6.6.2*</br></br>Oracle Java/Open JDK: 8 |
 |Graphic Handler|GraphicsMagick or ImageMagick or GD|
 |[Clustering](../guide/clustering.md)|Linux NFS *or* S3 *(for IO, aka binary files stored in content repository)*</br>Redis *(for Persistence cache & Sessions)*</br>Varnish *(for HttpCache)*|
 |Filesystem|Linux ext3 / ext4|
