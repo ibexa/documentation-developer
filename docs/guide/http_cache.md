@@ -355,7 +355,7 @@ ezpublish:
 
     Both `purge_type` and `purge_server` can be set in one of the following ways:
 
-    - is `app/config/ezplatform.yml`
+    - in `app/config/ezplatform.yml`
     - by adding the parameter `purge_type` or `purge_server` respectively in `app/config/parameters.yml`
     - by setting the `HTTPCACHE_PURGE_TYPE` environment variable.
 
