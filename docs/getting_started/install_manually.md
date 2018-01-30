@@ -1,26 +1,40 @@
 # Manual Installation Guides
 
-### Introduction
-
-Hi! You are about to install eZ Platform on your machine and this guide is here to make sure that the whole process of preparation and installation is fast and easy. This guide consists of a three paths that differ slightly; you should choose the one that meets your operating system:
+You can install eZ Platform manually on the following operating systems:
 
 - [Unix-Based Systems](install_manually.md#installation-guide-for-unix-based-systems)
-- [Mac OS X](install_manually.md#installation-guide-for-os-x)
-- [Microsoft Windows](install_manually.md#manual-installation-on-windows)
+- [Mac OS X](install_manually.md#installation-guide-for-os-x) (*development only*)
+- [Microsoft Windows](install_manually.md#manual-installation-on-windows) (*development only*)
 
-!!! note "Supported systems"
+!!! caution "Supported systems"
 
     Only installation on Unix-based systems is fully supported.
+
     Installing eZ Platform on Mac OS X or Windows can be used for development or in experimental installations.
 
-**Installation guides can be followed with any eZ Symfony distribution, you can find a list of available distributions from eZ in a table below:**
+## Available distributions
 
-| Type                                       | Archive                                                                   | License                                         | GIT */ Composer*                                                                                                                                   |
-|--------------------------------------------|---------------------------------------------------------------------------|-------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| eZ Platform *- "clean"*                    | [ezplatform.com](https://ezplatform.com/#download-option) | GPL                                             | [ezsystems/ezplatform](https://github.com/ezsystems/ezplatform) ([INSTALL.md](https://github.com/ezsystems/ezplatform/blob/master/INSTALL.md))     |
-| eZ Platform *- "demo"*                     | *Available via Git / Composer*                                            | GPL                                             | [ezsystems/ezplatform-demo](https://github.com/ezsystems/ezplatform-demo)                                                                          |
-| eZ Platform Enterprise Edition *- "clean"* | [support.ez.no/Downloads](https://support.ez.no/Downloads)                | BUL (***requires eZ Enterprise subscription)*** | [ezsystems/ezplatform-ee](https://github.com/ezsystems/ezplatform-ee) ([INSTALL.md](https://github.com/ezsystems/ezstudio/blob/master/INSTALL.md)) |
-| eZ Platform Enterprise Edition - *"demo"*  | [support.ez.no/Downloads](https://support.ez.no/Downloads)                | BUL (***requires eZ Enterprise subscription)*** | [ezsystems/ezplatform-ee-demo](https://github.com/ezsystems/ezplatform-ee-demo)                                                                    |
+eZ Platform exists in different distributions.
+You select the distribution by when performing the `ezplatform:install` command, by using the correct installation type.
+It depends on the meta-repository you are using.
+
+!!! caution "Demo installation"
+
+    The Demo is intended for learning and inspiration. Do not use it as a basis for actual projects.
+
+### eZ Platform installation types
+
+| Type | Repository |
+|------|----------------|
+| `clean` | [ezplatform](https://github.com/ezsystems/ezplatform) |
+| `platform-demo` | [ezplatform-demo](https://github.com/ezsystems/ezplatform-demo) |
+
+### eZ Platform Enterprise Edition installation types
+
+| Type | Repository |
+|------|----------------|
+| `studio-clean` | [ezplatform-ee](https://github.com/ezsystems/ezplatform-ee) |
+| `platform-ee-demo`  | [ezplatform-ee-demo](https://github.com/ezsystems/ezplatform-ee-demo) |
 
 ## Installation Guide for Unix-Based Systems
 
