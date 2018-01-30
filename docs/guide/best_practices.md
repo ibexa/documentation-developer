@@ -166,7 +166,7 @@ or to `0` to completely disable copying subtrees.
 #### External URL validation
 
 Every link that is input into a RichText or URL Field is stored in the URL table.
-You can view and edit publsihed URLs in the Link manager without having to modify the Content items.
+You can view and edit published URLs in the Link manager without having to modify the Content items.
 This means that you don't have to edit and re-publish your content if you just want to change a link.
 
 The Link manager contains all the necessary information about each address including its status (valid or invalid)
