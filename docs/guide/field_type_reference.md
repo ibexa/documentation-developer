@@ -1465,7 +1465,7 @@ services:
     ezpublish.fieldType.ezpaex.converter:
         class: "%ezpublish.fieldType.eznull.converter.class%"
         tags:
-            - {name: ezpublish.storageEngine.legacy.converter, alias: ezpaex} 
+            - {name: ezpublish.storageEngine.legacy.converter, alias: ezpaex}
 ```
 
 ## Rating Field Type
@@ -2018,7 +2018,7 @@ Example:
  
 ## URL Field Type
 
-This Field Type makes possible to store and retrieve a URL. It is formed by the combination of a link and the respective text.
+This Field Type makes it possible to store and retrieve a URL. It is formed by the combination of a link and the respective text.
 
 | Name  | Internal name | Expected input |
 |-------|---------------|----------------|
@@ -2028,9 +2028,10 @@ This Field Type makes possible to store and retrieve a URL. It is formed by the 
 
 #### Input expectations
 
-|Type|Example|
-|------|------|
-|`string`|`"http://www.ez.no", "eZ Systems"`|
+|Type|Description|Example|
+|------|------|------|
+|`string`|Link content provided to the value.|"http://www.ez.no"|
+|`string`|Text content that represents the stored link.|"eZ Systems"|
 
 #### Value object
 
@@ -2052,13 +2053,28 @@ $url->text = "eZ Systems";
 
 ###### Constructor
 
-The `Url\Value` constructor will initialize a new Value object with the value provided. It expects two comma-separated strings, corresponding to the link and text.
+The `Url\Value` constructor initializes a new Value object with the provided value. It expects two comma-separated strings, corresponding to the link and text.
 
 ``` php
 // Constructor example
 
 // Instantiates an Url Value object
 $UrlValue = new Url\Value( "http://www.ez.no", "eZ Systems" );
+```
+#### Hash format
+
+|Key|Type|Description|Example|
+|------|------|------|------|
+|`link`|`string`|Link content.|"http://ez.no"|
+|`text`|`string`|Text content.|"eZ Systems"|
+
+```php
+// Example of the hash value in PHP
+$hash = [
+    "link" => "http://ez.no",
+    "text" => "eZ Systems"
+];
+
 ```
 
 #### Validation
