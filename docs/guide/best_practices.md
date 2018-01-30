@@ -242,3 +242,43 @@ Available options are protocol-specific.
 | Option             | Description                                                         | Default value |
 |--------------------|---------------------------------------------------------------------|---------------|
 | enabled            | Enables the validation                                              | true          |
+
+#### Custom protocol support
+
+It's possible to extend external URLs validation with a custom protocol.
+You need to provide a service implementing the `\eZ\Bundle\EzPublishCoreBundle\URLChecker\URLHandlerInterface` interface:
+
+```php
+<?php
+
+namespace eZ\Bundle\EzPublishCoreBundle\URLChecker;
+
+interface URLHandlerInterface
+{
+    /**
+     * Validates given list of URLs.
+     *
+     * @param \eZ\Publish\API\Repository\Values\URL\URL[] $urls
+     */
+    public function validate(array $urls);
+
+    /**
+     * Set handler options.
+     *
+     * @param array|null $options
+     */
+    public function setOptions(array $options = null);
+}
+```
+
+and register it with an `ezpublish.url_handler` tag. For instance:
+
+```yaml
+app.url_checker.handler.custom:
+    class: 'AppBundle\URLChecker\Handler\CustomHandler'
+    ...
+    tags:
+        - { name: ezpublish.url_handler, scheme: custom }
+```
+
+The `scheme` attribute is mandatory and has to correspond to the name of the protocol, for instance `ftp`.
