@@ -16,7 +16,7 @@ These setups are tested by QA and are generally recommended setups. For security
 
 ||Debian|Ubuntu|RHEL / CentOS|
 |------|------|------|------|
-|Operating system|9.x "Stretch"|17.10|7.x|
+|Operating system|9.x "Stretch"|17.10 "Artful"|7.x|
 |Web Server|Nginx 1.10</br>Apache 2.4|Nginx 1.12</br>Apache 2.4|Nginx 1.10 *(latest via [RHSCL](https://access.redhat.com/documentation/en/red-hat-software-collections/))*</br>Apache 2.4|
 |DBMS|MariaDB 10.1</br>MySQL 5.5|MariaDB 10.1</br>MySQL 5.7\*|MariaDB 10.1 *(latest via RHSCL)*</br>MariaDB 10.0 *(latest via RHSCL)*</br>MySQL 5.6 *(latest via RHSCL)*</br>MariaDB 5.5|
 |PHP|PHP 7.1 _(Either using packages in [testing](https://packages.debian.org/buster/php7.1), or [deb.sury.org](https://deb.sury.org/))_|PHP 7.1|PHP 7.1 *(latest via RHSCL)*|
