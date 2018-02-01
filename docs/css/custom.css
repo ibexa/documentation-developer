@@ -70,15 +70,40 @@ body {
 }
 
 .md-typeset h2 {
-    font-size: 27px;
+    font-size: 34px;
     font-weight: 500;
     line-height: 1;
 }
 
 .md-typeset h3 {
-    font-size: 22px;
+    font-size: 28px;
     font-weight: 500;
     line-height: 1;
+}
+
+.md-typeset h4 {
+    font-size: 23px;
+}
+
+.md-typeset h5 {
+    font-size: 20px;
+    text-transform: none;
+}
+
+.md-typeset h6 {
+    font-size: 18px;
+}
+
+.md-typeset h2, .md-typeset h3, .md-typeset h4, .md-typeset h5, .md-typeset h6 {
+    color: #63605d;
+}
+
+.md-typeset h2, .md-typeset h3, .md-typeset h4 {
+    font-weight: 500;
+}
+
+.md-typeset h5, .md-typeset h6 {
+    font-weight: 600;
 }
 
 .md-footer-meta {
@@ -97,6 +122,10 @@ body {
 
 .md-icon--home:before {
     content: url('../images/eZ-Brandmark.png');
+}
+
+.admonition {
+    font-size: 16px;
 }
 
 .admonition.tip:before {
