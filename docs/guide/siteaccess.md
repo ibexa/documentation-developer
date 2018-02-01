@@ -160,7 +160,9 @@ ezpublish:
         match:
             Map\URI:
                 ezdemo_site: ezdemo_site
+                eng: eng
                 fre: fre
+                fr_eng: fr_eng
                 ezdemo_site_admin: ezdemo_site_admin
 ```
 
@@ -311,8 +313,8 @@ ezpublish:
     siteaccess:
         match:
             Map\URI:
-                something: ezdemo_site
-                foobar: ezdemo_site_admin
+                ezdemo_site: ezdemo_site
+                ezdemo_site_admin: ezdemo_site_admin
 ```
 
 !!! caution
@@ -323,8 +325,8 @@ ezpublish:
 
 Map:
 
-- `something` => `ezdemo_site`
-- `foobar` => `ezdemo_site_admin`
+- `ezdemo_site` => `ezdemo_site`
+- `ezdemo_site_admin` => `ezdemo_site_admin`
 
 Matched SiteAccess: `ezdemo_site`
 
