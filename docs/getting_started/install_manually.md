@@ -10,7 +10,7 @@ You can install eZ Platform manually on the following operating systems:
 
     Only installation on Unix-based systems is fully supported.
 
-    Installing eZ Platform on Mac OS X or Windows can be used for development or in experimental installations.
+    Installations on Mac OS X or Windows can only be used for development or experimentally.
 
 ## Available distributions
 
@@ -38,9 +38,9 @@ It depends on the meta-repository you are using.
 
 ## Installation Guide for Unix-Based Systems
 
-### 1. Install a LAMP Stack (Linux, Apache, MySQL, PHP)
+## 1. Install a LAMP Stack
 
-Depending on your Linux distribution, you may need to install part or all of the LAMP stack required to run eZ Platform.
+Depending on your Linux distribution, you may need to install part or all of the LAMP (Linux, Apache, MySQL, PHP) stack required to run eZ Platform.
 Before getting started, make sure you review the [requirements](requirements_and_system_configuration.md) page to see the systems we support and use for testing.
 
 You may use your system's package manager (yum, apt-get, etc.) to obtain a copy of Apache, MySQL, and PHP, or download the latest versions from the official websites and install manually:
@@ -55,7 +55,7 @@ You also need `git` for version control.
 
 If your machine only has 1 or 2 GB of RAM, be sure to [set up swap](#set-up-swap-on-debian-8x) so you don't run out of RAM when running the composer scripts later on.
 
-### 2. Get Composer
+## 2. Get Composer
 
 a. Install Composer, the PHP command line dependency manager, by running the following command in the terminal:
 
@@ -69,7 +69,7 @@ b. Move the downloaded `composer.phar` file to a globally-available path:
 mv composer.phar /usr/local/bin/composer
 ```
 
-### 3. Download eZ Platform
+## 3. Download eZ Platform
 
 You can download eZ Platform in two ways: by downloading an archive, or cloning the GitHub repository:
 
@@ -95,7 +95,7 @@ You can check out a tag, or use the `master` branch if you are interested in wor
     You can use any other folder name in place of `ezplatform` in the examples above.
     You'll point your virtual host to this folder to use as its root.
 
-### 4. Create a new database for eZ Platform
+## 4. Create a database
 
 Create a new database (you can substitute `ezplatform` with the database name you want to use, but keep it in mind in next steps):
 
@@ -103,7 +103,7 @@ Create a new database (you can substitute `ezplatform` with the database name 
 mysql -u root -e 'CREATE DATABASE ezplatform CHARACTER SET utf8;'
 ```
 
-### 5. Run the installation scripts
+## 5. Run installation scripts
 
 Composer will look inside the `composer.json` file and install all of the packages required to run eZ Platform.
 The `app/console` script will then install eZ Platform for your desired environment (dev/prod).
@@ -112,7 +112,7 @@ The `app/console` script will then install eZ Platform for your desired environm
 
     At this point you need to make sure you have [swap configured](#set-up-swap-on-debian-8xx) if your machine does not have a lot of RAM.
 
-#### a. Run composer install
+### a. Run composer install
 
 From the folder into which you downloaded eZ Platform, run:
 
@@ -129,7 +129,7 @@ Once the installer gets to the point that it creates `app/config/parameters.yml`
 
 The installer should continue once you've completed this manual portion of the installation process.
 
-#### b. Run eZ Platform's installer
+### b. Run eZ Platform's installer
 
 ``` bash
 php -d memory_limit=-1 app/console ezplatform:install --env=prod clean
@@ -169,7 +169,7 @@ This operation is performed only once when you install eZ Platform for the first
 
     `rm ezp_cron.txt`
 
-### 6. Set up folder rights
+## 6. Set up folder rights
 
 Like most things, [Symfony documentation](http://symfony.com/doc/current/book/installation.html#checking-symfony-application-configuration-and-setup) applies here, meaning `app/cache` and `app/logs` need to be writable by cli and web server user.
 
@@ -177,17 +177,17 @@ Furthermore, future files and directories created by these two users will need t
 
 For security reasons, there is no need for web server to have access to write to other directories.
 
-#### Set the owner and clean directories
+### Set the owner and clean directories
 
 First, change `www-data` to your web server user.
 
-##### Clean the `cache` and `logs` directories
+#### Clean the `cache` and `logs` directories
 
 ``` bash
 rm -rf app/cache/* app/logs/*
 ```
 
-#### A. Using ACL on a system that supports chmod +a
+### A. Using ACL on a system that supports chmod +a
 
 ``` bash
 sudo chmod +a "www-data allow delete,write,append,file_inherit,directory_inherit" \
@@ -196,7 +196,7 @@ sudo chmod +a "`whoami` allow delete,write,append,file_inherit,directory_inherit
 app/cache app/logs web
 ```
 
-#### B. Using ACL on a system that does not support chmod +a
+### B. Using ACL on a system that does not support chmod +a
 
 Some systems don't support chmod +a, but do support another utility called setfacl.
 You may need to enable ACL support on your partition and install setfacl before using it (as is the case with Ubuntu), in this way:
@@ -208,7 +208,7 @@ sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx \
 app/cache app/logs web
 ```
 
-#### C. Using chown on a system that does not support ACL
+### C. Using chown on a system that does not support ACL
 
 Some systems don't support ACL at all. You will need to set your web server's user as the owner of the required directories:
 
@@ -218,7 +218,7 @@ sudo find {app/{cache,logs},web} -type d | xargs sudo chmod -R 775
 sudo find {app/{cache,logs},web} -type f | xargs sudo chmod -R 664
 ```
 
-#### D. Using chmod on a system where you can't change owner
+### D. Using chmod on a system where you can't change owner
 
 If you can't use ACL and aren't allowed to change owner, you can use chmod, making the files writable by everybody.
 Note that this method really isn't recommended as it allows any user to do anything:
@@ -236,15 +236,15 @@ It may also possible to add the group ownership inheritance flag so new files in
 sudo chmod g+s {app/{cache,logs},web}
 ```
 
-### 7. Set up a Virtual Host
+## 7. Set up a Virtual Host
 
 This example demonstrates using Apache2 as part of the traditional LAMP stack.
 
-#### Option A: Scripted Configuration
+### Option A: Scripted Configuration
 
 Instead of manually editing the `vhost.template` file, you may instead [use the included shell script](starting_ez_platform.md#Web-server): `/var/www/ezplatform/bin/vhost.sh` to generate a configured .conf file. Check out the source of `vhost.sh` to see the options provided.
 
-#### Option B: Manual Edits
+### Option B: Manual Edits
 
 a. Copy the `vhost.template` file from its home in the doc folder:
 
@@ -276,7 +276,7 @@ Be sure to specify `/var/www/ezplatform/web` as the `DocumentRoot` and `Director
 SetEnvIf Request_URI ".*" SYMFONY_ENV=dev
 ```
 
-### 8. Server Configuration (Apache as example)
+## 8. Server Configuration
 
 Make sure you've got the `libapache2-mod-php5` module installed for Apache2 to use PHP5.x, and have the rewrite module enabled:
 
@@ -298,13 +298,13 @@ a2ensite ezplatform
 a2dissite 000-default.conf
 ```
 
-### 9. Restart server (Apache)
+## 9. Restart server
 
 ``` bash
 service apache2 restart
 ```
 
-### Set up Swap on Debian 8.x
+## Set up Swap on Debian 8.x
 
 Swap space allows your system to utilize the hard drive to supplement capacity when RAM runs short. Composer install will fail if there is insufficient RAM available, but adding swap will allow it to complete installation.
 
@@ -322,7 +322,7 @@ sysctl vm.vfs_cache_pressure=50
 echo "vm.vfs_cache_pressure=50" >> /etc/sysctl.conf
 ```
 
-#### Testing the Result
+### Testing the Result
 
 You should see the changes effected immediately, and can check via the command line:
 
@@ -338,6 +338,12 @@ cat /proc/sys/vm/vfs_cache_pressure
 ```
 
 ## Installation Guide for OS X
+
+!!! caution "Supported systems"
+
+    Only installation on Unix-based systems is fully supported.
+
+    Installations on Mac OS X can only be used for development or experimentally.
 
 ### Preparation:
 
@@ -629,6 +635,12 @@ sudo apachectl restart
 ```
 
 ## Manual Installation on Windows
+
+!!! caution "Supported systems"
+
+    Only installation on Unix-based systems is fully supported.
+
+    Installations on Windows can only be used for development or experimentally.
 
 ### Preparation:
 
