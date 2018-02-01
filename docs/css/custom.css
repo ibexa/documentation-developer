@@ -109,7 +109,7 @@ body {
 
 .admonition.enterprise {
     border-left: 5px solid rgba(241, 90, 34, 0.59);
-    background-color: rgba(241, 90, 34, 0.21);
+    background-color: #ffffff;
 }
 
 .md-nav__link[data-md-state=blur] {
