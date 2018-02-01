@@ -321,7 +321,7 @@ ezpublish:
 
     The name of the Map\URI matcher must be the same as the SiteAccess name. This also means that only one URI can be addressed by the same matcher.
 
-**Example.** URI: `/something/my/content`
+**Example.** URI: `/ezdemo_site/my/content`
 
 Map:
 
