@@ -44,7 +44,7 @@ See Upgrade documentation on how to perform the actual upgrade: [Upgrade (eZ Pub
 
 As eZ Platform introduced completely new user interfaces with greatly improved user experience, the following custom developments needs to be made if you have customization needs:
 
-- Write UI code for custom Field Types for the new Javascript-based editorial interface, see  [Extending PlatformUI with new navigation](../tutorials/extending_platformui/extending_platformui_with_new_navigation.md)) and [Creating Landing Page blocks (Enterprise) ](../cookbook/creating_landing_page_blocks_(enterprise).md)
+- Write UI code for custom Field Types for the new Javascript-based editorial interface, see  [Extending PlatformUI with new navigation](../tutorials/extending_platformui/extending_platformui_with_new_navigation.md)) and [Landing Page blocks](../guide/content_rendering.md#landing-page-blocks)
 - Adjust custom admin modules for the new Symfony-based admin interface
 
 For a detailed guide through these developments see [Upgrading from 5.4.x and 2014.11 to 16.xx](migrating_from_ez_publish_platform.md#upgrading-from-54x-and-201411-to-16xx) 
