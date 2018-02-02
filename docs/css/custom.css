@@ -160,6 +160,11 @@ figure {
     margin: 0;
 }
 
+figcaption {
+    font-size: 13px;
+    font-style: italic;
+}
+
 a.external:after {
     content: 'open_in_new';
     font-family: Material Icons;
