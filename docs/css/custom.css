@@ -160,9 +160,9 @@ details {
     position: relative;
     margin: 1.5625em 0;
     padding: .8rem 1.2rem;
-    border-left: 3.2rem solid rgba(68,138,255,.4);
+    border-left: 5px solid #4ec7f3;
     border-radius: .2rem;
-    background-color: rgba(68,138,255,.15);
+    background-color: #c9eefb;
 }
 
 .md-typeset .codehilitetable .linenos {
