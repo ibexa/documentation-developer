@@ -141,6 +141,21 @@ body {
     background-color: #ffffff;
 }
 
+.admonition.caution {
+    border-color: #f46485;
+    background-color: #fcd2dc;
+}
+
+.admonition.tip {
+    border-color: #6ed28a;
+    background-color: #d5f2dd;
+}
+
+.admonition.note {
+    border-color: #4ec7f3;
+    background-color: #c9eefb;
+}
+
 details {
     position: relative;
     margin: 1.5625em 0;
@@ -148,6 +163,26 @@ details {
     border-left: 3.2rem solid rgba(68,138,255,.4);
     border-radius: .2rem;
     background-color: rgba(68,138,255,.15);
+}
+
+.md-typeset .codehilitetable .linenos {
+    background-color: #c0c0c0;
+    color: #fff;
+}
+
+.md-typeset .codehilite, .md-typeset .highlight pre {
+    background-color: #f8f8f8;
+}
+
+.md-typeset code {
+    background-color: #f0f0f0;
+    padding: 1px 4px;
+    margin: 0;
+    box-shadow: none;
+}
+
+.codehilite .hll {
+    background-color: #faecbc;
 }
 
 .md-nav__link[data-md-state=blur] {
