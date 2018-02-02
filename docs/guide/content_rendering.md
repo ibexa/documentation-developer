@@ -966,9 +966,9 @@ To avoid such situations, you can check if the Location is virtual using the `lo
 
     ![Schedule block example with multiple blocks](img/schedule_block_example.png "Schedule block example with multiple blocks")
 
-## Custom controllers
+## Custom logic
 
-In some cases, displaying a Content item/Location via the built-in `ViewController` is not sufficient to show everything you want. In such cases you may want to **use your own custom controller** to display the current Content item/Location instead.
+In some cases, displaying a Content item/Location via the built-in `ViewController` is not sufficient to show everything you want. In such cases you may want to **use your own custom logic** to display the current Content item/Location instead.
 
 Typical use cases include access to:
 
@@ -979,11 +979,11 @@ Typical use cases include access to:
 - Main Location and alternative Locations for the current Content item
 - etc.
 
-There are three ways in which you can apply a custom controller:
+There are three ways in which you can apply a custom logic:
 
-- Configure a custom controller alongside regular matcher rules to use **both** your custom controller and the `ViewController` (recommended).
-- [**Override**](#overriding-the-built-in-viewcontroller) the built-in `ViewController` with the custom controller in a specific situation.
-- **Replace** the `ViewController` with the custom controller for the whole bundle.
+- Configure a custom controller alongside regular matcher rules to use **both** your custom controller and the `ViewController`.
+- Add a listener to add your custom logic before or after the view is rendered.
+- [**Override**](#overriding-the-built-in-viewcontroller) the built-in `ViewController` with the custom controller in a specific situation (not recommended).
 
 ### Enriching ViewController with a custom controller
 
@@ -1013,26 +1013,24 @@ With this configuration, the following controller will forward the request to th
 
 namespace Acme\TestBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Response;
 use eZ\Bundle\EzPublishCoreBundle\Controller;
+use eZ\Publish\Core\MVC\Symfony\View\ContentView;
 
 class DefaultController extends Controller
 {
-    public function articleViewEnhancedAction( $locationId, $viewType, $layout = false, array $params = array() )
+    public function articleViewEnhancedAction(ContentView $view)
     {
         // Add custom parameters to existing ones.
-        $params += array( 'myCustomVariable' => "Hey, I'm a custom message!" );
-        // Forward the request to the original ViewController
-        // And get the response. Possibly alter it (here we change the smax-age for cache).
-        $response = $this->get( 'ez_content' )->viewLocation( $locationId, $viewType, $layout, $params );
-        $response->setSharedMaxAge( 600 );
+        $view->addParameters(['myCustomVariable' => "Hey, I'm a custom message!"]);
 
-        return $response;
+        // If you wish, you can also easily access Location and Content objects
+        $location = $view->getLocation();
+        $content = $view->getContent();
+
+        return $view;
     }
 }
 ```
-
-Always ensure that you add new parameters to an existing `$params` associative array using the [**`+`** union operator](http://php.net/manual/en/language.operators.array.php) or `array_merge()`. **Not doing so (only passing your custom parameters array) can result in unexpected issues with content preview**. Previewed Content and other parameters are indeed passed in `$params`.
 
 These parameters can then be used in templates, for example:
 
@@ -1045,6 +1043,125 @@ These parameters can then be used in templates, for example:
     <h2>{{ myCustomVariable }}</h2>
     {{ ez_render_field( content, 'body' ) }}
 {% endblock %}
+```
+
+### Adding a listener
+
+One way to keep control of what is passed to the view is to use your own listener. It can be easily used to apply some custom logic to all views, but it is possible to limit the scope in any way required.
+To use the listener you need to add it to the configuration, for example:
+
+``` yaml
+services:
+    my.custom.view_listener:
+        class: AcmeTestBundle\Listener\MyViewListener
+        tags:
+            - { name: kernel.event_subscriber }
+```
+
+With this configuration, the following listener will add some additional parameter to the view. It needs to listen to `MVCEvents::PRE_CONTENT_VIEW`:
+
+``` php
+// Listener
+<?php
+
+namespace Acme\TestBundle\Listener;
+
+use eZ\Publish\Core\MVC\Symfony\Event\PreContentViewEvent;
+use eZ\Publish\Core\MVC\Symfony\MVCEvents;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+
+class MyViewListener implements EventSubscriberInterface
+{
+    public static function getSubscribedEvents()
+    {
+        return [MVCEvents::PRE_CONTENT_VIEW => 'doSomethingCustom'];
+    }
+
+    public function doSomethingCustom(PreContentViewEvent $event)
+    {
+        $view = $event->getContentView();
+
+        // Add custom parameters to existing ones.
+        $view->addParameters(['anotherCustomVariable' => "Another message!"]);
+
+        // If you wish, you can also easily access Location and Content objects
+        $location = $view->getLocation();
+        $content = $view->getContent();
+    }
+}
+```
+
+Similarly, you can use listener to modify the response generated after the view is rendered.
+The configuration will look alike the previous one, for example:
+
+``` yaml
+parameters:
+    my.custom.shared_max_age: 5000
+    my.custom.vary: 'X-User-Hash'
+
+services:
+    my.custom.response_listener:
+        class: AppBundle\Listener\MyResponseListener
+        arguments:
+            - "%my.custom.shared_max_age%"
+            - "%my.custom.vary%"
+        tags:
+            - { name: kernel.event_subscriber }
+```
+
+As this listener needs to manipulate a Response object, it needs to listen to `KernelEvents::RESPONSE`:
+
+``` php
+// Listener
+<?php
+
+namespace Acme\TestBundle\Listener;
+
+use eZ\Publish\Core\MVC\Symfony\View\CachableView;
+use eZ\Publish\Core\MVC\Symfony\View\ContentValueView;
+use eZ\Publish\Core\MVC\Symfony\View\LocationValueView;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
+use Symfony\Component\HttpKernel\KernelEvents;
+
+class MyResponseListener implements EventSubscriberInterface
+{
+    private $sharedMaxAge;
+    private $vary;
+
+    public function __construct($sharedMaxAge, $vary)
+    {
+        $this->sharedMaxAge = $sharedMaxAge;
+        $this->vary = $vary;
+    }
+
+    public static function getSubscribedEvents()
+    {
+        return [KernelEvents::RESPONSE => 'doSomethingCustom'];
+    }
+
+    public function doSomethingCustom(FilterResponseEvent $event)
+    {
+        $view = $event->getRequest()->attributes->get('view');
+        if (!$view instanceof CachableView) {
+            return;
+        }
+
+        $response = $event->getResponse();
+        // Set caching according to parameters
+        $response->setSharedMaxAge($this->sharedMaxAge);
+        $response->setVary($this->vary);
+
+        // If you wish, you can also easily access Location and Content objects
+        if ($view instanceof LocationValueView) {
+            $location = $view->getLocation();
+        }
+        if ($view instanceof ContentValueView) {
+            $content = $view->getContent();
+        }
+    }
+}
+
 ```
 
 ### Using only your custom controller
@@ -1073,31 +1190,31 @@ In this example, as the `ViewController` is not applied, the custom controller t
 
 namespace Acme\TestBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Response;
 use eZ\Bundle\EzPublishCoreBundle\Controller;
+use eZ\Publish\Core\MVC\Symfony\View\ContentView;
 
 class DefaultController extends Controller
 {
-    public function viewFolderAction( $locationId, $layout = false, $params = array() )
+    public function viewFolderAction(ContentView $view)
     {
-        $repository = $this->getRepository();
-        $location = $repository->getLocationService()->loadLocation( $locationId );
-        // Check if Content is not already passed. Can be the case when using content preview.
-        $content = isset( $params['content'] ) ? $params['content'] : $repository->getContentService()->loadContentByContentInfo( $location->getContentInfo() )
-        $response = new Response();
-        $response->headers->set( 'X-Location-Id', $locationId );
-        // Set caching for 1h and make the cache vary on user hash
-        $response->setSharedMaxAge( 3600 );
-        $response->setVary( 'X-User-Hash' );
-        return $this->render(
+        $location = $view->getLocation();
+        $content = $view->getContent();
+    
+        $response = $this->render(
             'AcmeTestBundle::custom_controller_folder.html.twig',
-            array(
+            [
                 'location' => $location,
                 'content' => $content,
                 'foo' => 'Hey world!!!',
-                'osTypes' => array( 'osx', 'linux', 'windows' )
-            ) + $params
+                'osTypes' => ['osx', 'linux', 'windows']
+            ]
         );
+    
+        // Set caching for 1h and make the cache vary on user hash
+        $response->setSharedMaxAge(3600);
+        $response->setVary('X-User-Hash');
+    
+        return $response;
     }
 }
 ```
@@ -1109,7 +1226,7 @@ Here again custom parameters can be used in the template, e.g.:
 {% extends "eZDemoBundle::pagelayout.html.twig" %}
 
 {% block content %}
-<h1>{{ ez_render_field( content, 'title' ) }}</h1>
+<h1>{{ ez_render_field( content, 'name' ) }}</h1>
     <h1>{{ foo }}</h1>
     <ul>
     {% for os in osTypes %}
@@ -1118,80 +1235,6 @@ Here again custom parameters can be used in the template, e.g.:
     </ul>
 {% endblock %}
 ```
-
-### Overriding the built-in ViewController
-
-One other way to keep control of what is passed to the view is to use your own controller **instead of** the built-in `ViewController`. The base `ViewController` is defined as a service, with a service alias, so this can be achieved from your bundle's configuration:
-
-``` yaml
-parameters:
-    my.custom.view_controller.class: Acme\TestBundle\MyViewController
-
-services:
-    my.custom.view_controller:
-        class: %my.custom.view_controller.class%
-        arguments: [@some_dependency, @other_dependency]
-
-    # Change the alias here and make it point to your own controller
-    ez_content:
-        alias: my.custom.view_controller
-```
-
-!!! caution
-
-    Doing so will completely override the built-in `ViewController`! Use this at your own risk!
-
-### Custom controller structure
-
-Your custom controller can be any kind of [controller supported by Symfony](http://symfony.com/doc/current/book/page_creation.html#step-2-create-the-controller) (including [controllers as a service](http://symfony.com/doc/current/cookbook/controller/service.html)).
-
-The only requirement here is that your action method must have a similar signature to `ViewController::viewLocation()` or `ViewController::viewContent()` (depending on what you're matching of course). However, note that not all arguments are mandatory, since [Symfony is clever enough to know what to inject into your action method](http://symfony.com/doc/current/book/routing.html#route-parameters-and-controller-arguments). That is why **you don't need to exactly imitate the `ViewController`'s signature**. For example, if you omit the `$layout` and `$params` arguments, it will still be valid. Symfony will just avoid injecting them into your action method.
-
-#### Built-in ViewController signatures
-
-``` php
-// viewLocation() signature
-/**
- * Main action for viewing content through a location in the repository.
- *
- * @param int $locationId
- * @param string $viewType
- * @param boolean $layout
- * @param array $params
- *
- * @throws \Symfony\Component\Security\Core\Exception\AccessDeniedException
- * @throws \Exception
- *
- * @return \Symfony\Component\HttpFoundation\Response
- */
-public function viewLocation( $locationId, $viewType, $layout = false, array $params = array() )
-```
-
-``` php
-// viewContent() signature
-/**
- * Main action for viewing content.
- *
- * @param int $contentId
- * @param string $viewType
- * @param boolean $layout
- * @param array $params
- *
- * @throws \Symfony\Component\Security\Core\Exception\AccessDeniedException
- * @throws \Exception
- *
- * @return \Symfony\Component\HttpFoundation\Response
- */
-public function viewContent( $contentId, $viewType, $layout = false, array $params = array() )
-```
-
-!!! caution "Caching"
-
-    When you use your own controller, **it is your responsibility to define cache rules**, like with every custom controller!
-
-    So don't forget to set cache rules and the appropriate `X-Location-Id` header in the returned `Response` object.
-
-    [See built-in ViewController](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/MVC/Symfony/Controller/Content/ViewController.php#L76) for more details on this.
 
 ## Query controller
 
