@@ -168,21 +168,19 @@ To allow the user to enter the back end interface (PlatformUI) and view all Cont
 
 - `user/login`
 - `content/read`
-
-To let the user navigate through StudioUI, you also need to add:
-
 - `content/versionread`
+- `section/view`
+- `content/reverserelatedlist`
 
 These Policies will be necessary for all other cases below that require access to the PlatformUI.
 
 ###### Create and publish content
 
-To create and publish content, the user must have (besides `user/login` and `content/read`) the following Policies:
+To create and publish content, the user must additionally have the following Policies:
 
 - `content/create`
 - `content/edit`
 - `content/publish`
-- `content/versionread`
 
 This also lets the user copy and move content, as well as add new Locations to a Content item (but not remove them!).
 
@@ -214,7 +212,6 @@ To enable upload, you need you set the following permissions:
 
 - `content/create`
 - `content/read`
-- `content/versionread`
 - `content/publish`
 
 You can control what Content items can be uploaded and where using Limitations on the `content/create` and `content/publish` Policies.
