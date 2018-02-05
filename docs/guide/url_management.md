@@ -10,7 +10,8 @@ The Link manager contains all the necessary information about each address inclu
 and the time it was last checked (when the system attempted to validate the URL).
 By default, all URLs are valid.
 
-You can use the `ezplatform:check-urls` command to check all the addresses stored in the URL table by accessing the links one by one.
+You can use the `ezplatform:check-urls` command to check all the addresses stored in the URL table.
+It validates the links by accessing them one by one.
 If a broken link is found, its status is set to "invalid". The last checked field is always updated.
 
 The following protocols are currently supported:
