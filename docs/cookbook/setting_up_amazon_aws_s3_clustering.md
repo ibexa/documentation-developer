@@ -42,8 +42,7 @@ services:
                     secret: "abc123..." # Your AWS secret key
 ```
 
-Still in your eZ Platform configuration, e.g. `app/config/config.yml`,
-set up the Flysystem adapter that uses the S3 client:
+In the same eZ Platform configuration, set up the Flysystem adapter that uses the S3 client:
 
 ``` yaml
 oneup_flysystem:
