@@ -20,6 +20,7 @@ Available extensibility points:
 - [Further extensibility using Components](#further-extensibility-using-components)
 - [Universal Discovery module](#universal-discovery-module)
 - [Sub-items list](#sub-items-list)
+- [Online Editor](#online-editor)
 - [Multi-file upload](#multi-file-upload)
 
 ## Menus
@@ -201,7 +202,7 @@ class DashboardEventSubscriber implements EventSubscriberInterface
         $reverseOrder = array_reverse($components);
 
         $event->setComponents($reverseOrder);
-        
+
     }
 }
 ```
@@ -654,6 +655,11 @@ Optionally, Sub-items module can take a following list of props:
     - **tableViewItem** _{Object}_ - list of table item view component labels
     - **loadMore** _{Object}_ - list of load more component labels
     - **gridViewItem** _{Object}_ - list of grid item view component labels
+
+## Online Editor
+
+The Online Editor is based on [Alloy Editor](https://alloyeditor.com/).
+Refer to [Alloy Editor documentation](https://alloyeditor.com/docs/develop/) to learn how to extend the Online Editor with new elements.
 
 ## Multi-file Upload
 
