@@ -42,8 +42,7 @@ services:
                     secret: "abc123..." # Your AWS secret key
 ```
 
-Still in your eZ Platform configuration, e.g. `app/config/config.yml`,
-set up the Flysystem adapter that uses the S3 client:
+In the same eZ Platform configuration, set up the Flysystem adapter that uses the S3 client:
 
 ``` yaml
 oneup_flysystem:
@@ -79,5 +78,5 @@ Clear all caches and reload, and that's it.
 
 ## Migrate your existing binary data to S3
 
-Since 1.7.4 you can [migrate existing binary data](../guide/clustering.md#migration) to S3 using the `php app/console ezplatform:io:migrate-files` command
+You can [migrate existing binary data](../guide/clustering.md#migration) to S3 using the `php app/console ezplatform:io:migrate-files` command
 which was added in [EZP-25946](https://jira.ez.no/browse/EZP-25946).
