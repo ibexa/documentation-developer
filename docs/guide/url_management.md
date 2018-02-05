@@ -1,0 +1,121 @@
+# URL management
+
+## External URL validation
+
+Every link that is input into a RichText or URL Field is stored in the URL table.
+You can view and edit published URLs in the Link manager without having to modify the Content items.
+This means that you don't have to edit and re-publish your content if you just want to change a link.
+
+The Link manager contains all the necessary information about each address including its status (valid or invalid)
+and the time it was last checked (when the system attempted to validate the URL).
+By default, all URLs are valid.
+
+You can use the `ezplatform:check-urls` command to check all the addresses stored in the URL table by accessing the links one by one.
+If a broken link is found, its status is set to "invalid". The last checked field is always updated.
+
+The following protocols are currently supported:
+
+- `http`
+- `https`
+- `mailto`
+
+### Enable automatic URL validation
+
+To enable automatic URL validation, you need to set up cron to run the `ezplatform:check-urls` command periodically.
+
+For example, to check links every week, add the following script:
+
+```
+echo '0 0 * * 0 cd [path-to-ezplatform]; php app/console ezplatform:check-urls --quiet --env=prod' > ezp_cron.txt
+```
+
+Next, append the new cron to user's crontab without destroying existing crons. Assuming the web server user data is www-data:
+
+```
+crontab -u www-data -l|cat - ezp_cron.txt | crontab -u www-data -
+```
+
+Finally, remove the temporary file:
+
+```
+rm ezp_cron.txt
+```
+
+### Configuration
+
+Configuration of external URLs validation is SiteAccess-aware and is stored under `ezpublish.system.<SITEACCESS>.url_checker`.
+Example configuration (in `/app/config/ezplatform.yml`):
+
+```yml
+ezpublish:
+    system:
+        default:
+            url_checker:
+                handlers:
+                    http:
+                    	enabled: true
+                    	batch_size: 64
+                    https:
+                    	enabled: true
+                    	ignore_certificate: false             
+                    mailto:
+                    	enabled: false
+```
+
+Available options are protocol-specific.
+
+#### http/https protocol
+
+| Option             | Description                                                         | Default value |
+|--------------------|---------------------------------------------------------------------|---------------|
+| enabled            | Enables the validation                                              | true          |
+| timeout            | Maximum time the request is allowed to take (in seconds)            | 10            |
+| connection_timeout | Timeout for the connect phase (in seconds)                          | 5             |
+| batch_size         | Maximum number of asynchronous requests                             | 10            |
+| ignore_certificate | Verify the peer's SSL certificate / certificate's name against host | false         |
+
+#### mailto protocol
+
+| Option             | Description                                                         | Default value |
+|--------------------|---------------------------------------------------------------------|---------------|
+| enabled            | Enables the validation                                              | true          |
+
+## Custom protocol support
+
+It's possible to extend external URLs validation with a custom protocol.
+You need to provide a service implementing the `\eZ\Bundle\EzPublishCoreBundle\URLChecker\URLHandlerInterface` interface:
+
+```php
+<?php
+
+namespace eZ\Bundle\EzPublishCoreBundle\URLChecker;
+
+interface URLHandlerInterface
+{
+    /**
+     * Validates given list of URLs.
+     *
+     * @param \eZ\Publish\API\Repository\Values\URL\URL[] $urls
+     */
+    public function validate(array $urls);
+
+    /**
+     * Set handler options.
+     *
+     * @param array|null $options
+     */
+    public function setOptions(array $options = null);
+}
+```
+
+and register it with an `ezpublish.url_handler` tag. For instance:
+
+```yaml
+app.url_checker.handler.custom:
+    class: 'AppBundle\URLChecker\Handler\CustomHandler'
+    ...
+    tags:
+        - { name: ezpublish.url_handler, scheme: custom }
+```
+
+The `scheme` attribute is mandatory and has to correspond to the name of the protocol, for instance `ftp`.
