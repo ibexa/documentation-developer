@@ -613,6 +613,11 @@ For configuration of Solr connection for your repository, see [How to set up Sol
 
 SOLR BUNDLE &gt;= 1.4
 
+
+!!! tip "How this interacts with Search API"
+
+    Boosting of fields or documents will affect the score (relevance) of your search result hits when using Search API for any criteria you may specify on `$query->query`. And when not specifying anything to sort on result will be sorted by this relevance. Anything set on `$query->filter` will _not_ affect scoring, as it only works as a pure filter for the result.
+
 Boosting currently happens when indexing, so if you change your configuration you'll need to re-index (this is expected behavior). This can possibly be solved by a contribution to change boosting to be performed on query time.
 
 Boosting tells the search engine which parts of the content model have more importance when searching, and is an important part of tuning your search results relevance. Importance is defined using a numeric value, where `1.0` is default, values higher than that are more important, and values lower (down to `0.0`) are less important.
