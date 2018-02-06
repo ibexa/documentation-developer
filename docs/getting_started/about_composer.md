@@ -32,7 +32,7 @@ Out of the box Composer uses a packaging repository called [packagist.org](https
 
 To get access to these updates log in to your service portal on [support.ez.no](https://support.ez.no) and look for the following on the *"Maintenance and Support agreement details"* screen:
 
-![Authentication token](docs/getting_started/img/Using_Composer_Auth_token.png)
+![Authentication token](img/Using_Composer_Auth_token.png)
 
 1.  Click "Create token" (This requires the "Portal administrator" access level.)
 2.  Fill in a label describing the use of the token. This will allow you to revoke access later.
@@ -289,12 +289,13 @@ php composer.phar require [--dev] [--prefer-source] [--prefer-dist] [--no-progre
 
 ##### Interesting options
 
-                   |   
-   --prefer-source | Forces installation from package sources when possible, including VCS information.
-   --prefer-dist   | Forces installation from package dist even for dev versions
-   --no-progress   | Do not output download progress.
-   --no-update     | Disables the automatic update of the dependencies
-   --update-with-dependencies | Allows inherited dependencies to be updated with explicit dependencies
+|option | description |
+|-------|-------------|
+|   --prefer-source | Forces installation from package sources when possible, including VCS information |
+|   --prefer-dist   | Forces installation from package dist even for dev versions |
+|   --no-progress   | Do not output download progress |
+|   --no-update     | Disables the automatic update of the dependencies |
+|   --update-with-dependencies | Allows inherited dependencies to be updated with explicit dependencies |
 
 #### search
 
