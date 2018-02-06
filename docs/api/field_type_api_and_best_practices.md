@@ -1,4 +1,4 @@
-# Field Type API & best practices
+# Field Type API and best practices
 
 eZ Platform can support arbitrary data to be stored in the fields of a content item. In order to support custom data, besides the standard data types, a developer needs to create a custom **Field Type**.
 
@@ -8,27 +8,27 @@ In order to provide custom functionality for a Field Type, the SPI interacts wit
 
 ![](img/field_type_overview.png)
 
-On the top layer, the Field Type needs to provide conversion from and to a simple PHP hash value to support the REST API. The generated hash value may only consist of scalar values and hashes. It must not contain objects or arrays with numerical indexes that aren't sequential and/or don't start with zero.
+On the top layer, the Field Type needs to provide conversion from and to a simple PHP hash value to support the **REST API**. The generated hash value may only consist of scalar values and hashes. It must not contain objects or arrays with numerical indexes that aren't sequential and/or don't start with zero.
 
-Below that, the Field Type must support the Public API implementation (aka Business Layer), regarding:
+Below that, the Field Type must support the **Public API** implementation (aka Business Layer), regarding:
 
--   Settings definition for FieldDefinitions
+-   Settings definition for `FieldDefinition`
 -   Value creation and validation
 -   Communication with the Persistence SPI
 
-On the bottom level, a Field Type can additionally hook into the Persistence SPI, in order to store data from a FieldValue in an external service. Note that all non-standard eZ Publish database tables (e.g. `ezurl`) are also considered "external storage" from now on.
+On the bottom level, a Field Type can additionally hook into the **Persistence SPI**, in order to store data from a `FieldValue` in an external service. Note that all non-standard eZ Publish database tables (e.g. `ezurl`) are also considered "external storage" from now on.
 
 The following sequence diagram visualizes the process of creating a new `Content` across all layers, especially focused on the interaction with a `FieldType`.
 
 ![](img/create_content_sequence.png)
 
-In the next lines/pages, this document explains how to implement a custom Field Type based on the SPI and what is expected from it. As a code example, please refer to the Url FieldType, which has been implemented as a reference.
+In the next paragraphs, this document explains how to implement a custom Field Type based on the SPI and what is expected from it. As a code example, please refer to the Url Field Type, which has been implemented as a reference.
 
 ## Public API interaction
 
 The interaction with the Public API is done through the interface `eZ\Publish\SPI\FieldType\FieldType`. A custom Field Type must provide an implementation of this interface. In addition, it is considered best practice to provide a value object class for storing the custom field value provided by the Field Type.
 
-### FieldDefinition handling
+### Field Definition handling
 
 In order to make use of a custom Field Type, the user must apply it in a `eZ\Publish\API\Repository\Values\ContentType\FieldDefinition` of a custom Content Type. The user may in addition provide settings for the Field Type and a validator configuration.  Since the Public API cannot know anything about these, their handling is delegated to the Field Type itself through the following methods:
 
@@ -38,19 +38,21 @@ Returns a unique identifier for the custom Field Type, which is used to assign t
 
 `getSettingsSchema()`
 
-Using this method, the Public API retrieves a schema for the field type settings. A typical setting would e.g. be a default value. The settings structure defined by this schema is stored in the `FieldDefinition`. Since it is not possible to define a generic format for such a schema, the Field Type is free to return any serializable data structure from this method.
+Using this method, the Public API retrieves a schema for the Field Type settings. A typical setting would e.g. be a default value. The settings structure defined by this schema is stored in the `FieldDefinition`. Since it is not possible to define a generic format for such a schema, the Field Type is free to return any serializable data structure from this method.
 
 `getValidatorConfigurationSchema()`
 
-In addition to normal settings, the Field Type should provide a schema settings for it's validation process. The schema describes, what kind of validation can be performed by the Field Type and which settings the user can specify to these validation methods. For example, the `ezstring` type can validate minimum and maximum length of the string. It therefore provides a schema to indicate to the user that he might specify the corresponding restrictions, when creating a `FieldDefinition` with this type. Again, the schema does not underlie any regulations, except for that it must be serializable.
+In addition to normal settings, the Field Type should provide a schema settings for its validation process. The schema describes, what kind of validation can be performed by the Field Type and which settings the user can specify to these validation methods. For example, the `ezstring` type can validate minimum and maximum length of the string. It therefore provides a schema to indicate to the user that he might specify the corresponding restrictions, when creating a `FieldDefinition` with this type. Again, the schema does not underlie any regulations, except for that it must be serializable.
 
 `validateFieldSettings()`
 
 Before the Public API stores settings for the `FieldType` in a `FieldDefinition`, the type is asked to validate the settings (which were provided by the user). As a result, the `FieldType` must return if the given settings comply to the schema defined by `getSettingsSchema()`. `validateValidatorConfiguration()` Analog to `validateFieldSettings()`, this method verifies that the given validator configuration complies to the schema provided by `getValidatorConfigurationSchema()`.
 
-It is important to note that while the schema definitions of the `FieldType` maybe both be of arbitrary, serializable format, it is highly recommended to use a simple hash structure. It is highly recommended to follow the [Best practices](../guide/best_practices.md) in order to create future proof schemas.
+It is important to note that the schema definitions of the `FieldType` can be both of arbitrary and serializable format, it is highly recommended to use a simple hash structure. You should follow the [Best practices](../guide/best_practices.md) in order to create future proof schemas.
 
-**Note:** Since it is not possible to enforce a schema format, the code using a specific `FieldType` must basically know all `FieldType`s it deals with.
+!!! note 
+
+Since it is not possible to enforce a schema format, the code using a specific Field Type must basically know all Field Types it deals with.
 
 This will also apply to all user interfaces and the REST API, which therefore must provide extension points to register handling code for custom `FieldType`. These extensions are not defined, yet.
 
@@ -60,7 +62,7 @@ If you implement Nameable as an extra service, and register this Service using t
 
 Otherwise the regular `{FieldType}->getName()` method is used.
 
-**Example from fieldtype\_services.yml**
+**Example from fieldType\_services.yml**
 
 ``` yaml
 # Nameable services (for fieldtypes that need advance name handling)
@@ -74,21 +76,23 @@ Otherwise the regular `{FieldType}->getName()` method is used.
 
 ### Value handling
 
-A field type needs to deal with the custom value format provided by it. In order for the public API to work properly, it delegates working with such custom field values to the corresponding Field Type. The `SPI\FieldType\FieldType` interface therefore provides the following methods:
+A Field Type needs to deal with the custom value format provided by it. In order for the public API to work properly, it delegates working with such custom field values to the corresponding Field Type. The `SPI\FieldType\FieldType` interface therefore provides the following methods:
 
 `acceptValue()`
 
-This method is responsible for accepting and converting user input for the field. It checks the input structure it accepts and might build and return a different structure holding the data. An example would be, that the user just provides an HTTP link as a string, which is converted to the value object of the Url FieldType. Unlike the `FieldType\Value` constructor, it is perfectly acceptable to make this method aware of multiple input types (object or primitive, for instance).
+This method is responsible for accepting and converting user input for the `Field`. It checks the input structure it accepts and might build and return a different structure holding the data. An example would be, that the user just provides an HTTP link as a string, which is converted to the value object of the Url Field Type. Unlike the `FieldType\Value` constructor, it is perfectly acceptable to make this method aware of multiple input types (object or primitive, for instance).
 
-Note: The method must assert structural consistency of the value, but must not validate plausibility of the value.
+!!! note 
+
+The method must assert structural consistency of the value, but must not validate plausibility of the value.
 
 `getEmptyValue()`
 
 Through settings, the `FieldType` can specify, that the user may define a default value for the `Field` of the type. If no such default is provided by the user, the `FieldType` itself is asked for an "empty value" as the final fallback. The value chain for a specific field is therefore like this, when a `Field` of the `FieldType` is filled out:
 
-1. Is a value provided by the filling user?
-2.  Is a default provided by the `FieldDefinition`?
-3.  Take the empty value provided by the `FieldType`
+1. With a value provided by the user?
+2. With a default value provided by the `FieldDefinition`?
+3. With the empty value provided by the `FieldType`
 
 `validate()`
 
@@ -96,7 +100,7 @@ In contrast to `acceptValue()` this method validates the plausibility of the giv
 
 ### Storage conversion
 
-As said above, the value format of a `FieldType` is free form. However, in order to make eZ Publish store the value in it's database, it must comply to certain rules at storage time. To not restrict the value itself, a `FieldValue` must be converted to the storage specific format used by the Persistence SPI: `eZ\Publish\SPI\Persistence\Content\FieldValue`. After restoring a Field of `FieldType`, the conversion must be undone. The following methods of the `FieldType` are responsible for that:
+As said above, the value format of a `FieldType` is free form. However, in order to make eZ Publish store the value in its database, it must comply to certain rules at storage time. To not restrict the value itself, a `FieldValue` must be converted to the storage specific format used by the Persistence SPI: `eZ\Publish\SPI\Persistence\Content\FieldValue`. After restoring a `Field` of `FieldType`, the conversion must be undone. The following methods of the `FieldType` are responsible for that:
 
 `toPersistenceValue()`
 
@@ -106,7 +110,7 @@ This method receives the value of a `Field` of `FieldType` and must return an SP
 
 As the counterpart, this method receives an SPI `FieldValue` and must reconstruct the original value of the `Field` from it.
 
-The SPI FieldValue struct has several properties, which might be used by the FieldType as follows:
+The SPI `FieldValue` struct has several properties, which might be used by the `FieldType` as follows:
 
 `$data`
 
@@ -124,11 +128,11 @@ An value which can be used to sort `Content` by the field.
 
 ## Searching
 
-Fields, or a custom field type, might contain or maintain data which is relevant for user searches. To make the search engine aware of the data in your field type you need to implement an additional interface and register the implementation.
+Fields, or a custom Field Type, might contain or maintain data which is relevant for user searches. To make the search engine aware of the data in your Field Type you need to implement an additional interface and register the implementation.
 
-If your field type does not maintain any data, which should be available to search engines, feel free to just ignore this section.
+If your Field Type does not maintain any data, which should be available to search engines, feel free to just ignore this section.
 
-The` eZ\Publish\SPI\FieldType\Indexable` defines two methods, which are required to be implemented, if the field type provides data relevant to search engines. The interface defines two methods for this:
+The` eZ\Publish\SPI\FieldType\Indexable` defines two methods, which are required to be implemented, if the Field Type provides data relevant to search engines.
 
 `getIndexData( Field $field )`
 
@@ -136,7 +140,7 @@ This method is supposed to return the actual index data for the provided `eZ\Pub
 
 `getIndexDefinition()`
 
-To be able to query data properly an indexable field type also is required to return search specification. You must return a hash map of `eZ\Publish\SPI\Persistence\Content\Search\FieldType` instances from this method, which could look like:
+To be able to query data properly an indexable Field Type also is required to return search specification. You must return a hash map of `eZ\Publish\SPI\Persistence\Content\Search\FieldType` instances from this method, which could look like:
 
 ```
 array(
@@ -145,107 +149,67 @@ array(
 )
 ```
 
- This example from the `Url` field type shows that the field type will always return two indexable values, both strings. They have the names `url` and `text` respectively.
+ This example from the `Url` Field Type shows that the Field Type will always return two indexable values, both strings. They have the names `url` and `text` respectively.
 
 ### Search Field Values
 
 The search field values, returned by the `getIndexData` method are simple value objects consisting of the following properties:
 
-`$name`
-
-The name of the field
-
-`$value`
-
-The value of the field
-
-`$type`
-
-An `eZ\Publish\SPI\Persistence\Content\Search\FieldType` instance, describing the type information of the field.
+|Property|Description|
+|--------|-----------|
+|`$name`|The name of the field|
+|`$value`|The value of the field|
+|`$type`|An `eZ\Publish\SPI\Persistence\Content\Search\FieldType` instance, describing the type information of the field.|
 
 ### Search Field Types
 
-There are bunch of available search field types, which are automagically handled by our Search backend configuration. When using those there is no requirement to adapt , for example, the Solr configuration in any way. You can always use custom field types, though, but these might require re-configuration of the search backend. For Solr this would mean adapting the schema.xml.
+There are many available search Field Types, which are handled by our Search backend configuration. When using those there is no requirement to adapt, for example, the Solr configuration in any way. You can always use custom Field Types, but these might require re-configuration of the search backend. For Solr this would mean adapting the schema.xml.
 
-The default available search field types are:
+The default available search Field Types are:
 
-`StringField.php`
-
-Standard string values. Will also be queries by full text searches.
-
-`TextField.php`
-
-Standard text values. Will be queried by full text searches. Configured text normalizations in the search backend apply.
-
-`BooleanField.php`
-
-Boolean values.
-
-`DateField.php`
-
-Date field. Can be used for date range queries.
-
-`FloatField.php`
-
-Field for floating point numbers.
-
-`IntegerField.php`
-
-Field for integer numbers.
-
-`PriceField.php`
-
-Field for price values. Currency conversion might be applied by the search backends. Might require careful configuration.
-
-`IdentifierField.php`
-
-Field used for IDs. Basically acts like the string field, but will not be queried by fulltext searches
-
-`CustomField.php`
-
-Custom field, for custom search data types. Will probably require additional configuration in the search backend.
+|Field Type|Description|
+|--------|-----------|
+|`StringField`|Standard string values. Will also be queries by full text searches.|
+|`TextField`|Standard text values. Will be queried by full text searches. Configured text normalizations in the search backend apply.|
+|`BooleanField`|Boolean values.|
+|`DateField`|Date field. Can be used for date range queries.|
+|`FloatField`|Field for floating point numbers.|
+|`IntegerField`|Field for integer numbers.|
+|`PriceField`|Field for price values. Currency conversion might be applied by the search backends. Might require careful configuration.|
+|`IdentifierField`|Field used for IDs. Basically acts like the string field, but will not be queried by fulltext searches|
+|`CustomField`|Custom field, for custom search data types. Will probably require additional configuration in the search backend.|
 
 ### Configuring Solr
 
 As mentioned before, if you are using the standard type definitions **there is no need to configure the search backend in any way**. Everything will work fine. The field definitions are handled using `dynamicField` definitions in Solr, for example.
 
-If you want to configure the handling of your field, you can always add a special field definition the Solr `schema.xml`. The field type names, which are used by the Solr search backend look like this for fields: `<content_type_identifier>/<field_identifier>/<search_field_name>_<type>`. You can, of course define custom `dynamicField` definitions to match, for example, on your custom `_<type>` definition.
+If you want to configure the handling of your field, you can always add a special field definition the Solr `schema.xml`. The Field Type names, which are used by the Solr search backend look like this for fields: `<content_type_identifier>/<field_identifier>/<search_field_name>_<type>`. You can, of course define custom `dynamicField` definitions to match, for example, on your custom `_<type>` definition.
 
-You could also define a custom field definition dedicatedly for certain fields, like for the name field in an article:
+You could also define a custom field definition for certain fields, like for the name field in an article:
 
 ```
 <field name="article/name/value_s" type="string" indexed="true" stored="true" required="false"/>
 ```
 
-If you want to learn more about the Solr implementation and detailed information about configuring it, check out the [Solr Search Service Implementation Notes](https://doc.ez.no/display/TMPA/Solr+Search+Service+Implementation+Notes).
+!!! note 
+
+If you want to learn more about the Solr implementation and detailed information about configuring it, check out the [Solr Search Bundle](https://doc.ezplatform.com/en/1.7/guide/search/#solr-bundle).
 
 ## Storing external data
 
 A `FieldType` may store arbitrary data in external data sources and is in fact encouraged to do so. External storages can be e.g. a web service, a file in the file system, another database or even the eZ Publish database itself (in form of a non-standard table). In order to perform this task, the `FieldType` will interact with the Persistence SPI, which can be found in `eZ\Publish\SPI\Persistence`, through the `eZ\Publish\SPI\FieldType\FieldStorage` interface.
 
-Whenever the internal storage of a Content item that includes a Field of the `FieldType` is accessed, one of the following methods is called to also access the external data:
+Whenever the internal storage of a Content item that includes a `Field` of the `FieldType` is accessed, one of the following methods is called to also access the external data:
 
-`hasFieldData()`
+|Method|Description|
+|------|-----------|
+|`hasFieldData()`|Returns if the `FieldType` stores external data at all.|
+|`storeFieldData()`|Called right before a `Field` of `FieldType` is stored. The method  stores `$externalData`. It returns `true`, if the call manipulated **internal data** of the given `Field`, so that it is updated in the internal database.|
+|`getFieldData()`|Is called after a `Field` has been restored from the database in order to restore `$externalData`.|
+|`deleteFieldData()`|Must delete external data for the given `Field`, if exists.|
+|`getIndexData()`|See search service.|
 
-Returns if the `FieldType` stores external data at all.
-
-`storeFieldData()`
-
-Called right before a `Field` of `FieldType` is stored. The method should perform the storing of `$externalData`. The method must return `true`, if the call manipulated **internal data** of the given `Field`, so that it is updated in the internal database.
-
-`getFieldData()`
-
-Is called after a `Field` has been restored from the database in order to restore `$externalData`.
-
-`deleteFieldData()`
-
-Must delete external data for the given `Field`, if exists.
-
-`getIndexData()`
-
-See search service
-
-Each of the above methods receive a $context array, which contains information on the underlying storage and the environment. This context can be used to store data in the eZ Publish data storage, but outside of the normal structures (e.g. a custom table in an SQL database). Note that the Field Type must take care on it's own for being compliant to different data sources and that 3rd parties can extend the data source support easily. For more information about this, take a look at the [Best practices](#best-practices) section.
+Each of the above methods receive a $context array, which contains information on the underlying storage and the environment. This context can be used to store data in the eZ Publish data storage, but outside of the normal structures (e.g. a custom table in an SQL database). Note that the Field Type must take care on its own for being compliant to different data sources and that 3rd parties can extend the data source support easily. For more information about this, take a look at the [Best practices](#best-practices) section.
 
 ## Legacy Storage conversion
 
@@ -253,25 +217,13 @@ The `FieldType` system is designed for future storage back ends of eZ Publish. H
 
 The conversion takes place through the interface `eZ\Publish\Core\Persistence\Legacy\Content\FieldValue\Converter`, which you must provide an implementation of with your `FieldType`. The following methods are contained in the interface:
 
-`toStorageValue()`
-
-Converts a Persistence `Value` into a legacy storage specific value.
-
-`fromStorageValue()`
-
-Converts the other way around.
-
-`toStorageFieldDefinition()`
-
-Converts a Persistence `FieldDefinition` to a storage specific one.
-
-`fromStorageFieldDefinition`
-
-Converts the other way around.
-
-`getIndexColumn()`
-
-Returns the storage column which is used for indexing.
+|Method|Description|
+|------|-----------|
+|`toStorageValue()`|Converts a Persistence `Value` into a legacy storage specific value.|
+|`fromStorageValue()`|Converts the other way around.|
+|`toStorageFieldDefinition()`|Converts a Persistence `FieldDefinition` to a storage specific one.|
+|`fromStorageFieldDefinition`|Converts the other way around.|
+|`getIndexColumn()`|Returns the storage column which is used for indexing.|
 
 ### Registering a converter
 
@@ -347,7 +299,7 @@ In this chapter, best practices for implementing a custom FieldType are collecte
 
 ### Gateway based Storage
 
-In order to allow the usage of a `FieldType` that uses external data with different data storages, it is recommended to implement a gateway infrastructure and a registry for the gateways. In order to ease this action, the Core implementation of `FieldType` s provides corresponding interfaces and base classes. These can also be used for custom field types.
+In order to allow the usage of a `FieldType` that uses external data with different data storages, it is recommended to implement a gateway infrastructure and a registry for the gateways. In order to ease this action, the Core implementation of `FieldType` s provides corresponding interfaces and base classes. These can also be used for custom Field Types.
 
 The interface `eZ\Publish\Core\FieldType\StorageGateway` is implemented by gateways, in order to be handled correctly by the registry. It has only a single method:
 
@@ -447,7 +399,7 @@ This type of integration test ensures, that a Field Type stores its data properl
 
     By now, only the Legacy Storage implementation exists.
 
-The integration tests with the Persistence SPI can be found in `eZ\Publish\SPI\Tests\FieldType`. In order to implement a test for your custom `FieldType`, you need to extend the common base class `eZ\Publish\SPI\Tests\FieldType\BaseIntegrationTest` and implement it's abstract methods. As a reference the `KeywordIntegrationTest`, `UrlIntegrationTest` and `UserIntegrationTest` can deal.
+The integration tests with the Persistence SPI can be found in `eZ\Publish\SPI\Tests\FieldType`. In order to implement a test for your custom `FieldType`, you need to extend the common base class `eZ\Publish\SPI\Tests\FieldType\BaseIntegrationTest` and implement its abstract methods. As a reference the `KeywordIntegrationTest`, `UrlIntegrationTest` and `UserIntegrationTest` can deal.
 
 Running the test is fairly simple: Just specify the global `phpunit.xml` for PHPUnit configuration and make it execute a single test or a directory of tests, for example:
 
@@ -561,13 +513,13 @@ So far, this is a regular service configuration but 2 parts worth particular att
 
 -   `parent`
 
-As described in the [Symfony Dependency Injection Component documentation](http://symfony.com/doc/master/components/dependency_injection/parentservices.html), the `parent` config key indicates that you want your service to inherit from the parent's dependencies, including constructor arguments and method calls. This is actually a helper avoiding repetition in your field type configuration and keeping consistency between all field types.
+As described in the [Symfony Dependency Injection Component documentation](http://symfony.com/doc/master/components/dependency_injection/parentservices.html), the `parent` config key indicates that you want your service to inherit from the parent's dependencies, including constructor arguments and method calls. This is actually a helper avoiding repetition in your Field Type configuration and keeping consistency between all Field Types.
 
 -   `tags`
 
-Tagging your field type service with **`ezpublish.fieldType`** is mandatory to be recognized by the API loader as a regular field type, the `alias` key being simply the *fieldTypeIdentifier* (formerly called *datatype string*)
+Tagging your Field Type service with **`ezpublish.fieldType`** is mandatory to be recognized by the API loader as a regular Field Type, the `alias` key being simply the *fieldTypeIdentifier* (formerly called *datatype string*)
 
-Basic field types configuration is located in [EzPublishCoreBundle/Resources/config/fieldtypes.yml](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/fieldtypes.yml).
+Basic Field Types configuration is located in [EzPublishCoreBundle/Resources/config/fieldtypes.yml](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/fieldtypes.yml).
 
 #### Legacy Storage Engine
 
@@ -600,13 +552,13 @@ As for the tag attributes:
 | lazy | Boolean indicating if the converter should be lazy loaded or not. Performance wise, it is recommended to set it to true unless you have very specific reasons. |
 | callback | If lazy is set to true, it represents the callback that will be called to build the converter. Any valid callback can be used. Note that if the callback is defined in the converter class, the class name can be omitted. This way, in the example above, the full callback will be resolved to eZ\Publish\Core\Persistence\Legacy\Content\FieldValue\Converter\TextLine::create |
 
-The converter configuration for basic field types are located in [eZ/Publish/Core/settings/fieldtype\_external\_storages.yml](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/fieldtype_external_storages.yml).
+The converter configuration for basic Field Types are located in [eZ/Publish/Core/settings/fieldtype\_external\_storages.yml](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/fieldtype_external_storages.yml).
 
 ##### External storage
 
 A Field Type has the [ability to store its value (or part of it) in external data sources](#storing-external-data). This is made possible through the `eZ\Publish\SPI\FieldType\FieldStorage` interface. Thus, if one wants to use this functionality, he needs to define a service implementing this interface and tagged as **`ezpublish.fieldType.externalStorageHandler`** to be recognized by the Repository.
 
-Here is an example for **ezurl** field type:
+Here is an example for **ezurl** Field Type:
 
 **External storage handler for ezurl**
 
@@ -623,7 +575,7 @@ services:
 
 The configuration is straight forward. Nothing specific except the **`ezpublish.fieldType.externalStorageHandler `** tag, the `alias` attribute still begin the *fieldTypeIdentifier*.
 
-External storage configuration for basic field types is located in [EzPublishCoreBundle/Resources/config/fieldtypes.yml](https://github.com/ezsystems/ezp-next/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/fieldtypes.yml).
+External storage configuration for basic Field Types is located in [EzPublishCoreBundle/Resources/config/fieldtypes.yml](https://github.com/ezsystems/ezp-next/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/fieldtypes.yml).
 
 ##### Gateway based storage
 
@@ -649,9 +601,9 @@ services:
 
 For this to work properly, your storage handler must inherit from `eZ\Publish\Core\FieldType\GatewayBasedStorage`.
 
-Also note that there can be several gateways per field type (one per storage engine basically).
+Also note that there can be several gateways per Field Type (one per storage engine basically).
 
-The gateway configuration for basic field types are located in [EzPublishCoreBundle/Resources/config/storage\_engines.yml](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage_engines.yml).
+The gateway configuration for basic Field Types are located in [EzPublishCoreBundle/Resources/config/storage\_engines.yml](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage_engines.yml).
 
 ## Settings schema and allowed validators
 
