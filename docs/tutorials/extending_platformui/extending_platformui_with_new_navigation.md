@@ -2,6 +2,10 @@
 
 ## Introduction
 
+!!! caution
+
+    This tutorial currently covers only v1 of eZ Platform.
+
 This tutorial aims at providing a step-by-step guide on how to extend the JavaScript application provided by [the PlatformUI bundle](https://github.com/ezsystems/PlatformUIBundle). 
 
 In this tutorial, we will create a new part of the application allowing you to browse your content by Content Type instead of using the tree structure. To fully benefit from this document, you need to:
