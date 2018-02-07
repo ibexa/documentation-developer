@@ -134,9 +134,9 @@ These steps are only relevant for some releases:
 
 ??? note "Solr Bundle 1.4: Index time boosting"
 
-    Solr Bundle v1.4 introduced among other things index time boosting feature, this involves a slight change to the solr scheme that will need to be applied to your config.
+    Solr Bundle v1.4 introduced among other things index time boosting feature, this involves a slight change to the Solr scheme that will need to be applied to your config.
 
-    To make sure indexing continues to work, apply the following change, restart solr and reindex your content:
+    To make sure indexing continues to work, apply the following change, restart Solr and reindex your content:
 
     ``` xml
     diff --git a/lib/Resources/config/solr/schema.xml b/lib/Resources/config/solr/schema.xml
