@@ -2,7 +2,7 @@
 
 !!! tip
 
-    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/ezstudio-beginner-tutorial/tree/step3).
+    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/ezstudio-beginner-tutorial/tree/v2-step3).
 
 In this step you'll add a Content List block and two Schedule blocks and customize them.
 

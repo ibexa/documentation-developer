@@ -2,15 +2,13 @@
 
 !!! tip
 
-    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/ezstudio-beginner-tutorial/tree/step1).
+    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/ezstudio-beginner-tutorial/tree/v2-step1).
 
 To start working on the scenario of this tutorial, you need to have a minimal working website. You will be shown how to build it by hand from the ground up, starting with a clean eZ Enterprise installation. Just remember that if you decide to change anything from the way it is shown here, you will need to double-check all code that will be provided here and make sure it fits your website.
 
 !!! note
 
     Remember to start working with a **clean** eZ Enterprise installation, **not** Studio Demo.
-
-    To be able to follow all steps of the tutorial, make sure you are installing eZ Enterprise v1.7.0 or later v1 edition.
 
 ## Setting up the website
 
@@ -70,17 +68,17 @@ Now inserting photos into articles will be easier. Reaching the final result of 
 
 ### Add template, configuration and style files
 
-Place the [`pagelayout.html.twig`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step1/app/Resources/views/pagelayout.html.twig) and [`pagelayout_menu.html.twig`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step1/app/Resources/views/pagelayout_menu.html.twig) files in `app/Resources/views` folder. Create a new folder, called `full`, under `views`. Place further template files in it:
+Place the [`pagelayout.html.twig`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/app/Resources/views/pagelayout.html.twig) and [`pagelayout_menu.html.twig`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/app/Resources/views/pagelayout_menu.html.twig) files in `app/Resources/views` folder. Create a new folder, called `full`, under `views`. Place further template files in it:
 
-- [`article.html.twig`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step1/app/Resources/views/full/article.html.twig)
-- [`dog_breed.html.twig`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step1/app/Resources/views/full/dog_breed.html.twig)
-- [`folder.html.twig`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step1/app/Resources/views/full/folder.html.twig)
-- [`tip.html.twig`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step1/app/Resources/views/full/tip.html.twig)
+- [`article.html.twig`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/app/Resources/views/full/article.html.twig)
+- [`dog_breed.html.twig`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/app/Resources/views/full/dog_breed.html.twig)
+- [`folder.html.twig`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/app/Resources/views/full/folder.html.twig)
+- [`tip.html.twig`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/app/Resources/views/full/tip.html.twig)
 
 Place two configuration files in `app/config` folder:
 
-- [`views.yml`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step1/app/config/views.yml)
-- [`image_variations.yml`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step1/app/config/image_variations.yml)
+- [`views.yml`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/app/config/views.yml)
+- [`image_variations.yml`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/app/config/image_variations.yml)
 
 Modify the `config.yml` file located in `app/config` folder and add the following lines at the end of the `imports` block:
 
@@ -92,17 +90,17 @@ Modify the `config.yml` file located in `app/config` folder and add the followin
 
 In `web/assets` folder create:
 
-- a `css` subfolder and add this stylesheet file to it: [`style.css`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step1/web/assets/css/style.css)
-- an `images` subfolder and add the [`header.jpg`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step1/web/assets/images/header.jpg) file to it
+- a `css` subfolder and add this stylesheet file to it: [`style.css`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/web/assets/css/style.css)
+- an `images` subfolder and add the [`header.jpg`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/web/assets/images/header.jpg) file to it
 
-In `src/AppBundle` folder create a `QueryType` subfolder and add [`LocationChildrenQueryType.php`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/step1/src/AppBundle/QueryType/LocationChildrenQueryType.php) to it. This file allows your folders to display all content that they contain (read up on it [in the documentation](../../guide/content_rendering.md#query-controller)).
+In `src/AppBundle` folder create a `QueryType` subfolder and add [`LocationChildrenQueryType.php`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v2-step1/src/AppBundle/QueryType/LocationChildrenQueryType.php) to it. This file allows your folders to display all content that they contain (read up on it [in the documentation](../../guide/content_rendering.md#query-controller)).
 
 Finally, add the following files to `src/AppBundle`, to create dynamic links in the top menu:
 
-- [`Controller/MenuController.php`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step1/src/AppBundle/Controller/MenuController.php)
-- [`DependencyInjection/AppExtension.php`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step1/src/AppBundle/DependencyInjection/AppExtension.php)
-- [`QueryType/MenuQueryType.php`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step1/src/AppBundle/QueryType/MenuQueryType.php)
-- [`Resources/config/services.yml`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step1/src/AppBundle/Resources/config/services.yml)
+- [`Controller/MenuController.php`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/src/AppBundle/Controller/MenuController.php)
+- [`DependencyInjection/AppExtension.php`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/src/AppBundle/DependencyInjection/AppExtension.php)
+- [`QueryType/MenuQueryType.php`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/src/AppBundle/QueryType/MenuQueryType.php)
+- [`Resources/config/services.yml`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/src/AppBundle/Resources/config/services.yml)
 
 All the files you've placed in `src/AppBundle` are not the scope of this tutorial and we won't go here into detail on how they work.
 

@@ -2,7 +2,7 @@
 
 !!! tip
 
-    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/ezstudio-beginner-tutorial/tree/step2).
+    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/ezstudio-beginner-tutorial/tree/v2-step2).
 
 In this step you'll prepare and configure your front page, together with its layout and templates.
 
@@ -76,7 +76,7 @@ Creating the file is not enough, you also need to tell the app to read and use i
 
 Take a look at the most important things that this configuration defines (for a detailed description of creating a Landing Page layout, see [Creating Landing Page layouts (Enterprise)](../../cookbook/creating_landing_page_layouts_(enterprise)):
 
-The `sidebar` is the key of the layout, but it is the `name` that is displayed in the interface when the user selects a layout. The `thumbnail` links to an image file with an icon of the layout. It will also be shown when creating a new Landing Page, as a visual hint next to the name. Use the [supplied thumbnail file](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/step2/web/assets/images/layouts/sidebar.png) and place it in the `web/assets/images/layouts/` folder.
+The `sidebar` is the key of the layout, but it is the `name` that is displayed in the interface when the user selects a layout. The `thumbnail` links to an image file with an icon of the layout. It will also be shown when creating a new Landing Page, as a visual hint next to the name. Use the [supplied thumbnail file](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step2/web/assets/images/layouts/sidebar.png) and place it in the `web/assets/images/layouts/` folder.
 
 The `template` points to the twig file where in the next step you will create the template for this layout. This is the most important part of the configuration, as templates are what distinguishes all layouts from one another.
 
