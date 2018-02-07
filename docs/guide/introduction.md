@@ -36,7 +36,7 @@ eZ Enterprise's Studio UI lets you create block-based Landing Pages using drag-a
 
 You can quickly switch between working on and previewing Landing Pages, which makes for comfortable editing and better control of your content.
 
-[Creating Landing Page blocks (Enterprise)](../cookbook/creating_landing_page_blocks_(enterprise).md) shows how to create and customize your own blocks.
+[Landing Page blocks](../guide/content_rendering.md#landing-page-blocks) shows how to create and customize your own blocks.
 
 **Scheduling automatic publication of content on Landing Pages:**
 
