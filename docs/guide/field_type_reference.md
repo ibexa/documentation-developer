@@ -1122,11 +1122,11 @@ $keywordValue = new Value( "php5,css3,html5" );
 
     The placement of zones is defined in a template which is a part of the layout configuration. You can modify the template in order to define your own layout of zones.
 
-    For information on how to create and configure new blocks for the Landing Page, see [Creating Landing Page layouts (Enterprise).](../cookbook/creating_landing_page_layouts_(enterprise).md).
+    For information on how to create and configure new blocks for the Landing Page, see [Landing Page layouts](content_rendering.md#landing-page-layouts).
 
     ### Blocks
 
-    For information on how to create and configure new blocks for the Landing Page, see [Creating Landing Page blocks (Enterprise).](../cookbook/creating_landing_page_blocks_(enterprise).md)
+    For information on how to create and configure new blocks for the Landing Page, see [Landing Page blocks](content_rendering.md#landing-page-blocks).
 
     ### Rendering Landing Pages
 
