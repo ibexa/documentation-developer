@@ -616,9 +616,10 @@ SOLR BUNDLE &gt;= 1.4
 !!! tip "How boosting interacts with Search API"
 
     Boosting of fields or documents will affect the score (relevance) of your search result hits
-    when using Search API for any criteria you specify on `$query->query`.
+    when using Search API for any criteria you specify on `$query->query`, or in REST by using `Query` element.
     When you don't specify anything to sort on, the result will be sorted by this relevance.
-    Anything set on `$query->filter` will _not_ affect scoring, as it only works as a pure filter for the result.
+    Anything set on `$query->filter`, or in REST using `Filter` element,  will _not_ affect scoring and only works
+    as a pure filter for the result. Thus make sure to place criteria you want to affect scoring on `query`.
 
 Boosting currently happens when indexing, so if you change your configuration you'll need to re-index (this is expected behavior). This can possibly be solved by a contribution to change boosting to be performed on query time.
 
