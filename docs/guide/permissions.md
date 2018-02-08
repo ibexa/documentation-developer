@@ -1,16 +1,21 @@
-### Permissions
+# Permissions
 
-#### Overview
+## Permission overview
 
 A User by default does not have access to anything. To get access they need to inherit Roles, typically assigned to the User Group they belong to.
 
-Each Role can contain one or more **Policies**. A Policy is a rule that gives access to a single **function** in a **module**. For example, a `section/assign` Policy allows the user to assign content to Sections.
+Each Role can contain one or more **Policies**. A Policy is a rule that gives access to a single **function** in a **module**.
+For example, a `section/assign` Policy allows the user to assign content to Sections.
 
-When you add a Policy to a Role, you can also restrict it using one or more **Limitations**. A Policy with a Limitation will only apply when the condition in the Limitation is fulfilled. For example, a `content/publish` Policy with a ContentType Limitation on the "Blog Post" Content Type will allow the user to publish only Blog Posts, and not other Content.
+When you add a Policy to a Role, you can also restrict it using one or more **Limitations**.
+A Policy with a Limitation will only apply when the condition in the Limitation is fulfilled.
+For example, a `content/publish` Policy with a ContentType Limitation on the "Blog Post" Content Type will allow the user to publish only Blog Posts, and not other Content.
 
-Note that Policies on one Role are connected with the *and* relation, not *or*, so when Policy has more than one Limitation, all of them have to apply. See [example below](#restrict-editing-to-part-of-the-tree).
+Note that Policies on one Role are connected with the *and* relation, not *or*,
+so when Policy has more than one Limitation, all of them have to apply. See [example below](#restrict-editing-to-part-of-the-tree).
 
-Remember that a Limitation specifies what a user *can* do, not what they *can't do*. A Section Limitation, for example, *gives* the user access to the selected Section, not *prohibits* it.
+Remember that a Limitation specifies what a user *can* do, not what they *can't do*.
+A Section Limitation, for example, *gives* the user access to the selected Section, not *prohibits* it.
 
 See [Role Policies Map](#role-policies-map) for further information.
 
@@ -18,11 +23,11 @@ To take effect, a Role must be assigned to a User or User Group. Every User or U
 
 Best practice is to avoid assigning Roles to Users directly; instead, make sure you model your content (types, structure, sections, etc.) in a way that can be reflected in generic roles. Besides being much easier to manage and keep on top of security-wise, this also makes sure your system performs best. The more Role assignments and complex Policies you add for a given User, the more complex the search/load queries powering the whole CMS will be, as they always take permissions into account.
 
-#### Use Cases
+### Use Cases
 
 Here are a few examples of sets of Policies you can use to get some common permission configurations.
 
-###### Enter back end interface
+##### Enter back end interface
 
 To allow the user to enter the back end interface (PlatformUI) and view all Content, you need to set the following Policies:
 
@@ -35,7 +40,7 @@ To let the user navigate through StudioUI, you also need to add:
 
 These Policies will be necessary for all other cases below that require access to the PlatformUI.
 
-###### Create and publish content
+##### Create and publish content
 
 To create and publish content, the user must have (besides `user/login` and `content/read`) the following Policies:
 
@@ -46,7 +51,7 @@ To create and publish content, the user must have (besides `user/login` and `con
 
 This also lets the user copy and move content, as well as add new Locations to a Content item (but not remove them!).
 
-###### Create content without publishing
+##### Create content without publishing
 
 This option can be used together with eZ Enterprise's content review options. Using the following Policies, the user is able to create content, but can't publish it; instead, they must send it to review to another user with proper permissions (for example, senior editor, proofreader, etc.).
 
@@ -55,7 +60,7 @@ This option can be used together with eZ Enterprise's content review options. Us
 
 Note that without eZ Enterprise this setup should not be used, as it will not allow the user to continue working with their content.
 
-###### Restrict editing to part of the tree
+##### Restrict editing to part of the tree
 
 If you want to let the user create or edit Content, but only in one part of the content tree, you need to use Limitations. Three Limitations that could be used here are Section Limitation, Node Limitation and Subtree Limitation.
 
@@ -67,7 +72,7 @@ If you add a Node Limitation and point to the same Location, the user will be ab
 
 Note that when a Policy has more than one Limitation, all of them have to apply, or the Policy will not work. For example, a Location Limitation on Location `1/2` and Subtree Limitation on `1/2/55` cannot work together, because no Location can satisfy both those requirements at the same time. If you want to combine more than one Limitation with the *or* relation, not *and*, you can split your Policy in two, each with one of these Limitations.
 
-###### Manage Locations
+##### Manage Locations
 
 To add a new Location to a Content item, the Policies required for publishing content are enough. To allow the user to remove a Location, you need to grant them the following Policies:
 
@@ -76,7 +81,7 @@ To add a new Location to a Content item, the Policies required for publishing co
 
 Hiding and revealing Location requires one more Policy: `content/hide`.
 
-###### Removing content
+##### Removing content
 
 To send content to trash, the user needs to have the same two Policies that are required for removing Locations:
 
@@ -87,11 +92,11 @@ To remove an archived version of content, the user must have the `content/versio
 
 Further manipulation of trash requires the `content/restore` Policy to restore items from trash, and `content/cleantrash` to completely delete all content from the trash.
 
-###### Registering users
+##### Registering users
 
 To allow anonymous users to register through the `/register` route, you need to grant the `user/register` Policy to the Anonymous User Group.
 
-#### All available Policies
+### Available Policies
 
 | Module        | Function             | Effect                                                                                                                                  |
 |---------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
@@ -138,9 +143,9 @@ To allow anonymous users to register through the `/register` route, you need to 
 |               | `selfedit`           | unused                                                                                                                                  |
 |               | `activation`         | unused                                                                                                                                  |
 
-### Limitations Reference
+## Limitations
 
-Limitations are crucial building blocks of the [permissions system](#permissions) in eZ Platform. They provide the restrictions you can apply to a given access right to limit the right according to certain conditions.
+Limitations are crucial building blocks of the permissions system in eZ Platform. They provide the restrictions you can apply to a given access right to limit the right according to certain conditions.
 
 Limitations consist of two parts:
 
@@ -157,7 +162,7 @@ Certain limitations also serve as RoleLimitations, which means they can be used 
 | `evaluate` | Evaluating if the user has access to a given object in a certain context (for instance the context can be Locations when the object is `Content`), under the condition of the `Limitation` value(s). |
 | `getCriterion` | Generates a `Criterion` using `Limitation` value and current user which `SearchService` by default applies to search criteria for filtering search based on permissions. |
 
-#### Available Limitations
+### Available Limitations
 
 - [BlockingLimitation](#blockinglimitation)
 - [ContentTypeLimitation](#contenttypelimitation)
@@ -184,19 +189,19 @@ It is called "blocking" because it will always tell the permissions system that 
 
 |                 |                                                                                       |
 |-----------------|---------------------------------------------------------------------------------------|
-| Identifier      | `n/a` (configured for `ezjscore` limitation `           FunctionList` out of the box) |
+| Identifier      | `n/a` (configured for `ezjscore` limitation `FunctionList` out of the box)            |
 | Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\BlockingLimitation`                 |
 | Type Class      | `eZ\Publish\Core\Limitation\BlockingLimitationType`                                   |
 | Criterion used  | MatchNone                                                                             |
 | Role Limitation | no                                                                                    |
 
-###### Possible values
+##### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
 |`<mixed>`|`<mixed>`|This is a generic Limitation which does not validate the values provided to it. Make sure to validate the values passed to this limitation in your own logic.|
 
-###### Configuration
+##### Configuration
 
 As this is a generic Limitation, you can configure your custom Limitations to use it, out of the box FunctionList uses it in the following way:
 
@@ -222,7 +227,7 @@ A Limitation to specify if the User has access to Content with a specific Conten
 | Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\ContentTypeId` |
 | Role Limitation | no                                                                       |
 
-###### Possible values
+##### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
@@ -240,7 +245,7 @@ A Limitation to specify if the User has access to Content in a specific language
 | Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\LanguageCode` |
 | Role Limitation | no                                                                      |
 
-###### Possible values
+##### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
@@ -258,7 +263,7 @@ A Limitation to specify if the User has access to Content with a specific Locati
 | Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\LocationId` |
 | Role Limitation | no                                                                    |
 
-###### Possible values
+##### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
@@ -278,7 +283,7 @@ In the `state/assign` Policy you can combine this with `ObjectStateLimitation` t
 | Criterion used  | n/a                                                                         |
 | Role Limitation | no                                                                          |
 
-###### Possible values
+##### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
@@ -298,7 +303,7 @@ In the `section/assign` Policy you can combine this with `SectionLimitation` to 
 | Criterion used  | n/a                                                                     |
 | Role Limitation | no                                                                      |
 
-###### Possible values
+##### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
@@ -316,7 +321,7 @@ A Limitation to specify if the User has access to Content with a specific Object
 | Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\ObjectStateId` |
 | Role Limitation | no                                                                       |
 
-###### Possible values
+##### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
@@ -334,14 +339,14 @@ A Limitation to specify that only the owner of the Content item gets a certain a
 | Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\UserMetadata( UserMetadata::OWNER )` |
 | Role Limitation | no                                                                                             |
 
-###### Possible values
+##### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
 |`1`|"self"|Only the User who is the owner gets access|
 |`2`|"session"|Same as "self"|
 
-###### Legacy compatibility notes:
+##### Legacy compatibility notes:
 
 1. "session" is deprecated and works exactly like "self" in Public API since it has no knowledge of user Sessions
 1. A User is no longer automatically assumed to be the owner of themselves and gets access to edit themselves when the Owner limitation is used in Public API
@@ -373,7 +378,7 @@ This limitation combined with `ContentTypeLimitation` allows you to define busin
 | Criterion used  | n/a                                                                            |
 | Role Limitation | no                                                                             |
 
-###### Possible values
+##### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
@@ -391,7 +396,7 @@ A Limitation to specify if the User has access to creating Content under a paren
 | Criterion used  | n/a                                                                      |
 | Role Limitation | no                                                                       |
 
-###### Possible values
+##### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
@@ -409,14 +414,14 @@ A Limitation to specify that only the Users who owns all parent Locations of a C
 | Criterion used  | n/a                                                                      |
 | Role Limitation | no                                                                       |
 
-###### Possible values
+##### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
 |`1`|"self"|Only the User who is the owner of all parent Locations gets access|
 |`2`|"session"|Same as "self"|
 
-###### Legacy compatibility notes
+##### Legacy compatibility notes
 
 1. "session" is deprecated and works exactly like "self" in Public API since it has no knowledge of user Sessions
 1. User is no longer auto assumed to be owner of himself and get access create children of own user content object when `Owner` limitation is used in Public API
@@ -446,7 +451,7 @@ A Limitation to specify that only Users with at least one common *direct* User g
 | Criterion used  | n/a                                                                          |
 | Role Limitation | no                                                                           |
 
-###### Possible values
+##### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
@@ -464,7 +469,7 @@ A Limitation to specify if the User has access to Content within a specific Sect
 | Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\SectionId` |
 | Role Limitation | yes                                                                  |
 
-###### Possible values
+##### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
@@ -482,13 +487,13 @@ A Limitation to specify in which siteaccesses a certain permission applies, used
 | Criterion used  | n/a                                                                     |
 | Role Limitation | no                                                                      |
 
-###### Possible values
+##### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
 |`<siteaccess_hash>`|`<siteaccess_name>`|Hash is calculated in the following way in legacy in default 64bit mode: `sprintf( '%u', crc32( $siteAccessName ) )`|
 
-###### Legacy compatibility notes
+##### Legacy compatibility notes
 
 `SiteAccess` Limitation is deprecated and is not used actively in Public API, but is allowed for being able to read / create Limitations for legacy.
 
@@ -504,7 +509,7 @@ A Limitation to specify if the User has access to Content within a specific subt
 | Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\Subtree`   |
 | Role Limitation | yes                                                                  |
 
-###### Possible values
+##### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
@@ -522,15 +527,15 @@ A Limitation to specify that only Users with at least one common *direct* User g
 | Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\UserMetadata( UserMetadata::GROUP )` |
 | Role Limitation | no                                                                                             |
 
-###### Possible values
+##### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
 |`1`|"self"|Only a User who has at least one common *direct* User group with the owner gets access|
 
-### Role Policies Map
+## Role Policies Map
 
-#### Retrieving the Role Policies
+### Retrieving the Role Policies
 
 To retrieve the Roles Policies, on a working eZ Platform instance, in dev environment open the file `app/cache/dev/appDevDebugProjectContainer.xml`
 
@@ -551,7 +556,7 @@ Then open it and look for `ezpublish.api.role.policy_map`, it will look like thi
 - The 2nd sublevel ("read") is a function.
 - The 3rd sublevel ("Class") is a limitation.
 
-#### Module, function and limitations
+### Module, function and limitations
 
 Each Module contains functions, and for each function, you have limitations. The default values are shown below.
 
@@ -598,17 +603,7 @@ If a function is absent from the tables below, it means that no Limitations can 
 |------|------|
 |assign|SiteAccess|
 
-
-### Permissions
-
-Two parts of the permissions system are extensible from a programmatic perspective: Policies and Limitations
-
-- Policies: [Custom Policies can be added for use in your own code](#custom-policies), custom Policy example: comment/create
-- [Limitations](#limitations-reference): You can extend existing Policies, and hence extend the permissions of the CMS, example could be adding a SubscriptionLimitation to content/read Policy
-
-### Custom Policies
-
-#### Description
+## Custom Policies
 
 eZ content repository uses the concept of Roles and Policies in order to authorize a user to do something (e.g. read content).
 
@@ -618,7 +613,7 @@ eZ content repository uses the concept of Roles and Policies in order to authori
 
 It is possible for any bundle to expose available Policies via a `PolicyProvider` which can be added to EzPublishCoreBundle's DIC extension.
 
-#### PolicyProvider
+### PolicyProvider
 
 A `PolicyProvider` is an object providing a hash containing declared modules, functions and limitations.
 
@@ -646,7 +641,7 @@ If no Limitation is provided, value can be `null` or an empty array.
 
 Limitations need to be implemented as *limitation types* and declared as services identified with `ezpublish.limitationType` tag. Name provided in the hash for each Limitation is the same value set in `alias` attribute in the service tag.
 
-#### Example
+### Example
 
 ``` php
 namespace Acme\FooBundle\AcmeFooBundle\Security;
@@ -668,7 +663,7 @@ class MyPolicyProvider implements PolicyProviderInterface
 }
 ```
 
-#### YamlPolicyProvider
+### YamlPolicyProvider
 
 An abstract class based on YAML is provided: `eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Security\PolicyProvider\YamlPolicyProvider`.
 It defines an abstract `getFiles()` method.
@@ -698,17 +693,17 @@ custom_module:
     custom_function_2: [CustomLimitation]
 ```
 
-##### Extending existing policies
+#### Extending existing policies
 
 A `PolicyProvider` may provide new functions to a module, and additional Limitations to an existing function. 
 **It is however strongly encouraged to add functions to your own Policy modules.**
 
 It is not possible to remove an existing module, function or limitation from a Policy.
 
-#### Integrating the PolicyProvider into EzPublishCoreBundle
+### Integrating the PolicyProvider into EzPublishCoreBundle
 
 For a PolicyProvider to be active, it must be properly declared in EzPublishCoreBundle.
-A bundle just has to retrieve CoreBundle's DIC extension and call  `addPolicyProvider()` . This must be done in the bundle's  `build()`  method.
+A bundle just has to retrieve CoreBundle's DIC extension and call `addPolicyProvider()`. This must be done in the bundle's `build()` method.
 
 ``` php
 namespace Acme\FooBundle\AcmeFooBundle;
@@ -731,6 +726,6 @@ class AcmeFooBundle extends Bundle
 }
 ```
 
-#### Core policies
+### Core policies
 
-Policies used internally in repository services are defined in  `EzPublishCoreBundle/Resources/config/policies.yml` .
+Policies used internally in repository services are defined in `EzPublishCoreBundle/Resources/config/policies.yml`.
