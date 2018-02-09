@@ -132,85 +132,81 @@ Some versions require updates to the database. Look through [the list of databas
 
 These steps are only relevant for some releases:
 
-**Solr Bundle 1.4: Index time boosting**
+??? note "Solr Bundle 1.4: Index time boosting"
 
-Solr Bundle v1.4 introduced among other things index time boosting feature, this involves a slight change to the solr scheme that will need to be applied to your config.
+    Solr Bundle v1.4 introduced among other things index time boosting feature, this involves a slight change to the Solr scheme that will need to be applied to your config.
 
-To make sure indexing continues to work, apply the following change, restart solr and reindex your content:
+    To make sure indexing continues to work, apply the following change, restart Solr and reindex your content:
 
-``` xml
-diff --git a/lib/Resources/config/solr/schema.xml b/lib/Resources/config/solr/schema.xml
-index 49a17a9..80c4cd7 100644
---- a/lib/Resources/config/solr/schema.xml
-+++ b/lib/Resources/config/solr/schema.xml
-@@ -92,7 +92,7 @@ should not remove or drastically change the existing definitions.
-     <dynamicField name="*_s" type="string" indexed="true" stored="true"/>
-     <dynamicField name="*_ms" type="string" indexed="true" stored="true" multiValued="true"/>
-     <dynamicField name="*_l" type="long" indexed="true" stored="true"/>
--    <dynamicField name="*_t" type="text" indexed="true" stored="true"/>
-+    <dynamicField name="*_t" type="text" indexed="true" stored="true" multiValued="true" omitNorms="false"/>
-     <dynamicField name="*_b" type="boolean" indexed="true" stored="true"/>
-     <dynamicField name="*_mb" type="boolean" indexed="true" stored="true" multiValued="true"/>
-     <dynamicField name="*_f" type="float" indexed="true" stored="true"/>
-@@ -104,13 +104,6 @@ should not remove or drastically change the existing definitions.
-     <dynamicField name="*_c" type="currency" indexed="true" stored="true"/>
+    ``` xml
+    diff --git a/lib/Resources/config/solr/schema.xml b/lib/Resources/config/solr/schema.xml
+    index 49a17a9..80c4cd7 100644
+    --- a/lib/Resources/config/solr/schema.xml
+    +++ b/lib/Resources/config/solr/schema.xml
+    @@ -92,7 +92,7 @@ should not remove or drastically change the existing definitions.
+         <dynamicField name="*_s" type="string" indexed="true" stored="true"/>
+         <dynamicField name="*_ms" type="string" indexed="true" stored="true" multiValued="true"/>
+         <dynamicField name="*_l" type="long" indexed="true" stored="true"/>
+    -    <dynamicField name="*_t" type="text" indexed="true" stored="true"/>
+    +    <dynamicField name="*_t" type="text" indexed="true" stored="true" multiValued="true" omitNorms="false"/>
+         <dynamicField name="*_b" type="boolean" indexed="true" stored="true"/>
+         <dynamicField name="*_mb" type="boolean" indexed="true" stored="true" multiValued="true"/>
+         <dynamicField name="*_f" type="float" indexed="true" stored="true"/>
+    @@ -104,13 +104,6 @@ should not remove or drastically change the existing definitions.
+         <dynamicField name="*_c" type="currency" indexed="true" stored="true"/>
 
-     <!--
--      Full text field is indexed through proxy fields matching '*_fulltext' pattern.
--    -->
--    <field name="text" type="text" indexed="true" multiValued="true" stored="false"/>
--    <dynamicField name="*_fulltext" type="text" indexed="false" multiValued="true" stored="false"/>
--    <copyField source="*_fulltext" dest="text" />
--
--    <!--
-       This field is required since Solr 4
-     -->
-     <field name="_version_" type="long" indexed="true" stored="true" multiValued="false" />
-```
-
-**Form Builder**
-
-!!! caution "V1.7"
-
-!!! enterprise "EZ ENTERPRISE"
-
-    To enable the Form Builder feature in eZ Platform Enterprise Edition, import the following file:
-
-    ``` bash
-    mysql -p -u <database_user> <database_name> < vendor/ezsystems/ezstudio-form-builder/bundle/Resources/install/form_builder.sql
+         <!--
+    -      Full text field is indexed through proxy fields matching '*_fulltext' pattern.
+    -    -->
+    -    <field name="text" type="text" indexed="true" multiValued="true" stored="false"/>
+    -    <dynamicField name="*_fulltext" type="text" indexed="false" multiValued="true" stored="false"/>
+    -    <copyField source="*_fulltext" dest="text" />
+    -
+    -    <!--
+           This field is required since Solr 4
+         -->
+         <field name="_version_" type="long" indexed="true" stored="true" multiValued="false" />
     ```
 
-**Date Based Publisher**
+??? note "v1.7: Form Builder"
 
-!!! caution "V1.7"
+    !!! enterprise "EZ ENTERPRISE"
 
-!!! enterprise "EZ ENTERPRISE"
+        To enable the Form Builder feature in eZ Platform Enterprise Edition, import the following file:
 
-    To enable the Date-Based Publisher feature in Enterprise, import the following file:
+        ``` bash
+        mysql -p -u <database_user> <database_name> < vendor/ezsystems/ezstudio-form-builder/bundle/Resources/install/form_builder.sql
+        ```
 
-    ``` bash
-    mysql -p -u <database_user> <database_name> < vendor/ezsystems/date-based-publisher/bundle/Resources/install/datebasedpublisher_scheduled_version.sql
-    ```
+??? note "v1.7: Date Based Publisher"
 
-    In order to activate Date-Based Publisher open console (terminal) and use:
+    !!! enterprise "EZ ENTERPRISE"
 
-    ``` bash
-    crontab -e
-    ```
+        To enable the Date-Based Publisher feature in Enterprise, import the following file:
 
-    and add below configuration at the end of edited file.
+        ``` bash
+        mysql -p -u <database_user> <database_name> < vendor/ezsystems/date-based-publisher/bundle/Resources/install/datebasedpublisher_scheduled_version.sql
+        ```
 
-    For production environment:
+        In order to activate Date-Based Publisher open console (terminal) and use:
 
-    ``` bash
-    * * * * *   (cd /path/to/your/ezplatform-ee-project && app/console ezpublish:cron:run -e=prod)
-    ```
+        ``` bash
+        crontab -e
+        ```
 
-    For development environment:
+        and add below configuration at the end of edited file.
 
-    ``` bash
-    * * * * *   (cd /path/to/your/ezplatform-ee-project && app/console ezpublish:cron:run -e=dev)
-    ```
+        For production environment:
+
+        ``` bash
+        * * * * *   (cd /path/to/your/ezplatform-ee-project && app/console ezpublish:cron:run -e=prod)
+        ```
+
+        For development environment:
+
+        ``` bash
+        * * * * *   (cd /path/to/your/ezplatform-ee-project && app/console ezpublish:cron:run -e=dev)
+        ```
 
 ## 5. Dump assets
 
