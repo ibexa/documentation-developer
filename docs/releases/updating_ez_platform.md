@@ -120,17 +120,15 @@ On PHP conflict | 16.02 and later requires PHP 5.5 or higher
 
 Because from release 16.02 onwards eZ Platform is compatible only with PHP 5.5 and higher, the update command above will fail if you use an older PHP version. Please update PHP to proceed.
 
-**Adding EzSystemsPlatformEEAssetsBundle**
+??? note "v1.10: Adding EzSystemsPlatformEEAssetsBundle"
 
-!!! caution "V1.10"
+    !!! enterprise "EZ ENTERPRISE"
 
-!!! enterprise "EZ ENTERPRISE"
+        When upgrading to v1.10, you need to enable the new `EzSystemsPlatformEEAssetsBundle` by adding:
 
-    When upgrading to v1.10, you need to enable the new `EzSystemsPlatformEEAssetsBundle` by adding:
+        `new EzSystems\PlatformEEAssetsBundle\EzSystemsPlatformEEAssetsBundle(),`
 
-    `new EzSystems\PlatformEEAssetsBundle\EzSystemsPlatformEEAssetsBundle(),`
-
-    in `app/AppKernel.php`.
+        in `app/AppKernel.php`.
 
 !!! caution "Common errors"
 
@@ -144,13 +142,11 @@ Some versions require updates to the database. Look through [the list of databas
 
 These steps are only relevant for some releases:
 
-**Index time boosting**
+??? note "Solr Bundle 1.4: Index time boosting"
 
-!!! caution "Solr Bundle 1.4"
+    Solr Bundle v1.4 introduced among other things index time boosting feature, this involves a slight change to the Solr scheme that will need to be applied to your config.
 
-    Solr Bundle v1.4 introduced among other things index time boosting feature, this involves a slight change to the solr scheme that will need to be applied to your config.
-
-    To make sure indexing continues to work, apply the following change, restart solr and reindex your content:
+    To make sure indexing continues to work, apply the following change, restart Solr and reindex your content:
 
     ``` xml
     diff --git a/lib/Resources/config/solr/schema.xml b/lib/Resources/config/solr/schema.xml
@@ -182,9 +178,7 @@ These steps are only relevant for some releases:
          <field name="_version_" type="long" indexed="true" stored="true" multiValued="false" />
     ```
 
-**content/publish permission**
-
-!!! caution "V1.8"
+??? note "v1.8: content/publish permission"
 
     v1.8.0 introduced a new `content/publish` permission separated out of the `content/edit` permission. `edit` now covers only editing content, without the right to publishing it. For that you need the `publish` permission. `edit` without `publish` can be used in conjunction with the Content review workflow to ensure that a user cannot publish content themselves, but must pass it on for review.
 
@@ -194,11 +188,11 @@ These steps are only relevant for some releases:
     mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.7.0-to-6.8.0.sql
     ```
 
-**Folder for form-uploaded files**
+??? note "v1.8: Folder for form-uploaded files"
 
-!!! caution "V1.8"
-
-!!! enterprise "EZ ENTERPRISE"
+        ``` bash
+        mysql -p -u <database_user> <database_name> < vendor/ezsystems/date-based-publisher/bundle/Resources/install/datebasedpublisher_scheduled_version.sql
+        ```
 
     To complete this step you have to [dump assets](#5-dump-assets) first.
 
@@ -214,9 +208,7 @@ These steps are only relevant for some releases:
         form_builder.upload_folder.section_identifier: <section identifier>
     ```
 
-**ezsearch_return_count table removal**
-
-!!! caution "V1.11"
+??? note "v1.11: ezsearch_return_count table removal"
 
     v1.11.0 removes the `ezsearch_return_count` table, which had been removed in eZ Publish legacy since 5.4/2014.11. This avoids issues which would occur when you upgrade using legacy bridge. Apply the following database update script if your installation has not had the table removed by an earlier eZ Publish upgrade:
 
@@ -224,9 +216,7 @@ These steps are only relevant for some releases:
     mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.10.0-to-6.11.0.sql
     ```
 
-**Increased password hash length**
-
-!!! caution "V1.12"
+??? note "v1.12: Increased password hash length"
 
     v1.12.0 improves password security by introducing support for PHP's `PASSWORD_BCRYPT` and `PASSWORD_DEFAULT` hashing algorithms. By default `PASSWORD_DEFAULT` is used. This currently uses bcrypt, but this may change in the future as PHP adds support for new and stronger algorithms.
     Apply the following database update script to change the schema and enable the storage of longer passwords:
