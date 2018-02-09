@@ -164,6 +164,76 @@ Certain limitations also serve as RoleLimitations, which means they can be used 
 
 ### Available Limitations
 
+#### Retrieving the Role Policies
+
+To retrieve the Roles Policies, on a working eZ Platform instance, in dev environment open the file `app/cache/dev/appDevDebugProjectContainer.xml`
+
+If you can not find the file, please reload the homepage. The cache will be regenerated.
+
+Then open it and look for `ezpublish.api.role.policy_map`, it will look like this:
+
+``` xml
+<!--ezpublish.api.role.policy\_map entry in the app/cache/dev/appDevDebugProjectContainer.xml file-->
+
+    <parameter key="ezpublish.api.role.policy_map" type="collection">
+        <parameter key="content" type="collection">           
+        <parameter key="read" type="collection">
+        <parameter key="Class">true</parameter>
+```
+
+- The 1st sublevel ("content") is a module.
+- The 2nd sublevel ("read") is a function.
+- The 3rd sublevel ("Class") is a limitation.
+
+#### Module, function and limitations
+
+Each Module contains functions, and for each function, you have limitations. The default values are shown below.
+
+There are 4 modules:
+
+- content
+- section
+- state
+- user
+
+If a function is absent from the tables below, it means that no Limitations can be assigned to it.
+
+##### Content
+
+|Functions|Class|Section|Owner|Node|Subtree|Group|Language|Other Limitations|
+|------|------|------|------|------|------|------|------|------|
+|read|true|true|true|true|true|true|-|State|
+|diff|true|true|true|true|true|-|-|-|
+|view_embed|true|true|true|true|true|-|-|-|
+|create|true|true|-|true|true|-|true|ParentOwner</br>ParentGroup</br>ParentClass</br>ParentDepth|
+|edit|true|true|true|true|true|true|true|State|
+|manage_locations|true|true|true|-|true|-|-|-|
+|hide|true|true|true|true|true|true|true|State|
+|translate|true|true|true|true|true|true|-|
+|remove|true|true|true|true|true|-|-|State|
+|versionread|true|true|true|true|true|-|-|Status|
+|versionremove|true|true|true|true|true|-|-|Status|
+
+##### Section
+
+|Function|Limitations|
+|------|------|
+|assign|Class</br>Section</br>Owner</br>NewSection|
+
+##### State
+
+|Function|Limitations|
+|------|------|
+|assign|Class</br>Section</br>Owner</br>NewSection|
+
+##### User
+
+|Function|Limitations|
+|------|------|
+|assign|SiteAccess|
+
+### Limitation details
+
 - [BlockingLimitation](#blockinglimitation)
 - [ContentTypeLimitation](#contenttypelimitation)
 - [LanguageLimitation](#languagelimitation)
@@ -532,76 +602,6 @@ A Limitation to specify that only Users with at least one common *direct* User g
 |Value|UI value|Description|
 |------|------|------|
 |`1`|"self"|Only a User who has at least one common *direct* User group with the owner gets access|
-
-## Role Policies Map
-
-### Retrieving the Role Policies
-
-To retrieve the Roles Policies, on a working eZ Platform instance, in dev environment open the file `app/cache/dev/appDevDebugProjectContainer.xml`
-
-If you can not find the file, please reload the homepage. The cache will be regenerated.
-
-Then open it and look for `ezpublish.api.role.policy_map`, it will look like this:
-
-``` xml
-<!--ezpublish.api.role.policy\_map entry in the app/cache/dev/appDevDebugProjectContainer.xml file-->
-
-    <parameter key="ezpublish.api.role.policy_map" type="collection">
-        <parameter key="content" type="collection">           
-        <parameter key="read" type="collection">
-        <parameter key="Class">true</parameter>
-```
-
-- The 1st sublevel ("content") is a module.
-- The 2nd sublevel ("read") is a function.
-- The 3rd sublevel ("Class") is a limitation.
-
-### Module, function and limitations
-
-Each Module contains functions, and for each function, you have limitations. The default values are shown below.
-
-There are 4 modules:
-
-- content
-- section
-- state
-- user
-
-If a function is absent from the tables below, it means that no Limitations can be assigned to it.
-
-#### Content
-
-|Functions|Class|Section|Owner|Node|Subtree|Group|Language|Other Limitations|
-|------|------|------|------|------|------|------|------|------|
-|read|true|true|true|true|true|true|-|State|
-|diff|true|true|true|true|true|-|-|-|
-|view_embed|true|true|true|true|true|-|-|-|
-|create|true|true|-|true|true|-|true|ParentOwner</br>ParentGroup</br>ParentClass</br>ParentDepth|
-|edit|true|true|true|true|true|true|true|State|
-|manage_locations|true|true|true|-|true|-|-|-|
-|hide|true|true|true|true|true|true|true|State|
-|translate|true|true|true|true|true|true|-|
-|remove|true|true|true|true|true|-|-|State|
-|versionread|true|true|true|true|true|-|-|Status|
-|versionremove|true|true|true|true|true|-|-|Status|
-
-#### Section
-
-|Function|Limitations|
-|------|------|
-|assign|Class</br>Section</br>Owner</br>NewSection|
-
-#### State
-
-|Function|Limitations|
-|------|------|
-|assign|Class</br>Section</br>Owner</br>NewSection|
-
-#### User
-
-|Function|Limitations|
-|------|------|
-|assign|SiteAccess|
 
 ## Custom Policies
 
