@@ -426,8 +426,9 @@ The Solr search engine bundle can be configured in many ways. The config further
 
 ``` yaml
 # parameters.yml
-    search_engine: solr
-    solr_dsn: 'http://localhost:8983/solr'
+    env(SEARCH_ENGINE): solr
+    env(SOLR_DSN): 'http://localhost:8983/solr'
+    env(SOLR_CORE): collection1
 ```
 
 On to configuring the bundle.
