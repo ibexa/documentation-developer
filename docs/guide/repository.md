@@ -1,20 +1,22 @@
 # Repository
 
+TODO intro
+
 ## Locations
 
 A Content item could not function in the system without having a place – a Location – assigned to it. When a new Content item is published, a new Location is automatically created and the item is placed in it.
 
-Together, all Locations form a tree which is the basic way of organizing Content in the system and specific to eZ products. Every published Content item has a Location and, as a consequence, also a place in this tree.
+Together, all Locations form a tree which is the basic way of organizing Content in the system and specific to eZ Platform. Every published Content item has a Location and, as a consequence, also a place in this tree.
 
 A Content item receives a Location only once it has been published. This means that a freshly created draft does not have a Location yet.
 
-A Content item can have more than one Location. This can be used to have the same content in two or more places in the tree, for example an article at the same time on the front page and in the archive. Even in such a case, one of these places is always the Main Location.
+A Content item can have more than one Location. This can be used to have the same content in two or more places in the tree, for example an article at the same time on the front page and in the archive. Even in such a case, one of these places is always the main Location.
 
 The tree is hierarchical, with an empty root Location (which is not assigned any Content item) and a structure of dependent Locations below it. Every Location (aside from the root) has one parent Location and can have any number of children. There are no Locations outside this tree.
 
 ### Top level Locations
 
-Top level Locations are direct children of the root of the tree. The root has ID Location 1, is not related to any Content items and should not be used directly.
+Top level Locations are direct children of the root of the tree. The root has Location ID 1, is not related to any Content items and should not be used directly.
 
 Under this root there are preset top level Locations in each installation which cannot be deleted:
 
@@ -32,7 +34,7 @@ Under this root there are preset top level Locations in each installation which 
 
 ![Users in admin panel](img/admin_panel_users.png)
 
-"Users" is the top level Location that contains the built-in system for managing user accounts. A user is simply a Content item of the "User account" Content Type. The users are organized within "User group" Content items below this Location. In other words, the "Users" Location contains the actual users and user groups, which can be viewed by selecting the "Users" tab in the Admin Panel. The default identification number of the "Users" Location is 5; it references a "User group" Content item.
+"Users" is the top level Location that contains the built-in system for managing User accounts. A User is simply a Content item of the "User account" Content Type. The Users are organized within "User group" Content items below this Location. In other words, the "Users" Location contains the actual Users and User groups, which can be viewed by selecting the "Users" tab in the Admin Panel. The default identification number of the "Users" Location is 5; it references a "User group" Content item.
 
 #### Other top level Locations
 
@@ -46,7 +48,7 @@ Location visibility is a mechanism which allows you to control which parts of th
 
 Given that once a Content item is published, it cannot be un-published, limiting visibility is the only method used to withdraw content from the website without moving it to Trash. When the Location of a Content item is hidden, any access to it will be denied, preventing the system from displaying it.
 
-Visibility needs not be set individually for every Location. Instead, when a Location is hidden, all of its descendants in the tree will be hidden as well. This means that a Location can have one of three different visibility statuses:
+Visibility does not need to be set individually for every Location. Instead, when a Location is hidden, all of its descendants in the tree will be hidden as well. This means that a Location can have one of three different visibility statuses:
 
 - Visible
 - Hidden
@@ -102,13 +104,13 @@ The visibility mechanics are controlled by two flags: Hidden flag and Invisible 
 
     The Location visibility flag is not permission-based and thus acts as a simple potential filter. **It is not meant to restrict access to content**.
 
-    If you need to restrict access to a given Content item, use **Sections** or **Object states**, which are permission-based.
+    If you need to restrict access to a given Content item, use **Sections** or other Limitations, which are permission-based.
 
 ## Content Relations
 
 Content items are located in a tree structure through the Locations they are placed in. However, Content items themselves can also be related to one another.
 
-A Relation can be created between any two Content items in the repository. This feature is typically used in situations when you need to connect and/or reuse information that is scattered around in the system. For example, it allows you to add images to news articles. Instead of using a fixed set of image attributes, the images are stored as separate Content items outside the article.
+A Relation can be created between any two Content items in the Repository. This feature is typically used in situations when you need to connect and/or reuse information that is scattered around in the system. For example, it allows you to add images to news articles. Instead of using a fixed set of image attributes, the images are stored as separate Content items outside the article.
 
 There are different types of Relations available in the system. First of all, content can be related on item or on Field level.
 
@@ -124,48 +126,48 @@ Relations at item level can be of three different types:
 
 Sections are used to divide Content items in the tree into groups that are more easily manageable by content editors. Division into Sections allows you, among others, to set permissions for only a part of the tree.
 
-Technically, a Section is simply a triplet: a number, a name and an identifier. Content items are placed in Sections by being assigned the Section ID, with one item able to be in only one Section.
+Technically, a Section is a number, a name and an identifier. Content items are placed in Sections by being assigned the Section ID, with one item able to be in only one Section.
 
 When a new Content item is created, its Section ID is set to the default Section (which is usually Standard). When the item is published it is assigned to the same Section as its parent. Because Content must always be in a Section, unassigning happens by choosing a different Section to move it into. If a Content item has multiple Location assignments then it is always the Section ID of the item referenced by the parent of the main Location that will be used. In addition, if the main Location of a Content item with multiple Location assignments is changed then the Section ID of that item will be updated.
 
-When content is moved to a different Location, the item itself and all of its subtree will be assigned to the Section of the new Location. Please note that it works only for copy and move; assigning a new section to a parent's Content does not affect the subtree, meaning that Subtree cannot currently be updated this way.
+When content is moved to a different Location, the item itself and all of its subtree will be assigned to the Section of the new Location. Note that it works only for copy and move; assigning a new section to a parent's Content does not affect the subtree, meaning that Subtree cannot currently be updated this way.
 
-Sections can only be removed if no Content items are assigned to them. Even then, it should be done carefully. When a Section is deleted, it is only its definition itself that will be removed. Other references to the Section will remain and thus the system will most likely be in an inconsistent state.That is why removing Sections may corrupt permission settings, template output and other things in the system.
+Sections can only be removed if no Content items are assigned to them. Even then, it should be done carefully. When a Section is deleted, it is only its definition itself that will be removed. Other references to the Section will remain and thus the system will most likely be in an inconsistent state. That is why removing Sections may corrupt permission settings, template output and other things in the system.
 
 Section ID numbers are not recycled. If a Section is removed, its ID number will not be reused when a new Section is created.
 
 ![Sections screen](img/admin_panel_sections.png)
 
-## Content Repository Configuration
+## Content Repository configuration
 
-The **content repository** is where all your content is been stored. It is the heart of eZ Platform which you interact with using Public API.
+The content Repository is where all your content is stored.
 
-To store data, the content repository **uses a storage engine** that can virtually can work with any kind of storage (RDBMS, NoSQL, etc.). eZ Publish 5 came with a relational storage engine, compatible with v4.x: the **Legacy storage engine**, which is the default.
+To store data, the content Repository uses a storage engine that can work with virtually any kind of storage (FIXME RDBMS, NoSQL, etc.).
 
-You can define several repositories within a single application. However, you can only use one per site.
+You can define several Repositories within a single application. However, you can only use one per site.
 
 ### Configuration examples
 
-#### Using default values
+#### REVIEW Using default values
 
 ``` yaml
 # ezplatform.yml
 ezpublish:
     repositories:
-        # Defining repository with alias "main"
+        # Defining Repository with alias "main"
         # Default storage engine is used, with default connection
         # Equals to:
-        # main: { engine: legacy, connection: <defaultConnectionName> }
+        # main: { storage: { engine: legacy, connection: <defaultConnectionName> } }
         main: ~
 
     system:
-        # All members of my_siteaccess_group will use "main" repository
-        # No need to set "repository", it will take the first defined repository by default
+        # All members of my_siteaccess_group will use "main" Repository
+        # No need to set "repository", it will take the first defined Repository by default
         my_siteaccess_group:
             # ...
 ```
 
-If no repository is specified for a siteaccess or siteaccess group, the first defined repository (under `ezpublish.repositories`) will be used.
+If no Repository is specified for a SiteAccess or SiteAccess group, the first Repository defined under `ezpublish.repositories` will be used.
 
 #### All explicit
 
@@ -189,8 +191,8 @@ doctrine:
 
 ezpublish:
     repositories:
-        first_repository: { engine: legacy, connection: my_connection_name, config: {} }
-        second_repository: { engine: legacy, connection: another_connection_name, config: {} }
+        first_repository: { storage: { engine: legacy, connection: my_connection_name, config: {} } }
+        second_repository: { storage: { engine: legacy, connection: another_connection_name, config: {} } }
 
     # ...
 
@@ -204,7 +206,7 @@ ezpublish:
             repository: second_repository
 ```
 
-#### Legacy storage engine
+#### REVIEW CURRENT? Legacy storage engine
 
 Legacy storage engine uses [Doctrine DBAL](http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/) (Database Abstraction Layer). Database settings are supplied by [DoctrineBundle](https://github.com/doctrine/DoctrineBundle). As such, you can refer to [DoctrineBundle's documentation](https://github.com/doctrine/DoctrineBundle/blob/master/Resources/doc/configuration.rst#doctrine-dbal-configuration).
 
@@ -212,19 +214,19 @@ Legacy storage engine uses [Doctrine DBAL](http://docs.doctrine-project.org/proj
 
     Doctrine ORM is **not** provided by default. If you want to use it, you will need to add `doctrine/orm` as a dependency in your `composer.json`.
 
-### Field groups configuration
+### REVIEW MOVE? Field groups configuration
 
-Field groups, used in content and Content Type editing, can be configured from the repository section. Values entered there are field group *identifiers*:
+Field groups, used in content and Content Type editing, can be configured from the `repositories` section. Values entered there are field group *identifiers*:
 
 ``` yaml
 repositories:
-  default:
-    fields_groups:
-      list: [content, features, metadata]
-      default: content
+    default:
+        fields_groups:
+            list: [content, features, metadata]
+            default: content
 ```
 
-These identifiers can be given human-readable values and translated. Those values will at the moment be used when editing Content Types. The translation domain is `ezplatform_fields_groups`.
+These identifiers can be given human-readable values and translated. Those values are used when editing Content Types. The translation domain is `ezplatform_fields_groups`.
 This file will define English names for field groups:
 
 ``` yaml
@@ -234,9 +236,9 @@ metadata: Metadata
 user_data: User data
 ```
 
-### Limit of archived Content item versions
+### REVIEW MOVE? Limit of archived Content item versions
 
-`default_version_archive_limit` controls the number of archived versions per Content item that will be stored in the repository, by default set to 5. This setting is configured in the following way (typically in `ezplatform.yml`):
+`default_version_archive_limit` controls the number of archived versions per Content item that will be stored in the Repository, by default set to 5. This setting is configured in the following way (typically in `ezplatform.yml`):
 
 ``` yaml
 ezpublish:
@@ -250,17 +252,17 @@ This limit is enforced on publishing a new version and only covers archived vers
 
 !!! tip
 
-    Don't set this number too high, with LegacyStorageEngine you'll get performance degradation if you store too many versions. Default value of 5 is in general the recommended value, but the less content you have overall, the more you can increase this to, for instance, 25 or even 50.
+    Don't set this number too high, with Legacy storage engine you'll get performance degradation if you store too many versions. Default value of 5 is in general the recommended value, but the less content you have overall, the more you can increase this to, for instance, 25 or even 50.
 
-## Persistence Cache
+## Persistence cache
 
 ![SPI cache diagram](img/spi_cache.png)
 
 #### Layers
 
-Persistence cache can best be described as an implementation of `SPI\Persistence` that decorates the main backend implementation *(currently: "Legacy Storage Engine")*.
+FIXME Persistence cache can best be described as an implementation of `SPI\Persistence` that decorates the main backend implementation *(currently: "Legacy Storage Engine")*.
 
-As shown in the illustration, this is done in the exact same way as the SignalSlot feature is a custom implementation of API\\Repository decorating the main Repository. In the case of Persistence Cache, instead of sending events on calls passed on to the decorated implementation, most of the load calls are cached, and calls that perform changes purge the affected caches. This is done using a Cache service which is provided by StashBundle; this Service wraps around the Stash library to provide Symfony logging / debugging functionality, and allows cache handlers *(Memcached, Redis, Filesystem, etc.)* to be configured using Symfony configuration. For how to reuse this Cache service in your own custom code, see below.
+As shown in the illustration, this is done in the exact same way as the SignalSlot feature is a custom implementation of `API\Repository` decorating the main Repository. In the case of Persistence Cache, instead of sending events on calls passed on to the decorated implementation, most of the load calls are cached, and calls that perform changes purge the affected caches. This is done using a Cache service which is provided by StashBundle; this Service wraps around the Stash library to provide Symfony logging / debugging functionality, and allows cache handlers *(Memcached, Redis, Filesystem, etc.)* to be configured using Symfony configuration. For how to reuse this Cache service in your own custom code, see below.
 
 #### Transparent cache
 
@@ -268,20 +270,20 @@ With the persistence cache, just like with the HTTP cache, eZ Platform tries to 
 
 ##### Entity stored only once
 
-To make the transparent caching principle as effective as possible, entities are, as much as possible, only stored once in cache by their primary id. Lookup by a lternative identifiers (`identifier`, `remoteId`, etc.) is only cached with the identifier as cache key and primary `id` as its cache value, and compositions *(list of objects)* usually keep only the array of primary id's as their cache value.
+To make the transparent caching principle as effective as possible, entities are, as much as possible, only stored once in cache by their primary id. Lookup by alternative identifiers (`identifier`, `remoteId`, etc.) is only cached with the identifier as cache key and primary `id` as its cache value, and compositions *(list of objects)* usually keep only the array of primary id's as their cache value.
 
 This means a couple of things:
 
 - Memory consumption is kept low
-- Cache purging logic is kept simple (For example: `$sectionService->delete( 3 )` clears "section/3" cache entry)
+- Cache purging logic is kept simple (For example: `$sectionService->delete( 3 )` clears `section/3` cache entry)
 - Lookup by `identifier` and list of objects needs several cache lookups to be able to assemble the result value
 - Cache warmup usually takes several page loads to reach full as identifier is first cached, then the object
 
 #### What is cached?
 
-Persistence cache aims at caching most `SPI\Persistence` calls used in common page loads, including everything needed for permission checking and url alias lookups.
+Persistence cache aims at caching most `SPI\Persistence` calls used in common page loads, including everything needed for permission checking and URL alias lookups.
 
-Notes:
+REVIEW Notes:
 
 - `UrlWildCardHandler` is not currently cached
 - Currently in case of transactions this is handled very simply by clearing all cache on rollback, this can be improved in the future if needed.
@@ -292,7 +294,7 @@ Notes:
 
 ### Persistence cache configuration
 
-!!! note "Tech Note"
+!!! note
 
     Current implementation uses a caching library called [Stash](http://stash.tedivm.com/) (via [StashBundle](https://github.com/tedivm/TedivmStashBundle)). Stash supports the following cache backends: FileSystem, Memcache, APC, Sqlite, Redis and BlackHole.
 
@@ -308,7 +310,7 @@ The cache system is exposed as a "cache" service, and can be reused by any other
 
 #### Configuration
 
-By default, configuration currently uses **FileSystem**, with` %kernel.cache_dir%/stash` to store cache files.
+REVIEW By default, configuration currently uses **FileSystem**, with `%kernel.cache_dir%/stash` to store cache files.
 
 The configuration is placed in `app/config/config.yml` and looks like this:
 
@@ -328,11 +330,11 @@ stash:
     Use `inMemory` with caution, and avoid it completely for long running scripts for the following reasons:
 
     - It does not have any limits, so can result in the application running out of PHP memory.
-    - Its cache pool is by design a PHP variable and is not shared across requests/processes/servers, so data becomes stale if any other concurrent activity happens towards the repository.
+    - Its cache pool is by design a PHP variable and is not shared across requests/processes/servers, so data becomes stale if any other concurrent activity happens towards the Repository.
 
-##### Multi repository setup
+##### Multi Repository setup
 
-In `ezplatform.yml` you can specify which cache pool you want to use on a siteaccess or sitegroup level. The following example shows use in a sitegroup:
+In `ezplatform.yml` you can specify which cache pool you want to use on a SiteAccess or SiteAccess group level. The following example shows use in a SiteAccess group:
 
 ``` yaml
 # ezplatform.yml site group setting
@@ -344,9 +346,9 @@ ezpublish:
             cache_pool_name: "default"
 ```
 
-!!! note "One cache pool for each repository"
+!!! note "One cache pool for each Repository"
 
-    If your installation has several repositories *(databases)*, make sure every group of sites using different repositories also uses a different cache pool.
+    If your installation has several Repositories *(databases)*, make sure every group of sites using different Repositories also uses a different cache pool.
 
 #### Stash cache backend configuration
 
@@ -360,11 +362,11 @@ php app/console config:dump-reference stash
 
 ##### FileSystem
 
-This cache backend uses the local filesystem, by default the Symfony cache folder. As this is per server, it **does not support** [**multi server (cluster) setups**](clustering.md)!
+This cache backend uses the local filesystem, by default the Symfony cache folder. As this is per server, it does not support [multi-server (cluster) setups](clustering.md)!
 
 !!! note
 
-    **We strongly discourage you from storing cache files on NFS**, as it defeats the purpose of the cache: speed.
+    **We strongly discourage storing cache files on NFS**, as it defeats the purpose of the cache: speed.
 
 ###### Available settings
 
@@ -379,7 +381,7 @@ This cache backend uses the local filesystem, by default the Symfony cache folde
 
 !!! note "Issues with Microsoft Windows"
 
-    If you are using a Windows OS, you may encounter an issue regarding **long paths for cache directory name**. The paths are long because Stash uses md5 to generate unique keys that are sanitized really quickly.
+    If you are using Windows, you may encounter an issue regarding **long paths for cache directory name**. The paths are long because Stash uses md5 to generate unique keys that are sanitized really quickly.
 
     Solution is to **change the hash algorithm** used by Stash.
 
@@ -397,13 +399,11 @@ This cache backend uses the local filesystem, by default the Symfony cache folde
                     keyHashFunction: 'crc32'
     ```
 
-    **This configuration is only recommended for Windows users**.
-
-    Note: You can also define the **path** where you want the cache files to be generated to be able to get even shorter system path for cache files.
+    You can also define the **path** where you want the cache files to be generated to be able to get even shorter system path for cache files.
 
 ##### FileSystem cache backend troubleshooting
 
-By default, Stash Filesystem cache backend stores cache to a sub-folder named after the environment (`i.e. app/cache/dev`, `app/cache/prod`). This can lead to the following issue: if different environments are used for operations, persistence cache (manipulating content, mostly) will be affected and cache can become inconsistent.
+By default, Stash Filesystem cache backend stores cache to a sub-folder named after the environment (i.e. `app/cache/dev`, `app/cache/prod`). This can lead to the following issue: if different environments are used for operations, persistence cache (manipulating content, mostly) will be affected and cache can become inconsistent.
 
 To prevent this, there are 2 solutions:
 
@@ -428,13 +428,13 @@ This will store stash cache to `app/cache/common.`
 
 ##### APC & APCu
 
-This cache backend is using shard memory with APC's user cache feature. As this is per server, it **does not support [multi server (cluster) setups](clustering.md)** .
+This cache backend is using shard memory with APC's user cache feature. As this is per server, it does not support [multi-server (cluster) setups](clustering.md) .
 
 !!! note "Not supported because of following limitation"
 
     As APC(u) user cache is not shared between processes, it is not possible to clear the user cache from CLI, even if you set `apc.enable_cli` to On. That is why publishing content from a command line script won't let you properly clear SPI Persistence cache.
 
-Please also note that the default value for `apc.shm_size` is 128MB. However, 256MB is recommended for APC to work properly. For more details please refer to the [APC configuration manual](http://www.php.net/manual/en/apc.configuration.php#ini.apc.shm-size).
+Also note that the default value for `apc.shm_size` is 128MB. However, 256MB is recommended for APC to work properly. For more details refer to the [APC configuration manual](http://www.php.net/manual/en/apc.configuration.php#ini.apc.shm-size).
 
 **Available settings**
 
@@ -445,7 +445,7 @@ Please also note that the default value for `apc.shm_size` is 128MB. However, 2
 
 #### Redis
 
-This cache backend is using [Redis, a in-memory data structure store](http://redis.io/), via [Redis pecl extension](https://pecl.php.net/package/redis). This is an alternative cache solution for [multi server (cluster) setups](clustering.md), besides using Memcached.
+This cache backend is using [Redis, a in-memory data structure store](http://redis.io/), via [Redis pecl extension](https://pecl.php.net/package/redis). This is an alternative cache solution for [multi-server (cluster) setups](clustering.md), besides using Memcached.
 
 **Available settings**
 
@@ -456,6 +456,8 @@ This cache backend is using [Redis, a in-memory data structure store](http://re
 |`database`|Optional setting to specify a given Redis database to use.|
 
 **Example**
+
+FIXME empty lines?
 
 ``` yaml
 # config.yml example
@@ -488,25 +490,25 @@ This cache backend is using [Memcached, a distributed caching solution](http://m
 |`servers`|Array of Memcached servers, with host/IP, port and weight</br>`server`: Host or IP of your Memcached server</br>`port`: Port that Memcached is listening to (defaults to 11211)</br>weight: Weight of the server, when using several Memcached servers|
 |`prefix_key`|A namespace to prefix cache keys with to avoid key conflicts with other eZ Platform sites on same eZ Platform installation (default is an empty string). Must be the same on all servers with the same installation. See [Memcached prefix_key option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-prefix-key)|
 |`compression`|default true. [See Memcached compression option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-compression)|
-|`libketama_compatible`|default false.  See [Memcached libketama_compatible option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-libketama-compatible)|
-|`buffer_writes`|default false.  See [Memcached buffer_writes option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-buffer-writes)|
-|`binary_protocol`|default false.  See [Memcached binary_protocol option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-binary-protocol)|
-|`no_block`|default false.  See [Memcached no_block option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-no-block)|
-|`tcp_nodelay`|default false.  See [Memcached tcp_nodelay option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-tcp-nodelay)|
-|`connection_timeout`|default 1000.  See [Memcached connection_timeout option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-connection-timeout)|
-|`retry_timeout`|default 0.  See [Memcached retry_timeout option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-memcached-timeout)|
-|`send_timeout`|default 0.  See [Memcached send_timeout option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-send-timeout)|
-|`recv_timeout`|default 0.  See [Memcached recv_timeout option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-recv-timeout)|
-|`poll_timeout`|default 1000.  See [Memcached poll_timeout option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-poll-timeout)|
-|`cache_lookups`|default false.  See [Memcached cache_lookups option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-cache-lookups)|
-|`server_failure_limit`|default 0.  See [PHP Memcached documentation](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-server-failure-limit)|
+|`libketama_compatible`|default false. See [Memcached libketama_compatible option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-libketama-compatible)|
+|`buffer_writes`|default false. See [Memcached buffer_writes option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-buffer-writes)|
+|`binary_protocol`|default false. See [Memcached binary_protocol option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-binary-protocol)|
+|`no_block`|default false. See [Memcached no_block option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-no-block)|
+|`tcp_nodelay`|default false. See [Memcached tcp_nodelay option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-tcp-nodelay)|
+|`connection_timeout`|default 1000. See [Memcached connection_timeout option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-connection-timeout)|
+|`retry_timeout`|default 0. See [Memcached retry_timeout option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-memcached-timeout)|
+|`send_timeout`|default 0. See [Memcached send_timeout option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-send-timeout)|
+|`recv_timeout`|default 0. See [Memcached recv_timeout option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-recv-timeout)|
+|`poll_timeout`|default 1000. See [Memcached poll_timeout option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-poll-timeout)|
+|`cache_lookups`|default false. See [Memcached cache_lookups option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-cache-lookups)|
+|`server_failure_limit`|default 0. See [PHP Memcached documentation](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-server-failure-limit)|
 |`socket_send_size`|See [Memcached socket_send_size option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-socket-send-size)|
 |`socket_recv_size`|See [Memcached socket_recv_size option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-socket-recv-size)|
 |`serializer`|See [Memcached serializer option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-serializer)|
 |`hash`|See [Memcached hash option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-hash)|
 |`distribution`|Specifies the method of distributing item keys to the servers. See [Memcached distribution option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-distribution) \*|
 
-\* All settings except `servers `are only available with memcached PHP extension. For more information on these settings and which version of php-memcached they are available in, see: <http://php.net/Memcached>
+\* All settings except `servers` are only available with memcached PHP extension. See [more information on these settings and which version of php-memcached they are available in](http://php.net/Memcached).
 
 When using Memcache cache backend, you *may* use inMemory to reduce network traffic as long as you are aware of its limitations mentioned above. However you should disable in web servers where there is concurrency on updates, for instance on dedicated editorial server.
 
@@ -532,19 +534,15 @@ stash:
 
 !!! caution "Connection errors issue"
 
-    If memcached does display connection errors when using the default (ascii) protocol, then switching to binary protocol *(in the stash configuration and memcached daemon)* should resolve the issue.
+    If Memcached does display connection errors when using the default (ascii) protocol, then switching to binary protocol *(in the stash configuration and Memcached daemon)* should resolve the issue.
 
 ### Using Cache Service
 
 Using the internal cache service allows you to use an interface and to not have to care whether the system has been configured to place the cache in Memcached or on File system. And as eZ Platform requires that instances use a cluster-aware cache in Cluster setup, you can safely assume your cache is shared *(and invalidated)* across all web servers.
 
-!!! caution "Interface will change in the future"
+!!! caution "Use unique vendor prefix for Cache key"
 
-    Current implementation uses a caching library called [Stash](http://stash.tedivm.com/), via [StashBundle](https://github.com/tedivm/TedivmStashBundle). We plan to move to a PSR-6 compatible cache service capable of supporting cache Tagging and multi get/set in the future, when that happens the interface of the cache service will change!
-
-!!! note "Use unique vendor prefix for Cache key!"
-
-    When reusing the cache service within your own code, it is very important to not conflict with the cache keys used by others. That is why the example of usage below starts with a unique "myApp" key. For the namespace of your own cache, you must do the same! So never clear cache using the cache service without your key specified, otherwise you'll clear all cache.
+    When reusing the cache service within your own code, it is very important to not conflict with the cache keys used by others. That is why the example of usage below starts with a unique `myApp` key. For the namespace of your own cache, you must do the same! So never clear cache using the cache service without your key specified, otherwise you'll clear all cache.
 
 ##### Get Cache service
 
@@ -612,7 +610,7 @@ $cacheService->clear('content', 'info');
 
 ## Services: Public API
 
-The Public API exposes Symfony services for all of its repository services.
+The Public API exposes Symfony services for all of its Repository services.
 
 | Service id                           | Type                                           |
 |--------------------------------------|------------------------------------------------|
@@ -630,7 +628,7 @@ The Public API exposes Symfony services for all of its repository services.
 | `ezpublish.api.service.url_wildcard` | `eZ\Publish\API\Repository\URLWildcardService` |
 | `ezpublish.api.service.user`         | `eZ\Publish\API\Repository\UserService`        |
 
-## Signal Slots
+## REVIEW NAME Signal Slots
 
 The Signal-Slot system provides a means for realizing loosely coupled dependencies in the sense that a code entity A can react on an event occurring in code entity B, without A and B knowing each other directly. This works by dispatching event information through a central third instance, the so called dispatcher:
 
@@ -743,13 +741,13 @@ class CreateUrlAliasesOnPublishSlot extends BaseSlot
 
 !!! note "Important note about template matching"
 
-    **Template matching will NOT work if your content contains a Field Type that is not supported by the repository**. It can be the case when you are in the process of a migration from eZ Publish 4.x, where custom datatypes have been developed.
+    **Template matching will NOT work if your content contains a Field Type that is not supported by the Repository**. It can be the case when you are in the process of a migration from eZ Publish 4.x, where custom datatypes have been developed.
 
-    In this case the repository will throw an exception, which is caught in the `ViewController`, and *if* you are using LegacyBridge it will end up doing a [**fallback to legacy kernel**](https://doc.ez.no/display/EZP/Legacy+template+fallback).
+    In this case the Repository will throw an exception, which is caught in the `ViewController`, and *if* you are using LegacyBridge it will end up doing a [fallback to legacy kernel](https://doc.ez.no/display/EZP/Legacy+template+fallback).
 
     The list of Field Types supported out of the box [is available here](field_type_reference.md).
 
-## Signals Reference
+## REVIEW USE? Signals Reference
 
 This section references **all available signals** that you can listen to, triggered by ("Public") Repository API in eZ Platform.
 
@@ -903,55 +901,57 @@ All signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
 |`UserService\UpdateUserGroupSignal`|`userGroupId`|`UserService::updateUserGroup()`|
 |`UserService\UpdateUserSignal`|`userId`|`UserService::updateUser()`|
 
-## TODO SPI and API repositories
+## SPI and API repositories
 
-Those repositories are read-only split of `ezsystems/ezpublish-kernel`, made available to make dependencies easier and more lightweight.
+The `ezpublish-api` and `ezpublish-spi` repositories are read-only splits of `ezsystems/ezpublish-kernel`
+They are available to make dependencies easier and more lightweight.
 
 ### API
 
-This package is a split of the eZ Publish 5 public API. It includes the **services interfaces** and **domain objects** from the `eZ\Publish\API` namespace.
-It offers a lightweight way to make your project depend on the eZ API and Domain objects, without depending on the whole ezpublish-kernel.
-The repository is read-only, automatically updated from <https://github.com/ezsystems/ezpublish-kernel>.
+This package is a split of the eZ Platform Public API. It includes the **services interfaces** and **domain objects** from the `eZ\Publish\API` namespace.
 
-Requiring ezpublish-api in your project:
+It offers a lightweight way to make your project depend on eZ Platform API and Domain objects, without depending on the whole `ezpublish-kernel`.
+
+The repository is read-only, automatically updated from https://github.com/ezsystems/ezpublish-kernel.
+
+Requiring `ezpublish-api` in your project (on the example of version 6.7):
 
 ```
 "require": {
-    "ezsystems/ezpublish-api": "~5.0"
+    "ezsystems/ezpublish-api": "~6.7"
 }
 ```
 
 ### SPI
 
-This package is a split of the eZ Publish 5 SPI (persistence interfaces).
+This package is a split of the eZ Platform SPI (persistence interfaces).
 
-It can be used as a dependency, instead of the whole ezpublish-kernel, by packages implementing **custom eZ Publish storage engines**, or by any package that requires **classes from the eZ\\Publish\\SPI namespace**.
+It can be used as a dependency, instead of the whole `ezpublish-kernel`, by packages implementing custom eZ Platform storage engines, or by any package that requires classes from the `eZ\Publish\SPI` namespace.
 
-The repository is read-only, automatically updated from <https://github.com/ezsystems/ezpublish-kernel>.
+The repository is read-only, automatically updated from https://github.com/ezsystems/ezpublish-kernel.
 
-Requiring ezpublish-api in your project:
+Requiring `ezpublish-spi` in your project (on the example of version 6.7):
 
 ```
 "require": {
-    "ezsystems/ezpublish-spi": "~5.0"
+    "ezsystems/ezpublish-spi": "~6.7"
 }
 ```
 
-## TODO Regenerating URL Aliases
-
-The command `ezplatform:regenerate:legacy_storage_url_aliases` command regenerates URL aliases for Locations and migrates existing custom Location and global URL aliases to a separate database table. The separate table must be named `__migration_ezurlalias_ml` and should be created manually to be identical (but empty) as the existing table `ezurlalias_ml` before the command is executed.
-
-After the script finishes, to complete migration the table should be renamed to `ezurlalias_ml` manually. Using available options for `action` argument, you can back up custom Location and global URL aliases separately and inspect them before restoring them to the migration table. They will be stored in backup tables named `__migration_backup_custom_alias` and `__migration_backup_global_alias` (created automatically).
-
-It is also possible to skip custom Location and global URL aliases altogether and regenerate only automatically created URL aliases for Locations (use the `autogenerate` action to achieve this). During the script execution the database should not be modified. Since this script can potentially run for a very long time, to avoid memory exhaustion run it in production environment using the `--env=prod` switch.
-
+## Regenerating URL Aliases
 
 !!! note "Enabling EzPublishMigrationBundle bundle"
 
     The URL Alias regeneration command is not available in a default installation, because
-    the bundle with the feature is not enabled in the App Kernel. To enable it, add the
+    the bundle with the feature is not enabled in the AppKernel. To enable it, add the
     following to your `dev` environment bundles in `app/AppKernel.php`:
 
     ```
     $bundles[] = new \eZ\Bundle\EzPublishMigrationBundle\EzPublishMigrationBundle();
     ```
+
+The command `ezplatform:regenerate:legacy_storage_url_aliases` regenerates URL aliases for Locations and migrates existing custom Location and global URL aliases to a separate database table. The separate table must be named `__migration_ezurlalias_ml` and should be created manually to be identical (but empty) as the existing table `ezurlalias_ml` before the command is executed.
+
+After the script finishes, to complete migration the table should be renamed to `ezurlalias_ml` manually. Using available options for `action` argument, you can back up custom Location and global URL aliases separately and inspect them before restoring them to the migration table. They will be stored in backup tables named `__migration_backup_custom_alias` and `__migration_backup_global_alias` (created automatically).
+
+It is also possible to skip custom Location and global URL aliases altogether and regenerate only automatically created URL aliases for Locations (use the `autogenerate` action to achieve this). During the script execution the database should not be modified. Since this script can potentially run for a very long time, to avoid memory exhaustion run it in production environment using the `--env=prod` switch.
