@@ -885,15 +885,22 @@ All signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
 
 |Signal type|Properties|Triggered by|
 |------|------|------|
+|`RoleService\AddPolicyByRoleDraftSignal`|`roleId`</br>`policyId`|`RoleService::addPolicyByRoleDraft()`|
 |`RoleService\AddPolicySignal`|`roleId`</br>`policyId`|`RoleService::addPolicy()`|
 |`RoleService\AssignRoleToUserGroupSignal`|`roleId`</br>`userGroupId`</br>`roleLimitation`|`RoleService::assignRoleToUserGroup()`|
 |`RoleService\AssignRoleToUserSignal`|`roleId`</br>`userId`</br>`roleLimitation`|`RoleService::assignRoleToUser()`|
+|`RoleService\CreateRoleDraftSignal`|`roleId`|`RoleService::createRoleDraft()`|
 |`RoleService\CreateRoleSignal`|`roleId`|`RoleService::createRole()`|
+|`RoleService\DeleteRoleDraftSignal`|`roleId`|`RoleService::deleteRoleDraft()`|
 |`RoleService\DeleteRoleSignal`|`roleId`|`RoleService::deleteRole()`|
+|`RoleService\PublishRoleDraftSignal`|`roleId`|`RoleService::publishRoleDraft()`|
+|`RoleService\RemovePolicyByRoleDraftSignal`|`roleId`</br>`policyId`|`RoleService::removePolicyByRoleDraft()`|
 |`RoleService\RemovePolicySignal`|`roleId`</br>`policyId`|`RoleService::removePolicy()`|
+|`RoleService\RemoveRoleAssignmentSignal`|`roleAssignmentId`|`RoleService::removeRoleAssignment()`|
 |`RoleService\UnassignRoleFromUserGroupSignal`|`roleId`</br>`userGroupId`|`RoleService::unassignRoleFromUserGroup()`|
 |`RoleService\UnassignRoleFromUserSignal`|`roleId`</br>`userId`|`RoleService::unassignRoleFromUser()`|
 |`RoleService\UpdatePolicySignal`|`policyId`|`RoleService::updatePolicy()`|
+|`RoleService\UpdateRoleDraftSignal`|`roleId`|`RoleService::updateRoleDraft()`|
 |`RoleService\UpdateRoleSignal`|`roleId`|`RoleService::updateRole()`|
 
 #### SectionService
