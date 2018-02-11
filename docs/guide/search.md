@@ -424,7 +424,7 @@ bin/solr create_core -c collection1 -d server/ez/template
 
 Thirdly, on both Solr 4 and 6 Solr the bundle does not commit solr index changes directly on repository updates, leaving it up to you to tune this using `solrconfig.xml` as best practice suggests. 
 
-This setting is **required** if you want to see the changes immediately after publish. It is strongly recommended to set-up `solrconfig.xml` as following:
+This setting is **required** if you want to see the changes after publish. It is strongly recommended to set-up `solrconfig.xml` as following:
 
 
 
