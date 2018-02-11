@@ -849,11 +849,11 @@ All signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
 
 |Signal type|Properties|Triggered by|
 |------|------|------|
-|`LanguageService`|`CreateLanguageSignal`|`languageId`|`LanguageService::createLanguage()`|
-|`LanguageService`|`DeleteLanguageSignal`|`languageId`|`LanguageService::deleteLanguage()`|
-|`LanguageService`|`DisableLanguageSignal`|`languageId`|`LanguageService::disableLanguage()`|
-|`LanguageService`|`EnableLanguageSignal`|`languageId`|`LanguageService::enableLanguage()`|
-|`LanguageService`|`UpdateLanguageNameSignal`|`languageId`</br>`newName`|`LanguageService::updateLanguageName()`|
+|`LanguageService\CreateLanguageSignal`|`languageId`|`LanguageService::createLanguage()`|
+|`LanguageService\DeleteLanguageSignal`|`languageId`|`LanguageService::deleteLanguage()`|
+|`LanguageService\DisableLanguageSignal`|`languageId`|`LanguageService::disableLanguage()`|
+|`LanguageService\EnableLanguageSignal`|`languageId`|`LanguageService::enableLanguage()`|
+|`LanguageService\UpdateLanguageNameSignal`|`languageId`</br>`newName`|`LanguageService::updateLanguageName()`|
 
 #### LocationService
 
