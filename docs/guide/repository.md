@@ -681,7 +681,7 @@ All signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
 |`ContentService\CopyContentSignal`|`srcContentId` (original content ID)</br>`srcVersionNo`</br>`dstContentId` (contentId of the copy)</br>`dstVersionNo`</br>`dstParentLocationId` (locationId where the content has been copied)|`ContentService::copyContent()`|
 |`ContentService\CreateContentDraftSignal`|`contentId`</br>`versionNo`</br>`userId` (Id of user used to create the draft, or null - current user)|`ContentService::createContentDraft()`|
 |`ContentService\CreateContentSignal`|`contentId`</br>`versionNo`|`ContentService::createContent()`|
-|`ContentService\DeleteContentSignal`|`contentId`|`ContentService::deleteContent()`|
+|`ContentService\DeleteContentSignal`|`contentId`</br>`affectedLocationIds`|`ContentService::deleteContent()`|
 |`ContentService\DeleteRelationSignal`|`srcContentId`</br>`srcVersionNo`</br>`dstContentId`|`ContentService::deleteRelation()`|
 |`ContentService\DeleteVersionSignal`|`contentId`</br>`versionNo`|`ContentService::deleteVersion()`|
 |`ContentService\PublishVersionSignal`|`contentId`</br>`versionNo`|`ContentService::publishVersion()`|
@@ -712,24 +712,24 @@ All signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
 
 |Signal type|Properties|Triggered by|
 |------|------|------|
-|`LanguageService`|`CreateLanguageSignal`|`languageId`|`LanguageService::createLanguage()`|
-|`LanguageService`|`DeleteLanguageSignal`|`languageId`|`LanguageService::deleteLanguage()`|
-|`LanguageService`|`DisableLanguageSignal`|`languageId`|`LanguageService::disableLanguage()`|
-|`LanguageService`|`EnableLanguageSignal`|`languageId`|`LanguageService::enableLanguage()`|
-|`LanguageService`|`UpdateLanguageNameSignal`|`languageId`</br>`newName`|`LanguageService::updateLanguageName()`|
+|`LanguageService\CreateLanguageSignal`|`languageId`|`LanguageService::createLanguage()`|
+|`LanguageService\DeleteLanguageSignal`|`languageId`|`LanguageService::deleteLanguage()`|
+|`LanguageService\DisableLanguageSignal`|`languageId`|`LanguageService::disableLanguage()`|
+|`LanguageService\EnableLanguageSignal`|`languageId`|`LanguageService::enableLanguage()`|
+|`LanguageService\UpdateLanguageNameSignal`|`languageId`</br>`newName`|`LanguageService::updateLanguageName()`|
 
 #### LocationService
 
 |Signal type|Properties|Triggered by|
 |------|------|------|
-|`LocationService\CopySubtreeSignal`|`subtreeId` (top locationId of the subtree to be copied)</br>`targetParentLocationId`|`LocationService::copySubtree()`|
-|`LocationService\CreateLocationSignal`|`contentId`</br>`locationId`|`LocationService::createLocation()`|
-|`LocationService\DeleteLocationSignal`|`contentId`</br>`locationId`|`LocationService::deleteLocation()`|
-|`LocationService\HideLocationSignal`|`contentId`</br>`locationId`|`LocationService::hideLocation()`|
-|`LocationService\UnhideLocationSignal`|`contentId`</br>`locationId`|`LocationService::unhideLocation()`|
-|`LocationService\MoveSubtreeSignal`|`subtreeId`</br>`newParentLocationId`|`LocationService::moveSubtree()`|
-|`LocationService\SwapLocationSignal`|`content1Id`</br>`location1Id`</br>`content2Id`</br>`location2Id`|`LocationService::swapLocation()`|
-|`LocationService\UpdateLocationSignal`|`contentId`</br>`locationId`|`LocationService::updateLocation()`|
+|`LocationService\CopySubtreeSignal`|`subtreeId` (top locationId of the subtree to be copied)</br>`targetParentLocationId`</br>`targetNewSubtreeId`|`LocationService::copySubtree()`|
+|`LocationService\CreateLocationSignal`|`contentId`</br>`locationId`</br>`parentLocationId`|`LocationService::createLocation()`|
+|`LocationService\DeleteLocationSignal`|`contentId`</br>`locationId`</br>`parentLocationId`|`LocationService::deleteLocation()`|
+|`LocationService\HideLocationSignal`|`contentId`</br>`locationId`</br>`currentVersionNo`</br>`parentLocationId`|`LocationService::hideLocation()`|
+|`LocationService\UnhideLocationSignal`|`contentId`</br>`locationId`</br>`currentVersionNo`</br>`parentLocationId`|`LocationService::unhideLocation()`|
+|`LocationService\MoveSubtreeSignal`|`subtreeId`</br>`oldParentLocationId`</br>`newParentLocationId`|`LocationService::moveSubtree()`|
+|`LocationService\SwapLocationSignal`|`content1Id`</br>`location1Id`</br>`parentLocation1Id`</br>`content2Id`</br>`location2Id`</br>`parentLocation1Id`|`LocationService::swapLocation()`|
+|`LocationService\UpdateLocationSignal`|`contentId`</br>`locationId`</br>`parentLocationId`|`LocationService::updateLocation()`|
 
 #### ObjectStateService
 
@@ -748,15 +748,22 @@ All signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
 
 |Signal type|Properties|Triggered by|
 |------|------|------|
+|`RoleService\AddPolicyByRoleDraftSignal`|`roleId`</br>`policyId`|`RoleService::addPolicyByRoleDraft()`|
 |`RoleService\AddPolicySignal`|`roleId`</br>`policyId`|`RoleService::addPolicy()`|
 |`RoleService\AssignRoleToUserGroupSignal`|`roleId`</br>`userGroupId`</br>`roleLimitation`|`RoleService::assignRoleToUserGroup()`|
 |`RoleService\AssignRoleToUserSignal`|`roleId`</br>`userId`</br>`roleLimitation`|`RoleService::assignRoleToUser()`|
+|`RoleService\CreateRoleDraftSignal`|`roleId`|`RoleService::createRoleDraft()`|
 |`RoleService\CreateRoleSignal`|`roleId`|`RoleService::createRole()`|
+|`RoleService\DeleteRoleDraftSignal`|`roleId`|`RoleService::deleteRoleDraft()`|
 |`RoleService\DeleteRoleSignal`|`roleId`|`RoleService::deleteRole()`|
+|`RoleService\PublishRoleDraftSignal`|`roleId`|`RoleService::publishRoleDraft()`|
+|`RoleService\RemovePolicyByRoleDraftSignal`|`roleId`</br>`policyId`|`RoleService::removePolicyByRoleDraft()`|
 |`RoleService\RemovePolicySignal`|`roleId`</br>`policyId`|`RoleService::removePolicy()`|
+|`RoleService\RemoveRoleAssignmentSignal`|`roleAssignmentId`|`RoleService::removeRoleAssignment()`|
 |`RoleService\UnassignRoleFromUserGroupSignal`|`roleId`</br>`userGroupId`|`RoleService::unassignRoleFromUserGroup()`|
 |`RoleService\UnassignRoleFromUserSignal`|`roleId`</br>`userId`|`RoleService::unassignRoleFromUser()`|
 |`RoleService\UpdatePolicySignal`|`policyId`|`RoleService::updatePolicy()`|
+|`RoleService\UpdateRoleDraftSignal`|`roleId`|`RoleService::updateRoleDraft()`|
 |`RoleService\UpdateRoleSignal`|`roleId`|`RoleService::updateRole()`|
 
 #### SectionService
@@ -774,8 +781,8 @@ All signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
 |------|------|------|
 |`TrashService\DeleteTrashItemSignal`|`trashItemId`|`TrashService::deleteTrashItem()`|
 |`TrashService\EmptyTrashSignal`|N/A|`TrashService::emptyTrash()`|
-|`TrashService\RecoverSignal`|`trashItemId`</br>`newParentLocationId`</br>`newLocationId`|`TrashService::recover()`|
-|`TrashService\TrashSignal`|`locationId`|`TrashService::trash()`|
+|`TrashService\RecoverSignal`|`trashItemId`</br>`contentId`</br>`newParentLocationId`</br>`newLocationId`|`TrashService::recover()`|
+|`TrashService\TrashSignal`|`locationId`</br>`parentLocationId`</br>`contentId`</br>`contentTrashed`|`TrashService::trash()`|
 
 #### URLAliasService
 
@@ -800,8 +807,8 @@ All signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
 |`UserService\AssignUserToUserGroupSignal`|`userId`</br>`userGroupId`|`UserService::assignUserToUserGroup()`|
 |`UserService\CreateUserGroupSignal`|`userGroupId`|`UserService::createUserGroup()`|
 |`UserService\CreateUserSignal`|`userId`|`UserService::createUser()`|
-|`UserService\DeleteUserGroupSignal`|`userGroupId`|`UserService::deleteUserGroup()`|
-|`UserService\DeleteUserSignal`|`userId`|`UserService::deleteUser()`|
+|`UserService\DeleteUserGroupSignal`|`userGroupId`</br>`affectedLocationIds`|`UserService::deleteUserGroup()`|
+|`UserService\DeleteUserSignal`|`userId`</br>`affectedLocationIds`|`UserService::deleteUser()`|
 |`UserService\MoveUserGroupSignal`|`userGroupId`</br>`newParentId`|`UserService::moveUserGroup()`|
 |`UserService\UnAssignUserFromUserGroupSignal`|`userId`</br>`userGroupId`|`UserService::unAssignUserFromUserGroup()`|
 |`UserService\UpdateUserGroupSignal`|`userGroupId`|`UserService::updateUserGroup()`|
