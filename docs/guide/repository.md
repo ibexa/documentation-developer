@@ -655,6 +655,7 @@ The Public API exposes Symfony services for all of its repository services.
 | `ezpublish.api.service.search`       | `eZ\Publish\API\Repository\SearchService`      |
 | `ezpublish.api.service.section`      | `eZ\Publish\API\Repository\SectionService`     |
 | `ezpublish.api.service.trash`        | `eZ\Publish\API\Repository\TrashService`       |
+| `ezpublish.api.service.url`          | `eZ\Publish\API\Repository\URLService`    |
 | `ezpublish.api.service.url_alias`    | `eZ\Publish\API\Repository\URLAliasService`    |
 | `ezpublish.api.service.url_wildcard` | `eZ\Publish\API\Repository\URLWildcardService` |
 | `ezpublish.api.service.user`         | `eZ\Publish\API\Repository\UserService`        |
@@ -791,6 +792,12 @@ All signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
 |`URLAliasService\CreateGlobalUrlAliasSignal`|`urlAliasId`|`URLAliasService::createGlobalUrlAlias()`|
 |`URLAliasService\CreateUrlAliasSignal`|`urlAliasId`|`URLAliasService::createUrlAlias()`|
 |`URLAliasService\RemoveAliasesSignal`|`aliasList`|`URLAliasService::removeAliases()`|
+
+#### URLService
+
+|Signal type|Properties|Triggered by|
+|------|------|------|
+|`URLService\UpdateUrlSignal`|`urlId`|`URLService::updateUrl()`|
 
 #### URLWildcardService
 
