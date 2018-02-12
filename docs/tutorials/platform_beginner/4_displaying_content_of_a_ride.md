@@ -123,7 +123,7 @@ You will find the Content ID and the Location ID of your Ride in the Admin, unde
 
 ## Points Of Interest
 
-Go to Admin Panel &gt; Content Types, and under the "Content"  group, create the Point Of Interest Content Type.
+Go to Admin &gt; Content Types, and under the "Content"  group, create the Point Of Interest Content Type.
 
 ![Create content type button](img/bike_tutorial_create_content_type.png)
 

@@ -55,7 +55,7 @@ The first thing to do is to fix the loading of stylesheets, scripts and design i
 
 1. [Download assets.zip](https://github.com/ezsystems/ezsc2015-beginner-tutorial/raw/master/assets.zip)
 1. Then unpack its contents to the `web` directory of your project. You will end up with `web/assets/`, containing `css`, `js` and `images` subfolders.
-    ![File structure](img/bike_tutorial_listing_web_dir)
+    ![File structure](img/bike_tutorial_listing_web_dir.png)
 1. In the template, in the` <html>` section, replace the `<link>` tags linking to bootstrap and custom CSS lines  (lines 15 to 21) with the following code:
 
 ``` html

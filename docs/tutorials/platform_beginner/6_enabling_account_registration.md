@@ -4,7 +4,7 @@ We are trying to let our friends write their bike trips directly into our websit
 
 ## Make registration possible
 
-From the Admin Panel, go to the _Roles_ management screen and click on the _Anonymous_ Role name to edit it.
+From the Admin, go to the _Roles_ management screen and click on the _Anonymous_ Role name to edit it.
 
 ![step_6_role_mgmt_screen](img/step_6_role_mgmt_screen.png)
 
@@ -28,7 +28,7 @@ In this Tutorial, you will use the second option.
 
 ## Create a User Group for the Go Bike Members
 
-From the Admin Panel in the _Users_ screen, click on the *Create* button create a User Group named `Go Bike Members`.
+From the Admin in the _Users_ screen, click on the *Create* button create a User Group named `Go Bike Members`.
 
 ## Create a Folder for the Rides from the Go Bike Members
 
@@ -36,7 +36,7 @@ In the Content creation screen, select _Folder_ and create a new Folder named `M
 
 ## Set permissions for Go Bike Members
 
-From the Admin Panel in the _Roles_ screen, create a new Role named *Bikers*.
+From the Admin in the _Roles_ screen, create a new Role named *Bikers*.
 
 Now, you will set the Policies for the _Bikers_ Role.
 
