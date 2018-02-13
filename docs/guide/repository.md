@@ -755,8 +755,6 @@ All signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
 
     Signals are sent after transactions are executed, making signals transaction safe.
 
-TODO DeleteTranslationSignal
-
 #### ContentService
 
 |Signal type|Properties|Triggered by|
@@ -768,6 +766,7 @@ TODO DeleteTranslationSignal
 |`ContentService\CreateContentSignal`|`contentId`</br>`versionNo`|`ContentService::createContent()`|
 |`ContentService\DeleteContentSignal`|`contentId`</br>`affectedLocationIds`|`ContentService::deleteContent()`|
 |`ContentService\DeleteRelationSignal`|`srcContentId`</br>`srcVersionNo`</br>`dstContentId`|`ContentService::deleteRelation()`|
+|`ContentService\DeleteTranslationSignal`|`contentId`</br>`languageCode`|`ContentService::deleteTranslation()`|
 |`ContentService\DeleteVersionSignal`|`contentId`</br>`versionNo`|`ContentService::deleteVersion()`|
 |`ContentService\PublishVersionSignal`|`contentId`</br>`versionNo`|`ContentService::publishVersion()`|
 |`ContentService\TranslateVersionSignal`|`contentId`</br>`versionNo`</br>`userId`|`ContentService::translationVersion()`|
