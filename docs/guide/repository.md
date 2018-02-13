@@ -1,6 +1,6 @@
 # Repository
 
-TODO intro
+The content Repository is where all your content is stored.
 
 ## Locations
 
@@ -140,15 +140,13 @@ Section ID numbers are not recycled. If a Section is removed, its ID number will
 
 ## Content Repository configuration
 
-The content Repository is where all your content is stored.
-
-To store data, the content Repository uses a storage engine that can work with virtually any kind of storage (FIXME RDBMS, NoSQL, etc.).
+The default storage engine for the Repository is called Legacy storage engine.
 
 You can define several Repositories within a single application. However, you can only use one per site.
 
 ### Configuration examples
 
-#### REVIEW Using default values
+#### Using default values
 
 ``` yaml
 # ezplatform.yml
@@ -206,7 +204,7 @@ ezpublish:
             repository: second_repository
 ```
 
-#### REVIEW CURRENT? Legacy storage engine
+#### Legacy storage engine
 
 Legacy storage engine uses [Doctrine DBAL](http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/) (Database Abstraction Layer). Database settings are supplied by [DoctrineBundle](https://github.com/doctrine/DoctrineBundle). As such, you can refer to [DoctrineBundle's documentation](https://github.com/doctrine/DoctrineBundle/blob/master/Resources/doc/configuration.rst#doctrine-dbal-configuration).
 
@@ -214,7 +212,7 @@ Legacy storage engine uses [Doctrine DBAL](http://docs.doctrine-project.org/proj
 
     Doctrine ORM is **not** provided by default. If you want to use it, you will need to add `doctrine/orm` as a dependency in your `composer.json`.
 
-### REVIEW MOVE? Field groups configuration
+### Field groups configuration
 
 Field groups, used in content and Content Type editing, can be configured from the `repositories` section. Values entered there are field group *identifiers*:
 
@@ -236,7 +234,7 @@ metadata: Metadata
 user_data: User data
 ```
 
-### REVIEW MOVE? Limit of archived Content item versions
+### Limit of archived Content item versions
 
 `default_version_archive_limit` controls the number of archived versions per Content item that will be stored in the Repository, by default set to 5. This setting is configured in the following way (typically in `ezplatform.yml`):
 
@@ -260,7 +258,7 @@ This limit is enforced on publishing a new version and only covers archived vers
 
 #### Layers
 
-FIXME Persistence cache can best be described as an implementation of `SPI\Persistence` that decorates the main backend implementation *(currently: "Legacy Storage Engine")*.
+Persistence cache can best be described as an implementation of `SPI\Persistence` that decorates the main backend implementation *(currently: "Legacy Storage Engine")*.
 
 As shown in the illustration, this is done in the exact same way as the SignalSlot feature is a custom implementation of `API\Repository` decorating the main Repository. In the case of Persistence Cache, instead of sending events on calls passed on to the decorated implementation, most of the load calls are cached, and calls that perform changes purge the affected caches. This is done using a Cache service which is provided by StashBundle; this Service wraps around the Stash library to provide Symfony logging / debugging functionality, and allows cache handlers *(Memcached, Redis, Filesystem, etc.)* to be configured using Symfony configuration. For how to reuse this Cache service in your own custom code, see below.
 
@@ -283,7 +281,7 @@ This means a couple of things:
 
 Persistence cache aims at caching most `SPI\Persistence` calls used in common page loads, including everything needed for permission checking and URL alias lookups.
 
-REVIEW Notes:
+Notes:
 
 - `UrlWildCardHandler` is not currently cached
 - Currently in case of transactions this is handled very simply by clearing all cache on rollback, this can be improved in the future if needed.
@@ -310,7 +308,7 @@ The cache system is exposed as a "cache" service, and can be reused by any other
 
 #### Configuration
 
-REVIEW By default, configuration currently uses **FileSystem**, with `%kernel.cache_dir%/stash` to store cache files.
+By default, configuration currently uses **FileSystem**, with `%kernel.cache_dir%/stash` to store cache files.
 
 The configuration is placed in `app/config/config.yml` and looks like this:
 
@@ -456,8 +454,6 @@ This cache backend is using [Redis, a in-memory data structure store](http://re
 |`database`|Optional setting to specify a given Redis database to use.|
 
 **Example**
-
-FIXME empty lines?
 
 ``` yaml
 # config.yml example
@@ -628,9 +624,9 @@ The Public API exposes Symfony services for all of its Repository services.
 | `ezpublish.api.service.url_wildcard` | `eZ\Publish\API\Repository\URLWildcardService` |
 | `ezpublish.api.service.user`         | `eZ\Publish\API\Repository\UserService`        |
 
-## REVIEW NAME Signal Slots
+## SignalSlots
 
-The Signal-Slot system provides a means for realizing loosely coupled dependencies in the sense that a code entity A can react on an event occurring in code entity B, without A and B knowing each other directly. This works by dispatching event information through a central third instance, the so called dispatcher:
+The SignalSlot system provides a means for realizing loosely coupled dependencies in the sense that a code entity A can react on an event occurring in code entity B, without A and B knowing each other directly. This works by dispatching event information through a central third instance, the so called dispatcher:
 
 ![Signal Slots diagram](img/signal_slots_diagram.png)
 
@@ -747,7 +743,7 @@ class CreateUrlAliasesOnPublishSlot extends BaseSlot
 
     The list of Field Types supported out of the box [is available here](field_type_reference.md).
 
-## REVIEW USE? Signals Reference
+## Signals Reference
 
 This section references **all available signals** that you can listen to, triggered by ("Public") Repository API in eZ Platform.
 
@@ -758,6 +754,8 @@ All signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
 !!! note "Transactions"
 
     Signals are sent after transactions are executed, making signals transaction safe.
+
+TODO DeleteTranslationSignal
 
 #### ContentService
 
