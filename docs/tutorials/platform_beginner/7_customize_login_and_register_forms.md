@@ -43,7 +43,7 @@ imports:
 !!! note
 
 
-    You can clear the cache with the command we have seen before: `php app/console cache:clear` to check that it works like before.
+    You can clear the cache with the command we have seen before: `php bin/console cache:clear` to check that it works like before.
 ​    
 
 And at the same level as `pagelayout` add a `user` key so the beginning of your `views.yml` file looks like this:
@@ -57,7 +57,7 @@ ezpublish:
                 layout: pagelayout.html.twig
 ```
 
-Then clear the cache with the command we have seen before: `php app/console cache:clear` to see the consequences of the addition you made.
+Then clear the cache with the command we have seen before: `php bin/console cache:clear` to see the consequences of the addition you made.
 
 When you get the `<yourdomain>/register` URL, you should have this view where you see that the pagelayout is used.
 
@@ -158,7 +158,7 @@ In line 10, you see the import Twig function, that is calling the `user/registra
 
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
-            {{ form_widget(form.publish, {'attr': {
+            {{ form_widget(form.register, {'attr': {
                 'class': 'btn btn-block btn-primary'
             }}) }}
         </div>
