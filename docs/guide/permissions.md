@@ -17,7 +17,7 @@ so when Policy has more than one Limitation, all of them have to apply. See [exa
 Remember that a Limitation specifies what a user *can* do, not what they *can't do*.
 A Section Limitation, for example, *gives* the user access to the selected Section, not *prohibits* it.
 
-See [Role Policies Map](#role-policies-map) for further information.
+See [Available Limitations](#available-limitations) for further information.
 
 To take effect, a Role must be assigned to a User or User Group. Every User or User Group can have many roles. A User can also belong to many groups, for example, Administrators, Editors, Subscribers.
 
@@ -152,7 +152,7 @@ Limitations consist of two parts:
 - `Limitation` (Value)
 - `LimitationType`
 
-Certain limitations also serve as RoleLimitations, which means they can be used to limit the rights of a Role assignment. Currently this covers `Subtree` and `Section` limitations.
+Certain Limitations also serve as Role Limitations, which means they can be used to limit the rights of a Role assignment. Currently this covers `Subtree` and `Section` limitations.
 
 `Limitation` represents the value, while `LimitationType` deals with the business logic surrounding how it actually works and is enforced.
 `LimitationTypes` have two modes of operation in regards to permission logic (see `eZ\Publish\SPI\Limitation\Type` interface for more info):
@@ -164,30 +164,13 @@ Certain limitations also serve as RoleLimitations, which means they can be used 
 
 ### Available Limitations
 
-#### Retrieving the Role Policies
+!!! tip
 
-To retrieve the Roles Policies, on a working eZ Platform instance, in dev environment open the file `app/cache/dev/appDevDebugProjectContainer.xml`
-
-If you can not find the file, please reload the homepage. The cache will be regenerated.
-
-Then open it and look for `ezpublish.api.role.policy_map`, it will look like this:
-
-``` xml
-<!--ezpublish.api.role.policy\_map entry in the app/cache/dev/appDevDebugProjectContainer.xml file-->
-
-    <parameter key="ezpublish.api.role.policy_map" type="collection">
-        <parameter key="content" type="collection">           
-        <parameter key="read" type="collection">
-        <parameter key="Class">true</parameter>
-```
-
-- The 1st sublevel ("content") is a module.
-- The 2nd sublevel ("read") is a function.
-- The 3rd sublevel ("Class") is a limitation.
+    Core Policies with Limitations are defined in [`EzPublishCoreBundle/Resources/config/policies.yml`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/policies.yml).
 
 #### Module, function and limitations
 
-Each Module contains functions, and for each function, you have limitations. The default values are shown below.
+Each Module contains functions, and for each function, you have Limitations. The default values are shown below.
 
 There are 4 modules:
 
@@ -605,28 +588,28 @@ A Limitation to specify that only Users with at least one common *direct* User g
 
 ## Custom Policies
 
-eZ content repository uses the concept of Roles and Policies in order to authorize a user to do something (e.g. read content).
+REVIEW eZ Platform's content Repository uses the concept of Roles and Policies in order to authorize a user to do something (e.g. read content).
 
 - A Role is composed of Policies and can be assigned to a User or a User Group.
 - A Policy is composed of a combination of **module** and **function** (e.g. `content/read`, `content` being the module and `read` being the function).
-- Depending on **module** and **function** combination, a Policy can also be composed of Limitations.
+- Depending on **module** and **function** combination, a Policy can also contain Limitations.
 
 It is possible for any bundle to expose available Policies via a `PolicyProvider` which can be added to EzPublishCoreBundle's DIC extension.
 
 ### PolicyProvider
 
-A `PolicyProvider` is an object providing a hash containing declared modules, functions and limitations.
+A `PolicyProvider` is an object providing a hash containing declared modules, functions and Limitations.
 
 - Each Policy provider provides a collection of permission *modules*.
-- Each module can provide *functions* (e.g. "content/read": "content" is the module, "read" is the function)
+- Each module can provide *functions* (e.g. in `content/read` "content" is the module, "read" is the function)
 - Each function can provide a collection of Limitations.
 
-Policies configuration hash contains declared these modules, functions and Limitations.
+A Policy configuration hash contains these modules, functions and Limitations.
 First level key is the module name, value is a hash of available functions, with function name as key.
-Function value is an array of available Limitations, identified by the alias declared in LimitationType service tag.
+Function value is an array of available Limitations, identified by the alias declared in `LimitationType` service tag.
 If no Limitation is provided, value can be `null` or an empty array.
 
-```
+``` php
 [
     "content" => [
         "read" => ["Class", "ParentClass", "Node", "Language"],
@@ -639,7 +622,7 @@ If no Limitation is provided, value can be `null` or an empty array.
 ]
 ```
 
-Limitations need to be implemented as *limitation types* and declared as services identified with `ezpublish.limitationType` tag. Name provided in the hash for each Limitation is the same value set in `alias` attribute in the service tag.
+Limitations need to be implemented as *Limitation types* and declared as services identified with `ezpublish.limitationType` tag. Name provided in the hash for each Limitation is the same value set in the `alias` attribute in the service tag.
 
 ### Example
 
@@ -663,7 +646,7 @@ class MyPolicyProvider implements PolicyProviderInterface
 }
 ```
 
-### YamlPolicyProvider
+### REVIEW YamlPolicyProvider
 
 An abstract class based on YAML is provided: `eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Security\PolicyProvider\YamlPolicyProvider`.
 It defines an abstract `getFiles()` method.
@@ -725,7 +708,3 @@ class AcmeFooBundle extends Bundle
     }
 }
 ```
-
-### Core policies
-
-Policies used internally in repository services are defined in `EzPublishCoreBundle/Resources/config/policies.yml`.
