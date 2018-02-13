@@ -1,6 +1,10 @@
 # Building a Bicycle Route Tracker in eZ Platform
 
-This tutorial is a step-by-step guide to building an eZ Platform website from the ground up. All instructions and steps are based on version [1.7.0](../../releases/ez_platform_v1.7.0_lts.md) of eZ Platform released on December 15, 2016.
+This tutorial is a step-by-step guide to building an eZ Platform website from the ground up. All instructions and steps are based on version [2.0.0](../../releases/ez_platform_v2.0.0.md) of eZ Platform released on December 22, 2017.
+
+!!! caution
+
+    Steps 6. and 7. will only fully work with eZ Platform version later than 2.0.1
 
 This tutorial applies a learning-by-doing method to demonstrate how [eZ Platform](https://ezplatform.com/) can be used to build a great website.
 

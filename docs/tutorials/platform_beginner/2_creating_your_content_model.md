@@ -20,13 +20,13 @@ The site will use two Content Types: **Ride** and **Point of interest**
 
 Go to the admin interface (`<yourdomain>/admin`), and authenticate with the default username: `admin` and the default password: `publish`. 
 
-Click on **Admin Panel** in the Navigation hub, and choose **Content types** in the sub menu:
+Click on **Admin** in the Navigation hub, and choose **Content types** in the sub menu:
 
 ![Navigation hub](img/bike_tutorial_nav_hub.png)
 
 You will see a list of **Content Type Groups**. They are used to group content types in a logical way.
 
-Click on **Content** and then click on **Create a content type**. 
+Click on **Content** and then click the plus icon. 
 
 ![Create a content type button](img/bike_tutorial_create_content_type.png)
 

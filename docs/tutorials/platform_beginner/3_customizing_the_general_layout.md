@@ -14,13 +14,14 @@ First, go to the root of your eZ Platform site. You should see the root folder o
 
 To use a custom template when rendering the root content, let's create a `content_view` configuration block for `ezpublish`.
 
-We will use the `default` namespace, but we could have used any siteaccess instead. Edit `app/config/ezplatform.yml`. At the end, add the following block, right after the language configuration (pay attention to indentation: `default` should be at the same level as `site_group`):
+We will use the `site_group` namespace, but we could have used any other siteaccess of group instead. Edit `app/config/ezplatform.yml`. At the end, add the following block, before `admin_group`:
 
 ``` yaml
 #ezplatform.yml
     system:
     #existing directives: don't touch them    
-        default: #same level as site_group directive
+        site_group:
+            #existing directives: don't touch them
             content_view:
                 full:
                     root_folder:
@@ -97,7 +98,7 @@ Then change every image's path in the same way.
     The web assets file must be regenerated for the prod environment, so run the following command:
 
     ​```
-    php app/console assetic:dump --env=prod web
+    php bin/console assetic:dump --env=prod web
     ​```
 
 !!! note "Clear the cache"
