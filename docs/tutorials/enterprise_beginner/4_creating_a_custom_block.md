@@ -2,7 +2,7 @@
 
 !!! tip
 
-    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/ezstudio-beginner-tutorial/tree/master).
+    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/ezstudio-beginner-tutorial/tree/v2-master).
 
 The last of the planned Landing Page elements is still missing. You will create it by building a custom block for the Landing Page. You can utilize the possibility of creating custom blocks in many ways, with many complex configurations fitting your project. This tutorial will show you the process of creating a block on a very simple example: you will display a randomly chosen Content item from a selected folder.
 

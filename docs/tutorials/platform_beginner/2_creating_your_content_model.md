@@ -1,6 +1,6 @@
 # Step 2 - Create your content model
 
-How your content is structured is a very important part of an eZ Platform project. Think of it as the database design of your application. We recommend that you read the [Under the hood, concepts and organization](https://doc.ez.no/display/USER/2.+Under+the+hood%2C+concepts+and+organization) documentation page, but you can also read the paragraph below for a short, straight-to-the-point introduction.
+How your content is structured is a very important part of an eZ Platform project. Think of it as the database design of your application. We recommend that you read the [Under the hood, concepts and organization](https://doc.ezplatform.com/projects/userguide/en/latest/under_the_hood/) documentation page, but you can also read the paragraph below for a short, straight-to-the-point introduction.
 
 ## Content Model Overview
 

@@ -16,16 +16,16 @@ These setups are tested by QA and are generally recommended setups. For security
 
 ||Debian|Ubuntu|RHEL / CentOS|
 |------|------|------|------|
-|Operating system|9.x "Stretch"|17.10|7.x|
+|Operating system|9.x "Stretch"|17.10 "Artful"|7.x|
 |Web Server|Nginx 1.10</br>Apache 2.4|Nginx 1.12</br>Apache 2.4|Nginx 1.10 *(latest via [RHSCL](https://access.redhat.com/documentation/en/red-hat-software-collections/))*</br>Apache 2.4|
 |DBMS|MariaDB 10.1</br>MySQL 5.5|MariaDB 10.1</br>MySQL 5.7\*|MariaDB 10.1 *(latest via RHSCL)*</br>MariaDB 10.0 *(latest via RHSCL)*</br>MySQL 5.6 *(latest via RHSCL)*</br>MariaDB 5.5|
 |PHP|PHP 7.1 _(Either using packages in [testing](https://packages.debian.org/buster/php7.1), or [deb.sury.org](https://deb.sury.org/))_|PHP 7.1|PHP 7.1 *(latest via RHSCL)*|
-|PHP packages|php-cli</br>php-fpm</br>php-readline</br>php-mysql or php-pgsql</br>php-json</br>php-xsl</br>php-intl</br>php-mcrypt</br>php-curl</br>php-gd</br>*or* php-imagick|php-cli</br>php-fpm *(for use with nginx)*</br>php-readline</br>php-mysql or php-pgsql</br>php-json</br>php-xml</br>php-mbstring</br>php-intl</br>php-mcrypt</br>php-curl</br>php-gd or php-imagick|php-cli</br>php-fpm *(for use with nginx)*</br>php-mysqlnd or php-pgsql</br>php-xml</br>php-mbstring</br>php-process</br>php-intl</br>php-pear *(optional, provides pecl)*</br>php-gd or php-imagick *(via [pecl](https://pecl.php.net/package/imagick))*</br>php-memcached *(recommended, via [pecl](https://pecl.php.net/package/memcached))*|
+|PHP packages|php-cli</br>php-fpm</br>php-mysql or php-pgsql</br>php-xml</br>php-intl</br>php-curl</br>php-gd</br>*or* php-imagick|php-cli</br>php-fpm *(for use with nginx)*</br>php-mysql or php-pgsql</br>php-xml</br>php-mbstring</br>php-intl</br>php-curl</br>php-gd or php-imagick|php-cli</br>php-fpm *(for use with nginx)*</br>php-mysqlnd or php-pgsql</br>php-xml</br>php-mbstring</br>php-process</br>php-intl</br>php-pear *(optional, provides pecl)*</br>php-gd or php-imagick *(via [pecl](https://pecl.php.net/package/imagick))*</br>php-memcached *(recommended, via [pecl](https://pecl.php.net/package/memcached))*|
 |Cluster PHP packages</br>|php-redis *(via [pecl](https://pecl.php.net/package/redis))*|php-redis *(via [pecl](https://pecl.php.net/package/redis))*|php-redis *(via [pecl](https://pecl.php.net/package/redis))*|
 
 |||
 |------|------|
-|Search|Solr (recommended, for better performance and scalability of all API Queries):</br></br>Solr 4.10</br>*Solr 6 SOLR BUNDLE >= 1.3, CURRENTLY TESTED WITH SOLR 6.4.2*</br></br>Oracle Java/Open JDK: 7 or 8 (needed for Solr, version 8 recommended)|
+|Search|Solr (recommended; for performance, features and search quality):</br></br>Solr 6 or higher *Currently tested with Solr 6.6.2*</br></br>Oracle Java/Open JDK: 8 |
 |Graphic Handler|GraphicsMagick or ImageMagick or GD|
 |[Clustering](../guide/clustering.md)|Linux NFS *or* S3 *(for IO, aka binary files stored in content repository)*</br>Redis *(for Persistence cache & Sessions)*</br>Varnish *(for HttpCache)*|
 |Filesystem|Linux ext3 / ext4|
@@ -56,13 +56,11 @@ Supported setups are those we perform automated testing on. For security and per
     -   fileinfo
     -   iconv
     -   intl
-    -   json
     -   mbstring
     -   opcache *(recommended over APC)*
     -   pdo
         -   pdo mysql *(with mysqlnd)*
     -   posix
-    -   readline
     -   reflection
     -   xml
     -   xsl

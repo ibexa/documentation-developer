@@ -70,15 +70,40 @@ body {
 }
 
 .md-typeset h2 {
-    font-size: 27px;
+    font-size: 34px;
     font-weight: 500;
     line-height: 1;
 }
 
 .md-typeset h3 {
-    font-size: 22px;
+    font-size: 28px;
     font-weight: 500;
     line-height: 1;
+}
+
+.md-typeset h4 {
+    font-size: 23px;
+}
+
+.md-typeset h5 {
+    font-size: 20px;
+    text-transform: none;
+}
+
+.md-typeset h6 {
+    font-size: 18px;
+}
+
+.md-typeset h2, .md-typeset h3, .md-typeset h4, .md-typeset h5, .md-typeset h6 {
+    color: #63605d;
+}
+
+.md-typeset h2, .md-typeset h3, .md-typeset h4 {
+    font-weight: 500;
+}
+
+.md-typeset h5, .md-typeset h6 {
+    font-weight: 600;
 }
 
 .md-footer-meta {
@@ -99,6 +124,10 @@ body {
     content: url('../images/eZ-Brandmark.png');
 }
 
+.admonition {
+    font-size: 16px;
+}
+
 .admonition.tip:before {
    content: "lightbulb_outline";
 }
@@ -109,7 +138,51 @@ body {
 
 .admonition.enterprise {
     border-left: 5px solid rgba(241, 90, 34, 0.59);
-    background-color: rgba(241, 90, 34, 0.21);
+    background-color: #ffffff;
+}
+
+.admonition.caution {
+    border-color: #f46485;
+    background-color: #fcd2dc;
+}
+
+.admonition.tip {
+    border-color: #6ed28a;
+    background-color: #d5f2dd;
+}
+
+.admonition.note {
+    border-color: #4ec7f3;
+    background-color: #c9eefb;
+}
+
+details {
+    position: relative;
+    margin: 1.5625em 0;
+    padding: .8rem 1.2rem;
+    border-left: 5px solid #4ec7f3;
+    border-radius: .2rem;
+    background-color: #c9eefb;
+}
+
+.md-typeset .codehilitetable .linenos {
+    background-color: #c0c0c0;
+    color: #fff;
+}
+
+.md-typeset .codehilite, .md-typeset .highlight pre {
+    background-color: #f8f8f8;
+}
+
+.md-typeset code {
+    background-color: #f0f0f0;
+    padding: 1px 4px;
+    margin: 0;
+    box-shadow: none;
+}
+
+.codehilite .hll {
+    background-color: #faecbc;
 }
 
 .md-nav__link[data-md-state=blur] {
@@ -129,6 +202,11 @@ div.rst-versions {
 
 figure {
     margin: 0;
+}
+
+figcaption {
+    font-size: 13px;
+    font-style: italic;
 }
 
 a.external:after {

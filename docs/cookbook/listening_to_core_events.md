@@ -1,8 +1,8 @@
 # Listening to Core events
 
-## Description
-
-When you interact with the Public API, and with the content Repository in particular, **Signals** may be sent out, allowing you to react on actions triggered by the Repository. Those signals can be received by dedicated services called **Slots**.
+When you interact with the Public API, and with the content repository in particular, **Signals** may be sent out,
+allowing you to react to actions triggered by the repository.
+Those signals can be received by dedicated services called **Slots**.
 
 !!! note
 
@@ -12,17 +12,15 @@ When you interact with the Public API, and with the content Repository in partic
 
 This recipe will describe how to register a Slot for a dedicated Signal.
 
-## Solution
+## Registering a Slot for a given Signal
 
-### Registering a Slot for a given Signal
-
-As described in the [SignalSlot documentation](../guide/repository.md#signal-slots), a Slot is roughly like an event listener and must extend `eZ\Publish\Core\SignalSlot\Slot`.
+As described in the [SignalSlot documentation](../guide/repository.md#signal-slots),
+a Slot is the eZ Platform equivalent of a Symfony event listener and must extend `eZ\Publish\Core\SignalSlot\Slot`.
 
 A typical implementation is the following:
 
 ``` php
-// OnPublishSlot
-namespace Acme\TestBundle\Slot;
+namespace Acme\ExampleBundle\Slot;
  
 use eZ\Publish\Core\SignalSlot\Slot as BaseSlot;
 use eZ\Publish\Core\SignalSlot\Signal;
@@ -54,22 +52,25 @@ class OnPublishSlot extends BaseSlot
 }
 ```
 
-`OnPublishSlot` now needs to be registered as a service in the ServiceContainer and identified as a valid Slot:
+You now need to register `OnPublishSlot` as a service in the ServiceContainer and identify it as a valid Slot.
+
+In `services.yml` (in your bundle):
 
 ``` yaml
-# services.yml (in your bundle)
 parameters:
-    my.onpublish_slot.class: Acme\TestBundle\Slot\OnPublishSlot
+    my.onpublish_slot.class: Acme\ExampleBundle\Slot\OnPublishSlot
  
 services:
     my.onpublish_slot:
-        class: %my.onpublish_slot.class%
-        arguments: [@ezpublish.api.service.content]
+        class: '%my.onpublish_slot.class%'
+        arguments: ['@ezpublish.api.service.content']
         tags:
             - { name: ezpublish.api.slot, signal: ContentService\PublishVersionSignal }
 ```
 
-Service tag **`ezpublish.api.slot`** identifies your service as a valid Slot. The signal part (mandatory) says that this slot is listening to **`ContentService\PublishVersionSignal`** (shortcut for `\eZ\Publish\Core\SignalSlot\Signal\ContentService\PublishVersionSignal`).
+Service tag `ezpublish.api.slot` identifies your service as a valid Slot.
+The signal part (mandatory) says that this Slot is listening to `ContentService\PublishVersionSignal`
+(shortcut for `\eZ\Publish\Core\SignalSlot\Signal\ContentService\PublishVersionSignal`).
 
 !!! note
 
@@ -79,11 +80,13 @@ Service tag **`ezpublish.api.slot`** identifies your service as a valid Slot. Th
 
 !!! tip
 
-    You can register a slot for any kind of signal by setting `signal` to `*` in the service tag.
+    You can register a Slot for any kind of signal by setting `signal` to `*` in the service tag.
 
-### Using a basic Symfony event listener
+## Using a basic Symfony event listener
 
-eZ Platform comes with a generic slot that converts signals (including ones defined by user code) to regular event objects and exposes them via the EventDispatcher. This makes it possible to implement a simple event listener/subscriber if you're more comfortable with this approach.
+eZ Platform comes with a generic Slot that converts signals (including ones defined by user code)
+to regular event objects and exposes them via the EventDispatcher.
+This makes it possible to implement a simple event listener/subscriber if you're more comfortable with this approach.
 
 All you need to do is to implement an event listener or subscriber and register it.
 
@@ -91,22 +94,23 @@ All you need to do is to implement an event listener or subscriber and register 
 
 This very simple example will just log the received signal.
 
+In `services.yml` (in your bundle):
+
 ``` yaml
-# services.yml (in your bundle)
 parameters:
-    my.signal_listener.class: Acme\TestBundle\EventListener\SignalListener
+    my.signal_listener.class: Acme\ExampleBundle\EventListener\SignalListener
  
 services:
     my.signal_listener:
-        class: %my.signal_listener.class%
-        arguments: [@logger]
+        class: '%my.signal_listener.class%'
+        arguments: ['@logger']
         tags:
             - { name: kernel.event_subscriber }
 ```
 
 ``` php
 <?php
-namespace Acme\TestBundle\EventListener;
+namespace Acme\ExampleBundle\EventListener;
 
 use eZ\Publish\Core\MVC\Symfony\Event\SignalEvent;
 use eZ\Publish\Core\MVC\Symfony\MVCEvents;
@@ -134,9 +138,9 @@ class SignalListener implements EventSubscriberInterface
 
     public static function getSubscribedEvents()
     {
-        return array(
+        return [
             MVCEvents::API_SIGNAL => 'onAPISignal'
-        );
+        ];
     }
 }
 ```

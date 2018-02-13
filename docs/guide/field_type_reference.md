@@ -1122,11 +1122,11 @@ $keywordValue = new Value( "php5,css3,html5" );
 
     The placement of zones is defined in a template which is a part of the layout configuration. You can modify the template in order to define your own layout of zones.
 
-    For information on how to create and configure new blocks for the Landing Page, see [Creating Landing Page layouts (Enterprise).](../cookbook/creating_landing_page_layouts_(enterprise).md).
+    For information on how to create and configure new blocks for the Landing Page, see [Landing Page layouts](content_rendering.md#landing-page-layouts).
 
     ### Blocks
 
-    For information on how to create and configure new blocks for the Landing Page, see [Creating Landing Page blocks (Enterprise).](../cookbook/creating_landing_page_blocks_(enterprise).md)
+    For information on how to create and configure new blocks for the Landing Page, see [Landing Page blocks](content_rendering.md#landing-page-blocks).
 
     ### Rendering Landing Pages
 
@@ -1470,7 +1470,7 @@ services:
     ezpublish.fieldType.ezpaex.converter:
         class: "%ezpublish.fieldType.eznull.converter.class%"
         tags:
-            - {name: ezpublish.storageEngine.legacy.converter, alias: ezpaex} 
+            - {name: ezpublish.storageEngine.legacy.converter, alias: ezpaex}
 ```
 
 ## Rating Field Type
@@ -2044,7 +2044,7 @@ Example:
  
 ## URL Field Type
 
-This Field Type makes possible to store and retrieve a URL. It is formed by the combination of a link and the respective text.
+This Field Type makes it possible to store and retrieve a URL. It is formed by the combination of a link and the respective text.
 
 | Name  | Internal name | Expected input |
 |-------|---------------|----------------|
@@ -2054,9 +2054,10 @@ This Field Type makes possible to store and retrieve a URL. It is formed by the 
 
 #### Input expectations
 
-|Type|Example|
-|------|------|
-|`string`|`"http://www.ez.no", "eZ Systems"`|
+|Type|Description|Example|
+|------|------|------|
+|`string`|Link content provided to the value.|"http://www.ez.no"|
+|`string`|Text content that represents the stored link.|"eZ Systems"|
 
 #### Value object
 
@@ -2078,13 +2079,28 @@ $url->text = "eZ Systems";
 
 ###### Constructor
 
-The `Url\Value` constructor will initialize a new Value object with the value provided. It expects two comma-separated strings, corresponding to the link and text.
+The `Url\Value` constructor initializes a new Value object with the provided value. It expects two comma-separated strings, corresponding to the link and text.
 
 ``` php
 // Constructor example
 
 // Instantiates an Url Value object
 $UrlValue = new Url\Value( "http://www.ez.no", "eZ Systems" );
+```
+#### Hash format
+
+|Key|Type|Description|Example|
+|------|------|------|------|
+|`link`|`string`|Link content.|"http://ez.no"|
+|`text`|`string`|Text content.|"eZ Systems"|
+
+```php
+// Example of the hash value in PHP
+$hash = [
+    "link" => "http://ez.no",
+    "text" => "eZ Systems"
+];
+
 ```
 
 #### Validation

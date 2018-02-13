@@ -1,4 +1,4 @@
-# Step 1 - Display content of a Ride
+# Step 4 - Display content of a Ride
 
 ![Ride view](img/bike_tutorial_ride_view.png)
 
@@ -90,7 +90,7 @@ We still haven't set any matching rule for our new Content Type Ride, so let's a
 
 !!! note
 
-​    In every example, we show you a valid YAML excerpt. Keep the existing keys and add the missing content in the YAML file.
+    In every example, we show you a valid YAML excerpt. Keep the existing keys and add the missing content in the YAML file.
 ​    YAML does not allow duplicate keys.
 
 ``` yaml

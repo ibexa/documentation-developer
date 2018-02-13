@@ -422,7 +422,11 @@ bin/solr create_core -c collection1 -d server/ez/template
 
 ##### Further configuration
 
-Thirdly, on both Solr 4 and 6 Solr the bundle does not commit solr index changes directly on repository updates, leaving it up to you to tune this using `solrconfig.xml` as best practice suggests, for example:
+Thirdly, on both Solr 4 and 6 Solr the bundle does not commit solr index changes directly on repository updates, leaving it up to you to tune this using `solrconfig.xml` as best practice suggests. 
+
+This setting is **required** if you want to see the changes after publish. It is strongly recommended to set-up `solrconfig.xml` as following:
+
+
 
 ``` xml
 <!--solrconfig.xml-->
@@ -444,8 +448,9 @@ The Solr search engine bundle can be configured in many ways. The config further
 
 ``` yaml
 # parameters.yml
-    search_engine: solr
-    solr_dsn: 'http://localhost:8983/solr'
+    env(SEARCH_ENGINE): solr
+    env(SOLR_DSN): 'http://localhost:8983/solr'
+    env(SOLR_CORE): collection1
 ```
 
 On to configuring the bundle.
@@ -628,6 +633,14 @@ For configuration of Solr connection for your repository, see [How to set up Sol
 #### Boost configuration
 
 SOLR BUNDLE &gt;= 1.4
+
+!!! tip "How boosting interacts with Search API"
+
+    Boosting of fields or documents will affect the score (relevance) of your search result hits
+    when using Search API for any criteria you specify on `$query->query`, or in REST by using `Query` element.
+    When you don't specify anything to sort on, the result will be sorted by this relevance.
+    Anything set on `$query->filter`, or in REST using `Filter` element,  will _not_ affect scoring and only works
+    as a pure filter for the result. Thus make sure to place criteria you want to affect scoring on `query`.
 
 Boosting currently happens when indexing, so if you change your configuration you'll need to re-index (this is expected behavior). This can possibly be solved by a contribution to change boosting to be performed on query time.
 
