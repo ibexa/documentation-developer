@@ -1,20 +1,21 @@
 # Search
 
-eZ Platform exposes very powerful Search API, allowing both Full Text search and querying the content repository using several built-in Criteria and Sort Clauses. These are supported across several search engines, allowing you to plug in another search engine without changing your code.
+eZ Platform exposes a very powerful Search API, allowing both full-text search and querying the content Repository using several built-in Search Criteria and Sort Clauses. These are supported across different search engines, allowing you to plug in another search engine without changing your code.
 
-Currently three search engines exists on their own eZ Platform Bundles:
+Currently three search engines exist in their own eZ Platform Bundles:
 
-1.  [Legacy](#legacy-search-engine-bundle), a database-powered search engines for basic needs.
-1.  [Solr](#solr-bundle), an integration providing better overall performance, much better scalability and support for more advance search capabilities RECOMMENDED
-1.  [ElasticSearch](#elasticsearch-bundle), similar to Solr integration, however currently not under active development EXPERIMENTAL, NOT SUPPORTED
+1.  [Legacy search engine](#legacy-search-engine-bundle), a database-powered search engine for basic needs.
+1.  [Solr](#solr-bundle), an integration providing better overall performance, much better scalability and support for more advanced search capabilities **(recommended)**
+1.  [ElasticSearch](#elasticsearch-bundle), similar to Solr integration, currently not under active development *(experimental, not supported)*
 
 ## Search Criteria and Sort Clauses
 
-Search Criteria  and Sort Clauses are `value` object classes used for building Search Query, to define filter criteria and ordering of the result set. eZ Platform provides a number of standard Criteria and Sort Clauses that you can use out of the box and that should cover the majority of use cases.
+Search Criteria and Sort Clauses are value object classes used for building a search query, to define filter criteria and ordering of the result set.
+eZ Platform provides a number of standard Search Criteria and Sort Clauses that you can use out of the box and that should cover the majority of use cases.
+
+As an example take a look at the built-in `ContentId` Criterion
 
 ``` php
-// Example of standard ContentId criterion
-
 <?php
 
 namespace eZ\Publish\API\Repository\Values\Content\Query\Criterion;
@@ -61,13 +62,15 @@ class ContentId extends Criterion implements CriterionInterface
 }
 ```
 
-### Search Engine Handling of Search Criteria and Sort Clauses
+### Search engine handling of Search Criteria and Sort Clauses
 
-As Search Criteria and Sort Clauses are `value` objects which are used to define the Query from API perspective, they are are common for all storage engines. Each storage engine needs to implement its own `handler` for corresponding Criterion and Sort Clause `value` object, which will be used to translate the value object into storage specific search query.
+As Search Criteria and Sort Clauses are value objects which are used to define the query from API perspective, they are common for all storage engines.
+Each storage engine needs to implement its own handlers for the corresponding Criterion and Sort Clause value object,
+which will be used to translate the value object into a storage-specific search query.
+
+Example of the `ContentId` Criterion handler in Legacy storage engine:
 
 ``` php
-// Example of ContentId criterion handler in Legacy Storage Engine
-
 <?php
 
 namespace eZ\Publish\Core\Search\Legacy\Content\Common\Gateway\CriterionHandler;
@@ -94,7 +97,6 @@ class ContentId extends CriterionHandler
         return $criterion instanceof Criterion\ContentId;
     }
 
-
     /**
      * Generate query expression for a Criterion this handler accepts
      *
@@ -116,9 +118,9 @@ class ContentId extends CriterionHandler
 }
 ```
 
-``` php
-// Example of ContentId criterion handler in Solr Storage engine
+Example of a `ContentId` Criterion handler in Solr storage engine:
 
+``` php
 <?php
 
 namespace EzSystems\EzPlatformSolrSearchEngine\Query\Content\CriterionVisitor;
@@ -133,7 +135,7 @@ use eZ\Publish\API\Repository\Values\Content\Query\Criterion\Operator;
 class ContentIdIn extends CriterionVisitor
 {
     /**
-     * CHeck if visitor is applicable to current criterion
+     * Check if visitor is applicable to current criterion
      *
      * @param Criterion $criterion
      *
@@ -176,97 +178,100 @@ class ContentIdIn extends CriterionVisitor
 
 ## Search Criteria Reference
 
-**Criteria** are the filters for Content and Location Search, for generic use of API Search see [Search Criteria and Sort Clauses](#search-criteria-and-sort-clauses).
+Criteria are the filters for Content and Location Search.
 
-A Criterion consist of two parts just like SortClause and FacetBuilder:
+A Criterion consist of two parts (similar to Sort Clause and Facet Builder):
 
 - The API Value: `Criterion`
 - Specific handler per search engine: `Criterion Handler`
 
-`Criterion` represents the value you use in the API, while `CriterionHandler` deals with the business logic in the background translating the value to something the Search engine can understand.
+`Criterion` represents the value you use in the API, while `CriterionHandler` deals with the business logic in the background translating the value to something the search engine can understand.
 
-Implementation and availability of a handler typically depends on search engine capabilities and limitations, currently only Legacy (SQL) Search Engine exists, and for instance its support for FullText and Field Criterion is not optimal and it is advised to avoid heavy use of these until future search engine arrives.
+Implementation and availability of a handler typically depends on search engine capabilities and limitations.
+Currently only Legacy (SQL-based) search engine is available out of the box,
+and for instance its support for FullText and Field Criterion is not optimal.
+You should avoid heavy use of these until future improvements to the search engine.
 
 #### Common concepts for most Criteria
 
-For how to use each and every Criterion see the list below, as it depends on the Criterion Value constructor, but *in general* you should be aware of the following common concepts:
+Refer to the [list below](#list-of-criteria) to see how to use each Criterion, as it depends on the Criterion Value constructor, but in general you should be aware of the following common concepts:
 
 - `target`: Exposed if the given Criterion supports targeting a specific sub field, example: FieldDefinition or Meta Data identifier
-- `value`: The value(s) to *filter* on, this is typically a  `scalar` or `array` of` scalars.`
-- `operator`: Exposed on some Criteria
-    - All operators can be seen as constants on `eZ\Publish\API\Repository\Values\Content\Query\Criterion\Operator`, at time of writing: `IN, EQ, GT, GTE, LT, LTE, LIKE, BETWEEN, CONTAINS`
-    - Most Criteria do not expose this and select `EQ` **or** `IN` depending on if value is `scalar` **or** `array`
-    - `IN` & `BETWEEN`always acts on an `array` of values, while the other operators act on single `scalar` value
-- `valueData`: Additional value data, required by some Criteria, MapLocationDistance for instance
+- `value`: The value(s) to filter on, this is typically a scalar or array of scalars.
+- `operator`: Exposed on some Criteria:
+    - all operators can be seen as constants on `eZ\Publish\API\Repository\Values\Content\Query\Criterion\Operator`: `IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `LIKE`, `BETWEEN`, `CONTAINS`
+    - most Criteria do not expose this and select `EQ` or `IN` depending if value is scalar or an array
+    - `IN` and `BETWEEN` always act on an array of values, while the other operators act on single scalar value
+- `valueData`: Additional value data, required by some Criteria, for instance MapLocationDistance
 
 In the Legacy search engine, the field index/sort key column is limited to 255 characters by design.
 Due to this storage limitation, searching content using the eZ Country Field Type or Keyword when there are multiple values selected may not return all the expected results.
 
 #### List of Criteria
 
-The list below reflects Criteria available in the `eZ\Publish\API\Repository\Values\Content\Query\Criterion` namespace (it is also possible to make a custom Criterion):
+The list below presents the Criteria available in the `eZ\Publish\API\Repository\Values\Content\Query\Criterion` namespace:
 
 ##### Only for LocationSearch
 
 |Criterion|Constructor arguments description|
 |------|------|
-|`Location\Depth`|`operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `BETWEEN`), `value` being the Location depth(s) as an integer(s).|
-|`Location\IsMainLocation`|Whether or not the Location is a Main Location. `value (Location\IsMainLocation::MAIN, Location\IsMainLocation::NOT_MAIN)`|
-|`Location\Priority`|Priorities are integers that can be used for sorting in ascending or descending order. What is higher or lower priority in relation to the priority number is left to the user choice. `operator` (`GT`, `GTE`, `LT`, `LTE`, `BETWEEN`), `value` being the location priority(s) as an integer(s).|
+|`Location\Depth`|`operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `BETWEEN`)</br>`value` being the Location depth(s) as integer(s).|
+|`Location\IsMainLocation`|Whether or not the Location is a main Location.</br>`value (Location\IsMainLocation::MAIN, Location\IsMainLocation::NOT_MAIN)`|
+|`Location\Priority`|Priorities are integers that can be used for sorting in ascending or descending order. What is higher or lower priority in relation to the priority number is left to your choice.</br>`operator` (`GT`, `GTE`, `LT`, `LTE`, `BETWEEN`), `value` being the location priority(s) as an integer(s).|
 
 ##### Common
 
 |Criterion|Constructor arguments description|
 |------|------|
-|`ContentId`|`value` being scalar(s) representing the Content id.|
-|`ContentTypeGroupId`|`value` being scalar(s) representing the Content Typ eGroup id.|
-|`ContentTypeId`|`value` being scalar(s) representing the Content Type id.|
-|`ContentTypeIdentifier`|`value` being string(s) representing the Content Type identifier, example: "article".|
-|`DateMetadata`|`target` ( `DateMetadata ::MODIFIED`, `DateMetadata ::CREATED`), `operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `BETWEEN`), `value` being integer(s) representing unix timestamp.|
-|`Field`|`target` (FieldDefinition identifier ), `operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `LIKE`, `BETWEEN`, `CONTAINS`), `value` being scalar(s) relevant for the field.|
-|`FieldRelation`|`target` (FieldDefinition identifier), `operator` (`IN`, `CONTAINS`), `value` being array of scalars representing Content id of relation. *Use of `IN` means relation needs to have one of the provided ID's, while `CONTAINS` implies it needs to have all provided id's.*|
-|`FullText`|`value` being the string to search for, `properties` is array to set additional properties for use with future search engines like Solr/ElasticSearch.|
-|`LanguageCode`|`value` being string(s) representing Language Code(s) on the Content (not on Fields), `matchAlwaysAvailable` as boolean.|
-|`LocationId`|`value` being scalar(s) representing the Location id.|
-|`LocationRemoteId`|`value` being string(s) representing the Location Remote id.|
+|`ContentId`|`value` scalar(s) representing the Content ID.|
+|`ContentTypeGroupId`|`value` scalar(s) representing the Content Type Group ID.|
+|`ContentTypeId`|`value` scalar(s) representing the Content Type ID.|
+|`ContentTypeIdentifier`|`value` string(s) representing the Content Type identifier, example: "article".|
+|`DateMetadata`|`target` ( `DateMetadata ::MODIFIED`, `DateMetadata ::CREATED`)</br>`operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `BETWEEN`)</br>`value` being integer(s) representing unix timestamp.|
+|`Field`|`target` (FieldDefinition identifier), `operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `LIKE`, `BETWEEN`, `CONTAINS`), `value` being scalar(s) relevant for the field.|
+|`FieldRelation`|`target` (FieldDefinition identifier)</br>`operator` (`IN`, `CONTAINS`)</br>`value` being array of scalars representing Content ID of relation.</br>Use of `IN` means the relation needs to have one of the provided IDs, while `CONTAINS` implies it needs to have all provided IDs.|
+|`FullText`|`value` which is the string to search for</br>`properties` is array to set additional properties for use with search engines like Solr/ElasticSearch.|
+|`LanguageCode`|`value` string(s) representing Language Code(s) on the Content (not on Fields)</br>`matchAlwaysAvailable` as boolean.|
+|`LocationId`|`value` scalar(s) representing the Location ID.|
+|`LocationRemoteId`|`value` string(s) representing the Location Remote ID.|
 |`LogicalAnd`|A `LogicalOperator` that takes `array` of other Criteria, makes sure all Criteria match.|
 |`LogicalNot`|A `LogicalOperator` that takes `array` of other Criteria, makes sure none of the Criteria match.|
 |`LogicalOr`|A `LogicalOperator` that takes `array` of other Criteria, makes sure one of the Criteria match.|
-|`MapLocationDistance`| `target` (FieldDefinition identifier), `operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `BETWEEN`), `distance` as float(s) from a position using `latitude` as float, `longitude` as float as arguments|
-|`MatchAll`|*No arguments, mainly for internal use when no `filter` or `query` is provided on Query object.*|
-|`MatchNone`|*No arguments, mainly for internal use by [BlockingLimitation](repository.md#blockinglimitation).*|
-|`ObjectStateId`|`value` being string(s) representing the Content ObjectState id.|
-|`ParentLocationId`|`value` being scalar(s) representing the Parent's Location id|
-|`RemoteId`|`value` being string(s) representing the Content Remote id.|
-|`SectionId`|`value` being scalar(s) representing the Content Section id.|
-|`Subtree`|`value` being string(s) representing the Location id in which you can filter. *If the Location Id is `/1/2/20/42`, you will filter everything under `42`.*|
-|`UserMetadata`|`target` (`UserMetadata ::OWNER`, `UserMetadata ::GROUP`, `UserMetadata ::MODIFIER`), `operator` (`IN`, `EQ`), `value` being scalar(s) representing the User or User Group id(s).|
-|`Visibility`|`value` (`Visibility ::VISIBLE`, `Visibility ::HIDDEN`). *Note: This acts on all assigned locations when used with ContentSearch, meaning hidden content will be returned if it has a location which is visible. Use LocationSearch to avoid this.*|
+|`MapLocationDistance`| `target` (FieldDefinition identifier)</br>`operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `BETWEEN`)</br>`distance` as float(s) from a position using `latitude` as float, `longitude` as float as arguments|
+|`MatchAll`|No arguments, mainly for internal use when no `filter` or `query` is provided on Query object.|
+|`MatchNone`|No arguments, mainly for internal use by the [BlockingLimitation](repository.md#blockinglimitation).|
+|`ObjectStateId`|`value` string(s) representing the Content ObjectState ID.|
+|`ParentLocationId`|`value` scalar(s) representing the Parent's Location ID.|
+|`RemoteId`|`value` string(s) representing the Content Remote ID.|
+|`SectionId`|`value` scalar(s) representing the Content Section ID.|
+|`Subtree`|`value` string(s) representing the Location ID in which you can filter. If the Location ID is `/1/2/20/42`, you will filter everything under `42`.|
+|`UserMetadata`|`target` (`UserMetadata ::OWNER`, `UserMetadata ::GROUP`, `UserMetadata ::MODIFIER`)</br>`operator` (`IN`, `EQ`), `value` scalar(s) representing the User or User Group ID(s).|
+|`Visibility`|`value` (`Visibility ::VISIBLE`, `Visibility ::HIDDEN`).</br>*Note: This acts on all assigned locations when used with ContentSearch, meaning hidden content will be returned if it has a location which is visible. Use LocationSearch to avoid this.*|
 
 ## Sort Clauses Reference
 
-**Sort Clauses** are the *sorting options* for Content and Location Search in eZ Platform. For generic use of API Search see [Search Criteria and Sort Clauses](#search-criteria-and-sort-clauses).
+Sort Clauses are the sorting options for Content and Location Search in eZ Platform.
 
-A Sort Clause consists of two parts just like Criterion and FacetBuilder:
+A Sort Clause consists of two parts (similar to Criterion and Facet Builder):
 
 - The API Value: `SortClause`
 - Specific handler per search engine: `SortClausesHandler`
 
-The `SortClause` represents the value you use in the API, while `SortClauseHandler` deals with the business logic in the background, translating the value to something the Search engine can understand.
+The `SortClause` represents the value you use in the API, while `SortClauseHandler` deals with the business logic in the background, translating the value to something the search engine can understand.
 
 Implementation and availability of a handler sometimes depends on search engine capabilities and limitations.
 
 #### Common concepts for all Sort Clauses 
 
-For how to use each and every Sort Clause, see list below as it depends on the Sort Clause Value constructor, but *in general* you should be aware of the following common concept:
+Refer to the [list below](#list-of-sort-clauses) to see how to use each Sort Clause, as it depends on the Sort Clause Value constructor, but in general you should be aware of the following common concept:
 
-- `sortDirection`: The direction to perform the sort, either `Query::SORT_ASC`*(default)* or `Query::SORT_DESC`
+- `sortDirection`: The direction to perform the sort, either `Query::SORT_ASC` *(default)* or `Query::SORT_DESC`
 
 You can use the method `SearchService::getSortClauseFromLocation( Location $location )` to return an array of Sort Clauses that you can use on `LocationQuery->sortClauses`.
 
 #### List of Sort Clauses 
 
-The list below reflects Sort Clauses available in the `eZ\Publish\API\Repository\Values\Content\Query\SortClause` namespace (it is also possible to make a custom Sort Clause):
+The list below presents the Sort Clauses available in the `eZ\Publish\API\Repository\Values\Content\Query\SortClause` namespace:
 
 !!! tip
 
@@ -274,41 +279,45 @@ The list below reflects Sort Clauses available in the `eZ\Publish\API\Repositor
 
 ##### Only for LocationSearch
 
-| Sort Clause                     | Constructor arguments description |
+| Sort Clause                     | Constructor arguments |
 |---------------------------------|-----------------------------------|
-| `Location\Depth`                | ?`sortDirection`                  |
-| `Location\Id`                   | ?`sortDirection`                  |
-| `Location\IsMainLocation`       | ?`sortDirection`                  |
-| `Location\Depth`                | ?`sortDirection`                  |
-| `Location\Priority`             | ?`sortDirection`                  |
-| `Location\Visibility `          | ?`sortDirection`                  |
+| `Location\Depth`                | `?sortDirection`                  |
+| `Location\Id`                   | `?sortDirection`                  |
+| `Location\IsMainLocation`       | `?sortDirection`                  |
+| `Location\Depth`                | `?sortDirection`                  |
+| `Location\Priority`             | `?sortDirection`                  |
+| `Location\Visibility `          | `?sortDirection`                  |
 
 ##### Common
 
-|Sort Clause|Constructor arguments description|
+|Sort Clause|Constructor arguments |
 |------|------|
 |`ContentId`|`?sortDirection`|
 |`ContentName`|`?sortDirection`|
 |`DateModified`|`?sortDirection`|
 |`DatePublished`|`?sortDirection`|
-|`Field`|`typeIdentifier` as string, `fieldIdentifier` as string, `?sortDirection`, `?languageCode` as string|
-|`MapLocationDistance `|`typeIdentifier` as string, `fieldIdentifier` as string, `latitude` as float, `longitude` as float, `?sortDirection`, `?languageCode` as string|
+|`Field`|`typeIdentifier` as string</br>`fieldIdentifier` as string</br> `?sortDirection`</br>`?languageCode` as string|
+|`MapLocationDistance `|`typeIdentifier` as string</br>`fieldIdentifier` as string</br>`latitude` as float</br>`longitude` as float</br>`?sortDirection`</br>`?languageCode` as string|
 |`SectionIdentifier`|`?sortDirection`|
 |`SectionName`|`?sortDirection`|
 
 ## Custom Criteria and Sort Clauses
 
-Sometimes you will find that standard Search Criteria and Sort Clauses provided with eZ Publish are not sufficient for you needs. Most often this will be the case if you have developed a custom Field Type using external storage, which therefore can not be searched using standard Field Criterion.
+Sometimes you will find that standard Search Criteria and Sort Clauses provided with eZ Platform are not sufficient for your needs. Most often this will be the case if you have a custom Field Type using external storage which cannot be searched using the standard Field Criterion.
 
-!!! caution "On use of Field Criterion/SortClause with large databases"
+In such cases you can implement a custom Criterion or Sort Clause, together with the corresponding handlers for the storage engine you are using.
 
-    Field Criterion/SortClause does not perform well by design when using SQL database, so if you have a large database and want to use them you either need to use Solr search engine, or develop your own Custom Criterion / Sort Clause to avoid use of attributes (Fields) database table, and instead uses a custom simplified table which can handle the amount of data you have.
+!!! caution "Using Field Criterion or Sort Clause with large databases"
 
-In this case you can implement a custom Criterion or Sort Clause, together with the corresponding handlers for the storage engine you are using.
+    Field Criterion and Sort Clause do not perform well by design when using SQL database.
+    If you have a large database and want to use them, you either need to use the Solr search engine,
+    or develop your own Custom Criterion or Sort Clause. This way you can avoid using the attributes (Fields) database table,
+    and instead use a custom simplified table which can handle the amount of data you have.
 
 #### Difference between Content and Location Search
 
-These are two basic types of searches, you can either search for Locations or for Content. Each has dedicated methods in Search Service:
+There are two basic types of searches, you can either search for Locations or for Content.
+Each type has dedicated methods in the Search Service:
 
 | Type of search | Method in Search Service |
 |----------------|--------------------------|
@@ -316,12 +325,14 @@ These are two basic types of searches, you can either search for Locations or fo
 | Content        | `findSingle()`           |
 | Location       | `findLocations()`        |
 
-All Criteria and Sort Clauses will be accepted with Location Search, but not all of them can be used with Content Search. Reason for this is that while one Location always has exactly one Content item, one Content item can have multiple Locations. In this context some Criteria and Sort Clauses would produce ambiguous queries and such will therefore not be accepted by Content Search.
+All Criteria and Sort Clauses will be accepted with Location Search, but not all of them can be used with Content Search.
+The reason for this is that while one Location always has exactly one Content item, one Content item can have multiple Locations.
+In this context some Criteria and Sort Clauses would produce ambiguous queries that would not be accepted by Content Search.
 
-Content Search will explicitly refuse to accept Criteria and Sort Clauses implementing these abstract classes:
+Content Search explicitly refuses to accept Criteria and Sort Clauses implementing these abstract classes:
 
-- eZ\Publish\API\Repository\Values\Content\Query\Criterion\Location
-- eZ\Publish\API\Repository\Values\Content\SortClause\Criterion\Location
+- `eZ\Publish\API\Repository\Values\Content\Query\Criterion\Location`
+- `eZ\Publish\API\Repository\Values\Content\SortClause\Criterion\Location`
 
 #### How to configure your own Criterion and Sort Clause Handlers
 
@@ -339,12 +350,11 @@ Available tags for Sort Clause handlers in Legacy Storage Engine are:
 
 !!! note
 
-    You will find all the native handlers and the tags for the Legacy Storage Engine available in the eZ/Publish/Core/settings/storage\_engines/legacy/**search\_query\_handlers.yml** file.
+    You will find all the native handlers and the tags for the Legacy Storage Engine available in the `eZ/Publish/Core/settings/storage_engines/legacy/search_query_handlers.yml` file.
 
-##### Example of registering ContentId Criterion handler, common for both Content and Location Search
+##### Example of registering a ContentId Criterion handler, common for both Content and Location Search
 
 ``` yaml
-# Registering Criterion handler
 services:
     ezpublish.search.legacy.gateway.criterion_handler.common.content_id:
         class: eZ\Publish\Core\Search\Legacy\Content\Common\Gateway\CriterionHandler\ContentId
@@ -354,10 +364,9 @@ services:
           - {name: ezpublish.search.legacy.gateway.criterion_handler.location}
 ```
 
-##### Example of registering Depth Sort Clause handler for Location Search
+##### Example of registering a Depth Sort Clause handler for Location Search
 
 ``` yaml
-# Registering Sort Clause handler
 ezpublish.search.legacy.gateway.sort_clause_handler.location.depth:
     class: eZ\Publish\Core\Search\Legacy\Content\Location\Gateway\SortClauseHandler\Location\Depth
     arguments: [@ezpublish.api.storage_engine.legacy.dbhandler]
@@ -367,20 +376,18 @@ ezpublish.search.legacy.gateway.sort_clause_handler.location.depth:
 
 !!! note "See also"
 
-    See also [Symfony documentation about Service Container](http://symfony.com/doc/current/book/service_container.html#service-parameters) for passing parameters
+    See also [Symfony documentation about Service Container](http://symfony.com/doc/current/book/service_container.html#service-parameters) for passing parameters.
 
 #### Criteria Independence Example
 
-With eZ Publish you can have multiple location content. Criterions do not relate to others criterion you can  use the Public API and Criterion to search this content, it can lead to a comportement you are not expecting.
+FIXME ! With eZ Platform you can have multiple location content. Criterions do not relate to others criterion you can use the Public API and Criterion to search this content, it can lead to unexpected behavior.
 
-Example of Criterions not relating to each other:
-
-There is a Content with two Locations: Location A and Location B
+For example, take a Content item with two Locations: Location A and Location B
 
 - Location A is visible
 - Location B is hidden
 
-Searching with LocationId criterion with Location B id and Visibility criterion with Visibility::VISIBLE will return the Content because conditions are satisfied:
+Searching with the LocationId Criterion with the ID of Location B and Visibility criterion set to Visibility::VISIBLE will return the Content because conditions are satisfied:
 
 - Content has Location B
 - Content is visible (it has Location A that is visible)
@@ -417,25 +424,25 @@ $content = $searchResult->searchHits[0];
 
 ## Reindexing
 
-To (re)create or refresh the search engine index for configured search engines (per siteaccess repository), use the `php app/console ezplatform:reindex` command.
+To (re)create or refresh the search engine index for configured search engines (per SiteAccess repository), use the `php app/console ezplatform:reindex` command.
 
 Some examples of common usage:
 ```bash
-# Reindex whole index using parallel process (by default starts by purging the whole index)
+# Reindex the whole index using parallel process (by default starts by purging the whole index)
 # (with the 'auto' option which detects the number of CPU cores -1, default as of 1.13)
 php app/console ezplatform:reindex --processes=auto
 
-# Refresh part of the subtree (implies --no-purge)
+# Refresh a part of the subtree (implies --no-purge)
 php app/console ezplatform:reindex --subtree=2
 
 # Refresh content updated since a date (implies --no-purge)
 php app/console ezplatform:reindex --since=yesterday
 
-# Refresh (or delete when not found) content by IDs  (implies --no-purge)
+# Refresh (or delete when not found) content by IDs (implies --no-purge)
 php app/console ezplatform:reindex --content-ids=3,45,33
 ```
 
-For further info on possible options, see `php app/console ezplatform:reindex --help`.
+For further info on possible options, use `php app/console ezplatform:reindex --help`.
 
 ## Solr Bundle
 
