@@ -4,7 +4,7 @@ We want to have a consistent design in our web site. When using the pagelayout f
 
 ### Use a views.yml file
 
-In order to have a better file structure, we will extract the YAML keys regarding the presentation and put them into their own separate file. Create a  `views.yml` file and move the following code referring to templating to this file from `ezplatform.yml`:
+In order to have a better file structure, we will extract the YAML keys regarding the presentation and put them into their own separate file. Create an `app/config/views.yml` file and move the following code referring to templating to this file from `ezplatform.yml` (and remove corresponding code from `ezplatform.yml`):
 
 ```yaml
 ezpublish:
@@ -63,10 +63,7 @@ When you get the `<yourdomain>/register` URL, you should have this view where yo
 
 ![Complete Register page with the pagelayout](img/step6_register_page.png)
 
-
-
 ## Use custom template for register forms
-
 
 At the same level as `pagelayout` add a `user_registration` key so the beginning of your `views.yml` file looks like this:
 
@@ -82,7 +79,7 @@ ezpublish:
                     form: 'user/registration_form.html.twig'
                     confirmation: 'user/registration_confirmation.html.twig'
 ```
-Then clear the cache with the command we have seen before: `php app/console cache:clear` to see the consequences of the addition you made. 
+
 ## Create the overriding templates files
 
 You will create 3 Twig templates to manage the registration and the login forms, including confirmation page.
@@ -173,6 +170,7 @@ In line 10, you see the import Twig function, that is calling the `user/registra
 If you want to check the look of your new page, first clear the cache, then get your <yourdomain>/register URL.
 
 ### Create the confirmation page template
+
 Now create a file `app/Resources/views/user/registration_confirmation.html.twig` alongside the previous files.
 
 Place these Twig tags in the file:
@@ -206,4 +204,4 @@ Place these Twig tags in the file:
 
 ```
 
-This way you have learned how-to customize the user registration of your website.
+This way you have learned how to customize the user registration of your website.
