@@ -11,7 +11,7 @@ eZ Platform comes with a collection of Field Types that can be used to build pow
 ## Available Field Types
 
 | Field Type | Description | Searchable in Legacy Storage engine | Searchable with Solr |
-|-----------|-------------|-------------------------------------|----------------------|
+|------------|-------------|-------------------------------------|----------------------|
 | [Author](#author-field-type) | Stores a list of authors, each consisting of author name and author email. | No | Yes |
 | [BinaryFile](#binaryfield-field-type) | Stores a file.| Yes | Yes |
 | [Checkbox](#checkbox-field-type) | Stores a boolean value. | Yes | Yes |
@@ -28,7 +28,7 @@ eZ Platform comes with a collection of Field Types that can be used to build pow
 | [MapLocation](#maplocation-field-type) | Stores map coordinates. | Yes, with MapLocationDistance criterion | Yes |
 | [Media](#media-field-type) | Validates and stores a media file. | No | Yes |
 | [Null](#null-field-type) | Used as fallback for missing Field Types and for testing purposes. | N/A | N/A |
-| [Rating](#rating-field-type) | No longer supported. |  |  |
+| [Rating](#rating-field-type) | No longer supported. | N/A | N/A |
 | [Relation](#relation-field-type) | Validates and stores a relation to a Content item. | Yes, with both Field and FieldRelation criterions | Yes |
 | [RelationList](#relationlist-field-type) | Validates and stores a list of relations to Content items. | Yes, with FieldRelation criterion | Yes |
 | [RichText](#richtext-field-type) | Validates and stores structured rich text in DocBook xml format, and exposes it in several formats. | Yes[^1^](#1-note-on-legacy-search-engine)  | Yes |
@@ -63,7 +63,7 @@ Proper indexing of these Field Types is done with [Solr Search Bundle](search.md
 
 ### Generate new Field Type
 
-You can learn how to create a new Field Type by following the [Creating a Tweet Field Type](../tutorials/field_type/creating_a_tweet_field_type.md) tutorial
+You can learn how to create a custom Field Type by following the [Creating a Tweet Field Type](../tutorials/field_type/creating_a_tweet_field_type.md) tutorial
 
 You can also make use of the [Field Type Generator Bundle](https://github.com/Smile-SA/EzFieldTypeGeneratorBundle) from our partner Smile.
 It helps you get started by creating a skeleton for a Field Type, including templates for the editorial interface. 
@@ -76,7 +76,7 @@ This Field Type allows the storage and retrieval of one or more authors. For eac
 |----------|---------------|----------------|----------|
 | `Author` | `ezauthor`    | mixed        | `string` |
 
-## BinaryField Field Type
+## BinaryFile Field Type
 
 This Field Type represents and handles a single binary file. It also counts the number of times the file has been downloaded from the `content/download` module.
 
@@ -102,7 +102,7 @@ Note that both `BinaryFile` and `Media` Value and Type inherit from the `BinaryB
 |`mimeType`|string|The file's MIME type.|application/pdf|
 |`uri`|string|The binary file's `content/download` URI. If the URI doesn't include a host or protocol, it applies to the request domain.|/content/download/210/2707|
 |`downloadCount`|integer|Number of times the file was downloaded|0|
-|`path`|string|**deprecated**||
+|`path`|string|**deprecated**|N/A|
 
 #### Hash format
 
@@ -160,8 +160,8 @@ The Checkbox Field Type stores the current status for a checkbox input, checked 
 
 The Value class of this Field Type contains the following properties:
 
-| Property | Type      | Default value | Description                                                                                       |
-|----------|-----------|---------------|---------------------------------------------------------------------------------------------------|
+| Property | Type      | Default value | Description|
+|----------|-----------|---------------|------------|
 | `$bool`  | `boolean` | `false`       | This property is used for the checkbox status, represented by a boolean value. |
 
 ``` php
@@ -192,7 +192,7 @@ $checkboxValue = new Checkbox\Value( true );
 
 ###### String representation
 
-As this Field Type is not a string but a bool, it will return "1" (true) or "0" (false) in cases where it is cast to string.
+As this Field Type is not a string but a boolean, it will return "1" (true) or "0" (false) in cases where it is cast to string.
 
 ## Country Field Type
 
@@ -208,7 +208,7 @@ This Field Type represents one or multiple countries.
 
 Example array:
 
-```
+``` php
 array(
     "JP" => array(
         "Name" => "Japan",
@@ -229,8 +229,8 @@ This Field Type validates whether multiple countries are allowed by the Field de
 
 The Field definition of this Field Type can be configured with one option:
 
-| Name         | Type      | Default value | Description                                                                             |
-|--------------|-----------|---------------|-----------------------------------------------------------------------------------------|
+| Name         | Type      | Default value | Description|
+|--------------|-----------|---------------|------------|
 | `isMultiple` | `boolean` | `false`       | This setting allows (if true) or prohibits (if false) the selection of multiple countries. |
 
 ``` php
@@ -257,8 +257,8 @@ The format used by the toHash method is the Alpha2 value, however the input is c
 
 The Value class of this Field Type contains the following properties:
 
-| Property     | Type      | Description                                                                                |
-|--------------|-----------|--------------------------------------------------------------------------------------------|
+| Property     | Type      | Description|
+|--------------|-----------|------------|
 | `$countries` | `array[]` | This property is used for the country selection provided as input, as its attributes. |
 
 ``` php
@@ -325,14 +325,20 @@ Before storing, the provided input value will be set to the beginning of the day
 
 The Value class of this Field Type contains the following properties:
 
-| Property | Type        | Description                                      |
-|----------|-------------|--------------------------------------------------|
+| Property | Type        | Description|
+|----------|-------------|------------|
 | `$date`  | `\DateTime` | This property will be used for the text content. |
 
 ###### String representation
 
 String representation of the date value will generate the date string in the format "l d F Y" as accepted by [PHP's built-in `date()` function](http://www.php.net/manual/en/function.date.php).
 
+|Character|Description|Example|
+|---------|----------|--------|
+|l|Textual representation of a day of the week, range Monday to Sunday|Wednesday|
+|d|Two digit representation of a day, range 01 to 31|22|
+|F|Textual representation of a month, range January to December|May|
+|Y|Four digit representation of a year|2016|
 Example: `Wednesday 22 May 2016`
 
 ###### Constructor
@@ -389,8 +395,8 @@ $settings = array(
 
 The template called by [the `ez_render_field()` Twig function](content_rendering.md/#ez_render_field) while rendering a Date Field has access to the following parameters:
 
-| Parameter | Type     | Default | Description                                                                                                                       |
-|-----------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------|
+| Parameter | Type     | Default | Description|
+|-----------|----------|---------|------------|
 | `locale`  | `string` |         | Internal parameter set by the system based on current request locale or if not set calculated based on the language of the Field. |
 
 Example:
@@ -427,8 +433,8 @@ It is also possible to directly pass an instance of `\DateTime`.
 
 The Value class of this Field Type contains the following properties:
 
-| Property | Type        | Description                                                |
-|----------|-------------|------------------------------------------------------------|
+| Property | Type        | Description|
+|----------|-------------|------------|
 | `$value` | `\DateTime` | The date and time value as an instance of `\DateTime`. |
 
 ###### Constructor
@@ -437,7 +443,17 @@ The constructor for this value object will initialize a new Value object with t
 
 ###### String representation
 
-String representation of the date value will generate the date string in the format "D Y-d-m H:i:s" as accepted by [PHP's built-in `date()` function](http://www.php.net/manual/en/function.date.php).
+String representation of the date value will generate the date string in the format `D Y-d-m H:i:s` as accepted by [PHP's built-in `date()` function](http://www.php.net/manual/en/function.date.php).
+
+|Character|Description|Example|
+|---------|----------|--------|
+|D|Three letter representation of a day, range Mon to Sun|Wed|
+|Y|Four digit representation of a year|2016|
+|d|Two digit representation of a day, range 01 to 31|22|
+|m|Two digit representation of a month, range 01 to 12|05|
+|H|Two digit representation of an hour, 24-hour format, range 00 to 23 |12|
+|i|Two digit representation of minutes, range 00 to 59|19|
+|s|Two digit representation of seconds, range 00 to 59|18|
 
 Example: `Wed 2016-22-05 12:19:18`
 
@@ -447,7 +463,7 @@ Hash value of this Field Type is an array with two keys:
 
 |Key|Type|Description|Example|
 |------|------|------|------|
-|`timestamp`|`integer`|Time information as a [timestamp](http://en.wikipedia.org/wiki/Unix_time).|`1400856992`|
+|`timestamp`|`integer`|Time information as a [Unix timestamp](http://en.wikipedia.org/wiki/Unix_time).|`1400856992`|
 |`rfc850`|`string`|Time information as a string in [RFC 850 date format](http://tools.ietf.org/html/rfc850). As input, this will have precedence over the timestamp value.|`"Friday, 23-May-14 14:56:14 GMT+0000"`|
 
 ``` php
@@ -495,8 +511,8 @@ $settings = array(
 
 The template called by [the `ez_render_field()` Twig function](content_rendering.md/#ez_render_field) while rendering a Date Field has access to the following parameters:
 
-| Parameter | Type     | Default | Description                                                                                                                       |
-|-----------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------|
+| Parameter | Type     | Default | Description|
+|-----------|----------|---------|------------|
 | `locale`  | `string` |         | Internal parameter set by the system based on current request locale or if not set calculated based on the language of the Field. |
 
 Example:
@@ -521,8 +537,8 @@ The EmailAddress Field Type represents an email address, in the form of a strin
 
 The `Value` class of this Field Type contains the following properties:
 
-| Property | Type     | Description                                                                |
-|----------|----------|----------------------------------------------------------------------------|
+| Property | Type     | Description|
+|----------|----------|------------|
 | `$email` | `string` | This property will be used for the input string provided as email address. |
 
 ``` php
@@ -596,8 +612,8 @@ The Field Type expects a number as input. Both decimal and integer numbers are a
 
 The Value class of this Field Type contains the following properties:
 
-| Property | Type    | Description                                                        |
-|----------|---------|--------------------------------------------------------------------|
+| Property | Type    | Description|
+|----------|---------|------------|
 | `$value` | `float` | This property will be used to store the value provided as a float. |
 
 ``` php
@@ -689,8 +705,8 @@ This Field Type does not support settings.
 
 Using the variation Service, variations of the original image can be obtained. They are `\eZ\Publish\SPI\Variation\Values\ImageVariation` objects with the following properties:
 
-| Property       | Type     | Example  | Description                          |
-|----------------|----------|----------|--------------------------------------|
+| Property       | Type     | Example  | Description|
+|----------------|----------|----------|------------|
 | `width`*       | int      | `640`    | The variation's width in pixels      |
 | `height`*      | int      | `480`    | The variation's height in pixels     |
 | `name`         | string   | `medium` | The variation's identifier           |
@@ -950,8 +966,8 @@ This Field Type represents an integer value.
 
 The Value class of this Field Type contains the following properties:
 
-| Property | Type  | Description                                                           |
-|----------|-------|-----------------------------------------------------------------------|
+| Property | Type  | Description|
+|----------|-------|------------|
 | `$value` | `int` | This property is used to store the value provided as an integer. |
 
 ``` php
@@ -1020,8 +1036,8 @@ This Field Type represents an ISBN string either an ISBN-10 or ISBN-13 format.
 
 The Value class of this Field Type contains the following properties:
 
-| Property | Type     | Description                                     |
-|----------|----------|-------------------------------------------------|
+| Property | Type     | Description|
+|----------|----------|------------|
 | `$isbn`  | `string` | This property will be used for the ISBN string. |
 
 ###### String representation
@@ -1049,8 +1065,8 @@ For more details on the Value object for this Field Type please refer to the [au
 
 This Field Type stores one or several comma-separated keywords as a string or array of strings.
 
-| Name      | Internal name | Expected input    |
-|-----------|---------------|-------------------|
+| Name      | Internal name | Expected input|
+|-----------|---------------|---------------|
 | `Keyword` | `ezkeyword`   | `string[]|string` |
 
 ### PHP API Field Type 
@@ -1069,9 +1085,9 @@ This Field Type stores one or several comma-separated keywords as a string or ar
 
 The Value class of this Field Type contains the following properties:
 
-| Property | Type       | Description                            |
-|----------|------------|----------------------------------------|
-| `$value` | `string[]` | Holds an array of keywords as strings. |
+| Property | Type       | Description|
+|----------|------------|------------|
+| `$value` | `string[]` | Holds an array of keywords as strings.|
 
 ``` php
 // Value object content example
@@ -1284,7 +1300,7 @@ Example:
 #### Configuration
 
 | Config | SiteAccess-aware | Description |
-|--------|-------------------------|-------------|
+|--------|------------------|-------------|
 | `api_keys.google_maps` | yes | Google maps requires the use of an API key for serving maps to web pages. This setting allows you to specify your personal [Google Maps API key](https://developers.google.com/maps/documentation/javascript/get-api-key) used during template rendering. |
 
 Example use:
@@ -1319,9 +1335,9 @@ It is capable of handling the following types of files:
 
 #### Input expectations
 
-| Type                                    | Description                                                                             | Example                           |
-|-----------------------------------------|-----------------------------------------------------------------------------------------|-----------------------------------|
-| `string`                                | Path to the media file.                                                                 | `/Users/jane/butterflies.mp4`     |
+| Type | Description | Example|
+|------|-------------|--------|
+| `string` | Path to the media file.| `/Users/jane/butterflies.mp4`     |
 | `eZ\Publish\Core\FieldType\Media\Value` | Media Field Type Value Object with path to the media file as the value of `id` property. | See below. |
 
 #### Value object
@@ -1500,8 +1516,8 @@ This Field Type makes it possible to store and retrieve the value of a relation 
 
 The Value class of this Field Type contains the following properties:
 
-| Property                | Type              | Description                                                                                       |
-|-------------------------|-------------------|---------------------------------------------------------------------------------------------------|
+| Property|Type| Description|
+|---------|-----|-----------|
 | `$destinationContentId` | `string|int|null` | This property is used to store the value provided, which represents the related content. |
 
 ``` php
@@ -1624,9 +1640,9 @@ The Field definition of this Field Type can be configured with the following opt
 
 Following selection methods are available:
 
-| Name                | Description                                                                                                   |
-|---------------------|---------------------------------------------------------------------------------------------------------------|
-| `SELECTION_BROWSE`   | Selection will use browse mode                                                                                |
+| Name| Description|
+|-----|------------|
+| `SELECTION_BROWSE` | Selection will use browse mode|
 | `SELECTION_DROPDOWN` | *Not implemented yet* |
 
 ``` php
@@ -1779,8 +1795,8 @@ The Selection Field Type stores single selections or multiple choices from a 
 
 The Value class of this Field Type contains the following properties:
 
-| Property     | Type    | Description                                                                                                                 |
-|--------------|---------|-----------------------------------------------------------------------------------------------------------------------------|
+| Property     | Type    | Description|
+|--------------|---------|------------|
 | `$selection` | `int[]` | This property is used for the list of selections, which is a list of integer values, or one single integer value. |
 
 ``` php
@@ -1827,8 +1843,8 @@ If any of these validations fail, a `ValidationError` is thrown, specifying the
 
 #### Settings
 
-| Name         | Type      | Default value | Description                                                    |
-|--------------|-----------|---------------|----------------------------------------------------------------|
+| Name         | Type      | Default value | Description|
+|--------------|-----------|---------------|------------|
 | `isMultiple` | `boolean` | `false`       | Used to allow or prohibit multiple selection from the option list. |
 | `options`    | `hash`    | `array()`     | Stores the list of options defined in the Field definition.    |
 
@@ -1883,8 +1899,8 @@ This Field Type does not perform any special validation of the input value.
 
 Settings contain only one option:
 
-| Name       | Type      | Default value | Description                                                             |
-|------------|-----------|---------------|-------------------------------------------------------------------------|
+| Name       | Type      | Default value | Description|
+|------------|-----------|---------------|------------|
 | `textRows` | `integer` | `10`          | Number of rows for the editing box in the back-end interface. |
 
 ## TextLine Field Type
@@ -1903,8 +1919,8 @@ This Field Type makes possible to store and retrieve a single line of unformatte
 
 The Value class of this Field Type contains the following properties:
 
-| Property | Type     | Description                                      |
-|----------|----------|--------------------------------------------------|
+| Property | Type     | Description|
+|----------|----------|------------|
 | `$text`  | `string` | This property will be used for the text content. |
 
 ###### String representation
@@ -1960,8 +1976,8 @@ It is also possible to directly pass an instance of `\DateTime`.
 
 The Value class of this Field Type contains the following properties:
 
-| Property | Type           | Description                                                                       |
-|----------|----------------|-----------------------------------------------------------------------------------|
+| Property | Type           | Description|
+|----------|----------------|------------|
 | `$time`  | `integer|null` | Holds the time information as a number of seconds since the beginning of the day. |
 
 ###### Constructor
@@ -2006,8 +2022,8 @@ $settings = array(
 
 The template called by [the `ez_render_field()` Twig function](content_rendering.md#ez_render_field) while rendering a Date Field has access to the following parameters:
 
-| Parameter | Type     | Default | Description                                                                                                                       |
-|-----------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------|
+| Parameter | Type     | Default | Description|
+|-----------|----------|---------|------------|
 | `locale`  | `string` |         | Internal parameter set by the system based on current request locale or, if not set, calculated based on the language of the Field. |
 
 Example:
@@ -2039,8 +2055,8 @@ This Field Type makes it possible to store and retrieve a URL. It is formed by t
 
 The Value class of this Field Type contains the following properties:
 
-| Property | Type     | Description                                                                                                         |
-|----------|----------|---------------------------------------------------------------------------------------------------------------------|
+| Property | Type     | Description|
+|----------|----------|------------|
 | `$link`  | `string` | This property stores the link provided to the value of this Field Type.                              |
 | `$text`  | `string` | This property stores the text to represent the stored link provided to the value of this Field Type. |
 
