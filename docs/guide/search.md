@@ -446,11 +446,7 @@ For further info on possible options, use `php app/console ezplatform:reindex --
 
 ## Solr Bundle
 
-For use with eZ Publish 5.4, go to [the corresponding documentation page](https://doc.ez.no/display/EZP/Solr+Search+Engine+Bundle) which covers the v1.0 version of the bundle compatible with eZ Publish 5.4.
-
-### What is Solr Search Engine Bundle?
-
-[ezplatform-solr-search-engine](https://github.com/ezsystems/ezplatform-solr-search-engine), as the package is called, aims to be a transparent drop-in replacement for the SQL-based "Legacy" search engine powering eZ Platform Search API by default. When you enable Solr and re-index your content, all your existing Search queries using SearchService will be powered by Solr automatically. This allows you to scale up your eZ Platform installation and be able to continue development locally against SQL engine, and have a test infrastructure, Staging and Prod powered by Solr. This removes considerable load from your database. *See [Architecture](architecture.md)* *for further information on the architecture of eZ Platform.*
+[ezplatform-solr-search-engine](https://github.com/ezsystems/ezplatform-solr-search-engine) aims to be a transparent drop-in replacement for the SQL-based Legacy search engine powering eZ Platform search API by default. When you enable Solr and re-index your content, all your existing Search queries using `SearchService` will be powered by Solr automatically. This allows you to scale up your eZ Platform installation and be able to continue development locally against SQL engine, and have a test infrastructure, Staging and Prod powered by Solr. This removes considerable load from your database. See [further information on the architecture of eZ Platform](architecture.md).
 
 Status of features:
 
@@ -471,22 +467,18 @@ Status of features:
 
 ### How to set up Solr Search engine
 
-#### Step 0: Enable Solr Bundle
+!!! note "Enable the bundle"
 
-Not needed with eZ Platform
+    If you have previously disabled the bundle, add/update composer dependencies:
 
-This step is not needed as of eZ Platform 15.09, however it is kept here for reference in case you have previously disabled the bundle.
+    ``` bash
+    composer require --no-update ezsystems/ezplatform-solr-search-engine:~1.0
+    composer update
+    ```
 
-1\. Check in composer.json if you have the `ezsystems/ezplatform-solr-search-engine` package, if not add/update composer dependencies:
+    Make sure `EzPublishSolrSearchEngineBundle` is activated with the following line in the `app/AppKernel.php` file: `new EzSystems\EzPlatformSolrSearchEngineBundle\EzSystemsEzPlatformSolrSearchEngineBundle()`
 
-``` bash
-composer require --no-update ezsystems/ezplatform-solr-search-engine:~1.0
-composer update
-```
-
-2\. Make sure `EzPublishSolrSearchEngineBundle` is activated with the following line in the `app/AppKernel.php` file: new `EzSystems\EzPlatformSolrSearchEngineBundle\EzSystemsEzPlatformSolrSearchEngineBundle()`
-
-#### Step 1: Configuring & Starting Solr
+#### Step 1: Configuring and starting Solr
 
 The example presents a configuration with single core, look to [Solr](https://cwiki.apache.org/confluence/display/solr/Solr+Cores+and+solr.xml) [documentation](https://wiki.apache.org/solr/CoreAdmin) for configuring Solr in other ways, including examples.
 
@@ -494,11 +486,11 @@ The example presents a configuration with single core, look to [Solr](https://cw
 
 ###### Solr 4.10.4
 
-First, download and extract Solr. Solr Bundle 1.x supports Solr 4.10.4:
+Download and extract Solr. Solr Bundle 1.x supports Solr 4.10.4:
 
 - [solr-4.10.4.tgz](http://archive.apache.org/dist/lucene/solr/4.10.4/solr-4.10.4.tgz) or [solr-4.10.4.zip](http://archive.apache.org/dist/lucene/solr/4.10.4/solr-4.10.4.zip)
 
-Secondly, copy configuration files needed for eZ Solr Search Engine bundle, in the example below from the root of your project to the place you extracted Solr:
+Copy the necessary configuration files. In the example below from the root of your project to the place you extracted Solr:
 
 ``` bash
 # Make sure to replace the /opt/solr/ path with where you have placed Solr
@@ -517,11 +509,11 @@ bin/solr start -f -a "-Dsolr.solr.home=multicore"
 
 ###### Solr 6
 
-SOLR BUNDLE &gt;= 1.3.0First download and extract Solr, in Solr Bundle 1.3 and higher we also support Solr 6 *(currently tested with Solr 6.6.0)*:
+Download and extract Solr. Solr Bundle 1.3 and higher supports Solr 6 *(currently tested with Solr 6.6.0)*:
 
 - [solr-6.6.0.tgz](http://archive.apache.org/dist/lucene/solr/6.6.0/solr-6.6.0.tgz) or [solr-6.6.0.zip](http://archive.apache.org/dist/lucene/solr/6.6.0/solr-6.6.0.zip)
 
-Secondly, copy configuration files needed for eZ Solr Search Engine bundle, *here from the root of your project to the place you extracted Solr*:
+Copy the necessary configuration files. In the example below from the root of your project to the place you extracted Solr:
 
 ``` bash
 # Make sure to replace the /opt/solr/ path with where you have placed Solr
@@ -541,11 +533,9 @@ bin/solr create_core -c collection1 -d server/ez/template
 
 ##### Further configuration
 
-Thirdly, on both Solr 4 and 6 Solr the bundle does not commit solr index changes directly on repository updates, leaving it up to you to tune this using `solrconfig.xml` as best practice suggests.
+On both Solr 4 and 6 Solr the bundle does not commit Solr index changes directly on repository updates, leaving it up to you to tune this using `solrconfig.xml` as best practice suggests.
 
-This setting is **required** if you want to see the changes after publish. It is strongly recommended to set-up `solrconfig.xml` as following:
-
-
+This setting is **required** if you want to see the changes after publish. It is strongly recommended to set-up `solrconfig.xml` like this:
 
 ``` xml
 <!--solrconfig.xml-->
@@ -561,24 +551,20 @@ This setting is **required** if you want to see the changes after publish. It is
 </autoSoftCommit>
 ```
 
-#### Step 2: Configuring bundle
+#### Step 2: Configuring the bundle
 
-The Solr search engine bundle can be configured in many ways. The config further below assumes you have parameters set up for solr dsn and search engine *(however both are optional)*, for example:
+The Solr search engine bundle can be configured in many ways. The config further below assumes you have parameters set up for Solr DSN and search engine *(however both are optional)*, for example (in `parameters.yml`):
 
 ``` yaml
-# parameters.yml
     search_engine: solr
     solr_dsn: 'http://localhost:8983/solr'
 ```
 
-On to configuring the bundle.
+##### Single-core example (default)
 
-##### Single Core example (default)
-
-Out of the box in eZ Platform the following is enabled for a simple setup:
+Out of the box in eZ Platform the following is enabled for a simple setup (in `config.yml`):
 
 ``` yaml
-# config.yml
 ez_search_engine_solr:
     endpoints:
         endpoint0:
@@ -592,9 +578,10 @@ ez_search_engine_solr:
                 default: endpoint0
 ```
 
-##### Shared Core example
+##### Shared core example
 
-In the following example we have decided to separate one language as the installation contains several similar languages, and one very different language that should receive proper language analysis for proper stemming and sorting behavior by Solr:
+The following example separates one language. The installation contains several similar languages,
+and one very different language that should receive proper language analysis for proper stemming and sorting behavior by Solr:
 
 ``` yaml
 # config.yml
@@ -618,11 +605,13 @@ ez_search_engine_solr:
                 default: endpoint0
 ```
 
-##### Multi Core example
+##### Multi-core example
 
-If full language analysis features are preferred, then each language can be configured to separate cores.
+If full language analysis features are preferred, then each language can be configured with separate cores.
 
-*Note: Please make sure to test this setup against single core setup, as it might perform worse than single core if your project uses a lot of language fallbacks per SiteAccess, as queries will then be performed across several cores at once.*
+!!! note
+
+    Make sure to test this setup against a single-core setup, as it might perform worse than single core if your project uses a lot of language fallbacks per SiteAccess, as queries will then be performed across several cores at once.
 
 ``` yaml
 # config.yml
@@ -688,11 +677,11 @@ ezpublish:
                 connection: default
 ```
 
-`%search_engine%` is a parameter that is configured in `app/config/parameters.yml`, and should be changed from its default value "`legacy`" to "`solr`" to activate Solr as the Search engine.
+`%search_engine%` is a parameter that is configured in `app/config/parameters.yml`, and should be changed from its default value `legacy` to `solr` to activate Solr as the search engine.
 
 #### Step 4: Clear prod cache
 
-While Symfony `dev` environment keeps track of changes to yml files, `prod` does not, so to make sure Symfony reads the new config we clear cache:
+While Symfony `dev` environment keeps track of changes to YAML files, `prod` does not, so clear teh cache to make sure Symfony reads the new config:
 
 ``` bash
 php app/console --env=prod cache:clear
@@ -700,58 +689,52 @@ php app/console --env=prod cache:clear
 
 #### Step 5: Run CLI indexing command
 
-Make sure to configure your setup for indexing
-
-Some exceptions might happen on indexing if you have not configured your setup correctly, here are the most common issues you may encounter:
-
-- Exception if Binary files in database have an invalid path prefix
-    - Make sure `ezplatform.yml` configuration `var_dir` is configured properly.
-    - If your database is inconsistent in regards to file paths, try to update entries to be correct *(but make sure to make a backup first)*.
-- Exception on unsupported Field Types
-    - Make sure to implement all Field Types in your installation, or to configure missing ones as [NullType](field_type_reference.md#null-field-type) if implementation is not needed.
-- Content not immediately available 
-    - Solr Bundle on purpose does not commit changes directly on Repository updates *(on indexing)*, but lets you control this using Solr configuration. Adjust Solr **autoSoftCommit** *visibility of change to search index)* and/or **autoCommit** (hard commit, for durability and replication) to balance performance and load on your Solr instance against needs you have for "[NRT](https://cwiki.apache.org/confluence/display/solr/Near+Real+Time+Searching)".
-- Running out of memory during indexing
-    - In general make sure to run indexing using prod environment to avoid debuggers and loggers from filing up memory.
-    - Stash: Disable in\_memory cache as recommended on [Persistence cache](repository.md#persistence-cache) for long running scripts.
-    - Flysystem: You can find further info in: <https://jira.ez.no/browse/EZP-25325>.
-
 The last step is to execute the initial indexation of data:
 
 ``` bash
 php app/console --env=prod --siteaccess=<name> ezplatform:solr_create_index
 ```
 
-SOLR BUNDLE &gt;= 1.2Since eZ Platform v1.7.0 the `ezplatform:solr_create_index` command is deprecated, use `php app/console ezplatform:reindex` instead:
+##### Possible exceptions
 
-``` bash
-php app/console --env=prod --siteaccess=<name> ezplatform:reindex
-```
+If you have not configured your setup correctly, some exceptions might happen on indexing.
+Here are the most common issues you may encounter:
 
-### Configuring the Solr Search engine Bundle
+- Exception if Binary files in database have an invalid path prefix
+    - Make sure `var_dir` is configured properly in `ezplatform.yml` configuration.
+    - If your database is inconsistent in regards to file paths, try to update entries to be correct *(make sure to make a backup first)*.
+- Exception on unsupported Field Types
+    - Make sure to implement all Field Types in your installation, or to configure missing ones as [NullType](field_type_reference.md#null-field-type) if implementation is not needed.
+- Content is not immediately available 
+    - Solr Bundle on purpose does not commit changes directly on Repository updates *(on indexing)*, but lets you control this using Solr configuration. Adjust Solr's `autoSoftCommit` (visibility of changes to search index) and/or `autoCommit` (hard commit, for durability and replication) to balance performance and load on your Solr instance against needs you have for "[NRT](https://cwiki.apache.org/confluence/display/solr/Near+Real+Time+Searching)".
+- Running out of memory during indexing
+    - In general make sure to run indexing using the prod environment to avoid debuggers and loggers from filling up memory.
+    - Stash: Disable inMemory cache as recommended in [Persistence cache](repository.md#persistence-cache) for long-running scripts.
+    - Flysystem: You can find further info in https://jira.ez.no/browse/EZP-25325.
 
-For configuration of Solr connection for your repository, see [How to set up Solr Search engine](#how-to-set-up-solr-search-engine) above.
+### Configuring the Solr Search Engine Bundle
 
 #### Boost configuration
 
-SOLR BUNDLE &gt;= 1.4
+!!! note
 
-!!! tip "How boosting interacts with Search API"
+    Boosting is available since Solr bundle version 1.4.
+
+!!! tip "How boosting interacts with search API"
 
     Boosting of fields or documents will affect the score (relevance) of your search result hits
-    when using Search API for any criteria you specify on `$query->query`, or in REST by using `Query` element.
+    when using search API for any Criteria you specify on `$query->query`, or in REST by using `Query` element.
     When you don't specify anything to sort on, the result will be sorted by this relevance.
-    Anything set on `$query->filter`, or in REST using `Filter` element,  will _not_ affect scoring and only works
-    as a pure filter for the result. Thus make sure to place criteria you want to affect scoring on `query`.
+    Anything set on `$query->filter`, or in REST using `Filter` element, will *not* affect scoring and only works
+    as a pure filter for the result. Thus make sure to place Criteria you want to affect scoring on `query`.
 
-Boosting currently happens when indexing, so if you change your configuration you'll need to re-index (this is expected behavior). This can possibly be solved by a contribution to change boosting to be performed on query time.
+Boosting currently happens when indexing, so if you change your configuration you will need to re-index.
 
 Boosting tells the search engine which parts of the content model have more importance when searching, and is an important part of tuning your search results relevance. Importance is defined using a numeric value, where `1.0` is default, values higher than that are more important, and values lower (down to `0.0`) are less important.
 
-Boosting is configured per connection that you configure to use for a given repository, like in the example below:
+Boosting is configured per connection that you configure to use for a given Repository, like in this `config.yml` example:
 
 ``` yaml
-# config.yml snippet example
 ez_search_engine_solr:
     connections:
         default:
@@ -760,7 +743,7 @@ ez_search_engine_solr:
                     # Boost a whole Content Type
                     article: 2.0
                 field_definition:
-                    # Boost a content Field system wide, or for a given Content Type
+                    # Boost a content Field system-wide, or for a given Content Type
                     title: 3.0
                     blog_post:
                         # Don't boost title of blog posts that high, but still higher than default
@@ -783,13 +766,25 @@ The configuration above will result in the following boosting (Content Type / Fi
 - `blog_post/name (meta): 10.0`
 - `article/name (meta): 2.0`
 
-### Extending the Solr Search engine Bundle
+### Extending the Solr Search Engine Bundle
 
-#### Document Field Mappers
+#### Document field mappers
 
-SOLR BUNDLE &gt;= 1.2
+!!! note
 
-As a developer you will often find the need to index some additional data in the search engine. The use cases for this are varied, for example the data could come from an external source *(e.g. from recommendation system)*, or from an internal source. The common use case for the latter is indexing data through the Location hierarchy, for example from the parent Location to the child Location, or in the opposite direction, indexing child data on the parent Location. The reason might be you want to find the content with fulltext search, or you want to simplify search for a complicated data model. To do this effectively, you first need to understand how the data is indexed with Solr Search engine. Documents are indexed per translation, as Content blocks. In Solr, a block is a nested document structure. In our case, parent document represents Content, and Locations are indexed as child documents of the Content. To avoid duplication, full text data is indexed on the Content document only. Knowing this, you have the option to index additional data on:
+    Document Field Mappers are available since Solr bundle version 1.2.
+
+You can use document field mappers to index additional data in the search engine.
+
+The additional data can come from external sources (e.g. from a recommendation system), or from internal ones.
+An example of the latter is indexing data through the Location hierarchy: from the parent Location to the child Location, or indexing child data on the parent Location.
+This may be needed when you want to find the Content with full-text search, or to simplify search for a complicated data model.
+
+To do this effectively, you first need to understand how the data is indexed with the Solr search engine.
+Solr uses [documents](https://lucene.apache.org/solr/guide/6_6/overview-of-documents-fields-and-schema-design.html#how-solr-sees-the-world) as a unit of data that is indexed.
+Documents are indexed per translation, as Content blocks. A block is a nested document structure.
+When used in eZ Platform, a parent document represents Content, and Locations are indexed as child documents of the Content.
+To avoid duplication, full-text data is indexed on the Content document only. Knowing this, you have the option to index additional data on:
 
 - all block documents (meaning Content and its Locations, all translations)
 - all block documents per translation
@@ -797,7 +792,10 @@ As a developer you will often find the need to index some additional data in the
 - Content documents per translation
 - Location documents
 
-Indexing additional data is done by implementing a document field mapper and registering it at one of the five extension points described above. You can create the field mapper class anywhere inside your bundle, as long as when you register it as a service, the "class" parameter" in your `services.yml` matches the correct path. We have three different field mappers. Each mapper implements two methods, by the same name, but accepting different arguments:
+Indexing additional data is done by implementing a document field mapper and registering it at one of the five extension points described above.
+You can create the field mapper class anywhere inside your bundle,
+as long as when you register it as a service, the `class` parameter in your `services.yml` matches the correct path.
+There are three different field mappers. Each mapper implements two methods, by the same name, but accepting different arguments:
 
 - `ContentFieldMapper`
     - `::accept(Content $content)`
@@ -827,7 +825,8 @@ These can be used on the extension points by registering them with the container
     - `LocationFieldMapper`
     - `ezpublish.search.solr.field_mapper.location`
 
-The following example shows how to index data from the parent Location content, in order to make it available for full text search on the children content. A concrete use case could be indexing webinar data on the webinar events, which are children of the webinar. Field mapper could then look something like this:
+The following example shows how to index data from the parent Location content, in order to make it available for full-text search on the children content.
+It is based on the use case of indexing webinar data on the webinar events, which are children of the webinar. Field mapper could then look like this:
 
 ``` php
  <?php
@@ -888,7 +887,7 @@ class WebinarEventTitleFulltextFieldMapper extends ContentFieldMapper
 }
 ```
 
-Since we index full text data only on the Content document, you would register the service like this:
+Since you index full text data only on the Content document, you would register the service like this:
 
 ``` yaml
 my_webinar_app.webinar_event_title_fulltext_field_mapper:
@@ -900,32 +899,25 @@ my_webinar_app.webinar_event_title_fulltext_field_mapper:
         - {name: ezpublish.search.solr.field_mapper.content}
 ```
 
-### Providing feedback
-
-After completing the installation you are now free to use your site as usual. If you get any exceptions for missing features, have feedback on performance, or want to discuss, join our community slack channel at <https://ezcommunity.slack.com/messages/ezplatform-use/>
-
 ## ElasticSearch Bundle
 
-EXPERIMENTAL
+!!! caution "Experimental"
 
-ElasticSearch exists only as a technology preview, and only running on the same version of ElasticSearch as it was originally prototyped for, [v1.4.2](https://github.com/ezsystems/ezpublish-kernel/blob/v6.9.0/.travis.yml#L48). We encourage everyone to try it and help make it better, even help porting it to a more up to date version of Elastic.
+    ElasticSearch exists only as a technology preview, and only running on the same version of ElasticSearch as it was originally prototyped for, [v1.4.2](https://github.com/ezsystems/ezpublish-kernel/blob/v6.9.0/.travis.yml#L48). We encourage everyone to try it and help make it better, even help porting it to a more up-to-date version of Elastic.
 
-Given it is experimental, it is currently not supported in any possible way besides code review on contributions.
+    Given it is experimental, it is currently not supported in any possible way besides code review on contributions.
 
-### How to use ElasticSearch Search engine
+### How to use ElasticSearch search engine
 
-#### Step 1: Enabling Bundle
+#### Step 1: Enabling the bundle
 
-First, activate the Elasticsearch Search Engine Bundle (eZ\\Bundle\\EzPublishElasticsearchSearchEngineBundle\\EzPublishElasticsearchSearchEngineBundle) in your `app/AppKernel.php` class file.
+First, activate the ElasticSearch Search Engine Bundle (`eZ\Bundle\EzPublishElasticsearchSearchEngineBundle\EzPublishElasticsearchSearchEngineBundle`) in your `app/AppKernel.php`.
 
-#### Step 2: Configuring Bundle
+#### Step 2: Configuring the bundle
 
-Then configure your search engine in config.yml
-
-Example:
+Then configure your search engine in `config.yml`, for example:
 
 ``` yaml
-# config.yml
 ez_search_engine_elasticsearch:
     default_connection: es_connection_name
     connections:
@@ -937,14 +929,13 @@ ez_search_engine_elasticsearch:
                 location: location
 ```
 
-For further information on the ElasticSearch integration in eZ Platform, find the default [configuration](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Search/Elasticsearch/Content/Resources/elasticsearch.yml) and [mappings](https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/Core/Search/Elasticsearch/Content/Resources/mappings) for Content and Location type documents *(Note: Content/Location modeling will most likely be simplified in the future, like in the Solr search engine bundle)*.
+For further information on the ElasticSearch integration in eZ Platform, find the default [configuration](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Search/Elasticsearch/Content/Resources/elasticsearch.yml) and [mappings](https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/Core/Search/Elasticsearch/Content/Resources/mappings) for Content and Location type documents.
 
 #### Step 3: Configuring repository
 
-The following is an example of configuring the ElasticSearch Search Engine, where the `connection` name is same as in example above, and engine is set to be `elasticsearch`:
+The following is an example (in `ezplatform.yml`) of configuring the ElasticSearch search engine, where the `connection` name is same as in example above, and engine is set to `elasticsearch`:
 
 ``` yaml
-# ezplatform.yml
 ezpublish:
     repositories:
         main:
@@ -958,7 +949,7 @@ ezpublish:
 
 #### Step 4: Run CLI indexing command
 
-Last step is to execute initial indexation of data:
+The last step is to execute initial indexation of data:
 
 ``` bash
 php app/console ezplatform:elasticsearch_create_index
@@ -966,16 +957,19 @@ php app/console ezplatform:elasticsearch_create_index
 
 ## Legacy Search Engine Bundle
 
-**Legacy Search Engine** is the default search engine, it is SQL based and uses Doctrine's database connection. So its connections are, and should be, defined in the same way as for storage engine, and no further specific configuration is needed.
+Legacy search engine is the default search engine, it is SQL-based and uses Doctrine's database connection.
+Its connections are defined in the same way as for storage engine, and no further specific configuration is needed.
 
-Its features and performance are limited, and if you have specific search or performance needs you should rather look towards using [Solr](#solr-bundle).
+!!! tip
 
-### Configuring repository with the legacy search engine
+    The features and performance of Legacy search engine are limited.
+    If you have specific search or performance needs you should look towards using [Solr](#solr-bundle).
 
-Search can be configured independently from storage, and the following configuration example shows both the default values, and how you configure legacy as the search engine:
+### Configuring the Repository with the Legacy search engine
+
+Search can be configured independently from storage, and the following configuration example (in `ezpublish.yml`) shows both the default values, and how you configure legacy as the search engine:
 
 ``` yaml
-# ezpublish.yml
 ezpublish:
     repositories:
         main:
