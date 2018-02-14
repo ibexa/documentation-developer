@@ -711,7 +711,7 @@ Using the variation Service, variations of the original image can be obtained. T
 | `height`*      | int      | `null`    | The variation's height in pixels. For more details see Caution note below.|
 | `name`         | string   | `medium` | The variation's identifier           |
 | `info`         | mixed    |n/a| Extra information about the image, depending on the image type, such as EXIF data|
-| `fileSize`     | int      |`31010` |Number of bytes for current variation|
+| `fileSize`     | int      |`31010` |Size (in byte) of current variation|
 | `mimeType`     | string   |`image/png`|The MIME type|
 | `fileName`     | string   |`my_image.png`|The name of the file|
 | `dirPath`      | string   |`var/storage/images/test/199-2-eng-GB`|The path to the file|
@@ -727,6 +727,10 @@ Using the variation Service, variations of the original image can be obtained. T
 #### Field Definition options
 
 The Image Field Type supports one `FieldDefinition` option: the maximum size for the file.
+
+!!!note
+
+    Maximum size is rounded to 1 MB.
 
 ### Using an Image Field
 
