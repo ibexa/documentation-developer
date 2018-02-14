@@ -707,16 +707,16 @@ Using the variation Service, variations of the original image can be obtained. T
 
 | Property       | Type     | Example  | Description|
 |----------------|----------|----------|------------|
-| `width`*       | int      | `640`    | The variation's width in pixels      |
-| `height`*      | int      | `480`    | The variation's height in pixels     |
+| `width`*       | int      | `null`    | The variation's width in pixels. For more details see Caution note below.|
+| `height`*      | int      | `null`    | The variation's height in pixels. For more details see Caution note below.|
 | `name`         | string   | `medium` | The variation's identifier           |
-| `info`         | mixed    |          | Extra info, such as EXIF data        |
-| `fileSize`     | int      |          |                                      |
-| `mimeType`     | string   |          |                                      |
-| `fileName`     | string   |          |                                      |
-| `dirPath`      | string   |          |                                      |
-| `uri`          | string   |          | The variation's URI                  |
-| `lastModified` | DateTime |          | When the variation was last modified |
+| `info`         | mixed    |n/a| Extra information about the image, depending on the image type, such as EXIF data|
+| `fileSize`     | int      |`31010` |Number of bytes for current variation|
+| `mimeType`     | string   |`image/png`|The MIME type|
+| `fileName`     | string   |`my_image.png`|The name of the file|
+| `dirPath`      | string   |`var/storage/images/test/199-2-eng-GB`|The path to the file|
+| `uri`          | string   |`var/storage/images/test/199-2-eng-GB/apple.png`| The variation's URI. Complete path with a name of image file|
+| `lastModified` | DateTime |``"2017-08-282 12:20 Europe/Berlin"``| When the variation was last modified |
 
 !!! caution
 
@@ -726,7 +726,7 @@ Using the variation Service, variations of the original image can be obtained. T
 
 #### Field Definition options
 
-The Image Field Type supports one FieldDefinition option: the maximum size for the file.
+The Image Field Type supports one `FieldDefinition` option: the maximum size for the file.
 
 ### Using an Image Field
 
