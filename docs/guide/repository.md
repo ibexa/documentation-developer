@@ -1442,7 +1442,7 @@ To provide support for editing custom policies in Platform UI you need to implem
 interface LimitationFormMapperInterface
 {
     /**
-     * "Maps" Limitation form to current LimitationType, in order to display one or several fields
+     * Maps Limitation form to current LimitationType, in order to display one or several fields
      * representing limitation values supported by the LimitationType.
      *
      * Implementors MUST either:
@@ -1454,14 +1454,14 @@ interface LimitationFormMapperInterface
      */
     public function mapLimitationForm(FormInterface $form, Limitation $data);
     /**
-     * Returns the Twig template to use to render the limitation form.
+     * Returns the Twig template to use for rendering the Limitation form.
      *
      * @return string
      */
     public function getFormTemplate();
     /**
      * This method will be called when FormEvents::SUBMIT is called.
-     * It gives the opportunity to filter/manipulate limitation values.
+     * It gives the opportunity to filter/manipulate Limitation values.
      *
      * @param Limitation $limitation
      */
@@ -1469,7 +1469,7 @@ interface LimitationFormMapperInterface
 }
 ```
 
-Next, register the service in DIC with the `ez.limitation.formMapper` tag and set the `limitationType` attribute to the Limitation type's identifier:
+Next, register the service in DIC (Dependency Injection Container) with the `ez.limitation.formMapper` tag and set the `limitationType` attribute to the Limitation type's identifier:
 
 ```yml
 acme.security.limitation.custom_limitation.mapper:
@@ -1511,7 +1511,7 @@ acme.security.limitation.custom_limitation.mapper:
         - { name: 'ez.limitation.valueMapper', limitationType: 'Custom' }
 ```
 
-If you want to completely override the way of rendering of custom Limitation values in the role view, you need to create a Twig template containing block definition which follows the naming convention: `ez_limitation_<LIMITATION TYPE>_value`. For example:
+If you want to completely override the way of rendering custom Limitation values in the role view, you need to create a Twig template containing block definition which follows the naming convention: `ez_limitation_<LIMITATION TYPE>_value`. For example:
 
 ```twig
 {# This file contains block definition which is used to render custom Limitation values #}
