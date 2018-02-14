@@ -16,7 +16,7 @@ Below that, the Field Type must support the **Public API** implementation (aka B
 -   Value creation and validation
 -   Communication with the Persistence SPI
 
-On the bottom level, a Field Type can additionally hook into the **Persistence SPI**, in order to store data from a `FieldValue` in an external service. Note that all non-standard eZ Publish database tables (e.g. `ezurl`) will be considered as external storage.
+On the bottom level, a Field Type can additionally hook into the **Persistence SPI**, in order to store data from a `FieldValue` in an external service. Note that all non-standard eZ Platform database tables (e.g. `ezurl`) will be considered as external storage.
 
 The following sequence diagram visualizes the process of creating a new `Content` across all layers, especially focused on the interaction with a Field Type.
 
@@ -42,14 +42,14 @@ This method retrieves via Public API a schema for the Field Type settings. A typ
 
 `getValidatorConfigurationSchema()`
 
-In addition to normal settings, the Field Type should provide a schema settings for its validation process. The schema describes, what kind of validation can be performed by the Field Type and which settings the user can specify to these validation methods. For example, the `ezstring` type can validate minimum and maximum length of the string. It therefore provides a schema to indicate to the user that he might specify the corresponding restrictions, when creating a `FieldDefinition` with this type. Again, the schema does not underlie any regulations, except for that it must be serializable.
+In addition to normal settings, the Field Type should provide a schema settings for its validation process. The schema describes, what kind of validation can be performed by the Field Type and which settings the user can specify to these validation methods. For example, the `ezstring` type can validate minimum and maximum length of the string. It therefore provides a schema to indicate to the user that they might specify the corresponding restrictions, when creating a `FieldDefinition` with this type. Again, the schema does not underlie any regulations, except for that it must be serializable.
 
 `validateFieldSettings()`
 
 The type is asked to validate the settings (provided by the user) before the Public API stores those settings for the Field Type in a `FieldDefinition`. As a result, the Field Type must return if the given settings comply to the schema defined by `getSettingsSchema()`. 
 `validateValidatorConfiguration()`
  
- Analog to `validateFieldSettings()`, this method verifies that the given validator configuration complies to the schema provided by `getValidatorConfigurationSchema()`.
+ As in `validateFieldSettings()`, this method verifies that the given validator configuration complies to the schema provided by `getValidatorConfigurationSchema()`.
 
 It is important to note that the schema definitions of the Field Type can be both of arbitrary and serializable format, it is highly recommended to use a simple hash structure. You should follow the [Best practices](../guide/best_practices.md) in order to create future-proof schemas.
 
@@ -61,17 +61,19 @@ This will also apply to all user interfaces and the REST API, which therefore mu
 
 #### Name of the Field Type
 
-If you implement \eZ\Publish\SPI\FieldType\Nameable as an extra service, and register this Service using the tag `ezpublish.fieldType.nameable`, the method `{FieldType}Nameable->getFieldName()` will be used to retrieve the name.
+If you implement `\eZ\Publish\SPI\FieldType\Nameable` as an extra service, and register this Service using the tag `ezpublish.fieldType.nameable`, the method `\eZ\Publish\SPI\FieldType\Nameable::getFieldName` will be used to retrieve the name.
+
+Otherwise the `\eZ\Publish\SPI\FieldType\FieldType::getName` method is used.
 
 !!! note 
 
-    \eZ\Publish\SPI\FieldType\FieldType::getName method is deprecated Since 6.3/5.4.7. 
-    \eZ\Publish\SPI\FieldType\Nameable should be implemented instead of it.
+    `\eZ\Publish\SPI\FieldType\FieldType::getName` method is deprecated. 
+    `\eZ\Publish\SPI\FieldType\Nameable` should be implemented instead of it.
 
-**Example from fieldType\_services.yml**
+**Example from `fieldType_services.yml`**
 
 ``` yaml
-# Nameable services (for FieldTypes that need advance name handling)
+# Nameable services (for Field Types that need advanced name handling)
     ezpublish.fieldType.ezobjectrelation.nameable_field:
         class: %ezpublish.fieldType.ezobjectrelation.nameable_field.class%
         arguments:
@@ -86,11 +88,11 @@ A Field Type needs to deal with the custom value format provided by it. In order
 
 `acceptValue()`
 
-This method is responsible for accepting and converting user input for the `Field`. It checks the input structure by accepting, building and returning a different structure holding the data. Example: user provides an HTTP link as a string, `acceptValue()` converts provided link to the Url Field Type value object. Unlike the `FieldType\Value` constructor, it is possible to make this method aware of multiple input types (object or primitive).
+This method is responsible for accepting and converting user input for the Field. It checks the input structure by accepting, building and returning a different structure holding the data. Example: user provides an HTTP link as a string, `acceptValue()` converts provided link to the Url Field Type value object. Unlike the `FieldType\Value` constructor, it is possible to make this method aware of multiple input types (object or primitive).
 
 !!! note 
 
-    `acceptValue()` asserts structural consistency of the value, but do not validate plausibility of the value.
+    `acceptValue()` asserts structural consistency of the value, but does not validate plausibility of the value.
 
 `getEmptyValue()`
 
@@ -106,7 +108,7 @@ In contrast to `acceptValue()` this method validates the plausibility of the giv
 
 ### Storage conversion
 
-As said above, the value format of a Field Type is free form. However, in order to make eZ Publish store the value in its database, it must comply to certain rules at storage time. To not restrict the value itself, a `FieldValue` must be converted to the storage specific format used by the Persistence SPI: `eZ\Publish\SPI\Persistence\Content\FieldValue`. After restoring a Field of Field Type, the conversion must be undone. 
+As said above, the value format of a Field Type is free form. However, in order to make eZ Platform store the value in its database, it must comply to certain rules at storage time. To not restrict the value itself, a `FieldValue` must be converted to the storage specific format used by the Persistence SPI: `eZ\Publish\SPI\Persistence\Content\FieldValue`. After restoring a Field of Field Type, the conversion must be undone. 
 
 The following methods of the Field Type are responsible for that:
 
@@ -119,8 +121,8 @@ The SPI `FieldValue` struct has several properties, which might be used by the F
 
 |Property|Description|
 |--------|-----------|
-|`$data`|The data to be stored in the eZ Publish database. This may either be a scalar value, a HashMap or a simple, serializable object.|
-|`$externalData`|The arbitrary data stored in this field will not be touched by any of the eZ Publish components directly, but will be hold available for [Storing external data](#storing-external-data).|
+|`$data`|The data to be stored in the eZ Platform database. This may either be a scalar value, a HashMap or a simple, serializable object.|
+|`$externalData`|The arbitrary data stored in this field will not be touched by any of the eZ Platform components directly, but will be hold available for [Storing external data](#storing-external-data).|
 |`$sortKey`|A value which can be used to sort `Content` by the field.|
 
 
@@ -151,15 +153,15 @@ array(
  
  `getDefaultMatchField()`
  
-This method retrieves name of the default field to be used for matching. As field types can index multiple fields (see [MapLocation](field_type_reference.md#maplocation-field-type) field type's implementation of this interface), this method is used to define default field for matching. Default field is typically used by Field criterion.
+This method retrieves name of the default field to be used for matching. As Field Types can index multiple fields (see [MapLocation](../guide/field_type_reference.md#maplocation-field-type) Field Type's implementation of this interface), this method is used to define default field for matching. Default field is typically used by Field criterion.
  
  `getDefaultSortField()`
  
-This method gets name of the default field to be used for sorting. As field types can index multiple fields (see [MapLocation](field_type_reference.md#maplocation-field-type) field type's implementation of this interface), this method is used to define default field for sorting. Default field is typically used by Field sort clause.
+This method gets name of the default field to be used for sorting. As Field Types can index multiple fields (see [MapLocation](../guide/field_type_reference.md#maplocation-field-type) Field Type's implementation of this interface), this method is used to define default field for sorting. Default field is typically used by Field sort clause.
  
 ### Register Indexable Implementations
 
- Implement \eZ\Publish\SPI\FieldType\Indexable as an extra service, and register this Service using the tag `ezpublish.fieldType.indexable`. Example from [indexable_fieldtypes](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/indexable_fieldtypes.yml):
+ Implement `\eZ\Publish\SPI\FieldType\Indexable` as an extra service, and register this Service using the tag `ezpublish.fieldType.indexable`. Example from [`indexable_fieldtypes.yml`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/indexable_fieldtypes.yml):
  
  ``` yml
      ezpublish.fieldType.indexable.ezkeyword:
@@ -219,11 +221,11 @@ You could also define a custom field definition for certain fields, like for the
 
 !!! note 
 
-    If you want to learn more about the Solr implementation and detailed information about configuring it, check out the [Solr Search Bundle](search.md#solr-bundle).
+    If you want to learn more about the Solr implementation and detailed information about configuring it, check out the [Solr Search Bundle](../guide/search.md#solr-bundle).
 
 ## Storing external data
 
-A Field Type may store arbitrary data in external data sources and is in fact encouraged to do so. External storages can be e.g. a web service, a file in the file system, another database or even the eZ Publish database itself (in form of a non-standard table). In order to perform this task, the Field Type will interact with the Persistence SPI, which can be found in `eZ\Publish\SPI\Persistence`, through the `eZ\Publish\SPI\FieldType\FieldStorage` interface.
+A Field Type may store arbitrary data in external data sources and is in fact encouraged to do so. External storages can be e.g. a web service, a file in the file system, another database or even the eZ Platform database itself (in form of a non-standard table). In order to perform this task, the Field Type will interact with the Persistence SPI, which can be found in `eZ\Publish\SPI\Persistence`, through the `eZ\Publish\SPI\FieldType\FieldStorage` interface.
 
 Whenever the internal storage of a Content item that includes a Field of the Field Type is accessed, one of the following methods is called to also access the external data:
 
@@ -235,11 +237,11 @@ Whenever the internal storage of a Content item that includes a Field of the Fie
 |`deleteFieldData()`|Must delete external data for the given Field, if exists.|
 |`getIndexData()`|Returns the actual index data for the provided `eZ\Publish\SPI\Persistence\Content\Field`. For more information see [search service](#search-field-values).|
 
-Each of the above methods receive a $context array, which contains information on the underlying storage and the environment. This context can be used to store data in the eZ Publish data storage, but outside of the normal structures (e.g. a custom table in an SQL database). Note that the Field Type must take care on its own for being compliant to different data sources and that 3rd parties can extend the data source support easily. For more information about this, take a look at the [Best practices](#best-practices) section.
+Each of the above methods receive a $context array, which contains information on the underlying storage and the environment. This context can be used to store data in the eZ Platform data storage, but outside of the normal structures (e.g. a custom table in an SQL database). Note that the Field Type must take care on its own for being compliant to different data sources and that 3rd parties can extend the data source support easily. For more information about this, take a look at the [Best practices](#best-practices) section.
 
 ## Legacy Storage conversion
 
-The Field Type system is designed for future storage back ends of eZ Publish. However, the old database schema (*Legacy Storage*) must still be supported. Since this database cannot store arbitrary value information as provided by a Field Type, another conversion step must take place if the Legacy Storage is used.
+The Field Type system is designed for future storage back ends of eZ Platform. However, the old database schema (*Legacy Storage*) must still be supported. Since this database cannot store arbitrary value information as provided by a Field Type, another conversion step must take place if the Legacy Storage is used.
 
 The conversion takes place through the interface `eZ\Publish\Core\Persistence\Legacy\Content\FieldValue\Converter`, which you must provide an implementation of with your Field Type. The following methods are contained in the interface:
 
@@ -505,7 +507,7 @@ The converter configuration for basic Field Types are located in [eZ/Publish/Cor
 
 ##### External storage
 
-A Field Type has the [ability to store its value (or part of it) in external data sources](#storing-external-data). This is made possible through the `eZ\Publish\SPI\FieldType\FieldStorage` interface. If you want to use this functionality, you will need to define a service implementing this interface and tagg it as **`ezpublish.fieldType.externalStorageHandler`** to be recognized by the Repository.
+A Field Type has the [ability to store its value (or part of it) in external data sources](#storing-external-data). This is made possible through the `eZ\Publish\SPI\FieldType\FieldStorage` interface. If you want to use this functionality, you will need to define a service implementing this interface and tag it as **`ezpublish.fieldType.externalStorageHandler`** to be recognized by the Repository.
 
 Here is an example for **ezurl** Field Type:
 

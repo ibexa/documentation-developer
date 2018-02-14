@@ -730,7 +730,7 @@ The Image Field Type supports one `FieldDefinition` option: the maximum size for
 
 !!!note
 
-    Maximum size is rounded to 1 MB.
+    Maximum size is rounded to 1 MB (legacy storage limitation).
 
 ### Using an Image Field
 
