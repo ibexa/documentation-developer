@@ -318,6 +318,10 @@ fastcgi_param SYMFONY_HTTP_CACHE 0;
 fastcgi_param SYMFONY_TRUSTED_PROXIES "193.22.44.22";
 ```
 
+!!! caution "Trusted proxies when using SSL offloader / loadbalancer in combination with Varnish"
+
+    If your installation works behind Varnish and SSL offloader (like haproxy) then you need to add `127.0.0.1` address to the `SYMFONY_TRUSTED_PROXIES`. Otherwise, you might notice incorrect schema (`http` instead of `https`) in the URLs for the images or other binary files when they are rendered inline Symfony *(as used by file based field templates)*, as opposed to via ESI.
+
 #### Update YML configuration
 
 Secondly we need to tell eZ Platform to change to use http based purge client *(specifically FosHttpCache Varnish purge client is used)*, and specify url Varnish can be reached on:
