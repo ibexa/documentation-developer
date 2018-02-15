@@ -1427,7 +1427,7 @@ class AcmeFooBundle extends Bundle
 
 Policies used internally in repository services are defined in  `EzPublishCoreBundle/Resources/config/policies.yml` .
 
-### Custom Limitation UI
+### Integrating custom Limitation types with the UI
 
 To provide support for editing custom policies in Platform UI you need to implement [`EzSystems\RepositoryForms\Limitation\LimitationFormMapperInterface`](https://github.com/ezsystems/repository-forms/blob/master/lib/Limitation/LimitationFormMapperInterface.php):
 
@@ -1473,7 +1473,7 @@ Next, register the service in DIC (Dependency Injection Container) with the `ez.
 
 ```yml
 acme.security.limitation.custom_limitation.mapper:
-    class: 'Acme\FooBundle\Security\Limitation\Mapper\CustomLimitationFormMapper'
+    class: 'AppBundle\Security\Limitation\Mapper\CustomLimitationFormMapper'
     arguments:
         # ...
     tags:
@@ -1504,7 +1504,7 @@ Then register the service in DIC with the `ez.limitation.valueMapper` tag and se
 
 ```yml
 acme.security.limitation.custom_limitation.mapper:
-    class: 'Acme\FooBundle\Security\Limitation\Mapper\CustomLimitationValueMapper'
+    class: 'AppBundle\Security\Limitation\Mapper\CustomLimitationValueMapper'
     arguments:
         # ...
     tags:
