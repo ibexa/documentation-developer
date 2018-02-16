@@ -966,7 +966,7 @@ To avoid such situations, you can check if the Location is virtual using the `lo
 
     ![Schedule block example with multiple blocks](img/schedule_block_example.png "Schedule block example with multiple blocks")
 
-## Custom logic
+## Custom rendering logic
 
 In some cases, displaying a Content item/Location via the built-in `ViewController` is not sufficient to show everything you want. In such cases you may want to **use your own custom logic** to display the current Content item/Location instead.
 
@@ -982,7 +982,7 @@ Typical use cases include access to:
 There are three ways in which you can apply a custom logic:
 
 - Configure a custom controller alongside regular matcher rules to use **both** your custom controller and the `ViewController`.
-- Add a listener to add your custom logic before or after the view is rendered.
+- [Add a listener to add your custom logic](#adding-a-listener) before or after the view is rendered.
 - [**Override**](#overriding-the-built-in-viewcontroller) the built-in `ViewController` with the custom controller in a specific situation (not recommended).
 
 ### Enriching ViewController with a custom controller
@@ -1091,8 +1091,8 @@ class MyViewListener implements EventSubscriberInterface
 }
 ```
 
-Similarly, you can use listener to modify the response generated after the view is rendered.
-The configuration will look alike the previous one, for example:
+Similarly, you can use a listener to modify the response generated after the view is rendered.
+The configuration will look like the one earlier, for example:
 
 ``` yaml
 parameters:
