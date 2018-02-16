@@ -176,6 +176,51 @@ class ContentIdIn extends CriterionVisitor
 }
 ```
 
+#### Criteria independence
+
+Criteria are independent of one another. This can lead to unexpected behavior, for instance because Content can have multiple Locations.
+
+As an example, take a Content item with two Locations: Location A and Location B.
+
+- Location A is visible
+- Location B is hidden
+
+When you search for the ID of Location B with the LocationId Criterion and with Visibility Criterion set to `Visibility::VISIBLE`
+the search will return the Content because both conditions are satisfied:
+
+- the Content item has Location B
+- the Content item is visible (it has Location A which is visible)
+
+``` php hl_lines="17 18 27"
+<?php
+
+use eZ\Publish\API\Repository\Values\Content\Query;
+use eZ\Publish\API\Repository\Values\Content\Query\Criterion\LogicalAnd;
+use eZ\Publish\API\Repository\Values\Content\Query\Criterion\LocationId;
+use eZ\Publish\API\Repository\Values\Content\Query\Criterion\Visibility;
+
+/** @var string|int $locationBId */
+/** @var \eZ\Publish\API\Repository\Repository $repository */
+
+$searchService = $repository->getSearchService();
+
+$query = new Query(
+    array(
+        'filter' => new LogicalAnd(
+            array(
+                new LocationId( $locationBId ),
+                new Visibility( Visibility::VISIBLE ),
+            )
+        )
+    )
+);
+
+$searchResult = $searchService->findContent( $query );
+
+// Content is found
+$content = $searchResult->searchHits[0];
+```
+
 ## Search Criteria Reference
 
 Criteria are the filters for Content and Location Search.
@@ -377,50 +422,6 @@ ezpublish.search.legacy.gateway.sort_clause_handler.location.depth:
 !!! note "See also"
 
     See also [Symfony documentation about Service Container](http://symfony.com/doc/current/book/service_container.html#service-parameters) for passing parameters.
-
-#### Criteria Independence Example
-
-FIXME ! With eZ Platform you can have multiple location content. Criterions do not relate to others criterion you can use the Public API and Criterion to search this content, it can lead to unexpected behavior.
-
-For example, take a Content item with two Locations: Location A and Location B
-
-- Location A is visible
-- Location B is hidden
-
-Searching with the LocationId Criterion with the ID of Location B and Visibility criterion set to Visibility::VISIBLE will return the Content because conditions are satisfied:
-
-- Content has Location B
-- Content is visible (it has Location A that is visible)
-
-``` php
-<?php
-
-use eZ\Publish\API\Repository\Values\Content\Query;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion\LogicalAnd;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion\LocationId;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion\Visibility;
-
-/** @var string|int $locationBId */
-/** @var \eZ\Publish\API\Repository\Repository $repository */
-
-$searchService = $repository->getSearchService();
-
-$query = new Query(
-    array(
-        'filter' => new LogicalAnd(
-            array(
-                new LocationId( $locationBId ),
-                new Visibility( Visibility::VISIBLE ),
-            )
-        )
-    )
-);
-
-$searchResult = $searchService->findContent( $query );
-
-// Content is found
-$content = $searchResult->searchHits[0];
-```
 
 ## Reindexing
 
