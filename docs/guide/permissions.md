@@ -5,17 +5,17 @@
 A User by default does not have access to anything. To get access they need to inherit Roles, typically assigned to the User Group they belong to.
 
 Each Role can contain one or more **Policies**. A Policy is a rule that gives access to a single **function** in a **module**.
-For example, a `section/assign` Policy allows the user to assign content to Sections.
+For example, a `section/assign` Policy allows the User to assign content to Sections.
 
 When you add a Policy to a Role, you can also restrict it using one or more **Limitations**.
 A Policy with a Limitation will only apply when the condition in the Limitation is fulfilled.
-For example, a `content/publish` Policy with a ContentType Limitation on the "Blog Post" Content Type will allow the user to publish only Blog Posts, and not other Content.
+For example, a `content/publish` Policy with a `ContentType` Limitation on the "Blog Post" Content Type will allow the User to publish only Blog Posts, and not other Content.
 
 Note that Policies on one Role are connected with the *and* relation, not *or*,
 so when Policy has more than one Limitation, all of them have to apply. See [example below](#restrict-editing-to-part-of-the-tree).
 
-Remember that a Limitation specifies what a user *can* do, not what they *can't do*.
-A Section Limitation, for example, *gives* the user access to the selected Section, not *prohibits* it.
+Remember that a Limitation specifies what a User *can* do, not what they *can't do*.
+A `Section` Limitation, for example, *gives* the User access to the selected Section, not *prohibits* it.
 
 See [Available Limitations](#available-limitations) for further information.
 
@@ -29,12 +29,12 @@ Here are a few examples of sets of Policies you can use to get some common permi
 
 ##### Enter back end interface
 
-To allow the user to enter the back end interface (PlatformUI) and view all Content, you need to set the following Policies:
+To allow the User to enter the back end interface (PlatformUI) and view all Content, you need to set the following Policies:
 
 - `user/login`
 - `content/read`
 
-To let the user navigate through StudioUI, you also need to add:
+To let the User navigate through StudioUI, you also need to add:
 
 - `content/versionread`
 
@@ -42,39 +42,39 @@ These Policies will be necessary for all other cases below that require access t
 
 ##### Create and publish content
 
-To create and publish content, the user must have (besides `user/login` and `content/read`) the following Policies:
+To create and publish content, the User must have (besides `user/login` and `content/read`) the following Policies:
 
 - `content/create`
 - `content/edit`
 - `content/publish`
 - `content/versionread`
 
-This also lets the user copy and move content, as well as add new Locations to a Content item (but not remove them!).
+This also lets the User copy and move content, as well as add new Locations to a Content item (but not remove them!).
 
 ##### Create content without publishing
 
-This option can be used together with eZ Enterprise's content review options. Using the following Policies, the user is able to create content, but can't publish it; instead, they must send it to review to another user with proper permissions (for example, senior editor, proofreader, etc.).
+This option can be used together with eZ Enterprise's content review options. Using the following Policies, the User is able to create content, but can't publish it; instead, they must send it for review to another User with proper permissions (for example, senior editor, proofreader, etc.).
 
 - `content/create`
 - `content/edit`
 
-Note that without eZ Enterprise this setup should not be used, as it will not allow the user to continue working with their content.
+Note that without eZ Enterprise this setup should not be used, as it will not allow the User to continue working with their content.
 
 ##### Restrict editing to part of the tree
 
-If you want to let the user create or edit Content, but only in one part of the content tree, you need to use Limitations. Three Limitations that could be used here are Section Limitation, Node Limitation and Subtree Limitation.
+If you want to let the User create or edit Content, but only in one part of the content tree, you need to use Limitations. Three Limitations that could be used here are `Section` Limitation, `Node` Limitation and `Subtree` Limitation.
 
-Let's assume you have two Folders under your Home: Blog and Articles. You can let a user create Content for the blogs, but not in Articles by adding a Subtree Limitation on the Blog Content item. This will allow the user to publish content anywhere under this Location in the structure.
+Let's assume you have two Folders under your Home: Blog and Articles. You can let a User create Content for the blogs, but not in Articles by adding a `Subtree` Limitation on the Blog Content item. This will allow the User to publish content anywhere under this Location in the structure.
 
-A Section Limitation can be used similarly, but a Section does not have to belong to the same subtree in the content structure, any Locations can be assigned to it.
+A `Section` Limitation can be used similarly, but a Section does not have to belong to the same subtree in the content structure, any Locations can be assigned to it.
 
-If you add a Node Limitation and point to the same Location, the user will be able to publish content directly under the selected Location, but not anywhere deeper in its subtree.
+If you add a `Node` Limitation and point to the same Location, the User will be able to publish content directly under the selected Location, but not anywhere deeper in its subtree.
 
-Note that when a Policy has more than one Limitation, all of them have to apply, or the Policy will not work. For example, a Location Limitation on Location `1/2` and Subtree Limitation on `1/2/55` cannot work together, because no Location can satisfy both those requirements at the same time. If you want to combine more than one Limitation with the *or* relation, not *and*, you can split your Policy in two, each with one of these Limitations.
+Note that when a Policy has more than one Limitation, all of them have to apply, or the Policy will not work. For example, a `Location` Limitation on Location `1/2` and `Subtree` Limitation on `1/2/55` cannot work together, because no Location can satisfy both those requirements at the same time. If you want to combine more than one Limitation with the *or* relation, not *and*, you can split your Policy in two, each with one of these Limitations.
 
 ##### Manage Locations
 
-To add a new Location to a Content item, the Policies required for publishing content are enough. To allow the user to remove a Location, you need to grant them the following Policies:
+To add a new Location to a Content item, the Policies required for publishing content are enough. To allow the User to remove a Location, you need to grant them the following Policies:
 
 - `content/remove`
 - `content/manage_locations`
@@ -83,16 +83,16 @@ Hiding and revealing Location requires one more Policy: `content/hide`.
 
 ##### Removing content
 
-To send content to trash, the user needs to have the same two Policies that are required for removing Locations:
+To send content to trash, the User needs to have the same two Policies that are required for removing Locations:
 
 - `content/remove`
 - `content/manage_locations`
 
-To remove an archived version of content, the user must have the `content/versionremove` Policy.
+To remove an archived version of content, the User must have the `content/versionremove` Policy.
 
 Further manipulation of trash requires the `content/restore` Policy to restore items from trash, and `content/cleantrash` to completely delete all content from the trash.
 
-##### Registering users
+##### Registering Users
 
 To allow anonymous users to register through the `/register` route, you need to grant the `user/register` Policy to the Anonymous User Group.
 
@@ -100,21 +100,21 @@ To allow anonymous users to register through the `/register` route, you need to 
 
 | Module        | Function             | Effect                                                                                                                                  |
 |---------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| `all modules` | `all functions`      | grants all available permissions                                                                                                        |
+| `all modules` | `all functions`      | grant all available permissions                                                                                                         |
 | `content`     | `read`               | view the content both in front and back end                                                                                             |
 |               | `diff`               | unused                                                                                                                                  |
-|               | `view_embed`         | view content embedded in another Content item (even when not allowed to view it under normal circumstances)                             |
-|               | `create`             | create new content. Note: even without this Policy the user is able to enter edit mode, but cannot finalize work with the Content item. |
+|               | `view_embed`         | view content embedded in another Content item (even when the User is not allowed to view it as an individual Content item)              |
+|               | `create`             | create new content. Note: even without this Policy the User is able to enter edit mode, but cannot finalize work with the Content item. |
 |               | `edit`               | edit existing content                                                                                                                   |
-|               | `publish`            | publish content. Without this Policy, the user can only save drafts or send them for review (in eZ Enterprise)                          |
-|               | `manage_locations`   | required to remove Locations and send content to Trash                                                                                  |
+|               | `publish`            | publish content. Without this Policy, the User can only save drafts or send them for review (in eZ Enterprise)                          |
+|               | `manage_locations`   | remove Locations and send content to Trash                                                                                              |
 |               | `hide`               | hide and reveal content Locations                                                                                                       |
-|               | `reverserelatedlist` | see all content that a Content item relates to (even when not allowed to view it under normal circumstances)                            |
+|               | `reverserelatedlist` | see all content that a Content item relates to (even when the User is not allowed to view it as an individual Content items)            |
 |               | `translate`          | unused                                                                                                                                  |
-|               | `remove`             | required to remove Locations and send content to Trash                                                                                  |
-|               | `versionread`        | required to view content after publishing, and to preview any content in the Page mode                                                  |
+|               | `remove`             | remove Locations and send content to Trash                                                                                              |
+|               | `versionread`        | view content after publishing, and to preview any content in the Page mode                                                              |
 |               | `versionremove`      | remove archived content versions                                                                                                        |
-|               | `translations`       | required to manage the language list in PlatformUI                                                                                      |
+|               | `translations`       | manage the language list in PlatformUI                                                                                                  |
 |               | `urltranslator`      | unused                                                                                                                                  |
 |               | `pendinglist`        | unused                                                                                                                                  |
 |               | `restore`            | restore content from Trash                                                                                                              |
@@ -152,15 +152,15 @@ Limitations consist of two parts:
 - `Limitation` (Value)
 - `LimitationType`
 
-Certain Limitations also serve as Role Limitations, which means they can be used to limit the rights of a Role assignment. Currently this covers `Subtree` and `Section` limitations.
+Certain Limitations also serve as Role Limitations, which means they can be used to limit the rights of a Role assignment. Currently this covers `Subtree` and `Section` Limitations.
 
 `Limitation` represents the value, while `LimitationType` deals with the business logic surrounding how it actually works and is enforced.
 `LimitationTypes` have two modes of operation in regards to permission logic (see `eZ\Publish\SPI\Limitation\Type` interface for more info):
 
 | Method | Use |
 |--------|-----|
-| `evaluate` | Evaluating if the user has access to a given object in a certain context (for instance the context can be Locations when the object is `Content`), under the condition of the `Limitation` value(s). |
-| `getCriterion` | Generates a `Criterion` using `Limitation` value and current user which `SearchService` by default applies to search criteria for filtering search based on permissions. |
+| `evaluate` | Evaluates if the User has access to a given object in a certain context (for instance the context can be Locations when the object is `Content`), under the condition of the `Limitation` value(s). |
+| `getCriterion` | Generates a `Criterion` using `Limitation` value and current User which `SearchService` by default applies to search criteria for filtering search based on permissions. |
 
 ### Available Limitations
 
@@ -236,7 +236,7 @@ If a function is absent from the tables below, it means that no Limitations can 
 
 #### BlockingLimitation
 
-A generic Limitation type to use when no other Limitation has been implemented. Without any limitation assigned, a LimitationNotFoundException is thrown.
+A generic Limitation type to use when no other Limitation has been implemented. Without any Limitation assigned, a LimitationNotFoundException is thrown.
 
 It is called "blocking" because it will always tell the permissions system that the User does not have access to any Policy it is assigned to, making the permissions system move on to the next Policy.
 
@@ -252,15 +252,16 @@ It is called "blocking" because it will always tell the permissions system that 
 
 |Value|UI value|Description|
 |------|------|------|
-|`<mixed>`|`<mixed>`|This is a generic Limitation which does not validate the values provided to it. Make sure to validate the values passed to this limitation in your own logic.|
+|`<mixed>`|`<mixed>`|This is a generic Limitation which does not validate the values provided to it. Make sure to validate the values passed to this Limitation in your own logic.|
 
 ##### Configuration
 
-As this is a generic Limitation, you can configure your custom Limitations to use it, out of the box FunctionList uses it in the following way:
+As this is a generic Limitation, you can configure your custom Limitations to use it.
+Out of the box FunctionList uses it in the following way:
 
 ``` yaml
-    # FunctionList is a ezjscore limitations, it only applies to ezjscore policies not used by
-    # API/platform stack so configuring to use "blocking" limitation to avoid LimitationNotFoundException
+    # FunctionList is an ezjscore limitation, it only applies to ezjscore policies not used by
+    # API/platform stack, so configure to use Blocking Limitation to avoid LimitationNotFoundException
     ezpublish.api.role.limitation_type.function_list:
         class: %ezpublish.api.role.limitation_type.blocking.class%
         arguments: ['FunctionList']
@@ -284,7 +285,7 @@ A Limitation to specify if the User has access to Content with a specific Conten
 
 |Value|UI value|Description|
 |------|------|------|
-|`<ContentType_id>`|`<ContentType_name>`|All valid ContentType ids can be set as value(s)|
+|`<ContentType_id>`|`<ContentType_name>`|All valid ContentType IDs can be set as value(s)|
 
 #### LanguageLimitation
 
@@ -320,7 +321,7 @@ A Limitation to specify if the User has access to Content with a specific Locati
 
 |Value|UI value|Description|
 |------|------|------|
-|`<Location_id>`|`<Location_name>`|All valid Location ids can be set as value(s)|
+|`<Location_id>`|`<Location_name>`|All valid Location IDs can be set as value(s)|
 
 #### NewObjectStateLimitation
 
@@ -340,13 +341,13 @@ In the `state/assign` Policy you can combine this with `ObjectStateLimitation` t
 
 |Value|UI value|Description|
 |------|------|------|
-|`<State_id>`|`<State_name>`|All valid state ids can be set as value(s)|
+|`<State_id>`|`<State_name>`|All valid state IDs can be set as value(s)|
 
 #### NewSectionLimitation
 
 A Limitation to specify if the User has access to (assigning) a given Section (to Content).
 
-In the `section/assign` Policy you can combine this with `SectionLimitation` to limit both from and to values.
+In the `section/assign` Policy you can combine this with `Section` Limitation to limit both from and to values.
 
 |                 |                                                                         |
 |-----------------|-------------------------------------------------------------------------|
@@ -360,7 +361,7 @@ In the `section/assign` Policy you can combine this with `SectionLimitation` to 
 
 |Value|UI value|Description|
 |------|------|------|
-|`<Session_id>`|`<Session_name>`|All valid section ids can be set as value(s)|
+|`<Session_id>`|`<Session_name>`|All valid session IDs can be set as value(s)|
 
 #### ObjectStateLimitation
 
@@ -378,11 +379,11 @@ A Limitation to specify if the User has access to Content with a specific Object
 
 |Value|UI value|Description|
 |------|------|------|
-|`<ObjectState_id>`|`<ObjectState_name>`|All valid ObjectState ids can be set as value(s)|
+|`<ObjectState_id>`|`<ObjectState_name>`|All valid ObjectState IDs can be set as value(s)|
 
 #### OwnerLimitation
 
-A Limitation to specify that only the owner of the Content item gets a certain access right.
+A Limitation to specify that only the owner of the Content item gets the selected access right.
 
 |                 |                                                                                                |
 |-----------------|------------------------------------------------------------------------------------------------|
@@ -397,31 +398,13 @@ A Limitation to specify that only the owner of the Content item gets a certain a
 |Value|UI value|Description|
 |------|------|------|
 |`1`|"self"|Only the User who is the owner gets access|
-|`2`|"session"|Same as "self"|
-
-##### Legacy compatibility notes:
-
-1. "session" is deprecated and works exactly like "self" in Public API since it has no knowledge of user Sessions
-1. A User is no longer automatically assumed to be the owner of themselves and gets access to edit themselves when the Owner limitation is used in Public API
-
-!!! note "Workaround for the OwnerLimitation on Users"
-
-    To make sure the User gets access to themselves when using OwnerLimitation across 4.x and 5.x, the solution is to change the User to be the owner of their own Content item.
-
-    This is accomplished using a privileged user to do the following API calls:
-
-    ``` php
-    $user = $userService->loadUser( $userId );
-    $contentMetadataUpdateStruct = $contentService->newContentMetadataUpdateStruct();
-    $contentMetadataUpdateStruct->ownerId = $user->id;
-    $contentService->updateContentMetadata( $user->getVersionInfo()->getContentInfo(), $contentMetadataUpdateStruct );
-    ```
+|`2`|"session"|Deprecated and works exactly like "self" in Public API since it has no knowledge of user Sessions|
 
 #### ParentContentTypeLimitation
 
 A Limitation to specify if the User has access to Content whose parent Location contains a specific Content Type, used by `content/create`.
 
-This limitation combined with `ContentTypeLimitation` allows you to define business rules like allowing users to create "Blog Post" within a "Blog." If you also combine it with `ParentOwnerLimitation`, you effectively limit access to create Blog Posts in the users' own Blogs.
+This Limitation combined with `ContentType` Limitation allows you to define business rules like allowing Users to create "Blog Post" within a "Blog." If you also combine it with `ParentOwner` Limitation, you effectively limit access to create Blog Posts in the Users' own Blogs.
 
 |                 |                                                                                |
 |-----------------|--------------------------------------------------------------------------------|
@@ -435,7 +418,7 @@ This limitation combined with `ContentTypeLimitation` allows you to define busin
 
 |Value|UI value|Description|
 |------|------|------|
-|`<ContentType_id>`|`<ContentType_name>`|All valid Content Type ids can be set as value(s)|
+|`<ContentType_id>`|`<ContentType_name>`|All valid Content Type IDs can be set as value(s)|
 
 #### ParentDepthLimitation
 
@@ -457,7 +440,7 @@ A Limitation to specify if the User has access to creating Content under a paren
 
 #### ParentOwnerLimitation
 
-A Limitation to specify that only the Users who owns all parent Locations of a Content item gets a certain access right, used for `content/create` permission.
+A Limitation to specify that only the Users who own all parent Locations of a Content item get a certain access right, used for `content/create` permission.
 
 |                 |                                                                          |
 |-----------------|--------------------------------------------------------------------------|
@@ -472,29 +455,11 @@ A Limitation to specify that only the Users who owns all parent Locations of a C
 |Value|UI value|Description|
 |------|------|------|
 |`1`|"self"|Only the User who is the owner of all parent Locations gets access|
-|`2`|"session"|Same as "self"|
-
-##### Legacy compatibility notes
-
-1. "session" is deprecated and works exactly like "self" in Public API since it has no knowledge of user Sessions
-1. User is no longer auto assumed to be owner of himself and get access create children of own user content object when `Owner` limitation is used in Public API
-
-!!! note "Workaround for the ParentOwner Limitation on Users (when a User is the parent of the content being created)"
-
-    To make sure the User gets access to themselves when using (Parent)OwnerLimitation across 4.x and 5.x, the solution is to change the User to be the owner of their own Content item.
-
-    This is accomplished using a privileged user to do the following API calls:
-
-    ``` php
-    $user = $userService->loadUser( $userId );
-    $contentMetadataUpdateStruct = $contentService->newContentMetadataUpdateStruct();
-    $contentMetadataUpdateStruct->ownerId = $user->id;
-    $contentService->updateContentMetadata( $user->getVersionInfo()->getContentInfo(), $contentMetadataUpdateStruct );
-    ```
+|`2`|"session"|Deprecated and works exactly like "self" in Public API since it has no knowledge of user Sessions|
 
 #### ParentUserGroupLimitation
 
-A Limitation to specify that only Users with at least one common *direct* User group with the owner of the parent Location of a Content item get a certain access right, used by `content/create` permission.
+A Limitation to specify that only Users with at least one common *direct* User Group with the owner of the parent Location of a Content item get a certain access right, used by `content/create` permission.
 
 |                 |                                                                              |
 |-----------------|------------------------------------------------------------------------------|
@@ -508,7 +473,7 @@ A Limitation to specify that only Users with at least one common *direct* User g
 
 |Value|UI value|Description|
 |------|------|------|
-|`1`|"self"|Only a User who has at least one common *direct* user group with owner of the parent Location gets access|
+|`1`|"self"|Only a User who has at least one common *direct* User Group with owner of the parent Location gets access|
 
 #### SectionLimitation
 
@@ -526,11 +491,11 @@ A Limitation to specify if the User has access to Content within a specific Sect
 
 |Value|UI value|Description|
 |------|------|------|
-|`<Session_id>`|`<Session_name>`|All valid section ids can be set as value(s)|
+|`<Session_id>`|`<Session_name>`|All valid session IDs can be set as value(s)|
 
 #### SiteAccessLimitation
 
-A Limitation to specify in which siteaccesses a certain permission applies, used by `user/login`.
+A Limitation to specify to which SiteAccesses a certain permission applies, used by `user/login`.
 
 |                 |                                                                         |
 |-----------------|-------------------------------------------------------------------------|
@@ -570,7 +535,7 @@ A Limitation to specify if the User has access to Content within a specific subt
 
 #### UserGroupLimitation
 
-A Limitation to specify that only Users with at least one common *direct* User group with the owner of content get a certain access right.
+A Limitation to specify that only Users with at least one common *direct* User Group with the owner of content get the selected access right.
 
 |                 |                                                                                                |
 |-----------------|------------------------------------------------------------------------------------------------|
@@ -584,11 +549,11 @@ A Limitation to specify that only Users with at least one common *direct* User g
 
 |Value|UI value|Description|
 |------|------|------|
-|`1`|"self"|Only a User who has at least one common *direct* User group with the owner gets access|
+|`1`|"self"|Only a User who has at least one common *direct* User Group with the owner gets access|
 
 ## Custom Policies
 
-REVIEW eZ Platform's content Repository uses the concept of Roles and Policies in order to authorize a user to do something (e.g. read content).
+eZ Platform's content Repository uses the concept of Roles and Policies in order to authorize a User to do something (e.g. read content).
 
 - A Role is composed of Policies and can be assigned to a User or a User Group.
 - A Policy is composed of a combination of **module** and **function** (e.g. `content/read`, `content` being the module and `read` being the function).

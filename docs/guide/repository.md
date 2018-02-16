@@ -34,7 +34,7 @@ Under this root there are preset top level Locations in each installation which 
 
 ![Users in admin panel](img/admin_panel_users.png)
 
-"Users" is the top level Location that contains the built-in system for managing User accounts. A User is simply a Content item of the "User account" Content Type. The Users are organized within "User group" Content items below this Location. In other words, the "Users" Location contains the actual Users and User groups, which can be viewed by selecting the "Users" tab in the Admin Panel. The default identification number of the "Users" Location is 5; it references a "User group" Content item.
+"Users" is the top level Location that contains the built-in system for managing User accounts. A User is simply a Content item of the "User account" Content Type. The Users are organized within "User Group" Content items below this Location. In other words, the "Users" Location contains the actual Users and User Groups, which can be viewed by selecting the "Users" tab in the Admin Panel. The default identification number of the "Users" Location is 5; it references a "User Group" Content item.
 
 #### Other top level Locations
 
@@ -104,7 +104,7 @@ The visibility mechanics are controlled by two flags: Hidden flag and Invisible 
 
     The Location visibility flag is not permission-based and thus acts as a simple potential filter. **It is not meant to restrict access to content**.
 
-    If you need to restrict access to a given Content item, use **Sections** or other Limitations, which are permission-based.
+    If you need to restrict access to a given Content item, use **Sections** or other **Limitations**, which are permission-based.
 
 ## Content Relations
 
@@ -132,7 +132,7 @@ When a new Content item is created, its Section ID is set to the default Section
 
 When content is moved to a different Location, the item itself and all of its subtree will be assigned to the Section of the new Location. Note that it works only for copy and move; assigning a new section to a parent's Content does not affect the subtree, meaning that Subtree cannot currently be updated this way.
 
-Sections can only be removed if no Content items are assigned to them. Even then, it should be done carefully. When a Section is deleted, it is only its definition itself that will be removed. Other references to the Section will remain and thus the system will most likely be in an inconsistent state. That is why removing Sections may corrupt permission settings, template output and other things in the system.
+Sections can only be removed if no Content items are assigned to them. Even then, it should be done carefully. When a Section is deleted, it is only its definition itself that will be removed. Other references to the Section will remain and thus the system will most likely lose consistency. That is why removing Sections may corrupt permission settings, template output and other things in the system.
 
 Section ID numbers are not recycled. If a Section is removed, its ID number will not be reused when a new Section is created.
 
@@ -250,7 +250,7 @@ This limit is enforced on publishing a new version and only covers archived vers
 
 !!! tip
 
-    Don't set this number too high, with Legacy storage engine you'll get performance degradation if you store too many versions. Default value of 5 is in general the recommended value, but the less content you have overall, the more you can increase this to, for instance, 25 or even 50.
+    Don't set `default_version_archive_limit` too high, with Legacy storage engine you'll get performance degradation if you store too many versions. Default value of 5 is in general the recommended value, but the less content you have overall, the more you can increase this to, for instance, 25 or even 50.
 
 ## Persistence cache
 
@@ -268,7 +268,7 @@ With the persistence cache, just like with the HTTP cache, eZ Platform tries to 
 
 ##### Entity stored only once
 
-To make the transparent caching principle as effective as possible, entities are, as much as possible, only stored once in cache by their primary id. Lookup by alternative identifiers (`identifier`, `remoteId`, etc.) is only cached with the identifier as cache key and primary `id` as its cache value, and compositions *(list of objects)* usually keep only the array of primary id's as their cache value.
+To make the transparent caching principle as effective as possible, entities are, as much as possible, only stored once in cache by their primary id. Lookup by alternative identifiers (`identifier`, `remoteId`, etc.) is only cached with the identifier as cache key and primary `id` as its cache value, and compositions *(list of objects)* usually keep only the array of primary IDs as their cache value.
 
 This means a couple of things:
 
@@ -424,7 +424,7 @@ stash:
 
 This will store stash cache to `app/cache/common.`
 
-##### APC & APCu
+##### APC and APCu
 
 This cache backend is using shard memory with APC's user cache feature. As this is per server, it does not support [multi-server (cluster) setups](clustering.md) .
 
@@ -608,7 +608,7 @@ $cacheService->clear('content', 'info');
 
 The Public API exposes Symfony services for all of its Repository services.
 
-| Service id                           | Type                                           |
+| Service ID                           | Type                                           |
 |--------------------------------------|------------------------------------------------|
 | `ezpublish.api.service.content`      | `eZ\Publish\API\Repository\ContentService`     |
 | `ezpublish.api.service.content_type` | `eZ\Publish\API\Repository\ContentTypeService` |
@@ -628,13 +628,13 @@ The Public API exposes Symfony services for all of its Repository services.
 
 The SignalSlot system provides a means for realizing loosely coupled dependencies in the sense that a code entity A can react on an event occurring in code entity B, without A and B knowing each other directly. This works by dispatching event information through a central third instance, the so called dispatcher:
 
-![Signal Slots diagram](img/signal_slots_diagram.png)
+![SignalSlots diagram](img/signal_slots_diagram.png)
 
-In the shown schematics, object B and one other object are interested in a certain signal. B is a so-called Slot that can be announced to be interested in receiving a Signal (indicated by the circular connector to the dispatcher). Object A now sends the corresponding Signal. The Dispatcher takes care of realizing the dependency and informs the Slot A (and one other Slot) about the occurrence of the Signal.
+In the shown schematics, object B and one other object are interested in a certain Signal. B is a so-called Slot that can be announced to be interested in receiving a Signal (indicated by the circular connector to the dispatcher). Object A now sends the corresponding Signal. The Dispatcher takes care of realizing the dependency and informs the Slot A (and one other Slot) about the occurrence of the Signal.
 
-Signals roughly equal events, while Slots roughly equal event handlers. An arbitrary number (0…n) of Slots can listen for a specific Signal. Every object that receives the Dispatcher as a dependency can send signals. However, the following conditions apply (that typically do not apply to event handling systems):
+Signals roughly equal events, while Slots roughly equal event handlers. An arbitrary number (0…n) of Slots can listen for a specific Signal. Every object that receives the Dispatcher as a dependency can send Signals. However, the following conditions apply (that typically do not apply to event handling systems):
 
-- A Slot cannot return anything to the object that issued a signal
+- A Slot cannot return anything to the object that issued a Signal
 - It is not possible for a Slot to stop the propagation of a Signal, i.e. all listening Slots will eventually receive the Signal
 
 Those two conditions allow the asynchronous processing of Slots. That means: It is possible to determine, by configuration, that a Slot must not receive a Signal in the very same moment it occurs, but to receive it on a later point in time, maybe after other Signals from a queue have been processed or even on a completely different server.
@@ -655,16 +655,16 @@ A Slot extends the system by realizing functionality that is executed when a cer
 
 Inside the `receive()` method of your Slot you can basically realize any kind of logic. However, it is recommended that you only dispatch the action to be triggered to a dedicated object. This allows you to trigger the same action from within multiple Slots and to re-use the implementation from a completely different context.
 
-Note that, due to the nature of Signal-Slot, the following requirements must be fulfilled by your Slot implementation:
+Note that, due to the nature of SignalSlot, the following requirements must be fulfilled by your Slot implementation:
 
 - A Slot must not return anything to the Signal issuer
 - A Slot must be aware that it is potentially executed delayed or even on a different server
 
-**Important**: A single Slot should not take care of processing more than one Signal. Instead, if you need to trigger same or similar actions as different Signals occur. you should encapsulate these actions into a dedicated class, of which your Slots receive an instance to trigger this action.
+**Important**: A single Slot should not take care of processing more than one Signal. Instead, if you need to trigger same or similar actions as different Signals occur. You should encapsulate these actions into a dedicated class, of which your Slots receive an instance to trigger this action.
 
 ### Example: Updating URL aliases
 
-Updating URL aliases is a typical process that can be realized through a Signal-Slot extension for different reasons:
+Updating URL aliases is a typical process that can be realized through a SignalSlot extension for different reasons:
 
 - The action must be triggered on basis of different events (e.g. content update, location move, etc.)
 - Direct implementation would involve complex dependencies between otherwise unrelated services
@@ -679,7 +679,7 @@ As a first step it needs to be determined for which Signals we need to listen in
 
 There are of course additional Signals that trigger an update of URL aliases, but these are left out for simplicity here.
 
-Now that we identified some Signals to react upon, we can start implementing Slots for these signals. For the first Signal, which is issued as soon as a new version of Content is published, there exists a method in `eZ\Publish\SPI\Persistence\Content\UrlAlias\Handler` for exactly that purpose: `publishUrlAliasForLocation()`. The Signal contains the ID of the content item and its newly published version number. Using this information, the corresponding Slot can fulfill its purposes with the following steps:
+Now that we identified some Signals to react upon, we can start implementing Slots for these Signals. For the first Signal, which is issued as soon as a new version of Content is published, there exists a method in `eZ\Publish\SPI\Persistence\Content\UrlAlias\Handler` for exactly that purpose: `publishUrlAliasForLocation()`. The Signal contains the ID of the Content item and its newly published version number. Using this information, the corresponding Slot can fulfill its purposes with the following steps:
 
 1. Load the corresponding content and its locations
 1. Call the URL alias creation method for each location
@@ -745,15 +745,15 @@ class CreateUrlAliasesOnPublishSlot extends BaseSlot
 
 ## Signals Reference
 
-This section references **all available signals** that you can listen to, triggered by ("Public") Repository API in eZ Platform.
+This section references **all available Signals** that you can listen to, triggered by ("Public") Repository API in eZ Platform.
 
 For more information, check the [SignalSlots](#signal-slots) section and the [Listening to Core events](../cookbook/listening_to_core_events.md) recipe.
 
-All signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
+All Signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
 
 !!! note "Transactions"
 
-    Signals are sent after transactions are executed, making signals transaction safe.
+    Signals are sent after transactions are executed, making Signals transaction safe.
 
 #### ContentService
 
@@ -762,7 +762,7 @@ All signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
 |`ContentService\AddRelationSignal`|`srcContentId` (source contentId, aka referrer)</br>`srcVersionNo`</br>`dstContentId` (destination contentId, aka target)|`ContentService::addRelation()`|
 |`ContentService\AddTranslationInfoSignal`|N/A|`ContentService::addTranslationInfo()`|
 |`ContentService\CopyContentSignal`|`srcContentId` (original content ID)</br>`srcVersionNo`</br>`dstContentId` (contentId of the copy)</br>`dstVersionNo`</br>`dstParentLocationId` (locationId where the content has been copied)|`ContentService::copyContent()`|
-|`ContentService\CreateContentDraftSignal`|`contentId`</br>`versionNo`</br>`userId` (Id of user used to create the draft, or null - current user)|`ContentService::createContentDraft()`|
+|`ContentService\CreateContentDraftSignal`|`contentId`</br>`versionNo`</br>`userId` (ID of User used to create the draft, or null - current User)|`ContentService::createContentDraft()`|
 |`ContentService\CreateContentSignal`|`contentId`</br>`versionNo`|`ContentService::createContent()`|
 |`ContentService\DeleteContentSignal`|`contentId`</br>`affectedLocationIds`|`ContentService::deleteContent()`|
 |`ContentService\DeleteRelationSignal`|`srcContentId`</br>`srcVersionNo`</br>`dstContentId`|`ContentService::deleteRelation()`|
