@@ -185,7 +185,7 @@ As an example, take a Content item with two Locations: Location A and Location B
 - Location A is visible
 - Location B is hidden
 
-When you search for the ID of Location B with the LocationId Criterion and with Visibility Criterion set to `Visibility::VISIBLE`
+When you search for the ID of Location B with the `LocationId` Criterion and with Visibility Criterion set to `Visibility::VISIBLE`
 the search will return the Content because both conditions are satisfied:
 
 - the Content item has Location B
@@ -228,7 +228,7 @@ Criteria are the filters for Content and Location Search.
 A Criterion consist of two parts (similar to Sort Clause and Facet Builder):
 
 - The API Value: `Criterion`
-- Specific handler per search engine: `Criterion Handler`
+- Specific handler per search engine: `CriterionHandler`
 
 `Criterion` represents the value you use in the API, while `CriterionHandler` deals with the business logic in the background translating the value to something the search engine can understand.
 
@@ -241,7 +241,7 @@ You should avoid heavy use of these until future improvements to the search engi
 
 Refer to the [list below](#list-of-criteria) to see how to use each Criterion, as it depends on the Criterion Value constructor, but in general you should be aware of the following common concepts:
 
-- `target`: Exposed if the given Criterion supports targeting a specific sub field, example: FieldDefinition or Meta Data identifier
+- `target`: Exposed if the given Criterion supports targeting a specific subfield, example: `FieldDefinition` or Metadata identifier
 - `value`: The value(s) to filter on, this is typically a scalar or array of scalars.
 - `operator`: Exposed on some Criteria:
     - all operators can be seen as constants on `eZ\Publish\API\Repository\Values\Content\Query\Criterion\Operator`: `IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `LIKE`, `BETWEEN`, `CONTAINS`
@@ -271,7 +271,7 @@ The list below presents the Criteria available in the `eZ\Publish\API\Repository
 |`ContentId`|`value` scalar(s) representing the Content ID.|
 |`ContentTypeGroupId`|`value` scalar(s) representing the Content Type Group ID.|
 |`ContentTypeId`|`value` scalar(s) representing the Content Type ID.|
-|`ContentTypeIdentifier`|`value` string(s) representing the Content Type identifier, example: "article".|
+|`ContentTypeIdentifier`|`value` string(s) representing the Content Type Identifier, example: "article".|
 |`DateMetadata`|`target` ( `DateMetadata ::MODIFIED`, `DateMetadata ::CREATED`)</br>`operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `BETWEEN`)</br>`value` being integer(s) representing unix timestamp.|
 |`Field`|`target` (FieldDefinition identifier), `operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `LIKE`, `BETWEEN`, `CONTAINS`), `value` being scalar(s) relevant for the field.|
 |`FieldRelation`|`target` (FieldDefinition identifier)</br>`operator` (`IN`, `CONTAINS`)</br>`value` being array of scalars representing Content ID of relation.</br>Use of `IN` means the relation needs to have one of the provided IDs, while `CONTAINS` implies it needs to have all provided IDs.|
@@ -285,13 +285,13 @@ The list below presents the Criteria available in the `eZ\Publish\API\Repository
 |`MapLocationDistance`| `target` (FieldDefinition identifier)</br>`operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `BETWEEN`)</br>`distance` as float(s) from a position using `latitude` as float, `longitude` as float as arguments|
 |`MatchAll`|No arguments, mainly for internal use when no `filter` or `query` is provided on Query object.|
 |`MatchNone`|No arguments, mainly for internal use by the [BlockingLimitation](repository.md#blockinglimitation).|
-|`ObjectStateId`|`value` string(s) representing the Content ObjectState ID.|
+|`ObjectStateId`|`value` string(s) representing the Content Object State ID.|
 |`ParentLocationId`|`value` scalar(s) representing the Parent's Location ID.|
 |`RemoteId`|`value` string(s) representing the Content Remote ID.|
 |`SectionId`|`value` scalar(s) representing the Content Section ID.|
 |`Subtree`|`value` string(s) representing the Location ID in which you can filter. If the Location ID is `/1/2/20/42`, you will filter everything under `42`.|
 |`UserMetadata`|`target` (`UserMetadata ::OWNER`, `UserMetadata ::GROUP`, `UserMetadata ::MODIFIER`)</br>`operator` (`IN`, `EQ`), `value` scalar(s) representing the User or User Group ID(s).|
-|`Visibility`|`value` (`Visibility ::VISIBLE`, `Visibility ::HIDDEN`).</br>*Note: This acts on all assigned locations when used with ContentSearch, meaning hidden content will be returned if it has a location which is visible. Use LocationSearch to avoid this.*|
+|`Visibility`|`value` (`Visibility ::VISIBLE`, `Visibility ::HIDDEN`).</br>*Note: This acts on all assigned Locations when used with Content Search, meaning hidden content will be returned if it has a Location which is visible. Use Location Search to avoid this.*|
 
 ## Sort Clauses Reference
 
@@ -612,7 +612,7 @@ If full language analysis features are preferred, then each language can be conf
 
 !!! note
 
-    Make sure to test this setup against a single-core setup, as it might perform worse than single core if your project uses a lot of language fallbacks per SiteAccess, as queries will then be performed across several cores at once.
+    Make sure to test this setup against a single-core setup, as it might perform worse than single-core if your project uses a lot of language fallbacks per SiteAccess, as queries will then be performed across several cores at once.
 
 ``` yaml
 # config.yml
@@ -682,7 +682,7 @@ ezpublish:
 
 #### Step 4: Clear prod cache
 
-While Symfony `dev` environment keeps track of changes to YAML files, `prod` does not, so clear teh cache to make sure Symfony reads the new config:
+While Symfony `dev` environment keeps track of changes to YAML files, `prod` does not, so clear the cache to make sure Symfony reads the new config:
 
 ``` bash
 php app/console --env=prod cache:clear
