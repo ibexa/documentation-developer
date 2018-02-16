@@ -466,7 +466,7 @@ Status of features:
     - Spell checking
     - Query time Boosting
 
-### How to set up Solr Search engine
+### How to set up Solr search engine
 
 !!! note "Enable the bundle"
 
@@ -554,7 +554,7 @@ This setting is **required** if you want to see the changes after publish. It is
 
 #### Step 2: Configuring the bundle
 
-The Solr search engine bundle can be configured in many ways. The config further below assumes you have parameters set up for Solr DSN and search engine *(however both are optional)*, for example (in `parameters.yml`):
+The Solr Search Engine Bundle can be configured in many ways. The config further below assumes you have parameters set up for Solr DSN and search engine *(however both are optional)*, for example (in `parameters.yml`):
 
 ``` yaml
     search_engine: solr
@@ -665,7 +665,7 @@ ez_search_engine_solr:
 
 #### Step 3: Configuring repository with the specific search engine
 
-The following is an example of configuring Solr Search Engine, where `connection` name is same as in the example above, and engine is set to `solr`:
+The following is an example of configuring Solr search engine, where `connection` name is same as in the example above, and engine is set to `solr`:
 
 ``` yaml
 # ezplatform.yml
