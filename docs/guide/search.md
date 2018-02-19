@@ -205,14 +205,14 @@ use eZ\Publish\API\Repository\Values\Content\Query\Criterion\Visibility;
 $searchService = $repository->getSearchService();
 
 $query = new Query(
-    array(
+    [
         'filter' => new LogicalAnd(
-            array(
+            [
                 new LocationId( $locationBId ),
                 new Visibility( Visibility::VISIBLE ),
-            )
-        )
-    )
+            ]
+        ),
+    ]
 );
 
 $searchResult = $searchService->findContent( $query );
@@ -234,7 +234,7 @@ A Criterion consist of two parts (similar to Sort Clause and Facet Builder):
 
 Implementation and availability of a handler typically depends on search engine capabilities and limitations.
 Currently only Legacy (SQL-based) search engine is available out of the box,
-and for instance its support for FullText and Field Criterion is not optimal.
+and for instance its support for Field Criterion is not optimal.
 You should avoid heavy use of these until future improvements to the search engine.
 
 #### Common concepts for most Criteria
@@ -272,7 +272,7 @@ The list below presents the Criteria available in the `eZ\Publish\API\Repository
 |`ContentTypeGroupId`|`value` scalar(s) representing the Content Type Group ID.|
 |`ContentTypeId`|`value` scalar(s) representing the Content Type ID.|
 |`ContentTypeIdentifier`|`value` string(s) representing the Content Type Identifier, example: "article".|
-|`DateMetadata`|`target` ( `DateMetadata ::MODIFIED`, `DateMetadata ::CREATED`)</br>`operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `BETWEEN`)</br>`value` being integer(s) representing unix timestamp.|
+|`DateMetadata`|`target` ( `DateMetadata::MODIFIED`, `DateMetadata::CREATED`)</br>`operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `BETWEEN`)</br>`value` being integer(s) representing unix timestamp.|
 |`Field`|`target` (FieldDefinition identifier), `operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `LIKE`, `BETWEEN`, `CONTAINS`), `value` being scalar(s) relevant for the field.|
 |`FieldRelation`|`target` (FieldDefinition identifier)</br>`operator` (`IN`, `CONTAINS`)</br>`value` being array of scalars representing Content ID of relation.</br>Use of `IN` means the relation needs to have one of the provided IDs, while `CONTAINS` implies it needs to have all provided IDs.|
 |`FullText`|`value` which is the string to search for</br>`properties` is array to set additional properties for use with search engines like Solr/ElasticSearch.|
@@ -290,8 +290,8 @@ The list below presents the Criteria available in the `eZ\Publish\API\Repository
 |`RemoteId`|`value` string(s) representing the Content Remote ID.|
 |`SectionId`|`value` scalar(s) representing the Content Section ID.|
 |`Subtree`|`value` string(s) representing the Location ID in which you can filter. If the Location ID is `/1/2/20/42`, you will filter everything under `42`.|
-|`UserMetadata`|`target` (`UserMetadata ::OWNER`, `UserMetadata ::GROUP`, `UserMetadata ::MODIFIER`)</br>`operator` (`IN`, `EQ`), `value` scalar(s) representing the User or User Group ID(s).|
-|`Visibility`|`value` (`Visibility ::VISIBLE`, `Visibility ::HIDDEN`).</br>*Note: This acts on all assigned Locations when used with Content Search, meaning hidden content will be returned if it has a Location which is visible. Use Location Search to avoid this.*|
+|`UserMetadata`|`target` (`UserMetadata::OWNER`, `UserMetadata::GROUP`, `UserMetadata::MODIFIER`)</br>`operator` (`IN`, `EQ`), `value` scalar(s) representing the User or User Group ID(s).|
+|`Visibility`|`value` (`Visibility::VISIBLE`, `Visibility::HIDDEN`).</br>*Note: This acts on all assigned Locations when used with Content Search, meaning hidden content will be returned if it has a Location which is visible. Use Location Search to avoid this.*|
 
 ## Sort Clauses Reference
 
@@ -395,7 +395,7 @@ Available tags for Sort Clause handlers in Legacy Storage Engine are:
 
 !!! note
 
-    You will find all the native handlers and the tags for the Legacy Storage Engine available in the `eZ/Publish/Core/settings/storage_engines/legacy/search_query_handlers.yml` file.
+    You will find all the native handlers and the tags for the Legacy Storage Engine in files located in `eZ/Publish/Core/settings/storage_engines/legacy/`.
 
 ##### Example of registering a ContentId Criterion handler, common for both Content and Location Search
 
@@ -447,7 +447,7 @@ For further info on possible options, use `php app/console ezplatform:reindex --
 
 ## Solr Bundle
 
-[ezplatform-solr-search-engine](https://github.com/ezsystems/ezplatform-solr-search-engine) aims to be a transparent drop-in replacement for the SQL-based Legacy search engine powering eZ Platform search API by default. When you enable Solr and re-index your content, all your existing Search queries using `SearchService` will be powered by Solr automatically. This allows you to scale up your eZ Platform installation and be able to continue development locally against SQL engine, and have a test infrastructure, Staging and Prod powered by Solr. This removes considerable load from your database. See [further information on the architecture of eZ Platform](architecture.md).
+[ezplatform-solr-search-engine](https://github.com/ezsystems/ezplatform-solr-search-engine) aims to be a transparent drop-in replacement for the SQL-based Legacy search engine powering eZ Platform Search API by default. When you enable Solr and re-index your content, all your existing Search queries using `SearchService` will be powered by Solr automatically. This allows you to scale up your eZ Platform installation and be able to continue development locally against SQL engine, and have a test infrastructure, Staging and Prod powered by Solr. This removes considerable load from your database. See [further information on the architecture of eZ Platform](architecture.md).
 
 Status of features:
 
@@ -579,7 +579,7 @@ ez_search_engine_solr:
                 default: endpoint0
 ```
 
-##### Shared core example
+##### Shared-core example
 
 The following example separates one language. The installation contains several similar languages,
 and one very different language that should receive proper language analysis for proper stemming and sorting behavior by Solr:
@@ -721,10 +721,10 @@ Here are the most common issues you may encounter:
 
     Boosting is available since Solr bundle version 1.4.
 
-!!! tip "How boosting interacts with search API"
+!!! tip "How boosting interacts with Search API"
 
     Boosting of fields or documents will affect the score (relevance) of your search result hits
-    when using search API for any Criteria you specify on `$query->query`, or in REST by using `Query` element.
+    when using Search API for any Criteria you specify on `$query->query`, or in REST by using `Query` element.
     When you don't specify anything to sort on, the result will be sorted by this relevance.
     Anything set on `$query->filter`, or in REST using `Filter` element, will *not* affect scoring and only works
     as a pure filter for the result. Thus make sure to place Criteria you want to affect scoring on `query`.
@@ -930,7 +930,7 @@ ez_search_engine_elasticsearch:
                 location: location
 ```
 
-For further information on the ElasticSearch integration in eZ Platform, find the default [configuration](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Search/Elasticsearch/Content/Resources/elasticsearch.yml) and [mappings](https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/Core/Search/Elasticsearch/Content/Resources/mappings) for Content and Location type documents.
+For further information on the ElasticSearch integration in eZ Platform, find the default [configuration](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.7/eZ/Publish/Core/Search/Elasticsearch/Content/Resources/elasticsearch.yml) and [mappings](https://github.com/ezsystems/ezpublish-kernel/tree/v6.7.7/eZ/Publish/Core/Search/Elasticsearch/Content/Resources/mappings) for Content and Location type documents.
 
 #### Step 3: Configuring repository
 
