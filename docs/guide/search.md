@@ -1,26 +1,21 @@
 # Search
 
-## Introduction
+eZ Platform exposes a very powerful Search API, allowing both full-text search and querying the content Repository using several built-in Search Criteria and Sort Clauses. These are supported across different search engines, allowing you to plug in another search engine without changing your code.
 
-eZ Platform exposes very powerful Search API, allowing both Full Text search and querying the content repository using several built-in Criteria and Sort Clauses. These are supported across several search engines, allowing you to plug in another search engine without changing your code.
+Currently three search engines exist in their own eZ Platform Bundles:
 
-### Available Search Engines
+1.  [Legacy search engine](#legacy-search-engine-bundle), a database-powered search engine for basic needs.
+1.  [Solr](#solr-bundle), an integration providing better overall performance, much better scalability and support for more advanced search capabilities **(recommended)**
+1.  [ElasticSearch](#elasticsearch-bundle), similar to Solr integration, currently not under active development *(experimental, not supported)*
 
-Currently 3 search engines exists on their own eZ Platform Bundles:
+## Search Criteria and Sort Clauses
 
-1.  [Legacy](#legacy-search-engine-bundle), a database-powered search engines for basic needs.
-1.  [Solr](#solr-bundle), an integration providing better overall performance, much better scalability and support for more advance search capabilities RECOMMENDED
-1.  [ElasticSearch](#elasticsearch-bundle), similar to Solr integration, however currently not under active development EXPERIMENTAL, NOT SUPPORTED
+Search Criteria and Sort Clauses are value object classes used for building a search query, to define filter criteria and ordering of the result set.
+eZ Platform provides a number of standard Search Criteria and Sort Clauses that you can use out of the box and that should cover the majority of use cases.
 
-## Usage
-
-### Search Criteria and Sort Clauses
-
-Search Criteria  and Sort Clauses are `value` object classes used for building Search Query, to define filter criteria and ordering of the result set. eZ Platform provides a number of standard Criteria and Sort Clauses that you can use out of the box and that should cover the majority of use cases.
+As an example take a look at the built-in `ContentId` Criterion
 
 ``` php
-// Example of standard ContentId criterion
-
 <?php
 
 namespace eZ\Publish\API\Repository\Values\Content\Query\Criterion;
@@ -67,13 +62,15 @@ class ContentId extends Criterion implements CriterionInterface
 }
 ```
 
-#### Search Engine Handling of Search Criteria and Sort Clauses
+### Search engine handling of Search Criteria and Sort Clauses
 
-As Search Criteria and Sort Clauses are `value` objects which are used to define the Query from API perspective, they are are common for all storage engines. Each storage engine needs to implement its own `handler` for corresponding Criterion and Sort Clause `value` object, which will be used to translate the value object into storage specific search query.
+As Search Criteria and Sort Clauses are value objects which are used to define the query from API perspective, they are common for all storage engines.
+Each storage engine needs to implement its own handlers for the corresponding Criterion and Sort Clause value object,
+which will be used to translate the value object into a storage-specific search query.
+
+Example of the `ContentId` Criterion handler in Legacy storage engine:
 
 ``` php
-// Example of ContentId criterion handler in Legacy Storage Engine
-
 <?php
 
 namespace eZ\Publish\Core\Search\Legacy\Content\Common\Gateway\CriterionHandler;
@@ -100,7 +97,6 @@ class ContentId extends CriterionHandler
         return $criterion instanceof Criterion\ContentId;
     }
 
-
     /**
      * Generate query expression for a Criterion this handler accepts
      *
@@ -122,9 +118,9 @@ class ContentId extends CriterionHandler
 }
 ```
 
-``` php
-// Example of ContentId criterion handler in Solr Storage engine
+Example of a `ContentId` Criterion handler in Solr storage engine:
 
+``` php
 <?php
 
 namespace EzSystems\EzPlatformSolrSearchEngine\Query\Content\CriterionVisitor;
@@ -139,7 +135,7 @@ use eZ\Publish\API\Repository\Values\Content\Query\Criterion\Operator;
 class ContentIdIn extends CriterionVisitor
 {
     /**
-     * CHeck if visitor is applicable to current criterion
+     * Check if visitor is applicable to current criterion
      *
      * @param Criterion $criterion
      *
@@ -180,19 +176,193 @@ class ContentIdIn extends CriterionVisitor
 }
 ```
 
-#### Custom Criteria and Sort Clauses
+#### Criteria independence
 
-Sometimes you will find that standard Search Criteria and Sort Clauses provided with eZ Publish are not sufficient for you needs. Most often this will be the case if you have developed a custom Field Type using external storage, which therefore can not be searched using standard Field Criterion.
+Criteria are independent of one another. This can lead to unexpected behavior, for instance because Content can have multiple Locations.
 
-!!! caution "On use of Field Criterion/SortClause with large databases"
+As an example, take a Content item with two Locations: Location A and Location B.
 
-    Field Criterion/SortClause does not perform well by design when using SQL database, so if you have a large database and want to use them you either need to use Solr search engine, or develop your own Custom Criterion / Sort Clause to avoid use of attributes (Fields) database table, and instead uses a custom simplified table which can handle the amount of data you have.
+- Location A is visible
+- Location B is hidden
 
-In this case you can implement a custom Criterion or Sort Clause, together with the corresponding handlers for the storage engine you are using.
+When you search for the ID of Location B with the `LocationId` Criterion and with Visibility Criterion set to `Visibility::VISIBLE`
+the search will return the Content because both conditions are satisfied:
+
+- the Content item has Location B
+- the Content item is visible (it has Location A which is visible)
+
+``` php hl_lines="17 18 27"
+<?php
+
+use eZ\Publish\API\Repository\Values\Content\Query;
+use eZ\Publish\API\Repository\Values\Content\Query\Criterion\LogicalAnd;
+use eZ\Publish\API\Repository\Values\Content\Query\Criterion\LocationId;
+use eZ\Publish\API\Repository\Values\Content\Query\Criterion\Visibility;
+
+/** @var string|int $locationBId */
+/** @var \eZ\Publish\API\Repository\Repository $repository */
+
+$searchService = $repository->getSearchService();
+
+$query = new Query(
+    [
+        'filter' => new LogicalAnd(
+            [
+                new LocationId( $locationBId ),
+                new Visibility( Visibility::VISIBLE ),
+            ]
+        ),
+    ]
+);
+
+$searchResult = $searchService->findContent( $query );
+
+// Content is found
+$content = $searchResult->searchHits[0];
+```
+
+## Search Criteria Reference
+
+Criteria are the filters for Content and Location Search.
+
+A Criterion consist of two parts (similar to Sort Clause and Facet Builder):
+
+- The API Value: `Criterion`
+- Specific handler per search engine: `CriterionHandler`
+
+`Criterion` represents the value you use in the API, while `CriterionHandler` deals with the business logic in the background translating the value to something the search engine can understand.
+
+Implementation and availability of a handler typically depends on search engine capabilities and limitations.
+Currently only Legacy (SQL-based) search engine is available out of the box,
+and for instance its support for Field Criterion is not optimal.
+You should avoid heavy use of these until future improvements to the search engine.
+
+#### Common concepts for most Criteria
+
+Refer to the [list below](#list-of-criteria) to see how to use each Criterion, as it depends on the Criterion Value constructor, but in general you should be aware of the following common concepts:
+
+- `target`: Exposed if the given Criterion supports targeting a specific subfield, example: `FieldDefinition` or Metadata identifier
+- `value`: The value(s) to filter on, this is typically a scalar or array of scalars.
+- `operator`: Exposed on some Criteria:
+    - all operators can be seen as constants on `eZ\Publish\API\Repository\Values\Content\Query\Criterion\Operator`: `IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `LIKE`, `BETWEEN`, `CONTAINS`
+    - most Criteria do not expose this and select `EQ` or `IN` depending if value is scalar or an array
+    - `IN` and `BETWEEN` always act on an array of values, while the other operators act on single scalar value
+- `valueData`: Additional value data, required by some Criteria, for instance MapLocationDistance
+
+In the Legacy search engine, the field index/sort key column is limited to 255 characters by design.
+Due to this storage limitation, searching content using the eZ Country Field Type or Keyword when there are multiple values selected may not return all the expected results.
+
+#### List of Criteria
+
+The list below presents the Criteria available in the `eZ\Publish\API\Repository\Values\Content\Query\Criterion` namespace:
+
+##### Only for LocationSearch
+
+|Criterion|Constructor arguments description|
+|------|------|
+|`Location\Depth`|`operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `BETWEEN`)</br>`value` being the Location depth(s) as integer(s).|
+|`Location\IsMainLocation`|Whether or not the Location is a main Location.</br>`value (Location\IsMainLocation::MAIN, Location\IsMainLocation::NOT_MAIN)`|
+|`Location\Priority`|Priorities are integers that can be used for sorting in ascending or descending order. What is higher or lower priority in relation to the priority number is left to your choice.</br>`operator` (`GT`, `GTE`, `LT`, `LTE`, `BETWEEN`), `value` being the location priority(s) as an integer(s).|
+
+##### Common
+
+|Criterion|Constructor arguments description|
+|------|------|
+|`ContentId`|`value` scalar(s) representing the Content ID.|
+|`ContentTypeGroupId`|`value` scalar(s) representing the Content Type Group ID.|
+|`ContentTypeId`|`value` scalar(s) representing the Content Type ID.|
+|`ContentTypeIdentifier`|`value` string(s) representing the Content Type Identifier, example: "article".|
+|`DateMetadata`|`target` ( `DateMetadata::MODIFIED`, `DateMetadata::CREATED`)</br>`operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `BETWEEN`)</br>`value` being integer(s) representing unix timestamp.|
+|`Field`|`target` (FieldDefinition identifier), `operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `LIKE`, `BETWEEN`, `CONTAINS`), `value` being scalar(s) relevant for the field.|
+|`FieldRelation`|`target` (FieldDefinition identifier)</br>`operator` (`IN`, `CONTAINS`)</br>`value` being array of scalars representing Content ID of relation.</br>Use of `IN` means the relation needs to have one of the provided IDs, while `CONTAINS` implies it needs to have all provided IDs.|
+|`FullText`|`value` which is the string to search for</br>`properties` is array to set additional properties for use with search engines like Solr/ElasticSearch.|
+|`LanguageCode`|`value` string(s) representing Language Code(s) on the Content (not on Fields)</br>`matchAlwaysAvailable` as boolean.|
+|`LocationId`|`value` scalar(s) representing the Location ID.|
+|`LocationRemoteId`|`value` string(s) representing the Location Remote ID.|
+|`LogicalAnd`|A `LogicalOperator` that takes `array` of other Criteria, makes sure all Criteria match.|
+|`LogicalNot`|A `LogicalOperator` that takes `array` of other Criteria, makes sure none of the Criteria match.|
+|`LogicalOr`|A `LogicalOperator` that takes `array` of other Criteria, makes sure one of the Criteria match.|
+|`MapLocationDistance`| `target` (FieldDefinition identifier)</br>`operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `BETWEEN`)</br>`distance` as float(s) from a position using `latitude` as float, `longitude` as float as arguments|
+|`MatchAll`|No arguments, mainly for internal use when no `filter` or `query` is provided on Query object.|
+|`MatchNone`|No arguments, mainly for internal use by the [BlockingLimitation](repository.md#blockinglimitation).|
+|`ObjectStateId`|`value` string(s) representing the Content Object State ID.|
+|`ParentLocationId`|`value` scalar(s) representing the Parent's Location ID.|
+|`RemoteId`|`value` string(s) representing the Content Remote ID.|
+|`SectionId`|`value` scalar(s) representing the Content Section ID.|
+|`Subtree`|`value` string(s) representing the Location ID in which you can filter. If the Location ID is `/1/2/20/42`, you will filter everything under `42`.|
+|`UserMetadata`|`target` (`UserMetadata::OWNER`, `UserMetadata::GROUP`, `UserMetadata::MODIFIER`)</br>`operator` (`IN`, `EQ`), `value` scalar(s) representing the User or User Group ID(s).|
+|`Visibility`|`value` (`Visibility::VISIBLE`, `Visibility::HIDDEN`).</br>*Note: This acts on all assigned Locations when used with Content Search, meaning hidden content will be returned if it has a Location which is visible. Use Location Search to avoid this.*|
+
+## Sort Clauses Reference
+
+Sort Clauses are the sorting options for Content and Location Search in eZ Platform.
+
+A Sort Clause consists of two parts (similar to Criterion and Facet Builder):
+
+- The API Value: `SortClause`
+- Specific handler per search engine: `SortClausesHandler`
+
+The `SortClause` represents the value you use in the API, while `SortClauseHandler` deals with the business logic in the background, translating the value to something the search engine can understand.
+
+Implementation and availability of a handler sometimes depends on search engine capabilities and limitations.
+
+#### Common concepts for all Sort Clauses 
+
+Refer to the [list below](#list-of-sort-clauses) to see how to use each Sort Clause, as it depends on the Sort Clause Value constructor, but in general you should be aware of the following common concept:
+
+- `sortDirection`: The direction to perform the sort, either `Query::SORT_ASC` *(default)* or `Query::SORT_DESC`
+
+You can use the method `SearchService::getSortClauseFromLocation( Location $location )` to return an array of Sort Clauses that you can use on `LocationQuery->sortClauses`.
+
+#### List of Sort Clauses 
+
+The list below presents the Sort Clauses available in the `eZ\Publish\API\Repository\Values\Content\Query\SortClause` namespace:
+
+!!! tip
+
+    Arguments starting with "`?`" are optional.
+
+##### Only for LocationSearch
+
+| Sort Clause                     | Constructor arguments |
+|---------------------------------|-----------------------------------|
+| `Location\Depth`                | `?sortDirection`                  |
+| `Location\Id`                   | `?sortDirection`                  |
+| `Location\IsMainLocation`       | `?sortDirection`                  |
+| `Location\Depth`                | `?sortDirection`                  |
+| `Location\Priority`             | `?sortDirection`                  |
+| `Location\Visibility `          | `?sortDirection`                  |
+
+##### Common
+
+|Sort Clause|Constructor arguments |
+|------|------|
+|`ContentId`|`?sortDirection`|
+|`ContentName`|`?sortDirection`|
+|`DateModified`|`?sortDirection`|
+|`DatePublished`|`?sortDirection`|
+|`Field`|`typeIdentifier` as string</br>`fieldIdentifier` as string</br> `?sortDirection`</br>`?languageCode` as string|
+|`MapLocationDistance `|`typeIdentifier` as string</br>`fieldIdentifier` as string</br>`latitude` as float</br>`longitude` as float</br>`?sortDirection`</br>`?languageCode` as string|
+|`SectionIdentifier`|`?sortDirection`|
+|`SectionName`|`?sortDirection`|
+
+## Custom Criteria and Sort Clauses
+
+Sometimes you will find that standard Search Criteria and Sort Clauses provided with eZ Platform are not sufficient for your needs. Most often this will be the case if you have a custom Field Type using external storage which cannot be searched using the standard Field Criterion.
+
+In such cases you can implement a custom Criterion or Sort Clause, together with the corresponding handlers for the storage engine you are using.
+
+!!! caution "Using Field Criterion or Sort Clause with large databases"
+
+    Field Criterion and Sort Clause do not perform well by design when using SQL database.
+    If you have a large database and want to use them, you either need to use the Solr search engine,
+    or develop your own Custom Criterion or Sort Clause. This way you can avoid using the attributes (Fields) database table,
+    and instead use a custom simplified table which can handle the amount of data you have.
 
 #### Difference between Content and Location Search
 
-These are two basic types of searches, you can either search for Locations or for Content. Each has dedicated methods in Search Service:
+There are two basic types of searches, you can either search for Locations or for Content.
+Each type has dedicated methods in the Search Service:
 
 | Type of search | Method in Search Service |
 |----------------|--------------------------|
@@ -200,12 +370,14 @@ These are two basic types of searches, you can either search for Locations or fo
 | Content        | `findSingle()`           |
 | Location       | `findLocations()`        |
 
-All Criteria and Sort Clauses will be accepted with Location Search, but not all of them can be used with Content Search. Reason for this is that while one Location always has exactly one Content item, one Content item can have multiple Locations. In this context some Criteria and Sort Clauses would produce ambiguous queries and such will therefore not be accepted by Content Search.
+All Criteria and Sort Clauses will be accepted with Location Search, but not all of them can be used with Content Search.
+The reason for this is that while one Location always has exactly one Content item, one Content item can have multiple Locations.
+In this context some Criteria and Sort Clauses would produce ambiguous queries that would not be accepted by Content Search.
 
-Content Search will explicitly refuse to accept Criteria and Sort Clauses implementing these abstract classes:
+Content Search explicitly refuses to accept Criteria and Sort Clauses implementing these abstract classes:
 
-- eZ\Publish\API\Repository\Values\Content\Query\Criterion\Location
-- eZ\Publish\API\Repository\Values\Content\SortClause\Criterion\Location
+- `eZ\Publish\API\Repository\Values\Content\Query\Criterion\Location`
+- `eZ\Publish\API\Repository\Values\Content\SortClause\Criterion\Location`
 
 #### How to configure your own Criterion and Sort Clause Handlers
 
@@ -223,12 +395,11 @@ Available tags for Sort Clause handlers in Legacy Storage Engine are:
 
 !!! note
 
-    You will find all the native handlers and the tags for the Legacy Storage Engine available in the eZ/Publish/Core/settings/storage\_engines/legacy/**search\_query\_handlers.yml** file.
+    You will find all the native handlers and the tags for the Legacy Storage Engine in files located in `eZ/Publish/Core/settings/storage_engines/legacy/`.
 
-##### Example of registering ContentId Criterion handler, common for both Content and Location Search
+##### Example of registering a ContentId Criterion handler, common for both Content and Location Search
 
 ``` yaml
-# Registering Criterion handler
 services:
     ezpublish.search.legacy.gateway.criterion_handler.common.content_id:
         class: eZ\Publish\Core\Search\Legacy\Content\Common\Gateway\CriterionHandler\ContentId
@@ -238,10 +409,9 @@ services:
           - {name: ezpublish.search.legacy.gateway.criterion_handler.location}
 ```
 
-##### Example of registering Depth Sort Clause handler for Location Search
+##### Example of registering a Depth Sort Clause handler for Location Search
 
 ``` yaml
-# Registering Sort Clause handler
 ezpublish.search.legacy.gateway.sort_clause_handler.location.depth:
     class: eZ\Publish\Core\Search\Legacy\Content\Location\Gateway\SortClauseHandler\Location\Depth
     arguments: [@ezpublish.api.storage_engine.legacy.dbhandler]
@@ -251,87 +421,33 @@ ezpublish.search.legacy.gateway.sort_clause_handler.location.depth:
 
 !!! note "See also"
 
-    See also [Symfony documentation about Service Container](http://symfony.com/doc/current/book/service_container.html#service-parameters) for passing parameters
-
-#### Criteria Independence Example
-
-With eZ Publish you can have multiple location content. Criterions do not relate to others criterion you can  use the Public API and Criterion to search this content, it can lead to a comportement you are not expecting.
-
-Example of Criterions not relating to each other:
-
-There is a Content with two Locations: Location A and Location B
-
-- Location A is visible
-- Location B is hidden
-
-Searching with LocationId criterion with Location B id and Visibility criterion with Visibility::VISIBLE will return the Content because conditions are satisfied:
-
-- Content has Location B
-- Content is visible (it has Location A that is visible)
-
-``` php
-<?php
-
-use eZ\Publish\API\Repository\Values\Content\Query;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion\LogicalAnd;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion\LocationId;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion\Visibility;
-
-/** @var string|int $locationBId */
-/** @var \eZ\Publish\API\Repository\Repository $repository */
-
-$searchService = $repository->getSearchService();
-
-$query = new Query(
-    array(
-        'filter' => new LogicalAnd(
-            array(
-                new LocationId( $locationBId ),
-                new Visibility( Visibility::VISIBLE ),
-            )
-        )
-    )
-);
-
-$searchResult = $searchService->findContent( $query );
-
-// Content is found
-$content = $searchResult->searchHits[0];
-```
+    See also [Symfony documentation about Service Container](http://symfony.com/doc/current/book/service_container.html#service-parameters) for passing parameters.
 
 ## Reindexing
 
-To (re)create or refresh the search engine index for configured search engines (per siteaccess repository), use the `php app/console ezplatform:reindex` command.
+To (re)create or refresh the search engine index for configured search engines (per SiteAccess repository), use the `php app/console ezplatform:reindex` command.
 
 Some examples of common usage:
 ```bash
-# Reindex whole index using parallel process (by default starts by purging the whole index)
+# Reindex the whole index using parallel process (by default starts by purging the whole index)
 # (with the 'auto' option which detects the number of CPU cores -1, default behavior)
 php app/console ezplatform:reindex --processes=auto
 
-# Refresh part of the subtree (implies --no-purge)
+# Refresh a part of the subtree (implies --no-purge)
 php app/console ezplatform:reindex --subtree=2
 
 # Refresh content updated since a date (implies --no-purge)
 php app/console ezplatform:reindex --since=yesterday
 
-# Refresh (or delete when not found) content by IDs  (implies --no-purge)
+# Refresh (or delete when not found) content by IDs (implies --no-purge)
 php app/console ezplatform:reindex --content-ids=3,45,33
 ```
 
-For further info on possible options, see `php app/console ezplatform:reindex --help`.
+For further info on possible options, use `php app/console ezplatform:reindex --help`.
 
-## Reference
-
-See sections on [Search Criteria reference](#search-criteria-reference) and [Sort Clauses reference](#sort-clauses-reference).
- 
 ## Solr Bundle
 
-For use with eZ Publish 5.4, go to [the corresponding documentation page](https://doc.ez.no/display/EZP/Solr+Search+Engine+Bundle) which covers the v1.0 version of the bundle compatible with eZ Publish 5.4.
-
-### What is Solr Search Engine Bundle?
-
-[ezplatform-solr-search-engine](https://github.com/ezsystems/ezplatform-solr-search-engine), as the package is called, aims to be a transparent drop-in replacement for the SQL-based "Legacy" search engine powering eZ Platform Search API by default. When you enable Solr and re-index your content, all your existing Search queries using SearchService will be powered by Solr automatically. This allows you to scale up your eZ Platform installation and be able to continue development locally against SQL engine, and have a test infrastructure, Staging and Prod powered by Solr. This removes considerable load from your database. *See [Architecture](architecture.md)* *for further information on the architecture of eZ Platform.*
+[ezplatform-solr-search-engine](https://github.com/ezsystems/ezplatform-solr-search-engine) aims to be a transparent drop-in replacement for the SQL-based Legacy search engine powering eZ Platform Search API by default. When you enable Solr and re-index your content, all your existing Search queries using `SearchService` will be powered by Solr automatically. This allows you to scale up your eZ Platform installation and be able to continue development locally against SQL engine, and have a test infrastructure, Staging and Prod powered by Solr. This removes considerable load from your database. See [further information on the architecture of eZ Platform](architecture.md).
 
 Status of features:
 
@@ -350,24 +466,20 @@ Status of features:
     - Spell checking
     - Query time Boosting
 
-### How to set up Solr Search engine
+### How to set up Solr search engine
 
-#### Step 0: Enable Solr Bundle
+!!! note "Enable the bundle"
 
-Not needed with eZ Platform
+    If you have previously disabled the bundle, add/update composer dependencies:
 
-This step is not needed as of eZ Platform 15.09, however it is kept here for reference in case you have previously disabled the bundle.
+    ``` bash
+    composer require --no-update ezsystems/ezplatform-solr-search-engine:~1.0
+    composer update
+    ```
 
-1\. Check in composer.json if you have the `ezsystems/ezplatform-solr-search-engine` package, if not add/update composer dependencies:
+    Make sure `EzPublishSolrSearchEngineBundle` is activated with the following line in the `app/AppKernel.php` file: `new EzSystems\EzPlatformSolrSearchEngineBundle\EzSystemsEzPlatformSolrSearchEngineBundle()`
 
-``` bash
-composer require --no-update ezsystems/ezplatform-solr-search-engine:~1.0
-composer update
-```
-
-2\. Make sure `EzPublishSolrSearchEngineBundle` is activated with the following line in the `app/AppKernel.php` file: new `EzSystems\EzPlatformSolrSearchEngineBundle\EzSystemsEzPlatformSolrSearchEngineBundle()`
-
-#### Step 1: Configuring & Starting Solr
+#### Step 1: Configuring and starting Solr
 
 The example presents a configuration with single core, look to [Solr](https://cwiki.apache.org/confluence/display/solr/Solr+Cores+and+solr.xml) [documentation](https://wiki.apache.org/solr/CoreAdmin) for configuring Solr in other ways, including examples.
 
@@ -375,11 +487,11 @@ The example presents a configuration with single core, look to [Solr](https://cw
 
 ###### Solr 4.10.4
 
-First, download and extract Solr. Solr Bundle 1.x supports Solr 4.10.4:
+Download and extract Solr. Solr Bundle 1.x supports Solr 4.10.4:
 
 - [solr-4.10.4.tgz](http://archive.apache.org/dist/lucene/solr/4.10.4/solr-4.10.4.tgz) or [solr-4.10.4.zip](http://archive.apache.org/dist/lucene/solr/4.10.4/solr-4.10.4.zip)
 
-Secondly, copy configuration files needed for eZ Solr Search Engine bundle, in the example below from the root of your project to the place you extracted Solr:
+Copy the necessary configuration files. In the example below from the root of your project to the place you extracted Solr:
 
 ``` bash
 # Make sure to replace the /opt/solr/ path with where you have placed Solr
@@ -398,11 +510,11 @@ bin/solr start -f -a "-Dsolr.solr.home=multicore"
 
 ###### Solr 6
 
-SOLR BUNDLE &gt;= 1.3.0First download and extract Solr, in Solr Bundle 1.3 and higher we also support Solr 6 *(currently tested with Solr 6.6.0)*:
+Download and extract Solr. Solr Bundle 1.3 and higher supports Solr 6 *(currently tested with Solr 6.6.0)*:
 
 - [solr-6.6.0.tgz](http://archive.apache.org/dist/lucene/solr/6.6.0/solr-6.6.0.tgz) or [solr-6.6.0.zip](http://archive.apache.org/dist/lucene/solr/6.6.0/solr-6.6.0.zip)
 
-Secondly, copy configuration files needed for eZ Solr Search Engine bundle, *here from the root of your project to the place you extracted Solr*:
+Copy the necessary configuration files. In the example below from the root of your project to the place you extracted Solr:
 
 ``` bash
 # Make sure to replace the /opt/solr/ path with where you have placed Solr
@@ -422,11 +534,9 @@ bin/solr create_core -c collection1 -d server/ez/template
 
 ##### Further configuration
 
-Thirdly, on both Solr 4 and 6 Solr the bundle does not commit solr index changes directly on repository updates, leaving it up to you to tune this using `solrconfig.xml` as best practice suggests. 
+On both Solr 4 and 6 Solr the bundle does not commit Solr index changes directly on repository updates, leaving it up to you to tune this using `solrconfig.xml` as best practice suggests.
 
-This setting is **required** if you want to see the changes after publish. It is strongly recommended to set-up `solrconfig.xml` as following:
-
-
+This setting is **required** if you want to see the changes after publish. It is strongly recommended to set-up `solrconfig.xml` like this:
 
 ``` xml
 <!--solrconfig.xml-->
@@ -442,24 +552,20 @@ This setting is **required** if you want to see the changes after publish. It is
 </autoSoftCommit>
 ```
 
-#### Step 2: Configuring bundle
+#### Step 2: Configuring the bundle
 
-The Solr search engine bundle can be configured in many ways. The config further below assumes you have parameters set up for solr dsn and search engine *(however both are optional)*, for example:
+The Solr Search Engine Bundle can be configured in many ways. The config further below assumes you have parameters set up for Solr DSN and search engine *(however both are optional)*, for example (in `parameters.yml`):
 
 ``` yaml
-# parameters.yml
     search_engine: solr
     solr_dsn: 'http://localhost:8983/solr'
 ```
 
-On to configuring the bundle.
+##### Single-core example (default)
 
-##### Single Core example (default)
-
-Out of the box in eZ Platform the following is enabled for a simple setup:
+Out of the box in eZ Platform the following is enabled for a simple setup (in `config.yml`):
 
 ``` yaml
-# config.yml
 ez_search_engine_solr:
     endpoints:
         endpoint0:
@@ -473,9 +579,10 @@ ez_search_engine_solr:
                 default: endpoint0
 ```
 
-##### Shared Core example
+##### Shared-core example
 
-In the following example we have decided to separate one language as the installation contains several similar languages, and one very different language that should receive proper language analysis for proper stemming and sorting behavior by Solr:
+The following example separates one language. The installation contains several similar languages,
+and one very different language that should receive proper language analysis for proper stemming and sorting behavior by Solr:
 
 ``` yaml
 # config.yml
@@ -499,11 +606,13 @@ ez_search_engine_solr:
                 default: endpoint0
 ```
 
-##### Multi Core example
+##### Multi-core example
 
-If full language analysis features are preferred, then each language can be configured to separate cores.
+If full language analysis features are preferred, then each language can be configured with separate cores.
 
-*Note: Please make sure to test this setup against single core setup, as it might perform worse than single core if your project uses a lot of language fallbacks per SiteAccess, as queries will then be performed across several cores at once.*
+!!! note
+
+    Make sure to test this setup against a single-core setup, as it might perform worse than single-core if your project uses a lot of language fallbacks per SiteAccess, as queries will then be performed across several cores at once.
 
 ``` yaml
 # config.yml
@@ -573,7 +682,7 @@ Obviously, you should pass credentials for every configured and HTTP Basic secur
 
 #### Step 3: Configuring repository with the specific search engine
 
-The following is an example of configuring Solr Search Engine, where `connection` name is same as in the example above, and engine is set to `solr`:
+The following is an example of configuring Solr search engine, where `connection` name is same as in the example above, and engine is set to `solr`:
 
 ``` yaml
 # ezplatform.yml
@@ -586,11 +695,11 @@ ezpublish:
                 connection: default
 ```
 
-`%search_engine%` is a parameter that is configured in `app/config/parameters.yml`, and should be changed from its default value "`legacy`" to "`solr`" to activate Solr as the Search engine.
+`%search_engine%` is a parameter that is configured in `app/config/parameters.yml`, and should be changed from its default value `legacy` to `solr` to activate Solr as the search engine.
 
 #### Step 4: Clear prod cache
 
-While Symfony `dev` environment keeps track of changes to yml files, `prod` does not, so to make sure Symfony reads the new config we clear cache:
+While Symfony `dev` environment keeps track of changes to YAML files, `prod` does not, so clear the cache to make sure Symfony reads the new config:
 
 ``` bash
 php app/console --env=prod cache:clear
@@ -598,57 +707,51 @@ php app/console --env=prod cache:clear
 
 #### Step 5: Run CLI indexing command
 
-Make sure to configure your setup for indexing
-
-Some exceptions might happen on indexing if you have not configured your setup correctly, here are the most common issues you may encounter:
-
-- Exception if Binary files in database have an invalid path prefix
-    - Make sure `ezplatform.yml` configuration `var_dir` is configured properly.
-    - If your database is inconsistent in regards to file paths, try to update entries to be correct *(but make sure to make a backup first)*.
-- Exception on unsupported Field Types
-    - Make sure to implement all Field Types in your installation, or to configure missing ones as [NullType](field_type_reference.md#null-field-type) if implementation is not needed.
-- Content not immediately available 
-    - Solr Bundle on purpose does not commit changes directly on Repository updates *(on indexing)*, but lets you control this using Solr configuration. Adjust Solr **autoSoftCommit** *visibility of change to search index)* and/or **autoCommit** (hard commit, for durability and replication) to balance performance and load on your Solr instance against needs you have for "[NRT](https://cwiki.apache.org/confluence/display/solr/Near+Real+Time+Searching)".
-- Running out of memory during indexing
-    - In general make sure to run indexing using prod environment to avoid debuggers and loggers from filing up memory.
-    - Flysystem: You can find further info in: <https://jira.ez.no/browse/EZP-25325>.
-
 The last step is to execute the initial indexation of data:
 
 ``` bash
 php app/console --env=prod --siteaccess=<name> ezplatform:solr_create_index
 ```
 
-SOLR BUNDLE &gt;= 1.2Since eZ Platform v1.7.0 the `ezplatform:solr_create_index` command is deprecated, use `php app/console ezplatform:reindex` instead:
+##### Possible exceptions
 
-``` bash
-php app/console --env=prod --siteaccess=<name> ezplatform:reindex
-```
+If you have not configured your setup correctly, some exceptions might happen on indexing.
+Here are the most common issues you may encounter:
 
-### Configuring the Solr Search engine Bundle
+- Exception if Binary files in database have an invalid path prefix
+    - Make sure `var_dir` is configured properly in `ezplatform.yml` configuration.
+    - If your database is inconsistent in regards to file paths, try to update entries to be correct *(make sure to make a backup first)*.
+- Exception on unsupported Field Types
+    - Make sure to implement all Field Types in your installation, or to configure missing ones as [NullType](field_type_reference.md#null-field-type) if implementation is not needed.
+- Content is not immediately available 
+    - Solr Bundle on purpose does not commit changes directly on Repository updates *(on indexing)*, but lets you control this using Solr configuration. Adjust Solr's `autoSoftCommit` (visibility of changes to search index) and/or `autoCommit` (hard commit, for durability and replication) to balance performance and load on your Solr instance against needs you have for "[NRT](https://cwiki.apache.org/confluence/display/solr/Near+Real+Time+Searching)".
+- Running out of memory during indexing
+    - In general make sure to run indexing using the prod environment to avoid debuggers and loggers from filling up memory.
+    - Flysystem: You can find further info in https://jira.ez.no/browse/EZP-25325.
 
-For configuration of Solr connection for your repository, see [How to set up Solr Search engine](#how-to-set-up-solr-search-engine) above.
+### Configuring the Solr Search Engine Bundle
 
 #### Boost configuration
 
-SOLR BUNDLE &gt;= 1.4
+!!! note
+
+    Boosting is available since Solr bundle version 1.4.
 
 !!! tip "How boosting interacts with Search API"
 
     Boosting of fields or documents will affect the score (relevance) of your search result hits
-    when using Search API for any criteria you specify on `$query->query`, or in REST by using `Query` element.
+    when using Search API for any Criteria you specify on `$query->query`, or in REST by using `Query` element.
     When you don't specify anything to sort on, the result will be sorted by this relevance.
-    Anything set on `$query->filter`, or in REST using `Filter` element,  will _not_ affect scoring and only works
-    as a pure filter for the result. Thus make sure to place criteria you want to affect scoring on `query`.
+    Anything set on `$query->filter`, or in REST using `Filter` element, will *not* affect scoring and only works
+    as a pure filter for the result. Thus make sure to place Criteria you want to affect scoring on `query`.
 
-Boosting currently happens when indexing, so if you change your configuration you'll need to re-index (this is expected behavior). This can possibly be solved by a contribution to change boosting to be performed on query time.
+Boosting currently happens when indexing, so if you change your configuration you will need to re-index.
 
 Boosting tells the search engine which parts of the content model have more importance when searching, and is an important part of tuning your search results relevance. Importance is defined using a numeric value, where `1.0` is default, values higher than that are more important, and values lower (down to `0.0`) are less important.
 
-Boosting is configured per connection that you configure to use for a given repository, like in the example below:
+Boosting is configured per connection that you configure to use for a given Repository, like in this `config.yml` example:
 
 ``` yaml
-# config.yml snippet example
 ez_search_engine_solr:
     connections:
         default:
@@ -657,7 +760,7 @@ ez_search_engine_solr:
                     # Boost a whole Content Type
                     article: 2.0
                 field_definition:
-                    # Boost a content Field system wide, or for a given Content Type
+                    # Boost a content Field system-wide, or for a given Content Type
                     title: 3.0
                     blog_post:
                         # Don't boost title of blog posts that high, but still higher than default
@@ -680,13 +783,25 @@ The configuration above will result in the following boosting (Content Type / Fi
 - `blog_post/name (meta): 10.0`
 - `article/name (meta): 2.0`
 
-### Extending the Solr Search engine Bundle
+### Extending the Solr Search Engine Bundle
 
-#### Document Field Mappers
+#### Document field mappers
 
-SOLR BUNDLE &gt;= 1.2
+!!! note
 
-As a developer you will often find the need to index some additional data in the search engine. The use cases for this are varied, for example the data could come from an external source *(e.g. from recommendation system)*, or from an internal source. The common use case for the latter is indexing data through the Location hierarchy, for example from the parent Location to the child Location, or in the opposite direction, indexing child data on the parent Location. The reason might be you want to find the content with fulltext search, or you want to simplify search for a complicated data model. To do this effectively, you first need to understand how the data is indexed with Solr Search engine. Documents are indexed per translation, as Content blocks. In Solr, a block is a nested document structure. In our case, parent document represents Content, and Locations are indexed as child documents of the Content. To avoid duplication, full text data is indexed on the Content document only. Knowing this, you have the option to index additional data on:
+    Document Field Mappers are available since Solr bundle version 1.2.
+
+You can use document field mappers to index additional data in the search engine.
+
+The additional data can come from external sources (e.g. from a recommendation system), or from internal ones.
+An example of the latter is indexing data through the Location hierarchy: from the parent Location to the child Location, or indexing child data on the parent Location.
+This may be needed when you want to find the Content with full-text search, or to simplify search for a complicated data model.
+
+To do this effectively, you first need to understand how the data is indexed with the Solr search engine.
+Solr uses [documents](https://lucene.apache.org/solr/guide/6_6/overview-of-documents-fields-and-schema-design.html#how-solr-sees-the-world) as a unit of data that is indexed.
+Documents are indexed per translation, as Content blocks. A block is a nested document structure.
+When used in eZ Platform, a parent document represents Content, and Locations are indexed as child documents of the Content.
+To avoid duplication, full-text data is indexed on the Content document only. Knowing this, you have the option to index additional data on:
 
 - all block documents (meaning Content and its Locations, all translations)
 - all block documents per translation
@@ -694,7 +809,10 @@ As a developer you will often find the need to index some additional data in the
 - Content documents per translation
 - Location documents
 
-Indexing additional data is done by implementing a document field mapper and registering it at one of the five extension points described above. You can create the field mapper class anywhere inside your bundle, as long as when you register it as a service, the "class" parameter" in your `services.yml` matches the correct path. We have three different field mappers. Each mapper implements two methods, by the same name, but accepting different arguments:
+Indexing additional data is done by implementing a document field mapper and registering it at one of the five extension points described above.
+You can create the field mapper class anywhere inside your bundle,
+as long as when you register it as a service, the `class` parameter in your `services.yml` matches the correct path.
+There are three different field mappers. Each mapper implements two methods, by the same name, but accepting different arguments:
 
 - `ContentFieldMapper`
     - `::accept(Content $content)`
@@ -724,7 +842,8 @@ These can be used on the extension points by registering them with the container
     - `LocationFieldMapper`
     - `ezpublish.search.solr.field_mapper.location`
 
-The following example shows how to index data from the parent Location content, in order to make it available for full text search on the children content. A concrete use case could be indexing webinar data on the webinar events, which are children of the webinar. Field mapper could then look something like this:
+The following example shows how to index data from the parent Location content, in order to make it available for full-text search on the children content.
+It is based on the use case of indexing webinar data on the webinar events, which are children of the webinar. Field mapper could then look like this:
 
 ``` php
  <?php
@@ -785,7 +904,7 @@ class WebinarEventTitleFulltextFieldMapper extends ContentFieldMapper
 }
 ```
 
-Since we index full text data only on the Content document, you would register the service like this:
+Since you index full text data only on the Content document, you would register the service like this:
 
 ``` yaml
 my_webinar_app.webinar_event_title_fulltext_field_mapper:
@@ -797,32 +916,25 @@ my_webinar_app.webinar_event_title_fulltext_field_mapper:
         - {name: ezpublish.search.solr.field_mapper.content}
 ```
 
-### Providing feedback
-
-After completing the installation you are now free to use your site as usual. If you get any exceptions for missing features, have feedback on performance, or want to discuss, join our community slack channel at <https://ezcommunity.slack.com/messages/ezplatform-use/>
-
 ## ElasticSearch Bundle
 
-EXPERIMENTAL
+!!! caution "Experimental"
 
-ElasticSearch exists only as a technology preview, and only running on the same version of ElasticSearch as it was originally prototyped for, [v1.4.2](https://github.com/ezsystems/ezpublish-kernel/blob/v6.9.0/.travis.yml#L48). We encourage everyone to try it and help make it better, even help porting it to a more up to date version of Elastic.
+    ElasticSearch exists only as a technology preview, and only running on the same version of ElasticSearch as it was originally prototyped for, [v1.4.2](https://github.com/ezsystems/ezpublish-kernel/blob/v6.9.0/.travis.yml#L48). We encourage everyone to try it and help make it better, even help porting it to a more up-to-date version of Elastic.
 
-Given it is experimental, it is currently not supported in any possible way besides code review on contributions.
+    Given it is experimental, it is currently not supported in any possible way besides code review on contributions.
 
-### How to use ElasticSearch Search engine
+### How to use ElasticSearch search engine
 
-#### Step 1: Enabling Bundle
+#### Step 1: Enabling the bundle
 
-First, activate the Elasticsearch Search Engine Bundle (eZ\\Bundle\\EzPublishElasticsearchSearchEngineBundle\\EzPublishElasticsearchSearchEngineBundle) in your `app/AppKernel.php` class file.
+First, activate the ElasticSearch Search Engine Bundle (`eZ\Bundle\EzPublishElasticsearchSearchEngineBundle\EzPublishElasticsearchSearchEngineBundle`) in your `app/AppKernel.php`.
 
-#### Step 2: Configuring Bundle
+#### Step 2: Configuring the bundle
 
-Then configure your search engine in config.yml
-
-Example:
+Then configure your search engine in `config.yml`, for example:
 
 ``` yaml
-# config.yml
 ez_search_engine_elasticsearch:
     default_connection: es_connection_name
     connections:
@@ -834,14 +946,13 @@ ez_search_engine_elasticsearch:
                 location: location
 ```
 
-For further information on the ElasticSearch integration in eZ Platform, find the default [configuration](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Search/Elasticsearch/Content/Resources/elasticsearch.yml) and [mappings](https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/Core/Search/Elasticsearch/Content/Resources/mappings) for Content and Location type documents *(Note: Content/Location modeling will most likely be simplified in the future, like in the Solr search engine bundle)*.
+For further information on the ElasticSearch integration in eZ Platform, find the default [configuration](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.7/eZ/Publish/Core/Search/Elasticsearch/Content/Resources/elasticsearch.yml) and [mappings](https://github.com/ezsystems/ezpublish-kernel/tree/v6.7.7/eZ/Publish/Core/Search/Elasticsearch/Content/Resources/mappings) for Content and Location type documents.
 
 #### Step 3: Configuring repository
 
-The following is an example of configuring the ElasticSearch Search Engine, where the `connection` name is same as in example above, and engine is set to be `elasticsearch`:
+The following is an example (in `ezplatform.yml`) of configuring the ElasticSearch search engine, where the `connection` name is same as in example above, and engine is set to `elasticsearch`:
 
 ``` yaml
-# ezplatform.yml
 ezpublish:
     repositories:
         main:
@@ -855,7 +966,7 @@ ezpublish:
 
 #### Step 4: Run CLI indexing command
 
-Last step is to execute initial indexation of data:
+The last step is to execute initial indexation of data:
 
 ``` bash
 php app/console ezplatform:elasticsearch_create_index
@@ -863,16 +974,19 @@ php app/console ezplatform:elasticsearch_create_index
 
 ## Legacy Search Engine Bundle
 
-**Legacy Search Engine** is the default search engine, it is SQL based and uses Doctrine's database connection. So its connections are, and should be, defined in the same way as for storage engine, and no further specific configuration is needed.
+Legacy search engine is the default search engine, it is SQL-based and uses Doctrine's database connection.
+Its connections are defined in the same way as for storage engine, and no further specific configuration is needed.
 
-Its features and performance are limited, and if you have specific search or performance needs you should rather look towards using [Solr](#solr-bundle).
+!!! tip
 
-### Configuring repository with the legacy search engine
+    The features and performance of Legacy search engine are limited.
+    If you have specific search or performance needs you should look towards using [Solr](#solr-bundle).
 
-Search can be configured independently from storage, and the following configuration example shows both the default values, and how you configure legacy as the search engine:
+### Configuring the Repository with the Legacy search engine
+
+Search can be configured independently from storage, and the following configuration example (in `ezpublish.yml`) shows both the default values, and how you configure legacy as the search engine:
 
 ``` yaml
-# ezpublish.yml
 ezpublish:
     repositories:
         main:
@@ -883,125 +997,3 @@ ezpublish:
                 engine: legacy
                 connection: default
 ```
-
-## Search Criteria Reference
-
-**Criteria** are the filters for Content and Location Search, for generic use of API Search see [Search Criteria and Sort Clauses](#search-criteria-and-sort-clauses).
-
-A Criterion consist of two parts just like SortClause and FacetBuilder:
-
-- The API Value: `Criterion`
-- Specific handler per search engine: `Criterion Handler`
-
-`Criterion` represents the value you use in the API, while `CriterionHandler` deals with the business logic in the background translating the value to something the Search engine can understand.
-
-Implementation and availability of a handler typically depends on search engine capabilities and limitations, currently only Legacy (SQL) Search Engine exists, and for instance its support for FullText and Field Criterion is not optimal and it is advised to avoid heavy use of these until future search engine arrives.
-
-#### Common concepts for most Criteria
-
-For how to use each and every Criterion see the list below, as it depends on the Criterion Value constructor, but *in general* you should be aware of the following common concepts:
-
-- `target`: Exposed if the given Criterion supports targeting a specific sub field, example: FieldDefinition or Meta Data identifier
-- `value`: The value(s) to *filter* on, this is typically a  `scalar` or `array` of` scalars.`
-- `operator`: Exposed on some Criteria
-    - All operators can be seen as constants on `eZ\Publish\API\Repository\Values\Content\Query\Criterion\Operator`, at time of writing: `IN, EQ, GT, GTE, LT, LTE, LIKE, BETWEEN, CONTAINS`
-    - Most Criteria do not expose this and select `EQ` **or** `IN` depending on if value is `scalar` **or** `array`
-    - `IN` & `BETWEEN`always acts on an `array` of values, while the other operators act on single `scalar` value
-- `valueData`: Additional value data, required by some Criteria, MapLocationDistance for instance
-
-In the Legacy search engine, the field index/sort key column is limited to 255 characters by design.
-Due to this storage limitation, searching content using the eZ Country Field Type or Keyword when there are multiple values selected may not return all the expected results.
-
-#### List of Criteria
-
-The list below reflects Criteria available in the `eZ\Publish\API\Repository\Values\Content\Query\Criterion` namespace (it is also possible to make a custom Criterion):
-
-##### Only for LocationSearch
-
-|Criterion|Constructor arguments description|
-|------|------|
-|`Location\Depth`|`operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `BETWEEN`), `value` being the Location depth(s) as an integer(s).|
-|`Location\IsMainLocation`|Whether or not the Location is a Main Location. `value (Location\IsMainLocation::MAIN, Location\IsMainLocation::NOT_MAIN)`|
-|`Location\Priority`|Priorities are integers that can be used for sorting in ascending or descending order. What is higher or lower priority in relation to the priority number is left to the user choice. `operator` (`GT`, `GTE`, `LT`, `LTE`, `BETWEEN`), `value` being the location priority(s) as an integer(s).|
-
-##### Common
-
-|Criterion|Constructor arguments description|
-|------|------|
-|`ContentId`|`value` being scalar(s) representing the Content id.|
-|`ContentTypeGroupId`|`value` being scalar(s) representing the Content Typ eGroup id.|
-|`ContentTypeId`|`value` being scalar(s) representing the Content Type id.|
-|`ContentTypeIdentifier`|`value` being string(s) representing the Content Type identifier, example: "article".|
-|`DateMetadata`|`target` ( `DateMetadata ::MODIFIED`, `DateMetadata ::CREATED`), `operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `BETWEEN`), `value` being integer(s) representing unix timestamp.|
-|`Field`|`target` (FieldDefinition identifier ), `operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `LIKE`, `BETWEEN`, `CONTAINS`), `value` being scalar(s) relevant for the field.|
-|`FieldRelation`|`target` (FieldDefinition identifier), `operator` (`IN`, `CONTAINS`), `value` being array of scalars representing Content id of relation. *Use of `IN` means relation needs to have one of the provided ID's, while `CONTAINS` implies it needs to have all provided id's.*|
-|`FullText`|`value` being the string to search for, `properties` is array to set additional properties for use with future search engines like Solr/ElasticSearch.|
-|`LanguageCode`|`value` being string(s) representing Language Code(s) on the Content (not on Fields), `matchAlwaysAvailable` as boolean.|
-|`LocationId`|`value` being scalar(s) representing the Location id.|
-|`LocationRemoteId`|`value` being string(s) representing the Location Remote id.|
-|`LogicalAnd`|A `LogicalOperator` that takes `array` of other Criteria, makes sure all Criteria match.|
-|`LogicalNot`|A `LogicalOperator` that takes `array` of other Criteria, makes sure none of the Criteria match.|
-|`LogicalOr`|A `LogicalOperator` that takes `array` of other Criteria, makes sure one of the Criteria match.|
-|`MapLocationDistance`| `target` (FieldDefinition identifier), `operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `BETWEEN`), `distance` as float(s) from a position using `latitude` as float, `longitude` as float as arguments|
-|`MatchAll`|*No arguments, mainly for internal use when no `filter` or `query` is provided on Query object.*|
-|`MatchNone`|*No arguments, mainly for internal use by [BlockingLimitation](repository.md#blockinglimitation).*|
-|`ObjectStateId`|`value` being string(s) representing the Content ObjectState id.|
-|`ParentLocationId`|`value` being scalar(s) representing the Parent's Location id|
-|`RemoteId`|`value` being string(s) representing the Content Remote id.|
-|`SectionId`|`value` being scalar(s) representing the Content Section id.|
-|`Subtree`|`value` being string(s) representing the Location id in which you can filter. *If the Location Id is `/1/2/20/42`, you will filter everything under `42`.*|
-|`UserMetadata`|`target` (`UserMetadata ::OWNER`, `UserMetadata ::GROUP`, `UserMetadata ::MODIFIER`), `operator` (`IN`, `EQ`), `value` being scalar(s) representing the User or User Group id(s).|
-|`Visibility`|`value` (`Visibility ::VISIBLE`, `Visibility ::HIDDEN`). *Note: This acts on all assigned locations when used with ContentSearch, meaning hidden content will be returned if it has a location which is visible. Use LocationSearch to avoid this.*|
-
-## Sort Clauses Reference
-
-**Sort Clauses** are the *sorting options* for Content and Location Search in eZ Platform. For generic use of API Search see [Search Criteria and Sort Clauses](#search-criteria-and-sort-clauses).
-
-A Sort Clause consists of two parts just like Criterion and FacetBuilder:
-
-- The API Value: `SortClause`
-- Specific handler per search engine: `SortClausesHandler`
-
-The `SortClause` represents the value you use in the API, while `SortClauseHandler` deals with the business logic in the background, translating the value to something the Search engine can understand.
-
-Implementation and availability of a handler sometimes depends on search engine capabilities and limitations.
-
-#### Common concepts for all Sort Clauses 
-
-For how to use each and every Sort Clause, see list below as it depends on the Sort Clause Value constructor, but *in general* you should be aware of the following common concept:
-
-- `sortDirection`: The direction to perform the sort, either `Query::SORT_ASC`*(default)* or `Query::SORT_DESC`
-
-You can use the method `SearchService::getSortClauseFromLocation( Location $location )` to return an array of Sort Clauses that you can use on `LocationQuery->sortClauses`.
-
-#### List of Sort Clauses 
-
-The list below reflects Sort Clauses available in the `eZ\Publish\API\Repository\Values\Content\Query\SortClause` namespace (it is also possible to make a custom Sort Clause):
-
-!!! tip
-
-    Arguments starting with "`?`" are optional.
-
-##### Only for LocationSearch
-
-| Sort Clause                     | Constructor arguments description |
-|---------------------------------|-----------------------------------|
-| `Location\Depth`                | ?`sortDirection`                  |
-| `Location\Id`                   | ?`sortDirection`                  |
-| `Location\IsMainLocation`       | ?`sortDirection`                  |
-| `Location\Depth`                | ?`sortDirection`                  |
-| `Location\Priority`             | ?`sortDirection`                  |
-| `Location\Visibility `          | ?`sortDirection`                  |
-
-##### Common
-
-|Sort Clause|Constructor arguments description|
-|------|------|
-|`ContentId`|`?sortDirection`|
-|`ContentName`|`?sortDirection`|
-|`DateModified`|`?sortDirection`|
-|`DatePublished`|`?sortDirection`|
-|`Field`|`typeIdentifier` as string, `fieldIdentifier` as string, `?sortDirection`, `?languageCode` as string|
-|`MapLocationDistance `|`typeIdentifier` as string, `fieldIdentifier` as string, `latitude` as float, `longitude` as float, `?sortDirection`, `?languageCode` as string|
-|`SectionIdentifier`|`?sortDirection`|
-|`SectionName`|`?sortDirection`|
