@@ -324,9 +324,8 @@ Persistence cache aims at caching most `SPI\Persistence` calls used in common p
 Notes:
 
 - `UrlWildCardHandler` is not currently cached
-- Currently in case of transactions this is handled very simply by clearing all cache on rollback, this can be improved in the future if needed.
-- Some tree/batch operations will cause clearing all persistence cache, this will be improved in the future when we change to a cache service cable of cache tagging.
-- Search is not defined as Persistence and the queries themselves are not planned to be cached. Use [Solr](search.md#solr-bundle) which does this for you to improve scale and offload your database.
+- Currently in case of transactions, all cache is cleared on rollback as we don't keep track of what has changed inside each transaction. So avoid rollbacks as part of your application logic at all costs, they should only happen in extreme situations.
+- Search is not defined as Persistence and the queries themselves are not planned to be cached. Rather use [Solr](search.md#solr-bundle) which does this for you to improve scale and offload your database.
 
 *For further details on which calls are cached or not, and where/how to contribute additional caches, check out the [source](https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/Core/Persistence/Cache).*
 
