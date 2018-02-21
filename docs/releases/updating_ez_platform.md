@@ -223,7 +223,7 @@ These steps are only relevant for some releases:
     Note that the script is available for PostgreSQL as well.
 
     ``` bash
-    mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/data/update/mysql/dbupdate-6.11.0-to-6.12.0.sql
+    mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.11.0-to-6.12.0.sql
     ```
 
 
