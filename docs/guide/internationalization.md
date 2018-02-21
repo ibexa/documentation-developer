@@ -282,8 +282,6 @@ and then clear the cache.
 
 Now you can reload your eZ Platform back end which will be translated in French (if your browser is configured to `fr_FR`.)
 
-##### In-context UI translation
+##### UI translation
 
-[Crowdin](http://crowdin.com) is the translation management system for eZ Platform. In addition, it integrates support for in-context translation, a feature that allows you to translate strings from the interface, *in context*.
-
-To learn how to contribute to a translation using Crowdin, see [Contributing translations](../community_resources/contributing.md#contributing-translations).
+To learn how to contribute to a translation, see [Contributing translations](../community_resources/contributing.md#contributing-translations).
