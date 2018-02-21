@@ -872,9 +872,41 @@ For custom or eZ Platform controllers still using `X-Location-Id`, a dedicated r
 !!! note
 
     This is currently marked as deprecated. For rendering content it is advised to refactor to use Content View.
-    For other needs there is an internal tag handler in the `ezplatform-http-cache` bundle that can be used,
-    however be aware it will probably change once we move to FOSHttpCache 2.x,
-    so in this case you can stay with `X-Location-Id` for the time being.
+    For other needs there is an FOS tag handler for Twig and PHP that can be used.
+
+##### For custom needs with FOSHttpCache (tagging Relations and more)
+
+For custom needs, including template logic for eZ Content Relations which is here used as an example, there are two ways
+to tag your responses.
+
+###### Twig use
+
+For Twig usage, you can make sure a response is tagged correctly by using the following Twig operator in your template:
+
+``` twig
+{{ fos_httpcache_tag('relation-33') }}
+
+{# Or using array for several values #}
+{{ fos_httpcache_tag(['relation-33', 'relation-44']) }}
+```
+
+See [Tagging from Twig Templates](http://foshttpcachebundle.readthedocs.io/en/1.3/features/tagging.html#tagging-from-twig-templates) in FOSHttpCacheBundle doc.
+
+###### PHP use
+
+For PHP usage, FOSHttpCache exposes the `fos_http_cache.handler.tag_handler` service which enables you to add tags to a response:
+
+``` php
+/** @var \FOS\HttpCache\Handler\TagHandler $tagHandler */
+$tagHandler->addTags(['relation-33', 'relation-44']);
+```
+
+See [Tagging from code](http://foshttpcachebundle.readthedocs.io/en/1.3/features/tagging.html#tagging-from-code) in FOSHttpCacheBundle doc.
+
+!!! caution
+
+    Be aware service name and type hint will somewhat change once we move to FOSHttpCache 2.x, so in this case
+    you can alternatively consider to add tag in twig template or stay with usage of `X-Location-Id` for the time being.
 
 #### How purge tagging is done
 
