@@ -874,9 +874,9 @@ For custom or eZ Platform controllers still using `X-Location-Id`, a dedicated r
     This is currently marked as deprecated. For rendering content it is advised to refactor to use Content View.
     For other needs there is an FOS tag handler for Twig and PHP that can be used.
 
-##### For custom needs using FOSHttpCache (tagging Relations and more)
+##### For custom needs with FOSHttpCache (tagging Relations and more)
 
-For custom needs, including template logic for eZ Content Relations which is here used for examples, there are two ways
+For custom needs, including template logic for eZ Content Relations which is here used as an example, there are two ways
 to tag your responses.
 
 ###### Twig use
