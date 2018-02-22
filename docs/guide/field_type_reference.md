@@ -298,7 +298,7 @@ array(
 );
 ```
 
-When you set an array directly on a Content field you don't need to provide all this information, the Field Type will assume it is a hash and in this case will accept a simplified structure described below under [Hash format](#to-from-hash-format).
+When you set an array directly on a Content field you don't need to provide all this information, the Field Type will assume it is a hash and in this case will accept a simplified structure described below under [Hash format](#hash-format).
 
 #### Validation
 
@@ -473,7 +473,7 @@ $settings = array(
 
 ### Template rendering
 
-The template called by [the `ez_render_field()` Twig function](../guide/content_rendering.md/#ez_render_field) while rendering a Date Field has access to the following parameters:
+The template called by [the `ez_render_field()` Twig function](content_rendering.md#ez_render_field) while rendering a Date Field has access to the following parameters:
 
 | Parameter | Type     |Description|
 |-----------|----------|------------|
@@ -589,7 +589,7 @@ $settings = array(
 
 ### Template rendering
 
-The template called by the [`ez_render_field()` Twig function](../guide/content_rendering.md/#ez_render_field) while rendering a Date Field has access to the following parameters:
+The template called by the [`ez_render_field()` Twig function](content_rendering.md#ez_render_field) while rendering a Date Field has access to the following parameters:
 
 | Parameter | Type     | Default | Description|
 |-----------|----------|---------|------------|
@@ -833,7 +833,7 @@ When displayed using `ez_render_field`, an Image Field will output this type of
 <img src="var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB/image_medium.png" width="844" height="430" alt="Alternative text" />
 ```
 
-The template called by the [`ez_render_field()` Twig function](../guide/content_rendering.md/#ez_render_field) while rendering a Image Field accepts the following parameters:
+The template called by the [`ez_render_field()` Twig function](content_rendering.md#ez_render_field) while rendering a Image Field accepts the following parameters:
 
 | Parameter | Type     | Default        | Description |
 |-----------|----------|----------------|-------------|
@@ -1372,7 +1372,7 @@ $MapLocationValue = new MapLocation\Value(
 
 ### Template rendering
 
-The template called by [the `ez_render_field()` Twig function](../guide/content_rendering.md/#ez_render_field) while rendering a Map Location Field accepts the following parameters:
+The template called by [the `ez_render_field()` Twig function](content_rendering.md#ez_render_field) while rendering a Map Location Field accepts the following parameters:
 
 |Parameter|Type|Default|Description|
 |------|------|------|------|
@@ -1540,7 +1540,7 @@ This Field Type is used as fallback and for testing purposes.
 
 ### Description
 
-The Null Field Type serves as an aid when migrating from eZ Publish and earlier versions. It is a dummy for legacy Field Types that are not implemented in eZ Platform.
+The Null Field Type serves as an aid when migrating from eZ Publish Platform and earlier versions. It is a dummy for legacy Field Types that are not implemented in eZ Platform.
 
 Null Field Type will accept anything provided as a value. When used with NullConverter, it also won't store anything to the database, nor will it read any data from the database.
 
