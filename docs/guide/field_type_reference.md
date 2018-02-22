@@ -298,7 +298,7 @@ array(
 );
 ```
 
-When you set an array directly on a Content field you don't need to provide all this information, the Field Type will assume it is a hash and in this case will accept a simplified structure described below under [To / From Hash format](#to-from-hash-format).
+When you set an array directly on a Content field you don't need to provide all this information, the Field Type will assume it is a hash and in this case will accept a simplified structure described below under [Hash format](#to-from-hash-format).
 
 #### Validation
 
@@ -319,7 +319,7 @@ $settings = array(
 );
 ```
 
-#### To / From Hash format
+#### Hash format
 
 The format used for serialization is simpler than the full format. It is also available when setting value on the content field, by setting the value to an array instead of the Value object. Example of that shown below:
 
