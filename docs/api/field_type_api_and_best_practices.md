@@ -18,9 +18,21 @@ Below that, the Field Type must support the **Public API** implementation (aka B
 
 On the bottom level, a Field Type can additionally hook into the **Persistence SPI**, in order to store data from a `FieldValue` in an external service. Note that all non-standard eZ Platform database tables (e.g. `ezurl`) will be considered as external storage.
 
-The following sequence diagram visualizes the process of creating a new `Content` across all layers, especially focused on the interaction with a Field Type.
+The following sequence diagrams visualize the process of creating and publishing a new `Content` across all layers, especially focused on the interaction with a Field Type.
+
+#### Create Content Sequence
 
 ![](img/create_content_sequence.png)
+
+#### Publish Content Sequence
+ 
+ !!! note "indexLocation()"
+ 
+    Below diagram shows implementation for **ElasticSearch**. 
+    For **Solr** `indexLocation()` is indexed during Content indexing. 
+    For **Legacy/SQL** indexing is not required as Location data is always available. 
+
+![](img/publish_content_sequence.png)
 
 In the next paragraphs, this document explains how to implement a custom Field Type based on the SPI and what is expected from it. Please refer to the Url Field Type, which has been implemented as a reference code example.
 
