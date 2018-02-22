@@ -87,6 +87,7 @@ pages:
         - 'Internationalization': 'guide/internationalization.md'
         - 'Multisite': 'guide/multisite.md'
         - 'Performance': 'guide/performance.md'
+        - 'Permissions': 'guide/permissions.md'
         - 'Recommendation': 'guide/recommendation.md'
         - 'Repository': 'guide/repository.md'
         - 'Search': 'guide/search.md'
