@@ -629,7 +629,7 @@ class MyPolicyProvider implements PolicyProviderInterface
 }
 ```
 
-### REVIEW YamlPolicyProvider
+### YamlPolicyProvider
 
 An abstract class based on YAML is provided: `eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Security\PolicyProvider\YamlPolicyProvider`.
 It defines an abstract `getFiles()` method.
