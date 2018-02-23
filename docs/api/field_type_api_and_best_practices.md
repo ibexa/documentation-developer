@@ -6,7 +6,7 @@ The implementation of a custom Field Type is done based on the **FieldType SPI**
 
 In order to provide custom functionality for a Field Type, the SPI interacts with multiple layers of the eZ Platform architecture, as shown in the following diagram:
 
-![](img/field_type_overview.png)
+![Field Type Overview](img/field_type_overview.png)
 
 On the top layer, the Field Type needs to provide conversion from and to a simple PHP hash value to support the **REST API**. The generated hash value may only consist of scalar values and hashes. It must not contain objects or arrays with numerical indexes that aren't sequential and/or don't start with zero.
 
@@ -22,17 +22,17 @@ The following sequence diagrams visualize the process of creating and publishing
 
 #### Create Content Sequence
 
-![](img/create_content_sequence.png)
+![Create Content Sequence](img/create_content_sequence.png)
 
 #### Publish Content Sequence
  
  !!! note "indexLocation()"
  
-    Below diagram shows implementation for **ElasticSearch**. 
+    `indexLocation()` is implemented for **ElasticSearch** only. 
     For **Solr** Locations are indexed during Content indexing. 
     For **Legacy/SQL** indexing is not required as Location data already exists in a database. 
 
-![](img/publish_content_sequence.png)
+![Publish Content Sequence](img/publish_content_sequence.png)
 
 In the next paragraphs, this document explains how to implement a custom Field Type based on the SPI and what is expected from it. Please refer to the Url Field Type, which has been implemented as a reference code example.
 
