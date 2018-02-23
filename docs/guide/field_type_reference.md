@@ -116,18 +116,18 @@ The hash format mostly matches the value object. It has the following key `autho
 Example
 
 ``` php
-$authorList = Author\Value([
-   new Author\Author([
+[
+    [
        'id' => 1,
        'name' => 'Boba Fett',
        'email' => 'boba.fett@example.com'
-   ]),
-   new Author\Author([
+    ],
+    [
        'id' => 2,
        'name' => 'Darth Vader',
        'email' => 'darth.vader@example.com'
-   ]),
-]);
+    ]
+]
 ```
 
 ###### String representation
@@ -183,16 +183,14 @@ The hash format mostly matches the value object. It has the following keys:
 Example:
 
 ```php
-new BinaryFileValue(
-    array(
-        'id' => 'some/file/here',
-        'fileName' => 'sindelfingen.jpg',
-        'fileSize' => 2342,
-        'downloadCount' => 0,
-        'mimeType' => 'image/jpeg',
-        'uri' => 'http://some/file/here',
-    )
-),
+[
+    'id' => 'some/file/here',
+    'fileName' => 'sindelfingen.jpg',
+    'fileSize' => 2342,
+    'downloadCount' => 0,
+    'mimeType' => 'image/jpeg',
+    'uri' => 'http://some/file/here',
+]
 ```
 
 ### REST API specifics
@@ -799,7 +797,7 @@ Using the variation Service, variations of the original image can be obtained. T
 | `width`*       | int      | `null`    | The variation's width in pixels. For more details see Caution note below.|
 | `height`*      | int      | `null`    | The variation's height in pixels. For more details see Caution note below.|
 | `name`         | string   | `medium` | The variation's identifier, name of the image alias|
-| `info`         | mixed    |n/a| Extra information about the image, depending on the image type, such as EXIF data. If there is no information, the `info` will be a boolean `FALSE`.|
+| `info`         | mixed    |n/a| Extra information about the image, depending on the image type, such as EXIF data. If there is no information, the `info` value will be `null`.|
 | `fileSize`     | int      |`31010` |Size (in byte) of current variation|
 | `mimeType`     | string   |`image/png`|The MIME type|
 | `fileName`     | string   |`my_image.png`|The name of the file|
@@ -1355,7 +1353,7 @@ The Value class of this Field Type contains the following properties:
 
 ###### Constructor
 
-The `MapLocation\Value` constructor will initialize a new Value object with three values provided: two floats and a string.
+The `MapLocation\Value` constructor will initialize a new Value object with values provided as hash. Accepted keys are `latitude` (`float`), `longitude` (`float`), `address` (`string`).
 
 ``` php
 // Constructor example
