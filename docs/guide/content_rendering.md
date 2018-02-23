@@ -981,7 +981,7 @@ Typical use cases include access to:
 
 There are three ways in which you can apply a custom logic:
 
-- Configure a custom controller alongside regular matcher rules to use **both** your custom controller and the `ViewController`.
+- Configure a custom view controller alongside regular matcher rules.
 - [Add a listener to add your custom logic](#adding-a-listener) before or after the view is rendered.
 - [**Override**](#overriding-the-built-in-viewcontroller) the built-in `ViewController` with the custom controller in a specific situation (not recommended).
 
@@ -1095,16 +1095,9 @@ Similarly, you can use a listener to modify the response generated after the vie
 The configuration will look like the one earlier, for example:
 
 ``` yaml
-parameters:
-    my.custom.shared_max_age: 5000
-    my.custom.vary: 'X-User-Hash'
-
 services:
     my.custom.response_listener:
         class: AppBundle\Listener\MyResponseListener
-        arguments:
-            - "%my.custom.shared_max_age%"
-            - "%my.custom.vary%"
         tags:
             - { name: kernel.event_subscriber }
 ```
@@ -1126,15 +1119,6 @@ use Symfony\Component\HttpKernel\KernelEvents;
 
 class MyResponseListener implements EventSubscriberInterface
 {
-    private $sharedMaxAge;
-    private $vary;
-
-    public function __construct($sharedMaxAge, $vary)
-    {
-        $this->sharedMaxAge = $sharedMaxAge;
-        $this->vary = $vary;
-    }
-
     public static function getSubscribedEvents()
     {
         return [KernelEvents::RESPONSE => 'doSomethingCustom'];
@@ -1148,9 +1132,9 @@ class MyResponseListener implements EventSubscriberInterface
         }
 
         $response = $event->getResponse();
-        // Set caching according to parameters
-        $response->setSharedMaxAge($this->sharedMaxAge);
-        $response->setVary($this->vary);
+
+        // Set custom header for the Response
+        $response->headers->add(['X-Hello' => 'World']);
 
         // If you wish, you can also easily access Location and Content objects
         if ($view instanceof LocationValueView) {
@@ -1210,9 +1194,8 @@ class DefaultController extends Controller
             ]
         );
     
-        // Set caching for 1h and make the cache vary on user hash
-        $response->setSharedMaxAge(3600);
-        $response->setVary('X-User-Hash');
+        // Set custom header for the Response
+        $response->headers->add(['X-Hello' => 'World']);
     
         return $response;
     }
