@@ -1,4 +1,4 @@
-# Create the extension Bundle
+# Creating a bundle
 
 To extend PlatformUI, the very first thing to do is to create a Symfony bundle.
 For that, you can use [the Symfony generate bundle command](http://symfony.com/doc/current/bundles/SensioGeneratorBundle/commands/generate_bundle.html) in the following way:

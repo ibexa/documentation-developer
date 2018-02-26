@@ -1,4 +1,4 @@
-# Extending Platform UI with new navigation
+# Extending Admin UI
 
 ## Introduction
 
