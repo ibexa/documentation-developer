@@ -93,7 +93,7 @@ Allow public HTTP(S) access to the recommendation bundle API (`<ezplatform-host>
 
 !!! note "If BASIC AUTH is required by policy"
 
-    If the company policy is to use BASIC AUTH on the API interfaces you need to some specific configuration. 
+    If the company policy is to use BASIC AUTH on the API interfaces you need to some specific configuration.
 
 You probably have some access restrictions on your site defined in app/config/security.yml
 
@@ -111,7 +111,7 @@ security:
 ```
 
 Create a user with the name of the CustomerID and a password which is the license key in your local security provider. This user must have access granted on the URLs provided by the bundle API (see above).
-In order to tell the recommender to use this user and password for requesting resources on the ez platform instance, you can configure this like following (example file is available in the bundle under Resources/config/default_settings.yml):
+In order to tell the recommender to use this user and password for requesting resources on the eZ Platform instance, you can configure this as follows (example file is available in the bundle under `Resources/config/default_settings.yml`):
 
 ``` yaml
 # Export folder authentication method:
@@ -125,7 +125,7 @@ ez_recommendation.export.users_authentication.login: "<customerID>"
 ez_recommendation.export.users_authentication.password: "<licenseKey>"
 ```
 
-Put this in a settings file which is not affected by an update of the recommendation bundle via composer.
+Place this in a settings file which is not affected by an update of the Recommendation bundle via Composer.
 
 ## Configuration
 
@@ -279,9 +279,10 @@ For the `content` interface one Content item is returned, for the `contenttypes`
 
 ## Running a full content export
 
-!!! Exporting content is crucial for providing recommendations.
-    
-    If the content export does not work your recommendations will not work as well as required data like uris, titles etc. is missing and cannot be delivered in the recommendation response.
+!!! Exporting content is crucial for providing recommendations
+
+    If the content export does not work, your recommendations will not function
+    Required data like URIs, titles etc. will be missing and cannot be delivered in the recommendation response.
 
 After defining what Content Types should be tracked and recommended  you can start the full export with the following command:
 
@@ -291,7 +292,9 @@ php app/console ezreco:runexport --contentTypeIdList=<contentTypeId>,<contentTyp
 
 By running this command, the bundle exporter collects all content related to the SiteAccesses of this customer ID and places it in files (1).
 After finishing, the systems sends a POST request to the `webHook` endpoint and informs the personalization engine to fetch new content (2).
-An internal workflow is then triggered (3) so that the generated files are downloaded (4) and imported in the personalization engine's content store (5). Please be patient, as this can take up to a couple of minutes.
+An internal workflow is then triggered (3) so that the generated files are downloaded (4) and imported in the personalization engine's content store (5).
+
+Please be patient, as this can take up to a couple of minutes.
 
 ![](img/recommendation_fullcontentexport.png)
 
@@ -404,7 +407,7 @@ Example response:
 
 ## Incremental content export
 
-Every time an editor creates, updates or deletes content in the backoffice (1), a notification is sent to https://admin.yoochoose.net that a content change happened (2). Another component of the recommendation engine is notified (3), will eventually fetch the affected content (4) and updates it internally (5).
+Every time an editor creates, updates or deletes content in the backoffice (1), a notification is sent to https://admin.yoochoose.net that a content change happened (2). Another component of the recommendation engine is notified (3). It will eventually fetch the affected content (4) and update it internally (5).
 
 ![](img/recommendation_incrementalcontentexport.png)
 
@@ -593,10 +596,9 @@ php app/console assets:install --symlink --env=prod
 
 If authentication fails although you added a user in your local directory please check if you used double quotes around the username in the export settings.
 
-### When fetching recommendations I get a message that the requested content type is not supported (CONFLICT)
+### When fetching recommendations you get a message that the requested content type is not supported (CONFLICT)
 
-Take a look at the scenario configuration in the [Admin Dashboard](https://admin.yoochoose.net) and check if the correct input and output types are set.
-
+Take a look at the scenario configuration in the [Admin Dashboard](https://admin.yoochoose.net) and check if correct input and output types are set.
 
 ### Logging
 
