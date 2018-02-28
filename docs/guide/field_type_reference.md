@@ -1,6 +1,6 @@
 # Field Types reference
 
-A Field Type is the smallest entity of storage in eZ Platform. It determines how a specific type of information is validated, stored, retrieved, formatted and so on.
+A Field Type is the underlying building block of a content model. It consists of two entities: Field value and Field definition. Field value is determined by values entered into the Content Field. Field definition is provided by the Content Type, and holds any user defined rules used by Field Type to determine how a Field Value is validated, stored, retrieved, formatted and so on.
 
 eZ Platform comes with a collection of Field Types that can be used to build powerful and complex content structures. In addition, it is possible to extend the system by creating custom types for special needs. 
 
@@ -775,8 +775,8 @@ The `value` property of an Image Field will return an `\eZ\Publish\Core\FieldTy
 |`uri`|string|`var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB/image.png`|The original image's URI|
 |`imageId`|string|`240-1480`|A special image ID, used by REST|
 |`inputUri`|string|`var/storage/images/test/199-2-eng-GB/image.png`|Input image file URI.|
-|`width`|int|`null`|Original image width in pixels. For more details see Caution note below.|
-|`height`|int|`null`|Original image height in pixels. For more details see Caution note below.|
+|`width`*|int|`null`|Original image width in pixels. For more details see Caution note below.|
+|`height`*|int|`null`|Original image height in pixels. For more details see Caution note below.|
 
 !!! caution
 
