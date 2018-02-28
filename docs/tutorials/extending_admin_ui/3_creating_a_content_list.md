@@ -25,7 +25,7 @@ EzSystems\ExtendingTutorialBundle\EventListener\:
 
 Then create a `MyMenuListener.php` file in `src/EzSystems/ExtendingTutorialBundle/EventListener`:
 
-``` php hl_lines="12 26"
+``` php hl_lines="14 28"
 <?php
 
 namespace EzSystems\ExtendingTutorialBundle\EventListener;
@@ -60,9 +60,9 @@ class MyMenuListener implements EventSubscriberInterface
 }
 ```
 
-This listener subscribes to the `ConfigureMenuEvent::MAIN_MENU` event (see line 12).
+This listener subscribes to the `ConfigureMenuEvent::MAIN_MENU` event (see line 14).
 
-Line 26 points to the new route that you need to add to the routing file.
+Line 28 points to the new route that you need to add to the routing file.
 
 ## Add routing
 
@@ -93,7 +93,7 @@ EzSystems\ExtendingTutorialBundle\Controller\:
 
 Then, in `src/EzSystems/ExtendingTutorialBundle/Controller` create a `AllContentListController.php` file:
 
-```php hl_lines="31"
+```php hl_lines="33"
 <?php
 
 namespace EzSystems\ExtendingTutorialBundle\Controller;
@@ -133,7 +133,7 @@ class AllContentListController extends Controller
 }
 ```
 
-The highlighted line 31 indicates the template that will be used to display the list.
+The highlighted line 33 indicates the template that will be used to display the list.
 
 ## Add a template
 

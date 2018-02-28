@@ -35,7 +35,7 @@ This configuration points to the `EveryoneArticleTab.php` file, which you now ne
 
 Create an `EveryoneArticleTab.php` file in `src/EzSystems/ExtendingTutorialBundle/Tab/Dashboard/Everyone`:
 
-``` php hl_lines="15 45"
+``` php hl_lines="17 47"
 <?php
 
 namespace EzSystems\ExtendingTutorialBundle\Tab\Dashboard\Everyone;
