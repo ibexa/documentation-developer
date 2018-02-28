@@ -3,9 +3,9 @@
 
 As explained in the [introduction](rest_api_guide.md), the REST API is based on a very limited list of general principles:
 
--   each resource (uri) interacts with a part of the system (Content, URL aliases, User Groups, etc.),
--   for each resource, one or more verbs are available, each having a different effect (delete a Content item, get a URL Alias, list user groups, etc.),
--   media-type request headers indicate what type of data (Content / ContentInfo), and data format (JSON or XML), are expected as a response, and what can be requested.
+-   each resource (URI) interacts with a part of the system (Content, URL aliases, User Groups, etc.),
+-   for each resource, one or more HTTP methods are available, each having a different effect (delete a Content item, get a URL Alias, list user groups, etc.),
+-   media-type request headers indicate what kind of data type (Content / ContentInfo), and data format (JSON or XML), are expected as a response, and what can be requested.
 
 ## Anatomy of a REST call
 
@@ -15,7 +15,7 @@ This verb is used to query the API for information. It is one of the two operati
 
 ### Request
 
-The only requirement for this verb is usually the resource URI, and the accept header. On top of that, cache request headers can be added, like `If-None-Match`, but those aren't fully implemented yet in eZ Publish 5.0.
+The only requirement for this verb is usually the resource URI, and the accept header. On top of that, cache request headers can be added, like `If-None-Match`, but those aren't fully implemented yet.
 
 **Load ContentInfo request**
 
@@ -38,10 +38,7 @@ The API will reply with:
 HTTP/1.1 200 OK
 Accept-Patch: application/vnd.ez.api.ContentUpdate+xml;charset=utf8
 Content-Type: application/vnd.ez.api.ContentInfo+xml
-Content-Length: xxx
 ```
-
-The length of our content, provided by the Content-Length header, isn't *that* useful.
 
 ###### HTTP Code
 

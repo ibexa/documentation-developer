@@ -511,7 +511,7 @@ As for the ContentService, `loadLocation()` returns a Value Object, here a `Loca
 ``` php
 private function browseLocation( Location $location, OutputInterface $output, $depth = 0 )
 {
-    $childLocationList = $this->locationService->loadLocationChildren( $location, $offset = 0, $limit = -1 );
+    $childLocationList = $this->locationService->loadLocationChildren( $location, $offset = 0, $limit = 10 );
     // If offset and limit had been specified to something else then "all", then $childLocationList->totalCount contains the total count for iteration use
     foreach ( $childLocationList->locations as $childLocation )
     {
