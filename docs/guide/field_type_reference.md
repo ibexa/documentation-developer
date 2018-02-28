@@ -1,12 +1,15 @@
 # Field Types reference
 
+A Field Type is the underlying building block of the content model. It consists of two entities: Field value and Field definition. Field value is determined by values entered into the Content Field. Field definition is provided by the Content Type, and holds any user defined rules used by Field Type to determine how a Field Value is validated, stored, retrieved, formatted and so on.
+
+eZ Platform comes with a collection of Field Types that can be used to build powerful and complex content structures. In addition, it is possible to extend the system by creating custom types for special needs. 
+
 !!! tip
 
     For general Field Type documentation see [Field Type API and best practices](../api/field_type_api_and_best_practices.md). If you are looking for the documentation on how to implement a custom Field Type, see the [Creating a Tweet Field Type](../tutorials/field_type/creating_a_tweet_field_type.md) tutorial.
+    
+Custom Field Types have to be programmed in PHP. However, the built-in Field Types are usually sufficient enough for typical scenarios. The following table gives an overview of the supported Field Types that come with eZ Platform.
 
-A Field Type is the smallest entity of storage in eZ Platform. It determines how a specific type of information is validated, stored, retrieved, formatted and so on.
-
-eZ Platform comes with a collection of Field Types that can be used to build powerful and complex content structures. In addition, it is possible to extend the system by creating custom types for special needs. Custom Field Types have to be programmed in PHP. However, the built-in Field Types are usually sufficient enough for typical scenarios. The following table gives an overview of the supported Field Types that come with eZ Platform.
 
 ## Available Field Types
 
@@ -28,7 +31,7 @@ eZ Platform comes with a collection of Field Types that can be used to build pow
 | [MapLocation](#maplocation-field-type) | Stores map coordinates. | Yes, with MapLocationDistance criterion | Yes |
 | [Media](#media-field-type) | Validates and stores a media file. | No | Yes |
 | [Null](#null-field-type) | Used as fallback for missing Field Types and for testing purposes. | N/A | N/A |
-| [Rating](#rating-field-type) | No longer supported. | N/A | N/A |
+| [Rating](#rating-field-type) | **Deprecated** | N/A | N/A |
 | [Relation](#relation-field-type) | Validates and stores a relation to a Content item. | Yes, with both Field and FieldRelation criterions | Yes |
 | [RelationList](#relationlist-field-type) | Validates and stores a list of relations to Content items. | Yes, with FieldRelation criterion | Yes |
 | [RichText](#richtext-field-type) | Validates and stores structured rich text in DocBook xml format, and exposes it in several formats. | Yes[^1^](#1-note-on-legacy-search-engine)  | Yes |
@@ -70,11 +73,68 @@ It helps you get started by creating a skeleton for a Field Type, including temp
 
 ## Author Field Type
 
-This Field Type allows the storage and retrieval of one or more authors. For each author, it can handle a name and an e-mail address. It is typically useful when you need to store information about additional authors who have written/created different parts of a Content item.
+This Field Type allows the storage and retrieval of one or more authors. For each author, it can handle a name and an email address. It is typically used to store information about additional authors who have written/created different parts of a Content item.
 
 | Name     | Internal name | Expected input | Output   |
 |----------|---------------|----------------|----------|
 | `Author` | `ezauthor`    | mixed        | `string` |
+
+
+
+### PHP API Field Type
+
+#### Value Object
+
+###### Properties
+
+|Attribute|Type|Description|Example|
+|------|------|------|------|
+|`authors`|`\eZ\Publish\Core\FieldType\Author\Author[] `|List of authors.|See below|
+
+Example:
+
+``` php
+$authorList = Author\Value([
+   new Author\Author([
+       'id' => 1,
+       'name' => 'Boba Fett',
+       'email' => 'boba.fett@example.com'
+   ]),
+   new Author\Author([
+       'id' => 2,
+       'name' => 'Darth Vader',
+       'email' => 'darth.vader@example.com'
+   ]),
+]);
+```
+
+#### Hash format
+
+The hash format mostly matches the value object. It has the following key `authors`.
+
+
+Example
+
+``` php
+[
+    [
+       'id' => 1,
+       'name' => 'Boba Fett',
+       'email' => 'boba.fett@example.com'
+    ],
+    [
+       'id' => 2,
+       'name' => 'Darth Vader',
+       'email' => 'darth.vader@example.com'
+    ]
+]
+```
+
+###### String representation
+
+The string will contain all the authors with their names and emails.
+
+Example: `John Doe john@doe.com`
 
 ## BinaryFile Field Type
 
@@ -90,6 +150,9 @@ It is capable of handling virtually any file type and is typically used for stor
 
 #### Value Object
 
+###### Properties
+
+
 Note that both `BinaryFile` and `Media` Value and Type inherit from the `BinaryBase` abstract Field Type, and share common properties.
 
 `eZ\Publish\Core\FieldType\BinaryFile\Value` offers the following properties:
@@ -104,6 +167,7 @@ Note that both `BinaryFile` and `Media` Value and Type inherit from the `BinaryB
 |`downloadCount`|integer|Number of times the file was downloaded|0|
 |`path`|string|**deprecated**|N/A|
 
+
 #### Hash format
 
 The hash format mostly matches the value object. It has the following keys:
@@ -115,6 +179,19 @@ The hash format mostly matches the value object. It has the following keys:
 - `mimeType`
 - `uri`
 - `downloadCount`
+
+Example:
+
+```php
+[
+    'id' => 'some/file/here',
+    'fileName' => 'sindelfingen.jpg',
+    'fileSize' => 2342,
+    'downloadCount' => 0,
+    'mimeType' => 'image/jpeg',
+    'uri' => 'http://some/file/here',
+]
+```
 
 ### REST API specifics
 
@@ -219,7 +296,7 @@ array(
 );
 ```
 
-When you set an array directly on a Content field you don't need to provide all this information, the Field Type will assume it is a hash and in this case will accept a simplified structure described below under [To / From Hash format](#to-from-hash-format).
+When you set an array directly on a Content field you don't need to provide all this information, the Field Type will assume it is a hash and in this case will accept a simplified structure described below under [Hash format](#hash-format).
 
 #### Validation
 
@@ -240,7 +317,7 @@ $settings = array(
 );
 ```
 
-#### To / From Hash format
+#### Hash format
 
 The format used for serialization is simpler than the full format. It is also available when setting value on the content field, by setting the value to an array instead of the Value object. Example of that shown below:
 
@@ -305,7 +382,7 @@ This Field Type represents a date without time information.
 
 #### Input expectations
 
-If input value is of type `string` or `integer`, it will be passed directly to [PHP's built-in `\DateTime` class constructor](http://www.php.net/manual/en/datetime.construct.php), therefore the same input format expectations apply.
+If input value is in `string` or `integer` format, it will be passed directly to [PHP's built-in `\DateTime` class constructor](http://www.php.net/manual/en/datetime.construct.php), therefore the same input format expectations apply.
 
 It is also possible to directly pass an instance of `\DateTime`.
 
@@ -339,6 +416,7 @@ String representation of the date value will generate the date string in the for
 |d|Two digit representation of a day, range 01 to 31|22|
 |F|Textual representation of a month, range January to December|May|
 |Y|Four digit representation of a year|2016|
+
 Example: `Wednesday 22 May 2016`
 
 ###### Constructor
@@ -351,7 +429,7 @@ Hash value of this Field Type is an array with two keys:
 
 |Key|Type|Description|Example|
 |------|------|------|------|
-|`timestamp`|`integer`|Time information as a [timestamp](http://en.wikipedia.org/wiki/Unix_time).|`1400856992`|
+|`timestamp`|`integer`|Time information in [unix format timestamp](http://en.wikipedia.org/wiki/Unix_time).|`1400856992`|
 |`rfc850`|`string`|Time information as a string in [RFC 850 date format](http://tools.ietf.org/html/rfc850). As input, this will have higher precedence over the timestamp value.|`"Friday, 23-May-14 14:56:14 GMT+0000"`|
 
 ``` php
@@ -393,11 +471,11 @@ $settings = array(
 
 ### Template rendering
 
-The template called by [the `ez_render_field()` Twig function](content_rendering.md/#ez_render_field) while rendering a Date Field has access to the following parameters:
+The template called by [the `ez_render_field()` Twig function](content_rendering.md#ez_render_field) while rendering a Date Field has access to the following parameters:
 
-| Parameter | Type     | Default | Description|
-|-----------|----------|---------|------------|
-| `locale`  | `string` |         | Internal parameter set by the system based on current request locale or if not set calculated based on the language of the Field. |
+| Parameter | Type     |Description|
+|-----------|----------|------------|
+| `locale`  | `string` |Internal parameter set by the system based on current request locale or if not set, calculated based on the language of the Field. |
 
 Example:
 
@@ -407,7 +485,7 @@ Example:
 
 ## DateAndTime Field Type
 
-This Field Type represents a full date including time information.
+This Field Type represents a full date and time information.
 
 | Name          | Internal name | Expected input type |
 |---------------|---------------|---------------------|
@@ -463,7 +541,7 @@ Hash value of this Field Type is an array with two keys:
 
 |Key|Type|Description|Example|
 |------|------|------|------|
-|`timestamp`|`integer`|Time information as a [Unix timestamp](http://en.wikipedia.org/wiki/Unix_time).|`1400856992`|
+|`timestamp`|`integer`|Time information in [Unix format timestamp](http://en.wikipedia.org/wiki/Unix_time).|`1400856992`|
 |`rfc850`|`string`|Time information as a string in [RFC 850 date format](http://tools.ietf.org/html/rfc850). As input, this will have precedence over the timestamp value.|`"Friday, 23-May-14 14:56:14 GMT+0000"`|
 
 ``` php
@@ -509,11 +587,11 @@ $settings = array(
 
 ### Template rendering
 
-The template called by [the `ez_render_field()` Twig function](content_rendering.md/#ez_render_field) while rendering a Date Field has access to the following parameters:
+The template called by the [`ez_render_field()` Twig function](content_rendering.md#ez_render_field) while rendering a Date Field has access to the following parameters:
 
 | Parameter | Type     | Default | Description|
 |-----------|----------|---------|------------|
-| `locale`  | `string` |         | Internal parameter set by the system based on current request locale or if not set calculated based on the language of the Field. |
+| `locale`  | `string` |   n/a   | Internal parameter set by the system based on current request locale or if not set calculated based on the language of the Field. |
 
 Example:
 
@@ -678,7 +756,7 @@ This Field Type does not support settings.
 
 The Image Field Type allows you to store an image file.
 
-A **variation service** handles the conversion of the original image into different formats and sizes through a set of preconfigured named variations: large, small, medium, black & white thumbnail, etc.
+A **variation service** handles the conversion of the original image into different formats and sizes through a set of preconfigured named variations: large, small, medium, black and white thumbnail, etc.
 
 ### PHP API Field Type
 
@@ -691,11 +769,20 @@ The `value` property of an Image Field will return an `\eZ\Publish\Core\FieldTy
 |Property|Type|Example|Description|
 |------|------|------|------|
 |`id`|string|`0/8/4/1/1480-1-eng-GB/image.png`|The image's unique identifier. Usually the path, or a part of the path. To get the full path, use the `uri` property.|
-|`alternativeText`|string|`This is a piece of text`|The alternative text, as entered in the Field's properties|
+|`alternativeText`|string|`Picture of an apple.`|The alternative text, as entered in the Field's properties|
 |`fileName`|string|`image.png`|The original image's filename, without the path|
 |`fileSize`|int|`37931`|The original image's size, in bytes|
 |`uri`|string|`var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB/image.png`|The original image's URI|
 |`imageId`|string|`240-1480`|A special image ID, used by REST|
+|`inputUri`|string|`var/storage/images/test/199-2-eng-GB/image.png`|Input image file URI.|
+|`width`*|int|`null`|Original image width in pixels. For more details see Caution note below.|
+|`height`*|int|`null`|Original image height in pixels. For more details see Caution note below.|
+
+!!! caution
+
+    Properties marked with an asterisk are currently unsupported. They are available but their value is always `null`.
+
+    Follow [EZP-27987](https://jira.ez.no/browse/EZP-27987) for future progress on this issue.
 
 #### Settings
 
@@ -709,8 +796,8 @@ Using the variation Service, variations of the original image can be obtained. T
 |----------------|----------|----------|------------|
 | `width`*       | int      | `null`    | The variation's width in pixels. For more details see Caution note below.|
 | `height`*      | int      | `null`    | The variation's height in pixels. For more details see Caution note below.|
-| `name`         | string   | `medium` | The variation's identifier           |
-| `info`         | mixed    |n/a| Extra information about the image, depending on the image type, such as EXIF data|
+| `name`         | string   | `medium` | The variation's identifier, name of the image alias|
+| `info`         | mixed    |n/a| Extra information about the image, depending on the image type, such as EXIF data. If there is no information, the `info` value will be `null`.|
 | `fileSize`     | int      |`31010` |Size (in byte) of current variation|
 | `mimeType`     | string   |`image/png`|The MIME type|
 | `fileName`     | string   |`my_image.png`|The name of the file|
@@ -734,9 +821,7 @@ The Image Field Type supports one `FieldDefinition` option: the maximum size for
 
 ### Using an Image Field
 
-!!! tip
-
-    To read more about handling images and image variations, see [the Images documentation](images.md).
+To read more about handling images and image variations, see the [Images documentation](images.md).
 
 #### Template Rendering
 
@@ -746,14 +831,14 @@ When displayed using `ez_render_field`, an Image Field will output this type of
 <img src="var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB/image_medium.png" width="844" height="430" alt="Alternative text" />
 ```
 
-The template called by [the `ez_render_field()` Twig function](content_rendering.md/#ez_render_field) while rendering a Image Field accepts the following parameters:
+The template called by the [`ez_render_field()` Twig function](content_rendering.md#ez_render_field) while rendering a Image Field accepts the following parameters:
 
 | Parameter | Type     | Default        | Description |
 |-----------|----------|----------------|-------------|
 | `alias`   | `string` | `"original"` | The image variation name, must be defined in your SiteAccess's `image_variations` settings. Defaults to "original", the originally uploaded image.|
-| `width`   | `int`    |                | Optionally to specify a different width set on the image HTML tag then then one from image alias. |
-| `height`  | `int`    |                | Optionally to specify a different height set on the image HTML tag then then one from image alias. |
-| `class`   | `string` |                | Optionally to specify a specific html class for use in custom JavaScript and/or CSS. |
+| `width`   | `int`    |   n/a        | Optionally to specify a different width set on the image HTML tag then then one from image alias. |
+| `height`  | `int`    |   n/a        | Optionally to specify a different height set on the image HTML tag then then one from image alias. |
+| `class`   | `string` |   n/a        | Optionally to specify a specific html class for use in custom JavaScript and/or CSS. |
 
 Example: 
 
@@ -874,7 +959,7 @@ $createStruct->setField( 'image', $imageValue );
 
 The REST API expects Field values to be provided in a hash-like structure. Those keys are identical to those expected by the `Image\Value` constructor: `fileName`, `alternativeText`. In addition, image data can be provided using the `data` property, with the image's content encoded as base64.
 
-##### Creating an image Field
+##### Creating an Image Field
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -897,7 +982,7 @@ The REST API expects Field values to be provided in a hash-like structure. Those
 </ContentCreate>
 ```
 
-#### Updating an image Field
+#### Updating an Image Field
 
 Updating an Image Field requires that you re-send existing data. This can be done by re-using the Field obtained via REST, **removing the variations key**, and updating `alternativeText`, `fileName` or `data`. If you do not want to change the image itself, do not provide the `data` key.
 
@@ -938,15 +1023,15 @@ With the following values:
 - `VersionNumber` = `1`
 - `LanguageCode` = `eng-GB`
 
-Images will be stored to `web/var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB`.
+Images will be stored in `web/var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB`.
 
 Using the Field ID digits in reverse order as the folder structure maximizes sharding of files through multiple folders on the filesystem.
 
 Within this folder, images will be named like the uploaded file, suffixed with an underscore and the variation name:
 
-- MyImage.png
-- MyImage\_large.png
-- MyImage\_rss.png
+- `MyImage.png`
+- `MyImage_large.png`
+- `MyImage_rss.png`
 
 ## Integer Field Type
 
@@ -1063,7 +1148,6 @@ Array
 )
 ```
 
-For more details on the Value object for this Field Type please refer to the [auto-generated documentation](http://apidoc.ez.no/doxygen/trunk/NS/html/classeZ_1_1Publish_1_1Core_1_1FieldType_1_1ISBN_1_1Value.html).
 
 ## Keyword Field Type
 
@@ -1164,9 +1248,11 @@ $keywordValue = new Value( "php5,css3,html5" );
     `ez_block` is an alias to `EzSystems\LandingPageFieldTypeBundle\Controller\BlockController`
 
     The action has the following parameters:
-
-    - `contentId` – ID of the Content item which can be accessed by `contentInfo.id`
-    - `blockId` – ID of the block which you want to render
+    
+    |Parameter|Description|
+    |---------|-----------|
+    |`contentId`|ID of the Content item which can be accessed by `contentInfo.id`|
+    |`blockId`|ID of the block which you want to render|
 
     Example usage:
 
@@ -1190,7 +1276,7 @@ $keywordValue = new Value( "php5,css3,html5" );
             {% if zones[0].blocks %}
                 {# for each block #}
                 {% for block in blocks %}
-                    {# create a new layer with appropriate id #}
+                    {# create a new layer with appropriate ID #}
                     <div class="landing-page__block block_{{ block.type }}">
                         {# render the block by using the "ez_block:renderBlockAction" controller #}
                         {# contentInfo.id is the ID of the current Content item, block.id is the ID of the current block #}
@@ -1237,7 +1323,9 @@ $keywordValue = new Value( "php5,css3,html5" );
 
 This Field Type represents a geographical location.
 
-As input it expects two float values: latitude and longitude, and a string value in the third place, corresponding to the name or address of the location.
+As input it expects three values: 
+- two float values latitude and longitude,
+- a string value, corresponding to the name or address of the location.
 
 | Name          | Internal name    | Expected input |
 |---------------|------------------|----------------|
@@ -1265,7 +1353,7 @@ The Value class of this Field Type contains the following properties:
 
 ###### Constructor
 
-The `MapLocation\Value` constructor will initialize a new Value object with the values provided. Two floats and a string are expected.
+The `MapLocation\Value` constructor will initialize a new Value object with values provided as hash. Accepted keys are `latitude` (`float`), `longitude` (`float`), `address` (`string`).
 
 ``` php
 // Constructor example
@@ -1282,7 +1370,7 @@ $MapLocationValue = new MapLocation\Value(
 
 ### Template rendering
 
-The template called by [the `ez_render_field()` Twig function](content_rendering.md/#ez_render_field) while rendering a Map Location Field accepts the following parameters:
+The template called by [the `ez_render_field()` Twig function](content_rendering.md#ez_render_field) while rendering a Map Location Field accepts the following parameters:
 
 |Parameter|Type|Default|Description|
 |------|------|------|------|
@@ -1492,8 +1580,7 @@ services:
 
 !!! caution
 
-    The Rating Field Type is available in the back-end interface, but it does not have editing templates,
-    which makes it unusable in practice.
+    The Rating Field Type is available in the back-end interface, but it does not have editing templates, which makes it unusable in practice.
 
     Follow [EZP-25802](https://jira.ez.no/browse/EZP-25802) for future progress on this Field Type.
 
@@ -1551,9 +1638,9 @@ The Field definition of this Field Type can be configured with three options:
 
 |Name|Type|Default value|Description|
 |------|------|------|------|
-|`selectionMethod`|`int`|`self::SELECTION_BROWSE`| *This setting is not implemented yet, only one selection method is available.* |
+|`selectionMethod`|`int`|`Relation\Type::SELECTION_BROWSE`| *This setting is not implemented yet, only one selection method is available.* |
 |`selectionRoot`|`string`|`null`|This setting defines the selection root.|
-|`selectionContentTypes`|`array`|`[]`|An array of ContentType ids that are allowed for related Content|
+|`selectionContentTypes`|`array`|`[]`|An array of ContentType IDs that are allowed for related Content|
 
 ``` php
 // Relation FieldType example settings
@@ -1583,7 +1670,7 @@ This Field Type makes it possible to store and retrieve values of a relation to 
 |------|------|------|
 |`int|string`|ID of the related Content item|`42`|
 |`array`|An array of related Content IDs|`array( 24, 42 )`|
-|`eZ\Publish\API\Repository\Values\Content\ContentInfo`|ContentInfo instance of the related Content||
+|`eZ\Publish\API\Repository\Values\Content\ContentInfo`|ContentInfo instance of the related Content|n/a|
 |`eZ\Publish\Core\FieldType\RelationList\Value`|RelationList Field Type Value Object|See below.|
 
 #### Value Object
@@ -1594,7 +1681,7 @@ This Field Type makes it possible to store and retrieve values of a relation to 
 
 |Property|Type|Description|Example|
 |------|------|------|------|
-|`destinationContentIds`|`array`|An array of related Content ids|`array( 24, 42 )`|
+|`destinationContentIds`|`array`|An array of related Content IDs|`array( 24, 42 )`|
 
 ``` php
 // Value object content example
@@ -1626,9 +1713,9 @@ $relationListValue = new RelationList\Value(
 
 This Field Type validates if:
 
-- the `selectionMethod` specified is 0 (`self::SELECTION_BROWSE)` or 1 (`self::SELECTION_DROPDOWN)`. A validation error is thrown if the value does not match.
+- the `selectionMethod` specified is `\eZ\Publish\Core\FieldType\RelationList\Type::SELECTION_BROWSE` or `\eZ\Publish\Core\FieldType\RelationList\Type::SELECTION_DROPDOWN`. A validation error is thrown if the value does not match.
 - the `selectionDefaultLocation` specified is `null`, `string` or `integer`. If the type validation fails a validation error is thrown.
-- the value specified in `selectionContentTypes` is an array. If not, a validation error in given.
+- the value specified in `selectionContentTypes` is an `array`. If not, a validation error in given.
 
 !!! note
 
@@ -1689,7 +1776,7 @@ Currently supported input formats are described in the table below:
 
 |Name|Description|
 |------|------|
-|eZ Platform's DocBook variant|FieldType's internal format|
+|eZ Platform's DocBook variant|Field Type's internal format|
 |XHTML5 editing format|Typically used with in-browser HTML editor|
 |Legacy eZXML format|Compatibility with legacy eZXML format, used by [XmlText Field Type](#xmltext-field-type)|
 
@@ -1939,7 +2026,7 @@ The constructor for this Value object will initialize a new Value object with t
 
 #### Validation
 
-The input passed into this Field Type is subject to validation by the `StringLengthValidator` validator. The length of the string provided must be between the minimum length defined in `minStringLength` and the maximum defined in `maxStringLength`. The default value for both properties is 0, which means that the validation is disabled by default.
+The input passed into this Field Type is subject to validation by the `StringLengthValidator`. The length of the string provided must be between the minimum length defined in `minStringLength` and the maximum defined in `maxStringLength`. The default value for both properties is 0, which means that the validation is disabled by default.
 To set the validation properties, the `validateValidatorConfiguration()` method needs to be inspected, which will receive an array with `minStringLength` and `maxStringLength` like in the following representation:
 
 ```
@@ -1994,6 +2081,12 @@ The constructor for this Value object will initialize a new Value object with t
 
 String representation of the date value will generate the date string in the format "H:i:s" as accepted by [PHP's built-in `date()` function](http://www.php.net/manual/en/function.date.php).
 
+|Character|Description|Example|
+|---------|----------|--------|
+|H|Two digit representation of an hour, 24-hour format, range 00 to 23 |12|
+|i|Two digit representation of minutes, range 00 to 59|14|
+|s|Two digit representation of seconds, range 00 to 59|56|
+
 Example: `"12:14:56"`
 
 #### Hash format
@@ -2026,11 +2119,11 @@ $settings = array(
 
 ### Template rendering
 
-The template called by [the `ez_render_field()` Twig function](content_rendering.md#ez_render_field) while rendering a Date Field has access to the following parameters:
+The template called by [the `ez_render_field()` Twig function](../guide/content_rendering.md#ez_render_field) while rendering a Date Field has access to the following parameters:
 
 | Parameter | Type     | Default | Description|
 |-----------|----------|---------|------------|
-| `locale`  | `string` |         | Internal parameter set by the system based on current request locale or, if not set, calculated based on the language of the Field. |
+| `locale`  | `string` |   n/a   | Internal parameter set by the system based on current request locale or, if not set, calculated based on the language of the Field. |
 
 Example:
 
@@ -2174,7 +2267,6 @@ The eZ XML output uses `<strong>` and `<em>` by default, respecting the semantic
 
 Learn more about `<strong>`, `<b>`, `<em>`, `<i>`:
 
-- [Read the share.ez.no forum about our choice of semantic tags with eZ XML](http://share.ez.no/forums/ez-publish-5-platform/strong-vs-b-and-em-vs-i)
 - Learn more [about the semantic tags vs the presentational tags.](http://html5doctor.com/i-b-em-strong-element/)
 
 ### Input object API
