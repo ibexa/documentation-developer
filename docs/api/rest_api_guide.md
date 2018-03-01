@@ -20,10 +20,10 @@ It uses HTTP methods ( **`GET`** , **`POST`** , **`PUT`** , **`DELETE`** , etc.)
 
 |Action|Description|
 |------|-----------|
-|`GET  /content/objects/2`| Will provide you with data about Content \#2|
-|`PATCH  /content/objects/2`| Will update the Content \#2's metadata (section, main language, main location...)|
-|`DELETE  /content/objects/2`| Will delete Content \#2|
-|`COPY  /content/objects/2`| Will create a copy of this Content|
+|`GET  /content/objects/2`| Provides you with data about Content \#2|
+|`PATCH  /content/objects/2`| Updates the Content \#2's metadata (section, main language, main location...)|
+|`DELETE  /content/objects/2`| Deletes Content \#2|
+|`COPY  /content/objects/2`| Creates a copy of this Content|
 
 !!! note "Caution with custom HTTP verbs"
 

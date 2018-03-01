@@ -46,13 +46,13 @@ The API responded here with a standard `200 OK` HTTP response code, which is the
 
 Errors are indicated with HTTP error codes, like `404 Not Found`, or `500 Internal Server Error`. The [REST specifications](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst) provide the list of every HTTP response code you can expect from implemented resources.
 
-###### Content Type header
+###### Content-Type header
 
 As long as a response contains an actual HTTP body, the Content Type header will be used to specify which Content Type is contained in the response. In that case:
 - a ContentInfo: `Content-Type: application/vnd.ez.api.ContentInfo` 
 - a ContentInfo in XML format: `Content-Type: application/vnd.ez.api.ContentInfo+xml`
 
-###### Accept Patch header
+###### Accept-Patch header
 
 It tells you that the received content can be modified by patching it with a [ContentUpdateStruct](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/ContentUpdateStruct.php) in XML format:
 
@@ -72,7 +72,7 @@ Depending on the resource, request and response headers will vary. For instance:
  
  will both send a **Location header** to provide you with the requested resource's ID.
 
-Those particular headers generally match a specific list of HTTP response codes. Location is send by `201 Created`, `301 Moved permanently`, `307 Temporary redirect responses`, etc. You can expect those HTTP responses to provide you with a Location header.
+Those particular headers generally match a specific list of HTTP response codes. Location is sent by `201 Created`, `301 Moved permanently`, `307 Temporary redirect responses`, etc. You can expect those HTTP responses to provide you with a Location header.
 
 ###### Destination header
 
@@ -236,7 +236,7 @@ The server encountered an unexpected condition, usually an exception, which prev
 
 #### 501 Not Implemented
 
-Returned when the requested method has not yet been implemented. For eZ Platform, most of Users, User groups, Contents, Locations and Content Types have been implemented. Some of their methods, as well as other features, may return a 501.
+Returned when the requested method has not yet been implemented. For eZ Platform, most of Users, User groups, Content items, Locations and Content Types have been implemented. Some of their methods, as well as other features, may return a 501.
 
 #### 404 Not Found
 
