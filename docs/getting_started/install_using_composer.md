@@ -8,7 +8,7 @@ If you don't have it already, install Composer, the command-line package manage
 php -r "readfile('https://getcomposer.org/installer');" | php
 ```
 
-For further information about Composer usage see [Using Composer](about_composer.md).
+For further information about Composer usage see our documentation about [Using Composer](about_composer.md).
 
 ## eZ Platform Installation
 
@@ -20,11 +20,12 @@ cd ezplatform
 
 #at the end of the install process, you will be told to perform the following commands:
 export SYMFONY_ENV="prod"
+php bin/console doctrine:database:create
 php bin/console ezplatform:install clean
 php bin/console assetic:dump
 ```
 
-!!! note
+!!! tip
 
     If you want to install eZ Platform for production only and skip the dev environment, use the --no-dev option in your composer create-project command line:
     > composer create-project --no-dev --keep-vcs ezsystems/ezplatform ezplatform

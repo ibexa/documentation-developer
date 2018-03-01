@@ -364,7 +364,7 @@ Create new database (you can substitute `ezplatform` with the database name yo
 
 ### 5. Run the Installation Scripts
 
-Composer will look inside the composer.json file and install all of the required packages to run eZ Platform. There's a script in the app folder called console that will install eZ Platform for your desired environment as well (dev/prod).
+Composer will look inside the composer.json file and install all of the required packages to run eZ Platform. There's a script in the `bin` folder called `./console` that will install eZ Platform for your desired environment as well (dev or prod).
 
 This is the step where you want to make sure you have [swap configured for your machine](#set-up-swap-on-debian-8xx) if it does not have an abundance of RAM.
 
@@ -377,7 +377,9 @@ php -d memory_limit=-1 /usr/local/bin/composer install
 
 Once the installer gets to the point that it creates `app/config/parameters.yml`, you will be presented with a few decisions. The first asks you to choose a [secret](http://symfony.com/doc/current/reference/configuration/framework.html#secret); choose any random string you like, made up of characters, numbers, and symbols, up to around 32 characters. This is used by Symfony when generating [CSRF tokens](http://symfony.com/doc/current/book/forms.html#forms-csrf), [encrypting cookies](http://symfony.com/doc/current/cookbook/security/remember_me.html), and for creating signed URIs when using [ESI (Edge Side Includes)](http://symfony.com/doc/current/book/http_cache.html#edge-side-includes).
 
-Next, you'll be asked to specify a database driver. You may press return to accept the default for this option, as well as the next several (`database_host, database_port, database_name, database_user`) unless you have customized those values and need to enter them as configured on your installation. If you set a password for your database user, enter it when prompted for `database_password`. The installer should continue once you've completed this manual portion of the installation process.
+Next, you'll be asked to specify a database driver. You may press return to accept the default for this option, as well as the next several (`database_host, database_port, database_name, database_user`) unless you have customized those values and need to enter them as configured on your installation. 
+If you set a password for your database user, enter it when prompted for `database_password`. 
+The installer should continue once you've completed this manual portion of the installation process.
 
 #### b. Run eZ Platform's installer:
 
@@ -428,7 +430,7 @@ For our example, we'll demonstrate using Apache2 as part of the traditional LAMP
 
 #### Option A: Scripted Configuration
 
-Instead of manually editing the vhost.template file, you may instead [use the included shell script](starting_ez_platform.md#Web-server): /var/www/ezplatform/bin/vhost.sh to generate a configured .conf file. Check out the source of `vhost.sh` to see the options provided. Additional information is included in our [Web Server](starting_ez_platform.md#web-server) documentation here as well.
+Instead of manually editing the vhost.template file, you may instead [use the included shell script](starting_ez_platform.md#Web-server): `/var/www/ezplatform/bin/vhost.sh` to generate a configured .conf file. Check out the source of `vhost.sh` to see the options provided. Additional information is included in our [Web Server](starting_ez_platform.md#web-server) documentation here as well.
 
 #### Option B: Manual Edits
 
