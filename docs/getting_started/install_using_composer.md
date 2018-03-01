@@ -15,7 +15,7 @@ For further information about Composer usage see [Using Composer](about_composer
 The commands below assume you have Composer installed globally, a copy of git on your system, and your **MySQL/MariaDB server *already set up* with a database**. Once you've got all the required PHP extensions installed, you can get eZ Platform up and running with the following commands:
 
 ``` bash
-composer create-project --no-dev --keep-vcs ezsystems/ezplatform ezplatform
+composer create-project --keep-vcs ezsystems/ezplatform ezplatform
 cd ezplatform
 
 #at the end of the install process, you will be told to perform the following commands:
@@ -23,6 +23,11 @@ export SYMFONY_ENV="prod"
 php bin/console ezplatform:install clean
 php bin/console assetic:dump
 ```
+
+!!! note
+
+    If you want to install eZ Platform for production only and skip the dev environment, use the --no-dev option in your composer create-project command line:
+    > composer create-project --no-dev --keep-vcs ezsystems/ezplatform ezplatform
 
 !!! note
 

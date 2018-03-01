@@ -13,6 +13,7 @@ pages:
             - 'Install manually': 'getting_started/install_manually.md'
             - 'Install using Docker': 'getting_started/install_using_docker.md'
             - 'Starting eZ Platform': 'getting_started/starting_ez_platform.md'
+            - 'Setup Folder Rights': 'getting_started/setup_folder_rights.md'
             - 'Troubleshooting': 'getting_started/troubleshooting.md'
         - Going deeper:
             - 'eZ Platform features': 'getting_started/ez_platform_features.md'
