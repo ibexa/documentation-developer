@@ -341,6 +341,27 @@ ezpublish:
                 purge_servers: [http://my.varnish.server:8081]
 ```
 
+!!! enterprise
+
+    ### Setting Time-To-Live value for Landing Page blocks
+
+    Landing Page blocks are rendered using Edge Site Include which means you can set different TTL values for each Landing Page block type.
+    The TTL setting is available in the configuration under a `ttl` key. The value has to be set in seconds:
+
+    ``` yaml
+    ez_systems_landing_page_field_type:
+        blocks:
+            block_type:
+                ttl: 600
+                views:
+                    (...)
+    ```
+
+    `block_type` should be replace with the actual block name i.e. `embed`, `collection`, `schedule` and so on.
+    In the example above `block_type` will be cached for 10 minutes.
+
+    By default blocks are not cached (TTL = 0) for backwards compatibility reasons.
+
 ## Usage
 
 ### Context-aware HTTP cache
