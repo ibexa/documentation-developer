@@ -2,7 +2,7 @@
 
 An Application Programming Interface (API) allows you to connect your code to eZ Platform.
 
-[From the eZ Blog article] (http://ez.no/Blog/How-would-you-explain-what-an-API-is-to-your-mom)
+[From the eZ Blog article](http://ez.no/Blog/How-would-you-explain-what-an-API-is-to-your-mom)
 
 eZ Platform offers two APIs:
 
