@@ -9,9 +9,7 @@ Path to where you can find specification of the version you have:
 
 `vendor/ezsystems/ezpublish-kernel/doc/specifications/rest/REST-API-V2.rst`
 
-Online version for latest version:
-
-`https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst`
+[Online version](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst) for latest API version.
 
 ## About the REST specification structure
 
@@ -24,4 +22,4 @@ Then throughout the chapter, grouped into sub-chapters, is the detailed document
 -   A description of what this resource does
 -   Which headers are supported, and how to use them
 -   Which error codes can occur
--   Most of the time, a request + response example
+-   Most of the time, a request and response example

@@ -6,13 +6,13 @@ The eZ Platform REST API comes with a framework that makes it quite easy to exte
 
 REST routes are required to use the eZ Platform REST API prefix, `/api/ezp/v2`. You can create new resources below this prefix.
 
-To do so, you will/may need to create
+To do so, you will/may need to create:
 
--   a Controller that will handle your route actions
--   a Route, in your bundle's routing file
--   a Controller action
--   Optionally, a `ValueObjectVisitor` (if your Controller returns an object that doesn't already have a converter)
--   Optionally, an `InputParser`
+-   a controller that will handle your route actions
+-   a route, in your bundle's routing file
+-   a controller action
+-   optionally, a `ValueObjectVisitor` (if your controller returns an object that doesn't already have a converter)
+-   optionally, an `InputParser`
 
 ### Controller
 
@@ -38,7 +38,7 @@ class DefaultController extends BaseController
 
 ### Route
 
-As said earlier, your REST routes are required to use the REST URI prefix. To do so, the easiest way is to import your routing file using this prefix.
+As mentioned earlier, your REST routes are required to use the REST URI prefix. To do so, the easiest way is to import your routing file using this prefix.
 
 **app/config/routing.yml**
 
@@ -62,7 +62,7 @@ myRestBundle_hello_world:
     methods: [GET]
 ```
 
-Due to [![](https://jira.ez.no/images/icons/issuetypes/bug.png)EZP-23016](https://jira.ez.no/browse/EZP-23016?src=confmacro) - Custom REST API routes (v2) are not accessible from the legacy backend Closed , custom REST routes must be prefixed with `ezpublish_rest_`, or they won't be detected correctly.
+Due to [![](https://jira.ez.no/images/icons/issuetypes/bug.png)EZP-23016](https://jira.ez.no/browse/EZP-23016?src=confmacro) - Custom REST API routes (v2) are not accessible from the legacy backend, custom REST routes must be prefixed with `ezpublish_rest_`, or they won't be detected correctly.
 
 **My/Bundle/RestBundle/Resources/config/services.yml**
 
@@ -77,7 +77,7 @@ services:
 
 Unlike standard Symfony 2 controllers, the REST ones don't return an `HttpFoundation\Response` object, but a `ValueObject`. This object will during the kernel run be converted, using a ValueObjectVisitor, to a proper Symfony 2 response. One benefit is that when multiple controllers return the same object, such as a Content item or a Location, the visitor will be re-used.
 
-Let's say that our Controller will return a `My\Bundle\RestBundle\Rest\Values\Hello`
+Let's say that our controller will return a `My\Bundle\RestBundle\Rest\Values\Hello`
 
 **My/Bundle/RestBundle/Rest/Values/Hello.php**
 
@@ -120,7 +120,7 @@ And that's it. Outputting this object in the Response requires that we create a 
 
 A ValueObjectVisitor will take a Value returned by a REST controller, whatever the class, and will transform it into data that can be converted, either to json or XML. Those visitors are registered as services, and tagged with `ezpublish_rest.output.value_object_visitor`. The tag attribute says which class this Visitor applies to.
 
-Let's create the service for our ValueObjectVisitor first.
+Create the service for your ValueObjectVisitor first.
 
 **My/Bundle/RestBundle/Resources/config/services.yml**
 
@@ -133,7 +133,7 @@ services:
             - { name: ezpublish_rest.output.value_object_visitor, type: My\Bundle\RestBundle\Rest\Values\Hello }
 ```
 
-Let's create our visitor next. It must extend the  `eZ\Publish\Core\REST\Common\Output\ValueObjectVisitor` abstract class, and implement the `visit()` method.
+Create your visitor next. It must extend the  `eZ\Publish\Core\REST\Common\Output\ValueObjectVisitor` abstract class, and implement the `visit()` method.
 It will receive as arguments:
 
 -   `$visitor`: The output visitor. Can be used to set custom response headers ( `setHeader( $name, $value )`), HTTP status code ( `setStatus( $statusCode )` )...
@@ -161,7 +161,7 @@ class Hello extends ValueObjectVisitor
 
 The easiest way to handle cache is to re-use the `CachedValue` Value Object. It acts as a proxy, and adds the cache headers, depending on the configuration, for a given object and set of options.
 
-When you want the response to be cached, return an instance of CachedValue, with your Value Object as the argument. You can also pass a location id using the second argument, so that the Response is tagged with it:
+When you want the response to be cached, return an instance of CachedValue, with your Value Object as the argument. You can also pass a location ID using the second argument, so that the Response is tagged with it:
 
 ```
 use eZ\Publish\Core\REST\Server\Values\CachedValue;
@@ -189,13 +189,13 @@ X-Location-Id →42
 
 ## Input parser
 
-What we have seen above covers requests that don't require an input payload, such as GET or DELETE. If you need to provide your controller with parameters, either in JSON or XML, the parameter struct requires an Input Parser so that the payload can be converted to an actual ValueObject.
+If you need to provide your controller with parameters, either in JSON or XML, the parameter struct requires an input parser so that the payload can be converted to an actual ValueObject.
 
-Each payload is dispatched to its Input Parser based on the request's Content-Type header. For example, a request with a Content-Type of `application/vnd.ez.api.ContentCreate` will be parsed by `eZ\Publish\Core\REST\Server\Input\Parser\ContentCreate`. This parser will build and return a `ContentCreateStruct` that can then be used to create content with the Public API.
+Each payload is dispatched to its input parser based on the request's Content-Type header. For example, a request with a Content-Type of `application/vnd.ez.api.ContentCreate` will be parsed by `eZ\Publish\Core\REST\Server\Input\Parser\ContentCreate`. This parser will build and return a `ContentCreateStruct` that can then be used to create content with the Public API.
 
 Those input parsers are provided with a pre-parsed version of the input payload, as an associative array, and don't have to care about the actual format (XML or JSON).
 
-Let's see what it would look like with a Content-Type of application/vnd.my.Greetings, that would send this as XML:
+Let's see what it would look like with a Content-Type of `application/vnd.my.Greetings`, that would send this as XML:
 
 **application/vnd.my.Greetings+xml**
 
@@ -206,7 +206,7 @@ Let's see what it would look like with a Content-Type of application/vnd.my.Gree
 </Greetings>
 ```
 
-First, we need to create a service with the appropriate tag in services.yml.
+First, you need to create a service with the appropriate tag in services.yml.
 
 **My/Bundle/RestBundle/Resources/config/services.yml**
 
@@ -219,11 +219,11 @@ services:
             - { name: ezpublish_rest.input.parser, mediaType: application/vnd.my.Greetings }
 ```
 
-The mediaType attribute of the ezpublish\_rest.input.parser tag maps our Content Type to the input parser.
+The mediaType attribute of the `ezpublish\_rest.input.parser` tag maps our Content Type to the input parser.
 
-Let's implement our parser. It must extend eZ\\Publish\\Core\\REST\\Server\\Input\\Parser, and implement the `parse()` method. It accepts as an argument the input payload, `$data`, as an array, and an instance of `ParsingDispatcher` that can be used to forward parsing of embedded content.
+Implement your parser. It must extend `eZ\Publish\Core\REST\Server\Input\Parser`, and implement the `parse()` method. It accepts as an argument the input payload, `$data`, as an array, and an instance of `ParsingDispatcher` that can be used to forward parsing of embedded content.
 
-For convenience, we will consider that our input parser returns an instance of our `Value\Hello` class.
+For convenience, consider that your input parser returns an instance of `Value\Hello` class.
 
 **My/Bundle/RestBundle/Rest/InputParser/Greetings.php**
 
@@ -252,7 +252,7 @@ class Greetings extends BaseParser
     }
 }
 ```
-You should then add a new method to the previous `DefaultController` to handle the new post request:
+You should then add a new method to the previous `DefaultController` to handle the new POST request:
 ```
 use eZ\Publish\Core\REST\Common\Message;
 //...
@@ -284,9 +284,9 @@ myRestBundle_hello_world_using_post:
     methods: [POST]
 ```
 !!! note
-    Post Requests are not able to access the repository without performing a user authentication. More information [REST API Authentication ](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#authentication).
+    POST requests are not able to access the repository without performing a user authentication. More information [REST API Authentication ](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#authentication).
 
-Do not hesitate to look into the built-in InputParsers, in `eZ/Publish/Core/REST/Server/Input/Parser`, for more examples.
+Do not hesitate to look into the built-in `InputParsers`, in `eZ/Publish/Core/REST/Server/Input/Parser`, for more examples.
 
 
 ## Registering resources in the REST root
@@ -307,13 +307,9 @@ ez_publish_rest:
 
 with `someresource` being a unique key.
 
-
-
 The `router.generate` call dynamically renders a URI based on the name of the route and the optional parameters that are passed as the other arguments (in the code above this is the `contentId`).
 
 This syntax is based on [Symfony's expression language](http://symfony.com/doc/current/components/expression_language/index.html), an extensible component that allows limited / readable scripting to be used outside code context.
-
-
 
 The above configuration will add the following entry to the root resource:
 

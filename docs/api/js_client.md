@@ -1,9 +1,9 @@
-# JS Client
+# JavaScript client
 
 
 The JavaScript REST API Client is a JavaScript library meant to ease the use of the eZ Platform REST API. For now, it can only be used in a web browser.
 
-See [below](#using-the-javascript-rest-api-client) for a guide on how to use the client, and view the [generated JS API Client reference](http://ezsystems.github.io/javascript-rest-client/).
+This page will guide you on how to use the client, and view the [generated JS API Client reference](http://ezsystems.github.io/javascript-rest-client/).
 
 
 ## Using the JavaScript REST API Client
@@ -15,7 +15,7 @@ The JavaScript REST API Client is a JavaScript library meant to ease the use of 
 
 ### In the PlatformUIAssetsBundle
 
-Since the JavaScript REST Client is one of the foundations of [the Platform Backend Interface](../guide/extending_ez_platform_ui.md), the client is provided by the [PlatformUIAssetsBundle](https://github.com/ezsystems/PlatformUIAssetsBundle) which is installed by default. As a result, the client is directly available and can be embedded in any Platform-generated page with the following Twig code:
+Since the JavaScript REST client is one of the foundations of [the Platform Backend Interface](../guide/extending_ez_platform_ui.md), the client is provided by the [PlatformUIAssetsBundle](https://github.com/ezsystems/PlatformUIAssetsBundle) which is installed by default. As a result, the client is directly available and can be embedded in any Platform-generated page with the following Twig code:
 
 **Embedding the JavaScript REST Client**
 
@@ -27,7 +27,7 @@ Since the JavaScript REST Client is one of the foundations of [the Platform Back
 
 ### With Bower
 
-Alternatively, the JavaScript REST Client can be installed directly in any project with [Bower](http://bower.io/):
+Alternatively, the JavaScript REST client can be installed directly in any project with [Bower](http://bower.io/):
 
 **Installing with bower**
 
@@ -45,7 +45,7 @@ It is also possible to directly retrieve either `dist/CAPI.js` or `dist/CAPI-min
 
 Once included, `CAPI.js` exports the `eZ` namespace which contains `eZ.CAPI`, the constructor function of the client. This constructor must receive the API end point and an authentication agent responsible for handling the authentication (session or basic auth). This is detailed in the [Instantiation and authentication](#instantiation-and-authentication) section below.
 
-[The auto-generated API documentation of the JavaScript REST API client is available online.](http://ezsystems.github.io/javascript-rest-client) Like in the Public API, the code is organized around 3 main services:
+[The auto-generated API documentation](http://ezsystems.github.io/javascript-rest-client) of the JavaScript REST API client is available online. Like in the Public API, the code is organized around 3 main services:
 
 -   [the Content Service](http://ezsystems.github.io/javascript-rest-client/classes/ContentService.html)
 -   [the Content Type Service](http://ezsystems.github.io/javascript-rest-client/classes/ContentTypeService.html)
@@ -60,14 +60,14 @@ In essence, the operations available through those services are asynchronous, so
 
 [The `eZ.CAPI` constructor function](http://ezsystems.github.io/javascript-rest-client/classes/CAPI.html) expects two parameters:
 
-1.  the API end point URI
+1.  the API endpoint URI
 2.  an authentication agent instance to configure the client for [the authentication mechanism configuration in eZ Platform](general_rest_usage.md#rest-api-authentication).
 
-The JavaScript REST Client comes with two authentication agents for the Session and Basic Auth authentication mechanism.
+The JavaScript REST client comes with two authentication agents for the Session and Basic Auth authentication mechanism.
 
-#### Session auth
+#### Session Authentication
 
-The Session Auth Agent expects an object describing the existing Session or containing the credentials for the user to create the corresponding session. So if the user is not yet authenticated, the client can be instantiated with:
+The `SessionAuthAgent` expects an object describing the existing Session or containing the credentials for the user to create the corresponding session. So if the user is not yet authenticated, the client can be instantiated with:
 
 **Session Authentication (new session)**
 
@@ -119,9 +119,9 @@ capi.isLoggedIn(function (error, response) {
 });
 ```
 
-#### Basic auth
+#### Basic Authentication
 
-When configured in the Basic Authentication, the basic auth agent just expects the user's credentials:
+When configured in the Basic Authentication, the `HttpBasicAuthAgent` just expects the user's credentials:
 
 **Basic Authentication**
 
