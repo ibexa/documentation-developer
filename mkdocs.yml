@@ -47,6 +47,7 @@ pages:
             - '8. Add a validation': 'tutorials/field_type/8_add_a_validation.md'
         - Extending Admin UI:
             - '5. Creating a UDW tab': 'tutorials/extending_admin_ui/5_creating_a_udw_tab.md'
+            - '6. Creating a custom tag': 'tutorials/extending_admin_ui/6_adding_a_custom_tag.md'
     - API:
         - 'API Introduction': 'api/api.md'
         - REST API guide:
