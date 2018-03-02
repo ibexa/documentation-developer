@@ -45,17 +45,8 @@ pages:
             - '6. Introduce a template': 'tutorials/field_type/6_introduce_a_template.md'
             - '7. Add content and edit views': 'tutorials/field_type/7_add_content_and_edit_views.md'
             - '8. Add a validation': 'tutorials/field_type/8_add_a_validation.md'
-        - Extending PlatformUI with new navigation:
-            - 'Extending PlatformUI with new navigation': 'tutorials/extending_platformui/extending_platformui_with_new_navigation.md'
-            - '1. Create the extension bundle': 'tutorials/extending_platformui/1_create_the_extension_bundle.md'
-            - '2. Set up the configuration': 'tutorials/extending_platformui/2_set_up_the_configuration.md'
-            - '3. Alter the JavaScript application routing': 'tutorials/extending_platformui/3_alter_the_javascript_application_routing.md'
-            - '4. Define a view': 'tutorials/extending_platformui/4_define_a_view.md'
-            - '5. Configure the navigation': 'tutorials/extending_platformui/5_configure_the_navigation.md'
-            - '6. Build the content list': 'tutorials/extending_platformui/6_build_the_content_list.md'
-            - '7. Paginate results': 'tutorials/extending_platformui/7_paginate_results.md'
-            - '8. Filter by Content Type': 'tutorials/extending_platformui/8_filter_by_content_type.md'
-            - 'Conclusion': 'tutorials/extending_platformui/conclusion.md'
+        - Extending Admin UI:
+            - '5. Creating a UDW tab': 'tutorials/extending_admin_ui/5_creating_a_udw_tab.md'
     - API:
         - 'API Introduction': 'api/api.md'
         - REST API guide:
