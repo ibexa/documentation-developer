@@ -981,9 +981,9 @@ Typical use cases include access to:
 
 There are three ways in which you can apply a custom logic:
 
-- Configure a custom view controller alongside regular matcher rules.
-- [Add a listener to add your custom logic](#adding-a-listener) before or after the view is rendered.
-- [**Override**](#overriding-the-built-in-viewcontroller) the built-in `ViewController` with the custom controller in a specific situation (not recommended).
+- [Configure a custom view controller](#enriching-viewcontroller-with-a-custom-controller) alongside regular matcher rules (**recommended**).
+- [Add a Symfony Response listener](#adding-a-listener) to add custom logic to all responses.
+- [**Override**](#using-only-your-custom-controller) the built-in `ViewController` with the custom controller in a specific situation.
 
 ### Enriching ViewController with a custom controller
 
@@ -1024,8 +1024,8 @@ class DefaultController extends Controller
         $view->addParameters(['myCustomVariable' => "Hey, I'm a custom message!"]);
 
         // If you wish, you can also easily access Location and Content objects
-        $location = $view->getLocation();
-        $content = $view->getContent();
+        // $location = $view->getLocation();
+        // $content = $view->getContent();
 
         return $view;
     }
@@ -1047,106 +1047,7 @@ These parameters can then be used in templates, for example:
 
 ### Adding a listener
 
-One way to keep control of what is passed to the view is to use your own listener. It can be easily used to apply some custom logic to all views, but it is possible to limit the scope in any way required.
-To use the listener you need to add it to the configuration, for example:
-
-``` yaml
-services:
-    my.custom.view_listener:
-        class: AcmeTestBundle\Listener\MyViewListener
-        tags:
-            - { name: kernel.event_subscriber }
-```
-
-With this configuration, the following listener will add some additional parameter to the view. It needs to listen to `MVCEvents::PRE_CONTENT_VIEW`:
-
-``` php
-// Listener
-<?php
-
-namespace Acme\TestBundle\Listener;
-
-use eZ\Publish\Core\MVC\Symfony\Event\PreContentViewEvent;
-use eZ\Publish\Core\MVC\Symfony\MVCEvents;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-
-class MyViewListener implements EventSubscriberInterface
-{
-    public static function getSubscribedEvents()
-    {
-        return [MVCEvents::PRE_CONTENT_VIEW => 'doSomethingCustom'];
-    }
-
-    public function doSomethingCustom(PreContentViewEvent $event)
-    {
-        $view = $event->getContentView();
-
-        // Add custom parameters to existing ones.
-        $view->addParameters(['anotherCustomVariable' => "Another message!"]);
-
-        // If you wish, you can also easily access Location and Content objects
-        $location = $view->getLocation();
-        $content = $view->getContent();
-    }
-}
-```
-
-Similarly, you can use a listener to modify the response generated after the view is rendered.
-The configuration will look like the one earlier, for example:
-
-``` yaml
-services:
-    my.custom.response_listener:
-        class: AppBundle\Listener\MyResponseListener
-        tags:
-            - { name: kernel.event_subscriber }
-```
-
-As this listener needs to manipulate a Response object, it needs to listen to `KernelEvents::RESPONSE`:
-
-``` php
-// Listener
-<?php
-
-namespace Acme\TestBundle\Listener;
-
-use eZ\Publish\Core\MVC\Symfony\View\CachableView;
-use eZ\Publish\Core\MVC\Symfony\View\ContentValueView;
-use eZ\Publish\Core\MVC\Symfony\View\LocationValueView;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
-use Symfony\Component\HttpKernel\KernelEvents;
-
-class MyResponseListener implements EventSubscriberInterface
-{
-    public static function getSubscribedEvents()
-    {
-        return [KernelEvents::RESPONSE => 'doSomethingCustom'];
-    }
-
-    public function doSomethingCustom(FilterResponseEvent $event)
-    {
-        $view = $event->getRequest()->attributes->get('view');
-        if (!$view instanceof CachableView) {
-            return;
-        }
-
-        $response = $event->getResponse();
-
-        // Set custom header for the Response
-        $response->headers->add(['X-Hello' => 'World']);
-
-        // If you wish, you can also easily access Location and Content objects
-        if ($view instanceof LocationValueView) {
-            $location = $view->getLocation();
-        }
-        if ($view instanceof ContentValueView) {
-            $content = $view->getContent();
-        }
-    }
-}
-
-```
+One way to add custom logic to all responses is to use your own listener. Please refer to the [Symfony documentation](https://symfony.com/doc/2.8/event_dispatcher/before_after_filters.html#after-filters-with-the-kernel-response-event) for the details on how to achieve this.
 
 ### Using only your custom controller
 
