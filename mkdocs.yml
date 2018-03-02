@@ -57,7 +57,7 @@ pages:
             - '8. Filter by Content Type': 'tutorials/extending_platformui/8_filter_by_content_type.md'
             - 'Conclusion': 'tutorials/extending_platformui/conclusion.md'
     - API:
-        - 'API': 'api/api.md'
+        - 'API Introduction': 'api/api.md'
         - REST API guide:
             - 'REST API guide': 'api/rest_api_guide.md'
             - 'REST API usage': 'api/general_rest_usage.md'
