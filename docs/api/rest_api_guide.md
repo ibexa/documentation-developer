@@ -4,7 +4,7 @@ The REST API v2 introduced in eZ Platform allows you to interact with an eZ Plat
 
 ## Accessing the REST API
 
-The REST API is available at the URI `/api/ezp/v2` . HTTPS is available as long as your server is properly configured. Refer to the [Getting started with the REST API](#getting-started-with-the-rest-api) page to start using the API.
+The REST API is available at the URI `/api/ezp/v2` . HTTPS is available as long as your server is properly configured. Refer to the [Getting started with the REST API](#getting-started-with-the-rest-api) section below to start using the API.
 
 ## Basics
 
@@ -14,14 +14,16 @@ REST (REpresentational State Transfer) is a web services architecture that follo
 
 The API provides a set of URIs, each of them identifying and providing access to operations on a certain resource. For instance, the URI `/content/objects/59` will allow you to interact with the Content with ID 59, while `/content/types/1` will allow you to interact with the Content Type with ID 1.
 
-### HTTP verbs
+### HTTP methods
 
-It uses HTTP verbs ( **`GET`** , **`POST`** , but also **`PUT`** , **`DELETE`** , etc...), as well as HTTP headers to specify the type of request. Depending on the used HTTP verb, different actions will be possible. Example:
+It uses HTTP methods ( **`GET`** , **`POST`** , **`PUT`** , **`DELETE`** , etc.), as well as HTTP headers to specify the type of request. Depending on the used HTTP verb, different actions will be possible. Example:
 
--   `GET  /content/objects/2` will provide you with data about Content \#2,
--   `PATCH  /content/objects/2` will update the Content \#2's metadata (section, main language, main location...),
--   `DELETE  /content/objects/2` will delete Content \#2,
--   `COPY  /content/objects/2` will create a copy of this Content.
+|Action|Description|
+|------|-----------|
+|`GET  /content/objects/2`| Provides you with data about Content \#2|
+|`PATCH  /content/objects/2`| Updates the Content \#2's metadata (section, main language, main location...)|
+|`DELETE  /content/objects/2`| Deletes Content \#2|
+|`COPY  /content/objects/2`| Creates a copy of this Content|
 
 !!! note "Caution with custom HTTP verbs"
 
@@ -29,7 +31,7 @@ It uses HTTP verbs ( **`GET`** , **`POST`** , but also **`PUT`** , **`DELETE`** 
 
 ### Media type headers
 
-On top of verbs, HTTP request headers will allow you to personalize the request's behavior. On every resource, you can use the Accept header to indicate which format you want to communicate in, JSON or XML. This header is also used to specify the response type you want the server to send when multiple ones are available.
+On top of methods, HTTP request headers will allow you to personalize the request's behavior. On every resource, you can use the Accept header to indicate which format you want to communicate in, JSON or XML. This header is also used to specify the response type you want the server to send when multiple ones are available.
 
 -   `Accept: application/vnd.ez.api.Content+xml` to get **Content** (full data, fields included) as **XML**
 -   `Accept: application/vnd.ez.api.ContentInfo+json` to get **ContentInfo** (metadata only) as **JSON**
@@ -40,7 +42,7 @@ On top of verbs, HTTP request headers will allow you to personalize the request'
 
 ### Other headers
 
-Other headers will be used in HTTP requests for specifying the siteaccess to interact with, and of course [authentication credentials](general_rest_usage.md#rest-api-authentication).
+Other headers will be used in HTTP requests for specifying: the siteaccess to interact with and [authentication credentials](general_rest_usage.md#rest-api-authentication).
 
 Responses returned by the API will also use custom headers to indicate information about the executed operation.
 
