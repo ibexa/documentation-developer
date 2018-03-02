@@ -199,13 +199,13 @@ These steps are only relevant for some releases:
         For production environment:
 
         ``` bash
-        * * * * *   (cd /path/to/your/ezplatform-ee-project && app/console ezpublish:cron:run -e=prod)
+        * * * * *   (cd /path/to/your/ezplatform-ee-project && app/console ezpublish:cron:run -e prod)
         ```
 
         For development environment:
 
         ``` bash
-        * * * * *   (cd /path/to/your/ezplatform-ee-project && app/console ezpublish:cron:run -e=dev)
+        * * * * *   (cd /path/to/your/ezplatform-ee-project && app/console ezpublish:cron:run -e dev)
         ```
 
 ## 5. Dump assets
@@ -213,15 +213,15 @@ These steps are only relevant for some releases:
 The web assets must be dumped again if you are using the `prod` environment. In `dev` this happens automatically:
 
 ``` bash
-php app/console assetic:dump -e=prod
+php app/console assetic:dump -e prod
 ```
 
 If you encounter problems, additionally clear the cache and install assets:
 
 ``` bash
-php app/console cache:clear -e=prod
-php app/console assets:install --symlink -e=prod
-php app/console assetic:dump -e=prod
+php app/console cache:clear -e prod
+php app/console assets:install --symlink -e prod
+php app/console assetic:dump -e prod
 ```
 
 ## 6. Commit, test and merge
