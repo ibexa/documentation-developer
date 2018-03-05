@@ -8,7 +8,7 @@ bin/console generate:bundle --namespace=EzSystems/ExtendingTutorialBundle --dir=
 ```
 
 This will generate a new bundle skeleton in `src/EzSystems/ExtendingTutorialBundle`,
-add it to the application kernel and configure eZ Platform to use the generated `routing.yml` without asking any questions.
+add it to the application kernel and configure eZ Platform to use the generated `routing.yml`.
 
 !!! tip "Bundle name"
 

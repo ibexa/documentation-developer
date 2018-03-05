@@ -188,6 +188,10 @@ Finally, create an `all_content_list.html.twig` file in `src/EzSystems/Extending
 
 ## Check results
 
+!!! tip
+
+    If you cannot see the results, clear the cache and reload the application.
+
 At this point you can go to the Back Office and under "Content" you will see the new "Content list" item.
 Select it and you will see the list of all Content items in the Repository.
 

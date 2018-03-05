@@ -119,13 +119,17 @@ class EveryoneArticleTab extends AbstractTab implements OrderedTabInterface
     The tab extends `AbstractTab`.
     There are also [other tab types that you can extend](../../guide/extending_ez_platform_ui.md#adding-a-new-tab).
 
-It also implements `OrderedTabInterface` (see line 15), which enables you to define the order in which the tab is displayed in the Dashboard.
+The tab also implements `OrderedTabInterface` (see line 15), which enables you to define the order in which the tab is displayed in the Dashboard.
 This is done using the `getOrder` method (see line 45).
 
 The rendering is done using the built-in `all_content.html.twig` template,
 which ensures the tab looks the same as the existing tabs.
 
 ## Check results
+
+!!! tip
+
+    If you cannot see the results, clear the cache and reload the application.
 
 At this point you can go to the Dashboard in the Back Office.
 In the "Everyone" block you can see the new "Articles" tab with the first ten articles in the Repository.

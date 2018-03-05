@@ -4,7 +4,7 @@
 
 This tutorial aims at providing a step-by-step guide on how to extend the eZ Platform Back Office provided by [the eZ Platform Admin UI bundle](https://github.com/ezsystems/ezplatform-admin-ui). 
 
-In this tutorial, we will create a new part of the application allowing you to browse your content by Content Type instead of using the tree structure. To fully benefit from this document, you need to:
+In this tutorial, you will create a new part of the application allowing you to browse your content by Content Type instead of using the tree structure.
 
 You will learn to extend two points of the Back Office:
 
