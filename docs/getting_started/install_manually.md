@@ -422,7 +422,7 @@ Like most things, [Symfony documentation](http://symfony.com/doc/current/book/in
 
 Furthermore, future files and directories created by these two users will need to inherit those access rights. *For security reasons, there is no need for web server to have access to write to other directories.*
 
-Then, go to the [Setup folder rights](../getting_started/setup_folder_rights.md) page for the next steps of this settings.
+Then, go to the [Set up folder rights](set_up_folder_rights.md) page for the next steps of this settings.
 
 ### 7. Set up a Virtual Host
 
