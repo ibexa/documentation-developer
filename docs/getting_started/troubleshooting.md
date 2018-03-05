@@ -10,7 +10,7 @@ If you're having difficulty completing installation on a system with limited RAM
 
 ## Upload Size Limit
 
-To make use of PlatformUI, you need to define the maximum upload sizeto be consistent with the maximum file size defined in the Content Type using a File, Media or Image Field Definition.
+To make use of the Back Office, you need to define the maximum upload sizeto be consistent with the maximum file size defined in the Content Type using a File, Media or Image Field Definition.
 
 This is done by setting `LimitRequestBody` for Apache or` client_max_body_size` for Nginx.
 

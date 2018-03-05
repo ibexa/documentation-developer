@@ -47,9 +47,9 @@ To get an overview of EzPublishCoreBundle's configuration, run the following com
 php bin/console config:dump-reference ezpublish
 ```
 
-#### PlatformUIBundle
+#### ezplatform-admin-ui
 
-[PlatformUIBundle](https://github.com/ezsystems/PlatformUIBundle) provides the main editing and back-end interface for eZ Platform.
+[ezplatform-admin-ui](https://github.com/ezsystems/ezplatform-admin-ui) provides the main editing and back-end interface for eZ Platform.
 
 #### ezplatform-solr-search-engine
 

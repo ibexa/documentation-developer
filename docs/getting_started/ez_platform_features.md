@@ -71,7 +71,7 @@ Now you can check out the project structure and capabilities of the system.
 
 Once you have the Demo installed, take a look around it to familiarize yourself with the interface of eZ Platform.
 
-To access the back office of your installation, append `/ez` to its path: &lt;`your_installation path>/ez`. You will be prompted for the username and password, which by default are:
+To access the back office of your installation, append `/admin` to its path: &lt;`your_installation path>/admin`. You will be prompted for the username and password, which by default are:
 
 username: admin
 password: publish

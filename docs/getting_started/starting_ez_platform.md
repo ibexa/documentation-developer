@@ -1,6 +1,6 @@
 # Starting eZ Platform
 
-Once you have your eZ Platform installed, all you need to do to start it is to run your Apache server. Then you can access your eZ Platform's front and back office. To access the UI backend, add `/ez` to your installation URL.
+Once you have your eZ Platform installed, all you need to do to start it is to run your Apache server. Then you can access your eZ Platform's front and back office. To access the UI backend, add `/admin` to your installation URL.
  
 ## Web Server
 
