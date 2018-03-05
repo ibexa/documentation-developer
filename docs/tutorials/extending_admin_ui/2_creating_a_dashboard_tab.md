@@ -4,7 +4,7 @@ The Dashboard is the front page that you visit after logging in to the Back Offi
 By default it contains two blocks: "Me" and "Everyone", which list Content items and Media.
 The "Me" block additionally lists your own drafts.
 
-TODO SCREENSHOT
+![Unmodified dashboard](img/dashboard.png)
 
 In this step you will add a new tab to the "Everyone" block in the Dashboard.
 This tab, called "Articles", will list ten most recently modified Content items of the Content Type `article`.
@@ -130,4 +130,4 @@ which ensures the tab looks the same as the existing tabs.
 At this point you can go to the Dashboard in the Back Office.
 In the "Everyone" block you can see the new "Articles" tab with the first ten articles in the Repository.
 
-TODO SCREENSHOT
+![Articles tab in the Dashboard](img/dashboard_articles_tab.png "Articles tab in the Dashboard")
