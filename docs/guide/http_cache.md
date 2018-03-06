@@ -178,6 +178,10 @@ $response = new Response();
 $response->setVary('X-User-Hash');
 ```
 
+!!! tip "Using Varnish"
+
+    When using Varnish and the proposed VCL, each Request will have the X-User-Hash header and then, every Response will vary on the X-User-Hash whether you explicitly set it up or not.
+
 ## Configuration
 
 ### Cache Purge
@@ -448,6 +452,10 @@ $response->setVary('X-User-Hash');
 
 This solution is implemented in Symfony reverse proxy (aka *HttpCache*) and is also accessible to dedicated reverse proxies like Varnish.
 
+!!! tip "Using Varnish"
+
+    When using Varnish and the proposed VCL, each Request will have the X-User-Hash header and then, every Response will vary on the X-User-Hash whether you explicitly set it up or not.
+
 !!! note
 
     Note that sharing ESIs across SiteAccesses is not possible by design (see [![](https://jira.ez.no/images/icons/issuetypes/bug.png)EZP-22535](https://jira.ez.no/browse/EZP-22535?src=confmacro) - Cached ESI can not be shared across pages/siteaccesses due to "pathinfo" property Closed for technical details)
@@ -499,6 +507,10 @@ $response->setVary('X-User-Hash');
 ```
 
 This solution is [implemented in Symfony reverse proxy (aka *HttpCache*)](http://foshttpcachebundle.readthedocs.org/en/latest/features/symfony-http-cache.html) and is also accessible to [dedicated reverse proxies like Varnish](http://foshttpcache.readthedocs.org/en/latest/varnish-configuration.html).
+
+!!! tip "Using Varnish"
+
+    When using Varnish and the proposed VCL, each Request will have the X-User-Hash header and then, every Response will vary on the X-User-Hash whether you explicitly set it up or not.
 
 #### Workflow
 
