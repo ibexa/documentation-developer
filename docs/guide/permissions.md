@@ -29,7 +29,7 @@ Here are a few examples of sets of Policies you can use to get some common permi
 
 ##### Enter back end interface
 
-To allow the User to enter the back end interface (PlatformUI) and view all Content, you need to set the following Policies:
+To allow the User to enter the back end interface and view all Content, you need to set the following Policies:
 
 - `user/login`
 - `content/read`
@@ -40,7 +40,7 @@ To let the User navigate through StudioUI, you also need to add:
 - `section/view`
 - `content/reverserelatedlist`
 
-These Policies will be necessary for all other cases below that require access to the PlatformUI.
+These Policies will be necessary for all other cases below that require access to the Back Office.
 
 ##### Create and publish content
 
@@ -132,7 +132,7 @@ To allow anonymous users to register through the `/register` route, you need to 
 |               | `remove`             | remove Locations and send content to Trash                                                                                              |
 |               | `versionread`        | view content after publishing, and to preview any content in the Page mode                                                              |
 |               | `versionremove`      | remove archived content versions                                                                                                        |
-|               | `translations`       | manage the language list in PlatformUI                                                                                                  |
+|               | `translations`       | manage the language list in the Back Office                                                                                                  |
 |               | `urltranslator`      | unused                                                                                                                                  |
 |               | `pendinglist`        | unused                                                                                                                                  |
 |               | `restore`            | restore content from Trash                                                                                                              |
