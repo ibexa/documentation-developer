@@ -18,6 +18,6 @@ add it to the application kernel and configure eZ Platform to use the generated 
 !!! caution
 
     During bundle generation you can see the error "The command was not able to configure everything automatically".
-    Then add the following line to `composer.json` under `autoload:psr-4`:
+    Then [add the following line to `composer.json` under `autoload:psr-4`](https://github.com/symfony/symfony/issues/23630):
 
     `"EzSystems\\ExtendingTutorialBundle\\": "src/EzSystems/ExtendingTutorialBundle"`
