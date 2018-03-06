@@ -50,6 +50,7 @@ pages:
             - '1. Creating a bundle': 'tutorials/extending_admin_ui/1_creating_a_bundle.md'
             - '2. Creating a Dashboard tab': 'tutorials/extending_admin_ui/2_creating_a_dashboard_tab.md'
             - '3. Creating a content list': 'tutorials/extending_admin_ui/3_creating_a_content_list.md'
+            - '4. Filtering the content list': 'tutorials/extending_admin_ui/4_filtering_the_content_list.md'
     - API:
         - 'API': 'api/api.md'
         - REST API guide:
