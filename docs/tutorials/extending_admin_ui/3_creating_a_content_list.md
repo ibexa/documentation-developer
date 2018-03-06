@@ -68,10 +68,11 @@ Line 28 points to the new route that you need to add to the routing file.
 
 Add the following block to `src/EzSystems/ExtendingTutorialBundle/Resources/config/routing.yml`:
 
-``` yaml hl_lines="4"
+``` yaml hl_lines="5"
 ezsystems_extending_tutorial.all_content_list.list:
-    path: /all_content_list
+    path: /all_content_list/{page}
     defaults:
+        page: 1
         _controller: 'EzSystemsExtendingTutorialBundle:AllContentList:list'
 ```
 
@@ -93,16 +94,18 @@ EzSystems\ExtendingTutorialBundle\Controller\:
 
 Then, in `src/EzSystems/ExtendingTutorialBundle/Controller` create a `AllContentListController.php` file:
 
-```php hl_lines="33"
+```php hl_lines="41"
 <?php
 
 namespace EzSystems\ExtendingTutorialBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use EzSystems\EzPlatformAdminUiBundle\Controller\Controller;
 use eZ\Publish\API\Repository\SearchService;
 use eZ\Publish\API\Repository\ContentTypeService;
 use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
 use eZ\Publish\API\Repository\Values\Content\LocationQuery;
+use eZ\Publish\Core\Pagination\Pagerfanta\LocationSearchAdapter;
+use Pagerfanta\Pagerfanta;
 
 class AllContentListController extends Controller
 {
@@ -116,24 +119,31 @@ class AllContentListController extends Controller
         $this->contentTypeService = $contentTypeService;
     }
 
-    public function listAction()
+    public function listAction($page = 1)
     {
         $query = new LocationQuery();
 
-        $query->query = new Criterion\LogicalAnd([
+        $criterions = [
             new Criterion\Visibility(Criterion\Visibility::VISIBLE),
-        ]);
+        ];
 
-        $results = $this->searchService->findLocations($query);
+        $query->query = new Criterion\LogicalAnd($criterions);
+
+        $paginator = new Pagerfanta(
+            new LocationSearchAdapter($query, $this->searchService)
+        );
+        $paginator->setMaxPerPage(8);
+        $paginator->setCurrentPage($page);
 
         return $this->render('@EzSystemsExtendingTutorial/list/all_content_list.html.twig', [
-            'articles' => $results,
+            'totalCount' => $paginator->getNbResults(),
+            'articles' => $paginator,
         ]);
     }
 }
 ```
 
-The highlighted line 33 indicates the template that will be used to display the list.
+The highlighted line 41 indicates the template that will be used to display the list.
 
 ## Add a template
 
@@ -158,7 +168,7 @@ Finally, create an `all_content_list.html.twig` file in `src/EzSystems/Extending
 {%- endblock -%}
 
 {%- block content -%}
-    <section class="container mt-4">
+    <section class="container my-4">
         <div class="ez-table-header">
             <div class="ez-table-header__headline">{{ "Content List"|trans }}</div>
         </div>
@@ -172,16 +182,17 @@ Finally, create an `all_content_list.html.twig` file in `src/EzSystems/Extending
                 </tr>
             </thead>
             <tbody>
-            {% for article in articles.searchHits %}
+            {% for article in articles %}
                 <tr>
-                    <td><a href={{path('ez_urlalias', {'contentId': article.valueObject.contentInfo.id})}}>{{ ez_content_name(article.valueObject.contentInfo) }}</a></td>
-                    <td>{{ article.valueObject.contentInfo.contentTypeId }}</td>
-                    <td>{{ article.valueObject.contentInfo.modificationDate|localizeddate( 'short', 'medium' ) }}</td>
-                    <td>{{ article.valueObject.contentInfo.publishedDate|localizeddate( 'short', 'medium' ) }}</td>
+                    <td><a href={{path('ez_urlalias', {'contentId': article.contentInfo.id})}}>{{ ez_content_name(article.contentInfo) }}</a></td>
+                    <td>{{ article.contentInfo.contentTypeId }}</td>
+                    <td>{{ article.contentInfo.modificationDate|localizeddate( 'short', 'medium' ) }}</td>
+                    <td>{{ article.contentInfo.publishedDate|localizeddate( 'short', 'medium' ) }}</td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
+        {{ pagerfanta(articles, 'ez') }}
     </section>
 {%- endblock -%}
 ```
