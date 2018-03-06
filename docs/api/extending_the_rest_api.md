@@ -18,7 +18,7 @@ To do so, you will/may need to create:
 
 To create a REST controller, you need to extend the `ezpublish_rest.controller.base` service, as well as the `eZ\Publish\Core\REST\Server\Controller` class.
 
-Let's create a very simple controller, that has a `sayHello()` method, that takes a name as an argument.
+First create a very simple controller, that has a `sayHello()` method, that takes a name as an argument.
 
 **My/Bundle/RestBundle/Rest/Controller/DefaultController.php**
 

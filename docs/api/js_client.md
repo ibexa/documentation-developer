@@ -1,15 +1,15 @@
 # JavaScript client
 
 
-The JavaScript REST API Client is a JavaScript library meant to ease the use of the eZ Platform REST API. For now, it can only be used in a web browser.
+The JavaScript REST API client is a JavaScript library meant to ease the use of the eZ Platform REST API. For now, it can only be used in a web browser.
 
-This page will guide you on how to use the client, and view the [generated JS API Client reference](http://ezsystems.github.io/javascript-rest-client/).
-
-
-## Using the JavaScript REST API Client
+This page will guide you on how to use the client, and view the [generated JavaScript API client reference](http://ezsystems.github.io/javascript-rest-client/).
 
 
-The JavaScript REST API Client is a JavaScript library meant to ease the use of the eZ Platform REST API. For now, it can only be used in a web browser.
+## Using the JavaScript REST API client
+
+
+The JavaScript REST API client is a JavaScript library meant to ease the use of the eZ Platform REST API. For now, it can only be used in a web browser.
 
 ## Installation
 
@@ -17,7 +17,7 @@ The JavaScript REST API Client is a JavaScript library meant to ease the use of 
 
 Since the JavaScript REST client is one of the foundations of [the Platform Backend Interface](../guide/extending_ez_platform_ui.md), the client is provided by the [PlatformUIAssetsBundle](https://github.com/ezsystems/PlatformUIAssetsBundle) which is installed by default. As a result, the client is directly available and can be embedded in any Platform-generated page with the following Twig code:
 
-**Embedding the JavaScript REST Client**
+**Embedding the JavaScript REST client**
 
 ``` php
 <script src="{{ asset('bundles/ezplatformuiassets/vendors/ez-js-rest-client/dist/CAPI.js') }}"></script>
