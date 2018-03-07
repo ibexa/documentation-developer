@@ -875,6 +875,9 @@ when someone requests them.
 Note that the system does not add this tag to responses itself, just purges if present.
 Response tagging using this tag is currently meant to be done inline in the template logic / views
 based on your decision.
+- `ez-all` - An internal tag used for being able to clear all cache.
+Main use case is being able to expire (soft purge) all cache on deployment of new versions of your installation,
+for example if it significantly changes representation or design.
 
 #### Response tagging process
 
@@ -889,6 +892,15 @@ These can be found in `ezplatform-http-cache/src/ResponseTagger`.
 
 For custom or eZ Platform controllers still using `X-Location-Id`, a dedicated response listener
 `XLocationIdResponseSubscriber` handles translating this to tags so the cache can be properly invalidated by this bundle.
+It supports comma-separated Location ID values:
+
+``` php
+/** @var \Symfony\Component\HttpFoundation\Response $response */
+$response->headers->set('X-Location-Id', 123);
+
+// Alternatively using several Location ID values, requires ezplatform-http-cache to work across all supported proxies
+$response->headers->set('X-Location-Id', '123,212,42');
+```
 
 !!! note
 
