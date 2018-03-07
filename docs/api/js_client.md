@@ -20,18 +20,6 @@ Since the JavaScript REST client is one of the foundations of [the Platform Back
 <!-- <script src="{{ asset('bundles/ezplatformuiassets/vendors/ez-js-rest-client/dist/CAPI-min.js') }}"></script> -->
 ```
 
-### With Bower
-
-Alternatively, the JavaScript REST client can be installed directly in any project with [Bower](http://bower.io/):
-
-**Installing with bower**
-
-``` php
-$ bower install --save ezsystems/ez-js-rest-client
-```
-
-After using this command, `dist/CAPI.js` or `dist/CAPI-min.js` are available in `bower\_components/ez-js-rest-client/`.
-
 ### Manual install
 
 It is also possible to directly retrieve either `dist/CAPI.js` or `dist/CAPI-min.js` in [the Github repository of the project](https://github.com/ezsystems/ez-js-rest-client/).
@@ -48,8 +36,10 @@ Once included, `CAPI.js` exports the `eZ` namespace which contains `eZ.CAPI`, th
 
 In essence, the operations available through those services are asynchronous, so all the corresponding methods accept a callback function as its last argument. This callback function will be called when the operation has been done and it will receive two arguments:
 
-1.  `error`: depending on the success of the operation, this parameter is either `false` or a [`CAPIError`](http://ezsystems.github.io/javascript-rest-client/classes/CAPIError.html) instance representing the error
-2.  `response`: it's always of a [`Response`](http://ezsystems.github.io/javascript-rest-client/classes/Response.html) instance allowing you to retrieve any information from the REST API response
+|Argument|Description|
+|--------|-----------|
+|`error`|Depending on the success of the operation, this parameter is either `false` or a [`CAPIError`](http://ezsystems.github.io/javascript-rest-client/classes/CAPIError.html) instance representing the error|
+|`response`|It's always a [`Response`](http://ezsystems.github.io/javascript-rest-client/classes/Response.html) instance that allows you to retrieve any information from the REST API response.|
 
 ### Instantiation and authentication
 
@@ -114,8 +104,7 @@ capi.isLoggedIn(function (error, response) {
 });
 ```
 
-`csrfToken` is returned in the login response. It is important to keep CSRF Token for the duration of the session as it needs to be sent with requests other than GET/HEAD when auth is set to session (and it mostly is).
-
+`csrfToken` is returned in the login response. It is important to keep CSRF Token for the duration of the session as it needs to be sent with requests other than GET/HEAD when auth is set to session (in most cases is).
 
 #### Basic Authentication
 

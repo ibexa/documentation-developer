@@ -114,7 +114,7 @@ class DefaultController extends BaseController
 }
 ```
 
-And that's it. Outputting this object in the Response requires that you create a `ValueObjectVisitor`.
+Outputting this object in the Response requires that you create a `ValueObjectVisitor`.
 
 ## ValueObjectVisitor
 
@@ -178,7 +178,9 @@ use eZ\Publish\Core\REST\Server\Values\CachedValue;
     }
 
 ```
+
 Below you can find the corresponding response header when using Varnish as reverse proxy:
+
 ```
 Age →30
 Cache-Control →private, no-cache
@@ -187,7 +189,6 @@ X-Cache →HIT
 X-Cache-Hits →2
 X-Location-Id →42
 ```
-
 
 ## Input parser
 
@@ -208,7 +209,7 @@ Let's see what it would look like with a Content-Type of `application/vnd.my.Gre
 </Greetings>
 ```
 
-First, you need to create a service with the appropriate tag in services.yml.
+First, you need to create a service with the appropriate tag in `services.yml`.
 
 **My/Bundle/RestBundle/Resources/config/services.yml**
 
@@ -254,7 +255,9 @@ class Greetings extends BaseParser
     }
 }
 ```
+
 You should then add a new method to the previous `DefaultController` to handle the new POST request:
+
 ```
 use eZ\Publish\Core\REST\Common\Message;
 //...
@@ -275,9 +278,11 @@ use eZ\Publish\Core\REST\Common\Message;
     }
 
 ```
+
 The `inputDispatcher` is responsible for matching the `Content-Type` sent in the header with the Greetings `InputParser` class.
 
-Finally, a new Route should be added to routing_rest.yml
+Finally, a new Route should be added to `routing_rest.yml`
+
 ``` yaml
 myRestBundle_hello_world_using_post:
     path: /my_rest_bundle/hello/
@@ -285,11 +290,12 @@ myRestBundle_hello_world_using_post:
         _controller: myRestBundle.controller.default:sayHelloUsingPost
     methods: [POST]
 ```
+
 !!! note
+
     POST requests are not able to access the repository without performing a user authentication. For more information check [REST API Authentication](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#authentication).
 
 Do not hesitate to look into the built-in `InputParsers`, in `eZ/Publish/Core/REST/Server/Input/Parser`, for more examples.
-
 
 ## Registering resources in the REST root
 
@@ -311,7 +317,7 @@ with `someresource` being a unique key.
 
 The `router.generate` call dynamically renders a URI based on the name of the route and the optional parameters that are passed as the other arguments (in the code above this is the `contentId`).
 
-This syntax is based on [Symfony's expression language](http://symfony.com/doc/current/components/expression_language/index.html), an extensible component that allows limited / readable scripting to be used outside code context.
+This syntax is based on [Symfony's expression language](http://symfony.com/doc/current/components/expression_language/index.html), an extensible component that allows limited/readable scripting to be used outside code context.
 
 The above configuration will add the following entry to the root resource:
 

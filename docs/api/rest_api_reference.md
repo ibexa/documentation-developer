@@ -2,9 +2,10 @@
 
 
 The complete REST API reference resources can be found:
+
   - Bundled with your software version: 
   
-  `vendor/ezsystems/ezpublish-kernel/doc/specifications/rest/REST-API-V2.rst`
+   `vendor/ezsystems/ezpublish-kernel/doc/specifications/rest/REST-API-V2.rst`
   
   - [Online with latest API version](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst)
 
