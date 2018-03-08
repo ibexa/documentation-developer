@@ -471,6 +471,11 @@ stash:
                         port: 6379
 ```
 
+!!! caution "Clearing Redis cache"
+
+    The regular `cache:clear` command does not clear Redis persistence cache.
+    To clear it, use the console command shipped with Redis: `redis-cli flushall`.
+
 ##### Memcache(d)
 
 This cache backend is using [Memcached, a distributed caching solution](http://memcached.org/). This is the main supported cache solution for [multi server (cluster) setups](clustering.md), besides using Redis.
