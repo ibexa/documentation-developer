@@ -473,7 +473,7 @@ stash:
 
 !!! caution "Clearing Redis cache"
 
-    The regular `cache:clear` command does not clear Redis persistence cache.
+    The regular `php app/console cache:clear` command does not clear Redis persistence cache.
     To clear it, use the console command shipped with Redis: `redis-cli flushall`.
 
 ##### Memcache(d)
