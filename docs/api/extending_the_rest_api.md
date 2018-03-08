@@ -18,7 +18,7 @@ To do so, you will/may need to create:
 
 To create a REST controller, you need to extend the `ezpublish_rest.controller.base` service, as well as the `eZ\Publish\Core\REST\Server\Controller` class.
 
-First create a very simple controller, that has a `sayHello()` method, that takes a name as an argument.
+First create a simple controller that has a `sayHello()` method which takes a name as an argument.
 
 **My/Bundle/RestBundle/Rest/Controller/DefaultController.php**
 
@@ -62,7 +62,7 @@ myRestBundle_hello_world:
     methods: [GET]
 ```
 
-Due to [![](https://jira.ez.no/images/icons/issuetypes/bug.png)EZP-23016](https://jira.ez.no/browse/EZP-23016?src=confmacro) - Custom REST API routes (v2) are not accessible from the legacy backend, custom REST routes must be prefixed with `ezpublish_rest_`, or they won't be detected correctly.
+Due to [EZP-23016](https://jira.ez.no/browse/EZP-23016) - Custom REST API routes (v2) are not accessible from the legacy backend, custom REST routes must be prefixed with `ezpublish_rest_`, or they won't be detected correctly.
 
 **My/Bundle/RestBundle/Resources/config/services.yml**
 
@@ -114,7 +114,7 @@ class DefaultController extends BaseController
 }
 ```
 
-Outputting this object in the Response requires that you create a `ValueObjectVisitor`.
+Outputting this object in the response requires that you create a `ValueObjectVisitor`.
 
 ## ValueObjectVisitor
 
@@ -163,7 +163,7 @@ class Hello extends ValueObjectVisitor
 
 The easiest way to handle cache is to re-use the `CachedValue` Value Object. It acts as a proxy, and adds the cache headers, depending on the configuration, for a given object and set of options.
 
-When you want the response to be cached, return an instance of `CachedValue`, with your Value Object as the argument. You can also pass a location ID using the second argument, so that the Response is tagged with it:
+When you want the response to be cached, return an instance of `CachedValue`, with your Value Object as the argument. You can also pass a Location ID using the second argument, so that the response is tagged with it:
 
 ```
 use eZ\Publish\Core\REST\Server\Values\CachedValue;
@@ -293,9 +293,9 @@ myRestBundle_hello_world_using_post:
 
 !!! note
 
-    POST requests are not able to access the repository without performing a user authentication. For more information check [REST API Authentication](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#authentication).
+    POST requests are not able to access the Repository without performing a user authentication. For more information check [REST API Authentication](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#authentication).
 
-Do not hesitate to look into the built-in `InputParsers`, in `eZ/Publish/Core/REST/Server/Input/Parser`, for more examples.
+You can look into the built-in `InputParsers`, in `eZ/Publish/Core/REST/Server/Input/Parser`, for more examples.
 
 ## Registering resources in the REST root
 
