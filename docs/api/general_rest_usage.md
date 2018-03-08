@@ -187,6 +187,76 @@ If this authentication method is used with a web browser, this session cookie is
 
 It is also possible to create a session for the visitor if they aren't logged in yet. This is done by sending a **`POST`** request to `/user/sessions`. Logging out is done using a **`DELETE`** request on the same resource.
 
+**XML Example (session's creation)**
+
+```
+POST /user/sessions HTTP/1.1
+Host: www.example.net
+Accept: application/vnd.ez.api.Session+xml
+Content-Type: application/vnd.ez.api.SessionInput+xml
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SessionInput>
+  <login>admin</login>
+  <password>secret</password>
+</SessionInput>
+```
+
+```
+HTTP/1.1 201 Created
+Location: /user/sessions/go327ij2cirpo59pb6rrv2a4el2
+Set-Cookie: eZSSID=go327ij2cirpo59pb6rrv2a4el2; domain=.example.net; path=/; expires=Wed, 13-Jan-2021 22:23:01 GMT; HttpOnly
+Content-Type: application/vnd.ez.api.Session+xml
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Session href="/user/sessions/sessionID" media-type="application/vnd.ez.api.Session+xml">
+  <name>eZSSID</name>
+  <identifier>go327ij2cirpo59pb6rrv2a4el2</identifier>
+  <csrfToken>23lkneri34ijajedfw39orj3j93</csrfToken>
+  <User href="/user/users/14" media-type="vnd.ez.api.User+xml"/>
+</Session>
+```
+
+**XML Example (logging in with active session)**
+
+```
+POST /user/sessions HTTP/1.1
+Host: www.example.net
+Accept: application/vnd.ez.api.Session+xml
+Content-Type: application/vnd.ez.api.SessionInput+xml
+Cookie: eZSSID=go327ij2cirpo59pb6rrv2a4el2
+X-CSRF-Token: 23lkneri34ijajedfw39orj3j93
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SessionInput>
+  <login>admin</login>
+  <password>secret</password>
+</SessionInput>
+```
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/vnd.ez.api.Session+xml
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Session href="user/sessions/go327ij2cirpo59pb6rrv2a4el2/refresh" media-type="application/vnd.ez.api.Session+xml">
+  <name>eZSSID</name>
+  <identifier>go327ij2cirpo59pb6rrv2a4el2</identifier>
+  <csrfToken>23lkneri34ijajedfw39orj3j93</csrfToken>
+  <User href="/user/users/14" media-type="vnd.ez.api.User+xml"/>
+</Session>
+```
+
+`csrfToken` is returned in the login response. It is important to keep CSRF Token for the duration of the session as it needs to be sent with requests other than GET/HEAD when auth is set to session (in most cases is).
+
 More information can be found in [Session-based authentication chapter of the REST specifications](https://github.com/ezsystems/ezp-next/blob/master/doc/specifications/rest/REST-API-V2.rst#123%C2%A0%C2%A0%C2%A0session-based-authentication)
 
 ### HTTP Basic authentication
