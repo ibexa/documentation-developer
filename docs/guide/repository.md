@@ -351,6 +351,11 @@ services:
               provider: 'redis://secret@example.com:1234/13'
 ```
 
+!!! caution "Clearing Redis cache"
+
+    The regular `php bin/console cache:clear` command does not clear Redis persistence cache.
+    To clear it, use a dedicated Symfony command: `php bin/console cache:pool:clear cache.redis`.
+
 #### Memcached
 
 This cache backend is using [Memcached, a distributed caching solution](http://memcached.org/). This is the main supported cache solution for [multi server (cluster) setups](clustering.md), besides using Redis.
