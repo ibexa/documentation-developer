@@ -255,7 +255,7 @@ Content-Type: application/vnd.ez.api.Session+xml
 </Session>
 ```
 
-`csrfToken` is returned in the login response. It is important to keep CSRF Token for the duration of the session as it needs to be sent with requests other than GET/HEAD when auth is set to session (in most cases is).
+`csrfToken` is returned in the login response. It is important to keep the CSRF Token for the duration of the session as it needs to be sent with requests other than GET/HEAD when auth is set to session (in most cases it is).
 
 More information can be found in [Session-based authentication chapter of the REST specifications](https://github.com/ezsystems/ezp-next/blob/master/doc/specifications/rest/REST-API-V2.rst#123%C2%A0%C2%A0%C2%A0session-based-authentication)
 
