@@ -1026,6 +1026,11 @@ class DefaultController extends Controller
         // If you wish, you can also easily access Location and Content objects
         // $location = $view->getLocation();
         // $content = $view->getContent();
+        
+        // Set custom header for the Response
+        $response = new Response();
+        $response->headers->add(['X-Hello' => 'World']);
+        $view->setResponse($response);
 
         return $view;
     }
