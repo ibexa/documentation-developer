@@ -1,0 +1,62 @@
+# eZ Platform v2.1.0
+
+**Version number**: v2.1.0
+
+**Release date**: March 27, 2018
+
+**Release type**: Fast Track
+
+## Notable changes
+
+### Custom Tags
+
+You can now add custom tags to RichText Fields.
+
+Custom tags enable you to extend the menu of available elements when editing a RichText Field with the Online Editor.
+
+See [Custom tags](../guide/extending_ez_platform_ui.md#custom-tags) for more information.
+
+### Object states
+
+Object states enable you to create sets of custom states and then assign them to Content.
+
+!["Lock" Object state](img/object_state_lock.png)
+
+Object states can be used in conjunction with [permissions](../guide/permissions.md#objectstatepermission).
+
+### Content on the fly
+
+Content on the fly enables you to create new Content anywhere in the application from the Universal Discovery widget.
+
+![Content on the fly](img/cotf.png)
+
+### URL alias management
+
+You can now add custom URL aliases to Content items from the URL tab. Aliases can be set per language of the Content item.
+
+![Custom URL aliases](img/url_aliases.png)
+
+### Password management
+
+You can now change your password, or request a new one if you forgot it.
+
+![Password recovery](img/forgot_password.png)
+
+### Other UI improvements
+
+- When accessing the Back Office from a link to a specific Content item, after logging in you will now be redirected to the proper content view.
+- In edit mode you can now preview content as it will look in any SiteAccess it is available in.
+
+## Full list of new features, improvements and bug fixes since v2.0.0
+
+| eZ Platform   | eZ Enterprise  |
+|--------------|------------|
+| [List of changes for final of eZ Platform v2.1.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v2.1.0) | [List of changes for final for eZ Platform Enterprise Edition v2.1.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.1.0) |
+| [List of changes for rc1 of eZ Platform v2.1.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v2.1.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v2.1.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.1.0-rc1) |
+| [List of changes for beta1 of eZ Platform v2.1.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v2.1.0-beta1) | [List of changes for beta1 of eZ Platform Enterprise Edition v2.1.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.1.0-beta1) |
+
+## Installation
+
+[Installation Guide](../getting_started/install_ez_platform.md)
+
+[Technical Requirements](../getting_started/requirements_and_system_configuration.md)
