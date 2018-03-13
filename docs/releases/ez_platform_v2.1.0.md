@@ -36,12 +36,26 @@ You can now add custom URL aliases to Content items from the URL tab. Aliases ca
 
 ![Custom URL aliases](img/url_aliases.png)
 
+### REST: GET Location that matches URL alias
+
+You can now translate URL aliases into Locations  with `urlAlias` parameter provided. When user provides parameter in URL, Location with given URL Alias is returned via `GET /content/locations`.
+
 ### Password management
 
 You can now change your password, or request a new one if you forgot it.
 
 ![Password recovery](img/forgot_password.png)
 
+###Simplified filtered search
+
+During search you can now filter the results by Content type, Section, Modified and Created dates.
+
+![Simplified filtered search](img/filtered_search.png)
+
+###REST: search with FieldCriterion
+
+You can now perform REST search via `POST /views` using custom `FieldCriterion`. This allows you to build custom content logic queries with nested logical operators OR/AND/NOT.
+ 
 ### Other UI improvements
 
 - When accessing the Back Office from a link to a specific Content item, after logging in you will now be redirected to the proper content view.
