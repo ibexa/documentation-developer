@@ -97,6 +97,7 @@ pages:
         - 'SiteAccess': 'guide/siteaccess.md'
         - 'URL management': 'guide/url_management.md'
         - 'User-generated content': 'guide/user_generated_content.md'
+        - 'User management': 'guide/user_management.md'
     - Cookbook:
         - 'Adding new Field Types': 'cookbook/adding_new_field_types.md'
         - 'Authenticating a user with multiple user providers': 'cookbook/authenticating_a_user_with_multiple_user_providers.md'
