@@ -706,8 +706,8 @@ ezpublish:
                         choices: ['left', 'center', 'right']
 ```
 
-Each custom tag can have any number of attributes. Attributes can be of one of four types:
-`string`, `number`, `boolean` or `choice`.
+Each custom tag can have any number of attributes. Supported attribute types are:
+`string`, `number`, `boolean` and `choice`.
 
 The configuration requires a Twig template for the custom tag:
 
