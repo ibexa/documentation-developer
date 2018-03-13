@@ -46,13 +46,13 @@ You can now change your password, or request a new one if you forgot it.
 
 ![Password recovery](img/forgot_password.png)
 
-###Simplified filtered search
+### Simplified filtered search
 
 During search you can now filter the results by Content type, Section, Modified and Created dates.
 
 ![Simplified filtered search](img/filtered_search.png)
 
-###REST: search with FieldCriterion
+### REST: search with FieldCriterion
 
 You can now perform REST search via `POST /views` using custom `FieldCriterion`. This allows you to build custom content logic queries with nested logical operators OR/AND/NOT.
  
