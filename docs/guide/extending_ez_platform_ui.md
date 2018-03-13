@@ -678,7 +678,9 @@ ezpublish:
     ezrichtext:
         custom_tags:
             ezyoutube:
+                # The template used for front-end rendering of the custom tag
                 template: 'AppBundle:field_type/ezrichtext/custom_tag:ezyoutube.html.twig'
+                # An icon for the custom tag as displayed in the Online Editor's toolbar.
                 icon: '/assets/field_type/ezrichtext/custom_tag/icon/youtube-color.svg#youtube-color'
                 attributes:
                     title:
@@ -707,7 +709,7 @@ ezpublish:
 ```
 
 Each custom tag can have any number of attributes. Supported attribute types are:
-`string`, `number`, `boolean` and `choice`.
+`string`, `number`, `boolean` and `choice` (which requires a list of choices provided by the `choices` key).
 
 The configuration requires a Twig template for the custom tag:
 
@@ -718,6 +720,16 @@ The configuration requires a Twig template for the custom tag:
         frameborder="0"></iframe>
 </div>
 ```
+
+!!! tip
+
+    Remember that if an attribute is not required, you need to check if it is defined in the template, for example:
+
+    ``` twig
+    {% if params.your_attribute is defined %}
+        ...
+    {% endif %}
+    ```
 
 To ensure the new tag has labels, you need to provide translations in a `app/Resources/translations/custom_tags.en.yaml` file:
 
