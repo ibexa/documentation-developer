@@ -46,6 +46,12 @@ You can now change your password, or request a new one if you forgot it.
 
 ![Password recovery](img/forgot_password.png)
 
+!!! caution
+
+    The reaction time when requesting a reset of the password will vary depending on whether an account with the provided email exists in the database or not.
+    This could be misused to confirm existing email addresses.
+    To avoid this, set Swift Mailer to `spool` mode.
+
 ### Simplified filtered search
 
 During search you can now filter the results by Content type, Section, Modified and Created dates.
@@ -55,7 +61,7 @@ During search you can now filter the results by Content type, Section, Modified 
 ### REST: search with FieldCriterion
 
 You can now perform REST search via `POST /views` using custom `FieldCriterion`. This allows you to build custom content logic queries with nested logical operators OR/AND/NOT.
- 
+
 ### Other UI improvements
 
 - When accessing the Back Office from a link to a specific Content item, after logging in you will now be redirected to the proper content view.
