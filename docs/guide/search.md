@@ -230,7 +230,7 @@ A Criterion consist of two parts (similar to Sort Clause and Facet Builder):
 - The API Value: `Criterion`
 - Specific handler per search engine: `CriterionHandler`
 
-`Criterion` represents the value you use in the API, while `CriterionHandler` deals with the business logic in the background translating the value to something the search engine can understand.
+`Criterion` represents the value you use in the API, while `CriterionHandler` deals with the business logic in the background translating the value to something the search engine can understand. FieldValue `CriterionHandler` also handles ezkeyword External Storage for Legacy (SQL-based) search.
 
 Implementation and availability of a handler typically depends on search engine capabilities and limitations.
 Currently only Legacy (SQL-based) search engine is available out of the box,
@@ -422,6 +422,59 @@ ezpublish.search.legacy.gateway.sort_clause_handler.location.depth:
 !!! note "See also"
 
     See also [Symfony documentation about Service Container](http://symfony.com/doc/current/book/service_container.html#service-parameters) for passing parameters.
+    
+### Search using custom Field Criterion [REST]
+      
+REST search can be performed via `POST /views` using custom `FieldCriterion`. This allows you to build custom content logic queries with nested logical operators OR/AND/NOT. This functionality works for all custom fields. 
+
+Custom Field Criterion search mirrors the one already existing in PHP API `eZ\Publish\API\Repository\Values\Content\Query\Criterion\Field` by exposing it to REST.
+      
+##### Example of custom Content Query:
+      
+```php
+ "ContentQuery":{
+        "Query":{
+           "OR":[
+              {
+                 "AND":[
+                    {
+                       "Field":{
+                          "name":"name",
+                          "operator":"CONTAINS",
+                          "value":"foo"
+                       }
+                    },
+                    {
+                       "Field":{
+                          "name":"info",
+                          "operator":"CONTAINS",
+                          "value":"bar"
+                       }
+                    }
+                 ]
+              },
+              {
+                 "AND":[
+                    {
+                       "Field":{
+                          "name":"name",
+                          "operator":"CONTAINS",
+                          "value":"barfoo"
+                       }
+                    },
+                    {
+                       "Field":{
+                          "name":"info",
+                          "operator":"CONTAINS",
+                          "value":"baz"
+                       }
+                    }
+                 ]
+              }
+           ]
+        }
+     }
+```
 
 ## Reindexing
 
