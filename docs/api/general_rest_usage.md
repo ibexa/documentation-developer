@@ -316,4 +316,15 @@ See [the ISO-3166 glossary](http://www.iso.org/iso/home/standards/country_codes/
 </CountriesList>
 ```
 
- 
+## Matching location to URL alias
+
+URL alias is translated into location with `urlAlias` parameter provided. Thanks to `urlAlias` parameter the corresponding language version of the site can be displayed to a user. Please note that all requests should have [specified siteaccess](#specifying-a-siteaccess). For more information please check [Load locations by id/remoteId/urlAlias](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#load-locations-by-id-remoteid-urlalias)
+
+`GET /content/locations` loads the location for:
+
+|Parameter|Description|
+|--------------|---------------|
+|`id`| The ID of the location. If present the location is with the given ID is returned.|
+|`remoteId`| The remote ID of the location. If present the location with the given remote ID is returned|
+|`urlAlias` | One of the URL aliases of the location. If present the location with given URL Alias is returned|
+
