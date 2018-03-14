@@ -66,6 +66,9 @@ You can now perform REST search via `POST /views` using custom `FieldCriterion`.
 
 - When accessing the Back Office from a link to a specific Content item, after logging in you will now be redirected to the proper content view.
 - In edit mode you can now preview content as it will look in any SiteAccess it is available in.
+- When you start editing a Content item that already has an open draft, you will see a draft conflict screen:
+
+![Draft conflict window](img/draft_conflict.png)
 
 ## Full list of new features, improvements and bug fixes since v2.0.0
 
