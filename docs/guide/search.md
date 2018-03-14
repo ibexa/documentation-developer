@@ -230,7 +230,7 @@ A Criterion consist of two parts (similar to Sort Clause and Facet Builder):
 - The API Value: `Criterion`
 - Specific handler per search engine: `CriterionHandler`
 
-`Criterion` represents the value you use in the API, while `CriterionHandler` deals with the business logic in the background translating the value to something the search engine can understand. FieldValue `CriterionHandler` also handles ezkeyword External Storage for Legacy (SQL-based) search.
+`Criterion` represents the value you use in the API, while `CriterionHandler` deals with the business logic in the background translating the value to something the search engine can understand. `CriterionHandler` also handles `ezkeyword` external storage for Legacy (SQL-based) search.
 
 Implementation and availability of a handler typically depends on search engine capabilities and limitations.
 Currently only Legacy (SQL-based) search engine is available out of the box,
@@ -350,6 +350,10 @@ The list below presents the Sort Clauses available in the `eZ\Publish\API\Repos
 
 Sometimes you will find that standard Search Criteria and Sort Clauses provided with eZ Platform are not sufficient for your needs. Most often this will be the case if you have a custom Field Type using external storage which cannot be searched using the standard Field Criterion.
 
+!!!note
+
+    Legacy (SQL-based) search can also be used in `ezkeyword` external storage.
+
 In such cases you can implement a custom Criterion or Sort Clause, together with the corresponding handlers for the storage engine you are using.
 
 !!! caution "Using Field Criterion or Sort Clause with large databases"
@@ -425,13 +429,13 @@ ezpublish.search.legacy.gateway.sort_clause_handler.location.depth:
     
 ### Search using custom Field Criterion [REST]
       
-REST search can be performed via `POST /views` using custom `FieldCriterion`. This allows you to build custom content logic queries with nested logical operators OR/AND/NOT. This functionality works for all custom fields. 
+REST search can be performed via `POST /views` using custom `FieldCriterion`. This allows you to build custom content logic queries with nested logical operators OR/AND/NOT.
 
 Custom Field Criterion search mirrors the one already existing in PHP API `eZ\Publish\API\Repository\Values\Content\Query\Criterion\Field` by exposing it to REST.
       
 ##### Example of custom Content Query:
       
-```php
+```json
  "ContentQuery":{
         "Query":{
            "OR":[
