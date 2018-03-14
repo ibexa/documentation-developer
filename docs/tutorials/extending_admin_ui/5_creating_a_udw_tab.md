@@ -31,13 +31,12 @@ First add a `src/EzSystems/ExtendingTutorialBundle/Resources/public/js/add.tab.j
         attrs: {}
     });
 
-    console.log('add.tab', eZ.adminUiConfig.universalDiscoveryWidget.extraTabs);
 })(window, window.eZ);
 ```
 
 The highlighted line indicates the actual panel inside the tab that will display the images.
 
-## Provide uncompiled files
+## Provide ReactJS development files
 
 Next you need to provide a set of files that will later be compiled into the module:
 
@@ -127,8 +126,6 @@ import ImagesList from './images.list';
 const ImagesPanel = (props) => {
     const wrapperAttrs = { className: 'c-images-panel' };
 
-    console.log('images:panel', props);
-
     if (!props.isVisible) {
         wrapperAttrs.hidden = true;
     }
@@ -172,7 +169,6 @@ class ImagesList extends Component {
     }
 
     updateImagesState(response) {
-        console.log('response', response);
         const images = response.View.Result.searchHits.searchHit.map(item => item.value.Location);
         const perPage = this.state.itemsPerPage;
         const modulo = images.length % perPage;
@@ -182,16 +178,12 @@ class ImagesList extends Component {
     }
 
     showPrevPage() {
-        console.log('prev', this.state.page);
-
         this.setState(state => Object.assign({}, state, {
             page: state.page > 0 ? state.page - 1 : 0
         }));
     }
 
     showNextPage() {
-        console.log('next', this.state.page);
-
         this.setState(state => Object.assign({}, state, {
             page: state.maxPageIndex > state.page ? state.page + 1 : state.maxPageIndex
         }));
@@ -437,7 +429,12 @@ Place the compiled files in `src/EzSystems/ExtendingTutorialBundle/Resources/pub
 
 ## Add configuration
 
-Next, add the following configuration blocks to `src/EzSystems/ExtendingTutorialBundle/Resources/config/services.yml`:
+Next, ensure that the React modules will be correctly initialized.
+To do this, add the following instructions to `src/EzSystems/ExtendingTutorialBundle/Resources/config/services.yml`.
+This adds JavaScript files into specific zones inside the built-in `layout.html.twig` file.
+
+ReactJS modules (the compiled files) should be placed in the `custom-admin-ui-modules` group,
+and configuration in the `custom-admin-ui-config` group.
 
 ``` yaml
 ezplatform.udw.image.panel.module.js:
@@ -455,7 +452,7 @@ ezplatform.udw.add.tab.js:
         - { name: ezplatform.admin_ui.component, group: 'custom-admin-ui-config' }
 ```
 
-Finally, make sure that the configuration is imported. In `src/EzSystems/ExtendingTutorialBundle/DependencyInjection` add the following files:
+Finally, make sure that the Symfony bundle configuration is imported. In `src/EzSystems/ExtendingTutorialBundle/DependencyInjection` add the following files:
 
 #### `Configuration.php`
 
@@ -530,7 +527,7 @@ class EzSystemsExtendingTutorialExtension extends Extension
 
     If you cannot see the results, clear the cache and reload the application.
 
-At this point you can go to the Back Office and choose "Browse" under "Content/Content structure".
+At this point you can go to the Back Office and choose **Browse** under **Content/Content structure**.
 In the UDW a new "Images" tab will appear, listing all Images from the Repository.
 
 ![Images tab in UDW](img/images_tab_in_udw.png)
