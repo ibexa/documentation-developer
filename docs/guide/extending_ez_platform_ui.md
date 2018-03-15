@@ -566,7 +566,10 @@ Optionally, Universal Discovery module can take a following list of props:
     - **searchPagination** _{Object}_ - a hash of text labels for Search Pagination component,
     - **searchResults** _{Object}_ - a hash of text labels for Search Results component,
     - **searchResultsItem** _{Object}_ - a hash of text labels for Search Results Item component.
-- **selectedItemsLimit** _{Number}_ - the limit of items that can be selected. Should be combined with the `multiple` attribute set to `true`. Default value is `0`, which means no limit.
+- **selectedItemsLimit** _{Number}_ - the limit of items that can be selected. Should be combined with the `multiple` attribute set to `true`. Default value is `0`, which means no limit,
+- **allowContainersOnly** _{Boolean}_ - when true, only containers can be selected in Content on the Fly. Default value: `false`,
+- **onlyContentOnTheFly** _{Boolean}_ - when true, only Content on the Fly is shown in the UDW. Default value: `false`,
+- **cotfForcedLanguage** _{String}_ - language code. When set, Content on the Fly is locked on this language.
 
 ## Sub-items List
 
