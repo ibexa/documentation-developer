@@ -20,8 +20,8 @@ system:
 ezrichtext:
     custom_tags:
         ezyoutube:
-            template: 'AcmeTutorialBundle:field_type/ezrichtext/custom_tag:ezyoutube.html.twig'
-            icon: '/bundles/ezplatformadminui/img/ez-icons.svg#twitter'
+            template: 'EzSystemsExtendingTutorialBundle:field_type/ezrichtext/custom_tag:ezyoutube.html.twig'
+            icon: '/bundles/ezplatformadminui/img/ez-icons.svg#video'
             attributes:
                 title:
                     type: 'string'
@@ -84,7 +84,7 @@ use Symfony\Component\Yaml\Yaml;
 
 - Add `implements PrependExtensionInterface` to the class name, so it looks like this:
 
-`class AcmeTutorialExtension extends Extension implements PrependExtensionInterface`
+`class EzSystemsExtendingTutorialExtension extends Extension implements PrependExtensionInterface`
 
 - Add a `prepend` function:
 
@@ -121,7 +121,7 @@ ezrichtext.custom_tags.ezyoutube.attributes.align.label: 'Align'
     If you cannot see the results, clear the cache and reload the application.
 
 At this point you can go to the Back Office and start editing any Content with a RichText Field (e.g. a Folder or an Article).
-When you edit the Field, you can see the new tag appear in the elements menu. Add it and provide a YouTube embed address.
+When you edit the Field, you can see the new tag appear in the elements menu. Add it and provide a YouTube embed address (obtained through the "Share" link on YouTube).
 A player with the video will appear.
 
 ![Example of a Youtube custom tag](img/custom_tag.png "Previewing a Content item with a Youtube custom tag")
