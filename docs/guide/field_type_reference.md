@@ -1214,7 +1214,9 @@ $keywordValue = new Value( "php5,css3,html5" );
 
     Landing Page Field Type is only used in the Landing Page Content Type that is included in eZ Enterprise.
 
-    The structure of the Landing Page Content Type should not be modified, as it may cause errors.
+    !!! caution
+    
+        The structure of the Landing Page Content Type should not be modified, as it may cause errors.
 
     | Name           | Internal name   | Expected input  |
     |----------------|-----------------|-----------------|
