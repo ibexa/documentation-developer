@@ -966,7 +966,7 @@ $contentType = $contentTypeService->loadContentTypeByIdentifier( 'article' );
 $contentCreateStruct = $contentService->newContentCreateStruct( $contentType, 'eng-GB' );
 ```
 
-We first need to get the [`ContentType`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/ContentType/ContentType.html) we want to create a `Content` with. To do so, we use [`ContentTypeService::loadContentTypeByIdentifier()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/ContentTypeService.html#method_loadContentTypeByIdentifier), with the wanted `ContentType` identifier, like 'article'. We finally get a ContentTypeCreateStruct using [`ContentService::newContentCreateStruct()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/ContentService.html#method_newContentCreateStruct), providing the Content Type and a Locale Code (eng-GB).
+First get the [`ContentType`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/ContentType/ContentType.html) you want to create a `Content` with. To do so, use [`ContentTypeService::loadContentTypeByIdentifier()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/ContentTypeService.html#method_loadContentTypeByIdentifier), with the wanted `ContentType` identifier, like 'article'. Finally get a `ContentTypeCreateStruct` using [`ContentService::newContentCreateStruct()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/ContentService.html#method_newContentCreateStruct), providing the Content Type and a Locale Code (eng-GB).
 
 #### Setting the fields values
 
@@ -976,7 +976,7 @@ $contentCreateStruct->setField( 'intro', $intro );
 $contentCreateStruct->setField( 'body', $body );
 ```
 
-Using our create struct, we can now set the values for our Content item's Fields, using the [`setField()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/ContentCreateStruct.html#method_setField) method. For now, we will just set the title. `setField()` for a TextLine Field simply expects a string as input argument. More complex Field Types, like Author or Image, expect different input values.
+Using your create struct, you can now set the values for our Content item's Fields, using the [`setField()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/ContentCreateStruct.html#method_setField) method. For now, you will just set the title. `setField()` for a TextLine Field simply expects a string as input argument. More complex Field Types, like Author or Image, expect different input values.
 
 The `ContentCreateStruct::setField()` method can take several type of arguments.
 
@@ -984,7 +984,7 @@ In any case, whatever the Field Type is, a Value of this type can be provided. F
 
 #### Setting the Location
 
-In order to set a Location for our object, we must instantiate a [`LocationCreateStruct`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/LocationCreateStruct.html). This is done with `LocationService::newLocationCreateStruct()`, with the new Location's parent ID as an argument.
+In order to set a Location for your object, you must instantiate a [`LocationCreateStruct`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/LocationCreateStruct.html). This is done with `LocationService::newLocationCreateStruct()`, with the new Location's parent ID as an argument.
 
 ``` php
 $locationCreateStruct = $locationService->newLocationCreateStruct( 2 );
@@ -992,16 +992,16 @@ $locationCreateStruct = $locationService->newLocationCreateStruct( 2 );
 
 #### Creating and publishing
 
-To actually create our Content in the Repository, we need to use `ContentService::createContent()`. This method expects a `ContentCreateStruct`, as well as a `LocationCreateStruct`. We have created both in the previous steps.
+To actually create your Content in the Repository, you need to use `ContentService::createContent()`. This method expects a `ContentCreateStruct`, as well as a `LocationCreateStruct`. You have created both in the previous steps.
 
 ``` php
 $draft = $contentService->createContent( $contentCreateStruct, array( $locationCreateStruct ) );
 $content = $contentService->publishVersion( $draft->versionInfo );
 ```
 
-The LocationCreateStruct is provided as an array, since a Content item can have multiple locations.
+The `LocationCreateStruct` is provided as an array, since a Content item can have multiple Locations.
 
-`createContent()`returns a new Content Value Object, with one version that has the DRAFT status. To make this Content visible, we need to publish it. This is done using `ContentService::publishVersion()`. This method expects a `VersionInfo` object as its parameter. In our case, we simply use the current version from `$draft`, with the `versionInfo` property.
+`createContent()` returns a new Content value object, with one version that has the DRAFT status. To make this Content visible, you need to publish it. This is done using `ContentService::publishVersion()`. This method expects a `VersionInfo` object as its parameter. In your case, simply use the current version from `$draft`, with the `versionInfo` property.
 
 ### Updating Content
 
@@ -1009,14 +1009,14 @@ Full code
 
 <https://github.com/ezsystems/CookbookBundle/blob/master/Command/UpdateContentCommand.php>
 
-We will now see how the previously created Content can be updated. To do so, we will create a new draft for our Content, update it using a [`ContentUpdateStruct`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/ContentUpdateStruct.html), and publish the updated Version.
+You will now see how the previously created Content can be updated. To do so, you will create a new draft for your Content, update it using a [`ContentUpdateStruct`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/ContentUpdateStruct.html), and publish the updated Version.
 
 ``` php
 $contentInfo = $contentService->loadContentInfo( $contentId );
 $contentDraft = $contentService->createContentDraft( $contentInfo );
 ```
 
-To create our draft, we need to load the Content item's ContentInfo using `ContentService::loadContentInfo()`. We can then use `ContentService::createContentDraft()` to add a new Draft to our Content.
+To create our draft, you need to load the Content item's ContentInfo using `ContentService::loadContentInfo()`. You can then use `ContentService::createContentDraft()` to add a new Draft to your Content.
 
 ``` php
 // instantiate a content update struct and set the new fields
@@ -1026,18 +1026,18 @@ $contentUpdateStruct->setField( 'title', $newTitle );
 $contentUpdateStruct->setField( 'body', $newBody );
 ```
 
-To set the new values for this version, we request a `ContentUpdateStruct` from the `ContentService` using the `newContentUpdateStruct()` method. Updating the values hasn't changed: we use the `setField()` method.
+To set the new values for this version, you request a `ContentUpdateStruct` from the `ContentService` using the `newContentUpdateStruct()` method. Updating the values hasn't changed: you use the `setField()` method.
 
 ``` php
 $contentDraft = $contentService->updateContent( $contentDraft->versionInfo, $contentUpdateStruct );
 $content = $contentService->publishVersion( $contentDraft->versionInfo );
 ```
 
-We can now use `ContentService::updateContent()` to apply our `ContentUpdateStruct` to our draft's `VersionInfo`. Publishing is done exactly the same way as for a new content, using `ContentService::publishVersion()`.
+You can now use `ContentService::updateContent()` to apply your `ContentUpdateStruct` to your draft's `VersionInfo`. Publishing is done exactly the same way as for a new Content, using `ContentService::publishVersion()`.
 
 ### Handling translations
 
-In the two previous examples, you have seen that we set the ContentUpdateStruct's `initialLanguageCode` property. To translate an object to a new language, set the locale to a new one.
+In the two previous examples, you set the ContentUpdateStruct's `initialLanguageCode` property. To translate an object to a new language, set the locale to a new one.
 
 **translating**
 
@@ -1047,7 +1047,7 @@ $contentUpdateStruct->setField( 'title', $newtitle );
 $contentUpdateStruct->setField( 'body', $newbody );
 ```
 
-It is possible to create or update content in multiple languages at once. There is one restriction: only one language can be set a version's language. This language is the one that will get a flag in the back office. However, you can set values in other languages for your attributes, using the `setField` method's third argument.
+It is possible to create or update content in multiple languages at once. There is one restriction: only one language can be set a version's language. This language is the one that will get a flag in the Back Office. However, you can set values in other languages for your attributes, using the `setField` method's third argument.
 
 **update multiple languages**
 
@@ -1062,7 +1062,7 @@ $contentUpdateStruct->setField( 'title', $newfrenchtitle );
 $contentUpdateStruct->setField( 'body', $newfrenchbody );
 ```
 
-Since we don't specify a locale for the last two fields, they are set for the `UpdateStruct`'s `initialLanguageCode`, fre-FR.
+Since you did not specify a locale for the last two fields, they are set for the `UpdateStruct`'s `initialLanguageCode`, fre-FR.
 
 ### Creating Content containing an image
 
@@ -1072,7 +1072,7 @@ Since we don't specify a locale for the last two fields, they are set for the `U
 
 As explained above, the `setField()` method can accept various values: an instance of the Field Type's Value class, a primitive type, or a hash. The last two depend on what the `Type::acceptValue()` method is build up to handle. TextLine can, for instance, accept a simple string as an input value. In this example, you will see how to set an Image value.
 
-We assume that we use the default image class. Creating our Content, using the Content Type and a ContentCreateStruct, has been covered above, and can be found in the full code. Let's focus on how the image is provided.
+Let's assume that you use the default image class. Creating your Content, using the Content Type and a ContentCreateStruct, has been covered above, and can be found in the full code. Let's focus on how the image is provided.
 
 ``` php
 $file = '/path/to/image.png';
@@ -1088,7 +1088,7 @@ $value = new \eZ\Publish\Core\FieldType\Image\Value(
 $contentCreateStruct->setField( 'image', $value );
 ```
 
-This time, we create our image by directly providing an [`Image\Value`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/Core/FieldType/Image/Value.html) object. The values are directly provided to the constructor using a hash with predetermined keys that depend on each Type. In this case: the path where the image can be found, its size, the file name, and an alternative text.
+This time, create your image by directly providing an [`Image\Value`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/Core/FieldType/Image/Value.html) object. The values are directly provided to the constructor using a hash with predetermined keys that depend on each Type. In this case: the path where the image can be found, its size, the file name, and an alternative text.
 
 Images also implement a static [`fromString()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/Core/FieldType/Image/Value.html#method_fromString) method that will, given a path to an image, return an `Image\Value` object.
 
@@ -1096,7 +1096,7 @@ Images also implement a static [`fromString()`](http://apidoc.ez.no/sami/trunk/N
 $value = \eZ\Publish\Core\FieldType\Image\Value::fromString( '/path/to/image.png' );
 ```
 
-But as said before, whatever you provide `setField()` with is sent to the `acceptValue()` method. This method really is the entry point to the input formats a Field Type accepts. In this case, you could have provided setField with either a hash, similar to the one we provided the Image\\Value constructor with, or the path to your image, as a string.
+But as said before, whatever you provide `setField()` with is sent to the `acceptValue()` method. This method really is the entry point to the input formats a Field Type accepts. In this case, you could have provided setField with either a hash, similar to the one you provided the Image\\Value constructor with, or the path to your image, as a string.
 
 ``` php
 $contentCreateStruct->setField( 'image', '/path/to/image.png' );
@@ -1113,13 +1113,15 @@ $contentCreateStruct->setField( 'image', array(
 
 ### Create Content with XML Text
 
+The XML Text Field Type is not officially supported by eZ Platform. PlatformUI also does not support WYSIWYG editing of Fields of this type.
+
 !!! note "Full code"
 
     <https://github.com/ezsystems/CookbookBundle/blob/master/Command/CreateXMLContentCommand.php>
 
-Another very commonly used Field Type is the rich text one, `XmlText`.
+Another very commonly used Field Type is the RichText one, `XmlText`. 
 
-**working with xml text**
+**Working with xml text**
 
 ``` php
 $xmlText = <<< EOX
@@ -1132,17 +1134,17 @@ EOX;
 $contentCreateStruct->setField( 'body', $xmlText );
 ```
 
-As for the last example above, we use the multiple formats accepted by `setField()`, and provide our XML string as is. The only accepted format as of 5.0 is internal XML, the one stored in the Legacy database.
+As for the last example above, use the multiple formats accepted by `setField()`, and provide your XML string as is. The only accepted format is internal XML, the one stored in the Legacy database.
 
 !!! note
 
     The XSD for the internal XML representation can be found in the kernel: <https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/FieldType/XmlText/Input/Resources/schemas/ezxml.xsd>.
 
-We embed an image in our XML, using the `<embed>` tag, providing an image Content ID as the `object_id` attribute.
+You embed an image in your XML, using the `<embed>` tag, providing an image Content ID as the `object_id` attribute.
 
 !!! note "Using a custom format as input"
 
-    More input formats will be added later. The API for that is actually already available: you simply need to implement the [`XmlText\Input`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/Core/FieldType/XmlText/Input.html) interface. It contains one method, [`getInternalRepresentation()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/Core/FieldType/XmlText/Input.html#method_getInternalRepresentation), that must return an internal XML string. Create your own bundle, add your implementation to it, and use it in your code!
+    More input formats will be added later. The API for that is actually already available: you simply need to implement the [`XmlText\Input`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/Core/FieldType/XmlText/Input.html) interface. It contains one method, [`getInternalRepresentation()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/Core/FieldType/XmlText/Input.html#method_getInternalRepresentation), that must return an internal XML string. Create your own bundle, add your implementation to it, and use it in your code.
 
 ``` php
 $input = new \My\XmlText\CustomInput( 'My custom format string' );
@@ -1169,7 +1171,7 @@ Full code
 
 <https://github.com/ezsystems/CookbookBundle/blob/master/Command/AddLocationToContentCommand.php>
 
-We have seen earlier how you can create a Location for a newly created `Content`. It is of course also possible to add a new [`Location`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Location.html) to an existing `Content`.
+You have seen earlier how you can create a Location for a newly created `Content`. It is of course also possible to add a new [`Location`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Location.html) to an existing `Content`.
 
 ``` php
 try
@@ -1191,27 +1193,27 @@ catch ( \eZ\Publish\API\Repository\Exceptions\UnauthorizedException $e )
 }
 ```
 
-This is the required code. As you can see, both the ContentService and the LocationService are involved. Errors are handled the usual way, by intercepting the Exceptions the used methods may throw.
+This is the required code. As you can see, both the Content Service and the Location Service are involved. Errors are handled the usual way, by intercepting the Exceptions the used methods may throw.
 
 ``` php
 $locationCreateStruct = $locationService->newLocationCreateStruct( $parentLocationId );
 ```
 
-Like we do when creating a new Content item, we need to get a new `LocationCreateStruct`. We will use it to set our new [`Location`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Location.html)'s properties. The new Location's parent ID is provided as a parameter to `LocationService::newLocationCreateStruct`.
+Like during creation of a new Content item, you need to get a new `LocationCreateStruct`. You will use it to set your new [`Location`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Location.html)'s properties. The new Location's parent ID is provided as a parameter to `LocationService::newLocationCreateStruct`.
 
-In this example, we use the default values for the various `LocationCreateStruct` properties. We could of course have set custom values, like setting the Location as hidden ($location-&gt;hidden = true), or changed the remoteId (`$location->remoteId = $myRemoteId`).
+In this example, the default values for the various `LocationCreateStruct` properties are used. You could of course have set custom values, like setting the Location as hidden ($location-&gt;hidden = true), or changed the remoteId (`$location->remoteId = $myRemoteId`).
 
 ``` php
 $contentInfo = $contentService->loadContentInfo( $contentId );
 ```
 
-To add a Location to a Content item, we need to specify the Content, using a [`ContentInfo`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/ContentInfo.html) object. We load one using `ContentService::loadContentInfo()`, using the Content ID as the argument.
+To add a Location to a Content item, you need to specify the Content, using a [`ContentInfo`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/ContentInfo.html) object. Load one using `ContentService::loadContentInfo()`, using the Content ID as the argument.
 
 ``` php
 $newLocation = $locationService->createLocation( $contentInfo, $locationCreateStruct );
 ```
 
-We finally use `LocationService::createLocation()`, providing the `ContentInfo` obtained above, together with our `LocationCreateStruct`. The method returns the newly created Location Value Object.
+Finally use `LocationService::createLocation()`, providing the `ContentInfo` obtained above, together with your `LocationCreateStruct`. The method returns the newly created Location value object.
 
 ### Hide/Unhide Location
 
@@ -1219,14 +1221,14 @@ We finally use `LocationService::createLocation()`, providing the `ContentInfo` 
 
     <https://github.com/ezsystems/CookbookBundle/blob/master/Command/HideLocationCommand.php>
 
-We mentioned earlier that a Location's visibility could be set while creating the Location, using the hidden property of the LocationCreateStruct. Changing a Location's visibility may have a large impact in the Repository: doing so will affect the Location's subtree visibility. For this reason, a `LocationUpdateStruct` doesn't let you toggle this property. You need to use the `LocationService` to do so.
+As mentioned earlier a Location's visibility could be set while creating the Location, using the hidden property of the LocationCreateStruct. Changing a Location's visibility may have a large impact in the Repository: doing so will affect the Location's subtree visibility. For this reason, a `LocationUpdateStruct` doesn't let you toggle this property. You need to use the `LocationService` to do so.
 
 ``` php
 $hiddenLocation = $locationService->hideLocation( $location );
 $unhiddenLocation = $locationService->unhideLocation( $hiddenLocation );
 ```
 
-There are two methods for this: `LocationService::hideLocation`, and `LocationService::unhideLocation()`. Both expect the `LocationInfo` as their argument, and return the modified Location Value Object.
+There are two methods for this: `LocationService::hideLocation`, and `LocationService::unhideLocation()`. Both expect the `LocationInfo` as their argument, and return the modified Location value object.
 
 The explanation above is valid for most Repository objects. Modification of properties that affect other parts of the system will require that you use a custom service method.
 
@@ -1263,8 +1265,6 @@ $contentUpdateStruct->mainLocationId = 123;
 $contentService->updateContentMetadata( $contentInfo, $contentUpdateStruct );
 ```
 
-Credits to [Gareth Arnott](https://doc.ez.no/display/~arnottg) for the snippet.
-
 ## Other recipes
 
 ### Assigning Section to content
@@ -1291,7 +1291,7 @@ This operation involves the `SectionService`, as well as the `ContentService`.
 $contentInfo = $contentService->loadContentInfo( $contentId );
 ```
 
-We use `ContentService::loadContentInfo()` to get the Content we want to update the Section for.
+Use `ContentService::loadContentInfo()` to get the Content you want to update the Section for.
 
 **assign section to content**
 
@@ -1299,7 +1299,7 @@ We use `ContentService::loadContentInfo()` to get the Content we want to update 
 $section = $sectionService->loadSection( $sectionId );
 ```
 
-`SectionService::loadSection()` is then used to load the Section we want to assign our Content to. Note that there is no `SectionInfo` object. Sections are quite simple, and we don't need to separate their metadata from their actual data. However, `SectionCreateStruct` and [`SectionUpdateStruct`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/SectionUpdateStruct.html) objects must still be used to create and update Sections.
+`SectionService::loadSection()` is then used to load the Section you want to assign your Content to. Note that there is no `SectionInfo` object. Sections are quite simple, and you don't need to separate their metadata from their actual data. However, `SectionCreateStruct` and [`SectionUpdateStruct`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/SectionUpdateStruct.html) objects must still be used to create and update Sections.
 
 **assign section to content**
 
@@ -1317,7 +1317,7 @@ The actual update operation is done using `SectionService::assignSection()`, wit
 
     <https://github.com/ezsystems/CookbookBundle/blob/master/Command/CreateContentTypeCommand.php>
 
-Creating a `ContentType` is actually almost more complex than creating Content. It really isn't as common, and didn't "deserve" the same kind of API as Content did.
+Creating a `ContentType` is actually almost more complex than creating Content. It really isn't as common, and does not require the same kind of API as Content.
 
 Let's split the code in three major parts.
 
@@ -1344,16 +1344,16 @@ $contentTypeCreateStruct->descriptions = array(
 );
 ```
 
-First, we need to load the `ContentTypeGroup` our `ContentType` will be created in. We do this using [`ContentTypeService::loadContentTypeGroupByIdentifier()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/ContentTypeService.html#method_loadContentTypeGroupByIdentifier), which gives us back a `ContentTypeGroup` object. As for content, we then request a `ContentTypeCreateStruct` from the `ContentTypeService`, using `ContentTypeService::newContentTypeCreateStruct()`, with the desired identifier as the argument.
+First, you need to load the `ContentTypeGroup` your `ContentType` will be created in. You do this using [`ContentTypeService::loadContentTypeGroupByIdentifier()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/ContentTypeService.html#method_loadContentTypeGroupByIdentifier), which gives you back a `ContentTypeGroup` object. As for content, you then request a `ContentTypeCreateStruct` from the `ContentTypeService`, using `ContentTypeService::newContentTypeCreateStruct()`, with the desired identifier as the argument.
 
-Using the create struct's properties, we can set the Type's properties:
+Using the create struct's properties, you can set the Type's properties:
 
 -   the main language (`mainLanguageCode`) for the Type is set to eng-GB,
 -   the content name generation pattern (`nameSchema`) is set to '&lt;title&gt;': Content items of this type will be named the same as their 'title' field.
--   the human-readable name for our Type is set using the `names` property. We give it a hash, indexed by the locale ('eng-GB') the name is set in. This locale must exist in the system.
--   the same way that we have set the `names` property, we can set human-readable descriptions, again as hashes indexed by locale code.
+-   the human-readable name for your Type is set using the `names` property. You give it a hash, indexed by the locale ('eng-GB') the name is set in. This locale must exist in the system.
+-   the same way that you have set the `names` property, you can set human-readable descriptions, again as hashes indexed by locale code.
 
-The next big part is to add FieldDefinition objects to our Content Type.
+The next big part is to add FieldDefinition objects to your Content Type.
 
 ```php
 // add a TextLine Field with identifier 'title'
@@ -1380,13 +1380,13 @@ $bodyFieldCreateStruct->isSearchable = true;
 $contentTypeCreateStruct->addFieldDefinition( $bodyFieldCreateStruct );
 ```
 
-We need to create a `FieldDefinitionCreateStruct` object for each `FieldDefinition` our `ContentType` will be made of. Those objects are obtained using [`ContentTypeService::newFieldDefinitionCreateStruct()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/ContentTypeService.html#method_newFieldDefinitionCreateStruct). This method expects the FieldDefinition identifier and its type as arguments. The identifiers match the ones from eZ Publish 4 (`ezstring` for TextLine, etc.).
+You need to create a `FieldDefinitionCreateStruct` object for each `FieldDefinition` your `ContentType` will be made of. Those objects are obtained using [`ContentTypeService::newFieldDefinitionCreateStruct()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/ContentTypeService.html#method_newFieldDefinitionCreateStruct). This method expects the FieldDefinition identifier and its type as arguments. The identifiers match the ones from eZ Publish 4 (`ezstring` for TextLine, etc.).
 
 Each field's properties are set using the create struct's properties:
 
 -   `names` and `descriptions` are set using hashes indexed by the locale code, and with the name or description as an argument.
 -   The `fieldGroup` is set to 'content'
--   Fields are ordered using the `position` property, ordered numerically in ascending order. We set it to an integer.
+-   Fields are ordered using the `position` property, ordered numerically in ascending order. It is set to an integer.
 -   The translatable, required and searchable boolean flags are set using their respective property: `isTranslatable`, `isRequired` and `isSearchable`.
 
 Once the properties for each create struct are set, the field is added to the Content Type create struct using [`ContentTypeCreateStruct::addFieldDefinition()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/ContentType/ContentTypeCreateStruct.html#method_addFieldDefinition).
@@ -1407,4 +1407,4 @@ catch ( \eZ\Publish\API\Repository\Exceptions\ForbiddenException $e )
 }
 ```
 
-The last step is the same as for Content: we create a Content Type draft using `ContentTypeService::createContentType()`, with the `ContentTypeCreateStruct` and an array of `ContentTypeGroup` objects are arguments. We then publish the Content Type draft using `ContentTypeService::publishContentTypeDraft()`.
+The last step is the same as for Content: create a Content Type draft using `ContentTypeService::createContentType()`, with the `ContentTypeCreateStruct` and an array of `ContentTypeGroup` objects are arguments. Then publish the Content Type draft using `ContentTypeService::publishContentTypeDraft()`.
