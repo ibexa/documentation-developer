@@ -777,6 +777,7 @@ All Signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
 |`UserService\UnAssignUserFromUserGroupSignal`|`userId`</br>`userGroupId`|`UserService::unAssignUserFromUserGroup()`|
 |`UserService\UpdateUserGroupSignal`|`userGroupId`|`UserService::updateUserGroup()`|
 |`UserService\UpdateUserSignal`|`userId`|`UserService::updateUser()`|
+|`UserService\UpdateUserTokenSignal`|`userId`|`UserService::updateUserToken()`|
 
 ## SPI and API repositories
 
