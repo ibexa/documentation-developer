@@ -1216,7 +1216,7 @@ $keywordValue = new Value( "php5,css3,html5" );
 
     !!! caution
     
-        The default Field Type identifiers of the Landing Page Content Type should not be modified, as it may cause fatal errors. The new Field Types can be added safely but shouldn't be required.
+        The default Field Type identifiers of the Landing Page Content Type should not be modified, as it may cause fatal errors. Fields of other types can be added safely but shouldn't be required.
 
     | Name           | Internal name   | Expected input  |
     |----------------|-----------------|-----------------|
