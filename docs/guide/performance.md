@@ -42,7 +42,7 @@ Overall, for production setup:
 ### Composer
 
 - Keep Composer up to date.
-- Always dump optimized class map using c`omposer dump-autoload --optimize` or relevant flags on `composer install/update`.
+- Always dump optimized class map using `composer dump-autoload --optimize` or relevant flags on `composer install/update`.
 
 ### Memcached/Redis
 
