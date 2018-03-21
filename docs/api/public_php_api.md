@@ -1,12 +1,12 @@
 # eZ Platform Public PHP API
 
-The PHP API is also commonly referred to as the "*Public API*". Currently it exposes a Repository which allows you to create, read, update, manage and delete all objects available in eZ Platform, first and foremost content, but also related objects like Sections, Locations, Content Types, Content Type groups, languages and so on.
+The PHP API is also commonly referred to as the **public API**. Currently it exposes a Repository which allows you to create, read, update, manage and delete all objects available in eZ Platform. First and foremost content, but also related objects like Sections, Locations, Content Types, Content Type groups, languages and so on.
 
 ### eZ Platform API Repository
 
-This entity is the entry point to everything you will do with the Public API.
+This entity is the entry point to everything you do with the public API.
 
-It will allow you to create, retrieve, update and delete all the eZ Platform objects, as well as Content Types, Sections, Content states. It is always obtained through the service container.
+It allows you to create, retrieve, update and delete all the eZ Platform objects, as well as Content Types, Sections, Content states. It is always obtained through the service container.
 
 **Obtaining the eZ Platform Repository via the service container**
 
@@ -15,11 +15,11 @@ It will allow you to create, retrieve, update and delete all the eZ Platform obj
 $repository = $container->get( 'ezpublish.api.repository' );
 ```
 
-By itself, the repository doesn't do much. It allows three types of operations: user authentication (getting / changing the current user), issuing transactions, and obtaining services. 
+Repository allows three types of operations: user authentication (getting / changing the current user), issuing transactions, and obtaining services. 
 
 !!! tip "Inline objects documentation"
 
-    Pay attention to the inline phpdoc block in this code stub. It tells your IDE that `$repository` is an instance of `\eZ\Publish\API\Repository\Repository`. If your IDE supports this feature, you will get code completion on the `$repository` object. This helper is a huge time saver when it comes to learning about the eZ Platform API.
+    Pay attention to the inline `phpdoc` block in this code stub. It tells your IDE that `$repository` is an instance of `\eZ\Publish\API\Repository\Repository`. If your IDE supports this feature, you will get code completion on the `$repository` object. This helper is a huge time saver when it comes to learning about the eZ Platform API.
 
 ### The service container
 
@@ -29,7 +29,7 @@ In controllers, this generally is done by extending the Symfony `Controller` c
 
 !!! note "Getting the repository from eZ Platform controllers"
 
-    In order to make it even easier to obtain the repository from controllers code, eZ Platform controllers extend a custom  [Controller](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Bundle/EzPublishCoreBundle/Controller.html) class that provides a [`getRepository()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Bundle/EzPublishCoreBundle/Controller.html#method_getRepository) method which directly returns the Repository from the service container.
+    In order to make it even easier to obtain the repository from controllers code, eZ Platform controllers extend a custom [Controller](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Bundle/EzPublishCoreBundle/Controller.html) class that provides a [`getRepository()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Bundle/EzPublishCoreBundle/Controller.html#method_getRepository) method which directly returns the Repository from the service container.
 
     You can and should do the same in your custom controllers.
 
@@ -41,37 +41,37 @@ One of the responsibilities of the Repository is user authentication. Every acti
 
 ### Services
 
-The main entry point to the repository's features are services. The Public API breaks down access to Content, User, Content Types and other features into various services. Those services are obtained via the [Repository](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Repository.html), using `get`\[ServiceName\]`()` methods: `getContentService()`, `getUserService()`, etc.
+The main entry point to the repository's features are services. The public API breaks down access to Content, User, Content Types and other features into various services. Those services are obtained via the [Repository](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Repository.html), using `get`\[ServiceName\]`()` methods: `getContentService()`, `getUserService()`, etc.
 
 Throughout the Cookbook, you will be guided through the various capabilities those services have, and how you can use them to implement your projects.
 
 ### Value objects
 
-While services provide interaction with the repository, the elements (Content, Users) they provide interaction with provided as read-only [value objects](http://apidoc.ez.no/doxygen/trunk/NS/html/namespaceeZ_1_1Publish_1_1Core_1_1Repository_1_1Values.html) in the `eZ\Publish\Core\Repository\Values` namespace. Those objects are broken down into sub-namespaces: `Content`, `ContentType`, `User` and `ObjectState`, each sub-namespace containing a set of value objects, such as [`Content\Content`](https://github.com/ezsystems/ezp-next/blob/master/eZ/Publish/Core/Repository/Values/Content/Content.php) or [`User\Role`](https://github.com/ezsystems/ezp-next/blob/master/eZ/Publish/Core/Repository/Values/User/Role.php).
+The elements (Content, Users) that services provide interaction with are provided as read-only [value objects](http://apidoc.ez.no/doxygen/trunk/NS/html/namespaceeZ_1_1Publish_1_1Core_1_1Repository_1_1Values.html) in the `eZ\Publish\Core\Repository\Values` namespace. Those objects are broken down into sub-namespaces: `Content`, `ContentType`, `User` and `ObjectState`, each sub-namespace containing a set of value objects, such as [`Content\Content`](https://github.com/ezsystems/ezp-next/blob/master/eZ/Publish/Core/Repository/Values/Content/Content.php) or [`User\Role`](https://github.com/ezsystems/ezp-next/blob/master/eZ/Publish/Core/Repository/Values/User/Role.php).
 
-These objects are read-only by design. They are only meant to be used in order to fetch data from the repository. They come with their own properties, such as `$content->id`, `$location->hidden`, but also with methods that provide access to more related information, such as `Relation::getSourceContentInfo()` or `Role::getPolicies()`. By design, a value object will only give you access to data that is very closely related to it. More complex retrieval operations will require you to use the appropriate service, using information from your value object.
+These objects are read-only by design. They are only meant to be used in order to fetch data from the repository. They come with their own properties, such as `$content->id`, `$location->hidden`, but also with methods that provide access to more related information, such as `Relation::getSourceContentInfo()` or `Role::getPolicies()`. By design, a value object will only give you access to data that is related to it. More complex retrieval operations will require you to use the appropriate service, using information from your value object.
 
 #### Value info objects
 
 Some complex value objects have an `Info` counterpart, like `ContentInfo`, the counterpart for `Content`. These objects are specific and provide you with lower-level information. For instance, `ContentInfo` will provide you with `currentVersionNo` or `remoteId`, while `Content` will let you retrieve Fields, the Content Type, or previous versions.
 
-They are provided by the API, but are **read only**, can't be modified and sent back. Creation and modification of Repository values is done using Create structs and Update structs.
+They are provided by the API, but are **read only**, can't be modified and sent back. Creation and modification of Repository values is done using `getContentCreateStruct()` and `getContentUpdateStruct()`.
 
 ### Create and update structs
 
 In order to update or create elements in the Repository, you will use structs. They are usually provided by the service that manages the value objects you want to alter or create. For instance, the Content service has a `getContentCreateStruct()` method that returns a new `ContentCreateStruct` object. Equivalent methods exist for `UpdateStruct` objects as well, and for most value objects.
 
-Using them is also covered in the Cookbook.
+Using them is covered in the [Creating Content](#creating-content) and [Updating Content](#updating-content) chapters.
 
 ## Public API Guide
 
-The public API will give you an easy access to the eZ Platform content repository. This repository is the core component that manages content, Locations, Sections, Content Types, Users, User groups, and Roles. It also provides a new, clear interface for plugging in custom Field Types.
+The public API gives you an easy access to the eZ Platform content repository. This repository is the core component that manages Content, Locations, Sections, Content Types, Users, User groups, and Roles. It also provides a new, clear interface for plugging in custom Field Types.
 
-The public API is built on top of a layered architecture, including a persistence API that abstracts storage. By using the public API, you are sure that your code will be forward compatible with future releases based on enhanced, scalable and high-performance storage engines. Applications based on the Public API are also fully backwards compatible by using the included storage engine based on the current kernel and database model.
+The public API is built on top of a layered architecture, including a persistence API that abstracts storage. By using the public API, you are sure that your code will be forward compatible with future releases based on enhanced, scalable and high-performance storage engines. Applications based on the public API are also fully backwards compatible by using the included storage engine based on the current kernel and database model.
 
 ### About this Guide
 
-The objective of this Public API Guide is to progressively lead you through useful, everyday business logic, using the API in concrete recipes: obtaining a Location from a Content item, fetching a set of Content items, creating a User, and so on.
+The objective of this public API guide is to progressively lead you through useful, everyday business logic, using the API in concrete recipes: obtaining a Location from a Content item, fetching a set of Content items, creating a User, and so on.
 
 For each recipe, newly introduced elements will be explained in detail, including the required API components (services, value objects, etc.).
 
@@ -84,15 +84,15 @@ On top of this, generated public API documentation can be found online, in vario
 -   doxygen: <http://apidoc.ez.no/doxygen/trunk/NS/html/>
 -   sami: <http://apidoc.ez.no/sami/trunk/NS/html/>
 
-## Getting started with the Public API
+## Getting started with the public API
 
 In this chapter, you will see two ways of customizing eZ Platform: command line scripts (for import scripts, for instance), and custom controllers.
 
 ### Symfony bundle
 
-In order to test and use Public API code, you will need to build a custom bundle. Bundles are Symfony's extensions, and are therefore also used to extend eZ Platform. Symfony provides code generation tools that will let you create your own bundle and get started in a few minutes.
+In order to test and use public API code, you will need to build a custom bundle. Bundles are Symfony's extensions, and are therefore also used to extend eZ Platform. Symfony provides code generation tools that will let you create your own bundle and get started in a few minutes.
 
-In this chapter, we will show how to create a custom bundle, and implement both a command line script and a custom route with its own controller action and view. All shell commands assume that you use some Linux shell, but those commands would of course also work on Windows systems.
+In this chapter, you will be shown how to create a custom bundle, and implement both a command line script and a custom route with its own controller action and view. All shell commands assume that you use some Linux shell, but those commands would of course also work on Windows systems.
 
 #### Generating a new bundle
 
@@ -104,13 +104,13 @@ $ cd /path/to/ezplatform
 
 Then use the app/console application with the `generate:bundle` command to start the bundle generation wizard.
 
-Let's follow the instructions provided by the wizard. Our objective is to create a bundle named `EzSystems/Bundles/CookBookBundle`, located in the `src` directory.
+Follow the instructions provided by the wizard. Your objective is to create a bundle named `EzSystems/Bundles/CookBookBundle`, located in the `src` directory.
 
 ``` bash
 $ php app/console generate:bundle
 ```
 
-The wizard will first ask about our bundle's namespace. Each bundle's namespace should feature a vendor name (in our own case: `EzSystems`), optionally followed by a sub-namespace (we could have chosen to use `Bundle`), and end with the actual bundle's name, suffixed with Bundle: `CookbookBundle`.
+The wizard will first ask about your bundle's namespace. Each bundle's namespace should feature a vendor name (for example: `EzSystems`), optionally followed by a sub-namespace (for example: `Bundle`), and end with the actual bundle's name, suffixed with bundle: `CookbookBundle`.
 
 **Bundle namespace**
 
@@ -118,11 +118,11 @@ Your application code must be written in bundles. This command helps you generat
 
 Each bundle is hosted under a namespace (like `Acme/Bundle/BlogBundle`).
 
-The namespace should begin with a "vendor" name like your company name, your project name, or your client name, followed by one or more optional category sub-namespaces, and it should end with the bundle name itself (which must have Bundle as a suffix).
+The namespace should begin with a vendor name like your company name, your project name, or your client name, followed by one or more optional category sub-namespaces, and it should end with the bundle name itself (which must have `Bundle` as a suffix).
 
 See [Symfony documentation](http://symfony.com/doc/current/cookbook/bundles/best_practices.html#index-1) for more details on bundle naming conventions.
 
-Use `/ instead of \\` for the namespace delimiter to avoid any problem.
+Use `/` instead of `\` for the namespace delimiter to avoid any problem.
 
 Bundle namespace: `EzSystems/CookbookBundle`
 
@@ -132,7 +132,7 @@ You will then be asked about the Bundle's name, used to reference your bundle in
 
 In your code, a bundle is often referenced by its name. It can be the concatenation of all namespace parts but it's really up to you to come up with a unique name (a good practice is to start with the vendor name).
 
-Based on the namespace, we suggest `EzSystemsCookbookBundle`.
+Based on the namespace, you could use `EzSystemsCookbookBundle`.
 
 Bundle name [EzSystemsCookbookBundle](https://github.com/ezsystems/CookbookBundle):
 
@@ -144,18 +144,17 @@ The bundle can be generated anywhere. The suggested default directory uses the s
 
 `Target directory /path/to/ezpublish5/src`
 
-Next, you need to choose the generated configuration's format, out of YAML, XML, PHP or annotations. We mostly use yaml in eZ Platform, and we will use it in this cookbook. Enter 'yml', and hit Enter.
+Next, you need to choose the generated configuration's format, out of YAML, XML, PHP or annotations. In eZ Platform yaml is mostly in use, and you will use it in this cookbook. Enter 'yml', and hit Enter.
 
 **Configuration format**
 
-Determine the format to use for the generated configuration.                                                                                                                        
+Determine the format to use for the generated configuration.      
 
 `Configuration format (yml, xml, php, or annotation): [annotation]: yml`
 
 The last choice is to generate code snippets demonstrating the Symfony directory structure. If you're learning Symfony, it is a good idea to accept, as it will create a controller, yaml files, etc.
 
 **Generate snippets & directory structure**
-
 
 To help you get started faster, the command can generate some code snippets for you.
 
@@ -191,13 +190,13 @@ Importing the bundle routing resource: OK
  
 ```
 
-Your bundle should be generated and activated. Let's see how you can interact with the Public API by creating a command line script, and a custom controller route and action.
+Your bundle should be generated and activated. Let's see how you can interact with the public API by creating a command line script, and a custom controller route and action.
 
 #### Creating a command line script in your bundle
 
-Writing a command line script with Symfony is *very* easy. The framework and its bundles ship with a few scripts. They are all started using `php app/console <command>`. You can get the complete list of existing command line scripts by executing `php app/console list` from the eZ Platform root.
+The framework and its bundles ship with a few scripts. They are all started using `php app/console <command>`. You can get the complete list of existing command line scripts by executing `php app/console list` from the eZ Platform root.
 
-In this chapter, you will create a new command, identified as `ezpublish:cookbook:hello`, that takes an optional name argument, and greets that name. To do so, you need one thing: a class with a name ending with "Command" that extends `Symfony\Component\Console\Command\Command`. Note that in our case, we use `ContainerAwareCommand` instead of `Command`, since we need the dependency injection container to interact with the Public API. In your bundle's directory (`src/EzSystems/CookbookBundle`), create a new directory named `Command`, and in this directory, a new file named `HelloCommand.php`.
+In this chapter, you will create a new command, identified as `ezpublish:cookbook:hello`, that takes an optional name argument, and greets that name. To do so, you need one thing: a class with a name ending with "Command" that extends `Symfony\Component\Console\Command\Command`. Note that in your case, you use `ContainerAwareCommand` instead of `Command`, since you need the dependency injection container to interact with the public API. In your bundle's directory (`src/EzSystems/CookbookBundle`), create a new directory named `Command`, and in this directory, a new file named `HelloCommand.php`.
 
 Add this code to the file:
 
@@ -233,7 +232,7 @@ class HelloCommand extends \Symfony\Bundle\FrameworkBundle\Command\ContainerAwar
 
 This is the skeleton for a command line script.
 
-One class with a name ending with "Command" (`HelloCommand`), extends `Symfony\Bundle\FrameworkBundle\Command\Command`, and is part of our bundle's Command namespace. It has two methods: `configure()`, and `execute()`. We also import several classes and interfaces with the use keyword. The first two, `InputInterface` and `OutputInterface` are used to 'typehint' the objects that will allow you to provide input and output management in our script.
+One class with a name ending with "Command" (`HelloCommand`), extends `Symfony\Bundle\FrameworkBundle\Command\Command`, and is part of your bundle's Command namespace. It has two methods: `configure()`, and `execute()`. You also import several classes and interfaces with the use keyword. The first two, `InputInterface` and `OutputInterface` are used to 'typehint' the objects that will allow you to provide input and output management in your script.
 
 `Configure` will be used to set your command's name, as well as its options and arguments. `Execute` will contain the actual implementation of your command. Start by creating the `configure()` method.
 
@@ -251,7 +250,7 @@ protected function configure()
 }
 ```
 
-First, you use `setName()` to set your command's name to "`ezpublish:cookbook:hello`". Then use `setDefinition()` to add an argument, named `name`, to your command.
+First, you use `setName()` to set your command's name to `ezpublish:cookbook:hello`. Then use `setDefinition()` to add an argument, named `name`, to your command.
 
 You can read more about argument definitions and further options in the [Symfony Console documentation](http://symfony.com/doc/current/components/console/introduction.html). Once this is done, if you run `php app/console list`, you should see `ezpublish:cookbook:hello` listed in the available commands. If you run it, it will however still do nothing.
 
@@ -312,7 +311,7 @@ You defined a route that matches the URI `/cookbook/` and executes the action `h
 
 ##### DefaultController.php
 
-This controller was generated by the bundle generator. It contains one method, `helloAction()`, that matched the YAML configuration we have changed in the previous part. Rename the `indexAction()` method so that you end up with this code.
+This controller was generated by the bundle generator. It contains one method, `helloAction()`, that matched the YAML configuration you have changed in the previous part. Rename the `indexAction()` method so that you end up with this code.
 
 **DefaultController::helloAction()**
 
@@ -335,23 +334,23 @@ For convenience, a custom controller is available at [eZ\\Bundle\\EzPublishCoreB
 
 |Method|Descriptio|
 |------|----------|
-|`getRepository()`| Returns the Public API repository that gives you access to the various services through `getContentService()`, `getLocationService()` etc.|
+|`getRepository()`| Returns the public API repository that gives you access to the various services through `getContentService()`, `getLocationService()` etc.|
 |`getLegacyKernel()`|Returns an instance of the [eZ\\Publish\\Core\\MVC\\Legacy\\Kernel](http://apidoc.ez.no/doxygen/trunk/NS/html/classeZ_1_1Publish_1_1Core_1_1MVC_1_1Legacy_1_1Kernel.html) that you can use to interact with the Legacy eZ Platform kernel.|
 |`getConfigResolver()`|Returns the [ConfigResolver](http://apidoc.ez.no/doxygen/trunk/NS/html/classeZ_1_1Bundle_1_1EzPublishCoreBundle_1_1DependencyInjection_1_1Configuration_1_1ConfigResolver.html) that gives you access to configuration data.|
 
 You are encouraged to use it for your custom controllers that interact with eZ Platform.
 
-With both command line scripts and HTTP routes, you have the basics you need to start writing Public API code.
+With both command line scripts and HTTP routes, you have the basics you need to start writing public API code.
 
 ## Browsing, finding, viewing
 
-You will start by going through the various ways to find and retrieve content from eZ Platform using the API. While this will be covered in further dedicated documentation, it is necessary to explain a few basic concepts of the Public API. In the following recipes, you will learn about the general principles of the API as they are introduced in individual recipes.
+You will start by going through the various ways to find and retrieve content from eZ Platform using the API. While this will be covered in further dedicated documentation, it is necessary to explain a few basic concepts of the public API. In the following recipes, you will learn about the general principles of the API as they are introduced in individual recipes.
 
 ### Displaying values from a Content item
 
 In this recipe, you will see how to fetch a Content item from the repository, and obtain its Field's content.
 
-Let's first see the full code. You can see the Command line version at <https://github.com/ezsystems/CookbookBundle/blob/master/Command/ViewContentCommand.php>.
+Let's first see the full code. You can see the Command line version at <https://github.com/ezsystems/CookbookBundle/blob/master/Command/ViewContentCommand.php>
 
 **Viewing content**
 
@@ -398,7 +397,7 @@ $contentTypeService = $repository->getContentTypeService();
 $fieldTypeService = $repository->getFieldTypeService();
 ```
 
-This is the initialization part. As explained above, everything in the Public API goes through the repository via dedicated services. You get the repository from the service container, using the method `get()` of your container, obtained via `$this->getContainer()`. Using your `$repository` variable, fetch the two services you will be using `getContentService()` and `getFieldTypeService()`.
+This is the initialization part. As explained above, everything in the public API goes through the repository via dedicated services. You get the repository from the service container, using the method `get()` of your container, obtained via `$this->getContainer()`. Using your `$repository` variable, fetch the two services you will be using `getContentService()` and `getFieldTypeService()`.
 
 ``` php
 try
@@ -407,9 +406,9 @@ try
     $content = $contentService->loadContent( 66 );
 ```
 
-Everything starting from line 5 is about getting your Content and iterating over its Fields. You can see that the whole logic is part of a `try/catch` block. Since the Public API uses Exceptions for error handling, this is strongly encouraged, as it will allow you to conditionally catch the various errors that may happen. The exceptions that can occur will be covered in a later paragraph.
+Everything starting from line 5 is about getting your Content and iterating over its Fields. You can see that the whole logic is part of a `try/catch` block. Since the public API uses Exceptions for error handling, this is strongly encouraged, as it will allow you to conditionally catch the various errors that may happen. The exceptions that can occur will be covered in a later paragraph.
 
-The first thing you do is use the Content Service to load a Content item using its ID, 66: `$contentService->loadContent ( 66 )`. As you can see on the API doc page, this method expects a Content ID, and returns a [Content Value Object](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Content.html).
+The first thing you do is use the Content Service to load a Content item using its ID, 66: `$contentService->loadContent ( 66 )`. As you can see on the API doc page, this method expects a Content ID, and returns a [Content value object](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Content.html).
 
 ``` php
 foreach( $contentType->fieldDefinitions as $fieldDefinition )
@@ -427,7 +426,7 @@ foreach( $contentType->fieldDefinitions as $fieldDefinition )
 
 This block is the one that actually displays the value.
 
-It iterates over the Content item's Fields using the Content Type's FieldDefinitions (`$contentType->fieldDefinitions`).
+It iterates over the Content item's Fields using the Content Type's Field Definitions (`$contentType->fieldDefinitions`).
 
 For each Field Definition, you start by displaying its identifier (`$fieldDefinition->identifier`). You then get the Field Type instance using the Field Type Service (`$fieldTypeService->getFieldType( $fieldDefinition->fieldTypeIdentifier )`). This method expects the requested Field Type's identifier, as a string (ezstring, ezxmltext, etc.), and returns an `eZ\Publish\API\Repository\FieldType` object.
 
@@ -441,9 +440,7 @@ With this example, you should get a first idea on how you interact with the API.
 
 Since you didn't specify any language code, your Field object is returned in the given Content item's main language.
 
-If you want to take SiteAccess languages into account, you can take advantage of `TranslationHelpers` as described in [Content Rendering](Content-Rendering_31429679.html).
-
-TODO - check Content Rendering
+If you want to take SiteAccess languages into account, you can take advantage of `TranslationHelpers` as described in [Content Rendering](/guide/siteaccess.md).
 
 Otherwise if you want to use an altogether different language, you can specify a language code in the `getField()` call:
 
@@ -464,7 +461,7 @@ catch ( \eZ\Publish\API\Repository\Exceptions\UnauthorizedException $e )
 }
 ```
 
-As said earlier, the Public API uses [Exceptions](http://php.net/exceptions) to handle errors. Each method of the API may throw different exceptions, depending on what it does. Which exceptions can be thrown is usually documented for each method. In our case, `loadContent()` may throw two types of exceptions: `NotFoundException`, if the requested ID isn't found, and `UnauthorizedException` if the currently logged in user isn't allowed to view the requested content.
+As said earlier, the public API uses [Exceptions](http://php.net/exceptions) to handle errors. Each method of the API may throw different exceptions, depending on what it does. Which exceptions can be thrown is usually documented for each method. In our case, `loadContent()` may throw two types of exceptions: `NotFoundException`, if the requested ID isn't found, and `UnauthorizedException` if the currently logged in user isn't allowed to view the requested content.
 
 It is a good practice to cover each exception you expect to happen. In this case, since our Command takes the Content ID as a parameter, this ID may either not exist, or the referenced Content item may not be visible to our user. Both cases are covered with explicit error messages.
 
@@ -472,11 +469,11 @@ It is a good practice to cover each exception you expect to happen. In this case
 
 This recipe will show how to traverse a Location's subtree. The full code implements a command that takes a Location ID as an argument and recursively prints this location's subtree.
 
-Full code
+!!! note "Full code"
 
-<https://github.com/ezsystems/CookbookBundle/blob/master/Command/BrowseLocationsCommand.php>
+    <https://github.com/ezsystems/CookbookBundle/blob/master/Command/BrowseLocationsCommand.php>
 
-In this code the [LocationService](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/LocationService.html) is introduced. This service is used to interact with Locations. We use two methods from this service: [`loadLocation()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/LocationService.html#method_loadLocation), and [`loadLocationChildren()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/LocationService.html#method_loadLocationChildren).
+In this code the [LocationService](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/LocationService.html) is introduced. This service is used to interact with Locations. You will use two methods from this service: [`loadLocation()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/LocationService.html#method_loadLocation), and [`loadLocationChildren()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/LocationService.html#method_loadLocationChildren).
 
 **Loading a Location**
 
@@ -497,7 +494,7 @@ catch( \eZ\Publish\API\Repository\Exceptions\UnauthorizedException $e )
 }
 ```
 
-As for the ContentService, `loadLocation()` returns a Value Object, here a `Location`. Errors are handled with exceptions: `NotFoundException` if the Location ID couldn't be found, and `UnauthorizedException` if the current repository user isn't allowed to view this Location.
+As for the ContentService, `loadLocation()` returns a value object, here a `Location`. Errors are handled with exceptions: `NotFoundException` if the Location ID couldn't be found, and `UnauthorizedException` if the current repository user isn't allowed to view this Location.
 
 **Iterating over a Location's children**
 
@@ -513,17 +510,17 @@ private function browseLocation( Location $location, OutputInterface $output, $d
 }
 ```
 
-`LocationService::loadLocationChildren()` returns a [LocationList](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/LocationList.php) Value Objects that you can iterate over.
+`LocationService::loadLocationChildren()` returns a [LocationList](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/LocationList.php) value objects that you can iterate over.
 
 Note that unlike `loadLocation()`, you don't need to care for permissions here: the currently logged-in user's permissions will be respected when loading children, and Locations that can't be viewed won't be returned at all.
 
-!!! note "Full code"
+!!! note
 
     Should you need more advanced children fetching methods, the `SearchService` is what you are looking for.
 
 ### Viewing Content Metadata
 
-Content is a central piece in the Public API. You will often need to start from a Content item, and dig in from its metadata. Basic content metadata is made available through `ContentInfo` objects. This Value Object mostly provides primitive fields: `contentTypeId`, `publishedDate` or `mainLocationId`. But it is also used to request further Content-related Value Objects from various services.
+Content is a central piece in the public API. You will often need to start from a Content item, and dig in from its metadata. Basic content metadata is made available through `ContentInfo` objects. This value object mostly provides primitive fields: `contentTypeId`, `publishedDate` or `mainLocationId`. But it is also used to request further Content-related value objects from various services.
 
 The full example implements an `ezpublish:cookbook:view_content_metadata` command that prints out all the available metadata, given a Content ID.
 
@@ -531,7 +528,7 @@ The full example implements an `ezpublish:cookbook:view_content_metadata` comman
 
     <https://github.com/ezsystems/CookbookBundle/blob/master/Command/ViewContentMetaDataCommand.php>
 
-We introduce here several new services: [`URLAliasService`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/URLAliasService.html), [`UserService`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/UserService.html) and [`SectionService`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/SectionService.html). The concept should be familiar to you now.
+Several new services are introduced here: [`URLAliasService`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/URLAliasService.html), [`UserService`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/UserService.html) and [`SectionService`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/SectionService.html).
 
 **Services initialization**
 
@@ -566,7 +563,7 @@ $user = $userService->loadUserByLogin('admin');
 $permissionResolver->setCurrentUserReference($user);
 ```
 
-#### The ContentInfo Value Object
+#### The ContentInfo value object
 
 You will now load a `ContentInfo` object using the provided ID and use it to get your Content item's metadata
 
@@ -589,7 +586,7 @@ foreach ( $locations as $location )
 }
 ```
 
-First use `LocationService::loadLocations()` to **get** the **Locations** for `ContentInfo`. This method returns an array of [`Location`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Location.html) Value Objects. In this example, you print out the Location's path string (/path/to/content). You also use [URLAliasService::reverseLookup()](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/URLAliasService.html#method_reverseLookup) to get the Location's main [URLAlias](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/URLAlias.html).
+First use `LocationService::loadLocations()` to **get** the **Locations** for `ContentInfo`. This method returns an array of [`Location`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Location.html) value objects. In this example, you print out the Location's path string (/path/to/content). You also use [URLAliasService::reverseLookup()](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/URLAliasService.html#method_reverseLookup) to get the Location's main [URLAlias](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/URLAlias.html).
 
 #### Relations
 
@@ -612,11 +609,11 @@ if ( !empty( $relations ) )
 }
 ```
 
-You can iterate over the [Relation](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Relation.html) objects array you got from `loadRelations()`, and use these Value Objects to get data about your relations. It has two main properties: `destinationContentInfo`, and `sourceContentInfo`. They also hold the relation type (embed, common, etc.), and the optional Field this relations is made with.
+You can iterate over the [Relation](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Relation.html) objects array you got from `loadRelations()`, and use these value objects to get data about your relations. It has two main properties: `destinationContentInfo`, and `sourceContentInfo`. They also hold the relation type (embed, common, etc.), and the optional Field this relations is made with.
 
 #### ContentInfo properties
 
-You can of course get your Content item's metadata by using the Value Object's properties.
+You can of course get your Content item's metadata by using the value object's properties.
 
 **Primitive object metadata**
 
@@ -634,7 +631,7 @@ $output->writeln( "  <info>Always available:</info> " . ( $contentInfo->alwaysAv
 
 #### Owning user
 
-You can use [`UserService::loadUser()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/UserService.html#method_loadUser) with Content `ownerId` property of our `ContentInfo` to load the Content's owner as a `User` Value Object.
+You can use [`UserService::loadUser()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/UserService.html#method_loadUser) with Content `ownerId` property of our `ContentInfo` to load the Content's owner as a `User` value object.
 
 ``` php
 $owner = $userService->loadUser( $contentInfo->ownerId );
@@ -645,7 +642,7 @@ To get the current version's creator, and not the content's owner, you need to u
 
 #### Section
 
-The Section's ID can be found in the `sectionId` property of the `ContentInfo` object. To get the matching Section Value Object, you need to use the `SectionService::loadSection()` method.
+The Section's ID can be found in the `sectionId` property of the `ContentInfo` object. To get the matching Section value object, you need to use the `SectionService::loadSection()` method.
 
 ``` php
 $section = $sectionService->loadSection( $contentInfo->sectionId );
@@ -654,7 +651,7 @@ $output->writeln( "  <info>Section:</info> $section->name" );
 
 #### Versions
 
-To conclude you can also iterate over the Content's version, as `VersionInfo` Value Objects.
+To conclude you can also iterate over the Content's version, as `VersionInfo` value objects.
 
 ``` php
 $versionInfoArray = $contentService->loadVersions( $contentInfo );
@@ -689,9 +686,9 @@ Query object contains two properties you can set criteria on `filter` and `query
 
 #### Performing a simple full text search
 
-Full code:
+!!! note "Full code"
 
-<https://github.com/ezsystems/CookbookBundle/blob/master/Command/FindContentCommand.php>
+    <https://github.com/ezsystems/CookbookBundle/blob/master/Command/FindContentCommand.php>
 
 In this recipe, you will run a simple full text search over every compatible attribute.
 
@@ -734,9 +731,9 @@ You can use the method `$parentLocation->getSortClauses()` to return an array of
 
 #### Performing an advanced search
 
-Full code:
+!!! note "Full code"
 
-<https://github.com/ezsystems/CookbookBundle/blob/master/Command/FindContent2Command.php>
+    <https://github.com/ezsystems/CookbookBundle/blob/master/Command/FindContent2Command.php>
 
 As explained in the previous chapter, Criterion objects are grouped together using logical criteria. You will now see how multiple criteria objects can be combined into a fine grained search `Query`.
 
@@ -788,11 +785,11 @@ $searchService->findLocations($query,
 
 #### Performing a fetch like search
 
-Full code:
+!!! note "Full code"
 
-<https://github.com/ezsystems/CookbookBundle/blob/master/Command/FindContent3Command.php>
+    <https://github.com/ezsystems/CookbookBundle/blob/master/Command/FindContent3Command.php>
 
-A search isn't only meant for searching, it also provides the interface for what was called "fetch" in eZ Publish 4.x. As this is back-end agnostic, eZ Publish's "ezfind" fetch functions are now powered by Solr (or ElasticSearch in experimental, unsupported setups).
+A search isn't only meant for searching, it also provides the interface for what was called "fetch" in eZ Publish 4.x. As this is back-end agnostic, eZ Platform "ezfind" fetch functions are now powered by Solr (or ElasticSearch in experimental, unsupported setups).
 
 Following the examples above you now change it a bit to combine several criteria with both an AND and an OR condition.
 
@@ -818,7 +815,7 @@ $query->filter = new Criterion\LogicalAnd(
 $result = $searchService->findContent( $query );
 ```
 
-A `ParentLocationId` criterion limits the search to the children of location 2. An array of `ContentTypeId` Criteria to limit the search to Content of ContentType's with id 1 or 2 grouped in a `LogicalOr` operator. Those two criteria are grouped with a `LogicalAnd` operator. As always the query is executed as before, with `SearchService::findContent()`.
+A `ParentLocationId` criterion limits the search to the children of location 2. An array of `ContentTypeId` Criteria to limit the search to Content of Content Type's with ID 1 or 2 grouped in a `LogicalOr` operator. Those two criteria are grouped with a `LogicalAnd` operator. As always the query is executed as before, with `SearchService::findContent()`.
 
 Change the location filter to use the Subtree criterion filter as shown in the advanced search example above.
 
@@ -855,8 +852,8 @@ $result = $searchService->findContent( $query );
 
     Faceted Search is not fully implemented yet.
 
-    -   Implemented Facets SOLR BUNDLE &gt;=1.4: `User, ContentType, & Section` , see:   [![](https://jira.ez.no/images/icons/issuetypes/epic.png)EZP-26465](https://jira.ez.no/browse/EZP-26465?src=confmacro) - Search Facets M1 Development
-    -   Not Implemented Facets: `CriterionFacet, DateRangeFacet, FieldFacet, FieldRangeFacet, LocationFacet (meant for Location search), & TermFacet`
+    -   Implemented Facets SOLR BUNDLE &gt;=1.4: `User, ContentType, and Section` , see:   [![](https://jira.ez.no/images/icons/issuetypes/epic.png)EZP-26465](https://jira.ez.no/browse/EZP-26465?src=confmacro) - Search Facets M1 Development
+    -   Not Implemented Facets: `CriterionFacet, DateRangeFacet, FieldFacet, FieldRangeFacet, LocationFacet (meant for Location search), and TermFacet`
 
     You can register [custom facet builder visitors](https://github.com/ezsystems/ezplatform-solr-search-engine/blob/v1.1.1/lib/Resources/config/container/solr/facet_builder_visitors.yml) with Solr for Content(Info) and SOLR BUNDLE &gt;=1.4 Location search.
 
@@ -916,11 +913,11 @@ $resultCount = $searchService->findContent( $query )->totalCount;
 
 ## Managing Content
 
-In the following recipes, you will see how to create Content, including complex fields like XmlText or Image.
+In the following recipes, you will see how to create Content.
 
 ### Identifying to the repository with a login and a password
 
-As seen earlier, the Repository executes operations with a user's credentials. In a web context, the currently logged-in user is automatically identified. In a command line context, you need to manually log a user in. You have already seen how to manually load and set a user using its ID. If you would like to identify a user using their username and password instead, this can be achieved in the following way:
+As seen earlier, the repository executes operations with a user's credentials. In a web context, the currently logged-in user is automatically identified. In a command line context, you need to manually log a user in. You have already seen how to manually load and set a user using its ID. If you would like to identify a user using their username and password instead, this can be achieved in the following way:
 
 **authentication**
 
@@ -945,7 +942,7 @@ $permissionResolver->setCurrentUserReference($user);
 
     <https://github.com/ezsystems/CookbookBundle/blob/master/Command/CreateContentCommand.php>
 
-You will now see how to create Content using the Public API. This example will work with the default Folder (ID 1) Content Type from eZ Platform.
+You will now see how to create Content using the public API. This example will work with the default Folder (ID 1) Content Type from eZ Platform.
 
 ``` php
 /** @var $repository \eZ\Publish\API\Repository\Repository */
@@ -959,7 +956,7 @@ First, you need the required services. In this case: `ContentService`, `Location
 
 #### The ContentCreateStruct
 
-As explained in [above](#value-info-objects), Value Objects are read only. Dedicated objects are provided for Update and Create operations: structs, like `ContentCreateStruct` or `UpdateCreateStruct`. In this case, you need to use a `ContentCreateStruct`.
+As explained in [above](#value-info-objects), value objects are read only. Dedicated objects are provided for Update and Create operations: structs, like `ContentCreateStruct` or `UpdateCreateStruct`. In this case, you need to use a `ContentCreateStruct`.
 
 ``` php
 $contentType = $contentTypeService->loadContentTypeByIdentifier( 'article' );
@@ -1005,9 +1002,9 @@ The `LocationCreateStruct` is provided as an array, since a Content item can hav
 
 ### Updating Content
 
-Full code
+!!! note "Full code"
 
-<https://github.com/ezsystems/CookbookBundle/blob/master/Command/UpdateContentCommand.php>
+    <https://github.com/ezsystems/CookbookBundle/blob/master/Command/UpdateContentCommand.php>
 
 You will now see how the previously created Content can be updated. To do so, you will create a new draft for your Content, update it using a [`ContentUpdateStruct`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/ContentUpdateStruct.html), and publish the updated Version.
 
@@ -1016,7 +1013,7 @@ $contentInfo = $contentService->loadContentInfo( $contentId );
 $contentDraft = $contentService->createContentDraft( $contentInfo );
 ```
 
-To create our draft, you need to load the Content item's ContentInfo using `ContentService::loadContentInfo()`. You can then use `ContentService::createContentDraft()` to add a new Draft to your Content.
+To create your draft, you need to load the Content item's ContentInfo using `ContentService::loadContentInfo()`. You can then use `ContentService::createContentDraft()` to add a new Draft to your Content.
 
 ``` php
 // instantiate a content update struct and set the new fields
@@ -1072,7 +1069,7 @@ Since you did not specify a locale for the last two fields, they are set for the
 
 As explained above, the `setField()` method can accept various values: an instance of the Field Type's Value class, a primitive type, or a hash. The last two depend on what the `Type::acceptValue()` method is build up to handle. TextLine can, for instance, accept a simple string as an input value. In this example, you will see how to set an Image value.
 
-Let's assume that you use the default image class. Creating your Content, using the Content Type and a ContentCreateStruct, has been covered above, and can be found in the full code. Let's focus on how the image is provided.
+Let's assume that you use the default image class. Creating your Content, using the Content Type and a `ContentCreateStruct`, has been covered above, and can be found in the full code. Let's focus on how the image is provided.
 
 ``` php
 $file = '/path/to/image.png';
@@ -1161,15 +1158,15 @@ $contentService->deleteContent( $contentInfo );
 
 !!! caution
 
-    Use with caution!
+    Use with caution as deleted content cannot be recovered.
 
 ## Working with Locations
 
 ### Adding a new Location to a Content item
 
-Full code
+!!! note "Full code"
 
-<https://github.com/ezsystems/CookbookBundle/blob/master/Command/AddLocationToContentCommand.php>
+    <https://github.com/ezsystems/CookbookBundle/blob/master/Command/AddLocationToContentCommand.php>
 
 You have seen earlier how you can create a Location for a newly created `Content`. It is of course also possible to add a new [`Location`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Location.html) to an existing `Content`.
 
@@ -1221,7 +1218,7 @@ Finally use `LocationService::createLocation()`, providing the `ContentInfo` obt
 
     <https://github.com/ezsystems/CookbookBundle/blob/master/Command/HideLocationCommand.php>
 
-As mentioned earlier a Location's visibility could be set while creating the Location, using the hidden property of the LocationCreateStruct. Changing a Location's visibility may have a large impact in the Repository: doing so will affect the Location's subtree visibility. For this reason, a `LocationUpdateStruct` doesn't let you toggle this property. You need to use the `LocationService` to do so.
+As mentioned earlier a Location's visibility could be set while creating the Location, using the hidden property of the `LocationCreateStruct`. Changing a Location's visibility may have a large impact in the Repository: doing so will affect the Location's subtree visibility. For this reason, a `LocationUpdateStruct` doesn't let you toggle this property. You need to use the `LocationService` to do so.
 
 ``` php
 $hiddenLocation = $locationService->hideLocation( $location );
@@ -1246,9 +1243,9 @@ $locationService->deleteLocation( $locationInfo );
 $trashService->trash( $locationInfo );
 ```
 
-`TrashService::trash()` will send the Location as well as all its descendants to the Trash, where they can be found and restored until the Trash is emptied. Content isn't affected at all, since it is still referenced by the trash items.
+`TrashService::trash()` will send the Location as well as all its descendants to the trash, where they can be found and restored until the Trash is emptied. Content isn't affected at all, since it is still referenced by the trash items.
 
-The `TrashService` can be used to list, restore and delete Locations that were previously sent to Trash using [`TrashService::trash()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/TrashService.html#method_trash).
+The `TrashService` can be used to list, restore and delete Locations that were previously sent to trash using [`TrashService::trash()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/TrashService.html#method_trash).
 
 ### Setting a content item's main Location
 
@@ -1273,7 +1270,7 @@ $contentService->updateContentMetadata( $contentInfo, $contentUpdateStruct );
 
     [https://github.com/ezsystems/CookbookBundle/tree/master/Command/AssignContentToSectionCommand.php](https://github.com/docb22/ez-publish-cookbook/tree/master/EzSystems/CookBookBundle/Command/AssignContentToSectionCommand.php)
 
-The Section that a Content item belongs to can be set during creation, using the `ContentCreateStruct::$sectionId` property. However, as for many Repository objects properties, the Section can't be changed using a `ContentUpdateStruct`. The reason is still the same: changing a Content item's Section will affect the subtrees referenced by its Locations. For this reason, it is required that you use the SectionService to change the Section of a Content item.
+The Section that a Content item belongs to can be set during creation, using the `ContentCreateStruct::$sectionId` property. However, as for many Repository objects properties, the Section can't be changed using a `ContentUpdateStruct`. The reason is still the same: changing a Content item's Section will affect the subtrees referenced by its Locations. For this reason, it is required that you use the `SectionService`. to change the Section of a Content item.
 
 **assign section to content**
 
@@ -1353,7 +1350,7 @@ Using the create struct's properties, you can set the Type's properties:
 -   the human-readable name for your Type is set using the `names` property. You give it a hash, indexed by the locale ('eng-GB') the name is set in. This locale must exist in the system.
 -   the same way that you have set the `names` property, you can set human-readable descriptions, again as hashes indexed by locale code.
 
-The next big part is to add FieldDefinition objects to your Content Type.
+The next big part is to add `FieldDefinition` objects to your Content Type.
 
 ```php
 // add a TextLine Field with identifier 'title'
@@ -1380,7 +1377,7 @@ $bodyFieldCreateStruct->isSearchable = true;
 $contentTypeCreateStruct->addFieldDefinition( $bodyFieldCreateStruct );
 ```
 
-You need to create a `FieldDefinitionCreateStruct` object for each `FieldDefinition` your `ContentType` will be made of. Those objects are obtained using [`ContentTypeService::newFieldDefinitionCreateStruct()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/ContentTypeService.html#method_newFieldDefinitionCreateStruct). This method expects the FieldDefinition identifier and its type as arguments. The identifiers match the ones from eZ Publish 4 (`ezstring` for TextLine, etc.).
+You need to create a `FieldDefinitionCreateStruct` object for each `FieldDefinition` your `ContentType` will be made of. Those objects are obtained using [`ContentTypeService::newFieldDefinitionCreateStruct()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/ContentTypeService.html#method_newFieldDefinitionCreateStruct). This method expects the `FieldDefinition` identifier and its type as arguments. The identifiers match the ones from eZ Publish 4 (`ezstring` for TextLine, etc.).
 
 Each field's properties are set using the create struct's properties:
 
