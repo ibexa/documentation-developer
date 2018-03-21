@@ -430,7 +430,7 @@ It iterates over the Content item's Fields using the Content Type's Field Defini
 
 For each Field Definition, you start by displaying its identifier (`$fieldDefinition->identifier`). You then get the Field Type instance using the Field Type Service (`$fieldTypeService->getFieldType( $fieldDefinition->fieldTypeIdentifier )`). This method expects the requested Field Type's identifier, as a string (ezstring, ezxmltext, etc.), and returns an `eZ\Publish\API\Repository\FieldType` object.
 
-The Field Value object is obtained using the `getFieldValue()` method of the Content Value Object which you obtained using `ContentService::loadContent()`.
+The Field Value object is obtained using the `getFieldValue()` method of the Content value object which you obtained using `ContentService::loadContent()`.
 
 Using the Field Type object, you can convert the Field Value to a hash using the `toHash()` method, provided by every Field Type. This method returns a primitive type (string, hash) out of a Field instance.
 
@@ -725,7 +725,7 @@ The `searchHits` properties of the `SearchResult` object is an array of `SearchH
 
     If you you are searching using a unique identifier, for instance using the Content ID or Content remote ID criterion, then you can use [`SearchService::findSingle()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/SearchService.html#method_findSingle), this takes a Criterion and returns a single Content item, or throws a `NotFound` exception if none is found.
 
-#### Retrieving Sort Clauses for parent location
+#### Retrieving Sort Clauses for parent Location
 
 You can use the method `$parentLocation->getSortClauses()` to return an array of Sort Clauses for direct use on `LocationQuery->sortClauses`.
 
@@ -815,9 +815,9 @@ $query->filter = new Criterion\LogicalAnd(
 $result = $searchService->findContent( $query );
 ```
 
-A `ParentLocationId` criterion limits the search to the children of location 2. An array of `ContentTypeId` Criteria to limit the search to Content of Content Type's with ID 1 or 2 grouped in a `LogicalOr` operator. Those two criteria are grouped with a `LogicalAnd` operator. As always the query is executed as before, with `SearchService::findContent()`.
+A `ParentLocationId` criterion limits the search to the children of Location 2. An array of `ContentTypeId` Criteria to limit the search to Content of Content Type's with ID 1 or 2 grouped in a `LogicalOr` operator. Those two criteria are grouped with a `LogicalAnd` operator. As always the query is executed as before, with `SearchService::findContent()`.
 
-Change the location filter to use the Subtree criterion filter as shown in the advanced search example above.
+Change the Location filter to use the Subtree criterion filter as shown in the advanced search example above.
 
 ##### Using in() instead of OR
 
