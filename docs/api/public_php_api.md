@@ -6,7 +6,7 @@ The PHP API is also commonly referred to as the **public API**. Currently it exp
 
 This entity is the entry point to everything you do with the public API.
 
-It allows you to create, retrieve, update and delete all the eZ Platform objects, as well as Content Types, Sections, Content states. It is always obtained through the service container.
+It enables you to create, retrieve, update and delete all the eZ Platform objects, as well as Content Types, Sections, Content states. It is always obtained through the service container.
 
 **Obtaining the eZ Platform Repository via the service container**
 
@@ -23,9 +23,9 @@ Repository allows three types of operations: user authentication (getting / chan
 
 ### The service container
 
-The above code snippet implies that the [service container](http://symfony.com/doc/3.4/book/service_container.html) is available in the context you are writing your code in.
+The above code snippet implies that the [service container](http://symfony.com/doc/2.8/book/service_container.html) is available in the context you are writing your code in.
 
-In controllers, this generally is done by extending the Symfony `Controller` class. It comes with a `get()` method that calls the service container. In command line scripts, it requires that you extend the [`ContainerAwareCommand`](http://api.symfony.com/3.4/Symfony/Bundle/FrameworkBundle/Command/ContainerAwareCommand.html) base class instead of `Controller`. This class provides you with a `getContainer()` method that returns the service container.
+In controllers, this generally is done by extending the Symfony `Controller` class. It comes with a `get()` method that calls the service container. In command line scripts, it requires that you extend the [`ContainerAwareCommand`](http://api.symfony.com/2.8/Symfony/Bundle/FrameworkBundle/Command/ContainerAwareCommand.html) base class instead of `Controller`. This class provides you with a `getContainer()` method that returns the service container.
 
 !!! note "Getting the repository from eZ Platform controllers"
 
@@ -49,7 +49,7 @@ Throughout the Cookbook, you will be guided through the various capabilities tho
 
 The elements (Content, Users) that services provide interaction with are provided as read-only [value objects](http://apidoc.ez.no/doxygen/trunk/NS/html/namespaceeZ_1_1Publish_1_1Core_1_1Repository_1_1Values.html) in the `eZ\Publish\Core\Repository\Values` namespace. Those objects are broken down into sub-namespaces: `Content`, `ContentType`, `User` and `ObjectState`, each sub-namespace containing a set of value objects, such as [`Content\Content`](https://github.com/ezsystems/ezp-next/blob/master/eZ/Publish/Core/Repository/Values/Content/Content.php) or [`User\Role`](https://github.com/ezsystems/ezp-next/blob/master/eZ/Publish/Core/Repository/Values/User/Role.php).
 
-These objects are read-only by design. They are only meant to be used in order to fetch data from the repository. They come with their own properties, such as `$content->id`, `$location->hidden`, but also with methods that provide access to more related information, such as `Relation::getSourceContentInfo()` or `Role::getPolicies()`. By design, a value object will only give you access to data that is related to it. More complex retrieval operations will require you to use the appropriate service, using information from your value object.
+These objects are read-only by design. They are only meant to be used in order to fetch data from the Repository. They come with their own properties, such as `$content->id`, `$location->hidden`, but also with methods that provide access to more related information, such as `Relation::getSourceContentInfo()` or `Role::getPolicies()`. By design, a value object will only give you access to data that is related to it. More complex retrieval operations will require you to use the appropriate service, using information from your value object.
 
 #### Value info objects
 
@@ -92,7 +92,7 @@ In this chapter, you will see two ways of customizing eZ Platform: command line 
 
 In order to test and use public API code, you will need to build a custom bundle. Bundles are Symfony's extensions, and are therefore also used to extend eZ Platform. Symfony provides code generation tools that will let you create your own bundle and get started in a few minutes.
 
-In this chapter, you will be shown how to create a custom bundle, and implement both a command line script and a custom route with its own controller action and view. All shell commands assume that you use some Linux shell, but those commands would of course also work on Windows systems.
+In this chapter, you will see how to create a custom bundle, and implement both a command line script and a custom route with its own controller action and view. All shell commands assume that you use some Linux shell, but those commands would of course also work on Windows systems.
 
 #### Generating a new bundle
 
@@ -114,51 +114,60 @@ The wizard will first ask about your bundle's namespace. Each bundle's namespace
 
 **Bundle namespace**
 
+```
 Your application code must be written in bundles. This command helps you generate them easily.
 
-Each bundle is hosted under a namespace (like `Acme/Bundle/BlogBundle`).
+Each bundle is hosted under a namespace (like Acme/Bundle/BlogBundle).
 
-The namespace should begin with a vendor name like your company name, your project name, or your client name, followed by one or more optional category sub-namespaces, and it should end with the bundle name itself (which must have `Bundle` as a suffix).
+The namespace should begin with a "vendor" name like your company name, your project name, or your client name, followed by one or more optional category sub-namespaces, and it should end with the bundle name itself (which must have Bundle as a suffix).
 
-See [Symfony documentation](http://symfony.com/doc/current/cookbook/bundles/best_practices.html#index-1) for more details on bundle naming conventions.
+See http://symfony.com/doc/current/cookbook/bundles/best_practices.html#index-1 for more details on bundle naming conventions.
 
-Use `/` instead of `\` for the namespace delimiter to avoid any problem.
+Use / instead of \ for the namespace delimiter to avoid any problem.
 
-Bundle namespace: `EzSystems/CookbookBundle`
+Bundle namespace: EzSystems/CookbookBundle
+```
 
 You will then be asked about the Bundle's name, used to reference your bundle in your code. You can go with the default, `EzSystemsCookbookBundle`. Just hit Enter to accept the default.
 
 **Bundle name**
 
+```
 In your code, a bundle is often referenced by its name. It can be the concatenation of all namespace parts but it's really up to you to come up with a unique name (a good practice is to start with the vendor name).
 
-Based on the namespace, you could use `EzSystemsCookbookBundle`.
+Based on the namespace, we suggest EzSystemsCookbookBundle.
 
-Bundle name [EzSystemsCookbookBundle](https://github.com/ezsystems/CookbookBundle):
+Bundle name [EzSystemsCookbookBundle]:
+```
 
 The next question is your bundle's location. By default, the script offers to place it in the `src` folder. This is perfectly acceptable unless you have a good reason to place it somewhere else. Just hit Enter to accept the default.
 
 **Bundle directory**
 
+```
 The bundle can be generated anywhere. The suggested default directory uses the standard conventions.
 
-`Target directory /path/to/ezpublish5/src`
+
+Target directory [/path/to/ezpublish5/src]:
+```
 
 Next, you need to choose the generated configuration's format, out of YAML, XML, PHP or annotations. In eZ Platform yaml is mostly in use, and you will use it in this cookbook. Enter 'yml', and hit Enter.
 
 **Configuration format**
 
-Determine the format to use for the generated configuration.      
+```
+Determine the format to use for the generated configuration.                                                                                                                        
 
-`Configuration format (yml, xml, php, or annotation): [annotation]: yml`
+Configuration format (yml, xml, php, or annotation) [annotation]: yml
+```
 
 The last choice is to generate code snippets demonstrating the Symfony directory structure. If you're learning Symfony, it is a good idea to accept, as it will create a controller, yaml files, etc.
 
 **Generate snippets & directory structure**
 
+```
 To help you get started faster, the command can generate some code snippets for you.
 
-```
 Do you want to generate the whole directory structure [no]? yes
 ```
 
@@ -166,9 +175,9 @@ The generator will then summarize the previous choices, and ask for confirmation
 
 **Summary and confirmation**
 
-You are going to generate a `EzSystems\Bundle\CookbookBundle\EzSystemsCookbookBundle` bundle in `/path/to/ezpublish5/src/` using the yml format.
-
 ```
+You are going to generate a "EzSystems\Bundle\CookbookBundle\EzSystemsCookbookBundle" bundle in "/path/to/ezpublish5/src/" using the "yml" format.
+
 Do you confirm generation [yes]? yes
 ```
 
@@ -332,10 +341,10 @@ Controller actions **must** return a Response object that will contain the respo
 
 For convenience, a custom controller is available at [eZ\\Bundle\\EzPublishCoreBundle\\Controller](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Bundle/EzPublishCoreBundle/Controller.html). It gives you a few commodity methods:
 
-|Method|Descriptio|
-|------|----------|
+|Method|Description|
+|------|-----------|
 |`getRepository()`| Returns the public API repository that gives you access to the various services through `getContentService()`, `getLocationService()` etc.|
-|`getLegacyKernel()`|Returns an instance of the [eZ\\Publish\\Core\\MVC\\Legacy\\Kernel](http://apidoc.ez.no/doxygen/trunk/NS/html/classeZ_1_1Publish_1_1Core_1_1MVC_1_1Legacy_1_1Kernel.html) that you can use to interact with the Legacy eZ Platform kernel.|
+|`getLegacyKernel()`|Returns an instance of the [`eZ\Publish\Core\MVC\Legacy\Kernel`](http://apidoc.ez.no/doxygen/trunk/NS/html/classeZ_1_1Publish_1_1Core_1_1MVC_1_1Legacy_1_1Kernel.html) that you can use to interact with the Legacy eZ Platform kernel.|
 |`getConfigResolver()`|Returns the [ConfigResolver](http://apidoc.ez.no/doxygen/trunk/NS/html/classeZ_1_1Bundle_1_1EzPublishCoreBundle_1_1DependencyInjection_1_1Configuration_1_1ConfigResolver.html) that gives you access to configuration data.|
 
 You are encouraged to use it for your custom controllers that interact with eZ Platform.
@@ -440,7 +449,7 @@ With this example, you should get a first idea on how you interact with the API.
 
 Since you didn't specify any language code, your Field object is returned in the given Content item's main language.
 
-If you want to take SiteAccess languages into account, you can take advantage of `TranslationHelpers` as described in [Content Rendering](/guide/siteaccess.md).
+If you want to take SiteAccess languages into account, you can take advantage of `TranslationHelpers` as described in [Content Rendering](../guide/siteaccess.md).
 
 Otherwise if you want to use an altogether different language, you can specify a language code in the `getField()` call:
 
@@ -761,7 +770,7 @@ A [`Subtree`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/V
 
 The `$languageFilter` parameter provides a prioritized list of languages for the current SiteAccess. Passing it is recommended for front-end use, because otherwise all languages of the Content items will be returned.
 
-Additionally, you can make use of the `useAlwaysAvailable` argument of the $`languageFilter`. This in turn uses the `alwaysAvailable` flag which default is set on Content Type. When it is set to `true`, it ensures that when a language from the prioritized list can't be matched, the Content will be returned in its main language.
+Additionally, you can make use of the `useAlwaysAvailable` argument of the $`languageFilter`. This in turn uses the `alwaysAvailable` flag which by default is set on Content Type. When it is set to `true`, it ensures that when a language from the prioritized list can't be matched, the Content will be returned in its main language.
 
 ###### `Criterion\Visibility`
 
@@ -789,7 +798,7 @@ $searchService->findLocations($query,
 
     <https://github.com/ezsystems/CookbookBundle/blob/master/Command/FindContent3Command.php>
 
-A search isn't only meant for searching, it also provides the interface for what was called "fetch" in eZ Publish 4.x. As this is back-end agnostic, eZ Platform "ezfind" fetch functions are now powered by Solr (or ElasticSearch in experimental, unsupported setups).
+A search isn't only meant for searching, it also provides the interface for what was called "fetch" in previous versions. As this is back-end agnostic, eZ Platform "ezfind" fetch functions are now powered by Solr (or ElasticSearch in experimental, unsupported setups).
 
 Following the examples above you now change it a bit to combine several criteria with both an AND and an OR condition.
 
@@ -853,7 +862,6 @@ $result = $searchService->findContent( $query );
     Faceted Search is not fully implemented yet.
 
     -   Implemented Facets SOLR BUNDLE &gt;=1.4: `User, ContentType, and Section` , see:   [![](https://jira.ez.no/images/icons/issuetypes/epic.png)EZP-26465](https://jira.ez.no/browse/EZP-26465?src=confmacro) - Search Facets M1 Development
-    -   Not Implemented Facets: `CriterionFacet, DateRangeFacet, FieldFacet, FieldRangeFacet, LocationFacet (meant for Location search), and TermFacet`
 
     You can register [custom facet builder visitors](https://github.com/ezsystems/ezplatform-solr-search-engine/blob/v1.1.1/lib/Resources/config/container/solr/facet_builder_visitors.yml) with Solr for Content(Info) and SOLR BUNDLE &gt;=1.4 Location search.
 
@@ -869,7 +877,7 @@ To be able to take advantage of facets, you can set the `Query->facetBuilders` p
 |`minCount`| Optional, the minimum of hits of a given grouping, e.g. minimum number of content items in a given facet for it to be returned.|
 |`limit`| Optional, Maximum number of facets to be returned; only X number of facets with the greatest number of hits will be returned.|
 
-As an example, `apply UserFacet` to be able to group content according to the creator:
+As an example, apply `UserFacet` to be able to group content according to the creator:
 
 ``` php
 use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
@@ -917,7 +925,7 @@ In the following recipes, you will see how to create Content.
 
 ### Identifying to the repository with a login and a password
 
-As seen earlier, the repository executes operations with a user's credentials. In a web context, the currently logged-in user is automatically identified. In a command line context, you need to manually log a user in. You have already seen how to manually load and set a user using its ID. If you would like to identify a user using their username and password instead, this can be achieved in the following way:
+As seen earlier, the Repository executes operations with a user's credentials. In a web context, the currently logged-in user is automatically identified. In a command line context, you need to manually log a user in. You have already seen how to manually load and set a user using its ID. If you would like to identify a user using their username and password instead, this can be achieved in the following way:
 
 **authentication**
 
