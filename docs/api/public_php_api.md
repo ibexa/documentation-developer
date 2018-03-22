@@ -873,7 +873,7 @@ To be able to take advantage of facets, you can set the `Query->facetBuilders` p
 
 |Property|Description|
 |--------|-----------|
-|`name`| Recommended, to set the human readable name of the returned facet for use in UI, so if you need translation this value should already be translated.|
+|`name`| Recommended, to set the human-readable name of the returned facet for use in UI, so if you need translation this value should already be translated.|
 |`minCount`| Optional, the minimum of hits of a given grouping, e.g. minimum number of content items in a given facet for it to be returned.|
 |`limit`| Optional, Maximum number of facets to be returned; only X number of facets with the greatest number of hits will be returned.|
 
