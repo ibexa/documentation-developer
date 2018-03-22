@@ -6,7 +6,7 @@ If you're using a PaaS provider such as our partner [Platform.sh](https://platfo
 
 ## Server
 
-eZ software is built to rely on existing technologies and standards. The minimal setup is `PHP`,  `MySQL/MariaDB`, and `Apache/Nginx`. Recommendation for production setups is to use `Varnish`, `Redis`, `NFS` and `Solr` in a [clustered setup](../guide/clustering.md).
+eZ software is built to rely on existing technologies and standards. The minimal setup is `PHP`,  `MySQL/MariaDB`, and `Apache/Nginx`. Recommendation for production setups is to use `Varnish`/`Fastly`, `Redis`, `NFS`/`EFS`/`S3` and `Solr` in a [clustered setup](../guide/clustering.md).
 
 For supported versions of these technologies see Recommended and Supported setups below.
 
@@ -27,7 +27,7 @@ These setups are tested by QA and are generally recommended setups. For security
 |------|------|
 |Search|Solr (recommended; for performance, features and search quality):</br></br>Solr 6 or higher *Currently tested with Solr 6.6.2*</br></br>Oracle Java/Open JDK: 8 |
 |Graphic Handler|GraphicsMagick or ImageMagick or GD|
-|[Clustering](../guide/clustering.md)|Linux NFS *or* S3 *(for IO, aka binary files stored in content repository)*</br>Redis *(for Persistence cache & Sessions)*</br>Varnish *(for HttpCache)*|
+|[Clustering](../guide/clustering.md)|Linux NFS *or* S3 *(for IO, aka binary files stored in content repository)*</br>Redis 3.0 or higher *(for Persistence cache & Sessions)*</br>[Varnish](http://varnish-cache.org/) 4.1 or higher with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst) *or* [Fastly](https://www.fastly.com/) using [our bundle provided with eZ Platform Enterprise](../guide/http_cache.md#serving-varnish-through-fastly) *(for HttpCache)*|
 |Filesystem|Linux ext3 / ext4|
 |Package manager|Composer|
 
@@ -40,7 +40,7 @@ Supported setups are those we perform automated testing on. For security and per
     -   Apache 2.4, with required modules `mod_php`, `mod_rewrite`, `mod_env` and recommended: `mod_setenvif`, `mod_expires`
     -   Nginx 1.10, 1.12
 -   DBMS
-    -   MySQL 5.5, 5.6\*, 5.7\*
+    -   MySQL 5.5.3 and higher, 5.6\*, 5.7\*
     -   MariaDB 5.5, 10.0, 10.1, 10.2\*
 -   PHP
     -   7.1
@@ -57,7 +57,7 @@ Supported setups are those we perform automated testing on. For security and per
     -   iconv
     -   intl
     -   mbstring
-    -   opcache *(recommended over APC)*
+    -   opcache
     -   pdo
         -   pdo mysql *(with mysqlnd)*
     -   posix
