@@ -1,7 +1,5 @@
 # Troubleshooting
 
-WORK-IN-PROGRESS
-
 This page will list many potential problems and gotchas that you may encounter while installing, configuring, and running eZ Platform. If you stumble upon an obstacle, take a look here to see if your case isn't covered. Want to add to this page? Check out our instructions for [contributing to our documentation](../community_resources/contributing.md#contribute-to-documentation).
 
 ## Enable Swap on Systems with Limited RAM
