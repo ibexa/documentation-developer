@@ -11,10 +11,6 @@ If you'd just like to let us know of a bug you've encountered, see how to report
 If you'd like to contribute to a translation of eZ Platform interface, see [Contributing translations](#contributing-translations).
 
 If what you're looking for is simply discussing the way you use eZ Platform, drop by to the [community website](http://share.ez.no) or the [eZ Community Slack team](https://ezcommunity.slack.com/).
-
-## Using GitHub
-
-TODO
  
 ## Report and follow issues
 
@@ -187,8 +183,6 @@ Output escaping must be properly executed according to the desired format, eg. j
 
 Admin operations that can have a severe impact on the web applications should require providing password and require it again after some time has gone, normally 10 - 20 minutes, on all session based interfaces.
 
-&lt;TODO: Add more coding guidelines for HTML (XHTML5), Javascript, CSS and templates&gt;
-
 ### PHP
 
 For now see our comprehensive coding standard & guidelines [wiki page](https://github.com/ezsystems/ezpublish-kernel/wiki/codingstandards) on github.
@@ -223,16 +217,12 @@ if ( !$repository->canUser( 'content', 'read', $user ) )
 
 Output must always be escaped when displaying data from the database.
 
-*&lt;TODO: Expand on how best practice is to handle user input in eZ Platform to avoid XSS issues&gt;*
-
 ### Data & Databases
 
 - Values coming from variables should always be appropriately quoted or binded in SQL statements
 - The SQL statements used should never be created by hand with one version per supported database, as this increases both the maintenance load and the chances for security-related problems
 - Usage of temporary tables is discouraged, as their behavior is very different on different databases. Subselects should be preferred (esp. since recent mysql versions have much better support for them)
 - Full table locking is discouraged
-
-*&lt;TODO: guidelines for how data should be stored for maximum portability (hint: XML & abstraction)&gt;*
 
 #### Sessions
 
@@ -264,7 +254,6 @@ Striving to support Mysql 5, PostgreSQL xx and Oracle 10, the following limitati
 - For GROUP BY statements, all fields in the group by clause should be in the select list as well
 - For SELECTs, usage of the AS token is allowed in the select list, but not in the list of tables
 - Do not put quotes around numeric values (use proper casting/escaping to avoid SQL injection)
-- *&lt;TODO: finish sql guidelines&gt;*
  
 ## Contribute to Documentation
 
