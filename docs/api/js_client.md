@@ -1,41 +1,24 @@
-# JS Client
+# JavaScript client
 
+This page will guide you on how to use the client, and view the [generated JavaScript API client reference](http://ezsystems.github.io/javascript-rest-client/).
 
-The JavaScript REST API Client is a JavaScript library meant to ease the use of the eZ Platform REST API. For now, it can only be used in a web browser.
+## Using the JavaScript REST API client
 
-See [below](#using-the-javascript-rest-api-client) for a guide on how to use the client, and view the [generated JS API Client reference](http://ezsystems.github.io/javascript-rest-client/).
-
-
-## Using the JavaScript REST API Client
-
-
-The JavaScript REST API Client is a JavaScript library meant to ease the use of the eZ Platform REST API. For now, it can only be used in a web browser.
+The JavaScript REST API client is a JavaScript library meant to ease the use of the eZ Platform REST API. It can only be used in a web browser.
 
 ## Installation
 
 ### In the PlatformUIAssetsBundle
 
-Since the JavaScript REST Client is one of the foundations of [the Platform Backend Interface](../guide/extending_ez_platform_ui.md), the client is provided by the [PlatformUIAssetsBundle](https://github.com/ezsystems/PlatformUIAssetsBundle) which is installed by default. As a result, the client is directly available and can be embedded in any Platform-generated page with the following Twig code:
+Since the JavaScript REST client is one of the foundations of [the Platform Backend Interface](../guide/extending_ez_platform_ui.md) in v1, the client is provided by the [PlatformUIAssetsBundle](https://github.com/ezsystems/PlatformUIAssetsBundle) which is installed by default. As a result, the client is directly available and can be embedded in any Platform-generated page with the following Twig code:
 
-**Embedding the JavaScript REST Client**
+**Embedding the JavaScript REST client**
 
 ``` php
 <script src="{{ asset('bundles/ezplatformuiassets/vendors/ez-js-rest-client/dist/CAPI.js') }}"></script>
 <!-- or the minified version -->
 <!-- <script src="{{ asset('bundles/ezplatformuiassets/vendors/ez-js-rest-client/dist/CAPI-min.js') }}"></script> -->
 ```
-
-### With Bower
-
-Alternatively, the JavaScript REST Client can be installed directly in any project with [Bower](http://bower.io/):
-
-**Installing with bower**
-
-``` php
-$ bower install --save ezsystems/ez-js-rest-client
-```
-
-After using this command, `dist/CAPI.js` or `dist/CAPI-min.js` are available in `bower\_components/ez-js-rest-client/`.
 
 ### Manual install
 
@@ -45,7 +28,7 @@ It is also possible to directly retrieve either `dist/CAPI.js` or `dist/CAPI-min
 
 Once included, `CAPI.js` exports the `eZ` namespace which contains `eZ.CAPI`, the constructor function of the client. This constructor must receive the API end point and an authentication agent responsible for handling the authentication (session or basic auth). This is detailed in the [Instantiation and authentication](#instantiation-and-authentication) section below.
 
-[The auto-generated API documentation of the JavaScript REST API client is available online.](http://ezsystems.github.io/javascript-rest-client) Like in the Public API, the code is organized around 3 main services:
+[The auto-generated API documentation](http://ezsystems.github.io/javascript-rest-client) of the JavaScript REST API client is available online. Like in the Public API, the code is organized around 3 main services:
 
 -   [the Content Service](http://ezsystems.github.io/javascript-rest-client/classes/ContentService.html)
 -   [the Content Type Service](http://ezsystems.github.io/javascript-rest-client/classes/ContentTypeService.html)
@@ -53,21 +36,23 @@ Once included, `CAPI.js` exports the `eZ` namespace which contains `eZ.CAPI`, th
 
 In essence, the operations available through those services are asynchronous, so all the corresponding methods accept a callback function as its last argument. This callback function will be called when the operation has been done and it will receive two arguments:
 
-1.  `error`: depending on the success of the operation, this parameter is either `false` or a [`CAPIError`](http://ezsystems.github.io/javascript-rest-client/classes/CAPIError.html) instance representing the error
-2.  `response`: it's always of a [`Response`](http://ezsystems.github.io/javascript-rest-client/classes/Response.html) instance allowing you to retrieve any information from the REST API response
+|Argument|Description|
+|--------|-----------|
+|`error`|Depending on the success of the operation, this parameter is either `false` or a [`CAPIError`](http://ezsystems.github.io/javascript-rest-client/classes/CAPIError.html) instance representing the error|
+|`response`|It's always a [`Response`](http://ezsystems.github.io/javascript-rest-client/classes/Response.html) instance that allows you to retrieve any information from the REST API response.|
 
 ### Instantiation and authentication
 
 [The `eZ.CAPI` constructor function](http://ezsystems.github.io/javascript-rest-client/classes/CAPI.html) expects two parameters:
 
-1.  the API end point URI
+1.  the API endpoint URI
 2.  an authentication agent instance to configure the client for [the authentication mechanism configuration in eZ Platform](general_rest_usage.md#rest-api-authentication).
 
-The JavaScript REST Client comes with two authentication agents for the Session and Basic Auth authentication mechanism.
+The JavaScript REST client comes with two authentication agents for the Session and Basic Auth authentication mechanism.
 
-#### Session auth
+#### Session Authentication
 
-The Session Auth Agent expects an object describing the existing Session or containing the credentials for the user to create the corresponding session. So if the user is not yet authenticated, the client can be instantiated with:
+The `SessionAuthAgent` expects an object describing the existing Session or containing the credentials for the user to create the corresponding session. So if the user is not yet authenticated, the client can be instantiated with:
 
 **Session Authentication (new session)**
 
@@ -119,9 +104,11 @@ capi.isLoggedIn(function (error, response) {
 });
 ```
 
-#### Basic auth
+`csrfToken` is returned in the login response. It is important to keep CSRF Token for the duration of the session as it needs to be sent with requests other than GET/HEAD when auth is set to session (in most cases is).
 
-When configured in the Basic Authentication, the basic auth agent just expects the user's credentials:
+#### Basic Authentication
+
+When configured in the Basic Authentication, the `HttpBasicAuthAgent` just expects the user's credentials:
 
 **Basic Authentication**
 
