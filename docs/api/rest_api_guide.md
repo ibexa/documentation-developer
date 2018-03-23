@@ -111,7 +111,7 @@ request.send();
 
 In order to test it, just save this code to some test.html file in the web folder of your eZ Platform installation. If you use the rewrite rules, don't forget to allow this file to be served directly.
 
-If necessary, substitute` 59` with the Content item ID of an item from your database. You will get the ContentInfo for item 59 in JSON encoding.
+If necessary, substitute `59` with the Content item ID of an item from your database. You will get the ContentInfo for item 59 in JSON encoding.
 
 Note that by default, session authentication is used. This means that the session cookie will be transparently sent together with the request, and every AJAX call will have the same permissions as the currently logged in user.
 
