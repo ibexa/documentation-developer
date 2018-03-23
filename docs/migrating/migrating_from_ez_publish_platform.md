@@ -124,7 +124,7 @@ Binary files can simply be copied from the old to the new installation:
 
 #####  2.6 Re-apply permissions and update composer
 
-Since writable directories and files have been replaced / copied, their permissions might have changed. Re-apply permissions as explained in the installation instructions.
+Since writable directories and files have been replaced / copied, their permissions might have changed. You need to re-apply them.
 
 When that is done, execute the following to update and install all packages from within `<new-ez-root>`:
 
