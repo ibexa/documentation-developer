@@ -157,7 +157,7 @@ $menu->addChild(
         'label' => 'translation.key',
         'uri' => 'http://example.com',
         'extras' => [
-            'icon' => 'article', 
+            'icon' => 'article',
             'translation_domain' => 'messages',
         ],
     ]
@@ -561,18 +561,12 @@ Optionally, Universal Discovery module can take a following list of props:
     - **panel** _{Element}_ - any kind of React component,
     - **attrs** _{Object}_ - any optional list of props that should applied to the panel component.
 })),
-- **labels** _{Object}_ - a hash containing text messages to be placed across many places in a component. It contains text labels for child components:
-    - **udw** _{Object}_ - a hash of text labels for Universal Discovery module, see [universal.discovery.module.js](https://github.com/ezsystems/ezplatform-admin-ui-modules/blob/master/src/modules/universal-discovery/universal.discovery.module.js#L329) for details,
-    - **selectedContentItem** _{Object}_ - a hash of text labels for Selected Content Item component,
-    - **contentMetaPreview** _{Object}_ - a hash of text labels for Content Meta Preview component,
-    - **search** _{Object}_ - a hash of text labels for Search component,
-    - **searchPagination** _{Object}_ - a hash of text labels for Search Pagination component,
-    - **searchResults** _{Object}_ - a hash of text labels for Search Results component,
-    - **searchResultsItem** _{Object}_ - a hash of text labels for Search Results Item component.
+- **labels** _{Object}_ - a hash containing text messages to be placed across many places in a component. It contains text labels for child components, see [universal.discovery.module.js](https://github.com/ezsystems/ezplatform-admin-ui-modules/blob/master/src/modules/universal-discovery/universal.discovery.module.js#L438) for details,
 - **selectedItemsLimit** _{Number}_ - the limit of items that can be selected. Should be combined with the `multiple` attribute set to `true`. Default value is `0`, which means no limit,
 - **allowContainersOnly** _{Boolean}_ - when true, only containers can be selected. Default value: `false`,
 - **onlyContentOnTheFly** _{Boolean}_ - when true, only Content on the Fly is shown in the UDW. Default value: `false`,
 - **cotfForcedLanguage** _{String}_ - language code. When set, Content on the Fly is locked on this language.
+- **languages** and **contentTypes** are lists of languages and Content Types in the system, read from the application config.
 
 ## Sub-items List
 
