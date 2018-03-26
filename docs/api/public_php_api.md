@@ -23,7 +23,7 @@ Repository allows three types of operations: user authentication (getting / chan
 
 ### The service container
 
-The above code snippet implies that the [service container](http://symfony.com/doc/2.8/book/service_container.html) is available in the context you are writing your code in.
+The above code snippet implies that the [service container](http://symfony.com/doc/2.8/service_container.html) is available in the context you are writing your code in.
 
 In controllers, this generally is done by extending the Symfony `Controller` class. It comes with a `get()` method that calls the service container. In command line scripts, it requires that you extend the [`ContainerAwareCommand`](http://api.symfony.com/2.8/Symfony/Bundle/FrameworkBundle/Command/ContainerAwareCommand.html) base class instead of `Controller`. This class provides you with a `getContainer()` method that returns the service container.
 
@@ -103,6 +103,10 @@ $ cd /path/to/ezplatform
 ```
 
 Then use the app/console application with the `generate:bundle` command to start the bundle generation wizard.
+
+!!! tip
+
+    The `generate:bundle` command is only available in Symfony dev environment.
 
 Follow the instructions provided by the wizard. Your objective is to create a bundle named `EzSystems/Bundles/CookBookBundle`, located in the `src` directory.
 
@@ -549,35 +553,6 @@ $locationService = $repository->getLocationService();
 $urlAliasService = $repository->getURLAliasService();
 $sectionService = $repository->getSectionService();
 $userService = $repository->getUserService();
-```
-
-#### Setting the Repository User
-
-In a command line script, the repository runs as if executed by the anonymous user. In order to identify it as a different user, you need to use the `UserService` as follows (in this example `14` is the ID of the administrator user):
-
-``` php
-$administratorUser = $userService->loadUser( 14 );
-$repository->setCurrentUser( $administratorUser );
-```
-
-This may be crucial when writing maintenance or synchronization scripts.
-
-This is of course not required in template functions or controller code, as the HTTP layer will take care of identifying the user, and automatically set it in the repository.
-
-Since v1.6.0, as the `setCurrentUser` method is deprecated, you need to use the following code (here for the `admin` user, to be replaced with a different login as needed):
-
-``` php
-$permissionResolver = $repository->getPermissionResolver();
-$user = $userService->loadUserByLogin('admin');
-$permissionResolver->setCurrentUserReference($user);
-```
-
-#### The ContentInfo value object
-
-You will now load a `ContentInfo` object using the provided ID and use it to get your Content item's metadata
-
-``` php
-$contentInfo = $contentService->loadContentInfo( $contentId );
 ```
 
 #### Locations
