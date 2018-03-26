@@ -89,11 +89,12 @@ $menu[MainMenuBuilder::ITEM_CONTENT]->addChild(
     [
         'route' => '_ezpublishLocation',
         'routeParameters' => ['locationId' => 2],
-        [
-            'linkAttributes' => [
-                'class' => 'test_class another_class',
-                'data-property' => 'value',
-            ],
+        'linkAttributes' => [ // attributes directly on <a> element
+            'class' => 'test_class another_class',
+            'data-property' => 'value',
+        ],
+        'attributes' => [ // attributes on container <li> element
+            'data-property' => 'value',
         ],
     ]
 );
@@ -155,8 +156,10 @@ $menu->addChild(
     [
         'label' => 'translation.key',
         'uri' => 'http://example.com',
-        'extras' => ['icon' => 'article'],
-        'translation_domain' => 'messages',
+        'extras' => [
+            'icon' => 'article', 
+            'translation_domain' => 'messages',
+        ],
     ]
 );
 ```
