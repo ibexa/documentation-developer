@@ -460,7 +460,10 @@ The available extensibility points for Components are:
 
 Universal Discovery module allows you to browse the content structure and search for content
 using an interactive interface: the browse view and the search view.
-The module is highly configurable. It can be extended with new tabs.
+
+!!! tip "Tutorial"
+
+    For a detailed example on how to add a new UDW tab, see [step 5 of the Exnedint Admin UI tutorial](../tutorials/extending_admin_ui/5_creating_a_udw_tab.md).
 
 ### How to use it?
 
@@ -470,6 +473,10 @@ With vanilla JS:
 const container = document.querySelector('#react-udw');
 
 ReactDOM.render(React.createElement(eZ.modules.UniversalDiscovery, {
+    restInfo: {
+        token: {String},
+        siteaccess: {String}
+    }
     onConfirm: {Function},
     onCancel: {Function},
 }), container);
@@ -571,20 +578,25 @@ Optionally, Universal Discovery module can take a following list of props:
 ## Sub-items List
 
 The Sub-items List module is meant to be used as a part of the editorial interface of eZ Platform.
-It provides an interface for listing the sub items of any location.
+It provides an interface for listing the Sub-items of any Location.
 
 ### How to use it?
 
 With vanilla JS:
 
 ``` js
-React.createElement(eZ.modules.SubItems, {
-    parentLocationId: {Number},
-    restInfo: {
-        token: {String},
-        siteaccess: {String}
-    }
-});
+const containerNode = document.querySelector('#sub-items-container');
+
+    ReactDOM.render(
+        React.createElement(eZ.modules.SubItems, {
+            parentLocationId: { Number },
+            restInfo: {
+                token: { String },
+                siteaccess: { String }
+            }
+        }),
+        containerNode
+    );
 ```
 
 With JSX:
