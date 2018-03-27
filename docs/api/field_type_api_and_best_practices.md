@@ -26,7 +26,7 @@ The following sequence diagrams visualize the process of creating and publishing
 
 #### Publish Content Sequence
  
- !!! note "indexLocation()"
+!!! note "indexLocation()"
  
     `indexLocation()` is implemented for **ElasticSearch** only. 
     For **Solr** Locations are indexed during Content indexing. 
