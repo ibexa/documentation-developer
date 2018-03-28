@@ -209,7 +209,7 @@ Your bundle should be generated and activated. Let's see how you can interact wi
 
 The framework and its bundles ship with a few scripts. They are all started using `php app/console <command>`. You can get the complete list of existing command line scripts by executing `php app/console list` from the eZ Platform root.
 
-In this chapter, you will create a new command, identified as `ezpublish:cookbook:hello`, that takes an optional name argument, and greets that name. To do so, you need one thing: a class with a name ending with "Command" that extends `Symfony\Component\Console\Command\Command`. Note that in your case, you use `ContainerAwareCommand` instead of `Command`, since you need the dependency injection container to interact with the public API. In your bundle's directory (`src/EzSystems/CookbookBundle`), create a new directory named `Command`, and in this directory, a new file named `HelloCommand.php`.
+In this chapter, you will create a new command, identified as `ezplatform:cookbook:hello`, that takes an optional name argument, and greets that name. To do so, you need one thing: a class with a name ending with "Command" that extends `Symfony\Component\Console\Command\Command`. Note that in your case, you use `ContainerAwareCommand` instead of `Command`, since you need the dependency injection container to interact with the public API. In your bundle's directory (`src/EzSystems/CookbookBundle`), create a new directory named `Command`, and in this directory, a new file named `HelloCommand.php`.
 
 Add this code to the file:
 
@@ -254,7 +254,7 @@ One class with a name ending with "Command" (`HelloCommand`), extends `Symfony\
 ``` php
 protected function configure()
 {
-    $this->setName( 'ezpublish:cookbook:hello' );
+    $this->setName( 'ezplatform:cookbook:hello' );
     $this->setDefinition(
         array(
             new InputArgument( 'name', InputArgument::OPTIONAL, 'An argument' )
@@ -263,9 +263,9 @@ protected function configure()
 }
 ```
 
-First, you use `setName()` to set your command's name to `ezpublish:cookbook:hello`. Then use `setDefinition()` to add an argument, named `name`, to your command.
+First, you use `setName()` to set your command's name to `ezplatform:cookbook:hello`. Then use `setDefinition()` to add an argument, named `name`, to your command.
 
-You can read more about argument definitions and further options in the [Symfony Console documentation](http://symfony.com/doc/current/components/console/introduction.html). Once this is done, if you run `php app/console list`, you should see `ezpublish:cookbook:hello` listed in the available commands. If you run it, it will however still do nothing.
+You can read more about argument definitions and further options in the [Symfony Console documentation](http://symfony.com/doc/2.8/components/console/introduction.html). Once this is done, if you run `php app/console list`, you should see `ezplatform:cookbook:hello` listed in the available commands. If you run it, it will however still do nothing.
 
 Add something very simple to your `execute()` method so that your command actually does something.
 
@@ -288,7 +288,7 @@ You can now run the command from the eZ Platform root.
 **Hello world**
 
 ``` bash
-$ php app/console ezpublish:cookbook:hello world
+$ php app/console ezplatform:cookbook:hello world
 Hello world
 ```
 
@@ -348,7 +348,6 @@ For convenience, a custom controller is available at [eZ\\Bundle\\EzPublishCoreB
 |Method|Description|
 |------|-----------|
 |`getRepository()`| Returns the public API repository that gives you access to the various services through `getContentService()`, `getLocationService()` etc.|
-|`getLegacyKernel()`|Returns an instance of the [`eZ\Publish\Core\MVC\Legacy\Kernel`](http://apidoc.ez.no/doxygen/trunk/NS/html/classeZ_1_1Publish_1_1Core_1_1MVC_1_1Legacy_1_1Kernel.html) that you can use to interact with the Legacy eZ Platform kernel.|
 |`getConfigResolver()`|Returns the [ConfigResolver](http://apidoc.ez.no/doxygen/trunk/NS/html/classeZ_1_1Bundle_1_1EzPublishCoreBundle_1_1DependencyInjection_1_1Configuration_1_1ConfigResolver.html) that gives you access to configuration data.|
 
 You are encouraged to use it for your custom controllers that interact with eZ Platform.
@@ -535,7 +534,7 @@ Note that unlike `loadLocation()`, you don't need to care for permissions here: 
 
 Content is a central piece in the public API. You will often need to start from a Content item, and dig in from its metadata. Basic content metadata is made available through `ContentInfo` objects. This value object mostly provides primitive fields: `contentTypeId`, `publishedDate` or `mainLocationId`. But it is also used to request further Content-related value objects from various services.
 
-The full example implements an `ezpublish:cookbook:view_content_metadata` command that prints out all the available metadata, given a Content ID.
+The full example implements an `ezplatform:cookbook:view_content_metadata` command that prints out all the available metadata, given a Content ID.
 
 !!! note "Full code"
 
@@ -553,6 +552,28 @@ $locationService = $repository->getLocationService();
 $urlAliasService = $repository->getURLAliasService();
 $sectionService = $repository->getSectionService();
 $userService = $repository->getUserService();
+```
+
+#### Setting the Repository User
+
+In a command line script, the repository runs as if executed by the anonymous user. In order to identify it as a different user, you need to use the `UserService` together with `PermissionResolver` as follows (in the example `admin` is the login of the administrator user):
+
+``` php
+$permissionResolver = $repository->getPermissionResolver();
+$user = $userService->loadUserByLogin('admin');
+$permissionResolver->setCurrentUserReference($user);
+```
+
+This may be crucial when writing maintenance or synchronization scripts.
+
+This is of course not required in template functions or controller code, as the HTTP layer will take care of identifying the user, and automatically set it in the repository.
+
+#### The ContentInfo Value Object
+
+You will now load a `ContentInfo` object using the provided ID and use it to get your Content item's metadata
+
+``` php
+$contentInfo = $contentService->loadContentInfo( $contentId );
 ```
 
 #### Locations
@@ -745,7 +766,7 @@ A [`Subtree`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/V
 
 The `$languageFilter` parameter provides a prioritized list of languages for the current SiteAccess. Passing it is recommended for front-end use, because otherwise all languages of the Content items will be returned.
 
-Additionally, you can make use of the `useAlwaysAvailable` argument of the $`languageFilter`. This in turn uses the `alwaysAvailable` flag which by default is set on Content Type. When it is set to `true`, it ensures that when a language from the prioritized list can't be matched, the Content will be returned in its main language.
+Additionally, you can make use of the `useAlwaysAvailable` argument of the `$languageFilter`. This in turn uses the `alwaysAvailable` flag which by default is set on Content Type. When it is set to `true`, it ensures that when a language from the prioritized list can't be matched, the Content will be returned in its main language.
 
 ###### `Criterion\Visibility`
 
@@ -777,7 +798,7 @@ A search isn't only meant for searching, it also provides the interface for what
 
 Following the examples above you now change it a bit to combine several criteria with both an AND and an OR condition.
 
-``` javascript
+``` php
 use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
 use eZ\Publish\API\Repository\Values\Content\Query;
 
@@ -900,16 +921,7 @@ In the following recipes, you will see how to create Content.
 
 ### Identifying to the repository with a login and a password
 
-As seen earlier, the Repository executes operations with a user's credentials. In a web context, the currently logged-in user is automatically identified. In a command line context, you need to manually log a user in. You have already seen how to manually load and set a user using its ID. If you would like to identify a user using their username and password instead, this can be achieved in the following way:
-
-**authentication**
-
-``` php
-$user = $userService->loadUserByCredentials( $username, $password );
-$repository->setCurrentUser( $user );
-```
-
-Since v1.6.0, as the `setCurrentUser` method is deprecated, you need to use the following code:
+As seen earlier, the Repository executes operations with a user's credentials. In a web context, the currently logged-in user is automatically identified. In a command line context, you need to manually log a user in. You have already seen how to manually load and set a user using their login. If you would like to identify a user using their credentials instead, this can be achieved in the following way:
 
 **authentication**
 
@@ -1093,15 +1105,17 @@ $contentCreateStruct->setField( 'image', array(
 
 ### Create Content with XML Text
 
-The XML Text Field Type is not officially supported by eZ Platform. PlatformUI also does not support WYSIWYG editing of Fields of this type.
+The XML Text Field Type is not officially supported by eZ Platform it was replaced by RichText. PlatformUI also does not support WYSIWYG editing of Fields of this type.
 
 !!! note "Full code"
 
     <https://github.com/ezsystems/CookbookBundle/blob/master/Command/CreateXMLContentCommand.php>
 
-Another very commonly used Field Type is the RichText one, `XmlText`. 
+**Working with XML Text**
 
-**Working with xml text**
+!!! warning
+
+    The XML Text is not officially supported, it was replaced by RichText. 
 
 ``` php
 $xmlText = <<< EOX
@@ -1118,13 +1132,13 @@ As for the last example above, use the multiple formats accepted by `setField()`
 
 !!! note
 
-    The XSD for the internal XML representation can be found in the kernel: <https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/FieldType/XmlText/Input/Resources/schemas/ezxml.xsd>.
+    The XSD for the internal XML representation can be found in a separate dependency: <https://github.com/ezsystems/ezplatform-xmltext-fieldtype>.
 
 You embed an image in your XML, using the `<embed>` tag, providing an image Content ID as the `object_id` attribute.
 
 !!! note "Using a custom format as input"
 
-    More input formats will be added later. The API for that is actually already available: you simply need to implement the [`XmlText\Input`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/Core/FieldType/XmlText/Input.html) interface. It contains one method, [`getInternalRepresentation()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/Core/FieldType/XmlText/Input.html#method_getInternalRepresentation), that must return an internal XML string. Create your own bundle, add your implementation to it, and use it in your code.
+    More input formats will be added later. The API for that is actually already available: you simply need to implement the [`XmlText\Input`](https://github.com/ezsystems/ezplatform-xmltext-fieldtype/tree/master/lib/FieldType/XmlText/Input) interface. It contains one method, `getInternalRepresentation()` that must return an internal XML string. Create your own bundle, add your implementation to it, and use it in your code.
 
 ``` php
 $input = new \My\XmlText\CustomInput( 'My custom format string' );
