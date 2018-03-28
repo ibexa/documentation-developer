@@ -1797,7 +1797,7 @@ See section of [Using the Field Type's template block](#using-the-field-types-te
 
 In some cases, you may not want to use the built-in field template block as it might not fit your markup needs. In this case, you can choose to override the template block by specifying your own template. You can do this inline when calling `ez_render_field()`, or globally by prepending a Field template to use by the helper.
 
-Your template block must comply to a regular Field Type template block, [as explained in the Field Type documentation](../api/field_type_api.md#field-type-template).
+Your template block must comply to a regular Field Type template block, [as explained in the Field Type documentation](../api/field_type_template.md).
 
 ###### Inline override
 

@@ -35,7 +35,7 @@ You will find all service tags exposed by Symfony in [its reference documentatio
 |`twig.loader`|Registers a template loader for twig|
 |`ezpublish.content_view_provider`|Registers a ContentViewProvider for template selection depending on content/Location being viewed|
 |`ezpublish.storageEngine`|Registers a storage engine in the Repository factory|
-|[`ezpublish.fieldType`](../api/field_type_api.md#register-field-type)|Registers a Field Type|
+|[`ezpublish.fieldType`](..\api\field_type_registration.md)|Registers a Field Type|
 
 #### Legacy
 
