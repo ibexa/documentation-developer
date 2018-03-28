@@ -26,4 +26,4 @@ Some Field Types will require additional processing, for example a Field Type st
 
 Base implementations of these methods simply return the given hash, so you can implement only the methods your Field Type requires. Some Field Types coming with the eZ Platform installation already implement processors and you are encouraged to take a look at them.
 
-For details on registering a Field Type processor, see [Register Field Type](Field_Type_Registration.md).
+For details on registering a Field Type processor, see [Register Field Type](field_type_registration.md).

@@ -1,4 +1,4 @@
-# Searching
+# Search
 
 Fields, or a custom Field Type, might contain or maintain data relevant for user searches. To make the search engine aware of the data in your Field Type you need to implement an additional interface and register the implementation.
 
