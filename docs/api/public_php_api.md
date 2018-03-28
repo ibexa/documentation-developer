@@ -591,7 +591,7 @@ foreach ( $locations as $location )
 }
 ```
 
-First use `LocationService::loadLocations()` to **get** the **Locations** for `ContentInfo`. This method returns an array of [`Location`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Location.html) value objects. In this example, you print out the Location's path string (/path/to/content). You also use [URLAliasService::reverseLookup()](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/URLAliasService.html#method_reverseLookup) to get the Location's main [URLAlias](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/URLAlias.html).
+First use `LocationService::loadLocations()` to **get** the **Locations** for `ContentInfo`. This method returns an array of [`Location`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Location.php) value objects. In this example, you print out the Location's path string (/path/to/content). You also use [URLAliasService::reverseLookup()](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/URLAliasService.html#method_reverseLookup) to get the Location's main [URLAlias](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/URLAlias.html).
 
 #### Relations
 
@@ -1105,11 +1105,11 @@ $contentCreateStruct->setField( 'image', array(
 
 ### Create Content with XML Text
 
-The XML Text Field Type is not officially supported by eZ Platform it was replaced by RichText. PlatformUI also does not support WYSIWYG editing of Fields of this type.
+The XML Text Field Type is not officially supported by eZ Platform, it was replaced by RichText. PlatformUI also does not support WYSIWYG editing of Fields of this type.
 
 !!! note "Full code"
 
-    <https://github.com/ezsystems/CookbookBundle/blob/master/Command/CreateXMLContentCommand.php>
+    <https://github.com/ezsystems/CookbookBundle/blob/master/Command/CreateXmlContentCommand.php>
 
 **Working with XML Text**
 
@@ -1165,7 +1165,7 @@ $contentService->deleteContent( $contentInfo );
 
     <https://github.com/ezsystems/CookbookBundle/blob/master/Command/AddLocationToContentCommand.php>
 
-You have seen earlier how you can create a Location for a newly created `Content`. It is of course also possible to add a new [`Location`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Location.html) to an existing `Content`.
+You have seen earlier how you can create a Location for a newly created `Content`. It is of course also possible to add a new [`Location`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Location.php) to an existing `Content`.
 
 ``` php
 try
@@ -1193,7 +1193,7 @@ This is the required code. As you can see, both the Content Service and the Loca
 $locationCreateStruct = $locationService->newLocationCreateStruct( $parentLocationId );
 ```
 
-Like during creation of a new Content item, you need to get a new `LocationCreateStruct`. You will use it to set your new [`Location`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Location.html)'s properties. The new Location's parent ID is provided as a parameter to `LocationService::newLocationCreateStruct`.
+Like during creation of a new Content item, you need to get a new `LocationCreateStruct`. You will use it to set your new [`Location`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Location.php)'s properties. The new Location's parent ID is provided as a parameter to `LocationService::newLocationCreateStruct`.
 
 In this example, the default values for the various `LocationCreateStruct` properties are used. You could of course have set custom values, like setting the Location as hidden ($location-&gt;hidden = true), or changed the remoteId (`$location->remoteId = $myRemoteId`).
 
