@@ -14,7 +14,7 @@ Whenever the internal storage of a Content item that includes a Field of the Fie
 |`deleteFieldData()`|Must delete external data for the given Field, if exists.|
 |`getIndexData()`|Returns the actual index data for the provided `eZ\Publish\SPI\Persistence\Content\Field`. For more information see [search service](#search-field-values).|
 
-Each of the above methods receive a $context array, which contains information on the underlying storage and the environment. This context can be used to store data in the eZ Platform data storage, but outside of the normal structures (e.g. a custom table in an SQL database). Note that the Field Type must take care on its own for being compliant to different data sources and that 3rd parties can extend the data source support easily. For more information about this, take a look at the [Best practices](#best-practices) section.
+Each of the above methods receive a $context array, which contains information on the underlying storage and the environment. This context can be used to store data in the eZ Platform data storage, but outside of the normal structures (e.g. a custom table in an SQL database). Note that the Field Type must take care on its own for being compliant to different data sources and that 3rd parties can extend the data source support easily.
 
 ## Legacy Storage conversion
 
