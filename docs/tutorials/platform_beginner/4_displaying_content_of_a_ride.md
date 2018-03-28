@@ -82,7 +82,7 @@ The Ride template is in a block and you use the Twig helpers to render the conte
 
     Note: the Level Field is static for now and uses the translation capacity.
 
-The Starting Point and Ending Point Google Maps rendering is not yet done. You will use the [MapLocation Field Type](../../guide/field_type_reference.md#maplocation-field-type) to render this Content Type.
+The Starting Point and Ending Point Google Maps rendering is not yet done. You will use the [MapLocation Field Type](../../api/field_type_reference.md#maplocation-field-type) to render this Content Type.
 
 ### Add a new parameter to your override rule
 

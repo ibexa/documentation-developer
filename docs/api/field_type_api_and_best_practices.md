@@ -165,11 +165,11 @@ array(
  
  `getDefaultMatchField()`
  
-This method retrieves name of the default field to be used for matching. As Field Types can index multiple fields (see [MapLocation](../guide/field_type_reference.md#maplocation-field-type) Field Type's implementation of this interface), this method is used to define default field for matching. Default field is typically used by Field criterion.
+This method retrieves name of the default field to be used for matching. As Field Types can index multiple fields (see [MapLocation](field_type_reference.md#maplocation-field-type) Field Type's implementation of this interface), this method is used to define default field for matching. Default field is typically used by Field criterion.
  
  `getDefaultSortField()`
  
-This method gets name of the default field to be used for sorting. As Field Types can index multiple fields (see [MapLocation](../guide/field_type_reference.md#maplocation-field-type) Field Type's implementation of this interface), this method is used to define default field for sorting. Default field is typically used by Field sort clause.
+This method gets name of the default field to be used for sorting. As Field Types can index multiple fields (see [MapLocation](field_type_reference.md#maplocation-field-type) Field Type's implementation of this interface), this method is used to define default field for sorting. Default field is typically used by Field sort clause.
  
 ### Register Indexable Implementations
 
