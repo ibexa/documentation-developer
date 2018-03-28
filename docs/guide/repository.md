@@ -754,7 +754,7 @@ All Signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
 
 |Signal type|Properties|Triggered by|
 |------|------|------|
-|`URLService\UpdateUrlSignal`|`urlId`|`URLService::updateUrl()`|
+|`URLService\UpdateUrlSignal`|`urlId`</br>`urlChanged`|`URLService::updateUrl()`|
 
 #### URLWildcardService
 
