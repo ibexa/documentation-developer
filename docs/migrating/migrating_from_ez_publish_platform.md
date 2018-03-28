@@ -12,7 +12,7 @@ eZ Publish Platform introduced a new Symfony-based technology stack that could b
 
     Topics you should be aware of when planning an upgrade:
 
-    - [Field Types reference](../guide/field_type_reference.md) for overview of Field Types that exists and not on eZ Platform
+    - [Field Types reference](../api/field_type_reference.md) for overview of Field Types that exists and not on eZ Platform
     - RichText Field Type capabilities, currently not covering [Custom Tags](https://jira.ez.no/browse/EZP-25357)
     - Symfony 2.8, this is also the case on later 5.4.x versions, but not the first once including 2014.11
     - API changes, while we have a strict Backwards Compatibility focus, some deprecated API features where removed, some changes where done to internal parts of the system, and as planned eZ Publish legacy and legacy bridge was removed. See [ezpublish-kernel:doc/bc/changes-6.0.md](https://github.com/ezsystems/ezpublish-kernel/blob/v6.6.0/doc/bc/changes-6.0.md)
