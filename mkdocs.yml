@@ -71,7 +71,7 @@ pages:
             - 'Field Type API': 'api/field_type_api_and_best_practices.md'
             - 'REST API interaction': 'api/Field_Type_REST.md'
             - 'Public API interaction': 'api/Field_Type_Public.md'
-            - 'Settings schema and validators': 'api/Field_Type_Setting_schema.md'
+            - 'Schema settings and validators': 'api/Field_Type_Setting_schema.md'
             - 'Field Type Storage': 'api/Field_Type_Storage.md'
             - 'Field Type Template': 'api/Field_Type_Template.md'
             - 'Field Type Registration': 'api/Field_Type_Registration.md'
