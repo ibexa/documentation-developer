@@ -67,8 +67,8 @@ pages:
         - Public PHP API:
             - 'Public PHP API': 'api/public_php_api.md'
         - Field Type:
+            - 'Field Type API': 'api/field_type_api.md'
             - 'Reference': 'api/field_type_reference.md'
-            - 'Field Type API': 'api/field_type_api_and_best_practices.md'
             - 'REST API interaction': 'api/field_type_REST.md'
             - 'Public API interaction': 'api/field_type_public.md'
             - 'Schema': 'api/field_type_setting_schema.md'
