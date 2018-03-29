@@ -597,7 +597,7 @@ class CreateUrlAliasesOnPublishSlot extends BaseSlot
 
     In this case the Repository will throw an exception, which is caught in the `ViewController`, and *if* you are using LegacyBridge it will end up doing a [fallback to legacy kernel](https://doc.ez.no/display/EZP/Legacy+template+fallback).
 
-    The list of Field Types supported out of the box [is available here](field_type_reference.md).
+    The list of Field Types supported out of the box [is available here](../api/field_type_reference.md).
 
 ## Signals Reference
 
