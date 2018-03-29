@@ -20,11 +20,11 @@ On the bottom level, a Field Type can additionally hook into the **Persistence S
 
 The following sequence diagrams visualize the process of creating and publishing a new `Content` across all layers, especially focused on the interaction with a Field Type.
 
-#### Create Content Sequence
+### Create Content Sequence
 
 ![Create Content Sequence](img/create_content_sequence.png)
 
-#### Publish Content Sequence
+### Publish Content Sequence
  
 !!! note "indexLocation()"
  

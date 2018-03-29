@@ -68,15 +68,15 @@ pages:
             - 'Public PHP API': 'api/public_php_api.md'
         - Field Type:
             - 'Field Type API': 'api/field_type_api.md'
-            - 'Field Type reference': 'api/field_type_reference.md'
+            - 'Reference': 'api/field_type_reference.md'
             - 'REST API interaction': 'api/field_type_REST.md'
             - 'Public API interaction': 'api/field_type_public.md'
-            - 'Schema settings and validators': 'api/field_type_setting_schema.md'
-            - 'Field Type Storage': 'api/field_type_storage.md'
-            - 'Field Type Template': 'api/field_type_template.md'
-            - 'Field Type Registration': 'api/field_type_registration.md'
-            - 'Field Type Search': 'api/field_type_search.md'
-			- 'Field Type Testing': 'api/field_type_testing.md'
+            - 'Schema': 'api/field_type_setting_schema.md'
+            - 'Template': 'api/field_type_template.md'
+            - 'Registration': 'api/field_type_registration.md'
+            - 'Testing': 'api/field_type_testing.md'
+            - 'Storage': 'api/field_type_storage.md'
+            - 'Search': 'api/field_type_search.md'
     - Guide:
         - Introduction:
             - 'Introduction': 'guide/introduction.md'
