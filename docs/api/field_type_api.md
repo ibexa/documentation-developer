@@ -1,4 +1,4 @@
-# Field Type API and best practices
+# Field Type API
 
 eZ Platform can support arbitrary data to be stored in the fields of a content item. In order to support custom data, besides the standard data types, a developer needs to create a custom Field Type.
 
