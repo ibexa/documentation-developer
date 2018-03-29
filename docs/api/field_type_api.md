@@ -35,12 +35,3 @@ The following sequence diagrams visualize the process of creating and publishing
 ![Publish Content Sequence](img/publish_content_sequence.png)
 
 In the next paragraphs, this document explains how to implement a custom Field Type based on the SPI and what is expected from it. Please refer to the Url Field Type, which has been implemented as a reference code example.
-
-
-
-
-
-
-
-
-
