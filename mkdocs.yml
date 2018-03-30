@@ -57,7 +57,6 @@ pages:
             - '8. Filter by Content Type': 'tutorials/extending_platformui/8_filter_by_content_type.md'
             - 'Conclusion': 'tutorials/extending_platformui/conclusion.md'
     - API:
-        - 'API Introduction': 'api/api.md'
         - REST API guide:
             - 'REST API guide': 'api/rest_api_guide.md'
             - 'REST API usage': 'api/general_rest_usage.md'
@@ -66,6 +65,10 @@ pages:
             - 'REST API reference': 'api/rest_api_reference.md'
         - Public PHP API:
             - 'Public PHP API': 'api/public_php_api.md'
+            - 'Customization': 'api/public_php_api_customization.md'
+            - 'Browsing, finding, viewing': 'api/public_php_api_browsing.md'
+            - 'Managing Content': 'api/public_php_api_managing_content.md'
+            - 'Locations': 'api/public_php_api_locations.md'
         - 'Field Type API and best practices': 'api/field_type_api_and_best_practices.md'
     - Guide:
         - Introduction:
