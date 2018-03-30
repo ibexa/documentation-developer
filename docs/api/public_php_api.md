@@ -58,7 +58,7 @@ In controllers, this generally is done by extending the Symfony `Controller` c
 
 One of the responsibilities of the Repository is user authentication. Every action will be executed *as* a user. In the context of a normal eZ Platform execution, the logged in user will of course be the current one, identified via one of the available authentication methods. This user's permissions will affect the behavior of the Repository. The user may for example not be allowed to create Content, or view a particular Section.
 
-[Logging in to the Repository](#identifying-to-the-repository-with-a-login-and-a-password) is covered in other recipes of the Cookbook.
+[Logging in to the Repository](public_php_api_managing_content.md#identifying-to-the-repository-with-a-login-and-a-password) is covered in other recipes of the Cookbook.
 
 ## Services
 
@@ -82,4 +82,4 @@ They are provided by the API, but are **read only**, can't be modified and sent 
 
 In order to update or create elements in the Repository, you will use structs. They are usually provided by the service that manages the value objects you want to alter or create. For instance, the Content service has a `getContentCreateStruct()` method that returns a new `ContentCreateStruct` object. Equivalent methods exist for `UpdateStruct` objects as well, and for most value objects.
 
-Using them is covered in the [Creating Content](#creating-content) and [Updating Content](#updating-content) chapters.
+Using them is covered in the [Creating Content](public_php_api_managing_content.md#creating-content) and [Updating Content](public_php_api_managing_content.md#updating-content) chapters.

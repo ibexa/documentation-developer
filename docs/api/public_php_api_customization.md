@@ -208,7 +208,7 @@ Hello world
 
 ## Creating a custom route with a controller action
 
-In this short chapter, you will see how to create a new route that will catch a custom URL and execute a controller action. You will create a new route, `/cookbook/test`, that displays a simple 'Hello world' message. This tutorial is a simplified version of the official one that can be found on <http://symfony.com/doc/current/book/controller.html>.
+In this short chapter, you will see how to create a new route that will catch a custom URL and execute a controller action. You will create a new route, `/cookbook/test`, that displays a simple 'Hello world' message. This tutorial is a simplified version of the official one that can be found on <http://symfony.com/doc/2.8/book/controller.html>.
 
 During your bundle's generation, you have chosen to generate the bundle with default code snippets. Fortunately, almost everything you need is part of those snippets. You just need to do some editing, in particular in two locations: `src/EzSystems/Resources/CookbookBundle/config/routing.yml` and `src/EzSystems/CookbookBundle/Controllers/DefaultController.php`. The first one will be used to configure your route (`/cookbook/test`) as well as the controller action the route should execute, while the latter will contain the actual action's code.
 

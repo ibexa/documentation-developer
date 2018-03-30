@@ -458,7 +458,7 @@ Status of features:
 - Solr 6 support *(Solr Bundle &gt;= v1.3)* DONE
     - Scoring for Location queries and sorting by them by default DONE
 - Work in progress:
-    - Faceting *(possible to [write your own](../api/public_php_api.md#performing-a-faceted-search), ContentType/Section/User implemented, suggested further changes to the API for Faceting can be found [here](https://github.com/ezsystems/ezpublish-kernel/pull/1960))*
+    - Faceting *(possible to [write your own](../api/public_php_api_browsing.md#performing-a-faceted-search), ContentType/Section/User implemented, suggested further changes to the API for Faceting can be found [here](https://github.com/ezsystems/ezpublish-kernel/pull/1960))*
     - Index time Boosting *(Solr Bundle &gt;= v1.4)* DONE
 - Future:
     - Solr cloud support
