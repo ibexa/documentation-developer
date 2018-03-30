@@ -73,7 +73,7 @@ ezpublish:
         site_group:
             pagelayout: 'pagelayout.html.twig'
             user:
-                layout: 'pagelayout.html.twig''
+                layout: 'pagelayout.html.twig'
             user_registration:
                 templates:
                     form: 'user/registration_form.html.twig'
