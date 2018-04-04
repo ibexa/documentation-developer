@@ -82,7 +82,7 @@ The Ride template is in a block and you use the Twig helpers to render the conte
 
     Note: the Level Field is static for now and uses the translation capacity.
 
-The Starting Point and Ending Point map rendering is not yet done. You will use the [MapLocation Field Type](../../guide/field_type_reference.md#maplocation-field-type) to render this Content Type.
+The Starting Point and Ending Point map rendering is not yet done. You will use the [MapLocation Field Type](../../api/field_type_reference.md#maplocation-field-type) to render this Content Type.
 
 ### Add a new parameter to your override rule
 
@@ -147,7 +147,7 @@ Then create all fields with the following information: 
 
     The **content name pattern** defines how the name and URL part of Content items of this type will be built. It may include static strings, as well as references to field definitions, using their identifier.
 
-    The value of the fields referenced in the pattern will be used to build the name. Most Field Types are able to render a textual representation of their value, but be aware that it is not implemented for some of them ([Selection Field Type](../../guide/field_type_reference.md#selection-field-type), [Relation Field Type](../../guide/field_type_reference.md#relation-field-type), [RelationList Field Type](../../guide/field_type_reference.md#relationlist-field-type)).
+    The value of the fields referenced in the pattern will be used to build the name. Most Field Types are able to render a textual representation of their value, but be aware that it is not implemented for some of them ([Selection Field Type](../../api/field_type_reference.md#selection-field-type), [Relation Field Type](../../guide/field_type_reference.md#relation-field-type), [RelationList Field Type](../../guide/field_type_reference.md#relationlist-field-type)).
 
 Now, validate the Content Type creation form. It will save the Point Of Interest Content Type.
 Create some Points Of Interest in the Content tree.
