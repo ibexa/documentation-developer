@@ -6,7 +6,7 @@ This is the center for eZ Platform documentation for developers and system admin
 
 **New to eZ Platform? See [Get Started with eZ Platform](getting_started/get_started_with_ez_platform.md)**
 
-**Looking for reference? Read about the [API](api/api.md)**
+**Looking for reference? Read about the [REST API](api/rest_api_guide.md) or the [Public PHP API](api/public_php_api.md)**
 
 **Need a specific recipe? Browse the [Cookbook](cookbook/authenticating_a_user_with_multiple_user_providers.md)**
 
