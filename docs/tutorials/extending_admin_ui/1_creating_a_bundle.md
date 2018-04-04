@@ -21,3 +21,5 @@ add it to the application kernel and configure eZ Platform to use the generated 
     Then [add the following line to `composer.json` under `autoload:psr-4`](https://github.com/symfony/symfony/issues/23630):
 
     `"EzSystems\\ExtendingTutorialBundle\\": "src/EzSystems/ExtendingTutorialBundle"`
+
+    If you encounter further errors while clearing the cache, run `composer install`.

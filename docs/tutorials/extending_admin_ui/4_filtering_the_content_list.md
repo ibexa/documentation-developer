@@ -18,7 +18,7 @@ ezsystems_extending_tutorial.all_content_list.list:
 
 ## Modify the controller
 
-Introduce changes to `AllContentListController.php`, so that it takes the selected Content Type into account.
+Introduce changes to `src/EzSystems/ExtendingTutorialBundle/Controller/AllContentListController.php`, so that it takes the selected Content Type into account.
 
 First, provide the new `contentTypeIdentifier` parameter in the `listAction` function:
 `public function listAction($contentTypeIdentifier = false, $page = 1)`.
@@ -113,7 +113,8 @@ Finally, provide the new parameter to `$this->render`, after `articles`:
 
 The last thing to do is to update the template by adding a drop-down menu for choosing Content Types.
 
-Add the following block inside `<section class="container my-4">`:
+Add the following block to `src/EzSystems/ExtendingTutorialBundle/Resources/views/list/all_content_list.html.twig`
+inside `<section class="container my-4">`:
 
 ``` twig
 <div class="my-4">

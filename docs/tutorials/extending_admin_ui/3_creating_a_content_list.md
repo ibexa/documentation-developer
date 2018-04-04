@@ -11,7 +11,8 @@ You will be able to filter the list by Content Types using a drop-down menu.
 
 The first step is to add an event listener.
 
-To register the listener as a service, add the following block to `src/EzSystems/ExtendingTutorialBundle/Resources/config/services.yml`:
+To register the listener as a service, add the following block to `src/EzSystems/ExtendingTutorialBundle/Resources/config/services.yml`.
+Place the block indented, under the `services` key:
 
 ``` yaml
 EzSystems\ExtendingTutorialBundle\EventListener\:
@@ -80,8 +81,8 @@ ezsystems_extending_tutorial.all_content_list.list:
 
 As you can see in the code above, the next step is creating a controller that will take care of the article list view.
 
-Firs, ensure that the controller is configured in `services.yml`.
-Add the following block to that file:
+First, ensure that the controller is configured in `services.yml`.
+Add the following block (indented, under the `services` key) to that file:
 
 ``` yaml
 EzSystems\ExtendingTutorialBundle\Controller\:
