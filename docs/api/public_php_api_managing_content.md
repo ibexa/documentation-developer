@@ -34,7 +34,7 @@ First, you need the required services. In this case: `ContentService`, `Location
 
 ### The ContentCreateStruct
 
-As explained in [above](#value-info-objects), value objects are read only. Dedicated objects are provided for Update and Create operations: structs, like `ContentCreateStruct` or `UpdateCreateStruct`. In this case, you need to use a `ContentCreateStruct`.
+As explained in [Public PHP API](public_php_api.md#value-info-objects), value objects are read only. Dedicated objects are provided for Update and Create operations: structs, like `ContentCreateStruct` or `UpdateCreateStruct`. In this case, you need to use a `ContentCreateStruct`.
 
 ``` php
 $contentType = $contentTypeService->loadContentTypeByIdentifier( 'article' );
