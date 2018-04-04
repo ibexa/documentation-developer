@@ -1,4 +1,4 @@
-# Getting started with the public API
+# Customization
 
 In this chapter, you will see two ways of customizing eZ Platform: command line scripts (for import scripts, for instance), and custom controllers.
 
