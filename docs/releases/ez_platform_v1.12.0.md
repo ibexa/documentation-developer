@@ -24,7 +24,7 @@ See [EZP-26806](https://jira.ez.no/browse/EZP-26806) for more information.
 
 You can now remove translations from Content item Versions through the PHP API.
 
-See the [section on deleting translations](../api/public_php_api.md#delete-translations) for more information.
+See the [section on deleting translations](../api/public_php_api_managing_content.md#delete-translations) for more information.
 
 You also have a new endpoint available for deleting a single Version, see [EZP-27864](https://jira.ez.no/browse/EZP-27864) for more information.
 
