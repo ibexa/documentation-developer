@@ -66,13 +66,22 @@ pages:
             - 'REST API reference': 'api/rest_api_reference.md'
         - Public PHP API:
             - 'Public PHP API': 'api/public_php_api.md'
-        - 'Field Type API and best practices': 'api/field_type_api_and_best_practices.md'
+        - Field Type:
+            - 'Field Type API': 'api/field_type_api.md'
+            - 'Reference': 'api/field_type_reference.md'
+            - 'REST API interaction': 'api/field_type_REST.md'
+            - 'Public API interaction': 'api/field_type_public.md'
+            - 'Schema': 'api/field_type_setting_schema.md'
+            - 'Template': 'api/field_type_template.md'
+            - 'Registration': 'api/field_type_registration.md'
+            - 'Testing': 'api/field_type_testing.md'
+            - 'Storage': 'api/field_type_storage.md'
+            - 'Search': 'api/field_type_search.md'
     - Guide:
         - Introduction:
             - 'Introduction': 'guide/introduction.md'
             - 'Architecture': 'guide/architecture.md'
             - 'Content model': 'guide/content_model.md'
-            - 'Field Type reference': 'guide/field_type_reference.md'
         - 'Best practices': 'guide/best_practices.md'
         - 'Bundles': 'guide/bundles.md'
         - 'Clustering': 'guide/clustering.md'
