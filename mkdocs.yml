@@ -57,7 +57,6 @@ pages:
             - '8. Filter by Content Type': 'tutorials/extending_platformui/8_filter_by_content_type.md'
             - 'Conclusion': 'tutorials/extending_platformui/conclusion.md'
     - API:
-        - 'API Introduction': 'api/api.md'
         - REST API guide:
             - 'REST API guide': 'api/rest_api_guide.md'
             - 'REST API usage': 'api/general_rest_usage.md'
@@ -70,13 +69,22 @@ pages:
             - 'Browsing, finding, viewing': 'api/public_php_api_browsing.md'
             - 'Managing Content': 'api/public_php_api_managing_content.md'
             - 'Locations': 'api/public_php_api_locations.md'
-        - 'Field Type API and best practices': 'api/field_type_api_and_best_practices.md'
+        - Field Type:
+            - 'Field Type API': 'api/field_type_api.md'
+            - 'Reference': 'api/field_type_reference.md'
+            - 'REST API interaction': 'api/field_type_REST.md'
+            - 'Public API interaction': 'api/field_type_public.md'
+            - 'Schema': 'api/field_type_setting_schema.md'
+            - 'Template': 'api/field_type_template.md'
+            - 'Registration': 'api/field_type_registration.md'
+            - 'Testing': 'api/field_type_testing.md'
+            - 'Storage': 'api/field_type_storage.md'
+            - 'Search': 'api/field_type_search.md'
     - Guide:
         - Introduction:
             - 'Introduction': 'guide/introduction.md'
             - 'Architecture': 'guide/architecture.md'
             - 'Content model': 'guide/content_model.md'
-            - 'Field Type reference': 'guide/field_type_reference.md'
         - 'Best practices': 'guide/best_practices.md'
         - 'Bundles': 'guide/bundles.md'
         - 'Clustering': 'guide/clustering.md'
