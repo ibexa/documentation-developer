@@ -63,7 +63,7 @@ In controllers, this generally is done by extending the Symfony `Controller` c
 
 One of the responsibilities of the Repository is user authentication. Every action will be executed *as* a user. In the context of a normal eZ Platform execution, the logged in user will of course be the current one, identified via one of the available authentication methods. This user's permissions will affect the behavior of the Repository. The user may for example not be allowed to create Content, or view a particular Section.
 
-[Logging in to the Repository](#identifying-to-the-repository-with-a-login-and-a-password) is covered in other recipes of the Cookbook.
+[Logging in to the Repository](public_php_api_managing_content.md#identifying-to-the-repository-with-a-login-and-a-password) is covered in other recipes of the Cookbook.
 
 ## Services
 
