@@ -4,7 +4,7 @@
 
 ### The ViewController
 
-eZ Platform comes with a native controller to display your content, known as the **`ViewController`**. It is called each time you try to reach a Content item from its **Url Alias** (human-readable, translatable URI generated for any content based on URL patterns defined per Content Type). It is able to render any content created in the admin interface or via the [Public API Guide](../api/public_php_api.md#public-api-guide).
+eZ Platform comes with a native controller to display your content, known as the **`ViewController`**. It is called each time you try to reach a Content item from its **Url Alias** (human-readable, translatable URI generated for any content based on URL patterns defined per Content Type). It is able to render any content created in the admin interface or via the [Public API Guide](../api/public_php_api.md).
 
 It can also be called straight by its direct URI: 
 
@@ -1299,7 +1299,7 @@ The Query is configured in a `query` hash in `params`, you could specify the Que
 
 #### QueryType objects
 
-QueryType is an object that build a Query. It is different from [Public API queries](../api/public_php_api.md#public-api-guide).
+QueryType is an object that build a Query. It is different from [Public API queries](../api/public_php_api.md).
 
 To make a new QueryType available to the Query Controller, you need to create a PHP class that implements the QueryType interface, then register it as such in the Service Container.
 
