@@ -256,6 +256,8 @@ These steps are only relevant for some releases:
     This is because the indexes have been shortened, so duplicates may occur.
     If that happens, you must remove the duplicates manually, and then repeat the statements that failed.
 
+    After successfully running those statements, change the character set and collation for each table, as described in https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/upgrade/7.2.md.
+
     You should also change the character set that is specified in the application config:
 
     In `app/config/config.yml`, set the following:
