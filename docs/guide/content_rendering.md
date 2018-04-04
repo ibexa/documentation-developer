@@ -585,7 +585,7 @@ To avoid such situations, you can check if the Location is virtual using the `lo
     ```
 
     ### Landing Page template
-    Once published, Landing Page will be displayed using the template according to the `content_view` setting, see [View Matchers](#view-matchers). If you want to see the Landing Page displayed using a particular template in the edit mode of Landing Page Editor before publish, you need to configure additional settings as follow in `ezplatform.yml` configuration file.
+    Once publish, a Landing Page will be displayed using the template according to the `content_view` setting, see [View Matchers](#view-matchers). If you want to see the Landing Page displayed using a particular template in the edit mode of Landing Page Editor before publish, you need to configure the following additional settings in `ezplatform.yml` configuration file.
     
     ``` yml
     ezstudioui:
@@ -616,8 +616,8 @@ To avoid such situations, you can check if the Location is virtual using the `lo
     {% endblock %}
     ```
     
-    !!! caution
-    Custom template always need to extend `base_template()`. Morevoer, you have to check whether the `content` variable is defined to correctly display previously published Landing Page. Otherwise, you need to display `<div data-area="static"></div>` which is the place where you can put the new blocks. 
+        !!! caution
+        Custom template always needs to extend `base_template()`. Morevoer, you have to check whether the `content` variable is defined to correctly display a previously published Landing Page. Otherwise, you need to display `<div data-area="static"></div>` which is the place where you can put the new blocks. 
 
     ### Landing Page blocks
 
