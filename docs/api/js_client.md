@@ -1,10 +1,10 @@
 # JavaScript client
 
-This page will guide you on how to use the client, and view the [generated JavaScript API client reference](http://ezsystems.github.io/javascript-rest-client/).
+This page will guide you on how to use the client, and view the [generated JavaScript API client reference](http://ezsystems.github.io/javascript-rest-client/). 
 
 ## Using the JavaScript REST API client
 
-The JavaScript REST API client is a JavaScript library meant to ease the use of the eZ Platform REST API. It can only be used in a web browser.
+The JavaScript REST API client is a JavaScript library meant to ease the use of the eZ Platform REST API. It can only be used in a web browser. It is also useful for working with eZ Platform as a [headless CMS](http://ez.no/Blog/Content-as-a-Service-CaaS-Decoupled-CMS-and-Headless-CMS-101).
 
 ## Installation
 
