@@ -87,4 +87,4 @@ They are provided by the API, but are **read only**, can't be modified and sent 
 
 In order to update or create elements in the Repository, you will use structs. They are usually provided by the service that manages the value objects you want to alter or create. For instance, the Content service has a `getContentCreateStruct()` method that returns a new `ContentCreateStruct` object. Equivalent methods exist for `UpdateStruct` objects as well, and for most value objects.
 
-Using them is covered in the [Creating Content](#creating-content) and [Updating Content](#updating-content) chapters.
+Using them is covered in the [Creating Content](public_php_api_managing_content.md#creating-content) and [Updating Content](public_php_api_managing_content.md#updating-content) chapters.
