@@ -2,6 +2,10 @@
 
 In this chapter, you will see two ways of customizing eZ Platform: command line scripts (for import scripts, for instance), and custom controllers.
 
+!!! info "API"
+
+    An Application Programming Interface (API) allows you to connect your code to eZ Platform. You can learn the basic idea behind it from [the eZ Blog article](http://ez.no/Blog/How-would-you-explain-what-an-API-is-to-your-mom).
+
 ## Symfony bundle
 
 In order to test and use public API code, you will need to build a custom bundle. Bundles are Symfony's extensions, and are therefore also used to extend eZ Platform. Symfony provides code generation tools that will let you create your own bundle and get started in a few minutes.
