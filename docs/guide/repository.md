@@ -199,7 +199,7 @@ doctrine:
                 dbname:   my_database
                 user:     my_user
                 password: my_password
-                charset:  UTF8
+                charset:  UTF8MB4
 
             another_connection_name:
                 # ...
