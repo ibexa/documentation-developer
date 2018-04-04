@@ -25,7 +25,7 @@ This tutorial talks and uses a lots of concepts coming from Symfony, eZ Platform
 
 ### eZ Platform-related documentation pages
 
-- The Public API is described in both the [Public API basics page](../../api/public_php_api.md#getting-started-with-the-public-api) and in [the Public API Cookbook](../../api/public_php_api.md#public-api-guide).
+- The Public API is described in both the [Public API basics page](../../api/public_php_api_customization.md) and in [the Public API Cookbook](../../api/public_php_api.md#public-api-guide).
 - For any usage beyond what is covered in those pages, you can refer to [the auto-generated API doc](http://apidoc.ez.no/sami/trunk/NS/html/index.html).
 - While extending PlatformUI, you'll also have to work with the [REST API which has its own section in the documentation](../../api/rest_api_guide.md).
 - There is also [an auto-generated API doc for the JavaScript REST Client](http://ezsystems.github.io/javascript-rest-client/).
