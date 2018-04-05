@@ -19,16 +19,17 @@ composer create-project --keep-vcs ezsystems/ezplatform ezplatform
 cd ezplatform
 ```
 
-1. Assuming you are on PHP 7.1 and higher this should start installation of eZ Platform v2, version will show up first like this: `Installing ezsystems/ezplatform (v2.1.0)`.
-2. During the install process you will be asked to input things like database host name, login, password and so on.
-3. At the end of the install process, you will be given further instructions on how to procceed to setup a simplified dev setup using PHP's built in web server. For a more complete and better performant setup using either Apache or Nginx, read up on for instance [how to install manually](install_manually.md) and/or [how to install using Docker](install_using_docker.md).
+1. If you are on PHP 7.1 and higher, this should start installation of eZ Platform v2. The version will show up first like this: `Installing ezsystems/ezplatform (v2.1.0)`.
+2. During the installation process you will be asked to input things like database host name, login, password and so on.
+3. At the end of the installation process, you will be given further instructions on how to proceed to set up a simplified dev setup using PHP's built-in web server. For a more complete and better performing setup using either Apache or Nginx, read up, for instance, on [how to install manually](install_manually.md) and/or [how to install using Docker](install_using_docker.md).
 
 
 !!! tip
 
-    To install eZ Platform for production only, use the --no-dev option for your composer create-project:
-    > composer create-project --no-dev --keep-vcs ezsystems/ezplatform ezplatform
-    With this always set SYMFONY_ENV="prod", otherwise Symfony will default to dev and complain about missing GeneratorBundle
+    To install eZ Platform for production only, use the `--no-dev` option for your `composer create-project`:
+    `composer create-project --no-dev --keep-vcs ezsystems/ezplatform ezplatform`
+
+    In such a case always set `SYMFONY_ENV="prod"`, otherwise Symfony will default to dev and complain about missing GeneratorBundle.
 
 
 !!! note
