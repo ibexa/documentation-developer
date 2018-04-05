@@ -18,7 +18,7 @@ Once you have [installed eZ Platform](../../getting_started/install_ez_platform.
 
 In this tutorial, we'll use the database name "`ezplatformtutorial`".
 
-You can create this using a GUI tool, or on the command line. For MySQL you can use this query: `CREATE DATABASE ezplatformtutorial CHARACTER SET UTF8`. You can perform the equivalent action on the database of your choice. We've seen good results with MariaDB, PostgreSQL, and others.
+You can create this using a GUI tool, or on the command line. For MySQL you can use this query: `CREATE DATABASE ezplatformtutorial CHARACTER SET UTF8MB4`. You can perform the equivalent action on the database of your choice. We've seen good results with MariaDB, PostgreSQL, and others.
 
 ## Now you are ready to begin the Tutorial!
 

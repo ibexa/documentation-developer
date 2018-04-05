@@ -242,6 +242,35 @@ These steps are only relevant for some releases:
     ALTER TABLE ezuser ALTER COLUMN password_hash TYPE VARCHAR(255);
     ​```
 
+??? note "v2.2: Change from UTF8 to UTF8MB4"
+
+    Since v2.2 the character set for MySQL/MariaDB database tables changes from `utf8` to `utf8mb4` to support 4-byte characters.
+
+    To apply this change, use the following database update script:
+
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.1.0-to-7.2.0.sql
+    ```
+
+    Be aware that these upgrade statements may fail due to index collisions.
+    This is because the indexes have been shortened, so duplicates may occur.
+    If that happens, you must remove the duplicates manually, and then repeat the statements that failed.
+
+    After successfully running those statements, change the character set and collation for each table, as described in https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/upgrade/7.2.md.
+
+    You should also change the character set that is specified in the application config:
+
+    In `app/config/config.yml`, set the following:
+
+    ``` yml
+    doctrine:
+        dbal:
+            connections:
+                default:
+                    charset: utf8mb4
+    ```
+    Also make the corresponding change in `app/config/dfs/dfs.yml`.
+
 ## 5. Dump assets
 
 The web assets must be dumped again if you are using the `prod` environment. In `dev` this happens automatically:
