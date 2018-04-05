@@ -10,9 +10,9 @@ To be able to declare a Field Type, you need to have [registered bundle in your 
 
 This bundle needs to expose some configuration for the service container somehow (read [related Symfony documentation](http://symfony.com/doc/master/book/service_container.html#importing-other-container-configuration-resources))
 
-### Basic configuration
+## Basic configuration
 
-This part relates to the [base FieldType class that interacts with the Public API](#public-api).
+This part relates to the [base FieldType class that interacts with the Public API](field_type_public.md).
 
 Let's take a basic example from `ezstring` configuration.
 
@@ -40,9 +40,9 @@ Tagging your Field Type service with **`ezpublish.fieldType`** is mandatory to b
 
 Basic Field Types configuration is located in [EzPublishCoreBundle/Resources/config/fieldtypes.yml](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/fieldtypes.yml).
 
-### Legacy Storage Engine
+## Legacy Storage Engine
 
-#### Converter
+### Converter
 
 As stated in the [storage section](field_type_storage.md#legacy-storage-conversion), a conversion of Field Type values is needed in order to properly store the data into the *old* database schema (aka *Legacy Storage*).
 
@@ -73,7 +73,7 @@ As for the tag attributes:
 
 The converter configuration for basic Field Types are located in [eZ/Publish/Core/settings/fieldtype\_external\_storages.yml](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/fieldtype_external_storages.yml).
 
-#### External storage
+### External storage
 
 A Field Type has the [ability to store its value (or part of it) in external data sources](field_type_storage.md#storing-external-data). This is made possible through the `eZ\Publish\SPI\FieldType\FieldStorage` interface. If you want to use this functionality, you will need to define a service implementing this interface and tag it as **`ezpublish.fieldType.externalStorageHandler`** to be recognized by the Repository.
 
@@ -97,7 +97,7 @@ The configuration requires providing the **`ezpublish.fieldType.externalStorageH
 
 External storage configuration for basic Field Types is located in [eZ/Publish/Core/settings/fieldtype_external_storages.yml](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/fieldtype_external_storages.yml).
 
-#### Gateway based storage
+### Gateway based storage
 
 As stated in the [storage section](field_type_storage.md#gateway-based-storage), in order to be storage agnostic an external storage handler should use a *storage gateway*. This can be done by using another service implementing `eZ\Publish\SPI\FieldType\StorageGateway`, to be injected into external storage handler ([see above](#external-storage)).
 
