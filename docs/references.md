@@ -13,8 +13,8 @@
     - [Services: Public API reference](guide/repository.md#services-public-api)
     - [Signals reference](guide/repository.md#signals-reference)
 - Permissions:
-    - [Limitation reference](guide/repository.md#limitations-reference)
-    - [Role Policies map](guide/repository.md#role-policies-map)
+    - [Limitation reference](guide/permissions.md#limitations)
+    - [Role Policies map](guide/permissions.md#available-policies)
 - Search:
     - [Search Criteria reference](guide/search.md#search-criteria-reference)
     - [Sort Clause reference](guide/search.md#sort-clauses-reference)
