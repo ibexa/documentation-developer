@@ -1,6 +1,6 @@
-## Working with Locations
+# Working with Locations
 
-### Adding a new Location to a Content item
+## Adding a new Location to a Content item
 
 !!! note "Full code"
 
@@ -50,7 +50,7 @@ $newLocation = $locationService->createLocation( $contentInfo, $locationCreateSt
 
 Finally use `LocationService::createLocation()`, providing the `ContentInfo` obtained above, together with your `LocationCreateStruct`. The method returns the newly created Location value object.
 
-### Hide/Unhide Location
+## Hide/Unhide Location
 
 !!! note "Full code"
 
@@ -67,7 +67,7 @@ There are two methods for this: `LocationService::hideLocation`, and `LocationSe
 
 The explanation above is valid for most Repository objects. Modification of properties that affect other parts of the system will require that you use a custom service method.
 
-### Deleting a Location
+## Deleting a Location
 
 Deleting Locations can be done in two ways: delete, or trash.
 
@@ -85,7 +85,7 @@ $trashService->trash( $locationInfo );
 
 The `TrashService` can be used to list, restore and delete Locations that were previously sent to trash using [`TrashService::trash()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/TrashService.html#method_trash).
 
-### Setting a content item's main Location
+## Setting a content item's main Location
 
 This is done using the `ContentService`, by updating the `ContentInfo` with a `ContentUpdateStruct` that sets the new main location:
 
