@@ -74,7 +74,7 @@ Creating the file is not enough, you also need to tell the app to read and use i
 
 #### Add thumbnail
 
-Take a look at the most important things that this configuration defines (for a detailed description of creating a Landing Page layout, see [Creating Landing Page layouts (Enterprise)](../../cookbook/creating_landing_page_layouts_(enterprise)):
+Take a look at the most important things that this configuration defines (for a detailed description of creating a Landing Page layout, see [Landing Page layouts](../../guide/content_rendering/#landing-page-layouts):
 
 The `sidebar` is the key of the layout, but it is the `name` that is displayed in the interface when the user selects a layout. The `thumbnail` links to an image file with an icon of the layout. It will also be shown when creating a new Landing Page, as a visual hint next to the name. Use the [supplied thumbnail file](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step2/web/assets/images/layouts/sidebar.png) and place it in the `web/assets/images/layouts/` folder.
 
