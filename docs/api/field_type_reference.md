@@ -6,7 +6,7 @@ eZ Platform comes with a collection of Field Types that can be used to build pow
 
 !!! tip
 
-    For general Field Type documentation see [Field Type API and best practices](../api/field_type_api_and_best_practices.md). If you are looking for the documentation on how to implement a custom Field Type, see the [Creating a Tweet Field Type](../tutorials/field_type/creating_a_tweet_field_type.md) tutorial.
+    For general Field Type documentation see [Field Type API and best practices](../api/field_type_api.md). If you are looking for the documentation on how to implement a custom Field Type, see the [Creating a Tweet Field Type](../tutorials/field_type/creating_a_tweet_field_type.md) tutorial.
     
 Custom Field Types have to be programmed in PHP. However, the built-in Field Types are usually sufficient enough for typical scenarios. The following table gives an overview of the supported Field Types that come with eZ Platform.
 
@@ -48,7 +48,7 @@ Legacy Search/Storage Engine index is limited to 255 characters in database desi
 so formatted and unformatted text blocks will only index the first part.
 In case of multiple selection Field Types like Keyword, Selection, Country, etc.,
 only the first choices are indexed. They are indexed only as a text blob separated by string separator.
-Proper indexing of these Field Types is done with [Solr Search Bundle](search.md#solr-bundle).
+Proper indexing of these Field Types is done with [Solr Search Bundle](../guide/search.md#solr-bundle).
 
 ### Other Field Types
 
@@ -159,7 +159,7 @@ Note that both `BinaryFile` and `Media` Value and Type inherit from the `BinaryB
 
 |Attribute|Type|Description|Example|
 |------|------|------|------|
-|`id`|string|Binary file identifier. This ID depends on the [IO Handler](clustering.md#binary-files-clustering) that is being used. With the native, default handlers (FileSystem and Legacy), the ID is the file path, relative to the binary file storage root dir (`var/<vardir>/storage/original` by default).|application/63cd472dd7.pdf|
+|`id`|string|Binary file identifier. This ID depends on the [IO Handler](../guide/clustering.md#binary-files-clustering) that is being used. With the native, default handlers (FileSystem and Legacy), the ID is the file path, relative to the binary file storage root dir (`var/<vardir>/storage/original` by default).|application/63cd472dd7.pdf|
 |`fileName`|string|The human-readable file name, as exposed to the outside. Used when sending the file for download in order to name the file.|20130116_whitepaper.pdf|
 |`fileSize`|int|File size, in bytes.|1077923|
 |`mimeType`|string|The file's MIME type.|application/pdf|
@@ -471,7 +471,7 @@ $settings = array(
 
 ### Template rendering
 
-The template called by [the `ez_render_field()` Twig function](content_rendering.md#ez_render_field) while rendering a Date Field has access to the following parameters:
+The template called by [the `ez_render_field()` Twig function](../guide/content_rendering.md#ez_render_field) while rendering a Date Field has access to the following parameters:
 
 | Parameter | Type     |Description|
 |-----------|----------|------------|
@@ -587,7 +587,7 @@ $settings = array(
 
 ### Template rendering
 
-The template called by the [`ez_render_field()` Twig function](content_rendering.md#ez_render_field) while rendering a Date Field has access to the following parameters:
+The template called by the [`ez_render_field()` Twig function](../guide/content_rendering.md#ez_render_field) while rendering a Date Field has access to the following parameters:
 
 | Parameter | Type     | Default | Description|
 |-----------|----------|---------|------------|
@@ -821,7 +821,7 @@ The Image Field Type supports one `FieldDefinition` option: the maximum size for
 
 ### Using an Image Field
 
-To read more about handling images and image variations, see the [Images documentation](images.md).
+To read more about handling images and image variations, see the [Images documentation](../guide/images.md).
 
 #### Template Rendering
 
@@ -831,7 +831,7 @@ When displayed using `ez_render_field`, an Image Field will output this type of
 <img src="var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB/image_medium.png" width="844" height="430" alt="Alternative text" />
 ```
 
-The template called by the [`ez_render_field()` Twig function](content_rendering.md#ez_render_field) while rendering a Image Field accepts the following parameters:
+The template called by the [`ez_render_field()` Twig function](../guide/content_rendering.md#ez_render_field) while rendering a Image Field accepts the following parameters:
 
 | Parameter | Type     | Default        | Description |
 |-----------|----------|----------------|-------------|
@@ -1214,7 +1214,9 @@ $keywordValue = new Value( "php5,css3,html5" );
 
     Landing Page Field Type is only used in the Landing Page Content Type that is included in eZ Enterprise.
 
-    The structure of the Landing Page Content Type should not be modified, as it may cause errors.
+    !!! caution
+    
+        The default Field Type identifiers of the Landing Page Content Type should not be modified, as it may cause fatal errors. Fields of other types can be added safely but shouldn't be required.
 
     | Name           | Internal name   | Expected input  |
     |----------------|-----------------|-----------------|
@@ -1370,7 +1372,7 @@ $MapLocationValue = new MapLocation\Value(
 
 ### Template rendering
 
-The template called by [the `ez_render_field()` Twig function](content_rendering.md#ez_render_field) while rendering a Map Location Field accepts the following parameters:
+The template called by [the `ez_render_field()` Twig function](../guide/content_rendering.md#ez_render_field) while rendering a Map Location Field accepts the following parameters:
 
 |Parameter|Type|Default|Description|
 |------|------|------|------|
@@ -1447,7 +1449,7 @@ Note that both `Media` and `BinaryFile` Value and Type inherit from the `BinaryB
 
 |Property|Type|Description|Example|
 |------|------|------|------|
-|`id`|string|Media file identifier. This ID depends on the [IO Handler](clustering.md#binary-files-clustering) that is being used. With the native, default handlers (FileSystem and Legacy), the ID is the file path, relative to the binary file storage root dir (`var/<vardir>/storage/original` by default).|application/63cd472dd7819da7b75e8e2fee507c68.mp4|
+|`id`|string|Media file identifier. This ID depends on the [IO Handler](../guide/clustering.md#binary-files-clustering) that is being used. With the native, default handlers (FileSystem and Legacy), the ID is the file path, relative to the binary file storage root dir (`var/<vardir>/storage/original` by default).|application/63cd472dd7819da7b75e8e2fee507c68.mp4|
 |`fileName`|string|	The human-readable file name, as exposed to the outside. Used to name the file when sending it for download.|butterflies.mp4|
 |`fileSize`|int|File size, in bytes.|1077923|
 |`mimeType`|string|The file's MIME type.|video/mp4|

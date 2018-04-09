@@ -4,7 +4,7 @@
 
 ### The ViewController
 
-eZ Platform comes with a native controller to display your content, known as the **`ViewController`**. It is called each time you try to reach a Content item from its **Url Alias** (human-readable, translatable URI generated for any content based on URL patterns defined per Content Type). It is able to render any content created in the admin interface or via the [Public API Guide](../api/public_php_api.md#public-api-guide).
+eZ Platform comes with a native controller to display your content, known as the **`ViewController`**. It is called each time you try to reach a Content item from its **Url Alias** (human-readable, translatable URI generated for any content based on URL patterns defined per Content Type). It is able to render any content created in the admin interface or via the [Public API Guide](../api/public_php_api.md).
 
 It can also be called straight by its direct URI: 
 
@@ -50,7 +50,7 @@ ezpublish:
 
     In this case the repository will throw an exception, which is caught in the `ViewController`, and *if* you are using Legacy Bridge it will end up doing a [fallback to legacy kernel](https://doc.ez.no/display/EZP/Legacy+template+fallback).
 
-    The list of Field Types supported out of the box [is available here](field_type_reference.md).
+    The list of Field Types supported out of the box [is available here](../api/field_type_reference.md).
 
 !!! tip
 
@@ -588,6 +588,41 @@ To avoid such situations, you can check if the Location is virtual using the `lo
         </div>
     </div>
     ```
+
+    ### Landing Page template
+    Once published, a Landing Page will be displayed using the template according to the `content_view` setting, see [View Matchers](#view-matchers). If you want to see the Landing Page displayed using a particular template in the edit mode of Landing Page Editor before publish, you need to configure the following additional settings in `ezplatform.yml` configuration file.
+    
+    ``` yml
+    ezstudioui:
+        system:
+            # Defines the scope: a valid SiteAccess, SiteAccess group or even "global"
+            front_siteaccess:
+                studio_template: AppBundle:studio:template.html.twig
+    ```
+    
+    This is an example of a minimal template file:
+    
+    ``` html
+    {% extends base_template() %}
+    {% block content %}
+    
+        <!-- Custom template header code -->
+        
+        <!-- This part is required! -->
+        {% if content is defined %}
+            {{ ez_render_field(content, 'page') }}
+        {% else %}
+            <div data-area="static" style="min-height:300px;"></div>
+        {% endif %}
+        <!-- End required part -->
+        
+        <!-- Rest of the custom template code -->
+        
+    {% endblock %}
+    ```
+    
+        !!! caution
+        Custom template always needs to extend `base_template()`. Morevoer, you have to check whether the `content` variable is defined to correctly display a previously published Landing Page. Otherwise, you need to display `<div data-area="static"></div>` which is the place where you can put the new blocks. 
 
     ### Landing Page blocks
 
@@ -1264,7 +1299,7 @@ The Query is configured in a `query` hash in `params`, you could specify the Que
 
 #### QueryType objects
 
-QueryType is an object that build a Query. It is different from [Public API queries](../api/public_php_api.md#public-api-guide).
+QueryType is an object that build a Query. It is different from [Public API queries](../api/public_php_api.md).
 
 To make a new QueryType available to the Query Controller, you need to create a PHP class that implements the QueryType interface, then register it as such in the Service Container.
 
@@ -1791,13 +1826,13 @@ See section of [Using the Field Type's template block](#using-the-field-types-te
 |------|------|------|
 |`content`|`eZ\Publish\API\Repository\Values\Content\Content`|Content item the displayable field belongs to.|
 |`fieldDefinitionIdentifier`|`string`|The identifier the Field is referenced by.|
-|`params`|`hash`|Hash of parameters that will be passed to the template block.</br>By default you can pass 2 entries:</br>`lang` (to override the current language, must be a valid locale with xxx-YY format)</br>`template` (to override the template to use, see below)</br>`attr` (hash of HTML attributes you want to add to the inner markup)</br>parameters (arbitrary parameters to pass to the template block)</br></br>Some Field Types might expect specific entries under the `parameters` key, like the [MapLocation Field Type](field_type_reference.md#maplocation-field-type).
+|`params`|`hash`|Hash of parameters that will be passed to the template block.</br>By default you can pass 2 entries:</br>`lang` (to override the current language, must be a valid locale with xxx-YY format)</br>`template` (to override the template to use, see below)</br>`attr` (hash of HTML attributes you want to add to the inner markup)</br>parameters (arbitrary parameters to pass to the template block)</br></br>Some Field Types might expect specific entries under the `parameters` key, like the [MapLocation Field Type](../api/field_type_reference.md#maplocation-field-type).
 
 ##### Override a Field template block
 
 In some cases, you may not want to use the built-in field template block as it might not fit your markup needs. In this case, you can choose to override the template block by specifying your own template. You can do this inline when calling `ez_render_field()`, or globally by prepending a Field template to use by the helper.
 
-Your template block must comply to a regular Field Type template block, [as explained in the Field Type documentation](../api/field_type_api_and_best_practices.md#field-type-template).
+Your template block must comply to a regular Field Type template block, [as explained in the Field Type documentation](../api/field_type_template.md).
 
 ###### Inline override
 

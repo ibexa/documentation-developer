@@ -41,11 +41,12 @@ Overall, for production setup:
 ### Composer
 
 - Keep Composer up to date.
-- Always dump optimized class map using c`omposer dump-autoload --optimize` or relevant flags on `composer install/update`.
+- Always dump optimized class map using `composer dump-autoload --optimize` or relevant flags on `composer install/update`.
 
-### Memcached/Redis
+### Redis
 
-- Memcached/Redis is recommended over filesystem cache even with single server, as it offers overall better performance for operations invalidating cache.
+- Redis is recommended over Memcached as the latter has big performance issues caused by how Symfony cache works for cache tagging _(Memcached does not handle lookups of non-existing cache items very well)_
+- Redis is recommended over filesystem cache even with a single server, as it offers better overall performance for operations invalidating cache.
     - But pure read performance is slower, especially if not optimizing next point.
 - If you use Redis, make sure to tune it for in-memory cache usage. Its persistence feature is not needed for use with eZ Platform cache and will severely slow down execution time.
 

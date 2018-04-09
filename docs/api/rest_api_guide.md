@@ -2,6 +2,10 @@
 
 The REST API v2 introduced in eZ Platform allows you to interact with an eZ Platform installation using the HTTP protocol, following a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) interaction model.
 
+!!! info "API"
+
+    An Application Programming Interface (API) allows you to connect your code to eZ Platform. You can learn the basic idea behind it from [the eZ Blog article](http://ez.no/Blog/How-would-you-explain-what-an-API-is-to-your-mom).
+
 ## Accessing the REST API
 
 The REST API is available at the URI `/api/ezp/v2` . HTTPS is available as long as your server is properly configured. Refer to the [Getting started with the REST API](#getting-started-with-the-rest-api) section below to start using the API.
@@ -111,7 +115,7 @@ request.send();
 
 In order to test it, just save this code to some test.html file in the web folder of your eZ Platform installation. If you use the rewrite rules, don't forget to allow this file to be served directly.
 
-If necessary, substitute` 59` with the Content item ID of an item from your database. You will get the ContentInfo for item 59 in JSON encoding.
+If necessary, substitute `59` with the Content item ID of an item from your database. You will get the ContentInfo for item 59 in JSON encoding.
 
 Note that by default, session authentication is used. This means that the session cookie will be transparently sent together with the request, and every AJAX call will have the same permissions as the currently logged in user.
 
