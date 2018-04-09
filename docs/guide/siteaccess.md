@@ -313,20 +313,16 @@ ezpublish:
     siteaccess:
         match:
             Map\URI:
-                ezdemo_site: ezdemo_site
-                ezdemo_site_admin: ezdemo_site_admin
+                ezdemo: ezdemo_site
+                ezadmin: ezdemo_site_admin
 ```
 
-!!! caution
-
-    The name of the Map\URI matcher must be the same as the SiteAccess name. This also means that only one URI can be addressed by the same matcher.
-
-**Example.** URI: `/ezdemo_site/my/content`
+**Example.** URI: `/ezdemo/my/content`
 
 Map:
 
-- `ezdemo_site` => `ezdemo_site`
-- `ezdemo_site_admin` => `ezdemo_site_admin`
+- `ezdemo` => `ezdemo_site`
+- `ezadmin` => `ezdemo_site_admin`
 
 Matched SiteAccess: `ezdemo_site`
 
