@@ -10,9 +10,12 @@ You will learn to extend two points of the Back Office:
 
 - Add a tab in the Dashboard listing all Articles
 - Add a menu item that lists all Content items filtered by Content Type
+- Add a new tab to the Universal Discovery Widget, listing all images
+- Add a custom tag to the Online Editor for embedding YouTube videos
 
 To follow this tutorial you need to:
 
 - be comfortable with eZ Platform's content model (Content, Location, Content Type, etc.)
 - have basic to intermediate level in PHP and JavaScript
 - have a basic knowledge of Symfony's concepts (Bundle, Controller and routing)
+- know how to work with React
