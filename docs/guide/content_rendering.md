@@ -4,7 +4,7 @@
 
 ### The ViewController
 
-eZ Platform comes with a native controller to display your content, known as the **`ViewController`**. It is called each time you try to reach a Content item from its **Url Alias** (human-readable, translatable URI generated for any content based on URL patterns defined per Content Type). It is able to render any content created in the admin interface or via the [Public API Guide](../api/public_php_api.md#public-api-guide).
+eZ Platform comes with a native controller to display your content, known as the **`ViewController`**. It is called each time you try to reach a Content item from its **Url Alias** (human-readable, translatable URI generated for any content based on URL patterns defined per Content Type). It is able to render any content created in the admin interface or via the [Public API Guide](../api/public_php_api.md).
 
 It can also be called straight by its direct URI: 
 
@@ -50,7 +50,7 @@ ezpublish:
 
     In this case the repository will throw an exception, which is caught in the `ViewController`, and *if* you are using Legacy Bridge it will end up doing a [fallback to legacy kernel](https://doc.ez.no/display/EZP/Legacy+template+fallback).
 
-    The list of Field Types supported out of the box [is available here](field_type_reference.md).
+    The list of Field Types supported out of the box [is available here](../api/field_type_reference.md).
 
 !!! tip
 
@@ -589,6 +589,41 @@ To avoid such situations, you can check if the Location is virtual using the `lo
     </div>
     ```
 
+    ### Landing Page template
+    Once published, a Landing Page will be displayed using the template according to the `content_view` setting, see [View Matchers](#view-matchers). If you want to see the Landing Page displayed using a particular template in the edit mode of Landing Page Editor before publish, you need to configure the following additional settings in `ezplatform.yml` configuration file.
+    
+    ``` yml
+    ezstudioui:
+        system:
+            # Defines the scope: a valid SiteAccess, SiteAccess group or even "global"
+            front_siteaccess:
+                studio_template: AppBundle:studio:template.html.twig
+    ```
+    
+    This is an example of a minimal template file:
+    
+    ``` html
+    {% extends base_template() %}
+    {% block content %}
+    
+        <!-- Custom template header code -->
+        
+        <!-- This part is required! -->
+        {% if content is defined %}
+            {{ ez_render_field(content, 'page') }}
+        {% else %}
+            <div data-area="static" style="min-height:300px;"></div>
+        {% endif %}
+        <!-- End required part -->
+        
+        <!-- Rest of the custom template code -->
+        
+    {% endblock %}
+    ```
+    
+        !!! caution
+        Custom template always needs to extend `base_template()`. Morevoer, you have to check whether the `content` variable is defined to correctly display a previously published Landing Page. Otherwise, you need to display `<div data-area="static"></div>` which is the place where you can put the new blocks. 
+
     ### Landing Page blocks
 
     By default eZ Enterprise comes with a number of preset Landing Page blocks. You can, however, add custom blocks to your configuration. There are two ways to do this: the full way and an [easier, YAML-based method](#defining-landing-page-blocks-in-the-configuration-file).
@@ -971,9 +1006,9 @@ To avoid such situations, you can check if the Location is virtual using the `lo
 
     ![Schedule block example with multiple blocks](img/schedule_block_example.png "Schedule block example with multiple blocks")
 
-## Custom controllers
+## Custom rendering logic
 
-In some cases, displaying a Content item/Location via the built-in `ViewController` is not sufficient to show everything you want. In such cases you may want to **use your own custom controller** to display the current Content item/Location instead.
+In some cases, displaying a Content item/Location via the built-in `ViewController` is not sufficient to show everything you want. In such cases you may want to **use your own custom logic** to display the current Content item/Location instead.
 
 Typical use cases include access to:
 
@@ -984,11 +1019,11 @@ Typical use cases include access to:
 - Main Location and alternative Locations for the current Content item
 - etc.
 
-There are three ways in which you can apply a custom controller:
+There are three ways in which you can apply a custom logic:
 
-- Configure a custom controller alongside regular matcher rules to use **both** your custom controller and the `ViewController` (recommended).
-- [**Override**](#overriding-the-built-in-viewcontroller) the built-in `ViewController` with the custom controller in a specific situation.
-- **Replace** the `ViewController` with the custom controller for the whole bundle.
+- [Configure a custom view controller](#enriching-viewcontroller-with-a-custom-controller) alongside regular matcher rules (**recommended**).
+- [Add a Symfony Response listener](#adding-a-listener) to add custom logic to all responses.
+- [**Override**](#using-only-your-custom-controller) the built-in `ViewController` with the custom controller in a specific situation.
 
 ### Enriching ViewController with a custom controller
 
@@ -1018,26 +1053,29 @@ With this configuration, the following controller will forward the request to th
 
 namespace Acme\TestBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Response;
 use eZ\Bundle\EzPublishCoreBundle\Controller;
+use eZ\Publish\Core\MVC\Symfony\View\ContentView;
 
 class DefaultController extends Controller
 {
-    public function articleViewEnhancedAction( $locationId, $viewType, $layout = false, array $params = array() )
+    public function articleViewEnhancedAction(ContentView $view)
     {
         // Add custom parameters to existing ones.
-        $params += array( 'myCustomVariable' => "Hey, I'm a custom message!" );
-        // Forward the request to the original ViewController
-        // And get the response. Possibly alter it (here we change the smax-age for cache).
-        $response = $this->get( 'ez_content' )->viewLocation( $locationId, $viewType, $layout, $params );
-        $response->setSharedMaxAge( 600 );
+        $view->addParameters(['myCustomVariable' => "Hey, I'm a custom message!"]);
 
-        return $response;
+        // If you wish, you can also easily access Location and Content objects
+        // $location = $view->getLocation();
+        // $content = $view->getContent();
+
+        // Set custom header for the Response
+        $response = new Response();
+        $response->headers->add(['X-Hello' => 'World']);
+        $view->setResponse($response);
+
+        return $view;
     }
 }
 ```
-
-Always ensure that you add new parameters to an existing `$params` associative array using the [**`+`** union operator](http://php.net/manual/en/language.operators.array.php) or `array_merge()`. **Not doing so (only passing your custom parameters array) can result in unexpected issues with content preview**. Previewed Content and other parameters are indeed passed in `$params`.
 
 These parameters can then be used in templates, for example:
 
@@ -1051,6 +1089,10 @@ These parameters can then be used in templates, for example:
     {{ ez_render_field( content, 'body' ) }}
 {% endblock %}
 ```
+
+### Adding a listener
+
+One way to add custom logic to all responses is to use your own listener. Please refer to the [Symfony documentation](https://symfony.com/doc/3.4/event_dispatcher/before_after_filters.html#after-filters-with-the-kernel-response-event) for the details on how to achieve this.
 
 ### Using only your custom controller
 
@@ -1078,31 +1120,30 @@ In this example, as the `ViewController` is not applied, the custom controller t
 
 namespace Acme\TestBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Response;
 use eZ\Bundle\EzPublishCoreBundle\Controller;
+use eZ\Publish\Core\MVC\Symfony\View\ContentView;
 
 class DefaultController extends Controller
 {
-    public function viewFolderAction( $locationId, $layout = false, $params = array() )
+    public function viewFolderAction(ContentView $view)
     {
-        $repository = $this->getRepository();
-        $location = $repository->getLocationService()->loadLocation( $locationId );
-        // Check if Content is not already passed. Can be the case when using content preview.
-        $content = isset( $params['content'] ) ? $params['content'] : $repository->getContentService()->loadContentByContentInfo( $location->getContentInfo() )
-        $response = new Response();
-        $response->headers->set( 'X-Location-Id', $locationId );
-        // Set caching for 1h and make the cache vary on user hash
-        $response->setSharedMaxAge( 3600 );
-        $response->setVary( 'X-User-Hash' );
-        return $this->render(
+        $location = $view->getLocation();
+        $content = $view->getContent();
+
+        $response = $this->render(
             'AcmeTestBundle::custom_controller_folder.html.twig',
-            array(
+            [
                 'location' => $location,
                 'content' => $content,
                 'foo' => 'Hey world!!!',
-                'osTypes' => array( 'osx', 'linux', 'windows' )
-            ) + $params
+                'osTypes' => ['osx', 'linux', 'windows']
+            ]
         );
+
+        // Set custom header for the Response
+        $response->headers->add(['X-Hello' => 'World']);
+
+        return $response;
     }
 }
 ```
@@ -1114,7 +1155,7 @@ Here again custom parameters can be used in the template, e.g.:
 {% extends "eZDemoBundle::pagelayout.html.twig" %}
 
 {% block content %}
-<h1>{{ ez_render_field( content, 'title' ) }}</h1>
+<h1>{{ ez_render_field( content, 'name' ) }}</h1>
     <h1>{{ foo }}</h1>
     <ul>
     {% for os in osTypes %}
@@ -1123,80 +1164,6 @@ Here again custom parameters can be used in the template, e.g.:
     </ul>
 {% endblock %}
 ```
-
-### Overriding the built-in ViewController
-
-One other way to keep control of what is passed to the view is to use your own controller **instead of** the built-in `ViewController`. The base `ViewController` is defined as a service, with a service alias, so this can be achieved from your bundle's configuration:
-
-``` yaml
-parameters:
-    my.custom.view_controller.class: Acme\TestBundle\MyViewController
-
-services:
-    my.custom.view_controller:
-        class: %my.custom.view_controller.class%
-        arguments: [@some_dependency, @other_dependency]
-
-    # Change the alias here and make it point to your own controller
-    ez_content:
-        alias: my.custom.view_controller
-```
-
-!!! caution
-
-    Doing so will completely override the built-in `ViewController`! Use this at your own risk!
-
-### Custom controller structure
-
-Your custom controller can be any kind of [controller supported by Symfony](http://symfony.com/doc/current/book/page_creation.html#step-2-create-the-controller) (including [controllers as a service](http://symfony.com/doc/current/cookbook/controller/service.html)).
-
-The only requirement here is that your action method must have a similar signature to `ViewController::viewLocation()` or `ViewController::viewContent()` (depending on what you're matching of course). However, note that not all arguments are mandatory, since [Symfony is clever enough to know what to inject into your action method](http://symfony.com/doc/current/book/routing.html#route-parameters-and-controller-arguments). That is why **you don't need to exactly imitate the `ViewController`'s signature**. For example, if you omit the `$layout` and `$params` arguments, it will still be valid. Symfony will just avoid injecting them into your action method.
-
-#### Built-in ViewController signatures
-
-``` php
-// viewLocation() signature
-/**
- * Main action for viewing content through a location in the repository.
- *
- * @param int $locationId
- * @param string $viewType
- * @param boolean $layout
- * @param array $params
- *
- * @throws \Symfony\Component\Security\Core\Exception\AccessDeniedException
- * @throws \Exception
- *
- * @return \Symfony\Component\HttpFoundation\Response
- */
-public function viewLocation( $locationId, $viewType, $layout = false, array $params = array() )
-```
-
-``` php
-// viewContent() signature
-/**
- * Main action for viewing content.
- *
- * @param int $contentId
- * @param string $viewType
- * @param boolean $layout
- * @param array $params
- *
- * @throws \Symfony\Component\Security\Core\Exception\AccessDeniedException
- * @throws \Exception
- *
- * @return \Symfony\Component\HttpFoundation\Response
- */
-public function viewContent( $contentId, $viewType, $layout = false, array $params = array() )
-```
-
-!!! caution "Caching"
-
-    When you use your own controller, **it is your responsibility to define cache rules**, like with every custom controller!
-
-    So don't forget to set cache rules and the appropriate `X-Location-Id` header in the returned `Response` object.
-
-    [See built-in ViewController](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/MVC/Symfony/Controller/Content/ViewController.php#L76) for more details on this.
 
 ## Query controller
 
@@ -1332,7 +1299,7 @@ The Query is configured in a `query` hash in `params`, you could specify the Que
 
 #### QueryType objects
 
-QueryType is an object that build a Query. It is different from [Public API queries](../api/public_php_api.md#public-api-guide).
+QueryType is an object that build a Query. It is different from [Public API queries](../api/public_php_api.md).
 
 To make a new QueryType available to the Query Controller, you need to create a PHP class that implements the QueryType interface, then register it as such in the Service Container.
 
@@ -1859,13 +1826,13 @@ See section of [Using the Field Type's template block](#using-the-field-types-te
 |------|------|------|
 |`content`|`eZ\Publish\API\Repository\Values\Content\Content`|Content item the displayable field belongs to.|
 |`fieldDefinitionIdentifier`|`string`|The identifier the Field is referenced by.|
-|`params`|`hash`|Hash of parameters that will be passed to the template block.</br>By default you can pass 2 entries:</br>`lang` (to override the current language, must be a valid locale with xxx-YY format)</br>`template` (to override the template to use, see below)</br>`attr` (hash of HTML attributes you want to add to the inner markup)</br>parameters (arbitrary parameters to pass to the template block)</br></br>Some Field Types might expect specific entries under the `parameters` key, like the [MapLocation Field Type](field_type_reference.md#maplocation-field-type).
+|`params`|`hash`|Hash of parameters that will be passed to the template block.</br>By default you can pass 2 entries:</br>`lang` (to override the current language, must be a valid locale with xxx-YY format)</br>`template` (to override the template to use, see below)</br>`attr` (hash of HTML attributes you want to add to the inner markup)</br>parameters (arbitrary parameters to pass to the template block)</br></br>Some Field Types might expect specific entries under the `parameters` key, like the [MapLocation Field Type](../api/field_type_reference.md#maplocation-field-type).
 
 ##### Override a Field template block
 
 In some cases, you may not want to use the built-in field template block as it might not fit your markup needs. In this case, you can choose to override the template block by specifying your own template. You can do this inline when calling `ez_render_field()`, or globally by prepending a Field template to use by the helper.
 
-Your template block must comply to a regular Field Type template block, [as explained in the Field Type documentation](../api/field_type_api_and_best_practices.md#field-type-template).
+Your template block must comply to a regular Field Type template block, [as explained in the Field Type documentation](../api/field_type_template.md).
 
 ###### Inline override
 

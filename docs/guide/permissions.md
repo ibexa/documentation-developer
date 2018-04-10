@@ -29,29 +29,25 @@ Here are a few examples of sets of Policies you can use to get some common permi
 
 ##### Enter back end interface
 
-To allow the User to enter the back end interface (PlatformUI) and view all Content, you need to set the following Policies:
+To allow the User to enter the back end interface and view all Content, you need to set the following Policies:
 
 - `user/login`
 - `content/read`
-
-To let the User navigate through StudioUI, you also need to add:
-
 - `content/versionread`
 - `section/view`
 - `content/reverserelatedlist`
 
 These Policies will be necessary for all other cases below that require access to the PlatformUI.
 
-##### Create and publish content
+###### Create and publish content
 
-To create and publish content, the User must additionally have the following Policies:
+To create and publish content, the user must additionally have the following Policies:
 
 - `content/create`
 - `content/edit`
 - `content/publish`
-- `content/versionread`
 
-This also lets the User copy and move content, as well as add new Locations to a Content item (but not remove them!).
+This also lets the user copy and move content, as well as add new Locations to a Content item (but not remove them!).
 
 ##### Create content without publishing
 
@@ -132,7 +128,7 @@ To allow anonymous users to register through the `/register` route, you need to 
 |               | `remove`             | remove Locations and send content to Trash                                                                                              |
 |               | `versionread`        | view content after publishing, and to preview any content in the Page mode                                                              |
 |               | `versionremove`      | remove archived content versions                                                                                                        |
-|               | `translations`       | manage the language list in PlatformUI                                                                                                  |
+|               | `translations`       | manage the language list in the Back Office                                                                                                  |
 |               | `urltranslator`      | unused                                                                                                                                  |
 |               | `pendinglist`        | unused                                                                                                                                  |
 |               | `restore`            | restore content from Trash                                                                                                              |
@@ -184,7 +180,7 @@ Certain Limitations also serve as Role Limitations, which means they can be used
 
 !!! tip
 
-    Core Policies with Limitations are defined in [`EzPublishCoreBundle/Resources/config/policies.yml`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/policies.yml).
+    Core Policies with Limitations are defined in [`EzPublishCoreBundle/Resources/config/policies.yml`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/policies.yml).
 
 #### Module, function and limitations
 

@@ -75,7 +75,7 @@ doctrine:
                 dbname: ezdfs
                 user: root
                 password: "rootpassword"
-                charset: UTF8
+                charset: UTF8MB4
 
 # define the flysystem handler
 oneup_flysystem:

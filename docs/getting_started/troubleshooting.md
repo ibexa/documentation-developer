@@ -1,7 +1,5 @@
 # Troubleshooting
 
-WORK-IN-PROGRESS
-
 This page will list many potential problems and gotchas that you may encounter while installing, configuring, and running eZ Platform. If you stumble upon an obstacle, take a look here to see if your case isn't covered. Want to add to this page? Check out our instructions for [contributing to our documentation](../community_resources/contributing.md#contribute-to-documentation).
 
 ## Enable Swap on Systems with Limited RAM
@@ -10,7 +8,7 @@ If you're having difficulty completing installation on a system with limited RAM
 
 ## Upload Size Limit
 
-To make use of PlatformUI, you need to define the maximum upload sizeto be consistent with the maximum file size defined in the Content Type using a File, Media or Image Field Definition.
+To make use of the Back Office, you need to define the maximum upload sizeto be consistent with the maximum file size defined in the Content Type using a File, Media or Image Field Definition.
 
 This is done by setting `LimitRequestBody` for Apache or` client_max_body_size` for Nginx.
 

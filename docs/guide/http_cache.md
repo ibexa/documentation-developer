@@ -219,6 +219,11 @@ ezpublish:
                 purge_servers: ["http://varnish.server1", "http://varnish.server2", "http://varnish.server3"]
 ```
 
+!!! tip "Environment Variables"
+
+    eZ Platform uses environment variables by default, so you can define those values in the environment.
+    see [Update your Virtual Host](#update-your-virtual-host)
+
 For further information on setting up Varnish, see [Using Varnish](#using-varnish).
 
 #### Purging
@@ -300,7 +305,9 @@ Somehow we need to tell php process that we are behind a Varnish proxy and not t
  
     # Force front controller NOT to use built-in reverse proxy.
     SetEnv SYMFONY_HTTP_CACHE 0
- 
+    SetEnv HTTPCACHE_PURGE_TYPE http
+    SetEnv HTTPCACHE_PURGE_SERVER "http://varnish:80"
+
     # Configure IP of your Varnish server to be trusted proxy
     # Replace fake IP address below by your Varnish IP address
     SetEnv SYMFONY_TRUSTED_PROXIES "193.22.44.22"
@@ -313,6 +320,9 @@ Somehow we need to tell php process that we are behind a Varnish proxy and not t
 # mysite.com
 
 fastcgi_param SYMFONY_HTTP_CACHE 0;
+fastcgi_param HTTPCACHE_PURGE_TYPE http;
+fastcgi_param HTTPCACHE_PURGE_SERVER "http://varnish:80";
+
 # Configure IP of your Varnish server to be trusted proxy
 # Replace fake IP address below by your Varnish IP address
 fastcgi_param SYMFONY_TRUSTED_PROXIES "193.22.44.22";
@@ -325,6 +335,8 @@ fastcgi_param SYMFONY_TRUSTED_PROXIES "193.22.44.22";
 #### Update YML configuration
 
 Secondly we need to tell eZ Platform to change to use http based purge client *(specifically FosHttpCache Varnish purge client is used)*, and specify url Varnish can be reached on:
+
+The following configuration is not required as eZ Platform will read the environment variables set above.
 
 ``` yaml
 # ezplatform.yml
@@ -340,6 +352,10 @@ ezpublish:
                 # Fill in your Varnish server(s) address(es).
                 purge_servers: [http://my.varnish.server:8081]
 ```
+
+!!! note "Multiple Purge Servers"
+
+    If you need to set multiple purge servers, then you need to configure them in the YAML file.
 
 !!! enterprise
 
@@ -399,6 +415,27 @@ ezpublish:
     If using Platform.sh, it's best to configure the Fastly credentials via Platform.sh variables.
     See the [Platform.sh Professional documentation](https://docs.platform.sh/frameworks/ez.html)
     for running eZ Platform Enterprise on Platform.sh.  If using Platform.sh Enterprise see the [Platform.sh Enterprise Documentation](https://ent.docs.platform.sh/frameworks/ez.html).
+
+!!! enterprise
+
+    ### Setting Time-To-Live value for Landing Page blocks
+
+    Landing Page blocks are rendered using Edge Site Include which means you can set different TTL values for each Landing Page block type.
+    The TTL setting is available in the configuration under a `ttl` key. The value has to be set in seconds:
+
+    ``` yaml
+    ez_systems_landing_page_field_type:
+        blocks:
+            block_type:
+                ttl: 600
+                views:
+                    (...)
+    ```
+
+    `block_type` should be replace with the actual block name i.e. `embed`, `collection`, `schedule` and so on.
+    In the example above `block_type` will be cached for 10 minutes.
+
+    By default blocks are not cached (TTL = 0) for backwards compatibility reasons.
 
 ## Usage
 

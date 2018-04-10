@@ -17,18 +17,19 @@ The commands below assume you have Composer installed globally, a copy of git on
 ``` bash
 composer create-project --keep-vcs ezsystems/ezplatform ezplatform
 cd ezplatform
-
-#at the end of the install process, you will be told to perform the following commands:
-export SYMFONY_ENV="prod"
-php bin/console doctrine:database:create
-php bin/console ezplatform:install clean
-php bin/console assetic:dump
 ```
+
+1. If you are on PHP 7.1 and higher, this should start installation of eZ Platform v2. The version will show up first like this: `Installing ezsystems/ezplatform (v2.1.0)`.
+2. During the installation process you will be asked to input things like database host name, login, password and so on.
+3. At the end of the installation process, you will be given further instructions on how to proceed to set up a simplified dev setup using PHP's built-in web server. For a more complete and better performing setup using either Apache or Nginx, read up, for instance, on [how to install manually](install_manually.md) and/or [how to install using Docker](install_using_docker.md).
+
 
 !!! tip
 
-    If you want to install eZ Platform for production only and skip the dev environment, use the --no-dev option in your composer create-project command line:
-    > composer create-project --no-dev --keep-vcs ezsystems/ezplatform ezplatform
+    To install eZ Platform for production only, use the `--no-dev` option for your `composer create-project`:
+    `composer create-project --no-dev --keep-vcs ezsystems/ezplatform ezplatform`
+
+    In such a case always set `SYMFONY_ENV="prod"`, otherwise Symfony will default to dev and complain about missing GeneratorBundle.
 
 !!! note
 
@@ -42,7 +43,7 @@ eZ Platform exists in several distributions, listed in [Installation eZ Platform
 **eZ Platform Enterprise Edition**
 
 ``` bash
-composer create-project --no-dev --keep-vcs ezsystems/ezplatform-ee
+composer create-project --keep-vcs ezsystems/ezplatform-ee
 cd ezplatform-ee
 
 # Options are listed on php bin/console ezplatform:install -h
@@ -90,7 +91,7 @@ What was described above concerns stable releases, however [Composer lets you sp
 Example:
 
 ``` bash
-composer create-project --no-dev --keep-vcs ezsystems/ezplatform-demo ezplatform @beta
+composer create-project --keep-vcs ezsystems/ezplatform-demo ezplatform @beta
 cd ezplatform
 
 php bin/console ezplatform:install demo
