@@ -521,7 +521,7 @@ To avoid such situations, you can check if the Location is virtual using the `lo
                 identifier: sidebar
                 name: Right sidebar
                 description: Main section with sidebar on the right
-                thumbnail: assets/images/layouts/sidebar.png
+                thumbnail: /assets/images/layouts/sidebar.png
                 template: AppBundle:layouts:sidebar.html.twig
                 zones:
                     first:
