@@ -52,7 +52,7 @@ ez_systems_landing_page_field_type:
             identifier: sidebar
             name: Right sidebar
             description: Main section with sidebar on the right
-            thumbnail: assets/images/layouts/sidebar.png
+            thumbnail: /assets/images/layouts/sidebar.png
             template: layouts/sidebar.html.twig
             zones:
                 first:
