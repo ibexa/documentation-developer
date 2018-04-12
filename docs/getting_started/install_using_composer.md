@@ -29,12 +29,6 @@ Next, use the installation command:
 php bin/console ezplatform:install clean
 ```
 
-Finally, dump assets:
-
-``` bash
-php bin/console assetic:dump
-```
-
 !!! tip
 
     To install eZ Platform for production only, use the `--no-dev` option for your `composer create-project`:
