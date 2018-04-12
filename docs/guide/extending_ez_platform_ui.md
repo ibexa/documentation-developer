@@ -48,6 +48,16 @@ Menus are extensible using event subscribers/listeners. You can hook into the fo
 - `ConfigureMenuEvent::ROLE_ASSIGNMENT_CREATE_SIDEBAR_RIGHT`
 - `ConfigureMenuEvent::LANGUAGE_CREATE_SIDEBAR_RIGHT`
 - `ConfigureMenuEvent::LANGUAGE_EDIT_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::CONTENT_TYPE_GROUP_CREATE_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::CONTENT_TYPE_GROUP_EDIT_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::CONTENT_TYPE_CREATE_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::CONTENT_TYPE_EDIT_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::URL_EDIT_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::USER_PASSWORD_CHANGE_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::OBJECT_STATE_GROUP_CREATE_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::OBJECT_STATE_GROUP_EDIT_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::OBJECT_STATE_CREATE_SIDEBAR_RIGHT`
+- `ConfigureMenuEvent::OBJECT_STATE_EDIT_SIDEBAR_RIGHT`
 
 An event subscriber can be implemented as follows:
 
