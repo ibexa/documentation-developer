@@ -32,7 +32,7 @@ Typical uses of a SiteAccess are:
 The back-office UI of eZ Platform is housed in a predefined `admin` SiteAccess in `admin_group`.
 
 If you have a multisite setup with a separate back-office interface for each site,
-you need to create your own admin SiteAccesses and add them to this group. In cases where the sites are on separate databases they'll need own [repository](repository/#configuration-examples) _(incl own storage and search connection)_, and [cache pool](repository/#persistence-cache-configuration) config for each site individually. Optionally, you could define _var dir_ storage as well as separate varnish/fastly cache in case that is in use.
+you need to create your own admin SiteAccesses and add them to this group. In cases where the sites are on separate databases they'll need own [repository](repository/#configuration-examples) (incl own storage and search connection), var dir, [cache pool](repository/#persistence-cache-configuration), and ideally also separate Varnish/Fastly config for each site individually.
 
 ## Configuring SiteAccesses
 
