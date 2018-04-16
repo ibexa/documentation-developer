@@ -170,9 +170,9 @@ protected function configure()
 {
     $this->setName( 'ezplatform:cookbook:hello' );
     $this->setDefinition(
-        array(
+        [
             new InputArgument( 'name', InputArgument::OPTIONAL, 'An argument' )
-        )
+        ]
     );
 }
 ```

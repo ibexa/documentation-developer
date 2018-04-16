@@ -66,7 +66,7 @@ $data = [
 
 $curl = curl_init();
 
-curl_setopt_array($curl, array(
+curl_setopt_array($curl, [
     CURLOPT_URL => "$base_url/api/ezp/v2/content/objects",
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => "",
@@ -76,12 +76,12 @@ curl_setopt_array($curl, array(
     CURLOPT_CUSTOMREQUEST => "POST",
     CURLOPT_POSTFIELDS => json_encode($data),
     CURLOPT_USERPWD => "$username:$password",
-    CURLOPT_HTTPHEADER => array(
+    CURLOPT_HTTPHEADER => [
         "accept: application/json",
         "cache-control: no-cache",
         "content-type: application/vnd.ez.api.ContentCreate+json",
-    ),
-));
+    ],
+]);
 
 $response = curl_exec($curl);
 
@@ -116,7 +116,7 @@ $id = $argv[1];
 // Publish the draft
 $curl = curl_init();
 
-curl_setopt_array($curl, array(
+curl_setopt_array($curl, [
    CURLOPT_URL => "$base_url/api/ezp/v2/content/objects/$id/versions/1",
    CURLOPT_RETURNTRANSFER => true,
    CURLOPT_ENCODING => "",
@@ -125,12 +125,12 @@ curl_setopt_array($curl, array(
    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
    CURLOPT_CUSTOMREQUEST => "POST",
    CURLOPT_USERPWD => "$username:$password",
-   CURLOPT_HTTPHEADER => array(
+   CURLOPT_HTTPHEADER => []
        "accept: application/json",
        "cache-control: no-cache",
        "x-http-method-override: PUBLISH"
-   ),
-));
+   ],
+]);
 
 $response = curl_exec($curl);
 $err = curl_error($curl);

@@ -53,15 +53,15 @@ class HomepageController extends Controller
     $currentContent = $contentService->loadContentByContentInfo($currentLocation->contentInfo);
     $query = new Query();
     $query->query = new Criterion\LogicalAnd(
-      array(
+      [
         new Criterion\Subtree($rootLocation->pathString),
         new Criterion\Visibility(Criterion\Visibility::VISIBLE),
-        new Criterion\ContentTypeIdentifier(array('ride'))
-      )
+        new Criterion\ContentTypeIdentifier(['ride'])
+    ]
     );
-    $query->sortClauses = array(
+    $query->sortClauses = [
       new SortClause\DatePublished(Query::SORT_ASC)
-    );
+    ];
     $pager = new Pagerfanta(
       new ContentSearchAdapter($query, $this->getRepository()->getSearchService())
     );
@@ -71,11 +71,11 @@ class HomepageController extends Controller
     $pager->setCurrentPage($request->get('page', 1));
     return $this->render(
       'list/rides.html.twig',
-      array(
+      [
         'location' => $currentLocation,
         'content' => $currentContent,
         'pagerRides' => $pager,
-      )
+      ]
     );
   }
 }
