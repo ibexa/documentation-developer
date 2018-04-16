@@ -11,7 +11,7 @@ It is further enhanced in eZ Platform with support for SiteAccess-aware session
 ## Configuration
 
 Symfony offers the possibility to change many session options at application level
-(i.e. in Symfony [`framework` configuration](http://symfony.com/doc/master/reference/configuration/framework.html)).
+(i.e. in Symfony [`framework` configuration](http://symfony.com/doc/2.8/reference/configuration/framework.html)).
 These options include:
 
 - `cookie_domain`
@@ -90,7 +90,7 @@ you need to [configure the session save handler settings in `php.ini`](https://g
 For setups where database is preferred for storing sessions, you may use Symfony's PdoSessionHandler,
 although it is not currently recommended from performance perspective.
 
-Below is a configuration example for eZ Platform. Refer to the [Symfony Cookbook](http://symfony.com/doc/current/cookbook/configuration/pdo_session_storage.html) for full documentation.
+Below is a configuration example for eZ Platform. Refer to the [Symfony Cookbook](http://symfony.com/doc/2.8/doctrine/pdo_session_storage.html) for full documentation.
 
 ``` yaml
 framework:

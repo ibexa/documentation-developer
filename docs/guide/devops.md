@@ -33,7 +33,7 @@ When running eZ Platform in the `dev` environment you have access to the standar
 
 #### SPI (persistence)
 
-This section provides the number of non-cached [SPI](repository.md#spi) calls and handlers. You can see details of these calls in the [Symfony Profiler](http://symfony.com/doc/current/profiler.html) page.
+This section provides the number of non-cached [SPI](repository.md#spi) calls and handlers. You can see details of these calls in the [Symfony Profiler](http://symfony.com/doc/2.8/profiler.html) page.
 
 #### SiteAccess
 
@@ -47,13 +47,13 @@ The other is the standard [PSR-3](https://github.com/php-fig/fig-standards/blob
 
 ### Debugging in dev environment
 
-When using the Symfony `dev` [environment](environments.md), the system tracks additional metrics for you to be able to debug issues. They include [Stash](http://stash.tedivm.com/) cache use *(done by [StashBundle](https://github.com/tedivm/TedivmStashBundle))*, and [persistence cache](repository.md#persistence-cache-configuration) use.
+When using the Symfony `dev` [environment](environments.md), the system tracks additional metrics for you to be able to debug issues. They include [Stash](http://stash.tedivm.com/) cache use (done by [StashBundle](https://github.com/tedivm/TedivmStashBundle)), and [persistence cache](repository.md#persistence-cache-configuration) use.
 
 #### Reducing memory use
 
 !!! tip
 
-    For long-running scripts, see [Executing long-running console commands](../cookbook/executing_long_running_console_commands.md) for some much more relevant info.
+    For long-running scripts, see [Executing long-running console commands](../cookbook/executing_long_running_console_commands.md).
 
 If you are running out of memory and don't need to keep track of cache hits and misses, you can disable StashBundle tracking, represented by the `stash.tracking` setting, and persistence cache logging, represented by the setting `parameters.ezpublish.spi.persistence.cache.persistenceLogger.enableCallLogging`. In `config_dev.yml`:
 
@@ -74,7 +74,7 @@ parameters:
 
 eZ Platform uses the [Monolog](https://github.com/Seldaek/monolog) component to log errors, and it has a `RotatingFileHandler` that allows for file rotation.
 
-According to their documentation, it ["logs records to a file and creates one logfile per day. It will also delete files older than `$maxFiles`"](https://seldaek.github.io/monolog/doc/02-handlers-formatters-processors.html#log-to-files-and-syslog).
+According to [their documentation](https://seldaek.github.io/monolog/doc/02-handlers-formatters-processors.html#log-to-files-and-syslog), it "logs records to a file and creates one logfile per day. It will also delete files older than `$maxFiles`".
 
 Monolog's handler can be configured in `app/config/config.yml`:
 

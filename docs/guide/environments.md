@@ -5,7 +5,7 @@ You can configure several environments, such as production, development or stagi
 
 !!! tip
 
-    See also [the Symfony Recipe about "How to Master and Create new Environments"](http://symfony.com/doc/current/cookbook/configuration/environments.html)
+    See also [the Symfony Recipe about "How to Master and Create new Environments"](http://symfony.com/doc/2.8/configuration/environments.html)
 
 ## Web server configuration
 
