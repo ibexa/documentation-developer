@@ -1,42 +1,42 @@
-# Performance 
+# Performance
 
-## Introduction
+eZ Platform can be set up to run efficiently on almost any modern configuration.
+What follows is a list of recommendation that will make your installation perform better.
 
-eZ Platform can be tuned and set up in different ways so that it is able to run on just about any somewhat modern configuration. What follows is an incomplete list of performance recommendations that we intend to gradually expand upon.
+!!! note
 
-*All tips are valid for both development and production setup unless otherwise noted.*
+    All the following recommendations are valid for both development and production setups, unless otherwise noted.
 
-If you are in a hurry then the single most important recommendations on this page is:
+If you are in a hurry, the most important recommendations on this page are:
 
-- General: Use PHP 7.x, and dump optimized composer autoload classmap
-- Dev: Use a full web server with vhost
-- Cluster: Reduce latency to Redis/Memcached, use Varnish, and use [Solr](search.md#solr-bundle)
+- Use PHP 7.x, and dump optimized Composer autoload classmap
+- In development, use a full web server with vhost
+- For clustering, reduce latency to Redis/Memcached, use Varnish and [Solr](search.md#solr-bundle)
 
 ## Client
 
-- Always use an up-to-date browser *(and an up-to-date operating system so you have access to latest browser versions)*
-- If possible, use a fast, stable internet connection, a flaky or overcrowded connection will slow down UI
+- Always use an up-to-date browser and an up-to-date operating system so you have access to latest browser versions
+- If possible, use a fast, stable internet connection, because an unreliable connection will slow down UI
 
 ## Server
 
-Overall, for production setup:
+In production setups:
 
-- Always use reverse proxy, and strongly prefer to use Varnish.
-    - Compared to the built-in Symfony Proxy in php it is much faster, is able to queue up requests coming in for same fresh/invalidated resource
-    - With [ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache) support for xkey & grace provides more stable performance in read/write scenarios
-- Set up eZ Platform in [cluster mode](clustering.md) if you need to handle more traffic than what a single server can handle on spikes of traffic.
-    - See recommendation for Memcached/Redis and Search below
+- Always use reverse proxy, and if possible use Varnish.
+    - Compared to the built-in Symfony Proxy in PHP Varnish is much faster and is able to queue up requests for the same fresh/invalidated resource.
+    - With [ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache) support for xkey and grace Varnish provides more stable performance in read/write scenarios.
+- Set up eZ Platform in [cluster mode](clustering.md) if you need to handle bigger spikes of traffic than a single server can manage.
+    - See [recommendation for Memcached/Redis](#memcachedredis) and [Search](#search) below.
 
 ### Web server
 
-- Even for development use Nginx/Apache, as php built-in webserver\* is only able to handle one request at a time.
-    - *\* as exposed via Symfony's "`server:*`" commands*
-- Use a recent version of Nginx, set up https, and enable http/2 to reduce connection latency on parallel requests.
+- Use Nginx/Apache even for development, as PHP's built-in web server (as exposed via Symfony's `server:*` commands) is only able to handle one request at a time.
+- Use a recent version of nginx, set up https, and enable http/2 to reduce connection latency on parallel requests.
 
 ### PHP
 
-- Use PHP 7.0 *(or, better yet, PHP 7.1 if available).*
-- Always enable opcache for php-fpm/mod\_php.
+- Use PHP 7.0 (or, better yet, PHP 7.1 if available).
+- Always enable opcache for php-fpm/`mod_php`.
 - Prefer php-fpm and web server using it over fast-cgi for lower overall memory usage.
 
 ### Composer
@@ -46,10 +46,10 @@ Overall, for production setup:
 
 ### Memcached/Redis
 
-- Memcached/Redis is recommended over filesystem cache even with single server, as it offers overall better performance for operations invalidating cache.
-    - But pure read performance is slower, especially if not optimizing next point.
-- If you use Redis, make sure to tune it for in-memory cache usage. Its persistence feature is not needed for use with eZ Platform cache and will severely slow down execution time.
+- Memcached/Redis is recommended over filesystem cache even with a single server, as it offers better general performance for operations invalidating cache.
+    - However, pure read performance is slower, especially if the next point is not optimized.
+- If you use Redis, make sure to tune it for in-memory cache usage. Its persistence feature is not needed with eZ Platform cache and will severely slow down execution time.
 
 ### Search
 
-- Use [Solr Bundle and Solr](search.md#solr-bundle) to greatly offload your database and get more stable performance on your install
+- Use [Solr Bundle and Solr](search.md#solr-bundle) to greatly offload your database and get more stable performance on your installation.
