@@ -22,13 +22,9 @@ cd ezplatform
 During the installation process you will be asked to input things like database host name, login, password and so on.
 They will be placed in `<ezplatform>/app/config/parameters.yml`.
 
-At this point you need to [set up directory permissions](set_up_directory_permissions.md).
+Next you will receive instructions on how to install data into the database, and how to run a simplified dev server using the `server:run` command.
 
-Next, use the installation command:
-
-``` bash
-php bin/console ezplatform:install clean
-```
+For a more complete and better performing setup using Apache or nginx, read up on how to [install eZ Platform manually](install_manually.md).
 
 !!! tip
 

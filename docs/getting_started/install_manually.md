@@ -377,8 +377,8 @@ php -d memory_limit=-1 /usr/local/bin/composer install
 
 Once the installer gets to the point that it creates `app/config/parameters.yml`, you will be presented with a few decisions. The first asks you to choose a [secret](http://symfony.com/doc/current/reference/configuration/framework.html#secret); choose any random string you like, made up of characters, numbers, and symbols, up to around 32 characters. This is used by Symfony when generating [CSRF tokens](http://symfony.com/doc/current/book/forms.html#forms-csrf), [encrypting cookies](http://symfony.com/doc/current/cookbook/security/remember_me.html), and for creating signed URIs when using [ESI (Edge Side Includes)](http://symfony.com/doc/current/book/http_cache.html#edge-side-includes).
 
-Next, you'll be asked to specify a database driver. You may press return to accept the default for this option, as well as the next several (`database_host, database_port, database_name, database_user`) unless you have customized those values and need to enter them as configured on your installation. 
-If you set a password for your database user, enter it when prompted for `database_password`. 
+Next, you'll be asked to specify a database driver. You may press return to accept the default for this option, as well as the next several (`database_host, database_port, database_name, database_user`) unless you have customized those values and need to enter them as configured on your installation.
+If you set a password for your database user, enter it when prompted for `database_password`.
 The installer should continue once you've completed this manual portion of the installation process.
 
 #### b. Run eZ Platform's installer:
@@ -409,11 +409,11 @@ Please note that a clean install of eZ Platform doesn’t include the DemoBundle
 
     Next, append the new cron to user's crontab without destroying existing crons.
     Assuming the web server user data is `www-data`:
-    
+
     `crontab -u www-data -l|cat - ezp_cron.txt | crontab -u www-data -`
-    
+
     Finally, remove the temporary file:
-    
+
     `rm ezp_cron.txt`
 
 ### 6. Setup the folder rights (\*NIX users)
@@ -422,7 +422,7 @@ Like most things, [Symfony documentation](http://symfony.com/doc/current/book/in
 
 Furthermore, future files and directories created by these two users will need to inherit those access rights. *For security reasons, there is no need for web server to have access to write to other directories.*
 
-Then, go to the [Set up folder rights](set_up_folder_rights.md) page for the next steps of this settings.
+Then, go to the [Set up directory permissions](set_up_directory_permissions.md) page for the next steps of this settings.
 
 ### 7. Set up a Virtual Host
 
