@@ -240,7 +240,7 @@ class MyLocationViewProvider implements LocationViewProvider
         {
             // Special template for home page, passing "foo" variable to the template
             case 2:
-                return new ContentView( "AcmeDemoBundle:$viewType:home.html.twig", array( 'foo' => 'bar' ) );
+                return new ContentView( "AcmeDemoBundle:$viewType:home.html.twig", [ 'foo' => 'bar' ] );
         }
 
         // ContentType identifier (formerly "class identifier")
@@ -586,7 +586,7 @@ To avoid such situations, you can check if the Location is virtual using the `lo
 
     ### Landing Page template
     Once published, a Landing Page will be displayed using the template according to the `content_view` setting, see [View Matchers](#view-matchers). If you want to see the Landing Page displayed using a particular template in the edit mode of Landing Page Editor before publish, you need to configure the following additional settings in `ezplatform.yml` configuration file.
-    
+
     ``` yml
     ezstudioui:
         system:
@@ -594,15 +594,15 @@ To avoid such situations, you can check if the Location is virtual using the `lo
             front_siteaccess:
                 studio_template: AppBundle:studio:template.html.twig
     ```
-    
+
     This is an example of a minimal template file:
-    
+
     ``` html
     {% extends base_template() %}
     {% block content %}
-    
+
         <!-- Custom template header code -->
-        
+
         <!-- This part is required! -->
         {% if content is defined %}
             {{ ez_render_field(content, 'page') }}
@@ -610,14 +610,14 @@ To avoid such situations, you can check if the Location is virtual using the `lo
             <div data-area="static" style="min-height:300px;"></div>
         {% endif %}
         <!-- End required part -->
-        
+
         <!-- Rest of the custom template code -->
-        
+
     {% endblock %}
     ```
-    
+
         !!! caution
-        Custom template always needs to extend `base_template()`. Morevoer, you have to check whether the `content` variable is defined to correctly display a previously published Landing Page. Otherwise, you need to display `<div data-area="static"></div>` which is the place where you can put the new blocks. 
+        Custom template always needs to extend `base_template()`. Morevoer, you have to check whether the `content` variable is defined to correctly display a previously published Landing Page. Otherwise, you need to display `<div data-area="static"></div>` which is the place where you can put the new blocks.
 
     ### Landing Page blocks
 
@@ -1061,7 +1061,7 @@ class DefaultController extends Controller
         // If you wish, you can also easily access Location and Content objects
         // $location = $view->getLocation();
         // $content = $view->getContent();
-        
+
         // Set custom header for the Response
         $response = new Response();
         $response->headers->add(['X-Hello' => 'World']);
@@ -1124,7 +1124,7 @@ class DefaultController extends Controller
     {
         $location = $view->getLocation();
         $content = $view->getContent();
-    
+
         $response = $this->render(
             'AcmeTestBundle::custom_controller_folder.html.twig',
             [
@@ -1134,10 +1134,10 @@ class DefaultController extends Controller
                 'osTypes' => ['osx', 'linux', 'windows']
             ]
         );
-    
+
         // Set custom header for the Response
         $response->headers->add(['X-Hello' => 'World']);
-    
+
         return $response;
     }
 }

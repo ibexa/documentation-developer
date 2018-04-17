@@ -91,7 +91,7 @@ class DefaultController extends Controller
 {
     public function languagesAction( RouteReference $routeRef )
     {
-        return $this->render( 'AcmeTestBundle:Default:languages.html.twig', array( 'routeRef' => $routeRef ) );
+        return $this->render( 'AcmeTestBundle:Default:languages.html.twig', [ 'routeRef' => $routeRef ] );
     }
 }
 ```
@@ -119,7 +119,7 @@ You can generate language switch links from PHP too, with the `RouteReferenceGe
 // Assuming you're in a controller
 /** @var \eZ\Publish\Core\MVC\Symfony\Routing\Generator\RouteReferenceGeneratorInterface $routeRefGenerator */
 $routeRefGenerator = $this->get( 'ezpublish.route_reference.generator' );
-$routeRef = $routeRefGenerator->generate( $location, array( 'language' => 'fre-FR' ) );
+$routeRef = $routeRefGenerator->generate( $location, [ 'language' => 'fre-FR' ] );
 $link = $this->generateUrl( $routeRef );
 ```
 

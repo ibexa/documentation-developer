@@ -541,13 +541,13 @@ class MyController extends BaseController
         $location = $this->getRepository()->getLocationService()->loadLocation( 123 );
         $locationUrl = $this->generateUrl(
             $location,
-            array( 'siteaccess' => 'some_siteaccess_name' ),
+            [ 'siteaccess' => 'some_siteaccess_name' ],
             UrlGeneratorInterface::ABSOLUTE_PATH
         );
 
         $regularRouteUrl = $this->generateUrl(
             'some_route_name',
-            array( 'siteaccess' => 'some_siteaccess_name' ),
+            [ 'siteaccess' => 'some_siteaccess_name' ],
             UrlGeneratorInterface::ABSOLUTE_PATH
         );
 
