@@ -34,10 +34,10 @@ composer update --prefer-dist
 Enable the bundle in `app/AppKernel.php`:
 
 ``` php
-$bundles = array(
+$bundles = [
     // existing bundles
     new EzSystems\RecommendationBundle\EzSystemsRecommendationBundle()
-);
+];
 ```
 
 ### 3. Import additional routing
