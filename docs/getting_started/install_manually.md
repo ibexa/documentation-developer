@@ -60,7 +60,7 @@ If your machine only has 1 or 2 GB of RAM, be sure to [set up swap](#set-up-swap
 a. Install Composer, the PHP command line dependency manager, by running the following command in the terminal:
 
 ``` bash
-curl -sS https://getcomposer.org/installer | php
+php -r "readfile('https://getcomposer.org/installer');" | php
 ```
 
 b. Move the downloaded `composer.phar` file to a globally-available path:
@@ -132,7 +132,7 @@ The installer should continue once you've completed this manual portion of the i
 ### b. Run eZ Platform's installer
 
 ``` bash
-php -d memory_limit=-1 app/console ezplatform:install --env=prod clean
+php app/console ezplatform:install --env=prod clean
 ```
 
 In this example the `ezplatform:install` script uses the `clean` installation type in production environment.
