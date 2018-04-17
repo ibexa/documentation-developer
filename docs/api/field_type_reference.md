@@ -2,12 +2,12 @@
 
 A Field Type is the underlying building block of the content model. It consists of two entities: Field value and Field definition. Field value is determined by values entered into the Content Field. Field definition is provided by the Content Type, and holds any user defined rules used by Field Type to determine how a Field Value is validated, stored, retrieved, formatted and so on.
 
-eZ Platform comes with a collection of Field Types that can be used to build powerful and complex content structures. In addition, it is possible to extend the system by creating custom types for special needs. 
+eZ Platform comes with a collection of Field Types that can be used to build powerful and complex content structures. In addition, it is possible to extend the system by creating custom types for special needs.
 
 !!! tip
 
     For general Field Type documentation see [Field Type API and best practices](../api/field_type_api.md). If you are looking for the documentation on how to implement a custom Field Type, see the [Creating a Tweet Field Type](../tutorials/field_type/creating_a_tweet_field_type.md) tutorial.
-    
+
 Custom Field Types have to be programmed in PHP. However, the built-in Field Types are usually sufficient enough for typical scenarios. The following table gives an overview of the supported Field Types that come with eZ Platform.
 
 
@@ -286,14 +286,14 @@ This Field Type represents one or multiple countries.
 Example array:
 
 ``` php
-array(
-    "JP" => array(
+[
+    "JP" => [
         "Name" => "Japan",
         "Alpha2" => "JP",
         "Alpha3" => "JPN",
         "IDC" => 81
-    )
-);
+    ]
+];
 ```
 
 When you set an array directly on a Content field you don't need to provide all this information, the Field Type will assume it is a hash and in this case will accept a simplified structure described below under [Hash format](#hash-format).
@@ -312,9 +312,9 @@ The Field definition of this Field Type can be configured with one option:
 
 ``` php
 // Country FieldType example settings
-$settings = array(
+$settings = [
     "isMultiple" => true
-);
+];
 ```
 
 #### Hash format
@@ -323,7 +323,7 @@ The format used for serialization is simpler than the full format. It is also av
 
 ``` php
 // Value object content example
-$content->fields["countries"] = array( "JP", "NO" );
+$content->fields["countries"] = [ "JP", "NO" ];
 ```
 
 The format used by the toHash method is the Alpha2 value, however the input is capable of accepting either Name, Alpha2 or Alpha3 value as shown below in the Value object section.
@@ -340,14 +340,14 @@ The Value class of this Field Type contains the following properties:
 
 ``` php
 // Value object content example
-$value->countries = array(
-    "JP" => array(
+$value->countries = [
+    "JP" => [
         "Name" => "Japan",
         "Alpha2" => "JP",
         "Alpha3" => "JPN",
         "IDC" => 81
-    )
-)
+    ]
+];
 ```
 
 ###### Constructor
@@ -359,14 +359,14 @@ The `Country\Value` constructor will initialize a new Value object with the va
 
 // Instantiates a Country Value object
 $countryValue = new Country\Value(
-    array(
-        "JP" => array(
+    [
+        "JP" => [
             "Name" => "Japan",
             "Alpha2" => "JP",
             "Alpha3" => "JPN",
             "IDC" => 81
-        )
-    )
+        ]
+    ]
 );
 ```
 
@@ -434,10 +434,10 @@ Hash value of this Field Type is an array with two keys:
 
 ``` php
 // Example of the hash value in PHP
-$hash = array(
+$hash = [
     "timestamp" => 1400856992,
     "rfc850" => "Friday, 23-May-14 14:56:14 GMT+0000"
-);
+];
 ```
 
 #### Validation
@@ -464,9 +464,9 @@ Following `defaultType` default value options are available as constants in th
 
 use eZ\Publish\Core\FieldType\Date\Type;
 
-$settings = array(
+$settings = [
     "defaultType" => Type::DEFAULT_EMPTY
-);
+];
 ```
 
 ### Template rendering
@@ -545,10 +545,10 @@ Hash value of this Field Type is an array with two keys:
 |`rfc850`|`string`|Time information as a string in [RFC 850 date format](http://tools.ietf.org/html/rfc850). As input, this will have precedence over the timestamp value.|`"Friday, 23-May-14 14:56:14 GMT+0000"`|
 
 ``` php
-$hash = array(
+$hash = [
     "timestamp" => 1400856992,
     "rfc850" => "Friday, 23-May-14 14:56:14 GMT+0000"
-);
+];
 ```
 
 #### Validation
@@ -578,11 +578,11 @@ Following `defaultType` default value options are available as constants in the
 
 use eZ\Publish\Core\FieldType\DateAndTime\Type;
 
-$settings = array(
+$settings = [
     "useSeconds" => false,
     "defaultType" => Type::DEFAULT_EMPTY,
     "dateInterval" => null
-);
+];
 ```
 
 ### Template rendering
@@ -736,12 +736,12 @@ $contentTypeService = $repository->getContentTypeService();
 $floatFieldCreateStruct = $contentTypeService->newFieldDefinitionCreateStruct( "float", "ezfloat" );
 
 // Accept only numbers between 0.1 and 203.99
-$floatFieldCreateStruct->validatorConfiguration = array(
-    "FileSizeValidator" => array(
+$floatFieldCreateStruct->validatorConfiguration = [
+    "FileSizeValidator" => [
         "minFloatValue" => 0.1,
         "maxFloatValue" => 203.99
-    )
-);
+    ]
+];
 ```
 
 #### Settings
@@ -944,12 +944,12 @@ You can also provide a hash of `Image\Value` properties, either to `setField()`,
 
 ``` php
 $imageValue = new \eZ\Publish\Core\FieldType\Image\Value(
-    array(
+    [
         'id' => '/tmp/image.png',
         'fileSize' => 37931,
         'fileName' => 'image.png',
         'alternativeText' => 'My alternative text'
-    )
+    ]
 );
 
 $createStruct->setField( 'image', $imageValue );
@@ -1099,10 +1099,10 @@ This Field Type supports `IntegerValueValidator`, defining maximum and minimum 
 
 ``` php
 // Example of validator configuration in PHP
-$validatorConfiguration = array(
+$validatorConfiguration = [
     "minIntegerValue" => 1,
     "maxIntegerValue" => 24
-);
+];
 ```
 
 #### Settings
@@ -1165,7 +1165,7 @@ This Field Type stores one or several comma-separated keywords as a string or ar
 |------|------|
 |`string`|`"documentation"`|
 |`string`|`"php, eZ Platform, html5"`|
-|`string[]`|`array( "eZ Systems", "Enterprise", "User Experience Management" )`|
+|`string[]`|`[ "eZ Systems", "Enterprise", "User Experience Management" ]`|
 
 #### Value object
 
@@ -1185,7 +1185,7 @@ use eZ\Publish\Core\FieldType\Keyword\Value;
 $keywordValue = new Value();
  
 // Sets an array of keywords as a value
-$keyword->value = array( "php", "css3", "html5", "eZ Platform" );
+$keyword->value = [ "php", "css3", "html5", "eZ Platform" ];
 ```
 
 ##### Constructor
@@ -1199,7 +1199,7 @@ It expects a list of keywords, either comma-separated in a string or as an array
 use eZ\Publish\Core\FieldType\Keyword\Value;
  
 // Instantiates a Value object with an array of keywords
-$keywordValue = new Value( array( "php5", "css3", "html5" ) );
+$keywordValue = new Value( [ "php5", "css3", "html5" ] );
  
 // Instantiates a Value object with a list of keywords in a string
 // This is equivalent to the example above
@@ -1215,7 +1215,7 @@ $keywordValue = new Value( "php5,css3,html5" );
     Landing Page Field Type is only used in the Landing Page Content Type that is included in eZ Enterprise.
 
     !!! caution
-    
+
         The default Field Type identifiers of the Landing Page Content Type should not be modified, as it may cause fatal errors. Fields of other types can be added safely but shouldn't be required.
 
     | Name           | Internal name   | Expected input  |
@@ -1250,7 +1250,7 @@ $keywordValue = new Value( "php5,css3,html5" );
     `ez_block` is an alias to `EzSystems\LandingPageFieldTypeBundle\Controller\BlockController`
 
     The action has the following parameters:
-    
+
     |Parameter|Description|
     |---------|-----------|
     |`contentId`|ID of the Content item which can be accessed by `contentInfo.id`|
@@ -1325,7 +1325,7 @@ $keywordValue = new Value( "php5,css3,html5" );
 
 This Field Type represents a geographical location.
 
-As input it expects three values: 
+As input it expects three values:
 - two float values latitude and longitude,
 - a string value, corresponding to the name or address of the location.
 
@@ -1339,7 +1339,7 @@ As input it expects three values:
 
 |Type|Example|
 |------|------|
-|`array`|`array( 'latitude' => 59.928732, 'longitude' => 10.777888, 'address' => "eZ Systems Norge" )`|
+|`array`|`[ 'latitude' => 59.928732, 'longitude' => 10.777888, 'address' => "eZ Systems Norge" ]`|
 
 #### Value object
 
@@ -1362,11 +1362,11 @@ The `MapLocation\Value` constructor will initialize a new Value object with va
 
 // Instantiates a MapLocation Value object
 $MapLocationValue = new MapLocation\Value(
-                        array(
+                        [
                             'latitude' => 59.928732,
                             'longitude' => 10.777888,
                             'address' => "eZ Systems Norge"
-                        )
+                        ]
                     );
 ```
 
@@ -1489,11 +1489,11 @@ $contentTypeService = $repository->getContentTypeService();
 $mediaFieldCreateStruct = $contentTypeService->newFieldDefinitionCreateStruct( "media", "ezmedia" );
 
 // Setting maximum file size to 5 megabytes
-$mediaFieldCreateStruct->validatorConfiguration = array(
-    "FileSizeValidator" => array(
+$mediaFieldCreateStruct->validatorConfiguration = [
+    "FileSizeValidator" => [
         "maxFileSize" => 5 * 1024 * 1024
-    )
-);
+    ]
+];
 ```
 
 #### Settings
@@ -1525,9 +1525,9 @@ $contentTypeService = $repository->getContentTypeService();
 $mediaFieldCreateStruct = $contentTypeService->newFieldDefinitionCreateStruct( "media", "ezmedia" );
 
 // Setting Adobe Flash as the media type
-$mediaFieldCreateStruct->fieldSettings = array(
+$mediaFieldCreateStruct->fieldSettings = [
     "mediaType" => Type::TYPE_FLASH,
-);
+];
 ```
 
 ## Null Field Type
@@ -1649,11 +1649,11 @@ The Field definition of this Field Type can be configured with three options:
 
 use eZ\Publish\Core\FieldType\Relation\Type;
 
-$settings = array(
+$settings = [
     "selectionMethod" => 1,
     "selectionRoot" => null,
     "selectionContentTypes" => []
-);
+];
 ```
 
 ## RelationList Field Type
@@ -1671,7 +1671,7 @@ This Field Type makes it possible to store and retrieve values of a relation to 
 |Type|Description|Example|
 |------|------|------|
 |`int|string`|ID of the related Content item|`42`|
-|`array`|An array of related Content IDs|`array( 24, 42 )`|
+|`array`|An array of related Content IDs|`[ 24, 42 ]`|
 |`eZ\Publish\API\Repository\Values\Content\ContentInfo`|ContentInfo instance of the related Content|n/a|
 |`eZ\Publish\Core\FieldType\RelationList\Value`|RelationList Field Type Value Object|See below.|
 
@@ -1683,15 +1683,15 @@ This Field Type makes it possible to store and retrieve values of a relation to 
 
 |Property|Type|Description|Example|
 |------|------|------|------|
-|`destinationContentIds`|`array`|An array of related Content IDs|`array( 24, 42 )`|
+|`destinationContentIds`|`array`|An array of related Content IDs|`[ 24, 42 ]`|
 
 ``` php
 // Value object content example
-$relationList->destinationContentId = array(
+$relationList->destinationContentId = [
     $contentInfo1->id,
     $contentInfo2->id,
     170
-);
+];
 ```
 
 ###### Constructor
@@ -1703,11 +1703,11 @@ The `RelationList\Value` constructor will initialize a new Value object with 
 
 // Instantiates a RelationList Value object
 $relationListValue = new RelationList\Value(
-    array(
+    [
         $contentInfo1->id,
         $contentInfo2->id,
         170
-    )
+    ]
 );
 ```
 
@@ -1731,7 +1731,7 @@ The Field definition of this Field Type can be configured with the following opt
 |------|------|------|------|
 |`selectionMethod`|`mixed`|`SELECTION_BROWSE`|Method of selection in the back-end interface|
 |`selectionDefaultLocation`|`string|integer`|`null`|ID of the default Location for the selection when using the back-end interface|
-|`selectionContentTypes`|`array`|`array()`|An array of Content Type IDs that are allowed for related Content|
+|`selectionContentTypes`|`array`|`[]`|An array of Content Type IDs that are allowed for related Content|
 
 Following selection methods are available:
 
@@ -1745,11 +1745,11 @@ Following selection methods are available:
 
 use eZ\Publish\Core\FieldType\RelationList\Type;
 
-$settings = array(
+$settings = [
     "selectionMethod" => Type::SELECTION_BROWSE,
     "selectionDefaultLocation" => null,
-    "selectionContentTypes" => array()
- );
+    "selectionContentTypes" => []
+];
 ```
 
 ## RichText Field Type
@@ -1882,7 +1882,7 @@ The Selection Field Type stores single selections or multiple choices from a 
 
 | Type    | Example         |
 |---------|-----------------|
-| `array` | `array( 1, 2 )` |
+| `array` | `[ 1, 2 ]` |
 
 #### Value object
 
@@ -1901,7 +1901,7 @@ The Value class of this Field Type contains the following properties:
 $value->selection = 1;
 
 // Multiple selection
-$value->selection = array( 1, 4, 5 );
+$value->selection = [ 1, 4, 5 ];
 ```
 
 ###### Constructor
@@ -1912,7 +1912,7 @@ The `Selection\Value` constructor accepts an array of selected element identif
 // Constructor example
 
 // Instanciates a selection value with items #1 and #2 selected
-$selectionValue = new Selection\Value( array( 1, 2 ) );
+$selectionValue = new Selection\Value( [ 1, 2 ] );
 ```
 
 ###### String representation
@@ -1928,7 +1928,7 @@ Hash format of this Field Type is the same as Value object's `selection` propert
 ``` php
 // Example of value in hash format
 
-$hash = array( 1, 2 );
+$hash = [ 1, 2 ];
 ```
 
 #### Validation
@@ -1941,17 +1941,17 @@ If any of these validations fail, a `ValidationError` is thrown, specifying the
 | Name         | Type      | Default value | Description|
 |--------------|-----------|---------------|------------|
 | `isMultiple` | `boolean` | `false`       | Used to allow or prohibit multiple selection from the option list. |
-| `options`    | `hash`    | `array()`     | Stores the list of options defined in the Field definition.    |
+| `options`    | `hash`    | `[]`     | Stores the list of options defined in the Field definition.    |
 
 ``` php
 // Selection Field Type example settings
 
 use eZ\Publish\Core\FieldType\Selection\Type;
 
-$settings = array(
+$settings = [
     "isMultiple" => true,
-    "options" => array(1 => 'One', 2 => 'Two', 3 => 'Three')
-);
+    "options" => [1 => 'One', 2 => 'Two', 3 => 'Three']
+];
 ```
 
 ## TextBlock Field Type
@@ -2114,9 +2114,9 @@ The Field definition of this Field Type can be configured with several options:
 // Time Field Type example settings
 use eZ\Publish\Core\FieldType\Time\Type;
 
-$settings = array(
+$settings = [
     "defaultType" => DateAndTime::DEFAULT_EMPTY
-);
+];
 ```
 
 ### Template rendering
@@ -2357,10 +2357,10 @@ use eZ\Publish\Core\FieldType\XmlText\Type;
 $contentTypeService = $repository->getContentTypeService();
 $xmltextFieldCreateStruct = $contentTypeService->newFieldDefinitionCreateStruct( "description", "ezxmltext" );
 
-$xmltextFieldCreateStruct->fieldSettings = array(
+$xmltextFieldCreateStruct->fieldSettings = [
     "numRows" => 25,
     "tagPreset" => Type::TAG_PRESET_SIMPLE_FORMATTING
-);
+];
  
 ...
 ```

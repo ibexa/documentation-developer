@@ -65,8 +65,8 @@ Assuming you're in a controller:
 ``` php
 /** @var \eZ\Publish\Core\MVC\Symfony\Routing\Generator\RouteReferenceGeneratorInterface $routeRefGenerator */
 $routeRefGenerator = $this->get( 'ezpublish.route_reference.generator' );
-$routeRef = $routeRefGenerator->generate( 'my_route', array( 'some' => 'thing' );
-$routeRef->set( 'foo', array( 'bar', 'baz' ) );
+$routeRef = $routeRefGenerator->generate( 'my_route', [ 'some' => 'thing' ]);
+$routeRef->set( 'foo', [ 'bar', 'baz' ] );
 $routeRef->setRoute( 'another_route' );
 
 $link = $this->generateUrl( $routeRef );
@@ -92,9 +92,9 @@ class MyRouteReferenceListener implements EventSubscriberInterface
 {
     public static function getSubscribedEvents()
     {
-        return array(
+        return [
             MVCEvents::ROUTE_REFERENCE_GENERATION => 'onRouteReferenceGeneration'
-        );
+        ];
     }
 
     public function onRouteReferenceGeneration( RouteReferenceGenerationEvent $event )
@@ -109,7 +109,7 @@ class MyRouteReferenceListener implements EventSubscriberInterface
             // Remove "some_parameter", as you don't need it any more
             $routeReference->remove( 'some_parameter' );
             // Add another parameter
-            $routeReference->set( 'another_parameter', array( 'parameters', 'are', 'fun' );
+            $routeReference->set( 'another_parameter', [ 'parameters', 'are', 'fun' ];
         }
     }
 }

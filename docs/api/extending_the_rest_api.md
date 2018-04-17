@@ -265,7 +265,7 @@ use eZ\Publish\Core\REST\Common\Message;
 
       $createStruct = $this->inputDispatcher->parse(
           new Message(
-              array('Content-Type' => $request->headers->get('Content-Type')),
+              ['Content-Type' => $request->headers->get('Content-Type')],
               $request->getContent()
           )
       );

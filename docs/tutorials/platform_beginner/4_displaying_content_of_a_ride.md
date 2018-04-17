@@ -264,14 +264,14 @@ class RideController extends Controller
    * @param array $params
    * @return mixed
    */
-  public function viewRideWithPOIAction(Location $location, $viewType, $layout = false, array $params = array())
+  public function viewRideWithPOIAction(Location $location, $viewType, $layout = false, array $params = [])
   {
     $repository = $this->getRepository();
     $contentService = $repository->getContentService();
     $currentLocation = $location;
     $currentContent = $contentService->loadContentByContentInfo($currentLocation->getContentInfo());
     $pointOfInterestListId = $currentContent->getFieldValue('pois'); //points of interest
-    $pointOfInterestList = array();
+    $pointOfInterestList = [];
     foreach ($pointOfInterestListId->destinationContentIds as $pointId)
     {
       $pointOfInterestList[$pointId] = $contentService->loadContent($pointId);
@@ -280,7 +280,7 @@ class RideController extends Controller
       $location->id,
       $viewType,
       $layout,
-      array('pointOfInterestList' => $pointOfInterestList) + $params
+      ['pointOfInterestList' => $pointOfInterestList] + $params
     );
   }
 }

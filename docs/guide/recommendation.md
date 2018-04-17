@@ -34,10 +34,10 @@ composer update --prefer-dist
 Enable the bundle in `app/AppKernel.php`:
 
 ``` php
-$bundles = array(
+$bundles = [
     // existing bundles
     new EzSystems\RecommendationBundle\EzSystemsRecommendationBundle()
-);
+];
 ```
 
 ### 3. Import additional routing
@@ -420,7 +420,7 @@ The content in the personalization engine is therefore kept in sync with the con
     Recommendations are fetched and rendered asynchronously in the client, so there won't be any additional load on the server.
     Therefore it is crucial to check if the content export has been successful, as e.g. deeplinks and image references are included.
     If the export is NOT successful, there may be recommendations displayed without images, titles or deeplinks
-    as the personalization engine does not have this information available. 
+    as the personalization engine does not have this information available.
 
 In order to allow displaying recommendations on your site you must add some code which will integrate the recommender engine with your site.
 
