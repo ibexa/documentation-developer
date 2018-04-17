@@ -89,9 +89,9 @@ class InteractiveLoginListener implements EventSubscriberInterface
 
     public static function getSubscribedEvents()
     {
-        return array(
+        return [
             MVCEvents::INTERACTIVE_LOGIN => 'onInteractiveLogin'
-        );
+        ];
     }
 
     public function onInteractiveLogin( InteractiveLoginEvent $event )

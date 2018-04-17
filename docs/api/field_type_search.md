@@ -15,33 +15,33 @@ This method returns the actual index data for the provided `eZ\Publish\SPI\Persi
 To be able to query data properly an indexable Field Type also is required to return search specification. You must return a HashMap of `eZ\Publish\SPI\Persistence\Content\Search\FieldType` instances from this method, which could look like:
 
 ```
-array(
+[
     'url'  => new Search\FieldType\StringField(),
     'text' => new Search\FieldType\StringField(),
-)
+]
 ```
 
  This example from the `Url` Field Type shows that the Field Type will always return two indexable values, both strings. They have the names `url` and `text` respectively.
- 
+
  `getDefaultMatchField()`
- 
+
 This method retrieves name of the default field to be used for matching. As Field Types can index multiple fields (see [MapLocation](field_type_reference.md#maplocation-field-type) Field Type's implementation of this interface), this method is used to define default field for matching. Default field is typically used by Field criterion.
- 
+
  `getDefaultSortField()`
- 
+
 This method gets name of the default field to be used for sorting. As Field Types can index multiple fields (see [MapLocation](field_type_reference.md#maplocation-field-type) Field Type's implementation of this interface), this method is used to define default field for sorting. Default field is typically used by Field sort clause.
- 
+
 ## Register Indexable Implementations
 
  Implement `\eZ\Publish\SPI\FieldType\Indexable` as an extra service, and register this Service using the tag `ezpublish.fieldType.indexable`. Example from [`indexable_fieldtypes.yml`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/indexable_fieldtypes.yml):
- 
+
  ``` yml
      ezpublish.fieldType.indexable.ezkeyword:
          class: eZ\Publish\Core\FieldType\Keyword\SearchField
          tags:
              - {name: ezpublish.fieldType.indexable, alias: ezkeyword}
   ```
- 
+
  Please note that `alias` should be the same as Filed Type ID.
 
 ## Search Field Values
@@ -91,6 +91,6 @@ You could also define a custom field definition for certain fields, like for the
 <field name="article/name/value_s" type="string" indexed="true" stored="true" required="false"/>
 ```
 
-!!! note 
+!!! note
 
     If you want to learn more about the Solr implementation and detailed information about configuring it, check out the [Solr Search Bundle](../guide/search.md#solr-bundle).

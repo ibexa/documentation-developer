@@ -209,7 +209,7 @@ $user = $userService->loadUser( $userId );
 if ( !$repository->canUser( 'content', 'read', $user ) )
 {
     // Generates message: User does not have access to 'content' 'read' with id '10'
-    throw new \eZ\Publish\Core\Base\Exceptions\UnauthorizedException( 'content', 'read', array( 'id' => $userId ) );
+    throw new \eZ\Publish\Core\Base\Exceptions\UnauthorizedException( 'content', 'read', [ 'id' => $userId ] );
 }
 ```
 
