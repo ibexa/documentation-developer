@@ -364,7 +364,7 @@ Create new database (you can substitute `ezplatform` with the database name yo
 
 ### 5. Run the Installation Scripts
 
-Composer will look inside the composer.json file and install all of the required packages to run eZ Platform. There's a script in the app folder called console that will install eZ Platform for your desired environment as well (dev/prod).
+Composer will look inside the composer.json file and install all of the required packages to run eZ Platform. There's a script in the `bin` folder called `./console` that will install eZ Platform for your desired environment as well (dev or prod).
 
 This is the step where you want to make sure you have [swap configured for your machine](#set-up-swap-on-debian-8xx) if it does not have an abundance of RAM.
 
@@ -377,7 +377,9 @@ php -d memory_limit=-1 /usr/local/bin/composer install
 
 Once the installer gets to the point that it creates `app/config/parameters.yml`, you will be presented with a few decisions. The first asks you to choose a [secret](http://symfony.com/doc/current/reference/configuration/framework.html#secret); choose any random string you like, made up of characters, numbers, and symbols, up to around 32 characters. This is used by Symfony when generating [CSRF tokens](http://symfony.com/doc/current/book/forms.html#forms-csrf), [encrypting cookies](http://symfony.com/doc/current/cookbook/security/remember_me.html), and for creating signed URIs when using [ESI (Edge Side Includes)](http://symfony.com/doc/current/book/http_cache.html#edge-side-includes).
 
-Next, you'll be asked to specify a database driver. You may press return to accept the default for this option, as well as the next several (`database_host, database_port, database_name, database_user`) unless you have customized those values and need to enter them as configured on your installation. If you set a password for your database user, enter it when prompted for `database_password`. The installer should continue once you've completed this manual portion of the installation process.
+Next, you'll be asked to specify a database driver. You may press return to accept the default for this option, as well as the next several (`database_host, database_port, database_name, database_user`) unless you have customized those values and need to enter them as configured on your installation.
+If you set a password for your database user, enter it when prompted for `database_password`.
+The installer should continue once you've completed this manual portion of the installation process.
 
 #### b. Run eZ Platform's installer:
 
@@ -420,7 +422,7 @@ Like most things, [Symfony documentation](http://symfony.com/doc/current/book/in
 
 Furthermore, future files and directories created by these two users will need to inherit those access rights. *For security reasons, there is no need for web server to have access to write to other directories.*
 
-Then, go to the [Setup folder rights](install_manually.md#Setup-folder-rights) page for the next steps of this settings.
+Then, go to the [Set up directory permissions](set_up_directory_permissions.md) page for the next steps of this settings.
 
 ### 7. Set up a Virtual Host
 
@@ -428,7 +430,7 @@ For our example, we'll demonstrate using Apache2 as part of the traditional LAMP
 
 #### Option A: Scripted Configuration
 
-Instead of manually editing the vhost.template file, you may instead [use the included shell script](starting_ez_platform.md#Web-server): /var/www/ezplatform/bin/vhost.sh to generate a configured .conf file. Check out the source of `vhost.sh` to see the options provided. Additional information is included in our [Web Server](starting_ez_platform.md#web-server) documentation here as well.
+Instead of manually editing the vhost.template file, you may instead [use the included shell script](starting_ez_platform.md#Web-server): `/var/www/ezplatform/bin/vhost.sh` to generate a configured .conf file. Check out the source of `vhost.sh` to see the options provided. Additional information is included in our [Web Server](starting_ez_platform.md#web-server) documentation here as well.
 
 #### Option B: Manual Edits
 
@@ -490,88 +492,6 @@ a2dissite 000-default.conf
 ``` bash
 service apache2 restart
 ```
-
-### Setup folder rights
-
-
-For security reasons, there is no need for web server to have access to write to other directories.
-
-#### Set the owner and clean directories
-
-First, change `www-data` to your web server user.
-
-##### Clean the cache/ and logs/ directories
-
-``` bash
-$ rm -rf app/cache/* app/logs/*
-```
-
-#### Use the right option according to your system.
-
-##### A. Using ACL on a *Linux/BSD *system that supports chmod +a
-
-**Using ACL on a Linux/BSD system that supports chmod +a**
-
-``` bash
-$ sudo chmod +a "www-data allow delete,write,append,file_inherit,directory_inherit" \
-  app/cache app/logs web
-$ sudo chmod +a "`whoami` allow delete,write,append,file_inherit,directory_inherit" \
-  app/cache app/logs web
-```
-
-##### B. Using ACL on a *Linux/BSD *system that does not support chmod +a
-
-Some systems don't support chmod +a, but do support another utility called setfacl. You may need to enable ACL support on your partition and install setfacl before using it (as is the case with Ubuntu), in this way:
-
-**Using ACL on a Linux/BSD system that does not support chmod +a**
-
-``` bash
-$ sudo setfacl -R -m u:www-data:rwx -m u:`whoami`:rwx \
-  app/cache app/logs web
-$ sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx \
-  app/cache app/logs web
-```
-
-##### C. Using chown on *Linux/BSD/OS X* systems that don't support ACL
-
-Some systems don't support ACL at all. You will need to set your web server's user as the owner of the required directories:
-
-**Using chown on Linux/BSD/OS X systems that don't support ACL**
-
-``` bash
-$ sudo chown -R www-data:www-data app/cache app/logs web
-$ sudo find {app/{cache,logs},web} -type d | xargs sudo chmod -R 775
-$ sudo find {app/{cache,logs},web} -type f | xargs sudo chmod -R 664
-```
-
-##### D. Using chmod on a *Linux/BSD/OS X* system where you can't change owner
-
-If you can't use ACL and aren't allowed to change owner, you can use chmod, making the files writable by everybody. Note that this method really isn't recommended as it allows any user to do anything:
-
-**Using chmod on a Linux/BSD/OS X system where you can't change owner**
-
-``` bash
-$ sudo find {app/{cache,logs},web} -type d | xargs sudo chmod -R 777
-$ sudo find {app/{cache,logs},web} -type f | xargs sudo chmod -R 666
-```
-
-When using chmod, note that newly created files (such as cache) owned by the web server's user may have different/restrictive permissions. In this case, it may be required to change the umask so that the cache and log directories will be group-writable or world-writable (`umask(0002)` or `umask(0000)` respectively).
-
-It may also possible to add the group ownership inheritance flag so new files inherit the current group, and use `775`/`664` in the command lines above instead of world-writable:
-
-**It may also possible to add the group ownership inheritance flag**
-
-``` bash
-$ sudo chmod g+s {app/{cache,logs},web}
-```
-
-##### E. Setup folder rights on Windows
-
-For your choice of web server you'll need to make sure web server user has read access to `<root-dir>`, and write access to the following directories:
-
--   app/cache
--   app/logs
-
 
 ### Set up Swap on Debian 8.x
 
