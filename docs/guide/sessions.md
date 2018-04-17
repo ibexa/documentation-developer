@@ -1,14 +1,18 @@
 # Sessions
 
-## Introduction
+Sessions are handled by the Symfony framework, specifically API and underlying session handlers provided by the HttpFoundation component.
+It is further enhanced in eZ Platform with support for SiteAccess-aware session cookie configuration.
 
-Sessions are handled by the Symfony2 framework, specifically API and underlying session handlers provided by HTTP Foundation component. This is further enhanced in eZ Platform with support for siteaccess-aware session cookie configuration.
+!!! note
 
-*Use of Memcached (or experimentally using PDO) as session handler is a requirement in Cluster setup, for details see below. For an overview of clustering feature see [Clustering](clustering.md).*
+    Use of Memcached (or experimentally PDO) as session handler is a requirement in a cluster setup,
+    for details [see below](#cluster-setup). For an overview of the clustering feature see [Clustering](clustering.md).
 
 ## Configuration
 
-Symfony offers the possibility to change many session options at application level (i.e. in Symfony [`framework` configuration](http://symfony.com/doc/master/reference/configuration/framework.html)), such as:
+Symfony offers the possibility to change many session options at application level
+(i.e. in Symfony [`framework` configuration](http://symfony.com/doc/2.8/reference/configuration/framework.html)).
+These options include:
 
 - `cookie_domain`
 - `cookie_path`
@@ -16,25 +20,24 @@ Symfony offers the possibility to change many session options at application lev
 - `cookie_secure`
 - `cookie_httponly`
 
-However as eZ Platform can be used for setting up several web sites within on Symfony application, session configuration is also possible to define per siteaccess and SiteGroup level.
+However, in eZ Platform you can set up several sites within one Symfony application,
+so you can also define session configuration per SiteAccess and SiteAccess group level.
 
-### Session options per siteaccess
+### Session options per SiteAccess
 
-All site-related session configuration can be defined per siteaccess and SiteGroup:
+All site-related session configuration can be defined per SiteAccess and SiteAccess group (in `ezplatform.yml`):
 
 ``` yaml
-# ezplatform.yml
 ezpublish:
     system:
         my_siteaccess:
             session:
-                # By default Session name is eZSESSID{siteaccess_hash}
-                # with setting below you'll get eZSESSID{name},
-                # allowing you to share sessions across SiteAccess
+                # Default session name is eZSESSID{siteaccess_hash}
+                # (unique session name per SiteAccess)
                 name: my_session_name
                 # These are optional. 
-                # If not defined they will fallback to Symfony framework configuration, 
-                # which itself fallback to default php.ini settings
+                # If not defined they will fall back to Symfony framework configuration, 
+                # which itself falls back to default php.ini settings
                 cookie_domain: mydomain.com
                 cookie_path: /foo
                 cookie_lifetime: 86400
@@ -42,31 +45,15 @@ ezpublish:
                 cookie_httponly: true
 ```
 
-### Session name per siteaccess
+## Session handlers
 
-In 5.x versions prior to 5.3 / 2014.03 the following siteaccess aware session setting where available:
+In Symfony, a session handler is configured using `framework.session.handler_id`.
+Symfony can be configured to use custom handlers, or just fall back to what is configured in PHP by setting it to null (`~`).
 
-``` yaml
-# ezplatform.yml
-ezpublish:
-    system:
-        my_siteaccess:
-            # By default Session name is eZSESSID{siteaccess_hash}
-            # with setting below you'll get eZSESSID{name},
-            # allowing you to share sessions across SiteAccess
-            # This setting is deprecated as of 5.3
-            session_name: my_session_name
-```
+### Default configuration
 
-## Usage
-
-### Session handlers
-
-In Symfony, a session handler is configured using `framework.session.handler_id.` Symfony can be configured to use custom handlers, or just fallback to what is configured in PHP by setting it to null (`~`).
-
-#### Default configuration
-
-eZ Platform uses the same default configuration as recent versions of Symfony standard distribution. This makes sure you can configure sessions purely in PHP by default, and allows Debian/Ubuntu session file cleanup cronjob to work as intended.
+eZ Platform uses the same default configuration as recent versions of Symfony standard distribution.
+This makes sure you can configure sessions purely in PHP by default, and allows Debian/Ubuntu session file cleanup cronjob to work as intended.
 
 ``` yaml
 # Default config.yml session configuration
@@ -76,28 +63,34 @@ framework:
         handler_id:  ~
 ```
 
-#### Recommendations for production setup
+### Recommendations for production setup
 
-##### Single server setup
+#### Single-server setup
 
-For single server, default handler should be preferred.
+For a single server, the default handler is preferred.
 
-##### Cluster setup
+#### Cluster setup
 
-For [Cluster](clustering.md) setup we need to configure Sessions to use a backend that is shared between web servers and supports locking. Only options out of the box supporting this in Symfony are the native PHP memcached session save handler provided by the php-memcached extension, and Symfony session handler for PDO (database).
+For a [cluster](clustering.md) setup you need to configure sessions to use a back end that is shared between web servers and supports locking.
+The only options out of the box supporting this in Symfony are the native PHP Memcached session save handler
+provided by the `php-memcached` extension, and Symfony session handler for PDO (database).
 
-###### Storing sessions in Memcached using php-memcached
+##### Storing sessions in Memcached using `php-memcached`
 
-For setting up eZ Platform using memcached you'll need to configure the session save handler settings in php.ini as documented [here](http://php.net/manual/en/memcached.sessions.php), optionally tweak [php-memcached session settings](http://fr2.php.net/manual/en/memcached.configuration.php).
+To set up eZ Platform using Memcached you need to [configure the session save handler settings in `php.ini`](http://php.net/manual/en/memcached.sessions.php),
+and optionally tweak [`php-memcached` session settings](http://fr2.php.net/manual/en/memcached.configuration.php).
 
-###### Storing sessions in Redis using pecl package redis
+##### Storing sessions in Redis using pecl package
 
-For setting up eZ Platform using [Redis pecl package](https://pecl.php.net/package/redis) you'll need to configure the session save handler settings in php.ini as documented [here](https://github.com/phpredis/phpredis#php-session-handler).
+To set up eZ Platform using the [Redis pecl package](https://pecl.php.net/package/redis)
+you need to [configure the session save handler settings in `php.ini`](https://github.com/phpredis/phpredis#php-session-handler).
 
-###### Alternative storing sessions in database using PDO
+##### Alternative storing sessions in database using PDO
 
-While not currently our recommendation from performance perspective, for setups where Database is preferred for storing Sessions, you may use Symfony's PdoSessionHandler.
-Below is an configuration example for eZ Platform, but please refer to [documented in Symfony Cookbook documentation](http://symfony.com/doc/current/cookbook/configuration/pdo_session_storage.html) for full documentation.
+For setups where database is preferred for storing sessions, you may use Symfony's PdoSessionHandler,
+although it is not currently recommended from performance perspective.
+
+Below is a configuration example for eZ Platform. Refer to the [Symfony Cookbook](http://symfony.com/doc/2.8/doctrine/pdo_session_storage.html) for full documentation.
 
 ``` yaml
 framework:
@@ -124,11 +117,3 @@ services:
         class:     Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler
         arguments: ["@pdo", "%pdo.db_options%"]
 ```
-
- 
-##### Further resources:
-
-- [Cookbook Session recipes (symfony.com)](http://symfony.com/doc/current/cookbook/session/index.html)
-- [HTTP Foundation Component documentation (symfony.com)](http://symfony.com/doc/current/components/http_foundation/index.html)
-- Source code of [NativeFileSessionHandler (github.com)](https://github.com/symfony/symfony/blob/master/src/Symfony/Component/HttpFoundation/Session/Storage/Handler/NativeFileSessionHandler.php)
-- [Cookbook Configuration recipe for setting-up PdoSessionHandler (symfony.com)](http://symfony.com/doc/current/cookbook/configuration/pdo_session_storage.html), aka `session.handler.pdo` service
