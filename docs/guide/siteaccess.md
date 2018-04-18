@@ -191,8 +191,8 @@ Every custom matcher can be specified with a fully qualified class name (e.g. `\
 - [Map\Host](#map92host)
 - [Map\URI](#map92uri)
 - [Map\Port](#map92port)
-- [Regex\Host](#regex92host)
-- [Regex\URI](#regex92uri)
+- [Regex\Host](#regex92host) (deprecated)
+- [Regex\URI](#regex92uri) (deprecated)
 
 #### URIElement
 
@@ -352,6 +352,10 @@ Matched SiteAccess: `bar`
 
 #### Regex\\Host
 
+!!! caution
+
+    This matcher is deprecated.
+
 Matches against a regexp and extracts a portion of it.
 
 **Configuration.** The regexp to match against and the captured element to use
@@ -375,6 +379,10 @@ itemNumber: 1
 Matched SiteAccess: `example`
 
 #### Regex\\URI
+
+!!! caution
+
+    This matcher is deprecated.
 
 Matches against a regexp and extracts a portion of it.
 
