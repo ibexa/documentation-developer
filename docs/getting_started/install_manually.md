@@ -124,7 +124,7 @@ mysql -u root -e 'CREATE DATABASE ezplatform CHARACTER SET utf8;'
 ## 5. Run installation scripts
 
 Composer will look inside the `composer.json` file and install all of the packages required to run eZ Platform.
-The `app/console` script will then install eZ Platform for your desired environment (dev/prod).
+The `bin/console` script will then install eZ Platform for your desired environment (dev/prod).
 
 ### a. Run composer install
 
@@ -146,7 +146,7 @@ The installer should continue once you've completed this manual portion of the i
 ### b. Run eZ Platform's installer
 
 ``` bash
-php app/console ezplatform:install --env=prod clean
+php bin/console ezplatform:install --env=prod clean
 ```
 
 In this example the `ezplatform:install` script uses the `clean` installation type in production environment.
@@ -160,15 +160,15 @@ This operation is performed only once when you install eZ Platform for the first
 
     ##### Enable Date-based Publisher
 
-    To enable delayed publishing of Content using the Date-based Publisher, you need to set up cron to run the command `app/console ezstudio:scheduled:publish` periodically.
+    To enable delayed publishing of Content using the Date-based Publisher, you need to set up cron to run the command `bin/console ezstudio:scheduled:publish` periodically.
 
     For example, to check for publishing every minute, add the following script:
 
-    `echo '* * * * * cd [path-to-ezplatform]; php app/console ezpublish:cron:run --quiet --env=prod' > ezp_cron.txt`
+    `echo '* * * * * cd [path-to-ezplatform]; php bin/console ezpublish:cron:run --quiet --env=prod' > ezp_cron.txt`
 
     For 5-minute intervals:
 
-    `echo '*/5 * * * * cd [path-to-ezplatform]; php app/console ezpublish:cron:run --quiet --env=prod' > ezp_cron.txt`
+    `echo '*/5 * * * * cd [path-to-ezplatform]; php bin/console ezpublish:cron:run --quiet --env=prod' > ezp_cron.txt`
 
     Next, append the new cron to user's crontab without destroying existing crons.
     Assuming the web server user data is `www-data`:
