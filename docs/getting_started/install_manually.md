@@ -10,7 +10,7 @@ You can install eZ Platform manually on the following operating systems:
 
     Only installation on Linux is fully supported.
 
-    Installations on macOS or Windows can only be used for development or experimentally.
+    Installations on macOS or Windows can only be used for development.
 
 ## Available distributions
 
@@ -59,7 +59,7 @@ You also need `git` for version control.
 
     Swap space allows your system to utilize the hard drive to supplement capacity when RAM runs short. Composer install will fail if there is insufficient RAM available, but adding swap will allow it to complete installation.
 
-    Via the command line, you can set up and enable swap on your Debian machine via the following commands (as root):
+    Via the command line, you can set up and enable swap on your Debian machine with the following commands (as root):
 
     ``` bash
     fallocate -l 4G /swapfile
@@ -89,7 +89,7 @@ mv composer.phar /usr/local/bin/composer
 
 ## 3. Download eZ Platform
 
-You can download eZ Platform in two ways: by downloading an archive, or cloning the GitHub repository:
+You can download eZ Platform in two ways::
 
 a. Download an archive
 
@@ -136,7 +136,7 @@ php -d memory_limit=-1 composer install
 
 Once the installer gets to the point that it creates `app/config/parameters.yml`, you will be presented with a few decisions:
 
-1. Choose a [secret](http://symfony.com/doc/current/reference/configuration/framework.html#secret); choose any random string you like, made up of characters, numbers, and symbols, up to around 32 characters. This is used by Symfony when generating [CSRF tokens](http://symfony.com/doc/current/book/forms.html#forms-csrf), [encrypting cookies](http://symfony.com/doc/current/cookbook/security/remember_me.html), and for creating signed URIs when using [ESI (Edge Side Includes)](http://symfony.com/doc/current/book/http_cache.html#edge-side-includes).
+1. Choose a [secret](http://symfony.com/doc/current/reference/configuration/framework.html#secret); it should be a random string, made up of up to 32 characters, numbers, and symbols. This is used by Symfony when generating [CSRF tokens](http://symfony.com/doc/current/book/forms.html#forms-csrf), [encrypting cookies](http://symfony.com/doc/current/cookbook/security/remember_me.html), and for creating signed URIs when using [ESI (Edge Side Includes)](http://symfony.com/doc/current/book/http_cache.html#edge-side-includes).
 2. You can accept the default options for `database_driver`, `database_host` and `database_port`
 3. For `database_name` and `database_user`, reoplace them if you customized those values during configuration.
 4. If you set a password for your database user, enter it when prompted for `database_password`.
@@ -160,7 +160,7 @@ This operation is performed only once when you install eZ Platform for the first
 
     ##### Enable Date-based Publisher
 
-    To enable delayed publishing of Content using the Date-based publisher, you need to set up cron to run the command `app/console ezstudio:scheduled:publish` periodically.
+    To enable delayed publishing of Content using the Date-based Publisher, you need to set up cron to run the command `app/console ezstudio:scheduled:publish` periodically.
 
     For example, to check for publishing every minute, add the following script:
 
@@ -272,7 +272,7 @@ cat /proc/sys/vm/vfs_cache_pressure
 
     Only installation on Linux is fully supported.
 
-    Installations on macOS can only be used for development or experimentally.
+    Installations on macOS can only be used for development.
 
 ### 1. Install MySQL 
 
@@ -495,7 +495,7 @@ You will be able to see your page under <http://ez1.lh> (or the address you chos
 
     ###### Enable Date-based Publisher
 
-    To enable delayed publishing of Content using the Date-based publisher, see [above](#enable-date-based-publisher)
+    To enable delayed publishing of Content using the Date-based Publisher, see [above](#enable-date-based-publisher)
 
 ### 10. Optional
 
@@ -565,7 +565,7 @@ sudo apachectl restart
 
     Only installation on Linux is fully supported.
 
-    Installations on Windows can only be used for development or experimentally.
+    Installations on Windows can only be used for development.
 
 ### 1. Set up PHP
 
@@ -723,4 +723,4 @@ You will be able to see your page under <http://ez1.lh> (or the address you ch
 
     ###### Enable Date-based Publisher
 
-    To enable delayed publishing of Content using the Date-based publisher, see [above](#enable-date-based-publisher).
+    To enable delayed publishing of Content using the Date-based Publisher, see [above](#enable-date-based-publisher).
