@@ -37,7 +37,7 @@ For a more complete and better performing setup using Apache or nginx, read up o
 ### Installing another distribution
 
 eZ Platform exists in different distributions.
-You select the distribution by when performing the `ezplatform:install` command, by using the correct installation type.
+You select the distribution when performing the `ezplatform:install` command, by using the correct installation type.
 It depends on the meta-repository you are using.
 
 !!! caution "Demo installation"
