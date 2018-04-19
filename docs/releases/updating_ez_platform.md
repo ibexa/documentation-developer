@@ -190,10 +190,6 @@ These steps are only relevant for some releases:
 
 ??? note "v1.8: Folder for form-uploaded files"
 
-        ``` bash
-        mysql -p -u <database_user> <database_name> < vendor/ezsystems/date-based-publisher/bundle/Resources/install/datebasedpublisher_scheduled_version.sql
-        ```
-
     To complete this step you have to [dump assets](#5-dump-assets) first.
 
     Since v1.8 you can add a File field to the Form block on a Landing Page. Files uploaded through such a form will be automatically placed in a specific folder in the repository.
