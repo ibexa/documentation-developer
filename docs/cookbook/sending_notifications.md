@@ -6,7 +6,7 @@ You can send two types on notifications to the users.
 
 You can have your PHP code send notification that will be displayed as a message bar in the Back Office.
 To do that, inject the `NotificationHandlerInterface` into your class.
-You can use one of the four methods representing four notification types: `info`, `success`, `warning` and `error`.
+You can use one of the four methods representing the following notification types: `info`, `success`, `warning` and `error`.
 
 ``` php
 $this->notificationHandler->info('Notification text');
@@ -18,6 +18,7 @@ You need to provide the message strings in the translation files under the corre
 ``` php
 $this->notificationHandler->info(
     $this->translator->trans(
+        /** @Desc("Notification text") */
         'example.notification.text',
         [],
         'domain'
