@@ -628,6 +628,11 @@ Optionally, Universal Discovery module can take a following list of props:
 The Sub-items List module is meant to be used as a part of the editorial interface of eZ Platform.
 It provides an interface for listing the Sub-items of any Location.
 
+!!! caution
+
+    If you want to load the Sub-items module, you need to load the JS code for it in your view,
+    as it is not available by default.
+
 ### How to use it?
 
 With vanilla JS:
@@ -808,6 +813,11 @@ ezrichtext.custom_tags.ezyoutube.attributes.align.label: 'Align'
 
 The Multi-file Upload module is meant to be used as a part of editorial interface of eZ Platform.
 It provides an interface to publish content based on dropped files while uploading them in the interface.
+
+!!! caution
+
+    If you want to load the Multi-file Upload module, you need to load the JS code for it in your view,
+    as it is not available by default.
 
 ### How to use it?
 
