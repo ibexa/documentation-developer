@@ -16,6 +16,8 @@ This enables updates to content to trigger cache invalidation.
 
 ### Cache and expiration configuration
 
+This is how cache can be configured in `ezplatform.yml`:
+
 ``` yaml
 ezpublish:
     system:
@@ -111,7 +113,7 @@ In this case, cache for the parent Location and/or the relation needs to be clea
 
 ### Smart cache clearing mechanism
 
-Smart HTTP cache clearing is an event-based mechanism. Whenever a Content item needs its cache cleared, the cache purger service sends an `ezpublish.cache_clear.content` event (also identified by the `eZ\Publish\Core\MVC\Symfony\MVCEvents::CACHE_CLEAR_CONTENT` constant) and passes an `eZ\Publish\Core\MVC\Symfony\Event\ContentCacheClearEvent` event object. This object contains the `ContentInfo` object we need to clear the cache for. Every listener for this event can add Location objects to the *cache clear list*.
+Smart HTTP cache clearing is an event-based mechanism. Whenever a Content item needs its cache cleared, the cache purger service sends an `ezpublish.cache_clear.content` event (also identified by the `eZ\Publish\Core\MVC\Symfony\MVCEvents::CACHE_CLEAR_CONTENT` constant) and passes an `eZ\Publish\Core\MVC\Symfony\Event\ContentCacheClearEvent` event object. This object contains the `ContentInfo` object you need to clear the cache for. Every listener for this event can add Location objects to the *cache clear list*.
 
 Once the event is dispatched, the purger passes collected Location objects to the purge client, which will effectively send the cache `BAN` request.
 
@@ -211,6 +213,7 @@ The returned Location IDs are sent for purge using the selected purge type.
 
 By default, invalidation requests will be emulated and sent to the Symfony proxy cache store.
 Cache purge will be synchronous, meaning no HTTP purge requests will be sent around when publishing.
+In `ezplatform.yml`:
 
 ``` yaml
 ezpublish:
@@ -222,7 +225,7 @@ ezpublish:
 
 With Varnish you can configure one or several servers that should be purged over HTTP.
 This purge type is asynchronous, and flushed by the end of Symfony kernel-request/console cycle (during the terminate event).
-Settings for purge servers can be configured per SiteAccess group or SiteAccess:
+Settings for purge servers can be configured per SiteAccess group or SiteAccess (in `ezplatform.yml`):
 
 ``` yaml
 ezpublish:
@@ -248,7 +251,7 @@ Manual purging from code uses the service also used internally for cache clearin
 and takes [smart HTTP cache clearing](#smart-http-cache-clearing) logic into account:
 
 ``` yaml
-// Purging cache based on Content ID, this will trigger cache clear of all locations found by smart HTTP cache clearing
+// Purging cache based on Content ID, this will trigger cache clear of all Locations found by smart HTTP cache clearing
 // typically self, parent, related, etc.
 $container->get('ezpublish.http_cache.purger')->purgeForContent(55);
 ```
@@ -345,7 +348,7 @@ fastcgi_param SYMFONY_TRUSTED_PROXIES "193.22.44.22";
 #### Update YML configuration
 
 Secondly, you need to tell eZ Platform to use an HTTP-based purge client (specifically the FosHttpCache Varnish purge client),
-and specify the URL Varnish can be reached on:
+and specify the URL Varnish can be reached on (in `ezplatform.yml`):
 
 ``` yaml
 ezpublish:
@@ -353,7 +356,7 @@ ezpublish:
         purge_type: http
 
     system:
-        # Assuming that my_siteaccess_group contains your front-end AND back-end SiteAccesses
+        # Assuming that my_siteaccess_group contains both your front-end and back-end SiteAccesses
         my_siteaccess_group:
             http_cache:
                 # Fill in your Varnish server(s) address(es).
@@ -392,8 +395,8 @@ Thus, to make the cache vary on a specific context (for example a hash based on 
 this context must be present in the original request.
 
 As the response can vary on a request header, the base solution is to make the kernel do a sub-request
-in order to retrieve the user context hash (aka **user hash**).
-Once the *user hash* has been retrieved, it's injected in the original request in the `X-User-Hash` custom header,
+in order to retrieve the user context hash (aka user hash).
+Once the user hash has been retrieved, it's injected in the original request in the `X-User-Hash` custom header,
 making it possible to *vary* the HTTP response on this header:
 
 ``` php
@@ -430,7 +433,7 @@ This solution is [implemented in Symfony reverse proxy ](http://foshttpcachebund
 
     Unfortunately this is not optimal as it will by default vary by all cookies,
     including those set by add trackers, analytics tools, recommendation services, etc.
-    However, as long as *your* application backend does not need these cookies,
+    However, as long as your application backend does not need these cookies,
     you can solve this by stripping everything but the session cookie.
     Example for Varnish can be found in the default VCL examples in part dealing with User Hash,
     for single-server setup this can easily be accomplished in Apache or nginx as well.
@@ -462,7 +465,7 @@ eZ Platform already interferes with the hash generation process by adding the cu
 
 ##### New anonymous `X-User-Hash`
 
-The anonymous `X-User-Hash` is generated based on the *anonymous user*, *group* and *role*. The `38015b703d82206ebc01d17a39c727e5` hash that is provided in the code above will work only when these three variables are left unchanged. Once you change the default permissions and settings, the `X-User-Hash` will change and Varnish won't be able to effectively handle cache anymore.
+The anonymous `X-User-Hash` is generated based on the `anonymous user`, `group` and `role`. The `38015b703d82206ebc01d17a39c727e5` hash that is provided in the link above will work only when these three variables are left unchanged. Once you change the default permissions and settings, the `X-User-Hash` will change and Varnish won't be able to effectively handle cache anymore.
 In that case you need to find out the new anonymous `X-User-Hash` and change the VCL accordingly, else Varnish will return a no-cache header.
 
 The easiest way to find the new hash is:

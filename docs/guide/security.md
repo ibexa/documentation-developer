@@ -50,7 +50,7 @@ A `SecurityController` is used to manage all security-related actions and is thu
 
 The base template used is [`EzPublishCoreBundle:Security:login.html.twig`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/views/Security/login.html.twig).
 
-The layout used by default is `%ezpublish.content_view.viewbase_layout%` (empty layout) but can be configured together with the login template:
+The layout used by default is `%ezpublish.content_view.viewbase_layout%` (empty layout) but can be configured together with the login template (in `ezplatform.yml`):
 
 ``` yaml
 ezpublish:

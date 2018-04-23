@@ -27,7 +27,7 @@ For further details on requirements, see [Requirements page](../getting_started/
     Memcached must not be bound to the local address if clusters are in use, or user logins will fail.
     To avoid this, in `/etc/memcached.conf` take a look under `# Specify which IP address to listen on. The default is to listen on all IP addresses`
 
-    For development environments, change the address below to `-l 0.0.0.0`
+    For development environments, change the address below this comment to `-l 0.0.0.0`
 
     For production environments, follow this more secure instruction from the Memcached man:
 
@@ -37,7 +37,7 @@ For further details on requirements, see [Requirements page](../getting_started/
 
 It is also recommended to use:
 
-- [Solr](search.md#solr-bundle) for better search and search performance
+- [Solr](search.md#solr-bundle) for better search and performance
 - a CDN for improved performance and faster ping time worldwide
 - active/passive database for failover
 - more recent versions of PHP and MySQL/MariaDB within [what is supported](../getting_started/requirements_and_system_configuration.md) for your eZ Platform version to get more performance out of each server. Numbers might vary so make sure to test this when upgrading.
@@ -58,7 +58,7 @@ For production, we strongly recommend creating the DFS table in its own database
 In our example, we will use one named `dfs`.
 
 ``` yaml
-# new Doctrine connection for the dfs legacy_dfs_cluster metadata handler.
+# new Doctrine connection for the DFS legacy_dfs_cluster metadata handler.
 doctrine:
     dbal:
         connections:
@@ -106,11 +106,11 @@ ezpublish:
 #### Customizing the storage directory
 
 Earlier versions required the NFS adapter directory to be set to `$var_dir$/$storage_dir$` part for the NFS path.
-This is no longer required (unless you plan to use Legacy Bridge),
+This is no longer required (unless you plan to use [Legacy Bridge](https://github.com/ezsystems/LegacyBridge)),
 but the default prefix used to serve binary files still matches this expectation.
 
 If you decide to change this setting, make sure you also set `io.url_prefix` to a matching value.
-If you set the NFS adapter's directory to "/path/to/nfs/storage", use this configuration so that the files can be served by Symfony:
+If you set the NFS adapter's directory to `/path/to/nfs/storage`, use this configuration so that the files can be served by Symfony:
 
 ``` yaml
 ezpublish:
@@ -186,7 +186,7 @@ If `--to` is omitted, the first non-default IO configuration will be used.
     The command must be executed with the same permissions as the web server.
 
 While the command is running, the files should not be modified.
-To avoid surprises you should to create a backup and/or execute a dry run before doing the actual update, using the `--dry-run` switch.
+To avoid surprises you should create a backup and/or execute a dry run before doing the actual update, using the `--dry-run` switch.
 
 Since this command can run for a very long time, to avoid memory exhaustion run it in the production environment using the `--env=prod` switch.
 
