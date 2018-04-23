@@ -2,6 +2,16 @@
 
 You can send two types on notifications to the users.
 
+[Notification bars](#display-notification-bars) are displayed in specific situations as a message bar.
+They will be shown to whoever is doing a specific operation in the Back Office.
+
+![Example of an info notification](img/notification2.png)
+
+[Flex Workflow notifications](#create-custom-notifications-using-the-flex-workflow-mechanism) are sent to a specific user.
+They will appear in their profile in the Back Office.
+
+![Notification in profile](img/notification3.png)
+
 ## Display notification bars
 
 You can have your PHP code send notification that will be displayed as a message bar in the Back Office.
@@ -25,8 +35,6 @@ $this->notificationHandler->info(
     )
 );
 ```
-
-![Example of an info notification](img/notification2.png)
 
 ## Create custom notifications using the Flex Workflow mechanism
 
