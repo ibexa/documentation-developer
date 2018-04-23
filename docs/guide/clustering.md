@@ -27,7 +27,7 @@ For further details on requirements, see [Requirements page](../getting_started/
     Memcached must not be bound to the local address if clusters are in use, or user logins will fail.
     To avoid this, in `/etc/memcached.conf` take a look under `# Specify which IP address to listen on. The default is to listen on all IP addresses`
 
-    For development environments, change the address below this comment to `-l 0.0.0.0`
+    For development environments, change the address below this comment in `/etc/memcached.conf` to `-l 0.0.0.0`
 
     For production environments, follow this more secure instruction from the Memcached man:
 
