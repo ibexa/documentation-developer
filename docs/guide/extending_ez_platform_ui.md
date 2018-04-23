@@ -438,23 +438,71 @@ class OrderedTabSubscriber implements EventSubscriberInterface
 
 ## Further extensibility using Components
 
-Components are any sort of custom elements that you can add to the back-office interface.
+Components enable you to inject widgets (e.g. Dashboard blocks) and HTML code (e.g. a tag for loading JS or CSS files) into specific places in the Back Office.
 
-There are several extensibility points in the AdminUI templates that you can use for this purpose.
+A component is any class that implements the `Renderable` interface.
+It must be tagged as a service:
 
-The only limitation to the application of these extensibility points is that the Component must implement the `Renderable` interface.
+``` yaml
+AppBundle\Component\MyNewComponent:
+    tags:
+        - { name: ezplatform.admin_ui.component, group: 'content-edit-form-before' }
+```
 
-The available extensibility points for Components are:
+`group` indicates where the widget will be displayed. The available groups are:
 
-- [`stylesheet-head`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L44)
-- [`script-head`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L45)
-- [`stylesheet-body`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L105)
-- [`script-body`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L106)
-- [`content-edit-form-before`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/content/content_edit/content_edit.html.twig#L48)
-- [`content-edit-form-after`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/content/content_edit/content_edit.html.twig#L55)
-- [`content-create-form-before`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/content/content_edit/content_create.html.twig#L40)
-- [`content-create-form-after`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/content/content_edit/content_create.html.twig#L47)
-- [`dashboard-blocks`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/dashboard/dashboard.html.twig#L19)
+- [`stylesheet-head`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L46)
+- [`script-head`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L47)
+- [`stylesheet-body`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L121)
+- [`script-body`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L122)
+- [`content-edit-form-before`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/content/content_edit/content_edit.html.twig#L71)
+- [`content-edit-form-after`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/content/content_edit/content_edit.html.twig#L81)
+- [`content-create-form-before`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/content/content_edit/content_create.html.twig#L52)
+- [`content-create-form-after`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/content/content_edit/content_create.html.twig#L59)
+- [`dashboard-blocks`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/dashboard/dashboard.html.twig#L28)
+
+If you do not want to write your own class and only wish to inject a short element
+(e.g. render a Twig template or add a CSS link), you can make use of pre-existing base classes.
+In this case all you have to do is add a service definition (with proper parameters), for example:
+
+``` yaml
+appbundle.components.my_twig_component:
+    parent: EzSystems\EzPlatformAdminUi\Component\TwigComponent
+    arguments:
+        $template: 'path/to/file.html.twig'
+        $parameters:
+            first_param: 'first_value'
+            second_param: 'second_value'
+    tags:
+        - { name: ezplatform.admin_ui.component, group: 'dashboard-blocks' }
+```
+
+This renders the `path/to/file.html.twig` template with `first_param` and `second_param` as parameters.
+
+There are three such base components:
+
+- `TwigComponent` renders a Twig template, like above
+- `LinkComponent` renders the HTML `<link>` tag:
+
+``` yaml
+appbundle.components.my_link_component:
+   parent: EzSystems\EzPlatformAdminUi\Component\LinkComponent
+   arguments:
+       $href: 'http://address.of/file.css'
+   tags:
+       - { name: ezplatform.admin_ui.component, group: 'stylesheet-head' }
+```
+
+- `ScriptComponent` renders the HTML `<script>` tag:
+
+``` yaml
+appbundle.components.my_script_component:
+   parent: EzSystems\EzPlatformAdminUi\Component\ScriptComponent
+   arguments:
+       $src: 'http://address.of/file.js'
+   tags:
+       - { name: ezplatform.admin_ui.component, group: 'script-body' }
+```
 
 ## Universal Discovery module
 
