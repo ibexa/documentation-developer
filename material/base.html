@@ -159,7 +159,14 @@
             {% endif %}
           {% endblock %}
           <div class="md-content">
-            <article class="md-content__inner md-typeset">
+
+            {% set ns = namespace(bootstrap_extra_css='') %}
+            {% for md_file in config.extra.append_bootstrap if md_file in page.edit_url %}
+              {% set ns.bootstrap_extra_css = ' bootstrap-iso ez-guidelines' %}
+              {% include "partials/integrations/bootstrap.html" %}
+            {% endfor %}
+
+            <article class="md-content__inner md-typeset{{ ns.bootstrap_extra_css }}">
               {% block content %}
                 {% if page.edit_url %}
                   <a href="{{ page.edit_url }}" title="{{ lang.t('edit.link.title') }}" class="md-icon md-content__icon">&#xE3C9;</a>

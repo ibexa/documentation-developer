@@ -3,6 +3,7 @@ repo_url: https://github.com/ezsystems/developer-documentation
 copyright: "Copyright 1999-2017 eZ Systems AS and others"
 pages:
     - 'Documentation': 'index.md'
+    - 'Guidelines3': 'guidelines/test3.md'
     - Getting started:
         - 'Get started with eZ Platform': 'getting_started/get_started_with_ez_platform.md'
         - 'Requirements and system configuration': 'getting_started/requirements_and_system_configuration.md'
@@ -210,7 +211,16 @@ theme:
 
 theme_dir: material
 
-extra_css: [fonts/MavenPro.css, css/custom.css, '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css']
+extra:
+  append_bootstrap:
+    - 'guidelines/test3.md'
+
+extra_css:
+  - fonts/MavenPro.css
+  - css/custom.css
+  - css/bootstrap-iso.css
+  - css/ez-guidelines.css
+  - '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css'
 extra_javascript: [js/jquery.min.js, js/custom.js, '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js']
 markdown_extensions:
   - admonition
@@ -236,3 +246,4 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
   - pymdownx.details
+  - ez_code_example
