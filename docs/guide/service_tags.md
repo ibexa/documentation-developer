@@ -231,9 +231,29 @@ services:
 
 Registers Solr Storage Content criterion visitors.
 
+Example:
+
+```php
+    ezpublish.search.solr.query.common.criterion_visitor.content_type_group_id_in:
+        class: "%ezpublish.search.solr.query.common.criterion_visitor.content_type_group_id_in.class%"
+        tags:
+            - {name: ezpublish.search.solr.query.content.criterion_visitor}
+            - {name: ezpublish.search.solr.query.location.criterion_visitor}
+```
+
 ### ezpublish.search.solr.query.location.criterion_visitor
 
 Registers Solr Storage Location criterion visitors.
+
+Example:
+
+```php
+    ezpublish.search.solr.query.common.criterion_visitor.content_type_group_id_in:
+        class: "%ezpublish.search.solr.query.common.criterion_visitor.content_type_group_id_in.class%"
+        tags:
+            - {name: ezpublish.search.solr.query.content.criterion_visitor}
+            - {name: ezpublish.search.solr.query.location.criterion_visitor}
+```
 
 ### ezpublish.search.solr.query.content.facet_builder_visitor
 
@@ -249,19 +269,70 @@ services:
 
 ### ezpublish.search.solr.query.location.facet_builder_visitor
 
+Example:
+
+```php
+services:
+    ezpublish.search.solr.query.common.facet_builder_visitor.content_type:
+        class: "%ezpublish.search.solr.query.common.facet_builder_visitor.content_type.class%"
+        tags:
+            - {name: ezpublish.search.solr.query.content.facet_builder_visitor}
+            - {name: ezpublish.search.solr.query.location.facet_builder_visitor}
+```
+
 ### ezpublish.search.solr.query.content.sort_clause_visitor
 
 Register Solr Storage Content sort clause visitors
 
+Example:
+
+```php
+services:
+    # Common for Content and Location search
+    ezpublish.search.solr.query.common.sort_clause_visitor.content_id:
+        class: "%ezpublish.search.solr.query.common.sort_clause_visitor.content_id.class%"
+        tags:
+            - {name: ezpublish.search.solr.query.content.sort_clause_visitor}
+            - {name: ezpublish.search.solr.query.location.sort_clause_visitor}
+```
+
 ### ezpublish.search.solr.query.location.sort_clause_visitor
 
 Register Solr Storage Location sort clause visitors
+
+Example:
+
+```php
+services:
+    # Common for Content and Location search
+    ezpublish.search.solr.query.common.sort_clause_visitor.content_id:
+        class: "%ezpublish.search.solr.query.common.sort_clause_visitor.content_id.class%"
+        tags:
+            - {name: ezpublish.search.solr.query.content.sort_clause_visitor}
+            - {name: ezpublish.search.solr.query.location.sort_clause_visitor}
+```
 
 ### ezpublish.search.solr.endpoint
 
 Registers Solr Endpoints.
 
 - alias
+
+Example:
+
+```php
+    ezpublish.search.solr.endpoint.endpoint0:
+        class: "%ezpublish.solr.endpoint.class%"
+        arguments:
+            -
+                scheme: http
+                host: localhost
+                port: 8983
+                path: /solr
+                core: core0
+        tags:
+            - {name: ezpublish.search.solr.endpoint, alias: endpoint0}
+```
 
 ## EzPublishCoreBundle
 
@@ -289,6 +360,24 @@ services:
 Adds a specific router to the chain router
 
 - priority
+
+Example:
+
+```php
+    ezpublish.urlalias_router:
+        class: "%ezpublish.urlalias_router.class%"
+        arguments:
+            - "@ezpublish.api.service.location"
+            - "@ezpublish.api.service.url_alias"
+            - "@ezpublish.api.service.content"
+            - "@ezpublish.urlalias_generator"
+            - "@?router.request_context"
+            - "@?logger"
+        calls:
+            - [setConfigResolver, ["@ezpublish.config.resolver"]]
+        tags:
+            - {name: router, priority: 200}
+```
     
 ### ezpublish.fieldType.parameterProvider
 
@@ -385,7 +474,7 @@ services:
 
 ### ezpublish.api.storage_engine.factory 
 
-deprecated???
+Registers storage engines - deprecated???
 
 - alias
 
@@ -431,7 +520,30 @@ services:
 
 Registers a storage engine in the Repository factory
 
-- alias
+- alias - identifies the storage engine
+
+Example:
+
+```php
+    ezpublish.spi.persistence.legacy:
+        class: "%ezpublish.spi.persistence.legacy.class%"
+        arguments:
+            - "@ezpublish.spi.persistence.legacy.content.handler"
+            - "@ezpublish.spi.persistence.legacy.content_type.handler"
+            - "@ezpublish.spi.persistence.legacy.language.handler"
+            - "@ezpublish.spi.persistence.legacy.location.handler"
+            - "@ezpublish.spi.persistence.legacy.object_state.handler"
+            - "@ezpublish.spi.persistence.legacy.section.handler"
+            - "@ezpublish.spi.persistence.legacy.transactionhandler"
+            - "@ezpublish.spi.persistence.legacy.trash.handler"
+            - "@ezpublish.spi.persistence.legacy.url_alias.handler"
+            - "@ezpublish.spi.persistence.legacy.url_wildcard.handler"
+            - "@ezpublish.spi.persistence.legacy.user.handler"
+            - "@ezpublish.spi.persistence.legacy.url.handler"
+        tags:
+            - {name: ezpublish.storageEngine, alias: legacy}
+        lazy: true
+```
 
 ### ezpublish.url_handler
 
@@ -475,6 +587,21 @@ services:
 
 - panelTemplate
 - toolbarTemplate
+
+Example: TODO - check if valid example
+
+```php
+services:
+    ezpublish_debug.persistence_collector:
+        class: %ezpublish_debug.persistence_collector.class%
+        arguments: [@ezpublish.spi.persistence.cache.persistenceLogger]
+        tags:
+            -
+                name: ezpublish_data_collector
+                id: "ezpublish.debug.persistence"
+                panelTemplate: "EzPublishDebugBundle:Profiler/persistence:panel.html.twig"
+                toolbarTemplate: "EzPublishDebugBundle:Profiler/persistence:toolbar.html.twig"
+```
     
 ## EzPublishIOBundle
 
@@ -668,6 +795,15 @@ services:
 ### ezpublish.search.common.field_value_mapper
 
 - addMapper
+
+Example:
+
+```php
+    ezpublish.search.common.field_value_mapper.integer:
+        class: "%ezpublish.search.common.field_value_mapper.integer.class%"
+        tags:
+            - {name: ezpublish.search.common.field_value_mapper}
+```
     
 ### ezpublish.fieldType.indexable
 
@@ -696,6 +832,16 @@ services:
 ezpublish.search.%s.slot 
 
 /ezplatform/vendor/ezsystems/ezpublish-kernel/eZ/Publish/Core/Base/Container/Compiler/Search/SearchEngineSignalSlotPass.php
+
+Example:
+
+```php
+    ezpublish.search.solr.slot.publish_version:
+        parent: ezpublish.search.solr.slot
+        class: "%ezpublish.search.solr.slot.publish_version.class%"
+        tags:
+            - {name: ezpublish.search.solr.slot, signal: ContentService\PublishVersionSignal}
+```
 
 ### ezpublish.search.elasticsearch.slot
 
@@ -761,13 +907,58 @@ services:
 
 ### ezpublish.search.elasticsearch.content.facet_builder_visitor
 
+Example:
+
+```php
+    ezpublish.search.elasticsearch.content.facet_builder_visitor.section:
+        class: "%ezpublish.search.elasticsearch.content.facet_builder_visitor.section.class%"
+        tags:
+            - {name: ezpublish.search.elasticsearch.content.facet_builder_visitor}
+```
+
 ### ezpublish.search.elasticsearch.content.sort_clause_visitor
+
+Example:
+
+```php
+    ezpublish.search.elasticsearch.content.sort_clause_visitor.content_id:
+        class: "%ezpublish.search.elasticsearch.content.sort_clause_visitor.content_id.class%"
+        tags:
+            - {name: ezpublish.search.elasticsearch.content.sort_clause_visitor}
+```
 
 ### ezpublish.search.elasticsearch.location.sort_clause_visitor
 
+Example:
+
+```php
+    ezpublish.search.elasticsearch.location.sort_clause_visitor.content_id:
+        class: "%ezpublish.search.elasticsearch.location.sort_clause_visitor.content_id.class%"
+        tags:
+            - {name: ezpublish.search.elasticsearch.location.sort_clause_visitor}
+```
+
 ### ezpublish.search.elasticsearch.content.criterion_visitor
 
+Example:
+
+```php
+    ezpublish.search.elasticsearch.content.criterion_visitor.content_type_group_id_in:
+        class: "%ezpublish.search.elasticsearch.content.criterion_visitor.content_type_group_id_in.class%"
+        tags:
+            - {name: ezpublish.search.elasticsearch.content.criterion_visitor}
+```
+
 ### ezpublish.search.elasticsearch.location.criterion_visitor
+
+Example:
+
+```php
+    ezpublish.search.elasticsearch.location.criterion_visitor.content_id_in:
+        class: "%ezpublish.search.elasticsearch.location.criterion_visitor.content_id_in.class%"
+        tags:
+            - {name: ezpublish.search.elasticsearch.location.criterion_visitor}
+```
 
 ### ezpublish.search.legacy.gateway.criterion_handler.content
 
@@ -803,6 +994,16 @@ services:
 
 ### ezpublish.persistence.legacy.url.criterion_handler
 
+Example:
+
+```php
+   ezpublish.persistence.legacy.url.criterion_handler.logical_and:
+       parent: ezpublish.persistence.legacy.url.criterion_handler.base
+       class: '%ezpublish.persistence.legacy.url.criterion_handler.logical_and.class%'
+       tags:
+           - { name: ezpublish.persistence.legacy.url.criterion_handler }
+```
+
 ### ezpublish.search.legacy.gateway.criterion_field_value_handler
 
 - alias
@@ -827,6 +1028,17 @@ services:
 ### ezpublish.search.legacy.gateway.sort_clause_handler.content
 
 Registers Content Sort Clause handlers
+
+Example:
+
+```php
+    ezpublish.search.legacy.gateway.sort_clause_handler.common.date_modified:
+        parent: ezpublish.search.legacy.gateway.sort_clause_handler.base
+        class: "%ezpublish.search.legacy.gateway.sort_clause_handler.common.date_modified.class%"
+        tags:
+            - {name: ezpublish.search.legacy.gateway.sort_clause_handler.content}
+            - {name: ezpublish.search.legacy.gateway.sort_clause_handler.location}
+```
 
 ### ezpublish.search.legacy.gateway.sort_clause_handler.location
 
