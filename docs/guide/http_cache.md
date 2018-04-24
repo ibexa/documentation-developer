@@ -212,7 +212,6 @@ The returned Location IDs are sent for purge using the selected purge type.
 #### Symfony Proxy: Local purge type
 
 By default, invalidation requests will be emulated and sent to the Symfony proxy cache store.
-Cache purge will be synchronous, meaning no HTTP purge requests will be sent around when publishing.
 In `ezplatform.yml`:
 
 ``` yaml
