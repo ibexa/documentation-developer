@@ -167,7 +167,7 @@ $menu->addChild(
         'label' => 'translation.key',
         'uri' => 'http://example.com',
         'extras' => [
-            'icon' => 'article', 
+            'icon' => 'article',
             'translation_domain' => 'messages',
         ],
     ]
@@ -448,29 +448,80 @@ class OrderedTabSubscriber implements EventSubscriberInterface
 
 ## Further extensibility using Components
 
-Components are any sort of custom elements that you can add to the back-office interface.
+Components enable you to inject widgets (e.g. Dashboard blocks) and HTML code (e.g. a tag for loading JS or CSS files) into specific places in the Back Office.
 
-There are several extensibility points in the AdminUI templates that you can use for this purpose.
+A component is any class that implements the `Renderable` interface.
+It must be tagged as a service:
 
-The only limitation to the application of these extensibility points is that the Component must implement the `Renderable` interface.
+``` yaml
+AppBundle\Component\MyNewComponent:
+    tags:
+        - { name: ezplatform.admin_ui.component, group: 'content-edit-form-before' }
+```
 
-The available extensibility points for Components are:
+`group` indicates where the widget will be displayed. The available groups are:
 
-- [`stylesheet-head`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L44)
-- [`script-head`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L45)
-- [`stylesheet-body`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L105)
-- [`script-body`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L106)
-- [`content-edit-form-before`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/content/content_edit/content_edit.html.twig#L48)
-- [`content-edit-form-after`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/content/content_edit/content_edit.html.twig#L55)
-- [`content-create-form-before`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/content/content_edit/content_create.html.twig#L40)
-- [`content-create-form-after`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/content/content_edit/content_create.html.twig#L47)
-- [`dashboard-blocks`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/dashboard/dashboard.html.twig#L19)
+- [`stylesheet-head`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L46)
+- [`script-head`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L47)
+- [`stylesheet-body`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L121)
+- [`script-body`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L122)
+- [`content-edit-form-before`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/content/content_edit/content_edit.html.twig#L71)
+- [`content-edit-form-after`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/content/content_edit/content_edit.html.twig#L81)
+- [`content-create-form-before`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/content/content_edit/content_create.html.twig#L52)
+- [`content-create-form-after`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/content/content_edit/content_create.html.twig#L59)
+- [`dashboard-blocks`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/dashboard/dashboard.html.twig#L28)
+
+If you do not want to write your own class and only wish to inject a short element
+(e.g. render a Twig template or add a CSS link), you can make use of pre-existing base classes.
+In this case all you have to do is add a service definition (with proper parameters), for example:
+
+``` yaml
+appbundle.components.my_twig_component:
+    parent: EzSystems\EzPlatformAdminUi\Component\TwigComponent
+    arguments:
+        $template: 'path/to/file.html.twig'
+        $parameters:
+            first_param: 'first_value'
+            second_param: 'second_value'
+    tags:
+        - { name: ezplatform.admin_ui.component, group: 'dashboard-blocks' }
+```
+
+This renders the `path/to/file.html.twig` template with `first_param` and `second_param` as parameters.
+
+There are three such base components:
+
+- `TwigComponent` renders a Twig template, like above
+- `LinkComponent` renders the HTML `<link>` tag:
+
+``` yaml
+appbundle.components.my_link_component:
+   parent: EzSystems\EzPlatformAdminUi\Component\LinkComponent
+   arguments:
+       $href: 'http://address.of/file.css'
+   tags:
+       - { name: ezplatform.admin_ui.component, group: 'stylesheet-head' }
+```
+
+- `ScriptComponent` renders the HTML `<script>` tag:
+
+``` yaml
+appbundle.components.my_script_component:
+   parent: EzSystems\EzPlatformAdminUi\Component\ScriptComponent
+   arguments:
+       $src: 'http://address.of/file.js'
+   tags:
+       - { name: ezplatform.admin_ui.component, group: 'script-body' }
+```
 
 ## Universal Discovery module
 
 Universal Discovery module allows you to browse the content structure and search for content
 using an interactive interface: the browse view and the search view.
-The module is highly configurable. It can be extended with new tabs.
+
+!!! tip "Tutorial"
+
+    For a detailed example on how to add a new UDW tab, see [step 5 of the Exnedint Admin UI tutorial](../tutorials/extending_admin_ui/5_creating_a_udw_tab.md).
 
 ### How to use it?
 
@@ -480,6 +531,10 @@ With vanilla JS:
 const container = document.querySelector('#react-udw');
 
 ReactDOM.render(React.createElement(eZ.modules.UniversalDiscovery, {
+    restInfo: {
+        token: {String},
+        siteaccess: {String}
+    }
     onConfirm: {Function},
     onCancel: {Function},
 }), container);
@@ -571,36 +626,40 @@ Optionally, Universal Discovery module can take a following list of props:
     - **panel** _{Element}_ - any kind of React component,
     - **attrs** _{Object}_ - any optional list of props that should applied to the panel component.
 })),
-- **labels** _{Object}_ - a hash containing text messages to be placed across many places in a component. It contains text labels for child components:
-    - **udw** _{Object}_ - a hash of text labels for Universal Discovery module, see [universal.discovery.module.js](https://github.com/ezsystems/ezplatform-admin-ui-modules/blob/master/src/modules/universal-discovery/universal.discovery.module.js#L329) for details,
-    - **selectedContentItem** _{Object}_ - a hash of text labels for Selected Content Item component,
-    - **contentMetaPreview** _{Object}_ - a hash of text labels for Content Meta Preview component,
-    - **search** _{Object}_ - a hash of text labels for Search component,
-    - **searchPagination** _{Object}_ - a hash of text labels for Search Pagination component,
-    - **searchResults** _{Object}_ - a hash of text labels for Search Results component,
-    - **searchResultsItem** _{Object}_ - a hash of text labels for Search Results Item component.
+- **labels** _{Object}_ - a hash containing text messages to be placed across many places in a component. It contains text labels for child components, see [universal.discovery.module.js](https://github.com/ezsystems/ezplatform-admin-ui-modules/blob/master/src/modules/universal-discovery/universal.discovery.module.js#L438) for details,
 - **selectedItemsLimit** _{Number}_ - the limit of items that can be selected. Should be combined with the `multiple` attribute set to `true`. Default value is `0`, which means no limit,
 - **allowContainersOnly** _{Boolean}_ - when true, only containers can be selected. Default value: `false`,
 - **onlyContentOnTheFly** _{Boolean}_ - when true, only Content on the Fly is shown in the UDW. Default value: `false`,
 - **cotfForcedLanguage** _{String}_ - language code. When set, Content on the Fly is locked on this language.
+- **languages** and **contentTypes** are lists of languages and Content Types in the system, read from the application config.
 
 ## Sub-items List
 
 The Sub-items List module is meant to be used as a part of the editorial interface of eZ Platform.
-It provides an interface for listing the sub items of any location.
+It provides an interface for listing the Sub-items of any Location.
+
+!!! caution
+
+    If you want to load the Sub-items module, you need to load the JS code for it in your view,
+    as it is not available by default.
 
 ### How to use it?
 
 With vanilla JS:
 
 ``` js
-React.createElement(eZ.modules.SubItems, {
-    parentLocationId: {Number},
-    restInfo: {
-        token: {String},
-        siteaccess: {String}
-    }
-});
+const containerNode = document.querySelector('#sub-items-container');
+
+    ReactDOM.render(
+        React.createElement(eZ.modules.SubItems, {
+            parentLocationId: { Number },
+            restInfo: {
+                token: { String },
+                siteaccess: { String }
+            }
+        }),
+        containerNode
+    );
 ```
 
 With JSX:
@@ -764,6 +823,11 @@ ezrichtext.custom_tags.ezyoutube.attributes.align.label: 'Align'
 
 The Multi-file Upload module is meant to be used as a part of editorial interface of eZ Platform.
 It provides an interface to publish content based on dropped files while uploading them in the interface.
+
+!!! caution
+
+    If you want to load the Multi-file Upload module, you need to load the JS code for it in your view,
+    as it is not available by default.
 
 ### How to use it?
 
