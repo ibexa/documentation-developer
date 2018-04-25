@@ -150,7 +150,7 @@ In the rare case that there is no fixed version, you can revert your requirement
 
 ### Best practice for Bundles
 
-Best practice for Bundles is described in Symfony documentation under [Best Practices for Reusable Bundles](http://symfony.com/doc/2.8/cookbook/bundles/best_practices.html), with eZ bundles there is some notable exceptions:
+Best practice for Bundles is described in Symfony documentation under [Best Practices for Reusable Bundles](http://symfony.com/doc/3.4/cookbook/bundles/best_practices.html), with eZ bundles there is some notable exceptions:
 
 #### Documentation
 
