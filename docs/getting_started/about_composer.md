@@ -2,13 +2,9 @@
 
 ## Using Composer
 
-Keeping your system up-to-date is important to make sure it is running optimally and securely. The update mechanism in eZ software is using the *de facto* standard PHP packaging system called [Composer](https://getcomposer.org/). 
+Keeping your system up-to-date is important to make sure it is running optimally and securely. The update mechanism in eZ software is using standard PHP packaging system called [Composer](https://getcomposer.org/). 
 
 This makes it easy to adapt package installs and updates to your workflow, allowing you to test new/updated packages in a development environment, place the changes in your version control system (git, Subversion, Mercurial, etc.), pull in those changes to a staging environment and, when approved, put them in production.
-
-!!! note "[Composer](https://getcomposer.org/) is an opensource PHP packaging system to manage dependencies."
-
-    This makes it easy to adapt package installs and updates to your workflow, allowing you to test new/updated packages in a development environment, put the changes in your version control system (git, Subversion, Mercurial, etc.), pull in those changes on a staging environment and, when approved, put it in production.
 
 ### Installing Composer
 
@@ -20,56 +16,58 @@ Composer is a command-line tool, so the main way to install it is via command li
 php -r "readfile('https://getcomposer.org/installer');" | php
 ```
 
-By doing it this way you will need to execute further Composer commands using `php composer.phar`. If you'd rather prefer to install Composer globally on your machine instead of inside each and every project that uses it, then follow [these instructions in online Composer documentation](https://getcomposer.org/doc/00-intro.md#globally).
+By doing it this way you will need to execute further Composer commands using `php composer.phar`. If you prefer to install Composer globally on your machine instead of inside each and every project that uses it, then follow [these instructions in online Composer documentation](https://getcomposer.org/doc/00-intro.md#globally).
 
-### Prerequisite to using composer with eZ Enterprise software
+!!! enterprise
 
-**This section describes features available only in eZ Enterprise.**
+    ## Prerequisite to using Composer with eZ Enterprise software
 
-### Setting up Authentication tokens for access to commercial updates
+    ### Setting up Authentication tokens for access to commercial updates
 
-Out of the box Composer uses a packaging repository called [packagist.org](https://packagist.org/) to find all open-source packages and their updates. Additional commercial packages are available for eZ Enterprise subscribers at [updates.ez.no/bul/](https://updates.ez.no/bul/) *(which is password-protected, you will need to set up authentication tokens as described below to get access)*.
+    Out of the box Composer uses a packaging repository called [packagist.org](https://packagist.org/) to find all open-source packages and their updates. Additional commercial packages are available for eZ Enterprise subscribers at [updates.ez.no/bul/](https://updates.ez.no/bul/) *(which is password-protected, you will need to set up authentication tokens as described below to get access)*.
 
-To get access to these updates log in to your service portal on [support.ez.no](https://support.ez.no) and look for the following on the *"Maintenance and Support agreement details"* screen:
+    To get access to these updates log in to your service portal on [support.ez.no](https://support.ez.no) and look for the following on the *"Maintenance and Support agreement details"* screen:
 
-![Authentication token](img/Using_Composer_Auth_token.png)
+    ![Authentication token](img/Using_Composer_Auth_token.png)
 
-1.  Click "Create token" (This requires the "Portal administrator" access level.)
-2.  Fill in a label describing the use of the token. This will allow you to revoke access later.
-    -   Example, if you need to provide access to updates to a third party, a good example would be "53-upgrade-project-by-partner-x"
+    1.  Click "Create token" (This requires the "Portal administrator" access level.)
+    
+    2.  Fill in a label describing the use of the token. This will allow you to revoke access later.
+    
+        -   Example, if you need to provide access to updates to a third party, a good example would be "53-upgrade-project-by-partner-x"
 
-3.  Copy the password, **you will not get access to it again**!
+    3.  Copy the password, **you will not get access to it again**!
 
-After this, when running Composer to get updates as described below, you will be asked for a Username and Password. Use:
+    After this, when running Composer to get updates as described below, you will be asked for a Username and Password. Use:
 
--   as Username – your Installation key found above on the *"Maintenance and Support agreement details"* page in the service portal
--   as Password – the token password you retrieved in step 3.
+    -   as Username – your Installation key found above on the *"Maintenance and Support agreement details"* page in the service portal
+    -   as Password – the token password you retrieved in step 3.
 
-Support agreement expiry
+    #### Support agreement expiry
 
-If your Support agreement expires, your authentication token(s) will no longer work. They will become active again if the agreement is renewed, but this process may take up to 24 hours. (If the agreement is renewed before the expiry date, there will be no disruption of service.)
+    If your Support agreement expires, your authentication token(s) will no longer work. They will become active again if the agreement is renewed, but this process may take up to 24 hours. (If the agreement is renewed before the expiry date, there will be no disruption of service.)
 
-### Optional: Save authentication information in auth.json to avoid repeatedly typing it
+    ### Optional: Save authentication information in auth.json to avoid repeatedly typing it
 
-Composer will ask to do this for you on updates, however if it is disabled, you can create an `auth.json` file manually in one of the following ways:
+    Composer will ask to do this for you on updates, however if it is disabled, you can create an `auth.json` file manually in one of the following ways:
 
-* Option A: Store your credentials in the project directory:
+    * Option A: Store your credentials in the project directory:
 
-``` bash
-composer config http-basic.updates.ez.no <installation-key> <token-password>
-```
+    ``` bash
+    composer config http-basic.updates.ez.no <installation-key> <token-password>
+    ```
 
-* Option B: If you'd rather want to install it globally in [COMPOSER\_HOME](https://getcomposer.org/doc/03-cli.md#composer-home) directory for machine-wide use:
+    * Option B: If you'd rather want to install it globally in [COMPOSER\_HOME](https://getcomposer.org/doc/03-cli.md#composer-home) directory for machine-wide use:
 
-``` bash
-composer config --global http-basic.updates.ez.no <installation-key> <token-password>
-```
+    ``` bash
+    composer config --global http-basic.updates.ez.no <installation-key> <token-password>
+    ```
 
 ### Update workflow Using Composer
 
-This section describes the best practice for using Composer, essentially it suggests treating updates like other code/configuration/\* changes on your project, tackling them on a development machine before staging them for rollout on staging/production.  
+This section describes the best practice for using Composer, you should treat updates like other code/configuration/\* changes on your project, tackling them on a development machine before staging them for rollout on staging/production.  
 
-### 1. Running composer update and version changes in development
+### 1. Running Composer update and version changes in development
 
 Updating eZ software via Composer is nothing different then [updating other projects via Composer](https://getcomposer.org/doc/03-cli.md#update), but for illustration here is how you update your project locally:
 
@@ -81,7 +79,7 @@ php -d memory_limit=-1 composer.phar update --no-dev --prefer-dist
 
 !!! tip
 
-    This will load in all updated packages, from eZ as well as third-party libraries, both used by eZ and other you may have added. When updating like this it is recommended to take note of what was updated so you have an idea of what you should test before putting the updates into production.
+    This will load in all updated packages, from eZ as well as third-party libraries, both used by eZ and other you may have added. When updating like this it is recommended to take note of what was updated so you know what you should test before putting the updates into production.
 
 At this stage you might need to manually clear Symfony's `prod` environment class cache (cached interfaces and lazy services) in case the classes/interfaces in it have changed. This can be done in the following way:
 
@@ -91,11 +89,11 @@ At this stage you might need to manually clear Symfony's `prod` environment clas
 rm -f app/cache/prod/*.php
 ```
 
-When the update has completed and local install is verified to work, make sure to version changes done to the `composer.lock` file (if you use a version control system like *git*). This file contains **all details of which versions are currently used** and makes sure the same version is used among all developers, staging and eventually production when current changes are approved for production (assuming you have a workflow for this).
+When the update has completed and local install is verified to work, make sure to version changes done to the `composer.lock` file (if you use a version control system like git). This file contains **all details of which versions are currently used** and makes sure the same version is used among all developers, staging and eventually production when current changes are approved for production (assuming you have a workflow for this).
 
 !!! tip
 
-    In large development teams make sure people don't blindly update and install third party components. This might easily lead to version conflicts on `composer.lock` and can be tiring to fix up if happening frequently. A workflow involving composer install and unit test execution on proposed changes can help avoid most of this, like the Pull Request workflow available via Github/Bitbucket.
+    In large development teams make sure people don't blindly update and install third party components. This might easily lead to version conflicts on `composer.lock` and can be tiring to fix up if happening frequently. A workflow involving Composer install and unit test execution on proposed changes can help avoid most of this, like the Pull Request workflow available via Github/Bitbucket.
 
 ### 2. Installing versioned updates on other development machines and/or staging -> production
 
@@ -109,7 +107,7 @@ php -d memory_limit=-1 composer.phar install --no-dev --prefer-dist
 
 !!! tip
 
-    Here the importance of `composer.lock` comes in, as this command will tell Composer to install packages in exactly the same version as defined in this file. If you don't keep track of `composer.lock`, it will instead just install always the latest version of a package and won't allow you to stage updates before moving towards production.
+    This command will tell Composer to install packages in exactly the same version as defined in `composer.lock`. If you don't keep track of `composer.lock`, it will instead just install always the latest version of a package and won't allow you to stage updates before moving towards production.
 
 ### General notes on use of Composer
 
@@ -125,7 +123,7 @@ php -d memory_limit=-1 composer.phar require --prefer-dist ezcommunity/ez-price-
 
 ### Dumping autoload for better performance
 
-For PHP 5.6 and up you'll get a notable performance improvement by making composer dump optimized autoload array, this can be done on composer install and update, but also using:
+For PHP 5.6 and up you'll get a notable performance improvement by making Composer dump optimized autoload array, this can be done on Composer install and update, but also using:
 
 `php -d memory_limit=-1 composer.phar dump-autoload --optimize`
 
@@ -133,11 +131,12 @@ For PHP 5.6 and up you'll get a notable performance improvement by making compos
 
 #### Cloning failed using an ssh key
 
-When dealing with [updates.ez.no](http://updates.ez.no) packages, you might get this if you somehow tell composer to download dev packages, or tell it to download from source. Currently our [updates.ez.no](http://updates.ez.no) service only support distribution packages in alpha stability or higher, so make sure to check what stability and avoid use of `--prefer-source` *(this is the reason examples above are using `--prefer-dist`).*
+When dealing with [updates.ez.no](http://updates.ez.no) packages, you might get this if you somehow tell Composer to download dev packages, or tell it to download from source. Currently our [updates.ez.no](http://updates.ez.no) service only support distribution packages in alpha stability or higher, so make sure to check what stability and avoid use of `--prefer-source` (this is the reason examples above are using `--prefer-dist`).
 
 #### Conflict with roave/security-advisories
 
-When you use composer update or require, a package may conflict with `roave/security-advisories`:
+When you use Composer update or require, a package may conflict with `roave/security-advisories`:
+
 ``` bash
 Your requirements could not be resolved to an installable set of packages.
   Problem 1
@@ -145,13 +144,13 @@ Your requirements could not be resolved to an installable set of packages.
     (...)
 ```
 
-This means there is a known security bug in the specific version of the package, ezsystems/ezpublish-legacy v5.4.10 in this case. In most cases this means that a fix is available in a newer version, such as v5.4.10.1. If you increase your requirement to that version, the conflict is resolved.
+This means there is a known security bug in the specific version of the package, ezsystems/ezpublish-legacy. In most cases this means that a fix is available in a newer version. If you increase your requirement to that version, the conflict is resolved.
 
 In the rare case that there is no fixed version, you can revert your requirement to an older version which does not have the bug. If you have to use the version with the bug (not recommended) you can `composer remove roave/security-advisories`. In that case, please require it again when the bug is fixed and the package is updated: `composer require roave/security-advisories:dev-master`
 
 ### Best practice for Bundles
 
-Best practice for Bundles is described in Symfony documentation under [Best Practices for Reusable Bundles](http://symfony.com/doc/current/cookbook/bundles/best_practices.html), with eZ bundles there is some notable exceptions:
+Best practice for Bundles is described in Symfony documentation under [Best Practices for Reusable Bundles](http://symfony.com/doc/2.8/cookbook/bundles/best_practices.html), with eZ bundles there is some notable exceptions:
 
 #### Documentation
 
@@ -160,27 +159,22 @@ Best practice for Bundles is described in Symfony documentation under [Best Pra
 #### Git repository naming
 
 -   You may omit vendor name in repository naming, assuming vendor name is reflected in organization / user account it is attached to.
--   You may also choose to follow composer package naming on repository name which is more relevant when trying to find a given package later.
+-   You may also choose to follow Composer package naming on repository name which is more relevant when trying to find a given package later.
 
 #### Composer Metadata
 
--   For defining `"type"`, the following are at the moment known valid values:
+-   For defining `type`, the following are at the moment known valid values:
     -   `ezplatform-bundle` | Symfony bundles that uses eZ Platform features
-    -   `ezstudio-bundle` | Symfony bundles that uses eZ Platform Enterprise Edition features*
-        *
+    -   `ezstudio-bundle` | Symfony bundles that uses eZ Platform Enterprise Edition features
         -   Deprecated: Please use ezplatform-bundle and add dependencies on the ee packages you depend on instead.
     -   `symfony-bundle` | Standard symfony bundles as described in Symfony doc.
 -   For eZ Publish (legacy) and eZ Publish Platform there where also:
     -   `ezpublish-legacy-extension` | For standalone 4.x (legacy) extensions, to be used with [ezpublish-legacy-installer](https://github.com/ezsystems/ezpublish-legacy-installer)
-    -   `ezpublish-bundle | For eZ Publish Platform 5.x bundles, may optionally be a "legacy bundle".`
+    -   `ezpublish-bundle` | For eZ Publish Platform 5.x bundles, may optionally be a "legacy bundle".
 
 ## Composer for Frontend Developers
 
-If you are a web designer or working on the CSS on your website, this page contains is all you need to know about Composer.
-
-!!! note "[Composer](https://getcomposer.org/) is an opensource PHP packaging system to manage dependencies."
-
-    This makes it easy to adapt package installs and updates to your workflow, allowing you to test new/updated packages in a development environment, put the changes in your version control system (git, Subversion, Mercurial, etc.), pull in those changes on a staging environment and, when approved, put it in production.
+If you are a web designer or working on the CSS on your website, this section contains all you need to know about Composer.
 
 ### Troubleshooting
 
@@ -202,7 +196,7 @@ php -d memory_limit=-1 composer.phar <command> --verbose (-v|vv|vvv)
 
 #### install
 
-The `install` command reads the composer.lock file from the current directory, processes it, and downloads and installs all the libraries and dependencies outlined in that file. If the file does not exist it will look for composer.json and do the same.
+The `install` command reads the `composer.lock` file from the current directory, processes it, and downloads and installs all the libraries and dependencies outlined in that file. If the file does not exist it will look for `composer.json` and do the same.
 
 ##### Usage
 
@@ -242,10 +236,34 @@ php -d memory_limit=-1 composer.phar update vendor/package1 foo/*
 
     This makes it easy to adapt package installs and updates to your workflow, allowing you to test new/updated packages in a development environment, put the changes in your version control system (git, Subversion, Mercurial, etc.), pull in those changes on a staging environment and, when approved, put it in production.
 
-!!! note "composer.phar or composer?"
+The following examples use a `composer install` global command, as alternative use `php composer.phar <command>`.
+    
+You should use the command-line according to your installation.
 
-    The following examples use a `composer install` global command, as alternative use `php composer.phar <command>`.
-Read the answer in the FAQ:[What Composer command-line do you have to use ?](https://doc.ez.no/pages/viewpage.action?pageId=23529122)
+|Installation|Command Line|Advantages|
+|------------|------------|----------|
+|Locally|`php composer.phar <command>`|No rights needed. No configuration needed (out of the box).|
+|Globally|`composer <command>`|Every user on the server can access Composer CLI. You have your Composer outside your web root directory.|
+
+### Installation
+
+**Locally**
+
+```php
+curl -sS https://getcomposer.org/installer | php
+```
+
+or (according to your user rights on your system)
+
+```php
+php -r "readfile('https://getcomposer.org/installer');" | php
+```
+
+**Globally**
+
+```php
+curl -sS https://getcomposer.org/installer | php mv composer.phar /usr/local/bin/composer
+```
 
 !!! note
 
@@ -279,7 +297,7 @@ The `show` command displays detailed information about a package, or lists all a
 
 #### require
 
-The `require` command adds required packages to your composer.json and installs them. If you do not want to install the new dependencies immediately, you can call it with `--no-update`
+The `require` command adds required packages to your `composer.json` and installs them. If you do not want to install the new dependencies immediately, you can call it with `--no-update`
 
 ##### Usage
 
@@ -289,11 +307,11 @@ php composer.phar require [--dev] [--prefer-source] [--prefer-dist] [--no-progre
 
 ##### Interesting options
 
-|option | description |
+|Option | Description |
 |-------|-------------|
 |   --prefer-source | Forces installation from package sources when possible, including VCS information |
 |   --prefer-dist   | Forces installation from package dist even for dev versions |
-|   --no-progress   | Do not output download progress |
+|   --no-progress   | Removes output download progress |
 |   --no-update     | Disables the automatic update of the dependencies |
 |   --update-with-dependencies | Allows inherited dependencies to be updated with explicit dependencies |
 
@@ -355,7 +373,7 @@ The `validate` command validates a given composer.json.
 
 |option | description |
 |-------|-------------|
-| --no-check-all | Do not make complete validation |
+| --no-check-all | Do not perform complete validation |
 | --profile | Display timing and memory usage info |
 | --working-dir (-d) | If specified, use the given directory as a working directory |
 
