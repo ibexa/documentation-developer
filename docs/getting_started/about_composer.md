@@ -20,7 +20,7 @@ By doing it this way you will need to execute further Composer commands using `p
 
 !!! enterprise
 
-    ## Prerequisite to using composer with eZ Enterprise software
+    ## Prerequisite to using Composer with eZ Enterprise software
 
     ### Setting up Authentication tokens for access to commercial updates
 
@@ -31,8 +31,10 @@ By doing it this way you will need to execute further Composer commands using `p
     ![Authentication token](img/Using_Composer_Auth_token.png)
 
     1.  Click "Create token" (This requires the "Portal administrator" access level.)
+    
     2.  Fill in a label describing the use of the token. This will allow you to revoke access later.
-    -   Example, if you need to provide access to updates to a third party, a good example would be "53-upgrade-project-by-partner-x"
+    
+        -   Example, if you need to provide access to updates to a third party, a good example would be "53-upgrade-project-by-partner-x"
 
     3.  Copy the password, **you will not get access to it again**!
 
@@ -65,7 +67,7 @@ By doing it this way you will need to execute further Composer commands using `p
 
 This section describes the best practice for using Composer, you should treat updates like other code/configuration/\* changes on your project, tackling them on a development machine before staging them for rollout on staging/production.  
 
-### 1. Running composer update and version changes in development
+### 1. Running Composer update and version changes in development
 
 Updating eZ software via Composer is nothing different then [updating other projects via Composer](https://getcomposer.org/doc/03-cli.md#update), but for illustration here is how you update your project locally:
 
@@ -91,7 +93,7 @@ When the update has completed and local install is verified to work, make sure t
 
 !!! tip
 
-    In large development teams make sure people don't blindly update and install third party components. This might easily lead to version conflicts on `composer.lock` and can be tiring to fix up if happening frequently. A workflow involving composer install and unit test execution on proposed changes can help avoid most of this, like the Pull Request workflow available via Github/Bitbucket.
+    In large development teams make sure people don't blindly update and install third party components. This might easily lead to version conflicts on `composer.lock` and can be tiring to fix up if happening frequently. A workflow involving Composer install and unit test execution on proposed changes can help avoid most of this, like the Pull Request workflow available via Github/Bitbucket.
 
 ### 2. Installing versioned updates on other development machines and/or staging -> production
 
@@ -194,7 +196,7 @@ php -d memory_limit=-1 composer.phar <command> --verbose (-v|vv|vvv)
 
 #### install
 
-The `install` command reads the `composer.lock` file from the current directory, processes it, and downloads and installs all the libraries and dependencies outlined in that file. If the file does not exist it will look for composer.json and do the same.
+The `install` command reads the `composer.lock` file from the current directory, processes it, and downloads and installs all the libraries and dependencies outlined in that file. If the file does not exist it will look for `composer.json` and do the same.
 
 ##### Usage
 
@@ -241,7 +243,7 @@ You should use the command-line according to your installation.
 |Installation|Command Line|Advantages|
 |------------|------------|----------|
 |Locally|`php composer.phar <command>`|No rights needed. No configuration needed (out of the box).|
-|Globally|`composer <command>`|Every user on the server can access to composer CLI. You have your Composer outside your web root directory.|
+|Globally|`composer <command>`|Every user on the server can access Composer CLI. You have your Composer outside your web root directory.|
 
 ### Installation
 
@@ -295,7 +297,7 @@ The `show` command displays detailed information about a package, or lists all a
 
 #### require
 
-The `require` command adds required packages to your composer.json and installs them. If you do not want to install the new dependencies immediately, you can call it with `--no-update`
+The `require` command adds required packages to your `composer.json` and installs them. If you do not want to install the new dependencies immediately, you can call it with `--no-update`
 
 ##### Usage
 
