@@ -165,12 +165,11 @@ Best practice for Bundles is described in Symfony documentation under [Best Pra
 
 -   For defining `type`, the following are at the moment known valid values:
     -   `ezplatform-bundle` | Symfony bundles that uses eZ Platform features
-    -   `ezstudio-bundle` | Symfony bundles that uses eZ Platform Enterprise Edition features
-        -   Deprecated: Please use ezplatform-bundle and add dependencies on the ee packages you depend on instead.
     -   `symfony-bundle` | Standard symfony bundles as described in Symfony doc.
--   For eZ Publish (legacy) and eZ Publish Platform there where also:
-    -   `ezpublish-legacy-extension` | For standalone 4.x (legacy) extensions, to be used with [ezpublish-legacy-installer](https://github.com/ezsystems/ezpublish-legacy-installer)
-    -   `ezpublish-bundle` | For eZ Publish Platform 5.x bundles, may optionally be a "legacy bundle".
+    
+!!! note "Package Dependencies"
+
+    Remeber to specify package dependencies in Composer requirements so the dependencies are clear.
 
 ## Composer for Frontend Developers
 
