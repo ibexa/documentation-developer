@@ -476,6 +476,10 @@ stash:
     The regular `php app/console cache:clear` command does not clear Redis persistence cache.
     To clear it, use the console command shipped with Redis: `redis-cli flushall`.
 
+##### Redis Cluster
+
+It is possible to set up and use Redis as a cluster. This configuration is more efficient and reliable for large installations. Redis Cluster can be configured in two ways, the first using [create-cluster script](https://redis.io/topics/cluster-tutorial) and the second using [Redis Sentinel](https://redis.io/topics/sentinel). If you use Platform.sh Enterprise you can benefit from the Redis Sentinel across three nodes for greater fault tolerance. Platform.sh Professional and lower versions offer Redis in single instance mode only. Configuration on eZ Platform / Symfony stays the same regardless of the Redis version, single instance mode or cluster mode. 
+
 ##### Memcache(d)
 
 This cache backend is using [Memcached, a distributed caching solution](http://memcached.org/). This is the main supported cache solution for [multi server (cluster) setups](clustering.md), besides using Redis.
@@ -486,7 +490,7 @@ This cache backend is using [Memcached, a distributed caching solution](http://m
 
 **Available settings**
 
-|Setting|Description"
+|Setting|Description
 |------|------|
 |`servers`|Array of Memcached servers, with host/IP, port and weight</br>`server`: Host or IP of your Memcached server</br>`port`: Port that Memcached is listening to (defaults to 11211)</br>weight: Weight of the server, when using several Memcached servers|
 |`prefix_key`|A namespace to prefix cache keys with to avoid key conflicts with other eZ Platform sites on same eZ Platform installation (default is an empty string). Must be the same on all servers with the same installation. See [Memcached prefix_key option](http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-prefix-key)|
