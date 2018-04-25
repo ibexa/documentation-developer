@@ -359,6 +359,10 @@ services:
     The regular `php app/console cache:clear` command does not clear Redis persistence cache.
     To clear it, use the console command shipped with Redis: `redis-cli flushall`.
 
+##### Redis Cluster
+
+It is possible to set up and use Redis as a cluster. This configuration is more efficient and reliable for large installations. Redis Cluster can be configured in two ways, the first using [create-cluster script](https://redis.io/topics/cluster-tutorial) and the second using [Redis Sentinel](https://redis.io/topics/sentinel). If you use Platform.sh Enterprise you can benefit from the Redis Sentinel across three nodes for greater fault tolerance. Platform.sh Professional and lower versions offer Redis in single instance mode only. Configuration on eZ Platform / Symfony stays the same regardless of the Redis version, single instance mode or cluster mode.
+
 #### Memcached
 
 This cache backend is using [Memcached, a distributed caching solution](http://memcached.org/). This is the main supported cache solution for [multi server (cluster) setups](clustering.md), besides using Redis.
