@@ -2,7 +2,7 @@
 
 ## Quickstart with eZ Platform
 
-**Before you begin: [Requirements & Configuration](requirements_and_system_configuration.md)**
+**Before you begin: [Requirements and System Configuration](requirements_and_system_configuration.md)**
 
 **Getting things set up: [Installation](install_ez_platform.md)**
 

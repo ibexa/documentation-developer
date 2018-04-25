@@ -18,7 +18,7 @@ This is the center for eZ Platform documentation for developers and system admin
 
 **Want to get involved? Check out the [Community Resources](community_resources/contributing.md)**
 
-**Need Release Notes & older versions? See [Releases](releases/releases.md)**
+**Need Release Notes and older versions? See [Releases](releases/releases.md)**
 
 **Looking for eZ Publish (Version 5.x.) documentation? See [eZ Publish 5 documentation](https://doc.ez.no/display/EZP/eZ+Publish+5.x+Developer+Documentation)**
 
@@ -26,4 +26,4 @@ This is the center for eZ Platform documentation for developers and system admin
 
 !!! tip "Not a developer?"
 
-    Take a look at our [user documentation for editors and content managers](https://doc.ez.no/display/USER/Documentation).
+    Take a look at our [user documentation for editors and content managers](https://doc.ezplatform.com/projects/userguide/en/latest/).
