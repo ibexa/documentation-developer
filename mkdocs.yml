@@ -91,6 +91,8 @@ pages:
             - 'Content rendering': 'guide/content_rendering.md'
             - 'Controllers': 'guide/controllers.md'
             - 'Templates': 'guide/templates.md'
+            - 'Landing Page rendering': 'guide/landing_page_rendering.md'
+            - 'Twig functions reference': 'guide/twig_functions_reference.md'
         - Content management:
             - 'Images': 'guide/images.md'
             - 'File management': 'guide/file_management.md'
