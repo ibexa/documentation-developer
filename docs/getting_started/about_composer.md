@@ -169,7 +169,7 @@ Best practice for Bundles is described in Symfony documentation under [Best Pra
     
 !!! note "Package Dependencies"
 
-    Remeber to specify package dependencies in Composer requirements so the dependencies are clear.
+    Regardless of type you set, always remember to specify package dependencies in Composer requirements so the dependencies are clear. For example if you reply on `ezsystems/landing-page-fieldtype-bundle` make sure to add that with the major versions you support of it.
 
 ## Composer for Frontend Developers
 
