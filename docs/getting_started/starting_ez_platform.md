@@ -101,7 +101,7 @@ php bin/console server:run -h
 
 #### Further reading:
 
-<http://symfony.com/doc/current/cookbook/web_server/built_in.html>
+<http://symfony.com/doc/2.8/cookbook/web_server/built_in.html>
 
 ## Hello World!
 

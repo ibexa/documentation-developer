@@ -65,18 +65,19 @@ Now you can check out the project structure and capabilities of the system.
 
 !!! caution
 
-    It is not recommended to start your own project on demo installation.
+    It is not recommended to start your own project on the Demo installation.
 
 ### Taking a look around
 
 Once you have the Demo installed, take a look around it to familiarize yourself with the interface of eZ Platform.
 
-To access the back office of your installation, append `/admin` to its path: &lt;`your_installation path>/admin`. You will be prompted for the username and password, which by default are:
+To access the Back Office of your installation, append `/admin` to its path: &lt;`your_installation path>/admin`. You will be prompted for the username and password, which by default are:
 
 username: admin
+
 password: publish
 
-#### Back office interface overview
+#### Back Office interface overview
 
 The navigation hub at the top lets you switch between eZ Platform interface (Content) and interfaces for eZ Enterprise solutions (Page), as well as the Admin Panel.
 
