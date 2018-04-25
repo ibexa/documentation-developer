@@ -88,7 +88,7 @@ pages:
         - 'Content model': 'guide/content_model.md'
         - 'Configuration': 'guide/configuration.md'
         - Content rendering:
-            - 'Views and design': 'guide/views_and_design.md'
+            - 'Content rendering': 'guide/content_rendering.md'
             - 'Controllers': 'guide/controllers.md'
             - 'Templates': 'guide/templates.md'
         - Content management:
@@ -101,7 +101,7 @@ pages:
             - 'Custom Policies': 'guide/custom_policies.md'
         - Search:
             - 'Search': 'guide/search.md'
-            - 'Solr': 'guide/solr.md'
+            - 'Solr search engine': 'guide/solr.md'
             - 'Other search engines': 'guide/search_engines.md'
         - Multisite:
             - 'Multisite': 'guide/multisite.md'
@@ -121,9 +121,9 @@ pages:
             - 'Sessions': 'guide/sessions.md'
             - 'Security': 'guide/security.md'
         - Extending eZ Platform:
-            - 'Views': 'guide/views.md'
-            - 'Dashboard': 'guide/dashboard.md'
-            - 'Other': 'guide/other_extending.md'
+            - 'Extending eZ Platform': 'guide/extending_ez_platform.md'
+            - 'Extending the Dashboard': 'guide/dashboard.md'
+            - 'Other extensibility': 'guide/other_extensibility.md'
         - 'Service container': 'guide/service_container.md'
         - 'Personalization': 'guide/personalization.md'
         - 'Best practices': 'guide/best_practices.md'

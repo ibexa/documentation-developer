@@ -1,4 +1,4 @@
-## Extending the Dashboard
+# Extending the Dashboard
 
 eZ Platform contains a Dashboard which shows the user the most relevant Content items divided into blocks for a quick overview.
 
@@ -11,7 +11,7 @@ Adding Dashboard blocks can be done in four steps:
 1. [Create a plugin for the view](#create-a-plugin-for-the-view)
 1. [Add modules to configuration](#add-modules-to-configuration)
 
-#### Create a block view
+## Create a block view
 
 The first step is creating a view that will be added to the Dashboard. You can do it based on the Dashboard Block Asynchronous View. Then you only provide the data to display in the table.
 
@@ -71,7 +71,7 @@ In the `_getTemplateItem` method you can specify the structure of the item which
 
 If you don't intend to change the structure of the item, there's no need to override this method.
 
-#### Create a template
+## Create a template
 
 Now create a template for the view, for example:
 
@@ -116,7 +116,7 @@ Now create a template for the view, for example:
 
 You may notice that the template is prepared to handle the `loadingError`, because the asynchronous view provides it if there are problems with loading data. If no error occurs, a table with basic info about your images will be displayed.
 
-#### Create a plugin for the view
+## Create a plugin for the view
 
 The next step is adding the view and the template to the Dashboard. To do this, create a plugin for the Dashboard view.
 
@@ -156,7 +156,7 @@ YUI.add('ezs-dashboardblocksplugin', function (Y) {
 
 If you want to remove a block, use another public method, `removeBlock`, and provide it with just the block identifier.
 
-#### Add modules to configuration
+## Add modules to configuration
 
 The last thing to do is add the new modules to the yml configuration:
 

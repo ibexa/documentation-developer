@@ -1,4 +1,4 @@
-## Custom Policies
+# Custom Policies
 
 eZ Platform's content Repository uses the concept of Roles and Policies in order to authorize a User to do something (e.g. read content).
 
@@ -8,7 +8,7 @@ eZ Platform's content Repository uses the concept of Roles and Policies in order
 
 It is possible for any bundle to expose available Policies via a `PolicyProvider` which can be added to EzPublishCoreBundle's DIC extension.
 
-### PolicyProvider
+## PolicyProvider
 
 A `PolicyProvider` is an object providing a hash containing declared modules, functions and Limitations.
 
@@ -58,7 +58,7 @@ class MyPolicyProvider implements PolicyProviderInterface
 }
 ```
 
-### YamlPolicyProvider
+## YamlPolicyProvider
 
 An abstract class based on YAML is provided: `eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Security\PolicyProvider\YamlPolicyProvider`.
 It defines an abstract `getFiles()` method.
@@ -88,14 +88,14 @@ custom_module:
     custom_function_2: [CustomLimitation]
 ```
 
-#### Extending existing policies
+### Extending existing policies
 
 A `PolicyProvider` may provide new functions to a module, and additional Limitations to an existing function.
 **It is however strongly encouraged to add functions to your own Policy modules.**
 
 It is not possible to remove an existing module, function or limitation from a Policy.
 
-### Integrating the PolicyProvider into EzPublishCoreBundle
+## Integrating the PolicyProvider into EzPublishCoreBundle
 
 For a PolicyProvider to be active, it must be properly declared in EzPublishCoreBundle.
 A bundle just has to retrieve CoreBundle's DIC extension and call `addPolicyProvider()`. This must be done in the bundle's `build()` method.

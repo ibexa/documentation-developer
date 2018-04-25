@@ -1,18 +1,18 @@
-## Persistence cache
+# Persistence cache
 
 ![SPI cache diagram](img/spi_cache.png)
 
-#### Layers
+## Layers
 
 Persistence cache can best be described as an implementation of `SPI\Persistence` that decorates the main backend implementation *(currently: "Legacy Storage Engine")*.
 
 As shown in the illustration, this is done in the exact same way as the SignalSlot feature is a custom implementation of `API\Repository` decorating the main Repository. In the case of Persistence Cache, instead of sending events on calls passed on to the decorated implementation, most of the load calls are cached, and calls that perform changes purge the affected caches. This is done using a Cache service which is provided by StashBundle; this Service wraps around the Stash library to provide Symfony logging / debugging functionality, and allows cache handlers *(Memcached, Redis, Filesystem, etc.)* to be configured using Symfony configuration. For how to reuse this Cache service in your own custom code, see below.
 
-#### Transparent cache
+## Transparent cache
 
 With the persistence cache, just like with the HTTP cache, eZ Platform tries to follow principles of "Transparent caching", this can shortly be described as a cache which is invisible to the end user and to the admin/editors of eZ Platform where content is always returned "fresh". In other words, there should be no need to manually clear the cache like it was frequently the case with eZ Publish 4.x. This is possible thanks to an interface that follows CRUD *(Create Read Update Delete)* operations per domain, and the fact that the number of other operations capable of affecting a certain domain is kept to a minimum.
 
-##### Entity stored only once
+### Entity stored only once
 
 To make the transparent caching principle as effective as possible, entities are, as much as possible, only stored once in cache by their primary id. Lookup by alternative identifiers (`identifier`, `remoteId`, etc.) is only cached with the identifier as cache key and primary `id` as its cache value, and compositions *(list of objects)* usually keep only the array of primary IDs as their cache value.
 
@@ -23,7 +23,7 @@ This means a couple of things:
 - Lookup by `identifier` and list of objects needs several cache lookups to be able to assemble the result value
 - Cache warmup usually takes several page loads to reach full as identifier is first cached, then the object
 
-#### What is cached?
+## What is cached?
 
 Persistence cache aims at caching most `SPI\Persistence` calls used in common page loads, including everything needed for permission checking and URL alias lookups.
 
@@ -36,7 +36,7 @@ Notes:
 
 *For further details on which calls are cached or not, and where/how to contribute additional caches, check out the [source](https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/Core/Persistence/Cache).*
 
-### Persistence cache configuration
+## Persistence cache configuration
 
 !!! note
 
@@ -52,7 +52,7 @@ Notes:
 
 The cache system is exposed as a "cache" service, and can be reused by any other service as described in the [Using Cache service](repository.md#using-cache-service) section.
 
-#### Configuration
+### Configuration
 
 By default, configuration currently uses **FileSystem**, with `%kernel.cache_dir%/stash` to store cache files.
 
@@ -76,7 +76,7 @@ stash:
     - It does not have any limits, so can result in the application running out of PHP memory.
     - Its cache pool is by design a PHP variable and is not shared across requests/processes/servers, so data becomes stale if any other concurrent activity happens towards the Repository.
 
-##### Multi Repository setup
+#### Multi Repository setup
 
 In `ezplatform.yml` you can specify which cache pool you want to use on a SiteAccess or SiteAccess group level. The following example shows use in a SiteAccess group:
 
@@ -94,9 +94,9 @@ ezpublish:
 
     If your installation has several Repositories *(databases)*, make sure every group of sites using different Repositories also uses a different cache pool.
 
-#### Stash cache backend configuration
+### Stash cache backend configuration
 
-##### General settings
+#### General settings
 
 To check which cache settings are available for your installation, run the following command in your terminal:
 
@@ -104,7 +104,7 @@ To check which cache settings are available for your installation, run the follo
 php app/console config:dump-reference stash
 ```
 
-##### FileSystem
+#### FileSystem
 
 This cache backend uses the local filesystem, by default the Symfony cache folder. As this is per server, it does not support [multi-server (cluster) setups](clustering.md)!
 
@@ -112,7 +112,7 @@ This cache backend uses the local filesystem, by default the Symfony cache folde
 
     **We strongly discourage storing cache files on NFS**, as it defeats the purpose of the cache: speed.
 
-###### Available settings
+##### Available settings
 
 |Setting|Description|
 |------|------|
@@ -145,17 +145,17 @@ This cache backend uses the local filesystem, by default the Symfony cache folde
 
     You can also define the **path** where you want the cache files to be generated to be able to get even shorter system path for cache files.
 
-##### FileSystem cache backend troubleshooting
+#### FileSystem cache backend troubleshooting
 
 By default, Stash Filesystem cache backend stores cache to a sub-folder named after the environment (i.e. `app/cache/dev`, `app/cache/prod`). This can lead to the following issue: if different environments are used for operations, persistence cache (manipulating content, mostly) will be affected and cache can become inconsistent.
 
 To prevent this, there are 2 solutions:
 
-###### 1. Manual
+##### 1. Manual
 
 **Always** use the same environment, for web, command line, cronjobs etc.
 
-###### 2. Share stash cache across Symfony environments (prod / dev / ..)
+##### 2. Share stash cache across Symfony environments (prod / dev / ..)
 
 Either by using another Stash cache backend, or by setting Stash to use a shared cache folder that does not depend on the environment.
 
@@ -170,7 +170,7 @@ stash:
 
 This will store stash cache to `app/cache/common.`
 
-##### APC and APCu
+#### APC and APCu
 
 This cache backend is using shard memory with APC's user cache feature. As this is per server, it does not support [multi-server (cluster) setups](clustering.md) .
 
@@ -187,7 +187,7 @@ Also note that the default value for `apc.shm_size` is 128MB. However, 256MB is
 | `ttl` | The time to live of the cache in seconds; default is 500 (8.3 minutes)                                                                         |
 | `namespace` | A namespace to prefix cache keys with to avoid key conflicts with other eZ Platform sites on same eZ Platform installation; default is `null`. |
 
-#### Redis
+### Redis
 
 This cache backend is using [Redis, a in-memory data structure store](http://redis.io/), via [Redis pecl extension](https://pecl.php.net/package/redis). This is an alternative cache solution for [multi-server (cluster) setups](clustering.md), besides using Memcached.
 
@@ -226,7 +226,7 @@ stash:
 
 It is possible to set up and use Redis as a cluster. This configuration is more efficient and reliable for large installations. Redis Cluster can be configured in two ways, the first using [create-cluster script](https://redis.io/topics/cluster-tutorial) and the second using [Redis Sentinel](https://redis.io/topics/sentinel). If you use Platform.sh Enterprise you can benefit from the Redis Sentinel across three nodes for greater fault tolerance. Platform.sh Professional and lower versions offer Redis in single instance mode only. Configuration on eZ Platform / Symfony stays the same regardless of the Redis version, single instance mode or cluster mode.
 
-##### Memcache(d)
+### Memcache(d)
 
 This cache backend is using [Memcached, a distributed caching solution](http://memcached.org/). This is the main supported cache solution for [multi server (cluster) setups](clustering.md), besides using Redis.
 
@@ -263,7 +263,7 @@ This cache backend is using [Memcached, a distributed caching solution](http://m
 
 When using Memcache cache backend, you *may* use inMemory to reduce network traffic as long as you are aware of its limitations mentioned above. However you should disable in web servers where there is concurrency on updates, for instance on dedicated editorial server.
 
-##### Example with Memcache(d)
+#### Example with Memcache(d)
 
 Note that `app/config/config.yml` contains the default stash configuration. To apply the configuration below, make sure you update the existing configuration, or remove it if you want to use another configuration file.
 
@@ -287,7 +287,7 @@ stash:
 
     If Memcached does display connection errors when using the default (ascii) protocol, then switching to binary protocol *(in the stash configuration and Memcached daemon)* should resolve the issue.
 
-### Using Cache Service
+## Using Cache Service
 
 Using the internal cache service allows you to use an interface and to not have to care whether the system has been configured to place the cache in Memcached or on File system. And as eZ Platform requires that instances use a cluster-aware cache in Cluster setup, you can safely assume your cache is shared *(and invalidated)* across all web servers.
 
@@ -295,7 +295,7 @@ Using the internal cache service allows you to use an interface and to not have
 
     When reusing the cache service within your own code, it is very important to not conflict with the cache keys used by others. That is why the example of usage below starts with a unique `myApp` key. For the namespace of your own cache, you must do the same! So never clear cache using the cache service without your key specified, otherwise you'll clear all cache.
 
-##### Get Cache service
+#### Get Cache service
 
 ##### Via Dependency injection
 
@@ -322,7 +322,7 @@ Like any other service, it is also possible to get the "cache" service via conta
 $cacheService = $container->get('ezpublish.cache_pool');
 ```
 
-#### Using the cache service
+### Using the cache service
 
 Example usage of the cache service:
 
@@ -339,7 +339,7 @@ Example usage of the cache service:
 
 For more info on usage, take a look at [Stash's documentation](http://stash.tedivm.com/).
 
-#### Clearing Persistence cache
+### Clearing Persistence cache
 
 Persistence cache uses a separate Cache Pool decorator which by design prefixes cache keys with "ez\_spi". Clearing persistence cache can thus be done in the following way:
 

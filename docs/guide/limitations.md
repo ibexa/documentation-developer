@@ -1,4 +1,4 @@
-## Limitations
+# Limitations
 
 Limitations are crucial building blocks of the permissions system in eZ Platform. They provide the restrictions you can apply to a given access right to limit the right according to certain conditions.
 
@@ -17,13 +17,13 @@ Certain Limitations also serve as Role Limitations, which means they can be used
 | `evaluate` | Evaluates if the User has access to a given object in a certain context (for instance the context can be Locations when the object is `Content`), under the condition of the `Limitation` value(s). |
 | `getCriterion` | Generates a `Criterion` using `Limitation` value and current User which `SearchService` by default applies to search criteria for filtering search based on permissions. |
 
-### Available Limitations
+## Available Limitations
 
 !!! tip
 
     Core Policies with Limitations are defined in [`EzPublishCoreBundle/Resources/config/policies.yml`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/policies.yml).
 
-#### Module, function and limitations
+### Module, function and limitations
 
 Each Module contains functions, and for each function, you have Limitations. The default values are shown below.
 
@@ -36,7 +36,7 @@ There are 4 modules:
 
 If a function is absent from the tables below, it means that no Limitations can be assigned to it.
 
-##### Content
+#### Content
 
 |Functions|Class|Section|Owner|Node|Subtree|Group|Language|Other Limitations|
 |------|------|------|------|------|------|------|------|------|
@@ -52,25 +52,25 @@ If a function is absent from the tables below, it means that no Limitations can 
 |versionread|true|true|true|true|true|-|-|Status|
 |versionremove|true|true|true|true|true|-|-|Status|
 
-##### Section
+#### Section
 
 |Function|Limitations|
 |------|------|
 |assign|Class</br>Section</br>Owner</br>NewSection|
 
-##### State
+#### State
 
 |Function|Limitations|
 |------|------|
 |assign|Class</br>Section</br>Owner</br>NewSection|
 
-##### User
+#### User
 
 |Function|Limitations|
 |------|------|
 |assign|SiteAccess|
 
-### Limitation details
+## Limitation details
 
 - [BlockingLimitation](#blockinglimitation)
 - [ContentTypeLimitation](#contenttypelimitation)
@@ -89,7 +89,7 @@ If a function is absent from the tables below, it means that no Limitations can 
 - [SubtreeLimitation](#subtreelimitation)
 - [UserGroupLimitation](#usergrouplimitation)
 
-#### BlockingLimitation
+### BlockingLimitation
 
 A generic Limitation type to use when no other Limitation has been implemented. Without any Limitation assigned, a LimitationNotFoundException is thrown.
 
@@ -103,13 +103,13 @@ It is called "blocking" because it will always tell the permissions system that 
 | Criterion used  | MatchNone                                                                             |
 | Role Limitation | no                                                                                    |
 
-##### Possible values
+#### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
 |`<mixed>`|`<mixed>`|This is a generic Limitation which does not validate the values provided to it. Make sure to validate the values passed to this Limitation in your own logic.|
 
-##### Configuration
+#### Configuration
 
 As this is a generic Limitation, you can configure your custom Limitations to use it.
 Out of the box FunctionList uses it in the following way:
@@ -124,7 +124,7 @@ Out of the box FunctionList uses it in the following way:
             - {name: ezpublish.limitationType, alias: FunctionList}
 ```
 
-#### ContentTypeLimitation
+### ContentTypeLimitation
 
 A Limitation to specify if the User has access to Content with a specific Content Type.
 
@@ -136,13 +136,13 @@ A Limitation to specify if the User has access to Content with a specific Conten
 | Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\ContentTypeId` |
 | Role Limitation | no                                                                       |
 
-##### Possible values
+#### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
 |`<ContentType_id>`|`<ContentType_name>`|All valid ContentType IDs can be set as value(s)|
 
-#### LanguageLimitation
+### LanguageLimitation
 
 A Limitation to specify if the User has access to Content in a specific language.
 
@@ -154,13 +154,13 @@ A Limitation to specify if the User has access to Content in a specific language
 | Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\LanguageCode` |
 | Role Limitation | no                                                                      |
 
-##### Possible values
+#### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
 |`<Language_code>`|`<LanguageCode_name>`|All valid language codes can be set as value(s)|
 
-#### LocationLimitation
+### LocationLimitation
 
 A Limitation to specify if the User has access to Content with a specific Location, in case of `content/create` the parent Location is evaluated.
 
@@ -172,13 +172,13 @@ A Limitation to specify if the User has access to Content with a specific Locati
 | Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\LocationId` |
 | Role Limitation | no                                                                    |
 
-##### Possible values
+#### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
 |`<Location_id>`|`<Location_name>`|All valid Location IDs can be set as value(s)|
 
-#### NewObjectStateLimitation
+### NewObjectStateLimitation
 
 A Limitation to specify if the User has access to (assigning) a given `ObjectState` (to Content).
 
@@ -192,13 +192,13 @@ In the `state/assign` Policy you can combine this with `ObjectStateLimitation` t
 | Criterion used  | n/a                                                                         |
 | Role Limitation | no                                                                          |
 
-##### Possible values
+#### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
 |`<State_id>`|`<State_name>`|All valid state IDs can be set as value(s)|
 
-#### NewSectionLimitation
+### NewSectionLimitation
 
 A Limitation to specify if the User has access to (assigning) a given Section (to Content).
 
@@ -212,13 +212,13 @@ In the `section/assign` Policy you can combine this with `Section` Limitation to
 | Criterion used  | n/a                                                                     |
 | Role Limitation | no                                                                      |
 
-##### Possible values
+#### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
 |`<Session_id>`|`<Session_name>`|All valid session IDs can be set as value(s)|
 
-#### ObjectStateLimitation
+### ObjectStateLimitation
 
 A Limitation to specify if the User has access to Content with a specific ObjectState.
 
@@ -230,13 +230,13 @@ A Limitation to specify if the User has access to Content with a specific Object
 | Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\ObjectStateId` |
 | Role Limitation | no                                                                       |
 
-##### Possible values
+#### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
 |`<ObjectState_id>`|`<ObjectState_name>`|All valid ObjectState IDs can be set as value(s)|
 
-#### OwnerLimitation
+### OwnerLimitation
 
 A Limitation to specify that only the owner of the Content item gets the selected access right.
 
@@ -248,14 +248,14 @@ A Limitation to specify that only the owner of the Content item gets the selecte
 | Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\UserMetadata( UserMetadata::OWNER )` |
 | Role Limitation | no                                                                                             |
 
-##### Possible values
+#### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
 |`1`|"self"|Only the User who is the owner gets access|
 |`2`|"session"|Deprecated and works exactly like "self" in Public API since it has no knowledge of user Sessions|
 
-#### ParentContentTypeLimitation
+### ParentContentTypeLimitation
 
 A Limitation to specify if the User has access to Content whose parent Location contains a specific Content Type, used by `content/create`.
 
@@ -269,13 +269,13 @@ This Limitation combined with `ContentType` Limitation allows you to define busi
 | Criterion used  | n/a                                                                            |
 | Role Limitation | no                                                                             |
 
-##### Possible values
+#### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
 |`<ContentType_id>`|`<ContentType_name>`|All valid Content Type IDs can be set as value(s)|
 
-#### ParentDepthLimitation
+### ParentDepthLimitation
 
 A Limitation to specify if the User has access to creating Content under a parent Location within a specific depth of the tree, used for `content/create` permission.
 
@@ -287,13 +287,13 @@ A Limitation to specify if the User has access to creating Content under a paren
 | Criterion used  | n/a                                                                      |
 | Role Limitation | no                                                                       |
 
-##### Possible values
+#### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
 |`<int>`|`<int>`|All valid integers can be set as value(s)|
 
-#### ParentOwnerLimitation
+### ParentOwnerLimitation
 
 A Limitation to specify that only the Users who own all parent Locations of a Content item get a certain access right, used for `content/create` permission.
 
@@ -305,14 +305,14 @@ A Limitation to specify that only the Users who own all parent Locations of a Co
 | Criterion used  | n/a                                                                      |
 | Role Limitation | no                                                                       |
 
-##### Possible values
+#### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
 |`1`|"self"|Only the User who is the owner of all parent Locations gets access|
 |`2`|"session"|Deprecated and works exactly like "self" in Public API since it has no knowledge of user Sessions|
 
-#### ParentUserGroupLimitation
+### ParentUserGroupLimitation
 
 A Limitation to specify that only Users with at least one common *direct* User Group with the owner of the parent Location of a Content item get a certain access right, used by `content/create` permission.
 
@@ -324,13 +324,13 @@ A Limitation to specify that only Users with at least one common *direct* User G
 | Criterion used  | n/a                                                                          |
 | Role Limitation | no                                                                           |
 
-##### Possible values
+#### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
 |`1`|"self"|Only a User who has at least one common *direct* User Group with owner of the parent Location gets access|
 
-#### SectionLimitation
+### SectionLimitation
 
 A Limitation to specify if the User has access to Content within a specific Section.
 
@@ -342,13 +342,13 @@ A Limitation to specify if the User has access to Content within a specific Sect
 | Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\SectionId` |
 | Role Limitation | yes                                                                  |
 
-##### Possible values
+#### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
 |`<Session_id>`|`<Session_name>`|All valid session IDs can be set as value(s)|
 
-#### SiteAccessLimitation
+### SiteAccessLimitation
 
 A Limitation to specify to which SiteAccesses a certain permission applies, used by `user/login`.
 
@@ -360,17 +360,17 @@ A Limitation to specify to which SiteAccesses a certain permission applies, used
 | Criterion used  | n/a                                                                     |
 | Role Limitation | no                                                                      |
 
-##### Possible values
+#### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
 |`<siteaccess_hash>`|`<siteaccess_name>`|Hash is calculated in the following way in legacy in default 64bit mode: `sprintf( '%u', crc32( $siteAccessName ) )`|
 
-##### Legacy compatibility notes
+#### Legacy compatibility notes
 
 `SiteAccess` Limitation is deprecated and is not used actively in Public API, but is allowed for being able to read / create Limitations for legacy.
 
-#### SubtreeLimitation
+### SubtreeLimitation
 
 A Limitation to specify if the User has access to Content within a specific subtree, in case of `content/create` the parent subtree is evaluated.
 
@@ -382,13 +382,13 @@ A Limitation to specify if the User has access to Content within a specific subt
 | Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\Subtree`   |
 | Role Limitation | yes                                                                  |
 
-##### Possible values
+#### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
 |`<Location_pathString>`|`<Location_name>`|All valid location `pathStrings` can be set as value(s)|
 
-#### UserGroupLimitation
+### UserGroupLimitation
 
 A Limitation to specify that only Users with at least one common *direct* User Group with the owner of content get the selected access right.
 
@@ -400,7 +400,7 @@ A Limitation to specify that only Users with at least one common *direct* User G
 | Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\UserMetadata( UserMetadata::GROUP )` |
 | Role Limitation | no                                                                                             |
 
-##### Possible values
+#### Possible values
 
 |Value|UI value|Description|
 |------|------|------|

@@ -1,4 +1,4 @@
-## Solr Bundle
+# Solr search engine
 
 [ezplatform-solr-search-engine](https://github.com/ezsystems/ezplatform-solr-search-engine) aims to be a transparent drop-in replacement for the SQL-based Legacy search engine powering eZ Platform Search API by default. When you enable Solr and re-index your content, all your existing Search queries using `SearchService` will be powered by Solr automatically. This allows you to scale up your eZ Platform installation and be able to continue development locally against SQL engine, and have a test infrastructure, Staging and Prod powered by Solr. This removes considerable load from your database. See [further information on the architecture of eZ Platform](architecture.md).
 
@@ -19,7 +19,7 @@ Status of features:
     - Spell checking
     - Query time Boosting
 
-### How to set up Solr search engine
+## How to set up Solr search engine
 
 !!! note "Enable the bundle"
 
@@ -32,13 +32,13 @@ Status of features:
 
     Make sure `EzPublishSolrSearchEngineBundle` is activated with the following line in the `app/AppKernel.php` file: `new EzSystems\EzPlatformSolrSearchEngineBundle\EzSystemsEzPlatformSolrSearchEngineBundle()`
 
-#### Step 1: Configuring and starting Solr
+### Step 1: Configuring and starting Solr
 
 The example presents a configuration with single core, look to [Solr](https://cwiki.apache.org/confluence/display/solr/Solr+Cores+and+solr.xml) [documentation](https://wiki.apache.org/solr/CoreAdmin) for configuring Solr in other ways, including examples.
 
-##### Download and configure
+#### Download and configure
 
-###### Solr 4.10.4
+##### Solr 4.10.4
 
 Download and extract Solr. Solr Bundle 1.x supports Solr 4.10.4:
 
@@ -61,7 +61,7 @@ cd /opt/solr
 bin/solr start -f -a "-Dsolr.solr.home=multicore"
 ```
 
-###### Solr 6
+##### Solr 6
 
 Download and extract Solr. Solr Bundle 1.3 and higher supports Solr 6 *(currently tested with Solr 6.6.0)*:
 
@@ -79,13 +79,13 @@ cp server/solr/solr.xml server/ez
 
 # Modify solrconfig.xml to remove the section that doesn't agree with your schema
 sed -i.bak '/<updateRequestProcessorChain name="add-unknown-fields-to-the-schema">/,/<\/updateRequestProcessorChain>/d' server/ez/template/solrconfig.xml
- 
+
 # Start Solr (but apply autocommit settings below first if you need to)
 bin/solr -s ez
 bin/solr create_core -c collection1 -d server/ez/template
 ```
 
-##### Further configuration
+#### Further configuration
 
 On both Solr 4 and 6 Solr the bundle does not commit Solr index changes directly on repository updates, leaving it up to you to tune this using `solrconfig.xml` as best practice suggests.
 
@@ -105,7 +105,7 @@ This setting is **required** if you want to see the changes after publish. It is
 </autoSoftCommit>
 ```
 
-#### Step 2: Configuring the bundle
+### Step 2: Configuring the bundle
 
 The Solr Search Engine Bundle can be configured in many ways. The config further below assumes you have parameters set up for Solr DSN and search engine *(however both are optional)*, for example (in `parameters.yml`):
 
@@ -114,7 +114,7 @@ The Solr Search Engine Bundle can be configured in many ways. The config further
     solr_dsn: 'http://localhost:8983/solr'
 ```
 
-##### Single-core example (default)
+#### Single-core example (default)
 
 Out of the box in eZ Platform the following is enabled for a simple setup (in `config.yml`):
 
@@ -132,7 +132,7 @@ ez_search_engine_solr:
                 default: endpoint0
 ```
 
-##### Shared-core example
+#### Shared-core example
 
 The following example separates one language. The installation contains several similar languages,
 and one very different language that should receive proper language analysis for proper stemming and sorting behavior by Solr:
@@ -159,7 +159,7 @@ ez_search_engine_solr:
                 default: endpoint0
 ```
 
-##### Multi-core example
+#### Multi-core example
 
 If full language analysis features are preferred, then each language can be configured with separate cores.
 
@@ -216,7 +216,7 @@ ez_search_engine_solr:
                 main_translations: endpoint6
 ```
 
-#### Step 3: Configuring repository with the specific search engine
+### Step 3: Configuring repository with the specific search engine
 
 The following is an example of configuring Solr search engine, where `connection` name is same as in the example above, and engine is set to `solr`:
 
@@ -233,7 +233,7 @@ ezpublish:
 
 `%search_engine%` is a parameter that is configured in `app/config/parameters.yml`, and should be changed from its default value `legacy` to `solr` to activate Solr as the search engine.
 
-#### Step 4: Clear prod cache
+### Step 4: Clear prod cache
 
 While Symfony `dev` environment keeps track of changes to YAML files, `prod` does not, so clear the cache to make sure Symfony reads the new config:
 
@@ -241,7 +241,7 @@ While Symfony `dev` environment keeps track of changes to YAML files, `prod` doe
 php app/console --env=prod cache:clear
 ```
 
-#### Step 5: Run CLI indexing command
+### Step 5: Run CLI indexing command
 
 The last step is to execute the initial indexation of data:
 
@@ -249,7 +249,7 @@ The last step is to execute the initial indexation of data:
 php app/console --env=prod --siteaccess=<name> ezplatform:solr_create_index
 ```
 
-##### Possible exceptions
+#### Possible exceptions
 
 If you have not configured your setup correctly, some exceptions might happen on indexing.
 Here are the most common issues you may encounter:
@@ -259,16 +259,16 @@ Here are the most common issues you may encounter:
     - If your database is inconsistent in regards to file paths, try to update entries to be correct *(make sure to make a backup first)*.
 - Exception on unsupported Field Types
     - Make sure to implement all Field Types in your installation, or to configure missing ones as [NullType](../api/field_type_reference.md#null-field-type) if implementation is not needed.
-- Content is not immediately available 
+- Content is not immediately available
     - Solr Bundle on purpose does not commit changes directly on Repository updates *(on indexing)*, but lets you control this using Solr configuration. Adjust Solr's `autoSoftCommit` (visibility of changes to search index) and/or `autoCommit` (hard commit, for durability and replication) to balance performance and load on your Solr instance against needs you have for "[NRT](https://cwiki.apache.org/confluence/display/solr/Near+Real+Time+Searching)".
 - Running out of memory during indexing
     - In general make sure to run indexing using the prod environment to avoid debuggers and loggers from filling up memory.
     - Stash: Disable inMemory cache as recommended in [Persistence cache](repository.md#persistence-cache) for long-running scripts.
     - Flysystem: You can find further info in https://jira.ez.no/browse/EZP-25325.
 
-### Configuring the Solr Search Engine Bundle
+## Configuring the Solr Search Engine Bundle
 
-#### Boost configuration
+### Boost configuration
 
 !!! note
 
@@ -320,9 +320,9 @@ The configuration above will result in the following boosting (Content Type / Fi
 - `blog_post/name (meta): 10.0`
 - `article/name (meta): 2.0`
 
-### Extending the Solr Search Engine Bundle
+## Extending the Solr Search Engine Bundle
 
-#### Document field mappers
+### Document field mappers
 
 !!! note
 

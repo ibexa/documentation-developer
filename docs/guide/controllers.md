@@ -1,3 +1,5 @@
+# Controllers
+
 ## Custom rendering logic
 
 In some cases, displaying a Content item/Location via the built-in `ViewController` is not sufficient to show everything you want. In such cases you may want to **use your own custom logic** to display the current Content item/Location instead.

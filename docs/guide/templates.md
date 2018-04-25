@@ -1,4 +1,6 @@
-## Design basics
+# Templates
+
+## Templating basics
 
 To apply a template to any part of your webpage, you need three (optionally four) elements:
 

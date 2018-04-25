@@ -1,7 +1,5 @@
 # Permissions
 
-## Permission overview
-
 A User by default does not have access to anything. To get access they need to inherit Roles, typically assigned to the User Group they belong to.
 
 Each Role can contain one or more **Policies**. A Policy is a rule that gives access to a single **function** in a **module**.
@@ -23,11 +21,11 @@ To take effect, a Role must be assigned to a User or User Group. Every User or U
 
 Best practice is to avoid assigning Roles to Users directly; instead, make sure you model your content (types, structure, sections, etc.) in a way that can be reflected in generic roles. Besides being much easier to manage and keep on top of security-wise, this also makes sure your system performs best. The more Role assignments and complex Policies you add for a given User, the more complex the search/load queries powering the whole CMS will be, as they always take permissions into account.
 
-### Use Cases
+## Use Cases
 
 Here are a few examples of sets of Policies you can use to get some common permission configurations.
 
-##### Enter back end interface
+#### Enter back end interface
 
 To allow the User to enter the back end interface (PlatformUI) and view all Content, you need to set the following Policies:
 
@@ -40,7 +38,7 @@ To let the User navigate through StudioUI, you also need to add:
 
 These Policies will be necessary for all other cases below that require access to the PlatformUI.
 
-##### Create and publish content
+#### Create and publish content
 
 To create and publish content, the User must have (besides `user/login` and `content/read`) the following Policies:
 
@@ -51,7 +49,7 @@ To create and publish content, the User must have (besides `user/login` and `con
 
 This also lets the User copy and move content, as well as add new Locations to a Content item (but not remove them!).
 
-##### Create content without publishing
+#### Create content without publishing
 
 This option can be used together with eZ Enterprise's content review options. Using the following Policies, the User is able to create content, but can't publish it; instead, they must send it for review to another User with proper permissions (for example, senior editor, proofreader, etc.).
 
@@ -60,7 +58,7 @@ This option can be used together with eZ Enterprise's content review options. Us
 
 Note that without eZ Enterprise this setup should not be used, as it will not allow the User to continue working with their content.
 
-##### Restrict editing to part of the tree
+#### Restrict editing to part of the tree
 
 If you want to let the User create or edit Content, but only in one part of the content tree, you need to use Limitations. Three Limitations that could be used here are `Section` Limitation, `Node` Limitation and `Subtree` Limitation.
 
@@ -72,7 +70,7 @@ If you add a `Node` Limitation and point to the same Location, the User will be 
 
 Note that when a Policy has more than one Limitation, all of them have to apply, or the Policy will not work. For example, a `Location` Limitation on Location `1/2` and `Subtree` Limitation on `1/2/55` cannot work together, because no Location can satisfy both those requirements at the same time. If you want to combine more than one Limitation with the *or* relation, not *and*, you can split your Policy in two, each with one of these Limitations.
 
-##### Manage Locations
+#### Manage Locations
 
 To add a new Location to a Content item, the Policies required for publishing content are enough. To allow the User to remove a Location, you need to grant them the following Policies:
 
@@ -81,7 +79,7 @@ To add a new Location to a Content item, the Policies required for publishing co
 
 Hiding and revealing Location requires one more Policy: `content/hide`.
 
-##### Removing content
+#### Removing content
 
 To send content to trash, the User needs to have the same two Policies that are required for removing Locations:
 
@@ -92,11 +90,11 @@ To remove an archived version of content, the User must have the `content/versio
 
 Further manipulation of trash requires the `content/restore` Policy to restore items from trash, and `content/cleantrash` to completely delete all content from the trash.
 
-##### Registering Users
+#### Registering Users
 
 To allow anonymous users to register through the `/register` route, you need to grant the `user/register` Policy to the Anonymous User Group.
 
-### Available Policies
+## Available Policies
 
 | Module        | Function             | Effect                                                                                                                                  |
 |---------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------|

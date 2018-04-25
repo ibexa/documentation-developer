@@ -1,4 +1,4 @@
-## SignalSlots
+# SignalSlots
 
 The SignalSlot system provides a means for realizing loosely coupled dependencies in the sense that a code entity A can react on an event occurring in code entity B, without A and B knowing each other directly. This works by dispatching event information through a central third instance, the so called dispatcher:
 
@@ -13,7 +13,7 @@ Signals roughly equal events, while Slots roughly equal event handlers. An arbit
 
 Those two conditions allow the asynchronous processing of Slots. That means: It is possible to determine, by configuration, that a Slot must not receive a Signal in the very same moment it occurs, but to receive it on a later point in time, maybe after other Signals from a queue have been processed or even on a completely different server.
 
-### Signal
+## Signal
 
 A Signal represents a specific event, e.g. that a content version has been published. It consists of information that is significant to the event, e.g. the content ID and version number. Therefore, a Signal is represented by an object of a class that is specific to the Signal and that extends from `eZ\Publish\Core\SignalSlot\Signal`. The full qualified name of the Signal class is used to uniquely identify the Signal. For example, the class `eZ\Publish\Core\SignalSlot\Signal\ContentService\PublishVersionSignal` identifies the example Signal.
 
@@ -23,7 +23,7 @@ In order to work properly with asynchronous processing, Signals must not consist
 
     Signals can theoretically be sent by any object that gets hold of a SignalDispatcher (`eZ\Publish\Core\SignalSlot\SignalDispatcher`). However, at a first stage, **Signals are only sent by special implementations of the Public API to indicate core events**. These services must and will be used by default and will wrap the original service implementations.
 
-### Slot
+## Slot
 
 A Slot extends the system by realizing functionality that is executed when a certain Signal occurs. To implement a Slot, you must create a class that derives from `eZ\Publish\Core\SignalSlot\Slot`. The full qualified name of the Slot class is also used as the unique identifier of the Slot. The Slot base class requires you to implement the single method `receive()`. When your Slot is configured to listen to a certain Signal and this Signal occurs, the `receive()` method of your Slot is called.
 
@@ -36,7 +36,7 @@ Note that, due to the nature of SignalSlot, the following requirements must be f
 
 **Important**: A single Slot should not take care of processing more than one Signal. Instead, if you need to trigger same or similar actions as different Signals occur. You should encapsulate these actions into a dedicated class, of which your Slots receive an instance to trigger this action.
 
-### Example: Updating URL aliases
+## Example: Updating URL aliases
 
 Updating URL aliases is a typical process that can be realized through a SignalSlot extension for different reasons:
 

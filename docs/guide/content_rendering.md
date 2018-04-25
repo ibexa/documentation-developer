@@ -1,6 +1,6 @@
-## Introduction
+# Content rendering
 
-### The ViewController
+## The ViewController
 
 eZ Platform comes with a native controller to display your content, known as the **`ViewController`**. It is called each time you try to reach a Content item from its **Url Alias** (human-readable, translatable URI generated for any content based on URL patterns defined per Content Type). It is able to render any content created in the admin interface or via the [Public API Guide](../api/public_php_api.md#public-api-guide).
 
@@ -16,7 +16,7 @@ A Content item can also have different **view types** (full page, abstract in a 
 
 The **ViewProvider** allows you to configure template selection when using the `ViewController`, either directly from a URL or via a sub-request.
 
-#### Principle
+### Principle
 
 The ViewProvider takes its configuration from your SiteAccess in the `content_view` section. This configuration is [necessary for views to be defined](design.md#design-basics) and is a hash built in the following way:
 
@@ -263,9 +263,6 @@ This section presents the events that are triggered by eZ Platform.
 |`ezpublish.siteaccess`|After the SiteAccess matching has occurred.|Gives further control on the matched SiteAccess. The event listener method receives an `eZ\Publish\Core\MVC\Symfony\Event\PostSiteAccessMatchEvent` object.|
 |`ezpublish.pre_content_view`|Right before a view is rendered for a Content item, via the content view controller.|This event is triggered by the view manager and allows you to inject additional parameters to the content view template. The event listener method receives an `eZ\Publish\Core\MVC\Symfony\Event\PreContentViewEvent` object.|
 |`ezpublish.api.contentException`|The API throws an exception that could not be caught internally (missing field type, internal error...).|This event allows further programmatic handling (like rendering a custom view) for the exception thrown. The event listener method receives an `eZ\Publish\Core\MVC\Symfony\Event\APIContentExceptionEvent object`.|
-
-
-# Design
 
 ## Creating a new design using Bundle Inheritance
 
