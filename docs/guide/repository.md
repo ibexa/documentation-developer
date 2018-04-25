@@ -478,7 +478,7 @@ stash:
 
 ##### Redis Cluster
 
-It is possible to setup and use Redis as a cluster. This configuration is more efficient and reliable for large installations. Redis Cluster might be configured in two ways, the first using [create-cluster script](https://redis.io/topics/cluster-tutorial) and the second using [Redis Sentinel](https://redis.io/topics/sentinel). If you use Platform.sh Enterprise you can benefit from the Redis Sentinel across three nodes for greater fault tolerance. Platform.sh Professional and lower versions offer Redis in the single instance mode only. Configuration on the eZ Platform / Symfony stays the same regardless of the Redis version, single instance mode or cluster mode. 
+It is possible to set up and use Redis as a cluster. This configuration is more efficient and reliable for large installations. Redis Cluster can be configured in two ways, the first using [create-cluster script](https://redis.io/topics/cluster-tutorial) and the second using [Redis Sentinel](https://redis.io/topics/sentinel). If you use Platform.sh Enterprise you can benefit from the Redis Sentinel across three nodes for greater fault tolerance. Platform.sh Professional and lower versions offer Redis in single instance mode only. Configuration on eZ Platform / Symfony stays the same regardless of the Redis version, single instance mode or cluster mode. 
 
 ##### Memcache(d)
 
