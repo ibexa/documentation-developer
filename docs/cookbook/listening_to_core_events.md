@@ -4,12 +4,6 @@ When you interact with the Public API, and with the content repository in partic
 allowing you to react to actions triggered by the repository.
 Those signals can be received by dedicated services called **Slots**.
 
-!!! note
-
-    To learn more about SignalSlot in eZ Platform, please refer to the [dedicated documentation page](../guide/signalslots.md).
-
-    [Signals reference](../guide/signalslots.md#signals-reference)
-
 This recipe will describe how to register a Slot for a dedicated Signal.
 
 ## Registering a Slot for a given Signal
