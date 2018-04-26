@@ -2,7 +2,7 @@
 
 ## PlatformUI Navigation Hub
 
-As written in the [PlatformUI technical introduction](../../guide/extending_ez_platform_ui.md),
+As written in the [PlatformUI technical introduction](../../guide/extending_ez_platform.md),
 the Navigation Hub gives access to 4 navigation zones which have a set of navigation items.
 Each Navigation Item is actually a View in the Navigation Hub which can generate one or more links in the menu.
 Most Navigation Items can even be seen as a View of a given application route.

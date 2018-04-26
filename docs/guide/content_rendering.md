@@ -18,7 +18,7 @@ The **ViewProvider** allows you to configure template selection when using the `
 
 ### Principle
 
-The ViewProvider takes its configuration from your SiteAccess in the `content_view` section. This configuration is [necessary for views to be defined](design.md#design-basics) and is a hash built in the following way:
+The ViewProvider takes its configuration from your SiteAccess in the `content_view` section. This configuration is [necessary for views to be defined](templates.md#templating-basics) and is a hash built in the following way:
 
 ``` yaml
 #app/config/ezplatform.yml
@@ -54,7 +54,7 @@ ezpublish:
 
     You can define your template selection rules, alongside other settings, in a different bundle. [Read the cookbook recipe to learn more about it](../cookbook/importing_settings_from_a_bundle.md).
 
-    You can also [use your own custom controller to render a Content/Location](#custom-controllers).
+    You can also [use your own custom controller to render a Content/Location](controllers.md#custom-controllers).
 
 ## View Matchers
 
@@ -126,7 +126,7 @@ The following table presents all native matchers.
 
 #### Template inheritance and sub-requests
 
-Like any template, a content view template can use [template inheritance](http://symfony.com/doc/current/book/templating.html#template-inheritance-and-layouts). However keep in mind that your Content may be also requested via [sub-requests](http://symfony.com/doc/current/book/templating.html#embedding-controllers) (see below how to render [embedded Content items](#embedding-content-items)), in which case you probably don't want the global layout to be used.
+Like any template, a content view template can use [template inheritance](http://symfony.com/doc/current/book/templating.html#template-inheritance-and-layouts). However keep in mind that your Content may be also requested via [sub-requests](http://symfony.com/doc/current/book/templating.html#embedding-controllers) (see below how to render [embedded Content items](templates.md#embedding-content-items)), in which case you probably don't want the global layout to be used.
 
 If you use different templates for embedded content views, this should not be a problem. If you'd rather use the same template, you can use an extra `noLayout` view parameter for the sub-request, and conditionally extend an empty pagelayout:
 

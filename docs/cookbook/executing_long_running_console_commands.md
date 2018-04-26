@@ -1,7 +1,7 @@
 # Executing long-running console commands
 
 This page describes how to execute long-running console commands, to make sure they don't run out of memory.
-Two examples of such commands are a custom import command and the indexing command provided by the [Solr Bundle](../guide/search.md#solr-bundle).
+Two examples of such commands are a custom import command and the indexing command provided by the [Solr Bundle](../guide/solr.md).
 
 ## Reducing memory usage
 
@@ -13,7 +13,7 @@ To avoid quickly running out of memory while executing such commands you should 
     1. See [Logging and debug configuration](../guide/devops.md#logging-and-debug-configuration)
     for some of the different features enabled in development environments, which by design use memory.
 
-1. Avoid Stash ([Persistence cache](../guide/repository.md#persistence-cache-configuration)) using too much memory in prod:
+1. Avoid Stash ([Persistence cache](../guide/persistence_cache.md#persistence-cache-configuration)) using too much memory in prod:
 
     1. If your system is running, or you need to use cache, then disable Stash InMemory cache
     as it does not limit the number of items in cache and grows exponentially:

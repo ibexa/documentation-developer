@@ -96,7 +96,7 @@ With this example, you should get a first idea on how you interact with the API.
 
 Since you didn't specify any language code, your Field object is returned in the given Content item's main language.
 
-If you want to take SiteAccess languages into account, you can take advantage of `TranslationHelpers` as described in [Content Rendering](../guide/content_rendering.md).
+If you want to take SiteAccess languages into account, you can take advantage of `TranslationHelpers` as described in [Templates](../guide/templates.md#content-name).
 
 Otherwise if you want to use an altogether different language, you can specify a language code in the `getField()` call:
 

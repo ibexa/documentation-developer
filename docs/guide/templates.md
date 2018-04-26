@@ -57,7 +57,7 @@ This is what individual keys in the configuration mean:
 
 - `ezpublish` and `system` are obligatory at the start of any configuration file which defines views.
 - `default` defines the SiteAccess for which the configuration will be used. "default", as the name suggests, determines what views are used when no other configuration is chosen. You can also have separate keys defining views for other SiteAccesses.
-- `user` and `layout` point to the main template file that is used in any situation where no other template is defined. All other templates extend this one. See [below](#page-layout) for more information.
+- `user` and `layout` point to the main template file that is used in any situation where no other template is defined. All other templates extend this one.
 - `content_view` defines the view provider.
 
 !!! note
@@ -147,9 +147,9 @@ In the simplified example above, when the `child.html.twig` template is used, th
 
 Now that you know how to create a general layout with Twig templates, let's take a look at the ways in which you can render content inside them.
 
-There are several ways of placing Content items or their Fields inside a template. You can do it using one of the [Twig functions described in detail here](content_rendering.md#twig-functions-reference).
+There are several ways of placing Content items or their Fields inside a template. You can do it using one of the [Twig functions described in detail here](twig_functions_reference.md).
 
-As an example, let's look at one of those functions: [ez\_render\_field](content_rendering.md#ez95render95field). It renders one selected Field of the Content item. In its simplest form this function can look like this:
+As an example, let's look at one of those functions: [ez\_render\_field](twig_functions_reference.md#ez_render_field). It renders one selected Field of the Content item. In its simplest form this function can look like this:
 
 ``` html
 {{ ez_render_field( content, 'description' ) }}
@@ -187,7 +187,7 @@ Instead of linking to stylesheets or embedding images like usually, you can use 
 
 While it is possible to template a whole website using only Twig, a custom PHP controller gives many more options of customizing the behavior of the pages.
 
-See [Custom controllers](content_rendering.md#custom-controllers) for more information.
+See [Custom controllers](controllers.md#custom-controllers) for more information.
 
 ## Rendering Content items
 
@@ -198,7 +198,7 @@ In order to display the Fields' value the way you want, you can either manipulat
 
 #### Getting raw Field value
 
-As you have access to the Content item in the template, you can use [its public methods](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Repository/Values/Content/Content.php) to access all the information you need. You can also use the `ez_field_value` helper to get the [Field's value only](#ez_field_value). It will return the correct language if there are several, based on language priorities.
+As you have access to the Content item in the template, you can use [its public methods](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Repository/Values/Content/Content.php) to access all the information you need. You can also use the `ez_field_value` helper to get the [Field's value only](twig_functions_reference.md#ez_field_value). It will return the correct language if there are several, based on language priorities.
 
 ``` html
 {# With the following, myFieldValue will be in the Content item's main language, regardless of the current language #}
@@ -216,7 +216,7 @@ All built-in Field Types come with [their own Twig template](https://github.com/
 {{ ez_render_field( content, 'some_field_identifier' ) }}
 ```
 
-Refer to [`ez_render_field`](#ez_render_field) for further information.
+Refer to [`ez_render_field`](twig_functions_reference.md#ez_render_field) for further information.
 
 !!! tip
 
@@ -324,7 +324,7 @@ To render an embedded Content from a Twig template you need to **do a subrequest
 
 #### Using the `ez_content` controller
 
-This controller is exactly the same as [the ViewController presented above](#the-viewcontroller). It has one main `viewAction` that renders a Content item.
+This controller is exactly the same as [the ViewController presented above](content_rendering.md#the-viewcontroller). It has one main `viewAction` that renders a Content item.
 
 You can use this controller from templates with the following syntax:
 
@@ -345,7 +345,7 @@ As with any controller, you can pass arguments to `ez_content:viewLocation` or `
 |`contentId`|ID of the Content item you want to render. Only for `ez_content:viewContent`|integer|N/A|
 |`locationId`|ID of the Location you want to render. Only for `ez_content:viewLocation`|integer|Content item's main location, if defined|
 |`viewType`|The view type you want to render your Content item/Location in. Will be used by the ViewManager to select a corresponding template, according to defined rules. </br>Example: full, line, my_custom_view, etc.|string|full|
-|`layout`|Indicates if the sub-view needs to use the main layout (see [available variables in a view template](#available-variables))|boolean|false|
+|`layout`|Indicates if the sub-view needs to use the main layout (see [available variables in a view template](content_rendering.md#available-variables))|boolean|false|
 |`params`|Hash of variables you want to inject to sub-template, key being the exposed variable name.|hash|empty hash|
 
 For example:
@@ -395,7 +395,7 @@ If you want to display a default text while a controller is loaded asynchronousl
 {{ render_hinclude(controller('EzCorporateDesignBundle:Header:userLinks'), {'default': "<div style='color:red'>loading</div>"}) }}
 ```
 
-See also: [Custom controllers](#custom-controllers).
+See also: [Custom controllers](controllers.md#custom-controllers).
 
 [hinclude.js](http://mnot.github.com/hinclude/) needs to be properly included in your layout to work.
 

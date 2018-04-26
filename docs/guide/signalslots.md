@@ -121,7 +121,7 @@ class CreateUrlAliasesOnPublishSlot extends BaseSlot
 
 This section references **all available Signals** that you can listen to, triggered by ("Public") Repository API in eZ Platform.
 
-For more information, check the [SignalSlots](#signal-slots) section and the [Listening to Core events](../cookbook/listening_to_core_events.md) recipe.
+For more information, check the [Listening to Core events](../cookbook/listening_to_core_events.md) recipe.
 
 All Signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
 
