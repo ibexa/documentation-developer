@@ -4,9 +4,9 @@ eZ Platform exposes a very powerful Search API, allowing both full-text search 
 
 Currently three search engines exist in their own eZ Platform Bundles:
 
-1.  [Legacy search engine](#legacy-search-engine-bundle), a database-powered search engine for basic needs.
-1.  [Solr](#solr-bundle), an integration providing better overall performance, much better scalability and support for more advanced search capabilities **(recommended)**
-1.  [ElasticSearch](#elasticsearch-bundle), similar to Solr integration, currently not under active development *(experimental, not supported)*
+1.  [Legacy search engine](search_engines.md#legacy-search-engine-bundle), a database-powered search engine for basic needs.
+1.  [Solr](solr.md), an integration providing better overall performance, much better scalability and support for more advanced search capabilities **(recommended)**
+1.  [ElasticSearch](search_engines.md#elasticsearch-bundle), similar to Solr integration, currently not under active development *(experimental, not supported)*
 
 ## Search Criteria and Sort Clauses
 
@@ -284,7 +284,7 @@ The list below presents the Criteria available in the `eZ\Publish\API\Repository
 |`LogicalOr`|A `LogicalOperator` that takes `array` of other Criteria, makes sure one of the Criteria match.|
 |`MapLocationDistance`| `target` (FieldDefinition identifier)</br>`operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `BETWEEN`)</br>`distance` as float(s) from a position using `latitude` as float, `longitude` as float as arguments|
 |`MatchAll`|No arguments, mainly for internal use when no `filter` or `query` is provided on Query object.|
-|`MatchNone`|No arguments, mainly for internal use by the [BlockingLimitation](repository.md#blockinglimitation).|
+|`MatchNone`|No arguments, mainly for internal use by the [BlockingLimitation](limitations.md#blockinglimitation).|
 |`ObjectStateId`|`value` string(s) representing the Content Object State ID.|
 |`ParentLocationId`|`value` scalar(s) representing the Parent's Location ID.|
 |`RemoteId`|`value` string(s) representing the Content Remote ID.|

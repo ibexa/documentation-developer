@@ -9,7 +9,7 @@ In this tutorial, we will create a new part of the application allowing you to b
 - be comfortable with eZ Platform's content model (Content, Location, Content Type, etc.)
 - have basic to intermediate level in HTML5/CSS/JavaScript
 - have a basic knowledge of Symfony's concepts (Bundle, Controller and routing)
-- have read the [PlatformUI technical introduction](../../guide/extending_ez_platform_ui.md)
+- have read the [PlatformUI technical introduction](../../guide/extending_ez_platform.md)
 
 This tutorial is divided into 8 steps. The complete code base is available on GitHub in [the ExtendingPlatformUIConferenceBundle repository](https://github.com/ezsystems/ExtendingPlatformUIConferenceBundle) which also provides a tag for each step. The expected end result can be seen in [this screencast](https://youtu.be/qeww3XBj-is).
 

@@ -2,7 +2,7 @@
 
 ## Views in PlatformUI
 
-Each route defines a View to render when the route is matched. As explained in the [PlatformUI technical introduction](../../guide/extending_ez_platform_ui.md#technical-architecture),
+Each route defines a View to render when the route is matched. As explained in the [PlatformUI technical introduction](../../guide/extending_ez_platform.md#technical-architecture),
 this kind of view is called a **Main View**. Like any view, it can have an arbitrary number of sub-views.
 
 **Good practice:** keep the views small and do not hesitate to create sub-views.

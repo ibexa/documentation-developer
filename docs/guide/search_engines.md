@@ -64,7 +64,7 @@ Its connections are defined in the same way as for storage engine, and no furthe
 !!! tip
 
     The features and performance of Legacy search engine are limited.
-    If you have specific search or performance needs you should look towards using [Solr](#solr-bundle).
+    If you have specific search or performance needs you should look towards using [Solr](solr.md).
 
 ### Configuring the Repository with the Legacy search engine
 

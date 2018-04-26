@@ -61,11 +61,11 @@ In the example above you used the `ez_render_field` Twig function to render the 
 </div>
 ```
 
-You can also make use of other [Twig functions](../guide/content_rendering.md#twig-functions-reference), for example [`ez_field_value`](../guide/content_rendering.md#ez_field_value), which renders the value of the Field without a template.
+You can also make use of other [Twig functions](../guide/twig_functions_reference.md), for example [`ez_field_value`](../guide/twig_functions_reference.md#ez_field_value), which renders the value of the Field without a template.
 
 ## Different views
 
-Besides the `full` view type you can create many other view types. They can be used for example when rendering children of a folder or when embedding one Content item in another. See [Embedding Content items](../guide/content_rendering.md#embedding-content-items).
+Besides the `full` view type you can create many other view types. They can be used for example when rendering children of a folder or when embedding one Content item in another. See [Embedding Content items](../guide/templates.md#embedding-content-items).
 
 ## Listing children
 
