@@ -99,7 +99,7 @@ Since you didn't specify any language code, your Field object is returned in the
 If you want to take SiteAccess languages into account:
 
 -   Provide prioritized languages on `load()` this will be taken into account by the returned Content object when retrieving translated properties like fields, for example:
-    `$contentService->loadContent( 66, $configResolver->getParameter('languages'));` 
+    `$contentService->loadContent( 66, $configResolver->getParameter('languages'));`
     -   `ConfigResolver` is a service, so it can be obtained from Symfony Container or injected directly: `@ezpublish.config.resolver`.
     -   *Note: As of v2.0 this is planned to be done for you when you don't specify languages.*
 

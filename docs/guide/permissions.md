@@ -17,7 +17,7 @@ so when Policy has more than one Limitation, all of them have to apply. See [exa
 Remember that a Limitation specifies what a User *can* do, not what they *can't do*.
 A `Section` Limitation, for example, *gives* the User access to the selected Section, not *prohibits* it.
 
-See [Available Limitations](#available-limitations) for further information.
+See [Available Limitations](limitations.md#available-limitations) for further information.
 
 To take effect, a Role must be assigned to a User or User Group. Every User or User Group can have many roles. A User can also belong to many groups, for example, Administrators, Editors, Subscribers.
 

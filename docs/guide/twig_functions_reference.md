@@ -307,7 +307,7 @@ If the Content item does not have a translation in the current language, the mai
 
 Template blocks for built-in Field Types [reside in EzPublishCoreBundle](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/views/content_fields.html.twig).
 
-See section of [Using the Field Type's template block](#using-the-field-types-template-block) for more information.
+See section of [Using the Field Type's template block](templates.md#using-the-field-types-template-block) for more information.
 
 #### Prototype and Arguments
 

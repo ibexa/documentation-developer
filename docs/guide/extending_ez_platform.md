@@ -18,10 +18,10 @@ Available extensibility points:
 - [Dashboard](#dashboard)
 - [Tabs](#tabs)
 - [Further extensibility using Components](#further-extensibility-using-components)
-- [Universal Discovery module](#universal-discovery-module)
-- [Sub-items list](#sub-items-list)
-- [Online Editor](#online-editor)
-- [Multi-file upload](#multi-file-upload)
+- [Universal Discovery module](extending_modules.md#universal-discovery-module)
+- [Sub-items list](extending_modules.md#sub-items-list)
+- [Online Editor](extending_online_editor.md)
+- [Multi-file upload](extending_modules.md#multi-file-upload)
 
 ## Menus
 

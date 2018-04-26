@@ -99,7 +99,7 @@
     ```
 
     ### Landing Page template
-    Once published, a Landing Page will be displayed using the template according to the `content_view` setting, see [View Matchers](#view-matchers). If you want to see the Landing Page displayed using a particular template in the edit mode of Landing Page Editor before publish, you need to configure the following additional settings in `ezplatform.yml` configuration file.
+    Once published, a Landing Page will be displayed using the template according to the `content_view` setting, see [View Matchers](content_rendering.md#view-matchers). If you want to see the Landing Page displayed using a particular template in the edit mode of Landing Page Editor before publish, you need to configure the following additional settings in `ezplatform.yml` configuration file.
 
     ``` yml
     ezstudioui:

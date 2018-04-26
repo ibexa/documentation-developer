@@ -14,7 +14,7 @@ You can now add custom tags to RichText Fields.
 
 Custom tags enable you to extend the menu of available elements when editing a RichText Field with the Online Editor.
 
-See [Custom tags](../guide/extending_ez_platform_ui.md#custom-tags) for more information.
+See [Custom tags](../guide/extending_online_editor.md#custom-tags) for more information.
 
 ### Object states
 
@@ -22,7 +22,7 @@ Object states enable you to create sets of custom states and then assign them to
 
 !["Lock" Object state](img/object_state_lock.png)
 
-Object states can be used in conjunction with [permissions](../guide/permissions.md#objectstatepermission).
+Object states can be used in conjunction with [permissions](../guide/limitations.md#objectstatelimitation).
 
 ### Content on the fly
 

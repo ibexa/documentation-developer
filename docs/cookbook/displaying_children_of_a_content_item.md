@@ -75,7 +75,7 @@ This template makes use of the `items` specified in `assign_results_to` to list 
 
 ## Using a Custom Controller
 
-There are three different ways of using a Custom Controller that you can learn about in the [Custom Controller section](../guide/content_rendering.md#custom-controllers). In this case we will be applying the first of these, that is using the Custom Controller alongside the built-in ViewController.
+There are three different ways of using a Custom Controller that you can learn about in the [Custom Controller section](../guide/controllers.md#custom-controllers). In this case we will be applying the first of these, that is using the Custom Controller alongside the built-in ViewController.
 
 Configuring for the use of a Custom Controller starts with pointing to it in your standard view configuration (which you can keep in `ezplatform.yml` or a separate file, for example `views.yml`):
 
