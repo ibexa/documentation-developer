@@ -63,7 +63,7 @@ Read more about [implementing the Field Type template](6_introduce_a_template.md
 
 Viewing and editing values of the Field Type in PlatformUI requires that you extend PlatformUI, using mostly JavaScript.
 
-You should ideally read the general [extensibility documentation for PlatformUI](../../guide/extending_ez_platform_ui/). You can find information about view templates [in the next tutorial](../extending_platformui/extending_platformui_with_new_navigation/). Edit templates are not documented at the time of writing, but [Netgen](http://www.netgenlabs.com/) has published a tutorial that covers the topic: (http://www.netgenlabs.com/Blog/Adding-support-for-a-new-field-type-to-eZ-Publish-Platform-UI).
+You should ideally read the general [extensibility documentation for PlatformUI](../../guide/extending_ez_platform.md). You can find information about view templates [in the next tutorial](../extending_platformui/extending_platformui_with_new_navigation/). Edit templates are not documented at the time of writing, but [Netgen](http://www.netgenlabs.com/) has published a tutorial that covers the topic: (http://www.netgenlabs.com/Blog/Adding-support-for-a-new-field-type-to-eZ-Publish-Platform-UI).
 
 ![Final result of the tutorial](img/fieldtype_tutorial_final_result.png)
 

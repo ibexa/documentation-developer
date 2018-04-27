@@ -1,10 +1,6 @@
-# Design
+# Templates
 
-!!! tip
-
-    This page covers design in eZ Platform in a general aspect. If you want to learn how to display content and build your content templates, check [Content Rendering](content_rendering.md).
-
-## Design basics
+## Templating basics
 
 To apply a template to any part of your webpage, you need three (optionally four) elements:
 
@@ -61,7 +57,7 @@ This is what individual keys in the configuration mean:
 
 - `ezpublish` and `system` are obligatory at the start of any configuration file which defines views.
 - `default` defines the SiteAccess for which the configuration will be used. "default", as the name suggests, determines what views are used when no other configuration is chosen. You can also have separate keys defining views for other SiteAccesses.
-- `user` and `layout` point to the main template file that is used in any situation where no other template is defined. All other templates extend this one. See [below](#page-layout) for more information.
+- `user` and `layout` point to the main template file that is used in any situation where no other template is defined. All other templates extend this one.
 - `content_view` defines the view provider.
 
 !!! note
@@ -151,9 +147,9 @@ In the simplified example above, when the `child.html.twig` template is used, th
 
 Now that you know how to create a general layout with Twig templates, let's take a look at the ways in which you can render content inside them.
 
-There are several ways of placing Content items or their Fields inside a template. You can do it using one of the [Twig functions described in detail here](content_rendering.md#twig-functions-reference).
+There are several ways of placing Content items or their Fields inside a template. You can do it using one of the [Twig functions described in detail here](twig_functions_reference.md).
 
-As an example, let's look at one of those functions: [ez\_render\_field](content_rendering.md#ez95render95field). It renders one selected Field of the Content item. In its simplest form this function can look like this:
+As an example, let's look at one of those functions: [ez\_render\_field](twig_functions_reference.md#ez_render_field). It renders one selected Field of the Content item. In its simplest form this function can look like this:
 
 ``` html
 {{ ez_render_field( content, 'description' ) }}
@@ -191,58 +187,234 @@ Instead of linking to stylesheets or embedding images like usually, you can use 
 
 While it is possible to template a whole website using only Twig, a custom PHP controller gives many more options of customizing the behavior of the pages.
 
-See [Custom controllers](content_rendering.md#custom-controllers) for more information.
+See [Custom controllers](controllers.md#custom-controllers) for more information.
 
-## Creating a new design using Bundle Inheritance
+## Rendering Content items
 
-Due to the fact that eZ Platform is built using the Symfony 2 framework, it is possible to benefit from most of its stock features such as Bundle Inheritance. To learn more about this concept in general, check out the [related Symfony documentation](http://symfony.com/doc/current/cookbook/bundles/override.html).
+### Content item Fields
 
-Bundle Inheritance allows you to customize a template from a parent bundle. This is very convenient when creating a custom design for an already existing piece of code.
+A view template receives the requested Content item, holding all Fields.
+In order to display the Fields' value the way you want, you can either manipulate the Field Value object itself, or use a custom template.
 
-The following example shows how to create a customized version of a template from the DemoBundle.
+#### Getting raw Field value
 
-### Creating a bundle
+As you have access to the Content item in the template, you can use [its public methods](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Repository/Values/Content/Content.php) to access all the information you need. You can also use the `ez_field_value` helper to get the [Field's value only](twig_functions_reference.md#ez_field_value). It will return the correct language if there are several, based on language priorities.
 
-Create a new bundle to host your design using the dedicated command (from your app installation):
+``` html
+{# With the following, myFieldValue will be in the Content item's main language, regardless of the current language #}
+{% set myFieldValue = content.getFieldValue( 'some_field_identifier' ) %}
 
-``` bash
-php app/console generate:bundle
+{# Here myTranslatedFieldValue will be in the current language if a translation is available (read from SiteAccess configuration). If not, the Content item's main language will be used #}
+{% set myTranslatedFieldValue = ez_field_value( content, 'some_field_identifier' ) %}
 ```
 
-### Configuring bundle to inherit from another
+#### Using the Field Type's template block
 
-Following the related [Symfony documentation](http://symfony.com/doc/current/cookbook/bundles/inheritance.html), modify your bundle to make it inherit from the "eZDemoBundle". Then copy a template from the DemoBundle in the new bundle, following the same directory structure. Customize this template, clear application caches and reload the page. You custom design should be available.
+All built-in Field Types come with [their own Twig template](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/views/content_fields.html.twig). You can render any Field using this default template using the `ez_render_field()` helper.
 
-### Known limitation
+``` html
+{{ ez_render_field( content, 'some_field_identifier' ) }}
+```
 
-If you are experiencing problems with routes not working after adding your bundle, take a look at [this issue](https://jira.ez.no/browse/EZP-23575).
+Refer to [`ez_render_field`](twig_functions_reference.md#ez_render_field) for further information.
 
-## Reference
+!!! tip
 
-### Twig Helper
+    As this makes use of reusable templates, **using `ez_render_field()` is the recommended way and is to be considered the best practice**.
 
-eZ Platform comes with a Twig helper as a [global variable](http://symfony.com/doc/master/cookbook/templating/global_variables.html) named `ezpublish`.
+### Content name
 
-This helper is accessible from all Twig templates and allows you to easily retrieve useful information.
+The **name** of a Content item is its generic "title", generated by the repository based on the Content Type's naming pattern. It often takes the form of a normalized value of the first field, but might be a concatenation of several fields. There are 2 different ways to access this special property:
 
-|Property|Description|
-|------|------|
-|`ezpublish.siteaccess`|Returns the current SiteAccess.|
-|`ezpublish.rootLocation`|Returns the root Location object.|
-|`ezpublish.requestedUriString`|Returns the requested URI string (also known as semanticPathInfo).|
-|`ezpublish.systemUriString`|	Returns the "system" URI string. System URI is the URI for internal content controller. If current route is not an URLAlias, then the current Pathinfo is returned.|
-|`ezpublish.viewParameters`|Returns the view parameters as a hash.|
-|`ezpublish.viewParametersString`|Returns the view parameters as a string.|
-|`ezpublish.legacy`|Returns legacy information.|
-|`ezpublish.translationSiteAccess`|Returns the translation SiteAccess for a given language, or null if it cannot be found.|
-|`ezpublish.availableLanguages`|Returns the list of available languages.|
-|`ezpublish.configResolver`|Returns the config resolver.|
+- Through the name property of ContentInfo (not translated).
+- Through VersionInfo with the TranslationHelper (translated).
 
-#### Legacy property
+#### Translated name
 
-The `ezpublish.legacy` property returns an object of type [ParameterBag](http://api.symfony.com/2.8/Symfony/Component/HttpFoundation/ParameterBag.html), which is a container for key/value pairs, and contains additional properties to retrieve/handle legacy information.
+The *translated name* is held in a `VersionInfo` object, in the `names` property which consists of a hash indexed by locale. You can easily retrieve it in the right language via the `TranslationHelper` service.
 
-!!! note
+``` html
+<h2>Translated Content name: {{ ez_content_name( content ) }}</h2>
+<h3>Also works from ContentInfo: {{ ez_content_name( content.contentInfo ) }}</h3>
+```
 
-    `ezpublish.legacy` is only available **when viewing content in legacy fallback** (e.g. no corresponding Twig templates).
-    See [5.x documentation](https://doc.ez.no/display/EZP/Twig+Helper#TwigHelper-Legacy) for more information.
+The helper will by default follow the prioritized languages order. If there is no translation for your prioritized languages, the helper will always return the name in the main language.
+
+You can also **force a locale** in a second argument:
+
+``` html
+{# Force fre-FR locale. #}
+<h2>{{ ez_content_name( content, 'fre-FR' ) }}</h2>
+```
+
+!!! note "Name property in ContentInfo"
+
+    This property is the actual Content name, but **in the main language only** (so it is not translated).
+
+    ``` html
+    <h2>Content name: {{ content.contentInfo.name }}</h2>
+    ```
+
+    In PHP that would be:
+
+    ``` php
+    $contentName = $content->getContentInfo->getName();
+    ```
+
+    So make sure to use `$content->getVersionInfo->getName()`, which takes translations into account.
+
+#### Exposing additional variables
+
+It is possible to expose additional variables in a content view template. See [parameters injection in content views](../cookbook/injecting_parameters_in_content_views.md).
+
+### Embedding images
+
+The Rich Text Field allows you to embed other Content items within the Field.
+
+Content items that are identified as images will be rendered in the Rich Text Field using a dedicated template.
+
+You can determine which Content Types will be treated as images and rendered using this template in the `ezplatform.content_view.image_embed_content_types_identifiers` parameter. By default it is set to cover the Image Content Type, but you can add other types that you want to be treated as images, for example:
+
+``` yaml
+parameters:
+    ezplatform.content_view.image_embed_content_types_identifiers: ['image', 'photo', 'banner']
+```
+
+The template that is used when rendering embedded images can be set in the `ezplatform.default_view_templates.content.embed_image` container parameter:
+
+``` yaml
+parameters:
+    ezplatform.default_view_templates.content.embed_image: 'content/view/embed/image.html.twig'
+```
+
+### Adding Links
+
+#### Links to other Locations
+
+Linking to other Locations is done with a [native `path()` Twig helper](http://symfony.com/doc/2.3/book/templating.html#linking-to-pages) (or `url()` if you want to generate absolute URLs). When you pass it the Location object, `path()` will generate the URLAlias.
+
+``` html
+{# Assuming "location" variable is a valid eZ\Publish\API\Repository\Values\Content\Location object #}
+<a href="{{ path( location ) }}">Some link to a Location</a>
+```
+
+If you don't have the Location object, but only its ID, you can generate the URLAlias the following way:
+
+``` html
+<a href="{{ path( "ez_urlalias", {"locationId": 123} ) }}">Some link to a Location, with its ID only</a>
+```
+
+You can also use the Content ID. In that case the generated link will point to the Content item's main Location.
+
+``` html
+<a href="{{ path( "ez_urlalias", {"contentId": 456} ) }}">Some link from a contentId</a>
+```
+
+!!! note "Under the hood"
+
+    In the back end, `path()` uses the Router to generate links.
+
+    This makes it also easy to generate links from PHP, via the `router` service.
+
+See also: [Cross-SiteAccess links](siteaccess.md#cross-siteaccess-links)
+
+### Embedding Content items
+
+To render an embedded Content from a Twig template you need to **do a subrequest with the `ez_content` controller**.
+
+#### Using the `ez_content` controller
+
+This controller is exactly the same as [the ViewController presented above](content_rendering.md#the-viewcontroller). It has one main `viewAction` that renders a Content item.
+
+You can use this controller from templates with the following syntax:
+
+``` html
+{{ render(controller("ez_content:viewAction", {"contentId": 123, "viewType": "line"})) }}
+```
+
+The example above renders the Content item whose ID is **123** with the view type **line**.
+
+Referencing the `ez_content` controller follows the syntax of *controllers as a service*, [as explained in Symfony documentation](http://symfony.com/doc/current/cookbook/controller/service.html).
+
+##### Available arguments
+
+As with any controller, you can pass arguments to `ez_content:viewLocation` or `ez_content:viewContent` to fit your needs.
+
+|Name|Description|Type|Default value|
+|---|---|---|---|
+|`contentId`|ID of the Content item you want to render. Only for `ez_content:viewContent`|integer|N/A|
+|`locationId`|ID of the Location you want to render. Only for `ez_content:viewLocation`|integer|Content item's main location, if defined|
+|`viewType`|The view type you want to render your Content item/Location in. Will be used by the ViewManager to select a corresponding template, according to defined rules. </br>Example: full, line, my_custom_view, etc.|string|full|
+|`layout`|Indicates if the sub-view needs to use the main layout (see [available variables in a view template](content_rendering.md#available-variables))|boolean|false|
+|`params`|Hash of variables you want to inject to sub-template, key being the exposed variable name.|hash|empty hash|
+
+For example:
+
+``` html
+{{ render(
+      controller(
+          "ez_content:viewAction",
+          {
+              "contentId": 123,
+              "viewType": "line",
+              "params": { "some_variable": "some_value" }
+          }
+      )
+) }}
+```
+
+#### Rendering and cache
+
+##### ESI
+
+Just like for regular Symfony controllers, you can take advantage of [ESI](https://symfony.com/doc/current/http_cache/esi.html) and use different cache levels:
+
+``` html
+{{ render_esi(controller("ez_content:viewAction", {"contentId": 123, "viewType": "line"})) }}
+```
+
+Only scalar variables (not objects) can be sent via `render_esi`.
+
+##### Asynchronous rendering using hinclude
+
+Symfony also supports asynchronous content rendering with the help of the [hinclude.js](http://mnot.github.com/hinclude/) library.
+
+``` html
+<!--Asynchronous rendering-->
+{{ render_hinclude(controller("ez_content:viewAction", {"contentId": 123, "viewType": "line"})) }}
+```
+
+Only scalar variables (not objects) can be sent via `render_hinclude`.
+
+##### Display a default text
+
+If you want to display a default text while a controller is loaded asynchronously, you have to pass a second parameter to your `render_hinclude` Twig function.
+
+``` html
+<!--Display a default text during asynchronous loading of a controller-->
+{{ render_hinclude(controller('EzCorporateDesignBundle:Header:userLinks'), {'default': "<div style='color:red'>loading</div>"}) }}
+```
+
+See also: [Custom controllers](controllers.md#custom-controllers).
+
+[hinclude.js](http://mnot.github.com/hinclude/) needs to be properly included in your layout to work.
+
+[Refer to Symfony documentation](http://symfony.com/doc/current/book/templating.html#asynchronous-content-with-hinclude-js) for all available options.
+
+### Rendering in preview
+
+When previewing content in the back office, the draft view is rendered using the [PreviewController](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/MVC/Symfony/Controller/Content/PreviewController.php).
+
+The first draft of a yet unpublished Content item does not have a Location, because Locations are only assigned when content is published.
+To enable rendering in such cases, the PreviewController [creates a temporary virtual Location](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Helper/PreviewLocationProvider.php#L65).
+This Location has some of the properties of the future Location, such as the parent Location ID.
+However, it does not fully replace a normal Location.
+
+If the rendering template refers directly to the Location ID of the content, an error will occur.
+To avoid such situations, you can check if the Location is virtual using the `location.isDraft` flag in Twig templates, for example:
+
+``` jinja
+{% if not location.isDraft %}
+    <a href="{{ path(location) }}">{{ ez_content_name(content) }}</a>
+{% endif %}
+```
