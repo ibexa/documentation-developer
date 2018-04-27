@@ -2,7 +2,7 @@
 
 ## Two ways to generate pages in PlatformUI
 
-As written in the [PlatformUI technical introduction](../../guide/extending_ez_platform_ui.md),
+As written in the [PlatformUI technical introduction](../../guide/extending_ez_platform.md),
 pages in PlatformUI can be generated either by the browser based on the REST API (or any other API) responses
 or by doing part of the rendering on the server side for instance with some Twig templates called by a Symfony controller.
 Both options are perfectly valid and choosing one or the other is mainly a matter of taste.
@@ -488,7 +488,7 @@ but they are attached to the application components instead of the DOM elements.
 Like for DOM events, there is [a bubbling mechanism](http://yuilibrary.com/yui/docs/event-custom/#bubbling).
 For instance, here the view is firing an event and unless the propagation of the event is stopped,
 it will bubble to the view service and then to the application.
-The event basically follows [the components tree until the application](../../guide/extending_ez_platform_ui.md).
+The event basically follows [the components tree until the application](../../guide/extending_ez_platform.md).
 **An application level event is way for a deeply nested component to communicate with a higher level component.**
 
 #### Results and next step

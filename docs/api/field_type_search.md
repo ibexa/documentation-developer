@@ -93,4 +93,4 @@ You could also define a custom field definition for certain fields, like for the
 
 !!! note
 
-    If you want to learn more about the Solr implementation and detailed information about configuring it, check out the [Solr Search Bundle](../guide/search.md#solr-bundle).
+    If you want to learn more about the Solr implementation and detailed information about configuring it, check out the [Solr Search Bundle](../guide/solr.md).

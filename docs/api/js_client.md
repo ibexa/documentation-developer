@@ -1,6 +1,6 @@
 # JavaScript client
 
-This page will guide you on how to use the client, and view the [generated JavaScript API client reference](http://ezsystems.github.io/javascript-rest-client/). 
+This page will guide you on how to use the client, and view the [generated JavaScript API client reference](http://ezsystems.github.io/javascript-rest-client/).
 
 ## Using the JavaScript REST API client
 
@@ -10,7 +10,7 @@ The JavaScript REST API client is a JavaScript library meant to ease the use of 
 
 ### In the PlatformUIAssetsBundle
 
-Since the JavaScript REST client is one of the foundations of [the Platform Backend Interface](../guide/extending_ez_platform_ui.md) in v1, the client is provided by the [PlatformUIAssetsBundle](https://github.com/ezsystems/PlatformUIAssetsBundle) which is installed by default. As a result, the client is directly available and can be embedded in any Platform-generated page with the following Twig code:
+Since the JavaScript REST client is one of the foundations of [the Platform Backend Interface](../guide/extending_ez_platform.md) in v1, the client is provided by the [PlatformUIAssetsBundle](https://github.com/ezsystems/PlatformUIAssetsBundle) which is installed by default. As a result, the client is directly available and can be embedded in any Platform-generated page with the following Twig code:
 
 **Embedding the JavaScript REST client**
 
@@ -228,5 +228,3 @@ contentService.createView(query, function (error, response) {
 !!! note "REST views"
 
     REST views are designed to be persisted but this feature is not yet implemented. As a result, when calling `createView`, the POST request does not create the view but directly returns the results.
-
- 
