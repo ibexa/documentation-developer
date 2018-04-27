@@ -117,7 +117,7 @@ class EveryoneArticleTab extends AbstractTab implements OrderedTabInterface
 !!! tip
 
     The tab extends `AbstractTab`.
-    There are also [other tab types that you can extend](../../guide/extending_ez_platform_ui.md#adding-a-new-tab).
+    There are also [other tab types that you can extend](../../guide/extending_ez_platform.md#adding-a-new-tab).
 
 The tab also implements `OrderedTabInterface` (see line 15), which enables you to define the order in which the tab is displayed in the Dashboard.
 This is done using the `getOrder` method (see line 45).

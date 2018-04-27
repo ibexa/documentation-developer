@@ -31,7 +31,7 @@ For example, let's say that you need to store information about marathon contest
 
 ### Access control
 
-You can control whether a User or User group is able to translate content or not. You do this by adding a [Language limitation](repository.md#languagelimitation) to Policies that allow creating or editing content. This limitation enables you to define which Role can work with which languages in the system. (For more information of the permissions system, see [Permissions](repository.md#permissions).)
+You can control whether a User or User group is able to translate content or not. You do this by adding a [Language limitation](limitations.md#languagelimitation) to Policies that allow creating or editing content. This limitation enables you to define which Role can work with which languages in the system. (For more information of the permissions system, see [Permissions](permissions.md).)
 
 In addition, you can also control the access to the global translation list by using the Content/Translations Policy. This Policy allows users to add and remove languages from the global translation list.
 
@@ -72,7 +72,7 @@ You can also omit the route, in this case, the current route will be used (i.e. 
 
 ### Using sub-requests
 
-When using sub-requests, you lose the context of the master request (e.g. current route, current location, etc.). This is because sub-requests can be displayed separately, with [ESI or Hinclude](content_rendering.md#rendering-and-cache).
+When using sub-requests, you lose the context of the master request (e.g. current route, current location, etc.). This is because sub-requests can be displayed separately, with [ESI or Hinclude](templates.md#rendering-and-cache).
 
 If you want to render language switch links in a sub-request with a correct `RouteReference`, you must pass it as an argument to your sub-controller from the master request.
 

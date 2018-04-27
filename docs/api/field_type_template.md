@@ -2,7 +2,7 @@
 
 ## Defining your Field Type template
 
-You need to define a **template containing a block** dedicated to the Field display in order to be used by [`ez_render_field()` Twig helper](../guide/content_rendering.md#twig-functions-reference). Only with it it can be correctly displayed.
+You need to define a **template containing a block** dedicated to the Field display in order to be used by [`ez_render_field()` Twig helper](../guide/twig_functions_reference.md#ez_render_field). Only with it it can be correctly displayed.
 
 This block consists of a piece of template receiving specific variables you can use to make the display vary.
 

@@ -11,7 +11,7 @@ If you are in a hurry, the most important recommendations on this page are:
 
 - Dump optimized Composer autoload classmap
 - In development, use a full web server with vhost
-- For clustering, reduce latency to Redis/Memcached, use Varnish and [Solr](search.md#solr-bundle)
+- For clustering, reduce latency to Redis/Memcached, use Varnish and [Solr](solr.md)
 
 ## Client
 
@@ -52,4 +52,4 @@ In production setups:
 
 ### Search
 
-- Use [Solr Bundle and Solr](search.md#solr-bundle) to greatly offload your database and get more stable performance on your installation.
+- Use [Solr Bundle and Solr](solr.md) to greatly offload your database and get more stable performance on your installation.

@@ -86,7 +86,7 @@ A Content Type and its Field definitions can be modified after creation, even if
 
 !!! note
 
-    You can assign each Field defined in a Content Type to a group by selecting one of the groups in the Category drop-down. [Available groups can be configured in the content repository](repository.md#content-repository-configuration).
+    You can assign each Field defined in a Content Type to a group by selecting one of the groups in the Category drop-down. [Available groups can be configured in the content repository](configuration.md#content-repository-configuration).
 
 ## Fields
 
