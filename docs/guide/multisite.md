@@ -31,7 +31,7 @@ ezpublish:
 ### Configuration parameters
 
 The two configuration parameters, `location_id` and `excluded_uri_prefixes` are taken into account in several places,
-for example in URL alias lookups for incoming web requests, and [URL alias path generation in Twig templates](content_rendering.md#adding-links).
+for example in URL alias lookups for incoming web requests, and [URL alias path generation in Twig templates](templates.md#adding-links).
 In addition you need to consider them when generating site paths in your layout, or other places rendering site/tree structure.
 
 #### `location_id`
@@ -131,7 +131,7 @@ If not specified, the `index_page` is the configured content root.
 !!! caution
 
     Only one repository (database) can be used per domain.
-    This does not prohibit using [different repositories](repository.md#multi-repository-setup) on different subdomains.
+    This does not prohibit using [different repositories](persistence_cache.md#multi-repository-setup) on different subdomains.
     However, when using URI matching for multisite setup, all SiteAccesses sharing domain also need to share repository.
     For example:
 

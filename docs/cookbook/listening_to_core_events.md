@@ -4,17 +4,11 @@ When you interact with the Public API, and with the content repository in partic
 allowing you to react to actions triggered by the repository.
 Those signals can be received by dedicated services called **Slots**.
 
-!!! note
-
-    To learn more about SignalSlot in eZ Platform, please refer to the [dedicated documentation page](../guide/content_rendering.md#extensibility).
-
-    [Signals reference](../guide/repository.md#signals-reference)
-
 This recipe will describe how to register a Slot for a dedicated Signal.
 
 ## Registering a Slot for a given Signal
 
-As described in the [SignalSlot documentation](../guide/repository.md#signal-slots),
+As described in the [SignalSlot documentation](../guide/signalslots.md),
 a Slot is the eZ Platform equivalent of a Symfony event listener and must extend `eZ\Publish\Core\SignalSlot\Slot`.
 
 A typical implementation is the following:

@@ -76,7 +76,7 @@ The Ride template is in a block and you use the Twig helpers to render the conte
 
 !!! note
 
-    See the [Twig Functions Reference](../../guide/content_rendering.md#twig-functions-reference) for more information on Twig helpers
+    See the [Twig Functions Reference](../../guide/twig_functions_reference.md) for more information on Twig helpers
 
 !!! note
 
@@ -170,7 +170,7 @@ By default, there are only 4 variables in a view: `noLayout`, `viewbaseLayout`, 
 
 It is possible to inject whatever variable you want in a specific view.
 
-You will find more info here: [Custom controllers](../../guide/content_rendering.md#custom-controllers) and [View provider configuration](../../guide/content_rendering.md#view-provider-configuration).
+You will find more info here: [Custom controllers](../../guide/controllers.md#custom-controllers) and [View provider configuration](../../guide/content_rendering.md#view-provider-configuration).
 
 ## Create your Point of Interest line view
 

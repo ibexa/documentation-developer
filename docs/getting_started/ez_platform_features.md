@@ -22,11 +22,11 @@ Access control system allows you to define very fine-grained rights for all your
 
 eZ Platform is based on Symfony full stack and takes advantage of Symfony's bundle architecture. You can easily make use of existing external bundles, and organize your own project in bundles for easier management and sharing.
 
-### [Extensibility](../guide/extending_ez_platform_ui.md)
+### [Extensibility](../guide/extending_ez_platform.md)
 
 eZ Platform is extensible at all levels, from content model to content rendering to interface.
 
-For a comprehensive discussion of all features, take a look at [the Guide to eZ Platform](../guide/introduction.md).
+For a comprehensive discussion of all features, take a look at [the Guide to eZ Platform](../guide/architecture.md).
 
 ## eZ Platform Demo
 

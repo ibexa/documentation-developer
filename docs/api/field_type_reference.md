@@ -48,7 +48,7 @@ Legacy Search/Storage Engine index is limited to 255 characters in database desi
 so formatted and unformatted text blocks will only index the first part.
 In case of multiple selection Field Types like Keyword, Selection, Country, etc.,
 only the first choices are indexed. They are indexed only as a text blob separated by string separator.
-Proper indexing of these Field Types is done with [Solr Search Bundle](../guide/search.md#solr-bundle).
+Proper indexing of these Field Types is done with [Solr Search Bundle](../guide/solr.md).
 
 ### Other Field Types
 
@@ -471,7 +471,7 @@ $settings = [
 
 ### Template rendering
 
-The template called by [the `ez_render_field()` Twig function](../guide/content_rendering.md#ez_render_field) while rendering a Date Field has access to the following parameters:
+The template called by [the `ez_render_field()` Twig function](../guide/twig_functions_reference.md#ez_render_field) while rendering a Date Field has access to the following parameters:
 
 | Parameter | Type     |Description|
 |-----------|----------|------------|
@@ -587,7 +587,7 @@ $settings = [
 
 ### Template rendering
 
-The template called by the [`ez_render_field()` Twig function](../guide/content_rendering.md#ez_render_field) while rendering a Date Field has access to the following parameters:
+The template called by the [`ez_render_field()` Twig function](../guide/twig_functions_reference.md#ez_render_field) while rendering a Date Field has access to the following parameters:
 
 | Parameter | Type     | Default | Description|
 |-----------|----------|---------|------------|
@@ -831,7 +831,7 @@ When displayed using `ez_render_field`, an Image Field will output this type of
 <img src="var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB/image_medium.png" width="844" height="430" alt="Alternative text" />
 ```
 
-The template called by the [`ez_render_field()` Twig function](../guide/content_rendering.md#ez_render_field) while rendering a Image Field accepts the following parameters:
+The template called by the [`ez_render_field()` Twig function](../guide/twig_functions_reference.md#ez_render_field) while rendering a Image Field accepts the following parameters:
 
 | Parameter | Type     | Default        | Description |
 |-----------|----------|----------------|-------------|
@@ -1228,11 +1228,11 @@ $keywordValue = new Value( "php5,css3,html5" );
 
     The placement of zones is defined in a template which is a part of the layout configuration. You can modify the template in order to define your own layout of zones.
 
-    For information on how to create and configure new blocks for the Landing Page, see [Landing Page layouts](content_rendering.md#landing-page-layouts).
+    For information on how to create and configure new blocks for the Landing Page, see [Landing Page layouts](../guide/landing_page_rendering.md#landing-page-layouts).
 
     ### Blocks
 
-    For information on how to create and configure new blocks for the Landing Page, see [Landing Page blocks](content_rendering.md#landing-page-blocks).
+    For information on how to create and configure new blocks for the Landing Page, see [Landing Page blocks](../guide/landing_page_rendering.md#landing-page-blocks).
 
     ### Rendering Landing Pages
 
@@ -1372,7 +1372,7 @@ $MapLocationValue = new MapLocation\Value(
 
 ### Template rendering
 
-The template called by [the `ez_render_field()` Twig function](../guide/content_rendering.md#ez_render_field) while rendering a Map Location Field accepts the following parameters:
+The template called by [the `ez_render_field()` Twig function](../guide/twig_functions_reference.md#ez_render_field) while rendering a Map Location Field accepts the following parameters:
 
 |Parameter|Type|Default|Description|
 |------|------|------|------|
@@ -2145,7 +2145,7 @@ $settings = [
 
 ### Template rendering
 
-The template called by [the `ez_render_field()` Twig function](../guide/content_rendering.md#ez_render_field) while rendering a Date Field has access to the following parameters:
+The template called by [the `ez_render_field()` Twig function](../guide/twig_functions_reference.md#ez_render_field) while rendering a Date Field has access to the following parameters:
 
 | Parameter | Type     | Default | Description|
 |-----------|----------|---------|------------|
