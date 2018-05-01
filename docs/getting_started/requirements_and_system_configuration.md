@@ -16,11 +16,11 @@ These setups are tested by QA and are generally recommended setups. For security
 
 ||Debian|Ubuntu|RHEL / CentOS|
 |------|------|------|------|
-|Operating system|9.x "Stretch"|17.10 "Artful"|7.x|
-|Web Server|Nginx 1.10</br>Apache 2.4|Nginx 1.12</br>Apache 2.4|Nginx 1.10 *(latest via [RHSCL](https://access.redhat.com/documentation/en/red-hat-software-collections/))*</br>Apache 2.4|
+|Operating system|9.x "Stretch"|18.04 LTS "Bionic"|7.x|
+|Web Server|Nginx 1.10</br>Apache 2.4|Nginx 1.14</br>Apache 2.4|Nginx 1.10 *(latest via [RHSCL](https://access.redhat.com/documentation/en/red-hat-software-collections/))*</br>Apache 2.4|
 |DBMS|MariaDB 10.1</br>MySQL 5.5|MariaDB 10.1</br>MySQL 5.7\*|MariaDB 10.1 *(latest via RHSCL)*</br>MariaDB 10.0 *(latest via RHSCL)*</br>MySQL 5.6 *(latest via RHSCL)*</br>MariaDB 5.5|
-|PHP|PHP 7.1 _(Either using packages in [testing](https://packages.debian.org/buster/php7.1), or [deb.sury.org](https://deb.sury.org/))_|PHP 7.1|PHP 7.1 *(latest via RHSCL)*|
-|PHP packages|php-cli</br>php-fpm</br>php-mysql or php-pgsql</br>php-xml</br>php-intl</br>php-curl</br>php-gd</br>*or* php-imagick|php-cli</br>php-fpm *(for use with nginx)*</br>php-mysql or php-pgsql</br>php-xml</br>php-mbstring</br>php-intl</br>php-curl</br>php-gd or php-imagick|php-cli</br>php-fpm *(for use with nginx)*</br>php-mysqlnd or php-pgsql</br>php-xml</br>php-mbstring</br>php-process</br>php-intl</br>php-pear *(optional, provides pecl)*</br>php-gd or php-imagick *(via [pecl](https://pecl.php.net/package/imagick))*</br>php-memcached *(recommended, via [pecl](https://pecl.php.net/package/memcached))*|
+|PHP|PHP 7.1 _(Either using packages in [testing](https://packages.debian.org/buster/php7.1), or [deb.sury.org](https://deb.sury.org/))_|PHP 7.2|PHP 7.1 *(latest via RHSCL)*|
+|PHP packages|php-cli</br>php-fpm</br>php-mysql or php-pgsql</br>php-xml</br>php-intl</br>php-curl</br>php-gd *or* php-imagick|php-cli</br>php-fpm</br>php-mysql or php-pgsql</br>php-xml</br>php-mbstring</br>php-intl</br>php-curl</br>php-gd *or* php-imagick|php-cli</br>php-fpm</br>php-mysqlnd or php-pgsql</br>php-xml</br>php-mbstring</br>php-process</br>php-intl</br>php-pear *(optional, provides pecl)*</br>php-gd *or* php-imagick *(via [pecl](https://pecl.php.net/package/imagick))*|
 |Cluster PHP packages</br>|php-redis *(via [pecl](https://pecl.php.net/package/redis))*|php-redis *(via [pecl](https://pecl.php.net/package/redis))*|php-redis *(via [pecl](https://pecl.php.net/package/redis))*|
 
 |||
@@ -37,18 +37,21 @@ Supported setups are those we perform automated testing on. For security and per
 
 -   OS: Linux
 -   Web Servers:
-    -   Apache 2.4, with required modules `mod_php`, `mod_rewrite`, `mod_env` and recommended: `mod_setenvif`, `mod_expires`
-    -   Nginx 1.10, 1.12
+    -   Apache 2.4, with required modules `mod_rewrite`, `mod_env` and recommended: `mod_setenvif`, `mod_expires`
+        - event MPM is recommended, if you for some reason need to use _prefork_ you'll also need `mod_php` module
+    -   Nginx 1.10, 1.12, 1.14
 -   DBMS
     -   MySQL 5.5.3 and higher, 5.6\*, 5.7\*
     -   MariaDB 5.5, 10.0, 10.1, 10.2\*
 -   PHP
     -   7.1
+    -   7.2
 
 - Cluster
-    - Redis or Memcached
-    - Solr or SQL *(but does not provide same featureset or performance as Solr)*
+    - Redis or Memcached *(Not recommended as it has large performance issues with cache tagging by Symfony Cache component)*
+    - Solr or SQL based Search engine *(but does not provide same featureset or performance as Solr)*
     - NFS or S3
+    - [Varnish](http://varnish-cache.org/) 4.1 or higher with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst) *or* [Fastly](https://www.fastly.com/) using [our bundle provided with eZ Platform Enterprise](../guide/http_cache.md#serving-varnish-through-fastly) *(for HttpCache)*
 
 -   PHP extensions/modules
     -   curl
@@ -71,7 +74,7 @@ _\* Note: Mysql 5.7 and MariaDB 10.2 changes how certain queries are parsed and 
 
 ### Development and Experimental setups
 
-eZ Platform, the foundation of all eZ software, can theoretically run and execute on many more setups than the ones listed as recommended and supported, including any [operating system supported by PHP](https://wiki.php.net/platforms), on a PHP 5.6 version or higher that pass the [Symfony requirements](http://symfony.com/doc/3.4/reference/requirements.html), using cache solutions technically supported by [Stash](http://www.stashphp.com/Drivers.html), using databases supported by [Doctrine DBAL](http://doctrine-dbal.readthedocs.org/en/latest/reference/configuration.html#driver), and using a binary file storage solution supported by [FlySystem](https://github.com/thephpleague/flysystem#adapters).
+eZ Platform, the foundation of all eZ software, can theoretically run and execute on many more setups than the ones listed as recommended and supported, including any [operating system supported by PHP](https://wiki.php.net/platforms), on a PHP 7.1 version or higher that pass the [Symfony requirements](http://symfony.com/doc/3.4/reference/requirements.html), using cache solutions technically supported by Symfony Cache component, using databases supported by [Doctrine DBAL](http://doctrine-dbal.readthedocs.org/en/latest/reference/configuration.html#driver), and using a binary file storage solution supported by [FlySystem](https://github.com/thephpleague/flysystem#adapters).
 
 Examples of Development setups:
 
@@ -85,7 +88,7 @@ Examples of Experimental setups:
 -   IO: Azure, (S)FTP, GridFS, [...](https://flysystem.thephpleague.com/core-concepts/#adapters)
 -   Databases: Postgres, MSSQL, Oracle *(As in technically supported by Doctrine DBAL which we use, but none supported by our installer at the moment, and Oracle and MSSQL is not covered by automated testing)*
 
-**While all these options are not actively supported by eZ Systems**, they are community supported. Meaning you can use them with both open source edition and enterprise edition, however if you encounter issues best way to handle them is via contribution,  and any such efforts made to improve support for these technologies can contribute to the technology being supported by eZ Systems in the near future.
+**While all these options are not actively supported by eZ Systems**, they are community supported. Meaning you can use them with both open source edition and enterprise edition, however if you encounter issues best way to handle them is via contribution, and any such efforts made to improve support for these technologies can contribute to the technology being supported by eZ Systems in the near future.
 
 ## Client
 
