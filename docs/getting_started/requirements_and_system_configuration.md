@@ -48,7 +48,7 @@ Supported setups are those we perform automated testing on. For security and per
     -   7.2
 
 - Cluster
-    - Redis or Memcached *(Not recommended as it has large performance issues with cache tagging by Symfony Cache component)*
+    - Redis _(preferably with a volatile-ttl instance for sessions, and a allkeys-lru/allkeys-lfu instance for persistance cache)_
     - Solr or SQL based Search engine *(but does not provide same featureset or performance as Solr)*
     - NFS or S3
     - [Varnish](http://varnish-cache.org/) 4.1 or higher with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst) *or* [Fastly](https://www.fastly.com/) using [our bundle provided with eZ Platform Enterprise](../guide/http_cache.md#serving-varnish-through-fastly) *(for HttpCache)*
@@ -74,7 +74,7 @@ _\* Note: Mysql 5.7 and MariaDB 10.2 changes how certain queries are parsed and 
 
 ### Development and Experimental setups
 
-eZ Platform, the foundation of all eZ software, can theoretically run and execute on many more setups than the ones listed as recommended and supported, including any [operating system supported by PHP](https://wiki.php.net/platforms), on a PHP 7.1 version or higher that pass the [Symfony requirements](http://symfony.com/doc/3.4/reference/requirements.html), using cache solutions technically supported by Symfony Cache component, using databases supported by [Doctrine DBAL](http://doctrine-dbal.readthedocs.org/en/latest/reference/configuration.html#driver), and using a binary file storage solution supported by [FlySystem](https://github.com/thephpleague/flysystem#adapters).
+eZ Platform, the foundation of all eZ software, can theoretically run and execute on many more setups than the ones listed as recommended and supported, including any [operating system supported by PHP](https://wiki.php.net/platforms), on a PHP 7.1 version or higher that pass the [Symfony requirements](http://symfony.com/doc/3.4/reference/requirements.html), using cache solutions technically supported by [Symfony Cache component](https://symfony.com/doc/3.4/components/cache/cache_pools.html), using databases supported by [Doctrine DBAL](http://doctrine-dbal.readthedocs.org/en/latest/reference/configuration.html#driver), and using a binary file storage solution supported by [FlySystem](https://github.com/thephpleague/flysystem#adapters).
 
 Examples of Development setups:
 
