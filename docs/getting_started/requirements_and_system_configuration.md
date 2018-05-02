@@ -2,9 +2,9 @@
 
 ## eZ Platform Cloud / Platform.sh
 
-If you're using a PaaS provider such as the native [eZ Platform Cloud](https://ez.no/Products/eZ-Platform-Cloud), or it's underlying [Platform.sh](https://platform.sh/hosting/php/ez/) offering, you can get started using the bundled config which contains recommended initial setup, and thus skip](starting_ez_platform.md#hello-world) this step.
+If you're using a PaaS provider such as the native [eZ Platform Cloud](https://ez.no/Products/eZ-Platform-Cloud), or it's underlying [Platform.sh](https://platform.sh/hosting/php/ez/) offering, you can get started using the bundled config which contains recommended initial setup, and thus [skip](starting_ez_platform.md#hello-world) this step.
 
-_NOTE: Usage on eZ Platform Cloud/Platform.sh is limited to the futureset of [platform.sh](https://docs.platform.sh/), however if you need to use additonal service like for instance S3, GridFS, .. this is possible as long as you host that service yourself and setup needed credentials to use it as you would normally do when hosting the application on-premise._
+_NOTE: Usage on eZ Platform Cloud/Platform.sh is limited to the futureset of [platform.sh](https://docs.platform.sh/), however if you need to use additonal services like for instance S3, GridFS, .. this is possible as long as you host that service yourself and setup needed credentials to use it, as you would normally do when hosting the application on-premise._
 
 ## Server
 
