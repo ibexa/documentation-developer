@@ -73,6 +73,7 @@ However, this is far from ideal. You want this to be part of our bundle, so that
 To do so, you are going to make your Bundle's dependency injection extension (`DependencyInjection/EzSystemsTweetFieldTypeExtension.php`) implement `Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface`. This interface will let you prepend bundle configuration:
 
 ``` php
+<?php
 // TweetFieldTypeBundle/DependencyInjection/EzSystemsTweetFieldTypeExtension.php
 
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
@@ -133,4 +134,4 @@ You should now be able to display a Content item with this Field Type from the f
 
 ⬅ Previous: [Implement the Legacy Storage Engine Converter](5_implement_the_legacy_storage_engine_converter.md)
 
-Next: [Allow to add and edit Field in Back Office](7_allow_to_add_and_edit_field_in_back_office.md) ➡
+Next: [Allow adding and editing the Field in Back Office](7_allow_adding_and_editing_the_field_in_back_office.md) ➡

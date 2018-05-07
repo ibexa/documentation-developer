@@ -43,7 +43,7 @@ pages:
             - '4. Register the Field Type as a service': 'tutorials/field_type/4_register_the_field_type_as_a_service.md'
             - '5. Implement the legacy storage engine': 'tutorials/field_type/5_implement_the_legacy_storage_engine_converter.md'
             - '6. Introduce a template': 'tutorials/field_type/6_introduce_a_template.md'
-            - '7. Add content and edit views': 'tutorials/field_type/7_add_content_and_edit_views.md'
+            - '7. Allow adding and editing the Field in Back Office': 'tutorials/field_type/7_allow_adding_and_editing_the_field_in_back_office.md'
             - '8. Add a validation': 'tutorials/field_type/8_add_a_validation.md'
         - Extending PlatformUI with new navigation:
             - 'Extending PlatformUI with new navigation': 'tutorials/extending_platformui/extending_platformui_with_new_navigation.md'

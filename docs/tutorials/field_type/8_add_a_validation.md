@@ -155,6 +155,7 @@ We would like to offer a way to the user to input a list of authors (upon which 
 This is a minimal example of our FormMapper:
 
 ``` php
+<?php
 // eZ/Publish/FieldType/Tweet/FormMapper.php
 
 namespace EzSystems\TweetFieldTypeBundle\eZ\Publish\FieldType\Tweet;
@@ -188,6 +189,7 @@ class FormMapper implements FieldDefinitionFormMapperInterface, FieldValueFormMa
 In our case, the TweetValueValidator expects authorList to be an array. On the other hand, our input field has TextType, so it will return a string. To solve this, we will transform data from an array to a comma-separated string and in the other way using a DataTransformer:
 
 ``` php
+<?php
 // Form/StringToArrayTransformer.php
 
 namespace EzSystems\TweetFieldTypeBundle\Form;
@@ -285,6 +287,7 @@ Also, we will register the new template in the configuration by editing the `ez_
 
 The last thing to do is to make sure that validation data is properly saved into and retrieved from the database. To achieve this, we will implement these two functions in LegacyConverter file:
 ``` php
+<?php
 // eZ/Publish/FieldType/Tweet/LegacyConverter.php
 
 public function toStorageFieldDefinition(FieldDefinition $fieldDef, StorageFieldDefinition $storageDef)
@@ -312,4 +315,4 @@ public function toFieldDefinition(StorageFieldDefinition $storageDef, FieldDefin
 You should now be able to configure a list of authors when editing a Content Type with the Tweet Field Type.
 You should also have your tweets validated in accordance to this list when you create or edit Content Item with this Field Type. 
 
-⬅ Previous: [Allow to add and edit Field in Back Office](7_allow_to_add_and_edit_field_in_back_office.md)
+⬅ Previous: [Allow adding and editing the Field in Back Office](7_allow_adding_and_editing_the_field_in_back_office.md)

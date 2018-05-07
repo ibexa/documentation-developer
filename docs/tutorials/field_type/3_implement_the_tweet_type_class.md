@@ -271,6 +271,7 @@ The interface has one method: `getEmbed( $statusUrl )` that, given a tweet's URL
 Your Field Type doesn't have a constructor yet. You will create one, with an instance of `Twitter\TwitterClientInterface` as the argument, and store it in a new protected property:
 
 ``` php
+<?php
 // eZ/Publish/FieldType/Tweet/Type.php:
 
 use EzSystems\TweetFieldTypeBundle\Twitter\TwitterClientInterface;

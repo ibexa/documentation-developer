@@ -1,10 +1,11 @@
-# Allow to add and edit Field in Back Office
+# Allow adding and editing the Field in Back Office
 
-To able to add and edit Content Item with our Field Type using Back Office, we will implement a FormMapper with FieldValueFormMapperInterface. 
+To be able to add and edit Content Item with our Field Type using Back Office, we will implement a FormMapper with FieldValueFormMapperInterface. 
 DataTransformer is also needed in order to correctly transform our Value Object into single input field.
 
 # FormMapper
 ``` php
+<?php
 // eZ/Publish/FieldType/Tweet/FormMapper.php
 
 namespace EzSystems\TweetFieldTypeBundle\eZ\Publish\FieldType\Tweet;
@@ -63,6 +64,7 @@ Next thing is to register the FormMapper as a service, so the system would know 
 As mentioned earlier, we also need to tell our FormMapper how to transform ValueObject into a single string which contains URL to given tweet. We do this by creating an implementation of DataTransformerInterface.
 
 ``` php
+<?php
 // Form/TweetValueTransformer.php
 namespace EzSystems\TweetFieldTypeBundle\Form;
 
