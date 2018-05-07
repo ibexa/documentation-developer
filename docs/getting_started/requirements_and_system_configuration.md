@@ -2,9 +2,9 @@
 
 ## eZ Platform Cloud / Platform.sh
 
-If you're using a PaaS provider such as the native [eZ Platform Cloud](https://ez.no/Products/eZ-Platform-Cloud), or it's underlying [Platform.sh](https://platform.sh/hosting/php/ez/) offering, you can get started using the bundled config which contains recommended initial setup, and thus [skip](starting_ez_platform.md#hello-world) this step.
+If you're using a PaaS provider such as the native [eZ Platform Cloud](https://ez.no/Products/eZ-Platform-Cloud), or its underlying [Platform.sh](https://platform.sh/hosting/php/ez/) offering, you can get started using the bundled config which contains recommended initial setup, and thus [skip this step](starting_ez_platform.md#hello-world).
 
-_NOTE: Usage on eZ Platform Cloud/Platform.sh is limited to the futureset of [platform.sh](https://docs.platform.sh/), however if you need to use additonal services like for instance S3, GridFS, .. this is possible as long as you host that service yourself and setup needed credentials to use it, as you would normally do when hosting the application on-premise._
+_NOTE: Usage on eZ Platform Cloud/Platform.sh is limited to the featureset of [platform.sh](https://docs.platform.sh/), however you can also use additional services like for instance S3, GridFS, etc., as long as you host that service yourself and set up the necessary credentials to use it, as you would normally do when hosting the application on-premise._
 
 ## Server
 
@@ -29,7 +29,7 @@ These setups are tested by QA and are generally recommended setups. For security
 |------|------|
 |Search|Solr (recommended; for performance, features and search quality):</br></br>Solr 6 or higher *Currently tested with Solr 6.6.2*</br></br>Oracle Java/Open JDK: 8 |
 |Graphic Handler|GraphicsMagick or ImageMagick or GD|
-|[Clustering](../guide/clustering.md)|Linux NFS *or* S3/EFS *(for IO, aka binary files stored in content repository)*</br>Redis 3.0 or higher *(preferably a seperate volatile-ttl instance for sessions, and a allkeys-lru/allkeys-lfu instance for cache)*</br>[Varnish](http://varnish-cache.org/) 4.1 or higher with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst) *or* [Fastly](https://www.fastly.com/) using [our bundle provided with eZ Platform Enterprise](../guide/http_cache.md#serving-varnish-through-fastly) *(for HttpCache)*|
+|[Clustering](../guide/clustering.md)|Linux NFS *or* S3/EFS *(for IO, aka binary files stored in content repository)*</br>Redis 3.0 or higher *(preferably a separate volatile-ttl instance for sessions, and an allkeys-lru/allkeys-lfu instance for cache)*</br>[Varnish](http://varnish-cache.org/) 4.1 or higher with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst) *or* [Fastly](https://www.fastly.com/) using [our bundle provided with eZ Platform Enterprise](../guide/http_cache.md#serving-varnish-through-fastly) *(for HttpCache)*|
 |Filesystem|Linux ext3 / ext4|
 |Package manager|Composer|
 
@@ -40,7 +40,7 @@ Supported setups are those we perform automated testing on. For security and per
 -   OS: Linux
 -   Web Servers:
     -   Apache 2.4, with required modules `mod_rewrite`, `mod_env` and recommended: `mod_setenvif`, `mod_expires`
-        - event MPM is recommended, if you for some reason need to use _prefork_ you'll also need `mod_php` module
+        - event MPM is recommended, if you need to use _prefork_ you'll also need the `mod_php` module
     -   Nginx 1.10, 1.12, 1.14
 -   DBMS
     -   MySQL 5.5.3 and higher, 5.6\*, 5.7\*
@@ -50,7 +50,7 @@ Supported setups are those we perform automated testing on. For security and per
     -   7.2
 
 - Cluster
-    - Redis _(preferably a seperate volatile-ttl instance for sessions, and a allkeys-lru/allkeys-lfu instance for cache)_
+    - Redis _(preferably a separate volatile-ttl instance for sessions, and an allkeys-lru/allkeys-lfu instance for cache)_
     - Solr or SQL based Search engine *(but does not provide same featureset or performance as Solr)*
     - NFS or S3
     - [Varnish](http://varnish-cache.org/) 4.1 or higher with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst) *or* [Fastly](https://www.fastly.com/) using [our bundle provided with eZ Platform Enterprise](../guide/http_cache.md#serving-varnish-through-fastly) *(for HttpCache)*
