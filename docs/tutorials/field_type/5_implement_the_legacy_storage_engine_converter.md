@@ -34,9 +34,8 @@ The Converter will be placed alongside the Type and Value definitions (the kerne
 A Legacy Converter must implement the `eZ\Publish\Core\Persistence\Legacy\Content\FieldValue\Converter` interface:
 
 ``` php
-// TweetFieldTypeBundle/eZ/Publish/FieldType/Tweet/LegacyConverter.php
-
 <?php
+// TweetFieldTypeBundle/eZ/Publish/FieldType/Tweet/LegacyConverter.php
 
 namespace EzSystems\TweetFieldTypeBundle\eZ\Publish\FieldType\Tweet;
 
