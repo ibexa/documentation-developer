@@ -2,7 +2,7 @@
 
 We want to add the option to configure a list of authors whose tweets are allowed. To achieve this, we have to:
 - implement `validateValidatorConfiguration()` and `validate()` methods in the Type class
-- implement the FormMapper
+- implement an additional interface in the FormMapper
 - add field definition edit view
 - implement `toStorageFieldDefinition()` and `toFieldDefinition()` methods in LegacyConverter
 
@@ -40,7 +40,7 @@ For the TextLine Field Type included in eZ Platform, an example array passed to 
 ];
 ```
 
-The structure of this array depends on each Field Type implementation. The best practice is to mimic what is done in native Field Types.
+The structure of this array depends on each Field Type implementation. The best practice is to mimic what is done in native Field Types. 
 
 Each level one key is the name of a validator, as acknowledged by the Type. That key contains a set of parameter name / parameter value rows. You must check that:
 
@@ -149,22 +149,24 @@ private function isAuthorApproved($author, $validatorConfiguration)
 
 Earlier we validated the URL with a regular expression. Now, if the configuration of your Field Type's instance contains a TweetValueValidator key, you will check that the username in the status URL matches one of the valid authors.
 
-## Implement FormMapper
+## Implement FieldDefinitionFormMapperInterface in FormMapper
 
-We would like to offer a way to the user to input a list of authors (upon which the data will be validated). To achieve this, we will implement a FormMapper that allows us to define the necessary input field.
+We would like to offer a way to the user to input a list of authors (upon which the data will be validated). To achieve this, we will add additional functionality in FormMapper which allows us to define the necessary input field.
 This is a minimal example of our FormMapper:
 
-```php
+``` php
+<?php
 // eZ/Publish/FieldType/Tweet/FormMapper.php
 
 namespace EzSystems\TweetFieldTypeBundle\eZ\Publish\FieldType\Tweet;
 
 use EzSystems\RepositoryForms\Data\FieldDefinitionData;
 use EzSystems\RepositoryForms\FieldType\FieldDefinitionFormMapperInterface;
+use EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormInterface;
 
-class FormMapper implements FieldDefinitionFormMapperInterface
+class FormMapper implements FieldDefinitionFormMapperInterface, FieldValueFormMapperInterface
 {
     public function mapFieldDefinitionForm(FormInterface $fieldDefinitionForm, FieldDefinitionData $data)
     {
@@ -172,15 +174,22 @@ class FormMapper implements FieldDefinitionFormMapperInterface
             ->add('authorList', TextType::class, [
                 'required' => false,
                 'property_path' => 'validatorConfiguration[TweetValueValidator][authorList]',
+                'translation_domain' => 'eztweet_fieldtype',
                 'label' => 'field_definition.eztweet.authorList'
             ]);
+    }
+    
+    public function mapFieldValueForm(FormInterface $fieldForm, FieldData $data)
+    {
+        // (...)
     }
 }
 ```
 
 In our case, the TweetValueValidator expects authorList to be an array. On the other hand, our input field has TextType, so it will return a string. To solve this, we will transform data from an array to a comma-separated string and in the other way using a DataTransformer:
 
-```php
+``` php
+<?php
 // Form/StringToArrayTransformer.php
 
 namespace EzSystems\TweetFieldTypeBundle\Form;
@@ -215,52 +224,46 @@ class StringToArrayTransformer implements DataTransformerInterface
 ```
 
 Then, we can use this DataTransformer in our FormMapper like this:
-```php
+``` php
 // eZ/Publish/FieldType/Tweet/FormMapper.php
 
-namespace EzSystems\TweetFieldTypeBundle\eZ\Publish\FieldType\Tweet;
-
-use EzSystems\RepositoryForms\Data\FieldDefinitionData;
-use EzSystems\RepositoryForms\FieldType\FieldDefinitionFormMapperInterface;
-use EzSystems\TweetFieldTypeBundle\Form\StringToArrayTransformer;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\FormInterface;
-
-class FormMapper implements FieldDefinitionFormMapperInterface
-{
+// (...)
     public function mapFieldDefinitionForm(FormInterface $fieldDefinitionForm, FieldDefinitionData $data)
     {
         $fieldDefinitionForm
             ->add(
-                // Creating from FormBuilder as we need to add a DataTransformer.
+            // Creating from FormBuilder as we need to add a DataTransformer.
                 $fieldDefinitionForm->getConfig()->getFormFactory()->createBuilder()
                     ->create('authorList', TextType::class, [
                         'required' => false,
                         'property_path' => 'validatorConfiguration[TweetValueValidator][authorList]',
+                        'translation_domain' => 'eztweet_fieldtype',
                         'label' => 'field_definition.eztweet.authorList'
                     ])
                     ->addModelTransformer(new StringToArrayTransformer())
                     // Deactivate auto-initialize as we're not on the root form.
-                    ->setAutoInitialize(false)->getForm()
+                    ->setAutoInitialize(false)
+                    ->getForm()
             );
     }
-}
-```
-
-Next thing is to register the FormMapper as a service, so the system would know to use it to automatically add the input field to the Content Type edit form. You can read more about services and [service container in the documentation](../../guide/service_container/). To register the FormMapper as a service, let's add the following lines to `fieldtypes.yml`:
-```yml
+// (...)
+```  
+Next thing is to tell our system that our FormMapper right now works also as FieldDefinitionFormMapper. In order to do that add an extra tag definition in `fieldtypes.yml`:
+``` yml
 // Resources/config/fieldtypes.yml
 
     ezsystems.tweetbundle.fieldtype.eztweet.form_mapper:
         class: EzSystems\TweetFieldTypeBundle\eZ\Publish\FieldType\Tweet\FormMapper
         tags:
+            - {name: ez.fieldFormMapper.value, fieldType: eztweet}
             - {name: ez.fieldFormMapper.definition, fieldType: eztweet}
+        arguments: ['@ezpublish.api.service.field_type']
 ```
 
 ## Add field definition edit view
 
 We have the new part of the form defined, but we still need to show it to the user. To do that, we will create a file containing the view:
-```html
+``` html
 // Resources/views/platformui/content_type/edit/eztweet.html.twig
 
 {% block eztweet_field_definition_edit %}
@@ -273,7 +276,7 @@ We have the new part of the form defined, but we still need to show it to the us
 ```
 
 Also, we will register the new template in the configuration by editing the `ez_field_templates.yml` file:
-```yml
+``` yml
 // Resources/config/ez_field_templates.yml
 
         fielddefinition_edit_templates:
@@ -283,7 +286,8 @@ Also, we will register the new template in the configuration by editing the `ez_
 ## Implement `toStorageFieldDefinition()` and `toFieldDefinition()` methods in LegacyConverter
 
 The last thing to do is to make sure that validation data is properly saved into and retrieved from the database. To achieve this, we will implement these two functions in LegacyConverter file:
-```php
+``` php
+<?php
 // eZ/Publish/FieldType/Tweet/LegacyConverter.php
 
 public function toStorageFieldDefinition(FieldDefinition $fieldDef, StorageFieldDefinition $storageDef)
@@ -309,6 +313,6 @@ public function toFieldDefinition(StorageFieldDefinition $storageDef, FieldDefin
 `toStorageFieldDefinition()` converts a field definition to a legacy one using the `dataText1` field (which in this example means converting it to json), and `toFieldDefinition()` converts a stored legacy field definition to an API field definition (which means converting it back to an array according to validation schema).
 
 You should now be able to configure a list of authors when editing a Content Type with the Tweet Field Type.
-You should also have your tweets validated in accordance to this list when you create or edit Content Item with this Field Type.
+You should also have your tweets validated in accordance to this list when you create or edit Content Item with this Field Type. 
 
-⬅ Previous: [Add content and edit views](7_add_content_and_edit_views.md)
+⬅ Previous: [Allow adding and editing the Field in Back Office](7_allow_adding_and_editing_the_field_in_back_office.md)
