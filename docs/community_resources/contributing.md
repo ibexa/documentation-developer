@@ -1,6 +1,6 @@
 # How to Contribute
 
-Are you ready to become a part of the eZ Community? There are several ways in which you can contribute, from spotting and reporting bugs to commenting on the documentation to discussing innovative uses on Slack to coding new bundles.
+Are you ready to become a part of the eZ Community? There are several ways in which you can contribute, from spotting and reporting bugs to committing to the documentation to discussing innovative uses on Slack to coding new bundles.
 
 If you're looking to contribute code, whether in form of corrections or separate bundles with features, the open-source nature of eZ Platform lets you do this without any fuss using GitHub. Take a look at [Using GitHub](#using-github) and our [Development guidelines](#development-guidelines) to get started.
 
@@ -22,7 +22,7 @@ The first thing you should do in order to be able to get involved and have feedb
 
 !!! caution "Security issues"
 
-    If you discover a security issue, please do not report it using regular channels, but instead take a look at <https://doc.ez.no/Security>.
+    If you discover a security issue, please do not report it using regular channels, but instead take a look at [Security section](https://doc.ez.no/Security).
 
 ### How to find an existing issue
 
@@ -50,24 +50,26 @@ This way you can get and provide feedback during the issue's life. You are also 
 
 ### How to report an issue
 
-If you cannot find an issue matching what you are about to report using the search page, you need to create a new one.
+If you cannot find an issue matching what you are about to report using the search page, you can create a new one.
 Click **Create** at the top of the bugtracker window and fill in the form:
 
-- **Project**: Select **eZ Publish/Platform** if your issue affects platform as a standalone project, or **eZ Platform Enterprise Edition** if it is needed in order to reproduce the issue.
-- **Issue type**: Choose **Bug** or **Improvement** depending on what you are reporting, do not use other issue types (they are for internal use only).
-- **Summary**: Write a short sentence describing what you are reporting.
-- **Security level**: Select security if you are reporting a security issue. It will make your issue visible only to you and the core dev team until it is fixed and distributed.
-- **Priority**: Select the priority you consider the issue to be. Please try to keep a cool head while selecting it. A 1 pixel alignment bug is not a "blocker" :)
-- **Component/s**: This is important, as it will make your issue appear on the radar (dashboards, filters) of people dealing with various parts of eZ projects.
-- **Affect version/s**: Add the versions of the application you experienced the issue on.
-- **Fix version/s**: Leave blank.
-- **Assignee**: Leave blank, unless you are willing to work on the issue yourself.
-- **Reporter**: Leave as is (yourself).
-- **Environment**: Enter specific information regarding your environment that could be relevant in the context of the issues.
-- **Description**: This is the most important part of the issue report. In case of a bug, it **must** contain explicit steps to reproduce to your issue. Anybody should be able to reproduce it at first try. In case of an improvement, it needs to contain use cases and detailed information regarding the expected behavior.
-- **Labels**: Leave blank.
-- **Epic Link**: Leave blank.
-- **Sprint**: Leave blank.
+|||
+|------|------|
+|**Project**|Select **eZ Publish/Platform** if your issue affects platform as a standalone project, or **eZ Platform Enterprise Edition** if it is needed in order to reproduce the issue.|
+|**Issue type**|Choose **Bug** or **Improvement** depending on what you are reporting, do not use other issue types (they are for internal use only).|
+|**Summary**|Write a short sentence describing what you are reporting.|
+|**Security level**|Select security if you are reporting a security issue. It will make your issue visible only to you and the core dev team until it is fixed and distributed.|
+|**Priority**|Select the priority you consider the issue to be. Please try to keep a cool head while selecting it. A 1 pixel alignment bug is not a "blocker".|
+|**Component/s**|This is important, as it will make your issue appear on the radar (dashboards, filters) of people dealing with various parts of eZ projects.|
+|**Affect version/s**|Add the versions of the application you experienced the issue on.|
+|**Fix version/s**|Leave blank.|
+|**Assignee**|Leave blank, unless you are willing to work on the issue yourself.|
+|**Reporter**|Leave as is (yourself).|
+|**Environment**|Enter specific information regarding your environment that could be relevant in the context of the issues.|
+|**Description**|This is the most important part of the issue report. In case of a bug, it **must** contain explicit steps to reproduce your issue. Anybody should be able to reproduce it at first try. In case of an improvement, it needs to contain use cases and detailed information regarding the expected behavior.|
+|**Labels**|Leave blank.|
+|**Epic Link**|Leave blank.|
+|**Sprint**|Leave blank.|
  
 ## Contributing translations
 
@@ -160,25 +162,25 @@ eZ Platform is a web software that is reached via HTTP in most cases, out of the
 We aim to follow the [latest](http://trac.tools.ietf.org/wg/httpbis/trac/wiki#HTTP1.1Deliverables) stable HTTP specification, and industry best practice:
 
 - **Expose our data in a RESTful way**
-    - GET, HEAD, OPTIONS & TRACE methods are [safe](http://tools.ietf.org/html/draft-ietf-httpbis-p2-semantics-21#section-5.2.1) (otherwise known as [nullipotent](http://en.wiktionary.org/wiki/nullipotent)), as in: should never cause changes to resources (note: things like writing a line in a log file are not considered resource changes)
-    - PUT & DELETE methods are [idempotent](http://tools.ietf.org/html/draft-ietf-httpbis-p2-semantics-21#section-5.2.2), as in multiple identical requests should all have the same result as a single request
-    - GET & HEAD methods should be [cacheable](http://tools.ietf.org/html/draft-ietf-httpbis-p2-semantics-21#section-5.2.3) both on client side, server-side and proxies between, as further defined in the HTTP [specification](http://tools.ietf.org/html/draft-ietf-httpbis-p6-cache-21)
+    - GET, HEAD, OPTIONS and TRACE methods are [safe](http://tools.ietf.org/html/draft-ietf-httpbis-p2-semantics-21#section-5.2.1) (otherwise known as [nullipotent](http://en.wiktionary.org/wiki/nullipotent)), as in: should never cause changes to resources (note: things like writing a line in a log file are not considered resource changes)
+    - PUT and DELETE methods are [idempotent](http://tools.ietf.org/html/draft-ietf-httpbis-p2-semantics-21#section-5.2.2), as in multiple identical requests should all have the same result as a single request
+    - GET and HEAD methods should be [cacheable](http://tools.ietf.org/html/draft-ietf-httpbis-p2-semantics-21#section-5.2.3) both on client side, server-side and proxies between, as further defined in the HTTP [specification](http://tools.ietf.org/html/draft-ietf-httpbis-p6-cache-21)
     - As PUT is for replacing a resource, we should use [PATCH](http://tools.ietf.org/html/rfc5789) in cases where only partial replacement is intended
 - **Authenticated traffic**
     - Should use HTTPS
 - **Session based traffic**
     - Should follow recommendations for *Authenticated traffic*
     - Should use a per user session [CSRF](http://en.wikipedia.org/wiki/Cross-site_request_forgery) token on all requests using un-safe HTTP methods (POST, PUT, DELETE, PATCH, ...)
-    - Should expire session id, session data and CSRF token on login, logout and session time out, except:
-        - On login session data from previous session id is moved to new session id, keeping for instance shopping basket on login
+    - Should expire session ID, session data and CSRF token on login, logout and session time out, except:
+        - On login session data from previous session ID is moved to new session ID, keeping for instance shopping basket on login
     - Should avoid timing attacks by using a random amount of time for login operation
-    - Should never use Session id in URI's. And this feature ("SID") must always be disabled on production servers
+    - Should never use Session ID in URI's. And this feature ("SID") must always be disabled on production servers
 - **Sessions**
-    - Should not be used to store large amounts of data; store data in database and id's in session if needed
+    - Should not be used to store large amounts of data; store data in database and ID's in session if needed
     - Should not store critical data: if user deletes his cookies or closes his browser session data is lost
     - Should use an ID generated with enough randomness to prevent prediction or brute-force attacks
 - **Cookies (especially session cookies)**
-    - Should never store sensitive data in cookies (only exception is session id in session cookie)
+    - Should never store sensitive data in cookies (only exception is session ID in session cookie)
     - Should always set *Full domain* to avoid [cross-subdomain cooking](http://en.wikipedia.org/wiki/Session_fixation#Attacks_using_cross-subdomain_cooking) when on shared domain.
     - Should set *HttpOnly* flag to reduce risk of attacks such as [cross-site cooking](http://en.wikipedia.org/wiki/Session_fixation#Attacks_using_cross-site_cooking) and [cross-site scripting](http://en.wikipedia.org/wiki/Cross-site_scripting "Cross-site scripting")
     - Should set *Secure flag* if HTTPS is used (as recommended above)
@@ -186,16 +188,16 @@ We aim to follow the [latest](http://trac.tools.ietf.org/wg/httpbis/trac/wiki#HT
 - **Headers**
     - Should never include input data from user input or data from database without sanitizing it
 - **Redirects**
-    - Should never take url from user input (example: POST parameter), instead allow identifiers instead that are understood by the backend
+    - Should never take URL from user input (example: POST parameter), instead allow identifiers instead that are understood by the backend
 - **User input**
-    - Should always be validated, sanitized, casted and filtered to avoid [XSS](http://en.wikipedia.org/wiki/Cross-site_scripting) & [clickjacking](http://en.wikipedia.org/wiki/Clickjacking) attacks
+    - Should always be validated, sanitized, casted and filtered to avoid [XSS](http://en.wikipedia.org/wiki/Cross-site_scripting) and [clickjacking](http://en.wikipedia.org/wiki/Clickjacking) attacks
         - Note: this includes variables in the php supervariable `$_SERVER` as well (e.g. hostname should not be trusted)
 - **User file uploads**
     - Should follow recommendations for "User input" to validate file name
     - Should place uploaded files in a non public folder to avoid access to execute uploaded file or in case of assets white list the type
-    - Should be appropriately limited in size to avoid DOS attacks on disk space, cpu usage by antivirus tool etc...
+    - Should be appropriately limited in size to avoid DOS attacks on disk space, CPU usage by antivirus tool etc...
 - **File downloads**
-    - Should not rely on user provided file path for non public files, instead use a synthetic id
+    - Should not rely on user provided file path for non public files, instead use a synthetic ID
 - **Admin operations**
     - May be placed on a different (sub)domain then the front end website to avoid session stealing across front and backend.
 - **Fully support being placed behind a reverse proxy like [Varnish](https://www.varnish-cache.org/)**
@@ -222,15 +224,15 @@ As stated in the HTTP section, all unsafe requests to the web server should have
 
 All data that comes from backend and in return comes from user input should always be escaped, in case of Twig templates this done by default, but in case of PHP templates, Ajax and other not Twig based output this must be handled manually.
 
-Output escaping must be properly executed according to the desired format, eg. javascript vs. html, but also taking into account the correct character set (see eg. output escaping fallacy when not specifying charset encoding in [htmlspecialchars](http://www.php.net/htmlspecialchars))
+Output escaping must be properly executed according to the desired format, eg. javascript vs. html, but also taking into account the correct character set (see e.g. output escaping fallacy when not specifying charset encoding in [htmlspecialchars](http://www.php.net/htmlspecialchars))
 
 #### Admin
 
-Admin operations that can have a severe impact on the web applications should require providing password and require it again after some time has gone, normally 10 - 20 minutes, on all session based interfaces.
+Admin operations that can have a severe impact on the web applications should require providing password and require it again after some time has gone, normally 10-20 minutes, on all session based interfaces.
 
 ### PHP
 
-For now see our comprehensive coding standard & guidelines [wiki page](https://github.com/ezsystems/ezpublish-kernel/wiki/codingstandards) on github.
+For now see our comprehensive coding standard and guidelines [wiki page](https://github.com/ezsystems/ezpublish-kernel/wiki/codingstandards) on github.
 
 !!! note "eZ Coding Standards Tools"
 
@@ -238,7 +240,7 @@ For now see our comprehensive coding standard & guidelines [wiki page](https://g
 
 #### Public API
 
-The PHP Public API provided in eZ Platform is in most cases in charge of checking permissions to data for you, but some API's are not documented to throw UnauthorizedException, which means that it is the consumer of the API's who is responsible for checking permissions.
+The PHP public API provided in eZ Platform is in most cases in charge of checking permissions to data for you, but some API's are not documented to throw `UnauthorizedException`, which means that it is the consumer of the API's who is responsible for checking permissions.
 
 The following example shows how this is done in the case of loading users:
 
@@ -262,7 +264,7 @@ if ( !$repository->canUser( 'content', 'read', $user ) )
 
 Output must always be escaped when displaying data from the database.
 
-### Data & Databases
+### Data and databases
 
 - Values coming from variables should always be appropriately quoted or binded in SQL statements
 - The SQL statements used should never be created by hand with one version per supported database, as this increases both the maintenance load and the chances for security-related problems
@@ -272,10 +274,10 @@ Output must always be escaped when displaying data from the database.
 #### Sessions
 
 - Business logic should not depend on database connections being either persistent or not persistent
-- The connection to the database should always be opened as late as possible during page execution. Ideally, to improve scalability, a web page executing no queries should not connect to the db at all (note that closing the db connection as soon as possible is a tricky problem, as we expect to support persistent db connections as well for absolute best performances)
-- The same principle applies to configurations where a master/slave db setup is in use: the chance for a failure due to a database malfunction should not increase with the number of db servers at play, but actually decrease
+- The connection to the database should always be opened as late as possible during page execution. Ideally, to improve scalability, a web page executing no queries should not connect to the database at all (note that closing the database connection as soon as possible is a tricky problem, as we expect to support persistent database connections as well for absolute best performances)
+- The same principle applies to configurations where a master/slave database setup is in use: the chance for a failure due to a database malfunction should not increase with the number of database servers at play, but actually decrease
 - It is recommended to avoid as much as possible statements which alter the current session, as they slow down the application, are brittle and hard to debug.
-    Point in case; if a db session locks a table then is abruptly terminated, the table might stay locked for a long time
+    Point in case; if a database session locks a table then is abruptly terminated, the table might stay locked for a long time
 
 #### Transactions
 
@@ -291,9 +293,9 @@ Output must always be escaped when displaying data from the database.
 
 Striving to support Mysql 5, PostgreSQL xx and Oracle 10, the following limitations apply:
 
-- Tables, columns and other db objects should not use names longer than 30 chars
+- Tables, columns and other database objects should not use names longer than 30 chars
 - Varchar columns with a definition of *default "" not null* are discouraged
-- For SELECTs, offset and limit have to be handled by the php layer, not hardcoded in the sql
+- For SELECTs, offset and limit have to be handled by the php layer, not hardcoded in the SQL
 - Never treat a NULL varchar value as semantically different from an empty string value
 - The select list of a query cannot contain the same field multiple times
 - For GROUP BY statements, all fields in the group by clause should be in the select list as well
@@ -306,13 +308,10 @@ While we are doing our best to make sure our documentation fulfills all your nee
 
 ### How to contribute to documentation
 
-This documentation is written on GitHub and generated into a static site.
+This documentation is written on GitHub and generated into a static site. It is organized in branches. Each branch is a version of documentation (which in turn corresponds to a version of eZ Platform).
 
 If you are familiar with the git workflow, you will find it easy to contribute.
 Please create a Pull Request for any, even the smallest change you want to suggest.
-
-Please note that the documentation is organized in branches.
-Each branch is a version of documentation (which in turn corresponds to a version of eZ Platform).
 
 #### Contributing through the GitHub website
 
@@ -322,7 +321,7 @@ Introduce your changes, at the bottom of the page provide a title and a descript
 
 This will lead to a screen for creating a Pull Request. Enter the name and description and select "Create pull request".
 
-You pull request will be reviewed by the team and, when accepted, merged with the rest of the repository.
+Your pull request will be reviewed by the team and, when accepted, merged with the rest of the repository.
 You will be notified of all activity related to the pull request by email.
 
 #### Contributing through git
@@ -346,7 +345,7 @@ git rebase origin/<branch name>
 !!! note "Choosing a branch"
 
     Always contribute to the **earliest** branch that a change applies to.
-    For example, if a change concerns versions v1.9 and v.1.10, make your contribution to the `v1.9` branch.
+    For example, if a change concerns versions v1.7 and v.1.13, make your contribution to the `v1.7` branch.
     The changes will be merged forward to be included in later versions as well.
 
 1. Create a new local branch: `git checkout -b <name of your new branch>`.
@@ -359,19 +358,17 @@ git rebase origin/<branch name>
 
 1. Now push your changes to your fork: `git push fork <name of your branch>`.
 
-1. Finally, you can go to the project's page on GitHub and you should see a "Compare and pull request" button.
-Activate it, write a description and select "Create pull request". If your contribution solves a JIRA issues,
-start the pull request's name with the issue number. Now you can wait for your changes to be reviewed and merged.
+1. Finally, you can go to the project's page on GitHub and you should see a "Compare and pull request" button. Activate it, write a description and select "Create pull request". If your contribution solves a JIRA issues, start the pull request's name with the issue number. Now you can wait for your changes to be reviewed and merged.
 
 #### Contributing outside git and GitHub
 
-- **Create a JIRA issue.** You can also report any omissions or inaccuracies you find by creating a JIRA issue. See [Report and follow issues](#report-and-follow-issues) on how to do this. Remember to add the "Documentation" component to your issue to make sure we don't lose track of it.
-- **Visit Slack.** The \#documentation-contrib channel on [eZ Community Slack team](http://ez-community-on-slack.herokuapp.com) is the place to drop your comments, suggestions, or proposals for things you'd like to see covered in documentation. (You can use the link to get an auto-invite to Slack).
-- **Contact the Doc Team.** If you'd like to add to any part of the documentation, you can also contact the Doc Team directly at <doc-team@ez.no.>
+- **Create a JIRA issue.** You can also report any omissions or inaccuracies you find by creating a JIRA issue. See [Report and follow issues](#report-and-follow-issues) on how to do this. Remember to add the "Documentation" component to your issue to make sure we don't lose track of it
+- **Visit Slack.** The `\#documentation-contrib` channel on [eZ Community Slack team](http://ez-community-on-slack.herokuapp.com) is the place to drop your comments, suggestions, or proposals for things you'd like to see covered in documentation. (You can use the link to get an auto-invite to Slack)
+- **Contact the Doc Team.** If you'd like to add to any part of the documentation, you can also contact the Doc Team directly at <doc-team@ez.no>
 
-### Writing guidelines, short version
+### Writing guidelines
 
-*(see [below](#writing-guidelines-full-version) for more detailed style guidelines we apply)*
+*(see [Style Guide](#style-guide) below for more details)*
 
 - Write in (GitHub-flavored) Markdown
 - Try to keep lines no longer than 120 characters. If possible, break lines in logical places, for example at sentence end.
@@ -406,7 +403,7 @@ Here's a list of most important Markdown rules as we use them:
 - A heading starts with a number of hash marks (#): level 1 heading starts with **#**, level two heading with **##**, and so on.
 - In an unordered list each item starts with a dash (**-**) and a space. Items within one list are not separated with blank lines.
 - In an ordered list each item starts with a number, period and a space. Here items within one list are also not separated.
-- You can put *emphasis* on text by surrounding it with single asterisks, and **bold** the text using double asterisks.
+- You can put *emphasis* on text by surrounding it with single asterisks (*), and **bold** the text using double asterisks.
 - You can mark part of a text as code (`monospace`) by surrounding it with single backticks (**`**).
 - If you need a longer, multi-line piece of code, put it in a separate paragraph and add a line with three backticks (**```**)
 - To add a link, enter the link title in square brackets immediately followed by the link proper in regular brackets.
@@ -417,7 +414,7 @@ You can find a detailed description of all features of Markdown [in its syntax d
 
 This page is written in Markdown. View it on GitHub and select **Raw** in the upper right corner to see an example of a document in Markdown.
 
-### Writing guidelines, full version
+### Style Guide
 
 *(see [above](#writing-guidelines-short-version) for a summary or writing guidelines)*
 
@@ -427,7 +424,7 @@ This page is written in Markdown. View it on GitHub and select **Raw** in the up
 - Do not use "we", unless specifically referring to the company.
 - Avoid using other personal pronouns. If necessary, use "they," not "he," "he or she," "he/she."
 - Use active, not passive as much as possible.
-- Clearly say which parts of instructions are obligatory ("To do X you need to/must do Y") and which are optional ("If you want to A, you may do B.")
+- Clearly say which parts of instructions are obligatory ("To do X you need to/must do Y") and which are optional ("If you want A, you may do B.")
 - Do not use Latin abbreviations, besides "etc." and "e.g."
 
 #### Punctuation
@@ -455,7 +452,7 @@ This page is written in Markdown. View it on GitHub and select **Raw** in the up
 - Use numbered lists to list steps in a procedure or items that are explicitly counted
 (e.g.: "There are three ways to ..." followed by a numbered list). In other cases, use a bullet list.
 - If a procedure has long steps that would require multiple paragraphs, consider using numbered low-level headings instead.
-- Use code marking (backtick quotes) for commands, parameters, filenames, etc.
+- Use code marking (backtick quotes) for commands, parameters, file names, etc.
 
 #### Naming
 
@@ -498,7 +495,7 @@ in the first line in a *comment proper for the language*.
 - **Code:** In code blocks, if possible, always provide language.
 Pygments does not have syntax highlighting for Twig, so use `html` instead.
 - **Lists:** Use dashes for unordered lists and "1." for ordered list
-(yes, always "1", it will be interpreted as proper numbers in the list anyway).
+(yes, always "1", it will be interpreted as proper numbers in the list).
 - **Images:** Always add the `alt` text in square brackets.
 Add title in quotations marks after the image link (inside parenthesis) if you want a caption under the image.
 - **Note boxes:** Write the following way. Possible types are `note`, `tip`, `caution`.
