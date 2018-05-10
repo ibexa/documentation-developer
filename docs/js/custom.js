@@ -44,4 +44,30 @@ $(document).ready(function () {
     $('.md-content a.md-icon').each(function() {
         $(this).attr('href', $(this).attr('href').replace('master/docs/', branchName + '/docs/'));
     });
+
+    if (!/^\d+\.\d+$/.test(branchName) && branchName !== 'latest') {
+        branchName = 'master';
+    }
+
+    docsearch({
+        apiKey: 'bfb5bd7cad971d31ef8be599174334f3',
+        indexName: 'ezplatform',
+        inputSelector: '#search_input',
+        algoliaOptions: {
+            'facetFilters': ["lang:en", "version:" + branchName],
+            'hitsPerPage': 10
+        },
+        debug: false
+    });
+
+    $(document).on("keypress", "#search_input", function(event) {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+        }
+    });
+
+    $("#search_input, label.md-search__icon").on("click", function() {
+        var toggle = document.querySelector("[data-md-toggle=search]");
+        toggle.checked = true;
+    });
 });

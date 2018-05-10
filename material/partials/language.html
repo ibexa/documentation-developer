@@ -1,18 +1,13 @@
+{% set language = config.theme.language | default('en') %}
+
+{% import "partials/language/" + language + ".html" as lang %}
+{% import "partials/language/en.html" as fallback %}
 {% macro t(key) %}{{ {
-  "language": "en",
-  "edit.link.title": "Edit this page",
-  "show.link.title": "View on Github",
-  "footer.previous": "Previous",
-  "footer.next": "Next",
-  "meta.comments": "Comments",
-  "meta.source": "Source",
-  "search.languages": "",
-  "search.placeholder": "Search",
-  "search.result.placeholder": "Type to start searching",
-  "search.result.none": "No matching documents",
-  "search.result.one": "1 matching document",
-  "search.result.other": "# matching documents",
-  "search.tokenizer": "[\s\-]+",
-  "source.link.title": "Go to repository",
-  "toc.title": "Table of contents"
-}[key] }}{% endmacro %}
+  "direction": config.theme.direction,
+  "search.language": (
+    config.extra.search | default({})
+  ).language,
+  "search.tokenizer": (
+    config.extra.search | default({})
+  ).tokenizer | default("", true),
+}[key] or lang.t(key) or fallback.t(key) }}{% endmacro %}
