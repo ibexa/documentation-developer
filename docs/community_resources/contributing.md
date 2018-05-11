@@ -70,7 +70,7 @@ Click **Create** at the top of the bugtracker window and fill in the form:
 |**Labels**|Leave blank.|
 |**Epic Link**|Leave blank.|
 |**Sprint**|Leave blank.|
- 
+
 ## Contributing translations
 
 If you'd like to see eZ Platform in your language, you can contribute to the translations. Contributing is made easy by using Crowdin, which allows you to translate elements of the interface in context.
@@ -81,7 +81,7 @@ If you wish to contribute to an existing translation of PlatformUI or start a ne
 
 ### Preparing to use in-context
 
-To start translating, you need an option to turn in-context translation on and off. To do this, set a browser cookie. There are several ways to do this, but we will highlight a couple here.
+To start translating, you need an option to turn in-context translation on and off. To do this, set a browser cookie. There are several ways to do this, we will highlight a couple here.
 
 #### Using bookmarks
 
@@ -184,7 +184,7 @@ We aim to follow the [latest](http://trac.tools.ietf.org/wg/httpbis/trac/wiki#HT
     - Should always set *Full domain* to avoid [cross-subdomain cooking](http://en.wikipedia.org/wiki/Session_fixation#Attacks_using_cross-subdomain_cooking) when on shared domain.
     - Should set *HttpOnly* flag to reduce risk of attacks such as [cross-site cooking](http://en.wikipedia.org/wiki/Session_fixation#Attacks_using_cross-site_cooking) and [cross-site scripting](http://en.wikipedia.org/wiki/Cross-site_scripting "Cross-site scripting")
     - Should set *Secure flag* if HTTPS is used (as recommended above)
-    - Must never exceed 4kb
+    - Must never exceed 4kB
 - **Headers**
     - Should never include input data from user input or data from database without sanitizing it
 - **Redirects**
