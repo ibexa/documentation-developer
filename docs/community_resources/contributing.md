@@ -22,7 +22,7 @@ The first thing you should do in order to be able to get involved and have feedb
 
 !!! caution "Security issues"
 
-    If you discover a security issue, please do not report it using regular channels, but instead take a look at [Security section](https://doc.ez.no/Security).
+    If you discover a security issue, please do not report it using regular channels, but instead take a look at [Security section](../guide/reporting_issues.md).
 
 ### How to find an existing issue
 
