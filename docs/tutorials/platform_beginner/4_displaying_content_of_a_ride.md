@@ -241,45 +241,46 @@ Create your template for the line view of a Point of Interest `app/Resources/vie
 In the AppBundle directory, create a PHP file: `/src/AppBundle/Controller/RideController.php`
 
 ``` php
-// /src/AppBundle/Controller/RideController.php
 <?php
+// /src/AppBundle/Controller/RideController.php
+
 namespace AppBundle\Controller;
-use eZ\Publish\API\Repository\Values\Content\Query;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
+
 use eZ\Bundle\EzPublishCoreBundle\Controller;
-use eZ\Publish\API\Repository\Values\Content\Query\SortClause;
 use eZ\Publish\Core\Repository\Values\Content\Location;
+
 class RideController extends Controller
 {
-  /**
-   * Action used to display a ride
-   *  - Adds the list of all related Points of interest to the response.
-   *
-   * @param Location $location
-   * @param $viewType
-   * @param bool $layout
-   * @param array $params
-   * @return mixed
-   */
-  public function viewRideWithPOIAction(Location $location, $viewType, $layout = false, array $params = [])
-  {
-    $repository = $this->getRepository();
-    $contentService = $repository->getContentService();
-    $currentLocation = $location;
-    $currentContent = $contentService->loadContentByContentInfo($currentLocation->getContentInfo());
-    $pointOfInterestListId = $currentContent->getFieldValue('pois'); //points of interest
-    $pointOfInterestList = [];
-    foreach ($pointOfInterestListId->destinationContentIds as $pointId)
+    /**
+     * Action used to display a ride
+     *    - Adds the list of all related Points of interest to the response.
+     *
+     * @param Location $location
+     * @param $viewType
+     * @param bool $layout
+     * @param array $params
+     * @return mixed
+     */
+    public function viewRideWithPOIAction(Location $location, $viewType, $layout = false, array $params = [])
     {
-      $pointOfInterestList[$pointId] = $contentService->loadContent($pointId);
+        $repository = $this->getRepository();
+        $contentService = $repository->getContentService();
+        $currentLocation = $location;
+        $currentContent = $contentService->loadContentByContentInfo($currentLocation->getContentInfo());
+        $pointOfInterestListId = $currentContent->getFieldValue('pois'); //points of interest
+        $pointOfInterestList = [];
+
+        foreach ($pointOfInterestListId->destinationContentIds as $pointId) {
+            $pointOfInterestList[$pointId] = $contentService->loadContent($pointId);
+        }
+
+        return $this->get('ez_content')->viewLocation(
+            $location->id,
+            $viewType,
+            $layout,
+            ['pointOfInterestList' => $pointOfInterestList] + $params
+        );
     }
-    return $this->get('ez_content')->viewLocation(
-      $location->id,
-      $viewType,
-      $layout,
-      ['pointOfInterestList' => $pointOfInterestList] + $params
-    );
-  }
 }
 ```
 
