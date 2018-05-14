@@ -11,60 +11,59 @@ Create a Twig template `app/Resources/views/full/ride.html.twig` and paste into 
 ``` html
 {% extends "pagelayout.html.twig" %}
 {% block content %}
-  <section>
-    <div class="container">
-      <div class="row regular-content-size">
-        <div class="col-xs-10 col-xs-offset-1 row-padding">
-          <div class="col-xs-12">
-            <div class="col-xs-1 text-left">
-              <h2>Ride:</h2>
+    <section>
+        <div class="container">
+            <div class="row regular-content-size">
+                <div class="col-xs-10 col-xs-offset-1 row-padding">
+                    <div class="col-xs-12">
+                        <div class="col-xs-1 text-left">
+                            <h2>Ride:</h2>
+                        </div>
+                        <div class="col-xs-11 text-left">
+                            <h2 class="extra-padding-left">{{ ez_content_name( content ) }}</h2>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-xs-11 text-left">
-              <h2 class="extra-padding-left">{{ ez_content_name( content ) }}</h2>
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
-  <section>
-    <div id="map-container">
-      {{ ez_render_field(content, 'starting_point', {'parameters': { 'height': '330px', 'showMap': true, 'showInfo': false }}
-      ) }}
-    </div>
-  </section>
-  <section>
-    <div class="container">
-      <div class="row regular-content-size">
-        <div class="col-xs-10 col-xs-offset-1 padding-box">
-          <div class="col-xs-2">
-            <div class="box-ride">
-              <h3 class="special-number">{{ ez_render_field( content, 'length') }} Km</h3>
-              <p class="pre-small special-number special-number-margin"><strong>{{ 'Level' }}</strong></p>
-            </div>
-          </div>
-          <div class="col-xs-10">
-            <div class="col-xs-5">
-              <p>Created by: {{ ez_field_value( content, 'author') }}</p>
-              <p>Start: {{ ez_field_value(content, 'starting_point') }}
-              </p>
-              <p>End: {{ ez_field_value(content, 'ending_point') }}</p>
-            </div>
-          </div>
+    </section>
+    <section>
+        <div id="map-container">
+            {{ ez_render_field(content, 'starting_point', {'parameters': { 'height': '330px', 'showMap': true, 'showInfo': false }}) }}
         </div>
-        <div class="col-xs-10 col-xs-offset-1 padding-box">
-          <div class="col-xs-10">
-            <div class="col-xs-2 text-right">
-              <p>Description:</p>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row regular-content-size">
+                <div class="col-xs-10 col-xs-offset-1 padding-box">
+                    <div class="col-xs-2">
+                        <div class="box-ride">
+                            <h3 class="special-number">{{ ez_render_field( content, 'length') }} Km</h3>
+                            <p class="pre-small special-number special-number-margin"><strong>{{ 'Level' }}</strong></p>
+                        </div>
+                    </div>
+                    <div class="col-xs-10">
+                        <div class="col-xs-5">
+                            <p>Created by: {{ ez_field_value( content, 'author') }}</p>
+                            <p>Start: {{ ez_field_value(content, 'starting_point') }}
+                            </p>
+                            <p>End: {{ ez_field_value(content, 'ending_point') }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-10 col-xs-offset-1 padding-box">
+                    <div class="col-xs-10">
+                        <div class="col-xs-2 text-right">
+                            <p>Description:</p>
+                        </div>
+                        <div class="col-xs-10 text-justify">
+                            {{ ez_render_field( content, 'description') }}
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-xs-10 text-justify">
-              {{ ez_render_field( content, 'description') }}
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 {% endblock %} 
 ```
 
@@ -137,11 +136,11 @@ A geographical location rides go through. Each ride may be related to as many po
 
 Then create all fields with the following information: 
 
-- **Name**: identifier **name**; field type **textLine **(**Required** / **Searchable** / **Translatable**)
-- **Description**: identifier **description**; field type **Rich Text **(**Searchable** / **Translatable**)
-- **Photo**: identifier **photo**; field type **Image **(**Required**)
-- **Photo Legend**: identifier **legend**; field type **Rich Text **(**Searchable** / **Translatable**)
-- **Place**: identifier **place**; field type **MapLocation **(**Required** / **Searchable**)
+- **Name**: identifier **name**; field type **textLine** (**Required** / **Searchable** / **Translatable**)
+- **Description**: identifier **description**; field type **Rich Text** (**Searchable** / **Translatable**)
+- **Photo**: identifier **photo**; field type **Image** (**Required**)
+- **Photo Legend**: identifier **legend**; field type **Rich Text** (**Searchable** / **Translatable**)
+- **Place**: identifier **place**; field type **MapLocation** (**Required** / **Searchable**)
 
 !!! note
 
@@ -194,45 +193,43 @@ Declare a new override rule into your `app/config/ezplatform.yml`:
 Create your template for the line view of a Point of Interest `app/Resources/views/line/point_of_interest.html.twig`:
 
 ``` html
-<!--point\_of\_interest.html.twig-->
+<!--point_of_interest.html.twig-->
 <section>
 <div class="col-xs-4 photos-box">
-  <a href="#bikeModal{{ content.id }}" class="portfolio-link" data-toggle="modal">
-    <div class="caption">
-      <div class="caption-content">
-        <i class="fa fa-search-plus fa-3x"></i>
-      </div>
-    </div>
-    {{ ez_render_field( content, 'photo', { parameters: { 'alias': 'small'},
-    attr: { 'class': 'img-responsive img-rounded', 'alt':'' }}) }}
-    {#<img src="images/lyon.png" class="img-responsive img-rounded" alt="">#}
-  </a>
+    <a href="#bikeModal{{ content.id }}" class="portfolio-link" data-toggle="modal">
+        <div class="caption">
+            <div class="caption-content">
+                <i class="fa fa-search-plus fa-3x"></i>
+            </div>
+        </div>
+        {{ ez_render_field( content, 'photo', { parameters: { 'alias': 'small'}, attr: { 'class': 'img-responsive img-rounded', 'alt':'' }}) }}
+        {#<img src="images/lyon.png" class="img-responsive img-rounded" alt="">#}
+    </a>
 </div>
 
 {# MODAL #}
 <div class="bike-modal modal fade" id="bikeModal{{ content.id }}" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-content">
-    <div class="close-modal" data-dismiss="modal">
-      <div class="lr">
-        <div class="rl">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-8 col-xs-offset-2">
-          <div class="modal-body text-center">
-            <h2>Photo: {{ ez_content_name( content ) }}</h2>
-            <hr class="featurette-divider">
-            {{ ez_render_field( content, 'photo', { parameters: { 'alias': 'large'},
-            attr: { 'class': 'img-responsive img-rounded' }}) }}
-            {#<img src="images/lyon.png" class="img-responsive img-centered img-rounded" alt="">#}
-            {{ ez_render_field( content, 'description', { attr: { 'class': 'padding-box text-justify' }}) }}
-          </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-2">
+                    <div class="modal-body text-center">
+                        <h2>Photo: {{ ez_content_name( content ) }}</h2>
+                        <hr class="featurette-divider">
+                        {{ ez_render_field( content, 'photo', { parameters: { 'alias': 'large'}, attr: { 'class': 'img-responsive img-rounded' }}) }}
+                        {#<img src="images/lyon.png" class="img-responsive img-centered img-rounded" alt="">#}
+                        {{ ez_render_field( content, 'description', { attr: { 'class': 'padding-box text-justify' }}) }}
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 </section>
 ```
@@ -244,45 +241,46 @@ Create your template for the line view of a Point of Interest `app/Resources/vie
 In the AppBundle directory, create a PHP file: `/src/AppBundle/Controller/RideController.php`
 
 ``` php
-// /src/AppBundle/Controller/RideController.php
 <?php
+// /src/AppBundle/Controller/RideController.php
+
 namespace AppBundle\Controller;
-use eZ\Publish\API\Repository\Values\Content\Query;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
+
 use eZ\Bundle\EzPublishCoreBundle\Controller;
-use eZ\Publish\API\Repository\Values\Content\Query\SortClause;
 use eZ\Publish\Core\Repository\Values\Content\Location;
+
 class RideController extends Controller
 {
-  /**
-   * Action used to display a ride
-   *  - Adds the list of all related Points of interest to the response.
-   *
-   * @param Location $location
-   * @param $viewType
-   * @param bool $layout
-   * @param array $params
-   * @return mixed
-   */
-  public function viewRideWithPOIAction(Location $location, $viewType, $layout = false, array $params = [])
-  {
-    $repository = $this->getRepository();
-    $contentService = $repository->getContentService();
-    $currentLocation = $location;
-    $currentContent = $contentService->loadContentByContentInfo($currentLocation->getContentInfo());
-    $pointOfInterestListId = $currentContent->getFieldValue('pois'); //points of interest
-    $pointOfInterestList = [];
-    foreach ($pointOfInterestListId->destinationContentIds as $pointId)
+    /**
+     * Action used to display a ride
+     *    - Adds the list of all related Points of interest to the response.
+     *
+     * @param Location $location
+     * @param $viewType
+     * @param bool $layout
+     * @param array $params
+     * @return mixed
+     */
+    public function viewRideWithPOIAction(Location $location, $viewType, $layout = false, array $params = [])
     {
-      $pointOfInterestList[$pointId] = $contentService->loadContent($pointId);
+        $repository = $this->getRepository();
+        $contentService = $repository->getContentService();
+        $currentLocation = $location;
+        $currentContent = $contentService->loadContentByContentInfo($currentLocation->getContentInfo());
+        $pointOfInterestListId = $currentContent->getFieldValue('pois'); //points of interest
+        $pointOfInterestList = [];
+
+        foreach ($pointOfInterestListId->destinationContentIds as $pointId) {
+            $pointOfInterestList[$pointId] = $contentService->loadContent($pointId);
+        }
+
+        return $this->get('ez_content')->viewLocation(
+            $location->id,
+            $viewType,
+            $layout,
+            ['pointOfInterestList' => $pointOfInterestList] + $params
+        );
     }
-    return $this->get('ez_content')->viewLocation(
-      $location->id,
-      $viewType,
-      $layout,
-      ['pointOfInterestList' => $pointOfInterestList] + $params
-    );
-  }
 }
 ```
 

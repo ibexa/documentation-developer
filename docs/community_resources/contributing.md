@@ -70,7 +70,7 @@ Click **Create** at the top of the bugtracker window and fill in the form:
 |**Labels**|Leave blank.|
 |**Epic Link**|Leave blank.|
 |**Sprint**|Leave blank.|
-
+ 
 ## Contributing translations
 
 If you'd like to see eZ Platform in your language, you can contribute to the translations. Contributing is made easy by using Crowdin, which allows you to translate elements of the interface in context.
@@ -223,6 +223,7 @@ As stated in the HTTP section, all unsafe requests to the web server should have
 #### HTML/Templates
 
 All data that comes from backend and in return comes from user input should always be escaped, in case of Twig templates this done by default, but in case of PHP templates, Ajax and other not Twig based output this must be handled manually.
+
 
 Output escaping must be properly executed according to the desired format, eg. JavaScript vs. HTML, but also taking into account the correct character set (see e.g. output escaping fallacy when not specifying charset encoding in [htmlspecialchars](http://www.php.net/htmlspecialchars))
 
