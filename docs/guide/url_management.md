@@ -143,7 +143,7 @@ ezpublish:
 ```
 
 `transformation` indicates which pattern will be used by default.
-`tranformation_groups` contain the available patterns for URL generation.
+The `transformation_groups` key contains the available patterns for URL generation.
 There are three types of `separator` available: `dash`, `underscore` and `space`.
 
 A transformation group consists of an array of commands (see [all available commands](https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/Core/Persistence/Tests/TransformationProcessor/_fixtures/transformations)) and a [`cleanupMethod`](https://github.com/ezsystems/ezpublish-kernel-ee/blob/master/eZ/Publish/Core/Persistence/Legacy/Content/UrlAlias/SlugConverter.php#L290).
