@@ -70,7 +70,7 @@ Click **Create** at the top of the bugtracker window and fill in the form:
 |**Labels**|Leave blank.|
 |**Epic Link**|Leave blank.|
 |**Sprint**|Leave blank.|
- 
+ 
 ## Contributing translations
 
 If you'd like to see eZ Platform in your language, you can contribute to the translations. Contributing is made easy by using Crowdin, which allows you to translate elements of the interface in context.
@@ -81,7 +81,7 @@ If you wish to contribute to an existing translation of PlatformUI or start a ne
 
 ### Preparing to use in-context
 
-To start translating, you need an option to turn in-context translation on and off. To do this, set a browser cookie. There are several ways to do this, but we will highlight a couple here.
+To start translating, you need an option to turn in-context translation on and off. To do this, set a browser cookie. There are several ways to do this, we will highlight a couple here.
 
 #### Using bookmarks
 
@@ -184,7 +184,7 @@ We aim to follow the [latest](http://trac.tools.ietf.org/wg/httpbis/trac/wiki#HT
     - Should always set *Full domain* to avoid [cross-subdomain cooking](http://en.wikipedia.org/wiki/Session_fixation#Attacks_using_cross-subdomain_cooking) when on shared domain.
     - Should set *HttpOnly* flag to reduce risk of attacks such as [cross-site cooking](http://en.wikipedia.org/wiki/Session_fixation#Attacks_using_cross-site_cooking) and [cross-site scripting](http://en.wikipedia.org/wiki/Cross-site_scripting "Cross-site scripting")
     - Should set *Secure flag* if HTTPS is used (as recommended above)
-    - Must never exceed 4kb
+    - Must never exceed 4kB
 - **Headers**
     - Should never include input data from user input or data from database without sanitizing it
 - **Redirects**
@@ -224,15 +224,14 @@ As stated in the HTTP section, all unsafe requests to the web server should have
 
 All data that comes from backend and in return comes from user input should always be escaped, in case of Twig templates this done by default, but in case of PHP templates, Ajax and other not Twig based output this must be handled manually.
 
-Output escaping must be properly executed according to the desired format, eg. javascript vs. html, but also taking into account the correct character set (see e.g. output escaping fallacy when not specifying charset encoding in [htmlspecialchars](http://www.php.net/htmlspecialchars))
+
+Output escaping must be properly executed according to the desired format, eg. JavaScript vs. HTML, but also taking into account the correct character set (see e.g. output escaping fallacy when not specifying charset encoding in [htmlspecialchars](http://www.php.net/htmlspecialchars))
 
 #### Admin
 
-Admin operations that can have a severe impact on the web applications should require providing password and require it again after some time has gone, normally 10-20 minutes, on all session based interfaces.
+Admin operations that can have a severe impact on the web applications should require providing password and require it again after some time has gone, normally 10-20 minutes, on all session-based interfaces.
 
 ### PHP
-
-For now see our comprehensive coding standard and guidelines [wiki page](https://github.com/ezsystems/ezpublish-kernel/wiki/codingstandards) on github.
 
 !!! note "eZ Coding Standards Tools"
 
@@ -240,7 +239,7 @@ For now see our comprehensive coding standard and guidelines [wiki page](https:/
 
 #### Public API
 
-The PHP public API provided in eZ Platform is in most cases in charge of checking permissions to data for you, but some API's are not documented to throw `UnauthorizedException`, which means that it is the consumer of the API's who is responsible for checking permissions.
+The [Public PHP API](../api/public_php_api) provided in eZ Platform is in most cases in charge of checking permissions to data for you, but some API's are not documented to throw `UnauthorizedException`, which means that it is the consumer of the API's who is responsible for checking permissions.
 
 The following example shows how this is done in the case of loading users:
 
