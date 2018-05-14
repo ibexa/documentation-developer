@@ -5,7 +5,7 @@ The security of our software is a primary concern and we take it seriously. No e
 ## Channels
 
 - If you're a customer or partner, please log in to your Service Portal at <https://support.ez.no/> and, in the "eZ Support Services" section, follow the link to the "Open new ticket", and report the issue as you would report a normal support request. eZ Systems Product Support will respond, take care of the report, and keep you informed of the developments.
-- If you're not a customer or partner, please log in to the eZ Systems JIRA issue tracker: <https://jira.ez.no/> Create an account if you don't have one, it's free. Click the "Create" button in the top menu to create your report. For "Project", select either "eZ Publish / Platform" or "eZ Studio", depending on which product is affected by the bug. **Important: Use "Security Level": "Security"!** The engineering team will take care of your report.
+- If you're not a customer or partner, please log in to the eZ Systems JIRA issue tracker: <https://jira.ez.no/> Create an account if you don't have one, it's free. Click the "Create" button in the top menu to create your report. For "Project", select either "eZ Publish / Platform" or "eZ Platform Enterprise Edition", depending on which product is affected by the bug. **Important: Use "Security Level": "Security"!** The engineering team will take care of your report.
 - It is also possible to report security issues by email to <security@ez.no> - this requires no account.
 
 ## Verbosity
