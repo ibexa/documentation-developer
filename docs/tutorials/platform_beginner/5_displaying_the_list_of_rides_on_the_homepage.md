@@ -90,30 +90,30 @@ So each time you use the line Ride template, you have to remember the choice of 
 ``` html
 <!--rides.html.twig-->
 <div class="row regular-content-size">
-  <div class="col-xs-10 col-xs-offset-1 box-style">
-    <h3 class="center bottom-plus new-header">List of all Rides</h3>
-    {# Loop over the page results #}
-    {% for ride in pagerRides %}
-      {% if loop.first %}
-        <table class="table table-hover">
-        <thead>
-        <tr class="table-header">
-          <th> Ride</th>
-          <th>From</th>
-          <th> To</th>
-          <th>Distance</th>
-          <th>Level</th>
-        </tr>
-        </thead>
-        <tbody>
-      {% endif %}
-      {{ render( controller( 'ez_content:viewLocation', { 'locationId': ride.versionInfo.contentInfo.mainLocationId, 'viewType': 'line' } )) }}
-      {% if loop.last %}
-        </tbody>
-        </table>
-      {% endif %}
-    {% endfor %}
-  </div>
+    <div class="col-xs-10 col-xs-offset-1 box-style">
+        <h3 class="center bottom-plus new-header">List of all Rides</h3>
+        {# Loop over the page results #}
+        {% for ride in pagerRides %}
+            {% if loop.first %}
+                <table class="table table-hover">
+                    <thead>
+                        <tr class="table-header">
+                            <th> Ride</th>
+                            <th>From</th>
+                            <th> To</th>
+                            <th>Distance</th>
+                            <th>Level</th>
+                        </tr>
+                    </thead>
+                     <tbody>
+            {% endif %}
+            {{ render( controller( 'ez_content:viewLocation', { 'locationId': ride.versionInfo.contentInfo.mainLocationId, 'viewType': 'line' } )) }}
+            {% if loop.last %}
+                    </tbody>
+                </table>
+            {% endif %}
+        {% endfor %}
+    </div>
 </div>
 ```
 
@@ -153,12 +153,10 @@ Create your `app/Resources/views/line/ride.html.twig `template.
         </strong>
     </td>
     <td>
-        {{ ez_render_field(content, 'starting_point', {'parameters': {'width': '100%', 'height': '100px', 'showMap': true, 'showInfo': true }}
-        ) }}
+        {{ ez_render_field(content, 'starting_point', {'parameters': {'width': '100%', 'height': '100px', 'showMap': true, 'showInfo': true }}) }}
     </td>
     <td>
-        {{ ez_render_field(content, 'ending_point', {'parameters': {'width': '100%', 'height': '100px', 'showMap': true, 'showInfo': true }}
-        ) }}
+        {{ ez_render_field(content, 'ending_point', {'parameters': {'width': '100%', 'height': '100px', 'showMap': true, 'showInfo': true }}) }}
     </td>
     <td>
         <p>{{ ez_render_field( content, 'length' ) }} Km</p>
