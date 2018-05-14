@@ -232,7 +232,7 @@ Admin operations that can have a severe impact on the web applications should re
 
 ### PHP
 
-For now see our comprehensive coding standard and guidelines [wiki page](https://github.com/ezsystems/ezpublish-kernel/wiki/codingstandards) on github.
+For now see our comprehensive coding guidelines [Public PHP API](../api/public_php_api) section.
 
 !!! note "eZ Coding Standards Tools"
 
