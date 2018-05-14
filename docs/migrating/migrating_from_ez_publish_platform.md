@@ -210,7 +210,7 @@ ImagesClassList[]=image
 
 !!! note
 
-    Version of the migration script prior to v1.5.1 would fail to convert embedded images correctly. If you have a database which you have already converted with an old version, you may rerun the `convert-to-richtext` command with the following options:
+    Version of the migration script in ezplatform-xmltext-fieldtype prior to v1.6.0 would fail to convert embedded images correctly. If you have a database which you have already converted with an old version, you may rerun the `convert-to-richtext` command with the following options:
 
     `php app/console ezxmltext:convert-to-richtext --fix-embedded-images-only --image-content-types=image,thumbnail,profile -v`
 
