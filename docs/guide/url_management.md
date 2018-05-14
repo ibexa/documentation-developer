@@ -120,3 +120,34 @@ app.url_checker.handler.custom:
 ```
 
 The `scheme` attribute is mandatory and has to correspond to the name of the protocol, for instance `ftp`.
+
+## URL alias patterns
+
+You can configure how eZ Platform generates URL aliases. The configuration is available under `ezpublish.url_alias.slug_converter`, for example:
+
+``` yaml
+ezpublish:
+    url_alias:
+        slug_converter:
+            transformation: example_group
+            separator: dash
+            transformation_groups:
+                example_group:
+                    commands:
+                        - 'space_normalize'
+                        - 'hyphen_normalize'
+                        - 'apostrophe_normalize'
+                        - 'doublequote_normalize'
+                        - 'your_custom_command'
+                    cleanup_method: url_cleanup
+```
+
+`transformation` indicates which pattern will be used by default.
+The `transformation_groups` key contains the available patterns for URL generation.
+There are three types of `separator` available: `dash`, `underscore` and `space`.
+
+A transformation group consists of an array of commands (see [all available commands](https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/Core/Persistence/Tests/TransformationProcessor/_fixtures/transformations)) and a [`cleanupMethod`](https://github.com/ezsystems/ezpublish-kernel-ee/blob/master/eZ/Publish/Core/Persistence/Legacy/Content/UrlAlias/SlugConverter.php#L290).
+
+You can make use of pre-defined transformation groups.
+You can also add your own, with your own set of commands.
+To add commands to an existing group, provide the group name and list the commands you want to add.
