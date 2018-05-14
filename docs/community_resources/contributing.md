@@ -22,7 +22,7 @@ The first thing you should do in order to be able to get involved and have feedb
 
 !!! caution "Security issues"
 
-    If you discover a security issue, please do not report it using regular channels, but instead take a look at [Security section](https://doc.ez.no/Security).
+    If you discover a security issue, please do not report it using regular channels, but instead take a look at [Security section](../guide/reporting_issues.md).
 
 ### How to find an existing issue
 
@@ -224,11 +224,11 @@ As stated in the HTTP section, all unsafe requests to the web server should have
 
 All data that comes from backend and in return comes from user input should always be escaped, in case of Twig templates this done by default, but in case of PHP templates, Ajax and other not Twig based output this must be handled manually.
 
-Output escaping must be properly executed according to the desired format, eg. javascript vs. html, but also taking into account the correct character set (see e.g. output escaping fallacy when not specifying charset encoding in [htmlspecialchars](http://www.php.net/htmlspecialchars))
+Output escaping must be properly executed according to the desired format, eg. JavaScript vs. HTML, but also taking into account the correct character set (see e.g. output escaping fallacy when not specifying charset encoding in [htmlspecialchars](http://www.php.net/htmlspecialchars))
 
 #### Admin
 
-Admin operations that can have a severe impact on the web applications should require providing password and require it again after some time has gone, normally 10-20 minutes, on all session based interfaces.
+Admin operations that can have a severe impact on the web applications should require providing password and require it again after some time has gone, normally 10-20 minutes, on all session-based interfaces.
 
 ### PHP
 
