@@ -284,4 +284,4 @@ Now you can reload your eZ Platform back end which will be translated in French 
 
 ##### UI translation
 
-To learn how to contribute to a translation, see [Contributing translations](../community_resources/contributing.md#contributing-translations).
+To learn how to contribute to a translation, see [Contributing translations](../community_resources/translations.md).
