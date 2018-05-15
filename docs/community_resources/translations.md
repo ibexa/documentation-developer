@@ -1,4 +1,4 @@
-# Contributing translations
+# Contribute translations
 
 If you'd like to see eZ Platform in your language, you can contribute to the translations. Contributing is made easy by using Crowdin, which allows you to translate elements of the interface in context.
 
