@@ -1,16 +1,4 @@
-# Guidelines
-
-simple php test:
-
-```php
-<?php
-
-class test {
-    private $a;
-}
-
-```
-
+# Buttons
 
 
 ## test 1
@@ -23,6 +11,7 @@ class test {
 <button type="button" class="btn btn-warning">Warning</button>
 code_example]]
 
+
 ## test 2
 
 [[code_example {html}
@@ -32,14 +21,12 @@ code_example]]
 
 ## test3
 
-
 [[code_example {html}
 <button type="button" class="ez-button ez-button-ghost">Show 10 more results</button>
 code_example]]
 
 
 ## test 4
-
 
 [[code_example {html}
 <div class="ez-form-box">
@@ -53,7 +40,6 @@ code_example]]
     </div>
 </div>
 code_example]]
-
 
 
 ## test 5
@@ -73,6 +59,7 @@ code_example]]
     </div>
 </div>
 code_example]]
+
 
 ## test 6
 
@@ -130,6 +117,7 @@ code_example]]
 </div>
 code_example]]
 
+
 ## test 7 icons
 
 <p style="font-size:32px;"><span class="ez-icon-browse"></span></p>
@@ -173,7 +161,3 @@ code_example]]
         </div>
     </div>
 code_example]]
-
-
-
-

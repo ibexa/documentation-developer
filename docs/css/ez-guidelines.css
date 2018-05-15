@@ -24,7 +24,7 @@
 }
 .ez-guidelines p {
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 1.25em;
+  font-size: 1em;
 }
 .ez-guidelines .regular {
   font-size: 1em;
@@ -299,20 +299,25 @@
   padding: 1.5em 1em;
   background-color: #e5e3e3;
 }
-.ez-guidelines .top-half-extra {
+.ez-guidelines .mgt-5 {
   margin-top: 2em;
+  display: inline-block;
 }
-.ez-guidelines .top-extra {
-  margin-top: 4em;
+.ez-guidelines .mgt-4 {
+  margin-top: 1.75em;
+  display: inline-block;
 }
-.ez-guidelines .top-low {
+.ez-guidelines .mgt-3 {
   margin-top: 1.5em;
+  display: inline-block;
 }
-.ez-guidelines .top-xlow {
+.ez-guidelines .mgt-2 {
   margin-top: 1em;
+  display: inline-block;
 }
-.ez-guidelines .top-min {
-  margin-top: 0.5em;
+.ez-guidelines .mgt-1 {
+  margin-top: .5em;
+  display: inline-block;
 }
 .ez-guidelines .bottom-extra {
   margin-bottom: 2em;
@@ -1339,16 +1344,15 @@
   background-color: #0f6d95;
   color: #fff;
 }
-
 .ez-guidelines {
   font-family: 'Noto Sans', sans-serif;
-  font-size: 15px;
+  font-size: 16px;
 }
 .ez-guidelines h1 {
-  font-size: 2.5em;
+  font-size: 2.125em;
 }
 .ez-guidelines h2 {
-  font-size: 2em;
+  font-size: 2.125em;
 }
 .ez-guidelines h3 {
   font-size: 1.75em;

@@ -3,7 +3,18 @@ repo_url: https://github.com/ezsystems/developer-documentation
 copyright: "Copyright 1999-2017 eZ Systems AS and others"
 pages:
     - 'Documentation': 'index.md'
-    - 'Guidelines3': 'guidelines/test3.md'
+    - UI Guidelines:
+        - 'UI Guidelines': 'guidelines/ui_guidelines.md'
+        - Components: 
+            - 'Buttons': 'guidelines/components/buttons.md'
+        - Resources:
+            - 'Colors': 'guidelines/resources/colors.md'
+            - 'Icons': 'guidelines/resources/icons.md'
+            - 'Typography': 'guidelines/resources/typography.md'
+        - Design Principles:
+            - 'Design Principles': 'guidelines/design_principles/Design_principles.md'
+            - 'Philosophy': 'guidelines/design_principles/Philosophy.md'
+            - 'Accessibility': 'guidelines/design_principles/Accessibility.md'
     - Getting started:
         - 'Get started with eZ Platform': 'getting_started/get_started_with_ez_platform.md'
         - 'Requirements and system configuration': 'getting_started/requirements_and_system_configuration.md'
