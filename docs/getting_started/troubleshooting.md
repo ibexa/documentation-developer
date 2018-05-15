@@ -2,7 +2,7 @@
 
 This page lists potential problems that you may encounter while installing, configuring, and running eZ Platform. If you stumble upon an obstacle, take a look here to see if your case isn't covered. 
 
-Want to add to this page? Check out our instructions for [contributing to our documentation](../community_resources/contributing.md#contribute-to-documentation).
+Want to add to this page? Check out our instructions for [contributing to our documentation](../community_resources/documentation.md).
 
 ## Enable Swap on Systems with Limited RAM
 

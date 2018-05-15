@@ -154,7 +154,12 @@ pages:
     - Resources and community:
         - 'Resources': 'community_resources/resources.md'
         - 'Professional training services': 'community_resources/professional_training_services.md'
-        - 'Contributing': 'community_resources/contributing.md'
+        - Contributing:
+            - 'How to contribute': 'community_resources/contributing.md'
+            - 'Report and follow issues': 'community_resources/report_follow_issues.md'
+            - 'Development guidelines': 'community_resources/development_guidelines.md'
+            - 'Contribute translations': 'community_resources/translations.md'
+            - 'Contribute documentation': 'community_resources/documentation.md'
     - Migrating to eZ Platform:
         - 'Migrating from eZ Publish Platform': 'migrating/migrating_from_ez_publish_platform.md'
         - 'Migrating from eZ Publish': 'migrating/migrating_from_ez_publish.md'
