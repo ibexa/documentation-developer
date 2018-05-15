@@ -130,3 +130,50 @@ code_example]]
 </div>
 code_example]]
 
+## test 7 icons
+
+<p style="font-size:32px;"><span class="ez-icon-browse"></span></p>
+<p style="font-size:32px;"><span class="ez-icon-future-publication"></span></p>
+<p style="font-size:32px;"><span class="ez-icon-trash"></span></p>
+
+
+## test 8 tables
+
+[[code_example {html}
+    <div class="flex-wrapper">
+        <div class="ez-table">
+            <div class="table-title">
+                <p>Published version</p>
+            </div>
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>Version</th>
+                        <th>Language</th>
+                        <th>Author</th>
+                        <th>Created</th>
+                        <th>Last saved</th>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>eng-GB</td>
+                        <td>Administrator user</td>
+                        <td>17 Sep 2015 12:53 PM</td>
+                        <td>17 Sep 2015 12:55 PM</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>eng-GB</td>
+                        <td>Administrator user</td>
+                        <td>15 Sep 2015 08:33 AM</td>
+                        <td>15 Sep 2015 11:45 AM</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+code_example]]
+
+
+
+
