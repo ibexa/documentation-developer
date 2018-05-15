@@ -155,8 +155,8 @@ pages:
             - 'How to contribute': 'community_resources/contributing.md'
             - 'Report and follow issues': 'community_resources/report_follow_issues.md'
             - 'Development guidelines': 'community_resources/development_guidelines.md'
-            - 'Contributing translations': 'community_resources/translations.md'
-            - 'Contributing documentation': 'community_resources/documentation.md'
+            - 'Contribute translations': 'community_resources/translations.md'
+            - 'Contribute documentation': 'community_resources/documentation.md'
     - Migrating to eZ Platform:
         - 'Migrating from eZ Publish Platform': 'migrating/migrating_from_ez_publish_platform.md'
         - 'Migrating from eZ Publish': 'migrating/migrating_from_ez_publish.md'
