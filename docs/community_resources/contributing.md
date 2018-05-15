@@ -4,11 +4,12 @@ Are you ready to become a part of the eZ Community? There are several ways in wh
 
 If you're looking to contribute code, whether in form of corrections or separate bundles with features, the open-source nature of eZ Platform lets you do this without any fuss using GitHub. Take a look at our [Development guidelines](development_guidelines.md) to get started.
 
-If you've noticed any improvement needed in the documentation, see how to [Contribute to Documentation](#contribute-to-documentation).
+-  [Contribute to documentation](documentation.md) if you've noticed any improvement needed in the documentation
 
-If you'd just like to let us know of a bug you've encountered, see how to report it in [Report and follow issues](report_follow_issues.md).
+- [Report and follow issues](report_follow_issues.md) if you'd just like to let us know of a bug you've encountered
 
-If you'd like to contribute to a translation of eZ Platform interface, see [Contributing translations](translations.md).
+- [Contribute translations](translations.md) if you'd like to add a translation of eZ Platform interface
 
-If what you're looking for is simply discussing the way you use eZ Platform, drop by to the [community website](http://share.ez.no) or the [eZ Community Slack team](https://ezcommunity.slack.com/).
+- Visit [Community website](http://share.ez.no) or the [eZ Community Slack team](https://ezcommunity.slack.com/) if what you're looking for is simply discussing the way you use eZ Platform
+
  
