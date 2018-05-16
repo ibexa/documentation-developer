@@ -6,9 +6,6 @@ For instance, if you want to register a [Twig extension](http://twig.sensiolabs.
 you need to create the PHP class and declare it as a service in the DIC configuration with the `twig.extension` tag
 (see the [Symfony cookbook entry](http://symfony.com/doc/2.8/templating/twig_extension.html) for a full example).
 
-eZ Platform exposes several features this way (see the [list of core service tags](#core-and-api)).
-This is for example the case with Field Types.
-
 You will find all service tags exposed by Symfony in [its reference documentation](http://symfony.com/doc/2.8/reference/dic_tags.html).
 
 ## List of service tags
@@ -20,7 +17,7 @@ You will find all service tags exposed by Symfony in [its reference documentatio
 |[ezplatform.admin_ui.component](#ezplatform.admin_ui.component)|Registers a component in a group specified by group attribute|
 |[ezplatform.tab](#ezplatform.tab)|Registers a tab in a group specified by group attribute. |
 |[ezplatform.admin_ui.config_provider](#ezplatform.admin_ui.config_provider)|Registers UI configuration Provider.|
-|[ezplatform.http_cache.purge_client](#ezplatform.http_cache.purge_client)||
+|[ezplatform.http_cache.purge_client](#ezplatform.http_cache.purge_client)| Registers a purge client for HTTP cache. |
 |[ezplatform.http_cache.tag_handler](#ezplatform.http_cache.tag_handler)|Deprecated|
 |[ezplatform.http_cache.fos_tag_handler](#ezplatform.http_cache.fos_tag_handler)|Registers explicitly invalidated cache by tag.|
 |[ezplatform.cache_response_tagger](#ezplatform.cache_response_tagger)|Registers ResponseTaggers.|
@@ -31,9 +28,9 @@ You will find all service tags exposed by Symfony in [its reference documentatio
 |[ezpublish.search.solr.query.content.sort_clause_visitor](#ezpublish.search.solr.query.content.sort_clause_visitor)|Register Solr Storage Content sort clause visitors|
 |[ezpublish.search.solr.query.location.sort_clause_visitor](#ezpublish.search.solr.query.location.sort_clause_visitor)|Register Solr Storage Location sort clause visitors|
 |[ezpublish.search.solr.endpoint](#ezpublish.search.solr.endpoint)|Registers Solr Endpoints.|
-|[ezpublish.config.resolver](#ezpublish.config.resolver)||
+|[ezpublish.config.resolver](#ezpublish.config.resolver)| Adds a specific config resolver to the chain |
 |[router](#router)|Adds a specific router to the chain router|
-|[ezpublish.fieldType.parameterProvider](#ezpublish.fieldType.parameterProvider)||
+|[ezpublish.fieldType.parameterProvider](#ezpublish.fieldType.parameterProvider)| Registers parameter provider (allows to pass additional parameters to a fieldtype's view template) to specific field type |
 |[ezpublish.query_type](#ezpublish.query_type)|Registers QueryType as a service.|
 |[ezpublish.searchEngineIndexer](#ezpublish.searchEngineIndexer)||
 |[ezpublish.searchEngine](#ezpublish.searchEngine)|Registers search engine identified by its identifier (the "alias" attribute).|
@@ -44,14 +41,14 @@ You will find all service tags exposed by Symfony in [its reference documentatio
 |[ezpublish.storageEngine](#ezpublish.storageEngine)|Registers a storage engine in the Repository factory|
 |[ezpublish.url_handler](#ezpublish.url_handler)|Registers a custom protocol for external URLs validation.|
 |[ezpublish.view_provider](#ezpublish.view_provider)|Registers view provider into the view_provider registry.|
-|[ezpublish_data_collector](#ezpublish_data_collector)||
+|[ezpublish_data_collector](#ezpublish_data_collector)| Registers profiler [data collector](https://symfony.com/doc/3.4/profiler/data_collector.html) specific for eZ Platfrom. |
 |[ezpublish.core.io.migration.file_lister](#ezpublish.core.io.migration.file_lister)||
 |[ezpublish_rest.field_type_processor](#ezpublish_rest.field_type_processor)||
 |[ezpublish_rest.input.handler](#ezpublish_rest.input.handler)|Maps input formats (json, xml) to handlers.|
 |[ezpublish_rest.input.parser](#ezpublish_rest.input.parser)|Maps Content Type to the input parser.|
 |[ezpublish_rest.output.visitor](#ezpublish_rest.output.visitor)|Maps a Request property to an output format (json or xml).|
 |[ezpublish_rest.output.value_object_visitor](#ezpublish_rest.output.value_object_visitor)|Maps a ValueObject class name to a Visitor.|
-|[ezplatform.installer](#ezplatform.installer)||
+|[ezplatform.installer](#ezplatform.installer)| Allows to define types of installation e.g. `clean`, `demo` |
 |[ezpublish.fieldType](#ezpublish.fieldType)|Registers a Field Type|
 |[ezpublish.fieldType.nameable](#ezpublish.fieldType.nameable)|Registers service name to be retrieved by it by`\eZ\Publish\SPI\FieldType\Nameable::getFieldName`.|
 |[ezpublish.limitationType](#ezpublish.limitationType)|Registers limitations including custom ones as limitation types.|
@@ -68,18 +65,18 @@ You will find all service tags exposed by Symfony in [its reference documentatio
 |[ezpublish.search.elasticsearch.location.criterion_visitor](#ezpublish.search.elasticsearch.location.criterion_visitor)||
 |[ezpublish.search.legacy.gateway.criterion_handler.content](#ezpublish.search.legacy.gateway.criterion_handler.content)|Registers ContentId Criterion handlers|
 |[ezpublish.search.legacy.gateway.criterion_handler.location](#ezpublish.search.legacy.gateway.criterion_handler.location)|Registers LocationId Criterion handlers|
-|[ezpublish.persistence.legacy.url.criterion_handler](#ezpublish.persistence.legacy.url.criterion_handler)||
-|[ezpublish.search.legacy.gateway.criterion_field_value_handler](#ezpublish.search.legacy.gateway.criterion_field_value_handler)||
-|[ezpublish.search.legacy.gateway.sort_clause_handler.content](#ezpublish.search.legacy.gateway.sort_clause_handler.content)|Registers Content Sort Clause handlers|
-|[ezpublish.search.legacy.gateway.sort_clause_handler.location](#ezpublish.search.legacy.gateway.sort_clause_handler.location)|Registers Content Sort Clause handlers|
+|[ezpublish.persistence.legacy.url.criterion_handler](#ezpublish.persistence.legacy.url.criterion_handler)| Allows to define handler for URL query criterion in the legacy storage engine |
+|[ezpublish.search.legacy.gateway.criterion_field_value_handler](#ezpublish.search.legacy.gateway.criterion_field_value_handler)| Registers criterion field value handler for legacy storage engine |
+|[ezpublish.search.legacy.gateway.sort_clause_handler.content](#ezpublish.search.legacy.gateway.sort_clause_handler.content)|Registers content sort clause handlers|
+|[ezpublish.search.legacy.gateway.sort_clause_handler.location](#ezpublish.search.legacy.gateway.sort_clause_handler.location)|Registers location sort clause handlers|
 |[ezpublish.fieldType.externalStorageHandler.gateway](#ezpublish.fieldType.externalStorageHandler.gateway)|Registers an external storage gateway for a Field Type in legacy storage engine|
 |[ezpublish.fieldType.externalStorageHandler](#ezpublish.fieldType.externalStorageHandler)|Registers an external storage handler for a Field Type|
 |[ezpublish.storageEngine.legacy.converter](#ezpublish.storageEngine.legacy.converter)|Registers a converter for a Field Type in legacy storage engine|
-|[ezpublish.persistence.legacy.role.limitation.handler](#ezpublish.persistence.legacy.role.limitation.handler)||
+|[ezpublish.persistence.legacy.role.limitation.handler](#ezpublish.persistence.legacy.role.limitation.handler)| Register converter of Policy limitation from Legacy value to spi value accepted by API. |
 |[ez.fieldFormMapper.value](#ez.fieldFormMapper.value)|Registers FormMapper value providing content editing support.|
 |[ez.fieldFormMapper.definition](#ez.fieldFormMapper.definition)|Registers FormMapper definition providing Field Type definition editing support.|
-|[ez.limitation.formMapper](#ez.limitation.formMapper)||
-|[ez.limitation.valueMapper](#ez.limitation.valueMapper)||
+|[ez.limitation.formMapper](#ez.limitation.formMapper)| Registers mapper for limitation form.  |
+|[ez.limitation.valueMapper](#ez.limitation.valueMapper)| Registers mapper for limitation values.  |
 
 
 ## EzSupportToolsBundle
@@ -1155,11 +1152,13 @@ EzSystems\RepositoryForms\FieldType\Mapper\CheckboxFormMapper:
 
 ### ez.limitation.formMapper
 
+See: https://doc.ezplatform.com/en/2.1/guide/custom_policies/#integrating-custom-limitation-types-with-the-ui    
+
 - limitationType
     
 Example:
 
-```php
+```yml
 services:
     acme.security.limitation.custom_limitation.mapper:
         class: 'AppBundle\Security\Limitation\Mapper\CustomLimitationFormMapper'
@@ -1167,15 +1166,17 @@ services:
             # ...
         tags:
             - { name: 'ez.limitation.formMapper', limitationType: 'Custom' }
-```
+```   
     
 ### ez.limitation.valueMapper
+
+See: https://doc.ezplatform.com/en/2.1/guide/custom_policies/#integrating-custom-limitation-types-with-the-ui    
 
 - limitationType
     
 Example:
 
-```php
+```yml
 services:
     acme.security.limitation.custom_limitation.mapper:
         class: 'AppBundle\Security\Limitation\Mapper\CustomLimitationValueMapper'

@@ -28,25 +28,6 @@ For instance, if you want to register a [Twig extension](http://twig.sensiolabs.
 you need to create the PHP class and declare it as a service in the DIC configuration with the `twig.extension` tag
 (see the [Symfony cookbook entry](http://symfony.com/doc/2.8/templating/twig_extension.html) for a full example).
 
-eZ Platform exposes several features this way (see the [list of core service tags](#core-and-api)).
-This is for example the case with Field Types.
+eZ Platform exposes several features this way (see the [list of core service tags](service_tags.md)).
 
 You will find all service tags exposed by Symfony in [its reference documentation](http://symfony.com/doc/2.8/reference/dic_tags.html).
-
-### Core and API
-
-|Tag name|Usage|
-|------|------|
-|`router`|Adds a specific router to the chain router|
-|`twig.loader`|Registers a template loader for Twig|
-|`ezpublish.content_view_provider`|Registers a ContentViewProvider for template selection depending on content/Location being viewed|
-|`ezpublish.storageEngine`|Registers a storage engine in the Repository factory|
-|[`ezpublish.fieldType`](../api/field_type_registration.md)|Registers a Field Type|
-
-### Legacy
-
-|Tag name|Usage|
-|------|------|
-|`ezpublish.storageEngine.legacy.converter`|Registers a converter for a Field Type in Legacy storage engine|
-|`ezpublish.fieldType.externalStorageHandler`|Registers an external storage handler for a Field Type|
-|`ezpublish.fieldType.externalStorageHandler.gateway`|Registers an external storage gateway for a Field Type in Legacy storage engine|
