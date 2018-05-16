@@ -1,14 +1,12 @@
 # Configuration
 
 eZ Platform configuration is delivered using a number of dedicated configuration files.
-This config covers everything from selecting the content Repository to SiteAccesses to language settings.
+It contains everything from selecting the content Repository to SiteAccesses to language settings.
 
 ### Configuration format
 
 The recommended configuration format is YAML. It is used by default in the kernel (and in examples throughout the documentation).
 However, you can also use XML or PHP formats for configuration.
-
-Basic configuration handling in eZ Platform is similar to the usual Symfony config. To use it, you define key/value pairs in your configuration files. Internally and by convention, keys follow a dot syntax where the different segments follow your configuration hierarchy. Keys are usually prefixed by a namespace corresponding to your application. All kinds of values are accepted, including arrays and deep hashes.
 
 ### Configuration files
 
@@ -20,7 +18,7 @@ Main configuration files are located in the `app/config` folder.
 - `security.yml` is the place for security-related settings.
 - `routing.yml` defines routes that will be used throughout the application.
 
-Configuration can be made environment-specific using separate files for each environment. These files will contain additional settings and point to the general (not environment-specific) configuration that will be applied in other cases.
+Configuration can be made environment-specific using separate files for each environment. These files contain additional settings and point to the general (not environment-specific) configuration that is applied in other cases.
 
 Here you can read more about [how configuration is handled in Symfony](http://symfony.com/doc/current/best_practices/configuration.html).
 
@@ -35,12 +33,12 @@ Basic configuration handling in eZ Platform is similar to what is commonly possi
 You can define key/value pairs in [your configuration files](http://symfony.com/doc/current/book/service_container.html#importing-other-container-configuration-resources),
 under the main `parameters` key (see for example [parameters.yml](https://github.com/ezsystems/ezplatform/blob/master/app/config/parameters.yml.dist#L2)).
 
-Internally and by convention, keys follow a **dot syntax**, where the different segments follow your configuration hierarchy. Keys are usually prefixed by a *namespace* corresponding to your application. Values can be anything, including arrays and deep hashes.
+Internally and by convention, keys follow a **dot syntax**, where the different segments follow your configuration hierarchy. Keys are usually prefixed by a *namespace* corresponding to your application. All kinds of values are accepted, including arrays and deep hashes.
 
 For configuration that is meant to be exposed to an end-user (or end-developer),
 it's usually a good idea to also [implement semantic configuration](http://symfony.com/doc/current/components/config/definition.html).
 
-Note that it is also possible to [implement SiteAccess-aware semantic configuration](../cookbook/exposing_siteaccess_aware_configuration_for_your_bundle.md).
+Note that you can also [implement SiteAccess-aware semantic configuration](../cookbook/exposing_siteaccess_aware_configuration_for_your_bundle.md).
 
 #### Example
 
