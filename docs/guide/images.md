@@ -225,3 +225,112 @@ The following filters exist in the Imagine library but are not used in eZ Platfo
 ### Custom filters
 
 Please refer to [LiipImagineBundle documentation on custom filters](http://symfony.com/doc/master/bundles/LiipImagineBundle/filters.html#custom-filters). [Imagine library documentation](http://imagine.readthedocs.org/en/latest/) may also be useful.
+
+## Setting placeholder generator
+
+Placeholder generator enables you to download or use predefined image placeholder for any missing image.
+
+`PlaceholderAliasGenerator::getVariation` method generates placeholder (by delegating it to the implementation of `PlaceholderProvider` interface) if original image cannot be resolved and saves it under the original path.
+
+!!! note 
+
+    Width and height of an original image are required to generate proper placeholder. `PlaceholderAliasGenerator` decorates `AliasGenerator` as `AliasGenerator` is the only place where you can find them.  
+
+This chapter includes two implementations of `PlaceholderProvider` interface:
+
+- GenericProvider
+- RemoteProvider
+
+```
+namespace eZ\Bundle\EzPublishCoreBundle\Imagine;
+
+use eZ\Publish\Core\FieldType\Image\Value as ImageValue;
+
+interface PlaceholderProvider
+{
+    /**
+     * Provides a placeholder image path for a given Image FieldType value.
+     *
+     * @param \eZ\Publish\Core\FieldType\Image\Value $value
+     * @param array $options
+     * @return string Path to placeholder
+     */
+    public function getPlaceholder(ImageValue $value, array $options = []): string;
+}
+```
+
+### GenericProvider
+
+`\eZ\Bundle\EzPublishCoreBundle\Imagine\PlaceholderProvider\GenericProvider` generates placeholder with basic information about original image - [example 1](#semantic-configuration). 
+
+**Generic image example:**
+
+![Placeholder image GenericProvider](img/placeholder_info.jpg)
+
+**Full page example:**
+
+![Placeholder GenericProvider](img/placeholder_generic_provider.png)
+
+### RemoteProvider
+
+`\eZ\Bundle\EzPublishCoreBundle\Imagine\PlaceholderProvider\RemoteProvider` allows you to download placeholders from:
+ 
+ - remote source e.g. <http://placekitten.com> - [example 2](#semantic-configuration)
+ - live version of a site - [example 3](#semantic-configuration)
+
+**Full page example:**
+
+![Placeholder RemoteProvider - placekitten.com](img/placeholder_remote_provider.jpg)
+
+### Semantic configuration
+
+Placeholders generation can be configured for each `binary handler` under the `ezpublish.image_placeholder` key:
+
+```
+ezpublish:
+    # ...
+    image_placeholder:
+        <BINARY_HANDLER_NAME>:
+            provider: <PROVIDER TYPE>
+            options:  <OPTIONAL CONFIGURATION>
+```
+
+If there is no configuration assigned to `binary handler` name, the placeholder generation will be disabled.
+
+**Example 1 - placeholders with basic information about original image**
+
+```
+ezpublish:
+    # ...
+    image_placeholder:
+        default:
+            provider: generic
+            options:
+                background: '#EEEEEE'
+                foreground: '#FF0000'
+                text: "MISSING IMAGE %%width%%x%%height%%"
+```
+
+**Example 2 - placeholders from remote source**
+
+```
+ezpublish:
+    # ...
+    image_placeholder:
+        default:
+            provider: remote
+            options:
+                url_pattern: 'https://placekitten.com/%%width%%/%%height%%'
+```
+
+**Example 3 - placeholders from live version of a site** 
+
+```
+ezpublish:
+    # ...
+    image_placeholder:
+        default:
+            provider: remote
+            options:
+                url_pattern: 'http://example.com/var/site/storage/%%id%%'
+```
