@@ -228,20 +228,18 @@ Please refer to [LiipImagineBundle documentation on custom filters](http://symfo
 
 ## Setting placeholder generator
 
-Placeholder generator enables you to download or use predefined image placeholder for any missing image.
+Placeholder generator enables you to download or use generated image placeholder for any missing image. It should be used when you cannot download uploaded images to your local development environment because of their large size.
 
 `PlaceholderAliasGenerator::getVariation` method generates placeholder (by delegating it to the implementation of `PlaceholderProvider` interface) if original image cannot be resolved and saves it under the original path.
-
-!!! note 
-
-    Width and height of the original image are required to generate proper placeholder. `PlaceholderAliasGenerator` decorates `AliasGenerator` as `AliasGenerator` is the only place where you can find them.  
 
 In eZ Platform there are two implementations of `PlaceholderProvider` interface:
 
 - [GenericProvider](#genericprovider)
 - [RemoteProvider](#remoteprovider)
 
-```
+```php
+<?php
+
 namespace eZ\Bundle\EzPublishCoreBundle\Imagine;
 
 use eZ\Publish\Core\FieldType\Image\Value as ImageValue;
@@ -261,7 +259,7 @@ interface PlaceholderProvider
 
 ### GenericProvider
 
-`\eZ\Bundle\EzPublishCoreBundle\Imagine\PlaceholderProvider\GenericProvider` generates placeholder with basic information about original image - [example 1](#examples). 
+`\eZ\Bundle\EzPublishCoreBundle\Imagine\PlaceholderProvider\GenericProvider` generates placeholder with basic information about original image - [example 1](#configuration-examples). 
 
 **Generic image example:**
 
@@ -271,43 +269,58 @@ interface PlaceholderProvider
 
 ![Placeholder GenericProvider](img/placeholder_generic_provider.png)
 
+|Option|Default value|Description|
+|------|-------------|-----------|
+|fontpath|n/a|Path to the font file (*.ttf). **This option is required.**|
+|text|"IMAGE PLACEHOLDER %width%x%height%\n(%id%)"|Text which will be displayed in the image placeholder. %width%, %height%, %id% in it will be replaced with width, height and ID of the original image.|
+|fontsize|20|Size of the font in the image placeholder.|
+|foreground|#000000|Foreground color of the placeholder.|
+|secondary|#CCCCCC|Secondary color of the placeholder.|
+|background|#EEEEEE|Background color of the placeholder.|
+
 ### RemoteProvider
 
 `\eZ\Bundle\EzPublishCoreBundle\Imagine\PlaceholderProvider\RemoteProvider` allows you to download placeholders from:
  
- - remote source e.g. <http://placekitten.com> - [example 2](#examples)
- - live version of a site - [example 3](#examples)
+ - remote source e.g. <http://placekitten.com> - [example 2](#configuration-examples)
+ - live version of a site - [example 3](#configuration-examples)
 
 **Full page example:**
 
 ![Placeholder RemoteProvider - placekitten.com](img/placeholder_remote_provider.jpg)
 
+|Option|Default value|Description|
+|------|-------------|-----------|
+|url_pattern|''|URL pattern. %width%, %height%, %id% in it will be replaced with width, height and ID of the original image.|
+|timeout|5|Period of time before timeout, measured in seconds.|
+
 ### Semantic configuration
 
-Placeholder generation can be configured for each `binary_handler` under the `ezpublish.image_placeholder` key:
+Placeholder generation can be configured for each [`binary_handler`](/file_management/#handling-binary-files) under the `ezpublish.image_placeholder` key:
 
-```
+```yaml
 ezpublish:
     # ...
     image_placeholder:
         <BINARY_HANDLER_NAME>:
             provider: <PROVIDER TYPE>
-            options:  <OPTIONAL CONFIGURATION>
+            options:  <CONFIGURATION>
 ```
 
-If there is no configuration assigned to `binary_handler` name, the placeholder generation will be disabled.
+If there is no configuration assigned to [`binary_handler`](/file_management/#handling-binary-files) name, the placeholder generation will be disabled.
 
-##### Examples:
+##### Configuration examples:
 
 **Example 1 - placeholders with basic information about original image**
 
-```
+```yaml
 ezpublish:
     # ...
     image_placeholder:
         default:
             provider: generic
             options:
+                fontpath:   ''
                 background: '#EEEEEE'
                 foreground: '#FF0000'
                 text: "MISSING IMAGE %%width%%x%%height%%"
@@ -315,7 +328,7 @@ ezpublish:
 
 **Example 2 - placeholders from remote source**
 
-```
+```yaml
 ezpublish:
     # ...
     image_placeholder:
@@ -327,7 +340,7 @@ ezpublish:
 
 **Example 3 - placeholders from live version of a site** 
 
-```
+```yaml
 ezpublish:
     # ...
     image_placeholder:
