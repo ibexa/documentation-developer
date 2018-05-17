@@ -234,12 +234,12 @@ Placeholder generator enables you to download or use predefined image placeholde
 
 !!! note 
 
-    Width and height of an original image are required to generate proper placeholder. `PlaceholderAliasGenerator` decorates `AliasGenerator` as `AliasGenerator` is the only place where you can find them.  
+    Width and height of the original image are required to generate proper placeholder. `PlaceholderAliasGenerator` decorates `AliasGenerator` as `AliasGenerator` is the only place where you can find them.  
 
-This chapter includes two implementations of `PlaceholderProvider` interface:
+In eZ Platform there are two implementations of `PlaceholderProvider` interface:
 
-- GenericProvider
-- RemoteProvider
+- [GenericProvider](#genericprovider)
+- [RemoteProvider](#remoteprovider)
 
 ```
 namespace eZ\Bundle\EzPublishCoreBundle\Imagine;
@@ -261,7 +261,7 @@ interface PlaceholderProvider
 
 ### GenericProvider
 
-`\eZ\Bundle\EzPublishCoreBundle\Imagine\PlaceholderProvider\GenericProvider` generates placeholder with basic information about original image - [example 1](#semantic-configuration). 
+`\eZ\Bundle\EzPublishCoreBundle\Imagine\PlaceholderProvider\GenericProvider` generates placeholder with basic information about original image - [example 1](#examples). 
 
 **Generic image example:**
 
@@ -275,8 +275,8 @@ interface PlaceholderProvider
 
 `\eZ\Bundle\EzPublishCoreBundle\Imagine\PlaceholderProvider\RemoteProvider` allows you to download placeholders from:
  
- - remote source e.g. <http://placekitten.com> - [example 2](#semantic-configuration)
- - live version of a site - [example 3](#semantic-configuration)
+ - remote source e.g. <http://placekitten.com> - [example 2](#examples)
+ - live version of a site - [example 3](#examples)
 
 **Full page example:**
 
@@ -284,7 +284,7 @@ interface PlaceholderProvider
 
 ### Semantic configuration
 
-Placeholders generation can be configured for each `binary handler` under the `ezpublish.image_placeholder` key:
+Placeholder generation can be configured for each `binary_handler` under the `ezpublish.image_placeholder` key:
 
 ```
 ezpublish:
@@ -295,7 +295,9 @@ ezpublish:
             options:  <OPTIONAL CONFIGURATION>
 ```
 
-If there is no configuration assigned to `binary handler` name, the placeholder generation will be disabled.
+If there is no configuration assigned to `binary_handler` name, the placeholder generation will be disabled.
+
+##### Examples:
 
 **Example 1 - placeholders with basic information about original image**
 
