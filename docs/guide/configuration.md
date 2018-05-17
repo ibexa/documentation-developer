@@ -401,6 +401,21 @@ This limit is enforced on publishing a new version and only covers archived vers
 
     Don't set `default_version_archive_limit` too high, with Legacy storage engine you'll get performance degradation if you store too many versions. Default value of 5 is in general the recommended value, but the less content you have overall, the more you can increase this to, for instance, 25 or even 50.
 
+### User identifiers
+
+`ezplatform_default_settings.yml` contains two settings that indicate which Content Types are treated like users and user groups:
+
+``` yaml
+# User identifier
+ezsettings.default.user_content_type_identifier: ['user']
+
+# User Group identifier
+ezsettings.default.user_group_content_type_identifier: ['user_group']
+```
+
+You can override these settings if you have other Content Types that should be treated as users/user groups in the Back Office.
+When viewing such Content in the Back Office you will be able to see e.g. the assigned Policies.
+
 ## Back Office configuration
 
 ### Default page
