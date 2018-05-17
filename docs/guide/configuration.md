@@ -1,118 +1,60 @@
 # Configuration
 
-## Content Repository configuration
+eZ Platform configuration is delivered using a number of dedicated configuration files.
+It contains everything from selecting the content Repository to SiteAccesses to language settings.
 
-The default storage engine for the Repository is called Legacy storage engine.
+### Configuration format
 
-You can define several Repositories within a single application. However, you can only use one per site.
+The recommended configuration format is YAML. It is used by default in the kernel (and in examples throughout the documentation).
+However, you can also use XML or PHP formats for configuration.
 
-### Configuration examples
+### Configuration files
 
-#### Using default values
+Main configuration files are located in the `app/config` folder.
 
-``` yaml
-# ezplatform.yml
-ezpublish:
-    repositories:
-        # Defining Repository with alias "main"
-        # Default storage engine is used, with default connection
-        # Equals to:
-        # main: { storage: { engine: legacy, connection: <defaultConnectionName> } }
-        main: ~
+- `parameters.yml` contains infrastructure-related configuration. It is created based on the default settings defined in `parameters.yml.dist`.
+- `config.yml` contains configuration stemming from Symfony and covers settings such as search engine or cache configuration.
+- `ezplatform.yml` contains general configuration that is specific for eZ Platform, like for example SiteAccess settings.
+- `security.yml` is the place for security-related settings.
+- `routing.yml` defines routes that will be used throughout the application.
 
-    system:
-        # All members of my_siteaccess_group will use "main" Repository
-        # No need to set "repository", it will take the first defined Repository by default
-        my_siteaccess_group:
-            # ...
-```
+Configuration can be made environment-specific using separate files for each environment. These files contain additional settings and point to the general (not environment-specific) configuration that is applied in other cases.
 
-If no Repository is specified for a SiteAccess or SiteAccess group, the first Repository defined under `ezpublish.repositories` will be used.
+Here you can read more about [how configuration is handled in Symfony](http://symfony.com/doc/current/best_practices/configuration.html).
 
-#### All explicit
+### Configuration handling
 
-``` yaml
-# ezplatform.yml
-doctrine:
-    dbal:
-        default_connection: my_connection_name
-        connections:
-            my_connection_name:
-                driver:   pdo_mysql
-                host:     localhost
-                port:     3306
-                dbname:   my_database
-                user:     my_user
-                password: my_password
-                charset:  UTF8
+!!! note
 
-            another_connection_name:
-                # ...
+    Configuration is tightly related to the service container.
+    To fully understand it, you need to be familiar with [Symfony's service container](service_container.md) and [its configuration](http://symfony.com/doc/current/book/service_container.html#service-parameters).
 
-ezpublish:
-    repositories:
-        first_repository: { storage: { engine: legacy, connection: my_connection_name, config: {} } }
-        second_repository: { storage: { engine: legacy, connection: another_connection_name, config: {} } }
+Basic configuration handling in eZ Platform is similar to what is commonly possible with Symfony.
+You can define key/value pairs in [your configuration files](http://symfony.com/doc/current/book/service_container.html#importing-other-container-configuration-resources),
+under the main `parameters` key (see for example [parameters.yml](https://github.com/ezsystems/ezplatform/blob/master/app/config/parameters.yml.dist#L2)).
 
-    # ...
+Internally and by convention, keys follow a **dot syntax**, where the different segments follow your configuration hierarchy. Keys are usually prefixed by a *namespace* corresponding to your application. All kinds of values are accepted, including arrays and deep hashes.
 
-    system:
-        my_first_siteaccess:
-            repository: first_repository
+For configuration that is meant to be exposed to an end-user (or end-developer),
+it's usually a good idea to also [implement semantic configuration](http://symfony.com/doc/current/components/config/definition.html).
 
-            # ...
+Note that you can also [implement SiteAccess-aware semantic configuration](../cookbook/exposing_siteaccess_aware_configuration_for_your_bundle.md).
 
-        my_second_siteaccess:
-            repository: second_repository
-```
-
-#### Legacy storage engine
-
-Legacy storage engine uses [Doctrine DBAL](http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/) (Database Abstraction Layer). Database settings are supplied by [DoctrineBundle](https://github.com/doctrine/DoctrineBundle). As such, you can refer to [DoctrineBundle's documentation](https://github.com/doctrine/DoctrineBundle/blob/master/Resources/doc/configuration.rst#doctrine-dbal-configuration).
-
-!!! note "ORM"
-
-    Doctrine ORM is **not** provided by default. If you want to use it, you will need to add `doctrine/orm` as a dependency in your `composer.json`.
-
-### Field groups configuration
-
-Field groups, used in content and Content Type editing, can be configured from the `repositories` section. Values entered there are field group *identifiers*:
+#### Example
 
 ``` yaml
-repositories:
-    default:
-        fields_groups:
-            list: [content, features, metadata]
-            default: content
+parameters:
+    myapp.parameter.name: someValue
+    myapp.boolean.param: true
+    myapp.some.hash:
+        foo: bar
+        an_array: [apple, banana, pear]
 ```
 
-These identifiers can be given human-readable values and translated. Those values are used when editing Content Types. The translation domain is `ezplatform_fields_groups`.
-This file will define English names for field groups:
-
-``` yaml
-# app/Resources/translations/ezplatform_fields_groups.en.yml
-content: Content
-metadata: Metadata
-user_data: User data
+``` php
+// Usage inside a controller
+$myParameter = $this->container->getParameter( 'myapp.parameter.name' );
 ```
-
-### Limit of archived Content item versions
-
-`default_version_archive_limit` controls the number of archived versions per Content item that will be stored in the Repository, by default set to 5. This setting is configured in the following way (typically in `ezplatform.yml`):
-
-``` yaml
-ezpublish:
-    repositories:
-        default:
-            options:
-                default_version_archive_limit: 10
-```
-
-This limit is enforced on publishing a new version and only covers archived versions, not drafts.
-
-!!! tip
-
-    Don't set `default_version_archive_limit` too high, with Legacy storage engine you'll get performance degradation if you store too many versions. Default value of 5 is in general the recommended value, but the less content you have overall, the more you can increase this to, for instance, 25 or even 50.
 
 ## Dynamic configuration with the ConfigResolver
 
@@ -316,7 +258,7 @@ class MyServiceClass
 
     **Constructor injection will make your service be reset in that case.**
 
-##### Injecting 3rd party parameters
+##### Injecting third party parameters
 
 ``` yaml
 parameters:
@@ -348,3 +290,170 @@ class MyServiceClass
     }
 }
 ```
+
+## Content Repository configuration
+
+The default storage engine for the Repository is called Legacy storage engine.
+
+You can define several Repositories within a single application. However, you can only use one per site.
+
+### Configuration examples
+
+#### Using default values
+
+``` yaml
+# ezplatform.yml
+ezpublish:
+    repositories:
+        # Defining Repository with alias "main"
+        # Default storage engine is used, with default connection
+        # Equals to:
+        # main: { storage: { engine: legacy, connection: <defaultConnectionName> } }
+        main: ~
+
+    system:
+        # All members of my_siteaccess_group will use "main" Repository
+        # No need to set "repository", it will take the first defined Repository by default
+        my_siteaccess_group:
+            # ...
+```
+
+If no Repository is specified for a SiteAccess or SiteAccess group, the first Repository defined under `ezpublish.repositories` will be used.
+
+#### All explicit
+
+``` yaml
+# ezplatform.yml
+doctrine:
+    dbal:
+        default_connection: my_connection_name
+        connections:
+            my_connection_name:
+                driver:   pdo_mysql
+                host:     localhost
+                port:     3306
+                dbname:   my_database
+                user:     my_user
+                password: my_password
+                charset:  UTF8
+
+            another_connection_name:
+                # ...
+
+ezpublish:
+    repositories:
+        first_repository: { storage: { engine: legacy, connection: my_connection_name, config: {} } }
+        second_repository: { storage: { engine: legacy, connection: another_connection_name, config: {} } }
+
+    # ...
+
+    system:
+        my_first_siteaccess:
+            repository: first_repository
+
+            # ...
+
+        my_second_siteaccess:
+            repository: second_repository
+```
+
+#### Legacy storage engine
+
+Legacy storage engine uses [Doctrine DBAL](http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/) (Database Abstraction Layer). Database settings are supplied by [DoctrineBundle](https://github.com/doctrine/DoctrineBundle). As such, you can refer to [DoctrineBundle's documentation](https://github.com/doctrine/DoctrineBundle/blob/master/Resources/doc/configuration.rst#doctrine-dbal-configuration).
+
+!!! note "ORM"
+
+    Doctrine ORM is **not** provided by default. If you want to use it, you will need to add `doctrine/orm` as a dependency in your `composer.json`.
+
+### Field groups configuration
+
+Field groups, used in content and Content Type editing, can be configured from the `repositories` section. Values entered there are field group *identifiers*:
+
+``` yaml
+repositories:
+    default:
+        fields_groups:
+            list: [content, features, metadata]
+            default: content
+```
+
+These identifiers can be given human-readable values and translated. Those values are used when editing Content Types. The translation domain is `ezplatform_fields_groups`.
+This file will define English names for field groups:
+
+``` yaml
+# app/Resources/translations/ezplatform_fields_groups.en.yml
+content: Content
+metadata: Metadata
+user_data: User data
+```
+
+### Limit of archived Content item versions
+
+`default_version_archive_limit` controls the number of archived versions per Content item that will be stored in the Repository, by default set to 5. This setting is configured in the following way (typically in `ezplatform.yml`):
+
+``` yaml
+ezpublish:
+    repositories:
+        default:
+            options:
+                default_version_archive_limit: 10
+```
+
+This limit is enforced on publishing a new version and only covers archived versions, not drafts.
+
+!!! tip
+
+    Don't set `default_version_archive_limit` too high, with Legacy storage engine you'll get performance degradation if you store too many versions. Default value of 5 is in general the recommended value, but the less content you have overall, the more you can increase this to, for instance, 25 or even 50.
+
+## Back Office configuration
+
+### Default page
+
+You can define the default page that will be shown after user login.
+This overrides Symfony's `default_target_path`, and enables you to configure redirection per SiteAccess.
+
+``` yaml
+ezpublish:
+    system:
+        ezdemo_site:
+            default_page: "/Getting-Started"
+
+        ezdemo_site_admin:
+            # For admin, redirect to dashboard after login.
+            default_page: "/content/dashboard"
+```
+
+This setting **does not change Symfony behavior** regarding redirection after login. If set, it will only substitute the value set for `default_target_path`. It is therefore still possible to specify a custom target path using a dedicated form parameter.
+
+**Order of precedence is not modified.**
+
+### Pagination limits
+
+Default pagination limits for different sections of the Back Office are defined in the following settings:
+
+``` yaml
+ezsettings.default.pagination.search_limit: 10
+ezsettings.default.pagination.trash_limit: 10
+ezsettings.default.pagination.section_limit: 10
+ezsettings.default.pagination.language_limit: 10
+ezsettings.default.pagination.role_limit: 10
+ezsettings.default.pagination.content_type_group_limit: 10
+ezsettings.default.pagination.content_type_limit: 10
+ezsettings.default.pagination.role_assignment_limit: 10
+ezsettings.default.pagination.policy_limit: 10
+ezsettings.default.pagination.version_draft_limit: 5
+```
+
+## Other configuration
+
+The configuration related to other specific topics is described in:
+
+- [View provider](content_rendering.md#configuring-views-the-viewprovider)
+- [Multisite](multisite.md#configuring-multisite)
+- [SiteAccess](siteaccess.md#configuring-siteaccesses)
+- [Image variations](images.md#configuring-image-variations)
+- [Multi-file upload](file_management.md#multi-file-upload)
+- [Logging and debug](devops.md#logging-and-debug-configuration)
+- [Authentication](security.md#configuration)
+- [Sessions](sessions.md#configuration)
+- [Persistence cache](persistence_cache.md#configuration)
