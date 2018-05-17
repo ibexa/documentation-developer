@@ -4,11 +4,10 @@
 
     You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/ezstudio-beginner-tutorial/tree/master).
 
-The last of the planned Landing Page elements is still missing. You will create it by building a custom block for the Landing Page. You can utilize the possibility of creating custom blocks in many ways, with many complex configurations fitting your project. This tutorial will show you the process of creating a block on a very simple example: you will display a randomly chosen Content item from a selected folder.
+The last of the planned Landing Page elements is a custom block for the Landing Page.
+The custom block will display a randomly chosen Content item from a selected folder.
 
-The procedure you will go through is based on (and uses parts of) a [post written on the eZ Community Blog](http://share.ez.no/blogs/core-development-team/extending-ez-studio-with-new-blocks). You can take a look there for more detailed explanation.
-
-To create a custom block from scratch you will need four elements:
+To create a custom block from scratch you need four elements:
 
 - a block definition
 - a template for the block
@@ -17,10 +16,10 @@ To create a custom block from scratch you will need four elements:
 
 ### Block definition and template
 
-A block definition contains block structure and the information that is passed from it to the template. Your definition will be contained in a `RandomBlock.php` file located in `src/AppBundle/Block` folder.
+A block definition contains block structure and the information that is passed from it to the template.
+The definition will be contained in `src/AppBundle/Block/RandomBlock.php`:
 
 ``` php
-// src/AppBundle/Block/RandomBlock.php
 <?php
 
 namespace AppBundle\Block;
@@ -156,10 +155,9 @@ class RandomBlock extends AbstractBlockType
 }
 ```
 
-Now you need to define the block template. It will be placed in `src/AppBundle/Resources/views/blocks`:
+Now you need to define the block template, `src/AppBundle/Resources/views/blocks/random.html.twig`:
 
 ``` html
-<!--src/AppBundle/Resources/views/blocks/random.html.twig-->
 <div class="row random-block">
     <h4 class="text-right">{{ 'Tip of the Day'|trans }}</h4>
     <h5>{{ ez_content_name(content) }}</h5>
@@ -173,7 +171,7 @@ Now you need to define the block template. It will be placed in `src/AppBundle/
 
 The next step is to define the extension that will provide block configuration to the eZ Platform Enterprise Edition app. To do this you need to make some additions to `src/AppBundle/DependencyInjection/AppExtension.php`.
 
-First, add these three lines after remaining `use` statements:
+First, add these three lines after the existing `use` statements:
 
 ``` php
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
@@ -181,7 +179,7 @@ use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\Config\Resource\FileResource;
 ```
 
-Second, append `implements PrependExtensionInterface` to the `AppExtension extends Extension` line, so that it looks like this:
+Second, add `implements PrependExtensionInterface` to the `AppExtension extends Extension` line, so that it looks like this:
 
 ``` php
 class AppExtension extends Extension implements PrependExtensionInterface
@@ -190,8 +188,6 @@ class AppExtension extends Extension implements PrependExtensionInterface
 Finally, add the following function at the end of the one existing class:
 
 ``` php
-//in src/AppBundle/DependencyInjection/AppExtension.php
-
 public function prepend(ContainerBuilder $container)
 {
     $configFile = __DIR__ . '/../Resources/config/blocks.yml';
@@ -201,10 +197,10 @@ public function prepend(ContainerBuilder $container)
 }
 ```
 
-Next, you need to provide the block configuration in two files. Add this section in the `services.yml` file in `src/AppBundle/Resources/config` under the `services` key:
+Next, you need to provide the block configuration in two files.
+Add this section in the `src/AppBundle/Resources/config/services.yml` file under the `services` key:
 
 ``` yaml
-# src/AppBundle/Resources/config/services.yml
 app.block.random:
     class: AppBundle\Block\RandomBlock
     arguments:
@@ -215,26 +211,25 @@ app.block.random:
         - { name: landing_page_field_type.block_type, alias: random }
 ```
 
-Create a `blocks.yml` file in the same folder:
+Create a `src/AppBundle/Resources/config/blocks.yml` file:
 
 ``` yaml
-# src/AppBundle/Resources/config/blocks.yml
 blocks:
     random:
         views:
             random:
-                template: AppBundle:blocks:random.html.twig
-                name: Random Content Block View
+                template: 'AppBundle:blocks:random.html.twig'
+                name: 'Random Content Block View'
 ```
 
 At this point the new custom block is ready to be used.
 
- You're left with the last cosmetic changes. First, you can see that the new Block has a broken icon in the Elements menu in StudioUI. This is because you haven't provided this icon yet. If you look back to the `RandomBlock.php` file, you can see the icon file defined as `random_block.svg`. Download [the provided file](img/enterprise_tut_random_block.svg) and place it in `web/assets/images/blocks`.
+You're left with the last cosmetic changes. First, the new Block has a broken icon in the Elements menu in Page mode.
+This is because you haven't provided this icon yet. If you look back to the `RandomBlock.php` file, you can see the icon file defined as `random_block.svg` (line 109). Download [the provided file](img/enterprise_tut_random_block.svg) and place it in `web/assets/images/blocks`.
 
 Finally, add some styling for the new block. Add the following to the end of the `web/assets/css/style.css` file:
 
 ``` css
-/* in web/assets/css/style.css */
 /* Random block */
 .random-block {
     border: 1px solid #83705a;
@@ -257,12 +252,13 @@ Finally, add some styling for the new block. Add the following to the end of the
 }
 ```
 
-Go back to editing your Front Page. Drag new block from the Elements menu on the right to the Landing Page side column. Access the block's settings and choose the All Tips Folder from the menu. Save and publish all the changes.
+Go back to editing the Front Page. Drag a Random Block from the Elements menu on the right to the Landing Page side column.
+Access the block's settings and choose the "All Tips" folder from the menu. Save and publish all the changes.
 
-Refresh your home page. You can see the Tip of the Day block display a random Tip from the Tips folder. Try to refresh the page a couple of times and you will see the tip change randomly.
+Refresh the home page. The Tip of the Day block will display a random Tip from the "Tips" folder.
+Refresh the page a few more times and you will see the tip change randomly.
 
 ![Random Block with a Tip](img/enterprise_tut_random_block.png "Random Block with a Tip")
-
 
 ### Congratulations!
 
