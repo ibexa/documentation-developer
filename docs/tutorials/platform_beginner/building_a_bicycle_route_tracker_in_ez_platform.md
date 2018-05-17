@@ -1,52 +1,37 @@
-# Building a Bicycle Route Tracker in eZ Platform
+# Building a bicycle route tracker in eZ Platform
 
-This tutorial is a step-by-step guide to building an eZ Platform website from the ground up. All instructions and steps are based on version [1.7.0](../../releases/ez_platform_v1.7.0_lts.md) of eZ Platform released on December 15, 2016.
+This tutorial is a step-by-step guide to building an eZ Platform website.
 
-This tutorial applies a learning-by-doing method to demonstrate how [eZ Platform](https://ezplatform.com/) can be used to build a great website.
+## Intended audience
 
-Throughout this guide we will take you through the process of building a website in a series of steps using best practices for the most effective developer experience.
+The tutorial is intended for users who have little or no previous experience with eZ Platform.
 
-## Intended Audience
-
-This tutorial is intended for users who have little or no previous experience with the eZ Platform user interface.
-
-Some general knowledge of web development would certainly be helpful.
-
-To follow this tutorial, you should:
+To follow it, you should:
 
 - Have basic knowledge of HTML and CSS.
 - Have basic knowledge of the database you've selected.
  
-## Learning Outcomes
+## Learning outcomes
 
-After going through this tutorial, you will:
+After finishing this tutorial, you will:
 
-- Have a basic understanding of setting up an eZ Platform application.
-- Have some hands-on experience designing, developing and deploying a demo eZ Platform website.
-- Have developed the skills to run your own eZ Platform website.
+- Know how to construct the content model of a website.
+- Be able to use templates to display your content according to your needs.
+- Know how to manage users and permissions.
 
-# The Story Behind the Tutorial - Bike Rides
+## Scenario
 
-We'll work according to the following story:
+In the course of this tutorial you will build a website for storing and sharing bike rides.
+It will enable the user to add information and photos of their routes and indicate what interesting points can be visited during the trip.
 
-**The Story**
+## Steps
 
-*A good friend has a spreadsheet which details all her bike rides, and she knows you are a professional webmaster. She asks for your help in building a website detailing the rides. She wants to upload photos from each ride.*
-*She has no experience with web development. Some of her friends are interested in browsing and searching her "ride log". In the near future, she wants to be able to add rides by herself, and even open this possibility to her friends.*
+In this tutorial you will go through the following steps:
 
-**Specifications**
-
-The "customer" requirements are:
-
-- A list of all rides in table form
-- Viewing photos of a ride
-
-**More to come...**
-
-- WORK IN PROGRESS *Ordering rides*
-- WORK IN PROGRESS *Searching for a ride by starting place or length in km*
-- WORK IN PROGRESS *Commenting on rides*
-
-# Getting Help
-
-If you have any questions, feel free to reach out to us or our [awesome community](http://share.ez.no/get-involved/exchange) for help!
+- [1. Get ready](1_get_ready.md)
+- [2. Create the content model](2_create_the_content_model.md)
+- [3. Customize the front page](3_customize_the_front_page.md)
+- [4. Display a list of content](4_display_a_list_of_content.md)
+- [5. Improve configuration](5_improve_configuration.md)
+- [6. Embed content](6_embed_content.md)
+- [7. Enable account registration](7_enable_account_registration.md)
