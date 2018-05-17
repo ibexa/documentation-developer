@@ -128,6 +128,7 @@ pages:
             - 'Extending the Dashboard': 'guide/dashboard.md'
             - 'Other extensibility': 'guide/other_extensibility.md'
         - 'Service container': 'guide/service_container.md'
+        - `Service tags': 'guide/service_tags.md'
         - 'Personalization': 'guide/personalization.md'
         - 'Best practices': 'guide/best_practices.md'
     - Cookbook:

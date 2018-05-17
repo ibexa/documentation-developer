@@ -63,17 +63,17 @@ You will find all service tags exposed by Symfony in [its reference documentatio
 |[ezpublish.search.elasticsearch.location.sort_clause_visitor](#ezpublish.search.elasticsearch.location.sort_clause_visitor)||
 |[ezpublish.search.elasticsearch.content.criterion_visitor](#ezpublish.search.elasticsearch.content.criterion_visitor)||
 |[ezpublish.search.elasticsearch.location.criterion_visitor](#ezpublish.search.elasticsearch.location.criterion_visitor)||
-|[ezpublish.search.legacy.gateway.criterion_handler.content](#ezpublish.search.legacy.gateway.criterion_handler.content)|Registers ContentId Criterion handlers|
-|[ezpublish.search.legacy.gateway.criterion_handler.location](#ezpublish.search.legacy.gateway.criterion_handler.location)|Registers LocationId Criterion handlers|
+|[ezpublish.search.legacy.gateway.criterion_handler.content](#ezpublish.search.legacy.gateway.criterion_handler.content)|Registers `ContentId` Criterion handlers|
+|[ezpublish.search.legacy.gateway.criterion_handler.location](#ezpublish.search.legacy.gateway.criterion_handler.location)|Registers `LocationId` Criterion handlers|
 |[ezpublish.persistence.legacy.url.criterion_handler](#ezpublish.persistence.legacy.url.criterion_handler)| Allows to define handler for URL query criterion in the legacy storage engine |
 |[ezpublish.search.legacy.gateway.criterion_field_value_handler](#ezpublish.search.legacy.gateway.criterion_field_value_handler)| Registers criterion field value handler for legacy storage engine |
 |[ezpublish.search.legacy.gateway.sort_clause_handler.content](#ezpublish.search.legacy.gateway.sort_clause_handler.content)|Registers content sort clause handlers|
-|[ezpublish.search.legacy.gateway.sort_clause_handler.location](#ezpublish.search.legacy.gateway.sort_clause_handler.location)|Registers location sort clause handlers|
+|[ezpublish.search.legacy.gateway.sort_clause_handler.location](#ezpublish.search.legacy.gateway.sort_clause_handler.location)|Registers Location sort clause handlers|
 |[ezpublish.fieldType.externalStorageHandler.gateway](#ezpublish.fieldType.externalStorageHandler.gateway)|Registers an external storage gateway for a Field Type in legacy storage engine|
 |[ezpublish.fieldType.externalStorageHandler](#ezpublish.fieldType.externalStorageHandler)|Registers an external storage handler for a Field Type|
 |[ezpublish.storageEngine.legacy.converter](#ezpublish.storageEngine.legacy.converter)|Registers a converter for a Field Type in legacy storage engine|
-|[ezpublish.persistence.legacy.role.limitation.handler](#ezpublish.persistence.legacy.role.limitation.handler)| Register converter of Policy limitation from Legacy value to spi value accepted by API. |
-|[ez.fieldFormMapper.value](#ez.fieldFormMapper.value)|Registers FormMapper value providing content editing support.|
+|[ezpublish.persistence.legacy.role.limitation.handler](#ezpublish.persistence.legacy.role.limitation.handler)| Register converter of Policy limitation from Legacy value to SPI value accepted by API. |
+|[ez.fieldFormMapper.value](#ez.fieldFormMapper.value)|Registers `FormMapper` value providing content editing support.|
 |[ez.fieldFormMapper.definition](#ez.fieldFormMapper.definition)|Registers FormMapper definition providing Field Type definition editing support.|
 |[ez.limitation.formMapper](#ez.limitation.formMapper)| Registers mapper for limitation form.  |
 |[ez.limitation.valueMapper](#ez.limitation.valueMapper)| Registers mapper for limitation values.  |

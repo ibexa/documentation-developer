@@ -22,12 +22,5 @@ eZ Platform uses the [Symfony service container](http://symfony.com/doc/2.8/ser
 
 ## Service tags
 
-Service tags in Symfony DIC are a useful way of dedicating services to a specific purpose. They are usually used for extension points.
+eZ Platform exposes several features also via service tags (see the [list of core service tags](service_tags.md)).
 
-For instance, if you want to register a [Twig extension](http://twig.sensiolabs.org/doc/advanced.html#creating-extensions) to add custom filters,
-you need to create the PHP class and declare it as a service in the DIC configuration with the `twig.extension` tag
-(see the [Symfony cookbook entry](http://symfony.com/doc/2.8/templating/twig_extension.html) for a full example).
-
-eZ Platform exposes several features this way (see the [list of core service tags](service_tags.md)).
-
-You will find all service tags exposed by Symfony in [its reference documentation](http://symfony.com/doc/2.8/reference/dic_tags.html).
