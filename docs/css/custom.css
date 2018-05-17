@@ -154,7 +154,7 @@ body {
     content: url('../images/eZ-Brandmark.png');
 }
 
-.admonition {
+.md-typeset .admonition, .md-typeset details {
     font-size: 16px;
 }
 
@@ -166,34 +166,54 @@ body {
     padding-left: 1.2rem;
 }
 
+.admonition.enterprise .admonition>.admonition-title {
+    padding-left: 3.8rem;
+}
 
 .admonition.enterprise {
-    border-left: 5px solid rgba(241, 90, 34, 0.59);
+    border-left-color: #f15a22;
     background-color: #ffffff;
 }
 
-.admonition.caution {
-    border-color: #f46485;
+.admonition.enterprise>.admonition-title {
+    background-color: #fcded2;
+}
+
+.md-typeset .admonition.caution {
+    border-left-color: #f46485;
+}
+
+.md-typeset .admonition.caution>.admonition-title {
     background-color: #fcd2dc;
 }
 
-.admonition.tip {
-    border-color: #6ed28a;
+.md-typeset .admonition.caution>.admonition-title:before {
+    color: #f46485;
+}
+
+.md-typeset .admonition.tip, .md-typeset details.tip {
+    border-left-color: #6ed28a;
+}
+
+.md-typeset .admonition.tip>.admonition-title, .md-typeset details.tip>summary {
     background-color: #d5f2dd;
 }
 
-.admonition.note {
-    border-color: #4ec7f3;
+.md-typeset .admonition.tip>.admonition-title:before, .md-typeset details.tip>summary:before {
+    color: #6ed28a;
+    content: "lightbulb_outline";
+}
+
+.md-typeset .admonition.note, .md-typeset details.note {
+    border-left-color: #4ec7f3;
+}
+
+.md-typeset .admonition.note>.admonition-title, .md-typeset details.note>summary {
     background-color: #c9eefb;
 }
 
-details {
-    position: relative;
-    margin: 1.5625em 0;
-    padding: .8rem 1.2rem;
-    border-left: 5px solid #4ec7f3;
-    border-radius: .2rem;
-    background-color: #c9eefb;
+.md-typeset .admonition.note>.admonition-title:before, .md-typeset details.note>summary:before {
+    color: #4ec7f3;
 }
 
 .md-typeset .codehilitetable .linenos {
