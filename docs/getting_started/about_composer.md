@@ -70,7 +70,7 @@ By doing it this way you will need to execute further Composer commands using `p
     But in order to install a new project using `composer create-project` to get latest version of eZ Platform Enterprise, you'll need to tell composer which token to use before the project folder is created in the first place. This can be done in the following way:
 
     ``` bash
-    COMPOSER_AUTH='{"http-basic":{"updates.ez.no":{"username":"<installation-key>","password":"<token-password>"}}}' composer composer create-project --keep-vcs ezsystems/ezplatform-ee my-new-ee-project
+    COMPOSER_AUTH='{"http-basic":{"updates.ez.no":{"username":"<installation-key>","password":"<token-password>"}}}' composer create-project --keep-vcs ezsystems/ezplatform-ee my-new-ee-project
     ```
     
 
