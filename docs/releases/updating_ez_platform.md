@@ -13,7 +13,7 @@ If you intend to skip a version (for example, update directly from v1.3 to v1.5 
 
 ## Update procedure
 
-## 1. Check out a tagged version
+## 1. Prepare a branch to update your project
 
 **1.1.** From the project's root, create a new branch from the project's master, or from the branch you're updating on:
 
@@ -25,84 +25,66 @@ git checkout -b <branch_name>
 
 This creates a new project branch for the update based on your current project branch, typically `master`. An example `<branch_name>` would be `update-1.4`.
 
-**1.2.** If it's not there, add `ezsystems/ezplatform` (or `ezsystems/ezplatform-ee`, when updating an Enterprise installation) as an upstream remote:
+**1.2.** Clone eZ Platform aside in a temporary directory.
 
-**From your new update branch**
+**Clone the eZ Platform Community or Enterprise Edition**
 
 ``` bash
-git remote add ezplatform http://github.com/ezsystems/ezplatform.git
+git clone https://github.com/ezsystems/ezplatform.git /tmp/ezplatform
 or
-git remote add ezplatform-ee http://github.com/ezsystems/ezplatform-ee.git
+git clone http://github.com/ezsystems/ezplatform-ee.git /tmp/ezplatform
 ```
 
-**1.3.** Then pull the tag into your branch.
+**1.3.** Then checkout the tag corresponding to the version you want to update to.
 
 If you are unsure which version to pull, run `git ls-remote --tags` to list all possible tags.
 
-**From your new update branch**
+**From the temporary directory**
 
 ``` bash
-git pull ezplatform <version>
-or
-git pull ezplatform-ee <version>
+cd /tmp/ezplatform
+git checkout tags/<version>
 ```
 
 !!! tip
 
     Don't forget the `v` here, you want to pull the tag `<version>` and not the branch `<version>` (i.e: `v1.11.0` and not `1.11.0`).
 
-At this stage you may get conflicts, which are a normal part of the procedure and no reason to worry. The most common ones will be on `composer.json` and `composer.lock`.
 
-The latter can be ignored, as it will be regenerated when we execute `composer update` later. The easiest is to checkout the version from the tag and add it to the changes:
-
-If you get a **lot** of conflicts (on the `doc` folder for instance), and eZ Platform was installed from the [share.ez.no](http://share.ez.no) tarball, it might be because of incomplete history. You will have to run `git fetch ezplatform --unshallow` (or `git fetch ezplatform-ee --unshallow`) to load the full history, and run the merge again.
-
-**From your new update branch**
+**1.4.** Inject the changes from the new eZ Platform version (temporary folder) to your branch created to update your project.
 
 ``` bash
-git checkout --theirs composer.lock && git add composer.lock
+rsync -avzc --exclude 'src/' --exclude 'web/var' --exclude="YOURSPECIFICS" --exclude=".idea" --delete /tmp/ezplatform <PATH_TO_YOUR_EZPLATFORM_FOLDER>
 ```
 
-If you do not keep a copy in the branch, you may also run:
+!!! tip
 
-**From your new update branch**
+    The list of excludes is really depending on your project specifics and should be adapted. Ex: if you have eZ in a subfolder it would be
+    --exclude 'ezplatform/src/' --exclude 'ezplatform/web/var' etc. etc.
 
-``` bash
-git rm composer.lock
-```
 
-## 2. Merge composer.json
+## 2. Check your branch before updating to the new version
 
-#### Manual merging
+At this stage your project will be updated with the last changes coming from the new eZ Platform version. This procedure
+will remove the custom configuration you have for your project specific.
 
-Conflicts in `composer.json` need to be fixed manually. If you're not familiar with the diff output, you may checkout the tag's version and inspect the changes. It should be readable for most:
+No reason to worry, `git` will help. Depending on you organization and your specifics you may want to check the working branch.
 
-**From your new update branch**
+ ``` bash
+ git status
+ ```
 
-``` bash
-git checkout --theirs composer.json && git diff HEAD composer.json
-```
+ !!! tip
 
-You should see what was changed, as compared to your own version, in the diff output. The update changes the requirements for all of the `ezsystems/` packages. Those changes should be left untouched. All of the other changes will be removals of what you added for your own project. Use `git checkout -p` to selectively cancel those changes:
+     Or using PHPStorm: "VCS > Commit" to see the `diff` (on Mac OS: Cmd+K)
 
-``` bash
-git checkout -p composer.json
-```
 
-Answer `no` (do not discard) to the requirement changes of `ezsystems` dependencies. Answer `yes` (discard) to removals of your changes.
+ It is time for you to check what the `rsync` did and (re)adapt accordingly. You should check and re-introduce your specifics:
 
-Once you are done, inspect the file, either using an editor or by running `git diff composer.json`. You may also test the file's sanity with `composer validate`, and test the dependencies by running `composer update --dry-run`. (will output what it would do to dependencies, without applying the changes.
-
-Once finished, run `git add composer.json` and commit`.`
-
-#### Fixing other conflicts (if any)
-
-Depending on the local changes you have done, you may get other conflicts on configuration files, kernel, etc.
-
-There shouldn't be many, and you should be able to figure out which value is the right one for all of them:
-
--   Edit the file, and identify the conflicting changes. If a setting you have modified has also been changed by us, you should be able to figure out which value is the right one.
--   Run `git add conflicting-file` to add the changes
+ - Dependencies in `composer.json`
+ - Bundles loaded in your `Kernel`
+ - Configurations
+ - Custom other things you will see in the `diff`
 
 ## 3. Update the app
 
