@@ -26,7 +26,7 @@ By doing it this way you will need to execute further Composer commands using `p
 
     Out of the box Composer uses a packaging repository called [packagist.org](https://packagist.org/) to find all open-source packages and their updates. Additional commercial packages are available for eZ Enterprise subscribers at [updates.ez.no/bul/](https://updates.ez.no/bul/) *(which is password-protected, you will need to set up authentication tokens as described below to get access)*.
 
-    To get access to these updates log in to your service portal on [support.ez.no](https://support.ez.no) and look for the following on the *"Maintenance and Support agreement details"* screen:
+    To get access to these updates, log in to your service portal on [support.ez.no](https://support.ez.no) and look for the following on the *"Maintenance and Support agreement details"* screen:
 
     ![Authentication token](img/Using_Composer_Auth_token.png)
 
@@ -43,25 +43,36 @@ By doing it this way you will need to execute further Composer commands using `p
     -   as Username – your Installation key found above on the *"Maintenance and Support agreement details"* page in the service portal
     -   as Password – the token password you retrieved in step 3.
 
-    #### Support agreement expiry
+    #### Note: Support agreement expiry
 
-    If your Support agreement expires, your authentication token(s) will no longer work. They will become active again if the agreement is renewed, but this process may take up to 24 hours. (If the agreement is renewed before the expiry date, there will be no disruption of service.)
+    If your Support agreement expires, your authentication token(s) will no longer work. They will become active again if the agreement is renewed, but this process may take up to 24 hours. _(If the agreement is renewed before the expiry date, there will be no disruption of service.)_
 
-    ### Optional: Save authentication information in auth.json to avoid repeatedly typing it
+    ### Tip: Save authentication token in auth.json to avoid repeatedly typing it
 
     Composer will ask to do this for you on updates, however if it is disabled, you can create an `auth.json` file manually in one of the following ways:
 
-    * Option A: Store your credentials in the project directory:
+    * Option A: Store your credentials in the project directory _(but for security reasons avoid checking it in to git)_:
 
     ``` bash
     composer config http-basic.updates.ez.no <installation-key> <token-password>
     ```
 
-    * Option B: If you'd rather want to install it globally in [COMPOSER\_HOME](https://getcomposer.org/doc/03-cli.md#composer-home) directory for machine-wide use:
+    * Option B: If you only have one project on the machine/server/vm, and you'd rather want to install it globally in [COMPOSER\_HOME](https://getcomposer.org/doc/03-cli.md#composer-home) directory for machine-wide use:
 
     ``` bash
     composer config --global http-basic.updates.ez.no <installation-key> <token-password>
     ```
+
+    ### Tip: Usage of authentication token with `composer create-project`
+
+    If you have several projects setup on your machine, they should all use different tokens set in auth.json file in project directory. 
+    
+    But in order to install a new project using `composer create-project` to get latest version of eZ Platform Enterprise, you'll need to tell composer which token to use before the project folder is created in the first place. This can be done in the following way:
+
+    ``` bash
+    COMPOSER_AUTH='{"http-basic":{"updates.ez.no":{"username":"<installation-key>","password":"<token-password>"}}}' composer create-project --keep-vcs ezsystems/ezplatform-ee my-new-ee-project
+    ```
+    
 
 ### Update workflow Using Composer
 
