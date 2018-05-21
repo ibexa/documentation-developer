@@ -228,7 +228,7 @@ Please refer to [LiipImagineBundle documentation on custom filters](http://symfo
 
 ## Setting placeholder generator
 
-Placeholder generator enables you to download or use generated image placeholder for any missing image. It should be used when you cannot download uploaded images to your local development environment because of their large size.
+Placeholder generator enables you to download or use generated image placeholder for any missing image. It might be used when you are working on an existing database and you are not able to download uploaded images to your local development environment because of their large size
 
 `PlaceholderAliasGenerator::getVariation` method generates placeholder (by delegating it to the implementation of `PlaceholderProvider` interface) if original image cannot be resolved and saves it under the original path.
 
