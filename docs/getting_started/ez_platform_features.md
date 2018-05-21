@@ -55,7 +55,7 @@ Installation requires Composer global installation. You can find more informatio
 To perform eZ Platform demo installation use commands below in the terminal/bash/command-line interface. 
 
 ``` bash
-composer create-project --no-dev --keep-vcs ezsystems/ezplatform-demo
+composer create-project --no-dev ezsystems/ezplatform-demo
 cd ezplatform-demo
   
 php bin/console ezplatform:install demo

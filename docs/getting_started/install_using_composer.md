@@ -15,7 +15,7 @@ For further information about Composer usage see the [Using Composer](about_comp
 The commands below assume you have Composer installed globally, a copy of git on your system, and your **MySQL/MariaDB server already set up with a database**. Once you've got all the required PHP extensions installed, you can get eZ Platform up and running with the following commands:
 
 ``` bash
-composer create-project --keep-vcs ezsystems/ezplatform ezplatform ^2
+composer create-project ezsystems/ezplatform ezplatform ^2
 cd ezplatform
 ```
 
@@ -30,7 +30,7 @@ For a more complete and better performing setup using Apache or nginx, read up o
 
     To install eZ Platform for production only, use the `--no-dev` option for your `composer create-project`:
 
-    `composer create-project --no-dev --keep-vcs ezsystems/ezplatform ezplatform`
+    `composer create-project --no-dev ezsystems/ezplatform ezplatform`
 
     In such a case always set `SYMFONY_ENV="prod"`, otherwise Symfony will default to `dev` and complain about missing GeneratorBundle.
 
@@ -63,7 +63,7 @@ It depends on the meta-repository you are using.
     To install the Enterprise Edition you need an eZ Enterprise subscription and have to [set up Composer for that](about_composer.md#prerequisite-to-using-composer-with-ez-enterprise-software).
 
     ``` bash
-    composer create-project --keep-vcs ezsystems/ezplatform-ee
+    composer create-project ezsystems/ezplatform-ee
     cd ezplatform-ee
     php bin/console ezplatform:install studio-clean
     ```
@@ -97,7 +97,7 @@ The above concerns stable releases, but [Composer lets you specify stability in 
 Example:
 
 ``` bash
-composer create-project --keep-vcs ezsystems/ezplatform ezplatform @beta
+composer create-project ezsystems/ezplatform ezplatform @beta
 cd ezplatform
 php bin/console ezplatform:install
 ```
