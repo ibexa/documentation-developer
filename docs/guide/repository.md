@@ -161,6 +161,7 @@ The Public API exposes Symfony services for all of its Repository services.
 
 | Service ID                           | Type                                           |
 |--------------------------------------|------------------------------------------------|
+| `ezpublish.api.service.bookmark`     | `eZ\Publish\API\Repository\BookmarkService`    |
 | `ezpublish.api.service.content`      | `eZ\Publish\API\Repository\ContentService`     |
 | `ezpublish.api.service.content_type` | `eZ\Publish\API\Repository\ContentTypeService` |
 | `ezpublish.api.service.field_type`   | `eZ\Publish\API\Repository\FieldTypeService`   |
