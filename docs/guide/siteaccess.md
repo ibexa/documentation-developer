@@ -59,7 +59,7 @@ The rule or set of rules by which SiteAccesses are matched. See [SiteAccess matc
 
 Various system settings can be set per SiteAccess or SiteAccess group under the `ezpublish.system` key. These settings include languages or the `var` directory.
 
-### Example: multilanguage sites
+### Multilanguage sites
 
 A site has content in two languages: English and Norwegian. It has one URI per language: `http://example.com/eng` and `http://example.com/nor`. Uri parts of each language (eng, nor) are mapped to a *SiteAccess*, commonly named like the URI part: `eng`, `nor`. Using semantic configuration, each of these SiteAccesses can be assigned a prioritized list of languages it should display:
 
@@ -95,6 +95,28 @@ ezpublish:
 !!! note
 
     A new SiteAccess is recognized by the system, but an Anonymous User will not have read access to it until it is [explicitly given via the Admin > Roles panel](permissions.md#use-cases). Without read access the Anonymous User will simply be directed to the default login page.
+
+### Defining SiteAccess name
+
+In order to simplify the interface and create a better editorial experience, you can "hide"
+ the SiteAccess code and substitute it with a human readable name of the website e.g. `Tastefull Planet`. 
+ 
+List of interfaces where you can apply SiteAccess names: 
+
+- Page Builder (SiteAccess switcher in the top navigation) 
+
+- [Content Preview](https://doc.ezplatform.com/projects/userguide/en/latest/creating_content_basic/#previewing-content) (SiteAccess switcher in the dropdown menu) 
+
+- Page creation modal window (when coming from Content Structure) 
+
+You can also translate SiteAccess names. Displayed names depend on the selected language of the administration interface.
+ 
+You can define name and translation of the SiteAccess (both used as the keys) in `app/Resources/translations/ezplatform_siteaccess.en.yml`:
+
+```yaml
+en: Tastefull Planet
+fr: Tatestfull Planet France
+```
 
 ## Scope
 
