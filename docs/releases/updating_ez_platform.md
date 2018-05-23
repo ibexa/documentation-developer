@@ -248,6 +248,12 @@ These steps are only relevant for some releases:
     mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.1.0-to-7.2.0.sql
     ```
 
+    If you use DFS, also execute the following database update script:
+
+    ``` bash
+    mysql -u <username> -p <password> <dfs_database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.1.0-to-7.2.0-dfs.sql
+    ```
+
     Be aware that these upgrade statements may fail due to index collisions.
     This is because the indexes have been shortened, so duplicates may occur.
     If that happens, you must remove the duplicates manually, and then repeat the statements that failed.
