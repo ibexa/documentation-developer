@@ -129,6 +129,11 @@ All Signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
 
     Signals are sent after transactions are executed, making Signals transaction safe.
 
+#### BookmarkService
+|Signal type|Properties|Triggered by|
+|------|------|------|
+|`BookmarkService\CreateBookmarkSignal`|`locationId`|`BookmarkService::createBookmark()`|
+|`BookmarkService\DeleteBookmarkSignal`|`locationId`|`BookmarkService::deleteBookmark()`|
 
 #### ContentService
 
