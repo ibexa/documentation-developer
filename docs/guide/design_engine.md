@@ -17,10 +17,19 @@ For assets, the system uses the Symfony Asset component with asset packages.
   Typically a directory containing templates. For example, templates located under `app/Resources/views/themes/my_theme`
   or `src/AppBundle/Resources/views/themes/my_theme` are part of `my_theme` theme.
 
+!!! caution
+
+    After creating a new folder in `Resources/views/themes/` you need to clear Symfony cache `bin/console cache:clear`,
+    even if you are working in the dev environment.
+
 - **Design**: A collection of themes.
 
   The order of themes within a design is important as it defines the fallback order.
   A design is identified with a name. One design can be used per SiteAccess.
+
+!!! caution
+
+    The templates contained in `app/Resources/views` will always override templates from a design theme.
 
 ## Configuration
 
