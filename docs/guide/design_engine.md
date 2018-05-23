@@ -22,6 +22,27 @@ For assets, the system uses the Symfony Asset component with asset packages.
   The order of themes within a design is important as it defines the fallback order.
   A design is identified with a name. One design can be used per SiteAccess.
 
+### Default designs
+
+By default two designs are included:
+
+`admin` covers templates for the Back Office. It contains the `admin` theme.
+
+`standard` covers the default content rendering templates. It contains the `standard` theme.
+This theme is automatically mapped to the directory in kernel containing the templates.
+The following templates are covered:
+
+- `viewbase_layout.html.twig`
+- `pagelayout.html.twig`
+- `default/content/full.html.twig`
+- `default/content/line.html.twig`
+- `default/content/text_linked.html.twig`
+- `default/content/embed.html.twig`
+- `default/content/embed_image.html.twig`
+- `default/block/block.html.twig`
+- `content_fields.html.twig`
+- `fielddefinition_settings.html.twig`
+
 ## Configuration
 
 To define and use a design, you need to:
