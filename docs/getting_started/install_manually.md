@@ -164,11 +164,11 @@ This operation is performed only once when you install eZ Platform for the first
 
     For example, to check for publishing every minute, add the following script:
 
-    `echo '* * * * * cd [path-to-ezplatform]; php bin/console ezpublish:cron:run --quiet --env=prod' > ezp_cron.txt`
+    `echo '* * * * * cd [path-to-ezplatform]; php bin/console ezplatform:cron:run --quiet --env=prod' > ezp_cron.txt`
 
     For 5-minute intervals:
 
-    `echo '*/5 * * * * cd [path-to-ezplatform]; php bin/console ezpublish:cron:run --quiet --env=prod' > ezp_cron.txt`
+    `echo '*/5 * * * * cd [path-to-ezplatform]; php bin/console ezplatform:cron:run --quiet --env=prod' > ezp_cron.txt`
 
     Next, append the new cron to user's crontab without destroying existing crons.
     Assuming the web server user data is `www-data`:
