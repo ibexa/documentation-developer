@@ -99,7 +99,7 @@ ezpublish:
 ### Defining SiteAccess name
 
 In order to simplify the interface and create a better editorial experience, you can "hide"
- the SiteAccess code and substitute it with a human readable name of the website e.g. `Tastefull Planet`. 
+ the SiteAccess code and substitute it with a human readable name of the website e.g. `Tasteful Planet`, `Page EN`. 
  
 List of interfaces where you can apply SiteAccess names: 
 
@@ -114,8 +114,8 @@ You can also translate SiteAccess names. Displayed names depend on the selected 
 To define translation you need to put them in YAML file with correct language code e.g. `app/Resources/translations/ezplatform_siteaccess.en.yml`:
 
 ```yaml
-en: Tastefull Planet
-fr: Tatestfull Planet France
+en: Tasteful Planet
+fr: Tasteful Planet France
 ```
 
 ## Scope
