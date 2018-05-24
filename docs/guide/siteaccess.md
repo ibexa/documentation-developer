@@ -99,7 +99,7 @@ ezpublish:
 ### Defining SiteAccess name
 
 In order to simplify the interface and create a better editorial experience, you can "hide"
- the SiteAccess code and substitute it with a human readable name of the website e.g. `Tasteful Planet`, `Page EN`. 
+ the SiteAccess code and substitute it with a human-readable name of the website e.g. `Tasteful Planet`, `Page EN`. 
  
 List of interfaces where you can apply SiteAccess names: 
 
