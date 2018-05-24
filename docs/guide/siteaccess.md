@@ -111,7 +111,7 @@ List of interfaces where you can apply SiteAccess names:
 
 You can also translate SiteAccess names. Displayed names depend on the selected language of the administration interface.
  
-You can define name and translation of the SiteAccess (both used as the keys) in `app/Resources/translations/ezplatform_siteaccess.en.yml`:
+To define translation you need to put them in YAML file with correct language code e.g. `app/Resources/translations/ezplatform_siteaccess.en.yml`:
 
 ```yaml
 en: Tastefull Planet
