@@ -462,6 +462,7 @@ ezsettings.default.pagination.content_type_limit: 10
 ezsettings.default.pagination.role_assignment_limit: 10
 ezsettings.default.pagination.policy_limit: 10
 ezsettings.default.pagination.version_draft_limit: 5
+ezsettings.default.subitems_module.limit: 10
 ```
 
 ### Default Locations
