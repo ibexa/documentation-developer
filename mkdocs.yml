@@ -3,15 +3,15 @@ repo_url: https://github.com/ezsystems/developer-documentation
 copyright: "Copyright 1999-2017 eZ Systems AS and others"
 pages:
     - 'Documentation': 'index.md'
-    - UI Guidelines:
-        - 'UI Guidelines': 'guidelines/ui_guidelines.md'
+    - UI Guidelines: 
+        - 'Introduction': 'guidelines/Introduction.md'
         - Components: 
             - 'Buttons': 'guidelines/components/buttons.md'
         - Resources:
+            - 'Typography': 'guidelines/resources/typography.md'
             - 'Colors': 'guidelines/resources/colors.md'
             - 'Icons': 'guidelines/resources/icons.md'
-            - 'Typography': 'guidelines/resources/typography.md'
-        - Design Principles:
+        - Design Principles: 
             - 'Design Principles': 'guidelines/design_principles/Design_principles.md'
             - 'Philosophy': 'guidelines/design_principles/Philosophy.md'
             - 'Accessibility': 'guidelines/design_principles/Accessibility.md'
@@ -224,7 +224,14 @@ theme_dir: material
 
 extra:
   append_bootstrap:
-    - 'guidelines/test3.md'
+    - 'guidelines/Introduction.md'
+    - 'guidelines/components/buttons.md'
+    - 'guidelines/resources/colors.md'
+    - 'guidelines/resources/icons.md'
+    - 'guidelines/resources/typography.md'
+    - 'guidelines/design_principles/Design_principles.md'
+    - 'guidelines/design_principles/Philosophy.md'
+    - 'guidelines/design_principles/Accessibility.md'
 
 extra_css:
   - fonts/MavenPro.css
