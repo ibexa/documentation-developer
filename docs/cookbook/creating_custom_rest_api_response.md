@@ -1,7 +1,8 @@
 #Creating custom REST API response based on Accept header
 
-There are several situations when customizing REST API response could be useful. One of the examples is extending it by adding comments count to 
-`eZ\Publish\Core\REST\Server\Output\ValueObjectVisitor\VersionInfo` response.
+Customizing REST API response can be useful in many situations. Both for headless and more traditional setups, REST responses can be enriched in a clean way and limit client to server round trips.
+
+To do this we can take advantage of eZ Platform's [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) based REST API and extend it with custom content types for our own needs. Specifically in this cookbook we'll add comments count to `eZ\Publish\API\Repository\Values\Content\VersionInfo` responses.
 
 ##Implementation of dedicated Visitor
 The first step is creating your own implementation of `ValueObjectVisitor`. It contains all the logic which is responsible for fetching data
@@ -10,7 +11,7 @@ you want to present and for modifying the actual response.
 ```php
 <?php
 
-namespace Acme\ExampleBundle\Rest\ValueObjectVisitor;
+namespace AppBundle\Rest\ValueObjectVisitor;
 
 use eZ\Publish\API\Repository\Repository;
 use eZ\Publish\Core\REST\Common\Output\Generator;
@@ -31,15 +32,18 @@ class VersionInfo extends BaseVersionInfo
     {
         parent::visitVersionInfoAttributes($visitor, $generator, $versionInfo);
 
-        $this->visitTestValue($generator);
+        $this->visitCommentValue($generator, $versionInfo);
     }
 
-    protected function visitTestValue(Generator $generator)
+    protected function visitCommentValue(Generator $generator, APIVersionInfo $versionInfo)
     {
-        $commentsCount = 10; //for this example value is mocked, but you can use any custom logic to fetch it
-        
-        $generator->startValueElement('commentsCount', $commentsCount);
-        $generator->endValueElement('commentsCount');
+       $generator->startValueElement('commentsCount', $this->loadCommentsCount($versionInfo));
+       $generator->endValueElement('commentsCount');
+    }
+    
+    private function loadCommentsCount(APIVersionInfo $versionInfo)
+    {
+       // load comments count using the repository (injected), or any comments backend
     }
 }
 ```
@@ -51,7 +55,7 @@ decorate `eZ\Publish\Core\REST\Common\Output\ValueObjectVisitorDispatcher` from 
 ```php
 <?php
 
-namespace Acme\ExampleBundle\Rest;
+namespace AppBundle\Rest;
 
 use eZ\Publish\Core\REST\Common\Output\Generator;
 use eZ\Publish\Core\REST\Common\Output\ValueObjectVisitorDispatcher as BaseValueObjectVisitorDispatcher;
@@ -95,7 +99,7 @@ The response needs to have a proper type. The way to assure it is to override th
 ```php
 <?php
 
-namespace Acme\ExampleBundle\Rest\Generator;
+namespace AppBundle\Rest\Generator;
 
 use eZ\Publish\Core\REST\Common\Output\Generator\Json as BaseJson;
 
@@ -103,7 +107,7 @@ class Json extends BaseJson
 {
     protected function generateMediaType($name, $type)
     {
-        return "application/vnd.ez.example.{$name}+{$type}";
+        return "application/my.api.{$name}+{$type}";
     }
 }
 ```
@@ -113,7 +117,7 @@ To be able to use overridden type you also need to implement new Compiler Pass. 
 ```php
 <?php
 
-namespace Acme\ExampleBundle\DependencyInjection\Compiler;
+namespace AppBundle\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -121,8 +125,8 @@ use Symfony\Component\DependencyInjection\Reference;
 
 class ValueObjectVisitorPass implements CompilerPassInterface
 {
-    const TAG_NAME = 'acme.example.value_object_visitor';
-    const DISPATCHER_DEFINITION_ID = 'acme.example.rest.output.value_object_visitor.dispatcher';
+    const TAG_NAME = 'app.value_object_visitor';
+    const DISPATCHER_DEFINITION_ID = 'app.rest.output.value_object_visitor.dispatcher';
 
     public function process(ContainerBuilder $container)
     {
@@ -152,13 +156,13 @@ Also, don't forget to register it in your bundle!
 ```php
 <?php
 
-namespace Acme\ExampleBundle;
+namespace AppBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Acme\ExampleBundle\DependencyInjection\Compiler\ValueObjectVisitorPass;
+use AppBundle\DependencyInjection\Compiler\ValueObjectVisitorPass;
 
-class AcmeExampleBundle extends Bundle
+class AppBundle extends Bundle
 {
     public function build(ContainerBuilder $container)
     {
@@ -169,58 +173,57 @@ class AcmeExampleBundle extends Bundle
 
 ```
 ##Configuration
-The last thing you need to do is to set a configuration which should be located in `services.yml` file of your bundle. The important parts are 
-the keys: `acme.example.rest.output.visitor.json.regexps` which helps identifying proper header and `priority` which should be set high enough, to not be overridden by another implementation.
-All the other keys need to correspond with the current namespace of your bundle. In this example it is `Acme\ExampleBundle`.
+The last thing you need to do is to set a configuration which should be located in `services.yml` file of your bundle. The important parts are the keys: `app.rest.output.visitor.json.regexps` which helps identifying proper header and `priority` which should be set high enough, to not be overridden by another implementation.
+All the other keys need to correspond with the current namespace of your bundle. In this example it is just `AppBundle`.
 
 ```yaml
 parameters:
-    acme.example.rest.output.visitor.json.regexps:
-        - '(^application/vnd\.ez\.example\.[A-Za-z]+\+json$)'
+    app.rest.output.visitor.json.regexps:
+        - '(^application/my\.api\.[A-Za-z]+\+json$)'
 
 services:
-    acme.example.rest.output.generator.json:
-        class: Acme\ExampleBundle\Rest\Generator\Json
+    app.rest.output.generator.json:
+        class: AppBundle\Rest\Generator\Json
         arguments:
             - "@ezpublish_rest.output.generator.json.field_type_hash_generator"
         calls:
             - [ setFormatOutput, [ "%kernel.debug%" ] ]
 
-    acme.example.rest.output.visitor.json:
+    app.rest.output.visitor.json:
         class: "%ezpublish_rest.output.visitor.class%"
         arguments:
-            - "@acme.example.rest.output.generator.json"
-            - "@acme.example.rest.output.value_object_visitor.dispatcher"
+            - "@app.rest.output.generator.json"
+            - "@app.rest.output.value_object_visitor.dispatcher"
         tags:
-            - { name: ezpublish_rest.output.visitor, regexps: acme.example.rest.output.visitor.json.regexps, priority: 200 }
+            - { name: ezpublish_rest.output.visitor, regexps: app.rest.output.visitor.json.regexps, priority: 200 }
 
-    acme.example.rest.output.value_object_visitor.dispatcher:
-        class: Acme\ExampleBundle\Rest\ValueObjectVisitorDispatcher
+    app.rest.output.value_object_visitor.dispatcher:
+        class: AppBundle\Rest\ValueObjectVisitorDispatcher
         arguments:
             - '@ezpublish_rest.output.value_object_visitor.dispatcher'
 
-    acme.example.rest.output.value_object_visitor.version_info:
-        class: Acme\ExampleBundle\Rest\ValueObjectVisitor\VersionInfo
+    app.rest.output.value_object_visitor.version_info:
+        class: AppBundle\Rest\ValueObjectVisitor\VersionInfo
         parent: ezpublish_rest.output.value_object_visitor.base
         arguments:
             - "@ezpublish.api.repository"
         tags:
-            - { name: acme.example.value_object_visitor, type: eZ\Publish\API\Repository\Values\Content\VersionInfo }
+            - { name: app.value_object_visitor, type: eZ\Publish\API\Repository\Values\Content\VersionInfo }
 ```
 
 ##Fetching the modified response
-After following all the steps you should see an example of the modified API response below. As you see `media-type` is correctly interpreted and additional data is also appended.
-Please note that you should set a proper `Accept` header value. For this example: `application/vnd.ez.example.VersionList+json`.
+After following all the steps you should see an example of the modified API response below. As you see `media-type` is correctly interpreted and `commentsCount` is also appended (it's null as we did not provide any logic to fetch it).
+Please note that you should set a proper `Accept` header value. For this example: `application/my.api.VersionList+json`.
 
 ```json
 {
     "VersionList": {
-        "_media-type": "application\/vnd.ez.example.VersionList+json",
+        "_media-type": "application\/my.api.VersionList+json",
         "_href": "\/api\/ezp\/v2\/content\/objects\/1\/versions",
         "VersionItem": [
             {
                 "Version": {
-                    "_media-type": "application\/vnd.ez.example.Version+json",
+                    "_media-type": "application\/my.api.Version+json",
                     "_href": "\/api\/ezp\/v2\/content\/objects\/1\/versions\/9"
                 },
                 "VersionInfo": {
@@ -229,14 +232,14 @@ Please note that you should set a proper `Accept` header value. For this example
                     "status": "PUBLISHED",
                     "modificationDate": "2015-11-30T14:10:46+01:00",
                     "Creator": {
-                        "_media-type": "application\/vnd.ez.example.User+json",
+                        "_media-type": "application\/my.api.User+json",
                         "_href": "\/api\/ezp\/v2\/user\/users\/14"
                     },
                     "creationDate": "2015-11-30T14:10:45+01:00",
                     "initialLanguageCode": "eng-GB",
                     "languageCodes": "eng-GB",
                     "VersionTranslationInfo": {
-                        "_media-type": "application\/vnd.ez.example.VersionTranslationInfo+json",
+                        "_media-type": "application\/my.api.VersionTranslationInfo+json",
                         "Language": [
                             {
                                 "languageCode": "eng-GB"
@@ -252,10 +255,10 @@ Please note that you should set a proper `Accept` header value. For this example
                         ]
                     },
                     "Content": {
-                        "_media-type": "application\/vnd.ez.example.ContentInfo+json",
+                        "_media-type": "application\/my.api.ContentInfo+json",
                         "_href": "\/api\/ezp\/v2\/content\/objects\/1"
                     },
-                    "commentsCount": 10
+                    "commentsCount": null
                 }
             }
         ]
