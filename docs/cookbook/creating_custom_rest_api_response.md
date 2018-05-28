@@ -1,8 +1,8 @@
 # Creating custom REST API response based on Accept header
 
-Customized REST API response can be used in many situations, both for headless and more traditional setups. REST responses can be enriched in a clean way and limit client to server round trips.
+Customized REST API response can be used in many situations, both for headless and more traditional setups. REST responses can be enriched in a clean way and limit client-to-server round trips.
 
-To do this you can take advantage of eZ Platform's [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) based REST API and extend it with custom Content Types for your own needs. In this cookbook you will add comments count to `eZ\Publish\API\Repository\Values\Content\VersionInfo` responses.
+To do this you can take advantage of eZ Platform's [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS)-based REST API and extend it with custom Content Types for your own needs. In this cookbook you will add comments count to `eZ\Publish\API\Repository\Values\Content\VersionInfo` responses.
 
 ## Implementation of dedicated Visitor
 
@@ -43,7 +43,7 @@ class VersionInfo extends BaseVersionInfo
        $generator->startValueElement('commentsCount', $this->loadCommentsCount($versionInfo));
        $generator->endValueElement('commentsCount');
     }
-    
+
     private function loadCommentsCount(APIVersionInfo $versionInfo)
     {
        // load comments count using the repository (injected), or any comments backend
@@ -53,7 +53,7 @@ class VersionInfo extends BaseVersionInfo
 
 ## Overriding response type
 
-Next, make sure that your new implementation of serialization applies only to the selected objects. In order to do that, you need to 
+Next, make sure that your new implementation of serialization applies only to the selected objects. In order to do that, you need to
 decorate `eZ\Publish\Core\REST\Common\Output\ValueObjectVisitorDispatcher` from `ezpublish-kernel`.
 
 ```php
@@ -82,7 +82,7 @@ class ValueObjectVisitorDispatcher extends BaseValueObjectVisitorDispatcher
     }
 
     public function setOutputGenerator(Generator $outputGenerator)
-    { 
+    {
         parent::setOutputGenerator($outputGenerator);
         $this->parentDispatcher->setOutputGenerator($outputGenerator);
     }
@@ -98,7 +98,7 @@ class ValueObjectVisitorDispatcher extends BaseValueObjectVisitorDispatcher
 }
 ```
 
-The response needs to have a proper type. The way to assure it, is to override the format generator (e.g. xml/json).
+The response needs to have a proper type. The way to assure it is to override the format generator (e.g. xml/json).
 
 ```php
 <?php
@@ -116,7 +116,7 @@ class Json extends BaseJson
 }
 ```
 
-To be able to use overridden type you also need to implement new Compiler Pass. For more details see [Symfony doc](https://symfony.com/doc/2.8/service_container/compiler_passes.html). 
+To be able to use the overridden type you also need to implement new Compiler Pass. For more details see [Symfony doc](https://symfony.com/doc/2.8/service_container/compiler_passes.html).
 
 ```php
 <?php
@@ -179,8 +179,8 @@ class AppBundle extends Bundle
 
 ## Configuration
 
-The last thing you need to do, is to set a configuration which should be located in `services.yml` file of your bundle. 
-The important part are the keys: 
+The last thing you need to do is to set a configuration which should be located in the `services.yml` file of your bundle.
+The important part are the keys:
 
 - `app.rest.output.visitor.json.regexps` which helps identifying proper header
 - `priority` which should be set high enough, to not be overridden by another implementation
