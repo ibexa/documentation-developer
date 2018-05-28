@@ -1,12 +1,15 @@
-#Creating custom REST API response based on Accept header
+# Creating custom REST API response based on Accept header
 
-Customizing REST API response can be useful in many situations. Both for headless and more traditional setups, REST responses can be enriched in a clean way and limit client to server round trips.
+Customized REST API response can be used in many situations, both for headless and more traditional setups. REST responses can be enriched in a clean way and limit client to server round trips.
 
-To do this we can take advantage of eZ Platform's [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) based REST API and extend it with custom content types for our own needs. Specifically in this cookbook we'll add comments count to `eZ\Publish\API\Repository\Values\Content\VersionInfo` responses.
+To do this you can take advantage of eZ Platform's [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) based REST API and extend it with custom Content Types for your own needs. In this cookbook you will add comments count to `eZ\Publish\API\Repository\Values\Content\VersionInfo` responses.
 
-##Implementation of dedicated Visitor
-The first step is creating your own implementation of `ValueObjectVisitor`. It contains all the logic which is responsible for fetching data
-you want to present and for modifying the actual response.
+## Implementation of dedicated Visitor
+
+The first step is creating your own implementation of `ValueObjectVisitor`. It contains all the logic responsible for:
+
+- fetching data you want to present
+- modifying the actual response
 
 ```php
 <?php
@@ -48,8 +51,9 @@ class VersionInfo extends BaseVersionInfo
 }
 ```
 
-##Overriding response type
-Next, you'll need to make sure that your new implementation of serialization applies only to selected objects. In order to do that you need to 
+## Overriding response type
+
+Next, make sure that your new implementation of serialization applies only to the selected objects. In order to do that, you need to 
 decorate `eZ\Publish\Core\REST\Common\Output\ValueObjectVisitorDispatcher` from `ezpublish-kernel`.
 
 ```php
@@ -94,7 +98,7 @@ class ValueObjectVisitorDispatcher extends BaseValueObjectVisitorDispatcher
 }
 ```
 
-The response needs to have a proper type. The way to assure it is to override the format generator (e.g. xml/json).
+The response needs to have a proper type. The way to assure it, is to override the format generator (e.g. xml/json).
 
 ```php
 <?php
@@ -112,7 +116,7 @@ class Json extends BaseJson
 }
 ```
 
-To be able to use overridden type you also need to implement new Compiler Pass. For more details see [Symfony doc](https://symfony.com/doc/current/service_container/compiler_passes.html). 
+To be able to use overridden type you also need to implement new Compiler Pass. For more details see [Symfony doc](https://symfony.com/doc/2.8/service_container/compiler_passes.html). 
 
 ```php
 <?php
@@ -172,8 +176,15 @@ class AppBundle extends Bundle
 }
 
 ```
-##Configuration
-The last thing you need to do is to set a configuration which should be located in `services.yml` file of your bundle. The important parts are the keys: `app.rest.output.visitor.json.regexps` which helps identifying proper header and `priority` which should be set high enough, to not be overridden by another implementation.
+
+## Configuration
+
+The last thing you need to do, is to set a configuration which should be located in `services.yml` file of your bundle. 
+The important part are the keys: 
+
+- `app.rest.output.visitor.json.regexps` which helps identifying proper header
+- `priority` which should be set high enough, to not be overridden by another implementation
+
 All the other keys need to correspond with the current namespace of your bundle. In this example it is just `AppBundle`.
 
 ```yaml
@@ -211,8 +222,9 @@ services:
             - { name: app.value_object_visitor, type: eZ\Publish\API\Repository\Values\Content\VersionInfo }
 ```
 
-##Fetching the modified response
-After following all the steps you should see an example of the modified API response below. As you see `media-type` is correctly interpreted and `commentsCount` is also appended (it's null as we did not provide any logic to fetch it).
+## Fetching the modified response
+
+After following all the steps you should see an example of the modified API response below. As you see `media-type` is correctly interpreted and `commentsCount` is also appended (it's `null` as you did not provide any logic to fetch it).
 Please note that you should set a proper `Accept` header value. For this example: `application/my.api.VersionList+json`.
 
 ```json
@@ -268,4 +280,4 @@ Please note that you should set a proper `Accept` header value. For this example
 
 !!! tip
 
-    You can simply test your response by using JavaScript/AJAX example code, see [Testing the API](../api/rest_api_guide/#testing-the-api).
+    You can test your response by using JavaScript/AJAX example code, see [Testing the API](../api/rest_api_guide/#testing-the-api).
