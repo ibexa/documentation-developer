@@ -1,4 +1,4 @@
-# Step 4 - Display a list of content
+# Step 4 - Display a list of content items
 
 Now that you know how to display a single Content item, you can take care of rendering a list of Content items.
 
@@ -82,13 +82,13 @@ class HomepageController extends Controller
 }
 ```
 
-This controller searches for all visible Content items of the type "Ride" (lines 39-40)
+This controller searches for all visible Content items of the type **Ride** (lines 39-40)
 and renders them using the `list/rides.html.twig` template (line 28).
 
 ## Create a template to list all Rides
 
 Create `app/Resources/views/list/rides.html.twig`. It displays the list of Rides in a `<table>` tag.
-The `<head>` of the `<table>` is contained in this Ride list template, while each `<tr>` (line of the table) will be provided by the line ride template.
+The `<head>` of the `<table>` is contained in this **Ride** list template, while each `<tr>` (line of the table) will be provided by the line ride template.
 
 ``` html hl_lines="19"
 <div class="row regular-content-size">

@@ -4,7 +4,7 @@
 
 Now you need to create the second Content Type needed in the site, **Landmark**.
 
-Go to Admin Panel &gt; Content types, and under the "Content" group, create the Landmark Content Type.
+Go to Admin Panel &gt; Content types, and under the **Content** group, create the Landmark Content Type.
 
 A Landmark is an interesting place that Rides go through. Each Ride may be related to multiple Landmarks.
 
@@ -20,17 +20,17 @@ Then create all Fields with the following information: 
 | Image        | Photo            | `photo`          | yes       | no         | no           |
 | Map location | Location         | `location`       | yes       | yes        | no           |
 
-Confirm the creation of the Content Type creation form.
+Confirm the creation of the Content Type by selecting OK.
 
 Create a "Landmarks" Folder add some Landmarks to it.
 Note that you will need pictures (for the Photo Field) to represent them.
 
 ## Add Landmarks to Ride Content Type definition
 
-Now edit the Ride Content Type in order to add a Content Relation Multiple between the two Content Types.
-Create a new Field called "Landmarks" with identifier `landmarks` and allow Content Types "Landmark" to be added to it:
+Now edit the Ride Content Type in order to add a Multiple Content Relation between the two Content Types.
+Create a new Field called "Landmarks" with identifier `landmarks` and allow Content Type "Landmark" to be added to it:
 
-![Adding Landmarks to the Ride Content Type](img/bike_ride_adding_landmarks_to_the_ride_content_type.png "Adding a relation between the Ride and the Landmark using the Content Relation Multiple")
+![Adding Landmarks to the Ride Content Type](img/bike_ride_adding_landmarks_to_the_ride_content_type.png "Adding a relation between the Ride and the Landmark using Content Relations (multiple)")
 
 Go back to one of your existing Rides, edit it and link some Landmarks to it.
 

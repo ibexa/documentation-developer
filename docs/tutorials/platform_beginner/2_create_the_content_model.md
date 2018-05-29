@@ -2,15 +2,15 @@
 
 How your content is structured is a very important part of an eZ Platform project. Think of it as the database design of your application.
 
-To get full information, read the [content model](../guide.content_model.md) documentation page.
-Below is a short, straight-to-the-point introduction that covers point essential for this tutorial.
+To get full information, read the [content model](../../guide/content_model.md) documentation page.
+Below is a short introduction that only covers points needed for this tutorial.
 
 ## Content model overview
 
 The eZ Platform content Repository is centered around **Content items**. A Content item is a single piece of content, for example an article, a product review, a place, etc.
 
 Every Content item is an instance of a **Content Type**. Content Types define what **Fields** are included in each Content item.
-For example, an article could include a Fields such as *title*, *image*, *abstract*, *article's body*, *publication date* and *list of authors*.
+For example, an article could include Fields such as *title*, *image*, *abstract*, *article's body*, *publication date* and *list of authors*.
 
 Fields can belong to one of the installed **Field Types**, about 30 in the default distribution.
 Each Field Type is built to represent a specific type of data: a text line, a block of rich text, an image, a collection of relations to Content items, etc.
@@ -21,7 +21,7 @@ Every Field Type may have its own options, and comes with its own editing and vi
 
 The site will use two Content Types: **Ride** and **Landmark**.
 A Ride is a route of a bike trip. It can include one or more Landmarks - interesting places you can see along the way.
-More than one Ride can visit the same Landmark, so in database terms this is an N-N relationship model.
+More than one Ride can visit the same Landmark, so it is similar to an N-N relationship model in a database.
 
 In this step you'll create the first Content Type, Ride.
 
@@ -55,10 +55,10 @@ Then create all Fields with the following information: 
 
 ## Create Rides
 
-Go back to the Content structure page, then browse the Content tree and create a Folder named *All Rides* using the **Create** button in the Action bar on the right of the screen. Publish the Folder.
+Go back to the Content structure page by selecting Content in the top bar. Then browse the Content tree and create a Folder named *All Rides* using the **Create** button in the Action bar on the right of the screen. Publish the Folder.
 
-While in the folder, create a few of Rides, with photos, using the Create button, and publish them.
+While in the folder, create a few of Rides using the Create button, add photos and publish them.
 
 ![Ready for Step 3](img/bike_tutorial_all_rides_admin.png)
 
-Once you have two or more Rides in a Folder, you are ready to customize the homepage of the website.
+Once you have two or more Rides in the Folder, you are ready to customize the homepage of the website.

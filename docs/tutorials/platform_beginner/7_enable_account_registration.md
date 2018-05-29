@@ -55,7 +55,7 @@ Create the file `app/Resources/views/user/registration_form.html.twig`:
 {% endblock %}
 ```
 
-In line 10 this imports another file, `registration_content_form.html.twig`.
+In line 10 you can see that another file is imported: `registration_content_form.html.twig`.
 The second template will render the actual fields of the registration form. Create this file as well (as `app/Resources/views/user/registration_content_form.html.twig`):
 
 ``` twig
@@ -164,7 +164,7 @@ The User you have just created will have the Roles assigned to this group.
     You can change the group in which new Users are placed (but you don't need to do it for this tutorial).
     See [Registering new users](../../guide/user_generated_content/#registering-new-users) for more information.
 
-You don't want anyone who registers to be able to add content to the website.
+At this point you don't want anyone who registers to be able to add content to the website.
 That's why you'll create a new User Group with additional permissions.
 When the administrator accepts a new User, they can move them to this new group.
 
@@ -194,16 +194,16 @@ Now add the following Policies to the Contributors Role.
 !!! tip
 
     The Limitations are a powerful tool for fine-tuning the permission management of the Users.
-    See [the documentation about Limitations for more technical details](../../guide/repository/#usergrouplimitation)
+    See [the documentation about Limitations for more technical details](../../guide/limitations.md#usergrouplimitation)
 
 Once the Policies are set, go to the "Users and groups using the <Contributors> role" tab and assign the Role to the User Group *Go Bike Members*.
 
-Next, go to the Users page. Select the user you have just created and Move them into the *Go Bike Members* user group.
+Next, go to the Users page. Select the user you have just created and move them into the *Go Bike Members* user group.
 
 ### Create content as a Go Bike Member
 
 Log out as admin and then log in again into the Back Office with the credentials of the new user.
-You have now the possibility to create new Rides and Landmarks.
+You have now the ability to create new Rides and Landmarks.
 
 ## Congratulations!
 

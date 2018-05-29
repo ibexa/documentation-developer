@@ -1,10 +1,9 @@
 # Step 3 - Customize the front page
 
-In this step you will create the global layout of your site, and display first content using custom templates.
+In this step you will create the global layout of your site, and display content using custom templates.
 
 First, go to the root of the site (`<yourdomain>`). You should see the root folder of the clean install, without any kind of layout.
-You can add `/ez` to the URL, edit this Content item and see that this page changes.
-You will customize this step by instructing Platform to use a custom template to render this particular item.
+You will customize this step by instructing Platform to use a custom template to render this Content item.
 
 ## Content rendering configuration
 
@@ -28,7 +27,7 @@ ezpublish:
 This tells eZ Platform to use the `template` when rendering content with Location ID `2`.
 `2` is the default Location for the root Content item.
 
-`Id\Location` is one of several [view matchers](../../guide/content_rendering.md#view-provider-configuration) that you can use to customize rendering depending on different criteria.
+`Id\Location` is one of several [view matchers](../../guide/content_rendering.md#configuring-views-the-viewprovider) that you can use to customize rendering depending on different criteria.
 
 !!! note "Clear the cache"
 
@@ -60,8 +59,8 @@ Refresh the page and you will see a simple, unstyled version of the message.
 
 ### Add the site's main layout
 
-Most sites will have a general layout which includes things like header with a logo or footer.
-It will be displayed on every page, and the content of the page will be placed inside it.
+Most sites have a general layout which includes things like header with a logo or footer.
+It is displayed on every page, and the content of the page is placed inside it.
 
 To add a template like this to your site, create a `main_layout.html.twig` file in `app/Resources/views` and paste the following code into it:
 
@@ -196,7 +195,7 @@ The code above points to `main_layout.html.twig` in line 1. It also wraps your "
 If you look back at the main layout template, you can see an empty `{% block content %}{% endblock %}` section (lines 52-53).
 This is where the `root_folder.html.twig` will be rendered.
 
-Refresh the page and you should now see the "Hello world" placed inside a complete, styled layout.
+Refresh the page and you should now see the "Hello world" placed inside a styled layout.
 
 ![Homepage with a Hello world](img/bike_tutorial_hello_world.png)
 

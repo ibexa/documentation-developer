@@ -20,7 +20,7 @@ ezpublish:
                         - {name: geometry/scaledownonly, params: [140, 100]}
 ```
 
-At the beginning of the `ezplatform.yml` file, add the following lines to import the content of `image_variations.yml`:
+At the beginning of the `ezplatform.yml` file, add the following lines to import the content of `app/config/image_variations.yml`:
 
 ``` yaml
 imports:
@@ -49,9 +49,9 @@ Clear cache and refresh the front page. Photos should now have a regular size an
 
 ## Separate view configuration
 
-In a larger site you will have a lot of configuration. To keep it more organized, you can split parts of configuration into separate files.
+In a larger site there are many elements that need configuration. To keep it more organized, you can split parts of configuration into separate files.
 
-As an example, you can separate all content view configuration into its own file. Create an `app/config/views.yml` file and move everything under `content_view` to this file from `ezplatform.yml`.
+As an example, you can separate all content view configuration into its own file. Create an `app/config/views.yml` file. Copy everything under `content_view` from `ezplatform.yml` and move it to the new file.
 Remove the corresponding code from `ezplatform.yml`, but remember that `ezpublish.system.site_group` must be present in both files.
 The `views.yml` should look like this:
 
