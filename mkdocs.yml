@@ -224,20 +224,11 @@ theme_dir: material
 
 extra:
   append_bootstrap:
-    - 'guidelines/Introduction.md'
-    - 'guidelines/components/buttons.md'
-    - 'guidelines/resources/colors.md'
-    - 'guidelines/resources/icons.md'
-    - 'guidelines/resources/typography.md'
-    - 'guidelines/design_principles/Design_principles.md'
-    - 'guidelines/design_principles/Philosophy.md'
-    - 'guidelines/design_principles/Accessibility.md'
+    - '/guidelines/'
 
 extra_css:
   - fonts/MavenPro.css
   - css/custom.css
-  - css/bootstrap-iso.css
-  - css/ez-guidelines.css
   - '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css'
 extra_javascript: [js/jquery.min.js, js/custom.js, '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js']
 markdown_extensions:

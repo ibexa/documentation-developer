@@ -161,7 +161,7 @@
           <div class="md-content">
 
             {% set ns = namespace(bootstrap_extra_css='') %}
-            {% for md_file in config.extra.append_bootstrap if md_file in page.edit_url %}
+            {% for md_file in config.extra.append_bootstrap if 'docs' + md_file in page.edit_url %}
               {% set ns.bootstrap_extra_css = ' bootstrap-iso ez-guidelines' %}
               {% include "partials/integrations/bootstrap.html" %}
             {% endfor %}
