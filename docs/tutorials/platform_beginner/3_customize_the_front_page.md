@@ -175,7 +175,7 @@ For now the site has no stylesheets or assets. In the highlighted lines (12-14, 
 
 ### Extending templates
 
-Now you need to indicate that the `root_folder.html.twig` template should make use of the page layout.
+Now you need to indicate that the `app/Resources/views/full/root_folder.html.twig` template should make use of the page layout.
 Edit `root_folder.html.twig` and replace it with the following code:
 
 ``` twig hl_lines="1 3 7"

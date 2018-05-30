@@ -53,6 +53,8 @@ Then create all Fields with the following information: 
 | Map location | Ending point     | `ending_point`   | yes       | yes        | no           |
 | Integer      | Length           | `length`         | yes       | yes        | no           |
 
+Confirm the creation of the Content Type by selecting OK.
+
 ## Create Rides
 
 Go back to the Content structure page by selecting Content in the top bar. Then browse the Content tree and create a Folder named *All Rides* using the **Create** button in the Action bar on the right of the screen. Publish the Folder.
