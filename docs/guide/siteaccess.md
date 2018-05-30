@@ -55,6 +55,29 @@ Collects SiteAccesses into groups that can be used later for configuration.
 
 The rule or set of rules by which SiteAccesses are matched. See [SiteAccess matching](#siteaccess-matching) for more information.
 
+!!! enterprise
+
+    ### SiteAccess selection in Page Builder
+
+    To define which SiteAccesses are available in the submenu in Page Builder, use the following configuration.
+    `siteaccess_list` is an array of SiteAccess identifiers:
+
+    ``` yaml
+    ezpublish:
+        system:
+            admin:
+                page_builder:
+                    siteaccess_list: [site, de, fr, no]
+            de:
+                page_builder:
+                    siteaccess_list: [site, de]
+    ```
+
+    !!! caution
+
+        Page Builder works only with SiteAccesses in the same domain.
+        It is not possible to display in the Page Builder SiteAccesses configured for a different domain.
+
 ### Settings per SiteAccess
 
 Various system settings can be set per SiteAccess or SiteAccess group under the `ezpublish.system` key. These settings include languages or the `var` directory.
