@@ -229,11 +229,11 @@ The Block is already operational, but first update the stylesheet. Add the follo
 }
 ```
 
-At this point you can add this Schedule block to your Landing Page and fill it with content to see how it works.
+At this point you can add a new Schedule block to your Landing Page and fill it with content to see how it works.
 
 !!! tip
 
-    If you do not see the Featured block template, you may need to clear the cache (using `php app/console cache:clear`) and/or reload the app.
+    If you do not see the featured block template, you may need to clear the cache (using `php app/console cache:clear`) and/or reload the app.
 
 Go to Page mode, click Edit and drag a Schedule block from the pane on the right to the main zone in the layout.
 Select the block and click the Block Settings icon. Choose the "Featured Schedule" block template and confirm.
@@ -257,7 +257,7 @@ Content will be hidden if you moved to a point before it airs.
 
 ![Front Page after adding Featured Block](img/enterprise_tut_page_with_featured_articles.png "Front Page after adding Featured Block")
 
-### Create a Schedule block for Other Articles
+### Create a Schedule block for other Articles
 
 Now you can prepare the second Schedule block for the Landing Page.
 First, add the new block to configuration by adding this code to `app/config/layouts.yml`:
@@ -369,12 +369,12 @@ Now you will make use of the overflow functionality.
 In the settings of the Featured Articles block turn on overflow and select the Other Articles block as its overflow target.
 
 This controls how content will behave once it has to leave the first block.
-You may know this behavior from many websites: you have placed featured articles in the first Schedule block.
-When a new article appears in this block, the last article currently in it will be 'pushed off'
+You may know this behavior from many websites.
+When a new article appears in the first Schedule block, the last article currently in it will be 'pushed off'
 and will land in the block designated as the overflow block – this means in the list of articles below.
 This way the most current articles are shown at the top, while older articles are still easily accessible from the front page.
 
-You can try this out now. Add one more Article to the Featured Articles block.
+You can try it out now. Add one more Article to the Featured Articles block.
 You will see a warning that some content will be pushed out.
 When you confirm, the pushed out Article will move to the top of the Other Articles block.
 

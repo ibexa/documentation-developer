@@ -10,7 +10,7 @@ To set up the starter website, you need to follow these steps:
 
 To begin the tutorial, you need a clean installation of eZ Platform Enterprise Edition.
 
-To get it, follow the [install eZ Platform](../../getting_started/install_using_composer.md) guide.
+Get it by following the [install eZ Platform](../../getting_started/install_using_composer.md) guide.
 You will need a web server, a relational database and PHP.
 
 !!! note "Installation type"
@@ -19,7 +19,7 @@ You will need a web server, a relational database and PHP.
 
 ## Create Content Types
 
-Log in to the back office – add `/ez` to your installation's address (`<yourdomain>/ez`) and log in using `admin` as the login and `publish` as the password. In the Admin Panel go to Content types tab and (under the Content category) create two Content Types with the following settings:
+Log in to the Back Office – add `/ez` to your installation's address (`<yourdomain>/ez`) and log in using `admin` as the login and `publish` as the password. In the Admin Panel go to Content types tab and (under the Content category) create two Content Types with the following settings:
 
 ### Dog Breed
 
@@ -47,7 +47,7 @@ Log in to the back office – add `/ez` to your installation's address (`<your
 
 ### Modify existing Article Content Type
 
-You also need to modify the built-in Article Content Type. It will make inserting photos into articles will be easier.
+You also need to modify the built-in Article Content Type. It will make inserting photos into articles easier.
 Edit it to remove the Image Field that has a Content Relation (ezobjectrelation) type, and create a new Field in its place:
 
 | Field Type | Name  | Identifier | Required | Searchable | Translatable |

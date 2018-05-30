@@ -4,7 +4,7 @@
 
     You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/ezstudio-beginner-tutorial/tree/master).
 
-The last of the planned Landing Page elements is a custom block for the Landing Page.
+The last of the planned Landing Page elements is to create a custom block for the Landing Page.
 The custom block will display a randomly chosen Content item from a selected folder.
 
 To create a custom block from scratch you need four elements:

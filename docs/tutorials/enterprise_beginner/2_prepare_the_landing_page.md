@@ -21,7 +21,7 @@ Go to the front page of your website (`<yourdomain>`). You can see that it looks
     `php app/console assets:install`
 
 Log in to the Back Office. Go to Content &gt; Content Structure.
-The "Home" Content item is the first page that is shown to the visitor.
+The **Home** Content item is the first page that is shown to the visitor.
 Here you can check what Content Type it belongs to: it is a Landing Page.
 
 ![Home Content item is a Landing Page](img/enterprise_tut_home_is_an_lp.png)
@@ -77,7 +77,7 @@ Add the following line to `app/config/config.yml`, at the end of the `imports` 
 
 !!! tip
 
-    For a detailed description of creating a Landing Page layout, see [Landing Page layouts](../../guide/content_rendering/#landing-page-layouts):
+    For a detailed description of creating a Landing Page layout, see [Landing Page layouts](../../guide/landing_page_rendering.md):
 
 The `sidebar` (line 3) is the internal key of the layout. `name` (line 5) is displayed in the interface when the user selects a layout.
 The `thumbnail` (line 7) points to an image file that is shown when creating a new Landing Page next to the name.
@@ -132,7 +132,7 @@ The above template creates two columns and defines their widths. Each column is 
 
 !!! note
 
-    A zone in a layout template **must have** the `data-studio-zone` attribute (lines 2 and 15),
+    A zone in a layout template **must have** the `data-studio-zone` attribute (lines 2 and 15).
     The zone container **must have** the `data-studio-zones-container` attribute (line 1) to allow dropping Content into zones.
 
 With these three elements: configuration, thumbnail and template, the new layout is ready to use.
@@ -170,7 +170,7 @@ Add this new template, `app/Resources/views/full/landing_page.html.twig`:
 
 This template simply renders the page content. If there is any additional content or formatting you would like to apply to every Landing Page, it should be placed in this template.
 
-Now you need to tell the app to use this template render Landing Pages.
+Now you need to tell the app to use this template to render Landing Pages.
 Edit the `app/config/views.yml` file and add the following code under the `full:` key:
 
 ``` yaml
