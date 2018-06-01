@@ -1,13 +1,9 @@
 # Colors
 
-Visual hierarchy and differentiation. We prioritize Create and Edit content as main functions in our CMS with orange color. Because most of the application has soft colors, color stands out and catches user's attention. We also define secondary, neutral and negative colors. Despite of this, it is also important to remind to not always rely on color to provide visual differentiation. If too many colors are employed, colors might lose their meaning.
+**Visual hierarchy and differentiation**. We prioritize Create and Edit content as main functions in our CMS with orange color. Because most of the application has soft colors, color stands out and catches user's attention. We also define secondary, neutral and negative colors. Despite of this, it is also important to remind to not always rely on color to provide visual differentiation. If too many colors are employed, colors might lose their meaning.
 
-All color combinations have been previously tested to meet at least one or more of the minimum ratios that the [WCAG 2.0](https://www.w3.org/TR/WCAG20/) specifies for text and background color combinations. This compliance will help users who are colorblind or have low vision to better interact with our app, as well as it will benefit usability and readability for all users.
-
-When planning a new color combination, check beforehand compliance with these standards. We suggest [Colour Contrast Analyser](https://www.paciellogroup.com/resources/contrastanalyser/) app.
-
-##<div class="mgt-5 header-line">Primary colors</div>
-<div class="wrapper-samples">
+##<div class="mgt-2 header-line">Primary colors</div>
+<div class="wrapper-samples mgt-minus-3">
     <div class="color-box">
         <div class="color-frame ez-color-primary">
             <p class="color-code"><code>#f15a10</code></p>
@@ -58,8 +54,8 @@ When planning a new color combination, check beforehand compliance with these st
     </div>
 </div>
 
-##<div class="mgt-3 header-line">Ground Base colors</div>
-<div class="wrapper-samples">
+##<div class="mgt-2 header-line">Ground Base colors</div>
+<div class="wrapper-samples mgt-minus-3">
     <div class="color-box">
         <div class="color-frame color-frame-light ez-ground-base-pale">
             <p class="color-code"><code>#fafafa</code></p>
@@ -116,8 +112,8 @@ When planning a new color combination, check beforehand compliance with these st
     </div>
 </div>
 
-##<div class="mgt-3 header-line">Ground Secondary colors</div>
-<div class="wrapper-samples">
+##<div class="mgt-2 header-line">Ground Secondary colors</div>
+<div class="wrapper-samples mgt-minus-3">
     <div class="color-box">
         <div class="color-frame color-frame-light ez-secondary-gound-pale">
             <p class="color-code"><code>#e1f5ff</code></p>
@@ -156,8 +152,8 @@ When planning a new color combination, check beforehand compliance with these st
     </div>
 </div>
 
-##<div class="mgt-3 header-line">Interaction colors</div>
-<div class="wrapper-samples">
+##<div class="mgt-2 header-line">Interaction colors</div>
+<div class="wrapper-samples mgt-minus-3 mgb-5">
     <div class="color-box">
         <div class="color-frame color-frame-light ez-color-warning-pale">
             <p class="color-code"><code>#fceaec</code></p>

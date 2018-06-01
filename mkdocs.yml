@@ -3,18 +3,6 @@ repo_url: https://github.com/ezsystems/developer-documentation
 copyright: "Copyright 1999-2017 eZ Systems AS and others"
 pages:
     - 'Documentation': 'index.md'
-    - UI Guidelines: 
-        - 'Introduction': 'guidelines/Introduction.md'
-        - Components: 
-            - 'Buttons': 'guidelines/components/buttons.md'
-        - Resources:
-            - 'Typography': 'guidelines/resources/typography.md'
-            - 'Colors': 'guidelines/resources/colors.md'
-            - 'Icons': 'guidelines/resources/icons.md'
-        - Design Principles: 
-            - 'Design Principles': 'guidelines/design_principles/Design_principles.md'
-            - 'Philosophy': 'guidelines/design_principles/Philosophy.md'
-            - 'Accessibility': 'guidelines/design_principles/Accessibility.md'
     - Getting started:
         - 'Get started with eZ Platform': 'getting_started/get_started_with_ez_platform.md'
         - 'Requirements and system configuration': 'getting_started/requirements_and_system_configuration.md'
@@ -172,6 +160,17 @@ pages:
             - 'Development guidelines': 'community_resources/development_guidelines.md'
             - 'Contribute translations': 'community_resources/translations.md'
             - 'Contribute documentation': 'community_resources/documentation.md'
+        - UI Guidelines: 
+            - 'Introduction': 'guidelines/introduction.md'
+            - Components: 
+                - 'Buttons': 'guidelines/components/buttons.md'
+            - Resources:
+                - 'Typography': 'guidelines/resources/typography.md'
+                - 'Colors': 'guidelines/resources/colors.md'
+                - 'Icons': 'guidelines/resources/icons.md'
+            - Design Principles: 
+                - 'Philosophy': 'guidelines/design_principles/philosophy.md'
+                - 'Accessibility': 'guidelines/design_principles/accessibility.md'
     - Migrating to eZ Platform:
         - 'Migrating from eZ Publish Platform': 'migrating/migrating_from_ez_publish_platform.md'
         - 'Migrating from eZ Publish': 'migrating/migrating_from_ez_publish.md'
