@@ -31,10 +31,10 @@ pages:
             - '7. Customize the User forms': 'tutorials/platform_beginner/7_customize_login_and_register_forms.md'
         - eZ Enterprise Beginner tutorial:
             - 'eZ Enterprise beginner tutorial - It&#39s a dog&#39s world!': 'tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world.md'
-            - '1. Getting your starter website': 'tutorials/enterprise_beginner/1_getting_your_starter_website.md'
-            - '2. Preparing the Landing Page': 'tutorials/enterprise_beginner/2_preparing_the_landing_page.md'
-            - '3. Using existing blocks': 'tutorials/enterprise_beginner/3_using_existing_blocks.md'
-            - '4. Creating a custom block': 'tutorials/enterprise_beginner/4_creating_a_custom_block.md'
+            - '1. Get a starter website': 'tutorials/enterprise_beginner/1_get_a_starter_website.md'
+            - '2. Prepare the Landing Page': 'tutorials/enterprise_beginner/2_prepare_the_landing_page.md'
+            - '3. Use existing blocks': 'tutorials/enterprise_beginner/3_use_existing_blocks.md'
+            - '4. Create a custom block': 'tutorials/enterprise_beginner/4_create_a_custom_block.md'
         - Field Type Creation Tutorial:
             - 'Creating a Tweet Field Type': 'tutorials/field_type/creating_a_tweet_field_type.md'
             - '1. Create the bundle': 'tutorials/field_type/1_create_the_bundle.md'
