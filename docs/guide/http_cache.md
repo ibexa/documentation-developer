@@ -503,7 +503,7 @@ set req.http.X-User-Hash = "b1731d46b0e7a375a5b024e950fdb8d49dd25af85a5c7dd5116a
 
 ##### New anonymous X-User-Hash based on `anonymous_user_id` setting
 
-Since you can configure anonymous user per SiteAccess, you need to change the default `.vcl` template to be able to benefit from this functionality. This example assumes that your SiteAccesses are matched using `URLElement` matcher. It works also with other SiteAccess matchers. As Varnish is not SiteAccess-aware itself, it is recommended to set also different session cookie names per SiteAccess.
+Since you can configure anonymous user per SiteAccess, you need to change the default `.vcl` template to be able to benefit from this functionality. This example assumes that your SiteAccesses are matched using `URIElement` matcher. You have to update `.vcl` configuration in case of other matchers like `Map\Host`.
 
 !!! tip "Different anonymous user per SiteAccess"
 
@@ -521,12 +521,8 @@ Since you can configure anonymous user per SiteAccess, you need to change the de
         system:
             eng:
                 anonymous_user_id: 15
-                session:
-                    name: eZSESSID_eng
             nor:
                 anonymous_user_id: 16
-                session:
-                    name: eZSESSID_nor
 
 ```
 
