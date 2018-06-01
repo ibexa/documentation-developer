@@ -503,10 +503,11 @@ set req.http.X-User-Hash = "b1731d46b0e7a375a5b024e950fdb8d49dd25af85a5c7dd5116a
 
 ##### New anonymous X-User-Hash based on `anonymous_user_id` setting
 
-Since you can configure anonymous user per siteaccess, you need to change the default `.vcl` template to be able to benefit from this functionality. In this example, we assumed that your siteaccesses are matched using `URLElement` matcher. Of course, it works also with other siteaccess matchers. As Varnish is not siteaccess-aware itself, it is recommended to set also different session cookie names per siteaccess.
+Since you can configure anonymous user per SiteAccess, you need to change the default `.vcl` template to be able to benefit from this functionality. This example assumes that your SiteAccesses are matched using `URLElement` matcher. It works also with other SiteAccess matchers. As Varnish is not SiteAccess-aware itself, it is recommended to set also different session cookie names per SiteAccess.
 
-!!! tip "Different anonymous user per siteaccess"
-    You can set different anonymous user per siteaccess. You can find more information about this setting here: [anonymous_user_id](best_practices.md#anonymous_user_id) 
+!!! tip "Different anonymous user per SiteAccess"
+
+    You can set different anonymous user per SiteAccess. You can find more information about this setting here: [anonymous_user_id](best_practices.md#anonymous_user_id)
 
 
 ``` yaml
@@ -526,20 +527,20 @@ Since you can configure anonymous user per siteaccess, you need to change the de
                 anonymous_user_id: 16
                 session:
                     name: eZSESSID_nor
-        
+
 ```
 
-You need to get the new X-User-Hash for every new anonymous user / anonymous users group. It is done in exactly the same way as described above ([User hash generation](http_cache.md#user-hash-generation)), but you have to remember to use siteaccess URI element and an additional header which tells eZ which URI it should take into account. For instance for `eng` siteaccess:
+You need to get the new X-User-Hash for every new anonymous user / anonymous users group. It is done in exactly the same way as described above ([User hash generation](http_cache.md#user-hash-generation)), but you have to remember to use SiteAccess URI element and an additional header which tells eZ Platform which URI it should take into account. For instance for `eng` SiteAccess:
 
   `curl -I -H "Accept: application/vnd.fos.user-context-hash" -H "x-fos-original-url: /eng/" http://<your-domain.com>/eng/_fos_user_context_hash`
-  
-  and for `nor` siteaccess:
-  
+
+  and for `nor` SiteAccess:
+
   `curl -I -H "Accept: application/vnd.fos.user-context-hash" -H "x-fos-original-url: /nor/" http://<your-domain.com>/nor/_fos_user_context_hash`
 
 Let's assume, that the new X-User-Hashes are:
-1. For `eng` siteaccess: `baf9acf7ca78e370eac69f87f27e4ab8e674ced83750b4189e216cc05d2eb301`
-2. For `nor` siteaccess: `a33ba7050ec3b848b266ef187623417b88b9df4b90483b7ef6582aa54ee72ee7`
+1. For `eng` SiteAccess: `baf9acf7ca78e370eac69f87f27e4ab8e674ced83750b4189e216cc05d2eb301`
+2. For `nor` SiteAccess: `a33ba7050ec3b848b266ef187623417b88b9df4b90483b7ef6582aa54ee72ee7`
 
 The next step is to update `ez_user_hash` sub-routine in the `.vcl` configuration as follow:
 ```
