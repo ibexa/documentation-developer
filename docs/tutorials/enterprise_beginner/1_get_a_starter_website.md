@@ -1,72 +1,66 @@
-# Step 1 - Getting your starter website
+# Step 1 - Get a starter website
 
 !!! tip
 
     You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/ezstudio-beginner-tutorial/tree/v2-step1).
 
-To start working on the scenario of this tutorial, you need to have a minimal working website. You will be shown how to build it by hand from the ground up, starting with a clean eZ Enterprise installation. Just remember that if you decide to change anything from the way it is shown here, you will need to double-check all code that will be provided here and make sure it fits your website.
+To set up the starter website, you need to follow these steps:
 
-!!! note
+## Get a clean eZ Enterprise installation
 
-    Remember to start working with a **clean** eZ Enterprise installation, **not** Studio Demo.
+To begin the tutorial, you need a clean installation of eZ Platform Enterprise Edition.
 
-## Setting up the website
+Get it by following the [install eZ Platform](../../getting_started/install_using_composer.md) guide.
+You will need a web server, a relational database and PHP.
 
-To set up your starter website by hand, you need to follow these steps:
+!!! note "Installation type"
 
-### Get a clean eZ Enterprise installation
+    When performing the `ezplatform:install` command, choose the `studio-clean` installation type.
 
-See [Install eZ Platform](../../getting_started/install_ez_platform.md) for a guide to installing eZ Enterprise.
+## Create Content Types
 
-### Create Content Types
+Log in to the Back Office – add `/admin` to your installation's address (`<yourdomain>/admin`) and log in using `admin` as the login and `publish` as the password. In Admin go to Content types tab and (under the Content category) create two Content Types with the following settings:
 
-Log in to the back office – add `/admin` to your installation's address (e.g. `tutorial.lh/admin`) and log in using `admin` as the login and `publish` as the password. In the Admin Panel go to Content types tab and (under the Content category) create two Content Types with the following settings:
+### Dog Breed
 
-#### Dog Breed
+- **Name:** Dog Breed
+- **Identifier:** `dog_breed`
+- **Fields:**
 
-**Name:** Dog Breed
+| Field Type | Name              | Identifier          | Required | Searchable | Translatable |
+|------------|-------------------|---------------------|----------|------------|--------------|
+| Text line  | Name              | `name`              | yes      | yes        | yes          |
+| Text line  | Short Description | `short_description` | yes      | yes        | yes          |
+| Image      | Photo             | `photo`             | yes      | no         | no           |
+| RichText   | Full Description  | `description`       | yes      | yes        | yes          |
 
-**Identifier:** dog\_breed
+### Tip
 
-**Content name pattern:** &lt;name&gt;
+- **Name:** Tip
+- **Identifier:** `tip`
+- **Fields:**
 
-**Fields:**
+| Field Type  | Name  | Identifier | Required | Searchable | Translatable |
+|-------------|-------|------------|----------|------------|--------------|
+| Text line   | Title | `title`    | yes      | yes        | yes          |
+| Text block  | Body  | `body`     | no       | no         | yes          |
 
-| Field Type | Name              | Identifier         | Required | Searchable | Translatable |
-|------------|-------------------|--------------------|----------|------------|--------------|
-| TextLine   | Name              | name               | Y        | Y          | Y            |
-| TextLine   | Short Description | short\_description | Y        | Y          | Y            |
-| Image      | Photo             | photo              | Y        |            |              |
-| RichText   | Full Description  | description        | Y        | Y          | Y            |
+### Modify existing Article Content Type
 
-#### Tip
-
-**Name:** Tip
-
-**Identifier:** tip
-
-**Content name pattern:** &lt;title&gt;
-
-**Fields:**
-
-| Field Type | Name  | Identifier | Required | Searchable | Translatable |
-|------------|-------|------------|----------|------------|--------------|
-| TextLine   | Title | title      | Y        | Y          | Y            |
-| TextBlock  | Body  | body       |          |            | Y            |
-
-#### Modify existing Article Content Type
-
-You also need to make one modification to the pre-existing Article content type also situated in the Content category (Admin Panel/Content types/Content). Edit this type by removing Image Field that has a Content Relation (ezobjectrelation) type, and creating a new Field in its place:
+You also need to modify the built-in Article Content Type. It will make inserting photos into articles easier.
+Edit it to remove the Image Field that has a Content Relation (ezobjectrelation) type, and create a new Field in its place:
 
 | Field Type | Name  | Identifier | Required | Searchable | Translatable |
 |------------|-------|------------|----------|------------|--------------|
-|   Image    | Image |   image    |          |            | Y            |
+| Image      | Image | `image`    |          |            | yes          |
 
 ![New image Field in the Article Content Type](img/enterprise_tut_image_in_article_ct.png)
 
-Now inserting photos into articles will be easier. Reaching the final result of the tutorial without this change would require you to spend more time creating content, which you want to avoid in this case.
+## Add template, configuration and style files
 
-### Add template, configuration and style files
+!!! tip
+
+    For an introduction on how to use templates in eZ Platform, take a look at the [Building a Bicycle Route Tracker in eZ Platform tutorial](../platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md)
 
 Place the [`pagelayout.html.twig`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/app/Resources/views/pagelayout.html.twig) and [`pagelayout_menu.html.twig`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/app/Resources/views/pagelayout_menu.html.twig) files in `app/Resources/views` folder. Create a new folder, called `full`, under `views`. Place further template files in it:
 
@@ -83,7 +77,6 @@ Place two configuration files in `app/config` folder:
 Modify the `config.yml` file located in `app/config` folder and add the following lines at the end of the `imports` block:
 
 ``` yaml
-# in app/config/config.yml
     - { resource: views.yml }
     - { resource: image_variations.yml }
 ```
@@ -108,20 +101,21 @@ This is what the structure of the new and modified files should look like (exclu
 
 ![File structure](img/enterprise_tut_file_structure.png)
 
-### Create content
+## Create content
 
-Now return to the back office and create some content for your website.
+Now return to the Back Office and create some content for your website.
 
-First, make three Folders under the `Content/Content structure` tab. Call them 'All Articles', 'Dog Breed Catalog' and 'All Tips'. Remember that you save and close them by using 'Publish' button.
+First, make three Folders under the `Content/Content structure` tab. Call them 'All Articles', 'Dog Breed Catalog' and 'All Tips'. Remember that you save and close them by using the 'Publish' button.
 
 Next, create a few Content items of proper Content Types in each of these folders:
 
-- 6 Articles (at least, to best see the effects of Schedule blocks that we will create in step 3.)
+- 6 Articles (at least, to best see the effects of Schedule blocks that you will create in step 3.)
 - 3 Dog Breeds
 - 3 Tips
 
-#### Add images
+### Add images
 
-When you need an image, preferably use one from [this image pack](img/photos.zip), this will let you compare effects of your work to screenshots in the tutorial.
+When you need an image, you can use one from [this image pack](img/photos.zip).
+This will let you compare effects of your work to screenshots in the tutorial.
 
 At this point you are ready to proceed with the next step.

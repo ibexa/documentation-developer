@@ -330,7 +330,7 @@
 
     #### Example
 
-    For a full working example of creating a new Landing Page block, see [step 4 of the Enterprise tutorial](../tutorials/enterprise_beginner/4_creating_a_custom_block.md).
+    For a full working example of creating a new Landing Page block, see [step 4 of the Enterprise tutorial](../tutorials/enterprise_beginner/4_create_a_custom_block.md).
 
     !!! tip
 
