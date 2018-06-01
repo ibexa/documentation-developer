@@ -609,6 +609,10 @@ sub ez_user_hash {
 }
 ```
 
+!!! tip "Upgrade your installation"
++
++    Consider upgrade to version 1.13 or newer because it doesn't require that much VCL changes to be able to benefit from `anonymous_user_id` setting while using Varnish.
+
 ##### Known limitations of the user hash generation
 
 If you are using URI-based SiteAccesses matching, the default SiteAccess on the domain needs to point to the same repository, because `/_fos_user_context_hash` is not SiteAccess-aware by default (see `ezpublish.default_router.non_siteaccess_aware_routes` parameter). Varnish does not have knowledge about SiteAccesses, so it won't be able to get user content hash if the default SiteAccess relies on URI.  
