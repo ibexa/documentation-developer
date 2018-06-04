@@ -14,9 +14,12 @@ They will appear in their profile in the Back Office.
 
 ## Display notification bars
 
-You can have your PHP code send notification that will be displayed as a message bar in the Back Office.
-To do that, inject the `NotificationHandlerInterface` into your class.
-You can use one of the four methods representing the following notification types: `info`, `success`, `warning` and `error`.
+Notifications are displayed as a message bar in the Back Office.
+There are four types of notifications: `info`, `success`, `warning` and `error`.
+
+### Display notifications from PHP
+
+To send a notification from PHP, inject the `NotificationHandlerInterface` into your class.
 
 ``` php
 $this->notificationHandler->info('Notification text');
@@ -35,6 +38,21 @@ $this->notificationHandler->info(
     )
 );
 ```
+
+### Display notifications from front end
+
+To create a notification from the front end (in this example, of type `info`), use the following code:
+
+``` js
+const eventInfo = new CustomEvent('ez-notify', {
+    detail: {
+        label: 'info',
+        message: 'Notification text'
+    }
+});
+```
+
+Dispatch the event with `document.body.dispatchEvent(eventInfo);`
 
 ## Create custom notifications using the Flex Workflow mechanism
 
