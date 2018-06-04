@@ -405,6 +405,23 @@ This limit is enforced on publishing a new version and only covers archived vers
 
     Don't set `default_version_archive_limit` too high, with Legacy storage engine you'll get performance degradation if you store too many versions. Default value of 5 is in general the recommended value, but the less content you have overall, the more you can increase this to, for instance, 25 or even 50.
 
+### `anonymous_user_id`
+
+When a user that is not logged in is accessing an eZ Platform installation, the request will be handled with the permissions of the anonymous user. You can select any user on your system to represent the anonymous user.
+For instance, you can also create a separate anonymous user group per SiteAccess. Then, you can create the new user, assign them to the new group and make all permissions depend on SiteAccess.
+Take care to give the correct permissions to the anonymous user since these permissions are available for all users on your site.
+
+You can set `anonymous_user_id` the following way:
+
+``` yaml
+# ezplatform.yml
+    system:
+        siteaccess_group:
+            anonymous_user_id: 14
+        siteaccess:
+            anonymous_user_id: 15
+```
+
 ## Back Office configuration
 
 ### Default page
