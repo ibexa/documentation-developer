@@ -503,6 +503,8 @@ ezpublish:
                     timeout: 0
 ```
 
+The values shown above are the defaults (in milliseconds). `0` means the notification does not hide automatically.
+
 ## Other configuration
 
 The configuration related to other specific topics is described in:
