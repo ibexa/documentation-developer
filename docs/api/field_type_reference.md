@@ -1537,7 +1537,7 @@ $mediaFieldCreateStruct->fieldSettings = [
 
 ## Null Field Type
 
-This Field Type is used as fallback and for testing purposes.
+This Field Type is used as fallback for migration scenarios, and for testing purposes.
 
 | Name   | Internal name | Expected input type |
 |--------|---------------|---------------------|
@@ -1545,42 +1545,35 @@ This Field Type is used as fallback and for testing purposes.
 
 ### Description
 
-The Null Field Type serves as an aid when migrating from eZ Publish Platform and earlier versions. It is a dummy for legacy Field Types that are not implemented in eZ Platform.
+The Null Field Type serves as an aid when migrating from eZ Publish Platform and earlier legacy versions. It is a dummy for legacy Field Types that are not implemented in eZ Platform.
 
-Null Field Type will accept anything provided as a value. When used with NullConverter, it also won't store anything to the database, nor will it read any data from the database.
+Null Field Type will accept anything provided as a value and is usually combined with:
+- NullConverter: Makes it not store anything to the legacy storage engine (database), nor will it read any data.
+- Unindexed: Indexable class making sure nothing is indexed to configured search engine.
 
 This Field Type does not have its own fixed internal name. Its identifier is instead configured as needed by passing it as an argument to the constructor.
 
-Following example shows how Null Field Type and NullConverter are used to configure dummy implementations for `ezcomcomments` and `ezpaex` legacy datatypes:
+#### Example for usage of Null Field Type
+
+Following shows example on how eZ Publish "datatype" `ezpaex` could be configured as a eZ Platform "Null Field type":
 
 ``` yaml
 # Null Fieldtype example configuration
 
-parameters:
-    ezpublish.fieldType.eznull.class: eZ\Publish\Core\FieldType\Null\Type
-    ezpublish.fieldType.eznull.converter.class: eZ\Publish\Core\Persistence\Legacy\Content\FieldValue\Converter\NullConverter
-
 services:
-    ezpublish.fieldType.ezcomcomments:
-        class: %ezpublish.fieldType.eznull.class%
-        parent: ezpublish.fieldType
-        arguments: [ "ezcomcomments" ]
-        tags:
-            - {name: ezpublish.fieldType, alias: ezcomcomments}
     ezpublish.fieldType.ezpaex:
-        class: %ezpublish.fieldType.eznull.class%
+        class: "%ezpublish.fieldType.eznull.class%"
         parent: ezpublish.fieldType
-        arguments: [ "ezpaex" ]
-        tags:
-            - {name: ezpublish.fieldType, alias: ezpaex}
-    ezpublish.fieldType.ezcomcomments.converter:
-        class: "%ezpublish.fieldType.eznull.converter.class%"
-        tags:
-            - {name: ezpublish.storageEngine.legacy.converter, alias: ezcomcomments}
+        arguments: ["ezpaex"]
+        tags: [{name: ezpublish.fieldType, alias: ezpaex}]
+
     ezpublish.fieldType.ezpaex.converter:
         class: "%ezpublish.fieldType.eznull.converter.class%"
-        tags:
-            - {name: ezpublish.storageEngine.legacy.converter, alias: ezpaex}
+        tags: [{name: ezpublish.storageEngine.legacy.converter, alias: ezpaex}]
+
+    ezpublish.fieldType.ezpaex.indexable:
+        class: "%ezpublish.fieldType.indexable.unindexed.class%"
+        tags: [{name: ezpublish.fieldType.indexable, alias: ezpaex}]
 ```
 
 ## Rating Field Type
