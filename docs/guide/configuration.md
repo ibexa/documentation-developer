@@ -483,6 +483,28 @@ ezsettings.default.location_ids.users: 5
 ezsettings.default.universal_discovery_widget_module.default_location_id: 1
 ```
 
+### Notification timeout
+
+To define the timeout for hiding Back-Office notification bars, use the following configuration,
+per notification type:
+
+``` yaml
+ezpublish:
+    system:
+        admin:
+            notifications:
+                error:
+                    timeout: 0
+                warning:
+                    timeout: 0
+                success:
+                    timeout: 5000
+                info:
+                    timeout: 0
+```
+
+The values shown above are the defaults (in milliseconds). `0` means the notification does not hide automatically.
+
 ## Other configuration
 
 The configuration related to other specific topics is described in:
