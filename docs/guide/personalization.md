@@ -52,7 +52,7 @@ recommendationBundleRestRoutes:
 
 !!! note "Legacy support"
 
-    Keep in mind that legacy support is disabled by default. To enable legacy search engine (requires `ezpublish-kernel` bundle) uncomment these lines in the bundle's `services.yml`:
+    Legacy support is disabled by default. To enable the legacy search engine (requires `ezpublish-kernel` bundle) uncomment these lines in the bundle's `services.yml`:
 
     ``` yaml
     # ez_recommendation.legacy.search_engine:
@@ -78,22 +78,22 @@ recommendationBundleRestRoutes:
 
 ### 4. Register a Personalization Solution account
 
-Register an account (a so-called customer ID) with your eZ Sales manager. If you want to use the open source version of eZ Platform w/o any subscription please send an email to support@yoochoose.com.
+Register an account (a so-called customerID) with your eZ Sales manager. If you want to use the open source version of eZ Platform without any subscription please send an email to support@yoochoose.com.
 
 ### 5. Allow public HTTP(S) access
 
 Allow public HTTP(S) access to the recommendation bundle API (`<ezplatform-host>/api/ezp/v2/ez_recommendation/**`)
 
-!!! note "IP whitelisting if public access is not possible"
+!!! note "IP whitelisting when public access is not possible"
 
     The Personalization Solution servers need to access the API of an eZ Platform installation in order to continuously sync content.
-    If it's not possible to allow public access, the following IP Addresses can be used for whitelisting on e.g. a firewall.
+    If it's not possible to allow public access, the following IP Addresses can be used for whitelisting on (for example), a firewall.
 
     `54.229.102.177, 54.171.192.161, 54.77.201.13, 52.215.22.234, 52.18.150.96, 52.17.60.35, 52.17.36.104`
 
 !!! note "If BASIC AUTH is required by policy"
 
-    If the company policy is to use BASIC AUTH on the API interfaces you need to some specific configuration.
+    If the company policy is to use BASIC AUTH on the API interfaces, you need to add some specific configuration.
 
 You probably have some access restrictions on your site defined in app/config/security.yml
 
@@ -111,7 +111,7 @@ security:
 ```
 
 Create a user with the name of the CustomerID and a password which is the license key in your local security provider. This user must have access granted on the URLs provided by the bundle API (see above).
-In order to tell the recommender to use this user and password for requesting resources on the eZ Platform instance, you can configure this as follows (example file is available in the bundle under `Resources/config/default_settings.yml`):
+In order to tell the recommender to use this user and password to request resources on the eZ Platform instance, you can configure this as follows (an example file is available in the bundle under `Resources/config/default_settings.yml`):
 
 ``` yaml
 # Export folder authentication method:
@@ -125,7 +125,7 @@ ez_recommendation.export.users_authentication.login: "<customerID>"
 ez_recommendation.export.users_authentication.password: "<licenseKey>"
 ```
 
-Place this in a settings file which is not affected by an update of the Recommendation bundle via Composer.
+Place this in a settings file which won't be affected by an update to the Recommendation bundle via Composer.
 
 ## Configuration
 
@@ -134,12 +134,11 @@ Place this in a settings file which is not affected by an update of the Recommen
 
 ### 1. Define what content should be tracked and exported
 
-Visitor events (clicks, buys, ...) on the site need to be sent to the Personalization Solution so that recommendations can be calculated. The content types that are marked to be tracked are also exported to the Personalization Engine. And remember: You can primarily only recommend what you track!
+Visitor events (clicks, buys, ...) on the site need to be sent to the Personalization Solution for the recommendations to be calculated. The content types that are marked to be tracked are also exported to the Personalization Engine. Please not that you can only recommend what you track!
 
-By defining the Content Types in the local `app/config/config.yml` this content will be initially exported by a script
-and then kept in sync with the Personalization Solution upon every change in the eZ Platform back office.
+By defining the Content Types in the local `app/config/config.yml` file, the content will be initially exported by a script. After this, it will be kept in sync with the Personalization Solution everytime a change occurs in the eZ Platform back office.
 
-The bundle's configuration is SiteAccess-aware. This is an example of settings (in `config.yml`):
+The bundle's configuration is SiteAccess-aware. This is an example of the settings (in `config.yml`):
 
 ``` yaml
 ez_recommendation:
@@ -164,7 +163,7 @@ The following parameters need to be included in the settings file:
 
 #### Advanced configuration
 
-If content's author or image are stored in a different Field, you can specify it in `parameters.yml`:
+If the content's author or image are stored in a different Field, you can specify its name in the `parameters.yml` file:
 
 ``` yaml
 ez_recommendation.field_identifiers:
@@ -177,7 +176,7 @@ ez_recommendation.field_identifiers:
          blog_post: main_image
 ```
 
-Additionally, in case of missing content owner ID, there's an option in `default_settings.yml` to set up the default content author:
+In case a content owner ID is missing, you can set up the default content author in the `default_settings.yml` file:
 
 ``` yaml
 ez_recommendation.default.author_id: 14   # ID: 14 is default ID of admin user
@@ -196,11 +195,11 @@ ez_recommendation:
         script_url: 'cdn.yoochoose.net/yct.js'
 ```
 
-Changing any of these parameters without a valid reason will break all calls to the Personalization Engine.
+Note: changing any of these parameters without a valid reason will break all calls to the Personalization Engine.
 
 #### Enable tracking
 
-`EzSystemsRecommendationBundle` delivers a Twig extension which helps integrate the tracking functionality into your site. Place the following snippet of code in the HEAD section of your header template:
+The `EzSystemsRecommendationBundle` delivers a Twig extension which helps integrate the tracking functionality into your site. Place the following code snippet in the HEAD section of your header template:
 
 ``` html
 {% if content is defined %}
@@ -210,30 +209,28 @@ Changing any of these parameters without a valid reason will break all calls to 
 
 !!! note "How tracking works"
 
-    In the YOOCHOOSE documentation you can find more information about [tracking in general](https://doc.ezplatform.com/projects/ezservices/en/latest/personalization/developer_guide/tracking_api/) and about the [generic asynchronous JavaScript tracker (https://doc.ezplatform.com/projects/ezservices/en/latest/personalization/developer_guide/tracking_with_yct/).
+    In the YOOCHOOSE documentation you can find more information about [tracking in general](https://doc.ezplatform.com/projects/ezservices/en/latest/personalization/developer_guide/tracking_api/) and about the [generic asynchronous JavaScript tracker] (https://doc.ezplatform.com/projects/ezservices/en/latest/personalization/developer_guide/tracking_with_yct/).
 
 ### 2. Check if the bundle provides REST data
 
 You can verify the import controller of the bundle by calling the local API. You should use the 'Accept' header and may need to add an 'Authorization' header if authentication is required.
 
 To check if the `content` interface is working as expected, try this URI:
-
-`GET http://{endpoint}/api/ezp/v2/ez_recommendation/v1/content/{contentId}`
-
-`Accept    application/vnd.ez.api.Content+json`
-
-`Authorization    Basic xxxxxxxx`
+``` 
+GET http://{endpoint}/api/ezp/v2/ez_recommendation/v1/content/{contentId}`
+Accept application/vnd.ez.api.Content+json`
+Authorization Basic xxxxxxxx`
+```
 
 Additionally you should check if the `contenttypes` interface is working as well by calling the following URI:
-
-`GET http://{endpoint}/api/ezp/v2/ez_recommendation/v1/contenttypes/38?page=1&page_size=10`
-
-`Accept    application/vnd.ez.api.Content+json`
-
-`Authorization    Basic xxxxxxxx`
+```
+GET http://{endpoint}/api/ezp/v2/ez_recommendation/v1/contenttypes/38?page=1&page_size=10`
+Accept application/vnd.ez.api.Content+json`
+Authorization Basic xxxxxxxx`
+```
 
 Both interfaces are supposed to provide content data in JSON format.
-The difference is only the size of the content array in the `contentList` object.
+The only difference is the size of the content array in the `contentList` object.
 For the `content` interface one Content item is returned, for the `contenttypes` interface many are returned.
 
 ``` json
@@ -281,17 +278,17 @@ For the `content` interface one Content item is returned, for the `contenttypes`
 
 !!! Exporting content is crucial for providing recommendations
 
-    If the content export does not work, your recommendations will not function
+    If the content export does not work, your recommendations will not work as well.
     Required data like URIs, titles etc. will be missing and cannot be delivered in the recommendation response.
 
-After defining what Content Types should be tracked and recommended  you can start the full export with the following command:
+After defining which Content Types should be tracked and recommended  you can start the full export by executing the following command:
 
 ``` bash
 php app/console ezreco:runexport --contentTypeIdList=<contentTypeId>,<contentTypeId> --webHook=https://admin.yoochoose.net/api/<your_customer_id>/items --hidden=1 --mandatorId=<your_customer_id> --host=<your_ezplatform_host_with_scheme>
 ```
 
-By running this command, the bundle exporter collects all content related to the SiteAccesses of this customer ID and places it in files (1).
-After finishing, the systems sends a POST request to the `webHook` endpoint and informs the personalization engine to fetch new content (2).
+With this command, the bundle exporter will collect all content related to the SiteAccesses of this customerID and store it in files (1).
+After finishing, the systems will send a POST request to the `webHook` endpoint and inform the personalization engine to fetch new content (2).
 An internal workflow is then triggered (3) so that the generated files are downloaded (4) and imported in the personalization engine's content store (5).
 
 Please be patient, as this can take up to a couple of minutes.
@@ -317,7 +314,7 @@ To get the content of an imported item you can request the following REST resour
 
 `GET https://admin.yoochoose.net/api/<your_customer_id>/item/<your_content_type>/<your_content_id>`
 
-This way requires BASIC Auth. BASIC Auth username is the customer ID and the password is the license key.
+This way requires BASIC Auth. BASIC Auth username is the customerID and the password is the license key.
 
 Example response:
 
@@ -368,8 +365,7 @@ You can log in to [admin.yoochoose.net](https://admin.yoochoose.net/), switch t
 
 #### Personalized Search Requests
 
-As the Search functionality is included by default you can also make a request to search for content matching certain criteria.
-It's easiest to query for the content ID as value in the `q` request parameter (at least two chars, e.g. 73). 
+Since the search functionality is included by default, you can also create and invoke a search request to look for content that matches certain criteria. The easiest way to do this is to assign the contentID to the request parameter `q`. Just make sure that the contentID is at least 2 chars long (for example, `&q=73`).
 
 `GET https://reco.yoochoose.net/api/v4/search/<your_customer_id>/get_suggestions.json?item=5&itemtype=<your_content_type>&q=<your_content_id>&attribute=name&attribute=author&attribute=uri&attribute=<your_custom_attribute>`
 
@@ -407,11 +403,11 @@ Example response:
 
 ## Incremental content export
 
-Every time an editor creates, updates or deletes content in the backoffice (1), a notification is sent to https://admin.yoochoose.net that a content change happened (2). Another component of the recommendation engine is notified (3). It will eventually fetch the affected content (4) and update it internally (5).
+Every time an editor creates, updates or deletes content in the backoffice (1), a notification is sent to https://admin.yoochoose.net informing that a content change has occured (2). The yoochoose service will also notify other components of the recommendation engine (3) and it will eventually fetch the affected content (4) and update it internally (5).
 
 ![](img/recommendation_incrementalcontentexport.png)
 
-The content in the personalization engine is therefore kept in sync with the content on ez platform.
+This mechanism allows the content in the personalization engine to be always in sync with the content on ez platform.
 
 ## Enabling recommendations
 
@@ -419,12 +415,9 @@ The content in the personalization engine is therefore kept in sync with the con
 
     Recommendations are fetched and rendered asynchronously in the client, so there won't be any additional load on the server.
     Therefore it is crucial to check if the content export has been successful, as e.g. deeplinks and image references are included.
-    If the export is NOT successful, there may be recommendations displayed without images, titles or deeplinks
-    as the personalization engine does not have this information available.
+    If the export is NOT successful, the personalization engine will not have the full content information. This will break the recommendations. Even if the recommendations are displayed, there is a big chance they won't have images, titles or deeplinks.
 
-In order to allow displaying recommendations on your site you must add some code which will integrate the recommender engine with your site.
-
-Implementation can be performed in just a few steps (assuming that `EzSystemsRecommendationBundle` is properly configured and enabled in `AppKernel.php`):
+In order to allow displaying recommendations on your site, you must add some code which will integrate the recommender engine (with your site). This can be achieved with just a few steps (assuming that `EzSystemsRecommendlationBundle` is properly configured and enabled in `AppKernel.php`):
 
 Add the following JavaScript assets to your header template:
 
@@ -477,12 +470,11 @@ Sample integration can take the following form:
 You can also bypass named arguments using standard value passing as arguments.
 
 Recommendation responses contain all content data which is requested as attribute in the recommendation call.
-These 'attributes' of the response can be used in Handlebars templates to render and style recommendations.
+These 'attributes' of the response can be used in Handlebars templates to render and style recommendations. For example, the GET request:
 
 `GET https://reco.yoochoose.net/api/v2/<your_customer_id>/someuser/popular.json?contextitems=71&numrecs=5&categorypath=/&outputtypeid=<your_content_type>&attribute=name,author,uri,image`
 
-delivers the following response *if* the content Fields are exported successfully by the export script.
-
+delivers the following response *if* the content Fields were previously (and successfully) exported by the export script.
 ``` json
 {
     "contextItems": [
@@ -598,7 +590,7 @@ If authentication fails although you added a user in your local directory please
 
 ### When fetching recommendations you get a message that the requested content type is not supported (CONFLICT)
 
-Take a look at the scenario configuration in the [Admin Dashboard](https://admin.yoochoose.net) and check if correct input and output types are set.
+Take a look at the scenario configuration in the [Admin Dashboard](https://admin.yoochoose.net) and check if the input and output types are properly set.
 
 ### Logging
 
