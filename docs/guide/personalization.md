@@ -134,7 +134,7 @@ Place this in a settings file which won't be affected by an update to the Recomm
 
 ### 1. Define what content should be tracked and exported
 
-Visitor events (clicks, buys, ...) on the site need to be sent to the Personalization Solution for the recommendations to be calculated. The content types that are marked to be tracked are also exported to the Personalization Engine. Please not that you can only recommend what you track!
+Visitor events (clicks, buys, ...) on the site need to be sent to the Personalization Solution for the recommendations to be calculated. The content types that are marked to be tracked are also exported to the Personalization Engine. Please note that you can only recommend what you track!
 
 By defining the Content Types in the local `app/config/config.yml` file, the content will be initially exported by a script. After this, it will be kept in sync with the Personalization Solution everytime a change occurs in the eZ Platform back office.
 
@@ -365,7 +365,7 @@ You can log in to [admin.yoochoose.net](https://admin.yoochoose.net/), switch t
 
 #### Personalized Search Requests
 
-Since the search functionality is included by default, you can also create and invoke a search request to look for content that matches certain criteria. The easiest way to do this is to assign the contentID to the request parameter `q`. Just make sure that the contentID is at least 2 chars long (for example, `&q=73`).
+Since the search functionality is included by default, you can also create and invoke a search request to look for content that matches certain criteria. The easiest way to do this is to assign the contentID to the request parameter `q`. Make sure that the contentID is at least 2 chars long (for example, `&q=73`).
 
 `GET https://reco.yoochoose.net/api/v4/search/<your_customer_id>/get_suggestions.json?item=5&itemtype=<your_content_type>&q=<your_content_id>&attribute=name&attribute=author&attribute=uri&attribute=<your_custom_attribute>`
 
@@ -417,7 +417,7 @@ This mechanism allows the content in the personalization engine to be always in 
     Therefore it is crucial to check if the content export has been successful, as e.g. deeplinks and image references are included.
     If the export is NOT successful, the personalization engine will not have the full content information. This will break the recommendations. Even if the recommendations are displayed, there is a big chance they won't have images, titles or deeplinks.
 
-In order to allow displaying recommendations on your site, you must add some code which will integrate the recommender engine (with your site). This can be achieved with just a few steps (assuming that `EzSystemsRecommendlationBundle` is properly configured and enabled in `AppKernel.php`):
+In order to allow displaying recommendations on your site, you must add some code which will integrate the recommender engine (with your site). This can be achieved with a few steps (assuming that `EzSystemsRecommendlationBundle` is properly configured and enabled in `AppKernel.php`):
 
 Add the following JavaScript assets to your header template:
 
