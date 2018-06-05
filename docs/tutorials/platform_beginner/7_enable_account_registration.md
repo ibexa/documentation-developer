@@ -154,6 +154,11 @@ Now return to `<yourdomain>/register`:
 
 Fill in the form and register a user.
 
+!!! tip
+
+    If you log in as the new user at this point, you need to go to the Back Office (`<yourdomain>/ez`)
+    to log out again re-log in as Admin.
+
 ## Set up Permissions
 
 Users created through the registration form are placed in the _Guest accounts_ User Group.
@@ -187,9 +192,13 @@ Now add the following Policies to the Contributors Role.
 - User/Password
 - Content/Read
 - Content/Versionread
-- Content/Create with Limitations: only Rides and Landmarks in the `Member Rides` subtree only
-- Content/Publish with Limitations: only Rides and Points of Interest in the `Member Rides` subtree only
-- Content/Edit where owner is _"Self"_
+- Content/Create with Limitations: Class limited to Ride and Landmark Content Types and subtree to the `Member Rides`
+- Content/Publish with Limitations: Class limited to Ride and Landmark Content Types and subtree to the `Member Rides`
+- Content/Edit with Limitation: Owner limited to `Self`
+
+!!! tip
+
+    "Class" in the Limitation name refers to the Content Type.
 
 !!! tip
 
@@ -203,7 +212,7 @@ Next, go to the Users page. Select the user you have just created and move them 
 ### Create content as a Go Bike Member
 
 Log out as admin and then log in again into the Back Office with the credentials of the new user.
-You have now the ability to create new Rides and Landmarks.
+You now have the ability to create new Rides and Landmarks in the selected folder.
 
 ## Congratulations!
 

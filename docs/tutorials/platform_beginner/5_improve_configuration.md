@@ -20,7 +20,7 @@ ezpublish:
                         - {name: geometry/scaledownonly, params: [140, 100]}
 ```
 
-At the beginning of the `ezplatform.yml` file, add the following lines to import the content of `app/config/image_variations.yml`:
+At the beginning of the `ezplatform.yml` file (before the `ezpublish` key), add the following lines to import the content of `app/config/image_variations.yml`:
 
 ``` yaml
 imports:
@@ -63,7 +63,6 @@ ezpublish:
                 full:
                     ride:
                         template: 'full/ride.html.twig'
-                        controller: 'AppBundle:Ride:viewRideWithLandmarks'
                         match:
                             Identifier\ContentType: 'ride'
                     root_folder:
