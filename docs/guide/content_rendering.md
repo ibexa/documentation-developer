@@ -10,7 +10,7 @@ It can also be called straight by its direct URI: 
 
 `/view/content/<contentId>`
 
-A Content item can also have different **view types** (full page, abstract in a list, block in a landing page, etc.). By default the view type is **full** (for full page), but it can be anything (*line*, *block, etc*.).
+A Content item can also have different **view types** (full page, abstract in a list, block in a Page, etc.). By default the view type is **full** (for full page), but it can be anything (*line*, *block, etc*.).
 
 ## Configuring views: the ViewProvider
 

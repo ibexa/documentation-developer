@@ -67,15 +67,13 @@ It is currently used by:
 
 !!! enterprise
 
-    #### StudioUIBundle
+    #### ezplatform-page-builder
 
-    StudioUIBundle contains the Studio editing interface
-    provided in eZ Platform Enterprise Edition.
+    ezplatform-page-builder provides the Page Builder editing interface.
 
-    #### Landing Page Field Type Bundle
+    #### ezplatform-page-fieldtype
 
-    EzLandingPageFieldTypeBundle provides
-    the Landing Page that is at the heart of StudioUI.
+    ezplatform-page-fieldtype provides the Page Field Type that is created in the Page Builder.
 
 !!! tip
 
