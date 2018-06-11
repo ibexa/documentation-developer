@@ -97,10 +97,7 @@ Hiding and revealing Location requires one more Policy: `content/hide`.
 
 #### Removing content
 
-To send content to trash, the User needs to have the same two Policies that are required for removing Locations:
-
-- `content/remove`
-- `content/manage_locations`
+To send content to trash, the User needs to have the `content/remove` Policy.
 
 To remove an archived version of content, the User must have the `content/versionremove` Policy.
 
