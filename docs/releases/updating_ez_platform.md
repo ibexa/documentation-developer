@@ -132,7 +132,11 @@ Because from release 16.02 onwards eZ Platform is compatible only with PHP 5.5 a
 
 ??? note "v1.13.3: Custom form-builder template"
 
-    During update from 1.13.2 to 1.13.3 if you do not use default form-builder template you should add `data-field-id` attribute manually to every `<img class="ezform-captcha-image"...` and `<a class="ezform-captcha-reload"` element. For more information please see  <https://github.com/ezsystems/ezplatform-ee-demo/pull/59>
+    !!! enterprise "EZ ENTERPRISE"
+
+        During update from 1.13.2 to 1.13.3 if you do not use default form-builder template you should add `data-field-id` attribute manually to every `<img class="ezform-captcha-image"...` and `<a class="ezform-captcha-reload"` element. 
+        For more information please see  <https://github.com/ezsystems/ezplatform-ee-demo/pull/59>
+        
 
 !!! caution "Common errors"
 
