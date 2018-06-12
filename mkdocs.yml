@@ -128,7 +128,6 @@ pages:
             - 'Extending modules': 'guide/extending_modules.md'
             - 'Extending the Online Editor': 'guide/extending_online_editor.md'
             - 'Extending Landing Page': 'guide/extending_landing_page.md'
-            - 'Extending the Form Builder': 'guide/extending_form_builder.md'
         - 'Service container': 'guide/service_container.md'
         - 'Personalization': 'guide/personalization.md'
         - 'Best practices': 'guide/best_practices.md'
