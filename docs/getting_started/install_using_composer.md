@@ -48,15 +48,15 @@ It depends on the meta-repository you are using.
 
 | Type | Repository |
 |------|----------------|
-| `clean` | [ezplatform](https://github.com/ezsystems/ezplatform) |
-| `platform-demo` | [ezplatform-demo](https://github.com/ezsystems/ezplatform-demo) |
+| `ezplatform-clean` | [ezplatform](https://github.com/ezsystems/ezplatform) |
+| `ezplatform-demo` | [ezplatform-demo](https://github.com/ezsystems/ezplatform-demo) |
 
 #### eZ Platform Enterprise Edition installation types
 
 | Type | Repository |
 |------|----------------|
-| `studio-clean` | [ezplatform-ee](https://github.com/ezsystems/ezplatform-ee) |
-| `platform-ee-demo`  | [ezplatform-ee-demo](https://github.com/ezsystems/ezplatform-ee-demo) |
+| `ezplatform-ee-clean` | [ezplatform-ee](https://github.com/ezsystems/ezplatform-ee) |
+| `ezplatform-ee-demo`  | [ezplatform-ee-demo](https://github.com/ezsystems/ezplatform-ee-demo) |
 
 !!! enterprise "eZ Platform Enterprise Edition"
 
@@ -65,7 +65,7 @@ It depends on the meta-repository you are using.
     ``` bash
     composer create-project --keep-vcs ezsystems/ezplatform-ee
     cd ezplatform-ee
-    php bin/console ezplatform:install studio-clean
+    php bin/console ezplatform:install ezplatform-ee-clean
     ```
 
 !!! enterprise
