@@ -1,5 +1,12 @@
 # eZ Enterprise Beginner Tutorial - It's a Dog's World
 
+!!! caution
+
+    This tutorial does not work in eZ Platform v2.2.
+
+    If you want to go through the tutorial, use v2.1 or an earlier version.
+    It will be updated for an upcoming v2.3 version.
+
 This tutorial is a step-by-step guide to building a website with eZ Platform Enterprise Edition.
 It focuses on creating a front page using a feature called **Landing Page**. 
 
