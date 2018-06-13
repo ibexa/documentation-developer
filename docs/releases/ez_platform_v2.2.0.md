@@ -1,0 +1,80 @@
+# eZ Platform v2.2.0
+
+**Version number**: v2.2.0
+
+**Release date**: June 29, 2018
+
+**Release type**: Fast Track
+
+## Notable changes
+
+### Page Builder
+
+This version introduces the **Page Builder** which replaces the Landing Page editor from earlier versions.
+
+[SCREENSHOT]
+
+!!! note
+
+    In version v2.2 the Page Builder does not contain Schedule and Form blocks.
+    They will be included again in a future release.
+
+#### Modifying the Page Content Type
+
+You can edit the new Page Content Type by adding Fields, as well as create new Content Types with the Page Field Type.
+
+#### Page block design
+
+In the Page block config you can now specify the CSS class with its own style for the specific block:
+
+![Setting the styling in Block configuration](img/2.2_block_settings_styling.png)
+
+### Bookmarks
+
+
+
+### Image placeholders
+
+
+
+### Previewing User and User Group permissions
+
+When viewing User or User Group Content items you can now preview what permissions are assigned to them.
+
+![Preview of permissions assigned to a User](img/2.2_permissions_in_user_view.png)
+
+You can also [select which Content Types are treated the same way as User of User Group](../guide/configuration.md#user-identifiers) for these purposes.
+
+### Change from UTF8 to UTF8MB4
+
+Database charset is changed from UTF8 to UTF8MB4, in order to support 4-byte characters.
+
+!!! caution
+
+    To cover this change when upgrading, follow the instructions in the [update guide](updating_ez_platform.md#4-update-database).
+
+### URL generation pattern
+
+You can now select the pattern that will be used to generate URL patterns.
+
+See [URL alias patterns](../guide/url_management.md#url-alias-patterns) for more information about the available settings.
+
+!!! caution "Default URL generation pattern"
+
+    The default URL generation pattern changes from `urlalias` to `urlalias_lowercase`.
+    This change will only apply to new Content.
+    Pay attention to the new `url_alias.slug_converter.transformation` setting in the meta-repository when updating your installation.
+
+## Full list of new features, improvements and bug fixes since v2.1.0
+
+| eZ Platform   | eZ Enterprise  |
+|--------------|------------|
+| [List of changes for final of eZ Platform v2.2.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v2.2.0) | [List of changes for final for eZ Platform Enterprise Edition v2.2.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.2.0) |
+| [List of changes for rc1 of eZ Platform v2.2.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v2.2.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v2.2.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.2.0-rc1) |
+| [List of changes for beta1 of eZ Platform v2.2.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v2.2.0-beta1) | [List of changes for beta1 of eZ Platform Enterprise Edition v2.2.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.2.0-beta1) |
+
+## Installation
+
+[Installation Guide](../getting_started/install_ez_platform.md)
+
+[Technical Requirements](../getting_started/requirements_and_system_configuration.md)
