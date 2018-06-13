@@ -339,7 +339,7 @@ Referencing the `ez_content` controller follows the syntax of *controllers as a 
 ##### Available arguments
 
 As with any controller, you can pass arguments to `ez_content:viewAction` to fit your needs.
-You must provide at least `contentId` or `locationId` (or both) for the action to work.
+You must provide `contentId` (and, optionally, `locationId`) for the action to work.
 
 |Name|Description|Type|Default value|
 |---|---|---|---|

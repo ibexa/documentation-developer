@@ -170,9 +170,9 @@ The controller used to render content by default can also be changed. The `ezset
 
 ### View providers
 
-The ViewProviders are objects implementing the `eZ\Publish\Core\MVC\Symfony\View\ViewProvider` interface.
+The `ViewProvider` selects the right template (view type, correct parameters, etc.) for displaying a given Content item based on the configuration.
 
-To select the right template for displaying a given Content item, the application iterates over the registered `ViewProvider` objects and calls `getView()` on them, until one of them returns a View.
+The ViewProviders are objects implementing the `eZ\Publish\Core\MVC\Symfony\View\ViewProvider` interface.
 
 By default, the [Configured ViewProvider](#configuring-views-the-viewprovider) is used. It selects templates using the application configuration.
 
