@@ -47,10 +47,26 @@ The following table gives an overview of the main eZ Publish directories.
 |[satis](https://github.com/ezsystems/satis)|Simple static Composer repository generator.|
 |[ezwt-ls-extension](https://github.com/ezsystems/ezwt-ls-extension)|(READ-ONLY) Subtree split from ezsystems/ezwt, for use via composer|
 |[ezplatform-ui-2.0-introduction](https://github.com/ezsystems/ezplatform-ui-2.0-introduction)|Repo for introduction of v2 UI, "v2_extending_admin" for latests up to-date v2.x steps.|
-
-
-
-
+|[bikeride](https://github.com/ezsystems/bikeride)|Learn eZ Platform with our Beginner Tutorial|
+|[ezplatform-demo-assets](https://github.com/ezsystems/ezplatform-demo-assets)||
+|[ezpostgresqlcluster](https://github.com/ezsystems/ezpostgresqlcluster)|eZ Publish PostgreSQL cluster implementation|
+|[ezstarrating](https://github.com/ezsystems/ezstarrating)||
+|[ezplatform-installer](https://github.com/ezsystems/ezplatform-installer)|This package provides `ezplatform:install` Symfony console command which is the installer for eZ Platform v2.|
+|[requirements](https://github.com/ezsystems/requirements)|Requirements repository for eZ Platform development.|
+|[ezcs](https://github.com/ezsystems/ezcs)|This repository contains the configuration for various tools to check the eZ coding standards in different languages.|
+|[ui-guidelines](https://github.com/ezsystems/ui-guidelines)|This is a resource for designers, product managers, and developers, providing a unified language to build and customize eZ Platform admin user interface (aka Platform UI).|
+|[hybrid-platform-ui](https://github.com/ezsystems/hybrid-platform-ui)|https://github.com/ezsystems/hybrid-platform-ui|
+|[hybrid-platform-ui-core-components](https://github.com/ezsystems/hybrid-platform-ui-core-components)|Provides custom elements used in the Hybrid Platform UI.|
+|[ezsystems.github.com](https://github.com/ezsystems/ezsystems.github.com)|
+Contains UI/Style guideline and generated api documentation for eZ Platform frontend components.|
+|[hybrid-platform-ui-assets](https://github.com/ezsystems/hybrid-platform-ui-assets)|This packages provides the external frontend dependencies needed by the Hybrid Platform UI.|
+|[ezpublish-legacy-installer](https://github.com/ezsystems/ezpublish-legacy-installer)|A custom composer installer for eZ Publish legacy extensions|
+|[ezflow](https://github.com/ezsystems/ezflow)||
+|[ez-beginner-tutorial](https://github.com/ezsystems/ez-beginner-tutorial)|Files related to the eZ Platform Beginner Tutorial|
+|[ezgmaplocation](https://github.com/ezsystems/ezgmaplocation)||
+|[platformsh-docs](https://github.com/ezsystems/platformsh-docs)|Platform.sh documentation https://docs.platform.sh/|
+|[ezflow-migration-toolkit](https://github.com/ezsystems/ezflow-migration-toolkit)|A set of tools that helps migrate data from legacy eZ Flow extension to eZ Studio landing page management.|
+|[ezxmlinstaller](https://github.com/ezsystems/ezxmlinstaller)|The eZ XML Installer extension is a plattform to define proccesses for eZ Publish and execute them.|
 
 
 
@@ -101,12 +117,15 @@ Enterprise:
 |[content-on-the-fly-prototype-bundle](https://github.com/ezsystems/content-on-the-fly-prototype-bundle)|Platform UI Content on the Fly feature|
 |[EzSystemsShareButtonsBundle](https://github.com/ezsystems/EzSystemsShareButtonsBundle)|This bundle adds social share buttons into Symfony 2 application (eZ Publish / eZ Platform).|
 |[RepositoryProfilerBundle](https://github.com/ezsystems/RepositoryProfilerBundle)|Bundle to profile eZ Platform API/SPI and setup scenarios to be able to continuously test to keep track of performance regressions of repository and underlying storage engines(s)|
-
-
-
-
-
-
+|[BehatBundle](https://github.com/ezsystems/BehatBundle)|Bundle for common reusable sentance implementations and other common needs for Behat testing in eZ bundles/projects.|
+|[ez-support-tools](https://github.com/ezsystems/ez-support-tools)|eZ Support Tools Bundle, provides functionality for system information and in the future tools for identifying issues.|
+|[ezplatform-link-manager](https://github.com/ezsystems/ezplatform-link-manager)|This package provides prototype of Public API and UI for links management in eZ Platform. NOTE: This bundle is currently only integrating with eZ Platform UI 1.x, integration with 2.x is planned.|
+|[QueryBuilderBundle](https://github.com/ezsystems/QueryBuilderBundle)|This bundle for eZ Publish, the open-source CMS platform, provides a PHP API dedicated to fluently writing repository queries.|
+|[DemoBundle](https://github.com/ezsystems/DemoBundle)|DemoBundle represent a front end web site on eZ Publish 5, for newer examples for eZ Platform see ezplatform-demo.|
+|[MarketingAutomationBundle](https://github.com/ezsystems/MarketingAutomationBundle)|This bundle integrates Net-Result’s marketing automation suite into the eZ Publish Platform.|
+|[ezstudio-upgrade](https://github.com/ezsystems/ezstudio-upgrade)||
+|[EditorialInterfaceBundle](https://github.com/ezsystems/EditorialInterfaceBundle)|Prototype of a Editorial interface for eZ Publish 6.x|
+|[ezodf](https://github.com/ezsystems/ezodf)|This extension enables import and export of OpenOffice.org Writer documents within eZ Publish.|
 
 Enterprise:
 
@@ -118,3 +137,4 @@ Enterprise:
 |[ezstudio-demo-bundle](https://github.com/ezsystems/ezstudio-demo-bundle)|StudioDemoBundle represent a demo front-end website with eZ Studio.|
 |[ezstudio-personalized-block](https://github.com/ezsystems/ezstudio-personalized-block)|eZ Systems Personalized Block Bundle|
 |[ExtendingPlatformUIConferenceBundle](https://github.com/ezsystems/ExtendingPlatformUIConferenceBundle)|This repository contains the bundle that is created in the Extending PlatformUI tutorial.|
+|[ezrecommendation](https://github.com/ezsystems/ezrecommendation)|The eZ Recommendation Service provided by YOOCHOOSE represents your first opportunity to customize and personalize your online portal individually for each end user.|
