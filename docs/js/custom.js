@@ -70,4 +70,14 @@ $(document).ready(function () {
         var toggle = document.querySelector("[data-md-toggle=search]");
         toggle.checked = true;
     });
+
+    // Image enlargement modal
+    $("img").click(function(){
+        document.getElementById("enlargedImage").src = this.src;
+        if ($(this).attr('title')) {
+            document.getElementById("modalCaption").innerHTML = $(this).attr('title');
+        }
+        document.getElementById('imageModal').style.display = "block";
+    });
+
 });

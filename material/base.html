@@ -124,6 +124,10 @@
         {{ lang.t('skip.link.title') }}
       </a>
     {% endif %}
+    <div id="imageModal" onclick="document.getElementById('imageModal').style.display='none'">
+      <img class="modal-content" id="enlargedImage">
+      <div id="modalCaption"></div>
+    </div>
     {% block header %}
       {% include "partials/header.html" %}
     {% endblock %}

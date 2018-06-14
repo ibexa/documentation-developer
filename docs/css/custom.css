@@ -302,3 +302,44 @@ a.external:after {
 .md-search__icon {
     z-index: 0;
 }
+
+
+
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {
+  opacity: 0.7;
+}
+
+/* Image enlagement Modal */
+
+#imageModal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 75px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 60%;
+  max-height: 90%;
+}
+
+#modalCaption {
+  padding-top: 1em;
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+}
