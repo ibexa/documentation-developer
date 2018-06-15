@@ -94,7 +94,9 @@ The configuration described above lets you select one template to be used in a g
 
     See [Including Templates](http://symfony.com/doc/current/book/templating.html#including-templates) in Symfony documentation for more information on including templates.
 
-The main template for your webpage (defined per SiteAccess) is placed in the `pagelayout.html.twig` file. This template will be used by default for those parts of the website where no other templates are defined.
+The main template for your webpage is placed in a pagelayout.
+You can define the pagelayout per SiteAccess using the `system.<SiteAccess>.pagelayout` setting.
+This template will be used by default for those parts of the website where no other templates are defined.
 
 A `pagelayout.html.twig` file exists already in Demo Bundles, but if you are using a clean installation, you need to create it from scratch. This file is typically located in a bundle, for example using the built-in AppBundle: `src/AppBundle/Resources/views`. The name of the bundle must the added whenever the file is called, like in the example below.
 
