@@ -71,10 +71,6 @@ See [URL alias patterns](../guide/url_management.md#url-alias-patterns) for more
     This change will only apply to new Content.
     Pay attention to the new `url_alias.slug_converter.transformation` setting in the meta-repository when updating your installation.
 
-### Crowdin in-context translation
-
-AdminUI interface is now translatable using [Crowdin's in-context tool](../community_resources/translations#how-to-translate-the-interface-using-crowdin). When navigating through the AdminUI interface you will now be able to translate it. A glossary has been established to aid in unified usage of terminology throughout. Contributions are welcome - https://crowdin.com/project/ezplatform
-
 ## Full list of new features, improvements and bug fixes since v2.1.0
 
 | eZ Platform   | eZ Enterprise  |
