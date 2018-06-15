@@ -31,9 +31,11 @@ In the Page block config you can now specify the CSS class with its own style fo
 
 ### Bookmarks
 
-Bookmark service allows you to create bookmark for Location (disallowing create when Location has already been bookmarked), check if Location has been bookmarked, delete bookmark for Location and get list of bookmarks.
+Bookmark service allows you to create bookmarks for Locations by selecting a star located next to the Content Type name as shown in the screenshot below. Each Location can only be bookmarked once, multiple bookmarks on one Location will cause an error. 
 
 ![Bookmark](img/bookmark.png)
+
+You can find the list of all bookmarks in *Browse content* section. There, you can manage bookmarks by deleting them or by checking if specific Location has been bookmarked.
 
 ### Image placeholders
 
@@ -68,6 +70,10 @@ See [URL alias patterns](../guide/url_management.md#url-alias-patterns) for more
     The default URL generation pattern changes from `urlalias` to `urlalias_lowercase`.
     This change will only apply to new Content.
     Pay attention to the new `url_alias.slug_converter.transformation` setting in the meta-repository when updating your installation.
+
+### Crowdin in-context translation
+
+AdminUI interface is now translatable using [Crowdin's in-context tool](../community_resources/translations#how-to-translate-the-interface-using-crowdin). When navigating through the AdminUI interface you will now be able to translate it. A glossary has been established to aid in unified usage of terminology throughout. Contributions are welcome - https://crowdin.com/project/ezplatform
 
 ## Full list of new features, improvements and bug fixes since v2.1.0
 
