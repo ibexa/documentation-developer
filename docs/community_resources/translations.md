@@ -7,7 +7,7 @@ You can use an XLIFF editor of your choice to contribute strings in your languag
 
 ## How to translate the interface using Crowdin
 
-If you wish to contribute to an existing translation of PlatformUI or start a new one, the best way is to start with in-context translation (but you can also [translate directly on the Crowdin website](#translating-outside-in-context)).
+If you wish to contribute to an existing translation of AdminUI or start a new one, the best way is to start with in-context translation (but you can also [translate directly on the Crowdin website](#translating-outside-in-context)).
 
 ## Preparing to use in-context
 
@@ -25,7 +25,7 @@ Right-click your browser's bookmark bar, and create a new bookmark as shown in t
 
 **URL**: `javascript:function hasInContextCookie(){ return document.cookie.match(/^(.*;)?\s*ez_in_context_translation\s*=\s*[^;]+(.*)?$/);}(function () { document.cookie = hasInContextCookie() ? document.cookie = &#39;ez_in_context_translation=;expires=Mon, 05 Jul 2000 00:00:00 GMT;path=/;&#39;: document.cookie=&#39;ez_in_context_translation=1;path=/;&#39;; location.reload()})()`
 
-Clicking the bookmark while on PlatformUI will toggle in-context translation on/off.
+Clicking the bookmark while on AdminUI will toggle in-context translation on/off.
 
 ### Using the debugging console
 
@@ -41,7 +41,7 @@ The first time you enable in-context, if you're not logged into Crowdin, it will
 
 Choose your language and you can start translating right away. Strings in the interface that can be translated will be outlined in red (untranslated), blue (translated) or green (approved). When moving over them, an edit button will show up on the top left corner of the outline. Click on it, and edit the string in the window that shows up.
 
-![In-context translation of Platform UI](img/incontext_translation_ezplatform_crowdin.png "In-context translation of Platform UI")
+[In-context translation of Admin UI] - Screenshot TODO
 
 #### Troubleshooting
 
