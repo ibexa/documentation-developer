@@ -146,7 +146,7 @@ Those templates can be customized by means of container- and SiteAccess-aware pa
 
 ##### Overriding the default template for common view types
 
-Templates for the most common view types (content/full, line, embed, or block) can be customized by setting one the `ezplatform.default.content_view_templates` variables:
+Templates for the most common view types (content/full, line, embed, or block) can be customized by setting one the `ezplatform.default_view_templates` variables:
 
 | Controller                                              | ViewType | Parameter                                         | Default value                                           |
 |---------------------------------------------------------|----------|---------------------------------------------------|---------------------------------------------------------|
