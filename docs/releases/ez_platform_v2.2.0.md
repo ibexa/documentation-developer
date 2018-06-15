@@ -31,11 +31,15 @@ In the Page block config you can now specify the CSS class with its own style fo
 
 ### Bookmarks
 
+Bookmark service allows you to create bookmark for Location (disallowing create when Location has already been bookmarked), check if Location has been bookmarked, delete bookmark for Location and get list of bookmarks.
 
+![Bookmark](img/bookmark.png)
 
 ### Image placeholders
 
+[Placeholder generator](../guide/images.md#setting-placeholder-generator) enables you to replace any missing image with downloaded or generated image placeholder. It can be used when you are working on an existing database and you are not able to download uploaded images to your local development environment because of their large size.
 
+![Placeholder GenericProvider](img/placeholder_generic_provider.png)
 
 ### Previewing User and User Group permissions
 
