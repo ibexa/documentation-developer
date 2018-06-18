@@ -67,7 +67,7 @@ Contains UI/Style guideline and generated api documentation for eZ Platform fron
 |[platformsh-docs](https://github.com/ezsystems/platformsh-docs)|Platform.sh documentation https://docs.platform.sh/|
 |[ezflow-migration-toolkit](https://github.com/ezsystems/ezflow-migration-toolkit)|A set of tools that helps migrate data from legacy eZ Flow extension to eZ Studio landing page management.|
 |[ezxmlinstaller](https://github.com/ezsystems/ezxmlinstaller)|The eZ XML Installer extension is a plattform to define proccesses for eZ Publish and execute them.|
-
+|[apidoc.ez.no](https://github.com/ezsystems/apidoc.ez.no)|Apidocs.ez.no documentation builder for eZP|
 
 
 
@@ -93,6 +93,7 @@ Enterprise:
 |[ezplatform-ee-assets](https://github.com/ezsystems/ezplatform-ee-assets)||
 |[ezpublish-platform](https://github.com/ezsystems/ezpublish-platform)|This is the eZ Publish 5 Platform (ee version of ezpublish-community), it is a meta repository that pulls in all dependencies for full 5.x enterprise build|
 |[ezplatform-ee-beginner-tutorial](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial)|This repository contains resources used in the eZ Platform Enterprise Edition Beginner Tutorial.|
+
 
 
 
@@ -126,6 +127,18 @@ Enterprise:
 |[ezstudio-upgrade](https://github.com/ezsystems/ezstudio-upgrade)||
 |[EditorialInterfaceBundle](https://github.com/ezsystems/EditorialInterfaceBundle)|Prototype of a Editorial interface for eZ Publish 6.x|
 |[ezodf](https://github.com/ezsystems/ezodf)|This extension enables import and export of OpenOffice.org Writer documents within eZ Publish.|
+|[alloy-editor](https://github.com/ezsystems/alloy-editor)|Alloy Editor is a modern WYSIWYG editor built on top of CKEditor, designed to create modern web content.|
+|[ezoracle](https://github.com/ezsystems/ezoracle)|This extension adds support for the Oracle database to eZ Publish by plugging into the database framework.|
+|[demobundle-data](https://github.com/ezsystems/demobundle-data)|This repository contains binary install data for ezsystems/demobundle.|
+|[ezie](https://github.com/ezsystems/ezie)|An image editor for simple and usual image modifications integrated in the editing interface of any eZ Publish Content Object that has at least an image as attribute.|
+|[ezautosave](https://github.com/ezsystems/ezautosave)|Content editing autosave extension for eZ Publish|
+|[ezsurvey](https://github.com/ezsystems/ezsurvey)|Survey module for eZ Publish|
+|[ezmbpaex](https://github.com/ezsystems/ezmbpaex)|Extension that provides functionality for password expiration and validation.|
+|[ngsymfonytools-bundle](https://github.com/ezsystems/ngsymfonytools-bundle)|ngsymfonytools-bundle integrates the legacy netgen/ngsymfonytools as a Legacy bundle, a feature introduced in eZ Publish 5.3|
+|[ezphttprequest](https://github.com/ezsystems/ezphttprequest)|This extension provides ezpHttpRequest, a child class of HttpRequest, provided by the PECL package.|
+|[ezlightbox](https://github.com/ezsystems/ezlightbox)|This extension adds support for lightboxes to eZ Publish by adding a new eZ Publish module named "lightbox" (including operations, triggers, fetch functions).|
+
+
 
 Enterprise:
 
@@ -138,3 +151,6 @@ Enterprise:
 |[ezstudio-personalized-block](https://github.com/ezsystems/ezstudio-personalized-block)|eZ Systems Personalized Block Bundle|
 |[ExtendingPlatformUIConferenceBundle](https://github.com/ezsystems/ExtendingPlatformUIConferenceBundle)|This repository contains the bundle that is created in the Extending PlatformUI tutorial.|
 |[ezrecommendation](https://github.com/ezsystems/ezrecommendation)|The eZ Recommendation Service provided by YOOCHOOSE represents your first opportunity to customize and personalize your online portal individually for each end user.|
+|[ezcontentstaging](https://github.com/ezsystems/ezcontentstaging)|The goal of the extension is to allow content synchronization between different eZ Publish installations.|
+|[ezma](https://github.com/ezsystems/ezma)|eZ Marketing Automation|
+|[ezmemcachedcluster](https://github.com/ezsystems/ezmemcachedcluster)|This extension adds cluster events support with Memcached backend server.|
