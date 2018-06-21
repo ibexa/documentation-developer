@@ -28,7 +28,7 @@ that gets approved/blocked by the server. By default, all cross-origin requests 
 #### Granting an origin default access
 
 To allow a specific host to execute cross-origin requests, you need to add this host to the `nelmio_cors.default.allow_origin` configuration array in `config.yml`.
-As an example, in order to allow requests from `http://example.com` you would add those lines to `ezpublish/config/config.yml`:
+As an example, in order to allow requests from `http://example.com` you would add those lines to `app/config/config.yml`:
 
 ``` yaml
 nelmio_cors:
