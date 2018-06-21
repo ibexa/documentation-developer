@@ -36,6 +36,20 @@ nelmio_cors:
         allow_origin: [ 'http://example.com' ]
 ```
 
+#### Changing configuration of NelmioCorsBundle for eZ Platform REST
+
+The default configuration of NelmioCorsBundle for eZ Platform REST paths is set in [nelmio_cors.yml](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishRestBundle/Resources/config/nelmio_cors.yml) file. 
+To adapt these settings to your own needs you have to overwrite them in `app/config/config.yml` file under the same configuration path, for instance:
+
+```yaml
+nelmio_cors:
+    paths:
+        '^/api/ezp/v2/':
+            max_age: 3600
+            allow_credentials: false
+            allow_origin: ['http://ez.no']
+```
+
 ### Granting CORS access to your own HTTP resources
 
 NelmioCorsBundle is perfectly safe to use for any non-eZ HTTP resource you would like to expose.
