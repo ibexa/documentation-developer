@@ -129,8 +129,7 @@ To allow anonymous users to register through the `/register` route, you need to 
 |               | `versionread`        | view content after publishing, and to preview any content in the Page mode                                                              |
 |               | `versionremove`      | remove archived content versions                                                                                                        |
 |               | `translations`       | manage the language list in the Back Office                                                                                                  |
-|               | `urltranslator`      | manage URL aliases of a Content item      
-                                                                                      |
+|               | `urltranslator`      | manage URL aliases of a Content item|
 |               | `pendinglist`        | unused                                                                                                                                  |
 |               | `restore`            | restore content from Trash                                                                                                              |
 |               | `cleantrash`         | empty the trash                                                                                                                         |
