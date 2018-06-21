@@ -8,7 +8,7 @@ The following table gives an overview of the main eZ Platform directories.
 
 |Directory|Description|
 |---------|-----------|
-|[ezplatform-demo](https://github.com/ezsystems/ezplatform-demo)|Fork of "ezplatform" meta repository, contains code and dependencies for demo distribution of eZ Platform. Not recommended for a clean install for new projects, but great for observation and learning!|
+|[ezplatform-demo](https://github.com/ezsystems/ezplatform-demo)|Fork of "ezplatform" meta repository that contains code and dependencies for demo distribution of eZ Platform. Not recommended for a clean install for new projects, but great for observation and learning!|
 |[ezplatform](https://github.com/ezsystems/ezplatform)|Meta repository that pulls in all dependencies for clean distribution of eZ Platform.|
 |[ezpublish-kernel](https://github.com/ezsystems/ezpublish-kernel)|The "kernel" directory contains all the kernel files such as the core kernel classes, modules, views, datatypes, etc. This is where the core of the system resides. Only experts should tamper with this part.|
 |[ezplatform-admin-ui](https://github.com/ezsystems/ezplatform-admin-ui)|Repository dedicated to the eZ Platform Admin UI Bundle, Admin UI for eZ Platform v2+.|
@@ -78,7 +78,7 @@ Enterprise:
 |[flex-workflow](https://github.com/ezsystems/flex-workflow)|Flex Workflow Implementation|
 |[ezpublish-legacy-ee](https://github.com/ezsystems/ezpublish-legacy-ee)|This is the eZ Publish Legacy (4.x) kernel for enterprise. Only stable branches differ, and master is automatically synced from ezsystems/ezpublish-legacy/master.|
 |[ezpublish-kernel-ee](https://github.com/ezsystems/ezpublish-kernel-ee)|This is the eZ Platform kernel for enterprise, difference is the stable branches, master is automatically synced.|
-|[ezplatform-ee-installer](https://github.com/ezsystems/ezplatform-ee-installer)||
+|[ezplatform-ee-installer](https://github.com/ezsystems/ezplatform-ee-installer)|This package provides `ezplatform:install` Symfony console command which is the installer for eZ Platform Enterprise v2.|
 |[ezstudio-notifications](https://github.com/ezsystems/ezstudio-notifications)|Notification system for eZ Platform / eZ Studio|
 |[ezstudio-cron](https://github.com/ezsystems/ezstudio-cron)|This repository is used by eZ Platform EE 1.x series only. This package exposes cron/cron package for use in eZ Platform (or just plain Symfony) via a simle command `ezpublish:cron:run`|
 |[ez-service-network](https://github.com/ezsystems/ez-service-network)|Service Network is the commercial backend of eZ Publish, providing API's and functionality for things like license handling and authentication needs.|
