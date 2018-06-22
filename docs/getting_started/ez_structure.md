@@ -8,14 +8,14 @@ The following table gives an overview of the main eZ Platform directories.
 
 |Directory|Description|
 |---------|-----------|
-|[ezplatform-demo](https://github.com/ezsystems/ezplatform-demo)|Fork of "ezplatform" meta repository that contains code and dependencies for demo distribution of eZ Platform. Not recommended for a clean install for new projects, but great for observation and learning!|
+|[ezplatform-demo](https://github.com/ezsystems/ezplatform-demo)|Fork of `ezplatform` meta repository that contains code and dependencies for demo distribution of eZ Platform. Not recommended for a clean install for new projects, but great for observation and learning!|
 |[ezplatform](https://github.com/ezsystems/ezplatform)|Meta repository that pulls in all dependencies for clean distribution of eZ Platform.|
-|[ezpublish-kernel](https://github.com/ezsystems/ezpublish-kernel)|The "kernel" directory contains all the kernel files such as the core kernel classes, modules, views, datatypes, etc. This is where the core of the system resides. Only experts should tamper with this part.|
+|[ezpublish-kernel](https://github.com/ezsystems/ezpublish-kernel)|Directory that contains all the kernel files such as the core kernel classes, modules, views, datatypes, etc. This is where the core of the system resides. Only experts should tamper with this part.|
 |[ezplatform-admin-ui](https://github.com/ezsystems/ezplatform-admin-ui)|Repository dedicated to the eZ Platform Admin UI Bundle, Admin UI for eZ Platform v2+.|
 |[ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache)|HTTP cache handling for eZ Platform, using multi tagging (incl Varnish xkey).|
 |[ezpublish-api](https://github.com/ezsystems/ezpublish-api)|(READ ONLY) Subtree split of the eZ Publish 5 (ezsystems/ezpublish-kernel) API interfaces and domain objects.|
 |[ezpublish-spi](https://github.com/ezsystems/ezpublish-spi)|(READ ONLY) Subtree split of the eZ Publish 5 (ezsystems/ezpublish-kernel) SPI (persistence) interfaces.|
-|[ezplatform-xmltext-fieldtype](https://github.com/ezsystems/ezplatform-xmltext-fieldtype)|(Community co-maintained) XmlText field type for eZ Platform.|
+|[ezplatform-xmltext-fieldtype](https://github.com/ezsystems/ezplatform-xmltext-fieldtype)|(Community co-maintained) The XmlText Field Type isn't officially supported by eZ Platform.|
 |[repository-forms](https://github.com/ezsystems/repository-forms)|Repository forms.|
 |[ezplatform-admin-ui-modules](https://github.com/ezsystems/ezplatform-admin-ui-modules)|Repository dedicated to re-useable React JS components for eZ Platform Admin UI|
 |[ezwt](https://github.com/ezsystems/ezwt)||
@@ -23,17 +23,16 @@ The following table gives an overview of the main eZ Platform directories.
 |[ezpublish-legacy](https://github.com/ezsystems/ezpublish-legacy)|eZ Publish (aka "legacy kernel" + 3 core "legacy extensions")|
 |[ez-js-rest-client](https://github.com/ezsystems/ez-js-rest-client)|Javascript REST client for eZ Platform RESTv2 API, mimics PHP API found in eZ Platform.|
 |[ezplatform-i18n](https://github.com/ezsystems/ezplatform-i18n)|Centralized internationalization of eZ Platform, the open-source Symfony based CMS.|
-|[ezwebin-ls-extension](https://github.com/ezsystems/ezwebin-ls-extension)|(READ-ONLY) Subtree split from ezsystems/ezwebin, for use via composer|
-|[ezstarrating-ls-extension](https://github.com/ezsystems/ezstarrating-ls-extension)|(READ-ONLY) Subtree split from ezsystems/ezstarrating, for use via composer|
-|[ezgmaplocation-ls-extension](https://github.com/ezsystems/ezgmaplocation-ls-extension)|(READ-ONLY) Subtree split from ezsystems/ezgmaplocation, for use via composer|
-|[ezdemo-ls-extension](https://github.com/ezsystems/ezdemo-ls-extension)|(READ-ONLY) Subtree split from ezsystems/ezdemo, for use via composer|
-|[ezflow-ls-extension](https://github.com/ezsystems/ezflow-ls-extension)|https://github.com/ezsystems/ezflow-ls-extension|
-|[ezcomments-ls-extension](https://github.com/ezsystems/ezcomments-ls-extension)|(READ-ONLY) Subtree split of legacy ezcomments extension from https://github.com/ezsystems/ezwt. For use via composer.|
+|[ezwebin-ls-extension](https://github.com/ezsystems/ezwebin-ls-extension)|(READ-ONLY) Subtree split from ezsystems/ezwebin, for use via Composer.|
+|[ezstarrating-ls-extension](https://github.com/ezsystems/ezstarrating-ls-extension)|(READ-ONLY) Subtree split from ezsystems/ezstarrating, for use via Composer.|
+|[ezgmaplocation-ls-extension](https://github.com/ezsystems/ezgmaplocation-ls-extension)|(READ-ONLY) Subtree split from ezsystems/ezgmaplocation, for use via Composer|
+|[ezdemo-ls-extension](https://github.com/ezsystems/ezdemo-ls-extension)|(READ-ONLY) Subtree split from ezsystems/ezdemo, for use via Composer.|
+|[ezflow-ls-extension](https://github.com/ezsystems/ezflow-ls-extension)|(READ-ONLY) Subtree split from ezsystems/ezflow, for use via Composer.|
+|[ezcomments-ls-extension](https://github.com/ezsystems/ezcomments-ls-extension)|(READ-ONLY) Subtree split of legacy ezcomments extension from https://github.com/ezsystems/ezwt. For use via Composer.|
 |[LegacyBridge](https://github.com/ezsystems/LegacyBridge)|(Community co-maintained) Formerly LegacyBundle, this was moved out and can be used as a optional bridge between eZ Platform and eZ Publish Legacy to simplify migration to eZ Platform|
 |[ezplatform-design-engine](https://github.com/ezsystems/ezplatform-design-engine)|Design fallback system for eZ Platform similar to legacy design fallback system. Lets you define fallback order for templates and assets.|
-|[ezplatform-cron](https://github.com/ezsystems/ezplatform-cron)|This package exposes cron/cron package for use in eZ Platform (or just plain Symfony) via a simle command `ezplatform:cron:run`|
+|[ezplatform-cron](https://github.com/ezsystems/ezplatform-cron)|This package exposes cron/cron package for use in eZ Platform (or just plain Symfony) via a simple command `ezplatform:cron:run`|
 |[ezplatform-solr-search-engine](https://github.com/ezsystems/ezplatform-solr-search-engine)|Solr powered search handler for eZ Platform (and branch 1.0 for eZ Publish 5.4)|
-|[ezmultiupload](https://github.com/ezsystems/ezmultiupload)|Allows uploading multiple files as new content items.|
 |[ezplatform-com](https://github.com/ezsystems/ezplatform-com)|eZPlatform.com - The eZ Systems Developer Hub for the Open Source PHP CMS eZ Platform|
 |[launchpad](https://github.com/ezsystems/launchpad)|CLI tool to bootstrap an eZ Platform project Docker stack|
 |[ezplatform-multi-file-upload](https://github.com/ezsystems/ezplatform-multi-file-upload)|Allows uploading multiple files as new content items at once.|
@@ -41,9 +40,8 @@ The following table gives an overview of the main eZ Platform directories.
 |[ezfind](https://github.com/ezsystems/ezfind)|eZ Find is a search extension for eZ Publish, providing more functionality and better results than the default search in eZ Publish.|
 |[ezscriptmonitor](https://github.com/ezsystems/ezscriptmonitor)|eZ Publish extension that aims to avoid timeout problems and database corruption by moving long running processes from the GUI to the background.|
 |[satis](https://github.com/ezsystems/satis)|Simple static Composer repository generator.|
-|[ezwt-ls-extension](https://github.com/ezsystems/ezwt-ls-extension)|(READ-ONLY) Subtree split from ezsystems/ezwt, for use via composer|
-|[ezplatform-ui-2.0-introduction](https://github.com/ezsystems/ezplatform-ui-2.0-introduction)|Repo for introduction of v2 UI, "v2_extending_admin" for latests up to-date v2.x steps.|
-|[bikeride](https://github.com/ezsystems/bikeride)|Learn eZ Platform with our Beginner Tutorial|
+|[ezwt-ls-extension](https://github.com/ezsystems/ezwt-ls-extension)|(READ-ONLY) Subtree split from ezsystems/ezwt, for use via Composer|
+|[ezplatform-ui-2.0-introduction](https://github.com/ezsystems/ezplatform-ui-2.0-introduction)|Repo for introduction of v2 UI, `v2_extending_admin` for up-to-date v2.x steps.|
 |[ezplatform-demo-assets](https://github.com/ezsystems/ezplatform-demo-assets)||
 |[ezpostgresqlcluster](https://github.com/ezsystems/ezpostgresqlcluster)|eZ Publish PostgreSQL cluster implementation|
 |[ezstarrating](https://github.com/ezsystems/ezstarrating)||
@@ -51,17 +49,14 @@ The following table gives an overview of the main eZ Platform directories.
 |[requirements](https://github.com/ezsystems/requirements)|Requirements repository for eZ Platform development.|
 |[ezcs](https://github.com/ezsystems/ezcs)|This repository contains the configuration for various tools to check the eZ coding standards in different languages.|
 |[ui-guidelines](https://github.com/ezsystems/ui-guidelines)|This is a resource for designers, product managers, and developers, providing a unified language to build and customize eZ Platform admin user interface (aka Platform UI).|
-|[hybrid-platform-ui](https://github.com/ezsystems/hybrid-platform-ui)|https://github.com/ezsystems/hybrid-platform-ui|
+|[hybrid-platform-ui](https://github.com/ezsystems/hybrid-platform-ui)|Hybrid Platform UI.|
 |[hybrid-platform-ui-core-components](https://github.com/ezsystems/hybrid-platform-ui-core-components)|Provides custom elements used in the Hybrid Platform UI.|
-
 |[hybrid-platform-ui-assets](https://github.com/ezsystems/hybrid-platform-ui-assets)|This packages provides the external frontend dependencies needed by the Hybrid Platform UI.|
-|[ezpublish-legacy-installer](https://github.com/ezsystems/ezpublish-legacy-installer)|A custom composer installer for eZ Publish legacy extensions|
+|[ezpublish-legacy-installer](https://github.com/ezsystems/ezpublish-legacy-installer)|A custom Composer installer for eZ Publish legacy extensions|
 |[ezflow](https://github.com/ezsystems/ezflow)||
-|[ez-beginner-tutorial](https://github.com/ezsystems/ez-beginner-tutorial)|Files related to the eZ Platform Beginner Tutorial|
 |[ezgmaplocation](https://github.com/ezsystems/ezgmaplocation)||
-
-|[ezflow-migration-toolkit](https://github.com/ezsystems/ezflow-migration-toolkit)|A set of tools that helps migrate data from legacy eZ Flow extension to eZ Studio landing page management.|
-|[ezxmlinstaller](https://github.com/ezsystems/ezxmlinstaller)|The eZ XML Installer extension is a plattform to define proccesses for eZ Publish and execute them.|
+|[ezflow-migration-toolkit](https://github.com/ezsystems/ezflow-migration-toolkit)|A set of tools that helps migrate data from legacy eZ Flow extension to eZ Studio Landing Page management.|
+|[ezxmlinstaller](https://github.com/ezsystems/ezxmlinstaller)|The eZ XML Installer extension is a platform to define processes for eZ Publish and execute them.|
 
 
 
@@ -72,22 +67,21 @@ Enterprise:
 |---------|-----------|
 |[ezplatform-ee-demo](https://github.com/ezsystems/ezplatform-ee-demo)|Fork of the "ezplatform-ee" meta repository, contains changes to composer.json, AppKernel.php and config necessary to enable eZ Platform Enterprise Edition Demo.|
 |[ezplatform-ee](https://github.com/ezsystems/ezplatform-ee)|Fork of the "ezplatform" meta repository, contains changes to composer.json that pull in all dependencies from updates.ez.no for eZ Platform Enterprise Edition (a commercial distribution of eZ Platform with additional features).|
+|[ezplatform-ee-installer](https://github.com/ezsystems/ezplatform-ee-installer)|This package provides `ezplatform:install` Symfony console command which is the installer for eZ Platform Enterprise v2.|
 |[ezplatform-page-builder](https://github.com/ezsystems/ezplatform-page-builder)|Repository dedicated to the eZ Platform Page Builder Bundle|
-|[date-based-publisher](https://github.com/ezsystems/date-based-publisher)|Repository dedicated to the eZ Platform Page Builder Bundle|
+|[date-based-publisher](https://github.com/ezsystems/date-based-publisher)|This repository contains a Bundle that provides the date based publishing functionality for the eZ Studio product.|
 |[ezplatform-page-fieldtype](https://github.com/ezsystems/ezplatform-page-fieldtype)|Page handling FieldType for eZ Platform EE 2.2+|
 |[flex-workflow](https://github.com/ezsystems/flex-workflow)|Flex Workflow Implementation|
 |[ezpublish-legacy-ee](https://github.com/ezsystems/ezpublish-legacy-ee)|This is the eZ Publish Legacy (4.x) kernel for enterprise. Only stable branches differ, and master is automatically synced from ezsystems/ezpublish-legacy/master.|
 |[ezpublish-kernel-ee](https://github.com/ezsystems/ezpublish-kernel-ee)|This is the eZ Platform kernel for enterprise, difference is the stable branches, master is automatically synced.|
-|[ezplatform-ee-installer](https://github.com/ezsystems/ezplatform-ee-installer)|This package provides `ezplatform:install` Symfony console command which is the installer for eZ Platform Enterprise v2.|
-|[ezstudio-notifications](https://github.com/ezsystems/ezstudio-notifications)|Notification system for eZ Platform / eZ Studio|
+|[ezstudio-notifications](https://github.com/ezsystems/ezstudio-notifications)|Notification system for eZ Platform / eZ Studio.|
 |[ezstudio-cron](https://github.com/ezsystems/ezstudio-cron)|This repository is used by eZ Platform EE 1.x series only. This package exposes cron/cron package for use in eZ Platform (or just plain Symfony) via a simle command `ezpublish:cron:run`|
 |[ez-service-network](https://github.com/ezsystems/ez-service-network)|Service Network is the commercial backend of eZ Publish, providing API's and functionality for things like license handling and authentication needs.|
 |[ezplatform-http-cache-fastly](https://github.com/ezsystems/ezplatform-http-cache-fastly)|eZ Platform Enterprise Bundle extending ezplatform-http-cache to support Fastly, for use on Platform.sh PE or standalone|
-|[cloud-deployment-manager](https://github.com/ezsystems/cloud-deployment-manager)|Dedicated cloud deployment manager|
+|[cloud-deployment-manager](https://github.com/ezsystems/cloud-deployment-manager)|Dedicated cloud deployment manager.|
 |[ezfind-ee](https://github.com/ezsystems/ezfind-ee)|eZ Find is a search extension for eZ Publish, providing more functionality and better results than the default search in eZ Publish.|
 |[ezplatform-ee-assets](https://github.com/ezsystems/ezplatform-ee-assets)||
 |[ezpublish-platform](https://github.com/ezsystems/ezpublish-platform)|This is the eZ Publish 5 Platform (ee version of ezpublish-community), it is a meta repository that pulls in all dependencies for full 5.x enterprise build|
-|[ezplatform-ee-beginner-tutorial](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial)|This repository contains resources used in the eZ Platform Enterprise Edition Beginner Tutorial.|
 
 
 
@@ -102,14 +96,18 @@ Enterprise:
 |[apidoc.ez.no](https://github.com/ezsystems/apidoc.ez.no)|Apidocs.ez.no documentation builder for eZP|
 |[ezodf](https://github.com/ezsystems/ezodf)|This extension enables import and export of OpenOffice.org Writer documents within eZ Publish.|
 |[ezsystems.github.com](https://github.com/ezsystems/ezsystems.github.com)|
-Contains UI/Style guideline and generated api documentation for eZ Platform frontend components.|
+Contains UI/Style guideline and generated API documentation for eZ Platform frontend components.|
+|[bikeride](https://github.com/ezsystems/bikeride)|Learn eZ Platform with our Beginner Tutorial|
+|[ez-beginner-tutorial](https://github.com/ezsystems/ez-beginner-tutorial)|Files related to the eZ Platform Beginner Tutorial|
+|[ezplatform-ee-beginner-tutorial](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial)|This repository contains resources used in the eZ Platform Enterprise Edition Beginner Tutorial.|
+|[ExtendingPlatformUIConferenceBundle](https://github.com/ezsystems/ExtendingPlatformUIConferenceBundle)|This repository contains the bundle that is created in the Extending PlatformUI tutorial.|
 
 
 ## Bundle structure
 
 |Bundle|Description|
 |------|-----------|
-|[PlatformUIBundle](https://github.com/ezsystems/PlatformUIBundle)|Main Bundle to provide YUI based editorial/admin UI for eZ Platform v1 on top of REST API (In v2 replaced by ezplatform-admin-ui, a pure symfony based admin ui)|
+|[PlatformUIBundle](https://github.com/ezsystems/PlatformUIBundle)|Main Bundle to provide YUI based editorial/admin UI for eZ Platform v1 on top of REST API (In v2 replaced by ezplatform-admin-ui, a pure Symfony based Admin UI)|
 |[PlatformUIAssetsBundle](https://github.com/ezsystems/PlatformUIAssetsBundle)|Repo for containing assets for PlatformUIBundle, branches will only contain meta files and config, tags will contain the assets.|
 |[ezplatform-drawio-fieldtype](https://github.com/ezsystems/ezplatform-drawio-fieldtype)|Bundle providing support for diagrams editing in eZ Platform via draw.io.|
 |[CookbookBundle](https://github.com/ezsystems/CookbookBundle)|eZ Publish 5.x / eZ Platform Cookbook examples|
@@ -119,9 +117,9 @@ Contains UI/Style guideline and generated api documentation for eZ Platform fron
 |[TweetFieldTypeBundle](https://github.com/ezsystems/TweetFieldTypeBundle)|Tweet FieldType for the eZ Platform FieldType tutorial|
 |[ezplatform-standard-design](https://github.com/ezsystems/ezplatform-standard-design)|eZ Platform Standard Design Bundle. This Bundle defines standard Design and Theme to be handled by ezplatform-design-engine.|
 |[ezplatform-richtext](https://github.com/ezsystems/ezplatform-richtext)|eZ Platform Rich Text Field Type Bundle. This Bundle provides RichText (ezrichtext) Field Type for eZ Platform 2.1 and higher. It is a Field Type for supporting rich formatted text stored in a structured XML format.|
-|[CommentsBundle](https://github.com/ezsystems/CommentsBundle)|Comment bundle for eZ Platform integrating with Disqus and Facebook and allowing custom integrations|
-|[EzSystemsRecommendationBundle](https://github.com/ezsystems/EzSystemsRecommendationBundle)|Integration of YooChoose, a content recommendation solution, into eZ Platform|
-|[content-on-the-fly-prototype-bundle](https://github.com/ezsystems/content-on-the-fly-prototype-bundle)|Platform UI Content on the Fly feature|
+|[CommentsBundle](https://github.com/ezsystems/CommentsBundle)|Comment bundle for eZ Platform integrating with Disqus and Facebook and allowing custom integrations.|
+|[EzSystemsRecommendationBundle](https://github.com/ezsystems/EzSystemsRecommendationBundle)|Integration of YooChoose, a content recommendation solution, into eZ Platform.|
+|[content-on-the-fly-prototype-bundle](https://github.com/ezsystems/content-on-the-fly-prototype-bundle)|Platform UI Content on the Fly feature.|
 |[EzSystemsShareButtonsBundle](https://github.com/ezsystems/EzSystemsShareButtonsBundle)|This bundle adds social share buttons into Symfony 2 application (eZ Publish / eZ Platform).|
 |[RepositoryProfilerBundle](https://github.com/ezsystems/RepositoryProfilerBundle)|Bundle to profile eZ Platform API/SPI and setup scenarios to be able to continuously test to keep track of performance regressions of repository and underlying storage engines(s)|
 |[BehatBundle](https://github.com/ezsystems/BehatBundle)|Bundle for common reusable sentance implementations and other common needs for Behat testing in eZ bundles/projects.|
@@ -136,10 +134,10 @@ Contains UI/Style guideline and generated api documentation for eZ Platform fron
 |[ezoracle](https://github.com/ezsystems/ezoracle)|This extension adds support for the Oracle database to eZ Publish by plugging into the database framework.|
 |[demobundle-data](https://github.com/ezsystems/demobundle-data)|This repository contains binary install data for ezsystems/demobundle.|
 |[ezie](https://github.com/ezsystems/ezie)|An image editor for simple and usual image modifications integrated in the editing interface of any eZ Publish Content Object that has at least an image as attribute.|
-|[ezautosave](https://github.com/ezsystems/ezautosave)|Content editing autosave extension for eZ Publish|
-|[ezsurvey](https://github.com/ezsystems/ezsurvey)|Survey module for eZ Publish|
+|[ezautosave](https://github.com/ezsystems/ezautosave)|Content editing autosave extension for eZ Publish.|
+|[ezsurvey](https://github.com/ezsystems/ezsurvey)|Survey module for eZ Publish.|
 |[ezmbpaex](https://github.com/ezsystems/ezmbpaex)|Extension that provides functionality for password expiration and validation.|
-|[ngsymfonytools-bundle](https://github.com/ezsystems/ngsymfonytools-bundle)|ngsymfonytools-bundle integrates the legacy netgen/ngsymfonytools as a Legacy bundle, a feature introduced in eZ Publish 5.3|
+|[ngsymfonytools-bundle](https://github.com/ezsystems/ngsymfonytools-bundle)|ngsymfonytools-bundle integrates the legacy netgen/ngsymfonytools as a Legacy bundle, a feature introduced in eZ Publish 5.3.|
 |[ezphttprequest](https://github.com/ezsystems/ezphttprequest)|This extension provides ezpHttpRequest, a child class of HttpRequest, provided by the PECL package.|
 |[ezlightbox](https://github.com/ezsystems/ezlightbox)|This extension adds support for lightboxes to eZ Publish by adding a new eZ Publish module named "lightbox" (including operations, triggers, fetch functions).|
 
@@ -154,7 +152,6 @@ Enterprise:
 |[EzLandingPageFieldTypeBundle](https://github.com/ezsystems/EzLandingPageFieldTypeBundle)|Landing Page FieldType|
 |[ezstudio-demo-bundle](https://github.com/ezsystems/ezstudio-demo-bundle)|StudioDemoBundle represent a demo front-end website with eZ Studio.|
 |[ezstudio-personalized-block](https://github.com/ezsystems/ezstudio-personalized-block)|eZ Systems Personalized Block Bundle|
-|[ExtendingPlatformUIConferenceBundle](https://github.com/ezsystems/ExtendingPlatformUIConferenceBundle)|This repository contains the bundle that is created in the Extending PlatformUI tutorial.|
 |[ezrecommendation](https://github.com/ezsystems/ezrecommendation)|The eZ Recommendation Service provided by YOOCHOOSE represents your first opportunity to customize and personalize your online portal individually for each end user.|
 |[ezcontentstaging](https://github.com/ezsystems/ezcontentstaging)|The goal of the extension is to allow content synchronization between different eZ Publish installations.|
 |[ezma](https://github.com/ezsystems/ezma)|eZ Marketing Automation|
