@@ -203,8 +203,8 @@ The command example suggests using the verbose flag. This is optional, but recom
 ###### 3.2.3 Add other eZ Enterprise schemas (eZ Enterprise only)
 
 For date-based publisher and form builder, there are additional tables, you can import them to your database using the following sql files:
-`<new-ez-root>/vendor/ezsystems/date-based-publisher/bundle/Resources/install/datebasedpublisher_scheduled_version.sql`
-`<new-ez-root>/vendor/ezsystems/ezstudio-form-builder/bundle/Resources/install/form_builder.sql`
+`<new-ez-root>/vendor/ezsystems/date-based-publisher/bundle/Resources/install/datebasedpublisher_scheduled_version.sql`, 
+`<new-ez-root>/vendor/ezsystems/ezstudio-form-builder/bundle/Resources/install/form_builder.sql`, `<new-ez-root>/vendor/ezsystems/ezstudio-notifications/bundle/Resources/install/ezstudio-notifications.sql`
 
 ### Step 4: Re-configure web server and proxy
 
