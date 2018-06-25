@@ -46,6 +46,10 @@ The following parameters are set for each variation:
 - `reference`: Name of a reference variation to base the variation on. If set to `null` (or `~`, which means `null` in YAML), the variation will take the original image for reference. It can be any available variation configured in the `ezpublish` namespace, or a `filter_set` defined in the `liip_imagine` namespace.
 - `filters`: Array of filter definitions (hashes containing `name` and `params` keys). See possible values [below](#available-filters).
 
+!!! caution
+
+    If you change image variation properties manually, you need to clear persistence cache.
+
 ### Built-in image variations
 
 A few basic image variations are included by default in eZ Platform in the `default_settings.yml` config file:
