@@ -29,8 +29,16 @@ By default two designs are included:
 `admin` covers templates for the Back Office. It contains the `admin` theme.
 
 `standard` covers the default content rendering templates. It contains the `standard` theme.
-This theme is automatically mapped to the directory in kernel containing the templates.
-The following templates are covered:
+
+When the `ez_platform_standard_design.override_kernel_templates` setting is `true`,
+the `standard` theme is automatically mapped to the directory in kernel containing the templates.
+
+``` yaml
+ez_platform_standard_design:
+    override_kernel_templates: true
+```
+
+The standard design overrides the following Twig templates by prefixing them with the `@ezdesign` namespace:
 
 - `viewbase_layout.html.twig`
 - `pagelayout.html.twig`
@@ -42,16 +50,6 @@ The following templates are covered:
 - `default/block/block.html.twig`
 - `content_fields.html.twig`
 - `fielddefinition_settings.html.twig`
-
-#### Overriding templates
-
-The `ez_platform_standard_design.override_kernel_templates` setting defines when the Twig templates above are overridden.
-When it is set to true, the standard design overrides them by prefixing them with the `@ezdesign` namespace.
-
-``` yaml
-ez_platform_standard_design:
-    override_kernel_templates: true
-```
 
 !!! caution
 
