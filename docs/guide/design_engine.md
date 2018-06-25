@@ -43,6 +43,21 @@ The following templates are covered:
 - `content_fields.html.twig`
 - `fielddefinition_settings.html.twig`
 
+#### Overriding templates
+
+The `ez_platform_standard_design.override_kernel_templates` setting defines when the Twig templates above are overridden.
+When it is set to true, the standard design overrides them by prefixing them with the `@ezdesign` namespace.
+
+``` yaml
+ez_platform_standard_design:
+    override_kernel_templates: true
+```
+
+!!! caution
+
+    `ez_platform_standard_design.override_kernel_templates` is set to `true` in new installations.
+    However, when upgrading from older version it will be set to false to avoid overriding existing configuration.
+
 ## Configuration
 
 To define and use a design, you need to:
