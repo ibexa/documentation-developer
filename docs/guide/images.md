@@ -48,11 +48,7 @@ The following parameters are set for each variation:
 
 !!! caution
 
-    If you change image variation properties manually, you need to clear persistence cache:
-
-    `php bin/console cache:pool:clear <pool_name>`
-
-    where `<pool_name>` is `cache.app` by default, and `cache.redis` when using Redis.
+    If you change image variation properties manually, you need to clear persistence cache.
 
 ### Built-in image variations
 
