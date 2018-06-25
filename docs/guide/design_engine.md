@@ -19,8 +19,8 @@ For assets, the system uses the Symfony Asset component with asset packages.
 
 !!! caution
 
-    After creating a new folder in `Resources/views/themes/` you need to clear Symfony cache `bin/console cache:clear`,
-    even if you are working in the dev environment.
+    After creating a new folder either in `app/Resources/views/themes/` or your bundle's `Resources/views/themes/` directory
+    you need to clear Symfony cache (`bin/console cache:clear`), even if you are working in the dev environment.
 
 - **Design**: A collection of themes.
 
