@@ -27,10 +27,6 @@ For assets, the system uses the Symfony Asset component with asset packages.
   The order of themes within a design is important as it defines the fallback order.
   A design is identified with a name. One design can be used per SiteAccess.
 
-!!! caution
-
-    The templates contained in `app/Resources/views` will always override templates from a design theme.
-
 ## Configuration
 
 To define and use a design, you need to:
