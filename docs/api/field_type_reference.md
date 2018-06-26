@@ -1472,6 +1472,12 @@ services:
     | Name           | Internal name   | Expected input  |
     |----------------|-----------------|-----------------|
     | `Landing page` | `ezlandingpage` | `string (JSON)` |
+    
+    !!! caution "Page Builder"
+    
+        If you create Content Type with both `ezlandingpage` and `ezuser` Field Types,
+         you will not be redierected to Page Builder after selecting `Edit` or `Create`.
+          This is caused by `ezuser` Field Type which requires separate handling. You will be redirected to the standard AdminUI edit or create mode.
 
     ### Layout and zones
 
