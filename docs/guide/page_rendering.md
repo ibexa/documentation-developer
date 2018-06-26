@@ -58,7 +58,7 @@
 
     A layout template will include all zones the layout contains.
 
-    A Zone is a container for blocks. Each zone must have a `data-ez-zone-id` attribute.
+    A zone is a container for blocks. Each zone must have a `data-ez-zone-id` attribute.
     The best way to display blocks in the zone is to iterate over a blocks array and render the blocks in a loop.
 
     ``` html

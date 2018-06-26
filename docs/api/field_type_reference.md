@@ -1465,16 +1465,16 @@ services:
 
     ## Page Field Type
 
-    Page Field Type represents a page with a layout consisting of multiple zones. Each zone can in turn contain blocks.
+    Page Field Type represents a Page with a layout consisting of multiple zones. Each zone can in turn contain blocks.
 
     Page Field Type is only used in the Page Content Type that is included in eZ Enterprise.
 
     | Name           | Internal name   | Expected input  |
     |----------------|-----------------|-----------------|
     | `Landing page` | `ezlandingpage` | `string (JSON)` |
-    
+
     !!! caution "Page Builder"
-    
+
         If you create Content Type with both `ezlandingpage` and `ezuser` Field Types,
          you will not be redierected to Page Builder after selecting `Edit` or `Create`.
           This is caused by `ezuser` Field Type which requires separate handling. You will be redirected to the standard AdminUI edit or create mode.
