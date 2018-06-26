@@ -45,6 +45,11 @@ You can find the list of all bookmarks in *Browse content* section. There, you c
 
 ![Placeholder GenericProvider](img/placeholder_generic_provider.png)
 
+### Standard design
+
+eZ Platform now comes with two designs using the [design engine](../guide/design_engine.md): `standard` for content view and `admin` for the Back Office.
+See [default designs](../guide/design_engine.md#default-designs) for more information.
+
 ### Previewing User and User Group permissions
 
 When viewing User or User Group Content items you can now preview what permissions are assigned to them.
