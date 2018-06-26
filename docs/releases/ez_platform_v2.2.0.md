@@ -78,6 +78,17 @@ See [URL alias patterns](../guide/url_management.md#url-alias-patterns) for more
     This change will only apply to new Content.
     Pay attention to the new `url_alias.slug_converter.transformation` setting in the meta-repository when updating your installation.
 
+### Choosing installation types
+
+Installation types used with the `ezplatform:install` command are now more consistent:
+
+- `ezplatform-clean`
+- `ezplatform-demo`
+- `ezplatform-ee-clean`
+- `ezplatform-ee-demo`
+
+You can also use the new `composer ezplatform-install` command which automatically chooses a correct installation type for the given meta-repository.
+
 ## Full list of new features, improvements and bug fixes since v2.1.0
 
 | eZ Platform   | eZ Enterprise  |
