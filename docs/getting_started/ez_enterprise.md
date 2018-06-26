@@ -14,10 +14,6 @@ eZ Enterprise's Studio UI lets you create block-based Landing Pages using drag-a
 
 You can quickly switch between working on and previewing Landing Pages, which makes for comfortable editing and better control of your content.
 
-### ![](img/schedule.png) Content scheduling
-
-Using a special Schedule block you can set up content on your Landing Pages to be published according to a custom schedule, at predefined dates and times. A Timeline slider lets you preview what the pages will look like at any time.
-
 ### ![](img/flex_icon.png) Content creation workflow
 
 Flex Workflow is a collaboration feature. You can send your content draft to any user and let them look through, modify it and send it onward through your review process.
