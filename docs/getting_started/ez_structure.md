@@ -4,6 +4,44 @@ The eZ Platform root directory contains multiple sub-directories.
 Each sub-directory is dedicated to a specific part of the system and contains a collection of logically related files.
 The following table gives an overview of the main eZ Platform directories.
 
+Starter package:
+
+This is on top of what we bundle in clean distributions.
+
+For everyday Platform usage, _(almost all used in our demo distributions, check with web team if I forgot anything)_:
+- https://github.com/kaliop-uk/ezmigrationbundle
+- https://github.com/lolautruche/EzCoreExtraBundle
+- https://github.com/netgen/TagsBundle
+- https://github.com/Novactive/NovaeZSEOBundle
+- https://github.com/ezsystems/EzSystemsPrivacyCookieBundle
+- https://github.com/ezsystems/CommentsBundle
+- https://github.com/ezsystems/EzSystemsShareButtonsBundle
+
+For migration from legacy use cases:
+- https://github.com/ezsystems/LegacyBridge
+- https://github.com/ezsystems/ezplatform-xmltext-fieldtype
+- https://github.com/ezsystems/ezflow-migration-toolkit
+- https://github.com/netgen/ezplatformsearch
+- https://github.com/netgen/ngsymfonytools
+- https://github.com/netgen/NetgenRichTextDataTypeBundle
+
+---
+
+This might fit better somewhere else:
+
+
+Educational, not necessarily something you would install:
+- https://github.com/ezsystems/CookbookBundle (example api usage)
+- https://github.com/ezsystems/ezplatform-com (example site)
+- https://github.com/ezsystems/ezplatform-ee-demo (example site)
+- https://github.com/ezsystems/ezplatform-demo (example site)
+- https://github.com/ezsystems/TweetFieldTypeBundle (example field type)
+- https://github.com/ezsystems/ezplatform-drawio-fieldtype (same)
+- https://github.com/ezsystems/ezplatform-ui-2.0-introduction (code used for 2.0 admin-ui webinar in january)
+
+More for contributors:
+- https://github.com/ezsystems/RepositoryProfilerBundle
+
 ## Directory structure
 
 |Directory|Description|
@@ -59,8 +97,6 @@ The following table gives an overview of the main eZ Platform directories.
 |[ezxmlinstaller](https://github.com/ezsystems/ezxmlinstaller)|The eZ XML Installer extension is a platform to define processes for eZ Publish and execute them.|
 
 
-
-
 Enterprise:
 
 |Directory|Description|
@@ -75,7 +111,7 @@ Enterprise:
 |[ezpublish-legacy-ee](https://github.com/ezsystems/ezpublish-legacy-ee)|This is the eZ Publish Legacy (4.x) kernel for enterprise. Only stable branches differ, and master is automatically synced from ezsystems/ezpublish-legacy/master.|
 |[ezpublish-kernel-ee](https://github.com/ezsystems/ezpublish-kernel-ee)|This is the eZ Platform kernel for enterprise, difference is the stable branches, master is automatically synced.|
 |[ezstudio-notifications](https://github.com/ezsystems/ezstudio-notifications)|Notification system for eZ Platform / eZ Studio.|
-|[ezstudio-cron](https://github.com/ezsystems/ezstudio-cron)|This repository is used by eZ Platform EE 1.x series only. This package exposes cron/cron package for use in eZ Platform (or just plain Symfony) via a simle command `ezpublish:cron:run`|
+|[ezstudio-cron](https://github.com/ezsystems/ezstudio-cron)|This repository is used by eZ Platform EE 1.x series only. This package exposes cron/cron package for use in eZ Platform (or just plain Symfony) via a simple command `ezpublish:cron:run`|
 |[ez-service-network](https://github.com/ezsystems/ez-service-network)|Service Network is the commercial backend of eZ Publish, providing API's and functionality for things like license handling and authentication needs.|
 |[ezplatform-http-cache-fastly](https://github.com/ezsystems/ezplatform-http-cache-fastly)|eZ Platform Enterprise Bundle extending ezplatform-http-cache to support Fastly, for use on Platform.sh PE or standalone|
 |[cloud-deployment-manager](https://github.com/ezsystems/cloud-deployment-manager)|Dedicated cloud deployment manager.|
@@ -101,7 +137,6 @@ Contains UI/Style guideline and generated API documentation for eZ Platform fron
 |[ez-beginner-tutorial](https://github.com/ezsystems/ez-beginner-tutorial)|Files related to the eZ Platform Beginner Tutorial|
 |[ezplatform-ee-beginner-tutorial](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial)|This repository contains resources used in the eZ Platform Enterprise Edition Beginner Tutorial.|
 |[ExtendingPlatformUIConferenceBundle](https://github.com/ezsystems/ExtendingPlatformUIConferenceBundle)|This repository contains the bundle that is created in the Extending PlatformUI tutorial.|
-
 
 ## Bundle structure
 
