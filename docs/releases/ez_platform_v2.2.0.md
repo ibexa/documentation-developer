@@ -12,7 +12,7 @@
 
 This version introduces the **Page Builder** which replaces the Landing Page editor from earlier versions.
 
-[SCREENSHOT]
+![Page Builder](img/2.2_page_builder.png)
 
 !!! note
 
@@ -23,6 +23,8 @@ This version introduces the **Page Builder** which replaces the Landing Page edi
 
 You can edit the new Page Content Type by adding Fields, as well as create new Content Types with the Page Field Type.
 
+![Editing Fields in Page Builder](img/2.2_page_builder_edit_fields.png)
+
 #### Page block design
 
 In the Page block config you can now specify the CSS class with its own style for the specific block:
@@ -31,7 +33,7 @@ In the Page block config you can now specify the CSS class with its own style fo
 
 ### Bookmarks
 
-Bookmark service allows you to create bookmarks for Locations by selecting a star located next to the Content Type name as shown in the screenshot below. Each Location can only be bookmarked once, multiple bookmarks on one Location will cause an error. 
+Bookmark service allows you to create bookmarks for Locations by selecting a star located next to the Content Type name as shown in the screenshot below. Each Location can only be bookmarked once, multiple bookmarks on one Location will cause an error.
 
 ![Bookmark](img/bookmark.png)
 
