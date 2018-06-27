@@ -29,7 +29,6 @@ For migration from legacy use cases:
 
 This might fit better somewhere else:
 
-
 Educational, not necessarily something you would install:
 - https://github.com/ezsystems/CookbookBundle (example api usage)
 - https://github.com/ezsystems/ezplatform-com (example site)
