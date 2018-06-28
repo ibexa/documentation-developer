@@ -160,10 +160,22 @@
         third_field: integer
     ```
 
-    ###### Overwriting existing blocks
+    #### Overwriting existing blocks
 
     You can overwrite following properties in the existing blocks:
 
     - `thumbnail`
     - `name`
     - `views`
+
+    #### Block configuration modal
+
+    The block configuration modal by default contains two tabs, Basic and Design.
+
+    In Design you can choose the view used for the block and its styling.
+
+    **Class** indicates the CSS class used for this block.
+    **Style** defines the CSS rules.
+
+    You can disable the Design tab by setting `ezsettings.default.page_builder.block_styling_enabled` to `false`.
+    It is set to `true` by default.
