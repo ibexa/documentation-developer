@@ -360,7 +360,7 @@ ezpublish:
 
 ## Resizing images
 
-You can resize all images of a chosen Content Type using the `ezplatform:images:resize-original` command.
+You can resize all original images of a chosen Content Type using the `ezplatform:images:resize-original` command.
 You need to provide the command with:
 
 - identifier of the image Content Type
@@ -376,8 +376,8 @@ For example:
 Additionally you can provide two parameters:
 
 - `iteration-count` is the number of images to be recreated in a single iteration, to reduce memory use. Default is `25`.
-- `user` is the identifier of a user with proper permission who will perform the operation. Default is `admin`.
+- `user` is the identifier of a user with proper permission who will perform the operation (`read`, `versionread`, `edit` and `publish`). Default is `admin`.
 
 !!! caution
 
-    This command published a new version of each Content item it modifies.
+    This command publishes a new version of each Content item it modifies.
