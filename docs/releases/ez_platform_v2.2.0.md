@@ -89,6 +89,10 @@ Installation types used with the `ezplatform:install` command are now more consi
 
 You can also use the new `composer ezplatform-install` command which automatically chooses a correct installation type for the given meta-repository.
 
+### Notifications
+
+[Notification Bundle](https://github.com/ezsystems/ezstudio-notifications) is now moved into CoreBundle of [EzPublishKernel](https://github.com/ezsystems/ezpublish-kernel).  This allows whole community to get access to eZ notification system.
+
 ## Full list of new features, improvements and bug fixes since v2.1.0
 
 | eZ Platform   | eZ Enterprise  |
