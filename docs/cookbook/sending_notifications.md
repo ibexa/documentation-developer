@@ -65,12 +65,12 @@ Example:
 ```php
 use eZ\Publish\API\Repository\Values\Notification\CreateStruct;
 
-    $notification = new CreateStruct();
-        $notification->ownerId = $receiverId;
-        $notification->type = 'MyNotification:TypeName';
-        $notification->data = $data;
+$notification = new CreateStruct();
+$notification->ownerId = $receiverId;
+$notification->type = 'MyNotification:TypeName';
+$notification->data = $data;
 
-        $this->notificationService->createNotification($notification);
+$this->notificationService->createNotification($notification);
 ```
 
 To display the notification, write a Renderer and tag it as a service.
