@@ -267,7 +267,7 @@ interface PlaceholderProvider
 
 ### GenericProvider
 
-`\eZ\Bundle\EzPublishCoreBundle\Imagine\PlaceholderProvider\GenericProvider` generates placeholder with basic information about original image - [example 1](#configuration-examples). 
+`\eZ\Bundle\EzPublishCoreBundle\Imagine\PlaceholderProvider\GenericProvider` generates placeholder with basic information about original image - [example 1](#configuration-examples).
 
 **Generic image example:**
 
@@ -289,7 +289,7 @@ interface PlaceholderProvider
 ### RemoteProvider
 
 `\eZ\Bundle\EzPublishCoreBundle\Imagine\PlaceholderProvider\RemoteProvider` allows you to download placeholders from:
- 
+
  - remote source e.g. <http://placekitten.com> - [example 2](#configuration-examples)
  - live version of a site - [example 3](#configuration-examples)
 
@@ -346,7 +346,7 @@ ezpublish:
                 url_pattern: 'https://placekitten.com/%%width%%/%%height%%'
 ```
 
-**Example 3 - placeholders from live version of a site** 
+**Example 3 - placeholders from live version of a site**
 
 ```yaml
 ezpublish:
@@ -357,3 +357,27 @@ ezpublish:
             options:
                 url_pattern: 'http://example.com/var/site/storage/%%id%%'
 ```
+
+## Resizing images
+
+You can resize all images of a chosen Content Type using the `ezplatform:images:resize-original` command.
+You need to provide the command with:
+
+- identifier of the image Content Type
+- identifier of the Field you want to affect
+- name of the image variation to apply to the images
+
+`ezplatform:images:resize-original <Content Type identifier> <Field identifier> -f <variation name>`
+
+For example:
+
+`ezplatform:images:resize-original photo image -f small_image`
+
+Additionally you can provide two parameters:
+
+- `iteration-count` is the number of images to be recreated in a single iteration, to reduce memory use. Default is `25`.
+- `user` is the identifier of a user with proper permission who will perform the operation. Default is `admin`.
+
+!!! caution
+
+    This command published a new version of each Content item it modifies.
