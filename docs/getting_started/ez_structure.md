@@ -4,9 +4,6 @@ The eZ Platform root directory contains multiple sub-directories.
 Each sub-directory is dedicated to a specific part of the system and contains a collection of logically related files.
 The following table gives an overview of the main eZ Platform directories.
 
-Starter package:
-
-This is on top of what we bundle in clean distributions.
 
 ## Basic directories - READ ONLY
 
