@@ -1,8 +1,8 @@
 # Bundles starter pack
 
-eZ Platform application is a collection of bundles, similar to Symfony where ["everything is a bundle"](http://symfony.com/doc/current/book/bundles.html). Bundles listed below are useful additions to your clean eZ installation by using them you can improve your Platform usage.
+eZ Platform application is a collection of bundles, similar to Symfony where ["everything is a bundle"](http://symfony.com/doc/current/book/bundles.html). Bundles listed below are useful additions to your clean eZ Platform installation. By using them you can improve your Platform usage.
 
-For more information about eZ bundle structure checkout:
+For more information about eZ Platform bundle structure check out:
 
 - [Bundle section](../guide/bundles.md) in our Guide.
 - List of [external bundles](https://ezplatform.com/Bundles) compatible with eZ Platform.
@@ -11,13 +11,13 @@ For more information about eZ bundle structure checkout:
 
 |Bundle|Description|
 |------|-----------|
-|[ezmigrationbundle](https://github.com/kaliop-uk/ezmigrationbundle)|helps to handle content upgrades/migrations|
+|[ezmigrationbundle](https://github.com/kaliop-uk/ezmigrationbundle)|helps to handle content upgrade/migration|
 |[EzCoreExtraBundle](https://github.com/lolautruche/EzCoreExtraBundle)|adds: configurable template variable injection; context aware Twig global variables; simplified authorization checks|
 |[TagsBundle](https://github.com/netgen/TagsBundle)|helps with taxonomy management and classification of content|
 |[NovaeZSEOBundle](https://github.com/Novactive/NovaeZSEOBundle)|simplifies SEO management|
-|[EzSystemsPrivacyCookieBundle](https://github.com/ezsystems/EzSystemsPrivacyCookieBundle)|adds privacy cookie banner into Symfony 2 application|
-|[CommentsBundle](https://github.com/ezsystems/CommentsBundle)|integrates comments with Disqus and Facebook allowing custom integrations|
-|[EzSystemsShareButtonsBundle](https://github.com/ezsystems/EzSystemsShareButtonsBundle)|adds social share buttons into Symfony 2 application|
+|[EzSystemsPrivacyCookieBundle](https://github.com/ezsystems/EzSystemsPrivacyCookieBundle)|adds privacy cookie banner|
+|[CommentsBundle](https://github.com/ezsystems/CommentsBundle)|integrates comments with Disqus and Facebook, also allows custom comment system/services integrations|
+|[EzSystemsShareButtonsBundle](https://github.com/ezsystems/EzSystemsShareButtonsBundle)|adds social share buttons|
 
 ## Migration from legacy
 
@@ -34,11 +34,11 @@ For more information about eZ bundle structure checkout:
 
 |Bundle|Description|
 |------|-----------|
-|[RepositoryProfilerBundle](https://github.com/ezsystems/RepositoryProfilerBundle)| profiles eZ Platform API/SPI and setup scenarios to be able to continuously test to keep track of performance regressions of repository and underlying storage engines|
+|[RepositoryProfilerBundle](https://github.com/ezsystems/RepositoryProfilerBundle)| profiles Platform API/SPI and sets up scenarios to be able to continuously test to keep track of performance regressions of repository and underlying storage engines|
 
 ## Educational
 
-This bundles are not necessarily something you would install but there are useful for learning process:
+This bundles are not necessarily something you would install but they are useful for learning process:
 
 |Bundle|Description|
 |------|-----------|
@@ -48,4 +48,4 @@ This bundles are not necessarily something you would install but there are usefu
 |[ezplatform-demo](https://github.com/ezsystems/ezplatform-demo)|fork of "ezplatform" meta repository, contains code and dependencies for demo distribution of eZ Platform. Not recommended for a clean installation for new projects, but great for observation and learning(example site)|
 |[TweetFieldTypeBundle](https://github.com/ezsystems/TweetFieldTypeBundle)|bundle that is created in the [Field Type Tutorial](../tutorials/field_type/creating_a_tweet_field_type.md) (example field type)|
 |[ezplatform-drawio-fieldtype](https://github.com/ezsystems/ezplatform-drawio-fieldtype)| provides support for diagrams editing in eZ Platform via draw.io (example field type)|
-|[ezplatform-ui-2.0-introduction](https://github.com/ezsystems/ezplatform-ui-2.0-introduction)|open source professional CMS (Content Management System) developed by eZ Systems and eZ Community|
+|[ezplatform-ui-2.0-introduction](https://github.com/ezsystems/ezplatform-ui-2.0-introduction)|an example of eZ Platform extensibility in version 2|
