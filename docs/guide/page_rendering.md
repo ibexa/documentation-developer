@@ -130,13 +130,16 @@
                                 options:
                                     pattern: '/^\S+@\S+\.\S+$/'
                                 message: 'Provide a valid e-mail address'
-                    flavor:
-                        type: multiple
-                        name: 'Favorite ice cream flavor'
-                        value: [value2]
+                    topics:
+                        type: select
+                        name: 'Select topics'
+                        value: value2
                         options:
-                            value1: 'vanilla'
-                            value2: 'chocolate'
+                            multiple: true
+                            choices:
+                                value1: 'Sports'
+                                value2: 'Culture'
+                                value3: 'Politics'
     ```
 
     You can define multiple views for a block, with separate templates.
@@ -145,11 +148,24 @@
 
     |||
     |----|----|
-    |`type`|Available attribute types are:</br>- `integer`</br>- `string`</br>- `url`</br>- `text`</br>- `embed`</br>- `select`</br>- `multiple`</br>- `radio`</br>- `contenttypelist`|
+    |`type`|Type of attribute.|
     |`name`|The displayed name for the attribute. You can omit it, block identifier will then be used as the name.|
     |`value`|The default value for the attribute.|
     |`validators`|Available validators are `not_blank` and `regexp`.|
-    |`options`|Additional options, such as the possible choices in case of `multiple`, `select` or `radio` attribute types.|
+    |`options`|Additional options, dependent on the attribute type.|
+
+    Attribute types:
+
+    |Type|Description|Options|
+    |----|----|----|
+    |`integer`|||
+    |`string`|||
+    |`url`|||
+    |`text`|Text block||
+    |`embed`|Embedded Content item||
+    |`select`|Drop-down with options to select|`choices` lists the available options</br>`multiple`, when set to true allows selecting more than one option.
+    |`multiple`|Checkbox(es)|`choices` lists the available options.|
+    |`radio`|Radio buttons|`choices` lists the available options.|
 
     When defining attributes you can omit most keys as long as you use simple types that do not require additional options:
 
