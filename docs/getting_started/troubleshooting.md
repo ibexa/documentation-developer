@@ -1,12 +1,12 @@
 # Troubleshooting
 
-This page lists potential problems that you may encounter while installing, configuring, and running eZ Platform. If you stumble upon an obstacle, take a look here to see if your case isn't covered. 
+This page lists potential problems that you may encounter while installing, configuring, and running eZ Platform. If you stumble upon an obstacle, take a look here to see if your case isn't covered.
 
 Want to add to this page? Check out our instructions for [contributing to our documentation](../community_resources/documentation.md).
 
 ## Enable Swap on Systems with Limited RAM
 
-If you're having difficulty completing installation on a system with limited RAM (1GB or 2GB, for example), check that you've enabled swap. This allows your Operating System to use the hard disk to supplement RAM when it runs out. Running `php -d memory_limit=-1 bin/console ezplatform:install --env prod clean` on a system with swap enabled should yield success. When a system runs out of RAM, you may see `Killed` when trying to clear the cache (e.g., `php bin/console --env=prod cache:clear` from your project's root directory).
+If you're having difficulty completing installation on a system with limited RAM (1GB or 2GB, for example), check that you've enabled swap. This allows your Operating System to use the hard disk to supplement RAM when it runs out. Running `php -d memory_limit=-1 bin/console ezplatform:install --env prod ezplatform-clean` on a system with swap enabled should yield success. When a system runs out of RAM, you may see `Killed` when trying to clear the cache (e.g., `php bin/console --env=prod cache:clear` from your project's root directory).
 
 ## Upload Size Limit
 

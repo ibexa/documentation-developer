@@ -26,15 +26,15 @@ It depends on the meta-repository you are using.
 
 | Type | Repository |
 |------|----------------|
-| `clean` | [ezplatform](https://github.com/ezsystems/ezplatform) |
-| `platform-demo` | [ezplatform-demo](https://github.com/ezsystems/ezplatform-demo) |
+| `ezplatform-clean` | [ezplatform](https://github.com/ezsystems/ezplatform) |
+| `ezplatform-demo` | [ezplatform-demo](https://github.com/ezsystems/ezplatform-demo) |
 
 ### eZ Platform Enterprise Edition installation types
 
 | Type | Repository |
 |------|----------------|
-| `studio-clean` | [ezplatform-ee](https://github.com/ezsystems/ezplatform-ee) |
-| `platform-ee-demo`  | [ezplatform-ee-demo](https://github.com/ezsystems/ezplatform-ee-demo) |
+| `ezplatform-ee-clean` | [ezplatform-ee](https://github.com/ezsystems/ezplatform-ee) |
+| `ezplatform-ee-demo`  | [ezplatform-ee-demo](https://github.com/ezsystems/ezplatform-ee-demo) |
 
 ## Installing on Linux
 
@@ -146,10 +146,10 @@ The installer should continue once you've completed this manual portion of the i
 ### b. Run eZ Platform's installer
 
 ``` bash
-php bin/console ezplatform:install --env=prod clean
+php bin/console ezplatform:install --env=prod ezplatform-clean
 ```
 
-In this example the `ezplatform:install` script uses the `clean` installation type in production environment.
+In this example the `ezplatform:install` script uses the `ezplatform-clean` installation type in production environment.
 
 If Composer asks for your token, you must log in to your GitHub account generate a new token
 (edit your profile, go to Developer settings > Personal access tokens and Generate new token with default settings).
@@ -486,7 +486,7 @@ sudo chmod +a "`whoami` allow delete,write,append,file_inherit,directory_inherit
 i. Install eZ Platform:
 
 ``` bash
-php bin/console ezplatform:install clean
+php bin/console ezplatform:install ezplatform-clean
 ```
 
 You will be able to see your page under <http://ez1.lh> (or the address you chose in preparation). Please note that a clean install of eZ Platform doesn’t include DemoBundle anymore.
@@ -714,7 +714,7 @@ When Composer asks you for the token you must log in to your GitHub account and 
 h. Install eZ Platform:
 
 ``` bash
-php bin/console ezplatform:install clean
+php bin/console ezplatform:install ezplatform-clean
 ```
 
 You will be able to see your page under <http://ez1.lh> (or the address you chose in preparation). Please note that a clean install of eZ Platform doesn’t include DemoBundle anymore.
