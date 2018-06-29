@@ -160,6 +160,17 @@ pages:
             - 'Development guidelines': 'community_resources/development_guidelines.md'
             - 'Contribute translations': 'community_resources/translations.md'
             - 'Contribute documentation': 'community_resources/documentation.md'
+        - UI Guidelines: 
+            - 'Introduction': 'guidelines/introduction.md'
+            - Components: 
+                - 'Buttons': 'guidelines/components/buttons.md'
+            - Resources:
+                - 'Typography': 'guidelines/resources/typography.md'
+                - 'Colors': 'guidelines/resources/colors.md'
+                - 'Icons': 'guidelines/resources/icons.md'
+            - Design Principles: 
+                - 'Philosophy': 'guidelines/design_principles/philosophy.md'
+                - 'Accessibility': 'guidelines/design_principles/accessibility.md'
     - Migrating to eZ Platform:
         - 'Migrating from eZ Publish Platform': 'migrating/migrating_from_ez_publish_platform.md'
         - 'Migrating from eZ Publish': 'migrating/migrating_from_ez_publish.md'
@@ -210,7 +221,14 @@ theme:
 
 theme_dir: material
 
-extra_css: [fonts/MavenPro.css, css/custom.css, '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css']
+extra:
+  append_bootstrap:
+    - '/guidelines/'
+
+extra_css:
+  - fonts/MavenPro.css
+  - css/custom.css
+  - '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css'
 extra_javascript: [js/jquery.min.js, js/custom.js, '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js']
 markdown_extensions:
   - admonition
@@ -236,3 +254,4 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
   - pymdownx.details
+  - ez_code_example

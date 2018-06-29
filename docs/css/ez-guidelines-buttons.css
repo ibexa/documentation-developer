@@ -1,0 +1,77 @@
+.ez-guidelines .ez-code-example {
+	margin-top: -1.25em;
+}
+.ez-guidelines .ez-code-example .btn {
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	user-select: none;
+	line-height: 1.5;
+	border-radius: .25em;
+	padding: .4em 1.25em;
+	white-space: normal;
+	transition: opacity 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+	font-family: 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 1em;
+	color: #fff;
+}
+.ez-guidelines .ez-code-example .btn-primary,
+.ez-guidelines .ez-code-example .btn-primary:disabled {
+	background-color: #f15a10;
+	border-color: #f15a10;
+}
+.ez-guidelines .ez-code-example .btn-primary:hover {
+	background-color: #cf4c0c;
+	border-color: #c3480b;
+}
+.ez-guidelines .ez-code-example .btn-primary:focus {
+	box-shadow: 0 0 0 0.2rem rgba(241, 90, 16, 0.5);
+}
+.ez-guidelines .ez-code-example .btn-primary:disabled {
+	cursor: not-allowed;
+}
+.ez-guidelines .ez-code-example .btn-dark {
+	background-color: #555;
+	border-color: #555;
+}
+.ez-guidelines .ez-code-example .btn-dark:hover {
+	background-color: #424242;
+	border-color: #3c3c3c;
+}
+.ez-guidelines .ez-code-example .btn-dark:focus {
+	box-shadow: 0 0 0 0.2rem rgba(85, 85, 85, 0.5);
+}
+.ez-guidelines .ez-code-example .btn-secondary {
+	background-color: #0f6d95;
+	border-color: #0f6d95;
+}
+.ez-guidelines .ez-code-example .btn-secondary:hover {
+	background-color: #0c5472;
+	border-color: #0b4b67;
+}
+.ez-guidelines .ez-code-example .btn-secondary:focus {
+	box-shadow: 0 0 0 0.2rem rgba(16, 109, 149, 0.5);
+}
+.ez-guidelines .ez-code-example .btn-danger {
+	background-color: #d92d42;
+	border-color: #d92d42;
+}
+.ez-guidelines .ez-code-example .btn-danger:hover {
+	background-color: #bd2235;
+	border-color: #b32032;
+}
+.ez-guidelines .ez-code-example .btn-danger:focus {
+	box-shadow: 0 0 0 0.2rem rgba(217, 45, 66, 0.5);
+}
+.ez-guidelines .ez-code-example .btn-outline-secondary {
+	background-color: transparent;
+	border-color: 1px solid #0f6d95;
+	color: #0f6d95;
+}
+.ez-guidelines .ez-code-example .btn-outline-secondary:hover {
+	background-color: #0c5472;
+}
+.ez-guidelines .ez-code-example .btn-outline-secondary:focus {
+	background: #0f6d95;
+	color: #fff;
+}

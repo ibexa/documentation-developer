@@ -1,0 +1,10 @@
+.ez-guidelines .header-line {
+    display: block;
+    border-bottom: 1px solid #63605d;
+}
+.ez-guidelines .wrapper-samples {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-content: space-around;
+}
