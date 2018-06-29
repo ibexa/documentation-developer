@@ -14,6 +14,7 @@ pages:
             - 'Starting eZ Platform': 'getting_started/starting_ez_platform.md'
             - 'Set up directory permissions': 'getting_started/set_up_directory_permissions.md'
             - 'Troubleshooting': 'getting_started/troubleshooting.md'
+        - 'Bundles starter pack': 'getting_started/bundles_starter_pack.md'
         - Going deeper:
             - 'eZ Platform features': 'getting_started/ez_platform_features.md'
             - 'eZ Enterprise': 'getting_started/ez_enterprise.md'
