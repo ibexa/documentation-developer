@@ -122,18 +122,18 @@ ezpublish:
 ### Defining SiteAccess name
 
 In order to simplify the interface and create a better editorial experience, you can "hide"
- the SiteAccess code and substitute it with a human-readable name of the website e.g. `Tasteful Planet`, `Page EN`. 
- 
-List of interfaces where you can apply SiteAccess names: 
+ the SiteAccess code and substitute it with a human-readable name of the website e.g. `Tasteful Planet`, `Page EN`.
 
-- Page Builder (SiteAccess switcher in the top navigation) 
+List of interfaces where you can apply SiteAccess names:
 
-- [Content Preview](https://doc.ezplatform.com/projects/userguide/en/latest/creating_content_basic/#previewing-content) (SiteAccess switcher in the dropdown menu) 
+- Page Builder (SiteAccess switcher in the top navigation)
 
-- Page creation modal window (when coming from Content Structure) 
+- [Content Preview](https://doc.ezplatform.com/projects/userguide/en/latest/creating_content_basic/#previewing-content) (SiteAccess switcher in the dropdown menu)
+
+- Page creation modal window (when coming from Content Structure)
 
 You can also translate SiteAccess names. Displayed names depend on the selected language of the administration interface.
- 
+
 To define translation you need to put them in YAML file with correct language code e.g. `app/Resources/translations/ezplatform_siteaccess.en.yml`:
 
 ```yaml
@@ -641,8 +641,8 @@ The SiteAccess router has been added a `matchByName()` method to reflect this ad
 
 #### Navigating between SiteAccesses - limitations
 
-There are two known limitations to moving between SiteAccesses in eZ Enterprise's Landing Pages:
+There are two known limitations to moving between SiteAccesses in eZ Enterprise's Pages:
 
-1. On a Landing Page you can encounter a 404 error when clicking a relative link which points to a different SiteAccess (if the Content item being previewed does not exist in the previously used SiteAccess). This is because detecting SiteAccesses when navigating in preview is not functional yet. This is a known limitation that is awaiting resolution.
+1. On a Page you can encounter a 404 error when clicking a relative link which points to a different SiteAccess (if the Content item being previewed does not exist in the previously used SiteAccess). This is because detecting SiteAccesses when navigating in preview is not functional yet. This is a known limitation that is awaiting resolution.
 
 1. When navigating between SiteAccesses in the back office using the top bar, you are always redirected to the main page, not to the Content item you started from.
