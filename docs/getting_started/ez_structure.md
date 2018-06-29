@@ -74,11 +74,10 @@ The following table gives an overview of the main eZ Platform directories.
 |[hybrid-platform-ui-assets](https://github.com/ezsystems/hybrid-platform-ui-assets)|This packages provides the external frontend dependencies needed by the Hybrid Platform UI.|
 |[ezflow](https://github.com/ezsystems/ezflow)||
 |[ezgmaplocation](https://github.com/ezsystems/ezgmaplocation)||
-|[ezxmlinstaller](https://github.com/ezsystems/ezxmlinstaller)|The eZ XML Installer extension is a platform to define processes for eZ Publish and execute them.|
 |[PlatformUIBundle](https://github.com/ezsystems/PlatformUIBundle)|Main Bundle to provide YUI based editorial/admin UI for eZ Platform v1 on top of REST API (In v2 replaced by ezplatform-admin-ui, a pure Symfony based Admin UI)|
 |[PlatformUIAssetsBundle](https://github.com/ezsystems/PlatformUIAssetsBundle)|Repo for containing assets for PlatformUIBundle, branches will only contain meta files and config, tags will contain the assets.|
 |[ezplatform-automated-translation](https://github.com/ezsystems/ezplatform-automated-translation)|eZ Automated Translation Bundle|
-|[EzSystemsPrivacyCookieBundle](https://github.com/ezsystems/EzSystemsPrivacyCookieBundle)|This bundle adds privacy cookie banner into Symfony 2 application.|
+|[EzSystemsPrivacyCookieBundle](https://github.com/ezsystems/EzSystemsPrivacyCookieBundle)|adds privacy cookie banner|
 |[ezplatform-richtext](https://github.com/ezsystems/ezplatform-richtext)|eZ Platform Rich Text Field Type Bundle. This Bundle provides RichText (ezrichtext) Field Type for eZ Platform 2.1 and higher. It is a Field Type for supporting rich formatted text stored in a structured XML format.|
 |[CommentsBundle](https://github.com/ezsystems/CommentsBundle)|Comment bundle for eZ Platform integrating with Disqus and Facebook and allowing custom integrations.|
 |[EzSystemsRecommendationBundle](https://github.com/ezsystems/EzSystemsRecommendationBundle)|Integration of YooChoose, a content recommendation solution, into eZ Platform.|
@@ -90,16 +89,14 @@ The following table gives an overview of the main eZ Platform directories.
 |[DemoBundle](https://github.com/ezsystems/DemoBundle)|DemoBundle represent a front end web site on eZ Publish 5, for newer examples for eZ Platform see ezplatform-demo.|
 |[MarketingAutomationBundle](https://github.com/ezsystems/MarketingAutomationBundle)|This bundle integrates Net-Result’s marketing automation suite into the eZ Publish Platform.|
 |[ezstudio-upgrade](https://github.com/ezsystems/ezstudio-upgrade)||
-|[EditorialInterfaceBundle](https://github.com/ezsystems/EditorialInterfaceBundle)|Prototype of a Editorial interface for eZ Publish 6.x|
 |[alloy-editor](https://github.com/ezsystems/alloy-editor)|Alloy Editor is a modern WYSIWYG editor built on top of CKEditor, designed to create modern web content.|
-|[ezoracle](https://github.com/ezsystems/ezoracle)|This extension adds support for the Oracle database to eZ Publish by plugging into the database framework.|
 |[demobundle-data](https://github.com/ezsystems/demobundle-data)|This repository contains binary install data for ezsystems/demobundle.|
 |[ezie](https://github.com/ezsystems/ezie)|An image editor for simple and usual image modifications integrated in the editing interface of any eZ Publish Content Object that has at least an image as attribute.|
 |[ezautosave](https://github.com/ezsystems/ezautosave)|Content editing autosave extension for eZ Publish.|
 |[ezsurvey](https://github.com/ezsystems/ezsurvey)|Survey module for eZ Publish.|
 |[ezmbpaex](https://github.com/ezsystems/ezmbpaex)|Extension that provides functionality for password expiration and validation.|
 |[ezphttprequest](https://github.com/ezsystems/ezphttprequest)|This extension provides ezpHttpRequest, a child class of HttpRequest, provided by the PECL package.|
-|[ezlightbox](https://github.com/ezsystems/ezlightbox)|This extension adds support for lightboxes to eZ Publish by adding a new eZ Publish module named "lightbox" (including operations, triggers, fetch functions).|
+
 
 **Enterprise:**
 
@@ -110,7 +107,6 @@ The following table gives an overview of the main eZ Platform directories.
 |[ezstudio-cron](https://github.com/ezsystems/ezstudio-cron)|This repository is used by eZ Platform EE 1.x series only. This package exposes cron/cron package for use in eZ Platform (or just plain Symfony) via a simple command `ezpublish:cron:run`|
 |[ez-service-network](https://github.com/ezsystems/ez-service-network)|Service Network is the commercial backend of eZ Publish, providing API's and functionality for things like license handling and authentication needs.|
 |[cloud-deployment-manager](https://github.com/ezsystems/cloud-deployment-manager)|Dedicated cloud deployment manager.|
-|[ezfind-ee](https://github.com/ezsystems/ezfind-ee)|eZ Find is a search extension for eZ Publish, providing more functionality and better results than the default search in eZ Publish.|
 |[ezplatform-ee-assets](https://github.com/ezsystems/ezplatform-ee-assets)||
 |[ezpublish-platform](https://github.com/ezsystems/ezpublish-platform)|This is the eZ Publish 5 Platform (ee version of ezpublish-community), it is a meta repository that pulls in all dependencies for full 5.x enterprise build|
 |[StudioUIBundle](https://github.com/ezsystems/StudioUIBundle)|eZ Studio is the "content studio" built on top of the platform. StudioUIBundle provides web interface for eZ Studio features.|
@@ -119,7 +115,6 @@ The following table gives an overview of the main eZ Platform directories.
 |[ezstudio-demo-bundle](https://github.com/ezsystems/ezstudio-demo-bundle)|StudioDemoBundle represent a demo front-end website with eZ Studio.|
 |[ezstudio-personalized-block](https://github.com/ezsystems/ezstudio-personalized-block)|eZ Systems Personalized Block Bundle|
 |[ezrecommendation](https://github.com/ezsystems/ezrecommendation)|The eZ Recommendation Service provided by YOOCHOOSE represents your first opportunity to customize and personalize your online portal individually for each end user.|
-|[ezcontentstaging](https://github.com/ezsystems/ezcontentstaging)|The goal of the extension is to allow content synchronization between different eZ Publish installations.|
 |[ezma](https://github.com/ezsystems/ezma)|eZ Marketing Automation|
 |[ezmemcachedcluster](https://github.com/ezsystems/ezmemcachedcluster)|This extension adds cluster events support with Memcached backend server.|
 
@@ -134,6 +129,12 @@ The following table gives an overview of the main eZ Platform directories.
 |[ezpublish-legacy-installer](https://github.com/ezsystems/ezpublish-legacy-installer)|A custom Composer installer for eZ Publish legacy extensions|
 |[ezpublish-legacy-ee](https://github.com/ezsystems/ezpublish-legacy-ee)|This is the eZ Publish Legacy (4.x) kernel for enterprise. Only stable branches differ, and master is automatically synced from ezsystems/ezpublish-legacy/master.|
 |[ezpublish-legacy](https://github.com/ezsystems/ezpublish-legacy)|eZ Publish (aka "legacy kernel" + 3 core "legacy extensions")|
+|[ezxmlinstaller](https://github.com/ezsystems/ezxmlinstaller)|The eZ XML Installer extension is a platform to define processes for eZ Publish and execute them.|
+|[EditorialInterfaceBundle](https://github.com/ezsystems/EditorialInterfaceBundle)|Prototype of a Editorial interface for eZ Publish 6.x|
+|[ezoracle](https://github.com/ezsystems/ezoracle)|This extension adds support for the Oracle database to eZ Publish by plugging into the database framework.|
+|[ezlightbox](https://github.com/ezsystems/ezlightbox)|This extension adds support for lightboxes to eZ Publish by adding a new eZ Publish module named "lightbox" (including operations, triggers, fetch functions).|
+|[ezfind-ee](https://github.com/ezsystems/ezfind-ee)|eZ Find is a search extension for eZ Publish, providing more functionality and better results than the default search in eZ Publish.|
+|[ezcontentstaging](https://github.com/ezsystems/ezcontentstaging)|The goal of the extension is to allow content synchronization between different eZ Publish installations.|
 
 ## Education
 
