@@ -62,6 +62,44 @@ When viewing User or User Group Content items you can now preview what permissio
 
 You can also [select which Content Types are treated the same way as User of User Group](../guide/configuration.md#user-identifiers) for these purposes.
 
+### Simplified use of content and languages in API
+
+This release introduces a few but notable simplifications to usage of API, here are some highlights:
+
+**Location object now gives access to Content**
+
+You can directly get it using `$location->getContent()`, and perhaps even more useful in Twig via `location.content`. _This also introduces possibility to specify prioritised languages when loading location, and content will be loaded on-demand across result set you are loading (e.g. search and other places you can load several locations)._
+
+**Optional SiteAccessAware Repository**
+
+For now optional, but to be made default in 3.0, is the new SiteAccess aware repository which injects prioritised languages for you when you load data _(content, location, content type, ...)_, it's for now optional and available as a private service `ezpublish.siteaccessaware.repository`. So far it is used out of the box on parameter converters for content and location, and on ContentView.
+
+This two changes builds upon [API improvements done in 1.10](ez_platform_v1.10.0/#api-simplified-usage-with-translations), and changes the following on 1.13/2.1:
+```php
+$location = $this->locationService->loadLocation(42);
+
+$content = $this->contentService->loadContent(
+    $location->contentId,
+    $this->configResolver->getParameter('languages')
+);
+
+// This can easily be done in Twig:
+$name = $content->getVersionInfo()->getName();
+$value = $content->getFieldValue('body')
+```
+
+To this _(using private `@ezpublish.siteaccessaware.service.location` service is planned as default in 3.0)_:
+```php
+$location = $this->locationService->loadLocation(42);
+
+// This can easily be done in Twig:
+$content = $location->getContent();
+$name = $content->getVersionInfo()->getName();
+$value = $content->getFieldValue('body')
+```
+  
+
+
 ### Change from UTF8 to UTF8MB4
 
 Database charset is changed from UTF8 to UTF8MB4, in order to support 4-byte characters.
