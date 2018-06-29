@@ -438,9 +438,9 @@ ezpublish:
 
 !!! enterprise
 
-    ### Setting Time-To-Live value for Landing Page blocks
+    ### Setting Time-To-Live value for Page blocks
 
-    Landing Page blocks are rendered using Edge Site Include which means you can set different TTL values for each Landing Page block type.
+    Page blocks are rendered using Edge Site Include which means you can set different TTL values for each Page block type.
     The TTL setting is available in the configuration under a `ttl` key. The value has to be set in seconds:
 
     ``` yaml

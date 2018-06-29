@@ -196,9 +196,9 @@ Steps here should only be done once you are ready to move away from legacy and L
 
 The command example suggests using the verbose flag. This is optional, but recommended as we are actively gathering feedback on how it works with older eZ Publish content, and on how we can improve it both [via issues in the repository](https://github.com/ezsystems/ezplatform-xmltext-fieldtype), and on Slack.
 
-###### 3.2.2 Migrate Page field to Landing Page (eZ Enterprise only)
+###### 3.2.2 Migrate Page field to Page (eZ Enterprise only)
 
-**If** you use Page field (ezflow) and an eZ Enterprise subscription, and are ready to migrate your eZ Publish Flow content to the eZ Enterprise Landing Page forma, you can use a script to migrate your Page content to Landing Page, to start using a pure eZ Enterprise setup. See [Migrating legacy Page field (ezflow) to Landing Page (Enterprise)](#migrating-legacy-page-field-ezflow-to-landing-page-enterprise) for more information.
+**If** you use Page field (ezflow) and an eZ Enterprise subscription, and are ready to migrate your eZ Publish Flow content to the eZ Enterprise Page format, you can use a script to migrate your old Page content to new Page, to start using a pure eZ Enterprise setup. See [Migrating legacy Page field (ezflow) to new Page (Enterprise)](#migrating-legacy-page-field-ezflow-to-new-page-enterprise) for more information.
 
 ###### 3.2.3 Add other eZ Enterprise schemas (eZ Enterprise only)
 
@@ -257,7 +257,7 @@ In case of URLs with extended UTF-encoded names, the workaround must make use of
 ```
 
 
-## Migrating legacy Page field (ezflow) to Landing Page (Enterprise)
+## Migrating legacy Page field (ezflow) to new Page (Enterprise)
 
 To move your legacy Page field / eZ Flow configuration to eZ Platform Enterprise Edition you can use a script that will aid in the migration process.
 
@@ -330,4 +330,4 @@ At this point you can already view the initial effects of the migration, but the
 
 The `MigrationBundle` generates placeholders for layouts in the form of frames with a data dump.
 
-For blocks that could not be mapped to existing Landing Page blocks, it will also generate PHP file templates that you need to fill with your own business logic.
+For blocks that could not be mapped to existing Page blocks, it will also generate PHP file templates that you need to fill with your own business logic.
