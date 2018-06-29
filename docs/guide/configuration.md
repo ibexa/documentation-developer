@@ -447,6 +447,8 @@ in `parameters.yml`.
 The default value is `100`. You can set it to `-1` for no limit,
 or to `0` to completely disable copying subtrees.
 
+You can copy subtree from CLI using the command: `bin/console ezplatform:copy-subtree <sourceLocationId> <targetLocationId>`.
+
 ### Pagination limits
 
 Default pagination limits for different sections of the Back Office are defined in the following settings:
