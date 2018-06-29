@@ -64,7 +64,7 @@ You can also [select which Content Types are treated the same way as User of Use
 
 ### Simplified use of content and languages in API
 
-This release introduces a few but notable simplifications to usage of API, here are some highlights:
+This release introduces a few but notable simplifications to API use. Here are some highlights:
 
 **Location object now gives access to Content**
 
@@ -74,7 +74,7 @@ You can directly get it using `$location->getContent()`, and perhaps even more u
 
 For now optional, but to be made default in 3.0, is the new SiteAccess aware repository which injects prioritised languages for you when you load data _(content, location, content type, ...)_, it's for now optional and available as a private service `ezpublish.siteaccessaware.repository`. So far it is used out of the box on parameter converters for content and location, and on ContentView.
 
-This two changes builds upon [API improvements done in 1.10](ez_platform_v1.10.0/#api-simplified-usage-with-translations), and changes the following on 1.13/2.1:
+This two changes builds upon [API improvements done in 1.10](ez_platform_v1.10.0/#api-simplified-usage-with-translations), and changes the following found in 1.13/2.1:
 ```php
 $location = $this->locationService->loadLocation(42);
 
@@ -83,7 +83,7 @@ $content = $this->contentService->loadContent(
     $this->configResolver->getParameter('languages')
 );
 
-// This can easily be done in Twig:
+// This can also be done in Twig without any addtional effort:
 $name = $content->getVersionInfo()->getName();
 $value = $content->getFieldValue('body')
 ```
@@ -92,7 +92,7 @@ To this _(using private `@ezpublish.siteaccessaware.service.location` service is
 ```php
 $location = $this->locationService->loadLocation(42);
 
-// This can easily be done in Twig:
+// This can also be done in Twig without any addtional effort:
 $content = $location->getContent();
 $name = $content->getVersionInfo()->getName();
 $value = $content->getFieldValue('body')
