@@ -282,3 +282,17 @@ a.external:after {
 .md-search__icon {
     z-index: 0;
 }
+
+.ez-code-example {
+    padding: 1.5rem;
+    border-width: .2rem;
+    border: solid #f8f9fa;
+    border-bottom: 0;
+}
+
+.ez-code-example + .codehilitetable {
+    padding-top: 0;
+    margin-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}

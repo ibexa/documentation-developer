@@ -1,4 +1,7 @@
 mkdocs>=0.17.1
+Markdown>=2.6.11
 Pygments>=2.2
-pymdown-extensions>=3.4
+pymdown-extensions>=4.10
 mkdocs-material>=2.7.2
+Jinja2>=2.10
+git+git://github.com/damianz5/mdx_ez_code_example@master#egg=mdx_ezcodeexample
