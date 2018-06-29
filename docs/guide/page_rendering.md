@@ -12,12 +12,12 @@
 
     ##### Zone structure
 
-    Each zone contains the following parameters:
+    Each zone contains the following (required) parameters:
 
     | Name             | Description                  |
     |------------------|------------------------------|
-    | `zone_id` | Required. A unique zone ID |
-    | `name`     | Required. Zone name        |
+    | `zone_id` |  A unique zone ID |
+    | `name`     |  Zone name        |
 
     #### Layout configuration
 
@@ -47,9 +47,9 @@
     |number|string|Unique key of the layout|Yes|
     |{ID}/identifier|string|ID of the layout|Yes|
     |{ID}/name|string|Name of the layout|Yes|
-    |{ID}/description|string|Description of layout|Yes|
+    |{ID}/description|string|Description of the layout|Yes|
     |{ID}/thumbnail|string|<path> to thumbnail image|Yes|
-    |{ID}/template|string|<path> to template View For example: `AppBundle:layouts:sidebar.html.twig`</br>`<bundle>:<directory>:<file name>`|Yes|
+    |{ID}/template|string|<path> to template View, for example: `AppBundle:layouts:sidebar.html.twig`</br>`<bundle>:<directory>:<file name>`|Yes|
     |{ID}/zones|string|Collection of zones|Yes|
     |{ID}/{zone}/zone_id|string|ID of the zone|Yes|
     |{ID}/{zone}/name|string|Zone name|Yes|
@@ -158,11 +158,11 @@
 
     |Type|Description|Options|
     |----|----|----|
-    |`integer`|||
-    |`string`|||
-    |`url`|||
-    |`text`|Text block||
-    |`embed`|Embedded Content item||
+    |`integer`|Intereger value|-|
+    |`string`|String|-|
+    |`url`|URL|-|
+    |`text`|Text block|-|
+    |`embed`|Embedded Content item|-|
     |`select`|Drop-down with options to select|`choices` lists the available options</br>`multiple`, when set to true allows selecting more than one option.
     |`multiple`|Checkbox(es)|`choices` lists the available options.|
     |`radio`|Radio buttons|`choices` lists the available options.|
@@ -188,7 +188,7 @@
 
     The block configuration modal by default contains two tabs, Basic and Design.
 
-    In Design you can choose the view used for the block and its styling.
+    In Design you can choose the view that will be used for the block and its styling.
 
     **Class** indicates the CSS class used for this block.
     **Style** defines the CSS rules.
