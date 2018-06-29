@@ -195,6 +195,14 @@ All Signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
 |`LocationService\SwapLocationSignal`|`content1Id`</br>`location1Id`</br>`parentLocation1Id`</br>`content2Id`</br>`location2Id`</br>`parentLocation1Id`|`LocationService::swapLocation()`|
 |`LocationService\UpdateLocationSignal`|`contentId`</br>`locationId`</br>`parentLocationId`|`LocationService::updateLocation()`|
 
+#### NotificationService
+
+|Signal type|Properties|Triggered by|
+|------|------|------|
+|`NotificationService\NotificationCreateSigna`|`ownerId`</br>`type`</br>`data`|`NotificationService::createNotification`|
+|`NotificationService\NotificationDeleteSigna`|`notificationId`|`NotificationService::deleteNotification`|
+|`NotificationService\NotificationReadSignal`|`notificationId`|`NotificationService::markNotificationAsRead`|
+
 #### ObjectStateService
 
 |Signal type|Properties|Triggered by|
