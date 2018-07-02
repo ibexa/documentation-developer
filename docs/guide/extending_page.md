@@ -38,3 +38,34 @@
                     options:
                         match: [image]
     ```
+
+    ## Extensibility on block creation
+
+    The `customizeNewBlockNode` extension point enables you to manipulate the block preview wrapper node.
+    You can use it e.g. to add a custom CSS class or a custom event listener when a new block is created.
+
+    ``` js
+    /**
+         * Extension point to customize the new block HTML attributes
+         *
+         * @function customizeNewBlockNode
+         * @param {HTMLElement} block
+         * @param {Object} meta
+         * @param {String} meta.blockType
+         * @param {String} meta.pageLayoutIdentifier
+         * @param {String} meta.zoneId
+         * @returns {HTMLElement}
+         */
+    window.eZ.pbExtensionPointCallbacks.customizeNewBlockNode = function (blockNode, meta) {};
+    ```
+
+    ## Extensibility on block preview update
+
+    When block preview is updated, JavaScript event `postUpdateBlocksPreview` is fired .
+    You can use it to run your own JS scripts after block update:
+
+    ``` js
+    (function () {
+        window.document.body.addEventListener('postUpdateBlocksPreview', () => console.log('block updated'), false);
+    })();
+    ```
