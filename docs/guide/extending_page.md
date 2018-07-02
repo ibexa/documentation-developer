@@ -61,8 +61,9 @@
 
     ## Extensibility on block preview update
 
-    When block preview is updated, JavaScript event `postUpdateBlocksPreview` is fired .
-    You can use it to run your own JS scripts after block update:
+    When block preview is updated, JavaScript event `postUpdateBlocksPreview` is fired.
+    You can use it to run your own JS scripts, such as reinitializing the work of a slider
+    or any other JS-based feature implemented inside your block preview.
 
     ``` js
     (function () {
