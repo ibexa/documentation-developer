@@ -58,11 +58,13 @@ Dispatch the event with `document.body.dispatchEvent(eventInfo);`
 
 You can send your own custom notifications to the user with the same mechanism that is used to send notification from Flex Workflow.
 
-To create a new notification you must use createNotification(eZ\Publish\API\Repository\Values\Notification\CreateStruct $createStruct) method from \eZ\Publish\API\Repository\NotificationService. 
+To create a new notification you must use `createNotification(eZ\Publish\API\Repository\Values\Notification\CreateStruct $createStruct)` method from `\eZ\Publish\API\Repository\NotificationService`. 
 
 Example:
 
 ```php
+<?php 
+
 use eZ\Publish\API\Repository\Values\Notification\CreateStruct;
 
 $notification = new CreateStruct();
@@ -77,14 +79,15 @@ To display the notification, write a Renderer and tag it as a service.
 
 The example below presents a Renderer that uses Twig to render a view:
 
-``` php
+```php
 <?php
+
 declare(strict_types=1);
 
 namespace AppBundle\Notification;
 
 use eZ\Publish\API\Repository\Values\Notification\Notification;
-use eZ\Publish\SPI\Notification\Renderer\NotificationRenderer;
+use eZ\Publish\Core\Notification\Renderer\NotificationRenderer;
 use Symfony\Component\Routing\RouterInterface;
 use Twig\Environment;
 
@@ -92,15 +95,18 @@ class MyRenderer implements NotificationRenderer
 {
     protected $twig;
     protected $router;
+    
     public function __construct(Environment $twig, RouterInterface $router)
     {
         $this->twig = $twig;
         $this->router = $router;
     }
+    
     public function render(Notification $notification): string
     {
         return $this->twig->render('@FlexWorkflow/notification.html.twig', ['notification' => $notification]);
     }
+    
     public function generateUrl(Notification $notification): ?string
     {
         if (array_key_exists('content_id', $notification->data)) {
@@ -110,6 +116,7 @@ class MyRenderer implements NotificationRenderer
                  'language' => $notification->data['language'],
             ]);
         }
+        
         return null;
     }
 }
@@ -123,5 +130,5 @@ AppBundle\Notification\MyRenderer:
         - '@twig'
         - '@router'
     tags:
-        - { name: ezstudio.notification.renderer, alias: 'MyNotification:TypeName' }
+        - { name: ezpublish.notification.renderer, alias: 'MyNotification:TypeName' }
 ```
