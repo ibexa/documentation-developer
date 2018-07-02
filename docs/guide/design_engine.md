@@ -43,6 +43,10 @@ ez_platform_standard_design:
     override_kernel_templates: true
 ```
 
+!!! caution
+
+    If you encounter problems during upgrading, disable the override by setting `override_kernel_templates` to `false`.
+
 The standard design overrides the following Twig templates by prefixing them with the `@ezdesign` namespace:
 
 - `viewbase_layout.html.twig`
