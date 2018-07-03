@@ -49,7 +49,6 @@ The following tables give an overview of the main eZ Platform directories.
 |[ezplatform-solr-search-engine](https://github.com/ezsystems/ezplatform-solr-search-engine)|[Solr-powered](http://lucene.apache.org/solr/) search handler for eZ Platform|
 |[ez-support-tools](https://github.com/ezsystems/ez-support-tools)|provides functionality for system information|
 |[ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache)|HTTP cache handling for eZ Platform, using multi tagging (incl Varnish xkey)|
-|[ezplatform-admin-ui-assets](https://github.com/ezsystems/ezplatform-admin-ui-assets)|contains assets for AdminUI|
 |[ezplatform-design-engine](https://github.com/ezsystems/ezplatform-design-engine)|design fallback system for eZ Platform similar to legacy design fallback system|
 |[ezplatform-standard-design](https://github.com/ezsystems/ezplatform-standard-design)|defines standard Design and Theme to be handled by ezplatform-design-engine|
 |[ezplatform-cron](https://github.com/ezsystems/ezplatform-cron)|exposes cron/cron package for use in eZ Platform (or just plain Symfony) via a simple command `ezplatform:cron:run`|
@@ -76,7 +75,6 @@ The following tables give an overview of the main eZ Platform directories.
 |[satis](https://github.com/ezsystems/satis)|simple static Composer repository generator|
 |[ezplatform-demo-assets](https://github.com/ezsystems/ezplatform-demo-assets)|contains binary install data for ezsystems/ezplatform-demo|
 |[requirements](https://github.com/ezsystems/requirements)|requirements repository for eZ Platform development|
-|[ezcs](https://github.com/ezsystems/ezcs)|configuration for various tools to check the eZ coding standards in different languages|
 |[ui-guidelines](https://github.com/ezsystems/ui-guidelines)|resource for designers, product managers, and developers, providing a unified language to build and customize eZ Platform admin user interface (aka Platform UI)|
 |[PlatformUIBundle](https://github.com/ezsystems/PlatformUIBundle)|provides the main editing and back-end interface for eZ Platform v1|
 |[PlatformUIAssetsBundle](https://github.com/ezsystems/PlatformUIAssetsBundle)|assets for PlatformUIBundle, branches will only contain meta files and config, tags will contain the assets for eZ Platform v1|
