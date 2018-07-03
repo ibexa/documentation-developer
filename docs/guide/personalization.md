@@ -57,8 +57,7 @@ recommendationBundleRestRoutes:
     ``` yaml
     # ez_recommendation.legacy.search_engine:
     #     class: ezpSearchEngine
-    #     factory_class: EzSystems\RecommendationBundle\eZ\Publish\LegacySearch\LegacySearchFactory
-    #     factory_method: build
+    #     factory: [EzSystems\RecommendationBundle\eZ\Publish\LegacySearch\LegacySearchFactory, build]
     #     arguments: [@ezpublish_legacy.kernel]
 
     # ez_recommendation.legacy.recommendation_search_engine:
