@@ -30,7 +30,7 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 
 ## Built-in bundles
 
-The eZ Platform root directory contains multiple sub-directories.
+The eZ Platform directory contains multiple sub-directories.
 Each sub-directory is dedicated to a specific part of the system and contains a collection of logically related files.
 
 !!! tip
