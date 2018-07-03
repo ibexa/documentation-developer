@@ -1,17 +1,16 @@
-# Add content and edit views
+# Step 7 - Add content and edit views
 
-To able to add and edit Content Item with our Field Type using PlatformUI, we need to create an edit view.
-The content view will also be needed to display correct information when viewing the Content Item in the "Content structure" tab in PlatformUI.
+To able to add and edit a Content item with the new Field Type using PlatformUI, you need to create an edit view.
+The content view will also be needed to display correct information when viewing the Content item in the Content structure tab in PlatformUI.
 
 ## Implement edit view
 
 ### Template file
 
-First, we need to add a template file that will be responsible for displaying an edit form:
+First, you need to add a template file that will be responsible for displaying an edit form,
+`Resources/public/templates/fields/edit/tweet.hbt`:
 
 ```html
-//Resources/public/templates/fields/edit/tweet.hbt
-
 <div class="pure-g ez-editfield-row">
     <div class="pure-u ez-editfield-infos">
         <label for="ez-field-{{ content.contentId }}-{{ fieldDefinition.identifier }}">
@@ -34,13 +33,12 @@ First, we need to add a template file that will be responsible for displaying an
 </div>
 ```
 
-### Javascript view file
+### JavaScript view file
 
-Next, we need to implement Javascript file that will be responsible for validating and handling the form:
+Next, you need to create a JavaScript file that will be responsible for validating and handling the form,
+`Resources/public/js/views/fields/ez-tweet-editview.js`:
 
 ```javascript
-//Resources/public/js/views/fields/ez-tweet-editview.js
-
 YUI.add('ez-tweet-editview', function (Y) {
     "use strict";
     /**
@@ -135,11 +133,10 @@ YUI.add('ez-tweet-editview', function (Y) {
 
 ### Registering the view
 
-We also have to create the YAML file where we will tell the system to use our files. The example configuration looks like this:
+You also have to create the YAML file where you tell the system to use the files.
+The example configuration looks like this (in `Resources/config/yui.yml`):
 
 ```yaml
-//Resources/config/yui.yml
-
 system:
     default:
         yui:
@@ -153,11 +150,10 @@ system:
                     path: bundles/ezsystemstweetfieldtype/js/views/fields/ez-tweet-editview.js
 ```
 
-We need to prepend this configuration, like we did with the template in the previous step. To do this, we have to edit dependency injection extension:
+You need to prepend this configuration, like you did with the template in the previous step.
+To do this, you have to edit `DependencyInjection/EzSystemsTweetFieldTypeExtension.php`:
 
 ```php
-// TweetFieldTypeBundle/DependencyInjection/EzSystemsTweetFieldTypeExtension.php
-
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\Yaml\Yaml;
 
@@ -179,20 +175,19 @@ class EzSystemsTweetFieldTypeExtension extends Extension implements PrependExten
 }
 ```
 
-Remember to dump your assets before trying to run this code for the first time.
-After this is done, we should be able to edit the Content Item containing our Tweet Field Type.
+Remember to dump the assets before trying to run this code for the first time.
+After this is done, you should be able to edit the Content item containing the Tweet Field Type.
 
 ## Implement content view
 
-The steps needed to create content view are analogical to the ones needed to create edit view.
+The steps needed to create content view are similar to the ones needed to create edit view.
 
 ### Template file
 
-First, we need to add a template file that will be responsible for displaying the content of our Field Type:
+First, you need to add a template file that will be responsible for displaying the content of the Field Type
+(`Resources/public/templates/fields/view/tweet.hbt`):
 
 ```html
-//Resources/public/templates/fields/view/tweet.hbt
-
 <div class="ez-fieldview-row pure-g">
     <div class="ez-fieldview-label pure-u">
         <p class="ez-fieldview-name"><strong>{{ translate_property fieldDefinition.names }}</strong></p>
@@ -207,13 +202,12 @@ First, we need to add a template file that will be responsible for displaying th
 </div>
 ```
 
-### Javascript view file
+### JavaScript view file
 
-Next, we need to implement Javascript file that will be responsible for handling the template:
+Next, you need to create a  JavaScript file that will be responsible for handling the template
+(`Resources/public/js/views/fields/ez-tweet-view.js`):
 
 ```javascript
-//Resources/public/js/views/fields/ez-tweet-view.js
-
 YUI.add('ez-tweet-view', function (Y) {
     "use strict";
     /**
@@ -258,19 +252,21 @@ YUI.add('ez-tweet-view', function (Y) {
 
 ### Registering the view
 
-We also need to add information about our freshly created files to the already created configuration. To achieve this, let's add the following snippet to the `yui.yml` file:
+You also need to add information about the new files to the existing configuration.
+Add the following snippet to the `yui.yml` file, under `yui.modules`:
+
 ```yaml
-                tweetview-ez-template:
-                    type: 'template'
-                    path: bundles/ezsystemstweetfieldtype/templates/fields/view/tweet.hbt
-                ez-tweet-view:
-                    requires: ['ez-fieldview', 'tweetview-ez-template']
-                    dependencyOf: ['ez-rawcontentview']
-                    path: bundles/ezsystemstweetfieldtype/js/views/fields/ez-tweet-view.js
+tweetview-ez-template:
+    type: 'template'
+    path: bundles/ezsystemstweetfieldtype/templates/fields/view/tweet.hbt
+ez-tweet-view:
+    requires: ['ez-fieldview', 'tweetview-ez-template']
+    dependencyOf: ['ez-rawcontentview']
+    path: bundles/ezsystemstweetfieldtype/js/views/fields/ez-tweet-view.js
 ```
 
-After these steps you should see correct information when viewing Content Item in "Content structure" tab in PlatformUI.
+After these steps you should see correct information when viewing Content Item in the Content structure tab in PlatformUI.
 
-⬅ Previous: [Introduce a template](6_introduce_a_template.md)
+You should now be able to display a Content item with this Field Type from the front office, with a fully functional embed:
 
-Next: [Add a validation](8_add_a_validation.md) ➡
+![Final result of the tutorial](img/fieldtype_tutorial_final_result.png)

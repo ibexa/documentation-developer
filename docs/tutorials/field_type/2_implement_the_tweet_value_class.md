@@ -1,29 +1,31 @@
-# Implement the Tweet\Value class
+# Step 2 - Implement the Tweet\Value class
 
-The Value class of a Field Type is by design very simple. It is meant to be stateless and as lightweight as possible. This class must contain as little logic as possible, because the logic is the responsibility of the Type class. You will create this Type class in the next step.
+### The Value class
 
-All the code for the Bundle will be created in: `src/EzSystems/TweetFieldTypeBundle`
+The Value is used to represent an instance of the Field Type within a Content item. Each Field will present its data using an instance of the Type's Value class.
+A value class must implement the `eZ\Publish\SPI\FieldType\Value` interface. It may also extend the `eZ\Publish\Core\FieldType\Value` abstract class.
+
+The Value class of a Field Type is by design very simple. It is meant to be stateless and as lightweight as possible. This class must contain as little logic as possible, because the logic is the responsibility of the Type class.
 
 The Value class will contain at least:
 
 - public properties: used to store the actual data
 - an implementation of the `__toString()` method: required by the Value interface it inherits from
 
-By default, the constructor from `FieldType\Value` will be used. It allows you to pass a hash of property/value pairs. You can override it as well if you want. In this example, we will do that to allow passing only string with the URL as an argument.
+By default, the constructor from `FieldType\Value` will be used. It allows you to pass a hash of property/value pairs. You can override it as well if you want. In this example, you will do that to allow passing only string with the URL as an argument.
 
-The Tweet Field Type is going to store 3 elements:
+The Tweet Field Type is going to store three elements:
 
-- The tweet’s URL
-- The tweet’s author URL
-- The body, as an HTML string  
+- The tweet's URL
+- The tweet's author URL
+- The body, as an HTML string
 
-At this point, it does not matter where they are stored. All you care about is *what you want your Field Type to expose as an API*.
+At this point, it does not matter where they are stored. All that matters is *what you want the Field Type to expose as an API*.
 
-You will end up with the following properties:
+`eZ/Publish/FieldType/Tweet/Value.php` will end up with the following properties:
 
 ``` php
-// eZ/Publish/FieldType/Tweet/Value.php
-
+<?php
 //Properties of the class Value
 /**
  * Tweet URL on twitter.com.
@@ -47,9 +49,11 @@ public $authorUrl;
 public $contents;
 ```
 
-The only thing left to honor the `FieldType\Value` interface is to add a `__toString()` method, in addition to the constructor. Let’s say that yours will return the tweet’s URL:
+To match the `FieldType\Value` interface you also need to add a `__toString()` method, in addition to the constructor.
+Here it will return the tweet's URL:
 
 ``` php
+<?php
 // eZ/Publish/FieldType/Tweet/Value.php
 
 //Methods of the class Value
@@ -59,12 +63,12 @@ public function __toString()
 }
 ```
 
-As mentioned before, we can also override the constructor to accept passing the URL as a string:
+As mentioned before, you can also override the constructor to accept passing the URL as a string:
 
 ``` php
 // eZ/Publish/FieldType/Tweet/Value.php
 
-//Contructor
+//Constructor
 public function __construct($arg = [])
 {
     if (!is_array($arg)) {
@@ -74,9 +78,3 @@ public function __construct($arg = [])
     parent::__construct($arg);
 }
 ```
-
-------------------------------------------------------------------------
-
-⬅ Previous: [Structure the bundle](1_create_the_bundle.md)
-
-Next: [Implement the `Tweet\Type` class](3_implement_the_tweet_type_class.md) ➡
