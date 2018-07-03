@@ -49,32 +49,26 @@ The following tables give an overview of the main eZ Platform directories.
 |[ezplatform-solr-search-engine](https://github.com/ezsystems/ezplatform-solr-search-engine)|[Solr-powered](http://lucene.apache.org/solr/) search handler for eZ Platform|
 |[ez-support-tools](https://github.com/ezsystems/ez-support-tools)|provides functionality for system information|
 |[ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache)|HTTP cache handling for eZ Platform, using multi tagging (incl Varnish xkey)|
-|[ezplatform-admin-ui](https://github.com/ezsystems/ezplatform-admin-ui)|contains Back Office interface for eZ Platform v2+|
-|[ezplatform-admin-ui-modules](https://github.com/ezsystems/ezplatform-admin-ui-modules)|re-useable React JavaScript components for eZ Platform AdminUI|
 |[ezplatform-admin-ui-assets](https://github.com/ezsystems/ezplatform-admin-ui-assets)|contains assets for AdminUI|
 |[ezplatform-design-engine](https://github.com/ezsystems/ezplatform-design-engine)|design fallback system for eZ Platform similar to legacy design fallback system|
 |[ezplatform-standard-design](https://github.com/ezsystems/ezplatform-standard-design)|defines standard Design and Theme to be handled by ezplatform-design-engine|
 |[ezplatform-cron](https://github.com/ezsystems/ezplatform-cron)|exposes cron/cron package for use in eZ Platform (or just plain Symfony) via a simple command `ezplatform:cron:run`|
-|[BehatBundle](https://github.com/ezsystems/BehatBundle)|common reusable sentance implementations and other common needs for Behat testing in eZ bundles/projects|
+|[BehatBundle](https://github.com/ezsystems/BehatBundle)|common reusable sentence implementations and other common needs for Behat testing in eZ bundles/projects|
 
 !!! Enterprise
 
     |Bundle|Description|
     |---------|-----------|
     |[ezplatform-ee](https://github.com/ezsystems/ezplatform-ee)|fork of the "ezplatform" meta repository, contains changes to composer.json that pull in all dependencies from updates.ez.no for eZ Platform Enterprise Edition (a commercial distribution of eZ Platform with additional features)|
-    |[ezpublish-kernel-ee](https://github.com/ezsystems/ezpublish-kernel-ee)|kernel for enterprise, difference is the stable branches, master is automatically synced|
+    |[ezpublish-kernel-ee](https://github.com/ezsystems/ezpublish-kernel-ee)|kernel for Enterprise, difference is the stable branches, master is automatically synced|
     |[date-based-publisher](https://github.com/ezsystems/date-based-publisher)|provides the date based publishing functionality for the eZ Studio product|
     |[flex-workflow](https://github.com/ezsystems/flex-workflow)|implementation of a collaboration feature that lets you send content draft to any user for a review or rewriting|
-    |[ezplatform-page-fieldtype](https://github.com/ezsystems/ezplatform-page-fieldtype)|page handling FieldType for eZ Platform EE 2.2+|
-    |[ezplatform-page-builder](https://github.com/ezsystems/ezplatform-page-builder)|contains eZ Platform Page editor for eZ Platform EE 2.2+|
-    |[ezplatform-ee-installer](https://github.com/ezsystems/ezplatform-ee-installer)|provides `ezplatform:install` Symfony console command which is the installer for eZ Platform Enterprise v2|
     |[ezplatform-http-cache-fastly](https://github.com/ezsystems/ezplatform-http-cache-fastly)|extends ezplatform-http-cache to support Fastly, for use on Platform.sh PE or standalone|
 
 ### Platform usage
 
 |Bundle|Description|
 |---------|-----------|
-|[ezplatform-installer](https://github.com/ezsystems/ezplatform-installer)|package provides `ezplatform:install` Symfony console command which is the installer for eZ Platform v2|
 |[ez-js-rest-client](https://github.com/ezsystems/ez-js-rest-client)|JavaScript REST client for eZ Platform RESTv2 API, mimics PHP API found in eZ Platform|
 |[ezplatform-i18n](https://github.com/ezsystems/ezplatform-i18n)|centralized internationalization|
 |[launchpad](https://github.com/ezsystems/launchpad)|CLI tool to bootstrap an eZ Platform project Docker stack|
@@ -84,8 +78,8 @@ The following tables give an overview of the main eZ Platform directories.
 |[requirements](https://github.com/ezsystems/requirements)|requirements repository for eZ Platform development|
 |[ezcs](https://github.com/ezsystems/ezcs)|configuration for various tools to check the eZ coding standards in different languages|
 |[ui-guidelines](https://github.com/ezsystems/ui-guidelines)|resource for designers, product managers, and developers, providing a unified language to build and customize eZ Platform admin user interface (aka Platform UI)|
-|[PlatformUIBundle](https://github.com/ezsystems/PlatformUIBundle)|provides the main editing and back-end interface for eZ Platform|
-|[PlatformUIAssetsBundle](https://github.com/ezsystems/PlatformUIAssetsBundle)|assets for PlatformUIBundle, branches will only contain meta files and config, tags will contain the assets|
+|[PlatformUIBundle](https://github.com/ezsystems/PlatformUIBundle)|provides the main editing and back-end interface for eZ Platform v1|
+|[PlatformUIAssetsBundle](https://github.com/ezsystems/PlatformUIAssetsBundle)|assets for PlatformUIBundle, branches will only contain meta files and config, tags will contain the assets for eZ Platform v1|
 |[ezplatform-automated-translation](https://github.com/ezsystems/ezplatform-automated-translation)|adds automated translation|
 |[EzSystemsPrivacyCookieBundle](https://github.com/ezsystems/EzSystemsPrivacyCookieBundle)|adds privacy cookie banner|
 |[ezplatform-richtext](https://github.com/ezsystems/ezplatform-richtext)|Field Type for supporting rich formatted text stored in a structured XML format|
@@ -107,10 +101,10 @@ The following tables give an overview of the main eZ Platform directories.
     |[ezstudio-cron](https://github.com/ezsystems/ezstudio-cron)|eZ Platform EE 1.x series only - exposes cron/cron package for use in eZ Platform (or just plain Symfony) via a simple command `ezpublish:cron:run`|
     |[ez-service-network](https://github.com/ezsystems/ez-service-network)|provides API's and functionality for license handling and authentication needs|
     |[cloud-deployment-manager](https://github.com/ezsystems/cloud-deployment-manager)|dedicated cloud deployment manager|
-    |[StudioUIBundle](https://github.com/ezsystems/StudioUIBundle)|contains the Studio editing interface|
-    |[ezstudio-form-builder](https://github.com/ezsystems/ezstudio-form-builder)|Form Builder Bundle is a part of eZ Studio and is installed with eZ Studio meta repository|
-    |[EzLandingPageFieldTypeBundle](https://github.com/ezsystems/EzLandingPageFieldTypeBundle)|Landing Page FieldType|
-    |[ezstudio-demo-bundle](https://github.com/ezsystems/ezstudio-demo-bundle)|Landing Page that is at the heart of StudioUI|
+    |[StudioUIBundle](https://github.com/ezsystems/StudioUIBundle)|contains the Studio editing interface in eZ Platform v1|
+    |[ezstudio-form-builder](https://github.com/ezsystems/ezstudio-form-builder)|Form Builder Bundle is a part of eZ Studio and is installed with eZ Studio meta repository in eZ Platform v1|
+    |[EzLandingPageFieldTypeBundle](https://github.com/ezsystems/EzLandingPageFieldTypeBundle)|Landing Page that is at the heart of StudioUI|
+    |[ezstudio-demo-bundle](https://github.com/ezsystems/ezstudio-demo-bundle)|represents a demo front-end website with eZ Studio|
     |[ezstudio-personalized-block](https://github.com/ezsystems/ezstudio-personalized-block)|eZ Systems Personalized Block Bundle|
     |[ezrecommendation](https://github.com/ezsystems/ezrecommendation)|allows customizing and personalizing your online portal individually for each end user|
     |[ezmemcachedcluster](https://github.com/ezsystems/ezmemcachedcluster)|adds cluster events support with Memcached backend server|
@@ -119,7 +113,6 @@ The following tables give an overview of the main eZ Platform directories.
 
 |Bundle|Description|
 |------|-----------|
-|[LegacyBridge](https://github.com/ezsystems/LegacyBridge)|optional bridge between eZ Platform and eZ Publish Legacy that simplifies migration to eZ Platform [Community co-maintained]|
 |[ezplatform-xmltext-fieldtype](https://github.com/ezsystems/ezplatform-xmltext-fieldtype)|XmlText field type for eZ Platform [Community co-maintained]|
 |[ezflow-migration-toolkit](https://github.com/ezsystems/ezflow-migration-toolkit)|set of tools that helps migrate data from legacy eZ Flow extension to eZ Studio landing page management|
 |[ngsymfonytools-bundle](https://github.com/ezsystems/ngsymfonytools-bundle)|integrates the legacy [netgen/ngsymfonytools](https://github.com/netgen/ngsymfonytools) as a Legacy bundle|
@@ -135,9 +128,6 @@ The following tables give an overview of the main eZ Platform directories.
 |[ezplatform-demo](https://github.com/ezsystems/ezplatform-demo)|fork of "ezplatform" meta repository, contains code and dependencies for demo distribution of eZ Platform. Not recommended for a clean installation for new projects, but great for observation and learning(example site)|
 |[TweetFieldTypeBundle](https://github.com/ezsystems/TweetFieldTypeBundle)|bundle that is created in the Field Type Tutorial (example field type)|
 |[ezplatform-drawio-fieldtype](https://github.com/ezsystems/ezplatform-drawio-fieldtype)|provides support for diagrams editing in eZ Platform via draw.io (example field type)|
-|[ezplatform-ui-2.0-introduction](https://github.com/ezsystems/ezplatform-ui-2.0-introduction)|an example of eZ Platform extensibility in version 2|
-|[bikeride](https://github.com/ezsystems/bikeride)|beginner tutorial for eZ Platform|
-|[ez-beginner-tutorial](https://github.com/ezsystems/ez-beginner-tutorial)|files related to the eZ Platform Beginner Tutorial|
 |[ezplatform-ee-beginner-tutorial](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial)|resources used in the eZ Platform Enterprise Edition Beginner Tutorial|
 |[ExtendingPlatformUIConferenceBundle](https://github.com/ezsystems/ExtendingPlatformUIConferenceBundle)|bundle created in the Extending PlatformUI tutorial|
 |[docker-php](https://github.com/ezsystems/docker-php)|contains PHP docker image example|
