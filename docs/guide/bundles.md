@@ -32,39 +32,19 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 
 The eZ Platform root directory contains multiple sub-directories.
 Each sub-directory is dedicated to a specific part of the system and contains a collection of logically related files.
-The following table gives an overview of the main eZ Platform directories.
-
-Some of the key built-in bundles are:
-
-**EzPublishCoreBundle**
-
-EzPublishCoreBundle is contained in [ezpublish-kernel](https://github.com/ezsystems/ezpublish-kernel).
-
-To get an overview of EzPublishCoreBundle's configuration, run the following command-line script:
-
-``` bash
-php app/console config:dump-reference ezpublish
-```
-
-**Repository Forms**
-
-[Repository Forms](http://github.com/ezsystems/repository-forms) is a bundle which provides form-based interaction for the Repository Value objects.
-
-It is currently used by:
-
-- `ezsystems/platform-ui-bundle` for most management interfaces: Sections, Content Types, Roles, Policies, etc.
-- `ezsystems/ezpublish-kernel` for user registration and user generated content
 
 !!! tip
 
     You can see the bundles that are automatically installed with eZ Platform in [composer.json](https://github.com/ezsystems/ezplatform/blob/master/composer.json).
+
+The following tables give an overview of the main eZ Platform directories.
 
 ### Core bundles
 
 |Bundle|Description|
 |---------|-----------|
 |[ezplatform](https://github.com/ezsystems/ezplatform)|meta repository that pulls in all dependencies for clean distribution of eZ Platform|
-|[ezpublish-kernel](https://github.com/ezsystems/ezpublish-kernel)|contains the core of the whole eZ Platform application|
+|[ezpublish-kernel](https://github.com/ezsystems/ezpublish-kernel)|contains the core of the whole eZ Platform application e.g. EzPublishCoreBundle|
 |[repository-forms](https://github.com/ezsystems/repository-forms)|provides form-based interaction for the Repository Value objects|
 |[ezplatform-solr-search-engine](https://github.com/ezsystems/ezplatform-solr-search-engine)|[Solr-powered](http://lucene.apache.org/solr/) search handler for eZ Platform|
 |[ez-support-tools](https://github.com/ezsystems/ez-support-tools)|provides functionality for system information|
