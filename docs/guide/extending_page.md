@@ -47,7 +47,7 @@
 
     !!! caution
 
-        You need to be careful when removing block attributes. If an existing Page uses the blocks and values do not match attributes, an error may occur.
+        You need to be careful when removing block attributes. If you modify the attributes of a block used on an existing Page, an error may occur.
 
     This event serves only to manipulate the block configuration, it does not add any logic to it.
 
@@ -121,7 +121,7 @@
      - `ezplatform.ezlandingpage.block.render.post` is called after rendering any block.
      - `ezplatform.ezlandingpage.block.render.{block_identifier}.pre` is also called before rendering any block. This event contains the block logic (when needed).
 
-    On the example of the built-in Banner block:
+    Example of the built-in Banner block:
 
     ``` php
     <?php
