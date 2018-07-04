@@ -39,6 +39,143 @@
                         match: [image]
     ```
 
+    ## Block definition events
+
+    The following events are available to influence Page block definition:
+
+    - `ezplatform.ezlandingpage.block.definition.{block_identifier}` is called when retrieving block definition. You can use it to influence any definition parameters. This includes the block's attributes. You can, e.g. add or remove some attributes.
+
+    !!! caution
+
+        You need to be careful when removing block attributes. If an existing Page uses the blocks and values do not match attributes, an error may occur.
+
+    This event serves only to manipulate the block configuration, it does not add any logic to it.
+
+    - `ezplatform.ezlandingpage.block.definition.{block_identifier}.attribute.{block_attribute_identifier}` works like the previous event, but is called for a specific block attribute, not the whole block. You can use it to manipulate attributes, validators, etc.
+
+    The following example shows how the built-in Collection block uses events
+    to assign different options to an attribute of a block depending on the selected view:
+
+    ``` php
+    <?php
+
+    class CollectionBlockListener implements EventSubscriberInterface
+    {
+        /**
+         * @return array The event names to listen to
+         */
+        public static function getSubscribedEvents()
+        {
+            return [
+               // ...
+               BlockDefinitionEvents::getBlockAttributeDefinitionEventName('collection', 'locationlist') => 'onLocationListAttributeDefinition',
+            ];
+        }
+
+        // ...
+
+        /**
+         * @param BlockAttributeDefinitionEvent $event
+         */
+        public function onLocationListAttributeDefinition(BlockAttributeDefinitionEvent $event)
+        {
+            $definition = $event->getDefinition();
+            $configuration = $event->getConfiguration();
+
+            $options = $definition->getOptions();
+            $options['match'] = $this->getViewMatchConfiguration($configuration);
+
+            $definition->setOptions($options);
+        }
+
+        /**
+         * @param array $configuration
+         *
+         * @return array
+         */
+        private function getViewMatchConfiguration(array $configuration): array
+        {
+            $list = [];
+
+            foreach ($configuration['views'] as $viewName => $viewConfig) {
+                if (!isset($viewConfig['options'])
+                    || !isset($viewConfig['options']['match'])
+                    || empty($viewConfig['options']['match'])
+                ) {
+                    $list[$viewName] = [];
+                    continue;
+                }
+                $list[$viewName] = $viewConfig['options']['match'];
+            }
+
+            return $list;
+        }
+    }
+    ```
+
+    ## Block rendering events
+
+    The following events are available to influence Page block rendering:
+
+     - `ezplatform.ezlandingpage.block.render.pre` is called before rendering any block.
+     - `ezplatform.ezlandingpage.block.render.post` is called after rendering any block.
+     - `ezplatform.ezlandingpage.block.render.{block_identifier}.pre` is also called before rendering any block. This event contains the block logic (when needed).
+
+    On the example of the built-in Banner block:
+
+    ``` php
+    <?php
+
+    class BannerBlockListener implements EventSubscriberInterface
+    {
+        /** @var \eZ\Publish\API\Repository\ContentService */
+        private $contentService;
+
+        /**
+         * BannerBlockListener constructor.
+         *
+         * @param \eZ\Publish\API\Repository\ContentService $contentService
+         */
+        public function __construct(ContentService $contentService)
+        {
+            $this->contentService = $contentService;
+        }
+
+        /**
+         * @return array The event names to listen to
+         */
+        public static function getSubscribedEvents()
+        {
+            return [
+                BlockRenderEvents::getBlockPreRenderEventName('banner') => 'onBlockPreRender',
+            ];
+        }
+
+        /**
+         * @param \EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Renderer\Event\PreRenderEvent $event
+         *
+         * @throws \eZ\Publish\API\Repository\Exceptions\NotFoundException
+         * @throws \eZ\Publish\API\Repository\Exceptions\UnauthorizedException
+         */
+        public function onBlockPreRender(PreRenderEvent $event)
+        {
+            $blockValue = $event->getBlockValue();
+            $renderRequest = $event->getRenderRequest();
+
+            $parameters = $renderRequest->getParameters();
+
+            $contentIdAttribute = $blockValue->getAttribute('contentId');
+            $parameters['content'] = $this->contentService->loadContent($contentIdAttribute->getValue());
+
+            $renderRequest->setParameters($parameters);
+        }
+    }
+    ```
+
+    The `onBlockPreRender` method adds `content` to `View` parameters.
+
+    - `ezplatform.ezlandingpage.block.render.{block_identifier}.post` is called after rendering a specific block. It can be used to wrap HTML output.
+
     ## Extensibility on block creation
 
     The `customizeNewBlockNode` extension point enables you to manipulate the block preview wrapper node.
