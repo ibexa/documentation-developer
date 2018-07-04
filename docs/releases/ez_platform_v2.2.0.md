@@ -62,44 +62,6 @@ When viewing User or User Group Content items you can now preview what permissio
 
 You can also [select which Content Types are treated the same way as User of User Group](../guide/configuration.md#user-identifiers) for these purposes.
 
-### Simplified use of Content and languages in API
-
-This release introduces a few notable simplifications to API use. Here are some highlights:
-
-**Location object now gives access to Content**
-
-You can directly get it by using `$location->getContent()`, it can also be very useful in a Twig via `location.content`. This functionality additionally introduces possibility to specify prioritised languages when loading a Location. Content will be loaded on-demand across result set you are loading (e.g. search and other places you can load several Locations).
-
-**Optional SiteAccessAware Repository**
-
-For now optional, but to be made default in 3.0, is the new SiteAccess aware repository which injects prioritised languages for you when you load data *(Content, Location, Content type, etc.)*. Currently it is only available as a private service `ezpublish.siteaccessaware.repository`. This functionality is used out of the box on parameter converters for Content, Location and on ContentView.
-
-This two changes build upon [API improvements done in 1.10](ez_platform_v1.10.0/#api-simplified-usage-with-translations), and change the following found in 1.13/2.1:
-
-```php
-$location = $this->locationService->loadLocation(42);
-
-$content = $this->contentService->loadContent(
-    $location->contentId,
-    $this->configResolver->getParameter('languages')
-);
-
-// This can also be done in Twig without any addtional effort:
-$name = $content->getVersionInfo()->getName();
-$value = $content->getFieldValue('body')
-```
-
-To this *(using private `@ezpublish.siteaccessaware.service.location` service is planned as default in 3.0)*:
-
-```php
-$location = $this->locationService->loadLocation(42);
-
-// This can also be done in Twig without any addtional effort:
-$content = $location->getContent();
-$name = $content->getVersionInfo()->getName();
-$value = $content->getFieldValue('body')
-```
-
 ### Change from UTF8 to UTF8MB4
 
 Database charset is changed from UTF8 to UTF8MB4, in order to support 4-byte characters.
@@ -131,9 +93,22 @@ Installation types used with the `ezplatform:install` command are now more consi
 
 You can also use the new `composer ezplatform-install` command which automatically chooses a correct installation type for the given meta-repository.
 
+## API changes
+
 ### Notifications
 
 [Notification Bundle](https://github.com/ezsystems/ezstudio-notifications) is now moved into CoreBundle of [EzPublishKernel](https://github.com/ezsystems/ezpublish-kernel).  This allows whole community to get access to eZ notification system.
+
+### Bookmarks
+
+New Bookmark service had been added. Bookmark operations are now available via the REST API.
+
+### Simplified use of Content and languages in API
+
+This release introduces a few notable simplifications to API use. Here are some highlights:
+
+- [Location object now gives access to Content](../api/public_php_api_managing_content.md#location-object-with-access-to-content)
+- [Optional SiteAccessAware Repository](../guide/internationalization.md#siteaccessaware-repository-optional)
 
 ## Full list of new features, improvements and bug fixes since v2.1.0
 

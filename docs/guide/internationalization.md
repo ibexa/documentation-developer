@@ -268,6 +268,36 @@ You can also assign a Default content availability flag to Content Types (availa
 
 Note that if a language is not provided in the list of prioritized languages and it is not the Content item's first language, the URL alias for this content in this language will not be generated.
 
+### SiteAccessAware Repository - optional 
+    
+The SiteAccess aware repository which injects prioritised languages for you when you load data *(Content, Location, Content type, etc.)*. Currently it is only available as a private service `ezpublish.siteaccessaware.repository`. This functionality is used out of the box on parameter converters for Content, Location and on ContentView.
+    
+This two changes build upon [API improvements done in 1.10](ez_platform_v1.10.0/#api-simplified-usage-with-translations), and change the following found in 1.13/2.1:
+    
+```php
+$location = $this->locationService->loadLocation(42);
+
+$content = $this->contentService->loadContent(
+    $location->contentId,
+    $this->configResolver->getParameter('languages')
+);
+
+// This can also be done in Twig without any addtional effort:
+$name = $content->getVersionInfo()->getName();
+$value = $content->getFieldValue('body')
+```
+
+To this *(using private `@ezpublish.siteaccessaware.service.location` service is planned as default in 3.0)*:
+
+```php
+$location = $this->locationService->loadLocation(42);
+
+// This can also be done in Twig without any addtional effort:
+$content = $location->getContent();
+$name = $content->getVersionInfo()->getName();
+$value = $content->getFieldValue('body')
+```
+
 ## Translating the UI of eZ Platform
 
 ### Installing new UI translations
