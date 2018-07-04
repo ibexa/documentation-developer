@@ -303,20 +303,7 @@ a.external:after {
     z-index: 0;
 }
 
-
-
-#myImg {
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-#myImg:hover {
-  opacity: 0.7;
-}
-
 /* Image enlagement Modal */
-
 #imageModal {
   display: none;
   position: fixed;

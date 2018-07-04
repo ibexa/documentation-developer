@@ -72,12 +72,14 @@ $(document).ready(function () {
     });
 
     // Image enlargement modal
-    $("img").click(function(){
-        document.getElementById("enlargedImage").src = this.src;
+    $("img").click( function(){
+        $('#enlargedImage').attr('src', $(this).attr('src'));
         if ($(this).attr('title')) {
-            document.getElementById("modalCaption").innerHTML = $(this).attr('title');
+            $('#modalCaption').html($(this).attr('title'));
         }
-        document.getElementById('imageModal').style.display = "block";
+        $('#imageModal').show();
     });
+
+    $("#imageModal").click(function(){ $(this).hide() });
 
 });
