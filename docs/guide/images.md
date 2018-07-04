@@ -46,6 +46,14 @@ The following parameters are set for each variation:
 - `reference`: Name of a reference variation to base the variation on. If set to `null` (or `~`, which means `null` in YAML), the variation will take the original image for reference. It can be any available variation configured in the `ezpublish` namespace, or a `filter_set` defined in the `liip_imagine` namespace.
 - `filters`: Array of filter definitions (hashes containing `name` and `params` keys). See possible values [below](#available-filters).
 
+!!! caution
+
+    If you change image variation properties manually, you need to clear persistence cache:
+
+    `php bin/console cache:pool:clear <pool_name>`
+
+    where `<pool_name>` is `cache.app` by default, and `cache.redis` when using Redis.
+
 ### Built-in image variations
 
 A few basic image variations are included by default in eZ Platform in the `default_settings.yml` config file:
@@ -225,3 +233,151 @@ The following filters exist in the Imagine library but are not used in eZ Platfo
 ### Custom filters
 
 Please refer to [LiipImagineBundle documentation on custom filters](http://symfony.com/doc/master/bundles/LiipImagineBundle/filters.html#custom-filters). [Imagine library documentation](http://imagine.readthedocs.org/en/latest/) may also be useful.
+
+## Setting placeholder generator
+
+Placeholder generator enables you to download or use generated image placeholder for any missing image. It might be used when you are working on an existing database and you are not able to download uploaded images to your local development environment because of their large size
+
+`PlaceholderAliasGenerator::getVariation` method generates placeholder (by delegating it to the implementation of `PlaceholderProvider` interface) if original image cannot be resolved and saves it under the original path.
+
+In eZ Platform there are two implementations of `PlaceholderProvider` interface:
+
+- [GenericProvider](#genericprovider)
+- [RemoteProvider](#remoteprovider)
+
+```php
+<?php
+
+namespace eZ\Bundle\EzPublishCoreBundle\Imagine;
+
+use eZ\Publish\Core\FieldType\Image\Value as ImageValue;
+
+interface PlaceholderProvider
+{
+    /**
+     * Provides a placeholder image path for a given Image FieldType value.
+     *
+     * @param \eZ\Publish\Core\FieldType\Image\Value $value
+     * @param array $options
+     * @return string Path to placeholder
+     */
+    public function getPlaceholder(ImageValue $value, array $options = []): string;
+}
+```
+
+### GenericProvider
+
+`\eZ\Bundle\EzPublishCoreBundle\Imagine\PlaceholderProvider\GenericProvider` generates placeholder with basic information about original image - [example 1](#configuration-examples).
+
+**Generic image example:**
+
+![Placeholder image GenericProvider](img/placeholder_info.jpg)
+
+**Full page example:**
+
+![Placeholder GenericProvider](img/placeholder_generic_provider.png)
+
+|Option|Default value|Description|
+|------|-------------|-----------|
+|fontpath|n/a|Path to the font file (*.ttf). **This option is required.**|
+|text|"IMAGE PLACEHOLDER %width%x%height%\n(%id%)"|Text which will be displayed in the image placeholder. %width%, %height%, %id% in it will be replaced with width, height and ID of the original image.|
+|fontsize|20|Size of the font in the image placeholder.|
+|foreground|#000000|Foreground color of the placeholder.|
+|secondary|#CCCCCC|Secondary color of the placeholder.|
+|background|#EEEEEE|Background color of the placeholder.|
+
+### RemoteProvider
+
+`\eZ\Bundle\EzPublishCoreBundle\Imagine\PlaceholderProvider\RemoteProvider` allows you to download placeholders from:
+
+ - remote source e.g. <http://placekitten.com> - [example 2](#configuration-examples)
+ - live version of a site - [example 3](#configuration-examples)
+
+**Full page example:**
+
+![Placeholder RemoteProvider - placekitten.com](img/placeholder_remote_provider.jpg)
+
+|Option|Default value|Description|
+|------|-------------|-----------|
+|url_pattern|''|URL pattern. %width%, %height%, %id% in it will be replaced with width, height and ID of the original image.|
+|timeout|5|Period of time before timeout, measured in seconds.|
+
+### Semantic configuration
+
+Placeholder generation can be configured for each [`binary_handler`](/file_management/#handling-binary-files) under the `ezpublish.image_placeholder` key:
+
+```yaml
+ezpublish:
+    # ...
+    image_placeholder:
+        <BINARY_HANDLER_NAME>:
+            provider: <PROVIDER TYPE>
+            options:  <CONFIGURATION>
+```
+
+If there is no configuration assigned to [`binary_handler`](/file_management/#handling-binary-files) name, the placeholder generation will be disabled.
+
+##### Configuration examples:
+
+**Example 1 - placeholders with basic information about original image**
+
+```yaml
+ezpublish:
+    # ...
+    image_placeholder:
+        default:
+            provider: generic
+            options:
+                fontpath:   '%kernel.root_dir%/Resources/font/font.ttf'
+                background: '#EEEEEE'
+                foreground: '#FF0000'
+                text: "MISSING IMAGE %%width%%x%%height%%"
+```
+
+**Example 2 - placeholders from remote source**
+
+```yaml
+ezpublish:
+    # ...
+    image_placeholder:
+        default:
+            provider: remote
+            options:
+                url_pattern: 'https://placekitten.com/%%width%%/%%height%%'
+```
+
+**Example 3 - placeholders from live version of a site**
+
+```yaml
+ezpublish:
+    # ...
+    image_placeholder:
+        default:
+            provider: remote
+            options:
+                url_pattern: 'http://example.com/var/site/storage/%%id%%'
+```
+
+## Resizing images
+
+You can resize all original images of a chosen Content Type using the `ezplatform:images:resize-original` command.
+You need to provide the command with:
+
+- identifier of the image Content Type
+- identifier of the Field you want to affect
+- name of the image variation to apply to the images
+
+`ezplatform:images:resize-original <Content Type identifier> <Field identifier> -f <variation name>`
+
+For example:
+
+`ezplatform:images:resize-original photo image -f small_image`
+
+Additionally you can provide two parameters:
+
+- `iteration-count` is the number of images to be recreated in a single iteration, to reduce memory use. Default is `25`.
+- `user` is the identifier of a user with proper permission who will perform the operation (`read`, `versionread`, `edit` and `publish`). Default is `admin`.
+
+!!! caution
+
+    This command publishes a new version of each Content item it modifies.

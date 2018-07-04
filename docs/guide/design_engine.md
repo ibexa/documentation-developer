@@ -17,10 +17,53 @@ For assets, the system uses the Symfony Asset component with asset packages.
   Typically a directory containing templates. For example, templates located under `app/Resources/views/themes/my_theme`
   or `src/AppBundle/Resources/views/themes/my_theme` are part of `my_theme` theme.
 
+!!! caution
+
+    After creating a new folder either in `app/Resources/views/themes/` or your bundle's `Resources/views/themes/` directory
+    you need to clear Symfony cache (`bin/console cache:clear`), even if you are working in the dev environment.
+
 - **Design**: A collection of themes.
 
   The order of themes within a design is important as it defines the fallback order.
   A design is identified with a name. One design can be used per SiteAccess.
+
+### Default designs
+
+By default two designs are included:
+
+`admin` covers templates for the Back Office. It contains the `admin` theme.
+
+`standard` covers the default content rendering templates. It contains the `standard` theme.
+
+When the `ez_platform_standard_design.override_kernel_templates` setting is `true`,
+the `standard` theme is automatically mapped to the directory in kernel containing the templates.
+
+``` yaml
+ez_platform_standard_design:
+    override_kernel_templates: true
+```
+
+!!! caution
+
+    If you encounter problems during upgrading, disable the override by setting `override_kernel_templates` to `false`.
+
+The standard design overrides the following Twig templates by prefixing them with the `@ezdesign` namespace:
+
+- `viewbase_layout.html.twig`
+- `pagelayout.html.twig`
+- `default/content/full.html.twig`
+- `default/content/line.html.twig`
+- `default/content/text_linked.html.twig`
+- `default/content/embed.html.twig`
+- `default/content/embed_image.html.twig`
+- `default/block/block.html.twig`
+- `content_fields.html.twig`
+- `fielddefinition_settings.html.twig`
+
+!!! caution
+
+    `ez_platform_standard_design.override_kernel_templates` is set to `true` in new installations.
+    However, when upgrading from older version it will be set to false to avoid overriding existing configuration.
 
 ## Configuration
 

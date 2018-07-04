@@ -10,7 +10,7 @@ It can also be called straight by its direct URI: 
 
 `/view/content/<contentId>`
 
-A Content item can also have different **view types** (full page, abstract in a list, block in a landing page, etc.). By default the view type is **full** (for full page), but it can be anything (*line*, *block, etc*.).
+A Content item can also have different **view types** (full page, abstract in a list, block in a Page, etc.). By default the view type is **full** (for full page), but it can be anything (*line*, *block, etc*.).
 
 ## Configuring views: the ViewProvider
 
@@ -146,7 +146,7 @@ Those templates can be customized by means of container- and SiteAccess-aware pa
 
 ##### Overriding the default template for common view types
 
-Templates for the most common view types (content/full, line, embed, or block) can be customized by setting one the `ezplatform.default.content_view_templates` variables:
+Templates for the most common view types (content/full, line, embed, or block) can be customized by setting one the `ezplatform.default_view_templates` variables:
 
 | Controller                                              | ViewType | Parameter                                         | Default value                                           |
 |---------------------------------------------------------|----------|---------------------------------------------------|---------------------------------------------------------|

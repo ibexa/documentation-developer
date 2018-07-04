@@ -6,6 +6,8 @@
 
 **Getting things set up: [Installation](install_ez_platform.md)**
 
+**Bundles starter pack: [Bundles starting pack](bundles_starter_pack.md)**
+
 #### Transitioning to eZ Platform
 
 If you've worked with **eZ Publish** (our legacy product) in the past, see [Migrating from eZ Publish](../migrating/migrating_from_ez_publish.md), and a [Feature Comparison](https://doc.ez.no/display/MAIN/Transitioning+from+eZ+Publish+to+eZ+Platform%3A+Feature+Comparison) between eZ Publish (legacy) and eZ Platform (current). 

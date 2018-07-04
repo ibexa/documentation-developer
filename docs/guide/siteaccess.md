@@ -55,11 +55,34 @@ Collects SiteAccesses into groups that can be used later for configuration.
 
 The rule or set of rules by which SiteAccesses are matched. See [SiteAccess matching](#siteaccess-matching) for more information.
 
+!!! enterprise
+
+    ### SiteAccess selection in Page Builder
+
+    To define which SiteAccesses are available in the submenu in Page Builder, use the following configuration.
+    `siteaccess_list` is an array of SiteAccess identifiers:
+
+    ``` yaml
+    ezpublish:
+        system:
+            admin:
+                page_builder:
+                    siteaccess_list: [site, de, fr, no]
+            de:
+                page_builder:
+                    siteaccess_list: [site, de]
+    ```
+
+    !!! caution
+
+        Page Builder works only with SiteAccesses in the same domain.
+        It is not possible to display in the Page Builder SiteAccesses configured for a different domain.
+
 ### Settings per SiteAccess
 
 Various system settings can be set per SiteAccess or SiteAccess group under the `ezpublish.system` key. These settings include languages or the `var` directory.
 
-### Example: multilanguage sites
+### Multilanguage sites
 
 A site has content in two languages: English and Norwegian. It has one URI per language: `http://example.com/eng` and `http://example.com/nor`. Uri parts of each language (eng, nor) are mapped to a *SiteAccess*, commonly named like the URI part: `eng`, `nor`. Using semantic configuration, each of these SiteAccesses can be assigned a prioritized list of languages it should display:
 
@@ -95,6 +118,28 @@ ezpublish:
 !!! note
 
     A new SiteAccess is recognized by the system, but an Anonymous User will not have read access to it until it is [explicitly given via the Admin > Roles panel](permissions.md#use-cases). Without read access the Anonymous User will simply be directed to the default login page.
+
+### Defining SiteAccess name
+
+In order to simplify the interface and create a better editorial experience, you can "hide"
+ the SiteAccess code and substitute it with a human-readable name of the website e.g. `Tasteful Planet`, `Page EN`.
+
+List of interfaces where you can apply SiteAccess names:
+
+- Page Builder (SiteAccess switcher in the top navigation)
+
+- [Content Preview](https://doc.ezplatform.com/projects/userguide/en/latest/creating_content_basic/#previewing-content) (SiteAccess switcher in the dropdown menu)
+
+- Page creation modal window (when coming from Content Structure)
+
+You can also translate SiteAccess names. Displayed names depend on the selected language of the administration interface.
+
+To define translation you need to put them in YAML file with correct language code e.g. `app/Resources/translations/ezplatform_siteaccess.en.yml`:
+
+```yaml
+en: Tasteful Planet
+fr: Tasteful Planet France
+```
 
 ## Scope
 
@@ -596,8 +641,8 @@ The SiteAccess router has been added a `matchByName()` method to reflect this ad
 
 #### Navigating between SiteAccesses - limitations
 
-There are two known limitations to moving between SiteAccesses in eZ Enterprise's Landing Pages:
+There are two known limitations to moving between SiteAccesses in eZ Enterprise's Pages:
 
-1. On a Landing Page you can encounter a 404 error when clicking a relative link which points to a different SiteAccess (if the Content item being previewed does not exist in the previously used SiteAccess). This is because detecting SiteAccesses when navigating in preview is not functional yet. This is a known limitation that is awaiting resolution.
+1. On a Page you can encounter a 404 error when clicking a relative link which points to a different SiteAccess (if the Content item being previewed does not exist in the previously used SiteAccess). This is because detecting SiteAccesses when navigating in preview is not functional yet. This is a known limitation that is awaiting resolution.
 
 1. When navigating between SiteAccesses in the back office using the top bar, you are always redirected to the main page, not to the Content item you started from.

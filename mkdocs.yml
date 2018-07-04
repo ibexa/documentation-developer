@@ -14,6 +14,7 @@ pages:
             - 'Starting eZ Platform': 'getting_started/starting_ez_platform.md'
             - 'Set up directory permissions': 'getting_started/set_up_directory_permissions.md'
             - 'Troubleshooting': 'getting_started/troubleshooting.md'
+        - 'Bundles starter pack': 'getting_started/bundles_starter_pack.md'
         - Going deeper:
             - 'eZ Platform features': 'getting_started/ez_platform_features.md'
             - 'eZ Enterprise': 'getting_started/ez_enterprise.md'
@@ -22,19 +23,19 @@ pages:
         - 'Tutorials': 'tutorials/tutorials.md'
         - eZ Platform Beginner tutorial:
             - 'Building a bicycle route tracker in eZ Platform': 'tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md'
-            - '1. Getting ready': 'tutorials/platform_beginner/1_getting_ready.md'
-            - '2. Creating your content model': 'tutorials/platform_beginner/2_creating_your_content_model.md'
-            - '3. Customizing the general layout': 'tutorials/platform_beginner/3_customizing_the_general_layout.md'
-            - '4. Displaying content of a ride': 'tutorials/platform_beginner/4_displaying_content_of_a_ride.md'
-            - '5. Displaying the list of rides on the homepage': 'tutorials/platform_beginner/5_displaying_the_list_of_rides_on_the_homepage.md'
-            - '6. Enabling Account Registration': 'tutorials/platform_beginner/6_enabling_account_registration.md'
-            - '7. Customize the User forms': 'tutorials/platform_beginner/7_customize_login_and_register_forms.md'
+            - '1. Get ready': 'tutorials/platform_beginner/1_get_ready.md'
+            - '2. Create the content model': 'tutorials/platform_beginner/2_create_the_content_model.md'
+            - '3. Customize the front page': 'tutorials/platform_beginner/3_customize_the_front_page.md'
+            - '4. Display a list of content items': 'tutorials/platform_beginner/4_display_a_list_of_content_items.md'
+            - '5. Improve configuration': 'tutorials/platform_beginner/5_improve_configuration.md'
+            - '6. Embed content': 'tutorials/platform_beginner/6_embed_content.md'
+            - '7. Enable account registration': 'tutorials/platform_beginner/7_enable_account_registration.md'
         - eZ Enterprise Beginner tutorial:
             - 'eZ Enterprise beginner tutorial - It&#39s a dog&#39s world!': 'tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world.md'
-            - '1. Getting your starter website': 'tutorials/enterprise_beginner/1_getting_your_starter_website.md'
-            - '2. Preparing the Landing Page': 'tutorials/enterprise_beginner/2_preparing_the_landing_page.md'
-            - '3. Using existing blocks': 'tutorials/enterprise_beginner/3_using_existing_blocks.md'
-            - '4. Creating a custom block': 'tutorials/enterprise_beginner/4_creating_a_custom_block.md'
+            - '1. Get a starter website': 'tutorials/enterprise_beginner/1_get_a_starter_website.md'
+            - '2. Prepare the Landing Page': 'tutorials/enterprise_beginner/2_prepare_the_landing_page.md'
+            - '3. Use existing blocks': 'tutorials/enterprise_beginner/3_use_existing_blocks.md'
+            - '4. Create a custom block': 'tutorials/enterprise_beginner/4_create_a_custom_block.md'
         - Field Type Creation Tutorial:
             - 'Creating a Tweet Field Type': 'tutorials/field_type/creating_a_tweet_field_type.md'
             - '1. Create the bundle': 'tutorials/field_type/1_create_the_bundle.md'
@@ -88,7 +89,7 @@ pages:
             - 'Controllers': 'guide/controllers.md'
             - 'Templates': 'guide/templates.md'
             - 'Design engine': 'guide/design_engine.md'
-            - 'Landing Page rendering': 'guide/landing_page_rendering.md'
+            - 'Page rendering': 'guide/page_rendering.md'
             - 'Twig functions reference': 'guide/twig_functions_reference.md'
         - Content management:
             - 'Images': 'guide/images.md'
@@ -127,8 +128,7 @@ pages:
             - 'Extending eZ Platform': 'guide/extending_ez_platform.md'
             - 'Extending modules': 'guide/extending_modules.md'
             - 'Extending the Online Editor': 'guide/extending_online_editor.md'
-            - 'Extending Landing Page': 'guide/extending_landing_page.md'
-            - 'Extending the Form Builder': 'guide/extending_form_builder.md'
+            - 'Extending Page': 'guide/extending_page.md'
         - 'Service container': 'guide/service_container.md'
         - 'Personalization': 'guide/personalization.md'
         - 'Best practices': 'guide/best_practices.md'
@@ -160,11 +160,23 @@ pages:
             - 'Development guidelines': 'community_resources/development_guidelines.md'
             - 'Contribute translations': 'community_resources/translations.md'
             - 'Contribute documentation': 'community_resources/documentation.md'
+        - UI Guidelines:
+            - 'Introduction': 'guidelines/Introduction.md'
+            - Components:
+                - 'Buttons': 'guidelines/components/buttons.md'
+            - Resources:
+                - 'Typography': 'guidelines/resources/typography.md'
+                - 'Colors': 'guidelines/resources/colors.md'
+                - 'Icons': 'guidelines/resources/icons.md'
+            - Design Principles:
+                - 'Philosophy': 'guidelines/design_principles/Philosophy.md'
+                - 'Accessibility': 'guidelines/design_principles/Accessibility.md'
     - Migrating to eZ Platform:
         - 'Migrating from eZ Publish Platform': 'migrating/migrating_from_ez_publish_platform.md'
         - 'Migrating from eZ Publish': 'migrating/migrating_from_ez_publish.md'
     - Releases:
         - 'Updating eZ Platform': 'releases/updating_ez_platform.md'
+        - 'eZ Platform v2.2.0': 'releases/ez_platform_v2.2.0.md'
         - 'eZ Platform v2.1.0': 'releases/ez_platform_v2.1.0.md'
         - 'eZ Platform v2.0.0': 'releases/ez_platform_v2.0.0.md'
         - 'eZ Platform v1.13.0 LTS': 'releases/ez_platform_v1.13.0_lts.md'
@@ -210,7 +222,14 @@ theme:
 
 theme_dir: material
 
-extra_css: [fonts/MavenPro.css, css/custom.css, '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css']
+extra:
+  append_bootstrap:
+    - '/guidelines/'
+
+extra_css:
+  - fonts/MavenPro.css
+  - css/custom.css
+  - '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css'
 extra_javascript: [js/jquery.min.js, js/custom.js, '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js']
 markdown_extensions:
   - admonition
@@ -236,3 +255,4 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
   - pymdownx.details
+  - ez_code_example

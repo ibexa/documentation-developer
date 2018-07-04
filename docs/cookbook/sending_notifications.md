@@ -14,9 +14,12 @@ They will appear in their profile in the Back Office.
 
 ## Display notification bars
 
-You can have your PHP code send notification that will be displayed as a message bar in the Back Office.
-To do that, inject the `NotificationHandlerInterface` into your class.
-You can use one of the four methods representing the following notification types: `info`, `success`, `warning` and `error`.
+Notifications are displayed as a message bar in the Back Office.
+There are four types of notifications: `info`, `success`, `warning` and `error`.
+
+### Display notifications from PHP
+
+To send a notification from PHP, inject the `NotificationHandlerInterface` into your class.
 
 ``` php
 $this->notificationHandler->info('Notification text');
@@ -36,73 +39,96 @@ $this->notificationHandler->info(
 );
 ```
 
+### Display notifications from front end
+
+To create a notification from the front end (in this example, of type `info`), use the following code:
+
+``` js
+const eventInfo = new CustomEvent('ez-notify', {
+    detail: {
+        label: 'info',
+        message: 'Notification text'
+    }
+});
+```
+
+Dispatch the event with `document.body.dispatchEvent(eventInfo);`
+
 ## Create custom notifications using the Flex Workflow mechanism
 
-!!! enterprise
+You can send your own custom notifications to the user with the same mechanism that is used to send notification from Flex Workflow.
 
-    You can send your own custom notifications to the user
-    with the same mechanism that is used to send notification from Flex Workflow.
+To create a new notification you must use `createNotification(eZ\Publish\API\Repository\Values\Notification\CreateStruct $createStruct)` method from `\eZ\Publish\API\Repository\NotificationService`. 
 
-    To create a new notification you must emit the `NotificationSignal`,
-    which will be caught by the `NotificationBundle`:
+Example:
 
-    ``` php
-    $this->signalDispatcher->emit(new NotificationSignal([
-        'ownerId' => $receiverId,  // User to be notified
-        'type' => 'MyNotification:TypeName', // Notification type name
-        'data' => $data, // Any data structure to be used by the notification (message etc.)
-    ]));
-    ```
+```php
+<?php 
 
-    To display the notification, write a Renderer and tag it as a service.
+use eZ\Publish\API\Repository\Values\Notification\CreateStruct;
 
-    The example below presents a Renderer that uses Twig to render a view:
+$notification = new CreateStruct();
+$notification->ownerId = $receiverId;
+$notification->type = 'MyNotification:TypeName';
+$notification->data = $data;
 
-    ``` php
-    <?php
-    declare(strict_types=1);
+$this->notificationService->createNotification($notification);
+```
 
-    namespace AppBundle\Notification;
+To display the notification, write a Renderer and tag it as a service.
 
-    use EzSystems\Notification\SPI\Renderer\NotificationRenderer;
-    use EzSystems\Notification\SPI\Persistence\ValueObject\Notification;
-    use Symfony\Component\Routing\RouterInterface;
-    use Twig\Environment;
+The example below presents a Renderer that uses Twig to render a view:
 
-    class MyRenderer implements NotificationRenderer
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace AppBundle\Notification;
+
+use eZ\Publish\API\Repository\Values\Notification\Notification;
+use eZ\Publish\Core\Notification\Renderer\NotificationRenderer;
+use Symfony\Component\Routing\RouterInterface;
+use Twig\Environment;
+
+class MyRenderer implements NotificationRenderer
+{
+    protected $twig;
+    protected $router;
+    
+    public function __construct(Environment $twig, RouterInterface $router)
     {
-        protected $twig;
-        protected $router;
-        public function __construct(Environment $twig, RouterInterface $router)
-        {
-            $this->twig = $twig;
-            $this->router = $router;
-        }
-        public function render(Notification $notification): string
-        {
-            return $this->twig->render('@FlexWorkflow/notification.html.twig', ['notification' => $notification]);
-        }
-        public function generateUrl(Notification $notification): ?string
-        {
-            if (property_exists($notification->data, 'content_id')) {
-                return $this->router->generate('ez_content_draft_edit', [
-                    'contentId' => $notification->data->content_id,
-                    'versionNo' => $notification->data->version_number,
-                    'language' => $notification->data->language,
-                ]);
-            }
-            return null;
-        }
+        $this->twig = $twig;
+        $this->router = $router;
     }
-    ```
+    
+    public function render(Notification $notification): string
+    {
+        return $this->twig->render('@FlexWorkflow/notification.html.twig', ['notification' => $notification]);
+    }
+    
+    public function generateUrl(Notification $notification): ?string
+    {
+        if (array_key_exists('content_id', $notification->data)) {
+            return $this->router->generate('ez_content_draft_edit', [
+                 'contentId' => $notification->data['content_id'],
+                 'versionNo' => $notification->data['version_number'],
+                 'language' => $notification->data['language'],
+            ]);
+        }
+        
+        return null;
+    }
+}
+```
 
-    Finally, you need to add an entry to `services.yml`:
+Finally, you need to add an entry to `services.yml`:
 
-    ``` yaml
-    AppBundle\Notification\MyRenderer:
-        arguments:
-            - '@twig'
-            - '@router'
-        tags:
-            - { name: ezstudio.notification.renderer, alias: 'MyNotification:TypeName' }
-    ```
+``` yaml
+AppBundle\Notification\MyRenderer:
+    arguments:
+        - '@twig'
+        - '@router'
+    tags:
+        - { name: ezpublish.notification.renderer, alias: 'MyNotification:TypeName' }
+```

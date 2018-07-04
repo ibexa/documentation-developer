@@ -129,6 +129,11 @@ All Signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
 
     Signals are sent after transactions are executed, making Signals transaction safe.
 
+#### BookmarkService
+|Signal type|Properties|Triggered by|
+|------|------|------|
+|`BookmarkService\CreateBookmarkSignal`|`locationId`|`BookmarkService::createBookmark()`|
+|`BookmarkService\DeleteBookmarkSignal`|`locationId`|`BookmarkService::deleteBookmark()`|
 
 #### ContentService
 
@@ -189,6 +194,14 @@ All Signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
 |`LocationService\MoveSubtreeSignal`|`subtreeId`</br>`oldParentLocationId`</br>`newParentLocationId`|`LocationService::moveSubtree()`|
 |`LocationService\SwapLocationSignal`|`content1Id`</br>`location1Id`</br>`parentLocation1Id`</br>`content2Id`</br>`location2Id`</br>`parentLocation1Id`|`LocationService::swapLocation()`|
 |`LocationService\UpdateLocationSignal`|`contentId`</br>`locationId`</br>`parentLocationId`|`LocationService::updateLocation()`|
+
+#### NotificationService
+
+|Signal type|Properties|Triggered by|
+|------|------|------|
+|`NotificationService\NotificationCreateSigna`|`ownerId`</br>`type`</br>`data`|`NotificationService::createNotification`|
+|`NotificationService\NotificationDeleteSigna`|`notificationId`|`NotificationService::deleteNotification`|
+|`NotificationService\NotificationReadSignal`|`notificationId`|`NotificationService::markNotificationAsRead`|
 
 #### ObjectStateService
 

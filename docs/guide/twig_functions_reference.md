@@ -12,7 +12,7 @@ In addition to the [native functions provided by Twig](http://twig.sensiolabs.or
 - [`ez_field_value`](#ez_field_value) - returns a Content item's Field value in the current language
 - [`ez_field`](#ez_field) - returns a Field value in the current language
 - [`ez_file_size`](#ez_file_size) - returns the size of a file as string
-- [`ez_first_filled_image_field`](#ez_first_filled_image_field) - returns the identifier of the first image field that is not empty
+- [`ez_first_filled_image_field_identifier`](#ez_first_filled_image_field_identifier) - returns the identifier of the first image field that is not empty
 - [`ez_image_alias`](#ez_image_alias) - displays a selected variation of an image
 - [`ez_is_field_empty`](#ez_is_field_empty) - checks if a Content item's Field value is considered empty in the current language
 - [`ez_render_field`](#ez_render_field) - displays a Content item's Field value, taking advantage of the template block exposed by the Field Type used
@@ -210,17 +210,17 @@ It returns a string.
 {{ 42698273|ez_file_size( 4 ) }} //Output with English SiteAccess : 42.6983 MB
 ```
 
-### `ez_first_filled_image_field`
+### `ez_first_filled_image_field_identifier`
 
 #### Description
 
-`ez_first_filled_image_field` is a Twig helper which returns the identifier of the first image field that is not empty.
+`ez_first_filled_image_field_identifier` is a Twig helper which returns the identifier of the first image field that is not empty.
 
 It can be used for example to identify the first image in an article to render it in an embed or line view.
 
 #### Prototype and Arguments
 
-`ez_first_filled_image_field ( eZ\Publish\API\Repository\Values\Content\Content content )`
+`ez_first_filled_image_field_identifier ( eZ\Publish\API\Repository\Values\Content\Content content )`
 
 | Argument name | Type                                               | Description                       |
 |---------------|----------------------------------------------------|-----------------------------------|

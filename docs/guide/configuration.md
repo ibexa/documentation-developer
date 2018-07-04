@@ -401,6 +401,21 @@ This limit is enforced on publishing a new version and only covers archived vers
 
     Don't set `default_version_archive_limit` too high, with Legacy storage engine you'll get performance degradation if you store too many versions. Default value of 5 is in general the recommended value, but the less content you have overall, the more you can increase this to, for instance, 25 or even 50.
 
+### User identifiers
+
+`ezplatform_default_settings.yml` contains two settings that indicate which Content Types are treated like users and user groups:
+
+``` yaml
+# User identifier
+ezsettings.default.user_content_type_identifier: ['user']
+
+# User Group identifier
+ezsettings.default.user_group_content_type_identifier: ['user_group']
+```
+
+You can override these settings if you have other Content Types that should be treated as users/user groups in the Back Office.
+When viewing such Content in the Back Office you will be able to see e.g. the assigned Policies.
+
 ## Back Office configuration
 
 ### Default page
@@ -432,6 +447,8 @@ in `parameters.yml`.
 The default value is `100`. You can set it to `-1` for no limit,
 or to `0` to completely disable copying subtrees.
 
+You can copy subtree from CLI using the command: `bin/console ezplatform:copy-subtree <sourceLocationId> <targetLocationId>`.
+
 ### Pagination limits
 
 Default pagination limits for different sections of the Back Office are defined in the following settings:
@@ -447,6 +464,7 @@ ezsettings.default.pagination.content_type_limit: 10
 ezsettings.default.pagination.role_assignment_limit: 10
 ezsettings.default.pagination.policy_limit: 10
 ezsettings.default.pagination.version_draft_limit: 5
+ezsettings.default.subitems_module.limit: 10
 ```
 
 ### Default Locations
@@ -466,6 +484,28 @@ ezsettings.default.location_ids.users: 5
 # Universal Discovery Widget Module
 ezsettings.default.universal_discovery_widget_module.default_location_id: 1
 ```
+
+### Notification timeout
+
+To define the timeout for hiding Back-Office notification bars, use the following configuration,
+per notification type:
+
+``` yaml
+ezpublish:
+    system:
+        admin:
+            notifications:
+                error:
+                    timeout: 0
+                warning:
+                    timeout: 0
+                success:
+                    timeout: 5000
+                info:
+                    timeout: 0
+```
+
+The values shown above are the defaults (in milliseconds). `0` means the notification does not hide automatically.
 
 ## Other configuration
 

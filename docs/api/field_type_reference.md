@@ -27,10 +27,10 @@ Custom Field Types have to be programmed in PHP. However, the built-in Field Ty
 | [Integer](#integer-field-type) | Validates and stores an integer value. | Yes | Yes |
 | [ISBN](#isbn-field-type) | Handles International Standard Book Number (ISBN) in 10-digit or 13-digit format.  | Yes | Yes |
 | [Keyword](#keyword-field-type) | Stores keywords. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
-| [Landing Page](#landing-page-field-type) | Stores a Landing Page with a layout consisting of multiple zones. | N/A | N/A |
 | [MapLocation](#maplocation-field-type) | Stores map coordinates. | Yes, with MapLocationDistance criterion | Yes |
 | [Media](#media-field-type) | Validates and stores a media file. | No | Yes |
 | [Null](#null-field-type) | Used as fallback for missing Field Types and for testing purposes. | N/A | N/A |
+| [Page](#page-field-type) | Stores a Page with a layout consisting of multiple zones. | N/A | N/A |
 | [Rating](#rating-field-type) | **Deprecated** | N/A | N/A |
 | [Relation](#relation-field-type) | Validates and stores a relation to a Content item. | Yes, with both Field and FieldRelation criterions | Yes |
 | [RelationList](#relationlist-field-type) | Validates and stores a list of relations to Content items. | Yes, with FieldRelation criterion | Yes |
@@ -1206,121 +1206,6 @@ $keywordValue = new Value( [ "php5", "css3", "html5" ] );
 $keywordValue = new Value( "php5,css3,html5" );
 ```
 
-!!! enterprise
-
-    ## Landing Page Field Type
-
-    Landing Page Field Type represents a page with a layout consisting of multiple zones. Each zone can in turn contain blocks.
-
-    Landing Page Field Type is only used in the Landing Page Content Type that is included in eZ Enterprise.
-
-    !!! caution
-
-        The default Field Type identifiers of the Landing Page Content Type should not be modified, as it may cause fatal errors. Fields of other types can be added safely but shouldn't be required.
-
-    | Name           | Internal name   | Expected input  |
-    |----------------|-----------------|-----------------|
-    | `Landing page` | `ezlandingpage` | `string (JSON)` |
-
-    ### Layout and zones
-
-    Layout defines how a Landing Page is divided into zones.
-
-    The placement of zones is defined in a template which is a part of the layout configuration. You can modify the template in order to define your own layout of zones.
-
-    For information on how to create and configure new blocks for the Landing Page, see [Landing Page layouts](../guide/landing_page_rendering.md#landing-page-layouts).
-
-    ### Blocks
-
-    For information on how to create and configure new blocks for the Landing Page, see [Landing Page blocks](../guide/landing_page_rendering.md#landing-page-blocks).
-
-    ### Rendering Landing Pages
-
-    Landing Page rendering takes place while editing or viewing.
-
-    When rendering a Landing Page, its zones are passed to the layout as a `zones` array with a `blocks` array each. You can access them using twig (e.g. `{{ zones[0].id }}` ).
-
-    Each div that's a zone or zone's container should have data attributes:
-
-    - `data-studio-zones-container` for a div containing zones
-    - `data-studio-zone` with zone ID as a value for a zone container
-
-    To render a block inside the layout, use the Twig `render_esi()` function to call `ez_block:renderBlockAction`.
-
-    `ez_block` is an alias to `EzSystems\LandingPageFieldTypeBundle\Controller\BlockController`
-
-    The action has the following parameters:
-
-    |Parameter|Description|
-    |---------|-----------|
-    |`contentId`|ID of the Content item which can be accessed by `contentInfo.id`|
-    |`blockId`|ID of the block which you want to render|
-
-    Example usage:
-
-    ``` html
-    {{ render_esi(controller('ez_block:renderBlockAction', {
-            'contentId': contentInfo.id,
-            'blockId': block.id
-        })) 
-    }}
-    ```
-
-    As a whole a sample layout could look as follows:
-
-    ``` html
-    <!--landing_page_simple_layout.html.twig-->
-    {# The required "data-studio-zones-container" attribute, enables displaying zones #}
-    <div data-studio-zones-container>
-        {# The required attribute for the displayed zone #}
-        <div data-studio-zone="{{ zones[0].id }}">
-            {# If a zone with [0] index contains any blocks #}
-            {% if zones[0].blocks %}
-                {# for each block #}
-                {% for block in blocks %}
-                    {# create a new layer with appropriate ID #}
-                    <div class="landing-page__block block_{{ block.type }}">
-                        {# render the block by using the "ez_block:renderBlockAction" controller #}
-                        {# contentInfo.id is the ID of the current Content item, block.id is the ID of the current block #}
-                        {{ render_esi(controller('ez_block:renderBlockAction', {
-                                'contentId': contentInfo.id,
-                                'blockId': block.id
-                            })) 
-                        }}
-                    </div>
-                {% endfor %}
-            {% endif %}
-        </div>
-    </div>
-    ```
-
-    ### Viewing template
-
-    Your view is populated with data (parameters) retrieved from the `getTemplateParameters()` method which must be implemented in your block's class.
-
-    Example:
-
-    ``` php
-    /**
-        * @param \EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Model\BlockValue $blockValue
-        *
-        * @return array
-        */
-       public function getTemplateParameters(BlockValue $blockValue)
-       {
-           $attributes = $blockValue->getAttributes();
-           $limit = (isset($attributes['limit'])) ? $attributes['limit'] : 10;
-           $offset = (isset($attributes['offset'])) ? $attributes['offset'] : 0;
-           $parameters = [
-               'title' => $attributes['title'],
-               'limit' => $limit,
-               'offset' => $offset,
-               'feeds' => $this->RssProvider->getFeeds($attributes['url']),
-           ];
-           return $parameters;
-       }
-    ```
-
 ## MapLocation Field Type
 
 This Field Type represents a geographical location.
@@ -1537,7 +1422,7 @@ $mediaFieldCreateStruct->fieldSettings = [
 
 ## Null Field Type
 
-This Field Type is used as fallback and for testing purposes.
+This Field Type is used as fallback for migration scenarios, and for testing purposes.
 
 | Name   | Internal name | Expected input type |
 |--------|---------------|---------------------|
@@ -1545,43 +1430,123 @@ This Field Type is used as fallback and for testing purposes.
 
 ### Description
 
-The Null Field Type serves as an aid when migrating from eZ Publish Platform and earlier versions. It is a dummy for legacy Field Types that are not implemented in eZ Platform.
+The Null Field Type serves as an aid when migrating from eZ Publish Platform and earlier legacy versions. It is a dummy for legacy Field Types that are not implemented in eZ Platform.
 
-Null Field Type will accept anything provided as a value. When used with NullConverter, it also won't store anything to the database, nor will it read any data from the database.
+Null Field Type will accept anything provided as a value and is usually combined with:
+- NullConverter: Makes it not store anything to the legacy storage engine (database), nor will it read any data.
+- Unindexed: Indexable class making sure nothing is indexed to configured search engine.
 
 This Field Type does not have its own fixed internal name. Its identifier is instead configured as needed by passing it as an argument to the constructor.
 
-Following example shows how Null Field Type and NullConverter are used to configure dummy implementations for `ezcomcomments` and `ezpaex` legacy datatypes:
+#### Example for usage of Null Field Type
+
+Following shows example on how eZ Publish "datatype" `ezpaex` could be configured as a eZ Platform "Null Field type":
 
 ``` yaml
 # Null Fieldtype example configuration
 
-parameters:
-    ezpublish.fieldType.eznull.class: eZ\Publish\Core\FieldType\Null\Type
-    ezpublish.fieldType.eznull.converter.class: eZ\Publish\Core\Persistence\Legacy\Content\FieldValue\Converter\NullConverter
-
 services:
-    ezpublish.fieldType.ezcomcomments:
-        class: %ezpublish.fieldType.eznull.class%
-        parent: ezpublish.fieldType
-        arguments: [ "ezcomcomments" ]
-        tags:
-            - {name: ezpublish.fieldType, alias: ezcomcomments}
     ezpublish.fieldType.ezpaex:
-        class: %ezpublish.fieldType.eznull.class%
+        class: "%ezpublish.fieldType.eznull.class%"
         parent: ezpublish.fieldType
-        arguments: [ "ezpaex" ]
-        tags:
-            - {name: ezpublish.fieldType, alias: ezpaex}
-    ezpublish.fieldType.ezcomcomments.converter:
-        class: "%ezpublish.fieldType.eznull.converter.class%"
-        tags:
-            - {name: ezpublish.storageEngine.legacy.converter, alias: ezcomcomments}
+        arguments: ["ezpaex"]
+        tags: [{name: ezpublish.fieldType, alias: ezpaex}]
+
     ezpublish.fieldType.ezpaex.converter:
         class: "%ezpublish.fieldType.eznull.converter.class%"
-        tags:
-            - {name: ezpublish.storageEngine.legacy.converter, alias: ezpaex}
+        tags: [{name: ezpublish.storageEngine.legacy.converter, alias: ezpaex}]
+
+    ezpublish.fieldType.ezpaex.indexable:
+        class: "%ezpublish.fieldType.indexable.unindexed.class%"
+        tags: [{name: ezpublish.fieldType.indexable, alias: ezpaex}]
 ```
+
+!!! enterprise
+
+    ## Page Field Type
+
+    Page Field Type represents a Page with a layout consisting of multiple zones. Each zone can in turn contain blocks.
+
+    Page Field Type is only used in the Page Content Type that is included in eZ Enterprise.
+
+    | Name           | Internal name   | Expected input  |
+    |----------------|-----------------|-----------------|
+    | `Landing page` | `ezlandingpage` | `string (JSON)` |
+
+    !!! caution "Page Builder"
+
+        If you create Content Type with both `ezlandingpage` and `ezuser` Field Types,
+         you will not be redierected to Page Builder after selecting `Edit` or `Create`.
+          This is caused by `ezuser` Field Type which requires separate handling. You will be redirected to the standard AdminUI edit or create mode.
+
+    ### Layout and zones
+
+    Layout defines how a Page is divided into zones.
+
+    The placement of zones is defined in a template which is a part of the layout configuration. You can modify the template in order to define your own zone layout.
+
+    For information on how to create and configure new blocks for the Page, see [Page layouts](../guide/page_rendering.md#page-layouts).
+
+    ### Blocks
+
+    For information on how to create and configure new blocks for the Page, see [Page blocks](../guide/page_rendering.md#page-blocks).
+
+    ### Rendering Pages
+
+    Page rendering takes place while editing or viewing.
+
+    When rendering a Page, its zones are passed to the layout as a `zones` array with a `blocks` array each. You can access them using twig (e.g. `{{ zones[0].id }}` ).
+
+    Each div that's a zone should have the `data-ez-zone-id` attribute with zone ID as a value for a zone container.
+
+    To render a block inside the layout, use the Twig `render_esi()` function to call `EzPlatformPageFieldTypeBundle:Block:render`.
+
+    The `renderAction` has the following parameters:
+
+    |Parameter|Description|
+    |---------|-----------|
+    |`locationId`|ID of the Location of the Content item which can be accessed by `contentInfo.id`|
+    |`blockId`|ID of the block which you want to render|
+    |`versionNo`|Version number of the Content item to render|
+    |`languageCode`|Language code of the Content item to render|
+
+    Example usage:
+
+    ``` html
+    {{ render_esi(controller('EzPlatformPageFieldTypeBundle:Block:render', {
+        'locationId': locationId,
+        'blockId': block.id,
+        'versionNo': versionInfo.versionNo,
+        'languageCode': field.languageCode
+    })) }}
+    ```
+
+    As a whole a sample layout could look as follows:
+
+    ``` html
+    <div>
+        {# The required attribute for the displayed zone #}
+        <div data-ez-zone-id="{{ zones[0].id }}">
+            {# If a zone with [0] index contains any blocks #}
+            {% if zones[0].blocks %}
+                {# for each block #}
+                {% for block in blocks %}
+                    {# create a new layer with appropriate ID #}
+                    <div class="landing-page__block block_{{ block.type }}" data-ez-block-id="{{ block.id }}">
+                        {# render the block by using the "EzPlatformPageFieldTypeBundle:Block:render" controller #}
+                        {# location.id is the ID of the Location of the current Content item, block.id is the ID of the current block #}
+                        {{ render_esi(controller('EzPlatformPageFieldTypeBundle:Block:render', {
+                            'locationId': locationId,
+                            'blockId': block.id,
+                            'versionNo': versionInfo.versionNo,
+                            'languageCode': field.languageCode
+                        })) }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    ```
 
 ## Rating Field Type
 

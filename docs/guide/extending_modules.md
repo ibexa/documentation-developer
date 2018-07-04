@@ -103,6 +103,7 @@ Optionally, Universal Discovery module can take a following list of props:
 - **title** _{String}_ - the title of Universal Discovery popup. Default value: `Find content`,
 - **multiple** _{Boolean}_ - can select multiple content items flag. Default value: `true`,
 - **activeTab** _{String}_ - active tab identifier. Default value: `browse`,
+- **visibleTabs** _{Array}_ - which UDW tabs are available (e.g. Browse, Search, Create),
 - **startingLocationId** _{Number}_ - location ID. Default value: `1`,
 - **maxHeight** _{Number}_ - maximum height of panel container. Default value: `500`,
 - **searchResultsPerPage** _{Number}_ - max amount of items visible per page in the search results. Default value: `10`,
@@ -116,6 +117,15 @@ Optionally, Universal Discovery module can take a following list of props:
 - **selectedItemsLimit** _{Number}_ - the limit of items that can be selected. Should be combined with the `multiple` attribute set to `true`. Default value is `0`, which means no limit,
 - **allowContainersOnly** _{Boolean}_ - when true, only containers can be selected. Default value: `false`,
 - **onlyContentOnTheFly** _{Boolean}_ - when true, only Content on the Fly is shown in the UDW. Default value: `false`,
+- **cotfPreselectedLanguage** _{String}_ - language that is preselected in Content on the Fly,
+- **cotfAllowedLanguages** _{Array}_ - languages that are available in Content on the Fly,
+- **cotfPreselectedContentType** _{String}_ - Content Type that is preselected in Content on the Fly,
+- **cotfAllowedContentTypes** _{Array}_ - Content Types that are available in Content on the Fly,
+- **cotfPreselectedLocation** _{Number}_ - Location that is preselected in Content on the Fly,
+- **cotfAllowedLocations** _{Array}_ - Locations that are available in Content on the Fly
+
+The following props are deprecated:
+
 - **cotfForcedLanguage** _{String}_ - language code. When set, Content on the Fly is locked on this language.
 - **languages** and **contentTypes** are lists of languages and Content Types in the system, read from the application config.
 

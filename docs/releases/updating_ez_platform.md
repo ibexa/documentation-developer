@@ -130,6 +130,14 @@ Because from release 16.02 onwards eZ Platform is compatible only with PHP 5.5 a
 
         in `app/AppKernel.php`.
 
+??? note "v1.13.3: Custom form-builder template"
+
+    !!! enterprise "EZ ENTERPRISE"
+
+        During update from 1.13.2 to 1.13.3 if you do not use default form-builder template you should add `data-field-id` attribute manually to every `<img class="ezform-captcha-image"...` and `<a class="ezform-captcha-reload"` element. 
+        For more information see https://github.com/ezsystems/ezplatform-ee-demo/pull/59
+        
+
 !!! caution "Common errors"
 
     If you experienced issues during the update, please check [Common errors](../getting_started/about_composer/#cloning-failed-using-an-ssh-key) section on the Composer about page.
@@ -246,6 +254,12 @@ These steps are only relevant for some releases:
 
     ``` bash
     mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.1.0-to-7.2.0.sql
+    ```
+
+    If you use DFS, also execute the following database update script:
+
+    ``` bash
+    mysql -u <username> -p <password> <dfs_database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.1.0-to-7.2.0-dfs.sql
     ```
 
     Be aware that these upgrade statements may fail due to index collisions.
