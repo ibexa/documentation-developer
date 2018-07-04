@@ -70,4 +70,16 @@ $(document).ready(function () {
         var toggle = document.querySelector("[data-md-toggle=search]");
         toggle.checked = true;
     });
+
+    // Image enlargement modal
+    $("img").click( function(){
+        $('#enlargedImage').attr('src', $(this).attr('src'));
+        if ($(this).attr('title')) {
+            $('#modalCaption').html($(this).attr('title'));
+        }
+        $('#imageModal').show();
+    });
+
+    $("#imageModal").click(function(){ $(this).hide() });
+
 });

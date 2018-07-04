@@ -8,7 +8,24 @@
     <label class="md-nav__title" for="toc">{{ lang.t("toc.title") }}</label>
     <ul class="md-nav__list" data-md-scrollfix>
       {% for toc_item in toc_ %}
-        {% include "partials/toc-item.html" %}
+        <li class="md-nav__item">
+          <a href="{{ toc_item.url }}" title="{{ toc_item.title }}" class="md-nav__link">
+            {{ toc_item.title }}
+          </a>
+          {% if toc_item.children %}
+              <nav class="md-nav">
+                <ul class="md-nav__list">
+                  {% for toc_item in toc_item.children %}
+                    <li class="md-nav__item">
+                      <a href="{{ toc_item.url }}" title="{{ toc_item.title }}" class="md-nav__link">
+                        {{ toc_item.title }}
+                      </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </nav>
+          {% endif %}
+        </li>
       {% endfor %}
       {% if page.meta.source and page.meta.source | length > 0 %}
         <li class="md-nav__item">
