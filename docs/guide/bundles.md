@@ -50,8 +50,6 @@ The following tables give an overview of the main eZ Platform directories.
 |[ez-support-tools](https://github.com/ezsystems/ez-support-tools)|provides functionality for system information|
 |[ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache)|HTTP cache handling for eZ Platform, using multi tagging (incl Varnish xkey)|
 |[ezplatform-design-engine](https://github.com/ezsystems/ezplatform-design-engine)|design fallback system for eZ Platform similar to legacy design fallback system|
-|[ezplatform-standard-design](https://github.com/ezsystems/ezplatform-standard-design)|defines standard Design and Theme to be handled by ezplatform-design-engine|
-|[ezplatform-cron](https://github.com/ezsystems/ezplatform-cron)|exposes cron/cron package for use in eZ Platform (or just plain Symfony) via a simple command `ezplatform:cron:run`|
 |[BehatBundle](https://github.com/ezsystems/BehatBundle)|common reusable sentence implementations and other common needs for Behat testing in eZ bundles/projects|
 
 !!! Enterprise
@@ -59,7 +57,6 @@ The following tables give an overview of the main eZ Platform directories.
     |Bundle|Description|
     |---------|-----------|
     |[ezplatform-ee](https://github.com/ezsystems/ezplatform-ee)|fork of the "ezplatform" meta repository, contains changes to composer.json that pull in all dependencies from updates.ez.no for eZ Platform Enterprise Edition (a commercial distribution of eZ Platform with additional features)|
-    |[ezpublish-kernel-ee](https://github.com/ezsystems/ezpublish-kernel-ee)|kernel for Enterprise, difference is the stable branches, master is automatically synced|
     |[date-based-publisher](https://github.com/ezsystems/date-based-publisher)|provides the date based publishing functionality for the eZ Studio product|
     |[flex-workflow](https://github.com/ezsystems/flex-workflow)|implementation of a collaboration feature that lets you send content draft to any user for a review or rewriting|
     |[ezplatform-http-cache-fastly](https://github.com/ezsystems/ezplatform-http-cache-fastly)|extends ezplatform-http-cache to support Fastly, for use on Platform.sh PE or standalone|
@@ -72,10 +69,7 @@ The following tables give an overview of the main eZ Platform directories.
 |[ezplatform-i18n](https://github.com/ezsystems/ezplatform-i18n)|centralized internationalization|
 |[launchpad](https://github.com/ezsystems/launchpad)|CLI tool to bootstrap an eZ Platform project Docker stack|
 |[ezplatform-multi-file-upload](https://github.com/ezsystems/ezplatform-multi-file-upload)|allows uploading multiple files as new content items at once|
-|[satis](https://github.com/ezsystems/satis)|simple static Composer repository generator|
 |[ezplatform-demo-assets](https://github.com/ezsystems/ezplatform-demo-assets)|contains binary install data for ezsystems/ezplatform-demo|
-|[requirements](https://github.com/ezsystems/requirements)|requirements repository for eZ Platform development|
-|[ui-guidelines](https://github.com/ezsystems/ui-guidelines)|resource for designers, product managers, and developers, providing a unified language to build and customize eZ Platform admin user interface (aka Platform UI)|
 |[PlatformUIBundle](https://github.com/ezsystems/PlatformUIBundle)|provides the main editing and back-end interface for eZ Platform v1|
 |[PlatformUIAssetsBundle](https://github.com/ezsystems/PlatformUIAssetsBundle)|assets for PlatformUIBundle, branches will only contain meta files and config, tags will contain the assets for eZ Platform v1|
 |[ezplatform-automated-translation](https://github.com/ezsystems/ezplatform-automated-translation)|adds automated translation|
@@ -86,11 +80,9 @@ The following tables give an overview of the main eZ Platform directories.
 |[EzSystemsShareButtonsBundle](https://github.com/ezsystems/EzSystemsShareButtonsBundle)|adds social share buttons|
 |[RepositoryProfilerBundle](https://github.com/ezsystems/RepositoryProfilerBundle)|profiles Platform API/SPI and sets up scenarios to be able to continuously test to keep track of performance regressions of repository and underlying storage engines|
 |[QueryBuilderBundle](https://github.com/ezsystems/QueryBuilderBundle)|provides a PHP API dedicated to fluently writing repository queries|
-|[ezstudio-upgrade](https://github.com/ezsystems/ezstudio-upgrade)|helps upgrade from eZ Platform to the eZ Studio product in an automated way|
 |[alloy-editor](https://github.com/ezsystems/alloy-editor)|WYSIWYG editor built on top of CKEditor, designed to create modern web content|
-|[demobundle-data](https://github.com/ezsystems/demobundle-data)|binary install data for ezsystems/demobundle|
 |[ezmbpaex](https://github.com/ezsystems/ezmbpaex)|functionality for password expiration and validation|
-|[ezphttprequest](https://github.com/ezsystems/ezphttprequest)|ezpHttpRequest, a child class of HttpRequest, provided by the PECL package|
+
 
 !!! Enterprise
 
@@ -131,24 +123,10 @@ The following tables give an overview of the main eZ Platform directories.
 |[ExtendingPlatformUIConferenceBundle](https://github.com/ezsystems/ExtendingPlatformUIConferenceBundle)|bundle created in the Extending PlatformUI tutorial|
 |[docker-php](https://github.com/ezsystems/docker-php)|contains PHP docker image example|
 
-### Documentation
+### Documentation - additional resources
 
-|Bundle|Description|
+|Repository|Description|
 |------|-----------|
 |[developer-documentation](https://github.com/ezsystems/developer-documentation)|source for the developer documentation for eZ Platform, an open source CMS based on the Symfony Full Stack Framework in PHP. https://doc.ezplatform.com|
 |[user-documentation](https://github.com/ezsystems/user-documentation)|source for the user documentation for eZ Platform, an open source CMS based on the Symfony Full Stack Framework in PHP|
 |[ezservices-documentation](https://github.com/ezsystems/ezservices-documentation)|source for the eZ Services documentation for eZ Platform, an open source CMS based on the Symfony Full Stack Framework in PHP|
-
-### Basic directories - READ ONLY
-
-|Bundle|Description|
-|---------|-----------|
-|[ezpublish-api](https://github.com/ezsystems/ezpublish-api)|subtree split of the eZ Publish 5 (ezsystems/ezpublish-kernel) API interfaces and domain objects|
-|[ezpublish-spi](https://github.com/ezsystems/ezpublish-spi)|subtree split of the eZ Publish 5 (ezsystems/ezpublish-kernel) SPI (persistence) interfaces|
-|[ezwt-ls-extension](https://github.com/ezsystems/ezwt-ls-extension)|subtree split from ezsystems/ezwt, for use via Composer|
-|[ezwebin-ls-extension](https://github.com/ezsystems/ezwebin-ls-extension)|subtree split from ezsystems/ezwebin, for use via Composer|
-|[ezstarrating-ls-extension](https://github.com/ezsystems/ezstarrating-ls-extension)|subtree split from ezsystems/ezstarrating, for use via Composer|
-|[ezgmaplocation-ls-extension](https://github.com/ezsystems/ezgmaplocation-ls-extension)|subtree split from ezsystems/ezgmaplocation, for use via Composer|
-|[ezdemo-ls-extension](https://github.com/ezsystems/ezdemo-ls-extension)|subtree split from ezsystems/ezdemo, for use via Composer|
-|[ezflow-ls-extension](https://github.com/ezsystems/ezflow-ls-extension)|subtree split from ezsystems/ezflow, for use via Composer|
-|[ezcomments-ls-extension](https://github.com/ezsystems/ezcomments-ls-extension)|subtree split of legacy ezcomments extension, for use via Composer|
