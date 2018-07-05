@@ -193,7 +193,7 @@
          * @param {String} meta.zoneId
          * @returns {HTMLElement}
          */
-    window.eZ.pbExtensionPointCallbacks.customizeNewBlockNode = function (blockNode, meta) {};
+    window.eZ.pageBuilder.callbacks.customizeNewBlockNode = function (blockNode, meta) {};
     ```
 
     ## Extensibility on block preview update
