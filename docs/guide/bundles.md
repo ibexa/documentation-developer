@@ -83,8 +83,6 @@ The following tables give an overview of the main eZ Platform directories.
 |[EzSystemsShareButtonsBundle](https://github.com/ezsystems/EzSystemsShareButtonsBundle)|adds social share buttons|
 |[RepositoryProfilerBundle](https://github.com/ezsystems/RepositoryProfilerBundle)|profiles Platform API/SPI and sets up scenarios to be able to continuously test to keep track of performance regressions of repository and underlying storage engines|
 |[QueryBuilderBundle](https://github.com/ezsystems/QueryBuilderBundle)|provides a PHP API dedicated to fluently writing repository queries|
-|[alloy-editor](https://github.com/ezsystems/alloy-editor)|WYSIWYG editor built on top of CKEditor, designed to create modern web content|
-|[ezmbpaex](https://github.com/ezsystems/ezmbpaex)|functionality for password expiration and validation|
 
 !!! Enterprise
 
@@ -95,8 +93,6 @@ The following tables give an overview of the main eZ Platform directories.
     |[EzLandingPageFieldTypeBundle](https://github.com/ezsystems/EzLandingPageFieldTypeBundle)|Landing Page that is at the heart of StudioUI|
     |[ezstudio-demo-bundle](https://github.com/ezsystems/ezstudio-demo-bundle)|represents a demo front-end website with eZ Studio|
     |[ezstudio-personalized-block](https://github.com/ezsystems/ezstudio-personalized-block)|eZ Systems Personalized Block Bundle|
-    |[ezrecommendation](https://github.com/ezsystems/ezrecommendation)|allows customizing and personalizing your online portal individually for each end user|
-    |[ezmemcachedcluster](https://github.com/ezsystems/ezmemcachedcluster)|adds cluster events support with Memcached backend server|
 
 ### Legacy
 
