@@ -43,7 +43,6 @@ The following tables give an overview of the main eZ Platform directories.
 
 |Bundle|Description|
 |---------|-----------|
-|[ezplatform](https://github.com/ezsystems/ezplatform)|meta repository that pulls in all dependencies for clean distribution of eZ Platform|
 |[ezpublish-kernel](https://github.com/ezsystems/ezpublish-kernel)|contains the core of the whole eZ Platform application e.g. EzPublishCoreBundle|
 |[repository-forms](https://github.com/ezsystems/repository-forms)|provides form-based interaction for the Repository Value objects|
 |[ezplatform-solr-search-engine](https://github.com/ezsystems/ezplatform-solr-search-engine)|[Solr-powered](http://lucene.apache.org/solr/) search handler for eZ Platform|
@@ -55,7 +54,6 @@ The following tables give an overview of the main eZ Platform directories.
 
     |Bundle|Description|
     |---------|-----------|
-    |[ezplatform-ee](https://github.com/ezsystems/ezplatform-ee)|fork of the "ezplatform" meta repository, contains changes to composer.json that pull in all dependencies from updates.ez.no for eZ Platform Enterprise Edition (a commercial distribution of eZ Platform with additional features)|
     |[date-based-publisher](https://github.com/ezsystems/date-based-publisher)|provides the date based publishing functionality for the eZ Studio product|
     |[flex-workflow](https://github.com/ezsystems/flex-workflow)|implementation of a collaboration feature that lets you send content draft to any user for a review or rewriting|
 
@@ -63,9 +61,7 @@ The following tables give an overview of the main eZ Platform directories.
 
 |Bundle|Description|
 |---------|-----------|
-|[ez-js-rest-client](https://github.com/ezsystems/ez-js-rest-client)|JavaScript REST client for eZ Platform RESTv2 API, mimics PHP API found in eZ Platform|
 |[ezplatform-i18n](https://github.com/ezsystems/ezplatform-i18n)|centralized internationalization|
-|[launchpad](https://github.com/ezsystems/launchpad)|CLI tool to bootstrap an eZ Platform project Docker stack|
 |[ezplatform-demo-assets](https://github.com/ezsystems/ezplatform-demo-assets)|contains binary install data for ezsystems/ezplatform-demo|
 |[PlatformUIBundle](https://github.com/ezsystems/PlatformUIBundle)|provides the main editing and back-end interface for eZ Platform v1|
 |[PlatformUIAssetsBundle](https://github.com/ezsystems/PlatformUIAssetsBundle)|assets for PlatformUIBundle, branches will only contain meta files and config, tags will contain the assets for eZ Platform v1|
