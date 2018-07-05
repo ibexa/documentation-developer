@@ -101,7 +101,8 @@ If you want to take SiteAccess languages into account:
 -   Provide prioritized languages on `load()` this will be taken into account by the returned Content object when retrieving translated properties like fields, for example:
     `$contentService->loadContent( 66, $configResolver->getParameter('languages'));`
     -   `ConfigResolver` is a service, so it can be obtained from Symfony Container or injected directly: `@ezpublish.config.resolver`.
-    -   See [below](#siteaccess-aware-repository-optional) for information about SiteAccess-aware repository.
+
+See [below](#siteaccess-aware-repository-optional) for information about SiteAccess-aware repository.
 
 Otherwise if you want to use an altogether different language, you can specify a language code in the `getField()` call:
 
