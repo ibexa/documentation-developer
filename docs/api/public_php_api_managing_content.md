@@ -65,10 +65,6 @@ In order to set a Location for your object, you must instantiate a [`LocationCre
 $locationCreateStruct = $locationService->newLocationCreateStruct( 2 );
 ```
 
-#### Location object with access to Content
-    
-You can directly get it by using `$location->getContent()`, it can also be very useful in a Twig via `location.content`. This functionality additionally introduces possibility to specify prioritised languages when loading a Location. Content will be loaded on-demand across result set you are loading (e.g. search and other places you can load several Locations).
-
 ### Creating and publishing
 
 To actually create your Content in the Repository, you need to use `ContentService::createContent()`. This method expects a `ContentCreateStruct`, as well as a `LocationCreateStruct`. You have created both in the previous steps.
@@ -244,7 +240,7 @@ The XML Text Field Type is not officially supported by eZ Platform, it was repla
 
 !!! warning
 
-    The XML Text is not officially supported, it was replaced by RichText. 
+    The XML Text is not officially supported, it was replaced by RichText.
 
 ``` php
 $xmlText = <<< EOX

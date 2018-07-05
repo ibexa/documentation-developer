@@ -101,7 +101,7 @@ If you want to take SiteAccess languages into account:
 -   Provide prioritized languages on `load()` this will be taken into account by the returned Content object when retrieving translated properties like fields, for example:
     `$contentService->loadContent( 66, $configResolver->getParameter('languages'));`
     -   `ConfigResolver` is a service, so it can be obtained from Symfony Container or injected directly: `@ezpublish.config.resolver`.
-    -   *Note: As of v2.0 this is planned to be done for you when you don't specify languages.*
+    -   See [below](#siteaccess-aware-repository-optional) for information about SiteAccess-aware repository.
 
 Otherwise if you want to use an altogether different language, you can specify a language code in the `getField()` call:
 
@@ -125,6 +125,37 @@ catch ( \eZ\Publish\API\Repository\Exceptions\UnauthorizedException $e )
 As said earlier, the public API uses [Exceptions](http://php.net/exceptions) to handle errors. Each method of the API may throw different exceptions, depending on what it does. Which exceptions can be thrown is usually documented for each method. In our case, `loadContent()` may throw two types of exceptions: `NotFoundException`, if the requested ID isn't found, and `UnauthorizedException` if the currently logged in user isn't allowed to view the requested content.
 
 It is a good practice to cover each exception you expect to happen. In this case, since our Command takes the Content ID as a parameter, this ID may either not exist, or the referenced Content item may not be visible to our user. Both cases are covered with explicit error messages.
+
+### SiteAccess-aware Repository - optional
+
+The SiteAccess-aware repository is an instance of the eZ Platform Repository API which injects prioritised languages for you when you load data *(Content, Location, Content type, etc.)* and don't specify languages to load yourself in API arguments.
+
+Currently it is:
+
+- Available as a private service `ezpublish.siteaccessaware.repository`, including for the other Repository services
+- Used out of the box on parameter converters for Content and Location
+- Used out of the box on ContentView
+
+Example of code before using SiteAccess-aware repository:
+
+``` php
+$content = $this->contentService->loadContent(
+    42,
+    $this->configResolver->getParameter('languages')
+);
+
+$name = $content->getVersionInfo()->getName();
+$value = $content->getFieldValue('body')
+```
+
+Becomes:
+
+``` php
+$content = $this->contentService->loadContent(42);
+
+$name = $content->getVersionInfo()->getName();
+$value = $content->getFieldValue('body')
+```
 
 ## Traversing a Location subtree
 
@@ -241,6 +272,10 @@ foreach ( $locations as $location )
 ```
 
 First use `LocationService::loadLocations()` to **get** the **Locations** for `ContentInfo`. This method returns an array of [`Location`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Location.php) value objects. In this example, you print out the Location's path string (/path/to/content). You also use [URLAliasService::reverseLookup()](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/URLAliasService.html#method_reverseLookup) to get the Location's main [URLAlias](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/URLAlias.html).
+
+#### Location object with access to Content
+
+You can directly get it by using `$location->getContent()`, it can also be very useful in a Twig via `location.content`. This functionality additionally introduces possibility to specify prioritised languages when loading a Location. Content will be loaded on-demand across result set you are loading (e.g. search and other places you can load several Locations).
 
 ### Relations
 

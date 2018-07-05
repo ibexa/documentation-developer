@@ -107,8 +107,8 @@ New Bookmark service had been added. Bookmark operations are now available via t
 
 This release introduces a few notable simplifications to API use. Here are some highlights:
 
-- [Location object now gives access to Content](../api/public_php_api_managing_content.md#location-object-with-access-to-content)
-- [Optional SiteAccessAware Repository](../guide/internationalization.md#siteaccessaware-repository-optional)
+- [Location object now gives access to Content](../api/public_php_api_browsing.md#location-object-with-access-to-content)
+- [Optional SiteAccessAware Repository](../api/public_php_api_browsing.md#siteaccess-aware-repository-optional)
 
 ## Full list of new features, improvements and bug fixes since v2.1.0
 
