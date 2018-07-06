@@ -646,3 +646,57 @@ There are two known limitations to moving between SiteAccesses in eZ Enterprise'
 1. On a Page you can encounter a 404 error when clicking a relative link which points to a different SiteAccess (if the Content item being previewed does not exist in the previously used SiteAccess). This is because detecting SiteAccesses when navigating in preview is not functional yet. This is a known limitation that is awaiting resolution.
 
 1. When navigating between SiteAccesses in the back office using the top bar, you are always redirected to the main page, not to the Content item you started from.
+
+## Injecting SiteAccess
+
+SiteAccess is exposed in the Dependency Injection Container as the `@ezpublish.siteaccess` service, so it can be injected into any custom service.
+
+The `@ezpublish.siteaccess` service, if needed, must be injected using setter injection. It comes from the fact that SiteAccess matching
+is done in a `kernel.request` event listener, so when injected into a constructor, it might not be initialized properly.
+
+To ensure proper contract, the `eZ\Publish\Core\MVC\Symfony\SiteAccess\SiteAccessAware` interface can be implemented on a custom service.
+
+### Example
+
+Let's define a simple service which depends on the Repository's ContentService and the current SiteAccess.
+
+```yaml
+services:
+    acme.test.my_service:
+        class: Acme\AcmeTestBundle\MyService
+        arguments: ['@ezpublish.api.service.content']
+        calls:
+            - [setSiteAccess, ['@ezpublish.siteaccess']]
+```
+
+```php
+<?php
+namespace Acme\AcmeTestBundle;
+
+use eZ\Publish\API\Repository\ContentService;
+use eZ\Publish\Core\MVC\Symfony\SiteAccess;
+use eZ\Publish\Core\MVC\Symfony\SiteAccess\SiteAccessAware;
+
+class MyService implements SiteAccessAware
+{
+    /**
+     * @var \eZ\Publish\API\Repository\ContentService
+     */
+    private $contentService;
+
+    /**
+     * @var \eZ\Publish\Core\MVC\Symfony\SiteAccess
+     */
+    private $siteAccess;
+
+    public function __construct(ContentService $contentService )
+    {
+        $this->contentService = $contentService;
+    }
+
+    public function setSiteAccess(SiteAccess $siteAccess = null)
+    {
+        $this->siteAccess = $siteAccess;
+    }
+}
+```
