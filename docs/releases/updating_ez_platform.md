@@ -136,7 +136,7 @@ Because from release 16.02 onwards eZ Platform is compatible only with PHP 5.5 a
 
         During update from 1.13.2 to 1.13.3 if you do not use default form-builder template you should add `data-field-id` attribute manually to every `<img class="ezform-captcha-image"...` and `<a class="ezform-captcha-reload"` element. 
         For more information see https://github.com/ezsystems/ezplatform-ee-demo/pull/59
-        
+
 
 !!! caution "Common errors"
 
@@ -280,6 +280,96 @@ These steps are only relevant for some releases:
                     charset: utf8mb4
     ```
     Also make the corresponding change in `app/config/dfs/dfs.yml`.
+
+!!! note "v2.2: Page builder"
+
+    To update to v2.2, you need to run the following script to add database tables for the Page Builder:
+
+    ??? note "Database update script"
+
+        ```
+        --
+        -- Page Builder
+        --
+
+        DROP TABLE IF EXISTS `ezpage_attributes`;
+        CREATE TABLE `ezpage_attributes` (
+          `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+          `name` varchar(255) NOT NULL DEFAULT '',
+          `value` text,
+          PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+        DROP TABLE IF EXISTS `ezpage_blocks`;
+        CREATE TABLE `ezpage_blocks` (
+          `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+          `type` varchar(255) NOT NULL DEFAULT '',
+          `view` varchar(255) NOT NULL DEFAULT '',
+          `name` varchar(255) NOT NULL DEFAULT '',
+          PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+        DROP TABLE IF EXISTS `ezpage_blocks_design`;
+        CREATE TABLE `ezpage_blocks_design` (
+          `id` INT(11) NOT NULL AUTO_INCREMENT,
+          `block_id` INT(11) NOT NULL,
+          `style` TEXT DEFAULT NULL,
+          `compiled` TEXT DEFAULT NULL,
+          `class` VARCHAR(255) DEFAULT NULL,
+          PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+        DROP TABLE IF EXISTS `ezpage_blocks_visibility`;
+        CREATE TABLE `ezpage_blocks_visibility` (
+          `id` INT(11) NOT NULL AUTO_INCREMENT,
+          `block_id` INT(11) NOT NULL,
+          `since` INT(11) DEFAULT NULL,
+          `till` INT(11) DEFAULT NULL,
+          PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+        DROP TABLE IF EXISTS `ezpage_map_attributes_blocks`;
+        CREATE TABLE `ezpage_map_attributes_blocks` (
+          `attribute_id` int(11) NOT NULL,
+          `block_id` int(11) NOT NULL,
+          PRIMARY KEY (`attribute_id`,`block_id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+        DROP TABLE IF EXISTS `ezpage_map_blocks_zones`;
+        CREATE TABLE `ezpage_map_blocks_zones` (
+          `block_id` int(11) NOT NULL,
+          `zone_id` int(11) NOT NULL
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+        DROP TABLE IF EXISTS `ezpage_map_zones_pages`;
+        CREATE TABLE `ezpage_map_zones_pages` (
+          `zone_id` int(11) NOT NULL,
+          `page_id` int(11) NOT NULL,
+          PRIMARY KEY (`zone_id`,`page_id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+        DROP TABLE IF EXISTS `ezpage_pages`;
+        CREATE TABLE `ezpage_pages` (
+          `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+          `version_no` int(11) unsigned NOT NULL,
+          `content_id` int(11) NOT NULL,
+          `language_code` varchar(255) NOT NULL DEFAULT '',
+          `layout` varchar(255) NOT NULL DEFAULT '',
+          PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+        DROP TABLE IF EXISTS `ezpage_zones`;
+        CREATE TABLE `ezpage_zones` (
+          `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+          `name` varchar(255) NOT NULL DEFAULT '',
+          PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+        ```
+
+!!! caution "Updating to 2.2"
+
+    To update to 2.2 with existing Content you will need a dedicated script for converting the Landing Page into the new Page.
+    [This script is currently a work in progress.](https://jira.ez.no/browse/EZEE-2150)    
 
 ## 5. Dump assets
 
