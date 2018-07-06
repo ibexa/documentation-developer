@@ -20,9 +20,9 @@ The Tweet Field Type is going to store three elements:
 - The tweet's author URL
 - The body, as an HTML string
 
-At this point, it does not matter where they are stored. All that matters is *what you want the Field Type to expose as an API*.
+At this point, it does not matter where they are stored. You want to focus on *what the Field Type exposes as an API*.
 
-`eZ/Publish/FieldType/Tweet/Value.php` will end up with the following properties:
+`eZ/Publish/FieldType/Tweet/Value.php` should have the following properties:
 
 ``` php
 <?php

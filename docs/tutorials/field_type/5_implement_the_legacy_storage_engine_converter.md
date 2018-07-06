@@ -1,9 +1,9 @@
 # Step 5 - Implement the Legacy Storage Engine Converter
 
 So far, the Field Type's value is represented by the `Tweet\Value` class.
-It holds a semantic representation of the type's data: a URL, author URL and the tweet's content.
+It holds a semantic representation of the type's data: a URL, an author URL and the tweet's content.
 
-The next step is to tell the system how to store this.
+The next step is to tell the system how to store it.
 
 ## About converters
 

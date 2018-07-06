@@ -25,7 +25,7 @@ protected $validatorConfigurationSchema = [
 ];
 ```
 
-For a TextLine (length validation), it means checking that both minimum and maximum length are positive integers,
+For a TextLine (length validation), it means checking that both minimum and maximum lengths are positive integers,
 and that minimum is lower than maximum.
 
 When an instance of the type is added to a Content Type,

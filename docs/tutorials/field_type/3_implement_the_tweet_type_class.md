@@ -15,7 +15,7 @@ Let's go over those methods and their implementation.
 
 #### `getFieldTypeIdentifier()`
 
-This method must return the string that **uniquely** identifies this Field Type, in this case "`eztweet`":
+This method must return the string that **uniquely** identifies the Field Type, in this case "`eztweet`":
 
 ``` php
 public function getFieldTypeIdentifier()
@@ -32,7 +32,7 @@ Both methods are used by the abstract Field Type implementation of `acceptValue(
 This Field Type interface method checks and transforms various input values into the Type's own Value class: `eZ\FieldType\Tweet\Value`.
 This method must:
 
-- either **return the Value object** it was able to create out of the input value,
+- either **return the value object** it was able to create out of the input value,
 - or **return this value untouched**. The API will detect this and inform that the input value was not accepted.
 
 The only acceptable value for the type is the URL of a tweet:
@@ -65,7 +65,7 @@ protected function checkValueStructure(CoreValue $value)
 }
 ```
 
-THe differenc between this method and `createValueFromInput()` is that `createValueFromInput()` will, *if given something else than a Value of its type*, try to convert it to one. `checkValueStructure()` will always be used, even if the Field Type is directly fed a `Value` object, and not a string.
+The difference between this method and `createValueFromInput()` is that `createValueFromInput()` will, *if given something else than a value of its type*, try to convert it to one. `checkValueStructure()` will always be used, even if the Field Type is directly fed a value object, and not a string.
 
 ### Value initialization
 
@@ -122,8 +122,8 @@ You will create [more advanced custom validation later in the tutorial](8_add_a_
 
 Field Types require two methods related to Field metadata:
 
-- `getFieldName()` is used to generate a name out of a Field value, either to name a Content item (naming pattern in legacy) or to generate a part for a URL alias.
-- `getSortInfo()` is used by the persistence layer to obtain the value it can use to sort and filter on a Field of this type.
+- `getFieldName()` is used to generate a name out of a Field value, either to name a Content item or to generate a part for a URL alias.
+- `getSortInfo()` is used by the persistence layer to obtain the value it can use to sort and filter on a Field of this Field Type.
 
 A tweet's full URL isn't suitable as a name. Instead use subset of it: `<username>-<tweetId>` is suitable for both sorting and naming.
 
@@ -145,7 +145,7 @@ protected function getSortInfo(CoreValue $value)
 }
 ```
 
-In `getFieldName()` you run a regular expression replace on the URL to extract the part you're interested in.
+In `getFieldName()` you run a regular expression replace operation on the URL to extract the part you're interested in.
 
 This name is a perfect match for `getSortInfo()` as it allows you to sort by the tweet's author and by the tweet's ID.
 
@@ -200,10 +200,10 @@ public function toHash(SPIValue $value)
 
 Storage of Field Type data is done through the persistence layer (SPI).
 
-Field Types use their own Value objects to expose their contents using their own domain language.
+Field Types use their own value objects to expose their contents using their own domain language.
 However, to store those objects, the Type needs to map this custom object
 to a structure understood by the persistence layer: `PersistenceValue`.
-This simple value object has three properties:
+`PersistenceValue` is a simple value object that has three properties:
 
 - `data` - standard data, stored using the storage engine's native features
 - `externalData` - external data, stored using a custom storage handler
@@ -252,7 +252,7 @@ public function fromPersistenceValue(PersistenceValue $fieldValue)
 
 ## Fetching data from the Twitter API
 
-As explained in the tutorial's introduction, you will enrich the tweet's URL with the embed version, fetched using the Twitter API. To do so, you will, when `toPersistenceValue()` is called, fill in the value's contents property from this method, before creating the `PersistenceValue` object.
+As explained in the tutorial's introduction, you will enrich the tweet's URL with the embed version, fetched using the Twitter API. To do so, you will fill in the value's contents property from the `toPersistenceValue()` when it is called, before creating the `PersistenceValue` object.
 
 First, you need a Twitter client in `Tweet\Type`. For convenience, one is provided in this tutorial's bundle.
 Copy the following files to your bundle's directory:
@@ -320,7 +320,7 @@ public function toPersistenceValue(SPIValue $value)
 }
 ```
 
-When the persistence layer stores content from our type, the value will be completed with what the Twitter API returns.
+When the persistence layer stores content from your type, the value will be completed with what the Twitter API returns.
 
 ## Add required `use` statements
 

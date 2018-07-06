@@ -204,7 +204,7 @@ First, you need to add a template file that will be responsible for displaying t
 
 ### JavaScript view file
 
-Next, you need to create a  JavaScript file that will be responsible for handling the template
+Next, you need to create a JavaScript file that will be responsible for handling the template
 (`Resources/public/js/views/fields/ez-tweet-view.js`):
 
 ```javascript
@@ -267,6 +267,6 @@ ez-tweet-view:
 
 After these steps you should see correct information when viewing Content Item in the Content structure tab in PlatformUI.
 
-You should now be able to display a Content item with this Field Type from the front office, with a fully functional embed:
+You should now be able to display a Content item with this Field Type, with a fully functional embed:
 
 ![Final result of the tutorial](img/fieldtype_tutorial_final_result.png)
