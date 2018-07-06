@@ -98,9 +98,22 @@ Installation types used with the `ezplatform:install` command are now more consi
 
 You can also use the new `composer ezplatform-install` command which automatically chooses a correct installation type for the given meta-repository.
 
+## API changes
+
 ### Notifications
 
 [Notification Bundle](https://github.com/ezsystems/ezstudio-notifications) is now moved into CoreBundle of [EzPublishKernel](https://github.com/ezsystems/ezpublish-kernel).  This allows whole community to get access to eZ notification system.
+
+### Bookmarks
+
+New Bookmark service had been added. Bookmark operations are now available via the REST API.
+
+### Simplified use of Content and languages in API
+
+This release introduces a few notable simplifications to API use. Here are some highlights:
+
+- [Location object now gives access to Content](../api/public_php_api_browsing.md#location-object-with-access-to-content)
+- [Optional SiteAccessAware Repository](../api/public_php_api_browsing.md#siteaccess-aware-repository-optional)
 
 ## Full list of new features, improvements and bug fixes since v2.1.0
 

@@ -240,7 +240,7 @@ The XML Text Field Type is not officially supported by eZ Platform, it was repla
 
 !!! warning
 
-    The XML Text is not officially supported, it was replaced by RichText. 
+    The XML Text is not officially supported, it was replaced by RichText.
 
 ``` php
 $xmlText = <<< EOX
