@@ -1,6 +1,7 @@
-# Add a validation
+# Step 8 - Add a validation
 
-We want to add the option to configure a list of authors whose tweets are allowed. To achieve this, we have to:
+Now you will add the option to configure a list of authors whose tweets are allowed. To achieve this, you have to:
+
 - implement `validateValidatorConfiguration()` and `validate()` methods in the Type class
 - implement the FormMapper
 - add field definition edit view
@@ -8,13 +9,12 @@ We want to add the option to configure a list of authors whose tweets are allowe
 
 ## Implement `validateValidatorConfiguration()` and `validate()` methods in the Type class
 
-`validateValidatorConfiguration()` will be called when an instance of the Field Type is added to a Content Type, to ensure that the validator configuration is valid.
+`validateValidatorConfiguration()` will be called when an instance of the Field Type is added to a Content Type,
+to ensure that the validator configuration is valid.
 
-For the validator schema configuration, you can add:
+For the validator schema configuration, add the following to `eZ/Publish/FieldType/Tweet/Type.php`:
 
 ``` php
-// eZ/Publish/FieldType/Tweet/Type.php
-
 protected $validatorConfigurationSchema = [
     'TweetValueValidator' => [
         'authorList' => [
@@ -25,9 +25,13 @@ protected $validatorConfigurationSchema = [
 ];
 ```
 
-For a TextLine (length validation), it means checking that both minimum and maximum length are positive integers, and that minimum is lower than maximum.
+For a TextLine (length validation), it means checking that both minimum and maximum lengths are positive integers,
+and that minimum is lower than maximum.
 
-When an instance of the type is added to a Content Type, `validateValidatorConfiguration()` method receives the configuration for the validators used by the Type as an array. This method must return an array of error messages if errors are found in the configuration, and an empty array if no errors were found.
+When an instance of the type is added to a Content Type,
+`validateValidatorConfiguration()` receives the configuration for the validators used by the Type as an array.
+This method must return an array of error messages if errors are found in the configuration,
+and an empty array if no errors were found.
 
 For the TextLine Field Type included in eZ Platform, an example array passed to `validateValidatorConfiguration()` method looks like this:
 
@@ -40,14 +44,17 @@ For the TextLine Field Type included in eZ Platform, an example array passed to 
 ];
 ```
 
-The structure of this array depends on each Field Type implementation. The best practice is to mimic what is done in native Field Types.
+The structure of this array depends on each Field Type implementation.
+The best practice is to mimic what is done in native Field Types.
 
-Each level one key is the name of a validator, as acknowledged by the Type. That key contains a set of parameter name / parameter value rows. You must check that:
+Each level one key is the name of a validator, as acknowledged by the Type.
+That key contains a set of parameter name / parameter value rows. You must check that:
 
 - all the validators in this array are known to the type
 - arguments for those validators are valid and have correct values
 
-You do not need to include mandatory validators if they don’t have options. Here is an example of what your Type expects as validation configuration:
+You do not need to include mandatory validators if they don't have options.
+Here is an example of what the Type expects as validation configuration:
 
 ``` php
 [
@@ -57,17 +64,16 @@ You do not need to include mandatory validators if they don’t have options. He
 ];
 ```
 
-The configuration says that tweets must be either by `johndoe` or by `janedoe`. If you had not provided `TweetValueValidator` at all, it would have been ignored.
+The configuration says that tweets must be either by `johndoe` or by `janedoe`.
+If you had not provided `TweetValueValidator` at all, it would have been ignored.
 
 You will iterate over the items in `$validatorConfiguration` and:
 
-- add errors for validators you don’t know about;
+- add errors for validators you don't know about;
 - check that provided arguments are known and valid:
   - `TweetValueValidator` accepts a non-empty array of valid Twitter usernames
 
 ``` php
-// eZ/Publish/FieldType/Tweet/Type.php
-
 public function validateValidatorConfiguration($validatorConfiguration)
 {
     $validationErrors = [];
@@ -105,8 +111,6 @@ public function validateValidatorConfiguration($validatorConfiguration)
 `validate()` is the method that runs the actual validation on data:
 
 ``` php
-// eZ/Publish/FieldType/Tweet/Type.php
-
 public function validate(FieldDefinition $fieldDefinition, SPIValue $fieldValue)
 {
     $errors = [];
@@ -147,16 +151,17 @@ private function isAuthorApproved($author, $validatorConfiguration)
 }
 ```
 
-Earlier we validated the URL with a regular expression. Now, if the configuration of your Field Type's instance contains a TweetValueValidator key, you will check that the username in the status URL matches one of the valid authors.
+Earlier you validated the URL with a regular expression.
+Now, if the configuration of the Field Type's instance contains a `TweetValueValidator` key,
+you will check that the username in the status URL matches one of the valid authors.
 
 ## Implement FormMapper
 
-We would like to offer a way to the user to input a list of authors (upon which the data will be validated). To achieve this, we will implement a FormMapper that allows us to define the necessary input field.
-This is a minimal example of our FormMapper:
+Now you need to offer a way to the user to input a list of authors (upon which the data will be validated).
+To achieve this, you will implement a `FormMapper` that allows you to define the necessary input field.
+This is a minimal example of `eZ/Publish/FieldType/Tweet/FormMapper.php`:
 
 ```php
-// eZ/Publish/FieldType/Tweet/FormMapper.php
-
 namespace EzSystems\TweetFieldTypeBundle\eZ\Publish\FieldType\Tweet;
 
 use EzSystems\RepositoryForms\Data\FieldDefinitionData;
@@ -178,11 +183,12 @@ class FormMapper implements FieldDefinitionFormMapperInterface
 }
 ```
 
-In our case, the TweetValueValidator expects authorList to be an array. On the other hand, our input field has TextType, so it will return a string. To solve this, we will transform data from an array to a comma-separated string and in the other way using a DataTransformer:
+In this case, the `TweetValueValidator` expects `authorList` to be an array.
+On the other hand, the input field has TextType, so it will return a string.
+To solve this, transform data from an array to a comma-separated string and the other way using a `DataTransformer`.
+Create `TweetFieldTypeBundle/Form/StringToArrayTransformer.php`:
 
 ```php
-// Form/StringToArrayTransformer.php
-
 namespace EzSystems\TweetFieldTypeBundle\Form;
 
 use Symfony\Component\Form\DataTransformerInterface;
@@ -214,10 +220,9 @@ class StringToArrayTransformer implements DataTransformerInterface
 }
 ```
 
-Then, we can use this DataTransformer in our FormMapper like this:
-```php
-// eZ/Publish/FieldType/Tweet/FormMapper.php
+Then, you can use this `DataTransformer` in the `FormMapper` like this:
 
+```php
 namespace EzSystems\TweetFieldTypeBundle\eZ\Publish\FieldType\Tweet;
 
 use EzSystems\RepositoryForms\Data\FieldDefinitionData;
@@ -232,7 +237,7 @@ class FormMapper implements FieldDefinitionFormMapperInterface
     {
         $fieldDefinitionForm
             ->add(
-                // Creating from FormBuilder as we need to add a DataTransformer.
+                // Creating from FormBuilder as you need to add a DataTransformer.
                 $fieldDefinitionForm->getConfig()->getFormFactory()->createBuilder()
                     ->create('authorList', TextType::class, [
                         'required' => false,
@@ -240,29 +245,30 @@ class FormMapper implements FieldDefinitionFormMapperInterface
                         'label' => 'field_definition.eztweet.authorList'
                     ])
                     ->addModelTransformer(new StringToArrayTransformer())
-                    // Deactivate auto-initialize as we're not on the root form.
+                    // Deactivate auto-initialize as you're not on the root form.
                     ->setAutoInitialize(false)->getForm()
             );
     }
 }
 ```
 
-Next thing is to register the FormMapper as a service, so the system would know to use it to automatically add the input field to the Content Type edit form. You can read more about services and [service container in the documentation](../../guide/service_container/). To register the FormMapper as a service, let's add the following lines to `fieldtypes.yml`:
-```yml
-// Resources/config/fieldtypes.yml
+Next thing is to register the `FormMapper` as a service, so the system would know to use it to automatically add the input field to the Content Type edit form.
+You can read more about services and [service container in the documentation](../../guide/service_container/).
+To register the FormMapper as a service, add the following lines to `Resources/config/fieldtypes.yml`:
 
-    ezsystems.tweetbundle.fieldtype.eztweet.form_mapper:
-        class: EzSystems\TweetFieldTypeBundle\eZ\Publish\FieldType\Tweet\FormMapper
-        tags:
-            - {name: ez.fieldFormMapper.definition, fieldType: eztweet}
+```yml
+ezsystems.tweetbundle.fieldtype.eztweet.form_mapper:
+    class: EzSystems\TweetFieldTypeBundle\eZ\Publish\FieldType\Tweet\FormMapper
+    tags:
+        - {name: ez.fieldFormMapper.definition, fieldType: eztweet}
 ```
 
 ## Add field definition edit view
 
-We have the new part of the form defined, but we still need to show it to the user. To do that, we will create a file containing the view:
-```html
-// Resources/views/platformui/content_type/edit/eztweet.html.twig
+You have the new part of the form defined, but you still need to show it to the user.
+To do that, create a file containing the view, `Resources/views/platformui/content_type/edit/eztweet.html.twig`:
 
+```html
 {% block eztweet_field_definition_edit %}
     <div class="eztweet-validator author_list{% if group_class is not empty %} {{ group_class }}{% endif %}">
         {{- form_label(form.authorList) -}}
@@ -272,20 +278,19 @@ We have the new part of the form defined, but we still need to show it to the us
 {% endblock %}
 ```
 
-Also, we will register the new template in the configuration by editing the `ez_field_templates.yml` file:
-```yml
-// Resources/config/ez_field_templates.yml
+Register the new template in the configuration by editing the `Resources/config/ez_field_templates.yml` file:
 
-        fielddefinition_edit_templates:
-            - {template: EzSystemsTweetFieldTypeBundle:platformui/content_type/edit:eztweet.html.twig, priority: 0}
+```yml
+fielddefinition_edit_templates:
+    - {template: EzSystemsTweetFieldTypeBundle:platformui/content_type/edit:eztweet.html.twig, priority: 0}
 ```
 
 ## Implement `toStorageFieldDefinition()` and `toFieldDefinition()` methods in LegacyConverter
 
-The last thing to do is to make sure that validation data is properly saved into and retrieved from the database. To achieve this, we will implement these two functions in LegacyConverter file:
-```php
-// eZ/Publish/FieldType/Tweet/LegacyConverter.php
+The last thing to do is to make sure that validation data is properly saved into and retrieved from the database.
+To achieve this, implement these two functions in `eZ/Publish/FieldType/Tweet/LegacyConverter`:
 
+```php
 public function toStorageFieldDefinition(FieldDefinition $fieldDef, StorageFieldDefinition $storageDef)
 {
     $storageDef->dataText1 = json_encode(
@@ -306,9 +311,10 @@ public function toFieldDefinition(StorageFieldDefinition $storageDef, FieldDefin
 }
 ```
 
-`toStorageFieldDefinition()` converts a field definition to a legacy one using the `dataText1` field (which in this example means converting it to json), and `toFieldDefinition()` converts a stored legacy field definition to an API field definition (which means converting it back to an array according to validation schema).
+`toStorageFieldDefinition()` converts a Field definition to a legacy one using the `dataText1` field
+(which in this example means converting it to JSON).
+`toFieldDefinition()` converts a stored legacy field definition to an API Field definition
+(which means converting it back to an array according to validation schema).
 
 You should now be able to configure a list of authors when editing a Content Type with the Tweet Field Type.
-You should also have your tweets validated in accordance to this list when you create or edit Content Item with this Field Type.
-
-⬅ Previous: [Add content and edit views](7_add_content_and_edit_views.md)
+You should also have tweets validated in accordance to this list when you create or edit Content Item with this Field Type.
