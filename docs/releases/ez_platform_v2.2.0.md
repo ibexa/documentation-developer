@@ -35,6 +35,13 @@ In the Page block config you can now specify the CSS class with its own style fo
 
 ![Setting the styling in Block configuration](img/2.2_block_settings_styling.png)
 
+!!! caution "Updating to 2.2"
+
+    Refer to [Updating eZ Platform](updating_ez_platform.md#4-update-database) for a database update script.
+
+    To update to 2.2 with existing Content you will need a dedicated script for converting the Landing Page into the new Page.
+    [This script is currently a work in progress.](https://jira.ez.no/browse/EZEE-2150)
+
 ### Bookmarks
 
 Bookmark service allows you to create bookmarks for Locations by selecting a star located next to the Content Type name as shown in the screenshot below. Each Location can only be bookmarked once, multiple bookmarks on one Location will cause an error.
