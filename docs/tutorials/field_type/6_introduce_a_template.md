@@ -104,25 +104,3 @@ system:
 
 Notice that you do not need to provide the `ezpublish` YAML block here.
 This is because you already import the configuration under the `ezpublish` namespace in the `prepend` method.
-
-## Adding `eztweet_settings` block
-
-To be able to display a Content item you need to add a Twig file with an `eztweet_settings` block.
-
-First, create a new file `Resources/views/platformui/content_type/view/eztweet.html.twig` with following content:
-
-``` html
-{% block eztweet_settings %}
-{% endblock %}
-```
-
-Then, add its definition to `Resources/config/ez_field_templates.yml`, so it looks like this:
-
-``` yml
-system:
-    default:
-        field_templates:
-            - {template: EzSystemsTweetFieldTypeBundle:fields:eztweet.html.twig, priority: 0}
-        fielddefinition_settings_templates:
-            - {template: EzSystemsTweetFieldTypeBundle:platformui/content_type/view:eztweet.html.twig, priority: 0}
-```
