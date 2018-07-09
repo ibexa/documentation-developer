@@ -1,4 +1,4 @@
-# Creating a UDW tab
+# Step 5 - Creating a UDW tab
 
 The Universal Discovery Widget (UDW) is a separate React module.
 By default it contains two tabs: Browse and Search.
