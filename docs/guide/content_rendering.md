@@ -174,7 +174,7 @@ The `ViewProvider` selects the right template (view type, correct parameters, et
 
 The ViewProviders are objects implementing the `eZ\Publish\Core\MVC\Symfony\View\ViewProvider` interface.
 
-By default, the [Configured ViewProvider](#configuring-views-the-viewprovider) is used. It selects templates using the application configuration.
+By default, the [Configured ViewProvider](#configuring-views-the-viewprovider) is used. It selects templates using the view configuration.
 
 #### Custom ViewProvider
 
