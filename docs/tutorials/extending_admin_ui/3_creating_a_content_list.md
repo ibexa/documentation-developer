@@ -1,4 +1,4 @@
-# Creating a content list
+# Step 3 - Creating a content list
 
 The next thing you will extend in this tutorial is the top menu.
 

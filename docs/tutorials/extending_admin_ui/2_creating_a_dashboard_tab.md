@@ -1,8 +1,8 @@
-# Creating a Dashboard tab
+# Step 2 - Creating a Dashboard tab
 
 The Dashboard is the front page that you visit after logging in to the Back Office.
 By default it contains two blocks: "Me" and "Everyone", which list Content items and Media.
-The "Me" block additionally lists your own drafts.
+The "Me" block additionally lists the current user's drafts.
 
 ![Unmodified dashboard](img/dashboard.png)
 
@@ -119,8 +119,8 @@ class EveryoneArticleTab extends AbstractTab implements OrderedTabInterface
     The tab extends `AbstractTab`.
     There are also [other tab types that you can extend](../../guide/extending_ez_platform.md#adding-a-new-tab).
 
-The tab also implements `OrderedTabInterface` (see line 15), which enables you to define the order in which the tab is displayed in the Dashboard.
-This is done using the `getOrder` method (see line 45).
+The tab also implements `OrderedTabInterface` (see line 17), which enables you to define the order in which the tab is displayed in the Dashboard.
+This is done using the `getOrder` method (see line 47).
 
 The rendering is done using the built-in `all_content.html.twig` template,
 which ensures the tab looks the same as the existing tabs.
