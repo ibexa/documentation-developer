@@ -1,4 +1,4 @@
-# Creating a custom tag
+# Step 6 - Creating a custom tag
 
 eZ Platform's RichText Field contains some built-in elements you can use, such as an image or a table.
 You can also add custom tags that will enable you to add additional elements to RichText Fields.
@@ -7,7 +7,7 @@ In this step you will add a custom tag which will enable you to embed YouTube vi
 
 ## Configure the custom tag
 
-First, create a file that will contain the configuration for your custom tags.
+First, create a file that will contain the configuration for the custom tags.
 Add file `custom_tags.yml` to `src/EzSystems/ExtendingTutorialBundle/Resources/config`:
 
 ``` yaml hl_lines="5 10 12"
