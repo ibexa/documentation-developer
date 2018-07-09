@@ -45,7 +45,7 @@ In this tutorial you will go through the following steps:
 - [4. Register the Field Type as a service](4_register_the_field_type_as_a_service.md)
 - [5. Implement the Legacy Storage Engine Converter](5_implement_the_legacy_storage_engine_converter.md)
 - [6. Introduce a template](6_introduce_a_template.md)
-- [7. Add content and edit views](7_add_content_and_edit_views.md)
+- [7. Allow adding and editing the Field in Back Office](7_allow_adding_and_editing_the_field_in_back_office.md)
 - [8. Add a validation](8_add_a_validation.md)
 
 ![Final result of the tutorial](img/fieldtype_tutorial_final_result.png)

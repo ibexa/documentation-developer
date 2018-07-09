@@ -1,13 +1,15 @@
-# Allow adding and editing the Field in Back Office
+# Step 7 - Allow adding and editing the Field in Back Office
 
-To be able to add and edit Content Item with our Field Type using Back Office, we will implement a FormMapper with FieldValueFormMapperInterface. 
-DataTransformer is also needed in order to correctly transform our Value Object into single input field.
+To be able to add and edit a Content item with the new Field Type using Back Office,
+you will implement a `FormMapper` with `FieldValueFormMapperInterface`.
+A `DataTransformer` is also needed in order to correctly transform the value object into a single input field.
 
-# FormMapper
+## FormMapper
+
+In `eZ/Publish/FieldType/Tweet/FormMapper.php`:
+
 ``` php
 <?php
-// eZ/Publish/FieldType/Tweet/FormMapper.php
-
 namespace EzSystems\TweetFieldTypeBundle\eZ\Publish\FieldType\Tweet;
 
 use EzSystems\RepositoryForms\Data\FieldDefinitionData;
@@ -21,7 +23,7 @@ class FormMapper implements FieldValueFormMapperInterface
     {
         $this->fieldTypeService = $fieldTypeService;
     }
-    
+
     public function mapFieldValueForm(FormInterface $fieldForm, FieldData $data)
     {
         $fieldDefinition = $data->fieldDefinition;
@@ -40,7 +42,7 @@ class FormMapper implements FieldValueFormMapperInterface
                             'label' => $label
                         ]
                     )
-                    // Deactivate auto-initialize as we're not on the root form.
+                    // Deactivate auto-initialize as you're not on the root form.
                     ->setAutoInitialize(false)
                     ->getForm()
             );
@@ -48,10 +50,12 @@ class FormMapper implements FieldValueFormMapperInterface
 }
 ```
 
-Next thing is to register the FormMapper as a service, so the system would know to use it to automatically add the input field to the Content Type edit form. You can read more about services and service container in the documentation: https://doc.ezplatform.com/en/latest/guide/service_container/. To register the FormMapper as a service, let's add the following lines to `fieldtypes.yml`:
-``` yml
-// Resources/config/fieldtypes.yml
+Next thing is to register the `FormMapper` as a service, so the system knows to use it
+to automatically add the input field to the Content Type edit form.
+You can read more about [services and service container in the documentation](../../guide/service_container.md).
+To register the `FormMapper` as a service, add the following lines to `Resources/config/fieldtypes.yml`:
 
+``` yml
     ezsystems.tweetbundle.fieldtype.eztweet.form_mapper:
         class: EzSystems\TweetFieldTypeBundle\eZ\Publish\FieldType\Tweet\FormMapper
         tags:
@@ -59,13 +63,16 @@ Next thing is to register the FormMapper as a service, so the system would know 
         arguments: ['@ezpublish.api.service.field_type']
 ```
 
-# DataTransformer
+## DataTransformer
 
-As mentioned earlier, we also need to tell our FormMapper how to transform ValueObject into a single string which contains URL to given tweet. We do this by creating an implementation of DataTransformerInterface.
+As mentioned earlier, you also need to tell the `FormMapper` how to transform the value object
+into a single string which contains the URL of a given tweet.
+You do this by creating an implementation of `DataTransformerInterface`.
+
+In `Form/TweetValueTransformer.php`:
 
 ``` php
 <?php
-// Form/TweetValueTransformer.php
 namespace EzSystems\TweetFieldTypeBundle\Form;
 
 use Symfony\Component\Form\DataTransformerInterface;
@@ -100,18 +107,14 @@ class TweetValueTransformer implements DataTransformerInterface
 }
 ```
 
-Next point will be using above transformer in our FormMapper. This is doable with addModelTransformer() method. Remember to pass eZ\Publish\API\Repository\FieldType object as constructor.
+The next point is using the transformer in `eZ/Publish/FieldType/Tweet/FormMapper`.
+This can be done with the `addModelTransformer()` method.
+Remember to pass the `eZ\Publish\API\Repository\FieldType` object to it as constructor.
 
 ``` php
-// eZ/Publish/FieldType/Tweet/FormMapper.php
 // (...)
-                    ->setAutoInitialize(false)
-                    ->addModelTransformer(new TweetValueTransformer($fieldType))
-                    ->getForm()
+    ->setAutoInitialize(false)
+    ->addModelTransformer(new TweetValueTransformer($fieldType))
+    ->getForm()
 // (...)
-```  
-------------------------------------------------------------------------
-
-⬅ Previous: [Introduce a template](6_introduce_a_template.md)
-
-Next: [Add a validation](8_add_a_validation.md) ➡
+```
