@@ -4,9 +4,7 @@
 
 This tutorial aims at providing a step-by-step guide on how to extend the eZ Platform Back Office provided by [the eZ Platform Admin UI bundle](https://github.com/ezsystems/ezplatform-admin-ui). 
 
-In this tutorial, you will create a new part of the application allowing you to browse your content by Content Type instead of using the tree structure.
-
-You will learn to extend two points of the Back Office:
+You will learn to extend a few points of the Back Office:
 
 - Add a tab in the Dashboard listing all Articles
 - Add a menu item that lists all Content items filtered by Content Type
@@ -19,3 +17,14 @@ To follow this tutorial you need to:
 - have basic to intermediate level in PHP and JavaScript
 - have a basic knowledge of Symfony's concepts (Bundle, Controller and routing)
 - know how to work with React
+
+## Steps
+
+In this tutorial you will go through the following steps:
+
+- [1. Creating a bundle](1_creating_a_bundle.md)
+- [2. Creating a Dashboard tab](2_creating_a_dashboard_tab.md)
+- [3. Creating a content list](3_creating_a_content_list.md)
+- [4. Filtering the content list](4_filtering_the_content_list.md)
+- [5. Creating a UDW tab](5_creating_a_udw_tab.md)
+- [6. Creating a custom tag](6_adding_a_custom_tag.md)
