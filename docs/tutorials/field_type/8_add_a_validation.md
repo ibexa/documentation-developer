@@ -321,4 +321,4 @@ public function toFieldDefinition(StorageFieldDefinition $storageDef, FieldDefin
 (which means converting it back to an array according to validation schema).
 
 You should now be able to configure a list of authors when editing a Content Type with the Tweet Field Type.
-You should also have tweets validated in accordance to this list when you create or edit Content Item with this Field Type.
+You should also have tweets validated in accordance to this list when you create or edit Content item with this Field Type.

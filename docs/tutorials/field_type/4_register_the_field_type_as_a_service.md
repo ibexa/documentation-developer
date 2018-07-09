@@ -24,7 +24,7 @@ Add a new line either before or after this one:
 $loader->load('fieldtypes.yml');
 ```
 
-Like most API components, Field Types use the [Symfony service tag mechanism](http://symfony.com/doc/2.8/service_container/tags.html).
+Like most API components, Field Types use the [Symfony service tag mechanism](http://symfony.com/doc/3.4/service_container/tags.html).
 
 A service can be assigned one or several tags, with specific parameters. When the dependency injection container is compiled into a PHP file, tags are read by `CompilerPass` implementations that add extra handling for tagged services. Each service tagged as `ezpublish.fieldType` is added to a [registry](http://martinfowler.com/eaaCatalog/registry.html) using the alias argument as its unique identifier (`ezstring`, `ezxmltext`, etc.). Each Field Type must also inherit from the abstract `ezpublish.fieldType` service. This ensures that the initialization steps shared by all Field Types are executed.
 

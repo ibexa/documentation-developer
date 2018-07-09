@@ -3,9 +3,9 @@
 ### The Value class
 
 The Value is used to represent an instance of the Field Type within a Content item. Each Field will present its data using an instance of the Type's Value class.
-A value class must implement the `eZ\Publish\SPI\FieldType\Value` interface. It may also extend the `eZ\Publish\Core\FieldType\Value` abstract class.
+A Value class must implement the `eZ\Publish\SPI\FieldType\Value` interface. It may also extend the `eZ\Publish\Core\FieldType\Value` abstract class.
 
-The Value class of a Field Type is by design very simple. It is meant to be stateless and as lightweight as possible. This class must contain as little logic as possible, because the logic is the responsibility of the Type class.
+The Value class of a Field Type is by design very simple. It is meant to be stateless and as lightweight as possible. This class must contain as little logic as possible, because the logic is handled by the Type class.
 
 The Value class will contain at least:
 
