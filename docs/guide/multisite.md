@@ -93,7 +93,7 @@ ezpublish:
                     location_id: 57
 ```
 
-Thanks to this config, you can access `<your site>/event/Articles/Article2`, but not `<your site>/event/General/Articles/Article1`.
+Thanks to this config, you can access `<your site>/event/Articles/Article2`, but not `<your site>/General/Articles/Article1`.
 
 In the next step, you need to reuse some content between sites, for example "Logos" from "Media".
 You can allow the event site to access them, even though they are in a different part of the tree, via `excluded_uri_prefixes`:
