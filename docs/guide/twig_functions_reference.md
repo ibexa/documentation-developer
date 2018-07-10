@@ -10,7 +10,7 @@ In addition to the [native functions provided by Twig](http://twig.sensiolabs.or
 - [`ez_field_description`](#ez_field_description) - returns the description from the FieldDefinition of a Content item's Field in the current language
 - [`ez_field_name`](#ez_field_name) - returns the name from the FieldDefinition of a Content item's Field in the current language
 - [`ez_field_value`](#ez_field_value) - returns a Content item's Field value in the current language
-- [`ez_field`](#ez_field) - returns a Field value in the current language
+- [`ez_field`](#ez_field) - returns a Field from a Content item in the current language
 - [`ez_file_size`](#ez_file_size) - returns the size of a file as string
 - [`ez_first_filled_image_field_identifier`](#ez_first_filled_image_field_identifier) - returns the identifier of the first image field that is not empty
 - [`ez_image_alias`](#ez_image_alias) - displays a selected variation of an image
@@ -135,7 +135,7 @@ If the Content item does not have a translation in the current language, the mai
 
 #### Prototype and Arguments
 
-`ez_field_value( eZ\Publish\API\Repository\Values\Content\Content content, string fieldDefIdentifier[, string forcedLanguage] )`
+`ez_field_value( eZ\Publish\API\Repository\Values\Content\Content content, string fieldDefIdentifier[, string forcedLanguage] ): eZ\Publish\Core\FieldType\Value`
 
 | Argument name        | Type                                               | Description                                                                                            |
 |----------------------|----------------------------------------------------|--------------------------------------------------------------------------------------------------------|
@@ -153,7 +153,7 @@ If the Content item does not have a translation in the current language, the mai
 
 #### Description
 
-`ez_field()` is a Twig helper which returns a Field value in the current language.
+`ez_field()` is a Twig helper which returns a Field  in the current language. The field gives you access to the field value, as well as the Field's Definition and Type identifiers.
 
 !!! tip
 
@@ -167,7 +167,7 @@ If the Content item does not have a translation in the current language, the mai
 
 #### Prototype and Arguments
 
-`ez_field( eZ\Publish\API\Repository\Values\Content\Content content, string fieldDefIdentifier[, string forcedLanguage] )`
+`ez_field( eZ\Publish\API\Repository\Values\Content\Content content, string fieldDefIdentifier[, string forcedLanguage] ): eZ\Publish\API\Repository\Values\Content\Field`
 
 | Argument name        | Type                                               | Description                                                                                            |
 |----------------------|----------------------------------------------------|--------------------------------------------------------------------------------------------------------|
