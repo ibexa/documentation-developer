@@ -8,7 +8,7 @@ eZ Platform is based on the Symfony 3 framework and applies a similar way of org
 
 A bundle in Symfony (and eZ Platform) is a separate part of your application that implements a feature. You can create bundles yourself or make use of available open-source bundles. You can also reuse the bundles you create in other projects or share them with the community.
 
-Many eZ Platform functionalities are provided through separate bundles included in the installation.
+Many eZ Platform functionalities are provided through separate bundles included in the installation. You can see the bundles that are automatically installed with eZ Platform in [composer.json](https://github.com/ezsystems/ezplatform/blob/master/composer.json).
 
 ### How to use bundles?
 
@@ -30,14 +30,7 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 
 ## Built-in bundles
 
-The eZ Platform directory contains multiple sub-directories.
-Each sub-directory is dedicated to a specific part of the system and contains a collection of logically related files.
-
-!!! tip
-
-    You can see the bundles that are automatically installed with eZ Platform in [composer.json](https://github.com/ezsystems/ezplatform/blob/master/composer.json).
-
-The following tables give an overview of the main eZ Platform directories.
+The following tables give an overview of the main eZ Platform bundles.
 
 ### Core bundles
 
@@ -60,14 +53,14 @@ The following tables give an overview of the main eZ Platform directories.
 
     |Bundle|Description|
     |---------|-----------|
-    |[date-based-publisher](https://github.com/ezsystems/date-based-publisher)|provides the date based publishing functionality for the eZ Studio product|
-    |[flex-workflow](https://github.com/ezsystems/flex-workflow)|implementation of a collaboration feature that lets you send content draft to any user for a review or rewriting|
-    |[ezplatform-page-fieldtype](https://github.com/ezsystems/ezplatform-page-fieldtype)|page handling FieldType for eZ Platform EE 2.2+|
-    |[ezplatform-page-builder](https://github.com/ezsystems/ezplatform-page-builder)|contains eZ Platform Page editor for eZ Platform EE 2.2+|
-    |[ezplatform-ee-installer](https://github.com/ezsystems/ezplatform-ee-installer)|provides `ezplatform:install` Symfony console command which is the installer for eZ Platform Enterprise v2|
-    |[ezplatform-http-cache-fastly](https://github.com/ezsystems/ezplatform-http-cache-fastly)|extends ezplatform-http-cache to support Fastly, for use on Platform.sh PE or standalone|
+    |date-based-publisher|provides the date based publishing functionality for the eZ Studio product|
+    |flex-workflow|implementation of a collaboration feature that lets you send content draft to any user for a review or rewriting|
+    |ezplatform-page-fieldtype|page handling FieldType for eZ Platform EE 2.2+|
+    |ezplatform-page-builder|contains eZ Platform Page editor for eZ Platform EE 2.2+|
+    |ezplatform-ee-installer|provides `ezplatform:install` Symfony console command which is the installer for eZ Platform Enterprise v2|
+    |ezplatform-http-cache-fastly|extends ezplatform-http-cache to support Fastly, for use on Platform.sh PE or standalone|
 
-### Platform usage
+### Optional bundles
 
 |Bundle|Description|
 |---------|-----------|
@@ -88,21 +81,11 @@ The following tables give an overview of the main eZ Platform directories.
 
     |Bundle|Description|
     |---------|-----------|   
-    |[ez-service-network](https://github.com/ezsystems/ez-service-network)|provides API's and functionality for license handling and authentication needs|
-    |[cloud-deployment-manager](https://github.com/ezsystems/cloud-deployment-manager)|dedicated cloud deployment manager|
-    |[EzLandingPageFieldTypeBundle](https://github.com/ezsystems/EzLandingPageFieldTypeBundle)|Landing Page that is at the heart of StudioUI|
-    |[ezstudio-demo-bundle](https://github.com/ezsystems/ezstudio-demo-bundle)|represents a demo front-end website with eZ Studio|
-    |[ezstudio-personalized-block](https://github.com/ezsystems/ezstudio-personalized-block)|eZ Systems Personalized Block Bundle|
-
-### Legacy
-
-|Bundle|Description|
-|------|-----------|
-|[LegacyBridge](https://github.com/ezsystems/LegacyBridge)|optional bridge between eZ Platform and eZ Publish Legacy that simplifies migration to eZ Platform [Community co-maintained]|
-|[ezplatform-xmltext-fieldtype](https://github.com/ezsystems/ezplatform-xmltext-fieldtype)|XmlText field type for eZ Platform [Community co-maintained]|
-|[ezflow-migration-toolkit](https://github.com/ezsystems/ezflow-migration-toolkit)|set of tools that helps migrate data from legacy eZ Flow extension to eZ Studio landing page management|
-|[ngsymfonytools-bundle](https://github.com/ezsystems/ngsymfonytools-bundle)|integrates the legacy [netgen/ngsymfonytools](https://github.com/netgen/ngsymfonytools) as a Legacy bundle|
-|[ezpublish-legacy-installer](https://github.com/ezsystems/ezpublish-legacy-installer)| custom Composer installer for eZ Publish legacy extensions|
+    |ez-service-network|provides API's and functionality for license handling and authentication needs|
+    |cloud-deployment-manager|dedicated cloud deployment manager|
+    |EzLandingPageFieldTypeBundle|Landing Page that is at the heart of StudioUI|
+    |ezstudio-demo-bundle|represents a demo front-end website with eZ Studio|
+    |ezstudio-personalized-block|eZ Systems Personalized Block Bundle|
 
 ### Education
 
@@ -126,3 +109,13 @@ The following tables give an overview of the main eZ Platform directories.
 |[developer-documentation](https://github.com/ezsystems/developer-documentation)|source for the developer documentation for eZ Platform, an open source CMS based on the Symfony Full Stack Framework in PHP. https://doc.ezplatform.com|
 |[user-documentation](https://github.com/ezsystems/user-documentation)|source for the user documentation for eZ Platform, an open source CMS based on the Symfony Full Stack Framework in PHP|
 |[ezservices-documentation](https://github.com/ezsystems/ezservices-documentation)|source for the eZ Services documentation for eZ Platform, an open source CMS based on the Symfony Full Stack Framework in PHP|
+
+### Legacy
+
+|Bundle|Description|
+|------|-----------|
+|[LegacyBridge](https://github.com/ezsystems/LegacyBridge)|optional bridge between eZ Platform and eZ Publish Legacy that simplifies migration to eZ Platform [Community co-maintained]|
+|[ezplatform-xmltext-fieldtype](https://github.com/ezsystems/ezplatform-xmltext-fieldtype)|XmlText field type for eZ Platform [Community co-maintained]|
+|[ezflow-migration-toolkit](https://github.com/ezsystems/ezflow-migration-toolkit)|set of tools that helps migrate data from legacy eZ Flow extension to eZ Studio landing page management|
+|[ngsymfonytools-bundle](https://github.com/ezsystems/ngsymfonytools-bundle)|integrates the legacy [netgen/ngsymfonytools](https://github.com/netgen/ngsymfonytools) as a Legacy bundle|
+|[ezpublish-legacy-installer](https://github.com/ezsystems/ezpublish-legacy-installer)| custom Composer installer for eZ Publish legacy extensions|
