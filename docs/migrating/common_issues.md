@@ -11,6 +11,10 @@ issues that can occur after migration to eZ Platform.
     $bundles[] = new \eZ\Bundle\EzPublishMigrationBundle\EzPublishMigrationBundle();
     ```
 
+!!! caution
+
+    Remember about **proper backup** before running any of the commands below.
+
 ## Regenerating URL Aliases
 
 Basic `ezplatform:regenerate:` command implements the cleanup script that will check if 
@@ -42,8 +46,7 @@ it in production environment using the `--env=prod` switch.
 
 ## Unknown relation type 0
 
-"Unknown relation type 0." error occurs only when using REST API. It is caused by 
-inserting  different images into two or more XML Block Fields. The issue does not occur 
+"Unknown relation type 0." error occurs only when using REST API. The issue does not occur 
 the first time article is published (upon creation). It only happens after the article is 
 edited and published.
 
@@ -54,8 +57,8 @@ php app/console ezpublish:update:legacy_storage_clean_up_relation_type_eq_zero
 ```
 The command can be executed in two modes:
 
+- list / dry-run - prints table with all corrupted relations that will be deleted (to be executed first)
 - fix - executes clean up
-- list / dry-run - prints table with all corrupted relations that will be deleted
 
 You can read more about this issue here: [EZP-27254](https://jira.ez.no/browse/EZP-27254)
 
