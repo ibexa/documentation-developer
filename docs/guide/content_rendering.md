@@ -168,86 +168,83 @@ parameters:
 
 The controller used to render content by default can also be changed. The `ezsettings.default.content_view_defaults` container parameter contains a hash that defines how content is rendered by default. It contains a set of [content view rules for the common view types](https://github.com/ezsystems/ezpublish-kernel/blob/v6.0.0/eZ/Bundle/EzPublishCoreBundle/Resources/config/default_settings.yml#L21-L33). This hash can be redefined to whatever suits your requirements, including custom controllers, or even matchers.
 
-### Content and Location view providers
+### View providers
 
-#### View\\Manager & View\\Provider
+The `ViewProvider` selects the right template (view type, correct parameters, etc.) for displaying a given Content item based on the configuration.
 
-The role of the `(eZ\Publish\Core\MVC\Symfony\)View\Manager` is to select the right template for displaying a given Content item or Location. It aggregates objects called *Content and Location view providers* which respectively implement the `eZ\Publish\Core\MVC\Symfony\View\Provider\Content` and `eZ\Publish\Core\MVC\Symfony\View\Provider\Location` interfaces.
+The ViewProviders are objects implementing the `eZ\Publish\Core\MVC\Symfony\View\ViewProvider` interface.
 
-Each time a Content item is to be displayed through the `Content\ViewController`, the `View\Manager` iterates over the registered Content or Location `View\Provider` objects and calls `getView()`.
+By default, the [Configured ViewProvider](#configuring-views-the-viewprovider) is used. It selects templates using the view configuration.
 
-##### Provided View\\Provider implementations
+#### Custom ViewProvider
 
-|Name|Usage|
-|------|------|
-|[View provider configuration](#configuring-views-the-viewprovider)|Based on application configuration. Formerly known as *Template override system*.|
-|`eZ\Publish\Core\MVC\Legacy\View\Provider\Content`, `eZ\Publish\Core\MVC\Legacy\View\Provider\Location`|Forwards view selection to the legacy kernel by running the old content/view module. Pagelayout used is the one configured in `ezpublish_legacy.<scope>.view_default_layout`. For more details about the `<scope>` please refer to the [scope configuration documentation](siteaccess.md#scope).|
-
-#### Custom View\\Provider
-
-##### Difference between `View\Provider\Location` and `View\Provider\Content`
-
-- A `View\Provider\Location` only deals with `Location` objects and implements the `eZ\Publish\Core\MVC\Symfony\View\Provider\Location` interface.
-- A `View\Provider\Content` only deals with `ContentInfo` objects and implements the `eZ\Publish\Core\MVC\Symfony\View\Provider\Content` interface.
-
-##### When to develop a custom `View\Provider\(Location|Content)`
+##### When to develop a custom `ViewProvider`
 
 - You want a custom template selection based on a very specific state of your application
 - You depend on external resources for view selection
 - You want to override the default one view provider (based on configuration)
 
-`View\Provider` objects need to be properly registered in the service container with the `ezpublish.location_view_provider` or `ezpublish.content_view_provider` service tag.
+`ViewProvider` objects need to be properly registered in the service container with the `ezpublish.view_provider` service tag.
 
 ``` yaml
-parameters:
-    acme.location_view_provider.class: Acme\DemoBundle\Content\MyLocationViewProvider
-
 services:
-    acme.location_view_provider:
-        class: %ezdemo.location_view_provider.class%
+    acme.my_view_provider:
+        class: Acme\DemoBundle\Content\MyViewProvider
         tags:
-            - {name: ezpublish.location_view_provider, priority: 30}
+            - {name: ezpublish.view_provider, type: 'eZ\Publish\Core\MVC\Symfony\View\ContentView', priority: 30}
 ```
 
-`priority` is an integer giving the priority to the `View\Provider\(Content|Location)` in the `View\Manager`. The priority range is from -255 to 255.
+`type` should point to a class implementing the `View\View` interface. It determines which type of View will be handled by the `ViewProvider`. Out of the box it's either `eZ\Publish\Core\MVC\Symfony\View\ContentView` or `eZ\Publish\Core\MVC\Symfony\View\BlockView`.
+
+`priority` is an integer giving the priority to the `ViewProvider`. The priority range is from -255 to 255.
 
 ##### Example
 
 ``` php
-// Custom View\Provider\Location
+// Custom ViewProvider
 <?php
 namespace Acme\DemoBundle\Content;
 
 use eZ\Publish\Core\MVC\Symfony\View\ContentView;
-use eZ\Publish\Core\MVC\Symfony\View\Provider\Location as LocationViewProvider;
-use eZ\Publish\API\Repository\Values\Content\Location;
+use eZ\Publish\Core\MVC\Symfony\View\View;
+use eZ\Publish\Core\MVC\Symfony\View\ViewProvider;
 
-class MyLocationViewProvider implements LocationViewProvider
+class MyViewProvider implements ViewProvider
 {
+    const HOMEPAGE_ID = 2;
+    const FOLDER_CONTENT_TYPE_ID = 1;
+
     /**
-     * Returns a ContentView object corresponding to $location, or void if not applicable
+     * Returns a ContentView object, or null if not applicable
      *
-     * @param \eZ\Publish\API\Repository\Values\Content\Location $location
-     * @param string $viewType
-     * @return \eZ\Publish\Core\MVC\Symfony\View\ContentView|null
+     * @param \eZ\Publish\Core\MVC\Symfony\View\View $view
+     *
+     * @return \eZ\Publish\Core\MVC\Symfony\View\View|null
      */
-    public function getView( Location $location, $viewType )
+    public function getView(View $view)
     {
-        // Let's check location Id
-        switch ( $location->id )
-        {
-            // Special template for home page, passing "foo" variable to the template
-            case 2:
-                return new ContentView( "AcmeDemoBundle:$viewType:home.html.twig", [ 'foo' => 'bar' ] );
+        if (!$view instanceof ContentView) {
+            return null;
         }
 
-        // ContentType identifier (formerly "class identifier")
-        switch ( $location->contentInfo->contentType->identifier )
-        {
-            // For view full, it will load AcmeDemoBundle:full:small_folder.html.twig
-            case 'folder':
-                return new ContentView( "AcmeDemoBundle:$viewType:small_folder.html.twig" );
+        $viewType = $view->getViewType();
+        $location = $view->getLocation();
+        // If you wish, you can also easily access Content object
+        // $content = $view->getContent();
+
+        // Let's check location Id
+        if ($location->id === self::HOMEPAGE_ID) {
+            // Special template for home page, passing "foo" variable to the template
+            return new ContentView("AcmeDemoBundle:$viewType:home.html.twig", ['foo' => 'bar']);
         }
+
+        // And let's also check ContentType Id
+        if ($location->contentInfo->contentTypeId === self::FOLDER_CONTENT_TYPE_ID) {
+            // For view full, it will load AcmeDemoBundle:full:small_folder.html.twig
+            return new ContentView("AcmeDemoBundle:$viewType:small_folder.html.twig");
+        }
+
+        return null;
     }
 }
 ```
