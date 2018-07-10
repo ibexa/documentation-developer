@@ -1,11 +1,11 @@
 # Common errors
 
-Below you will find cleanup commands from the EzPublishMigrationBundle for most common 
-issues that can manifest itself after migration to v1 or v2.
+Below you will find cleanup commands from the EzPublishMigrationBundle for the most common 
+issues that can manifest itself after migration to eZ Platform.
 
 !!! note "Enabling EzPublishMigrationBundle bundle"
 
-    To enable it, add the following to your `dev` environment bundles in `app/AppKernel.php`:
+    To enable EzPublishMigrationBundle add the following to your `dev` environment bundles in `app/AppKernel.php`:
 
     ```
     $bundles[] = new \eZ\Bundle\EzPublishMigrationBundle\EzPublishMigrationBundle();
@@ -60,20 +60,18 @@ it in production environment using the `--env=prod` switch.
 ## Always available flag set on all fields
 
 Always available flag is set on all fields, instead of only on fields in the main 
-language. This problem occurs when a new stack is used for creating Content that is both 
-always available and has multiple translations. 
-
-Cleanup script will set correctly always available flag for prioritized language filtering in Legacy Search Engine.
+language. This problem occurs when a new stack is used to create Content that is both 
+always available and has multiple translations. Cleanup script will set correctly always available flag for prioritized language filtering in Legacy Search Engine.
 
 ```
 ezpublish:update:legacy_storage_fix_fields_always_available_flag
 ```
 
-In the cleanup command only affected fields will be processed.
+Only affected fields will be processed by the cleanup command.
 
 ## Trouble listing sub content
 
-It is possible that after upgrade sort_key_string is left empty that may cause problems in 
+It is possible that after upgrade sort_key_string is left empty this may cause problems in 
 searches throughout the API. The cleanup script will check if fields of given field type 
 have correct sort key, and update it if needed.
 
