@@ -343,12 +343,13 @@ Referencing the `ez_content` controller follows the syntax of *controllers as a 
 
 ##### Available arguments
 
-As with any controller, you can pass arguments to `ez_content:viewLocation` or `ez_content:viewContent` to fit your needs.
+As with any controller, you can pass arguments to `ez_content:viewAction` to fit your needs.
+You must provide `contentId` (and, optionally, `locationId`) for the action to work.
 
 |Name|Description|Type|Default value|
 |---|---|---|---|
-|`contentId`|ID of the Content item you want to render. Only for `ez_content:viewContent`|integer|N/A|
-|`locationId`|ID of the Location you want to render. Only for `ez_content:viewLocation`|integer|Content item's main location, if defined|
+|`contentId`|ID of the Content item you want to render. Can be used together with `locationId`, if the Location belongs to that Content item.|integer|Location's Content item, if defined|
+|`locationId`|ID of the Location you want to render. Can be used together with `contentId`, if the Location belongs to that Content item.|integer|Content item's main location, if defined|
 |`viewType`|The view type you want to render your Content item/Location in. Will be used by the ViewManager to select a corresponding template, according to defined rules. </br>Example: full, line, my_custom_view, etc.|string|full|
 |`layout`|Indicates if the sub-view needs to use the main layout (see [available variables in a view template](content_rendering.md#available-variables))|boolean|false|
 |`params`|Hash of variables you want to inject to sub-template, key being the exposed variable name.|hash|empty hash|
