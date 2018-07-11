@@ -196,6 +196,40 @@ Steps here should only be done once you are ready to move away from legacy and L
 
 The command example suggests using the verbose flag. This is optional, but recommended as we are actively gathering feedback on how it works with older eZ Publish content, and on how we can improve it both [via issues in the repository](https://github.com/ezsystems/ezplatform-xmltext-fieldtype), and on Slack.
 
+Also, note that if you have made custom image classes, you must also provide their content class identifiers:
+
+`php app/console ezxmltext:convert-to-richtext --image-content-types=image,thumbnail,profile -v`
+
+The script needs to know these identifiers in order to convert `<ezembed>` tags correctly. Failing to do so will prevent the editor from showing image thumbnails of embedded image objects. You may find the image Content Types in your installation by looking for these settings in `content.ini(.append.php)`:
+
+```
+[RelationGroupSettings]
+ImagesClassList[]
+ImagesClassList[]=image
+```
+
+!!! note
+
+    Version of the migration script in ezplatform-xmltext-fieldtype prior to v1.6.0 would fail to convert embedded images correctly. If you have a database which you have already converted with an old version, you may rerun the `convert-to-richtext` command with the following options:
+
+    `php app/console ezxmltext:convert-to-richtext --fix-embedded-images-only --image-content-types=image,thumbnail,profile -v`
+
+!!! note
+
+    There is no corresponding `ImagesClassList[]` setting in eZ Platform. So even though you have customer image classes, you don't need to configure this in the eZ Platform configuration when migrating.
+
+If you later realize that you provided the convert script with incorrect image Content Type identifiers, it is perfectly safe to re-execute the command as long as you use the `--fix-embedded-images-only`.
+
+So, if you first ran the command:
+
+`php app/console ezxmltext:convert-to-richtext --image-content-types=image,thumbnail,profile -v`
+
+But later realize the last identifier should be `custom_image`, not `profile`, you may execute :
+
+`php app/console ezxmltext:convert-to-richtext --image-content-types=image,thumbnail,custom_image -v`
+
+The last command would then ensure embedded objects with Content Type identifier `profile` are no longer tagged as images, while embedded objects with Content Type identifier `custom_image` are.
+
 ###### 3.2.2 Migrate Page field to Landing Page (eZ Enterprise only)
 
 **If** you use Page field (ezflow) and an eZ Enterprise subscription, and are ready to migrate your eZ Publish Flow content to the eZ Enterprise Landing Page forma, you can use a script to migrate your Page content to Landing Page, to start using a pure eZ Enterprise setup. See [Migrating legacy Page field (ezflow) to Landing Page (Enterprise)](#migrating-legacy-page-field-ezflow-to-landing-page-enterprise) for more information.
