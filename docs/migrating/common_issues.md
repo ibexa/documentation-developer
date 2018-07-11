@@ -23,7 +23,7 @@ Fields of given Field Type have correct sort key, and update it if needed.
 For this specific issue use:
 
 ```
-php app/console ezplatform:regenerate:legacy_storage_url_aliases
+php bin/console ezplatform:regenerate:legacy_storage_url_aliases
 ```
 
 It will regenerate URL aliases for Locations and migrate existing custom Location and 
@@ -53,7 +53,7 @@ edited and published.
 If this error occurs use the console command below. It will clean up redundant relations rows:
 
 ```
-php app/console ezpublish:update:legacy_storage_clean_up_relation_type_eq_zero
+php bin/console ezpublish:update:legacy_storage_clean_up_relation_type_eq_zero
 ```
 The command can be executed in two modes:
 
@@ -70,7 +70,7 @@ always available and has multiple translations. The cleanup script will correctl
 always available flag for prioritized language filtering in Legacy Search Engine.
 
 ```
-php app/console ezpublish:update:legacy_storage_fix_fields_always_available_flag
+php bin/console ezpublish:update:legacy_storage_fix_fields_always_available_flag
 ```
 
 Only affected Fields will be processed by the cleanup command.
@@ -86,7 +86,7 @@ Type have correct sort key, and update it if needed.
 Execute the following command from the installation root directory:
 
 ```
-php app/console ezpublish:update:legacy_storage_update_sort_keys
+php bin/console ezpublish:update:legacy_storage_update_sort_keys
 ```
 
 You can read more about this issue here: [EZP-23924](https://jira.ez.no/browse/EZP-23924)
