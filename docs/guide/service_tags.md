@@ -28,7 +28,7 @@ You will find all service tags exposed by Symfony in [its reference documentatio
 |[ezpublish.search.solr.query.content.sort_clause_visitor](#ezpublish.search.solr.query.content.sort_clause_visitor)|Register Solr Storage Content sort clause visitors|
 |[ezpublish.search.solr.query.location.sort_clause_visitor](#ezpublish.search.solr.query.location.sort_clause_visitor)|Register Solr Storage Location sort clause visitors|
 |[ezpublish.search.solr.endpoint](#ezpublish.search.solr.endpoint)|Registers Solr Endpoints.|
-|[ezpublish.config.resolver](#ezpublish.config.resolver)| Adds a specific config resolver to the chain |
+|[ezpublish.config.resolver](#ezpublish.config.resolver)|Adds a specific config resolver to the chain |
 |[router](#router)|Adds a specific router to the chain router|
 |[ezpublish.fieldType.parameterProvider](#ezpublish.fieldType.parameterProvider)| Registers parameter provider (allows to pass additional parameters to a fieldtype's view template) to specific field type |
 |[ezpublish.query_type](#ezpublish.query_type)|Registers QueryType as a service.|
@@ -41,7 +41,7 @@ You will find all service tags exposed by Symfony in [its reference documentatio
 |[ezpublish.storageEngine](#ezpublish.storageEngine)|Registers a storage engine in the Repository factory|
 |[ezpublish.url_handler](#ezpublish.url_handler)|Registers a custom protocol for external URLs validation.|
 |[ezpublish.view_provider](#ezpublish.view_provider)|Registers view provider into the view_provider registry.|
-|[ezpublish_data_collector](#ezpublish_data_collector)| Registers profiler [data collector](https://symfony.com/doc/3.4/profiler/data_collector.html) specific for eZ Platfrom. |
+|[ezpublish_data_collector](#ezpublish_data_collector)| Registers profiler [data collector](https://symfony.com/doc/2.8/profiler/data_collector.html) specific for eZ Platfrom. |
 |[ezpublish.core.io.migration.file_lister](#ezpublish.core.io.migration.file_lister)||
 |[ezpublish_rest.field_type_processor](#ezpublish_rest.field_type_processor)||
 |[ezpublish_rest.input.handler](#ezpublish_rest.input.handler)|Maps input formats (json, xml) to handlers.|
@@ -78,14 +78,13 @@ You will find all service tags exposed by Symfony in [its reference documentatio
 |[ez.limitation.formMapper](#ez.limitation.formMapper)|Registers mapper for limitation form.  |
 |[ez.limitation.valueMapper](#ez.limitation.valueMapper)|Registers mapper for limitation values.  |
 
-
 ## EzSupportToolsBundle
 
 ### support_tools.system_info.output_format 
 
 Registers SystemInfo output format. \EzSystems\EzSupportToolsBundle\SystemInfo\OutputFormat
    
-- format - format of an output e.g. json
+- format - format of an output e.g. JSON
 
 Example:
 
@@ -120,7 +119,7 @@ services:
 
 ### ezplatform.admin_ui.component 
 
-Registers a component in a group specified by group attribute [Extending Platform UI](https://doc.ezplatform.com/en/2.1/guide/extending_ez_platform_ui/#further-extensibility-using-components)
+Registers a component in a group specified by group attribute [Extending Platform UI](extending_ez_platform.md/#further-extensibility-using-components)
    
 - group
     
