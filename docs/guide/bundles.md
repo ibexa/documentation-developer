@@ -81,7 +81,6 @@ The following tables give an overview of the main eZ Platform bundles.
 
     |Bundle|Description|
     |---------|-----------|   
-    |ez-service-network|provides API's and functionality for license handling and authentication needs|
     |cloud-deployment-manager|dedicated cloud deployment manager|
     |EzLandingPageFieldTypeBundle|Landing Page that is at the heart of StudioUI|
     |ezstudio-demo-bundle|represents a demo front-end website with eZ Studio|
