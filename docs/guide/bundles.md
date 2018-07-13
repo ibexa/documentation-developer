@@ -72,7 +72,6 @@ The following tables give an overview of the main eZ Platform bundles.
     |Bundle|Description|
     |---------|-----------|   
     |ezstudio-cron|eZ Platform EE 1.x series only - exposes cron/cron package for use in eZ Platform (or just plain Symfony) via a simple command `ezpublish:cron:run`|
-    |ez-service-network|provides API's and functionality for license handling and authentication needs|
     |cloud-deployment-manager|dedicated cloud deployment manager|
     |StudioUIBundle|contains the Studio editing interface in eZ Platform v1|
     |ezstudio-form-builder|Form Builder Bundle is a part of eZ Studio and is installed with eZ Studio meta repository in eZ Platform v1|
