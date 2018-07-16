@@ -134,7 +134,7 @@ Because from release 16.02 onwards eZ Platform is compatible only with PHP 5.5 a
 
     !!! enterprise "EZ ENTERPRISE"
 
-        During update from 1.13.2 to 1.13.3 if you do not use default form-builder template you should add `data-field-id` attribute manually to every `<img class="ezform-captcha-image"...` and `<a class="ezform-captcha-reload"` element. 
+        During update from 1.13.2 to 1.13.3 if you do not use default form-builder template you should add `data-field-id` attribute manually to every `<img class="ezform-captcha-image"...` and `<a class="ezform-captcha-reload"` element.
         For more information see https://github.com/ezsystems/ezplatform-ee-demo/pull/59
 
 
@@ -365,6 +365,23 @@ These steps are only relevant for some releases:
           PRIMARY KEY (`id`)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
         ```
+
+        !!! enterprise
+
+            When updating an Enterprise installation, you also need to run the following script due to changes in the `eznotification` table:
+
+            ```
+            ALTER TABLE `eznotification`
+            CHANGE COLUMN `data` `data` BLOB NULL ;
+
+            ALTER TABLE `eznotification`
+            DROP INDEX `owner_id` ,
+            ADD INDEX `eznotification_owner` (`owner_id` ASC);
+
+            ALTER TABLE `eznotification`
+            DROP INDEX `is_pending` ,
+            ADD INDEX `eznotification_owner_is_pending` (`owner_id` ASC, `is_pending` ASC);
+            ```
 
 !!! caution "Updating to 2.2"
 
