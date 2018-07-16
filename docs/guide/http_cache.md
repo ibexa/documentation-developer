@@ -524,7 +524,7 @@ eZ Platform already interferes with the hash generation process by adding the cu
 
 ##### New anonymous `X-User-Hash`
 
-The anonymous `X-User-Hash` is generated based on the `anonymous user`, `group` and `role`. The `38015b703d82206ebc01d17a39c727e5` hash that is provided in the link above will work only when these three variables are left unchanged. Once you change the default permissions and settings, the `X-User-Hash` will change and Varnish won't be able to effectively handle cache anymore.
+The anonymous `X-User-Hash` is generated based on the `anonymous user`, `group` and `role`.
 In that case you need to find out the new anonymous `X-User-Hash` and change the VCL accordingly, else Varnish will return a no-cache header.
 
 The easiest way to find the new hash is:
@@ -552,14 +552,7 @@ Vary: Cookie,Authorization
 Content-Type: application/vnd.fos.user-context-hash
 ```
 
-4\. Now, replace the existing `X-User-Hash` value with the new one:
-
-```
-# Note: This needs update every time anonymous user role assignments change.
-set req.http.X-User-Hash = "b1731d46b0e7a375a5b024e950fdb8d49dd25af85a5c7dd5116ad2a18cda82cb";
-```
-
-5\. Restart the Varnish server.
+4\. Restart the Varnish server.
 
 ##### Known limitations of the user hash generation
 
