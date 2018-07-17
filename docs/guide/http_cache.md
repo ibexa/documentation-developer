@@ -525,9 +525,8 @@ eZ Platform already interferes with the hash generation process by adding the cu
 ##### New anonymous `X-User-Hash`
 
 The anonymous `X-User-Hash` is generated based on the `anonymous user`, `group` and `role`.
-In that case you need to find out the new anonymous `X-User-Hash` and change the VCL accordingly, else Varnish will return a no-cache header.
 
-The easiest way to find the new hash is:
+If you need to find out the new anonymous `X-User-Hash`:
 
 1\. Connect to your server (*shh* should be enough)
 
