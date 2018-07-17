@@ -526,7 +526,7 @@ eZ Platform already interferes with the hash generation process by adding the cu
 
 The anonymous `X-User-Hash` is generated based on the `anonymous user`, `group` and `role`.
 
-If you need to find out the new anonymous `X-User-Hash`:
+If you need to find out the anonymous `X-User-Hash`:
 
 1\. Connect to your server (*shh* should be enough)
 
