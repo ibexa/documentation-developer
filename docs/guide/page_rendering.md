@@ -199,3 +199,45 @@
 
     You can disable the Design tab by setting `ezsettings.default.page_builder.block_styling_enabled` to `false`.
     It is set to `true` by default.
+
+    ##### Block configuration template
+
+    The template for the configuration modal of built-in Page blocks is contained in
+    `vendor/ezsystems/ezplatform-page-builder/src/bundle/Resources/views/page_builder/block/config.html.twig`.
+
+    You can override it using the `configuration_template` setting:
+
+    ``` yaml
+    ezplatform_page_fieldtype:
+        blocks:
+            example_block:
+                name: 'Example Block'
+                configuration_template: 'blocks/config/template.html.twig'
+                # ...
+    ```
+
+    The template can extend the default `config.html.twig` and modify its blocks.
+    Blocks `basic_tab_content` and `design_tab_content` correspond to the Basic and Design tabs in the modal.
+
+    The following example wraps all form fields for block attributes in an ordered list:
+
+    ``` twig
+    {% extends '@EzPlatformPageBuilder/page_builder/block/config.html.twig' %}
+
+    {% block basic_tab_content %}
+    <div class="ez-block-config__fields">
+        {{ form_row(form.name) }}
+        {% if attributes_per_category['default'] is defined %}
+            <ol>
+            {% for identifier in attributes_per_category['default'] %}
+                {% block config_entry %}
+                    <li>
+                    {{ form_row(form.attributes[identifier]) }}
+                    </li>
+                {% endblock %}
+            {% endfor %}
+            </ol>
+        {% endif %}
+    </div>
+    {% endblock %}
+    ```
