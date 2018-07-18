@@ -105,6 +105,17 @@ This setting is **required** if you want to see the changes after publish. It is
 </autoSoftCommit>
 ```
 
+#### Generating configuration
+
+The command line tool `bin/generate-solr-config.sh` generates Solr 6 configuration automatically.
+It can be used for deploying to eZ Platform Cloud (Platform.sh) and on-premise installs. 
+
+Execute the script from the eZ Platform root directory for further information:
+
+``` bash
+./vendor/ezsystems/ezplatform-solr-search-engine/bin/generate-solr-config.sh --help
+``` 
+
 ### Step 2: Configuring the bundle
 
 The Solr Search Engine Bundle can be configured in many ways. The config further below assumes you have parameters set up for Solr DSN and search engine *(however both are optional)*, for example (in `parameters.yml`):
