@@ -58,3 +58,17 @@ ezpublish:
 
 You can define these rules in a dedicated file instead of `app/config/ezplatform.yml`. Read the [cookbook recipe to learn more about it](../cookbook/importing_settings_from_a_bundle.md).
 
+## Edit templates
+
+To use a template for the Field edit form in the Back Office, you need to specify it in configuration
+under the `twig.form_themes` key:
+
+``` yaml
+twig:
+    form_themes:
+        - 'AcmeTestBundle:adminui/field:my_field_template.html.twig'
+```
+
+The template must extend `content_fields.html.twig`:
+
+`{% extends "EzPublishCoreBundle::content_fields.html.twig" %}`
