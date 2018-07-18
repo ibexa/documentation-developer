@@ -110,13 +110,11 @@ This setting is **required** if you want to see the changes after publish. It is
 The command line tool `bin/generate-solr-config.sh` generates Solr 6 configuration automatically.
 It can be used for deploying to eZ Platform Cloud (Platform.sh) and on-premise installs. 
 
-Execute the script below from the eZ Platform root directory for more information:
+Execute the script from the eZ Platform root directory for further information:
 
 ``` bash
 ./vendor/ezsystems/ezplatform-solr-search-engine/bin/generate-solr-config.sh --help
 ``` 
-
-You also need to enable Solr service in `.platform.app.yaml` and `.platform/services.yaml`.
 
 ### Step 2: Configuring the bundle
 
