@@ -262,7 +262,7 @@
 
     ##### Block render response
 
-    Block responses dispatch its response events which enables you to modify the Response object.
+    Block responses dispatch their response events which enables you to modify the Response object.
     You can use them for example to change cache headers.
 
     You can hook into `BlockResponseEvents` events:
