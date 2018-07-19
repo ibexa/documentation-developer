@@ -69,6 +69,6 @@ twig:
         - 'AcmeTestBundle:adminui/field:my_field_template.html.twig'
 ```
 
-The template must extend `content_fields.html.twig`:
+If you want to make use of the built-in template but modify it, the template can extend `content_fields.html.twig`:
 
 `{% extends "EzPublishCoreBundle::content_fields.html.twig" %}`
