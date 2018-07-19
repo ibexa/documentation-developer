@@ -241,3 +241,33 @@
     </div>
     {% endblock %}
     ```
+
+    ##### Exposing content relations from blocks
+
+    Page blocks, for example Embed Block or Collection Block, can embed other Content items.
+    Publishing a Page with such blocks creates relations to those Content items.
+
+    When creating a custom block with embeds, you can ensure such relations are created using the block relation collection event.
+
+    The event is dispatched on content publication. You can hook your event listener to one of the events:
+
+    - `\EzSystems\EzPlatformPageFieldType\Event\BlockRelationEvents::COLLECT_BLOCK_RELATIONS` (`ezplatform.ezlandingpage.block.relation`)
+    - `ezplatform.ezlandingpage.block.relation.{blockTypeIdentifier}`
+
+    To expose relations, pass an array containing Content IDs to the `\EzSystems\EzPlatformPageFieldType\Event\CollectBlockRelationsEvent::setRelations()` method.
+
+    You don't have to keep track of relations. If embedded Content changes, old relations will be removed automatically.
+
+    Providing relations will also invalidate HTTP cache for your block response in one of the related Content items changes.
+
+    ##### Block render response
+
+    Block responses dispatch its response events which enables you to modify the Response object.
+    You can use them for example to change cache headers.
+
+    You can hook into `BlockResponseEvents` events:
+
+    - `BlockResponseEvents::BLOCK_RESPONSE` (`ezplatform.ezlandingpage.block.response`)
+    - `ezplatform.ezlandingpage.block.response.{blockTypeIdentifier}`
+
+    Aside from `Request` and `Response` objects it also includes `BlockContext` and `BlockValue` data.
