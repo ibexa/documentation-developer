@@ -62,6 +62,14 @@ Each Content Type is characterized by a set of metadata which define the general
 
 **URL alias name pattern** – a pattern which controls how the virtual URLs of the Locations will be generated when Content items are created based on this Content Type. Note that only the last part of the virtual URL is affected. The pattern works in the same way as the Content name pattern. Text outside the angle brackets will be converted using the selected method of URL transformation. If no pattern is provided, the system will automatically use the name of the Content item itself. (Optional.)
 
+!!! tip "Changing URL alias and Content name patterns"
+
+    If you change the Content name pattern or the URL alias name pattern,
+    existing Content items will not be modified automatically.
+    The new pattern will only be applied after you modify the Content item and save a new version.
+
+    The old URL aliases will continue to redirect to the same Content items.
+
 **Container** – a flag which indicates if Content items based on this Content Type are allowed to have sub-items or not.
 
 !!! note
