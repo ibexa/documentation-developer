@@ -56,14 +56,14 @@ For instance, the view used to display a Location is divided into several views 
     - a view for the Create button which contains:
         - a view to list and select a Content Type
     - a view for the Edit button
-    - ...
+    - etc.
 - A Location View tab view which contains:
     - the Raw Content View to display the fields which contains:
         - A view for each fields
-        - ...
+        - etc.
 - A Location Details tab view
-- ...
 - A sub-item list view
+- etc.
 
 #### Side view
 
@@ -105,10 +105,10 @@ The Navigation hub is a side view displaying the top menu.
 
 It displays 4 **Navigation zones**:
 
-- *Content*
-- *Page*
-- *Performance*
-- *Admin Panel*
+- Content
+- Page
+- Performance
+- Admin Panel
 
 A zone can contain an arbitrary number of **Navigation zone items**. By default, the *Content* zone has 2 navigation items: *Content structure* and *Media library*.
 
