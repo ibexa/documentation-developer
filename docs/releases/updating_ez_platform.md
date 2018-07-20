@@ -383,10 +383,47 @@ These steps are only relevant for some releases:
             ADD INDEX `eznotification_owner_is_pending` (`owner_id` ASC, `is_pending` ASC);
             ```
 
-!!! caution "Updating to 2.2"
+    #### Migrate Landing Pages
 
-    To update to 2.2 with existing Content you will need a dedicated script for converting the Landing Page into the new Page.
-    [This script is currently a work in progress.](https://jira.ez.no/browse/EZEE-2150)    
+    To update to v2.2 with existing Landing Pages, you need to use a dedicated script.
+    The script is contained in the `ezplatform-page-migration` bundle. To use it:
+
+    1. Run `composer require ezsystems/ezplatform-page-migration`
+    2. Add the bundle to `app/AppKernel.php`: `new EzSystems\EzPlatformPageMigrationBundle\EzPlatformPageMigrationBundle(),`
+    3. Run command `bin/console ezplatform:page:migrate`
+
+    You can remove the bundle after the migration is complete.
+
+    The command will migrate Landing Pages created in eZ Platform 1.x, 2.0 and 2.1 to new Pages.
+    The operation is transactional and will roll back in case of errors.
+
+    If there are missing block definitions, such as Form Block or Schedule Block,
+    you have an option to continue, but migrated Landing Pages will come without those blocks.
+
+    !!! tip
+
+        If you use different repositories with different SiteAccesses, use the `--siteaccess` switch
+        to migrate them separately.
+
+    !!! tip
+
+        You can use the `--dry-run` switch to test the migration.
+
+    After the migration is finished, you need to clear cache.
+
+    ##### Migrating custom blocks
+
+    For block types with custom storage you need to provide a dedicated converter but for simple blocks you can use `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\DefaultConverter` as your service class.
+
+    The service definition has to be tagged as:
+
+    ``` yaml
+    tags:
+        - { name: 'ezplatform.fieldtype.ezlandingpage.migration.attribute.converter', block_type: 'my_block_type_identifier' }
+    ```
+
+    Custom converters must implement the `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\ConverterInterface` interface.
+    `convert()` will parse XML `\DOMNode $node` and return an array of `\EzSystems\EzPlatformPageFieldType\FieldType\LandingPage\Model\Attribute` objects.
 
 ## 5. Dump assets
 
