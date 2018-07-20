@@ -383,12 +383,12 @@ These steps are only relevant for some releases:
             ADD INDEX `eznotification_owner_is_pending` (`owner_id` ASC, `is_pending` ASC);
             ```
 
-    #### Migrating Landing Pages
+    #### Migrate Landing Pages
 
     To update to v2.2 with existing Landing Pages, you need to use a dedicated script.
-    The script is contained in a separate bundle. To use it:
+    The script is contained in the `ezplatform-page-migration` bundle. To use it:
 
-    1. `composer require ezsystems/ezplatform-page-migration`
+    1. Run `composer require ezsystems/ezplatform-page-migration`
     2. Add the bundle to `app/AppKernel.php`: `new EzSystems\EzPlatformPageMigrationBundle\EzPlatformPageMigrationBundle(),`
     3. Run command `bin/console ezplatform:page:migrate`
 
@@ -417,7 +417,7 @@ These steps are only relevant for some releases:
     tags:
         - { name: 'ezplatform.fieldtype.ezlandingpage.migration.attribute.converter', block_type: 'my_block_type_identifier' }
     ```
-    
+
     Custom converters must implement the `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\ConverterInterface` interface.
     `convert()` will parse XML `\DOMNode $node` and return an array of `\EzSystems\EzPlatformPageFieldType\FieldType\LandingPage\Model\Attribute` objects.
 
