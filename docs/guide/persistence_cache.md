@@ -108,7 +108,7 @@ php app/console config:dump-reference stash
 
 This cache backend uses the local filesystem, by default the Symfony cache folder. As this is per server, it does not support [multi-server (cluster) setups](clustering.md)!
 
-!!! note
+!!! caution
 
     **We strongly discourage storing cache files on NFS**, as it defeats the purpose of the cache: speed.
 

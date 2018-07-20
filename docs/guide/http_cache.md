@@ -535,10 +535,12 @@ You need to get the new X-User-Hash for every new anonymous user / anonymous use
   `curl -I -H "Accept: application/vnd.fos.user-context-hash" -H "x-fos-original-url: /nor/" http://<your-domain.com>/nor/_fos_user_context_hash`
 
 Let's assume, that the new X-User-Hashes are:
+
 1. For `eng` SiteAccess: `baf9acf7ca78e370eac69f87f27e4ab8e674ced83750b4189e216cc05d2eb301`
-2. For `nor` SiteAccess: `a33ba7050ec3b848b266ef187623417b88b9df4b90483b7ef6582aa54ee72ee7`
+1. For `nor` SiteAccess: `a33ba7050ec3b848b266ef187623417b88b9df4b90483b7ef6582aa54ee72ee7`
 
 The next step is to update `ez_user_hash` sub-routine in the `.vcl` configuration as follow:
+
 ```
 // Sub-routine to get client user hash, for context-aware HTTP cache.
 sub ez_user_hash {
@@ -610,8 +612,8 @@ sub ez_user_hash {
 ```
 
 !!! tip "Upgrade your installation"
-+
-+    Consider upgrade to version 1.13 or newer because it doesn't require that much VCL changes to be able to benefit from `anonymous_user_id` setting while using Varnish.
+
+    Consider upgrade to version 1.13 or newer because it doesn't require many VCL changes to be able to benefit from `anonymous_user_id` setting while using Varnish.
 
 ##### Known limitations of the user hash generation
 
