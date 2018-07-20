@@ -36,7 +36,7 @@ If no Limitation is provided, value can be `null` or an empty array.
 
 Limitations need to be implemented as *Limitation types* and declared as services identified with `ezpublish.limitationType` tag. Name provided in the hash for each Limitation is the same value set in the `alias` attribute in the service tag.
 
-## Example
+**Example**
 
 ``` php
 namespace Acme\FooBundle\AcmeFooBundle\Security;

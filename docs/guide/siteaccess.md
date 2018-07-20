@@ -611,7 +611,7 @@ is done in a `kernel.request` event listener, so when injected into a constructo
 
 To ensure proper contract, the `eZ\Publish\Core\MVC\Symfony\SiteAccess\SiteAccessAware` interface can be implemented on a custom service.
 
-### Example
+**Example**
 
 Let's define a simple service which depends on the Repository's ContentService and the current SiteAccess.
 

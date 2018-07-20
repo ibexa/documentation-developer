@@ -24,7 +24,7 @@ It is possible to customize the user class used by extending `ezpublish.securit
 
 You can override `getUser()` to return whatever User class you want, as long as it implements `eZ\Publish\Core\MVC\Symfony\Security\UserInterface`.
 
-### Example
+**Example**
 
 Here is a very simple example using the in-memory user provider.
 
