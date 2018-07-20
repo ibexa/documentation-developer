@@ -409,6 +409,8 @@ These steps are only relevant for some releases:
 
         You can use the `--dry-run` switch to test the migration.
 
+    After the migration is finished, you need to clear cache.
+
     ##### Migrating custom blocks
 
     For block types with custom storage you need to provide a dedicated converter but for simple blocks you can use `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\DefaultConverter` as your service class.
