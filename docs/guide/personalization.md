@@ -14,12 +14,6 @@ It allows you to track the way visitors use your website and recommends content 
 
 ## Installation
 
-1. [Run composer require](#1-run-composer-require)
-2. [Enable the bundle](#2-enable-the-bundle)
-3. [Import additional routing](#3-import-additional-routing)
-4. [Register a Personalization Solution account](#4-register-a-personalization-solution-account)
-5. [Allow public HTTP(S) access](#5-allow-public-https-access)
-
 ### 1. Run composer require
 
 Run the following from your eZ Platform installation root:
@@ -127,9 +121,6 @@ ez_recommendation.export.users_authentication.password: "<licenseKey>"
 Place this in a settings file which won't be affected by an update to the Recommendation bundle via Composer.
 
 ## Configuration
-
-1. [Define what content should be tracked and exported](#1-define-what-content-should-be-tracked-and-exported)
-2. [Check if the bundle provides REST data](#2-check-if-the-bundle-provides-rest-data)
 
 ### 1. Define what content should be tracked and exported
 
@@ -275,7 +266,7 @@ For the `content` interface one Content item is returned, for the `contenttypes`
 
 ## Running a full content export
 
-!!! Exporting content is crucial for providing recommendations
+!!! caution "Exporting content is crucial for providing recommendations"
 
     If the content export does not work, your recommendations will not work as well.
     Required data like URIs, titles etc. will be missing and cannot be delivered in the recommendation response.
@@ -302,10 +293,6 @@ Please be patient, as this can take up to a couple of minutes.
 ### Checking if the full context export was stored in the recommender engine
 
 There are three ways to check if content was transferred and stored successfully in the recommender engine:
-
-- [REST request to the recommender's content store](#rest-request-to-the-recommenders-content-store)
-- [Recommender Backend](#recommender-backend)
-- [Personalized Search Requests](#personalized-search-requests)
 
 #### REST request to the recommender's content store
 
@@ -587,8 +574,9 @@ php app/console assets:install --symlink --env=prod
 
 If authentication fails although you added a user in your local directory please check if you used double quotes around the username in the export settings.
 
-### When fetching recommendations you get a message that the requested content type is not supported (CONFLICT)
+### Requested content type is not supported (CONFLICT)
 
+When fetching recommendations you get a message that the requested content type is not supported (CONFLICT).
 Take a look at the scenario configuration in the [Admin Dashboard](https://admin.yoochoose.net) and check if the input and output types are properly set.
 
 ### Logging

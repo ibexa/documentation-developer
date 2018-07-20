@@ -2,23 +2,6 @@
 
 [ezplatform-solr-search-engine](https://github.com/ezsystems/ezplatform-solr-search-engine) aims to be a transparent drop-in replacement for the SQL-based Legacy search engine powering eZ Platform Search API by default. When you enable Solr and re-index your content, all your existing Search queries using `SearchService` will be powered by Solr automatically. This allows you to scale up your eZ Platform installation and be able to continue development locally against SQL engine, and have a test infrastructure, Staging and Prod powered by Solr. This removes considerable load from your database. See [further information on the architecture of eZ Platform](architecture.md).
 
-Status of features:
-
-- Able to handle all eZ Platform queries. DONE
-    - Much more suitable for handling field criteria *(performance)* DONE
-    - Scoring for content queries and sorting by them by default DONE
-- Indexing plugins *(Solr Bundle &gt;= v1.2)* DONE
-- Solr 6 support *(Solr Bundle &gt;= v1.3)* DONE
-    - Scoring for Location queries and sorting by them by default DONE
-- Work in progress:
-    - Faceting *(possible to [write your own](../api/public_php_api_browsing.md#performing-a-faceted-search), ContentType/Section/User implemented, suggested further changes to the API for Faceting can be found [here](https://github.com/ezsystems/ezpublish-kernel/pull/1960))*
-    - Index time Boosting *(Solr Bundle &gt;= v1.4)* DONE
-- Future:
-    - Solr cloud support
-    - Highlighting
-    - Spell checking
-    - Query time Boosting
-
 ## How to set up Solr search engine
 
 !!! note "Enable the bundle"
