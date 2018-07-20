@@ -72,23 +72,6 @@ If a function is absent from the tables below, it means that no Limitations can 
 
 ## Limitation details
 
-- [BlockingLimitation](#blockinglimitation)
-- [ContentTypeLimitation](#contenttypelimitation)
-- [LanguageLimitation](#languagelimitation)
-- [LocationLimitation](#locationlimitation)
-- [NewObjectStateLimitation](#newobjectstatelimitation)
-- [NewSectionLimitation](#newsectionlimitation)
-- [ObjectStateLimitation](#objectstatelimitation)
-- [OwnerLimitation](#ownerlimitation)
-- [ParentContentTypeLimitation](#parentcontenttypelimitation)
-- [ParentDepthLimitation](#parentdepthlimitation)
-- [ParentOwnerLimitation](#parentownerlimitation)
-- [ParentUserGroupLimitation](#parentusergrouplimitation)
-- [SectionLimitation](#sectionlimitation)
-- [SiteAccessLimitation](#siteaccesslimitation)
-- [SubtreeLimitation](#subtreelimitation)
-- [UserGroupLimitation](#usergrouplimitation)
-
 ### BlockingLimitation
 
 A generic Limitation type to use when no other Limitation has been implemented. Without any Limitation assigned, a LimitationNotFoundException is thrown.
