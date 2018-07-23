@@ -232,6 +232,9 @@
       {% for path in extra_javascript %}
         <script src="{{ path }}"></script>
       {% endfor %}
+      <script>
+        window.doc_version_warning = {{ config.extra.version_warning|tojson }};
+      </script>
     {% endblock %}
     {% block analytics %}
       {% if config.google_analytics %}
