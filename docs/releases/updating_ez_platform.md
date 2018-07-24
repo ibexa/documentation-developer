@@ -5,12 +5,6 @@ This page explains how to update eZ Platform to a new version.
 
 In the instructions below, replace` <version>` with the version of eZ Platform you are updating to (for example: `v1.7.0`). If you are testing a release candidate, use the [latest rc tag](https://github.com/ezsystems/ezplatform/releases) (for example: `v1.7.1-rc1`).
 
-## Version-specific steps
-
-**Some versions introduce new features that require taking special steps; look out for colored bars with version numbers.**
-
-If you intend to skip a version (for example, update directly from v1.3 to v1.5 without getting v1.4), remember to look at all the intermediate steps as well – this means you need to perform both the steps for v1.4 and v1.5.
-
 ## Update procedure
 
 ## 1. Check out a tagged version
@@ -116,10 +110,6 @@ If you want to first test how the update proceeds without actually updating any 
 
 `composer update --dry-run`
 
-On PHP conflict | 16.02 and later requires PHP 5.5 or higher
-
-Because from release 16.02 onwards eZ Platform is compatible only with PHP 5.5 and higher, the update command above will fail if you use an older PHP version. Please update PHP to proceed.
-
 !!! caution "Common errors"
 
     If you experienced issues during the update, please check [Common errors](../getting_started/about_composer/#cloning-failed-using-an-ssh-key) section on the Composer about page.
@@ -130,9 +120,9 @@ Some versions require updates to the database. Look through [the list of databas
 
 `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.7.0-to-6.8.0.sql`
 
-These steps are only relevant for some releases:
+??? note "When updating from <1.7"
 
-??? note "Solr Bundle 1.4: Index time boosting"
+    ##### Solr index time boosting
 
     Solr Bundle v1.4 introduced among other things index time boosting feature, this involves a slight change to the Solr scheme that will need to be applied to your config.
 
@@ -168,7 +158,7 @@ These steps are only relevant for some releases:
          <field name="_version_" type="long" indexed="true" stored="true" multiValued="false" />
     ```
 
-??? note "v1.7: Form Builder"
+    ##### Form Builder
 
     !!! enterprise "EZ ENTERPRISE"
 
@@ -178,7 +168,7 @@ These steps are only relevant for some releases:
         mysql -p -u <database_user> <database_name> < vendor/ezsystems/ezstudio-form-builder/bundle/Resources/install/form_builder.sql
         ```
 
-??? note "v1.7: Date Based Publisher"
+    ##### Date Based Publisher
 
     !!! enterprise "EZ ENTERPRISE"
 
