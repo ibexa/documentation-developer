@@ -5,12 +5,6 @@ This page explains how to update eZ Platform to a new version.
 
 In the instructions below, replace` <version>` with the version of eZ Platform you are updating to (for example: `v1.7.0`). If you are testing a release candidate, use the [latest rc tag](https://github.com/ezsystems/ezplatform/releases) (for example: `v1.7.1-rc1`).
 
-## Version-specific steps
-
-**Some versions introduce new features that require taking special steps; look out for colored bars with version numbers.**
-
-If you intend to skip a version (for example, update directly from v1.3 to v1.5 without getting v1.4), remember to look at all the intermediate steps as well – this means you need to perform both the steps for v1.4 and v1.5.
-
 ## Update procedure
 
 ## 1. Check out a tagged version
@@ -116,11 +110,9 @@ If you want to first test how the update proceeds without actually updating any 
 
 `composer update --dry-run`
 
-On PHP conflict | 16.02 and later requires PHP 5.5 or higher
+??? note "When updating from <1.13"
 
-Because from release 16.02 onwards eZ Platform is compatible only with PHP 5.5 and higher, the update command above will fail if you use an older PHP version. Please update PHP to proceed.
-
-??? note "v1.10: Adding EzSystemsPlatformEEAssetsBundle"
+    ##### Adding EzSystemsPlatformEEAssetsBundle
 
     !!! enterprise "EZ ENTERPRISE"
 
@@ -129,14 +121,6 @@ Because from release 16.02 onwards eZ Platform is compatible only with PHP 5.5 a
         `new EzSystems\PlatformEEAssetsBundle\EzSystemsPlatformEEAssetsBundle(),`
 
         in `app/AppKernel.php`.
-
-??? note "v1.13.3: Custom form-builder template"
-
-    !!! enterprise "EZ ENTERPRISE"
-
-        During update from 1.13.2 to 1.13.3 if you do not use default form-builder template you should add `data-field-id` attribute manually to every `<img class="ezform-captcha-image"...` and `<a class="ezform-captcha-reload"` element.
-        For more information see https://github.com/ezsystems/ezplatform-ee-demo/pull/59
-
 
 !!! caution "Common errors"
 
@@ -148,9 +132,9 @@ Some versions require updates to the database. Look through [the list of databas
 
 `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.7.0-to-6.8.0.sql`
 
-These steps are only relevant for some releases:
+??? note "When updating from <1.7"
 
-??? note "Solr Bundle 1.4: Index time boosting"
+    ##### Solr index time boosting
 
     Solr Bundle v1.4 introduced among other things index time boosting feature, this involves a slight change to the Solr scheme that will need to be applied to your config.
 
@@ -186,7 +170,9 @@ These steps are only relevant for some releases:
          <field name="_version_" type="long" indexed="true" stored="true" multiValued="false" />
     ```
 
-??? note "v1.8: content/publish permission"
+??? note "When updating from <1.13"
+
+    ##### `content/publish` permission
 
     v1.8.0 introduced a new `content/publish` permission separated out of the `content/edit` permission. `edit` now covers only editing content, without the right to publishing it. For that you need the `publish` permission. `edit` without `publish` can be used in conjunction with the Content review workflow to ensure that a user cannot publish content themselves, but must pass it on for review.
 
@@ -196,7 +182,7 @@ These steps are only relevant for some releases:
     mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.7.0-to-6.8.0.sql
     ```
 
-??? note "v1.8: Folder for form-uploaded files"
+    ##### Folder for form-uploaded files
 
     To complete this step you have to [dump assets](#5-dump-assets) first.
 
@@ -212,7 +198,7 @@ These steps are only relevant for some releases:
         form_builder.upload_folder.section_identifier: <section identifier>
     ```
 
-??? note "v1.11: ezsearch_return_count table removal"
+    ##### `ezsearch_return_count` table removal
 
     v1.11.0 removes the `ezsearch_return_count` table, which had been removed in eZ Publish legacy since 5.4/2014.11. This avoids issues which would occur when you upgrade using legacy bridge. Apply the following database update script if your installation has not had the table removed by an earlier eZ Publish upgrade:
 
@@ -220,7 +206,7 @@ These steps are only relevant for some releases:
     mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.10.0-to-6.11.0.sql
     ```
 
-??? note "v1.12: Increased password hash length"
+    ##### Increased password hash length
 
     v1.12.0 improves password security by introducing support for PHP's `PASSWORD_BCRYPT` and `PASSWORD_DEFAULT` hashing algorithms. By default `PASSWORD_DEFAULT` is used. This currently uses bcrypt, but this may change in the future as PHP adds support for new and stronger algorithms.
     Apply the following database update script to change the schema and enable the storage of longer passwords:
@@ -246,7 +232,9 @@ These steps are only relevant for some releases:
     ALTER TABLE ezuser ALTER COLUMN password_hash TYPE VARCHAR(255);
     ​```
 
-??? note "v2.2: Change from UTF8 to UTF8MB4"
+!!! note "When updating from <2.2"
+
+    ##### Change from UTF8 to UTF8MB4
 
     Since v2.2 the character set for MySQL/MariaDB database tables changes from `utf8` to `utf8mb4` to support 4-byte characters.
 
@@ -281,7 +269,7 @@ These steps are only relevant for some releases:
     ```
     Also make the corresponding change in `app/config/dfs/dfs.yml`.
 
-!!! note "v2.2: Page builder"
+    ##### Page builder
 
     To update to v2.2, you need to run the following script to add database tables for the Page Builder:
 
@@ -383,7 +371,7 @@ These steps are only relevant for some releases:
             ADD INDEX `eznotification_owner_is_pending` (`owner_id` ASC, `is_pending` ASC);
             ```
 
-    #### Migrate Landing Pages
+    ##### Migrate Landing Pages
 
     To update to v2.2 with existing Landing Pages, you need to use a dedicated script.
     The script is contained in the `ezplatform-page-migration` bundle. To use it:
@@ -411,7 +399,7 @@ These steps are only relevant for some releases:
 
     After the migration is finished, you need to clear cache.
 
-    ##### Migrating custom blocks
+    ###### Migrating custom blocks
 
     For block types with custom storage you need to provide a dedicated converter but for simple blocks you can use `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\DefaultConverter` as your service class.
 
