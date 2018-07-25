@@ -24,11 +24,11 @@ $(document).ready(function () {
             warningMessage = '';
 
         if ($.inArray(branchName, doc_version_warning.previous_lts) !== -1) {
-            warningMessage = 'You are viewing documentation for an older LTS release. The latest LTS release is <span class="version">' + doc_version_warning.lts[0] + '</span>.';
+            warningMessage = 'You are viewing documentation for an older Long-Term Support release. The latest LTS release is <span class="version">' + doc_version_warning.lts[0] + '</span>.';
         }
 
         if ($.inArray(branchName, doc_version_warning.ft) !== -1) {
-            warningMessage = 'You are viewing documentation for an older FT release. The latest release is <span class="version">' + doc_version_warning.latest[0] + '</span>.';
+            warningMessage = 'You are viewing documentation for an older Fast Track release. The latest release is <span class="version">' + doc_version_warning.latest[0] + '</span>.';
         }
 
         if ($.inArray(branchName, doc_version_warning.dev) !== -1) {
@@ -38,7 +38,7 @@ $(document).ready(function () {
         if (warningMessage) {
             $("article").prepend($(
                 '<div class="md-typeset admonition caution version-warning"> ' +
-                '<p class="admonition-title">Outdated version</p> ' +
+                '<p class="admonition-title">Version warning</p> ' +
                 '<p> ' + warningMessage + '</p>' +
                 '</div>'
             ));
