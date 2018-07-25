@@ -13,12 +13,12 @@ pages:
             - 'Install using Docker': 'getting_started/install_using_docker.md'
             - 'Starting eZ Platform': 'getting_started/starting_ez_platform.md'
             - 'Set up directory permissions': 'getting_started/set_up_directory_permissions.md'
+            - 'Access to eZ Enterprise': 'getting_started/access_to_ez_enterprise.md'
             - 'Troubleshooting': 'getting_started/troubleshooting.md'
         - 'Bundles starter pack': 'getting_started/bundles_starter_pack.md'
         - Going deeper:
             - 'eZ Platform features': 'getting_started/ez_platform_features.md'
             - 'eZ Enterprise': 'getting_started/ez_enterprise.md'
-            - 'About Composer': 'getting_started/about_composer.md'
     - Tutorials:
         - 'Tutorials': 'tutorials/tutorials.md'
         - eZ Platform Beginner tutorial:
