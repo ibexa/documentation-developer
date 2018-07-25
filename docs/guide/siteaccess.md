@@ -339,12 +339,6 @@ ezpublish:
                 adm.bar-stuff.fr: bar_admin
 ```
 
-!!! enterprise
-
-    In eZ Enterprise, when using the Map\Host matcher, you need to provide the following line in your Twig template (e.g. in the head of the main template file):
-
-    `{{ multidomain_access() }}`
-
 **Example.** Map:
 
 - `www.foo.com` => `foo_front`
