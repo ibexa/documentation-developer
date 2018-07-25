@@ -13,7 +13,7 @@ Then you will configure the bundle to be able to write the code you need to crea
 From the eZ Platform root, run the following:
 
 ``` bash
-app/console generate:bundle --namespace=EzSystems/TweetFieldTypeBundle --dir=src --format=yml --no-interaction
+bin/console generate:bundle --namespace=EzSystems/TweetFieldTypeBundle --dir=src --format=yml --no-interaction
 ```
 
 Our bundle should now be generated. Navigate to `src/EzSystems/TweetFieldTypeBundle` and you should see the following structure:
