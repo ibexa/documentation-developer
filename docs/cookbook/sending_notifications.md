@@ -64,8 +64,28 @@ Example:
 
 ```php
 <?php 
-
+use eZ\Publish\API\Repository\NotificationService;
 use eZ\Publish\API\Repository\Values\Notification\CreateStruct;
+
+//..
+/** @var NotificationService */
+private $notificationService;
+
+/**
+* @param NotificationService $notificationService
+*/
+public function __construct( NotificationService $notificationService) 
+{
+    $this->notificationService = $notificationService;
+}
+
+//...
+
+$data = [
+    'content_name' => $content->getName(),
+    'content_id' => $content->id,
+    'message' => 'Lorem ipsum dolor sit amet, consetetur ....'
+];
 
 $notification = new CreateStruct();
 $notification->ownerId = $receiverId;
@@ -104,17 +124,13 @@ class MyRenderer implements NotificationRenderer
     
     public function render(Notification $notification): string
     {
-        return $this->twig->render('@FlexWorkflow/notification.html.twig', ['notification' => $notification]);
+        return $this->twig->render('AppBundle::notification.html.twig', ['notification' => $notification]);
     }
     
     public function generateUrl(Notification $notification): ?string
     {
         if (array_key_exists('content_id', $notification->data)) {
-            return $this->router->generate('ez_content_draft_edit', [
-                 'contentId' => $notification->data['content_id'],
-                 'versionNo' => $notification->data['version_number'],
-                 'language' => $notification->data['language'],
-            ]);
+            return $this->router->generate('_ez_content_view', ['contentId' => $notification->data['content_id']]);
         }
         
         return null;
@@ -122,13 +138,59 @@ class MyRenderer implements NotificationRenderer
 }
 ```
 
+A content edit draft route could be built like following:
+
+```
+return $this->router->generate('ez_content_draft_edit', [
+    'contentId' => $contentInfo->id,
+    'versionNo' => $contentInfo->currentVersionNo,
+    'language' => $contentInfo->mainLanguageCode,
+]);
+```
+
+Of course, you can add the above template defined in `render()` method in one of your custom bundles. In this example we will use the `AppBundle`: 
+
+```
+{% extends '@EzPlatformAdminUi/notifications/notification_row.html.twig' %}
+
+{% trans_default_domain 'custom_notification' %}
+
+{% set wrapper_additional_classes = 'css-class-custom' %}
+
+{% block icon %}
+    <span class="type__icon">
+        <svg class="ez-icon ez-icon--review">
+            <use xlink:href="{{ asset('bundles/ezplatformadminui/img/ez-icons.svg') }}#notice"></use>
+        </svg>
+    </span>
+{% endblock %}
+
+{% block notification_type %}
+    <span class="type__text">
+        {{ 'Notice'|trans|desc('Notice') }}
+    </span>
+{% endblock %}
+
+{% block message %}
+    <td class="n-notifications-modal__description">
+        <p class="description__title"><span class="description__title__item">{{ notification.data.content_name }}</p>
+        <p class="description__text{% if notification.data.message|length > 50 %} description__text--ellipsis{% endif %}">{{ notification.data.message }}</p>
+        <span class="description__read-more">{{ 'content.notice.read_more'|trans|desc('Read more &raquo;') }}</span>
+    </td>
+{% endblock %}
+
+```
+
+
 Finally, you need to add an entry to `services.yml`:
 
 ``` yaml
-AppBundle\Notification\MyRenderer:
-    arguments:
-        - '@twig'
-        - '@router'
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+    AppBundle\Notification\MyRenderer:
     tags:
         - { name: ezpublish.notification.renderer, alias: 'MyNotification:TypeName' }
 ```
