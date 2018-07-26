@@ -58,12 +58,12 @@ Dispatch the event with `document.body.dispatchEvent(eventInfo);`
 
 You can send your own custom notifications to the user with the same mechanism that is used to send notification from Flex Workflow.
 
-To create a new notification you must use `createNotification(eZ\Publish\API\Repository\Values\Notification\CreateStruct $createStruct)` method from `\eZ\Publish\API\Repository\NotificationService`. 
+To create a new notification you must use `createNotification(eZ\Publish\API\Repository\Values\Notification\CreateStruct $createStruct)` method from `\eZ\Publish\API\Repository\NotificationService`.
 
 Example:
 
 ```php
-<?php 
+<?php
 use eZ\Publish\API\Repository\NotificationService;
 use eZ\Publish\API\Repository\Values\Notification\CreateStruct;
 
@@ -74,7 +74,7 @@ private $notificationService;
 /**
 * @param NotificationService $notificationService
 */
-public function __construct( NotificationService $notificationService) 
+public function __construct( NotificationService $notificationService)
 {
     $this->notificationService = $notificationService;
 }
@@ -115,30 +115,30 @@ class MyRenderer implements NotificationRenderer
 {
     protected $twig;
     protected $router;
-    
+
     public function __construct(Environment $twig, RouterInterface $router)
     {
         $this->twig = $twig;
         $this->router = $router;
     }
-    
+
     public function render(Notification $notification): string
     {
         return $this->twig->render('AppBundle::notification.html.twig', ['notification' => $notification]);
     }
-    
+
     public function generateUrl(Notification $notification): ?string
     {
         if (array_key_exists('content_id', $notification->data)) {
             return $this->router->generate('_ez_content_view', ['contentId' => $notification->data['content_id']]);
         }
-        
+
         return null;
     }
 }
 ```
 
-A content edit draft route could be built like following:
+You can build a content edit draft route like this:
 
 ```
 return $this->router->generate('ez_content_draft_edit', [
@@ -148,7 +148,8 @@ return $this->router->generate('ez_content_draft_edit', [
 ]);
 ```
 
-Of course, you can add the above template defined in `render()` method in one of your custom bundles. In this example we will use the `AppBundle`: 
+You can add the template that is defined above in the `render()` method to one of your custom bundles.
+In this example use the `AppBundle`:
 
 ```
 {% extends '@EzPlatformAdminUi/notifications/notification_row.html.twig' %}
