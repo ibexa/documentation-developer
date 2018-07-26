@@ -224,18 +224,20 @@ stash:
 
 !!! tip
 
-    If you use the Redis cache driver and encounter problems with memory consumption,
+    If you use the Redis cache driver and encounter problems with high memory consumption,
     you can use the following (non-SiteAccess-aware) settings:
 
     ``` yaml
     ezpublish:
         stash_cache:
-            igbinary: true
-            lzf: true
+            igbinary: true/false
+            lzf: true/false
     ```
 
     - `ezpublish.stash_cache.igbinary` enables you to use the `igbinary` library to serialize objects stored in cache.
     - `ezpublish.stash_cache.lzf` enables you to use the `LZF` library to compress serialized objects stored in cache.
+
+    After changing these settings you need to clear cache and purge Redis content.
 
 ##### Redis Cluster
 
