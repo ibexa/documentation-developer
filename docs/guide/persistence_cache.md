@@ -237,7 +237,7 @@ stash:
     - `ezpublish.stash_cache.igbinary` enables you to use the `igbinary` library to serialize objects stored in cache.
     - `ezpublish.stash_cache.lzf` enables you to use the `LZF` library to compress serialized objects stored in cache.
 
-    After changing these settings you need to clear cache and purge Redis content.
+    After changing these settings you need to clear cache and purge Redis content (see above).
 
 ##### Redis Cluster
 
