@@ -222,6 +222,23 @@ stash:
     The regular `php app/console cache:clear` command does not clear Redis persistence cache.
     To clear it, use the console command shipped with Redis: `redis-cli flushall`.
 
+!!! tip
+
+    If you use the Redis cache driver and encounter problems with high memory consumption,
+    you can use the following (non-SiteAccess-aware) settings:
+
+    ``` yaml
+    ezpublish:
+        stash_cache:
+            igbinary: true/false
+            lzf: true/false
+    ```
+
+    - `ezpublish.stash_cache.igbinary` enables you to use the `igbinary` library to serialize objects stored in cache.
+    - `ezpublish.stash_cache.lzf` enables you to use the `LZF` library to compress serialized objects stored in cache.
+
+    After changing these settings you need to clear cache and purge Redis content (see above).
+
 ##### Redis Cluster
 
 It is possible to set up and use Redis as a cluster. This configuration is more efficient and reliable for large installations. Redis Cluster can be configured in two ways, the first using [create-cluster script](https://redis.io/topics/cluster-tutorial) and the second using [Redis Sentinel](https://redis.io/topics/sentinel). If you use Platform.sh Enterprise you can benefit from the Redis Sentinel across three nodes for greater fault tolerance. Platform.sh Professional and lower versions offer Redis in single instance mode only. Configuration on eZ Platform / Symfony stays the same regardless of the Redis version, single instance mode or cluster mode.
