@@ -8,3 +8,9 @@
     flex-wrap: wrap;
     align-content: space-around;
 }
+.ez-guidelines .header-h1 {
+	font-size: 34px;
+	font-weight: 500;
+	line-height: 1.2;
+	color: #f15a10;
+}
