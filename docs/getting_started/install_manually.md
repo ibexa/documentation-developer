@@ -118,7 +118,7 @@ You can check out a tag, or use the `master` branch if you are interested in wor
 Create a new database (you can substitute `ezplatform` with the database name you want to use, but keep it in mind in next steps):
 
 ``` bash
-mysql -u root -e 'CREATE DATABASE ezplatform CHARACTER SET utf8;'
+mysql -u root -e 'CREATE DATABASE ezplatform CHARACTER SET utf8mb4;'
 ```
 
 ## 5. Run installation scripts
