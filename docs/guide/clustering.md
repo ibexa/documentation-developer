@@ -186,7 +186,7 @@ If `--to` is omitted, the first non-default IO configuration will be used.
     The command must be executed with the same permissions as the web server.
 
 While the command is running, the files should not be modified.
-To avoid surprises you should create a backup and/or execute a dry run before doing the actual update, using the `--dry-run` switch.
+To avoid surprises you should create a [backup](guide/backup.md) and/or execute a dry run before doing the actual update, using the `--dry-run` switch.
 
 Since this command can run for a very long time, to avoid memory exhaustion run it in the production environment using the `--env=prod` switch.
 

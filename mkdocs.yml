@@ -90,6 +90,7 @@ pages:
             - 'Permissions': 'guide/permissions.md'
             - 'Limitations': 'guide/limitations.md'
             - 'Custom Policies': 'guide/custom_policies.md'
+        - 'Backup': 'guide/backup.md'
         - Search:
             - 'Search': 'guide/search.md'
             - 'Solr search engine': 'guide/solr.md'
@@ -150,7 +151,6 @@ pages:
     - Migrating to eZ Platform:
         - 'Migrating from eZ Publish Platform': 'migrating/migrating_from_ez_publish_platform.md'
         - 'Migrating from eZ Publish': 'migrating/migrating_from_ez_publish.md'
-        - 'Backup': 'migrating/backup.md'
         - 'Common issues': 'migrating/common_issues.md'
     - Releases:
         - 'Updating eZ Platform': 'releases/updating_ez_platform.md'
