@@ -17,8 +17,6 @@ cd /path/to/ezplatform
 ```
 var/cache/*
 var/logs/*
-var/<var_dir>/logs/*
-var/<var_dir>/cache/*
 ```
 
 3\. Create a dump of the database:
