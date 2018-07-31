@@ -101,6 +101,7 @@ pages:
             - 'Permissions': 'guide/permissions.md'
             - 'Limitations': 'guide/limitations.md'
             - 'Custom Policies': 'guide/custom_policies.md'
+        - 'Backup': 'guide/backup.md'
         - Search:
             - 'Search': 'guide/search.md'
             - 'Solr search engine': 'guide/solr.md'
