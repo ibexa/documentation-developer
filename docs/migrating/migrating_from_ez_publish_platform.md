@@ -28,7 +28,7 @@ eZ Publish Platform introduced a new Symfony-based technology stack that could b
 
     If you are migrating from a legacy eZ Publish version, this page contains the information you need. However, first have a look at an overview of the process in [Migrating from eZ Publish](migrating_from_ez_publish.md).
 
-This section describes how to upgrade your existing  eZ Publish Platform  5.4/2014.11 installation to eZ Platform and eZ Enterprise. Make sure that you have a working backup of the site before you do the actual upgrade, and that the installation you are performing the upgrade on is offline.
+This section describes how to upgrade your existing  eZ Publish Platform  5.4/2014.11 installation to eZ Platform and eZ Enterprise. Make sure that you have a working [backup](../guide/backup.md) of the site before you do the actual upgrade, and that the installation you are performing the upgrade on is offline.
 
 ### Note on Paths
 
@@ -271,7 +271,7 @@ app/console ezflow:migrate <legacy path> —ini=<block definitions> [—ini=<ano
 app/console ezflow:migrate /var/www/legacy.application.com/ —ini=extension/myapplication/settings/block.ini.append.php
 ```
 
-**5.** You will be warned about the need to create a backup of your database. **Proceed only if you are sure you have done it.**
+**5.** You will be warned about the need to create a [backup](../guide/backup.md) of your database. **Proceed only if you are sure you have done it.**
 
 A `MigrationBundle` will be generated in the `src/` folder.
 
