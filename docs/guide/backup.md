@@ -49,10 +49,6 @@ This tool checks for any alterations in files that came with the eZ Platform ins
 
 This feature checks if the database is consistent with the schema that came with the current eZ Platform distribution. The system will suggest the necessary SQL statements to run in order to bring the database into a consistent state. Make sure that the database is backed up and run the suggested SQL statements before upgrading.
 
-!!! note "eZ Network"
-
-    If your installation does not have the eZ Network installed, you will get an error message about database inconsistency. This is to be expected and the error message will disappear as soon as the eZ Network is installed.
-
 !!! note "Cluster"
 
     If you are using a cluster with the same database as eZ Platform then you will get an error message about database inconsistency (specifically: `ezdbfile` or `ezdfsfile` tables). This is a known issue with database inconsistency check combined with clustering, and can safely be ignored. To avoid this you can install cluster tables in a separate database, and make sure this is reflected in config.php and file.ini settings, see [Clustering section](clustering.md) for generic information about how to install cluster.
