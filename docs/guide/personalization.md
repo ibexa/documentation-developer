@@ -59,6 +59,7 @@ recommendationBundleRestRoutes:
     #     arguments:
     #         - @ez_recommendation.client.yoochoose_notifier
     #         - @ez_recommendation.legacy.search_engine
+    #     lazy: true  
 
     # ez_recommendation.legacy.search_configuration_mapper:
     #     class: EzSystems\RecommendationBundle\eZ\Publish\LegacySearch\ConfigurationMapper
