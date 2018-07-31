@@ -1,6 +1,6 @@
 # Backup 
 
-You should always make sure that your solution is properly backed up. The following example shows you how to do this on a Linux/UNIX based system where eZ Platform is using a MySQL database called "example". You should close the system before making a backup or an upgrade.
+You should always make sure that your solution is properly backed up. The following example shows you how to do this on a Linux-UNIX-based system where eZ Platform is using a MySQL database called "example". You should shut down Platform if it's running before making a backup or an upgrade.
 
 !!! note "Externally stored assets"
 
@@ -9,7 +9,7 @@ You should always make sure that your solution is properly backed up. The follow
 1\. Navigate into the eZ Platform directory:
  
 ```
-$ cd /path/to/ezplatform
+cd /path/to/ezplatform
 ```
 
 2\. Unclusterize or backup the NFS folder.
@@ -17,25 +17,25 @@ $ cd /path/to/ezplatform
 3\. Clear all caches:
 
 ```
-$ var/cache/*
-$ var/logs/*
-$ var/<var_dir>/logs/*
-$ var/<var_dir>/cache/*
+var/cache/*
+var/logs/*
+var/<var_dir>/logs/*
+var/<var_dir>/cache/*
 ```
 
 4\. Create a dump of the database:
  
 ```
-$ mysqldump -u root --add-drop-table example > db_backup.sql
+mysqldump -u root --add-drop-table example > db_backup.sql
 ```
 
-5\. In parent directory create a tape archive of the files (including the DB dump) using the "tar" command:
+5\. In parent directory create a tar archive of the files (including the DB dump) using the "tar" command:
 
 ```
-$ tar cfz backup_of_ezplatform.tar.gz ezplatform
+tar cfz backup_of_ezplatform.tar.gz ezplatform
 ```
 
- At this point, the file "backup_of_ezplatform.tar.gz" should contain a backup of DB and files.
+At this point, the file `backup_of_ezplatform.tar.gz` should contain a backup of DB and files.
 
 ## Consistency checks
 
@@ -47,7 +47,7 @@ This tool checks for any alterations in files that came with the eZ Platform ins
 
 ### Database consistency check
 
-This feature checks if the database is consistent with schema that came with currently running eZ Platform distribution. The system will suggest the necessary SQL statements to ran in order to bring the database into a consistent state. Make sure that the database is backed up and run the suggested SQL statements before upgrading.
+This feature checks if the database is consistent with the schema that came with the current eZ Platform distribution. The system will suggest the necessary SQL statements to run in order to bring the database into a consistent state. Make sure that the database is backed up and run the suggested SQL statements before upgrading.
 
 !!! note "eZ Network"
 
