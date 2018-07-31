@@ -46,7 +46,7 @@ recommendationBundleRestRoutes:
 
 !!! note "Legacy support"
 
-    Legacy support is disabled by default. To enable the legacy search engine (requires `ezpublish-kernel` bundle) uncomment these lines in the bundle's `services.yml`:
+    Legacy support is disabled by default. To enable the legacy search engine (requires `ezpublish-kernel` bundle) copy these service definitions to your `app/config/services.yml` file and ucomment them:
 
     ``` yaml
     # ez_recommendation.legacy.search_engine:
