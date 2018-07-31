@@ -13,7 +13,7 @@ issues that can occur after migration to eZ Platform.
 
 !!! caution
 
-    Remember about **proper backup** before running any of the commands below.
+    Remember about [**proper backup**](../guide/backup.md) before running any of the commands below.
 
 ## Regenerating URL Aliases
 
