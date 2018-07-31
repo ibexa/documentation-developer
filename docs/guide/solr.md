@@ -239,7 +239,7 @@ Here are the most common issues you may encounter:
 
 - Exception if Binary files in database have an invalid path prefix
     - Make sure `var_dir` is configured properly in `ezplatform.yml` configuration.
-    - If your database is inconsistent in regards to file paths, try to update entries to be correct *(make sure to make a [backup](/guide/backup.md) first)*.
+    - If your database is inconsistent in regards to file paths, try to update entries to be correct *(make sure to make a [backup](backup.md) first)*.
 - Exception on unsupported Field Types
     - Make sure to implement all Field Types in your installation, or to configure missing ones as [NullType](../api/field_type_reference.md#null-field-type) if implementation is not needed.
 - Content is not immediately available

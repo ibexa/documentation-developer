@@ -55,5 +55,5 @@ This feature checks if the database is consistent with the schema that came with
 
 !!! note "Cluster"
 
-    If you are using a cluster with the same database as eZ Platform then you will get an error message about database inconsistency (specifically: `ezdbfile` or `ezdfsfile` tables). This is a known issue with database inconsistency check combined with clustering, and can safely be ignored. To avoid this you can install cluster tables in a separate database, and make sure this is reflected in config.php and file.ini settings, see [Clustering section](guide/clustering) for generic information about how to install cluster.
+    If you are using a cluster with the same database as eZ Platform then you will get an error message about database inconsistency (specifically: `ezdbfile` or `ezdfsfile` tables). This is a known issue with database inconsistency check combined with clustering, and can safely be ignored. To avoid this you can install cluster tables in a separate database, and make sure this is reflected in config.php and file.ini settings, see [Clustering section](clustering.md) for generic information about how to install cluster.
     
