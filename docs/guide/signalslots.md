@@ -4,7 +4,7 @@ The SignalSlot system provides a means for realizing loosely coupled dependencie
 
 ![SignalSlots diagram](img/signal_slots_diagram.png)
 
-In the shown schematics, object B and one other object are interested in a certain Signal. B is a so-called Slot that can be announced to be interested in receiving a Signal (indicated by the circular connector to the dispatcher). Object A now sends the corresponding Signal. The Dispatcher takes care of realizing the dependency and informs the Slot A (and one other Slot) about the occurrence of the Signal.
+In the shown schematics, object B and one other object are interested in a certain Signal. B is a so-called Slot that can be announced to be interested in receiving a Signal (indicated by the circular connector to the dispatcher). Object A now sends the corresponding Signal. The Dispatcher takes care of realizing the dependency and informs the Slot B (and one other Slot) about the occurrence of the Signal.
 
 Signals roughly equal events, while Slots roughly equal event handlers. An arbitrary number (0…n) of Slots can listen for a specific Signal. Every object that receives the Dispatcher as a dependency can send Signals. However, the following conditions apply (that typically do not apply to event handling systems):
 
