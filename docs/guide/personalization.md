@@ -46,7 +46,7 @@ recommendationBundleRestRoutes:
 
 !!! note "Legacy support"
 
-    Legacy support is disabled by default. To enable the legacy search engine (requires `ezpublish-kernel` bundle) uncomment these lines in the bundle's `services.yml`:
+    Legacy support is disabled by default. To enable the legacy search engine (requires `ezpublish-kernel` bundle) copy these service definitions to your `app/config/services.yml` file and uncomment them:
 
     ``` yaml
     # ez_recommendation.legacy.search_engine:
@@ -59,6 +59,7 @@ recommendationBundleRestRoutes:
     #     arguments:
     #         - @ez_recommendation.client.yoochoose_notifier
     #         - @ez_recommendation.legacy.search_engine
+    #     lazy: true  
 
     # ez_recommendation.legacy.search_configuration_mapper:
     #     class: EzSystems\RecommendationBundle\eZ\Publish\LegacySearch\ConfigurationMapper
@@ -206,7 +207,7 @@ The `EzSystemsRecommendationBundle` delivers a Twig extension which helps integr
 You can verify the import controller of the bundle by calling the local API. You should use the 'Accept' header and may need to add an 'Authorization' header if authentication is required.
 
 To check if the `content` interface is working as expected, try this URI:
-``` 
+```
 GET http://{endpoint}/api/ezp/v2/ez_recommendation/v1/content/{contentId}`
 Accept application/vnd.ez.api.Content+json`
 Authorization Basic xxxxxxxx`
