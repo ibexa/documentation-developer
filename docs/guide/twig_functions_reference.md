@@ -153,7 +153,7 @@ If the Content item does not have a translation in the current language, the mai
 
 #### Description
 
-`ez_field()` is a Twig helper which returns a Field  in the current language. The field gives you access to the field value, as well as the Field's Definition and Type identifiers.
+`ez_field()` is a Twig helper which returns a Field  in the current language. The field gives you access to the field value, as well as the Field's Definition identifier and Type identifier.
 
 !!! tip
 
