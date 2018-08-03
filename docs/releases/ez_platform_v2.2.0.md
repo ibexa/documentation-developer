@@ -39,8 +39,7 @@ In the Page block config you can now specify the CSS class with its own style fo
 
     Refer to [Updating eZ Platform](updating_ez_platform.md#4-update-database) for a database update script.
 
-    To update to 2.2 with existing Content you will need a dedicated script for converting the Landing Page into the new Page.
-    [This script is currently a work in progress.](https://jira.ez.no/browse/EZEE-2150)
+    To update to 2.2 with existing Content you will need a [dedicated script for converting the Landing Page into the new Page](updating_ez_platform.md#migrate-landing-pages).
 
 ### Bookmarks
 
