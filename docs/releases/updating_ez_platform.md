@@ -374,7 +374,8 @@ Some versions require updates to the database. Look through [the list of databas
     ##### Migrate Landing Pages
 
     To update to v2.2 with existing Landing Pages, you need to use a dedicated script.
-    The script is contained in the `ezplatform-page-migration` bundle. To use it:
+    The script is contained in the `ezplatform-page-migration` bundle and **works since version v2.2.2**.
+    To use it:
 
     1. Run `composer require ezsystems/ezplatform-page-migration`
     2. Add the bundle to `app/AppKernel.php`: `new EzSystems\EzPlatformPageMigrationBundle\EzPlatformPageMigrationBundle(),`
