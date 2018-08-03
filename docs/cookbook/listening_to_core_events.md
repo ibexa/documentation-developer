@@ -51,13 +51,13 @@ You now need to register `OnPublishSlot` as a service in the ServiceContainer an
 In `services.yml` (in your bundle):
 
 ``` yaml
-parameters:
-    my.onpublish_slot.class: Acme\ExampleBundle\Slot\OnPublishSlot
- 
 services:
-    my.onpublish_slot:
-        class: '%my.onpublish_slot.class%'
-        arguments: ['@ezpublish.api.service.content']
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+ 
+    Acme\ExampleBundle\Slot\OnPublishSlot:
         tags:
             - { name: ezpublish.api.slot, signal: ContentService\PublishVersionSignal }
 ```
@@ -90,14 +90,14 @@ This very simple example will just log the received signal.
 
 In `services.yml` (in your bundle):
 
-``` yaml
-parameters:
-    my.signal_listener.class: Acme\ExampleBundle\EventListener\SignalListener
- 
+``` yaml 
 services:
-    my.signal_listener:
-        class: '%my.signal_listener.class%'
-        arguments: ['@logger']
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    Acme\ExampleBundle\EventListener\SignalListener:
         tags:
             - { name: kernel.event_subscriber }
 ```
