@@ -124,7 +124,7 @@ If you want to first test how the update proceeds without actually updating any 
 
 !!! caution "Common errors"
 
-    If you experienced issues during the update, please check [Common errors](../getting_started/about_composer/#cloning-failed-using-an-ssh-key) section on the Composer about page.
+    If you experienced issues during the update, please check [Common errors](../getting_started/troubleshooting.md#cloning-failed-using-an-ssh-key) section on the Composer about page.
 
 ## 4. Update database
 
