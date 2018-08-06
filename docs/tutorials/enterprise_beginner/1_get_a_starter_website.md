@@ -1,5 +1,12 @@
 # Step 1 - Get a starter website
 
+!!! caution
+
+    This tutorial does not work in eZ Platform v2.2.
+
+    If you want to go through the tutorial, use v2.1 or an earlier version.
+    It will be updated for an upcoming v2.3 version.
+
 !!! tip
 
     You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/ezstudio-beginner-tutorial/tree/v2-step1).
