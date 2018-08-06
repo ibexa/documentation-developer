@@ -1,6 +1,6 @@
 # Troubleshooting
 
-This page lists potential problems that you may encounter while installing, configuring, and running eZ Platform. If you stumble upon an obstacle, take a look here to see if your case isn't covered. 
+This page lists potential problems that you may encounter while installing, configuring, and running eZ Platform. If you stumble upon an obstacle, take a look here to see if your case isn't covered.
 
 Want to add to this page? Check out our instructions for [contributing to our documentation](../community_resources/documentation.md).
 
@@ -20,4 +20,29 @@ For instance, if one of those Field definitions is configured to accept files up
 
 If you accepted all the defaults when doing a `composer install`, but realize you need to go back and change some of those options, look in `app/config/parameters.yml` – that's where they are stored.
 
- 
+## Cloning failed using an ssh key
+
+When dealing with [updates.ez.no](http://updates.ez.no) packages, you may get a "Cloning failed using an ssh key" error
+if you tell Composer to download dev packages or to download from source.
+[updates.ez.no](http://updates.ez.no) currently supports only distribution packages in alpha stability or higher.
+
+To avoid the error, check the stability of packages and avoid using `--prefer-source`.
+
+## Conflict with roave/security-advisories
+
+When you use `composer update` or `composer require`, a package may conflict with `roave/security-advisories`:
+
+``` bash
+Your requirements could not be resolved to an installable set of packages.
+  Problem 1
+    - ezsystems/ezpublish-legacy v5.4.10 conflicts with roave/security-advisories[dev-master].
+    (...)
+```
+
+This means there is a known security bug in the specific version of the package, `ezsystems/ezpublish-legacy`.
+In most cases this means that a fix is available in a newer version.
+If you increase your requirement to that version, the conflict is resolved.
+
+In the rare case when there is no fixed version, you can revert your requirement to an older version which does not have the bug.
+If you have to use the version with the bug (not recommended) you can use `composer remove roave/security-advisories`.
+In such case, require it again when the bug is fixed and the package is updated: `composer require roave/security-advisories:dev-master` 

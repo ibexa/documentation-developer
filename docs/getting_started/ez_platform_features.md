@@ -50,7 +50,7 @@ Besides a "clean" eZ Platform installation there is an option to install eZ Plat
 
 Installation of eZ Platform Demo is very similar to a standard "clean" installation. Demo provides some previously prepared content and is stored in a separate github repository - you can find it [here.](https://github.com/ezsystems/ezplatform-demo)
 
-Installation requires Composer global installation. You can find more information about using Composer [here.](about_composer.md)
+Installation requires Composer global installation.
 
 To perform eZ Platform demo installation use commands below in the terminal/bash/command-line interface. 
 

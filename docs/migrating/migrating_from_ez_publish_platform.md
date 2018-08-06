@@ -36,7 +36,7 @@ This section describes how to upgrade your existing  eZ Publish Platform  5.4
     - PHP 5.6, 7.0 or higher
     - MariaDB or MySQL 5.5 or higher _(Postgres possible for upgrades, but not yet supported by the installer for new installations)_
     - Browser from 2016 or newer for use with eZ Platform backend UI
-- This page assumes you have composer installed on the machine and that it is a somewhat recent version. See [About Composer](../getting_started/about_composer.md).
+- This page assumes you have composer installed on the machine and that it is a recent version.
 
 ## Upgrade steps
 
@@ -237,7 +237,7 @@ The last command would then ensure embedded objects with Content Type identifier
 ###### 3.2.3 Add other eZ Enterprise schemas (eZ Enterprise only)
 
 For date-based publisher and form builder, there are additional tables, you can import them to your database using the following sql files:
-`<new-ez-root>/vendor/ezsystems/date-based-publisher/bundle/Resources/install/datebasedpublisher_scheduled_version.sql`, 
+`<new-ez-root>/vendor/ezsystems/date-based-publisher/bundle/Resources/install/datebasedpublisher_scheduled_version.sql`,
 `<new-ez-root>/vendor/ezsystems/ezstudio-form-builder/bundle/Resources/install/form_builder.sql`, `<new-ez-root>/vendor/ezsystems/ezstudio-notifications/bundle/Resources/install/ezstudio-notifications.sql`
 
 ### Step 4: Re-configure web server and proxy
