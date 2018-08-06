@@ -10,9 +10,9 @@ These are most common actions you may need to take in a new installation.
 
 ## Create a Content Type
 
-1\. Go to the Back Office: `<your_domain>/admin`.
+1\. Go to the Back Office: `<your_domain>/ez`.
 
-2\. Select Admin and go to Content Types.
+2\. Select Admin Panel and go to Content Types.
 
 3\. Enter the Content group and create a new Content Type.
 
@@ -36,7 +36,7 @@ To display Content in the front page you need to define content views and templa
 
 Content views decide which templates and controllers are used to display Content.
 
-1\. In `app/config/ezplatform.yml` add the following block under `ezpublish.system.site_group`, before `admin_group`
+1\. In `app/config/ezplatform.yml` add the following block under `ezpublish.system.site_group`
 (pay attention to indentation: `content_view` should be one level below `site_group`):
 
 ``` yaml
@@ -88,7 +88,7 @@ SiteAccesses are used depending on matching rules. They are set up in YAML confi
 ezpublish:
     # ...
     siteaccess:
-        list: [site, admin, de]
+        list: [site, de]
         groups:
             site_group: [site, de]
 ```
@@ -130,21 +130,13 @@ This means that German will be used as the main language for this SiteAccess, an
 
 2\. Remove or comment the following line under `ezpublish.system.site_group`: `languages: [eng-GB]`.
 
-Also, add the `ger-DE` language under `admin_group`:
-
-```yaml
-admin_group:
-    # ...
-    languages: [eng-GB, ger-DE]
-```
-
-3\. Go to the Back Office and select Admin > Languages. Add a new language called "German", with language code `ger-DE`.
-Make sure it is enabled.
+3\. Go to the Back Office and select Admin Panel > Languages. Add a new language called "German", with language code `ger-DE`.
+Make sure it is enabled. Afterwards, clear the cache: `app/console cache:clear`.
 
 ![Creating a language](img/first-steps-create-language.png)
 
 4\. Next, go to the Content structure and open the blog post you had created earlier.
-Switch to the Translations tab and add a new translation.
+Select Translations in the menu and add a new translation.
 
 ![Adding a translation](img/first-steps-add-translation.png)
 
@@ -160,39 +152,6 @@ Switch to the Translations tab and add a new translation.
     - [Internationalization](../guide/internationalization.md)
     - [Setting up multi-language SiteAccesses and corresponding translations](../cookbook/setting_up_multi_language_siteaccesses.md)
 
-## Add a design
-
-The design engine enables you to use different themes consisting of templates and assets.
-Each theme is stored in a separate folder and assigned to a SiteAccess.
-
-To create a new theme:
-
-1\. Add the following configuration at the bottom of `app/config/ezplatform.yml` (at the same level as `ezpublish`):
-
-``` yaml
-ezdesign:
-    design_list:
-        site_design: [site_design]
-        de_design: [de_design]
-```
-
-2\. In configuration of the `de` SiteAccess (under `ezpublish.system.de`) add: `design: de_design`
-
-3\. Under `site_group`, add `design: site_design`
-
-4\. Go back to the `content_view` configuration for the blog post. Change the path to the template so that it points to the folder for the correct design:
-`template: '@ezdesign\full\blog_post.html.twig'`
-
-This means that the app will look for the `blog_post.html.twig` file in a folder relevant for the SiteAccess: `de_design` for the `de` SiteAccess, or `site_design` for other SiteAccesses in `site_group`.
-
-5\. Create a `themes` folder under `app/Resources/views`, and two folders under it: `de_design` and `site_design`.
-
-6\. Move the existing `full\blog_post.html.twig` file under `site_design`.
-
-7\. Copy it also under `de_design`. Modify the second one in any way (for example, add some html), so you can preview the effect.
-
-8\. To see the difference between the different themes, compare what is displayed at `<yourdomain>/<content-name>` and `<yourdomain>/de/<content-name>`
-
 ## Set up permissions
 
 To allow a group of users to edit only a specific Content Type (in this example, blog posts), you need to set up permissions for them.
@@ -200,14 +159,14 @@ To allow a group of users to edit only a specific Content Type (in this example,
 Users and User Groups are assigned Roles. A Role can contain a number of Policies, which are rules that permit the user to perform a specific function.
 Policies can be additionally restricted by Limitations.
 
-1\. Go to Admin > Users. Create a new User Group (the same way you create regular Content).
+1\. Go to Admin Panel > Users. Create a new User Group (the same way you create regular Content).
 Call the group "Bloggers".
 
-2\. In the new group create a User. Remember their username and password. Mark the user as "Enabled".
+2\. In the new group create a User. Remember their username and password.
 
 ![Creating a User](img/first-steps-create-user.png)
 
-3\. Go to Admin > Roles. Create a new Role called "Blogger".
+3\. Go to Admin Panel > Roles. Create a new Role called "Blogger".
 
 4\. Enter the Role and add Policies that will allow the User to log in:
 
@@ -225,7 +184,7 @@ Call the group "Bloggers".
 
 ![Adding Limitations to a Policy](img/first-steps-policy-limitations.png)
 
-6\. In the Assignments tab assign the "Blogger" Role to the "Bloggers" group.
+6\. In the "Users and groups using the <Blogger> role" tab assign the Role to the "Bloggers" group.
 
 ![Assigning a Role](img/first-steps-assign-roles.png)
 
