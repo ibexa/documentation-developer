@@ -36,7 +36,7 @@ This section describes how to upgrade your existing  eZ Publish Platform  5.4
     - PHP 7.1 or higher
     - MariaDB or MySQL 5.5 or higher _(Postgres possible for upgrades, but not yet supported by the installer for new installations)_
     - Browser from 2017 or newer for use with eZ Platform backend UI
-- This page assumes you have composer installed on the machine and that it is a somewhat recent version. See [About Composer](../getting_started/about_composer.md).
+- This page assumes you have composer installed on the machine and that it is a recent version.
 
 ## Upgrade steps
 

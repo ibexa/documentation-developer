@@ -8,8 +8,6 @@ If you don't have it already, install Composer, the command-line package manage
 php -r "readfile('https://getcomposer.org/installer');" | php
 ```
 
-For further information about Composer usage see the [Using Composer](about_composer.md) section.
-
 ## Install eZ Platform
 
 The commands below assume you have Composer installed globally, a copy of git on your system, and a MySQL/MariaDB server.
@@ -62,7 +60,7 @@ It depends on the meta-repository you are using.
 
 !!! enterprise "eZ Platform Enterprise Edition"
 
-    To install the Enterprise Edition you need an eZ Enterprise subscription and have to [set up Composer for that](about_composer.md#prerequisite-to-using-composer-with-ez-enterprise-software).
+    To install the Enterprise Edition you need an eZ Enterprise subscription and have to [set up Composer for that](access_to_ez_enterprise.md).
 
     ``` bash
     composer create-project --keep-vcs ezsystems/ezplatform-ee
