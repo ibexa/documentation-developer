@@ -130,12 +130,12 @@ Additional Policies are needed for each section of the Admin.
 
 ##### Content Types
 
-- `class/create`, `class/update`, `class/delete` to add, modify and remove Content Types, respectively.
+- `class/create`, `class/update`, `class/delete` to add, modify and remove Content Types
 
 ##### Object States
 
 - `state/administrate` to view a list of Object States, add and edit them
-- `state/assign` to assign Objects States to Content.
+- `state/assign` to assign Objects States to Content
 
 ##### Roles
 
@@ -146,7 +146,7 @@ Additional Policies are needed for each section of the Admin.
 
 - `content/view` to view the list of Users
 
-Users are treated like other Content, so to create and modify them the User needs to have the same permissions as for managing Content.
+Users are treated like other Content, so to create and modify them the User needs to have the same permissions as for managing other Content items.
 
 ## Available Policies
 
