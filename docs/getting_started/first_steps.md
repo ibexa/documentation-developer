@@ -12,7 +12,7 @@ These are most common actions you may need to take in a new installation.
 
 1\. Go to the Back Office: `<your_domain>/admin`.
 
-2\. Activate Admin and go to Content Types.
+2\. Select Admin and go to Content Types.
 
 3\. Enter the Content group and create a new Content Type.
 
@@ -72,7 +72,7 @@ Content view templates use the [Twig templating engine](https://twig.symfony.com
 2\. Select a Blog Post Content Type. Fill in the Content item and publish it.
 
 3\. To preview the new Content item on the front page, go to `<yourdomain>/<Content-item-name>`.
-For example, if the Title of the Blog post is "First blog post", the address will be `<yourdomain>/first-blog-post`.
+For example, if the title of the Blog post is "First blog post", the address will be `<yourdomain>/first-blog-post`.
 
 ![Previewing Content](img/first-steps-preview-content.png)
 
@@ -95,7 +95,7 @@ ezpublish:
 
 The SiteAccess will automatically be matched using the last part of the URI.
 
-2\. You can now access the front page of the site through the new SiteAccess: `<yourdomain>/de`.
+2\. You can now access the front page through the new SiteAccess: `<yourdomain>/de`.
 
 !!! note "Log in"
 
@@ -167,7 +167,7 @@ Each theme is stored in a separate folder and assigned to a SiteAccess.
 
 To create a new theme:
 
-1\. Add the following configuration at the bottom of `app/config/ezplatform.yml` (at the same level at `ezpublish`):
+1\. Add the following configuration at the bottom of `app/config/ezplatform.yml` (at the same level as `ezpublish`):
 
 ``` yaml
 ezdesign:
@@ -189,7 +189,7 @@ This means that the app will look for the `blog_post.html.twig` file in a folder
 
 6\. Move the existing `full\blog_post.html.twig` file under `site_design`.
 
-7\. Copy it also under `de_design`. Modify the second one, so you can preview the effect.
+7\. Copy it also under `de_design`. Modify the second one in any way (for example, add some html), so you can preview the effect.
 
 8\. To see the difference between the different themes, compare what is displayed at `<yourdomain>/<content-name>` and `<yourdomain>/de/<content-name>`
 
