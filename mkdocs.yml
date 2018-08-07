@@ -19,6 +19,7 @@ pages:
         - Going deeper:
             - 'eZ Platform features': 'getting_started/ez_platform_features.md'
             - 'eZ Enterprise': 'getting_started/ez_enterprise.md'
+        - 'First steps': 'getting_started/first_steps.md'
     - Tutorials:
         - 'Tutorials': 'tutorials/tutorials.md'
         - eZ Platform Beginner tutorial:
