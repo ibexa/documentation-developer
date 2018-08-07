@@ -180,6 +180,16 @@
         third_field: integer
     ```
 
+    !!! tip "Hiding blocks"
+
+        To hide a block from the block menu in Page Builder, set its `visible` property to `false`:
+
+        ``` yaml
+        example_block:
+            # ...
+            visible: false
+        ```
+
     #### Overwriting existing blocks
 
     You can overwrite following properties in the existing blocks:
