@@ -404,7 +404,7 @@ Some versions require updates to the database. Look through [the list of databas
 
     For block types with custom storage you need to provide a dedicated converter but for simple blocks you can use `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\DefaultConverter` as your service class.
 
-    You also need to redefine [YAML configuration|https://doc.ezplatform.com/en/2.2/guide/page_rendering/#page-blocks] for your custom blocks.
+    You also need to redefine [YAML configuration](../guide/page_rendering.md#page-blocks) for your custom blocks.
  
     The service definition has to be tagged as:
 
