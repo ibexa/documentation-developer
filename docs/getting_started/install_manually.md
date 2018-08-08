@@ -38,40 +38,13 @@ It depends on the meta-repository you are using.
 
 ## Installing on Linux
 
-## 1. Install a LAMP Stack
+## 1. Work environment set up
 
-Depending on your Linux distribution, you may need to install part or all of the LAMP (Linux, Apache, MySQL, PHP) stack required to run eZ Platform.
+Depending on your Linux distribution, you need running LAMP stuck (Linux, Apache, MySQL, PHP). 
+You can install it by following your favourite tutorial or use one in the link [LAMP Stack](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04)
 Before getting started, make sure you review the [requirements](requirements_and_system_configuration.md) page to see the systems we support and use for testing.
 
-You may use your system's package manager (yum, apt-get, etc.) to obtain a copy of Apache, MySQL, and PHP, or download the latest versions from the official websites and install manually:
-
--   [Apache](https://httpd.apache.org/download.cgi)
--   [MySQL](http://dev.mysql.com/downloads/mysql/)
--   [PHP 5.6+](http://php.net)
-
-For example, with Debian you can use `apt-get` to install `apache2`, `mysql-server`, `mysql-client`,
-and all PHP packages listed in the [requirements](requirements_and_system_configuration.md).
 You also need `git` for version control.
-
-!!! note "Set up Swap on Debian"
-
-    If your machine only has 1 or 2 GB of RAM, be sure to set up swap so you don't run out of RAM when running the composer scripts later on.
-
-    Swap space allows your system to utilize the hard drive to supplement capacity when RAM runs short. Composer install will fail if there is insufficient RAM available, but adding swap will allow it to complete installation.
-
-    Via the command line, you can set up and enable swap on your Debian machine with the following commands (as root):
-
-    ``` bash
-    fallocate -l 4G /swapfile
-    chmod 600 /swapfile
-    mkswap /swapfile
-    swapon /swapfile
-    echo "/swapfile   none    swap    sw    0   0" >> /etc/fstab
-    sysctl vm.swappiness=10
-    echo "vm.swappiness=10" >> /etc/sysctl.conf
-    sysctl vm.vfs_cache_pressure=50
-    echo "vm.vfs_cache_pressure=50" >> /etc/sysctl.conf
-    ```
 
 ## 2. Get Composer
 
@@ -81,11 +54,15 @@ a. Install Composer, the PHP command line dependency manager, by running the fol
 php -r "readfile('https://getcomposer.org/installer');" | php
 ```
 
-b. Move the downloaded `composer.phar` file to a globally-available path:
+note!!! "Use Composer globally"
 
-``` bash
-mv composer.phar /usr/local/bin/composer
-```
+    If you want install Composer globally use your system packet manager. For example on Ubuntu:
+
+    ``` bash
+    apt-get install composer
+    ```
+    
+    With this command you can use just `composer` instead of `php -d memory_limit=-1 composer.phar`.
 
 ## 3. Download eZ Platform
 
@@ -113,25 +90,17 @@ You can check out a tag, or use the `master` branch if you are interested in wor
     You can use any other folder name in place of `ezplatform` in the examples above.
     You'll point your virtual host to this folder to use as its root.
 
-## 4. Create a database
-
-Create a new database (you can substitute `ezplatform` with the database name you want to use, but keep it in mind in next steps):
-
-``` bash
-mysql -u root -e 'CREATE DATABASE ezplatform CHARACTER SET utf8mb4;'
-```
-
-## 5. Run installation scripts
+## 4. Run installation scripts
 
 Composer will look inside the `composer.json` file and install all of the packages required to run eZ Platform.
 The `bin/console` script will then install eZ Platform for your desired environment (dev/prod).
 
-### a. Run composer install
+### Composer install
 
 From the folder into which you downloaded eZ Platform, run:
 
 ``` bash
-php -d memory_limit=-1 composer install
+php -d memory_limit=-1 composer.phar install
 ```
 
 Once the installer gets to the point that it creates `app/config/parameters.yml`, you will be presented with a few decisions:
@@ -143,13 +112,13 @@ Once the installer gets to the point that it creates `app/config/parameters.yml`
 
 The installer should continue once you've completed this manual portion of the installation process.
 
-### b. Run eZ Platform's installer
+### eZ Platform's installer
 
 ``` bash
-php bin/console ezplatform:install --env=prod ezplatform-clean
+php -d memory_limit=-1 composer.phar ezplatform-install
 ```
 
-In this example the `ezplatform:install` script uses the `ezplatform-clean` installation type in production environment.
+In this example uses the `clean` installation type in production environment and a database.
 
 If Composer asks for your token, you must log in to your GitHub account generate a new token
 (edit your profile, go to Developer settings > Personal access tokens and Generate new token with default settings).
@@ -179,19 +148,25 @@ This operation is performed only once when you install eZ Platform for the first
 
     `rm ezp_cron.txt`
 
-## 6. Set up directory permissions
+## 5. Set up directory permissions
 
 See [Set up directory permissions](set_up_directory_permissions.md) for more information.
 
-## 7. Set up a Virtual Host
+You'll need the web user set as the owner/group on all your files to avoid a 500 error:
+
+``` bash
+chown -R www-data:www-data /var/www/ezplatform
+```
+
+## 6. Set up a Virtual Host
 
 This example demonstrates using Apache2 as part of the traditional LAMP stack.
 
-### Option A: Scripted Configuration
+### Scripted configuration
 
 Instead of manually editing the `vhost.template` file, you may instead [use the included shell script](starting_ez_platform.md#Web-server): `/var/www/ezplatform/bin/vhost.sh` to generate a configured .conf file. Check out the source of `vhost.sh` to see the options provided.
 
-### Option B: Manual Edits
+### Manual configuration
 
 a. Copy the `vhost.template` file from its home in the doc folder:
 
@@ -205,14 +180,7 @@ b. Edit the file:
 vi /etc/apache2/sites-available/ezplatform.conf
 ```
 
-For a development environment, you can change:
-
-- `<VirtualHost %IP_ADDRESS%:%PORT%>` to `<VirtualHost *:80>`
-- `ServerName %HOST_NAME%` to `ServerName localhost`
-- `ServerAlias %HOST_ALIAS%` can be deleted.
-- `DocumentRoot %BASEDIR%/web` to `DocumentRoot /var/www/ezplatform/web`
-- `LimitRequestBody %BODY_SIZE_LIMIT%` to `LimitRequestBody 0`
-- `TimeOut %TIMEOUT%` to `TimeOut 42` to avoid waits longer than 42 seconds.
+For a development environment replace all placeholders values inside % with corresponding values from your project.
 
 Be sure to specify `/var/www/ezplatform/web` as the `DocumentRoot` and `Directory`. Uncomment the line that starts with `#if [SYMFONY_ENV]` and set the value like this:
 
@@ -223,48 +191,24 @@ Be sure to specify `/var/www/ezplatform/web` as the `DocumentRoot` and `Director
 SetEnvIf Request_URI ".*" SYMFONY_ENV=dev
 ```
 
-## 8. Server Configuration
-
-Make sure you've got the `libapache2-mod-php5` module installed for Apache2 to use PHP5.x, and have the rewrite module enabled:
-
-``` bash
-apt-get -y install libapache2-mod-php5
-a2enmod rewrite
-```
-
-a. You'll need the web user set as the owner/group on all your files to avoid a 500 error:
-
-``` bash
-chown -R www-data:www-data /var/www/ezplatform
-```
-
-b. With your vhost file properly prepared and located in /etc/apache2/sites-available/ezplatform.conf, enable the VirtualHost and disable the default:
+### Enabling VirtualHost
+ 
+ With your vhost file properly prepared and located in `/etc/apache2/sites-available/ezplatform.conf`, enable the VirtualHost and disable the default:
 
 ``` bash
 a2ensite ezplatform
 a2dissite 000-default.conf
 ```
 
-## 9. Restart server
+## 8. Restart server
 
 ``` bash
 service apache2 restart
 ```
 
-### Testing the Result
+## 9. Open project
 
-You should see the changes effected immediately, and can check via the command line:
-
-``` bash
-# You should see swap in use now:
-free -m
-
-# Swappiness should now be 10
-cat /proc/sys/vm/swappiness
-
-# Cache pressure should be set to 50
-cat /proc/sys/vm/vfs_cache_pressure
-```
+Open your project in the browser and you should see the welcoming page.
 
 ## Installing on macOS
 
