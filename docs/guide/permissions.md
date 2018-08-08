@@ -37,7 +37,7 @@ To allow the User to enter the back end interface and view all Content, you need
 - `section/view`
 - `content/reverserelatedlist`
 
-These Policies will be necessary for all other cases below that require access to the PlatformUI.
+These Policies will be necessary for all other cases below that require access to the Content structure.
 
 #### Create and publish content
 
@@ -107,6 +107,47 @@ Further manipulation of trash requires the `content/restore` Policy to restore i
 
 To allow anonymous users to register through the `/register` route, you need to grant the `user/register` Policy to the Anonymous User Group.
 
+#### Admin
+
+To access the Admin in the Back Office the User must have the `setup/administrate` Policy.
+This will allow the User to view the Languages and Content Types.
+
+Additional Policies are needed for each section of the Admin.
+
+##### System Information
+
+- `setup/system_info` to view the System Information tab
+
+##### Sections
+
+- `section/view` to see and access the Section list
+- `section/edit` to add and edit Sections
+- `section/assign` to assign Sections to Content
+
+##### Languages
+
+- `content/translations` to add and edit languages
+
+##### Content Types
+
+- `class/create`, `class/update`, `class/delete` to add, modify and remove Content Types
+
+##### Object States
+
+- `state/administrate` to view a list of Object States, add and edit them
+- `state/assign` to assign Objects States to Content
+
+##### Roles
+
+- `role/read` to view the list of Roles in Admin
+- `role/create`, `role/update`, `role/assign` and `role/delete` to manage Roles
+
+##### Users
+
+- `content/view` to view the list of Users
+
+Users are treated like other Content, so to create and modify them the User needs to have the same permissions as for managing other Content items.
+
 ## Available Policies
 
 | Module        | Function             | Effect                                                                                                                                  |
@@ -125,7 +166,7 @@ To allow anonymous users to register through the `/register` route, you need to 
 |               | `remove`             | remove Locations and send content to Trash                                                                                              |
 |               | `versionread`        | view content after publishing, and to preview any content in the Page mode                                                              |
 |               | `versionremove`      | remove archived content versions                                                                                                        |
-|               | `translations`       | manage the language list in the Back Office                                                                                                  |
+|               | `translations`       | manage the language list in Admin                                                                                                  |
 |               | `urltranslator`      | manage URL aliases of a Content item|
 |               | `pendinglist`        | unused                                                                                                                                  |
 |               | `restore`            | restore content from Trash                                                                                                              |
@@ -133,20 +174,20 @@ To allow anonymous users to register through the `/register` route, you need to 
 | `class`       | `update`             | modify existing Content Types. Also required to create new Content Types                                                                |
 |               | `create`             | create new Content Types. Also required to edit exiting Content Types                                                                   |
 |               | `delete`             | delete Content Types                                                                                                                    |
-| `state`       | `assign`             | unused                                                                                                                                  |
-|               | `administrate`       | unused                                                                                                                                  |
+| `state`       | `assign`             | assign Object States to Content items                                                                                                   |
+|               | `administrate`       | view, add and edit Object States                                                                                                        |
 | `role`        | `assign`             | assign roles to Users and User Groups                                                                                                   |
 |               | `update`             | modify existing Roles                                                                                                                   |
 |               | `create`             | create new Roles                                                                                                                        |
 |               | `delete`             | delete Roles                                                                                                                            |
-|               | `read`               | view the Roles list in Admin Panel. Required for all other role-related Policies                                                        |
+|               | `read`               | view the Roles list in Admin. Required for all other role-related Policies                                                              |
 | `section`     | `assign`             | assign Sections to content                                                                                                              |
 |               | `edit`               | edit existing Sections and create new ones                                                                                              |
-|               | `view`               | view the Sections list in Admin Panel. Required for all other section-related Policies                                                  |
-| `setup`       | `administrate`       | unused                                                                                                                                  |
+|               | `view`               | view the Sections list in Admin. Required for all other section-related Policies                                                        |
+| `setup`       | `administrate`       | access Admin                                                                                                                            |
 |               | `install`            | unused                                                                                                                                  |
 |               | `setup`              | unused                                                                                                                                  |
-|               | `system_info`        | view the System information tab in the Admin Panel                                                                                      |
+|               | `system_info`        | view the System information tab in Admin                                                                                      |
 | `user`        | `login`              | log in to the application                                                                                                               |
 |               | `password`           | unused                                                                                                                                  |
 |               | `preferences`        | unused                                                                                                                                  |
