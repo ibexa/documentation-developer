@@ -6,76 +6,69 @@ You can install eZ Platform manually on the following operating systems:
 - [macOS](#installing-on-macos) (*development only*)
 - [Windows](#installing-on-windows) (*development only*)
 
-!!! caution "Supported systems"
+!!! note "Supported systems"
 
     Only installation on Linux is fully supported.
 
-    Installations on macOS or Windows can only be used for development.
+    Installations on macOS or Windows can only be used for development purposes.
 
 ## Available distributions
 
-eZ Platform exists in different distributions.
-You select the distribution when performing the `ezplatform:install` command, by using the correct installation type.
-It depends on the meta-repository you are using.
+eZ Platform exists in different distributions depending on the meta-repository you are using.
 
-!!! caution "Demo installation"
+!!! note "Demo installation"
 
     The Demo is intended for learning and inspiration. Do not use it as a basis for actual projects.
 
-### eZ Platform installation types
+eZ Platform installation types:
 
-| Type | Repository |
-|------|----------------|
-| `ezplatform-clean` | [ezplatform](https://github.com/ezsystems/ezplatform) |
-| `ezplatform-demo` | [ezplatform-demo](https://github.com/ezsystems/ezplatform-demo) |
+- [ezplatform](https://github.com/ezsystems/ezplatform) 
+- [ezplatform-demo](https://github.com/ezsystems/ezplatform-demo)
 
-### eZ Platform Enterprise Edition installation types
+eZ Platform Enterprise Edition installation types:
 
-| Type | Repository |
-|------|----------------|
-| `ezplatform-ee-clean` | [ezplatform-ee](https://github.com/ezsystems/ezplatform-ee) |
-| `ezplatform-ee-demo`  | [ezplatform-ee-demo](https://github.com/ezsystems/ezplatform-ee-demo) |
+- [ezplatform-ee](https://github.com/ezsystems/ezplatform-ee)
+- [ezplatform-ee-demo](https://github.com/ezsystems/ezplatform-ee-demo)
 
 ## Installing on Linux
 
-## 1. Work environment set up
+### Prepare work environment
 
-Depending on your Linux distribution, you need running LAMP stuck (Linux, Apache, MySQL, PHP). 
-You can install it by following your favourite tutorial or use one in the link [LAMP Stack](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04)
+Depending on your Linux distribution, you will need running LAMP stuck (Linux, Apache, MySQL, PHP). 
+You can install it by following your favourite tutorial or use one in the link: [LAMP Stack](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04). You also need `git` for version control.
+
 Before getting started, make sure you review the [requirements](requirements_and_system_configuration.md) page to see the systems we support and use for testing.
 
-You also need `git` for version control.
+### Get Composer
 
-## 2. Get Composer
-
-a. Install Composer, the PHP command line dependency manager, by running the following command in the terminal:
+Install Composer, the PHP command line dependency manager, by running the following command in the terminal:
 
 ``` bash
 php -r "readfile('https://getcomposer.org/installer');" | php
 ```
 
-note!!! "Use Composer globally"
+note!!! "Install Composer globally"
 
-    If you want install Composer globally use your system packet manager. For example on Ubuntu:
+    If you want to install Composer globally use your system package manager. For example on Ubuntu use:
 
     ``` bash
     apt-get install composer
     ```
     
-    With this command you can use just `composer` instead of `php -d memory_limit=-1 composer.phar`.
+    With this command you can replace `php -d memory_limit=-1 composer.phar` with `composer`.
 
-## 3. Download eZ Platform
+### Download eZ Platform
 
 You can download eZ Platform in two ways::
 
-a. Download an archive
+1\. Download an archive
 
 - If you are installing eZ Platform, download the latest archive from [ezplatform.com](https://ezplatform.com/#download-option).
 - For licensed eZ Enterprise customers, download your file from the [Support portal](https://support.ez.no/Downloads).
 
 Extract the archive into `/var/www/ezplatform`.
 
-b. Clone GitHub repository
+2\. Clone GitHub repository
 
 You can also clone one of the [repositories from GitHub](#available-distributions).
 
@@ -90,12 +83,12 @@ You can check out a tag, or use the `master` branch if you are interested in wor
     You can use any other folder name in place of `ezplatform` in the examples above.
     You'll point your virtual host to this folder to use as its root.
 
-## 4. Run installation scripts
+### Run installation scripts
 
 Composer will look inside the `composer.json` file and install all of the packages required to run eZ Platform.
 The `bin/console` script will then install eZ Platform for your desired environment (dev/prod).
 
-### Composer install
+#### Composer install 
 
 From the folder into which you downloaded eZ Platform, run:
 
@@ -107,22 +100,21 @@ Once the installer gets to the point that it creates `app/config/parameters.yml`
 
 1. Choose a [secret](http://symfony.com/doc/current/reference/configuration/framework.html#secret); it should be a random string, made up of up to 32 characters, numbers, and symbols. This is used by Symfony when generating [CSRF tokens](http://symfony.com/doc/current/book/forms.html#forms-csrf), [encrypting cookies](http://symfony.com/doc/current/cookbook/security/remember_me.html), and for creating signed URIs when using [ESI (Edge Side Includes)](http://symfony.com/doc/current/book/http_cache.html#edge-side-includes).
 2. You can accept the default options for `database_driver`, `database_host` and `database_port`
-3. For `database_name` and `database_user`, reoplace them if you customized those values during configuration.
+3. For `database_name` and `database_user`, replace them if you customized those values during configuration.
 4. If you set a password for your database user, enter it when prompted for `database_password`.
 
 The installer should continue once you've completed this manual portion of the installation process.
 
-### eZ Platform's installer
+#### eZ Platform's installer
+
+Create `clean` installation in production environment and a database with:
 
 ``` bash
 php -d memory_limit=-1 composer.phar ezplatform-install
 ```
 
-In this example uses the `clean` installation type in production environment and a database.
-
-If Composer asks for your token, you must log in to your GitHub account generate a new token
+If Composer asks for your token, you must log in to your GitHub account and generate a new token
 (edit your profile, go to Developer settings > Personal access tokens and Generate new token with default settings).
-Be aware that the token will be shown only once, so do not refresh the page until you paste the token into the Composer prompt.
 This operation is performed only once when you install eZ Platform for the first time.
 
 !!! enterprise
@@ -148,7 +140,7 @@ This operation is performed only once when you install eZ Platform for the first
 
     `rm ezp_cron.txt`
 
-## 5. Set up directory permissions
+### Set up permissions
 
 See [Set up directory permissions](set_up_directory_permissions.md) for more information.
 
@@ -158,29 +150,29 @@ You'll need the web user set as the owner/group on all your files to avoid a 500
 chown -R www-data:www-data /var/www/ezplatform
 ```
 
-## 6. Set up a Virtual Host
+### Set up Virtual Host
 
 This example demonstrates using Apache2 as part of the traditional LAMP stack.
 
-### Scripted configuration
+#### Scripted configuration
 
-Instead of manually editing the `vhost.template` file, you may instead [use the included shell script](starting_ez_platform.md#Web-server): `/var/www/ezplatform/bin/vhost.sh` to generate a configured .conf file. Check out the source of `vhost.sh` to see the options provided.
+Instead of manually editing the `vhost.template` file, you may instead [use the included shell script](starting_ez_platform.md#Web-server): `/var/www/ezplatform/bin/vhost.sh` to generate a configured `.conf` file. Check out the source of `vhost.sh` to see the options provided.
 
-### Manual configuration
+#### Manual configuration
 
-a. Copy the `vhost.template` file from its home in the doc folder:
+Copy the `vhost.template` file from its home in the doc folder:
 
 ``` bash
 cp /var/www/ezplatform/doc/apache2/vhost.template /etc/apache2/sites-available/ezplatform.conf
 ```
 
-b. Edit the file:
+Edit the file:
 
 ``` bash
 vi /etc/apache2/sites-available/ezplatform.conf
 ```
 
-For a development environment replace all placeholders values inside % with corresponding values from your project.
+For development environment replace all placeholders values inside `%` with corresponding values from your project.
 
 Be sure to specify `/var/www/ezplatform/web` as the `DocumentRoot` and `Directory`. Uncomment the line that starts with `#if [SYMFONY_ENV]` and set the value like this:
 
@@ -191,22 +183,20 @@ Be sure to specify `/var/www/ezplatform/web` as the `DocumentRoot` and `Director
 SetEnvIf Request_URI ".*" SYMFONY_ENV=dev
 ```
 
-### Enabling VirtualHost
+#### Enable VirtualHost
  
- With your vhost file properly prepared and located in `/etc/apache2/sites-available/ezplatform.conf`, enable the VirtualHost and disable the default:
+With your vhost file properly prepared and located in `/etc/apache2/sites-available/ezplatform.conf`, enable the VirtualHost and disable the default:
 
 ``` bash
 a2ensite ezplatform
 a2dissite 000-default.conf
 ```
 
-## 8. Restart server
+### Restart server
 
 ``` bash
 service apache2 restart
 ```
-
-## 9. Open project
 
 Open your project in the browser and you should see the welcoming page.
 
