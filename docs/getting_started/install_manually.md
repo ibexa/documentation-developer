@@ -6,30 +6,29 @@ You can install eZ Platform manually on the following operating systems:
 - [macOS](#installing-on-macos) (*development only*)
 - [Windows](#installing-on-windows) (*development only*)
 
-!!! caution "Supported systems"
+!!! note "Supported systems"
 
     Only installation on Linux is fully supported.
 
-    Installations on macOS or Windows can only be used for development.
+    Installations on macOS or Windows can only be used for development purposes.
 
 ## Available distributions
 
-eZ Platform exists in different distributions.
+eZ Platform exists in different distributions depending on the meta-repository you are using.
 You select the distribution when performing the `ezplatform:install` command, by using the correct installation type.
-It depends on the meta-repository you are using.
 
-!!! caution "Demo installation"
+!!! note "Demo installation"
 
     The Demo is intended for learning and inspiration. Do not use it as a basis for actual projects.
 
-### eZ Platform installation types
+eZ Platform installation types:
 
 | Type | Repository |
 |------|----------------|
 | `clean` | [ezplatform](https://github.com/ezsystems/ezplatform) |
 | `platform-demo` | [ezplatform-demo](https://github.com/ezsystems/ezplatform-demo) |
 
-### eZ Platform Enterprise Edition installation types
+eZ Platform Enterprise Edition installation types:
 
 | Type | Repository |
 |------|----------------|
