@@ -67,7 +67,7 @@ You can check out a tag, or use the `master` branch if you are interested in wor
 
 ### Get Composer
 
-Install Composer, the PHP command line dependency manager, by running the following command in the terminal:
+Install Composer, the PHP command line dependency manager, inside your project root directory by running the following command in the terminal:
 
 ``` bash
 php -r "readfile('https://getcomposer.org/installer');" | php
