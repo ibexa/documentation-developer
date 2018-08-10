@@ -39,24 +39,6 @@ You can install it by following your favorite tutorial or use one in the link: [
 
 Before getting started, make sure you review the [requirements](requirements_and_system_configuration.md) page to see the systems we support and use for testing.
 
-### Get Composer
-
-Install Composer, the PHP command line dependency manager, by running the following command in the terminal:
-
-``` bash
-php -r "readfile('https://getcomposer.org/installer');" | php
-```
-
-!!! tip "Install Composer globally"
-
-    If you want to install Composer globally use your system package manager. For example on Ubuntu use:
-
-    ``` bash
-    apt-get install composer
-    ```
-    
-    With this command you can replace `php -d memory_limit=-1 composer.phar` with `composer`.
-
 ### Download eZ Platform
 
 You can download eZ Platform in two ways:
@@ -83,6 +65,24 @@ You can check out a tag, or use the `master` branch if you are interested in wor
     You can use any other folder name in place of `ezplatform` in the examples above.
     You'll point your virtual host to this folder to use as its root.
 
+### Get Composer
+
+Install Composer, the PHP command line dependency manager, by running the following command in the terminal:
+
+``` bash
+php -r "readfile('https://getcomposer.org/installer');" | php
+```
+
+!!! tip "Install Composer globally"
+
+    If you want to install Composer globally use your system package manager. For example on Ubuntu use:
+
+    ``` bash
+    apt-get install composer
+    ```
+    
+    With this command you can replace `php -d memory_limit=-1 composer.phar` with `composer`.
+    
 ### Run installation scripts
 
 Composer will look inside the `composer.json` file and install all of the packages required to run eZ Platform.
