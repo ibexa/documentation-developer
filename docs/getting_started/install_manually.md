@@ -34,8 +34,8 @@ eZ Platform Enterprise Edition installation types:
 
 ### Prepare work environment
 
-Depending on your Linux distribution, you will need running LAMP stuck (Linux, Apache, MySQL, PHP). 
-You can install it by following your favourite tutorial or use one in the link: [LAMP Stack](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04). You also need `git` for version control.
+Depending on your Linux distribution, you will need a running LAMP stuck (Linux, Apache, MySQL, PHP). 
+You can install it by following your favorite tutorial or use one in the link: [LAMP Stack](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04). You also need `git` for version control.
 
 Before getting started, make sure you review the [requirements](requirements_and_system_configuration.md) page to see the systems we support and use for testing.
 
@@ -47,7 +47,7 @@ Install Composer, the PHP command line dependency manager, by running the follow
 php -r "readfile('https://getcomposer.org/installer');" | php
 ```
 
-note!!! "Install Composer globally"
+!!! tip "Install Composer globally"
 
     If you want to install Composer globally use your system package manager. For example on Ubuntu use:
 
@@ -59,7 +59,7 @@ note!!! "Install Composer globally"
 
 ### Download eZ Platform
 
-You can download eZ Platform in two ways::
+You can download eZ Platform in two ways:
 
 1\. Download an archive
 
@@ -154,11 +154,11 @@ chown -R www-data:www-data /var/www/ezplatform
 
 This example demonstrates using Apache2 as part of the traditional LAMP stack.
 
-#### Scripted configuration
+#### Option A: Scripted configuration
 
 Instead of manually editing the `vhost.template` file, you may instead [use the included shell script](starting_ez_platform.md#Web-server): `/var/www/ezplatform/bin/vhost.sh` to generate a configured `.conf` file. Check out the source of `vhost.sh` to see the options provided.
 
-#### Manual configuration
+#### Option B: Manual configuration
 
 Copy the `vhost.template` file from its home in the doc folder:
 
