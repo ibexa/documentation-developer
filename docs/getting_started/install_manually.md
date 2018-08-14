@@ -88,7 +88,7 @@ php -r "readfile('https://getcomposer.org/installer');" | php
 Composer will look inside the `composer.json` file and install all of the packages required to run eZ Platform.
 The `bin/console` script will then install eZ Platform for your desired environment (dev/prod).
 
-#### Composer install 
+#### Install dependencies with Composer
 
 From the folder into which you downloaded eZ Platform, run:
 
@@ -105,7 +105,7 @@ Once the installer gets to the point that it creates `app/config/parameters.yml`
 
 The installer should continue once you've completed this manual portion of the installation process.
 
-#### eZ Platform's installer
+#### Install eZ Platform 
 
 Create `clean` installation in production environment and a database with:
 
