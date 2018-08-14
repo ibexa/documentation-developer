@@ -57,7 +57,7 @@ Extract the archive into `/var/www/ezplatform`.
 
 2\. Clone GitHub repository
 
-You can also clone one of the [repositories from GitHub](#available-distributions).
+You can also clone one of the [repositories from GitHub](#available-distributions). Choose the tag of the version you want to install.
 
 ``` bash
 git clone https://github.com/ezsystems/ezplatform.git /var/www/ezplatform
@@ -69,6 +69,14 @@ You can check out a tag, or use the `master` branch if you are interested in wor
 
     You can use any other folder name in place of `ezplatform` in the examples above.
     You'll point your virtual host to this folder to use as its root.
+
+### Create a database
+
+Create a new database (you can substitute `ezplatform` with the database name you want to use, but keep it in mind in next steps):
+
+``` bash
+mysql -u root -e 'CREATE DATABASE ezplatform CHARACTER SET utf8;'
+```
 
 ### Get Composer
 
@@ -87,14 +95,6 @@ php -r "readfile('https://getcomposer.org/installer');" | php
     ```
     
     With this command you can replace `php -d memory_limit=-1 composer.phar` with `composer`.
-
-### Create a database
-
-Create a new database (you can substitute `ezplatform` with the database name you want to use, but keep it in mind in next steps):
-
-``` bash
-mysql -u root -e 'CREATE DATABASE ezplatform CHARACTER SET utf8;'
-```
 
 ### Run installation scripts
 
@@ -123,12 +123,12 @@ The installer should continue once you've completed this manual portion of the i
 Create `clean` installation in production environment and a database with:
 
 ``` bash
-php app/console ezplatform:install --env=prod clean
+php app/console ezplatform:install --env=dev clean
 ```
 
 If Composer asks for your token, you must log in to your GitHub account generate a new token
 (edit your profile, go to Developer settings > Personal access tokens and Generate new token with default settings).
-This operation is performed only once when you install eZ Platform for the first time.
+This operation is performed only once when you install eZ Platform Enterprise Edition for the first time.
 
 !!! enterprise
 
@@ -210,6 +210,9 @@ a2dissite 000-default.conf
 ``` bash
 service apache2 restart
 ```
+!!! note
+
+    This commend may vary depending on your Linux distribution.
 
 Open your project in the browser and you should see the welcoming page.
 
