@@ -115,7 +115,7 @@ php -d memory_limit=-1 composer.phar ezplatform-install
 
 If Composer asks for your token, you must log in to your GitHub account and generate a new token
 (edit your profile, go to Developer settings > Personal access tokens and Generate new token with default settings).
-This operation is performed only once when you install eZ Platform for the first time.
+This operation is performed only once when you install eZ Platform Enterprise Edition for the first time.
 
 !!! enterprise
 
@@ -197,6 +197,10 @@ a2dissite 000-default.conf
 ``` bash
 service apache2 restart
 ```
+
+!!! note "Restart server"
+    
+    This commend may vary depending on your Linux distribution.
 
 Open your project in the browser and you should see the welcoming page.
 
