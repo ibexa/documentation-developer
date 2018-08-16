@@ -21,9 +21,8 @@ pages:
             - 'eZ Enterprise': 'getting_started/ez_enterprise.md'
         - 'First steps': 'getting_started/first_steps.md'
     - Tutorials:
-        - 'Tutorials': 'tutorials/tutorials.md'
-        - eZ Platform Beginner tutorial:
-            - 'Building a bicycle route tracker in eZ Platform': 'tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md'
+        - eZ Platform beginner:
+            - 'eZ Platform beginner tutorial': 'tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md'
             - '1. Get ready': 'tutorials/platform_beginner/1_get_ready.md'
             - '2. Create the content model': 'tutorials/platform_beginner/2_create_the_content_model.md'
             - '3. Customize the front page': 'tutorials/platform_beginner/3_customize_the_front_page.md'
@@ -31,14 +30,14 @@ pages:
             - '5. Improve configuration': 'tutorials/platform_beginner/5_improve_configuration.md'
             - '6. Embed content': 'tutorials/platform_beginner/6_embed_content.md'
             - '7. Enable account registration': 'tutorials/platform_beginner/7_enable_account_registration.md'
-        - eZ Enterprise Beginner tutorial:
-            - 'eZ Enterprise beginner tutorial - It&#39s a dog&#39s world!': 'tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world.md'
+        - eZ Enterprise beginner:
+            - 'eZ Enterprise beginner tutorial': 'tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world.md'
             - '1. Get a starter website': 'tutorials/enterprise_beginner/1_get_a_starter_website.md'
             - '2. Prepare the Landing Page': 'tutorials/enterprise_beginner/2_prepare_the_landing_page.md'
             - '3. Use existing blocks': 'tutorials/enterprise_beginner/3_use_existing_blocks.md'
             - '4. Create a custom block': 'tutorials/enterprise_beginner/4_create_a_custom_block.md'
-        - Field Type Creation Tutorial:
-            - 'Creating a Tweet Field Type': 'tutorials/field_type/creating_a_tweet_field_type.md'
+        - Create a Field Type:
+            - 'Create a Tweet Field Type': 'tutorials/field_type/creating_a_tweet_field_type.md'
             - '1. Create the bundle': 'tutorials/field_type/1_create_the_bundle.md'
             - '2. Implement the Tweet&#92Value Class': 'tutorials/field_type/2_implement_the_tweet_value_class.md'
             - '3. Implement the Tweet&#92Type Class': 'tutorials/field_type/3_implement_the_tweet_type_class.md'
@@ -72,12 +71,11 @@ pages:
             - 'Storage': 'api/field_type_storage.md'
             - 'Search': 'api/field_type_search.md'
     - Guide:
-        - Introduction:
-            - 'Architecture': 'guide/architecture.md'
-            - 'Bundles': 'guide/bundles.md'
-        - 'Content model': 'guide/content_model.md'
+        - 'Architecture': 'guide/architecture.md'
+        - 'Bundles': 'guide/bundles.md'
         - 'Configuration': 'guide/configuration.md'
         - Content rendering:
+            - 'Content model': 'guide/content_model.md'
             - 'Content rendering': 'guide/content_rendering.md'
             - 'Controllers': 'guide/controllers.md'
             - 'Templates': 'guide/templates.md'
@@ -101,7 +99,7 @@ pages:
         - Multisite:
             - 'Multisite': 'guide/multisite.md'
             - 'SiteAccess': 'guide/siteaccess.md'
-            - 'Internationalization': 'guide/internationalization.md'
+        - 'Languages': 'guide/internationalization.md'
         - Repository:
             - 'Repository': 'guide/repository.md'
             - 'SignalSlots': 'guide/signalslots.md'
@@ -123,28 +121,26 @@ pages:
             - 'Other extensibility': 'guide/other_extensibility.md'
         - 'Service container': 'guide/service_container.md'
         - 'Personalization': 'guide/personalization.md'
-        - 'Best practices': 'guide/best_practices.md'
     - Cookbook:
-        - 'Authenticating a user with multiple user providers': 'cookbook/authenticating_a_user_with_multiple_user_providers.md'
-        - 'Converting request paremeters into API objects': 'cookbook/converting_request_parameters_into_api_objects.md'
-        - 'Creating content with binary attachments via REST API': 'cookbook/creating_content_with_binary_attachments_via_rest_api.md'
-        - 'Creating custom notification for Flex Workflow': 'cookbook/creating_custom_notifications_for_flex_workflow.md'
-        - 'Displaying children of a Content item': 'cookbook/displaying_children_of_a_content_item.md'
-        - 'Displaying content with simple templates': 'cookbook/displaying_content_with_simple_templates.md'
-        - 'Executing long-running console commands': 'cookbook/executing_long_running_console_commands.md'
-        - 'Exposing Siteaccess-aware configuration for your bundle': 'cookbook/exposing_siteaccess_aware_configuration_for_your_bundle.md'
+        - 'API search result pagination': 'cookbook/paginating_api_search_results.md'
+        - 'AWS S3 clustering': 'cookbook/setting_up_amazon_aws_s3_clustering.md'
+        - 'Binary attachments via REST API': 'cookbook/creating_content_with_binary_attachments_via_rest_api.md'
+        - 'Cross-origin HTTP requests': 'cookbook/making_cross_origin_http_requests.md'
+        - 'Displaying Content children': 'cookbook/displaying_children_of_a_content_item.md'
+        - 'Executing long commands': 'cookbook/executing_long_running_console_commands.md'
         - 'Importing settings from a bundle': 'cookbook/importing_settings_from_a_bundle.md'
         - 'Injecting parameters in content views': 'cookbook/injecting_parameters_in_content_views.md'
         - 'Listening to core events': 'cookbook/listening_to_core_events.md'
-        - 'Making cross-origin HTTP requests': 'cookbook/making_cross_origin_http_requests.md'
-        - 'Paginating API search results': 'cookbook/paginating_api_search_results.md'
+        - 'Multi-language SiteAccesses': 'cookbook/setting_up_multi_language_siteaccesses.md'
+        - 'Multiple user providers': 'cookbook/authenticating_a_user_with_multiple_user_providers.md'
+        - 'Notifications': 'cookbook/creating_custom_notifications_for_flex_workflow.md'
+        - 'Request parameters as API objects': 'cookbook/converting_request_parameters_into_api_objects.md'
         - 'Retrieving root Location': 'cookbook/retrieving_root_location.md'
-        - 'Setting up Amazon AWS S3 clustering': 'cookbook/setting_up_amazon_aws_s3_clustering.md'
-        - 'Setting up multi-language SiteAccesses and corresponding translations': 'cookbook/setting_up_multi_language_siteaccesses.md'
-        - 'Using RouteReference': 'cookbook/using_routereference.md'
+        - 'RouteReference': 'cookbook/using_routereference.md'
+        - 'Siteaccess-aware bundle configuration': 'cookbook/exposing_siteaccess_aware_configuration_for_your_bundle.md'
+        - 'Using simple templates': 'cookbook/displaying_content_with_simple_templates.md'
     - Resources and community:
         - 'Resources': 'community_resources/resources.md'
-        - 'Professional training services': 'community_resources/professional_training_services.md'
         - Contributing:
             - 'How to contribute': 'community_resources/contributing.md'
             - 'Report and follow issues': 'community_resources/report_follow_issues.md'
