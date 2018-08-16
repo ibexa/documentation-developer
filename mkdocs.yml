@@ -131,7 +131,6 @@ pages:
             - 'Extending Page': 'guide/extending_page.md'
         - 'Service container': 'guide/service_container.md'
         - 'Personalization': 'guide/personalization.md'
-        - 'Best practices': 'guide/best_practices.md'
     - Cookbook:
         - 'Adding Field Types': 'cookbook/adding_new_field_types.md'
         - 'API search result pagination': 'cookbook/paginating_api_search_results.md'
