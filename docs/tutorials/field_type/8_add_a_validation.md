@@ -69,9 +69,8 @@ If you had not provided `TweetValueValidator` at all, it would have been ignored
 
 You will iterate over the items in `$validatorConfiguration` and:
 
-- add errors for validators you don't know about;
-- check that provided arguments are known and valid:
-  - `TweetValueValidator` accepts a non-empty array of valid Twitter usernames
+- add errors for validators you don't know about
+- check that provided arguments are known and valid (`TweetValueValidator` accepts a non-empty array of valid Twitter usernames)
 
 ``` php
 public function validateValidatorConfiguration($validatorConfiguration)
