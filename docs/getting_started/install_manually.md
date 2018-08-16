@@ -120,7 +120,7 @@ The installer should continue once you've completed this manual portion of the i
 
 #### Install eZ Platform
 
-Create `clean` installation in production environment and a database with:
+Create `clean` installation in development environment and a database with:
 
 ``` bash
 php app/console ezplatform:install --env=dev clean
