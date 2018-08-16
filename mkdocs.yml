@@ -21,8 +21,8 @@ pages:
             - 'eZ Enterprise': 'getting_started/ez_enterprise.md'
         - 'First steps': 'getting_started/first_steps.md'
     - Tutorials:
-        - eZ Platform Beginner:
-            - 'eZ Platform Beginner tutorial': 'tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md'
+        - eZ Platform beginner:
+            - 'eZ Platform beginner tutorial': 'tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md'
             - '1. Get ready': 'tutorials/platform_beginner/1_get_ready.md'
             - '2. Create the content model': 'tutorials/platform_beginner/2_create_the_content_model.md'
             - '3. Customize the front page': 'tutorials/platform_beginner/3_customize_the_front_page.md'
@@ -30,14 +30,14 @@ pages:
             - '5. Improve configuration': 'tutorials/platform_beginner/5_improve_configuration.md'
             - '6. Embed content': 'tutorials/platform_beginner/6_embed_content.md'
             - '7. Enable account registration': 'tutorials/platform_beginner/7_enable_account_registration.md'
-        - eZ Enterprise Beginner:
+        - eZ Enterprise beginner:
             - 'eZ Enterprise beginner tutorial': 'tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world.md'
             - '1. Get a starter website': 'tutorials/enterprise_beginner/1_get_a_starter_website.md'
             - '2. Prepare the Landing Page': 'tutorials/enterprise_beginner/2_prepare_the_landing_page.md'
             - '3. Use existing blocks': 'tutorials/enterprise_beginner/3_use_existing_blocks.md'
             - '4. Create a custom block': 'tutorials/enterprise_beginner/4_create_a_custom_block.md'
-        - Creating a Field Type:
-            - 'Creating a Tweet Field Type': 'tutorials/field_type/creating_a_tweet_field_type.md'
+        - Create a Field Type:
+            - 'Create a Tweet Field Type': 'tutorials/field_type/creating_a_tweet_field_type.md'
             - '1. Create the bundle': 'tutorials/field_type/1_create_the_bundle.md'
             - '2. Implement the Tweet&#92Value Class': 'tutorials/field_type/2_implement_the_tweet_value_class.md'
             - '3. Implement the Tweet&#92Type Class': 'tutorials/field_type/3_implement_the_tweet_type_class.md'
