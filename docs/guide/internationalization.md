@@ -1,4 +1,4 @@
-# Internationalization
+# Languages
 
 ## Language versions
 
