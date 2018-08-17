@@ -91,6 +91,10 @@ body {
     color: #63605d;
 }
 
+.md-typeset .codehilite pre::-webkit-scrollbar {
+    height: 10px;
+}
+
 .md-typeset h1 {
     margin: 0 0 1rem;
     color: #f15a22;
