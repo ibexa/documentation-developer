@@ -1,6 +1,6 @@
 body, input {
     font-family: "Maven Pro", sans-serif;
-    color: #63605d;
+    color: #2b2b2b;
 }
 
 body {
@@ -85,8 +85,16 @@ body {
     color: rgba(0,0,0,.26);
 }
 
-.md-typeset code {
-    color: #63605d;
+.md-typeset code, .md-typeset pre {
+    color: #2b2b2b;
+}
+
+.md-typeset .codehilite code, .md-typeset .codehilite pre {
+    background-color: #fff;
+}
+
+.md-typeset .codehilitetable {
+    border: 1px solid #999;
 }
 
 .md-typeset h1 {
