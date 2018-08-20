@@ -2,14 +2,9 @@
 
 This page explains how to quickly install and set up eZ Platform for development.
 
-## Basic requirements
+## Prerequisites
 
-The recommended setup for using eZ Platform is:
-
-- Linux operating system (Debian, Ubuntu or RHEL / CentOS)
-- PHP 7.2
-    - with following packages: `php-cli`, `php-fpm`, `php-mysql`, `php-xml`, `php-mbstring`, `php-intl`, `php-curl`, `php-gd`
-- MySQL
+To quickly install eZ Platform, you need a Linux machine with PHP and MySQL installed.
 
 For more details see [Full requirements](requirements_and_system_configuration.md).
 
