@@ -26,19 +26,9 @@ For more details see [Install using Composer](install_using_composer.md).
 
 See [Install manually](install_manually.md) to install eZ Platform on a different OS.
 
-!!! tip "Demo site"
-
-    You can alternatively install an example demo site:
-
-    ``` bash
-    composer create-project --keep-vcs ezsystems/ezplatform-demo .
-    ```
-
-    The demo site is only a showcase. **Do not use it as a basis for development**.
-
 ## Run eZ Platform
 
-To run eZ Platform on the built-in PHP server (for development only):
+To run eZ Platform on the built-in PHP server:
 
 ``` bash
 php bin/console server:run
