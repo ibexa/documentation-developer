@@ -404,8 +404,12 @@ Some versions require updates to the database. Look through [the list of databas
 
     For block types with custom storage you need to provide a dedicated converter but for simple blocks you can use `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\DefaultConverter` as your service class.
 
-    You also need to redefine [YAML configuration](../guide/page_rendering.md#page-blocks) for your custom blocks.
- 
+    You also need to redefine [YAML configuration](../guide/extending_page.md#creating-page-blocks) for your custom blocks.
+
+    !!! caution
+
+        Since v2.2 you no longer need to use services for custom Page Blocks, you can create them using YAML configuration.
+
     The service definition has to be tagged as:
 
     ``` yaml
