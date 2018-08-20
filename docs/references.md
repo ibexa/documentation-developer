@@ -43,14 +43,8 @@
     - [Typography](guidelines/resources/typography.md)
     - [Colors](guidelines/resources/colors.md)
     - [Icons](guidelines/resources/icons)
-- Organizing the content
-    - [Content Locations](https://doc.ezplatform.com/projects/userguide/en/latest/organizing_the_content/#content-locations)
-    - [Managing existing content](https://doc.ezplatform.com/projects/userguide/en/latest/organizing_the_content/#managing-existing-content)
-    - [URL aliases](https://doc.ezplatform.com/projects/userguide/en/latest/organizing_the_content/#url-aliases)
-    - [Sections](https://doc.ezplatform.com/projects/userguide/en/latest/organizing_the_content/#sections)
-    - [Object states](https://doc.ezplatform.com/projects/userguide/en/latest/organizing_the_content/#object-states)
-    - [Links](https://doc.ezplatform.com/projects/userguide/en/latest/organizing_the_content/#links)
-    - [Bookmarks](https://doc.ezplatform.com/projects/userguide/en/latest/organizing_the_content/#bookmarks)
-- Search
-    - [Basic](https://doc.ezplatform.com/projects/userguide/en/latest/search/#basic-search)   
-    - [Filtered](https://doc.ezplatform.com/projects/userguide/en/latest/search/#basic-search)
+- [User documentation](https://doc.ezplatform.com/projects/userguide/en/latest/) 
+
+## Personalization Solution
+
+- [Services documentation](https://doc.ezplatform.com/projects/ezservices/en/latest/)
