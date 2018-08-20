@@ -4,7 +4,7 @@
 
 - Starter pack:
     - [Install Using Composer](getting_started/install_using_composer.md)
-    - [Bundles starter pack](getting_started/bundles_starter_pac.md)
+    - [Bundles starter pack](getting_started/bundles_starter_pack.md)
     - [First steps](getting_started/first_steps.md)
     - [eZ Platform beginner tutorial](tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md)
     - [eZ Enterprise beginner tutorial](tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world.md) 
@@ -24,7 +24,6 @@
 - Permissions:
     - [Limitation reference](guide/limitations.md)
     - [Role Policies map](guide/permissions.md#available-policies)
-    - [Custom Policies](guide/custom_policies.md)
 - Repository:
     - [Services](guide/repository.md#services-public-api)
     - [Signals reference](guide/signalslots.md#signals-reference)
@@ -33,16 +32,11 @@
     - [Sort Clause reference](guide/search.md#sort-clauses-reference)
     - [Solr](guide/solr.md)
 - Extending eZ Platform:
-    - [General extensibility](guide/extending_ez_platform.md/#general-extensibility)
-    - [Form Builder](guide/extending_form_builder.md)
+    - [General extensibility](guide/extending_ez_platform.md)
+    - [Form Builder](guide/other_extensibility.md#extending-the-form-builder)
     
 ## Front end
 
-- User Interface Guidelines
-    - [Buttons](guidelines/components/buttons.md)
-    - [Typography](guidelines/resources/typography.md)
-    - [Colors](guidelines/resources/colors.md)
-    - [Icons](guidelines/resources/icons)
 - [User documentation](https://doc.ezplatform.com/projects/userguide/en/latest/) 
 
 ## Personalization Solution
