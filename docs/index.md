@@ -4,7 +4,7 @@
 
 This is the center for eZ Platform documentation for developers and system administrators. Here you'll find information about installing, administrating, managing, customizing and extending eZ Platform. For the latest release of eZ Platform, see the eZ Developer Hub: <https://ezplatform.com/>
 
-**New to eZ Platform? See [Get Started with eZ Platform](getting_started/get_started_with_ez_platform.md)**
+**New to eZ Platform? See [Quickstart](getting_started/quickstart.md)**
 
 **Looking for reference? Read about the [REST API](api/rest_api_guide.md) or the [Public PHP API](api/public_php_api.md)**
 
