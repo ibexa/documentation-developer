@@ -190,21 +190,22 @@ Steps here should only be done once you are ready to move away from legacy and L
 
 ###### 3.2.1 Migrate XmlText content to RichText
 
-It is recommended that you test the migrating xmltext to richtext conversion before you apply it your production database. Richtext has a more strict validation compared to ezxmltext and it is likely that you have to fix some of your ezxmltext before you are able to convert it to richtext.
-Run the conversion script on a copy of your production database as the script is rather resource intensive.
+You should test the XmlText to RichText conversion before you apply it to a production database. RichText has a stricter validation compared to XmlText and you may have to fix some of your XmlText before you are able to convert it to RichText.
+Run the conversion script on a copy of your production database as the script is rather resource-intensive.
 
 `php -d memory_limit=1512M bin/console ezxmltext:convert-to-richtext --dry-run --export-dir=ezxmltext-export --export-dir-filter=notice,warning,error --concurrency 4 -v`
 
-The "-d memory_limit=1500M"  option specifies that each conversion process gets 1500MB of memory. This should be more than sufficient for most databases. If you have small ezxmltext documents, you may decrease the limit. If you have huge ezxmltext documents, you may need to increase it.
-The "--dry-run" option prevents the conversion script from writting anything back to the database. It just tests if it is able to convert all the ezxmltext documents.
-The "--export-dir" option specifies a directory where it will dump the ezxmltext for content object attributes which the conversion script finds problems with
-The "--export-dir-filter" option specifies what kind of severity the problems found needs to be before the script dumps the ezxmltext:
-- notice : ezxmltext contains problems which the conversion tool was able to fix automatically and likly do not need manual intervention
-- warning : the conversion tool was able to convert the ezxmltext to valid richtext, but data was maybe altered/removed/added in the process. Manual supervision recommended
-- error : the ezxmltext text cannot be converted and manual changes are required.
-The "--concurrency 4" option specifies that the conversion script will spawn 4 child processes which run the conversion. If you have dedicated hardware for running the conversion, you should use concurrency level that matches the amount of logical CPUs on your system. If your system needs to do other tasks while running the conversion, you should run with a smaller number.
-The "-v" option specifies verbose level. You may increase the verbose level by supplying "-vv", but "-v" will be sufficient for most use.
-The script also have a "--image-content-types" option which you should use if you have made custom image classes. With this option, you specify the content class identifiers:
+- `-d memory_limit=1500M` specifies that each conversion process gets 1500MB of memory. This should be more than sufficient for most databases. If you have small `ezxmltext` documents, you may decrease the limit. If you have huge `ezxmltext` documents, you may need to increase it.
+- `--dry-run` prevents the conversion script from writing anything back to the database. It just tests if it is able to convert all the `ezxmltext` documents.
+- `--export-dir` specifies a directory where it will dump the `ezxmltext` for content object attributes which the conversion script finds problems with
+- `--export-dir-filter` specifies what severity the problems found needs to be before the script dumps the `ezxmltext`:
+    - `notice`: `ezxmltext` contains problems which the conversion tool was able to fix automatically and likely do not need manual intervention
+    - `warning`: the conversion tool was able to convert the `ezxmltext` to valid `richtext`, but data could have been altered/removed/added in the process. Manual supervision recommended
+    - `error`: the `ezxmltext` text cannot be converted and manual changes are required.
+- `--concurrency 4` specifies that the conversion script will spawn four child processes which run the conversion. If you have dedicated hardware for running the conversion, you should use concurrency level that matches the number of logical CPUs on your system. If your system needs to do other tasks while running the conversion, you should run with a smaller number.
+- `-v` specifies verbosity level. You may increase the verbosity level by supplying `-vv`, but `-v` will be sufficient in most cases.
+
+The script also has an `--image-content-types` option which you should use if you have custom image classes. With this option, you specify the content class identifiers:
 
 `php app/console ezxmltext:convert-to-richtext --image-content-types=image,custom_image -v`
 
@@ -239,8 +240,9 @@ But later realize the last identifier should be `custom_image`, not `profile`, y
 The last command would then ensure embedded objects with Content Type identifier `profile` are no longer tagged as images, while embedded objects with Content Type identifier `custom_image` are.
 
 
-Using the option `--export-dir`, the conversion will export problematic exzmltext to files with the name pattern [export-dir]/ezxmltext_[contentobject_id]_[contentobject_attribute_id]_[version]_[language].xml. A corresponding .log file will also be created which includes information about why the conversion failed. But be aware of the fact that the reported location of the problem might not be accurate and is therefore misleading in some cases.
-Below is an example of a xml dump, ezxmltext_12_1234_2_eng-GB.xml:
+Using the option `--export-dir`, the conversion will export problematic `ezxmltext` to files with the name pattern `[export-dir]/ezxmltext_[contentobject_id]_[contentobject_attribute_id]_[version]_[language].xml`. A corresponding `.log` file will also be created which includes information about why the conversion failed. Be aware that the reported location of the problem may not be accurate or may be misleading.
+
+Below is an example of a xml dump, `ezxmltext_12_1234_2_eng-GB.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -266,7 +268,7 @@ Below is an example of a xml dump, ezxmltext_12_1234_2_eng-GB.xml:
 </section>
 ```
 
-The corresponding log file, ezxmltext_12_1234_2_eng-GB.log:
+The corresponding log file, `ezxmltext_12_1234_2_eng-GB.log`:
 
 ```
 notice: Found ez-temporary attribute in a ezxmltext paragraphs. Removing such attribute where contentobject_attribute.id=1234
@@ -275,10 +277,10 @@ error: Validation errors when converting ezxmltext for contentobject_attribute.i
 ```
 
 The first log message is a notice about the `ez-temporary=1` attribute which the conversion tool simply will remove during conversion.
-The second log message is an error, but the cause described may be confusing. During the conversion, the `<table>` element will be converted to a `<informaltable>` tag. And there is a problem with this `<informaltable>` tag.
-The exact problem in this case is the value of the second align attribute : `<td align="middle"....>`. An align attribute may only have the following values : left|right|center|justify
+The second log message is an error, but the cause described may be confusing. During the conversion, the `<table>` element will be converted to an `<informaltable>` tag, which is problematic.
+The exact problem in this case is the value of the second align attribute: `<td align="middle"....>`. An align attribute may only have the following values: `left`, `right`, `center`, `justify`.
 
-In order to fix the problem, open the .xml file in your favorite text editor and correct the errors:
+In order to fix the problem, open the .xml file in a text editor and correct the errors:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -304,19 +306,21 @@ In order to fix the problem, open the .xml file in your favorite text editor and
 </section>
 ```
 
-Now, you may test if the modified ezxmltext now may be converted using the "--dry-run" and "content-object" options:
+Now, you may test if the modified `ezxmltext` may be converted using the `--dry-run` and `content-object` options:
 
 `php -d memory_limit=1512M bin/console ezxmltext:import-xml --dry-run  --export-dir=ezxmltext-export --content-object=56554 -v`
 
-If the tool now reports no errors, then the ezxmltext is fixed. You may rerun the command without the `--dry-run` option in order to actually update the database with the correct xmltext.
-Once you have fixed all the dump files in ezxmltext-export/, you may skip the `--content-object` option and the script will import all the dump files located in the export-dir:
+If the tool reports no errors, then the `ezxmltext` is fixed. You may rerun the command without the `--dry-run` option in order to actually update the database with the correct XmlText.
+
+Once you have fixed all the dump files in `ezxmltext-export/`, you may skip the `--content-object` option and the script will import all the dump files located in the `export-dir`:
 
 `php -d memory_limit=1512M bin/console ezxmltext:import-xml --export-dir=ezxmltext-export -v`
 
 Typical problems that needs manual fixing:
 
-Duplicate xhtml ids
-Xhtml ids needs to be unique. The following ezxmltext will result in a warning:
+**Duplicate xhtml IDs**
+
+Xhtml IDs needs to be unique. The following `ezxmltext` will result in a warning:
 
 ```
     <paragraph>
@@ -327,25 +331,26 @@ Xhtml ids needs to be unique. The following ezxmltext will result in a warning:
     </paragraph>
 ```
 
-The conversion tool will replace the duplicate id("inv5") with a random value. If you need the id value to match your CSS you need to manually change it.
-The conversion tool will also complain about ids which contains invalid characters.
+The conversion tool will replace the duplicate id (`inv5`) with a random value. If you need the ID value to match your CSS, you need to change it manually.
+The conversion tool will also complain about IDs which contain invalid characters.
 
-Links
-Links with non-existing object_remote_id or node_remote_id.
-In ezxmltext you may have links which refere to other objects by their remote id. This is not supported in richtext, so the conversion tool must lookup such remote ids and replace them with the object_id or node_id. If the conversion tool cannot find the object by they remote id, it will issue a warning about it.
+**Links with non-existing `object_remote_id` or `node_remote_id`.**
 
-In older ezpublish databases you may also have invalid links due to lack of reference to a target ( no href, url_id or anything) :
+In `ezxmltext` you may have links which refer to other objects by their remote ID. This is not supported in `richtext`, so the conversion tool must look up such remote IDs and replace them with the `object_id` or `node_id`. If the conversion tool cannot find the object by its remote id, it will issue a warning about it.
+
+In older eZ Publish databases you may also have invalid links due to lack of reference to a target (no `href`, `url_id`, etc.):
 
 ```
     <link>some text</link>
 ```
 
-When the conversion tool detects links with no reference it will issue a warning and rewrite the url to point to current page (href="#").
+When the conversion tool detects links with no reference it will issue a warning and rewrite the URL to point to current page (`href="#"`).
 
-<literal>
+**<literal>**
+
 The <literal> tag is yet not supported in eZ Platform. For more information about this, please have a look at [EZP-29328](https://jira.ez.no/browse/EZP-29328) and [EZP-29027](https://jira.ez.no/browse/EZP-29027).
 
-When you are ready to migrate your eZ Publish XMLText content to the eZ Platform RichText format and start using pure eZ Platform setup, start the conversion script without the '--dry-run' optionyou can use a script to migrate content from the XmlText format to the new RichText format. Execute the following from &lt;new-ez-root&gt;:
+When you are ready to migrate your eZ Publish XmlText content to the eZ Platform RichText format and start using pure eZ Platform setup, start the conversion script without the `--dry-run` option. Execute the following from &lt;new-ez-root&gt;:
 
 `php -d memory_limit=1512M bin/console ezxmltext:convert-to-richtext --export-dir=ezxmltext-export --export-dir-filter=notice,warning,error --concurrency 4 -v`
 
