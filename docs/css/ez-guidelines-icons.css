@@ -2,6 +2,25 @@
     width: 2em;
     height: 2em;
 }
+.ez-guidelines .ez-icon.ez-icon--small {
+    width: 1em;
+    height: 1em;
+}
+.ez-guidelines .ez-icon.ez-icon--medium {
+    width: 1.5em;
+    height: 1.5em;
+}
+.ez-guidelines .ez-code-example .ez-icon.ez-icon--light {
+    border-radius: 4px;
+    background-color: #f15a10;
+    width: 2.5em;
+}
+.ez-guidelines .ez-icon.ez-icon--light {  
+    fill: #fff;
+}
+.ez-guidelines .ez-icon.ez-icon--secondary {  
+    fill: #106d95;
+}
 .ez-guidelines .icon-box {
     margin: .5em .5em 0 0;
     height: 7em;
