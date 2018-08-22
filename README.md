@@ -1,16 +1,17 @@
 # eZ Platform Developer Documentation
 
-This repository is the source for the developer documentation for eZ Platform,
+This repository is the source for the [developer documentation for eZ Platform](https://doc.ezplatform.com),
 an open source CMS based on the Symfony Full Stack Framework in PHP.
 
 # Resources
 
 1. eZ Platform Developer Hub: https://ezplatform.com/
 1. eZ Platform Repository: https://github.com/ezsystems/ezplatform
-1. eZ Platform Requirements: https://github.com/ezsystems/requirements
 1. Open JIRA board: https://jira.ez.no/
 1. eZ Systems Website: https://ez.no/
-1. Old docs site (no longer in use): https://doc.ez.no/display/MAIN/eZ+Documentation+Center
+1. User documentation: https://doc.ezplatform.com/projects/userguide/en/latest/
+1. Personalization Solution: https://doc.ezplatform.com/projects/ezservices/en/latest/
+
 
 ## How to Contribute
 https://doc.ezplatform.com/en/master/community_resources/contributing/#contribute-to-documentation
