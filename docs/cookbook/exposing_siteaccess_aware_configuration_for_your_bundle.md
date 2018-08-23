@@ -104,7 +104,7 @@ class AcmeExampleExtension extends Extension
         $configuration = $this->getConfiguration($configs, $container);
         $config = $this->processConfiguration($configuration, $configs);
 
-        $loader = new Loader\YamlFileLoader($container, new FileLocator( __DIR__.'/../Resources/config' ));
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load( 'default_settings.yml' );
 
         // "acme_example" will be the namespace as used in ConfigResolver format.

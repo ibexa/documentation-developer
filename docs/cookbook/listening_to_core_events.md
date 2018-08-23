@@ -127,7 +127,7 @@ class SignalListener implements EventSubscriberInterface
     {
         $signal = $event->getSignal();
         // You may want to check the signal type here to react accordingly
-        $this->logger->debug( 'Received Signal: ' . print_r($signal, true) );
+        $this->logger->debug('Received Signal: ' . print_r($signal, true));
     }
 
     public static function getSubscribedEvents()
