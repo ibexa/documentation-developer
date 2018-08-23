@@ -82,7 +82,7 @@ class InteractiveLoginListener implements EventSubscriberInterface
      */
     private $userService;
 
-    public function __construct( UserService $userService )
+    public function __construct(UserService $userService)
     {
         $this->userService = $userService;
     }
@@ -94,11 +94,11 @@ class InteractiveLoginListener implements EventSubscriberInterface
         ];
     }
 
-    public function onInteractiveLogin( InteractiveLoginEvent $event )
+    public function onInteractiveLogin(InteractiveLoginEvent $event)
     {
         // This loads a generic user and assigns it back to the event.
         // You may want to create users here, or even load predefined users depending on your own rules.
-        $event->setApiUser( $this->userService->loadUserByLogin( 'lolautruche' ) );
+        $event->setApiUser($this->userService->loadUserByLogin( 'lolautruche' ));
     }
 } 
 ```

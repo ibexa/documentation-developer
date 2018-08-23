@@ -54,7 +54,7 @@ class Configuration extends SiteAccessConfiguration
         $rootNode = $treeBuilder->root( 'acme_example' );
 
         // $systemNode will then be the root of SiteAccess-aware settings.
-        $systemNode = $this->generateScopeBaseNode( $rootNode );
+        $systemNode = $this->generateScopeBaseNode($rootNode);
         $systemNode
             ->scalarNode( 'foo' )->isRequired()->end()
             ->arrayNode( 'setting_a' )
@@ -99,32 +99,32 @@ use Symfony\Component\DependencyInjection\Loader;
  */
 class AcmeExampleExtension extends Extension
 {
-    public function load( array $configs, ContainerBuilder $container )
+    public function load(array $configs, ContainerBuilder $container)
     {
-        $configuration = $this->getConfiguration( $configs, $container );
-        $config = $this->processConfiguration( $configuration, $configs );
+        $configuration = $this->getConfiguration($configs, $container);
+        $config = $this->processConfiguration($configuration, $configs);
 
-        $loader = new Loader\YamlFileLoader( $container, new FileLocator( __DIR__.'/../Resources/config' ) );
+        $loader = new Loader\YamlFileLoader($container, new FileLocator( __DIR__.'/../Resources/config' ));
         $loader->load( 'default_settings.yml' );
 
         // "acme_example" will be the namespace as used in ConfigResolver format.
-        $processor = new ConfigurationProcessor( $container, 'acme_example' );
+        $processor = new ConfigurationProcessor($container, 'acme_example');
         $processor->mapConfig(
             $config,
             // Any kind of callable can be used here.
             // It will be called for each declared scope/SiteAccess.
-            function ( $scopeSettings, $currentScope, ContextualizerInterface $contextualizer )
+            function ($scopeSettings, $currentScope, ContextualizerInterface $contextualizer)
             {
                 // Will map the "foo" setting to "acme_example.<$currentScope>.foo" container parameter
                 // It will then be possible to retrieve this parameter through ConfigResolver in the application code:
                 // $helloSetting = $configResolver->getParameter( 'foo', 'acme_example' );
-                $contextualizer->setContextualParameter( 'foo', $currentScope, $scopeSettings['foo'] );
+                $contextualizer->setContextualParameter('foo', $currentScope, $scopeSettings['foo']);
             }
         );
 
         // Now map "setting_a" and ensure the key defined for "my_siteaccess" overrides the one for "my_siteaccess_group"
         // It is done outside the closure as it is needed only once.
-        $processor->mapConfigArray( 'setting_a', $config );
+        $processor->mapConfigArray('setting_a', $config);
     }
 }
 ```
@@ -134,8 +134,8 @@ class AcmeExampleExtension extends Extension
     You can map simple settings by calling `$processor->mapSetting()`, without having to call `$processor->mapConfig()` with a callable.
 
     ``` php
-    $processor = new ConfigurationProcessor( $container, 'acme_example' );
-    $processor->mapSetting( 'foo', $config );
+    $processor = new ConfigurationProcessor($container, 'acme_example');
+    $processor->mapSetting('foo', $config);
     ```
 
 !!! caution "Important"

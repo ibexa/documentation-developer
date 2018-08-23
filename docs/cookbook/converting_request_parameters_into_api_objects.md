@@ -4,9 +4,9 @@ In many cases, a request will provide a contentId or a locationId.
 Before using them, you will have to load an API object within your controller, for example:
 
 ``` php
-public function listBlogPostsAction( $locationId )
+public function listBlogPostsAction($locationId)
 {
-    $location = $repository->getLocationService()->loadLocation( $locationId );
+    $location = $repository->getLocationService()->loadLocation($locationId);
 ```
 
 Thanks to the ParamConverter, you can directly have the API object at your disposal. All you have to do is:
@@ -23,7 +23,7 @@ Example using Locations:
 ``` php
 use eZ\Publish\API\Repository\Values\Content\Location;
 
-public function listBlogPostsAction( Location $location )
+public function listBlogPostsAction(Location $location)
 {
     // use my $location object
 ```
