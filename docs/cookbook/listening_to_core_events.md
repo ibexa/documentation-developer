@@ -27,12 +27,12 @@ class OnPublishSlot extends BaseSlot
      */
     private $contentService;
 
-    public function __construct( ContentService $contentService )
+    public function __construct(ContentService $contentService)
     {
         $this->contentService = $contentService;
     }
 
-    public function receive( Signal $signal )
+    public function receive(Signal $signal)
     {
         if ( !$signal instanceof Signal\ContentService\PublishVersionSignal )
         {
@@ -40,7 +40,7 @@ class OnPublishSlot extends BaseSlot
         }
 
         // Load published content
-        $content = $this->contentService->loadContent( $signal->contentId, null, $signal->versionNo );
+        $content = $this->contentService->loadContent($signal->contentId, null, $signal->versionNo);
         // Do stuff with it...
     }
 }
@@ -118,16 +118,16 @@ class SignalListener implements EventSubscriberInterface
      */
     private $logger;
 
-    public function __construct( LoggerInterface $logger )
+    public function __construct(LoggerInterface $logger)
     {
         $this->logger = $logger;
     }
 
-    public function onAPISignal( SignalEvent $event )
+    public function onAPISignal(SignalEvent $event)
     {
         $signal = $event->getSignal();
         // You may want to check the signal type here to react accordingly
-        $this->logger->debug( 'Received Signal: ' . print_r( $signal, true ) );
+        $this->logger->debug('Received Signal: ' . print_r($signal, true));
     }
 
     public static function getSubscribedEvents()

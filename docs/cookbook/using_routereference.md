@@ -69,7 +69,7 @@ $routeRef = $routeRefGenerator->generate( 'my_route', [ 'some' => 'thing' ]);
 $routeRef->set( 'foo', [ 'bar', 'baz' ] );
 $routeRef->setRoute( 'another_route' );
 
-$link = $this->generateUrl( $routeRef );
+$link = $this->generateUrl($routeRef);
 ```
 
 ## Extending the RouteReference generation process
@@ -97,7 +97,7 @@ class MyRouteReferenceListener implements EventSubscriberInterface
         ];
     }
 
-    public function onRouteReferenceGeneration( RouteReferenceGenerationEvent $event )
+    public function onRouteReferenceGeneration(RouteReferenceGenerationEvent $event)
     {
         $routeReference = $event->getRouteReference();
         $request = $event->getRequest();
