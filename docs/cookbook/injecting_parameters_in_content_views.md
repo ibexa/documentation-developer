@@ -14,7 +14,7 @@ use eZ\Publish\Core\MVC\Symfony\Event\PreContentViewEvent;
 
 class PreContentViewListener
 {
-    public function onPreContentView( PreContentViewEvent $event )
+    public function onPreContentView(PreContentViewEvent $event)
     {
         // Get content view object and inject whatever you need.
         // You may also add custom business logic here.
