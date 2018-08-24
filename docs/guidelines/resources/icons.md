@@ -8,12 +8,46 @@ We provide visual context with icons, we want to emphasize the most important in
 
 [[code_example {html}
 <svg class="ez-icon">
-    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../ez-icons.svg#view-desktop"></use>
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../ez-icons.svg#publish"></use>
 </svg>
 code_example]]
 
+###<div class="mgt-2">Small icons</div>
+<div class="mgt-minus-3 mgb-5">Add class `ez-icon--small` to modify an icon to its smallest size.</div>
+[[code_example {html}
+<svg class="ez-icon ez-icon--small">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../ez-icons.svg#publish"></use>
+</svg>
+code_example]]
 
-##<div class="mgt-3">Icon set</div>
+###<div class="mgt-2">Medium icons</div>
+<div class="mgt-minus-3 mgb-5">Add class `ez-icon--medium` to modify an icon to its medium size.</div>
+[[code_example {html}
+<svg class="ez-icon ez-icon--medium">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../ez-icons.svg#publish"></use>
+</svg>
+code_example]]
+
+###<div class="mgt-2">Colored icons - white</div>
+<div class="mgt-minus-3 mgb-5">Add class `ez-icon--light` to modify the color fill of an icon to the Sass variable defined for white, `$ez-white`.</div>
+[[code_example {html}
+<svg class="ez-icon ez-icon--light">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../ez-icons.svg#publish"></use>
+</svg>
+code_example]]
+
+!!! note
+    Background color added just for displaying icon with proper color contrast.
+
+###<div class="mgt-2">Colored icons - secondary</div>
+<div class="mgt-minus-3 mgb-5">Add class `ez-icon--secondary` to modify the color fill of an icon to the Sass variable defined for secondary color, `$ez-color-secondary`.</div>
+[[code_example {html}
+<svg class="ez-icon ez-icon--secondary">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../ez-icons.svg#publish"></use>
+</svg>
+code_example]]
+
+##<div class="mgt-5">Icon set</div>
 <div class="mgt-minus-4">Here you can find all SVG icons our CMS uses classified by categories:</div>
 
 ###<div class="mgt-2 header-line">General</div>
@@ -1186,4 +1220,4 @@ code_example]]
 
 !!! note
 
-    Following our design principles and philosophy, expandable and flexible, we provide a few more icons than the ones we are using so that you and your team have the option of customizing your eZ Platform CMS. 
+    Following our design principles and philosophy, expandable and flexible, we provide a few more icons than the ones we are using so that you and your team have the option of customizing your eZ Platform CMS.
