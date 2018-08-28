@@ -136,6 +136,35 @@ The string will contain all the authors with their names and emails.
 
 Example: `John Doe john@doe.com`
 
+#### Validation
+
+This Field Type does not perform any special validation of the input value.
+
+#### Settings
+
+The Field definition of this Field Type can be configured with a single option:
+
+|Name|Type|Default value|Description|
+|------|------|------|------|
+|`defaultAuthor`|`mixed`|`Type::DEFAULT_VALUE_EMPTY`|One of the `DEFAULT_*` constants, used by the administration interface for setting the default Field value. See below for more details.|
+
+Following `defaultAuthor` default value options are available as constants in the `eZ\Publish\Core\FieldType\Author\Type` class:
+
+|Constant|Description|
+|------|------|
+|`DEFAULT_VALUE_EMPTY`|Default value will be empty.|
+|`DEFAULT_CURRENT_USER`|Default value will use currently logged user.|
+
+``` php
+// Author Field Type example settings
+
+use eZ\Publish\Core\FieldType\Author\Type;
+
+$settings = [
+    "defaultAuthor" => Type::DEFAULT_VALUE_EMPTY
+];
+```
+
 ## BinaryFile Field Type
 
 This Field Type represents and handles a single binary file. It also counts the number of times the file has been downloaded from the `content/download` module.
