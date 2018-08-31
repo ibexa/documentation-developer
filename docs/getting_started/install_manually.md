@@ -242,7 +242,7 @@ You can check out a tag, or use the `master` branch if you are interested in wor
 !!! tip
 
     You can use any other folder name in place of `ezplatform` in the examples above.
-    You'll point your virtual host to this folder to use as its root.
+    You'll point your Virtual Host to this folder to use as its root.
 
 ### Get Composer
 
@@ -255,11 +255,12 @@ php -r "readfile('https://getcomposer.org/installer');" | php
 !!! tip "Install Composer globally"
 
     If you want to install Composer globally, you can use a package manager, for example [Homebrew](https://brew.sh/).
+    After installation you can replace `php -d memory_limit=-1 composer.phar` with `composer`.
 
 ### Run installation scripts
 
 Composer will look inside the `composer.json` file and install all of the packages required to run eZ Platform.
-The `bin/console` script will then install eZ Platform for your desired environment (dev/prod).
+The `bin/console` script will then install eZ Platform.
 
 #### Install dependencies with Composer
 
@@ -276,11 +277,11 @@ Once the installer gets to the point that it creates `app/config/parameters.yml`
 3. For `database_name` and `database_user`, replace them if you customized those values during configuration.
 4. If you set a password for your database user, enter it when prompted for `database_password`.
 
-The installer should continue once you've completed this manual portion of the installation process.
+The installer should continue once you've completed the manual portion of the installation process.
 
 #### Install eZ Platform
 
-Create `clean` installation in production environment and a database with:
+Create `clean` installation in development environment and a database with:
 
 ``` bash
 php -d memory_limit=-1 composer.phar ezplatform-install
@@ -318,7 +319,7 @@ You'll need the web user set as the owner/group on all your files:
 chown -R _www:_www /var/www/ezplatform
 ```
 
-You also need to give the web user access do modify the `var` and `web/var` directories inside the installation.
+You also need to give the web user access to modify the `var` and `web/var` directories inside the installation.
 
 See [Set up directory permissions](set_up_directory_permissions.md) for more information.
 
