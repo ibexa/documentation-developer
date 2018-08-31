@@ -122,10 +122,10 @@ pages:
         - 'Service container': 'guide/service_container.md'
         - 'Personalization': 'guide/personalization.md'
     - Cookbook:
+        - 'Accept header-based REST API response': 'cookbook/creating_custom_rest_api_response.md'
         - 'API search result pagination': 'cookbook/paginating_api_search_results.md'
         - 'AWS S3 clustering': 'cookbook/setting_up_amazon_aws_s3_clustering.md'
         - 'Binary attachments via REST API': 'cookbook/creating_content_with_binary_attachments_via_rest_api.md'
-        - 'Creating custom REST API response based on Accept header': 'cookbook/creating_custom_rest_api_response.md'
         - 'Cross-origin HTTP requests': 'cookbook/making_cross_origin_http_requests.md'
         - 'Displaying Content children': 'cookbook/displaying_children_of_a_content_item.md'
         - 'Executing long commands': 'cookbook/executing_long_running_console_commands.md'
