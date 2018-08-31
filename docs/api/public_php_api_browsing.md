@@ -163,7 +163,7 @@ As for the ContentService, `loadLocation()` returns a value object, here a `Loca
 private function browseLocation( Location $location, OutputInterface $output, $depth = 0 )
 {
     $childLocationList = $this->locationService->loadLocationChildren( $location, $offset = 0, $limit = 10 );
-    // If offset and limit had been specified to something else then "all", then $childLocationList->totalCount contains the total count for iteration use
+    // If offset and limit had been specified to something else than "all", then $childLocationList->totalCount contains the total count for iteration use
     foreach ( $childLocationList->locations as $childLocation )
     {
         $this->browseLocation( $childLocation, $output, $depth + 1 );
