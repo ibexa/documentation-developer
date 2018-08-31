@@ -150,7 +150,7 @@ The highlighted line 41 indicates the template that will be used to display the 
 
 Finally, create an `all_content_list.html.twig` file in `src/EzSystems/ExtendingTutorialBundle/Resources/views/list`:
 
-``` twig
+``` html+twig
 {% extends 'EzPlatformAdminUiBundle::layout.html.twig' %}
 
 {% block title %}{{ 'Content List'|trans }}{% endblock %}

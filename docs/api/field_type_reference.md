@@ -508,7 +508,7 @@ The template called by [the `ez_render_field()` Twig function](../guide/twig_
 
 Example:
 
-``` html
+``` html+twig
 {{ ez_render_field(content, 'date') }}
 ```
 
@@ -856,7 +856,7 @@ To read more about handling images and image variations, see the [Images documen
 
 When displayed using `ez_render_field`, an Image Field will output this type of HTML:
 
-``` html
+``` html+twig
 <img src="var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB/image_medium.png" width="844" height="430" alt="Alternative text" />
 ```
 
@@ -871,19 +871,19 @@ The template called by the [`ez_render_field()` Twig function](../guide/twig_fu
 
 Example: 
 
-``` html
+``` html+twig
 {{ ez_render_field( content, 'image', { 'parameters':{ 'alias': 'imagelarge', 'width': 400, 'height': 400 } } ) }}
 ```
 
 The raw Field can also be used if needed. Image variations for the Field's content can be obtained using the `ez_image_alias` Twig helper:
 
-``` html
+``` html+twig
 {% set imageAlias = ez_image_alias( field, versionInfo, 'medium' ) %}
 ```
 
 The variation's properties can be used to generate the required output:
 
-``` html
+``` html+twig
 <img src="{{ asset( imageAlias.uri ) }}" width="{{ imageAlias.width }}" height="{{ imageAlias.height }}" alt="{{ field.value.alternativeText }}" />
 ```
 
@@ -1301,7 +1301,7 @@ The template called by [the `ez_render_field()` Twig function](../guide/twig_fun
 
 Example:
 
-``` html
+``` html+twig
 {{ ez_render_field(content, 'location', {'parameters': {'width': '100%', 'height': '330px', 'showMap': true, 'showInfo': false}}) }}
 ```
 
@@ -1541,7 +1541,7 @@ services:
 
     Example usage:
 
-    ``` html
+    ``` html+twig
     {{ render_esi(controller('EzPlatformPageFieldTypeBundle:Block:render', {
         'locationId': locationId,
         'blockId': block.id,
@@ -1552,7 +1552,7 @@ services:
 
     As a whole a sample layout could look as follows:
 
-    ``` html
+    ``` html+twig
     <div>
         {# The required attribute for the displayed zone #}
         <div data-ez-zone-id="{{ zones[0].id }}">

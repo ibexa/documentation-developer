@@ -108,7 +108,7 @@ At this point you are able to edit Field Type value but in some cases you might 
 
 We encourage using custom form types for encapsulation as this makes templating easier by providing Twig block name. All eZ Platform Field Types are implemented with this approach. In that case overriding form theme can be done with:
 
-```html
+``` html+twig
 {% block my_fieldtype_widget %}
     Hello world!
     {{ block('form_widget') }}

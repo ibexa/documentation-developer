@@ -63,7 +63,7 @@ folder:
 
 In this case the `controller` key points to the Query Controller's `locationQuery` action. `assign_results_to` identifies the parameter containing all the retrieved children that will later be used in the templates, like here in `app/Resources/views/full/folder.html.twig`:
 
-``` jinja
+``` html+twig
 <h1>{{ ez_content_name(content) }}</h1>
 
 {% for item in items.searchHits %}
@@ -240,7 +240,7 @@ class AppExtension extends Extension
 
 Finally, let's use the Controller in a template in `app/Resources/views/full/folder.html.twig`:
 
-``` html
+``` html+twig
 <h1>{{ ez_content_name(content) }}</h1>
 
 {% for item in items %}

@@ -23,7 +23,7 @@ In addition to its own metadata (`id`, `fieldDefIdentifier`, etc.), it exposes t
 
 A basic template (`TweetFieldTypeBundle/Resources/views/fields/eztweet.html.twig`) is:
 
-``` html
+``` html+twig
 {% block eztweet_field %}
     {% spaceless %}
         {{ field.value.contents|raw }}
@@ -50,7 +50,7 @@ First, you need to make the template inherit from `content_fields.html.twig`.
 Then, create a `field_value` variable that will be used by the helper to print out the content inside the markup.
 The helper will use `field_attributes` to add the HTML attributes to the generated `div`.
 
-``` html
+``` html+twig
 {% extends "EzPublishCoreBundle::content_fields.html.twig" %}
 
 {% block eztweet_field %}

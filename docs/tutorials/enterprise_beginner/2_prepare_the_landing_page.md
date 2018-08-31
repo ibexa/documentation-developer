@@ -99,7 +99,7 @@ The template defines what zones will be available in the layout.
 
 Create an `app/Resources/views/layouts/sidebar.html.twig` file:
 
-``` html hl_lines="1 2 15"
+``` html+twig hl_lines="1 2 15"
 <div data-studio-zones-container>
     <main class="landing-page__zone landing-page__zone--{{ zones[0].id }} landing-page__zone--left col-xs-8" data-studio-zone="{{ zones[0].id }}">
         {% if zones[0].blocks %}
@@ -165,7 +165,7 @@ But you also need a general template file that will be used for every Landing Pa
 
 Add this new template, `app/Resources/views/full/landing_page.html.twig`:
 
-``` html
+``` html+twig
 {% extends 'pagelayout.html.twig' %}
 
 {% block content %}
