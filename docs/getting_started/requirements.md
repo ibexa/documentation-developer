@@ -1,4 +1,4 @@
-# Requirements and System Configuration
+# Requirements
 
 ## eZ Platform Cloud / Platform.sh
 
