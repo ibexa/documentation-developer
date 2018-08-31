@@ -63,7 +63,7 @@
     The best way to display blocks in the zone is to iterate over a blocks array and render the blocks in a loop.
     Each block must have the `landing-page__block block_{{ block.type }}` classes and the `data-ez-block-id="{{ block.id }}` attribute (see line 9).
 
-    ``` html hl_lines="9"
+    ``` html+twig hl_lines="9"
     <div>
         <div data-ez-zone-id="{{ zones[0].id }}">
             {# If the first zone (with index [0]) contains any blocks #}

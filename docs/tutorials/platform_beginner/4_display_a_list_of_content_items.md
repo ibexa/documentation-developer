@@ -8,7 +8,7 @@ In this step you will display a table of all Rides on the front page.
 
 In `Resources/views/full/root_folder.html.twig` replace the "Hello world" with a call to a controller which will display the list of all existing Rides:
 
-``` html hl_lines="5"
+``` html+twig hl_lines="5"
 {% extends "main_layout.html.twig" %}
 
 {% block content %}
@@ -90,7 +90,7 @@ and renders them using the `list/rides.html.twig` template (line 28).
 Create `app/Resources/views/list/rides.html.twig`. It displays the list of Rides in a `<table>` tag.
 The `<head>` of the `<table>` is contained in this **Ride** list template, while each `<tr>` (line of the table) will be provided by the line ride template.
 
-``` html hl_lines="19"
+``` html+twig hl_lines="19"
 <div class="row regular-content-size">
     <div class="col-xs-12 box-style">
         <h3 class="center bottom-plus new-header">{{ 'List of all Rides'|trans }}</h3>
@@ -158,7 +158,7 @@ Create the `app/Resources/views/line/ride.html.twig` template.
 
 Because this template will be rendered inside a table, it starts with a `<tr>` tag.
 
-``` twig
+``` html+twig
 <tr>
     <td>
         <a href="{{ path( "ez_urlalias", { 'locationId': content.contentInfo.mainLocationId } ) }}"

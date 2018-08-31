@@ -55,7 +55,7 @@ Each custom tag can have any number of attributes. Supported attribute types are
 
 The configuration requires a Twig template for the custom tag:
 
-``` twig
+``` html+twig
 <div{% if params.align is defined %} style="text-align: {{ params.align }};"{% endif %}>
     <iframe type="text/html" width="{{ params.width }}" height="{{ params.height }}"
         src="{{ params.video_url|replace({'https://youtu.be/' : 'https://www.youtube.com/embed/'}) }}?autoplay={{ params.autoplay == 'true' ? 1 : 0 }}"
@@ -67,7 +67,7 @@ The configuration requires a Twig template for the custom tag:
 
     Remember that if an attribute is not required, you need to check if it is defined in the template, for example:
 
-    ``` twig
+    ``` html+twig
     {% if params.your_attribute is defined %}
         ...
     {% endif %}

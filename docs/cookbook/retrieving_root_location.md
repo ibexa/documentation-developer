@@ -35,7 +35,7 @@ class DefaultController extends Controller
 
 Root Location is exposed in the [global Twig helper](../guide/content_rendering.md#twig-helper).
 
-``` html
+``` html+twig
 <a href="{{ path( ezpublish.rootLocation ) }}" title="Link to homepage">Home page</a>
 ```
 

@@ -274,7 +274,7 @@ In order to do that add an extra tag definition in `Resources/config/fieldtypes.
 You have the new part of the form defined, but you still need to show it to the user.
 To do that, create a file containing the view, `Resources/views/platformui/content_type/edit/eztweet.html.twig`:
 
-```html
+``` html+twig
 {% block eztweet_field_definition_edit %}
     <div class="eztweet-validator author_list{% if group_class is not empty %} {{ group_class }}{% endif %}">
         {{- form_label(form.authorList) -}}
