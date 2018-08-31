@@ -132,6 +132,7 @@ pages:
         - 'Service container': 'guide/service_container.md'
         - 'Personalization': 'guide/personalization.md'
     - Cookbook:
+        - 'Accept header-based REST API response': 'cookbook/creating_custom_rest_api_response.md'
         - 'Adding Field Types': 'cookbook/adding_new_field_types.md'
         - 'API search result pagination': 'cookbook/paginating_api_search_results.md'
         - 'AWS S3 clustering': 'cookbook/setting_up_amazon_aws_s3_clustering.md'
