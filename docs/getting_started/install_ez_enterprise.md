@@ -1,6 +1,12 @@
-# Instal eZ Enterprise
+# Install eZ Enterprise
 
 !!! enterprise
+
+    To install eZ Enterprise, follow the procedure described in [Install eZ Platform](install_ez_platform.md).
+    Because you do not have access to the Enterprise GitHub repositories,
+    you need to [download an archive](install_ez_platform.md#a-download-ez-platform) from the Support Portal.
+
+    There are a few special steps you need to take when installing eZ Enterprise:
 
     ## Setting up authentication tokens for eZ Enterprise
 
@@ -56,7 +62,7 @@
         COMPOSER_AUTH='{"http-basic":{"updates.ez.no":{"username":"<installation-key>","password":"<token-password>"}}}' composer create-project --keep-vcs ezsystems/ezplatform-ee my-new-ee-project
         ```
 
-    ##### Enable Date-based Publisher
+    ## Enable Date-based Publisher
 
     To enable delayed publishing of Content using the Date-based Publisher, you need to set up cron to run the command `bin/console ezstudio:scheduled:publish` periodically.
 
