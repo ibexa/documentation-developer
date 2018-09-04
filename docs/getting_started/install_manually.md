@@ -281,11 +281,13 @@ The installer should continue once you've completed the manual portion of the in
 
 #### Install eZ Platform
 
-Create `clean` installation in development environment and a database with:
+Create `clean` installation in development environment with:
 
 ``` bash
 php -d memory_limit=-1 composer.phar ezplatform-install
 ```
+
+This command will also create a database, if you had not created it earlier.
 
 If Composer asks for your token, you must log in to your GitHub account and generate a new token
 (edit your profile, go to Developer settings > Personal access tokens and Generate new token with default settings).
@@ -310,6 +312,8 @@ To set up Virtual Host, you can use the template provided with eZ Platform:
 ``` bash
 sudo cp doc/apache2/vhost.template /private/etc/apache2/users/<your_site_name>.conf
 ```
+
+Modify `<your_site_name>.conf` to fit your installation.
 
 ### Set up permissions
 
