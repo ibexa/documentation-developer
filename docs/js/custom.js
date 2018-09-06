@@ -103,7 +103,7 @@ $(document).ready(function () {
     });
 
     // Image enlargement modal
-    $("img").click( function(){
+    $(".md-content img").click( function(){
         $('#enlargedImage').attr('src', $(this).attr('src'));
         if ($(this).attr('title')) {
             $('#modalCaption').html($(this).attr('title'));
