@@ -331,6 +331,7 @@ a.external:after {
   display: block;
   max-width: 60%;
   max-height: 90%;
+  background-color: #fff;
 }
 
 #modalCaption {
