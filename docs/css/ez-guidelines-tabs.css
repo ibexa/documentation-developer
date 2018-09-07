@@ -1,0 +1,28 @@
+.ez-guidelines-tabs .ez-code-example {
+    font-family: 'Noto Sans', 'Helvetica', 'Arial', sans-serif;
+}
+.ez-guidelines-tabs .ez-code-example .nav-tabs {
+    margin-left: 0;
+    border-bottom: 2px solid #e5e3e3;
+}
+.ez-guidelines-tabs .ez-code-example .nav-tabs .nav-item {
+    margin-bottom: -2px;
+    margin-left: 0;
+}
+.ez-guidelines-tabs .ez-code-example .nav-link {
+    border: 1px solid transparent;
+    padding: .5em 1em;
+    border-top-left-radius: .25em;
+    border-top-right-radius: .25em;
+    color: #646464;
+}
+.ez-guidelines-tabs .ez-code-example .nav-tabs .nav-link:hover {
+    background-color: #dbdbdb;
+    border-color: #dbdbdb;
+    color: #646464;
+}
+.ez-guidelines-tabs .ez-code-example .nav-tabs .nav-link.active {
+    background-color: #f5f5f5;
+    border-color: #f5f5f5;
+    color: #333;
+}
