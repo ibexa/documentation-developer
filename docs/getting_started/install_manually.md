@@ -471,10 +471,8 @@ This operation is performed only once when you install eZ Platform Enterprise Ed
 
 ### Set up Virtual Host
 
-1/. To set up Virtual Host use the template provided with eZ Platform. You can find it in `ezplatform\doc\apache2` directory.
+1. To set up Virtual Host use the template provided with eZ Platform. You can find it in `ezplatform\doc\apache2` directory.
 
-2/. Copy the virtual host template adequate to your Apache version into your `<Apache>\conf\vhosts` directory. Modify template to fit your installation.
+1. Copy the virtual host template adequate to your Apache version into your `<Apache>\conf\vhosts` directory. Modify template to fit your installation.
 
-3/. Restart Apache 2 server.
-
-Open your project in the browser and you should see the welcoming page.
+1. Restart Apache 2 server. Open your project in the browser and you should see the welcoming page.
