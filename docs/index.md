@@ -43,3 +43,25 @@
   </ul>
 </div>
 </div>
+
+<div class="card-group">
+<div class="card">
+  <div class="card-header">The latest release is v2.3</div>
+  <div class="card">
+      <div class="card-body">
+          <p>Major features:</p>
+          <ul>
+            <li>Form Builder</li>
+            <li>Content scheduling</li>
+            <li>ImageAsset Field Type</li>
+          </ul>
+          <p>See <a href="../releases/ez_platform_v2.3/" class="card-link">2.3 release notes</a> for more information</p>
+      </div>
+  </div>
+</div>
+</div>
+
+
+<div class="card text-center">
+  <div class="card-header">For a roadmap of planned features see</div>
+</div>
