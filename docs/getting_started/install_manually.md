@@ -360,14 +360,14 @@ zend_extension=opcache.so
 
 #### Apache2
 
-Edit Apache2 configuration file `httpd.conf`. For development environment replace placeholders values with corresponding values from your project e.g. `ServerName localhost:80`.  Uncomment relevant modules e.g.
+Edit Apache2 configuration file `httpd.conf`. For development environment replace placeholder values with corresponding values from your project e.g. `ServerName localhost:80`.  Uncomment relevant modules e.g.
 
 ``` bash
 LoadModule rewrite_module modules/mod_rewrite.so
 LoadModule vhost_alias_module libexec/apache2/mod_vhost_alias.so
 ```
 
-Start Apache2 using Command Line
+Start Apache2 using command line
 
 ``` bash
 httpd.exe
@@ -375,7 +375,7 @@ httpd.exe
 
 !!! note
 
-    You can install Apache as a Windowse service by executing as administrator:
+    You can install Apache as a Windows service by executing as administrator:
 
     ```bash
     httpd.exe -k -install
@@ -415,7 +415,7 @@ You can check out a tag, or use the `master` branch if you are interested in wor
 
 ### Install Composer globally
 
-Download and run [Composer-Setup.exe](https://getcomposer.org/download/) - it will install the latest composer version whenever it is executed.
+Download and run [Composer-Setup.exe](https://getcomposer.org/download/) - it will install the latest Composer version whenever it is executed.
 
 #### Install dependencies with Composer
 
@@ -473,6 +473,6 @@ This operation is performed only once when you install eZ Platform Enterprise Ed
 
 1. To set up Virtual Host use the template provided with eZ Platform. You can find it in `ezplatform\doc\apache2` directory.
 
-1. Copy the virtual host template adequate to your Apache version into your `<Apache>\conf\vhosts` directory. Modify template to fit your installation.
+1. Copy the Virtual Host template adequate to your Apache version into your `<Apache>\conf\vhosts` directory. Modify template to fit your installation.
 
 1. Restart Apache 2 server. Open your project in the browser and you should see the welcoming page.
