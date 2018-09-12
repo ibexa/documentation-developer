@@ -14,3 +14,34 @@
 	line-height: 1.2;
 	color: #f15a10;
 }
+
+.ez-guidelines-sample {
+    border: 1px solid #00825c;
+    border-radius: 4px;
+    padding: 2em 1em;
+}
+
+.ez-guidelines-sample-negative {
+    border-color: #d92d42;
+}
+
+.ez-guidelines-sample__correct-block {
+    position: absolute;
+    bottom: 0;
+    margin-left: -1.15em;
+    width: 100%;
+    padding: .25em 0;
+    border-radius: 0 0 4px 4px;
+    background-color: #00825c;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+}
+
+.ez-guidelines-sample__correct-block-negative {
+    background-color: #d92d42;
+}
+
+.ez-guidelines-sample__correct-block .ez-icon {
+    margin-top: 1em;
+}
