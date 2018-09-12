@@ -348,13 +348,13 @@ These can be used on the extension points by registering them with the container
 
 - all block documents
     - `ContentFieldMapper`
-    - `ezpublish.search.solr.document_field_mapper.block`
+    - `ezpublish.search.solr.field_mapper.block`
 - all block documents per translation
     - `ContentTranslationFieldMapper`
     - `ezpublish.search.solr.field_mapper.block_translation`
 - Content documents
     - `ContentFieldMapper`
-    - `ezpublish.search.solr.document_field_mapper.content`
+    - `ezpublish.search.solr.field_mapper.content`
 - Content documents per translation
     - `ContentTranslationFieldMapper`
     - `ezpublish.search.solr.field_mapper.content_translation`
