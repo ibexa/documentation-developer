@@ -91,13 +91,13 @@ This setting is **required** if you want to see the changes after publish. It is
 #### Generating configuration
 
 The command line tool `bin/generate-solr-config.sh` generates Solr 6 configuration automatically.
-It can be used for deploying to eZ Platform Cloud (Platform.sh) and on-premise installs. 
+It can be used for deploying to eZ Platform Cloud (Platform.sh) and on-premise installs.
 
 Execute the script from the eZ Platform root directory for further information:
 
 ``` bash
 ./vendor/ezsystems/ezplatform-solr-search-engine/bin/generate-solr-config.sh --help
-``` 
+```
 
 ### Step 2: Configuring the bundle
 
@@ -376,13 +376,13 @@ These can be used on the extension points by registering them with the container
 
 - all block documents
     - `ContentFieldMapper`
-    - `ezpublish.search.solr.document_field_mapper.block`
+    - `ezpublish.search.solr.field_mapper.block`
 - all block documents per translation
     - `ContentTranslationFieldMapper`
     - `ezpublish.search.solr.field_mapper.block_translation`
 - Content documents
     - `ContentFieldMapper`
-    - `ezpublish.search.solr.document_field_mapper.content`
+    - `ezpublish.search.solr.field_mapper.content`
 - Content documents per translation
     - `ContentTranslationFieldMapper`
     - `ezpublish.search.solr.field_mapper.content_translation`
