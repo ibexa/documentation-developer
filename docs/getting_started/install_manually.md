@@ -375,7 +375,7 @@ httpd.exe
 
 !!! note
 
-    You can install Apache as a Windows service by executing as administrator:
+    You can install Apache as a Windows service by running this command in CMD as administrator:
 
     ```bash
     httpd.exe -k -install
@@ -395,7 +395,7 @@ You can download eZ Platform in two ways:
 - If you are installing eZ Platform, download the latest archive from [ezplatform.com](https://ezplatform.com/#download-option).
 - For licensed eZ Enterprise customers, download your file from the [Support portal](https://support.ez.no/Downloads).
 
-Extract the archive into your project root directory.
+Extract the archive into the location where you want your project root directory to be.
 
 2\. Clone GitHub repository
 
@@ -409,9 +409,8 @@ You can check out a tag, or use the `master` branch if you are interested in wor
 
 !!! tip
 
-    You can use any other folder name in place of `ezplatform` in the examples above.
-    You'll point your virtual host to this folder to use as its root.
-
+    You can use any other folder name for your project in place of `ezplatform`.
+    Set its location as your project root directory in your Virtual Host configuration.
 
 ### Install Composer globally
 
@@ -436,10 +435,10 @@ The installer should continue once you've completed this manual portion of the i
 
 ### Create a new database for eZ Platform - optional
 
-Create new database. Run following command inside mysql shell:
+Create new database. Run following command inside MySQL Shell:
 
 ``` bash
-CREATE DATABASE ezplatform;
+CREATE DATABASE ezplatform CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
 ```
 
 #### Install eZ Platform
@@ -471,8 +470,8 @@ This operation is performed only once when you install eZ Platform Enterprise Ed
 
 ### Set up Virtual Host
 
-1. To set up Virtual Host use the template provided with eZ Platform. You can find it in `ezplatform\doc\apache2` directory.
+1. To set up Virtual Host use the template provided with eZ Platform. You can find it in `ezplatform\doc\apache2` directory. 
 
-1. Copy the Virtual Host template adequate to your Apache version into your `<Apache>\conf\vhosts` directory. Modify template to fit your installation.
+1. Copy the Virtual Host template adequate to your Apache version into your `<Apache>\conf\vhosts` directory. For Apache 2.4 use `vhost.template` and for 2.2 `vhost.2.2.template`. Modify template to fit your installation.
 
 1. Restart Apache 2 server. Open your project in the browser and you should see the welcoming page.
