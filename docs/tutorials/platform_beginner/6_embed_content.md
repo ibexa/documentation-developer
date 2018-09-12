@@ -6,7 +6,11 @@ Now you need to create the second Content Type needed in the site, **Landmark**.
 
 Go to Admin &gt; Content types, and under the **Content** group, create the Landmark Content Type.
 
-A Landmark is an interesting place that Rides go through. Each Ride may be related to multiple Landmarks.
+A Landmark is an interesting place that Rides go through. Each Ride may be related to mul
+
+
+
+le Landmarks.
 
 - **Name**: Landmark
 - **Identifier**: landmark
@@ -114,9 +118,24 @@ namespace AppBundle\Controller;
 use eZ\Bundle\EzPublishCoreBundle\Controller;
 use eZ\Publish\Core\Repository\Values\Content\Location;
 use eZ\Publish\Core\MVC\Symfony\View\ContentView;
+use eZ\Publish\API\Repository\ContentService;
 
 class RideController extends Controller
 {
+    /**
+     * @var ContentService
+     */
+    private $contentService;
+
+    /**
+     * RideController constructor.
+     * @param ContentService $contentService
+     */
+    public function __construct(ContentService $contentService)
+    {
+        $this->contentService = $contentService;
+    }
+    
     /**
      * Action used to display a ride
      *    - Adds the list of all related Landmarks to the response.
@@ -127,14 +146,14 @@ class RideController extends Controller
      */
     public function viewRideWithLandmarksAction(ContentView $view)
     {
-        $repository = $this->getRepository();
-        $contentService = $repository->getContentService();
         $currentContent = $view->getContent();
         $landmarksListId = $currentContent->getFieldValue('landmarks');
-        $landmarksList = [];
 
-        foreach ($landmarksListId->destinationContentIds as $landmarkId) {
-            $landmarksList[$landmarkId] = $contentService->loadContent($landmarkId);
+        $landmarksList = array();
+        
+        foreach ($landmarksListId->destinationContentIds as $landmarkId)
+        {
+            $landmarksList[$landmarkId] = $this->contentService->loadContent($landmarkId);
         }
 
         $view->addParameters(['landmarksList' => $landmarksList]);
@@ -144,7 +163,46 @@ class RideController extends Controller
 }
 ```
 
-Update `app/config/views.yml` to mention the RideController by adding a line with the `controller` key to the view config.
+Register the `RideController` as a service because we are injecting the `ContentService` type-hint in the `__construct()` method . You can do it either in the `app/config/services.yml`:
+
+```
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    AppBundle\Controller\:
+        resource: '../../src/AppBundle/Controller/*'
+```
+
+Or in the `AppBundle` in `src/AppBundle/Resources/config/services.yml`
+
+```
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    AppBundle\Controller\:
+        resource: '../../Controller/*'
+```
+
+And don't forget to import your service in the `app/config/config.yml`:
+
+```
+imports:
+    #...
+    - { resource: '@AppBundle/Resources/config/services.yml' }
+```
+
+!!! Tip
+
+    Use DependenyInjection and the load() method to merge your service into the actual container.
+
+
+Now update `app/config/views.yml` to mention the RideController by adding a line with the `controller` key to the view config.
 
 ``` yaml hl_lines="7"
 ezpublish:
