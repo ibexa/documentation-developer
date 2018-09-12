@@ -7,6 +7,8 @@
     If you want to go through the tutorial, use v2.1 or an earlier version.
     It will be updated for an upcoming v2.3 version.
 
+    In the meantime, you can learn how to use Page Builder, check out [Extending Page](../../guide/extending_page.md).
+
 !!! tip
 
     You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/ezstudio-beginner-tutorial/tree/v2-step1).
