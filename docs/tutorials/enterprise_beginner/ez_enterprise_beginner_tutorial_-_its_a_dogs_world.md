@@ -7,6 +7,8 @@
     If you want to go through the tutorial, use v2.1 or an earlier version.
     It will be updated for an upcoming v2.3 version.
 
+    In the meantime, to learn about working with the Page Builder, see [Extending Page](../../guide/extending_page.md).
+
 This tutorial is a step-by-step guide to building a website with eZ Platform Enterprise Edition.
 It focuses on creating a front page using a feature called **Landing Page**. 
 
