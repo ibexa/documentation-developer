@@ -6,7 +6,7 @@ Now you need to create the second Content Type needed in the site, **Landmark**.
 
 Go to Admin &gt; Content types, and under the **Content** group, create the Landmark Content Type.
 
-A Landmark is an interesting place that Rides go through. Each Ride may be related to multile Landmarks.
+A Landmark is an interesting place that Rides go through. Each Ride may be related to multiple Landmarks.
 
 - **Name**: Landmark
 - **Identifier**: landmark
