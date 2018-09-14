@@ -6,11 +6,7 @@ Now you need to create the second Content Type needed in the site, **Landmark**.
 
 Go to Admin &gt; Content types, and under the **Content** group, create the Landmark Content Type.
 
-A Landmark is an interesting place that Rides go through. Each Ride may be related to mul
-
-
-
-le Landmarks.
+A Landmark is an interesting place that Rides go through. Each Ride may be related to multile Landmarks.
 
 - **Name**: Landmark
 - **Identifier**: landmark
@@ -163,7 +159,7 @@ class RideController extends Controller
 }
 ```
 
-Register the `RideController` as a service because we are injecting the `ContentService` type-hint in the `__construct()` method . You can do it either in the `app/config/services.yml`:
+You should register the `RideController` as a service because you are injecting the `ContentService` type-hint in the `__construct()` method. You can do it either in the `app/config/services.yml`:
 
 ```
 services:
@@ -199,10 +195,10 @@ imports:
 
 !!! Tip
 
-    Use DependenyInjection and the load() method to merge your service into the actual container.
+    Use `DependenyInjection` and the `load()` method to merge your service into the actual container.
 
 
-Now update `app/config/views.yml` to mention the RideController by adding a line with the `controller` key to the view config.
+Now update `app/config/views.yml` to mention the `RideController` by adding a line with the `controller` key to the view config.
 
 ``` yaml hl_lines="7"
 ezpublish:
