@@ -455,7 +455,7 @@ The installer should continue once you've completed this manual portion of the i
 Create new database. Run following command inside MySQL Shell:
 
 ``` bash
-CREATE DATABASE ezplatform CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
+CREATE DATABASE ezplatform CHARACTER SET utf8 COLLATE utf8_unicode_520_ci;
 ```
 
 #### Install eZ Platform
