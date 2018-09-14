@@ -106,6 +106,12 @@ code_example]]
         <p class="icon-label">back</p>
     </div>
     <div class="icon-box">
+        <svg class="ez-icon ez-icon-back-current-date">
+            <use xlink:href="../../ez-icons.svg#back-current-date"></use>
+        </svg>
+        <p class="icon-label">back-current-date</p>
+    </div>
+    <div class="icon-box">
         <svg class="ez-icon ez-icon-banner">
             <use xlink:href="../../ez-icons.svg#banner"></use>
         </svg>
@@ -116,6 +122,24 @@ code_example]]
             <use xlink:href="../../ez-icons.svg#block-add"></use>
         </svg>
         <p class="icon-label">block-add</p>
+    </div>
+    <div class="icon-box">
+        <svg class="ez-icon ez-icon-block-invisible">
+            <use xlink:href="../../ez-icons.svg#block-invisible"></use>
+        </svg>
+        <p class="icon-label">block-invisible</p>
+    </div>
+    <div class="icon-box">
+        <svg class="ez-icon ez-icon-block-visible-recurring">
+            <use xlink:href="../../ez-icons.svg#block-visible-recurring"></use>
+        </svg>
+        <p class="icon-label">block-visible-recurring</p>
+    </div>
+    <div class="icon-box">
+        <svg class="ez-icon ez-icon-block-visible">
+            <use xlink:href="../../ez-icons.svg#block-visible"></use>
+        </svg>
+        <p class="icon-label">block-visible</p>
     </div>
     <div class="icon-box">
         <svg class="ez-icon ez-icon-bookmark-active">
@@ -1108,6 +1132,88 @@ code_example]]
             <use xlink:href="../../ez-icons.svg#underscore"></use>
         </svg>
         <p class="icon-label">underscore</p>
+    </div>
+</div>
+
+###<div class="mgt-3 header-line">Form Builder</div>
+<div class="wrapper-samples mgt-minus-3 mgb-5">
+    <div class="icon-box">
+        <svg class="ez-icon ez-icon-button">
+            <use xlink:href="../../ez-icons.svg#button"></use>
+        </svg>
+        <p class="icon-label">button</p>
+    </div>
+    <div class="icon-box">
+        <svg class="ez-icon ez-icon-captcha">
+            <use xlink:href="../../ez-icons.svg#captcha"></use>
+        </svg>
+        <p class="icon-label">captcha</p>
+    </div>
+    <div class="icon-box">
+        <svg class="ez-icon ez-icon-checkbox-multiple">
+            <use xlink:href="../../ez-icons.svg#checkbox-multiple"></use>
+        </svg>
+        <p class="icon-label">checkbox-multiple</p>
+    </div>
+    <div class="icon-box">
+        <svg class="ez-icon ez-icon-checkbox">
+            <use xlink:href="../../ez-icons.svg#checkbox"></use>
+        </svg>
+        <p class="icon-label">checkbox</p>
+    </div>
+    <div class="icon-box">
+        <svg class="ez-icon ez-icon-date">
+            <use xlink:href="../../ez-icons.svg#date"></use>
+        </svg>
+        <p class="icon-label">date</p>
+    </div>
+    <div class="icon-box">
+        <svg class="ez-icon ez-icon-dropdown">
+            <use xlink:href="../../ez-icons.svg#dropdown"></use>
+        </svg>
+        <p class="icon-label">dropdown</p>
+    </div>
+    <div class="icon-box">
+        <svg class="ez-icon ez-icon-input-hidden">
+            <use xlink:href="../../ez-icons.svg#input-hidden"></use>
+        </svg>
+        <p class="icon-label">input-hidden</p>
+    </div>
+    <div class="icon-box">
+        <svg class="ez-icon ez-icon-input-line-multiple">
+            <use xlink:href="../../ez-icons.svg#input-line-multiple"></use>
+        </svg>
+        <p class="icon-label">input-line-multiple</p>
+    </div>
+    <div class="icon-box">
+        <svg class="ez-icon ez-icon-input-line">
+            <use xlink:href="../../ez-icons.svg#input-line"></use>
+        </svg>
+        <p class="icon-label">input-line</p>
+    </div>
+    <div class="icon-box">
+        <svg class="ez-icon ez-icon-input-number">
+            <use xlink:href="../../ez-icons.svg#input-number"></use>
+        </svg>
+        <p class="icon-label">input-number</p>
+    </div>
+    <div class="icon-box">
+        <svg class="ez-icon ez-icon-radio-button-multiple">
+            <use xlink:href="../../ez-icons.svg#radio-button-multiple"></use>
+        </svg>
+        <p class="icon-label">radio-button-multiple</p>
+    </div>
+    <div class="icon-box">
+        <svg class="ez-icon ez-icon-radio-button">
+            <use xlink:href="../../ez-icons.svg#radio-button"></use>
+        </svg>
+        <p class="icon-label">radio-button</p>
+    </div>
+    <div class="icon-box">
+        <svg class="ez-icon ez-icon-rate">
+            <use xlink:href="../../ez-icons.svg#rate"></use>
+        </svg>
+        <p class="icon-label">rate</p>
     </div>
 </div>
 
