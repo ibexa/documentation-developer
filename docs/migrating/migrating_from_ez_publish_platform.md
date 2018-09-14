@@ -217,11 +217,15 @@ ImagesClassList[]
 ImagesClassList[]=image
 ```
 
+If the `--image-content-types` option is not specified, the default setting `image` will be used.
+
 !!! note
 
     Version of the migration script in ezplatform-xmltext-fieldtype prior to v1.6.0 would fail to convert embedded images correctly. If you have a database which you have already converted with an old version, you may rerun the `convert-to-richtext` command with the following options:
 
-    `php app/console ezxmltext:convert-to-richtext --fix-embedded-images-only --image-content-types=image -v`
+    `php app/console ezxmltext:convert-to-richtext --fix-embedded-images-only -v`
+
+    The use of `--image-content-types` is also supported together with `--fix-embedded-images-only`. Use it to specify custom image Content Types.
 
 !!! note
 
@@ -231,13 +235,13 @@ If you later realize that you provided the convert script with incorrect image C
 
 So, if you first ran the command:
 
-`php app/console ezxmltext:convert-to-richtext --image-content-types=image,myprofile -v`
-
-But later realize the last identifier should be `custom_image`, not `profile`, you may execute :
-
 `php app/console ezxmltext:convert-to-richtext --image-content-types=image,custom_image -v`
 
-The last command would then ensure embedded objects with Content Type identifier `profile` are no longer tagged as images, while embedded objects with Content Type identifier `custom_image` are.
+But later realize the last identifier should be `profile`, not ``custom_image``, you may execute :
+
+`php app/console ezxmltext:convert-to-richtext --image-content-types=image,profile -v`
+
+The last command would then ensure embedded objects with Content Type identifier `custom_image` are no longer tagged as images, while embedded objects with Content Type identifier `profile` are.
 
 
 Using the option `--export-dir`, the conversion will export problematic `ezxmltext` to files with the name pattern `[export-dir]/ezxmltext_[contentobject_id]_[contentobject_attribute_id]_[version]_[language].xml`. A corresponding `.log` file will also be created which includes information about why the conversion failed. Be aware that the reported location of the problem may not be accurate or may be misleading.
