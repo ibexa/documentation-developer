@@ -354,160 +354,141 @@ See [Set up directory permissions](set_up_directory_permissions.md) for more inf
 
     Installations on Windows can only be used for development.
 
-### 1. Set up PHP
+### Prepare work environment
 
-This step requires the modification of two files: Apache2 configuration file and `php.ini`.
-These files can be edited using a terminal editor like vi or nano, or a simple text editor. file name is **httpd.conf** and by default it is located in this directory:
+You will need a running stack with Apache, MySQL and PHP.
 
-``` bash
-C:\Program Files\Apache Software Foundation\Apache2.2\conf
-```
+Before getting started, make sure you review the [requirements](requirements_and_system_configuration.md) page to see the systems we support and use for testing.
 
-a. Uncomment the following line:
+#### PHP 
 
-``` bash
-LoadModule php5_module libexec/apache2/libphp5.so
-```
-
-b. Locate php.ini file. By default it should be in the following directory:
-
-``` bash
-C:\program files\php\php.ini
-```
-
-c. Open the file in a text editor and locate `date.timezone` and `pdo_mysql.default_socket` and provide them with values as in the example below:
+Locate `php.ini` file and open it in a text editor. Provide missing values to relevant parameters e.g. `date.timezone` and `memory_limit`:
 
 ``` bash
 date.timezone = "Europe/Warsaw"
-pdo_mysql.default_socket = /tmp/mysql.sock
-```
-
-d. Increase `memory_limit` value for eZ Platform:
-
-``` bash
 memory_limit = 4G
 ```
 
-### 2. Set up virtual host and start Apache2
-
-a. Edit Apache2 configuration file:
-
-``` bash
-c:\Program Files\Apache Software Foundation\Apache2.2\conf
-```
-
-b. Uncomment and modify the following lines:
-
-``` bash
-LoadModule vhost_alias_module libexec/apache2/mod_vhost_alias.so
-LoadModule rewrite_module libexec/apache2/mod_rewrite.so
-```
-
-c. Comment the following line:
-
-``` bash
-Include /private/etc/apache2/extra/httpd-vhosts.conf
-```
-
-d. Add the following line to the file:
-
-``` bash
-Include /private/etc/apache2/users/*.conf
-```
-
-### 3. Start Apache2 daemon using Command Line
-
-``` bash
-httpd.exe
-```
-
-### 4. Install Composer globally
-
-Composer is a dependency manager that allows you to install packages directly in the project. It is also checking all packages' versions on a regular basis to make sure they are up-to-date and to avoid inconsistencies.
-
-``` bash
-curl -sS https://getcomposer.org/installer | php
-php -d memory_limit=-1 composer.phar
-```
-
-### 5. Create a new database for eZ Platform
-
-Create new database (you can substitute `ez1` with the database name you want to use):
-
-``` bash
-mysql -uroot -ppassword -e "CREATE DATABASE ez1"
-```
-
-### 6. Install additional requirements for eZ Platform
-
-a. Install PEAR/PECL extension:
-
-``` bash
-cd c:\program files\php\php.ini
-curl -O https://pear.php.net/go-pear.phar
-php -d detect_unicode=0 go-pear.phar
-php install-pear-nozlib.phar
-pear channel-update pear.php.net
-pecl channel-update pecl.php.net
-pear upgrade-all
-pear config-set auto_discover 1
-```
-
-b. Edit `php.ini` and add following line:
-
-``` bash
-extension=intl.so
-```
-
-c. Enable opcache extension for PHP (suggested, but not required) by adding:
+Uncomment or add extensions relevant to your project e.g. opcache extension for PHP (suggested, but not required):
 
 ``` bash
 zend_extension=opcache.so
 ```
 
-### 7. Install eZ Platform
+#### Apache2
 
-a. Download archive from [ezplatform.com](https://ezplatform.com/#download-option). Extract the eZ Platform archive to a directory, then execute post install scripts.
-
-``` bash
-cd /<directory>/
-php -d memory_limit=-1 composer.phar run-script post-install-cmd
-```
-
-b. Copy the virtual host template:
+Edit Apache2 configuration file `httpd.conf`. For development environment replace placeholder values with corresponding values from your project e.g. `ServerName localhost:80`.  Uncomment relevant modules e.g.
 
 ``` bash
-COPY c:\Program Files\Apache Software Foundation\Apache2.2\vhost.template c:\Program Files\Apache Software Foundation\Apache2.2\users/ez1.lh.conf
+LoadModule rewrite_module modules/mod_rewrite.so
+LoadModule vhost_alias_module libexec/apache2/mod_vhost_alias.so
 ```
 
-d. Modify virtual host file **vhost.template.**
-
-Replace the `---USER_ID---` variable (used in lines 10 and 17) with your current user ID. Use `whoami` command to get effective user ID of the currently logged user. If you want to use the default virtual host template (delivered with eZ Platform package) all you have to do is set up lines 7, 8, 9, 10, 17, 25 and 33:
-
-e. Restart Apache 2 server:
+Start Apache2 using command line
 
 ``` bash
-httpd.exe -k restart
+httpd.exe
 ```
 
-f. Install required dependencies using Composer:
+!!! note
+
+    You can install Apache as a Windows service by running this command in CMD as administrator:
+
+    ```bash
+    httpd.exe -k -install
+    ```
+    
+    You can then start it with:
+    ```bash
+    httpd.exe -k start
+    ```
+    
+### Download eZ Platform
+
+You can download eZ Platform in two ways:
+
+1\. Download an archive
+
+- If you are installing eZ Platform, download the latest archive from [ezplatform.com](https://ezplatform.com/#download-option).
+- For licensed eZ Enterprise customers, download your file from the [Support portal](https://support.ez.no/Downloads).
+
+Extract the archive into the location where you want your project root directory to be.
+
+2\. Clone GitHub repository
+
+You can also clone one of the [repositories from GitHub](#available-distributions).
+
+``` bash
+git clone https://github.com/ezsystems/ezplatform.git
+```
+
+You can check out a tag, or use the `master` branch if you are interested in working with the latest version.
+
+!!! tip
+
+    You can use any other folder name for your project in place of `ezplatform`.
+    Set its location as your project root directory in your Virtual Host configuration.
+
+### Install Composer globally
+
+Download and run [Composer-Setup.exe](https://getcomposer.org/download/) - it will install the latest Composer version whenever it is executed.
+
+#### Install dependencies with Composer
+
+From the folder into which you downloaded eZ Platform, run:
 
 ``` bash
 composer install
 ```
 
-When Composer asks you for the token you must log in to your GitHub account and edit your profile. Go to the Personal access tokens link and Generate new token with default settings. Be aware that the token will be shown only once, so do not refresh the page until you paste the token into Composer prompt. This operation is performed only once when you install eZ Platform for the first time.
+Once the installer gets to the point that it creates `app/config/parameters.yml`, you will be presented with a few decisions:
 
-h. Install eZ Platform:
+1. Choose a [secret](http://symfony.com/doc/current/reference/configuration/framework.html#secret); it should be a random string, made up of up to 32 characters, numbers, and symbols. This is used by Symfony when generating [CSRF tokens](http://symfony.com/doc/current/book/forms.html#forms-csrf), [encrypting cookies](http://symfony.com/doc/current/cookbook/security/remember_me.html), and for creating signed URIs when using [ESI (Edge Side Includes)](http://symfony.com/doc/current/book/http_cache.html#edge-side-includes).
+2. You can accept the default options for `database_driver`, `database_host` and `database_port`
+3. For `database_name` and `database_user`, replace them if you customized those values during configuration.
+4. If you set a password for your database user, enter it when prompted for `database_password`.
+
+The installer should continue once you've completed this manual portion of the installation process.
+
+### Create a new database for eZ Platform
+
+Create new database. Run following command inside MySQL Shell:
 
 ``` bash
-php app/console ezplatform:install clean
+CREATE DATABASE ezplatform CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
 ```
 
-You will be able to see your page under <http://ez1.lh> (or the address you chose in preparation). Please note that a clean install of eZ Platform doesn’t include DemoBundle anymore.
+#### Install eZ Platform
+
+Create `clean` installation in development environment with:
+
+``` bash
+php app/console ezplatform:install --env=dev clean
+```
+
+If you had not created database earlier this command may do so. Before executing it make sure that the user set during the Composer install has sufficient permissions. 
+
+If Composer asks for your token, you must log in to your GitHub account and generate a new token
+(edit your profile, go to Developer settings > Personal access tokens and Generate new token with default settings).
+This operation is performed only once when you install eZ Platform Enterprise Edition for the first time.
 
 !!! enterprise
 
     ###### Enable Date-based Publisher
 
-    To enable delayed publishing of Content using the Date-based Publisher, see [above](#enable-date-based-publisher).
+    To enable delayed publishing of Content using the Date-based Publisher, see [above](#enable-date-based-publisher)
+
+!!! tip
+
+    You can use PHP's built-in server after installation: `php bin/console server:start`.
+
+    If you want to use an Apache web server, you need to prepare a Virtual Host and [set up directory permissions](set_up_directory_permissions.md)
+
+
+### Set up Virtual Host
+
+1. To set up Virtual Host use the template provided with eZ Platform. You can find it in `ezplatform\doc\apache2` directory. 
+
+1. Copy the Virtual Host template adequate to your Apache version into your `<Apache>\conf\vhosts` directory. For Apache 2.4 use `vhost.template` and for 2.2 `vhost.2.2.template`. Modify template to fit your installation.
+
+1. Restart Apache 2 server. Open your project in the browser and you should see the welcoming page.
