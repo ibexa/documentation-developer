@@ -9,7 +9,7 @@ To install eZ Platform you need a stack with your operating system, MySQL and PH
 
 You also need `git` for version control.
 
-Before getting started, make sure you review the [requirements](requirements_and_system_configuration.md) page to see the systems we support and use for testing.
+Before getting started, make sure you review the [requirements](requirements.md) page to see the systems we support and use for testing.
 
 !!! note
 
