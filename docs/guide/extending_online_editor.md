@@ -90,7 +90,7 @@ ezrichtext.custom_tags.ezyoutube.attributes.align.label: 'Align'
 
 You can extend the Online Editor with custom text styles.
 The feature depends on [Alloy Editor styles](https://alloyeditor.com/docs/features/styles.html).
-The styles will be available in the text toolbar when a section of text is selected.
+The styles are available in the text toolbar when a section of text is selected.
 
 There are two kinds of custom styles: block and inline.
 Inline styles apply to the selected portion of text only, while block styles apply to the whole paragraph.
@@ -122,14 +122,14 @@ The system expects two kinds of configuration:
 - a global list of custom styles, defined under the node `ezpublish.ezrichtext.custom_styles`,
 - a list of enabled custom styles for a given Admin SiteAccess or Admin SiteAccess group, located under the node `ezpublish.system.<scope>.fieldtypes.ezrichtext.custom_styles`
 
-!!! tip
+!!! note
 
     Defining this list for a front site SiteAccess currently has no effect.
 
 ### Translations
 
 Labels that appear for each custom style in the Online Editor need to be translated using Symfony translation system.
-The translation domain is called `custom_tags`. For the example above, you can do it in a `app/Resources/translations/custom_tags.en.yml` file:
+The translation domain is called `custom_tags`. For the code example above, you can do it in a `app/Resources/translations/custom_tags.en.yml` file:
 
 ```yaml
 ezrichtext.custom_styles.highlighted_block.label: Highlighted block
