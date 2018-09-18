@@ -84,6 +84,7 @@ pages:
         - Content management:
             - 'Images': 'guide/images.md'
             - 'File management': 'guide/file_management.md'
+            - 'URL management': 'guide/url_management.md'
             - 'User-generated content': 'guide/user_generated_content.md'
         - Permissions:
             - 'Permissions': 'guide/permissions.md'
