@@ -155,7 +155,9 @@ To add commands to an existing group, provide the group name and list the comman
 ## Regenerating URL aliases
 
 You can use the `ezplatform:urls:regenerate-aliases` command to regenerate all URL aliases.
-Use is when:
+After the command is applied, old aliases will redirect to the new ones.
+
+Use it when:
 
 - you change URL alias configuration and want to regenerate old aliases
 - you encounter database corruption
@@ -168,5 +170,3 @@ bin/console ezplatform:urls:regenerate-aliases
 ```
 
 Use an `--iteration-count` parameter to define how many Locations should be processed at once, to avoid too much memory use.
-
-After the command is applied, old aliases will redirect to the new ones.

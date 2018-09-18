@@ -22,7 +22,8 @@ See [Regenerating URL aliases](../guide/url_management.md#regenerating-url-alias
 
 !!! note
 
-    This command replaces the deprecated `ezplatform:regenerate:legacy_storage_url_aliases command.`
+    This command keeps history and replaces the old `ezplatform:regenerate:legacy_storage_url_aliases` command.
+    `legacy_storage_url_aliases` is now deprecated.
 
 ## Unknown relation type 0
 
