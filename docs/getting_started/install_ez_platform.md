@@ -14,32 +14,29 @@ Before getting started, make sure you review the [requirements](requirements.md)
 !!! note
 
     Installation for production is only supported on Linux.
-    You should use Mac OS or Windows for development only.
+
+    To install eZ Platform for development on Mac OS or Windows,
+    see [a cookbook recipe on installing on those systems](../cookbook/installing-on-mac-os-and-windows.md).
 
 ## Get Composer
 
-Install Composer, the PHP command line dependency manager, inside your project root directory.
-
-A. On Linux or Mac OS run the following command in the terminal:
+Install Composer, the PHP command line dependency manager. Use your system package manager such as `apt` on Ubuntu.
+For example:
 
 ``` bash
-php -r "readfile('https://getcomposer.org/installer');" | php
+apt-get install composer
 ```
 
-!!! tip "Install Composer globally"
+!!! tip "Install Composer locally"
 
-    If you want to install Composer globally, use your system package manager such as [Homebrew](https://brew.sh/) on Mac OS or `apt` on Ubuntu.
-
-    For example on Ubuntu use:
+    If you want to install Composer inside your project root directory only,
+    run the following command in the terminal:
 
     ``` bash
-    apt-get install composer
+    php -r "readfile('https://getcomposer.org/installer');" | php
     ```
 
-    With this command you can replace `php -d memory_limit=-1 composer.phar` with `composer`.
-
-B. On Windows, download and run [Composer-Setup.exe](https://getcomposer.org/download/).
-It will install the latest Composer version whenever it is executed.
+    After this you need to replace `composer` with `php -d memory_limit=-1 composer.phar` in all commands below.
 
 ## Get eZ Platform
 
@@ -69,14 +66,14 @@ git clone https://github.com/ezsystems/ezplatform .
 
 You can check out a tag, or use the `master` branch if you are interested in working with the latest version.
 
-#### Install dependencies with Composer
+##### Install dependencies with Composer
 
 Composer will look inside the `composer.json` file and install all of the packages required to run eZ Platform.
 
 From the folder into which you downloaded eZ Platform, run:
 
 ``` bash
-php -d memory_limit=-1 composer.phar install
+composer install
 ```
 
 ### B. Create project with Composer
@@ -117,7 +114,7 @@ CREATE DATABASE ezplatform CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
 Install eZ Platform with:
 
 ``` bash
-php -d memory_limit=-1 composer.phar ezplatform-install
+composer ezplatform-install
 ```
 
 This command will also create a database, if you had not created it earlier.
@@ -142,7 +139,7 @@ To use eZ Platform with an HTTP server, you need to [set up directory permission
 
 ### Set up permissions
 
-The web user must be the owner of all your files (for example on Linux, with the `www-data` web user):
+The web user must be the owner of all your files (for example with the `www-data` web user):
 
 ``` bash
 chown -R www-data:www-data <your installation directory>
@@ -163,12 +160,12 @@ for information on how to do it on different systems.
 
 #### Option A: Scripted configuration
 
-Use the included shell script: `/var/www/ezplatform/bin/vhost.sh` to generate a ready to use `.conf` file.
+Use the included shell script: `/<your installation directory>/bin/vhost.sh` to generate a ready to use `.conf` file.
 Check out the source of `vhost.sh` to see the options provided.
 
 #### Option B: Manual configuration
 
-Copy `/doc/apache2/vhost.template` to `/etc/apache2/sites-available` as a `.conf` file.
+Copy `/<your installation directory>/doc/apache2/vhost.template` to `/etc/apache2/sites-available` as a `.conf` file.
 
 Modify it to fit your project.
 
