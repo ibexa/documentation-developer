@@ -7,7 +7,7 @@ You can use an XLIFF editor of your choice to contribute strings in your languag
 
 ## How to translate the interface using Crowdin
 
-If you wish to contribute to an existing translation of AdminUI or start a new one, the best way is to start with in-context translation (but you can also [translate directly on the Crowdin website](#translating-outside-in-context)).
+If you wish to contribute to an existing translation of Back Office or start a new one, the best way is to start with in-context translation (but you can also [translate directly on the Crowdin website](#translating-outside-in-context)).
 
 ## Preparing to use in-context
 
@@ -25,14 +25,14 @@ Right-click your browser's bookmark bar, and create a new bookmark as shown in t
 
 **URL**: `javascript:function hasInContextCookie(){ return document.cookie.match(/^(.*;)?\s*ez_in_context_translation\s*=\s*[^;]+(.*)?$/);}(function () { document.cookie = hasInContextCookie() ? document.cookie = &#39;ez_in_context_translation=;expires=Mon, 05 Jul 2000 00:00:00 GMT;path=/;&#39;: document.cookie=&#39;ez_in_context_translation=1;path=/;&#39;; location.reload()})()`
 
-Enter AdminUI. While on the page clicking this bookmark will turn on and off in-context translation for eZ Platform interface.
+Enter Back Office. While on the page clicking this bookmark will turn on and off in-context translation for eZ Platform interface.
 
 ### Using the debugging console
 
 Another way is to open the development console and run this command:
 
 ``` javascript
-function hasInContextCookie(){ return document.cookie.match(/^(.*;)?\s*ez_in_context_translation\s*=\s*[^;]+(.*)?$/);}(function () { document.cookie = hasInContextCookie() ? document.cookie = 'ez_in_context_translation=;expires=Mon, 05 Jul 2000 00:00:00 GMT;path=/;': document.cookie='ez_in_context_translation=1;path=/;'; location.reload()})()
+document.cookie='ez_in_context_translation=1;path=/;'; location.reload();
 ```
 
 ## Using in-context translation
