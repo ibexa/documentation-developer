@@ -178,6 +178,7 @@ pages:
         - 'Common issues': 'migrating/common_issues.md'
     - Releases:
         - 'Updating eZ Platform': 'releases/updating_ez_platform.md'
+        - 'eZ Platform v2.3': 'releases/ez_platform_v2.3.md'
         - 'eZ Platform v2.2.0': 'releases/ez_platform_v2.2.0.md'
         - 'eZ Platform v2.1.0': 'releases/ez_platform_v2.1.0.md'
         - 'eZ Platform v2.0.0': 'releases/ez_platform_v2.0.0.md'
