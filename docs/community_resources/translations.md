@@ -25,11 +25,11 @@ Right-click your browser's bookmark bar, and create a new bookmark as shown in t
 
 **URL**: `javascript:function hasInContextCookie(){ return document.cookie.match(/^(.*;)?\s*ez_in_context_translation\s*=\s*[^;]+(.*)?$/);}(function () { document.cookie = hasInContextCookie() ? document.cookie = &#39;ez_in_context_translation=;expires=Mon, 05 Jul 2000 00:00:00 GMT;path=/;&#39;: document.cookie=&#39;ez_in_context_translation=1;path=/;&#39;; location.reload()})()`
 
-Clicking the bookmark while on AdminUI will toggle in-context translation on/off.
+Enter AdminUI. While on the page clicking this bookmark will turn on and off in-context translation for eZ Platform interface.
 
 ### Using the debugging console
 
-Another way is to open the development console and run this line:
+Another way is to open the development console and run this command:
 
 ``` javascript
 function hasInContextCookie(){ return document.cookie.match(/^(.*;)?\s*ez_in_context_translation\s*=\s*[^;]+(.*)?$/);}(function () { document.cookie = hasInContextCookie() ? document.cookie = 'ez_in_context_translation=;expires=Mon, 05 Jul 2000 00:00:00 GMT;path=/;': document.cookie='ez_in_context_translation=1;path=/;'; location.reload()})()
@@ -37,11 +37,11 @@ function hasInContextCookie(){ return document.cookie.match(/^(.*;)?\s*ez_in_con
 
 ## Using in-context translation
 
-The first time you enable in-context, if you're not logged into Crowdin, it will ask you to log in or register an account. Once done, it will ask you which language you want to translate to, from the list of languages configured in Crowdin.
+To enable in-context translation you need to create Crowdin account and join [eZ Platform project](https://crowdin.com/project/ezplatform). To start translating access <https://translation.ezplatform.com/admin> (eZ Platform credentials: admin / publish). Select `Inspect` or `Inspect Element` from context menu. In Console tab type: `document.cookie='ez_in_context_translation=1;path=/;'; location.reload();`. Page will reload and you will be able to choose a language to which you want to translate eZ Platform.
 
-Choose your language and you can start translating right away. Strings in the interface that can be translated will be outlined in red (untranslated), blue (translated) or green (approved). When moving over them, an edit button will show up on the top left corner of the outline. Click on it, and edit the string in the window that shows up.
+Strings in the interface that can be translated will be outlined in red (untranslated), blue (translated) or green (approved). When moving over them, an edit button will show up on the top left corner of the outline. Click on it, and edit the string in the window that shows up.
 
-[In-context translation of Admin UI] - Screenshot TODO
+![In-context translation of Admin UI](img/crowdin_translation.png "In-context translation of Admin UI")
 
 #### Troubleshooting
 
