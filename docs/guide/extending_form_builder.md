@@ -38,15 +38,29 @@
 
     Available attribute types are:
 
-    - `string`
-    - `choices`
-    - `text`
-    - `integer`
-    - `url`
-    - `multiple`
-    - `radio`
-    - `action`
-    - `select`
+    |Type|Description|
+    |----|----|
+    |`string`|String|
+    |`choices`|Checkbox(es)|
+    |`text`|Text block|
+    |`integer`|Integer number|
+    |`url`|URL|
+    |`multiple`||
+    |`radio`|Radio button|
+    |`action`||
+    |`select`||
+
+    Each type of Form field can have validators of the following types:
+
+    - `required`
+    - `min_length`
+    - `max_length`
+    - `min_choices`
+    - `max_choices`
+    - `regex`
+    - `date_format`
+    - `upload_size`
+    - `extensions`
 
     New types of fields require a mapper implementing `\EzSystems\EzPlatformFormBuilder\FieldType\Field\FieldMapperInterface`.
     The mapper must be registered as a service:
@@ -118,4 +132,4 @@
     Field definitions are accessible through:
 
     - `\EzSystems\EzPlatformFormBuilder\FieldType\FormBuilder\Definition\FieldDefinitionFactory` in the back end
-    - global variable `eZ.formBuilder.config.fields` in the front end
+    |global variable `eZ.formBuilder.config.fields` in the front end
