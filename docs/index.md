@@ -4,15 +4,15 @@
 
 <div class="card-group">
     <div class="card text-center">
-        <div class="card-body"><a href="../getting_started/get_started_with_ez_platform"><img class="card-img-top" src="img/get_started.png" alt=""></a></div>
-        <div class="card-footer bg-transparent">
-            <p class="card-text"><a href="../getting_started/get_started_with_ez_platform" class="card-link">Get started</a></p>
-        </div>
-    </div>
-    <div class="card text-center">
         <div class="card-body"><a href="../tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform/"><img class="card-img-top" src="img/tutorials.png" alt=""></a></div>
         <div class="card-footer bg-transparent">
             <p class="card-text"><a href="../tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform/" class="card-link">Tutorials</a></p>
+        </div>
+    </div>
+    <div class="card text-center">
+        <div class="card-body"><a href="../getting_started/get_started_with_ez_platform"><img class="card-img-top" src="img/get_started.png" alt=""></a></div>
+        <div class="card-footer bg-transparent">
+            <p class="card-text"><a href="../getting_started/get_started_with_ez_platform" class="card-link">Get started</a></p>
         </div>
     </div>
     <div class="card text-center">
