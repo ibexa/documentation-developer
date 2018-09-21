@@ -24,7 +24,7 @@ Custom Field Types have to be programmed in PHP. However, the built-in Field Ty
 | [EmailAddress](#emailaddress-field-type) | Validates and stores an email address. | Yes  | Yes  |
 | [Float](#float-field-type) | Validates and stores a floating-point number. | No | Yes |
 | [Image](#image-field-type) | Validates and stores an image. | No | Yes |
-|[ImageAsset](#imageasset-field-type)|Allows to store images in independent content items of a generic Image content type.| No | Yes |
+|[ImageAsset](#imageasset-field-type)|Stores images in independent content items of a generic Image content type.| No | Yes |
 | [Integer](#integer-field-type) | Validates and stores an integer value. | Yes | Yes |
 | [ISBN](#isbn-field-type) | Handles International Standard Book Number (ISBN) in 10-digit or 13-digit format.  | Yes | Yes |
 | [Keyword](#keyword-field-type) | Stores keywords. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
@@ -1065,7 +1065,7 @@ Within this folder, images will be named like the uploaded file, suffixed with a
 
 ## ImageAsset Field Type
 
-ImageAsset Field Type allows to store images in independent content items of a generic Image content type, in the media library. It makes them reusable across system.
+ImageAsset Field Type enables storing images in independent Content items of a generic Image content type, in the media library. It makes them reusable across system.
 
 This Field Type represents an integer value.
 
@@ -1077,14 +1077,14 @@ This Field Type represents an integer value.
 
 ###### Properties
 
-ImageAsset Field Type allows to configure the following options:
+ImageAsset Field Type allows configuring the following options:
 
 |Name|Description|Default value|
 |----|-----------|-------------|
 |`content_type_identifier`|Content type used to store assets|`image`|
-|`content_field_identifier`|Field identifier used to asset data|`image`|
-|`name_field_identifier`|Field identifier used to asset name|`name`|
-|`parent_location_id`|Location where the asset are created|`51`|
+|`content_field_identifier`|Field identifier used for asset data|`image`|
+|`name_field_identifier`|Field identifier used for asset name|`name`|
+|`parent_location_id`|Location where the assets are created|`51`|
 
 Example configuration:
 
@@ -1102,7 +1102,7 @@ ezpublish:
 
 ### Customizing ImageAsset Field Type rendering
 
-Internally the Image Asset Type is render via subrequest (similar to other relation types). Rendering customization is possible by configuring view type `asset_image`:
+Internally the Image Asset Type is rendered via subrequest (similar to other relation types). Rendering customization is possible by configuring view type `asset_image`:
 
 ```php
 ezpublish:
