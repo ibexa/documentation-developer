@@ -48,7 +48,8 @@
     - `action`
     - `select`
 
-    New types of fields require a mapper. The mapper must be registered as a service:
+    New types of fields require a mapper implementing `\EzSystems\EzPlatformFormBuilder\FieldType\Field\FieldMapperInterface`.
+    The mapper must be registered as a service:
 
     ``` yaml
     services:
