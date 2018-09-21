@@ -66,17 +66,29 @@ If you want to use an Apache web server, you need to install it as well.
 
 ## Download eZ Platform
 
-Download and extract an archive from [ezplatform.com](https://ezplatform.com/#download-option) (for open-source version) or from the [Support portal](https://support.ez.no/Downloads) (for eZ Enterprise), or clone the [GitHub repository](https://github.com/ezsystems/ezplatform):
+Download and extract an archive into the location where you want your project root directory to be from [ezplatform.com](https://ezplatform.com/#download-option) (for open-source version) or from the [Support portal](https://support.ez.no/Downloads) (for eZ Enterprise), or clone the [GitHub repository](https://github.com/ezsystems/ezplatform):
 
 ``` bash
 git clone https://github.com/ezsystems/ezplatform .
 ```
+
+!!! tip
+
+    You can use any other folder name for your project in place of `ezplatform`.
+    Set its location as your project root directory in your virtual host configuration.
 
 To install Composer dependencies, from the folder into which you downloaded eZ Platform, run:
 
 ``` bash
 composer install
 ```
+
+After a moment the installer will ask you to provide a few parameters:
+
+1. Choose a [secret](http://symfony.com/doc/current/reference/configuration/framework.html#secret); it should be a random string, made up of up to 32 characters, numbers, and symbols. This is used by Symfony when generating [CSRF tokens](http://symfony.com/doc/current/book/forms.html#forms-csrf), [encrypting cookies](http://symfony.com/doc/current/cookbook/security/remember_me.html), and for creating signed URIs when using [ESI (Edge Side Includes)](http://symfony.com/doc/current/book/http_cache.html#edge-side-includes).
+1. You can accept the default options for `database_driver`, `database_host` and `database_port`.
+1. Select a `database_name` or accept the default one.
+1. Provide your `database_user` and `database_password`.
 
 ## Create database
 
@@ -92,6 +104,8 @@ CREATE DATABASE ezplatform CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
 
 ## Install eZ Platform
 
+Before executing the following command make sure that the user set during `composer install` has sufficient permissions.
+
 Install eZ Platform with:
 
 ``` bash
@@ -103,7 +117,7 @@ composer ezplatform-install
     Setting up folder permissions and virtual host is installation-specific.
     Make sure to adapt the instructions below to your specific configuration.
 
-## Set up Virtual Host
+## Set up virtual host
 
 To set up virtual host use the template provided with eZ Platform: `<your installation directory>/doc/apache2/vhost.template`.
 

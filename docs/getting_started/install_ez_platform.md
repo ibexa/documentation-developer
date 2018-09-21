@@ -1,8 +1,17 @@
 # Install eZ Platform
 
+!!! note
+
+    Installation for production is only supported on Linux.
+
+    To install eZ Platform for development on Mac OS or Windows,
+    see [a cookbook recipe on installing on those systems](../cookbook/installing-on-mac-os-and-windows.md).
+
 ## Prepare work environment
 
 To install eZ Platform you need a stack with your operating system, MySQL and PHP.
+
+You can install it by following your favorite tutorial, for example: [Install LAMP stack on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04).
 
 [For production](#prepare-installation-for-production) you also need Apache as the HTTP server.
 [For development](#use-phps-built-in-server), you can use the built-in PHP server instead.
@@ -11,17 +20,10 @@ You also need `git` for version control.
 
 Before getting started, make sure you review the [requirements](requirements.md) page to see the systems we support and use for testing.
 
-!!! note
-
-    Installation for production is only supported on Linux.
-
-    To install eZ Platform for development on Mac OS or Windows,
-    see [a cookbook recipe on installing on those systems](../cookbook/installing-on-mac-os-and-windows.md).
-
 ## Get Composer
 
-Install Composer, the PHP command line dependency manager. Use your system package manager such as `apt` on Ubuntu.
-For example:
+Install Composer, the PHP command line dependency manager.
+Use the package manager for your Linux distribution. For example on Ubuntu:
 
 ``` bash
 apt-get install composer
@@ -55,6 +57,10 @@ You can download eZ Platform from two sources:
 - For licensed eZ Enterprise, download from the [Support portal](https://support.ez.no/Downloads).
 
 Extract the archive into the location where you want your project root directory to be.
+
+!!! enterprise "Authentication tokens for eZ Enterprise"
+
+    When installing eZ Enterprise, you need to [set up authentication tokens](install_ez_enterprise.md#setting-up-authentication-tokens-for-ez-enterprise).
 
 2\. Clone GitHub repository
 
@@ -132,9 +138,6 @@ If you want to use an Apache web server, you need to [set up directory permissio
 
 ## Prepare installation for production
 
-Installation for production is only supported on Linux.
-You should use Mac OS or Windows for development only.
-
 To use eZ Platform with an HTTP server, you need to [set up directory permissions](#set-up-permissions) and [prepare a virtual host](#set-up-virtual-host).
 
 ### Set up permissions
@@ -170,7 +173,8 @@ Copy `/<your installation directory>/doc/apache2/vhost.template` to `/etc/apache
 Modify it to fit your project.
 
 Specify `/<your installation directory>/web` as the `DocumentRoot` and `Directory`.
-Uncomment the line that starts with `#if [SYMFONY_ENV]` and set the value like this:
+Uncomment the line that starts with `#if [SYMFONY_ENV]` and set the value to `prod` or `dev`,
+depending on the environment you want:
 
 ``` bash
 SetEnvIf Request_URI ".*" SYMFONY_ENV=prod
@@ -192,6 +196,11 @@ service apache2 restart
 ```
 
 Open your project in the browser and you should see the welcome page.
+
+!!! enterprise
+
+    If you are installing eZ Enterprise,
+    take a look at [Installing eZ Enterprise](install_ez_enterprise.md) for additional steps.
 
 !!! tip "eZ Launchpad for quick deployment"
 
