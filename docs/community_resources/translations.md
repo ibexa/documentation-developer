@@ -7,11 +7,16 @@ You can use an XLIFF editor of your choice to contribute strings in your languag
 
 ## How to translate the interface using Crowdin
 
-If you wish to contribute to an existing translation of Back Office or start a new one, the best way is to start with in-context translation (but you can also [translate directly on the Crowdin website](#translating-outside-in-context)).
+If you wish to contribute to an existing translation of Back Office or start a new one you can:
+- [translate in-context with bookmarks](#using-bookmarks)
+- [translate in-context with console](#using-console)
+- [translate directly on the Crowdin website](#translating-outside-in-context).
 
 ## Preparing to use in-context
 
-To start translating, you need an option to turn in-context translation on and off. To do this, set a browser cookie. There are several ways to do this, we will highlight a couple here.
+To enable the in-context translation UI, a pseudo-language locale needs to be used in HTTP requests.
+To make this easier, a cookie `ez_in_context_translation=1` can be set.
+There are several ways to do this. We will highlight a couple down below.
 
 ### Using bookmarks
 
@@ -27,15 +32,7 @@ Right-click your browser's bookmark bar, and create a new bookmark as shown in t
 
 Enter Back Office. While on the page clicking this bookmark will turn on and off in-context translation for eZ Platform interface.
 
-### Using the debugging console
-
-Another way is to open the development console and run this command:
-
-``` javascript
-document.cookie='ez_in_context_translation=1;path=/;'; location.reload();
-```
-
-## Using in-context translation
+### Using console
 
 To enable in-context translation you need to create Crowdin account and join [eZ Platform project](https://crowdin.com/project/ezplatform). To start translating access <https://translation.ezplatform.com/admin> (eZ Platform credentials: admin / publish). Select `Inspect` or `Inspect Element` from context menu. In Console tab type: `document.cookie='ez_in_context_translation=1;path=/;'; location.reload();`. Page will reload and you will be able to choose a language to which you want to translate eZ Platform.
 
