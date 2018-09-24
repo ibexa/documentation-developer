@@ -37,6 +37,10 @@
     - as username – your Installation key found on the *"Maintenance and Support agreement details"* page in the service portal
     - as password – the token password you retrieved in step 3.
 
+    !!! note "Authentication token validation delay"
+    
+        You can encounter some delay between creating the token and being able to use it in Composer. It might take up to 15 minutes.
+        
     !!! note "Support agreement expiry"
 
         If your Support agreement expires, your authentication token(s) will no longer work.
