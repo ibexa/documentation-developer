@@ -1067,8 +1067,6 @@ Within this folder, images will be named like the uploaded file, suffixed with a
 
 ImageAsset Field Type enables storing images in independent Content items of a generic Image content type, in the media library. It makes them reusable across system.
 
-This Field Type represents an integer value.
-
 | Name      | Internal name |
 |-----------|---------------|
 |`ImageAsset`|`ezimageasset`|
@@ -1076,6 +1074,15 @@ This Field Type represents an integer value.
 #### Value object
 
 ###### Properties
+
+Value object of `ezimageasset` contains the following properties:
+
+| Property | Type  | Description|
+|----------|-------|------------|
+| `destinationContentId`  |  `int` | Related content id |
+| `alternativeText`  |  `string` |  The alternative image text (for example "Picture of an apple."). |
+
+#### Configuration
 
 ImageAsset Field Type allows configuring the following options:
 
