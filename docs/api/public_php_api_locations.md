@@ -99,3 +99,7 @@ $contentUpdateStruct->mainLocationId = 123;
  
 $contentService->updateContentMetadata( $contentInfo, $contentUpdateStruct );
 ```
+
+## Accessing content on Location object
+
+You can search for Locations and reach the content of that Location within Twig templates without further work.
