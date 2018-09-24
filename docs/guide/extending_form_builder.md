@@ -158,4 +158,4 @@
     Field definitions are accessible through:
 
     - `\EzSystems\EzPlatformFormBuilder\FieldType\FormBuilder\Definition\FieldDefinitionFactory` in the back end
-    |global variable `eZ.formBuilder.config.fields` in the front end
+    - global variable `eZ.formBuilder.config.fields` in the front end
