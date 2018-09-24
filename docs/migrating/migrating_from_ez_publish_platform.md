@@ -193,9 +193,9 @@ Steps here should only be done once you are ready to move away from legacy and L
 You should test the XmlText to RichText conversion before you apply it to a production database. RichText has a stricter validation compared to XmlText and you may have to fix some of your XmlText before you are able to convert it to RichText.
 Run the conversion script on a copy of your production database as the script is rather resource-intensive.
 
-`php -d memory_limit=1512M bin/console ezxmltext:convert-to-richtext --dry-run --export-dir=ezxmltext-export --export-dir-filter=notice,warning,error --concurrency 4 -v`
+`php -d memory_limit=1536M app/console ezxmltext:convert-to-richtext --dry-run --export-dir=ezxmltext-export --export-dir-filter=notice,warning,error --concurrency 4 -v`
 
-- `-d memory_limit=1500M` specifies that each conversion process gets 1500MB of memory. This should be more than sufficient for most databases. If you have small `ezxmltext` documents, you may decrease the limit. If you have huge `ezxmltext` documents, you may need to increase it.
+- `-d memory_limit=1536M` specifies that each conversion process gets 1536MB of memory. This should be more than sufficient for most databases. If you have small `ezxmltext` documents, you may decrease the limit. If you have huge `ezxmltext` documents, you may need to increase it.
 - `--dry-run` prevents the conversion script from writing anything back to the database. It just tests if it is able to convert all the `ezxmltext` documents.
 - `--export-dir` specifies a directory where it will dump the `ezxmltext` for content object attributes which the conversion script finds problems with
 - `--export-dir-filter` specifies what severity the problems found needs to be before the script dumps the `ezxmltext`:
@@ -312,13 +312,13 @@ In order to fix the problem, open the .xml file in a text editor and correct the
 
 Now, you may test if the modified `ezxmltext` may be converted using the `--dry-run` and `content-object` options:
 
-`php -d memory_limit=1512M bin/console ezxmltext:import-xml --dry-run  --export-dir=ezxmltext-export --content-object=56554 -v`
+`php -d memory_limit=1536M app/console ezxmltext:import-xml --dry-run  --export-dir=ezxmltext-export --content-object=56554 -v`
 
 If the tool reports no errors, then the `ezxmltext` is fixed. You may rerun the command without the `--dry-run` option in order to actually update the database with the correct XmlText.
 
 Once you have fixed all the dump files in `ezxmltext-export/`, you may skip the `--content-object` option and the script will import all the dump files located in the `export-dir`:
 
-`php -d memory_limit=1512M bin/console ezxmltext:import-xml --export-dir=ezxmltext-export -v`
+`php -d memory_limit=1536M app/console ezxmltext:import-xml --export-dir=ezxmltext-export -v`
 
 Typical problems that needs manual fixing:
 
@@ -356,7 +356,7 @@ The <literal> tag is yet not supported in eZ Platform. For more information abou
 
 When you are ready to migrate your eZ Publish XmlText content to the eZ Platform RichText format and start using pure eZ Platform setup, start the conversion script without the `--dry-run` option. Execute the following from &lt;new-ez-root&gt;:
 
-`php -d memory_limit=1512M bin/console ezxmltext:convert-to-richtext --export-dir=ezxmltext-export --export-dir-filter=notice,warning,error --concurrency 4 -v`
+`php -d memory_limit=1536M app/console ezxmltext:convert-to-richtext --export-dir=ezxmltext-export --export-dir-filter=notice,warning,error --concurrency 4 -v`
 
 ###### 3.2.2 Migrate Page field to Landing Page (eZ Enterprise only)
 
