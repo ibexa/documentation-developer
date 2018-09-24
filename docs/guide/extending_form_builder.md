@@ -2,15 +2,26 @@
 
 !!! enterprise
 
+    ## Existing Form fields
+
+    ### Captcha field
+
+    The Captcha Form field is based on [Gregwar/CaptchaBundle](https://github.com/Gregwar/CaptchaBundle).
+
+    See [the bundle's documentation](https://github.com/Gregwar/CaptchaBundle#options) for information about available options.
+
+    ## Extending Form fields
+
     You can extend the Form Builder by adding new form fields or modifying existing ones.
     Form fields are defined in YAML configuration.
-    See example of the built-in Single line input:
+
+    For example, to create a Country Form field:
 
     ``` yaml
     ez_platform_form_builder:
         fields:
-            single_line:
-                name: 'Single line input'
+            country:
+                name: 'Country'
                 category: 'Default'
                 thumbnail: '/bundles/ezplatformadminui/img/ez-icons.svg#input-line'
                 attributes:
@@ -20,20 +31,11 @@
                         validators:
                             not_blank:
                                 message: 'You must provide label of the field'
-                    placeholder:
-                        name: 'Placeholder'
-                        type: 'string'
                     help:
                         name: 'Help text'
                         type: 'string'
-                    default_value:
-                        name: 'Default value'
-                        type: 'string'
                 validators:
                     required: ~
-                    min_length: ~
-                    max_length: ~
-                    regex: ~
     ```
 
     Available attribute types are:
@@ -41,14 +43,14 @@
     |Type|Description|
     |----|----|
     |`string`|String|
-    |`choices`|Checkbox(es)|
     |`text`|Text block|
     |`integer`|Integer number|
     |`url`|URL|
-    |`multiple`||
+    |`multiple`|Multiple choice|
+    |`select`|Checkbox|
     |`radio`|Radio button|
-    |`action`||
-    |`select`||
+    |`action`|Button|
+    |`choices`|List of available options|
 
     Each type of Form field can have validators of the following types:
 
@@ -62,18 +64,42 @@
     - `upload_size`
     - `extensions`
 
-    New types of fields require a mapper implementing `\EzSystems\EzPlatformFormBuilder\FieldType\Field\FieldMapperInterface`.
+    New types of fields require a mapper implementing `\EzSystems\EzPlatformFormBuilder\FieldType\Field\FieldMapperInterface`:
+
+    ``` php
+    namespace AppBundle\FormBuilder\Field\Mapper;
+
+    use EzSystems\EzPlatformFormBuilder\FieldType\Field\Mapper\GenericFieldMapper;
+    use EzSystems\EzPlatformFormBuilder\FieldType\Model\Field;
+
+    class CountryFieldMapper extends GenericFieldMapper
+
+    {
+        /**
+         * {@inheritdoc}
+         */
+        protected function mapFormOptions(Field $field, array $constraints): array
+        {
+            $options = parent::mapFormOptions($field, $constraints);
+            $options['label'] = $field->getAttributeValue('label');
+            $options['help'] = $field->getAttributeValue('help');
+            return $options;
+        }
+    }
+    ```
+
     The mapper must be registered as a service:
 
     ``` yaml
     services:
-      AppBundle\FormBuilder\Field\Mapper\CustomFieldMapper:
         # ...
-        tags:
-            - { name: ezplatform.form_builder.field_mapper }
+        AppBundle\FormBuilder\Field\Mapper\CountryFieldMapper:
+            arguments:
+                $fieldIdentifier: 'country'
+                $formType: 'Symfony\Component\Form\Extension\Core\Type\CountryType'
+            tags:
+                - { name: ezplatform.form_builder.field_mapper }
     ```
-
-    You can find mappers for built-in fields in `vendors/ezsystems/ezplatform-form-builder/src/lib/FieldType/Field/Mapper`.
 
     ## Changing field and field attribute definitions dynamically
 
