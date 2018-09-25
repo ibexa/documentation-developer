@@ -232,7 +232,7 @@ Some versions require updates to the database. Look through [the list of databas
     ALTER TABLE ezuser ALTER COLUMN password_hash TYPE VARCHAR(255);
     ​```
 
-!!! note "When updating from <2.2"
+??? note "When updating from <2.2"
 
     ##### Change from UTF8 to UTF8MB4
 
@@ -419,6 +419,20 @@ Some versions require updates to the database. Look through [the list of databas
 
     Custom converters must implement the `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\ConverterInterface` interface.
     `convert()` will parse XML `\DOMNode $node` and return an array of `\EzSystems\EzPlatformPageFieldType\FieldType\LandingPage\Model\Attribute` objects.
+
+!!! note "When updating from <2.3"
+
+    To create the "Forms" container under the content tree root use the following command:
+
+    ``` bash
+    php bin/console ezplatform:form-builder:create-forms-container
+    ```
+
+    You can also specify Content Type, Field values and language code of the container, e.g.:
+
+    ``` bash
+    php bin/console ezplatform:form-builder:create-forms-container --content-type custom --field title --value 'My Forms' --field description --value 'Custom container for the forms' --language-code eng-US
+    ```
 
 ## 5. Dump assets
 
