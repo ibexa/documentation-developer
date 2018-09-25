@@ -59,8 +59,9 @@
     - `max_length`
     - `min_choices`
     - `max_choices`
+    - `min_value`
+    - `max_value`
     - `regex`
-    - `date_format`
     - `upload_size`
     - `extensions`
 
