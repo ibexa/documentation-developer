@@ -64,7 +64,7 @@
     - `upload_size`
     - `extensions`
 
-    New types of fields require a mapper implementing `\EzSystems\EzPlatformFormBuilder\FieldType\Field\FieldMapperInterface`:
+    New types of fields require a mapper which implements `\EzSystems\EzPlatformFormBuilder\FieldType\Field\FieldMapperInterface`:
 
     ``` php
     namespace AppBundle\FormBuilder\Field\Mapper;
