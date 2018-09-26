@@ -190,15 +190,24 @@ Steps here should only be done once you are ready to move away from legacy and L
 
 ###### 3.2.1 Migrate XmlText content to RichText
 
-**If** you are ready to migrate your eZ Publish XMLText content to the eZ Platform RichText format and start using pure eZ Platform setup, you can use a script to migrate content from the XmlText format to the new RichText format. Execute the following from &lt;new-ez-root&gt;:
+You should test the XmlText to RichText conversion before you apply it to a production database. RichText has a stricter validation compared to XmlText and you may have to fix some of your XmlText before you are able to convert it to RichText.
+Run the conversion script on a copy of your production database as the script is rather resource-intensive.
 
-`php app/console ezxmltext:convert-to-richtext -v`
+`php -d memory_limit=1536M app/console ezxmltext:convert-to-richtext --dry-run --export-dir=ezxmltext-export --export-dir-filter=notice,warning,error --concurrency 4 -v`
 
-The command example suggests using the verbose flag. This is optional, but recommended as we are actively gathering feedback on how it works with older eZ Publish content, and on how we can improve it both [via issues in the repository](https://github.com/ezsystems/ezplatform-xmltext-fieldtype), and on Slack.
+- `-d memory_limit=1536M` specifies that each conversion process gets 1536MB of memory. This should be more than sufficient for most databases. If you have small `ezxmltext` documents, you may decrease the limit. If you have huge `ezxmltext` documents, you may need to increase it. See PHP documentation for more information about the []memory_limit setting](http://php.net/manual/en/ini.core.php#ini.memory-limit).
+- `--dry-run` prevents the conversion script from writing anything back to the database. It just tests if it is able to convert all the `ezxmltext` documents.
+- `--export-dir` specifies a directory where it will dump the `ezxmltext` for content object attributes which the conversion script finds problems with
+- `--export-dir-filter` specifies what severity the problems found needs to be before the script dumps the `ezxmltext`:
+    - `notice`: `ezxmltext` contains problems which the conversion tool was able to fix automatically and likely do not need manual intervention
+    - `warning`: the conversion tool was able to convert the `ezxmltext` to valid `richtext`, but data could have been altered/removed/added in the process. Manual supervision recommended
+    - `error`: the `ezxmltext` text cannot be converted and manual changes are required.
+- `--concurrency 4` specifies that the conversion script will spawn four child processes which run the conversion. If you have dedicated hardware for running the conversion, you should use concurrency level that matches the number of logical CPUs on your system. If your system needs to do other tasks while running the conversion, you should run with a smaller number.
+- `-v` specifies verbosity level. You may increase the verbosity level by supplying `-vv`, but `-v` will be sufficient in most cases.
 
-Also, note that if you have made custom image classes, you must also provide their content class identifiers:
+The script also has an `--image-content-types` option which you should use if you have custom image classes. With this option, you specify the content class identifiers:
 
-`php app/console ezxmltext:convert-to-richtext --image-content-types=image,thumbnail,profile -v`
+`php app/console ezxmltext:convert-to-richtext --image-content-types=image,custom_image -v`
 
 The script needs to know these identifiers in order to convert `<ezembed>` tags correctly. Failing to do so will prevent the editor from showing image thumbnails of embedded image objects. You may find the image Content Types in your installation by looking for these settings in `content.ini(.append.php)`:
 
@@ -208,11 +217,15 @@ ImagesClassList[]
 ImagesClassList[]=image
 ```
 
+If the `--image-content-types` option is not specified, the default setting `image` will be used.
+
 !!! note
 
     Version of the migration script in ezplatform-xmltext-fieldtype prior to v1.6.0 would fail to convert embedded images correctly. If you have a database which you have already converted with an old version, you may rerun the `convert-to-richtext` command with the following options:
 
-    `php app/console ezxmltext:convert-to-richtext --fix-embedded-images-only --image-content-types=image,thumbnail,profile -v`
+    `php app/console ezxmltext:convert-to-richtext --fix-embedded-images-only -v`
+
+    The use of `--image-content-types` is also supported together with `--fix-embedded-images-only`. Use it to specify custom image Content Types.
 
 !!! note
 
@@ -222,13 +235,128 @@ If you later realize that you provided the convert script with incorrect image C
 
 So, if you first ran the command:
 
-`php app/console ezxmltext:convert-to-richtext --image-content-types=image,thumbnail,profile -v`
+`php app/console ezxmltext:convert-to-richtext --image-content-types=image,custom_image -v`
 
-But later realize the last identifier should be `custom_image`, not `profile`, you may execute :
+But later realize the last identifier should be `profile`, not ``custom_image``, you may execute :
 
-`php app/console ezxmltext:convert-to-richtext --image-content-types=image,thumbnail,custom_image -v`
+`php app/console ezxmltext:convert-to-richtext --image-content-types=image,profile -v`
 
-The last command would then ensure embedded objects with Content Type identifier `profile` are no longer tagged as images, while embedded objects with Content Type identifier `custom_image` are.
+The last command would then ensure embedded objects with Content Type identifier `custom_image` are no longer tagged as images, while embedded objects with Content Type identifier `profile` are.
+
+
+Using the option `--export-dir`, the conversion will export problematic `ezxmltext` to files with the name pattern `[export-dir]/ezxmltext_[contentobject_id]_[contentobject_attribute_id]_[version]_[language].xml`. A corresponding `.log` file will also be created which includes information about why the conversion failed. Be aware that the reported location of the problem may not be accurate or may be misleading.
+
+Below is an example of a xml dump, `ezxmltext_12_1234_2_eng-GB.xml`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/">
+  <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/" ez-temporary="1">
+    <table border="1">
+      <tr>
+        <td>
+          <paragraph>col1</paragraph>
+        </td>
+        <td align="right">
+          <paragraph>col2</paragraph>
+        </td>
+        <td align="middle" xhtml:width="73">
+          <paragraph>col3</paragraph>
+        </td>
+        <td align="center" xhtml:width="73">
+          <paragraph>col4</paragraph>
+        </td>
+      </tr>
+    </table>
+  </paragraph>
+</section>
+```
+
+The corresponding log file, `ezxmltext_12_1234_2_eng-GB.log`:
+
+```
+notice: Found ez-temporary attribute in a ezxmltext paragraphs. Removing such attribute where contentobject_attribute.id=1234
+error: Validation errors when converting ezxmltext for contentobject_attribute.id=1234
+- context : Error in 2:0: Element section has extra content: informaltable
+```
+
+The first log message is a notice about the `ez-temporary=1` attribute which the conversion tool simply will remove during conversion.
+The second log message is an error, but the cause described may be confusing. During the conversion, the `<table>` element will be converted to an `<informaltable>` tag, which is problematic.
+The exact problem in this case is the value of the second align attribute: `<td align="middle"....>`. An align attribute may only have the following values: `left`, `right`, `center`, `justify`.
+
+In order to fix the problem, open the .xml file in a text editor and correct the errors:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/">
+  <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">
+    <table border="1">
+      <tr>
+        <td>
+          <paragraph>col1</paragraph>
+        </td>
+        <td align="right">
+          <paragraph>col2</paragraph>
+        </td>
+        <td align="center" xhtml:width="73">
+          <paragraph>col3</paragraph>
+        </td>
+        <td align="center" xhtml:width="73">
+          <paragraph>col4</paragraph>
+        </td>
+      </tr>
+    </table>
+  </paragraph>
+</section>
+```
+
+Now, you may test if the modified `ezxmltext` may be converted using the `--dry-run` and `--content-object` options:
+
+`php -d memory_limit=1536M app/console ezxmltext:import-xml --dry-run  --export-dir=ezxmltext-export --content-object=56554 -v`
+
+If the tool reports no errors, then the `ezxmltext` is fixed. You may rerun the command without the `--dry-run` option in order to actually update the database with the correct XmlText.
+
+Once you have fixed all the dump files in `ezxmltext-export/`, you may skip the `--content-object` option and the script will import all the dump files located in the `export-dir`:
+
+`php -d memory_limit=1536M app/console ezxmltext:import-xml --export-dir=ezxmltext-export -v`
+
+Typical problems that needs manual fixing:
+
+**Duplicate xhtml IDs**
+
+Xhtml IDs needs to be unique. The following `ezxmltext` will result in a warning:
+
+```
+    <paragraph>
+        <link target="_blank" xhtml:id="inv5" url_id="2309">link with id inv5</link>
+    </paragraph>
+    <paragraph>
+        <link target="_blank" xhtml:id="inv5" url_id="2309">another link with id inv5</link>
+    </paragraph>
+```
+
+The conversion tool will replace the duplicate id (`inv5`) with a random value. If you need the ID value to match your CSS, you need to change it manually.
+The conversion tool will also complain about IDs which contain invalid characters.
+
+**Links with non-existing `object_remote_id` or `node_remote_id`.**
+
+In `ezxmltext` you may have links which refer to other objects by their remote ID. This is not supported in `richtext`, so the conversion tool must look up such remote IDs and replace them with the `object_id` or `node_id`. If the conversion tool cannot find the object by its remote id, it will issue a warning about it.
+
+In older eZ Publish databases you may also have invalid links due to lack of reference to a target (no `href`, `url_id`, etc.):
+
+```
+    <link>some text</link>
+```
+
+When the conversion tool detects links with no reference it will issue a warning and rewrite the URL to point to current page (`href="#"`).
+
+**<literal>**
+
+The <literal> tag is yet not supported in eZ Platform. For more information about this, please have a look at [EZP-29328](https://jira.ez.no/browse/EZP-29328) and [EZP-29027](https://jira.ez.no/browse/EZP-29027).
+
+When you are ready to migrate your eZ Publish XmlText content to the eZ Platform RichText format and start using pure eZ Platform setup, start the conversion script without the `--dry-run` option. Execute the following from &lt;new-ez-root&gt;:
+
+`php -d memory_limit=1536M app/console ezxmltext:convert-to-richtext --export-dir=ezxmltext-export --export-dir-filter=notice,warning,error --concurrency 4 -v`
 
 ###### 3.2.2 Migrate Page field to Landing Page (eZ Enterprise only)
 
