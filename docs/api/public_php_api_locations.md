@@ -99,3 +99,12 @@ $contentUpdateStruct->mainLocationId = 123;
  
 $contentService->updateContentMetadata( $contentInfo, $contentUpdateStruct );
 ```
+
+## Accessing content on Location object
+
+When dealing with Location objects *(and Trash objects)*, in PHP you can get access to Content item directly using `$location->getContent()`, in Twig this can also be accessed by `location.content`.
+
+This is a lazy property. It will trigger loading of Content when first used. In case of bulk of Locations coming from Search or Location Service, the Content will also be loaded in bulk for the whole Location result set. 
+
+To learn more about this functionality see [Lazy object properties](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/api/lazy_properties.md)
+
