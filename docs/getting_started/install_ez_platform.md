@@ -13,7 +13,7 @@ To install eZ Platform you need a stack with your operating system, MySQL and PH
 
 You can install it by following your favorite tutorial, for example: [Install LAMP stack on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04).
 
-[For production](#prepare-installation-for-production) you also need Apache as the HTTP server.
+[For production](#prepare-installation-for-production) you also need Apache or nginx as the HTTP server (Apache is used as an example below).
 [For development](#use-phps-built-in-server), you can use the built-in PHP server instead.
 
 You also need `git` for version control.
@@ -84,11 +84,19 @@ composer install
 
 ### B. Create project with Composer
 
-You can also use Composer to instantly create a project with all the dependencies:
+You can also use Composer to instantly create a project in the current folder with all the dependencies:
 
 ``` bash
 composer create-project --no-dev --keep-vcs ezsystems/ezplatform .
 ```
+
+!!! tip
+
+    You can also select a specific version to install, for example:
+
+    ``` bash
+    composer create-project --no-dev --keep-vcs ezsystems/ezplatform . v2.2.2
+    ```
 
 ## Provide installation parameters
 
@@ -176,7 +184,7 @@ Specify `/<your installation directory>/web` as the `DocumentRoot` and `Director
 Uncomment the line that starts with `#if [SYMFONY_ENV]` and set the value to `prod` or `dev`,
 depending on the environment you want:
 
-``` bash
+```
 SetEnvIf Request_URI ".*" SYMFONY_ENV=prod
 ```
 
