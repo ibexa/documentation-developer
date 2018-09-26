@@ -310,7 +310,7 @@ In order to fix the problem, open the .xml file in a text editor and correct the
 </section>
 ```
 
-Now, you may test if the modified `ezxmltext` may be converted using the `--dry-run` and `content-object` options:
+Now, you may test if the modified `ezxmltext` may be converted using the `--dry-run` and `--content-object` options:
 
 `php -d memory_limit=1536M app/console ezxmltext:import-xml --dry-run  --export-dir=ezxmltext-export --content-object=56554 -v`
 
