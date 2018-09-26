@@ -102,4 +102,8 @@ $contentService->updateContentMetadata( $contentInfo, $contentUpdateStruct );
 
 ## Accessing content on Location object
 
-You can search for Locations and reach the content of that Location within Twig templates without further work.
+You can search for Locations and reach the content of that Location within Twig templates.
+It was possible by changing `Location->getContent()` to `location.content` and adding lazy properties support in a Twig.
+To make the process more efficient SPI `ContentHandler::loadContentList()` was added and `SearchService::findContent()` was changed to accommodate bulk loading content.
+
+To learn more about this functionality see [Lazy object properties](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/api/lazy_properties.md)
