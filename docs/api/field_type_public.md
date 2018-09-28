@@ -25,7 +25,7 @@ The type is asked to validate the settings (provided by the user) before the Pub
  
  As in `validateFieldSettings()`, this method verifies that the given validator configuration complies to the schema provided by `getValidatorConfigurationSchema()`.
 
-It is important to note that the schema definitions of the Field Type can be both of arbitrary and serializable format, it is highly recommended to use a simple hash structure. You should follow the [Best practices](../guide/best_practices.md) in order to create future-proof schemas.
+It is important to note that the schema definitions of the Field Type can be both of arbitrary and serializable format, it is highly recommended to use a simple hash structure.
 
 !!! note 
 
