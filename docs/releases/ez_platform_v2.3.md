@@ -49,6 +49,8 @@ You can now create a single source media library with images that can be reused 
 
 See [Reusing images](../guide/images.md#reusing-images) and [ImageAsset Field Type reference](../api/field_type_reference.md#imageasset-field-type) for more information.
 
+![Set up multiple relations with image](img/2.3_image_asset.png)
+
 ### Regenerating URL aliases
 
 A new `ezplatform:urls:regenerate-aliases` command enables you to regenerate all URL aliases.
@@ -61,6 +63,10 @@ See [Regenerating URL aliases](../guide/url_management.md#regenerating-url-alias
 You can now access and set user preferences in the user menu.
 
 ![User preferences screen with time zone settings](img/2.3_user_preferences.png)
+
+### Dates in preferred timezone
+
+eZ Platform can now display dates across the system using timezone from User Settings.
 
 ### API improvements
 
