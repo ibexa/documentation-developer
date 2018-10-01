@@ -2,7 +2,7 @@
 
 **Version number**: v2.3
 
-**Release date**: September 28, 2018
+**Release date**: October 5, 2018
 
 **Release type**: Fast Track
 
