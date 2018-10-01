@@ -18,16 +18,16 @@
 
     In the Schedule tab you can define when any block becomes visible and when it disappears from a Page.
 
-    [screenshot]
+    ![Schedule tab](img/2.3_schedule_tab.png)
 
     Content Scheduler is a special block with a queue of Content items, each with its own airtime.
     The Content becomes available at the airtime, and is replaced with new Content items coming in from the queue.
 
-    [screenshot]
+    ![Content Scheduler](img/2.3_content_scheduler.png)
 
     All changes to scheduled content on a Page are visible in the timeline.
 
-    [screenshot]
+    ![Timeline and list of upcoming events](img/2.3_timeline_list.png)
 
     The timeline also shows other events, such a Content published using the date-based publisher.
 
@@ -37,11 +37,11 @@
 
     The new Form Builder enables you to create Form Content items with multiple form fields.
 
-    [screenshot]
+    ![Form Builder](img/2.3_form_builder.png)
 
     You can preview and download submissions in the Back Office.
 
-    [screenshot]
+    ![Form Builder submissions](img/2.3_form_builder_submissions.png)
 
 ### ImageAsset Field Type
 
