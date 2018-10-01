@@ -24,6 +24,8 @@ This is done by setting `LimitRequestBody` for Apache or `client_max_body_size` 
 
 For instance, if one of those Fields is configured to accept files up to 10MB, then `client_max_body_size` (in case of nginx) should be set above 10MB, with a safe margin, for example to 15MB.
 
+You also need to define settings for uploading files in `php.ini`: `upload_max_filesize` and `post_max_size`.
+
 ## Cloning failed using an ssh key
 
 When dealing with [updates.ez.no](http://updates.ez.no) packages, you may get a "Cloning failed using an ssh key" error
