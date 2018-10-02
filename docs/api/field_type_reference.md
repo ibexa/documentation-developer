@@ -23,6 +23,7 @@ Custom Field Types have to be programmed in PHP. However, the built-in Field Ty
 | [Date](#date-field-type) | Stores date information. | Yes | Yes  |
 | [EmailAddress](#emailaddress-field-type) | Validates and stores an email address. | Yes  | Yes  |
 | [Float](#float-field-type) | Validates and stores a floating-point number. | No | Yes |
+| [Form](#form-field-type) | Stores a form. | No | Yes |
 | [Image](#image-field-type) | Validates and stores an image. | No | Yes |
 | [Integer](#integer-field-type) | Validates and stores an integer value. | Yes | Yes |
 | [ISBN](#isbn-field-type) | Handles International Standard Book Number (ISBN) in 10-digit or 13-digit format.  | Yes | Yes |
@@ -776,6 +777,19 @@ $floatFieldCreateStruct->validatorConfiguration = [
 #### Settings
 
 This Field Type does not support settings.
+
+!!! enterprise
+
+    ## Form Field Type
+
+    | Name    | Internal name |
+    |---------|---------------|
+    | `Image` | `ezform`      |
+
+    The Form Field Type stores a Form consisting of one or more form fields.
+
+    See [Extending Form Builder](../guide/extending_form_builder.md) for more information
+    about working with Forms.
 
 ## Image Field Type
 
