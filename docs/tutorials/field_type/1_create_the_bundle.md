@@ -2,7 +2,7 @@
 
 FieldTypes, like any other eZ Platform extensions, must be provided as Symfony bundles. This chapter covers the creation and organization of this bundle.
 
-Once you have [installed eZ Platform](../../getting_started/install_ez_platform/), including the creation of a database for the tutorial, [configured a server](../../getting_started/requirements_and_system_configuration/), and [started the web server](../../getting_started/starting_ez_platform/#web-server), you need to create a code base for the tutorial.
+Once you have [installed eZ Platform](../../getting_started/install_ez_platform/), including the creation of a database for the tutorial, [configured a server](../../getting_started/requirements/), and [started the web server](../../getting_started/install_ez_platform/#use-phps-built-in-server), you need to create a code base for the tutorial.
 
 The Field Type will be placed in a [Symfony bundle](http://symfony.com/doc/3.4/bundles.html).
 You can get started with a bundle using the built-in Symfony bundle generator.

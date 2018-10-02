@@ -20,7 +20,7 @@ The minimal requirements are:
 - Shared database (using MySQL/MariaDB)
 - Shared filesystem (using NFS, or S3)
 
-For further details on requirements, see [Requirements page](../getting_started/requirements_and_system_configuration.md).
+For further details on requirements, see [Requirements page](../getting_started/requirements.md).
 
 !!! note
 
@@ -40,7 +40,7 @@ It is also recommended to use:
 - [Solr](solr.md) for better search and performance
 - a CDN for improved performance and faster ping time worldwide
 - active/passive database for failover
-- more recent versions of PHP and MySQL/MariaDB within [what is supported](../getting_started/requirements_and_system_configuration.md) for your eZ Platform version to get more performance out of each server. Numbers might vary so make sure to test this when upgrading.
+- more recent versions of PHP and MySQL/MariaDB within [what is supported](../getting_started/requirements.md) for your eZ Platform version to get more performance out of each server. Numbers might vary so make sure to test this when upgrading.
 
 ## DFS IO handler
 

@@ -2,7 +2,7 @@
 
 To begin the tutorial, you need a clean installation of eZ Platform.
 
-Get it by following the [install eZ Platform](../../getting_started/install_using_composer.md) guide.
+Get it by following the [install eZ Platform](../../getting_started/install_ez_platform.md) guide.
 You will need a web server, a relational database and PHP.
 
 !!! note "Installation type"
@@ -11,7 +11,7 @@ You will need a web server, a relational database and PHP.
 
 !!! tip
 
-    You can use [the local PHP built-in web server](../../getting_started/starting_ez_platform.md#phps-built-in-server) for this tutorial.
+    You can use [the local PHP built-in web server](../../getting_started/install_ez_platform.md#use-phps-built-in-server) for this tutorial.
 
 The clean installation contains only a root Content item which is displayed using a default template.
 
