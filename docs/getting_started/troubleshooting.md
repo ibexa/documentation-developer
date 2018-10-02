@@ -1,24 +1,30 @@
 # Troubleshooting
 
-This page lists potential problems that you may encounter while installing, configuring, and running eZ Platform. If you stumble upon an obstacle, take a look here to see if your case isn't covered.
+This page lists potential problems that you may encounter while installing, configuring, and running eZ Platform.
 
-Want to add to this page? Check out our instructions for [contributing to our documentation](../community_resources/documentation.md).
+## Initial installation options
 
-## Enable Swap on Systems with Limited RAM
+If you accepted default options during `composer install`, but need to change some of them later,
+you can do it in `app/config/parameters.yml`.
 
-If you're having difficulty completing installation on a system with limited RAM (1GB or 2GB, for example), check that you've enabled swap. This allows your Operating System to use the hard disk to supplement RAM when it runs out. Running `php -d memory_limit=-1 bin/console ezplatform:install --env prod ezplatform-clean` on a system with swap enabled should yield success. When a system runs out of RAM, you may see `Killed` when trying to clear the cache (e.g., `php bin/console --env=prod cache:clear` from your project's root directory).
+## Enable swap on systems with limited RAM
 
-## Upload Size Limit
+If you have problems installing eZ Platform on a system with limited RAM (for example 1GB or 2GB), enable swap.
+It allows your operating system to use the hard disk to supplement RAM when it runs out.
 
-To make use of the Back Office, you need to define the maximum upload size to be consistent with the maximum file size defined in the Content Type using a File, Media or Image Field Definition.
+With swap enables you will be able to successfully run `php -d memory_limit=-1 bin/console ezplatform:install --env prod ezplatform-clean`.
 
-This is done by setting `LimitRequestBody` for Apache or `client_max_body_size` for Nginx.
+When a system runs out of RAM, you may see `Killed` when trying to clear the cache (e.g. `php bin/console --env=prod cache:clear` from your project's root directory).
 
-For instance, if one of those Field definitions is configured to accept files up to 10MB, then `client_max_body_size` (in case of Nginx) should be set above 10MB, with a safe margin, for example to 15MB.
+## Upload size limit
 
-## Initial Install Options
+To make use of the Back Office, the defined maximum upload size must be consistent with the maximum file size defined in the Content Type using a File, Media or Image Field.
 
-If you accepted all the defaults when doing a `composer install`, but realize you need to go back and change some of those options, look in `app/config/parameters.yml` – that's where they are stored.
+This is done by setting `LimitRequestBody` for Apache or `client_max_body_size` for nginx.
+
+For instance, if one of those Fields is configured to accept files up to 10MB, then `client_max_body_size` (in case of nginx) should be set above 10MB, with a safe margin, for example to 15MB.
+
+You also need to define settings for uploading files in `php.ini`: `upload_max_filesize` and `post_max_size`.
 
 ## Cloning failed using an ssh key
 
