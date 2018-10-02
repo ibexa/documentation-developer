@@ -292,3 +292,9 @@ All Signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
 |`UserService\UpdateUserGroupSignal`|`userGroupId`|`UserService::updateUserGroup()`|
 |`UserService\UpdateUserSignal`|`userId`|`UserService::updateUser()`|
 |`UserService\UpdateUserTokenSignal`|`userId`|`UserService::updateUserToken()`|
+
+#### UserPreferenceService
+
+|Signal type|Properties|Triggered by|
+|------|------|------|
+|`UserPreferenceService\UserPreferenceSetSignal`|`name`</br>`value`|`UserPreferenceService::setUserPreference()`|
