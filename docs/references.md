@@ -3,12 +3,12 @@
 ## Getting started
 
 - Starter pack:
-    - [Install Using Composer](getting_started/install_using_composer.md)
+    - [Install eZ Platform](getting_started/install_ez_platform.md)
     - [Bundles starter pack](getting_started/bundles_starter_pack.md)
     - [First steps](getting_started/first_steps.md)
     - [eZ Platform beginner tutorial](tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md)
-    - [eZ Enterprise beginner tutorial](tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world.md) 
-    
+    - [eZ Enterprise beginner tutorial](tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world.md)
+
 ## Back end
 
 - API:
@@ -34,10 +34,10 @@
 - Extending eZ Platform:
     - [General extensibility](guide/extending_ez_platform.md)
     - [Form Builder](guide/other_extensibility.md#extending-the-form-builder)
-    
+
 ## Front end
 
-- [User documentation](https://doc.ezplatform.com/projects/userguide/en/latest/) 
+- [User documentation](https://doc.ezplatform.com/projects/userguide/en/latest/)
 
 ## Personalization Solution
 

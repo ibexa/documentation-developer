@@ -5,21 +5,12 @@ pages:
     - 'Documentation': 'index.md'
     - Getting started:
         - 'Quickstart': 'getting_started/quickstart.md'
-        - 'Requirements and system configuration': 'getting_started/requirements_and_system_configuration.md'
-        - Installation:
-            - 'Install eZ Platform': 'getting_started/install_ez_platform.md'
-            - 'Install using Composer': 'getting_started/install_using_composer.md'
-            - 'Install manually': 'getting_started/install_manually.md'
-            - 'Install using Docker': 'getting_started/install_using_docker.md'
-            - 'Starting eZ Platform': 'getting_started/starting_ez_platform.md'
-            - 'Set up directory permissions': 'getting_started/set_up_directory_permissions.md'
-            - 'Access to eZ Enterprise': 'getting_started/access_to_ez_enterprise.md'
-            - 'Troubleshooting': 'getting_started/troubleshooting.md'
-        - 'Bundles starter pack': 'getting_started/bundles_starter_pack.md'
-        - Going deeper:
-            - 'eZ Platform features': 'getting_started/ez_platform_features.md'
-            - 'eZ Enterprise': 'getting_started/ez_enterprise.md'
+        - 'Requirements': 'getting_started/requirements.md'
+        - 'Install eZ Platform': 'getting_started/install_ez_platform.md'
+        - 'Install eZ Enterprise': 'getting_started/install_ez_enterprise.md'
         - 'First steps': 'getting_started/first_steps.md'
+        - 'Bundles starter pack': 'getting_started/bundles_starter_pack.md'
+        - 'Troubleshooting': 'getting_started/troubleshooting.md'
     - Tutorials:
         - eZ Platform beginner:
             - 'eZ Platform beginner tutorial': 'tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md'
@@ -130,6 +121,7 @@ pages:
         - 'Displaying Content children': 'cookbook/displaying_children_of_a_content_item.md'
         - 'Executing long commands': 'cookbook/executing_long_running_console_commands.md'
         - 'Importing settings from a bundle': 'cookbook/importing_settings_from_a_bundle.md'
+        - 'Installing on Mac OS or Windows': 'cookbook/installing-on-mac-os-and-windows.md'
         - 'Injecting parameters in content views': 'cookbook/injecting_parameters_in_content_views.md'
         - 'Listening to core events': 'cookbook/listening_to_core_events.md'
         - 'Multi-language SiteAccesses': 'cookbook/setting_up_multi_language_siteaccesses.md'

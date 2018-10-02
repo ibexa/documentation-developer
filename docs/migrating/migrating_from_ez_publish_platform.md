@@ -32,8 +32,8 @@ This section describes how to upgrade your existing  eZ Publish Platform  5.4
 
 ## Check for requirements
 
-- Information regarding system requirements can be found on the [Requirements documentation page](../getting_started/requirements_and_system_configuration.md); notable changes include:
-    - PHP 5.6, 7.0 or higher
+- Information regarding system requirements can be found on the [Requirements documentation page](../getting_started/requirements.md); notable changes include:
+    - PHP 7.0 or higher
     - MariaDB or MySQL 5.5 or higher _(Postgres possible for upgrades, but not yet supported by the installer for new installations)_
     - Browser from 2016 or newer for use with eZ Platform backend UI
 - This page assumes you have composer installed on the machine and that it is a recent version.
