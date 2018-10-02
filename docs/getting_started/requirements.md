@@ -1,4 +1,4 @@
-# Requirements and System Configuration
+# Requirements
 
 ## Platform as a Service (PaaS)
 
