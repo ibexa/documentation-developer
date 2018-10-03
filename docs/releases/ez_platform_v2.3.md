@@ -66,6 +66,10 @@ You can now access and set user preferences in the user menu.
 
 ![User preferences screen with time zone settings](img/2.3_user_preferences.png)
 
+It is covered by the `user/preferences` Policy.
+
+On API side, this is handled by [`UserPreferenceService`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/UserPreferenceService.php).
+
 ### Dates in preferred timezone
 
 eZ Platform can now display dates across the system using timezone from User Settings.
