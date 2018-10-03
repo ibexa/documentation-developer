@@ -43,6 +43,8 @@
 
     ![Form Builder submissions](img/2.3_form_builder_submissions.png)
 
+    See [Extending Form Builder](../guide/extending_form_builder.md) for information on how to modify and create Form fields.
+
 ### ImageAsset Field Type
 
 You can now create a single source media library with images that can be reused across the system.
@@ -95,6 +97,7 @@ See [How to translate the interface using Crowdin](../community_resources/transl
 | eZ Platform   | eZ Enterprise  |
 |--------------|------------|
 | [List of changes for final of eZ Platform v2.3.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v2.3.0) | [List of changes for final for eZ Platform Enterprise Edition v2.3.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.3.0) |
+| [List of changes for rc2 of eZ Platform v2.3.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v2.3.0-rc2) | [List of changes for rc2 for eZ Platform Enterprise Edition v2.3.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.3.0-rc2) |
 | [List of changes for rc1 of eZ Platform v2.3.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v2.3.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v2.3.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.3.0-rc1) |
 | [List of changes for beta1 of eZ Platform v2.3.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v2.3.0-beta1) | [List of changes for beta1 of eZ Platform Enterprise Edition v2.3.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.3.0-beta1) |
 
