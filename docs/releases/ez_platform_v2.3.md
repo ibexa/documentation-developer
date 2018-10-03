@@ -68,6 +68,13 @@ You can now access and set user preferences in the user menu.
 
 eZ Platform can now display dates across the system using timezone from User Settings.
 
+### Improved selection in UDW
+
+Selection of content in Universal Discovery Widget has seen improvements,
+in particular when selecting multiple Content items.
+
+![Multiple selection on UDW](img/2.3_udw_selection.png)
+
 ### API improvements
 
 A newly exposed lazy loaded Location API enables you to search for Location and reach the content of it within Twig templates.
