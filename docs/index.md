@@ -63,5 +63,5 @@
 
 
 <div class="card text-center">
-  <div class="card-header">For a roadmap of planned features see</div>
+  <div class="card-header">See <a href="https://ezplatform.com/Product-Feedback" class="card-link">our roadmap</a> for an overview of features planned for future releases.</div>
 </div>
