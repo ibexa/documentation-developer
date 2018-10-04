@@ -47,7 +47,9 @@
     |`integer`|Integer number|
     |`url`|URL|
     |`multiple`|Multiple choice|
-    |`select`|Checkbox|
+    |`select`|Dropdown|
+    |`checkbox`|Checkbox|
+    |`location`|Content Location|
     |`radio`|Radio button|
     |`action`|Button|
     |`choices`|List of available options|
