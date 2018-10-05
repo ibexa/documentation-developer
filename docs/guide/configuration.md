@@ -521,6 +521,8 @@ ezpublish:
                 upload_location_id: 54
 ```
 
+This applies only if no specific Location is defined in the Form itself.
+
 ## Other configuration
 
 The configuration related to other specific topics is described in:
