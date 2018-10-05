@@ -120,7 +120,7 @@ pages:
             - 'Extending modules': 'guide/extending_modules.md'
             - 'Extending the Online Editor': 'guide/extending_online_editor.md'
             - 'Extending Page': 'guide/extending_page.md'
-            - 'Extending Form Builder': 'guide\extending_form_builder.md'
+            - 'Extending Form Builder': 'guide/extending_form_builder.md'
         - 'Service container': 'guide/service_container.md'
         - 'Personalization': 'guide/personalization.md'
     - Cookbook:
