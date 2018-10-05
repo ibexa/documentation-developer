@@ -195,10 +195,10 @@ theme_dir: material
 
 extra:
   version_warning:
-    latest: ['2.2']
+    latest: ['2.3']
     previous_lts: ['1.7']
     lts: ['1.13']
-    ft: ['2.0', '2.1']
+    ft: ['2.2']
     dev: ['master']
 
 extra_css: [fonts/MavenPro.css, css/custom.css, '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css']
