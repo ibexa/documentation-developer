@@ -68,8 +68,6 @@ You can now access and set user preferences in the user menu.
 
 It is covered by the `user/preferences` Policy.
 
-On API side, this is handled by [`UserPreferenceService`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/UserPreferenceService.php).
-
 ### Dates in preferred timezone
 
 eZ Platform can now display dates across the system using timezone from User Settings.
@@ -83,9 +81,11 @@ in particular when selecting multiple Content items.
 
 ### API improvements
 
-A newly exposed lazy loaded Location API enables you to search for Location and reach the content of it within Twig templates.
+Improvements to the API cover:
 
-See [Accessing content on Location object](../api/public_php_api_locations.md#accessing-content-on-location-object) for more information.
+- [`UserPreferenceService`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/UserPreferenceService.php)
+- [`ASSET` Relation type](https://github.com/ezsystems/ezpublish-kernel/blob/v7.3.0-rc2/eZ/Publish/Core/REST/Client/Input/Parser/Relation.php#L84)
+- `TrashItem->trashed` timestamp covers when a Content item was placed in Trash
 
 #### Back Office translations
 
