@@ -507,6 +507,22 @@ ezpublish:
 
 The values shown above are the defaults (in milliseconds). `0` means the notification does not hide automatically.
 
+### Location for Form-uploaded files
+
+You can use Forms to enable the user to upload files.
+The default Location for files uploaded in this way is `/Media/Files/Form Uploads`.
+You can change it with the following configuration:
+
+``` yaml
+ezpublish:
+    system:
+        default:
+            form_builder:
+                upload_location_id: 54
+```
+
+This applies only if no specific Location is defined in the Form itself.
+
 ## Other configuration
 
 The configuration related to other specific topics is described in:
