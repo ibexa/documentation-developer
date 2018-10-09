@@ -4,24 +4,13 @@
 
 ## Layers
 
-Persistence cache can best be described as an implementation of `SPI\Persistence` that decorates the main backend implementation *(currently: "Legacy Storage Engine")*.
+Persistence cache can best be described as an implementation of `SPI\Persistence` that decorates the main backend implementation, aka Storage Engine *(currently: "Legacy Storage Engine")*.
 
 As shown in the illustration, this is done in the exact same way as the SignalSlot feature is a custom implementation of `API\Repository` decorating the main Repository. In the case of Persistence Cache, instead of sending events on calls passed on to the decorated implementation, most of the load calls are cached, and calls that perform changes purge the affected caches. Cache handlers *(Memcached, Redis, Filesystem, etc.)* can configured using Symfony configuration. For how to reuse this Cache service in your own custom code, see below.
 
 ## Transparent cache
 
-With the persistence cache, just like with the HTTP cache, eZ Platform tries to follow principles of "Transparent caching", this can shortly be described as a cache which is invisible to the end user and to the admin/editors of eZ Platform where content is always returned "fresh". In other words, there should be no need to manually clear the cache like it was frequently the case with eZ Publish 4.x. This is possible thanks to an interface that follows CRUD *(Create Read Update Delete)* operations per domain, and the fact that the number of other operations capable of affecting a certain domain is kept to a minimum.
-
-### Entity stored only once
-
-To make the transparent caching principle as effective as possible, entities are, as much as possible, only stored once in cache by their primary id. Lookup by alternative identifiers (`identifier`, `remoteId`, etc.) is only cached with the identifier as cache key and primary `id` as its cache value, and compositions *(list of objects)* usually keep only the array of primary IDs as their cache value.
-
-This means a couple of things:
-
-- Memory consumption is kept low
-- Cache purging logic is kept simple (For example: `$sectionService->delete( 3 )` clears `section/3` cache entry)
-- Lookup by `identifier` and list of objects needs several cache lookups to be able to assemble the result value
-- Cache warmup usually takes several page loads to reach full as identifier is first cached, then the object
+With the persistence cache, just like with the HTTP cache, eZ Platform tries to follow principles of "Transparent caching", this can shortly be described as a cache which is invisible to the end user and to the admin/editors of eZ Platform where content is always returned "fresh". In other words, there should be no need to manually clear the cache like it was frequently the case with eZ Publish 4.x. This is possible thanks to an interface that follows CRUD *(Create Read Update Delete)* operations per domain.
 
 ## What is cached?
 
@@ -31,8 +20,8 @@ Notes:
 
 - `UrlWildCardHandler` is not currently cached
 - Currently in case of transactions this is handled very simply by clearing all cache on rollback, this can be improved in the future if needed.
-- Some tree/batch operations will cause clearing all persistence cache, this will be improved in the future when we change to a cache service cable of cache tagging.
-- Search is not defined as Persistence and the queries themselves are not planned to be cached. Use [Solr](solr.md) which does this for you to improve scale and offload your database.
+- [Cache tagging](https://symfony.com/doc/current/components/cache/cache_invalidation.html#using-cache-tags) is used in order to allow clearing cache by alternative indexes, for instance tree operations or changes to content types are examples of operations that also needs to invalidate content cache by tags.
+- Search is not defined as Persistence and the queries themselves are not planned to be cached. Use [Solr](solr.md) which does this for you to improve scale and to offload your database.
 
 *For further details on which calls are cached or not, and where/how to contribute additional caches, check out the [source](https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/Core/Persistence/Cache).*
 
@@ -70,7 +59,7 @@ ezpublish:
         # "site_group" refers to the group configured in site access
         site_group:
             # cache_pool is set to '%env(CACHE_POOL)%'
-            # env(CACHE_POOL) is set to 'cache.app'
+            # env(CACHE_POOL) is set to 'cache.app', a symfony service
             cache_service_name: '%cache_pool%'
 ```
 
@@ -108,7 +97,23 @@ services:
 
 ##### Redis Cluster
 
-It is possible to set up and use Redis as a cluster. This configuration is more efficient and reliable for large installations. Redis Cluster can be configured in two ways, the first using [create-cluster script](https://redis.io/topics/cluster-tutorial) and the second using [Redis Sentinel](https://redis.io/topics/sentinel). If you use Platform.sh Enterprise you can benefit from the Redis Sentinel across three nodes for greater fault tolerance. Platform.sh Professional and lower versions offer Redis in single instance mode only. Configuration on eZ Platform / Symfony stays the same regardless of the Redis version, single instance mode or cluster mode.
+Configuration of several Redis instances can be done in several ways, as Persistence cache depends on all involved web servers seeing the same view of the cache as it's shared, the following applies:
+- [Redis Cluster](https://redis.io/topics/cluster-tutorial)
+  - Shards cache across several instances in order to be able to cache more then memory of one server allows
+  - Shard slaves can improve availability, however these are eventually consistent so can not be used for reads
+  - Not supported Redis features that can affect performance: [piplining](https://github.com/phpredis/phpredis/blob/develop/cluster.markdown#pipelining) & [most multiple keys commands](https://github.com/phpredis/phpredis/blob/develop/cluster.markdown#multiple-key-commands)
+- [Redis Sentinel](https://redis.io/topics/sentinel)
+  - Provides high availability by providing one or several Slaves _(ideally 2)_, and handle failover
+  - Slaves are eventually consistent, so you can not be use them for reads
+  - Typically used with a load balancer _(e.g. HAproxy)_ in front in order to only speak to elected master
+
+For best performance we recommend use of Redis Sentinel if it fits your needs. However different cloud providers have managed services that are easier to setup, and might perform better. Notable Services:
+- [Amazon ElastiCache](https://aws.amazon.com/elasticache/)
+- [Azure Redis Cache](https://azure.microsoft.com/en-us/services/cache/)
+- [Google Cloud Memorystore](https://cloud.google.com/memorystore/)
+
+###### eZ Platform Cloud / Platform.sh usage
+If you use Platform.sh Enterprise you can benefit from the Redis Sentinel across three nodes for greater fault tolerance. Platform.sh Professional and lower versions offer Redis in single instance mode only.
 
 ### Memcached
 
