@@ -119,6 +119,7 @@
     namespace AppBundle\EventSubscriber;
 
     use EzSystems\EzPlatformFormBuilder\Event\FieldDefinitionEvent;
+    use EzSystems\EzPlatformFormBuilder\Event\FieldDefinitionEvents;
     use EzSystems\EzPlatformFormBuilder\Definition\FieldAttributeDefinitionBuilder;
     use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
