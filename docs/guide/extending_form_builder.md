@@ -120,7 +120,7 @@
 
     use EzSystems\EzPlatformFormBuilder\Event\FieldDefinitionEvent;
     use EzSystems\EzPlatformFormBuilder\Event\FieldDefinitionEvents;
-    use EzSystems\EzPlatformFormBuilder\FieldType\FormBuilder\Definition\FieldAttributeDefinitionBuilder;
+    use EzSystems\EzPlatformFormBuilder\Definition\FieldAttributeDefinitionBuilder;
     use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
     class FieldDefinitionSubscriber implements EventSubscriberInterface
