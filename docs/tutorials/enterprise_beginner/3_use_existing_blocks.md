@@ -229,7 +229,7 @@ Navigate to the "All Articles" folder and select the articles you had created an
 
 ![Selecting Articles for the Schedule Block](img/enterprise_tut_select_articles.png)
 
-Accept the suggested airtime and Submit.
+Accept the suggested airtime and click Submit.
 
 Now click the Airtime button next to one of the Articles and choose a time in the future.
 This article will be listed in the queue.
@@ -240,11 +240,11 @@ Publish the Page.
 
 Now open the Timeline at the top of the screen.
 You can move the slider to different times and preview what the Content Scheduler block will look like at different hours.
-Content will be hidden if you moved to a point before it airs.
+Content will be shown when you move the slider to the point when it airs.
 
 !!! tip
 
-    At this point you have configured the Content Scheduler block to work well with Articles only.
+    At this point you have configured the Content Scheduler block to work with Articles only.
     If you try to add Content of any other type, you will see an error.
     This is because there is no `featured` view for content other than Articles defined at the moment.
 

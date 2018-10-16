@@ -142,7 +142,7 @@ With these three elements: configuration, thumbnail and template, the new layout
 
 ### Change Home Page layout
 
-Now you can change the Home Page to use the new layout. In Page mod start editing Home, open the options menu and select **Switch layout**.
+Now you can change the Home Page to use the new layout. In Page mode edit Home, open the options menu and select **Switch layout**.
 Choose the new layout called "Main section with sidebar on the right".
 The empty zones you defined in the template will be visible in the editor.
 
@@ -154,10 +154,10 @@ The empty zones you defined in the template will be visible in the editor.
 
 ![Empty page with new layout](img/enterprise_tut_new_layout.png)
 
-You can now also remove the single existing block with "eZ Studio".
+You can also remove the block with "eZ Studio".
 Hover over it and select the trash icon from the menu.
 
-REVIEW Publish the Home Page. You will notice that it still has some additional text information.
+Publish the Home Page. You will notice that it still has some additional text information.
 This is because the looks of a Page are controller by two separate template files, and you have only prepared one of those.
 The `sidebar.html.twig` file defines how zones are organized and how content is displayed in them.
 But you also need a general template file that will be used for every Page, regardless of its layout.
