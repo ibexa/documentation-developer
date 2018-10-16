@@ -64,9 +64,13 @@ ez_io:
                 adapter: aws_s3_adapter
 ```
 
-!!! info
+!!! note
 
-    "aws_s3" here is just an arbitrary handler identifier for use on config block below, you can configure several, and call it what you want. E.g. you can call one "gcloud_storage" and configure it for thirparty _(community supported)_ [Google Cloud Storage adapapter](https://github.com/thephpleague/flysystem#community-supported).
+    `aws_s3` is an arbitrary handler identifier that is used in the config block below.
+    You can configure multiple handlers.
+
+    For example, you could configure one called `gcloud_storage` for a third-party (community-supported)
+    [Google Cloud Storage adapter](https://github.com/thephpleague/flysystem#community-supported).
 
 In your eZ Platform system settings, e.g. `app/config/ezplatform.yml`, enable the binary data handler:
 
