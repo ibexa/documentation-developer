@@ -59,7 +59,6 @@ In the same place, set up the binary data handler for the S3 adapter:
 ``` yaml
 ez_io:
     binarydata_handlers:
-        # 
         aws_s3:
             flysystem:
                 adapter: aws_s3_adapter
@@ -67,7 +66,7 @@ ez_io:
 
 !!! info
 
-    "aws_s3" here is just an arbitery identifier for use on config block below, you can configure several, and call it what you want. E.g. you can call one "gcloud_storage" and configure it for thirparty _(community supported)_ [Google Cloud Storage adapapter](https://github.com/thephpleague/flysystem#community-supported).
+    "aws_s3" here is just an arbitery handler identifier for use on config block below, you can configure several, and call it what you want. E.g. you can call one "gcloud_storage" and configure it for thirparty _(community supported)_ [Google Cloud Storage adapapter](https://github.com/thephpleague/flysystem#community-supported).
 
 In your eZ Platform system settings, e.g. `app/config/ezplatform.yml`, enable the binary data handler:
 
@@ -77,7 +76,7 @@ ezpublish:
         default:
             io:
                 binarydata_handler: aws_s3
-                # Also remember to use DFS for metadata_handler to avoid expesive lookups to S3 (See Clustering guide)
+                # Also remember to use DFS for metadata_handler to avoid expensive lookups to S3 (see Clustering guide)
                 # metadata_handler: dfs
 ```
 
