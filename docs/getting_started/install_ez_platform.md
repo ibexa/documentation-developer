@@ -70,7 +70,8 @@ You can also clone the [GitHub repository](https://github.com/ezsystems/ezplatfo
 git clone https://github.com/ezsystems/ezplatform .
 ```
 
-For project use you need to check out a tag, e.g. `git checkout v1.7.8`. Usage of branches such as `master` or `1.13` is only useful when contributing.
+Check out a tag (e.g. `git checkout v1.13.4`) for use in a project.
+Use branches (e.g. `master` or `1.13`) only when contributing.
 
 ##### Install dependencies with Composer
 
@@ -92,8 +93,9 @@ composer create-project --no-dev --keep-vcs ezsystems/ezplatform .
 
 !!! tip
 
-    [Different version constraints can be set](https://getcomposer.org/doc/articles/versions.md): specific (`v1.7.8`), range (`~1.13.0`), stability (`^2.3@rc`), ...
-    For example if we want to get latest stable 1.13LTS release, with minimum being v1.13.3:
+    You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md):
+    specific tag, (`v1.7.8`), version range (`~1.13.0`), stability (`^2.3@rc`), etc.
+    For example if you want to get the latest stable 1.13 LTS release, with a minimum of v1.13.3, use:
 
     ``` bash
     composer create-project --no-dev --keep-vcs ezsystems/ezplatform . ~1.13.3
