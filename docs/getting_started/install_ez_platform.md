@@ -94,7 +94,7 @@ composer create-project --no-dev --keep-vcs ezsystems/ezplatform .
 !!! tip
 
     You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md):
-    specific tag, (`v1.7.8`), version range (`~1.13.0`), stability (`^2.3@rc`), etc.
+    specific tag (`v1.7.8`), version range (`~1.13.0`), stability (`^2.3@rc`), etc.
     For example if you want to get the latest stable 1.13 LTS release, with a minimum of v1.13.3, use:
 
     ``` bash
