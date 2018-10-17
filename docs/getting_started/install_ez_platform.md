@@ -70,7 +70,7 @@ You can also clone the [GitHub repository](https://github.com/ezsystems/ezplatfo
 git clone https://github.com/ezsystems/ezplatform .
 ```
 
-For project use you need to check out a tag, e.g. `git checkout v1.7.8`. Usage of branches such as `master` or `1.13` is only usefull when contributing.
+For project use you need to check out a tag, e.g. `git checkout v1.7.8`. Usage of branches such as `master` or `1.13` is only useful when contributing.
 
 ##### Install dependencies with Composer
 
