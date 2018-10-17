@@ -93,7 +93,7 @@ composer create-project --no-dev --keep-vcs ezsystems/ezplatform .
 !!! tip
 
     [Different version contriants can be set](https://getcomposer.org/doc/articles/versions.md): specific (`v1.7.8`), range (`~1.13.0`), stability (`^2.3@rc`), ...
-    For example if we want to get latest stable 1.13LTS release, with minumum being v1.13.3:
+    For example if we want to get latest stable 1.13LTS release, with minimum being v1.13.3:
 
     ``` bash
     composer create-project --no-dev --keep-vcs ezsystems/ezplatform . ~1.13.3
