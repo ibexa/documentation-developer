@@ -87,7 +87,7 @@ composer install
 You can also use Composer to instantly create a project in the current folder with all the dependencies:
 
 ``` bash
-composer create-project --no-dev --keep-vcs ezsystems/ezplatform .
+composer create-project --keep-vcs ezsystems/ezplatform .
 ```
 
 !!! tip
@@ -95,7 +95,7 @@ composer create-project --no-dev --keep-vcs ezsystems/ezplatform .
     You can also select a specific version to install, for example:
 
     ``` bash
-    composer create-project --no-dev --keep-vcs ezsystems/ezplatform . v2.2.2
+    composer create-project --keep-vcs ezsystems/ezplatform . v2.2.2
     ```
 
 ## Provide installation parameters
