@@ -64,6 +64,14 @@ ez_io:
                 adapter: aws_s3_adapter
 ```
 
+!!! note
+
+    `aws_s3` is an arbitrary handler identifier that is used in the config block below.
+    You can configure multiple handlers.
+
+    For example, you could configure one called `gcloud_storage` for a third-party (community-supported)
+    [Google Cloud Storage adapter](https://github.com/thephpleague/flysystem#community-supported).
+
 In your eZ Platform system settings, e.g. `app/config/ezplatform.yml`, enable the binary data handler:
 
 ``` yaml
@@ -72,6 +80,8 @@ ezpublish:
         default:
             io:
                 binarydata_handler: aws_s3
+                # Also remember to use DFS for metadata_handler to avoid expensive lookups to S3 (see Clustering guide)
+                # metadata_handler: dfs
 ```
 
 Clear all caches and reload, and that's it.
