@@ -12,7 +12,7 @@ The REST API is available at the URI `/api/ezp/v2` . HTTPS is available as long 
 
 ## Basics
 
-REST (REpresentational State Transfer) is a web services architecture that follows the HTTP Protocol very closely. The eZ Platform REST API supports both [JSON](http://www.json.org/) and [XML](http://www.w3.org/XML/) in terms of request format.
+REST (REpresentational State Transfer) is a web services architecture that follows the HTTP Protocol very closely. The eZ Platform REST API supports both [JSON](http://www.json.org/) and [XML](http://www.w3.org/XML/) in terms of response format.
 
 ### Resources
 
