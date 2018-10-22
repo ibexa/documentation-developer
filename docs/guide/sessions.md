@@ -71,9 +71,7 @@ For a single server, the default handler is preferred.
 
 #### Cluster setup
 
-For a [cluster](clustering.md) setup you need to configure sessions to use a back end that is shared between web servers and supports locking.
-The only options out of the box supporting this in Symfony are the native PHP Memcached session save handler
-provided by the `php-memcached` extension, and Symfony session handler for PDO (database).
+See [shared sessions in the clustering guide](clustering.md#shared-sessions).
 
 ##### Storing sessions in Memcached using `php-memcached`
 

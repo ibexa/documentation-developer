@@ -15,12 +15,46 @@ is up to you and your performance needs.
 
 The minimal requirements are:
 
-- Shared HTTP cache (using Varnish)
-- Shared persistence cache and sessions (using Memcached or Redis)
+- [Shared HTTP cache (using Varnish)](http_cache.md#using-varnish)
+- [Shared persistence cache](#shared-persistence-cache) and [sessions](#shared-sessions) (using Memcached or Redis)
 - Shared database (using MySQL/MariaDB)
-- Shared filesystem (using NFS, or S3)
+- [Shared binary files](#shared-binary-files) (using NFS, or S3)
 
 For further details on requirements, see [Requirements page](../getting_started/requirements.md).
+
+It is also recommended to use:
+
+- [Solr](solr.md) for better search and performance
+- a CDN for improved performance and faster ping time worldwide
+- active/passive database for failover
+- more recent versions of PHP and MySQL/MariaDB within [what is supported](../getting_started/requirements.md) for your eZ Platform version to get more performance out of each server. Numbers might vary so make sure to test this when upgrading.
+
+### Shared persistence cache
+
+[Memcached, a distributed caching solution](http://memcached.org/) is the main supported cache solution for clustering.
+
+See [Memcached Cache Adapter in Symfony documentation](https://symfony.com/doc/3.4/components/cache/adapters/memcached_adapter.html#configure-the-connection)
+for information on how to configure Memcached.
+
+!!! note
+
+    To use Memcached, you need to set `cache_service_name` to `cache.memcached`.
+
+Example:
+
+``` yaml
+services:
+    cache.memcached:
+        parent: cache.adapter.memcached
+        tags:
+            - name: cache.pool
+              clearer: cache.app_clearer
+              provider: 'memcached://user:pass@localhost?weight=33'
+```
+
+!!! caution "Connection errors issue"
+
+    If Memcached does display connection errors when using the default (ascii) protocol, then switching to binary protocol *(in the configuration and Memcached daemon)* should resolve the issue.
 
 !!! note
 
@@ -35,12 +69,16 @@ For further details on requirements, see [Requirements page](../getting_started/
 
     > Listen on &lt;addr&gt;; default to INADDR\_ANY. &lt;addr&gt; may be specified as host:port. If you don't specify a port number, the value you specified with -p or -U is used. You may specify multiple addresses separated by comma or by using -l multiple times. This is an important option to consider as there is no other way to secure the installation. Binding to an internal or firewalled network interface is suggested.
 
-It is also recommended to use:
+### Shared sessions
 
-- [Solr](solr.md) for better search and performance
-- a CDN for improved performance and faster ping time worldwide
-- active/passive database for failover
-- more recent versions of PHP and MySQL/MariaDB within [what is supported](../getting_started/requirements.md) for your eZ Platform version to get more performance out of each server. Numbers might vary so make sure to test this when upgrading.
+For a [cluster](clustering.md) setup you need to configure sessions to use a back end that is shared between web servers and supports locking.
+The only options out of the box supporting this in Symfony are the native PHP Memcached session save handler
+provided by the `php-memcached` extension, and Symfony session handler for PDO (database).
+
+### Shared binary files
+
+eZ Platform supports multi-server setups by means of [custom IO handlers](file_management#the-dfs-cluster-handler).
+They make sure that files are correctly synchronized among the multiple clients that might use the data.
 
 ## DFS IO handler
 
@@ -197,8 +235,3 @@ Since this command can run for a very long time, to avoid memory exhaustion run 
 ## Clustering using Amazon AWS S3
 
 See [Setting up Amazon AWS S3 clustering](../cookbook/setting_up_amazon_aws_s3_clustering.md).
-
-## Binary files clustering
-
-eZ Platform supports multi-server setups by means of [custom IO handlers](file_management#the-dfs-cluster-handler).
-They make sure that files are correctly synchronized among the multiple clients that might use the data.

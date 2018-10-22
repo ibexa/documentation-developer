@@ -112,30 +112,9 @@ It is possible to set up and use Redis as a cluster. This configuration is more 
 
 ### Memcached
 
-This cache backend is using [Memcached, a distributed caching solution](http://memcached.org/). This is the main supported cache solution for [multi server (cluster) setups](clustering.md), besides using Redis.
+Memcached, a distributed caching solution, is the main supported cache solution for multi-server (cluster) setups, besides using Redis.
 
-See [Memcached Cache Adapter in Symfony documentation](https://symfony.com/doc/3.4/components/cache/adapters/memcached_adapter.html#configure-the-connection)
-for information on how to configure Memcached.
-
-!!! note
-
-    To use this, you need to set `cache_service_name` to `cache.memcached`.
-
-Example:
-
-``` yaml
-services:
-    cache.memcached:
-        parent: cache.adapter.memcached
-        tags:
-            - name: cache.pool
-              clearer: cache.app_clearer
-              provider: 'memcached://user:pass@localhost?weight=33'
-```
-
-!!! caution "Connection errors issue"
-
-    If Memcached does display connection errors when using the default (ascii) protocol, then switching to binary protocol *(in the configuration and Memcached daemon)* should resolve the issue.
+A [custom configuration of persistence cache](clustering.md#shared-persistence-cache) is required for multi-server setups.
 
 ## Using Cache Service
 
