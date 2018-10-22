@@ -4,6 +4,11 @@
 
 <div class="card-group">
     <div class="card text-center">
+        <div class="card-header"><a href="../releases/ez_platform_v2.3/" class="card-link">The latest release is v2.3</a></div>
+    </div>
+</div>
+<div class="card-group">
+    <div class="card text-center">
         <div class="card-body"><a href="../tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform/"><img class="card-img-top" src="img/tutorials.png" alt=""></a></div>
         <div class="card-footer bg-transparent">
             <p class="card-text"><a href="../tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform/" class="card-link">Tutorials</a></p>
@@ -46,10 +51,9 @@
 
 <div class="card-group">
 <div class="card">
-  <div class="card-header">The latest release is v2.3</div>
+  <div class="card-header">Latest release (v2.3) major features:</div>
   <div class="card">
       <div class="card-body">
-          <p>Major features:</p>
           <ul>
             <li>Form Builder</li>
             <li>Content scheduling</li>
