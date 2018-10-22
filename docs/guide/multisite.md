@@ -68,18 +68,7 @@ ezpublish:
 
 This is your content structure:
 
-```
-├── Content
-│   ├── General
-│   │   └── Articles
-│   │       └── Article1
-│   └── Event
-│       └── Articles
-│           └── Article2
-└── Media
-    └── Images
-        └── Logos
-```
+![Content structure](img/config_content_structure.png "Content structure")
 
 You can now set the root level for `event` to only access the "Event" Location and its sub-items:
 

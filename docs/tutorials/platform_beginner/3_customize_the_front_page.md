@@ -171,7 +171,7 @@ For now the site has no stylesheets or assets. In the highlighted lines (12-14, 
 
 [Download assets.zip](img/assets.zip) which contains the prepared asset files. Then unpack its contents to the `web/assets/` directory, so that the structure looks like this:
 
-![File structure](img/bike_tutorial_listing_web_dir.png)
+![File structure](img/bike_tutorial_listing_web.png)
 
 ### Extending templates
 
