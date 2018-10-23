@@ -2,26 +2,38 @@
 
 &nbsp;
 
-<div class="card-group">
-    <div class="card text-center">
-        <div class="card-header"><a href="../releases/ez_platform_v2.3/" class="card-link">The latest release is v2.3</a></div>
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title text-center"><a href="../releases/ez_platform_v2.3/" class="card-link"><strong>The latest release is v2.3</strong></a></h4>
     </div>
 </div>
+
 <div class="card-group">
     <div class="card text-center">
-        <div class="card-body"><a href="../tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform/"><img class="card-img-top" src="img/tutorials.png" alt=""></a></div>
+        <div class="card-body"><a href="../tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform/">
+        <svg class="ez-icon front-page-icon">
+            <use xlink:href="guidelines/ez-icons.svg#author"></use>
+        </svg>
+        </a></div>
         <div class="card-footer bg-transparent">
             <p class="card-text"><a href="../tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform/" class="card-link">Tutorials</a></p>
         </div>
     </div>
     <div class="card text-center">
-        <div class="card-body"><a href="../getting_started/get_started_with_ez_platform"><img class="card-img-top" src="img/get_started.png" alt=""></a></div>
+        <div class="card-body"><a href="../getting_started/quickstart">
+        <svg class="ez-icon front-page-icon">
+            <use xlink:href="guidelines/ez-icons.svg#publish"></use>
+        </svg></a></div>
         <div class="card-footer bg-transparent">
-            <p class="card-text"><a href="../getting_started/get_started_with_ez_platform" class="card-link">Get started</a></p>
+            <p class="card-text"><a href="../getting_started/quickstart" class="card-link">Quickstart</a></p>
         </div>
     </div>
     <div class="card text-center">
-        <div class="card-body"><a href="../guide/architecture/"><img class="card-img-top" src="img/guide.png" alt=""></a></div>
+        <div class="card-body"><a href="../guide/architecture/">
+        <svg class="ez-icon front-page-icon">
+            <use xlink:href="guidelines/ez-icons.svg#object-state"></use>
+        </svg>
+        </a></div>
         <div class="card-footer bg-transparent">
             <p class="card-text"><a href="../guide/architecture/" class="card-link">Guide to eZ Platform</a></p>
         </div>
