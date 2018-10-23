@@ -1,5 +1,9 @@
 # Step 5 - Implement the Legacy Storage Engine Converter
 
+!!! tip
+
+    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/TweetFieldTypeBundle/tree/step5_implement_the_legacy_storage_engine_converter_v2).
+
 So far, the Field Type's value is represented by the `Tweet\Value` class.
 It holds a semantic representation of the type's data: a URL, an author URL and the tweet's content.
 

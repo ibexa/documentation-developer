@@ -1,5 +1,9 @@
 # Step 7 - Allow adding and editing the Field in Back Office
 
+!!! tip
+
+    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/TweetFieldTypeBundle/tree/step7_allow_adding_and_editing_v2).
+
 To be able to add and edit a Content item with the new Field Type using Back Office,
 you will implement a `FormMapper` with `FieldValueFormMapperInterface`.
 A `DataTransformer` is also needed in order to correctly transform the value object into a single input field.
