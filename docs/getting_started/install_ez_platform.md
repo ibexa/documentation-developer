@@ -47,6 +47,10 @@ There are two ways to get eZ Platform. The result is the same, so you can use th
 - [Download or clone](#a-download-ez-platform)
 - [Create a project with Composer](#b-create-project-with-composer)
 
+!!! enterprise "Authentication tokens for eZ Enterprise"
+
+    When installing eZ Enterprise, you need to [set up authentication tokens](install_ez_enterprise.md#setting-up-authentication-tokens-for-ez-enterprise) for use with Composer.
+
 ### A. Download eZ Platform
 
 You can download eZ Platform from two sources:
@@ -58,10 +62,6 @@ You can download eZ Platform from two sources:
 
 Extract the archive into the location where you want your project root directory to be.
 
-!!! enterprise "Authentication tokens for eZ Enterprise"
-
-    When installing eZ Enterprise, you need to [set up authentication tokens](install_ez_enterprise.md#setting-up-authentication-tokens-for-ez-enterprise).
-
 2\. Clone GitHub repository
 
 You can also clone the [GitHub repository](https://github.com/ezsystems/ezplatform).
@@ -70,7 +70,8 @@ You can also clone the [GitHub repository](https://github.com/ezsystems/ezplatfo
 git clone https://github.com/ezsystems/ezplatform .
 ```
 
-You can check out a tag, or use the `master` branch if you are interested in working with the latest version.
+Check out a tag (e.g. `git checkout v1.13.4`) for use in a project.
+Use branches (e.g. `master` or `1.13`) only when contributing.
 
 ##### Install dependencies with Composer
 
@@ -92,10 +93,12 @@ composer create-project --no-dev --keep-vcs ezsystems/ezplatform .
 
 !!! tip
 
-    You can also select a specific version to install, for example:
+    You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md):
+    specific tag (`v1.7.8`), version range (`~1.13.0`), stability (`^2.3@rc`), etc.
+    For example if you want to get the latest stable 1.13 LTS release, with a minimum of v1.13.3, use:
 
     ``` bash
-    composer create-project --no-dev --keep-vcs ezsystems/ezplatform . v2.2.2
+    composer create-project --no-dev --keep-vcs ezsystems/ezplatform . ~1.13.3
     ```
 
 ## Provide installation parameters
