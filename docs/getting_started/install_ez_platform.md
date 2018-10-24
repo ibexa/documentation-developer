@@ -88,17 +88,17 @@ composer install
 You can also use Composer to instantly create a project in the current folder with all the dependencies:
 
 ``` bash
-composer create-project --no-dev --keep-vcs ezsystems/ezplatform .
+composer create-project --keep-vcs ezsystems/ezplatform .
 ```
 
 !!! tip
 
     You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md):
-    specific tag (`v1.7.8`), version range (`~1.13.0`), stability (`^2.3@rc`), etc.
-    For example if you want to get the latest stable 1.13 LTS release, with a minimum of v1.13.3, use:
+    specific tag (`v2.2.0`), version range (`~1.13.0`), stability (`^2.3@rc`), etc.
+    For example if you want to get the latest stable 2.x release, with a minimum of v2.3.1, use:
 
     ``` bash
-    composer create-project --no-dev --keep-vcs ezsystems/ezplatform . ~1.13.3
+    composer create-project --keep-vcs ezsystems/ezplatform . ^2.3.1
     ```
 
 ## Provide installation parameters
