@@ -1,5 +1,9 @@
 # Step 7 - Add content and edit views
 
+!!! tip
+
+    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/TweetFieldTypeBundle/tree/step7_add_content_and_edit_views).
+
 To able to add and edit a Content item with the new Field Type using PlatformUI, you need to create an edit view.
 The content view will also be needed to display correct information when viewing the Content item in the Content structure tab in PlatformUI.
 
