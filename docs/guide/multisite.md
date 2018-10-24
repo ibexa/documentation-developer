@@ -144,16 +144,7 @@ You can, however, have different designs in your multisite installation if you o
 Looking back at the [previous example](#configuration-example), you can apply different designs to the two sites, but use some common templates.
 To do this, organize your templates in the following folder structure:
 
-```
-views
-├── pagelayout.html.twig
-│   └── full
-│       └── article.html.twig
-│   └── event
-│       ├── pagelayout.html.twig
-│       └── full
-│           └── article.html.twig
-```
+![Organising templates](img/organising_templates.png "Organising templates")
 
 Now you can use this view configuration (stored e.g. in a `views.yml` file):
 
