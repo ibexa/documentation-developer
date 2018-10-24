@@ -36,10 +36,6 @@ It is also recommended to use:
 See [Memcached Cache Adapter in Symfony documentation](https://symfony.com/doc/3.4/components/cache/adapters/memcached_adapter.html#configure-the-connection)
 for information on how to configure Memcached.
 
-!!! note
-
-    To use Memcached, you need to set `cache_service_name` to `cache.memcached`.
-
 Example:
 
 ``` yaml
@@ -51,6 +47,8 @@ services:
               clearer: cache.app_clearer
               provider: 'memcached://user:pass@localhost?weight=33'
 ```
+
+To use Memcached, you need to set `cache_service_name` to `cache.memcached`.
 
 !!! caution "Connection errors issue"
 
@@ -72,13 +70,13 @@ services:
 ### Shared sessions
 
 For a [cluster](clustering.md) setup you need to configure sessions to use a back end that is shared between web servers and supports locking.
-The only options out of the box supporting this in Symfony are the native PHP Memcached session save handler
+The only out-of-the-box options supporting this in Symfony are the native PHP Memcached session save handler
 provided by the `php-memcached` extension, and Symfony session handler for PDO (database).
 
 ### Shared binary files
 
 eZ Platform supports multi-server setups by means of [custom IO handlers](file_management#the-dfs-cluster-handler).
-They make sure that files are correctly synchronized among the multiple clients that might use the data.
+They make sure that files are correctly synchronized among the multiple clients using the data.
 
 ## DFS IO handler
 
