@@ -1,5 +1,9 @@
 # Step 6 - Introduce a template
 
+!!! tip
+
+    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/TweetFieldTypeBundle/tree/step6_introduce_a_template_v2).
+
 In order to display data of the Field Type from templates, you need to create and register a template for it.
 
 !!! tip
