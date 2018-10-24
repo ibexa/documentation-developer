@@ -7,6 +7,10 @@
     To create a Page block, use the following YAML configuration in an application or a bundle,
     under the `ezplatform_page_fieldtype` key.
 
+    !!! caution
+
+        Page block configuration is not SiteAccess-aware.
+
     ``` yaml
     ezplatform_page_fieldtype:
         blocks:
