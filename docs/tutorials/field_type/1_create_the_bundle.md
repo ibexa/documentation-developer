@@ -1,5 +1,9 @@
 # Step 1 - Create the bundle
 
+!!! tip
+
+    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/TweetFieldTypeBundle/tree/step1_create_the_bundle).
+
 FieldTypes, like any other eZ Platform extensions, must be provided as Symfony bundles. This chapter covers the creation and organization of this bundle.
 
 Once you have [installed eZ Platform](../../getting_started/install_ez_platform/), including the creation of a database for the tutorial, [configured a server](../../getting_started/requirements/), and [started the web server](../../getting_started/install_ez_platform/#use-phps-built-in-server), you need to create a code base for the tutorial.

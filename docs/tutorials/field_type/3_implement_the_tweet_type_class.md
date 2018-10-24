@@ -1,5 +1,9 @@
 # Step 3 - Implement the Tweet\Type class
 
+!!! tip
+
+    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/TweetFieldTypeBundle/tree/step3_implement_the_tweet_type_class).
+
 ### The Type class
 
 The Type contains the logic of the Field Type: validating data, transforming from various formats, describing the validators, etc.

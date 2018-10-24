@@ -1,5 +1,9 @@
 # Step 2 - Implement the Tweet\Value class
 
+!!! tip
+
+    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/TweetFieldTypeBundle/tree/step2_implement_the_tweet_value_class).
+
 ### The Value class
 
 The Value is used to represent an instance of the Field Type within a Content item. Each Field will present its data using an instance of the Type's Value class.
