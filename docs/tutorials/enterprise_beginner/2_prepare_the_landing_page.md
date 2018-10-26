@@ -1,13 +1,4 @@
-# Step 2 - Prepare the Landing Page
-
-!!! caution
-
-    This tutorial does not work in eZ Platform v2.2.
-
-    If you want to go through the tutorial, use v2.1 or an earlier version.
-    It will be updated for an upcoming v2.3 version.
-
-    In the meantime, you can learn how to use Page Builder, check out [Extending Page](../../guide/extending_page.md).
+# Step 2 - Prepare the Page
 
 !!! tip
 
@@ -15,7 +6,7 @@
 
 In this step you'll prepare and configure your front page, together with its layout and templates.
 
-## Create Landing Page layout
+## Create Page layout
 
 Go to the front page of your website (`<yourdomain>`). You can see that it looks unfinished. (You can, however, still use the menu and look around the existing content in the website).
 
@@ -36,18 +27,12 @@ Here you can check what Content Type it belongs to: it is a Landing Page.
 ![Home Content item is a Landing Page](img/enterprise_tut_home_is_an_lp.png)
 
 The page contains one Tag block and is displayed without any template.
-Now go to the Page tab. This is the mode that enables you to work with Landing Pages. Click Edit and you will see that the Home Landing Page has only one zone with the block.
+Now go to the Page tab. This is the mode that enables you to work with Pages. Click Edit and you will see that the Home Page has only one zone with the block.
 
-![Empty Landing Page with default layout](img/enterprise_tut_empty_single_block.png)
+![Empty Page with default layout](img/enterprise_tut_empty_single_block.png)
 
 The design for the website you are making needs a layout with two zones: a main column and a narrower sidebar.
 eZ Enterprise provides only a one-zone default layout, so you need to create a new one.
-
-!!! note
-
-    It is not possible to change the layout of a Landing Page once it has been published.
-    This means that after preparing the new layout you will have to create a completely new Landing Page,
-    replace the current Home with it and delete the old one.
 
 Preparing a new layout requires three things:
 
@@ -60,7 +45,7 @@ Preparing a new layout requires three things:
 First create a new file for layout configuration, `app/config/layouts.yml`:
 
 ``` yaml hl_lines="3 5 7 8"
-ez_systems_landing_page_field_type:
+ezplatform_page_fieldtype:
     layouts:
         sidebar:
             identifier: 'sidebar'
@@ -94,42 +79,51 @@ Use the [supplied thumbnail file](https://github.com/ezsystems/ezstudio-beginner
 
 The `template` (line 8) points to the Twig file containing the template for this layout.
 
-#### Create Landing Page template
+#### Create Page template
 
 Configuration points to `sidebar.html.twig` as the template for the layout.
 The template defines what zones will be available in the layout.
 
 Create an `app/Resources/views/layouts/sidebar.html.twig` file:
 
-``` html hl_lines="1 2 15"
-<div data-studio-zones-container>
-    <main class="landing-page__zone landing-page__zone--{{ zones[0].id }} landing-page__zone--left col-xs-8" data-studio-zone="{{ zones[0].id }}">
+``` html hl_lines="2 7 15 20"
+<div class="landing-page__zones">
+    <main class="landing-page__zone landing-page__zone--{{ zones[0].id }} col-xs-8" data-ez-zone-id="{{ zones[0].id }}">
         {% if zones[0].blocks %}
+            {% set locationId = parameters.location is not null ? parameters.location.id : contentInfo.mainLocationId %}
+
             {% for block in zones[0].blocks %}
-                <div class="landing-page__block block_{{ block.type }}">
-                    {{ render_esi(controller('ez_block:renderBlockAction', {
+                <div class="landing-page__block block_{{ block.type }}" data-ez-block-id="{{ block.id }}">
+                    {{ render_esi(controller('EzPlatformPageFieldTypeBundle:Block:render', {
+                        'locationId': locationId,
                         'contentId': contentInfo.id,
                         'blockId': block.id,
-                        'versionNo': versionInfo.versionNo
+                        'versionNo': versionInfo.versionNo,
+                        'languageCode': field.languageCode
                     })) }}
                 </div>
             {% endfor %}
         {% endif %}
     </main>
-    <aside class="landing-page__zone landing-page__zone--{{ zones[1].id }} landing-page__zone--left col-xs-4" data-studio-zone="{{ zones[1].id }}">
+    <aside class="landing-page__zone landing-page__zone--{{ zones[1].id }} col-xs-4" data-ez-zone-id="{{ zones[1].id }}">
         {% if zones[1].blocks %}
+            {% set locationId = parameters.location is not null ? parameters.location.id : contentInfo.mainLocationId %}
+
             {% for block in zones[1].blocks %}
-                <div class="landing-page__block block_{{ block.type }}">
-                    {{ render_esi(controller('ez_block:renderBlockAction', {
+                <div class="landing-page__block block_{{ block.type }}" data-ez-block-id="{{ block.id }}">
+                    {{ render_esi(controller('EzPlatformPageFieldTypeBundle:Block:render', {
+                        'locationId': locationId,
                         'contentId': contentInfo.id,
                         'blockId': block.id,
-                        'versionNo': versionInfo.versionNo
+                        'versionNo': versionInfo.versionNo,
+                        'languageCode': field.languageCode
                     })) }}
                 </div>
             {% endfor %}
         {% endif %}
     </aside>
 </div>
+
 ```
 
 The above template creates two columns and defines their widths. Each column is at the same time a zone, and each zone renders the blocks that it contains.
@@ -141,29 +135,32 @@ The above template creates two columns and defines their widths. Each column is 
 
 !!! note
 
-    A zone in a layout template **must have** the `data-studio-zone` attribute (lines 2 and 15).
-    The zone container **must have** the `data-studio-zones-container` attribute (line 1) to allow dropping Content into zones.
+    A zone in a layout template **must have** the `data-ez-zone-id` attribute (lines 2 and 19).
+    A block **must have** the `data-ez-block-id` attribute (lines 7 and 20)
 
 With these three elements: configuration, thumbnail and template, the new layout is ready to use.
 
-![Empty page with new layout](img/enterprise_tut_new_layout.png)
+### Change Home Page layout
 
-### Create a Landing Page
-
-Now you can create a Landing Page with the new layout. When in Page mode, activate **Create** and select a Landing Page.
-Choose the new layout called "Right Sidebar" and name the new page "Front Page".
+Now you can change the Home Page to use the new layout. In Page mode edit Home, open the options menu and select **Switch layout**.
+Choose the new layout called "Main section with sidebar on the right".
 The empty zones you defined in the template will be visible in the editor.
 
 ![Select layout window](img/enterprise_tut_select_layout.png)
 
 !!! tip
 
-    If the new layout is not available when creating a new Landing Page, you may need to clear the cache (using `php app/console cache:clear`) and/or reload the app.
+    If the new layout is not available when editing the Page, you may need to clear the cache (using `php app/console cache:clear`) and/or reload the app.
 
-Publish the new Landing Page. You will notice that it still looks the same as the old Home.
-This is because the looks of a Landing Page are controller by two separate template files, and you have only prepared one of those.
+![Empty page with new layout](img/enterprise_tut_new_layout.png)
+
+You can also remove the block with "eZ Studio".
+Hover over it and select the trash icon from the menu.
+
+Publish the Home Page. You will notice that it still has some additional text information.
+This is because the looks of a Page are controller by two separate template files, and you have only prepared one of those.
 The `sidebar.html.twig` file defines how zones are organized and how content is displayed in them.
-But you also need a general template file that will be used for every Landing Page, regardless of its layout.
+But you also need a general template file that will be used for every Page, regardless of its layout.
 
 Add this new template, `app/Resources/views/full/landing_page.html.twig`:
 
@@ -177,9 +174,9 @@ Add this new template, `app/Resources/views/full/landing_page.html.twig`:
 {% endblock %}
 ```
 
-This template simply renders the page content. If there is any additional content or formatting you would like to apply to every Landing Page, it should be placed in this template.
+This template simply renders the page content. If there is any additional content or formatting you would like to apply to every Page, it should be placed in this template.
 
-Now you need to tell the app to use this template to render Landing Pages.
+Now you need to tell the app to use this template to render Pages.
 Edit the `app/config/views.yml` file and add the following code under the `full:` key:
 
 ``` yaml
@@ -189,21 +186,7 @@ landing_page:
         Identifier\ContentType: 'landing_page'
 ```
 
-After adding this template you can check the new Landing Page.
+After adding this template you can check the new Page.
 The part between menu and footer should be empty, because you have not added any content to it yet.
 
-![Empty Landing Page](img/enterprise_tut_empty_page.png)
-
-Until the Front Page is swapped with the current Home, you can access the new page by adding `/Front-Page` to the address: `<yourdomain>/Front-Page`.
-
-### Replacing the front page
-
-Now let's replace the current Home with the new Front Page.
-
-To swap these two Content items, go to Home in the Back Office (if you are in Page mode, switch by clicking Content at the top).
-Open the Locations tab, click "Select Content Item" under "Content Location Swap" and select the newly created Front Page.
-The two pages will swap, with the new Landing Page becoming the first item in the Content tree.
-It will now be the first page that visitors will see. In the next step you will fill it up with content.
-
-You can now delete the previous Home page, as you don't need it anymore.
-Navigate to it in the Content mode and click Send to Trash in the menu on the right.
+![Empty Page](img/enterprise_tut_empty_page.png)
