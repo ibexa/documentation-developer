@@ -44,7 +44,7 @@ In `app/config/layouts.yml` add the following code at the end of the file, under
 blocks:
     contentlist:
         views:
-            contentlist:
+            default:
                 template: 'blocks/contentlist/default.html.twig'
                 name: 'Content List'
 ```
@@ -116,7 +116,7 @@ First, add a configuration that points to the layout. Go to `app/config/layouts.
 ``` yaml
 schedule:
     views:
-        schedule_featured:
+        featured:
             template: 'blocks/schedule/featured.html.twig'
             name: 'Featured Schedule Block'
 ```
