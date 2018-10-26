@@ -61,12 +61,7 @@ You will use a structure quite close to this:
 
 From the tutorial git repository, list the contents of the `eZ/Publish/FieldType` folder:
 
-     eZ
-     └── Publish
-        └── FieldType
-            └── Tweet
-                ├── Type.php
-                └── Value.php
+![List of contents](img/list_of_contents.png "List of contents")
 
 Now prepare the files for two classes you will need for the Field Type:
 
