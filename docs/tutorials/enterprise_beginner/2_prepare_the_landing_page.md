@@ -88,7 +88,7 @@ Create an `app/Resources/views/layouts/sidebar.html.twig` file:
 
 ``` html hl_lines="2 7 15 20"
 <div class="landing-page__zones">
-    <main class="landing-page__zone landing-page__zone--{{ zones[0].id }} landing-page__zone--left col-xs-8" data-ez-zone-id="{{ zones[0].id }}">
+    <main class="landing-page__zone landing-page__zone--{{ zones[0].id }} col-xs-8" data-ez-zone-id="{{ zones[0].id }}">
         {% if zones[0].blocks %}
             {% set locationId = parameters.location is not null ? parameters.location.id : contentInfo.mainLocationId %}
 
@@ -105,7 +105,7 @@ Create an `app/Resources/views/layouts/sidebar.html.twig` file:
             {% endfor %}
         {% endif %}
     </main>
-    <aside class="landing-page__zone landing-page__zone--{{ zones[1].id }} landing-page__zone--left col-xs-4" data-ez-zone-id="{{ zones[1].id }}">
+    <aside class="landing-page__zone landing-page__zone--{{ zones[1].id }} col-xs-4" data-ez-zone-id="{{ zones[1].id }}">
         {% if zones[1].blocks %}
             {% set locationId = parameters.location is not null ? parameters.location.id : contentInfo.mainLocationId %}
 
