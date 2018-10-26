@@ -1,6 +1,6 @@
 # Architecture
 
-![](img/ez5_architecture.png)
+![Architecture](img/ez5_architecture.png "Architecture")
 
 The architecture of eZ Platform is layered and uses clearly defined APIs between the layers.
 
