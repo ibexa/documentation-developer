@@ -284,8 +284,7 @@ An internal workflow is then triggered (3) so that the generated files are downl
 
 Please be patient, as this can take up to a couple of minutes.
 
-![](img/recommendation_fullcontentexport.png)
-
+![Recommendation Full Content Export](img/full_content_export.png)
 
 !!! caution "Changing Content Types for recommendations"
 
@@ -392,9 +391,9 @@ Example response:
 
 Every time an editor creates, updates or deletes content in the backoffice (1), a notification is sent to https://admin.yoochoose.net informing that a content change has occured (2). The yoochoose service will also notify other components of the recommendation engine (3) and it will eventually fetch the affected content (4) and update it internally (5).
 
-![](img/recommendation_incrementalcontentexport.png)
+![Recommendation Incremental Content Export](img/incremental_content_export.png)
 
-This mechanism allows the content in the personalization engine to be always in sync with the content on ez platform.
+This mechanism allows the content in the personalization engine to be always in sync with the content on eZ Platform.
 
 ## Enabling recommendations
 
