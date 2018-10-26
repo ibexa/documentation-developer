@@ -187,11 +187,11 @@ ez_search_engine_solr:
                 - endpoint6
             mapping:
                 translations:
-                    - jpn-JP: endpoint1
-                    - eng-US: endpoint2
-                    - fre-FR: endpoint3
-                    - ger-DE: endpoint4
-                    - esp-ES: endpoint5
+                    jpn-JP: endpoint1
+                    eng-US: endpoint2
+                    fre-FR: endpoint3
+                    ger-DE: endpoint4
+                    esp-ES: endpoint5
                 # Not really used, but specified here for fallback if more languages are suddenly added by content admins
                 default: endpoint0
                 # Also use separate core for main languages (differs from content object to content object)
