@@ -25,7 +25,7 @@ blocks:
         thumbnail: 'assets/images/blocks/random_block.svg'
         views:
             random:
-                template: 'blocks/random.html.twig'
+                template: 'blocks/random/default.html.twig'
                 name: 'Random Content Block View'
         attributes:
             parent:
@@ -44,7 +44,7 @@ This configuration defines one attribute, `parent`. You will use it to select th
 
 ### Block template
 
-You also need to create the block template, `app/Resources/views/blocks/random.html.twig`:
+You also need to create the block template, `app/Resources/views/blocks/random/default.html.twig`:
 
 ``` html
 <div class="row random-block">

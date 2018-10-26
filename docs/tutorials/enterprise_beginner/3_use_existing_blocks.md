@@ -8,7 +8,7 @@ In this step you'll add a Content List block and a Content Scheduler block and c
 
 ### Add a Content List block
 
-First, create an override template for the Content List block: `app/Resources/views/blocks/contentlist.html.twig`:
+First, create an override template for the Content List block: `app/Resources/views/blocks/contentlist/default.html.twig`:
 
 ``` html hl_lines="10"
 <div>
@@ -45,7 +45,7 @@ blocks:
     contentlist:
         views:
             contentlist:
-                template: 'blocks/contentlist.html.twig'
+                template: 'blocks/contentlist/default.html.twig'
                 name: 'Content List'
 ```
 
@@ -117,12 +117,12 @@ First, add a configuration that points to the layout. Go to `app/config/layouts.
 schedule:
     views:
         schedule_featured:
-            template: 'blocks/schedule_featured.html.twig'
+            template: 'blocks/schedule/featured.html.twig'
             name: 'Featured Schedule Block'
 ```
 
-The configuration defines one view for the Schedule block called `schedule_featured` and points to a `schedule_featured.html.twig` template.
-Create the new file `app/Resources/views/blocks/schedule_featured.html.twig`:
+The configuration defines one view for the Schedule block called `featured` and points to a `featured.html.twig` template.
+Create the new file `app/Resources/views/blocks/schedule/featured.html.twig`:
 
 ``` html+twig hl_lines="11"
 {% spaceless %}
