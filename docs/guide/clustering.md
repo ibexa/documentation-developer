@@ -70,6 +70,8 @@ To use Memcached, you need to set `cache_service_name` to `cache.memcached`.
 ### Shared sessions
 
 For a [cluster](clustering.md) setup you need to configure sessions to use a back end that is shared between web servers and supports locking.
+Alternatively, use a load balancer that supports session affinity ("sticky sessions") so a user is served by a single server once they get a session.
+
 The only out-of-the-box options supporting this in Symfony are the native PHP Memcached session save handler
 provided by the `php-memcached` extension, and Symfony session handler for PDO (database).
 
