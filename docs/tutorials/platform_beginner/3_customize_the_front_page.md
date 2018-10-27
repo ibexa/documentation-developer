@@ -76,7 +76,7 @@ To add a template like this to your site, create a `main_layout.html.twig` file 
 
         <title>eZ Platform Beginner Tutorial</title>
 
-        {% stylesheets 'assets/css/*' filter='cssrewrite' %}
+        {% stylesheets 'css/*' filter='cssrewrite' %}
             <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
 
@@ -92,7 +92,7 @@ To add a template like this to your site, create a `main_layout.html.twig` file 
                 <!-- Brand and toggle -->
                 <div class="navbar-header page-scroll">
                     <a class="navbar-brand" href="/">
-                        <img alt="Brand" src="{{ asset('assets/images/logo.png') }}">
+                        <img alt="Brand" src="{{ asset('images/logo.png') }}">
                     </a>
                 </div>
             </div>
@@ -104,7 +104,7 @@ To add a template like this to your site, create a `main_layout.html.twig` file 
                 <div class="row" id="banner">
                     <div class="col-xs-12">
                         <div class="banner-header-block">
-                            <img alt="Go Bike! logo" src="{{ asset('assets/images/wordmark.png') }}" style="width:100%" />
+                            <img alt="Go Bike! logo" src="{{ asset('images/wordmark.png') }}" style="width:100%" />
                             <h3 class="banner-header">{{ 'Discover new rides! Go Bike!'|trans }}</h3>
                         </div>
                     </div>
@@ -153,8 +153,8 @@ To add a template like this to your site, create a `main_layout.html.twig` file 
             </div>
         </footer>
 
-        {% javascripts 'assets/js/jquery.min.js'
-                        'assets/js/*' %}
+        {% javascripts 'js/jquery.min.js'
+                        'js/*' %}
             <script src="{{ asset_url }}"></script>
         {% endjavascripts %}
 
