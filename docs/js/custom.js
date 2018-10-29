@@ -1,3 +1,6 @@
+// tmp fix for read-the-docs embeded versions injection
+let jquery = jQuery;
+
 $(document).ready(function () {
     $(document).on("click", "[data-toggle='rst-current-version']", function() {
         $('.rst-other-versions').toggle();
@@ -47,22 +50,23 @@ $(document).ready(function () {
 
     // remove elements, leave only 'versions'
     var update = setInterval(function() {
-        if ($('.rst-other-versions .injected').length) {
+        if ($('.injected .rst-versions').length) {
             clearInterval(update);
             $('.rst-current-version span:first').html(' Change version');
-            $('.rst-other-versions .injected').html($('.rst-other-versions .injected dl:first').clone());
+            $('.rst-other-versions').html($('.injected dl:first').clone());
+            $('.injected').remove();
 
             //replace url in version switcher
-            var currentVersion = $('.rst-other-versions .injected strong dd a').attr('href'),
+            var currentVersion = $('.rst-other-versions strong dd a').attr('href'),
                 resourceUrl = document.location.href.replace(currentVersion, '');
 
-            $('.rst-other-versions .injected dd a').each( function() {
+            $('.rst-other-versions dd a').each( function() {
                 $(this).attr('href', $(this).attr('href') + resourceUrl);
             });
 
             if ($('.version-warning').length) {
                 var version = $('.version-warning .version').html(),
-                    url = $('.rst-other-versions .injected dd a').first().attr('href').replace('latest', version);
+                    url = $('.rst-other-versions dd a').first().attr('href').replace('latest', version);
 
                 $('.version-warning .version').html($('<a href ="' + url + '" class="external">' + version + '</a>'));
             }
