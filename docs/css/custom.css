@@ -339,4 +339,9 @@ a.external:after {
 }
 
 .md-content img:hover {
-  cursor: pointer;
+    cursor: pointer;
+}
+
+.injected {
+    display: none;
+}
