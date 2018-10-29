@@ -6,7 +6,7 @@ This page explains how to quickly install and set up eZ Platform for development
 
 To quickly install eZ Platform, you need a Linux machine with PHP and MySQL installed.
 
-For more details see [Full requirements](requirements_and_system_configuration.md).
+For more details see [Full requirements](requirements.md).
 
 ## Installation
 
@@ -17,9 +17,7 @@ composer create-project --keep-vcs ezsystems/ezplatform .
 composer ezplatform-install
 ```
 
-For more details see [Install using Composer](install_using_composer.md).
-
-See [Install manually](install_manually.md) to install eZ Platform on a different OS.
+For more details see [Install eZ Platform](install_ez_platform.md).
 
 ## Run eZ Platform
 

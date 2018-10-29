@@ -1,5 +1,9 @@
 # Step 4 - Register the Field Type as a service
 
+!!! tip
+
+    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/TweetFieldTypeBundle/tree/step4_register_the_field_type_as_a_service_v2).
+
 To complete the implementation, you must register the Field Type with Symfony by creating a service for it.
 
 Services are by default declared by bundles in `Resources/config/services.yml`.

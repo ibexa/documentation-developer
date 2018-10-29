@@ -85,3 +85,74 @@ ezrichtext.custom_tags.ezyoutube.attributes.video_url.label: 'Video url'
 ezrichtext.custom_tags.ezyoutube.attributes.width.label: Width
 ezrichtext.custom_tags.ezyoutube.attributes.align.label: 'Align'
 ```
+
+## Custom styles
+
+You can extend the Online Editor with custom text styles.
+The feature depends on [Alloy Editor styles](https://alloyeditor.com/docs/features/styles.html).
+The styles are available in the text toolbar when a section of text is selected.
+
+There are two kinds of custom styles: block and inline.
+Inline styles apply to the selected portion of text only, while block styles apply to the whole paragraph.
+
+### Back Office configuration
+
+The sample configuration is as follows:
+
+``` yaml
+ezpublish:
+    system:
+        admin_group:
+            fieldtypes:
+                ezrichtext:
+                    custom_styles: [highlighted_block, highlighted_word]
+
+    ezrichtext:
+        custom_styles:
+            highlighted_word:
+                template: '@ezdesign/field_type/ezrichtext/custom_style/highlighted_word.html.twig'
+                inline: true
+            highlighted_block:
+                template: '@ezdesign/field_type/ezrichtext/custom_style/highlighted_block.html.twig'
+                inline: false
+```
+
+The system expects two kinds of configuration:
+
+- a global list of custom styles, defined under the node `ezpublish.ezrichtext.custom_styles`,
+- a list of enabled custom styles for a given Admin SiteAccess or Admin SiteAccess group, located under the node `ezpublish.system.<scope>.fieldtypes.ezrichtext.custom_styles`
+
+!!! note
+
+    Defining this list for a front site SiteAccess currently has no effect.
+
+### Translations
+
+Labels that appear for each custom style in the Online Editor need to be translated using Symfony translation system.
+The translation domain is called `custom_tags`. For the code example above, you can do it in a `app/Resources/translations/custom_tags.en.yml` file:
+
+```yaml
+ezrichtext.custom_styles.highlighted_block.label: Highlighted block
+ezrichtext.custom_styles.highlighted_word.label: Highlighted word
+```
+
+### Rendering
+
+The `template` key points to the template used to render the custom style. It is recommended to use the [design engine](design_engine.md).
+
+In the example above, the template files for the front end could be:
+
+- `app/Resources/views/themes/standard/field_type/ezrichtext/custom_style/highlighted_word.html.twig`:
+
+``` html+twig
+<span class="ezstyle-{{ name }}">{% spaceless %}{{ content|raw }}{% endspaceless %}</span>
+
+```
+
+- `app/Resources/views/themes/standard/field_type/ezrichtext/custom_style/highlighted_block.html.twig`:
+
+``` html+twig
+<div class="{% if align is defined %}align-{{ align }}{% endif %} ezstyle-{{ name }}">{% spaceless %}{{ content|raw }}{% endspaceless %}</div>
+```
+
+Templates for Content View in the Back Office would be `app/Resources/views/themes/admin/field_type/ezrichtext/custom_style/highlighted_word.html.twig` and `app/Resources/views/themes/admin/field_type/ezrichtext/custom_style/highlighted_block.html.twig` respectively (assuming Admin SiteAccess uses the `admin` theme).

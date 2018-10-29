@@ -1,12 +1,5 @@
 # Step 1 - Get a starter website
 
-!!! caution
-
-    This tutorial does not work in eZ Platform v2.2.
-
-    If you want to go through the tutorial, use v2.1 or an earlier version.
-    It will be updated for an upcoming v2.3 version.
-
 !!! tip
 
     You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/ezstudio-beginner-tutorial/tree/v2-step1).
@@ -17,12 +10,8 @@ To set up the starter website, you need to follow these steps:
 
 To begin the tutorial, you need a clean installation of eZ Platform Enterprise Edition.
 
-Get it by following the [install eZ Platform](../../getting_started/install_using_composer.md) guide.
-You will need a web server, a relational database and PHP.
-
-!!! note "Installation type"
-
-    When performing the `ezplatform:install` command, choose the `studio-clean` installation type.
+Get it by following the [Install eZ Platform](../../getting_started/install_ez_platform.md)
+and [Install eZ Enterprise](../../getting_started/install_ez_enterprise.md) guides.
 
 ## Create Content Types
 
@@ -116,9 +105,11 @@ First, make three Folders under the `Content/Content structure` tab. Call them '
 
 Next, create a few Content items of proper Content Types in each of these folders:
 
-- 6 Articles (at least, to best see the effects of Schedule blocks that you will create in step 3.)
+- 4 Articles (at least, to best see the effects of the Content Scheduler block that you will create in step 3.)
 - 3 Dog Breeds
 - 3 Tips
+
+Finally, remove the "eZ Platform" folder. You will not need it for this tutorial.
 
 ### Add images
 

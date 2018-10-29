@@ -23,7 +23,9 @@ Custom Field Types have to be programmed in PHP. However, the built-in Field Ty
 | [Date](#date-field-type) | Stores date information. | Yes | Yes  |
 | [EmailAddress](#emailaddress-field-type) | Validates and stores an email address. | Yes  | Yes  |
 | [Float](#float-field-type) | Validates and stores a floating-point number. | No | Yes |
+| [Form](#form-field-type) | Stores a form. | No | Yes |
 | [Image](#image-field-type) | Validates and stores an image. | No | Yes |
+|[ImageAsset](#imageasset-field-type)|Stores images in independent content items of a generic Image content type.| No | Yes |
 | [Integer](#integer-field-type) | Validates and stores an integer value. | Yes | Yes |
 | [ISBN](#isbn-field-type) | Handles International Standard Book Number (ISBN) in 10-digit or 13-digit format.  | Yes | Yes |
 | [Keyword](#keyword-field-type) | Stores keywords. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
@@ -777,6 +779,19 @@ $floatFieldCreateStruct->validatorConfiguration = [
 
 This Field Type does not support settings.
 
+!!! enterprise
+
+    ## Form Field Type
+
+    | Name    | Internal name |
+    |---------|---------------|
+    | `Image` | `ezform`      |
+
+    The Form Field Type stores a Form consisting of one or more form fields.
+
+    See [Extending Form Builder](../guide/extending_form_builder.md) for more information
+    about working with Forms.
+
 ## Image Field Type
 
 | Name    | Internal name |
@@ -1061,6 +1076,100 @@ Within this folder, images will be named like the uploaded file, suffixed with a
 - `MyImage.png`
 - `MyImage_large.png`
 - `MyImage_rss.png`
+
+## ImageAsset Field Type
+
+ImageAsset Field Type enables storing images in independent Content items of a generic Image content type, in the media library. It makes them reusable across system.
+
+#### Input expectations
+
+Example array:
+
+|Type|Description|Example|
+|------|------|------|
+|`eZ\Publish\Core\FieldType\ImageAsset\Value`|ImageAsset Field Type value object|See below.|
+|`eZ\Publish\API\Repository\Values\Content\ContentInfo`|ContentInfo instance of the Asset Content item |n/a|
+|`string`| ID of the Asset Content item |`"150"`|
+|`integer`| ID of the Asset Content item | `150`|
+
+#### Value object
+
+###### Properties
+
+Value object of `ezimageasset` contains the following properties:
+
+| Property | Type  | Description|
+|----------|-------|------------|
+| `destinationContentId`  |  `int` | Related content ID. |
+| `alternativeText`  |  `string` |  The alternative image text (for example "Picture of an apple."). |
+
+``` php
+// Value object content example
+
+$imageAssetValue->destinationContentId = $contentInfo->id;
+$imageAssetValue->alternativeText = "Picture of an apple.";
+```
+
+###### Constructor
+
+The `ImageAsset\Value` constructor will initialize a new value object with the value provided. It expects an ID of content object representing asset and the alternative text.
+
+``` php
+// Constructor example
+
+// Instantiates a ImageAsset Value object
+$imageAssetValue  = new ImageAsset\Value($contentInfo->id, "Picture of an apple.");
+```
+
+#### Validation
+
+This Field Type validates if:
+
+- `destinationContentId` points to Content Object which has correct Content Type
+
+#### Configuration
+
+ImageAsset Field Type allows configuring the following options:
+
+|Name|Description|Default value|
+|----|-----------|-------------|
+|`content_type_identifier`|Content type used to store assets.|`image`|
+|`content_field_identifier`|Field identifier used for asset data.|`image`|
+|`name_field_identifier`|Field identifier used for asset name.|`name`|
+|`parent_location_id`|Location where the assets are created.|`51`|
+
+Example configuration:
+
+```php
+ezpublish:
+    system:
+       default:
+            fieldtypes:
+                ezimageasset:
+                    content_type_identifier: photo
+                    content_field_identifier: image
+                    name_field_identifier: title
+                    parent_location_id: 106
+```
+
+### Customizing ImageAsset Field Type rendering
+
+Internally the Image Asset Type is rendered via subrequest (similar to other relation types). Rendering customization is possible by configuring view type `asset_image`:
+
+```php
+ezpublish:
+    system:
+       default:           
+            content_view:
+                asset_image:
+                    default:
+                        template: '::custom_image_asset_template.html.twig'
+                        match: []
+```
+
+### Generating image variation from the Image Asset
+
+Thanks to the `eZ\Bundle\EzPublishCoreBundle\Imagine\ImageAsset\AliasGenerator` decorator you can work with `\eZ\Publish\SPI\Variation\VariationHandler` in the same way as with [Image Field Type](#image-field-type).
 
 ## Integer Field Type
 

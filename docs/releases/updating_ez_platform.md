@@ -232,7 +232,7 @@ Some versions require updates to the database. Look through [the list of databas
     ALTER TABLE ezuser ALTER COLUMN password_hash TYPE VARCHAR(255);
     ​```
 
-!!! note "When updating from <2.2"
+??? note "When updating from <2.2"
 
     ##### Change from UTF8 to UTF8MB4
 
@@ -326,7 +326,8 @@ Some versions require updates to the database. Look through [the list of databas
         DROP TABLE IF EXISTS `ezpage_map_blocks_zones`;
         CREATE TABLE `ezpage_map_blocks_zones` (
           `block_id` int(11) NOT NULL,
-          `zone_id` int(11) NOT NULL
+          `zone_id` int(11) NOT NULL,
+          PRIMARY KEY (`block_id`, `zone_id`)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
         DROP TABLE IF EXISTS `ezpage_map_zones_pages`;
@@ -419,6 +420,89 @@ Some versions require updates to the database. Look through [the list of databas
 
     Custom converters must implement the `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\ConverterInterface` interface.
     `convert()` will parse XML `\DOMNode $node` and return an array of `\EzSystems\EzPlatformPageFieldType\FieldType\LandingPage\Model\Attribute` objects.
+
+!!! note "When updating from <2.3"
+
+    ##### Form builder
+
+    To create the "Forms" container under the content tree root use the following command:
+
+    ``` bash
+    php bin/console ezplatform:form-builder:create-forms-container
+    ```
+
+    You can also specify Content Type, Field values and language code of the container, e.g.:
+
+    ``` bash
+    php bin/console ezplatform:form-builder:create-forms-container --content-type custom --field title --value 'My Forms' --field description --value 'Custom container for the forms' --language-code eng-US
+    ```
+
+    You also need to run the following script to add database tables for the Form Builder:
+
+    ??? note "Database update script"
+
+        ```
+        --
+        -- Form Builder
+        --
+
+        DROP TABLE IF EXISTS `ezform_forms`;
+        CREATE TABLE `ezform_forms` (
+          `id` int(11) NOT NULL AUTO_INCREMENT,
+          `content_id` int(11) DEFAULT NULL,
+          `version_no` int(11) DEFAULT NULL,
+          `content_field_id` int(11) DEFAULT NULL,
+          `language_code` varchar(16) DEFAULT NULL,
+          PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+        DROP TABLE IF EXISTS `ezform_fields`;
+        CREATE TABLE `ezform_fields` (
+          `id` int(11) NOT NULL AUTO_INCREMENT,
+          `form_id` int(11) DEFAULT NULL,
+          `name` VARCHAR(128) NOT NULL,
+          `identifier` varchar(128) DEFAULT NULL,
+          PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+        DROP TABLE IF EXISTS `ezform_field_attributes`;
+        CREATE TABLE `ezform_field_attributes` (
+          `id` int(11) NOT NULL AUTO_INCREMENT,
+          `field_id` int(11) DEFAULT NULL,
+          `identifier` varchar(128) DEFAULT NULL,
+          `value` blob,
+          PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+        DROP TABLE IF EXISTS `ezform_field_validators`;
+        CREATE TABLE `ezform_field_validators` (
+          `id` int(11) NOT NULL AUTO_INCREMENT,
+          `field_id` int(11) DEFAULT NULL,
+          `identifier` varchar(128) DEFAULT NULL,
+          `value` blob,
+          PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+        DROP TABLE IF EXISTS `ezform_form_submissions`;
+        CREATE TABLE `ezform_form_submissions` (
+          `id` INT NOT NULL AUTO_INCREMENT,
+          `content_id` INT NOT NULL,
+          `language_code` VARCHAR(6) NOT NULL,
+          `user_id` INT NOT NULL,
+          `created` INT NOT NULL,
+          PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+        DROP TABLE IF EXISTS `ezform_form_submission_data`;
+        CREATE TABLE `ezform_form_submission_data` (
+          `id` INT NOT NULL AUTO_INCREMENT,
+          `form_submission_id` INT NOT NULL,
+          `name` VARCHAR(128) NOT NULL,
+          `identifier` VARCHAR(128) NOT NULL,
+          `value` BLOB NULL,
+          PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+        ```
 
 ## 5. Dump assets
 

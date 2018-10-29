@@ -1,5 +1,9 @@
 # Step 8 - Add a validation
 
+!!! tip
+
+    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/TweetFieldTypeBundle/tree/step8_add_a_validation_v2).
+
 Now you will add the option to configure a list of authors whose tweets are allowed. To achieve this, you have to:
 
 - implement `validateValidatorConfiguration()` and `validate()` methods in the Type class

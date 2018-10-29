@@ -4,7 +4,7 @@
 
     This page describes the changes to creating new Field Types introduced in the v2.0.0 version.
 
-    For a full description of the Field Type API see [Field Type API and best practices](https://doc.ezplatform.com/en/1.7/api/field_type_api_and_best_practices/).
+    For a full description of the Field Type API see [Field Type API and best practices](../api/field_type_api.md).
 
 ## 1. Create FormMapper
 

@@ -1,6 +1,12 @@
-# Access to eZ Enterprise
+# Install eZ Enterprise
 
 !!! enterprise
+
+    To install eZ Enterprise, follow the procedure described in [Install eZ Platform](install_ez_platform.md).
+    Because you do not have access to the Enterprise GitHub repositories,
+    you need to [download an archive](install_ez_platform.md#a-download-ez-platform) from the Support Portal.
+
+    There are a few special steps you need to take when installing eZ Enterprise:
 
     ## Setting up authentication tokens for eZ Enterprise
 
@@ -31,12 +37,16 @@
         ``` bash
         composer config --global http-basic.updates.ez.no <installation-key> <token-password>
         ```
-    
+
     After this, when running Composer to get updates, you will be asked for a username and password. Use:
 
     - as username – your Installation key found on the *"Maintenance and Support agreement details"* page in the service portal
     - as password – the token password you retrieved in step 3.
 
+    !!! note "Authentication token validation delay"
+    
+        You can encounter some delay between creating the token and being able to use it in Composer. It might take up to 15 minutes.
+        
     !!! note "Support agreement expiry"
 
         If your Support agreement expires, your authentication token(s) will no longer work.
@@ -55,3 +65,24 @@
         ``` bash
         COMPOSER_AUTH='{"http-basic":{"updates.ez.no":{"username":"<installation-key>","password":"<token-password>"}}}' composer create-project --keep-vcs ezsystems/ezplatform-ee my-new-ee-project
         ```
+
+    ## Enable Date-based Publisher
+
+    To enable delayed publishing of Content using the Date-based Publisher, you need to set up cron to run the command `bin/console ezstudio:scheduled:publish` periodically.
+
+    For example, to check for publishing every minute, add the following script:
+
+    `echo '* * * * * cd [path-to-ezplatform]; php bin/console ezplatform:cron:run --quiet --env=prod' > ezp_cron.txt`
+
+    For 5-minute intervals:
+
+    `echo '*/5 * * * * cd [path-to-ezplatform]; php bin/console ezplatform:cron:run --quiet --env=prod' > ezp_cron.txt`
+
+    Next, append the new cron to user's crontab without destroying existing crons.
+    Assuming the web server user data is `www-data`:
+
+    `crontab -u www-data -l|cat - ezp_cron.txt | crontab -u www-data -`
+
+    Finally, remove the temporary file:
+
+    `rm ezp_cron.txt`

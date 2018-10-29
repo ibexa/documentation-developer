@@ -1,29 +1,14 @@
 # Step 3 - Use existing blocks
 
-!!! caution
-
-    This tutorial does not work in eZ Platform v2.2.
-
-    If you want to go through the tutorial, use v2.1 or an earlier version.
-    It will be updated for an upcoming v2.3 version.
-
 !!! tip
 
     You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/ezstudio-beginner-tutorial/tree/v2-step3).
 
-In this step you'll add a Content List block and two Schedule blocks and customize them.
-
-!!! caution
-
-    Pay close attention to the order of tasks.
-    If you overlook a configuration file and try to generate a Landing Page without it,
-    the Landing Page may become corrupted in the database.
-    You may then get a 500 error when trying to access it.
-    If this happens, you should delete the page and create it again from scratch.
+In this step you'll add a Content List block and a Content Scheduler block and customize them.
 
 ### Add a Content List block
 
-First, create an override template for the Content List block: `app/Resources/views/blocks/contentlist.html.twig`:
+First, create an override template for the Content List block: `app/Resources/views/blocks/contentlist/default.html.twig`:
 
 ``` html+twig hl_lines="10"
 <div>
@@ -53,14 +38,14 @@ First, create an override template for the Content List block: `app/Resources/vi
 ```
 
 Then add a configuration that will tell the app to use this template instead of the default one.
-In `app/config/layouts.yml` add the following code at the end of the file, under the `ez_systems_landing_page_field_type` key on the same level as `layouts`:
+In `app/config/layouts.yml` add the following code at the end of the file, under the `ezplatform_page_fieldtype` key on the same level as `layouts`:
 
 ``` yaml
 blocks:
     contentlist:
         views:
-            contentList:
-                template: 'blocks/contentlist.html.twig'
+            default:
+                template: 'blocks/contentlist/default.html.twig'
                 name: 'Content List'
 ```
 
@@ -104,12 +89,10 @@ Finally, add some styling to the block. Add the following CSS to the end of the�
 }
 ```
 
-At this point you can start adding blocks to the Landing Page.
+At this point you can start adding blocks to the Page.
 You do it in the Page tab in Edit mode by dragging a block from the menu on the right to the correct zone on the page.
 
-![Content List block dragged onto a page](img/enterprise_tut_drag_block.gif)
-
-Drag a Content List block from the menu to the right zone on the page.
+Drag a Content List block from the menu to the left zone on the page.
 Click the block and fill in the form. Here you name the block and decide what it will display.
 Choose the "Dog Breed Catalog" folder as the Parent, select Dog Breed as the Content Type to be displayed, and choose a limit (3).
 You'll display the first three Dog Breeds from the database.
@@ -124,36 +107,35 @@ The block is displayed using the new template.
 Built-in blocks have default templates included in a clean installation, but you can override them.
 Publish the page now and move on to creating another type of block.
 
-### Create a Schedule block for Featured Articles
+### Create a Content Scheduler block for featured articles
 
-The next block is the Schedule block that will air articles at predetermined times.
-You will use two different Schedule blocks with different templates and set up overflow between them.
+The next block is the Content Scheduler block that will air articles at predetermined times.
 
 First, add a configuration that points to the layout. Go to `app/config/layouts.yml` again and add the following code under `blocks` on the same level as the `contentlist` key:
 
 ``` yaml
 schedule:
     views:
-        schedule_featured:
-            template: 'blocks/schedule_featured.html.twig'
+        featured:
+            template: 'blocks/schedule/featured.html.twig'
             name: 'Featured Schedule Block'
 ```
 
-The configuration defines one view for the Schedule block called `schedule_featured` and points to a `schedule_featured.html.twig` template.
-Create the new file `app/Resources/views/blocks/schedule_featured.html.twig`:
+The configuration defines one view for the Schedule block called `featured` and points to a `featured.html.twig` template.
+Create the new file `app/Resources/views/blocks/schedule/featured.html.twig`:
 
-``` html+twig hl_lines="5 7 11"
+``` html+twig hl_lines="11"
 {% spaceless %}
     <div class="schedule-layout schedule-layout--grid">
         <div class="featured-articles-block">
             <h2 class="heading">{{ 'Featured Articles'|trans }}</h2>
-            <div data-studio-slots-container>
+            <div>
                 {% for idx in 0..2 %}
-                    <div class="col-md-4 featured-article-container" data-studio-slot>
+                    <div class="col-md-4 featured-article-container">
                         {% if items[idx] is defined %}
-                            {{ render(controller('ez_content:viewLocation', {
-                                'locationId': items[idx],
-                                'viewType': 'featured'
+                        {{ render(controller('ez_content:viewLocation', {
+                            'locationId': items[idx].id,
+                            'viewType': 'featured'
                             })) }}
                         {% endif %}
                     </div>
@@ -163,9 +145,6 @@ Create the new file `app/Resources/views/blocks/schedule_featured.html.twig`:
     </div>
 {% endspaceless %}
 ```
-
-The template must contain the `data-studio-slots-container` (line 5) and `data-studio-slot` (line 7) attributes.
-Without them you won't be able to place Content in the slots of the Schedule block.
 
 When you look at the template, you can see three blocks, each of which will render the Content items using the `featured` view (line 11).
 So far you only have templates for `full` view for Articles. This means you need to create a `featured` view template,
@@ -204,7 +183,7 @@ featured_article:
 The Block is already operational, but first update the stylesheet. Add the following CSS at the end of the `web/assets/css/style.css` file:
 
 ``` css
-/* Featured articles schedule block */
+/* Featured articles Content Scheduler block */
 .featured-article-container {
     background-size: cover;
     padding: 0;
@@ -236,153 +215,37 @@ The Block is already operational, but first update the stylesheet. Add the follo
 }
 ```
 
-At this point you can add a new Schedule block to your Landing Page and fill it with content to see how it works.
+At this point you can add a new Content Scheduler block to your Page and fill it with content to see how it works.
 
 !!! tip
 
     If you do not see the featured block template, you may need to clear the cache (using `php bin/console cache:clear`) and/or reload the app.
 
-Go to Page mode, click Edit and drag a Schedule block from the pane on the right to the main zone in the layout.
-Select the block and click the Block Settings icon. Choose the "Featured Schedule" block template and confirm.
-You will only be able to set up overflow once both blocks are ready.
+Go back to editing the Home Page and drag a Content Scheduler block from the pane on the right to the main zone in the layout, above the Content List block.
+Select the block and click the Block Settings icon.
 
-Now click the Add content (plus) icon, and choose one of the Articles in the All Articles folder.
-It will appear in one of the slots in the preview. Hover over this Article and click Airtime.
-Here you can choose the time at which this Content item will be published on the Landing Page.
-Do the same for two more Articles, so that all three slots are filled with content.
+Set the Limit to three and click Select Content.
+Navigate to the "All Articles" folder and select the articles you had created and confirm.
 
-Try to choose different airtimes for all three Articles – you will then be able to see how the Schedule block functions.
-Once you are done, take a look at the Timeline at the top of the screen.
-You can move the slider to different times and preview what the Schedule block will look like at different hours.
-Content will be hidden if you moved to a point before it airs.
+![Selecting Articles for the Schedule Block](img/enterprise_tut_select_articles.png)
+
+Accept the suggested airtime and click Submit.
+
+Now click the Airtime button next to one of the Articles and choose a time in the future.
+This article will be listed in the queue.
+
+![Content Scheduler with scheduled content](img/enterprise_tut_choosing_airtime.png)
+
+Publish the Page.
+
+Now open the Timeline at the top of the screen.
+You can move the slider to different times and preview what the Content Scheduler block will look like at different hours.
+Content will be shown when you move the slider to the point when it airs.
 
 !!! tip
 
-    At this point you have configured the Schedule block to work well with Articles only.
+    At this point you have configured the Content Scheduler block to work with Articles only.
     If you try to add Content of any other type, you will see an error.
     This is because there is no `featured` view for content other than Articles defined at the moment.
 
 ![Front Page after adding Featured Block](img/enterprise_tut_page_with_featured_articles.png "Front Page after adding Featured Block")
-
-### Create a Schedule block for other Articles
-
-Now you can prepare the second Schedule block for the Landing Page.
-First, add the new block to configuration by adding this code to `app/config/layouts.yml`:
-
-``` yaml
-schedule_list:
-    template: 'blocks/schedule_list.html.twig'
-    name: 'List Schedule Block'
-```
-
-Next, provide a template for the block in `app/Resources/views/blocks/schedule_list.html.twig`:
-
-``` html+twig
-{% spaceless %}
-    <div class="other-articles-block">
-        <h4 class="heading">{{ 'Other Articles'|trans }}</h4>
-        <div data-studio-slots-container>
-            {% for idx in 0..2 %}
-                <div data-studio-slot>
-                    {% if items[idx] is defined %}
-                        {{ render(controller('ez_content:viewLocation', {
-                            'locationId': items[idx],
-                            'viewType': 'list'
-                        })) }}
-                    {% endif %}
-                </div>
-            {% endfor %}
-        </div>
-    </div>
-{% endspaceless %}
-```
-
-You also need a template for the list view for Articles (`app/Resources/views/list/article.html.twig`):
-
-``` html+twig
-<div class="other-article">
-    <div class="other-article-image">
-        {{ ez_render_field(content, 'image', {
-            'parameters': {
-                'alias': 'other_article'
-             }
-        }) }}
-    </div>
-    <h5>
-        <a class="other-article-link" href="{{ path('ez_urlalias', {'contentId': content.id}) }}">{{ ez_content_name(content) }}</a>
-    </h5>
-</div>
-```
-
-and an entry in `app/config/views.yml` on the same level as `full` key:
-
-``` yaml
-list:
-    article:
-        template: 'list/article.html.twig'
-        match:
-            Identifier\ContentType: 'article'
-```
-
-Like before, you must add one more image alias to the `app/config/image_variations.yml` file:
-
-``` yaml
-other_article:
-    reference: null
-    filters:
-        - {name: geometry/scaleheightdownonly, params: [120]}
-        - {name: geometry/crop, params: [120, 100, 0, 0]}
-```
-
-Finally, provide the new block with some styling. Add the following code at the end of the `web/assets/css/style.css` file:
-
-``` css
-/* Other articles schedule block */
-.other-articles-block {
-    padding-top: 20px;
-}
-
-.other-article {
-    clear: left;
-    padding-top: 5px;
-}
-
-.other-article-image {
-    float: left;
-    margin-right: 18px;
-}
-
-.other-article h5 {
-    padding-top: 25px;
-    font-size: 1.2em;
-}
-
-.other-article-link:link,
-.other-article-link:visited {
-    font-size: 1.2em;
-}
-```
-
-You are now able to add a new Schedule block to the Front Page and select the "List Schedule" block layout.
-Give the block an easily recognizable name, such as "Other Articles".
-Add two Articles to it to see how their look will differ from the featured ones.
-
-![The Page after adding a List Schedule Block](img/enterprise_tut_after_list_schedule_block.png "The Page after adding a List Schedule Block")
-
-### Set up overflow
-
-Now you will make use of the overflow functionality.
-
-In the settings of the Featured Articles block turn on overflow and select the Other Articles block as its overflow target.
-
-This controls how content will behave once it has to leave the first block.
-You may know this behavior from many websites.
-When a new article appears in the first Schedule block, the last article currently in it will be 'pushed off'
-and will land in the block designated as the overflow block – this means in the list of articles below.
-This way the most current articles are shown at the top, while older articles are still easily accessible from the front page.
-
-You can try it out now. Add one more Article to the Featured Articles block.
-You will see a warning that some content will be pushed out.
-When you confirm, the pushed out Article will move to the top of the Other Articles block.
-
-![Overflow push-out warning](img/enterprise_tut_overflow_warning.png "Overflow push-out warning")
