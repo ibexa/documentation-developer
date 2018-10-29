@@ -351,6 +351,7 @@ a.external:after {
 
 .md-content img:hover {
   cursor: pointer;
+}
 
 .ez-code-example {
     padding: 1.5rem;
