@@ -143,7 +143,7 @@ This operation is performed only once when you install eZ Platform Enterprise Ed
 
 !!! tip "Enabling Link manager"
 
-    To make use of [Link Manager](../guide/url_management.md), you need to [set up cron](https://doc.ezplatform.com/en/2.3/guide/url_management/#enable-automatic-url-validation).
+    To make use of [Link Manager](../guide/url_management.md), you need to [set up cron](../guide/url_management/#enable-automatic-url-validation).
 
 ## Use PHP's built-in server
 
