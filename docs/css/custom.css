@@ -339,7 +339,8 @@ a.external:after {
 }
 
 .md-content img:hover {
-  cursor: pointer;
+    cursor: pointer;
+}
 
 .ez-code-example {
     padding: 1.5rem;
@@ -353,4 +354,8 @@ a.external:after {
     margin-top: 0;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+}
+
+.injected {
+    display: none;
 }
