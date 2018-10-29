@@ -1,8 +1,8 @@
 # Form components
 
-We listed up here all the basic form components that eZ Platform is currently using.
+We list here all the basic form components that eZ Platform uses.
 
-You just basically need to be sure to add the `type` you may want for extending or customizing the form you are working on.
+Remember to add the `type` you may want for extending or customizing the form you are working on.
 
 ##<div class="mgt-3 header-line">Label</div>
 [[code_example {html}
@@ -107,7 +107,7 @@ code_example]]
     <button type="button" class="btn btn-secondary">
         <svg class="ez-icon ez-icon--medium ez-icon--light ez-icon--select-subtree">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../ez-icons.svg#relations"></use>
-        </svg> 
+        </svg>
         Select Subtree
     </button>
 </div>
