@@ -141,6 +141,10 @@ If Composer asks for your token, you must log in to your GitHub account and gene
 (edit your profile, go to Developer settings > Personal access tokens and Generate new token with default settings).
 This operation is performed only once when you install eZ Platform Enterprise Edition for the first time.
 
+!!! tip "Enabling Link manager"
+
+    To make use of [Link Manager](../guide/url_management.md), you need to [set up cron](https://doc.ezplatform.com/en/2.3/guide/url_management/#enable-automatic-url-validation).
+
 ## Use PHP's built-in server
 
 At this point you can use PHP's built-in server: `php bin/console server:start`.
