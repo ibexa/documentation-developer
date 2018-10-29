@@ -80,41 +80,45 @@ ezpublish:
 
 ### Redis
 
-This cache backend is using [Redis, a in-memory data structure store](http://redis.io/), via [Redis pecl extension](https://pecl.php.net/package/redis). This is an alternative cache solution for [multi-server (cluster) setups](clustering.md), besides using Memcached.
-
-See [Redis Cache Adapter in Symfony documentation](https://symfony.com/doc/3.4/components/cache/adapters/redis_adapter.html#configure-the-connection)
-for information on how to configure Redis.
-
-!!! note
-
-    To use this, you need to set `cache_service_name` to `cache.redis`.
-
-**Example**
-
-``` yaml
-services:
-    cache.redis:
-        parent: cache.adapter.redis
-        tags:
-            - name: cache.pool
-              clearer: cache.app_clearer
-              provider: 'redis://secret@example.com:1234/13'
-```
-
-!!! caution "Clearing Redis cache"
-
-    The regular `php bin/console cache:clear` command does not clear Redis persistence cache.
-    To clear it, use a dedicated Symfony command: `php bin/console cache:pool:clear cache.redis`.
-
-##### Redis Cluster
-
-It is possible to set up and use Redis as a cluster. This configuration is more efficient and reliable for large installations. Redis Cluster can be configured in two ways, the first using [create-cluster script](https://redis.io/topics/cluster-tutorial) and the second using [Redis Sentinel](https://redis.io/topics/sentinel). If you use Platform.sh Enterprise you can benefit from the Redis Sentinel across three nodes for greater fault tolerance. Platform.sh Professional and lower versions offer Redis in single instance mode only. Configuration on eZ Platform / Symfony stays the same regardless of the Redis version, single instance mode or cluster mode.
+A [custom configuration of persistence cache](clustering.md#shared-persistence-cache) is required for multi-server setups.
 
 ### Memcached
 
-Memcached, a distributed caching solution, is the main supported cache solution for multi-server (cluster) setups, besides using Redis.
+[Memcached, a distributed caching solution](http://memcached.org/) is an alternative cache solution, besides using Redis.
 
-A [custom configuration of persistence cache](clustering.md#shared-persistence-cache) is required for multi-server setups.
+See [Memcached Cache Adapter in Symfony documentation](https://symfony.com/doc/3.4/components/cache/adapters/memcached_adapter.html#configure-the-connection)
+for information on how to configure Memcached.
+
+Example:
+
+``` yaml
+services:
+    cache.memcached:
+        parent: cache.adapter.memcached
+        tags:
+            - name: cache.pool
+              clearer: cache.app_clearer
+              provider: 'memcached://user:pass@localhost?weight=33'
+```
+
+To use Memcached, you need to set `cache_service_name` to `cache.memcached`.
+
+!!! caution "Connection errors issue"
+
+    If Memcached does display connection errors when using the default (ascii) protocol, then switching to binary protocol *(in the configuration and Memcached daemon)* should resolve the issue.
+
+!!! note
+
+    Memcached must not be bound to the local address if clusters are in use, or user logins will fail.
+    To avoid this, in `/etc/memcached.conf` take a look under `# Specify which IP address to listen on. The default is to listen on all IP addresses`
+
+    For development environments, change the address below this comment in `/etc/memcached.conf` to `-l 0.0.0.0`
+
+    For production environments, follow this more secure instruction from the Memcached man:
+
+    > -l &lt;addr&gt;
+
+    > Listen on &lt;addr&gt;; default to INADDR\_ANY. &lt;addr&gt; may be specified as host:port. If you don't specify a port number, the value you specified with -p or -U is used. You may specify multiple addresses separated by comma or by using -l multiple times. This is an important option to consider as there is no other way to secure the installation. Binding to an internal or firewalled network interface is suggested.
 
 ## Using Cache Service
 

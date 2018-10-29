@@ -16,7 +16,7 @@ is up to you and your performance needs.
 The minimal requirements are:
 
 - [Shared HTTP cache (using Varnish)](http_cache.md#using-varnish)
-- [Shared persistence cache](#shared-persistence-cache) and [sessions](#shared-sessions) (using Memcached or Redis)
+- [Shared persistence cache](#shared-persistence-cache) and [sessions](#shared-sessions) (using Redis or Memcached)
 - Shared database (using MySQL/MariaDB)
 - [Shared binary files](#shared-binary-files) (using NFS, or S3)
 
@@ -31,41 +31,40 @@ It is also recommended to use:
 
 ### Shared persistence cache
 
-[Memcached, a distributed caching solution](http://memcached.org/) is the main supported cache solution for clustering.
+[Redis](http://redis.io/), an in-memory data structure store, is the recommended cache solution for clustering.
 
-See [Memcached Cache Adapter in Symfony documentation](https://symfony.com/doc/3.4/components/cache/adapters/memcached_adapter.html#configure-the-connection)
-for information on how to configure Memcached.
+Redis is used via [Redis pecl extension](https://pecl.php.net/package/redis).
+
+See [Redis Cache Adapter in Symfony documentation](https://symfony.com/doc/3.4/components/cache/adapters/redis_adapter.html#configure-the-connection)
+for information on how to configure Redis.
+
+To use Redis, you need to set `cache_service_name` to `cache.redis`.
 
 Example:
 
 ``` yaml
 services:
-    cache.memcached:
-        parent: cache.adapter.memcached
+    cache.redis:
+        parent: cache.adapter.redis
         tags:
             - name: cache.pool
               clearer: cache.app_clearer
-              provider: 'memcached://user:pass@localhost?weight=33'
+              provider: 'redis://secret@example.com:1234/13'
 ```
 
-To use Memcached, you need to set `cache_service_name` to `cache.memcached`.
+!!! caution "Clearing Redis cache"
 
-!!! caution "Connection errors issue"
+    The regular `php bin/console cache:clear` command does not clear Redis persistence cache.
+    To clear it, use a dedicated Symfony command: `php bin/console cache:pool:clear cache.redis`.
 
-    If Memcached does display connection errors when using the default (ascii) protocol, then switching to binary protocol *(in the configuration and Memcached daemon)* should resolve the issue.
+##### Redis Cluster
 
-!!! note
+It is possible to set up and use Redis as a cluster. This configuration is more efficient and reliable for large installations.
 
-    Memcached must not be bound to the local address if clusters are in use, or user logins will fail.
-    To avoid this, in `/etc/memcached.conf` take a look under `# Specify which IP address to listen on. The default is to listen on all IP addresses`
-
-    For development environments, change the address below this comment in `/etc/memcached.conf` to `-l 0.0.0.0`
-
-    For production environments, follow this more secure instruction from the Memcached man:
-
-    > -l &lt;addr&gt;
-
-    > Listen on &lt;addr&gt;; default to INADDR\_ANY. &lt;addr&gt; may be specified as host:port. If you don't specify a port number, the value you specified with -p or -U is used. You may specify multiple addresses separated by comma or by using -l multiple times. This is an important option to consider as there is no other way to secure the installation. Binding to an internal or firewalled network interface is suggested.
+Redis Cluster can be configured in two ways, using [create-cluster script](https://redis.io/topics/cluster-tutorial) or using [Redis Sentinel](https://redis.io/topics/sentinel).
+If you use Platform.sh Enterprise you can benefit from the Redis Sentinel across three nodes for greater fault tolerance.
+Platform.sh Professional and lower versions offer Redis in single instance mode only.
+Configuration for eZ Platform is the same regardless of the Redis version, single instance mode or cluster mode.
 
 ### Shared sessions
 
