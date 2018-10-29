@@ -112,7 +112,6 @@ These setups have been undergone some additional manual testing and is known to 
 
 Please note that the user interface might not look or behave exactly the same across all browsers as it will gracefully degrade if browser does not support certain features.
 
-
 ## eZ Platform Cloud requirements and setup
 
 ### Cloud hosting with eZ Platform Cloud and Platform.sh
@@ -130,9 +129,9 @@ Features or services supported by eZ Platform but not covered by Platform.sh may
 
 |Setup|Description|eZ Platform Cloud support|
 |-----|-----|-----|
-|Recommended setup|**eZ Platform**</br>eZ Platform setup, with no use of legacy.|eZ Platform software plus cloud hosting infrastructure supported by eZ for version 1.13 and higher</br></br>Recommended configuration provided out of the box and fully supported, on-boarding help available.|
-|Supported setup|**Legacy Bridge setup**</br>eZ Publish 5.x-like setup where web traffic goes to eZ Platform/Symfony and Legacy Bundle provides legacy fallback features.</br>Notably it allows among other things enabling a "Legacy mode" where legacy bundle lets legacy take over handling of URL aliases.|Installation and cloud supported by eZ for version 1.13 and 2.x</br></br>Review and potential adaptation of the application configuration to be performed by eZ Systems technical services prior to deployments. The cost and effort of this review and potential adaptation is not included in eZ Platform Cloud subscription and will vary depending on each project's specificities.|
-|Experimental setup|**eZ Publish, eZ Publish Platform and other pure legacy setups**</br>eZ Publish (version 4.x) or eZ Publish Platform (version 5.x) standalone setup or an experimental setup with eZ Platform and Legacy Bridge.|Not covered by eZ Platform Cloud subscription.</br></br>The use of Platform.sh service is possible as a standalone service and can be used to bridge migration needs. Strong involvement of an eZ business partner with existing knowledge around setup of legacy projects on Platform.sh strongly recommended|
+|Recommended setup|**eZ Platform**</br>eZ Platform setup, with no use of legacy.|eZ Platform software plus cloud hosting infrastructure is supported by eZ for version 1.13 and higher</br></br>Recommended configuration provided out of the box and fully supported, on-boarding help available.|
+|Supported setup|**Legacy Bridge setup**</br>eZ Publish 5.x-like setup where web traffic goes to eZ Platform/Symfony and Legacy Bundle provides legacy fallback features.</br>Notably it allows among other things enabling a "Legacy mode" where legacy bundle lets legacy take over handling of URL aliases.|Installation and cloud is supported by eZ for version 1.13 and 2.x</br></br>Review and potential adaptation of the application configuration to be performed by eZ Systems technical services prior to deployments. The cost and effort of this review and potential adaptation is not included in eZ Platform Cloud subscription and will vary depending on each project's specificities.|
+|Experimental setup|**eZ Publish, eZ Publish Platform and other pure legacy setups**</br>eZ Publish (version 4.x) or eZ Publish Platform (version 5.x) standalone setup or an experimental setup with eZ Platform and Legacy Bridge.|Not covered by eZ Platform Cloud subscription.</br></br>The use of Platform.sh service is possible as a standalone service and can be used to bridge migration needs. We recommend involving an eZ business partner that has experience with setting up legacy projects on Platform.sh|
 
 ### Recommended eZ Platform Cloud setup
 
@@ -145,11 +144,11 @@ These files are kept up-to-date with latest recommendations and can be improved 
 Because of the large range of possible configurations of eZ Publish legacy, there is no ready-made recommended setup.
 Make sure to set aside time and budget for:
 
-- Verifying if your legacy configuration and ensuring it is supported by Platform.sh
+- Verifying your legacy configuration and ensuring it is supported by Platform.sh
 - Additional time for adaptation and configuration work, and testing by your own team
 - Additional consulting/onboarding time with Platform.sh, eZ Systems technical services, and/or one of the many partners with prior experience using Platform.sh with eZ Publish legacy
 
-The cost and effort of this is not included in eZ Platform Cloud subscription and will vary depending on each specific project.
+The cost and effort of this is not included in eZ Platform Cloud subscription and will vary depending on the project.
 
 ### Experimental/custom Platform.sh setups
 
@@ -159,7 +158,6 @@ where you or a partner take ownership of the configuration to set up the project
 
 Such projects are possible by means of custom integrations/configuration,
 but they may generate issues that won't be covered by eZ Enterprise subscription bug fix guarantee.
-That is why we strongly recommend involving a partner with prior knowledge of such setups.  
 
 !!! tip "Use a partner with prior experience on legacy and Platform.sh"
 
