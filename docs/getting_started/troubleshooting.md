@@ -36,12 +36,12 @@ To avoid the error, check the stability of packages and avoid using `--prefer-s
 
 ## Redis: Cache / Session data inconsistant across web servers
 
-See [Redis Cluster info in persistence cache doc](../guide/persistence_cache.md), and make sure you only read/write to
+See [Redis Cluster info in persistence cache doc](../guide/persistence_cache.md#RedisClustering), and make sure you only read/write to
 one active master instance at a time.
 
 ## Redis: Session are removed or new sessions are refused
 
-See info on [Redis in session doc](../guide/session.md); Ideally use a separated instance of Redis for sessions, that
+See info on [Redis in session doc](../guide/session.md#ClusterSetup); Ideally use a separated instance of Redis for sessions, that
 either never run out of memory or uses an eviction policy that suits your needs.
 
 ## Conflict with roave/security-advisories
