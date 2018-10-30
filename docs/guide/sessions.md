@@ -73,8 +73,14 @@ For a single server, the default file handler is preferred.
 
 #### Cluster setup
 
-For a [cluster](clustering.md) setup you need to configure sessions to use a back end that is shared between web servers.
+For a [cluster](clustering.md) setup you need to configure sessions to use a backend that is shared between web servers.
 The options out of the box in Symfony are the native PHP Memcached or Redis session handlers, and Symfony session handler for PDO _(database)_.
+
+To avoid concurrent access to session data from frontedn nodes, if possible you should either:
+- Enable [Session locking](http://php.net/manual/en/features.session.security.management.php#features.session.security.management.session-locking)
+- Use "Sticky Session", aka [Load Balancer Persistence](https://en.wikipedia.org/wiki/Load_balancing_(computing)#Persistence) 
+
+Session locking is avaiable with `php-memcached`, and with `php-redis` _(v4.2.0 and higher)_.
 
 ##### Storing sessions in Memcached using `php-memcached`
 
@@ -86,15 +92,15 @@ NOTE: For `php-memcached`, session locking should be kept enabled.
 ##### Storing sessions in Redis using `php-redis`
 
 To set up eZ Platform using the [Redis](https://pecl.php.net/package/redis)
-you need to [configure the session save handler settings in `php.ini`](https://github.com/phpredis/phpredis#php-session-handler),
-and set and set eZ Platform's `%ezplatform.session.handler_id%` to `ezplatform.core.session.handler.native_redis`.
+you need to set eZ Platform's `%ezplatform.session.handler_id%` to `ezplatform.core.session.handler.native_redis`,
+and `%ezplatform.session.save_path%` param  with Redis config for [session.save_path](https://github.com/phpredis/phpredis/#php-session-handler).
 
 Furthermore when using Redis for sessions make sure to:
-- Either use load balancer with session afiinity, or only Read/write to one Redis instance at a time. _See [Redis Cluster with persistance cache](persistence_cache.md) for furhter info_.
 - Ideally keep [persistance cache](persistence_cache.md) and session data seperated:
   - Sessions can not risk getting [randomly evicted](https://redis.io/topics/lru-cache#eviction-policies) when you run out of memory for cache.
-  - And you can not disable eviction either, as Redis will then start to refuse new entries once full, including new sessions.
-- If you want to make sure sessions survive Redis or Server restarts, consider using persistant Redis instance for Sessions.
+  - You can not completely disable eviction either, as Redis will then start to refuse new entries once full, including new sessions.
+    - _Either way, you should monitor your Redis usage and make sure you have enough memory set aside for active sessions/cache items._
+- If you want to make sure sessions survive Redis or Server restarts, consider using a [persistent Redis](https://redis.io/topics/persistence) instance for Sessions.
 
 ##### Alternative storing sessions in database using PDO
 

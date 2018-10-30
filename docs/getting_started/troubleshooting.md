@@ -26,9 +26,9 @@ For instance, if one of those Fields is configured to accept files up to 10MB, t
 
 You also need to define settings for uploading files in `php.ini`: `upload_max_filesize` and `post_max_size`.
 
-## Composer packages: Cloning failed using an ssh key
+## Cloning failed using an ssh key
 
-When dealing with [updates.ez.no](http://updates.ez.no) packages, you may get a "Cloning failed using an ssh key" error
+When dealing with Composer packages from [updates.ez.no](http://updates.ez.no), you may get a "Cloning failed using an ssh key" error
 if you tell Composer to download dev packages or to download from source.
 [updates.ez.no](http://updates.ez.no) currently supports only distribution packages in alpha stability or higher.
 
@@ -36,12 +36,13 @@ To avoid the error, check the stability of packages and avoid using `--prefer-s
 
 ## Redis: Cache / Session data inconsistant across web servers
 
-See [Redis Cluster info in persistence cache doc](../guide/persistence_cache.md), and make sure you only read/write to active master instance.
+See [Redis Cluster info in persistence cache doc](../guide/persistence_cache.md), and make sure you only read/write to
+one active master instance at a time.
 
 ## Redis: Session are removed or new sessions are refused
 
-See info on [Redis in session doc](../guide/session.md); Ideally use an unique instance of Redis for sessions, that either never runs of of memory or uses an eviction policy that suites your needs.
-
+See info on [Redis in session doc](../guide/session.md); Ideally use a separated instance of Redis for sessions, that
+either never run out of memory or uses an eviction policy that suits your needs.
 
 ## Conflict with roave/security-advisories
 
