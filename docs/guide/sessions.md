@@ -102,8 +102,8 @@ Alternatively if you have needs to configure Memcached servers dynamically:
 - Set `%ezplatform.session.handler_id%` _(or `SESSION_HANDLER_ID` env var)_ to `app.session.handler.native_memcached`
 - Set `%ezplatform.session.save_path%` _(or `SESSION_SAVE_PATH` env var)_ to [save_path config for Memcached](http://php.net/manual/en/memcached.sessions.php)
 
-Optionally tweak [`php-memcached` session settings](http://php.net/manual/en/memcached.configuration.php) for things like
-session locking.
+_Optionally tweak [`php-memcached` session settings](http://php.net/manual/en/memcached.configuration.php) for things like
+session locking._
 
 ##### Handle sessions with Redis
 
@@ -118,9 +118,8 @@ Alternatively if you have needs to configure Redis servers dynamically:
 !!! note
 
     For eZ Platform Cloud (& Platform.sh), this is already configiured for you in `app/config/env/platformsh.php` based on .platform.yml config.
-    
-    
-If you are on `php-redis` v4.2.0 and higher, you can tweak [`php-redis` settings](https://github.com/phpredis/phpredis#session-locking) for session locking.
+
+_If you are on `php-redis` v4.2.0 and higher, you can optionally tweak [`php-redis` settings](https://github.com/phpredis/phpredis#session-locking) for session locking._
 
 ###### Additional notes on using Redis for Sessions
 
