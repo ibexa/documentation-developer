@@ -53,7 +53,7 @@ However that might be solved now in [Symfony v3.4.15](https://github.com/symfony
     - With cache being on different node(s) than web server, make sure to try to tune latency between the two.
     - _Tip: Check if your cloud provider has native service for Memcached/Redis, as those might be better tuned._
 - If you use Redis, make sure to tune it for in-memory cache usage. Its persistence feature is not needed with cache and will severely slow down execution time.
-    - For use with sessions however, persistence can be a good fit if you want sessions to survive service interuptions.
+    - [For use with sessions](sessions.md#ClusterSetup) however, persistence can be a good fit if you want sessions to survive service interuptions.
     - Further tips for Redis with cache can be found in doc regarding [Redis Clustering](persistence_cache.md#RedisClustering).
 
 ### Search
