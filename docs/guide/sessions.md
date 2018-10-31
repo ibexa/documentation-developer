@@ -76,11 +76,12 @@ For a single server, the default file handler is preferred.
 For a [cluster](clustering.md) setup you need to configure sessions to use a backend that is shared between web servers.
 The main options out of the box in Symfony are the native PHP Memcached or PHP Redis session handlers, alternatively there is Symfony session handler for PDO _(database)_.
 
-To avoid concurrent access to session data from frontedn nodes, if possible you should either:
+To avoid concurrent access to session data from frontend nodes, if possible you should either:
 - Enable [Session locking](http://php.net/manual/en/features.session.security.management.php#features.session.security.management.session-locking)
 - Use "Sticky Session", aka [Load Balancer Persistence](https://en.wikipedia.org/wiki/Load_balancing_(computing)#Persistence) 
 
-Session locking is available with `php-memcached`, and with `php-redis` _(v4.2.0 and higher)_.
+_Session locking is available with `php-memcached`, and with `php-redis` (v4.2.0 and higher)_.
+
 On eZ Platform Cloud (& Platform.sh) Redis is preferred and supported.
 
 ##### Handle sessions with Memcached
@@ -117,7 +118,9 @@ Alternatively if you have needs to configure Redis servers dynamically:
 !!! note
 
     For eZ Platform Cloud (& Platform.sh), this is already configiured for you in `app/config/env/platformsh.php` based on .platform.yml config.
-
+    
+    
+If you are on `php-redis` v4.2.0 and higher, you can tweak [`php-redis` settings](https://github.com/phpredis/phpredis#session-locking) for session locking.
 
 ###### Additional notes on using Redis for Sessions
 
