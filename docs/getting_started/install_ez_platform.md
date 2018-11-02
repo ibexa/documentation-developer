@@ -159,7 +159,7 @@ Future files and directories created by these two users will need to inherit tho
 
 !!! caution
 
-     For security reasons, in production web server should not have write access to other directories then `var`. Skip step above and follow link below for production needs instead.
+    For security reasons, in production web server should not have write access to other directories then `var`. Skip step above and follow link below for production needs instead.
 
 To set up permissions for production, it is recommended to use an ACL (Access Control List).
 See [Setting up or Fixing File Permissions](http://symfony.com/doc/3.4/setup/file_permissions.html) in Symfony documentation
