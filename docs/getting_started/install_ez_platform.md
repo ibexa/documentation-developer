@@ -148,7 +148,7 @@ To use eZ Platform with an HTTP server, you need to [set up directory permission
 
 ### Set up permissions
 
-The web user must be the owner of all your files (for example with the `www-data` web user):
+For development needs, the web user can be made the owner of all your files (for example with the `www-data` web user):
 
 ``` bash
 chown -R www-data:www-data <your installation directory>
@@ -159,7 +159,7 @@ Future files and directories created by these two users will need to inherit tho
 
 !!! caution
 
-    For security reasons, in production there is no need for web server to have write permissions to other directories.
+    For security reasons, in production web server should not have write access to other directories than `var`. Skip the step above and follow the link below for production needs instead.
 
 To set up permissions for production, it is recommended to use an ACL (Access Control List).
 See [Setting up or Fixing File Permissions](http://symfony.com/doc/3.4/setup/file_permissions.html) in Symfony documentation
