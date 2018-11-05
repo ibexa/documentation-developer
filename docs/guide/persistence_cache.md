@@ -10,10 +10,10 @@ As shown in the illustration, this is done in the exact same way as the SignalSl
 
 ## Transparent cache
 
-With the persistence cache, just like with the HTTP cache, eZ Platform tries to follow principles of "Transparent caching",
-this can shortly be described as a cache which is invisible to the end user (admin/editors) of eZ Platform where content
+With the persistence cache, just like with the HTTP cache, eZ Platform tries to follow principles of "Transparent caching".
+This can shortly be described as a cache which is invisible to the end user (admin/editors) of eZ Platform where content
 is always returned "fresh". In other words, there should be no need to manually clear the cache like it was frequently
-the case with eZ Publish 4.x. This is possible thanks to an interface that follows CRUD *(Create Read Update Delete)*
+the case with eZ Publish 4.x. This is possible thanks to an interface that follows CRUD (Create Read Update Delete)
 operations per domain.
 
 ## What is cached?
@@ -23,13 +23,13 @@ Persistence cache aims at caching most `SPI\Persistence` calls used in common p
 Notes:
 
 - `UrlWildCardHandler` is not currently cached
-- Currently in case of transactions this is handled very simply by clearing all cache on rollback, so avoid using rollbacks
+- Currently in case of transactions this is handled by clearing all cache on rollback, so avoid using rollbacks
   as part of your normal application logic flow. For instance if you connect to third party service and it frequently
-  fails make sure to re-try several times, and if that does not help consider making the logic async by design.
+  fails make sure to re-try several times, and if that does not help, consider making the logic async by design.
 - [Cache tagging](https://symfony.com/doc/current/components/cache/cache_invalidation.html#using-cache-tags) is used in
   order to allow clearing cache by alternative indexes, for instance tree operations or changes to content types are
   examples of operations that also need to invalidate content cache by tags.
-- Search is not defined as Persistence and the queries themselves are not planned to be cached as they are too complex by design _(FullText, Facets, ...)_.
+- Search is not defined as persistence and the queries themselves are not planned to be cached as they are too complex by design (full text, facets, etc.).
   Use [Solr](solr.md) which caches this for you to improve scale, and to offload your database.
 
 *For further details on which calls are cached or not, and where/how to contribute additional caches, check out the [source](https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/Core/Persistence/Cache).*
@@ -110,13 +110,13 @@ Persistence cache depends on all involved web servers, each of them seeing the s
 With that in mind, the following configurations of Redis are possible:
 - [Redis Cluster](https://redis.io/topics/cluster-tutorial)
   - Shards cache across several instances in order to be able to cache more than memory of one server allows
-  - Shard slaves can improve availability, however [these use asynchronous replication](https://redis.io/topics/cluster-tutorial#redis-cluster-consistency-guarantees) so can not be used for reads
-  - Not supported Redis features that can affect performance: [piplining](https://github.com/phpredis/phpredis/blob/develop/cluster.markdown#pipelining) & [most multiple keys commands](https://github.com/phpredis/phpredis/blob/develop/cluster.markdown#multiple-key-commands)
+  - Shard slaves can improve availability, however [they use asynchronous replication](https://redis.io/topics/cluster-tutorial#redis-cluster-consistency-guarantees) so they can't be used for reads
+  - Unsupported Redis features that can affect performance: [pipelining](https://github.com/phpredis/phpredis/blob/develop/cluster.markdown#pipelining) and [most multiple key commands](https://github.com/phpredis/phpredis/blob/develop/cluster.markdown#multiple-key-commands)
 - [Redis Sentinel](https://redis.io/topics/sentinel)
-  - Provides high availability by providing one or several Slaves _(ideally 2 slaves or more, e.g. minimum 3 servers)_, and handle failover
-  - [Slaves are asynchronous replicaticated](https://redis.io/topics/sentinel#fundamental-things-to-know-about-sentinel-before-deploying), so can not be used for reads
-  - Typically used with a load balancer _(e.g. HAproxy)_ in the front in order to only speak to elected master
-    - _Alterantive is that application logic itself speaks to Sentinel in order to always ask for elected master before talking to cache._
+  - Provides high availability by providing one or several slaves (ideally 2 slaves or more, e.g. minimum 3 servers), and handle failover
+  - [Slaves are asynchronously replicated](https://redis.io/topics/sentinel#fundamental-things-to-know-about-sentinel-before-deploying), so they can't be used for reads
+  - Typically used with a load balancer (e.g. HAproxy) in the front in order to only speak to elected master
+    - An alternative is that application logic itself speaks to Sentinel in order to always ask for elected master before talking to cache.
 
 For best performance we recommend use of Redis Sentinel if it fits your needs. However different cloud providers have managed services that are easier to setup, and might perform better. Notable Services:
 - [Amazon ElastiCache](https://aws.amazon.com/elasticache/)

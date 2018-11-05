@@ -45,16 +45,22 @@ In production setups:
 
 ### Memcached/Redis
 
-_NOTE: In v2 Redis is currently recommended over Memcached, as the latter has had big performance issues.
-However that might be solved now in [Symfony v3.4.15](https://github.com/symfony/symfony/pull/28249)._
+!!! note
 
-- Memcached/Redis can in some cases perform better then filesystem cache even with a single server, as it offers better general performance for operations invalidating cache.
-    - However, pure read performance is slower, especially if the next points is not optimized.
+    Redis is currently recommended over Memcached, as the latter has had big performance issues.
+    [Symfony v3.4.15](https://github.com/symfony/symfony/pull/28249) may have resolved this.
+
+- Memcached/Redis can in some cases perform better than filesystem cache even with a single server, as it offers better general performance for operations invalidating cache.
+    - However, pure read performance is slower, especially if the next points are not optimized.
     - With cache being on different node(s) than web server, make sure to try to tune latency between the two.
-    - _Tip: Check if your cloud provider has native service for Memcached/Redis, as those might be better tuned._
+
+!!! tip
+
+    Check if your cloud provider has native service for Memcached/Redis, as those might be better tuned.
+
 - If you use Redis, make sure to tune it for in-memory cache usage. Its persistence feature is not needed with cache and will severely slow down execution time.
-    - [For use with sessions](sessions.md#ClusterSetup) however, persistence can be a good fit if you want sessions to survive service interuptions.
-    - Further tips for Redis with cache can be found in doc regarding [Redis Clustering](persistence_cache.md#RedisClustering).
+    - [For use with sessions](sessions.md#cluster-setup) however, persistence can be a good fit if you want sessions to survive service interruptions.
+    - Further tips for Redis with cache can be found in doc regarding [Redis Clustering](persistence_cache.md#redis-clustering).
 
 ### Search
 

@@ -52,13 +52,13 @@ Symfony can be configured to use custom handlers, or just fall back to what is 
 
 ### Default configuration
 
-eZ Platform adapts Symfony's defaults to make sure it's session save path is always taken into account:
+eZ Platform adapts Symfony's defaults to make sure its session save path is always taken into account:
 
 ``` yaml
 # Default config.yml session configuration
 framework:
     session:
-        # handler_id can be set to null (~) like default in Symfony, if so will use default session handler from php.ini
+        # handler_id can be set to null (~) like default in Symfony, if it so will use default session handler from php.ini
         # But in order to use %ezplatform.session.save_path%, default eZ Platform instead sets %ezplatform.session.handler_id% to:
         # - session.handler.native_file (default)
         # - ezplatform.core.session.handler.native_redis (recommended value for Cluster usage, using php-redis session handler )
@@ -73,25 +73,28 @@ For a single server, the default file handler is preferred.
 
 #### Cluster setup
 
-For a [cluster](clustering.md) setup you need to configure sessions to use a backend that is shared between web servers.
-The main options out of the box in Symfony are the native PHP Memcached or PHP Redis session handlers, alternatively there is Symfony session handler for PDO _(database)_.
+For a [cluster](clustering.md) setup you need to configure sessions to use a back end that is shared between web servers.
+The main options out of the box in Symfony are the native PHP Memcached or PHP Redis session handlers, alternatively there is Symfony session handler for PDO (database).
 
-To avoid concurrent access to session data from frontend nodes, if possible you should either:
+To avoid concurrent access to session data from front-end nodes, if possible you should either:
 - Enable [Session locking](http://php.net/manual/en/features.session.security.management.php#features.session.security.management.session-locking)
-- Use "Sticky Session", aka [Load Balancer Persistence](https://en.wikipedia.org/wiki/Load_balancing_(computing)#Persistence) 
+- Use "Sticky Session", aka [Load Balancer Persistence](https://en.wikipedia.org/wiki/Load_balancing_(computing)#Persistence)
 
-_Session locking is available with `php-memcached`, and with `php-redis` (v4.2.0 and higher)_.
+Session locking is available with `php-memcached`, and with `php-redis` (v4.2.0 and higher).
 
-On eZ Platform Cloud (& Platform.sh) Redis is preferred and supported.
+On eZ Platform Cloud (and Platform.sh) Redis is preferred and supported.
 
-##### Handle sessions with Memcached
+##### Handling sessions with Memcached
 
 To set up eZ Platform using [Memcached](https://pecl.php.net/package/memcached) you need to:
-- [Configure the session save handler settings in `php.ini`](http://php.net/manual/en/memcached.sessions.php)
-- Set `%ezplatform.session.handler_id%` to `~` _(null)_ in `app/config/parameter.yml`
 
-Alternatively if you have needs to configure Memcached servers dynamically:
-- Create a Symfony service like the following:
+- [Configure the session save handler settings in `php.ini`](http://php.net/manual/en/memcached.sessions.php)
+- Set `%ezplatform.session.handler_id%` to `~` (null_ in `app/config/parameter.yml`
+
+Alternatively if you need to configure Memcached servers dynamically:
+
+- Create a Symfony service like this:
+
 ```yml
     app.session.handler.native_memcached:
         class: eZ\Bundle\EzPublishCoreBundle\Session\Handler\NativeSessionHandler
@@ -99,36 +102,40 @@ Alternatively if you have needs to configure Memcached servers dynamically:
          - '%session.save_path%'
          - 'memcached'
 ```
-- Set `%ezplatform.session.handler_id%` _(or `SESSION_HANDLER_ID` env var)_ to `app.session.handler.native_memcached`
-- Set `%ezplatform.session.save_path%` _(or `SESSION_SAVE_PATH` env var)_ to [save_path config for Memcached](http://php.net/manual/en/memcached.sessions.php)
 
-_Optionally tweak [`php-memcached` session settings](http://php.net/manual/en/memcached.configuration.php) for things like
-session locking._
+- Set `%ezplatform.session.handler_id%` (or `SESSION_HANDLER_ID` env var) to `app.session.handler.native_memcached`
+- Set `%ezplatform.session.save_path%` (or `SESSION_SAVE_PATH` env var) to [`save_path` config for Memcached](http://php.net/manual/en/memcached.sessions.php)
 
-##### Handle sessions with Redis
+Optionally tweak [`php-memcached` session settings](http://php.net/manual/en/memcached.configuration.php) for things like
+session locking.
+
+##### Handling sessions with Redis
 
 To set up eZ Platform using the [Redis](https://pecl.php.net/package/redis) you need to:
+
 - [Configure the session save handler settings in `php.ini`](https://github.com/phpredis/phpredis/#php-session-handler)
 - Set `%ezplatform.session.handler_id%` to `~` _(null)_ in `app/config/parameter.yml`
 
 Alternatively if you have needs to configure Redis servers dynamically:
-- Set `%ezplatform.session.handler_id%` _(or `SESSION_HANDLER_ID` env var)_ to `ezplatform.core.session.handler.native_redis`
-- Set `%ezplatform.session.save_path%` _(or `SESSION_SAVE_PATH` env var)_ to [save_path config for Redis](https://github.com/phpredis/phpredis/#php-session-handler)
+
+- Set `%ezplatform.session.handler_id%` (or `SESSION_HANDLER_ID` env var) to `ezplatform.core.session.handler.native_redis`
+- Set `%ezplatform.session.save_path%` (or `SESSION_SAVE_PATH` env var) to [save_path config for Redis](https://github.com/phpredis/phpredis/#php-session-handler)
 
 !!! note
 
-    For eZ Platform Cloud (& Platform.sh), this is already configiured for you in `app/config/env/platformsh.php` based on .platform.yml config.
+    For eZ Platform Cloud (and Platform.sh), this is already configured in `app/config/env/platformsh.php` based on `.platform.yml` config.
 
-_If you are on `php-redis` v4.2.0 and higher, you can optionally tweak [`php-redis` settings](https://github.com/phpredis/phpredis#session-locking) for session locking._
+If you are on `php-redis` v4.2.0 and higher, you can optionally tweak [`php-redis` settings](https://github.com/phpredis/phpredis#session-locking) for session locking.
 
 ###### Additional notes on using Redis for Sessions
 
-Ideally keep [persistance cache](persistence_cache.md) and session data separated:
-- Sessions can not risk getting [randomly evicted](https://redis.io/topics/lru-cache#eviction-policies) when you run out of memory for cache.
-- You can not completely disable eviction either, as Redis will then start to refuse new entries once full, including new sessions.
-  - _Either way, you should monitor your Redis instances and make sure you have enough memory set aside for active sessions/cache items._
+Ideally keep [persistence cache](persistence_cache.md) and session data separated:
 
-If you want to make sure sessions survive Redis or Server restarts, consider using a [persistent Redis](https://redis.io/topics/persistence) instance for Sessions.
+- Sessions can't risk getting [randomly evicted](https://redis.io/topics/lru-cache#eviction-policies) when you run out of memory for cache.
+- You can't completely disable eviction either, as Redis will then start to refuse new entries once full, including new sessions.
+  - Either way, you should monitor your Redis instances and make sure you have enough memory set aside for active sessions/cache items.
+
+If you want to make sure sessions survive Redis or server restarts, consider using a [persistent Redis](https://redis.io/topics/persistence) instance for sessions.
 
 ##### Alternative storing sessions in database using PDO
 
