@@ -78,7 +78,56 @@ ezpublish:
 
 ### Redis
 
-A [custom configuration of persistence cache](clustering.md#shared-persistence-cache) is required for multi-server setups.
+[Redis](http://redis.io/), an in-memory data structure store, is the recommended cache solution for clustering.
+Redis is used via [Redis pecl extension](https://pecl.php.net/package/redis).
+
+An alternative cache solution for cluster setups is [using Memcached](persistence_cache.md#memcached).
+
+See [Redis Cache Adapter in Symfony documentation](https://symfony.com/doc/3.4/components/cache/adapters/redis_adapter.html#configure-the-connection)
+for information on how to configure Redis.
+
+Example:
+
+``` yaml
+services:
+    cache.redis:
+        parent: cache.adapter.redis
+        tags:
+            - name: cache.pool
+              clearer: cache.app_clearer
+              provider: 'redis://secret@example.com:1234/13'
+```
+
+!!! caution "Clearing Redis cache"
+
+    The regular `php bin/console cache:clear` command does not clear Redis persistence cache.
+    To clear it, use a dedicated Symfony command: `php bin/console cache:pool:clear cache.redis`.
+
+##### Redis Clustering
+
+Persistence cache depends on all involved web servers, each of them seeing the same view of the cache because it's shared among them.
+With that in mind, the following configurations of Redis are possible:
+
+- [Redis Cluster](https://redis.io/topics/cluster-tutorial)
+    - Shards cache across several instances in order to be able to cache more than memory of one server allows
+    - Shard slaves can improve availability, however [they use asynchronous replication](https://redis.io/topics/cluster-tutorial#redis-cluster-consistency-guarantees) so they can't be used for reads
+    - Unsupported Redis features that can affect performance: [pipelining](https://github.com/phpredis/phpredis/blob/develop/cluster.markdown#pipelining) and [most multiple key commands](https://github.com/phpredis/phpredis/blob/develop/cluster.markdown#multiple-key-commands)
+- [Redis Sentinel](https://redis.io/topics/sentinel)
+    - Provides high availability by providing one or several slaves (ideally 2 slaves or more, e.g. minimum 3 servers), and handle failover
+    - [Slaves are asynchronously replicated](https://redis.io/topics/sentinel#fundamental-things-to-know-about-sentinel-before-deploying), so they can't be used for reads
+    - Typically used with a load balancer (e.g. HAproxy) in the front in order to only speak to elected master
+        - An alternative is that application logic itself speaks to Sentinel in order to always ask for elected master before talking to cache.
+
+For best performance we recommend use of Redis Sentinel if it fits your needs. However different cloud providers have managed services that are easier to set up, and might perform better. Notable Services:
+
+- [Amazon ElastiCache](https://aws.amazon.com/elasticache/)
+- [Azure Redis Cache](https://azure.microsoft.com/en-us/services/cache/)
+- [Google Cloud Memorystore](https://cloud.google.com/memorystore/)
+
+###### eZ Platform Cloud / Platform.sh usage
+
+If you use Platform.sh Enterprise you can benefit from the Redis Sentinel across three nodes for great fault tolerance.
+Platform.sh Professional and lower versions offer Redis in single instance mode only.
 
 ### Memcached
 
@@ -86,8 +135,6 @@ A [custom configuration of persistence cache](clustering.md#shared-persistence-c
 
 See [Memcached Cache Adapter in Symfony documentation](https://symfony.com/doc/3.4/components/cache/adapters/memcached_adapter.html#configure-the-connection)
 for information on how to configure Memcached.
-
-To use Memcached, you need to set `cache_service_name` to `cache.memcached`.
 
 Example:
 
