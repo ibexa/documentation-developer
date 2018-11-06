@@ -78,65 +78,16 @@ ezpublish:
 
 ### Redis
 
-This cache backend is using [Redis, a in-memory data structure store](http://redis.io/), via [Redis pecl extension](https://pecl.php.net/package/redis). This is an alternative cache solution for [multi-server (cluster) setups](clustering.md), besides using Memcached.
-
-See [Redis Cache Adapter in Symfony documentation](https://symfony.com/doc/3.4/components/cache/adapters/redis_adapter.html#configure-the-connection)
-for information on how to configure Redis.
-
-!!! note
-
-    To use this, you need to set `cache_service_name` to `cache.redis`.
-
-**Example**
-
-``` yaml
-services:
-    cache.redis:
-        parent: cache.adapter.redis
-        tags:
-            - name: cache.pool
-              clearer: cache.app_clearer
-              provider: 'redis://secret@example.com:1234/13'
-```
-
-!!! caution "Clearing Redis cache"
-
-    The regular `php bin/console cache:clear` command does not clear Redis persistence cache.
-    To clear it, use a dedicated Symfony command: `php bin/console cache:pool:clear cache.redis`.
-
-##### Redis Clustering
-
-Persistence cache depends on all involved web servers, each of them seeing the same view of the cache because it's shared among them.
-With that in mind, the following configurations of Redis are possible:
-- [Redis Cluster](https://redis.io/topics/cluster-tutorial)
-  - Shards cache across several instances in order to be able to cache more than memory of one server allows
-  - Shard slaves can improve availability, however [they use asynchronous replication](https://redis.io/topics/cluster-tutorial#redis-cluster-consistency-guarantees) so they can't be used for reads
-  - Unsupported Redis features that can affect performance: [pipelining](https://github.com/phpredis/phpredis/blob/develop/cluster.markdown#pipelining) and [most multiple key commands](https://github.com/phpredis/phpredis/blob/develop/cluster.markdown#multiple-key-commands)
-- [Redis Sentinel](https://redis.io/topics/sentinel)
-  - Provides high availability by providing one or several slaves (ideally 2 slaves or more, e.g. minimum 3 servers), and handle failover
-  - [Slaves are asynchronously replicated](https://redis.io/topics/sentinel#fundamental-things-to-know-about-sentinel-before-deploying), so they can't be used for reads
-  - Typically used with a load balancer (e.g. HAproxy) in the front in order to only speak to elected master
-    - An alternative is that application logic itself speaks to Sentinel in order to always ask for elected master before talking to cache.
-
-For best performance we recommend use of Redis Sentinel if it fits your needs. However different cloud providers have managed services that are easier to setup, and might perform better. Notable Services:
-- [Amazon ElastiCache](https://aws.amazon.com/elasticache/)
-- [Azure Redis Cache](https://azure.microsoft.com/en-us/services/cache/)
-- [Google Cloud Memorystore](https://cloud.google.com/memorystore/)
-
-###### eZ Platform Cloud / Platform.sh usage
-If you use Platform.sh Enterprise you can benefit from the Redis Sentinel across three nodes for great fault tolerance.
-Platform.sh Professional and lower versions offer Redis in single instance mode only.
+A [custom configuration of persistence cache](clustering.md#shared-persistence-cache) is required for multi-server setups.
 
 ### Memcached
 
-This cache backend is using [Memcached, a distributed caching solution](http://memcached.org/). This is the main supported cache solution for [multi server (cluster) setups](clustering.md), besides using Redis.
+[Memcached, a distributed caching solution](http://memcached.org/) is an alternative cache solution, besides using Redis.
 
 See [Memcached Cache Adapter in Symfony documentation](https://symfony.com/doc/3.4/components/cache/adapters/memcached_adapter.html#configure-the-connection)
 for information on how to configure Memcached.
 
-!!! note
-
-    To use this, you need to set `cache_service_name` to `cache.memcached`.
+To use Memcached, you need to set `cache_service_name` to `cache.memcached`.
 
 Example:
 
@@ -153,6 +104,19 @@ services:
 !!! caution "Connection errors issue"
 
     If Memcached does display connection errors when using the default (ascii) protocol, then switching to binary protocol *(in the configuration and Memcached daemon)* should resolve the issue.
+
+!!! note
+
+    Memcached must not be bound to the local address if clusters are in use, or user logins will fail.
+    To avoid this, in `/etc/memcached.conf` take a look under `# Specify which IP address to listen on. The default is to listen on all IP addresses`
+
+    For development environments, change the address below this comment in `/etc/memcached.conf` to `-l 0.0.0.0`
+
+    For production environments, follow this more secure instruction from the Memcached man:
+
+    > -l &lt;addr&gt;
+
+    > Listen on &lt;addr&gt;; default to INADDR\_ANY. &lt;addr&gt; may be specified as host:port. If you don't specify a port number, the value you specified with -p or -U is used. You may specify multiple addresses separated by comma or by using -l multiple times. This is an important option to consider as there is no other way to secure the installation. Binding to an internal or firewalled network interface is suggested.
 
 ## Using Cache Service
 

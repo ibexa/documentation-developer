@@ -15,25 +15,12 @@ is up to you and your performance needs.
 
 The minimal requirements are:
 
-- Shared HTTP cache (using Varnish)
-- Shared persistence cache and sessions (using Memcached or Redis)
+- [Shared HTTP cache (using Varnish)](http_cache.md#using-varnish)
+- [Shared persistence cache](#shared-persistence-cache) and [sessions](#shared-sessions) (using Redis or Memcached)
 - Shared database (using MySQL/MariaDB)
-- Shared filesystem (using NFS, or S3)
+- [Shared binary files](#shared-binary-files) (using NFS, or S3)
 
 For further details on requirements, see [Requirements page](../getting_started/requirements.md).
-
-!!! note
-
-    Memcached must not be bound to the local address if clusters are in use, or user logins will fail.
-    To avoid this, in `/etc/memcached.conf` take a look under `# Specify which IP address to listen on. The default is to listen on all IP addresses`
-
-    For development environments, change the address below this comment in `/etc/memcached.conf` to `-l 0.0.0.0`
-
-    For production environments, follow this more secure instruction from the Memcached man:
-
-    > -l &lt;addr&gt;
-
-    > Listen on &lt;addr&gt;; default to INADDR\_ANY. &lt;addr&gt; may be specified as host:port. If you don't specify a port number, the value you specified with -p or -U is used. You may specify multiple addresses separated by comma or by using -l multiple times. This is an important option to consider as there is no other way to secure the installation. Binding to an internal or firewalled network interface is suggested.
 
 It is also recommended to use:
 
@@ -41,6 +28,80 @@ It is also recommended to use:
 - a CDN for improved performance and faster ping time worldwide
 - active/passive database for failover
 - more recent versions of PHP and MySQL/MariaDB within [what is supported](../getting_started/requirements.md) for your eZ Platform version to get more performance out of each server. Numbers might vary so make sure to test this when upgrading.
+
+### Shared persistence cache
+
+[Redis](http://redis.io/), an in-memory data structure store, is the recommended cache solution for clustering.
+Redis is used via [Redis pecl extension](https://pecl.php.net/package/redis).
+
+An alternative cache solution for cluster setups is [using Memcached](persistence_cache.md#memcached).
+
+See [Redis Cache Adapter in Symfony documentation](https://symfony.com/doc/3.4/components/cache/adapters/redis_adapter.html#configure-the-connection)
+for information on how to configure Redis.
+
+To use Redis, you need to set `cache_service_name` to `cache.redis`.
+
+Example:
+
+``` yaml
+services:
+    cache.redis:
+        parent: cache.adapter.redis
+        tags:
+            - name: cache.pool
+              clearer: cache.app_clearer
+              provider: 'redis://secret@example.com:1234/13'
+```
+
+!!! caution "Clearing Redis cache"
+
+    The regular `php bin/console cache:clear` command does not clear Redis persistence cache.
+    To clear it, use a dedicated Symfony command: `php bin/console cache:pool:clear cache.redis`.
+
+##### Redis Clustering
+
+Persistence cache depends on all involved web servers, each of them seeing the same view of the cache because it's shared among them.
+With that in mind, the following configurations of Redis are possible:
+
+- [Redis Cluster](https://redis.io/topics/cluster-tutorial)
+    - Shards cache across several instances in order to be able to cache more than memory of one server allows
+    - Shard slaves can improve availability, however [they use asynchronous replication](https://redis.io/topics/cluster-tutorial#redis-cluster-consistency-guarantees) so they can't be used for reads
+    - Unsupported Redis features that can affect performance: [pipelining](https://github.com/phpredis/phpredis/blob/develop/cluster.markdown#pipelining) and [most multiple key commands](https://github.com/phpredis/phpredis/blob/develop/cluster.markdown#multiple-key-commands)
+- [Redis Sentinel](https://redis.io/topics/sentinel)
+    - Provides high availability by providing one or several slaves (ideally 2 slaves or more, e.g. minimum 3 servers), and handle failover
+    - [Slaves are asynchronously replicated](https://redis.io/topics/sentinel#fundamental-things-to-know-about-sentinel-before-deploying), so they can't be used for reads
+    - Typically used with a load balancer (e.g. HAproxy) in the front in order to only speak to elected master
+        - An alternative is that application logic itself speaks to Sentinel in order to always ask for elected master before talking to cache.
+
+For best performance we recommend use of Redis Sentinel if it fits your needs. However different cloud providers have managed services that are easier to set up, and might perform better. Notable Services:
+
+- [Amazon ElastiCache](https://aws.amazon.com/elasticache/)
+- [Azure Redis Cache](https://azure.microsoft.com/en-us/services/cache/)
+- [Google Cloud Memorystore](https://cloud.google.com/memorystore/)
+
+###### eZ Platform Cloud / Platform.sh usage
+
+If you use Platform.sh Enterprise you can benefit from the Redis Sentinel across three nodes for great fault tolerance.
+Platform.sh Professional and lower versions offer Redis in single instance mode only.
+
+### Shared sessions
+
+For a [cluster](clustering.md) setup you need to configure sessions to use a back end that is shared between web servers.
+The main options out of the box in Symfony are the native PHP Memcached or PHP Redis session handlers, alternatively there is Symfony session handler for PDO (database).
+
+To avoid concurrent access to session data from front-end nodes, if possible you should either:
+
+- Enable [Session locking](http://php.net/manual/en/features.session.security.management.php#features.session.security.management.session-locking)
+- Use "Sticky Session", aka [Load Balancer Persistence](https://en.wikipedia.org/wiki/Load_balancing_(computing)#Persistence)
+
+Session locking is available with `php-memcached`, and with `php-redis` (v4.2.0 and higher).
+
+On eZ Platform Cloud (and Platform.sh) Redis is preferred and supported.
+
+### Shared binary files
+
+eZ Platform supports multi-server setups by means of [custom IO handlers](file_management#the-dfs-cluster-handler).
+They make sure that files are correctly synchronized among the multiple clients using the data.
 
 ## DFS IO handler
 
@@ -197,8 +258,3 @@ Since this command can run for a very long time, to avoid memory exhaustion run 
 ## Clustering using Amazon AWS S3
 
 See [Setting up Amazon AWS S3 clustering](../cookbook/setting_up_amazon_aws_s3_clustering.md).
-
-## Binary files clustering
-
-eZ Platform supports multi-server setups by means of [custom IO handlers](file_management#the-dfs-cluster-handler).
-They make sure that files are correctly synchronized among the multiple clients that might use the data.
