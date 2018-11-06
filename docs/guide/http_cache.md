@@ -112,7 +112,7 @@ eZ Platform returns content-related responses with an `X-Location-Id` header.
 The responses are stored together by the configured HTTP cache.
 This allows you to clear (invalidate) HTTP cache representing specifically a given Content item.
 On publishing the Content, a cache purger is triggered with the Content ID in question,
-which in turn figures out affected Locations based on [smart HTTP cache clearing](#smart-http-cache-clearing) logic.
+which in turn figures out affected Locations based on [HTTP cache tag](#http-cache-tagging) logic.
 The returned Location IDs are sent for purge using the selected purge type.
 
 ### Purge types
@@ -157,18 +157,7 @@ For further information on setting up Varnish, see [Using Varnish](#using-varnis
 While purging on Content, updates are handled for you.
 On actions against the eZ Platform APIs, there are times you might have to purge manually.
 
-#### Manually from code
-
-Manual purging from code uses the service also used internally for cache clearing on content updates
-and takes [smart HTTP cache clearing](#smart-http-cache-clearing) logic into account:
-
-``` yaml
-// Purging cache based on Content ID, this will trigger cache clear of all Locations found by smart HTTP cache clearing
-// typically self, parent, related, etc.
-$container->get('ezpublish.http_cache.purger')->purgeForContent(55);
-```
-
-#### Manually by command with Symfony proxy
+#### Purge by command with Symfony proxy
 
 Symfony proxy stores its cache in the Symfony cache directory, so a regular `cache:clear` commands will clear it:
 
@@ -176,7 +165,7 @@ Symfony proxy stores its cache in the Symfony cache directory, so a regular `cac
 php bin/console --env=prod cache:clear
 ```
 
-#### Manually by HTTP BAN request on Varnish
+#### Purge by HTTP BAN request on Varnish
 
 If you use Varnish and need to purge content directly, use the following examples to see how this is done internally by the FOSPurgeClient, and in turn FOSHttpCache Varnish proxy client:
 
