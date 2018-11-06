@@ -99,98 +99,6 @@ $response = new Response();
 $response->setVary('X-User-Hash');
 ```
 
-## Smart HTTP cache clearing
-
-Smart HTTP cache clearing refers to the ability to clear cache for Locations/Content that is in relation with the Content being currently cleared.
-
-When published, any Content item usually has at least one Location, identified by its URL.
-Because HTTP cache is bound to URLs, if a Content item is updated (a new version is published),
-you want HTTP cache for all its Locations to be cleared, so the Content itself can be updated everywhere it is supposed to be displayed.
-
-Sometimes, clearing cache for the Content item's Locations is not enough.
-You can, for instance, have an excerpt of it displayed in a list from the parent Location, or from within a relation.
-In this case, cache for the parent Location and/or the relation needs to be cleared as well (at least if ESI is not used).
-
-### Smart cache clearing mechanism
-
-Smart HTTP cache clearing is an event-based mechanism. Whenever a Content item needs its cache cleared, the cache purger service sends an `ezpublish.cache_clear.content` event (also identified by the `eZ\Publish\Core\MVC\Symfony\MVCEvents::CACHE_CLEAR_CONTENT` constant) and passes an `eZ\Publish\Core\MVC\Symfony\Event\ContentCacheClearEvent` event object. This object contains the `ContentInfo` object you need to clear the cache for. Every listener for this event can add Location objects to the *cache clear list*.
-
-Once the event is dispatched, the purger passes collected Location objects to the purge client, which will effectively send the cache `BAN` request.
-
-!!! note
-
-    The event is dispatched with a dedicated event dispatcher, `ezpublish.http_cache.event_dispatcher`.
-
-### Default behavior
-
-By default, following Locations will be added to the cache clear list:
-
-- All Locations assigned to a Content item (`AssignedLocationsListener`)
-- Parent Location of all Content item's Locations (`ParentLocationsListener`)
-- Locations for Content item's relations, including reverse relations (`RelatedLocationsListener`)
-
-### Implementing a custom listener
-
-By design, smart HTTP cache clearing is extensible. You can implement an event listener/subscriber to the `ezpublish.cache_clear.content` event and add Locations to the cache clear list.
-
-#### Example
-
-Here's a very simple custom listener example, adding an arbitrary Location to the list.
-
-!!! caution
-
-    Cache clear listener services **must** be tagged as `ezpublish.http_cache.event_subscriber` or `ezpublish.http_cache.event_listener`.
-
-``` php
-namespace Acme\AcmeTestBundle\EventListener;
-
-use eZ\Publish\API\Repository\LocationService;
-use eZ\Publish\Core\MVC\Symfony\Event\ContentCacheClearEvent;
-use eZ\Publish\Core\MVC\Symfony\MVCEvents;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-
-class ArbitraryLocationsListener implements EventSubscriberInterface
-{
-    /**
-     * @var LocationService
-     */
-    private $locationService;
-
-    public function __construct( LocationService $locationService )
-    {
-        $this->locationService = $locationService;
-    }
-
-    public static function getSubscribedEvents()
-    {
-        return [MVCEvents::CACHE_CLEAR_CONTENT => ['onContentCacheClear', 100]];
-    }
-
-    public function onContentCacheClear( ContentCacheClearEvent $event )
-    {
-        // $contentInfo is the ContentInfo object for the content being cleared.
-        // You can extract information from it (e.g. ContentType from its contentTypeId), using appropriate Repository services.
-        $contentInfo = $event->getContentInfo();
-
-        // Adding arbitrary Locations to the cache clear list.
-        $event->addLocationToClear( $this->locationService->loadLocation( 123 ) );
-        $event->addLocationToClear( $this->locationService->loadLocation( 456 ) );
-    }
-}
-```
-
-``` php
-parameters:
-    acme.cache_clear.arbitrary_locations_listener.class: Acme\AcmeTestBundle\EventListener\ArbitraryLocationsListener
-
-services:
-    acme.cache_clear.arbitrary_locations_listener:
-        class: %acme.cache_clear.arbitrary_locations_listener.class%
-        arguments: [@ezpublish.api.service.location]
-        tags:
-            - { name: ezpublish.http_cache.event_subscriber }
-```
-
 ## Cache purging
 
 The Content cache purge (invalidate) mechanism is used when publishing content from the UI or from a container-aware script
@@ -204,7 +112,7 @@ eZ Platform returns content-related responses with an `X-Location-Id` header.
 The responses are stored together by the configured HTTP cache.
 This allows you to clear (invalidate) HTTP cache representing specifically a given Content item.
 On publishing the Content, a cache purger is triggered with the Content ID in question,
-which in turn figures out affected Locations based on [smart HTTP cache clearing](#smart-http-cache-clearing) logic.
+which in turn figures out affected Locations based on [HTTP cache tag](#http-cache-tagging) logic.
 The returned Location IDs are sent for purge using the selected purge type.
 
 ### Purge types
@@ -249,18 +157,7 @@ For further information on setting up Varnish, see [Using Varnish](#using-varnis
 While purging on Content, updates are handled for you.
 On actions against the eZ Platform APIs, there are times you might have to purge manually.
 
-#### Manually from code
-
-Manual purging from code uses the service also used internally for cache clearing on content updates
-and takes [smart HTTP cache clearing](#smart-http-cache-clearing) logic into account:
-
-``` yaml
-// Purging cache based on Content ID, this will trigger cache clear of all Locations found by smart HTTP cache clearing
-// typically self, parent, related, etc.
-$container->get('ezpublish.http_cache.purger')->purgeForContent(55);
-```
-
-#### Manually by command with Symfony proxy
+#### Purge by command with Symfony proxy
 
 Symfony proxy stores its cache in the Symfony cache directory, so a regular `cache:clear` commands will clear it:
 
@@ -268,7 +165,7 @@ Symfony proxy stores its cache in the Symfony cache directory, so a regular `cac
 php bin/console --env=prod cache:clear
 ```
 
-#### Manually by HTTP BAN request on Varnish
+#### Purge by HTTP BAN request on Varnish
 
 If you use Varnish and need to purge content directly, use the following examples to see how this is done internally by the FOSPurgeClient, and in turn FOSHttpCache Varnish proxy client:
 
