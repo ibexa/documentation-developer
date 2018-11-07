@@ -131,7 +131,7 @@ class RideController extends Controller
     {
         $this->contentService = $contentService;
     }
-    
+
     /**
      * Action used to display a ride
      *    - Adds the list of all related Landmarks to the response.
@@ -146,7 +146,7 @@ class RideController extends Controller
         $landmarksListId = $currentContent->getFieldValue('landmarks');
 
         $landmarksList = array();
-        
+
         foreach ($landmarksListId->destinationContentIds as $landmarkId)
         {
             $landmarksList[$landmarkId] = $this->contentService->loadContent($landmarkId);
@@ -159,46 +159,7 @@ class RideController extends Controller
 }
 ```
 
-You should register the `RideController` as a service because you are injecting the `ContentService` type-hint in the `__construct()` method. You can do it either in the `app/config/services.yml`:
-
-```
-services:
-    _defaults:
-        autowire: true
-        autoconfigure: true
-        public: false
-
-    AppBundle\Controller\:
-        resource: '../../src/AppBundle/Controller/*'
-```
-
-Or in the `AppBundle` in `src/AppBundle/Resources/config/services.yml`
-
-```
-services:
-    _defaults:
-        autowire: true
-        autoconfigure: true
-        public: false
-
-    AppBundle\Controller\:
-        resource: '../../Controller/*'
-```
-
-And don't forget to import your service in the `app/config/config.yml`:
-
-```
-imports:
-    #...
-    - { resource: '@AppBundle/Resources/config/services.yml' }
-```
-
-!!! Tip
-
-    Use `DependenyInjection` and the `load()` method to merge your service into the actual container.
-
-
-Now update `app/config/views.yml` to mention the `RideController` by adding a line with the `controller` key to the view config.
+Update `app/config/views.yml` to mention the `RideController` by adding a line with the `controller` key to the view config.
 
 ``` yaml hl_lines="7"
 ezpublish:

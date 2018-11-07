@@ -24,7 +24,7 @@ The application will look for a `getAllRidesAction` inside the `HomepageControll
 
 Create the `/src/AppBundle/Controller/HomepageController.php` file:
 
-``` php hl_lines="26 39 40"
+``` php hl_lines="45 58 59"
 <?php
 
 namespace AppBundle\Controller;
@@ -37,16 +37,35 @@ use eZ\Publish\API\Repository\Values\Content\Location;
 use eZ\Publish\Core\Pagination\Pagerfanta\ContentSearchAdapter;
 use Pagerfanta\Pagerfanta;
 use Symfony\Component\HttpFoundation\Request;
+use eZ\Publish\API\Repository\ContentService;
+use eZ\Publish\API\Repository\LocationService;
 
 class HomepageController extends Controller
 {
+    /**
+     * @var ContentService
+     */
+    private $contentService;
+
+    /**
+     * @var LocationService
+     */
+    private $locationService;
+
+     /**
+     * HomepageController constructor.
+     * @param ContentService $contentService
+     */
+    public function __construct(ContentService $contentService, LocationService $locationService)
+    {
+        $this->contentService = $contentService;
+        $this->locationService = $locationService;
+    }
+
     public function getAllRidesAction(Request $request)
     {
-        $repository = $this->getRepository();
-        $locationService = $repository->getLocationService();
-        $contentService = $repository->getContentService();
         $rootLocationId = $this->getConfigResolver()->getParameter('content.tree_root.location_id');
-        $rootLocation = $locationService->loadLocation($rootLocationId);
+        $rootLocation = $this->locationService->loadLocation($rootLocationId);
         $currentLocationId = 2;
 
         return $this->render(
@@ -82,8 +101,65 @@ class HomepageController extends Controller
 }
 ```
 
-This controller searches for all visible Content items of the type **Ride** (lines 39-40)
-and renders them using the `list/rides.html.twig` template (line 28).
+This controller searches for all visible Content items of the type **Ride** (lines 58-59)
+and renders them using the `list/rides.html.twig` template (line 45).
+
+### Register a service
+
+!!! tip
+
+    Dealing with Symfony services is not in the scope of this tutorial, so we won't go here into detail on how they work.
+    To learn more about this topic, take a look at [Symfony Service Container documentation](https://symfony.com/doc/3.4/service_container.html).
+
+Because you are using the `ContentService`, you need to register the `HomepageController` as a service.
+
+Create a new file: `src/AppBundle/Resources/config/services.yml`:
+
+``` yaml
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    AppBundle\Controller\:
+        public: true
+        resource: '../../Controller/*'
+```
+
+At the beginning of the `ezplatform.yml` file (before the `ezpublish` key), add the following lines to import the content of the new file:
+
+``` yaml
+imports:
+    - { resource: '@AppBundle/Resources/config/services.yml' }
+```
+
+You also need to use dependency injection to merge your service into the actual container.
+
+Create a new file `src/AppBundle/DependencyInjection/AppExtension.php`:
+
+``` php
+<?php
+namespace AppBundle\DependencyInjection;
+use Symfony\Component\HttpKernel\DependencyInjection\Extension;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
+use Symfony\Component\Yaml\Yaml;
+use Symfony\Component\Config\Resource\FileResource;
+class AppExtension extends Extension
+{
+    public function load(array $configs, ContainerBuilder $container)
+    {
+        $loader = new YamlFileLoader(
+            $container,
+            new FileLocator(__DIR__ . '/../Resources/config')
+        );
+        $loader->load('services.yml');
+    }
+}
+```
 
 ## Create a template to list all Rides
 

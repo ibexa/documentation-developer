@@ -20,10 +20,9 @@ ezpublish:
                         - {name: geometry/scaledownonly, params: [140, 100]}
 ```
 
-At the beginning of the `ezplatform.yml` file (before the `ezpublish` key), add the following lines to import the content of `app/config/image_variations.yml`:
+Import the file in `ezplatform.yml`, like you did with `services.yml`:
 
 ``` yaml
-imports:
     - { resource: image_variations.yml }
 ```
 
