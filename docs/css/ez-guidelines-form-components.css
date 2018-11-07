@@ -20,18 +20,11 @@
     border-radius: 0.25em;
     transition: cubic-bezier(0.25, 0.8, 0.25, 1);
 }
-.ez-guidelines
-    .ez-guidelines-formcomponent-number
-    > .ez-code-example
-    .form-control {
+.ez-guidelines .ez-guidelines-formcomponent-number .ez-code-example .form-control {
     width: 10%;
 }
 
-.ez-guidelines
-    .ez-guidelines-formcomponent-multiple
-    > .ez-code-example
-    .form-group
-    .form-control {
+.ez-guidelines .ez-guidelines-formcomponent-multiple .ez-code-example .form-group .form-control {
     height: 104px;
 }
 .ez-guidelines .ez-code-example .form-check-inline {
@@ -47,37 +40,20 @@
     margin-right: 0.3125em;
     margin-left: 0;
 }
-.ez-guidelines
-    .ez-guidelines-formcomponent-radioExample
-    .ez-code-example
-    .example-group {
+.ez-guidelines .ez-guidelines-formcomponent-radioExample .ez-code-example .example-group {
     margin-top: 0.5em;
 }
-.ez-guidelines
-    .ez-guidelines-formcomponent-radioExample
-    .ez-code-example
-    .example-group
-    .form-control {
+.ez-guidelines .ez-guidelines-formcomponent-radioExample .ez-code-example .example-group .form-control {
     font-size: initial;
 }
-.ez-guidelines
-    .ez-guidelines-formcomponent-radioExample
-    .ez-code-example
-    .ez-icon {
+.ez-guidelines .ez-guidelines-formcomponent-radioExample .ez-code-example .ez-icon {
     margin-right: 0.25em;
 }
-.ez-guidelines.md-typeset.bootstrap-iso > .ez-code-example > .form-group,
-.ez-guidelines.md-typeset.bootstrap-iso
-    > .ez-guidelines-formcomponent
-    > .ez-code-example
-    > .form-group {
+.ez-guidelines.md-typeset.bootstrap-iso .ez-code-example .form-group,
+.ez-guidelines.md-typeset.bootstrap-iso .ez-guidelines-formcomponent .ez-code-example .form-group {
     margin-bottom: 0;
 }
-.ez-guidelines.md-typeset.bootstrap-iso
-    > .ez-guidelines-formcomponent
-    .ez-code-example
-    > .form-group
-    .form-control:not([size]):not([multiple]) {
+.ez-guidelines.md-typeset.bootstrap-iso .ez-guidelines-formcomponent .ez-code-example .form-group .form-control {
     width: auto;
     height: 38px;
 }
