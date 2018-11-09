@@ -4,7 +4,9 @@
     
     ## Override email template  
     
-    To customize email notification you need to override twig template `form_builder/form_submit_notification_email.html.twig`.
+    Email is one of the Submit button options you can choose from in the Form Builder Interface.
+    It allows you to gather readers' email addresses to send notifications to.
+    To customize Form Builder email submission notification you need to override Twig template `form_builder/form_submit_notification_email.html.twig`.
     It is built with two blocks, subject and body. Each of them is rendered independently and consists of three sets of parameters.
     
     |Parameter|Type|Description|
