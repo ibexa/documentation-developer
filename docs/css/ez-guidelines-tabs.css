@@ -1,6 +1,3 @@
-.ez-guidelines-tabs .ez-code-example {
-    font-family: 'Noto Sans', 'Helvetica', 'Arial', sans-serif;
-}
 .ez-guidelines-tabs .ez-code-example .nav-tabs {
     margin-left: 0;
     border-bottom: 2px solid #e5e3e3;
@@ -11,9 +8,9 @@
 }
 .ez-guidelines-tabs .ez-code-example .nav-link {
     border: 1px solid transparent;
-    padding: .5em 1em;
-    border-top-left-radius: .25em;
-    border-top-right-radius: .25em;
+    padding: 0.5em 1em;
+    border-top-left-radius: 0.25em;
+    border-top-right-radius: 0.25em;
     color: #646464;
 }
 .ez-guidelines-tabs .ez-code-example .nav-tabs .nav-link:hover {

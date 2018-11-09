@@ -155,6 +155,7 @@ pages:
             - 'Introduction': 'guidelines/Introduction.md'
             - Components:
                 - 'Buttons': 'guidelines/components/buttons.md'
+                - 'Form components': 'guidelines/components/form_components.md'
                 - 'Tables': 'guidelines/components/tables.md'
                 - 'Tabs': 'guidelines/components/tabs.md'
             - Resources:
