@@ -39,7 +39,7 @@ This tells eZ Platform to use the `template` when rendering content with Locatio
     $ php bin/console cache:clear
     ```
 
-## Create main layout
+## Create template & layout
 
 ### Create the first template
 
