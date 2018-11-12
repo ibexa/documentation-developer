@@ -6,7 +6,7 @@ In this step you will display a table of all Rides on the front page.
 
 ## Customize the homepage template
 
-In `Resources/views/full/root_folder.html.twig` replace the "Hello world" with a call to a controller which will display the list of all existing Rides:
+In `Resources/views/full/home_page.html.twig` replace the "Hello world" with a call to a controller which will display the list of all existing Rides:
 
 ``` html hl_lines="5"
 {% extends "main_layout.html.twig" %}

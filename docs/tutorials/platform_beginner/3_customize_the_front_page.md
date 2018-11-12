@@ -2,7 +2,7 @@
 
 In this step you will create the global layout of your site, and display content using custom templates.
 
-First, go to the root of the site (`<yourdomain>`). You should see the root folder of the clean install, without any kind of layout.
+First, go to the root of the site (`<yourdomain>`). You should see the home page of the clean install, without any kind of layout.
 You will customize this step by instructing Platform to use a custom template to render this Content item.
 
 ## Content rendering configuration
@@ -18,8 +18,8 @@ ezpublish:
             # existing keys, do not change them
             content_view:
                 full:
-                    root_folder:
-                        template: 'full/root_folder.html.twig'
+                    home_page:
+                        template: 'full/home_page.html.twig'
                         match:
                             Id\Location: 2
 ```
@@ -47,7 +47,7 @@ Next, you need to create the template that you indicated in configuration.
 
 For the time being, fill the template with a basic "Hello world" message.
 
-Create a `root_folder.html.twig` file in `app/Resources/views/full`:
+Create a `home_page.html.twig` file in `app/Resources/views/full`:
 
 ``` twig
 <div>
@@ -187,8 +187,8 @@ For now the site has no stylesheets or assets. In the highlighted lines (12-14, 
 
 ### Extending templates
 
-Now you need to indicate that the `app/Resources/views/full/root_folder.html.twig` template should make use of the page layout.
-Edit `root_folder.html.twig` and replace it with the following code:
+Now you need to indicate that the `app/Resources/views/full/home_page.html.twig` template should make use of the page layout.
+Edit `home_page.html.twig` and replace it with the following code:
 
 ``` twig hl_lines="1 3 7"
 {% extends "main_layout.html.twig" %}
@@ -205,7 +205,7 @@ Templates can contain named blocks. Any template can extend other templates, and
 
 The code above points to `main_layout.html.twig` in line 1. It also wraps your "Hello world" message in a `content` block.
 If you look back at the main layout template, you can see an empty `{% block content %}{% endblock %}` section (lines 52-53).
-This is where the `root_folder.html.twig` will be rendered.
+This is where the `home_page.html.twig` will be rendered.
 
 Refresh the page and you should now see the "Hello world" placed inside a styled layout.
 
