@@ -164,7 +164,7 @@ Because this template will be rendered inside a table, it starts with a `<tr>` t
         <a href="{{ path( "ez_urlalias", { 'locationId': content.contentInfo.mainLocationId } ) }}"
         target="_self">
             <strong>
-                {{ ez_content_name( content ) }}
+                {{ content.name }}
             </strong>
             {% if not ez_is_field_empty( content, 'photo' ) %}
                 {{ ez_render_field(content, 'photo') }}

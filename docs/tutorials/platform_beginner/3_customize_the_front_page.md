@@ -247,7 +247,7 @@ Create a Twig template `app/Resources/views/full/ride.html.twig` with the follow
     <section>
         <div class="row regular-content-size">
             <div class="col-xs-12">
-                <h3 class="center bottom-plus new-header">{{ ez_content_name( content ) }}</h2>
+                <h3 class="center bottom-plus new-header">{{ content.name }}</h2>
             </div>
         </div>
     </section>
