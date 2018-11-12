@@ -17,7 +17,7 @@ Then create all Fields with the following information: 
 | ------------ | ---------------- | ---------------- | --------- | ---------- | ------------ |
 | Text line    | Name             | `name`           | yes       | yes        | yes          |
 | Rich Text    | Description      | `description`    | no        | yes        | yes          |
-| Image        | Photo            | `photo`          | yes       | no         | no           |
+| Image Asset  | Photo            | `photo`          | yes       | no         | no           |
 | Map location | Location         | `location`       | yes       | yes        | no           |
 
 Confirm the creation of the Content Type by selecting Save.
