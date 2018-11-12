@@ -57,6 +57,18 @@ Create a `root_folder.html.twig` file in `app/Resources/views/full`:
 
 Refresh the page and you will see a simple, unstyled version of the message.
 
+!!! tip
+
+    If you'd like to take a peek at variables available in current template you can use the following Twig function:
+
+
+    ```
+    {{ dump() }}
+
+    {# If you'd like to dump a specific variable you can do that like this: #}
+    {{ dump(location) }}
+    ```
+
 ### Add the site's main layout
 
 Most sites have a general layout which includes things like header with a logo or footer.
