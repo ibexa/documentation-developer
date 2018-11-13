@@ -30,6 +30,10 @@
     ![Timeline and list of upcoming events](img/2.3_timeline_list.png)
 
     The timeline also shows other events, such a Content published using the date-based publisher.
+    
+    !!! tip "User documentation"
+    
+        You can also check user documentation on [advanced publishing options](https://doc.ezplatform.com/projects/userguide/en/latest/publishing/#advanced-publishing-options)
 
 ### Form Builder
 
@@ -44,6 +48,10 @@
     ![Form Builder submissions](img/2.3_form_builder_submissions.png)
 
     See [Extending Form Builder](../guide/extending_form_builder.md) for information on how to modify and create Form fields.
+    
+    !!! tip "User documentation"
+        
+        You can also check user documentation on [forms](https://doc.ezplatform.com/projects/userguide/en/latest/creating_content_advanced/#forms)
 
 ### ImageAsset Field Type
 
@@ -107,6 +115,6 @@ See [How to translate the interface using Crowdin](../community_resources/transl
 
 ## Installation
 
-[Installation Guide](../getting_started/install_ez_platform.md)
+[Installation guide](../getting_started/install_ez_platform.md)
 
-[Technical Requirements](../getting_started/requirements_and_system_configuration.md)
+[Technical requirements](../getting_started/requirements_and_system_configuration.md)
