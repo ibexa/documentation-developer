@@ -15,32 +15,45 @@ is up to you and your performance needs.
 
 The minimal requirements are:
 
-- Shared HTTP cache (using Varnish)
-- Shared persistence cache and sessions (using Memcached or Redis)
+- [Shared HTTP cache (using Varnish)](http_cache.md#using-varnish)
+- [Shared persistence cache](#shared-persistence-cache) and [sessions](#shared-sessions) (using Redis or Memcached)
 - Shared database (using MySQL/MariaDB)
-- Shared filesystem (using NFS, or S3)
+- [Shared binary files](#shared-binary-files) (using NFS, or S3)
 
 For further details on requirements, see [Requirements page](../getting_started/requirements.md).
-
-!!! note
-
-    Memcached must not be bound to the local address if clusters are in use, or user logins will fail.
-    To avoid this, in `/etc/memcached.conf` take a look under `# Specify which IP address to listen on. The default is to listen on all IP addresses`
-
-    For development environments, change the address below this comment in `/etc/memcached.conf` to `-l 0.0.0.0`
-
-    For production environments, follow this more secure instruction from the Memcached man:
-
-    > -l &lt;addr&gt;
-
-    > Listen on &lt;addr&gt;; default to INADDR\_ANY. &lt;addr&gt; may be specified as host:port. If you don't specify a port number, the value you specified with -p or -U is used. You may specify multiple addresses separated by comma or by using -l multiple times. This is an important option to consider as there is no other way to secure the installation. Binding to an internal or firewalled network interface is suggested.
 
 It is also recommended to use:
 
 - [Solr](solr.md) for better search and performance
 - a CDN for improved performance and faster ping time worldwide
+    - in eZ Platform Enterprise Edition you can use Fastly, which has native support as HTTP cache and CDN.
 - active/passive database for failover
 - more recent versions of PHP and MySQL/MariaDB within [what is supported](../getting_started/requirements.md) for your eZ Platform version to get more performance out of each server. Numbers might vary so make sure to test this when upgrading.
+
+### Shared persistence cache
+
+Redis is the recommended cache solution for clustering. An alternative solution is using Memcached.
+
+See [persistence cache documentation](persistence_cache.md#persistence-cache-configuration) on information on how to configure them.
+
+### Shared sessions
+
+For a [cluster](clustering.md) setup you need to configure sessions to use a back end that is shared between web servers.
+The main options out of the box in Symfony are the native PHP Memcached or PHP Redis session handlers, alternatively there is Symfony session handler for PDO (database).
+
+To avoid concurrent access to session data from front-end nodes, if possible you should either:
+
+- Enable [Session locking](http://php.net/manual/en/features.session.security.management.php#features.session.security.management.session-locking)
+- Use "Sticky Session", aka [Load Balancer Persistence](https://en.wikipedia.org/wiki/Load_balancing_(computing)#Persistence)
+
+Session locking is available with `php-memcached`, and with `php-redis` (v4.2.0 and higher).
+
+On eZ Platform Cloud (and Platform.sh) Redis is preferred and supported.
+
+### Shared binary files
+
+eZ Platform supports multi-server setups by means of [custom IO handlers](file_management#the-dfs-cluster-handler).
+They make sure that files are correctly synchronized among the multiple clients using the data.
 
 ## DFS IO handler
 
@@ -197,8 +210,3 @@ Since this command can run for a very long time, to avoid memory exhaustion run 
 ## Clustering using Amazon AWS S3
 
 See [Setting up Amazon AWS S3 clustering](../cookbook/setting_up_amazon_aws_s3_clustering.md).
-
-## Binary files clustering
-
-eZ Platform supports multi-server setups by means of [custom IO handlers](file_management#the-dfs-cluster-handler).
-They make sure that files are correctly synchronized among the multiple clients that might use the data.

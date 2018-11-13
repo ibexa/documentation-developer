@@ -73,16 +73,7 @@ For a single server, the default file handler is preferred.
 
 #### Cluster setup
 
-For a [cluster](clustering.md) setup you need to configure sessions to use a back end that is shared between web servers.
-The main options out of the box in Symfony are the native PHP Memcached or PHP Redis session handlers, alternatively there is Symfony session handler for PDO (database).
-
-To avoid concurrent access to session data from front-end nodes, if possible you should either:
-- Enable [Session locking](http://php.net/manual/en/features.session.security.management.php#features.session.security.management.session-locking)
-- Use "Sticky Session", aka [Load Balancer Persistence](https://en.wikipedia.org/wiki/Load_balancing_(computing)#Persistence)
-
-Session locking is available with `php-memcached`, and with `php-redis` (v4.2.0 and higher).
-
-On eZ Platform Cloud (and Platform.sh) Redis is preferred and supported.
+See [shared sessions in the clustering guide](clustering.md#shared-sessions).
 
 ##### Handling sessions with Memcached
 
