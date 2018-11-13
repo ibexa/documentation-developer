@@ -138,7 +138,7 @@ To allow anonymous users to register through the `/register` route, you need to 
 |               | `system_info`        | view the System information tab in the Admin Panel                                                                                      |
 | `user`        | `login`              | log in to the application                                                                                                               |
 |               | `password`           | unused                                                                                                                                  |
-|               | `preferences`        | unused                                                                                                                                  |
+|               | `preferences`        | access and set user preferences                                                                                                                                  |
 |               | `register`           | register using the `/register` route                                                                                                    |
 |               | `selfedit`           | unused                                                                                                                                  |
 |               | `activation`         | unused                                                                                                                                  |
