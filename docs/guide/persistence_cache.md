@@ -81,8 +81,6 @@ ezpublish:
 [Redis](http://redis.io/), an in-memory data structure store, is the recommended cache solution for clustering.
 Redis is used via [Redis pecl extension](https://pecl.php.net/package/redis).
 
-An alternative cache solution for cluster setups is [using Memcached](persistence_cache.md#memcached).
-
 See [Redis Cache Adapter in Symfony documentation](https://symfony.com/doc/3.4/components/cache/adapters/redis_adapter.html#configure-the-connection)
 for information on how to configure Redis.
 
