@@ -45,9 +45,9 @@
                         options:
                             multiple: true
                             choices:
-                                value1: 'Sports'
-                                value2: 'Culture'
-                                value3: 'Politics'
+                                'Sports': value1
+                                'Culture': value2
+                                'Politics': value3
     ```
 
     You can define multiple views for a block, with separate templates.
