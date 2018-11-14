@@ -5,13 +5,13 @@ It is further enhanced in eZ Platform with support for SiteAccess-aware session
 
 !!! note
 
-    Use of Memcached (or experimentally PDO) as session handler is a requirement in a cluster setup,
+    Use of Memcached, Redis (or experimentally PDO) as session handler is a requirement in a cluster setup,
     for details [see below](#cluster-setup). For an overview of the clustering feature see [Clustering](clustering.md).
 
 ## Configuration
 
 Symfony offers the possibility to change many session options at application level
-(i.e. in Symfony [`framework` configuration](http://symfony.com/doc/2.8/reference/configuration/framework.html)).
+(i.e. in Symfony [`framework` configuration](https://symfony.com/doc/3.4/reference/configuration/framework.html#session)).
 These options include:
 
 - `cookie_domain`
@@ -52,45 +52,88 @@ Symfony can be configured to use custom handlers, or just fall back to what is 
 
 ### Default configuration
 
-eZ Platform uses the same default configuration as recent versions of Symfony standard distribution.
-This makes sure you can configure sessions purely in PHP by default, and allows Debian/Ubuntu session file cleanup cronjob to work as intended.
+eZ Platform adapts Symfony's defaults to make sure its session save path is always taken into account:
 
 ``` yaml
 # Default config.yml session configuration
 framework:
     session:
-        # handler_id set to null will use default session handler from php.ini
-        handler_id:  ~
+        # handler_id can be set to null (~) like default in Symfony, if it so will use default session handler from php.ini
+        # But in order to use %ezplatform.session.save_path%, default eZ Platform instead sets %ezplatform.session.handler_id% to:
+        # - session.handler.native_file (default)
+        # - ezplatform.core.session.handler.native_redis (recommended value for Cluster usage, using php-redis session handler )
+        handler_id: '%ezplatform.session.handler_id%'
 ```
 
 ### Recommendations for production setup
 
 #### Single-server setup
 
-For a single server, the default handler is preferred.
+For a single server, the default file handler is preferred.
 
 #### Cluster setup
 
-For a [cluster](clustering.md) setup you need to configure sessions to use a back end that is shared between web servers and supports locking.
-The only options out of the box supporting this in Symfony are the native PHP Memcached session save handler
-provided by the `php-memcached` extension, and Symfony session handler for PDO (database).
+See [shared sessions in the clustering guide](clustering.md#shared-sessions).
 
-##### Storing sessions in Memcached using `php-memcached`
+##### Handling sessions with Memcached
 
-To set up eZ Platform using Memcached you need to [configure the session save handler settings in `php.ini`](http://php.net/manual/en/memcached.sessions.php),
-and optionally tweak [`php-memcached` session settings](http://fr2.php.net/manual/en/memcached.configuration.php).
+To set up eZ Platform using [Memcached](https://pecl.php.net/package/memcached) you need to:
 
-##### Storing sessions in Redis using pecl package
+- [Configure the session save handler settings in `php.ini`](http://php.net/manual/en/memcached.sessions.php)
+- Set `%ezplatform.session.handler_id%` to `~` (null_ in `app/config/parameter.yml`
 
-To set up eZ Platform using the [Redis pecl package](https://pecl.php.net/package/redis)
-you need to [configure the session save handler settings in `php.ini`](https://github.com/phpredis/phpredis#php-session-handler).
+Alternatively if you need to configure Memcached servers dynamically:
+
+- Create a Symfony service like this:
+
+```yml
+    app.session.handler.native_memcached:
+        class: eZ\Bundle\EzPublishCoreBundle\Session\Handler\NativeSessionHandler
+        arguments:
+         - '%session.save_path%'
+         - 'memcached'
+```
+
+- Set `%ezplatform.session.handler_id%` (or `SESSION_HANDLER_ID` env var) to `app.session.handler.native_memcached`
+- Set `%ezplatform.session.save_path%` (or `SESSION_SAVE_PATH` env var) to [`save_path` config for Memcached](http://php.net/manual/en/memcached.sessions.php)
+
+Optionally tweak [`php-memcached` session settings](http://php.net/manual/en/memcached.configuration.php) for things like
+session locking.
+
+##### Handling sessions with Redis
+
+To set up eZ Platform using the [Redis](https://pecl.php.net/package/redis) you need to:
+
+- [Configure the session save handler settings in `php.ini`](https://github.com/phpredis/phpredis/#php-session-handler)
+- Set `%ezplatform.session.handler_id%` to `~` _(null)_ in `app/config/parameter.yml`
+
+Alternatively if you have needs to configure Redis servers dynamically:
+
+- Set `%ezplatform.session.handler_id%` (or `SESSION_HANDLER_ID` env var) to `ezplatform.core.session.handler.native_redis`
+- Set `%ezplatform.session.save_path%` (or `SESSION_SAVE_PATH` env var) to [save_path config for Redis](https://github.com/phpredis/phpredis/#php-session-handler)
+
+!!! note
+
+    For eZ Platform Cloud (and Platform.sh), this is already configured in `app/config/env/platformsh.php` based on `.platform.yml` config.
+
+If you are on `php-redis` v4.2.0 and higher, you can optionally tweak [`php-redis` settings](https://github.com/phpredis/phpredis#session-locking) for session locking.
+
+###### Additional notes on using Redis for Sessions
+
+Ideally keep [persistence cache](persistence_cache.md) and session data separated:
+
+- Sessions can't risk getting [randomly evicted](https://redis.io/topics/lru-cache#eviction-policies) when you run out of memory for cache.
+- You can't completely disable eviction either, as Redis will then start to refuse new entries once full, including new sessions.
+  - Either way, you should monitor your Redis instances and make sure you have enough memory set aside for active sessions/cache items.
+
+If you want to make sure sessions survive Redis or server restarts, consider using a [persistent Redis](https://redis.io/topics/persistence) instance for sessions.
 
 ##### Alternative storing sessions in database using PDO
 
 For setups where database is preferred for storing sessions, you may use Symfony's PdoSessionHandler,
 although it is not currently recommended from performance perspective.
 
-Below is a configuration example for eZ Platform. Refer to the [Symfony Cookbook](http://symfony.com/doc/2.8/doctrine/pdo_session_storage.html) for full documentation.
+Below is a configuration example for eZ Platform. Refer to the [Symfony Cookbook](http://symfony.com/doc/3.4/doctrine/pdo_session_storage.html) for full documentation.
 
 ``` yaml
 framework:

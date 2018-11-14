@@ -190,7 +190,7 @@ Users are treated like other Content, so to create and modify them the User need
 |               | `system_info`        | view the System information tab in Admin                                                                                      |
 | `user`        | `login`              | log in to the application                                                                                                               |
 |               | `password`           | unused                                                                                                                                  |
-|               | `preferences`        | unused                                                                                                                                  |
+|               | `preferences`        | access and set user preferences                                                                                                                                  |
 |               | `register`           | register using the `/register` route                                                                                                    |
 |               | `selfedit`           | unused                                                                                                                                  |
 |               | `activation`         | unused                                                                                                                                  |

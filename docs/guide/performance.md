@@ -43,12 +43,24 @@ In production setups:
 - Keep Composer up to date.
 - Always dump optimized class map using `composer dump-autoload --optimize` or relevant flags on `composer install/update`.
 
-### Redis
+### Memcached/Redis
 
-- Redis is recommended over Memcached as the latter has big performance issues caused by how Symfony cache works for cache tagging (Memcached does not handle lookups of non-existing cache items very well).
-- Redis is recommended over filesystem cache even with a single server, as it offers better general performance for operations invalidating cache.
-    - However, pure read performance is slower, especially if the next point is not optimized.
-- If you use Redis, make sure to tune it for in-memory cache usage. Its persistence feature is not needed with eZ Platform cache and will severely slow down execution time.
+!!! note
+
+    Redis is currently recommended over Memcached, as the latter has had big performance issues.
+    [Symfony v3.4.15](https://github.com/symfony/symfony/pull/28249) may have resolved this.
+
+- Memcached/Redis can in some cases perform better than filesystem cache even with a single server, as it offers better general performance for operations invalidating cache.
+    - However, pure read performance is slower, especially if the next points are not optimized.
+    - With cache being on different node(s) than web server, make sure to try to tune latency between the two.
+
+!!! tip
+
+    Check if your cloud provider has native service for Memcached/Redis, as those might be better tuned.
+
+- If you use Redis, make sure to tune it for in-memory cache usage. Its persistence feature is not needed with cache and will severely slow down execution time.
+    - [For use with sessions](sessions.md#cluster-setup) however, persistence can be a good fit if you want sessions to survive service interruptions.
+    - Further tips for Redis with cache can be found in doc regarding [Redis Clustering](persistence_cache.md#redis-clustering).
 
 ### Search
 

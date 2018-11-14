@@ -107,7 +107,7 @@ $(document).ready(function () {
     });
 
     // Image enlargement modal
-    $(".md-content img").click( function(){
+    $("img:not(.card-img-top)").click( function(){
         $('#enlargedImage').attr('src', $(this).attr('src'));
         if ($(this).attr('title')) {
             $('#modalCaption').html($(this).attr('title'));

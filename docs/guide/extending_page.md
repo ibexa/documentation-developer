@@ -45,9 +45,9 @@
                         options:
                             multiple: true
                             choices:
-                                value1: 'Sports'
-                                value2: 'Culture'
-                                value3: 'Politics'
+                                'Sports': value1
+                                'Culture': value2
+                                'Politics': value3
     ```
 
     You can define multiple views for a block, with separate templates.
@@ -74,6 +74,9 @@
     |`select`|Drop-down with options to select|`choices` lists the available options</br>`multiple`, when set to true allows selecting more than one option.
     |`multiple`|Checkbox(es)|`choices` lists the available options.|
     |`radio`|Radio buttons|`choices` lists the available options.|
+    |`locationlist`|Location selection|-|
+    |`contenttypelist`|List of Content Types|-|
+    |`schedule_events`,</br>`schedule_snapshots`,</br>`schedule_initial_items`,</br>`schedule_slots`,</br>`schedule_loaded_snapshot`|Used in the Content Scheduler block|-|
 
     When defining attributes you can omit most keys as long as you use simple types that do not require additional options:
 

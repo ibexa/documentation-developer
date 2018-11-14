@@ -226,6 +226,10 @@ body {
     color: #4ec7f3;
 }
 
+.bootstrap-iso .admonition p {
+    margin-top: 1em;
+}
+
 .md-typeset .codehilitetable .linenos {
     background-color: #c0c0c0;
     color: #fff;
