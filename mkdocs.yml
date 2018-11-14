@@ -227,6 +227,7 @@ extra:
     dev: ['master']
   append_bootstrap:
     - '/guidelines/'
+    - '/index.md'
 
 extra_css:
   - fonts/MavenPro.css
