@@ -199,6 +199,14 @@ extra:
     lts: ['1.13']
     ft: ['2.2']
     dev: ['master']
+  append_bootstrap:
+    - '/guidelines/'
+    - '/index.md'
+
+extra_css:
+  - fonts/MavenPro.css
+  - css/custom.css
+  - '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css'
 
 extra_css: [fonts/MavenPro.css, css/custom.css, '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css']
 extra_javascript: [js/jquery.min.js, js/custom.js, '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js']
