@@ -39,7 +39,7 @@ This tells eZ Platform to use the `template` when rendering content with Locatio
     $ php bin/console cache:clear
     ```
 
-## Create template & layout
+## Create template and layout
 
 ### Create the first template
 
@@ -56,18 +56,6 @@ Create a `home_page.html.twig` file in `app/Resources/views/full`:
 ```
 
 Refresh the page and you will see a simple, unstyled version of the message.
-
-!!! tip
-
-    If you'd like to take a peek at variables available in current template you can use the following Twig function:
-
-
-    ```
-    {{ dump() }}
-
-    {# If you'd like to dump a specific variable you can do that like this: #}
-    {{ dump(location) }}
-    ```
 
 ### Add the site's main layout
 
@@ -285,6 +273,21 @@ Create a Twig template `app/Resources/views/full/ride.html.twig` with the follow
 ```
 
 This template reuses `main_layout.html.twig` and again places the template in a `content` block.
+
+!!! tip "Previewing available variables"
+
+    You can see what variables are available in the current template with the `dump()` Twig function:
+
+    ``` html+twig
+    {{ dump() }}
+    ```
+
+    You can also dump a specific variable:
+
+    ``` html+twig
+    {{ dump(location) }}
+    ```
+
 Now you need to indicate when this template should be used.
 
 !!! note
