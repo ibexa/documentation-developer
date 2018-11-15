@@ -57,7 +57,7 @@ Then attributes of the custom tag are listed. These attributes can be set when a
 Next, create the template that is referred to in the configuration.
 In `src/EzSystems/ExtendingTutorialBundle/Resources/views/field_type/ezrichtext/custom_tag` add the following `ezyoutube.html.twig` file:
 
-``` twig
+``` html+twig
 <div{% if params.align is defined %} style="text-align: {{ params.align }};"{% endif %}>
     <iframe
         type="text/html"

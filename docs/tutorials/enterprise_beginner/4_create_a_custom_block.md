@@ -166,7 +166,7 @@ class RandomBlock extends AbstractBlockType
 
 Now you need to define the block template, `src/AppBundle/Resources/views/blocks/random.html.twig`:
 
-``` html
+``` html+twig
 <div class="row random-block">
     <h4 class="text-right">{{ 'Tip of the Day'|trans }}</h4>
     <h5>{{ ez_content_name(content) }}</h5>
