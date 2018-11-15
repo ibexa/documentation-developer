@@ -96,7 +96,7 @@ eZ Studio comes with a Demo Bundle which showcases its capabilities on the examp
 Release:
 
 -   [Installation instructions](../getting_started/install_ez_platform.md)
--   [Requirements](../getting_started/requirements_and_system_configuration.md)
+-   [Requirements](../getting_started/requirements.md)
 -   Download: See <https://support.ez.no/Downloads/eZ-Studio-15.12>
 -   Corresponding eZ Platform release: [eZ Platform 15.12 Release notes](ez_platform_15.12_release_notes.md)
 

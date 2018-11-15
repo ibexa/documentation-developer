@@ -9,7 +9,7 @@ For the release notes of the corresponding eZ Studio sub-release, see [eZ Studio
 
 ## Changes since 15.12
 
-As already deprecated on [requirements](../getting_started/requirements_and_system_configuration.md) page, this release **does not support PHP 5.4** any longer.
+As already deprecated on [requirements](../getting_started/requirements.md) page, this release **does not support PHP 5.4** any longer.
 
 For list of issues fixed in 15.12.1 see [13 issues](https://jira.ez.no/secure/IssueNavigator.jspa?reset=true&jqlQuery=fixVersion+in+%28%222015.12.1%22%29+AND+project+%3D+EZP+AND+issuetype+in+%28Story%2C+Improvement%2C+Bug%29+order+by+issuetype+++++&src=confmacro) , below is a list of notable bugs/features/enhancements done in the release. 
 
