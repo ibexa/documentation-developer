@@ -112,7 +112,7 @@ Kudos to [@emodric](https://twitter.com/emodric) for the Tags bundle, [@pspanja]
 
 [Installation Guide](docs/getting_started/install_ez_platform.md)
 
-[Technical Requirements](docs/getting_started/requirements_and_system_configuration.md)
+[Technical Requirements](docs/getting_started/requirements.md)
 
 ### Download
 

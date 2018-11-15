@@ -93,7 +93,7 @@ The Enterprise demo site has been significantly improved featuring a new **Produ
 
 [Installation Guide](../getting_started/install_ez_platform.md)
 
-[Technical Requirements](../getting_started/requirements_and_system_configuration.md)
+[Technical Requirements](../getting_started/requirements.md)
 
 ### Download
 

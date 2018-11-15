@@ -9,7 +9,7 @@ For the release notes of the corresponding *(and included)* eZ Platform release,
 ### Quick links
 
 -   [Installation instructions](../getting_started/install_ez_platform.md)
--   [Requirements](../getting_started/requirements_and_system_configuration)
+-   [Requirements](../getting_started/requirements)
 -   [Download](http://share.ez.no/downloads/downloads)
 
     -   As Customer with eZ Enterprise subscription: <https://support.ez.no/Downloads> *( [BUL](http://ez.no/About-our-Software/Licenses-and-agreements/eZ-Business-Use-License-Agreement-eZ-BUL-Version-2.1?return=/About-our-Software/Licenses-and-agreements/eZ-Business-Use-License-Agreement-eZ-BUL-Version-2.1?processed=1457699707&return=%2FAbout-our-Software%2FLicenses-and-agreements%2FeZ-Business-Use-License-Agreement-eZ-BUL-Version-2.1?return=%2FAbout-our-Software%2FLicenses-and-agreements%2FeZ-Business-Use-License-Agreement-eZ-BUL-Version-2.1)* * License)*
