@@ -3,15 +3,15 @@
 
 This page explains how to update eZ Platform to a new version.
 
-In the instructions below, replace` <version>` with the version of eZ Platform you are updating to (for example: `v1.7.0`). If you are testing a release candidate, use the [latest rc tag](https://github.com/ezsystems/ezplatform/releases) (for example: `v1.7.1-rc1`).
+In the instructions below, replace` <version>` with the version of eZ Platform you are updating to (for example: `v1.7.0`). _If you are testing a release candidate, use the latest rc tag (for example: `v1.7.1-rc1`)_.
 
 ## Update procedure
 
 ## 1. Check out a tagged version
 
-**1.1.** From the project's root, create a new branch from the project's master, or from the branch you're updating on:
+**1.1.** From the project's root, create a new branch from the project's "master", or from the branch you're updating on:
 
-**From your master branch**
+**From your master branch, creat one for handling update changes**
 
 ``` bash
 git checkout -b <branch_name>
@@ -19,37 +19,84 @@ git checkout -b <branch_name>
 
 This creates a new project branch for the update based on your current project branch, typically `master`. An example `<branch_name>` would be `update-1.4`.
 
-**1.2.** If it's not there, add `ezsystems/ezplatform` (or `ezsystems/ezplatform-ee`, when updating an Enterprise installation) as an upstream remote:
+**1.2.** If it's not there, add `ezsystems/ezplatform` _(or `ezsystems/ezplatform-ee` when updating an Enterprise installation)_ as an "upstream" remote:
 
 **From your new update branch**
 
-``` bash
-git remote add ezplatform http://github.com/ezsystems/ezplatform.git
+``` bash hl_lines="1 3"
+git remote add upstream http://github.com/ezsystems/ezplatform.git
 or
-git remote add ezplatform-ee http://github.com/ezsystems/ezplatform-ee.git
+git remote add upstream http://github.com/ezsystems/ezplatform-ee.git
 ```
 
-**1.3.** Then pull the tag into your branch.
+**1.3** Prepare for pulling changes
+
+??? note "Adding `sort-packages` option when updating from <`1.7.9, 1.13.5, 2.2.4, 2.3.3, 2.4.0`"
+
+    To reduce number of conflicts in the future [EZP-29835](https://jira.ez.no/browse/EZP-29835) added a setting to
+    composer to make it sort packages listed in `composer.json`. If you don't already do this you should prepare for
+    this update to make it more clear whcih changes you introduce.
+
+    Assuming you have installed packages on your installation (`composer install`), do the follwong steps:
+
+    1. Add [sort-packages](https://getcomposer.org/doc/06-config.md#sort-packages) in `composer.json`'s `config` section as shown in highlighted line:
+    ``` json hl_lines="3"
+    "config": {
+        "bin-dir": "bin",
+        "sort-packages": true,
+        "preferred-install": {
+            "ezsystems/*": "dist"
+        }
+    },
+    ```
+
+    2. Use `composer requrie` to get composer to sort your packages:
+
+    With this new option you should ideally always use `composer requrie` to add or adjust packages to make sure they
+    are sorted. In the following code snippets we update a few requriments with what you can also expect in incomming
+    change:
+    ``` bash hl_lines="1 2 4"
+    composer require --no-scripts --no-update doctrine/doctrine-bundle:^1.9.1
+    composer require --dev --no-scripts --no-update  behat/behat:^3.5.0
+    # Incomming change also moves security-advisories to dev as adviced by package itself
+    composer require --dev --no-scripts --no-update roave/security-advisories:dev-master
+    ```
+
+    3. Check that you can install/update packages:
+    ``` bash
+    composer update
+    ```
+
+    Sucess here is if composer says there where no updates, or if it updated packages without stopping with conflicts.
+
+    4. Now that packages are sorted, save your work.
+
+    With packages sorted we are ready to pull in changes, given they will also be sorted it will be easier to see which
+    changes are relevant to your composer.json.
+    ``` bash
+    git commit -am "Sort my existing composer packages in anticipation of update with sorted merge"
+    ```
+
+
+**1.4.** Then pull the tag into your branch.
 
 If you are unsure which version to pull, run `git ls-remote --tags` to list all possible tags.
 
 **From your new update branch**
 
 ``` bash
-git pull ezplatform <version>
-or
-git pull ezplatform-ee <version>
+git pull upstream <version>
 ```
 
 !!! tip
 
-    Don't forget the `v` here, you want to pull the tag `<version>` and not the branch `<version>` (i.e: `v1.11.0` and not `1.11.0`).
+    Don't forget the `v` here, you want to pull the tag `<version>` and not the branch `<version>` (i.e: `v1.11.0`, and NOT `1.11.0` or …`1.10` which is dev branch).
 
 At this stage you may get conflicts, which are a normal part of the procedure and no reason to worry. The most common ones will be on `composer.json` and `composer.lock`.
 
 The latter can be ignored, as it will be regenerated when we execute `composer update` later. The easiest is to checkout the version from the tag and add it to the changes:
 
-If you get a **lot** of conflicts (on the `doc` folder for instance), and eZ Platform was installed from the [share.ez.no](http://share.ez.no) tarball, it might be because of incomplete history. You will have to run `git fetch ezplatform --unshallow` (or `git fetch ezplatform-ee --unshallow`) to load the full history, and run the merge again.
+If you get a **lot** of conflicts (on the `doc` folder for instance), and eZ Platform was installed from the [ezplatform.com](https://ezplatform.com) or [support.ez.no](https://support.ez.no) _(for Enterprise)_ tarball, it might be because of incomplete history. You will have to run `git fetch upstream --unshallow` to load the full history, and run the merge again.
 
 **From your new update branch**
 
@@ -68,6 +115,10 @@ git rm composer.lock
 ## 2. Merge composer.json
 
 #### Manual merging
+
+!!! note "2.4 changes"
+
+    With 2.4 packages in composer.json comes sorted, which means more conflicts when updating to 2.4, but far less conflicts in the future. This is controlled by [sort-packages](https://getcomposer.org/doc/06-config.md#sort-packages) config in composer.json.
 
 Conflicts in `composer.json` need to be fixed manually. If you're not familiar with the diff output, you may checkout the tag's version and inspect the changes. It should be readable for most:
 
@@ -89,7 +140,7 @@ Once you are done, inspect the file, either using an editor or by running `git d
 
 Once finished, run `git add composer.json` and commit`.`
 
-#### Fixing other conflicts (if any)
+#### Fixing other conflicts _(if any)_
 
 Depending on the local changes you have done, you may get other conflicts on configuration files, kernel, etc.
 
