@@ -46,7 +46,7 @@ This configuration defines one attribute, `parent`. You will use it to select th
 
 You also need to create the block template, `app/Resources/views/blocks/random/default.html.twig`:
 
-``` html
+``` html+twig
 <div class="row random-block">
     <h4 class="text-right">{{ 'Tip of the Day'|trans }}</h4>
     <h5>{{ ez_content_name(randomContent) }}</h5>

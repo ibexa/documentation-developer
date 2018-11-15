@@ -266,7 +266,7 @@ If a tab's group is not defined, it will be created automatically.
 
 A new tab group can be rendered using the [`ez_platform_tabs`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Templating/Twig/TabExtension.php#L58) Twig helper:
 
-``` jinja
+``` html+twig
 <div class="my-tabs">
     {{ ez_platform_tabs('custom-tab-group') }}
 </div>
