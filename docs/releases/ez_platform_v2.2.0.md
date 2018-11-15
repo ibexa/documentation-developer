@@ -133,4 +133,4 @@ This release introduces a few notable simplifications to API use. Here are some 
 
 [Installation Guide](../getting_started/install_ez_platform.md)
 
-[Technical Requirements](../getting_started/requirements_and_system_configuration.md)
+[Technical Requirements](../getting_started/requirements.md)
