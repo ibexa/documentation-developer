@@ -10,7 +10,7 @@ For the release notes of the corresponding eZ Studio release, see [eZ Enterpris
 
 -   [Installation instructions](../getting_started/install_ez_platform.md)
 
--   [Requirements](../getting_started/requirements_and_system_configuration.md)
+-   [Requirements](../getting_started/requirements.md)
 
 -   [Download](http://share.ez.no/latest)
 

@@ -53,7 +53,7 @@ For Varnish users be aware thus change implies new VCL and requriment for varnis
 
 [Installation Guide](../getting_started/install_ez_platform.md)
 
-[Technical Requirements](../getting_started/requirements_and_system_configuration.md)
+[Technical Requirements](../getting_started/requirements.md)
 
 ### Download
 

@@ -50,7 +50,7 @@ Following [EZEE-1781](https://jira.ez.no/browse/EZEE-1781) you can [serve Varnis
 
 [Installation Guide](../getting_started/install_ez_platform.md)
 
-[Technical Requirements](../getting_started/requirements_and_system_configuration.md)
+[Technical Requirements](../getting_started/requirements.md)
 
 ### Download
 

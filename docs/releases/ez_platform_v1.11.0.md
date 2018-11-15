@@ -83,7 +83,7 @@ full support, maintenance, and priority security patch handling as they are used
 
 [Installation Guide](../getting_started/install_ez_platform.md)
 
-[Technical Requirements](../getting_started/requirements_and_system_configuration.md)
+[Technical Requirements](../getting_started/requirements.md)
 
 ### Download
 
