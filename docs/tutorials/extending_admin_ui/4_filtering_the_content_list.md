@@ -116,7 +116,7 @@ The last thing to do is to update the template by adding a drop-down menu for ch
 Add the following block to `src/EzSystems/ExtendingTutorialBundle/Resources/views/list/all_content_list.html.twig`
 inside `<section class="container my-4">`:
 
-``` twig
+``` html+twig
 <div class="my-4">
     <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="contentTypeFilter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -136,7 +136,7 @@ inside `<section class="container my-4">`:
 
 ??? tip "Complete template code"
 
-    ``` twig hl_lines="20 21 22 23 24 25 26 27 28 29 30 31 32 33 34"
+    ``` html+twig hl_lines="20 21 22 23 24 25 26 27 28 29 30 31 32 33 34"
     {% extends 'EzPlatformAdminUiBundle::layout.html.twig' %}
 
     {% block title %}{{ 'Content List'|trans }}{% endblock %}

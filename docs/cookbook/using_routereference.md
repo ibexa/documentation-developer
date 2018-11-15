@@ -21,7 +21,7 @@ Furthermore, the `RouteReference` generation process can be extended to fit sp
 
 Prototype:
 
-``` html
+``` html+twig
 ez_route( [routing_resource[, parameters_hash]] )
 ```
 
@@ -31,7 +31,7 @@ If omitted (`null`), the current route will be taken into account.
 
 Minimal usage is pretty straightforward:
 
-``` html
+``` html+twig
 {# With a declared route. #}
 {% set routeRef = ez_route( "my_route" ) %}
 
@@ -44,7 +44,7 @@ Minimal usage is pretty straightforward:
 
 Passing parameters and playing with the RouteReference:
 
-``` html
+``` html+twig
 {% set routeRef = ez_route( "my_route", {"some": "thing"} ) %}
 
 {# You can then add parameters further on #}

@@ -569,7 +569,7 @@ Once modified, the URI is stored in the ***semanticPathinfo*** request attribute
 When using the [multisite](multisite.md) feature, it is sometimes useful to be able to generate cross-links between different sites within one installation.
 This allows you to link different resources referenced in the same content repository, but configured independently with different tree roots.
 
-``` html
+``` html+twig
 <!--Twig example-->
 {# Linking a location #}
 <a href="{{ url( 'ez_urlalias', {'locationId': 42, 'siteaccess': 'some_siteaccess_name'} ) }}">{{ ez_content_name( content ) }}</a>

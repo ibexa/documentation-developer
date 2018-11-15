@@ -49,7 +49,7 @@ For the time being, fill the template with a basic "Hello world" message.
 
 Create a `root_folder.html.twig` file in `app/Resources/views/full`:
 
-``` twig
+``` html+twig
 <div>
     <h1>Hello World!</h1>
 </div>
@@ -64,7 +64,7 @@ It is displayed on every page, and the content of the page is placed inside it.
 
 To add a template like this to your site, create a `main_layout.html.twig` file in `app/Resources/views` and paste the following code into it:
 
-``` twig hl_lines="12 13 14 52 53 89 90 91 92"
+``` html+twig hl_lines="12 13 14 52 53 89 90 91 92"
 <!DOCTYPE html>
 <html lang="en">
 
@@ -178,7 +178,7 @@ For now the site has no stylesheets or assets. In the highlighted lines (12-14, 
 Now you need to indicate that the `app/Resources/views/full/root_folder.html.twig` template should make use of the page layout.
 Edit `root_folder.html.twig` and replace it with the following code:
 
-``` twig hl_lines="1 3 7"
+``` html+twig hl_lines="1 3 7"
 {% extends "main_layout.html.twig" %}
 
 {% block content %}
@@ -228,7 +228,7 @@ But before that, you can use the existing page layout to render the content of a
 
 Create a Twig template `app/Resources/views/full/ride.html.twig` with the following code:
 
-``` twig
+``` html+twig
 {% extends "main_layout.html.twig" %}
 {% block content %}
 <div class="col-xs-10 col-xs-offset-1 text-justified">

@@ -10,7 +10,7 @@ You will find examples with built-in Field Types in [EzPublishCoreBundle/Resourc
 
 **Template for a Field Type with `myfieldtype` identifier**
 
-``` twig
+``` html+twig
 {% block myfieldtype_field %}
 {# Your code here #}
 {% endblock %}

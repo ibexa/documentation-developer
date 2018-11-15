@@ -138,7 +138,7 @@
 
     The following example wraps all form fields for block attributes in an ordered list:
 
-    ``` twig
+    ``` html+twig
     {% extends '@EzPlatformPageBuilder/page_builder/block/config.html.twig' %}
 
     {% block basic_tab_content %}
