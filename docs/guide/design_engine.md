@@ -82,7 +82,7 @@ $currentDesign = $this->getConfigResolver->getParameter('design');
 
 For assets, a special **`ezdesign` asset package** is available.
 
-```jinja
+```html+twig
 <script src="{{ asset("js/foo.js", "ezdesign") }}"></script>
 
 <link rel="stylesheet" href="{{ asset("js/foo.css", "ezdesign") }}" media="screen" />
@@ -152,7 +152,7 @@ Typical paths can be for example:
 
 In order to use the configured design with templates, you need to use the **`@ezdesign`** special **Twig namespace**.
 
-```jinja
+```html+twig
 {# Will load 'some_template.html.twig' directly under one of the specified theme directories #}
 {{ include("@ezdesign/some_template.html.twig") }}
 

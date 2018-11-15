@@ -18,7 +18,7 @@ In this step you'll add a Content List block and two Schedule blocks and customi
 
 First, create an override template for the Content List block: `app/Resources/views/blocks/contentlist.html.twig`:
 
-``` html hl_lines="10"
+``` html+twig hl_lines="10"
 <div>
     <h3 class="heading">{{ parentName }}</h3>
     {% if contentArray|length > 0 %}
@@ -177,7 +177,7 @@ featured:
 
 Now create an `app/Resources/views/featured/article.html.twig` file:
 
-``` html
+``` html+twig
 {% set imageAlias = ez_image_alias(content.getField('image'), content.versionInfo, 'featured_article') %}
 <div class="featured-article" style="background-image: url('{{ imageAlias.uri }}');">
     <h4><a class="featured-article-link" href="{{ path('ez_urlalias', {'contentId': content.id}) }}">{{ ez_content_name(content) }}</a></h4>

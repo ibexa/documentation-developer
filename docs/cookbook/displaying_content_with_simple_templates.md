@@ -8,7 +8,7 @@ By default (without any configuration), a Content item will be rendered without 
 
 Let's create a very simple template, called `article.html.twig`, that you will use to render an article:
 
-``` jinja
+``` html+twig
 <div>
     {# 'ez_render_field' is one of the available Twig functions.
     It will render the 'body' Field of the current 'content' #}
@@ -49,7 +49,7 @@ At this point all Articles should render using the new template. If you do not s
 
 In the example above you used the `ez_render_field` Twig function to render the 'body' Field of the content item. Each Content item can have multiple fields and you can render them in different ways in the template. Other Twig functions let you access different properties of your content. To see an example, let's extend the template a bit:
 
-``` html
+``` html+twig
 {# This renders the Content name of the article #}
 <h1>{{ ez_content_name(content) }}</h1>
 <div>
@@ -75,7 +75,7 @@ To see how to list children of a Content item, for example all content contained
 
 To add links to your templates you use the `ez_urlalias` path. To see how it works, let's add one more line to the `article.html.twig` template:
 
-``` html
+``` html+twig
 <h1>{{ ez_content_name(content) }}</h1>
 {# The link points to the content in Location ID 2, which is the Home Content item #}
 <a href="{{ path('ez_urlalias', {locationId: 2}) }}">Back</a>

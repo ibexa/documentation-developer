@@ -130,7 +130,7 @@ Like any template, a content view template can use [template inheritance](http:/
 
 If you use different templates for embedded content views, this should not be a problem. If you'd rather use the same template, you can use an extra `noLayout` view parameter for the sub-request, and conditionally extend an empty pagelayout:
 
-``` html
+``` html+twig
 {% extends noLayout ? viewbaseLayout : "AcmeDemoBundle::pagelayout.html.twig" %}
 
 {% block content %}

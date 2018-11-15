@@ -52,7 +52,7 @@ The language switcher relies on the [Cross-SiteAccess linking feature](siteacces
 
 To generate a language switch link, you need to generate the `RouteReference`, with the `language` parameter. This can easily be done with the `ez_route()` Twig function:
 
-``` html
+``` html+twig
 {# Given that "location" variable is a valid Location object #}
 <a href="{{ url( ez_route( location, {"language": "fre-FR"} ) ) }}">{{ ez_content_name( content ) }}</a>
 
@@ -62,7 +62,7 @@ To generate a language switch link, you need to generate the `RouteReference`, 
 
 You can also omit the route, in this case, the current route will be used (i.e. switch the current page):
 
-``` html
+``` html+twig
 {# Using Twig named parameters #}
 <a href="{{ url( ez_route( params={"language": "fre-FR"} ) ) }}">My link</a>
 
@@ -76,7 +76,7 @@ When using sub-requests, you lose the context of the master request (e.g. curren
 
 If you want to render language switch links in a sub-request with a correct `RouteReference`, you must pass it as an argument to your sub-controller from the master request.
 
-``` html
+``` html+twig
 {# Render the language switch links in a sub-controller #}
 {{ render( controller( 'AcmeTestBundle:Default:languages', {'routeRef': ez_route()} ) ) }}
 ```
@@ -96,7 +96,7 @@ class DefaultController extends Controller
 }
 ```
 
-``` html
+``` html+twig
 {# languages.html.twig #}
 
 {# Looping over all available languages to display the links #}

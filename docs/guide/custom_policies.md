@@ -207,7 +207,7 @@ acme.security.limitation.custom_limitation.mapper:
 
 If you want to completely override the way of rendering custom Limitation values in the role view, you need to create a Twig template containing block definition which follows the naming convention: `ez_limitation_<LIMITATION TYPE>_value`. For example:
 
-```twig
+``` html+twig
 {# This file contains block definition which is used to render custom Limitation values #}
 {% block ez_limitation_custom_value %}
     <span style="color: red">{{ values }}</span>

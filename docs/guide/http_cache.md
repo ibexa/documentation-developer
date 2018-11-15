@@ -635,7 +635,7 @@ to tag your responses.
 
 In Twig, you can make sure a response is tagged correctly by using the following Twig operator in your template:
 
-``` twig
+``` html+twig
 {{ fos_httpcache_tag('relation-33') }}
 
 {# Or using array for several values #}

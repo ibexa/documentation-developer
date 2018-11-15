@@ -32,7 +32,7 @@ This indicates which template will be used to render the registration form.
 
 Create the file `app/Resources/views/user/registration_form.html.twig`:
 
-``` twig hl_lines="10"
+``` html+twig hl_lines="10"
 {% extends "main_layout.html.twig" %}
 
 {% block page_head %}
@@ -58,7 +58,7 @@ Create the file `app/Resources/views/user/registration_form.html.twig`:
 In line 10 you can see that another file is imported: `registration_content_form.html.twig`.
 The second template will render the actual fields of the registration form. Create this file as well (as `app/Resources/views/user/registration_content_form.html.twig`):
 
-``` twig
+``` html+twig
 {% macro display_form(form) %}
     {{ form_start(form) }}
 
@@ -120,7 +120,7 @@ user_registration:
 
 Then create the `app/Resources/views/user/registration_confirmation.html.twig` template:
 
-``` twig
+``` html+twig
 {% extends "main_layout.html.twig"  %}
 
 {% block page_head %}
