@@ -5,7 +5,7 @@
 #### Quick links
 
 -   [Installation instructions](https://github.com/ezsystems/ezplatform/tag/1.0.0-beta8/INSTALL.md)[](https://github.com/ezsystems/ezplatform/blob/v15.05/INSTALL.md)
--   [Requirements](../getting_started/requirements_and_system_configuration.md)
+-   [Requirements](../getting_started/requirements.md)
 -   Download: See [share.ez.no/downloads](http://share.ez.no/downloads/downloads/ez-platform-15.09)
 
 eZ Platform beta 8 is now available for testing. This releases focuses on cleanup, stabilization and the online editor.
@@ -112,7 +112,7 @@ Epics tentatively\* planned for first LTS release:  [0 issue](https://jira.ez.
 #### Quick links
 
 -   [Installation instructions](https://github.com/ezsystems/ezplatform/blob/release-2015.09.01/INSTALL.md)[](https://github.com/ezsystems/ezplatform/blob/v15.05/INSTALL.md)
--   [Requirements](../getting_started/requirements_and_system_configuration.md)
+-   [Requirements](../getting_started/requirements.md)
 -   Download: See [share.ez.no/downloads](http://share.ez.no/downloads/downloads/ez-platform-15.09), or see *Install* for how to install via composer.
 
 The fifth release of eZ Platform, 15.09, is the first in "beta" stability. It builds upon the **15.07** September alpha release. It most notably provides many new UI features, both in this download and continues to provide a few more additional UI features during it's beta period until end of month.
@@ -199,7 +199,7 @@ Epics tentatively\* planned for first LTS release:  [0 issue](https://jira.ez.
 #### Quick links
 
 -   [Installation instructions](https://github.com/ezsystems/ezplatform/blob/v0.10.0/INSTALL.md)[](https://github.com/ezsystems/ezplatform/blob/v15.05/INSTALL.md)
--   [Requirements](../getting_started/requirements_and_system_configuration.md)
+-   [Requirements](../getting_started/requirements.md)
 -   Upgrading: *As this is a alpha release, there is no upgrade instructions yet, this is planned for Beta.*
 
 -   Download: See [share.ez.no/downloads](http://share.ez.no/downloads/downloads/ez-platform-15.07), or see *Install* for how to install via composer.
@@ -301,7 +301,7 @@ Epics tentatively\* planned for first LTS release:  [0 issue](https://jira.ez.
 #### Quick links
 
 -   [Installation instructions](https://github.com/ezsystems/ezplatform/blob/v0.9.0/INSTALL.md)[](https://github.com/ezsystems/ezplatform/blob/v15.05/INSTALL.md)
--   [Requirements](../getting_started/requirements_and_system_configuration.md)
+-   [Requirements](../getting_started/requirements.md)
 -   Upgrading: *As this is a alpha release, there is no upgrade instructions yet, this is planned for Beta.*
 
 -   Download: See [share.ez.no/downloads](http://share.ez.no/downloads/downloads/ez-platform-15.05-alpha), or see *Install* for how to install via composer.
@@ -441,7 +441,7 @@ Epics tentatively\* planned for first LTS release:  [0 issue](https://jira.ez.
 #### Quick links
 
 -   [Install](https://github.com/ezsystems/ezplatform/blob/master/INSTALL.md)
--   [Requirements](../getting_started/requirements_and_system_configuration.md)
+-   [Requirements](../getting_started/requirements.md)
 -   Upgrading: *As this is a alpha release, there is no upgrade instructions yet, this is planned for Beta during the Summer.*
 
 -   Download: See [share.ez.no/downloads](http://share.ez.no/downloads/downloads/ez-platform-15.03-alpha), or see *Install* for how to install via composer.
@@ -502,7 +502,7 @@ Welcome to the first release of eZ Platform, 15.01 serves two purposes: As first
 
 #### Quick links
 -   [Install](https://github.com/ezsystems/ezplatform/blob/master/INSTALL.md)
--   [Requirements](../getting_started/requirements_and_system_configuration.md)
+-   [Requirements](../getting_started/requirements.md)
 -   Upgrading: *As this is a alpha release, there is no upgrade instructions yet, this is planned for Beta during the Summer.*
 
 -   Download: See [share.ez.no/downloads](http://share.ez.no/downloads/downloads/ez-platform-15.01-alpha), or see *Install* for how to install via composer.

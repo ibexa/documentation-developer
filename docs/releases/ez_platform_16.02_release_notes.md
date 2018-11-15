@@ -7,7 +7,7 @@ For the release notes of the corresponding eZ Studio release, see [eZ Studio 16.
 ### Quick links
 
 -   [Installation instructions]((../getting_started/install_ez_platform.md))[](https://github.com/ezsystems/ezplatform/blob/v15.05/INSTALL.md)
--   [Requirements](../getting_started/requirements_and_system_configuration.md)
+-   [Requirements](../getting_started/requirements.md)
 -   Download: See [share.ez.no/downloads](http://share.ez.no/downloads/downloads/ez-platform-16.02)
 
 ## Changes since 15.12.1
