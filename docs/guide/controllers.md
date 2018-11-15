@@ -73,7 +73,7 @@ class DefaultController extends Controller
 
 These parameters can then be used in templates, for example:
 
-``` html
+``` html+twig
 <!--article.html.twig-->
 {% extends noLayout ? viewbaseLayout : "eZDemoBundle::pagelayout.html.twig" %}
 
@@ -144,7 +144,7 @@ class DefaultController extends Controller
 
 Here again custom parameters can be used in the template, e.g.:
 
-``` html
+``` html+twig
 <!--custom\_controller\_folder.html.twig-->
 {% extends "eZDemoBundle::pagelayout.html.twig" %}
 

@@ -74,7 +74,7 @@ Refer to the [Symfony cookbook on this topic](http://symfony.com/doc/2.8/securit
 
 If you want to use this feature, you must at least extend the login template in order to add the required checkbox:
 
-``` html
+``` html+twig
 {% extends "EzPublishCoreBundle:Security:login.html.twig" %}
 
 {% block login_fields %}

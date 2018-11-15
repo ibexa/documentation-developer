@@ -31,7 +31,7 @@ Next, modify the templates to use these variations. Variation names are provided
 
 In `app/Resources/views/line/ride.html.twig` add the `'alias': 'ride_list'` parameter in the following way, in lines 8-10:
 
-``` twig
+``` html+twig
 {% if not ez_is_field_empty( content, 'photo' ) %}
     {{ ez_render_field(content, 'photo', {
         'parameters': {

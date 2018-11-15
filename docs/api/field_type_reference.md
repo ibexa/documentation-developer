@@ -479,7 +479,7 @@ The template called by [the `ez_render_field()` Twig function](../guide/twig_
 
 Example:
 
-``` html
+``` html+twig
 {{ ez_render_field(content, 'date') }}
 ```
 
@@ -827,7 +827,7 @@ To read more about handling images and image variations, see the [Images documen
 
 When displayed using `ez_render_field`, an Image Field will output this type of HTML:
 
-``` html
+``` html+twig
 <img src="var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB/image_medium.png" width="844" height="430" alt="Alternative text" />
 ```
 
@@ -842,19 +842,19 @@ The template called by the [`ez_render_field()` Twig function](../guide/twig_fu
 
 Example: 
 
-``` html
+``` html+twig
 {{ ez_render_field( content, 'image', { 'parameters':{ 'alias': 'imagelarge', 'width': 400, 'height': 400 } } ) }}
 ```
 
 The raw Field can also be used if needed. Image variations for the Field's content can be obtained using the `ez_image_alias` Twig helper:
 
-``` html
+``` html+twig
 {% set imageAlias = ez_image_alias( field, versionInfo, 'medium' ) %}
 ```
 
 The variation's properties can be used to generate the required output:
 
-``` html
+``` html+twig
 <img src="{{ asset( imageAlias.uri ) }}" width="{{ imageAlias.width }}" height="{{ imageAlias.height }}" alt="{{ field.value.alternativeText }}" />
 ```
 
@@ -1258,7 +1258,7 @@ $keywordValue = new Value( "php5,css3,html5" );
 
     Example usage:
 
-    ``` html
+    ``` html+twig
     {{ render_esi(controller('ez_block:renderBlockAction', {
             'contentId': contentInfo.id,
             'blockId': block.id
@@ -1268,7 +1268,7 @@ $keywordValue = new Value( "php5,css3,html5" );
 
     As a whole a sample layout could look as follows:
 
-    ``` html
+    ``` html+twig
     <!--landing_page_simple_layout.html.twig-->
     {# The required "data-studio-zones-container" attribute, enables displaying zones #}
     <div data-studio-zones-container>
@@ -1387,7 +1387,7 @@ The template called by [the `ez_render_field()` Twig function](../guide/twig_fun
 
 Example:
 
-``` html
+``` html+twig
 {{ ez_render_field(content, 'location', {'parameters': {'width': '100%', 'height': '330px', 'showMap': true, 'showInfo': false}}) }}
 ```
 

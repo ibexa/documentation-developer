@@ -145,7 +145,7 @@ liip_imagine:
 
 Image variations can be called within a Twig template by passing `alias` with the parameters:
 
-```twig
+``` html+twig
 ez_render_field( content, 'image', { parameters: { 'alias': 'medium' } } )
 ```
 

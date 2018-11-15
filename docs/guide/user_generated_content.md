@@ -68,7 +68,7 @@ Here are default templates that you can reuse and/or modify:
 
 **Registration form:**
 
-``` html
+``` html+twig
 {% extends noLayout is defined and noLayout == true ? viewbaseLayout : pagelayout %}
 {% block content %}
      {% import "EzSystemsRepositoryFormsBundle:Content:content_form.html.twig" as contentForms %}
@@ -81,7 +81,7 @@ Here are default templates that you can reuse and/or modify:
 
 **Registration confirmation:**
 
-``` html
+``` html+twig
 {% extends noLayout is defined and noLayout == true ? viewbaseLayout : pagelayout %}
 {% block content %}
     <h1>Your account has been created</h1>

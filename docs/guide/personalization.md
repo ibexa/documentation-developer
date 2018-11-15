@@ -192,7 +192,7 @@ Note: changing any of these parameters without a valid reason will break all cal
 
 The `EzSystemsRecommendationBundle` delivers a Twig extension which helps integrate the tracking functionality into your site. Place the following code snippet in the HEAD section of your header template:
 
-``` html
+``` html+twig
 {% if content is defined %}
     {{ yc_track_user(content.id) }}
 {% endif %}
@@ -407,7 +407,7 @@ In order to allow displaying recommendations on your site, you must add some cod
 
 Add the following JavaScript assets to your header template:
 
-``` html
+``` html+twig
 {% javascripts
     '%kernel.root_dir%/../vendor/components/handlebars.js/handlebars.min.js'
     '@EzSystemsRecommendationBundle/Resources/public/js/recommendationtemplaterenderer.js'
@@ -418,7 +418,7 @@ Add the following JavaScript assets to your header template:
 
 Place a dedicated Twig helper in the place where you want to display recommendations:
 
-``` html
+``` html+twig
 {{ yc_show_recommendations(
     contentId = content.id,
     scenario = '',
@@ -442,7 +442,7 @@ Place a dedicated Twig helper in the place where you want to display recommendat
 
 Sample integration can take the following form:
 
-``` html
+``` html+twig
 {{ yc_show_recommendations(
     contentId = content.id,
     scenario = 'popular',

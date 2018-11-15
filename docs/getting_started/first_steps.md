@@ -52,7 +52,7 @@ Content view templates use the [Twig templating engine](https://twig.symfony.com
 
 2\. Create a template file `app/Resources/views/full/blog_post.html.twig`:
 
-``` twig
+``` html+twig
 <h1>{{ ez_render_field(content, 'title') }}</h1>
 <div>{{ ez_render_field(content, 'text') }}</div>
 ```

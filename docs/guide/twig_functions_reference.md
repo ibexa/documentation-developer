@@ -38,8 +38,8 @@ If the Content item does not have a translation in the current language, the nam
 
 #### Usage
 
-``` html
-<h2>Content name in current language: {{ ez_content_name( content ) }}</h2>
+``` html+twig
+<h2>Content name in current language: {{ ez_content_name( content ) }}</h2>
 <h2>Content name in current language, from ContentInfo: {{ ez_content_name( content.contentInfo ) }}</h2>
 <h2>Content name in French (forced): {{ ez_content_name( content, "fre-FR" ) }}</h2>
 ```
@@ -87,8 +87,8 @@ If the Content item does not have a translation in the current language, the mai
 
 #### Usage
 
-``` html
-<p id="ez-content-article-title-description">{{ ez_field_description( content, "title" ) }}</p>
+``` html+twig
+<p id="ez-content-article-title-description">{{ ez_field_description( content, "title" ) }}</p>
 ```
 
 ### `ez_field_name`
@@ -113,8 +113,8 @@ If the Content item does not have a translation in the current language, the mai
 
 #### Usage
 
-``` html
-<label for="ez-content-article-title">{{ ez_field_name( content, "title" ) }}</label>
+``` html+twig
+<label for="ez-content-article-title">{{ ez_field_name( content, "title" ) }}</label>
 ```
 
 ### `ez_field_value`
@@ -139,8 +139,8 @@ If the Content item does not have a translation in the current language, the mai
 
 #### Usage
 
-``` html
-<h2>My title value: {{ ez_field_value( content, "title" ) }}</h2>
+``` html+twig
+<h2>My title value: {{ ez_field_value( content, "title" ) }}</h2>
 ```
 
 ### `ez_field`
@@ -167,8 +167,8 @@ If the Content item does not have a translation in the current language, the mai
 
 #### Usage
 
-``` html
-<h2>My title's id: {{ ez_field( content, "title" ).id }}</h2>
+``` html+twig
+<h2>My title's id: {{ ez_field( content, "title" ).id }}</h2>
 ```
 
 ### `ez_file_size`
@@ -194,7 +194,7 @@ It returns a string.
 
 #### Usage
 
-``` html
+``` html+twig
 {{ 42698273|ez_file_size( 3 ) }} //Output with French SiteAccess : 42,698 MB
 
 {{ 42698273|ez_file_size( 4 ) }} //Output with English SiteAccess : 42.6983 MB
@@ -258,7 +258,7 @@ If the Content item does not have a translation in the current language, the mai
 
 ##### Using the Field identifier as parameter
 
-``` html
+``` html+twig
 {# Display "description" field if not empty #}
 {% if not ez_is_field_empty( content, "description" ) %}
     <div class="description">
@@ -269,7 +269,7 @@ If the Content item does not have a translation in the current language, the mai
 
 ##### Using the Field as parameter
 
-``` html
+``` html+twig
 {# Display "description" field if not empty #}
 {% if not ez_is_field_empty( content, field ) %}
     <div class="description">
@@ -280,7 +280,7 @@ If the Content item does not have a translation in the current language, the mai
 
 ##### Checking if Field exists before use
 
-``` html
+``` html+twig
 {# Display "description" field if it exists and is not empty #}
 {% if content.fields.description is defined and not ez_is_field_empty( content, "description" ) %}
     <div class="description">
@@ -319,9 +319,9 @@ Your template block must comply to a regular Field Type template block, [as expl
 
 You can use the template you need by filling the `template` entry in the `params` argument.
 
-``` html
-{{ ez_render_field(
-       content,
+``` html+twig
+{{ ez_render_field( 
+       content, 
        'my_field_identifier',
        { 'template': 'AcmeTestBundle:fields:my_field_template.html.twig' }
    ) }}
@@ -329,7 +329,7 @@ You can use the template you need by filling the `template` entry in the `params
 
 The code above will load `my_field_template.html.twig` located in `AcmeTestBundle/Resources/views/fields/`.
 
-``` html
+``` html+twig
 {# AcmeTestBundle/Resources/views/fields/my_field_template.html.twig #}
 {# Assuming "my_field_identifier" from the template above example is an ezkeyword field. #}
 {% block ezkeyword_field %}
@@ -349,7 +349,7 @@ The code above will load `my_field_template.html.twig` located in `AcmeTestBundl
 
     When overriding a field template block, it is possible to call its parent. For this, you need to import original template horizontally (without inheritance), using the [`use` Twig tag](http://twig.sensiolabs.org/doc/tags/use.html).
 
-    ``` html
+    ``` html+twig
     {# AcmeTestBundle/Resources/views/fields/my_field_template.html.twig #}
     {# Assuming "my_field_identifier" from above template example is an ezkeyword field. #}
 
@@ -367,7 +367,7 @@ The code above will load `my_field_template.html.twig` located in `AcmeTestBundl
 
 If you want to override a specific Field template only once (i.e. because your override would be only valid in your current template), you can specify the current template to be the source of the Field block.
 
-``` html
+``` html+twig
 <!--Inline override using current template-->
 {% extends "MyBundle::pagelayout.html.twig" %}
 
@@ -447,13 +447,13 @@ Main language is be applied in the following way for Value objects that support 
 
 Example below shows how this function can be used to get the Content name with exact same result as using `ez_content_name(content)`:
 
-``` html
-{{ ez_trans_prop( versionInfo, "name" ) }}
+``` html+twig
+{{ ez_trans_prop( versionInfo, "name" ) }}
 ```
 
 Example for `ContentType->names`:
 
-``` html
+``` html+twig
 {{ ez_trans_prop( contentType, "name" ) }}
 ```
 
@@ -477,7 +477,7 @@ Example for `ContentType->names`:
 
 Linking to other Locations is fairly easy and is done with the [native `path()` Twig helper](http://symfony.com/doc/2.3/book/templating.html#linking-to-pages) (or `url()` if you want to generate absolute URLs). You just have to pass it the Location object and `path()` will generate the URLAlias for you.
 
-``` html
+``` html+twig
 {# Assuming "location" variable is a valid eZ\Publish\API\Repository\Values\Content\Location object #}
 <a href="{{ path( location ) }}">Some link to a location</a>
 ```
@@ -486,13 +486,13 @@ Linking to other Locations is fairly easy and is done with the [native `path()` 
 
 ##### Generating a link from a Location ID
 
-``` html
+``` html+twig
 <a href="{{ path( "ez_urlalias", {"locationId": 123} ) }}">Some link to a location, with its Id only</a>
 ```
 
 ##### Generating a link from a Content ID
 
-``` html
+``` html+twig
 <a href="{{ path( "ez_urlalias", {"contentId": 456} ) }}">Some link from a contentId</a>
 ```
 

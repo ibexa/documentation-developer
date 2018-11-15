@@ -57,7 +57,7 @@ ezpublish:
 
 Create the template for the line view of a Landmark: `app/Resources/views/line/landmark.html.twig`:
 
-``` html hl_lines="4"
+``` html+twig hl_lines="4"
 <section>
 <div class="col-xs-4 photos-box">
     <a href="#bikeModal{{ content.id }}" data-toggle="modal">
@@ -164,7 +164,7 @@ ezpublish:
 Now modify the Ride full view template to include a list of Landmarks.
 Add the following lines at the end of `app/Resources/views/full/ride.html.twig`, before the last `</div>` and the closing tag `{% endblock %}`:
 
-``` html
+``` html+twig
 {% if landmarksList is not empty %}
     <div class="row regular-content-size">
         <section class="photos">
