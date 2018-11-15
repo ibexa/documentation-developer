@@ -17,37 +17,37 @@ ezpublish:
                 ezrichtext:
                     custom_tags: [ezyoutube]
 
-    ezrichtext:
-        custom_tags:
-            ezyoutube:
-                # The template used for front-end rendering of the custom tag
-                template: 'AppBundle:field_type/ezrichtext/custom_tag:ezyoutube.html.twig'
-                # An icon for the custom tag as displayed in the Online Editor's toolbar.
-                icon: '/assets/field_type/ezrichtext/custom_tag/icon/youtube-color.svg#youtube-color'
-                attributes:
-                    title:
-                        type: 'string'
-                        required: true
-                        default_value: ''
-                    video_url:
-                        type: 'string'
-                        required: true
-                    width:
-                        type: 'number'
-                        required: true
-                        default_value: 640
-                    height:
-                        type: 'number'
-                        required: true
-                        default_value: 360
-                    autoplay:
-                        type: 'boolean'
-                        default_value: false
-                    align:
-                        type: 'choice'
-                        required: false
-                        default_value: 'left'
-                        choices: ['left', 'center', 'right']
+ezrichtext:
+    custom_tags:
+        ezyoutube:
+            # The template used for front-end rendering of the custom tag
+            template: 'AppBundle:field_type/ezrichtext/custom_tag:ezyoutube.html.twig'
+            # An icon for the custom tag as displayed in the Online Editor's toolbar.
+            icon: '/assets/field_type/ezrichtext/custom_tag/icon/youtube-color.svg#youtube-color'
+            attributes:
+                title:
+                    type: 'string'
+                    required: true
+                    default_value: ''
+                video_url:
+                    type: 'string'
+                    required: true
+                width:
+                    type: 'number'
+                    required: true
+                    default_value: 640
+                height:
+                    type: 'number'
+                    required: true
+                    default_value: 360
+                autoplay:
+                    type: 'boolean'
+                    default_value: false
+                align:
+                    type: 'choice'
+                    required: false
+                    default_value: 'left'
+                    choices: ['left', 'center', 'right']
 ```
 
 Each custom tag can have any number of attributes. Supported attribute types are:
