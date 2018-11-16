@@ -2,7 +2,7 @@
 
 ## Platform as a Service (PaaS)
 
-If you're using a PaaS provider such as our partner [Platform.sh](https://platform.sh/hosting/php/ez/), where we have an single-server setup, and in the future also clustered setup, you can [skip](starting_ez_platform.md#hello-world) this step.
+_As of v1.13 and higher you have the option to subscribe to [eZ Platform Cloud](https://ez.no/Products/eZ-Platform-Cloud), a Paas offering offically supported by eZ Systems. For other versions or providers you can refer to requriments below as it follows same conditions as running on-premise._
 
 ## Server
 
