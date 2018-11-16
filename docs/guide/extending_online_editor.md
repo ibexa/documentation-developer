@@ -3,6 +3,12 @@
 The Online Editor is based on [Alloy Editor](https://alloyeditor.com/).
 Refer to [Alloy Editor documentation](https://alloyeditor.com/docs/develop/) to learn how to extend the Online Editor with new elements.
 
+!!! note
+
+    Online Editor configuration works out of the box only if you have the Rich Text bundle enabled.
+    If you do not, for example due to an upgrade from an earlier version,
+    enable it according to the [installation guide](https://github.com/ezsystems/ezplatform-richtext#installation).
+
 ## Custom tags
 
 Custom tags enable you to add more features to the Rich Text editor beyond the built-in ones.
@@ -107,14 +113,14 @@ ezpublish:
                 ezrichtext:
                     custom_styles: [highlighted_block, highlighted_word]
 
-    ezrichtext:
-        custom_styles:
-            highlighted_word:
-                template: '@ezdesign/field_type/ezrichtext/custom_style/highlighted_word.html.twig'
-                inline: true
-            highlighted_block:
-                template: '@ezdesign/field_type/ezrichtext/custom_style/highlighted_block.html.twig'
-                inline: false
+ezrichtext:
+    custom_styles:
+        highlighted_word:
+            template: '@ezdesign/field_type/ezrichtext/custom_style/highlighted_word.html.twig'
+            inline: true
+        highlighted_block:
+            template: '@ezdesign/field_type/ezrichtext/custom_style/highlighted_block.html.twig'
+            inline: false
 ```
 
 The system expects two kinds of configuration:
