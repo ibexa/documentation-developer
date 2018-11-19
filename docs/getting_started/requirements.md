@@ -20,7 +20,7 @@ These setups are tested by QA and are generally recommended setups. For security
 |------|------|------|------|
 |Operating system|9.x "Stretch"|16.04LTS "Xenial" / 18.04LTS "Bionic"|7.x|
 |Web Server|Nginx 1.10</br>Apache 2.4|Nginx 1.10/1.14</br>Apache 2.4|Nginx 1.10 *(latest via [RHSCL](https://access.redhat.com/documentation/en/red-hat-software-collections/))*</br>Apache 2.4|
-|DBMS|MariaDB 10.1</br>MySQL 5.5|MariaDB 10.0/10.1</br>MySQL 5.7\*|MariaDB 10.1 *(latest via RHSCL)*</br>MariaDB 10.0 *(latest via RHSCL)*</br>MySQL 5.6 *(latest via RHSCL)*</br>MariaDB 5.5|
+|DBMS|MariaDB 10.1</br>MySQL 5.5.3|MariaDB 10.0/10.1</br>MySQL 5.7\*|MariaDB 10.1 *(latest via RHSCL)*</br>MariaDB 10.0 *(latest via RHSCL)*</br>MySQL 5.6 *(latest via RHSCL)*</br>MariaDB 5.5|
 |PHP|PHP 7.0 |PHP 7.0/7.2|PHP 7.0 *(latest via RHSCL)*|
 |PHP packages|php-cli</br>php-fpm</br>php-mysql or php-pgsql</br>php-xml</br>php-mbstring</br>php-intl</br>php-mcrypt</br>php-curl</br>php-gd *or* php-imagick|php-cli</br>php-fpm</br>php-mysql or php-pgsql</br>php-xml</br>php-mbstring</br>php-intl</br>php-mcrypt</br>php-curl</br>php-gd *or* php-imagick|php-cli</br>php-fpm</br>php-mysqlnd or php-pgsql</br>php-xml</br>php-mbstring</br>php-process</br>php-intl</br>php-pear *(optional, provides pecl)*</br>php-gd *or* php-imagick *(via [pecl](https://pecl.php.net/package/imagick))*|
 |Cluster PHP packages</br>|php-memcached *(via [pecl](https://pecl.php.net/package/memcached)) or* php-redis *(via [pecl](https://pecl.php.net/package/redis))*|php-memcached *(via [pecl](https://pecl.php.net/package/memcached)) or* php-redis *(via [pecl](https://pecl.php.net/package/redis))*|php-memcached *(via [pecl](https://pecl.php.net/package/memcached)) or* php-redis *(via [pecl](https://pecl.php.net/package/redis))*|
@@ -44,7 +44,7 @@ Supported setups are those we perform automated testing on. For security and per
     -   Nginx 1.10, 1.12, 1.14
 -   DBMS
     -   MySQL 5.5.3 and higher, 5.6\*, 5.7\*
-    -   MariaDB 5.5, 10.0, 10.1, 10.2\*
+    -   MariaDB 5.5 (new enough to support `utf8mb4` character set), 10.0, 10.1, 10.2\*
 -   PHP
     -   7.0
     -   7.2
