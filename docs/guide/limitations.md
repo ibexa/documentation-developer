@@ -125,7 +125,7 @@ A Limitation to specify if the User has access to Content with a specific Conten
 |------|------|------|
 |`<ContentType_id>`|`<ContentType_name>`|All valid ContentType IDs can be set as value(s)|
 
-#### LanguageLimitation
+### LanguageLimitation
 
 A Limitation to specify if the User has access to Content in a specific language.
 

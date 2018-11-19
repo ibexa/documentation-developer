@@ -58,6 +58,14 @@ This option can be used together with eZ Enterprise's content review options. Us
 
 Note that without eZ Enterprise this setup should not be used, as it will not allow the User to continue working with their content.
 
+#### Translate content
+
+To translate Content items the user must have the `content/translate` Policy.
+You can use it together with the `Language` Limitation to decide which language the user may translate to.
+
+For example, to allow the user to translate into German and Norwegian, give them the `content/translate` Policy
+with the German and Norwegian `Language` Limitation.
+
 #### Restrict editing to part of the tree
 
 If you want to let the User create or edit Content, but only in one part of the content tree, you need to use Limitations. Three Limitations that could be used here are `Section` Limitation, `Node` Limitation and `Subtree` Limitation.
@@ -162,7 +170,7 @@ Users are treated like other Content, so to create and modify them the User need
 |               | `manage_locations`   | remove Locations and send content to Trash                                                                                              |
 |               | `hide`               | hide and reveal content Locations                                                                                                       |
 |               | `reverserelatedlist` | see all content that a Content item relates to (even when the User is not allowed to view it as an individual Content items)            |
-|               | `translate`          | unused                                                                                                                                  |
+|               | `translate`          | translate Content items                                                                                                                                  |
 |               | `remove`             | remove Locations and send content to Trash                                                                                              |
 |               | `versionread`        | view content after publishing, and to preview any content in the Page mode                                                              |
 |               | `versionremove`      | remove archived content versions                                                                                                        |
