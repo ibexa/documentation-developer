@@ -609,7 +609,7 @@ based on your decision.
 
 !!! tip Troubleshooting with contents tagged by the huge number of tags (too long headers)
     
-    In case of complex contents, like for instance Landing Pages with many blocks, you might get into trouble with too long PURGE request `xkey` header what might cause not all of necessary cache entries being cleared. You can see `502 Headers too long` errors then.
+    In case of complex contents, like for instance Landing Pages with many blocks, you might get into trouble with too long response `xkey` header what might cause not all of necessary cache entries being tagged properly. You can see `502 Headers too long` errors then.
     If this is your case, please consider running your Varnish instance(s) with increased values of the following runtime settings:
     
     - [http-resp-hdr-len](https://varnish-cache.org/docs/5.1/reference/varnishd.html#http-resp-hdr-len)
