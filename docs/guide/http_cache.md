@@ -607,16 +607,16 @@ Note that the system does not add this tag to responses itself, just purges if p
 Response tagging using this tag is currently meant to be done inline in the template logic / views
 based on your decision.
 
-!!! tip Troubleshooting with contents tagged by the huge number of tags (too long headers)
+!!! tip Troubleshooting - Content tagged by a big number of tags (too long headers)
     
-    In case of complex contents, like for instance Landing Pages with many blocks, you might get into trouble with too long response `xkey` header what might cause not all of necessary cache entries being tagged properly. You can see `502 Headers too long` errors then.
-    If this is your case, please consider running your Varnish instance(s) with increased values of the following runtime settings:
+    In case of complex Content, for instance Landing Pages with many blocks, you might get into trouble with too long response `xkey` header. Because of this, necessary cache entries may not be tagged properly. You will see `502 Headers too long` errors then.
+    If this is your case, run your Varnish instance(s) with increased values of the following runtime settings:
     
     - [http-resp-hdr-len](https://varnish-cache.org/docs/5.1/reference/varnishd.html#http-resp-hdr-len)
     - [http_req_hdr_len](https://varnish-cache.org/docs/5.1/reference/varnishd.html#http-max-hdr)
     - [http-resp-size](https://varnish-cache.org/docs/5.1/reference/varnishd.html#http-resp-size)
     
-    If you need to see these long headers in the `varnishlog`, you have to adapt also the [vsl-reclen](https://varnish-cache.org/docs/5.1/reference/varnishd.html#vsl-reclen) setting.
+    If you need to see these long headers in the `varnishlog` adapt the [vsl-reclen](https://varnish-cache.org/docs/5.1/reference/varnishd.html#vsl-reclen) setting.
 
 ### Response tagging process
 
