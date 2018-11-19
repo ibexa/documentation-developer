@@ -1,0 +1,24 @@
+{
+    "name": "ezsystems/developer-documentation",
+    "description": "This repository is the source for the developer documentation for eZ Platform, an open source CMS based on the Symfony Full Stack Framework in PHP.",
+    "type": "library",
+    "license": "GNU General Public License v2.0",
+    "autoload": {
+        "psr-4": {
+            "EzSystems\\DeveloperDocumentation\\Test\\": "tests/src/"
+        }
+    },
+    "require": {
+        "behat/behat": "^3.4.3",
+        "ezsystems/repository-forms": "^2.0",
+        "symfony/property-access": "^3.1"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "~2.7.1"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.4.x-dev"
+        }
+    }
+}

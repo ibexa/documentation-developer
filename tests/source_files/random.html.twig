@@ -1,0 +1,7 @@
+<div class="row random-block">
+    <h4 class="text-right">{{ 'Tip of the Day'|trans }}</h4>
+    <h5>{{ ez_content_name(randomContent) }}</h5>
+    <div class="random-block-text">
+        {{ ez_render_field(randomContent, 'body') }}
+    </div>
+</div>
