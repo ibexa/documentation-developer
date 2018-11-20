@@ -129,7 +129,7 @@ The system expects two kinds of configuration:
 ### Translations
 
 Labels that appear for each custom style in the Online Editor need to be translated using Symfony translation system.
-The translation domain is called `custom_tags`. For the code example above, you can do it in a `app/Resources/translations/custom_tags.en.yml` file:
+The translation domain is called `custom_styles`. For the code example above, you can do it in a `app/Resources/translations/custom_styles.en.yml` file:
 
 ```yaml
 ezrichtext.custom_styles.highlighted_block.label: Highlighted block
