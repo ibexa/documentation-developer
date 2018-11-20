@@ -78,7 +78,7 @@ Create the template for the line view of a Landmark: `app/Resources/views/line/l
             <div class="row">
                 <div class="col-xs-8 col-xs-offset-2">
                     <div class="modal-body text-center">
-                        <h2>{{ ez_content_name( content ) }}</h2>
+                        <h2>{{ content.name }}</h2>
                         <hr class="featurette-divider">
                         {{ ez_render_field( content, 'photo', { parameters: { 'alias': 'large'}, attr: { 'class': 'img-responsive img-rounded' }}) }}
                         {{ ez_render_field( content, 'description', { attr: { 'class': 'padding-box text-justify' }}) }}
@@ -172,7 +172,7 @@ Add the following lines at the end of `app/Resources/views/full/ride.html.twig`,
                 <h4 class="underscore">{{ 'Landmarks:'|trans }}</h4>
             </div>
             {% for landmark in landmarksList %}
-                {{ render( controller( "ez_content:viewLocation", { 'locationId': landmark.contentInfo.mainLocationId, 'viewType': 'line'} )) }}
+                {{ render( controller( "ez_content:viewAction", { 'content': landmark, 'viewType': 'line'} )) }}
             {% endfor %}
         </section>
     </div>
