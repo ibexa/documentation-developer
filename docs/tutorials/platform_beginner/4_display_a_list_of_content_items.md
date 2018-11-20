@@ -113,52 +113,12 @@ and renders them using the `list/rides.html.twig` template (line 45).
 
 Because you are using the `ContentService`, you need to register the `HomepageController` as a service.
 
-Create a new file: `src/AppBundle/Resources/config/services.yml`:
+Add the following section in `app/config/services.yml`, under the `services` key:
 
 ``` yaml
-services:
-    _defaults:
-        autowire: true
-        autoconfigure: true
-        public: false
-
-    AppBundle\Controller\:
-        public: true
-        resource: '../../Controller/*'
-```
-
-At the beginning of the `ezplatform.yml` file (before the `ezpublish` key), add the following lines to import the content of the new file:
-
-``` yaml
-imports:
-    - { resource: '@AppBundle/Resources/config/services.yml' }
-```
-
-You also need to use dependency injection to merge your service into the actual container.
-
-Create a new file `src/AppBundle/DependencyInjection/AppExtension.php`:
-
-``` php
-<?php
-namespace AppBundle\DependencyInjection;
-use Symfony\Component\HttpKernel\DependencyInjection\Extension;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
-use Symfony\Component\Config\FileLocator;
-use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
-use Symfony\Component\Yaml\Yaml;
-use Symfony\Component\Config\Resource\FileResource;
-class AppExtension extends Extension
-{
-    public function load(array $configs, ContainerBuilder $container)
-    {
-        $loader = new YamlFileLoader(
-            $container,
-            new FileLocator(__DIR__ . '/../Resources/config')
-        );
-        $loader->load('services.yml');
-    }
-}
+AppBundle\Controller\:
+    public: true
+    resource: '../../src/AppBundle/Controller/*'
 ```
 
 ## Create a template to list all Rides
