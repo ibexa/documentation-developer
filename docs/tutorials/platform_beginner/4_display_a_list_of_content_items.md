@@ -6,7 +6,7 @@ In this step you will display a table of all Rides on the front page.
 
 ## Customize the homepage template
 
-In `Resources/views/full/root_folder.html.twig` replace the "Hello world" with a call to a controller which will display the list of all existing Rides:
+In `Resources/views/full/home_page.html.twig` replace the "Hello world" with a call to a controller which will display the list of all existing Rides:
 
 ``` html+twig hl_lines="5"
 {% extends "main_layout.html.twig" %}
@@ -29,12 +29,12 @@ Create the `/src/AppBundle/Controller/HomepageController.php` file:
 
 namespace AppBundle\Controller;
 
-use eZ\Publish\API\Repository\Values\Content\Query;
+use eZ\Publish\API\Repository\Values\Content\LocationQuery;
 use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
 use eZ\Publish\Core\MVC\Symfony\Controller\Controller;
 use eZ\Publish\API\Repository\Values\Content\Query\SortClause;
 use eZ\Publish\API\Repository\Values\Content\Location;
-use eZ\Publish\Core\Pagination\Pagerfanta\ContentSearchAdapter;
+use eZ\Publish\Core\Pagination\Pagerfanta\LocationSearchAdapter;
 use Pagerfanta\Pagerfanta;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -59,7 +59,7 @@ class HomepageController extends Controller
 
     private function findRides(Location $rootLocation, Request $request)
     {
-        $query = new Query();
+        $query = new LocationQuery();
         $query->query = new Criterion\LogicalAnd(
             [
                 new Criterion\Subtree($rootLocation->pathString),
@@ -68,11 +68,11 @@ class HomepageController extends Controller
             ]
         );
         $query->sortClauses = [
-            new SortClause\DatePublished(Query::SORT_ASC),
+            new SortClause\DatePublished(LocationQuery::SORT_ASC),
         ];
 
         $pager = new Pagerfanta(
-            new ContentSearchAdapter($query, $this->getRepository()->getSearchService())
+            new LocationSearchAdapter($query, $this->getRepository()->getSearchService())
         );
         $pager->setMaxPerPage(10);
         $pager->setCurrentPage($request->get('page', 1));
@@ -109,7 +109,7 @@ The `<head>` of the `<table>` is contained in this **Ride** list template, while
                         </thead>
                         <tbody>
                 {% endif %}
-                {{ render( controller( 'ez_content:viewAction', { 'locationId': ride.versionInfo.contentInfo.mainLocationId, 'viewType': 'line' } )) }}
+                {{ render( controller( 'ez_content:viewAction', { 'location': ride, 'viewType': 'line' } )) }}
                 {% if loop.last %}
                         </tbody>
                     </table>
@@ -164,7 +164,7 @@ Because this template will be rendered inside a table, it starts with a `<tr>` t
         <a href="{{ path( "ez_urlalias", { 'locationId': content.contentInfo.mainLocationId } ) }}"
         target="_self">
             <strong>
-                {{ ez_content_name( content ) }}
+                {{ content.name }}
             </strong>
             {% if not ez_is_field_empty( content, 'photo' ) %}
                 {{ ez_render_field(content, 'photo') }}

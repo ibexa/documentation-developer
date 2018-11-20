@@ -65,8 +65,8 @@ ezpublish:
                         template: 'full/ride.html.twig'
                         match:
                             Identifier\ContentType: 'ride'
-                    root_folder:
-                        template: 'full/root_folder.html.twig'
+                    home_page:
+                        template: 'full/home_page.html.twig'
                         match:
                             Id\Location: 2
                 line:
