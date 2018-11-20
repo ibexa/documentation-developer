@@ -156,6 +156,26 @@ $menu->addChild(
 );
 ```
 
+#### Pass a parameter to a menu item
+
+You can pass parameters to menu items with `template_parameters`:
+
+``` php
+$menu->addChild(
+    'menu_item_with_params',
+    [
+        'extras' => [
+            'template' => 'AppBundle::menu_item_template.html.twig',
+            'template_parameters' => [
+                'custom_parameter' => 'value',
+            ],
+        ],
+    ]
+);
+```
+
+You can then use the variable `custom_parameter` in `AppBundle::menu_item_template.html.twig`.
+
 #### Translatable labels
 
 To have translatable labels, use `translation.key` from the `messages` domain:
