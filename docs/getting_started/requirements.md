@@ -42,8 +42,8 @@ Supported setups are those we perform automated testing on. For security and per
     -   MySQL 5.5.3 and higher, 5.6\*, 5.7\*
     -   MariaDB 5.5 (new enough to support `utf8mb4` character set), 10.0, 10.1, 10.2\*, 10.3\*
 -   PHP
-    -   7.0
-    -   7.2
+    -   5.6
+    -   7.0 - 7.2
 
 - Cluster
     - Redis _(preferably a separate volatile-ttl instance for sessions, and an allkeys-lru/allkeys-lfu instance for cache)_
