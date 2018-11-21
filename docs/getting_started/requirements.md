@@ -1,6 +1,6 @@
 # Requirements
 
-These requirements cover both running the software on-premise and on third-party PaaS providers. Upgrade to v1.13 or higher to get access to subscribe to [eZ Platform Cloud](https://ez.no/Products/eZ-Platform-Cloud), where recommended configuration and support is provided out of the box.
+The following server requirements cover both running the software on-premise and on third-party PaaS providers. For running on [eZ Platform Cloud](https://ez.no/Products/eZ-Platform-Cloud), where recommended configuration and support is provided out of the box, see separate [eZ Platform Cloud section](#ez-platform-cloud-requirements-and-setup) for further reading on its requirements.
 
 ## Server
 
