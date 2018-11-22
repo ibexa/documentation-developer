@@ -217,9 +217,9 @@ public function performAccessCheck(): void
 - `function` is the function inside the module (e.g. `read`)
 - `limitations` are optional limitations to check against. Here you can provide two keys:
     - `valueObject` is the object you want to check for, for example `ContentInfo`.
-    - `targets` is a table of value objects that are the target of the operation.
-    For example, to check if content can be assigned to a Section, provide the Section as `targets`.
-    `targets` accepts Location, Object State and Section objects.
+    - `targets` are a table of value objects that are the target of the operation.
+    For example, to check if Content can be assigned to a Section, provide the Section as `targets`.
+    `targets` accept Location, Object State and Section objects.
 
 ### Checking user access
 
