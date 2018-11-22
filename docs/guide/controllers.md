@@ -19,6 +19,11 @@ There are three ways in which you can apply a custom logic:
 - [Add a Symfony Response listener](#adding-a-listener) to add custom logic to all responses.
 - [**Override**](#using-only-your-custom-controller) the built-in `ViewController` with the custom controller in a specific situation.
 
+!!! tip "Permissions for custom controllers"
+
+    See [permission documentation](permissions.md#permissions-for-custom-controllers) for information
+    about access control for custom controllers.
+
 ### Enriching ViewController with a custom controller
 
 **This is the recommended way of using a custom controller**
