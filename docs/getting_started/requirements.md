@@ -1,10 +1,6 @@
 # Requirements
 
-## eZ Platform Cloud / Platform.sh
-
-If you're using a PaaS provider such as the native [eZ Platform Cloud](https://ez.no/Products/eZ-Platform-Cloud), or its underlying [Platform.sh](https://platform.sh/hosting/php/ez/) offering, you can get started using the bundled config which contains recommended initial setup, and thus [skip this step](starting_ez_platform.md#hello-world).
-
-_NOTE: Usage on eZ Platform Cloud/Platform.sh is limited to the featureset of [platform.sh](https://docs.platform.sh/), however you can also use additional services like for instance S3, GridFS, etc., as long as you host that service yourself and set up the necessary credentials to use it, as you would normally do when hosting the application on-premise._
+The following server requirements cover both running the software on-premise and on third-party PaaS providers. For running on [eZ Platform Cloud](https://ez.no/Products/eZ-Platform-Cloud), where recommended configuration and support is provided out of the box, see separate [eZ Platform Cloud section](#ez-platform-cloud-requirements-and-setup) for further reading on its requirements.
 
 ## Server
 
@@ -14,7 +10,7 @@ For supported versions of these technologies see Recommended and Supported setup
 
 ### Recommended setups
 
-These setups are tested by QA and are generally recommended setups. For security and performance we furthermore recommend use of the newer versions of components below.
+These setups are tested by QA and are generally recommended setups. For security and performance we furthermore recommend use of the newer versions of components below unless otherwise noted.
 
 ||Debian|Ubuntu|RHEL / CentOS|
 |------|------|------|------|
@@ -44,10 +40,10 @@ Supported setups are those we perform automated testing on. For security and per
     -   Nginx 1.10, 1.12, 1.14
 -   DBMS
     -   MySQL 5.5.3 and higher, 5.6\*, 5.7\*
-    -   MariaDB 5.5 (new enough to support `utf8mb4` character set), 10.0, 10.1, 10.2\*
+    -   MariaDB 5.5 (new enough to support `utf8mb4` character set), 10.0, 10.1, 10.2\*, 10.3\*
 -   PHP
-    -   7.0
-    -   7.2
+    -   5.6
+    -   7.0 - 7.2
 
 - Cluster
     - Redis _(preferably a separate volatile-ttl instance for sessions, and an allkeys-lru/allkeys-lfu instance for cache)_
@@ -73,7 +69,7 @@ Supported setups are those we perform automated testing on. For security and per
     -   php-memcached *(3.x on PHP 7, 2.2 on PHP 5) or* [php-redis](https://pecl.php.net/package/redis)
 
 <a id="mysql-versions-note"></a>
-_\* Note: Mysql 5.7 and MariaDB 10.2 changes how certain queries are parsed and is known to have issues with content attribute sorting  queries in  legacy because of that at the moment, MySQL 5.6 technically works but executes several hundred times slower on said queries. Because of this we overall recommend MariaDB 10.1 and 10.0, and don't offically support MySQL 5.6/5.7 and MariaDB 10.2 in use with legacy at the moment._
+_\* Note: Mysql 5.7+ and MariaDB 10.2+ changes how certain queries are parsed and is known to have issues with content attribute sorting queries in  legacy because of that at the moment, MySQL 5.6 technically works but executes several hundred times slower on said queries. Because of this we overall recommend MariaDB 10.1 and 10.0, and don't recommend MySQL 5.6/5.7+ and MariaDB 10.2+ in use with legacy at the moment._
 
 ### Development and Experimental setups
 
