@@ -38,12 +38,12 @@ If a function is absent from the tables below, it means that no Limitations can 
 
 #### Content
 
-|Functions|Class|Section|Owner|Node|Subtree|Group|Language|Other Limitations|
+|Functions|Content Type|Section|Owner|Location|Subtree|Group|Language|Other Limitations|
 |------|------|------|------|------|------|------|------|------|
 |read|true|true|true|true|true|true|-|State|
 |diff|true|true|true|true|true|-|-|-|
 |view_embed|true|true|true|true|true|-|-|-|
-|create|true|true|-|true|true|-|true|ParentOwner</br>ParentGroup</br>ParentClass</br>ParentDepth|
+|create|true|true|-|true|true|-|true|ParentOwner</br>ParentGroup</br>Parent Content Type</br>ParentDepth|
 |edit|true|true|true|true|true|true|true|State|
 |manage_locations|true|true|true|-|true|-|-|State|
 |hide|true|true|true|true|true|true|true|State|
@@ -113,7 +113,7 @@ A Limitation to specify if the User has access to Content with a specific Conten
 
 |                 |                                                                          |
 |-----------------|--------------------------------------------------------------------------|
-| Identifier      | `Class`                                                                  |
+| Identifier      | `Content Type`                                                               |
 | Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\ContentTypeLimitation` |
 | Type Class      | `eZ\Publish\Core\Limitation\ContentTypeLimitationType`                   |
 | Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\ContentTypeId` |
@@ -149,7 +149,7 @@ A Limitation to specify if the User has access to Content with a specific Locati
 
 |                 |                                                                       |
 |-----------------|-----------------------------------------------------------------------|
-| Identifier      | `Node`                                                                |
+| Identifier      | `Location`                                                                |
 | Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\LocationLimitation` |
 | Type Class      | `eZ\Publish\Core\Limitation\LocationLimitationType`                   |
 | Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\LocationId` |
@@ -246,7 +246,7 @@ This Limitation combined with `ContentType` Limitation allows you to define busi
 
 |                 |                                                                                |
 |-----------------|--------------------------------------------------------------------------------|
-| Identifier      | `ParentClass`                                                                  |
+| Identifier      | `Parent Content Type`                                                                  |
 | Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\ParentContentTypeLimitation` |
 | Type Class      | `eZ\Publish\Core\Limitation\ParentContentTypeLimitationType`                   |
 | Criterion used  | n/a                                                                            |
