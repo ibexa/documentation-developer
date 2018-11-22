@@ -54,7 +54,7 @@ In `services.yml` (in your bundle):
 services:
     _defaults:
         autowire: true
-        autoconfigure: false
+        autoconfigure: true
         public: false
  
     Acme\ExampleBundle\Slot\OnPublishSlot:
@@ -94,12 +94,10 @@ In `services.yml` (in your bundle):
 services:
     _defaults:
         autowire: true
-        autoconfigure: false
+        autoconfigure: true
         public: false
 
-    Acme\ExampleBundle\EventListener\SignalListener:
-        tags:
-            - { name: kernel.event_subscriber }
+    Acme\ExampleBundle\EventListener\SignalListener: ~
 ```
 
 ``` php
