@@ -1,8 +1,6 @@
 # Requirements
 
-## Platform as a Service (PaaS)
-
-If you're using a PaaS provider such as our partner [Platform.sh](https://platform.sh/hosting/php/ez/), where we have an single-server setup, and in the future also clustered setup, you can [skip](starting_ez_platform.md#hello-world) this step.
+These requirements cover both running the software on-premise and on third-party PaaS providers. Upgrade to v1.13 or higher to get access to subscribe to [eZ Platform Cloud](https://ez.no/Products/eZ-Platform-Cloud), where recommended configuration and support is provided out of the box.
 
 ## Server
 
@@ -12,7 +10,7 @@ For supported versions of these technologies see Recommended and Supported setup
 
 ### Recommended setups
 
-These setups are tested by QA and are generally recommended setups. For security and performance we furthermore recommend use of the newer versions of components below.
+These setups are tested by QA and are generally recommended setups. For security and performance we furthermore recommend use of the newer versions of components below unless otherwise noted.
 
 ||Debian|Ubuntu|RHEL / CentOS|
 |------|------|------|------|
@@ -43,7 +41,7 @@ Supported setups are those we perform automated testing on. For security and per
     -   Nginx 1.6, 1.8. 1.10, 1.12
 -   DBMS
     -   MySQL 5.5.3 and higher, 5.6\*, 5.7\*
-    -   MariaDB 5.5 (new enough to support `utf8mb4` character set), 10.0, 10.1, 10.2\*
+    -   MariaDB 5.5 (new enough to support `utf8mb4` character set), 10.0, 10.1, 10.2\*, 10.3\*
 -   PHP
     -   5.6
     -   7.0 - 7.1
@@ -68,7 +66,7 @@ Supported setups are those we perform automated testing on. For security and per
     -   php-memcached *(3.x on PHP 7, 2.2 on PHP 5) or* [php-redis](https://pecl.php.net/package/redis)
 
 <a id="mysql-versions-note"></a>
-_\* Note: Mysql 5.7 and MariaDB 10.2 changes how certain queries are parsed and is known to have issues with content attribute sorting  queries in  legacy because of that at the moment, MySQL 5.6 technically works but executes several hundred times slower on said queries. Because of this we overall recommend MariaDB 10.1 and 10.0, and don't offically support MySQL 5.6/5.7 and MariaDB 10.2 in use with legacy at the moment._
+_\* Note: Mysql 5.7+ and MariaDB 10.2+ changes how certain queries are parsed and is known to have issues with content attribute sorting queries in  legacy because of that at the moment, MySQL 5.6 technically works but executes several hundred times slower on said queries. Because of this we overall recommend MariaDB 10.1 and 10.0, and don't recommend MySQL 5.6/5.7+ and MariaDB 10.2+ in use with legacy at the moment._
 
 ### Development and Experimental setups
 
