@@ -60,13 +60,13 @@ Note that without eZ Enterprise this setup should not be used, as it will not al
 
 #### Restrict editing to part of the tree
 
-If you want to let the User create or edit Content, but only in one part of the content tree, you need to use Limitations. Three Limitations that could be used here are `Section` Limitation, `Node` Limitation and `Subtree` Limitation.
+If you want to let the User create or edit Content, but only in one part of the content tree, you need to use Limitations. Three Limitations that could be used here are `Section` Limitation, `Location` Limitation and `Subtree` Limitation.
 
 Let's assume you have two Folders under your Home: Blog and Articles. You can let a User create Content for the blogs, but not in Articles by adding a `Subtree` Limitation on the Blog Content item. This will allow the User to publish content anywhere under this Location in the structure.
 
 A `Section` Limitation can be used similarly, but a Section does not have to belong to the same subtree in the content structure, any Locations can be assigned to it.
 
-If you add a `Node` Limitation and point to the same Location, the User will be able to publish content directly under the selected Location, but not anywhere deeper in its subtree.
+If you add a `Location` Limitation and point to the same Location, the User will be able to publish content directly under the selected Location, but not anywhere deeper in its subtree.
 
 Note that when a Policy has more than one Limitation, all of them have to apply, or the Policy will not work. For example, a `Location` Limitation on Location `1/2` and `Subtree` Limitation on `1/2/55` cannot work together, because no Location can satisfy both those requirements at the same time. If you want to combine more than one Limitation with the *or* relation, not *and*, you can split your Policy in two, each with one of these Limitations.
 
@@ -81,8 +81,8 @@ To enable upload, you need you set the following permissions:
 
 You can control what Content items can be uploaded and where using Limitations on the `content/create` and `content/publish` Policies.
 
-A Node Limitation limits uploading to a specific Location in the tree. A Class Limitation controls the Content Types that are allowed.
-For example, you can set the Node Limitation on a "Pictures" Folder, and add a Class Limitation
+A Location Limitation limits uploading to a specific Location in the tree. A Content Type Limitation controls the Content Types that are allowed.
+For example, you can set the Location Limitation on a "Pictures" Folder, and add a Content Type Limitation
 which only allows Content items of type "Image". This ensures that only files of type "image" can be uploaded,
 and only to the "Pictures" Folder.
 
@@ -130,7 +130,7 @@ Additional Policies are needed for each section of the Admin.
 
 ##### Content Types
 
-- `class/create`, `class/update`, `class/delete` to add, modify and remove Content Types
+- `Content Type/create`, `Content Type/update`, `Content Type/delete` to add, modify and remove Content Types
 
 ##### Object States
 
@@ -171,7 +171,7 @@ Users are treated like other Content, so to create and modify them the User need
 |               | `pendinglist`        | unused                                                                                                                                  |
 |               | `restore`            | restore content from Trash                                                                                                              |
 |               | `cleantrash`         | empty the trash                                                                                                                         |
-| `class`       | `update`             | modify existing Content Types. Also required to create new Content Types                                                                |
+| `Content Type`       | `update`             | modify existing Content Types. Also required to create new Content Types                                                                |
 |               | `create`             | create new Content Types. Also required to edit exiting Content Types                                                                   |
 |               | `delete`             | delete Content Types                                                                                                                    |
 | `state`       | `assign`             | assign Object States to Content items                                                                                                   |
