@@ -194,3 +194,54 @@ Users are treated like other Content, so to create and modify them the User need
 |               | `register`           | register using the `/register` route                                                                                                    |
 |               | `selfedit`           | unused                                                                                                                                  |
 |               | `activation`         | unused                                                                                                                                  |
+
+## Permissions for custom controllers
+
+You can control access to a custom controller by implementing the `performAccessCheck()` method.
+
+In the following example the user does not have access to the controller unless they have the `section/view` Policy:
+
+``` php
+use eZ\Publish\Core\MVC\Symfony\Security\Authorization\Attribute;
+
+public function performAccessCheck(): void
+{
+    parent:performAccessCheck();
+    $this->denyAccessUnlessGranted(new Attribute('section', 'view'));
+}
+```
+
+`Attribute` accepts three arguments:
+
+- `module` is the Policy module (e.g. `content`)
+- `function` is the function inside the module (e.g. `read`)
+- `limitations` are optional limitations to check against. Here you can provide two keys:
+    - `valueObject` is the object you want to check for, for example `ContentInfo`.
+    - `targets` are a table of value objects that are the target of the operation.
+    For example, to check if Content can be assigned to a Section, provide the Section as `targets`.
+    `targets` accept Location, Object State and Section objects.
+
+### Checking user access
+
+To check if a user has access to an operation, use the `isGranted()` method.
+For example, to check if Content can be assigned to a section:
+
+``` php
+$hasAccess = $this->isGranted(
+    new Attribute( 'section', 'assign', array( 'valueObject' => $contentInfo, 'targets' => $section ) )
+);
+```
+
+You can also use the permission resolver (`eZ\Publish\API\Repository\PermissionResolver`).
+The `canUser()` method checks if the user can perform a given action with the selected object.
+
+For example: `canUser('content', 'edit', $content, $location );`
+checks the `content/edit` permission for the provided Content item at the provided Location.
+
+### Blocking access to controller action
+
+To block access to a specific action of the controller, add the following to the action's definition:
+
+``` php
+$this->denyAccessUnlessGranted(new Attribute('state', 'administrate'));
+```
