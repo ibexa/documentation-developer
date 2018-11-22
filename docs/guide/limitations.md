@@ -7,7 +7,7 @@ Limitations consist of two parts:
 - `Limitation` (Value)
 - `LimitationType`
 
-Certain Limitations also serve as Role Limitations, which means they can be used to limit the rights of a Role assignment. Currently this covers `Subtree` and `Section` Limitations.
+Certain Limitations also serve as Role Limitations, which means they can be used to limit the rights of a Role assignment. Currently this covers `Subtree of Location` and `Section` Limitations.
 
 `Limitation` represents the value, while `LimitationType` deals with the business logic surrounding how it actually works and is enforced.
 `LimitationTypes` have two modes of operation in regards to permission logic (see `eZ\Publish\SPI\Limitation\Type` interface for more info):
@@ -38,12 +38,12 @@ If a function is absent from the tables below, it means that no Limitations can 
 
 #### Content
 
-|Functions|Content Type|Section|Owner|Location|Subtree|Group|Language|Other Limitations|
+|Functions|Content Type|Section|Owner|Location|Subtree of Location|Group|Language|Other Limitations|
 |------|------|------|------|------|------|------|------|------|
 |read|true|true|true|true|true|true|-|State|
 |diff|true|true|true|true|true|-|-|-|
 |view_embed|true|true|true|true|true|-|-|-|
-|create|true|true|-|true|true|-|true|ParentOwner</br>ParentGroup</br>Parent Content Type</br>ParentDepth|
+|create|true|true|-|true|true|-|true|Owner of Parent</br>Content Type Group of Parent</br>Content Type of Parent</br>Parent Depth|
 |edit|true|true|true|true|true|true|true|State|
 |manage_locations|true|true|true|-|true|-|-|State|
 |hide|true|true|true|true|true|true|true|State|
@@ -242,11 +242,11 @@ A Limitation to specify that only the owner of the Content item gets the selecte
 
 A Limitation to specify if the User has access to Content whose parent Location contains a specific Content Type, used by `content/create`.
 
-This Limitation combined with `ContentType` Limitation allows you to define business rules like allowing Users to create "Blog Post" within a "Blog." If you also combine it with `ParentOwner` Limitation, you effectively limit access to create Blog Posts in the Users' own Blogs.
+This Limitation combined with `ContentType` Limitation allows you to define business rules like allowing Users to create "Blog Post" within a "Blog." If you also combine it with `Owner of Parent` Limitation, you effectively limit access to create Blog Posts in the Users' own Blogs.
 
 |                 |                                                                                |
 |-----------------|--------------------------------------------------------------------------------|
-| Identifier      | `Parent Content Type`                                                                  |
+| Identifier      | `Content Type of Parent`                                                                  |
 | Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\ParentContentTypeLimitation` |
 | Type Class      | `eZ\Publish\Core\Limitation\ParentContentTypeLimitationType`                   |
 | Criterion used  | n/a                                                                            |
@@ -258,13 +258,13 @@ This Limitation combined with `ContentType` Limitation allows you to define busi
 |------|------|------|
 |`<ContentType_id>`|`<ContentType_name>`|All valid Content Type IDs can be set as value(s)|
 
-### ParentDepthLimitation
+### Parent Depth Limitation
 
 A Limitation to specify if the User has access to creating Content under a parent Location within a specific depth of the tree, used for `content/create` permission.
 
 |                 |                                                                          |
 |-----------------|--------------------------------------------------------------------------|
-| Identifier      | `ParentDepth`                                                            |
+| Identifier      | `Parent Depth`                                                            |
 | Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\ParentDepthLimitation` |
 | Type Class      | `eZ\Publish\Core\Limitation\ParentDepthLimitationType`                   |
 | Criterion used  | n/a                                                                      |
@@ -276,13 +276,13 @@ A Limitation to specify if the User has access to creating Content under a paren
 |------|------|------|
 |`<int>`|`<int>`|All valid integers can be set as value(s)|
 
-### ParentOwnerLimitation
+### Owner of Parent Limitation
 
 A Limitation to specify that only the Users who own all parent Locations of a Content item get a certain access right, used for `content/create` permission.
 
 |                 |                                                                          |
 |-----------------|--------------------------------------------------------------------------|
-| Identifier      | `ParentOwner`                                                            |
+| Identifier      | `Owner of Parent`                                                            |
 | Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\ParentOwnerLimitation` |
 | Type Class      | `eZ\Publish\Core\Limitation\ParentOwnerLimitationType`                   |
 | Criterion used  | n/a                                                                      |
@@ -301,7 +301,7 @@ A Limitation to specify that only Users with at least one common *direct* User G
 
 |                 |                                                                              |
 |-----------------|------------------------------------------------------------------------------|
-| Identifier      | `ParentGroup`                                                                |
+| Identifier      | `Content Type Group of Parent`                                                                |
 | Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\ParentUserGroupLimitation` |
 | Type Class      | `eZ\Publish\Core\Limitation\ParentUserGroupLimitationType`                   |
 | Criterion used  | n/a                                                                          |
@@ -353,13 +353,13 @@ A Limitation to specify to which SiteAccesses a certain permission applies, used
 
 `SiteAccess` Limitation is deprecated and is not used actively in Public API, but is allowed for being able to read / create Limitations for legacy.
 
-### SubtreeLimitation
+### Subtree of Location Limitation
 
-A Limitation to specify if the User has access to Content within a specific subtree, in case of `content/create` the parent subtree is evaluated.
+A Limitation to specify if the User has access to Content within a specific Subtree of Location, in case of `content/create` the parent Subtree of Location is evaluated.
 
 |                 |                                                                      |
 |-----------------|----------------------------------------------------------------------|
-| Identifier      | `Subtree`                                                            |
+| Identifier      | `Subtree of Location`                                                            |
 | Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\SubtreeLimitation` |
 | Type Class      | `eZ\Publish\Core\Limitation\SubtreeLimitationType`                   |
 | Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\Subtree`   |
