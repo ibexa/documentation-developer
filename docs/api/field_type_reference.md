@@ -1887,6 +1887,9 @@ This Field Type validates and stores structured rich text, and exposes it in sev
 |------|------|------|
 |`RichText`|`ezrichtext`|mixed|
 
+The RichText Field Type is available via the eZ Platform RichText Bundle
+provided by the https://github.com/ezsystems/ezplatform-richtext package.
+
 ### PHP API Field Type 
 
 #### Input expectations
@@ -1895,7 +1898,7 @@ This Field Type validates and stores structured rich text, and exposes it in sev
 |------|------|------|
 |`string`|XML document in one of the Field Type's input formats as a string.|See the example below.|
 |`DOMDocument`|XML document in one of the Field Type's input formats as a `DOMDocument` object.|See the example below.|
-|`eZ\Publish\Core\FieldType\RichText\Value`|An instance of the Field Type's `Value` object.|See the example below.|
+|`EzSystems\EzPlatformRichText\eZ\FieldType\RichText\Value`|An instance of the Field Type's `Value` object.|See the example below.|
 
 ###### Input formats
 
@@ -1935,7 +1938,7 @@ This format is used by eZ Platform's Online Editor.
 </section>
 ```
 
-For more information about internal format and input formats, see [Field Type's conversion test fixtures on GitHub](https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/Core/FieldType/Tests/RichText/Converter/Xslt/_fixtures).
+For more information about internal format and input formats, see [Field Type's conversion test fixtures on GitHub](https://github.com/ezsystems/ezplatform-richtext/tree/master/tests/lib/eZ/RichText/Converter/Xslt/_fixtures).
 
 For example, ezxml does not use explicit level attributes for `<header>` elements, instead `<header>` element levels are indicated through the level of nesting inside `<section>` elements.
 
@@ -1969,7 +1972,7 @@ $contentCreateStruct->setField( "description", $inputString );
 
 #### Value object
 
-`eZ\Publish\Core\FieldType\RichText\Value` offers the following properties:
+`EzSystems\EzPlatformRichText\eZ\FieldType\RichText\Value` offers the following properties:
 
 |Property|Type|Description|
 |------|------|------|

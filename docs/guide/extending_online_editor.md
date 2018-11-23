@@ -3,6 +3,12 @@
 The Online Editor is based on [Alloy Editor](https://alloyeditor.com/).
 Refer to [Alloy Editor documentation](https://alloyeditor.com/docs/develop/) to learn how to extend the Online Editor with new elements.
 
+!!! note
+
+    Online Editor configuration works out of the box only if you have the Rich Text bundle enabled.
+    If you do not, for example due to an upgrade from an earlier version,
+    enable it according to the [installation guide](https://github.com/ezsystems/ezplatform-richtext#installation).
+
 ## Custom tags
 
 Custom tags enable you to add more features to the Rich Text editor beyond the built-in ones.
@@ -17,38 +23,40 @@ ezpublish:
                 ezrichtext:
                     custom_tags: [ezyoutube]
 
-    ezrichtext:
-        custom_tags:
-            ezyoutube:
-                # The template used for front-end rendering of the custom tag
-                template: 'AppBundle:field_type/ezrichtext/custom_tag:ezyoutube.html.twig'
-                # An icon for the custom tag as displayed in the Online Editor's toolbar.
-                icon: '/assets/field_type/ezrichtext/custom_tag/icon/youtube-color.svg#youtube-color'
-                attributes:
-                    title:
-                        type: 'string'
-                        required: true
-                        default_value: ''
-                    video_url:
-                        type: 'string'
-                        required: true
-                    width:
-                        type: 'number'
-                        required: true
-                        default_value: 640
-                    height:
-                        type: 'number'
-                        required: true
-                        default_value: 360
-                    autoplay:
-                        type: 'boolean'
-                        default_value: false
-                    align:
-                        type: 'choice'
-                        required: false
-                        default_value: 'left'
-                        choices: ['left', 'center', 'right']
+ezrichtext:
+    custom_tags:
+        ezyoutube:
+            # The template used for front-end rendering of the custom tag
+            template: 'AppBundle:field_type/ezrichtext/custom_tag:ezyoutube.html.twig'
+            # An icon for the custom tag as displayed in the Online Editor's toolbar.
+            icon: '/assets/field_type/ezrichtext/custom_tag/icon/youtube-color.svg#youtube-color'
+            attributes:
+                title:
+                    type: 'string'
+                    required: true
+                    default_value: ''
+                video_url:
+                    type: 'string'
+                    required: true
+                width:
+                    type: 'number'
+                    required: true
+                    default_value: 640
+                height:
+                    type: 'number'
+                    required: true
+                    default_value: 360
+                autoplay:
+                    type: 'boolean'
+                    default_value: false
+                align:
+                    type: 'choice'
+                    required: false
+                    default_value: 'left'
+                    choices: ['left', 'center', 'right']
 ```
+
+You need to provide your own files for the template and the icon.
 
 Each custom tag can have any number of attributes. Supported attribute types are:
 `string`, `number`, `boolean` and `choice` (which requires a list of choices provided by the `choices` key).
@@ -107,14 +115,14 @@ ezpublish:
                 ezrichtext:
                     custom_styles: [highlighted_block, highlighted_word]
 
-    ezrichtext:
-        custom_styles:
-            highlighted_word:
-                template: '@ezdesign/field_type/ezrichtext/custom_style/highlighted_word.html.twig'
-                inline: true
-            highlighted_block:
-                template: '@ezdesign/field_type/ezrichtext/custom_style/highlighted_block.html.twig'
-                inline: false
+ezrichtext:
+    custom_styles:
+        highlighted_word:
+            template: '@ezdesign/field_type/ezrichtext/custom_style/highlighted_word.html.twig'
+            inline: true
+        highlighted_block:
+            template: '@ezdesign/field_type/ezrichtext/custom_style/highlighted_block.html.twig'
+            inline: false
 ```
 
 The system expects two kinds of configuration:
