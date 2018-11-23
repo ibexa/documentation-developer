@@ -1887,7 +1887,8 @@ This Field Type validates and stores structured rich text, and exposes it in sev
 |------|------|------|
 |`RichText`|`ezrichtext`|mixed|
 
-The RichText Field Type is stored in https://github.com/ezsystems/ezplatform-richtext.
+The RichText Field Type is available via the eZ Platform RichText Bundle
+provided by the https://github.com/ezsystems/ezplatform-richtext package.
 
 ### PHP API Field Type 
 
