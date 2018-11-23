@@ -96,8 +96,3 @@ Default template HTML code structure for missing `selectedItemTemplate` looks li
 ```html
     <li class="ez-custom-dropdown__selected-item" data-value="{{value}}">{{label}}<span class="${CLASS_REMOVE_SELECTION}"></span></li>
 ```
- 
-
-
-
-
