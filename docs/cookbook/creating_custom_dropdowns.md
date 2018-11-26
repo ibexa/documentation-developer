@@ -1,16 +1,16 @@
 # Creating custom dropdowns
 
-In eZ Platform you are able to implement custom dropdowns anywhere in the system.
-Follow bellow steps to learn how to manipulate small component/library in order to do so. 
+In eZ Platform you are able to implement custom dropdowns anywhere in the Back Office.
+Follow the steps below, to learn how to integrate this small component to fit your project's needs.
 
 ## Prepare custom dropdown structure
 
 First prepare the HTML code structure in the following way:
 
-```html hl_lines="2"
+```html hl_lines="2 11 12"
 <div class="ez-custom-dropdown">
     <select class="ez-custom-dropdown__select" hidden multiple>
-        <option value="1" selected>Option 1</option>
+        <option value="1">Option 1</option>
         <option value="2">Option 2</option>
         <option value="3">Option 3</option>
         <option value="4">Option 4</option>
@@ -28,17 +28,20 @@ First prepare the HTML code structure in the following way:
 </div>
 ```
 
-Highlighted line in the code above contains a hidden native `select` input. It stores values of selection.
+The highlighted line two in the code above contains a hidden native `select` input. It stores the selection values.
 Input is hidden because custom dropdown replicates its functionality.
-Do not remove it. Removal would break the functionality of any submission form.
+
+!!! caution
+
+    Do not remove `select` input. Removal would break the functionality of any submission form.
 
 ![Dropdown expanded state](img/dropdown_expanded_state.jpg)
 
-## Generate <select> input
+## Generate `<select>` input
 
-Next step is generating a standard select input with `ez-custom-dropdown__select` CSS class added to `<select></select>` element.
+Next step is generating a standard select input with `ez-custom-dropdown__select` CSS class added to `<select>` element.
 This element should contain at least one additional attribute: `hidden`. 
-If you want to allow users to pick multiple items from a list add the `multiple` attribute to the same element.
+If you want to allow users to pick multiple items from a list, add the `multiple` attribute to the same element.
 
 ```html
     <select class="ez-custom-dropdown__select" hidden multiple></select>
@@ -48,20 +51,24 @@ If you want to allow users to pick multiple items from a list add the `multiple`
 
 ## Add attributes
 
-Next look into `data-value` attribute that is added in the above code to replicated options with the CSS class: `ez-custom-dropdown__item`. It stores a value of an option from a select input.
+Next look into the `data-value` attribute in the code above (line 11 and 12) to replicated options with the CSS class: `ez-custom-dropdown__item`.
+It stores a value of an option from a select input.
 
-You can provide placeholder text for your custom dropdown.
-To do so remove `data-value` attribute and add `disabled` attribute to the item in the replicated list of options as shown in the example below. 
- It will make it unclickable.
+You can provide placeholder text for your custom dropdown. To do so:
+
+- put a `data-value` attribute with no value `data-value=""`
+- add a `disabled` attribute to the item in the replicated list of options 
+
+as shown in the example below.  It will make it unclickable.
  
- ```html
+```html
 <li data-value="" class="ez-custom-dropdown__item" disabled>Select an option</li>
 <li data-value="1" class="ez-custom-dropdown__item">Option 1</li>
 ```
 
 ## Initialize
 
-To initialize custom dropdown run below JavaScript code:
+To initialize custom dropdown run the following JavaScript code:
 
 ```javascript
 (function (global, document) {
