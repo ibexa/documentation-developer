@@ -19,14 +19,16 @@ git checkout -b <branch_name>
 
 This creates a new project branch for the update based on your current project branch, typically `master`. An example `<branch_name>` would be `update-1.4`.
 
-**1.2.** If it's not there, add `ezsystems/ezplatform` _(or `ezsystems/ezplatform-ee` when updating an Enterprise installation)_ as an "upstream" remote:
+**1.2.** If it's not there, add `ezsystems/ezplatform` _(or `ezsystems/ezplatform-ee` on an Enterprise installation, or `ezsystems/ezcommerce` on an Commerce installation)_ as an "upstream" remote:
 
 **From your new update branch**
 
-``` bash hl_lines="1 3"
+``` bash hl_lines="1 3 5"
 git remote add upstream http://github.com/ezsystems/ezplatform.git
 or
 git remote add upstream http://github.com/ezsystems/ezplatform-ee.git
+or
+git remote add upstream http://github.com/ezsystems/ezcommerce.git
 ```
 
 **1.3** Prepare for pulling changes
@@ -96,7 +98,7 @@ At this stage you may get conflicts, which are a normal part of the procedure an
 
 The latter can be ignored, as it will be regenerated when we execute `composer update` later. The easiest is to checkout the version from the tag and add it to the changes:
 
-If you get a **lot** of conflicts (on the `doc` folder for instance), and eZ Platform was installed from the [ezplatform.com](https://ezplatform.com) or [support.ez.no](https://support.ez.no) _(for Enterprise)_ tarball, it might be because of incomplete history. You will have to run `git fetch upstream --unshallow` to load the full history, and run the merge again.
+If you get a **lot** of conflicts (on the `doc` folder for instance), and eZ Platform was installed from the [ezplatform.com](https://ezplatform.com) or [support.ez.no](https://support.ez.no) _(for Enterprise and Commerce)_ tarball, it might be because of incomplete history. You will have to run `git fetch upstream --unshallow` to load the full history, and run the merge again.
 
 **From your new update branch**
 
