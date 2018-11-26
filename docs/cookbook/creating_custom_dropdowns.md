@@ -29,7 +29,7 @@ First prepare the HTML code structure in the following way:
 ```
 
 The highlighted line two in the code above contains a hidden native `select` input. It stores the selection values.
-Input is hidden because custom dropdown replicates its functionality.
+Input is hidden because custom dropdown duplicates its functionality.
 
 !!! caution
 
@@ -51,13 +51,13 @@ If you want to allow users to pick multiple items from a list, add the `multiple
 
 ## Add attributes
 
-Next look into the `data-value` attribute in the code above (line 11 and 12) to replicated options with the CSS class: `ez-custom-dropdown__item`.
+Next look into the `data-value` attribute in the code above (line 11 and 12) to duplicated options with the CSS class: `ez-custom-dropdown__item`.
 It stores a value of an option from a select input.
 
 You can provide placeholder text for your custom dropdown. To do so:
 
 - put a `data-value` attribute with no value `data-value=""`
-- add a `disabled` attribute to the item in the replicated list of options 
+- add a `disabled` attribute to the item in the duplicated list of options 
 
 as shown in the example below.  It will make it unclickable.
  
@@ -93,7 +93,7 @@ Full list of options:
 |----|-----------|--------|
 |`container`|contains a reference to a DOM node where custom dropdown is initialized|required|
 |`sourceInput`|contains a reference to a DOM node where the value of selected option is stored. Presumably, it should be a reference to a select input node|required|
-|`itemsContainer`|contains a reference to a replicated items container|required|
+|`itemsContainer`|contains a reference to a duplicated items container|required|
 |`hasDefaultSelection`|contains a boolean value. If set to `true` the first option will be selected as a placeholder or selected value|optional|
 |`selectedItemTemplate`|contains a literal template string with placeholders for `value` and `label` data|optional|
 
