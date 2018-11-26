@@ -44,7 +44,7 @@ In `app/config/layouts.yml` add the following code at the end of the file, under
 blocks:
     contentlist:
         views:
-            default:
+            contentList:
                 template: 'blocks/contentlist/default.html.twig'
                 name: 'Content List'
 ```
