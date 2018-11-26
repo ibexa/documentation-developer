@@ -308,6 +308,10 @@ a.external:after {
     box-sizing: border-box;
 }
 
+.ds-dataset-1 {
+    max-height: calc(100vh - 5.5rem);
+}
+
 .algolia-autocomplete {
     display: block !important;
     box-sizing: border-box;
