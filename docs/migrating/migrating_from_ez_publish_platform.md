@@ -2,11 +2,11 @@
 
 eZ Publish Platform (5.x) was a transitional version of the eZ CMS, bridging the gap between the earlier generation called eZ Publish (sometimes referred to as *legacy*), and the current eZ Platform and eZ Platform Enterprise Edition for developers.
 
-eZ Publish Platform introduced a new Symfony-based technology stack that could be run along the old (*legacy*) one. This bridging is still possible using something called Legacy Bridge, an optional package for eZ Platform. This fluid change allows eZ Publish users to migrate to eZ Platform in steps, using the bridging as an intermediary stepping stone.
+eZ Publish Platform introduced a new Symfony-based technology stack that could be run along the old (*legacy*) one. This bridging is still possible using something called Legacy Bridge, an optional package for eZ Platform. This fluid change allows eZ Publish users to migrate to eZ Platform gradually, using the bridging as an intermediary stepping stone.
 
 ## Upgrade process
 
-An upgrade from eZ Publish Platform 5.4.x (Enterprise edition) or 2014.11 (Community edition) to newer versions of eZ Platform must be performed in steps.
+An upgrade from eZ Publish Platform 5.4.x (Enterprise edition) or 2014.11 (Community edition) to newer versions of eZ Platform must be performed in stages.
 
 You can upgrade from eZ Publish Platform directly to the v1.7 LTS release.
 You can then proceed with consecutive upgrades to further versions: v1.13 LTS and 2.x.
