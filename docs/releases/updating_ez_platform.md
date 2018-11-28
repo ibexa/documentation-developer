@@ -34,7 +34,7 @@ git remote add upstream http://github.com/ezsystems/ezcommerce.git
 
 **1.3** Prepare for pulling changes
 
-??? note "Adding `sort-packages` option when updating from <1.7.9, 1.13.5, 2.2.4, 2.3.3, 2.4.0"
+??? note "Adding `sort-packages` option when updating from <=1.7.8, 1.13.4, 2.2.3, 2.3.2"
 
     To reduce the number of conflicts in the future, [EZP-29835](https://jira.ez.no/browse/EZP-29835) adds a setting to
     Composer to make it sort packages listed in `composer.json`. If you don't already do this, you should prepare for
