@@ -1,5 +1,9 @@
 # How to run tests
 
+## Enterprise Tutorial
+
+These tests should be run using ezplatform-ee metarepository.
+
 1. Add developer-documentation to your project:
 `composer require --dev ezsystems/developer-documentation:dev-master`
 1. Run setup script:
