@@ -1,4 +1,4 @@
-# Migration from eZ Publish
+# Migrating from eZ Publish
 
 eZ Publish was eZ Platform's predecessor, a CMS in development for five major versions and several years.
 
