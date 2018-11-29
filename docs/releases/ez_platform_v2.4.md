@@ -55,7 +55,7 @@ See [Multi-file content management](https://doc.ezplatform.com/projects/userguid
 
 ### Draft list
 
-List of all drafts can now be found in the **Administrator User** menu.
+The list of all drafts can now be found in the **Administrator User** menu under **Drafts**.
     
 ![Administrator User list of all Drafts](img/drafts_admin_user.png "Administrator User list of all Drafts")
 
