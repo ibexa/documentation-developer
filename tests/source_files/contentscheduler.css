@@ -1,0 +1,30 @@
+/* Featured articles Content Scheduler block */
+.featured-article-container {
+    background-size: cover;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.featured-article {
+    height: 200px;
+    padding: 0;
+    background-repeat: no-repeat;
+}
+
+.featured-article-link:link,
+.featured-article-link:visited {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 0;
+    background-color: rgba(255,255,255,.8);
+    color: #000;
+    font-size: 1.1em;
+    padding: 7px;
+}
+
+.featured-article-link:hover,
+.featured-article-link:focus {
+    color: #654d31;
+    text-decoration: none;
+    border-bottom: none;
+}
