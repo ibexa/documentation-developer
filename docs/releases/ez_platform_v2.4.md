@@ -2,35 +2,44 @@
 
 **Version number**: v2.4
 
-**Release date**: 
+**Release date**:
 
-**Release type**: 
+**Release type**:
 
 ## Notable changes
 
-### Page Builder
+### Workflow
 
-### User Bundle
+### Page Builder
 
 ### RichText
 
 #### RichText Field Type
 
+RichText Field Type has been extracted to a separate bundle, [ezplatform-richtext](https://github.com/ezsystems/ezplatform-richtext).
+See [RichText Field Type Reference](../api/field_type_reference.md#richtext-field-type).
+
 #### Rich Text block
 
-#### Improve styling in Rich Text Editor
+#### Improve styling in Online Editor
+
+Online Editor has been improved with new styling.
+
+![Online Editor menu](img/2.4_oe_menu.png)
 
 #### Images in Rich Text
 
-#### Literal tag in Rich text
+#### Formatted text in Rich text
+
+You can now use formatted text in Rich Text Fields (provided by means of a `literal` tag).
+
+![Formatted Text in Online Editor](img/2.4_formatted_text.png)
 
 ### Translations
 
 #### Language-region translation
 
 #### Content Type translation
-
-### Navbar
 
 ### Multi-file management
 
@@ -41,27 +50,29 @@ Then choose a Location from 'Choose location' modal that opens up.
 After choosing and confirming new Location all selected files are moved to it.
 
  ![Multi-file move](img/multi_file_move.png)
- 
+
  To delete multiple items select them and click 'Delete selected items' in the 'Sub-items' top bar.
  Confirm your choice in the pop-up window with 'Send to trash' button.
- 
+
  ![Multi-file delete](img/multi_file_delete.png)
 
 See [Multi-file content management](https://doc.ezplatform.com/projects/userguide/en/latest/multi_file_content_management/) for more information.
-
-### Workflow
 
 ### Form block
 
 ### Draft list
 
 The list of all drafts can now be found in the **Administrator User** menu under **Drafts**.
-    
+
 ![Administrator User list of all Drafts](img/drafts_admin_user.png "Administrator User list of all Drafts")
 
 See [Reviewing a draft](https://doc.ezplatform.com/projects/userguide/en/latest/publishing/#reviewing-a-draft) for more information.
 
 ### Create form on the fly
+
+You can now create Forms on the fly from the Universal Discovery Widget.
+
+![Creating a Form on the Fly](img/2.4_form_on_the_fly.png)
 
 ### Subtree search filter
 
@@ -76,7 +87,7 @@ The outdated Policy verbiage is now updated:
 |node|Location|
 |parentdepth|Parent Depth|
 |parentgroup|Content Type Group of Parent|
-|parentowner|Owner of Parent| 
+|parentowner|Owner of Parent|
 |subtree|Subtree of Location|
 
 ### API improvements
