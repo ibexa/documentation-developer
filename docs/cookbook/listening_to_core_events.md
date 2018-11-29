@@ -56,7 +56,7 @@ services:
         autowire: true
         autoconfigure: true
         public: false
- 
+
     Acme\ExampleBundle\Slot\OnPublishSlot:
         tags:
             - { name: ezpublish.api.slot, signal: ContentService\PublishVersionSignal }
@@ -90,7 +90,7 @@ This very simple example will just log the received signal.
 
 In `services.yml` (in your bundle):
 
-``` yaml 
+``` yaml
 services:
     _defaults:
         autowire: true
