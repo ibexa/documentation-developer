@@ -32,7 +32,7 @@ or
 git remote add upstream http://github.com/ezsystems/ezcommerce.git
 ```
 
-**1.3** Prepare for pulling changes
+**1.3.** Prepare for pulling changes
 
 ??? note "Adding `sort-packages` option when updating from <=1.7.8, 1.13.4, 2.2.3, 2.3.2"
 
