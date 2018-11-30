@@ -43,18 +43,7 @@ You can now use formatted text in Rich Text Fields (provided by means of a `lite
 
 ### Multi-file management
 
-Multi-file content management is a set of functionalities that enables you to move and delete multiple binary files in a bulk.
-
- To move multiple items select them and click 'Move selected items' from 'Sub-items' top bar.
-Then choose a Location from 'Choose location' modal that opens up.
-After choosing and confirming new Location all selected files are moved to it.
-
- ![Multi-file move](img/multi_file_move.png)
-
- To delete multiple items select them and click 'Delete selected items' in the 'Sub-items' top bar.
- Confirm your choice in the pop-up window with 'Send to trash' button.
-
- ![Multi-file delete](img/multi_file_delete.png)
+New multi-file content management functionalities enable you to move and delete multiple files at the same time.
 
 See [Multi-file content management](https://doc.ezplatform.com/projects/userguide/en/latest/multi_file_content_management/) for more information.
 
@@ -64,7 +53,7 @@ See [Multi-file content management](https://doc.ezplatform.com/projects/userguid
 
 The list of all drafts can now be found in the **Administrator User** menu under **Drafts**.
 
-![Administrator User list of all Drafts](img/drafts_admin_user.png "Administrator User list of all Drafts")
+![Administrator User list of all Drafts](img/2.4_drafts_admin_user.png "Administrator User list of all Drafts")
 
 See [Reviewing a draft](https://doc.ezplatform.com/projects/userguide/en/latest/publishing/#reviewing-a-draft) for more information.
 
@@ -76,7 +65,7 @@ You can now create Forms on the fly from the Universal Discovery Widget.
 
 ### Subtree search filter
 
-### Updating the outdated verbiage (add screenshot)
+### Updating the outdated verbiage
 
 The outdated Policy verbiage is now updated:
 
@@ -89,6 +78,8 @@ The outdated Policy verbiage is now updated:
 |parentgroup|Content Type Group of Parent|
 |parentowner|Owner of Parent|
 |subtree|Subtree of Location|
+
+![Updated Policy verbiage](img/2.4_policy_verbs.png)
 
 ### API improvements
 
