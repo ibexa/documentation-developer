@@ -65,9 +65,9 @@ You can now create Forms on the fly from the Universal Discovery Widget.
 
 ### Subtree search filter
 
-### Updating the outdated verbiage
+### Policy labels update
 
-The outdated Policy verbiage is now updated:
+The outdated Policy labels are now updated:
 
 |Old|New|
 |---|---|
@@ -79,7 +79,7 @@ The outdated Policy verbiage is now updated:
 |parentowner|Owner of Parent|
 |subtree|Subtree of Location|
 
-![Updated Policy verbiage](img/2.4_policy_verbs.png)
+![Updated Policy labels](img/2.4_policy_verbs.png)
 
 ### API improvements
 
