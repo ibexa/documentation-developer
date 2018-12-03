@@ -87,6 +87,9 @@
 .ez-guidelines .ez-guidelines-switcher-icons .ez-checkbox-icon.is-checked .ez-icon + .ez-icon {
     fill: #106d95;
 }
+.ez-guidelines .ez-guidelines-switcher-icons--primary .ez-checkbox-icon.is-checked .ez-icon + .ez-icon {
+    fill: #f15a10;
+}
 .ez-guidelines .ez-guidelines-switcher-icons .ez-checkbox-icon .ez-checkbox-icon__checkbox {
     display: none;
 }
@@ -97,7 +100,7 @@
 .ez-guidelines .ez-guidelines-switcher-icons .ez-checkbox-icon.ez-page-info-bar-switcher:before {
     background-color: #f15a10;
 }
-.ez-guidelines .ez-guidelines-switcher-icons .ez-checkbox-icon.is-checked.ez-page-info-bar-switcher .ez-icon + .ez-icon {
+.ez-guidelines .ez-guidelines-switcher-icons .ez-checkbox-icon.ez-page-info-bar-switcher:not(.is-checked) .ez-icon.ez-icon--view {
     fill: #f15a10;
 }
 .ez-guidelines .ez-guidelines-switcher-preview .ez-preview-switcher {

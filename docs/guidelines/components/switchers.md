@@ -17,8 +17,8 @@ code_example]]
 </div>
 
 ##<div class="mgt-3 header-line">Switcher with icons</div>
-####<div>**Primary**</div>
-<div class="ez-guidelines-switcher-icons">
+####<div>**Primary color**</div>
+<div class="ez-guidelines-switcher-icons ez-guidelines-switcher-icons--primary">
 [[code_example {html}
 <label class="ez-checkbox-icon ez-page-info-bar-switcher is-checked">
     <svg class="ez-icon ez-icon--view">
@@ -32,7 +32,7 @@ code_example]]
 code_example]]
 </div>
 
-####<div class="mgt-5">**Secondary**</div>
+####<div class="mgt-5">**Secondary color**</div>
 <div class="ez-guidelines-switcher-icons">
 [[code_example {html}
 <label class="ez-checkbox-icon is-checked">
