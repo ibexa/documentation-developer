@@ -504,6 +504,12 @@ Some versions require updates to the database. Look through [the list of databas
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
         ```
 
+    !!! caution "Form (ezform) Field Type"
+    
+        In eZ Platform 2.3 forms are content like everything else. After the update, in order to create forms, you have to 
+        add new Content Type (e.g. named "Form") that contains `Form` field (this Content Type can contain other fields 
+        as well). After that you can use forms inside Landing Pages via Embed block.
+
 ## 5. Dump assets
 
 The web assets must be dumped again if you are using the `prod` environment. In `dev` this happens automatically:
