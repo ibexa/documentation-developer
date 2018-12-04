@@ -132,7 +132,13 @@ Some versions require updates to the database. Look through [the list of databas
 
 `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.7.0-to-6.8.0.sql`
 
-??? note "When updating from <1.7"
+??? note "Updating from <1.7"
+
+    ### Updating from <1.7
+
+    Apply the following database update script:
+
+    `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/data/update/mysql/dbupdate-6.7.7-to-6.7.8.sql`
 
     ##### Solr index time boosting
 
@@ -170,7 +176,13 @@ Some versions require updates to the database. Look through [the list of databas
          <field name="_version_" type="long" indexed="true" stored="true" multiValued="false" />
     ```
 
-??? note "When updating from <1.13"
+??? note "Updating from <1.13"
+
+    ### Updating from <1.13
+
+    Apply the following database update script:
+
+    `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/data/update/mysql/dbupdate-6.13.3-to-6.13.4.sql`
 
     ##### `content/publish` permission
 
@@ -232,7 +244,13 @@ Some versions require updates to the database. Look through [the list of databas
     ALTER TABLE ezuser ALTER COLUMN password_hash TYPE VARCHAR(255);
     ​```
 
-??? note "When updating from <2.2"
+??? note "Updating from <2.2"
+
+    ### Updating from <2.2
+
+    Apply the following database update script:
+
+    `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/data/update/mysql/dbupdate-7.1.0-to-7.2.0.sql`
 
     ##### Change from UTF8 to UTF8MB4
 
@@ -421,7 +439,13 @@ Some versions require updates to the database. Look through [the list of databas
     Custom converters must implement the `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\ConverterInterface` interface.
     `convert()` will parse XML `\DOMNode $node` and return an array of `\EzSystems\EzPlatformPageFieldType\FieldType\LandingPage\Model\Attribute` objects.
 
-!!! note "When updating from <2.3"
+!!! note "Updating from <2.3"
+
+    ### Updating from <2.3
+
+    Apply the following database update script:
+
+    `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/data/update/mysql/dbupdate-7.2.0-to-7.3.0.sql`
 
     ##### Form builder
 
