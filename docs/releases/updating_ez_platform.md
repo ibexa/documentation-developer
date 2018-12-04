@@ -506,8 +506,7 @@ Some versions require updates to the database. Look through [the list of databas
 
     !!! caution "Form (ezform) Field Type"
     
-        In eZ Platform 2.3 forms are content like everything else. After the update, in order to create forms, you have to 
-        add new Content Type (e.g. named "Form") that contains `Form` field (this Content Type can contain other fields 
+        After the update, in order to create forms, you have to add a new Content Type (e.g. named "Form") that contains `Form` Field (this Content Type can contain other fields 
         as well). After that you can use forms inside Landing Pages via Embed block.
 
 ## 5. Dump assets
