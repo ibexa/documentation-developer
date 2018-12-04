@@ -74,7 +74,7 @@ The rule or set of rules by which SiteAccesses are matched. See [SiteAccess matc
     ```
 
     !!! caution
-        To be able to display in the Page Builder SiteAccesses configured for a different domain, session needs to be shared between the adminstration SiteAccesses and the displayed siteaccess. For example: 
+        To display SiteAccesses configured for a different domain in the Page Builder, you need to share session between the adminstration SiteAccesses and the displayed siteaccess. For example: 
 
         ```yaml
         ezpublish:
@@ -102,7 +102,7 @@ The rule or set of rules by which SiteAccesses are matched. See [SiteAccess matc
 
         ```
 
-        This implies that domain of adminstration SiteAccesses and the displayed siteaccess need to have a common suffix e.g. example.com
+        This implies that domain of the adminstration SiteAccesses and the displayed siteaccess need to have a common suffix e.g. example.com
 
 ### Settings per SiteAccess
 
