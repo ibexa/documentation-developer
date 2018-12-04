@@ -18,31 +18,44 @@ We usually release eZ Platform four times a year following the seasons (Winter, 
 
 ## Versioning conventions
 
-eZ Platform Open Source and Enterprise editions use [semantic versioning](http://semver.org/).  
+Both eZ Platform editions use [semantic versioning](http://semver.org/).  
 
-eZ Platform and all inner components have a version number following the semantic versioning conventions vX.Y.Z.
+The version number of eZ Platform and all its internal components follows the semantic versioning conventions: vX.Y.Z.
 
-- Changes to X, the first digit, indicate a breaking change to the API, and developers know that they may need to implement a re-write of their code to continue consuming the API moving forward.
-- Y, the middle digit, represents new features and functionality.
-- Z, The final digit, represents patches, bug fixes, smaller improvements to unblock users and other forms of "oops" and "aha!".
+- Changes to X indicate a breaking change to the API, and developers know that they may need to implement a re-write of their code to continue using the API.
+- Y represents new features and functionality.
+- Z represents patches, bug fixes, smaller improvements to unblock users, etc.
 
-This way, distribution files of our product are as following:
+This way, distribution files of our product are as follows:
 
 - eZ Platform uses its own unique semantic version number: ezplatform-vX.Y.Z.tgz
 - eZ Platform Enterprise uses its semantic version number: ezplatformenterprise-vX.Y.Z.tgz
 
 ## Support lifecycle
 
-Our software products are continuously evolving, and we have released many versions over the years.
+Our software products are continuously evolving.
+With each release we strive to release stable products with cutting-edge technology.
+This means there is need for software maintenance services to provide bug fixes and adjustments for evolving web technologies.
+As our products always provide new features and possibilities, our documentation and user forums may not always be able to provide an answer to all questions that may arise.
 
-As we strive to release stable products with cutting-edge technology, there is an obvious need for software maintenance services to provide bug fixes as well as adjustments for evolving web technologies. And, as our products always provide new features and possibilities, our documentation and user forums may not always be able to provide an answer to all questions that may arise. For that, our support and consulting professional services teams are available to assist as part of an eZ Enterprise subscription or as part of a specific statement of work. [Contact our Sales team](https://ez.no/Forms/Request-a-Consultation) for more information.
+That is why our support and consulting professional services teams are available to assist
+as part of an eZ Enterprise subscription or as part of a specific statement of work.
+[Contact our Sales team](https://ez.no/Forms/Request-a-Consultation) for more information.
 
-Over time, existing product versions mature and new versions become the center of attention for customers wanting the latest and greatest in features and extensibility. We adapt to this continuous evolution by phasing out services for the old versions while commencing services for the new ones. This means that our support and maintenance services specific to each release are only available from a given start date until an end date. The time in between the start and end dates is what we call the product's **Service Life**.
+Over time, existing product versions mature and new versions become the center of attention for customers looking for the latest features.
+We adapt to this continuous evolution by phasing out services for the old versions while commencing services for the new ones.
+This means that our support and maintenance services specific to each release
+are only available from a given start date until an end date.
+The time in between the start and end dates is what we call the product's **Service Life**.
 
-To know the specific dates of service life for each release, please visit our [support portal service life page](https://support.ez.no/Public/Service-Life).
+You can find the specific dates of service life for each release on our [support portal service life page](https://support.ez.no/Public/Service-Life).
 
 ## Roadmap
 
-Our roadmap is updated continuously following our iterative development methodology (our own adaptation and combination of Scrum and Kanban). Our agile boards are open so that anyone can have a clear view of the ongoing and upcoming development. Progress is based on the prioritized stories from a living backlog into phases of specification and design, development and documentation, and QA. The final phase of our development includes a dedicated period of Certification and Quality Assurance, which ensures our ability to deliver a stable first version of the professionally supported software.
+[Our roadmap](https://ezplatform.com/product-feedback) is updated continuously following our iterative development methodology (our own adaptation and combination of Scrum and Kanban).
+Our agile boards offer a clear view of the ongoing and upcoming development and are open to the public.
+Progress is based on the prioritized stories from a living backlog into phases of specification and design, development and documentation, and QA.
+The final phase of development includes a dedicated period of Certification and Quality Assurance,
+which ensures our ability to deliver a stable first version of the professionally supported software.
 
 If you want to know more, please contact productmanagement@ez.no
