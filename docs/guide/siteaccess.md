@@ -74,9 +74,35 @@ The rule or set of rules by which SiteAccesses are matched. See [SiteAccess matc
     ```
 
     !!! caution
+        To be able to display in the Page Builder SiteAccesses configured for a different domain, session needs to be shared between the adminstration SiteAccesses and the displayed siteaccess. For example: 
 
-        Page Builder works only with SiteAccesses in the same domain.
-        It is not possible to display in the Page Builder SiteAccesses configured for a different domain.
+        ```yaml
+        ezpublish:
+            # ...
+            siteaccess:
+                match:
+                    Map\Host:
+                        foo.example.com: siteaccess_foo
+                        bar.example.com: siteaccess_bar
+                        cms.exmmple.com: admin
+            # ...
+            system:
+                siteaccess_foo:
+                    session:
+                        name: eZSESSID
+                        cookie_domain: example.com
+                siteaccess_bar:
+                    session:
+                        name: eZSESSID
+                        cookie_domain: example.com
+                admin_group:
+                    session:
+                        name: eZSESSID
+                        cookie_domain: example.com
+
+        ```
+
+        This implies that domain of adminstration SiteAccesses and the displayed siteaccess need to have a common suffix e.g. example.com
 
 ### Settings per SiteAccess
 
