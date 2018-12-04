@@ -289,89 +289,8 @@ Some versions require updates to the database. Look through [the list of databas
 
     ##### Page builder
 
-    To update to v2.2, you need to run the following script to add database tables for the Page Builder:
-
-    ??? note "Database update script"
-
-        ```
-        --
-        -- Page Builder
-        --
-
-        DROP TABLE IF EXISTS `ezpage_attributes`;
-        CREATE TABLE `ezpage_attributes` (
-          `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-          `name` varchar(255) NOT NULL DEFAULT '',
-          `value` text,
-          PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-        DROP TABLE IF EXISTS `ezpage_blocks`;
-        CREATE TABLE `ezpage_blocks` (
-          `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-          `type` varchar(255) NOT NULL DEFAULT '',
-          `view` varchar(255) NOT NULL DEFAULT '',
-          `name` varchar(255) NOT NULL DEFAULT '',
-          PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-        DROP TABLE IF EXISTS `ezpage_blocks_design`;
-        CREATE TABLE `ezpage_blocks_design` (
-          `id` INT(11) NOT NULL AUTO_INCREMENT,
-          `block_id` INT(11) NOT NULL,
-          `style` TEXT DEFAULT NULL,
-          `compiled` TEXT DEFAULT NULL,
-          `class` VARCHAR(255) DEFAULT NULL,
-          PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-        DROP TABLE IF EXISTS `ezpage_blocks_visibility`;
-        CREATE TABLE `ezpage_blocks_visibility` (
-          `id` INT(11) NOT NULL AUTO_INCREMENT,
-          `block_id` INT(11) NOT NULL,
-          `since` INT(11) DEFAULT NULL,
-          `till` INT(11) DEFAULT NULL,
-          PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-        DROP TABLE IF EXISTS `ezpage_map_attributes_blocks`;
-        CREATE TABLE `ezpage_map_attributes_blocks` (
-          `attribute_id` int(11) NOT NULL,
-          `block_id` int(11) NOT NULL,
-          PRIMARY KEY (`attribute_id`,`block_id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-        DROP TABLE IF EXISTS `ezpage_map_blocks_zones`;
-        CREATE TABLE `ezpage_map_blocks_zones` (
-          `block_id` int(11) NOT NULL,
-          `zone_id` int(11) NOT NULL,
-          PRIMARY KEY (`block_id`, `zone_id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-        DROP TABLE IF EXISTS `ezpage_map_zones_pages`;
-        CREATE TABLE `ezpage_map_zones_pages` (
-          `zone_id` int(11) NOT NULL,
-          `page_id` int(11) NOT NULL,
-          PRIMARY KEY (`zone_id`,`page_id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-        DROP TABLE IF EXISTS `ezpage_pages`;
-        CREATE TABLE `ezpage_pages` (
-          `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-          `version_no` int(11) unsigned NOT NULL,
-          `content_id` int(11) NOT NULL,
-          `language_code` varchar(255) NOT NULL DEFAULT '',
-          `layout` varchar(255) NOT NULL DEFAULT '',
-          PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-        DROP TABLE IF EXISTS `ezpage_zones`;
-        CREATE TABLE `ezpage_zones` (
-          `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-          `name` varchar(255) NOT NULL DEFAULT '',
-          PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-        ```
+    To update to v2.2, you need to run a script to add database tables for the Page Builder.
+    You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/master/Resources/sql/schema.sql#L58
 
         !!! enterprise
 
@@ -461,72 +380,8 @@ Some versions require updates to the database. Look through [the list of databas
     php bin/console ezplatform:form-builder:create-forms-container --content-type custom --field title --value 'My Forms' --field description --value 'Custom container for the forms' --language-code eng-US
     ```
 
-    You also need to run the following script to add database tables for the Form Builder:
-
-    ??? note "Database update script"
-
-        ```
-        --
-        -- Form Builder
-        --
-
-        DROP TABLE IF EXISTS `ezform_forms`;
-        CREATE TABLE `ezform_forms` (
-          `id` int(11) NOT NULL AUTO_INCREMENT,
-          `content_id` int(11) DEFAULT NULL,
-          `version_no` int(11) DEFAULT NULL,
-          `content_field_id` int(11) DEFAULT NULL,
-          `language_code` varchar(16) DEFAULT NULL,
-          PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-        DROP TABLE IF EXISTS `ezform_fields`;
-        CREATE TABLE `ezform_fields` (
-          `id` int(11) NOT NULL AUTO_INCREMENT,
-          `form_id` int(11) DEFAULT NULL,
-          `name` VARCHAR(128) NOT NULL,
-          `identifier` varchar(128) DEFAULT NULL,
-          PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-        DROP TABLE IF EXISTS `ezform_field_attributes`;
-        CREATE TABLE `ezform_field_attributes` (
-          `id` int(11) NOT NULL AUTO_INCREMENT,
-          `field_id` int(11) DEFAULT NULL,
-          `identifier` varchar(128) DEFAULT NULL,
-          `value` blob,
-          PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-        DROP TABLE IF EXISTS `ezform_field_validators`;
-        CREATE TABLE `ezform_field_validators` (
-          `id` int(11) NOT NULL AUTO_INCREMENT,
-          `field_id` int(11) DEFAULT NULL,
-          `identifier` varchar(128) DEFAULT NULL,
-          `value` blob,
-          PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-        DROP TABLE IF EXISTS `ezform_form_submissions`;
-        CREATE TABLE `ezform_form_submissions` (
-          `id` INT NOT NULL AUTO_INCREMENT,
-          `content_id` INT NOT NULL,
-          `language_code` VARCHAR(6) NOT NULL,
-          `user_id` INT NOT NULL,
-          `created` INT NOT NULL,
-          PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-        DROP TABLE IF EXISTS `ezform_form_submission_data`;
-        CREATE TABLE `ezform_form_submission_data` (
-          `id` INT NOT NULL AUTO_INCREMENT,
-          `form_submission_id` INT NOT NULL,
-          `name` VARCHAR(128) NOT NULL,
-          `identifier` VARCHAR(128) NOT NULL,
-          `value` BLOB NULL,
-          PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-        ```
+    You also need to run a script to add database tables for the Form Builder.
+    You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/master/Resources/sql/schema.sql#L136
 
 ## 5. Dump assets
 
