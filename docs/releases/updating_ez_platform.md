@@ -128,9 +128,7 @@ If you want to first test how the update proceeds without actually updating any 
 
 ## 4. Update database
 
-Some versions require updates to the database. Look through [the list of database update scripts](https://github.com/ezsystems/ezpublish-kernel/tree/master/data/update/mysql) for a script for the version you are updating to (database version numbers correspond to the `ezpublish-kernel` version). If you find one, apply it like this:
-
-`mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.7.0-to-6.8.0.sql`
+Some versions require updates to the database. Look through [the list of database update scripts](https://github.com/ezsystems/ezpublish-kernel/tree/master/data/update/mysql) for a script for the version you are updating to (database version numbers correspond to the `ezpublish-kernel` version).
 
 ??? note "Updating from <1.7"
 
@@ -180,10 +178,6 @@ Some versions require updates to the database. Look through [the list of databas
 
     ### Updating from <1.13
 
-    Apply the following database update script:
-
-    `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/data/update/mysql/dbupdate-6.13.3-to-6.13.4.sql`
-
     ##### `content/publish` permission
 
     v1.8.0 introduced a new `content/publish` permission separated out of the `content/edit` permission. `edit` now covers only editing content, without the right to publishing it. For that you need the `publish` permission. `edit` without `publish` can be used in conjunction with the Content review workflow to ensure that a user cannot publish content themselves, but must pass it on for review.
@@ -228,7 +222,6 @@ Some versions require updates to the database. Look through [the list of databas
     mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.11.0-to-6.12.0.sql
     ```
 
-
     These algorithms produce longer hashes, and so the length of the `password_hash` column of the `ezuser` table must be increased, like this:
 
     **MySQL**
@@ -237,20 +230,21 @@ Some versions require updates to the database. Look through [the list of databas
     ALTER TABLE ezuser CHANGE password_hash password_hash VARCHAR(255) default NULL;
     ​```
 
-
     **PostgreSQL**
 
     ​``` sql
     ALTER TABLE ezuser ALTER COLUMN password_hash TYPE VARCHAR(255);
     ​```
 
-??? note "Updating from <2.2"
-
-    ### Updating from <2.2
+    ##### Run general database update script
 
     Apply the following database update script:
 
-    `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/data/update/mysql/dbupdate-7.1.0-to-7.2.0.sql`
+    `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/data/update/mysql/dbupdate-6.13.3-to-6.13.4.sql`
+
+??? note "Updating from <2.2"
+
+    ### Updating from <2.2
 
     ##### Change from UTF8 to UTF8MB4
 
@@ -292,22 +286,22 @@ Some versions require updates to the database. Look through [the list of databas
     To update to v2.2, you need to run a script to add database tables for the Page Builder.
     You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/master/Resources/sql/schema.sql#L58
 
-        !!! enterprise
+    !!! enterprise
 
-            When updating an Enterprise installation, you also need to run the following script due to changes in the `eznotification` table:
+        When updating an Enterprise installation, you also need to run the following script due to changes in the `eznotification` table:
 
-            ```
-            ALTER TABLE `eznotification`
-            CHANGE COLUMN `data` `data` BLOB NULL ;
+        ```
+        ALTER TABLE `eznotification`
+        CHANGE COLUMN `data` `data` BLOB NULL ;
 
-            ALTER TABLE `eznotification`
-            DROP INDEX `owner_id` ,
-            ADD INDEX `eznotification_owner` (`owner_id` ASC);
+        ALTER TABLE `eznotification`
+        DROP INDEX `owner_id` ,
+        ADD INDEX `eznotification_owner` (`owner_id` ASC);
 
-            ALTER TABLE `eznotification`
-            DROP INDEX `is_pending` ,
-            ADD INDEX `eznotification_owner_is_pending` (`owner_id` ASC, `is_pending` ASC);
-            ```
+        ALTER TABLE `eznotification`
+        DROP INDEX `is_pending` ,
+        ADD INDEX `eznotification_owner_is_pending` (`owner_id` ASC, `is_pending` ASC);
+        ```
 
     ##### Migrate Landing Pages
 
