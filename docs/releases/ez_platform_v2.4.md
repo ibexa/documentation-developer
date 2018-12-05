@@ -21,6 +21,11 @@ See [RichText Field Type Reference](../api/field_type_reference.md#richtext-fiel
 
 #### Rich Text block
 
+In the Page Builder you can make use the Rich Text block.
+It enables you to insert text created using the Online Editor with all features of a Rich Text Field.
+
+![Rich Text block](img/2.4_rich_text_block.png)
+
 #### Improve styling in Online Editor
 
 Online Editor has been improved with new styling.
