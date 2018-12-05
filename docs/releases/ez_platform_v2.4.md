@@ -98,6 +98,11 @@ This release introduces a few simplifications to API use for Content Types:
 - Exposes `content->getContentType()` for easier use, including from Twig as `content.contentType`
 - Adds possibility to load several Content Types in bulk using `ContentTypeService->loadContentTypeList()`
 
+### BC breaks and important behavior changes
+
+- Online Editor format for `ezlink` inside `ezembed` tag changed to an anchor tag. See [ezplatform-richtext/pull/20](https://github.com/ezsystems/ezplatform-richtext/pull/20).
+- The merge order of content edit forms has been changed. It can affect you if you extended the content edit template. See [ezplatform-admin-ui/pull/720](https://github.com/ezsystems/ezplatform-admin-ui/pull/720).
+
 ## Full list of new features, improvements and bug fixes since v2.3
 
 | eZ Platform   | eZ Enterprise  |
