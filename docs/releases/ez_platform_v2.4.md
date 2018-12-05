@@ -83,6 +83,13 @@ The outdated Policy labels are now updated:
 
 ### API improvements
 
+#### Simplified use of Content Type objects
+
+This release introduces a few simplifications to API use for Content Types:
+
+- Exposes `content->getContentType()` for easier use, including from Twig as `content.contentType`
+- Adds possibility to load several Content Types in bulk using `ContentTypeService->loadContentTypeList()`
+
 ## Full list of new features, improvements and bug fixes since v2.3
 
 | eZ Platform   | eZ Enterprise  |
