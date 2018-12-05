@@ -1,8 +1,8 @@
-# eZ Platform Release Process and Roadmap
+# eZ Platform release process and roadmap
 
 ## Release process
 
-eZ Platform is distributed in two flavors:
+eZ Platform has two distributions:
 
 - eZ Platform is an open source Content Management System (CMS) developed by eZ Systems together with the open source community. eZ Platform's code base is available on GitHub under the GPLv2 license. eZ Platform comes with no commercial support and maintenance services. It is supported by the community on public channels.
 - eZ Platform Enterprise Edition (EE) is commercial software available under eZ Business User License (BUL) to eZ Enterprise subscribers. It is comprised of eZ Platform Open Source edition, additional enterprise support and maintenance services, as well as additional features which are not available in the open source software.
@@ -12,9 +12,10 @@ We manage the release of eZ Platform using an agile iterative process and a cont
 - Long Term Support releases (LTS) which are supported by eZ Systems for a long period of time (see [support lifecycle below](#support-lifecycle)), for eZ Enterprise subscribers.
 - Fast Track releases (FT) give access to the latest features and are supported for a short period of time, only until the next FT release is introduced. These are supported for both the open source community and eZ Enterprise subscribers.
 
-FT releases are tailored for those who want to stay more on the bleeding edge, while LTS releases are suitable for highly stable enterprise rollouts.
+FT releases are tailored for those who want to stay up-to-date with newest functionalities,
+while LTS releases are suitable for highly stable enterprise rollouts.
 
-We usually release eZ Platform four times a year following the seasons (Winter, Spring, Summer and Fall). This usually includes one LTS release and three FT releases.
+We usually release eZ Platform four times a year following the seasons (winter, spring, summer and fall). This usually includes one LTS release and three FT releases.
 
 ## Versioning conventions
 
@@ -23,20 +24,20 @@ Both eZ Platform editions use [semantic versioning](http://semver.org/).
 The version number of eZ Platform and all its internal components follows the semantic versioning conventions: vX.Y.Z.
 
 - Changes to X indicate a breaking change to the API, and developers know that they may need to implement a re-write of their code to continue using the API.
-- Y represents new features and functionality.
-- Z represents patches, bug fixes, smaller improvements to unblock users, etc.
+- Y represents new features and functionalities.
+- Z represents patches, bug fixes, smaller improvements, etc.
 
-This way, distribution files of our product are as follows:
+Distribution files of our two editions are as follows:
 
-- eZ Platform uses its own unique semantic version number: ezplatform-vX.Y.Z.tgz
-- eZ Platform Enterprise uses its semantic version number: ezplatformenterprise-vX.Y.Z.tgz
+- for eZ Platform: ezplatform-vX.Y.Z.tgz
+- for eZ Platform Enterprise: ezplatformenterprise-vX.Y.Z.tgz
 
 ## Support lifecycle
 
 Our software products are continuously evolving.
 With each release we strive to release stable products with cutting-edge technology.
-This means there is need for software maintenance services to provide bug fixes and adjustments for evolving web technologies.
-As our products always provide new features and possibilities, our documentation and user forums may not always be able to provide an answer to all questions that may arise.
+This means there is need for software maintenance services to provide bug fixes and adjustments.
+As our products constantly provide new features and possibilities, our documentation and user forums may not always be able to provide an answer to all questions that may arise.
 
 That is why our support and consulting professional services teams are available to assist
 as part of an eZ Enterprise subscription or as part of a specific statement of work.
