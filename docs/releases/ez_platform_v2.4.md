@@ -29,6 +29,10 @@ Online Editor has been improved with new styling.
 
 #### Images in Rich Text
 
+You can now attach links to images in the Online Editor:
+
+![Adding a link to an image in Online Editor](img/2.4_link_in_image.png)
+
 #### Formatted text in Rich text
 
 You can now use formatted text in Rich Text Fields (provided by means of a `literal` tag).
@@ -36,8 +40,6 @@ You can now use formatted text in Rich Text Fields (provided by means of a `lite
 ![Formatted Text in Online Editor](img/2.4_formatted_text.png)
 
 ### Translations
-
-#### Language-region translation
 
 #### Content Type translation
 
@@ -47,7 +49,15 @@ New multi-file content management functionalities enable you to move and delete 
 
 See [Multi-file content management](https://doc.ezplatform.com/projects/userguide/en/latest/multi_file_content_management/) for more information.
 
-### Form block
+### Forms
+
+#### Form block
+
+#### Create form on the fly
+
+You can now create Forms on the fly from the Universal Discovery Widget.
+
+![Creating a Form on the Fly](img/2.4_form_on_the_fly.png)
 
 ### Draft list
 
@@ -57,13 +67,11 @@ The list of all drafts can now be found in the **Administrator User** menu under
 
 See [Reviewing a draft](https://doc.ezplatform.com/projects/userguide/en/latest/publishing/#reviewing-a-draft) for more information.
 
-### Create form on the fly
-
-You can now create Forms on the fly from the Universal Discovery Widget.
-
-![Creating a Form on the Fly](img/2.4_form_on_the_fly.png)
-
 ### Subtree search filter
+
+A new filter enables you to filter search results by Subtree.
+
+![Search filters with subtree filter](img/2.4_subtree_filter.png)
 
 ### Policy labels update
 
