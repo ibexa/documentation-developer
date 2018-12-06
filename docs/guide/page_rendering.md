@@ -103,3 +103,40 @@
         </div>
     </div>
     ```
+
+    ## Block templates
+
+    Every built-in Page block has a default template. You can add new templates to blocks or override the default ones.
+
+    ### Adding new block templates
+
+    You can add new block templates with the YAML config, for example for the Gallery block:
+
+    ``` yaml
+    blocks:
+        gallery:
+            views:
+                special:
+                    template: 'blocks/gallery/special.html.twig'
+                    name: 'Special view'
+    ```
+
+    ### Overriding default block templates
+
+    To override the default block template, create a new template.
+    Place it in a path that mirrors the original default template from the bundle folder.
+    Foor example:
+    `/app/Resources/EzPlatformPageFieldTypeBundle/views/blocks/gallery.html.twig`.
+
+    !!! tip
+
+        To use a different file structure when overriding default templates,
+        add an import statement to the template.
+
+        For example, in `/app/Resources/EzPlatformPageFieldTypeBundle/views/blocks/gallery.html.twig`:
+
+        ``` html+twig
+        {% import 'app/Resources/views/blocks/gallery/new_default.html.twig'}
+        ```
+
+        Then, place the actual template in the imported file `app/Resources/views/blocks/gallery/new_default.html.twig`.
