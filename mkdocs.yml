@@ -159,6 +159,7 @@ pages:
             - Components:
                 - 'Buttons': 'guidelines/components/buttons.md'
                 - 'Form components': 'guidelines/components/form_components.md'
+                - 'Switchers': 'guidelines/components/switchers.md'
                 - 'Tables': 'guidelines/components/tables.md'
                 - 'Tabs': 'guidelines/components/tabs.md'
             - Resources:
@@ -237,7 +238,7 @@ extra_css:
   - css/custom.css
   - '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css'
 
-extra_javascript: [js/jquery.min.js, js/custom.js, '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js']
+extra_javascript: [js/jquery.min.js, js/custom.js, js/ez-guidelines-switchers.js, '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js']
 markdown_extensions:
   - admonition
   - codehilite:
