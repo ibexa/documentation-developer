@@ -159,9 +159,9 @@
     ## Accessing Form field definitions
 
     Field definitions are accessible through:
-
-    - `\EzSystems\EzPlatformFormBuilder\FieldType\FormBuilder\Definition\FieldDefinitionFactory` in the back end
-    - global variable `eZ.formBuilder.config.fields` in the front end
+    
+    - `\EzSystems\EzPlatformFormBuilder\Definition\FieldDefinitionFactory` in the back end
+    - global variable `eZ.formBuilder.config.fieldsConfig` in the front end
     
     ## Configure email notifications
     
