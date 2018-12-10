@@ -244,7 +244,7 @@ Some versions require updates to the database. Look through [the list of databas
     mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.1.0-to-7.2.0.sql
     ```
 
-    If you use DFS, also execute the following database update script:
+    If you use DFS Cluster, also execute the following database update script:
 
     ``` bash
     mysql -u <username> -p <password> <dfs_database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.1.0-to-7.2.0-dfs.sql
@@ -422,6 +422,16 @@ Some versions require updates to the database. Look through [the list of databas
     `convert()` will parse XML `\DOMNode $node` and return an array of `\EzSystems\EzPlatformPageFieldType\FieldType\LandingPage\Model\Attribute` objects.
 
 !!! note "When updating from <2.3"
+
+    ##### Trashed timestamp
+
+    A new timestamp column has been added in order to keep track of when items were trashed, this is exposed in the API but not yet in UI.
+
+    To apply this change, use the following database update script:
+
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.2.0-to-7.3.0.sql
+    ```
 
     ##### Form builder
 
