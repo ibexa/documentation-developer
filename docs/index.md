@@ -4,7 +4,7 @@
 
 <div class="card">
     <div class="card-body">
-        <h4 class="card-title text-center"><a href="releases/ez_platform_v2.3/" class="card-link"><strong>The latest release is v2.3</strong></a></h4>
+        <h4 class="card-title text-center"><a href="releases/ez_platform_v2.4/" class="card-link"><strong>The latest release is v2.4</strong></a></h4>
     </div>
 </div>
 
@@ -63,15 +63,17 @@
 
 <div class="card-group">
 <div class="card">
-  <div class="card-header">Latest release (v2.3) major features:</div>
+  <div class="card-header">Latest release (v2.4) major features:</div>
   <div class="card">
       <div class="card-body">
           <ul>
-            <li>Form Builder</li>
-            <li>Content scheduling</li>
-            <li>ImageAsset Field Type</li>
+            <li>Editorial Workflow</li>
+            <li>Content Type translation</li>
+            <li>Rich Text block in the Page Builder</li>
+            <li>Rich Text improvements, including adding links to images, formatted text and inline embedding</li>
+            <li>Bulk move and delete of Content items</li>
           </ul>
-          <p>See <a href="releases/ez_platform_v2.3/" class="card-link">2.3 release notes</a> for more information</p>
+          <p>See <a href="releases/ez_platform_v2.4/" class="card-link">2.4 release notes</a> for more information</p>
       </div>
   </div>
 </div>
