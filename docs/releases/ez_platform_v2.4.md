@@ -44,6 +44,10 @@ You can now use formatted text in Rich Text Fields (provided by means of a `lite
 
 ![Formatted Text in Online Editor](img/2.4_formatted_text.png)
 
+#### Inline embedding in Rich Text
+
+The new `embed-inline` built-in view type enables embedding Content items within a block element in Rich Text.
+
 ### Translations
 
 #### Content Type translation
