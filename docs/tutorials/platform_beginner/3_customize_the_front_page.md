@@ -325,11 +325,5 @@ You can use the preview while editing in the Back Office to see how the content 
 #### Go to the Ride page
 
 You can also go directly to the URL of a Ride.
-The URL for viewing a specific Content item is `http://<yourdomains>/view/content/<ContentId>/<language>/full/true/<LocationId>`.
 
-You can find the Content ID and the Location ID of your Ride in the Admin, under the Details tab.
-
-![Details tab for Location ID](img/bike_tutorial_details_tab_for_locationid.png)
-
-An example URL is `http://127.0.0.1:8000/view/content/53/eng-GB/full/true/55`,
-where 53 is the Content ID and 55 is the Location ID of the Ride.
+The URL for a Ride Content item located in the "All Rides" Folder is `http://<yourdomain>/all-rides/<ride-name>`.
