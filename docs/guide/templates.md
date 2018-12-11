@@ -74,7 +74,7 @@ In the example above, three different templates are mentioned, two to be used in
 
 ##### Full, line and other views
 
-Each Content item can be rendered differently, using different templates, depending on the type of view it is displayed in. The default, built-in views are **full** (used when the Content item is displayed by itself, as a full page), **line** (used when it is displayed as an item in the list, for example a listing of contents of a folder), and **embed** (used when one Content item is embedded in another). Other, custom view types can be created, but only these three have built-in controllers in the system.
+Each Content item can be rendered differently, using different templates, depending on the type of view it is displayed in. The default, built-in views are **full** (used when the Content item is displayed by itself, as a full page), **line** (used when it is displayed as an item in the list, for example a listing of contents of a folder), **embed** (used when one Content item is embedded in another, as a block) and **embed-inline** (used when a Content item is embedded inline in another block). Other, custom view types can be created, but only these four have built-in controllers in the system.
 
 See [View provider configuration](content_rendering#view-provider-configuration) for more details.
 
