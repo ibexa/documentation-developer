@@ -10,6 +10,8 @@
 
 ### Workflow
 
+Workflow Engine for eZ Platform EE is located in an [ezplatform-workflow bundle](https://github.com/ezsystems/ezplatform-workflow).
+
 ### Page Builder
 
 ### RichText
