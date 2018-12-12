@@ -168,7 +168,7 @@ Add the following lines at the end of `app/Resources/views/full/ride.html.twig`,
     <div class="row regular-content-size">
         <section class="photos">
             <div class="col-xs-12">
-                <h4 class="underscore">{{ 'Landmarks:'|trans }}</h4>
+                <h4 class="underscore">{{ 'Landmarks'|trans }}</h4>
             </div>
             {% for landmark in landmarksList %}
                 {{ render( controller( "ez_content:viewAction", { 'content': landmark, 'viewType': 'line'} )) }}
