@@ -8,7 +8,15 @@
 
 ## Notable changes
 
-### Workflow
+### Editorial workflow
+
+Editorial workflow enables you to pass content through a series of stages.
+Each step can be used to represent for example contributions and approval of different teams and editors.
+
+For example, the built-in Article workflow passes through draft, design and proofreading stages.
+
+The workflow mechanism is permission-aware. You can control which users can edit content in which stages
+pass content through which transition.
 
 Workflow Engine for eZ Platform EE is located in an [ezplatform-workflow bundle](https://github.com/ezsystems/ezplatform-workflow).
 
