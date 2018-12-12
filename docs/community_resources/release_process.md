@@ -10,7 +10,7 @@ eZ Platform has two distributions:
 We manage the release of eZ Platform using an agile iterative process and a continuous software development model, which is why we provide two kinds of eZ Platform releases:
 
 - Long Term Support releases (LTS) which are supported by eZ Systems for a long period of time (see [support lifecycle below](#support-lifecycle)), for eZ Enterprise subscribers.
-- Fast Track releases (FT) give access to the latest features and are supported for a short period of time, only until the next FT release is introduced. These are supported for both the open source community and eZ Enterprise subscribers.
+- Fast Track releases (FT) give access to the latest features and are supported for a short period of time. They are maintained only until the next FT release is introduced. These are supported for both the open source community and eZ Enterprise subscribers.
 
 FT releases are tailored for those who want to stay up-to-date with newest functionalities,
 while LTS releases are suitable for highly stable enterprise rollouts.
@@ -23,7 +23,7 @@ Both eZ Platform editions use [semantic versioning](http://semver.org/).
 
 The version number of eZ Platform and all its internal components follows the semantic versioning conventions: vX.Y.Z.
 
-- Changes to X indicate a breaking change to the API, and developers know that they may need to implement a re-write of their code to continue using the API.
+- Changes to X indicate breaking changes. They usually concern mostly internal things, but developers should check in our change logs if they need to adjust their code to continue using the API or features. If there are larger breaks (like the new Back Office in v2), this is announced well in advance of the upcoming release.
 - Y represents new features and functionalities.
 - Z represents patches, bug fixes, smaller improvements, etc.
 
