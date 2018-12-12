@@ -112,7 +112,6 @@ In the AppBundle directory, create a new file: `src/AppBundle/Controller/RideCon
 namespace AppBundle\Controller;
 
 use eZ\Bundle\EzPublishCoreBundle\Controller;
-use eZ\Publish\Core\Repository\Values\Content\Location;
 use eZ\Publish\Core\MVC\Symfony\View\ContentView;
 
 class RideController extends Controller
