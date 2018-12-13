@@ -84,7 +84,7 @@ See [Reviewing a draft](https://doc.ezplatform.com/projects/userguide/en/latest/
 
 A new filter enables you to filter search results by Subtree.
 
-![Search filters with subtree filter](img/2.4_subtree_filter.png)
+See [Simplified Filtered search](https://doc.ezplatform.com/projects/userguide/en/latest/search/#simplified-filtered-search) for more information.
 
 ### Policy labels update
 
