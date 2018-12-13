@@ -12,8 +12,6 @@
 
 Workflow Engine for eZ Platform EE is located in an [ezplatform-workflow bundle](https://github.com/ezsystems/ezplatform-workflow).
 
-### Page Builder
-
 ### RichText
 
 #### RichText Field Type
@@ -23,7 +21,7 @@ See [RichText Field Type Reference](../api/field_type_reference.md#richtext-fiel
 
 #### Rich Text block
 
-In the Page Builder you can make use the Rich Text block.
+In the Page Builder you can make use of the Rich Text block.
 It enables you to insert text created using the Online Editor with all features of a Rich Text Field.
 
 ![Rich Text block](img/2.4_rich_text_block.png)
@@ -60,11 +58,7 @@ New multi-file content management functionalities enable you to move and delete 
 
 See [Multi-file content management](https://doc.ezplatform.com/projects/userguide/en/latest/multi_file_content_management/) for more information.
 
-### Forms
-
-#### Form block
-
-#### Create form on the fly
+### Create form on the fly
 
 You can now create Forms on the fly from the Universal Discovery Widget.
 
