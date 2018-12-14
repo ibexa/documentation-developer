@@ -44,10 +44,8 @@ class HomepageController extends Controller
     {
         $repository = $this->getRepository();
         $locationService = $repository->getLocationService();
-        $contentService = $repository->getContentService();
         $rootLocationId = $this->getConfigResolver()->getParameter('content.tree_root.location_id');
         $rootLocation = $locationService->loadLocation($rootLocationId);
-        $currentLocationId = 2;
 
         return $this->render(
             'list/rides.html.twig',
