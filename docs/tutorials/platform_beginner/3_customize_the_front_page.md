@@ -262,7 +262,7 @@ Create a Twig template `app/Resources/views/full/ride.html.twig` with the follow
                     </div>
                 </div>
                 <div class="col-xs-8">
-                    <h4 class="underscore">{{ 'Description:'|trans }}'</h4>
+                    <h4 class="underscore">{{ 'Description'|trans }}</h4>
                     {{ ez_render_field( content, 'description') }}
                 </div>
             </div>
