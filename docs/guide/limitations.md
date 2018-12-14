@@ -398,31 +398,23 @@ A Limitation to specify if the User can edit content in a specific workflow stag
 | Identifier      | `WorkflowStage`                                                                                |
 | Value Class     | `API\Repository\Value\Limitation\WorkflowStageLimitation.php`                                  |
 | Type Class      | `Core\Security\Limitation\WorkflowStageLimitationType.php`                                     |
-| Criterion used  | TODO |
 | Role Limitation | no |
 
 #### Possible values
 
-TODO
-
-|Value|UI value|Description|
-|------|------|------|
+The Limitation takes as values stages configured for the workflow.
 
 ### WorkflowTransitionLimitation
 
-A Limitation to specify if the User can move the content in  a workflow through a specific transition.
+A Limitation to specify if the User can move the content in a workflow through a specific transition.
 
 |                 |                                                                                                |
 |-----------------|------------------------------------------------------------------------------------------------|
 | Identifier      | `WorkflowTransition`                                                                           |
 | Value Class     | `API\Repository\Value\Limitation\WorkflowTransitionLimitation.php`                             |
 | Type Class      | `Core\Security\Limitation\WorkflowTransitionLimitationType.php`                                |
-| Criterion used  | TODO |
-| Role Limitation | no |      
+| Role Limitation | no |
 
 #### Possible values
 
-TODO
-
-|Value|UI value|Description|
-|------|------|------|
+The Limitation takes as values transitions between stages configured for the workflow.

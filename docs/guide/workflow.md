@@ -93,5 +93,5 @@ This Policy can be limited with the [`WorkflowTransitionLimitation`](limitations
 For example, using the example above, a `workflow/change_stage` Policy with `WorkflowTransitionLimitation` set to `to_proofread`
 will allow the Technical team to send content to proofreading after they are done with technical review.
 
-You can also use the [`WorkflowStageLimitation`](limitations.md#workflowstagelimitation) together with the `content/edit` Policy to limit the ability to edit content in specific stages.
+You can also use the [`WorkflowStageLimitation`](limitations.md#workflowstagelimitation) together with the `content/edit` and `content/publish` Policy to limit the ability to edit content in specific stages.
 For example, you can use it to only allow Technical team to edit content in the `technical` stage.
