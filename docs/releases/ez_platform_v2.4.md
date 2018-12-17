@@ -56,9 +56,18 @@ You can now use formatted text in Rich Text Fields (provided by means of a `lite
 
 The new `embed-inline` built-in view type enables embedding Content items within a block element in Rich Text.
 
-### Translations
+### Content Type translation
 
-#### Content Type translation
+You can now translate Content Type names and Field definitions.
+
+This possibility is available automatically when you have the target language configured
+(in the same way as for translating content, see [Internationatlization](../guide/internationalization.md)).
+
+![Content type with existing translations](img/2.4_content_type_translations.png)
+
+When you translate Content of this type, the Content Type information will be displayed in the new language.
+
+![Editing a content translation with translated Field names](img/2.4_translated_ct.png)
 
 ### Multi-file management
 
@@ -66,11 +75,17 @@ New multi-file content management functionalities enable you to move and delete 
 
 See [Multi-file content management](https://doc.ezplatform.com/projects/userguide/en/latest/multi_file_content_management/) for more information.
 
-### Create form on the fly
+### Forms
+
+#### Create form on the fly
 
 You can now create Forms on the fly from the Universal Discovery Widget.
 
 ![Creating a Form on the Fly](img/2.4_form_on_the_fly.png)
+
+#### Embedding forms in Pages
+
+You can use the new Form block to embed an existing form on a Page.
 
 ### Draft list
 
@@ -115,6 +130,7 @@ This release introduces a few simplifications to API use for Content Types:
 
 - Online Editor format for `ezlink` inside `ezembed` tag changed to an anchor tag. See [ezplatform-richtext/pull/20](https://github.com/ezsystems/ezplatform-richtext/pull/20).
 - The merge order of content edit forms has been changed. It can affect you if you extended the content edit template. See [ezplatform-admin-ui/pull/720](https://github.com/ezsystems/ezplatform-admin-ui/pull/720).
+- Changes to the handling of multilingual Content Types, see [BC notes in the kernel](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/bc/changes-7.4.md).
 
 ## Full list of new features, improvements and bug fixes since v2.3
 
