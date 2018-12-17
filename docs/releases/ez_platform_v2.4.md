@@ -13,12 +13,16 @@
 Editorial workflow enables you to pass content through a series of stages.
 Each step can be used to represent for example contributions and approval of different teams and editors.
 
-For example, the built-in Article workflow passes through draft, design and proofreading stages.
+For example, an article can pass through draft, design and proofreading stages.
 
 The workflow mechanism is permission-aware. You can control which users can edit content in which stages
 pass content through which transition.
 
+![Workflow event timeline](img/2.4_workflow_events_timeline.png)
+
 Workflow Engine for eZ Platform EE is located in an [ezplatform-workflow bundle](https://github.com/ezsystems/ezplatform-workflow).
+
+See [Editorial Workflow](../guide/workflow.md) for information on how to configure workflows.
 
 ### RichText
 
@@ -34,7 +38,7 @@ It enables you to insert text created using the Online Editor with all features 
 
 ![Rich Text block](img/2.4_rich_text_block.png)
 
-#### Improve styling in Online Editor
+#### Improved styling in Online Editor
 
 Online Editor has been improved with new styling.
 
@@ -137,6 +141,5 @@ This release introduces a few simplifications to API use for Content Types:
 | eZ Platform   | eZ Enterprise  |
 |--------------|------------|
 | [List of changes for final of eZ Platform v2.4.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v2.4.0) | [List of changes for final for eZ Platform Enterprise Edition v2.4.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.4.0) |
-| [List of changes for rc2 of eZ Platform v2.4.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v2.4.0-rc2) | [List of changes for rc2 for eZ Platform Enterprise Edition v2.4.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.4.0-rc2) |
 | [List of changes for rc1 of eZ Platform v2.4.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v2.4.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v2.4.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.4.0-rc1) |
 | [List of changes for beta1 of eZ Platform v2.4.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v2.4.0-beta1) | [List of changes for beta1 of eZ Platform Enterprise Edition v2.4.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.4.0-beta1) |
