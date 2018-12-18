@@ -589,12 +589,12 @@ Some versions require updates to the database. Look through [the list of databas
 
         #### Changes to the Forms folder
 
-        The built-in Forms folder is since 2.4 located in the Form Section.
+        The built-in Forms folder is located in the Form Section in versions 2.4+.
 
-        To use it, when updating you need to add this Section and move the folder to it.
+        If you are updating your installation, you need to add this Section manually and move the folder to it.
 
-        To allow anonymous users to access Forms, you also need to give the Anonymous User the `content/read` Policy
-        with the "Form" Section
+        To allow anonymous users to access Forms, you also need to add the `content/read` Policy
+        with the "Form" Section to the Anonymous User.
 
 ## 5. Dump assets
 
