@@ -226,9 +226,7 @@ class StringToArrayTransformer implements DataTransformerInterface
             return [];
         }
 
-        $array = explode(',', $string);
-
-        return array_map('trim', $array);
+        return explode(',', $string);
     }
 }
 ```
