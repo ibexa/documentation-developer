@@ -94,6 +94,54 @@ ezrichtext.custom_tags.ezyoutube.attributes.width.label: Width
 ezrichtext.custom_tags.ezyoutube.attributes.align.label: 'Align'
 ```
 
+### Edit `ezcontent`
+
+Custom tags
+
+```yaml
+ezpublish:
+    system:
+        admin_group:
+            fieldtypes:
+                ezrichtext:
+                    custom_tags: [ezfactbox]
+
+    ezrichtext:
+        custom_tags:
+            ezfactbox:
+                template: '@ezdesign/fields/ezrichtext/custom_tags/ezfactbox.html.twig'
+                icon: '/assets/images/custom_tags/admin/icons/factbox.svg#factbox'
+                attributes:
+                    name:
+                        type: 'string'
+                        required: true
+                    style:
+                        type: 'choice'
+                        required: true
+                        default_value: 'light'
+                        choices: ['light', 'dark']
+```
+ez fact box
+
+```twig
+<div class="ez-factbox ez-factbox--{{ params.style }}">
+    <p>{{ params.name }}</p>
+    <div>
+        {{ content|raw }}
+    </div>
+</div>
+```
+
+ez fact box custom tag
+
+```yaml
+# ezfactbox
+ezrichtext.custom_tags.ezfactbox.label: FactBox
+ezrichtext.custom_tags.ezfactbox.description: ''
+ezrichtext.custom_tags.ezfactbox.attributes.name.label: 'Name'
+ezrichtext.custom_tags.ezfactbox.attributes.style.label: 'Style'
+```
+
 ## Custom styles
 
 You can extend the Online Editor with custom text styles.
