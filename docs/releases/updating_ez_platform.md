@@ -409,7 +409,7 @@ Some versions require updates to the database. Look through [the list of databas
     Custom converters must implement the `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\ConverterInterface` interface.
     `convert()` will parse XML `\DOMNode $node` and return an array of `\EzSystems\EzPlatformPageFieldType\FieldType\LandingPage\Model\Attribute` objects.
 
-!!! note "Updating from <2.3"
+??? note "Updating from <2.3"
 
     ### Updating from <2.3
 
@@ -445,9 +445,29 @@ Some versions require updates to the database. Look through [the list of databas
     You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/master/Resources/sql/schema.sql#L136
 
     !!! caution "Form (ezform) Field Type"
-    
-        After the update, in order to create forms, you have to add a new Content Type (e.g. named "Form") that contains `Form` Field (this Content Type can contain other fields 
+
+        After the update, in order to create forms, you have to add a new Content Type (e.g. named "Form") that contains `Form` Field (this Content Type can contain other fields
         as well). After that you can use forms inside Landing Pages via Embed block.
+
+!!! note "Updating from <2.4"
+
+    ### Updating from <2.4
+
+    !!! enterprise
+
+        #### Workflow
+
+        When updating an Enterprise installation, you need to run a script to add database tables for the Editorial Workflow.
+        You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/master/Resources/sql/schema.sql#L198
+
+        #### Changes to the Forms folder
+
+        The built-in Forms folder is located in the Form Section in versions 2.4+.
+
+        If you are updating your installation, you need to add this Section manually and move the folder to it.
+
+        To allow anonymous users to access Forms, you also need to add the `content/read` Policy
+        with the "Form" Section to the Anonymous User.
 
 ## 5. Dump assets
 
