@@ -266,7 +266,7 @@ Copy the following files to your bundle's directory:
 
 The interface has one method: `getEmbed( $statusUrl )` that returns the embed code as a string when given a tweet's URL.
 
-Next, add the `ezsystems.tweetbundle.twitter.client` service that uses the class above to `Resources/config.services.yml`:
+Next, add the `ezsystems.tweetbundle.twitter.client` service that uses the class above to `Resources/config/services.yml`:
 
 ``` yaml
 services:

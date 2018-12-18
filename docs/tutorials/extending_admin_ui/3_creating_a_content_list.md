@@ -47,8 +47,6 @@ class MyMenuListener implements EventSubscriberInterface
     public function onMenuConfigure(ConfigureMenuEvent $event)
     {
         $menu = $event->getMenu();
-        $factory = $event->getFactory();
-        $options = $event->getOptions();
 
         $menu[MainMenuBuilder::ITEM_CONTENT]->addChild(
             'all_content_list',
