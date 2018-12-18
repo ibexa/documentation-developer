@@ -185,11 +185,15 @@ If you want to first test how the update proceeds without actually updating any 
 
 ## 4. Update database
 
-Some versions require updates to the database. Look through [the list of database update scripts](https://github.com/ezsystems/ezpublish-kernel/tree/master/data/update/mysql) for a script for the version you are updating to (database version numbers correspond to the `ezpublish-kernel` version). If you find one, apply it like this:
+Some versions require updates to the database. Look through [the list of database update scripts](https://github.com/ezsystems/ezpublish-kernel/tree/master/data/update/mysql) for a script for the version you are updating to (database version numbers correspond to the `ezpublish-kernel` version).
 
-`mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.7.0-to-6.8.0.sql`
+??? note "Updating from <1.7"
 
-??? note "When updating from <1.7"
+    ### Updating from <1.7
+
+    Apply the following database update script:
+
+    `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/data/update/mysql/dbupdate-6.7.7-to-6.7.8.sql`
 
     ##### Solr index time boosting
 
@@ -227,7 +231,9 @@ Some versions require updates to the database. Look through [the list of databas
          <field name="_version_" type="long" indexed="true" stored="true" multiValued="false" />
     ```
 
-??? note "When updating from <1.13"
+??? note "Updating from <1.13"
+
+    ### Updating from <1.13
 
     ##### `content/publish` permission
 
@@ -273,7 +279,6 @@ Some versions require updates to the database. Look through [the list of databas
     mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.11.0-to-6.12.0.sql
     ```
 
-
     These algorithms produce longer hashes, and so the length of the `password_hash` column of the `ezuser` table must be increased, like this:
 
     **MySQL**
@@ -282,14 +287,21 @@ Some versions require updates to the database. Look through [the list of databas
     ALTER TABLE ezuser CHANGE password_hash password_hash VARCHAR(255) default NULL;
     ​```
 
-
     **PostgreSQL**
 
     ​``` sql
     ALTER TABLE ezuser ALTER COLUMN password_hash TYPE VARCHAR(255);
     ​```
 
-??? note "When updating from <2.2"
+    ##### Run general database update script
+
+    Apply the following database update script:
+
+    `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/data/update/mysql/dbupdate-6.13.3-to-6.13.4.sql`
+
+??? note "Updating from <2.2"
+
+    ### Updating from <2.2
 
     ##### Change from UTF8 to UTF8MB4
 
@@ -328,106 +340,25 @@ Some versions require updates to the database. Look through [the list of databas
 
     ##### Page builder
 
-    To update to v2.2, you need to run the following script to add database tables for the Page Builder:
+    To update to v2.2, you need to run a script to add database tables for the Page Builder.
+    You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/master/Resources/sql/schema.sql#L58
 
-    ??? note "Database update script"
+    !!! enterprise
+
+        When updating an Enterprise installation, you also need to run the following script due to changes in the `eznotification` table:
 
         ```
-        --
-        -- Page Builder
-        --
+        ALTER TABLE `eznotification`
+        CHANGE COLUMN `data` `data` BLOB NULL ;
 
-        DROP TABLE IF EXISTS `ezpage_attributes`;
-        CREATE TABLE `ezpage_attributes` (
-          `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-          `name` varchar(255) NOT NULL DEFAULT '',
-          `value` text,
-          PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+        ALTER TABLE `eznotification`
+        DROP INDEX `owner_id` ,
+        ADD INDEX `eznotification_owner` (`owner_id` ASC);
 
-        DROP TABLE IF EXISTS `ezpage_blocks`;
-        CREATE TABLE `ezpage_blocks` (
-          `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-          `type` varchar(255) NOT NULL DEFAULT '',
-          `view` varchar(255) NOT NULL DEFAULT '',
-          `name` varchar(255) NOT NULL DEFAULT '',
-          PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-        DROP TABLE IF EXISTS `ezpage_blocks_design`;
-        CREATE TABLE `ezpage_blocks_design` (
-          `id` INT(11) NOT NULL AUTO_INCREMENT,
-          `block_id` INT(11) NOT NULL,
-          `style` TEXT DEFAULT NULL,
-          `compiled` TEXT DEFAULT NULL,
-          `class` VARCHAR(255) DEFAULT NULL,
-          PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-        DROP TABLE IF EXISTS `ezpage_blocks_visibility`;
-        CREATE TABLE `ezpage_blocks_visibility` (
-          `id` INT(11) NOT NULL AUTO_INCREMENT,
-          `block_id` INT(11) NOT NULL,
-          `since` INT(11) DEFAULT NULL,
-          `till` INT(11) DEFAULT NULL,
-          PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-        DROP TABLE IF EXISTS `ezpage_map_attributes_blocks`;
-        CREATE TABLE `ezpage_map_attributes_blocks` (
-          `attribute_id` int(11) NOT NULL,
-          `block_id` int(11) NOT NULL,
-          PRIMARY KEY (`attribute_id`,`block_id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-        DROP TABLE IF EXISTS `ezpage_map_blocks_zones`;
-        CREATE TABLE `ezpage_map_blocks_zones` (
-          `block_id` int(11) NOT NULL,
-          `zone_id` int(11) NOT NULL,
-          PRIMARY KEY (`block_id`, `zone_id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-        DROP TABLE IF EXISTS `ezpage_map_zones_pages`;
-        CREATE TABLE `ezpage_map_zones_pages` (
-          `zone_id` int(11) NOT NULL,
-          `page_id` int(11) NOT NULL,
-          PRIMARY KEY (`zone_id`,`page_id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-        DROP TABLE IF EXISTS `ezpage_pages`;
-        CREATE TABLE `ezpage_pages` (
-          `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-          `version_no` int(11) unsigned NOT NULL,
-          `content_id` int(11) NOT NULL,
-          `language_code` varchar(255) NOT NULL DEFAULT '',
-          `layout` varchar(255) NOT NULL DEFAULT '',
-          PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-        DROP TABLE IF EXISTS `ezpage_zones`;
-        CREATE TABLE `ezpage_zones` (
-          `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-          `name` varchar(255) NOT NULL DEFAULT '',
-          PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+        ALTER TABLE `eznotification`
+        DROP INDEX `is_pending` ,
+        ADD INDEX `eznotification_owner_is_pending` (`owner_id` ASC, `is_pending` ASC);
         ```
-
-        !!! enterprise
-
-            When updating an Enterprise installation, you also need to run the following script due to changes in the `eznotification` table:
-
-            ```
-            ALTER TABLE `eznotification`
-            CHANGE COLUMN `data` `data` BLOB NULL ;
-
-            ALTER TABLE `eznotification`
-            DROP INDEX `owner_id` ,
-            ADD INDEX `eznotification_owner` (`owner_id` ASC);
-
-            ALTER TABLE `eznotification`
-            DROP INDEX `is_pending` ,
-            ADD INDEX `eznotification_owner_is_pending` (`owner_id` ASC, `is_pending` ASC);
-            ```
 
     ##### Migrate Landing Pages
 
@@ -478,7 +409,13 @@ Some versions require updates to the database. Look through [the list of databas
     Custom converters must implement the `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\ConverterInterface` interface.
     `convert()` will parse XML `\DOMNode $node` and return an array of `\EzSystems\EzPlatformPageFieldType\FieldType\LandingPage\Model\Attribute` objects.
 
-!!! note "When updating from <2.3"
+!!! note "Updating from <2.3"
+
+    ### Updating from <2.3
+
+    Apply the following database update script:
+
+    `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/data/update/mysql/dbupdate-7.2.0-to-7.3.0.sql`
 
     ##### Trashed timestamp
 
@@ -504,72 +441,8 @@ Some versions require updates to the database. Look through [the list of databas
     php bin/console ezplatform:form-builder:create-forms-container --content-type custom --field title --value 'My Forms' --field description --value 'Custom container for the forms' --language-code eng-US
     ```
 
-    You also need to run the following script to add database tables for the Form Builder:
-
-    ??? note "Database update script"
-
-        ```
-        --
-        -- Form Builder
-        --
-
-        DROP TABLE IF EXISTS `ezform_forms`;
-        CREATE TABLE `ezform_forms` (
-          `id` int(11) NOT NULL AUTO_INCREMENT,
-          `content_id` int(11) DEFAULT NULL,
-          `version_no` int(11) DEFAULT NULL,
-          `content_field_id` int(11) DEFAULT NULL,
-          `language_code` varchar(16) DEFAULT NULL,
-          PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-        DROP TABLE IF EXISTS `ezform_fields`;
-        CREATE TABLE `ezform_fields` (
-          `id` int(11) NOT NULL AUTO_INCREMENT,
-          `form_id` int(11) DEFAULT NULL,
-          `name` VARCHAR(128) NOT NULL,
-          `identifier` varchar(128) DEFAULT NULL,
-          PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-        DROP TABLE IF EXISTS `ezform_field_attributes`;
-        CREATE TABLE `ezform_field_attributes` (
-          `id` int(11) NOT NULL AUTO_INCREMENT,
-          `field_id` int(11) DEFAULT NULL,
-          `identifier` varchar(128) DEFAULT NULL,
-          `value` blob,
-          PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-        DROP TABLE IF EXISTS `ezform_field_validators`;
-        CREATE TABLE `ezform_field_validators` (
-          `id` int(11) NOT NULL AUTO_INCREMENT,
-          `field_id` int(11) DEFAULT NULL,
-          `identifier` varchar(128) DEFAULT NULL,
-          `value` blob,
-          PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-        DROP TABLE IF EXISTS `ezform_form_submissions`;
-        CREATE TABLE `ezform_form_submissions` (
-          `id` INT NOT NULL AUTO_INCREMENT,
-          `content_id` INT NOT NULL,
-          `language_code` VARCHAR(6) NOT NULL,
-          `user_id` INT NOT NULL,
-          `created` INT NOT NULL,
-          PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-        DROP TABLE IF EXISTS `ezform_form_submission_data`;
-        CREATE TABLE `ezform_form_submission_data` (
-          `id` INT NOT NULL AUTO_INCREMENT,
-          `form_submission_id` INT NOT NULL,
-          `name` VARCHAR(128) NOT NULL,
-          `identifier` VARCHAR(128) NOT NULL,
-          `value` BLOB NULL,
-          PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-        ```
+    You also need to run a script to add database tables for the Form Builder.
+    You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/master/Resources/sql/schema.sql#L136
 
     !!! caution "Form (ezform) Field Type"
     
