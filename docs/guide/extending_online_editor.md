@@ -100,13 +100,13 @@ ezrichtext.custom_tags.ezyoutube.attributes.width.label: Width
 ezrichtext.custom_tags.ezyoutube.attributes.align.label: 'Align'
 ```
 
-### Fact box tag
+### FactBox tag
 
-Fact box tag is a good example for showcasing possibilities of ezcontent property.
+FactBox tag is a good example for showcasing possibilities of ezcontent property.
 Each custom tag has an ezcontent property, that contains the tag's main content.
 This property is editable by a textarea that is part of a custom tag editing tooltip. 
 
-Create the `custom_tags.yml` configuration file that will be added to `app/Resources/config`. This is sample configuration for Fact box tag:
+Create the `custom_tags.yml` configuration file that will be added to `app/Resources/config`. This is sample configuration for FactBox tag:
 
 ```yaml hl_lines="10"
 ezpublish:
