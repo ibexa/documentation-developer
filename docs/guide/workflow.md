@@ -10,9 +10,9 @@ You can define different workflow in configuration. The workflow is permission-a
 
 Each workflow consists of stages and transitions between them.
 
-The following configuration defines a workflow where you can pass a draft to technical review, then to proofreading, and finally it is done.
+The following configuration defines a workflow where you can pass a draft to technical review, then to proofreading, and to final approval.
 
-``` yaml hl_lines="16 17 18 31 32 33 34 35"
+``` yaml hl_lines="16 17 18 33 34 35 36 37"
 ezpublish:
     system:
         # Workflow configuration is SiteAccess-aware
@@ -40,6 +40,8 @@ ezpublish:
                         done:
                             label: 'Done'
                             color: '#301203'
+                            # Content items in this stage don't appear on the Dashboard and in Review Queue.
+                            last_stage: true
                     initial_stage: draft
                     # Available transitions between stages
                     transitions:
@@ -68,10 +70,10 @@ ezpublish:
                             icon: '/bundles/ezplatformadminui/img/ez-icons.svg#comment'
 ```
 
-Each stage in the workflow has an identifier and can be assigned a label and a color (lines 14-16).
+Each stage in the workflow has an identifier and can be assigned a label and a color (lines 16-18).
 
-Each transition also has an identifier. It must either state between which stages it transitions, or else be marked as `reverse` of a different transition.
-Transitions can also have labels and icons (lines 34-35).
+Each transition also has an identifier. It must state between which stages it transitions, or be marked as `reverse` of a different transition.
+Transitions can also have labels and icons (lines 36-37).
 
 You can view all configured workflows in the Admin Panel by selecting **Workflow**.
 
