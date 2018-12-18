@@ -31,12 +31,12 @@ See [Editorial Workflow](../guide/workflow.md) for information on how to configu
 RichText Field Type has been extracted to a separate bundle, [ezplatform-richtext](https://github.com/ezsystems/ezplatform-richtext).
 See [RichText Field Type Reference](../api/field_type_reference.md#richtext-field-type).
 
-#### Rich Text block
+#### RichText block
 
-In the Page Builder you can make use of the Rich Text block.
-It enables you to insert text created using the Online Editor with all features of a Rich Text Field.
+In the Page Builder you can make use of the RichText block.
+It enables you to insert text created using the Online Editor with all features of a RichText Field.
 
-![Rich Text block](img/2.4_rich_text_block.png)
+![RichText block](img/2.4_rich_text_block.png)
 
 #### Improved styling in Online Editor
 
@@ -44,21 +44,25 @@ Online Editor has been improved with new styling.
 
 ![Online Editor menu](img/2.4_oe_menu.png)
 
-#### Images in Rich Text
+#### Images in RichText
 
 You can now attach links to images in the Online Editor:
 
 ![Adding a link to an image in Online Editor](img/2.4_link_in_image.png)
 
-#### Formatted text in Rich text
+#### Formatted text in RichText
 
-You can now use formatted text in Rich Text Fields (provided by means of a `literal` tag).
+You can now use formatted text in RichText Fields (provided by means of a `literal` tag).
 
 ![Formatted Text in Online Editor](img/2.4_formatted_text.png)
 
-#### Inline embedding in Rich Text
+#### Inline embedding in RichText
 
-The new `embed-inline` built-in view type enables embedding Content items within a block element in Rich Text.
+The new `embed-inline` built-in view type enables embedding Content items within a block element in RichText.
+
+#### Custom tag - ezcontent
+
+The ezcontent property is now editable in the UI and can be used to store the output/preview of a custom tag. To learn how it works see [FactBox tag](../guide/extending_online_editor/#factbox-tag).
 
 ### Content Type translation
 
