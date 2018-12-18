@@ -183,11 +183,15 @@ If you want to first test how the update proceeds without actually updating any 
 
 ## 4. Update database
 
-Some versions require updates to the database. Look through [the list of database update scripts](https://github.com/ezsystems/ezpublish-kernel/tree/master/data/update/mysql) for a script for the version you are updating to (database version numbers correspond to the `ezpublish-kernel` version). If you find one, apply it like this:
+Some versions require updates to the database. Look through [the list of database update scripts](https://github.com/ezsystems/ezpublish-kernel/tree/master/data/update/mysql) for a script for the version you are updating to (database version numbers correspond to the `ezpublish-kernel` version).
 
-`mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.7.0-to-6.8.0.sql`
+??? note "Updating from <1.7"
 
-??? note "When updating from <1.7"
+    ### Updating from <1.7
+
+    Apply the following database update script:
+
+    `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/data/update/mysql/dbupdate-6.7.7-to-6.7.8.sql`
 
     ##### Solr index time boosting
 
@@ -225,7 +229,9 @@ Some versions require updates to the database. Look through [the list of databas
          <field name="_version_" type="long" indexed="true" stored="true" multiValued="false" />
     ```
 
-??? note "When updating from <1.13"
+!!! note "Updating from <1.13"
+
+    ### Updating from <1.13
 
     ##### `content/publish` permission
 
@@ -271,7 +277,6 @@ Some versions require updates to the database. Look through [the list of databas
     mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.11.0-to-6.12.0.sql
     ```
 
-
     These algorithms produce longer hashes, and so the length of the `password_hash` column of the `ezuser` table must be increased, like this:
 
     **MySQL**
@@ -280,12 +285,17 @@ Some versions require updates to the database. Look through [the list of databas
     ALTER TABLE ezuser CHANGE password_hash password_hash VARCHAR(255) default NULL;
     ​```
 
-
     **PostgreSQL**
 
     ​``` sql
     ALTER TABLE ezuser ALTER COLUMN password_hash TYPE VARCHAR(255);
     ​```
+
+    ##### Run general database update script
+
+    Apply the following database update script:
+
+    `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/data/update/mysql/dbupdate-6.13.3-to-6.13.4.sql`
 
 ## 5. Dump assets
 
