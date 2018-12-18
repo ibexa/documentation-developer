@@ -16,13 +16,20 @@ In `eZ/Publish/FieldType/Tweet/FormMapper.php`:
 <?php
 namespace EzSystems\TweetFieldTypeBundle\eZ\Publish\FieldType\Tweet;
 
-use EzSystems\RepositoryForms\Data\FieldDefinitionData;
 use EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormInterface;
+use EzSystems\RepositoryForms\Data\Content\FieldData;
+use eZ\Publish\Core\Repository\FieldTypeService;
+
 
 class FormMapper implements FieldValueFormMapperInterface
 {
+    /**
+     * @var FieldTypeService
+     */
+    private $fieldTypeService;
+
     public function __construct(FieldTypeService $fieldTypeService)
     {
         $this->fieldTypeService = $fieldTypeService;
