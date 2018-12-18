@@ -2,6 +2,7 @@
 
 The Online Editor is based on [Alloy Editor](https://alloyeditor.com/).
 Refer to [Alloy Editor documentation](https://alloyeditor.com/docs/develop/) to learn how to extend the Online Editor with new elements.
+To learn how to extend the eZ Platform Back Office follow [Extending Admin UI tutorial](tutorials/extending_admin_ui/extending_admin_ui.md).
 
 !!! note
 
@@ -12,10 +13,15 @@ Refer to [Alloy Editor documentation](https://alloyeditor.com/docs/develop/) to 
 ## Custom tags
 
 Custom tags enable you to add more features to the Rich Text editor beyond the built-in ones.
+They are configured under the `ezrichtext` key. 
 
-Custom tags are configured under the `ezrichtext` key (here on the example of a YouTube tag):
+If you want to learn how to apply them to your installation follow [Creating a custom tag tutorial](tutorials/extending_admin_ui/6_adding_a_custom_tag.md).
+ 
+### YouTube tag
 
-``` yml
+Preparation of the tag always starts with the `custom_tags.yml` configuration file that should be added to `app/Resources/config`. This is sample configuration for the YouTube tag:
+
+```yaml
 ezpublish:
     system:
         default:
@@ -56,14 +62,14 @@ ezrichtext:
                     choices: ['left', 'center', 'right']
 ```
 
-You need to provide your own files for the template and the icon.
-
-Each custom tag can have any number of attributes. Supported attribute types are:
+Remember to provide your own files for the template and the icon.
+Each custom tag can have any number of attributes.
+Supported attribute types are:
 `string`, `number`, `boolean` and `choice` (which requires a list of choices provided by the `choices` key).
 
-The configuration requires a Twig template for the custom tag:
+The configuration requires an `ezyoutube.html.twig` template for the custom tag that will be placed in `/Resources/views/field_type/ezrichtext/custom_tag`:
 
-``` html+twig
+```twig
 <div{% if params.align is defined %} style="text-align: {{ params.align }};"{% endif %}>
     <iframe type="text/html" width="{{ params.width }}" height="{{ params.height }}"
         src="{{ params.video_url|replace({'https://youtu.be/' : 'https://www.youtube.com/embed/'}) }}?autoplay={{ params.autoplay == 'true' ? 1 : 0 }}"
@@ -81,9 +87,9 @@ The configuration requires a Twig template for the custom tag:
     {% endif %}
     ```
 
-To ensure the new tag has labels, you need to provide translations in a `app/Resources/translations/custom_tags.en.yaml` file:
+To ensure the new tag has labels, provide translations in a `app/Resources/translations/custom_tags.en.yaml` file:
 
-``` yaml
+```yaml
 ezrichtext.custom_tags.ezyoutube.label: Youtube
 ezrichtext.custom_tags.ezyoutube.description: ''
 ezrichtext.custom_tags.ezyoutube.attributes.autoplay.label: Autoplay
@@ -94,11 +100,15 @@ ezrichtext.custom_tags.ezyoutube.attributes.width.label: Width
 ezrichtext.custom_tags.ezyoutube.attributes.align.label: 'Align'
 ```
 
-### Edit `ezcontent`
+### Fact box tag
 
-Custom tags
+Fact box tag is a good example for showcasing possibilities of ezcontent property.
+Each custom tag has an ezcontent property, that contains the tag's main content.
+This property is editable by a textarea that is part of custom tag editing tooltip. 
 
-```yaml
+Create the `custom_tags.yml` configuration file that will be added to `app/Resources/config`. This is sample configuration for Fact box tag:
+
+```yaml hl_lines="10"
 ezpublish:
     system:
         admin_group:
@@ -121,7 +131,12 @@ ezpublish:
                         default_value: 'light'
                         choices: ['light', 'dark']
 ```
-ez fact box
+
+Remember to provide your own files for the template and the icon.
+Line 10 points to `ezfactbox.html.twig` template described below.
+Attributes listed below custom tag can be set when adding the tag to a RichText Field.
+
+The configuration requires an `ezfactbox.html.twig` template for the custom tag that will be placed in `/Resources/views/field_type/ezrichtext/custom_tag`:
 
 ```twig
 <div class="ez-factbox ez-factbox--{{ params.style }}">
@@ -132,7 +147,17 @@ ez fact box
 </div>
 ```
 
-ez fact box custom tag
+!!! tip
+
+    Remember that if an attribute is not required, you need to check if it is defined in the template, for example:
+
+    ```twig
+    {% if params.your_attribute is defined %}
+        ...
+    {% endif %}
+    ```
+
+To ensure the new tag has labels, provide translations in a `app/Resources/translations/custom_tags.en.yaml` file:
 
 ```yaml
 # ezfactbox
