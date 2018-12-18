@@ -25,6 +25,11 @@ use eZ\Publish\Core\Repository\FieldTypeService;
 
 class FormMapper implements FieldValueFormMapperInterface
 {
+    /**
+     * @var FieldTypeService
+     */
+    private $fieldTypeService;
+
     public function __construct(FieldTypeService $fieldTypeService)
     {
         $this->fieldTypeService = $fieldTypeService;
