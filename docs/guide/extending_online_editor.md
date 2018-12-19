@@ -2,7 +2,7 @@
 
 The Online Editor is based on [Alloy Editor](https://alloyeditor.com/).
 Refer to [Alloy Editor documentation](https://alloyeditor.com/docs/develop/) to learn how to extend the Online Editor with new elements.
-To learn how to extend the eZ Platform Back Office follow [Extending Admin UI tutorial](../../tutorials/extending_admin_ui/extending_admin_ui).
+To learn how to extend the eZ Platform Back Office follow [Extending Admin UI tutorial](../tutorials/extending_admin_ui/extending_admin_ui).
 
 !!! note
 
@@ -15,9 +15,9 @@ To learn how to extend the eZ Platform Back Office follow [Extending Admin UI tu
 Custom tags enable you to add more features to the Rich Text editor beyond the built-in ones.
 They are configured under the `ezrichtext` key. 
 
-If you want to learn how to apply them to your installation follow [Creating a custom tag tutorial](../../tutorials/extending_admin_ui/6_adding_a_custom_tag).
+If you want to learn how to apply them to your installation follow [Creating a custom tag tutorial](../tutorials/extending_admin_ui/6_adding_a_custom_tag).
  
-### YouTube tag
+**Example: YouTube tag**
 
 Preparation of the tag always starts with the configuration file that should be added to `app/Resources/config`. This is sample configuration for the YouTube tag, `custom_tags.yml`:
 
@@ -69,7 +69,7 @@ Supported attribute types are:
 
 The configuration requires an `ezyoutube.html.twig` template for the custom tag that will be placed in `/Resources/views/field_type/ezrichtext/custom_tag`:
 
-```twig
+```html+twig
 <div{% if params.align is defined %} style="text-align: {{ params.align }};"{% endif %}>
     <iframe type="text/html" width="{{ params.width }}" height="{{ params.height }}"
         src="{{ params.video_url|replace({'https://youtu.be/' : 'https://www.youtube.com/embed/'}) }}?autoplay={{ params.autoplay == 'true' ? 1 : 0 }}"
@@ -100,10 +100,10 @@ ezrichtext.custom_tags.ezyoutube.attributes.width.label: Width
 ezrichtext.custom_tags.ezyoutube.attributes.align.label: 'Align'
 ```
 
-### FactBox tag
+**Example: FactBox tag**
 
-FactBox tag is a good example for showcasing possibilities of ezcontent property.
-Each custom tag has an ezcontent property, that contains the tag's main content.
+FactBox tag is a good example for showcasing possibilities of `ezcontent` property.
+Each custom tag has an `ezcontent` property that contains the tag's main content.
 This property is editable by a textarea that is part of a custom tag editing tooltip. 
 
 Create the `custom_tags.yml` configuration file that will be added to `app/Resources/config`. This is sample configuration for FactBox tag:
@@ -119,7 +119,7 @@ ezpublish:
     ezrichtext:
         custom_tags:
             ezfactbox:
-                template: '@ezdesign/fields/ezrichtext/custom_tags/ezfactbox.html.twig'
+                template: 'AppBundle:field_type/ezrichtext/ezfactbox.html.twig'
                 icon: '/assets/images/custom_tags/admin/icons/factbox.svg#factbox'
                 attributes:
                     name:
@@ -134,11 +134,11 @@ ezpublish:
 
 Remember to provide your own files for the template and the icon.
 Line 10 points to `ezfactbox.html.twig` template described below.
-Attributes listed below custom tag can be set when adding the tag to a RichText Field.
+Attributes listed below the custom tag can be set when adding the tag to a RichText Field.
 
 The configuration requires an `ezfactbox.html.twig` template for the custom tag that will be placed in `/Resources/views/field_type/ezrichtext/custom_tag`:
 
-```twig
+```html+twig
 <div class="ez-factbox ez-factbox--{{ params.style }}">
     <p>{{ params.name }}</p>
     <div>
