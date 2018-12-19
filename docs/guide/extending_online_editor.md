@@ -81,7 +81,7 @@ The configuration requires an `ezyoutube.html.twig` template for the custom tag 
 
     Remember that if an attribute is not required, you need to check if it is defined in the template, for example:
 
-    ```twig
+    ```html+twig
     {% if params.your_attribute is defined %}
         ...
     {% endif %}
