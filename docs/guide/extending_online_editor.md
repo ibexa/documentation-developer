@@ -120,7 +120,7 @@ ezpublish:
         custom_tags:
             ezfactbox:
                 template: 'AppBundle:field_type/ezrichtext/ezfactbox.html.twig'
-                icon: '/assets/images/custom_tags/admin/icons/factbox.svg#factbox'
+                icon: '/assets/field_type/ezrichtext/custom_tag/icon/factbox.svg#factbox'
                 attributes:
                     name:
                         type: 'string'
