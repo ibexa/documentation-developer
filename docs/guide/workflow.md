@@ -12,7 +12,7 @@ Each workflow consists of stages and transitions between them.
 
 The following configuration defines a workflow where you can pass a draft to technical review, then to proofreading, and to final approval.
 
-``` yaml hl_lines="16 17 18 33 34 35 36 37"
+``` yaml hl_lines="16 17 18 33 34 35 36 37 64 65 66 67"
 ezpublish:
     system:
         # Workflow configuration is SiteAccess-aware
@@ -50,30 +50,45 @@ ezpublish:
                             to: technical
                             label: 'To technical review'
                             icon: '/bundles/ezplatformadminui/img/ez-icons.svg#comment'
+                            notification:
+                                user_group: 13
                         back_to_draft:
                             reverse: to_technical
                             label: 'Back to draft'
                             icon: '/bundles/ezplatformadminui/img/ez-icons.svg#comment'
+                            notification:
+                                user_group: 13
                         to_proofread:
                             from: technical
                             to: proofread
                             label: 'To proofreading'
                             icon: '/bundles/ezplatformadminui/img/ez-icons.svg#comment'
+                            notification:
+                                user_group: 13
                         back_to_technical:
                             reverse: to_proofread
                             label: 'Back to technical review'
                             icon: '/bundles/ezplatformadminui/img/ez-icons.svg#comment'
+                            notification:
+                                user_group: 13
                         done:
                             from: proofread
                             to: done
                             label: 'Done'
                             icon: '/bundles/ezplatformadminui/img/ez-icons.svg#comment'
+                            notification:
+                                # Which User Group or User to notify about this transition
+                                user_group: 13
+                                user: 14
 ```
 
 Each stage in the workflow has an identifier and can be assigned a label and a color (lines 16-18).
 
 Each transition also has an identifier. It must state between which stages it transitions, or be marked as `reverse` of a different transition.
 Transitions can also have labels and icons (lines 36-37).
+
+`notification` (lines 64-67) defines who will be notified when a transition happens by providing the User or User Group ID.
+Notifications will be displayed in the user menu.
 
 You can view all configured workflows in the Admin Panel by selecting **Workflow**.
 
