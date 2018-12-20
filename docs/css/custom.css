@@ -240,10 +240,13 @@ body {
 }
 
 .md-typeset code {
-    background-color: #f0f0f0;
+    background-color: #ededed;
     padding: 1px 4px;
     margin: 0;
-    box-shadow: none;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.125);
+    color: #f05b01;
+    font-size: 80%;
+    font-family: monospace;
 }
 
 .codehilite .hll {
