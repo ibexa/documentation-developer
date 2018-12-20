@@ -138,6 +138,10 @@ This release introduces a few simplifications to API use for Content Types:
 - Exposes `content->getContentType()` for easier use, including from Twig as `content.contentType`
 - Adds possibility to load several Content Types in bulk using `ContentTypeService->loadContentTypeList()`
 
+#### Load multiple Locations
+
+You are now able to load multiple Locations at once. Biggest benefit of this feature is saving up-to several seconds of load time on complex landing pages when HTTPCache is cold or disabled.  
+
 ### BC breaks and important behavior changes
 
 - Online Editor format for `ezlink` inside `ezembed` tag changed to an anchor tag. See [ezplatform-richtext/pull/20](https://github.com/ezsystems/ezplatform-richtext/pull/20).
