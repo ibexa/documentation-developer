@@ -202,6 +202,26 @@ $menu->reorderChildren(
 );
 ```
 
+#### Custom icons
+
+You can use the `extras.icon` parameter to select an icon from the built-in set.
+
+To use your custom icon, use the `extras.icon_path` parameter:
+
+``` php
+$menu->addChild(
+    'menu_item_with_icon',
+    [
+        'extras' => [
+            'icon_path' => '/assets/images/icons/custom.svg',
+            'icon_class' => 'my-custom-class',
+        ],
+    ]
+);
+```
+
+The `extras.icon_class` parameter adds a custom CSS class to the `<svg>` element.
+
 ## Dashboard
 
 To extend the Dashboard, make use of an event subscriber.
