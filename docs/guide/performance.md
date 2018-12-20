@@ -10,8 +10,9 @@ What follows is a list of recommendation that will make your installation perfor
 If you are in a hurry, the most important recommendations on this page are:
 
 - Use PHP 7.x, and dump optimized Composer autoload classmap
-- In development, use a full web server with vhost
-- For clustering, reduce latency to Redis/Memcached, use Varnish and [Solr](solr.md)
+- Use a full web (Nginx/Apache) server with vhost
+- Avoid shared filesystems for code (Docker for Mac/Win, VirtualBox/*, Vagrant, etc.), or find ways to optimize or work around the issues.
+- For clustering (mainly relevant for production/staging), reduce latency to Redis/Memcached, use Varnish and [Solr](solr.md).
 
 ## Client
 
@@ -28,9 +29,22 @@ In production setups:
 - Set up eZ Platform in [cluster mode](clustering.md) if you need to handle bigger spikes of traffic than a single server can manage.
     - See [recommendation for Memcached/Redis](#memcachedredis) and [Search](#search) below.
 
+!!! note
+
+    The following recommendations are ordered from largest to smallest impact they have on performance in general.
+
+### VM
+
+- Avoid shared filesystems for code (Docker for Mac/Win, VirtualBox/*, Vagrant, etc.), because they typically slow down the application 10x or more, compared to native Linux filesystem.
+- VM in itself also adds 10-30% of overhead. However when it comes to production, e.g. AWS vs barebones, it also comes down to cost and convenience factors.
+
+!!! tip "For Development use, try eZ Launchpad"
+
+    For a ready solution that allows you to share code between your host and the underlying running VM system without this performance hit, try [eZ Launchpad](https://ezsystems.github.io/launchpad/).
+
 ### Web server
 
-- Use Nginx/Apache even for development, as PHP's built-in web server (as exposed via Symfony's `server:*` commands) is only able to handle one request at a time.
+- Use Nginx/Apache even for development, as PHP's built-in web server (as exposed via Symfony's `server:*` commands) is only able to handle one request at a time (including JS/CSS/* asset loading, etc.).
 - Use a recent version of nginx, set up https, and enable http/2 to reduce connection latency on parallel requests.
 
 ### PHP
