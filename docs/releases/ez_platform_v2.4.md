@@ -109,6 +109,10 @@ A new filter enables you to filter search results by Subtree.
 
 See [Simplified Filtered search](https://doc.ezplatform.com/projects/userguide/en/latest/search/#simplified-filtered-search) for more information.
 
+### Sub-items limit
+
+In eZ Platform you can now set a number of items displayed in the table using sub-items from your User Settings.
+
 ### Policy labels update
 
 The outdated Policy labels are now updated:
