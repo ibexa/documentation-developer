@@ -401,6 +401,22 @@ This limit is enforced on publishing a new version and only covers archived vers
 
     Don't set `default_version_archive_limit` too high, with Legacy storage engine you'll get performance degradation if you store too many versions. Default value of 5 is in general the recommended value, but the less content you have overall, the more you can increase this to, for instance, 25 or even 50.
 
+#### Removing old versions
+
+You can use the `ezplatform:content:cleanup-archived` command to remove old content versions.
+
+The command takes the following optional parameters:
+
+- `status` or `t` - status of versions to remove: `draft`, `published`, `archived` or `all`
+- `keep` or `k` - numer of versions to keep
+- `user` or `u` - the User that the command will be performed as. The User must have the `content/remove`, `content/read` and `content/versionread` Policies.
+
+`ezplatform:content:cleanup-archived -status <status name> -keep <number of versions> -user <user name>`
+
+For example, the following command removes archived versions as user `admin`, but leaves the 5 most recent versions:
+
+`ezplatform:content:cleanup-archived -status archived -keep 5 -user admin`
+
 ### User identifiers
 
 `ezplatform_default_settings.yml` contains two settings that indicate which Content Types are treated like users and user groups:
