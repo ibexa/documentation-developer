@@ -11,9 +11,8 @@ If you are in a hurry, the most important recommendations on this page are:
 
 - Use PHP 7.x, and dump optimized Composer autoload classmap
 - Use a full web (Nginx/Apache) server with vhost
-- Avoid shared file systems for code _(Docker for Mac/Win, VirtualBox/*, Vagrant, ..)_, or find ways to optimize/workaround the issues.
-- For clustering _(mainly relevant for production/staging)_; reduce latency to Redis/Memcached, use Varnish & [Solr](solr.md)
-
+- Avoid shared filesystems for code (Docker for Mac/Win, VirtualBox/*, Vagrant, etc.), or find ways to optimize or work around the issues.
+- For clustering (mainly relevant for production/staging), reduce latency to Redis/Memcached, use Varnish and [Solr](solr.md).
 
 ## Client
 
@@ -32,21 +31,20 @@ In production setups:
 
 !!! note
 
-    The following recommendations are in order of how large impact they will have on performance in general, your milage may vary.
+    The following recommendations are ordered from largest to smallest impact they have on performance in general.
 
 ### VM
 
-- Avoid shared file systems for code _(Docker for Mac/Win, VirtualBox/*, Vagrant, ..)_, they typically slow down the application 10x or more, compared to native linux file system!
-- VM in itself also adds overhead in range of 10-30%, however when it comes to production, e.g. AWS vs bare-bones, it also comes down to cost and convince factors.
-
+- Avoid shared filesystems for code (Docker for Mac/Win, VirtualBox/*, Vagrant, etc.), because they typically slow down the application 10x or more, compared to native Linux filesystem.
+- VM in itself also adds 10-30% of overhead. However when it comes to production, e.g. AWS vs barebones, it also comes down to cost and convenience factors.
 
 !!! tip "For Development use, try eZ Launchpad"
 
-    For a ready made solution that allows you to share code between your host and the underlying running VM system without this performance hit, try [eZ Launchpad](https://ezsystems.github.io/launchpad/).
+    For a ready solution that allows you to share code between your host and the underlying running VM system without this performance hit, try [eZ Launchpad](https://ezsystems.github.io/launchpad/).
 
 ### Web server
 
-- Use Nginx/Apache even for development, as PHP's built-in web server (as exposed via Symfony's `server:*` commands) is only able to handle one request at a time _(including js/css/* assets loading...)_.
+- Use Nginx/Apache even for development, as PHP's built-in web server (as exposed via Symfony's `server:*` commands) is only able to handle one request at a time (including JS/CSS/* asset loading, etc.).
 - Use a recent version of nginx, set up https, and enable http/2 to reduce connection latency on parallel requests.
 
 ### PHP
