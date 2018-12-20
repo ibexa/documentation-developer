@@ -113,6 +113,8 @@ See [Simplified Filtered search](https://doc.ezplatform.com/projects/userguide/e
 
 In eZ Platform you can now set a number of items displayed in the table using sub-items from your User Settings.
 
+![Setting for subitems limit in user preferences](img/2.4_subitems_limit_pref.png)
+
 ### Policy labels update
 
 The outdated Policy labels are now updated:
