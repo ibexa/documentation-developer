@@ -403,19 +403,19 @@ This limit is enforced on publishing a new version and only covers archived vers
 
 #### Removing old versions
 
-You can use the `ezplatform:content:cleanup-archived` command to remove old content versions.
+You can use the `ezplatform:content:cleanup-versions` command to remove old content versions.
 
 The command takes the following optional parameters:
 
-- `status` or `t` - status of versions to remove: `draft`, `published`, `archived` or `all`
-- `keep` or `k` - numer of versions to keep
-- `user` or `u` - the User that the command will be performed as. The User must have the `content/remove`, `content/read` and `content/versionread` Policies.
+- `status` or `t` - status of versions to remove: `draft`, `archived` or `all`
+- `keep` or `k` - number of versions to keep
+- `user` or `u` - the User that the command will be performed as. The User must have the `content/remove`, `content/read` and `content/versionread` Policies. By default the `administrator` user is applied.
 
-`ezplatform:content:cleanup-archived -status <status name> -keep <number of versions> -user <user name>`
+`ezplatform:content:cleanup-versions --status <status name> --keep <number of versions> --user <user name>`
 
 For example, the following command removes archived versions as user `admin`, but leaves the 5 most recent versions:
 
-`ezplatform:content:cleanup-archived -status archived -keep 5 -user admin`
+`ezplatform:content:cleanup-versions --status archived --keep 5 --user administrator`
 
 ### User identifiers
 
