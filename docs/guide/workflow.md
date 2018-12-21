@@ -101,7 +101,7 @@ Use the `workflow/change_stage` Policy to grant a User permission to change stag
 
 This Policy can be limited with the [`WorkflowTransitionLimitation`](limitations.md#workflowtransitionlimitation) to only allow sending content in the allowed transition.
 
-For example, using the example above, a `workflow/change_stage` Policy with `WorkflowTransitionLimitation` set to `to_proofread`
+For example, using the example above, a `workflow/change_stage` Policy with `WorkflowTransitionLimitation` set to `To Proofreading`
 will allow the Technical team to send content to proofreading after they are done with technical review.
 
 You can also use the [`WorkflowStageLimitation`](limitations.md#workflowstagelimitation) together with the `content/edit` and `content/publish` Policy to limit the ability to edit content in specific stages.
