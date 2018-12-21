@@ -225,10 +225,10 @@ theme_dir: material
 
 extra:
   version_warning:
-    latest: ['2.3']
+    latest: ['2.4']
     previous_lts: ['1.7']
     lts: ['1.13']
-    ft: ['2.2']
+    ft: ['2.2', '2.3']
     dev: ['master']
   append_bootstrap:
     - '/guidelines/'
