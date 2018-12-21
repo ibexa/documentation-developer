@@ -388,3 +388,33 @@ A Limitation to specify that only Users with at least one common *direct* User G
 |Value|UI value|Description|
 |------|------|------|
 |`1`|"self"|Only a User who has at least one common *direct* User Group with the owner gets access|
+
+### WorkflowStageLimitation
+
+A Limitation to specify if the User can edit content in a specific workflow stage.
+
+|                 |                                                                                                |
+|-----------------|------------------------------------------------------------------------------------------------|
+| Identifier      | `WorkflowStage`                                                                                |
+| Value Class     | `API\Repository\Value\Limitation\WorkflowStageLimitation.php`                                  |
+| Type Class      | `Core\Security\Limitation\WorkflowStageLimitationType.php`                                     |
+| Role Limitation | no |
+
+#### Possible values
+
+The Limitation takes as values stages configured for the workflow.
+
+### WorkflowTransitionLimitation
+
+A Limitation to specify if the User can move the content in a workflow through a specific transition.
+
+|                 |                                                                                                |
+|-----------------|------------------------------------------------------------------------------------------------|
+| Identifier      | `WorkflowTransition`                                                                           |
+| Value Class     | `API\Repository\Value\Limitation\WorkflowTransitionLimitation.php`                             |
+| Type Class      | `Core\Security\Limitation\WorkflowTransitionLimitationType.php`                                |
+| Role Limitation | no |
+
+#### Possible values
+
+The Limitation takes as values transitions between stages configured for the workflow.
