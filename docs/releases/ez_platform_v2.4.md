@@ -2,27 +2,27 @@
 
 **Version number**: v2.4
 
-**Release date**:
+**Release date**: December 21, 2018
 
-**Release type**:
+**Release type**: Fast Track
 
 ## Notable changes
 
-### Editorial workflow
+!!! enterprise
 
-Editorial workflow enables you to pass content through a series of stages.
-Each step can be used to represent for example contributions and approval of different teams and editors.
+    ### Editorial workflow
 
-For example, an article can pass through draft, design and proofreading stages.
+    [Editorial Workflow](../guide/workflow.md) enables you to pass content through a series of stages.
 
-The workflow mechanism is permission-aware. You can control which users can edit content in which stages
-pass content through which transition.
+    Each step can be used to represent for example contributions and approval of different teams and editors.
+    For instance, an article can pass through draft, design and proofreading stages.
 
-![Workflow event timeline](img/2.4_workflow_events_timeline.png)
+    The workflow mechanism is [permission-aware](../guide/workflow.md#permissions).
+    You can limit access to content in different workflow stages, or the ability to pass content through specific transitions.
 
-Workflow Engine for eZ Platform EE is located in an [ezplatform-workflow bundle](https://github.com/ezsystems/ezplatform-workflow).
+    ![Workflow event timeline](img/2.4_workflow_events_timeline.png "Timeline of workflow stages a Content item has gone through")
 
-See [Editorial Workflow](../guide/workflow.md) for information on how to configure workflows.
+    Workflow Engine is located in the [ezplatform-workflow bundle](https://github.com/ezsystems/ezplatform-workflow).
 
 ### RichText
 
@@ -60,9 +60,10 @@ You can now use formatted text in RichText Fields (provided by means of a `liter
 
 The new `embed-inline` built-in view type enables embedding Content items within a block element in RichText.
 
-#### Custom tag - ezcontent
+#### Custom tag - `ezcontent`
 
-The ezcontent property is now editable in the UI and can be used to store the output/preview of a custom tag. To learn how it works see [FactBox tag](../guide/extending_online_editor/#factbox-tag).
+The `ezcontent` property is now editable in the UI and can be used to store the output/preview of a custom tag.
+To learn how it works, see [FactBox tag](../guide/extending_online_editor/#factbox-tag).
 
 ### Content Type translation
 
@@ -71,7 +72,7 @@ You can now translate Content Type names and Field definitions.
 This possibility is available automatically when you have the target language configured
 (in the same way as for translating content, see [Internationatlization](../guide/internationalization.md)).
 
-![Content type with existing translations](img/2.4_content_type_translations.png)
+![Content type with existing translations](img/2.4_content_type_translations.png "Available translation of a Content Type")
 
 When you translate Content of this type, the Content Type information will be displayed in the new language.
 
@@ -83,17 +84,19 @@ New multi-file content management functionalities enable you to move and delete 
 
 See [Multi-file content management](https://doc.ezplatform.com/projects/userguide/en/latest/multi_file_content_management/) for more information.
 
-### Forms
+!!! enterprise
 
-#### Create form on the fly
+    ### Forms
 
-You can now create Forms on the fly from the Universal Discovery Widget.
+    #### Create form on the fly
 
-![Creating a Form on the Fly](img/2.4_form_on_the_fly.png)
+    You can now create Forms on the fly from the Universal Discovery Widget.
 
-#### Embedding forms in Pages
+    ![Creating a Form on the Fly](img/2.4_form_on_the_fly.png)
 
-You can use the new Form block to embed an existing form on a Page.
+    #### Embedding forms in Pages
+
+    You can use the new Form block to embed an existing form on a Page.
 
 ### Draft list
 
@@ -111,7 +114,7 @@ See [Simplified Filtered search](https://doc.ezplatform.com/projects/userguide/e
 
 ### Sub-items limit
 
-In eZ Platform you can now set a number of items displayed in the table using sub-items from your User Settings.
+You can now set a number of items displayed in the table using sub-items from your User Settings.
 
 ![Setting for subitems limit in user preferences](img/2.4_subitems_limit_pref.png)
 
@@ -142,7 +145,7 @@ This release introduces a few simplifications to API use for Content Types:
 
 #### Load multiple Locations
 
-You are now able to load multiple Locations at once. Biggest benefit of this feature is saving up-to several seconds of load time on complex landing pages when HTTPCache is cold or disabled.  
+You are now able to load multiple Locations at once. The biggest benefit of this feature is saving up to several seconds of load time on complex landing pages when HTTP cache is cold or disabled.  
 
 ### BC breaks and important behavior changes
 
