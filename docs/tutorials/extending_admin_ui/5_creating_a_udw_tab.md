@@ -58,7 +58,7 @@ const handleRequestResponse = response => {
     return response.json();
 };
 
-export const getImages = (callback) => {
+export const getImages = ({token, siteaccess, contentId}, callback) => {
     const body = JSON.stringify({
         ViewInput: {
             identifier: 'images',
@@ -75,7 +75,9 @@ export const getImages = (callback) => {
         method: 'POST',
         headers: {
             'Accept': 'application/vnd.ez.api.View+json; version=1.1',
-            'Content-Type': 'application/vnd.ez.api.ViewInput+json; version=1.1'
+            'Content-Type': 'application/vnd.ez.api.ViewInput+json; version=1.1',
+            'X-Siteaccess': siteaccess,
+            'X-CSRF-Token': token,
         },
         body,
         mode: 'cors',
@@ -87,7 +89,7 @@ export const getImages = (callback) => {
         .catch(error => console.log('error:load:images', error));
 };
 
-export const loadImageContent = (contentId, callback) => {
+export const loadImageContent = ({token, siteaccess, contentId}, callback) => {
     const body = JSON.stringify({
         ViewInput: {
             identifier: `image-content-${contentId}`,
@@ -104,7 +106,9 @@ export const loadImageContent = (contentId, callback) => {
         method: 'POST',
         headers: {
             'Accept': 'application/vnd.ez.api.View+json; version=1.1',
-            'Content-Type': 'application/vnd.ez.api.ViewInput+json; version=1.1'
+            'Content-Type': 'application/vnd.ez.api.ViewInput+json; version=1.1',
+            'X-Siteaccess': siteaccess,
+            'X-CSRF-Token': token,
         },
         body,
         mode: 'cors',
@@ -124,7 +128,7 @@ import React from 'react';
 import ImagesList from './images.list';
 
 const ImagesPanel = (props) => {
-    const wrapperAttrs = { className: 'c-images-panel' };
+    const wrapperAttrs = {className: 'c-images-panel'};
 
     if (!props.isVisible) {
         wrapperAttrs.hidden = true;
@@ -165,7 +169,7 @@ class ImagesList extends Component {
     }
 
     componentDidMount() {
-        getImages(this.updateImagesState);
+        getImages(this.props.restInfo, this.updateImagesState);
     }
 
     updateImagesState(response) {
@@ -200,7 +204,7 @@ class ImagesList extends Component {
         return (
             <div className="c-images-list__items-wrapper">
                 <div {...attrs}>
-                    {this.state.images.map(imageLocation => <Image key={imageLocation.id} location={imageLocation} />)}
+                    {this.state.images.map(imageLocation => <Image key={imageLocation.id} location={imageLocation} restInfo={this.props.restInfo}/>)}
                 </div>
             </div>
         );
@@ -276,7 +280,7 @@ class Image extends Component {
     }
 
     componentDidMount() {
-        loadImageContent(this.props.location.ContentInfo.Content._id, this.updateVersionInfoState);
+        loadImageContent({ ...this.props.restInfo, contentId: this.props.location.ContentInfo.Content._id}, this.updateVersionInfoState);
     }
 
     updateVersionInfoState(response) {
