@@ -436,10 +436,10 @@ Place the compiled files in `src/EzSystems/ExtendingTutorialBundle/Resources/pub
     If you are not familiar with compiling React modules, you can use the following steps:
 
     1. Copy the `webpack.*.js` files from `vendor/ezsystems/ezplatform-page-builder/src/bundle/ui-dev`.
-    1. Copy the `package.json` file from the same folder to your project.
-    1. Change values in the `entry` property in `webpack.*.js` to point to correct non-compiled files (also define your own module name, like `MyCustom` instead of `PageBuilder` or `Timeline`).
+    1. Copy the `package.json` and `.babelrc` files from the same folder to your project.
+    1. Change values in the `entry` property in `webpack.*.js` to `./src/images.panel.js`, also define module name `ImagesPanel` instead of `PageBuilder` or `Timeline`.
     1. In the terminal, run `npm install`.
-    1. Next, run `npm build`.
+    1. Next, run `npm run build`.
     1. Include compiled files in the YAML config, where you can inject the file into any predefined placeholder in the `layout.html.twig` file.
 
 ## Add configuration
