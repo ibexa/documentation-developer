@@ -612,9 +612,9 @@ based on your decision.
     In case of complex Content, for instance Landing Pages with many blocks, you might get into trouble with too long response `xkey` header. Because of this, necessary cache entries may not be tagged properly. You will also see `502 Headers too long` errors.
     If this is the case, customize the following runtime settings on your Varnish instance(s):
 
-    - [http_resp_hdr_len](https://varnish-cache.org/docs/5.1/reference/varnishd.html#http-resp-hdr-len) (e.g. 64k)
-    - [http_req_hdr_len](https://varnish-cache.org/docs/5.1/reference/varnishd.html#http-max-hdr) (e.g. 64k)
-    - [http_resp_size](https://varnish-cache.org/docs/5.1/reference/varnishd.html#http-resp-size) (e.g. 128)
+    - [http_resp_hdr_len](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-resp-hdr-len) (e.g. 32k)
+    - [http_max_hdr](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-max-hdr) (e.g. 128)
+    - [http_resp_size](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-resp-size) (e.g. 64k)
 
     If you need to see these long headers in the `varnishlog` adapt the [vsl_reclen](https://varnish-cache.org/docs/5.1/reference/varnishd.html#vsl-reclen) setting.
 
