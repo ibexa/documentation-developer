@@ -148,6 +148,23 @@ Additional Policies are needed for each section of the Admin.
 
 Users are treated like other Content, so to create and modify them the User needs to have the same permissions as for managing other Content items.
 
+!!! enterprise
+
+    #### Editorial workflows
+
+    You can control which stages in an editorial workflow the user can work with.
+
+    Do this by adding the `WorkflowStageLimitation` to `content` Policies such as `content/edit` or `content/publish`.
+
+    You can also control which transitions the user can pass content through.
+    Do this by using the `workflow/change_stage` Policy together with the `WorkflowTransitionLimitation`.
+
+    For example, to enable the user to edit only content in the "Design" stage
+    and to pass it after creating design to the "Proofread stage", use following permissions:
+
+    - `content/edit` with `WorkflowStageLimitation` set to "Design".
+    - `workflow/change_stage` with `WorkflowTransitionLimitation` set to `to_proofreading`
+
 ## Available Policies
 
 | Module        | Function             | Effect                                                                                                                                  |
@@ -194,6 +211,7 @@ Users are treated like other Content, so to create and modify them the User need
 |               | `register`           | register using the `/register` route                                                                                                    |
 |               | `selfedit`           | unused                                                                                                                                  |
 |               | `activation`         | unused                                                                                                                                  |
+| `workflow`    | `change_stage`       | change stage in the specified workflow                                                                                                  |
 
 ## Permissions for custom controllers
 
