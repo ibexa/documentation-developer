@@ -1,19 +1,41 @@
 # Install eZ Enterprise
 
+_This page describes extra information for installation of eZ's commercial software (e.g. eZ Platform Enterprise and eZ Commerce), to gain access to commercial packages as well as security releases made avaiable via [updates.ez.no](https://updates.ez.no)._
+
 !!! enterprise
 
     To install eZ Enterprise, follow the procedure described in [Install eZ Platform](install_ez_platform.md).
     Because you do not have access to the Enterprise GitHub repositories,
-    you need to [download an archive](install_ez_platform.md#a-download-ez-platform) from the Support Portal.
+    you need to [download an archive](install_ez_platform.md#a-download-ez-platform) from the Support Portal, or follow instructions below in order to use `composer create-project`.
 
-    There are a few special steps you need to take when installing eZ Enterprise:
+    To get started there are two things we need to keep in mind when dealing with software from updates.ez.no, "channels" and "authentication":
+    
+    ## Check that you have the right updates.ez.no channel(s)
 
+    The channels available are the following:
+    - Trial _(limited access to try for up to 120 days)_:
+        - [ttl](https://updates.ez.no/ttl/) eZ Platform Enterprise Trail packages
+        - [ttl_com](https://updates.ez.no/ttl_com/) eZ Commerce Trail packages
+        - [ttl_com_adv](https://updates.ez.no/ttl_com_adv/) eZ Commerce Advanced Trail packages
+    - Subscription _(full access to use with corresponding subscription)_:
+        - [bul](https://updates.ez.no/bul/) available with a eZ Platform Enterprise subscription
+        - [bul_com](https://updates.ez.no/bul_com/) available with a eZ Commerce subscription
+        - [bul_com_adv](https://updates.ez.no/bul_com_adv/) available with a eZ Commerce Advanced subscription
+    
+    _Once you have setup authentication below, the links above gives you access to see packages and releases available._
+    
+    !!! note "Moving from Trail"
+
+        In case you started off on a trail install you should adjust the channel(s) you use in order to get software under [BUL license instead of a TTL license](https://ez.no/About-our-Software/Licenses-and-agreements/). This is done by edititng `composer.json` in your project root and changing url defined in `repositories` section to point to `bul*` urls listed above.
+        Once that is done you can execute `composer update` to get packages with the right license.
+    
+    
     ## Setting up authentication tokens for eZ Enterprise
 
     eZ Enterprise subscribers have access to commercial packages at [updates.ez.no/bul/](https://updates.ez.no/bul/).
     The site is password-protected. You will need to set up authentication tokens to get access to it.
 
-    Log in to your service portal on [support.ez.no](https://support.ez.no) and look for the following on the *"Maintenance and Support agreement details"* screen:
+    Log in to your service portal on [support.ez.no](https://support.ez.no), go to your "Service Portal", and look for the following on the *"Maintenance and Support agreement details"* screen:
 
     ![Authentication token](img/Using_Composer_Auth_token.png)
 
@@ -63,7 +85,7 @@
         This can be done in the following way:
 
         ``` bash
-        COMPOSER_AUTH='{"http-basic":{"updates.ez.no":{"username":"<installation-key>","password":"<token-password>"}}}' composer create-project --keep-vcs ezsystems/ezplatform-ee my-new-ee-project
+        COMPOSER_AUTH='{"http-basic":{"updates.ez.no":{"username":"<installation-key>","password":"<token-password>"}}}' composer create-project --repository=https://updates.ez.no/bul/ --keep-vcs ezsystems/ezplatform-ee my-new-ee-project
         ```
 
     ## Enable Date-based Publisher
