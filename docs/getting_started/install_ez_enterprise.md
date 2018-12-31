@@ -14,7 +14,7 @@ They are available via [updates.ez.no](https://updates.ez.no).
 
     ## Select correct updates.ez.no channel(s)
 
-    There are two available channels:
+    The following channels are available:
 
     - Trial (limited access to try for up to 120 days):
         - [ttl](https://updates.ez.no/ttl/) eZ Platform Enterprise Trial packages
