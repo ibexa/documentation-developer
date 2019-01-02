@@ -65,7 +65,7 @@ They are available via [updates.ez.no](https://updates.ez.no).
 
     After this, when running Composer to get updates, you will be asked for a username and password. Use:
 
-    - as username – your Installation key found on the *Maintenance and Support agreement details* page in the service portal
+    - as username – your Installation key found on the **Maintenance and Support agreement details** page in the service portal
     - as password – the token password you retrieved in step 3.
 
     !!! note "Authentication token validation delay"
