@@ -11,7 +11,7 @@ For this, internal keys need to follow the format `<namespace>.<scope>.<paramet
 `namespace`is specific to your app or bundle, `scope`is the SiteAccess, SiteAccess group, `default` or `global`,
 and `parameter_name`is the actual setting *identifier*.
 
-For more information on ConfigResolver, namespaces and scopes, see [eZ Platform configuration basics](../guide/siteaccess.md#configuration).
+For more information on ConfigResolver, namespaces and scopes, see [eZ Platform configuration basics](../guide/configuration.md).
 
 The goal of this feature is to make it easy to implement a SiteAccess-aware semantic configuration and its mapping to internal config for any eZ Platform bundle developer.
 

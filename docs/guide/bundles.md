@@ -18,8 +18,6 @@ By default, a clean eZ Platform installation also contains an AppBundle where yo
 You can see a list of other available community-developed bundles on <https://ezplatform.com/Bundles>.
 Refer to their respective pages for instructions on how to install them.
 
-To learn more about organizing your eZ Platform project, see [Best Practices](best_practices.md).
-
 ### How to create bundles?
 
 You can generate a new bundle using a `generate:bundle` command. See [Symfony documentation on generating bundles](http://symfony.com/doc/current/bundles/SensioGeneratorBundle/commands/generate_bundle.html).

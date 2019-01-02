@@ -42,14 +42,14 @@ Content-Type: application/vnd.ez.api.ContentInfo+xml
 
 ###### HTTP Code
 
-The API responded here with a standard `200 OK` HTTP response code, which is the expected response code for a "normal" GET request. Some GET requests, like [getting a Content item's current version](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#13241%C2%A0%C2%A0%C2%A0get-current-version), may reply with a `301 Moved permanently`, or `307 Temporary redirect` code.
+The API responded here with a standard `200 OK` HTTP response code, which is the expected response code for a "normal" GET request. Some GET requests, like [getting a Content item's current version](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#get-current-version), may reply with a `301 Moved permanently`, or `307 Temporary redirect` code.
 
 Errors are indicated with HTTP error codes, like `404 Not Found`, or `500 Internal Server Error`. The [REST specifications](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst) provide the list of every HTTP response code you can expect from implemented resources.
 
 ###### Content-Type header
 
 As long as a response contains an actual HTTP body, the Content Type header will be used to specify which Content Type is contained in the response. In that case:
-- a ContentInfo: `Content-Type: application/vnd.ez.api.ContentInfo` 
+- a ContentInfo: `Content-Type: application/vnd.ez.api.ContentInfo`
 - a ContentInfo in XML format: `Content-Type: application/vnd.ez.api.ContentInfo+xml`
 
 ###### Accept-Patch header
@@ -67,16 +67,16 @@ REST will use the `Accept-Patch` header to indicate how to **modify** the return
 ###### Location header
 
 Depending on the resource, request and response headers will vary. For instance:
- - [creating Content](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#13231%C2%A0%C2%A0%C2%A0creating-content), or 
- - [getting a Content item's current version](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#13241%C2%A0%C2%A0%C2%A0get-current-version) 
- 
+ - [creating Content](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#creating-content), or
+ - [getting a Content item's current version](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#get-current-version)
+
  will both send a **Location header** to provide you with the requested resource's ID.
 
 Those particular headers generally match a specific list of HTTP response codes. Location is sent by `201 Created`, `301 Moved permanently`, `307 Temporary redirect responses`, etc. You can expect those HTTP responses to provide you with a Location header.
 
 ###### Destination header
 
-This request header is the request counterpart of the Location response header. It is used in a COPY / MOVE operation, like [copying a Content item](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#13236%C2%A0%C2%A0%C2%A0copy-content), on a resource to indicate where the resource should be moved to, using the ID of the destination.
+This request header is the request counterpart of the Location response header. It is used in a COPY / MOVE operation, like [copying a Content item](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#copy-content), on a resource to indicate where the resource should be moved to, using the ID of the destination.
 
 #### Response body
 
@@ -136,7 +136,7 @@ Accept: application/vnd.ez.api.RelationList+xml
 
 **Working with value objects IDs**
 
-Resources that accept a reference to another resource expect reference to be given as a REST ID, not a Public API ID. For example, the URI requesting list of users assigned to the role with ID 1 is: 
+Resources that accept a reference to another resource expect reference to be given as a REST ID, not a Public API ID. For example, the URI requesting list of users assigned to the role with ID 1 is:
 
 `GET /api/ezp/v2/user/users?roleId=/api/ezp/v2/user/roles/1`
 
@@ -170,7 +170,7 @@ X-Siteaccess: ezdemo_site_admin
 
 ## REST API Authentication
 
-The REST API supports two authentication methods: 
+The REST API supports two authentication methods:
 
 -   **Session-based authentication** is meant to be used for AJAX operations. It will let you re-use the visitor's session to execute operations with their permissions.
 -   **Basic authentication** is often used when writing cross-server procedures, when one remote application executes operations on one/several eZ Platform instances (remote publishing, maintenance, etc).
@@ -257,7 +257,7 @@ Content-Type: application/vnd.ez.api.Session+xml
 
 `csrfToken` is returned in the login response. It is important to keep the CSRF Token for the duration of the session as it needs to be sent with requests other than GET/HEAD when auth is set to session (in most cases it is).
 
-More information can be found in [Session-based authentication chapter of the REST specifications](https://github.com/ezsystems/ezp-next/blob/master/doc/specifications/rest/REST-API-V2.rst#123%C2%A0%C2%A0%C2%A0session-based-authentication)
+More information can be found in [Session-based authentication chapter of the REST specifications](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#session-based-authentication)
 
 ### HTTP Basic authentication
 
@@ -310,7 +310,7 @@ Returned when the requested method has not yet been implemented. For eZ Platform
 
 #### 404 Not Found
 
-Returned when the request failed because the request object was not found. 
+Returned when the request failed because the request object was not found.
 
 #### 405 Method Not Allowed
 
@@ -385,5 +385,3 @@ See [the ISO-3166 glossary](http://www.iso.org/iso/home/standards/country_codes/
   ...
 </CountriesList>
 ```
-
- 
