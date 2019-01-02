@@ -38,11 +38,11 @@ They are available via [updates.ez.no](https://updates.ez.no).
     eZ Enterprise subscribers have access to commercial packages at [updates.ez.no/bul/](https://updates.ez.no/bul/).
     The site is password-protected. You will need to set up authentication tokens to get access to it.
 
-    Log in to your service portal on [support.ez.no](https://support.ez.no), go to your "Service Portal", and look for the following on the *"Maintenance and Support agreement details"* screen:
+    Log in to your service portal on [support.ez.no](https://support.ez.no), go to your **Service Portal**, and look for the following on the **Maintenance and Support agreement details** screen:
 
     ![Authentication token](img/Using_Composer_Auth_token.png)
 
-    1. Select "Create token" (this requires the "Portal administrator" access level).
+    1. Select **Create token** (this requires the **Portal administrator** access level).
     2. Fill in a label describing the use of the token. This will allow you to revoke access later.
     3. Save the password, **you will not get access to it again**!
 
@@ -65,7 +65,7 @@ They are available via [updates.ez.no](https://updates.ez.no).
 
     After this, when running Composer to get updates, you will be asked for a username and password. Use:
 
-    - as username – your Installation key found on the *"Maintenance and Support agreement details"* page in the service portal
+    - as username – your Installation key found on the *Maintenance and Support agreement details* page in the service portal
     - as password – the token password you retrieved in step 3.
 
     !!! note "Authentication token validation delay"
