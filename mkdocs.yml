@@ -73,6 +73,7 @@ pages:
         - 'Architecture': 'guide/architecture.md'
         - 'Bundles': 'guide/bundles.md'
         - 'Configuration': 'guide/configuration.md'
+        - 'Admin management': 'guide/admin_panel.md'
         - Content rendering:
             - 'Content model': 'guide/content_model.md'
             - 'Content rendering': 'guide/content_rendering.md'
