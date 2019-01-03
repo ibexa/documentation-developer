@@ -78,5 +78,5 @@ Clear all caches and reload, and that's it.
 
 ## Migrate your existing binary data to S3
 
-You can [migrate existing binary data](../guide/clustering.md#migration) to S3 using the `php app/console ezplatform:io:migrate-files` command
+You can [migrate existing binary data](../guide/clustering.md#migrating-to-a-cluster-setup) to S3 using the `php bin/console ezplatform:io:migrate-files` command
 which was added in [EZP-25946](https://jira.ez.no/browse/EZP-25946).

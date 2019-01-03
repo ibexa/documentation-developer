@@ -394,7 +394,7 @@ If you want to override a specific Field template only once (i.e. because your o
 
     **Using `_self` will only work if your current template is extending another one.**
 
-    This is basically the same limitation as for [Symfony form themes](http://symfony.com/doc/current/book/forms.html#global-form-theming).
+    This is basically the same limitation as for [Symfony form themes](https://symfony.com/doc/current/form/form_themes.html).
 
 ##### Global override
 

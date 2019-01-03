@@ -68,7 +68,7 @@ This is what individual keys in the configuration mean:
 - `article` and `blog_post` are the keys that start the configuration for one individual case of using a template. You can name these keys any way you want, and you can have as many of them as you need.
 - `template` names the template to be used in this case, including the folder it is stored in (starting from `app/Resources/views`).
 - `controller` defines the controller to be used in this case. Optional, if this key is absent, the default controller is used.
-- `match` defines the situation in which the template will be used. There are different criteria which can be used to "match" a template to a situation, for example a Content Type, a specific Location ID, Section, etc. You can view the full list of matchers here: [View provider configuration](content_rendering#view-provider-configuration). You can specify more than one matcher for any template; the matchers will be linked with an AND operator.
+- `match` defines the situation in which the template will be used. There are different criteria which can be used to "match" a template to a situation, for example a Content Type, a specific Location ID, Section, etc. You can view the full list of matchers here: [View provider configuration](content_rendering#configuring-views-the-viewprovider). You can specify more than one matcher for any template; the matchers will be linked with an AND operator.
 
 In the example above, three different templates are mentioned, two to be used in full view, and one in line view. Notice that two separate templates are defined for the "article" Content Type. They use the same matcher, but will be used in different situations – one when an Article is displayed in full view, and one in line view. Their templates are located in different folders. The line template will also make use of a custom controller, while the remaining cases will employ the default one.
 
@@ -76,7 +76,7 @@ In the example above, three different templates are mentioned, two to be used in
 
 Each Content item can be rendered differently, using different templates, depending on the type of view it is displayed in. The default, built-in views are **full** (used when the Content item is displayed by itself, as a full page), **line** (used when it is displayed as an item in the list, for example a listing of contents of a folder), and **embed** (used when one Content item is embedded in another). Other, custom view types can be created, but only these three have built-in controllers in the system.
 
-See [View provider configuration](content_rendering#view-provider-configuration) for more details.
+See [View provider configuration](content_rendering#configuring-views-the-viewprovider) for more details.
 
 ### Template file
 
@@ -106,7 +106,7 @@ Any further templates will extend and modify this one, so they need to start wit
 
 !!! note
 
-    Although using AppBundle is recommended, you could also place the template files directly in `<installation_folder>/app/Resources/views`. Then the files could be referenced in code without any prefix. See [Best Practices](best_practices.md) for more information.
+    Although using AppBundle is recommended, you could also place the template files directly in `<installation_folder>/app/Resources/views`. Then the files could be referenced in code without any prefix.
 
 !!! tip "Template paths"
 
@@ -187,7 +187,7 @@ Instead of linking to stylesheets or embedding images like usually, you can use 
 
 While it is possible to template a whole website using only Twig, a custom PHP controller gives many more options of customizing the behavior of the pages.
 
-See [Custom controllers](controllers.md#custom-controllers) for more information.
+See [Custom rendering logic](controllers.md#custom-rendering-logic) for more information.
 
 ## Rendering Content items
 
@@ -396,11 +396,11 @@ If you want to display a default text while a controller is loaded asynchronousl
 {{ render_hinclude(controller('EzCorporateDesignBundle:Header:userLinks'), {'default': "<div style='color:red'>loading</div>"}) }}
 ```
 
-See also: [Custom controllers](controllers.md#custom-controllers).
+See also: [Custom rendering logic](controllers.md#custom-rendering-logic).
 
 [hinclude.js](http://mnot.github.com/hinclude/) needs to be properly included in your layout to work.
 
-[Refer to Symfony documentation](http://symfony.com/doc/current/book/templating.html#asynchronous-content-with-hinclude-js) for all available options.
+[Refer to Symfony documentation](https://symfony.com/doc/current/templating/hinclude.html) for all available options.
 
 ### Rendering in preview
 
