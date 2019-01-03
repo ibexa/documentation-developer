@@ -22,7 +22,7 @@ php app/console --env=prod cache:clear -h
 
 For a [cluster](clustering.md) setup, the Content cache ([HTTP cache](http_cache.md) and [Persistence cache](persistence_cache.md)) must be set up to be shared among the servers. And while all relevant cache is cleared for you on Repository changes when using the APIs, there might be times where you'll need to clear cache manually: 
 
-- Varnish: [Cache purge](http_cache.md#cache-purge)
+- Varnish: [Cache purge](http_cache.md#cache-purging)
 - Persistence Cache: [Using Cache service](persistence_cache.md#using-cache-service)
 
 ## Web Debug Toolbar

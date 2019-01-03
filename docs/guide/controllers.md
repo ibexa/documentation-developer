@@ -419,7 +419,7 @@ The effect is exactly the same as when registering by convention.
 
 !!! tip "More information"
 
-    Follow the FieldType creation Tutorial and learn how to [Register the Field Type as a service](https://github.com/ezsystems/TweetFieldTypeBundle/blob/documentation/docs/register_the_fieldtype_as_a_service.md)
+    Follow the FieldType creation Tutorial and learn how to [Register the Field Type as a service](../tutorials/field_type/4_register_the_field_type_as_a_service.md).
 
 ### The OptionsResolverBasedQueryType abstract class
 

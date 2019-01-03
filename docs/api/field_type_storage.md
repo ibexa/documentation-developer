@@ -36,7 +36,7 @@ The registration of a `Converter` currently works through the `$config` paramete
 
 !!! note
 
-    For global service container integration, see [Register Field Type](#register-field-type).
+    For global service container integration, see [Register Field Type](field_type_registration.md).
 
 ## Gateway based Storage
 

@@ -296,8 +296,8 @@ By default the Symfony reverse proxy, written in PHP, is used to handle cache, b
 
 For Varnish to work properly with eZ, you'll need to use one of the provided files as a basis:
 
-- [Varnish 3 VCL example](https://github.com/ezsystems/ezplatform/blob/1.13/doc/varnish/vcl/varnish3.vcl)
-- [Varnish 4 VCL example](https://github.com/ezsystems/ezplatform/blob/1.13/doc/varnish/vcl/varnish4.vcl)
+- [Varnish 3 VCL example](https://github.com/ezsystems/ezplatform/blob/1.13/doc/varnish/vcl/varnish3_ban.vcl)
+- [Varnish 4 VCL example](https://github.com/ezsystems/ezplatform/blob/1.13/doc/varnish/vcl/varnish4_ban.vcl)
 - [Varnish 4 VCL xkey example](https://github.com/ezsystems/ezplatform/blob/1.13/doc/varnish/vcl/varnish4_xkey.vcl)
 
 !!! note

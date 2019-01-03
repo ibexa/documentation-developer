@@ -50,7 +50,7 @@ Notes:
 
 **Cache service**
 
-The cache system is exposed as a "cache" service, and can be reused by any other service as described in the [Using Cache service](repository.md#using-cache-service) section.
+The cache system is exposed as a "cache" service, and can be reused by any other service as described in the [Using Cache service](#using-cache-service) section.
 
 ### Configuration
 

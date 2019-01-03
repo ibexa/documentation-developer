@@ -16,7 +16,7 @@ Custom Field Types have to be programmed in PHP. However, the built-in Field Ty
 | Field Type | Description | Searchable in Legacy Storage engine | Searchable with Solr |
 |------------|-------------|-------------------------------------|----------------------|
 | [Author](#author-field-type) | Stores a list of authors, each consisting of author name and author email. | No | Yes |
-| [BinaryFile](#binaryfield-field-type) | Stores a file.| Yes | Yes |
+| [BinaryFile](#binaryfile-field-type) | Stores a file.| Yes | Yes |
 | [Checkbox](#checkbox-field-type) | Stores a boolean value. | Yes | Yes |
 | [Country](#country-field-type) | Stores country names as a string. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
 | [DateAndTime](#dateandtime-field-type) | Stores a full date including time information. | Yes | Yes |
@@ -159,7 +159,7 @@ Note that both `BinaryFile` and `Media` Value and Type inherit from the `BinaryB
 
 |Attribute|Type|Description|Example|
 |------|------|------|------|
-|`id`|string|Binary file identifier. This ID depends on the [IO Handler](../guide/clustering.md#binary-files-clustering) that is being used. With the native, default handlers (FileSystem and Legacy), the ID is the file path, relative to the binary file storage root dir (`var/<vardir>/storage/original` by default).|application/63cd472dd7.pdf|
+|`id`|string|Binary file identifier. This ID depends on the [IO Handler](../guide/clustering.md#dfs-io-handler) that is being used. With the native, default handlers (FileSystem and Legacy), the ID is the file path, relative to the binary file storage root dir (`var/<vardir>/storage/original` by default).|application/63cd472dd7.pdf|
 |`fileName`|string|The human-readable file name, as exposed to the outside. Used when sending the file for download in order to name the file.|20130116_whitepaper.pdf|
 |`fileSize`|int|File size, in bytes.|1077923|
 |`mimeType`|string|The file's MIME type.|application/pdf|
@@ -1444,7 +1444,7 @@ Note that both `Media` and `BinaryFile` Value and Type inherit from the `BinaryB
 
 |Property|Type|Description|Example|
 |------|------|------|------|
-|`id`|string|Media file identifier. This ID depends on the [IO Handler](../guide/clustering.md#binary-files-clustering) that is being used. With the native, default handlers (FileSystem and Legacy), the ID is the file path, relative to the binary file storage root dir (`var/<vardir>/storage/original` by default).|application/63cd472dd7819da7b75e8e2fee507c68.mp4|
+|`id`|string|Media file identifier. This ID depends on the [IO Handler](../guide/clustering.md#dfs-io-handler) that is being used. With the native, default handlers (FileSystem and Legacy), the ID is the file path, relative to the binary file storage root dir (`var/<vardir>/storage/original` by default).|application/63cd472dd7819da7b75e8e2fee507c68.mp4|
 |`fileName`|string|	The human-readable file name, as exposed to the outside. Used to name the file when sending it for download.|butterflies.mp4|
 |`fileSize`|int|File size, in bytes.|1077923|
 |`mimeType`|string|The file's MIME type.|video/mp4|

@@ -6,9 +6,9 @@ To be integrated in unit and integration tests, Field Types need to be registere
 
 ## Service container configuration
 
-To be able to declare a Field Type, you need to have [registered bundle in your application kernel](http://symfony.com/doc/master/book/page_creation.html#the-bundle-system).
+To be able to declare a Field Type, you need to have [registered bundle in your application kernel](https://symfony.com/doc/2.8/bundles.html).
 
-This bundle needs to expose some configuration for the service container somehow (read [related Symfony documentation](http://symfony.com/doc/master/book/service_container.html#importing-other-container-configuration-resources))
+This bundle needs to expose some configuration for the service container somehow (read [related Symfony documentation](https://symfony.com/doc/master/service_container/import.html))
 
 ## Basic configuration
 
@@ -89,7 +89,7 @@ services:
         class: %ezpublish.fieldType.ezurl.externalStorage.class%
         arguments:
             - "@ezpublish.fieldType.ezurl.storage_gateway"
-        tags: 
+        tags:
             - {name: ezpublish.fieldType.externalStorageHandler, alias: ezurl}
 ```
 
