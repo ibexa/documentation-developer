@@ -12,7 +12,7 @@ A Policy with a Limitation will only apply when the condition in the Limitation 
 For example, a `content/publish` Policy with a `ContentType` Limitation on the "Blog Post" Content Type will allow the User to publish only Blog Posts, and not other Content.
 
 Note that Policies on one Role are connected with the *and* relation, not *or*,
-so when Policy has more than one Limitation, all of them have to apply. See [example below](#restrict-editing-to-part-of-the-tree).
+so when Policy has more than one Limitation, all of them have to apply. See [example from Administration Management](admin_panel.md#restrict-editing-to-part-of-the-tree).
 
 Remember that a Limitation specifies what a User *can* do, not what they *can't do*.
 A `Section` Limitation, for example, *gives* the User access to the selected Section, not *prohibits* it.
