@@ -2,7 +2,7 @@
 
 ## Handling binary files
 
-eZ Platform supports multiple binary file handling mechanisms by means of an `IOHandler` interface. This feature is used by the [BinaryFile](../api/field_type_reference.md#binaryfield-field-type), [Media](../api/field_type_reference.md#media-field-type) and [Image](../api/field_type_reference.md#image-field-type) Field Types.
+eZ Platform supports multiple binary file handling mechanisms by means of an `IOHandler` interface. This feature is used by the [BinaryFile](../api/field_type_reference.md#binaryfile-field-type), [Media](../api/field_type_reference.md#media-field-type) and [Image](../api/field_type_reference.md#image-field-type) Field Types.
 
 ### Native IO handler
 
@@ -98,7 +98,7 @@ It also accepts optional query parameters:
 - `version`: the version number that the file must be downloaded for. Requires the `versionread` permission. If not specified, the published version is used.
 - `inLanguage`: The language the file should be downloaded in. If not specified, the most prioritized language for the SiteAccess will be used.
 
-The [ez\_render\_field](content_rendering#ez_render_field) Twig helper will by default generate a working link.
+The [ez\_render\_field](twig_functions_reference.md#ez_render_field) Twig helper will by default generate a working link.
 
 ### REST API: `uri` property
 
@@ -120,7 +120,7 @@ ezpublish:
                 url_prefix: "$var_dir$/$storage_dir$"
 ```
 
-`$var_dir$` and `$storage_dir$` are dynamic, [SiteAccess-aware settings](siteaccess.md#dynamic-settings-injection), and will be replaced by their values in the execution context.
+`$var_dir$` and `$storage_dir$` are dynamic, [SiteAccess-aware settings](configuration.md#dynamic-settings-injection), and will be replaced by their values in the execution context.
 
 ### Using a static server for images
 

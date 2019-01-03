@@ -30,8 +30,8 @@ We aim to follow the [latest](http://trac.tools.ietf.org/wg/httpbis/trac/wiki#HT
     - Should use an ID generated with enough randomness to prevent prediction or brute-force attacks
 - **Cookies (especially session cookies)**
     - Should never store sensitive data in cookies (only exception is session ID in session cookie)
-    - Should always set *Full domain* to avoid [cross-subdomain cooking](http://en.wikipedia.org/wiki/Session_fixation#Attacks_using_cross-subdomain_cooking) when on shared domain.
-    - Should set *HttpOnly* flag to reduce risk of attacks such as [cross-site cooking](http://en.wikipedia.org/wiki/Session_fixation#Attacks_using_cross-site_cooking) and [cross-site scripting](http://en.wikipedia.org/wiki/Cross-site_scripting "Cross-site scripting")
+    - Should always set *Full domain* to avoid [cross-subdomain cooking](https://en.wikipedia.org/wiki/Session_fixation#Attacks_using_cross-subdomain_cookie) when on shared domain.
+    - Should set *HttpOnly* flag to reduce risk of attacks such as [cross-site cooking](https://en.wikipedia.org/wiki/Cross-site_cooking) and [cross-site scripting](http://en.wikipedia.org/wiki/Cross-site_scripting "Cross-site scripting")
     - Should set *Secure flag* if HTTPS is used (as recommended above)
     - Must never exceed 4kB
 - **Headers**
