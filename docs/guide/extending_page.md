@@ -188,7 +188,7 @@
 
     ## Block templates
 
-    All Page blocks, both those that come out of the box and [custom ones](page_rendering.md#page-blocks.md), can have multiple templates. This allows you to create different styles for each block and let the editor choose them when adding the block from the UI. The templates are defined in your configuration files like in the following example, with `simplelist` and `special` being the template names:
+    All Page blocks, both those that come out of the box and custom ones, can have multiple templates. This allows you to create different styles for each block and let the editor choose them when adding the block from the UI. The templates are defined in your configuration files like in the following example, with `simplelist` and `special` being the template names:
 
     ``` yaml
     # app/config/block_templates.yml

@@ -10,7 +10,7 @@ LiipImagineBundle only works on image blobs (no command line tool is needed). Se
 
 ## Configuring image variations
 
-Custom image variations are defined in `ezplatform.yml` or any imported semantic configuration file. The definition is [dynamic](siteaccess.md#configuration), so it can be configured per SiteAccess and all the other scopes.
+Custom image variations are defined in `ezplatform.yml` or any imported semantic configuration file. The definition is [dynamic](configuration.md#dynamic-configuration-with-the-configresolver), so it can be configured per SiteAccess and all the other scopes.
 
 ``` yaml
 # Example image variation definition
@@ -304,7 +304,7 @@ interface PlaceholderProvider
 
 ### Semantic configuration
 
-Placeholder generation can be configured for each [`binary_handler`](/file_management/#handling-binary-files) under the `ezpublish.image_placeholder` key:
+Placeholder generation can be configured for each [`binary_handler`](file_management/#handling-binary-files) under the `ezpublish.image_placeholder` key:
 
 ```yaml
 ezpublish:
@@ -315,7 +315,7 @@ ezpublish:
             options:  <CONFIGURATION>
 ```
 
-If there is no configuration assigned to [`binary_handler`](/file_management/#handling-binary-files) name, the placeholder generation will be disabled.
+If there is no configuration assigned to [`binary_handler`](file_management/#handling-binary-files) name, the placeholder generation will be disabled.
 
 ##### Configuration examples:
 

@@ -50,11 +50,11 @@ Notes:
 
 **Cache service**
 
-The cache system is exposed as a "cache" service, and can be reused by any other service as described in the [Using Cache service](repository.md#using-cache-service) section.
+The cache system is exposed as a "cache" service, and can be reused by any other service as described in the [Using Cache service](#using-cache-service) section.
 
 ### Configuration
 
-By default, configuration currently uses **FileSystem** to store cache files, which is defined in [`default_parameters.yml`](https://github.com/ezsystems/ezplatform/blob/2.0/app/config/default_parameters.yml#L22).
+By default, configuration currently uses **FileSystem** to store cache files, which is defined in [`default_parameters.yml`](https://github.com/ezsystems/ezplatform/blob/master/app/config/default_parameters.yml#L34).
 You can select a different cache backend and configure it's parameters in the relevant file in the `cache_pool` folder.
 
 #### Multi Repository setup

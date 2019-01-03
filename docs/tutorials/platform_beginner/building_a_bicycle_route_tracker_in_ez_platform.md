@@ -31,7 +31,7 @@ In this tutorial you will go through the following steps:
 - [1. Get ready](1_get_ready.md)
 - [2. Create the content model](2_create_the_content_model.md)
 - [3. Customize the front page](3_customize_the_front_page.md)
-- [4. Display a list of content](4_display_a_list_of_content.md)
+- [4. Display a list of content items](4_display_a_list_of_content_items.md)
 - [5. Improve configuration](5_improve_configuration.md)
 - [6. Embed content](6_embed_content.md)
 - [7. Enable account registration](7_enable_account_registration.md)

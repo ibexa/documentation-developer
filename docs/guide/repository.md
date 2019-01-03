@@ -152,7 +152,7 @@ By default, eZ Platform contains one Object state group: "Lock", with states "Lo
 
 !["Lock" Object state](img/object_state_lock.png)
 
-Object states can be used in conjunction with permissions, in particular with the [ObjectStateLimitation](permissions.md#objectstatelimitation).
+Object states can be used in conjunction with permissions, in particular with the [ObjectStateLimitation](limitations.md#objectstatelimitation).
 Their specific use cases depend on your needs and the setup of your permission system.
 
 ## Services: Public API
