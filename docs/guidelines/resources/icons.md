@@ -42,7 +42,7 @@ code_example]]
 </div>
 
 !!! note
-    We have used here a button as an example. If you want to dig more into buttons check [Buttons](components/buttons.md) component.
+    We have used here a button as an example. If you want to dig more into buttons check [Buttons](../components/buttons.md) component.
 
 ###<div class="mgt-2">Colored icons - secondary</div>
 <div class="mgt-minus-3 mgb-5">Add class `ez-icon--secondary` to modify the color fill of an icon to the Sass variable defined for secondary color, `$ez-color-secondary`.</div>

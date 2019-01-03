@@ -198,7 +198,7 @@ By default the Symfony reverse proxy, written in PHP, is used to handle cache, b
 
 For Varnish to work properly with eZ, you'll need to use one of the provided files as a basis:
 
-- [Varnish 4 VCL xkey example](https://github.com/ezsystems/ezplatform/blob/2.1/doc/varnish/vcl/varnish4_xkey.vcl)
+- [Varnish 4 VCL xkey example](https://github.com/ezsystems/ezplatform/blob/master/doc/varnish/vcl/varnish4_xkey.vcl)
 
 !!! note
 
@@ -431,7 +431,7 @@ eZ Platform already interferes with the hash generation process by adding the cu
 
 !!! tip
 
-    [Examples of user hash generation](https://github.com/ezsystems/ezplatform/tree/2.1/doc/varnish/vcl)
+    [Examples of user hash generation](https://github.com/ezsystems/ezplatform/tree/master/doc/varnish/vcl)
 
 ##### New anonymous `X-User-Hash`
 

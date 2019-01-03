@@ -58,7 +58,7 @@ git rebase origin/<branch name>
 
 ### Contributing outside git and GitHub
 
-- **Create a JIRA issue.** You can also report any omissions or inaccuracies you find by creating a JIRA issue. See [Report and follow issues](#report-and-follow-issues) on how to do this. Remember to add the "Documentation" component to your issue to make sure we don't lose track of it
+- **Create a JIRA issue.** You can also report any omissions or inaccuracies you find by creating a JIRA issue. See [Report and follow issues](report_follow_issues.md) on how to do this. Remember to add the "Documentation" component to your issue to make sure we don't lose track of it
 - **Visit Slack.** The `\#documentation-contrib` channel on [eZ Community Slack team](http://ez-community-on-slack.herokuapp.com) is the place to drop your comments, suggestions, or proposals for things you'd like to see covered in documentation. (You can use the link to get an auto-invite to Slack)
 - **Contact the Doc Team.** If you'd like to add to any part of the documentation, you can also contact the Doc Team directly at <doc-team@ez.no>
 
@@ -112,7 +112,7 @@ This page is written in Markdown. View it on GitHub and select **Raw** in the up
 
 ## Style Guide
 
-*(see [above](#writing-guidelines-short-version) for a summary or writing guidelines)*
+*(see [above](#writing-guidelines) for a summary or writing guidelines)*
 
 ### Phrasing
 

@@ -39,7 +39,7 @@
                         name: Second zone
     ```
 
-    The following parameters need to be included in the settings of the [configuration](../guide/best_practices.md#configuration_1):
+    The following parameters need to be included in the settings of the configuration:
 
     |Parameter|Type|Description|Required|
     |------|------|------|------|
