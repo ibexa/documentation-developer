@@ -30,7 +30,7 @@ Here you can read more about [how configuration is handled in Symfony](http://sy
     To fully understand it, you need to be familiar with [Symfony's service container](service_container.md) and [its configuration](http://symfony.com/doc/current/book/service_container.html#service-parameters).
 
 Basic configuration handling in eZ Platform is similar to what is commonly possible with Symfony.
-You can define key/value pairs in [your configuration files](http://symfony.com/doc/current/book/service_container.html#importing-other-container-configuration-resources),
+You can define key/value pairs in [your configuration files](https://symfony.com/doc/current/service_container/import.html),
 under the main `parameters` key (see for example [parameters.yml](https://github.com/ezsystems/ezplatform/blob/master/app/config/parameters.yml.dist#L2)).
 
 Internally and by convention, keys follow a **dot syntax**, where the different segments follow your configuration hierarchy. Keys are usually prefixed by a *namespace* corresponding to your application. All kinds of values are accepted, including arrays and deep hashes.
@@ -58,7 +58,7 @@ $myParameter = $this->container->getParameter( 'myapp.parameter.name' );
 
 ## Dynamic configuration with the ConfigResolver
 
-In eZ Platform it is fairly common to have different settings depending on the current SiteAccess (e.g. languages, [view provider](content_rendering.md#view-provider-configuration) configuration).
+In eZ Platform it is fairly common to have different settings depending on the current SiteAccess (e.g. languages, [view provider](content_rendering.md#configuring-views-the-viewprovider) configuration).
 
 #### ConfigResolver Usage
 
@@ -533,6 +533,6 @@ The configuration related to other specific topics is described in:
 - [Image variations](images.md#configuring-image-variations)
 - [Multi-file upload](file_management.md#multi-file-upload)
 - [Logging and debug](devops.md#logging-and-debug-configuration)
-- [Authentication](security.md#configuration)
+- [Authentication](security.md#symfony-authentication)
 - [Sessions](sessions.md#configuration)
 - [Persistence cache](persistence_cache.md#configuration)

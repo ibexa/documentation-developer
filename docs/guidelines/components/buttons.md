@@ -72,14 +72,14 @@ code_example]]
 <button type="button" class="btn btn-primary">
     <svg class="ez-icon ez-icon--medium ez-icon--light ez-icon-create">
         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../ez-icons.svg#create"></use>
-    </svg> 
+    </svg>
     Create
 </button>
 code_example]]
 </div>
 
 !!! note
-    We have used here a colored icon `ez-icon--light` as an example. If you want to dig more into icons check [Icons](resources/icons.md) within Resources.
+    We have used here a colored icon `ez-icon--light` as an example. If you want to dig more into icons check [Icons](../resources/icons.md) within Resources.
 
 ##<div class="mgt-3 header-line">Buttons in menu bars</div>
 <div class="mgt-minus-3 mgb-4">When adding a new action button that is part of the menu bars, `ez-side-menu` and `ez-context-menu`, we use the following two options: buttons and links that look like buttons as well.</div>
