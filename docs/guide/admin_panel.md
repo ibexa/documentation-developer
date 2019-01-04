@@ -83,7 +83,7 @@ Model your content (types, sections, Locations etc.) in a way that can be access
 That way system will be more secure and easier to manage. 
 This approach also improves performance. Role assignments and Policies are taken into account during search/load queries.
 
-See [Permissions](permissions.md) for further information.
+See [Permissions overview](permissions.md) for further information.
 
 ### Use Cases
 
@@ -197,7 +197,7 @@ Additional Policies are needed for each section of the Admin.
 
 - `content/translations` to add and edit languages
 
-##### Content Types
+##### Content Types/action
 
 - `Content Type/create`, `Content Type/update`, `Content Type/delete` to add, modify and remove Content Types
 
@@ -222,7 +222,7 @@ Users are treated like other content, so to create and modify them the User need
 eZ Platform offers the ability to create multiple translations of your website.
 Which version is shown to a visitor depends on the way your installation is set up.
 A new language version for the website can be added in the Admin Panel in the Languages tab.
-Every new language must have a name and a language code, written in the xxx-XX format, for example eng-US etc.
+Every new language must have a name and a language code, written in the `xxx-XX` format, for example eng-US etc.
 
 The multilanguage system operates based on a global translation list that contains all languages available in the installation.
 After adding a language you may have to reload the application to be able to use it.
@@ -257,5 +257,5 @@ By default, eZ Platform contains one Object state group: **Lock**, with states *
 
 ![**Lock** Object state](img/object_state_lock.png)
 
-Object states can be used in conjunction with permissions, in particular with the [ObjectStateLimitation](permissions.md#objectstatelimitation).
+Object states can be used in conjunction with permissions, in particular with the [ObjectStateLimitation](limitations/#objectstatelimitation).
 Their specific use cases depend on your needs and the setup of your permission system.
