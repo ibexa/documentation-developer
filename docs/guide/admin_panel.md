@@ -1,7 +1,7 @@
 # Administration management
 
 Once you set up your environment you can start your work as an administrator.
-Your most useful tools can be found in **Admin Panel** and in drop-down menu under your user name.
+Your most useful tools can be found in **Admin Panel**.
 
 ## Systemn Information
 
@@ -29,7 +29,7 @@ Sections can only be removed if no Content items are assigned to them. Even then
 When a Section is deleted, it is only its definition itself that will be removed.
 Other references to the Section will remain and thus the system will most likely lose consistency.
 
-!!! warning
+!!! caution
 
     Removing Sections may corrupt permission settings, template output and other things in the system.
 
@@ -37,7 +37,24 @@ Section ID numbers are not recycled. If a Section is removed, its ID number will
 
 ![Sections screen](img/admin_panel_sections.png)
 
-## Roles and users
+
+## Users
+
+Users in eZ Platform are treated the same way as [Content Types](#content-types).
+They are organized in groups such as *Gusts*, *Editors*, *Anonymous*, which makes it easier to manage them and their permissions.
+All User Groups and Users can be accessed in the Admin panel by selecting Users.
+
+!!! caution
+
+    Be careful not to delete an existing User account. If you do this, content created by this User will be broken and the application can face malfunction.
+    
+### Registering users
+
+Registration form for your website is placed under this address: <yourdomain>/register.
+By default, new Users created in this way are placed in the Guest accounts group.
+If you want to give your users possibility to register themselves follow a tutorial on [enabling account registration](../tutorials/platform_beginner/7_enable_account_registration).
+
+## Roles
 
 To give users an access to your website you need to assign them roles in the Admin panel.
 Each role consists of:
@@ -206,20 +223,30 @@ eZ Platform offers the ability to create multiple translations of your website.
 Which version is shown to a visitor depends on the way your installation is set up.
 A new language version for the website can be added in the Admin Panel in the Languages tab.
 Every new language must have a name and a language code, written in the xxx-XX format, for example eng-US etc.
+
 The multilanguage system operates based on a global translation list that contains all languages available in the installation.
 After adding a language you may have to reload the application to be able to use it.
 Depending on your set up, additional configuration may be necessary for the new language to work properly, especially with SiteAccesses.
-See [Languages](internationalization.md) for futher information.
+
+See [Languages](internationalization.md) for further information.
 
 ## Content Types
 
-[Content Types characteristic](content_model.md/#content-types)
-[Creating Content Type](getting_started/first_steps.md/#create-a-content-type)
+A Content Type is a base for new Content items.
+It defines what fields will be available in the Content item. 
+For example, a new Content Type called *Article* can have fields such as title, author, body, image, etc.
+Based on this Content Type, you can create any number of Content items. 
+Content types are organized into groups.
+You can add your own groups here to keep your Content Types in better order. 
+
+For a full tutorial see [Create a Content Type](../getting_started/first_steps/#create-a-content-type) or follow [user documentation](https://doc.ezplatform.com/projects/userguide/en/latest/organizing_the_site/#content-types)
+An introduction to the eZ content model aimed at developer users, is available at
+[Content model overview](content_model.md)
 
 ## Object States
 
 Object states are user-defined states that can be assigned to Content items.
-Object states are contained in groups.
+They are contained in groups.
 If a state group contains any states, each Content item is automatically assigned a state from this group.
 
 You can assign states to content in the Back Office in the Content item's Details tab.
