@@ -198,7 +198,7 @@ By default the Symfony reverse proxy, written in PHP, is used to handle cache, b
 
 For Varnish to work properly with eZ, you'll need to use one of the provided files as a basis:
 
-- [Varnish 4 VCL xkey example](https://github.com/ezsystems/ezplatform/blob/2.1/doc/varnish/vcl/varnish4_xkey.vcl)
+- [Varnish 4 VCL xkey example](https://github.com/ezsystems/ezplatform/blob/master/doc/varnish/vcl/varnish4_xkey.vcl)
 
 !!! note
 
@@ -431,7 +431,7 @@ eZ Platform already interferes with the hash generation process by adding the cu
 
 !!! tip
 
-    [Examples of user hash generation](https://github.com/ezsystems/ezplatform/tree/2.1/doc/varnish/vcl)
+    [Examples of user hash generation](https://github.com/ezsystems/ezplatform/tree/master/doc/varnish/vcl)
 
 ##### New anonymous `X-User-Hash`
 
@@ -523,9 +523,9 @@ based on your decision.
     In case of complex Content, for instance Landing Pages with many blocks, you might get into trouble with too long response `xkey` header. Because of this, necessary cache entries may not be tagged properly. You will also see `502 Headers too long` errors.
     If this is the case, customize the following runtime settings on your Varnish instance(s):
 
-    - [http_resp_hdr_len](https://varnish-cache.org/docs/5.1/reference/varnishd.html#http-resp-hdr-len) (e.g. 64k)
-    - [http_req_hdr_len](https://varnish-cache.org/docs/5.1/reference/varnishd.html#http-max-hdr) (e.g. 64k)
-    - [http_resp_size](https://varnish-cache.org/docs/5.1/reference/varnishd.html#http-resp-size) (e.g. 128)
+    - [http_resp_hdr_len](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-resp-hdr-len) (e.g. 32k)
+    - [http_max_hdr](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-max-hdr) (e.g. 128)
+    - [http_resp_size](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-resp-size) (e.g. 64k)
 
     If you need to see these long headers in the `varnishlog` adapt the [vsl_reclen](https://varnish-cache.org/docs/5.1/reference/varnishd.html#vsl-reclen) setting.
 

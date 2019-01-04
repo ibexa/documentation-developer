@@ -36,8 +36,8 @@ The registration of a `Converter` currently works through the `$config` paramete
 
 !!! note
 
-    For global service container integration, see [Register Field Type](#register-field-type).
-    
+    For global service container integration, see [Register Field Type](field_type_registration.md).
+
 ## Gateway based Storage
 
 In order to allow the usage of a Field Type that uses external data with different data storages, it is recommended to implement a gateway infrastructure and a registry for the gateways. In order to ease this action, the Core implementation of Field Type s provides corresponding interfaces and base classes. These can also be used for custom Field Types.

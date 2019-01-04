@@ -69,6 +69,7 @@ Best practice is to avoid assigning Roles to Users directly; instead, make sur
 |               | `register`           | register using the `/register` route                                                                                                    |
 |               | `selfedit`           | unused                                                                                                                                  |
 |               | `activation`         | unused                                                                                                                                  |
+| `workflow`    | `change_stage`       | change stage in the specified workflow                                                                                                  |
 
 ## Permissions for custom controllers
 

@@ -58,7 +58,7 @@ const handleRequestResponse = response => {
     return response.json();
 };
 
-export const getImages = (callback) => {
+export const getImages = ({token, siteaccess, contentId}, callback) => {
     const body = JSON.stringify({
         ViewInput: {
             identifier: 'images',
@@ -75,7 +75,9 @@ export const getImages = (callback) => {
         method: 'POST',
         headers: {
             'Accept': 'application/vnd.ez.api.View+json; version=1.1',
-            'Content-Type': 'application/vnd.ez.api.ViewInput+json; version=1.1'
+            'Content-Type': 'application/vnd.ez.api.ViewInput+json; version=1.1',
+            'X-Siteaccess': siteaccess,
+            'X-CSRF-Token': token,
         },
         body,
         mode: 'cors',
@@ -87,7 +89,7 @@ export const getImages = (callback) => {
         .catch(error => console.log('error:load:images', error));
 };
 
-export const loadImageContent = (contentId, callback) => {
+export const loadImageContent = ({token, siteaccess, contentId}, callback) => {
     const body = JSON.stringify({
         ViewInput: {
             identifier: `image-content-${contentId}`,
@@ -104,7 +106,9 @@ export const loadImageContent = (contentId, callback) => {
         method: 'POST',
         headers: {
             'Accept': 'application/vnd.ez.api.View+json; version=1.1',
-            'Content-Type': 'application/vnd.ez.api.ViewInput+json; version=1.1'
+            'Content-Type': 'application/vnd.ez.api.ViewInput+json; version=1.1',
+            'X-Siteaccess': siteaccess,
+            'X-CSRF-Token': token,
         },
         body,
         mode: 'cors',
@@ -124,7 +128,7 @@ import React from 'react';
 import ImagesList from './images.list';
 
 const ImagesPanel = (props) => {
-    const wrapperAttrs = { className: 'c-images-panel' };
+    const wrapperAttrs = {className: 'c-images-panel'};
 
     if (!props.isVisible) {
         wrapperAttrs.hidden = true;
@@ -165,7 +169,7 @@ class ImagesList extends Component {
     }
 
     componentDidMount() {
-        getImages(this.updateImagesState);
+        getImages(this.props.restInfo, this.updateImagesState);
     }
 
     updateImagesState(response) {
@@ -200,7 +204,7 @@ class ImagesList extends Component {
         return (
             <div className="c-images-list__items-wrapper">
                 <div {...attrs}>
-                    {this.state.images.map(imageLocation => <Image key={imageLocation.id} location={imageLocation} />)}
+                    {this.state.images.map(imageLocation => <Image key={imageLocation.id} location={imageLocation} restInfo={this.props.restInfo}/>)}
                 </div>
             </div>
         );
@@ -276,7 +280,7 @@ class Image extends Component {
     }
 
     componentDidMount() {
-        loadImageContent(this.props.location.ContentInfo.Content._id, this.updateVersionInfoState);
+        loadImageContent({ ...this.props.restInfo, contentId: this.props.location.ContentInfo.Content._id}, this.updateVersionInfoState);
     }
 
     updateVersionInfoState(response) {
@@ -432,10 +436,10 @@ Place the compiled files in `src/EzSystems/ExtendingTutorialBundle/Resources/pub
     If you are not familiar with compiling React modules, you can use the following steps:
 
     1. Copy the `webpack.*.js` files from `vendor/ezsystems/ezplatform-page-builder/src/bundle/ui-dev`.
-    1. Copy the `package.json` file from the same folder to your project.
-    1. Change values in the `entry` property in `webpack.*.js` to point to correct non-compiled files (also define your own module name, like `MyCustom` instead of `PageBuilder` or `Timeline`).
+    1. Copy the `package.json` and `.babelrc` files from the same folder to your project.
+    1. Change values in the `entry` property in `webpack.*.js` to `./src/images.panel.js`, also define module name `ImagesPanel` instead of `PageBuilder` or `Timeline`.
     1. In the terminal, run `npm install`.
-    1. Next, run `npm build`.
+    1. Next, run `npm run build`.
     1. Include compiled files in the YAML config, where you can inject the file into any predefined placeholder in the `layout.html.twig` file.
 
 ## Add configuration

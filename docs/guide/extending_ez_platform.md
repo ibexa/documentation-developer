@@ -202,6 +202,26 @@ $menu->reorderChildren(
 );
 ```
 
+#### Custom icons
+
+You can use the `extras.icon` parameter to select an icon from the built-in set.
+
+To use your custom icon, use the `extras.icon_path` parameter:
+
+``` php
+$menu->addChild(
+    'menu_item_with_icon',
+    [
+        'extras' => [
+            'icon_path' => '/assets/images/icons/custom.svg',
+            'icon_class' => 'my-custom-class',
+        ],
+    ]
+);
+```
+
+The `extras.icon_class` parameter adds a custom CSS class to the `<svg>` element.
+
 ## Dashboard
 
 To extend the Dashboard, make use of an event subscriber.
@@ -465,6 +485,33 @@ class OrderedTabSubscriber implements EventSubscriberInterface
     }
 }
 ```
+
+## Extending the workflow event timeline
+
+[Workflow event timeline](workflow.md) is not limited to workflow transitions.
+
+You can render custom entries in the timeline, for example system alerts on workflows.
+
+### Adding custom entry type
+
+To add a custom entry type, create a custom class extending `\EzSystems\EzPlatformWorkflow\WorkflowTimeline\Value\AbstractEntry`.
+Use an `\EzSystems\EzPlatformWorkflow\Event\TimelineEvents::COLLECT_ENTRIES` event to add your entries to the timeline..
+
+### Providing custom templates
+
+To provide custom templates for new event timeline entries, use the following configuration:
+
+``` yaml
+ezpublish:
+    system:
+        default:
+            workflows_config:
+                # Workflow Timeline
+                timeline_entry_templates:
+                    - { template: '@EzPlatformWorkflow/ezplatform_workflow/timeline/entries.html.twig', priority: 10 }
+```
+
+The template has to provide a block named `ez_workflow_timeline_entry_{ENTRY_IDENTIFIER}`.
 
 ## Further extensibility using Components
 
