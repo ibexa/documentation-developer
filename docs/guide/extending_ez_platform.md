@@ -160,7 +160,7 @@ $menu->addChild(
 
 ### Modifying menu items
 
-#### Remove the "Media" menu item from the Content tab
+#### Remove the *Media* menu item from the Content tab
 
 ``` php
 $menu[MainMenuBuilder::ITEM_CONTENT]->removeChild(
