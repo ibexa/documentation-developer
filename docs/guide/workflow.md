@@ -106,3 +106,36 @@ will allow the Technical team to send content to proofreading after they are don
 
 You can also use the [`WorkflowStageLimitation`](limitations.md#workflowstagelimitation) together with the `content/edit` and `content/publish` Policy to limit the ability to edit content in specific stages.
 For example, you can use it to only allow Technical team to edit content in the `technical` stage.
+
+## Workflow service
+
+Workflow makes use of the Symfony [Workflow Component](https://symfony.com/doc/3.4/components/workflow.html),
+but special eZ Platform treatment is covered in the Workflow service.
+
+The service implements the following methods:
+
+- `start` - places a Content item in a workflow
+- `apply` - performs a transition transition
+- `can` - checks if a transition is possible
+
+!!! tip
+
+    These methods are the same as in Symfony Workflow, but the implementation in Workflow Service
+    extends them, for example by providing messages.
+
+You can also use the following methods to read information about workflow from the database:
+
+- `loadWorkflowMetadataForContent` - reads all workflow information about a Content item (as `WorkflowMetadata`)
+- `loadWorkflowMetadataOriginatedByUser` - reads all workflow actions performed by the provided user (as `WorkflowMetadata`)
+- `loadAllWorkflowMetadata` - reads all workflow information from the system
+
+`WorkflowMetadata` contains all information about a workflow, such as ID, name, transitions and current stage.
+It also contains the Symfony native workflow object.
+
+!!! note
+
+    The workflow functionality only operates on workflow stages.
+    It does not perform operations on Content, such as publishing it, out of the box.
+
+    If you want a custom implementation where, e.g. moving a Content item to a `done` stage in workflow publishes it,
+    you need to make use of event listeners for the Symfony Workflow object.
