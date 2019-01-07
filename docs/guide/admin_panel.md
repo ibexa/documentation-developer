@@ -22,7 +22,7 @@ If a Content item has multiple Location assignments then it is always the Sectio
 In addition, if the main Location of a Content item with multiple Location assignments is changed then the Section ID of that item will be updated.
 
 When content is moved to a different Location, the item itself and all of its subtree will be assigned to the Section of the new Location.
-Note that it works only for copy and move; assigning a new Section to a parent's Content item does not affect the subtree, meaning that Subtree cannot currently be updated this way.
+Note that it works only for copy and move; assigning a new Section to a parent Content item does not affect the subtree, meaning that Subtree cannot currently be updated this way.
 
 Sections can only be removed if no Content items are assigned to them. Even then, it should be done carefully.
 When a Section is deleted, it is only its definition itself that will be removed.
@@ -163,7 +163,7 @@ If you want to combine more than one Limitation with the *or* relation, not *and
     - `content/edit` with `WorkflowStageLimitation` set to "Design".
     - `workflow/change_stage` with `WorkflowTransitionLimitation` set to `to_proofreading`
 
-For more examples, see [Permission's use cases](permissions.md/#use-cases).
+For more examples, see [Permissions use cases](permissions/#use-cases).
 
 ## Languages
 
