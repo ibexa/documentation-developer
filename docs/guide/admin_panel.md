@@ -90,20 +90,20 @@ Here are a few examples of sets of Policies you can use to get some common permi
 
 #### Enter back end interface
 
-To allow the User to enter the Back Office interface and view all content, you need to set the following Policies:
+To allow the User to enter the back end interface (PlatformUI) and view all Content, you need to set the following Policies:
 
 - `user/login`
 - `content/read`
-- `content/versionread`
-- `section/view`
-- `content/reverserelatedlist`
 
-These Policies will be necessary for all other cases below that require access to the content structure.
+To let the User navigate through StudioUI, you also need to add:
+
+- `content/versionread`
+
+These Policies will be necessary for all other cases below that require access to the PlatformUI.
 
 #### Create content without publishing
 
-This option can be used together with eZ Enterprise's content review options.
-Using the following Policies, the User is able to create content, but can't publish it; instead, they must send it for review to another User with proper permissions (for example, senior editor, proofreader, etc.).
+This option can be used together with eZ Enterprise's content review options. Using the following Policies, the User is able to create content, but can't publish it; instead, they must send it for review to another User with proper permissions (for example, senior editor, proofreader, etc.).
 
 - `content/create`
 - `content/edit`
@@ -112,56 +112,37 @@ Note that without eZ Enterprise this setup should not be used, as it will not al
 
 #### Create and publish content
 
-To create and publish content, the user must additionally have the following Policies:
+To create and publish content, the User must have (besides `user/login` and `content/read`) the following Policies:
 
 - `content/create`
 - `content/edit`
 - `content/publish`
+- `content/versionread`
 
-This also lets the user copy and move content, as well as add new Locations to a Content item (but not remove them!).
+This also lets the User copy and move content, as well as add new Locations to a Content item (but not remove them!).
 
 #### Removing content
 
-To send content to trash, the User needs to have the `content/remove` Policy.
+To send content to trash, the User needs to have the same two Policies that are required for removing Locations:
+
+- `content/remove`
+- `content/manage_locations`
 
 To remove an archived version of content, the User must have the `content/versionremove` Policy.
 
 Further manipulation of trash requires the `content/restore` Policy to restore items from trash, and `content/cleantrash` to completely delete all content from the trash.
 
-
 #### Restrict editing to part of the tree
 
-If you want to let the User create or edit content, but only in one part of the content tree, you need to use Limitations.
-Three Limitations that could be used here are `Section` Limitation, `Location` Limitation and `Subtree of Location` Limitation.
+If you want to let the User create or edit Content, but only in one part of the content tree, you need to use Limitations. Three Limitations that could be used here are `Section` Limitation, `Node` Limitation and `Subtree` Limitation.
 
-Let's assume you have two Folders under your Home: Blog and Articles.
-You can let a User create content for the blogs, but not in Articles by adding a `Subtree of Location` Limitation on the Blog Content item.
-This will allow the User to publish content anywhere under this Location in the structure.
+Let's assume you have two Folders under your Home: Blog and Articles. You can let a User create Content for the blogs, but not in Articles by adding a `Subtree` Limitation on the Blog Content item. This will allow the User to publish content anywhere under this Location in the structure.
 
-A `Section` Limitation can be used similarly, but a Section does not have to belong to the same Subtree of Location in the content structure, any Locations can be assigned to it.
+A `Section` Limitation can be used similarly, but a Section does not have to belong to the same subtree in the content structure, any Locations can be assigned to it.
 
-If you add a `Location` Limitation and point to the same Location, the User will be able to publish content directly under the selected Location, but not anywhere deeper in its Subtree of Location.
+If you add a `Node` Limitation and point to the same Location, the User will be able to publish content directly under the selected Location, but not anywhere deeper in its subtree.
 
-Note that when a Policy has more than one Limitation, all of them have to apply, or the Policy will not work.
-For example, a `Location` Limitation on Location `1/2` and `Subtree of Location` Limitation on `1/2/55` cannot work together, because no Location can satisfy both those requirements at the same time.
-If you want to combine more than one Limitation with the *or* relation, not *and*, you can split your Policy in two, each with one of these Limitations.
-
-!!! enterprise
-
-    #### Editorial workflows
-
-    You can control which stages in an editorial workflow the user can work with.
-
-    Do this by adding the `WorkflowStageLimitation` to `content` Policies such as `content/edit` or `content/publish`.
-
-    You can also control which transitions the user can pass content through.
-    Do this by using the `workflow/change_stage` Policy together with the `WorkflowTransitionLimitation`.
-
-    For example, to enable the user to edit only content in the "Design" stage
-    and to pass it after creating design to the "Proofread stage", use following permissions:
-
-    - `content/edit` with `WorkflowStageLimitation` set to "Design".
-    - `workflow/change_stage` with `WorkflowTransitionLimitation` set to `to_proofreading`
+Note that when a Policy has more than one Limitation, all of them have to apply, or the Policy will not work. For example, a `Location` Limitation on Location `1/2` and `Subtree` Limitation on `1/2/55` cannot work together, because no Location can satisfy both those requirements at the same time. If you want to combine more than one Limitation with the *or* relation, not *and*, you can split your Policy in two, each with one of these Limitations.
 
 For more examples, see [Permissions use cases](permissions/#use-cases).
 
