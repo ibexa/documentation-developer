@@ -122,39 +122,6 @@ Relations at item level can be of three different types:
 1. RichText linked relations are created using a Field of the RichText type. Whenever an internal link (a link to another Location or Content item) is inserted into a Field represented by this Field Type, the system will automatically create a relation of this type. Note that such a relation is automatically removed from the system when the corresponding link is removed from the Content item.
 1. RichText embedded relations also use a RichText Field. Whenever an Embed element is inserted into a Field represented by this Field Type, the system will automatically create a relation of this type, that is relate the embedded Content item to the one that is being edited. Note that a relation of this type is automatically removed from the system when the corresponding element is removed.
 
-## Sections
-
-Sections are used to divide Content items in the tree into groups that are more easily manageable by content editors. Division into Sections allows you, among others, to set permissions for only a part of the tree.
-
-Technically, a Section is a number, a name and an identifier. Content items are placed in Sections by being assigned the Section ID, with one item able to be in only one Section.
-
-When a new Content item is created, its Section ID is set to the default Section (which is usually Standard). When the item is published it is assigned to the same Section as its parent. Because Content must always be in a Section, unassigning happens by choosing a different Section to move it into. If a Content item has multiple Location assignments then it is always the Section ID of the item referenced by the parent of the main Location that will be used. In addition, if the main Location of a Content item with multiple Location assignments is changed then the Section ID of that item will be updated.
-
-When content is moved to a different Location, the item itself and all of its subtree will be assigned to the Section of the new Location. Note that it works only for copy and move; assigning a new section to a parent's Content does not affect the subtree, meaning that Subtree cannot currently be updated this way.
-
-Sections can only be removed if no Content items are assigned to them. Even then, it should be done carefully. When a Section is deleted, it is only its definition itself that will be removed. Other references to the Section will remain and thus the system will most likely lose consistency. That is why removing Sections may corrupt permission settings, template output and other things in the system.
-
-Section ID numbers are not recycled. If a Section is removed, its ID number will not be reused when a new Section is created.
-
-![Sections screen](img/admin_panel_sections.png)
-
-## Object states
-
-Object states are user-defined states that can be assigned to Content items.
-Object states are contained in groups.
-If a state group contains any states, each Content item is automatically assigned a state from this group.
-
-You can assign states to content in the Back Office in the Content item's Details tab.
-
-![Assigning an Object state to a Content item](img/assigning_an_object_state.png)
-
-By default, eZ Platform contains one Object state group: "Lock", with states "Locked" and "Not locked".
-
-!["Lock" Object state](img/object_state_lock.png)
-
-Object states can be used in conjunction with permissions, in particular with the [ObjectStateLimitation](limitations.md#objectstatelimitation).
-Their specific use cases depend on your needs and the setup of your permission system.
-
 ## Services: Public API
 
 The Public API exposes Symfony services for all of its Repository services.

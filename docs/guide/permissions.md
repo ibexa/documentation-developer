@@ -12,7 +12,7 @@ A Policy with a Limitation will only apply when the condition in the Limitation 
 For example, a `content/publish` Policy with a `ContentType` Limitation on the "Blog Post" Content Type will allow the User to publish only Blog Posts, and not other Content.
 
 Note that Policies on one Role are connected with the *and* relation, not *or*,
-so when Policy has more than one Limitation, all of them have to apply. See [example below](#restrict-editing-to-part-of-the-tree).
+so when Policy has more than one Limitation, all of them have to apply. See [example from Administration Management](#restrict-editing-to-part-of-the-tree).
 
 Remember that a Limitation specifies what a User *can* do, not what they *can't do*.
 A `Section` Limitation, for example, *gives* the User access to the selected Section, not *prohibits* it.
@@ -23,13 +23,13 @@ To take effect, a Role must be assigned to a User or User Group. Every User or U
 
 Best practice is to avoid assigning Roles to Users directly; instead, make sure you model your content (types, structure, sections, etc.) in a way that can be reflected in generic roles. Besides being much easier to manage and keep on top of security-wise, this also makes sure your system performs best. The more Role assignments and complex Policies you add for a given User, the more complex the search/load queries powering the whole CMS will be, as they always take permissions into account.
 
-## Use Cases
+### Use Cases
 
 Here are a few examples of sets of Policies you can use to get some common permission configurations.
 
 #### Enter back end interface
 
-To allow the User to enter the back end interface and view all Content, you need to set the following Policies:
+To allow the User to enter the Back Office interface and view all content, you need to set the following Policies:
 
 - `user/login`
 - `content/read`
@@ -37,7 +37,7 @@ To allow the User to enter the back end interface and view all Content, you need
 - `section/view`
 - `content/reverserelatedlist`
 
-These Policies will be necessary for all other cases below that require access to the Content structure.
+These Policies will be necessary for all other cases below that require access to the content structure.
 
 #### Create and publish content
 
@@ -51,7 +51,8 @@ This also lets the user copy and move content, as well as add new Locations to a
 
 #### Create content without publishing
 
-This option can be used together with eZ Enterprise's content review options. Using the following Policies, the User is able to create content, but can't publish it; instead, they must send it for review to another User with proper permissions (for example, senior editor, proofreader, etc.).
+This option can be used together with eZ Enterprise's content review options.
+Using the following Policies, the User is able to create content, but can't publish it; instead, they must send it for review to another User with proper permissions (for example, senior editor, proofreader, etc.).
 
 - `content/create`
 - `content/edit`
@@ -88,7 +89,8 @@ and only to the "Pictures" Folder.
 
 #### Manage Locations
 
-To add a new Location to a Content item, the Policies required for publishing content are enough. To allow the User to remove a Location, you need to grant them the following Policies:
+To add a new Location to a Content item, the Policies required for publishing content are enough.
+To allow the User to remove a Location, you need to grant them the following Policies:
 
 - `content/remove`
 - `content/manage_locations`
@@ -122,7 +124,7 @@ Additional Policies are needed for each section of the Admin.
 
 - `section/view` to see and access the Section list
 - `section/edit` to add and edit Sections
-- `section/assign` to assign Sections to Content
+- `section/assign` to assign Sections to content
 
 ##### Languages
 
@@ -146,7 +148,7 @@ Additional Policies are needed for each section of the Admin.
 
 - `content/view` to view the list of Users
 
-Users are treated like other Content, so to create and modify them the User needs to have the same permissions as for managing other Content items.
+Users are treated like other content, so to create and modify them the User needs to have the same permissions as for managing other Content items.
 
 ## Available Policies
 
