@@ -115,7 +115,7 @@ but special eZ Platform treatment is covered in the Workflow service.
 The service implements the following methods:
 
 - `start` - places a Content item in a workflow
-- `apply` - performs a transition transition
+- `apply` - performs a transition
 - `can` - checks if a transition is possible
 
 !!! tip
