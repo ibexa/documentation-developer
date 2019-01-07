@@ -120,7 +120,7 @@ The service implements the following methods:
 
 !!! tip
 
-    These methods are the same as in Symfony Workflow, but the implementation in Workflow Service
+    The methods `apply` and `can` are the same as in Symfony Workflow, but the implementation in Workflow Service
     extends them, for example by providing messages.
 
 You can also use the following methods to read information about workflow from the database:
