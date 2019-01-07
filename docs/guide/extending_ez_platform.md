@@ -1,32 +1,38 @@
 # Extending eZ Platform UI
 
-## Back-end interface
+## Back Office interface
 
-The back-end interface is produced by [the ezplatform-admin-ui Bundle](https://github.com/ezsystems/ezplatform-admin-ui)
+The Back Office interface is produced by [the ezplatform-admin-ui Bundle](https://github.com/ezsystems/ezplatform-admin-ui)
 together with [ezplatform-admin-ui-modules](https://github.com/ezsystems/ezplatform-admin-ui-modules),
 which contains React modules that handle specific parts of the application.
 This interface is accessible in your browser at `http://[uri_of_platform]/admin`.
 
-## General extensibility
-
-eZ Platform's back-end interface uses React-based modules that make each part of the UI easily extensible.
+The Back Office uses React-based modules that make each part of the UI easily extensible.
 The interface uses Bootstrap, which facilitates adapting and styling the interface to your needs.
 
-Available extensibility points:
+## General extensibility
+
+You can extend the Back Office in the following areas:
 
 - [Menus](#menus)
 - [Dashboard](#dashboard)
 - [Tabs](#tabs)
-- [Further extensibility using Components](#further-extensibility-using-components)
+- [Injecting custom components](#injecting-custom-components)
 - [Universal Discovery module](extending_modules.md#universal-discovery-module)
 - [Sub-items list](extending_modules.md#sub-items-list)
-- [Online Editor](extending_online_editor.md)
 - [Multi-file upload](extending_modules.md#multi-file-upload)
+- [Online Editor](extending_online_editor.md)
+- [Page blocks](extending_page.md#creating-page-blocks)
+- [Form fields](extending_form_builder.md#extending-form-fields)
 
 ## Menus
 
-Menus in eZ Platform are based on the [KnpMenuBundle](https://github.com/KnpLabs/KnpMenuBundle) and are easily extensible.
-For a general idea on how to use MenuBuilder, refer to [the official documentation](https://symfony.com/doc/master/bundles/KnpMenuBundle/index.html).
+Back Office menus are based on the [KnpMenuBundle](https://github.com/KnpLabs/KnpMenuBundle) and are easily extensible.
+
+!!! tip
+
+    For general information on how to use `MenuBuilder`,
+    see [the official KnpMenuBundle documentation](https://symfony.com/doc/master/bundles/KnpMenuBundle/index.html).
 
 Menus are extensible using event subscribers/listeners. You can hook into the following events:
 
@@ -82,14 +88,15 @@ class MenuListener implements EventSubscriberInterface
     {
         $menu = $event->getMenu();
         $factory = $event->getFactory();
-        $options = $event->getOptions(); // options passed from the context (i.e. Content item in Content View)
+        // options passed from the context (i.e. Content item in Content View)
+        $options = $event->getOptions();
 
         // your customizations
     }
 }
 ```
 
-### Extending menu examples
+### Adding menu items
 
 #### Add a new menu item under "Content" with custom attributes
 
@@ -99,22 +106,16 @@ $menu[MainMenuBuilder::ITEM_CONTENT]->addChild(
     [
         'route' => '_ezpublishLocation',
         'routeParameters' => ['locationId' => 2],
-        'linkAttributes' => [ // attributes directly on <a> element
+        // attributes directly on <a> element
+        'linkAttributes' => [
             'class' => 'test_class another_class',
             'data-property' => 'value',
         ],
-        'attributes' => [ // attributes on container <li> element
+        // attributes on container <li> element
+        'attributes' => [
             'data-property' => 'value',
         ],
     ]
-);
-```
-
-#### Remove the "Media" menu item from the Content tab
-
-``` php
-$menu[MainMenuBuilder::ITEM_CONTENT]->removeChild(
-    MainMenuBuilder::ITEM_CONTENT__MEDIA
 );
 ```
 
@@ -156,6 +157,26 @@ $menu->addChild(
 );
 ```
 
+### Modifying menu items
+
+#### Remove the *Media* menu item from the Content tab
+
+``` php
+$menu[MainMenuBuilder::ITEM_CONTENT]->removeChild(
+    MainMenuBuilder::ITEM_CONTENT__MEDIA
+);
+```
+
+#### Reorder menu items, i.e. reverse the order
+
+``` php
+$menu->reorderChildren(
+    array_reverse(array_keys($menu->getChildren()))
+);
+```
+
+### Other menu operations
+
 #### Translatable labels
 
 To have translatable labels, use `translation.key` from the `messages` domain:
@@ -174,19 +195,11 @@ $menu->addChild(
 );
 ```
 
-#### Reorder menu items, i.e. reverse the order
-
-``` php
-$menu->reorderChildren(
-    array_reverse(array_keys($menu->getChildren()))
-);
-```
-
 ## Dashboard
 
 To extend the Dashboard, make use of an event subscriber.
 
-In the following example, the `DasboardEventSubscriber.php` reverses the order of sections of the Dashboard
+In the following example, the `DashboardEventSubscriber.php` reverses the order of sections of the Dashboard
 (in a default installation this makes the "Everyone" block appear above the "Me" block):
 
 ``` php
@@ -230,11 +243,11 @@ You can extend existing tab groups with new tabs, or create your own tab groups.
 
 ### Adding a new tab group
 
-To create a custom tab group with additional logic you need to create it at the level of compiling the Symfony container, using a [CompilerPass](https://symfony.com/doc/3.4/service_container/compiler_passes.html):
+To create a custom tab group with additional logic you need to create it at the level of compiling the Symfony container, using a [CompilerPass](https://symfony.com/doc/3.4/service_container/compiler_passes.html).
+
+For example, in `src/AppBundle/DependencyInjection/Compiler/CustomTabGroupPass.php`:
 
 ``` php
-// src/AppBundle/DependencyInjection/Compiler/CustomTabGroupPass.php
-
 namespace AppBundle\DependencyInjection\Compiler;
 
 use EzSystems\EzPlatformAdminUi\Tab\TabGroup;
@@ -279,8 +292,6 @@ This will render the group and all tabs assigned to it.
 Before you add a tab to a group you must create the tab's PHP class and define it as a Symfony service with the `ezplatform.tab` tag:
 
 ``` yaml
-# services.yml
-
 AppBundle\Custom\Tab:
     parent: EzSystems\EzPlatformAdminUi\Tab\AbstractTab
     tags:
@@ -293,11 +304,9 @@ This configuration also assigns the new tab to `custom-tab-group`.
 
     If the `custom-tab-group` does not yet exist, it will be created automatically at this point.
 
-The tab class can look like this:
+The tab class can look like this (in `src/AppBundle/Custom/Tab.php`):
 
 ``` php
-// src/AppBundle/Custom/Tab.php
-
 namespace AppBundle\Custom;
 
 use EzSystems\EzPlatformAdminUi\Tab\AbstractTab;
@@ -326,7 +335,7 @@ class Tab extends AbstractTab
 }
 ```
 
-Beyond the `AbstractTab` used in the example above you can use two specializes tab types:
+Beyond the `AbstractTab` used in the example above you can use two specialized tab types:
 
 - `AbstractControllerBasedTab` enables you to embed the results of a controller action in the tab.
 - `AbstractRouteBasedTab` embeds the results of the selected routing, passing applicable parameters.
@@ -446,10 +455,11 @@ class OrderedTabSubscriber implements EventSubscriberInterface
 }
 ```
 
-## Further extensibility using Components
+## Injecting custom components
 
-Components enable you to inject widgets (e.g. Dashboard blocks) and HTML code (e.g. a tag for loading JS or CSS files) into specific places in the Back Office.
+The Back Office has designated places where you can use your own components.
 
+Components enable you to inject widgets (e.g. Dashboard blocks) and HTML code (e.g. a tag for loading JS or CSS files).
 A component is any class that implements the `Renderable` interface.
 It must be tagged as a service:
 
@@ -461,18 +471,27 @@ AppBundle\Component\MyNewComponent:
 
 `group` indicates where the widget will be displayed. The available groups are:
 
-- [`stylesheet-head`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L46)
-- [`script-head`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L47)
-- [`stylesheet-body`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L121)
-- [`script-body`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L122)
-- [`content-edit-form-before`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/content/content_edit/content_edit.html.twig#L71)
-- [`content-edit-form-after`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/content/content_edit/content_edit.html.twig#L81)
-- [`content-create-form-before`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/content/content_edit/content_create.html.twig#L52)
-- [`content-create-form-after`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/content/content_edit/content_create.html.twig#L59)
-- [`dashboard-blocks`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/dashboard/dashboard.html.twig#L28)
+- [`stylesheet-head`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L88)
+- [`script-head`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L89)
+- [`stylesheet-body`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L175)
+- [`script-body`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L176)
+- [`custom-admin-ui-modules`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L147)
+- [`custom-admin-ui-config`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L148)
+- [`content-edit-form-before`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/content/content_edit/content_edit.html.twig#L74)
+- [`content-edit-form-after`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/content/content_edit/content_edit.html.twig#L84)
+- [`content-create-form-before`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/content/content_edit/content_create.html.twig#L60)
+- [`content-create-form-after`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/content/content_edit/content_create.html.twig#L68)
+- [`dashboard-blocks`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/dashboard/dashboard.html.twig#L30)
 
-If you do not want to write your own class and only wish to inject a short element
-(e.g. render a Twig template or add a CSS link), you can make use of pre-existing base classes.
+### Base component classes
+
+If you only need to inject a short element (e.g. a Twig template or a CSS link) without writing a class,
+you can make use of the following base classes:
+
+- `TwigComponent` renders a Twig template.
+- `LinkComponent` renders the HTML `<link>` tag.
+- `ScriptComponent` renders the HTML `<script>` tag.
+
 In this case all you have to do is add a service definition (with proper parameters), for example:
 
 ``` yaml
@@ -489,10 +508,7 @@ appbundle.components.my_twig_component:
 
 This renders the `path/to/file.html.twig` template with `first_param` and `second_param` as parameters.
 
-There are three such base components:
-
-- `TwigComponent` renders a Twig template, like above
-- `LinkComponent` renders the HTML `<link>` tag:
+With `LinkComponent` and `ScriptComponent` you provide `$href` and `$src` as arguments, respectively:
 
 ``` yaml
 appbundle.components.my_link_component:
@@ -502,8 +518,6 @@ appbundle.components.my_link_component:
    tags:
        - { name: ezplatform.admin_ui.component, group: 'stylesheet-head' }
 ```
-
-- `ScriptComponent` renders the HTML `<script>` tag:
 
 ``` yaml
 appbundle.components.my_script_component:
