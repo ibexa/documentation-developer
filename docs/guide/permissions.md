@@ -12,7 +12,7 @@ A Policy with a Limitation will only apply when the condition in the Limitation 
 For example, a `content/publish` Policy with a `ContentType` Limitation on the "Blog Post" Content Type will allow the User to publish only Blog Posts, and not other Content.
 
 Note that Policies on one Role are connected with the *and* relation, not *or*,
-so when Policy has more than one Limitation, all of them have to apply. See [example below](#restrict-editing-to-part-of-the-tree).
+so when Policy has more than one Limitation, all of them have to apply. See [example from Administration Management](#restrict-editing-to-part-of-the-tree).
 
 Remember that a Limitation specifies what a User *can* do, not what they *can't do*.
 A `Section` Limitation, for example, *gives* the User access to the selected Section, not *prohibits* it.
@@ -23,7 +23,7 @@ To take effect, a Role must be assigned to a User or User Group. Every User or U
 
 Best practice is to avoid assigning Roles to Users directly; instead, make sure you model your content (types, structure, sections, etc.) in a way that can be reflected in generic roles. Besides being much easier to manage and keep on top of security-wise, this also makes sure your system performs best. The more Role assignments and complex Policies you add for a given User, the more complex the search/load queries powering the whole CMS will be, as they always take permissions into account.
 
-## Use Cases
+### Use Cases
 
 Here are a few examples of sets of Policies you can use to get some common permission configurations.
 
@@ -71,6 +71,22 @@ A `Section` Limitation can be used similarly, but a Section does not have to bel
 If you add a `Node` Limitation and point to the same Location, the User will be able to publish content directly under the selected Location, but not anywhere deeper in its subtree.
 
 Note that when a Policy has more than one Limitation, all of them have to apply, or the Policy will not work. For example, a `Location` Limitation on Location `1/2` and `Subtree` Limitation on `1/2/55` cannot work together, because no Location can satisfy both those requirements at the same time. If you want to combine more than one Limitation with the *or* relation, not *and*, you can split your Policy in two, each with one of these Limitations.
+
+#### Multi-file upload
+
+Creating content through multi-file upload is treated in the same way as regular creation.
+To enable upload, you need you set the following permissions:
+
+- `content/create`
+- `content/read`
+- `content/publish`
+
+You can control what Content items can be uploaded and where using Limitations on the `content/create` and `content/publish` Policies.
+
+A Node Limitation limits uploading to a specific Location in the tree. A Class Limitation controls the Content Types that are allowed.
+For example, you can set the Node Limitation on a "Pictures" Folder, and add a Class Limitation
+which only allows Content items of type "Image". This ensures that only files of type "image" can be uploaded,
+and only to the "Pictures" Folder.
 
 #### Manage Locations
 
