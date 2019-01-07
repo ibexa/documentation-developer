@@ -11,7 +11,7 @@ Different translations of the same Content item can be edited separately. This m
 
 ### Adding available languages
 
-The multilanguage system operates based on a global translation list that contains all languages available in the installation. Languages can be [added to this list from the Admin Panel](https://doc.ezplatform.com/projects/userguide/en/1.12/creating_content_advanced/#adding-translations) in the user interface. After adding a language be sure to dump all assets to the file system:
+The multilanguage system operates based on a global translation list that contains all languages available in the installation. Languages can be [added to this list from the Admin Panel](https://doc.ezplatform.com/projects/userguide/en/latest/creating_content_advanced/#languages) in the Back Office. After adding a language be sure to dump all assets to the file system:
 
 ```
 php app/console assetic:dump

@@ -21,7 +21,7 @@ To take effect, a Role must be assigned to a User or User Group. Every User or U
 
 Best practice is to avoid assigning Roles to Users directly; instead, make sure you model your content (types, structure, sections, etc.) in a way that can be reflected in generic roles. Besides being much easier to manage and keep on top of security-wise, this also makes sure your system performs best. The more Role assignments and complex Policies you add for a given User, the more complex the search/load queries powering the whole CMS will be, as they always take permissions into account.
 
-## Use Cases
+### Use Cases
 
 Here are a few examples of sets of Policies you can use to get some common permission configurations.
 
