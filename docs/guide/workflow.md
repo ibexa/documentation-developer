@@ -129,8 +129,8 @@ You can also use the following methods to read information about workflow from t
 - `loadWorkflowMetadataOriginatedByUser` - reads all workflow actions performed by the provided user (as `WorkflowMetadata`)
 - `loadAllWorkflowMetadata` - reads all workflow information from the system
 
-`WorkflowMetadata` contains all information about a workflow, such as ID, name, transitions and current stage.
-It also contains the Symfony native workflow object.
+`\EzSystems\EzPlatformWorkflow\Value\WorkflowMetadata` object contains all information about a workflow, such as ID, name, transitions and current stage.
+`\EzSystems\EzPlatformWorkflow\Value\WorkflowMetadata::$workflow` gives you direct access to native Symfony Workflow object.
 
 !!! note
 
