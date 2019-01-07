@@ -146,23 +146,6 @@ Note that when a Policy has more than one Limitation, all of them have to apply,
 For example, a `Location` Limitation on Location `1/2` and `Subtree of Location` Limitation on `1/2/55` cannot work together, because no Location can satisfy both those requirements at the same time.
 If you want to combine more than one Limitation with the *or* relation, not *and*, you can split your Policy in two, each with one of these Limitations.
 
-!!! enterprise
-
-    #### Editorial workflows
-
-    You can control which stages in an editorial workflow the user can work with.
-
-    Do this by adding the `WorkflowStageLimitation` to `content` Policies such as `content/edit` or `content/publish`.
-
-    You can also control which transitions the user can pass content through.
-    Do this by using the `workflow/change_stage` Policy together with the `WorkflowTransitionLimitation`.
-
-    For example, to enable the user to edit only content in the "Design" stage
-    and to pass it after creating design to the "Proofread stage", use following permissions:
-
-    - `content/edit` with `WorkflowStageLimitation` set to "Design".
-    - `workflow/change_stage` with `WorkflowTransitionLimitation` set to `to_proofreading`
-
 For more examples, see [Permissions use cases](permissions/#use-cases).
 
 ## Languages
