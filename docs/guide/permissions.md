@@ -12,7 +12,7 @@ A Policy with a Limitation will only apply when the condition in the Limitation 
 For example, a `content/publish` Policy with a `ContentType` Limitation on the "Blog Post" Content Type will allow the User to publish only Blog Posts, and not other Content.
 
 Note that Policies on one Role are connected with the *and* relation, not *or*,
-so when Policy has more than one Limitation, all of them have to apply. See [example from Administration Management](admin_panel.md#restrict-editing-to-part-of-the-tree).
+so when Policy has more than one Limitation, all of them have to apply. See [example from Administration Management](#restrict-editing-to-part-of-the-tree).
 
 Remember that a Limitation specifies what a User *can* do, not what they *can't do*.
 A `Section` Limitation, for example, *gives* the User access to the selected Section, not *prohibits* it.
@@ -22,6 +22,155 @@ See [Available Limitations](limitations.md#available-limitations) for further in
 To take effect, a Role must be assigned to a User or User Group. Every User or User Group can have many roles. A User can also belong to many groups, for example, Administrators, Editors, Subscribers.
 
 Best practice is to avoid assigning Roles to Users directly; instead, make sure you model your content (types, structure, sections, etc.) in a way that can be reflected in generic roles. Besides being much easier to manage and keep on top of security-wise, this also makes sure your system performs best. The more Role assignments and complex Policies you add for a given User, the more complex the search/load queries powering the whole CMS will be, as they always take permissions into account.
+
+### Use Cases
+
+Here are a few examples of sets of Policies you can use to get some common permission configurations.
+
+#### Enter back end interface
+
+To allow the User to enter the Back Office interface and view all content, you need to set the following Policies:
+
+- `user/login`
+- `content/read`
+- `content/versionread`
+- `section/view`
+- `content/reverserelatedlist`
+
+These Policies will be necessary for all other cases below that require access to the content structure.
+
+#### Create and publish content
+
+To create and publish content, the user must additionally have the following Policies:
+
+- `content/create`
+- `content/edit`
+- `content/publish`
+
+This also lets the user copy and move content, as well as add new Locations to a Content item (but not remove them!).
+
+#### Create content without publishing
+
+This option can be used together with eZ Enterprise's content review options.
+Using the following Policies, the User is able to create content, but can't publish it; instead, they must send it for review to another User with proper permissions (for example, senior editor, proofreader, etc.).
+
+- `content/create`
+- `content/edit`
+
+Note that without eZ Enterprise this setup should not be used, as it will not allow the User to continue working with their content.
+
+#### Restrict editing to part of the tree
+
+If you want to let the User create or edit content, but only in one part of the content tree, you need to use Limitations.
+Three Limitations that could be used here are `Section` Limitation, `Location` Limitation and `Subtree of Location` Limitation.
+
+Let's assume you have two Folders under your Home: Blog and Articles.
+You can let a User create content for the blogs, but not in Articles by adding a `Subtree of Location` Limitation on the Blog Content item.
+This will allow the User to publish content anywhere under this Location in the structure.
+
+A `Section` Limitation can be used similarly, but a Section does not have to belong to the same Subtree of Location in the content structure, any Locations can be assigned to it.
+
+If you add a `Location` Limitation and point to the same Location, the User will be able to publish content directly under the selected Location, but not anywhere deeper in its Subtree of Location.
+
+Note that when a Policy has more than one Limitation, all of them have to apply, or the Policy will not work.
+For example, a `Location` Limitation on Location `1/2` and `Subtree of Location` Limitation on `1/2/55` cannot work together, because no Location can satisfy both those requirements at the same time.
+If you want to combine more than one Limitation with the *or* relation, not *and*, you can split your Policy in two, each with one of these Limitations.
+
+#### Multi-file upload
+
+Creating content through multi-file upload is treated in the same way as regular creation.
+To enable upload, you need you set the following permissions:
+
+- `content/create`
+- `content/read`
+- `content/publish`
+
+You can control what Content items can be uploaded and where using Limitations on the `content/create` and `content/publish` Policies.
+
+A Location Limitation limits uploading to a specific Location in the tree. A Content Type Limitation controls the Content Types that are allowed.
+For example, you can set the Location Limitation on a **Pictures** Folder, and add a Content Type Limitation
+which only allows Content items of type **Image**. This ensures that only files of type `image` can be uploaded,
+and only to the **Pictures** Folder.
+
+#### Manage Locations
+
+To add a new Location to a Content item, the Policies required for publishing content are enough.
+To allow the User to remove a Location, you need to grant them the following Policies:
+
+- `content/remove`
+- `content/manage_locations`
+
+Hiding and revealing Location requires one more Policy: `content/hide`.
+
+#### Removing content
+
+To send content to trash, the User needs to have the `content/remove` Policy.
+
+To remove an archived version of content, the User must have the `content/versionremove` Policy.
+
+Further manipulation of trash requires the `content/restore` Policy to restore items from trash, and `content/cleantrash` to completely delete all content from the trash.
+
+#### Registering Users
+
+To allow anonymous users to register through the `/register` route, you need to grant the `user/register` Policy to the Anonymous User Group.
+
+#### Admin
+
+To access the Admin in the Back Office the User must have the `setup/administrate` Policy.
+This will allow the User to view the Languages and Content Types.
+
+Additional Policies are needed for each section of the Admin.
+
+##### System Information
+
+- `setup/system_info` to view the System Information tab
+
+##### Sections
+
+- `section/view` to see and access the Section list
+- `section/edit` to add and edit Sections
+- `section/assign` to assign Sections to content
+
+##### Languages
+
+- `content/translations` to add and edit languages
+
+##### Content Types/action
+
+- `Content Type/create`, `Content Type/update`, `Content Type/delete` to add, modify and remove Content Types
+
+##### Object States
+
+- `state/administrate` to view a list of Object States, add and edit them
+- `state/assign` to assign Objects States to Content
+
+##### Roles
+
+- `role/read` to view the list of Roles in Admin
+- `role/create`, `role/update`, `role/assign` and `role/delete` to manage Roles
+
+##### Users
+
+- `content/view` to view the list of Users
+
+Users are treated like other content, so to create and modify them the User needs to have the same permissions as for managing other Content items.
+
+!!! enterprise
+
+    #### Editorial workflows
+
+    You can control which stages in an editorial workflow the user can work with.
+
+    Do this by adding the `WorkflowStageLimitation` to `content` Policies such as `content/edit` or `content/publish`.
+
+    You can also control which transitions the user can pass content through.
+    Do this by using the `workflow/change_stage` Policy together with the `WorkflowTransitionLimitation`.
+
+    For example, to enable the user to edit only content in the "Design" stage
+    and to pass it after creating design to the "Proofread stage", use following permissions:
+
+    - `content/edit` with `WorkflowStageLimitation` set to "Design".
+    - `workflow/change_stage` with `WorkflowTransitionLimitation` set to `to_proofreading`
 
 ## Available Policies
 

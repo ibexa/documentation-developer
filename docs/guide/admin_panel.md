@@ -3,10 +3,9 @@
 Once you set up your environment you can start your work as an administrator.
 Your most useful tools can be found in **Admin Panel**.
 
-## Systemn Information
+## System Information
 
-The system information panel in Platform UI is implemented in a [ezsystems/ez-support-tools repository](https://github.com/ezsystems/ez-support-tools).
-It allows you to add custom panels to the UI, or customize existing ones.
+The System Information panel in the Back Office is sourced in a [ezsystems/ez-support-tools repository](https://github.com/ezsystems/ez-support-tools).
 There you will also find basic system information such as versions of all installed packages. 
 
 ## Sections
@@ -15,7 +14,7 @@ Sections are used to divide Content items in the tree into groups that are more 
 Division into Sections allows you, among others, to set permissions for only a part of the tree.
 
 Technically, a Section is a number, a name and an identifier.
-Content items are placed in Sections by being assigned the Section ID, with one item able to be in only one Section.
+Content items are placed in Sections by being assigned the Section ID. One item can be in only one Section.
 
 When a new Content item is created, its Section ID is set to the default Section (which is usually Standard).
 When the item is published it is assigned to the same Section as its parent. Because content must always be in a Section, unassigning happens by choosing a different Section to move it into.
@@ -23,7 +22,7 @@ If a Content item has multiple Location assignments then it is always the Sectio
 In addition, if the main Location of a Content item with multiple Location assignments is changed then the Section ID of that item will be updated.
 
 When content is moved to a different Location, the item itself and all of its subtree will be assigned to the Section of the new Location.
-Note that it works only for copy and move; assigning a new section to a parent's content does not affect the subtree, meaning that Subtree cannot currently be updated this way.
+Note that it works only for copy and move; assigning a new Section to a parent's Content item does not affect the subtree, meaning that Subtree cannot currently be updated this way.
 
 Sections can only be removed if no Content items are assigned to them. Even then, it should be done carefully.
 When a Section is deleted, it is only its definition itself that will be removed.
@@ -41,7 +40,7 @@ Section ID numbers are not recycled. If a Section is removed, its ID number will
 ## Users
 
 Users in eZ Platform are treated the same way as [Content Types](#content-types).
-They are organized in groups such as *Gusts*, *Editors*, *Anonymous*, which makes it easier to manage them and their permissions.
+They are organized in groups such as *Guests*, *Editors*, *Anonymous*, which makes it easier to manage them and their permissions.
 All User Groups and Users can be accessed in the Admin panel by selecting Users.
 
 !!! caution
@@ -52,7 +51,7 @@ All User Groups and Users can be accessed in the Admin panel by selecting Users.
 
 Registration form for your website is placed under this address: <yourdomain>/register.
 By default, new Users created in this way are placed in the Guest accounts group.
-If you want to give your users possibility to register themselves follow a tutorial on [enabling account registration](../tutorials/platform_beginner/7_enable_account_registration).
+If you want to give your users possibility to register themselves follow a tutorial on [enabling account registration](user_generated_content/#registering-new-users).
 
 ## Roles
 
@@ -75,17 +74,17 @@ See [example below](#restrict-editing-to-part-of-the-tree).
 **Assignments** 
 
 After you created all Policies, you can assign the Role to users and/or groups with possible additional Limitations.
-Every User or User Group can have multiple roles.
+Every User or User Group can have multiple Roles.
 A User can also belong to many groups, for example, Administrators, Editors, Subscribers.
 
 Best practice is to avoid assigning Roles to Users directly.
-Model your content (types, sections, Locations etc.) in a way that can be accessed by generic roles.
+Model your content (Content Types, Sections, Locations etc.) in a way that can be accessed by generic Roles.
 That way system will be more secure and easier to manage. 
 This approach also improves performance. Role assignments and Policies are taken into account during search/load queries.
 
 See [Permissions overview](permissions.md) for further information.
 
-### Use Cases
+### Policies examples
 
 Here are a few examples of sets of Policies you can use to get some common permission configurations.
 
@@ -101,6 +100,16 @@ To allow the User to enter the Back Office interface and view all content, you n
 
 These Policies will be necessary for all other cases below that require access to the content structure.
 
+#### Create content without publishing
+
+This option can be used together with eZ Enterprise's content review options.
+Using the following Policies, the User is able to create content, but can't publish it; instead, they must send it for review to another User with proper permissions (for example, senior editor, proofreader, etc.).
+
+- `content/create`
+- `content/edit`
+
+Note that without eZ Enterprise this setup should not be used, as it will not allow the User to continue working with their content.
+
 #### Create and publish content
 
 To create and publish content, the user must additionally have the following Policies:
@@ -111,15 +120,14 @@ To create and publish content, the user must additionally have the following Pol
 
 This also lets the user copy and move content, as well as add new Locations to a Content item (but not remove them!).
 
-#### Create content without publishing
+#### Removing content
 
-This option can be used together with eZ Enterprise's content review options.
-Using the following Policies, the User is able to create content, but can't publish it; instead, they must send it for review to another User with proper permissions (for example, senior editor, proofreader, etc.).
+To send content to trash, the User needs to have the `content/remove` Policy.
 
-- `content/create`
-- `content/edit`
+To remove an archived version of content, the User must have the `content/versionremove` Policy.
 
-Note that without eZ Enterprise this setup should not be used, as it will not allow the User to continue working with their content.
+Further manipulation of trash requires the `content/restore` Policy to restore items from trash, and `content/cleantrash` to completely delete all content from the trash.
+
 
 #### Restrict editing to part of the tree
 
@@ -138,85 +146,6 @@ Note that when a Policy has more than one Limitation, all of them have to apply,
 For example, a `Location` Limitation on Location `1/2` and `Subtree of Location` Limitation on `1/2/55` cannot work together, because no Location can satisfy both those requirements at the same time.
 If you want to combine more than one Limitation with the *or* relation, not *and*, you can split your Policy in two, each with one of these Limitations.
 
-#### Multi-file upload
-
-Creating content through multi-file upload is treated in the same way as regular creation.
-To enable upload, you need you set the following permissions:
-
-- `content/create`
-- `content/read`
-- `content/publish`
-
-You can control what Content items can be uploaded and where using Limitations on the `content/create` and `content/publish` Policies.
-
-A Location Limitation limits uploading to a specific Location in the tree. A Content Type Limitation controls the Content Types that are allowed.
-For example, you can set the Location Limitation on a **Pictures** Folder, and add a Content Type Limitation
-which only allows Content items of type **Image**. This ensures that only files of type `image` can be uploaded,
-and only to the **Pictures** Folder.
-
-#### Manage Locations
-
-To add a new Location to a Content item, the Policies required for publishing content are enough.
-To allow the User to remove a Location, you need to grant them the following Policies:
-
-- `content/remove`
-- `content/manage_locations`
-
-Hiding and revealing Location requires one more Policy: `content/hide`.
-
-#### Removing content
-
-To send content to trash, the User needs to have the `content/remove` Policy.
-
-To remove an archived version of content, the User must have the `content/versionremove` Policy.
-
-Further manipulation of trash requires the `content/restore` Policy to restore items from trash, and `content/cleantrash` to completely delete all content from the trash.
-
-#### Registering Users
-
-To allow anonymous users to register through the `/register` route, you need to grant the `user/register` Policy to the Anonymous User Group.
-
-#### Admin
-
-To access the Admin in the Back Office the User must have the `setup/administrate` Policy.
-This will allow the User to view the Languages and Content Types.
-
-Additional Policies are needed for each section of the Admin.
-
-##### System Information
-
-- `setup/system_info` to view the System Information tab
-
-##### Sections
-
-- `section/view` to see and access the Section list
-- `section/edit` to add and edit Sections
-- `section/assign` to assign Sections to content
-
-##### Languages
-
-- `content/translations` to add and edit languages
-
-##### Content Types/action
-
-- `Content Type/create`, `Content Type/update`, `Content Type/delete` to add, modify and remove Content Types
-
-##### Object States
-
-- `state/administrate` to view a list of Object States, add and edit them
-- `state/assign` to assign Objects States to Content
-
-##### Roles
-
-- `role/read` to view the list of Roles in Admin
-- `role/create`, `role/update`, `role/assign` and `role/delete` to manage Roles
-
-##### Users
-
-- `content/view` to view the list of Users
-
-Users are treated like other content, so to create and modify them the User needs to have the same permissions as for managing other Content items.
-
 !!! enterprise
 
     #### Editorial workflows
@@ -234,12 +163,14 @@ Users are treated like other content, so to create and modify them the User need
     - `content/edit` with `WorkflowStageLimitation` set to "Design".
     - `workflow/change_stage` with `WorkflowTransitionLimitation` set to `to_proofreading`
 
+For more examples, see [Permission's use cases](permissions.md/#use-cases).
+
 ## Languages
 
 eZ Platform offers the ability to create multiple translations of your website.
 Which version is shown to a visitor depends on the way your installation is set up.
 A new language version for the website can be added in the Admin Panel in the Languages tab.
-Every new language must have a name and a language code, written in the `xxx-XX` format, for example eng-US etc.
+Every new language must have a name and a language code, written in the `xxx-XX` format, for example `eng-US` etc.
 
 The multilanguage system operates based on a global translation list that contains all languages available in the installation.
 After adding a language you may have to reload the application to be able to use it.
@@ -253,12 +184,11 @@ A Content Type is a base for new Content items.
 It defines what fields will be available in the Content item. 
 For example, a new Content Type called *Article* can have fields such as title, author, body, image, etc.
 Based on this Content Type, you can create any number of Content items. 
-Content types are organized into groups.
+Content Types are organized into groups.
 You can add your own groups here to keep your Content Types in better order. 
 
-For a full tutorial see [Create a Content Type](../getting_started/first_steps/#create-a-content-type) or follow [user documentation](https://doc.ezplatform.com/projects/userguide/en/latest/organizing_the_site/#content-types)
-An introduction to the eZ content model aimed at developer users, is available at
-[Content model overview](content_model.md)
+For a full tutorial, see [Create a Content Type](../getting_started/first_steps/#create-a-content-type) or follow [user documentation](https://doc.ezplatform.com/projects/userguide/en/latest/organizing_the_site/#content-types).
+For a detailed overview of the content model, see [Content model overview](content_model.md).
 
 ## Object States
 
