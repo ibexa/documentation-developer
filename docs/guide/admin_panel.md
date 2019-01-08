@@ -170,20 +170,3 @@ You can add your own groups here to keep your Content Types in better order.
 
 For a full tutorial, see [Create a Content Type](../getting_started/first_steps/#create-a-content-type) or follow [user documentation](https://doc.ezplatform.com/projects/userguide/en/latest/organizing_the_site/#content-types).
 For a detailed overview of the content model, see [Content model overview](content_model.md).
-
-## Object States
-
-Object states are user-defined states that can be assigned to Content items.
-They are contained in groups.
-If a state group contains any states, each Content item is automatically assigned a state from this group.
-
-You can assign states to content in the Back Office in the Content item's Details tab.
-
-![Assigning an Object state to a Content item](img/assigning_an_object_state.png)
-
-By default, eZ Platform contains one Object state group: **Lock**, with states **Locked** and **Not locked**.
-
-![**Lock** Object state](img/object_state_lock.png)
-
-Object states can be used in conjunction with permissions, in particular with the [ObjectStateLimitation](limitations/#objectstatelimitation).
-Their specific use cases depend on your needs and the setup of your permission system.
