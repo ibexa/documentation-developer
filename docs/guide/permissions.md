@@ -2,7 +2,7 @@
 
 ## Permission overview
 
-A User does not have permissions for any part of the system, unless they are explicitly given access.
+A new User does not have permissions for any part of the system, unless they are explicitly given access.
 To get access they need to inherit Roles, typically assigned to the User Group they belong to.
 
 Each Role can contain one or more **Policies**. A Policy is a rule that gives access to a single **function** in a **module**.
@@ -29,7 +29,7 @@ you can split your Policy in two, each with one of these Limitations.
 
 Every User or User Group can have many roles. A User can also belong to many groups, for example, Administrators, Editors, Subscribers.
 
-It is best practice to avoid assigning Roles to Users directly.
+It is best practice to avoid assigning Roles to users directly.
 Instead, try to organize your content so that it can be covered with general roles assigned to User Groups.
 
 Using Groups is easier to manage and more secure. It also improves system performance.

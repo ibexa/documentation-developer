@@ -2,6 +2,7 @@
 
 Limitations are part of the permissions system.
 They limit the access granted to users by [Policies](permissions.md#permission-overview).
+While a Policy grants the user access to a function, Limitations narrow it down by different criteria.
 
 Limitations consist of two parts:
 
@@ -170,7 +171,7 @@ A Limitation to specify if the User has access to Content with a specific Locati
 
 ### NewObjectStateLimitation
 
-A Limitation to specify if the User has access to (assigning) a given `ObjectState` to Content.
+A Limitation to specify if the User has access to (assigning) a given `ObjectState` to content.
 
 In the `state/assign` Policy you can combine this with `ObjectStateLimitation` to limit both from and to values.
 
