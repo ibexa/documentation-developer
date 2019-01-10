@@ -4,7 +4,7 @@ The content Repository uses [Roles and Policies](permissions.md) to give Users a
 
 Any bundle can expose available Policies via a `PolicyProvider` which can be added to EzPublishCoreBundle's DIC extension.
 
-## `PolicyProvider`
+## PolicyProvider
 
 A `PolicyProvider` object provides a hash containing declared modules, functions and Limitations.
 
@@ -54,7 +54,7 @@ class MyPolicyProvider implements PolicyProviderInterface
 }
 ```
 
-## `YamlPolicyProvider`
+## YamlPolicyProvider
 
 An abstract class based on YAML is provided: `eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Security\PolicyProvider\YamlPolicyProvider`.
 It defines an abstract `getFiles()` method.
