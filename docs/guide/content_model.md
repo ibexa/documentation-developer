@@ -2,41 +2,71 @@
 
 ## Content model overview
 
-The content structure in eZ Platform is based on "objects". An "object" in eZ Platform is called a Content item and represents a single piece of content: an article, a blog post, an image, a product, etc. Each Content item is an instance of a "class," called a Content Type.
+The content structure in eZ Platform is based on Content items.
+A Content item represents a single piece of content: an article, a blog post, an image, a product, etc.
+Each Content item is an instance of a Content Type.
 
-An introduction to the eZ content model aimed at non-developer users, is available in [eZ Platform user documentation](https://doc.ezplatform.com/projects/userguide/en/latest/content_model/).
+!!! tip
+
+    An introduction to the content model for non-developer users is available in [eZ Platform user documentation](https://doc.ezplatform.com/projects/userguide/en/latest/content_model/).
 
 ## Content items
 
-A Content item is the basic unit of content that is managed in eZ Platform.
+A Content item consists of:
 
-A Content item is made up of different Fields and their values, as defined by the [Content Type](#content-types). These [Fields](#fields) can cover data ranging from single variables and text lines to media files or blocks of formatted text.
+- [Content information](#content-information)
+- [Fields](#fields), defined by the [Content Type](#content-types).
+The Fields can cover data ranging from single variables and text lines to media files or blocks of formatted text.
 
-Aside from the Fields, each Content item also has the following general information:
+#### Content information
 
-#### Content item general information
+General information about a Content item is stored in a [`ContentInfo`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/ContentInfo.php) object.
+`ContentInfo` does not include Fields. It contains following information:
 
-**Content ID** – a unique number by which the Content item is identified in the system. These numbers are not recycled, so if an item is deleted, its ID number will not be reused when a new one is created.
+**`id`** - the unique ID of the Content object. These numbers are not recycled, so if an item is deleted, its ID will not be reused when a new one is created.
 
-**Name** – a user-friendly name for the Content item. The name is generated automatically based on a pattern specified in the Content Type definition.
+**`contentTypeId`** - the unique ID of the Content Type on which the Content item is based.
+
+**`name`** - the name is generated automatically based on a [pattern specified in the Content Type definition](#content-name-pattern).
+The name is in the main language of the Content item.
 
 !!! note
 
-    Content item Name is always searchable, even if the Field(s) used to generate it are not.
+    `name` is always searchable, even if the Field(s) used to generate it are not.
 
-**Type** – the Content Type on which the Content item is based.
+**`sectionId`** - the unique number of the Section to which the Content item belongs.
+New Content items are placed in the Standard section by default.
+This behavior can be changed, but content must always belong to some Section.
+See [Sections](admin_panel.md#sections) for more information.
 
-**Owner** – the user who initially created the Content item. It is set by the system the first time the Content item is published. The ownership of an item cannot be modified and will not change even if the owner is removed from the system.
+**`currentVersionNo`** - current version number is the version number of the published version or the version number of a newly created draft (which is 1).
 
-**Creation time** – date and time when the Content item was published for the first time. This is set by the system and cannot be modified.
+**`published`** - true if a published version exists, otherwise false.
 
-**Modification time** – date and time when the Content item was last modified. This is set by the system and cannot be modified manually, but will change every time the item is published again.
+**`ownerId`** - ID of the user who initially created the Content item.
+It is set by the system the first time the Content item is published.
+The ownership of an item cannot be modified and will not change even if the owner is removed from the system.
 
-**Status** – the current state of the Content item. It can have three statuses: 0 – Draft, 1 – Published and 2 – Archived. When an item is created, its status is set to *draft*. After publishing the status changes to *published*. When a published Content item is moved to Trash, the item becomes *archived*. If a published item is removed from the Trash (or removed without being put in the Trash first), it will be permanently deleted. 
+**`modificationDate`** - date and time when the Content item was last modified.
+This is set by the system and cannot be modified manually, but will change every time the item is published again.
 
-**Section ID** – the unique number of the Section to which the Content item belongs. New Content items are placed in the Standard section by default. This behavior can be changed, but content must always belong to some Section.
+**`publishedDate`** - date and time when the Content item was published for the first time.
+This is set by the system and cannot be modified.
 
-**Versions** – total number of versions of this Content item. A new version is created every time the Content item is modified and it is this new version that is edited. The previous / published version along with earlier versions remain untouched and its status changed to *Archived*. A Content item always has at least one version. 
+**`alwaysAvailable`** - indicates if the Content item is shown in the main language when it's not present in another requested language.
+It is [set per Content Type](#default-content-availability).
+
+**`remoteId`** - global unique ID of the Content item.
+
+**`mainLanguageCode`** - the main language code of the Content item.
+If the `alwaysAvailable` flag is set to true, the Content item is shown in this language when the requested language does not exist.
+
+**`mainLocationId`** - identifier of the Content item's main [Location](content_management.md#locations).
+
+**`status`** - status of the Content item. It can have three statuses: 0 – Draft, 1 – Published and 2 – Archived.
+When an item is created, its status is set to *draft*. After publishing the status changes to *published*.
+When a published Content item is moved to Trash, the item becomes *archived*.
+If a published item is removed from the Trash (or removed without being put in the Trash first), it is permanently deleted.
 
 ![Diagram of an example Content item](img/content_model_item_diagram.png)
 
@@ -58,7 +88,7 @@ Each Content Type is characterized by a set of metadata which define the general
 
 **Description** – a detailed description of the Content Type. (Optional.)
 
-**Content name pattern** – a pattern that defines what name a new Content item based on this Content Type gets. The pattern usually consists of Field identifiers that tell the system which Fields it should use when generating the name of a Content item. Each Field identifier has to be surrounded with angle brackets. Text outside the angle brackets will be included literally. If no pattern is provided, the system will automatically use the first Field. (Optional.)
+<a id="content-name-pattern"></a>**Content name pattern** – a pattern that defines what name a new Content item based on this Content Type gets. The pattern usually consists of Field identifiers that tell the system which Fields it should use when generating the name of a Content item. Each Field identifier has to be surrounded with angle brackets. Text outside the angle brackets will be included literally. If no pattern is provided, the system will automatically use the first Field. (Optional.)
 
 **URL alias name pattern** – a pattern which controls how the virtual URLs of the Locations will be generated when Content items are created based on this Content Type. Note that only the last part of the virtual URL is affected. The pattern works in the same way as the Content name pattern. Text outside the angle brackets will be converted using the selected method of URL transformation. If no pattern is provided, the system will automatically use the name of the Content item itself. (Optional.)
 
@@ -80,15 +110,14 @@ Each Content Type is characterized by a set of metadata which define the general
 
 **Default sort order** – another rule for sorting sub-items. This decides the sort order for the criterion chosen above.
 
-**Default content availability** – a flag which indicates if Content items of this Content Type should be available even without a corresponding language version. If this flag is not set, a Content item of this Type will not be available when it does not have a language version corresponding to the current SiteAccess. By setting this flag you can make instances of this Content Type available regardless of the language criterion.
+<a id="default-content-availability"></a>**Default content availability** – a flag which indicates if Content items of this Content Type should be available even without a corresponding language version. If this flag is not set, a Content item of this Type will not be available when it does not have a language version corresponding to the current SiteAccess. By setting this flag you can make instances of this Content Type available regardless of the language criterion.
 
 ![Creating a new Content Type](img/admin_panel_new_content_type.png)
 
 ### Field definitions
 
-Aside from the metadata, a Content Type contains any number of Field definitions (but has to contain at least one). They determine what Fields of what Field Types will be included in all Content items based on this Content Type.
-
-A Content Type and its Field definitions can be modified after creation, even if there are already Content items based on it in the system. When a Content Type is modified, each of its instances will be changed as well. If a new Field definition is added to a Content Type, this Field will appear (empty) in every relevant Content item. If a Field definition is deleted from the Content Type, all the corresponding Fields will be removed from Content items of this type.
+Aside from the metadata, a Content Type contains any number of Field definitions (but has to contain at least one).
+They determine what Fields of what Field Types will be included in all Content items based on this Content Type.
 
 ![Diagram of an example Content Type](img/content_model_type_diagram.png)
 
@@ -96,15 +125,25 @@ A Content Type and its Field definitions can be modified after creation, even if
 
     You can assign each Field defined in a Content Type to a group by selecting one of the groups in the Category drop-down. [Available groups can be configured in the content repository](configuration.md#content-repository-configuration).
 
+### Modifying Content Types
+
+A Content Type and its Field definitions can be modified after creation,
+even if there are already Content items based on it in the system.
+When a Content Type is modified, each of its instances will be changed as well.
+If a new Field definition is added to a Content Type, this Field will appear (empty) in every relevant Content item.
+If a Field definition is deleted from the Content Type, all the corresponding Fields will be removed from Content items of this type.
+
 ## Fields
 
 A Field is the smallest unit of storage in the content model and the building block of all Content items. Every Field belongs to a Field Type.
+
+Beyond the built-in set of Field Types, you can create your own. See the [Create a Field Type](../tutorials/field_type/creating_a_tweet_field_type.md) tutorial
 
 ### Field value validation
 
 The values entered in a Field may undergo validation, which means the system makes sure that they are correct for the chosen Field Type and can be used without a problem.
 
-Whether validation is performed or not depends on the settings of a particular Field Type. Validation cannot be turned off for a Field if its Field Type supports it.
+Validation depends on the settings of a particular Field Type. It cannot be turned off for a Field if its Field Type supports it.
 
 ### Field details
 
@@ -124,8 +163,23 @@ Note that the Required flag is in no way related to Field validation. A Field's 
 
 The Searchable flag is not available for some Fields, because some Field Types do not allow searching through their values.
 
-**[Translatable](internationalization.md)** – a flag which indicates if the value of the Field can be translated. This is independent of the Field Type, which means that even Fields of Types such as "Float" or "Image" can be set as translatable.
+**[Translatable](internationalization.md)** – a flag which indicates if the value of the Field can be translated. This is independent of the Field Type, which means that even Fields such as "Float" or "Image" can be set as translatable.
 
 Depending on the Field Type, there may also be other, specific information to fill in. For example, the "Country" Field Type allows you to select the default country, as well as to allow selecting multiple countries at the same time.
 
 ![Diagram of content model](img/content_model_diagram.png)
+
+## Content versions
+
+Each Content item can have multiple versions.
+Each version has one of the following statuses: *Draft*, *Archived* or *Published*.
+
+A new version is created every time a Content item is edited. The previous published version is not modified.
+
+Only one version can be published at the same time.
+When you publish a new version, the previous published version changes its status to Archived.
+
+The number of preserved archived versions is set in `ezpublish.repositories.default.options.default_version_archive_limit`.
+By default it is set to 5.
+
+A new version is also created when a new [language](internationalization.md) is added to the Content item.
