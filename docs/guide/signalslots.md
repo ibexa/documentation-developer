@@ -171,6 +171,7 @@ All Signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
 |`ContentTypeService\UpdateContentTypeDraftSignal`|`contentTypeDraftId`|`ContentTypeService::updateContentTypeDraft()`|
 |`ContentTypeService\UpdateContentTypeGroupSignal`|`contentTypeGroupId`|`ContentTypeService::updateContentTypeGroup()`|
 |`ContentTypeService\UpdateFieldDefinitionSignal`|`contentTypeDraftId`</br>`fieldDefinitionId`|`ContentTypeService::updateFieldDefinition()`|
+|`ContentTypeService\RemoveContentTypeDraftTranslationSignal`|`contentTypeDraftId`</br>`languageCode`|`ContentTypeService::removeContentTypeTranslation()`|
 
 #### LanguageService
 
