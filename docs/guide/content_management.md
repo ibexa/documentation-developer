@@ -2,9 +2,9 @@
 
 ## Locations
 
-When a new Content item is published, it is automatically place in a new Location.
+When a new Content item is published, it is automatically placed in a new Location.
 
-All Locations form a tree which is the basic way of organizing Content in the system.
+All Locations form a tree which is the basic way of organizing content in the system.
 Every published Content item has a Location and, as a consequence, also a place in this tree.
 
 A Content item receives a Location only once it has been published.
@@ -14,6 +14,9 @@ Drafts cannot be found in the Content browser. You can find them in the Dashboar
 A Content item can have more than one Location. It is then present in two or more places in the tree.
 For example, an article can be at the same time under "Local news" and "Sports news".
 Even in such a case, one of these places is always the main Location.
+
+You can change the main Location in the Back Office in the Locations tab,
+or [through the API](../api/public_php_api_locations.md#setting-a-content-items-main-location).
 
 ### Top level Locations
 
@@ -29,34 +32,34 @@ Under this root there are preset top level Locations in each installation which 
 
 #### Content
 
-"Content" is the top level Location for the actual contents of a site.
+**Content** is the top level Location for the actual contents of a site.
 This part of the tree is typically used for organizing folders, articles, information pages, etc.
 This means that it contains the actual content structure of the site,
-which can be viewed by selecting the "Content structure" tab in the Content mode interface.
-The default ID number of the "Content" Location is 2; it contains a "Folder" Content item.
+which can be viewed by selecting the **Content structure** tab in the Content mode interface.
+The default ID number of the **Content** Location is 2; it contains a Folder Content item.
 
 #### Media
 
-"Media" is the top level Location which stores and organizes information
-that is frequently used by Content items located below the "Content" node.
+**Media** is the top level Location which stores and organizes information
+that is frequently used by Content items located below the **Content** node.
 It usually contains images, animations, documents and other files.
-They can be viewed by selecting the "Media library" tab in the Content mode interface.
-The default ID number of the "Media" Location is 43; it contains a "Folder" Content item.
+They can be viewed by selecting the **Media library** tab in the Content mode interface.
+The default ID number of the **Media** Location is 43; it contains a Folder Content item.
 
 #### Users
 
 ![Users in admin panel](img/admin_panel_users.png)
 
-"Users" is the top level Location that contains the built-in system for managing User accounts.
-A User is simply a Content item of the "User account" Content Type.
-The Users are organized within "User Group" Content items below this Location.
-In other words, the "Users" Location contains the actual Users and User Groups,
-which can be viewed by selecting the "Users" tab in the Admin Panel.
-The default ID number of the "Users" Location is 5; it contains a "User Group" Content item.
+**Users** is the top level Location that contains the built-in system for managing User accounts.
+A User is simply a Content item of the User account Content Type.
+The Users are organized within User Group Content items below this Location.
+In other words, the **Users** Location contains the actual Users and User Groups,
+which can be viewed by selecting the **Users** tab in the Admin Panel.
+The default ID number of the **Users** Location is 5; it contains a User Group Content item.
 
 #### Other top level Locations
 
-Another top level location, with the ID 48, corresponds to "Setup" and is not regularly used to store content.
+Another top level location, with the ID 48, corresponds to **Setup** and is not regularly used to store content.
 
 You should not add any more content directly below Location 1, but instead store any content under one of those top-level Locations.
 
@@ -75,18 +78,18 @@ This means that a Location can have one of three different visibility statuses:
 - Hidden
 - Hidden by superior
 
-All Locations are Visible by default. If a Location is made invisible manually, its status is set to Hidden.
+All Locations are visible by default. If a Location is made invisible manually, its status is set to Hidden.
 All Locations under it will change status to Hidden by superior.
 
 From the visitor's perspective a Location behaves the same whether its status is Hidden or Hidden by superior –
 it will be unavailable on the front page.
 The difference is that a Location Hidden by superior cannot be revealed manually.
-It will only become visible once all of its ancestor Locations are made Visible again.
+It will only become visible once all of its ancestor Locations are made visible again.
 
 A Hidden by superior status does not override a Hidden status.
-This means that if a Location is Hidden manually and later one of its ancestors is Hidden as well,
+This means that if a Location is Hidden manually and later one of its ancestors is hidden as well,
 the first Location's status does not change – it remains Hidden (not Hidden by superior).
-If the ancestor Location is made visible again, the first Location still remains Hidden.
+If the ancestor Location is made visible again, the first Location still remains hidden.
 
 The way visibility works can be illustrated using the following scenarios:
 
@@ -111,7 +114,7 @@ Since the underlying Locations are already either Hidden or Hidden by superior, 
 
 When you reveal a Location which has a visible ancestor, this Location and its children will become visible.
 However, child Locations that were explicitly hidden by a user will keep their Hidden status
-(and their children will be remain Hidden by superior).
+(and their children will remain Hidden by superior).
 
 ##### Revealing a Location with a Hidden ancestor
 
@@ -146,7 +149,7 @@ Together, the flags represent the three visibility statuses:
     The Location visibility flag is not permission-based and thus acts as a simple potential filter.
     **It is not meant to restrict access to content**.
 
-    If you need to restrict access to a given Content item, use **Sections** or other **Limitations**, which are permission-based.
+    If you need to restrict access to a given Content item, use [**Sections**](admin_panel.md#sections) or other [**Limitations**](limitations.md), which are permission-based.
 
 ## Content Relations
 
@@ -158,7 +161,7 @@ For example, images are linked to news articles they are used in.
 Instead of using a fixed set of image attributes, the images are stored as separate Content items outside the article.
 
 There are different types of Relations available in the system.
-Content can be related on item or on Field level.
+Content can have Relations on item or on Field level.
 
 *Relations at Field level* are created using one of two special Field Types: Content relation (single) and Content relations (multiple).
 These Fields allow you to select one or more other Content items in the Field value, which will be linked to these Fields.
@@ -172,5 +175,5 @@ the system automatically creates a Relation.
 The Relation is automatically removed from the system when the link is removed from the Content item.
 - *RichText embedded relations* also use a RichText Field.
 When an Embed element is placed in a RichText Field, the system automatically creates a Relation
-between the embedded Content item to the one with the RichText Field.
+between the embedded Content item and the one with the RichText Field.
 The Relation is automatically removed from the system when the link is removed from the Content item.

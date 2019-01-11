@@ -39,7 +39,7 @@ New Content items are placed in the Standard section by default.
 This behavior can be changed, but content must always belong to some Section.
 See [Sections](admin_panel.md#sections) for more information.
 
-**`currentVersionNo`** - current version number is the version number of the published version or the version number of a newly created draft (which is 1).
+**`currentVersionNo`** - current version number is the number of the published version or of a newly created draft (which is 1).
 
 **`published`** - true if a published version exists, otherwise false.
 
@@ -63,7 +63,7 @@ If the `alwaysAvailable` flag is set to true, the Content item is shown in this 
 
 **`mainLocationId`** - identifier of the Content item's main [Location](content_management.md#locations).
 
-**`status`** - status of the Content item. It can have three statuses: 0 – Draft, 1 – Published and 2 – Archived.
+**`status`** - status of the Content item. It can have three statuses: 0 – *draft*, 1 – *published* and 2 – *archived*.
 When an item is created, its status is set to *draft*. After publishing the status changes to *published*.
 When a published Content item is moved to Trash, the item becomes *archived*.
 If a published item is removed from the Trash (or removed without being put in the Trash first), it is permanently deleted.
@@ -116,7 +116,7 @@ Each Content Type is characterized by a set of metadata which define the general
 
 ### Field definitions
 
-Aside from the metadata, a Content Type contains any number of Field definitions (but has to contain at least one).
+Aside from the metadata, a Content Type may contain any number of Field definitions (but has to contain at least one).
 They determine what Fields of what Field Types will be included in all Content items based on this Content Type.
 
 ![Diagram of an example Content Type](img/content_model_type_diagram.png)
@@ -172,7 +172,7 @@ Depending on the Field Type, there may also be other, specific information to fi
 ## Content versions
 
 Each Content item can have multiple versions.
-Each version has one of the following statuses: *Draft*, *Archived* or *Published*.
+Each version has one of the following statuses: *draft*, *archived* or *published*.
 
 A new version is created every time a Content item is edited. The previous published version is not modified.
 
