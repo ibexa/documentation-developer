@@ -1,16 +1,19 @@
 # Limitations
 
-Limitations are crucial building blocks of the permissions system in eZ Platform. They provide the restrictions you can apply to a given access right to limit the right according to certain conditions.
+Limitations are part of the permissions system.
+They limit the access granted to users by [Policies](permissions.md#permission-overview).
+While a Policy grants the user access to a function, Limitations narrow it down by different criteria.
 
 Limitations consist of two parts:
 
 - `Limitation` (Value)
 - `LimitationType`
 
-Certain Limitations also serve as Role Limitations, which means they can be used to limit the rights of a Role assignment. Currently this covers `Subtree of Location` and `Section` Limitations.
+Certain Limitations also serve as Role Limitations, which means they can be used to limit the rights of a Role assignment.
+Currently this covers `Subtree of Location` and `Section` Limitations.
 
 `Limitation` represents the value, while `LimitationType` deals with the business logic surrounding how it actually works and is enforced.
-`LimitationTypes` have two modes of operation in regards to permission logic (see `eZ\Publish\SPI\Limitation\Type` interface for more info):
+`LimitationTypes` have two modes of operation in regards to permission logic (see [`eZ\Publish\SPI\Limitation\Type`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/SPI/Limitation/Type.php) interface for more info):
 
 | Method | Use |
 |--------|-----|
@@ -22,8 +25,6 @@ Certain Limitations also serve as Role Limitations, which means they can be used
 !!! tip
 
     Core Policies with Limitations are defined in [`EzPublishCoreBundle/Resources/config/policies.yml`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/policies.yml).
-
-### Module, function and limitations
 
 Each Module contains functions, and for each function, you have Limitations. The default values are shown below.
 
@@ -44,7 +45,7 @@ If a function is absent from the tables below, it means that no Limitations can 
 |diff|true|true|true|true|true|-|-|-|
 |view_embed|true|true|true|true|true|-|-|-|
 |create|true|true|-|true|true|-|true|Owner of Parent</br>Content Type Group of Parent</br>Content Type of Parent</br>Parent Depth|
-|edit|true|true|true|true|true|true|true|State|
+|edit|true|true|true|true|true|true|true|State</br>WorkflowStage|
 |manage_locations|true|true|true|-|true|-|-|State|
 |hide|true|true|true|true|true|true|true|State|
 |translate|true|true|true|true|true|true|-|
@@ -70,11 +71,18 @@ If a function is absent from the tables below, it means that no Limitations can 
 |------|------|
 |assign|SiteAccess|
 
+#### Workflow
+
+|Function|Limitations|
+|------|------|
+|change_stage|WorkflowTransition|
+
 ## Limitation details
 
 ### BlockingLimitation
 
-A generic Limitation type to use when no other Limitation has been implemented. Without any Limitation assigned, a LimitationNotFoundException is thrown.
+A generic Limitation type to use when no other Limitation has been implemented.
+Without any Limitation assigned, a `LimitationNotFoundException` is thrown.
 
 It is called "blocking" because it will always tell the permissions system that the User does not have access to any Policy it is assigned to, making the permissions system move on to the next Policy.
 
@@ -163,7 +171,7 @@ A Limitation to specify if the User has access to Content with a specific Locati
 
 ### NewObjectStateLimitation
 
-A Limitation to specify if the User has access to (assigning) a given `ObjectState` (to Content).
+A Limitation to specify if the User has access to (assigning) a given `ObjectState` to content.
 
 In the `state/assign` Policy you can combine this with `ObjectStateLimitation` to limit both from and to values.
 
