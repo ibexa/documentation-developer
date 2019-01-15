@@ -240,10 +240,12 @@ body {
 }
 
 .md-typeset code {
-    background-color: #f0f0f0;
+    background-color: #ededed;
     padding: 1px 4px;
     margin: 0;
-    box-shadow: none;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.125);
+    color: #2b2b2b;
+    font-family: monospace;
 }
 
 .codehilite .hll {
@@ -363,4 +365,15 @@ a.external:after {
 
 .injected {
     display: none;
+}
+
+table tr td:first-child:not(.linenos) {
+    width: 150px;
+}
+
+@media (max-width: 575px) {
+    table tr td:first-child:not(.linenos) {
+        min-width: 0 !important;
+        width: auto !important;
+    }
 }
