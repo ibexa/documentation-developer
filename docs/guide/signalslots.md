@@ -252,8 +252,8 @@ All Signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
 
 |Signal type|Properties|Triggered by|
 |------|------|------|
-|`TrashService\DeleteTrashItemSignal`|`trashItemId`|`TrashService::deleteTrashItem()`|
-|`TrashService\EmptyTrashSignal`|N/A|`TrashService::emptyTrash()`|
+|`TrashService\DeleteTrashItemSignal`|`trashItemDeleteResult`|`TrashService::deleteTrashItem()`|
+|`TrashService\EmptyTrashSignal`|`trashItemDeleteResultList `|`TrashService::emptyTrash()`|
 |`TrashService\RecoverSignal`|`trashItemId`</br>`contentId`</br>`newParentLocationId`</br>`newLocationId`|`TrashService::recover()`|
 |`TrashService\TrashSignal`|`locationId`</br>`parentLocationId`</br>`contentId`</br>`contentTrashed`|`TrashService::trash()`|
 
