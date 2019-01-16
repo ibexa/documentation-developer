@@ -1,0 +1,646 @@
+<!DOCTYPE HTML><html><head><title>eZ Platform (Test) API documentation</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="generator" content="https://github.com/raml2html/raml2html 7.2.1"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"><style>
+        .bold {
+            font-weight: bold;
+        }
+
+        .badge {
+            text-transform: uppercase;
+            font-weight:bold !important;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            min-width: auto !important;
+        }
+
+        .badge i {
+            margin-right: 0.2rem;
+            font-size: 1rem;
+        }
+
+        .badge-get {
+            background-color: #2196f3 !important;
+        }
+
+        .badge-post {
+            background-color: #4caf50 !important;
+        }
+
+        .badge-delete {
+            background-color: #f44336 !important;
+        }
+
+        .badge-put {
+            background-color: #ff9800 !important;
+        }
+
+        .badge-patch {
+            background-color: #673ab7 !important;
+        }
+
+        .badge-head {
+            background-color: #222222 !important;
+        }
+
+        .badge-options {
+            background-color: #616161 !important;
+        }
+
+        .text-primary {
+            color: #ee6e73 !important;
+        }
+
+        .bg-primary {
+            background-color:#ee6e73 !important;
+        }
+
+        .tabs .indicator { display: none; }
+
+        .tabs a {
+            color: #212121  !important;
+        }
+        .tabs .tab a.active { 
+            border-bottom: 2px solid #212121 ; 
+        }
+        .tabs a:focus {
+            background-color: #f5f5f5 !important;
+        }
+
+        .tabs.request a {
+            color: #039be5 !important;
+        }
+        .tabs.request .tab a.active { 
+            border-bottom: 2px solid #039be5; 
+        }
+        .tabs.request a:focus {
+            background-color: #e1f5fe !important;
+        }
+
+        .tabs.response a {
+            color: #4db6ac !important;
+        }
+        .tabs.response .tab a.active { 
+            border-bottom: 2px solid #4db6ac; 
+        }
+        .tabs.response a:focus {
+            background-color: #e0f2f1 !important;
+        }
+
+        .space-between {
+            justify-content: space-between;
+        }
+
+        .d-flex {
+            display:flex;
+        }
+
+        .chip {
+            line-height: 22px;
+            font-size:15px;
+            height:22px;
+            margin-bottom:0;
+            border-radius:2px;
+            padding: 0 5px;
+            margin-left:5px;
+        }
+
+        ul.browser-default {
+            padding-left:20px;
+        }
+        ul.browser-default li {
+            margin-top:10px;
+        }
+
+        .example {
+            position: relative;
+            border: 1px solid #e0e0e0;
+        }
+
+        .example pre {
+            padding: 8px;
+            margin: 0px;
+        }
+
+        .collapsible {
+            box-shadow: none !important;
+        }
+
+        .collapsible .example {
+            border: none;
+        }
+
+        .collapsible .example pre {
+            padding: 0;
+        }
+
+        .modal {
+            height: 80% !important;
+            max-height: 80% !important;
+            width: 60% !important;
+        }
+
+        .hljs {
+            color: #000;
+            background: transparent;
+        }
+
+        .hljs-attr {
+            color: #000;
+        }
+
+        .hljs-string {
+            color: #1976d2;
+        }
+
+        .hljs-number {
+            color: #00796b;
+        }
+
+        .hljs-literal {
+            color: #d32f2f;
+        }
+
+        .copy-to-clipboard {
+            position: absolute;
+            right:0;
+            top:0;
+        }
+
+        .copy-to-clipboard-text {
+            height:0;
+            width:0;
+            opacity:0;
+            position:absolute;
+            top:0;
+            right:0;
+        }
+
+        .search-input {
+            margin: 0 !important;
+            margin-top: 20px !important;
+            border: 0 !important;
+            background: #eeeeee !important;
+            border-radius: 1000px !important;
+            box-shadow: none !important;
+            padding: 0 15px !important;
+            max-width: 300px;
+            height: 2.4rem !important;
+        }
+
+        .search-input::placeholder {
+            color: #555;
+        }
+
+        .property-badge {
+            padding: 0 5px;
+            margin: 0;
+            font-size: 10px;
+            font-weight: bold;
+            color: #FFF;
+            border-radius: 100px;
+            line-height: 13px;
+            text-align: center;
+            text-transform: uppercase;
+            margin-right: 15px;
+            margin-top: 1px;
+        }
+
+        .property-condition {
+            display: flex;
+            align-items:center;
+            margin-right: 15px;
+        }
+
+        .property-condition span {
+            color: #777;
+            text-style: italic;
+            margin-right: 4px;
+        }
+    </style></head><body><div class="section grey darken-4"><div class="container"><h3 class="white-text">eZ Platform (Test) API documentation <small class="white-text">version 2.4</small></h3><p class="white-text">http://localhost/</p></div></div><div class="container"><div style="display:flex;justify-content:center;"><input type="text" id="searchInput" class="search-input" placeholder="Search"></div><div class="section"><h5>/bookmark</h5><ul class="collection"><li class="collection-item space-between d-flex search-filter"><span class="search-filter-value"><span class="grey-text"></span> <span>/bookmark</span></span> <span><a href="#bookmark_get" class="waves-effect waves-light modal-trigger"><span class="new badge badge-get" data-badge-caption="get"></span></a></span></li><div id="bookmark_get" class="modal modal-fixed-footer"><div class="modal-content"><div class="section"><span class="new badge badge-get" data-badge-caption="get"></span> <span class="bold"><span class="parent"></span>/bookmark</span></div><div class="section"><ul class="tabs request"><li class="tab"><a class="active" href="#bookmark_get_request">Request</a></li><li class="tab"><a href="#bookmark_get_response">Response</a></li></ul><div id="bookmark_get_request"><ul class="collection with-header"><li class="collection-header"><h5>Headers</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">Accept</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div>Response format, either application/vnd.ez.api.BookmarkList+xml or application/vnd.ez.api.BookmarkList+json</li></ul></li></ul><ul class="collection with-header"><li class="collection-header"><h5>Query Parameters</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">offset</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge teal">integer</span></div>the offset of the result set. Default value is 0</li><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">limit</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge teal">integer</span></div>the number of bookmarks returned. Default value is 25</li></ul></li></ul></div><div id="bookmark_get_response"><ul class="tabs response"><li class="tab"><a href="#bookmark_get_response_200">200</a></li><li class="tab"><a href="#bookmark_get_response_401">401</a></li></ul><div id="bookmark_get_response_200"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><span class="bold">Media type</span>: application/vnd.ez.api.BookmarkList+xml</p><p><span class="bold">Type</span>: any</p><div style="display:flex;align-items:center;margin-top:5px;"><span style="margin-right: 5px;">Example</span><div style="display:flex;flex-direction:column;flex:1;"><div class="example grey lighten-4"><pre><code class="json hljs">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;BookmarkList media-type="application/vnd.ez.api.BookmarkList+xml"&gt;
+        &lt;count&gt;1&lt;/count&gt;
+        &lt;Bookmark media-type="application/vnd.ez.api.Bookmark+xml" _href="/api/ezp/v2/bookmark/2"&gt;
+            &lt;Location media-type="application/vnd.ez.api.Location+xml" href="/api/ezp/v2/content/locations/1/2"&gt;
+                &lt;id&gt;2&lt;/id&gt;
+                &lt;priority&gt;0&lt;/priority&gt;
+                &lt;hidden&gt;false&lt;/hidden&gt;
+                &lt;invisible&gt;false&lt;/invisible&gt;
+                &lt;ParentLocation media-type="application/vnd.ez.api.Location+xml" href="/api/ezp/v2/content/locations/1"/&gt;
+                &lt;pathString&gt;/1/2/&lt;/pathString&gt;
+                &lt;depth&gt;1&lt;/depth&gt;
+                &lt;childCount&gt;4&lt;/childCount&gt;
+                &lt;remoteId&gt;f3e90596361e31d496d4026eb624c983&lt;/remoteId&gt;
+                &lt;Children media-type="application/vnd.ez.api.LocationList+xml" href="/api/ezp/v2/content/locations/1/2/children"/&gt;
+                &lt;Content media-type="application/vnd.ez.api.Content+xml" href="/api/ezp/v2/content/objects/1"/&gt;
+                &lt;sortField&gt;PRIORITY&lt;/sortField&gt;
+                &lt;sortOrder&gt;ASC&lt;/sortOrder&gt;
+                &lt;UrlAliases media-type="application/vnd.ez.api.UrlAliasRefList+xml" href="/api/ezp/v2/content/locations/1/2/urlaliases"/&gt;
+                &lt;ContentInfo media-type="application/vnd.ez.api.ContentInfo+xml" href="/api/ezp/v2/content/objects/1"&gt;
+                    &lt;Content media-type="application/vnd.ez.api.ContentInfo+xml" href="/api/ezp/v2/content/objects/1" remoteId="9459d3c29e15006e45197295722c7ade" id="1"&gt;
+                        &lt;ContentType media-type="application/vnd.ez.api.ContentType+xml" href="/api/ezp/v2/content/types/1"/&gt;
+                        &lt;Name&gt;eZ Platform&lt;/Name&gt;
+                        &lt;Versions media-type="application/vnd.ez.api.VersionList+xml" href="/api/ezp/v2/content/objects/1/versions"/&gt;
+                        &lt;CurrentVersion media-type="application/vnd.ez.api.Version+xml" href="/api/ezp/v2/content/objects/1/currentversion"/&gt;
+                        &lt;Section media-type="application/vnd.ez.api.Section+xml" href="/api/ezp/v2/content/sections/1"/&gt;
+                        &lt;Locations media-type="application/vnd.ez.api.LocationList+xml" href="/api/ezp/v2/content/objects/1/locations"/&gt;
+                        &lt;Owner media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/14"/&gt;
+                        &lt;lastModificationDate&gt;2015-11-30T13:10:46+00:00&lt;/lastModificationDate&gt;
+                        &lt;publishedDate&gt;2015-11-30T13:10:46+00:00&lt;/publishedDate&gt;
+                        &lt;mainLanguageCode&gt;eng-GB&lt;/mainLanguageCode&gt;
+                        &lt;currentVersionNo&gt;9&lt;/currentVersionNo&gt;
+                        &lt;alwaysAvailable&gt;true&lt;/alwaysAvailable&gt;
+                        &lt;ObjectStates media-type="application/vnd.ez.api.ContentObjectStates+xml" href="/api/ezp/v2/content/objects/1/objectstates"/&gt;
+                    &lt;/Content&gt;
+                &lt;/ContentInfo&gt;
+            &lt;/Location&gt;
+        &lt;/Bookmark&gt;
+    &lt;/BookmarkList&gt;
+</code></pre></div></div></div></li><li class="collection-item"><p><span class="bold">Media type</span>: application/vnd.ez.api.BookmarkList+json</p><p><span class="bold">Type</span>: any</p><div style="display:flex;align-items:center;margin-top:5px;"><span style="margin-right: 5px;">Example</span><div style="display:flex;flex-direction:column;flex:1;"><div class="example grey lighten-4"><pre><code class="json hljs">{
+    "BookmarkList": {
+        "_media-type": "application/vnd.ez.api.BookmarkList+json",
+        "count": 1,
+        "items": [
+            {
+                "_media-type": "application/vnd.ez.api.Bookmark+json",
+                "__href": "/api/ezp/v2/bookmark/2",
+                "Location": {
+                    "_media-type": "application/vnd.ez.api.Location+json",
+                    "_href": "/api/ezp/v2/content/locations/1/2",
+                    "id": 2,
+                    "priority": 0,
+                    "hidden": false,
+                    "invisible": false,
+                    "ParentLocation": {
+                        "_media-type": "application/vnd.ez.api.Location+json",
+                        "_href": "/api/ezp/v2/content/locations/1"
+                    },
+                    "pathString": "/1/2/",
+                    "depth": 1,
+                    "childCount": 4,
+                    "remoteId": "f3e90596361e31d496d4026eb624c983",
+                    "Children": {
+                        "_media-type": "application/vnd.ez.api.LocationList+json",
+                        "_href": "/api/ezp/v2/content/locations/1/2/children"
+                    },
+                    "Content": {
+                        "_media-type": "application/vnd.ez.api.Content+json",
+                        "_href": "/api/ezp/v2/content/objects/1"
+                    },
+                    "sortField": "PRIORITY",
+                    "sortOrder": "ASC",
+                    "UrlAliases": {
+                        "_media-type": "application/vnd.ez.api.UrlAliasRefList+json",
+                        "_href": "/api/ezp/v2/content/locations/1/2/urlaliases"
+                    },
+                    "ContentInfo": {
+                        "_media-type": "application/vnd.ez.api.ContentInfo+json",
+                        "_href": "/api/ezp/v2/content/objects/1",
+                        "Content": {
+                            "_media-type": "application/vnd.ez.api.ContentInfo+json",
+                            "_href": "/api/ezp/v2/content/objects/1",
+                            "_remoteId": "9459d3c29e15006e45197295722c7ade",
+                            "_id": 1,
+                            "ContentType": {
+                                "_media-type": "application/vnd.ez.api.ContentType+json",
+                                "_href": "/api/ezp/v2/content/types/1"
+                            },
+                            "Name": "eZ Platform",
+                            "Versions": {
+                                "_media-type": "application/vnd.ez.api.VersionList+json",
+                                "_href": "/api/ezp/v2/content/objects/1/versions"
+                            },
+                            "CurrentVersion": {
+                                "_media-type": "application/vnd.ez.api.Version+json",
+                                "_href": "/api/ezp/v2/content/objects/1/currentversion"
+                            },
+                            "Section": {
+                                "_media-type": "application/vnd.ez.api.Section+json",
+                                "_href": "/api/ezp/v2/content/sections/1"
+                            },
+                            "Locations": {
+                                "_media-type": "application/vnd.ez.api.LocationList+json",
+                                "_href": "/api/ezp/v2/content/objects/1/locations"
+                            },
+                            "Owner": {
+                                "_media-type": "application/vnd.ez.api.User+json",
+                                "_href": "/api/ezp/v2/user/users/14"
+                            },
+                            "lastModificationDate": "2015-11-30T13:10:46+00:00",
+                            "publishedDate": "2015-11-30T13:10:46+00:00",
+                            "mainLanguageCode": "eng-GB",
+                            "currentVersionNo": 9,
+                            "alwaysAvailable": true,
+                            "ObjectStates": {
+                                "_media-type": "application/vnd.ez.api.ContentObjectStates+json",
+                                "_href": "/api/ezp/v2/content/objects/1/objectstates"
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}
+</code></pre></div></div></div></li></ul></div><div id="bookmark_get_response_401"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the user is not authorized to list bookmarks</p></li></ul></div></div></div></div><div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect btn-flat">Close</a></div></div><li class="collection-item space-between d-flex search-filter"><span class="search-filter-value"><span class="grey-text">/bookmark</span> <span>/{locationId}</span></span> <span><a href="#bookmark__locationid__post" class="waves-effect waves-light modal-trigger"><span class="new badge badge-post" data-badge-caption="post"></span></a> <a href="#bookmark__locationid__head" class="waves-effect waves-light modal-trigger"><span class="new badge badge-head" data-badge-caption="head"></span></a> <a href="#bookmark__locationid__delete" class="waves-effect waves-light modal-trigger"><span class="new badge badge-delete" data-badge-caption="delete"></span></a></span></li><div id="bookmark__locationid__post" class="modal modal-fixed-footer"><div class="modal-content"><div class="section"><span class="new badge badge-post" data-badge-caption="post"></span> <span class="bold"><span class="parent">/bookmark</span>/{locationId}</span><p></p><p>Add given location to bookmarks of current user</p><p></p></div><div class="section"><ul class="tabs request"><li class="tab"><a class="active" href="#bookmark__locationid__post_request">Request</a></li><li class="tab"><a href="#bookmark__locationid__post_response">Response</a></li></ul><div id="bookmark__locationid__post_request"><ul class="collection with-header"><li class="collection-header"><h5>URI Parameters</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">locationId</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div></li></ul></li></ul></div><div id="bookmark__locationid__post_response"><ul class="tabs response"><li class="tab"><a href="#bookmark__locationid__post_response_201">201</a></li><li class="tab"><a href="#bookmark__locationid__post_response_401">401</a></li><li class="tab"><a href="#bookmark__locationid__post_response_404">404</a></li><li class="tab"><a href="#bookmark__locationid__post_response_409">409</a></li></ul><div id="bookmark__locationid__post_response_201"></div><div id="bookmark__locationid__post_response_401"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the user is not authorized to given location</p></li></ul></div><div id="bookmark__locationid__post_response_404"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If a given location not exists</p></li></ul></div><div id="bookmark__locationid__post_response_409"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If location is already bookmarked</p></li></ul></div></div></div></div><div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect btn-flat">Close</a></div></div><div id="bookmark__locationid__head" class="modal modal-fixed-footer"><div class="modal-content"><div class="section"><span class="new badge badge-head" data-badge-caption="head"></span> <span class="bold"><span class="parent">/bookmark</span>/{locationId}</span><p></p><p>Check if given location is bookmarked by current user</p><p></p></div><div class="section"><ul class="tabs request"><li class="tab"><a class="active" href="#bookmark__locationid__head_request">Request</a></li><li class="tab"><a href="#bookmark__locationid__head_response">Response</a></li></ul><div id="bookmark__locationid__head_request"><ul class="collection with-header"><li class="collection-header"><h5>URI Parameters</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">locationId</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div></li></ul></li></ul></div><div id="bookmark__locationid__head_response"><ul class="tabs response"><li class="tab"><a href="#bookmark__locationid__head_response_200">200</a></li><li class="tab"><a href="#bookmark__locationid__head_response_401">401</a></li><li class="tab"><a href="#bookmark__locationid__head_response_404">404</a></li></ul><div id="bookmark__locationid__head_response_200"></div><div id="bookmark__locationid__head_response_401"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the user is not authorized to given location</p></li></ul></div><div id="bookmark__locationid__head_response_404"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If a given location not exists / is not bookmarked</p></li></ul></div></div></div></div><div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect btn-flat">Close</a></div></div><div id="bookmark__locationid__delete" class="modal modal-fixed-footer"><div class="modal-content"><div class="section"><span class="new badge badge-delete" data-badge-caption="delete"></span> <span class="bold"><span class="parent">/bookmark</span>/{locationId}</span><p></p><p>Delete given location from bookmarks of current user</p><p></p></div><div class="section"><ul class="tabs request"><li class="tab"><a class="active" href="#bookmark__locationid__delete_request">Request</a></li><li class="tab"><a href="#bookmark__locationid__delete_response">Response</a></li></ul><div id="bookmark__locationid__delete_request"><ul class="collection with-header"><li class="collection-header"><h5>URI Parameters</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">locationId</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div></li></ul></li></ul></div><div id="bookmark__locationid__delete_response"><ul class="tabs response"><li class="tab"><a href="#bookmark__locationid__delete_response_204">204</a></li><li class="tab"><a href="#bookmark__locationid__delete_response_401">401</a></li><li class="tab"><a href="#bookmark__locationid__delete_response_404">404</a></li></ul><div id="bookmark__locationid__delete_response_204"></div><div id="bookmark__locationid__delete_response_401"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the user is not authorized to given location</p></li></ul></div><div id="bookmark__locationid__delete_response_404"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If a given location not exists / is not bookmarked</p></li></ul></div></div></div></div><div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect btn-flat">Close</a></div></div></ul></div><div class="section"><h5>/Content</h5><ul class="collection"><li class="collection-item space-between d-flex search-filter"><span class="search-filter-value"><span class="grey-text"></span> <span>/Content</span></span> <span><a href="#content_get" class="waves-effect waves-light modal-trigger"><span class="new badge badge-get" data-badge-caption="get"></span></a></span></li><div id="content_get" class="modal modal-fixed-footer"><div class="modal-content"><div class="section"><span class="new badge badge-get" data-badge-caption="get"></span> <span class="bold"><span class="parent"></span>/Content</span><p></p><p>List the root resources of the eZ Publish installation.</p><p></p></div><div class="section"><ul class="tabs request"><li class="tab"><a class="active" href="#content_get_request">Request</a></li><li class="tab"><a href="#content_get_response">Response</a></li></ul><div id="content_get_request"><ul class="collection with-header"><li class="collection-header"><h5>Headers</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">Accept</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div>Response format, either application/vnd.ez.api.BookmarkList+xml or application/vnd.ez.api.BookmarkList+json</li></ul></li></ul></div><div id="content_get_response"><ul class="tabs response"><li class="tab"><a href="#content_get_response_200">200</a></li></ul><div id="content_get_response_200"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><span class="bold">Media type</span>: application/vnd.ez.api.Root+xml</p><p><span class="bold">Type</span>: any</p><div style="display:flex;align-items:center;margin-top:5px;"><span style="margin-right: 5px;">Example</span><div style="display:flex;flex-direction:column;flex:1;"><div class="example grey lighten-4"><pre><code class="json hljs">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;Root media-type="application/vnd.ez.api.Root+xml"&gt;
+    &lt;content media-type="" href="/api/ezp/v2/content/objects"/&gt;
+    &lt;contentByRemoteId media-type="" href="/api/ezp/v2/content/objects{?remoteId}"/&gt;
+    &lt;contentTypes media-type="application/vnd.ez.api.ContentTypeInfoList+xml" href="/api/ezp/v2/content/types"/&gt;
+    &lt;contentTypeByIdentifier media-type="" href="/api/ezp/v2/content/types{?identifier}"/&gt;
+    &lt;contentTypeGroups media-type="application/vnd.ez.api.ContentTypeGroupList+xml" href="/api/ezp/v2/content/typegroups"/&gt;
+    &lt;contentTypeGroupByIdentifier media-type="" href="/api/ezp/v2/content/typegroups{?identifier}"/&gt;
+    &lt;users media-type="application/vnd.ez.api.UserRefList+xml" href="/api/ezp/v2/user/users"/&gt;
+    &lt;roles media-type="application/vnd.ez.api.RoleList+xml" href="/api/ezp/v2/user/roles"/&gt;
+    &lt;rootLocation media-type="application/vnd.ez.api.Location+xml" href="/api/ezp/v2/content/locations/1/2"/&gt;
+    &lt;rootUserGroup media-type="application/vnd.ez.api.UserGroup+xml" href="/api/ezp/v2/user/groups/1/5"/&gt;
+    &lt;rootMediaFolder media-type="application/vnd.ez.api.Location+xml" href="/api/ezp/v2/content/locations/1/43"/&gt;
+    &lt;locationByRemoteId media-type="" href="/api/ezp/v2/content/locations{?remoteId}"/&gt;
+    &lt;locationByPath media-type="" href="/api/ezp/v2/content/locations{?locationPath}"/&gt;
+    &lt;trash media-type="application/vnd.ez.api.Trash+xml" href="/api/ezp/v2/content/trash"/&gt;
+    &lt;sections media-type="application/vnd.ez.api.SectionList+xml" href="/api/ezp/v2/content/sections"/&gt;
+    &lt;views media-type="application/vnd.ez.api.RefList+xml" href="/api/ezp/v2/views"/&gt;
+    &lt;objectStateGroups media-type="application/vnd.ez.api.ObjectStateGroupList+xml" href="/api/ezp/v2/content/objectstategroups"/&gt;
+    &lt;objectStates media-type="application/vnd.ez.api.ObjectStateList+xml" href="/api/ezp/v2/content/objectstategroups/{objectStateGroupId}/objectstates"/&gt;
+    &lt;globalUrlAliases media-type="application/vnd.ez.api.UrlAliasRefList+xml" href="/api/ezp/v2/content/urlaliases"/&gt;
+    &lt;urlWildcards media-type="application/vnd.ez.api.UrlWildcardList+xml" href="/api/ezp/v2/content/urlwildcards"/&gt;
+    &lt;createSession media-type="application/vnd.ez.api.UserSession+xml" href="/api/ezp/v2/user/sessions"/&gt;
+    &lt;refreshSession media-type="application/vnd.ez.api.UserSession+xml" href="/api/ezp/v2/user/sessions/{sessionId}/refresh"/&gt;
+&lt;/Root&gt;
+</code></pre></div></div></div></li><li class="collection-item"><p><span class="bold">Media type</span>: application/vnd.ez.api.Root+json</p><p><span class="bold">Type</span>: any</p><div style="display:flex;align-items:center;margin-top:5px;"><span style="margin-right: 5px;">Example</span><div style="display:flex;flex-direction:column;flex:1;"><div class="example grey lighten-4"><pre><code class="json hljs">{
+    "Root": {
+        "_media-type": "application/vnd.ez.api.Root+json",
+        "content": {
+            "_href": "/api/ezp/v2/content/objects",
+            "_media-type": ""
+        },
+        "contentByRemoteId": {
+            "_href": "/api/ezp/v2/content/objects{?remoteId}",
+            "_media-type": ""
+        },
+        "contentTypeByIdentifier": {
+            "_href": "/api/ezp/v2/content/types{?identifier}",
+            "_media-type": ""
+        },
+        "contentTypeGroupByIdentifier": {
+            "_href": "/api/ezp/v2/content/typegroups{?identifier}",
+            "_media-type": ""
+        },
+        "contentTypeGroups": {
+            "_href": "/api/ezp/v2/content/typegroups",
+            "_media-type": "application/vnd.ez.api.ContentTypeGroupList+json"
+        },
+        "contentTypes": {
+            "_href": "/api/ezp/v2/content/types",
+            "_media-type": "application/vnd.ez.api.ContentTypeInfoList+json"
+        },
+        "createSession": {
+            "_href": "/api/ezp/v2/user/sessions",
+            "_media-type": "application/vnd.ez.api.UserSession+json"
+        },
+        "globalUrlAliases": {
+            "_href": "/api/ezp/v2/content/urlaliases",
+            "_media-type": "application/vnd.ez.api.UrlAliasRefList+json"
+        },
+        "locationByPath": {
+            "_href": "/api/ezp/v2/content/locations{?locationPath}",
+            "_media-type": ""
+        },
+        "locationByRemoteId": {
+            "_href": "/api/ezp/v2/content/locations{?remoteId}",
+            "_media-type": ""
+        },
+        "objectStateGroups": {
+            "_href": "/api/ezp/v2/content/objectstategroups",
+            "_media-type": "application/vnd.ez.api.ObjectStateGroupList+json"
+        },
+        "objectStates": {
+            "_href": "/api/ezp/v2/content/objectstategroups/{objectStateGroupId}/objectstates",
+            "_media-type": "application/vnd.ez.api.ObjectStateList+json"
+        },
+        "roles": {
+            "_href": "/api/ezp/v2/user/roles",
+            "_media-type": "application/vnd.ez.api.RoleList+json"
+        },
+        "rootLocation": {
+            "_href": "/api/ezp/v2/content/locations/1/2",
+            "_media-type": "application/vnd.ez.api.Location+json"
+        },
+        "rootMediaFolder": {
+            "_href": "/api/ezp/v2/content/locations/1/43",
+            "_media-type": "application/vnd.ez.api.Location+json"
+        },
+        "rootUserGroup": {
+            "_href": "/api/ezp/v2/user/groups/1/5",
+            "_media-type": "application/vnd.ez.api.UserGroup+json"
+        },
+        "sections": {
+            "_href": "/api/ezp/v2/content/sections",
+            "_media-type": "application/vnd.ez.api.SectionList+json"
+        },
+        "trash": {
+            "_href": "/api/ezp/v2/content/trash",
+            "_media-type": "application/vnd.ez.api.Trash+json"
+        },
+        "urlWildcards": {
+            "_href": "/api/ezp/v2/content/urlwildcards",
+            "_media-type": "application/vnd.ez.api.UrlWildcardList+json"
+        },
+        "users": {
+            "_href": "/api/ezp/v2/user/users",
+            "_media-type": "application/vnd.ez.api.UserRefList+json"
+        },
+        "views": {
+            "_href": "/api/ezp/v2/views",
+            "_media-type": "application/vnd.ez.api.RefList+json"
+        },
+        "refreshSession": {
+            "_media-type": "application\/vnd.ez.api.UserSession+json",
+            "_href": "\/api\/ezp\/v2\/user\/sessions\/{sessionId}\/refresh"
+        }
+    }
+}
+</code></pre></div></div></div></li></ul></div></div></div></div><div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect btn-flat">Close</a></div></div><li class="collection-item space-between d-flex search-filter"><span class="search-filter-value"><span class="grey-text">/Content</span> <span>/objects</span></span> <span><a href="#content_objects_post" class="waves-effect waves-light modal-trigger"><span class="new badge badge-post" data-badge-caption="post"></span></a> <a href="#content_objects_get" class="waves-effect waves-light modal-trigger"><span class="new badge badge-get" data-badge-caption="get"></span></a></span></li><div id="content_objects_post" class="modal modal-fixed-footer"><div class="modal-content"><div class="section"><span class="new badge badge-post" data-badge-caption="post"></span> <span class="bold"><span class="parent">/Content</span>/objects</span><p></p><p>Creates a new content draft assigned to the authenticated user. If a different userId is given in the input it is assigned to the given user but this required special rights for the authenticated user (this is useful for content staging where the transfer process does not have to authenticate with the user which created the content object in the source server). The user has to publish the content if it should be visible.</p><p></p></div><div class="section"><ul class="tabs request"><li class="tab"><a class="active" href="#content_objects_post_request">Request</a></li><li class="tab"><a href="#content_objects_post_response">Response</a></li></ul><div id="content_objects_post_request"><ul class="collection with-header"><li class="collection-header"><h5>Headers</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">Accept</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div>Response format for Content object, either application/vnd.ez.api.Content+xml or application/vnd.ez.api.Content+json or application/vnd.ez.api.ContentInfo+xml or application/vnd.ez.api.ContentInfo+json. Response format for Content Type, either application/vnd.ez.api.ContentCreate+json or application/vnd.ez.api.ContentCreate+xml.</li></ul></li></ul></div><div id="content_objects_post_response"><ul class="tabs response"><li class="tab"><a href="#content_objects_post_response_201">201</a></li><li class="tab"><a href="#content_objects_post_response_400">400</a></li><li class="tab"><a href="#content_objects_post_response_401">401</a></li><li class="tab"><a href="#content_objects_post_response_404">404</a></li></ul><div id="content_objects_post_response_201"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><span class="bold">Media type</span>: application/vnd.ez.api.ContentCreate+xml</p><p><span class="bold">Type</span>: any</p><div style="display:flex;align-items:center;margin-top:5px;"><span style="margin-right: 5px;">Example</span><div style="display:flex;flex-direction:column;flex:1;"><div class="example grey lighten-4"><pre><code class="json hljs">[object Object]</code></pre></div></div></div></li></ul></div><div id="content_objects_post_response_400"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the Input does not match the input schema definition or the validation on a field fails</p></li></ul></div><div id="content_objects_post_response_401"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the user is not authorized to create this object in this location</p></li></ul></div><div id="content_objects_post_response_404"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If a parent location in specified in the request body and it does not exist</p></li></ul></div></div></div></div><div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect btn-flat">Close</a></div></div><div id="content_objects_get" class="modal modal-fixed-footer"><div class="modal-content"><div class="section"><span class="new badge badge-get" data-badge-caption="get"></span> <span class="bold"><span class="parent">/Content</span>/objects</span><p></p><p>Loads the content for a given remote id</p><p></p></div><div class="section"><ul class="tabs request"><li class="tab"><a class="active" href="#content_objects_get_request">Request</a></li><li class="tab"><a href="#content_objects_get_response">Response</a></li></ul><div id="content_objects_get_request"><ul class="collection with-header"><li class="collection-header"><h5>Query Parameters</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">remoteId</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div>The remote id of the content. If present the content with the given remote id is returned</li></ul></li></ul></div><div id="content_objects_get_response"><ul class="tabs response"><li class="tab"><a href="#content_objects_get_response_200">200</a></li><li class="tab"><a href="#content_objects_get_response_404">404</a></li></ul><div id="content_objects_get_response_200"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><span class="bold">Media type</span>: /content/objects/<id></id></p><p><span class="bold">Type</span>: any</p><div style="display:flex;align-items:center;margin-top:5px;"><span style="margin-right: 5px;">Example</span><div style="display:flex;flex-direction:column;flex:1;"><div class="example grey lighten-4"><pre><code class="json hljs">[object Object]</code></pre></div></div></div></li></ul></div><div id="content_objects_get_response_404"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the content with the given remote id does not exist</p></li></ul></div></div></div></div><div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect btn-flat">Close</a></div></div><li class="collection-item space-between d-flex search-filter"><span class="search-filter-value"><span class="grey-text">/Content</span> <span>/objects/{id}</span></span> <span><a href="#content_objects__id__get" class="waves-effect waves-light modal-trigger"><span class="new badge badge-get" data-badge-caption="get"></span></a> <a href="#content_objects__id__post" class="waves-effect waves-light modal-trigger"><span class="new badge badge-post" data-badge-caption="post"></span></a> <a href="#content_objects__id__patch" class="waves-effect waves-light modal-trigger"><span class="new badge badge-patch" data-badge-caption="patch"></span></a> <a href="#content_objects__id__delete" class="waves-effect waves-light modal-trigger"><span class="new badge badge-delete" data-badge-caption="delete"></span></a></span></li><div id="content_objects__id__get" class="modal modal-fixed-footer"><div class="modal-content"><div class="section"><span class="new badge badge-get" data-badge-caption="get"></span> <span class="bold"><span class="parent">/Content</span>/objects/{id}</span><p></p><p>Loads the content object for the given id. Depending on the Accept header the current version is embedded (i.e the current published version or if not exists the draft of the authenticated user)</p><p></p></div><div class="section"><ul class="tabs request"><li class="tab"><a class="active" href="#content_objects__id__get_request">Request</a></li><li class="tab"><a href="#content_objects__id__get_response">Response</a></li></ul><div id="content_objects__id__get_request"><ul class="collection with-header"><li class="collection-header"><h5>URI Parameters</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">id</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div></li></ul></li></ul><ul class="collection with-header"><li class="collection-header"><h5>Headers</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">Accept</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div>Response format, either application/vnd.ez.api.Content+xml or application/vnd.ez.api.Content+json or application/vnd.ez.api.ContentInfo+xml or application/vnd.ez.api.ContentInfo+json</li><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">if-none-match</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div><etag>If the provided etag matches the current etag then a 304 Not Modified is returned. The etag changes if the meta data was changed - this happens also if there is a new published version.</etag></li></ul></li></ul><ul class="collection with-header"><li class="collection-header"><h5>Query Parameters</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">languages</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i> <span class="property-badge grey">list</span></div>(comma separated list) restricts the output of translatable fields to the given languages</li></ul></li></ul></div><div id="content_objects__id__get_response"><ul class="tabs response"><li class="tab"><a href="#content_objects__id__get_response_200">200</a></li><li class="tab"><a href="#content_objects__id__get_response_401">401</a></li><li class="tab"><a href="#content_objects__id__get_response_404">404</a></li></ul><div id="content_objects__id__get_response_200"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><span class="bold">Media type</span>: application/vnd.ez.api.Content+xml</p><p><span class="bold">Type</span>: any</p><div style="display:flex;align-items:center;margin-top:5px;"><span style="margin-right: 5px;">Example</span><div style="display:flex;flex-direction:column;flex:1;"><div class="example grey lighten-4"><pre><code class="json hljs">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;Content href="/content/objects/23" id="23"
+  media-type="application/vnd.ez.api.Content+xml" remoteId="qwert123"&gt;
+  &lt;ContentType href="/content/types/10" media-type="application/vnd.ez.api.ContentType+xml" /&gt;
+  &lt;Name&gt;This is a title&lt;/Name&gt;
+  &lt;Versions href="/content/objects/23/versions" media-type="application/vnd.ez.api.VersionList+xml" /&gt;
+  &lt;CurrentVersion href="/content/objects/23/currentversion"
+    media-type="application/vnd.ez.api.Version+xml"/&gt;
+  &lt;Section href="/content/sections/4" media-type="application/vnd.ez.api.Section+xml" /&gt;
+  &lt;MainLocation href="/content/locations/1/4/65" media-type="application/vnd.ez.api.Location+xml" /&gt;
+  &lt;Locations href="/content/objects/23/locations" media-type="application/vnd.ez.api.LocationList+xml" /&gt;
+  &lt;Owner href="/user/users/14" media-type="application/vnd.ez.api.User+xml" /&gt;
+  &lt;lastModificationDate&gt;2012-02-12T12:30:00&lt;/lastModificationDate&gt;
+  &lt;publishedDate&gt;2012-02-12T15:30:00&lt;/publishedDate&gt;
+  &lt;mainLanguageCode&gt;eng-US&lt;/mainLanguageCode&gt;
+  &lt;currentVersionNo&gt;1&lt;/currentVersionNo&gt;
+  &lt;alwaysAvailable&gt;true&lt;/alwaysAvailable&gt;
+&lt;/Content&gt;
+</code></pre></div></div></div></li></ul></div><div id="content_objects__id__get_response_401"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the user is not authorized to read this object. This could also happen if there is no published version yet and another user owns a draft of this content</p></li></ul></div><div id="content_objects__id__get_response_404"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the ID is not found</p></li></ul></div></div></div></div><div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect btn-flat">Close</a></div></div><div id="content_objects__id__post" class="modal modal-fixed-footer"><div class="modal-content"><div class="section"><span class="new badge badge-post" data-badge-caption="post"></span> <span class="bold"><span class="parent">/Content</span>/objects/{id}</span><p></p><p>PATCH or POST with header</p><p></p></div><div class="section"><ul class="tabs request"><li class="tab"><a class="active" href="#content_objects__id__post_request">Request</a></li><li class="tab"><a href="#content_objects__id__post_response">Response</a></li></ul><div id="content_objects__id__post_request"><ul class="collection with-header"><li class="collection-header"><h5>URI Parameters</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">id</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div></li></ul></li></ul><ul class="collection with-header"><li class="collection-header"><h5>Headers</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">Accept</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div>Response format, either application/vnd.ez.api.ContentInfo+xml or application/vnd.ez.api.ContentInfo+json</li><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">If-match</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div><etag>Causes to patch only if the specified etag is the current one. Otherwise a 412 is returned.</etag></li><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">Content-Type</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div>Response format, either application/vnd.ez.api.ContentUpdate+json or application/vnd.ez.api.ContentUpdate+xml</li></ul></li></ul></div><div id="content_objects__id__post_response"><ul class="tabs response"><li class="tab"><a href="#content_objects__id__post_response_200">200</a></li><li class="tab"><a href="#content_objects__id__post_response_400">400</a></li><li class="tab"><a href="#content_objects__id__post_response_401">401</a></li><li class="tab"><a href="#content_objects__id__post_response_404">404</a></li><li class="tab"><a href="#content_objects__id__post_response_412">412</a></li><li class="tab"><a href="#content_objects__id__post_response_415">415</a></li></ul><div id="content_objects__id__post_response_200"></div><div id="content_objects__id__post_response_400"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the Input does not match the input schema definition.</p></li></ul></div><div id="content_objects__id__post_response_401"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the user is not authorized to update this object</p></li></ul></div><div id="content_objects__id__post_response_404"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the content id does not exist</p></li></ul></div><div id="content_objects__id__post_response_412"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the current ETag does not match with the provided one in the If-Match header</p></li></ul></div><div id="content_objects__id__post_response_415"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the media-type is not one of those specified in Headers</p></li></ul></div></div></div></div><div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect btn-flat">Close</a></div></div><div id="content_objects__id__patch" class="modal modal-fixed-footer"><div class="modal-content"><div class="section"><span class="new badge badge-patch" data-badge-caption="patch"></span> <span class="bold"><span class="parent">/Content</span>/objects/{id}</span><p></p><p>PATCH or POST with header</p><p></p></div><div class="section"><ul class="tabs request"><li class="tab"><a class="active" href="#content_objects__id__patch_request">Request</a></li><li class="tab"><a href="#content_objects__id__patch_response">Response</a></li></ul><div id="content_objects__id__patch_request"><ul class="collection with-header"><li class="collection-header"><h5>URI Parameters</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">id</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div></li></ul></li></ul><ul class="collection with-header"><li class="collection-header"><h5>Headers</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">Accept</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div>Response format, either application/vnd.ez.api.ContentInfo+xml or application/vnd.ez.api.ContentInfo+json</li><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">If-match</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div><etag>Causes to patch only if the specified etag is the current one. Otherwise a 412 is returned.</etag></li><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">Content-Type</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div>Response format, either application/vnd.ez.api.ContentUpdate+json or application/vnd.ez.api.ContentUpdate+xml</li></ul></li></ul></div><div id="content_objects__id__patch_response"><ul class="tabs response"><li class="tab"><a href="#content_objects__id__patch_response_200">200</a></li></ul><div id="content_objects__id__patch_response_200"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><span class="bold">Media type</span>: example</p><p><span class="bold">Type</span>:</p><pre><code>HTTP/1.1 200 OK
+ETag: "12345699"
+Accept-Patch: application/vnd.ez.api.ContentUpdate+xml;charset=utf8
+Content-Type: application/vnd.ez.api.ContentInfo+xml
+Content-Length: xxx
+     &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+     &lt;Content href="/content/objects/23" id="23"
+       media-type="application/vnd.ez.api.Content+xml" remoteId="qwert4321"&gt;
+       &lt;ContentType href="/content/types/10" media-type="application/vnd.ez.api.ContentType+xml" /&gt;
+       &lt;Name&gt;This is a title&lt;/Name&gt;
+       &lt;Versions href="/content/objects/23/versions" media-type="application/vnd.ez.api.VersionList+xml" /&gt;
+       &lt;CurrentVersion href="/content/objects/23/currentversion"
+         media-type="application/vnd.ez.api.Version+xml"/&gt;
+       &lt;Section href="/content/sections/3" media-type="application/vnd.ez.api.Section+xml" /&gt;
+       &lt;MainLocation href="/content/locations/1/13/55" media-type="application/vnd.ez.api.Location+xml" /&gt;
+       &lt;Locations href="/content/objects/23/locations" media-type="application/vnd.ez.api.LocationList+xml" /&gt;
+       &lt;Owner href="/user/users/13" media-type="application/vnd.ez.api.User+xml" /&gt;
+       &lt;lastModificationDate&gt;2012-02-12T12:30:00&lt;/lastModificationDate&gt;
+       &lt;publishedDate&gt;2012-02-12T15:30:00&lt;/publishedDate&gt;
+       &lt;mainLanguageCode&gt;ger-DE&lt;/mainLanguageCode&gt;
+       &lt;currentVersionNo&gt;1&lt;/currentVersionNo&gt;
+       &lt;alwaysAvailable&gt;false&lt;/alwaysAvailable&gt;
+     &lt;/Content&gt;
+</code></pre></li></ul></div></div></div></div><div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect btn-flat">Close</a></div></div><div id="content_objects__id__delete" class="modal modal-fixed-footer"><div class="modal-content"><div class="section"><span class="new badge badge-delete" data-badge-caption="delete"></span> <span class="bold"><span class="parent">/Content</span>/objects/{id}</span><p></p><p>The content is deleted. If the content has locations (which is required in 4.x) on delete all locations assigned the content object are deleted via delete subtree.</p><p></p></div><div class="section"><ul class="tabs request"><li class="tab"><a class="active" href="#content_objects__id__delete_request">Request</a></li><li class="tab"><a href="#content_objects__id__delete_response">Response</a></li></ul><div id="content_objects__id__delete_request"><ul class="collection with-header"><li class="collection-header"><h5>URI Parameters</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">id</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div></li></ul></li></ul></div><div id="content_objects__id__delete_response"><ul class="tabs response"><li class="tab"><a href="#content_objects__id__delete_response_204">204</a></li><li class="tab"><a href="#content_objects__id__delete_response_401">401</a></li><li class="tab"><a href="#content_objects__id__delete_response_404">404</a></li></ul><div id="content_objects__id__delete_response_204"></div><div id="content_objects__id__delete_response_401"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the user is not authorized to delete this object</p></li></ul></div><div id="content_objects__id__delete_response_404"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>Content object was not found</p></li></ul></div></div></div></div><div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect btn-flat">Close</a></div></div><li class="collection-item space-between d-flex search-filter"><span class="search-filter-value"><span class="grey-text">/Content</span> <span>/objects/{id}/translations/<languagecode></languagecode></span></span> <span><a href="#content_objects__id__translations__languagecode__delete" class="waves-effect waves-light modal-trigger"><span class="new badge badge-delete" data-badge-caption="delete"></span></a></span></li><div id="content_objects__id__translations__languagecode__delete" class="modal modal-fixed-footer"><div class="modal-content"><div class="section"><span class="new badge badge-delete" data-badge-caption="delete"></span> <span class="bold"><span class="parent">/Content</span>/objects/{id}/translations/<languagecode></languagecode></span><p></p><p>Permanently delete a Translation from all Versions of a Content</p><p></p></div><div class="section"><ul class="tabs request"><li class="tab"><a class="active" href="#content_objects__id__translations__languagecode__delete_request">Request</a></li><li class="tab"><a href="#content_objects__id__translations__languagecode__delete_response">Response</a></li></ul><div id="content_objects__id__translations__languagecode__delete_request"><ul class="collection with-header"><li class="collection-header"><h5>URI Parameters</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">id</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div></li></ul></li></ul></div><div id="content_objects__id__translations__languagecode__delete_response"><ul class="tabs response"><li class="tab"><a href="#content_objects__id__translations__languagecode__delete_response_204">204</a></li><li class="tab"><a href="#content_objects__id__translations__languagecode__delete_response_401">401</a></li><li class="tab"><a href="#content_objects__id__translations__languagecode__delete_response_404">404</a></li><li class="tab"><a href="#content_objects__id__translations__languagecode__delete_response_406">406</a></li><li class="tab"><a href="#content_objects__id__translations__languagecode__delete_response_409">409</a></li></ul><div id="content_objects__id__translations__languagecode__delete_response_204"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><span class="bold">Media type</span>: example</p><p><span class="bold">Type</span>: HTTP/1.1 204 No Content</p></li></ul></div><div id="content_objects__id__translations__languagecode__delete_response_401"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the user is not authorized to delete Content (content/remove policy)</p></li></ul></div><div id="content_objects__id__translations__languagecode__delete_response_404"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the Content item was not found</p></li></ul></div><div id="content_objects__id__translations__languagecode__delete_response_406"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the given Translation does not exist for the Content</p></li></ul></div><div id="content_objects__id__translations__languagecode__delete_response_409"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the specified Translation is the only one any Version has or is the Main Translation</p></li></ul></div></div></div></div><div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect btn-flat">Close</a></div></div><li class="collection-item space-between d-flex search-filter"><span class="search-filter-value"><span class="grey-text">/Content</span> <span>/objects/{id}/currentversion</span></span> <span><a href="#content_objects__id__currentversion_get" class="waves-effect waves-light modal-trigger"><span class="new badge badge-get" data-badge-caption="get"></span></a></span></li><div id="content_objects__id__currentversion_get" class="modal modal-fixed-footer"><div class="modal-content"><div class="section"><span class="new badge badge-get" data-badge-caption="get"></span> <span class="bold"><span class="parent">/Content</span>/objects/{id}/currentversion</span><p></p><p>Redirects to the current version of the content object</p><p></p></div><div class="section"><ul class="tabs request"><li class="tab"><a class="active" href="#content_objects__id__currentversion_get_request">Request</a></li><li class="tab"><a href="#content_objects__id__currentversion_get_response">Response</a></li></ul><div id="content_objects__id__currentversion_get_request"><ul class="collection with-header"><li class="collection-header"><h5>URI Parameters</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">id</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div></li></ul></li></ul></div><div id="content_objects__id__currentversion_get_response"><ul class="tabs response"><li class="tab"><a href="#content_objects__id__currentversion_get_response_307">307</a></li><li class="tab"><a href="#content_objects__id__currentversion_get_response_404">404</a></li></ul><div id="content_objects__id__currentversion_get_response_307"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><span class="bold">Media type</span>: /content/objects/<id>/versions/<current_version_no></current_version_no></id></p><p><span class="bold">Type</span>: any</p><div style="display:flex;align-items:center;margin-top:5px;"><span style="margin-right: 5px;">Example</span><div style="display:flex;flex-direction:column;flex:1;"><div class="example grey lighten-4"><pre><code class="json hljs">HTTP/1.1 307 Temporary Redirect
+Location: /content/objects/&lt;ID&gt;/versions/&lt;current_version_no&gt;
+</code></pre></div></div></div></li></ul></div><div id="content_objects__id__currentversion_get_response_404"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the resource does not exist</p></li></ul></div></div></div></div><div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect btn-flat">Close</a></div></div><li class="collection-item space-between d-flex search-filter"><span class="search-filter-value"><span class="grey-text">/Content</span> <span>/objects/{id}/versions</span></span> <span><a href="#content_objects__id__versions_get" class="waves-effect waves-light modal-trigger"><span class="new badge badge-get" data-badge-caption="get"></span></a></span></li><div id="content_objects__id__versions_get" class="modal modal-fixed-footer"><div class="modal-content"><div class="section"><span class="new badge badge-get" data-badge-caption="get"></span> <span class="bold"><span class="parent">/Content</span>/objects/{id}/versions</span><p></p><p>Returns a list of all versions of the content. This method does not include fields and relations in the Version elements of the response.</p><p></p></div><div class="section"><ul class="tabs request"><li class="tab"><a class="active" href="#content_objects__id__versions_get_request">Request</a></li><li class="tab"><a href="#content_objects__id__versions_get_response">Response</a></li></ul><div id="content_objects__id__versions_get_request"><ul class="collection with-header"><li class="collection-header"><h5>URI Parameters</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">id</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div></li></ul></li></ul><ul class="collection with-header"><li class="collection-header"><h5>Headers</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">Accept</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div>application/vnd.ez.api.VersionList+xml or application/vnd.ez.api.VersionList+json</li></ul></li></ul></div><div id="content_objects__id__versions_get_response"><ul class="tabs response"><li class="tab"><a href="#content_objects__id__versions_get_response_200">200</a></li><li class="tab"><a href="#content_objects__id__versions_get_response_401">401</a></li></ul><div id="content_objects__id__versions_get_response_200"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><span class="bold">Media type</span>: application/vnd.ez.api.VersionList+xml</p><p><span class="bold">Type</span>: any</p><div style="display:flex;align-items:center;margin-top:5px;"><span style="margin-right: 5px;">Example</span><div style="display:flex;flex-direction:column;flex:1;"><div class="example grey lighten-4"><pre><code class="json hljs">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;VersionList href="/content/objects/23/versions" media-type="application/vnd.ez.api.VersionList+xml"&gt;
+  &lt;VersionItem&gt;
+    &lt;Version href="/content/objects/23/versions/1" media-type="application/vnd.ez.api.Version+xml"/&gt;
+    &lt;VersionInfo&gt;
+      &lt;id&gt;12&lt;/id&gt;
+      &lt;versionNo&gt;1&lt;/versionNo&gt;
+      &lt;status&gt;ARCHIVED&lt;/status&gt;
+      &lt;modificationDate&gt;2012-02-15T12:00:00&lt;/modificationDate&gt;
+      &lt;Creator href="/user/users/8" media-type="application/vnd.ez.api.User+xml" /&gt;
+      &lt;creationDate&gt;22012-02-15T12:00:00&lt;/creationDate&gt;
+      &lt;initialLanguageCode&gt;eng-US&lt;/initialLanguageCode&gt;
+      &lt;names&gt;
+        &lt;value languageCode="eng-US"&gt;Name&lt;/value&gt;
+      &lt;/names&gt;
+      &lt;Content href="/content/objects/23" media-type="application/vnd.ez.api.ContentInfo+xml" /&gt;
+    &lt;/VersionInfo&gt;
+  &lt;/VersionItem&gt;
+  &lt;VersionItem&gt;
+    &lt;Version href="/content/objects/23/versions/2" media-type="application/vnd.ez.api.Version+xml"/&gt;
+    &lt;VersionInfo&gt;
+      &lt;id&gt;22&lt;/id&gt;
+      &lt;versionNo&gt;2&lt;/versionNo&gt;
+      &lt;status&gt;PUBLISHED&lt;/status&gt;
+      &lt;modificationDate&gt;2012-02-17T12:00:00&lt;/modificationDate&gt;
+      &lt;Creator href="/user/users/8" media-type="application/vnd.ez.api.User+xml" /&gt;
+      &lt;creationDate&gt;22012-02-17T12:00:00&lt;/creationDate&gt;
+      &lt;initialLanguageCode&gt;eng-US&lt;/initialLanguageCode&gt;
+      &lt;names&gt;
+        &lt;value languageCode="eng-US"&gt;Name&lt;/value&gt;
+      &lt;/names&gt;
+      &lt;Content href="/content/objects/23" media-type="application/vnd.ez.api.ContentInfo+xml" /&gt;
+    &lt;/VersionInfo&gt;
+  &lt;/VersionItem&gt;
+  &lt;VersionItem&gt;
+    &lt;Version href="/content/objects/23/versions/3" media-type="application/vnd.ez.api.Version+xml"/&gt;
+    &lt;VersionInfo&gt;
+      &lt;id&gt;44&lt;/id&gt;
+      &lt;versionNo&gt;3&lt;/versionNo&gt;
+      &lt;status&gt;DRAFT&lt;/status&gt;
+      &lt;modificationDate&gt;2012-02-19T12:00:00&lt;/modificationDate&gt;
+      &lt;Creator href="/user/users/65" media-type="application/vnd.ez.api.User+xml" /&gt;
+      &lt;creationDate&gt;22012-02-19T12:00:00&lt;/creationDate&gt;
+      &lt;initialLanguageCode&gt;fra-FR&lt;/initialLanguageCode&gt;
+      &lt;names&gt;
+        &lt;value languageCode="eng-US"&gt;Name&lt;/value&gt;
+        &lt;value languageCode="fra-FR"&gt;Nom&lt;/value&gt;
+      &lt;/names&gt;
+      &lt;Content href="/content/objects/23" media-type="application/vnd.ez.api.ContentInfo+xml" /&gt;
+    &lt;/VersionInfo&gt;
+  &lt;/VersionItem&gt;
+  &lt;VersionItem&gt;
+    &lt;Version href="/content/objects/23/versions/4" media-type="application/vnd.ez.api.Version+xml"/&gt;
+    &lt;VersionInfo&gt;
+      &lt;id&gt;45&lt;/id&gt;
+      &lt;versionNo&gt;4&lt;/versionNo&gt;
+      &lt;status&gt;DRAFT&lt;/status&gt;
+      &lt;modificationDate&gt;2012-02-20T12:00:00&lt;/modificationDate&gt;
+      &lt;Creator href="/user/users/44" media-type="application/vnd.ez.api.User+xml" /&gt;
+      &lt;creationDate&gt;22012-02-20T12:00:00&lt;/creationDate&gt;
+      &lt;initialLanguageCode&gt;ger-DE&lt;/initialLanguageCode&gt;
+      &lt;names&gt;
+        &lt;value languageCode="eng-US"&gt;Name&lt;/value&gt;
+        &lt;value languageCode="ger-DE"&gt;Name&lt;/value&gt;
+      &lt;/names&gt;
+      &lt;Content href="/content/objects/23" media-type="application/vnd.ez.api.ContentInfo+xml" /&gt;
+    &lt;/VersionInfo&gt;
+  &lt;/VersionItem&gt;
+&lt;/VersionList&gt;
+</code></pre></div></div></div></li></ul></div><div id="content_objects__id__versions_get_response_401"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the user has no permission to read the versions</p></li></ul></div></div></div></div><div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect btn-flat">Close</a></div></div><li class="collection-item space-between d-flex search-filter"><span class="search-filter-value"><span class="grey-text">/Content</span> <span>/objects/{id}/versions/<versionno></versionno></span></span> <span><a href="#content_objects__id__versions__versionno__get" class="waves-effect waves-light modal-trigger"><span class="new badge badge-get" data-badge-caption="get"></span></a> <a href="#content_objects__id__versions__versionno__patch" class="waves-effect waves-light modal-trigger"><span class="new badge badge-patch" data-badge-caption="patch"></span></a></span></li><div id="content_objects__id__versions__versionno__get" class="modal modal-fixed-footer"><div class="modal-content"><div class="section"><span class="new badge badge-get" data-badge-caption="get"></span> <span class="bold"><span class="parent">/Content</span>/objects/{id}/versions/<versionno></versionno></span><p></p><p>Loads a specific version of a content object. This method returns fields and relations</p><p></p></div><div class="section"><ul class="tabs request"><li class="tab"><a class="active" href="#content_objects__id__versions__versionno__get_request">Request</a></li><li class="tab"><a href="#content_objects__id__versions__versionno__get_response">Response</a></li></ul><div id="content_objects__id__versions__versionno__get_request"><ul class="collection with-header"><li class="collection-header"><h5>URI Parameters</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">id</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div></li></ul></li></ul><ul class="collection with-header"><li class="collection-header"><h5>Headers</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">If-None-Match</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div><etag>Only return the version if the given<etag>is the not current one otherwise a 304 is returned.</etag></etag></li><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">Accept</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div>application/vnd.ez.api.Version+xml or application/vnd.ez.api.Version+json</li></ul></li></ul><ul class="collection with-header"><li class="collection-header"><h5>Query Parameters</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">fields</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div>Comma separated list of fields which should be returned in the response (see Content)</li><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">responseGroups</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div>Alternative</li><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">languages</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div>(comma separated list) restricts the output of translatable fields to the given languages</li></ul></li></ul></div><div id="content_objects__id__versions__versionno__get_response"><ul class="tabs response"><li class="tab"><a href="#content_objects__id__versions__versionno__get_response_200">200</a></li><li class="tab"><a href="#content_objects__id__versions__versionno__get_response_304">304</a></li><li class="tab"><a href="#content_objects__id__versions__versionno__get_response_401">401</a></li><li class="tab"><a href="#content_objects__id__versions__versionno__get_response_404">404</a></li></ul><div id="content_objects__id__versions__versionno__get_response_200"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><span class="bold">Media type</span>: application/vnd.ez.api.Version+xml</p><p><span class="bold">Type</span>: any</p><div style="display:flex;align-items:center;margin-top:5px;"><span style="margin-right: 5px;">Example</span><div style="display:flex;flex-direction:column;flex:1;"><div class="example grey lighten-4"><pre><code class="json hljs">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;Version href="/content/objects/23/versions/4" media-type="application/vnd.ez.api.Version+xml"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;VersionInfo&gt;
+    &lt;id&gt;45&lt;/id&gt;
+    &lt;versionNo&gt;4&lt;/versionNo&gt;
+    &lt;status&gt;DRAFT&lt;/status&gt;
+    &lt;modificationDate&gt;2012-02-20T12:00:00&lt;/modificationDate&gt;
+    &lt;Creator href="/user/users/44" media-type="application/vnd.ez.api.User+xml" /&gt;
+    &lt;creationDate&gt;22012-02-20T12:00:00&lt;/creationDate&gt;
+    &lt;initialLanguageCode&gt;ger-DE&lt;/initialLanguageCode&gt;
+    &lt;names&gt;
+      &lt;value languageCode="ger-DE"&gt;Name&lt;/value&gt;
+    &lt;/names&gt;
+    &lt;Content href="/content/objects/23" media-type="application/vnd.ez.api.ContentInfo+xml" /&gt;
+  &lt;/VersionInfo&gt;
+  &lt;Fields&gt;
+    &lt;field&gt;
+      &lt;id&gt;1234&lt;/id&gt;
+      &lt;fieldDefinitionIdentifier&gt;title&lt;/fieldDefinitionIdentifier&gt;
+      &lt;languageCode&gt;ger-DE&lt;/languageCode&gt;
+      &lt;fieldValue&gt;Titel&lt;/fieldValue&gt;
+    &lt;/field&gt;
+    &lt;field&gt;
+      &lt;id&gt;1235&lt;/id&gt;
+      &lt;fieldDefinitionIdentifier&gt;summary&lt;/fieldDefinitionIdentifier&gt;
+      &lt;languageCode&gt;ger-DE&lt;/languageCode&gt;
+      &lt;fieldValue&gt;Dies ist eine Zusammenfassungy&lt;/fieldValue&gt;
+    &lt;/field&gt;
+    &lt;field&gt;
+      &lt;fieldDefinitionIdentifier&gt;authors&lt;/fieldDefinitionIdentifier&gt;
+      &lt;languageCode&gt;ger-DE&lt;/languageCode&gt;
+      &lt;fieldValue&gt;
+        &lt;value&gt;
+          &lt;value key="name"&gt;Karl Mustermann&lt;/value&gt;
+          &lt;value key="email"&gt;karl.mustermann@example.net&lt;/value&gt;
+        &lt;/value&gt;
+      &lt;/fieldValue&gt;
+    &lt;/field&gt;
+  &lt;/Fields&gt;
+  &lt;Relations  href="/content/objects/23/relations"  media-type="application/vnd.ez.api.RelationList+xml"&gt;&gt;
+    &lt;Relation href="/content/objects/23/relations/32" media-type="application/vnd.ez.api.Relation+xml"&gt;
+      &lt;SourceContent href="/content/objects/23"
+        media-type="application/vnd.ez.api.ContentInfo+xml" /&gt;
+      &lt;DestinationContent href="/content/objects/45"
+        media-type="application/vnd.ez.api.ContentInfo+xml" /&gt;
+      &lt;RelationType&gt;COMMON&lt;/RelationType&gt;
+    &lt;/Relation&gt;
+  &lt;/Relations&gt;
+</code></pre></div></div></div></li></ul></div><div id="content_objects__id__versions__versionno__get_response_304"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the etag does not match the current one</p></li></ul></div><div id="content_objects__id__versions__versionno__get_response_401"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the user is not authorized to read this object</p></li></ul></div><div id="content_objects__id__versions__versionno__get_response_404"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the ID or version is not found</p></li></ul></div></div></div></div><div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect btn-flat">Close</a></div></div><div id="content_objects__id__versions__versionno__patch" class="modal modal-fixed-footer"><div class="modal-content"><div class="section"><span class="new badge badge-patch" data-badge-caption="patch"></span> <span class="bold"><span class="parent">/Content</span>/objects/{id}/versions/<versionno></versionno></span><p></p><p>PATCH or POST with header X-HTTP-Method-Override</p><p></p></div><div class="section"><ul class="tabs request"><li class="tab"><a class="active" href="#content_objects__id__versions__versionno__patch_request">Request</a></li><li class="tab"><a href="#content_objects__id__versions__versionno__patch_response">Response</a></li></ul><div id="content_objects__id__versions__versionno__patch_request"><ul class="collection with-header"><li class="collection-header"><h5>URI Parameters</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">id</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div></li></ul></li></ul><ul class="collection with-header"><li class="collection-header"><h5>Headers</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">Accept</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div>application/vnd.ez.api.Version+xml or application/vnd.ez.api.Version+json</li><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">If-match</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div>Causes to patch only if the specified etag is the current one</li><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">Content-Type</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div>application/vnd.ez.api.VersionUpdate+json or application/vnd.ez.api.VersionUpdate+xml</li></ul></li></ul><ul class="collection with-header"><li class="collection-header"><h5>Query Parameters</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">languages</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div>(comma separated list) restricts the output of translatable fields to the given languages</li></ul></li></ul></div><div id="content_objects__id__versions__versionno__patch_response"><ul class="tabs response"><li class="tab"><a href="#content_objects__id__versions__versionno__patch_response_200">200</a></li><li class="tab"><a href="#content_objects__id__versions__versionno__patch_response_400">400</a></li><li class="tab"><a href="#content_objects__id__versions__versionno__patch_response_401">401</a></li><li class="tab"><a href="#content_objects__id__versions__versionno__patch_response_403">403</a></li><li class="tab"><a href="#content_objects__id__versions__versionno__patch_response_404">404</a></li><li class="tab"><a href="#content_objects__id__versions__versionno__patch_response_412">412</a></li></ul><div id="content_objects__id__versions__versionno__patch_response_200"></div><div id="content_objects__id__versions__versionno__patch_response_400"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the Input does not match the input schema definition, In this case the response contains an ErrorMessage</p></li></ul></div><div id="content_objects__id__versions__versionno__patch_response_401"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the user is not authorized to update this version</p></li></ul></div><div id="content_objects__id__versions__versionno__patch_response_403"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the version is not allowed to change - i.e is not a DRAFT</p></li></ul></div><div id="content_objects__id__versions__versionno__patch_response_404"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the content id or version id does not exist</p></li></ul></div><div id="content_objects__id__versions__versionno__patch_response_412"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the current ETag does not match with the provided one in the If-Match header</p></li></ul></div></div></div></div><div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect btn-flat">Close</a></div></div></ul></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script><script>
+        $(document).ready(function () {
+            M.AutoInit();
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+        $("#searchInput").keyup(function() {
+            var searchValue = $('#searchInput').val();
+            searchValue = searchValue === "" ? '.' : searchValue;
+            var regex = new RegExp(searchValue, "i");
+            $('.search-filter').each(function(i, e) {
+                var value = $(e).children('.search-filter-value:first-child')[0].innerHTML;
+                if (regex.test(value)) {
+                    $(e).show();
+                } else {
+                    $(e).hide();
+                }
+            });
+        });
+        function copyToClipboard(selector) {
+            $(selector).select();
+            document.execCommand("copy");
+        }
+    </script></body></html>

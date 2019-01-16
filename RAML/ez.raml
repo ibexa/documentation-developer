@@ -1,0 +1,993 @@
+#%RAML 1.0
+---
+title: eZ Platform (Test)
+baseUri: http://localhost/
+version: 2.4
+
+/bookmark:
+    get:
+        queryParameters:
+            offset:
+                description: the offset of the result set. Default value is 0
+                type: integer
+            limit:
+                description: the number of bookmarks returned. Default value is 25
+                type: integer
+        headers:
+            Accept:
+                description: Response format, either application/vnd.ez.api.BookmarkList+xml or application/vnd.ez.api.BookmarkList+json
+        responses:
+            200:
+                body:
+                    application/vnd.ez.api.BookmarkList+xml:
+                        example: |
+                            <?xml version="1.0" encoding="UTF-8"?>
+                                <BookmarkList media-type="application/vnd.ez.api.BookmarkList+xml">
+                                    <count>1</count>
+                                    <Bookmark media-type="application/vnd.ez.api.Bookmark+xml" _href="/api/ezp/v2/bookmark/2">
+                                        <Location media-type="application/vnd.ez.api.Location+xml" href="/api/ezp/v2/content/locations/1/2">
+                                            <id>2</id>
+                                            <priority>0</priority>
+                                            <hidden>false</hidden>
+                                            <invisible>false</invisible>
+                                            <ParentLocation media-type="application/vnd.ez.api.Location+xml" href="/api/ezp/v2/content/locations/1"/>
+                                            <pathString>/1/2/</pathString>
+                                            <depth>1</depth>
+                                            <childCount>4</childCount>
+                                            <remoteId>f3e90596361e31d496d4026eb624c983</remoteId>
+                                            <Children media-type="application/vnd.ez.api.LocationList+xml" href="/api/ezp/v2/content/locations/1/2/children"/>
+                                            <Content media-type="application/vnd.ez.api.Content+xml" href="/api/ezp/v2/content/objects/1"/>
+                                            <sortField>PRIORITY</sortField>
+                                            <sortOrder>ASC</sortOrder>
+                                            <UrlAliases media-type="application/vnd.ez.api.UrlAliasRefList+xml" href="/api/ezp/v2/content/locations/1/2/urlaliases"/>
+                                            <ContentInfo media-type="application/vnd.ez.api.ContentInfo+xml" href="/api/ezp/v2/content/objects/1">
+                                                <Content media-type="application/vnd.ez.api.ContentInfo+xml" href="/api/ezp/v2/content/objects/1" remoteId="9459d3c29e15006e45197295722c7ade" id="1">
+                                                    <ContentType media-type="application/vnd.ez.api.ContentType+xml" href="/api/ezp/v2/content/types/1"/>
+                                                    <Name>eZ Platform</Name>
+                                                    <Versions media-type="application/vnd.ez.api.VersionList+xml" href="/api/ezp/v2/content/objects/1/versions"/>
+                                                    <CurrentVersion media-type="application/vnd.ez.api.Version+xml" href="/api/ezp/v2/content/objects/1/currentversion"/>
+                                                    <Section media-type="application/vnd.ez.api.Section+xml" href="/api/ezp/v2/content/sections/1"/>
+                                                    <Locations media-type="application/vnd.ez.api.LocationList+xml" href="/api/ezp/v2/content/objects/1/locations"/>
+                                                    <Owner media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/14"/>
+                                                    <lastModificationDate>2015-11-30T13:10:46+00:00</lastModificationDate>
+                                                    <publishedDate>2015-11-30T13:10:46+00:00</publishedDate>
+                                                    <mainLanguageCode>eng-GB</mainLanguageCode>
+                                                    <currentVersionNo>9</currentVersionNo>
+                                                    <alwaysAvailable>true</alwaysAvailable>
+                                                    <ObjectStates media-type="application/vnd.ez.api.ContentObjectStates+xml" href="/api/ezp/v2/content/objects/1/objectstates"/>
+                                                </Content>
+                                            </ContentInfo>
+                                        </Location>
+                                    </Bookmark>
+                                </BookmarkList>
+                    application/vnd.ez.api.BookmarkList+json:
+                        example: |
+                            {
+                                "BookmarkList": {
+                                    "_media-type": "application/vnd.ez.api.BookmarkList+json",
+                                    "count": 1,
+                                    "items": [
+                                        {
+                                            "_media-type": "application/vnd.ez.api.Bookmark+json",
+                                            "__href": "/api/ezp/v2/bookmark/2",
+                                            "Location": {
+                                                "_media-type": "application/vnd.ez.api.Location+json",
+                                                "_href": "/api/ezp/v2/content/locations/1/2",
+                                                "id": 2,
+                                                "priority": 0,
+                                                "hidden": false,
+                                                "invisible": false,
+                                                "ParentLocation": {
+                                                    "_media-type": "application/vnd.ez.api.Location+json",
+                                                    "_href": "/api/ezp/v2/content/locations/1"
+                                                },
+                                                "pathString": "/1/2/",
+                                                "depth": 1,
+                                                "childCount": 4,
+                                                "remoteId": "f3e90596361e31d496d4026eb624c983",
+                                                "Children": {
+                                                    "_media-type": "application/vnd.ez.api.LocationList+json",
+                                                    "_href": "/api/ezp/v2/content/locations/1/2/children"
+                                                },
+                                                "Content": {
+                                                    "_media-type": "application/vnd.ez.api.Content+json",
+                                                    "_href": "/api/ezp/v2/content/objects/1"
+                                                },
+                                                "sortField": "PRIORITY",
+                                                "sortOrder": "ASC",
+                                                "UrlAliases": {
+                                                    "_media-type": "application/vnd.ez.api.UrlAliasRefList+json",
+                                                    "_href": "/api/ezp/v2/content/locations/1/2/urlaliases"
+                                                },
+                                                "ContentInfo": {
+                                                    "_media-type": "application/vnd.ez.api.ContentInfo+json",
+                                                    "_href": "/api/ezp/v2/content/objects/1",
+                                                    "Content": {
+                                                        "_media-type": "application/vnd.ez.api.ContentInfo+json",
+                                                        "_href": "/api/ezp/v2/content/objects/1",
+                                                        "_remoteId": "9459d3c29e15006e45197295722c7ade",
+                                                        "_id": 1,
+                                                        "ContentType": {
+                                                            "_media-type": "application/vnd.ez.api.ContentType+json",
+                                                            "_href": "/api/ezp/v2/content/types/1"
+                                                        },
+                                                        "Name": "eZ Platform",
+                                                        "Versions": {
+                                                            "_media-type": "application/vnd.ez.api.VersionList+json",
+                                                            "_href": "/api/ezp/v2/content/objects/1/versions"
+                                                        },
+                                                        "CurrentVersion": {
+                                                            "_media-type": "application/vnd.ez.api.Version+json",
+                                                            "_href": "/api/ezp/v2/content/objects/1/currentversion"
+                                                        },
+                                                        "Section": {
+                                                            "_media-type": "application/vnd.ez.api.Section+json",
+                                                            "_href": "/api/ezp/v2/content/sections/1"
+                                                        },
+                                                        "Locations": {
+                                                            "_media-type": "application/vnd.ez.api.LocationList+json",
+                                                            "_href": "/api/ezp/v2/content/objects/1/locations"
+                                                        },
+                                                        "Owner": {
+                                                            "_media-type": "application/vnd.ez.api.User+json",
+                                                            "_href": "/api/ezp/v2/user/users/14"
+                                                        },
+                                                        "lastModificationDate": "2015-11-30T13:10:46+00:00",
+                                                        "publishedDate": "2015-11-30T13:10:46+00:00",
+                                                        "mainLanguageCode": "eng-GB",
+                                                        "currentVersionNo": 9,
+                                                        "alwaysAvailable": true,
+                                                        "ObjectStates": {
+                                                            "_media-type": "application/vnd.ez.api.ContentObjectStates+json",
+                                                            "_href": "/api/ezp/v2/content/objects/1/objectstates"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+
+            401:
+                description: If the user is not authorized to list bookmarks
+    /{locationId}:
+        post:
+            description: Add given location to bookmarks of current user
+            responses:
+                201:
+                401:
+                    description: If the user is not authorized to given location
+                404:
+                    description: If a given location not exists
+                409:
+                    description: If location is already bookmarked
+        head:
+            description: Check if given location is bookmarked by current user
+            responses:
+                200:
+                401:
+                    description: If the user is not authorized to given location
+                404:
+                    description: If a given location not exists / is not bookmarked
+        delete:
+            description: Delete given location from bookmarks of current user
+            responses:
+                204:
+                401:
+                    description: If the user is not authorized to given location
+                404:
+                    description: If a given location not exists / is not bookmarked
+/Content:
+    get:
+        description: List the root resources of the eZ Publish installation.
+        headers:
+            Accept:
+                description: Response format, either application/vnd.ez.api.BookmarkList+xml or application/vnd.ez.api.BookmarkList+json
+        responses:
+            200:
+                body:
+                    application/vnd.ez.api.Root+xml:
+                        example: |
+                            <?xml version="1.0" encoding="UTF-8"?>
+                            <Root media-type="application/vnd.ez.api.Root+xml">
+                                <content media-type="" href="/api/ezp/v2/content/objects"/>
+                                <contentByRemoteId media-type="" href="/api/ezp/v2/content/objects{?remoteId}"/>
+                                <contentTypes media-type="application/vnd.ez.api.ContentTypeInfoList+xml" href="/api/ezp/v2/content/types"/>
+                                <contentTypeByIdentifier media-type="" href="/api/ezp/v2/content/types{?identifier}"/>
+                                <contentTypeGroups media-type="application/vnd.ez.api.ContentTypeGroupList+xml" href="/api/ezp/v2/content/typegroups"/>
+                                <contentTypeGroupByIdentifier media-type="" href="/api/ezp/v2/content/typegroups{?identifier}"/>
+                                <users media-type="application/vnd.ez.api.UserRefList+xml" href="/api/ezp/v2/user/users"/>
+                                <roles media-type="application/vnd.ez.api.RoleList+xml" href="/api/ezp/v2/user/roles"/>
+                                <rootLocation media-type="application/vnd.ez.api.Location+xml" href="/api/ezp/v2/content/locations/1/2"/>
+                                <rootUserGroup media-type="application/vnd.ez.api.UserGroup+xml" href="/api/ezp/v2/user/groups/1/5"/>
+                                <rootMediaFolder media-type="application/vnd.ez.api.Location+xml" href="/api/ezp/v2/content/locations/1/43"/>
+                                <locationByRemoteId media-type="" href="/api/ezp/v2/content/locations{?remoteId}"/>
+                                <locationByPath media-type="" href="/api/ezp/v2/content/locations{?locationPath}"/>
+                                <trash media-type="application/vnd.ez.api.Trash+xml" href="/api/ezp/v2/content/trash"/>
+                                <sections media-type="application/vnd.ez.api.SectionList+xml" href="/api/ezp/v2/content/sections"/>
+                                <views media-type="application/vnd.ez.api.RefList+xml" href="/api/ezp/v2/views"/>
+                                <objectStateGroups media-type="application/vnd.ez.api.ObjectStateGroupList+xml" href="/api/ezp/v2/content/objectstategroups"/>
+                                <objectStates media-type="application/vnd.ez.api.ObjectStateList+xml" href="/api/ezp/v2/content/objectstategroups/{objectStateGroupId}/objectstates"/>
+                                <globalUrlAliases media-type="application/vnd.ez.api.UrlAliasRefList+xml" href="/api/ezp/v2/content/urlaliases"/>
+                                <urlWildcards media-type="application/vnd.ez.api.UrlWildcardList+xml" href="/api/ezp/v2/content/urlwildcards"/>
+                                <createSession media-type="application/vnd.ez.api.UserSession+xml" href="/api/ezp/v2/user/sessions"/>
+                                <refreshSession media-type="application/vnd.ez.api.UserSession+xml" href="/api/ezp/v2/user/sessions/{sessionId}/refresh"/>
+                            </Root>
+                    application/vnd.ez.api.Root+json:
+                        example: |
+                            {
+                                "Root": {
+                                    "_media-type": "application/vnd.ez.api.Root+json",
+                                    "content": {
+                                        "_href": "/api/ezp/v2/content/objects",
+                                        "_media-type": ""
+                                    },
+                                    "contentByRemoteId": {
+                                        "_href": "/api/ezp/v2/content/objects{?remoteId}",
+                                        "_media-type": ""
+                                    },
+                                    "contentTypeByIdentifier": {
+                                        "_href": "/api/ezp/v2/content/types{?identifier}",
+                                        "_media-type": ""
+                                    },
+                                    "contentTypeGroupByIdentifier": {
+                                        "_href": "/api/ezp/v2/content/typegroups{?identifier}",
+                                        "_media-type": ""
+                                    },
+                                    "contentTypeGroups": {
+                                        "_href": "/api/ezp/v2/content/typegroups",
+                                        "_media-type": "application/vnd.ez.api.ContentTypeGroupList+json"
+                                    },
+                                    "contentTypes": {
+                                        "_href": "/api/ezp/v2/content/types",
+                                        "_media-type": "application/vnd.ez.api.ContentTypeInfoList+json"
+                                    },
+                                    "createSession": {
+                                        "_href": "/api/ezp/v2/user/sessions",
+                                        "_media-type": "application/vnd.ez.api.UserSession+json"
+                                    },
+                                    "globalUrlAliases": {
+                                        "_href": "/api/ezp/v2/content/urlaliases",
+                                        "_media-type": "application/vnd.ez.api.UrlAliasRefList+json"
+                                    },
+                                    "locationByPath": {
+                                        "_href": "/api/ezp/v2/content/locations{?locationPath}",
+                                        "_media-type": ""
+                                    },
+                                    "locationByRemoteId": {
+                                        "_href": "/api/ezp/v2/content/locations{?remoteId}",
+                                        "_media-type": ""
+                                    },
+                                    "objectStateGroups": {
+                                        "_href": "/api/ezp/v2/content/objectstategroups",
+                                        "_media-type": "application/vnd.ez.api.ObjectStateGroupList+json"
+                                    },
+                                    "objectStates": {
+                                        "_href": "/api/ezp/v2/content/objectstategroups/{objectStateGroupId}/objectstates",
+                                        "_media-type": "application/vnd.ez.api.ObjectStateList+json"
+                                    },
+                                    "roles": {
+                                        "_href": "/api/ezp/v2/user/roles",
+                                        "_media-type": "application/vnd.ez.api.RoleList+json"
+                                    },
+                                    "rootLocation": {
+                                        "_href": "/api/ezp/v2/content/locations/1/2",
+                                        "_media-type": "application/vnd.ez.api.Location+json"
+                                    },
+                                    "rootMediaFolder": {
+                                        "_href": "/api/ezp/v2/content/locations/1/43",
+                                        "_media-type": "application/vnd.ez.api.Location+json"
+                                    },
+                                    "rootUserGroup": {
+                                        "_href": "/api/ezp/v2/user/groups/1/5",
+                                        "_media-type": "application/vnd.ez.api.UserGroup+json"
+                                    },
+                                    "sections": {
+                                        "_href": "/api/ezp/v2/content/sections",
+                                        "_media-type": "application/vnd.ez.api.SectionList+json"
+                                    },
+                                    "trash": {
+                                        "_href": "/api/ezp/v2/content/trash",
+                                        "_media-type": "application/vnd.ez.api.Trash+json"
+                                    },
+                                    "urlWildcards": {
+                                        "_href": "/api/ezp/v2/content/urlwildcards",
+                                        "_media-type": "application/vnd.ez.api.UrlWildcardList+json"
+                                    },
+                                    "users": {
+                                        "_href": "/api/ezp/v2/user/users",
+                                        "_media-type": "application/vnd.ez.api.UserRefList+json"
+                                    },
+                                    "views": {
+                                        "_href": "/api/ezp/v2/views",
+                                        "_media-type": "application/vnd.ez.api.RefList+json"
+                                    },
+                                    "refreshSession": {
+                                        "_media-type": "application\/vnd.ez.api.UserSession+json",
+                                        "_href": "\/api\/ezp\/v2\/user\/sessions\/{sessionId}\/refresh"
+                                    }
+                                }
+                            }
+    /objects:
+        post:
+            description: Creates a new content draft assigned to the authenticated user. If a different userId is given in the input it is assigned to the given user but this required special rights for the authenticated user (this is useful for content staging where the transfer process does not have to authenticate with the user which created the content object in the source server). The user has to publish the content if it should be visible.
+            headers:
+                Accept:
+                    description:  Response format for Content object, either application/vnd.ez.api.Content+xml or application/vnd.ez.api.Content+json or application/vnd.ez.api.ContentInfo+xml or application/vnd.ez.api.ContentInfo+json. Response format for Content Type, either application/vnd.ez.api.ContentCreate+json or application/vnd.ez.api.ContentCreate+xml.
+            responses:
+                201:
+                    body:
+                        application/vnd.ez.api.ContentCreate+xml:
+                            example: |
+                            <ContentCreate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                                  <ContentType href="/content/types/10"/>
+                                                  <mainLanguageCode>eng-US</mainLanguageCode>
+                                                  <LocationCreate>
+                                                    <ParentLocation href="/content/locations/1/4/89" />
+                                                    <priority>0</priority>
+                                                    <hidden>false</hidden>
+                                                    <sortField>PATH</sortField>
+                                                    <sortOrder>ASC</sortOrder>
+                                                  </LocationCreate>
+                                                  <Section href="/content/sections/4"/>
+                                                  <alwaysAvailable>true</alwaysAvailable>
+                                                  <remoteId>remoteId12345678</remoteId>
+                                                  <fields>
+                                                    <field>
+                                                      <fieldDefinitionIdentifier>title</fieldDefinitionIdentifier>
+                                                      <languageCode>eng-US</languageCode>
+                                                      <fieldValue>This is a title</fieldValue>
+                                                    </field>
+                                                    <field>
+                                                      <fieldDefinitionIdentifier>summary</fieldDefinitionIdentifier>
+                                                      <languageCode>eng-US</languageCode>
+                                                      <fieldValue>This is a summary</fieldValue>
+                                                    </field>
+                                                    <field>
+                                                      <fieldDefinitionIdentifier>authors</fieldDefinitionIdentifier>
+                                                      <languageCode>eng-US</languageCode>
+                                                      <fieldValue>
+                                                        <value>
+                                                          <value key="name">John Doe</value>
+                                                          <value key="email">john.doe@example.net</value>
+                                                        </value>
+                                                        <value>
+                                                          <value key="name">Bruce Willis</value>
+                                                          <value key="email">bruce.willis@example.net</value>
+                                                        </value>
+                                                      </fieldValue>
+                                                    </field>
+                                                  </fields>
+                                                </ContentCreate>
+                    application/vnd.ez.api.ContentUpdate+xml;charset=utf8:
+                        example: |
+                              <?xml version="1.0" encoding="UTF-8"?>
+                              <Content href="/content/objects/23" id="23"
+                                media-type="application/vnd.ez.api.Content+xml" remoteId="remoteId12345678" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                <ContentType href="/content/types/10" media-type="application/vnd.ez.api.ContentType+xml" />
+                                <Name>This is a title</Name>
+                                <Versions href="/content/objects/23/versions" media-type="application/vnd.ez.api.VersionList+xml" />
+                                <CurrentVersion href="/content/objects/23/currentversion"
+                                  media-type="application/vnd.ez.api.Version+xml">
+                                  <Version href="/content/objects/23/versions/1" media-type="application/vnd.ez.api.Version+xml">
+                                    <VersionInfo>
+                                      <id>123</id>
+                                      <versionNo>1</versionNo>
+                                      <status>DRAFT</status>
+                                      <modificationDate>2012-02-12T12:30:00</modificationDate>
+                                      <Creator href="/user/users/14" media-type="application/vnd.ez.api.User+xml" />
+                                      <creationDate>2012-02-12T12:30:00</creationDate>
+                                      <initialLanguageCode>eng-US</initialLanguageCode>
+                                      <Content href="/content/objects/23" media-type="application/vnd.ez.api.ContentInfo+xml" />
+                                    </VersionInfo>
+                                    <fields>
+                                      <field>
+                                        <id>1234</id>
+                                        <fieldDefinitionIdentifier>title</fieldDefinitionIdentifier>
+                                        <languageCode>eng-UK</languageCode>
+                                        <fieldValue>This is a title</fieldValue>
+                                      </field>
+                                      <field>
+                                        <id>1235</id>
+                                        <fieldDefinitionIdentifier>summary</fieldDefinitionIdentifier>
+                                        <languageCode>eng-UK</languageCode>
+                                        <fieldValue>This is a summary</fieldValue>
+                                      </field>
+                                      <field>
+                                        <fieldDefinitionIdentifier>authors</fieldDefinitionIdentifier>
+                                        <languageCode>eng-US</languageCode>
+                                        <fieldValue>
+                                          <value>
+                                            <value key="name">John Doe</value>
+                                            <value key="email">john.doe@example.net</value>
+                                          </value>
+                                          <value>
+                                            <value key="name">Bruce Willis</value>
+                                            <value key="email">bruce.willis@example.net</value>
+                                          </value>
+                                        </fieldValue>
+                                      </field>
+                                    </fields>
+                                    <Relations href="/content/objects/23/versions/1/relations" media-type="application/vnd.ez.api.RelationList+xml" />
+                                  </Version>
+                                </CurrentVersion>
+                                <Section href="/content/sections/4" media-type="application/vnd.ez.api.Section+xml" />
+                                <MainLocation href="/content/locations/1/4/65" media-type="application/vnd.ez.api.Location+xml" />
+                                <Locations href="/content/objects/23/locations" media-type="application/vnd.ez.api.LocationList+xml" />
+                                <Owner href="/user/users/14" media-type="application/vnd.ez.api.User+xml" />
+                                <lastModificationDate>2012-02-12T12:30:00</lastModificationDate>
+                                <mainLanguageCode>eng-US</mainLanguageCode>
+                                <currentVersionNo>1</currentVersionNo>
+                                <alwaysAvailable>true</alwaysAvailable>
+                              </Content>
+                    application/vnd.ez.api.ContentCreate+json:
+                        example: |
+                            {
+                              "ContentCreate": {
+                                "ContentType": {
+                                  "_href": "/content/types/10"
+                                },
+                                "mainLanguageCode": "eng-US",
+                                "LocationCreate": {
+                                  "ParentLocation": {
+                                    "_href": "/content/locations/1/4/89"
+                                  },
+                                  "priority": "0",
+                                  "hidden": false,
+                                  "sortField": "PATH",
+                                  "sortOrder": "ASC"
+                                },
+                                "Section": {
+                                  "_href": "/content/sections/4"
+                                },
+                                "alwaysAvailable": true,
+                                "remoteId": "remoteId12345678",
+                                "fields": {
+                                  "field": [
+                                    {
+                                      "fieldDefinitionIdentifier": "title",
+                                      "languageCode": "eng-US",
+                                      "fieldValue": "This is a title"
+                                    },
+                                    {
+                                      "fieldDefinitionIdentifier": "summary",
+                                      "languageCode": "eng-US",
+                                      "fieldValue": "This is a summary"
+                                    },
+                                    {
+                                      "fieldDefinitionIdentifier": "authors",
+                                      "languageCode": "eng-US",
+                                      "fieldValue": [
+                                         {
+                                           "name": "John Doe",
+                                           "email": "john.doe@example.net"
+                                         },
+                                         {
+                                           "name": "Bruce Willis",
+                                           "email": "bruce.willis@example.net"
+                                         }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                    application/vnd.ez.api.Content+json:
+                        example: |
+                            {
+                              "Content": {
+                                "_href": "/content/objects/23",
+                                "_id": "23",
+                                "_media-type": "application/vnd.ez.api.Content+json",
+                                "_remoteId": "qwert123",
+                                "ContentType": {
+                                  "_href": "/content/types/10",
+                                  "_media-type": "application/vnd.ez.api.ContentType+json"
+                                },
+                                "name": "This is a title",
+                                "Versions": {
+                                  "_href": "/content/objects/23/versions",
+                                  "_media-type": "application/vnd.ez.api.VersionList+json"
+                                },
+                                "CurrentVersion": {
+                                  "_href": "/content/objects/23/currentversion",
+                                  "_media-type": "application/vnd.ez.api.Version+json",
+                                  "Version": {
+                                    "_href": "/content/objects/23/versions/1",
+                                    "_media-type": "application/vnd.ez.api.Version+json",
+                                    "VersionInfo": {
+                                      "id": "123",
+                                      "versionNo": "1",
+                                      "status": "DRAFT",
+                                      "modificationDate": "2012-02-12T12:30:00",
+                                      "creator": {
+                                        "_href": "/user/users/14",
+                                        "_media-type": "application/vnd.ez.api.User+json"
+                                      },
+                                      "creationDate": "2012-02-12T12:30:00",
+                                      "initialLanguageCode": "eng-US",
+                                      "Content": {
+                                        "_href": "/content/objects/23",
+                                        "_media-type": "application/vnd.ez.api.ContentInfo+json"
+                                      }
+                                    },
+                                    "fields": {
+                                      "field": [
+                                        {
+                                          "id": "1234",
+                                          "fieldDefinitionIdentifier": "title",
+                                          "languageCode": "eng-UK",
+                                          "fieldValue": "This is a title"
+                                        },
+                                        {
+                                          "id": "1235",
+                                          "fieldDefinitionIdentifier": "summary",
+                                          "languageCode": "eng-UK",
+                                          "fieldValue": "This is a summary"
+                                        },
+                                        {
+                                          "fieldDefinitionIdentifier": "authors",
+                                          "languageCode": "eng-US",
+                                          "fieldValue":
+                                          [
+                                            {
+                                              "name": "John Doe",
+                                              "email": "john.doe@example.net"
+                                            },
+                                            {
+                                              "name": "Bruce Willis",
+                                              "email": "bruce.willis@example.net"
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  }
+                                },
+                                "Section": {
+                                  "_href": "/content/sections/4",
+                                  "_media-type": "application/vnd.ez.api.Section+json"
+                                },
+                                "MainLocation": {
+                                  "_href": "/content/locations/1/4/65",
+                                  "_media-type": "application/vnd.ez.api.Location+json"
+                                },
+                                "Locations": {
+                                  "_href": "/content/objects/23/locations",
+                                  "_media-type": "application/vnd.ez.api.LocationList+json"
+                                },
+                                "Owner": {
+                                  "_href": "/user/users/14",
+                                  "_media-type": "application/vnd.ez.api.User+json"
+                                },
+                                "lastModificationDate": "2012-02-12T12:30:00",
+                                "mainLanguageCode": "eng-US",
+                                "currentVersionNo": "1",
+                                "alwaysAvailable": true
+                              }
+                            }
+                400:
+                    description: If the Input does not match the input schema definition or the validation on a field fails
+                401:
+                    description: If the user is not authorized to create this object in this location
+                404:
+                    description: If a parent location in specified in the request body and it does not exist
+        get:
+            description: Loads the content for a given remote id
+            queryParameters:
+                remoteId:
+                    description: The remote id of the content. If present the content with the given remote id is returned
+            responses:
+                200:
+                    body:
+                        /content/objects/<id>:
+                            example: |
+                            HTTP/1.1 307 Temporary Redirect
+                            Location: /content/objects/<id>
+                404:
+                    description: If the content with the given remote id does not exist
+    /objects/{id}:
+        get:
+            description: Loads the content object for the given id. Depending on the Accept header the current version is embedded (i.e the current published version or if not exists the draft of the authenticated user)
+            queryParameters:
+                 languages:
+                    description: (comma separated list) restricts the output of translatable fields to the given languages
+                    type: list
+            headers:
+                Accept:
+                    description: Response format, either application/vnd.ez.api.Content+xml or application/vnd.ez.api.Content+json or application/vnd.ez.api.ContentInfo+xml or application/vnd.ez.api.ContentInfo+json
+                if-none-match:
+                    description: <etag> If the provided etag matches the current etag then a 304 Not Modified is returned. The etag changes if the meta data was changed - this happens also if there is a new published version.
+            responses:
+                200:
+                    body:
+                        application/vnd.ez.api.Content+xml:
+                            example: |
+                                <?xml version="1.0" encoding="UTF-8"?>
+                                <Content href="/content/objects/23" id="23"
+                                  media-type="application/vnd.ez.api.Content+xml" remoteId="qwert123">
+                                  <ContentType href="/content/types/10" media-type="application/vnd.ez.api.ContentType+xml" />
+                                  <Name>This is a title</Name>
+                                  <Versions href="/content/objects/23/versions" media-type="application/vnd.ez.api.VersionList+xml" />
+                                  <CurrentVersion href="/content/objects/23/currentversion"
+                                    media-type="application/vnd.ez.api.Version+xml"/>
+                                  <Section href="/content/sections/4" media-type="application/vnd.ez.api.Section+xml" />
+                                  <MainLocation href="/content/locations/1/4/65" media-type="application/vnd.ez.api.Location+xml" />
+                                  <Locations href="/content/objects/23/locations" media-type="application/vnd.ez.api.LocationList+xml" />
+                                  <Owner href="/user/users/14" media-type="application/vnd.ez.api.User+xml" />
+                                  <lastModificationDate>2012-02-12T12:30:00</lastModificationDate>
+                                  <publishedDate>2012-02-12T15:30:00</publishedDate>
+                                  <mainLanguageCode>eng-US</mainLanguageCode>
+                                  <currentVersionNo>1</currentVersionNo>
+                                  <alwaysAvailable>true</alwaysAvailable>
+                                </Content>
+                401:
+                    description: If the user is not authorized to read this object. This could also happen if there is no published version yet and another user owns a draft of this content
+                404:
+                    description: If the ID is not found
+        post:
+            description: PATCH or POST with header: X-HTTP-Method-Override: PATCH. This method updates the content metadata which is independent from a version.
+            headers:
+                 Accept:
+                    description: Response format, either application/vnd.ez.api.ContentInfo+xml or application/vnd.ez.api.ContentInfo+json
+                 If-match:
+                     description: <etag> Causes to patch only if the specified etag is the current one. Otherwise a 412 is returned.
+                 Content-Type:
+                    description: Response format, either application/vnd.ez.api.ContentUpdate+json or application/vnd.ez.api.ContentUpdate+xml
+            responses:
+                200:
+                    body:
+                        POST /content/objects/23 HTTP/1.1
+                        X-HTTP-Method-Override: PATCH
+                        Host: www.example.net
+                        If-Match: "12345678"
+                        Accept: application/vnd.ez.api.ContentInfo+xml
+                        Content-Type: application/vnd.ez.api.ContentCreate+xml
+                        Content-Length: xxx
+                            example: |
+                                <?xml version="1.0" encoding="UTF-8"?>
+                                <ContentUpdate>
+                                  <mainLanguageCode>ger-DE</mainLanguageCode>
+                                  <Section href="/content/sections/3"/>
+                                  <MainLocation href="/content/locations/1/13/55"/>
+                                  <Owner href="/user/users/13"/>
+                                  <alwaysAvailable>false</alwaysAvailable>
+                                  <remoteId>qwert4321</remoteId>
+                                </ContentUpdate>
+                400:
+                    description: If the Input does not match the input schema definition.
+                401:
+                    description: If the user is not authorized to update this object
+                404:
+                    description: If the content id does not exist
+                412:
+                    description: If the current ETag does not match with the provided one in the If-Match header
+                415:
+                    description: If the media-type is not one of those specified in Headers
+
+        patch:
+            description: PATCH or POST with header: X-HTTP-Method-Override: PATCH. This method updates the content metadata which is independent from a version.
+            headers:
+                 Accept:
+                    description: Response format, either application/vnd.ez.api.ContentInfo+xml or application/vnd.ez.api.ContentInfo+json
+                 If-match:
+                     description: <etag> Causes to patch only if the specified etag is the current one. Otherwise a 412 is returned.
+                 Content-Type:
+                    description: Response format, either application/vnd.ez.api.ContentUpdate+json or application/vnd.ez.api.ContentUpdate+xml
+            responses:
+                200:
+                    body:
+                      example: |
+                           HTTP/1.1 200 OK
+                           ETag: "12345699"
+                           Accept-Patch: application/vnd.ez.api.ContentUpdate+xml;charset=utf8
+                           Content-Type: application/vnd.ez.api.ContentInfo+xml
+                           Content-Length: xxx
+                                <?xml version="1.0" encoding="UTF-8"?>
+                                <Content href="/content/objects/23" id="23"
+                                  media-type="application/vnd.ez.api.Content+xml" remoteId="qwert4321">
+                                  <ContentType href="/content/types/10" media-type="application/vnd.ez.api.ContentType+xml" />
+                                  <Name>This is a title</Name>
+                                  <Versions href="/content/objects/23/versions" media-type="application/vnd.ez.api.VersionList+xml" />
+                                  <CurrentVersion href="/content/objects/23/currentversion"
+                                    media-type="application/vnd.ez.api.Version+xml"/>
+                                  <Section href="/content/sections/3" media-type="application/vnd.ez.api.Section+xml" />
+                                  <MainLocation href="/content/locations/1/13/55" media-type="application/vnd.ez.api.Location+xml" />
+                                  <Locations href="/content/objects/23/locations" media-type="application/vnd.ez.api.LocationList+xml" />
+                                  <Owner href="/user/users/13" media-type="application/vnd.ez.api.User+xml" />
+                                  <lastModificationDate>2012-02-12T12:30:00</lastModificationDate>
+                                  <publishedDate>2012-02-12T15:30:00</publishedDate>
+                                  <mainLanguageCode>ger-DE</mainLanguageCode>
+                                  <currentVersionNo>1</currentVersionNo>
+                                  <alwaysAvailable>false</alwaysAvailable>
+                                </Content>
+        delete:
+            description: The content is deleted. If the content has locations (which is required in 4.x) on delete all locations assigned the content object are deleted via delete subtree.
+            responses:
+                204:
+                404:
+                    description: Content object was not found
+                401:
+                    description: If the user is not authorized to delete this object
+        copy:
+            description: COPY or POST with header: X-HTTP-Method-Override COPY. Creates a new content object as copy under the given parent location given in the destination header.
+            headers:
+                destination: A location resource to which the content object should be copied.
+            responses:
+                201:
+                    body:
+                        COPY /content/objects/23 HTTP/1.1
+                        Host: api.example.com
+                        Destination: /content/locations/1/4/78
+                        example:  |
+                          HTTP/1.1 201 Created
+                          Location: /content/objects/74
+                401:
+                    description: If the user is not authorized to copy this object to the given location
+                404:
+                    description: 	If the source or destination resource do not exist.
+    /objects/{id}/translations/<languageCode>:
+        delete:
+            description: Permanently delete a Translation from all Versions of a Content
+            responses:
+                204:
+                    body:
+                        example: |
+                          HTTP/1.1 204 No Content
+                401:
+                    description: If the user is not authorized to delete Content (content/remove policy)
+                404:
+                    description: If the Content item was not found
+                406:
+                    description: If the given Translation does not exist for the Content
+                409:
+                    description: If the specified Translation is the only one any Version has or is the Main Translation
+    /objects/{id}/currentversion:
+        get:
+            description: Redirects to the current version of the content object
+            responses:
+                307:
+                    body:
+                        /content/objects/<ID>/versions/<current_version_no>:
+                            example:  |
+                               HTTP/1.1 307 Temporary Redirect
+                               Location: /content/objects/<ID>/versions/<current_version_no>
+                404:
+                    description: If the resource does not exist
+    /objects/{id}/versions:
+        get:
+            description: Returns a list of all versions of the content. This method does not include fields and relations in the Version elements of the response.
+            headers:
+                Accept:
+                    description: application/vnd.ez.api.VersionList+xml or application/vnd.ez.api.VersionList+json
+            responses:
+                200:
+                    body:
+                        application/vnd.ez.api.VersionList+xml:
+                            example:  |
+                                <?xml version="1.0" encoding="UTF-8"?>
+                                <VersionList href="/content/objects/23/versions" media-type="application/vnd.ez.api.VersionList+xml">
+                                  <VersionItem>
+                                    <Version href="/content/objects/23/versions/1" media-type="application/vnd.ez.api.Version+xml"/>
+                                    <VersionInfo>
+                                      <id>12</id>
+                                      <versionNo>1</versionNo>
+                                      <status>ARCHIVED</status>
+                                      <modificationDate>2012-02-15T12:00:00</modificationDate>
+                                      <Creator href="/user/users/8" media-type="application/vnd.ez.api.User+xml" />
+                                      <creationDate>22012-02-15T12:00:00</creationDate>
+                                      <initialLanguageCode>eng-US</initialLanguageCode>
+                                      <names>
+                                        <value languageCode="eng-US">Name</value>
+                                      </names>
+                                      <Content href="/content/objects/23" media-type="application/vnd.ez.api.ContentInfo+xml" />
+                                    </VersionInfo>
+                                  </VersionItem>
+                                  <VersionItem>
+                                    <Version href="/content/objects/23/versions/2" media-type="application/vnd.ez.api.Version+xml"/>
+                                    <VersionInfo>
+                                      <id>22</id>
+                                      <versionNo>2</versionNo>
+                                      <status>PUBLISHED</status>
+                                      <modificationDate>2012-02-17T12:00:00</modificationDate>
+                                      <Creator href="/user/users/8" media-type="application/vnd.ez.api.User+xml" />
+                                      <creationDate>22012-02-17T12:00:00</creationDate>
+                                      <initialLanguageCode>eng-US</initialLanguageCode>
+                                      <names>
+                                        <value languageCode="eng-US">Name</value>
+                                      </names>
+                                      <Content href="/content/objects/23" media-type="application/vnd.ez.api.ContentInfo+xml" />
+                                    </VersionInfo>
+                                  </VersionItem>
+                                  <VersionItem>
+                                    <Version href="/content/objects/23/versions/3" media-type="application/vnd.ez.api.Version+xml"/>
+                                    <VersionInfo>
+                                      <id>44</id>
+                                      <versionNo>3</versionNo>
+                                      <status>DRAFT</status>
+                                      <modificationDate>2012-02-19T12:00:00</modificationDate>
+                                      <Creator href="/user/users/65" media-type="application/vnd.ez.api.User+xml" />
+                                      <creationDate>22012-02-19T12:00:00</creationDate>
+                                      <initialLanguageCode>fra-FR</initialLanguageCode>
+                                      <names>
+                                        <value languageCode="eng-US">Name</value>
+                                        <value languageCode="fra-FR">Nom</value>
+                                      </names>
+                                      <Content href="/content/objects/23" media-type="application/vnd.ez.api.ContentInfo+xml" />
+                                    </VersionInfo>
+                                  </VersionItem>
+                                  <VersionItem>
+                                    <Version href="/content/objects/23/versions/4" media-type="application/vnd.ez.api.Version+xml"/>
+                                    <VersionInfo>
+                                      <id>45</id>
+                                      <versionNo>4</versionNo>
+                                      <status>DRAFT</status>
+                                      <modificationDate>2012-02-20T12:00:00</modificationDate>
+                                      <Creator href="/user/users/44" media-type="application/vnd.ez.api.User+xml" />
+                                      <creationDate>22012-02-20T12:00:00</creationDate>
+                                      <initialLanguageCode>ger-DE</initialLanguageCode>
+                                      <names>
+                                        <value languageCode="eng-US">Name</value>
+                                        <value languageCode="ger-DE">Name</value>
+                                      </names>
+                                      <Content href="/content/objects/23" media-type="application/vnd.ez.api.ContentInfo+xml" />
+                                    </VersionInfo>
+                                  </VersionItem>
+                                </VersionList>
+                401:
+                    description: If the user has no permission to read the versions
+    /objects/{id}/versions/<versionNo>:
+        get:
+            description: Loads a specific version of a content object. This method returns fields and relations
+            queryParameters:
+                fields:
+                    description: Comma separated list of fields which should be returned in the response (see Content)
+                responseGroups:
+                    description: Alternative: comma separated lists of predefined field groups (see REST API Spec v1)
+                languages:
+                    description: (comma separated list) restricts the output of translatable fields to the given languages
+            headers:
+                If-None-Match:
+                    description: <etag> Only return the version if the given <etag> is the not current one otherwise a 304 is returned.
+                Accept:
+                    description: application/vnd.ez.api.Version+xml or application/vnd.ez.api.Version+json
+            responses:
+                200:
+                    body:
+                        application/vnd.ez.api.Version+xml:
+                            example: |
+                                <?xml version="1.0" encoding="UTF-8"?>
+                                <Version href="/content/objects/23/versions/4" media-type="application/vnd.ez.api.Version+xml"
+                                         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                  <VersionInfo>
+                                    <id>45</id>
+                                    <versionNo>4</versionNo>
+                                    <status>DRAFT</status>
+                                    <modificationDate>2012-02-20T12:00:00</modificationDate>
+                                    <Creator href="/user/users/44" media-type="application/vnd.ez.api.User+xml" />
+                                    <creationDate>22012-02-20T12:00:00</creationDate>
+                                    <initialLanguageCode>ger-DE</initialLanguageCode>
+                                    <names>
+                                      <value languageCode="ger-DE">Name</value>
+                                    </names>
+                                    <Content href="/content/objects/23" media-type="application/vnd.ez.api.ContentInfo+xml" />
+                                  </VersionInfo>
+                                  <Fields>
+                                    <field>
+                                      <id>1234</id>
+                                      <fieldDefinitionIdentifier>title</fieldDefinitionIdentifier>
+                                      <languageCode>ger-DE</languageCode>
+                                      <fieldValue>Titel</fieldValue>
+                                    </field>
+                                    <field>
+                                      <id>1235</id>
+                                      <fieldDefinitionIdentifier>summary</fieldDefinitionIdentifier>
+                                      <languageCode>ger-DE</languageCode>
+                                      <fieldValue>Dies ist eine Zusammenfassungy</fieldValue>
+                                    </field>
+                                    <field>
+                                      <fieldDefinitionIdentifier>authors</fieldDefinitionIdentifier>
+                                      <languageCode>ger-DE</languageCode>
+                                      <fieldValue>
+                                        <value>
+                                          <value key="name">Karl Mustermann</value>
+                                          <value key="email">karl.mustermann@example.net</value>
+                                        </value>
+                                      </fieldValue>
+                                    </field>
+                                  </Fields>
+                                  <Relations  href="/content/objects/23/relations"  media-type="application/vnd.ez.api.RelationList+xml">>
+                                    <Relation href="/content/objects/23/relations/32" media-type="application/vnd.ez.api.Relation+xml">
+                                      <SourceContent href="/content/objects/23"
+                                        media-type="application/vnd.ez.api.ContentInfo+xml" />
+                                      <DestinationContent href="/content/objects/45"
+                                        media-type="application/vnd.ez.api.ContentInfo+xml" />
+                                      <RelationType>COMMON</RelationType>
+                                    </Relation>
+                                  </Relations>
+                304:
+                    description: If the etag does not match the current one
+                401:
+                    description: If the user is not authorized to read this object
+                404:
+                    description: If the ID or version is not found
+        patch:
+            description: PATCH or POST with header X-HTTP-Method-Override: PATCH. A specific draft is updated.
+            queryParameters:
+                languages:
+                    description: (comma separated list) restricts the output of translatable fields to the given languages
+            headers:
+                Accept:
+                    description: application/vnd.ez.api.Version+xml or application/vnd.ez.api.Version+json
+                If-match:
+                    description: Causes to patch only if the specified etag is the current one
+                Content-Type:
+                    description: application/vnd.ez.api.VersionUpdate+json or application/vnd.ez.api.VersionUpdate+xml
+            responses:
+                200:
+                    body:
+                      HTTP/1.1 200 OK
+                      Accept-Patch: application/vnd.ez.api.VersionUpdate+xml
+                      ETag: "a3f2e5b9"
+                      Content-Type: application/vnd.ez.api.Version+xml
+                      Content-Length: xxx
+                          example:  |
+                              <?xml version="1.0" encoding="UTF-8"?>
+                              <Version href="/content/objects/23/versions/4" media-type="application/vnd.ez.api.Version+xml">
+                                <VersionInfo>
+                                  <id>45</id>
+                                  <versionNo>4</versionNo>
+                                  <status>DRAFT</status>
+                                  <modificationDate>2012-02-20T12:00:00</modificationDate>
+                                  <Creator href="/user/users/44" media-type="application/vnd.ez.api.User+xml" />
+                                  <creationDate>22012-02-20T12:00:00</creationDate>
+                                  <initialLanguageCode>ger-DE</initialLanguageCode>
+                                  <names>
+                                    <value languageCode="ger-DE">Neuer Titel</value>
+                                  </names>
+                                  <Content href="/content/objects/23" media-type="application/vnd.ez.api.ContentInfo+xml" />
+                                </VersionInfo>
+                                <Fields>
+                                  <field>
+                                    <id>1234</id>
+                                    <fieldDefinitionIdentifier>title</fieldDefinitionIdentifier>
+                                    <languageCode>ger-DE</languageCode>
+                                    <fieldValue>Neuer Titel</fieldValue>
+                                  </field>
+                                  <field>
+                                    <id>1235</id>
+                                    <fieldDefinitionIdentifier>summary</fieldDefinitionIdentifier>
+                                    <languageCode>ger-DE</languageCode>
+                                    <fieldValue>Dies ist eine neuse Zusammenfassungy</fieldValue>
+                                  </field>
+                                  <field>
+                                    <fieldDefinitionIdentifier>authors</fieldDefinitionIdentifier>
+                                    <languageCode>ger-DE</languageCode>
+                                    <fieldValue>
+                                      <authors>
+                                        <author name="Klaus Mustermann" email="klaus.mustermann@example.net" />
+                                      </authors>
+                                    </fieldValue>
+                                  </field>
+                                </Fields>
+                                <Relations>
+                                  <Relation href="/content/object/32/versions/2/relations/43" media-type="application/vnd.ez.api.Relation+xml">
+                                    <SourceContent href="/content/objects/23"
+                                      media-type="application/vnd.ez.api.ContentInfo+xml" />
+                                    <DestinationContent href="/content/objects/45"
+                                      media-type="application/vnd.ez.api.ContentInfo+xml" />
+                                    <RelationType>COMMON</RelationType>
+                                  </Relation>
+                                </Relations>
+                              </Version>
+                400:
+                    description: If the Input does not match the input schema definition, In this case the response contains an ErrorMessage
+                401:
+                    description: If the user is not authorized to update this version
+                403:
+                    description: If the version is not allowed to change - i.e is not a DRAFT
+                404:
+                    description: If the content id or version id does not exist
+                412:
+                    description: If the current ETag does not match with the provided one in the If-Match header
