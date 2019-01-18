@@ -2,7 +2,7 @@
 
 This is a component directly linked to tables.
 
-Every view has it's own offset spacing defined. You can set them up with [Bootstrap's spacing utilities](https://getbootstrap.com/docs/4.2/utilities/spacing/) according to the position of the table in the UI and if there is more content below the pagination component.
+Every view has its own offset spacing defined. You can set it with [Bootstrap's spacing utilities](https://getbootstrap.com/docs/4.2/utilities/spacing/) according to the position of the table in the UI and if there is more content below the pagination component.
 
 ##<div class="mgt-3 header-line">Pagination</div>
 <div class="ez-guidelines-pagination">
