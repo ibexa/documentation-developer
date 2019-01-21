@@ -135,7 +135,7 @@ pages:
         - 'Cross-origin HTTP requests': 'cookbook/making_cross_origin_http_requests.md'
         - 'Customizing email notifications': 'cookbook/customizing_form_builder_email_notifications.md'
         - 'Displaying Content children': 'cookbook/displaying_children_of_a_content_item.md'
-        - 'Drag and drop interface class': 'cookbook/drag_and_drop.md'
+        - 'Creating drag and drop interface': 'cookbook/drag_and_drop.md'
         - 'Executing long commands': 'cookbook/executing_long_running_console_commands.md'
         - 'Importing settings from a bundle': 'cookbook/importing_settings_from_a_bundle.md'
         - 'Installing on Mac OS or Windows': 'cookbook/installing-on-mac-os-and-windows.md'

@@ -1,4 +1,4 @@
-# Drag and drop interface class
+# Creating drag and drop interface
 
 In eZ Platform you are able to create a generic interface for drag and drop interactions that can be reused in many places.
 
@@ -26,11 +26,11 @@ Full list of options:
 
 |Option|Description|Required|
 |------|-----------|--------|
-|`itemsContainer`|a reference to DOM node containing a draggable items|required|
-|`selectorItem`|a CSS selector of a draggable item|required|
-|`selectorPlaceholder`|a CSS selector of a placeholder|required|
-|`afterInit`|a callback function invoked after interface initialization|optional|
-|`afterDragStart`|a callback function invoked after starting to drag|optional|
-|`afterDragOver`|a callback function invoked after moving onto a droppable element|optional|
-|`afterDrop`|a callback function invoked after dropping an element|optional|
-|`attachCustomEventHandlersToItem`|a function to be invoked while attaching event handlers to every item in the item's container|optional|
+|`itemsContainer`|reference to DOM node containing a draggable item|required|
+|`selectorItem`|CSS selector of a draggable item|required|
+|`selectorPlaceholder`|CSS selector of a placeholder|required|
+|`afterInit`|callback function invoked after interface initialization|optional|
+|`afterDragStart`|callback function invoked after starting to drag|optional|
+|`afterDragOver`|callback function invoked after moving onto a droppable element|optional|
+|`afterDrop`|callback function invoked after dropping an element|optional|
+|`attachCustomEventHandlersToItem`|function to be invoked while attaching event handlers to every item in the item's container|optional|
