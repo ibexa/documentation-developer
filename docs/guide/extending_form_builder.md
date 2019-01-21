@@ -165,6 +165,6 @@
     
     ## Configure email notifications
     
-    To send emails you need to configure `sender_address` in `app/config/config.yml`.
+    To send emails you need to configure `sender_address` in `app/config/config.yml` under `swiftmailer` key.
     It acts as a sender address and a return address where all bounced messages will be returned to.
     You can learn more by visiting [Symfony Mailer Configuration Reference.](https://symfony.com/doc/3.4/reference/configuration/swiftmailer.html#sender-address)
