@@ -458,7 +458,248 @@
         }
     }
 }
-</code></pre></div></div></div></li></ul></div></div></div></div><div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect btn-flat">Close</a></div></div><li class="collection-item space-between d-flex search-filter"><span class="search-filter-value"><span class="grey-text">/Content</span> <span>/objects</span></span> <span><a href="#content_objects_post" class="waves-effect waves-light modal-trigger"><span class="new badge badge-post" data-badge-caption="post"></span></a> <a href="#content_objects_get" class="waves-effect waves-light modal-trigger"><span class="new badge badge-get" data-badge-caption="get"></span></a></span></li><div id="content_objects_post" class="modal modal-fixed-footer"><div class="modal-content"><div class="section"><span class="new badge badge-post" data-badge-caption="post"></span> <span class="bold"><span class="parent">/Content</span>/objects</span><p></p><p>Creates a new content draft assigned to the authenticated user. If a different userId is given in the input it is assigned to the given user but this required special rights for the authenticated user (this is useful for content staging where the transfer process does not have to authenticate with the user which created the content object in the source server). The user has to publish the content if it should be visible.</p><p></p></div><div class="section"><ul class="tabs request"><li class="tab"><a class="active" href="#content_objects_post_request">Request</a></li><li class="tab"><a href="#content_objects_post_response">Response</a></li></ul><div id="content_objects_post_request"><ul class="collection with-header"><li class="collection-header"><h5>Headers</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">Accept</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div>Response format for Content object, either application/vnd.ez.api.Content+xml or application/vnd.ez.api.Content+json or application/vnd.ez.api.ContentInfo+xml or application/vnd.ez.api.ContentInfo+json. Response format for Content Type, either application/vnd.ez.api.ContentCreate+json or application/vnd.ez.api.ContentCreate+xml.</li></ul></li></ul></div><div id="content_objects_post_response"><ul class="tabs response"><li class="tab"><a href="#content_objects_post_response_201">201</a></li><li class="tab"><a href="#content_objects_post_response_400">400</a></li><li class="tab"><a href="#content_objects_post_response_401">401</a></li><li class="tab"><a href="#content_objects_post_response_404">404</a></li></ul><div id="content_objects_post_response_201"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><span class="bold">Media type</span>: application/vnd.ez.api.ContentCreate+xml</p><p><span class="bold">Type</span>: any</p><div style="display:flex;align-items:center;margin-top:5px;"><span style="margin-right: 5px;">Example</span><div style="display:flex;flex-direction:column;flex:1;"><div class="example grey lighten-4"><pre><code class="json hljs">[object Object]</code></pre></div></div></div></li></ul></div><div id="content_objects_post_response_400"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the Input does not match the input schema definition or the validation on a field fails</p></li></ul></div><div id="content_objects_post_response_401"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the user is not authorized to create this object in this location</p></li></ul></div><div id="content_objects_post_response_404"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If a parent location in specified in the request body and it does not exist</p></li></ul></div></div></div></div><div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect btn-flat">Close</a></div></div><div id="content_objects_get" class="modal modal-fixed-footer"><div class="modal-content"><div class="section"><span class="new badge badge-get" data-badge-caption="get"></span> <span class="bold"><span class="parent">/Content</span>/objects</span><p></p><p>Loads the content for a given remote id</p><p></p></div><div class="section"><ul class="tabs request"><li class="tab"><a class="active" href="#content_objects_get_request">Request</a></li><li class="tab"><a href="#content_objects_get_response">Response</a></li></ul><div id="content_objects_get_request"><ul class="collection with-header"><li class="collection-header"><h5>Query Parameters</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">remoteId</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div>The remote id of the content. If present the content with the given remote id is returned</li></ul></li></ul></div><div id="content_objects_get_response"><ul class="tabs response"><li class="tab"><a href="#content_objects_get_response_200">200</a></li><li class="tab"><a href="#content_objects_get_response_404">404</a></li></ul><div id="content_objects_get_response_200"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><span class="bold">Media type</span>: /content/objects/<id></id></p><p><span class="bold">Type</span>: any</p><div style="display:flex;align-items:center;margin-top:5px;"><span style="margin-right: 5px;">Example</span><div style="display:flex;flex-direction:column;flex:1;"><div class="example grey lighten-4"><pre><code class="json hljs">[object Object]</code></pre></div></div></div></li></ul></div><div id="content_objects_get_response_404"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the content with the given remote id does not exist</p></li></ul></div></div></div></div><div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect btn-flat">Close</a></div></div><li class="collection-item space-between d-flex search-filter"><span class="search-filter-value"><span class="grey-text">/Content</span> <span>/objects/{id}</span></span> <span><a href="#content_objects__id__get" class="waves-effect waves-light modal-trigger"><span class="new badge badge-get" data-badge-caption="get"></span></a> <a href="#content_objects__id__post" class="waves-effect waves-light modal-trigger"><span class="new badge badge-post" data-badge-caption="post"></span></a> <a href="#content_objects__id__patch" class="waves-effect waves-light modal-trigger"><span class="new badge badge-patch" data-badge-caption="patch"></span></a> <a href="#content_objects__id__delete" class="waves-effect waves-light modal-trigger"><span class="new badge badge-delete" data-badge-caption="delete"></span></a></span></li><div id="content_objects__id__get" class="modal modal-fixed-footer"><div class="modal-content"><div class="section"><span class="new badge badge-get" data-badge-caption="get"></span> <span class="bold"><span class="parent">/Content</span>/objects/{id}</span><p></p><p>Loads the content object for the given id. Depending on the Accept header the current version is embedded (i.e the current published version or if not exists the draft of the authenticated user)</p><p></p></div><div class="section"><ul class="tabs request"><li class="tab"><a class="active" href="#content_objects__id__get_request">Request</a></li><li class="tab"><a href="#content_objects__id__get_response">Response</a></li></ul><div id="content_objects__id__get_request"><ul class="collection with-header"><li class="collection-header"><h5>URI Parameters</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">id</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div></li></ul></li></ul><ul class="collection with-header"><li class="collection-header"><h5>Headers</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">Accept</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div>Response format, either application/vnd.ez.api.Content+xml or application/vnd.ez.api.Content+json or application/vnd.ez.api.ContentInfo+xml or application/vnd.ez.api.ContentInfo+json</li><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">if-none-match</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div><etag>If the provided etag matches the current etag then a 304 Not Modified is returned. The etag changes if the meta data was changed - this happens also if there is a new published version.</etag></li></ul></li></ul><ul class="collection with-header"><li class="collection-header"><h5>Query Parameters</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">languages</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i> <span class="property-badge grey">list</span></div>(comma separated list) restricts the output of translatable fields to the given languages</li></ul></li></ul></div><div id="content_objects__id__get_response"><ul class="tabs response"><li class="tab"><a href="#content_objects__id__get_response_200">200</a></li><li class="tab"><a href="#content_objects__id__get_response_401">401</a></li><li class="tab"><a href="#content_objects__id__get_response_404">404</a></li></ul><div id="content_objects__id__get_response_200"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><span class="bold">Media type</span>: application/vnd.ez.api.Content+xml</p><p><span class="bold">Type</span>: any</p><div style="display:flex;align-items:center;margin-top:5px;"><span style="margin-right: 5px;">Example</span><div style="display:flex;flex-direction:column;flex:1;"><div class="example grey lighten-4"><pre><code class="json hljs">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+</code></pre></div></div></div></li></ul></div></div></div></div><div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect btn-flat">Close</a></div></div><li class="collection-item space-between d-flex search-filter"><span class="search-filter-value"><span class="grey-text">/Content</span> <span>/objects</span></span> <span><a href="#content_objects_post" class="waves-effect waves-light modal-trigger"><span class="new badge badge-post" data-badge-caption="post"></span></a> <a href="#content_objects_get" class="waves-effect waves-light modal-trigger"><span class="new badge badge-get" data-badge-caption="get"></span></a></span></li><div id="content_objects_post" class="modal modal-fixed-footer"><div class="modal-content"><div class="section"><span class="new badge badge-post" data-badge-caption="post"></span> <span class="bold"><span class="parent">/Content</span>/objects</span><p></p><p>Creates a new content draft assigned to the authenticated user. If a different userId is given in the input it is assigned to the given user but this required special rights for the authenticated user (this is useful for content staging where the transfer process does not have to authenticate with the user which created the content object in the source server). The user has to publish the content if it should be visible.</p><p></p></div><div class="section"><ul class="tabs request"><li class="tab"><a class="active" href="#content_objects_post_request">Request</a></li><li class="tab"><a href="#content_objects_post_response">Response</a></li></ul><div id="content_objects_post_request"><ul class="collection with-header"><li class="collection-header"><h5>Headers</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">Accept</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div>Response format for Content object, either application/vnd.ez.api.Content+xml or application/vnd.ez.api.Content+json or application/vnd.ez.api.ContentInfo+xml or application/vnd.ez.api.ContentInfo+json. Response format for Content Type, either application/vnd.ez.api.ContentCreate+json or application/vnd.ez.api.ContentCreate+xml.</li></ul></li></ul></div><div id="content_objects_post_response"><ul class="tabs response"><li class="tab"><a href="#content_objects_post_response_201">201</a></li><li class="tab"><a href="#content_objects_post_response_400">400</a></li><li class="tab"><a href="#content_objects_post_response_401">401</a></li><li class="tab"><a href="#content_objects_post_response_404">404</a></li></ul><div id="content_objects_post_response_201"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><span class="bold">Media type</span>: application/vnd.ez.api.ContentCreate+xml</p><p><span class="bold">Type</span>: any</p><div style="display:flex;align-items:center;margin-top:5px;"><span style="margin-right: 5px;">Example</span><div style="display:flex;flex-direction:column;flex:1;"><div class="example grey lighten-4"><pre><code class="json hljs">&lt;ContentCreate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+                  &lt;ContentType href="/content/types/10"/&gt;
+                  &lt;mainLanguageCode&gt;eng-US&lt;/mainLanguageCode&gt;
+                  &lt;LocationCreate&gt;
+                    &lt;ParentLocation href="/content/locations/1/4/89" /&gt;
+                    &lt;priority&gt;0&lt;/priority&gt;
+                    &lt;hidden&gt;false&lt;/hidden&gt;
+                    &lt;sortField&gt;PATH&lt;/sortField&gt;
+                    &lt;sortOrder&gt;ASC&lt;/sortOrder&gt;
+                  &lt;/LocationCreate&gt;
+                  &lt;Section href="/content/sections/4"/&gt;
+                  &lt;alwaysAvailable&gt;true&lt;/alwaysAvailable&gt;
+                  &lt;remoteId&gt;remoteId12345678&lt;/remoteId&gt;
+                  &lt;fields&gt;
+                    &lt;field&gt;
+                      &lt;fieldDefinitionIdentifier&gt;title&lt;/fieldDefinitionIdentifier&gt;
+                      &lt;languageCode&gt;eng-US&lt;/languageCode&gt;
+                      &lt;fieldValue&gt;This is a title&lt;/fieldValue&gt;
+                    &lt;/field&gt;
+                    &lt;field&gt;
+                      &lt;fieldDefinitionIdentifier&gt;summary&lt;/fieldDefinitionIdentifier&gt;
+                      &lt;languageCode&gt;eng-US&lt;/languageCode&gt;
+                      &lt;fieldValue&gt;This is a summary&lt;/fieldValue&gt;
+                    &lt;/field&gt;
+                    &lt;field&gt;
+                      &lt;fieldDefinitionIdentifier&gt;authors&lt;/fieldDefinitionIdentifier&gt;
+                      &lt;languageCode&gt;eng-US&lt;/languageCode&gt;
+                      &lt;fieldValue&gt;
+                        &lt;value&gt;
+                          &lt;value key="name"&gt;John Doe&lt;/value&gt;
+                          &lt;value key="email"&gt;john.doe@example.net&lt;/value&gt;
+                        &lt;/value&gt;
+                        &lt;value&gt;
+                          &lt;value key="name"&gt;Bruce Willis&lt;/value&gt;
+                          &lt;value key="email"&gt;bruce.willis@example.net&lt;/value&gt;
+                        &lt;/value&gt;
+                      &lt;/fieldValue&gt;
+                    &lt;/field&gt;
+                  &lt;/fields&gt;
+                &lt;/ContentCreate&gt;
+</code></pre></div></div></div></li><li class="collection-item"><p><span class="bold">Media type</span>: application/vnd.ez.api.ContentUpdate+xml;charset=utf8</p><p><span class="bold">Type</span>: any</p><div style="display:flex;align-items:center;margin-top:5px;"><span style="margin-right: 5px;">Example</span><div style="display:flex;flex-direction:column;flex:1;"><div class="example grey lighten-4"><pre><code class="json hljs">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;Content href="/content/objects/23" id="23"
+  media-type="application/vnd.ez.api.Content+xml" remoteId="remoteId12345678" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ContentType href="/content/types/10" media-type="application/vnd.ez.api.ContentType+xml" /&gt;
+  &lt;Name&gt;This is a title&lt;/Name&gt;
+  &lt;Versions href="/content/objects/23/versions" media-type="application/vnd.ez.api.VersionList+xml" /&gt;
+  &lt;CurrentVersion href="/content/objects/23/currentversion"
+    media-type="application/vnd.ez.api.Version+xml"&gt;
+    &lt;Version href="/content/objects/23/versions/1" media-type="application/vnd.ez.api.Version+xml"&gt;
+      &lt;VersionInfo&gt;
+        &lt;id&gt;123&lt;/id&gt;
+        &lt;versionNo&gt;1&lt;/versionNo&gt;
+        &lt;status&gt;DRAFT&lt;/status&gt;
+        &lt;modificationDate&gt;2012-02-12T12:30:00&lt;/modificationDate&gt;
+        &lt;Creator href="/user/users/14" media-type="application/vnd.ez.api.User+xml" /&gt;
+        &lt;creationDate&gt;2012-02-12T12:30:00&lt;/creationDate&gt;
+        &lt;initialLanguageCode&gt;eng-US&lt;/initialLanguageCode&gt;
+        &lt;Content href="/content/objects/23" media-type="application/vnd.ez.api.ContentInfo+xml" /&gt;
+      &lt;/VersionInfo&gt;
+      &lt;fields&gt;
+        &lt;field&gt;
+          &lt;id&gt;1234&lt;/id&gt;
+          &lt;fieldDefinitionIdentifier&gt;title&lt;/fieldDefinitionIdentifier&gt;
+          &lt;languageCode&gt;eng-UK&lt;/languageCode&gt;
+          &lt;fieldValue&gt;This is a title&lt;/fieldValue&gt;
+        &lt;/field&gt;
+        &lt;field&gt;
+          &lt;id&gt;1235&lt;/id&gt;
+          &lt;fieldDefinitionIdentifier&gt;summary&lt;/fieldDefinitionIdentifier&gt;
+          &lt;languageCode&gt;eng-UK&lt;/languageCode&gt;
+          &lt;fieldValue&gt;This is a summary&lt;/fieldValue&gt;
+        &lt;/field&gt;
+        &lt;field&gt;
+          &lt;fieldDefinitionIdentifier&gt;authors&lt;/fieldDefinitionIdentifier&gt;
+          &lt;languageCode&gt;eng-US&lt;/languageCode&gt;
+          &lt;fieldValue&gt;
+            &lt;value&gt;
+              &lt;value key="name"&gt;John Doe&lt;/value&gt;
+              &lt;value key="email"&gt;john.doe@example.net&lt;/value&gt;
+            &lt;/value&gt;
+            &lt;value&gt;
+              &lt;value key="name"&gt;Bruce Willis&lt;/value&gt;
+              &lt;value key="email"&gt;bruce.willis@example.net&lt;/value&gt;
+            &lt;/value&gt;
+          &lt;/fieldValue&gt;
+        &lt;/field&gt;
+      &lt;/fields&gt;
+      &lt;Relations href="/content/objects/23/versions/1/relations" media-type="application/vnd.ez.api.RelationList+xml" /&gt;
+    &lt;/Version&gt;
+  &lt;/CurrentVersion&gt;
+  &lt;Section href="/content/sections/4" media-type="application/vnd.ez.api.Section+xml" /&gt;
+  &lt;MainLocation href="/content/locations/1/4/65" media-type="application/vnd.ez.api.Location+xml" /&gt;
+  &lt;Locations href="/content/objects/23/locations" media-type="application/vnd.ez.api.LocationList+xml" /&gt;
+  &lt;Owner href="/user/users/14" media-type="application/vnd.ez.api.User+xml" /&gt;
+  &lt;lastModificationDate&gt;2012-02-12T12:30:00&lt;/lastModificationDate&gt;
+  &lt;mainLanguageCode&gt;eng-US&lt;/mainLanguageCode&gt;
+  &lt;currentVersionNo&gt;1&lt;/currentVersionNo&gt;
+  &lt;alwaysAvailable&gt;true&lt;/alwaysAvailable&gt;
+&lt;/Content&gt;
+</code></pre></div></div></div></li><li class="collection-item"><p><span class="bold">Media type</span>: application/vnd.ez.api.ContentCreate+json</p><p><span class="bold">Type</span>: any</p><div style="display:flex;align-items:center;margin-top:5px;"><span style="margin-right: 5px;">Example</span><div style="display:flex;flex-direction:column;flex:1;"><div class="example grey lighten-4"><pre><code class="json hljs">{
+  "ContentCreate": {
+    "ContentType": {
+      "_href": "/content/types/10"
+    },
+    "mainLanguageCode": "eng-US",
+    "LocationCreate": {
+      "ParentLocation": {
+        "_href": "/content/locations/1/4/89"
+      },
+      "priority": "0",
+      "hidden": false,
+      "sortField": "PATH",
+      "sortOrder": "ASC"
+    },
+    "Section": {
+      "_href": "/content/sections/4"
+    },
+    "alwaysAvailable": true,
+    "remoteId": "remoteId12345678",
+    "fields": {
+      "field": [
+        {
+          "fieldDefinitionIdentifier": "title",
+          "languageCode": "eng-US",
+          "fieldValue": "This is a title"
+        },
+        {
+          "fieldDefinitionIdentifier": "summary",
+          "languageCode": "eng-US",
+          "fieldValue": "This is a summary"
+        },
+        {
+          "fieldDefinitionIdentifier": "authors",
+          "languageCode": "eng-US",
+          "fieldValue": [
+             {
+               "name": "John Doe",
+               "email": "john.doe@example.net"
+             },
+             {
+               "name": "Bruce Willis",
+               "email": "bruce.willis@example.net"
+             }
+          ]
+        }
+      ]
+    }
+  }
+}
+</code></pre></div></div></div></li><li class="collection-item"><p><span class="bold">Media type</span>: application/vnd.ez.api.Content+json</p><p><span class="bold">Type</span>: any</p><div style="display:flex;align-items:center;margin-top:5px;"><span style="margin-right: 5px;">Example</span><div style="display:flex;flex-direction:column;flex:1;"><div class="example grey lighten-4"><pre><code class="json hljs">{
+  "Content": {
+    "_href": "/content/objects/23",
+    "_id": "23",
+    "_media-type": "application/vnd.ez.api.Content+json",
+    "_remoteId": "qwert123",
+    "ContentType": {
+      "_href": "/content/types/10",
+      "_media-type": "application/vnd.ez.api.ContentType+json"
+    },
+    "name": "This is a title",
+    "Versions": {
+      "_href": "/content/objects/23/versions",
+      "_media-type": "application/vnd.ez.api.VersionList+json"
+    },
+    "CurrentVersion": {
+      "_href": "/content/objects/23/currentversion",
+      "_media-type": "application/vnd.ez.api.Version+json",
+      "Version": {
+        "_href": "/content/objects/23/versions/1",
+        "_media-type": "application/vnd.ez.api.Version+json",
+        "VersionInfo": {
+          "id": "123",
+          "versionNo": "1",
+          "status": "DRAFT",
+          "modificationDate": "2012-02-12T12:30:00",
+          "creator": {
+            "_href": "/user/users/14",
+            "_media-type": "application/vnd.ez.api.User+json"
+          },
+          "creationDate": "2012-02-12T12:30:00",
+          "initialLanguageCode": "eng-US",
+          "Content": {
+            "_href": "/content/objects/23",
+            "_media-type": "application/vnd.ez.api.ContentInfo+json"
+          }
+        },
+        "fields": {
+          "field": [
+            {
+              "id": "1234",
+              "fieldDefinitionIdentifier": "title",
+              "languageCode": "eng-UK",
+              "fieldValue": "This is a title"
+            },
+            {
+              "id": "1235",
+              "fieldDefinitionIdentifier": "summary",
+              "languageCode": "eng-UK",
+              "fieldValue": "This is a summary"
+            },
+            {
+              "fieldDefinitionIdentifier": "authors",
+              "languageCode": "eng-US",
+              "fieldValue":
+              [
+                {
+                  "name": "John Doe",
+                  "email": "john.doe@example.net"
+                },
+                {
+                  "name": "Bruce Willis",
+                  "email": "bruce.willis@example.net"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "Section": {
+      "_href": "/content/sections/4",
+      "_media-type": "application/vnd.ez.api.Section+json"
+    },
+    "MainLocation": {
+      "_href": "/content/locations/1/4/65",
+      "_media-type": "application/vnd.ez.api.Location+json"
+    },
+    "Locations": {
+      "_href": "/content/objects/23/locations",
+      "_media-type": "application/vnd.ez.api.LocationList+json"
+    },
+    "Owner": {
+      "_href": "/user/users/14",
+      "_media-type": "application/vnd.ez.api.User+json"
+    },
+    "lastModificationDate": "2012-02-12T12:30:00",
+    "mainLanguageCode": "eng-US",
+    "currentVersionNo": "1",
+    "alwaysAvailable": true
+  }
+}
+</code></pre></div></div></div></li></ul></div><div id="content_objects_post_response_400"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the Input does not match the input schema definition or the validation on a field fails</p></li></ul></div><div id="content_objects_post_response_401"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the user is not authorized to create this object in this location</p></li></ul></div><div id="content_objects_post_response_404"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If a parent location in specified in the request body and it does not exist</p></li></ul></div></div></div></div><div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect btn-flat">Close</a></div></div><div id="content_objects_get" class="modal modal-fixed-footer"><div class="modal-content"><div class="section"><span class="new badge badge-get" data-badge-caption="get"></span> <span class="bold"><span class="parent">/Content</span>/objects</span><p></p><p>Loads the content for a given remote id</p><p></p></div><div class="section"><ul class="tabs request"><li class="tab"><a class="active" href="#content_objects_get_request">Request</a></li><li class="tab"><a href="#content_objects_get_response">Response</a></li></ul><div id="content_objects_get_request"><ul class="collection with-header"><li class="collection-header"><h5>Query Parameters</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">remoteId</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div>The remote id of the content. If present the content with the given remote id is returned</li></ul></li></ul></div><div id="content_objects_get_response"><ul class="tabs response"><li class="tab"><a href="#content_objects_get_response_200">200</a></li><li class="tab"><a href="#content_objects_get_response_404">404</a></li></ul><div id="content_objects_get_response_200"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><span class="bold">Media type</span>: /content/objects/<id></id></p><p><span class="bold">Type</span>: any</p><div style="display:flex;align-items:center;margin-top:5px;"><span style="margin-right: 5px;">Example</span><div style="display:flex;flex-direction:column;flex:1;"><div class="example grey lighten-4"><pre><code class="json hljs">[object Object]</code></pre></div></div></div></li></ul></div><div id="content_objects_get_response_404"><ul class="collection with-header"><li class="collection-header"><h5>Description</h5></li><li class="collection-item"><p>If the content with the given remote id does not exist</p></li></ul></div></div></div></div><div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect btn-flat">Close</a></div></div><li class="collection-item space-between d-flex search-filter"><span class="search-filter-value"><span class="grey-text">/Content</span> <span>/objects/{id}</span></span> <span><a href="#content_objects__id__get" class="waves-effect waves-light modal-trigger"><span class="new badge badge-get" data-badge-caption="get"></span></a> <a href="#content_objects__id__post" class="waves-effect waves-light modal-trigger"><span class="new badge badge-post" data-badge-caption="post"></span></a> <a href="#content_objects__id__patch" class="waves-effect waves-light modal-trigger"><span class="new badge badge-patch" data-badge-caption="patch"></span></a> <a href="#content_objects__id__delete" class="waves-effect waves-light modal-trigger"><span class="new badge badge-delete" data-badge-caption="delete"></span></a></span></li><div id="content_objects__id__get" class="modal modal-fixed-footer"><div class="modal-content"><div class="section"><span class="new badge badge-get" data-badge-caption="get"></span> <span class="bold"><span class="parent">/Content</span>/objects/{id}</span><p></p><p>Loads the content object for the given id. Depending on the Accept header the current version is embedded (i.e the current published version or if not exists the draft of the authenticated user)</p><p></p></div><div class="section"><ul class="tabs request"><li class="tab"><a class="active" href="#content_objects__id__get_request">Request</a></li><li class="tab"><a href="#content_objects__id__get_response">Response</a></li></ul><div id="content_objects__id__get_request"><ul class="collection with-header"><li class="collection-header"><h5>URI Parameters</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">id</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div></li></ul></li></ul><ul class="collection with-header"><li class="collection-header"><h5>Headers</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">Accept</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div>Response format, either application/vnd.ez.api.Content+xml or application/vnd.ez.api.Content+json or application/vnd.ez.api.ContentInfo+xml or application/vnd.ez.api.ContentInfo+json</li><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">if-none-match</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i><span class="property-badge blue">string</span></div><etag>If the provided etag matches the current etag then a 304 Not Modified is returned. The etag changes if the meta data was changed - this happens also if there is a new published version.</etag></li></ul></li></ul><ul class="collection with-header"><li class="collection-header"><h5>Query Parameters</h5></li><li class="collection-item"><ul class="browser-default"><li><div style="display:flex;align-items:center"><span class="bold" style="margin-right:4px;">languages</span><i class="material-icons light-blue-text text-darken-1 tooltipped" style="font-size:16px;margin-right:4px" data-position="bottom" data-tooltip="Required">error</i> <span class="property-badge grey">list</span></div>(comma separated list) restricts the output of translatable fields to the given languages</li></ul></li></ul></div><div id="content_objects__id__get_response"><ul class="tabs response"><li class="tab"><a href="#content_objects__id__get_response_200">200</a></li><li class="tab"><a href="#content_objects__id__get_response_401">401</a></li><li class="tab"><a href="#content_objects__id__get_response_404">404</a></li></ul><div id="content_objects__id__get_response_200"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><span class="bold">Media type</span>: application/vnd.ez.api.Content+xml</p><p><span class="bold">Type</span>: any</p><div style="display:flex;align-items:center;margin-top:5px;"><span style="margin-right: 5px;">Example</span><div style="display:flex;flex-direction:column;flex:1;"><div class="example grey lighten-4"><pre><code class="json hljs">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;Content href="/content/objects/23" id="23"
   media-type="application/vnd.ez.api.Content+xml" remoteId="qwert123"&gt;
   &lt;ContentType href="/content/types/10" media-type="application/vnd.ez.api.ContentType+xml" /&gt;
