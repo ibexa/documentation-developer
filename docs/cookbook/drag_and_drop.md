@@ -33,4 +33,4 @@ Full list of options:
 |`afterDragStart`|Callback function invoked after starting to drag|optional|
 |`afterDragOver`|Callback function invoked after moving onto a droppable element|optional|
 |`afterDrop`|Callback function invoked after dropping an element|optional|
-|`attachCustomEventHandlersToItem`|Function to be invoked while attaching event handlers to every item in the item's container. Item `HTMLElement` is passed to `attachCustomEventHandlersToItem` as first argument|optional|
+|`attachCustomEventHandlersToItem`|Function to be invoked while attaching event handlers to every item in the item's container. Item of `HTMLElement` type is passed to the function as the first param|optional|
