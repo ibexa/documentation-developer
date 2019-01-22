@@ -164,6 +164,7 @@ pages:
             - Components:
                 - 'Buttons': 'guidelines/components/buttons.md'
                 - 'Form components': 'guidelines/components/form_components.md'
+                - 'Pagination': 'guidelines/components/pagination.md'
                 - 'Switchers': 'guidelines/components/switchers.md'
                 - 'Tables': 'guidelines/components/tables.md'
                 - 'Tabs': 'guidelines/components/tabs.md'
