@@ -6,9 +6,21 @@
     width: 1em;
     height: 1em;
 }
+.ez-guidelines .ez-icon.ez-icon--small-medium {
+    width: 1.25em;
+    height: 1.25em;
+}
 .ez-guidelines .ez-icon.ez-icon--medium {
     width: 1.5em;
     height: 1.5em;
+}
+.ez-guidelines .ez-icon.ez-icon--large {
+    width: 3em;
+    height: 3em;
+}
+.ez-guidelines .ez-icon.ez-icon--extra-large {
+    width: 4em;
+    height: 4em;
 }
 .ez-guidelines .ez-icon.ez-icon--light {
     fill: #fff;

@@ -20,10 +20,34 @@ code_example]]
 </svg>
 code_example]]
 
+###<div class="mgt-2">Small-Medium icons</div>
+<div class="mgt-minus-3 mgb-5">Add class `ez-icon--small-medium` to modify an icon to its second smallest size.</div>
+[[code_example {html}
+<svg class="ez-icon ez-icon--small-medium">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../ez-icons.svg#publish"></use>
+</svg>
+code_example]]
+
 ###<div class="mgt-2">Medium icons</div>
 <div class="mgt-minus-3 mgb-5">Add class `ez-icon--medium` to modify an icon to its medium size.</div>
 [[code_example {html}
 <svg class="ez-icon ez-icon--medium">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../ez-icons.svg#publish"></use>
+</svg>
+code_example]]
+
+###<div class="mgt-2">Large icons</div>
+<div class="mgt-minus-3 mgb-5">Add class `ez-icon--large` to modify an icon to its large size.</div>
+[[code_example {html}
+<svg class="ez-icon ez-icon--large">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../ez-icons.svg#publish"></use>
+</svg>
+code_example]]
+
+###<div class="mgt-2">Extra Large icons</div>
+<div class="mgt-minus-3 mgb-5">Add class `ez-icon--extra-large` to modify an icon to its largest size.</div>
+[[code_example {html}
+<svg class="ez-icon ez-icon--extra-large">
     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../ez-icons.svg#publish"></use>
 </svg>
 code_example]]
@@ -74,6 +98,12 @@ code_example]]
             <use xlink:href="../../ez-icons.svg#airtime"></use>
         </svg>
         <p class="icon-label">airtime</p>
+    </div>
+    <div class="icon-box">
+        <svg class="ez-icon ez-icon-approved">
+            <use xlink:href="../../ez-icons.svg#approved"></use>
+        </svg>
+        <p class="icon-label">approved</p>
     </div>
     <div class="icon-box">
         <svg class="ez-icon ez-icon-archive-restore">
@@ -254,6 +284,12 @@ code_example]]
             <use xlink:href="../../ez-icons.svg#comment"></use>
         </svg>
         <p class="icon-label">comment</p>
+    </div>
+    <div class="icon-box">
+        <svg class="ez-icon ez-icon-content-draft">
+            <use xlink:href="../../ez-icons.svg#content-draft"></use>
+        </svg>
+        <p class="icon-label">content-draft</p>
     </div>
     <div class="icon-box">
         <svg class="ez-icon ez-icon-content-type">
@@ -592,6 +628,12 @@ code_example]]
         <p class="icon-label">refresh</p>
     </div>
     <div class="icon-box">
+        <svg class="ez-icon ez-icon-rejected">
+            <use xlink:href="../../ez-icons.svg#rejected"></use>
+        </svg>
+        <p class="icon-label">rejected</p>
+    </div>
+    <div class="icon-box">
         <svg class="ez-icon ez-icon-relations">
             <use xlink:href="../../ez-icons.svg#relations"></use>
         </svg>
@@ -692,6 +734,12 @@ code_example]]
             <use xlink:href="../../ez-icons.svg#tags"></use>
         </svg>
         <p class="icon-label">tags</p>
+    </div>
+    <div class="icon-box">
+        <svg class="ez-icon ez-icon-tastes">
+            <use xlink:href="../../ez-icons.svg#tastes"></use>
+        </svg>
+        <p class="icon-label">tastes</p>
     </div>
     <div class="icon-box">
         <svg class="ez-icon ez-icon-timeline">
@@ -824,6 +872,12 @@ code_example]]
             <use xlink:href="../../ez-icons.svg#warning"></use>
         </svg>
         <p class="icon-label">warning</p>
+    </div>
+    <div class="icon-box">
+        <svg class="ez-icon ez-icon-workflow">
+            <use xlink:href="../../ez-icons.svg#workflow"></use>
+        </svg>
+        <p class="icon-label">workflow</p>
     </div>
 </div>
 
