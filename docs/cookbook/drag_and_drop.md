@@ -11,7 +11,7 @@ First prepare the HTML code structure that will be placed in a Twig template in 
 Next, add options in the same Twig template or in a JavaScript code that comes with the template following the convention:
 
 ```javascript
-const draggable = new global.eZ.core.Draggable({
+const draggable = new window.eZ.core.Draggable({
         itemsContainer: HTMLElement of .items-container,
         selectorItem: String,
         selectorPlaceholder: String,
@@ -26,11 +26,11 @@ Full list of options:
 
 |Option|Description|Required|
 |------|-----------|--------|
-|`itemsContainer`|reference to DOM node containing a draggable item|required|
+|`itemsContainer`|Reference to DOM node containing a draggable item|required|
 |`selectorItem`|CSS selector of a draggable item|required|
 |`selectorPlaceholder`|CSS selector of a placeholder|required|
-|`afterInit`|callback function invoked after interface initialization|optional|
-|`afterDragStart`|callback function invoked after starting to drag|optional|
-|`afterDragOver`|callback function invoked after moving onto a droppable element|optional|
-|`afterDrop`|callback function invoked after dropping an element|optional|
-|`attachCustomEventHandlersToItem`|function to be invoked while attaching event handlers to every item in the item's container|optional|
+|`afterInit`|Callback function invoked after interface initialization|optional|
+|`afterDragStart`|Callback function invoked after starting to drag|optional|
+|`afterDragOver`|Callback function invoked after moving onto a droppable element|optional|
+|`afterDrop`|Callback function invoked after dropping an element|optional|
+|`attachCustomEventHandlersToItem`|Function to be invoked while attaching event handlers to every item in the item's container. Item `HTMLElement` is passed to `attachCustomEventHandlersToItem` as first argument|optional|
