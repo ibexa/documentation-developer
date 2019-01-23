@@ -6,6 +6,10 @@ The REST API v2 introduced in eZ Platform allows you to interact with an eZ Plat
 
     An Application Programming Interface (API) allows you to connect your code to eZ Platform. You can learn the basic idea behind it from [the eZ Blog article](http://ez.no/Blog/How-would-you-explain-what-an-API-is-to-your-mom).
 
+!!! tip
+
+    For more information see a [presentation about eZ Platform APIs](https://alongosz.github.io/ezconf2018-api/).
+
 ## Accessing the REST API
 
 The REST API is available at the URI `/api/ezp/v2` . HTTPS is available as long as your server is properly configured. Refer to the [Getting started with the REST API](#getting-started-with-the-rest-api) section below to start using the API.

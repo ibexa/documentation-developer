@@ -5,7 +5,11 @@ The PHP API is also commonly referred to as the **public API**. Currently it exp
 !!! info "API"
 
     An Application Programming Interface (API) allows you to connect your code to eZ Platform. You can learn the basic idea behind it from [the eZ Blog article](http://ez.no/Blog/How-would-you-explain-what-an-API-is-to-your-mom).
-    
+
+!!! tip
+
+    For more information see a [presentation about eZ Platform APIs](https://alongosz.github.io/ezconf2018-api/).
+
 ## Public API Guide
 
 The public API gives you an easy access to the eZ Platform content repository. This repository is the core component that manages Content, Locations, Sections, Content Types, Users, User groups, and Roles. It also provides a new, clear interface for plugging in custom Field Types.
