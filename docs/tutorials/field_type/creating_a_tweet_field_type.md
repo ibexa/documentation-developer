@@ -49,3 +49,7 @@ In this tutorial you will go through the following steps:
 - [8. Add a validation](8_add_a_validation.md)
 
 ![Final result of the tutorial](img/fieldtype_tutorial_final_result.png)
+
+!!! tip
+
+    For another example, see a [presentation about creating a new Field Type and extending eZ Platform UI](https://mikadamczyk.github.io/presentations/extending-ez-platform-ui/).
