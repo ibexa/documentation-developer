@@ -10,6 +10,13 @@ This interface is accessible in your browser at `http://[uri_of_platform]/admin`
 The Back Office uses React-based modules that make each part of the UI easily extensible.
 The interface uses Bootstrap, which facilitates adapting and styling the interface to your needs.
 
+!!! tip
+
+    You can also see:
+
+    - [a presentation about eZ Platform extensibility](https://www.slideshare.net/sunpietro/extending-ez-platform-2x-with-symfony-and-react)
+    - [a case study of creating a new Field Type and extending eZ Platform UI](https://mikadamczyk.github.io/presentations/extending-ez-platform-ui/).
+
 ## General extensibility
 
 You can extend the Back Office in the following areas:
