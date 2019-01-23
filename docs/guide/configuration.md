@@ -18,9 +18,12 @@ Main configuration files are located in the `app/config` folder.
 - `security.yml` is the place for security-related settings.
 - `routing.yml` defines routes that will be used throughout the application.
 
-Configuration can be made environment-specific using separate files for each environment. These files contain additional settings and point to the general (not environment-specific) configuration that is applied in other cases.
+Configuration can be made environment-specific using separate files for each environment.
+These files contain additional settings and point to the general (not environment-specific) configuration that is applied in other cases.
 
-Here you can read more about [how configuration is handled in Symfony](http://symfony.com/doc/current/best_practices/configuration.html).
+!!! tip
+
+    Read more about [how configuration is handled in Symfony](http://symfony.com/doc/current/best_practices/configuration.html).
 
 ### Configuration handling
 
@@ -30,17 +33,17 @@ Here you can read more about [how configuration is handled in Symfony](http://sy
     To fully understand it, you need to be familiar with [Symfony's service container](service_container.md) and [its configuration](http://symfony.com/doc/current/book/service_container.html#service-parameters).
 
 Basic configuration handling in eZ Platform is similar to what is commonly possible with Symfony.
-You can define key/value pairs in [your configuration files](https://symfony.com/doc/current/service_container/import.html),
-under the main `parameters` key (see for example [parameters.yml](https://github.com/ezsystems/ezplatform/blob/master/app/config/parameters.yml.dist#L2)).
+You can define key/value pairs in your configuration files.
 
-Internally and by convention, keys follow a **dot syntax**, where the different segments follow your configuration hierarchy. Keys are usually prefixed by a *namespace* corresponding to your application. All kinds of values are accepted, including arrays and deep hashes.
+Internally and by convention, keys follow a **dot syntax**, where the different segments follow your configuration hierarchy.
+Keys are usually prefixed by a *namespace* corresponding to your application. All kinds of values are accepted, including arrays and deep hashes.
 
 For configuration that is meant to be exposed to an end-user (or end-developer),
 it's usually a good idea to also [implement semantic configuration](http://symfony.com/doc/current/components/config/definition.html).
 
 Note that you can also [implement SiteAccess-aware semantic configuration](../cookbook/exposing_siteaccess_aware_configuration_for_your_bundle.md).
 
-#### Example
+For example:
 
 ``` yaml
 parameters:
@@ -56,11 +59,13 @@ parameters:
 $myParameter = $this->container->getParameter( 'myapp.parameter.name' );
 ```
 
-## Other configuration
+## Configuration settings
 
-The configuration related to other specific topics is described in:
+For specific configuration settings, see:
 
-- [View provider](content_rendering.md#configuring-views-the-viewprovider)
+- [Back Office configuration](config_back_office.md)
+- [Repository configuration](config_repository.md)
+- [Content views](content_rendering.md#configuring-views-the-viewprovider)
 - [Multisite](multisite.md#configuring-multisite)
 - [SiteAccess](siteaccess.md#configuring-siteaccesses)
 - [Image variations](images.md#configuring-image-variations)

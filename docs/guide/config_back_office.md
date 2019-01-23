@@ -1,25 +1,5 @@
 # Back Office configuration
 
-## Default page
-
-You can define the default page that will be shown after user login.
-This overrides Symfony's `default_target_path`, and enables you to configure redirection per SiteAccess.
-
-``` yaml
-ezpublish:
-    system:
-        ezdemo_site:
-            default_page: "/Getting-Started"
-
-        ezdemo_site_admin:
-            # For admin, redirect to dashboard after login.
-            default_page: "/content/dashboard"
-```
-
-This setting **does not change Symfony behavior** regarding redirection after login. If set, it will only substitute the value set for `default_target_path`. It is therefore still possible to specify a custom target path using a dedicated form parameter.
-
-**Order of precedence is not modified.**
-
 ## Copy subtree limit
 
 Copying large subtrees can cause performance issues, so you can limit the number of Content items
@@ -38,26 +18,24 @@ Default pagination limits for different sections of the Back Office can be defin
 
 ## Default Locations
 
-### Default Location IDs for Content structure, Media and Users in the menu
+Default Location IDs for Content structure, Media and Users in the menu are configured using the following settings:
 
 ``` yaml
-# System Location IDs
 ezsettings.default.location_ids.content_structure: 2
 ezsettings.default.location_ids.media: 43
 ezsettings.default.location_ids.users: 5
 ```
 
-### Default starting Location ID for the Universal Discovery Widget
+You can also set the default starting Location ID for the Universal Discovery Widget:
 
 ``` yaml
-# Universal Discovery Widget Module
 ezsettings.default.universal_discovery_widget_module.default_location_id: 1
 ```
 
 ## Notification timeout
 
-To define the timeout for hiding Back-Office notification bars, use the following configuration,
-per notification type:
+To define the timeout for hiding Back-Office notification bars, per notification type,
+use the following configuration (times are provided in milliseconds):
 
 ``` yaml
 ezpublish:
@@ -74,7 +52,7 @@ ezpublish:
                     timeout: 0
 ```
 
-The values shown above are the defaults (in milliseconds). `0` means the notification does not hide automatically.
+The values shown above are the defaults. `0` means the notification does not hide automatically.
 
 ## Location for Form-uploaded files
 

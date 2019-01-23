@@ -1,69 +1,69 @@
 # Dynamic configuration
 
-In eZ Platform it is fairly common to have different settings depending on the current SiteAccess (e.g. languages, [view provider](content_rendering.md#configuring-views-the-viewprovider) configuration).
+## ConfigResolver
 
-## ConfigResolver Usage
+Dynamic configuration is handled by a **ConfigResolver**.
 
-Dynamic configuration is handled by a **config resolver**. It consists in a service object mainly exposing `hasParameter()` and `getParameter()` methods. The idea is to check the different *scopes* available for a given *namespace* to find the appropriate parameter.
+It exposes the `hasParameter()` and `getParameter()` methods.
+You can use them to check the different *scopes* available for a given *namespace* to find the appropriate parameter.
 
-In order to work with the config resolver, your dynamic settings must comply internally with the following name format: `<namespace>.<scope>.parameter.name`.
-
-The following configuration is an example of internal usage inside the code of eZ Platform:
+In order to work with the ConfigResolver, your dynamic settings must have the following name format: `<namespace>.<scope>.parameter.name`.
 
 ``` yaml
-# Namespace + scope example
 parameters:
-    # Some internal configuration
+    # Internal configuration
     ezsettings.default.content.default_ttl: 60
-    ezsettings.ezdemo_site.content.default_ttl: 3600
+    ezsettings.site_group.content.default_ttl: 3600
  
     # Here "myapp" is the namespace, followed by the SiteAccess name as the parameter scope
-    # Parameter "foo" will have a different value in ezdemo_site and ezdemo_site_admin
-    myapp.ezdemo_site.foo: bar
-    myapp.ezdemo_site_admin.foo: another value
+    # Parameter "my_param" will have a different value in site_group and admin_group
+    myapp.site_group.my_param: value
+    myapp.admin_group.my_param: another value
     # Defining a default value, for other SiteAccesses
-    myapp.default.foo: Default value
- 
-    # Defining a global setting, used for all SiteAccesses
-    #myapp.global.some.setting: This is a global value
+    myapp.default.my_param: Default value
 ```
 
+Inside a controller, in `site_group` SiteAccess, you can use the parameters in the following way
+(note that the same applies for `hasParameter()`):
+
 ``` php
-// Inside a controller, assuming SiteAccess being "ezdemo_site"
-/** @var $configResolver \eZ\Publish\Core\MVC\ConfigResolverInterface **/
 $configResolver = $this->getConfigResolver();
  
 // ezsettings is the default namespace, so no need to specify it
 // The following will resolve ezsettings.<siteaccessName>.content.default_ttl
-// In the case of ezdemo_site, will return 3600.
+// In the case of site_group, it will return 3600.
 // Otherwise it will return the value for ezsettings.default.content.default_ttl (60)
 $locationViewSetting = $configResolver->getParameter( 'content.default_ttl' );
+
+// For you own namespace, you need to specify it, here as "myapp"
+$myParamSetting = $configResolver->getParameter( 'my_param', 'myapp' );
+// $myParamSetting's value will be 'value'
  
-$fooSetting = $configResolver->getParameter( 'foo', 'myapp' );
-// $fooSetting's value will be 'bar'
- 
-// Force scope
-$fooSettingAdmin = $configResolver->getParameter( 'foo', 'myapp', 'ezdemo_site_admin' );
-// $fooSetting's value will be 'another value'
- 
-// Note that the same applies for hasParameter()
+// You can also force the scope by naming it explicitly (here as "admin_group")
+$myParamSettingAdmin = $configResolver->getParameter( 'my_param', 'myapp', 'admin_group' );
+// $myParamSetting's value will be 'another value'
 ```
 
-Both `getParameter()` and `hasParameter()` can take 3 different arguments:
+!!! tip
 
-1. `$paramName` (the name of the parameter you need)
-2. `$namespace` (your application namespace, `myapp` in the previous example. If null, the default namespace will be used, which is `ezsettings` by default)
-3. `$scope` (a SiteAccess name. If null, the current SiteAccess will be used)
+    To learn more about scopes, see [SiteAccess documentation](siteaccess.md#scope).
+
+Both `getParameter()` and `hasParameter()` can take three arguments:
+
+1. `$paramName` - the name of the parameter
+2. `$namespace` - your application namespace, `myapp` in the previous example. If null, the default namespace will be used, which is `ezsettings` by default.
+3. `$scope` - a SiteAccess name. If null, the current SiteAccess will be used.
 
 ## Inject the ConfigResolver in your services
 
-Instead of injecting the whole ConfigResolver service, you may directly [inject your SiteAccess-aware settings (aka dynamic settings) into your own services](#dynamic-settings-injection).
+Instead of injecting the whole ConfigResolver service, you may directly [inject your SiteAccess-aware (dynamic) settings into your own services](#dynamic-settings-injection).
 
-You can use the ConfigResolver in your own services whenever needed. To do this, just inject the `ezpublish.config.resolver service`:
+You can use the ConfigResolver in your own services whenever needed.
+To do this, inject the `ezpublish.config.resolver` service:
 
 ``` yaml
 parameters:
-    my_service.class: My\Cool\Service
+    my_service.class: Acme\ExampleBundle\Service
  
 services:
     my_service:
@@ -72,9 +72,8 @@ services:
 ```
 
 ``` php
-<?php
-namespace My\Cool;
- 
+namespace Acme\ExampleBundle;
+
 use eZ\Publish\Core\MVC\ConfigResolverInterface;
  
 class Service
@@ -87,35 +86,37 @@ class Service
     public function __construct( ConfigResolverInterface $configResolver )
     {
         $this->configResolver = $configResolver;
-        $myParam = $this->configResolver->getParameter( 'foo', 'myapp' );
+        $myParam = $this->configResolver->getParameter( 'my_param', 'myapp' );
     }
- 
-    // ...
 }
 ```
 
-## Dynamic Settings Injection
+## Dynamic settings injection
 
-When implementing a service needing SiteAccess-aware settings (e.g. language settings), you can inject these dynamic settings explicitly from their service definition (yml, xml, annotation, etc.).
+When implementing a service which needs SiteAccess-aware settings (e.g. language settings),
+you can inject these dynamic settings explicitly from their service definition.
 
 ### Syntax
 
 Static container parameters follow the `%<parameter_name>%` syntax in Symfony.
 
-Dynamic parameters have the following: `$<parameter_name>[; <namespace>[; <scope>]]$`, default namespace being `ezsettings`, and default scope being the current SiteAccess.
+Dynamic parameters have the following: `$<parameter_name>[; <namespace>[; <scope>]]$`.
+Default namespace is `ezsettings`, and default scope is the current SiteAccess.
 
 For more information, see [ConfigResolver](#dynamic-configuration-with-the-configresolver).
 
 ### DynamicSettingParser
 
-The *DynamicSettingParser* service that can be used for adding support of the dynamic settings syntax.
-This service has `ezpublish.config.dynamic_setting.parser` for ID and implements` eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\SiteAccessAware\DynamicSettingParserInterface`.
+The *DynamicSettingParser* service can be used for adding support of the dynamic settings syntax.
+This service has `ezpublish.config.dynamic_setting.parser` for ID and implements `eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\SiteAccessAware\DynamicSettingParserInterface`.
 
 ### Limitations
 
 - It is not possible to use dynamic settings in your semantic configuration (e.g. `config.yml` or `ezplatform.yml`) as they are meant primarily for parameter injection in services.
 - It is not possible to define an array of options having dynamic settings. They will not be parsed. Workaround is to use separate arguments/setters.
-- Injecting dynamic settings in request listeners is **not recommended**, as it won't be resolved with the correct scope (request listeners are *instantiated before SiteAccess match*). Workaround is to inject the ConfigResolver instead, and resolve the setting in your `onKernelRequest` method (or equivalent).
+- Injecting dynamic settings in request listeners is **not recommended**, as it won't be resolved with the correct scope
+(request listeners are instantiated before SiteAccess match).
+Workaround is to inject the ConfigResolver instead, and resolve the setting in your `onKernelRequest` method (or equivalent).
 
 ### Examples
 
@@ -125,23 +126,24 @@ Defining a simple service needing a `languages` parameter (that is, prioritized 
 
 !!! note
 
-    Internally, the `languages` parameter is defined as `ezsettings.<siteaccess_name>.languages`, `ezsettings` being eZ internal namespace.
+    Internally, the `languages` parameter is defined as `ezsettings.<siteaccess_name>.languages`.
+    `ezsettings` is the internal eZ namespace.
 
 #### Using setter injection (preferred)
 
 ``` yaml
 parameters:
-    acme_test.my_service.class: Acme\TestBundle\MyServiceClass
+    acme_example.my_service.class: Acme\ExampleBundle\MyServiceClass
 
 services:
-    acme_test.my_service:
-        class: %acme_test.my_service.class%
+    acme_example.my_service:
+        class: %acme_example.my_service.class%
         calls:
             - [setLanguages, ["$languages$"]]
 ```
 
 ``` php
-namespace Acme\TestBundle;
+namespace Acme\ExampleBundle;
 
 class MyServiceClass
 {
@@ -167,16 +169,16 @@ class MyServiceClass
 
 ``` yaml
 parameters:
-    acme_test.my_service.class: Acme\TestBundle\MyServiceClass
+    acme_example.my_service.class: Acme\ExampleBundle\MyServiceClass
 
 services:
-    acme_test.my_service:
-        class: %acme_test.my_service.class%
+    acme_example.my_service:
+        class: %acme_example.my_service.class%
         arguments: ["$languages$"]
 ```
 
 ``` php
-namespace Acme\TestBundle;
+namespace Acme\ExampleBundle;
 
 class MyServiceClass
 {
@@ -204,16 +206,16 @@ class MyServiceClass
 
 ``` yaml
 parameters:
-    acme_test.my_service.class: Acme\TestBundle\MyServiceClass
+    acme_example.my_service.class: Acme\ExampleBundle\MyServiceClass
     # "acme" is our parameter namespace.
     # Null is the default value.
     acme.default.some_parameter: ~
-    acme.ezdemo_site.some_parameter: foo
-    acme.ezdemo_site_admin.some_parameter: bar
+    acme.site_group.some_parameter: value
+    acme.admin_group.some_parameter: another value
  
 services:
-    acme_test.my_service:
-        class: %acme_test.my_service.class%
+    acme_example.my_service:
+        class: %acme_example.my_service.class%
         # The following argument will automatically resolve to the right value, depending on the current SiteAccess.
         # We specify "acme" as the namespace we want to use for parameter resolving.
         calls:
@@ -221,13 +223,13 @@ services:
 ```
 
 ``` php
-namespace Acme\TestBundle;
+namespace Acme\ExampleBundle;
 class MyServiceClass
 {
     private $myParameter;
     public function setSomeParameter( $myParameter = null )
     {
-        // Will be "foo" for ezdemo_site, "bar" for ezdemo_site_admin, or null if another SiteAccess.
+        // Will be "value" for site_group, "another value" for admin_group, or null if another SiteAccess.
         $this->myParameter = $myParameter;
     }
 }

@@ -1,15 +1,14 @@
 # Content Repository configuration
 
-The default storage engine for the Repository is called Legacy storage engine.
-
 You can define several Repositories within a single application. However, you can only use one per site.
 
-### Configuration examples
+## Repository connection
 
-#### Using default values
+### Using default values
+
+To use the default Repository connection, you do not need to specify its details:
 
 ``` yaml
-# ezplatform.yml
 ezpublish:
     repositories:
         # Defining Repository with alias "main"
@@ -17,20 +16,35 @@ ezpublish:
         # Equals to:
         # main: { storage: { engine: legacy, connection: <defaultConnectionName> } }
         main: ~
+```
 
+!!! note "Legacy storage engine"
+
+    Legacy storage engine is the default storage engine for the Repository.
+
+    It uses [Doctrine DBAL](http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/) (Database Abstraction Layer).
+    Database settings are supplied by [DoctrineBundle](https://github.com/doctrine/DoctrineBundle).
+    As such, you can refer to [DoctrineBundle's documentation](https://github.com/doctrine/DoctrineBundle/blob/master/Resources/doc/configuration.rst#doctrine-dbal-configuration).
+
+If no Repository is specified for a SiteAccess or SiteAccess group,
+the first Repository defined under `ezpublish.repositories` will be used:
+
+``` yaml
+ezpublish:
+    repositories:
+        main: ~
     system:
-        # All members of my_siteaccess_group will use "main" Repository
+        # All members of site_group will use "main" Repository
         # No need to set "repository", it will take the first defined Repository by default
-        my_siteaccess_group:
+        site_group:
             # ...
 ```
 
-If no Repository is specified for a SiteAccess or SiteAccess group, the first Repository defined under `ezpublish.repositories` will be used.
+### Defining custom connection
 
-#### All explicit
+You can also explicitly define a custom Repository connection:
 
 ``` yaml
-# ezplatform.yml
 doctrine:
     dbal:
         default_connection: my_connection_name
@@ -58,19 +72,14 @@ ezpublish:
         my_first_siteaccess:
             repository: first_repository
 
-            # ...
-
         my_second_siteaccess:
             repository: second_repository
 ```
 
-#### Legacy storage engine
+## Field groups configuration
 
-Legacy storage engine uses [Doctrine DBAL](http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/) (Database Abstraction Layer). Database settings are supplied by [DoctrineBundle](https://github.com/doctrine/DoctrineBundle). As such, you can refer to [DoctrineBundle's documentation](https://github.com/doctrine/DoctrineBundle/blob/master/Resources/doc/configuration.rst#doctrine-dbal-configuration).
-
-### Field groups configuration
-
-Field groups, used in content and Content Type editing, can be configured from the `repositories` section. Values entered there are field group *identifiers*:
+Field groups, used in content and Content Type editing, can be configured under the `repositories` key.
+Values entered there are Field group *identifiers*:
 
 ``` yaml
 repositories:
@@ -80,19 +89,20 @@ repositories:
             default: content
 ```
 
-These identifiers can be given human-readable values and translated. Those values are used when editing Content Types. The translation domain is `ezplatform_fields_groups`.
-This file will define English names for field groups:
+These identifiers can be given human-readable values and translated. Those values are used when editing Content Types.
+The translation domain is `ezplatform_fields_groups`.
+This example in `app/Resources/translations/ezplatform_fields_groups.en.yml` defines English names for Field groups:
 
 ``` yaml
-# app/Resources/translations/ezplatform_fields_groups.en.yml
 content: Content
 metadata: Metadata
 user_data: User data
 ```
 
-### Limit of archived Content item versions
+## Limit of archived Content item versions
 
-`default_version_archive_limit` controls the number of archived versions per Content item that will be stored in the Repository, by default set to 5. This setting is configured in the following way (typically in `ezplatform.yml`):
+`default_version_archive_limit` controls the number of archived versions per Content item that are stored in the Repository.
+By default it is set to 5. This setting is configured in the following way (typically in `ezplatform.yml`):
 
 ``` yaml
 ezpublish:
@@ -106,9 +116,12 @@ This limit is enforced on publishing a new version and only covers archived vers
 
 !!! tip
 
-    Don't set `default_version_archive_limit` too high, with Legacy storage engine you'll get performance degradation if you store too many versions. Default value of 5 is in general the recommended value, but the less content you have overall, the more you can increase this to, for instance, 25 or even 50.
+    Don't set `default_version_archive_limit` too high.
+    In Legacy storage engine you will see performance degradation if you store too many versions.
+    The default value of 5 is the recommended value, but the less content you have overall,
+    the more you can increase this to, for instance, 25 or even 50.
 
-#### Removing old versions
+### Removing old versions
 
 You can use the `ezplatform:content:cleanup-versions` command to remove old content versions.
 
@@ -124,7 +137,7 @@ For example, the following command removes archived versions as user `admin`, bu
 
 `ezplatform:content:cleanup-versions --status archived --keep 5 --user administrator`
 
-### User identifiers
+## User identifiers
 
 `ezplatform_default_settings.yml` contains two settings that indicate which Content Types are treated like users and user groups:
 
