@@ -140,7 +140,6 @@ pages:
         - 'Executing long commands': 'cookbook/executing_long_running_console_commands.md'
         - 'Importing settings from a bundle': 'cookbook/importing_settings_from_a_bundle.md'
         - 'Installing on Mac OS or Windows': 'cookbook/installing-on-mac-os-and-windows.md'
-        - 'Injecting parameters in content views': 'cookbook/injecting_parameters_in_content_views.md'
         - 'Listening to core events': 'cookbook/listening_to_core_events.md'
         - 'Multi-language SiteAccesses': 'cookbook/setting_up_multi_language_siteaccesses.md'
         - 'Multiple user providers': 'cookbook/authenticating_a_user_with_multiple_user_providers.md'
