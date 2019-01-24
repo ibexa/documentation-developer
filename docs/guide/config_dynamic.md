@@ -103,7 +103,7 @@ Static container parameters follow the `%<parameter_name>%` syntax in Symfony.
 Dynamic parameters have the following: `$<parameter_name>[; <namespace>[; <scope>]]$`.
 Default namespace is `ezsettings`, and default scope is the current SiteAccess.
 
-For more information, see [ConfigResolver](#dynamic-configuration-with-the-configresolver).
+For more information, see [ConfigResolver](#configresolver).
 
 ### DynamicSettingParser
 
@@ -198,7 +198,7 @@ class MyServiceClass
 
 !!! tip
 
-    Setter injection for dynamic settings should always be preferred, as it makes it possible to update your services that depend on them when ConfigResolver is updating its scope (e.g. when previewing content in a given SiteAccess). **However, only one dynamic setting should be injected by setter**.
+    Setter injection for dynamic settings should always be the preferred method. It enables you to update your services that depend on it when ConfigResolver is updating its scope (e.g. when previewing content in a given SiteAccess). **However, only one dynamic setting should be injected by setter**.
 
     **Constructor injection will make your service be reset in that case.**
 
