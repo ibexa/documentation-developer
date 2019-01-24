@@ -16,19 +16,22 @@
         <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          {% block site_name %}
+        <div class="md-flex__ellipsis md-header-nav__title ez-docs-switcher" data-md-component="title">
+          <div class="ez-docs-switcher__selected-item" tab-index="-1">
             {% if config.site_name == page.title %}
-              {{ config.site_name }}
+              <h2 class="md-header-nav__topic ez-docs-switcher__label" title="{{ config.site_name }}">{{ config.site_name }}
             {% else %}
-              <span class="md-header-nav__topic">
-                {{ config.site_name }}
-              </span>
-              <span class="md-header-nav__topic">
-                {{ page.title }}
-              </span>
+              <h2 class="md-header-nav__topic ez-docs-switcher__label" title="{{ page.title }} | {{ config.site_name }}">{{ page.title }} | {{ config.site_name }}
             {% endif %}
-          {% endblock %}
+            </h2>
+          </div>
+          <ul class="ez-docs-switcher__list">
+            {% for related_doc in config.extra.related_docs %}
+              <li class="ez-docs-switcher__item">
+                <a href="{{ related_doc.url }}" class="md-header-nav__topic ez-docs-switcher__label" title="{{ related_doc.title }}">{{ related_doc.title }}</a>
+                </li>
+            {% endfor %}
+          </ul>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
