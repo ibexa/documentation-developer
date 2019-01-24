@@ -65,8 +65,6 @@ ezpublish:
 
 By default, Symfony redirects to the [URI configured in `security.yml` as `default_target_path`](http://symfony.com/doc/2.8/reference/configuration/security.html). If not set, it defaults to `/`.
 
-This can be changed per SiteAccess, via the [`default_page` setting](configuration.md#default-page).
-
 #### Remember me
 
 It is possible to use the "Remember me" functionality.
