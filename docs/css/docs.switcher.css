@@ -3,10 +3,15 @@
 }
 
 .ez-docs-switcher__selected-item {
-    line-height: calc(36 / 19.8);
-    padding-right: 24px;
+    line-height: calc(33 / 19.8);
     position: relative;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.ez-docs-switcher__selected-item .ez-docs-switcher__label {
+    display: inline-block;
 }
 
 .ez-docs-switcher__selected-item:after {
@@ -16,32 +21,29 @@
     border-style: solid;
     border-width: 8px 6px 0 6px;
     border-color: #fff transparent transparent transparent;
-    position: absolute;
-    right: 4px;
-    top: 50%;
-    transform: translateY(-50%) rotate(180deg);
-    z-index: 2;
+    transform: rotate(180deg);
     transition: transform .2s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .ez-docs-switcher__selected-item--expanded:after {
-    transform: translateY(-50%);
+    transform: rotate(0);
 }
 
 .ez-docs-switcher__list {
     margin: 0;
-    padding: 0;
+    padding: .5rem 0;
+    opacity: 0;
     list-style: none;
     background: #3a3b3c;
     max-height: 0;
     overflow: hidden;
     transition:
         max-height .3s cubic-bezier(0.25, 0.8, 0.25, 1),
-        padding .2s cubic-bezier(0.25, 0.8, 0.25, 1);
+        opacity .2s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .ez-docs-switcher__selected-item--expanded + .ez-docs-switcher__list {
-    padding: .5rem 0;
+    opacity: 1;
     max-height: 500px;
 }
 
