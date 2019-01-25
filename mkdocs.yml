@@ -1,6 +1,6 @@
 site_name: eZ Platform Developer Documentation
 repo_url: https://github.com/ezsystems/developer-documentation
-copyright: "Copyright 1999-2017 eZ Systems AS and others"
+copyright: "Copyright 1999-2019 eZ Systems AS and others"
 pages:
     - 'Documentation': 'index.md'
     - Getting started:
@@ -240,13 +240,25 @@ extra:
   append_bootstrap:
     - '/guidelines/'
     - '/index.md'
+  related_docs:
+    - title: 'eZ Platform Developer Documentation'
+      url: '/'
+    - title: 'eZ Platform User Documentation'
+      url: '/projects/userguide'
+    - title: 'eZ Services Documentation'
+      url: '/projects/ezservices'
 
 extra_css:
   - fonts/MavenPro.css
   - css/custom.css
+  - css/docs.switcher.css
   - '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css'
 
-extra_javascript: [js/jquery.min.js, js/custom.js, '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js']
+extra_javascript:
+  - js/jquery.min.js
+  - js/custom.js
+  - js/docs.switcher.js
+  - '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js'
 markdown_extensions:
   - admonition
   - codehilite:
