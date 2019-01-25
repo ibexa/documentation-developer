@@ -314,165 +314,169 @@ version: 2.4
             description: Creates a new content draft assigned to the authenticated user. If a different userId is given in the input it is assigned to the given user but this required special rights for the authenticated user (this is useful for content staging where the transfer process does not have to authenticate with the user which created the content object in the source server). The user has to publish the content if it should be visible.
             headers:
                 Accept:
-                    description:  Response format for Content object, either application/vnd.ez.api.Content+xml or application/vnd.ez.api.Content+json or application/vnd.ez.api.ContentInfo+xml or application/vnd.ez.api.ContentInfo+json. Response format for Content Type, either application/vnd.ez.api.ContentCreate+json or application/vnd.ez.api.ContentCreate+xml.
+                    description:  application/vnd.ez.api.Content+xml or application/vnd.ez.api.Content+json or application/vnd.ez.api.ContentInfo+xml or application/vnd.ez.api.ContentInfo+json
+                Content-Type:
+                    description: application/vnd.ez.api.ContentCreate+json or application/vnd.ez.api.ContentCreate+xml
+            requests:
+                body:
+                    application/vnd.ez.api.Content+xml:
+                        example: |
+                            <ContentCreate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                              <ContentType href="/content/types/10"/>
+                              <mainLanguageCode>eng-US</mainLanguageCode>
+                              <LocationCreate>
+                                <ParentLocation href="/content/locations/1/4/89" />
+                                <priority>0</priority>
+                                <hidden>false</hidden>
+                                <sortField>PATH</sortField>
+                                <sortOrder>ASC</sortOrder>
+                              </LocationCreate>
+                              <Section href="/content/sections/4"/>
+                              <alwaysAvailable>true</alwaysAvailable>
+                              <remoteId>remoteId12345678</remoteId>
+                              <fields>
+                                <field>
+                                  <fieldDefinitionIdentifier>title</fieldDefinitionIdentifier>
+                                  <languageCode>eng-US</languageCode>
+                                  <fieldValue>This is a title</fieldValue>
+                                </field>
+                                <field>
+                                  <fieldDefinitionIdentifier>summary</fieldDefinitionIdentifier>
+                                  <languageCode>eng-US</languageCode>
+                                  <fieldValue>This is a summary</fieldValue>
+                                </field>
+                                <field>
+                                  <fieldDefinitionIdentifier>authors</fieldDefinitionIdentifier>
+                                  <languageCode>eng-US</languageCode>
+                                  <fieldValue>
+                                    <value>
+                                      <value key="name">John Doe</value>
+                                      <value key="email">john.doe@example.net</value>
+                                    </value>
+                                    <value>
+                                      <value key="name">Bruce Willis</value>
+                                      <value key="email">bruce.willis@example.net</value>
+                                    </value>
+                                  </fieldValue>
+                                </field>
+                              </fields>
+                            </ContentCreate>
+                    application/vnd.ez.api.Content+json:
+                        example: |
+                            {
+                              "ContentCreate": {
+                                "ContentType": {
+                                  "_href": "/content/types/10"
+                                },
+                                "mainLanguageCode": "eng-US",
+                                "LocationCreate": {
+                                  "ParentLocation": {
+                                    "_href": "/content/locations/1/4/89"
+                                  },
+                                  "priority": "0",
+                                  "hidden": false,
+                                  "sortField": "PATH",
+                                  "sortOrder": "ASC"
+                                },
+                                "Section": {
+                                  "_href": "/content/sections/4"
+                                },
+                                "alwaysAvailable": true,
+                                "remoteId": "remoteId12345678",
+                                "fields": {
+                                  "field": [
+                                    {
+                                      "fieldDefinitionIdentifier": "title",
+                                      "languageCode": "eng-US",
+                                      "fieldValue": "This is a title"
+                                    },
+                                    {
+                                      "fieldDefinitionIdentifier": "summary",
+                                      "languageCode": "eng-US",
+                                      "fieldValue": "This is a summary"
+                                    },
+                                    {
+                                      "fieldDefinitionIdentifier": "authors",
+                                      "languageCode": "eng-US",
+                                      "fieldValue": [
+                                         {
+                                           "name": "John Doe",
+                                           "email": "john.doe@example.net"
+                                         },
+                                         {
+                                           "name": "Bruce Willis",
+                                           "email": "bruce.willis@example.net"
+                                         }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            }
             responses:
                 201:
                     body:
-                        application/vnd.ez.api.ContentCreate+xml:
+                        application/vnd.ez.api.Content+xml:
                             example: |
-                                <ContentCreate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                                                  <ContentType href="/content/types/10"/>
-                                                  <mainLanguageCode>eng-US</mainLanguageCode>
-                                                  <LocationCreate>
-                                                    <ParentLocation href="/content/locations/1/4/89" />
-                                                    <priority>0</priority>
-                                                    <hidden>false</hidden>
-                                                    <sortField>PATH</sortField>
-                                                    <sortOrder>ASC</sortOrder>
-                                                  </LocationCreate>
-                                                  <Section href="/content/sections/4"/>
-                                                  <alwaysAvailable>true</alwaysAvailable>
-                                                  <remoteId>remoteId12345678</remoteId>
-                                                  <fields>
-                                                    <field>
-                                                      <fieldDefinitionIdentifier>title</fieldDefinitionIdentifier>
-                                                      <languageCode>eng-US</languageCode>
-                                                      <fieldValue>This is a title</fieldValue>
-                                                    </field>
-                                                    <field>
-                                                      <fieldDefinitionIdentifier>summary</fieldDefinitionIdentifier>
-                                                      <languageCode>eng-US</languageCode>
-                                                      <fieldValue>This is a summary</fieldValue>
-                                                    </field>
-                                                    <field>
-                                                      <fieldDefinitionIdentifier>authors</fieldDefinitionIdentifier>
-                                                      <languageCode>eng-US</languageCode>
-                                                      <fieldValue>
-                                                        <value>
-                                                          <value key="name">John Doe</value>
-                                                          <value key="email">john.doe@example.net</value>
-                                                        </value>
-                                                        <value>
-                                                          <value key="name">Bruce Willis</value>
-                                                          <value key="email">bruce.willis@example.net</value>
-                                                        </value>
-                                                      </fieldValue>
-                                                    </field>
-                                                  </fields>
-                                                </ContentCreate>
-                        application/vnd.ez.api.ContentUpdate+xml;charset=utf8:
-                            example: |
-                                  <?xml version="1.0" encoding="UTF-8"?>
-                                  <Content href="/content/objects/23" id="23"
-                                    media-type="application/vnd.ez.api.Content+xml" remoteId="remoteId12345678" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                                    <ContentType href="/content/types/10" media-type="application/vnd.ez.api.ContentType+xml" />
-                                    <Name>This is a title</Name>
-                                    <Versions href="/content/objects/23/versions" media-type="application/vnd.ez.api.VersionList+xml" />
-                                    <CurrentVersion href="/content/objects/23/currentversion"
-                                      media-type="application/vnd.ez.api.Version+xml">
-                                      <Version href="/content/objects/23/versions/1" media-type="application/vnd.ez.api.Version+xml">
-                                        <VersionInfo>
-                                          <id>123</id>
-                                          <versionNo>1</versionNo>
-                                          <status>DRAFT</status>
-                                          <modificationDate>2012-02-12T12:30:00</modificationDate>
-                                          <Creator href="/user/users/14" media-type="application/vnd.ez.api.User+xml" />
-                                          <creationDate>2012-02-12T12:30:00</creationDate>
-                                          <initialLanguageCode>eng-US</initialLanguageCode>
-                                          <Content href="/content/objects/23" media-type="application/vnd.ez.api.ContentInfo+xml" />
-                                        </VersionInfo>
-                                        <fields>
-                                          <field>
-                                            <id>1234</id>
-                                            <fieldDefinitionIdentifier>title</fieldDefinitionIdentifier>
-                                            <languageCode>eng-UK</languageCode>
-                                            <fieldValue>This is a title</fieldValue>
-                                          </field>
-                                          <field>
-                                            <id>1235</id>
-                                            <fieldDefinitionIdentifier>summary</fieldDefinitionIdentifier>
-                                            <languageCode>eng-UK</languageCode>
-                                            <fieldValue>This is a summary</fieldValue>
-                                          </field>
-                                          <field>
-                                            <fieldDefinitionIdentifier>authors</fieldDefinitionIdentifier>
-                                            <languageCode>eng-US</languageCode>
-                                            <fieldValue>
-                                              <value>
-                                                <value key="name">John Doe</value>
-                                                <value key="email">john.doe@example.net</value>
-                                              </value>
-                                              <value>
-                                                <value key="name">Bruce Willis</value>
-                                                <value key="email">bruce.willis@example.net</value>
-                                              </value>
-                                            </fieldValue>
-                                          </field>
-                                        </fields>
-                                        <Relations href="/content/objects/23/versions/1/relations" media-type="application/vnd.ez.api.RelationList+xml" />
-                                      </Version>
-                                    </CurrentVersion>
-                                    <Section href="/content/sections/4" media-type="application/vnd.ez.api.Section+xml" />
-                                    <MainLocation href="/content/locations/1/4/65" media-type="application/vnd.ez.api.Location+xml" />
-                                    <Locations href="/content/objects/23/locations" media-type="application/vnd.ez.api.LocationList+xml" />
-                                    <Owner href="/user/users/14" media-type="application/vnd.ez.api.User+xml" />
-                                    <lastModificationDate>2012-02-12T12:30:00</lastModificationDate>
-                                    <mainLanguageCode>eng-US</mainLanguageCode>
-                                    <currentVersionNo>1</currentVersionNo>
-                                    <alwaysAvailable>true</alwaysAvailable>
-                                  </Content>
-                        application/vnd.ez.api.ContentCreate+json:
-                            example: |
-                                {
-                                  "ContentCreate": {
-                                    "ContentType": {
-                                      "_href": "/content/types/10"
-                                    },
-                                    "mainLanguageCode": "eng-US",
-                                    "LocationCreate": {
-                                      "ParentLocation": {
-                                        "_href": "/content/locations/1/4/89"
-                                      },
-                                      "priority": "0",
-                                      "hidden": false,
-                                      "sortField": "PATH",
-                                      "sortOrder": "ASC"
-                                    },
-                                    "Section": {
-                                      "_href": "/content/sections/4"
-                                    },
-                                    "alwaysAvailable": true,
-                                    "remoteId": "remoteId12345678",
-                                    "fields": {
-                                      "field": [
-                                        {
-                                          "fieldDefinitionIdentifier": "title",
-                                          "languageCode": "eng-US",
-                                          "fieldValue": "This is a title"
-                                        },
-                                        {
-                                          "fieldDefinitionIdentifier": "summary",
-                                          "languageCode": "eng-US",
-                                          "fieldValue": "This is a summary"
-                                        },
-                                        {
-                                          "fieldDefinitionIdentifier": "authors",
-                                          "languageCode": "eng-US",
-                                          "fieldValue": [
-                                             {
-                                               "name": "John Doe",
-                                               "email": "john.doe@example.net"
-                                             },
-                                             {
-                                               "name": "Bruce Willis",
-                                               "email": "bruce.willis@example.net"
-                                             }
-                                          ]
-                                        }
-                                      ]
-                                    }
-                                  }
-                                }
+                                <?xml version="1.0" encoding="UTF-8"?>
+                                <Content href="/content/objects/23" id="23"
+                                  media-type="application/vnd.ez.api.Content+xml" remoteId="remoteId12345678" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                  <ContentType href="/content/types/10" media-type="application/vnd.ez.api.ContentType+xml" />
+                                  <Name>This is a title</Name>
+                                  <Versions href="/content/objects/23/versions" media-type="application/vnd.ez.api.VersionList+xml" />
+                                  <CurrentVersion href="/content/objects/23/currentversion"
+                                    media-type="application/vnd.ez.api.Version+xml">
+                                    <Version href="/content/objects/23/versions/1" media-type="application/vnd.ez.api.Version+xml">
+                                      <VersionInfo>
+                                        <id>123</id>
+                                        <versionNo>1</versionNo>
+                                        <status>DRAFT</status>
+                                        <modificationDate>2012-02-12T12:30:00</modificationDate>
+                                        <Creator href="/user/users/14" media-type="application/vnd.ez.api.User+xml" />
+                                        <creationDate>2012-02-12T12:30:00</creationDate>
+                                        <initialLanguageCode>eng-US</initialLanguageCode>
+                                        <Content href="/content/objects/23" media-type="application/vnd.ez.api.ContentInfo+xml" />
+                                      </VersionInfo>
+                                      <fields>
+                                        <field>
+                                          <id>1234</id>
+                                          <fieldDefinitionIdentifier>title</fieldDefinitionIdentifier>
+                                          <languageCode>eng-UK</languageCode>
+                                          <fieldValue>This is a title</fieldValue>
+                                        </field>
+                                        <field>
+                                          <id>1235</id>
+                                          <fieldDefinitionIdentifier>summary</fieldDefinitionIdentifier>
+                                          <languageCode>eng-UK</languageCode>
+                                          <fieldValue>This is a summary</fieldValue>
+                                        </field>
+                                        <field>
+                                          <fieldDefinitionIdentifier>authors</fieldDefinitionIdentifier>
+                                          <languageCode>eng-US</languageCode>
+                                          <fieldValue>
+                                            <value>
+                                              <value key="name">John Doe</value>
+                                              <value key="email">john.doe@example.net</value>
+                                            </value>
+                                            <value>
+                                              <value key="name">Bruce Willis</value>
+                                              <value key="email">bruce.willis@example.net</value>
+                                            </value>
+                                          </fieldValue>
+                                        </field>
+                                      </fields>
+                                      <Relations href="/content/objects/23/versions/1/relations" media-type="application/vnd.ez.api.RelationList+xml" />
+                                    </Version>
+                                  </CurrentVersion>
+                                  <Section href="/content/sections/4" media-type="application/vnd.ez.api.Section+xml" />
+                                  <MainLocation href="/content/locations/1/4/65" media-type="application/vnd.ez.api.Location+xml" />
+                                  <Locations href="/content/objects/23/locations" media-type="application/vnd.ez.api.LocationList+xml" />
+                                  <Owner href="/user/users/14" media-type="application/vnd.ez.api.User+xml" />
+                                  <lastModificationDate>2012-02-12T12:30:00</lastModificationDate>
+                                  <mainLanguageCode>eng-US</mainLanguageCode>
+                                  <currentVersionNo>1</currentVersionNo>
+                                  <alwaysAvailable>true</alwaysAvailable>
+                                </Content>
                         application/vnd.ez.api.Content+json:
                             example: |
                                 {
@@ -574,31 +578,26 @@ version: 2.4
                 404:
                     description: If a parent location in specified in the request body and it does not exist
         get:
-            description: Loads the content for a given remote id
+            description: Loads the content for a given remote ID
             queryParameters:
                 remoteId:
-                    description: The remote id of the content. If present the content with the given remote id is returned
+                    description: The remote ID of the content. If present the content with the given remote ID is returned
             responses:
-                200:
-                    body:
-                        /content/objects/<id>:
-                            example: |
-                            HTTP/1.1 307 Temporary Redirect
-                            Location: /content/objects/<id>
+                307:
                 404:
-                    description: If the content with the given remote id does not exist
+                    description: If the content with the given remote ID does not exist
     /objects/{id}:
         get:
-            description: Loads the content object for the given id. Depending on the Accept header the current version is embedded (i.e the current published version or if not exists the draft of the authenticated user)
+            description: Loads the content object for the given ID. Depending on the Accept header the current version is embedded (i.e the current published version or if not exists the draft of the authenticated user)
             queryParameters:
                  languages:
-                    description: (comma separated list) restricts the output of translatable fields to the given languages
-                    type: list
+                    description: Restricts the output of translatable fields to the given languages
+                    type: comma separated list
             headers:
                 Accept:
                     description: Response format, either application/vnd.ez.api.Content+xml or application/vnd.ez.api.Content+json or application/vnd.ez.api.ContentInfo+xml or application/vnd.ez.api.ContentInfo+json
-                if-none-match:
-                    description: <etag> If the provided etag matches the current etag then a 304 Not Modified is returned. The etag changes if the meta data was changed - this happens also if there is a new published version.
+                If-None-Match:
+                    description: <etag> If the provided etag matches the current etag then a "304 Not Modified" is returned. The etag changes if the meta data was changed - this happens also if there is a new published version.
             responses:
                 200:
                     body:
