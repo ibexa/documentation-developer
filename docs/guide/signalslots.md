@@ -107,7 +107,7 @@ class CreateUrlAliasesOnPublishSlot extends BaseSlot
     1.  Make the Slot available through the Symfony service container as a service
     1.  Register the Slot to react to the Signal of type `eZ\Publish\Core\SignalSlot\Signal\ContentService\PublishVersionSignal`
 
-    See the [Listening to Core events](../cookbook/listening_to_core_events.md) recipe in the developer cookbook for more information.
+    See [Listening to Core events](#listening-to-core-events.md) recipe in the developer cookbook for more information.
 
 !!! note "Important note about template matching"
 
@@ -117,185 +117,140 @@ class CreateUrlAliasesOnPublishSlot extends BaseSlot
 
     The list of Field Types supported out of the box [is available here](../api/field_type_reference.md).
 
-## Signals Reference
+## Listening to Core events
 
-This section references **all available Signals** that you can listen to, triggered by ("Public") Repository API in eZ Platform.
+When you interact with the Public API, and with the content repository in particular, **Signals** may be sent out,
+allowing you to react to actions triggered by the repository.
+Those signals can be received by dedicated services called **Slots**.
 
-For more information, check the [Listening to Core events](../cookbook/listening_to_core_events.md) recipe.
+This recipe will describe how to register a Slot for a dedicated Signal.
 
-All Signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
+### Registering a Slot for a given Signal
 
-!!! note "Transactions"
+As described [above](#slot), a Slot is the eZ Platform equivalent of a Symfony event listener and must extend `eZ\Publish\Core\SignalSlot\Slot`.
 
-    Signals are sent after transactions are executed, making Signals transaction safe.
+A typical implementation is the following:
 
-#### BookmarkService
-|Signal type|Properties|Triggered by|
-|------|------|------|
-|`BookmarkService\CreateBookmarkSignal`|`locationId`|`BookmarkService::createBookmark()`|
-|`BookmarkService\DeleteBookmarkSignal`|`locationId`|`BookmarkService::deleteBookmark()`|
+``` php
+namespace Acme\ExampleBundle\Slot;
+ 
+use eZ\Publish\Core\SignalSlot\Slot as BaseSlot;
+use eZ\Publish\Core\SignalSlot\Signal;
+use eZ\Publish\API\Repository\ContentService;
 
-#### ContentService
+class OnPublishSlot extends BaseSlot
+{
+    /**
+     * @var \eZ\Publish\API\Repository\ContentService
+     */
+    private $contentService;
 
-|Signal type|Properties|Triggered by|
-|------|------|------|
-|`ContentService\AddRelationSignal`|`srcContentId` (source contentId, aka referrer)</br>`srcVersionNo`</br>`dstContentId` (destination contentId, aka target)|`ContentService::addRelation()`|
-|`ContentService\AddTranslationInfoSignal`|N/A|`ContentService::addTranslationInfo()`|
-|`ContentService\CopyContentSignal`|`srcContentId` (original content ID)</br>`srcVersionNo`</br>`dstContentId` (contentId of the copy)</br>`dstVersionNo`</br>`dstParentLocationId` (locationId where the content has been copied)|`ContentService::copyContent()`|
-|`ContentService\CreateContentDraftSignal`|`contentId`</br>`versionNo`</br>`userId` (ID of User used to create the draft, or null - current User)|`ContentService::createContentDraft()`|
-|`ContentService\CreateContentSignal`|`contentId`</br>`versionNo`|`ContentService::createContent()`|
-|`ContentService\DeleteContentSignal`|`contentId`</br>`affectedLocationIds`|`ContentService::deleteContent()`|
-|`ContentService\DeleteRelationSignal`|`srcContentId`</br>`srcVersionNo`</br>`dstContentId`|`ContentService::deleteRelation()`|
-|`ContentService\DeleteTranslationSignal`|`contentId`</br>`languageCode`|`ContentService::deleteTranslation()`|
-|`ContentService\DeleteVersionSignal`|`contentId`</br>`versionNo`|`ContentService::deleteVersion()`|
-|`ContentService\PublishVersionSignal`|`contentId`</br>`versionNo`|`ContentService::publishVersion()`|
-|`ContentService\TranslateVersionSignal`|`contentId`</br>`versionNo`</br>`userId`|`ContentService::translationVersion()`|
-|`ContentService\UpdateContentMetadataSignal`|`contentId`|`ContentService::updateContentMetadata()`|
-|`ContentService\UpdateContentSignal`|`contentId`</br>`versionNo`|`ContentService::updateContent()`|
+    public function __construct(ContentService $contentService)
+    {
+        $this->contentService = $contentService;
+    }
 
-#### ContentTypeService
+    public function receive(Signal $signal)
+    {
+        if ( !$signal instanceof Signal\ContentService\PublishVersionSignal )
+        {
+            return;
+        }
 
-|Signal type|Properties|Triggered by|
-|------|------|------|
-|`ContentTypeService\AddFieldDefinitionSignal`|`contentTypeDraftId`|<p>`ContentTypeService::addFieldDefinition()`</p>|
-|`ContentTypeService\AssignContentTypeGroupSignal`|`contentTypeId`</br>`contentTypeGroupId`|`ContentTypeService::assignContentTypeGroup()`|
-|`ContentTypeService\CopyContentTypeSignal`|`contentTypeId`</br>`userId`|`ContentTypeService::copyContentType()`|
-|`ContentTypeService\CreateContentTypeDraftSignal`|`contentTypeId`|`ContentTypeService::createContentTypeDraft()`|
-|`ContentTypeService\CreateContentTypeGroupSignal`|`groupId`|`ContentTypeService::createContentTypeGroup()`|
-|`ContentTypeService\CreateContentTypeSignal`|`contentTypeId`|`ContentTypeService::createContentType()`|
-|`ContentTypeService\DeleteContentTypeGroupSignal`|`contentTypeGroupId`|`ContentTypeService::deleteContentTypeGroup()`|
-|`ContentTypeService\DeleteContentTypeSignal`|`contentTypeId`|`ContentTypeService::deleteContentType()`|
-|`ContentTypeService\PublishContentTypeDraftSignal`|`contentTypeDraftId`|`ContentTypeService::publishContentTypeDraft()`|
-|`ContentTypeService\RemoveFieldDefinitionSignal`|`contentTypeDraftId`</br>`fieldDefinitionId`|`ContentTypeService::removeFieldDefinition()`|
-|`ContentTypeService\UnassignContentTypeGroupSignal`|`contentTypeId`</br>`contentTypeGroupId`|`ContentTypeService::unassignContentTypeGroup()`|
-|`ContentTypeService\UpdateContentTypeDraftSignal`|`contentTypeDraftId`|`ContentTypeService::updateContentTypeDraft()`|
-|`ContentTypeService\UpdateContentTypeGroupSignal`|`contentTypeGroupId`|`ContentTypeService::updateContentTypeGroup()`|
-|`ContentTypeService\UpdateFieldDefinitionSignal`|`contentTypeDraftId`</br>`fieldDefinitionId`|`ContentTypeService::updateFieldDefinition()`|
-|`ContentTypeService\RemoveContentTypeDraftTranslationSignal`|`contentTypeDraftId`</br>`languageCode`|`ContentTypeService::removeContentTypeTranslation()`|
+        // Load published content
+        $content = $this->contentService->loadContent($signal->contentId, null, $signal->versionNo);
+        // Do stuff with it...
+    }
+}
+```
 
-#### LanguageService
+You now need to register `OnPublishSlot` as a service in the ServiceContainer and identify it as a valid Slot.
 
-|Signal type|Properties|Triggered by|
-|------|------|------|
-|`LanguageService\CreateLanguageSignal`|`languageId`|`LanguageService::createLanguage()`|
-|`LanguageService\DeleteLanguageSignal`|`languageId`|`LanguageService::deleteLanguage()`|
-|`LanguageService\DisableLanguageSignal`|`languageId`|`LanguageService::disableLanguage()`|
-|`LanguageService\EnableLanguageSignal`|`languageId`|`LanguageService::enableLanguage()`|
-|`LanguageService\UpdateLanguageNameSignal`|`languageId`</br>`newName`|`LanguageService::updateLanguageName()`|
+In `services.yml` (in your bundle):
 
-#### LocationService
+``` yaml
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
 
-|Signal type|Properties|Triggered by|
-|------|------|------|
-|`LocationService\CopySubtreeSignal`|`subtreeId` (top locationId of the subtree to be copied)</br>`targetParentLocationId`</br>`targetNewSubtreeId`|`LocationService::copySubtree()`|
-|`LocationService\CreateLocationSignal`|`contentId`</br>`locationId`</br>`parentLocationId`|`LocationService::createLocation()`|
-|`LocationService\DeleteLocationSignal`|`contentId`</br>`locationId`</br>`parentLocationId`|`LocationService::deleteLocation()`|
-|`LocationService\HideLocationSignal`|`contentId`</br>`locationId`</br>`currentVersionNo`</br>`parentLocationId`|`LocationService::hideLocation()`|
-|`LocationService\UnhideLocationSignal`|`contentId`</br>`locationId`</br>`currentVersionNo`</br>`parentLocationId`|`LocationService::unhideLocation()`|
-|`LocationService\MoveSubtreeSignal`|`subtreeId`</br>`oldParentLocationId`</br>`newParentLocationId`|`LocationService::moveSubtree()`|
-|`LocationService\SwapLocationSignal`|`content1Id`</br>`location1Id`</br>`parentLocation1Id`</br>`content2Id`</br>`location2Id`</br>`parentLocation1Id`|`LocationService::swapLocation()`|
-|`LocationService\UpdateLocationSignal`|`contentId`</br>`locationId`</br>`parentLocationId`|`LocationService::updateLocation()`|
+    Acme\ExampleBundle\Slot\OnPublishSlot:
+        tags:
+            - { name: ezpublish.api.slot, signal: ContentService\PublishVersionSignal }
+```
 
-#### NotificationService
+Service tag `ezpublish.api.slot` identifies your service as a valid Slot.
+The signal part (mandatory) says that this Slot is listening to `ContentService\PublishVersionSignal`
+(shortcut for `\eZ\Publish\Core\SignalSlot\Signal\ContentService\PublishVersionSignal`).
 
-|Signal type|Properties|Triggered by|
-|------|------|------|
-|`NotificationService\NotificationCreateSigna`|`ownerId`</br>`type`</br>`data`|`NotificationService::createNotification`|
-|`NotificationService\NotificationDeleteSigna`|`notificationId`|`NotificationService::deleteNotification`|
-|`NotificationService\NotificationReadSignal`|`notificationId`|`NotificationService::markNotificationAsRead`|
+!!! note
 
-#### ObjectStateService
+    Internal signals emitted by Repository services are always relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
 
-|Signal type|Properties|Triggered by|
-|------|------|------|
-|`ObjectStateService\CreateObjectStateGroupSignal`|`objectStateGroupId`|`ObjectStateService::createObjectStateGroup()`|
-|`ObjectStateService\CreateObjectStateSignal`|`objectStateGroupId`</br>`objectStateId`|`ObjectStateService::createObjectState()`|
-|`ObjectStateService\DeleteObjectStateGroupSignal`|`objectStateGroupId`|`ObjectStateService::deleteObjectStateGroup()`|
-|`ObjectStateService\DeleteObjectStateSignal`|`objectStateId`|`ObjectStateService::deleteObjectState()`|
-|`ObjectStateService\SetContentStateSignal`|`contentId`</br>`objectStateGroupId`</br>`objectStateId`|`ObjectStateService::setContentState()`|
-|`ObjectStateService\SetPriorityOfObjectStateSignal`|`objectStateId`</br>`priority`|`ObjectStateService::setPriorityOfObjectState()`|
-|`ObjectStateService\UpdateObjectStateGroupSignal`|`objectStateGroupId`|`ObjectStateService::updateObjectStateGroup()`|
-|`ObjectStateService\UpdateObjectStateSignal`|`objectStateId`|`ObjectStateService::updateObjectState()`|
+    Hence `ContentService\PublishVersionSignal` means `eZ\Publish\Core\SignalSlot\Signal\ContentService\PublishVersionSignal`.
 
-#### RoleService
+!!! tip
 
-|Signal type|Properties|Triggered by|
-|------|------|------|
-|`RoleService\AddPolicyByRoleDraftSignal`|`roleId`</br>`policyId`|`RoleService::addPolicyByRoleDraft()`|
-|`RoleService\AddPolicySignal`|`roleId`</br>`policyId`|`RoleService::addPolicy()`|
-|`RoleService\AssignRoleToUserGroupSignal`|`roleId`</br>`userGroupId`</br>`roleLimitation`|`RoleService::assignRoleToUserGroup()`|
-|`RoleService\AssignRoleToUserSignal`|`roleId`</br>`userId`</br>`roleLimitation`|`RoleService::assignRoleToUser()`|
-|`RoleService\CreateRoleDraftSignal`|`roleId`|`RoleService::createRoleDraft()`|
-|`RoleService\CreateRoleSignal`|`roleId`|`RoleService::createRole()`|
-|`RoleService\DeleteRoleDraftSignal`|`roleId`|`RoleService::deleteRoleDraft()`|
-|`RoleService\DeleteRoleSignal`|`roleId`|`RoleService::deleteRole()`|
-|`RoleService\PublishRoleDraftSignal`|`roleId`|`RoleService::publishRoleDraft()`|
-|`RoleService\RemovePolicyByRoleDraftSignal`|`roleId`</br>`policyId`|`RoleService::removePolicyByRoleDraft()`|
-|`RoleService\RemovePolicySignal`|`roleId`</br>`policyId`|`RoleService::removePolicy()`|
-|`RoleService\RemoveRoleAssignmentSignal`|`roleAssignmentId`|`RoleService::removeRoleAssignment()`|
-|`RoleService\UnassignRoleFromUserGroupSignal`|`roleId`</br>`userGroupId`|`RoleService::unassignRoleFromUserGroup()`|
-|`RoleService\UnassignRoleFromUserSignal`|`roleId`</br>`userId`|`RoleService::unassignRoleFromUser()`|
-|`RoleService\UpdatePolicySignal`|`policyId`|`RoleService::updatePolicy()`|
-|`RoleService\UpdateRoleDraftSignal`|`roleId`|`RoleService::updateRoleDraft()`|
-|`RoleService\UpdateRoleSignal`|`roleId`|`RoleService::updateRole()`|
+    You can register a Slot for any kind of signal by setting `signal` to `*` in the service tag.
 
-#### SectionService
+### Using a basic Symfony event listener
 
-|Signal type|Properties|Triggered by|
-|------|------|------|
-|`SectionService\AssignSectionSignal`|`contentId`</br>`sectionId`|`SectionService::assignSection()`|
-|`SectionService\CreateSectionSignal`|`sectionId`|`SectionService::createSection()`|
-|`SectionService\DeleteSectionSignal`|`sectionId`|`SectionService::deleteSection()`|
-|`SectionService\UpdateSectionSignal`|`sectionId`|`SectionService::updateSection()`|
+eZ Platform comes with a generic Slot that converts signals (including ones defined by user code)
+to regular event objects and exposes them via the EventDispatcher.
+This makes it possible to implement a simple event listener/subscriber if you're more comfortable with this approach.
 
-#### TrashService
+All you need to do is to implement an event listener or subscriber and register it.
 
-|Signal type|Properties|Triggered by|
-|------|------|------|
-|`TrashService\DeleteTrashItemSignal`|`trashItemDeleteResult`|`TrashService::deleteTrashItem()`|
-|`TrashService\EmptyTrashSignal`|`trashItemDeleteResultList `|`TrashService::emptyTrash()`|
-|`TrashService\RecoverSignal`|`trashItemId`</br>`contentId`</br>`newParentLocationId`</br>`newLocationId`|`TrashService::recover()`|
-|`TrashService\TrashSignal`|`locationId`</br>`parentLocationId`</br>`contentId`</br>`contentTrashed`|`TrashService::trash()`|
+### Example
 
-#### URLAliasService
+This very simple example will just log the received signal.
 
-|Signal type|Properties|Triggered by|
-|------|------|------|
-|`URLAliasService\CreateGlobalUrlAliasSignal`|`urlAliasId`|`URLAliasService::createGlobalUrlAlias()`|
-|`URLAliasService\CreateUrlAliasSignal`|`urlAliasId`|`URLAliasService::createUrlAlias()`|
-|`URLAliasService\RemoveAliasesSignal`|`aliasList`|`URLAliasService::removeAliases()`|
+In `services.yml` (in your bundle):
 
-#### URLService
+``` yaml
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
 
-|Signal type|Properties|Triggered by|
-|------|------|------|
-|`URLService\UpdateUrlSignal`|`urlId`</br>`urlChanged`|`URLService::updateUrl()`|
+    Acme\ExampleBundle\EventListener\SignalListener: ~
+```
 
-#### URLWildcardService
+``` php
+<?php
+namespace Acme\ExampleBundle\EventListener;
 
-|Signal type|Properties|Triggered by|
-|------|------|------|
-|`URLWildcardService\CreateSignal`|`urlWildcardId`|`URLWildcardService::create()`|
-|`URLWildcardService\RemoveSignal`|`urlWildcardId`|`URLWildcardService::remove()`|
-|`URLWildcardService\TranslateSignal`|`url`|`URLWildcardService::translate()`|
+use eZ\Publish\Core\MVC\Symfony\Event\SignalEvent;
+use eZ\Publish\Core\MVC\Symfony\MVCEvents;
+use Psr\Log\LoggerInterface;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-#### UserService
+class SignalListener implements EventSubscriberInterface
+{
+    /**
+     * @var \Psr\Log\LoggerInterface
+     */
+    private $logger;
 
-|Signal type|Properties|Triggered by|
-|------|------|------|
-|`UserService\AssignUserToUserGroupSignal`|`userId`</br>`userGroupId`|`UserService::assignUserToUserGroup()`|
-|`UserService\CreateUserGroupSignal`|`userGroupId`|`UserService::createUserGroup()`|
-|`UserService\CreateUserSignal`|`userId`|`UserService::createUser()`|
-|`UserService\DeleteUserGroupSignal`|`userGroupId`</br>`affectedLocationIds`|`UserService::deleteUserGroup()`|
-|`UserService\DeleteUserSignal`|`userId`</br>`affectedLocationIds`|`UserService::deleteUser()`|
-|`UserService\MoveUserGroupSignal`|`userGroupId`</br>`newParentId`|`UserService::moveUserGroup()`|
-|`UserService\UnAssignUserFromUserGroupSignal`|`userId`</br>`userGroupId`|`UserService::unAssignUserFromUserGroup()`|
-|`UserService\UpdateUserGroupSignal`|`userGroupId`|`UserService::updateUserGroup()`|
-|`UserService\UpdateUserSignal`|`userId`|`UserService::updateUser()`|
-|`UserService\UpdateUserTokenSignal`|`userId`|`UserService::updateUserToken()`|
+    public function __construct(LoggerInterface $logger)
+    {
+        $this->logger = $logger;
+    }
 
-#### UserPreferenceService
+    public function onAPISignal(SignalEvent $event)
+    {
+        $signal = $event->getSignal();
+        // You may want to check the signal type here to react accordingly
+        $this->logger->debug('Received Signal: ' . print_r($signal, true));
+    }
 
-|Signal type|Properties|Triggered by|
-|------|------|------|
-|`UserPreferenceService\UserPreferenceSetSignal`|`name`</br>`value`|`UserPreferenceService::setUserPreference()`|
+    public static function getSubscribedEvents()
+    {
+        return [
+            MVCEvents::API_SIGNAL => 'onAPISignal'
+        ];
+    }
+}
+```

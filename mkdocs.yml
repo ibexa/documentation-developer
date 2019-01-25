@@ -106,6 +106,7 @@ pages:
         - Repository:
             - 'Repository': 'guide/repository.md'
             - 'SignalSlots': 'guide/signalslots.md'
+            - 'Signals reference': 'guide/signals_reference.md'
         - Cache:
             - 'HTTP cache': 'guide/http_cache.md'
             - 'Persistence cache': 'guide/persistence_cache.md'
@@ -139,7 +140,6 @@ pages:
         - 'Creating drag and drop interface': 'cookbook/drag_and_drop.md'
         - 'Importing settings from a bundle': 'cookbook/importing_settings_from_a_bundle.md'
         - 'Installing on Mac OS or Windows': 'cookbook/installing-on-mac-os-and-windows.md'
-        - 'Listening to core events': 'cookbook/listening_to_core_events.md'
         - 'Multi-language SiteAccesses': 'cookbook/setting_up_multi_language_siteaccesses.md'
         - 'Multiple user providers': 'cookbook/authenticating_a_user_with_multiple_user_providers.md'
         - 'Notifications': 'cookbook/sending_notifications.md'
