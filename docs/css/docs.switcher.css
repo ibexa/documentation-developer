@@ -1,0 +1,68 @@
+.ez-docs-switcher {
+    line-height: 1.25;
+}
+
+.ez-docs-switcher__selected-item {
+    line-height: calc(33 / 19.8);
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.ez-docs-switcher__selected-item .ez-docs-switcher__label {
+    display: inline-block;
+}
+
+.ez-docs-switcher__selected-item:after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 8px 6px 0 6px;
+    border-color: #fff transparent transparent transparent;
+    transform: rotate(180deg);
+    transition: transform .2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.ez-docs-switcher__selected-item--expanded:after {
+    transform: rotate(0);
+}
+
+.ez-docs-switcher__list {
+    margin: 0;
+    padding: .5rem 0;
+    opacity: 0;
+    list-style: none;
+    background: #3a3b3c;
+    max-height: 0;
+    overflow: hidden;
+    transition:
+        max-height .3s cubic-bezier(0.25, 0.8, 0.25, 1),
+        opacity .2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.ez-docs-switcher__selected-item--expanded + .ez-docs-switcher__list {
+    opacity: 1;
+    max-height: 500px;
+}
+
+.ez-docs-switcher__item:focus,
+.ez-docs-switcher__item:hover {
+    background: #313233;
+}
+
+.md-header-nav__title[data-md-state=active] .ez-docs-switcher__label,
+.ez-docs-switcher__label {
+    position: relative;
+    transition: none;
+    display: block;
+    padding: .5rem;
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: normal;
+    opacity: 1;
+    z-index: initial;
+    pointer-events: initial;
+    transform: none;
+}
