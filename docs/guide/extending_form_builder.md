@@ -142,7 +142,7 @@
         public static function getSubscribedEvents(): array
         {
             return [
-                FieldDefinitionEvents::getFieldDefinitionEventName('single_line') => 'onFieldDefinition'
+                FormEvents::getFieldDefinitionEventName('single_line') => 'onSingleLineFieldDefinition'
             ];
         }
     }
