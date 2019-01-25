@@ -54,6 +54,7 @@ namespace Acme\TestBundle\Controller;
 
 use eZ\Bundle\EzPublishCoreBundle\Controller;
 use eZ\Publish\Core\MVC\Symfony\View\ContentView;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
