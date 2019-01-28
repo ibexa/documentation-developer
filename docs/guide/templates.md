@@ -268,10 +268,6 @@ You can also **force a locale** in a second argument:
 
     So make sure to use `$content->getName() or $versionInfo->getName()`, which takes translations into account.
 
-#### Exposing additional variables
-
-It is possible to expose additional variables in a content view template. See [parameters injection in content views](../cookbook/injecting_parameters_in_content_views.md).
-
 ### Embedding images
 
 The Rich Text Field allows you to embed other Content items within the Field.
@@ -407,7 +403,7 @@ See also: [Custom rendering logic](controllers.md#custom-rendering-logic).
 
 [Refer to Symfony documentation](https://symfony.com/doc/current/templating/hinclude.html) for all available options.
 
-### Rendering in preview
+## Rendering in preview
 
 When previewing content in the back office, the draft view is rendered using the [PreviewController](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/MVC/Symfony/Controller/Content/PreviewController.php).
 
@@ -423,4 +419,48 @@ To avoid such situations, you can check if the Location is virtual using the `lo
 {% if not location.isDraft %}
     <a href="{{ path(location) }}">{{ ez_content_name(content) }}</a>
 {% endif %}
+```
+
+## Exposing additional variables
+
+You can dynamically inject variables in content view templates by listening to the `ezpublish.pre_content_view` event.
+
+The event listener method receives an [`eZ\Publish\Core\MVC\Symfony\Event\PreContentViewEvent`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/MVC/Symfony/Event/PreContentViewEvent.php) object.
+
+The following example injects `my_variable` and `my_array` variables in all content view templates.
+
+``` php
+<?php
+namespace Acme\ExampleBundle\EventListener;
+
+use eZ\Publish\Core\MVC\Symfony\Event\PreContentViewEvent;
+
+class PreContentViewListener
+{
+    public function onPreContentView(PreContentViewEvent $event)
+    {
+        // Get content view object and inject whatever you need.
+        // You may also add custom business logic here.
+        $contentView = $event->getContentView();
+        $contentView->addParameters(
+            [
+                 'my_variable'  => 'my_value',
+                 'my_array'     => [ 'value1', 'value2', 'value3' ]
+            ]
+        );
+    }
+}
+```
+
+Service configuration:
+
+``` yaml
+parameters:
+    app.pre_content_view_listener.class: Acme\ExampleBundle\EventListener\PreContentViewListener
+
+services:
+    app.pre_content_view_listener:
+        class: '%ezdemo.pre_content_view_listener.class%'
+        tags:
+            - {name: kernel.event_listener, event: ezpublish.pre_content_view, method: onPreContentView}
 ```

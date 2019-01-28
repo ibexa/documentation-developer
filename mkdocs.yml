@@ -100,6 +100,7 @@ pages:
         - Repository:
             - 'Repository': 'guide/repository.md'
             - 'SignalSlots': 'guide/signalslots.md'
+            - 'Signals reference': 'guide/signals_reference.md'
         - Cache:
             - 'HTTP cache': 'guide/http_cache.md'
             - 'Persistence cache': 'guide/persistence_cache.md'
@@ -125,11 +126,8 @@ pages:
         - 'Binary attachments via REST API': 'cookbook/creating_content_with_binary_attachments_via_rest_api.md'
         - 'Cross-origin HTTP requests': 'cookbook/making_cross_origin_http_requests.md'
         - 'Displaying Content children': 'cookbook/displaying_children_of_a_content_item.md'
-        - 'Executing long commands': 'cookbook/executing_long_running_console_commands.md'
         - 'Importing settings from a bundle': 'cookbook/importing_settings_from_a_bundle.md'
         - 'Installing on Mac OS or Windows': 'cookbook/installing-on-mac-os-and-windows.md'
-        - 'Injecting parameters in content views': 'cookbook/injecting_parameters_in_content_views.md'
-        - 'Listening to core events': 'cookbook/listening_to_core_events.md'
         - 'Multi-language SiteAccesses': 'cookbook/setting_up_multi_language_siteaccesses.md'
         - 'Multiple user providers': 'cookbook/authenticating_a_user_with_multiple_user_providers.md'
         - 'Notifications': 'cookbook/creating_custom_notifications_for_flex_workflow.md'
