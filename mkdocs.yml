@@ -110,6 +110,7 @@ pages:
         - Repository:
             - 'Repository': 'guide/repository.md'
             - 'SignalSlots': 'guide/signalslots.md'
+            - 'Signals reference': 'guide/signals_reference.md'
         - Cache:
             - 'HTTP cache': 'guide/http_cache.md'
             - 'Persistence cache': 'guide/persistence_cache.md'
@@ -141,11 +142,8 @@ pages:
         - 'Customizing email notifications': 'cookbook/customizing_form_builder_email_notifications.md'
         - 'Displaying Content children': 'cookbook/displaying_children_of_a_content_item.md'
         - 'Creating drag and drop interface': 'cookbook/drag_and_drop.md'
-        - 'Executing long commands': 'cookbook/executing_long_running_console_commands.md'
         - 'Importing settings from a bundle': 'cookbook/importing_settings_from_a_bundle.md'
         - 'Installing on Mac OS or Windows': 'cookbook/installing-on-mac-os-and-windows.md'
-        - 'Injecting parameters in content views': 'cookbook/injecting_parameters_in_content_views.md'
-        - 'Listening to core events': 'cookbook/listening_to_core_events.md'
         - 'Multi-language SiteAccesses': 'cookbook/setting_up_multi_language_siteaccesses.md'
         - 'Multiple user providers': 'cookbook/authenticating_a_user_with_multiple_user_providers.md'
         - 'Notifications': 'cookbook/sending_notifications.md'
