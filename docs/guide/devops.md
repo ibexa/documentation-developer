@@ -53,7 +53,7 @@ When using the Symfony `dev` [environment](environments.md), the system tracks a
 
 !!! tip
 
-    For long-running scripts, see [Executing long-running console commands](../cookbook/executing_long_running_console_commands.md).
+    For long-running scripts, see [Executing long-running console commands](performance.md#executing-long-running-console-commands).
 
 If you are running out of memory and don't need to keep track of cache hits and misses, you can disable StashBundle tracking, represented by the `stash.tracking` setting, and persistence cache logging, represented by the setting `parameters.ezpublish.spi.persistence.cache.persistenceLogger.enableCallLogging`. In `config_dev.yml`:
 
