@@ -125,6 +125,7 @@ All Signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
 |Signal type|Properties|Triggered by|
 |------|------|------|
 |`SectionService\AssignSectionSignal`|`contentId`</br>`sectionId`|`SectionService::assignSection()`|
+|`SectionService\AssignSectionToSubtreeSignal`|`locationId`</br>`sectionId`|`SectionService::assignSectionToSubtree()`|
 |`SectionService\CreateSectionSignal`|`sectionId`|`SectionService::createSection()`|
 |`SectionService\DeleteSectionSignal`|`sectionId`|`SectionService::deleteSection()`|
 |`SectionService\UpdateSectionSignal`|`sectionId`|`SectionService::updateSection()`|
