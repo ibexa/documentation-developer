@@ -503,6 +503,69 @@ class OrderedTabSubscriber implements EventSubscriberInterface
 }
 ```
 
+## Custom Content Type icons 
+
+To add custom icons for existing Content Types or custom Content Types in eZ Platform follow below instruction.
+
+### Configuration 
+
+A configuration of the default icon for Content Type is possible via default-config key.
+For example:
+
+```yaml
+ezpublish:
+    system:
+       default:
+           content_type:
+              default-config:
+                 thumbnail: '/assets/images/mydefaulticon.svg'
+```
+
+Configuration of a custom icon will be exactly the same, you just need to replace default-config key with a custom one.
+For example:
+
+```yaml
+ezpublish:
+    system:
+       default:
+           content_type:
+              default-config:
+                 thumbnail: '/assets/images/customicon.svg'
+```
+
+### Custom icons in Twig templates
+
+Content Type icons are accessible in Twig templates via `ez_content_type_icon` function.
+It requires Content Type or Content Type Identifier as an argument. Function returns path to a Content Type icon.
+
+```twig
+<svg class="ez-icon ez-icon-{{ contentType.identifier }}">
+    <use xlink:href="{{ ez_content_type_icon(contentType.identifier) }}"></use>
+</svg>
+```
+
+If the icon for given Content Type is not specified in the configuration then path to the default icon will be returned.
+
+### Custom icons in JavaScript
+
+Icons configuration is pushed from the backend as part of the global configuration `eZ.adminUiConfig.contentTypes`.
+
+You can retrieve icons faster by using new helper function `getContentTypeIcon`.
+It takes Content Type Identifier as an argument.
+Function belongs to global object `eZ.helpers.contentType`.
+
+Example with `getContentTypeIcon`:
+
+```React JSX
+const contentTypeIcon = eZ.helpers.contentType.getContentTypeIcon(contentTypeIdentifier);
+
+return (
+    <svg className="ez-icon">
+        <use xlinkHref={contentTypeIcon} />
+    </svg>
+);
+```
+
 ## Workflow event timeline
 
 [Workflow event timeline](workflow.md) is used out of the box to display workflow transitions.
