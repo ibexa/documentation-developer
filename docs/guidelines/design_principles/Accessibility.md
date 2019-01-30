@@ -9,6 +9,8 @@ The overall accessibility of any project built with eZ Platform depends in large
 ## <div class="mgt-2">Interactive components</div>
 <div class="mgt-minus-4">Regarding interactive components —such as modal dialogs, dropdown menus and custom tooltips— we rely on Bootstrap's framework that designed them to work for touch, mouse and keyboard users. Through the use of relevant WAI-ARIA roles and attributes, these components should also be understandable and operable using assistive technologies (such as screen readers).</div>
 
+<div class="mgt-minus-4">As standard practice for users of assistive technologies, as well as for other users using keyboard for website navigation, we add 'tabindex' attribute wherever needed to the click handler ('div', 'tr' and 'a', for instance) events defined in the corresponding view. 
+
 For more information regarding this topic, please check [Bootstrap's Accessibility](https://getbootstrap.com/docs/4.0/getting-started/accessibility/) section.
 
 ## <div class="mgt-2">Color contrast</div>
