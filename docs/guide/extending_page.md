@@ -21,9 +21,11 @@
                     default:
                         template: 'blocks/template.html.twig'
                         name: 'Default view'
+                        priority: -255
                     special:
                         template: 'blocks/special_template.html.twig'
                         name: 'Special view'
+                        priority: 50
                 attributes:
                     name:
                         type: text
@@ -51,6 +53,14 @@
     ```
 
     You can define multiple views for a block, with separate templates.
+
+    `priority` defines the order of block views on the block configuration screen.
+    The highest number will show first on the list.
+
+    !!! tip
+
+        Default views have a `priority` of -255.
+        It's good practice to keep the value between -255 and 255.
 
     A block has a number of attributes, each with the following properties:
 
