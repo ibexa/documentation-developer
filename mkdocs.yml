@@ -167,6 +167,7 @@ pages:
             - Components:
                 - 'Buttons': 'guidelines/components/buttons.md'
                 - 'Form components': 'guidelines/components/form_components.md'
+                - 'Modals': 'guidelines/components/modals.md'
                 - 'Pagination': 'guidelines/components/pagination.md'
                 - 'Switchers': 'guidelines/components/switchers.md'
                 - 'Tables': 'guidelines/components/tables.md'
@@ -261,6 +262,7 @@ extra_javascript:
   - js/custom.js
   - js/docs.switcher.js
   - js/ez-guidelines-switchers.js
+  - js/ez-guidelines-modals.js
   - '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js'
 markdown_extensions:
   - admonition
