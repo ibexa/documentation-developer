@@ -150,40 +150,43 @@ version: 2.4
                             }
 
             401:
-                description: If the user is not authorized to list bookmarks
+                description: Error - if the user is not authorized to list bookmarks
     /{locationId}:
         post:
             description: Add given location to bookmarks of current user
             responses:
                 201:
+                    description: Created
                 401:
-                    description: If the user is not authorized to given location
+                    description: Error - if the user is not authorized to given location
                 404:
-                    description: If a given location not exists
+                    description: Error - if a given location not exists
                 409:
-                    description: If location is already bookmarked
+                    description: Error - if location is already bookmarked
         head:
             description: Check if given location is bookmarked by current user
             responses:
                 200:
+                    description: OK - bookmarked
                 401:
-                    description: If the user is not authorized to given location
+                    description: Error - if the user is not authorized to given location
                 404:
-                    description: If a given location not exists / is not bookmarked
+                    description: Error - if a given location not exists / is not bookmarked
         delete:
             description: Delete given location from bookmarks of current user
             responses:
                 204:
+                    description: Deleted - no content
                 401:
-                    description: If the user is not authorized to given location
+                    description: Error - if the user is not authorized to given location
                 404:
-                    description: If a given location not exists / is not bookmarked
+                    description: Error - if a given location not exists / is not bookmarked
 /Content:
     get:
         description: List the root resources of the eZ Publish installation.
         headers:
             Accept:
-                description: Response format, either application/vnd.ez.api.BookmarkList+xml or application/vnd.ez.api.BookmarkList+json
+                description: application/vnd.ez.api.BookmarkList+xml or application/vnd.ez.api.BookmarkList+json
         responses:
             200:
                 body:
@@ -317,102 +320,103 @@ version: 2.4
                     description:  application/vnd.ez.api.Content+xml or application/vnd.ez.api.Content+json or application/vnd.ez.api.ContentInfo+xml or application/vnd.ez.api.ContentInfo+json
                 Content-Type:
                     description: application/vnd.ez.api.ContentCreate+json or application/vnd.ez.api.ContentCreate+xml
-            requests:
-                body:
-                    application/vnd.ez.api.Content+xml:
-                        example: |
-                            <ContentCreate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                              <ContentType href="/content/types/10"/>
-                              <mainLanguageCode>eng-US</mainLanguageCode>
-                              <LocationCreate>
-                                <ParentLocation href="/content/locations/1/4/89" />
-                                <priority>0</priority>
-                                <hidden>false</hidden>
-                                <sortField>PATH</sortField>
-                                <sortOrder>ASC</sortOrder>
-                              </LocationCreate>
-                              <Section href="/content/sections/4"/>
-                              <alwaysAvailable>true</alwaysAvailable>
-                              <remoteId>remoteId12345678</remoteId>
-                              <fields>
-                                <field>
-                                  <fieldDefinitionIdentifier>title</fieldDefinitionIdentifier>
-                                  <languageCode>eng-US</languageCode>
-                                  <fieldValue>This is a title</fieldValue>
-                                </field>
-                                <field>
-                                  <fieldDefinitionIdentifier>summary</fieldDefinitionIdentifier>
-                                  <languageCode>eng-US</languageCode>
-                                  <fieldValue>This is a summary</fieldValue>
-                                </field>
-                                <field>
-                                  <fieldDefinitionIdentifier>authors</fieldDefinitionIdentifier>
-                                  <languageCode>eng-US</languageCode>
-                                  <fieldValue>
-                                    <value>
-                                      <value key="name">John Doe</value>
-                                      <value key="email">john.doe@example.net</value>
-                                    </value>
-                                    <value>
-                                      <value key="name">Bruce Willis</value>
-                                      <value key="email">bruce.willis@example.net</value>
-                                    </value>
-                                  </fieldValue>
-                                </field>
-                              </fields>
-                            </ContentCreate>
-                    application/vnd.ez.api.Content+json:
-                        example: |
-                            {
-                              "ContentCreate": {
-                                "ContentType": {
-                                  "_href": "/content/types/10"
+            body:
+                application/vnd.ez.api.Content+xml:
+                    schema: |
+                    example:  |
+                        <ContentCreate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                          <ContentType href="/content/types/10"/>
+                          <mainLanguageCode>eng-US</mainLanguageCode>
+                          <LocationCreate>
+                            <ParentLocation href="/content/locations/1/4/89" />
+                            <priority>0</priority>
+                            <hidden>false</hidden>
+                            <sortField>PATH</sortField>
+                            <sortOrder>ASC</sortOrder>
+                          </LocationCreate>
+                          <Section href="/content/sections/4"/>
+                          <alwaysAvailable>true</alwaysAvailable>
+                          <remoteId>remoteId12345678</remoteId>
+                          <fields>
+                            <field>
+                              <fieldDefinitionIdentifier>title</fieldDefinitionIdentifier>
+                              <languageCode>eng-US</languageCode>
+                              <fieldValue>This is a title</fieldValue>
+                            </field>
+                            <field>
+                              <fieldDefinitionIdentifier>summary</fieldDefinitionIdentifier>
+                              <languageCode>eng-US</languageCode>
+                              <fieldValue>This is a summary</fieldValue>
+                            </field>
+                            <field>
+                              <fieldDefinitionIdentifier>authors</fieldDefinitionIdentifier>
+                              <languageCode>eng-US</languageCode>
+                              <fieldValue>
+                                <value>
+                                  <value key="name">John Doe</value>
+                                  <value key="email">john.doe@example.net</value>
+                                </value>
+                                <value>
+                                  <value key="name">Bruce Willis</value>
+                                  <value key="email">bruce.willis@example.net</value>
+                                </value>
+                              </fieldValue>
+                            </field>
+                          </fields>
+                        </ContentCreate>
+                application/vnd.ez.api.Content+json:
+                    schema: |
+                    example:  |
+                        {
+                          "ContentCreate": {
+                            "ContentType": {
+                              "_href": "/content/types/10"
+                            },
+                            "mainLanguageCode": "eng-US",
+                            "LocationCreate": {
+                              "ParentLocation": {
+                                "_href": "/content/locations/1/4/89"
+                              },
+                              "priority": "0",
+                              "hidden": false,
+                              "sortField": "PATH",
+                              "sortOrder": "ASC"
+                            },
+                            "Section": {
+                              "_href": "/content/sections/4"
+                            },
+                            "alwaysAvailable": true,
+                            "remoteId": "remoteId12345678",
+                            "fields": {
+                              "field": [
+                                {
+                                  "fieldDefinitionIdentifier": "title",
+                                  "languageCode": "eng-US",
+                                  "fieldValue": "This is a title"
                                 },
-                                "mainLanguageCode": "eng-US",
-                                "LocationCreate": {
-                                  "ParentLocation": {
-                                    "_href": "/content/locations/1/4/89"
-                                  },
-                                  "priority": "0",
-                                  "hidden": false,
-                                  "sortField": "PATH",
-                                  "sortOrder": "ASC"
+                                {
+                                  "fieldDefinitionIdentifier": "summary",
+                                  "languageCode": "eng-US",
+                                  "fieldValue": "This is a summary"
                                 },
-                                "Section": {
-                                  "_href": "/content/sections/4"
-                                },
-                                "alwaysAvailable": true,
-                                "remoteId": "remoteId12345678",
-                                "fields": {
-                                  "field": [
-                                    {
-                                      "fieldDefinitionIdentifier": "title",
-                                      "languageCode": "eng-US",
-                                      "fieldValue": "This is a title"
-                                    },
-                                    {
-                                      "fieldDefinitionIdentifier": "summary",
-                                      "languageCode": "eng-US",
-                                      "fieldValue": "This is a summary"
-                                    },
-                                    {
-                                      "fieldDefinitionIdentifier": "authors",
-                                      "languageCode": "eng-US",
-                                      "fieldValue": [
-                                         {
-                                           "name": "John Doe",
-                                           "email": "john.doe@example.net"
-                                         },
-                                         {
-                                           "name": "Bruce Willis",
-                                           "email": "bruce.willis@example.net"
-                                         }
-                                      ]
-                                    }
+                                {
+                                  "fieldDefinitionIdentifier": "authors",
+                                  "languageCode": "eng-US",
+                                  "fieldValue": [
+                                     {
+                                       "name": "John Doe",
+                                       "email": "john.doe@example.net"
+                                     },
+                                     {
+                                       "name": "Bruce Willis",
+                                       "email": "bruce.willis@example.net"
+                                     }
                                   ]
                                 }
-                              }
+                              ]
                             }
+                          }
+                        }
             responses:
                 201:
                     body:
@@ -572,11 +576,11 @@ version: 2.4
                                   }
                                 }
                 400:
-                    description: If the Input does not match the input schema definition or the validation on a field fails
+                    description: Error - if the Input does not match the input schema definition or the validation on a field fails
                 401:
-                    description: If the user is not authorized to create this object in this location
+                    description: Error - if the user is not authorized to create this object in this location
                 404:
-                    description: If a parent location in specified in the request body and it does not exist
+                    description: Error - if a parent location is specified in the request body and it does not exist
         get:
             description: Loads the content for a given remote ID
             queryParameters:
@@ -584,8 +588,9 @@ version: 2.4
                     description: The remote ID of the content. If present the content with the given remote ID is returned
             responses:
                 307:
+                    description: Temporary redirect
                 404:
-                    description: If the content with the given remote ID does not exist
+                    description: Error - if the content with the given remote ID does not exist
     /objects/{id}:
         get:
             description: Loads the content object for the given ID. Depending on the Accept header the current version is embedded (i.e the current published version or if not exists the draft of the authenticated user)
@@ -595,7 +600,7 @@ version: 2.4
                     type: comma separated list
             headers:
                 Accept:
-                    description: Response format, either application/vnd.ez.api.Content+xml or application/vnd.ez.api.Content+json or application/vnd.ez.api.ContentInfo+xml or application/vnd.ez.api.ContentInfo+json
+                    description: application/vnd.ez.api.Content+xml or application/vnd.ez.api.Content+json or application/vnd.ez.api.ContentInfo+xml or application/vnd.ez.api.ContentInfo+json
                 If-None-Match:
                     description: <etag> If the provided etag matches the current etag then a "304 Not Modified" is returned. The etag changes if the meta data was changed - this happens also if there is a new published version.
             responses:
@@ -622,11 +627,11 @@ version: 2.4
                                   <alwaysAvailable>true</alwaysAvailable>
                                 </Content>
                 401:
-                    description: If the user is not authorized to read this object. This could also happen if there is no published version yet and another user owns a draft of this content
+                    description: Error - if the user is not authorized to read this object. This could also happen if there is no published version yet and another user owns a draft of this content
                 404:
-                    description: If the ID is not found
+                    description: Error - if the ID is not found
         post:
-            description: PATCH or POST with header: X-HTTP-Method-Override: PATCH. This method updates the content metadata which is independent from a version.
+            description: PATCH or POST with header X-HTTP-Method-Override PATCH. This method updates the content metadata which is independent from a version.
             headers:
                  Accept:
                     description: Response format, either application/vnd.ez.api.ContentInfo+xml or application/vnd.ez.api.ContentInfo+json
@@ -634,55 +639,24 @@ version: 2.4
                      description: <etag> Causes to patch only if the specified etag is the current one. Otherwise a 412 is returned.
                  Content-Type:
                     description: Response format, either application/vnd.ez.api.ContentUpdate+json or application/vnd.ez.api.ContentUpdate+xml
+            body:
+                application/vnd.ez.api.ContentInfo+xml:
+                    schema: |
+                    example: |
+                        <?xml version="1.0" encoding="UTF-8"?>
+                        <ContentUpdate>
+                          <mainLanguageCode>ger-DE</mainLanguageCode>
+                          <Section href="/content/sections/3"/>
+                          <MainLocation href="/content/locations/1/13/55"/>
+                          <Owner href="/user/users/13"/>
+                          <alwaysAvailable>false</alwaysAvailable>
+                          <remoteId>qwert4321</remoteId>
+                        </ContentUpdate>
             responses:
                 200:
                     body:
-                        POST /content/objects/23 HTTP/1.1
-                        X-HTTP-Method-Override: PATCH
-                        Host: www.example.net
-                        If-Match: "12345678"
-                        Accept: application/vnd.ez.api.ContentInfo+xml
-                        Content-Type: application/vnd.ez.api.ContentCreate+xml
-                        Content-Length: xxx
+                        application/vnd.ez.api.ContentUpdate+xml:
                             example: |
-                                <?xml version="1.0" encoding="UTF-8"?>
-                                <ContentUpdate>
-                                  <mainLanguageCode>ger-DE</mainLanguageCode>
-                                  <Section href="/content/sections/3"/>
-                                  <MainLocation href="/content/locations/1/13/55"/>
-                                  <Owner href="/user/users/13"/>
-                                  <alwaysAvailable>false</alwaysAvailable>
-                                  <remoteId>qwert4321</remoteId>
-                                </ContentUpdate>
-                400:
-                    description: If the Input does not match the input schema definition.
-                401:
-                    description: If the user is not authorized to update this object
-                404:
-                    description: If the content id does not exist
-                412:
-                    description: If the current ETag does not match with the provided one in the If-Match header
-                415:
-                    description: If the media-type is not one of those specified in Headers
-
-        patch:
-            description: PATCH or POST with header: X-HTTP-Method-Override: PATCH. This method updates the content metadata which is independent from a version.
-            headers:
-                 Accept:
-                    description: Response format, either application/vnd.ez.api.ContentInfo+xml or application/vnd.ez.api.ContentInfo+json
-                 If-match:
-                     description: <etag> Causes to patch only if the specified etag is the current one. Otherwise a 412 is returned.
-                 Content-Type:
-                    description: Response format, either application/vnd.ez.api.ContentUpdate+json or application/vnd.ez.api.ContentUpdate+xml
-            responses:
-                200:
-                    body:
-                      example: |
-                           HTTP/1.1 200 OK
-                           ETag: "12345699"
-                           Accept-Patch: application/vnd.ez.api.ContentUpdate+xml;charset=utf8
-                           Content-Type: application/vnd.ez.api.ContentInfo+xml
-                           Content-Length: xxx
                                 <?xml version="1.0" encoding="UTF-8"?>
                                 <Content href="/content/objects/23" id="23"
                                   media-type="application/vnd.ez.api.Content+xml" remoteId="qwert4321">
@@ -701,59 +675,70 @@ version: 2.4
                                   <currentVersionNo>1</currentVersionNo>
                                   <alwaysAvailable>false</alwaysAvailable>
                                 </Content>
+                400:
+                    description: Error - if the Input does not match the input schema definition
+                401:
+                    description: Error - if the user is not authorized to update this object
+                404:
+                    description: Error - if the content id does not exist
+                412:
+                    description: Error - if the current ETag does not match with the provided one in the If-Match header
+                415:
+                    description: Error - if the media-type is not one of those specified in Headers
+
+        patch:
+            description: PATCH or POST with header X-HTTP-Method-Override PATCH. This method updates the content metadata which is independent from a version.
+            headers:
+                 Accept:
+                    description: application/vnd.ez.api.ContentInfo+xml or application/vnd.ez.api.ContentInfo+json
+                 If-match:
+                     description: <etag> Causes to patch only if the specified etag is the current one. Otherwise a 412 is returned.
+                 Content-Type:
+                    description: Response format, either application/vnd.ez.api.ContentUpdate+json or application/vnd.ez.api.ContentUpdate+xml
+            responses:
+                description: Same as POST /content/objects/<ID>
         delete:
             description: The content is deleted. If the content has locations (which is required in 4.x) on delete all locations assigned the content object are deleted via delete subtree.
             responses:
                 204:
+                    description: The content is deleted.
                 404:
-                    description: Content object was not found
+                    description: Error - content object was not found
                 401:
-                    description: If the user is not authorized to delete this object
+                    description: Error - if the user is not authorized to delete this object
         copy:
-            description: COPY or POST with header: X-HTTP-Method-Override COPY. Creates a new content object as copy under the given parent location given in the destination header.
+            description: COPY or POST with header X-HTTP-Method-Override COPY. Creates a new content object as copy under the given parent location given in the destination header.
             headers:
                 destination: A location resource to which the content object should be copied.
             responses:
                 201:
-                    body:
-                        COPY /content/objects/23 HTTP/1.1
-                        Host: api.example.com
-                        Destination: /content/locations/1/4/78
-                        example:  |
-                          HTTP/1.1 201 Created
-                          Location: /content/objects/74
+                    description: Copy created
                 401:
-                    description: If the user is not authorized to copy this object to the given location
+                    description: Error - if the user is not authorized to copy this object to the given location
                 404:
-                    description: 	If the source or destination resource do not exist.
-    /objects/{id}/translations/<languageCode>:
+                    description: Error - if the source or destination resource do not exist.
+    /objects/{id}/translations/{languageCode}:
         delete:
             description: Permanently delete a Translation from all Versions of a Content
             responses:
                 204:
-                    body:
-                        example: |
-                          HTTP/1.1 204 No Content
+                    description: No Content
                 401:
-                    description: If the user is not authorized to delete Content (content/remove policy)
+                    description: Error - if the user is not authorized to delete Content (content/remove policy)
                 404:
-                    description: If the Content item was not found
+                    description: Error - if the Content item was not found
                 406:
-                    description: If the given Translation does not exist for the Content
+                    description: Error - if the given Translation does not exist for the Content
                 409:
-                    description: If the specified Translation is the only one any Version has or is the Main Translation
+                    description: Error - if the specified Translation is the only one any Version has or is the Main Translation
     /objects/{id}/currentversion:
         get:
             description: Redirects to the current version of the content object
             responses:
                 307:
-                    body:
-                        /content/objects/<ID>/versions/<current_version_no>:
-                            example:  |
-                               HTTP/1.1 307 Temporary Redirect
-                               Location: /content/objects/<ID>/versions/<current_version_no>
+                    description: Temporary redirect
                 404:
-                    description: If the resource does not exist
+                    description: Error - if the resource does not exist
     /objects/{id}/versions:
         get:
             description: Returns a list of all versions of the content. This method does not include fields and relations in the Version elements of the response.
@@ -835,17 +820,20 @@ version: 2.4
                                   </VersionItem>
                                 </VersionList>
                 401:
-                    description: If the user has no permission to read the versions
-    /objects/{id}/versions/<versionNo>:
+                    description: Error - if the user has no permission to read the versions
+    /objects/{id}/versions/{versionNo}:
         get:
             description: Loads a specific version of a content object. This method returns fields and relations
             queryParameters:
                 fields:
-                    description: Comma separated list of fields which should be returned in the response (see Content)
+                    description: Fields which should be returned in the response (see Content)
+                    type: Comma separated list
                 responseGroups:
                     description: Alternative: comma separated lists of predefined field groups (see REST API Spec v1)
+                    type: Comma separated lists
                 languages:
-                    description: (comma separated list) restricts the output of translatable fields to the given languages
+                    description: Restricts the output of translatable fields to the given languages
+                    type: Comma separated list
             headers:
                 If-None-Match:
                     description: <etag> Only return the version if the given <etag> is the not current one otherwise a 304 is returned.
@@ -906,16 +894,17 @@ version: 2.4
                                     </Relation>
                                   </Relations>
                 304:
-                    description: If the etag does not match the current one
+                    description: Error - if the etag does not match the current one
                 401:
-                    description: If the user is not authorized to read this object
+                    description: Error - if the user is not authorized to read this object
                 404:
-                    description: If the ID or version is not found
-        patch:
-            description: PATCH or POST with header X-HTTP-Method-Override: PATCH. A specific draft is updated.
+                    description: Error - if the ID or version is not found
+        post:
+            description: A specific draft is updated - PATCH or POST with header X-HTTP-Method-Override "PATCH".
             queryParameters:
                 languages:
-                    description: (comma separated list) restricts the output of translatable fields to the given languages
+                    description: restricts the output of translatable fields to the given languages
+                    type: Comma separated list
             headers:
                 Accept:
                     description: application/vnd.ez.api.Version+xml or application/vnd.ez.api.Version+json
@@ -923,70 +912,366 @@ version: 2.4
                     description: Causes to patch only if the specified etag is the current one
                 Content-Type:
                     description: application/vnd.ez.api.VersionUpdate+json or application/vnd.ez.api.VersionUpdate+xml
+            body:
+              application/vnd.ez.api.Version+xml:
+                  schema:
+                  example:  |
+                      <?xml version="1.0" encoding="UTF-8"?>
+                      <VersionUpdate xmlns:p="http://ez.no/API/Values"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xsi:schemaLocation="http://ez.no/API/Values ../VersionUpdate.xsd ">
+                        <modificationDate>2001-12-31T12:00:00</modificationDate>
+                        <initialLanguageCode>ger-DE</initialLanguageCode>
+                        <fields>
+                          <field>
+                            <id>1234</id>
+                            <fieldDefinitionIdentifier>title</fieldDefinitionIdentifier>
+                            <languageCode>ger-DE</languageCode>
+                            <fieldValue>Neuer Titel</fieldValue>
+                          </field>
+                          <field>
+                            <id>1235</id>
+                            <fieldDefinitionIdentifier>summary</fieldDefinitionIdentifier>
+                            <languageCode>ger-DE</languageCode>
+                            <fieldValue>Dies ist eine neue Zusammenfassungy</fieldValue>
+                          </field>
+                        </fields>
+                      </VersionUpdate>
             responses:
                 200:
                     body:
-                      HTTP/1.1 200 OK
-                      Accept-Patch: application/vnd.ez.api.VersionUpdate+xml
-                      ETag: "a3f2e5b9"
-                      Content-Type: application/vnd.ez.api.Version+xml
-                      Content-Length: xxx
-                          example:  |
-                              <?xml version="1.0" encoding="UTF-8"?>
-                              <Version href="/content/objects/23/versions/4" media-type="application/vnd.ez.api.Version+xml">
-                                <VersionInfo>
-                                  <id>45</id>
-                                  <versionNo>4</versionNo>
-                                  <status>DRAFT</status>
-                                  <modificationDate>2012-02-20T12:00:00</modificationDate>
-                                  <Creator href="/user/users/44" media-type="application/vnd.ez.api.User+xml" />
-                                  <creationDate>22012-02-20T12:00:00</creationDate>
-                                  <initialLanguageCode>ger-DE</initialLanguageCode>
-                                  <names>
-                                    <value languageCode="ger-DE">Neuer Titel</value>
-                                  </names>
-                                  <Content href="/content/objects/23" media-type="application/vnd.ez.api.ContentInfo+xml" />
-                                </VersionInfo>
-                                <Fields>
-                                  <field>
-                                    <id>1234</id>
-                                    <fieldDefinitionIdentifier>title</fieldDefinitionIdentifier>
-                                    <languageCode>ger-DE</languageCode>
-                                    <fieldValue>Neuer Titel</fieldValue>
-                                  </field>
-                                  <field>
-                                    <id>1235</id>
-                                    <fieldDefinitionIdentifier>summary</fieldDefinitionIdentifier>
-                                    <languageCode>ger-DE</languageCode>
-                                    <fieldValue>Dies ist eine neuse Zusammenfassungy</fieldValue>
-                                  </field>
-                                  <field>
-                                    <fieldDefinitionIdentifier>authors</fieldDefinitionIdentifier>
-                                    <languageCode>ger-DE</languageCode>
-                                    <fieldValue>
-                                      <authors>
-                                        <author name="Klaus Mustermann" email="klaus.mustermann@example.net" />
-                                      </authors>
-                                    </fieldValue>
-                                  </field>
-                                </Fields>
-                                <Relations>
-                                  <Relation href="/content/object/32/versions/2/relations/43" media-type="application/vnd.ez.api.Relation+xml">
-                                    <SourceContent href="/content/objects/23"
-                                      media-type="application/vnd.ez.api.ContentInfo+xml" />
-                                    <DestinationContent href="/content/objects/45"
-                                      media-type="application/vnd.ez.api.ContentInfo+xml" />
-                                    <RelationType>COMMON</RelationType>
-                                  </Relation>
-                                </Relations>
-                              </Version>
+                        application/vnd.ez.api.Version+xml:
+                            example:  |
+                                <?xml version="1.0" encoding="UTF-8"?>
+                                <Version href="/content/objects/23/versions/4" media-type="application/vnd.ez.api.Version+xml">
+                                  <VersionInfo>
+                                    <id>45</id>
+                                    <versionNo>4</versionNo>
+                                    <status>DRAFT</status>
+                                    <modificationDate>2012-02-20T12:00:00</modificationDate>
+                                    <Creator href="/user/users/44" media-type="application/vnd.ez.api.User+xml" />
+                                    <creationDate>22012-02-20T12:00:00</creationDate>
+                                    <initialLanguageCode>ger-DE</initialLanguageCode>
+                                    <names>
+                                      <value languageCode="ger-DE">Neuer Titel</value>
+                                    </names>
+                                    <Content href="/content/objects/23" media-type="application/vnd.ez.api.ContentInfo+xml" />
+                                  </VersionInfo>
+                                  <Fields>
+                                    <field>
+                                      <id>1234</id>
+                                      <fieldDefinitionIdentifier>title</fieldDefinitionIdentifier>
+                                      <languageCode>ger-DE</languageCode>
+                                      <fieldValue>Neuer Titel</fieldValue>
+                                    </field>
+                                    <field>
+                                      <id>1235</id>
+                                      <fieldDefinitionIdentifier>summary</fieldDefinitionIdentifier>
+                                      <languageCode>ger-DE</languageCode>
+                                      <fieldValue>Dies ist eine neuse Zusammenfassungy</fieldValue>
+                                    </field>
+                                    <field>
+                                      <fieldDefinitionIdentifier>authors</fieldDefinitionIdentifier>
+                                      <languageCode>ger-DE</languageCode>
+                                      <fieldValue>
+                                        <authors>
+                                          <author name="Klaus Mustermann" email="klaus.mustermann@example.net" />
+                                        </authors>
+                                      </fieldValue>
+                                    </field>
+                                  </Fields>
+                                  <Relations>
+                                    <Relation href="/content/object/32/versions/2/relations/43" media-type="application/vnd.ez.api.Relation+xml">
+                                      <SourceContent href="/content/objects/23"
+                                        media-type="application/vnd.ez.api.ContentInfo+xml" />
+                                      <DestinationContent href="/content/objects/45"
+                                        media-type="application/vnd.ez.api.ContentInfo+xml" />
+                                      <RelationType>COMMON</RelationType>
+                                    </Relation>
+                                  </Relations>
+                                </Version>
                 400:
-                    description: If the Input does not match the input schema definition, In this case the response contains an ErrorMessage
+                    description: Error - if the Input does not match the input schema definition, In this case the response contains an ErrorMessage
                 401:
-                    description: If the user is not authorized to update this version
+                    description: Error - if the user is not authorized to update this version
                 403:
-                    description: If the version is not allowed to change - i.e is not a DRAFT
+                    description: Error - if the version is not allowed to change - i.e is not a DRAFT
                 404:
-                    description: If the content id or version id does not exist
+                    description: Error - if the content id or version id does not exist
                 412:
-                    description: If the current ETag does not match with the provided one in the If-Match header
+                    description: Error - if the current ETag does not match with the provided one in the If-Match header
+    /objects/{id}/versions/{no}:
+        post:
+            description: COPY or POST with header X-HTTP-Method-Override COPY. The system creates a new draft version as a copy from the given version
+            headers:
+                Accept: application/vnd.ez.api.Version+xml or application/vnd.ez.api.Version+json
+            responses:
+                201:
+                    description: Created
+                401:
+                    description: Error - if the user is not authorized to update this object
+                404:
+                    description: Error - if the content object was not found
+    /objects/{id}/currentversion:
+        post:
+            description: COPY or POST with header X-HTTP-Method-Override: COPY. The system creates a new draft version as a copy from the current version
+            headers:
+              Accept: application/vnd.ez.api.Version+xml or application/vnd.ez.api.Version+json
+            responses:
+                201:
+                    description: Created
+                401:
+                    description: Error - if the user is not authorized to update this object
+                403:
+                    description: Error - if the current version is already a draft
+                404:
+                    description: Error - if the content object was not found
+/user:
+    /groups:
+        get:
+            description: Load user groups for either an id or remoteId or role.
+            queryParameters:
+                roleId:
+                    description: lists user groups assigned to the given role
+                id:
+                    description: retrieves the user group for the given ID
+                remoteID:
+                    description: retrieves the user group for the given remoteId
+            headers:
+                Accept: application/vnd.ez.api.UserGroupList+xml or application/vnd.ez.api.UserGroupList+json or application/vnd.ez.api.UserGroupRefList+xml or application/vnd.ez.api.UserGroupRefList+json
+            responses:
+                200:
+                    body:
+                        application/vnd.ez.api.UserGroup+xml:
+                            example:  |
+                                <?xml version="1.0" encoding="UTF-8"?>
+                                <UserGroup href="/user/groups/1/5" id="5" media-type="application/vnd.ez.api.UserGroup+xml" remoteId="remoteId-qwert001">
+                                  <ContentType href="/content/types/5" media-type="application/vnd.ez.api.ContentType+xml" />
+                                  <name>Users</name>
+                                  <Versions href="/content/objects/4/versions" media-type="application/vnd.ez.api.VersionList+xml" />
+                                  <Section href="/content/sections/4" media-type="application/vnd.ez.api.Section+xml" />
+                                  <MainLocation href="/content/locations/1/5" media-type="application/vnd.ez.api.Location+xml" />
+                                  <Locations href="/content/objects/4/locations" media-type="application/vnd.ez.api.LocationList+xml" />
+                                  <Owner href="/user/users/13" media-type="application/vnd.ez.api.User+xml" />
+                                  <publishDate>2011-02-31T16:00:00</publishDate>
+                                  <lastModificationDate>2011-02-31T16:00:00</lastModificationDate>
+                                  <mainLanguageCode>eng-UK</mainLanguageCode>
+                                  <alwaysAvailable>true</alwaysAvailable>
+                                  <Content>
+                                    <VersionInfo>
+                                      <id>22</id>
+                                      <versionNo>1</versionNo>
+                                      <status>PUBLISHED</status>
+                                      <modificationDate>2011-02-31T16:00:00</modificationDate>
+                                      <Creator href="/user/users/14" media-type="application/vnd.ez.api.User+xml" />
+                                      <creationDate>2011-02-31T16:00:00</creationDate>
+                                      <initialLanguageCode>eng-UK</initialLanguageCode>
+                                      <Content href="/content/objects/4" media-type="application/vnd.ez.api.ContentInfo+xml" />
+                                    </VersionInfo>
+                                    <Fields>
+                                      <field>
+                                        <id>1234</id>
+                                        <fieldDefinitionIdentifier>name</fieldDefinitionIdentifier>
+                                        <languageCode>eng-UK</languageCode>
+                                        <fieldValue>Users</fieldValue>
+                                      </field>
+                                      <field>
+                                        <id>1235</id>
+                                        <fieldDefinitionIdentifier>description</fieldDefinitionIdentifier>
+                                        <languageCode>eng-UK</languageCode>
+                                        <fieldValue>Main Group</fieldValue>
+                                      </field>
+                                    </Fields>
+                                    <Relations />
+                                  </Content>
+                                  <SubGroups href="/user/groups/1/5/subgroups" media-type="application/vnd.ez.api.UserGroupList+xml"/>
+                                  <Users href="/user/groups/1/5/users" media-type="application/vnd.ez.api.UserList+xml"/>
+                                  <Roles href="/user/groups/1/5/roles" media-type="application/vnd.ez.api.RoleList+xml"/>
+                                </UserGroup>
+                401:
+                    description: Error - if the user has no permission to read user groups
+    /groups/{path}/subgroups:
+        post:
+            description: Creates a new user group under the given parent. To create a top level group use /user/groups/subgroups
+            headers:
+                Accept: application/vnd.ez.api.UserGroup+xml or application/vnd.ez.api.UserGroup+json
+                Content-Type: application/vnd.ez.api.UserGroupCreate+json or application/vnd.ez.api.UserGroupCreate+xml
+            body:
+                application/vnd.ez.api.UserGroup+xml:
+                    schema:
+                    example:  |
+                        <?xml version="1.0" encoding="UTF-8"?>
+                        <UserGroupCreate>
+                          <mainLanguageCode>eng-US</mainLanguageCode>
+                          <remoteId>remoteId-qwert098</remoteId>
+                          <fields>
+                            <field>
+                              <fieldDefinitionIdentifier>name</fieldDefinitionIdentifier>
+                              <languageCode>eng-US</languageCode>
+                              <fieldValue>UserGroup</fieldValue>
+                            </field>
+                            <field>
+                              <fieldDefinitionIdentifier>description</fieldDefinitionIdentifier>
+                              <languageCode>eng-US</languageCode>
+                              <fieldValue>This is the description of the user group</fieldValue>
+                            </field>
+                          </fields>
+                        </UserGroupCreate>
+            responses:
+                201:
+                    body:
+                        application/vnd.ez.api.UserGroup+xml:
+                            example:  |
+                                <?xml version="1.0" encoding="UTF-8"?>
+                                <UserGroup href="/user/groups/1/5/65" id="65" media-type="application/vnd.ez.api.UserGroup+xml" remoteId="remoteId-qwert543">
+                                  <ContentType href="/content/types/5" media-type="application/vnd.ez.api.ContentType+xml" />
+                                  <name>UserGroup</name>
+                                  <Versions href="/content/objects/123/versions" media-type="application/vnd.ez.api.VersionList+xml" />
+                                  <Section href="/content/sections/4" media-type="application/vnd.ez.api.Section+xml" />
+                                  <MainLocation href="/content/locations/1/5/65" media-type="application/vnd.ez.api.Location+xml" />
+                                  <Locations href="/content/objects/123/locations" media-type="application/vnd.ez.api.LocationList+xml" />
+                                  <Owner href="/user/users/13" media-type="application/vnd.ez.api.User+xml" />
+                                  <publishDate>2012-02-31T16:00:00</publishDate>
+                                  <lastModificationDate>2012-02-31T16:00:00</lastModificationDate>
+                                  <mainLanguageCode>eng-UK</mainLanguageCode>
+                                  <alwaysAvailable>true</alwaysAvailable>
+                                  <Content>
+                                    <VersionInfo>
+                                      <id>123</id>
+                                      <versionNo>2</versionNo>
+                                      <status>PUBLISHED</status>
+                                      <modificationDate>2012-02-31T16:00:00</modificationDate>
+                                      <Creator href="/user/users/14" media-type="application/vnd.ez.api.User+xml" />
+                                      <creationDate>2012-02-31T16:00:00</creationDate>
+                                      <initialLanguageCode>eng-UK</initialLanguageCode>
+                                      <Content href="/content/objects/123" media-type="application/vnd.ez.api.ContentInfo+xml" />
+                                    </VersionInfo>
+                                    <Fields>
+                                      <field>
+                                        <id>1234</id>
+                                        <fieldDefinitionIdentifier>name</fieldDefinitionIdentifier>
+                                        <languageCode>eng-UK</languageCode>
+                                        <fieldValue>UserGroup</fieldValue>
+                                      </field>
+                                      <field>
+                                        <id>1235</id>
+                                        <fieldDefinitionIdentifier>description</fieldDefinitionIdentifier>
+                                        <languageCode>eng-UK</languageCode>
+                                        <fieldValue>This is the description of the user group</fieldValue>
+                                      </field>
+                                    </Fields>
+                                    <Relations />
+                                  </Content>
+                                  <ParentUserGroup href="/user/groups/1/5" media-type="application/vnd.ez.api.UserGroup+xml" />
+                                  <SubGroups href="/user/groups/1/5/65/subgroups" media-type="application/vnd.ez.api.UserGroupList+xml"/>
+                                  <Users href="/user/groups/1/5/65/users" media-type="application/vnd.ez.api.UserList+xml"/>
+                                  <Roles href="/user/groups/1/5/65/roles" media-type="application/vnd.ez.api.RoleList+xml"/>
+                                </UserGroup>
+                400:
+                    description: Error - if the Input does not match the input schema definition, In this case the response contains an ErrorMessage
+                401:
+                    description: Error - if the user is not authorized to create this user group
+    /users:
+        get:
+            description: Load users either for a given remoteId or role
+            queryParameters:
+                roleId:
+                    description: lists users assigned to the given role (ex: GET /user/users?roleId=/user/roles/1)
+                remoteId:
+                    description: retrieves the user for the given remoteId (ex: GET /user/users?remoteId=55dd9713db75145f374bbd0b4f60ad29)
+                login:
+                    description: retrieves the user for the given login (ex: GET /user/users?login=editor)
+                email:
+                    description: lists users with the given email (ex: GET /user/users?email=editor@example.com)
+            headers:
+                Accept: application/vnd.ez.api.UserList+xml or application/vnd.ez.api.UserList+json or application/vnd.ez.api.UserRefList+xml or application/vnd.ez.api.UserRefList+json
+            responses:
+                200:
+                    description: OK - Loads users either for a given remoteId or role
+                404:
+                    description: If there are no visibile users matching the filter
+        head:
+            description: Verifies if there are users matching the given filter.
+            queryParameters:
+                roleId:
+                    description: lists users assigned to the given role (ex: GET /user/users?roleId=/user/roles/1)
+                remoteId:
+                    description: retrieves the user for the given remoteId (ex: GET /user/users?remoteId=55dd9713db75145f374bbd0b4f60ad29)
+                login:
+                    description: retrieves the user for the given login (ex: GET /user/users?login=editor)
+                email:
+                    description: lists users with the given email (ex: GET /user/users?email=editor@example.com)
+            responses:
+                200:
+                    description: OK
+                404:
+                    description: Error - if there are no visibile users matching the filter
+    /users/{ID}/groups:
+        get:
+            description: Returns a list of user groups the user belongs to. The returned list includes the resources for unassigning a user group if the user is in multiple groups.
+            queryParameters:
+               offset:
+                    description: the offset of the result set
+                    type: integer
+               limit:
+                    description: the number of bookmarks returned
+                    type: integer
+            headers:
+                Accept:
+                    description: application/vnd.ez.api.UserGroupRefList+xml or application/vnd.ez.api.UserGroupRefList+json
+            responses:
+                200:
+                    body:
+                        application/vnd.ez.api.UserGroupRefList:
+                            example:  |
+                                <?xml version="1.0" encoding="UTF-8"?>
+                                <UserGroupRefList href="/user/users/45/groups"
+                                  media-type="application/vnd.ez.api.UserGroupRefList">
+                                  <UserGroup href="/user/groups/1/5/34" media-type="application/vnd.ez.api.UserGroup">
+                                    <unassign href="/user/users/45/groups/34" method="DELETE" />
+                                  </UserGroup>
+                                  <UserGroup href="/user/groups/1/5/78" media-type="application/vnd.ez.api.UserGroup">
+                                    <unassign href="/user/users/45/groups/78" method="DELETE" />
+                                  </UserGroup>
+                                </UserGroupRefList>
+                401:
+                    description: Error - if the user has no permission to read user groups
+                404:
+                  description: Error -if the user does not exist
+        post:
+            description: Returns a list of user groups the user belongs to. The returned list includes the resources for unassigning a user group if the user is in multiple groups.
+            queryParameters:
+                group:
+                    description: the new parent group resource of the user
+            headers:
+                Accept:
+                    description: application/vnd.ez.api.UserGroupRefList+xml or application/vnd.ez.api.UserGroupRefList+json
+            body:
+                application/vnd.ez.api.UserGroupRefList+xml:
+                    example:  |
+                        POST /user/users/45/groups?/user/groups/1/5/88 HTTP/1.1
+                        Accept: application/vnd.ez.api.UserGroupRefList+xml
+            responses:
+                200:
+                    body:
+                        application/vnd.ez.api.UserGroupRefList:
+                            example:  |
+                                <?xml version="1.0" encoding="UTF-8"?>
+                                <UserGroupRefList href="/user/users/45/groups"
+                                  media-type="application/vnd.ez.api.UserGroupRefList">
+                                  <UserGroup href="/user/groups/1/5/34" media-type="application/vnd.ez.api.UserGroup">
+                                    <unassign href="/user/users/45/groups/34" method="DELETE" />
+                                  </UserGroup>
+                                  <UserGroup href="/user/groups/1/5/78" media-type="application/vnd.ez.api.UserGroup">
+                                    <unassign href="/user/users/45/groups/78" method="DELETE" />
+                                  </UserGroup>
+                                  <UserGroup href="/user/groups/1/5/88" media-type="application/vnd.ez.api.UserGroup">
+                                    <unassign href="/user/users/45/groups/88" method="DELETE" />
+                                  </UserGroup>
+                                </UserGroupRefList>
+                401:
+                    description: Error -if the user is not authorized to assign user groups
+                403:
+                    description: Error -if the new user group does not exist or the user is already in this group
+                404:
+                    description: Error -if the user does not exist
