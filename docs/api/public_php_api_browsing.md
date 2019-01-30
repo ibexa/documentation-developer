@@ -504,27 +504,22 @@ $result = $searchService->findContent( $query );
 
     All filter criteria are capable of doing an "IN" selection, the `ParentLocationId` above could, for example, have been provided `array( 2, 43 )` to include second level children in both your content tree (2) and your media tree (43).
 
-### Performing a Faceted Search
+### Performing a faceted search
 
-!!! note "Under construction"
+!!! note
 
-    Faceted Search is not fully implemented yet.
+    Faceted search is only available with Solr search engine.
 
-    -   Implemented Facets SOLR BUNDLE &gt;=1.4: `User, ContentType, and Section` , see:   [![](https://jira.ez.no/images/icons/issuetypes/epic.png)EZP-26465](https://jira.ez.no/browse/EZP-26465?src=confmacro) - Search Facets M1 Development
+To perform a faceted search, set the `Query->facetBuilders` property.
+Relevant facets will be returned in `SearchResult->facets`.
 
-    You can register [custom facet builder visitors](https://github.com/ezsystems/ezplatform-solr-search-engine/blob/v1.1.1/lib/Resources/config/container/solr/facet_builder_visitors.yml) with Solr for Content(Info) and SOLR BUNDLE &gt;=1.4 Location search.
-
-    **Contribution starting point**
-
-    The link above is also the starting point for contributing visitors for other API [FacetBuilders](https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/API/Repository/Values/Content/Query/FacetBuilder) and [Facets](https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/API/Repository/Values/Content/Search/Facet) . As for integration tests, fixtures that will need adjustments are found in [ezpublish-kernel](https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/API/Repository/Tests/_fixtures/Solr) , and those missing in that link but [defined in SearchServiceTest](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Tests/SearchServiceTest.php#L2474), are basically not implemented yet.
-
-To be able to take advantage of facets, you can set the `Query->facetBuilders` property, which will result in relevant facets being returned on `SearchResult->facets`. All facet builders share the following properties:
+All facet builders share the following properties:
 
 |Property|Description|
 |--------|-----------|
-|`name`| Recommended, to set the human-readable name of the returned facet for use in UI, so if you need translation this value should already be translated.|
-|`minCount`| Optional, the minimum of hits of a given grouping, e.g. minimum number of content items in a given facet for it to be returned.|
-|`limit`| Optional, Maximum number of facets to be returned; only X number of facets with the greatest number of hits will be returned.|
+|`name`| Recommended, sets the human-readable name of the returned facet for use in UI. If you need translation this value should already be translated.|
+|`minCount`| Optional, the minimum number of hits to create a group, e.g. minimum number of Content items in a given facet for it to be returned.|
+|`limit`| Optional, the maximum number of facets to be returned; only this number of facets with the greatest number of hits will be returned.|
 
 As an example, apply `UserFacet` to be able to group content according to the creator:
 
@@ -539,7 +534,8 @@ $query->filter = new Criterion\ContentTypeIdentifier(['article']);
 $query->facetBuilders[] = new FacetBuilder\UserFacetBuilder(
     [
         'name' => 'Document owner',
-        'type' => FacetBuilder\UserFacetBuilder::OWNER,// Specific to UserFacetBuilder, one of: OWNER, GROUP or MODIFIER
+        // Specific to UserFacetBuilder, one of: OWNER, GROUP or MODIFIER
+        'type' => FacetBuilder\UserFacetBuilder::OWNER,
         'minCount' => 2,
         'limit' => 5
     ]
@@ -547,6 +543,64 @@ $query->facetBuilders[] = new FacetBuilder\UserFacetBuilder(
 
 $result = $searchService->findContentInfo( $query );
 list( $userId, $articleCount ) = $result->facets[0]->entries;
+```
+
+#### Available FacetBuilders
+
+##### ContentTypeFacetBuilder
+
+Arguments:
+
+- `name`: `string`
+- `minCount` (optional): `integer`
+- `limit` (optional): `integer`
+
+Example:
+
+``` php
+    $query->facetBuilders[] = new FacetBuilder\ContentTypeFacetBuilder(
+        [
+            'name' => 'ContentType',
+        ]
+    );
+```
+
+##### SectionFacetBuilder
+
+Arguments:
+
+- `name`: `string`
+- `minCount` (optional): `integer`
+- `limit` (optional): `integer`
+
+Example:
+
+``` php
+    $query->facetBuilders[] = new FacetBuilder\SectionFacetBuilder(
+        [
+            'name' => 'Section',
+        ]
+    );
+```
+
+##### UserFacetBuilder
+
+Arguments:
+
+- `name`: `string`
+- `type`: `string` [`OWNER = 'owner'`, `GROUP = 'group'`, `MODIFIER = 'modifier'`]
+- `minCount` (optional): `integer`
+- `limit` (optional): `integer`
+
+Example:
+
+``` php
+    $query->facetBuilders[] = new FacetBuilder\UserFacetBuilder(
+        [
+            'name' => 'User',
+            'type' => FacetBuilder\UserFacetBuilder::GROUP,
+        ]
+    );
 ```
 
 ### Performing a pure search count
