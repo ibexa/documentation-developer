@@ -7,7 +7,7 @@ using an interactive interface: the browse view and the search view.
 
 !!! tip "Tutorial"
 
-    For a detailed example on how to add a new UDW tab, see [step 5 of the Exnedint Admin UI tutorial](../tutorials/extending_admin_ui/5_creating_a_udw_tab.md).
+    For a detailed example on how to add a new UDW tab, see [step 5 of the Extending Admin UI tutorial](../tutorials/extending_admin_ui/5_creating_a_udw_tab.md).
 
 ### How to use it?
 
