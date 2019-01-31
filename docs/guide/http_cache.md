@@ -354,6 +354,13 @@ ezpublish:
 
     By default blocks are not cached (TTL = 0) for backwards compatibility reasons.
 
+!!! note "Invalidating Varnish cache using tokens"
+
+    In setups where the Varnish server IP can change (for example on platform.sh/eZ Platform Cloud),
+    you can use token-based cache invalidation via [ez_purge_acl](https://github.com/ezsystems/ezplatform-http-cache/blob/master/docs/varnish/vcl/varnish4.vcl#L166).
+
+    In such a case use a strong, secure hash and make sure to keep the token secret.
+
 ## Context-aware HTTP cache
 
 As it is based on Symfony, eZ Platform uses HTTP cache extended with features like content awareness.
