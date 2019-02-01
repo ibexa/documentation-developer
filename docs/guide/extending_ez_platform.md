@@ -503,6 +503,74 @@ class OrderedTabSubscriber implements EventSubscriberInterface
 }
 ```
 
+## Custom Content Type icons 
+
+To add custom icons for existing Content Types or custom Content Types in eZ Platform follow the instructions below.
+
+### Configuration 
+
+A configuration of the default icon for Content Type is possible via `default-config` key.
+For example:
+
+```yaml
+ezpublish:
+    system:
+       default:
+           content_type:
+              default-config:
+                 thumbnail: '/assets/images/mydefaulticon.svg'
+```
+
+To configure a custom icon you just need to replace the `default-config` key with a Content Type identifier.
+For example:
+
+```yaml
+ezpublish:
+    system:
+       default:
+           content_type:
+              article:
+                 thumbnail: '/assets/images/customicon.svg'
+```
+
+!!! note "Icons format"
+
+    All icons should be in SVG format so they can display properly in Back Office.
+
+### Custom icons in Twig templates
+
+Content Type icons are accessible in Twig templates via `ez_content_type_icon` function.
+It requires Content Type identifier as an argument. The function returns the path to a Content Type icon.
+
+```twig
+<svg class="ez-icon ez-icon-{{ contentType.identifier }}">
+    <use xlink:href="{{ ez_content_type_icon(contentType.identifier) }}"></use>
+</svg>
+```
+
+If the icon for given Content Type is **not specified** in the configuration the default icon will be returned.
+
+### Custom icons in JavaScript
+
+Content Types icons configuration is stored in a global object: `eZ.adminUiConfig.contentTypes`.
+
+You can easily retrieve icon URL with a helper function `getContentTypeIcon`, set on a global object `eZ.helpers.contentType`.
+It takes Content Type identifier as an argument and returns:
+ 
+ - URL of given Content Type's icon or 
+ - `null` if there is no Content Type with given identifier
+
+Example with `getContentTypeIcon`:
+
+```jsx
+const contentTypeIconUrl = eZ.helpers.contentType.getContentTypeIconUrl(contentTypeIdentifier);
+return (
+   <svg className="ez-icon">
+       <use xlinkHref={contentTypeIconUrl} />
+   </svg>
+)
+```
+
 ## Workflow event timeline
 
 [Workflow event timeline](workflow.md) is used out of the box to display workflow transitions.
