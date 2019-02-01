@@ -19,6 +19,17 @@ $permissionResolver->setCurrentUserReference($user);
     To skip permission checks, you can use the `sudo()` method.
     It allows API execution to be performed with full access, sand-boxed.
 
+    You can use this method to perform an action that the current user does not have permissions for.
+    This option is recommended instead of setting the admin user as the current user.
+
+    For example, to [hide a Location](public_php_api_locations.md#hideunhide-location), use:
+
+    ``` php
+    $hiddenLocation = $repository->sudo(function ($repository) use ($location) {
+        return $repository->getLocationService()->hideLocation($location);
+    });
+    ```
+
 ## Creating content
 
 !!! note "Full code"
