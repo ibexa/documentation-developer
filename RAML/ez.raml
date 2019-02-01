@@ -717,7 +717,7 @@ version: 2.4
                     description: Error - if the user is not authorized to copy this object to the given location
                 404:
                     description: Error - if the source or destination resource do not exist.
-    /objects/{id}/translations/{languageCode}:
+    /objects/{contentId}/translations/{languageCode}:
         delete:
             description: Permanently delete a Translation from all Versions of a Content
             responses:
@@ -731,7 +731,7 @@ version: 2.4
                     description: Error - if the given Translation does not exist for the Content
                 409:
                     description: Error - if the specified Translation is the only one any Version has or is the Main Translation
-    /objects/{id}/currentversion:
+    /objects/{contentId}/currentversion:
         get:
             description: Redirects to the current version of the content object
             responses:
@@ -739,7 +739,7 @@ version: 2.4
                     description: Temporary redirect
                 404:
                     description: Error - if the resource does not exist
-    /objects/{id}/versions:
+    /objects/{contentId}/versions:
         get:
             description: Returns a list of all versions of the content. This method does not include fields and relations in the Version elements of the response.
             headers:
@@ -821,7 +821,7 @@ version: 2.4
                                 </VersionList>
                 401:
                     description: Error - if the user has no permission to read the versions
-    /objects/{id}/versions/{versionNo}:
+    /objects/{contentId}/versions/{versionNo}:
         get:
             description: Loads a specific version of a content object. This method returns fields and relations
             queryParameters:
@@ -1000,7 +1000,7 @@ version: 2.4
                     description: Error - if the content id or version id does not exist
                 412:
                     description: Error - if the current ETag does not match with the provided one in the If-Match header
-    /objects/{id}/versions/{no}:
+    /objects/{contentId}/versions/{no}:
         post:
             description: COPY or POST with header X-HTTP-Method-Override COPY. The system creates a new draft version as a copy from the given version
             headers:
@@ -1012,7 +1012,7 @@ version: 2.4
                     description: Error - if the user is not authorized to update this object
                 404:
                     description: Error - if the content object was not found
-    /objects/{id}/currentversion:
+    /objects/{contentId}/currentversion:
         post:
             description: COPY or POST with header X-HTTP-Method-Override: COPY. The system creates a new draft version as a copy from the current version
             headers:
