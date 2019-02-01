@@ -474,7 +474,7 @@ The configuration bellow has been tested on Solr 6.5.5. Version 4.x should works
 
 ### Configuring Master for replication
 
-First we need to change the core configuration in *solrconfig.xml*  ( By example */opt/solr/server/ez/collection1/conf/solrconfig.xml ). You could copy and paste the code bellow before any other **requestHandler** section.
+First we need to change the core configuration in *solrconfig.xml*  ( By example */opt/solr/server/ez/collection1/conf/solrconfig.xml ). You could copy and paste the code below before any other **requestHandler** section.
 
 ```xml
 <requestHandler name="/replication" class="solr.ReplicationHandler">
