@@ -505,7 +505,7 @@ class OrderedTabSubscriber implements EventSubscriberInterface
 
 ## Custom Content Type icons 
 
-To add custom icons for existing Content Types or custom Content Types in eZ Platform follow below instruction.
+To add custom icons for existing Content Types or custom Content Types in eZ Platform follow the instructions below.
 
 ### Configuration 
 
@@ -521,7 +521,7 @@ ezpublish:
                  thumbnail: '/assets/images/mydefaulticon.svg'
 ```
 
-Configuration of a custom icon will be exactly the same, you just need to replace default-config key with a Content Type identifier.
+Configuration of a custom icon will be exactly the same, you just need to replace the `default-config` key with a Content Type identifier.
 For example:
 
 ```yaml
@@ -536,7 +536,7 @@ ezpublish:
 ### Custom icons in Twig templates
 
 Content Type icons are accessible in Twig templates via `ez_content_type_icon` function.
-It requires Content Type identifier as an argument. Function returns path to a Content Type icon.
+It requires Content Type identifier as an argument. The function returns the path to a Content Type icon.
 
 ```twig
 <svg class="ez-icon ez-icon-{{ contentType.identifier }}">
@@ -558,7 +558,7 @@ It takes Content Type identifier as an argument and returns:
 
 Example with `getContentTypeIcon`:
 
-```React JSX
+```jsx
 const contentTypeIconUrl = eZ.helpers.contentType.getContentTypeIconUrl(contentTypeIdentifier);
 return (
    <svg className="ez-icon">
