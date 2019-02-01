@@ -509,7 +509,7 @@ To add custom icons for existing Content Types or custom Content Types in eZ Pla
 
 ### Configuration 
 
-A configuration of the default icon for Content Type is possible via default-config key.
+A configuration of the default icon for Content Type is possible via `default-config` key.
 For example:
 
 ```yaml
@@ -521,7 +521,7 @@ ezpublish:
                  thumbnail: '/assets/images/mydefaulticon.svg'
 ```
 
-Configuration of a custom icon will be exactly the same, you just need to replace default-config key with a custom one.
+Configuration of a custom icon will be exactly the same, you just need to replace default-config key with a Content Type identifier.
 For example:
 
 ```yaml
@@ -529,14 +529,14 @@ ezpublish:
     system:
        default:
            content_type:
-              default-config:
+              article:
                  thumbnail: '/assets/images/customicon.svg'
 ```
 
 ### Custom icons in Twig templates
 
 Content Type icons are accessible in Twig templates via `ez_content_type_icon` function.
-It requires Content Type or Content Type Identifier as an argument. Function returns path to a Content Type icon.
+It requires Content Type identifier as an argument. Function returns path to a Content Type icon.
 
 ```twig
 <svg class="ez-icon ez-icon-{{ contentType.identifier }}">
@@ -544,26 +544,27 @@ It requires Content Type or Content Type Identifier as an argument. Function ret
 </svg>
 ```
 
-If the icon for given Content Type is not specified in the configuration then path to the default icon will be returned.
+If the icon for given Content Type is **not specified** in the configuration the default icon will be returned.
 
 ### Custom icons in JavaScript
 
-Icons configuration is pushed from the backend as part of the global configuration `eZ.adminUiConfig.contentTypes`.
+Content Types icons configuration is stored in a global object: `eZ.adminUiConfig.contentTypes`.
 
-You can retrieve icons faster by using new helper function `getContentTypeIcon`.
-It takes Content Type Identifier as an argument.
-Function belongs to global object `eZ.helpers.contentType`.
+You can easily retrieve icon URL with a helper function `getContentTypeIcon`, set on a global object `eZ.helpers.contentType`.
+It takes Content Type identifier as an argument and returns:
+ 
+ - URL of given Content Type's icon or 
+ - `null` if there is no Content Type with given identifier
 
 Example with `getContentTypeIcon`:
 
 ```React JSX
-const contentTypeIcon = eZ.helpers.contentType.getContentTypeIcon(contentTypeIdentifier);
-
+const contentTypeIconUrl = eZ.helpers.contentType.getContentTypeIconUrl(contentTypeIdentifier);
 return (
-    <svg className="ez-icon">
-        <use xlinkHref={contentTypeIcon} />
-    </svg>
-);
+   <svg className="ez-icon">
+       <use xlinkHref={contentTypeIconUrl} />
+   </svg>
+)
 ```
 
 ## Workflow event timeline
