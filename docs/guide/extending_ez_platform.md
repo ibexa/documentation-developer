@@ -533,6 +533,10 @@ ezpublish:
                  thumbnail: '/assets/images/customicon.svg'
 ```
 
+!!! note "Icons format"
+
+    All icons should be in SVG format so they can display properly in Back Office.
+
 ### Custom icons in Twig templates
 
 Content Type icons are accessible in Twig templates via `ez_content_type_icon` function.
