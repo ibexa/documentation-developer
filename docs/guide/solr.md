@@ -7,12 +7,12 @@
 !!! note "Enable the bundle"
 
     If you have previously disabled the bundle, add/update composer dependencies:
-
+    
     ``` bash
     composer require --no-update ezsystems/ezplatform-solr-search-engine:~1.0
     composer update
     ```
-
+    
     Make sure `EzPublishSolrSearchEngineBundle` is activated with the following line in the `app/AppKernel.php` file: `new EzSystems\EzPlatformSolrSearchEngineBundle\EzSystemsEzPlatformSolrSearchEngineBundle()`
 
 ### Step 1: Configuring and starting Solr
@@ -463,3 +463,86 @@ my_webinar_app.webinar_event_title_fulltext_field_mapper:
     tags:
         - {name: ezpublish.search.solr.field_mapper.content}
 ```
+
+## Configuring Solr Replication (master/slave)
+
+!!! note
+
+``` 
+The configuration bellow has been tested on Solr 6.5.5. Version 4.x should works also.
+```
+
+### Configuring Master for replication
+
+First we need to change the core configuration in *solrconfig.xml*  ( By example */opt/solr/server/ez/collection1/conf/solrconfig.xml ). You could copy and paste the code bellow before any other **requestHandler** section.
+
+```xml
+<requestHandler name="/replication" class="solr.ReplicationHandler">
+  <lst name="master">
+    <str name="replicateAfter">optimize</str>
+    <str name="backupAfter">optimize</str>
+    <str name="confFiles">schema.xml,stopwords.txt,elevate.xml</str>
+    <str name="commitReserveDuration">00:00:10</str>
+  </lst>
+  <int name="maxNumberOfBackups">2</int>
+  <lst name="invariants">
+    <str name="maxWriteMBPerSec">16</str>
+  </lst>
+</requestHandler>
+<str name="confFiles">solrconfig_slave.xml:solrconfig.xml,x.xml,y.xml</str>
+```
+
+And restart the master via
+
+```bash
+sudo su - solr -c "/opt/solr/bin/solr restart"
+```
+
+### Configuring Slave for replication
+
+You have to edit the same file on the slave server, and put the code bellow:
+
+```xml
+<requestHandler name="/replication" class="solr.ReplicationHandler">
+  <lst name="slave">
+
+    <!-- fully qualified url for the replication handler of master. It is
+         possible to pass on this as a request param for the fetchindex command -->
+    <str name="masterUrl">http://123.456.789.0:8983/solr/collection1/replication</str>
+
+    <!-- Interval in which the slave should poll master.  Format is HH:mm:ss .
+         If this is absent slave does not poll automatically.
+         But a fetchindex can be triggered from the admin or the http API -->
+    <str name="pollInterval">00:00:20</str>
+
+    <!-- THE FOLLOWING PARAMETERS ARE USUALLY NOT REQUIRED-->
+    <!-- To use compression while transferring the index files. The possible
+         values are internal|external.  If the value is 'external' make sure
+         that your master Solr has the settings to honor the accept-encoding header.
+         See here for details: http://wiki.apache.org/solr/SolrHttpCompression
+         If it is 'internal' everything will be taken care of automatically.
+         USE THIS ONLY IF YOUR BANDWIDTH IS LOW.
+         THIS CAN ACTUALLY SLOWDOWN REPLICATION IN A LAN -->
+    <str name="compression">internal</str>
+
+    <!-- The following values are used when the slave connects to the master to
+         download the index files.  Default values implicitly set as 5000ms and
+         10000ms respectively. The user DOES NOT need to specify these unless the
+         bandwidth is extremely low or if there is an extremely high latency -->
+    <str name="httpConnTimeout">5000</str>
+    <str name="httpReadTimeout">10000</str>
+
+    <!-- If HTTP Basic authentication is enabled on the master, then the slave
+         can be configured with the following -->
+    <str name="httpBasicAuthUser">username</str>
+    <str name="httpBasicAuthPassword">password</str>
+  </lst>
+</requestHandler>
+```
+
+And restart Solr slave.
+
+Connect to the Solr slave interface (http://localhost:8983/solr), go to your core and check the replication status:
+
+![Solr Slave](C:\projects\developer-documentation\docs\guide\img\solr.PNG)
+
