@@ -521,7 +521,7 @@ ezpublish:
                  thumbnail: '/assets/images/mydefaulticon.svg'
 ```
 
-Configuration of a custom icon will be exactly the same, you just need to replace the `default-config` key with a Content Type identifier.
+To configure a custom icon you just need to replace the `default-config` key with a Content Type identifier.
 For example:
 
 ```yaml
