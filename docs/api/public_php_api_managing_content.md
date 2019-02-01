@@ -14,6 +14,11 @@ $user = $userService->loadUserByCredentials( $username, $password );
 $permissionResolver->setCurrentUserReference($user);
 ```
 
+!!! tip "Using `sudo()`"
+
+    To skip permission checks, you can use the `sudo()` method.
+    It allows API execution to be performed with full access, sand-boxed.
+
 ## Creating content
 
 !!! note "Full code"
