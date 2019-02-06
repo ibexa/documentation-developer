@@ -285,7 +285,9 @@ Now you can reload your eZ Platform back end which will be translated in French 
 !!! tip
 
     If you do not want to add a bundle with Back Office translation, you can manually add the necessary xliff files.
-    Add the language in configuration under `ezsettings.default.user_preferences.additional_translations`.
+    Add the language in an array under `ezsettings.default.user_preferences.additional_translations`, for example:
+
+    `ezsettings.default.user_preferences.additional_translations: ['pl_PL', 'fr_FR']`
 
     Then, run `composer run post-update-cmd` and clear the cache.
 
