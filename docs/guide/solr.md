@@ -46,7 +46,7 @@ bin/solr start -f -a "-Dsolr.solr.home=multicore"
 
 ##### Solr 6
 
-Download and extract Solr. Solr Bundle 1.3 and higher supports Solr 6 *(currently tested & recommended with Solr 6.6LTS)*:
+Download and extract Solr. Solr Bundle 1.3 and higher supports Solr 6 *(currently tested and recommended with Solr 6.6LTS)*:
 
 - [solr-6.6.5.tgz](http://archive.apache.org/dist/lucene/solr/6.6.5/solr-6.6.5.tgz) or [solr-6.6.5.zip](http://archive.apache.org/dist/lucene/solr/6.6.5/solr-6.6.5.zip)
 
