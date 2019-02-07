@@ -474,7 +474,8 @@ my_webinar_app.webinar_event_title_fulltext_field_mapper:
 
 ### Configuring Master for replication
 
-First we need to change the core configuration in *solrconfig.xml*  ( By example */opt/solr/server/ez/collection1/conf/solrconfig.xml ). You could copy and paste the code below before any other **requestHandler** section.
+First you need to change the core configuration in `solrconfig.xml` (for example */opt/solr/server/ez/collection1/conf/solrconfig.xml ).
+You can copy and paste the code below before any other `requestHandler` section.
 
 ```xml
 <requestHandler name="/replication" class="solr.ReplicationHandler">
