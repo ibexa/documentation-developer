@@ -493,7 +493,7 @@ You can copy and paste the code below before any other `requestHandler` section.
 <str name="confFiles">solrconfig_slave.xml:solrconfig.xml,x.xml,y.xml</str>
 ```
 
-And restart the master via
+Then restart the master with:
 
 ```bash
 sudo su - solr -c "/opt/solr/bin/solr restart"
