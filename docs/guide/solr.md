@@ -501,7 +501,7 @@ sudo su - solr -c "/opt/solr/bin/solr restart"
 
 ### Configuring Slave for replication
 
-You have to edit the same file on the slave server, and put the code below:
+You have to edit the same file on the slave server, and use the code below:
 
 ```xml
 <requestHandler name="/replication" class="solr.ReplicationHandler">
