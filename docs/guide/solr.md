@@ -468,7 +468,6 @@ my_webinar_app.webinar_event_title_fulltext_field_mapper:
 
 !!! note
 
-``` 
     The configuration bellow has been tested on Solr 6.5.5. Version 4.x should works also.
 
 ### Configuring Master for replication
