@@ -46,9 +46,13 @@ bin/solr start -f -a "-Dsolr.solr.home=multicore"
 
 ##### Solr 6
 
-Download and extract Solr. Solr Bundle 1.3 and higher supports Solr 6 *(currently tested with Solr 6.6.2)*:
+Download and extract Solr. Solr Bundle 1.3 and higher supports Solr 6 *(currently tested with Solr 6.6LTS)*:
 
-- [solr-6.6.2.tgz](http://archive.apache.org/dist/lucene/solr/6.6.2/solr-6.6.2.tgz) or [solr-6.6.2.zip](http://archive.apache.org/dist/lucene/solr/6.6.2/solr-6.6.2.zip)
+- [solr-6.6.5.tgz](http://archive.apache.org/dist/lucene/solr/6.6.5/solr-6.6.5.tgz) or [solr-6.6.5.zip](http://archive.apache.org/dist/lucene/solr/6.6.5/solr-6.6.5.zip)
+
+!!! caution "Solr"
+
+    Solr versions older than 6.6.2 have a security hole. Remember to download or update to a higher version.
 
 Copy the necessary configuration files. In the example below from the root of your project to the place you extracted Solr:
 
