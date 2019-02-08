@@ -23,7 +23,7 @@ These setups are tested by QA and are generally recommended setups. For security
 
 !!! caution "Solr"
 
-    Solr versions older than 6.6.2 have a security hole. Remember to download or update to a higher version.
+    Solr versions older than 6.6.2 have a security vulnerability. Remember to download or update to a higher version.
     
 |||
 |------|------|
