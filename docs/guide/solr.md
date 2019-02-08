@@ -52,7 +52,7 @@ Download and extract Solr. Solr Bundle 1.3 and higher supports Solr 6 *(currentl
 
 !!! caution "Solr"
 
-    Solr versions older than 6.6.2 have a security hole. Remember to download or update to a higher version.
+    Solr versions older than 6.6.2 have a security vulnerability. Remember to download or update to a higher version.
 
 Copy the necessary configuration files. In the example below from the root of your project to the place you extracted Solr:
 
