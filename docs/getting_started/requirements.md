@@ -21,9 +21,13 @@ These setups are tested by QA and are generally recommended setups. For security
 |PHP packages|php-cli</br>php-fpm</br>php-mysql or php-pgsql</br>php-xml</br>php-mbstring</br>php-intl</br>php-mcrypt</br>php-curl</br>php-gd *or* php-imagick|php-cli</br>php-fpm</br>php-mysql or php-pgsql</br>php-xml</br>php-mbstring</br>php-intl</br>php-mcrypt</br>php-curl</br>php-gd *or* php-imagick|php-cli</br>php-fpm</br>php-mysqlnd or php-pgsql</br>php-xml</br>php-mbstring</br>php-process</br>php-intl</br>php-pear *(optional, provides pecl)*</br>php-gd *or* php-imagick *(via [pecl](https://pecl.php.net/package/imagick))*|
 |Cluster PHP packages</br>|php-memcached *(via [pecl](https://pecl.php.net/package/memcached)) or* php-redis *(via [pecl](https://pecl.php.net/package/redis))*|php-memcached *(via [pecl](https://pecl.php.net/package/memcached)) or* php-redis *(via [pecl](https://pecl.php.net/package/redis))*|php-memcached *(via [pecl](https://pecl.php.net/package/memcached)) or* php-redis *(via [pecl](https://pecl.php.net/package/redis))*|
 
+!!! caution "Solr"
+
+    Solr versions older than 6.6.2 have a security vulnerability. Remember to download or update to a higher version.
+    
 |||
 |------|------|
-|Search|Solr (recommended, for better performance and scalability of all API Queries):</br></br>Solr 4.10</br>*Solr 6 SOLR BUNDLE >= 1.3, CURRENTLY TESTED WITH SOLR 6.4.2*</br></br>Oracle Java/Open JDK: 7 or 8 (needed for Solr, version 8 recommended)|
+|Search|Solr (recommended, for better performance and scalability of all API Queries):</br></br>Solr 4.10</br>*Solr 6 SOLR BUNDLE >= 1.3, CURRENTLY TESTED WITH SOLR 6.6LTS*</br></br>Oracle Java/Open JDK: 7 or 8 (needed for Solr, version 8 recommended)|
 |Graphic Handler|GraphicsMagick or ImageMagick or GD|
 |[Clustering](../guide/clustering.md)|Linux NFS *or* S3 *(for IO, aka binary files stored in content repository)*</br>Memcached *or* Redis 3.0 or higher *(preferably a separate volatile-ttl instance for sessions, and an allkeys-lru/allkeys-lfu instance for cache)*</br>[Varnish](http://varnish-cache.org/) 4.1 or higher with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst) *or* [Fastly](https://www.fastly.com/) using [our bundle provided with eZ Platform Enterprise](../guide/http_cache.md#serving-varnish-through-fastly) *(for HttpCache)*|
 |Filesystem|Linux ext3 / ext4|
