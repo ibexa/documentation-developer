@@ -142,6 +142,10 @@ At this point you can use PHP's built-in server: `php app/console server:start`.
 
 If you want to use an Apache web server, you need to [set up directory permissions](#set-up-permissions) and [prepare a virtual host](#set-up-virtual-host).
 
+!!! caution
+
+    PHP's built-in server is for development use only. For security and performance reasons it should not be used in production.
+
 ## Prepare installation for production
 
 To use eZ Platform with an HTTP server, you need to [set up directory permissions](#set-up-permissions) and [prepare a virtual host](#set-up-virtual-host).
@@ -160,6 +164,8 @@ Future files and directories created by these two users will need to inherit tho
 !!! caution
 
     For security reasons, in production web server should not have write access to other directories than `var`. Skip the step above and follow the link below for production needs instead.
+
+    You must also make sure that the web server cannot interpret files in the `var` directory through PHP. Follow the instructions on [setting up a virtual host](#set-up-virtual-host), as these take care of this for you.
 
 To set up permissions for production, it is recommended to use an ACL (Access Control List).
 See [Setting up or Fixing File Permissions](http://symfony.com/doc/3.4/setup/file_permissions.html) in Symfony documentation
