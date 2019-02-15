@@ -165,7 +165,7 @@ Future files and directories created by these two users will need to inherit tho
 
     For security reasons, in production web server should not have write access to other directories than `var`. Skip the step above and follow the link below for production needs instead.
 
-    You must also make sure that the web server cannot interpret files in the `var` directory through PHP. Follow the instructions on [setting up a virtual host](#set-up-virtual-host), as these take care of this for you.
+    You must also make sure that the web server cannot interpret files in the `var` directory through PHP. To do so, follow the instructions on [setting up a virtual host below](#set-up-virtual-host).
 
 To set up permissions for production, it is recommended to use an ACL (Access Control List).
 See [Setting up or Fixing File Permissions](http://symfony.com/doc/3.4/setup/file_permissions.html) in Symfony documentation
