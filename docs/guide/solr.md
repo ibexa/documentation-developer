@@ -262,7 +262,7 @@ php bin/console --env=prod cache:clear
 The last step is to execute the initial indexation of data:
 
 ``` bash
-php bin/console --env=prod --siteaccess=<name> ezplatform:solr_create_index
+php bin/console --env=prod --siteaccess=<name> ezplatform:reindex
 ```
 
 #### Possible exceptions
