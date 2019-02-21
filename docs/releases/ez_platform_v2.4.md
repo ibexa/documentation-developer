@@ -160,3 +160,69 @@ You are now able to load multiple Locations at once. The biggest benefit of this
 | [List of changes for final of eZ Platform v2.4.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v2.4.0) | [List of changes for final for eZ Platform Enterprise Edition v2.4.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.4.0) |
 | [List of changes for rc1 of eZ Platform v2.4.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v2.4.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v2.4.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.4.0-rc1) |
 | [List of changes for beta1 of eZ Platform v2.4.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v2.4.0-beta1) | [List of changes for beta1 of eZ Platform Enterprise Edition v2.4.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.4.0-beta1) |
+
+## eZ Platform v2.4.2
+
+!!! enterprise
+
+    ### Update eZ Enterprise 2.4 to 2.4.2
+    
+    This update fixes: **[EZEE-2572: Page Builder doesn't work with Map\Host matcher when SiteAaccess are configured for different domains.](https://jira.ez.no/browse/EZEE-2572)**
+
+    Token based authentication for PB is enabled by default, however, the following steps are required during upgrade from v2.4 to v2.4.2+ Enterprise installation :
+
+    1\. Register `LexikJWTAuthenticationBundle` bundle in `/app/AppKernel.php`
+    
+    ``` php
+     public function registerBundles()
+     {
+         $bundles = array(
+             // ...
+            new Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle(),
+             // eZ Systems
+             // ...
+         );
+     }
+    ```
+     
+    2\. Add the following configuration to `/app/config/config.yml`
+     
+    ``` yaml
+     lexik_jwt_authentication:
+         secret_key: '%secret%'
+         encoder:
+             signature_algorithm: HS256
+         # Disabled by default, because Page Builder uses custom extractor
+         token_extractors:
+             authorization_header:
+                 enabled: false
+             cookie:
+                 enabled: false
+             query_parameter:
+                 enabled: false
+    ```
+     
+    For more information see [`LexikJWTAuthenticationBundle` installation instruction.](https://github.com/lexik/LexikJWTAuthenticationBundle/blob/master/Resources/doc/index.md#installation)
+     
+    3\. Add `EzSystems\EzPlatformPageBuilder\Security\EditorialMode\TokenAuthenticator` authentication provider to `ezpublish_front` firewall before `form_login` in `app/config/security.yml`:
+     
+    ``` yaml
+     security:
+         # ...
+         firewalls:
+             ezpublish_front:
+                 # ...
+                 simple_preauth:
+                     authenticator: 'EzSystems\EzPlatformPageBuilder\Security\EditorialMode\TokenAuthenticator'
+                 form_login:
+                     require_previous_session: false
+                 # ...
+    ```
+     
+    4\. Add `page_builder.token_authenticator.enabled: true` to `/app/config/parameters.yml`:
+      
+    ``` yaml
+     # ...
+     page_builder.token_authenticator.enabled: true
+    ```
+     
