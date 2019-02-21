@@ -22,6 +22,9 @@
     width: 4em;
     height: 4em;
 }
+.ez-guidelines .ez-icon.ez-icon--dark {
+    fill: #333;
+}
 .ez-guidelines .ez-icon.ez-icon--light {
     fill: #fff;
 }
