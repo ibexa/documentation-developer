@@ -55,7 +55,8 @@ pages:
         - Public PHP API:
             - 'Public PHP API': 'api/public_php_api.md'
             - 'Customization': 'api/public_php_api_customization.md'
-            - 'Browsing, finding, viewing': 'api/public_php_api_browsing.md'
+            - 'Browsing Content': 'api/public_php_api_browsing.md'
+            - 'Searching': 'api/public_php_api_search.md'
             - 'Managing Content': 'api/public_php_api_managing_content.md'
             - 'Locations': 'api/public_php_api_locations.md'
         - Field Type:
