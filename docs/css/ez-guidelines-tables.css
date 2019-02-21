@@ -53,8 +53,8 @@
 }
 .ez-guidelines-tables__with-header .table .btn-icon .ez-icon-edit {
     fill: #f15a10;
-    width: 24px;
-    height: 24px;
+    width: 42px;
+    height: 42px;
 }
 .ez-guidelines-tables__with-header .ez-table-header .btn {
     line-height: 0.85;
@@ -105,15 +105,16 @@
 .ez-guidelines-tables__notifications .n-notifications-modal__type .type__icon {
     background-color: #f7d000;
     border-radius: 50%;
-    display: inline-block;
-    width: 2em;
-    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5em;
+    height: 2.5em;
 }
 .ez-guidelines-tables__notifications
     .n-notifications-modal__type
     .type__icon
     .ez-icon {
-    margin: 0.375em;
     width: 1.25em;
     height: 1.25em;
 }
@@ -173,4 +174,8 @@
     background-color: #fff;
     font-weight: normal;
     border-radius: 0 0 0.3em 0;
+}
+
+.ez-guidelines-tables__notifications table tr td:first-child:not(.linenos) {
+    width: inherit;
 }
