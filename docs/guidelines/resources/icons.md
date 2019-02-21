@@ -52,6 +52,17 @@ code_example]]
 </svg>
 code_example]]
 
+###<div class="mgt-2">Colored icons - dark</div>
+<div class="mgt-minus-3 mgb-5">Add class `ez-icon--dark` to modify the color fill of an icon to the Sass variable defined for white, `$ez-black`.</div>
+<div class="ez-guidelines-icons__colored">
+[[code_example {html}
+<svg class="ez-icon ez-icon--medium ez-icon--dark ez-icon-content-draft">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../ez-icons.svg#content-draft"></use>
+</svg>
+</button>
+code_example]]
+</div>
+
 ###<div class="mgt-2">Colored icons - white</div>
 <div class="mgt-minus-3 mgb-5">Add class `ez-icon--light` to modify the color fill of an icon to the Sass variable defined for white, `$ez-white`.</div>
 <div class="ez-guidelines-icons__colored">
