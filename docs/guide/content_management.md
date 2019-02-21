@@ -142,7 +142,7 @@ Together, the flags represent the three visibility statuses:
 
 !!! note
 
-    Displaying visible or hidden Locations in governed by the [`Visibility` Search Criterion](../api/public_php_api_browsing.md#criterionvisibility)
+    Displaying visible or hidden Locations in governed by the [`Visibility` Search Criterion](../api/public_php_api_search.md#criterionvisibility)
 
 !!! caution "Visibility and permissions"
 
