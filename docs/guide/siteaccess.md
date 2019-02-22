@@ -74,35 +74,7 @@ The rule or set of rules by which SiteAccesses are matched. See [SiteAccess matc
     ```
 
     !!! caution
-        To display SiteAccesses configured for a different domain in the Page Builder, you need to share session between the adminstration SiteAccesses and the displayed siteaccess. For example:
-
-        ```yaml
-        ezpublish:
-            # ...
-            siteaccess:
-                match:
-                    Map\Host:
-                        foo.example.com: siteaccess_foo
-                        bar.example.com: siteaccess_bar
-                        cms.exmmple.com: admin
-            # ...
-            system:
-                siteaccess_foo:
-                    session:
-                        name: eZSESSID
-                        cookie_domain: example.com
-                siteaccess_bar:
-                    session:
-                        name: eZSESSID
-                        cookie_domain: example.com
-                admin_group:
-                    session:
-                        name: eZSESSID
-                        cookie_domain: example.com
-
-        ```
-
-        This implies that domain of the adminstration SiteAccesses and the displayed siteaccess need to have a common suffix e.g. example.com
+        If you are using SiteAccesses configured for a different domain in the Page Builder, you need to update you installation to eZ Enterprise v2.4.2+ and enable [token-based authentication](../releases/ez_platform_v2.4.md#update-ez-enterprise-v24-to-v242).
 
 ### Settings per SiteAccess
 
