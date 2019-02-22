@@ -168,8 +168,9 @@ You are now able to load multiple Locations at once. The biggest benefit of this
     ### Update eZ Enterprise v2.4 to v2.4.2
     
     This update fixes: **[EZEE-2572: Page Builder doesn't work with Map\Host matcher when SiteAccesses are configured for different domains.](https://jira.ez.no/browse/EZEE-2572)**
-
-    Token-based authentication for Page Builder is enabled by default in v2.4.2, however, the following steps are required during upgrade from v2.4 to v2.4.2+ Enterprise installation:
+    
+    Token-based authentication (based on JSON Web Token specification) replaced cookie-based authentication that did not work with SiteAccesses configured for a different domains in the Page Builder.
+    Authentication mechanizm is enabled by default in v2.4.2, however, the following steps are required during upgrade from v2.4 to v2.4.2+ Enterprise installation:
 
     1\. Register `LexikJWTAuthenticationBundle` bundle in `/app/AppKernel.php`
     
