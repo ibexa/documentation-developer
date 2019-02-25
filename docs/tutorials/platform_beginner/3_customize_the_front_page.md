@@ -205,6 +205,7 @@ Refresh the page and you should now see the "Hello world" placed inside a styled
 
     ​```
     php bin/console assetic:dump --env=prod web
+    yarn encore prod
     ​```
 
 !!! note "Clear the cache"

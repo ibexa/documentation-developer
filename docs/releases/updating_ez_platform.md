@@ -179,6 +179,16 @@ If you want to first test how the update proceeds without actually updating any 
 
         in `app/AppKernel.php`.
 
+!!! note "Updating from <2.5"
+
+    Since v2.5 eZ Platform uses [Webpack Encore](https://symfony.com/doc/3.4/frontend.html#webpack-encore) for asset management.
+    You need to install [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/lang/en/docs/install) to update to this version.
+
+    In v2.5 it is still possible to use Assetic, like in earlier versions.
+    However, if you are using the latest Bootstrap version, [`scssphp`](https://github.com/leafo/scssphp)
+    will not compile correctly with Assetic.
+    In this case, use Webpack Encore. See [Importing assets from a bundle](../guide/bundles.md#importing-assets-from-a-bundle) for more information.
+
 !!! caution "Common errors"
 
     If you experienced issues during the update, please check [Common errors](../getting_started/troubleshooting.md#cloning-failed-using-an-ssh-key) section on the Composer about page.
@@ -475,6 +485,8 @@ The web assets must be dumped again if you are using the `prod` environment. In 
 
 ``` bash
 php bin/console assetic:dump -e prod
+yarn install
+yarn encore prod
 ```
 
 If you encounter problems, additionally clear the cache and install assets:
@@ -483,6 +495,8 @@ If you encounter problems, additionally clear the cache and install assets:
 php bin/console cache:clear -e prod
 php bin/console assets:install --symlink -e prod
 php bin/console assetic:dump -e prod
+yarn install
+yarn encore prod
 ```
 
 ## 6. Commit, test and merge

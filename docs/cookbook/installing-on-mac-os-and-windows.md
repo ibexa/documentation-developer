@@ -8,6 +8,7 @@ This page explains how you can install eZ Platform on Mac OS or Windows (for dev
 ### Prepare work environment
 
 To install eZ Platform you need a stack with MySQL and PHP.
+Additionally, you need [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/lang/en/docs/install/) for asset management.
 If you want to use a web server, you need to install it as well: Apache on Windows or Apache/nginx on Mac OS.
 The instructions below assumes you are using Apache.
 

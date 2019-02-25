@@ -48,6 +48,69 @@ They can be referenced as relative to the root, for example `web/js/script.js`�
 
 All project assets are accessible through the `web/assets` path.
 
+#### Importing assets from a bundle
+
+eZ Platform uses [Webpack Encore](https://symfony.com/doc/3.4/frontend.html#webpack-encore) for asset management.
+
+To import assets from a bundle, you need to configure them in the bundle's `Resources/encore/ez.config.js`:
+
+``` js
+const path = require('path');
+
+module.exports = (Encore) => {
+	Encore.addEntry('<entry-name>', [
+		path.resolve(__dirname, '<path_to_file>'),
+    ]);
+};
+```
+
+Use `<entry-name>` to refer to this configuration entry from Twig templates:
+
+`{{ encore_entry_script_tags('<entry-name>', null, 'ezplatform') }}`
+
+To import CSS files only, use:
+
+`{{ encore_entry_link_tags('<entry-name>', null, 'ezplatform') }}`
+
+!!! tip
+
+    After adding new files, run `php bin/console cache:clear`.
+
+    For a full example of importing asset configuration,
+    see [`ez.config.js`](https://github.com/ezsystems/ezplatform-admin-ui-modules/blob/master/Resources/encore/ez.config.js)
+
+If you prefer to include the asset configuration in the main project files,
+add it in [`webpack.config.js`](https://github.com/ezsystems/ezplatform/blob/master/webpack.config.js#L14).
+
+To overwrite built-in assets, use the following configuration to replace, remove or add asset files:
+
+``` js
+eZConfigManager.replace({
+    eZConfig,
+    entryName: '<entry-name>',
+    itemToReplace: path.resolve(__dirname, '<path_to_old_file>'),
+    newItem: path.resolve(__dirname, '<path_to_new_file>'),
+});
+
+eZConfigManager.remove({
+    eZConfig,
+    entryName: '<entry-name>',
+    itemsToRemove: [
+        path.resolve(__dirname, '<path_to_old_file>'),
+        path.resolve(__dirname, '<path_to_old_file>'),
+    ],
+});
+
+eZConfigManager.add({
+    eZConfig,
+    entryName: '<entry-name>',
+    newItems: [
+        path.resolve(__dirname, '<path_to_new_file>'),
+        path.resolve(__dirname, '<path_to_new_file>'),
+    ],
+});
+```
+
 ### Configuration
 
 Configuration may go into `app/config`. However, service definitions from `AppBundle` should go into `src/AppBundle/Resources/config`.
