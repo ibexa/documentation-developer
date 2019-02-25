@@ -68,6 +68,10 @@ Use `<entry-name>` to refer to this configuration entry from Twig templates:
 
 `{{ encore_entry_script_tags('<entry-name>', null, 'ezplatform') }}`
 
+To import CSS files only, use:
+
+`{{ encore_entry_link_tags('<entry-name>', null, 'ezplatform') }}`
+
 !!! tip
 
     After adding new files, run `php bin/console cache:clear`.
