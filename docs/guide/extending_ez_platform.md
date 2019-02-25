@@ -503,11 +503,11 @@ class OrderedTabSubscriber implements EventSubscriberInterface
 }
 ```
 
-## Custom Content Type icons 
+## Custom Content Type icons
 
 To add custom icons for existing Content Types or custom Content Types in eZ Platform follow the instructions below.
 
-### Configuration 
+### Configuration
 
 A configuration of the default icon for Content Type is possible via `default-config` key.
 For example:
@@ -556,8 +556,8 @@ Content Types icons configuration is stored in a global object: `eZ.adminUiConfi
 
 You can easily retrieve icon URL with a helper function `getContentTypeIcon`, set on a global object `eZ.helpers.contentType`.
 It takes Content Type identifier as an argument and returns:
- 
- - URL of given Content Type's icon or 
+
+ - URL of given Content Type's icon or
  - `null` if there is no Content Type with given identifier
 
 Example with `getContentTypeIcon`:
