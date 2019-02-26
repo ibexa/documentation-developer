@@ -220,7 +220,7 @@ You are now able to load multiple Locations at once. The biggest benefit of this
                  # ...
     ```
      
-    4\. Add parameter `page_builder.token_authenticator.enabled: true` to `/app/config/config/parameters.yml`:
+    4\. Add parameter `page_builder.token_authenticator.enabled: true` to `/app/config/config.yml`:
       
     ``` yaml
      # ...
