@@ -404,3 +404,17 @@
         window.document.body.addEventListener('postUpdateBlocksPreview', () => console.log('block updated'), false);
     })();
     ```
+
+    !!! caution "Extending Page Builder configuration"
+
+        If your bundle overrides Page Builder configuration, the bundle must be registered *before*
+        `EzPlatformPageFieldTypeBundle()` in `AppKernel.php`.
+
+        Also, `EzPlatformPageFieldTypeBundle()` must be registered *after* `EzPlatformPageBuilderBundle()`.
+        Watch out for this if you update bundles selectively:
+
+        ```php
+        new Acme\PageBuilderCustomizationBundle\AcmePageBuilderCustomizationBundle(),
+        new EzSystems\EzPlatformPageBuilderBundle\EzPlatformPageBuilderBundle(),
+        new EzSystems\EzPlatformPageFieldTypeBundle\EzPlatformPageFieldTypeBundle(),
+        ```
