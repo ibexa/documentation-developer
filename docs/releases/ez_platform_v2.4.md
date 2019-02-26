@@ -203,7 +203,7 @@ You are now able to load multiple Locations at once. The biggest benefit of this
                  enabled: false
     ```
      
-    For more information see [`LexikJWTAuthenticationBundle` installation instruction.](https://github.com/lexik/LexikJWTAuthenticationBundle/blob/master/Resources/doc/index.md#installation)
+    By default `HS256` is used as signature algorithm for generated token but we strongly recomend switching to SSH keys. For more information see [`LexikJWTAuthenticationBundle` installation instruction.](https://github.com/lexik/LexikJWTAuthenticationBundle/blob/master/Resources/doc/index.md#installation)
      
     3\. Add `EzSystems\EzPlatformPageBuilder\Security\EditorialMode\TokenAuthenticator` authentication provider to `ezpublish_front` firewall before `form_login` in `app/config/security.yml`:
      
@@ -220,7 +220,7 @@ You are now able to load multiple Locations at once. The biggest benefit of this
                  # ...
     ```
      
-    4\. Add parameter `page_builder.token_authenticator.enabled: true` to `/app/config/config.yml`:
+    4\. Make sure that parameter `page_builder.token_authenticator.enabled` has value `true`. If the parameter is not present, add it to `/app/config/config.yml`:
       
     ``` yaml
      # ...
