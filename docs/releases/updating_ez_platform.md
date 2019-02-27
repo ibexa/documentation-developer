@@ -459,7 +459,7 @@ Some versions require updates to the database. Look through [the list of databas
         After the update, in order to create forms, you have to add a new Content Type (e.g. named "Form") that contains `Form` Field (this Content Type can contain other fields
         as well). After that you can use forms inside Landing Pages via Embed block.
 
-!!! note "Updating from <2.4"
+??? note "Updating from <2.4"
 
     ### Updating from <2.4
 
@@ -478,6 +478,14 @@ Some versions require updates to the database. Look through [the list of databas
 
         To allow anonymous users to access Forms, you also need to add the `content/read` Policy
         with the "Form" Section to the Anonymous User.
+
+!!! note "Updating from <2.5"
+
+    ### Updating from <2.5
+
+    Apply the following database update script:
+
+    `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/data/update/mysql/dbupdate-7.4.0-to-7.5.0.sql`
 
 ## 5. Dump assets
 
