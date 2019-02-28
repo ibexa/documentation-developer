@@ -75,7 +75,7 @@ Supported setups are those we perform automated testing on. For security and per
 
 <a id="mysql-versions-note"></a>
 _\* Note: MySQL 5.7+ and MariaDB 10.2+ change how certain queries are parsed and are known to have issues with content attribute sorting queries in legacy because of that. Because of this we generally recommend MariaDB 10.1 and 10.0 in use with Legacy Bridge setups._
-_\** For Mysql 8.0; either pick legacy authentication, or familiarizing yourself with [requirements](https://secure.php.net/manual/en/mysqli.requirements.php) to use the new caching ssh2 authentication._
+_\** For MySQL 8.0; either pick legacy authentication, or familiarize yourself with [requirements](https://secure.php.net/manual/en/mysqli.requirements.php) to use the new caching ssh2 authentication._
 
 ### Development and Experimental setups
 
