@@ -23,7 +23,7 @@ These setups are tested by QA and are generally recommended setups. For security
     
 |||
 |------|------|
-|Search|Solr _(recommended; for performance, features and search quality)_:</br></br>Solr 6 or higher *Currently tested with Solr 6.6LTS*</br></br>Oracle Java/Open JDK: 8 |
+|Search|Solr (recommended; for performance, features and search quality):</br></br>Solr 6 or higher *Currently tested with Solr 6.6LTS*</br></br>Oracle Java/Open JDK: 8 |
 |Graphic Handler|GraphicsMagick or ImageMagick or GD|
 |[Clustering](../guide/clustering.md)|Linux NFS *or* S3/EFS *(for IO, aka binary files stored in content repository)*</br>Redis 3.2 or higher *(preferably separate instances for session & cache, both using one of the `volatile-*` [eviction policies](https://redis.io/topics/lru-cache))*</br>[Varnish](http://varnish-cache.org/) 5.1 or higher *(6.0LTS recommended)* with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst) *or* [Fastly](https://www.fastly.com/) using [our bundle provided with eZ Platform Enterprise](../guide/http_cache.md#serving-varnish-through-fastly) *(for HttpCache)*|
 |Filesystem|Linux ext4 / XFS|
