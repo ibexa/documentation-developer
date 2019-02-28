@@ -93,7 +93,7 @@ Examples of Experimental setups:
 -   IO: Azure, (S)FTP, GridFS, [etc.](https://flysystem.thephpleague.com/docs/adapter/local/)
 -   Databases: MSSQL, Oracle (databases technically supported by Doctrine DBAL which we use, but not supported by our installer at the moment, and not covered by automated testing)
 
-Examples of Experimental / Deprecated Bundles:
+Examples of experimental / deprecated bundles:
 - Assetic 2.8 *(As of eZ Platform 2.5LTS, [WebPack Encore](https://symfony.com/doc/3.4/frontend.html) is used for assets, and hence Assetic is no longer activly supported by eZ besides help with migrating code base)*
 
 **While all these options are not actively supported by eZ Systems**, they are community supported. Meaning you can use them with both open source edition and enterprise edition, however if you encounter issues best way to handle them is via contribution, and any such efforts made to improve support for these technologies can contribute to the technology being supported by eZ Systems in the near future.
