@@ -41,7 +41,7 @@ Supported setups are those we perform automated testing on. For security and per
 -   DBMS
     -   MySQL 5.7\* or 8.0\* \** 
     -   MariaDB 10.0, 10.1, 10.2\*, 10.3\*
-    - PostGres 10+
+    - PostgreSQL 10+
 -   PHP
     -   7.1
     -   7.2
