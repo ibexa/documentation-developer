@@ -125,7 +125,7 @@ In general, eZ Platform Cloud supports all features and services of [Platform.sh
 For example:
 
 - Platform.sh provides Redis support for versions 2.8, 3.0 and 3.2. eZ Platform supports Redis version 3.2 or higher. As a result, Redis is supported by eZ Platform Cloud versions 3.2.
-- Platform.sh provides Elastic Search service (different versions supported). eZ Platform *does not* support Elastic Search. As a result, Elastic Search is not supported for use as search engine for eZ Platform.
+- Platform.sh provides Elastic Search service (different versions supported). Elastic Search is not supported for use as search engine for eZ Platform.
 
 Features or services supported by eZ Platform but not covered by Platform.sh may be possible by means of a [custom integration](#custom-integrations).
 
