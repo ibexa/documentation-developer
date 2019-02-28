@@ -74,7 +74,7 @@ Supported setups are those we perform automated testing on. For security and per
     -   [php-redis](https://pecl.php.net/package/redis) *(3.1.3+)* *or* [php-memcached](https://pecl.php.net/package/memcached) *(3.x+)*
 
 <a id="mysql-versions-note"></a>
-_\* Note: Mysql 5.7+ and MariaDB 10.2+ changes how certain queries are parsed and is known to have issues with content attribute sorting queries in legacy because of that. Because of this we overall recommend MariaDB 10.1 and 10.0 in use with legacy bridge setups._
+_\* Note: MySQL 5.7+ and MariaDB 10.2+ change how certain queries are parsed and are known to have issues with content attribute sorting queries in legacy because of that. Because of this we generally recommend MariaDB 10.1 and 10.0 in use with Legacy Bridge setups._
 _\** For Mysql 8.0; either pick legacy authentication, or familiarizing yourself with [requirements](https://secure.php.net/manual/en/mysqli.requirements.php) to use the new caching ssh2 authentication._
 
 ### Development and Experimental setups
