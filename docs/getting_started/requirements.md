@@ -49,7 +49,7 @@ Supported setups are those we perform automated testing on. For security and per
 
 - Cluster
     - Redis 3.2+ (preferably separate instances for session and cache, both using one of the `volatile-*` [eviction policies](https://redis.io/topics/lru-cache))
-    - Solr 6 *(recommende over SQL based Search engine, espeicaly on cluster, as SQL does not provide same featureset or performance as Solr)*
+    - Solr 6 (recommended over SQL based Search engine, especially on cluster, as SQL does not provide the same feature set or performance as Solr)
     - NFS or S3
     - HttpCache, using one of:
         - [Varnish](http://varnish-cache.org/) 5.1 or higher *(6.0LTS recommended)* with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst)
