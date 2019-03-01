@@ -19,11 +19,8 @@ They are available via [updates.ez.no](https://updates.ez.no).
     - Trial (limited access to try for up to 120 days):
         - [ttl](https://updates.ez.no/ttl/) eZ Platform Enterprise Trial packages
         - [ttl_com](https://updates.ez.no/ttl_com/) eZ Commerce Trial packages
-        - [ttl_com_adv](https://updates.ez.no/ttl_com_adv/) eZ Commerce Advanced Trial packages
-    - Subscription (full access to use with corresponding subscription):
         - [bul](https://updates.ez.no/bul/) available with an eZ Platform Enterprise subscription
         - [bul_com](https://updates.ez.no/bul_com/) available with an eZ Commerce subscription
-        - [bul_com_adv](https://updates.ez.no/bul_com_adv/) available with an eZ Commerce Advanced subscription
 
     Once you have set up authentication below, the links above give you access to see the available packages and releases.
 
@@ -88,7 +85,7 @@ They are available via [updates.ez.no](https://updates.ez.no).
         This can be done in the following way:
 
         ``` bash
-        COMPOSER_AUTH='{"http-basic":{"updates.ez.no":{"username":"<installation-key>","password":"<token-password>"}}}' composer create-project --repository=https://updates.ez.no/bul/ --keep-vcs ezsystems/ezplatform-ee my-new-ee-project
+        COMPOSER_AUTH='{"http-basic":{"updates.ez.no":{"username":"<installation-key>","password":"<token-password>"}}}' composer create-project --repository=https://updates.ez.no/bul/ ezsystems/ezplatform-ee my-new-ee-project
         ```
 
     ## Enable Date-based Publisher
