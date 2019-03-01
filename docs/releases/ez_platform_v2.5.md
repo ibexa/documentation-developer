@@ -35,7 +35,9 @@ You can now preview a diagram of the configured workflows in the Admin panel.
 
 TODO screenshot
 
-TODO As an Admin I want to see all the items for review under the 'Content item(s) under review' for the selected workflow
+After selecting configured workflow administrator user is now able to see all Content items under review for it.
+
+![Content under review](img/workflow_content_under_review.png)
 
 ### eZ Commerce clean Installer
 
