@@ -30,6 +30,7 @@ Custom Field Types have to be programmed in PHP. However, the built-in Field Ty
 | [ISBN](#isbn-field-type) | Handles International Standard Book Number (ISBN) in 10-digit or 13-digit format.  | Yes | Yes |
 | [Keyword](#keyword-field-type) | Stores keywords. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
 | [MapLocation](#maplocation-field-type) | Stores map coordinates. | Yes, with MapLocationDistance criterion | Yes |
+| [Matrix](#matrix-field-type) | Represents and handles a table of rows and columns of data. | No | No |
 | [Media](#media-field-type) | Validates and stores a media file. | No | Yes |
 | [Null](#null-field-type) | Used as fallback for missing Field Types and for testing purposes. | N/A | N/A |
 | [Page](#page-field-type) | Stores a Page with a layout consisting of multiple zones. | N/A | N/A |
@@ -1434,6 +1435,61 @@ ezpublish:
 
     The option to automatically get user coordinates through the "Locate me" button
     is only available when the back office is served through the `https://` protocol.
+
+## Matrix Field Type
+
+This Field represents and handles a table of rows and columns of data.
+
+| Name     | Internal name | Expected input |
+|----------|---------------|----------------|
+| `Matrix` | `ezmatrix`    | `array`        |
+
+The Matrix Field Type is available via the eZ Platform Matrix Bundle
+provided by the https://github.com/ezsystems/ezplatform-matrix-fieldtype package.
+
+### PHP API Field Type
+
+#### Input expectations
+
+|Type|Description|Example|
+|------|------|------|
+|`array`|array of `EzSystems\EzPlatformMatrixFieldtype\FieldType\Value\Row` objects which contain column data|see below|
+
+Example of input:
+
+```php
+new FieldType\Value([
+    new FieldType\Value\Row(['col1' => 'Row 1, Col 1', 'col2' => 'Row 1, Col 2']),
+    new FieldType\Value\Row(['col1' => 'Row 2, Col 1', 'col2' => 'Row 2, Col 2']),
+    new FieldType\Value\Row(['col1' => 'Row 3, Col 1', 'col2' => 'Row 3, Col 2']),
+]);
+```
+
+#### Value Object
+
+`EzSystems\EzPlatformMatrixFieldtype\FieldType\Value` offers the following properties:
+
+|Property|Type|Description|
+|------|------|------|
+|`rows`|`RowsCollection`|Array of `Row` objects containing an array of cells (`Row::getCells()` returns array `['col1' => 'Value 1', /* ... */]`)|
+
+#### Validation
+
+The minimum number of rows is set on Content Type level for each Field.
+
+Validation checks for empty rows. A row is considered empty if it contains only empty cells (or cells containing only spaces). Empty rows are removed.
+
+If after removing empty rows the number of rows does not fulfill the configured `Minimum number of rows`, the Field will not validate.
+
+For example, the following input will not validate if `Minimum number of rows` is set to 3, because the second row is empty:
+
+```php
+new FieldType\Value([
+    new FieldType\Value\Row(['col1' => 'Row 1, Col 1', 'col2' => 'Row 1, Col 2']),
+    new FieldType\Value\Row(['col1' => '', 'col2' => '']),
+    new FieldType\Value\Row(['col1' => 'Row 3, Col 1', 'col2' => 'Row 3, Col 2']),
+]);
+```
 
 ## Media Field Type
 
