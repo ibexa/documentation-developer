@@ -80,14 +80,14 @@ Here are default templates that you can reuse and/or modify:
 
 You can also modify the following form templates:
 
-Changing user password:
+**Changing user password:**
 
 ``` yaml
 ezsettings.default.user_change_password.templates.form
 ezsettings.default.user_change_password.templates.success
 ```
 
-Password recovery forms:
+**Password recovery forms:**
 
 ``` yaml
 ezsettings.default.user_forgot_password.templates.form
@@ -96,7 +96,7 @@ ezsettings.default.user_forgot_password_login.templates.form
 ezsettings.default.user_forgot_password.templates.mail
 ```
 
-Resetting password:
+**Resetting password:**
 
 ``` yaml
 ezsettings.default.user_reset_password.templates.form
@@ -104,7 +104,7 @@ ezsettings.default.user_reset_password.templates.invalid_link
 ezsettings.default.user_reset_password.templates.success
 ```
 
-User settings:
+**User settings:**
 
 ``` yaml
 ezsettings.default.user_settings.templates.list
