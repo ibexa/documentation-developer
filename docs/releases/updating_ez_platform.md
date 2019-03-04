@@ -385,8 +385,8 @@ Some versions require updates to the database. Look through [the list of databas
         Be aware that this script will be using de layout defined in your landing page. So if a specific
         layout has been defined in a yml file it has been set in the ez_systems_landing_page_field_type config
         setting. This layout settings will have to be set under ezplatform_page_fieldtype setting. 
-        If you do not do so the script will use defaut layout and your specific zones won't be used and the 
-        script will throw an exception becase it won't find your specific layout zone definitions.
+        If you do not do so the script will use defaut layout, your specific zones won't be used and the 
+        script will throw an exception as it won't find your specific layout zone definitions.
         
     !!! tip
         
