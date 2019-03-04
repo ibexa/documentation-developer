@@ -51,7 +51,7 @@ Inline Custom tags
 
 Several Back Office improvements to facilitate editorial experience, including:
 
-- Icons for Content Types and the ability to define them
+- [Icons for Content Types and the ability to define them](../guide/extending_ez_platform.md#custom-content-type-icons)
 - Ability to collapse and expand content preview to have easier access to the Sub-items list
 - Responsive Sub-items table with selectable column layout
 - Simpler assigning of Object States to content
