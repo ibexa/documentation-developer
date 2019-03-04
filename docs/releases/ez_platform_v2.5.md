@@ -12,6 +12,11 @@
 
 ### Webpack Encore
 
+This release introduces [Webpack Encore](https://symfony.com/doc/3.4/frontend.html#webpack-encore)
+as the preferred tool for asset management.
+
+Assetic is still is use, but it will be deprecated in a future version.
+
 ### PostgreSQL
 
 ### User Settings
@@ -20,7 +25,6 @@ The User Settings menu has been expanded with the following options:
 
 - Preferred language of the Back Office
 - Preferred date format
-- Preference to collapse or expand content preview
 
 TODO screenshot
 
@@ -33,7 +37,7 @@ all features related to user management, such as user accounts, registering, cha
 
 You can now preview a diagram of the configured workflows in the Admin panel.
 
-TODO screenshot
+![Diagram of a workflow configuration](img/2.5_workflow_diagram.png)
 
 After selecting configured workflow administrator user is now able to see all Content items under review for it.
 
@@ -68,15 +72,15 @@ New API improvements include:
 
 - `sudo()` exposed to skip permission checks
 - `AssignSectionToSubtreeSignal` to assign Sections to subtrees
+- new `loadLanguageListByCode()` and `loadLanguageListById()` endpoints for bulk loading of languages
 
-As a Developer I possibility to load several languages at once
 As a Developer I'd like API for bulk loading Content Info Items
 
 ### BC breaks and important behavior changes
 
-### Requirements changes
+## Requirements changes
 
-Due to using Webpack Encore installing and updating eZ Platform now [requires Node.js and yarn](updating_ez_platform.md#3-update-the-app).
+Due to using Webpack Encore, installing and updating eZ Platform now [requires Node.js and yarn](updating_ez_platform.md#3-update-the-app).
 
 This release also changes support for versions of third-party software:
 
