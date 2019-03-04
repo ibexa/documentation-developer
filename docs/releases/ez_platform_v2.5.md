@@ -33,15 +33,17 @@ TODO screenshot
 The new [ezplatform-user](https://github.com/ezsystems/ezplatform-user) bundle now centralizes
 all features related to user management, such as user accounts, registering, changing passwords, etc.
 
-### Workflow improvements
+!!! enterprise
 
-You can now preview a diagram of the configured workflows in the Admin panel.
+    ### Workflow improvements
 
-![Diagram of a workflow configuration](img/2.5_workflow_diagram.png)
+    You can now preview a diagram of the configured workflows in the Admin panel.
 
-After selecting configured workflow administrator user is now able to see all Content items under review for it.
+    ![Diagram of a workflow configuration](img/2.5_workflow_diagram.png)
 
-![Content under review](img/workflow_content_under_review.png)
+    After selecting configured workflow administrator user is now able to see all Content items under review for it.
+
+    ![Content under review](img/workflow_content_under_review.png)
 
 ### eZ Commerce clean Installer
 
