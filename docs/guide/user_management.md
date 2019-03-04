@@ -26,11 +26,10 @@ You can allow your users to create accounts by employing the `/register` route. 
 By default, new Users generated in this way are placed in the Guest accounts group. You can select a different default group in the following section of configuration:
 
 ``` yaml
-ezpublish:
-    system:
-        default:
-            user_registration:
-                group_id: <userGroupContentId>
+ezsettings:
+    default:
+        user_registration:
+            group_id: <userGroupContentId>
 ```
 
 ### Registration form templates
@@ -40,13 +39,12 @@ You can use custom templates for the registration form and registration confirma
 The templates are defined with the following configuration:
 
 ``` yaml
-ezpublish:
-    system:
-        default:
-            user_registration:
-                templates:
-                    form: 'user/registration_form.html.twig'
-                    confirmation: 'user/registration_confirmation.html.twig'
+ezsettings:
+    default:
+        user_registration:
+            templates:
+                form: 'user/registration_form.html.twig'
+                confirmation: 'user/registration_confirmation.html.twig'
 ```
 
 With this configuration you place the templates in `app/Resources/views/user/registration_form.html.twig` and `app/Resources/views/user/registration_confirmation.html.twig`.
@@ -76,4 +74,39 @@ Here are default templates that you can reuse and/or modify:
         Thank you for registering an account. You can now <a href="{{ path('login') }}">login</a>.
     </p>
 {% endblock %}
+```
+
+### Other user management templates
+
+You can also modify the following form templates:
+
+Changing user password:
+
+``` yaml
+ezsettings.default.user_change_password.templates.form
+ezsettings.default.user_change_password.templates.success
+```
+
+Password recovery forms:
+
+``` yaml
+ezsettings.default.user_forgot_password.templates.form
+ezsettings.default.user_forgot_password_success.templates.form
+ezsettings.default.user_forgot_password_login.templates.form
+ezsettings.default.user_forgot_password.templates.mail
+```
+
+Resetting password:
+
+``` yaml
+ezsettings.default.user_reset_password.templates.form
+ezsettings.default.user_reset_password.templates.invalid_link
+ezsettings.default.user_reset_password.templates.success
+```
+
+User settings:
+
+``` yaml
+ezsettings.default.user_settings.templates.list
+ezsettings.default.user_settings.templates.update
 ```
