@@ -25,6 +25,7 @@ The User Settings menu has been expanded with the following options:
 
 - Preferred language of the Back Office
 - Preferred date format
+- Preference to enable or disable character counter for Rich Text Fields
 
 TODO screenshot
 
@@ -51,7 +52,16 @@ all features related to user management, such as user accounts, registering, cha
 
 Anchors in Richtext
 
-Inline Custom tags
+#### Inline custom tags
+
+You can now create [inline custom tags](../guide/extending_online_editor.md#inline-custom-tags) in Rich Text Fields.
+
+### Hiding and revealing content
+
+You can now hide and reveal Content items from the Back Office.
+Hidden content will be unavailable on the front page regardless of permissions or [Location visibility](../guide/content_management.md#location-visibility).
+
+![Icon for hiding content](img/2.5_hide_content_icon.png)
 
 ### Back Office improvements
 
@@ -62,9 +72,20 @@ Several Back Office improvements to facilitate editorial experience, including:
 - Responsive Sub-items table with selectable column layout
 - Simpler assigning of Object States to content
 
-TODO screenshot
+![Back Office improvements](img/2.5_back_office_improvements.png)
 
-### eZMatrix Field Type
+### Matrix Field Type
+
+The new Matrix Field Type enables you to store a table of data.
+Columns in the matrix are defined in the Field definition.
+
+![Configuring a Matrix Field Type](img/2.5_matrix_ft.png)
+
+### Product version preview
+
+The Dashboard now shows the version of eZ Platform you are running.
+
+TODO add screenshot with final version
 
 ### GraphQL
 
@@ -77,8 +98,6 @@ New API improvements include:
 - new `loadLanguageListByCode()` and `loadLanguageListById()` endpoints for bulk loading of languages
 
 As a Developer I'd like API for bulk loading Content Info Items
-
-### BC breaks and important behavior changes
 
 ## Requirements changes
 
