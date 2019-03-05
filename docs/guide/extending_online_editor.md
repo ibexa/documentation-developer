@@ -183,7 +183,7 @@ ezrichtext:
 ```
 
 `is_inline` is an optional key.
-The default value is `false`, so if it is not set, the custom tag will be a block tag.
+The default value is `false`, so if it is not set, the custom tag will be treated as a block tag.
 
 ## Custom styles
 
