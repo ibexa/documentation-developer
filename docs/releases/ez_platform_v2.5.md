@@ -96,8 +96,7 @@ New API improvements include:
 - `sudo()` exposed officially in API to make it more clear how you can skip permission checks when needed
 - `AssignSectionToSubtreeSignal` to assign Sections to subtrees
 - new `loadLanguageListByCode()` and `loadLanguageListById()` endpoints for bulk loading of languages
-
-As a Developer I'd like API for bulk loading Content Info Items
+- new method `ContentService->loadContentInfoList()` optimizes logic in `RelationList` and `ParameterProvider`
 
 ## Requirements changes
 
