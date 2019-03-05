@@ -36,7 +36,6 @@ ezrichtext:
             template: 'AppBundle:field_type/ezrichtext/custom_tag:ezyoutube.html.twig'
             # An icon for the custom tag as displayed in the Online Editor's toolbar.
             icon: '/assets/field_type/ezrichtext/custom_tag/icon/youtube-color.svg#youtube-color'
-            is_inline: true (optional)
             attributes:
                 title:
                     type: 'string'
@@ -179,7 +178,12 @@ ezrichtext:
             template: 'AppBundle:field_type/ezrichtext/custom_tag:badge.html.twig'
             icon: '/bundles/ezplatformadminui/img/ez-icons.svg#bookmark'
             is_inline: true
+            attributes:
+                # ...
 ```
+
+`is_inline` is an optional key.
+The default value is `false`, so if it is not set, the custom tag will be a block tag.
 
 ## Custom styles
 
