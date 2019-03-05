@@ -93,7 +93,7 @@ TODO add screenshot with final version
 
 New API improvements include:
 
-- `sudo()` exposed to skip permission checks
+- `sudo()` exposed officially in API to make it more clear how you can skip permission checks when needed
 - `AssignSectionToSubtreeSignal` to assign Sections to subtrees
 - new `loadLanguageListByCode()` and `loadLanguageListById()` endpoints for bulk loading of languages
 
@@ -105,9 +105,9 @@ Due to using Webpack Encore, installing and updating eZ Platform now [requires N
 
 This release also changes support for versions of third-party software:
 
-- Solr 4 is no longer supported. Use Solr 6 instead.
+- Solr 4 is no longer supported. Use Solr 6 instead (Solr 6.6LTS recommended).
 - Apache 2.2 is no longer supported. Use Apache 2.4 instead.
-- Varnish 4 is no longer supported. Use Varnish 5.1 or higher.
+- Varnish 4 is no longer supported. Use Varnish 5.1 or higher (6.0LTS recommended).
 
 For full list of supported versions see [Requirements](../getting_started/requirements.md).
 
