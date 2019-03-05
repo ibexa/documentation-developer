@@ -78,14 +78,23 @@ This format is used throughout the Back Office.
 You can set the list of available formats with the following configuration:
 
 ``` yaml
-ezsettings.default.user_preferences.allowed_date_formats:
+ezsettings.default.user_preferences.allowed_short_date_formats:
     'mm/dd/yyyy': 'MM/dd/Y'
+    'mm/dd/yy': 'MM/dd/yy'
     'dd/mm/yyyy': 'dd/MM/Y'
+    'dd/mm/yy': 'dd/MM/yy'
     'yy/mm/dd': 'yy/MM/dd'
+    'mm-dd-yyyy': 'MM-dd-Y'
+    'mm-dd-yy': 'MM-dd-yy'
+    'dd-mm-yyyy': 'dd-MM-Y'
+    'dd-mm-yy': 'dd-MM-yy'
+ezsettings.default.user_preferences.allowed_short_time_formats:
+    'hh:mm AM/PM': 'hh:mm a'
+    'hh:mm': 'HH:mm'
+ezsettings.default.user_preferences.allowed_full_date_formats:
     'M dd yyyy': 'LLLL dd Y'
     'dd M yyyy': 'dd LLLL Y'
-ezsettings.default.user_preferences.allowed_time_formats:
-    'none': ''
+ezsettings.default.user_preferences.allowed_full_time_formats:
     'hh:mm AM/PM': 'hh:mm a'
     'hh:mm': 'HH:mm'
 ```
@@ -94,4 +103,5 @@ The default date and time format is set using:
 
 ``` yaml
 ezsettings.default.user_preferences.datetime_format: 'dd/mm/Y HH:mm'
+ezsettings.default.user_preferences.full_datetime_format: 'LLLL dd Y HH:mm'
 ```
