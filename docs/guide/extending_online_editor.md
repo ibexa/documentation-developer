@@ -13,10 +13,10 @@ To learn how to extend the eZ Platform Back Office follow [Extending Admin UI tu
 ## Custom tags
 
 Custom tags enable you to add more features to the Rich Text editor beyond the built-in ones.
-They are configured under the `ezrichtext` key. 
+They are configured under the `ezrichtext` key.
 
 If you want to learn how to apply them to your installation follow [Creating a custom tag tutorial](../tutorials/extending_admin_ui/6_adding_a_custom_tag).
- 
+
 **Example: YouTube tag**
 
 Preparation of the tag always starts with the configuration file that should be added to `app/Resources/config`. This is sample configuration for the YouTube tag, `custom_tags.yml`:
@@ -36,6 +36,7 @@ ezrichtext:
             template: 'AppBundle:field_type/ezrichtext/custom_tag:ezyoutube.html.twig'
             # An icon for the custom tag as displayed in the Online Editor's toolbar.
             icon: '/assets/field_type/ezrichtext/custom_tag/icon/youtube-color.svg#youtube-color'
+            is_inline: true (optional)
             attributes:
                 title:
                     type: 'string'
@@ -104,7 +105,7 @@ ezrichtext.custom_tags.ezyoutube.attributes.align.label: 'Align'
 
 FactBox tag is a good example for showcasing possibilities of `ezcontent` property.
 Each custom tag has an `ezcontent` property that contains the tag's main content.
-This property is editable by a textarea that is part of a custom tag editing tooltip. 
+This property is editable by a textarea that is part of a custom tag editing tooltip.
 
 Create the `custom_tags.yml` configuration file that will be added to `app/Resources/config`. This is sample configuration for FactBox tag:
 
@@ -165,6 +166,19 @@ ezrichtext.custom_tags.ezfactbox.label: FactBox
 ezrichtext.custom_tags.ezfactbox.description: ''
 ezrichtext.custom_tags.ezfactbox.attributes.name.label: 'Name'
 ezrichtext.custom_tags.ezfactbox.attributes.style.label: 'Style'
+```
+
+### Inline custom tags
+
+Custom tags can also be placed inline with the following configuration:
+
+``` yaml hl_lines="6"
+ezrichtext:
+    custom_tags:
+        badge:
+            template: 'AppBundle:field_type/ezrichtext/custom_tag:badge.html.twig'
+            icon: '/bundles/ezplatformadminui/img/ez-icons.svg#bookmark'
+            is_inline: true
 ```
 
 ## Custom styles
