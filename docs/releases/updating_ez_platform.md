@@ -368,6 +368,14 @@ Some versions require updates to the database. Look through [the list of databas
     2. Add the bundle to `app/AppKernel.php`: `new EzSystems\EzPlatformPageMigrationBundle\EzPlatformPageMigrationBundle(),`
     3. Run command `bin/console ezplatform:page:migrate`
 
+    !!! tip
+    
+        This script will use the layout defined in your Landing Page.
+        To migrate successfully, you need to copy your zone configuration 
+        from `ez_systems_landing_page_field_type` under `ezplatform_page_fieldtype` in the new config.
+        Otherwise the script will encounter errors.
+        
+        
     You can remove the bundle after the migration is complete.
 
     The command will migrate Landing Pages created in eZ Platform 1.x, 2.0 and 2.1 to new Pages.
