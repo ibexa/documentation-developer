@@ -229,6 +229,7 @@ It can be used for example to identify the first image in an article to render i
 ### `ez_full_datetime`
 
 `ez_full_datetime` is a Twig filter which outputs date and time in full format.
+The format is defined in [user preferences](config_back_office.md#date-and-time-formats).
 
 It accepts `\DateTimeInterface` as argument.
 
@@ -441,6 +442,7 @@ ezpublish:
 ### `ez_short_datetime`
 
 `ez_short_datetime` is a Twig filter which outputs date and time in short format.
+The format is defined in [user preferences](config_back_office.md#date-and-time-formats).
 
 It accepts `\DateTimeInterface` as argument.
 
