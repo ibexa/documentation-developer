@@ -387,7 +387,6 @@ Some versions require updates to the database. Look through [the list of databas
         from `ez_systems_landing_page_field_type` under `ezplatform_page_fieldtype` in the new config.
         Otherwise the script will encounter errors.
         
-    !!! tip
         
     You can remove the bundle after the migration is complete.
 
