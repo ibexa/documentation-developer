@@ -116,20 +116,20 @@ ezpublish:
                 ezrichtext:
                     custom_tags: [ezfactbox]
 
-    ezrichtext:
-        custom_tags:
-            ezfactbox:
-                template: 'AppBundle:field_type/ezrichtext/custom_tag:ezfactbox.html.twig'
-                icon: '/assets/field_type/ezrichtext/custom_tag/icon/factbox.svg#factbox'
-                attributes:
-                    name:
-                        type: 'string'
-                        required: true
-                    style:
-                        type: 'choice'
-                        required: true
-                        default_value: 'light'
-                        choices: ['light', 'dark']
+ezrichtext:
+    custom_tags:
+        ezfactbox:
+            template: 'AppBundle:field_type/ezrichtext/custom_tag:ezfactbox.html.twig'
+            icon: '/assets/field_type/ezrichtext/custom_tag/icon/factbox.svg#factbox'
+            attributes:
+                name:
+                    type: 'string'
+                    required: true
+                style:
+                    type: 'choice'
+                    required: true
+                    default_value: 'light'
+                    choices: ['light', 'dark']
 ```
 
 Remember to provide your own files for the template and the icon.
@@ -218,7 +218,7 @@ ezrichtext:
 
 The system expects two kinds of configuration:
 
-- a global list of custom styles, defined under the node `ezpublish.ezrichtext.custom_styles`,
+- a global list of custom styles, defined under the node `ezrichtext.custom_styles`,
 - a list of enabled custom styles for a given Admin SiteAccess or Admin SiteAccess group, located under the node `ezpublish.system.<scope>.fieldtypes.ezrichtext.custom_styles`
 
 !!! note
