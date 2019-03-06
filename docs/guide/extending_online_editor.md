@@ -13,10 +13,10 @@ To learn how to extend the eZ Platform Back Office follow [Extending Admin UI tu
 ## Custom tags
 
 Custom tags enable you to add more features to the Rich Text editor beyond the built-in ones.
-They are configured under the `ezrichtext` key. 
+They are configured under the `ezrichtext` key.
 
 If you want to learn how to apply them to your installation follow [Creating a custom tag tutorial](../tutorials/extending_admin_ui/6_adding_a_custom_tag).
- 
+
 **Example: YouTube tag**
 
 Preparation of the tag always starts with the configuration file that should be added to `app/Resources/config`. This is sample configuration for the YouTube tag, `custom_tags.yml`:
@@ -104,7 +104,7 @@ ezrichtext.custom_tags.ezyoutube.attributes.align.label: 'Align'
 
 FactBox tag is a good example for showcasing possibilities of `ezcontent` property.
 Each custom tag has an `ezcontent` property that contains the tag's main content.
-This property is editable by a textarea that is part of a custom tag editing tooltip. 
+This property is editable by a textarea that is part of a custom tag editing tooltip.
 
 Create the `custom_tags.yml` configuration file that will be added to `app/Resources/config`. This is sample configuration for FactBox tag:
 
@@ -116,20 +116,20 @@ ezpublish:
                 ezrichtext:
                     custom_tags: [ezfactbox]
 
-    ezrichtext:
-        custom_tags:
-            ezfactbox:
-                template: 'AppBundle:field_type/ezrichtext/custom_tag:ezfactbox.html.twig'
-                icon: '/assets/field_type/ezrichtext/custom_tag/icon/factbox.svg#factbox'
-                attributes:
-                    name:
-                        type: 'string'
-                        required: true
-                    style:
-                        type: 'choice'
-                        required: true
-                        default_value: 'light'
-                        choices: ['light', 'dark']
+ezrichtext:
+    custom_tags:
+        ezfactbox:
+            template: 'AppBundle:field_type/ezrichtext/custom_tag:ezfactbox.html.twig'
+            icon: '/assets/field_type/ezrichtext/custom_tag/icon/factbox.svg#factbox'
+            attributes:
+                name:
+                    type: 'string'
+                    required: true
+                style:
+                    type: 'choice'
+                    required: true
+                    default_value: 'light'
+                    choices: ['light', 'dark']
 ```
 
 Remember to provide your own files for the template and the icon.
@@ -200,7 +200,7 @@ ezrichtext:
 
 The system expects two kinds of configuration:
 
-- a global list of custom styles, defined under the node `ezpublish.ezrichtext.custom_styles`,
+- a global list of custom styles, defined under the node `ezrichtext.custom_styles`,
 - a list of enabled custom styles for a given Admin SiteAccess or Admin SiteAccess group, located under the node `ezpublish.system.<scope>.fieldtypes.ezrichtext.custom_styles`
 
 !!! note
