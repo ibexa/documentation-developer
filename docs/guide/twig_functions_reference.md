@@ -226,6 +226,17 @@ It can be used for example to identify the first image in an article to render i
 |---------------|----------------------------------------------------|-----------------------------------|
 | `content`     | `eZ\Publish\API\Repository\Values\Content\Content` | Content item the Fields belong to |
 
+### `ez_full_datetime`
+
+`ez_full_datetime` is a Twig filter which outputs date and time in full format.
+The format is defined in [user preferences](config_back_office.md#date-and-time-formats).
+
+It accepts `\DateTimeInterface` as argument.
+
+If the argument is null, the filter returns the current date and time in the selected format.
+
+For example `{{ contentInfo.publishedDate|ez_full_datetime }}` will return `03 May 2019 23:03`.
+
 ### `ez_image_alias`
 
 #### Description
@@ -427,6 +438,17 @@ ezpublish:
 !!! tip
 
     You can define these rules in a dedicated file instead of `app/config/ezplatform.yml`. Read the [cookbook recipe to learn more about it](../cookbook/importing_settings_from_a_bundle.md).
+
+### `ez_short_datetime`
+
+`ez_short_datetime` is a Twig filter which outputs date and time in short format.
+The format is defined in [user preferences](config_back_office.md#date-and-time-formats).
+
+It accepts `\DateTimeInterface` as argument.
+
+If the argument is null, the filter returns the current date and time in the selected format.
+
+For example `{{ contentInfo.publishedDate|ez_short_datetime }}` will return `03/05/19 23:02`.
 
 ### `ez_trans_prop`
 

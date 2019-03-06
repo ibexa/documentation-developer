@@ -69,3 +69,44 @@ ezpublish:
 ```
 
 This applies only if no specific Location is defined in the Form itself.
+
+## Date and time formats
+
+Users can set their preferred date and time formats in the User settings menu.
+This format is used throughout the Back Office.
+
+You can set the list of available formats with the following configuration:
+
+``` yaml
+ezpublish:
+    system:
+        <siteaccess>:
+            user_preferences:
+                allowed_short_date_formats:
+                    'label for dd/MM/yyyy': 'dd/MM/yyyy'
+                    'label for MM/dd/yyyy': 'MM/dd/yyyy'
+                allowed_short_time_formats:
+                    'label for HH:mm' : 'HH:mm'
+                    'label for hh:mm a' : 'hh:mm a'
+                allowed_full_date_formats:
+                    'label for dd/MM/yyyy': 'dd/MM/yyyy'
+                    'label for MM/dd/yyyy': 'MM/dd/yyyy'
+                allowed_full_time_formats:
+                    'label for HH:mm': 'HH:mm'
+                    'label for hh:mm a': 'hh:mm a'
+```
+
+The default date and time format is set using:
+
+``` yaml
+ezpublish:
+    system:
+        <siteaccess>:
+            user_preferences:
+                short_datetime_format:
+                    date_format: 'dd/mm/yyy'
+                    time_format: 'hh:mm'
+                full_datetime_format:
+                    date_format: 'dd/mm/yyy'
+                    time_format: 'hh:mm'
+```
