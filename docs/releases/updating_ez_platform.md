@@ -382,11 +382,10 @@ Some versions require updates to the database. Look through [the list of databas
 
     !!! tip
     
-        Be aware that this script will be using de layout defined in your landing page. So if a specific
-        layout has been defined in a yml file it has been set in the ez_systems_landing_page_field_type config
-        setting. This layout settings will have to be set under ezplatform_page_fieldtype setting. 
-        If you do not do so the script will use defaut layout, your specific zones won't be used and the 
-        script will throw an exception as it won't find your specific layout zone definitions.
+        This script will use the layout defined in your Landing Page.
+        To migrate successfully, you need to copy your zone configuration 
+        from `ez_systems_landing_page_field_type` under `ezplatform_page_fieldtype` in the new config.
+        Otherwise the script will encounter errors.
         
     !!! tip
         
