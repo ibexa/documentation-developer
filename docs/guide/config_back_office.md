@@ -78,30 +78,35 @@ This format is used throughout the Back Office.
 You can set the list of available formats with the following configuration:
 
 ``` yaml
-ezsettings.default.user_preferences.allowed_short_date_formats:
-    'mm/dd/yyyy': 'MM/dd/Y'
-    'mm/dd/yy': 'MM/dd/yy'
-    'dd/mm/yyyy': 'dd/MM/Y'
-    'dd/mm/yy': 'dd/MM/yy'
-    'yy/mm/dd': 'yy/MM/dd'
-    'mm-dd-yyyy': 'MM-dd-Y'
-    'mm-dd-yy': 'MM-dd-yy'
-    'dd-mm-yyyy': 'dd-MM-Y'
-    'dd-mm-yy': 'dd-MM-yy'
-ezsettings.default.user_preferences.allowed_short_time_formats:
-    'hh:mm AM/PM': 'hh:mm a'
-    'hh:mm': 'HH:mm'
-ezsettings.default.user_preferences.allowed_full_date_formats:
-    'M dd yyyy': 'LLLL dd Y'
-    'dd M yyyy': 'dd LLLL Y'
-ezsettings.default.user_preferences.allowed_full_time_formats:
-    'hh:mm AM/PM': 'hh:mm a'
-    'hh:mm': 'HH:mm'
+ezpublish:
+    system:
+        <siteaccess>:
+            user_preferences:
+                allowed_short_date_formats:
+                    'label for dd/MM/yyyy': 'dd/MM/yyyy'
+                    'label for MM/dd/yyyy': 'MM/dd/yyyy'
+                allowed_short_time_formats:
+                    'label for HH:mm' : 'HH:mm'
+                    'label for hh:mm a' : 'hh:mm a'
+                allowed_full_date_formats:
+                    'label for dd/MM/yyyy': 'dd/MM/yyyy'
+                    'label for MM/dd/yyyy': 'MM/dd/yyyy'
+                allowed_full_time_formats:
+                    'label for HH:mm': 'HH:mm'
+                    'label for hh:mm a': 'hh:mm a'
 ```
 
 The default date and time format is set using:
 
 ``` yaml
-ezsettings.default.user_preferences.datetime_format: 'dd/mm/Y HH:mm'
-ezsettings.default.user_preferences.full_datetime_format: 'LLLL dd Y HH:mm'
+ezpublish:
+    system:
+        <siteaccess>:
+            user_preferences:
+                short_datetime_format:
+                    date_format: 'dd/mm/yyy'
+                    time_format: 'hh:mm'
+                full_datetime_format:
+                    date_format: 'dd/mm/yyy'
+                    time_format: 'hh:mm'
 ```
