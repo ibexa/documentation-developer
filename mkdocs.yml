@@ -70,6 +70,7 @@ pages:
             - 'Testing': 'api/field_type_testing.md'
             - 'Storage': 'api/field_type_storage.md'
             - 'Search': 'api/field_type_search.md'
+        - 'GraphQL': 'api/graphql.md'
     - Guide:
         - 'Architecture': 'guide/architecture.md'
         - 'Bundles': 'guide/bundles.md'
