@@ -65,7 +65,6 @@ Proper indexing of these Field Types is done with [Solr Search Bundle](../guide/
 |------|------|------|------|------|
 |[Tags](https://github.com/netgen/TagsBundle)|Tags Field and full-fledged taxonomy management|Yes|Yes, since Netgen Tags v3.0.0|No (but can be previewed in Studio Demo)|
 |[Price](https://github.com/ezcommunity/EzPriceBundle)|Price Field for use in product catalogs|Yes|No|Yes|
-|[Matrix](https://github.com/ezcommunity/EzMatrixFieldTypeBundle)|Matrix Field for matrix data|Yes|No|Yes|
 
 ### Generate new Field Type
 
