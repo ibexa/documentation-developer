@@ -119,21 +119,29 @@ With this configuration you can:
 - decide how many Content items are displayed in the tree
 - set maximum depth of expanded tree
 - hide Content Types
+- set a tree root Location
 
 ```yaml
 ezpublish:
     system:
-        admin_group: # any SiteAccess or SiteAccess group
+        # any SiteAccess or SiteAccess group
+        admin_group: 
             content_tree_module:
-                load_more_limit: 15 # defines how many children will be shown after expanding parent
-                children_load_max_limit: 200 # users won't be able to load more children than that
-                tree_max_depth: 10 # maximum depth of expanded tree
-                allowed_content_types: # Content Types to display in Content Tree, value of '*' allows all CTs to be displayed  
+                # defines how many children will be shown after expanding parent
+                load_more_limit: 15
+                # users won't be able to load more children than that
+                children_load_max_limit: 200 
+                # maximum depth of expanded tree
+                tree_max_depth: 10 
+                # Content Types to display in Content Tree, value of '*' allows all CTs to be displayed
+                allowed_content_types:   
                    - folder
                    - post
                    - article
-                ignored_content_types: # Content Tree won't display these Content Types, can be used only when 'allowed_content_types' is set to '*'
+                # Content Tree won't display these Content Types, can be used only when 'allowed_content_types' is set to '*'
+                ignored_content_types: 
                    - post
                    - article
-                tree_root_location_id: 2 # ID of Location to use as tree root. If omitted - content.tree_root.location_id setting is used. 
+                # ID of Location to use as tree root. If omitted - content.tree_root.location_id setting is used. 
+                tree_root_location_id: 2 
 ```
