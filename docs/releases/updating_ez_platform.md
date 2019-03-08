@@ -381,13 +381,13 @@ Some versions require updates to the database. Look through [the list of databas
     3. Run command `bin/console ezplatform:page:migrate`
 
     !!! tip
-    
+
         This script will use the layout defined in your Landing Page.
-        To migrate successfully, you need to copy your zone configuration 
+        To migrate successfully, you need to copy your zone configuration
         from `ez_systems_landing_page_field_type` under `ezplatform_page_fieldtype` in the new config.
         Otherwise the script will encounter errors.
-        
-        
+
+
     You can remove the bundle after the migration is complete.
 
     The command will migrate Landing Pages created in eZ Platform 1.x, 2.0 and 2.1 to new Pages.
@@ -486,6 +486,27 @@ Some versions require updates to the database. Look through [the list of databas
 
         To allow anonymous users to access Forms, you also need to add the `content/read` Policy
         with the "Form" Section to the Anonymous User.
+
+    #### Custom tag configuration
+
+    v2.4 changed the way of configuring custom tags. They are no longer configured under the `ezpublish` key,
+    but one level higher in the YAML structure:
+
+    ``` yaml
+    ezpublish:
+        system:
+            <siteaccess>:
+                fieldtypes:
+                    ezrichtext:
+                        custom_tags: [exampletag]
+
+    ezrichtext:
+        custom_tags:
+            exampletag:
+                # ...
+    ```
+
+    The old configuration is deprecated, so if you use custom tags, you need to modify your config accordingly.
 
 !!! note "Updating from <2.5"
 
