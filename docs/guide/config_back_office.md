@@ -135,4 +135,5 @@ ezpublish:
                 ignored_content_types: # Content Tree won't display these Content Types, can be used only when 'allowed_content_types' is set to '*'
                    - post
                    - article
+                tree_root_location_id: 2 # ID of Location to use as tree root. If omitted - content.tree_root.location_id setting is used. 
 ```
