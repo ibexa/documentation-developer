@@ -67,8 +67,7 @@ Hidden content will be unavailable on the front page regardless of permissions o
 
 You can now navigate through your website with a Content Tree.
 It will allow you to easily browse your content in the Back Office.
-Each Content Item has unique icon that helps identify it without opening.
-Hidden Content items are instantly blurred out.
+Each Content Item has a unique icon that helps you identify it without opening.
 
 ![Content Tree in the menu](img/left_menu_tree.png "Content Tree in the menu")
 
