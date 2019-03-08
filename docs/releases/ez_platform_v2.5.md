@@ -63,7 +63,20 @@ Hidden content will be unavailable on the front page regardless of permissions o
 
 ![Icon for hiding content](img/2.5_hide_content_icon.png)
 
-### Back Office improvements
+### Content Tree
+
+You can now navigate through your website with a Content Tree.
+It will allow you to easily browse your content in the Back Office.
+Each Content Item has unique icon that helps identify it without opening.
+Hidden Content items are instantly blurred out.
+
+![Content Tree in the menu](img/left_menu_tree.png "Content Tree in the menu")
+
+For more information on custom configuration go to [Content Tree](../guide/config_back_office/#content-tree) in developer documentation.
+
+For full description of the interface see [Content Tree](https://doc.ezplatform.com/projects/userguide/en/latest/content_model/#content-tree) in user documentation.
+
+### Other Back Office improvements
 
 Several Back Office improvements to facilitate editorial experience, including:
 
