@@ -1445,7 +1445,7 @@ This Field represents and handles a table of rows and columns of data.
 | `Matrix` | `ezmatrix`    | `array`        |
 
 The Matrix Field Type is available via the eZ Platform Matrix Bundle
-provided by the https://github.com/ezsystems/ezplatform-matrix-fieldtype package.
+provided by the [ezplatform-matrix-fieldtype](https://github.com/ezsystems/ezplatform-matrix-fieldtype) package.
 
 ### PHP API Field Type
 
@@ -1479,7 +1479,7 @@ The minimum number of rows is set on Content Type level for each Field.
 
 Validation checks for empty rows. A row is considered empty if it contains only empty cells (or cells containing only spaces). Empty rows are removed.
 
-If after removing empty rows the number of rows does not fulfill the configured `Minimum number of rows`, the Field will not validate.
+If, after removing empty rows, the number of rows does not fulfill the configured `Minimum number of rows`, the Field will not validate.
 
 For example, the following input will not validate if `Minimum number of rows` is set to 3, because the second row is empty:
 
