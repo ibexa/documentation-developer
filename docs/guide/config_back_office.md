@@ -128,7 +128,11 @@ ezpublish:
                 load_more_limit: 15 # defines how many children will be shown after expanding parent
                 children_load_max_limit: 200 # users won't be able to load more children than that
                 tree_max_depth: 10 # maximum depth of expanded tree
-                content_type_ignore_list: # Content Tree won't display these Content Types
+                allowed_content_types: # Content Types to display in Content Tree, value of '*' allows all CTs to be displayed  
+                   - folder
+                   - post
+                   - article
+                ignored_content_types: # Content Tree won't display these Content Types, can be used only when 'allowed_content_types' is set to '*'
                    - post
                    - article
 ```
