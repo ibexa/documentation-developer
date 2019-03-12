@@ -50,7 +50,9 @@ all features related to user management, such as user accounts, registering, cha
 
 ### Online editor
 
-Anchors in Richtext
+###Anchors in Richtext
+
+You can add Anchors to a RichText block.
 
 #### Inline custom tags
 
