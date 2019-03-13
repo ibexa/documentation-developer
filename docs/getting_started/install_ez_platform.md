@@ -116,6 +116,10 @@ After a moment the installer will ask you to provide a few parameters:
 
     If you want to change any of these parameters later, you can do it in `app/config/parameters.yml`.
 
+!!! tip "Using PostgreSQL"
+
+    If you want an installation with PostgreSQL instead of MySQL, refer to [Using PostgreSQL](../cookbook/using_postgresql.md).
+
 ## Create database
 
 !!! tip
