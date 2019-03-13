@@ -19,6 +19,10 @@ Assetic is still is use, but it will be deprecated in a future version.
 
 ### PostgreSQL
 
+This release enables you to [use PostgreSQL](../cookbook/using_postgresql.md) instead of the default MySQL for database.
+
+Database schema is now created based on [YAML configuration](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage/legacy/schema.yaml).
+
 ### User Settings
 
 The User Settings menu has been expanded with the following options:
