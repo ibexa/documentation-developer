@@ -134,10 +134,7 @@ ezpublish:
                 # maximum depth of expanded tree
                 tree_max_depth: 10 
                 # Content Types to display in Content Tree, value of '*' allows all CTs to be displayed
-                allowed_content_types:   
-                   - folder
-                   - post
-                   - article
+                allowed_content_types: '*'
                 # Content Tree won't display these Content Types, can be used only when 'allowed_content_types' is set to '*'
                 ignored_content_types: 
                    - post
