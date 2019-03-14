@@ -33,3 +33,29 @@ code_example]]
 
 !!! note
     Standard tabs component will have a darker background, `ez-header`, in the application that will enhance active tab's color contrast.
+
+###<div class="mgt-1">Dashboard tabs</div>
+<div class="mgt-2 ez-guidelines-tabs ez-guidelines-tabs--dashboard">
+[[code_example {html}
+<ul class="nav nav-tabs ez-tabs" role="tablist" id="ez-tab-list-dashboard-my">
+    <li class="nav-item">
+        <a class="nav-link active" id="ez-tab-label-dashboard-my" data-toggle="tab" href="#ez-tab-dashboard-my-my-drafts" role="tab" aria-controls="ez-tab-dashboard-my-my-drafts" aria-expanded="1">Drafts</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="ez-tab-label-dashboard-my" data-toggle="tab" href="#ez-tab-dashboard-my-my-scheduled" role="tab" aria-controls="ez-tab-dashboard-my-my-scheduled" aria-expanded>My scheduled</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="ez-tab-label-dashboard-my" data-toggle="tab" href="#ez-tab-dashboard-my-my-content" role="tab" aria-controls="ez-tab-dashboard-my-my-content" aria-expanded>Content</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="ez-tab-label-dashboard-my" data-toggle="tab" href="#ez-tab-dashboard-my-my-media" role="tab" aria-controls="ez-tab-dashboard-my-my-media" aria-expanded>Media</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="ez-tab-label-dashboard-my" data-toggle="tab" href="#ez-tab-dashboard-my-my-drafts-under-review" role="tab" aria-controls="ez-tab-dashboard-my-my-drafts-under-review" aria-expanded>Drafts under review</a>
+    </li>
+</ul>
+code_example]]
+</div>
+
+!!! note
+    Specific styling classes for Dashboard tabs component will be applied automatically.
