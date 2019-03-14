@@ -17,7 +17,7 @@ Assetic is still is use, but it will be deprecated in a future version.
 
 ### PostgreSQL
 
-This release enables you to [use PostgreSQL](../cookbook/using_postgresql.md) instead of the default MySQL for database.
+This release enables you to [use PostgreSQL](../cookbook/using_postgresql.md) for database instead of the default MySQL.
 
 Database schema is now created based on [YAML configuration](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage/legacy/schema.yaml).
 
@@ -27,7 +27,7 @@ The User Settings menu has been expanded with the following options:
 
 - Preferred language of the Back Office
 - Preferred date format
-- Preference to enable or disable character counter for Rich Text Fields
+- Option to enable or disable a character counter for Rich Text Fields
 
 ![User settings screen with new settings](img/2.5_user_settings.png)
 
@@ -40,11 +40,11 @@ all features related to user management, such as user accounts, registering, cha
 
     ### Workflow improvements
 
-    You can now preview a diagram of the configured workflows in the Admin panel.
+    You can now preview a diagram of the configured workflows in the Admin Panel.
 
     ![Diagram of a workflow configuration](img/2.5_workflow_diagram.png)
 
-    After selecting configured workflow administrator user is now able to see all Content items under review for it.
+    After selecting configured workflow administrator, the user is now able to see all Content items under review for it.
 
     ![Content under review](img/workflow_content_under_review.png)
 
@@ -71,13 +71,13 @@ Hidden content will be unavailable on the front page regardless of permissions o
 
 You can now navigate through your website with a Content Tree.
 It will allow you to easily browse your content in the Back Office.
-Each Content Item has a unique icon that helps you identify it without opening.
+Each Content item has a unique icon that helps you identify it without opening.
 
 ![Content Tree in the menu](img/left_menu_tree.png "Content Tree in the menu")
 
-For more information on custom configuration go to [Content Tree](../guide/config_back_office/#content-tree) in developer documentation.
+For more information on custom configuration, see [Content Tree](../guide/config_back_office/#content-tree) in the developer documentation.
 
-For full description of the interface see [Content Tree](https://doc.ezplatform.com/projects/userguide/en/latest/content_model/#content-tree) in user documentation.
+For full description of the interface, see [Content Tree](https://doc.ezplatform.com/projects/userguide/en/latest/content_model/#content-tree) in the user documentation.
 
 ### Other Back Office improvements
 
@@ -92,7 +92,7 @@ Several Back Office improvements to facilitate editorial experience, including:
 
 ### Permissions
 
-You can now define a ‘Content/Create’ policy  for a User or a User group.
+You can now define a ‘Content/Create’ policy for a User or a User group.
 It will enable or disable (if not set) the **Create** button in your dashboard.
 
 ![Create button in Dashboard](img/2.5_create_button.png)
@@ -127,15 +127,15 @@ New API improvements include:
 
 Due to using Webpack Encore, installing and updating eZ Platform now [requires Node.js and yarn](updating_ez_platform.md#3-update-the-app).
 
-This release also changes support for versions of third-party software:
+This release also changes support for versions of the third-party software:
 
 - Solr 4 is no longer supported. Use Solr 6 instead (Solr 6.6LTS recommended).
 - Apache 2.2 is no longer supported. Use Apache 2.4 instead.
 - Varnish 4 is no longer supported. Use Varnish 5.1 or higher (6.0LTS recommended).
 
-For full list of supported versions see [Requirements](../getting_started/requirements.md).
+For full list of supported versions, see [Requirements](../getting_started/requirements.md).
 
-## Full list of new features, improvements and bug fixes since v2.4
+## Full list of new features, improvements, and bug fixes since v2.4
 
 | eZ Platform  | eZ Enterprise  |
 |--------------|------------|
