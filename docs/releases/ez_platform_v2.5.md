@@ -8,8 +8,6 @@
 
 ## Notable changes
 
-### Content Tree
-
 ### Webpack Encore
 
 This release introduces [Webpack Encore](https://symfony.com/doc/3.4/frontend.html#webpack-encore)
@@ -54,7 +52,7 @@ all features related to user management, such as user accounts, registering, cha
 
 ### Online editor
 
-### Anchors in Rich Text Field
+#### Anchors in Rich Text Field
 
 You can now link fragments of text by adding Anchors in Rich Text Fields.
 
@@ -92,6 +90,13 @@ Several Back Office improvements to facilitate editorial experience, including:
 
 ![Back Office improvements](img/2.5_back_office_improvements.png)
 
+### Permissions
+
+You can now define a ‘Content/Create’ policy  for a User or a User group.
+It will enable or disable (if not set) the **Create** button in your dashboard.
+
+![Create button in Dashboard](img/2.5_create_button.png)
+
 ### Matrix Field Type
 
 The new Matrix Field Type enables you to store a table of data.
@@ -103,7 +108,7 @@ Columns in the matrix are defined in the Field definition.
 
 The Dashboard now shows the version of eZ Platform you are running.
 
-TODO add screenshot with final version
+![eZ Platform version](img/2.5_product_version.png)
 
 ### GraphQL
 
