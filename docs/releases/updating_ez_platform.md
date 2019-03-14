@@ -516,6 +516,18 @@ Some versions require updates to the database. Look through [the list of databas
 
     `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/data/update/mysql/dbupdate-7.4.0-to-7.5.0.sql`
 
+    #### Changes to database schema
+
+    The introduction of [support for PostgreSQL](../cookbook/using_postgresql.md) includes a change in the way database schema is generated.
+
+    It is now created based on [YAML configuration](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage/legacy/schema.yaml), using the new [`DoctrineSchemaBundle`](https://github.com/ezsystems/doctrine-dbal-schema).
+
+    If you are updating your application according to the usual procedure, no additional actions are required.
+    However, if you do not update your meta-repository, you need to take two additional steps:
+
+    - enable `EzSystems\DoctrineSchemaBundle\DoctrineSchemaBundle()` in `AppKernel.php`
+    - add [`ez_doctrine_schema`](https://github.com/ezsystems/ezplatform/blob/master/app/config/config.yml#L33) configuration
+
 ## 5. Dump assets
 
 The web assets must be dumped again if you are using the `prod` environment. In `dev` this happens automatically:

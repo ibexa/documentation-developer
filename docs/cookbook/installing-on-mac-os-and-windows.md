@@ -92,6 +92,10 @@ After a moment the installer will ask you to provide a few parameters:
 1. Select a `database_name` or accept the default one.
 1. Provide your `database_user` and `database_password`.
 
+!!! tip "Using PostgreSQL"
+
+    If you want an installation with PostgreSQL instead of MySQL, refer to [Using PostgreSQL](../cookbook/using_postgresql.md).
+
 ## Create database
 
 !!! tip
