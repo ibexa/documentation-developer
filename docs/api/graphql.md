@@ -239,10 +239,6 @@ You can sort query results using `sortBy`:
 
 TODO: natural filtering https://github.com/ezsystems/ezplatform-graphql/pull/5
 
-## Creating and modifying content
-
-TODO: mutations https://github.com/ezsystems/ezplatform-graphql/pull/4
-
 ## Pagination
 
 GraphQL offers [cursor-based pagination](https://graphql.org/learn/pagination/) for paginating query results.
