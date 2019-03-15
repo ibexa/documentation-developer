@@ -73,6 +73,7 @@ pages:
         - GraphQL:
             - 'GraphQL': 'api/graphql.md'
             - 'GraphQL operations': 'api/graphql_operations.md'
+            - 'GraphQL customization': 'api/graphql_customization.md'
     - Guide:
         - 'Architecture': 'guide/architecture.md'
         - 'Bundles': 'guide/bundles.md'

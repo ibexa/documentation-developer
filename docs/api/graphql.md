@@ -266,7 +266,3 @@ You can paginate plural fields using `edges`:
 This query reads the first three articles, ordered by publication date.
 If the current connection (list of results) is not finished yet and that there are more items to read,
 `hasNextPage` will be `true`.
-
-## Customization (custom field types, custom domain objects)
-
-TODO: custom application schema https://github.com/ezsystems/ezplatform-graphql/pull/9/files#diff-ca9b69b23d78a2fcabaa6c8cb307ab60R1
