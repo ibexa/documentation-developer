@@ -36,8 +36,8 @@ To display Content in the front page you need to define content views and templa
 
 Content views decide which templates and controllers are used to display Content.
 
-1\. In `app/config/ezplatform.yml` add the following block under `ezpublish.system.site_group`, before `admin_group`
-(pay attention to indentation: `content_view` should be one level below `site_group`):
+1\. In `app/config/ezplatform.yml` under `ezpublish.system` uncomment the `site_group` key
+and add the following block (pay attention to indentation: `content_view` should be one level below `site_group`):
 
 ``` yaml
 content_view:
@@ -114,12 +114,12 @@ For now the new SiteAccess does not differ from the main site.
 
 One of the most common use cases for SiteAccesses is having different language versions of a site.
 
-1\. To set up the `de` SiteAccess to use a different language, add its configuration under `ezpublish.system`:
+1\. To set up the `de` SiteAccess to use a different language, add its configuration under `ezpublish.system`,
+below `site.languages`:
 
 ``` yaml
 site:
-    languages:
-        - eng-GB
+    languages: [eng-GB]
 de:
     languages:
         - ger-DE
@@ -128,29 +128,19 @@ de:
 
 This means that German will be used as the main language for this SiteAccess, and English as a fallback.
 
-2\. Remove or comment the following line under `ezpublish.system.site_group`: `languages: [eng-GB]`.
-
-Also, add the `ger-DE` language under `admin_group`:
-
-```yaml
-admin_group:
-    # ...
-    languages: [eng-GB, ger-DE]
-```
-
-3\. Go to the Back Office and select Admin > Languages. Add a new language called "German", with language code `ger-DE`.
+2\. Go to the Back Office and select Admin > Languages. Add a new language called "German", with language code `ger-DE`.
 Make sure it is enabled.
 
 ![Creating a language](img/first-steps-create-language.png)
 
-4\. Next, go to the Content structure and open the blog post you had created earlier.
+3\. Next, go to the Content structure and open the blog post you had created earlier.
 Switch to the Translations tab and add a new translation.
 
 ![Adding a translation](img/first-steps-add-translation.png)
 
-5\. Select German and base the new translation on the English version. Edit the Content item and publish it.
+4\. Select German and base the new translation on the English version. Edit the Content item and publish it.
 
-6\. Go to the front page. The blog post will now display different content depending on which SiteAccess you enter it from:
+5\. Go to the front page. The blog post will now display different content depending on which SiteAccess you enter it from:
 `<yourdomain>/<content-name>` or `<yourdomain>/de/<content-name>`.
 
 ![Previewing translated Content](img/first-steps-translated-content.png)
