@@ -21,15 +21,13 @@ Default pagination limits for different sections of the Back Office can be defin
 Default Location IDs for Content structure, Media and Users in the menu are configured using the following settings:
 
 ``` yaml
-ezsettings.default.location_ids.content_structure: 2
-ezsettings.default.location_ids.media: 43
-ezsettings.default.location_ids.users: 5
-```
-
-You can also set the default starting Location ID for the Universal Discovery Widget:
-
-``` yaml
-ezsettings.default.universal_discovery_widget_module.default_location_id: 1
+ezpublish:
+    system:
+        default:
+            location_ids:
+                content_structure: 2
+                media: 43
+                users: 5
 ```
 
 ## Notification timeout
@@ -125,20 +123,20 @@ With this configuration you can:
 ezpublish:
     system:
         # any SiteAccess or SiteAccess group
-        admin_group: 
+        admin_group:
             content_tree_module:
                 # defines how many children will be shown after expanding parent
                 load_more_limit: 15
                 # users won't be able to load more children than that
-                children_load_max_limit: 200 
+                children_load_max_limit: 200
                 # maximum depth of expanded tree
-                tree_max_depth: 10 
+                tree_max_depth: 10
                 # Content Types to display in Content Tree, value of '*' allows all CTs to be displayed
                 allowed_content_types: '*'
                 # Content Tree won't display these Content Types, can be used only when 'allowed_content_types' is set to '*'
-                ignored_content_types: 
+                ignored_content_types:
                    - post
                    - article
-                # ID of Location to use as tree root. If omitted - content.tree_root.location_id setting is used. 
-                tree_root_location_id: 2 
+                # ID of Location to use as tree root. If omitted - content.tree_root.location_id setting is used.
+                tree_root_location_id: 2
 ```

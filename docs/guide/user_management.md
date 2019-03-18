@@ -14,7 +14,7 @@ It allows them to create a new password.
 The template for this email is located in `/Resources/views/Security/mail/forgot_user_password.html.twig` in `ezsystems/ezplatform-user`.
 You can customize it according to your needs.
 
-The validity of the password recovery token can be set using the `ezsettings.default.security.token_interval_spec` parameter.
+The validity of the password recovery token can be set using the `ezpublish.system.<siteaccess>.security.token_interval_spec` parameter.
 By default it is set to `PT1H` (one hour).
 
 ## Registering new users
@@ -26,10 +26,11 @@ You can allow your users to create accounts by employing the `/register` route. 
 By default, new Users generated in this way are placed in the Guest accounts group. You can select a different default group in the following section of configuration:
 
 ``` yaml
-ezsettings:
-    default:
-        user_registration:
-            group_id: <userGroupContentId>
+ezpublish:
+    system:
+        default:
+            user_registration:
+                group_id: <userGroupContentId>
 ```
 
 ### Registration form templates
@@ -39,12 +40,13 @@ You can use custom templates for the registration form and registration confirma
 The templates are defined with the following configuration:
 
 ``` yaml
-ezsettings:
-    default:
-        user_registration:
-            templates:
-                form: 'user/registration_form.html.twig'
-                confirmation: 'user/registration_confirmation.html.twig'
+ezpublish:
+    system:
+        default:
+            user_registration:
+                templates:
+                    form: 'user/registration_form.html.twig'
+                    confirmation: 'user/registration_confirmation.html.twig'
 ```
 
 With this configuration you place the templates in `app/Resources/views/user/registration_form.html.twig` and `app/Resources/views/user/registration_confirmation.html.twig`.
@@ -83,30 +85,30 @@ You can also modify the following form templates:
 **Changing user password:**
 
 ``` yaml
-ezsettings.default.user_change_password.templates.form
-ezsettings.default.user_change_password.templates.success
+ezpublish.system.<siteaccess>.user_change_password.templates.form
+ezpublish.system.<siteaccess>.user_change_password.templates.success
 ```
 
 **Password recovery forms:**
 
 ``` yaml
-ezsettings.default.user_forgot_password.templates.form
-ezsettings.default.user_forgot_password_success.templates.form
-ezsettings.default.user_forgot_password_login.templates.form
-ezsettings.default.user_forgot_password.templates.mail
+ezpublish.system.<siteaccess>.user_forgot_password.templates.form
+ezpublish.system.<siteaccess>.user_forgot_password_success.templates.form
+ezpublish.system.<siteaccess>.user_forgot_password_login.templates.form
+ezpublish.system.<siteaccess>.user_forgot_password.templates.mail
 ```
 
 **Resetting password:**
 
 ``` yaml
-ezsettings.default.user_reset_password.templates.form
-ezsettings.default.user_reset_password.templates.invalid_link
-ezsettings.default.user_reset_password.templates.success
+ezpublish.system.<siteaccess>.user_reset_password.templates.form
+ezpublish.system.<siteaccess>.user_reset_password.templates.invalid_link
+ezpublish.system.<siteaccess>.user_reset_password.templates.success
 ```
 
 **User settings:**
 
 ``` yaml
-ezsettings.default.user_settings.templates.list
-ezsettings.default.user_settings.templates.update
+ezpublish.system.<siteaccess>.user_settings.templates.list
+ezpublish.system.<siteaccess>.user_settings.templates.update
 ```
