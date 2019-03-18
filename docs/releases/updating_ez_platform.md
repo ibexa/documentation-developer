@@ -203,7 +203,7 @@ Some versions require updates to the database. Look through [the list of databas
 
     Apply the following database update script:
 
-    `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/data/update/mysql/dbupdate-6.7.7-to-6.7.8.sql`
+    `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.7.7-to-6.7.8.sql`
 
     ##### Solr index time boosting
 
@@ -307,7 +307,7 @@ Some versions require updates to the database. Look through [the list of databas
 
     Apply the following database update script:
 
-    `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/data/update/mysql/dbupdate-6.13.3-to-6.13.4.sql`
+    `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.13.3-to-6.13.4.sql`
 
 ??? note "Updating from <2.2"
 
@@ -433,7 +433,7 @@ Some versions require updates to the database. Look through [the list of databas
 
     Apply the following database update script:
 
-    `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/data/update/mysql/dbupdate-7.2.0-to-7.3.0.sql`
+    `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.2.0-to-7.3.0.sql`
 
     ##### Trashed timestamp
 
@@ -514,7 +514,7 @@ Some versions require updates to the database. Look through [the list of databas
 
     Apply the following database update script:
 
-    `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/data/update/mysql/dbupdate-7.4.0-to-7.5.0.sql`
+    `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.4.0-to-7.5.0.sql`
 
     #### Changes to database schema
 
