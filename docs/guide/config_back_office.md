@@ -21,15 +21,13 @@ Default pagination limits for different sections of the Back Office can be defin
 Default Location IDs for Content structure, Media and Users in the menu are configured using the following settings:
 
 ``` yaml
-ezsettings.default.location_ids.content_structure: 2
-ezsettings.default.location_ids.media: 43
-ezsettings.default.location_ids.users: 5
-```
-
-You can also set the default starting Location ID for the Universal Discovery Widget:
-
-``` yaml
-ezsettings.default.universal_discovery_widget_module.default_location_id: 1
+ezpublish:
+    system:
+        default:
+            location_ids:
+                content_structure: 2
+                media: 43
+                users: 5
 ```
 
 ## Notification timeout
