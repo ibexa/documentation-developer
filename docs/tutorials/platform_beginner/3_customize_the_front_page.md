@@ -9,7 +9,9 @@ You will customize this step by instructing Platform to use a custom template to
 
 To use a custom template when rendering the root content, create a `content_view` configuration block for `ezpublish`.
 
-Edit `app/config/ezplatform.yml`. At the end, add the following block under `site_group`, but before `admin_group` (pay attention to indentation: `content_view` should be one level below `site_group`):
+Edit `app/config/ezplatform.yml`. Find the `site_group` key and uncomment it.
+Add the following block under `site_group`, but before `admin_group`
+(pay attention to indentation: `content_view` should be one level below `site_group`):
 
 ``` yaml
 ezpublish:
