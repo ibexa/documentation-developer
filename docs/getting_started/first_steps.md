@@ -36,7 +36,7 @@ To display Content in the front page you need to define content views and templa
 
 Content views decide which templates and controllers are used to display Content.
 
-1\. In `app/config/ezplatform.yml` under `ezpublish.system` uncomment the `site_group` key
+1\. In `app/config/ezplatform.yml`, under `ezpublish.system`, uncomment the `site_group` key
 and add the following block (pay attention to indentation: `content_view` should be one level below `site_group`):
 
 ``` yaml
@@ -128,7 +128,7 @@ de:
 
 This means that German will be used as the main language for this SiteAccess, and English as a fallback.
 
-2\. Go to the Back Office and select Admin > Languages. Add a new language called "German", with language code `ger-DE`.
+2\. Go to the Back Office and select **Admin** > **Languages**. Add a new language called "German", with the language code `ger-DE`.
 Make sure it is enabled.
 
 ![Creating a language](img/first-steps-create-language.png)
@@ -140,7 +140,7 @@ Switch to the Translations tab and add a new translation.
 
 4\. Select German and base the new translation on the English version. Edit the Content item and publish it.
 
-5\. Go to the front page. The blog post will now display different content depending on which SiteAccess you enter it from:
+5\. Go to the front page. The blog post will now display different content, depending on which SiteAccess you enter it from:
 `<yourdomain>/<content-name>` or `<yourdomain>/de/<content-name>`.
 
 ![Previewing translated Content](img/first-steps-translated-content.png)
