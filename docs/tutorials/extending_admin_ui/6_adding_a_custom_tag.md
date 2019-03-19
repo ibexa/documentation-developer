@@ -100,7 +100,7 @@ public function prepend( ContainerBuilder $container )
 
 ??? tip "Complete file"
 
-    ```php hl_lines="9 10 11 13 26 27 28 29 30 31 32"
+    ``` php hl_lines="9 10 11 13 26 27 28 29 30 31 32"
     
     <?php
     
@@ -136,6 +136,7 @@ public function prepend( ContainerBuilder $container )
         }
     
     }
+    ```
 
 ## Add labels
 
