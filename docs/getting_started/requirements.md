@@ -20,7 +20,7 @@ These setups are tested by QA and are generally recommended setups. For security
 |PHP|PHP 7.3|PHP 7.2|PHP 7.2|
 |PHP packages|php-cli</br>php-fpm</br>php-mysql or php-pgsql</br>php-xml</br>php-intl</br>php-curl</br>php-gd *or* php-imagick|php-cli</br>php-fpm</br>php-mysql or php-pgsql</br>php-xml</br>php-mbstring</br>php-intl</br>php-curl</br>php-gd *or* php-imagick|php-cli</br>php-fpm</br>php-mysqlnd or php-pgsql</br>php-xml</br>php-mbstring</br>php-process</br>php-intl</br>php-pear *(optional, provides pecl)*</br>php-gd *or* php-imagick *(via [pecl](https://pecl.php.net/package/imagick))*|
 |Cluster PHP packages|[php-redis](https://pecl.php.net/package/redis) *(3.1.3+)*|[php-redis](https://pecl.php.net/package/redis) *(3.1.3+)*|[php-redis](https://pecl.php.net/package/redis) *(3.1.3+)*|
-    
+
 |||
 |------|------|
 |Search|Solr (recommended; for performance, features and search quality):</br></br>Solr 6.x *Currently tested with Solr 6.6LTS*</br></br>Oracle Java/Open JDK: 8 |
@@ -39,7 +39,7 @@ Supported setups are those we perform automated testing on. For security and per
         - event MPM is recommended, if you need to use _prefork_ you'll also need the `mod_php` module
     -   Nginx 1.12, 1.14
 -   DBMS
-    -   MySQL 5.7\* or 8.0\* \** 
+    -   MySQL 5.7\* or 8.0\* \**
     -   MariaDB 10.0, 10.1, 10.2\*, 10.3\*
     -   PostgreSQL 10+
 -   PHP
@@ -136,6 +136,11 @@ Features or services supported by eZ Platform but not covered by Platform.sh may
 |Recommended setup|**eZ Platform**</br>eZ Platform setup, with no use of legacy.|eZ Platform software plus cloud hosting infrastructure is supported by eZ for version 1.13 and higher</br></br>Recommended configuration provided out of the box and fully supported, on-boarding help available.|
 |Supported setup|**Legacy Bridge setup**</br>eZ Publish 5.x-like setup where web traffic goes to eZ Platform/Symfony and Legacy Bundle provides legacy fallback features.</br>Notably it allows among other things enabling a "Legacy mode" where legacy bundle lets legacy take over handling of URL aliases.|Installation and cloud is supported by eZ for version 1.13 and 2.x</br></br>Review and potential adaptation of the application configuration to be performed by eZ Systems technical services prior to deployments. The cost and effort of this review and potential adaptation is not included in eZ Platform Cloud subscription and will vary depending on each project's specificities.</br></br>*NOTE: Advanced legacy features like ezfind, Async publishing, ezodf, and similar go under 'Experimental setup', to avoid this migrate to similar eZ Platform features.*|
 |Experimental setup|**eZ Publish, eZ Publish Platform and other pure legacy setups**</br>eZ Publish (version 4.x) or eZ Publish Platform (version 5.x) standalone setup or an experimental setup with eZ Platform and Legacy Bridge.|Not covered by eZ Platform Cloud subscription.</br></br>The use of Platform.sh service is possible as a standalone service and can be used to bridge migration needs. We recommend involving an eZ business partner that has experience with setting up legacy projects on Platform.sh|
+
+!!! note
+
+    As Platform.sh does not support a configuration with multiple PostgreSQL databases,
+    for eZ Platform Cloud / Platform.sh it is impossible to have a DFS table in a separate database.
 
 ### Recommended eZ Platform Cloud setup
 
