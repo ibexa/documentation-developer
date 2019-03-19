@@ -140,7 +140,7 @@ Features or services supported by eZ Platform but not covered by Platform.sh may
 !!! note
 
     As Platform.sh does not support a configuration with multiple PostgreSQL databases,
-    for eZ Platform Cloud / Platform.sh it is impossible to have a separate table for DFS.
+    for eZ Platform Cloud / Platform.sh it is impossible to have a DFS table in a separate database.
 
 ### Recommended eZ Platform Cloud setup
 
