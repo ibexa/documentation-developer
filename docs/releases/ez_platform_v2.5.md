@@ -13,7 +13,7 @@
 This release introduces [Webpack Encore](https://symfony.com/doc/3.4/frontend.html#webpack-encore)
 as the preferred tool for asset management.
 
-Assetic is still is use, but it will be deprecated in a future version.
+Assetic is still in use, but it will be deprecated in a future version.
 
 ### PostgreSQL
 
