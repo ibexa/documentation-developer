@@ -135,6 +135,16 @@ This release also changes support for versions of the third-party software:
 
 For full list of supported versions, see [Requirements](../getting_started/requirements.md).
 
+### Password requirements
+
+This version introduces stricter password quality requirements.
+
+Passwords must be at least 10 characters long, and must include upper and lower case letters, and digits.
+Existing passwords are not changed.
+
+See [backwards compatibility changes](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/bc/changes-7.5.md)
+for detailed information.
+
 ## Full list of new features, improvements, and bug fixes since v2.4
 
 | eZ Platform  | eZ Enterprise  |
