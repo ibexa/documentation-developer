@@ -19,6 +19,7 @@
 }
 
 .ez-guidelines-sample {
+    position: relative;
     border: 1px solid #00825c;
     border-radius: 4px;
     padding: 2em 1em;
@@ -27,10 +28,13 @@
 .ez-guidelines-sample-negative {
     border-color: #d92d42;
 }
+.ez-guidelines-sample--images {
+    padding: 1.5em 1em 3em;
+}
 .ez-guidelines-sample__correct-block {
     position: absolute;
     bottom: 0;
-    margin-left: -1.15em;
+    margin-left: -1.125em;
     width: 100%;
     padding: 0.25em 0;
     border-radius: 0 0 4px 4px;
