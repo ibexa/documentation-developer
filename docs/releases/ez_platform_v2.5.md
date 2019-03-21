@@ -8,6 +8,18 @@
 
 ## Notable changes
 
+### Content Tree
+
+You can now navigate through your website with a Content Tree.
+It will allow you to easily browse your content in the Back Office.
+Each Content item has a unique icon that helps you identify it without opening.
+
+![Content Tree in the menu](img/left_menu_tree.png "Content Tree in the menu")
+
+For more information on custom configuration, see [Content Tree](../guide/config_back_office/#content-tree) in the developer documentation.
+
+For full description of the interface, see [Content Tree](https://doc.ezplatform.com/projects/userguide/en/latest/content_model/#content-tree) in the user documentation.
+
 ### Webpack Encore
 
 This release introduces [Webpack Encore](https://symfony.com/doc/3.4/frontend.html#webpack-encore)
@@ -24,15 +36,19 @@ Database schema is now created based on [YAML configuration](https://github.com/
 
 See [Using PostgreSQL](../cookbook/using_postgresql.md) for more information.
 
-### User Settings
+### GraphQL
 
-The User Settings menu has been expanded with the following options:
+You can now take advantage of [GraphQL](../api/graphql.md) to query and operate on content.
+It uses a domain schema based on your content model.
 
-- Preferred language of the Back Office
-- Preferred date format
-- Option to enable or disable a character counter for Rich Text Fields
+See [GraphQL documentation](https://graphql.org/) for more information about GraphQL in general.
 
-![User settings screen with new settings](img/2.5_user_settings.png)
+### Matrix Field Type
+
+The new [Matrix Field Type](../api/field_type_reference.md#matrix-field-type) enables you to store a table of data.
+Columns in the matrix are defined in the Field definition.
+
+![Configuring a Matrix Field Type](img/2.5_matrix_ft.png)
 
 ### User bundle
 
@@ -51,7 +67,7 @@ all features related to user management, such as user accounts, registering, cha
 
     ![Content under review](img/workflow_content_under_review.png)
 
-### Online editor
+### Online editor improvements
 
 #### Anchors in Rich Text Field
 
@@ -68,21 +84,25 @@ Hidden content will be unavailable on the front page regardless of permissions o
 
 ![Icon for hiding content](img/2.5_hide_content_icon.png)
 
-### Content Tree
+### Product version preview
 
-You can now navigate through your website with a Content Tree.
-It will allow you to easily browse your content in the Back Office.
-Each Content item has a unique icon that helps you identify it without opening.
+The Dashboard now shows the version of eZ Platform you are running.
 
-![Content Tree in the menu](img/left_menu_tree.png "Content Tree in the menu")
+![eZ Platform version](img/2.5_product_version.png)
 
-For more information on custom configuration, see [Content Tree](../guide/config_back_office/#content-tree) in the developer documentation.
+### Expanded User Settings
 
-For full description of the interface, see [Content Tree](https://doc.ezplatform.com/projects/userguide/en/latest/content_model/#content-tree) in the user documentation.
+The User Settings menu has been expanded with the following options:
 
-### Other Back Office improvements
+- Preferred language of the Back Office
+- Preferred date format
+- Option to enable or disable a character counter for Rich Text Fields
 
-Several Back Office improvements to facilitate editorial experience, including:
+![User settings screen with new settings](img/2.5_user_settings.png)
+
+### Various Back Office improvements
+
+This release introduced several Back Office improvements to facilitate editorial experience, including:
 
 - [Icons for Content Types and the ability to define them](../guide/extending_ez_platform.md#custom-content-type-icons)
 - Ability to collapse and expand content preview to have easier access to the Sub-items list
@@ -97,26 +117,6 @@ You can now define a 'Content/Create' policy for a User or a User group.
 It will enable or disable (if not set) the **Create** button in your dashboard.
 
 ![Create button in Dashboard](img/2.5_create_button.png)
-
-### Matrix Field Type
-
-The new [Matrix Field Type](../api/field_type_reference.md#matrix-field-type) enables you to store a table of data.
-Columns in the matrix are defined in the Field definition.
-
-![Configuring a Matrix Field Type](img/2.5_matrix_ft.png)
-
-### Product version preview
-
-The Dashboard now shows the version of eZ Platform you are running.
-
-![eZ Platform version](img/2.5_product_version.png)
-
-### GraphQL
-
-You can now take advantage of [GraphQL](../api/graphql.md) to query and operate on content.
-It uses a domain schema based on your content model.
-
-See [GraphQL documentation](https://graphql.org/) for more information about GraphQL in general.
 
 ### API improvements
 
@@ -152,7 +152,7 @@ Existing passwords are not changed.
 See [backwards compatibility changes](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/bc/changes-7.5.md)
 for detailed information.
 
-## Full changelog since v2.4
+## Full changelog
 
 | eZ Platform  | eZ Enterprise  |
 |--------------|------------|
