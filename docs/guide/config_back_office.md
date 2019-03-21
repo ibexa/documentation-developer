@@ -140,3 +140,7 @@ ezpublish:
                 # ID of Location to use as tree root. If omitted - content.tree_root.location_id setting is used.
                 tree_root_location_id: 2
 ```
+
+## Universal Discovery module limits
+
+Limits for different sections of Universal Discovery Widget module (UDW) can be defined through respective settings in [universal_discovery_widget.yml](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/config/universal_discovery_widget.yml)
