@@ -143,4 +143,4 @@ ezpublish:
 
 ## Universal Discovery module limits
 
-Limits for different sections of Universal Discovery Widget module (UDW) can be defined through respective settings in [universal_discovery_widget.yml](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/config/universal_discovery_widget.yml)
+Limits for different sections of Universal Discovery Widget module (UDW) can be defined through respective settings in [`universal_discovery_widget.yml`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/config/universal_discovery_widget.yml)
