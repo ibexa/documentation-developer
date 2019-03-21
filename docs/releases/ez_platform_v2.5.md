@@ -12,6 +12,7 @@
 
 This release introduces [Webpack Encore](https://symfony.com/doc/3.4/frontend.html#webpack-encore)
 as the preferred tool for asset management.
+This leads to [changes in requirements](#requirements-changes).
 
 Assetic is still in use, but it will be deprecated in a future version.
 
@@ -20,6 +21,8 @@ Assetic is still in use, but it will be deprecated in a future version.
 This release enables you to [use PostgreSQL](../cookbook/using_postgresql.md) for database instead of the default MySQL.
 
 Database schema is now created based on [YAML configuration](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage/legacy/schema.yaml).
+
+See [Using PostgreSQL](../cookbook/using_postgresql.md) for more information.
 
 ### User Settings
 
@@ -47,8 +50,6 @@ all features related to user management, such as user accounts, registering, cha
     After selecting configured workflow administrator, the user is now able to see all Content items under review for it.
 
     ![Content under review](img/workflow_content_under_review.png)
-
-### eZ Commerce clean Installer
 
 ### Online editor
 
@@ -92,14 +93,14 @@ Several Back Office improvements to facilitate editorial experience, including:
 
 ### Permissions
 
-You can now define a ‘Content/Create’ policy for a User or a User group.
+You can now define a 'Content/Create' policy for a User or a User group.
 It will enable or disable (if not set) the **Create** button in your dashboard.
 
 ![Create button in Dashboard](img/2.5_create_button.png)
 
 ### Matrix Field Type
 
-The new Matrix Field Type enables you to store a table of data.
+The new [Matrix Field Type](../api/field_type_reference.md#matrix-field-type) enables you to store a table of data.
 Columns in the matrix are defined in the Field definition.
 
 ![Configuring a Matrix Field Type](img/2.5_matrix_ft.png)
@@ -111,6 +112,11 @@ The Dashboard now shows the version of eZ Platform you are running.
 ![eZ Platform version](img/2.5_product_version.png)
 
 ### GraphQL
+
+You can now take advantage of [GraphQL](../api/graphql.md) to query and operate on content.
+It uses a domain schema based on your content model.
+
+See [GraphQL documentation](https://graphql.org/) for more information about GraphQL in general.
 
 ### API improvements
 
@@ -125,9 +131,10 @@ New API improvements include:
 
 ## Requirements changes
 
-Due to using Webpack Encore, installing and updating eZ Platform now [requires Node.js and yarn](updating_ez_platform.md#3-update-the-app).
+Due to using Webpack Encore, you now need [Node.js and yarn](updating_ez_platform.md#3-update-the-app)
+to install or update eZ Platform.
 
-This release also changes support for versions of the third-party software:
+This release also changes support for versions of the following third-party software:
 
 - Solr 4 is no longer supported. Use Solr 6 instead (Solr 6.6LTS recommended).
 - Apache 2.2 is no longer supported. Use Apache 2.4 instead.
@@ -137,7 +144,7 @@ For full list of supported versions, see [Requirements](../getting_started/requi
 
 ### Password requirements
 
-This version introduces stricter password quality requirements.
+This version introduces stricter default password quality requirements.
 
 Passwords must be at least 10 characters long, and must include upper and lower case letters, and digits.
 Existing passwords are not changed.
@@ -145,11 +152,12 @@ Existing passwords are not changed.
 See [backwards compatibility changes](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/bc/changes-7.5.md)
 for detailed information.
 
-## Full list of new features, improvements, and bug fixes since v2.4
+## Full changelog since v2.4
 
 | eZ Platform  | eZ Enterprise  |
 |--------------|------------|
-| [List of changes for final of eZ Platform v2.5.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v2.5.0) | [List of changes for final for eZ Platform Enterprise Edition v2.5.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.5.0) |
-| [List of changes for rc1 of eZ Platform v2.5.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v2.5.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v2.5.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.5.0-rc1) |
-| [List of changes for beta2 of eZ Platform v2.5.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v2.5.0-beta2) | [List of changes for beta2 of eZ Platform Enterprise Edition v2.5.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.5.0-beta2) |
-| [List of changes for beta1 of eZ Platform v2.5.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v2.5.0-beta1) | [List of changes for beta1 of eZ Platform Enterprise Edition v2.5.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.5.0-beta1) |
+| [eZ Platform v2.5.0](https://github.com/ezsystems/ezplatform/releases/tag/v2.5.0) | [eZ Enterprise v2.5.0](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.5.0) |
+| [eZ Platform v2.5.0-rc2](https://github.com/ezsystems/ezplatform/releases/tag/v2.5.0-rc2) | [eZ Enterprise v2.5.0-rc2](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.5.0-rc2) |
+| [eZ Platform v2.5.0-rc1](https://github.com/ezsystems/ezplatform/releases/tag/v2.5.0-rc1) | [eZ Enterprise v2.5.0-rc1](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.5.0-rc1) |
+| [eZ Platform v2.5.0-beta2](https://github.com/ezsystems/ezplatform/releases/tag/v2.5.0-beta2) | [eZ Enterprise v2.5.0-beta2](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.5.0-beta2) |
+| [eZ Platform v2.5.0-beta1](https://github.com/ezsystems/ezplatform/releases/tag/v2.5.0-beta1) | [eZ Enterprise v2.5.0-beta1](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.5.0-beta1) |
