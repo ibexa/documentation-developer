@@ -2,7 +2,7 @@
 
 ## Universal Discovery module
 
-Universal Discovery module allows you to browse the content structure and search for content
+Universal Discovery module (UDW) allows you to browse the content structure and search for content
 using an interactive interface: the browse view and the search view.
 
 !!! tip "Tutorial"
@@ -128,6 +128,22 @@ The following props are deprecated:
 
 - **cotfForcedLanguage** _{String}_ - language code. When set, Content on the Fly is locked on this language.
 - **languages** and **contentTypes** are lists of languages and Content Types in the system, read from the application config.
+
+### Configuration
+
+#### Search limits
+
+You can configure search limits in Universal Discovery module in `universal_discovery_widget.yml` file, under the following path:
+
+```yaml
+system:
+    default:
+        universal_discovery_widget_module:
+            configuration:
+                default:
+                    search:
+                        limit: 50
+```
 
 ## Sub-items List
 
