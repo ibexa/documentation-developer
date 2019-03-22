@@ -74,23 +74,24 @@ ezpublish:
 
 #### In-Memory cache configuration
 
-As of 2.5LTS Persistence cache layer is also caching selected meta data objects in-memory for a short time to avoid loading the same data over and over, from for instance a remote Redis instance which can be quite time consuming.
+Persistence cache layer caches selected metadata objects in-memory for a short time. It avoids loading repeatedly the same data from e.g. a remote Redis instance, which is very time consuming.
 
-The settings are configured globally, and has the following default settings:
+In-Memory cache is configured globally, and has the following default settings:
+
 ```yml
 parameters:
-    # ttl: how many milliseconds objects are maximum kept in-memory (3000ms = 3s)
+    # ttl: Maximum number of  milliseconds objects are kept in-memory (3000ms = 3s)
     ezpublish.spi.persistence.cache.inmemory.ttl: 3000
     # limit: Maximum number of cache objects to place in-memory, to avoid consuming to much memory
     ezpublish.spi.persistence.cache.inmemory.limit: 100
-    # enabled: To enable the in-memory cache or not
+    # enabled: Is the in-memory cache enabled
     ezpublish.spi.persistence.cache.inmemory.enable: true
 ```
 
 !!! caution "In-Memory cache is per-process"
 
-    TTL or Limit needs to have low values! Setting limit high will increase memory use, and more importantly by increasing
-    ttl you'll risk to much higher degree that the system acts on stale meta data (e.g. content type definition). 
+    **TTL or Limit needs to have a low value.** Setting limit high will increase memory use.
+    High TTL value also puts you at risk for system acting on a stale metadata (e.g. Content Type definitions). 
 
 ### Redis
 
