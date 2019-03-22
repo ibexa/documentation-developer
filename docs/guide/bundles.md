@@ -150,3 +150,13 @@ The following tables give an overview of the main eZ Platform bundles.
 |[ezflow-migration-toolkit](https://github.com/ezsystems/ezflow-migration-toolkit)|set of tools that helps migrate data from legacy eZ Flow extension to eZ Studio landing page management|
 |[ngsymfonytools-bundle](https://github.com/ezsystems/ngsymfonytools-bundle)|integrates the legacy [netgen/ngsymfonytools](https://github.com/netgen/ngsymfonytools) as a Legacy bundle|
 |[ezpublish-legacy-installer](https://github.com/ezsystems/ezpublish-legacy-installer)| custom Composer installer for eZ Publish legacy extensions|
+
+## Using third-party bundles
+
+### Overriding bundles
+
+When you use an external bundle, you can override its parts, such as templates, controllers, etc.
+
+To do so, make use of [Symfony's bundle override mechanism](https://symfony.com/doc/3.4/bundles/override.html).
+
+Note that when overriding files, the path inside your application has to correspond to the path inside the bundle.
