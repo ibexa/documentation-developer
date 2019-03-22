@@ -44,10 +44,6 @@ Notes:
 
 *Use of Memcached or Redis is a requirement for use in Clustering setup. For an overview of this feature, see [Clustering](clustering.md).*
 
-!!! note
-
-    When eZ Platform changes to another PSR-6 based cache system in the future, then configuration documented below will change.
-
 **Cache service**
 
 The cache system is exposed as a "cache" service, and can be reused by any other service as described in the [Using Cache service](#using-cache-service) section.
@@ -76,6 +72,26 @@ ezpublish:
 
     If your installation has several Repositories *(databases)*, make sure every group of sites using different Repositories also uses a different cache pool.
 
+#### In-Memory cache configuration
+
+As of 2.5LTS Persistence cache layer is also caching selected meta data objects in-memory for a short time to avoid loading the same data over and over, from for instance a remote Redis instance which can be quite time consuming.
+
+The settings are configured globally, and has the following default settings:
+```yml
+parameters:
+    # ttl: how many milliseconds objects are maximum kept in-memory (3000ms = 3s)
+    ezpublish.spi.persistence.cache.inmemory.ttl: 3000
+    # limit: Maximum number of cache objects to place in-memory, to avoid consuming to much memory
+    ezpublish.spi.persistence.cache.inmemory.limit: 100
+    # enabled: To enable the in-memory cache or not
+    ezpublish.spi.persistence.cache.inmemory.enable: true
+```
+
+!!! caution "In-Memory cache is per-process"
+
+    TTL or Limit needs to have low values! Setting limit high will increase memory use, and more importantly by increasing
+    ttl you'll risk to much higher degree that the system acts on stale meta data (e.g. content type definition). 
+
 ### Redis
 
 [Redis](http://redis.io/), an in-memory data structure store, is the recommended cache solution for clustering.
@@ -84,11 +100,14 @@ Redis is used via [Redis pecl extension](https://pecl.php.net/package/redis).
 See [Redis Cache Adapter in Symfony documentation](https://symfony.com/doc/3.4/components/cache/adapters/redis_adapter.html#configure-the-connection)
 for information on how to configure Redis.
 
+
 Example:
 
 ``` yaml
 services:
     cache.redis:
+        # NOTE: This optimized Redis Adapter is avaiable as of 2.5LTS via https://github.com/ezsystems/symfony-tools
+        class: Symfony\Component\Cache\Adapter\TagAware\RedisTagAwareAdapter
         parent: cache.adapter.redis
         tags:
             - name: cache.pool
@@ -106,15 +125,18 @@ services:
 Persistence cache depends on all involved web servers, each of them seeing the same view of the cache because it's shared among them.
 With that in mind, the following configurations of Redis are possible:
 
-- [Redis Cluster](https://redis.io/topics/cluster-tutorial)
-    - Shards cache across several instances in order to be able to cache more than memory of one server allows
-    - Shard slaves can improve availability, however [they use asynchronous replication](https://redis.io/topics/cluster-tutorial#redis-cluster-consistency-guarantees) so they can't be used for reads
-    - Unsupported Redis features that can affect performance: [pipelining](https://github.com/phpredis/phpredis/blob/develop/cluster.markdown#pipelining) and [most multiple key commands](https://github.com/phpredis/phpredis/blob/develop/cluster.markdown#multiple-key-commands)
-- [Redis Sentinel](https://redis.io/topics/sentinel)
-    - Provides high availability by providing one or several slaves (ideally 2 slaves or more, e.g. minimum 3 servers), and handle failover
-    - [Slaves are asynchronously replicated](https://redis.io/topics/sentinel#fundamental-things-to-know-about-sentinel-before-deploying), so they can't be used for reads
-    - Typically used with a load balancer (e.g. HAproxy) in the front in order to only speak to elected master
-        - An alternative is that application logic itself speaks to Sentinel in order to always ask for elected master before talking to cache.
+###### [Redis Cluster](https://redis.io/topics/cluster-tutorial)
+- Shards cache across several instances in order to be able to cache more than memory of one server allows
+- Shard slaves can improve availability, however [they use asynchronous replication](https://redis.io/topics/cluster-tutorial#redis-cluster-consistency-guarantees) so they can't be used for reads
+- Unsupported Redis features that can affect performance: [pipelining](https://github.com/phpredis/phpredis/blob/develop/cluster.markdown#pipelining) and [most multiple key commands](https://github.com/phpredis/phpredis/blob/develop/cluster.markdown#multiple-key-commands)
+    
+###### [Redis Sentinel](https://redis.io/topics/sentinel)
+- Provides high availability by providing one or several slaves (ideally 2 slaves or more, e.g. minimum 3 servers), and handle failover
+- [Slaves are asynchronously replicated](https://redis.io/topics/sentinel#fundamental-things-to-know-about-sentinel-before-deploying), so they can't be used for reads
+- Typically used with a load balancer (e.g. HAproxy) in the front in order to only speak to elected master
+    - An alternative is that application logic itself speaks to Sentinel in order to always ask for elected master before talking to cache.
+
+###### General recommendations
 
 For best performance we recommend use of Redis Sentinel if it fits your needs. However different cloud providers have managed services that are easier to set up, and might perform better. Notable Services:
 
