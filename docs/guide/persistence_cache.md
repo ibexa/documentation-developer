@@ -44,10 +44,6 @@ Notes:
 
 *Use of Memcached or Redis is a requirement for use in Clustering setup. For an overview of this feature, see [Clustering](clustering.md).*
 
-!!! note
-
-    When eZ Platform changes to another PSR-6 based cache system in the future, then configuration documented below will change.
-
 **Cache service**
 
 The cache system is exposed as a "cache" service, and can be reused by any other service as described in the [Using Cache service](#using-cache-service) section.
@@ -76,6 +72,27 @@ ezpublish:
 
     If your installation has several Repositories *(databases)*, make sure every group of sites using different Repositories also uses a different cache pool.
 
+#### In-Memory cache configuration
+
+Persistence cache layer caches selected metadata objects in-memory for a short time. It avoids loading repeatedly the same data from e.g. a remote Redis instance, which is very time consuming.
+
+In-Memory cache is configured globally, and has the following default settings:
+
+```yml
+parameters:
+    # ttl: Maximum number of  milliseconds objects are kept in-memory (3000ms = 3s)
+    ezpublish.spi.persistence.cache.inmemory.ttl: 3000
+    # limit: Maximum number of cache objects to place in-memory, to avoid consuming to much memory
+    ezpublish.spi.persistence.cache.inmemory.limit: 100
+    # enabled: Is the in-memory cache enabled
+    ezpublish.spi.persistence.cache.inmemory.enable: true
+```
+
+!!! caution "In-Memory cache is per-process"
+
+    **TTL or Limit needs to have a low value.** Setting limit high will increase memory use.
+    High TTL value also puts you at risk for system acting on stale metadata (e.g. Content Type definitions). 
+
 ### Redis
 
 [Redis](http://redis.io/), an in-memory data structure store, is the recommended cache solution for clustering.
@@ -89,6 +106,8 @@ Example:
 ``` yaml
 services:
     cache.redis:
+        # NOTE: This optimized Redis Adapter is avaiable as of 2.5LTS via https://github.com/ezsystems/symfony-tools
+        class: Symfony\Component\Cache\Adapter\TagAware\RedisTagAwareAdapter
         parent: cache.adapter.redis
         tags:
             - name: cache.pool
