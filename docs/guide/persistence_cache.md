@@ -91,7 +91,7 @@ parameters:
 !!! caution "In-Memory cache is per-process"
 
     **TTL or Limit needs to have a low value.** Setting limit high will increase memory use.
-    High TTL value also puts you at risk for system acting on a stale metadata (e.g. Content Type definitions). 
+    High TTL value also puts you at risk for system acting on stale metadata (e.g. Content Type definitions). 
 
 ### Redis
 
