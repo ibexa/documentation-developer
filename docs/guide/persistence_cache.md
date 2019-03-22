@@ -100,7 +100,6 @@ Redis is used via [Redis pecl extension](https://pecl.php.net/package/redis).
 See [Redis Cache Adapter in Symfony documentation](https://symfony.com/doc/3.4/components/cache/adapters/redis_adapter.html#configure-the-connection)
 for information on how to configure Redis.
 
-
 Example:
 
 ``` yaml
@@ -125,18 +124,15 @@ services:
 Persistence cache depends on all involved web servers, each of them seeing the same view of the cache because it's shared among them.
 With that in mind, the following configurations of Redis are possible:
 
-###### [Redis Cluster](https://redis.io/topics/cluster-tutorial)
-- Shards cache across several instances in order to be able to cache more than memory of one server allows
-- Shard slaves can improve availability, however [they use asynchronous replication](https://redis.io/topics/cluster-tutorial#redis-cluster-consistency-guarantees) so they can't be used for reads
-- Unsupported Redis features that can affect performance: [pipelining](https://github.com/phpredis/phpredis/blob/develop/cluster.markdown#pipelining) and [most multiple key commands](https://github.com/phpredis/phpredis/blob/develop/cluster.markdown#multiple-key-commands)
-    
-###### [Redis Sentinel](https://redis.io/topics/sentinel)
-- Provides high availability by providing one or several slaves (ideally 2 slaves or more, e.g. minimum 3 servers), and handle failover
-- [Slaves are asynchronously replicated](https://redis.io/topics/sentinel#fundamental-things-to-know-about-sentinel-before-deploying), so they can't be used for reads
-- Typically used with a load balancer (e.g. HAproxy) in the front in order to only speak to elected master
-    - An alternative is that application logic itself speaks to Sentinel in order to always ask for elected master before talking to cache.
-
-###### General recommendations
+- [Redis Cluster](https://redis.io/topics/cluster-tutorial)
+    - Shards cache across several instances in order to be able to cache more than memory of one server allows
+    - Shard slaves can improve availability, however [they use asynchronous replication](https://redis.io/topics/cluster-tutorial#redis-cluster-consistency-guarantees) so they can't be used for reads
+    - Unsupported Redis features that can affect performance: [pipelining](https://github.com/phpredis/phpredis/blob/develop/cluster.markdown#pipelining) and [most multiple key commands](https://github.com/phpredis/phpredis/blob/develop/cluster.markdown#multiple-key-commands)   
+- [Redis Sentinel](https://redis.io/topics/sentinel)
+    - Provides high availability by providing one or several slaves (ideally 2 slaves or more, e.g. minimum 3 servers), and handle failover
+    - [Slaves are asynchronously replicated](https://redis.io/topics/sentinel#fundamental-things-to-know-about-sentinel-before-deploying), so they can't be used for reads
+    - Typically used with a load balancer (e.g. HAproxy) in the front in order to only speak to elected master
+        - An alternative is that application logic itself speaks to Sentinel in order to always ask for elected master before talking to cache.
 
 For best performance we recommend use of Redis Sentinel if it fits your needs. However different cloud providers have managed services that are easier to set up, and might perform better. Notable Services:
 
