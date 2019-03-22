@@ -91,4 +91,112 @@ mutation deleteBlogPost {
 
 ## File upload
 
-TODO
+!!! note
+
+    Uploading binary files is not possible through GraphiQL.
+    You can use alternative third-party clients such as [Altair GraphQL](https://altair.sirmuel.design/).
+
+Uploading files makes use of dedicated mutations per Content Type, for example:
+
+```
+mutation CreateImage($file: FileUpload!) {
+  createImage(
+    parentLocationId: 51,
+    language: "eng-GB",
+    input: {
+      name: "An image created over GraphQL",
+      image: {
+        alternativeText: "The alternative text",
+        file: $file
+      }
+    }
+  ) {
+    _info { id mainLocationId }
+    name
+    image { fileName alternativeText uri }
+  }
+}
+```
+
+The file is provided as the `$file` variable, defined as an `UploadFile`.
+
+You can include this mutation in a curl request under `operations`:
+
+``` bash
+curl -v -X POST \
+  <yourdomain>/graphql \
+  -H "Cookie: $AUTH_COOKIE" \
+  -F 'operations={"query":"mutation createFile($file: FileUpload!) { ... }","variables":{"file": null}}' \
+  -F 'map={"image":["variables.file"]}' \
+  -F "image"=@/path/to/image.png
+```
+
+For example:
+
+``` bash
+curl -v -X POST \
+  <yourdomain>/graphql \
+  -H "Cookie: $AUTH_COOKIE" \
+  -F 'operations={"query":"mutation CreateImage($file: FileUpload!) { createImage( parentLocationId: 51, input: { name: \"An image created over GraphQL\", image: { alternativeText: \"The alternative text\", file: $file } }, language: \"eng-GB\" ) { _info { id mainLocationId } _url name image { fileName alternativeText uri } } }","variables":{"file": null}}' \
+  -F 'map={"image":["variables.file"]}' \
+  -F "image"=@/path/to/image.png
+```
+
+!!! note "Authentication"
+
+    Note that the example above requires you to set your authentication cookie in the `$AUTH_COOKIE` variable.
+    See [Authentication](../graphql.md#authentication) for mote information.
+
+### Uploading multiple files
+
+You can upload multiple files with one operation in a similar way, by using the `uploadFiles` mutation,
+with the files being provided in a `$files` variable and listed under `map` in the curl request.
+
+```
+mutation UploadMultipleFiles($files: [FileUpload]!) {
+  uploadFiles(
+    locationId: 51,
+    files: $files,
+    languageCode: "eng-GB"
+  ) {
+    files {
+      _url
+      _location {
+        id
+      }
+      ... on ImageContent {
+        name
+        image {
+          uri
+        }
+      }
+      ... on FileContent {
+        name
+        file {
+          uri
+        }
+      }
+      ... on VideoContent {
+        name
+        file {
+          uri
+        }
+      }
+    }
+    warnings
+  }
+}
+```
+
+```
+curl -v -X POST \
+  <yourdomain>/graphql \
+  -H 'Cookie: $AUTH_COOKIE' \
+  -F 'operations={"query": "mutation UploadMultipleFiles($files: [FileUpload]!) { uploadFiles( locationId: 51, files: $files, languageCode: \"eng-GB\" ) { files { _url _location { id } ... on ImageContent { name image { uri } } ... on FileContent { name file { uri } } ... on VideoContent { name file { uri } } } warnings } }", "variables": {"files": [null, null, null, null, null]}}' \
+  -F 'map={"image1":["variables.files.0"], "image2":["variables.files.1"], "file1":["variables.files.2"], "file2":["variables.files.3"], "media":["variables.files.4"]}' \
+  -F "image1"=@/tmp/files/image1.png \
+  -F "image2"=@/tmp/files/image2.png \
+  -F "file1"=@/tmp/files/file1.pdf \
+  -F "file2"=@/tmp/files/file2.zip \
+  -F "media"=@/tmp/files/media.mp4
+```

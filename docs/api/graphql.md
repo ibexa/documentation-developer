@@ -36,7 +36,8 @@ in a manner similar to the [Public PHP API](public_php_api.md)
 
 ## Authentication
 
-TODO
+GraphQL for eZ Platform supports session-based authentication.
+You can get your session cookie by logging in through the interface, or through a REST request.
 
 ## Usage
 
