@@ -128,6 +128,7 @@ New API improvements include:
 - new method `ContentService->loadContentInfoList()` for bulk loading Content information
     - it can be used with `ContentService->loadContentListByContentInfo()` to bulk load Content
     - v2.5 also takes advantage of it in e.g. `RelationList` and `ParameterProvider`
+- now Persistence cache layer also caches selected metadata objects in-memory
 
 ## Requirements changes
 
