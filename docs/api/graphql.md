@@ -13,15 +13,16 @@ php bin/console cache:clear
 ```
 
 This produces YAML files located in `app/config/graphql/ezplatform`.
-They contain the information about the domain objects and the fields you can query.
+They contain information about the domain objects and the fields
+you can [query](graphql_queries.md) and [operate on](graphql_operations.md).
 
-Every time you modify Content Types in your installation, you need to regenerate the schema
+When you modify Content Types in your installation, you need to regenerate the schema
 using the command above.
 
 ## Domain schema
 
 GraphQL for eZ Platform is based on the Content Types, Content Type groups and Content items
-defined in the repository.
+defined in the Repository.
 
 For each Content Type the schema exposes a singular and plural field, e.g. `article` and `articles`.
 Use the singular field to query a single Content item, and the plural to get a whole `Connection`,
@@ -32,7 +33,11 @@ You can also query Content Type and Content Type Group information through the `
 ### Repository schema
 
 The repository schema, accessed through `_repository`, exposes the eZ Platform Repository
-in a manner similar to the [Public PHP API](public_php_api.md)
+in a manner similar to the [Public PHP API](public_php_api.md).
+
+### Custom schemas
+
+You can also use your own [custom schema](graphql_customization.md#custom-schema).
 
 ## Authentication
 
@@ -45,7 +50,7 @@ You can access GraphQL with `<yourdomain>/graphql`.
 
 ### GraphiQL client
 
-You can also make use of the included [GraphiQL interactive client](https://github.com/graphql/graphiql).
+The [GraphiQL interactive client](https://github.com/graphql/graphiql) is included in the installation.
 Access it through `<yourdomain>/graphiql`.
 
 Here you can run your queries and preview the results in an easy-to-read format.

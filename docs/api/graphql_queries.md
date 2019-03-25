@@ -19,6 +19,8 @@ To get a specific Content item by its ID, use the `article` field:
 }
 ```
 
+Reponse:
+
 ```
 {
   "data": {
@@ -36,7 +38,7 @@ To get a specific Content item by its ID, use the `article` field:
 }
 ```
 
-You can request any Fields of the Content item, in the example above, `title` and `author`.
+You can request any Fields of the Content item. In the example above, these are `title` and `author`.
 
 ### Get a group of Content items
 
@@ -61,6 +63,8 @@ To get a list of all Content items of a selected type, use the plural field, e.g
   }
 }
 ```
+
+Response:
 
 ```
 {
@@ -101,6 +105,10 @@ To get a list of all Content items of a selected type, use the plural field, e.g
   }
 }
 ```
+
+!!! tip "Edges"
+
+    `edge` are used when querying plural fields to offer [pagination](#pagination).
 
 ### Get Content Type information
 
@@ -188,6 +196,8 @@ To get all articles with a specific text:
 }
 ```
 
+Reponse:
+
 ```
 {
   "data": {
@@ -253,6 +263,6 @@ You can paginate plural fields using `edges`:
 }
 ```
 
-This query reads the first three articles, ordered by publication date.
+This query returns the first three articles, ordered by publication date.
 If the current connection (list of results) is not finished yet and that there are more items to read,
 `hasNextPage` will be `true`.

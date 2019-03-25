@@ -17,7 +17,7 @@ You can include the eZ Platform schema in two ways: either through inheritance o
 
 #### Inheritance
 
-To use inheritance, use the following configuration in `app/config/graphql/Query.types.yml`:
+To use inheritance, apply the following configuration in `app/config/graphql/Query.types.yml`:
 
 ``` yaml
 Query:
@@ -49,9 +49,7 @@ Query:
 ### Custom mutations
 
 Custom mutations are created in the same way as custom query configuration.
-An `app/config/graphql/Mutation.types.yml` file will be used as the source for mutations definitions in your schema.
-
-TODO: verify after Mutations PR is merged
+An `app/config/graphql/Mutation.types.yml` file will be used as the source for mutation definitions in your schema.
 
 ``` yaml
 Mutation:
