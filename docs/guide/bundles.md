@@ -52,6 +52,8 @@ All project assets are accessible through the `web/assets` path.
 
 eZ Platform uses [Webpack Encore](https://symfony.com/doc/3.4/frontend.html#webpack-encore) for asset management.
 
+##### Configuration from a bundle
+
 To import assets from a bundle, you need to configure them in the bundle's `Resources/encore/ez.config.js`:
 
 ``` js
@@ -79,10 +81,51 @@ To import CSS files only, use:
     For a full example of importing asset configuration,
     see [`ez.config.js`](https://github.com/ezsystems/ezplatform-admin-ui-modules/blob/master/Resources/encore/ez.config.js)
 
+To edit existing configuration entries, create a `Resources/encore/ez.config.manager.js` file:
+
+``` js
+const path = require('path');
+
+module.exports = (eZConfig, eZConfigManager) => {
+	eZConfigManager.replace({
+	    eZConfig,
+	    entryName: '<entry-name>',
+	    itemToReplace: path.resolve(__dirname, '<path_to_old_file>'),
+	    newItem: path.resolve(__dirname, '<path_to_new_file>'),
+	});
+	eZConfigManager.remove({
+	    eZConfig,
+	    entryName: '<entry-name>',
+	    itemsToRemove: [
+	        path.resolve(__dirname, '<path_to_old_file>'),
+	        path.resolve(__dirname, '<path_to_old_file>'),
+	    ],
+	});
+	eZConfigManager.add({
+	    eZConfig,
+	    entryName: '<entry-name>',
+	    newItems: [
+	        path.resolve(__dirname, '<path_to_new_file>'),
+	        path.resolve(__dirname, '<path_to_new_file>'),
+	    ],
+	});
+};
+```
+
+!!! tip
+
+    After adding new files, run `php bin/console cache:clear`.
+
+	For a full example of overriding configuration,
+    see [`ez.config.manager.js`](https://github.com/ezsystems/ezplatform-matrix-fieldtype/blob/master/src/bundle/Resources/encore/ez.config.manager.js).
+
+##### Configuration from main project files
+
 If you prefer to include the asset configuration in the main project files,
 add it in [`webpack.config.js`](https://github.com/ezsystems/ezplatform/blob/master/webpack.config.js#L14).
 
-To overwrite built-in assets, use the following configuration to replace, remove or add asset files:
+To overwrite built-in assets, use the following configuration to replace, remove or add asset files
+in `webpack.config.js`:
 
 ``` js
 eZConfigManager.replace({
