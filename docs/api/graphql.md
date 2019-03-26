@@ -28,12 +28,17 @@ For each Content Type the schema exposes a singular and plural field, e.g. `arti
 Use the singular field to query a single Content item, and the plural to get a whole `Connection`,
 that is a list of Content items.
 
+You can request additional content information such as the Section or Objects States,
+available under the `_info` field.
+
 You can also query Content Type and Content Type Group information through the `_info` and `_types` fields.
 
 ### Repository schema
 
 The repository schema, accessed through `_repository`, exposes the eZ Platform Repository
 in a manner similar to the [Public PHP API](public_php_api.md).
+
+The `_repository` field also enables you to query e.g. Object States configured for the Repository.
 
 ### Custom schemas
 

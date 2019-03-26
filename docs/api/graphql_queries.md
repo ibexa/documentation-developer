@@ -4,7 +4,8 @@
 
 ### Get a Content item
 
-To get a specific Content item by its ID, use the `article` field:
+To get a specific Content item by its ID, use its relevant singular field,
+for example `article`, `folder`, `image`, etc.:
 
 ```
 {
@@ -108,7 +109,7 @@ Response:
 
 !!! tip "Edges"
 
-    `edge` are used when querying plural fields to offer [pagination](#pagination).
+    `edges` are used when querying plural fields to offer [pagination](#pagination).
 
 ### Get Content Type information
 
