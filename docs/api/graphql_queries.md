@@ -264,6 +264,6 @@ You can paginate plural fields using `edges`:
 }
 ```
 
-This query returns the first three articles, ordered by publication date.
+This query returns the first three articles, ordered by their publication date.
 If the current connection (list of results) is not finished yet and that there are more items to read,
 `hasNextPage` will be `true`.

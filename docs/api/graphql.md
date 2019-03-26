@@ -21,7 +21,7 @@ using the command above.
 
 ## Domain schema
 
-GraphQL for eZ Platform is based on the Content Types, Content Type groups and Content items
+GraphQL for eZ Platform is based on the Content Types, Content Type groups, and Content items
 defined in the Repository.
 
 For each Content Type the schema exposes a singular and plural field, e.g. `article` and `articles`.
@@ -31,7 +31,7 @@ that is a list of Content items.
 You can request additional content information such as the Section or Objects States,
 available under the `_info` field.
 
-You can also query Content Type and Content Type Group information through the `_info` and `_types` fields.
+You can also query Content Type and Content Type group information through the `_info` and `_types` fields.
 
 ### Repository schema
 
@@ -47,7 +47,7 @@ You can also use your own [custom schema](graphql_customization.md#custom-schema
 ## Authentication
 
 GraphQL for eZ Platform supports session-based authentication.
-You can get your session cookie by logging in through the interface, or through a REST request.
+You can get your session cookie by logging in through the interface or through a REST request.
 
 ## Usage
 

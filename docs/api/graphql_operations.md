@@ -1,7 +1,7 @@
 # GraphQL operations
 
 Operations on content in GraphQL are performed using [mutations](https://graphql.org/learn/queries/#mutations).
-They include creating, updating and deleting Content items.
+They include creating, updating, and deleting Content items.
 
 The schema contains two mutations per Content type, e.g. `createFolder` and `updateFolder`.
 You can also make use of the generic `deleteContent` and `uploadFiles` mutations.
@@ -152,8 +152,8 @@ curl -v -X POST \
 
 ### Uploading multiple files
 
-You can upload multiple files with one operation in a similar way, by using the `uploadFiles` mutation.
-Here the files being provided in a `$files` variable and listed under `map` in the curl request.
+You can upload multiple files with one operation in a similar way by using the `uploadFiles` mutation.
+Here the files are provided in a `$files` variable and listed under `map` in the curl request.
 
 ```
 mutation UploadMultipleFiles($files: [FileUpload]!) {
