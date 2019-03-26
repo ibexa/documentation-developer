@@ -385,10 +385,10 @@ A Limitation to specify if the User has access to Content within a specific Subt
 A Limitation to specify if the User has access to work on the specified translation.
 
 A user with this Limitation is allowed to:
-- create new content with the given translation(s) only,
-- edit content by adding a new translation or modifying an existing translation,
-- publish content only when it results in adding or modifying an allowed translation,
-- delete a translation based on a list of allowed translations.
+- create new content with the given translation(s) only
+- edit content by adding a new translation or modifying an existing translation
+- publish content only when it results in adding or modifying an allowed translation
+- delete a translation based on a list of allowed translations
 
 |                 |                                                                      |
 |-----------------|----------------------------------------------------------------------|
