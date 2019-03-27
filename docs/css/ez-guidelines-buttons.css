@@ -102,29 +102,34 @@
     font-size: 13px;
 }
 
+.ez-guidelines .ez-guidelines-buttons__button-icon .ez-code-example .btn {
+    font-weight: 700;
+}
+
 .ez-guidelines-buttons__button-icon .ez-icon {
-    margin-right: .25em;
+    margin-right: .5em;
     fill: #fff;
 }
 
 .ez-guidelines .ez-code-example .btn-block {
-    width: 110px;
-    font-size: .8125em;
+    width: 5em;
+    border-radius: 0;
+    font-size: 0.6875em;
     color: #fff;
+    line-height: 1.4;
 }
 
 .ez-guidelines-buttons__side-menu .ez-code-example .btn {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: .5em;
-    padding-bottom: .375em;
+    padding: 0.5em 0.3125em;
     color: #fff;
 }
 
 .ez-guidelines-buttons__side-menu .ez-code-example .ez-icon {
-    width: 1.875em;
-    height: 1.875em;
+    width: 1.75em;
+    height: 1.75em;
     margin-bottom: .1875em;
     fill: #fff;
 }

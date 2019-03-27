@@ -7,13 +7,13 @@ We use button as main element for click function. Use a disabled attribute `disa
 ###<div class="mgt-minus-2"></div>
 **<div class="mgt-minus-5 mgb-3">Primary button</div>**
 [[code_example {html}
-<button type="button" class="btn btn-primary">Confirm selection</button>
+<button type="button" class="btn btn-primary font-weight-bold">Confirm selection</button>
 code_example]]
 
 ###<div class="mgt-minus-2"></div>
 **<div class="mgb-3">Disabled state</div>**
 [[code_example {html}
-<button type="button" class="btn btn-primary" disabled="disabled">Confirm selection</button>
+<button type="button" class="btn btn-primary font-weight-bold" disabled="disabled">Confirm selection</button>
 code_example]]
 
 ###<div class="mgt-minus-2"></div>
@@ -31,7 +31,7 @@ code_example]]
 ###<div class="mgt-minus-2"></div>
 **<div class="mgb-3">Negative button</div>**
 [[code_example {html}
-<button type="button" class="btn btn-danger">Send to trash</button>
+<button type="button" class="btn btn-danger font-weight-bold">Send to trash</button>
 code_example]]
 
 ###<div class="mgt-minus-2"></div>
@@ -62,7 +62,7 @@ code_example]]
 ##<div class="mgt-5 header-line">Wide buttons</div>
 <div class="mgt-minus-3 mgb-4">Add class `ez-btn--wide` when in need of a wider button in the UI.</div>
 [[code_example {html}
-<button type="button" class="btn btn-primary ez-btn--wide">Send for review</button>
+<button type="button" class="btn btn-primary ez-btn--wide font-weight-bold">Send for review</button>
 code_example]]
 
 ##<div class="mgt-5 header-line">Buttons with icons</div>
