@@ -8,7 +8,7 @@ You can use it if your application requires custom GraphQL resources, for instan
 
 To do so, create an `app/config/graphql/Query.types.yml` file. It will be used as the GraphQL query root.
 
-In that file, you can add new fields that use any custom type or custom logic you require, based
+In that file, add new fields that use any custom type or custom logic you require, based
 on [overblog/GraphQLBundle](https://github.com/overblog/GraphQLBundle).
 
 ### Configuration

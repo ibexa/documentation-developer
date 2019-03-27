@@ -8,7 +8,7 @@ You can also make use of the generic `deleteContent` and `uploadFiles` mutations
 
 ## Creating content
 
-To create a new Folder as a child of Location `2`:
+Create a new Folder as a child of Location `2` with:
 
 ```
 mutation createFolder {
@@ -23,7 +23,7 @@ mutation createFolder {
 }
 ```
 
-Reponse:
+Response:
 
 ```
 {
@@ -37,7 +37,7 @@ Reponse:
 
 ## Updating content
 
-To modify the name of a Folder Content item:
+Modify the name of a Folder Content item with:
 
 ```
 mutation updateFolder {
@@ -52,7 +52,7 @@ mutation updateFolder {
 }
 ```
 
-Reponse:
+Response:
 
 ```
 {
@@ -79,7 +79,7 @@ mutation deleteBlogPost {
 }
 ```
 
-Reponse:
+Response:
 
 ```
 {
@@ -123,7 +123,7 @@ mutation CreateImage($file: FileUpload!) {
 
 The file is provided as the `$file` variable, defined as an `UploadFile`.
 
-You can include this mutation in a curl request under `operations`:
+You can include this mutation in a cURL request under `operations`:
 
 ``` bash
 curl -v -X POST \
@@ -153,7 +153,7 @@ curl -v -X POST \
 ### Uploading multiple files
 
 You can upload multiple files with one operation in a similar way by using the `uploadFiles` mutation.
-Here the files are provided in a `$files` variable and listed under `map` in the curl request.
+Here the files are provided in a `$files` variable and listed under `map` in the cURL request.
 
 ```
 mutation UploadMultipleFiles($files: [FileUpload]!) {
@@ -191,7 +191,9 @@ mutation UploadMultipleFiles($files: [FileUpload]!) {
 }
 ```
 
-```
+Include this mutation in a cURL request:
+
+``` bash
 curl -v -X POST \
   <yourdomain>/graphql \
   -H 'Cookie: $AUTH_COOKIE' \
