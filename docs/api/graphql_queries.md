@@ -2,6 +2,8 @@
 
 ## Querying content
 
+You can query a single Content item or a list of Content items using fields defined in the domain schema.
+
 ### Get a Content item
 
 To get a specific Content item by its ID, use its relevant singular field,

@@ -16,8 +16,10 @@ This produces YAML files located in `app/config/graphql/ezplatform`.
 They contain information about the domain objects and the fields
 you can [query](graphql_queries.md) and [operate on](graphql_operations.md).
 
-When you modify Content Types in your installation, you need to regenerate the schema
-using the command above.
+!!! note
+
+    When you modify Content Types in your installation, you need to regenerate the schema
+    using the command above.
 
 ## Domain schema
 
@@ -38,7 +40,7 @@ You can also query Content Type and Content Type group information through the `
 The repository schema, accessed through `_repository`, exposes the eZ Platform Repository
 in a manner similar to the [Public PHP API](public_php_api.md).
 
-The `_repository` field also enables you to query e.g. Object States configured for the Repository.
+The `_repository` field also enables you to query e.g. Object states configured for the Repository.
 
 ### Custom schemas
 
