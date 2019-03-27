@@ -70,7 +70,7 @@ Note that the input for updating a Content item is the same as when creating it,
 
 ## Deleting content
 
-You can delete any Content item by providing its `id` or `contentId`:
+You can delete any Content item by providing its `contentId` (or its GraphQL opaque ID under `id`):
 
 ```
 mutation deleteBlogPost {

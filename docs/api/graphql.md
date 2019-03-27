@@ -27,8 +27,8 @@ GraphQL for eZ Platform is based on the Content Types, Content Type groups, and 
 defined in the Repository.
 
 For each Content Type the schema exposes a singular and plural field, e.g. `article` and `articles`.
-Use the singular field to query a single Content item, and the plural to get a whole `Connection`,
-that is a list of Content items.
+Use the singular field to query a single Content item, and the plural to get a whole `Connection`
+(a list of Content items that supports pagination).
 
 You can request additional content information such as the Section or Objects States,
 available under the `_info` field.
