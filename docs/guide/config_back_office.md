@@ -118,6 +118,7 @@ With this configuration you can:
 - set maximum depth of expanded tree
 - hide Content Types
 - set a tree root Location
+- provide a list of Location IDs for which content tree's root location will be changed
 
 ```yaml
 ezpublish:
@@ -139,6 +140,11 @@ ezpublish:
                    - article
                 # ID of Location to use as tree root. If omitted - content.tree_root.location_id setting is used.
                 tree_root_location_id: 2
+                # IDs of Locations for which a tree root will be overridden 
+                contextual_tree_root_location_ids:
+                   - 2 # Home (Content structure)
+                   - 5 # Users
+                   - 43 # Media
 ```
 
 ## Universal Discovery module limits
