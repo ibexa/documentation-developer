@@ -13,9 +13,10 @@ Create a new Folder as a child of Location `2` with:
 ```
 mutation createFolder {
   createFolder(
-    parentLocationId: 2,
+    languageCode: "eng-GB"
+    parentLocationId: 2
     input: {
-      name: "New Folder",
+      name: "New Folder"
     }
   ) {
     id
@@ -28,7 +29,7 @@ Response:
 ```
 {
   "data": {
-    "updateFolder": {
+    "createFolder": {
       "id": "RG9tYWluQ29udGVudDo2NA=="
     }
   }
@@ -42,6 +43,7 @@ Modify the name of a Folder Content item with:
 ```
 mutation updateFolder {
   updateFolder(
+    languageCode: "eng-GB"
     contentId: 64
     input: {
       name: "New Folder name"
