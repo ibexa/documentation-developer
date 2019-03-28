@@ -273,7 +273,6 @@ Here are the most common issues you may encounter:
 
     Solr version 4.x does not support scoring on location search.
 
-
 Boosting currently happens when indexing, so if you change your configuration you will need to re-index.
 
 Boosting tells the search engine which parts of the content model have more importance when searching, and is an important part of tuning your search results relevance. Importance is defined using a numeric value, where `1.0` is default, values higher than that are more important, and values lower (down to `0.0`) are less important.
@@ -306,7 +305,9 @@ The configuration above will result in the following boosting (Content Type / Fi
 
 !!! tip "How to configure boosting on specific fields"
 
-    Currently, boosting on particular fields is missing. However, it could be configured using 3rd party [Novactive/NovaeZSolrSearchExtraBundle](https://github.com/Novactive/NovaeZSolrSearchExtraBundle) in case of custom search implementation, for instance for your front-end search form. Unfortunately, this doesn't affect search performed in the administration interface. 
+    Currently, boosting on particular fields is missing.
+    However, it could be configured using 3rd party [Novactive/NovaeZSolrSearchExtraBundle](https://github.com/Novactive/NovaeZSolrSearchExtraBundle) in case of custom search implementation, for instance for your front-end search form.
+    Unfortunately, this doesn't affect search performed in the administration interface. 
     
     The following example presents boosting configuration for Folder's `name` and `description` fields. 
     First, in `ezplatform.yml` configure [custom fulltext fields](https://github.com/Novactive/NovaeZSolrSearchExtraBundle/blob/master/doc/custom_fields.md).
@@ -322,7 +323,8 @@ The configuration above will result in the following boosting (Content Type / Fi
                         - folder/description
     ```
     
-    The second step requires to use `\Novactive\EzSolrSearchExtra\Query\Content\Criterion\MultipleFieldsFullText` instead of default `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\FullText`. The following example shows custom query which benefits from the custom fields created in the previous example.
+    The second step requires you to use `\Novactive\EzSolrSearchExtra\Query\Content\Criterion\MultipleFieldsFullText` instead of default `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\FullText`.
+    The following example shows custom query which benefits from the custom fields created in the previous example.
     
     ```php
     <?php
@@ -370,11 +372,10 @@ The configuration above will result in the following boosting (Content Type / Fi
     
     Remember to clear the cache and perform search engine reindex afterwords.
     
-    The configuration above will result in the following boosting (Content Type / Field):
+    The above configuration will result in the following boosting (Content Type / Field):
     - `folder/name: 20.0`
     - `folder/title: 10.0`
     
-
 ## Extending the Solr Search Engine Bundle
 
 ### Document field mappers
