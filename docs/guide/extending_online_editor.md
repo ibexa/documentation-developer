@@ -263,8 +263,7 @@ To enable new CKEditor plugins in Alloy Editor you need to define them in RichTe
 The configuration is available at:
 
 ```yaml
-ezpublish:
-    ezrichtext:
-        alloy_editor:
-            extra_plugins: [test1, test2]
+ezrichtext:
+    alloy_editor:
+        extra_plugins: [test1, test2]
 ```
