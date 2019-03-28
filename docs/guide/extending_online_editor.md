@@ -266,4 +266,5 @@ The configuration is available at:
 ezpublish:
     ezrichtext:
         alloy_editor:
+            extra_plugins: [test1, test2]
 ```
