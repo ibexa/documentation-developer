@@ -44,7 +44,7 @@ If a function is absent from the tables below, it means that no Limitations can 
 |read|true|true|true|true|true|true|-|State|
 |diff|true|true|true|true|true|-|-|-|
 |view_embed|true|true|true|true|true|-|-|-|
-|create|true|true|-|true|true|-|true|Owner of Parent</br>Content Type Group of Parent</br>Content Type of Parent</br>Parent Depth</br>Translation|
+|create|true|true|-|true|true|-|true|Owner of Parent, Content Type Group of Parent, Content Type of Parent, Parent Depth, Translation|
 |edit|true|true|true|true|true|true|true|State</br>WorkflowStage</br>Translation|
 |publish|true|true|true|true|true|true|true|State</br>WorkflowStage</br>Translation|
 |manage_locations|true|true|true|-|true|-|-|State|
