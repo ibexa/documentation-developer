@@ -288,12 +288,6 @@ ez_search_engine_solr:
                 content_type:
                     # Boost a whole Content Type
                     article: 2.0
-                field_definition:
-                    # Boost a content Field system-wide, or for a given Content Type
-                    title: 3.0
-                    blog_post:
-                        # Don't boost title of blog posts that high, but still higher than default
-                        title: 1.5
                 meta_field:
                     # Boost a meta Field (name, text) system wide, or for a given Content Type
                     name: 10.0
@@ -305,12 +299,81 @@ ez_search_engine_solr:
 The configuration above will result in the following boosting (Content Type / Field):
 
 - `article/title: 2.0`
-- `news/title: 3.0`
-- `blog_post/title: 1.5`
 - `news/description: 1.0` (default)
 - `article/text (meta): 5.0`
 - `blog_post/name (meta): 10.0`
 - `article/name (meta): 2.0`
+
+!!! tip "How to configure boosting on specific fields"
+
+    Currently, boosting on particular fields is missing. However, it could be configured using 3rd party [Novactive/NovaeZSolrSearchExtraBundle](https://github.com/Novactive/NovaeZSolrSearchExtraBundle) in case of custom search implementation, for instance for your front-end search form. Unfortunately, this doesn't affect search perfomed in PlatformUI. 
+    
+    The following example presents boosting configuration for Folder's `name` and `description` fields. 
+    First, in `ezplatform.yml` configure [custom fulltext fields](https://github.com/Novactive/NovaeZSolrSearchExtraBundle/blob/master/doc/custom_fields.md).
+    
+    ```yaml
+    ez_solr_search_extra:
+        system:
+            default:
+                fulltext_fields:
+                    custom_folder_name:
+                        - folder/name
+                    custom_folder_description:
+                        - folder/description
+    ```
+    
+    The second step requires to use `\Novactive\EzSolrSearchExtra\Query\Content\Criterion\MultipleFieldsFullText` instead of default `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\FullText`. The following example shows custom query which benefits from the custom fields created in the previous example.
+    
+    ```php
+    <?php
+    
+    namespace AppBundle\Controller;
+    
+    use eZ\Publish\API\Repository\SearchService;
+    use eZ\Publish\API\Repository\Values\Content\Query;
+    use Symfony\Component\HttpFoundation\Request;
+    use Symfony\Component\HttpFoundation\Response;
+    
+    class SearchController
+    {
+        /**
+         * @var \eZ\Publish\API\Repository\SearchService
+         */
+        private $searchService;
+    
+        public function __construct(SearchService $searchService)
+        {
+            $this->searchService = $searchService;
+        }
+    
+        public function searchAction(Request $request): Response
+        {
+            $queryString = $request->get('query');
+            
+            $query = new Query();
+            $query->query = new \Novactive\EzSolrSearchExtra\Query\Content\Criterion\MultipleFieldsFullText(
+                $queryString,
+                [
+                    'metaBoost' => [
+                        'custom_folder_name' => 20.0,
+                        'custom_folder_description' => 10.0,
+                    ]
+                ]
+            );
+    
+            $searchResult = $this->searchService->findContent($query);
+            
+            ...
+        }
+    }
+    ```
+    
+    Remember to clear the cache and perform search engine reindex afterwords.
+    
+    The configuration above will result in the following boosting (Content Type / Field):
+    - `folder/name: 20.0`
+    - `folder/title: 10.0`
+    
 
 ## Extending the Solr Search Engine Bundle
 
