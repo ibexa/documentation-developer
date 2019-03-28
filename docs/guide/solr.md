@@ -306,7 +306,7 @@ The configuration above will result in the following boosting (Content Type / Fi
 
 !!! tip "How to configure boosting on specific fields"
 
-    Currently, boosting on particular fields is missing. However, it could be configured using 3rd party [Novactive/NovaeZSolrSearchExtraBundle](https://github.com/Novactive/NovaeZSolrSearchExtraBundle) in case of custom search implementation, for instance for your front-end search form. Unfortunately, this doesn't affect search perfomed in PlatformUI. 
+    Currently, boosting on particular fields is missing. However, it could be configured using 3rd party [Novactive/NovaeZSolrSearchExtraBundle](https://github.com/Novactive/NovaeZSolrSearchExtraBundle) in case of custom search implementation, for instance for your front-end search form. Unfortunately, this doesn't affect search performed in the administration interface. 
     
     The following example presents boosting configuration for Folder's `name` and `description` fields. 
     First, in `ezplatform.yml` configure [custom fulltext fields](https://github.com/Novactive/NovaeZSolrSearchExtraBundle/blob/master/doc/custom_fields.md).
