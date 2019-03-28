@@ -235,9 +235,9 @@ theme_dir: material
 
 extra:
   version_warning:
-    latest: ['2.4']
-    previous_lts: ['1.7']
-    lts: ['1.13']
+    latest: ['2.5']
+    previous_lts: ['1.13']
+    lts: ['2.5']
     ft: ['2.2', '2.3']
     dev: ['master']
   append_bootstrap:
