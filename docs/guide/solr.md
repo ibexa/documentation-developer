@@ -269,6 +269,11 @@ Here are the most common issues you may encounter:
     Anything set on `$query->filter`, or in REST using `Filter` element, will *not* affect scoring and only works
     as a pure filter for the result. Thus make sure to place Criteria you want to affect scoring on `query`.
 
+!!! caution "Solr"
+
+    Solr version 4.x does not support scoring on location search.
+
+
 Boosting currently happens when indexing, so if you change your configuration you will need to re-index.
 
 Boosting tells the search engine which parts of the content model have more importance when searching, and is an important part of tuning your search results relevance. Importance is defined using a numeric value, where `1.0` is default, values higher than that are more important, and values lower (down to `0.0`) are less important.
