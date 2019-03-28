@@ -255,3 +255,15 @@ In the example above, the template files for the front end could be:
 ```
 
 Templates for Content View in the Back Office would be `app/Resources/views/themes/admin/field_type/ezrichtext/custom_style/highlighted_word.html.twig` and `app/Resources/views/themes/admin/field_type/ezrichtext/custom_style/highlighted_block.html.twig` respectively (assuming Admin SiteAccess uses the `admin` theme).
+
+## Plugins configuration
+
+To enable new CKEditor plugins in Alloy Editor you need to define them in RichText AlloyEditor Semantic Configuration.
+
+The configuration is available at:
+
+```yaml
+  ezpublish:
+      ezrichtext:
+          alloy_editor:
+```
