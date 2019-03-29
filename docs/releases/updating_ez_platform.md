@@ -527,6 +527,14 @@ Some versions require updates to the database. Look through [the list of databas
 
     - enable `EzSystems\DoctrineSchemaBundle\DoctrineSchemaBundle()` in `AppKernel.php`
     - add [`ez_doctrine_schema`](https://github.com/ezsystems/ezplatform/blob/master/app/config/config.yml#L33) configuration
+    
+    #### Changes to Matrix Field Type
+    
+    To migrate your content from legacy XML format to a new `ezmatrix` value use below command:
+    
+    ```bash
+    bin/console ezplatform:migrate:legacy_matrix
+    ```
 
 ## 5. Dump assets
 
