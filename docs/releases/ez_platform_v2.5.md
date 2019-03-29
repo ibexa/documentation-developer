@@ -117,11 +117,6 @@ This release introduced several Back Office improvements to facilitate editorial
 
 ### Permissions
 
-#### Translation Limitation
-
-The new [Translation Limitation](../guide/limitations.md#translationlimitation)
-defines if a User has access to work on a specific translation.
-
 #### Content/Create policy for Users
 
 You can now define a 'Content/Create' policy for a User or a User group.
