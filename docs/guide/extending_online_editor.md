@@ -260,11 +260,9 @@ Templates for Content View in the Back Office would be `app/Resources/views/them
 
 If you develop your plugin, you need to add it to the CKEditor plugins by `add` method.
 For more information, follow [Creating a CKEditor Plugin tutorial.](https://ckeditor.com/docs/ckeditor4/latest/guide/plugin_sdk_sample.html)
-
 If you downloaded a plugin from the CKEditor, you need to include it in a page after AlloyEditor is loaded.
 
 To enable your new CKEditor plugin in, define it in the RichText AlloyEditor Semantic Configuration.
-
 The configuration is available at:
 
 ```yaml
@@ -272,3 +270,8 @@ ezrichtext:
     alloy_editor:
         extra_plugins: [test1, test2]
 ```
+
+The name of a plugin needs to be the same as the one passed to `CKEDITOR.plugins.add` in the plugin source code.
+
+Please keep in mind that if a plugin changes RichText input (in xhtml5/edit format for DocBook), the changes need to be supported by RichText Field Type.
+For example, if a plugin adds some class to some element, you need to confirm that this class is stored when saving or publishing content (it could result in either XML validation error or could be omitted by RichText processor).
