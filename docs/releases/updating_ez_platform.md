@@ -530,7 +530,7 @@ Some versions require updates to the database. Look through [the list of databas
     
     #### Changes to Matrix Field Type
     
-    To migrate your content from legacy XML format to a new `ezmatrix` value use below command:
+    To migrate your content from legacy XML format to a new `ezmatrix` value use the following command:
     
     ```bash
     bin/console ezplatform:migrate:legacy_matrix
