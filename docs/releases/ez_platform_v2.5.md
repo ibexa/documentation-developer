@@ -52,7 +52,7 @@ Columns in the matrix are defined in the Field definition.
 
 #### Migration of legacy XML format
 
-You can now migrate your content from legacy XML format to a new ezmatrix value with below command:
+You can now migrate your content from legacy XML format to a new `ezmatrix` value with the following command:
 
 ```bash
 bin/console ezplatform:migrate:legacy_matrix
