@@ -50,6 +50,14 @@ Columns in the matrix are defined in the Field definition.
 
 ![Configuring a Matrix Field Type](img/2.5_matrix_ft.png)
 
+#### Migration of legacy XML format
+
+You can now migrate your content from legacy XML format to a new ezmatrix value with below command:
+
+```bash
+bin/console ezplatform:migrate:legacy_matrix
+```
+
 ### User bundle
 
 The new [ezplatform-user](https://github.com/ezsystems/ezplatform-user) bundle now centralizes
@@ -123,6 +131,10 @@ This release introduced several Back Office improvements to facilitate editorial
 You can now define a 'Content/Create' policy for a User or a User group.
 It will enable or disable (if not set) the **Create** button in your dashboard.
 
+#### Universal Discovery Widget 
+
+`allowed_content_types` can now limit selection in UDW search and browse sections to specified Content Types.
+
 ![Create button in Dashboard](img/2.5_create_button.png)
 
 ### API improvements
@@ -137,7 +149,6 @@ New API improvements include:
     - v2.5 also takes advantage of it in e.g. `RelationList` and `ParameterProvider`
 - now Persistence cache layer also caches selected metadata objects in-memory
 - indexation of related objects in the full text search
-- `allowed_content_types` limits selection in UDW search and browse sections to specified Content Types
 
 ## Requirements changes
 
