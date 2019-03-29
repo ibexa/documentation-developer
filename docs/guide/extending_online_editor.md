@@ -259,7 +259,7 @@ Templates for Content View in the Back Office would be `app/Resources/views/them
 ## Plugins configuration
 
 If you develop your plugin, you need to add it to the CKEditor plugins by `add` method.
-For more information follow [Creating a CKEditor Plugin tutorial.](https://ckeditor.com/docs/ckeditor4/latest/guide/plugin_sdk_sample.html)
+For more information, follow [Creating a CKEditor Plugin tutorial.](https://ckeditor.com/docs/ckeditor4/latest/guide/plugin_sdk_sample.html)
 
 If you downloaded a plugin from the CKEditor, you need to include it in a page after AlloyEditor is loaded.
 
