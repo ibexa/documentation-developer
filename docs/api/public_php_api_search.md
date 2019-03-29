@@ -12,7 +12,7 @@ Query object contains two properties you can set criteria on `filter` and `query
 
 -   `query` Has an effect on scoring *(relevancy)* calculation, and also on the default sorting if `sortClause` is not specified, *when used with Solr and Elastic.* Typically `query` is used for `FullText` search criterion, otherwise you can place everything else on `filter`.
 
-## Performing a simple full text search
+## Full text search
 
 !!! tip "Checking feature support per search engine"
 
@@ -38,7 +38,7 @@ Multiple criteria can be grouped together using "logical criteria", such as [Log
 
 The full list of criteria can be found on your installation in the following directory [vendor/ezsystems/ezpublish-kernel/eZ/Publish/API/Repository/Values/Content/Query/Criterion](https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/API/Repository/Values/Content/Query/Criterion). Additionally you may look at integration tests like [vendor/ezsystems/ezpublish-kernel/eZ/Publish/API/Repository/Tests/SearchServiceTest.php](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Tests/SearchServiceTest.php) for more details on how these are used.
 
-### Running the search query and using the results
+### Running the search query
 
 The `Query` object is given as an argument to [`SearchService::findContent()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/SearchService.html#method_findContent). This method returns a `SearchResult` object. This object provides you with various information about the search operation (number of results, time taken, spelling suggestions, or facets, as well as, of course, the results themselves).
 
@@ -56,6 +56,27 @@ The `searchHits` properties of the `SearchResult` object is an array of `SearchH
 !!! Tip
 
     If you you are searching using a unique identifier, for instance using the Content ID or Content remote ID criterion, then you can use [`SearchService::findSingle()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/SearchService.html#method_findSingle), this takes a Criterion and returns a single Content item, or throws a `NotFound` exception if none is found.
+    
+### Indexing related objects
+
+You can search through text of related content stored in the `meta_related_content_X__text_t` index fields where `X` is relation level e.g. `meta_related_content_1__text_t`, `meta_related_content_2__text_t`.
+
+Indexing of the related content is disabled by default.
+To set it up you need to define the maximum indexing depth using the following YAML configuration:
+
+```yaml
+ez_search_engine_solr:
+    # ...
+    connections:
+        default:
+            # ...
+            indexing_depth:
+                # Default value: 0 - no relation indexing, 1 - direct relations, 2nd level  relations, 3rd level  relations (maximum value).
+                default: 1      
+                content_type:
+                    # Index depth defined for specific content type
+                    article: 2
+```
 
 ## Retrieving Sort Clauses for parent Location
 
