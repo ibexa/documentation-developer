@@ -268,7 +268,7 @@ The configuration is available at:
 ```yaml
 ezrichtext:
     alloy_editor:
-        extra_plugins: [test1, test2]
+        extra_plugins: [plugin1, plugin2]
 ```
 
 The name of a plugin needs to be the same as the one passed to `CKEDITOR.plugins.add` in the plugin source code.
