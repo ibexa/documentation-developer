@@ -4,7 +4,7 @@
 
 <div class="card">
     <div class="card-body">
-        <h4 class="card-title text-center"><a href="releases/ez_platform_v2.4/" class="card-link"><strong>The latest release is v2.4</strong></a></h4>
+        <h4 class="card-title text-center"><a href="releases/ez_platform_v2.5/" class="card-link"><strong>The latest release is v2.5</strong></a></h4>
     </div>
 </div>
 
@@ -44,7 +44,7 @@
 <div class="card">
   <div class="card-header">Other topics</div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item"><a href="releases/ez_platform_v2.4/" class="card-link">Releases</a></li>
+    <li class="list-group-item"><a href="releases/ez_platform_v2.5/" class="card-link">Releases</a></li>
     <li class="list-group-item"><a href="migrating/migrating_from_ez_publish_platform/" class="card-link">Migration</a></li>
     <li class="list-group-item"><a href="community_resources/resources/" class="card-link">Community resources</a></li>
     <li class="list-group-item"><a href="cookbook/authenticating_a_user_with_multiple_user_providers/" class="card-link">Cookbook</a></li>
@@ -63,17 +63,20 @@
 
 <div class="card-group">
 <div class="card">
-  <div class="card-header">Latest release (v2.4) major features:</div>
+  <div class="card-header">Latest release (v2.5) major features:</div>
   <div class="card">
       <div class="card-body">
           <ul>
-            <li>Editorial Workflow</li>
-            <li>Content Type translation</li>
-            <li>Rich Text block in the Page Builder</li>
-            <li>Rich Text improvements, including adding links to images, formatted text and inline embedding</li>
-            <li>Bulk move and delete of Content items</li>
+            <li>Webpack Encore</li>
+            <li>PostgreSQL</li>
+            <li>GraphQL</li>
+            <li>Inline Custom Tag</li>
+            <li>Hide and reveal content</li>
+            <li>Content Tree</li>
+            <li>Matrix Field Type</li>
+            <li>eZ Commerce clean Installer</li>
           </ul>
-          <p>See <a href="releases/ez_platform_v2.4/" class="card-link">2.4 release notes</a> for more information</p>
+          <p>See <a href="releases/ez_platform_v2.5/" class="card-link">2.5 release notes</a> for more information</p>
       </div>
   </div>
 </div>
