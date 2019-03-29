@@ -113,6 +113,7 @@ This release introduced several Back Office improvements to facilitate editorial
 - Responsive Sub-items table with selectable column layout
 - Simpler assigning of Object States to content
 
+
 ![Back Office improvements](img/2.5_back_office_improvements.png)
 
 ### Permissions
@@ -136,6 +137,7 @@ New API improvements include:
     - v2.5 also takes advantage of it in e.g. `RelationList` and `ParameterProvider`
 - now Persistence cache layer also caches selected metadata objects in-memory
 - indexation of related objects in the full text search
+- `allowed_content_types` limits selection in UDW search and browse sections to specified Content Types
 
 ## Requirements changes
 
