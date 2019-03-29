@@ -60,12 +60,7 @@ The `searchHits` properties of the `SearchResult` object is an array of `SearchH
 ### Indexing related objects
 
 You can use indexation of related objects to search through text of related content.
-Text is stored in the `meta_related_content_X__text_t` index fields, where `X` is relation level:
-
-- `meta_related_content_1__text_t`
-- `meta_related_content_2__text_t`.
-
-Indexing of the related content is disabled by default.
+Indexing is disabled by default.
 To set it up you need to define the maximum indexing depth using the following YAML configuration:
 
 ```yaml
