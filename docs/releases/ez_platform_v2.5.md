@@ -77,6 +77,10 @@ You can now link fragments of text by adding Anchors in Rich Text Fields.
 
 You can now create [inline custom tags](../guide/extending_online_editor.md#inline-custom-tags) in Rich Text Fields.
 
+#### Custom CK Editor plugins
+
+You can now easily use [custom CK Editor plugins](../guide/extending_online_editor.md#plugins-configuration) in AlloyEditor.
+
 ### Hiding and revealing content
 
 You can now hide and reveal Content items from the Back Office.
