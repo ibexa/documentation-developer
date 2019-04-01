@@ -136,6 +136,10 @@ A Limitation to specify if the User has access to Content with a specific Conten
 
 #### LanguageLimitation
 
+!!! note
+
+    LanguageLimitation is deprecated.
+
 A Limitation to specify if the User has access to Content in a specific language.
 
 |                 |                                                                         |
