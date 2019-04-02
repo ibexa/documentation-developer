@@ -341,7 +341,7 @@ Some versions require updates to the database. Look through [the list of databas
     ##### Page builder
 
     To update to v2.2, you need to run a script to add database tables for the Page Builder.
-    You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/master/Resources/sql/schema.sql#L58
+    You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/2.2/Resources/sql/schema.sql#L58
 
     !!! enterprise
 
