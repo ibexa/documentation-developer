@@ -185,8 +185,8 @@ Finally, create an `all_content_list.html.twig` file in `src/EzSystems/Extending
                 <tr>
                     <td><a href={{path('ez_urlalias', {'contentId': article.contentInfo.id})}}>{{ ez_content_name(article.contentInfo) }}</a></td>
                     <td>{{ article.contentInfo.contentTypeId }}</td>
-                    <td>{{ article.contentInfo.modificationDate|localizeddate( 'short', 'medium' ) }}</td>
-                    <td>{{ article.contentInfo.publishedDate|localizeddate( 'short', 'medium' ) }}</td>
+                    <td>{{ article.contentInfo.modificationDate|ez_full_datetime }}</td>
+                    <td>{{ article.contentInfo.publishedDate|ez_full_datetime }}</td>
                 </tr>
             {% endfor %}
             </tbody>
