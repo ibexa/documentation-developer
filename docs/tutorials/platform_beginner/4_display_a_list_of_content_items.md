@@ -24,7 +24,7 @@ The application will look for a `getAllRidesAction` inside the `HomepageControll
 
 Create the `/src/AppBundle/Controller/HomepageController.php` file:
 
-``` php hl_lines="26 39 40"
+``` php hl_lines="23 24 37 38"
 <?php
 
 namespace AppBundle\Controller;
@@ -80,8 +80,8 @@ class HomepageController extends Controller
 }
 ```
 
-This controller searches for all visible Content items of the type **Ride** (lines 39-40)
-and renders them using the `list/rides.html.twig` template (line 28).
+This controller searches for all visible Content items of the type **Ride** (lines 37-38)
+and renders them using the `list/rides.html.twig` template (line 23-24).
 
 ## Create a template to list all Rides
 
