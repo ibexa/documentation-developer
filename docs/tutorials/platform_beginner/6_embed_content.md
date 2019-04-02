@@ -145,7 +145,7 @@ class RideController extends Controller
 
 Update `app/config/views.yml` to mention the RideController by adding a line with the `controller` key to the view config.
 
-``` yaml hl_lines="7"
+``` yaml hl_lines="8"
 ezpublish:
     system:
         site_group:
