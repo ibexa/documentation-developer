@@ -240,7 +240,7 @@ If you later realize that you provided the convert script with incorrect image C
 
 So, if you first ran the command:
 
-`php cin/console ezxmltext:convert-to-richtext --image-content-types=image,custom_image -v`
+`php bin/console ezxmltext:convert-to-richtext --image-content-types=image,custom_image -v`
 
 But later realize the last identifier should be `profile`, not ``custom_image``, you may execute :
 
