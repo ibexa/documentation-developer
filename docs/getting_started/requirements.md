@@ -29,9 +29,9 @@ These setups are tested by QA and are generally recommended setups. For security
 |Filesystem|Linux ext4 / XFS|
 |Package manager|Composer|
 
-### Supported setups
+### Other supported setups
 
-Supported setups are those we perform automated testing on. For security and performance we generally recommend (unless otherwise noted and marked with \*) using the newer versions of components below.
+For security and performance we generally recommend (unless otherwise noted and marked with \*) using the newer versions of components below.
 
 -   OS: Linux
 -   Web Servers:
