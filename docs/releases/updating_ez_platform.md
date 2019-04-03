@@ -450,7 +450,7 @@ Some versions require updates to the database. Look through [the list of databas
     ```
 
     You also need to run a script to add database tables for the Form Builder.
-    You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/master/Resources/sql/schema.sql#L136
+    You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/2.3/Resources/sql/schema.sql#L136
 
     !!! caution "Form (ezform) Field Type"
 
@@ -466,7 +466,7 @@ Some versions require updates to the database. Look through [the list of databas
         #### Workflow
 
         When updating an Enterprise installation, you need to run a script to add database tables for the Editorial Workflow.
-        You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/master/Resources/sql/schema.sql#L198
+        You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/2.4/Resources/sql/schema.sql#L198
 
         #### Changes to the Forms folder
 
