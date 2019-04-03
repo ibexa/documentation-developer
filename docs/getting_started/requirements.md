@@ -4,7 +4,7 @@ The following server requirements cover both running the software on-premise and
 
 ## Server
 
-eZ software is built to rely on existing technologies and standards. The minimal setup is `PHP`,  `MySQL/MariaDB`, and `Apache/Nginx`. Recommendation for production setups is to use `Varnish`/`Fastly`, `Redis`, `NFS`/`EFS`/`S3` and `Solr` in a [clustered setup](../guide/clustering.md).
+eZ software is built to rely on existing technologies and standards. The minimal setup is `PHP`,  `MySQL/MariaDB`, `Apache/Nginx`, `Node.js` and `yarn`. Recommendation for production setups is to use `Varnish`/`Fastly`, `Redis`, `NFS`/`EFS`/`S3` and `Solr` in a [clustered setup](../guide/clustering.md).
 
 For supported versions of these technologies see Recommended and Supported setups below.
 
@@ -28,6 +28,7 @@ These setups are tested by QA and are generally recommended setups. For security
 |[Clustering](../guide/clustering.md)|Linux NFS *or* S3/EFS *(for IO, aka binary files stored in content repository)*</br>Redis 3.2 or higher *(preferably separate instances for session & cache, both using one of the `volatile-*` [eviction policies](https://redis.io/topics/lru-cache))*</br>[Varnish](http://varnish-cache.org/) 5.1 or higher *(6.0LTS recommended)* with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst) *or* [Fastly](https://www.fastly.com/) using [our bundle provided with eZ Platform Enterprise](../guide/http_cache.md#serving-varnish-through-fastly) *(for HttpCache)*|
 |Filesystem|Linux ext4 / XFS|
 |Package manager|Composer|
+|Asset manager|`Node.js` 10.15.3 LTS</br>`yarn` 1.15.2 or higher|
 
 ### Supported setups
 
