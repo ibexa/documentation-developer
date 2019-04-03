@@ -24,7 +24,7 @@ These setups are tested by QA and are generally recommended setups. For security
 !!! caution "Solr"
 
     Solr versions older than 6.6.2 have a security vulnerability. Remember to download or update to a higher version.
-    
+
 |||
 |------|------|
 |Search|Solr (recommended, for better performance and scalability of all API Queries):</br></br>Solr 4.10</br>*Solr 6 SOLR BUNDLE >= 1.3, CURRENTLY TESTED WITH SOLR 6.6LTS*</br></br>Oracle Java/Open JDK: 7 or 8 (needed for Solr, version 8 recommended)|
@@ -33,11 +33,9 @@ These setups are tested by QA and are generally recommended setups. For security
 |Filesystem|Linux ext3 / ext4|
 |Package manager|Composer|
 
-### Supported setups
+### Other supported setups
 
-WORK IN PROGRESS FOR FUTURE RELEASE, SEE ABOVE FOR NOW
-
-Supported setups are those we perform automated testing on. For security and performance we recommend use of the newer versions of components below.
+For security and performance we generally recommend (unless otherwise noted and marked with \*) using the newer versions of components below.
 
 -   OS: Linux
 -   Web Servers:
