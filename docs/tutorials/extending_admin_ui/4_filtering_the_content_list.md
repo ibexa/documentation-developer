@@ -203,7 +203,7 @@ inside `<section class="container my-4">`:
 
 !!! tip
 
-    If you cannot see the results, clear the cache and reload the application.
+    If you cannot see the results or encounter an error, clear the cache and reload the application.
 
 At this point you should see a drop-down menu at the top of the content list.
 Select a Content Type and the list will filter to show only Content items of this type.

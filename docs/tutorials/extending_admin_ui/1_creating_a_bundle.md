@@ -22,4 +22,4 @@ add it to the application kernel and configure eZ Platform to use the generated 
 
     `"EzSystems\\ExtendingTutorialBundle\\": "src/EzSystems/ExtendingTutorialBundle"`
 
-    If you encounter further errors while clearing the cache, run `composer install`.
+    Then execute `composer dump-autoload` to regenerate the autoload files.
