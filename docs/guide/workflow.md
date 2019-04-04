@@ -132,10 +132,10 @@ You can also use the following methods to read information about workflow from t
 `\EzSystems\EzPlatformWorkflow\Value\WorkflowMetadata` object contains all information about a workflow, such as ID, name, transitions and current stage.
 `\EzSystems\EzPlatformWorkflow\Value\WorkflowMetadata::$workflow` gives you direct access to native Symfony Workflow object.
 
-!!! note
+## Publishing content from workflow
 
-    The workflow functionality only operates on workflow stages.
-    It does not perform operations on Content, such as publishing it, out of the box.
+The workflow functionality only operates on workflow stages.
+It does not perform operations on Content, such as publishing it, out of the box.
 
-    If you want a custom implementation where, e.g. moving a Content item to a `done` stage in workflow publishes it,
-    you need to make use of event listeners for the Symfony Workflow object.
+If you want a custom implementation where, e.g. moving a Content item to a `done` stage in workflow publishes it,
+follow [Publishing with workflow](../cookbook/publishing_with_workflow.md).

@@ -153,6 +153,7 @@ pages:
         - 'Multi-language SiteAccesses': 'cookbook/setting_up_multi_language_siteaccesses.md'
         - 'Multiple user providers': 'cookbook/authenticating_a_user_with_multiple_user_providers.md'
         - 'Notifications': 'cookbook/sending_notifications.md'
+        - 'Publishing with workflow': 'cookbook/publishing_with_workflow.md'
         - 'Request parameters as API objects': 'cookbook/converting_request_parameters_into_api_objects.md'
         - 'Retrieving root Location': 'cookbook/retrieving_root_location.md'
         - 'RouteReference': 'cookbook/using_routereference.md'
