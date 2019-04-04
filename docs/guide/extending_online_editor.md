@@ -287,7 +287,7 @@ ezrichtext:
             - embed: [buttonName1]
 ```
 
-Under `extra_buttons` (line 4) you need to specify to what toolbar you want to add a new button e.g. `paragraph`.
+Under `extra_buttons` (line 4) specify to what toolbar you want to add a new button e.g. `paragraph`.
 Next to that toolbar, add an array with names of custom buttons that you want to install e.g. `[buttonName1, buttonName2]`.
 
 All new buttons should also be added to AlloyEditor under the same name that's in the configuration file.
