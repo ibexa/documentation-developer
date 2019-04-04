@@ -26,7 +26,7 @@ EzSystems\ExtendingTutorialBundle\EventListener\:
 
 Then create a `MyMenuListener.php` file in `src/EzSystems/ExtendingTutorialBundle/EventListener`:
 
-``` php hl_lines="14 28"
+``` php hl_lines="14 26"
 <?php
 
 namespace EzSystems\ExtendingTutorialBundle\EventListener;
@@ -61,7 +61,7 @@ class MyMenuListener implements EventSubscriberInterface
 
 This listener subscribes to the `ConfigureMenuEvent::MAIN_MENU` event (see line 14).
 
-Line 28 points to the new route that you need to add to the routing file.
+Line 26 points to the new route that you need to add to the routing file.
 
 ## Add routing
 
@@ -200,7 +200,7 @@ Finally, create an `all_content_list.html.twig` file in `src/EzSystems/Extending
 
 !!! tip
 
-    If you cannot see the results, clear the cache and reload the application.
+    If you cannot see the results or encounter an error, clear the cache and reload the application.
 
 At this point you can go to the Back Office and under "Content" you will see the new "Content list" item.
 Select it and you will see the list of all Content items in the Repository.
