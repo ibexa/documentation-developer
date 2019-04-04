@@ -280,12 +280,11 @@ For example, if a plugin adds some class to some element, you need to confirm th
 Custom buttons can be added to your installation with the following configuration:
 
 ```yml hl_lines="4"
-ezpublish:
-    ezrichtext:
-        alloy_editor:
-            extra_buttons:
-                - paragraph: [buttonName1, buttonName2]
-                - embed: [buttonName1]
+ezrichtext:
+    alloy_editor:
+        extra_buttons:
+            - paragraph: [buttonName1, buttonName2]
+            - embed: [buttonName1]
 ```
 
 Under `extra_buttons` (line 4) you need to specify to what toolbar you want to add a new button e.g. `paragraph`.
