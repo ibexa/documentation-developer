@@ -291,4 +291,5 @@ ezpublish:
 Under `extra_buttons` (line 4) you need to specify to what toolbar you want to add a new button e.g. `paragraph`.
 Next to that toolbar, add a table with names of custom buttons that you want to install e.g. `[buttonName1, buttonName2]`.
 
-All new buttons should also be added to AlloyEditor under the same name that was provided in the configuration file. For more information follow [AlloyEditor tutorial on creating a button](https://alloyeditor.com/docs/develop/create_buttons.html).
+All new buttons should also be added to AlloyEditor under the same name that was provided in the configuration file.
+For more information follow [AlloyEditor tutorial on creating a button](https://alloyeditor.com/docs/develop/create_buttons.html).
