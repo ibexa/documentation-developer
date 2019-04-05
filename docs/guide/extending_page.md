@@ -107,7 +107,7 @@
             visible: false
         ```
     
-    #### Creating blocks with custom attributes
+    #### Custom block attributes
     
     You can create Page blocks with custom attributes.
     
@@ -229,18 +229,19 @@
     
     Now, create a block containing your custom attribute:
     
-    ``` yaml hl_lines="8 9 10 11"
-    blocks:
-        my_block:
-            name: MyBlock
-            category: default
-            thumbnail: 'bundles/appbundle/images/thumbnails/my_block.svg'
-            views:
-                default: { name: 'Default block layout', template: 'AppBundle:my_block.html.twig', priority: -255 }
-            attributes:
-                my_string_attribute:
-                    type: 'my_string'
-                    name: MyString
+    ``` yaml hl_lines="9 10 11 12"
+    ezplatform_page_fieldtype:
+        blocks:
+            my_block:
+                name: MyBlock
+                category: default
+                thumbnail: 'bundles/appbundle/images/thumbnails/my_block.svg'
+                views:
+                    default: { name: 'Default block layout', template: 'AppBundle:my_block.html.twig', priority: -255 }
+                attributes:
+                    my_string_attribute:
+                        type: 'my_string'
+                        name: MyString
     
     ```
 
