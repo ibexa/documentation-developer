@@ -11,11 +11,12 @@ First, create a file that will contain the configuration for the custom tags.
 Add file `custom_tags.yml` to `src/EzSystems/ExtendingTutorialBundle/Resources/config`:
 
 ``` yaml hl_lines="5 10 12"
-system:
-    default:
-        fieldtypes:
-            ezrichtext:
-                custom_tags: [ezyoutube]
+ezpublish:
+    system:
+        default:
+            fieldtypes:
+                ezrichtext:
+                    custom_tags: [ezyoutube]
 
 ezrichtext:
     custom_tags:
@@ -91,16 +92,14 @@ use Symfony\Component\Yaml\Yaml;
 ``` php
 public function prepend( ContainerBuilder $container )
 {
-    $configFile = __DIR__ . '/../Resources/config/custom_tags.yml';
-    $config = Yaml::parse( file_get_contents( $configFile ) );
-    $container->prependExtensionConfig( 'ezpublish', $config );
-    $container->addResource( new FileResource( $configFile ) );
+    $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+    $loader->load('custom_tags.yml');
 }
 ```
 
 ??? tip "Complete file"
 
-    ``` php hl_lines="9 10 11 13 26 27 28 29 30 31 32"
+    ``` php hl_lines="9 10 11 13 27 28 29 30 31"
 
     <?php
 
@@ -127,14 +126,12 @@ public function prepend( ContainerBuilder $container )
             $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
             $loader->load('services.yml');
         }
+
         public function prepend( ContainerBuilder $container )
         {
-        $configFile = __DIR__ . '/../Resources/config/custom_tags.yml';
-        $config = Yaml::parse( file_get_contents( $configFile ) );
-        $container->prependExtensionConfig( 'ezpublish', $config );
-        $container->addResource( new FileResource( $configFile ) );
+            $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+            $loader->load('custom_tags.yml');
         }
-
     }
     ```
 
