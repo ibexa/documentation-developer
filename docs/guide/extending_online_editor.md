@@ -283,8 +283,8 @@ Custom buttons can be added to your installation with the following configuratio
 ezrichtext:
     alloy_editor:
         extra_buttons:
-            - paragraph: [buttonName1, buttonName2]
-            - embed: [buttonName1]
+            paragraph: [buttonName1, buttonName2]
+            embed: [buttonName1]
 ```
 
 Under `extra_buttons` (line 4) specify to what toolbar you want to add a new button e.g. `paragraph`.
