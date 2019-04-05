@@ -110,12 +110,11 @@
     #### Creating blocks with custom attributes
     
     You can create Page blocks with custom attributes.
-    The following steps demonstrate the process of creating a text custom attribute type.
     
     First, define the attribute type.
-    You can use one of the types available from `EzPlatformPageFieldtypeBundle` in `src/lib/Form/Type/BlockAttribute/*`.
+    You can use one of the types available in `ezplatform-page-fieldtype/src/lib/Form/Type/BlockAttribute/*`.
     
-    You can also use one of the [built-in Symfony types](https://symfony.com/doc/current/forms.html#built-in-field-types), eg. `AbstractType` for any custom type or `IntegerType` for numeric types.
+    You can also use one of the [built-in Symfony types](https://symfony.com/doc/current/forms.html#built-in-field-types), e.g. `AbstractType` for any custom type or `IntegerType` for numeric types.
     
     To define the type, create a file `src/AppBundle/Block/Attribute/MyStringAttributeType.php` that contains:
     
@@ -146,7 +145,7 @@
     
     Next, configure a template by creating a `src/AppBundle/Resources/views/custom_form_templates.html.twig` file:
     
-    ``` twig
+    ``` html+twig
     {% block my_string_attribute_widget %}
         <div style='background: red'>
             <h2>My String</h2>
@@ -180,8 +179,8 @@
                 - { name: ezplatform.page_builder.attribute_form_type_mapper, alias: my_string }
     ```
     
-    For creating your own mapper, create a class that inherits after `EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Attribute\FormTypeMapper\AttributeFormTypeMapperInterface`.
-    Then, register the class along with a tag by creating a `src/AppBudle/Block/Attribute/MyStringAttributeMapper.php` file:
+    For creating your own mapper, create a class that inherits from `EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Attribute\FormTypeMapper\AttributeFormTypeMapperInterface`.
+    Then, register the class along with a tag by creating a `src/AppBundle/Block/Attribute/MyStringAttributeMapper.php` file:
     
     ``` php
     <?php declare(strict_types=1);
