@@ -179,7 +179,7 @@
     ### Finish workflow for published content
 
     With proper permissions, you can publish content even before it has gone through a whole workflow.
-    Afterwards it will still be visible in the review queue
+    Afterward it will still be visible in the review queue
     and in the relevant stage of **Content item(s) under review** tab under **Workflow** in the Admin panel.
 
     To avoid cluttering the tables with published content, you can use an event subscriber
