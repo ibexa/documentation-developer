@@ -6,7 +6,7 @@ eZ Platform comes with a collection of Field Types that can be used to build pow
 
 !!! tip
 
-    For general Field Type documentation see [Field Type API and best practices](../api/field_type_api.md). If you are looking for the documentation on how to implement a custom Field Type, see the [Creating a Tweet Field Type](../tutorials/field_type/creating_a_tweet_field_type.md) tutorial.
+    For general Field Type documentation see [Field Type API](../api/field_type_api.md). If you are looking for the documentation on how to implement a custom Field Type, see the [Creating a Tweet Field Type](../tutorials/field_type/creating_a_tweet_field_type.md) tutorial.
 
 Custom Field Types have to be programmed in PHP. However, the built-in Field Types are usually sufficient enough for typical scenarios. The following table gives an overview of the supported Field Types that come with eZ Platform.
 
@@ -45,7 +45,7 @@ Custom Field Types have to be programmed in PHP. However, the built-in Field Ty
 | [Url](#url-field-type) | Stores a URL / address. | No | Yes |
 | [User](#user-field-type) | Validates and stores information about a user. | No | No |
 
-###### ^[1]^ Note on Legacy Search Engine
+<a id="1-note-on-legacy-search-engine"></a>**^[1]^ Note on Legacy Search Engine**
 
 Legacy Search/Storage Engine index is limited to 255 characters in database design,
 so formatted and unformatted text blocks will only index the first part.
