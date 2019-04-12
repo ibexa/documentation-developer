@@ -2,7 +2,7 @@
 
 Start with creating a `app/config/layouts.yml` file containing:
 
-``` yaml hl_lines="7"
+```yaml hl_lines="7"
 ezplatform_page_fieldtype:
     blocks:
         name: 'My Block'
