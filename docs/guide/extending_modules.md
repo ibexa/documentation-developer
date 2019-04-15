@@ -176,7 +176,7 @@ ezpublish:
 
 ##### Adding new configuration to a button
 
-Define in `ez_udw_config` Twig helper a specific part of yaml configuration that will be used to render **Content Browser**.
+In the `ez_udw_config` Twig helper define a specific part of YAML configuration that will be used to render the **Content Browser**.
 You can find Twig helper in your button template.
 In the example below, a key is pointing to `my_custom_udw` configuration and has additional parameter `johndoe`.
 
@@ -192,9 +192,9 @@ In the example below, a key is pointing to `my_custom_udw` configuration and has
 
 ##### Additional parameters
 
-If event listener catches additional parameter passed with context, it will use a configuration specified for it in the event subscriber.
+If an event listener catches additional parameters passed with context, it will use a configuration specified for it in the event subscriber.
 
-In the example below `johndoe` parameter allows the user to choose multiple items from a **Browser window** by changing `multiple: false` from `my_custom_udw` configuration to `multiple: true`.
+In the example below the `johndoe` parameter enables the user to choose multiple items from a **Browser window** by changing `multiple: false` from `my_custom_udw` configuration to `multiple: true`.
  
 ```php hl_lines="29 30 31"
 class JohnDoeCanSelectMore implements EventSubscriberInterface
