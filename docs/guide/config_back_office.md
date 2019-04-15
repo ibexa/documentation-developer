@@ -142,7 +142,7 @@ You can also configure date and time format by using the following services:
 - `@ezplatform.user.settings.full_date_format.formatter`
 - `@ezplatform.user.settings.full_time_format.formatter`
 
-To use them, create a `src/AppBundle\Service\MyService.php` file containing:
+To use them, create an `src\AppBundle\Service\MyService.php` file containing:
 
 ``` php
 <?php
