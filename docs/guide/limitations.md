@@ -139,7 +139,9 @@ A Limitation to specify if the User has access to Content with a specific Conten
 A Limitation to specify if the User has access to work on the specified translation.
 
 A user with this Limitation is allowed to:
-- create new content with the given translation(s) only
+
+- create new content with the given translation(s) only.
+This only applies to creating the first version of a Content item
 - edit content by adding a new translation or modifying an existing translation
 - publish content only when it results in adding or modifying an allowed translation
 
