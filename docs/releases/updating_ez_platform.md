@@ -538,8 +538,7 @@ Some versions require updates to the database. Look through [the list of databas
 
     #### Required manual cache clearing if using Redis
 
-    If you are using Redis as your persistence cache storage and you see a notice message such as:
-    `In AbstractTagAwareAdapter.php line 71: Notice: Undefined index: value`, clear Redis instance manually after the upgrade.
+    If you are using Redis as your persistence cache storage you should always clear it manually after an upgrade.
     You can do it in two ways, by using `redis-cli` and executing the following command:
     
     ```bash
