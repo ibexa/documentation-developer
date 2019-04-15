@@ -26,6 +26,7 @@ You can extend the Back Office in the following areas:
 - [Tabs](#tabs)
 - [Workflow event timeline](#workflow-event-timeline)
 - [Injecting custom components](#injecting-custom-components)
+- [Format date and time](#format-date-and-time)
 - [Universal Discovery module](extending_modules.md#universal-discovery-module)
 - [Sub-items list](extending_modules.md#sub-items-list)
 - [Multi-file upload](extending_modules.md#multi-file-upload)
@@ -669,4 +670,86 @@ appbundle.components.my_script_component:
        $src: 'http://address.of/file.js'
    tags:
        - { name: ezplatform.admin_ui.component, group: 'script-body' }
+```
+
+## Format date and time
+
+Apart from changing the [date and time formats](config_back_office#date-and-time-formats), you can use Twig filters:
+
+- `ez_short_datetime`
+- `ez_short_date`
+- `ez_short_time`
+- `ez_full_datetime`
+- `ez_full_date`
+- `ez_full_time`
+
+The following are examples of using the filters:
+
+``` php hl_lines="3 6"
+<div>
+    // Date formatted in a preferred time zone and short datetime format:
+    {{ content.versionInfo.creationDate|ez_short_datetime }}
+    
+    // Date formatted in UTC and preferred short datetime format:
+    {{ content.versionInfo.creationDate|ez_short_datetime('UTC') }}
+</div>
+```
+
+The filters accept an optional `timezone` parameter for displaying date and time in a chosen time zone.
+The default time zone is set in the User settings menu.
+
+For details, see reference materials on the [full format filters](twig_functions_reference.md#ez_full_datetime-ez_full_date-ez_full_time) and [short format filters](twig_functions_reference.md#ez_short_datetime-ez_short_date-ez_short_time).
+
+You can also format date and time by using the following services:
+
+- `@ezplatform.user.settings.short_datetime_format.formatter`
+- `@ezplatform.user.settings.short_datet_format.formatter`
+- `@ezplatform.user.settings.short_time_format.formatter`
+- `@ezplatform.user.settings.full_datetime_format.formatter`
+- `@ezplatform.user.settings.full_date_format.formatter`
+- `@ezplatform.user.settings.full_time_format.formatter`
+
+To use them, create a `src/AppBundle\Service\MyService.php` file containing:
+
+``` php
+<?php
+
+namespace AppBundle\Service;
+
+use EzSystems\EzPlatformUser\UserSetting\DateTimeFormat\FormatterInterface;
+
+class MyService
+{
+    /** @var \EzSystems\EzPlatformUser\UserSetting\DateTimeFormat\FormatterInterface */
+    private $shortDateTimeFormatter;
+
+    public function __construct(FormatterInterface $shortDateTimeFormatter)
+    {
+        // your code
+
+        $this->shortDateTimeFormatter = $shortDateTimeFormatter;
+
+        // your code
+    }
+
+    public function foo()
+    {
+        // your code
+
+        $now = new \DateTimeImmutable();
+        $date = $this->shortDateTimeFormatter->format($now);
+        $utc = $this->shortDateTimeFormatter->format($now, 'UTC');
+
+        // your code
+    }
+}
+```
+
+Then, add the following to `app/config/services.yml`:
+
+``` yaml
+services:    
+    AppBundle\Service\MyService:
+        arguments:
+            $shortDateTimeFormatter: '@ezplatform.user.settings.short_datetime_format.formatter'
 ```

@@ -13,8 +13,14 @@ In addition to the [native functions provided by Twig](http://twig.sensiolabs.or
 - [`ez_field`](#ez_field) - returns a Field from a Content item in the current language
 - [`ez_file_size`](#ez_file_size) - returns the size of a file as string
 - [`ez_first_filled_image_field_identifier`](#ez_first_filled_image_field_identifier) - returns the identifier of the first image field that is not empty
+- [`ez_full_datetime`](#ez_full_datetime-ez_full_date-ez_full_time) - outputs date and time in full format
+- [`ez_full_date`](#ez_full_datetime-ez_full_date-ez_full_time) - outputs date in full format
+- [`ez_full_time`](#ez_full_datetime-ez_full_date-ez_full_time) - outputs time in full format
 - [`ez_image_alias`](#ez_image_alias) - displays a selected variation of an image
 - [`ez_is_field_empty`](#ez_is_field_empty) - checks if a Content item's Field value is considered empty in the current language
+- [`ez_short_datetime`](#ez_short_datetime-ez_short_date-ez_short_time) - outputs date and time in short format
+- [`ez_short_date`](#ez_short_datetime-ez_short_date-ez_short_time) - outputs date in short format
+- [`ez_short_time`](#ez_short_datetime-ez_short_date-ez_short_time) - outputs time in short format
 - [`ez_render_field`](#ez_render_field) - displays a Content item's Field value, taking advantage of the template block exposed by the Field Type used
 - [`ez_trans_prop`](#ez_trans_prop) - gets the translated value of a multi valued(translations) property
 - [`ez_urlalias`](#ez_urlalias) - is a special route name for generating URLs for a Location from the given parameters
@@ -226,16 +232,23 @@ It can be used for example to identify the first image in an article to render i
 |---------------|----------------------------------------------------|-----------------------------------|
 | `content`     | `eZ\Publish\API\Repository\Values\Content\Content` | Content item the Fields belong to |
 
-### `ez_full_datetime`
+### `ez_full_datetime`, `ez_full_date`, `ez_full_time`
 
-`ez_full_datetime` is a Twig filter which outputs date and time in full format.
-The format is defined in [user preferences](config_back_office.md#date-and-time-formats).
+These Twig filters are used to [format date and time](extending_ez_platform.md#format-date-and-time).
+The formats are defined in [user preferences](config_back_office.md#date-and-time-formats).
 
-It accepts `\DateTimeInterface` as argument.
+| Twig filter | Description |
+|-------------|-------------|
+| `ez_full_datetime` | outputs date and time in full format |
+| `ez_full_date` | outputs date in full format |
+| `ez_full_time` | outputs time in full format |
 
+Thee filters accept `\DateTimeInterface` as argument.
 If the argument is null, the filter returns the current date and time in the selected format.
 
 For example `{{ contentInfo.publishedDate|ez_full_datetime }}` will return `03 May 2019 23:03`.
+
+Thee filters also accept an optional `timezone` parameter for displaying date and time in a chosen time zone.
 
 ### `ez_image_alias`
 
@@ -439,16 +452,24 @@ ezpublish:
 
     You can define these rules in a dedicated file instead of `app/config/ezplatform.yml`. Read the [cookbook recipe to learn more about it](../cookbook/importing_settings_from_a_bundle.md).
 
-### `ez_short_datetime`
 
-`ez_short_datetime` is a Twig filter which outputs date and time in short format.
-The format is defined in [user preferences](config_back_office.md#date-and-time-formats).
+### `ez_short_datetime`, `ez_short_date`, `ez_short_time`
 
-It accepts `\DateTimeInterface` as argument.
+These Twig filters are used to [format date and time](extending_ez_platform.md#format-date-and-time).
+The formats are defined in [user preferences](config_back_office.md#date-and-time-formats).
 
+| Twig filter | Description |
+|-------------|-------------|
+| `ez_short_datetime` | outputs date and time in short format |
+| `ez_short_date` | outputs date in short format |
+| `ez_short_time` | outputs time in short format |
+
+The filters accept `\DateTimeInterface` as argument.
 If the argument is null, the filter returns the current date and time in the selected format.
 
-For example `{{ contentInfo.publishedDate|ez_short_datetime }}` will return `03/05/19 23:02`.
+For example `{{ contentInfo.publishedDate|ez_full_datetime }}` will return `03 May 2019 23:03`.
+
+The filters also accept an optional `timezone` parameter for displaying date and time in a chosen time zone.
 
 ### `ez_trans_prop`
 
