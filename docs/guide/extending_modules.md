@@ -150,7 +150,7 @@ system:
 UDW configuration is SiteAccess-aware.
 For each defined SiteAccess, you need to be able to use the same configuration tree in order to define SiteAccess-specific config.
 These settings need to be mapped to SiteAccess-aware internal parameters that you can retrieve via the ConfigResolver.
-For more information on ConfigResolver see [eZ Platform dynamic configuration basics.](config_dynamic#configresolver)
+For more information on ConfigResolver, see [eZ Platform dynamic configuration basics.](config_dynamic#configresolver)
 
 #### Adding new configuration
 
@@ -158,7 +158,7 @@ UDW configuration can change dynamically depending on occurring events.
 It can be used e.g. for defining which content should be exposed to a user after logging in.
 
 By default only one element from configuration file is applied to Universal Discovery module.
-You can modify it dynamically by passing context to generate configuration based on specific event.
+You can modify it dynamically by passing context to generate configuration based on a specific event.
 This context event is caught by event listener `ConfigResolveEvent::NAME` before the original configuration is used. 
 Depending on what additional parameters are provided, original or event-specific configuration is applied.
 
@@ -192,9 +192,9 @@ In the example below, a key is pointing to `my_custom_udw` configuration and has
 
 ##### Additional parameters
 
-If event listener catches additional parameter passed with context it will use a configuration specified for it in the event subscriber.
+If event listener catches additional parameter passed with context, it will use a configuration specified for it in the event subscriber.
 
-In the example below `johndoe` parameter, allows user to choose multiple items from a **Browser window** by changing `multiple: false` from `my_custom_udw` configuration to `multiple: true`.
+In the example below `johndoe` parameter allows the user to choose multiple items from a **Browser window** by changing `multiple: false` from `my_custom_udw` configuration to `multiple: true`.
  
 ```php hl_lines="29 30 31"
 class JohnDoeCanSelectMore implements EventSubscriberInterface
