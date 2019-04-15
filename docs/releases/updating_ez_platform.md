@@ -536,6 +536,20 @@ Some versions require updates to the database. Look through [the list of databas
     bin/console ezplatform:migrate:legacy_matrix
     ```
 
+    #### Required manual cache clearing if using Redis
+
+    If you are using Redis as you persistence cache storage and you see a notice message like `In AbstractTagAwareAdapter.php line 71: Notice: Undefined index: value`, please clear Redis instance manually after the upgrade. You can do it in two ways, by using `redis-cli` and executing following command:
+    
+    ```bash
+    FLUSHALL
+    ```
+    
+    or by executing the following command:
+    
+    ```bash
+    bin/console cache:pool:clear cache.redis
+    ```
+    
 ## 5. Dump assets
 
 The web assets must be dumped again if you are using the `prod` environment. In `dev` this happens automatically:
