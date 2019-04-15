@@ -140,10 +140,10 @@ A Limitation to specify if the User has access to work on the specified translat
 
 A user with this Limitation is allowed to:
 
-- create new content with the given translation(s) only.
-This only applies to creating the first version of a Content item
-- edit content by adding a new translation or modifying an existing translation
-- publish content only when it results in adding or modifying an allowed translation
+- Create new content with the given translation(s) only.
+This only applies to creating the first version of a Content item.
+- Edit content by adding a new translation or modifying an existing translation.
+- Publish content only when it results in adding or modifying an allowed translation.
 
 |                 |                                                                         |
 |-----------------|-------------------------------------------------------------------------|
