@@ -56,26 +56,6 @@ The `searchHits` properties of the `SearchResult` object is an array of `SearchH
 !!! Tip
 
     If you you are searching using a unique identifier, for instance using the Content ID or Content remote ID criterion, then you can use [`SearchService::findSingle()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/SearchService.html#method_findSingle), this takes a Criterion and returns a single Content item, or throws a `NotFound` exception if none is found.
-    
-### Indexing related objects
-
-You can use indexation of related objects to search through text of related content.
-Indexing is disabled by default.
-To set it up you need to define the maximum indexing depth using the following YAML configuration:
-
-```yaml
-ez_search_engine_solr:
-    # ...
-    connections:
-        default:
-            # ...
-            indexing_depth:
-                # Default value: 0 - no relation indexing, 1 - direct relations, 2nd level  relations, 3rd level  relations (maximum value).
-                default: 1      
-                content_type:
-                    # Index depth defined for specific content type
-                    article: 2
-```
 
 ## Retrieving Sort Clauses for parent Location
 

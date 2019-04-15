@@ -404,6 +404,26 @@ The configuration above will result in the following boosting (Content Type / Fi
     - `folder/name: 20.0`
     - `folder/title: 10.0`
     
+### Indexing related objects
+
+You can use indexation of related objects to search through text of related content.
+Indexing is disabled by default.
+To set it up you need to define the maximum indexing depth using the following YAML configuration:
+
+```yaml
+ez_search_engine_solr:
+    # ...
+    connections:
+        default:
+            # ...
+            indexing_depth:
+                # Default value: 0 - no relation indexing, 1 - direct relations, 2nd level  relations, 3rd level  relations (maximum value).
+                default: 1      
+                content_type:
+                    # Index depth defined for specific content type
+                    article: 2
+```
+  
 ## Extending the Solr Search Engine Bundle
 
 ### Document field mappers
