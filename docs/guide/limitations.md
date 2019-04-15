@@ -44,9 +44,9 @@ If a function is absent from the tables below, it means that no Limitations can 
 |read|true|true|true|true|true|true|-|State|
 |diff|true|true|true|true|true|-|-|-|
 |view_embed|true|true|true|true|true|-|-|-|
-|create|true|true|-|true|true|-|true|Owner of Parent, Content Type Group of Parent, Content Type of Parent, Parent Depth, Translation|
-|edit|true|true|true|true|true|true|true|State</br>WorkflowStage</br>Translation|
-|publish|true|true|true|true|true|true|true|State</br>WorkflowStage</br>Translation|
+|create|true|true|-|true|true|-|true|Owner of Parent, Content Type Group of Parent, Content Type of Parent, Parent Depth|
+|edit|true|true|true|true|true|true|true|State</br>WorkflowStage|
+|publish|true|true|true|true|true|true|true|State</br>WorkflowStage|
 |manage_locations|true|true|true|-|true|-|-|State|
 |hide|true|true|true|true|true|true|true|State|
 |translate|true|true|true|true|true|true|-|
@@ -136,11 +136,12 @@ A Limitation to specify if the User has access to Content with a specific Conten
 
 #### LanguageLimitation
 
-!!! note
+A Limitation to specify if the User has access to work on the specified translation.
 
-    LanguageLimitation is deprecated.
-
-A Limitation to specify if the User has access to Content in a specific language.
+A user with this Limitation is allowed to:
+- create new content with the given translation(s) only
+- edit content by adding a new translation or modifying an existing translation
+- publish content only when it results in adding or modifying an allowed translation
 
 |                 |                                                                         |
 |-----------------|-------------------------------------------------------------------------|
@@ -383,30 +384,6 @@ A Limitation to specify if the User has access to Content within a specific Subt
 |Value|UI value|Description|
 |------|------|------|
 |`<Location_pathString>`|`<Location_name>`|All valid location `pathStrings` can be set as value(s)|
-
-### TranslationLimitation
-
-A Limitation to specify if the User has access to work on the specified translation.
-
-A user with this Limitation is allowed to:
-- create new content with the given translation(s) only
-- edit content by adding a new translation or modifying an existing translation
-- publish content only when it results in adding or modifying an allowed translation
-- delete a translation based on a list of allowed translations
-
-|                 |                                                                      |
-|-----------------|----------------------------------------------------------------------|
-| Identifier      | `Translation`                                                        |
-| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\TranslationLimitation` |
-| Type Class      | `eZ\Publish\Core\Limitation\TranslationLimitationType`               |
-| Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\LanguageCode` |
-| Role Limitation | no                                                                   |
-
-#### Possible values
-
-|Value|UI value|Description|
-|------|------|------|
-|`<Language_code>`|`<LanguageCode_name>`|All valid language codes can be set as value(s)|
 
 ### UserGroupLimitation
 
