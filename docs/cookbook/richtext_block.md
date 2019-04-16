@@ -1,30 +1,30 @@
-# Creating block with `richtext` attribute
+# Creating block with `richtext` attribute type
 
-Start with creating a `app/config/layouts.yml` file containing:
+Start with creating an `app/config/layouts.yml` file containing:
 
-```yaml hl_lines="7"
+``` yaml hl_lines="13"
 ezplatform_page_fieldtype:
     blocks:
-        name: 'My Block'
-        thumbnail: 'assets/images/blocks/myblock.svg'
-        views:
-            default:
-                template: blocks/myblock/myblock.html.twig
-                name: 'My block view'
-                priority: -255
-        attributes:
-            name: 'Content'
-            type: 'richtext'
+        richtext:
+            name: 'My Richtext Block'
+            thumbnail: 'assets/images/blocks/richtext.svg'
+            views:
+                default:
+                    template: blocks/richtext/richtext.html.twig
+                    name: 'My block view'
+                    priority: -255
+            attributes:
+                name: 'Content'
+                type: 'richtext'
                 
 ``` 
 
-This configuration creates a new block, defines the template and the attribute type of the block.
+This configuration defines a new block, its template and attribute type (line 13).
 
 Remember to provide an icon for the block in the `assets/images/blocks/` folder.
 
-
 Next, create a subscriber that will convert string of data into XML. 
-Create a `AppBundle/Event/Subscriber/RichTextSubscriber.php` file containing:
+Create an `AppBundle/Event/Subscriber/RichTextSubscriber.php` file containing:
 
 ```php hl_lines="30 38 39 40 41 42 43 44 45 46 47 48"
 <?php
@@ -79,12 +79,12 @@ class RichTextBlockSubscriber implements EventSubscriberInterface
 }
 ```
 
-Note that line 30 defines the name of the block and implements the `PreRender` method.
-Lines 38-48 handle the conversion of content into XML string.
+The line 30 defines the name of the block and implements the `PreRender` method.
+The lines 38-48 handle the conversion of content into XML string.
 
-Next, create the template in `blocks/myblock/myblock.html.twig` containing the following:
+Next, create the template in `blocks/myblock/richtext.html.twig` and add to it the following:
 
-```html+twig
+``` html+twig hl_lines="8 9 10"
 {% extends '@EzPlatformPageBuilder/page_builder/block/config.html.twig' %}
 
 {% block meta %}
@@ -98,6 +98,8 @@ Next, create the template in `blocks/myblock/myblock.html.twig` containing the f
 
 ```
 
+Here, the lines 8-10 are responsible for rendering the content from XML to HTML5.
+
 Complete the procedure with registering the subscriber as a service:
 
 ```yml
@@ -106,3 +108,5 @@ services:
         tags:
             - { name: kernel.event_subscriber }
 ```
+
+For details on customizing additional options of the block or creating custom blocks with other attribute types, see [extending the Page](/docs/guide/extending_page.md).
