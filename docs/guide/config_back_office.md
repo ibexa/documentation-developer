@@ -70,4 +70,4 @@ This applies only if no specific Location is defined in the Form itself.
 
 ## Universal Discovery module limits
 
-Limits for different sections of Universal Discovery Widget module (UDW) can be defined through respective settings in [`universal_discovery_widget.yml`.](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/config/universal_discovery_widget.yml)
+The Universal Discovery Widget module (UDW) can be found in [Extending modules.](extending_modules.md#universal-discovery-widget-udw)
