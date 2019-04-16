@@ -687,7 +687,7 @@ The following are examples of using the filters:
 
 ``` php hl_lines="3 6"
 <div>
-    // Date formatted in a preferred time zone and short datetime format:
+    // Date formatted in the preferred time zone and short datetime format:
     {{ content.versionInfo.creationDate|ez_short_datetime }}
     
     // Date formatted in UTC and preferred short datetime format:
