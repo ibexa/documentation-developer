@@ -12,7 +12,7 @@ Many eZ Platform functionalities are provided through separate bundles included 
 
 ### How to use bundles?
 
-All the bundles containing built-in eZ Platform functionalities are installed automatically
+All the bundles containing built-in eZ Platform functionalities are installed automatically.
 By default, a clean eZ Platform installation also contains an AppBundle where you can place your custom code.
 
 You can see a list of other available community-developed bundles on <https://ezplatform.com/Bundles>.

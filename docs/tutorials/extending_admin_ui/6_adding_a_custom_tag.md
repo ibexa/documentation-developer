@@ -11,11 +11,12 @@ First, create a file that will contain the configuration for the custom tags.
 Add file `custom_tags.yml` to `src/EzSystems/ExtendingTutorialBundle/Resources/config`:
 
 ``` yaml hl_lines="5 10 12"
-system:
-    default:
-        fieldtypes:
-            ezrichtext:
-                custom_tags: [ezyoutube]
+ezpublish:
+    system:
+        default:
+            fieldtypes:
+                ezrichtext:
+                    custom_tags: [ezyoutube]
 
 ezrichtext:
     custom_tags:
@@ -91,21 +92,19 @@ use Symfony\Component\Yaml\Yaml;
 ``` php
 public function prepend( ContainerBuilder $container )
 {
-    $configFile = __DIR__ . '/../Resources/config/custom_tags.yml';
-    $config = Yaml::parse( file_get_contents( $configFile ) );
-    $container->prependExtensionConfig( 'ezpublish', $config );
-    $container->addResource( new FileResource( $configFile ) );
+    $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+    $loader->load('custom_tags.yml');
 }
 ```
 
 ??? tip "Complete file"
 
-    ``` php hl_lines="9 10 11 13 26 27 28 29 30 31 32"
-    
+    ``` php hl_lines="9 10 11 13 27 28 29 30 31"
+
     <?php
-    
+
     namespace EzSystems\ExtendingTutorialBundle\DependencyInjection;
-    
+
     use Symfony\Component\DependencyInjection\ContainerBuilder;
     use Symfony\Component\Config\FileLocator;
     use Symfony\Component\HttpKernel\DependencyInjection\Extension;
@@ -113,7 +112,7 @@ public function prepend( ContainerBuilder $container )
     use Symfony\Component\Config\Resource\FileResource;
     use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
     use Symfony\Component\Yaml\Yaml;
-    
+
     class EzSystemsExtendingTutorialExtension extends Extension implements PrependExtensionInterface
     {
         /**
@@ -123,18 +122,16 @@ public function prepend( ContainerBuilder $container )
         {
             $configuration = new Configuration();
             $config = $this->processConfiguration($configuration, $configs);
-    
+
             $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
             $loader->load('services.yml');
         }
+
         public function prepend( ContainerBuilder $container )
         {
-        $configFile = __DIR__ . '/../Resources/config/custom_tags.yml';
-        $config = Yaml::parse( file_get_contents( $configFile ) );
-        $container->prependExtensionConfig( 'ezpublish', $config );
-        $container->addResource( new FileResource( $configFile ) );
+            $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+            $loader->load('custom_tags.yml');
         }
-    
     }
     ```
 
@@ -158,7 +155,7 @@ ezrichtext.custom_tags.ezyoutube.attributes.align.label: 'Align'
 
 !!! tip
 
-    If you cannot see the results, clear the cache and reload the application.
+    If you cannot see the results or encounter an error, clear the cache and reload the application.
 
 At this point you can go to the Back Office and start editing any Content with a RichText Field (e.g. a Folder or an Article).
 When you edit the Field, you can see the new tag appear in the elements menu. Add it and provide a YouTube embed address (obtained through the "Share" link on YouTube).

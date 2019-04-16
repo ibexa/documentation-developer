@@ -71,20 +71,28 @@ Once a Content item is published, it cannot be un-published.
 Limiting visibility is the only way to withdraw content from the website without moving it to Trash.
 When the Location of a Content item is hidden, any access to it will be denied, preventing the system from displaying it.
 
-When a Location is hidden, all of its descendants in the tree will be hidden as well.
-This means that a Location can have one of three different visibility statuses:
+If a Content item is hidden, it is invisible in all its Locations.
+If a Location is hidden, all of its descendants in the tree will be hidden as well.
+This means that there are three different visibility statuses:
 
 - Visible
 - Hidden
-- Hidden by superior
+- Hidden by superior
 
-All Locations are visible by default. If a Location is made invisible manually, its status is set to Hidden.
+All Locations and Content items are visible by default.
+If a Location is made invisible manually, its status is set to Hidden.
 All Locations under it will change status to Hidden by superior.
+A Content item is Hidden by superior only in Locations in which it has a parent Location with the Hidden status.
+
+In the following example, the **Content item 1** is Hidden by superior in the **Location A** while still visible in the **Location B**.
+
+![Visibility in two locations](img/locations_visibility.png)
 
 From the visitor's perspective a Location behaves the same whether its status is Hidden or Hidden by superior –
 it will be unavailable on the front page.
-The difference is that a Location Hidden by superior cannot be revealed manually.
-It will only become visible once all of its ancestor Locations are made visible again.
+
+The difference is that a Location Hidden by superior cannot be revealed separately from their parent(s).
+It will only become visible once all of its parent Locations are made visible again.
 
 A Hidden by superior status does not override a Hidden status.
 This means that if a Location is Hidden manually and later one of its ancestors is hidden as well,

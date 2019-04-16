@@ -102,12 +102,14 @@ ezpublish:
         <siteaccess>:
             user_preferences:
                 short_datetime_format:
-                    date_format: 'dd/mm/yyy'
+                    date_format: 'dd/mm/yyyy'
                     time_format: 'hh:mm'
                 full_datetime_format:
-                    date_format: 'dd/mm/yyy'
+                    date_format: 'dd/mm/yyyy'
                     time_format: 'hh:mm'
 ```
+
+You can also [format date and time](extending_ez_platform.md#format-date-and-time) by using Twig filters and PHP services.
 
 ## Content Tree
 
