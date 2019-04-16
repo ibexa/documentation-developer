@@ -243,12 +243,12 @@ The formats are defined in [user preferences](config_back_office.md#date-and-tim
 | `ez_full_date` | outputs date in full format |
 | `ez_full_time` | outputs time in full format |
 
-Thee filters accept `\DateTimeInterface` as argument.
+The filters accept `\DateTimeInterface` as argument.
 If the argument is null, the filter returns the current date and time in the selected format.
 
 For example `{{ contentInfo.publishedDate|ez_full_datetime }}` will return `03 May 2019 23:03`.
 
-Thee filters also accept an optional `timezone` parameter for displaying date and time in a chosen time zone.
+The filters also accept an optional `timezone` parameter for displaying date and time in a chosen time zone.
 
 ### `ez_image_alias`
 
