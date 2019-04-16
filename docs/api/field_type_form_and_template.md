@@ -17,6 +17,10 @@ The `FieldValueFormMapperInterface::mapFieldValueForm` method accepts two argume
 You have to add your form type to the content editing form. The example shows how `ezboolean` injects the form:
 
 ``` php
+use EzSystems\RepositoryForms\Data\Content\FieldData;
+use EzSystems\RepositoryForms\Form\Type\FieldType\CheckboxFieldType;
+use Symfony\Component\Form\FormInterface;
+
 public function mapFieldValueForm(FormInterface $fieldForm, FieldData $data)
 {
     $fieldDefinition = $data->fieldDefinition;
@@ -53,6 +57,11 @@ You can use a `DataTransformer` to achieve that or just assure correct property 
 Providing definition editing support is almost identical to creating content editing support. The only difference are field names:
 
 ``` php
+use EzSystems\RepositoryForms\Data\FieldDefinitionData;
+use EzSystems\RepositoryForms\Form\Type\FieldType\CountryFieldType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\FormInterface;
+
 public function mapFieldDefinitionForm(FormInterface $fieldDefinitionForm, FieldDefinitionData $data)
 {
     $fieldDefinitionForm
@@ -130,8 +139,8 @@ The block can receive the following variables:
 | `contentInfo` | `eZ\Publish\API\Repository\Values\Content\ContentInfo` | The ContentInfo of the Content item the Field belongs to |
 | `versionInfo` | `eZ\Publish\API\Repository\Values\Content\VersionInfo` | The VersionInfo of the Content item the Field belongs to |
 | `fieldSettings` | mixed | Settings of the Field (depends on the Field Type) |
-| `parameters` | hash | Options passed to `ez_render_field()` under the parameters key |
-| `attr` | hash | The attributes to add the generate the HTML markup. Contains at least a class entry, containing <fieldtypeidentifier>-field |
+| `parameters` | hash | Options passed to `ez_render_field()` under the `'parameters'` key |
+| `attr` | hash | The attributes to add the generate the HTML markup, passed to ez_render_field()` under the `'attr'` key. Contains at least a class entry, containing <fieldtypeidentifier>-field |
 
 ### Reusing blocks
 
@@ -141,7 +150,7 @@ You can for example use `simple_block_field`, `simple_inline_field` or `field_at
 
 !!! caution
 
-    To be able to reuse built-in blocks, your template must inherit from `EzPublishCoreBundle::content_fields.html.twig`.
+    To be able to reuse built-in blocks, your template must inherit from `@EzPublishCore/content_fields.html.twig`.
 
 ### Registering your template
 
