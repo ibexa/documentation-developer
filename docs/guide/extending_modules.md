@@ -136,7 +136,7 @@ There you can set e.g. visible tabs, allowed Content Types, search limits etc.
 
 ```yaml
 system:
-    default:
+    <siteaccess|siteaccess_group>:
         universal_discovery_widget_module:
             configuration:
                 default:
@@ -167,7 +167,7 @@ In the example below `my_custom_udw` is used as a base configuration element for
 ```yaml
 ezpublish:
     system:
-        default:
+        <siteaccess|siteaccess_group>:
             universal_discovery_widget_module:
                 configuration:
                     my_custom_udw:
