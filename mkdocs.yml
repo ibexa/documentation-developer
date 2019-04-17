@@ -120,7 +120,9 @@ pages:
         - Cache:
             - 'HTTP cache': 'guide/http_cache.md'
             - 'Persistence cache': 'guide/persistence_cache.md'
-        - 'Clustering': 'guide/clustering.md'
+        - Clustering:
+            - 'Clustering': 'guide/clustering.md'
+            - 'AWS S3 clustering': 'guide/clustering_aws_s3.md'
         - DevOps:
             - 'DevOps': 'guide/devops.md'
             - 'Performance': 'guide/performance.md'
@@ -141,7 +143,6 @@ pages:
         - 'Accept header-based REST API response': 'cookbook/creating_custom_rest_api_response.md'
         - 'Adding Field Types': 'cookbook/adding_new_field_types.md'
         - 'API search result pagination': 'cookbook/paginating_api_search_results.md'
-        - 'AWS S3 clustering': 'cookbook/setting_up_amazon_aws_s3_clustering.md'
         - 'Binary attachments via REST API': 'cookbook/creating_content_with_binary_attachments_via_rest_api.md'
         - 'Creating custom dropdowns': 'cookbook/creating_custom_dropdowns.md'
         - 'Cross-origin HTTP requests': 'cookbook/making_cross_origin_http_requests.md'
