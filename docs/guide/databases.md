@@ -1,8 +1,10 @@
-# Using PostgreSQL
+# Databases
+
+## Using PostgreSQL
 
 eZ Platform uses MySQL by default, but you can also choose to install it with PostgreSQL.
 
-## Requirements
+### Requirements
 
 To use PostgreSQL, you need to have the `pdo_pgsql` PHP extension installed.
 
@@ -11,7 +13,7 @@ and `EzSystems\DoctrineSchemaBundle\DoctrineSchemaBundle()` enabled.
 If not, install the package with `composer require ezsystems/doctrine-dbal-schema`
 and enable `DoctrineSchemaBundle` in `AppKernel.php`.
 
-## Provide parameters
+### Provide parameters
 
 When you run `composer install`, you will be asked to [provide installation parameters](../getting_started/install_ez_platform.md#provide-installation-parameters).
 

@@ -115,6 +115,7 @@ pages:
         - 'Languages': 'guide/internationalization.md'
         - Repository:
             - 'Repository': 'guide/repository.md'
+            - 'Databases': 'guide/databases.md'
             - 'SignalSlots': 'guide/signalslots.md'
             - 'Signals reference': 'guide/signals_reference.md'
         - Cache:
@@ -158,7 +159,6 @@ pages:
         - 'Retrieving root Location': 'cookbook/retrieving_root_location.md'
         - 'RouteReference': 'cookbook/using_routereference.md'
         - 'Siteaccess-aware bundle configuration': 'cookbook/exposing_siteaccess_aware_configuration_for_your_bundle.md'
-        - 'Using PostgreSQL': 'cookbook/using_postgresql.md'
         - 'Using simple templates': 'cookbook/displaying_content_with_simple_templates.md'
     - Resources and community:
         - 'Resources': 'community_resources/resources.md'

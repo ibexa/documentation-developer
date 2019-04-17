@@ -518,7 +518,7 @@ Some versions require updates to the database. Look through [the list of databas
 
     #### Changes to database schema
 
-    The introduction of [support for PostgreSQL](../cookbook/using_postgresql.md) includes a change in the way database schema is generated.
+    The introduction of [support for PostgreSQL](../guide/databases.md#using-postgresql) includes a change in the way database schema is generated.
 
     It is now created based on [YAML configuration](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage/legacy/schema.yaml), using the new [`DoctrineSchemaBundle`](https://github.com/ezsystems/doctrine-dbal-schema).
 
@@ -527,11 +527,11 @@ Some versions require updates to the database. Look through [the list of databas
 
     - enable `EzSystems\DoctrineSchemaBundle\DoctrineSchemaBundle()` in `AppKernel.php`
     - add [`ez_doctrine_schema`](https://github.com/ezsystems/ezplatform/blob/master/app/config/config.yml#L33) configuration
-    
+
     #### Changes to Matrix Field Type
-    
+
     To migrate your content from legacy XML format to a new `ezmatrix` value use the following command:
-    
+
     ```bash
     bin/console ezplatform:migrate:legacy_matrix
     ```
@@ -540,17 +540,17 @@ Some versions require updates to the database. Look through [the list of databas
 
     If you are using Redis as your persistence cache storage you should always clear it manually after an upgrade.
     You can do it in two ways, by using `redis-cli` and executing the following command:
-    
+
     ```bash
     FLUSHALL
     ```
-    
+
     or by executing the following command:
-    
+
     ```bash
     bin/console cache:pool:clear cache.redis
     ```
-    
+
 ## 5. Dump assets
 
 The web assets must be dumped again if you are using the `prod` environment. In `dev` this happens automatically:
