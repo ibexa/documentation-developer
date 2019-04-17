@@ -19,7 +19,7 @@ Without these three steps, your SiteAccess configuration will either not work or
 1. Log in to your eZ Platform back office.
 1. Navigate to the Admin Panel -> Languages tab.
 1. Click "Create a new language" and follow the on-screen prompts to register your new language (e.g. `fre-FR`).
-1. After saving the new language, refresh the eZ Platform back-office assets: `php bin/console assetic:dump` and `yarn encore <prod|dev>` (or `./bin/compile_assets.sh`).
+1. After saving the new language, refresh the eZ Platform back-office assets: `php bin/console assetic:dump` and `yarn encore <prod|dev>` (or `ezplatform:encore:compile`).
 
 Reload the back office and you can now start translating content.
 
