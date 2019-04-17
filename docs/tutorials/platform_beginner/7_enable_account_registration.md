@@ -4,7 +4,7 @@ In this step you will enable other users to create accounts on your site, access
 
 ## Enable registration
 
-From the Admin Panel, go to the **Roles** management screen and select the **Anonymous** Role.
+From Admin, go to the **Roles** management screen and click on the **Anonymous** Role.
 
 ![Available Roles](img/step_6_role_mgmt_screen.png)
 
