@@ -18,7 +18,7 @@ The SPI `FieldValue` struct has properties which the Field Type can use:
 
 |Property|Description|
 |--------|-----------|
-|`$data`|The data to be stored in the database. This may be a scalar value, an array or a simple, serializable object.|
+|`$data`|The data to be stored in the database. This may be a scalar value, an associative array or a simple, serializable object.|
 |`$externalData`|The arbitrary data stored in this field will not be touched by any of the eZ Platform components directly, but will be available for [Storing external data](#storing-external-data).|
 |`$sortKey`|A value which can be used to sort content by this Field.|
 
@@ -105,7 +105,7 @@ The registry mechanism is realized as a base class for `FieldStorage` implementa
 
 |Method|Description|
 |------|-----------|
-|`addGateway()`|Allows the registration of additional `StorageGateway`s from the outside. Furthermore, an array of `StorageGateway`s can be given to the constructor for basic initialization. This array should originate from the Dependency Injection mechanism.|
+|`addGateway()`|Allows the registration of additional `StorageGateway`s from the outside. Furthermore, an associative array of `StorageGateway`s can be given to the constructor for basic initialization. This array should originate from the Dependency Injection mechanism.|
 |`getGateway()`|This protected method is used by the implementation to retrieve the correct `StorageGateway` for the current context.|
 
 !!! tip

@@ -125,10 +125,10 @@ The `alias` key is the `fieldTypeIdentifier`.
 
 ## Field Type settings
 
-It is recommended to use a simple array format for the settings schema returned by `eZ\Publish\SPI\FieldType\FieldType::getSettingsSchema()`, which follows these rules:
+It is recommended to use a simple associative array format for the settings schema returned by `eZ\Publish\SPI\FieldType\FieldType::getSettingsSchema()`, which follows these rules:
 
-- The key of the array identifies a setting (e.g. `default`)
-- Its value is an array describing the setting using:
+- The key of the associative array identifies a setting (e.g. `default`)
+- Its value is an associative array describing the setting using:
     - `type` to identify the setting type (e.g. `int` or `string`)
     - `default` containing the default setting value
 

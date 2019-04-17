@@ -11,7 +11,7 @@ This method returns the actual index data for the provided `eZ\Publish\SPI\Persi
 
 ### `getIndexDefinition()`
 
-To be able to query data properly an indexable Field Type also is required to return search specification. You must return an array of `eZ\Publish\SPI\Persistence\Content\Search\FieldType` instances from this method, which could look like:
+To be able to query data properly an indexable Field Type also is required to return search specification. You must return an associative array of `eZ\Publish\SPI\Persistence\Content\Search\FieldType` instances from this method, which could look like:
 
 ```
 [
