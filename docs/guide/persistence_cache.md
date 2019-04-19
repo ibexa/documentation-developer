@@ -13,9 +13,9 @@ For details on how to reuse this Cache service in your own custom code, see belo
 
 ## Transparent cache
 
-With the persistence cache, just like with the HTTP cache, eZ Platform tries to follow principles of "Transparent caching".
+With the persistence cache, just like with the HTTP cache, eZ Platform tries to follow principles of transparent caching.
 This can shortly be described as a cache which is invisible to the end user (admin/editors) of eZ Platform where content
-is always returned "fresh." In other words, there should be no need to manually clear the cache like it was frequently
+is always returned *fresh*. In other words, there should be no need to manually clear the cache like it was frequently
 the case with eZ Publish 4.x. This is possible thanks to an interface that follows CRUD (Create Read Update Delete)
 operations per domain.
 
@@ -31,12 +31,12 @@ Notes:
   fails, make sure to re-try several times, and if that does not help, consider making the logic async by design.
 - [Cache tagging](https://symfony.com/doc/current/components/cache/cache_invalidation.html#using-cache-tags) is used in
   order to allow clearing cache by alternative indexes. 
-  For instance tree operations or changes to content types are
+  For instance tree operations or changes to Content Types are
   examples of operations that also need to invalidate content cache by tags.
 - Search is not defined as persistence and the queries themselves are not planned to be cached as they are too complex by design (full text, facets, etc.).
   Use [Solr](solr.md) which caches this for you to improve scale, and to offload your database.
 
-*For further details on which calls are cached or not, and where/how to contribute additional caches, go through the [source](https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/Core/Persistence/Cache).*
+*For further details on which calls are cached or not, and where/how to contribute additional caches, see the [source](https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/Core/Persistence/Cache).*
 
 ## Persistence cache configuration
 
@@ -200,7 +200,7 @@ And as eZ Platform requires that instances use a cluster-aware cache in Cluster 
 
     When reusing the cache service within your own code, it is very important to not conflict with the cache keys used by others.
     That is why the example of usage below starts with a unique `myApp` key.
-    For the namespace of your own cache, you **must** do the same.
+    For the namespace of your own cache, you must do the same.
     So never clear cache using the cache service without your key specified, otherwise you'll clear all cache.
 
 #### Get Cache service
