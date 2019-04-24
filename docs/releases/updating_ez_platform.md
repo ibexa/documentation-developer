@@ -340,10 +340,10 @@ Some versions require updates to the database. Look through [the list of databas
 
     ##### Page builder
 
-    To update to v2.2, you need to run a script to add database tables for the Page Builder.
-    You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/2.2/Resources/sql/schema.sql#L58
-
     !!! enterprise
+        
+        To update to v2.2, you need to run a script to add database tables for the Page Builder.
+        You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/2.2/Resources/sql/schema.sql#L58
 
         When updating an Enterprise installation, you also need to run the following script due to changes in the `eznotification` table:
 
@@ -436,26 +436,28 @@ Some versions require updates to the database. Look through [the list of databas
     ```
 
     ##### Form builder
+    
+    !!! enterprise
 
-    To create the "Forms" container under the content tree root use the following command:
-
-    ``` bash
-    php bin/console ezplatform:form-builder:create-forms-container
-    ```
-
-    You can also specify Content Type, Field values and language code of the container, e.g.:
-
-    ``` bash
-    php bin/console ezplatform:form-builder:create-forms-container --content-type custom --field title --value 'My Forms' --field description --value 'Custom container for the forms' --language-code eng-US
-    ```
-
-    You also need to run a script to add database tables for the Form Builder.
-    You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/2.3/Resources/sql/schema.sql#L136
-
-    !!! caution "Form (ezform) Field Type"
-
-        After the update, in order to create forms, you have to add a new Content Type (e.g. named "Form") that contains `Form` Field (this Content Type can contain other fields
-        as well). After that you can use forms inside Landing Pages via Embed block.
+        To create the "Forms" container under the content tree root use the following command:
+    
+        ``` bash
+        php bin/console ezplatform:form-builder:create-forms-container
+        ```
+    
+        You can also specify Content Type, Field values and language code of the container, e.g.:
+    
+        ``` bash
+        php bin/console ezplatform:form-builder:create-forms-container --content-type custom --field title --value 'My Forms' --field description --value 'Custom container for the forms' --language-code eng-US
+        ```
+    
+        You also need to run a script to add database tables for the Form Builder.
+        You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/2.3/Resources/sql/schema.sql#L136
+    
+        !!! caution "Form (ezform) Field Type"
+    
+            After the update, in order to create forms, you have to add a new Content Type (e.g. named "Form") that contains `Form` Field (this Content Type can contain other fields
+            as well). After that you can use forms inside Landing Pages via Embed block.
 
 !!! note "Updating from <2.4"
 
