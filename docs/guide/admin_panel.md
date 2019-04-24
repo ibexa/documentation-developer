@@ -6,7 +6,7 @@ Your most useful tools can be found in **Admin Panel**.
 ## System Information
 
 The System Information panel in the Back Office is sourced in a [ezsystems/ez-support-tools repository](https://github.com/ezsystems/ez-support-tools).
-There you will also find basic system information such as versions of all installed packages. 
+There you will also find basic system information such as versions of all installed packages.
 
 ## Sections
 
@@ -46,7 +46,7 @@ All User Groups and Users can be accessed in the Admin panel by selecting Users.
 !!! caution
 
     Be careful not to delete an existing User account. If you do this, content created by this User will be broken and the application can face malfunction.
-    
+
 ### Registering users
 
 Registration form for your website is placed under this address: <yourdomain>/register.
@@ -59,7 +59,7 @@ To give users an access to your website you need to assign them roles in the Adm
 Each role consists of:
 
 **Policies**
- 
+
 Rules that give users access to different function in a module.
 You can restrict what user can do with Limitations.
 The available Limitations depend on the chosen Policy.
@@ -70,8 +70,8 @@ See [example below](#restrict-editing-to-part-of-the-tree).
 
     Limitation specifies what a User can do, not what they can't do.
     A `Location` Limitation, for example, gives the User access to content with a specific Location, not prohibits it. See [Available Limitations](limitations.md#available-limitations) for further information.
- 
-**Assignments** 
+
+**Assignments**
 
 After you created all Policies, you can assign the Role to users and/or groups with possible additional Limitations.
 Every User or User Group can have multiple Roles.
@@ -79,7 +79,7 @@ A User can also belong to many groups, for example, Administrators, Editors, Sub
 
 Best practice is to avoid assigning Roles to Users directly.
 Model your content (Content Types, Sections, Locations etc.) in a way that can be accessed by generic Roles.
-That way system will be more secure and easier to manage. 
+That way system will be more secure and easier to manage.
 This approach also improves performance. Role assignments and Policies are taken into account during search/load queries.
 
 See [Permissions overview](permissions.md) for further information.
@@ -181,11 +181,11 @@ See [Languages](internationalization.md) for further information.
 ## Content Types
 
 A Content Type is a base for new Content items.
-It defines what fields will be available in the Content item. 
+It defines what fields will be available in the Content item.
 For example, a new Content Type called *Article* can have fields such as title, author, body, image, etc.
-Based on this Content Type, you can create any number of Content items. 
+Based on this Content Type, you can create any number of Content items.
 Content Types are organized into groups.
-You can add your own groups here to keep your Content Types in better order. 
+You can add your own groups here to keep your Content Types in better order.
 
 For a full tutorial, see [Create a Content Type](../getting_started/first_steps/#create-a-content-type) or follow [user documentation](https://doc.ezplatform.com/projects/userguide/en/latest/organizing_the_site/#content-types).
 For a detailed overview of the content model, see [Content model overview](content_model.md).
@@ -204,5 +204,5 @@ By default, eZ Platform contains one Object state group: **Lock**, with states *
 
 ![**Lock** Object state](img/object_state_lock.png)
 
-Object states can be used in conjunction with permissions, in particular with the [ObjectStateLimitation](limitations/#objectstatelimitation).
+Object states can be used in conjunction with permissions, in particular with the [ObjectStateLimitation](limitation_reference.md#objectstatelimitation).
 Their specific use cases depend on your needs and the setup of your permission system.

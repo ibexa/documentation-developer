@@ -284,7 +284,7 @@ The list below presents the Criteria available in the `eZ\Publish\API\Repository
 |`LogicalOr`|A `LogicalOperator` that takes `array` of other Criteria, makes sure one of the Criteria match.|
 |`MapLocationDistance`| `target` (FieldDefinition identifier)</br>`operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `BETWEEN`)</br>`distance` as float(s) from a position using `latitude` as float, `longitude` as float as arguments|
 |`MatchAll`|No arguments, mainly for internal use when no `filter` or `query` is provided on Query object.|
-|`MatchNone`|No arguments, mainly for internal use by the [BlockingLimitation](limitations.md#blockinglimitation).|
+|`MatchNone`|No arguments, mainly for internal use by the [BlockingLimitation](limitation_reference.md#blockinglimitation).|
 |`ObjectStateId`|`value` string(s) representing the Content Object State ID.|
 |`ParentLocationId`|`value` scalar(s) representing the Parent's Location ID.|
 |`RemoteId`|`value` string(s) representing the Content Remote ID.|

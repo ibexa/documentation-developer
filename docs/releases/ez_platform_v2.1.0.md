@@ -22,7 +22,7 @@ Object states enable you to create sets of custom states and then assign them to
 
 !["Lock" Object state](img/object_state_lock.png)
 
-Object states can be used in conjunction with [permissions](../guide/limitations.md#objectstatelimitation).
+Object states can be used in conjunction with [permissions](../guide/limitation_reference.md#objectstatelimitation).
 
 ### Content on the fly
 
