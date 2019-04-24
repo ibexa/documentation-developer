@@ -6,13 +6,16 @@
 
 Persistence cache can best be described as an implementation of `SPI\Persistence` that decorates the main backend implementation, aka Storage Engine *(currently: "Legacy Storage Engine")*.
 
-As shown in the illustration, this is done in the exact same way as the SignalSlot feature is a custom implementation of `API\Repository` decorating the main Repository. In the case of Persistence Cache, instead of sending events on calls passed on to the decorated implementation, most of the load calls are cached, and calls that perform changes purge the affected caches. Cache handlers *(Memcached, Redis, Filesystem, etc.)* can configured using Symfony configuration. For how to reuse this Cache service in your own custom code, see below.
+As shown in the illustration, this is done in the exact same way as the SignalSlot feature is a custom implementation of `API\Repository` decorating the main Repository. 
+In the case of Persistence Cache, instead of sending events on calls passed on to the decorated implementation, most of the load calls are cached, and calls that perform changes purge the affected caches.
+Cache handlers *(Memcached, Redis, Filesystem, etc.)* can be configured using Symfony configuration. 
+For details on how to reuse this Cache service in your own custom code, see below.
 
 ## Transparent cache
 
-With the persistence cache, just like with the HTTP cache, eZ Platform tries to follow principles of "Transparent caching".
+With the persistence cache, just like with the HTTP cache, eZ Platform tries to follow principles of transparent caching.
 This can shortly be described as a cache which is invisible to the end user (admin/editors) of eZ Platform where content
-is always returned "fresh". In other words, there should be no need to manually clear the cache like it was frequently
+is always returned *fresh*. In other words, there should be no need to manually clear the cache like it was frequently
 the case with eZ Publish 4.x. This is possible thanks to an interface that follows CRUD (Create Read Update Delete)
 operations per domain.
 
@@ -22,17 +25,18 @@ Persistence cache aims at caching most `SPI\Persistence` calls used in common p
 
 Notes:
 
-- `UrlWildCardHandler` is not currently cached
+- `UrlWildCardHandler` is not currently cached.
 - Currently in case of transactions this is handled by clearing all cache on rollback, so avoid using rollbacks
   as part of your normal application logic flow. For instance if you connect to third party service and it frequently
-  fails make sure to re-try several times, and if that does not help, consider making the logic async by design.
+  fails, make sure to re-try several times, and if that does not help, consider making the logic async by design.
 - [Cache tagging](https://symfony.com/doc/current/components/cache/cache_invalidation.html#using-cache-tags) is used in
-  order to allow clearing cache by alternative indexes, for instance tree operations or changes to content types are
+  order to allow clearing cache by alternative indexes. 
+  For instance tree operations or changes to Content Types are
   examples of operations that also need to invalidate content cache by tags.
 - Search is not defined as persistence and the queries themselves are not planned to be cached as they are too complex by design (full text, facets, etc.).
   Use [Solr](solr.md) which caches this for you to improve scale, and to offload your database.
 
-*For further details on which calls are cached or not, and where/how to contribute additional caches, check out the [source](https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/Core/Persistence/Cache).*
+*For further details on which calls are cached or not, and where/how to contribute additional caches, see the [source](https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/Core/Persistence/Cache).*
 
 ## Persistence cache configuration
 
@@ -51,7 +55,7 @@ The cache system is exposed as a "cache" service, and can be reused by any other
 ### Configuration
 
 By default, configuration currently uses **FileSystem** to store cache files, which is defined in [`default_parameters.yml`](https://github.com/ezsystems/ezplatform/blob/master/app/config/default_parameters.yml#L34).
-You can select a different cache backend and configure it's parameters in the relevant file in the `cache_pool` folder.
+You can select a different cache backend and configure its parameters in the relevant file in the `cache_pool` folder.
 
 #### Multi Repository setup
 
@@ -82,7 +86,7 @@ In-Memory cache is configured globally, and has the following default settings:
 parameters:
     # ttl: Maximum number of  milliseconds objects are kept in-memory (3000ms = 3s)
     ezpublish.spi.persistence.cache.inmemory.ttl: 3000
-    # limit: Maximum number of cache objects to place in-memory, to avoid consuming to much memory
+    # limit: Maximum number of cache objects to place in-memory, to avoid consuming too much memory
     ezpublish.spi.persistence.cache.inmemory.limit: 100
     # enabled: Is the in-memory cache enabled
     ezpublish.spi.persistence.cache.inmemory.enable: true
@@ -90,7 +94,7 @@ parameters:
 
 !!! caution "In-Memory cache is per-process"
 
-    **TTL and Limit needs to have a low value.** Setting limit high will increase memory use.
+    **TTL and Limit need to have a low value.** Setting limit high will increase memory use.
     High TTL value also puts you at risk for system acting on stale metadata (e.g. Content Type definitions). 
 
 ### Redis
@@ -184,7 +188,8 @@ services:
 
 ## Using Cache Service
 
-Using the internal cache service allows you to use an interface and to not have to care whether the system has been configured to place the cache in Memcached or on File system. And as eZ Platform requires that instances use a cluster-aware cache in Cluster setup, you can safely assume your cache is shared *(and invalidated)* across all web servers.
+Using the internal cache service allows you to use an interface and without caring whether the system is configured to place the cache in Memcached or on File system. 
+And as eZ Platform requires that instances use a cluster-aware cache in Cluster setup, you can safely assume your cache is shared *(and invalidated)* across all web servers.
 
 !!! note
 
@@ -193,7 +198,10 @@ Using the internal cache service allows you to use an interface and to not have
 
 !!! caution "Use unique vendor prefix for Cache key"
 
-    When reusing the cache service within your own code, it is very important to not conflict with the cache keys used by others. That is why the example of usage below starts with a unique `myApp` key. For the namespace of your own cache, you must do the same! So never clear cache using the cache service without your key specified, otherwise you'll clear all cache.
+    When reusing the cache service within your own code, it is very important to not conflict with the cache keys used by others.
+    That is why the example of usage below starts with a unique `myApp` key.
+    For the namespace of your own cache, you must do the same.
+    So never clear cache using the cache service without your key specified, otherwise you'll clear all cache.
 
 #### Get Cache service
 
@@ -241,7 +249,7 @@ $pool->save($cacheItem);
 return $myObject;
 ```
 
-For more info on usage, take a look at [Symfony Cache's documentation](https://symfony.com/doc/3.4/components/cache.html).
+For more info on usage, see [Symfony Cache's documentation](https://symfony.com/doc/3.4/components/cache.html).
 
 ### Clearing Persistence cache
 
