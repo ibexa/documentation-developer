@@ -10,7 +10,7 @@ Limitations consist of two parts:
 - `LimitationType`
 
 Certain Limitations also serve as Role Limitations, which means they can be used to limit the rights of a Role assignment.
-Currently this covers [Subtree](#subtreelimitation) and [Section](#sectionlimitation) Limitations.
+Currently this covers [Subtree](limitation_reference.md#subtreelimitation) and [Section](limitation_reference.md#sectionlimitation) Limitations.
 
 `Limitation` represents the value, while `LimitationType` deals with the business logic surrounding how it actually works and is enforced.
 `LimitationTypes` have two modes of operation in regards to permission logic (see [`eZ\Publish\SPI\Limitation\Type`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/SPI/Limitation/Type.php) interface for more info):
@@ -34,136 +34,136 @@ Each function in one of the four modules (content, section, state and user) can 
 
 #### Content
 
-All Content Policies can be assigned the [Content Type](#contenttypelimitation) and [Section](#sectionlimitation) Limitation.
+All Content Policies can be assigned the [Content Type](limitation_reference.md#contenttypelimitation) and [Section](limitation_reference.md#sectionlimitation) Limitation.
 Beyond that the following Limitations are available:
 
 `content/read`:
 
-- [Owner](#ownerlimitation)
-- [User Group Limitation](#usergruplimitation)
-- [Location](#locationlimitation)
-- [Subtree](#subtreelimitation)
-- [Object State](#objectstatelimitation)
+- [Owner](limitation_reference.md#ownerlimitation)
+- [User Group Limitation](limitation_reference.md#usergruplimitation)
+- [Location](limitation_reference.md#locationlimitation)
+- [Subtree](limitation_reference.md#subtreelimitation)
+- [Object State](limitation_reference.md#objectstatelimitation)
 
 `content/diff`:
 
-- [Owner](#ownerlimitation)
-- [Location](#locationlimitation)
-- [Subtree](#subtreelimitation)
+- [Owner](limitation_reference.md#ownerlimitation)
+- [Location](limitation_reference.md#locationlimitation)
+- [Subtree](limitation_reference.md#subtreelimitation)
 
 `content/view_embed`:
 
-- [Owner](#ownerlimitation)
-- [Location](#locationlimitation)
-- [Subtree](#subtreelimitation)
+- [Owner](limitation_reference.md#ownerlimitation)
+- [Location](limitation_reference.md#locationlimitation)
+- [Subtree](limitation_reference.md#subtreelimitation)
 
 `content/create`:
 
-- [Location](#locationlimitation)
-- [Subtree](#subtreelimitation)
-- [Language](#languagelimitation)
-- [Parent Owner](#parentownerlimitation)
-- [Parent User Group](#parentusergrouplimitation)
-- [Parent Content Type](#parentcontenttypelimitation)
-- [Parent Depth](#parentdepthlimitation)
+- [Location](limitation_reference.md#locationlimitation)
+- [Subtree](limitation_reference.md#subtreelimitation)
+- [Language](limitation_reference.md#languagelimitation)
+- [Parent Owner](limitation_reference.md#parentownerlimitation)
+- [Parent User Group](limitation_reference.md#parentusergrouplimitation)
+- [Parent Content Type](limitation_reference.md#parentcontenttypelimitation)
+- [Parent Depth](limitation_reference.md#parentdepthlimitation)
 
 `content/edit`:
 
-- [Owner](#ownerlimitation)
-- [User Group Limitation](#usergruplimitation)
-- [Location](#locationlimitation)
-- [Subtree](#subtreelimitation)
-- [Language](#languagelimitation)
-- [Object State](#objectstatelimitation)
-- [Workflow Stage](#workflowstagelimitation)
+- [Owner](limitation_reference.md#ownerlimitation)
+- [User Group Limitation](limitation_reference.md#usergruplimitation)
+- [Location](limitation_reference.md#locationlimitation)
+- [Subtree](limitation_reference.md#subtreelimitation)
+- [Language](limitation_reference.md#languagelimitation)
+- [Object State](limitation_reference.md#objectstatelimitation)
+- [Workflow Stage](limitation_reference.md#workflowstagelimitation)
 
 `content/publish`:
 
-- [Owner](#ownerlimitation)
-- [User Group Limitation](#usergruplimitation)
-- [Location](#locationlimitation)
-- [Subtree](#subtreelimitation)
-- [Language](#languagelimitation)
-- [Object State](#objectstatelimitation)
-- [Workflow Stage](#workflowstagelimitation)
+- [Owner](limitation_reference.md#ownerlimitation)
+- [User Group Limitation](limitation_reference.md#usergruplimitation)
+- [Location](limitation_reference.md#locationlimitation)
+- [Subtree](limitation_reference.md#subtreelimitation)
+- [Language](limitation_reference.md#languagelimitation)
+- [Object State](limitation_reference.md#objectstatelimitation)
+- [Workflow Stage](limitation_reference.md#workflowstagelimitation)
 
 `content/manage_locations`:
 
-- [Owner](#ownerlimitation)
-- [Subtree](#subtreelimitation)
-- [Object State](#objectstatelimitation)
+- [Owner](limitation_reference.md#ownerlimitation)
+- [Subtree](limitation_reference.md#subtreelimitation)
+- [Object State](limitation_reference.md#objectstatelimitation)
 
 `content/hide`:
 
-- [Owner](#ownerlimitation)
-- [User Group Limitation](#usergruplimitation)
-- [Location](#locationlimitation)
-- [Subtree](#subtreelimitation)
-- [Language](#languagelimitation)
+- [Owner](limitation_reference.md#ownerlimitation)
+- [User Group Limitation](limitation_reference.md#usergruplimitation)
+- [Location](limitation_reference.md#locationlimitation)
+- [Subtree](limitation_reference.md#subtreelimitation)
+- [Language](limitation_reference.md#languagelimitation)
 
 `content/translate`:
 
-- [Owner](#ownerlimitation)
-- [Location](#locationlimitation)
-- [Subtree](#subtreelimitation)
-- [Language](#languagelimitation)
+- [Owner](limitation_reference.md#ownerlimitation)
+- [Location](limitation_reference.md#locationlimitation)
+- [Subtree](limitation_reference.md#subtreelimitation)
+- [Language](limitation_reference.md#languagelimitation)
 
 `content/remove`:
 
-- [Owner](#ownerlimitation)
-- [Location](#locationlimitation)
-- [Subtree](#subtreelimitation)
-- [Object State](#objectstatelimitation)
+- [Owner](limitation_reference.md#ownerlimitation)
+- [Location](limitation_reference.md#locationlimitation)
+- [Subtree](limitation_reference.md#subtreelimitation)
+- [Object State](limitation_reference.md#objectstatelimitation)
 
 `content/versionread`:
 
-- [Owner](#ownerlimitation)
-- [Status](#statuslimitation)
-- [Location](#locationlimitation)
-- [Subtree](#subtreelimitation)
-- [Object State](#objectstatelimitation)
+- [Owner](limitation_reference.md#ownerlimitation)
+- [Status](limitation_reference.md#statuslimitation)
+- [Location](limitation_reference.md#locationlimitation)
+- [Subtree](limitation_reference.md#subtreelimitation)
+- [Object State](limitation_reference.md#objectstatelimitation)
 
 `content/versionremove`:
 
-- [Owner](#ownerlimitation)
-- [Status](#statuslimitation)
-- [Location](#locationlimitation)
-- [Subtree](#subtreelimitation)
-- [Object State](#objectstatelimitation)
+- [Owner](limitation_reference.md#ownerlimitation)
+- [Status](limitation_reference.md#statuslimitation)
+- [Location](limitation_reference.md#locationlimitation)
+- [Subtree](limitation_reference.md#subtreelimitation)
+- [Object State](limitation_reference.md#objectstatelimitation)
 
 #### Section
 
 `section/assign`:
 
-- [Content Type](#contenttypelimitation)
-- [Section](#sectionlimitation)
-- [Owner](#ownerlimitation)
-- [New Section](#newsectionlimitation)
+- [Content Type](limitation_reference.md#contenttypelimitation)
+- [Section](limitation_reference.md#sectionlimitation)
+- [Owner](limitation_reference.md#ownerlimitation)
+- [New Section](limitation_reference.md#newsectionlimitation)
 
 #### State
 
 `state/assign`:
 
-- [Content Type](#contenttypelimitation)
-- [Section](#sectionlimitation)
-- [Owner](#ownerlimitation)
-- [User Group Limitation](#usergruplimitation)
-- [Location](#locationlimitation)
-- [Subtree](#subtreelimitation)
-- [Object State](#objectstatelimitation)
-- [New Object State](#newobjectstatelimitation)
+- [Content Type](limitation_reference.md#contenttypelimitation)
+- [Section](limitation_reference.md#sectionlimitation)
+- [Owner](limitation_reference.md#ownerlimitation)
+- [User Group Limitation](limitation_reference.md#usergruplimitation)
+- [Location](limitation_reference.md#locationlimitation)
+- [Subtree](limitation_reference.md#subtreelimitation)
+- [Object State](limitation_reference.md#objectstatelimitation)
+- [New Object State](limitation_reference.md#newobjectstatelimitation)
 
 #### User
 
 `user/assign`:
 
-- [SiteAccess](#siteaccesslimitation)
+- [SiteAccess](limitation_reference.md#siteaccesslimitation)
 
 #### Workflow
 
 `workflow/change_stage`:
 
-- [Workflow Transition](#workflowtransitionlimitation)
+- [Workflow Transition](limitation_reference.md#workflowtransitionlimitation)
 
 ## Limitation reference
 
