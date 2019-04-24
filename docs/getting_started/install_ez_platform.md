@@ -118,7 +118,7 @@ After a moment the installer will ask you to provide a few parameters:
 
 !!! tip "Using PostgreSQL"
 
-    If you want an installation with PostgreSQL instead of MySQL, refer to [Using PostgreSQL](../cookbook/using_postgresql.md).
+    If you want an installation with PostgreSQL instead of MySQL, refer to [Using PostgreSQL](../guide/databases.md#using-postgresql).
 
 ## Create database
 
