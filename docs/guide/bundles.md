@@ -119,6 +119,26 @@ module.exports = (eZConfig, eZConfigManager) => {
 	For a full example of overriding configuration,
     see [`ez.config.manager.js`](https://github.com/ezsystems/ezplatform-matrix-fieldtype/blob/master/src/bundle/Resources/encore/ez.config.manager.js).
 
+To add new configuration under your own namespace and with its own dependencies,
+add a `Resources/encore/ez.webpack.custom.config.js` file, for example:
+
+``` js
+	const Encore = require('@symfony/webpack-encore');
+
+	Encore.setOutputPath('<custom-path>')
+	    .setPublicPath('<custom-path>')
+	    .addExternals('<custom-externals>')
+	    // ...
+	    .addEntry('<entry-name>', ['<JS-path>']);
+
+	const customConfig = Encore.getWebpackConfig();
+
+	customConfig.name = 'customConfigName';
+
+	// Config or array of configs: [customConfig1, customConfig2];
+	module.exports = customConfig;
+```
+
 ##### Configuration from main project files
 
 If you prefer to include the asset configuration in the main project files,
