@@ -245,7 +245,6 @@ In the example above, the template files for the front end could be:
 
 ``` html+twig
 <span class="ezstyle-{{ name }}">{% spaceless %}{{ content|raw }}{% endspaceless %}</span>
-
 ```
 
 - `app/Resources/views/themes/standard/field_type/ezrichtext/custom_style/highlighted_block.html.twig`:
@@ -275,3 +274,21 @@ The name of a plugin needs to be the same as the one passed to `CKEDITOR.plugins
 
 Please keep in mind that if a plugin changes RichText input (in xhtml5/edit format for DocBook), the changes need to be supported by RichText Field Type.
 For example, if a plugin adds some class to some element, you need to confirm that this class is stored when saving or publishing content (it could result in either XML validation error or could be omitted by RichText processor).
+
+## Buttons configuration
+
+Custom buttons can be added to your installation with the following configuration:
+
+```yml hl_lines="4"
+ezrichtext:
+    alloy_editor:
+        extra_buttons:
+            paragraph: [buttonName1, buttonName2]
+            embed: [buttonName1]
+```
+
+Under `extra_buttons` (line 4) specify to what toolbar you want to add a new button e.g. `paragraph`.
+Next to that toolbar, add an array with names of custom buttons that you want to install e.g. `[buttonName1, buttonName2]`.
+
+All new buttons should also be added to AlloyEditor under the same name that's in the configuration file.
+For more information follow [AlloyEditor tutorial on creating a button](https://alloyeditor.com/docs/develop/create_buttons.html).
