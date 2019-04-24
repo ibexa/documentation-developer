@@ -34,7 +34,7 @@ Notes:
 - Some tree/batch operations will cause clearing all persistence cache, this will be improved in the future when we change to a cache service cable of cache tagging.
 - Search is not defined as Persistence and the queries themselves are not planned to be cached. Use [Solr](solr.md) which does this for you to improve scale and offload your database.
 
-*For further details on which calls are cached or not, and where/how to contribute additional caches, check out the [source](https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/Core/Persistence/Cache).*
+*For further details on which calls are cached or not, and where/how to contribute additional caches, see the [source](https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/Core/Persistence/Cache).*
 
 ## Persistence cache configuration
 
@@ -306,11 +306,15 @@ stash:
 
 ## Using Cache Service
 
-Using the internal cache service allows you to use an interface and to not have to care whether the system has been configured to place the cache in Memcached or on File system. And as eZ Platform requires that instances use a cluster-aware cache in Cluster setup, you can safely assume your cache is shared *(and invalidated)* across all web servers.
+Using the internal cache service allows you to use an interface and without caring whether the system is configured to place the cache in Memcached or on File system. 
+And as eZ Platform requires that instances use a cluster-aware cache in Cluster setup, you can safely assume your cache is shared *(and invalidated)* across all web servers.
 
 !!! caution "Use unique vendor prefix for Cache key"
 
-    When reusing the cache service within your own code, it is very important to not conflict with the cache keys used by others. That is why the example of usage below starts with a unique `myApp` key. For the namespace of your own cache, you must do the same! So never clear cache using the cache service without your key specified, otherwise you'll clear all cache.
+    When reusing the cache service within your own code, it is very important to not conflict with the cache keys used by others.
+    That is why the example of usage below starts with a unique `myApp` key.
+    For the namespace of your own cache, you must do the same.
+    So never clear cache using the cache service without your key specified, otherwise you'll clear all cache.
 
 #### Get Cache service
 
@@ -354,7 +358,7 @@ Example usage of the cache service:
     return $myObject;
 ```
 
-For more info on usage, take a look at [Stash's documentation](http://stash.tedivm.com/).
+For more info on usage, see [Stash's documentation](http://stash.tedivm.com/).
 
 ### Clearing Persistence cache
 
