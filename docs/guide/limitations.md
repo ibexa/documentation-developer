@@ -44,8 +44,9 @@ If a function is absent from the tables below, it means that no Limitations can 
 |read|true|true|true|true|true|true|-|State|
 |diff|true|true|true|true|true|-|-|-|
 |view_embed|true|true|true|true|true|-|-|-|
-|create|true|true|-|true|true|-|true|Owner of Parent</br>Content Type Group of Parent</br>Content Type of Parent</br>Parent Depth|
+|create|true|true|-|true|true|-|true|Owner of Parent, Content Type Group of Parent, Content Type of Parent, Parent Depth|
 |edit|true|true|true|true|true|true|true|State</br>WorkflowStage|
+|publish|true|true|true|true|true|true|true|State</br>WorkflowStage|
 |manage_locations|true|true|true|-|true|-|-|State|
 |hide|true|true|true|true|true|true|true|State|
 |translate|true|true|true|true|true|true|-|
@@ -135,7 +136,14 @@ A Limitation to specify if the User has access to Content with a specific Conten
 
 #### LanguageLimitation
 
-A Limitation to specify if the User has access to Content in a specific language.
+A Limitation to specify if the User has access to work on the specified translation.
+
+A user with this Limitation is allowed to:
+
+- Create new content with the given translation(s) only.
+This only applies to creating the first version of a Content item.
+- Edit content by adding a new translation or modifying an existing translation.
+- Publish content only when it results in adding or modifying an allowed translation.
 
 |                 |                                                                         |
 |-----------------|-------------------------------------------------------------------------|
