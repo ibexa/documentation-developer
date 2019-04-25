@@ -5,7 +5,7 @@
 A generic Limitation type to use when no other Limitation has been implemented.
 Without any Limitation assigned, a `LimitationNotFoundException` is thrown.
 
-It is called "blocking" because it will always tell the permissions system that the User does not have access to any Policy it is assigned to, making the permissions system move on to the next Policy.
+It is called "blocking" because it will always tell the permissions system that the User does not have access to any Policy the Limitation is assigned to, making the permissions system move on to the next Policy.
 
 |                 |                                                                                       |
 |-----------------|---------------------------------------------------------------------------------------|
@@ -38,7 +38,7 @@ Out of the box FunctionList uses it in the following way:
 
 ## ContentTypeLimitation
 
-A Limitation to specify if the User has access to Content with a specific Content Type.
+A Limitation to specify if the User has access to content with a specific Content Type.
 
 |                 |                                                                          |
 |-----------------|--------------------------------------------------------------------------|
@@ -56,7 +56,7 @@ A Limitation to specify if the User has access to Content with a specific Conten
 
 ## LanguageLimitation
 
-A Limitation to specify if the User has access to Content in a specific language.
+A Limitation to specify if the User has access to content in a specific language.
 
 |                 |                                                                         |
 |-----------------|-------------------------------------------------------------------------|
@@ -74,7 +74,7 @@ A Limitation to specify if the User has access to Content in a specific language
 
 ## LocationLimitation
 
-A Limitation to specify if the User has access to Content with a specific Location, in case of `content/create` the parent Location is evaluated.
+A Limitation to specify if the User has access to content with a specific Location, in case of `content/create` the parent Location is evaluated.
 
 |                 |                                                                       |
 |-----------------|-----------------------------------------------------------------------|
@@ -112,7 +112,7 @@ In the `state/assign` Policy you can combine this with `ObjectStateLimitation` t
 
 ## NewSectionLimitation
 
-A Limitation to specify if the User has access to (assigning) a given Section (to Content).
+A Limitation to specify if the User has access to (assigning) a given Section (to content).
 
 In the `section/assign` Policy you can combine this with `Section` Limitation to limit both from and to values.
 
@@ -132,7 +132,7 @@ In the `section/assign` Policy you can combine this with `Section` Limitation to
 
 ## ObjectStateLimitation
 
-A Limitation to specify if the User has access to Content with a specific ObjectState.
+A Limitation to specify if the User has access to content with a specific ObjectState.
 
 |                 |                                                                          |
 |-----------------|--------------------------------------------------------------------------|
@@ -169,7 +169,7 @@ A Limitation to specify that only the owner of the Content item gets the selecte
 
 ## ParentContentTypeLimitation
 
-A Limitation to specify if the User has access to Content whose parent Location contains a specific Content Type, used by `content/create`.
+A Limitation to specify if the User has access to content whose parent Location contains a specific Content Type, used by `content/create`.
 
 This Limitation combined with `ContentType` Limitation allows you to define business rules like allowing Users to create "Blog Post" within a "Blog." If you also combine it with `Owner of Parent` Limitation, you effectively limit access to create Blog Posts in the Users' own Blogs.
 
@@ -189,7 +189,7 @@ This Limitation combined with `ContentType` Limitation allows you to define busi
 
 ## Parent Depth Limitation
 
-A Limitation to specify if the User has access to creating Content under a parent Location within a specific depth of the tree, used for `content/create` permission.
+A Limitation to specify if the User has access to creating content under a parent Location within a specific depth of the tree, used for `content/create` permission.
 
 |                 |                                                                          |
 |-----------------|--------------------------------------------------------------------------|
@@ -244,7 +244,7 @@ A Limitation to specify that only Users with at least one common *direct* User G
 
 ## SectionLimitation
 
-A Limitation to specify if the User has access to Content within a specific Section.
+A Limitation to specify if the User has access to content within a specific Section.
 
 |                 |                                                                      |
 |-----------------|----------------------------------------------------------------------|
@@ -284,7 +284,7 @@ A Limitation to specify to which SiteAccesses a certain permission applies, used
 
 ## Subtree of Location Limitation
 
-A Limitation to specify if the User has access to Content within a specific Subtree of Location, in case of `content/create` the parent Subtree of Location is evaluated.
+A Limitation to specify if the User has access to content within a specific Subtree of Location, in case of `content/create` the parent Subtree of Location is evaluated.
 
 |                 |                                                                      |
 |-----------------|----------------------------------------------------------------------|
