@@ -51,7 +51,7 @@ All project assets are accessible through the `web/assets` path.
 ??? note "Removing `web/assets` manually"
 
 	If you ever remove the `web/assets` folder manually, you need to dump translations before performing
-	the `yarn encode <dev|prod>` command:
+	the `yarn encore <dev|prod>` command:
 
 	```
 	php bin/console bazinga:js-translation:dump web/assets --merge-domains
