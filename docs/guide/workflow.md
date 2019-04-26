@@ -22,7 +22,7 @@
                 workflows:
                     # Identifier of the workflow
                     custom_workflow:
-                        name: 'Custom Workflow'
+                        name: Custom Workflow
                         matchers:
                             # Which Content Types can use this workflow
                             content_type: article
@@ -31,16 +31,16 @@
                         # All stages the content goes through
                         stages:
                             draft:
-                                label: 'Draft'
+                                label: Draft
                                 color: '#f15a10'
                             technical:
-                                label: 'Technical review'
+                                label: Technical review
                                 color: '#10f15a'
                             proofread:
-                                label: 'Proofread'
+                                label: Proofread
                                 color: '#5a10f1'
                             done:
-                                label: 'Done'
+                                label: Done
                                 color: '#301203'
                                 # Content items in this stage don't appear on the Dashboard and in Review Queue.
                                 last_stage: true
@@ -50,33 +50,33 @@
                             to_technical:
                                 from: draft
                                 to: technical
-                                label: 'To technical review'
+                                label: To technical review
                                 icon: '/bundles/ezplatformadminui/img/ez-icons.svg#comment'
                                 notification:
                                     user_group: 13
                             back_to_draft:
                                 reverse: to_technical
-                                label: 'Back to draft'
+                                label: Back to draft
                                 icon: '/bundles/ezplatformadminui/img/ez-icons.svg#comment'
                                 notification:
                                     user_group: 13
                             to_proofread:
                                 from: technical
                                 to: proofread
-                                label: 'To proofreading'
+                                label: To proofreading
                                 icon: '/bundles/ezplatformadminui/img/ez-icons.svg#comment'
                                 notification:
                                     user_group: 13
                             back_to_technical:
                                 reverse: to_proofread
-                                label: 'Back to technical review'
+                                label: Back to technical review
                                 icon: '/bundles/ezplatformadminui/img/ez-icons.svg#comment'
                                 notification:
                                     user_group: 13
                             done:
                                 from: proofread
                                 to: done
-                                label: 'Done'
+                                label: Done
                                 icon: '/bundles/ezplatformadminui/img/ez-icons.svg#comment'
                                 notification:
                                     # Which User Group or User to notify about this transition
@@ -165,7 +165,7 @@
         # ...
         AppBundle\Event\Workflow\PublishOnLastStageSubscriber:
             arguments:
-                $publishOnLastStageWorkflows: '%app.workflow.publish_on_last_stage%'
+                $publishOnLastStageWorkflows: %app.workflow.publish_on_last_stage%
     ```
 
     You must also provide the identifier of the workflow you want the subscriber to apply to.
@@ -187,7 +187,7 @@
 
     You can use the [`EndWorkflowSubscriber.php`](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.5.0/src/AppBundle/Event/Subscriber/EndWorkflowSubscriber.php) from eZ Platform demo as a basis for the subscriber.
 
-    The [`doEndWorkflows()`](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.5.0/src/AppBundle/Event/Subscriber/EndWorkflowSubscriber.php#L105) function in the example 
+    The [`doEndWorkflows()`](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.5.0/src/AppBundle/Event/Subscriber/EndWorkflowSubscriber.php#L105) function in the example
     applies all transitions that are needed to bring the Content item to the final workflow stage.
 
     The subscriber must also be registered as a service:

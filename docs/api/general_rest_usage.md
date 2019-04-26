@@ -270,11 +270,11 @@ To enable HTTP basic authentication, you need to edit `app/config/security.yml`,
 **ezplatform.yml**
 
 ``` yaml
-        ezpublish_rest:
-            pattern: ^/api/ezp/v2
-            stateless: true
-            ezpublish_http_basic:
-                realm: eZ Publish REST API
+ezpublish_rest:
+    pattern: ^/api/ezp/v2
+    stateless: true
+    ezpublish_http_basic:
+        realm: eZ Publish REST API
 ```
 
 Basic authentication requires the username and password to be sent *(username:password)*, based 64 encoded, with each request, as explained in [RFC 2617](http://tools.ietf.org/html/rfc2617).

@@ -42,10 +42,10 @@ As mentioned earlier, your REST routes are required to use the REST URI prefix. 
 
 **app/config/routing.yml**
 
-```
+``` yaml
 myRestBundle_rest_routes:
-    resource: "@MyRestBundle/Resources/config/routing_rest.yml"
-    prefix:   %ezpublish_rest.path_prefix%
+    resource: '@MyRestBundle/Resources/config/routing_rest.yml'
+    prefix: %ezpublish_rest.path_prefix%
 ```
 
 Using a distinct file for REST routes allows you to use the prefix for all this file's routes without affecting other routes from your bundle.
@@ -56,7 +56,7 @@ Next, you need to create the REST route. Define the route's [controller as a ser
 
 ``` yaml
 myRestBundle_hello_world:
-    path: /my_rest_bundle/hello/{name}
+    path: '/my_rest_bundle/hello/{name}'
     defaults:
         _controller: myRestBundle.controller.default:sayHello
     methods: [GET]
@@ -305,10 +305,10 @@ New resources can be registered with code like this:
 ``` yaml
 ez_publish_rest:
     system:
-        default:
+        <siteaccess>:
             rest_root_resources:
                 someresource:
-                    mediaType: 'Content'
+                    mediaType: Content
                     href: 'router.generate("ezpublish_rest_loadContent", {"contentId": 2})'
 ```
 

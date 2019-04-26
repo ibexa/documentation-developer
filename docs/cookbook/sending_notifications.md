@@ -193,5 +193,5 @@ services:
         public: false
     AppBundle\Notification\MyRenderer:
     tags:
-        - { name: ezpublish.notification.renderer, alias: 'MyNotification:TypeName' }
+        - { name: ezpublish.notification.renderer, alias: MyNotification:TypeName }
 ```

@@ -76,7 +76,7 @@ oneup_flysystem:
     adapters:
         default:
             local:
-                directory: "/path/to/directory"
+                directory: /path/to/directory
 ```
 
 The way to configure other adapters can be found in the [bundle's online documentation](https://github.com/1up-lab/OneupFlysystemBundle/blob/master/Resources/doc/index.md#step3-configure-your-filesystems). Note that we do not use the filesystem configuration described in this documentation, only the adapters.
@@ -117,7 +117,7 @@ ezpublish:
     system:
         default:
             io:
-                url_prefix: "$var_dir$/$storage_dir$"
+                url_prefix: '$var_dir$/$storage_dir$'
 ```
 
 `$var_dir$` and `$storage_dir$` are dynamic, [SiteAccess-aware settings](configuration.md#dynamic-settings-injection), and will be replaced by their values in the execution context.
@@ -131,7 +131,7 @@ ezpublish:
     system:
         default:
             io:
-                url_prefix: "http://static.example.com/$var_dir$/$storage_dir$"
+                url_prefix: 'http://static.example.com/$var_dir$/$storage_dir$'
 ```
 
 ### Internals

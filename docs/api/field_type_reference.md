@@ -1140,7 +1140,7 @@ ImageAsset Field Type allows configuring the following options:
 
 Example configuration:
 
-```php
+``` yml
 ezpublish:
     system:
        default:
@@ -1163,7 +1163,7 @@ ezpublish:
             content_view:
                 asset_image:
                     default:
-                        template: '::custom_image_asset_template.html.twig'
+                        template: ::custom_image_asset_template.html.twig
                         match: []
 ```
 
@@ -1427,7 +1427,7 @@ Example use:
 ezpublish:
     system:
         site_group:
-            api_keys: { google_maps: "MY_KEY" }
+            api_keys: { google_maps: MY_KEY }
 ```
 
 !!! note
@@ -1640,17 +1640,17 @@ Following shows example on how eZ Publish "datatype" `ezpaex` could be configure
 
 services:
     ezpublish.fieldType.ezpaex:
-        class: "%ezpublish.fieldType.eznull.class%"
+        class: %ezpublish.fieldType.eznull.class%
         parent: ezpublish.fieldType
-        arguments: ["ezpaex"]
+        arguments: [ezpaex]
         tags: [{name: ezpublish.fieldType, alias: ezpaex}]
 
     ezpublish.fieldType.ezpaex.converter:
-        class: "%ezpublish.fieldType.eznull.converter.class%"
+        class: %ezpublish.fieldType.eznull.converter.class%
         tags: [{name: ezpublish.storageEngine.legacy.converter, alias: ezpaex}]
 
     ezpublish.fieldType.ezpaex.indexable:
-        class: "%ezpublish.fieldType.indexable.unindexed.class%"
+        class: %ezpublish.fieldType.indexable.unindexed.class%
         tags: [{name: ezpublish.fieldType.indexable, alias: ezpaex}]
 ```
 

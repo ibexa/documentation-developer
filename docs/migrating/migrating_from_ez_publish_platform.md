@@ -407,20 +407,20 @@ If your legacy site uses old-style URL aliases, to upgrade them successfully you
 ``` yaml
 # in vendor/ezsystems/ezpublish-kernel/eZ/Publish/Core/settings/storage\_engines/common.yml
     ezpublish.persistence.slug_converter:
-        class: "%ezpublish.persistence.slug_converter.class%"
+        class: %ezpublish.persistence.slug_converter.class%
         arguments:
-            - "@ezpublish.api.storage_engine.transformation_processor"
-            - { transformation: "urlalias_compat" }
+            - '@ezpublish.api.storage_engine.transformation_processor'
+            - { transformation: urlalias_compat }
 ```
 
 In case of URLs with extended UTF-encoded names, the workaround must make use of `urlalias_iri`:
 
 ``` yaml
     ezpublish.persistence.slug_converter:
-        class: "%ezpublish.persistence.slug_converter.class%"
+        class: %ezpublish.persistence.slug_converter.class%
         arguments:
-            - "@ezpublish.api.storage_engine.transformation_processor"
-            - { transformation: "urlalias_iri" }
+            - '@ezpublish.api.storage_engine.transformation_processor'
+            - { transformation: urlalias_iri }
 ```
 
 

@@ -33,33 +33,33 @@ ezrichtext:
     custom_tags:
         ezyoutube:
             # The template used for front-end rendering of the custom tag
-            template: 'AppBundle:field_type/ezrichtext/custom_tag:ezyoutube.html.twig'
+            template: AppBundle:field_type/ezrichtext/custom_tag:ezyoutube.html.twig
             # An icon for the custom tag as displayed in the Online Editor's toolbar.
             icon: '/assets/field_type/ezrichtext/custom_tag/icon/youtube-color.svg#youtube-color'
             attributes:
                 title:
-                    type: 'string'
+                    type: string
                     required: true
                     default_value: ''
                 video_url:
-                    type: 'string'
+                    type: string
                     required: true
                 width:
-                    type: 'number'
+                    type: number
                     required: true
                     default_value: 640
                 height:
-                    type: 'number'
+                    type: number
                     required: true
                     default_value: 360
                 autoplay:
-                    type: 'boolean'
+                    type: boolean
                     default_value: false
                 align:
-                    type: 'choice'
+                    type: choice
                     required: false
-                    default_value: 'left'
-                    choices: ['left', 'center', 'right']
+                    default_value: left
+                    choices: [left, center, right]
 ```
 
 Remember to provide your own files for the template and the icon.
@@ -95,9 +95,9 @@ ezrichtext.custom_tags.ezyoutube.description: ''
 ezrichtext.custom_tags.ezyoutube.attributes.autoplay.label: Autoplay
 ezrichtext.custom_tags.ezyoutube.attributes.height.label: Height
 ezrichtext.custom_tags.ezyoutube.attributes.title.label: Title
-ezrichtext.custom_tags.ezyoutube.attributes.video_url.label: 'Video url'
+ezrichtext.custom_tags.ezyoutube.attributes.video_url.label: Video url
 ezrichtext.custom_tags.ezyoutube.attributes.width.label: Width
-ezrichtext.custom_tags.ezyoutube.attributes.align.label: 'Align'
+ezrichtext.custom_tags.ezyoutube.attributes.align.label: Align
 ```
 
 **Example: FactBox tag**
@@ -119,17 +119,17 @@ ezpublish:
 ezrichtext:
     custom_tags:
         ezfactbox:
-            template: 'AppBundle:field_type/ezrichtext/custom_tag:ezfactbox.html.twig'
+            template: AppBundle:field_type/ezrichtext/custom_tag:ezfactbox.html.twig
             icon: '/assets/field_type/ezrichtext/custom_tag/icon/factbox.svg#factbox'
             attributes:
                 name:
-                    type: 'string'
+                    type: string
                     required: true
                 style:
-                    type: 'choice'
+                    type: choice
                     required: true
-                    default_value: 'light'
-                    choices: ['light', 'dark']
+                    default_value: light
+                    choices: [light, dark]
 ```
 
 Remember to provide your own files for the template and the icon.
@@ -163,8 +163,8 @@ To ensure the new tag has labels, provide translations in `app/Resources/transla
 # ezfactbox
 ezrichtext.custom_tags.ezfactbox.label: FactBox
 ezrichtext.custom_tags.ezfactbox.description: ''
-ezrichtext.custom_tags.ezfactbox.attributes.name.label: 'Name'
-ezrichtext.custom_tags.ezfactbox.attributes.style.label: 'Style'
+ezrichtext.custom_tags.ezfactbox.attributes.name.label: Name
+ezrichtext.custom_tags.ezfactbox.attributes.style.label: Style
 ```
 
 ### Inline custom tags
@@ -175,7 +175,7 @@ Custom tags can also be placed inline with the following configuration:
 ezrichtext:
     custom_tags:
         badge:
-            template: 'AppBundle:field_type/ezrichtext/custom_tag:badge.html.twig'
+            template: AppBundle:field_type/ezrichtext/custom_tag:badge.html.twig
             icon: '/bundles/ezplatformadminui/img/ez-icons.svg#bookmark'
             is_inline: true
             attributes:

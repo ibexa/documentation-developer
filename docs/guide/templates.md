@@ -38,17 +38,17 @@ ezpublish:
             content_view:
                 full:
                     article:
-                        template: full\article.html.twig
+                        template: full/article.html.twig
                         match:
                             Identifier\ContentType: [article]
                     blog_post:
                         controller: app.controller.blog:showBlogPostAction
-                        template: full\blog_post.html.twig
+                        template: full/blog_post.html.twig
                         match:
                             Identifier\ContentType: [blog_post]
                 line:
                     article:
-                        template: line\article.html.twig
+                        template: line/article.html.twig
                         match:
                             Identifier\ContentType: [article]
 ```
@@ -280,14 +280,14 @@ You can determine which Content Types will be treated as images and rendered usi
 
 ``` yaml
 parameters:
-    ezplatform.content_view.image_embed_content_types_identifiers: ['image', 'photo', 'banner']
+    ezplatform.content_view.image_embed_content_types_identifiers: [image, photo, banner]
 ```
 
 The template that is used when rendering embedded images can be set in the `ezplatform.default_view_templates.content.embed_image` container parameter:
 
 ``` yaml
 parameters:
-    ezplatform.default_view_templates.content.embed_image: 'content/view/embed/image.html.twig'
+    ezplatform.default_view_templates.content.embed_image: content/view/embed/image.html.twig
 ```
 
 ### Adding Links
@@ -462,7 +462,7 @@ parameters:
 
 services:
     app.pre_content_view_listener:
-        class: '%ezdemo.pre_content_view_listener.class%'
+        class: %ezdemo.pre_content_view_listener.class%
         tags:
             - {name: kernel.event_listener, event: ezpublish.pre_content_view, method: onPreContentView}
 ```

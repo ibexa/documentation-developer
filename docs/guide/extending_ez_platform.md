@@ -344,7 +344,7 @@ Before you add a tab to a group you must create the tab's PHP class and define i
 AppBundle\Custom\Tab:
     parent: EzSystems\EzPlatformAdminUi\Tab\AbstractTab
     tags:
-        - { name: ezplatform.tab, group: 'custom-tab-group' }
+        - { name: ezplatform.tab, group: custom-tab-group }
 ```
 
 This configuration also assigns the new tab to `custom-tab-group`.
@@ -519,7 +519,7 @@ ezpublish:
        default:
            content_type:
               default-config:
-                 thumbnail: '/assets/images/mydefaulticon.svg'
+                 thumbnail: /assets/images/mydefaulticon.svg
 ```
 
 To configure a custom icon you just need to replace the `default-config` key with a Content Type identifier.
@@ -531,7 +531,7 @@ ezpublish:
        default:
            content_type:
               article:
-                 thumbnail: '/assets/images/customicon.svg'
+                 thumbnail: /assets/images/customicon.svg
 ```
 
 !!! note "Icons format"
@@ -610,7 +610,7 @@ It must be tagged as a service:
 ``` yaml
 AppBundle\Component\MyNewComponent:
     tags:
-        - { name: ezplatform.admin_ui.component, group: 'content-edit-form-before' }
+        - { name: ezplatform.admin_ui.component, group: content-edit-form-before }
 ```
 
 `group` indicates where the widget will be displayed. The available groups are:
@@ -642,12 +642,12 @@ In this case all you have to do is add a service definition (with proper paramet
 appbundle.components.my_twig_component:
     parent: EzSystems\EzPlatformAdminUi\Component\TwigComponent
     arguments:
-        $template: 'path/to/file.html.twig'
+        $template: path/to/file.html.twig
         $parameters:
-            first_param: 'first_value'
-            second_param: 'second_value'
+            first_param: first_value
+            second_param: second_value
     tags:
-        - { name: ezplatform.admin_ui.component, group: 'dashboard-blocks' }
+        - { name: ezplatform.admin_ui.component, group: dashboard-blocks }
 ```
 
 This renders the `path/to/file.html.twig` template with `first_param` and `second_param` as parameters.
@@ -656,20 +656,20 @@ With `LinkComponent` and `ScriptComponent` you provide `$href` and `$src` as arg
 
 ``` yaml
 appbundle.components.my_link_component:
-   parent: EzSystems\EzPlatformAdminUi\Component\LinkComponent
-   arguments:
-       $href: 'http://address.of/file.css'
-   tags:
-       - { name: ezplatform.admin_ui.component, group: 'stylesheet-head' }
+    parent: EzSystems\EzPlatformAdminUi\Component\LinkComponent
+    arguments:
+        $href: 'http://address.of/file.css'
+    tags:
+        - { name: ezplatform.admin_ui.component, group: stylesheet-head }
 ```
 
 ``` yaml
 appbundle.components.my_script_component:
-   parent: EzSystems\EzPlatformAdminUi\Component\ScriptComponent
-   arguments:
-       $src: 'http://address.of/file.js'
-   tags:
-       - { name: ezplatform.admin_ui.component, group: 'script-body' }
+    parent: EzSystems\EzPlatformAdminUi\Component\ScriptComponent
+    arguments:
+        $src: 'http://address.of/file.js'
+    tags:
+        - { name: ezplatform.admin_ui.component, group: script-body }
 ```
 
 ## Format date and time
@@ -689,7 +689,7 @@ The following are examples of using the filters:
 <div>
     // Date formatted in the preferred time zone and short datetime format:
     {{ content.versionInfo.creationDate|ez_short_datetime }}
-    
+
     // Date formatted in UTC and preferred short datetime format:
     {{ content.versionInfo.creationDate|ez_short_datetime('UTC') }}
 </div>

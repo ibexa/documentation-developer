@@ -328,10 +328,10 @@ ezpublish:
         default:
             provider: generic
             options:
-                fontpath:   '%kernel.root_dir%/Resources/font/font.ttf'
+                fontpath: %kernel.root_dir%/Resources/font/font.ttf
                 background: '#EEEEEE'
                 foreground: '#FF0000'
-                text: "MISSING IMAGE %%width%%x%%height%%"
+                text: 'MISSING IMAGE %%width%%x%%height%%'
 ```
 
 **Example 2 - placeholders from remote source**
