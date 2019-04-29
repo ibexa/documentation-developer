@@ -91,6 +91,7 @@ In-Memory cache is configured globally, and has the following default settings:
 
 ```yml
 parameters:
+    # Config for metadata cache pool, here showing default config
     # ttl: Maximum number of  milliseconds objects are kept in-memory (3000ms = 3s)
     ezpublish.spi.persistence.cache.inmemory.ttl: 3000
     # limit: Maximum number of cache objects to place in-memory, to avoid consuming too much memory
@@ -109,7 +110,7 @@ parameters:
 
     **TTL and Limit need to have a low value.** Setting limit high will increase memory use.
     High TTL value also increase expotentially risk for system acting on stale metadata (e.g. Content Type definitions).
-    Only case where it is recommeded to increase these values is for dev config, for prod you should only consider reducing them if you have heavy concurency writes.
+    Only case where it is safe to increase these values is for dev config with single concurency on writes, for prod you should only consider reducing them if you have heavy concurency writes.
 
 ### Redis
 
