@@ -78,7 +78,13 @@ ezpublish:
 
 #### In-Memory cache configuration
 
-Persistence cache layer caches selected metadata objects in-memory for a short time. It avoids loading repeatedly the same data from e.g. a remote Redis instance, which is very time consuming.
+Persistence cache layer caches selected objects in-memory for a short time. It avoids loading repeatedly the same data from e.g. a remote Redis instance, which can take up to 4-5ms per call.
+The cache is organized in 2 pools, one for metadata which don't update to often, and one for content related objects that is only meant as a very short lived burst cache.
+Limit is organized using a [least frequently used (LFU)](https://en.wikipedia.org/wiki/Least_frequently_used) approach, which makes sure heavily used objects will stay in-memory until expired, and those not used as much will be
+bulk evicted from cache every time limit is reached.
+
+This in-memory cache will be purged _(for current PHP process)_ when clearing it using any of the mentioned methods at the end of this page.
+For other processes the object will be refreshed when expired, or if evicted when reaching cache limits.
 
 In-Memory cache is configured globally, and has the following default settings:
 
@@ -90,12 +96,19 @@ parameters:
     ezpublish.spi.persistence.cache.inmemory.limit: 100
     # enabled: Is the in-memory cache enabled
     ezpublish.spi.persistence.cache.inmemory.enable: true
+
+    # Config for content cache pool, here showing default config
+    ## WARNING: TTL on purpose low to avoid getting outdated data in prod! For dev config you can safely increase (e.g. by x3)
+    ezpublish.spi.persistence.cache.inmemory.content.ttl: 300
+    ezpublish.spi.persistence.cache.inmemory.content.limit: 100
+    ezpublish.spi.persistence.cache.inmemory.content.enable: true
 ```
 
 !!! caution "In-Memory cache is per-process"
 
     **TTL and Limit need to have a low value.** Setting limit high will increase memory use.
-    High TTL value also puts you at risk for system acting on stale metadata (e.g. Content Type definitions). 
+    High TTL value also increase expotentially risk for system acting on stale metadata (e.g. Content Type definitions).
+    Only case where it is recommeded to increase these values is for dev config, for prod you should only consider reducing them if you have heavy concurency writes.
 
 ### Redis
 
@@ -217,7 +230,7 @@ In your Symfony services configuration you can simply define that you require th
             - @ezpublish.cache_pool
 ```
 
-The "cache" service is an instance of `Symfony\Component\Cache\Adapter\TagAwareAdapter` and implements the `Psr\Cache\CacheItemPoolInterface` interface.
+The "cache" service is an instance of `Symfony\Component\Cache\Adapter\TagAwareAdapterInterface`, which extends the `Psr\Cache\CacheItemPoolInterface` interface with tagging functionality.
 
 ##### Via Symfony Container
 
