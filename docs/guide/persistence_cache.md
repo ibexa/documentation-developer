@@ -78,13 +78,14 @@ ezpublish:
 
 #### In-Memory cache configuration
 
-Persistence cache layer caches selected objects in-memory for a short time. It avoids loading repeatedly the same data from e.g. a remote Redis instance, which can take up to 4-5ms per call.
-The cache is organized in 2 pools, one for metadata which don't update to often, and one for content related objects that is only meant as a very short lived burst cache.
-Limit is organized using a [least frequently used (LFU)](https://en.wikipedia.org/wiki/Least_frequently_used) approach, which makes sure heavily used objects will stay in-memory until expired, and those not used as much will be
-bulk evicted from cache every time limit is reached.
+Persistence cache layer caches selected objects in-memory for a short time.
+It avoids loading repeatedly the same data from e.g. a remote Redis instance, which can take up to 4-5ms per call.
+The cache is organized in 2 pools, one for metadata which is not updated too often, and one for content related objects that is only meant as a very short-lived burst cache.
+Limit is organized using a [least frequently used (LFU)](https://en.wikipedia.org/wiki/Least_frequently_used) approach.
+It makes sure heavily used objects will stay in-memory until expired, and those not used as much will be bulk evicted from cache every time the limit is reached.
 
-This in-memory cache will be purged _(for current PHP process)_ when clearing it using any of the mentioned methods at the end of this page.
-For other processes the object will be refreshed when expired, or if evicted when reaching cache limits.
+This in-memory cache will be purged _(for the current PHP process)_ when clearing it using any of the mentioned methods below.
+For other processes, the object will be refreshed when it expires or evicted when it reaches the cache limits.
 
 In-Memory cache is configured globally, and has the following default settings:
 
