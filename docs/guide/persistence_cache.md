@@ -79,10 +79,10 @@ ezpublish:
 #### In-Memory cache configuration
 
 Persistence cache layer caches selected objects in-memory for a short time.
-It avoids loading repeatedly the same data from e.g. a remote Redis instance, which can take up to 4-5ms per call.
+It avoids loading repeatedly the same data from e.g. a remote Redis instance, which can take up to 4-5ms per call due to the network latency and Redis instance load.
 The cache is organized in 2 pools, one for metadata which is not updated too often, and one for content related objects that is only meant as a very short-lived burst cache.
 Limit is organized using a [least frequently used (LFU)](https://en.wikipedia.org/wiki/Least_frequently_used) approach.
-It makes sure heavily used objects will stay in-memory until expired, and those not used as much will be bulk evicted from cache every time the limit is reached.
+It makes sure heavily used objects will stay in-memory until expired, and those not used as much will be bulk evicted from cache every time the maximum number of cache items is reached.
 
 This in-memory cache will be purged _(for the current PHP process)_ when clearing it using any of the mentioned methods below.
 For other processes, the object will be refreshed when it expires or evicted when it reaches the cache limits.
@@ -100,7 +100,7 @@ parameters:
     ezpublish.spi.persistence.cache.inmemory.enable: true
 
     # Config for content cache pool, here showing default config
-    ## WARNING: TTL on purpose low to avoid getting outdated data in prod! For dev config you can safely increase (e.g. by x3)
+    ## WARNING: TTL is on purpose low to avoid getting outdated data in prod! For dev environment, you can safely increase it (e.g. by x3)
     ezpublish.spi.persistence.cache.inmemory.content.ttl: 300
     ezpublish.spi.persistence.cache.inmemory.content.limit: 100
     ezpublish.spi.persistence.cache.inmemory.content.enable: true
@@ -110,7 +110,7 @@ parameters:
 
     **TTL and Limit need to have a low value.** Setting limit high will increase memory use.
     High TTL value also increase expotentially risk for system acting on stale metadata (e.g. Content Type definitions).
-    Only case where it is safe to increase these values is for dev config with single concurency on writes, for prod you should only consider reducing them if you have heavy concurency writes.
+    The only case where it is safe to increase these values is for dev environment with single concurrency on writes, for prod environment you should only consider reducing them if you have heavy concurrency writes.
 
 ### Redis
 
