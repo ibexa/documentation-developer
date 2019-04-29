@@ -106,7 +106,7 @@
 
     ## Block templates
 
-    Every built-in Page block has a default template. You can add new templates to blocks or override the default ones.
+    Every built-in Page block has a default template. You can [add new templates](../guide/templates.md) to blocks or override the default ones.
 
     ### Adding new block templates
 
