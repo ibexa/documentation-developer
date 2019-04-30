@@ -28,62 +28,60 @@
     Next, create a subscriber that will convert string of data into XML. 
     Create an `AppBundle/Event/Subscriber/RichTextSubscriber.php` file containing:
     
-    ```php hl_lines="33 38 39 40 41 42 43 44 45 46 47 48"
-    <?php
-    
-    declare(strict_types=1);
-    
-    namespace EzSystems\EzPlatformPageFieldType\Event\Subscriber;
-    
-    use EzSystems\EzPlatformRichText\eZ\RichText\DOMDocumentFactory;
-    use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Renderer\BlockRenderEvents;
-    use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Renderer\Event\PreRenderEvent;
-    use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Renderer\Twig\TwigRenderRequest;
-    use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-    
-    class RichTextBlockSubscriber implements EventSubscriberInterface
-    {
-        /** @var \EzSystems\EzPlatformRichText\eZ\RichText\DOMDocumentFactory */
-        private $domDocumentFactory;
-        /**
-         * @param \EzSystems\EzPlatformRichText\eZ\RichText\DOMDocumentFactory $domDocumentFactory
-         */
-        
-        public function __construct(DOMDocumentFactory $domDocumentFactory)
-        {
-            $this->domDocumentFactory = $domDocumentFactory;
-        }
-        
-        /**
-         * {@inheritdoc}
-         */
-        
-        public static function getSubscribedEvents(): array
-        {
-            return [
-                BlockRenderEvents::getBlockPreRenderEventName('richtext') => 'onBlockPreRender',
-            ];
-        }
-        
-        /**
-         * @param \EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Renderer\Event\PreRenderEvent $event
-         */
-        
-        public function onBlockPreRender(PreRenderEvent $event): void
-        {
-            $renderRequest = $event->getRenderRequest();
-            if (!$renderRequest instanceof TwigRenderRequest) {
-                return;
-            }
-            $parameters = $renderRequest->getParameters();
-            $parameters['document'] = null;
-            $xml = $event->getBlockValue()->getAttribute('content')->getValue();
-            if (!empty($xml)) {
-                $parameters['document'] = $this->domDocumentFactory->loadXMLString($xml);
-            }
-            $renderRequest->setParameters($parameters);
-        }
-    }
+    ```php hl_lines="33 41 42 43 44 45 46 47 48 49 50 51"
+   <?php
+   
+   declare(strict_types=1);
+   
+   namespace EzSystems\EzPlatformPageFieldType\Event\Subscriber;
+   
+   use EzSystems\EzPlatformRichText\eZ\RichText\DOMDocumentFactory;
+   use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Renderer\BlockRenderEvents;
+   use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Renderer\Event\PreRenderEvent;
+   use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Renderer\Twig\TwigRenderRequest;
+   use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+   
+   class RichTextBlockSubscriber implements EventSubscriberInterface
+   {
+       /** @var \EzSystems\EzPlatformRichText\eZ\RichText\DOMDocumentFactory */
+       private $domDocumentFactory;
+   
+       /**
+        * @param \EzSystems\EzPlatformRichText\eZ\RichText\DOMDocumentFactory $domDocumentFactory
+        */
+       public function __construct(DOMDocumentFactory $domDocumentFactory)
+       {
+           $this->domDocumentFactory = $domDocumentFactory;
+       }
+   
+       /**
+        * {@inheritdoc}
+        */
+       public static function getSubscribedEvents(): array
+       {
+           return [
+               BlockRenderEvents::getBlockPreRenderEventName('richtext') => 'onBlockPreRender',
+           ];
+       }
+   
+       /**
+        * @param \EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Renderer\Event\PreRenderEvent $event
+        */
+       public function onBlockPreRender(PreRenderEvent $event): void
+       {
+           $renderRequest = $event->getRenderRequest();
+           if (!$renderRequest instanceof TwigRenderRequest) {
+               return;
+           }
+           $parameters = $renderRequest->getParameters();
+           $parameters['document'] = null;
+           $xml = $event->getBlockValue()->getAttribute('content')->getValue();
+           if (!empty($xml)) {
+               $parameters['document'] = $this->domDocumentFactory->loadXMLString($xml);
+           }
+           $renderRequest->setParameters($parameters);
+       }
+   }
     ```
     
     The line 33 defines the name of the block and implements the `PreRender` method.
