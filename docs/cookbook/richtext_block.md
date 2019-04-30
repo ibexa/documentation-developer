@@ -28,7 +28,7 @@
     Next, create a subscriber that will convert string of data into XML. 
     Create an `AppBundle/Event/Subscriber/RichTextSubscriber.php` file containing:
     
-    ```php hl_lines="30 38 39 40 41 42 43 44 45 46 47 48"
+    ```php hl_lines="33 38 39 40 41 42 43 44 45 46 47 48"
     <?php
     
     declare(strict_types=1);
@@ -48,22 +48,27 @@
         /**
          * @param \EzSystems\EzPlatformRichText\eZ\RichText\DOMDocumentFactory $domDocumentFactory
          */
+        
         public function __construct(DOMDocumentFactory $domDocumentFactory)
         {
             $this->domDocumentFactory = $domDocumentFactory;
         }
+        
         /**
          * {@inheritdoc}
          */
+        
         public static function getSubscribedEvents(): array
         {
             return [
                 BlockRenderEvents::getBlockPreRenderEventName('richtext') => 'onBlockPreRender',
             ];
         }
+        
         /**
          * @param \EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Renderer\Event\PreRenderEvent $event
          */
+        
         public function onBlockPreRender(PreRenderEvent $event): void
         {
             $renderRequest = $event->getRenderRequest();
@@ -81,8 +86,8 @@
     }
     ```
     
-    The line 30 defines the name of the block and implements the `PreRender` method.
-    The lines 38-48 handle the conversion of content into XML string.
+    The line 33 defines the name of the block and implements the `PreRender` method.
+    The lines 41-51 handle the conversion of content into XML string.
     
     Next, create the template in `blocks/myblock/richtext.html.twig` and add to it the following:
     
