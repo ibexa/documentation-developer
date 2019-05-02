@@ -50,7 +50,7 @@ Notes:
 
 **Cache service**
 
-The cache system is exposed as a "cache" service, and can be reused by any other service as described in the [Using Cache service](#using-cache-service) section.
+The underlying cache system is exposed as a `ezpublish.cache_pool` service, and can be reused by any other service as described in the [Using Cache service](#using-cache-service) section.
 
 ### Configuration
 
@@ -68,7 +68,7 @@ ezpublish:
         # "site_group" refers to the group configured in site access
         site_group:
             # cache_pool is set to '%env(CACHE_POOL)%'
-            # env(CACHE_POOL) is set to 'cache.app' (a Symfony service), for more examples see app/config/cache_pool/*
+            # env(CACHE_POOL) is set to 'cache.tagaware.filesystem' (a Symfony service) by default, for more examples see app/config/cache_pool/*
             cache_service_name: '%cache_pool%'
 ```
 
@@ -120,7 +120,11 @@ Redis is used via [Redis pecl extension](https://pecl.php.net/package/redis).
 See [Redis Cache Adapter in Symfony documentation](https://symfony.com/doc/3.4/components/cache/adapters/redis_adapter.html#configure-the-connection)
 for information on how to configure Redis.
 
-Example:
+Out of the box in `app/config/cache_pool/cache.redis.yml` you'll find a default example that can be used.
+
+For eZ Platform Cloud/Platform.sh; This is automatically configured in `app/config/env/platformsh.php` if you have enabled redis as `rediscache` platform.sh service.
+
+For anything else you can enabled it with environment variables detected by `app/config/env/generic.php`; If you set the following environment variables `export CACHE_POOL="cache.redis" CACHE_DSN="secret@example.com:1234/13"`, it will result in config like this:
 
 ``` yaml
 services:
@@ -132,12 +136,15 @@ services:
             - name: cache.pool
               clearer: cache.app_clearer
               provider: 'redis://secret@example.com:1234/13'
+              namespace: 'ez'
 ```
+
+See `app/config/default_parameters.yml` and `app/config/cache_pool/cache.redis.yml` for further details on `CACHE_POOL`, `CACHE_DSN` and `CACHE_NAMESPACE`.
 
 !!! caution "Clearing Redis cache"
 
     The regular `php bin/console cache:clear` command does not clear Redis persistence cache.
-    To clear it, use a dedicated Symfony command: `php bin/console cache:pool:clear cache.redis`.
+    To clear it, use a dedicated Symfony command to clear the pool you have configured: `php bin/console cache:pool:clear cache.redis`.
 
 ##### Redis Clustering
 
@@ -172,7 +179,11 @@ Platform.sh Professional and lower versions offer Redis in single instance mode 
 See [Memcached Cache Adapter in Symfony documentation](https://symfony.com/doc/3.4/components/cache/adapters/memcached_adapter.html#configure-the-connection)
 for information on how to configure Memcached.
 
-Example:
+Out of the box in `app/config/cache_pool/cache.memcached.yml` you'll find a default example that can be used.
+
+For eZ Platform Cloud/Platform.sh; This is automatically configured in `app/config/env/platformsh.php` if you have enabled memcached as `cache` platform.sh service.
+
+For anything else you can enabled it with environment variables detected by `app/config/env/generic.php`; If you set the following environment variables `export CACHE_POOL="cache.memcached" CACHE_DSN="user:pass@localhost?weight=33"`, it will result in config like this:
 
 ``` yaml
 services:
@@ -182,7 +193,16 @@ services:
             - name: cache.pool
               clearer: cache.app_clearer
               provider: 'memcached://user:pass@localhost?weight=33'
+              namespace: 'ez'
 ```
+
+See `app/config/default_parameters.yml` and `app/config/cache_pool/cache.memcached.yml` for further details on `CACHE_POOL`, `CACHE_DSN` and `CACHE_NAMESPACE`.
+
+!!! caution "Clearing Memcached cache"
+
+    The regular `php bin/console cache:clear` command does not clear Memcached persistence cache.
+    To clear it, use a dedicated Symfony command to clear the pool you have configured: `php bin/console cache:pool:clear cache.memcached`.
+
 
 !!! caution "Connection errors issue"
 
@@ -208,7 +228,7 @@ And as eZ Platform requires that instances use a cluster-aware cache in Cluster 
 
 !!! note
 
-    Current implementation uses a caching library called TagAwareAdapter which implements `Psr\Cache\CacheItemPoolInterface`,
+    Current implementation uses a caching library implementing TagAwareAdapterInterface which extends `Psr\Cache\CacheItemPoolInterface`,
     and therefore is compatible with PSR-6.
 
 !!! caution "Use unique vendor prefix for Cache key"
@@ -216,13 +236,12 @@ And as eZ Platform requires that instances use a cluster-aware cache in Cluster 
     When reusing the cache service within your own code, it is very important to not conflict with the cache keys used by others.
     That is why the example of usage below starts with a unique `myApp` key.
     For the namespace of your own cache, you must do the same.
-    So never clear cache using the cache service without your key specified, otherwise you'll clear all cache.
 
 #### Get Cache service
 
 ##### Via Dependency injection
 
-In your Symfony services configuration you can simply define that you require the "cache" service in your configuration like so:
+In your Symfony services configuration you can simply define that you require the cache service in your configuration like so:
 
 ``` yaml
 # yml configuration
@@ -232,11 +251,11 @@ In your Symfony services configuration you can simply define that you require th
             - @ezpublish.cache_pool
 ```
 
-The "cache" service is an instance of `Symfony\Component\Cache\Adapter\TagAwareAdapterInterface`, which extends the `Psr\Cache\CacheItemPoolInterface` interface with tagging functionality.
+This service is an instance of `Symfony\Component\Cache\Adapter\TagAwareAdapterInterface`, which extends the `Psr\Cache\CacheItemPoolInterface` interface with tagging functionality.
 
 ##### Via Symfony Container
 
-Like any other service, it is also possible to get the "cache" service via container like so:
+Like any other service, it is also possible to get the cache service via container like so:
 
 ``` php
 // Getting the cache service in PHP
@@ -268,7 +287,7 @@ For more info on usage, see [Symfony Cache's documentation](https://symfony.com/
 
 ### Clearing Persistence cache
 
-Persistence cache uses a separate Cache Pool decorator which by design prefixes cache keys with "ez\_spi". Clearing persistence cache can thus be done in the following way:
+Persistence cache prefixes it's cache using "ez-". Clearing persistence cache can thus be done in the following ways:
 
 ``` php
 // To clear all cache (not recommended without a good reason)
