@@ -36,7 +36,7 @@ Custom Field Types have to be programmed in PHP. However, the built-in Field Ty
 | [Rating](#rating-field-type) | **Deprecated** | N/A | N/A |
 | [Relation](#relation-field-type) | Validates and stores a relation to a Content item. | Yes, with both Field and FieldRelation criterions | Yes |
 | [RelationList](#relationlist-field-type) | Validates and stores a list of relations to Content items. | Yes, with FieldRelation criterion | Yes |
-| [RichText](#richtext-field-type) | **Deprecated** |N/A| N/A |
+| [RichText](#richtext-field-type) | Validates and stores structured rich text in DocBook xml format, and exposes it in several formats. Available via eZ Platform RichTextBundle. | Yes[^1^](#1-note-on-legacy-search-engine)  | Yes |
 | [Selection](#selection-field-type) | Validates and stores a single selection or multiple choices from a list of options. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
 | [TextBlock](#textblock-field-type) | Validates and stores a larger block of text. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
 | [TextLine](#textline-field-type) | Validates and stores a single line of text. | Yes | Yes |
@@ -1883,10 +1883,11 @@ $validators = [
 
 !!! caution "Deprecated"
 
-    The RichText Field Type is deprecated since v2.4. Relying on any class from the `eZ\Publish\Core\FieldType` namespace is deprecated.
-
-    If you're implementing any interface or extending any base class from that namespace, refer to its PHPDoc to see what to implement or extend instead.
-    Make sure to enable the eZ Platform RichTextBundle provided by [ezsystems/ezplatform-richtext package](https://github.com/ezsystems/ezplatform-richtext).
+    New version of the RichText Field Type is provided via [eZ Platform RichTextBundle](https://github.com/ezsystems/ezplatform-richtext).
+    Make sure to enable the new bundle.
+    If you are implementing any interface or extending any base class from that namespace, refer to its PHPDoc to see what to implement or extend instead.
+    
+    Deprecated version of the RichText Field Type was provided by Kernel via  `eZ\Publish\Core\FieldType\RichText` namespace.
 
 This Field Type validates and stores structured rich text, and exposes it in several formats.
 

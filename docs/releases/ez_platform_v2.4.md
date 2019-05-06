@@ -28,7 +28,7 @@
 
 #### RichText Field Type
 
-RichText Field Type has been extracted to a separate bundle, [ezsystems/ezplatform-richtext](https://github.com/ezsystems/ezplatform-richtext). Relying on any class from the `eZ\Publish\Core\FieldType` namespace is deprecated.
+RichText Field Type has been extracted to a separate bundle, [ezsystems/ezplatform-richtext](https://github.com/ezsystems/ezplatform-richtext). Relying on any class from the `eZ\Publish\Core\FieldType\RichText` namespace is deprecated.
 
 If you're implementing any interface or extending any base class from the old namespace, refer to its PHPDoc to see what to implement or extend instead.
 Make sure to enable the new eZ Platform RichTextBundle.
