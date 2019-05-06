@@ -152,7 +152,7 @@ services:
     pdo:
         class: PDO
         arguments:
-            dsn: 'mysql:dbname=<mysql_database>''
+            dsn: 'mysql:dbname=<mysql_database>'
             user: <mysql_user>
             password: <mysql_password>
 

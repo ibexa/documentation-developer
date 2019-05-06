@@ -207,7 +207,7 @@ ezpublish:
             content_view:
                 full:
                     home:
-                        template: '@ezdesign/full/home.html.twig"
+                        template: '@ezdesign/full/home.html.twig'
 ```
 
 !!! tip

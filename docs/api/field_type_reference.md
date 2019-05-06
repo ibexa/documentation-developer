@@ -1140,7 +1140,7 @@ ImageAsset Field Type allows configuring the following options:
 
 Example configuration:
 
-``` yml
+``` yaml
 ezpublish:
     system:
        default:
