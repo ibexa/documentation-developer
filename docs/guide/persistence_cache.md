@@ -50,7 +50,7 @@ Notes:
 
 **Cache service**
 
-The underlying cache system is exposed as a `ezpublish.cache_pool` service, and can be reused by any other service as described in the [Using Cache service](#using-cache-service) section.
+The underlying cache system is exposed as an `ezpublish.cache_pool` service, and can be reused by any other service as described in the [Using Cache service](#using-cache-service) section.
 
 ### Configuration
 
@@ -80,11 +80,11 @@ ezpublish:
 
 Persistence cache layer caches selected objects in-memory for a short time.
 It avoids loading repeatedly the same data from e.g. a remote Redis instance, which can take up to 4-5ms per call due to the network latency and Redis instance load.
-The cache is organized in 2 pools, one for metadata which is not updated too often, and one for content related objects that is only meant as a very short-lived burst cache.
+The cache is organized in 2 pools, one for metadata which is not updated frequently, and one for content related objects that is only meant as a short-lived burst cache.
 Limit is organized using a [least frequently used (LFU)](https://en.wikipedia.org/wiki/Least_frequently_used) approach.
-It makes sure heavily used objects will stay in-memory until expired, and those not used as much will be bulk evicted from cache every time the maximum number of cache items is reached.
+It makes sure repeatedly used objects will stay in-memory until expired, and those seldom used will be bulk evicted from cache every time the maximum number of cache items is reached.
 
-This in-memory cache will be purged _(for the current PHP process)_ when clearing it using any of the mentioned methods below.
+This in-memory cache will be purged *(for the current PHP process)* when clearing it using any of the mentioned methods below.
 For other processes, the object will be refreshed when it expires or evicted when it reaches the cache limits.
 
 In-Memory cache is configured globally, and has the following default settings:
@@ -109,8 +109,9 @@ parameters:
 !!! caution "In-Memory cache is per-process"
 
     **TTL and Limit need to have a low value.** Setting limit high will increase memory use.
-    High TTL value also increase expotentially risk for system acting on stale metadata (e.g. Content Type definitions).
-    The only case where it is safe to increase these values is for dev environment with single concurrency on writes, for prod environment you should only consider reducing them if you have heavy concurrency writes.
+    High TTL value also increases exponentially risk for system acting on stale metadata (e.g. Content Type definitions).
+    The only case where it is safe to increase these values is for dev environment with single concurrency on writes.
+    In prod environment you should only consider reducing them if you have heavy concurrency writes.
 
 ### Redis
 
@@ -124,7 +125,8 @@ Out of the box in `app/config/cache_pool/cache.redis.yml` you'll find a default 
 
 For eZ Platform Cloud/Platform.sh: This is automatically configured in `app/config/env/platformsh.php` if you have enabled Redis as `rediscache` Platform.sh service.
 
-For anything else, you can enable it with environment variables detected automatically by `app/config/env/generic.php`. For instance, if you set the following environment variables `export CACHE_POOL="cache.redis" CACHE_DSN="secret@example.com:1234/13"`, it will result in config like this:
+For anything else, you can enable it with environment variables detected automatically by `app/config/env/generic.php`.
+For instance, if you set the following environment variables `export CACHE_POOL="cache.redis" CACHE_DSN="secret@example.com:1234/13"`, it will result in config like this:
 
 ``` yaml
 services:
@@ -145,7 +147,7 @@ See `app/config/default_parameters.yml` and `app/config/cache_pool/cache.redis.y
 !!! caution "Clearing Redis cache"
 
     The regular `php bin/console cache:clear` command does not clear Redis persistence cache.
-    To clear it, use a dedicated Symfony command to clear the pool you have configured: `php bin/console cache:pool:clear cache.redis`.
+    Use a dedicated Symfony command to clear the pool you have configured: `php bin/console cache:pool:clear cache.redis`.
 
 ##### Redis Clustering
 
@@ -184,7 +186,8 @@ Out of the box in `app/config/cache_pool/cache.memcached.yml` you'll find a defa
 
 For eZ Platform Cloud/Platform.sh: This is automatically configured in `app/config/env/platformsh.php` if you have enabled Memcached as `cache` Platform.sh service.
 
-For anything else, you can enable it with environment variables detected automatically by `app/config/env/generic.php`. For instance, if you set the following environment variables `export CACHE_POOL="cache.memcached" CACHE_DSN="user:pass@localhost?weight=33"`, it will result in config like this:
+For anything else, you can enable it with environment variables detected automatically by `app/config/env/generic.php`.
+For instance, if you set the following environment variables `export CACHE_POOL="cache.memcached" CACHE_DSN="user:pass@localhost?weight=33"`, it will result in config like this:
 
 ``` yaml
 services:
@@ -203,7 +206,7 @@ See `app/config/default_parameters.yml` and `app/config/cache_pool/cache.memcach
 !!! caution "Clearing Memcached cache"
 
     The regular `php bin/console cache:clear` command does not clear Memcached persistence cache.
-    To clear it, use a dedicated Symfony command to clear the pool you have configured: `php bin/console cache:pool:clear cache.memcached`.
+    Use a dedicated Symfony command to clear the pool you have configured: `php bin/console cache:pool:clear cache.memcached`.
 
 
 !!! caution "Connection errors issue"
