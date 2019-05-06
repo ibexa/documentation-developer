@@ -689,7 +689,7 @@ The following are examples of using the filters:
 <div>
     // Date formatted in the preferred time zone and short datetime format:
     {{ content.versionInfo.creationDate|ez_short_datetime }}
-    
+
     // Date formatted in UTC and preferred short datetime format:
     {{ content.versionInfo.creationDate|ez_short_datetime('UTC') }}
 </div>
@@ -753,3 +753,148 @@ services:
         arguments:
             $shortDateTimeFormatter: '@ezplatform.user.settings.short_datetime_format.formatter'
 ```
+
+## User settings
+
+You can add new preferences to the User settings menu in the Back Office.
+
+To do so, create a setting class implementing two interfaces:
+`ValueDefinitionInterface` and `FormMapperInterface`.
+
+In this example the class is located in `AppBundle/Setting/Unit.php`
+and enables the user to select their preference for metric or imperial unit systems.
+
+``` php
+<?php
+declare(strict_types=1);
+
+namespace AppBundle\Setting;
+
+use EzSystems\EzPlatformUser\UserSetting\FormMapperInterface;
+use EzSystems\EzPlatformUser\UserSetting\ValueDefinitionInterface;
+use eZ\Publish\Core\Base\Exceptions\InvalidArgumentException;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Translation\TranslatorInterface;
+use EzSystems\EzPlatformAdminUi\UserSetting as AdminUiUserSettings;
+
+class Unit implements ValueDefinitionInterface, FormMapperInterface
+{
+    public const METRIC_OPTION = 'metric';
+    public const IMPERIAL_OPTION = 'imperial';
+
+    /** @var \Symfony\Component\Translation\TranslatorInterface */
+    private $translator;
+
+    /**
+     * @param \Symfony\Component\Translation\TranslatorInterface $translator
+     */
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator = $translator;
+    }
+
+    public function getName(): string
+    {
+        return $this->getTranslatedName();
+    }
+
+    public function getDescription(): string
+    {
+        return $this->getTranslatedDescription();
+    }
+
+    public function getDisplayValue(string $storageValue): string
+    {
+        switch($storageValue) {
+            case self::METRIC_OPTION:
+                return $this->getTranslatedOptionMetric();
+            case self::IMPERIAL_OPTION:
+                return $this->getTranslatedOptionImperial();
+            default:
+                throw new InvalidArgumentException(
+                    '$storageValue',
+                    sprintf('There is no \'%s\' option', $storageValue)
+                );
+        }
+    }
+
+    public function getDefaultValue(): string
+    {
+        return 'metric';
+    }
+
+    public function mapFieldForm(FormBuilderInterface $formBuilder, AdminUiUserSettings\ValueDefinitionInterface $value): FormBuilderInterface
+    {
+        $choices = [
+            $this->getTranslatedOptionMetric() => self::METRIC_OPTION,
+            $this->getTranslatedOptionImperial() => self::IMPERIAL_OPTION,
+        ];
+
+        return $formBuilder->create(
+            'value',
+            ChoiceType::class,
+            [
+                'multiple' => false,
+                'required' => true,
+                'label' => $this->getTranslatedDescription(),
+                'choices' => $choices,
+            ]
+        );
+    }
+
+    private function getTranslatedName(): string
+    {
+        return $this->translator->trans(
+        /** @Desc("Unit") */
+            'settings.unit.value.title',
+            [],
+            'user_settings'
+        );
+    }
+
+    private function getTranslatedDescription(): string
+    {
+        return $this->translator->trans(
+        /** @Desc("Choose between metric and imperial unit systems") */
+            'settings.unit.value.description',
+            [],
+            'user_settings'
+        );
+    }
+
+    private function getTranslatedOptionMetric(): string
+    {
+        return $this->translator->trans(
+        /** @Desc("metric") */
+            'settings.unit.value.metric',
+            [],
+            'user_settings'
+        );
+    }
+
+    private function getTranslatedOptionImperial(): string
+    {
+        return $this->translator->trans(
+        /** @Desc("imperial") */
+            'settings.unit.value.imperial',
+            [],
+            'user_settings'
+        );
+    }
+}
+```
+
+Register the class as a service:
+
+``` yaml
+AppBundle\Setting\Unit:
+    tags:
+        - { name: ezplatform.admin_ui.user_setting.value, identifier: unit }
+        - { name: ezplatform.admin_ui.user_setting.form_mapper, identifier: unit }
+```
+
+You also need to provide translations for the `settings.unit.value.title`, `settings.unit.value.description`,
+`settings.unit.value.metric` and `settings.unit.value.imperial` strings in XLIFF files.
+
+You can access the value of the setting with `ez_user_settings['unit']`.
