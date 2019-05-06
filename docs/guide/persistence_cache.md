@@ -122,9 +122,9 @@ for information on how to configure Redis.
 
 Out of the box in `app/config/cache_pool/cache.redis.yml` you'll find a default example that can be used.
 
-For eZ Platform Cloud/Platform.sh; This is automatically configured in `app/config/env/platformsh.php` if you have enabled redis as `rediscache` platform.sh service.
+For eZ Platform Cloud/Platform.sh: This is automatically configured in `app/config/env/platformsh.php` if you have enabled Redis as `rediscache` Platform.sh service.
 
-For anything else you can enabled it with environment variables detected by `app/config/env/generic.php`; If you set the following environment variables `export CACHE_POOL="cache.redis" CACHE_DSN="secret@example.com:1234/13"`, it will result in config like this:
+For anything else, you can enable it with environment variables detected automatically by `app/config/env/generic.php`. For instance, if you set the following environment variables `export CACHE_POOL="cache.redis" CACHE_DSN="secret@example.com:1234/13" CACHE_NAMESPACE="ez"`, it will result in config like this:
 
 ``` yaml
 services:
@@ -181,9 +181,9 @@ for information on how to configure Memcached.
 
 Out of the box in `app/config/cache_pool/cache.memcached.yml` you'll find a default example that can be used.
 
-For eZ Platform Cloud/Platform.sh; This is automatically configured in `app/config/env/platformsh.php` if you have enabled memcached as `cache` platform.sh service.
+For eZ Platform Cloud/Platform.sh: This is automatically configured in `app/config/env/platformsh.php` if you have enabled Memcached as `cache` Platform.sh service.
 
-For anything else you can enabled it with environment variables detected by `app/config/env/generic.php`; If you set the following environment variables `export CACHE_POOL="cache.memcached" CACHE_DSN="user:pass@localhost?weight=33"`, it will result in config like this:
+For anything else, you can enable it with environment variables detected automatically by `app/config/env/generic.php`. For instance, if you set the following environment variables `export CACHE_POOL="cache.memcached" CACHE_DSN="user:pass@localhost?weight=33" CACHE_NAMESPACE="ez"`, it will result in config like this:
 
 ``` yaml
 services:
