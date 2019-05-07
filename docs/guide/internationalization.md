@@ -33,7 +33,7 @@ For example, let's say that you need to store information about marathon contest
 
 ### Access control
 
-You can control whether a User or User group is able to translate content or not. You do this by adding a [Language limitation](limitations.md#languagelimitation) to Policies that allow creating or editing content. This limitation enables you to define which Role can work with which languages in the system. (For more information of the permissions system, see [Permissions](permissions.md).)
+You can control whether a User or User group is able to translate content or not. You do this by adding a [Language Limitation](limitation_reference.md#language-limitation) to Policies that allow creating or editing content. This limitation enables you to define which Role can work with which languages in the system. (For more information of the permissions system, see [Permissions](permissions.md).)
 
 In addition, you can also control the access to the global translation list by using the Content/Translations Policy. This Policy allows users to add and remove languages from the global translation list.
 
