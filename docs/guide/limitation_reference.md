@@ -114,7 +114,14 @@ This Limitation combined with `ContentType` Limitation allows you to define busi
 
 ## Language Limitation
 
-A Limitation to specify if the User has access to content in a specific language.
+A Limitation to specify if the User has access to work on the specified translation.
+
+A user with this Limitation is allowed to:
+
+ - Create new content with the given translation(s) only.
+This only applies to creating the first version of a Content item.
+- Edit content by adding a new translation or modifying an existing translation.
+- Publish content only when it results in adding or modifying an allowed translation.
 
 |                 |                                                                         |
 |-----------------|-------------------------------------------------------------------------|
