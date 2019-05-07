@@ -203,7 +203,7 @@ Now add the following Policies to the Contributors Role.
 !!! tip
 
     The Limitations are a powerful tool for fine-tuning the permission management of the Users.
-    See [the documentation about Limitations for more technical details](../../guide/limitations.md#usergrouplimitation)
+    See [the documentation about Limitations for more technical details](../../guide/limitation_reference.md#content-type-group-limitation)
 
 Once the Policies are set, go to the "Users and groups using the <Contributors> role" tab and assign the Role to the User Group *Go Bike Members*.
 
