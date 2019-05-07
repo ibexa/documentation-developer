@@ -239,16 +239,16 @@ ezpublish:
                 content_view:
                     full:
                         blog:
-                            controller: "ez_query:locationQueryAction"
-                            template: "content/view/full/blog.html.twig"
+                            controller: ez_query:locationQueryAction
+                            template: content/view/full/blog.html.twig
                             match:
                                 Identifier\ContentType: "blog"
                             params:
                                 query:
-                                    query_type: 'LocationChildren'
+                                    query_type: LocationChildren
                                     parameters:
-                                        parentLocationId: "@=location.id"
-                                    assign_results_to: 'blog_posts'
+                                        parentLocationId: '@=location.id'
+                                    assign_results_to: blog_posts
 ```
 
 The view's controller action is set to the QueryController's `locationQuery` action (`ez_query:locationQueryAction`). Other actions are available that run a different type of search (contentInfo or content).

@@ -43,7 +43,7 @@ Content views decide which templates and controllers are used to display Content
 content_view:
     full:
         blog_post:
-            template: 'full\blog_post.html.twig'
+            template: full\blog_post.html.twig
             match:
                 Identifier\ContentType: [blog_post]
 ```

@@ -58,7 +58,7 @@ services:
     ezpublish.fieldType.ezstring.converter:
         class: %ezpublish.fieldType.ezstring.converter.class%
         tags:
-            - {name: ezpublish.storageEngine.legacy.converter, alias: ezstring, lazy: true, callback: '::create'}
+            - {name: ezpublish.storageEngine.legacy.converter, alias: ezstring, lazy: true, callback: ::create}
 ```
 
 Here again you need to tag your converter service, with **`ezpublish.storageEngine.legacy.converter`** tag this time.
@@ -108,7 +108,7 @@ parameters:
 
 services:
     ezpublish.fieldType.ezurl.storage_gateway:
-        class: '%ezpublish.fieldType.ezurl.storage_gateway.class%'
+        class: %ezpublish.fieldType.ezurl.storage_gateway.class%
         tags:
             - {name: ezpublish.fieldType.externalStorageHandler.gaeZ\Publish\SPI\Search\FieldTypeteway, alias: ezurl, identifier: LegacyStorage}
 ```

@@ -408,8 +408,8 @@ ezpublish:
     system:
         my_siteaccess:
             field_templates:
-                -
-                    template: "AcmeTestBundle:fields:my_field_template.html.twig"
+                - 
+                    template: AcmeTestBundle:fields:my_field_template.html.twig
                     # Priority is optional (default is 0). The higher it is, the higher your template gets in the list.
                     priority: 10
 ```

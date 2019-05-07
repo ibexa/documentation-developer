@@ -147,9 +147,9 @@ system:
         content_view:
             line:
                 ride:
-                    template: 'line/ride.html.twig'
+                    template: line/ride.html.twig
                     match:
-                        Identifier\ContentType: 'ride'
+                        Identifier\ContentType: ride
 ```
 
 Create the `app/Resources/views/line/ride.html.twig` template.

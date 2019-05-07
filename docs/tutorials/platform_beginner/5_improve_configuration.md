@@ -62,18 +62,18 @@ ezpublish:
             content_view:
                 full:
                     ride:
-                        template: 'full/ride.html.twig'
+                        template: full/ride.html.twig
                         match:
-                            Identifier\ContentType: 'ride'
+                            Identifier\ContentType: ride
                     home_page:
-                        template: 'full/home_page.html.twig'
+                        template: full/home_page.html.twig
                         match:
                             Id\Location: 2
                 line:
                     ride:
-                        template: 'line/ride.html.twig'
+                        template: line/ride.html.twig
                         match:
-                            Identifier\ContentType: 'ride'
+                            Identifier\ContentType: ride
 ```
 
 Import the file in `ezplatform.yml`, like you did with `image_variations.yml`:

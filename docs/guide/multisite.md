@@ -156,11 +156,11 @@ ezpublish:
             content_view:
                 full:
                     article:
-                        template: "full/article.html.twig"
+                        template: full/article.html.twig
                         match:
                             Identifier\ContentType: [article]
                     news:
-                        template: "full/news.html.twig"
+                        template: full/news.html.twig
                         match:
                             Identifier\ContentType: [news]
         event:
@@ -168,7 +168,7 @@ ezpublish:
             content_view:
                 full:
                     article:
-                        template: "event/full/article.html.twig"
+                        template: event/full/article.html.twig
                         match:
                             Identifier\ContentType: [article]
 ```

@@ -20,14 +20,14 @@ In addition to normal settings, the Field Type should provide a schema settings 
 
 `validateFieldSettings()`
 
-The type is asked to validate the settings (provided by the user) before the Public API stores those settings for the Field Type in a `FieldDefinition`. As a result, the Field Type must return if the given settings comply to the schema defined by `getSettingsSchema()`. 
+The type is asked to validate the settings (provided by the user) before the Public API stores those settings for the Field Type in a `FieldDefinition`. As a result, the Field Type must return if the given settings comply to the schema defined by `getSettingsSchema()`.
 `validateValidatorConfiguration()`
- 
+
  As in `validateFieldSettings()`, this method verifies that the given validator configuration complies to the schema provided by `getValidatorConfigurationSchema()`.
 
 It is important to note that the schema definitions of the Field Type can be both of arbitrary and serializable format, it is highly recommended to use a simple hash structure.
 
-!!! note 
+!!! note
 
     Since it is not possible to enforce a schema format, the code using a specific Field Type must basically know all Field Types it deals with.
 
@@ -39,9 +39,9 @@ If you implement `\eZ\Publish\SPI\FieldType\Nameable` as an extra service, and r
 
 Otherwise the `\eZ\Publish\SPI\FieldType\FieldType::getName` method is used.
 
-!!! note 
+!!! note
 
-    `\eZ\Publish\SPI\FieldType\FieldType::getName` method is deprecated. 
+    `\eZ\Publish\SPI\FieldType\FieldType::getName` method is deprecated.
     `\eZ\Publish\SPI\FieldType\Nameable` should be implemented instead of it.
 
 **Example from `fieldType_services.yml`**
@@ -51,7 +51,7 @@ Otherwise the `\eZ\Publish\SPI\FieldType\FieldType::getName` method is used.
     ezpublish.fieldType.ezobjectrelation.nameable_field:
         class: %ezpublish.fieldType.ezobjectrelation.nameable_field.class%
         arguments:
-          - @ezpublish.spi.persistence.cache.contentHandler
+          - '@ezpublish.spi.persistence.cache.contentHandler'
         tags:
             - {name: ezpublish.fieldType.nameable, alias: ezobjectrelation}
 ```
@@ -64,7 +64,7 @@ A Field Type needs to deal with the custom value format provided by it. In order
 
 This method is responsible for accepting and converting user input for the Field. It checks the input structure by accepting, building and returning a different structure holding the data. Example: user provides an HTTP link as a string, `acceptValue()` converts provided link to the Url Field Type value object. Unlike the `FieldType\Value` constructor, it is possible to make this method aware of multiple input types (object or primitive).
 
-!!! note 
+!!! note
 
     `acceptValue()` asserts structural consistency of the value, but does not validate plausibility of the value.
 
@@ -72,8 +72,8 @@ This method is responsible for accepting and converting user input for the Field
 
 The Field Type can specify, that the user may define a default value for the `Field` of the type through settings. If no default value is provided, the Field Type is asked for an "empty value" as the final fallback. The value chain for filling a specific Field of the Field Type is therefore like this:
 
-1. Is a value provided by the filling user? 
-2. If not, is a default value provided by the`FieldDefinition`? 
+1. Is a value provided by the filling user?
+2. If not, is a default value provided by the`FieldDefinition`?
 3. If not, take the empty value provided by the `FieldType`
 
 `validate()`
@@ -82,7 +82,7 @@ In contrast to `acceptValue()` this method validates the plausibility of the giv
 
 ## Storage conversion
 
-As said above, the value format of a Field Type is free form. However, in order to make eZ Platform store the value in its database, it must comply to certain rules at storage time. To not restrict the value itself, a `FieldValue` must be converted to the storage specific format used by the Persistence SPI: `eZ\Publish\SPI\Persistence\Content\FieldValue`. After restoring a Field of Field Type, the conversion must be undone. 
+As said above, the value format of a Field Type is free form. However, in order to make eZ Platform store the value in its database, it must comply to certain rules at storage time. To not restrict the value itself, a `FieldValue` must be converted to the storage specific format used by the Persistence SPI: `eZ\Publish\SPI\Persistence\Content\FieldValue`. After restoring a Field of Field Type, the conversion must be undone.
 
 The following methods of the Field Type are responsible for that:
 

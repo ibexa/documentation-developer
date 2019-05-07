@@ -54,16 +54,16 @@ First create a new file for layout configuration, `app/config/layouts.yml`:
 ez_systems_landing_page_field_type:
     layouts:
         sidebar:
-            identifier: 'sidebar'
-            name: 'Right sidebar'
-            description: 'Main section with sidebar on the right'
-            thumbnail: '/assets/images/layouts/sidebar.png'
-            template: 'layouts/sidebar.html.twig'
+            identifier: sidebar
+            name: Right sidebar
+            description: Main section with sidebar on the right
+            thumbnail: /assets/images/layouts/sidebar.png
+            template: layouts/sidebar.html.twig
             zones:
                 first:
-                    name: 'First zone'
+                    name: First zone
                 second:
-                    name: 'Second zone'
+                    name: Second zone
 ```
 
 Creating the file is not enough, you also need to tell the app to read and use it.
@@ -175,9 +175,9 @@ Edit the `app/config/views.yml` file and add the following code under the `full
 
 ``` yaml
 landing_page:
-    template: 'full/landing_page.html.twig'
+    template: full/landing_page.html.twig
     match:
-        Identifier\ContentType: 'landing_page'
+        Identifier\ContentType: landing_page
 ```
 
 After adding this template you can check the new Landing Page.

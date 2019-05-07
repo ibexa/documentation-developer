@@ -45,7 +45,7 @@ fos_http_cache:
             # Make sure cacheable (fresh) responses from eZ Platform which are errors/redirects get lower TTL than default_ttl
             -
                 match:
-                    match_response: "response.isFresh() && ( response.isServerError() || response.isClientError() || response.isRedirect() )"
+                    match_response: 'response.isFresh() && ( response.isServerError() || response.isClientError() || response.isRedirect() )'
                 headers:
                     overwrite: true
                     cache_control:
@@ -63,7 +63,7 @@ fos_http_cache:
             # Should not be set too high, as cached 404s can cause issues for future routes, URL aliases, wildcards, etc.
             -
                 match:
-                    match_response: "!response.isFresh() && response.isNotFound()"
+                    match_response: '!response.isFresh() && response.isNotFound()'
                 headers:
                     overwrite: true
                     cache_control:
@@ -234,7 +234,7 @@ ezpublish:
     system:
         my_siteacess:
             http_cache:
-                purge_servers: ["http://varnish.server1", "http://varnish.server2", "http://varnish.server3"]
+                purge_servers: ['http://varnish.server1', 'http://varnish.server2', 'http://varnish.server3']
 ```
 
 For further information on setting up Varnish, see [Using Varnish](#using-varnish).

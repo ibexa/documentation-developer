@@ -1404,7 +1404,7 @@ Example use:
 ezpublish:
     system:
         site_group:
-            api_keys: { google_maps: "MY_KEY" }
+            api_keys: { google_maps: MY_KEY }
 ```
 
 ## Media Field Type
@@ -1565,15 +1565,15 @@ services:
     ezpublish.fieldType.ezpaex:
         class: %ezpublish.fieldType.eznull.class%
         parent: ezpublish.fieldType
-        arguments: [ "ezpaex" ]
+        arguments: [ezpaex]
         tags:
             - {name: ezpublish.fieldType, alias: ezpaex}
     ezpublish.fieldType.ezcomcomments.converter:
-        class: "%ezpublish.fieldType.eznull.converter.class%"
+        class: '%ezpublish.fieldType.eznull.converter.class%'
         tags:
             - {name: ezpublish.storageEngine.legacy.converter, alias: ezcomcomments}
     ezpublish.fieldType.ezpaex.converter:
-        class: "%ezpublish.fieldType.eznull.converter.class%"
+        class: '%ezpublish.fieldType.eznull.converter.class%'
         tags:
             - {name: ezpublish.storageEngine.legacy.converter, alias: ezpaex}
 ```

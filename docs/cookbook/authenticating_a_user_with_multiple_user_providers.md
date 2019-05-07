@@ -44,7 +44,7 @@ security:
                     # You will then be able to login with username "user" and password "userpass"
                     user:  { password: userpass, roles: [ 'ROLE_USER' ] }
     # The "in memory" provider requires an encoder for Symfony\Component\Security\Core\User\User
- encoders:
+    encoders:
         Symfony\Component\Security\Core\User\User: plaintext
 ```
 
@@ -59,7 +59,7 @@ parameters:
 services:
     acme_example.interactive_event_listener:
         class: %acme_example.interactive_event_listener.class%
-        arguments: [@ezpublish.api.service.user]
+        arguments: ['@ezpublish.api.service.user']
         tags:
             - { name: kernel.event_subscriber } 
 ```

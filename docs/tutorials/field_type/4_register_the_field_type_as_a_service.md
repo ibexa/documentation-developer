@@ -34,7 +34,7 @@ A service can be assigned one or several tags, with specific parameters. When th
 
 Now you can create a YAML file dedicated to the bundle: `Resources/config/fieldtypes.yml`
 
-``` php
+``` yaml
 services:
     ezsystems.tweetbundle.fieldtype.eztweet:
         parent: ezpublish.fieldType

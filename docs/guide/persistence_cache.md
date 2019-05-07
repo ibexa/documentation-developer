@@ -87,7 +87,7 @@ ezpublish:
         # "site_group" refers to the group configured in site access
         site_group:
             # "default" refers to the cache pool, the one configured on stash.caches above
-            cache_pool_name: "default"
+            cache_pool_name: default
 ```
 
 !!! note "One cache pool for each Repository"
@@ -306,7 +306,7 @@ stash:
 
 ## Using Cache Service
 
-Using the internal cache service allows you to use an interface and without caring whether the system is configured to place the cache in Memcached or on File system. 
+Using the internal cache service allows you to use an interface and without caring whether the system is configured to place the cache in Memcached or on File system.
 And as eZ Platform requires that instances use a cluster-aware cache in Cluster setup, you can safely assume your cache is shared *(and invalidated)* across all web servers.
 
 !!! caution "Use unique vendor prefix for Cache key"
@@ -327,7 +327,7 @@ In your Symfony services configuration you can simply define that you require th
     myApp.myService:
         class: %myApp.myService.class%
         arguments:
-            - @ezpublish.cache_pool
+            - '@ezpublish.cache_pool'
 ```
 
 The "cache" service is an instance of the following class: `Tedivm\StashBundle\Service\CacheService`
