@@ -123,7 +123,9 @@ for information on how to configure Redis.
 
 Out of the box in `app/config/cache_pool/cache.redis.yml` you'll find a default example that can be used.
 
-For eZ Platform Cloud/Platform.sh: This is automatically configured in `app/config/env/platformsh.php` if you have enabled Redis as `rediscache` Platform.sh service.
+!!! cloud "eZ Platform Cloud"
+
+    For eZ Platform Cloud/Platform.sh: This is automatically configured in `app/config/env/platformsh.php` if you have enabled Redis as `rediscache` Platform.sh service.
 
 For anything else, you can enable it with environment variables detected automatically by `app/config/env/generic.php`.
 For instance, if you set the following environment variables `export CACHE_POOL="cache.redis" CACHE_DSN="secret@example.com:1234/13"`, it will result in config like this:
