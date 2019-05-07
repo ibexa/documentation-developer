@@ -775,7 +775,6 @@ use EzSystems\EzPlatformUser\UserSetting\ValueDefinitionInterface;
 use eZ\Publish\Core\Base\Exceptions\InvalidArgumentException;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Translation\TranslatorInterface;
 use EzSystems\EzPlatformAdminUi\UserSetting as AdminUiUserSettings;
 
 class Unit implements ValueDefinitionInterface, FormMapperInterface
@@ -783,34 +782,23 @@ class Unit implements ValueDefinitionInterface, FormMapperInterface
     public const METRIC_OPTION = 'metric';
     public const IMPERIAL_OPTION = 'imperial';
 
-    /** @var \Symfony\Component\Translation\TranslatorInterface */
-    private $translator;
-
-    /**
-     * @param \Symfony\Component\Translation\TranslatorInterface $translator
-     */
-    public function __construct(TranslatorInterface $translator)
-    {
-        $this->translator = $translator;
-    }
-
     public function getName(): string
     {
-        return $this->getTranslatedName();
+        return 'Unit';
     }
 
     public function getDescription(): string
     {
-        return $this->getTranslatedDescription();
+        return 'Choose between metric and imperial unit systems';
     }
 
     public function getDisplayValue(string $storageValue): string
     {
         switch($storageValue) {
             case self::METRIC_OPTION:
-                return $this->getTranslatedOptionMetric();
+                return 'Metric';
             case self::IMPERIAL_OPTION:
-                return $this->getTranslatedOptionImperial();
+                return 'Imperial';
             default:
                 throw new InvalidArgumentException(
                     '$storageValue',
@@ -827,8 +815,8 @@ class Unit implements ValueDefinitionInterface, FormMapperInterface
     public function mapFieldForm(FormBuilderInterface $formBuilder, AdminUiUserSettings\ValueDefinitionInterface $value): FormBuilderInterface
     {
         $choices = [
-            $this->getTranslatedOptionMetric() => self::METRIC_OPTION,
-            $this->getTranslatedOptionImperial() => self::IMPERIAL_OPTION,
+            'Metric' => self::METRIC_OPTION,
+            'Imperial' => self::IMPERIAL_OPTION,
         ];
 
         return $formBuilder->create(
@@ -837,49 +825,9 @@ class Unit implements ValueDefinitionInterface, FormMapperInterface
             [
                 'multiple' => false,
                 'required' => true,
-                'label' => $this->getTranslatedDescription(),
+                'label' => $this->getDescription(),
                 'choices' => $choices,
             ]
-        );
-    }
-
-    private function getTranslatedName(): string
-    {
-        return $this->translator->trans(
-        /** @Desc("Unit") */
-            'settings.unit.value.title',
-            [],
-            'user_settings'
-        );
-    }
-
-    private function getTranslatedDescription(): string
-    {
-        return $this->translator->trans(
-        /** @Desc("Choose between metric and imperial unit systems") */
-            'settings.unit.value.description',
-            [],
-            'user_settings'
-        );
-    }
-
-    private function getTranslatedOptionMetric(): string
-    {
-        return $this->translator->trans(
-        /** @Desc("metric") */
-            'settings.unit.value.metric',
-            [],
-            'user_settings'
-        );
-    }
-
-    private function getTranslatedOptionImperial(): string
-    {
-        return $this->translator->trans(
-        /** @Desc("imperial") */
-            'settings.unit.value.imperial',
-            [],
-            'user_settings'
         );
     }
 }
@@ -890,11 +838,10 @@ Register the class as a service:
 ``` yaml
 AppBundle\Setting\Unit:
     tags:
-        - { name: ezplatform.admin_ui.user_setting.value, identifier: unit }
+        - { name: ezplatform.admin_ui.user_setting.value, identifier: unit, priority: 50 }
         - { name: ezplatform.admin_ui.user_setting.form_mapper, identifier: unit }
 ```
 
-You also need to provide translations for the `settings.unit.value.title`, `settings.unit.value.description`,
-`settings.unit.value.metric` and `settings.unit.value.imperial` strings in XLIFF files.
+You can order the settings in the User menu by setting their `priority`.
 
-You can access the value of the setting with `ez_user_settings['unit']`.
+The value of the setting is accessible with `ez_user_settings['unit']`.
