@@ -50,7 +50,7 @@ Notes:
 
 **Cache service**
 
-The cache system is exposed as a "cache" service, and can be reused by any other service as described in the [Using Cache service](#using-cache-service) section.
+The underlying cache system is exposed as an `ezpublish.cache_pool` service, and can be reused by any other service as described in the [Using Cache service](#using-cache-service) section.
 
 ### Configuration
 
@@ -68,7 +68,7 @@ ezpublish:
         # "site_group" refers to the group configured in site access
         site_group:
             # cache_pool is set to '%env(CACHE_POOL)%'
-            # env(CACHE_POOL) is set to 'cache.app' (a Symfony service), for more examples see app/config/cache_pool/*
+            # env(CACHE_POOL) is set to 'cache.tagaware.filesystem' (a Symfony service) by default, for more examples see app/config/cache_pool/*
             cache_service_name: '%cache_pool%'
 ```
 
@@ -78,24 +78,40 @@ ezpublish:
 
 #### In-Memory cache configuration
 
-Persistence cache layer caches selected metadata objects in-memory for a short time. It avoids loading repeatedly the same data from e.g. a remote Redis instance, which is very time consuming.
+Persistence cache layer caches selected objects in-memory for a short time.
+It avoids loading repeatedly the same data from e.g. a remote Redis instance, which can take up to 4-5ms per call due to the network latency and Redis instance load.
+The cache is organized in 2 pools, one for metadata which is not updated frequently, and one for content related objects that is only meant as a short-lived burst cache.
+Limit is organized using a [least frequently used (LFU)](https://en.wikipedia.org/wiki/Least_frequently_used) approach.
+It makes sure repeatedly used objects will stay in-memory until expired, and those seldom used will be bulk evicted from cache every time the maximum number of cache items is reached.
+
+This in-memory cache will be purged *(for the current PHP process)* when clearing it using any of the mentioned methods below.
+For other processes, the object will be refreshed when it expires or evicted when it reaches the cache limits.
 
 In-Memory cache is configured globally, and has the following default settings:
 
 ```yml
 parameters:
+    # Config for metadata cache pool, here showing default config
     # ttl: Maximum number of  milliseconds objects are kept in-memory (3000ms = 3s)
     ezpublish.spi.persistence.cache.inmemory.ttl: 3000
     # limit: Maximum number of cache objects to place in-memory, to avoid consuming too much memory
     ezpublish.spi.persistence.cache.inmemory.limit: 100
     # enabled: Is the in-memory cache enabled
     ezpublish.spi.persistence.cache.inmemory.enable: true
+
+    # Config for content cache pool, here showing default config
+    ## WARNING: TTL is on purpose low to avoid getting outdated data in prod! For dev environment, you can safely increase it (e.g. by x3)
+    ezpublish.spi.persistence.cache.inmemory.content.ttl: 300
+    ezpublish.spi.persistence.cache.inmemory.content.limit: 100
+    ezpublish.spi.persistence.cache.inmemory.content.enable: true
 ```
 
 !!! caution "In-Memory cache is per-process"
 
     **TTL and Limit need to have a low value.** Setting limit high will increase memory use.
-    High TTL value also puts you at risk for system acting on stale metadata (e.g. Content Type definitions). 
+    High TTL value also increases exponentially risk for system acting on stale metadata (e.g. Content Type definitions).
+    The only case where it is safe to increase these values is for dev environment with single concurrency on writes.
+    In prod environment you should only consider reducing them if you have heavy concurrency writes.
 
 ### Redis
 
@@ -105,7 +121,14 @@ Redis is used via [Redis pecl extension](https://pecl.php.net/package/redis).
 See [Redis Cache Adapter in Symfony documentation](https://symfony.com/doc/3.4/components/cache/adapters/redis_adapter.html#configure-the-connection)
 for information on how to configure Redis.
 
-Example:
+Out of the box in `app/config/cache_pool/cache.redis.yml` you'll find a default example that can be used.
+
+!!! cloud "eZ Platform Cloud"
+
+    For eZ Platform Cloud/Platform.sh: This is automatically configured in `app/config/env/platformsh.php` if you have enabled Redis as `rediscache` Platform.sh service.
+
+For anything else, you can enable it with environment variables detected automatically by `app/config/env/generic.php`.
+For instance, if you set the following environment variables `export CACHE_POOL="cache.redis" CACHE_DSN="secret@example.com:1234/13"`, it will result in config like this:
 
 ``` yaml
 services:
@@ -117,12 +140,16 @@ services:
             - name: cache.pool
               clearer: cache.app_clearer
               provider: 'redis://secret@example.com:1234/13'
+              # Default CACHE_NAMESPACE value, see app/config/cache_pool/cache.redis.yml for usage with e.g. multi repo.
+              namespace: 'ez'
 ```
+
+See `app/config/default_parameters.yml` and `app/config/cache_pool/cache.redis.yml` for further details on `CACHE_POOL`, `CACHE_DSN` and `CACHE_NAMESPACE`.
 
 !!! caution "Clearing Redis cache"
 
     The regular `php bin/console cache:clear` command does not clear Redis persistence cache.
-    To clear it, use a dedicated Symfony command: `php bin/console cache:pool:clear cache.redis`.
+    Use a dedicated Symfony command to clear the pool you have configured: `php bin/console cache:pool:clear cache.redis`.
 
 ##### Redis Clustering
 
@@ -157,7 +184,14 @@ Platform.sh Professional and lower versions offer Redis in single instance mode 
 See [Memcached Cache Adapter in Symfony documentation](https://symfony.com/doc/3.4/components/cache/adapters/memcached_adapter.html#configure-the-connection)
 for information on how to configure Memcached.
 
-Example:
+Out of the box in `app/config/cache_pool/cache.memcached.yml` you'll find a default example that can be used.
+
+!!! cloud "eZ Platform Cloud"
+
+    For eZ Platform Cloud/Platform.sh: This is automatically configured in `app/config/env/platformsh.php` if you have enabled Memcached as `cache` Platform.sh service.
+
+For anything else, you can enable it with environment variables detected automatically by `app/config/env/generic.php`.
+For instance, if you set the following environment variables `export CACHE_POOL="cache.memcached" CACHE_DSN="user:pass@localhost?weight=33"`, it will result in config like this:
 
 ``` yaml
 services:
@@ -167,7 +201,17 @@ services:
             - name: cache.pool
               clearer: cache.app_clearer
               provider: 'memcached://user:pass@localhost?weight=33'
+              # Default CACHE_NAMESPACE value, see app/config/cache_pool/cache.redis.yml for usage with e.g. multi repo.
+              namespace: 'ez'
 ```
+
+See `app/config/default_parameters.yml` and `app/config/cache_pool/cache.memcached.yml` for further details on `CACHE_POOL`, `CACHE_DSN` and `CACHE_NAMESPACE`.
+
+!!! caution "Clearing Memcached cache"
+
+    The regular `php bin/console cache:clear` command does not clear Memcached persistence cache.
+    Use a dedicated Symfony command to clear the pool you have configured: `php bin/console cache:pool:clear cache.memcached`.
+
 
 !!! caution "Connection errors issue"
 
@@ -193,7 +237,7 @@ And as eZ Platform requires that instances use a cluster-aware cache in Cluster 
 
 !!! note
 
-    Current implementation uses a caching library called TagAwareAdapter which implements `Psr\Cache\CacheItemPoolInterface`,
+    Current implementation uses a caching library implementing TagAwareAdapterInterface which extends `Psr\Cache\CacheItemPoolInterface`,
     and therefore is compatible with PSR-6.
 
 !!! caution "Use unique vendor prefix for Cache key"
@@ -201,13 +245,12 @@ And as eZ Platform requires that instances use a cluster-aware cache in Cluster 
     When reusing the cache service within your own code, it is very important to not conflict with the cache keys used by others.
     That is why the example of usage below starts with a unique `myApp` key.
     For the namespace of your own cache, you must do the same.
-    So never clear cache using the cache service without your key specified, otherwise you'll clear all cache.
 
 #### Get Cache service
 
 ##### Via Dependency injection
 
-In your Symfony services configuration you can simply define that you require the "cache" service in your configuration like so:
+In your Symfony services configuration you can simply define that you require the cache service in your configuration like so:
 
 ``` yaml
 # yml configuration
@@ -217,11 +260,11 @@ In your Symfony services configuration you can simply define that you require th
             - @ezpublish.cache_pool
 ```
 
-The "cache" service is an instance of `Symfony\Component\Cache\Adapter\TagAwareAdapter` and implements the `Psr\Cache\CacheItemPoolInterface` interface.
+This service is an instance of `Symfony\Component\Cache\Adapter\TagAwareAdapterInterface`, which extends the `Psr\Cache\CacheItemPoolInterface` interface with tagging functionality.
 
 ##### Via Symfony Container
 
-Like any other service, it is also possible to get the "cache" service via container like so:
+Like any other service, it is also possible to get the cache service via container like so:
 
 ``` php
 // Getting the cache service in PHP
@@ -253,7 +296,7 @@ For more info on usage, see [Symfony Cache's documentation](https://symfony.com/
 
 ### Clearing Persistence cache
 
-Persistence cache uses a separate Cache Pool decorator which by design prefixes cache keys with "ez\_spi". Clearing persistence cache can thus be done in the following way:
+Persistence cache prefixes it's cache using "ez-". Clearing persistence cache can thus be done in the following ways:
 
 ``` php
 // To clear all cache (not recommended without a good reason)
