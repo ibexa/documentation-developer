@@ -15,34 +15,34 @@
     ezplatform_page_fieldtype:
         blocks:
             example_block:
-                name: 'Example Block'
-                thumbnail: 'assets/images/blocks/exampleblock.svg'
+                name: Example Block
+                thumbnail: assets/images/blocks/exampleblock.svg
                 views:
                     default:
-                        template: 'blocks/template.html.twig'
-                        name: 'Default view'
+                        template: blocks/template.html.twig
+                        name: Default view
                         priority: -255
                     special:
-                        template: 'blocks/special_template.html.twig'
-                        name: 'Special view'
+                        template: blocks/special_template.html.twig
+                        name: Special view
                         priority: 50
                 attributes:
                     name:
                         type: text
                         validators:
                             not_blank:
-                                message: 'Please provide a name'
+                                message: Please provide a name
                     email:
                         type: string
-                        name: 'E-mail address'
+                        name: E-mail address
                         validators:
                             regexp:
                                 options:
                                     pattern: '/^\S+@\S+\.\S+$/'
-                                message: 'Provide a valid e-mail address'
+                                message: Provide a valid e-mail address
                     topics:
                         type: select
-                        name: 'Select topics'
+                        name: Select topics
                         value: value2
                         options:
                             multiple: true
@@ -106,45 +106,45 @@
             # ...
             visible: false
         ```
-    
+
     #### Custom block attributes
-    
+
     You can create Page blocks with custom attributes.
-    
+
     First, define the attribute type.
     You can use one of the types available in `ezplatform-page-fieldtype/src/lib/Form/Type/BlockAttribute/*`.
-    
+
     You can also use one of the [built-in Symfony types](https://symfony.com/doc/current/forms.html#built-in-field-types), e.g. `AbstractType` for any custom type or `IntegerType` for numeric types.
-    
+
     To define the type, create a file `src/AppBundle/Block/Attribute/MyStringAttributeType.php` that contains:
-    
+
     ``` php hl_lines="5 6 15"
     <?php declare(strict_types=1);
-    
+
     namespace AppBundle\Block\Attribute;
-    
+
     use Symfony\Component\Form\AbstractType;
     use Symfony\Component\Form\Extension\Core\Type\TextType;
-    
+
     class MyStringAttributeType extends AbstractType
     {
         public function getParent()
         {
             return TextType::class;
         }
-    
+
         public function getBlockPrefix()
         {
             return 'my_string_attribute';
         }
     }
     ```
-    
+
     Note that the attribute uses `AbstractType` (line 5) and `TextType` (line 6).
     Adding `getBlockPrefix` (line 15) returns a unique prefix key for a custom template of the attribute.
-    
+
     Next, configure a template by creating a `src/AppBundle/Resources/views/custom_form_templates.html.twig` file:
-    
+
     ``` html+twig
     {% block my_string_attribute_widget %}
         <div style='background: red'>
@@ -152,24 +152,24 @@
             {{ form_widget(form) }}
         </div>
     {% endblock %}
-    
+
     {# more templates here #}
     ```
-    
+
     Add the template to `Resources/config/ez_field_templates.yml`:
-    
+
     ``` yaml
     system:
         default:
             field_templates:
-                - { template: 'AppBundle:ezform_field.html.twig', priority: 0 }
+                - { template: AppBundle:ezform_field.html.twig, priority: 0 }
     ```
-    
+
     At this point, the attribute type configuration is complete, but it requires a mapper.
     Depending on the complexity of the type, you can use a `GenericFormTypeMapper` or create your own.
-    
+
     For a generic mapper, register it as a service by adding:
-    
+
     ``` yaml
      my_application.block.attribute.my_string:
             class: EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Attribute\FormTypeMapper\GenericFormTypeMapper
@@ -178,19 +178,19 @@
             tags:
                 - { name: ezplatform.page_builder.attribute_form_type_mapper, alias: my_string }
     ```
-    
+
     For creating your own mapper, create a class that inherits from `EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Attribute\FormTypeMapper\AttributeFormTypeMapperInterface`.
     Then, register the class along with a tag by creating a `src/AppBundle/Block/Attribute/MyStringAttributeMapper.php` file:
-    
+
     ``` php
     <?php declare(strict_types=1);
-    
+
     namespace AppBundle\Block\Attribute;
-    
+
     use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Definition\BlockAttributeDefinition;
     use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Definition\BlockDefinition;
     use Symfony\Component\Form\FormBuilderInterface;
-    
+
     class MyStringAttributeMapper implements AttributeFormTypeMapperInterface
     {
         /**
@@ -218,31 +218,31 @@
         }
     }
     ```
-    
+
     The final step is to register your mapper as a service:
-    
+
     ``` yaml
     AppBundle\Block\Attribute\MyStringAttributeMapper:
             tags:
                 - { name: ezplatform.page_builder.attribute_form_type_mapper, alias: my_string }
     ```
-    
+
     Now, create a block containing your custom attribute:
-    
+
     ``` yaml hl_lines="9 10 11 12"
     ezplatform_page_fieldtype:
         blocks:
             my_block:
                 name: MyBlock
                 category: default
-                thumbnail: 'bundles/appbundle/images/thumbnails/my_block.svg'
+                thumbnail: bundles/appbundle/images/thumbnails/my_block.svg
                 views:
-                    default: { name: 'Default block layout', template: 'AppBundle:my_block.html.twig', priority: -255 }
+                    default: { name: Default block layout, template: AppBundle:my_block.html.twig, priority: -255 }
                 attributes:
                     my_string_attribute:
-                        type: 'my_string'
+                        type: my_string
                         name: MyString
-    
+
     ```
 
     #### Overwriting existing blocks
@@ -276,8 +276,8 @@
     ezplatform_page_fieldtype:
         blocks:
             example_block:
-                name: 'Example Block'
-                configuration_template: 'blocks/config/template.html.twig'
+                name: Example Block
+                configuration_template: blocks/config/template.html.twig
                 # ...
     ```
 

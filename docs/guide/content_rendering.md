@@ -191,7 +191,7 @@ services:
     acme.my_view_provider:
         class: Acme\DemoBundle\Content\MyViewProvider
         tags:
-            - {name: ezpublish.view_provider, type: 'eZ\Publish\Core\MVC\Symfony\View\ContentView', priority: 30}
+            - {name: ezpublish.view_provider, type: eZ\Publish\Core\MVC\Symfony\View\ContentView, priority: 30}
 ```
 
 `type` should point to a class implementing the `View\View` interface. It determines which type of View will be handled by the `ViewProvider`. Out of the box it's either `eZ\Publish\Core\MVC\Symfony\View\ContentView` or `eZ\Publish\Core\MVC\Symfony\View\BlockView`.

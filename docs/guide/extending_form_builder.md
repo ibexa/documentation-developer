@@ -21,19 +21,19 @@
     ez_platform_form_builder:
         fields:
             country:
-                name: 'Country'
-                category: 'Default'
-                thumbnail: '/bundles/ezplatformadminui/img/ez-icons.svg#input-line'
+                name: Country
+                category: Default
+                thumbnail: `/bundles/ezplatformadminui/img/ez-icons.svg#input-line`
                 attributes:
                     label:
-                        name: 'Display label'
-                        type: 'string'
+                        name: Display label
+                        type: string
                         validators:
                             not_blank:
-                                message: 'You must provide label of the field'
+                                message: You must provide label of the field
                     help:
-                        name: 'Help text'
-                        type: 'string'
+                        name: Help text
+                        type: string
                 validators:
                     required: ~
     ```
@@ -98,8 +98,8 @@
         # ...
         AppBundle\FormBuilder\Field\Mapper\CountryFieldMapper:
             arguments:
-                $fieldIdentifier: 'country'
-                $formType: 'Symfony\Component\Form\Extension\Core\Type\CountryType'
+                $fieldIdentifier: country
+                $formType: Symfony\Component\Form\Extension\Core\Type\CountryType
             tags:
                 - { name: ezplatform.form_builder.field_mapper }
     ```
@@ -159,12 +159,12 @@
     ## Accessing Form field definitions
 
     Field definitions are accessible through:
-    
+
     - `\EzSystems\EzPlatformFormBuilder\Definition\FieldDefinitionFactory` in the back end
     - global variable `eZ.formBuilder.config.fieldsConfig` in the front end
-    
+
     ## Configure email notifications
-    
+
     To send emails you need to configure `sender_address` in `app/config/config.yml` under `swiftmailer` key.
     It acts as a sender address and a return address where all bounced messages will be returned to.
     You can learn more by visiting [Symfony Mailer Configuration Reference.](https://symfony.com/doc/3.4/reference/configuration/swiftmailer.html#sender-address)
