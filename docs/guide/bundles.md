@@ -123,6 +123,11 @@ module.exports = (eZConfig, eZConfigManager) => {
 
 !!! tip
 
+	If you do not know what `entryName` to use, you can check the dev tools for files that are loaded on the given page.
+	Use the file name as `entryName`.
+
+!!! tip
+
     After adding new files, run `php bin/console cache:clear`.
 
 	For a full example of overriding configuration,
