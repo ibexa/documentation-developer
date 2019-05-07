@@ -189,6 +189,27 @@ body {
     background-color: #fcded2;
 }
 
+.admonition.cloud .admonition-title:before {
+    content: "";
+}
+
+.admonition.cloud .admonition-title {
+    padding-left: 1.2rem;
+}
+
+.admonition.cloud .admonition>.admonition-title {
+    padding-left: 3.8rem;
+}
+
+.admonition.cloud {
+    border-left-color: #51B6A4;
+    background-color: #ffffff;
+}
+
+.admonition.cloud>.admonition-title {
+    background-color: #b9e8df;
+}
+
 .md-typeset .admonition.caution {
     border-left-color: #f46485;
 }
