@@ -602,3 +602,95 @@ appbundle.components.my_script_component:
     tags:
         - { name: ezplatform.admin_ui.component, group: script-body }
 ```
+
+## User settings
+
+You can add new preferences to the User settings menu in the Back Office.
+
+To do so, create a setting class implementing two interfaces:
+`ValueDefinitionInterface` and `FormMapperInterface`.
+
+In this example the class is located in `AppBundle/Setting/Unit.php`
+and enables the user to select their preference for metric or imperial unit systems.
+
+``` php
+<?php
+declare(strict_types=1);
+
+namespace AppBundle\Setting;
+
+use EzSystems\EzPlatformUser\UserSetting\FormMapperInterface;
+use EzSystems\EzPlatformUser\UserSetting\ValueDefinitionInterface;
+use eZ\Publish\Core\Base\Exceptions\InvalidArgumentException;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\FormBuilderInterface;
+use EzSystems\EzPlatformAdminUi\UserSetting as AdminUiUserSettings;
+
+class Unit implements ValueDefinitionInterface, FormMapperInterface
+{
+    public const METRIC_OPTION = 'metric';
+    public const IMPERIAL_OPTION = 'imperial';
+
+    public function getName(): string
+    {
+        return 'Unit';
+    }
+
+    public function getDescription(): string
+    {
+        return 'Choose between metric and imperial unit systems';
+    }
+
+    public function getDisplayValue(string $storageValue): string
+    {
+        switch($storageValue) {
+            case self::METRIC_OPTION:
+                return 'Metric';
+            case self::IMPERIAL_OPTION:
+                return 'Imperial';
+            default:
+                throw new InvalidArgumentException(
+                    '$storageValue',
+                    sprintf('There is no \'%s\' option', $storageValue)
+                );
+        }
+    }
+
+    public function getDefaultValue(): string
+    {
+        return 'metric';
+    }
+
+    public function mapFieldForm(FormBuilderInterface $formBuilder, AdminUiUserSettings\ValueDefinitionInterface $value): FormBuilderInterface
+    {
+        $choices = [
+            'Metric' => self::METRIC_OPTION,
+            'Imperial' => self::IMPERIAL_OPTION,
+        ];
+
+        return $formBuilder->create(
+            'value',
+            ChoiceType::class,
+            [
+                'multiple' => false,
+                'required' => true,
+                'label' => $this->getDescription(),
+                'choices' => $choices,
+            ]
+        );
+    }
+}
+```
+
+Register the class as a service:
+
+``` yaml
+AppBundle\Setting\Unit:
+    tags:
+        - { name: ezplatform.admin_ui.user_setting.value, identifier: unit, priority: 50 }
+        - { name: ezplatform.admin_ui.user_setting.form_mapper, identifier: unit }
+```
+
+You can order the settings in the User menu by setting their `priority`.
+
+The value of the setting is accessible with `ez_user_settings['unit']`.
