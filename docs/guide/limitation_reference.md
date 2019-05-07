@@ -1,6 +1,6 @@
 # Limitation reference
 
-## BlockingLimitation
+## Blocking Limitation
 
 A generic Limitation type to use when no other Limitation has been implemented.
 Without any Limitation assigned, a `LimitationNotFoundException` is thrown.
@@ -36,7 +36,44 @@ Out of the box FunctionList uses it in the following way:
             - {name: ezpublish.limitationType, alias: FunctionList}
 ```
 
-## ContentTypeLimitation
+## Content Type Group Limitation
+
+A Limitation to specify that only Users with at least one common *direct* User Group with the owner of content get the selected access right.
+
+|                 |                                                                                                |
+|-----------------|------------------------------------------------------------------------------------------------|
+| Identifier      | `Group`                                                                                        |
+| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\UserGroupLimitation`                         |
+| Type Class      | `eZ\Publish\Core\Limitation\UserGroupLimitationType`                                           |
+| Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\UserMetadata( UserMetadata::GROUP )` |
+| Role Limitation | no                                                                                             |
+
+### Possible values
+
+|Value|UI value|Description|
+|------|------|------|
+|`1`|"self"|Only a User who has at least one common *direct* User Group with the owner gets access|
+
+
+## Content Type Group of Parent Limitation
+
+A Limitation to specify that only Users with at least one common *direct* User Group with the owner of the parent Location of a Content item get a certain access right, used by `content/create` permission.
+
+|                 |                                                                              |
+|-----------------|------------------------------------------------------------------------------|
+| Identifier      | `Content Type Group of Parent`                                                                |
+| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\ParentUserGroupLimitation` |
+| Type Class      | `eZ\Publish\Core\Limitation\ParentUserGroupLimitationType`                   |
+| Criterion used  | n/a                                                                          |
+| Role Limitation | no                                                                           |
+
+### Possible values
+
+|Value|UI value|Description|
+|------|------|------|
+|`1`|"self"|Only a User who has at least one common *direct* User Group with owner of the parent Location gets access|
+
+## Content Type Limitation
 
 A Limitation to specify if the User has access to content with a specific Content Type.
 
@@ -54,120 +91,8 @@ A Limitation to specify if the User has access to content with a specific Conten
 |------|------|------|
 |`<ContentType_id>`|`<ContentType_name>`|All valid ContentType IDs can be set as value(s)|
 
-## LanguageLimitation
 
-A Limitation to specify if the User has access to content in a specific language.
-
-|                 |                                                                         |
-|-----------------|-------------------------------------------------------------------------|
-| Identifier      | `Language`                                                              |
-| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\LanguageLimitation`   |
-| Type Class      | `eZ\Publish\Core\Limitation\LanguageLimitationType`                     |
-| Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\LanguageCode` |
-| Role Limitation | no                                                                      |
-
-### Possible values
-
-|Value|UI value|Description|
-|------|------|------|
-|`<Language_code>`|`<LanguageCode_name>`|All valid language codes can be set as value(s)|
-
-## LocationLimitation
-
-A Limitation to specify if the User has access to content with a specific Location, in case of `content/create` the parent Location is evaluated.
-
-|                 |                                                                       |
-|-----------------|-----------------------------------------------------------------------|
-| Identifier      | `Location`                                                                |
-| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\LocationLimitation` |
-| Type Class      | `eZ\Publish\Core\Limitation\LocationLimitationType`                   |
-| Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\LocationId` |
-| Role Limitation | no                                                                    |
-
-### Possible values
-
-|Value|UI value|Description|
-|------|------|------|
-|`<Location_id>`|`<Location_name>`|All valid Location IDs can be set as value(s)|
-
-## NewObjectStateLimitation
-
-A Limitation to specify if the User has access to (assigning) a given `ObjectState` to content.
-
-In the `state/assign` Policy you can combine this with `ObjectStateLimitation` to limit both from and to values.
-
-|                 |                                                                             |
-|-----------------|-----------------------------------------------------------------------------|
-| Identifier      | `NewState`                                                                  |
-| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\NewObjectStateLimitation` |
-| Type Class      | `eZ\Publish\Core\Limitation\NewObjectStateLimitationType`                   |
-| Criterion used  | n/a                                                                         |
-| Role Limitation | no                                                                          |
-
-### Possible values
-
-|Value|UI value|Description|
-|------|------|------|
-|`<State_id>`|`<State_name>`|All valid state IDs can be set as value(s)|
-
-## NewSectionLimitation
-
-A Limitation to specify if the User has access to (assigning) a given Section (to content).
-
-In the `section/assign` Policy you can combine this with `Section` Limitation to limit both from and to values.
-
-|                 |                                                                         |
-|-----------------|-------------------------------------------------------------------------|
-| Identifier      | `NewSection`                                                            |
-| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\NewSectionLimitation` |
-| Type Class      | `eZ\Publish\Core\Limitation\NewSectionLimitationType`                   |
-| Criterion used  | n/a                                                                     |
-| Role Limitation | no                                                                      |
-
-### Possible values
-
-|Value|UI value|Description|
-|------|------|------|
-|`<Session_id>`|`<Session_name>`|All valid session IDs can be set as value(s)|
-
-## ObjectStateLimitation
-
-A Limitation to specify if the User has access to content with a specific ObjectState.
-
-|                 |                                                                          |
-|-----------------|--------------------------------------------------------------------------|
-| Identifier      | `State`                                                                  |
-| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\ObjectStateLimitation` |
-| Type Class      | `eZ\Publish\Core\Limitation\ObjectStateLimitationType`                   |
-| Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\ObjectStateId` |
-| Role Limitation | no                                                                       |
-
-### Possible values
-
-|Value|UI value|Description|
-|------|------|------|
-|`<ObjectState_id>`|`<ObjectState_name>`|All valid ObjectState IDs can be set as value(s)|
-
-## OwnerLimitation
-
-A Limitation to specify that only the owner of the Content item gets the selected access right.
-
-|                 |                                                                                                |
-|-----------------|------------------------------------------------------------------------------------------------|
-| Identifier      | `Owner`                                                                                        |
-| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\OwnerLimitation`                             |
-| Type Class      | `eZ\Publish\Core\Limitation\OwnerLimitationType`                                               |
-| Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\UserMetadata( UserMetadata::OWNER )` |
-| Role Limitation | no                                                                                             |
-
-### Possible values
-
-|Value|UI value|Description|
-|------|------|------|
-|`1`|"self"|Only the User who is the owner gets access|
-|`2`|"session"|Deprecated and works exactly like "self" in Public API since it has no knowledge of user Sessions|
-
-## ParentContentTypeLimitation
+## Content Type of Parent Limitation
 
 A Limitation to specify if the User has access to content whose parent Location contains a specific Content Type, used by `content/create`.
 
@@ -187,23 +112,118 @@ This Limitation combined with `ContentType` Limitation allows you to define busi
 |------|------|------|
 |`<ContentType_id>`|`<ContentType_name>`|All valid Content Type IDs can be set as value(s)|
 
-## Parent Depth Limitation
+## Language Limitation
 
-A Limitation to specify if the User has access to creating content under a parent Location within a specific depth of the tree, used for `content/create` permission.
+A Limitation to specify if the User has access to content in a specific language.
+
+|                 |                                                                         |
+|-----------------|-------------------------------------------------------------------------|
+| Identifier      | `Language`                                                              |
+| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\LanguageLimitation`   |
+| Type Class      | `eZ\Publish\Core\Limitation\LanguageLimitationType`                     |
+| Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\LanguageCode` |
+| Role Limitation | no                                                                      |
+
+### Possible values
+
+|Value|UI value|Description|
+|------|------|------|
+|`<Language_code>`|`<LanguageCode_name>`|All valid language codes can be set as value(s)|
+
+## Location Limitation
+
+A Limitation to specify if the User has access to content with a specific Location, in case of `content/create` the parent Location is evaluated.
+
+|                 |                                                                       |
+|-----------------|-----------------------------------------------------------------------|
+| Identifier      | `Location`                                                                |
+| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\LocationLimitation` |
+| Type Class      | `eZ\Publish\Core\Limitation\LocationLimitationType`                   |
+| Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\LocationId` |
+| Role Limitation | no                                                                    |
+
+### Possible values
+
+|Value|UI value|Description|
+|------|------|------|
+|`<Location_id>`|`<Location_name>`|All valid Location IDs can be set as value(s)|
+
+## New Section Limitation
+
+A Limitation to specify if the User has access to (assigning) a given Section (to content).
+
+In the `section/assign` Policy you can combine this with Section Limitation to limit both from and to values.
+
+|                 |                                                                         |
+|-----------------|-------------------------------------------------------------------------|
+| Identifier      | `NewSection`                                                            |
+| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\NewSectionLimitation` |
+| Type Class      | `eZ\Publish\Core\Limitation\NewSectionLimitationType`                   |
+| Criterion used  | n/a                                                                     |
+| Role Limitation | no                                                                      |
+
+### Possible values
+
+|Value|UI value|Description|
+|------|------|------|
+|`<Session_id>`|`<Session_name>`|All valid session IDs can be set as value(s)|
+
+## New State Limitation
+
+A Limitation to specify if the User has access to (assigning) a given Object state to content.
+
+In the `state/assign` Policy you can combine this with State Limitation to limit both from and to values.
+
+|                 |                                                                             |
+|-----------------|-----------------------------------------------------------------------------|
+| Identifier      | `NewState`                                                                  |
+| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\NewObjectStateLimitation` |
+| Type Class      | `eZ\Publish\Core\Limitation\NewObjectStateLimitationType`                   |
+| Criterion used  | n/a                                                                         |
+| Role Limitation | no                                                                          |
+
+### Possible values
+
+|Value|UI value|Description|
+|------|------|------|
+|`<State_id>`|`<State_name>`|All valid state IDs can be set as value(s)|
+
+## State Limitation
+
+A Limitation to specify if the User has access to content with a specific Object state.
 
 |                 |                                                                          |
 |-----------------|--------------------------------------------------------------------------|
-| Identifier      | `Parent Depth`                                                            |
-| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\ParentDepthLimitation` |
-| Type Class      | `eZ\Publish\Core\Limitation\ParentDepthLimitationType`                   |
-| Criterion used  | n/a                                                                      |
+| Identifier      | `State`                                                                  |
+| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\ObjectStateLimitation` |
+| Type Class      | `eZ\Publish\Core\Limitation\ObjectStateLimitationType`                   |
+| Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\ObjectStateId` |
 | Role Limitation | no                                                                       |
 
 ### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
-|`<int>`|`<int>`|All valid integers can be set as value(s)|
+|`<ObjectState_id>`|`<ObjectState_name>`|All valid Object state IDs can be set as value(s)|
+
+## Owner Limitation
+
+A Limitation to specify that only the owner of the Content item gets the selected access right.
+
+|                 |                                                                                                |
+|-----------------|------------------------------------------------------------------------------------------------|
+| Identifier      | `Owner`                                                                                        |
+| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\OwnerLimitation`                             |
+| Type Class      | `eZ\Publish\Core\Limitation\OwnerLimitationType`                                               |
+| Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\UserMetadata( UserMetadata::OWNER )` |
+| Role Limitation | no                                                                                             |
+
+### Possible values
+
+|Value|UI value|Description|
+|------|------|------|
+|`1`|"self"|Only the User who is the owner gets access|
+|`2`|"session"|Deprecated and works exactly like "self" in Public API since it has no knowledge of user Sessions|
 
 ## Owner of Parent Limitation
 
@@ -224,25 +244,25 @@ A Limitation to specify that only the Users who own all parent Locations of a Co
 |`1`|"self"|Only the User who is the owner of all parent Locations gets access|
 |`2`|"session"|Deprecated and works exactly like "self" in Public API since it has no knowledge of user Sessions|
 
-## ParentUserGroupLimitation
+## Parent Depth Limitation
 
-A Limitation to specify that only Users with at least one common *direct* User Group with the owner of the parent Location of a Content item get a certain access right, used by `content/create` permission.
+A Limitation to specify if the User has access to creating content under a parent Location within a specific depth of the tree, used for `content/create` permission.
 
-|                 |                                                                              |
-|-----------------|------------------------------------------------------------------------------|
-| Identifier      | `Content Type Group of Parent`                                                                |
-| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\ParentUserGroupLimitation` |
-| Type Class      | `eZ\Publish\Core\Limitation\ParentUserGroupLimitationType`                   |
-| Criterion used  | n/a                                                                          |
-| Role Limitation | no                                                                           |
+|                 |                                                                          |
+|-----------------|--------------------------------------------------------------------------|
+| Identifier      | `Parent Depth`                                                            |
+| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\ParentDepthLimitation` |
+| Type Class      | `eZ\Publish\Core\Limitation\ParentDepthLimitationType`                   |
+| Criterion used  | n/a                                                                      |
+| Role Limitation | no                                                                       |
 
 ### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
-|`1`|"self"|Only a User who has at least one common *direct* User Group with owner of the parent Location gets access|
+|`<int>`|`<int>`|All valid integers can be set as value(s)|
 
-## SectionLimitation
+## Section Limitation
 
 A Limitation to specify if the User has access to content within a specific Section.
 
@@ -260,7 +280,7 @@ A Limitation to specify if the User has access to content within a specific Sect
 |------|------|------|
 |`<Session_id>`|`<Session_name>`|All valid session IDs can be set as value(s)|
 
-## SiteAccessLimitation
+## SiteAccess Limitation
 
 A Limitation to specify to which SiteAccesses a certain permission applies, used by `user/login`.
 
@@ -300,25 +320,7 @@ A Limitation to specify if the User has access to content within a specific Subt
 |------|------|------|
 |`<Location_pathString>`|`<Location_name>`|All valid location `pathStrings` can be set as value(s)|
 
-## UserGroupLimitation
-
-A Limitation to specify that only Users with at least one common *direct* User Group with the owner of content get the selected access right.
-
-|                 |                                                                                                |
-|-----------------|------------------------------------------------------------------------------------------------|
-| Identifier      | `Group`                                                                                        |
-| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\UserGroupLimitation`                         |
-| Type Class      | `eZ\Publish\Core\Limitation\UserGroupLimitationType`                                           |
-| Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\UserMetadata( UserMetadata::GROUP )` |
-| Role Limitation | no                                                                                             |
-
-### Possible values
-
-|Value|UI value|Description|
-|------|------|------|
-|`1`|"self"|Only a User who has at least one common *direct* User Group with the owner gets access|
-
-## WorkflowStageLimitation
+## Workflow Stage Limitation
 
 A Limitation to specify if the User can edit content in a specific workflow stage.
 
@@ -333,7 +335,7 @@ A Limitation to specify if the User can edit content in a specific workflow stag
 
 The Limitation takes as values stages configured for the workflow.
 
-## WorkflowTransitionLimitation
+## Workflow Transition Limitation
 
 A Limitation to specify if the User can move the content in a workflow through a specific transition.
 
@@ -344,6 +346,6 @@ A Limitation to specify if the User can move the content in a workflow through a
 | Type Class      | `Core\Security\Limitation\WorkflowTransitionLimitationType.php`                                |
 | Role Limitation | no |
 
-#### Possible values
+### Possible values
 
 The Limitation takes as values transitions between stages configured for the workflow.
