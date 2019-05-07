@@ -25,7 +25,7 @@ ezpublish:
             # existing content_view keys
             user_registration:
                 templates:
-                    form: 'user/registration_form.html.twig'
+                    form: user/registration_form.html.twig
 ```
 
 This indicates which template will be used to render the registration form.

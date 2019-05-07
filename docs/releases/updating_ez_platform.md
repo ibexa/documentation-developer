@@ -341,7 +341,7 @@ Some versions require updates to the database. Look through [the list of databas
     ##### Page builder
 
     !!! enterprise
-        
+
         To update to v2.2, you need to run a script to add database tables for the Page Builder.
         You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/2.2/Resources/sql/schema.sql#L58
 
@@ -411,7 +411,7 @@ Some versions require updates to the database. Look through [the list of databas
 
     ``` yaml
     tags:
-        - { name: 'ezplatform.fieldtype.ezlandingpage.migration.attribute.converter', block_type: 'my_block_type_identifier' }
+        - { name: ezplatform.fieldtype.ezlandingpage.migration.attribute.converter, block_type: my_block_type_identifier }
     ```
 
     Custom converters must implement the `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\ConverterInterface` interface.
@@ -436,26 +436,26 @@ Some versions require updates to the database. Look through [the list of databas
     ```
 
     ##### Form builder
-    
+
     !!! enterprise
 
         To create the "Forms" container under the content tree root use the following command:
-    
+
         ``` bash
         php bin/console ezplatform:form-builder:create-forms-container
         ```
-    
+
         You can also specify Content Type, Field values and language code of the container, e.g.:
-    
+
         ``` bash
         php bin/console ezplatform:form-builder:create-forms-container --content-type custom --field title --value 'My Forms' --field description --value 'Custom container for the forms' --language-code eng-US
         ```
-    
+
         You also need to run a script to add database tables for the Form Builder.
         You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/2.3/Resources/sql/schema.sql#L136
-    
+
         !!! caution "Form (ezform) Field Type"
-    
+
             After the update, in order to create forms, you have to add a new Content Type (e.g. named "Form") that contains `Form` Field (this Content Type can contain other fields
             as well). After that you can use forms inside Landing Pages via Embed block.
 

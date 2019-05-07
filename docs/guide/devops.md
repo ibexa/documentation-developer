@@ -77,7 +77,7 @@ monolog:
         main:
             type: rotating_file
             max_files: 10
-            path: "%kernel.logs_dir%/%kernel.environment%.log"
+            path: %kernel.logs_dir%/%kernel.environment%.log
             level: debug
 ```
 

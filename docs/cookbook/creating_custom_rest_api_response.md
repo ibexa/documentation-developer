@@ -196,15 +196,15 @@ services:
     app.rest.output.generator.json:
         class: AppBundle\Rest\Generator\Json
         arguments:
-            - "@ezpublish_rest.output.generator.json.field_type_hash_generator"
+            - '@ezpublish_rest.output.generator.json.field_type_hash_generator'
         calls:
-            - [ setFormatOutput, [ "%kernel.debug%" ] ]
+            - [ setFormatOutput, [ %kernel.debug% ] ]
 
     app.rest.output.visitor.json:
-        class: "%ezpublish_rest.output.visitor.class%"
+        class: %ezpublish_rest.output.visitor.class%
         arguments:
-            - "@app.rest.output.generator.json"
-            - "@app.rest.output.value_object_visitor.dispatcher"
+            - '@app.rest.output.generator.json'
+            - '@app.rest.output.value_object_visitor.dispatcher'
         tags:
             - { name: ezpublish_rest.output.visitor, regexps: app.rest.output.visitor.json.regexps, priority: 200 }
 
@@ -217,7 +217,7 @@ services:
         class: AppBundle\Rest\ValueObjectVisitor\VersionInfo
         parent: ezpublish_rest.output.value_object_visitor.base
         arguments:
-            - "@ezpublish.api.repository"
+            - '@ezpublish.api.repository'
         tags:
             - { name: app.value_object_visitor, type: eZ\Publish\API\Repository\Values\Content\VersionInfo }
 ```

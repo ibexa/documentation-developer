@@ -145,8 +145,8 @@ For example, the following command removes archived versions as user `admin`, bu
 ezpublish:
     system:
         default:
-            user_content_type_identifier: ['user']
-            user_group_content_type_identifier: ['user_group']
+            user_content_type_identifier: [user]
+            user_group_content_type_identifier: [user_group]
 ```
 
 You can override these settings if you have other Content Types that should be treated as users/user groups in the Back Office.

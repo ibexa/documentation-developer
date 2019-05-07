@@ -13,10 +13,10 @@ To learn how to extend the eZ Platform Back Office follow [Extending Admin UI tu
 ## Custom tags
 
 Custom tags enable you to add more features to the Rich Text editor beyond the built-in ones.
-They are configured under the `ezrichtext` key. 
+They are configured under the `ezrichtext` key.
 
 If you want to learn how to apply them to your installation follow [Creating a custom tag tutorial](../tutorials/extending_admin_ui/6_adding_a_custom_tag).
- 
+
 **Example: YouTube tag**
 
 Preparation of the tag always starts with the configuration file that should be added to `app/Resources/config`. This is sample configuration for the YouTube tag, `custom_tags.yml`:
@@ -33,33 +33,33 @@ ezrichtext:
     custom_tags:
         ezyoutube:
             # The template used for front-end rendering of the custom tag
-            template: 'AppBundle:field_type/ezrichtext/custom_tag:ezyoutube.html.twig'
+            template: AppBundle:field_type/ezrichtext/custom_tag:ezyoutube.html.twig
             # An icon for the custom tag as displayed in the Online Editor's toolbar.
             icon: '/assets/field_type/ezrichtext/custom_tag/icon/youtube-color.svg#youtube-color'
             attributes:
                 title:
-                    type: 'string'
+                    type: string
                     required: true
                     default_value: ''
                 video_url:
-                    type: 'string'
+                    type: string
                     required: true
                 width:
-                    type: 'number'
+                    type: number
                     required: true
                     default_value: 640
                 height:
-                    type: 'number'
+                    type: number
                     required: true
                     default_value: 360
                 autoplay:
-                    type: 'boolean'
+                    type: boolean
                     default_value: false
                 align:
-                    type: 'choice'
+                    type: choice
                     required: false
-                    default_value: 'left'
-                    choices: ['left', 'center', 'right']
+                    default_value: left
+                    choices: [left, center, right]
 ```
 
 Remember to provide your own files for the template and the icon.
@@ -95,16 +95,16 @@ ezrichtext.custom_tags.ezyoutube.description: ''
 ezrichtext.custom_tags.ezyoutube.attributes.autoplay.label: Autoplay
 ezrichtext.custom_tags.ezyoutube.attributes.height.label: Height
 ezrichtext.custom_tags.ezyoutube.attributes.title.label: Title
-ezrichtext.custom_tags.ezyoutube.attributes.video_url.label: 'Video url'
+ezrichtext.custom_tags.ezyoutube.attributes.video_url.label: Video url
 ezrichtext.custom_tags.ezyoutube.attributes.width.label: Width
-ezrichtext.custom_tags.ezyoutube.attributes.align.label: 'Align'
+ezrichtext.custom_tags.ezyoutube.attributes.align.label: Align
 ```
 
 **Example: FactBox tag**
 
 FactBox tag is a good example for showcasing possibilities of `ezcontent` property.
 Each custom tag has an `ezcontent` property that contains the tag's main content.
-This property is editable by a textarea that is part of a custom tag editing tooltip. 
+This property is editable by a textarea that is part of a custom tag editing tooltip.
 
 Create the `custom_tags.yml` configuration file that will be added to `app/Resources/config`. This is sample configuration for FactBox tag:
 
@@ -119,17 +119,17 @@ ezpublish:
 ezrichtext:
     custom_tags:
         ezfactbox:
-            template: 'AppBundle:field_type/ezrichtext/custom_tag:ezfactbox.html.twig'
+            template: AppBundle:field_type/ezrichtext/custom_tag:ezfactbox.html.twig
             icon: '/assets/field_type/ezrichtext/custom_tag/icon/factbox.svg#factbox'
             attributes:
                 name:
-                    type: 'string'
+                    type: string
                     required: true
                 style:
-                    type: 'choice'
+                    type: choice
                     required: true
-                    default_value: 'light'
-                    choices: ['light', 'dark']
+                    default_value: light
+                    choices: [light, dark]
 ```
 
 Remember to provide your own files for the template and the icon.
@@ -163,8 +163,8 @@ To ensure the new tag has labels, provide translations in `app/Resources/transla
 # ezfactbox
 ezrichtext.custom_tags.ezfactbox.label: FactBox
 ezrichtext.custom_tags.ezfactbox.description: ''
-ezrichtext.custom_tags.ezfactbox.attributes.name.label: 'Name'
-ezrichtext.custom_tags.ezfactbox.attributes.style.label: 'Style'
+ezrichtext.custom_tags.ezfactbox.attributes.name.label: Name
+ezrichtext.custom_tags.ezfactbox.attributes.style.label: Style
 ```
 
 ## Custom styles

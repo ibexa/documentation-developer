@@ -13,7 +13,7 @@ ezsystems_extending_tutorial.all_content_list.list:
     defaults:
         page: 1
         contentTypeIdentifier: false
-        _controller: 'EzSystemsExtendingTutorialBundle:AllContentList:list'
+        _controller: EzSystemsExtendingTutorialBundle:AllContentList:list
 ```
 
 ## Modify the controller

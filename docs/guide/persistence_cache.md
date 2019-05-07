@@ -6,9 +6,9 @@
 
 Persistence cache can best be described as an implementation of `SPI\Persistence` that decorates the main backend implementation, aka Storage Engine *(currently: "Legacy Storage Engine")*.
 
-As shown in the illustration, this is done in the exact same way as the SignalSlot feature is a custom implementation of `API\Repository` decorating the main Repository. 
+As shown in the illustration, this is done in the exact same way as the SignalSlot feature is a custom implementation of `API\Repository` decorating the main Repository.
 In the case of Persistence Cache, instead of sending events on calls passed on to the decorated implementation, most of the load calls are cached, and calls that perform changes purge the affected caches.
-Cache handlers *(Memcached, Redis, Filesystem, etc.)* can be configured using Symfony configuration. 
+Cache handlers *(Memcached, Redis, Filesystem, etc.)* can be configured using Symfony configuration.
 For details on how to reuse this Cache service in your own custom code, see below.
 
 ## Transparent cache
@@ -30,7 +30,7 @@ Notes:
   as part of your normal application logic flow. For instance if you connect to third party service and it frequently
   fails, make sure to re-try several times, and if that does not help, consider making the logic async by design.
 - [Cache tagging](https://symfony.com/doc/current/components/cache/cache_invalidation.html#using-cache-tags) is used in
-  order to allow clearing cache by alternative indexes. 
+  order to allow clearing cache by alternative indexes.
   For instance tree operations or changes to Content Types are
   examples of operations that also need to invalidate content cache by tags.
 - Search is not defined as persistence and the queries themselves are not planned to be cached as they are too complex by design (full text, facets, etc.).
@@ -73,7 +73,7 @@ ezpublish:
         site_group:
             # cache_pool is set to '%env(CACHE_POOL)%'
             # env(CACHE_POOL) is set to 'cache.app' (a Symfony service), for more examples see app/config/cache_pool/*
-            cache_service_name: '%cache_pool%'
+            cache_service_name: %cache_pool%
 ```
 
 !!! note "One cache pool for each Repository"
@@ -169,7 +169,7 @@ services:
 
 ## Using Cache Service
 
-Using the internal cache service allows you to use an interface and without caring whether the system is configured to place the cache in Memcached or on File system. 
+Using the internal cache service allows you to use an interface and without caring whether the system is configured to place the cache in Memcached or on File system.
 And as eZ Platform requires that instances use a cluster-aware cache in Cluster setup, you can safely assume your cache is shared *(and invalidated)* across all web servers.
 
 !!! note
@@ -195,7 +195,7 @@ In your Symfony services configuration you can simply define that you require th
     myApp.myService:
         class: %myApp.myService.class%
         arguments:
-            - @ezpublish.cache_pool
+            - '@ezpublish.cache_pool'
 ```
 
 The "cache" service is an instance of `Symfony\Component\Cache\Adapter\TagAwareAdapter` and implements the `Psr\Cache\CacheItemPoolInterface` interface.

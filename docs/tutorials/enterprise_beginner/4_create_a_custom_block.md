@@ -21,15 +21,15 @@ In `app/config/layouts.yml` add the following block under the `blocks` key:
 ``` yaml hl_lines="10"
 blocks:
     random:
-        name: 'Random block'
-        thumbnail: 'assets/images/blocks/random_block.svg'
+        name: Random block
+        thumbnail: assets/images/blocks/random_block.svg
         views:
             random:
-                template: 'blocks/random/default.html.twig'
-                name: 'Random Content Block View'
+                template: blocks/random/default.html.twig
+                name: Random Content Block View
         attributes:
             parent:
-                type: 'embed'
+                type: embed
                 name: Parent
                 validators:
                     not_blank:
