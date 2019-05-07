@@ -101,12 +101,12 @@
     You can limit access to workflows at stage and transition level.
     Use the `workflow/change_stage` Policy to grant a User permission to change stages in a specific workflow.
 
-    This Policy can be limited with the [`WorkflowTransitionLimitation`](limitations.md#workflowtransitionlimitation) to only allow sending content in the allowed transition.
+    This Policy can be limited with the [Workflow Transition Limitation](limitation_reference.md#workflow-transition-limitation) to only allow sending content in the allowed transition.
 
     For example, using the example above, a `workflow/change_stage` Policy with `WorkflowTransitionLimitation` set to `To Proofreading`
     will allow the Technical team to send content to proofreading after they are done with technical review.
 
-    You can also use the [`WorkflowStageLimitation`](limitations.md#workflowstagelimitation) together with the `content/edit` and `content/publish` Policy to limit the ability to edit content in specific stages.
+    You can also use the [Workflow Stage Limitation](limitation_reference.md#workflow-stage-limitation) together with the `content/edit` and `content/publish` Policy to limit the ability to edit content in specific stages.
     For example, you can use it to only allow Technical team to edit content in the `technical` stage.
 
     ## Workflow service
