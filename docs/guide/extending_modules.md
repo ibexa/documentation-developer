@@ -140,7 +140,7 @@ system:
         universal_discovery_widget_module:
             configuration:
                 default:
-                    visible_tabs: ['browse', 'search', 'bookmarks']
+                    visible_tabs: [browse, search, bookmarks]
                     allowed_content_types: []
                     search:
                         results_per_page: 10
@@ -154,12 +154,12 @@ For more information on ConfigResolver, see [eZ Platform dynamic configuration b
 
 #### Adding new configuration
 
-UDW configuration can change dynamically depending on occurring events. 
+UDW configuration can change dynamically depending on occurring events.
 It can be used e.g. for defining which content should be exposed to a user after logging in.
 
 By default only one element from configuration file is applied to Universal Discovery module.
 You can modify it dynamically by passing context to generate configuration based on a specific event.
-This context event is caught by event listener `ConfigResolveEvent::NAME` before the original configuration is used. 
+This context event is caught by event listener `ConfigResolveEvent::NAME` before the original configuration is used.
 Depending on what additional parameters are provided, original or event-specific configuration is applied.
 
 In the example below `my_custom_udw` is used as a base configuration element for the following steps:
@@ -195,12 +195,12 @@ In the example below, a key is pointing to `my_custom_udw` configuration and has
 If an event listener catches additional parameters passed with context, it will use a configuration specified for it in the event subscriber.
 
 In the example below the `johndoe` parameter enables the user to choose multiple items from a **Browser window** by changing `multiple: false` from `my_custom_udw` configuration to `multiple: true`.
- 
+
 ```php hl_lines="29 30 31"
 class JohnDoeCanSelectMore implements EventSubscriberInterface
 {
     private const CONFIGURATION_NAME = 'my_custom_udw';
-	
+
     /**
      * Returns an array of event names this subscriber wants to listen to.
      *
@@ -221,7 +221,7 @@ class JohnDoeCanSelectMore implements EventSubscriberInterface
         if ($event->getConfigName !== self::CONFIGURATION_NAME) {
 		    return;
 		}
-		
+
         $config = $event->getConfig();
 		$context = $event->getContext();
 
@@ -230,7 +230,7 @@ class JohnDoeCanSelectMore implements EventSubscriberInterface
 			    $config['multiple'] = true;
 			}
 		}
-        
+
         $event->setConfig($config);
     }
 }

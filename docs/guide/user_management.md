@@ -45,8 +45,8 @@ ezpublish:
         default:
             user_registration:
                 templates:
-                    form: 'user/registration_form.html.twig'
-                    confirmation: 'user/registration_confirmation.html.twig'
+                    form: user/registration_form.html.twig
+                    confirmation: user/registration_confirmation.html.twig
 ```
 
 With this configuration you place the templates in `app/Resources/views/user/registration_form.html.twig` and `app/Resources/views/user/registration_confirmation.html.twig`.

@@ -40,8 +40,8 @@ Import additional routing by adding the following lines to your `routing.yml` fi
 
 ``` yaml
 recommendationBundleRestRoutes:
-    resource: "@EzSystemsRecommendationBundle/Resources/config/routing_rest.yml"
-    prefix:   %ezpublish_rest.path_prefix%
+    resource: '@EzSystemsRecommendationBundle/Resources/config/routing_rest.yml'
+    prefix: %ezpublish_rest.path_prefix%
 ```
 
 !!! note "Legacy support"
@@ -52,20 +52,20 @@ recommendationBundleRestRoutes:
     # ez_recommendation.legacy.search_engine:
     #     class: ezpSearchEngine
     #     factory: [EzSystems\RecommendationBundle\eZ\Publish\LegacySearch\LegacySearchFactory, build]
-    #     arguments: [@ezpublish_legacy.kernel]
+    #     arguments: ['@ezpublish_legacy.kernel']
 
     # ez_recommendation.legacy.recommendation_search_engine:
     #     class: EzSystems\RecommendationBundle\eZ\Publish\LegacySearch\RecommendationLegacySearchEngine
     #     arguments:
-    #         - @ez_recommendation.client.yoochoose_notifier
-    #         - @ez_recommendation.legacy.search_engine
+    #         - '@ez_recommendation.client.yoochoose_notifier'
+    #         - '@ez_recommendation.legacy.search_engine'
 
     # ez_recommendation.legacy.search_configuration_mapper:
     #     class: EzSystems\RecommendationBundle\eZ\Publish\LegacySearch\ConfigurationMapper
     #     lazy: true
     #     arguments:
-    #         - @ez_recommendation.legacy.recommendation_search_engine
-    #         - @ezpublish.siteaccess
+    #         - '@ez_recommendation.legacy.recommendation_search_engine'
+    #         - '@ezpublish.siteaccess'
     #     tags:
     #         - { name: kernel.event_subscriber }
     ```
@@ -115,8 +115,8 @@ In order to tell the recommender to use this user and password to request resour
 ez_recommendation.export.users_authentication.method: user
 # Credentials for user authentication
 # assure to use double quotes, otherwise an int is compared with a string during authentication phase
-ez_recommendation.export.users_authentication.login: "<customerID>"
-ez_recommendation.export.users_authentication.password: "<licenseKey>"
+ez_recommendation.export.users_authentication.login: '<customerID>'
+ez_recommendation.export.users_authentication.password: '<licenseKey>'
 ```
 
 Place this in a settings file which won't be affected by an update to the Recommendation bundle via Composer.
@@ -136,11 +136,11 @@ ez_recommendation:
     system:
         default:
             yoochoose:
-                customer_id: "12345"
-                license_key: "1234-5678-9012-3456-7890"
+                customer_id: 12345
+                license_key: 1234-5678-9012-3456-7890
             server_uri: "http://example.com"
             recommender:
-                included_content_types: ["blog", "article"]
+                included_content_types: [blog, article]
 ```
 
 The following parameters need to be included in the settings file:
@@ -159,12 +159,12 @@ If the content's author or image are stored in a different Field, you can specif
 ``` yaml
 ez_recommendation.field_identifiers:
     # Field fetched by controller
-     author:
-         # Content Type: Field with value
-         article: authors
-     image:
-         article: thumbnail
-         blog_post: main_image
+    author:
+        # Content Type: Field with value
+        article: authors
+    image:
+        article: thumbnail
+        blog_post: main_image
 ```
 
 In case a content owner ID is missing, you can set up the default content author in the `default_settings.yml` file:
@@ -177,13 +177,13 @@ You can edit advanced options for the Personalization Engine using the following
 
 ``` yaml
 ez_recommendation:
-    api_endpoint: 'https://admin.yoochoose.net'
+    api_endpoint: https://admin.yoochoose.net
     recommender:
         api_endpoint: '//reco.yoochoose.net'
         consume_timeout: 20
     tracking:
-        api_endpoint: 'http://event.yoochoose.net'
-        script_url: 'cdn.yoochoose.net/yct.js'
+        api_endpoint: http://event.yoochoose.net
+        script_url: cdn.yoochoose.net/yct.js
 ```
 
 Note: changing any of these parameters without a valid reason will break all calls to the Personalization Engine.
@@ -587,8 +587,8 @@ Most operations are logged via the `ez_recommendation` [Monolog channel](http://
 monolog:
     handlers:
         ez_recommendation:
-            type:   stream
-            path:   "%kernel.logs_dir%/%kernel.environment%.recommendation.log"
+            type: stream
+            path: %kernel.logs_dir%/%kernel.environment%.recommendation.log
             channels: [ez_recommendation]
             level: info
 ```

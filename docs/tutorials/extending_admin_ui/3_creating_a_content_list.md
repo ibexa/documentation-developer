@@ -72,7 +72,7 @@ ezsystems_extending_tutorial.all_content_list.list:
     path: /all_content_list/{page}
     defaults:
         page: 1
-        _controller: 'EzSystemsExtendingTutorialBundle:AllContentList:list'
+        _controller: EzSystemsExtendingTutorialBundle:AllContentList:list
 ```
 
 ## Create a controller
@@ -84,11 +84,11 @@ Add the following block (indented, under the `services` key) to that file:
 
 ``` yaml
 EzSystems\ExtendingTutorialBundle\Controller\:
-    resource: "../../Controller/*"
+    resource: '../../Controller/*'
     autowire: true
     autoconfigure: true
     public: false
-    exclude: "../../Controller/{Controller}"
+    exclude: '../../Controller/{Controller}'
 ```
 
 Then, in `src/EzSystems/ExtendingTutorialBundle/Controller` create a `AllContentListController.php` file:

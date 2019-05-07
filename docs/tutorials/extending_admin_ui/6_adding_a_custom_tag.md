@@ -21,32 +21,32 @@ ezpublish:
 ezrichtext:
     custom_tags:
         ezyoutube:
-            template: 'EzSystemsExtendingTutorialBundle:field_type/ezrichtext/custom_tag:ezyoutube.html.twig'
+            template: EzSystemsExtendingTutorialBundle:field_type/ezrichtext/custom_tag:ezyoutube.html.twig
             icon: '/bundles/ezplatformadminui/img/ez-icons.svg#video'
             attributes:
                 title:
-                    type: 'string'
+                    type: string
                     required: true
                     default_value: ''
                 video_url:
-                    type: 'string'
+                    type: string
                     required: true
                 width:
-                    type: 'number'
+                    type: number
                     required: true
                     default_value: 640
                 height:
-                    type: 'number'
+                    type: number
                     required: true
                     default_value: 360
                 autoplay:
-                    type: 'boolean'
+                    type: boolean
                     default_value: false
                 align:
-                    type: 'choice'
+                    type: choice
                     required: false
-                    default_value: 'left'
-                    choices: ['left', 'center', 'right']
+                    default_value: left
+                    choices: [left, center, right]
 ```
 
 The configuration first lists all custom tags that you have in the configuration (line 5) - in this case `ezyoutube`.
@@ -146,9 +146,9 @@ ezrichtext.custom_tags.ezyoutube.description: ''
 ezrichtext.custom_tags.ezyoutube.attributes.autoplay.label: Autoplay
 ezrichtext.custom_tags.ezyoutube.attributes.height.label: Height
 ezrichtext.custom_tags.ezyoutube.attributes.title.label: Title
-ezrichtext.custom_tags.ezyoutube.attributes.video_url.label: 'Video url'
+ezrichtext.custom_tags.ezyoutube.attributes.video_url.label: Video url
 ezrichtext.custom_tags.ezyoutube.attributes.width.label: Width
-ezrichtext.custom_tags.ezyoutube.attributes.align.label: 'Align'
+ezrichtext.custom_tags.ezyoutube.attributes.align.label: Align
 ```
 
 ## Check results

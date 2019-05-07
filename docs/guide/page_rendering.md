@@ -117,8 +117,8 @@
         gallery:
             views:
                 special:
-                    template: 'blocks/gallery/special.html.twig'
-                    name: 'Special view'
+                    template: blocks/gallery/special.html.twig
+                    name: Special view
     ```
 
     ### Overriding default block templates

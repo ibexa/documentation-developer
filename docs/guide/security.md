@@ -23,12 +23,12 @@ And in `app/config/routing.yml`:
 
 ``` yaml
 login:
-    path:   /login
-    defaults:  { _controller: ezpublish.security.controller:loginAction }
+    path: /login
+    defaults: { _controller: ezpublish.security.controller:loginAction }
 login_check:
-    path:   /login_check
+    path: /login_check
 logout:
-    path:   /logout
+    path: /logout
 ```
 
 !!! note
@@ -57,8 +57,8 @@ ezpublish:
     system:
         my_siteaccess:
             user:
-                layout: "AcmeTestBundle::layout.html.twig"
-                login_template: "AcmeTestBundle:User:login.html.twig"
+                layout: AcmeTestBundle::layout.html.twig
+                login_template: AcmeTestBundle:User:login.html.twig
 ```
 
 ##### Redirection after login
