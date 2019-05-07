@@ -22,7 +22,7 @@
     - [Available SiteAccess matchers](guide/siteaccess.md#available-matchers)
     - [Available View Matchers](guide/content_rendering.md#available-matchers)
 - Permissions:
-    - [Limitation reference](guide/limitations.md)
+    - [Limitation reference](guide/limitation_reference.md)
     - [Role Policies map](guide/permissions.md#available-policies)
 - Repository:
     - [Services](guide/repository.md#services-public-api)
