@@ -48,6 +48,15 @@ They can be referenced as relative to the root, for example `web/js/script.js`�
 
 All project assets are accessible through the `web/assets` path.
 
+??? note "Removing `web/assets` manually"
+
+	If you ever remove the `web/assets` folder manually, you need to dump translations before performing
+	the `yarn encore <dev|prod>` command:
+
+	```
+	php bin/console bazinga:js-translation:dump web/assets --merge-domains
+	```
+
 #### Importing assets from a bundle
 
 eZ Platform uses [Webpack Encore](https://symfony.com/doc/3.4/frontend.html#webpack-encore) for asset management.

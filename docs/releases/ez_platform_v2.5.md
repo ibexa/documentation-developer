@@ -30,7 +30,7 @@ Assetic is still in use, but it will be deprecated in a future version.
 
 ### PostgreSQL
 
-This release enables you to [use PostgreSQL](../cookbook/using_postgresql.md) for database instead of the default MySQL.
+This release enables you to [use PostgreSQL](../guide/databases.md#using-postgresql) for database instead of the default MySQL.
 
 Database schema is now created based on [YAML configuration](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage/legacy/schema.yaml).
 
@@ -131,7 +131,7 @@ This release introduced several Back Office improvements to facilitate editorial
 You can now define a 'Content/Create' policy for a User or a User group.
 It will enable or disable (if not set) the **Create** button in your dashboard.
 
-#### Universal Discovery Widget 
+#### Universal Discovery Widget
 
 `allowed_content_types` can now limit selection in UDW search and browse sections to specified Content Types.
 

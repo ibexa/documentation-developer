@@ -350,10 +350,10 @@ Some versions require updates to the database. Look through [the list of databas
 
     ##### Page builder
 
-    To update to v2.2, you need to run a script to add database tables for the Page Builder.
-    You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/2.2/Resources/sql/schema.sql#L58
-
     !!! enterprise
+
+        To update to v2.2, you need to run a script to add database tables for the Page Builder.
+        You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/2.2/Resources/sql/schema.sql#L58
 
         When updating an Enterprise installation, you also need to run the following script due to changes in the `eznotification` table:
 
@@ -421,7 +421,7 @@ Some versions require updates to the database. Look through [the list of databas
 
     ``` yaml
     tags:
-        - { name: 'ezplatform.fieldtype.ezlandingpage.migration.attribute.converter', block_type: 'my_block_type_identifier' }
+        - { name: ezplatform.fieldtype.ezlandingpage.migration.attribute.converter, block_type: my_block_type_identifier }
     ```
 
     Custom converters must implement the `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\ConverterInterface` interface.
@@ -447,25 +447,27 @@ Some versions require updates to the database. Look through [the list of databas
 
     ##### Form builder
 
-    To create the "Forms" container under the content tree root use the following command:
+    !!! enterprise
 
-    ``` bash
-    php bin/console ezplatform:form-builder:create-forms-container
-    ```
+        To create the "Forms" container under the content tree root use the following command:
 
-    You can also specify Content Type, Field values and language code of the container, e.g.:
+        ``` bash
+        php bin/console ezplatform:form-builder:create-forms-container
+        ```
 
-    ``` bash
-    php bin/console ezplatform:form-builder:create-forms-container --content-type custom --field title --value 'My Forms' --field description --value 'Custom container for the forms' --language-code eng-US
-    ```
+        You can also specify Content Type, Field values and language code of the container, e.g.:
 
-    You also need to run a script to add database tables for the Form Builder.
-    You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/2.3/Resources/sql/schema.sql#L136
+        ``` bash
+        php bin/console ezplatform:form-builder:create-forms-container --content-type custom --field title --value 'My Forms' --field description --value 'Custom container for the forms' --language-code eng-US
+        ```
 
-    !!! caution "Form (ezform) Field Type"
+        You also need to run a script to add database tables for the Form Builder.
+        You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/2.3/Resources/sql/schema.sql#L136
 
-        After the update, in order to create forms, you have to add a new Content Type (e.g. named "Form") that contains `Form` Field (this Content Type can contain other fields
-        as well). After that you can use forms inside Landing Pages via Embed block.
+        !!! caution "Form (ezform) Field Type"
+
+            After the update, in order to create forms, you have to add a new Content Type (e.g. named "Form") that contains `Form` Field (this Content Type can contain other fields
+            as well). After that you can use forms inside Landing Pages via Embed block.
 
 ??? note "Updating from <2.4"
 
@@ -518,7 +520,7 @@ Some versions require updates to the database. Look through [the list of databas
 
     #### Changes to database schema
 
-    The introduction of [support for PostgreSQL](../cookbook/using_postgresql.md) includes a change in the way database schema is generated.
+    The introduction of [support for PostgreSQL](../guide/databases.md#using-postgresql) includes a change in the way database schema is generated.
 
     It is now created based on [YAML configuration](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage/legacy/schema.yaml), using the new [`DoctrineSchemaBundle`](https://github.com/ezsystems/doctrine-dbal-schema).
 
@@ -527,11 +529,11 @@ Some versions require updates to the database. Look through [the list of databas
 
     - enable `EzSystems\DoctrineSchemaBundle\DoctrineSchemaBundle()` in `AppKernel.php`
     - add [`ez_doctrine_schema`](https://github.com/ezsystems/ezplatform/blob/master/app/config/config.yml#L33) configuration
-    
+
     #### Changes to Matrix Field Type
-    
+
     To migrate your content from legacy XML format to a new `ezmatrix` value use the following command:
-    
+
     ```bash
     bin/console ezplatform:migrate:legacy_matrix
     ```
@@ -540,17 +542,17 @@ Some versions require updates to the database. Look through [the list of databas
 
     If you are using Redis as your persistence cache storage you should always clear it manually after an upgrade.
     You can do it in two ways, by using `redis-cli` and executing the following command:
-    
+
     ```bash
     FLUSHALL
     ```
-    
+
     or by executing the following command:
-    
+
     ```bash
     bin/console cache:pool:clear cache.redis
     ```
-    
+
 ## 5. Dump assets
 
 The web assets must be dumped again if you are using the `prod` environment. In `dev` this happens automatically:

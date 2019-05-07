@@ -453,16 +453,16 @@ and configuration in the `custom-admin-ui-config` group.
 ezplatform.udw.image.panel.module.js:
     parent: EzSystems\EzPlatformAdminUi\Component\ScriptComponent
     arguments:
-        $src: '/bundles/ezsystemsextendingtutorial/js/modules/ImagesPanel.module.js'
+        $src: /bundles/ezsystemsextendingtutorial/js/modules/ImagesPanel.module.js
     tags:
-        - { name: ezplatform.admin_ui.component, group: 'custom-admin-ui-modules' }
+        - { name: ezplatform.admin_ui.component, group: custom-admin-ui-modules }
 
 ezplatform.udw.add.tab.js:
     parent: EzSystems\EzPlatformAdminUi\Component\ScriptComponent
     arguments:
-        $src: '/bundles/ezsystemsextendingtutorial/js/add.tab.js'
+        $src: /bundles/ezsystemsextendingtutorial/js/add.tab.js
     tags:
-        - { name: ezplatform.admin_ui.component, group: 'custom-admin-ui-config' }
+        - { name: ezplatform.admin_ui.component, group: custom-admin-ui-config }
 ```
 
 Finally, make sure that the Symfony bundle configuration is imported. In `src/EzSystems/ExtendingTutorialBundle/DependencyInjection` add the following files:

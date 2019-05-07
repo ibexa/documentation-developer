@@ -85,7 +85,7 @@ doctrine:
                 port: 3306
                 dbname: ezdfs
                 user: root
-                password: "rootpassword"
+                password: rootpassword
                 charset: UTF8MB4
 
 # define the Flysystem handler
@@ -93,7 +93,7 @@ oneup_flysystem:
     adapters:
         nfs_adapter:
             local:
-                directory: "/<path to nfs>/$var_dir$/$storage_dir$"
+                directory: '/<path to nfs>/$var_dir$/$storage_dir$'
 
 # define the eZ Platform handlers
 ez_io:
@@ -118,7 +118,7 @@ ezpublish:
 
 !!! tip
 
-    If you are looking to [set up S3](../cookbook/setting_up_amazon_aws_s3_clustering.md) or other [Flysystem](https://flysystem.thephpleague.com/)/third-party adapters like Google Cloud Storage, this needs to be configured as binary handler. The rest here will still stay the same, the DFS metadata handler will take care of caching the lookups to avoid slow IO lookups.
+    If you are looking to [set up S3](clustering_aws_s3.md) or other [Flysystem](https://flysystem.thephpleague.com/)/third-party adapters like Google Cloud Storage, this needs to be configured as binary handler. The rest here will still stay the same, the DFS metadata handler will take care of caching the lookups to avoid slow IO lookups.
 
 #### Customizing the storage directory
 
@@ -134,7 +134,7 @@ ezpublish:
     system:
         default:
             io:
-                url_prefix: "storage"
+                url_prefix: storage
 ```
 
 As an alternative, you may serve images from NFS using a dedicated web server.
@@ -146,7 +146,7 @@ ezpublish:
     system:
         default:
             io:
-                url_prefix: "http://static.example.com/"
+                url_prefix: 'http://static.example.com/'
 ```
 
 You can read more about that on [Binary files URL handling](file_management.md#url-handling).
@@ -209,4 +209,4 @@ Since this command can run for a very long time, to avoid memory exhaustion run 
 
 ## Clustering using Amazon AWS S3
 
-See [Setting up Amazon AWS S3 clustering](../cookbook/setting_up_amazon_aws_s3_clustering.md).
+See [AWS S3 clustering](clustering_aws_s3.md).

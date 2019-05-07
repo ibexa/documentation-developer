@@ -16,7 +16,7 @@ The multilanguage system operates based on a global translation list that contai
 ```
 php bin/console assetic:dump
 yarn encore <environment>
-# OR ./bin/compile_assets.sh
+# OR php bin/console ezplatform:encore:compile
 ```
 
 **The new language must then be added to the [SiteAccess](siteaccess.md) configuration**. Once this is done, any user with proper permissions can create Content item versions in these languages in the user interface.

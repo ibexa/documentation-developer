@@ -106,7 +106,7 @@ To do so, you just need to reference the `$design$` dynamic setting:
 services:
     my_service:
         class: Foo\Bar
-        arguments: ["$design$"]
+        arguments: ['$design$']
 ```
 
 It is also possible to use the `ConfigResolver` service (`ezpublish.config.resolver`):
@@ -207,7 +207,7 @@ ezpublish:
             content_view:
                 full:
                     home:
-                        template: "@ezdesign/full/home.html.twig"
+                        template: '@ezdesign/full/home.html.twig'
 ```
 
 !!! tip
@@ -239,7 +239,7 @@ ezdesign:
     templates_theme_paths:
         # FOSUserBundle templates will be part of "my_theme" theme
         my_theme:
-            - '%kernel.root_dir%/../vendor/friendsofsymfony/user-bundle/Resources/views'
+            - %kernel.root_dir%/../vendor/friendsofsymfony/user-bundle/Resources/views
 ```
 
 !!! note "Paths precedence"
@@ -254,8 +254,8 @@ It is possible to add additional global override directories, similar to `app/Re
 ```yaml
 ezdesign:
     templates_override_paths:
-        - "%kernel.root_dir%/another_override_directory"
-        - "/some/other/directory"
+        - %kernel.root_dir%/another_override_directory
+        - /some/other/directory
 ```
 
 !!! note
@@ -282,10 +282,8 @@ Default config:
 ```yaml
 ezdesign:
     phpstorm:
-
         # Activates PHPStorm support
-        enabled:              '%kernel.debug%'
-
+        enabled: %kernel.debug%
         # Path where to store PHPStorm configuration file for additional Twig namespaces (ide-twig.json).
-        twig_config_path:     '%kernel.root_dir%/..'
+        twig_config_path: %kernel.root_dir%/..
 ```

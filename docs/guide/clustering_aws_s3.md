@@ -1,4 +1,4 @@
-# Setting up Amazon AWS S3 clustering
+# Clustering with Amazon AWS S3
 
 When setting up clustering, you can use Amazon AWS S3 as a binary handler,
 meaning AWS S3 will be used to store binary files.
@@ -35,11 +35,11 @@ services:
         class: Aws\S3\S3Client
         arguments:
             -
-                version: "latest"
-                region: "eu-west-1" # The region string of your chosen region
+                version: latest
+                region: eu-west-1 # The region string of your chosen region
                 credentials:
-                    key: "ABCDEF..." # Your AWS key ID
-                    secret: "abc123..." # Your AWS secret key
+                    key: ABCDEF... # Your AWS key ID
+                    secret: abc123... # Your AWS secret key
 ```
 
 In the same eZ Platform configuration, set up the Flysystem adapter that uses the S3 client:
@@ -50,8 +50,8 @@ oneup_flysystem:
         aws_s3_adapter:
             awss3v3:
                 client: amazon.s3_client
-                bucket: "my-bucket" # Your bucket name
-                prefix: "%database_name%"
+                bucket: my-bucket # Your bucket name
+                prefix: %database_name%
 ```
 
 In the same place, set up the binary data handler for the S3 adapter:

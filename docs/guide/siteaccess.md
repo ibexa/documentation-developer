@@ -409,7 +409,7 @@ ezpublish:
     siteaccess:
         match:
             Regex\Host:
-                regex: "^(\\w+_sa)$"
+                regex: '^(\\w+_sa)$'
                 # Default is 1
                 itemNumber: 1
 ```
@@ -437,7 +437,7 @@ ezpublish:
     siteaccess:
         match:
             Regex\URI:
-                regex: "^/foo(\\w+)bar"
+                regex: '^/foo(\\w+)bar'
                 # Default is 1
                 itemNumber: 1
 ```

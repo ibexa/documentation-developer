@@ -25,7 +25,7 @@ These setups are tested by QA and are generally recommended setups. For security
 |------|------|
 |Search|Solr (recommended; for performance, features and search quality):</br></br>Solr 6.x *Currently tested with Solr 6.6LTS*</br></br>Oracle Java/Open JDK: 8 |
 |Graphic Handler|GraphicsMagick or ImageMagick or GD|
-|[Clustering](../guide/clustering.md)|Linux NFS *or* S3/EFS *(for IO, aka binary files stored in content repository)*</br>Redis 3.2 or higher *(preferably separate instances for session & cache, both using one of the `volatile-*` [eviction policies](https://redis.io/topics/lru-cache))*</br>[Varnish](http://varnish-cache.org/) 5.1 or higher *(6.0LTS recommended)* with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst) *or* [Fastly](https://www.fastly.com/) using [our bundle provided with eZ Platform Enterprise](../guide/http_cache.md#serving-varnish-through-fastly) *(for HttpCache)*|
+|[Clustering](../guide/clustering.md)|Linux NFS *or* S3/EFS *(for IO, aka binary files stored in content repository)*</br>Redis 3.2 or higher *(preferably separate instances for session & cache, both using one of the `volatile-*` [eviction policies](https://redis.io/topics/lru-cache))*</br>[Varnish](http://varnish-cache.org/) 5.1 or 6.0LTS *(recommended)* with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst) *or* [Fastly](https://www.fastly.com/) using [our bundle provided with eZ Platform Enterprise](../guide/http_cache.md#serving-varnish-through-fastly) *(for HttpCache)*|
 |Filesystem|Linux ext4 / XFS|
 |Package manager|Composer|
 |Asset manager|`Node.js` 10.15.3 LTS</br>`yarn` 1.15.2 or higher|
@@ -53,7 +53,7 @@ For security and performance we generally recommend (unless otherwise noted and 
     - Solr 6 (recommended over SQL based Search engine, especially on cluster, as SQL does not provide the same feature set or performance as Solr)
     - NFS or S3
     - HttpCache, using one of:
-        - [Varnish](http://varnish-cache.org/) 5.1 or higher *(6.0LTS recommended)* with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst)
+        - [Varnish](http://varnish-cache.org/) 5.1 or 6.0LTS *(recommended)* with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst)
         - [Fastly](https://www.fastly.com/) using [our bundle provided with eZ Platform Enterprise](../guide/http_cache.md#serving-varnish-through-fastly)
 
 -   PHP extensions/modules

@@ -58,7 +58,7 @@ services:
     ezpublish.fieldType.ezstring.converter:
         class: %ezpublish.fieldType.ezstring.converter.class%
         tags:
-            - {name: ezpublish.storageEngine.legacy.converter, alias: ezstring, lazy: true, callback: '::create'}
+            - {name: ezpublish.storageEngine.legacy.converter, alias: ezstring, lazy: true, callback: ::create}
 ```
 
 Here again you need to tag your converter service, with **`ezpublish.storageEngine.legacy.converter`** tag this time.
@@ -88,7 +88,7 @@ services:
     ezpublish.fieldType.ezurl.externalStorage:
         class: %ezpublish.fieldType.ezurl.externalStorage.class%
         arguments:
-            - "@ezpublish.fieldType.ezurl.storage_gateway"
+            - '@ezpublish.fieldType.ezurl.storage_gateway'
         tags:
             - {name: ezpublish.fieldType.externalStorageHandler, alias: ezurl}
 ```
@@ -110,7 +110,7 @@ parameters:
 services:
     ezpublish.fieldType.ezurl.storage_gateway:
         class: %ezpublish.fieldType.ezurl.storage_gateway.class%
-        arguments: ["@ezpublish.api.storage_engine.legacy.connection"]
+        arguments: ['@ezpublish.api.storage_engine.legacy.connection']
 ```
 
 `ezpublish.api.storage_engine.legacy.connection` is of type `\Doctrine\DBAL\Connection`. If your gateway still uses an implementation of `\eZ\Publish\Core\Persistence\Database\DatabaseHandler` (a.k.a `\eZ\Publish\Core\Persistence\Doctrine\ConnectionHandler`), instead of the `ezpublish.api.storage_engine.legacy.connection` you can pass the `ezpublish.api.storage_engine.legacy.dbhandler` service.
