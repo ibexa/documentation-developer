@@ -75,7 +75,7 @@ siteaccess:
 
 !!! note
 
-    For dynamic URLs you can replace `www.mysite.com` with `'%site_domain%'`
+    For dynamic URLs you can replace `www.mysite.com` with `%site_domain%`
     and then enter `site_domain` as a new entry in `parameters.yml` at the same level as the database settings.
 
 Further down in `ezplatform.yml` is the `system` section which comes with the default group named `site_group` (the same group that you modified earlier).
@@ -84,8 +84,8 @@ Add the new `translation_siteaccesses` here. After the `site_group` you register
 ``` yaml
     system:
         site_group:
-            api_keys: { google_maps: "yourapikey" }
-            cache_pool_name: '%cache_pool%'
+            api_keys: { google_maps: yourapikey }
+            cache_pool_name: %cache_pool%
             var_dir: var/site
             translation_siteaccesses: [fr, en]
         fr:

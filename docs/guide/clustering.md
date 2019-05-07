@@ -72,7 +72,7 @@ doctrine:
                 port: 3306
                 dbname: ezdfs
                 user: root
-                password: "rootpassword"
+                password: rootpassword
                 charset: UTF8
 
 # define the Flysystem handler
@@ -80,7 +80,7 @@ oneup_flysystem:
     adapters:
         nfs_adapter:
             local:
-                directory: "/<path to nfs>/$var_dir$/$storage_dir$"
+                directory: '/<path to nfs>/$var_dir$/$storage_dir$'
 
 # define the eZ Platform handlers
 ez_io:
@@ -121,7 +121,7 @@ ezpublish:
     system:
         default:
             io:
-                url_prefix: "storage"
+                url_prefix: storage
 ```
 
 As an alternative, you may serve images from NFS using a dedicated web server.
@@ -133,7 +133,7 @@ ezpublish:
     system:
         default:
             io:
-                url_prefix: "http://static.example.com/"
+                url_prefix: 'http://static.example.com/'
 ```
 
 You can read more about that on [Binary files URL handling](file_management.md#url-handling).

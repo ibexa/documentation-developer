@@ -403,7 +403,7 @@ Available tags for Sort Clause handlers in Legacy Storage Engine are:
 services:
     ezpublish.search.legacy.gateway.criterion_handler.common.content_id:
         class: eZ\Publish\Core\Search\Legacy\Content\Common\Gateway\CriterionHandler\ContentId
-        arguments: [@ezpublish.api.storage_engine.legacy.dbhandler]
+        arguments: ['@ezpublish.api.storage_engine.legacy.dbhandler']
         tags:
           - {name: ezpublish.search.legacy.gateway.criterion_handler.content}
           - {name: ezpublish.search.legacy.gateway.criterion_handler.location}
@@ -414,7 +414,7 @@ services:
 ``` yaml
 ezpublish.search.legacy.gateway.sort_clause_handler.location.depth:
     class: eZ\Publish\Core\Search\Legacy\Content\Location\Gateway\SortClauseHandler\Location\Depth
-    arguments: [@ezpublish.api.storage_engine.legacy.dbhandler]
+    arguments: ['@ezpublish.api.storage_engine.legacy.dbhandler']
     tags:
         - {name: ezpublish.search.legacy.gateway.sort_clause_handler.location}
 ```

@@ -53,8 +53,8 @@ blocks:
     contentlist:
         views:
             contentList:
-                template: 'blocks/contentlist.html.twig'
-                name: 'Content List'
+                template: blocks/contentlist.html.twig
+                name: Content List
 ```
 
 The template makes use of an [image variation](../../guide/images.md) (line 10).
@@ -128,8 +128,8 @@ First, add a configuration that points to the layout. Go to `app/config/layouts.
 schedule:
     views:
         schedule_featured:
-            template: 'blocks/schedule_featured.html.twig'
-            name: 'Featured Schedule Block'
+            template: blocks/schedule_featured.html.twig
+            name: Featured Schedule Block
 ```
 
 The configuration defines one view for the Schedule block called `schedule_featured` and points to a `schedule_featured.html.twig` template.
@@ -170,9 +170,9 @@ Add the following code to this file, on the same level as the `full` key:
 ``` yaml
 featured:
     article:
-        template: 'featured/article.html.twig'
+        template: featured/article.html.twig
         match:
-            Identifier\ContentType: 'article'
+            Identifier\ContentType: article
 ```
 
 Now create an `app/Resources/views/featured/article.html.twig` file:

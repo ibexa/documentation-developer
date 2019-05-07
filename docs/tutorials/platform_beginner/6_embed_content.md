@@ -50,9 +50,9 @@ ezpublish:
                 #full views here
                 line:
                     landmark:
-                        template: 'line/landmark.html.twig'
+                        template: line/landmark.html.twig
                         match:
-                            Identifier\ContentType: 'landmark'
+                            Identifier\ContentType: landmark
 ```
 
 Create the template for the line view of a Landmark: `app/Resources/views/line/landmark.html.twig`:
@@ -152,10 +152,10 @@ ezpublish:
             content_view:
                 full:
                     ride:
-                        template: 'full/ride.html.twig'
-                        controller: 'AppBundle:Ride:viewRideWithLandmarks'
+                        template: full/ride.html.twig
+                        controller: AppBundle:Ride:viewRideWithLandmarks
                         match:
-                            Identifier\ContentType: 'ride'
+                            Identifier\ContentType: ride
 ```
 
 ### Add the Landmark in the Ride full view

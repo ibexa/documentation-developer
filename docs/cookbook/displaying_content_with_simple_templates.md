@@ -34,7 +34,7 @@ default:
             # Here starts the entry for our view. You can give it any name you want, as long as it is unique.
             article:
                 # This is the path to the template file, relative to the 'app/Resources/views' folder.
-                template: full\article.html.twig
+                template: full/article.html.twig
                 # This identifies the situations when the template will be used.
                 match:
                     # The template will be used when the Content Type of the content is 'article'.

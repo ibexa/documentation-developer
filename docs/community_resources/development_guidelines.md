@@ -82,10 +82,6 @@ Admin operations that can have a severe impact on the web applications should re
 
 ## PHP
 
-!!! note "eZ Coding Standards Tools"
-
-    See also [eZ Coding Standards Tools](https://github.com/ezsystems/ezcs) repository to get the configuration files for your favorite tools.
-
 ### Public API
 
 The [Public PHP API](../api/public_php_api) provided in eZ Platform is in most cases in charge of checking permissions to data for you, but some API's are not documented to throw `UnauthorizedException`, which means that it is the consumer of the API's who is responsible for checking permissions.

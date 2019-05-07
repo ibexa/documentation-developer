@@ -164,7 +164,7 @@ ezpublish:
     system:
         default:
             limitation_value_templates:
-                - { template: 'AppBundle:Limitation:custom_limitation_value.html.twig', priority: 0 }
+                - { template: AppBundle:Limitation:custom_limitation_value.html.twig, priority: 0 }
 
 ```
 

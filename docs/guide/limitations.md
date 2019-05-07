@@ -104,7 +104,7 @@ Out of the box FunctionList uses it in the following way:
     # API/platform stack, so configure to use Blocking Limitation to avoid LimitationNotFoundException
     ezpublish.api.role.limitation_type.function_list:
         class: %ezpublish.api.role.limitation_type.blocking.class%
-        arguments: ['FunctionList']
+        arguments: [FunctionList]
         tags:
             - {name: ezpublish.limitationType, alias: FunctionList}
 ```

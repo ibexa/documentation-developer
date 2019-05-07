@@ -100,8 +100,8 @@ framework:
 
 parameters:
     pdo.db_options:
-        db_table:    session
-        db_id_col:   session_id
+        db_table: session
+        db_id_col: session_id
         db_data_col: session_value
         db_time_col: session_time
 
@@ -109,11 +109,11 @@ services:
     pdo:
         class: PDO
         arguments:
-            dsn:      "mysql:dbname=<mysql_database>"
-            user:     <mysql_user>
+            dsn: 'mysql:dbname=<mysql_database>'
+            user: <mysql_user>
             password: <mysql_password>
 
     session.handler.pdo:
-        class:     Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler
-        arguments: ["@pdo", "%pdo.db_options%"]
+        class: Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler
+        arguments: ['@pdo', %pdo.db_options%]
 ```

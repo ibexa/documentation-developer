@@ -19,7 +19,7 @@ ezpublish:
             content_view:
                 full:
                     home_page:
-                        template: 'full/home_page.html.twig'
+                        template: full/home_page.html.twig
                         match:
                             Id\Location: 2
 ```
@@ -304,9 +304,9 @@ site_group:
         full:
             # existing keys, do not change them
             ride:
-                template: 'full/ride.html.twig'
+                template: full/ride.html.twig
                 match:
-                    Identifier\ContentType: 'ride'
+                    Identifier\ContentType: ride
 ```
 
 This tells the application to use this template whenever it renders the full view of a Ride.
