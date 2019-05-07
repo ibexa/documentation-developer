@@ -186,7 +186,9 @@ for information on how to configure Memcached.
 
 Out of the box in `app/config/cache_pool/cache.memcached.yml` you'll find a default example that can be used.
 
-For eZ Platform Cloud/Platform.sh: This is automatically configured in `app/config/env/platformsh.php` if you have enabled Memcached as `cache` Platform.sh service.
+!!! cloud "eZ Platform Cloud"
+
+    For eZ Platform Cloud/Platform.sh: This is automatically configured in `app/config/env/platformsh.php` if you have enabled Memcached as `cache` Platform.sh service.
 
 For anything else, you can enable it with environment variables detected automatically by `app/config/env/generic.php`.
 For instance, if you set the following environment variables `export CACHE_POOL="cache.memcached" CACHE_DSN="user:pass@localhost?weight=33"`, it will result in config like this:
