@@ -845,3 +845,33 @@ AppBundle\Setting\Unit:
 You can order the settings in the User menu by setting their `priority`.
 
 The value of the setting is accessible with `ez_user_settings['unit']`.
+
+### User setting edit templates
+
+You can also define a template to be used when editing the given setting:
+
+``` yaml
+ezpublish:
+    system:
+        admin_group:
+            user_settings_update_view:
+                full:
+                    unit:
+                        template: 'AppBundle:user:settings/update_unit.html.twig'
+                        match:
+                            Identifier: [ unit ]
+```
+
+The template must extend the `@ezdesign/user/settings/update.html.twig` template:
+
+``` html+twig
+{% extends '@ezdesign/user/settings/update.html.twig' %}
+
+{% block form %}
+    {{ parent() }}
+    <div class="alert ez-alert--info mt-4" role="alert">
+        Imperial units are: yard, mile, pound, etc.</br>
+        Metric units are: meter, kilometer, kilogram, etc.
+    </div>
+{% endblock %}
+```
