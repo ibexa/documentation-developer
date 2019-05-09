@@ -1,8 +1,8 @@
-#FAQ
+# FAQ
 
 This section contains answers for most common questions, tips around support and maintenance, references to important parts of the documentation and tools useful for developers on their daily basis.
 
-####What information should I specify when creating a Customer Support ticket?
+#### What information should I specify when creating a Customer Support ticket?
 
 From the Customer Support perspective the most important thing is version of eZ Platform which is used in the project. The best way to specify it is providing the list of currently installed packages by running composer command:
 ``` bash
@@ -15,11 +15,11 @@ If you stumbled upon some data inconsistency related problem providing database 
 
 Also, please remember to mention recent changes, performed migrations or external scripts/code customizations related to the code which generates problem.
 
-####What are the recommended ways to increase my project's performance?
+#### What are the recommended ways to increase my project's performance?
 
 The most important clues around increasing overall performance of your eZ Platform based project can be found in dedicated [documentation page](../guide/performance.md).
 
-####How can I translate my admin panel?
+#### How can I translate my admin panel?
 
 The language of the admin panel is based on the browser language. In order to change it you should install proper package for you language, refer to the following [list](https://github.com/ezplatform-i18n). 
 Once you have language packages installed, you can switch the language of the Back Office in the User Settings menu.
@@ -31,7 +31,7 @@ If you want to read more about languages managing in eZ Platform please see the 
 - https://doc.ezplatform.com/en/latest/guide/internationalization/#back-office-languages
 - https://doc.ezplatform.com/en/latest/cookbook/setting_up_multi_language_siteaccesses/
 
-####How should I proceed with contributions to eZ Platform?
+#### How should I proceed with contributions to eZ Platform?
 
 First, create an issue in our [issue tracker](https://jira.ez.no/browse/EZP) and refer to it in commits and pull request headers. For example: `EZP-20104: ContentController should return error status when content is not found`. Then, you can fork our repository and create your own branch from the version of the package which you want to contribute to. 
 
@@ -45,7 +45,7 @@ Here you can find more details regarding contribution procedure (provided resour
     
     To deal with patches for packages which are not yet released, you can use [composer-patches](https://github.com/cweagans/composer-patches).
 
-####How to clear the cache properly?
+#### How to clear the cache properly?
 
 Clearing cache is also covered by our [documentation](../guide/devops/#cache-clearing), it applies to file and content (http/persistence) cache.
 
@@ -72,10 +72,19 @@ rm -rf var/cache/*
 
     It should be executed with caution. `rm -rf var/cache/*` wipes all the files and unlike `cache:clear` doesn't warm up the cache. It reflects in significant performance drop on first request thus shouldn't be called on production environment. Besides, it could lead to issues with files ownership after running `cache:clear` as a root.
     
-####Where should I place my configuration files?
+#### Where should I place my configuration files?
 
-In order to avoid overriding important configuration settings it is recommended to place them inside your bundle. In case of doubts follow suggestions from [dedicated documentation page](../guide/configuration.md) and [Symfony best practises](https://symfony.com/doc/3.4/best_practices/configuration.html).
+In order to avoid overriding important configuration settings during upgrade we should separate them from eZ maintained YAML files. There are two basic approaches to achieve that goal:
+1. all project-specific parameters should be kept in separate files, e.g. configuration for Landing Page Blocks could be placed in `landing_page_blocks.yml` file which should be imported in `app/config/config.yml`:
+   
+   ```yaml
+   imports:
+       - { resource: landing_page_blocks.yml }
+   ```
+2. the same configuration could be moved to your bundle e.g. `AppBundle/Resources/config/landing_page_blocks.yml`.
 
-####How could I implement authentication in eZ Platform based project?
+In case of doubts follow suggestions from [dedicated documentation page](../guide/configuration.md) and [Symfony best practises](https://symfony.com/doc/3.4/best_practices/configuration.html).
+
+#### How could I implement authentication in eZ Platform based project?
 
 The best approach is to use Symfony authentication. Check [development security](../guide/security.md) page for more detailed instructions.
