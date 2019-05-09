@@ -1,4 +1,4 @@
-# Creating block with `richtext` attribute type
+# Creating block with richtext attribute type
 
 !!! enterprise
 
@@ -26,7 +26,7 @@
     This configuration defines a new block, its view and configuration templates, and attribute type `richtext` (line 15).
     Remember to provide an icon for the block in the `assets/images/blocks/` folder.
     
-    Next, add `layouts.yml` to `app/config/config.yml` under `imports` key:
+    Next, add `layouts.yml` to `app/config/config.yml` under the `imports` key:
     
     ``` yaml
     imports:
@@ -34,7 +34,7 @@
     ```
     
     Next, create a subscriber that converts a string of data into XML. 
-    Create an `src/AppBundle/Event/Subscriber/RichTextBlockSubscriber.php` file containing:
+    Create a `src/AppBundle/Event/Subscriber/RichTextBlockSubscriber.php` file containing:
     
     ``` php hl_lines="32 41 42 43 44 45 46 47 48 49 50 51"
     <?php
@@ -95,7 +95,7 @@
         
     Note that in the line 32, `my_block` is the name of the block defined in the `layouts.yml` file (line 3).
     This line also implements the `PreRender` method.
-    The lines 41-51 handle the conversion of content into XML string.
+    Lines 41-51 handle the conversion of content into XML string.
     
     At this point you need to create [templates](/guide/templates.md#templating-basics) for displaying and configuring your block.
             
@@ -107,7 +107,7 @@
     </div>
         
     ```
-    Here, the line 2 is responsible for rendering the content from XML to HTML5.
+    Here, line 2 is responsible for rendering the content from XML to HTML5.
         
     Proceed with creating a separate `app/Resources/views/blocks/my_block/config.html.twig` template:
     
