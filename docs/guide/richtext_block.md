@@ -132,4 +132,4 @@
                 - { name: kernel.event_subscriber }
     ```
         
-    For details on customizing additional options of the block or creating custom blocks with other attribute types, see [extending the Page](/guide/extending_page.md).
+    For details on customizing additional options of the block or creating custom blocks with other attribute types, see [Creating custom Page blocks](/guide/extending_page.md).
