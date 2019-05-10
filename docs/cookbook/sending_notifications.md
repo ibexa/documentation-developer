@@ -19,25 +19,19 @@ There are four types of notifications: `info`, `success`, `warning` and `error`.
 
 ### Display notifications from PHP
 
-To send a notification from PHP, inject the `NotificationHandlerInterface` into your class.
-
-``` php
-$this->notificationHandler->info('Notification text');
-```
-
-To have the notification translated, make use of the `TranslatorInterface`.
-You need to provide the message strings in the translation files under the correct domain and key.
+To send a notification from PHP, inject the `TranslatableNotificationHandlerInterface` into your class.
 
 ``` php
 $this->notificationHandler->info(
-    $this->translator->trans(
-        /** @Desc("Notification text") */
-        'example.notification.text',
-        [],
-        'domain'
-    )
+    /** @Desc("Notification text") */
+    'example.notification.text',
+    [],
+    'domain'
 );
 ```
+
+To have the notification translated, you need to provide the message strings
+in the translation files under the correct domain and key.
 
 ### Display notifications from front end
 
