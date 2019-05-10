@@ -102,12 +102,14 @@ ezpublish:
         <siteaccess>:
             user_preferences:
                 short_datetime_format:
-                    date_format: 'dd/mm/yyy'
+                    date_format: 'dd/mm/yyyy'
                     time_format: 'hh:mm'
                 full_datetime_format:
-                    date_format: 'dd/mm/yyy'
+                    date_format: 'dd/mm/yyyy'
                     time_format: 'hh:mm'
 ```
+
+You can also [format date and time](extending_ez_platform.md#format-date-and-time) by using Twig filters and PHP services.
 
 ## Content Tree
 
@@ -147,6 +149,6 @@ ezpublish:
                    - 43 # Media
 ```
 
-## Universal Discovery module limits
+## Universal Discovery Widget (UDW) configuration
 
-Limits for different sections of Universal Discovery Widget module (UDW) can be defined through respective settings in [`universal_discovery_widget.yml`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/config/universal_discovery_widget.yml)
+The Universal Discovery Widget module (UDW) can be found in [Extending modules.](extending_modules.md#universal-discovery-widget-udw)

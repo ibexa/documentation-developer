@@ -102,6 +102,7 @@ pages:
         - Permissions:
             - 'Permissions': 'guide/permissions.md'
             - 'Limitations': 'guide/limitations.md'
+            - 'Limitation reference': 'guide/limitation_reference.md'
             - 'User management': 'guide/user_management.md'
             - 'Custom Policies': 'guide/custom_policies.md'
         - 'Backup': 'guide/backup.md'
@@ -115,12 +116,15 @@ pages:
         - 'Languages': 'guide/internationalization.md'
         - Repository:
             - 'Repository': 'guide/repository.md'
+            - 'Databases': 'guide/databases.md'
             - 'SignalSlots': 'guide/signalslots.md'
             - 'Signals reference': 'guide/signals_reference.md'
         - Cache:
             - 'HTTP cache': 'guide/http_cache.md'
             - 'Persistence cache': 'guide/persistence_cache.md'
-        - 'Clustering': 'guide/clustering.md'
+        - Clustering:
+            - 'Clustering': 'guide/clustering.md'
+            - 'AWS S3 clustering': 'guide/clustering_aws_s3.md'
         - DevOps:
             - 'DevOps': 'guide/devops.md'
             - 'Performance': 'guide/performance.md'
@@ -142,7 +146,6 @@ pages:
         - 'Accept header-based REST API response': 'cookbook/creating_custom_rest_api_response.md'
         - 'Adding Field Types': 'cookbook/adding_new_field_types.md'
         - 'API search result pagination': 'cookbook/paginating_api_search_results.md'
-        - 'AWS S3 clustering': 'cookbook/setting_up_amazon_aws_s3_clustering.md'
         - 'Binary attachments via REST API': 'cookbook/creating_content_with_binary_attachments_via_rest_api.md'
         - 'Creating custom dropdowns': 'cookbook/creating_custom_dropdowns.md'
         - 'Cross-origin HTTP requests': 'cookbook/making_cross_origin_http_requests.md'
@@ -158,7 +161,6 @@ pages:
         - 'Retrieving root Location': 'cookbook/retrieving_root_location.md'
         - 'RouteReference': 'cookbook/using_routereference.md'
         - 'Siteaccess-aware bundle configuration': 'cookbook/exposing_siteaccess_aware_configuration_for_your_bundle.md'
-        - 'Using PostgreSQL': 'cookbook/using_postgresql.md'
         - 'Using simple templates': 'cookbook/displaying_content_with_simple_templates.md'
     - Resources and community:
         - 'Resources': 'community_resources/resources.md'

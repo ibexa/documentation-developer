@@ -10,7 +10,7 @@ This section covers how the [`SearchService`](http://apidoc.ez.no/sami/trunk/NS/
 
 Query object contains two properties you can set criteria on `filter` and `query`. You can mix and match use or use both at the same time, there is one distinction between the two:
 
--   `query` Has an effect on scoring *(relevancy)* calculation, and also on the default sorting if `sortClause` is not specified, *when used with Solr and Elastic.* Typically `query` is used for `FullText` search criterion, otherwise you can place everything else on `filter`.
+-   `query` Has an effect on scoring *(relevancy)* calculation, and also on the default sorting if `sortClause` is not specified, *when used with Solr.* Typically `query` is used for `FullText` search criterion, otherwise you can place everything else on `filter`.
 
 ## Full text search
 
@@ -30,7 +30,7 @@ Described above`Query` object is used to build up a Content query based on a set
 
 ```php
 $query = new \eZ\Publish\API\Repository\Values\Content\Query();
-// Use 'query' over 'filter' for FullText to get hit score (relevancy) with Solr/Elastic
+// Use 'query' over 'filter' for FullText to get hit score (relevancy) with Solr
 $query->query = new Query\Criterion\FullText( $text );
 ```
 
@@ -56,26 +56,6 @@ The `searchHits` properties of the `SearchResult` object is an array of `SearchH
 !!! Tip
 
     If you you are searching using a unique identifier, for instance using the Content ID or Content remote ID criterion, then you can use [`SearchService::findSingle()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/SearchService.html#method_findSingle), this takes a Criterion and returns a single Content item, or throws a `NotFound` exception if none is found.
-    
-### Indexing related objects
-
-You can use indexation of related objects to search through text of related content.
-Indexing is disabled by default.
-To set it up you need to define the maximum indexing depth using the following YAML configuration:
-
-```yaml
-ez_search_engine_solr:
-    # ...
-    connections:
-        default:
-            # ...
-            indexing_depth:
-                # Default value: 0 - no relation indexing, 1 - direct relations, 2nd level  relations, 3rd level  relations (maximum value).
-                default: 1      
-                content_type:
-                    # Index depth defined for specific content type
-                    article: 2
-```
 
 ## Retrieving Sort Clauses for parent Location
 
@@ -141,7 +121,7 @@ $searchService->findLocations($query,
 
     <https://github.com/ezsystems/CookbookBundle/blob/master/Command/FindContent3Command.php>
 
-A search isn't only meant for searching, it also provides the interface for what was called "fetch" in previous versions. As this is back-end agnostic, eZ Platform "ezfind" fetch functions are now powered by Solr (or ElasticSearch in experimental, unsupported setups).
+A search isn't only meant for searching, it also provides the interface for what was called "fetch" in previous versions. As this is back-end agnostic, eZ Platform "ezfind" fetch functions are now powered by Solr.
 
 Following the examples above you now change it a bit to combine several criteria with both an AND and an OR condition.
 

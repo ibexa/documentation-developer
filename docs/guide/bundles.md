@@ -12,7 +12,7 @@ Many eZ Platform functionalities are provided through separate bundles included 
 
 ### How to use bundles?
 
-All the bundles containing built-in eZ Platform functionalities are installed automatically
+All the bundles containing built-in eZ Platform functionalities are installed automatically.
 By default, a clean eZ Platform installation also contains an AppBundle where you can place your custom code.
 
 You can see a list of other available community-developed bundles on <https://ezplatform.com/Bundles>.
@@ -47,6 +47,15 @@ Project assets should go into the `web` folder.
 They can be referenced as relative to the root, for example `web/js/script.js` can be referenced as `js/script.js` from templates.
 
 All project assets are accessible through the `web/assets` path.
+
+??? note "Removing `web/assets` manually"
+
+	If you ever remove the `web/assets` folder manually, you need to dump translations before performing
+	the `yarn encore <dev|prod>` command:
+
+	```
+	php bin/console bazinga:js-translation:dump web/assets --merge-domains
+	```
 
 #### Importing assets from a bundle
 
@@ -114,10 +123,35 @@ module.exports = (eZConfig, eZConfigManager) => {
 
 !!! tip
 
+	If you do not know what `entryName` to use, you can check the dev tools for files that are loaded on the given page.
+	Use the file name as `entryName`.
+
+!!! tip
+
     After adding new files, run `php bin/console cache:clear`.
 
 	For a full example of overriding configuration,
     see [`ez.config.manager.js`](https://github.com/ezsystems/ezplatform-matrix-fieldtype/blob/master/src/bundle/Resources/encore/ez.config.manager.js).
+
+To add new configuration under your own namespace and with its own dependencies,
+add a `Resources/encore/ez.webpack.custom.config.js` file, for example:
+
+``` js
+	const Encore = require('@symfony/webpack-encore');
+
+	Encore.setOutputPath('<custom-path>')
+	    .setPublicPath('<custom-path>')
+	    .addExternals('<custom-externals>')
+	    // ...
+	    .addEntry('<entry-name>', ['<JS-path>']);
+
+	const customConfig = Encore.getWebpackConfig();
+
+	customConfig.name = 'customConfigName';
+
+	// Config or array of configs: [customConfig1, customConfig2];
+	module.exports = customConfig;
+```
 
 ##### Configuration from main project files
 

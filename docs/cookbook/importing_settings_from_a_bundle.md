@@ -30,15 +30,15 @@ The configuration tree from this file will be merged with the main one.
 ``` yaml
 ezpublish:
     system:
-        site_group:
+        <siteaccess>:
             content_view:
                 full:
                     article:
-                        template: "AcmeExampleBundle:full:article.html.twig"
+                        template: AcmeExampleBundle:full:article.html.twig
                         match:
                             Identifier\ContentType: [article]
                     special:
-                        template: "::special.html.twig"
+                        template: '::special.html.twig'
                         match:
                             Id\Content: 142
 ```
@@ -112,15 +112,15 @@ In `AcmeExampleBundle/Resources/config/template_rules.yml`:
 # You explicitly prepended config for "ezpublish" namespace in the service container extension, 
 # so no need to repeat it here
 system:
-    site_group:
+    <siteaccess>:
         content_view:
             full:
                 article:
-                    template: "AcmeExampleBundle:full:article.html.twig"
+                    template: AcmeExampleBundle:full:article.html.twig
                     match:
                         Identifier\ContentType: [article]
                 special:
-                    template: "::special.html.twig"
+                    template: '::special.html.twig'
                     match:
                         Id\Content: 142
 ```

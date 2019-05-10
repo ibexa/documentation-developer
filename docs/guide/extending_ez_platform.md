@@ -26,6 +26,7 @@ You can extend the Back Office in the following areas:
 - [Tabs](#tabs)
 - [Workflow event timeline](#workflow-event-timeline)
 - [Injecting custom components](#injecting-custom-components)
+- [Format date and time](#format-date-and-time)
 - [Universal Discovery module](extending_modules.md#universal-discovery-module)
 - [Sub-items list](extending_modules.md#sub-items-list)
 - [Multi-file upload](extending_modules.md#multi-file-upload)
@@ -343,7 +344,7 @@ Before you add a tab to a group you must create the tab's PHP class and define i
 AppBundle\Custom\Tab:
     parent: EzSystems\EzPlatformAdminUi\Tab\AbstractTab
     tags:
-        - { name: ezplatform.tab, group: 'custom-tab-group' }
+        - { name: ezplatform.tab, group: custom-tab-group }
 ```
 
 This configuration also assigns the new tab to `custom-tab-group`.
@@ -518,7 +519,7 @@ ezpublish:
        default:
            content_type:
               default-config:
-                 thumbnail: '/assets/images/mydefaulticon.svg'
+                 thumbnail: /assets/images/mydefaulticon.svg
 ```
 
 To configure a custom icon you just need to replace the `default-config` key with a Content Type identifier.
@@ -530,7 +531,7 @@ ezpublish:
        default:
            content_type:
               article:
-                 thumbnail: '/assets/images/customicon.svg'
+                 thumbnail: /assets/images/customicon.svg
 ```
 
 !!! note "Icons format"
@@ -609,7 +610,7 @@ It must be tagged as a service:
 ``` yaml
 AppBundle\Component\MyNewComponent:
     tags:
-        - { name: ezplatform.admin_ui.component, group: 'content-edit-form-before' }
+        - { name: ezplatform.admin_ui.component, group: content-edit-form-before }
 ```
 
 `group` indicates where the widget will be displayed. The available groups are:
@@ -641,12 +642,12 @@ In this case all you have to do is add a service definition (with proper paramet
 appbundle.components.my_twig_component:
     parent: EzSystems\EzPlatformAdminUi\Component\TwigComponent
     arguments:
-        $template: 'path/to/file.html.twig'
+        $template: path/to/file.html.twig
         $parameters:
-            first_param: 'first_value'
-            second_param: 'second_value'
+            first_param: first_value
+            second_param: second_value
     tags:
-        - { name: ezplatform.admin_ui.component, group: 'dashboard-blocks' }
+        - { name: ezplatform.admin_ui.component, group: dashboard-blocks }
 ```
 
 This renders the `path/to/file.html.twig` template with `first_param` and `second_param` as parameters.
@@ -655,18 +656,192 @@ With `LinkComponent` and `ScriptComponent` you provide `$href` and `$src` as arg
 
 ``` yaml
 appbundle.components.my_link_component:
-   parent: EzSystems\EzPlatformAdminUi\Component\LinkComponent
-   arguments:
-       $href: 'http://address.of/file.css'
-   tags:
-       - { name: ezplatform.admin_ui.component, group: 'stylesheet-head' }
+    parent: EzSystems\EzPlatformAdminUi\Component\LinkComponent
+    arguments:
+        $href: 'http://address.of/file.css'
+    tags:
+        - { name: ezplatform.admin_ui.component, group: stylesheet-head }
 ```
 
 ``` yaml
 appbundle.components.my_script_component:
-   parent: EzSystems\EzPlatformAdminUi\Component\ScriptComponent
-   arguments:
-       $src: 'http://address.of/file.js'
-   tags:
-       - { name: ezplatform.admin_ui.component, group: 'script-body' }
+    parent: EzSystems\EzPlatformAdminUi\Component\ScriptComponent
+    arguments:
+        $src: 'http://address.of/file.js'
+    tags:
+        - { name: ezplatform.admin_ui.component, group: script-body }
 ```
+
+## Format date and time
+
+Apart from changing the [date and time formats](config_back_office#date-and-time-formats), you can use Twig filters:
+
+- `ez_short_datetime`
+- `ez_short_date`
+- `ez_short_time`
+- `ez_full_datetime`
+- `ez_full_date`
+- `ez_full_time`
+
+The following are examples of using the filters:
+
+``` php hl_lines="3 6"
+<div>
+    // Date formatted in the preferred time zone and short datetime format:
+    {{ content.versionInfo.creationDate|ez_short_datetime }}
+
+    // Date formatted in UTC and preferred short datetime format:
+    {{ content.versionInfo.creationDate|ez_short_datetime('UTC') }}
+</div>
+```
+
+The filters accept an optional `timezone` parameter for displaying date and time in a chosen time zone.
+The default time zone is set in the User settings menu.
+
+For details, see reference materials on the [full format filters](twig_functions_reference.md#ez_full_datetime-ez_full_date-ez_full_time) and [short format filters](twig_functions_reference.md#ez_short_datetime-ez_short_date-ez_short_time).
+
+You can also format date and time by using the following services:
+
+- `@ezplatform.user.settings.short_datetime_format.formatter`
+- `@ezplatform.user.settings.short_datet_format.formatter`
+- `@ezplatform.user.settings.short_time_format.formatter`
+- `@ezplatform.user.settings.full_datetime_format.formatter`
+- `@ezplatform.user.settings.full_date_format.formatter`
+- `@ezplatform.user.settings.full_time_format.formatter`
+
+To use them, create an `src\AppBundle\Service\MyService.php` file containing:
+
+``` php
+<?php
+
+namespace AppBundle\Service;
+
+use EzSystems\EzPlatformUser\UserSetting\DateTimeFormat\FormatterInterface;
+
+class MyService
+{
+    /** @var \EzSystems\EzPlatformUser\UserSetting\DateTimeFormat\FormatterInterface */
+    private $shortDateTimeFormatter;
+
+    public function __construct(FormatterInterface $shortDateTimeFormatter)
+    {
+        // your code
+
+        $this->shortDateTimeFormatter = $shortDateTimeFormatter;
+
+        // your code
+    }
+
+    public function foo()
+    {
+        // your code
+
+        $now = new \DateTimeImmutable();
+        $date = $this->shortDateTimeFormatter->format($now);
+        $utc = $this->shortDateTimeFormatter->format($now, 'UTC');
+
+        // your code
+    }
+}
+```
+
+Then, add the following to `app/config/services.yml`:
+
+``` yaml
+services:    
+    AppBundle\Service\MyService:
+        arguments:
+            $shortDateTimeFormatter: '@ezplatform.user.settings.short_datetime_format.formatter'
+```
+
+## User settings
+
+You can add new preferences to the User settings menu in the Back Office.
+
+To do so, create a setting class implementing two interfaces:
+`ValueDefinitionInterface` and `FormMapperInterface`.
+
+In this example the class is located in `AppBundle/Setting/Unit.php`
+and enables the user to select their preference for metric or imperial unit systems.
+
+``` php
+<?php
+declare(strict_types=1);
+
+namespace AppBundle\Setting;
+
+use EzSystems\EzPlatformUser\UserSetting\FormMapperInterface;
+use EzSystems\EzPlatformUser\UserSetting\ValueDefinitionInterface;
+use eZ\Publish\Core\Base\Exceptions\InvalidArgumentException;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\FormBuilderInterface;
+use EzSystems\EzPlatformAdminUi\UserSetting as AdminUiUserSettings;
+
+class Unit implements ValueDefinitionInterface, FormMapperInterface
+{
+    public const METRIC_OPTION = 'metric';
+    public const IMPERIAL_OPTION = 'imperial';
+
+    public function getName(): string
+    {
+        return 'Unit';
+    }
+
+    public function getDescription(): string
+    {
+        return 'Choose between metric and imperial unit systems';
+    }
+
+    public function getDisplayValue(string $storageValue): string
+    {
+        switch($storageValue) {
+            case self::METRIC_OPTION:
+                return 'Metric';
+            case self::IMPERIAL_OPTION:
+                return 'Imperial';
+            default:
+                throw new InvalidArgumentException(
+                    '$storageValue',
+                    sprintf('There is no \'%s\' option', $storageValue)
+                );
+        }
+    }
+
+    public function getDefaultValue(): string
+    {
+        return 'metric';
+    }
+
+    public function mapFieldForm(FormBuilderInterface $formBuilder, AdminUiUserSettings\ValueDefinitionInterface $value): FormBuilderInterface
+    {
+        $choices = [
+            'Metric' => self::METRIC_OPTION,
+            'Imperial' => self::IMPERIAL_OPTION,
+        ];
+
+        return $formBuilder->create(
+            'value',
+            ChoiceType::class,
+            [
+                'multiple' => false,
+                'required' => true,
+                'label' => $this->getDescription(),
+                'choices' => $choices,
+            ]
+        );
+    }
+}
+```
+
+Register the class as a service:
+
+``` yaml
+AppBundle\Setting\Unit:
+    tags:
+        - { name: ezplatform.admin_ui.user_setting.value, identifier: unit, priority: 50 }
+        - { name: ezplatform.admin_ui.user_setting.form_mapper, identifier: unit }
+```
+
+You can order the settings in the User menu by setting their `priority`.
+
+The value of the setting is accessible with `ez_user_settings['unit']`.

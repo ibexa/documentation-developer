@@ -335,11 +335,11 @@ The configuration above will result in the following boosting (Content Type / Fi
 
     Currently, boosting on particular fields is missing.
     However, it could be configured using 3rd party [Novactive/NovaeZSolrSearchExtraBundle](https://github.com/Novactive/NovaeZSolrSearchExtraBundle) in case of custom search implementation, e.g. to handle your front-end search form.
-    Unfortunately, this doesn't affect search performed in the administration interface. 
-    
-    The following example presents boosting configuration for Folder's `name` and `description` fields. 
+    Unfortunately, this doesn't affect search performed in the administration interface.
+
+    The following example presents boosting configuration for Folder's `name` and `description` fields.
     First, in `ezplatform.yml` configure [custom fulltext fields](https://github.com/Novactive/NovaeZSolrSearchExtraBundle/blob/master/doc/custom_fields.md).
-    
+
     ```yaml
     ez_solr_search_extra:
         system:
@@ -350,36 +350,36 @@ The configuration above will result in the following boosting (Content Type / Fi
                     custom_folder_description:
                         - folder/description
     ```
-    
+
     The second step requires you to use `\Novactive\EzSolrSearchExtra\Query\Content\Criterion\MultipleFieldsFullText` instead of default `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\FullText`.
     The following example shows custom query which benefits from the custom fields created in the previous example.
-    
+
     ```php
     <?php
-    
+
     namespace AppBundle\Controller;
-    
+
     use eZ\Publish\API\Repository\SearchService;
     use eZ\Publish\API\Repository\Values\Content\Query;
     use Symfony\Component\HttpFoundation\Request;
     use Symfony\Component\HttpFoundation\Response;
-    
+
     class SearchController
     {
         /**
          * @var \eZ\Publish\API\Repository\SearchService
          */
         private $searchService;
-    
+
         public function __construct(SearchService $searchService)
         {
             $this->searchService = $searchService;
         }
-    
+
         public function searchAction(Request $request): Response
         {
             $queryString = $request->get('query');
-            
+
             $query = new Query();
             $query->query = new \Novactive\EzSolrSearchExtra\Query\Content\Criterion\MultipleFieldsFullText(
                 $queryString,
@@ -390,20 +390,40 @@ The configuration above will result in the following boosting (Content Type / Fi
                     ]
                 ]
             );
-    
+
             $searchResult = $this->searchService->findContent($query);
-            
+
             ...
         }
     }
     ```
-    
+
     Remember to clear the cache and perform search engine reindex afterwords.
-    
+
     The above configuration will result in the following boosting (Content Type / Field):
     - `folder/name: 20.0`
     - `folder/title: 10.0`
-    
+
+### Indexing related objects
+
+You can use indexation of related objects to search through text of related content.
+Indexing is disabled by default.
+To set it up you need to define the maximum indexing depth using the following YAML configuration:
+
+```yaml
+ez_search_engine_solr:
+    # ...
+    connections:
+        default:
+            # ...
+            indexing_depth:
+                # Default value: 0 - no relation indexing, 1 - direct relations, 2nd level  relations, 3rd level  relations (maximum value).
+                default: 1      
+                content_type:
+                    # Index depth defined for specific content type
+                    article: 2
+```
+
 ## Extending the Solr Search Engine Bundle
 
 ### Document field mappers
