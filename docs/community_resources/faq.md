@@ -11,7 +11,7 @@ composer show ezsystems/*
 
 Besides that all the configuration from `app/config` directory might be helpful. It is good to give steps to reproduce the issue, or at least some meaningful description of circumstances under which the problem occurred.
 
-If you stumbled upon some data inconsistency related problem providing database logs should also be important step.
+If you stumbled upon some database related problem providing corresponding logs should also be important step.
 
 Also, please remember to mention recent changes, performed migrations or external scripts/code customizations related to the code which generates problem.
 
