@@ -1,7 +1,9 @@
-# Creating block with richtext attribute type
+# Creating custom richtext block
 
 !!! enterprise
 
+    To create richtext [custom Page block](/guide/extending_page.md), you need to define its layout, provide templates, add a subscriber and register it as a service.
+    
     Start with creating an `app/config/layouts.yml` file containing:
     
     ``` yaml hl_lines="3 15"
@@ -114,10 +116,10 @@
     ``` html+twig
     {% extends '@EzPlatformPageBuilder/page_builder/block/config.html.twig' %}
              
-            {% block meta %}
-                {{ parent() }}
-                <meta name="LanguageCode" content="{{ language_code }}" />
-            {% endblock %}
+    {% block meta %}
+        {{ parent() }}
+        <meta name="LanguageCode" content="{{ language_code }}" />
+    {% endblock %}
         
     ```
         
