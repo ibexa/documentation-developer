@@ -17,7 +17,7 @@ Also, please remember to mention recent changes, performed migrations or externa
 
 #### What are the recommended ways to increase my project's performance?
 
-The most important clues around increasing overall performance of your eZ Platform based project can be found in dedicated [documentation page](../guide/performance.md).
+The most important clues around increasing overall performance of your eZ Platform based project can be found in the dedicated [documentation page](../guide/performance.md).
 
 #### How can I translate my admin panel?
 
