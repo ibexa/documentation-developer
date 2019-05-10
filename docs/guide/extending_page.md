@@ -1,8 +1,6 @@
-# Extending the Page
+# Creating custom Page blocks
 
 !!! enterprise
-
-    ## Creating Page blocks
 
     To create a Page block, use the following YAML configuration in an application or a bundle,
     under the `ezplatform_page_fieldtype` key.
@@ -16,7 +14,9 @@
         blocks:
             example_block:
                 name: Example Block
+                category: default
                 thumbnail: assets/images/blocks/exampleblock.svg
+                configuration_template: blocks/config.html.twig
                 views:
                     default:
                         template: blocks/template.html.twig
@@ -80,6 +80,7 @@
     |`string`|String|-|
     |`url`|URL|-|
     |`text`|Text block|-|
+    |`richtext`|Rich text block (see [creating richtext block](richtext_block.md)|-|
     |`embed`|Embedded Content item|-|
     |`select`|Drop-down with options to select|`choices` lists the available options</br>`multiple`, when set to true allows selecting more than one option.
     |`multiple`|Checkbox(es)|`choices` lists the available options.|
