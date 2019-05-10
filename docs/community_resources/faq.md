@@ -74,7 +74,7 @@ rm -rf var/cache/*
     
 #### Where should I place my configuration files?
 
-In order to avoid overriding important configuration settings during upgrade we should separate them from eZ maintained YAML files. There are two basic approaches to achieve that goal:
+In order to avoid "merge conflicts" on important configuration settings during upgrades, moving as much as possible of your configuration to own files can be a good idea. There are two basic approaches to achieve that goal:
 1. all project-specific parameters should be kept in separate files, e.g. configuration for Landing Page Blocks could be placed in `landing_page_blocks.yml` file which should be imported in `app/config/config.yml`:
    
    ```yaml
