@@ -37,7 +37,7 @@ First, create an issue in our [issue tracker](https://jira.ez.no/browse/EZP) and
 
 Now you can introduce whatever changes you wish, either modifying existing files or creating new ones. Once you are done with your edits, add your files to the staging area, then commit with a short, clear description and push changes to your fork. Finally, you can go to the project's page on GitHub and you should see a `Compare and pull request` button. Activate it, write a description and select `Create pull request`. Start the pull request's name with the issue number. Now you can wait for your changes to be reviewed and eventually tested and merged into the product.
 
-Here you can find more details regarding contribution procedure (provided resources apply to different repositories, but the whole process is more or less the same):
+Here you can find more details about the contribution procedure (provided resources apply to different repositories, but the whole process is more or less the same):
 - https://doc.ezplatform.com/en/latest/community_resources/documentation/#contributing-through-git
 - https://github.com/ezsystems/ezpublish-kernel#contributing
 
