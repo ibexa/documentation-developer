@@ -13,7 +13,7 @@ Besides that all the configuration from `app/config` directory might be helpful.
 
 If you stumbled upon some database related problem, providing corresponding logs is also an important step.
 
-Also, please remember to mention recent changes, performed migrations or external scripts/code customizations related to the code which generates problem.
+Also, please remember to mention recent changes, performed migrations or external scripts/code customizations related to the code which causes the problem.
 
 #### What are the recommended ways to increase my project's performance?
 
