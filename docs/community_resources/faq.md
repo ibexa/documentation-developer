@@ -26,7 +26,7 @@ Once you have language packages installed, you can switch the language of the Ba
 
 If you do not have a language defined in the browser, the language will be selected based on the `parameters.locale_fallback` parameter located in `default_parameters.yml`.
 
-If you want to read more about languages managing in eZ Platform please see the following doc pages:
+If you want to read more about language handling in eZ Platform please see the following doc pages:
 
 - https://doc.ezplatform.com/en/latest/guide/internationalization/#back-office-languages
 - https://doc.ezplatform.com/en/latest/cookbook/setting_up_multi_language_siteaccesses/
