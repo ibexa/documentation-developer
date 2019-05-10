@@ -21,7 +21,7 @@ The most important clues around increasing overall performance of your eZ Platfo
 
 #### How can I translate my admin panel?
 
-The language of the admin panel is based on the browser language. In order to change it you should install proper package for you language, refer to the following [list](https://github.com/ezplatform-i18n). 
+The language of the admin panel is based on the browser language. In order to change it you should install the proper package for you language, refer to the following [list](https://github.com/ezplatform-i18n). 
 Once you have language packages installed, you can switch the language of the Back Office in the User Settings menu.
 
 If you do not have a language defined in the browser, the language will be selected based on `parameters.locale_fallback` parameter located in `default_parameters.yml`.
