@@ -128,8 +128,10 @@ For best performance we recommend use of Redis Sentinel if it fits your needs. H
 
 ###### eZ Platform Cloud / Platform.sh usage
 
-If you use Platform.sh Enterprise you can benefit from the Redis Sentinel across three nodes for great fault tolerance.
-Platform.sh Professional and lower versions offer Redis in single instance mode only.
+!!! cloud "eZ Platform Cloud"
+
+    If you use Platform.sh Enterprise you can benefit from the Redis Sentinel across three nodes for great fault tolerance.
+    Platform.sh Professional and lower versions offer Redis in single instance mode only.
 
 ### Memcached
 
