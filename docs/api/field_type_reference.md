@@ -1699,7 +1699,7 @@ services:
 
     |Parameter|Description|
     |---------|-----------|
-    |`locationId`|ID of the Location of the Content item which can be accessed by `contentInfo.id`|
+    |`locationId`|ID of the Location of the Content item which can be accessed by `content_info.id`|
     |`blockId`|ID of the block which you want to render|
     |`versionNo`|Version number of the Content item to render|
     |`languageCode`|Language code of the Content item to render|

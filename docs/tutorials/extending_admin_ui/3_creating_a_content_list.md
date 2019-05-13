@@ -149,20 +149,20 @@ The highlighted line 41 indicates the template that will be used to display the 
 Finally, create an `all_content_list.html.twig` file in `src/EzSystems/ExtendingTutorialBundle/Resources/views/list`:
 
 ``` html+twig
-{% extends 'EzPlatformAdminUiBundle::layout.html.twig' %}
+{% extends '@ezdesign::layout.html.twig' %}
 
 {% block title %}{{ 'Content List'|trans }}{% endblock %}
 
 {%- block breadcrumbs -%}
-    {% include '@EzPlatformAdminUi/parts/breadcrumbs.html.twig' with { items: [
+    {% include '@ezdesign/ui/breadcrumbs.html.twig' with { items: [
         { value: 'url.list'|trans|desc('Content List') }
     ]} %}
 {%- endblock -%}
 
 {%- block page_title -%}
-    {% include '@EzPlatformAdminUi/parts/page_title.html.twig' with {
+    {% include '@ezdesign/ui/page_title.html.twig' with {
         title: 'url.list'|trans|desc('Content List'),
-        iconName: 'article'
+        icon_name: 'article'
     } %}
 {%- endblock -%}
 
@@ -183,10 +183,10 @@ Finally, create an `all_content_list.html.twig` file in `src/EzSystems/Extending
             <tbody>
             {% for article in articles %}
                 <tr>
-                    <td><a href={{path('ez_urlalias', {'contentId': article.contentInfo.id})}}>{{ ez_content_name(article.contentInfo) }}</a></td>
-                    <td>{{ article.contentInfo.contentTypeId }}</td>
-                    <td>{{ article.contentInfo.modificationDate|ez_full_datetime }}</td>
-                    <td>{{ article.contentInfo.publishedDate|ez_full_datetime }}</td>
+                    <td><a href={{path('ez_urlalias', {'contentId': article.content_info.id})}}>{{ ez_content_name(article.content_info) }}</a></td>
+                    <td>{{ article.content_info.contentTypeId }}</td>
+                    <td>{{ article.content_info.modificationDate|ez_full_datetime }}</td>
+                    <td>{{ article.content_info.publishedDate|ez_full_datetime }}</td>
                 </tr>
             {% endfor %}
             </tbody>

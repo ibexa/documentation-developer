@@ -67,7 +67,7 @@ In this case the `controller` key points to the Query Controller's `locationQuer
 <h1>{{ ez_content_name(content) }}</h1>
 
 {% for item in items.searchHits %}
-  <h2><a href={{ path('ez_urlalias', {'contentId': item.valueObject.contentInfo.id}) }}>{{ ez_content_name(item.valueObject.contentInfo) }}</a></h2>
+  <h2><a href={{ path('ez_urlalias', {'contentId': item.valueObject.content_info.id}) }}>{{ ez_content_name(item.valueObject.content_info) }}</a></h2>
 {% endfor %}
 ```
 
@@ -243,7 +243,7 @@ Finally, let's use the Controller in a template in `app/Resources/views/full/fol
 <h1>{{ ez_content_name(content) }}</h1>
 
 {% for item in items %}
-  <h2><a href={{ path('ez_urlalias', {'contentId': item.contentInfo.id}) }}>{{ ez_content_name(item) }}</a></h2>
+  <h2><a href={{ path('ez_urlalias', {'contentId': item.content_info.id}) }}>{{ ez_content_name(item) }}</a></h2>
 {% endfor %}
 ```
 

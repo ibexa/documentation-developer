@@ -39,7 +39,7 @@ If languages were specified during retrieval of Content object, you can render n
 
 `ez_content_name ( eZ\Publish\API\Repository\Values\Content\Content content [, string forcedLanguage ] ) : string`
 
-`ez_content_name ( contentInfo [, string forcedLanguage ] ) : string`
+`ez_content_name ( content_info [, string forcedLanguage ] ) : string`
 
 | Argument name | Type | Description |
 |---------------|------|-------------|
@@ -50,7 +50,7 @@ If languages were specified during retrieval of Content object, you can render n
 
 ``` html+twig
 <h2>Content name in current language: {{ ez_content_name( content ) }}</h2>
-<h2>Content name in current language, from ContentInfo: {{ ez_content_name( content.contentInfo ) }}</h2>
+<h2>Content name in current language, from ContentInfo: {{ ez_content_name( content.content_info ) }}</h2>
 <h2>Content name in French (forced): {{ ez_content_name( content, "fre-FR" ) }}</h2>
 ```
 
@@ -248,7 +248,7 @@ The formats are defined in [user preferences](config_back_office.md#date-and-tim
 The filters accept `\DateTimeInterface` as argument.
 If the argument is null, the filter returns the current date and time in the selected format.
 
-For example `{{ contentInfo.publishedDate|ez_full_datetime }}` will return `03 May 2019 23:03`.
+For example `{{ content_info.publishedDate|ez_full_datetime }}` will return `03 May 2019 23:03`.
 
 The filters also accept an optional `timezone` parameter for displaying date and time in a chosen time zone.
 
@@ -486,7 +486,7 @@ The formats are defined in [user preferences](config_back_office.md#date-and-tim
 The filters accept `\DateTimeInterface` as argument.
 If the argument is null, the filter returns the current date and time in the selected format.
 
-For example `{{ contentInfo.publishedDate|ez_full_datetime }}` will return `03 May 2019 23:03`.
+For example `{{ content_info.publishedDate|ez_full_datetime }}` will return `03 May 2019 23:03`.
 
 The filters also accept an optional `timezone` parameter for displaying date and time in a chosen time zone.
 
