@@ -846,7 +846,7 @@ You can order the settings in the User menu by setting their `priority`.
 
 The value of the setting is accessible with `ez_user_settings['unit']`.
 
-### User setting edit templates
+### User settings edit templates
 
 You can also define a template to be used when editing the given setting:
 
@@ -857,7 +857,7 @@ ezpublish:
             user_settings_update_view:
                 full:
                     unit:
-                        template: 'AppBundle:user:settings/update_unit.html.twig'
+                        template: AppBundle:user:settings/update_unit.html.twig
                         match:
                             Identifier: [ unit ]
 ```
