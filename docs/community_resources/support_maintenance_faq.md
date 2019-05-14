@@ -1,4 +1,4 @@
-# FAQ
+# Support & Maintenance FAQ
 
 This page contains answers for most common questions and tips around support and maintenance,
 as well as references to important parts of the documentation and tools useful for developers in their daily work.
@@ -39,29 +39,20 @@ To read more about language managing in eZ Platform, see the following doc pages
 - [Back Office languages](https://doc.ezplatform.com/en/latest/guide/internationalization/#back-office-languages)
 - [Setting up multi-language SiteAccesses and corresponding translations](https://doc.ezplatform.com/en/latest/cookbook/setting_up_multi_language_siteaccesses/)
 
-#### How can I contribute code to eZ Platform?
+#### How can I apply patches to the installation?
 
-First, create an issue in our [issue tracker](https://jira.ez.no/browse/EZP) and refer to it in commits and pull request headers.
-For example: `EZP-20104: ContentController should return error status when content is not found`.
-Then, you can fork our repository and create your own branch from the version of the package which you want to contribute to.
+The easiest way to apply patch to your project is using unix [patch](http://man7.org/linux/man-pages/man1/patch.1.html) command. You should execute it from the directory which is dedicated for particular package e.g. `vendor/ezsystems/ezplatform-admin-ui`. Before running it, we advise to test the patch file using `--dry-run` parameter to see what files will be modified. It is also good to prepare a backup of those files. Below there is an example call.
+```bash
+patch -p1 -i /my-patches/patch_file.patch
+``` 
 
-Now introduce your changes, either by modifying existing files or creating new ones.
-Once you are done with your edits, add your files to the staging area,
-then commit with a short, clear description and push changes to your fork.
-Finally, go to the project's page on GitHub and you should see a `Compare and pull request` button.
-Click it, write a description and select `Create pull request`.
-Start the pull request's name with the issue number.
-Now you can wait for your changes to be reviewed and eventually tested and merged into the product.
+If you want to revert the patch you should run the above command with `-R` parameter.
 
-Here you can find more details regarding the contribution procedure
-(provided resources apply to different repositories, but the whole process is more or less the same):
+!!! tip 
 
-- [Contributing through git](https://doc.ezplatform.com/en/latest/community_resources/documentation/#contributing-through-git)
-- [Contributing in ezpublish-kernel](https://github.com/ezsystems/ezpublish-kernel#contributing)
+    Remember to clear the cache after applying the patch!
 
-!!! tip
-
-    To deal with patches for packages which are not yet released, you can use [composer-patches](https://github.com/cweagans/composer-patches).
+As an alternative, you can use [composer-patches](https://github.com/cweagans/composer-patches). You can apply patches received from eZ Support, community or the others using your `composer.json` file. All you need is to specify which package will receive patches and give the path/URL to the actual file which will be used.
 
 #### How to clear the cache properly?
 
