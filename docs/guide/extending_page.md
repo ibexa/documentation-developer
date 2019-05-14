@@ -534,13 +534,13 @@
 
     ## Extensibility on block preview update
 
-    When block preview is updated, JavaScript event `postUpdateBlocksPreview` is fired.
+    When block preview is updated, JavaScript event `ez-post-update-blocks-preview` is fired.
     You can use it to run your own JS scripts, such as reinitializing the work of a slider
     or any other JS-based feature implemented inside your block preview.
 
     ``` js
     (function () {
-        window.document.body.addEventListener('postUpdateBlocksPreview', () => console.log('block updated'), false);
+        window.document.body.addEventListener('ez-post-update-blocks-preview', () => console.log('block updated'), false);
     })();
     ```
 
