@@ -73,7 +73,7 @@ Allow public HTTP(S) access to the recommendation bundle API (`<yourdomain>/api/
     If your organization's policy is to use BASIC AUTH on the API interfaces,
     you need to add specific configuration.
 
-You probably have some access restrictions on your site defined in `app/config/security.yml`.
+You can define access restrictions on your site in `app/config/security.yml`.
 
 ``` yaml
 security:
@@ -141,7 +141,7 @@ ez_recommendation:
 | `recommendation.license_key`         | Your license key.                                         |
 | `server_uri`                         | The URI your site's REST API can be accessed from.        |
 | `recommender.included_content_types` | Content Types on which the tracking script will be shown. |
-| `response.random_content_types`      | Content Types which will be returned when the response from the Recommendation engine contains co content. |
+| `response.random_content_types`      | Content Types which will be returned when the response from the Recommendation engine contains no content. |
 
 #### Advanced configuration
 
@@ -213,7 +213,7 @@ Accept application/vnd.ez.api.Content+json
 Authorization Basic xxxxxxxx
 ```
 
-Additionally you should check if the `contenttypes` endpoint is working as well with the following request:
+Additionally you should check if the `contenttypes` endpoint is working with the following request:
 
 ```
 GET http://<yourdomain>/api/ezp/v2/ez_recommendation/v1/contenttypes/38?page=1&page_size=10
@@ -283,7 +283,7 @@ With this command, the bundle exporter collects all content related to the SiteA
 After finishing, the systems sends a POST request to the `webHook` endpoint and informs the Recommendation engine to fetch new content (2).
 An internal workflow is then triggered (3) so that the generated files are downloaded (4) and imported in the Recommendation engine's content store (5).
 
-The export process can take up to a few minutes.
+The export process can take a few minutes.
 
 ![Recommendation Full Content Export](img/full_content_export.png)
 
@@ -431,9 +431,9 @@ render_esi(controller(‘EzRecommendationClientBundle:Recommendation:showRecomme
 
 | Parameter        | Type   | Description   |
 |------------------|--------|---------------|
-| `contextItems`   | int    | The content you want to get recommendations for. |
+| `contextItems`   | int    | ID of the content you want to get recommendations for. |
 | `scenario`       | string | Scenario used to display recommendations. You can create custom scenarios in the [Recommendation engine's dashboard](https://admin.yoochoose.net). |
-| `outputTypeId`   | string | Content Type you are expecting in response, e.g. article. |
+| `outputTypeId`   | string | Content Type you are expecting in response, e.g. blog_post. |
 | `limit`          | int    | Number of recommendations to fetch. |
 | `template`       | string | Template name. |
 | `attributes`     | array  | Fields which are required and will be requested from the Recommendation engine. These Field names are also used inside Handlebars templates. |
@@ -443,7 +443,7 @@ You can also bypass named arguments using standard value passing as arguments.
 Recommendation responses contain all content data which is requested as attribute in the recommendation call.
 This response data can be used in templates to render and style recommendations.
 
-For example, the following GET request below delivers the response below
+For example, the following GET request should deliver the response below
 if the content Fields were previously exported by the export script.
 
 `GET https://reco.yoochoose.net/api/v2/<your_customer_id>/someuser/popular.json?contextitems=71&numrecs=5&categorypath=/&outputtypeid=<your_content_type>&attribute=name,author,uri,image`
