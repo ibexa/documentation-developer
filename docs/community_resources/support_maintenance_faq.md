@@ -45,7 +45,7 @@ The easiest way to apply patch to your project is using unix [patch](http://man7
 
 As an alternative, you can use [composer-patches](https://github.com/cweagans/composer-patches). You can apply patches received from eZ Support, community or the others using your `composer.json` file. All you need is to specify which package will receive patches and give the path/URL to the actual file. This should be done inside `extra` section. Packages which should receive patches will be removed during `composer update` or `composer require` so they can be re-installed and re-patched. 
 
-When upgrading to the release that already contains specified patches, composer will throw an error alongside message that they cannot be applied and will be skipped. They can be manually removed from `composer.json` now. 
+When updating to the release that already contains specified patches, composer will throw an error alongside message that they cannot be applied and will be skipped _([this is configurable](https://github.com/cweagans/composer-patches#error-handling))_. They can be manually removed from `composer.json` now.
 
 
 #### How to clear the cache properly?
