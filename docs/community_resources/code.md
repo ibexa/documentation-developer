@@ -12,7 +12,7 @@ Now you can follow the procedure is exactly the same as in [Contributing through
 
 !!! caution "Public repositories"
 
-    You can contribute only to the public repositories what means that all repositories marked as `private` are not open to contributions outside our organization.
+    You can contribute only to the public repositories what means that all repositories marked as `private` are not open to contributions outside our organization. However, you can generate a patch from your own codebase and attach it to the Customer Ticket. That will allow our engineers to open a pull request in a private repository on your behalf.
     
 Your changes will be reviewed and eventually become a part of the product. Not all pull requests can be approved. Some will need changes before they can be accepted, so you should be prepared for this. When you respond to questions and discussion around your PR and make changes to it as needed, you increase the chance that it will be accepted and reduce the waiting time. Keep in mind that not every suggestion meets requirements of the product or chosen business strategy.
 
