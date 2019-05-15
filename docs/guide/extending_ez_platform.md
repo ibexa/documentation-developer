@@ -105,6 +105,18 @@ class MenuListener implements EventSubscriberInterface
 }
 ```
 
+After creating a subscriber, add it to `app/config/services.yml`:
+
+``` yaml
+services:
+    EzSystems\EzPlatformAdminUi\EventListener\MenuListener:
+        tags:
+           - { name: kernel.event.subscriber } 
+
+```
+
+Providing the `kernel.event.subscriber` tag is necessary only if [the autoconfigure option](https://symfony.com/doc/3.4/service_container.html#the-autoconfigure-option) is disabled.
+
 ### Adding menu items
 
 #### Add a new menu item under "Content" with custom attributes
