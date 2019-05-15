@@ -47,7 +47,6 @@ As an alternative, you can use [composer-patches](https://github.com/cweagans/co
 
 When upgrading to the release that already contains specified patches, composer will throw an error alongside message that they cannot be applied and will be skipped. They can be manually removed from `composer.json` now. 
 
-The errors thrown during patching process could be handled differently, please refer to [error handling section](https://github.com/cweagans/composer-patches#error-handling). 
 
 #### How to clear the cache properly?
 
