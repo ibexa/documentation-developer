@@ -72,9 +72,9 @@ So, a stub for the implementation could look like this:
 ``` php
 namespace Acme\TestBundle\Slot;
 
-use eZ\Publish\Core\SignalSlot\Slot as BaseSlot;
 use eZ\Publish\API\Repository\Repository;
-use eZ\Publish\SignalSlot\Signal;
+use eZ\Publish\Core\SignalSlot\Slot as BaseSlot;
+use eZ\Publish\Core\SignalSlot\Signal;
 
 class CreateUrlAliasesOnPublishSlot extends BaseSlot
 {
@@ -82,17 +82,18 @@ class CreateUrlAliasesOnPublishSlot extends BaseSlot
      * @var \eZ\Publish\API\Repository\Repository
      */
     private $repository;
-    public function __construct( Repository $repository )
+
+    public function __construct(Repository $repository)
     {
         $this->repository = $repository;
     }
 
-    public function receive( Signal $signal )
+    public function receive(Signal $signal)
     {
-        if ( !$signal instanceof Signal\ContentService\PublishVersionSignal )
-        {
+        if (!$signal instanceof Signal\ContentService\PublishVersionSignal ) {
             return;
         }
+
         // Load content
         // Load locations
         // Create URL aliases
