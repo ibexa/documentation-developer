@@ -41,18 +41,13 @@ To read more about language managing in eZ Platform, see the following doc pages
 
 #### How can I apply patches to the installation?
 
-The easiest way to apply patch to your project is using unix [patch](http://man7.org/linux/man-pages/man1/patch.1.html) command. You should execute it from the directory which is dedicated for particular package e.g. `vendor/ezsystems/ezplatform-admin-ui`. Before running it, we advise to test the patch file using `--dry-run` parameter to see what files will be modified. It is also good to prepare a backup of those files. Below there is an example call.
-```bash
-patch -p1 -i /my-patches/patch_file.patch
-``` 
+The easiest way to apply patch to your project is using unix [patch](http://man7.org/linux/man-pages/man1/patch.1.html) command. Remember to clear the cache afterwards!
 
-If you want to revert the patch you should run the above command with `-R` parameter.
+As an alternative, you can use [composer-patches](https://github.com/cweagans/composer-patches). You can apply patches received from eZ Support, community or the others using your `composer.json` file. All you need is to specify which package will receive patches and give the path/URL to the actual file. This should be done inside `extra` section. Packages which should receive patches will be removed during `composer update` or `composer require` so they can be re-installed and re-patched. 
 
-!!! tip 
+When upgrading to the release that already contains specified patches, composer will throw an error alongside message that they cannot be applied and will be skipped. They can be manually removed from `composer.json` now. 
 
-    Remember to clear the cache after applying the patch!
-
-As an alternative, you can use [composer-patches](https://github.com/cweagans/composer-patches). You can apply patches received from eZ Support, community or the others using your `composer.json` file. All you need is to specify which package will receive patches and give the path/URL to the actual file which will be used.
+The errors thrown during patching process could be handled differently, please refer to [error handling section](https://github.com/cweagans/composer-patches#error-handling). 
 
 #### How to clear the cache properly?
 
