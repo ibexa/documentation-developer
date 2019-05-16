@@ -10,7 +10,7 @@ eZ uses a regular git workflow, so if you are familiar with the concept, the who
 eZ Platform is divided into meta-repositories.
 The core of our system is [`ezpublish-kernel`](https://github.com/ezsystems/ezpublish-kernel)
 containing an advanced Content Model and aiming to provide additional features for the MVC layer (Symfony).
-On the other hand, e.g. `ezplatform-admin-ui` is strictly dedicated for the Admin Panel purposes.
+On the other hand, e.g. `ezplatform-admin-ui` is strictly dedicated to the Admin Panel purposes.
 If you want to learn more about our code structure, take a look at [our organization page on GitHub](https://github.com/ezsystems)
 or the list of [core bundles](../guide/bundles/#core-bundles).
 
@@ -30,12 +30,12 @@ Now you can follow the same procedure as in [Contributing through git](documenta
     However, you can generate a patch from your own codebase and attach it to the Customer Ticket.
     That will allow our engineers to open a pull request in a private repository on your behalf.
 
-Your changes will be reviewed and eventually become a part of the product.
+To become a part of the product your changes must pass our team's review.
 Not all pull requests can be approved. Be prepared that some will need changes before they can be accepted.
 When you respond to questions and discussion around your PR and make changes to it as needed,
-you increase the chance that it will be accepted and reduce the waiting time.
+you increase the chance that it will be accepted and reduce the waiting period.
 Keep in mind that not every suggestion meets requirements of the product or chosen business strategy.
 
 **Don't hesitate to share your work** even if you don't consider yourself an experienced developer.
-Our Engineers will guide you and point out possible ways to choose in order to meet our standards,
-including following good coding practices, adapting our solutions/code conventions and paying attention to details.
+Our Engineers will help you meet our standards, follow good coding practices,
+adapt to our solutions/code conventions and pay attention to details.
