@@ -1,6 +1,6 @@
 # Support and Maintenance FAQ
 
-This page contains answers for most common questions and tips around support and maintenance,
+This page contains answers to most common questions and tips around support and maintenance,
 as well as references to important parts of the documentation and tools useful for developers in their daily work.
 
 #### What information should I specify when creating a Customer Support ticket?
@@ -41,12 +41,12 @@ To read more about language managing in eZ Platform, see the following doc pages
 
 #### How can I apply patches to the installation?
 
-The easiest way to apply a patch to your project is using the Unix [`patch`](http://man7.org/linux/man-pages/man1/patch.1.html) command.
+The easiest way to apply a patch to your project is by using the Unix [`patch`](http://man7.org/linux/man-pages/man1/patch.1.html) command.
 Remember to clear the cache afterwards.
 
 As an alternative to manually applying the patch, you can use [composer-patches](https://github.com/cweagans/composer-patches).
-You can apply patches received from eZ Support, community or the others using your `composer.json` file
-and check that in with your `composer.lock` defining versions you are on.
+You can apply patches received from eZ Support, community or the others by using your `composer.json` file.
+For checking the versions you are on, refer to your `composer.lock`.
 All you need is to specify which package will receive patches and give the path/URL to the actual file.
 This should be done inside the `extra` section. Packages which should receive patches
 will be removed during `composer update` or `composer require` so they can be re-installed and re-patched.
@@ -110,7 +110,7 @@ e.g. configuration for Landing Page Blocks could be placed in `landing_page_bloc
 
 2. The same configuration could be moved to your bundle e.g. `AppBundle/Resources/config/landing_page_blocks.yml`.
 
-In case of doubts follow suggestions from [Configuration documentation](../guide/configuration.md)
+For more information, see [Configuration documentation](../guide/configuration.md)
 and [Symfony best practices](https://symfony.com/doc/3.4/best_practices/configuration.html).
 
 #### How can I implement authentication in an eZ Platform-based project?
