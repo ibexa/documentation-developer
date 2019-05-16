@@ -128,9 +128,8 @@ ez_recommendation:
             recommendation:
                 customer_id: 12345
                 license_key: 1234-5678-9012-3456-7890
-            server_uri: http://example.com
-            recommender:
                 included_content_types: [blog, article]
+            server_uri: http://example.com
             response:
                 random_content_types: [blog]
 ```
@@ -139,8 +138,8 @@ ez_recommendation:
 |--------------------------------------|-----------------------------------------------------------|
 | `recommendation.customer_id`         | Your customer ID.                                         |
 | `recommendation.license_key`         | Your license key.                                         |
+| `recommendation.included_content_types` | Content Types on which the tracking script will be shown. |
 | `server_uri`                         | The URI your site's REST API can be accessed from.        |
-| `recommender.included_content_types` | Content Types on which the tracking script will be shown. |
 | `response.random_content_types`      | Content Types which will be returned when the response from the Recommendation engine contains no content. |
 
 #### Advanced configuration
@@ -185,7 +184,7 @@ ez_recommendation:
 #### Enable tracking
 
 The `EzRecommendationClientBundle` delivers a Twig extension
-which helps integrate the tracking functionality into your site.
+which helps integrate the user tracking functionality into your site.
 Place the following code snippet in the `<head>` section of your header template:
 
 ``` html+twig
@@ -300,7 +299,7 @@ There are three ways to check if content was transferred and stored successfully
 
 To get the content of an imported item you can request the following REST resource:
 
-`GET https://admin.yoochoose.net/api/<your_customer_id>/item/<your_content_type>/<your_content_id>`
+`GET https://admin.yoochoose.net/api/<your_customer_id>/item/<your_content_type_id>/<your_content_id>`
 
 This way requires BASIC Auth. BASIC Auth username is the customerID and the password is the license key.
 
@@ -414,7 +413,17 @@ and it eventually fetches the affected content (4) and updates it internally (5)
     This will break the recommendations. Even if the recommendations are displayed,
     there is a big chance they won't have images, titles or deeplinks.
 
-In order to display recommendations on your site, use a dedicated `showRecommendationsAction` from the `RecommendationController.php`:
+In order to display recommendations on your site, you need to add the following JavaScript assets to your header template:
+
+``` html+twig
+{% javascripts
+    '@EzRecommendationClientBundle/Resources/public/js/EzRecommendationClient.js'
+%}
+```
+
+This file is responsible for sending notifications to recommendation API after the user clicks on a tracking element.
+
+To render recommended content, use a dedicated `showRecommendationsAction` from the `RecommendationController.php`:
 
 ``` html+twig
 render_esi(controller(‘EzRecommendationClientBundle:Recommendation:showRecommendations’, {
@@ -439,6 +448,13 @@ render_esi(controller(‘EzRecommendationClientBundle:Recommendation:showRecomme
 | `attributes`     | array  | Fields which are required and will be requested from the Recommendation engine. These Field names are also used inside Handlebars templates. |
 
 You can also bypass named arguments using standard value passing as arguments.
+
+!!! note "Custom templates"
+
+    If you want to use a custom template for displaying recommendations,
+    it must include `event_tracking.html.twig`:
+
+    `{% include 'EzRecommendationClientBundle::event_tracking.html.twig' %}`.
 
 Recommendation responses contain all content data which is requested as attribute in the recommendation call.
 This response data can be used in templates to render and style recommendations.
