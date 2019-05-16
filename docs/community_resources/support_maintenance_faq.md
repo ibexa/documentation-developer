@@ -1,4 +1,4 @@
-# Support & Maintenance FAQ
+# Support and Maintenance FAQ
 
 This page contains answers for most common questions and tips around support and maintenance,
 as well as references to important parts of the documentation and tools useful for developers in their daily work.
@@ -36,17 +36,25 @@ If you do not have a language defined in the browser, it will be selected based 
 
 To read more about language managing in eZ Platform, see the following doc pages:
 
-- [Back Office languages](https://doc.ezplatform.com/en/latest/guide/internationalization/#back-office-languages)
-- [Setting up multi-language SiteAccesses and corresponding translations](https://doc.ezplatform.com/en/latest/cookbook/setting_up_multi_language_siteaccesses/)
+- [Back Office languages](../guide/internationalization/#back-office-languages)
+- [Setting up multi-language SiteAccesses and corresponding translations](../cookbook/setting_up_multi_language_siteaccesses/)
 
 #### How can I apply patches to the installation?
 
-The easiest way to apply patch to your project is using unix [patch](http://man7.org/linux/man-pages/man1/patch.1.html) command. Remember to clear the cache afterwards!
+The easiest way to apply a patch to your project is using the Unix [`patch`](http://man7.org/linux/man-pages/man1/patch.1.html) command.
+Remember to clear the cache afterwards.
 
-As an alternative to manually applying the patch, you can use [composer-patches](https://github.com/cweagans/composer-patches). You can apply patches received from eZ Support, community or the others using your `composer.json` file and check that in with your `composer.lock` defining versions you are on. All you need is to specify which package will receive patches and give the path/URL to the actual file. This should be done inside `extra` section. Packages which should receive patches will be removed during `composer update` or `composer require` so they can be re-installed and re-patched. 
+As an alternative to manually applying the patch, you can use [composer-patches](https://github.com/cweagans/composer-patches).
+You can apply patches received from eZ Support, community or the others using your `composer.json` file
+and check that in with your `composer.lock` defining versions you are on.
+All you need is to specify which package will receive patches and give the path/URL to the actual file.
+This should be done inside the `extra` section. Packages which should receive patches
+will be removed during `composer update` or `composer require` so they can be re-installed and re-patched.
 
-When updating to the release that already contains specified patches, composer will throw an error alongside message that they cannot be applied and will be skipped _([this is configurable](https://github.com/cweagans/composer-patches#error-handling))_. They can be manually removed from `composer.json` now.
-
+When updating to the release that already contains specified patches,
+Composer will throw an error alongside a message that they cannot be applied and will be skipped
+([this is configurable](https://github.com/cweagans/composer-patches#error-handling)).
+They can be manually removed from `composer.json` now.
 
 #### How to clear the cache properly?
 
@@ -82,7 +90,7 @@ rm -rf var/cache/*
 
     Manual cache clearing should be executed with caution.
     `rm -rf var/cache/*` wipes all the files and unlike `cache:clear` doesn't warm up the cache.
-    It results in significant performance drop on first request, so it shouldn't be called on a production environment.
+    It results in a significant performance drop on first request, so it shouldn't be called on a production environment.
     Besides, it could lead to issues with file ownership after running `cache:clear` as a root.
 
 #### Where should I place my configuration files?
@@ -105,7 +113,7 @@ e.g. configuration for Landing Page Blocks could be placed in `landing_page_bloc
 In case of doubts follow suggestions from [Configuration documentation](../guide/configuration.md)
 and [Symfony best practices](https://symfony.com/doc/3.4/best_practices/configuration.html).
 
-#### How could I implement authentication in an eZ Platform-based project?
+#### How can I implement authentication in an eZ Platform-based project?
 
 The best approach is to use Symfony authentication.
 Check [development security](../guide/security.md) page for more detailed instructions.
