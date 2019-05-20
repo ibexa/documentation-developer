@@ -74,7 +74,7 @@ You can also omit the route, in this case, the current route will be used (i.e. 
 
 ### Using sub-requests
 
-When using sub-requests, you lose the context of the master request (e.g. current route, current location, etc.). This is because sub-requests can be displayed separately, with [ESI or Hinclude](templates.md#rendering-and-cache).
+When using sub-requests, you lose the context of the master request (e.g. current route, current location, etc.). This is because sub-requests can be displayed separately, with [ESI](templates.md#rendering-and-cache).
 
 If you want to render language switch links in a sub-request with a correct `RouteReference`, you must pass it as an argument to your sub-controller from the master request.
 
