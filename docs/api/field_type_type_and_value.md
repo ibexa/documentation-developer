@@ -45,8 +45,8 @@ This will also apply to all user interfaces and the REST API, which therefore mu
 
 ### Field Type name
 
-To retrieve Field Type name, implement `eZ\Publish\SPI\FieldType\Nameable` as an extra service,
-and register this service using the tag `ezpublish.fieldType.nameable`.
+To be able to generate Content item name when the Field is part of a name schema or a url schema,
+implement `eZ\Publish\SPI\FieldType\Nameable` and register this service using the tag `ezpublish.fieldType.nameable`.
 
 The method `eZ\Publish\SPI\FieldType\Nameable::getFieldName` will be used to retrieve the name.
 

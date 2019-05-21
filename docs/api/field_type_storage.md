@@ -33,9 +33,9 @@ which you must implement in your Field Type. The interface contains the followin
 |Method|Description|
 |------|-----------|
 |`toStorageValue()`|Converts a Persistence `Value` into a Legacy storage specific value.|
-|`fromStorageValue()`|Converts the other way around.|
+|`toFieldValue()`|Converts the other way around.|
 |`toStorageFieldDefinition()`|Converts a Persistence `FieldDefinition` to a storage specific one.|
-|`fromStorageFieldDefinition`|Converts the other way around.|
+|`toFieldDefinition`|Converts the other way around.|
 |`getIndexColumn()`|Returns the storage column which is used for indexing.|
 
 #### Registering a converter
@@ -120,11 +120,9 @@ and tag it as `ezpublish.fieldType.externalStorageHandler` to be recognized by t
 Here is an example for the `ezurl` Field Type:
 
 ``` yaml
-parameters:
-    ezpublish.fieldType.ezurl.externalStorage.class: eZ\Publish\Core\FieldType\Url\UrlStorage
 services:
     ezpublish.fieldType.ezurl.externalStorage:
-        class: %ezpublish.fieldType.ezurl.externalStorage.class%
+        class: '\eZ\Publish\Core\FieldType\Url\UrlStorage'
         arguments:
             - "@ezpublish.fieldType.ezurl.storage_gateway"
         tags:
