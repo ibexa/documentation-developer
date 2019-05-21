@@ -31,6 +31,12 @@ Use the package manager for your Linux distribution. For example on Ubuntu:
 apt-get install composer
 ```
 
+To check the version of Composer, run:
+
+``` bash
+composer -V
+```
+
 !!! tip "Install Composer locally"
 
     If you want to install Composer inside your project root directory only,
