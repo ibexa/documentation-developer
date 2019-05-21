@@ -6,13 +6,13 @@ The FormMapper maps Field definitions into Symfony forms, allowing Field editing
 
 It has to implement two interfaces:
 
-- `EzSystems\RepositoryForms\FieldType\Mapper\FieldValueFormMapperInterface` to provide editing support
+- `EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface` to provide editing support
 - `EzSystems\RepositoryForms\FieldType\FieldDefinitionFormMapperInterface` to provide Field Type definition editing support
 
 ### FieldValueFormMapperInterface
 
 The `FieldValueFormMapperInterface::mapFieldValueForm` method accepts two arguments:
-`FormInterface $fieldForm` and `FieldData $data`.
+`FormInterface` (form for the current Field) and `FieldData` (underlying data for current field form).
 
 You have to add your form type to the content editing form. The example shows how `ezboolean` injects the form:
 
@@ -35,7 +35,7 @@ public function mapFieldValueForm(FormInterface $fieldForm, FieldData $data)
                     [
                         'required' => $fieldDefinition->isRequired,
                         'label' => $fieldDefinition->getName(
-                        $formConfig->getOption('languageCode')
+                            $formConfig->getOption('languageCode')
                         ),
                     ]
                 )
@@ -50,7 +50,7 @@ In the example above, `CheckboxFieldType::class` is used, but you can use standa
 
 It's good practice to encapsulate Fields with custom types as it allows easier templating.
 Type has to be compatible with your Field Type's `eZ\Publish\Core\FieldType\Value` implementation.
-You can use a `DataTransformer` to achieve that or just assure correct property and form field names.
+You can use a [`DataTransformer`](https://symfony.com/doc/3.4/form/data_transformers.html) to achieve that or just assure correct property and form field names.
 
 ### FieldDefinitionFormMapperInterface
 

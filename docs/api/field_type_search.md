@@ -5,13 +5,13 @@ To make the search engine aware of the data in your Field Type you need to imple
 
 The `eZ\Publish\SPI\FieldType\Indexable` interface defines the methods below which are required if the Field Type provides data relevant to search engines.
 
-### `getIndexData( Field $field )`
+### `getIndexData(Field $field)`
 
 This method returns the actual index data for the provided `eZ\Publish\SPI\Persistence\Content\Field`. The index data consists of an array of `eZ\Publish\SPI\Persistence\Content\Search\Field` instances. They are described below in further detail.
 
 ### `getIndexDefinition()`
 
-To be able to query data properly an indexable Field Type also is required to return search specification. You must return an associative array of `eZ\Publish\SPI\Persistence\Content\Search\FieldType` instances from this method, which could look like:
+To be able to query data properly an indexable Field Type also is required to return search specification. You must return an associative array of `eZ\Publish\SPI\Search\FieldType` instances from this method, which could look like:
 
 ```
 [
