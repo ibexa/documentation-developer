@@ -2,7 +2,7 @@
 
 ## Dealing with bundles
 
-eZ Platform is based on the Symfony 3 framework and applies a similar way of organizing the app. Like in Symfony, where ["everything is a bundle"](http://symfony.com/doc/current/book/bundles.html), your eZ Platform application is going to be a collection of bundles.
+eZ Platform is based on the Symfony framework and applies a similar way of organizing the app. Like in Symfony, where ["everything is a bundle"](http://symfony.com/doc/current/book/bundles.html), your eZ Platform application is going to be a collection of bundles.
 
 ### What is a bundle?
 
@@ -26,35 +26,35 @@ You can generate a new bundle using a `generate:bundle` command. See [Symfony do
 
 To remove a bundle (either one you created yourself, or an out-of-the-box one that you do not need) see the [How to Remove a Bundle](http://symfony.com/doc/current/bundles/remove.html) instruction in Symfony doc.
 
-## Structuring a bundle
+## Structuring your project
 
-### The AppBundle
+### PHP code
 
-Most projects can use the provided `AppBundle`, in the `src` folder. It is enabled by default. The project's PHP code (controllers, event listeners, etc.) can be placed there.
+The project's PHP code (controllers, event listeners, etc.) should be placed in the `src` folder.
 
 Reusable libraries should be packaged so that they can easily be managed using Composer.
 
 ### Templates
 
-Project templates should go into `app/Resources/views`.
+Project templates should go into the `templates` folder.
 
-They can then be referenced in code without any prefix, for example `app/Resources/views/content/full.html.twig` can be referenced in Twig templates or PHP as `content/full.html.twig`.
+They can then be referenced in code without any prefix, for example `templates/full/article.html.twig` can be referenced in Twig templates or PHP as `full/article.html.twig`.
 
 ### Assets
 
-Project assets should go into the `web` folder.
+Project assets should go into the `assets` folder.
 
-They can be referenced as relative to the root, for example `web/js/script.js` can be referenced as `js/script.js` from templates.
+They can be referenced as relative to the root, for example `assets/js/script.js` can be referenced as `js/script.js` from templates.
 
-All project assets are accessible through the `web/assets` path.
+All project assets are accessible through the `assets` path.
 
-??? note "Removing `web/assets` manually"
+??? note "Removing `assets` manually"
 
-	If you ever remove the `web/assets` folder manually, you need to dump translations before performing
+	If you ever remove the `assets` folder manually, you need to dump translations before performing
 	the `yarn encore <dev|prod>` command:
 
 	```
-	php bin/console bazinga:js-translation:dump web/assets --merge-domains
+	php bin/console bazinga:js-translation:dump assets --merge-domains
 	```
 
 #### Importing assets from a bundle
