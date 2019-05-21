@@ -24,7 +24,7 @@ Before getting started, make sure you review the [requirements](requirements.md)
 
 ## Get Composer
 
-Install Composer, the PHP command line dependency manager.
+Install the latest stable version of Composer, the PHP command line dependency manager.
 Use the package manager for your Linux distribution. For example on Ubuntu:
 
 ``` bash
