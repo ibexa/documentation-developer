@@ -31,7 +31,7 @@ Use the package manager for your Linux distribution. For example on Ubuntu:
 apt-get install composer
 ```
 
-To verify you got a recent stable version of Composer, run:
+To verify you got a recent stable version of Composer, you can run:
 
 ``` bash
 composer -V
