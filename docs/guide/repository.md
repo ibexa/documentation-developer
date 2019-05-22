@@ -28,11 +28,11 @@ The Public API exposes Symfony services for all of its Repository services.
 
 ## API
 
-Every Public API Service interface and Value object defined in `eZ\Publish\API` namespace strictly follows [Semantic Versioning](https://semver.org/) *backward compatibility (BC)* promise for API *consumers*.
+Every Public API Service interface and Value object defined in `eZ\Publish\API` namespace strictly follows [Semantic Versioning](https://semver.org/) backward compatibility (BC) promise for API consumers.
 It means that every usage of API (API call) is guaranteed to work between minor releases.
 
 What can change between minor releases is API method signature. Because of that, implementation of API interfaces by third party packages (except the ones implemented by eZ Systems bundles) is not directly supported.
-API method signatures should not change between bug-fix releases (e.g from 2.5.1 to 2.5.2).
+API method signatures should not change between bug-fix releases (e.g. from 2.5.1 to 2.5.2).
 
 You should always check full list of changes for each release in corresponding release notes.
 
