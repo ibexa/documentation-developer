@@ -120,7 +120,7 @@ All Signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
 |`RoleService\UnassignRoleFromUserSignal`|`roleId`</br>`userId`|`RoleService::unassignRoleFromUser()` (deprecated)|
 |`RoleService\UpdatePolicySignal`|`policyId`|`RoleService::updatePolicy()` (deprecated)</br>`RoleService::updatePolicyByRoleDraft()`|
 |`RoleService\UpdateRoleDraftSignal`|`roleId`|`RoleService::updateRoleDraft()`|
-|`RoleService\UpdateRoleSignal`|`roleId`|`RoleService::updateRole()`|
+|`RoleService\UpdateRoleSignal`|`roleId`|`RoleService::updateRole()` (deprecated)|
 
 ### SectionService
 
