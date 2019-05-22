@@ -31,21 +31,23 @@ The Public API exposes Symfony services for all of its Repository services.
 Every Public API Service interface and Value object defined in `eZ\Publish\API` namespace strictly follows [Semantic Versioning](https://semver.org/) *backward compatibility (BC)* promise for API *consumers*.
 It means that every usage of API (API call) will work between minor releases.
 
-What can change between minor releases is API method signature. Because of that, implementation of API interfaces by 3rd party packages (except the ones implemented by eZ Systems bundles) is not directly supported.
+What can change between minor releases is API method signature. Because of that, implementation of API interfaces by third party packages (except the ones implemented by eZ Systems bundles) is not directly supported.
 API method signatures should not change between bug-fix releases (e.g from 2.5.1 to 2.5.2).
+
 You should always check full list of changes for each release in corresponding release notes.
 
 ## SPI
 
 eZ Platform SPI is a Service Provider Interface which defines contracts for implementing various parts of the system, including:
- - persistence layer (`SPI\Persistence`), 
- - custom Field Types, 
- - custom Limitations, 
- - limited portions of IO, 
- - image variation handling,
- - Search Engine layer for custom Search Engine implementations (e.g. Legacy SQL Search Engine, Solr Search Engine and in the future ElasticSearch).
+
+ - persistence layer (`SPI\Persistence`)
+ - custom Field Types
+ - custom Limitations
+ - limited portions of IO 
+ - image variation handling
+ - Search Engine layer for custom Search Engine implementations (e.g. Legacy SQL Search Engine, Solr Search Engine and in the future ElasticSearch)
 
 !!! caution
 
-    Due to technical limitations, backward compatibility promise to any 3rd party implementations of these interfaces applies only to minor versions.
+    Due to technical limitations, backward compatibility promise to any third party implementations of these interfaces applies only to minor versions.
     It means that interfaces, especially related to `SPI\Persistence` handlers, can change between minor releases.
