@@ -28,4 +28,4 @@ The architecture of eZ Platform is layered and uses clearly defined APIs between
 |[IO](file_management.md#native-io-handler)|The IO API is organized around two types of handlers, both used by the IOService.|
 |[IO Handler](clustering.md#dfs-io-handler)|The IO Handler manipulates metadata, making up for the potential inconsistency of network-based filesystems.|
 |[Recommendation](personalization.md#enabling-recommendations)|Recommendation API.|
-|[Recommendation Engine](personalization.md#enabling-recommendations)|Recommender Engine allows displaying recommendations on your website.|
+|[Recommendation Engine](personalization.md#enabling-recommendations)|Recommendation Engine allows displaying recommendations on your website.|
