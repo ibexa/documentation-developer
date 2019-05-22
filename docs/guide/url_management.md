@@ -45,7 +45,7 @@ rm ezp_cron.txt
 ### Configuration
 
 Configuration of external URLs validation is SiteAccess-aware and is stored under `ezpublish.system.<SITEACCESS>.url_checker`.
-Example configuration (in `/app/config/ezplatform.yml`):
+Example configuration (in `config/packages/ezplatform.yaml`):
 
 ```yml
 ezpublish:
@@ -113,7 +113,7 @@ and register it with an `ezpublish.url_handler` tag. For instance:
 
 ```yaml
 app.url_checker.handler.custom:
-    class: 'AppBundle\URLChecker\Handler\CustomHandler'
+    class: 'App\URLChecker\Handler\CustomHandler'
     ...
     tags:
         - { name: ezpublish.url_handler, scheme: custom }

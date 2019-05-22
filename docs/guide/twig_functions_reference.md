@@ -362,11 +362,11 @@ You can use the template you need by filling the `template` entry in the `params
 {{ ez_render_field( 
        content, 
        'my_field_identifier',
-       { 'template': 'AcmeExampleBundle:fields:my_field_template.html.twig' }
+       { 'template': 'fields/my_field_template.html.twig' }
    ) }}
 ```
 
-This code will load `my_field_template.html.twig` located in `AcmeExampleBundle/Resources/views/fields/`.
+This code will load `my_field_template.html.twig` located in `templates/fields/`.
 
 ``` html+twig
 {# Assuming "my_field_identifier" from the template above example is an ezkeyword field. #}
@@ -390,7 +390,7 @@ This code will load `my_field_template.html.twig` located in `AcmeExampleBundle/
     using the [`use` Twig tag](http://twig.sensiolabs.org/doc/tags/use.html).
 
     ``` html+twig
-    {# AcmeExampleBundle/Resources/views/fields/my_field_template.html.twig #}
+    {# templates/fields/my_field_template.html.twig #}
     {# Assuming "my_field_identifier" from above template example is an ezkeyword field. #}
      
     {% use "EzPublishCoreBundle::content_fields.html.twig" with ezkeyword_field as base_ezkeyword_field %}
@@ -410,7 +410,7 @@ If you want to override a specific Field template only once
 you can specify the current template to be the source of the Field block.
 
 ``` html+twig
-{% extends "AcmeExampleBundle::pagelayout.html.twig" %}
+{% extends "pagelayout.html.twig" %}
 
 {% block content %}
     {# Note that "tags" is a field using ezkeyword fieldType #}
@@ -448,7 +448,7 @@ ezpublish:
         my_siteaccess:
             field_templates:
                 - 
-                    template: AcmeExampleBundle:fields:my_field_template.html.twig
+                    template: fields/my_field_template.html.twig
                     # Priority is optional (default is 0). The higher it is, the higher your template gets in the list.
                     priority: 10
 ```

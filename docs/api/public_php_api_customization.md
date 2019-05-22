@@ -99,7 +99,7 @@ You are going to generate a "EzSystems\Bundle\CookbookBundle\EzSystemsCookbookBu
 Do you confirm generation [yes]? yes
 ```
 
-The wizard will generate the bundle, check autoloading, and ask about the activation of your bundle. Hit Enter in the answer to both questions to have your bundle automatically added to your kernel (`app/AppKernel.php`) and routes from your bundle added to the existing routes (`app/config/routing.yml`).
+The wizard will generate the bundle, check autoloading, and ask about the activation of your bundle. Hit Enter in the answer to both questions to have your bundle automatically added to your kernel (`app/AppKernel.php`) and routes from your bundle added to the existing routes (`config/packages/routing.yaml`).
 
 **Activation and generation**
 

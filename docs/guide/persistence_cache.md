@@ -54,7 +54,7 @@ The underlying cache system is exposed as an `ezpublish.cache_pool` service, and
 
 ### Configuration
 
-By default, configuration currently uses **FileSystem** to store cache files, which is defined in [`default_parameters.yml`](https://github.com/ezsystems/ezplatform/blob/master/app/config/default_parameters.yml#L34).
+By default, configuration currently uses **FileSystem** to store cache files, which is defined in [`.env`](https://github.com/ezsystems/ezplatform/blob/master/.env).
 You can select a different cache backend and configure its parameters in the relevant file in the `cache_pool` folder.
 
 #### Multi Repository setup
@@ -65,7 +65,6 @@ Then, in `ezplatform.yml` you can specify which cache pool you want to use on a 
 The following example shows use in a SiteAccess group:
 
 ``` yaml
-# ezplatform.yml site group setting
 ezpublish:
     system:
         # "site_group" refers to the group configured in site access
@@ -124,7 +123,7 @@ Redis is used via [Redis pecl extension](https://pecl.php.net/package/redis).
 See [Redis Cache Adapter in Symfony documentation](https://symfony.com/doc/3.4/components/cache/adapters/redis_adapter.html#configure-the-connection)
 for information on how to configure Redis.
 
-Out of the box in `app/config/cache_pool/cache.redis.yml` you'll find a default example that can be used.
+Out of the box in `config/packages/cache_pool/cache.redis.yaml` you'll find a default example that can be used.
 
 !!! cloud "eZ Platform Cloud"
 
@@ -147,7 +146,7 @@ services:
               namespace: 'ez'
 ```
 
-See `app/config/default_parameters.yml` and `app/config/cache_pool/cache.redis.yml` for further details on `CACHE_POOL`, `CACHE_DSN` and `CACHE_NAMESPACE`.
+See `config/packages/ezplatform.yaml` and `config/packages/cache_pool/cache.redis.yaml` for further details on `CACHE_POOL`, `CACHE_DSN` and `CACHE_NAMESPACE`.
 
 !!! caution "Clearing Redis cache"
 
@@ -189,13 +188,13 @@ For best performance we recommend use of Redis Sentinel if it fits your needs. H
 See [Memcached Cache Adapter in Symfony documentation](https://symfony.com/doc/3.4/components/cache/adapters/memcached_adapter.html#configure-the-connection)
 for information on how to configure Memcached.
 
-Out of the box in `app/config/cache_pool/cache.memcached.yml` you'll find a default example that can be used.
+Out of the box in `config/cache_pool/cache.memcached.yml` you'll find a default example that can be used.
 
 !!! cloud "eZ Platform Cloud"
 
-    For eZ Platform Cloud/Platform.sh: This is automatically configured in `app/config/env/platformsh.php` if you have enabled Memcached as `cache` Platform.sh service.
+    For eZ Platform Cloud/Platform.sh: This is automatically configured in `config/env/platformsh.php` if you have enabled Memcached as `cache` Platform.sh service.
 
-For anything else, you can enable it with environment variables detected automatically by `app/config/env/generic.php`.
+For anything else, you can enable it with environment variables detected automatically by `config/env/generic.php`.
 For instance, if you set the following environment variables `export CACHE_POOL="cache.memcached" CACHE_DSN="user:pass@localhost?weight=33"`, it will result in config like this:
 
 ``` yaml
@@ -210,7 +209,7 @@ services:
               namespace: 'ez'
 ```
 
-See `app/config/default_parameters.yml` and `app/config/cache_pool/cache.memcached.yml` for further details on `CACHE_POOL`, `CACHE_DSN` and `CACHE_NAMESPACE`.
+See `config/default_parameters.yml` and `config/cache_pool/cache.memcached.yml` for further details on `CACHE_POOL`, `CACHE_DSN` and `CACHE_NAMESPACE`.
 
 !!! caution "Clearing Memcached cache"
 

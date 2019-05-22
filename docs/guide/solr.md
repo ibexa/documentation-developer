@@ -6,12 +6,12 @@
 
 !!! note "Enable the bundle"
 
-    If you have previously disabled the bundle, add/update composer dependencies: 
+    If you have previously disabled the bundle, add/update composer dependencies:
     ``` bash
     composer require --no-update ezsystems/ezplatform-solr-search-engine:~1.0
     composer update
     ```
-    
+
     Make sure `EzPublishSolrSearchEngineBundle` is activated with the following line in the `app/AppKernel.php` file: `new EzSystems\EzPlatformSolrSearchEngineBundle\EzSystemsEzPlatformSolrSearchEngineBundle()`
 
 ### Step 1: Configuring and starting Solr
@@ -104,7 +104,7 @@ Execute the script from the eZ Platform root directory for further information:
 
 ### Step 2: Configuring the bundle
 
-The Solr Search Engine Bundle can be configured in many ways. The config further below assumes you have parameters set up for Solr DSN and search engine *(however both are optional)*, for example (in `parameters.yml`):
+The Solr Search Engine Bundle can be configured in many ways. The config further below assumes you have parameters set up for Solr DSN and search engine *(however both are optional)*, for example:
 
 ``` yaml
     env(SEARCH_ENGINE): solr
@@ -114,7 +114,7 @@ The Solr Search Engine Bundle can be configured in many ways. The config further
 
 #### Single-core example (default)
 
-Out of the box in eZ Platform the following is enabled for a simple setup (in `config.yml`):
+Out of the box in eZ Platform the following is enabled for a simple setup:
 
 ``` yaml
 ez_search_engine_solr:
@@ -136,7 +136,6 @@ The following example separates one language. The installation contains several 
 and one very different language that should receive proper language analysis for proper stemming and sorting behavior by Solr:
 
 ``` yaml
-# config.yml
 ez_search_engine_solr:
     endpoints:
         endpoint0:
@@ -166,7 +165,6 @@ If full language analysis features are preferred, then each language can be conf
     Make sure to test this setup against a single-core setup, as it might perform worse than single-core if your project uses a lot of language fallbacks per SiteAccess, as queries will then be performed across several cores at once.
 
 ``` yaml
-# config.yml
 ez_search_engine_solr:
     endpoints:
         endpoint0:
@@ -219,7 +217,6 @@ Solr core can be secured with Basic HTTP Authorization. See more information her
 In the example below we configured Solr Bundle to work with secured Solr core.
 
 ``` yaml
-# config.yml
 ez_search_engine_solr:
     endpoints:
         endpoint0:
@@ -236,7 +233,6 @@ Obviously, you should pass credentials for every configured and HTTP Basic secur
 The following is an example of configuring Solr search engine, where `connection` name is same as in the example above, and engine is set to `solr`:
 
 ``` yaml
-# ezplatform.yml
 ezpublish:
     repositories:
         default:
@@ -246,7 +242,7 @@ ezpublish:
                 connection: default
 ```
 
-`%search_engine%` is a parameter that is configured in `app/config/parameters.yml`, and should be changed from its default value `legacy` to `solr` to activate Solr as the search engine.
+`%search_engine%` is a parameter that is configured in `config/packages/ezplatform.yaml`, and should be changed from its default value `legacy` to `solr` to activate Solr as the search engine.
 
 ### Step 4: Clear prod cache
 
@@ -304,7 +300,7 @@ Boosting currently happens when indexing, so if you change your configuration yo
 
 Boosting tells the search engine which parts of the content model have more importance when searching, and is an important part of tuning your search results relevance. Importance is defined using a numeric value, where `1.0` is default, values higher than that are more important, and values lower (down to `0.0`) are less important.
 
-Boosting is configured per connection that you configure to use for a given Repository, like in this `config.yml` example:
+Boosting is configured per connection that you configure to use for a given Repository, like in this `config/packages/ezplatform_solr.yaml` example:
 
 ``` yaml
 ez_search_engine_solr:
@@ -337,7 +333,7 @@ The configuration above will result in the following boosting (Content Type / Fi
     Unfortunately, this doesn't affect search performed in the administration interface.
 
     The following example presents boosting configuration for Folder's `name` and `description` fields.
-    First, in `ezplatform.yml` configure [custom fulltext fields](https://github.com/Novactive/NovaeZSolrSearchExtraBundle/blob/master/doc/custom_fields.md).
+    First, in `ezplatform_solr.yaml` configure [custom fulltext fields](https://github.com/Novactive/NovaeZSolrSearchExtraBundle/blob/master/doc/custom_fields.md).
 
     ```yaml
     ez_solr_search_extra:
@@ -356,7 +352,7 @@ The configuration above will result in the following boosting (Content Type / Fi
     ```php
     <?php
 
-    namespace AppBundle\Controller;
+    namespace App\Controller;
 
     use eZ\Publish\API\Repository\SearchService;
     use eZ\Publish\API\Repository\Values\Content\Query;
@@ -636,4 +632,3 @@ Next, restart Solr slave.
 Connect to the Solr slave interface (http://localhost:8983/solr), go to your core and check the replication status:
 
 ![Solr Slave](img/solr.PNG)
-

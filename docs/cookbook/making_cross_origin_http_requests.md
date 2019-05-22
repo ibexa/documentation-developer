@@ -27,8 +27,8 @@ that gets approved/blocked by the server. By default, all cross-origin requests 
 
 #### Granting an origin default access
 
-To allow a specific host to execute cross-origin requests, you need to add this host to the `nelmio_cors.default.allow_origin` configuration array in `config.yml`.
-As an example, in order to allow requests from `http://example.com` you would add those lines to `app/config/config.yml`:
+To allow a specific host to execute cross-origin requests, you need to add this host to the `nelmio_cors.default.allow_origin` configuration array in `config/packages/nelmio_cors.yaml`.
+As an example, in order to allow requests from `http://example.com` you would add those lines to `nelmio_cors.yaml`:
 
 ``` yaml
 nelmio_cors:
@@ -38,8 +38,8 @@ nelmio_cors:
 
 #### Changing configuration of NelmioCorsBundle for eZ Platform REST
 
-The default configuration of NelmioCorsBundle for eZ Platform REST paths is set in [nelmio_cors.yml](https://github.com/ezsystems/ezplatform-rest/blob/master/src/bundle/Resources/config/nelmio_cors.yml) file.
-To adapt these settings to your own needs you have to overwrite them in `app/config/config.yml` file under the same configuration path, for instance:
+The default configuration of NelmioCorsBundle for eZ Platform REST paths is set in [nelmio_cors.yaml](https://github.com/ezsystems/ezplatform-rest/blob/master/src/bundle/Resources/config/nelmio_cors.yaml) file.
+To adapt these settings to your own needs you have to overwrite them in `nelmio_cors.yaml` file under the same configuration path, for instance:
 
 ```yaml
 nelmio_cors:

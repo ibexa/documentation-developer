@@ -6,7 +6,7 @@
 
 When developing your website it is best practice to use one or several custom bundles.
 However, dealing with core bundle semantic configuration can be a bit tedious
-if you maintain it in the main `app/config/ezplatform.yml` configuration file.
+if you maintain it in the main `ezplatform.yaml` configuration file.
 
 This page shows how to import configuration from a bundle in two ways: the manual way and the implicit way.
 
@@ -24,7 +24,7 @@ ezpublish:
     # ...
 ```
 
-The `templates_rules.yml` should then be placed in `Resources/config` in AcmeExampleBundle.
+The `templates_rules.yaml` should then be placed in `Resources/config` in AcmeExampleBundle.
 The configuration tree from this file will be merged with the main one.
 
 ``` yaml

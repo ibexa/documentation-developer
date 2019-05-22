@@ -17,7 +17,7 @@ The goal of this feature is to make it easy to implement a SiteAccess-aware sem
 
 ## Semantic configuration parsing
 
-An abstract `Configuration` class has been added, simplifying the way to add a SiteAccess settings tree like the following in `ezplatform.yml` or `config.yml`:
+An abstract `Configuration` class has been added, simplifying the way to add a SiteAccess settings tree like the following in `ezplatform.yml`:
 
 ``` yaml
 acme_example:
@@ -173,7 +173,7 @@ parameters:
         language: php
 ```
 
-And then this semantic config in `ezplatform.yml or config.yml`:
+And then this semantic config in `ezplatform.yml`:
 
 ``` yaml
 acme_example:

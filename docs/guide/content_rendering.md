@@ -21,7 +21,6 @@ The **ViewProvider** allows you to configure template selection when using the `
 The ViewProvider takes its configuration from your SiteAccess in the `content_view` section. This configuration is [necessary for views to be defined](templates.md#templating-basics) and is a hash built in the following way:
 
 ``` yaml
-#app/config/ezplatform.yml
 ezpublish:
     system:
         # Defines the scope: a valid SiteAccess, SiteAccess group or even "global"
@@ -32,9 +31,8 @@ ezpublish:
                 full:
                     # A simple unique key for your matching ruleset
                     folderRuleset:
-                        # The template identifier to load, following the Symfony bundle notation for templates
-                        # See http://symfony.com/doc/current/book/controller.html#rendering-templates
-                        template: eZDemoBundle:full:small_folder.html.twig
+                        # The template identifier to load
+                        template: full/small_folder.html.twig
                         # Hash of matchers to use, with their corresponding values to match against
                         match:
                             # The key defines the matcher rule (class name or service identifier)
@@ -142,7 +140,7 @@ Like any template, a content view template can use [template inheritance](http:/
 If you use different templates for embedded content views, this should not be a problem. If you'd rather use the same template, you can use an extra `no_layout` view parameter for the sub-request, and conditionally extend an empty pagelayout:
 
 ``` html+twig
-{% extends no_layout ? view_base_layout : "AcmeDemoBundle::pagelayout.html.twig" %}
+{% extends no_layout ? view_base_layout : "pagelayout.html.twig" %}
 
 {% block content %}
 ...
@@ -168,7 +166,7 @@ Templates for the most common view types (content/full, line, embed, or block) c
 
 ###### Example
 
-Add this configuration to `app/config/config.yml` to use `app/Resources/content/view/full.html.twig` as the default template when viewing Content with the `full` view type:
+Add this configuration to `config/packages/ezplatform_admin_ui.yaml` to use `templates/content/view/full.html.twig` as the default template when viewing Content with the `full` view type:
 
 ``` yaml
 parameters:
@@ -199,8 +197,8 @@ By default, the [Configured ViewProvider](#configuring-views-the-viewprovider) i
 
 ``` yaml
 services:
-    acme.my_view_provider:
-        class: Acme\DemoBundle\Content\MyViewProvider
+    appe.my_view_provider:
+        class: App\Content\MyViewProvider
         tags:
             - {name: ezpublish.view_provider, type: eZ\Publish\Core\MVC\Symfony\View\ContentView, priority: 30}
 ```
@@ -214,7 +212,7 @@ services:
 ``` php
 // Custom ViewProvider
 <?php
-namespace Acme\DemoBundle\Content;
+namespace App\Content;
 
 use eZ\Publish\Core\MVC\Symfony\View\ContentView;
 use eZ\Publish\Core\MVC\Symfony\View\View;
@@ -246,13 +244,13 @@ class MyViewProvider implements ViewProvider
         // Let's check location Id
         if ($location->id === self::HOMEPAGE_ID) {
             // Special template for home page, passing "foo" variable to the template
-            return new ContentView("AcmeDemoBundle:$viewType:home.html.twig", ['foo' => 'bar']);
+            return new ContentView("$viewType/home.html.twig", ['foo' => 'bar']);
         }
 
         // And let's also check ContentType Id
         if ($location->contentInfo->contentTypeId === self::FOLDER_CONTENT_TYPE_ID) {
-            // For view full, it will load AcmeDemoBundle:full:small_folder.html.twig
-            return new ContentView("AcmeDemoBundle:$viewType:small_folder.html.twig");
+            // For view full, it will load full/small_folder.html.twig
+            return new ContentView("$viewType/small_folder.html.twig");
         }
 
         return null;

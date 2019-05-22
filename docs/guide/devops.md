@@ -69,7 +69,7 @@ eZ Platform uses the [Monolog](https://github.com/Seldaek/monolog) component to 
 
 According to [their documentation](https://seldaek.github.io/monolog/doc/02-handlers-formatters-processors.html#log-to-files-and-syslog), it "logs records to a file and creates one logfile per day. It will also delete files older than `$maxFiles`".
 
-Monolog's handler can be configured in `app/config/config.yml`:
+Monolog's handler can be configured in `config/packages/<environment>/monolog.yaml`:
 
 ``` yaml
 monolog:

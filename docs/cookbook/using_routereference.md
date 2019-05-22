@@ -82,7 +82,7 @@ All listeners receive an `eZ\Publish\Core\MVC\Symfony\Event\RouteReferenceGener
 which contains the current request object and the route reference.
 
 ``` php
-namespace Acme\AcmeExampleBundle\EventListener;
+namespace App\EventListener;
 
 use eZ\Publish\Core\MVC\Symfony\Event\RouteReferenceGenerationEvent;
 use eZ\Publish\Core\MVC\Symfony\MVCEvents;
@@ -115,15 +115,15 @@ class MyRouteReferenceListener implements EventSubscriberInterface
 }
 ```
 
-Service declaration (in `AcmeExampleBundle/Resources/config/services.yml`):
+Service declaration (in `config/services.yaml`):
 
 ``` yaml
 parameters:
-    acme.my_route_reference_listener.class: Acme\AcmeExampleBundle\EventListener\MyRouteReferenceListener
+    app.my_route_reference_listener.class: App\EventListener\MyRouteReferenceListener
 
 services:
-    acme.my_route_reference_listener:
-        class: '%acme.my_route_reference_listener.class%'
+    app.my_route_reference_listener:
+        class: '%app.my_route_reference_listener.class%'
         tags:
             - { name: kernel.event_subscriber }
 ```

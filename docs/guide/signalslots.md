@@ -207,7 +207,7 @@ All you need to do is to implement an event listener or subscriber and register 
 
 This very simple example will just log the received signal.
 
-In `services.yml` (in your bundle):
+In `services.yml`:
 
 ``` yaml
 services:

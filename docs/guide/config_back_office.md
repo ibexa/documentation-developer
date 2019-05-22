@@ -4,7 +4,7 @@
 
 Copying large subtrees can cause performance issues, so you can limit the number of Content items
 that can be copied at once using `ezpublish.system.<SiteAccess>.subtree_operations.copy_subtree.limit`
-in `parameters.yml`.
+in `config/packages/ezplatform-admin-ui.yaml`.
 
 The default value is `100`. You can set it to `-1` for no limit,
 or to `0` to completely disable copying subtrees.

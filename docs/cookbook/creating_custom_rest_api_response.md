@@ -14,7 +14,7 @@ The first step is creating your own implementation of `ValueObjectVisitor`. It c
 ```php
 <?php
 
-namespace AppBundle\Rest\ValueObjectVisitor;
+namespace App\Rest\ValueObjectVisitor;
 
 use eZ\Publish\API\Repository\Repository;
 use EzSystems\EzPlatformRest\Output\Generator;
@@ -59,7 +59,7 @@ decorate `EzSystems\EzPlatformRest\Output\ValueObjectVisitorDispatcher` from `ez
 ```php
 <?php
 
-namespace AppBundle\Rest;
+namespace App\Rest;
 
 use EzSystems\EzPlatformRest\Output\Generator;
 use EzSystems\EzPlatformRest\Output\ValueObjectVisitorDispatcher as BaseValueObjectVisitorDispatcher;
@@ -103,7 +103,7 @@ To be able to use the overridden type you also need to implement new Compiler Pa
 ```php
 <?php
 
-namespace AppBundle\DependencyInjection\Compiler;
+namespace App\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -142,7 +142,7 @@ Also, don't forget to register it in your bundle!
 ```php
 <?php
 
-namespace AppBundle;
+namespace App;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -193,12 +193,12 @@ services:
             - { name: ezpublish_rest.output.visitor, regexps: app.rest.output.visitor.json.regexps, priority: 200 }
 
     app.rest.output.value_object_visitor.dispatcher:
-        class: AppBundle\Rest\ValueObjectVisitorDispatcher
+        class: App\Rest\ValueObjectVisitorDispatcher
         arguments:
             - '@ezpublish_rest.output.value_object_visitor.dispatcher'
 
     app.rest.output.value_object_visitor.version_info:
-        class: AppBundle\Rest\ValueObjectVisitor\VersionInfo
+        class: App\Rest\ValueObjectVisitor\VersionInfo
         parent: ezpublish_rest.output.value_object_visitor.base
         arguments:
             - '@ezpublish.api.repository'

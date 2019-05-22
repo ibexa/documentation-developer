@@ -6,7 +6,7 @@
 
 ## Symfony authentication
 
-To use Symfony authentication with eZ Platform, use the following configuration (in `app/config/security.yml`):
+To use Symfony authentication with eZ Platform, use the following configuration (in `config/packages/security.yaml`):
 
 ``` yaml
 security:
@@ -19,7 +19,7 @@ security:
             logout: ~
 ```
 
-And in `app/config/routing.yml`:
+And in `config/packages/routing.yaml`:
 
 ``` yaml
 login:
@@ -50,15 +50,15 @@ A `SecurityController` is used to manage all security-related actions and is thu
 
 The base template used is [`EzPublishCoreBundle:Security:login.html.twig`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/views/Security/login.html.twig).
 
-The layout used by default is `%ezpublish.content_view.viewbase_layout%` (empty layout) but can be configured together with the login template (in `ezplatform.yml`):
+The layout used by default is `%ezpublish.content_view.viewbase_layout%` (empty layout) but can be configured together with the login template:
 
 ``` yaml
 ezpublish:
     system:
         my_siteaccess:
             user:
-                layout: AcmeTestBundle::layout.html.twig
-                login_template: AcmeTestBundle:User:login.html.twig
+                layout: layout.html.twig
+                login_template: user/login.html.twig
 ```
 
 ##### Redirection after login

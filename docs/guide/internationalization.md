@@ -80,11 +80,11 @@ If you want to render language switch links in a sub-request with a correct `Ro
 
 ``` html+twig
 {# Render the language switch links in a sub-controller #}
-{{ render( controller( 'Acme\TestBundle\Controller\DefaultController::languagesAction', {'routeRef': ez_route()} ) ) }}
+{{ render( controller( 'App\Controller\DefaultController::languagesAction', {'routeRef': ez_route()} ) ) }}
 ```
 
 ``` php
-namespace Acme\TestBundle\Controller;
+namespace App\Controller;
 
 use eZ\Bundle\EzPublishCoreBundle\Controller;
 use eZ\Publish\Core\MVC\Symfony\Routing\RouteReference;
@@ -93,7 +93,7 @@ class DefaultController extends Controller
 {
     public function languagesAction( RouteReference $routeRef )
     {
-        return $this->render( 'AcmeTestBundle:Default:languages.html.twig', [ 'routeRef' => $routeRef ] );
+        return $this->render( 'languages.html.twig', [ 'routeRef' => $routeRef ] );
     }
 }
 ```
@@ -142,8 +142,6 @@ Another way of using multiple languages is setting up a separate SiteAccess for 
 Configuration is not mandatory, but can help to distinguish which SiteAccesses can be considered *translation SiteAccesses*.
 
 ``` yaml
-# ezplatform.yml
-
 ezpublish:
     siteaccess:
         default_siteaccess: eng
@@ -200,8 +198,6 @@ There are some cases where your SiteAccesses share settings (repository, content
 The solution is defining new groups:
 
 ``` yaml
-# ezplatform.yml
-
 ezpublish:
     siteaccess:
         default_siteaccess: eng

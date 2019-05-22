@@ -22,8 +22,8 @@ SetEnvIf Request_URI ".*" SYMFONY_ENV="dev"
 
 If you want to use a custom environment (something other than `prod` and `dev`), you need to create the dedicated configuration files for your environment:
 
-- `app/config/config_<env_name>.yml`
-- `app/config/ezplatform_<env_name>.yml`
+- `config/config_<env_name>.yml`
+- `config/ezplatform_<env_name>.yml`
 
 The name used as `<env_name>` is the one that can be used as value of the `ENVIRONMENT` variable.
 

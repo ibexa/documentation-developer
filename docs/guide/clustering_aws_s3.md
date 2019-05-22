@@ -27,7 +27,7 @@ The secret key cannot be retrieved again after the key has been created, so don'
 ## Set up eZ Platform for AWS S3
 
 In your eZ Platform root directory, run `php composer.phar require league/flysystem-aws-s3-v3`.
-In your eZ Platform configuration, e.g. `app/config/config.yml`, set up the AWS S3 client:
+In your eZ Platform configuration, e.g. `config/packages/ezplatform.yml`, set up the AWS S3 client:
 
 ``` yaml
 services:
@@ -72,7 +72,7 @@ ez_io:
     For example, you could configure one called `gcloud_storage` for a third-party (community-supported)
     [Google Cloud Storage adapter](https://github.com/thephpleague/flysystem#community-supported).
 
-In your eZ Platform system settings, e.g. `app/config/ezplatform.yml`, enable the binary data handler:
+In your eZ Platform system settings, e.g. `config/packages/ezplatform.yaml`, enable the binary data handler:
 
 ``` yaml
 ezpublish:

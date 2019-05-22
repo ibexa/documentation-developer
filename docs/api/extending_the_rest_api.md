@@ -40,7 +40,7 @@ class DefaultController extends BaseController
 
 As mentioned earlier, your REST routes are required to use the REST URI prefix. To do so, the easiest way is to import your routing file using this prefix.
 
-**app/config/routing.yml**
+**config/packages/routing.yaml**
 
 ``` yaml
 myRestBundle_rest_routes:

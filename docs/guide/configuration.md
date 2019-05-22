@@ -10,6 +10,8 @@ However, you can also use XML or PHP formats for configuration.
 
 ### Configuration files
 
+REVIEW
+
 Main configuration files are located in the `app/config` folder.
 
 - `parameters.yml` contains infrastructure-related configuration. It is created based on the default settings defined in `parameters.yml.dist`.

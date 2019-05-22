@@ -98,7 +98,7 @@ The example below presents a Renderer that uses Twig to render a view:
 
 declare(strict_types=1);
 
-namespace AppBundle\Notification;
+namespace App\Notification;
 
 use eZ\Publish\API\Repository\Values\Notification\Notification;
 use eZ\Publish\Core\Notification\Renderer\NotificationRenderer;
@@ -118,7 +118,7 @@ class MyRenderer implements NotificationRenderer
 
     public function render(Notification $notification): string
     {
-        return $this->twig->render('AppBundle::notification.html.twig', ['notification' => $notification]);
+        return $this->twig->render('notification.html.twig', ['notification' => $notification]);
     }
 
     public function generateUrl(Notification $notification): ?string
@@ -142,8 +142,7 @@ return $this->router->generate('ez_content_draft_edit', [
 ]);
 ```
 
-You can add the template that is defined above in the `render()` method to one of your custom bundles.
-In this example use the `AppBundle`:
+You can add the template that is defined above in the `render()` method to one of your custom bundles:
 
 ```
 {% extends '@ezdesign/account/notifications/list_item.html.twig' %}
@@ -185,7 +184,7 @@ services:
         autowire: true
         autoconfigure: false
         public: false
-    AppBundle\Notification\MyRenderer:
+    App\Notification\MyRenderer:
     tags:
         - { name: ezpublish.notification.renderer, alias: MyNotification:TypeName }
 ```

@@ -62,7 +62,7 @@ It defines an abstract `getFiles()` method.
 Extend `YamlPolicyProvider` and implement `getFiles()` to return absolute paths to your YAML files.
 
 ``` php
-namespace Acme\ExampleBundle\AcmeExampleBundle\Security;
+namespace App\Security;
 
 use eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Security\PolicyProvider\YamlPolicyProvider;
 
@@ -77,7 +77,7 @@ class MyPolicyProvider extends YamlPolicyProvider
 }
 ```
 
-In `AcmeExampleBundle/Resources/config/policies.yml`:
+In `config/packages/policies.yaml`:
 
 ``` yaml
 custom_module:
@@ -125,8 +125,8 @@ To provide support for editing custom policies in the Back Office you need to im
 Next, register the service in DIC (Dependency Injection Container) with the `ez.limitation.formMapper` tag and set the `limitationType` attribute to the Limitation type's identifier:
 
 ```yml
-acme.security.limitation.custom_limitation.mapper:
-    class: 'AppBundle\Security\Limitation\Mapper\CustomLimitationFormMapper'
+app.security.limitation.custom_limitation.mapper:
+    class: 'App\Security\Limitation\Mapper\CustomLimitationFormMapper'
     arguments:
         # ...
     tags:
@@ -138,8 +138,8 @@ If you want to provide human-readable names of the custom Limitation values, you
 Then register the service in DIC with the `ez.limitation.valueMapper` tag and set the `limitationType` attribute to Limitation type's identifier:
 
 ```yml
-acme.security.limitation.custom_limitation.mapper:
-    class: 'AppBundle\Security\Limitation\Mapper\CustomLimitationValueMapper'
+app.security.limitation.custom_limitation.mapper:
+    class: 'App\Security\Limitation\Mapper\CustomLimitationValueMapper'
     arguments:
         # ...
     tags:
@@ -164,7 +164,7 @@ ezpublish:
     system:
         default:
             limitation_value_templates:
-                - { template: AppBundle:Limitation:custom_limitation_value.html.twig, priority: 0 }
+                - { template: limitation/custom_limitation_value.html.twig, priority: 0 }
 
 ```
 

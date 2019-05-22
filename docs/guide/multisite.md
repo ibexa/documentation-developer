@@ -104,8 +104,6 @@ The Index Page is the page shown when the root index `/` is accessed.
 You can configure the Index Page separately for each SiteAccess. Place the parameter `index_page` in your `ezplatform.yml` file, under the correct SiteAccess:
 
 ``` yaml
-# ezplatform.yml
-
 ezpublish:
     system:
         event:

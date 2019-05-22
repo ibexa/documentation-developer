@@ -12,7 +12,7 @@ Root location ID can be retrieved from [ConfigResolver](../guide/configuration.m
 The parameter name is `content.tree_root.location_id`.
 
 ``` php
-namespace Acme\TestBundle\Controller;
+namespace App\Controller;
 
 use eZ\Bundle\EzPublishCoreBundle\Controller;
 
@@ -42,7 +42,7 @@ Root Location is exposed in the [global Twig helper](../guide/content_rendering.
 #### From a controller
 
 ``` php
-namespace Acme\TestBundle\Controller;
+namespace App\Controller;
 
 use eZ\Bundle\EzPublishCoreBundle\Controller;
 

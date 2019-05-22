@@ -70,7 +70,7 @@
     New types of fields require a mapper which implements `\EzSystems\EzPlatformFormBuilder\FieldType\Field\FieldMapperInterface`:
 
     ``` php
-    namespace AppBundle\FormBuilder\Field\Mapper;
+    namespace App\FormBuilder\Field\Mapper;
 
     use EzSystems\EzPlatformFormBuilder\FieldType\Field\Mapper\GenericFieldMapper;
     use EzSystems\EzPlatformFormBuilder\FieldType\Model\Field;
@@ -96,7 +96,7 @@
     ``` yaml
     services:
         # ...
-        AppBundle\FormBuilder\Field\Mapper\CountryFieldMapper:
+        App\FormBuilder\Field\Mapper\CountryFieldMapper:
             arguments:
                 $fieldIdentifier: country
                 $formType: Symfony\Component\Form\Extension\Core\Type\CountryType
@@ -116,7 +116,7 @@
     The following example adds the `readonly` attribute to `single_line` field definition.
 
     ``` php
-    namespace AppBundle\EventSubscriber;
+    namespace App\EventSubscriber;
 
     use EzSystems\EzPlatformFormBuilder\Event\FieldDefinitionEvent;
     use EzSystems\EzPlatformFormBuilder\Event\FieldDefinitionEvents;
@@ -150,7 +150,7 @@
 
     ``` yaml
     services:
-        AppBundle\EventSubscriber\FieldDefinitionSubscriber:
+        App\EventSubscriber\FieldDefinitionSubscriber:
             public: true
             tags:
                 - kernel.event_subscriber
@@ -165,6 +165,6 @@
 
     ## Configure email notifications
 
-    To send emails you need to configure `sender_address` in `app/config/config.yml` under `swiftmailer` key.
+    To send emails you need to configure `sender_address` in `config/packages/swiftmailer.yaml`.
     It acts as a sender address and a return address where all bounced messages will be returned to.
     You can learn more by visiting [Symfony Mailer Configuration Reference.](https://symfony.com/doc/3.4/reference/configuration/swiftmailer.html#sender-address)

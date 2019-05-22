@@ -120,7 +120,7 @@ After a moment the installer will ask you to provide a few parameters:
 
 !!! tip
 
-    If you want to change any of these parameters later, you can do it in `app/config/parameters.yml`.
+    If you want to change any of these parameters later, you can do it in the `.env` file.
 
 !!! tip "Using PostgreSQL"
 

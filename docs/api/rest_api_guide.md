@@ -70,7 +70,7 @@ No special preparations are necessary to use the REST API. As long as your eZ Pl
 
 As explained in more detail in the [authentication page](general_rest_usage.md#rest-api-authentication), two authentication methods are currently supported: session and basic. By default, session authentication is the active mode, it uses a session cookie. The alternative, basic auth authentication requires a login / password to be sent using basic HTTP authentication.
 
-To enable basic auth based authentication, you need to edit `app/config/security.yml` and uncomment the configuration block about REST
+To enable basic auth based authentication, you need to edit `config/packages/security.yaml` and uncomment the configuration block about REST
 
 **security.yml**
 
