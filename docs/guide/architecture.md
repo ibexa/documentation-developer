@@ -1,6 +1,6 @@
 # Architecture
 
-A motto for eZ architecture is to **use APIs** that will be maintained in the long term to **ease upgrades and provide lossless couplings** between all parts of the architecture, at the same time improving the migration capabilities of the system.
+eZ architecture is based on the philosophy to **use APIs** that will be maintained in the long term. This **makes upgrades easier and provides lossless couplings** between all parts of the architecture, at the same time improving the migration capabilities of the system.
 
 The structure of eZ Platform bundles is based on the Symfony framework
 but content management functions rely on the Public API.
