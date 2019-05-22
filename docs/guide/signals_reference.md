@@ -32,7 +32,7 @@ All Signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
 |`ContentService\HideContentSignal`|`contentId`|`ContentService::hideContent()`|
 |`ContentService\PublishVersionSignal`|`contentId`</br>`versionNo`|`ContentService::publishVersion()`|
 |`ContentService\RevealContentSignal`|`contentId`|`ContentService::revealContent()`|
-|`ContentService\TranslateVersionSignal`|`contentId`</br>`versionNo`</br>`userId`|`ContentService::translationVersion()`|
+|`ContentService\TranslateVersionSignal`|`contentId`</br>`versionNo`</br>`userId`||
 |`ContentService\UpdateContentMetadataSignal`|`contentId`|`ContentService::updateContentMetadata()`|
 |`ContentService\UpdateContentSignal`|`contentId`</br>`versionNo`|`ContentService::updateContent()`|
 
@@ -77,7 +77,7 @@ All Signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
 |`LocationService\UnhideLocationSignal`|`contentId`</br>`locationId`</br>`currentVersionNo`</br>`parentLocationId`|`LocationService::unhideLocation()`|
 |`LocationService\MoveSubtreeSignal`|`subtreeId`</br>`oldParentLocationId`</br>`newParentLocationId`|`LocationService::moveSubtree()`|
 |`LocationService\SwapLocationSignal`|`content1Id`</br>`location1Id`</br>`parentLocation1Id`</br>`content2Id`</br>`location2Id`</br>`parentLocation1Id`|`LocationService::swapLocation()`|
-|`LocationService\UpdateLocationSignal`|`contentId`</br>`locationId`</br>`parentLocationId`|`LocationService::updateLocation()`|
+|`LocationService\UpdateLocationSignal`|`contentId`</br>`locationId`</br>`parentLocationId`|`LocationService::updateLocation()`</br>`URLAliasService::refreshSystemUrlAliasesForLocation`|
 
 ### NotificationService
 
@@ -116,9 +116,9 @@ All Signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
 |`RoleService\RemovePolicyByRoleDraftSignal`|`roleId`</br>`policyId`|`RoleService::removePolicyByRoleDraft()`|
 |`RoleService\RemovePolicySignal`|`roleId`</br>`policyId`|`RoleService::removePolicy()`|
 |`RoleService\RemoveRoleAssignmentSignal`|`roleAssignmentId`|`RoleService::removeRoleAssignment()`|
-|`RoleService\UnassignRoleFromUserGroupSignal`|`roleId`</br>`userGroupId`|`RoleService::unassignRoleFromUserGroup()`|
-|`RoleService\UnassignRoleFromUserSignal`|`roleId`</br>`userId`|`RoleService::unassignRoleFromUser()`|
-|`RoleService\UpdatePolicySignal`|`policyId`|`RoleService::updatePolicy()`|
+|`RoleService\UnassignRoleFromUserGroupSignal`|`roleId`</br>`userGroupId`|`RoleService::unassignRoleFromUserGroup()` (deprecated)|
+|`RoleService\UnassignRoleFromUserSignal`|`roleId`</br>`userId`|`RoleService::unassignRoleFromUser()` (deprecated)|
+|`RoleService\UpdatePolicySignal`|`policyId`|`RoleService::updatePolicy()` (deprecated)</br>`RoleService::updatePolicyByRoleDraft()`|
 |`RoleService\UpdateRoleDraftSignal`|`roleId`|`RoleService::updateRoleDraft()`|
 |`RoleService\UpdateRoleSignal`|`roleId`|`RoleService::updateRole()`|
 
