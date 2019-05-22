@@ -23,39 +23,28 @@ The Public API exposes Symfony services for all of its Repository services.
 | `ezpublish.api.service.url_wildcard` | `eZ\Publish\API\Repository\URLWildcardService` |
 | `ezpublish.api.service.user`         | `eZ\Publish\API\Repository\UserService`        |
 
-## SPI and API repositories
+## API
 
-The `ezpublish-api` and `ezpublish-spi` repositories are read-only splits of `ezsystems/ezpublish-kernel`
-They are available to make dependencies easier and more lightweight.
+Every Public API Service interface and Value object defined in `eZ\Publish\API` namespace strictly follows [Semantic Versioning](https://semver.org/) backward compatibility (BC) promise for API consumers.
+It means that every usage of API (API call) is guaranteed to work between minor releases.
 
-### API
+What can change between minor releases is API method signature. Because of that, implementation of API interfaces by third party packages (except the ones implemented by eZ Systems bundles) is not directly supported.
+API method signatures should not change between bug-fix releases (e.g. from 2.5.1 to 2.5.2).
 
-This package is a split of the eZ Platform Public API. It includes the **services interfaces** and **domain objects** from the `eZ\Publish\API` namespace.
+You should always check full list of changes for each release in corresponding release notes.
 
-It offers a lightweight way to make your project depend on eZ Platform API and Domain objects, without depending on the whole `ezpublish-kernel`.
+## SPI
 
-The repository is read-only, automatically updated from https://github.com/ezsystems/ezpublish-kernel.
+eZ Platform SPI is a Service Provider Interface which defines contracts for implementing various parts of the system, including:
 
-Requiring `ezpublish-api` in your project (on the example of version 6.7):
+ - persistence layer (`SPI\Persistence`)
+ - custom Field Types
+ - custom Limitations
+ - limited portions of IO 
+ - image variation handling
+ - Search Engine layer for custom Search Engine implementations (e.g. Legacy SQL Search Engine, Solr Search Engine and in the future Elasticsearch)
 
-```
-"require": {
-    "ezsystems/ezpublish-api": "~6.7"
-}
-```
+!!! caution
 
-### SPI
-
-This package is a split of the eZ Platform SPI (persistence interfaces).
-
-It can be used as a dependency, instead of the whole `ezpublish-kernel`, by packages implementing custom eZ Platform storage engines, or by any package that requires classes from the `eZ\Publish\SPI` namespace.
-
-The repository is read-only, automatically updated from https://github.com/ezsystems/ezpublish-kernel.
-
-Requiring `ezpublish-spi` in your project (on the example of version 6.7):
-
-```
-"require": {
-    "ezsystems/ezpublish-spi": "~6.7"
-}
-```
+    Due to technical limitations, backward compatibility promise to any third party implementations of these interfaces applies only to minor versions.
+    It means that interfaces, especially related to `SPI\Persistence` handlers, can change between minor releases.
