@@ -109,6 +109,12 @@ Install eZ Platform with:
 php app/console ezplatform:install clean
 ```
 
+For eZ Enterprise, use:
+
+``` bash
+php app/console ezplatform:install studio-clean
+```
+
 !!! note
 
     Setting up folder permissions and virtual host is installation-specific.
