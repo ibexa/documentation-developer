@@ -130,6 +130,12 @@ Install eZ Platform with:
 php app/console ezplatform:install clean
 ```
 
+For eZ Enterprise, use:
+
+``` bash
+php app/console ezplatform:install studio-clean
+```
+
 Before executing it make sure that the database user has sufficient permissions.
 
 If Composer asks for your token, you must log in to your GitHub account and generate a new token
