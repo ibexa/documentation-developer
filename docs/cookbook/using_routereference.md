@@ -109,7 +109,7 @@ class MyRouteReferenceListener implements EventSubscriberInterface
             // Remove "some_parameter", as you don't need it any more
             $routeReference->remove( 'some_parameter' );
             // Add another parameter
-            $routeReference->set( 'another_parameter', [ 'parameters', 'are', 'fun' ];
+            $routeReference->set( 'another_parameter', [ 'parameters', 'are', 'fun' ] );
         }
     }
 }
