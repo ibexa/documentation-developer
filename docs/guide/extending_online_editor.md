@@ -255,6 +255,85 @@ In the example above, the template files for the front end could be:
 
 Templates for Content View in the Back Office would be `app/Resources/views/themes/admin/field_type/ezrichtext/custom_style/highlighted_word.html.twig` and `app/Resources/views/themes/admin/field_type/ezrichtext/custom_style/highlighted_block.html.twig` respectively (assuming Admin SiteAccess uses the `admin` theme).
 
+## Custom attributes and classes
+
+You can add custom attributes and CSS classes to elements in the Online Editor.
+
+The available elements are:
+
+- `embedinline`
+- `embed`
+- `formatted`
+- `heading`
+- `embedimage`
+- `ul`
+- `ol`
+- `li`
+- `paragraph`
+- `table`
+- `tr`
+- `td`
+
+### Custom attributes
+
+Custom attributes are configured under the `fieldtypes.ezrichtext.attributes` key.
+
+A custom attribute can belong to one of four types: `choice`, `boolean`, `string`, or `number`.
+You can also set each attribute to be `required` and set its `default_value`.
+
+For the `choice` type, you must provide an array of available `choices`.
+`multiple` enables you to choose whether more than one option can be selected.
+
+The example below adds two attributes, `custom_attribute` and `another_attribute`
+to the Heading element:
+
+``` yaml
+ezpublish:
+    system:
+        # The configuration only works with an admin (Back Office) SiteAccess
+        <siteaccess>:
+            fieldtypes:
+                ezrichtext:
+                    attributes:
+                        heading:
+                            custom-attribute:
+                                type: boolean
+                                default_value: false
+                            another-attribute:
+                                type: choice
+                                choices: [attr1, attr1]
+                                default_value: attr2
+                                required: false
+                                multiple: true
+```
+
+This configuration will be output as `data-<attribute_name>` in the corresponding HTML element,
+in this example as `data-custom-attribute` and `data-another-attribute`.
+
+### Custom CSS classes
+
+Custom CSS classes are configured under the `fieldtypes.ezrichtext.classes` key.
+
+You must provide the available `choices`.
+You can also set the values for `required`, `default_value` and `multiple`.
+
+The example below adds a class choice to the Paragraph element:
+
+``` yaml
+ezpublish:
+    system:
+        # The configuration only works with an admin (Back Office) SiteAccess
+        <siteaccess>:
+            fieldtypes:
+                ezrichtext:                            
+                    classes:
+                        paragraph:
+                            choices: [regular, special]
+                            default_value: regular
+                            required: false
+                            multiple: false
+```
+
 ## Plugins configuration
 
 If you develop your plugin, you need to add it to the CKEditor plugins by `add` method.
