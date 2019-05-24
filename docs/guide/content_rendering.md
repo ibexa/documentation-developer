@@ -103,7 +103,7 @@ The following table presents all native matchers.
 |`Id\ContentType`|Matches the ID number of the Content Type that the Content item is an instance of.|
 |`Id\ContentTypeGroup`|Matches the ID number of the group containing the Content Type that the Content item is an instance of.|
 |`Id\Location`|Matches the ID number of a Location. *In the case of a Content item, matched against the main location.*|
-|`Id\LocationRemote`|Matches the Remote ID number of a Location. *In the case of a Content item, matched against the main location.*|
+|`Id\LocationRemote`|Matches the Remote ID number of a Location. *In the case of a Content item, matches against the main Location.*|
 |`Id\ParentContentType`|Matches the ID number of the parent Content Type. *In the case of a Content item, matched against the main location.*|
 |`Id\ParentLocation`|Matches the ID number of the parent Location. *In the case of a Content item, matched against the main location.*|
 |`Id\Remote`|Matches the remoteId of either Content or Location, depending on the object matched.|
