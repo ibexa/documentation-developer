@@ -165,6 +165,7 @@ pages:
     - Resources and community:
         - 'Resources': 'community_resources/resources.md'
         - 'Release process and roadmap': 'community_resources/release_process.md'
+        - 'Support and Maintenance FAQ': 'community_resources/support_maintenance_faq.md'
         - Contributing:
             - 'How to contribute': 'community_resources/contributing.md'
             - 'Report and follow issues': 'community_resources/report_follow_issues.md'
