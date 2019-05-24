@@ -336,6 +336,18 @@ ezpublish:
                             multiple: false
 ```
 
+### Label translations
+
+You can provide label translations for custom attributes with the translation extractor `ez_online_editor_attributes`.
+It gets a full list of custom attributes for all elements in all scopes.
+
+For example:
+
+``` bash
+php ./bin/console translation:extract --enable-extractor=ez_online_editor_attributes
+    --dir=./app/Resources/views --output-dir=./app/Resources/translations/ --output-format=yaml
+```
+
 ## Plugins configuration
 
 If you develop your plugin, you need to add it to the CKEditor plugins by `add` method.
