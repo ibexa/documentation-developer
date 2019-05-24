@@ -106,6 +106,17 @@ services:
 Persistence cache depends on all involved web servers, each of them seeing the same view of the cache because it's shared among them.
 With that in mind, the following configurations of Redis are possible:
 
+!!! caution "Redis"
+
+    Due to some missing / unoptimal features in Symfony, TagsBundle and eZ Platform,
+    using Redis and especially Redis Cluster is not recommended on versions prior to eZ Platform 2.5, TagsBundle 3.4 and Symfony 3.4.24.
+
+    If you are not able to upgrade, a workaround is to disable TagsBundle, avoid Redis Cluster,
+    reduce Redis latency or use FileSystem and single server instead.
+
+    There is also the unofficial option to use APCu,
+    but in that case cache is not shared between web and cli, which can cause issues.
+
 - [Redis Cluster](https://redis.io/topics/cluster-tutorial)
     - Shards cache across several instances in order to be able to cache more than memory of one server allows
     - Shard slaves can improve availability, however [they use asynchronous replication](https://redis.io/topics/cluster-tutorial#redis-cluster-consistency-guarantees) so they can't be used for reads
