@@ -44,6 +44,16 @@ $myParamSettingAdmin = $configResolver->getParameter( 'my_param', 'myapp', 'admi
 // $myParamSetting's value will be 'another value'
 ```
 
+In debug mode, ConfigResolver detects if parameters were loaded prior to initialization of SiteAccess to warn about issues that are hard to resolve.
+It will log all instances of `getParameter()` that may be used unsafely.
+
+Additionally, for class-based services, the warning appears even if a service is recognized by `DynamicSettingsListener` as `$updatableServices` (which is safe).
+
+To avoid issues:
+- Do not use ConfigResolver in service factory.
+- Instead of using `ctor('$dynamic_param$')`, use `(setter('$dynamic_param$'))` as it allows the system to update the scope changes or use ConfigResolver.
+- You can also use ConfigResolver lazily by [making commands lazy](https://symfony.com/doc/current/console/lazy_commands.html) or configure [lazy services](https://symfony.com/doc/current/service_container/lazy_services.html).
+
 !!! tip
 
     To learn more about scopes, see [SiteAccess documentation](siteaccess.md#scope).
