@@ -103,6 +103,7 @@ The following table presents all native matchers.
 |`Id\ContentType`|Matches the ID number of the Content Type that the Content item is an instance of.|
 |`Id\ContentTypeGroup`|Matches the ID number of the group containing the Content Type that the Content item is an instance of.|
 |`Id\Location`|Matches the ID number of a Location. *In the case of a Content item, matched against the main location.*|
+|`Id\LocationRemote`|Matches the Remote ID number of a Location. *In the case of a Content item, matches against the main Location.*|
 |`Id\ParentContentType`|Matches the ID number of the parent Content Type. *In the case of a Content item, matched against the main location.*|
 |`Id\ParentLocation`|Matches the ID number of the parent Location. *In the case of a Content item, matched against the main location.*|
 |`Id\Remote`|Matches the remoteId of either Content or Location, depending on the object matched.|
@@ -115,14 +116,24 @@ The following table presents all native matchers.
 
 ### Content view templates
 
-#### Available variables
+#### Template variables
+
+Every content view offers a set of variables you can use in templates and controllers.
+
+You can view the whole list of variables by using the `dump()` Twig function in your template.
+You can also dump a specific variable, for example `dump(location.id)`.
+
+Main Content-related variables include:
 
 |Variable name|Type|Description|
 |------|------|------|
-|`location`|[eZ\Publish\Core\Repository\Values\Content\Location](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Repository/Values/Content/Location.php)|The Location object. Contains meta information on the Content (ContentInfo) (only when accessing a Location) |
 |`content`|[eZ\Publish\Core\Repository\Values\Content\Content](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Repository/Values/Content/Content.php)|The Content item, containing all Fields and version information (VersionInfo)|
+|`location`|[eZ\Publish\Core\Repository\Values\Content\Location](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Repository/Values/Content/Location.php)|The Location object. Contains meta information on the Content (ContentInfo) (only when accessing a Location) |
 |`noLayout`|Boolean|If true, indicates if the Content item/Location is to be displayed without any pagelayout (i.e. AJAX, sub-requests, etc.). It's generally `false` when displaying a Content item in view type **full**.|
 |`viewBaseLayout`|String|The base layout template to use when the view is requested to be generated outside of the pagelayout (when `noLayout` is true).|
+
+The `dump()` function also displays other variables, such as specific configuration including the SiteAccess
+under the `ezpublish` key.
 
 #### Template inheritance and sub-requests
 
@@ -277,16 +288,6 @@ This helper is accessible from all Twig templates and allows you to easily retri
 |`ezpublish.systemUriString`|	Returns the "system" URI string. System URI is the URI for internal content controller. If current route is not an URLAlias, then the current Pathinfo is returned.|
 |`ezpublish.viewParameters`|Returns the view parameters as a hash.|
 |`ezpublish.viewParametersString`|Returns the view parameters as a string.|
-|`ezpublish.legacy`|Returns legacy information.|
 |`ezpublish.translationSiteAccess`|Returns the translation SiteAccess for a given language, or null if it cannot be found.|
 |`ezpublish.availableLanguages`|Returns the list of available languages.|
 |`ezpublish.configResolver`|Returns the config resolver.|
-
-#### Legacy property
-
-The `ezpublish.legacy` property returns an object of type [ParameterBag](http://api.symfony.com/2.8/Symfony/Component/HttpFoundation/ParameterBag.html), which is a container for key/value pairs, and contains additional properties to retrieve/handle legacy information.
-
-!!! note
-
-    `ezpublish.legacy` is only available **when viewing content in legacy fallback** (e.g. no corresponding Twig templates).
-    See [5.x documentation](https://doc.ez.no/display/EZP/Twig+Helper#TwigHelper-Legacy) for more information.
