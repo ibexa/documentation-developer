@@ -372,32 +372,6 @@ Just like for regular Symfony controllers, you can take advantage of [ESI](https
 
 Only scalar variables (not objects) can be sent via `render_esi`.
 
-##### Asynchronous rendering using hinclude
-
-Symfony also supports asynchronous content rendering with the help of the [hinclude.js](http://mnot.github.com/hinclude/) library.
-
-``` html+twig
-<!--Asynchronous rendering-->
-{{ render_hinclude(controller("ez_content:viewAction", {"contentId": 123, "viewType": "line"})) }}
-```
-
-Only scalar variables (not objects) can be sent via `render_hinclude`.
-
-##### Display a default text
-
-If you want to display a default text while a controller is loaded asynchronously, you have to pass a second parameter to your `render_hinclude` Twig function.
-
-``` html+twig
-<!--Display a default text during asynchronous loading of a controller-->
-{{ render_hinclude(controller('EzCorporateDesignBundle:Header:userLinks'), {'default': "<div style='color:red'>loading</div>"}) }}
-```
-
-See also: [Custom rendering logic](controllers.md#custom-rendering-logic).
-
-[hinclude.js](http://mnot.github.com/hinclude/) needs to be properly included in your layout to work.
-
-[Refer to Symfony documentation](https://symfony.com/doc/current/templating/hinclude.html) for all available options.
-
 ## Rendering in preview
 
 When previewing content in the back office, the draft view is rendered using the [PreviewController](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/MVC/Symfony/Controller/Content/PreviewController.php).
