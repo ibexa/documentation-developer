@@ -165,7 +165,7 @@
         # ...
         AppBundle\Event\Workflow\PublishOnLastStageSubscriber:
             arguments:
-                $publishOnLastStageWorkflows: %app.workflow.publish_on_last_stage%
+                $publishOnLastStageWorkflows: '%app.workflow.publish_on_last_stage%'
     ```
 
     You must also provide the identifier of the workflow you want the subscriber to apply to.

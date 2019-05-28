@@ -30,7 +30,7 @@ Out of the box FunctionList uses it in the following way:
     # FunctionList is an ezjscore limitation, it only applies to ezjscore policies not used by
     # API/platform stack, so configure to use Blocking Limitation to avoid LimitationNotFoundException
     ezpublish.api.role.limitation_type.function_list:
-        class: %ezpublish.api.role.limitation_type.blocking.class%
+        class: '%ezpublish.api.role.limitation_type.blocking.class%'
         arguments: ['FunctionList']
         tags:
             - {name: ezpublish.limitationType, alias: FunctionList}

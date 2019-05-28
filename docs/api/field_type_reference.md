@@ -1640,17 +1640,17 @@ Following shows example on how eZ Publish "datatype" `ezpaex` could be configure
 
 services:
     ezpublish.fieldType.ezpaex:
-        class: %ezpublish.fieldType.eznull.class%
+        class: '%ezpublish.fieldType.eznull.class%'
         parent: ezpublish.fieldType
         arguments: [ezpaex]
         tags: [{name: ezpublish.fieldType, alias: ezpaex}]
 
     ezpublish.fieldType.ezpaex.converter:
-        class: %ezpublish.fieldType.eznull.converter.class%
+        class: '%ezpublish.fieldType.eznull.converter.class%'
         tags: [{name: ezpublish.storageEngine.legacy.converter, alias: ezpaex}]
 
     ezpublish.fieldType.ezpaex.indexable:
-        class: %ezpublish.fieldType.indexable.unindexed.class%
+        class: '%ezpublish.fieldType.indexable.unindexed.class%'
         tags: [{name: ezpublish.fieldType.indexable, alias: ezpaex}]
 ```
 
@@ -1939,7 +1939,7 @@ $validators = [
 !!! caution "Deprecated"
 
     Make sure to enable new version of the RichText Field Type provided via [eZ Platform RichTextBundle](https://github.com/ezsystems/ezplatform-richtext).
-    
+
     The RichText Field Type provided by Kernel via the `eZ\Publish\Core\FieldType\RichText` namespace is deprecated. Refer to PHPDoc whenever you want to implement any interface or extend any base class from that namespace.
 
 This Field Type validates and stores structured rich text, and exposes it in several formats.

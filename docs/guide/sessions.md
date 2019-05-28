@@ -62,7 +62,7 @@ framework:
         # But in order to use %ezplatform.session.save_path%, default eZ Platform instead sets %ezplatform.session.handler_id% to:
         # - session.handler.native_file (default)
         # - ezplatform.core.session.handler.native_redis (recommended value for Cluster usage, using php-redis session handler )
-        handler_id: %ezplatform.session.handler_id%
+        handler_id: '%ezplatform.session.handler_id%'
 ```
 
 ### Recommendations for production setup
@@ -90,7 +90,7 @@ Alternatively if you need to configure Memcached servers dynamically:
     app.session.handler.native_memcached:
         class: eZ\Bundle\EzPublishCoreBundle\Session\Handler\NativeSessionHandler
         arguments:
-         - %session.save_path%
+         - '%session.save_path%'
          - memcached
 ```
 
@@ -158,5 +158,5 @@ services:
 
     session.handler.pdo:
         class: Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler
-        arguments: ['@pdo', %pdo.db_options%]
+        arguments: ['@pdo', '%pdo.db_options%']
 ```

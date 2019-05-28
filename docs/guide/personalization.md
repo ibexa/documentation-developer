@@ -41,7 +41,7 @@ Import additional routing by adding the following lines to your `routing.yml` fi
 ``` yaml
 recommendationBundleRestRoutes:
     resource: '@EzSystemsRecommendationBundle/Resources/config/routing_rest.yml'
-    prefix: %ezpublish_rest.path_prefix%
+    prefix: '%ezpublish_rest.path_prefix%'
 ```
 
 !!! note "Legacy support"
@@ -588,7 +588,7 @@ monolog:
     handlers:
         ez_recommendation:
             type: stream
-            path: %kernel.logs_dir%/%kernel.environment%.recommendation.log
+            path: '%kernel.logs_dir%/%kernel.environment%.recommendation.log'
             channels: [ez_recommendation]
             level: info
 ```

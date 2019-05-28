@@ -123,7 +123,7 @@ parameters:
 
 services:
     acme.my_route_reference_listener:
-        class: %acme.my_route_reference_listener.class%
+        class: '%acme.my_route_reference_listener.class%'
         tags:
             - { name: kernel.event_subscriber }
 ```

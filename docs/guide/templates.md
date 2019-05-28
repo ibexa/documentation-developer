@@ -436,7 +436,7 @@ parameters:
 
 services:
     app.pre_content_view_listener:
-        class: %ezdemo.pre_content_view_listener.class%
+        class: '%ezdemo.pre_content_view_listener.class%'
         tags:
             - {name: kernel.event_listener, event: ezpublish.pre_content_view, method: onPreContentView}
 ```
