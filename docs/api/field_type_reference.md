@@ -1563,7 +1563,7 @@ services:
         tags:
             - {name: ezpublish.fieldType, alias: ezcomcomments}
     ezpublish.fieldType.ezpaex:
-        class: %ezpublish.fieldType.eznull.class%
+        class: '%ezpublish.fieldType.eznull.class%'
         parent: ezpublish.fieldType
         arguments: [ezpaex]
         tags:
