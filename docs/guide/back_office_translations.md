@@ -1,8 +1,8 @@
 # Back Office translations
 
-## Translating the Back Office
+## Changing Back Office languages
 
-### Installing new UI translations
+### Installing new translations
 
 If you want to install a new language in your project, install the corresponding package.
 
@@ -27,7 +27,7 @@ Now you can reload your eZ Platform Back Office which will be translated in Fren
 
 To learn how to contribute to a translation, see [Contributing translations](../community_resources/translations.md).
 
-### Choosing language of the Back Office
+### Selecting Back Office language
 
 Once you have language packages installed, you can switch the language of the Back Office
 in the User Settings menu.
@@ -36,7 +36,7 @@ Otherwise, the language will be selected based on the browser language.
 If you do not have a language defined in the browser, the language will be selected
 based on `parameters.locale_fallback` in `default_parameters.yml`
 
-## Label translations
+## Custom string translations
 
 When you extend the Back Office you often need to provide labels for new elements.
 It is good practice to provide your labels in translations files, instead of literally,
@@ -106,7 +106,7 @@ For example, in `custom_extension.de.xliff`:
 </trans-unit>
 ```
 
-The language to display will then be selected automatically based on [user preferences or browser setup](#choosing-language-of-the-back-office).
+The language to display will then be selected automatically based on [user preferences or browser setup](#selecting-back-office-language).
 
 !!! note
 
