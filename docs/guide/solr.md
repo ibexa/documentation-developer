@@ -6,8 +6,7 @@
 
 !!! note "Enable the bundle"
 
-    If you have previously disabled the bundle, add/update composer dependencies:
-    
+    If you have previously disabled the bundle, add/update composer dependencies: 
     ``` bash
     composer require --no-update ezsystems/ezplatform-solr-search-engine:~1.0
     composer update
@@ -468,11 +467,11 @@ my_webinar_app.webinar_event_title_fulltext_field_mapper:
 
 !!! note
 
-    The configuration bellow has been tested on Solr 6.5.5. Version 4.x should works also.
+    The configuration below has been tested on Solr 6.5.5. Version 4.x should also work.
 
 ### Configuring Master for replication
 
-First you need to change the core configuration in `solrconfig.xml` (for example */opt/solr/server/ez/collection1/conf/solrconfig.xml ).
+First you need to change the core configuration in `solrconfig.xml` (for example `*/opt/solr/server/ez/collection1/conf/solrconfig.xml` ).
 You can copy and paste the code below before any other `requestHandler` section.
 
 ```xml
