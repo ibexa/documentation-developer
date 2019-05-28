@@ -55,6 +55,7 @@ The method takes as arguments:
 - `id` of the message you want to translate
 - an array of parameters
 - domain of the string
+
 Here's an example:
 ``` php hl_lines="13 14 15"
 use Symfony\Component\Translation\TranslatorInterface;
