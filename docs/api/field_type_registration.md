@@ -22,7 +22,7 @@ parameters:
 
 services:
     ezpublish.fieldType.ezstring:
-        class: %ezpublish.fieldType.ezstring.class%
+        class: '%ezpublish.fieldType.ezstring.class%'
         parent: ezpublish.fieldType
         tags:
             - {name: ezpublish.fieldType, alias: ezstring}
@@ -56,7 +56,7 @@ parameters:
 
 services:
     ezpublish.fieldType.ezstring.converter:
-        class: %ezpublish.fieldType.ezstring.converter.class%
+        class: '%ezpublish.fieldType.ezstring.converter.class%'
         tags:
             - {name: ezpublish.storageEngine.legacy.converter, alias: ezstring, lazy: true, callback: ::create}
 ```
@@ -86,7 +86,7 @@ parameters:
     ezpublish.fieldType.ezurl.externalStorage.class: eZ\Publish\Core\FieldType\Url\UrlStorage
 services:
     ezpublish.fieldType.ezurl.externalStorage:
-        class: %ezpublish.fieldType.ezurl.externalStorage.class%
+        class: '%ezpublish.fieldType.ezurl.externalStorage.class%'
         arguments:
             - '@ezpublish.fieldType.ezurl.storage_gateway'
         tags:
@@ -109,7 +109,7 @@ parameters:
 
 services:
     ezpublish.fieldType.ezurl.storage_gateway:
-        class: %ezpublish.fieldType.ezurl.storage_gateway.class%
+        class: '%ezpublish.fieldType.ezurl.storage_gateway.class%'
         arguments: ['@ezpublish.api.storage_engine.legacy.connection']
 ```
 

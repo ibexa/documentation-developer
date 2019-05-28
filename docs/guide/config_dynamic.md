@@ -67,7 +67,7 @@ parameters:
  
 services:
     my_service:
-        class: %my_service.class%
+        class: '%my_service.class%'
         arguments: ['@ezpublish.config.resolver']
 ```
 
@@ -137,7 +137,7 @@ parameters:
 
 services:
     acme_example.my_service:
-        class: %acme_example.my_service.class%
+        class: '%acme_example.my_service.class%'
         calls:
             - [setLanguages, ['$languages$']]
 ```
@@ -173,7 +173,7 @@ parameters:
 
 services:
     acme_example.my_service:
-        class: %acme_example.my_service.class%
+        class: '%acme_example.my_service.class%'
         arguments: ['$languages$']
 ```
 
@@ -215,7 +215,7 @@ parameters:
  
 services:
     acme_example.my_service:
-        class: %acme_example.my_service.class%
+        class: '%acme_example.my_service.class%'
         # The following argument will automatically resolve to the right value, depending on the current SiteAccess.
         # We specify "acme" as the namespace we want to use for parameter resolving.
         calls:

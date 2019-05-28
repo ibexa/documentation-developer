@@ -328,7 +328,7 @@ ezpublish:
         default:
             provider: generic
             options:
-                fontpath: %kernel.root_dir%/Resources/font/font.ttf
+                fontpath: '%kernel.root_dir%/Resources/font/font.ttf'
                 background: '#EEEEEE'
                 foreground: '#FF0000'
                 text: 'MISSING IMAGE %%width%%x%%height%%'

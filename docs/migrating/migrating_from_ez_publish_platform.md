@@ -103,7 +103,7 @@ To move over your own custom configurations, follow the conventions below and ma
                 storage: ~
                 # For search engine, pick the one configured in parameters.yml, either "legacy" or "solr"
                 search:
-                    engine: %search_engine%
+                    engine: '%search_engine%'
                     connection: default
     ```
 
@@ -407,7 +407,7 @@ If your legacy site uses old-style URL aliases, to upgrade them successfully you
 ``` yaml
 # in vendor/ezsystems/ezpublish-kernel/eZ/Publish/Core/settings/storage\_engines/common.yml
     ezpublish.persistence.slug_converter:
-        class: %ezpublish.persistence.slug_converter.class%
+        class: '%ezpublish.persistence.slug_converter.class%'
         arguments:
             - '@ezpublish.api.storage_engine.transformation_processor'
             - { transformation: urlalias_compat }
@@ -417,7 +417,7 @@ In case of URLs with extended UTF-encoded names, the workaround must make use of
 
 ``` yaml
     ezpublish.persistence.slug_converter:
-        class: %ezpublish.persistence.slug_converter.class%
+        class: '%ezpublish.persistence.slug_converter.class%'
         arguments:
             - '@ezpublish.api.storage_engine.transformation_processor'
             - { transformation: urlalias_iri }

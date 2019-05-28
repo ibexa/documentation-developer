@@ -121,8 +121,8 @@ Out of the box in eZ Platform the following is enabled for a simple setup (in `c
 ez_search_engine_solr:
     endpoints:
         endpoint0:
-            dsn: %solr_dsn%
-            core: %solr_core%
+            dsn: '%solr_dsn%'
+            core: '%solr_core%'
     connections:
         default:
             entry_endpoints:
@@ -141,10 +141,10 @@ and one very different language that should receive proper language analysis for
 ez_search_engine_solr:
     endpoints:
         endpoint0:
-            dsn: %solr_dsn%
+            dsn: '%solr_dsn%'
             core: core0
         endpoint1:
-            dsn: %solr_dsn%
+            dsn: '%solr_dsn%'
             core: core1
     connections:
         default:
@@ -171,25 +171,25 @@ If full language analysis features are preferred, then each language can be conf
 ez_search_engine_solr:
     endpoints:
         endpoint0:
-            dsn: %solr_dsn%
+            dsn: '%solr_dsn%'
             core: core0
         endpoint1:
-            dsn: %solr_dsn%
+            dsn: '%solr_dsn%'
             core: core1
         endpoint2:
-            dsn: %solr_dsn%
+            dsn: '%solr_dsn%'
             core: core2
         endpoint3:
-            dsn: %solr_dsn%
+            dsn: '%solr_dsn%'
             core: core3
         endpoint4:
-            dsn: %solr_dsn%
+            dsn: '%solr_dsn%'
             core: core4
         endpoint5:
-            dsn: %solr_dsn%
+            dsn: '%solr_dsn%'
             core: core5
         endpoint6:
-            dsn: %solr_dsn%
+            dsn: '%solr_dsn%'
             core: core6
     connections:
         default:
@@ -224,7 +224,7 @@ In the example below we configured Solr Bundle to work with secured Solr core.
 ez_search_engine_solr:
     endpoints:
         endpoint0:
-            dsn: %solr_dsn%
+            dsn: '%solr_dsn%'
             core: core0
             user: example
             pass: password
@@ -243,7 +243,7 @@ ezpublish:
         default:
             storage: ~
             search:
-                engine: %search_engine%
+                engine: '%search_engine%'
                 connection: default
 ```
 

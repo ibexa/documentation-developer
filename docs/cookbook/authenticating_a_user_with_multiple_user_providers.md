@@ -58,7 +58,7 @@ parameters:
 
 services:
     acme_example.interactive_event_listener:
-        class: %acme_example.interactive_event_listener.class%
+        class: '%acme_example.interactive_event_listener.class%'
         arguments: ['@ezpublish.api.service.user']
         tags:
             - { name: kernel.event_subscriber } 
