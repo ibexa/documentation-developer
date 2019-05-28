@@ -45,7 +45,7 @@ As mentioned earlier, your REST routes are required to use the REST URI prefix. 
 ``` yaml
 myRestBundle_rest_routes:
     resource: '@MyRestBundle/Resources/config/routing_rest.yml'
-    prefix: %ezpublish_rest.path_prefix%
+    prefix: '%ezpublish_rest.path_prefix%'
 ```
 
 Using a distinct file for REST routes allows you to use the prefix for all this file's routes without affecting other routes from your bundle.

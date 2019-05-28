@@ -325,7 +325,7 @@ In your Symfony services configuration you can simply define that you require th
 ``` yaml
 # yml configuration
     myApp.myService:
-        class: %myApp.myService.class%
+        class: '%myApp.myService.class%'
         arguments:
             - '@ezpublish.cache_pool'
 ```

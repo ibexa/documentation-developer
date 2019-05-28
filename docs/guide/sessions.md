@@ -115,5 +115,5 @@ services:
 
     session.handler.pdo:
         class: Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler
-        arguments: ['@pdo', %pdo.db_options%]
+        arguments: ['@pdo', '%pdo.db_options%']
 ```

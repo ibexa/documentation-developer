@@ -51,7 +51,7 @@ oneup_flysystem:
             awss3v3:
                 client: amazon.s3_client
                 bucket: my-bucket # Your bucket name
-                prefix: %database_name%
+                prefix: '%database_name%'
 ```
 
 In the same place, set up the binary data handler for the S3 adapter:

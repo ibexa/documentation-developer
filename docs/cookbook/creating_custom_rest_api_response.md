@@ -198,10 +198,10 @@ services:
         arguments:
             - '@ezpublish_rest.output.generator.json.field_type_hash_generator'
         calls:
-            - [ setFormatOutput, [ %kernel.debug% ] ]
+            - [ setFormatOutput, [ '%kernel.debug%' ] ]
 
     app.rest.output.visitor.json:
-        class: %ezpublish_rest.output.visitor.class%
+        class: '%ezpublish_rest.output.visitor.class%'
         arguments:
             - '@app.rest.output.generator.json'
             - '@app.rest.output.value_object_visitor.dispatcher'
