@@ -69,7 +69,7 @@ ezpublish:
         site_group:
             # cache_pool is set to '%env(CACHE_POOL)%'
             # env(CACHE_POOL) is set to 'cache.tagaware.filesystem' (a Symfony service) by default, for more examples see app/config/cache_pool/*
-            cache_service_name: %cache_pool%
+            cache_service_name: '%cache_pool%'
 ```
 
 !!! note "One cache pool for each Repository"
@@ -257,7 +257,7 @@ In your Symfony services configuration you can simply define that you require th
 ``` yaml
 # yml configuration
     myApp.myService:
-        class: %myApp.myService.class%
+        class: '%myApp.myService.class%'
         arguments:
             - '@ezpublish.cache_pool'
 ```

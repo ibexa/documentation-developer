@@ -194,7 +194,7 @@ You are now able to load multiple Locations at once, using `LocationService->loa
 
     ``` yaml
      lexik_jwt_authentication:
-         secret_key: %secret%
+         secret_key: '%secret%'
          encoder:
              signature_algorithm: HS256
          # Disabled by default, because Page Builder uses custom extractor
