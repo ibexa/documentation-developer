@@ -49,7 +49,7 @@ Otherwise the `\eZ\Publish\SPI\FieldType\FieldType::getName` method is used.
 ``` yaml
 # Nameable services (for Field Types that need advanced name handling)
     ezpublish.fieldType.ezobjectrelation.nameable_field:
-        class: %ezpublish.fieldType.ezobjectrelation.nameable_field.class%
+        class: '%ezpublish.fieldType.ezobjectrelation.nameable_field.class%'
         arguments:
           - '@ezpublish.spi.persistence.cache.contentHandler'
         tags:
