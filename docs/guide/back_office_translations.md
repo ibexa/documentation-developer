@@ -13,7 +13,7 @@ For example, if you want to translate your application into French, run:
 and then clear the cache.
 
 Now you can reload your eZ Platform Back Office.
-If your browser is set to French, the Back Office will be displayed in French.
+If your browser language is set to French, the Back Office will be displayed in French.
 
 !!! tip "Checking browser language"
 
@@ -21,7 +21,7 @@ If your browser is set to French, the Back Office will be displayed in French.
 
 !!! tip
 
-    If you do not want to add a bundle with Back Office translation, you can manually add the necessary xliff files.
+    If you do not want to add a bundle with Back Office translation, you can manually add the necessary .xliff files.
     Add the language to an array under `ezpublish.system.<siteaccess>.user_preferences.additional_translations`, for example:
 
     `ezpublish.system.<siteaccess>.user_preferences.additional_translations: ['pl_PL', 'fr_FR']`
@@ -39,7 +39,7 @@ in the User Settings menu.
 
 Otherwise, the language will be selected based on the browser language.
 If you do not have a language defined in the browser, the language will be selected
-based on `parameters.locale_fallback` in `default_parameters.yml`
+based on `parameters.locale_fallback` in `default_parameters.yml`.
 
 ## Custom string translations
 
@@ -55,7 +55,7 @@ The method takes as arguments:
 - `id` of the message you want to translate
 - an array of parameters
 - domain of the string
-
+Here's an example:
 ``` php hl_lines="13 14 15"
 use Symfony\Component\Translation\TranslatorInterface;
 
