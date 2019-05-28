@@ -12,7 +12,12 @@ For example, if you want to translate your application into French, run:
 
 and then clear the cache.
 
-Now you can reload your eZ Platform Back Office which will be translated in French (if your browser is configured to `fr_FR`.)
+Now you can reload your eZ Platform Back Office.
+If your browser is set to French, the Back Office will be displayed in French.
+
+!!! tip "Checking browser language"
+
+    To make sure that a language is set in your browser, check if it is sent as an accepted language in the `Accept-Language` header.
 
 !!! tip
 
