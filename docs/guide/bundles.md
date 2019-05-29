@@ -12,7 +12,7 @@ Many eZ Platform functionalities are provided through separate bundles included 
 
 ### How to use bundles?
 
-All the bundles containing built-in eZ Platform functionalities are installed automatically
+All the bundles containing built-in eZ Platform functionalities are installed automatically.
 By default, a clean eZ Platform installation also contains an AppBundle where you can place your custom code.
 
 You can see a list of other available community-developed bundles on <https://ezplatform.com/Bundles>.
@@ -47,6 +47,146 @@ Project assets should go into the `web` folder.
 They can be referenced as relative to the root, for example `web/js/script.js` can be referenced as `js/script.js` from templates.
 
 All project assets are accessible through the `web/assets` path.
+
+??? note "Removing `web/assets` manually"
+
+	If you ever remove the `web/assets` folder manually, you need to dump translations before performing
+	the `yarn encore <dev|prod>` command:
+
+	```
+	php bin/console bazinga:js-translation:dump web/assets --merge-domains
+	```
+
+#### Importing assets from a bundle
+
+eZ Platform uses [Webpack Encore](https://symfony.com/doc/3.4/frontend.html#webpack-encore) for asset management.
+
+##### Configuration from a bundle
+
+To import assets from a bundle, you need to configure them in the bundle's `Resources/encore/ez.config.js`:
+
+``` js
+const path = require('path');
+
+module.exports = (Encore) => {
+	Encore.addEntry('<entry-name>', [
+		path.resolve(__dirname, '<path_to_file>'),
+    ]);
+};
+```
+
+Use `<entry-name>` to refer to this configuration entry from Twig templates:
+
+`{{ encore_entry_script_tags('<entry-name>', null, 'ezplatform') }}`
+
+To import CSS files only, use:
+
+`{{ encore_entry_link_tags('<entry-name>', null, 'ezplatform') }}`
+
+!!! tip
+
+    After adding new files, run `php bin/console cache:clear`.
+
+    For a full example of importing asset configuration,
+    see [`ez.config.js`](https://github.com/ezsystems/ezplatform-admin-ui-modules/blob/master/Resources/encore/ez.config.js)
+
+To edit existing configuration entries, create a `Resources/encore/ez.config.manager.js` file:
+
+``` js
+const path = require('path');
+
+module.exports = (eZConfig, eZConfigManager) => {
+	eZConfigManager.replace({
+	    eZConfig,
+	    entryName: '<entry-name>',
+	    itemToReplace: path.resolve(__dirname, '<path_to_old_file>'),
+	    newItem: path.resolve(__dirname, '<path_to_new_file>'),
+	});
+	eZConfigManager.remove({
+	    eZConfig,
+	    entryName: '<entry-name>',
+	    itemsToRemove: [
+	        path.resolve(__dirname, '<path_to_old_file>'),
+	        path.resolve(__dirname, '<path_to_old_file>'),
+	    ],
+	});
+	eZConfigManager.add({
+	    eZConfig,
+	    entryName: '<entry-name>',
+	    newItems: [
+	        path.resolve(__dirname, '<path_to_new_file>'),
+	        path.resolve(__dirname, '<path_to_new_file>'),
+	    ],
+	});
+};
+```
+
+!!! tip
+
+	If you do not know what `entryName` to use, you can check the dev tools for files that are loaded on the given page.
+	Use the file name as `entryName`.
+
+!!! tip
+
+    After adding new files, run `php bin/console cache:clear`.
+
+	For a full example of overriding configuration,
+    see [`ez.config.manager.js`](https://github.com/ezsystems/ezplatform-matrix-fieldtype/blob/master/src/bundle/Resources/encore/ez.config.manager.js).
+
+To add new configuration under your own namespace and with its own dependencies,
+add a `Resources/encore/ez.webpack.custom.config.js` file, for example:
+
+``` js
+	const Encore = require('@symfony/webpack-encore');
+
+	Encore.setOutputPath('<custom-path>')
+	    .setPublicPath('<custom-path>')
+	    .addExternals('<custom-externals>')
+	    // ...
+	    .addEntry('<entry-name>', ['<JS-path>']);
+
+	const customConfig = Encore.getWebpackConfig();
+
+	customConfig.name = 'customConfigName';
+
+	// Config or array of configs: [customConfig1, customConfig2];
+	module.exports = customConfig;
+```
+
+##### Configuration from main project files
+
+If you prefer to include the asset configuration in the main project files,
+add it in [`webpack.config.js`](https://github.com/ezsystems/ezplatform/blob/master/webpack.config.js#L14).
+
+To overwrite built-in assets, use the following configuration to replace, remove or add asset files
+in `webpack.config.js`:
+
+``` js
+eZConfigManager.replace({
+    eZConfig,
+    entryName: '<entry-name>',
+    itemToReplace: path.resolve(__dirname, '<path_to_old_file>'),
+    newItem: path.resolve(__dirname, '<path_to_new_file>'),
+});
+
+eZConfigManager.remove({
+    eZConfig,
+    entryName: '<entry-name>',
+    itemsToRemove: [
+        path.resolve(__dirname, '<path_to_old_file>'),
+        path.resolve(__dirname, '<path_to_old_file>'),
+    ],
+});
+
+eZConfigManager.add({
+    eZConfig,
+    entryName: '<entry-name>',
+    newItems: [
+        path.resolve(__dirname, '<path_to_new_file>'),
+        path.resolve(__dirname, '<path_to_new_file>'),
+    ],
+});
+```
 
 ### Configuration
 
@@ -150,3 +290,13 @@ The following tables give an overview of the main eZ Platform bundles.
 |[ezflow-migration-toolkit](https://github.com/ezsystems/ezflow-migration-toolkit)|set of tools that helps migrate data from legacy eZ Flow extension to eZ Studio landing page management|
 |[ngsymfonytools-bundle](https://github.com/ezsystems/ngsymfonytools-bundle)|integrates the legacy [netgen/ngsymfonytools](https://github.com/netgen/ngsymfonytools) as a Legacy bundle|
 |[ezpublish-legacy-installer](https://github.com/ezsystems/ezpublish-legacy-installer)| custom Composer installer for eZ Publish legacy extensions|
+
+## Using third-party bundles
+
+### Overriding bundles
+
+When you use an external bundle, you can override its parts, such as templates, controllers, etc.
+
+To do so, make use of [Symfony's bundle override mechanism](https://symfony.com/doc/3.4/bundles/override.html).
+
+Note that when overriding files, the path inside your application has to correspond to the path inside the bundle.

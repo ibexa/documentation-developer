@@ -435,12 +435,10 @@ Place the compiled files in `src/EzSystems/ExtendingTutorialBundle/Resources/pub
 
     If you are not familiar with compiling React modules, you can use the following steps:
 
-    1. Copy the `webpack.*.js` files from `vendor/ezsystems/ezplatform-page-builder/src/bundle/ui-dev`.
-    1. Copy the `package.json` and `.babelrc` files from the same folder to your project.
-    1. Change values in the `entry` property in `webpack.*.js` to `./src/images.panel.js`, also define module name `ImagesPanel` instead of `PageBuilder` or `Timeline`.
-    1. In the terminal, run `npm install`.
+    1. Copy the `webpack.*.js`, `package.json`, and `.babelrc` files from `vendor/ezsystems/ezplatform-admin-ui-modules` to `src/EzSystems/ExtendingTutorialBundle/Resources/ui-dev`.
+    1. Replace the existing modules in the `entry` property in `webpack.common.js` with `ImagesPanel: './src/images.panel.js',`.
+    1. In the terminal, in `src/EzSystems/ExtendingTutorialBundle/Resources/ui-dev`, run `npm install`.
     1. Next, run `npm run build`.
-    1. Include compiled files in the YAML config, where you can inject the file into any predefined placeholder in the `layout.html.twig` file.
 
 ## Add configuration
 
@@ -455,16 +453,16 @@ and configuration in the `custom-admin-ui-config` group.
 ezplatform.udw.image.panel.module.js:
     parent: EzSystems\EzPlatformAdminUi\Component\ScriptComponent
     arguments:
-        $src: '/bundles/ezsystemsextendingtutorial/js/modules/ImagesPanel.module.js'
+        $src: /bundles/ezsystemsextendingtutorial/js/modules/ImagesPanel.module.js
     tags:
-        - { name: ezplatform.admin_ui.component, group: 'custom-admin-ui-modules' }
+        - { name: ezplatform.admin_ui.component, group: custom-admin-ui-modules }
 
 ezplatform.udw.add.tab.js:
     parent: EzSystems\EzPlatformAdminUi\Component\ScriptComponent
     arguments:
-        $src: '/bundles/ezsystemsextendingtutorial/js/add.tab.js'
+        $src: /bundles/ezsystemsextendingtutorial/js/add.tab.js
     tags:
-        - { name: ezplatform.admin_ui.component, group: 'custom-admin-ui-config' }
+        - { name: ezplatform.admin_ui.component, group: custom-admin-ui-config }
 ```
 
 Finally, make sure that the Symfony bundle configuration is imported. In `src/EzSystems/ExtendingTutorialBundle/DependencyInjection` add the following files:
@@ -540,7 +538,7 @@ class EzSystemsExtendingTutorialExtension extends Extension
 
 !!! tip
 
-    If you cannot see the results, clear the cache and reload the application.
+    If you cannot see the results or encounter an error, clear the cache and reload the application.
 
 At this point you can go to the Back Office and choose **Browse** under **Content/Content structure**.
 In the UDW a new "Images" tab will appear, listing all Images from the Repository.

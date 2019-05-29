@@ -21,15 +21,13 @@ Default pagination limits for different sections of the Back Office can be defin
 Default Location IDs for Content structure, Media and Users in the menu are configured using the following settings:
 
 ``` yaml
-ezsettings.default.location_ids.content_structure: 2
-ezsettings.default.location_ids.media: 43
-ezsettings.default.location_ids.users: 5
-```
-
-You can also set the default starting Location ID for the Universal Discovery Widget:
-
-``` yaml
-ezsettings.default.universal_discovery_widget_module.default_location_id: 1
+ezpublish:
+    system:
+        default:
+            location_ids:
+                content_structure: 2
+                media: 43
+                users: 5
 ```
 
 ## Notification timeout
@@ -69,3 +67,88 @@ ezpublish:
 ```
 
 This applies only if no specific Location is defined in the Form itself.
+
+## Date and time formats
+
+Users can set their preferred date and time formats in the User settings menu.
+This format is used throughout the Back Office.
+
+You can set the list of available formats with the following configuration:
+
+``` yaml
+ezpublish:
+    system:
+        <siteaccess>:
+            user_preferences:
+                allowed_short_date_formats:
+                    'label for dd/MM/yyyy': 'dd/MM/yyyy'
+                    'label for MM/dd/yyyy': 'MM/dd/yyyy'
+                allowed_short_time_formats:
+                    'label for HH:mm' : 'HH:mm'
+                    'label for hh:mm a' : 'hh:mm a'
+                allowed_full_date_formats:
+                    'label for dd/MM/yyyy': 'dd/MM/yyyy'
+                    'label for MM/dd/yyyy': 'MM/dd/yyyy'
+                allowed_full_time_formats:
+                    'label for HH:mm': 'HH:mm'
+                    'label for hh:mm a': 'hh:mm a'
+```
+
+The default date and time format is set using:
+
+``` yaml
+ezpublish:
+    system:
+        <siteaccess>:
+            user_preferences:
+                short_datetime_format:
+                    date_format: 'dd/mm/yyyy'
+                    time_format: 'hh:mm'
+                full_datetime_format:
+                    date_format: 'dd/mm/yyyy'
+                    time_format: 'hh:mm'
+```
+
+You can also [format date and time](extending_ez_platform.md#format-date-and-time) by using Twig filters and PHP services.
+
+## Content Tree
+
+With this configuration you can:
+
+- define configuration for a SiteAccess or a SiteAccess group
+- decide how many Content items are displayed in the tree
+- set maximum depth of expanded tree
+- hide Content Types
+- set a tree root Location
+- override Content Tree's root for specific Locations
+
+```yaml
+ezpublish:
+    system:
+        # any SiteAccess or SiteAccess group
+        admin_group:
+            content_tree_module:
+                # defines how many children will be shown after expanding parent
+                load_more_limit: 15
+                # users won't be able to load more children than that
+                children_load_max_limit: 200
+                # maximum depth of expanded tree
+                tree_max_depth: 10
+                # Content Types to display in Content Tree, value of '*' allows all CTs to be displayed
+                allowed_content_types: '*'
+                # Content Tree won't display these Content Types, can be used only when 'allowed_content_types' is set to '*'
+                ignored_content_types:
+                   - post
+                   - article
+                # ID of Location to use as tree root. If omitted - content.tree_root.location_id setting is used.
+                tree_root_location_id: 2
+                # list of Location IDs for which Content Tree's root Location will be changed
+                contextual_tree_root_location_ids:
+                   - 2 # Home (Content structure)
+                   - 5 # Users
+                   - 43 # Media
+```
+
+## Universal Discovery Widget (UDW) configuration
+
+The Universal Discovery Widget module (UDW) can be found in [Extending modules.](extending_modules.md#universal-discovery-widget-udw)

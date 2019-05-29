@@ -13,8 +13,14 @@ In addition to the [native functions provided by Twig](http://twig.sensiolabs.or
 - [`ez_field`](#ez_field) - returns a Field from a Content item in the current language
 - [`ez_file_size`](#ez_file_size) - returns the size of a file as string
 - [`ez_first_filled_image_field_identifier`](#ez_first_filled_image_field_identifier) - returns the identifier of the first image field that is not empty
+- [`ez_full_datetime`](#ez_full_datetime-ez_full_date-ez_full_time) - outputs date and time in full format
+- [`ez_full_date`](#ez_full_datetime-ez_full_date-ez_full_time) - outputs date in full format
+- [`ez_full_time`](#ez_full_datetime-ez_full_date-ez_full_time) - outputs time in full format
 - [`ez_image_alias`](#ez_image_alias) - displays a selected variation of an image
 - [`ez_is_field_empty`](#ez_is_field_empty) - checks if a Content item's Field value is considered empty in the current language
+- [`ez_short_datetime`](#ez_short_datetime-ez_short_date-ez_short_time) - outputs date and time in short format
+- [`ez_short_date`](#ez_short_datetime-ez_short_date-ez_short_time) - outputs date in short format
+- [`ez_short_time`](#ez_short_datetime-ez_short_date-ez_short_time) - outputs time in short format
 - [`ez_render_field`](#ez_render_field) - displays a Content item's Field value, taking advantage of the template block exposed by the Field Type used
 - [`ez_trans_prop`](#ez_trans_prop) - gets the translated value of a multi valued(translations) property
 - [`ez_urlalias`](#ez_urlalias) - is a special route name for generating URLs for a Location from the given parameters
@@ -27,11 +33,13 @@ In addition to the [native functions provided by Twig](http://twig.sensiolabs.or
 
 If the Content item does not have a translation in the current language, the name in the main language is always returned. This behavior is identical when forcing a language.
 
-If languages were specified during retrieval of Content object, you can render name directly using `$content->getName()` (Twig: `content.name`) and it will take the prioritised languages into account. If not, it falls back to the main language, just like **ez\_content\_name()** does. For usage with ContentInfo, see examples below.
+If languages were specified during retrieval of Content object, you can render name directly using `$content->getName()` (Twig: `content.name`) and it will take the prioritised languages into account. If not, it falls back to the main language, just like `ez_content_name()` does. For usage with ContentInfo, see examples below.
 
 #### Prototype and Arguments
 
-`ez_content_name( eZ\Publish\API\Repository\Values\Content\Content content[, string forcedLanguage] )ez_content_name(contentInfo[, string forcedLanguage] )`
+`ez_content_name ( eZ\Publish\API\Repository\Values\Content\Content content [, string forcedLanguage ] ) : string`
+
+`ez_content_name ( contentInfo [, string forcedLanguage ] ) : string`
 
 | Argument name | Type | Description |
 |---------------|------|-------------|
@@ -79,7 +87,7 @@ If the Content item does not have a translation in the current language, the mai
 
 #### Prototype and Arguments
 
-`ez_field_description( Content|ContentInfo content, string fieldDefIdentifier[, string forcedLanguage] )`
+`ez_field_description ( Content|ContentInfo content, string fieldDefIdentifier [, string forcedLanguage ] ) : string|null`
 
 | Argument name | Type | Description |
 |---------------|------|-------------|
@@ -105,7 +113,7 @@ If the Content item does not have a translation in the current language, the mai
 
 #### Prototype and Arguments
 
-`ez_field_name( Content|ContentInfo content, string fieldDefIdentifier[, string forcedLanguage] )`
+`ez_field_name ( Content|ContentInfo content, string fieldDefIdentifier [, string forcedLanguage ] ) : string|null`
 
 | Argument name | Type | Description |
 |---------------|------|-------------|
@@ -135,7 +143,7 @@ If the Content item does not have a translation in the current language, the mai
 
 #### Prototype and Arguments
 
-`ez_field_value( eZ\Publish\API\Repository\Values\Content\Content content, string fieldDefIdentifier[, string forcedLanguage] ): eZ\Publish\Core\FieldType\Value`
+`ez_field_value ( eZ\Publish\API\Repository\Values\Content\Content content, string fieldDefIdentifier [, string forcedLanguage ] ): eZ\Publish\Core\FieldType\Value`
 
 | Argument name        | Type                                               | Description                                                                                            |
 |----------------------|----------------------------------------------------|--------------------------------------------------------------------------------------------------------|
@@ -167,7 +175,7 @@ If the Content item does not have a translation in the current language, the mai
 
 #### Prototype and Arguments
 
-`ez_field( eZ\Publish\API\Repository\Values\Content\Content content, string fieldDefIdentifier[, string forcedLanguage] ): eZ\Publish\API\Repository\Values\Content\Field`
+`ez_field ( eZ\Publish\API\Repository\Values\Content\Content content, string fieldDefIdentifier [, string forcedLanguage ] ) : eZ\Publish\API\Repository\Values\Content\Field`
 
 | Argument name        | Type                                               | Description                                                                                            |
 |----------------------|----------------------------------------------------|--------------------------------------------------------------------------------------------------------|
@@ -220,11 +228,29 @@ It can be used for example to identify the first image in an article to render i
 
 #### Prototype and Arguments
 
-`ez_first_filled_image_field_identifier ( eZ\Publish\API\Repository\Values\Content\Content content )`
+`ez_first_filled_image_field_identifier ( eZ\Publish\API\Repository\Values\Content\Content content ) : string`
 
 | Argument name | Type                                               | Description                       |
 |---------------|----------------------------------------------------|-----------------------------------|
 | `content`     | `eZ\Publish\API\Repository\Values\Content\Content` | Content item the Fields belong to |
+
+### `ez_full_datetime`, `ez_full_date`, `ez_full_time`
+
+These Twig filters are used to [format date and time](extending_ez_platform.md#format-date-and-time).
+The formats are defined in [user preferences](config_back_office.md#date-and-time-formats).
+
+| Twig filter | Description |
+|-------------|-------------|
+| `ez_full_datetime` | outputs date and time in full format |
+| `ez_full_date` | outputs date in full format |
+| `ez_full_time` | outputs time in full format |
+
+The filters accept `\DateTimeInterface` as argument.
+If the argument is null, the filter returns the current date and time in the selected format.
+
+For example `{{ contentInfo.publishedDate|ez_full_datetime }}` will return `03 May 2019 23:03`.
+
+The filters also accept an optional `timezone` parameter for displaying date and time in a chosen time zone.
 
 ### `ez_image_alias`
 
@@ -234,7 +260,7 @@ It can be used for example to identify the first image in an article to render i
 
 #### Prototype and Arguments
 
-`ez_image_alias( eZ\Publish\API\Repository\Values\Content\Field field, eZ\Publish\API\Repository\Values\Content\VersionInfo versionInfo, string variantName )`
+`ez_image_alias ( eZ\Publish\API\Repository\Values\Content\Field field, eZ\Publish\API\Repository\Values\Content\VersionInfo versionInfo, string variantName ) : \eZ\Publish\SPI\Variation\Values\Variation|null`
 
 | Argument name | Type                                                   | Description                               |
 |---------------|--------------------------------------------------------|-------------------------------------------|
@@ -250,13 +276,13 @@ See [images](images.md) for more information about image variations.
 
 `ez_is_field_empty()` is a Twig helper which checks if a Content item's Field value is considered empty in the current language.
 
-It returns a boolean value (`true` or `false`).
+It returns a Boolean value (`true` or `false`).
 
 If the Content item does not have a translation in the current language, the main language will be used. This behavior is identical when forcing a language using **forcedLanguage**.
 
 #### Prototype and Arguments
 
-`ez_is_field_empty( eZ\Publish\API\Repository\Values\Content\Content content, eZ\Publish\API\Repository\Values\Content\Field|string fieldDefIdentifier[, string forcedLanguage] )`
+`ez_is_field_empty ( eZ\Publish\API\Repository\Values\Content\Content content, eZ\Publish\API\Repository\Values\Content\Field|string fieldDefIdentifier [, string forcedLanguage ] ) : bool`
 
 | Argument name | Type | Description |
 |---------------|------|-------------|
@@ -311,7 +337,7 @@ See section of [Using the Field Type's template block](templates.md#using-the-fi
 
 #### Prototype and Arguments
 
-`ez_render_field( eZ\Publish\API\Repository\Values\Content\Content content, string fieldDefinitionIdentifier[, hash params] )`
+`ez_render_field ( eZ\Publish\API\Repository\Values\Content\Content content, string fieldDefinitionIdentifier [, hash params] ) : string`
 
 |Argument name|Type|Description|
 |------|------|------|
@@ -321,7 +347,10 @@ See section of [Using the Field Type's template block](templates.md#using-the-fi
 
 #### Override a Field template block
 
-In some cases, you may not want to use the built-in field template block as it might not fit your markup needs. In this case, you can choose to override the template block by specifying your own template. You can do this inline when calling `ez_render_field()`, or globally by prepending a Field template to use by the helper.
+If you do not want to use the built-in Field template block,
+you can override it by specifying your own template.
+You can do this [inline](#inline-override) when calling `ez_render_field()`,
+or [globally](#global-override) by prepending a Field template to use by the helper.
 
 Your template block must comply to a regular Field Type template block, [as explained in the Field Type documentation](../api/field_type_template.md).
 
@@ -333,14 +362,13 @@ You can use the template you need by filling the `template` entry in the `params
 {{ ez_render_field( 
        content, 
        'my_field_identifier',
-       { 'template': 'AcmeTestBundle:fields:my_field_template.html.twig' }
+       { 'template': 'AcmeExampleBundle:fields:my_field_template.html.twig' }
    ) }}
 ```
 
-The code above will load `my_field_template.html.twig` located in `AcmeTestBundle/Resources/views/fields/`.
+This code will load `my_field_template.html.twig` located in `AcmeExampleBundle/Resources/views/fields/`.
 
 ``` html+twig
-{# AcmeTestBundle/Resources/views/fields/my_field_template.html.twig #}
 {# Assuming "my_field_identifier" from the template above example is an ezkeyword field. #}
 {% block ezkeyword_field %}
     {% spaceless %}
@@ -357,10 +385,12 @@ The code above will load `my_field_template.html.twig` located in `AcmeTestBundl
 
 !!! tip "Overriding a block and calling the parent"
 
-    When overriding a field template block, it is possible to call its parent. For this, you need to import original template horizontally (without inheritance), using the [`use` Twig tag](http://twig.sensiolabs.org/doc/tags/use.html).
+    When overriding a Field template block, it is possible to call its parent.
+    For this, you need to import the original template horizontally (without inheritance),
+    using the [`use` Twig tag](http://twig.sensiolabs.org/doc/tags/use.html).
 
     ``` html+twig
-    {# AcmeTestBundle/Resources/views/fields/my_field_template.html.twig #}
+    {# AcmeExampleBundle/Resources/views/fields/my_field_template.html.twig #}
     {# Assuming "my_field_identifier" from above template example is an ezkeyword field. #}
      
     {% use "EzPublishCoreBundle::content_fields.html.twig" with ezkeyword_field as base_ezkeyword_field %}
@@ -375,11 +405,12 @@ The code above will load `my_field_template.html.twig` located in `AcmeTestBundl
 
 ##### Inline override using current template
 
-If you want to override a specific Field template only once (i.e. because your override would be only valid in your current template), you can specify the current template to be the source of the Field block.
+If you want to override a specific Field template only once
+(e.g. because your override would be only valid in your current template),
+you can specify the current template to be the source of the Field block.
 
 ``` html+twig
-<!--Inline override using current template-->
-{% extends "MyBundle::pagelayout.html.twig" %}
+{% extends "AcmeExampleBundle::pagelayout.html.twig" %}
 
 {% block content %}
     {# Note that "tags" is a field using ezkeyword fieldType #}
@@ -408,25 +439,56 @@ If you want to override a specific Field template only once (i.e. because your o
 
 ##### Global override
 
-In the case where you want to systematically reuse your own Field template instead of the default one, you can append it to the Field templates list to use by `ez_render_field()`.
-
-To make your template available, you must register it to the system.
+If you want to override a Field template every time it occurs,
+you can append it to the Field templates list.
 
 ``` yaml
-# app/config/ezplatform.yml
 ezpublish:
     system:
         my_siteaccess:
             field_templates:
                 - 
-                    template: "AcmeTestBundle:fields:my_field_template.html.twig"
+                    template: AcmeExampleBundle:fields:my_field_template.html.twig
                     # Priority is optional (default is 0). The higher it is, the higher your template gets in the list.
                     priority: 10
 ```
 
+It will then be used every time the Field is rendered with `ez_render_field()`.
+
 !!! tip
 
-    You can define these rules in a dedicated file instead of `app/config/ezplatform.yml`. Read the [cookbook recipe to learn more about it](../cookbook/importing_settings_from_a_bundle.md).
+    Because built-in Field templates have `priority` of `0`, you need to set yours to a higher value to override them.
+
+The content of the template must be placed in a Twig block corresponding to the Field Type's internal name
+(e.g. `{% block ezstring_field %}`) for `ezstring`.
+
+The template must also extend `EzPublishCoreBundle::content_fields.html.twig`.
+
+``` html+twig
+{% extends "EzPublishCoreBundle::content_fields.html.twig" %}
+
+{% block ezstring_field %}
+    {# template content here #}
+{% endblock %}
+```
+
+### `ez_short_datetime`, `ez_short_date`, `ez_short_time`
+
+These Twig filters are used to [format date and time](extending_ez_platform.md#format-date-and-time).
+The formats are defined in [user preferences](config_back_office.md#date-and-time-formats).
+
+| Twig filter | Description |
+|-------------|-------------|
+| `ez_short_datetime` | outputs date and time in short format |
+| `ez_short_date` | outputs date in short format |
+| `ez_short_time` | outputs time in short format |
+
+The filters accept `\DateTimeInterface` as argument.
+If the argument is null, the filter returns the current date and time in the selected format.
+
+For example `{{ contentInfo.publishedDate|ez_full_datetime }}` will return `03 May 2019 23:03`.
+
+The filters also accept an optional `timezone` parameter for displaying date and time in a chosen time zone.
 
 ### `ez_trans_prop`
 
@@ -440,7 +502,7 @@ If languages were specified during retrieval of a given value object, you can ge
 
 #### Prototype and Arguments
 
-`ez_trans_prop( ValueObject object, string property[, string forcedLanguage] )`
+`ez_trans_prop ( ValueObject object, string property [, string forcedLanguage ] ) : string|null`
 
 |Argument name|Type|Description|
 |------|------|------|
@@ -477,7 +539,7 @@ Example for `ContentType->names`:
 
 #### Prototype and Arguments
 
-`path(  eZ\\Publish\\API\\Repository\\Values\\Content\\Location|string name\[, array parameters\]\[, bool absolute\] )`
+`path( eZ\Publish\API\Repository\Values\Content\Location|string name [, array parameters ] [, bool absolute ] ) : string`
 
 |Argument name|Type|Description|
 |------|------|------|

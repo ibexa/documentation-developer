@@ -179,6 +179,16 @@ If you want to first test how the update proceeds without actually updating any 
 
         in `app/AppKernel.php`.
 
+!!! note "Updating from <2.5"
+
+    Since v2.5 eZ Platform uses [Webpack Encore](https://symfony.com/doc/3.4/frontend.html#webpack-encore) for asset management.
+    You need to install [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/lang/en/docs/install) to update to this version.
+
+    In v2.5 it is still possible to use Assetic, like in earlier versions.
+    However, if you are using the latest Bootstrap version, [`scssphp`](https://github.com/leafo/scssphp)
+    will not compile correctly with Assetic.
+    In this case, use Webpack Encore. See [Importing assets from a bundle](../guide/bundles.md#importing-assets-from-a-bundle) for more information.
+
 !!! caution "Common errors"
 
     If you experienced issues during the update, please check [Common errors](../getting_started/troubleshooting.md#cloning-failed-using-an-ssh-key) section on the Composer about page.
@@ -193,7 +203,7 @@ Some versions require updates to the database. Look through [the list of databas
 
     Apply the following database update script:
 
-    `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/data/update/mysql/dbupdate-6.7.7-to-6.7.8.sql`
+    `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.7.7-to-6.7.8.sql`
 
     ##### Solr index time boosting
 
@@ -297,7 +307,7 @@ Some versions require updates to the database. Look through [the list of databas
 
     Apply the following database update script:
 
-    `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/data/update/mysql/dbupdate-6.13.3-to-6.13.4.sql`
+    `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.13.3-to-6.13.4.sql`
 
 ??? note "Updating from <2.2"
 
@@ -340,10 +350,10 @@ Some versions require updates to the database. Look through [the list of databas
 
     ##### Page builder
 
-    To update to v2.2, you need to run a script to add database tables for the Page Builder.
-    You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/master/Resources/sql/schema.sql#L58
-
     !!! enterprise
+
+        To update to v2.2, you need to run a script to add database tables for the Page Builder.
+        You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/2.2/Resources/sql/schema.sql#L58
 
         When updating an Enterprise installation, you also need to run the following script due to changes in the `eznotification` table:
 
@@ -369,6 +379,14 @@ Some versions require updates to the database. Look through [the list of databas
     1. Run `composer require ezsystems/ezplatform-page-migration`
     2. Add the bundle to `app/AppKernel.php`: `new EzSystems\EzPlatformPageMigrationBundle\EzPlatformPageMigrationBundle(),`
     3. Run command `bin/console ezplatform:page:migrate`
+
+    !!! tip
+
+        This script will use the layout defined in your Landing Page.
+        To migrate successfully, you need to copy your zone configuration
+        from `ez_systems_landing_page_field_type` under `ezplatform_page_fieldtype` in the new config.
+        Otherwise the script will encounter errors.
+
 
     You can remove the bundle after the migration is complete.
 
@@ -403,7 +421,7 @@ Some versions require updates to the database. Look through [the list of databas
 
     ``` yaml
     tags:
-        - { name: 'ezplatform.fieldtype.ezlandingpage.migration.attribute.converter', block_type: 'my_block_type_identifier' }
+        - { name: ezplatform.fieldtype.ezlandingpage.migration.attribute.converter, block_type: my_block_type_identifier }
     ```
 
     Custom converters must implement the `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\ConverterInterface` interface.
@@ -415,7 +433,7 @@ Some versions require updates to the database. Look through [the list of databas
 
     Apply the following database update script:
 
-    `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/data/update/mysql/dbupdate-7.2.0-to-7.3.0.sql`
+    `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.2.0-to-7.3.0.sql`
 
     ##### Trashed timestamp
 
@@ -429,27 +447,29 @@ Some versions require updates to the database. Look through [the list of databas
 
     ##### Form builder
 
-    To create the "Forms" container under the content tree root use the following command:
+    !!! enterprise
 
-    ``` bash
-    php bin/console ezplatform:form-builder:create-forms-container
-    ```
+        To create the "Forms" container under the content tree root use the following command:
 
-    You can also specify Content Type, Field values and language code of the container, e.g.:
+        ``` bash
+        php bin/console ezplatform:form-builder:create-forms-container
+        ```
 
-    ``` bash
-    php bin/console ezplatform:form-builder:create-forms-container --content-type custom --field title --value 'My Forms' --field description --value 'Custom container for the forms' --language-code eng-US
-    ```
+        You can also specify Content Type, Field values and language code of the container, e.g.:
 
-    You also need to run a script to add database tables for the Form Builder.
-    You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/master/Resources/sql/schema.sql#L136
+        ``` bash
+        php bin/console ezplatform:form-builder:create-forms-container --content-type custom --field title --value 'My Forms' --field description --value 'Custom container for the forms' --language-code eng-US
+        ```
 
-    !!! caution "Form (ezform) Field Type"
+        You also need to run a script to add database tables for the Form Builder.
+        You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/2.3/Resources/sql/schema.sql#L136
 
-        After the update, in order to create forms, you have to add a new Content Type (e.g. named "Form") that contains `Form` Field (this Content Type can contain other fields
-        as well). After that you can use forms inside Landing Pages via Embed block.
+        !!! caution "Form (ezform) Field Type"
 
-!!! note "Updating from <2.4"
+            After the update, in order to create forms, you have to add a new Content Type (e.g. named "Form") that contains `Form` Field (this Content Type can contain other fields
+            as well). After that you can use forms inside Landing Pages via Embed block.
+
+??? note "Updating from <2.4"
 
     ### Updating from <2.4
 
@@ -458,7 +478,7 @@ Some versions require updates to the database. Look through [the list of databas
         #### Workflow
 
         When updating an Enterprise installation, you need to run a script to add database tables for the Editorial Workflow.
-        You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/master/Resources/sql/schema.sql#L198
+        You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/2.4/Resources/sql/schema.sql#L198
 
         #### Changes to the Forms folder
 
@@ -469,12 +489,78 @@ Some versions require updates to the database. Look through [the list of databas
         To allow anonymous users to access Forms, you also need to add the `content/read` Policy
         with the "Form" Section to the Anonymous User.
 
+    #### Custom tag configuration
+
+    v2.4 changed the way of configuring custom tags. They are no longer configured under the `ezpublish` key,
+    but one level higher in the YAML structure:
+
+    ``` yaml
+    ezpublish:
+        system:
+            <siteaccess>:
+                fieldtypes:
+                    ezrichtext:
+                        custom_tags: [exampletag]
+
+    ezrichtext:
+        custom_tags:
+            exampletag:
+                # ...
+    ```
+
+    The old configuration is deprecated, so if you use custom tags, you need to modify your config accordingly.
+
+!!! note "Updating from <2.5"
+
+    ### Updating from <2.5
+
+    Apply the following database update script:
+
+    `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.4.0-to-7.5.0.sql`
+
+    #### Changes to database schema
+
+    The introduction of [support for PostgreSQL](../guide/databases.md#using-postgresql) includes a change in the way database schema is generated.
+
+    It is now created based on [YAML configuration](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage/legacy/schema.yaml), using the new [`DoctrineSchemaBundle`](https://github.com/ezsystems/doctrine-dbal-schema).
+
+    If you are updating your application according to the usual procedure, no additional actions are required.
+    However, if you do not update your meta-repository, you need to take two additional steps:
+
+    - enable `EzSystems\DoctrineSchemaBundle\DoctrineSchemaBundle()` in `AppKernel.php`
+    - add [`ez_doctrine_schema`](https://github.com/ezsystems/ezplatform/blob/master/app/config/config.yml#L33) configuration
+
+    #### Changes to Matrix Field Type
+
+    To migrate your content from legacy XML format to a new `ezmatrix` value use the following command:
+
+    ```bash
+    bin/console ezplatform:migrate:legacy_matrix
+    ```
+
+    #### Required manual cache clearing if using Redis
+
+    If you are using Redis as your persistence cache storage you should always clear it manually after an upgrade.
+    You can do it in two ways, by using `redis-cli` and executing the following command:
+
+    ```bash
+    FLUSHALL
+    ```
+
+    or by executing the following command:
+
+    ```bash
+    bin/console cache:pool:clear cache.redis
+    ```
+
 ## 5. Dump assets
 
 The web assets must be dumped again if you are using the `prod` environment. In `dev` this happens automatically:
 
 ``` bash
 php bin/console assetic:dump -e prod
+yarn install
+yarn encore prod
 ```
 
 If you encounter problems, additionally clear the cache and install assets:
@@ -483,6 +569,8 @@ If you encounter problems, additionally clear the cache and install assets:
 php bin/console cache:clear -e prod
 php bin/console assets:install --symlink -e prod
 php bin/console assetic:dump -e prod
+yarn install
+yarn encore prod
 ```
 
 ## 6. Commit, test and merge

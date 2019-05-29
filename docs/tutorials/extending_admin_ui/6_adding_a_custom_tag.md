@@ -11,41 +11,42 @@ First, create a file that will contain the configuration for the custom tags.
 Add file `custom_tags.yml` to `src/EzSystems/ExtendingTutorialBundle/Resources/config`:
 
 ``` yaml hl_lines="5 10 12"
-system:
-    default:
-        fieldtypes:
-            ezrichtext:
-                custom_tags: [ezyoutube]
+ezpublish:
+    system:
+        default:
+            fieldtypes:
+                ezrichtext:
+                    custom_tags: [ezyoutube]
 
 ezrichtext:
     custom_tags:
         ezyoutube:
-            template: 'EzSystemsExtendingTutorialBundle:field_type/ezrichtext/custom_tag:ezyoutube.html.twig'
+            template: EzSystemsExtendingTutorialBundle:field_type/ezrichtext/custom_tag:ezyoutube.html.twig
             icon: '/bundles/ezplatformadminui/img/ez-icons.svg#video'
             attributes:
                 title:
-                    type: 'string'
+                    type: string
                     required: true
                     default_value: ''
                 video_url:
-                    type: 'string'
+                    type: string
                     required: true
                 width:
-                    type: 'number'
+                    type: number
                     required: true
                     default_value: 640
                 height:
-                    type: 'number'
+                    type: number
                     required: true
                     default_value: 360
                 autoplay:
-                    type: 'boolean'
+                    type: boolean
                     default_value: false
                 align:
-                    type: 'choice'
+                    type: choice
                     required: false
-                    default_value: 'left'
-                    choices: ['left', 'center', 'right']
+                    default_value: left
+                    choices: [left, center, right]
 ```
 
 The configuration first lists all custom tags that you have in the configuration (line 5) - in this case `ezyoutube`.
@@ -91,12 +92,48 @@ use Symfony\Component\Yaml\Yaml;
 ``` php
 public function prepend( ContainerBuilder $container )
 {
-    $configFile = __DIR__ . '/../Resources/config/custom_tags.yml';
-    $config = Yaml::parse( file_get_contents( $configFile ) );
-    $container->prependExtensionConfig( 'ezpublish', $config );
-    $container->addResource( new FileResource( $configFile ) );
+    $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+    $loader->load('custom_tags.yml');
 }
 ```
+
+??? tip "Complete file"
+
+    ``` php hl_lines="9 10 11 13 27 28 29 30 31"
+
+    <?php
+
+    namespace EzSystems\ExtendingTutorialBundle\DependencyInjection;
+
+    use Symfony\Component\DependencyInjection\ContainerBuilder;
+    use Symfony\Component\Config\FileLocator;
+    use Symfony\Component\HttpKernel\DependencyInjection\Extension;
+    use Symfony\Component\DependencyInjection\Loader;
+    use Symfony\Component\Config\Resource\FileResource;
+    use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
+    use Symfony\Component\Yaml\Yaml;
+
+    class EzSystemsExtendingTutorialExtension extends Extension implements PrependExtensionInterface
+    {
+        /**
+         * {@inheritdoc}
+         */
+        public function load(array $configs, ContainerBuilder $container)
+        {
+            $configuration = new Configuration();
+            $config = $this->processConfiguration($configuration, $configs);
+
+            $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+            $loader->load('services.yml');
+        }
+
+        public function prepend( ContainerBuilder $container )
+        {
+            $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+            $loader->load('custom_tags.yml');
+        }
+    }
+    ```
 
 ## Add labels
 
@@ -109,16 +146,16 @@ ezrichtext.custom_tags.ezyoutube.description: ''
 ezrichtext.custom_tags.ezyoutube.attributes.autoplay.label: Autoplay
 ezrichtext.custom_tags.ezyoutube.attributes.height.label: Height
 ezrichtext.custom_tags.ezyoutube.attributes.title.label: Title
-ezrichtext.custom_tags.ezyoutube.attributes.video_url.label: 'Video url'
+ezrichtext.custom_tags.ezyoutube.attributes.video_url.label: Video url
 ezrichtext.custom_tags.ezyoutube.attributes.width.label: Width
-ezrichtext.custom_tags.ezyoutube.attributes.align.label: 'Align'
+ezrichtext.custom_tags.ezyoutube.attributes.align.label: Align
 ```
 
 ## Check results
 
 !!! tip
 
-    If you cannot see the results, clear the cache and reload the application.
+    If you cannot see the results or encounter an error, clear the cache and reload the application.
 
 At this point you can go to the Back Office and start editing any Content with a RichText Field (e.g. a Folder or an Article).
 When you edit the Field, you can see the new tag appear in the elements menu. Add it and provide a YouTube embed address (obtained through the "Share" link on YouTube).

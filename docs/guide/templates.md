@@ -38,17 +38,17 @@ ezpublish:
             content_view:
                 full:
                     article:
-                        template: full\article.html.twig
+                        template: full/article.html.twig
                         match:
                             Identifier\ContentType: [article]
                     blog_post:
                         controller: app.controller.blog:showBlogPostAction
-                        template: full\blog_post.html.twig
+                        template: full/blog_post.html.twig
                         match:
                             Identifier\ContentType: [blog_post]
                 line:
                     article:
-                        template: line\article.html.twig
+                        template: line/article.html.twig
                         match:
                             Identifier\ContentType: [article]
 ```
@@ -280,14 +280,14 @@ You can determine which Content Types will be treated as images and rendered usi
 
 ``` yaml
 parameters:
-    ezplatform.content_view.image_embed_content_types_identifiers: ['image', 'photo', 'banner']
+    ezplatform.content_view.image_embed_content_types_identifiers: [image, photo, banner]
 ```
 
 The template that is used when rendering embedded images can be set in the `ezplatform.default_view_templates.content.embed_image` container parameter:
 
 ``` yaml
 parameters:
-    ezplatform.default_view_templates.content.embed_image: 'content/view/embed/image.html.twig'
+    ezplatform.default_view_templates.content.embed_image: content/view/embed/image.html.twig
 ```
 
 ### Adding Links
@@ -378,32 +378,6 @@ Just like for regular Symfony controllers, you can take advantage of [ESI](https
 ```
 
 Only scalar variables (not objects) can be sent via `render_esi`.
-
-##### Asynchronous rendering using hinclude
-
-Symfony also supports asynchronous content rendering with the help of the [hinclude.js](http://mnot.github.com/hinclude/) library.
-
-``` html+twig
-<!--Asynchronous rendering-->
-{{ render_hinclude(controller("ez_content:viewAction", {"contentId": 123, "viewType": "line"})) }}
-```
-
-Only scalar variables (not objects) can be sent via `render_hinclude`.
-
-##### Display a default text
-
-If you want to display a default text while a controller is loaded asynchronously, you have to pass a second parameter to your `render_hinclude` Twig function.
-
-``` html+twig
-<!--Display a default text during asynchronous loading of a controller-->
-{{ render_hinclude(controller('EzCorporateDesignBundle:Header:userLinks'), {'default': "<div style='color:red'>loading</div>"}) }}
-```
-
-See also: [Custom rendering logic](controllers.md#custom-rendering-logic).
-
-[hinclude.js](http://mnot.github.com/hinclude/) needs to be properly included in your layout to work.
-
-[Refer to Symfony documentation](https://symfony.com/doc/current/templating/hinclude.html) for all available options.
 
 ## Rendering in preview
 

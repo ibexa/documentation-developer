@@ -4,7 +4,7 @@ This page explains how to quickly install and set up eZ Platform for development
 
 ## Prerequisites
 
-To quickly install eZ Platform, you need a Linux machine with PHP and MySQL installed.
+To quickly install eZ Platform, you need a Linux machine with PHP and MySQL installed, as well as Node.js and Yarn.
 
 For more details see [Full requirements](requirements.md).
 

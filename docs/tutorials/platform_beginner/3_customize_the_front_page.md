@@ -9,7 +9,9 @@ You will customize this step by instructing Platform to use a custom template to
 
 To use a custom template when rendering the root content, create a `content_view` configuration block for `ezpublish`.
 
-Edit `app/config/ezplatform.yml`. At the end, add the following block under `site_group`, but before `admin_group` (pay attention to indentation: `content_view` should be one level below `site_group`):
+Edit `app/config/ezplatform.yml`. Find the `site_group` key and uncomment it.
+Add the following block under `site_group`, but before `admin_group`
+(pay attention to indentation: `content_view` should be one level below `site_group`):
 
 ``` yaml
 ezpublish:
@@ -19,7 +21,7 @@ ezpublish:
             content_view:
                 full:
                     home_page:
-                        template: 'full/home_page.html.twig'
+                        template: full/home_page.html.twig
                         match:
                             Id\Location: 2
 ```
@@ -205,6 +207,7 @@ Refresh the page and you should now see the "Hello world" placed inside a styled
 
     ​```
     php bin/console assetic:dump --env=prod web
+    yarn encore prod
     ​```
 
 !!! note "Clear the cache"
@@ -304,9 +307,9 @@ site_group:
         full:
             # existing keys, do not change them
             ride:
-                template: 'full/ride.html.twig'
+                template: full/ride.html.twig
                 match:
-                    Identifier\ContentType: 'ride'
+                    Identifier\ContentType: ride
 ```
 
 This tells the application to use this template whenever it renders the full view of a Ride.

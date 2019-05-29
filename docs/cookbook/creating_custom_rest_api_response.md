@@ -17,9 +17,9 @@ The first step is creating your own implementation of `ValueObjectVisitor`. It c
 namespace AppBundle\Rest\ValueObjectVisitor;
 
 use eZ\Publish\API\Repository\Repository;
-use eZ\Publish\Core\REST\Common\Output\Generator;
-use eZ\Publish\Core\REST\Common\Output\Visitor;
-use eZ\Publish\Core\REST\Server\Output\ValueObjectVisitor\VersionInfo as BaseVersionInfo;
+use EzSystems\EzPlatformRest\Output\Generator;
+use EzSystems\EzPlatformRest\Output\Visitor;
+use EzSystems\EzPlatformRest\Server\Output\ValueObjectVisitor\VersionInfo as BaseVersionInfo;
 use eZ\Publish\API\Repository\Values\Content\VersionInfo as APIVersionInfo;
 
 class VersionInfo extends BaseVersionInfo
@@ -54,17 +54,17 @@ class VersionInfo extends BaseVersionInfo
 ## Overriding response type
 
 Next, make sure that your new implementation of serialization applies only to the selected objects. In order to do that, you need to
-decorate `eZ\Publish\Core\REST\Common\Output\ValueObjectVisitorDispatcher` from `ezpublish-kernel`.
+decorate `EzSystems\EzPlatformRest\Output\ValueObjectVisitorDispatcher` from `ezpublish-kernel`.
 
 ```php
 <?php
 
 namespace AppBundle\Rest;
 
-use eZ\Publish\Core\REST\Common\Output\Generator;
-use eZ\Publish\Core\REST\Common\Output\ValueObjectVisitorDispatcher as BaseValueObjectVisitorDispatcher;
-use eZ\Publish\Core\REST\Common\Output\Exceptions\NoVisitorFoundException;
-use eZ\Publish\Core\REST\Common\Output\Visitor;
+use EzSystems\EzPlatformRest\Output\Generator;
+use EzSystems\EzPlatformRest\Output\ValueObjectVisitorDispatcher as BaseValueObjectVisitorDispatcher;
+use EzSystems\EzPlatformRest\Output\Exceptions\NoVisitorFoundException;
+use EzSystems\EzPlatformRest\Output\Visitor;
 
 class ValueObjectVisitorDispatcher extends BaseValueObjectVisitorDispatcher
 {
@@ -105,7 +105,7 @@ The response needs to have a proper type. The way to assure it is to override th
 
 namespace AppBundle\Rest\Generator;
 
-use eZ\Publish\Core\REST\Common\Output\Generator\Json as BaseJson;
+use EzSystems\EzPlatformRest\Output\Generator\Json as BaseJson;
 
 class Json extends BaseJson
 {
@@ -196,15 +196,15 @@ services:
     app.rest.output.generator.json:
         class: AppBundle\Rest\Generator\Json
         arguments:
-            - "@ezpublish_rest.output.generator.json.field_type_hash_generator"
+            - '@ezpublish_rest.output.generator.json.field_type_hash_generator'
         calls:
-            - [ setFormatOutput, [ "%kernel.debug%" ] ]
+            - [ setFormatOutput, [ '%kernel.debug%' ] ]
 
     app.rest.output.visitor.json:
-        class: "%ezpublish_rest.output.visitor.class%"
+        class: '%ezpublish_rest.output.visitor.class%'
         arguments:
-            - "@app.rest.output.generator.json"
-            - "@app.rest.output.value_object_visitor.dispatcher"
+            - '@app.rest.output.generator.json'
+            - '@app.rest.output.value_object_visitor.dispatcher'
         tags:
             - { name: ezpublish_rest.output.visitor, regexps: app.rest.output.visitor.json.regexps, priority: 200 }
 
@@ -217,7 +217,7 @@ services:
         class: AppBundle\Rest\ValueObjectVisitor\VersionInfo
         parent: ezpublish_rest.output.value_object_visitor.base
         arguments:
-            - "@ezpublish.api.repository"
+            - '@ezpublish.api.repository'
         tags:
             - { name: app.value_object_visitor, type: eZ\Publish\API\Repository\Values\Content\VersionInfo }
 ```

@@ -52,8 +52,7 @@ Clear cache and refresh the front page. Photos should now have a regular size an
 In a larger site there are many elements that need configuration. To keep it more organized, you can split parts of configuration into separate files.
 
 As an example, you can separate all content view configuration into its own file. Create an `app/config/views.yml` file. Copy everything under `content_view` from `ezplatform.yml` and move it to the new file.
-Remove the corresponding code from `ezplatform.yml`, but remember that `ezpublish.system.site_group` must be present in both files.
-The `views.yml` should look like this:
+Remove the corresponding code from `ezplatform.yml`. The `views.yml` should look like this:
 
 ``` yaml
 ezpublish:
@@ -62,18 +61,18 @@ ezpublish:
             content_view:
                 full:
                     ride:
-                        template: 'full/ride.html.twig'
+                        template: full/ride.html.twig
                         match:
-                            Identifier\ContentType: 'ride'
+                            Identifier\ContentType: ride
                     home_page:
-                        template: 'full/home_page.html.twig'
+                        template: full/home_page.html.twig
                         match:
                             Id\Location: 2
                 line:
                     ride:
-                        template: 'line/ride.html.twig'
+                        template: line/ride.html.twig
                         match:
-                            Identifier\ContentType: 'ride'
+                            Identifier\ContentType: ride
 ```
 
 Import the file in `ezplatform.yml`, like you did with `image_variations.yml`:

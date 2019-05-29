@@ -52,6 +52,17 @@ code_example]]
 </svg>
 code_example]]
 
+###<div class="mgt-2">Colored icons - dark</div>
+<div class="mgt-minus-3 mgb-5">Add class `ez-icon--dark` to modify the color fill of an icon to the Sass variable defined for white, `$ez-black`.</div>
+<div class="ez-guidelines-icons__colored">
+[[code_example {html}
+<svg class="ez-icon ez-icon--medium ez-icon--dark ez-icon-content-draft">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../ez-icons.svg#content-draft"></use>
+</svg>
+</button>
+code_example]]
+</div>
+
 ###<div class="mgt-2">Colored icons - white</div>
 <div class="mgt-minus-3 mgb-5">Add class `ez-icon--light` to modify the color fill of an icon to the Sass variable defined for white, `$ez-white`.</div>
 <div class="ez-guidelines-icons__colored">
@@ -290,6 +301,12 @@ code_example]]
             <use xlink:href="../../ez-icons.svg#content-draft"></use>
         </svg>
         <p class="icon-label">content-draft</p>
+    </div>
+    <div class="icon-box">
+        <svg class="ez-icon ez-icon-content-tree">
+            <use xlink:href="../../ez-icons.svg#content-tree"></use>
+        </svg>
+        <p class="icon-label">content-tree</p>
     </div>
     <div class="icon-box">
         <svg class="ez-icon ez-icon-content-type">
@@ -778,6 +795,18 @@ code_example]]
         <p class="icon-label">unarchive</p>
     </div>
     <div class="icon-box">
+        <svg class="ez-icon ez-icon-unpublish-hide">
+            <use xlink:href="../../ez-icons.svg#unpublish-hide"></use>
+        </svg>
+        <p class="icon-label">unpublish-hide</p>
+    </div>
+    <div class="icon-box">
+        <svg class="ez-icon ez-icon-unpublish-reveal">
+            <use xlink:href="../../ez-icons.svg#unpublish-reveal"></use>
+        </svg>
+        <p class="icon-label">unpublish-reveal</p>
+    </div>
+    <div class="icon-box">
         <svg class="ez-icon ez-icon-upload">
             <use xlink:href="../../ez-icons.svg#upload"></use>
         </svg>
@@ -1084,6 +1113,12 @@ code_example]]
             <use xlink:href="../../ez-icons.svg#italic"></use>
         </svg>
         <p class="icon-label">italic</p>
+    </div>
+    <div class="icon-box">
+        <svg class="ez-icon ez-icon-link-anchor">
+            <use xlink:href="../../ez-icons.svg#link-anchor"></use>
+        </svg>
+        <p class="icon-label">link-anchor</p>
     </div>
     <div class="icon-box">
         <svg class="ez-icon ez-icon-link-remove">

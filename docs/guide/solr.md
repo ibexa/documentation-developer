@@ -49,6 +49,10 @@ Download and extract Solr. Solr Bundle 1.3 and higher supports Solr 6 *(currentl
 
 - [solr-6.6.5.tgz](http://archive.apache.org/dist/lucene/solr/6.6.5/solr-6.6.5.tgz) or [solr-6.6.5.zip](http://archive.apache.org/dist/lucene/solr/6.6.5/solr-6.6.5.zip)
 
+!!! caution "Solr"
+
+    Solr versions older than 6.6.2 have a security vulnerability. Remember to download or update to a higher version.
+
 Copy the necessary configuration files. In the example below from the root of your project to the place you extracted Solr:
 
 ``` bash
@@ -116,8 +120,8 @@ Out of the box in eZ Platform the following is enabled for a simple setup (in `c
 ez_search_engine_solr:
     endpoints:
         endpoint0:
-            dsn: %solr_dsn%
-            core: %solr_core%
+            dsn: '%solr_dsn%'
+            core: '%solr_core%'
     connections:
         default:
             entry_endpoints:
@@ -136,10 +140,10 @@ and one very different language that should receive proper language analysis for
 ez_search_engine_solr:
     endpoints:
         endpoint0:
-            dsn: %solr_dsn%
+            dsn: '%solr_dsn%'
             core: core0
         endpoint1:
-            dsn: %solr_dsn%
+            dsn: '%solr_dsn%'
             core: core1
     connections:
         default:
@@ -166,25 +170,25 @@ If full language analysis features are preferred, then each language can be conf
 ez_search_engine_solr:
     endpoints:
         endpoint0:
-            dsn: %solr_dsn%
+            dsn: '%solr_dsn%'
             core: core0
         endpoint1:
-            dsn: %solr_dsn%
+            dsn: '%solr_dsn%'
             core: core1
         endpoint2:
-            dsn: %solr_dsn%
+            dsn: '%solr_dsn%'
             core: core2
         endpoint3:
-            dsn: %solr_dsn%
+            dsn: '%solr_dsn%'
             core: core3
         endpoint4:
-            dsn: %solr_dsn%
+            dsn: '%solr_dsn%'
             core: core4
         endpoint5:
-            dsn: %solr_dsn%
+            dsn: '%solr_dsn%'
             core: core5
         endpoint6:
-            dsn: %solr_dsn%
+            dsn: '%solr_dsn%'
             core: core6
     connections:
         default:
@@ -219,7 +223,7 @@ In the example below we configured Solr Bundle to work with secured Solr core.
 ez_search_engine_solr:
     endpoints:
         endpoint0:
-            dsn: %solr_dsn%
+            dsn: '%solr_dsn%'
             core: core0
             user: example
             pass: password
@@ -238,7 +242,7 @@ ezpublish:
         default:
             storage: ~
             search:
-                engine: %search_engine%
+                engine: '%search_engine%'
                 connection: default
 ```
 
@@ -257,7 +261,7 @@ php bin/console --env=prod cache:clear
 The last step is to execute the initial indexation of data:
 
 ``` bash
-php bin/console --env=prod --siteaccess=<name> ezplatform:solr_create_index
+php bin/console --env=prod --siteaccess=<name> ezplatform:reindex
 ```
 
 #### Possible exceptions
@@ -292,6 +296,10 @@ Here are the most common issues you may encounter:
     Anything set on `$query->filter`, or in REST using `Filter` element, will *not* affect scoring and only works
     as a pure filter for the result. Thus make sure to place Criteria you want to affect scoring on `query`.
 
+!!! caution "Solr"
+
+    Solr version 4.x does not support scoring on location search.
+
 Boosting currently happens when indexing, so if you change your configuration you will need to re-index.
 
 Boosting tells the search engine which parts of the content model have more importance when searching, and is an important part of tuning your search results relevance. Importance is defined using a numeric value, where `1.0` is default, values higher than that are more important, and values lower (down to `0.0`) are less important.
@@ -306,12 +314,6 @@ ez_search_engine_solr:
                 content_type:
                     # Boost a whole Content Type
                     article: 2.0
-                field_definition:
-                    # Boost a content Field system-wide, or for a given Content Type
-                    title: 3.0
-                    blog_post:
-                        # Don't boost title of blog posts that high, but still higher than default
-                        title: 1.5
                 meta_field:
                     # Boost a meta Field (name, text) system wide, or for a given Content Type
                     name: 10.0
@@ -323,12 +325,103 @@ ez_search_engine_solr:
 The configuration above will result in the following boosting (Content Type / Field):
 
 - `article/title: 2.0`
-- `news/title: 3.0`
-- `blog_post/title: 1.5`
-- `news/description: 1.0` (default)
+- `news/description: 1.0` (default)
 - `article/text (meta): 5.0`
 - `blog_post/name (meta): 10.0`
 - `article/name (meta): 2.0`
+
+!!! tip "How to configure boosting on specific fields"
+
+    Currently, boosting on particular fields is missing.
+    However, it could be configured using 3rd party [Novactive/NovaeZSolrSearchExtraBundle](https://github.com/Novactive/NovaeZSolrSearchExtraBundle) in case of custom search implementation, e.g. to handle your front-end search form.
+    Unfortunately, this doesn't affect search performed in the administration interface.
+
+    The following example presents boosting configuration for Folder's `name` and `description` fields.
+    First, in `ezplatform.yml` configure [custom fulltext fields](https://github.com/Novactive/NovaeZSolrSearchExtraBundle/blob/master/doc/custom_fields.md).
+
+    ```yaml
+    ez_solr_search_extra:
+        system:
+            default:
+                fulltext_fields:
+                    custom_folder_name:
+                        - folder/name
+                    custom_folder_description:
+                        - folder/description
+    ```
+
+    The second step requires you to use `\Novactive\EzSolrSearchExtra\Query\Content\Criterion\MultipleFieldsFullText` instead of default `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\FullText`.
+    The following example shows custom query which benefits from the custom fields created in the previous example.
+
+    ```php
+    <?php
+
+    namespace AppBundle\Controller;
+
+    use eZ\Publish\API\Repository\SearchService;
+    use eZ\Publish\API\Repository\Values\Content\Query;
+    use Symfony\Component\HttpFoundation\Request;
+    use Symfony\Component\HttpFoundation\Response;
+
+    class SearchController
+    {
+        /**
+         * @var \eZ\Publish\API\Repository\SearchService
+         */
+        private $searchService;
+
+        public function __construct(SearchService $searchService)
+        {
+            $this->searchService = $searchService;
+        }
+
+        public function searchAction(Request $request): Response
+        {
+            $queryString = $request->get('query');
+
+            $query = new Query();
+            $query->query = new \Novactive\EzSolrSearchExtra\Query\Content\Criterion\MultipleFieldsFullText(
+                $queryString,
+                [
+                    'metaBoost' => [
+                        'custom_folder_name' => 20.0,
+                        'custom_folder_description' => 10.0,
+                    ]
+                ]
+            );
+
+            $searchResult = $this->searchService->findContent($query);
+
+            ...
+        }
+    }
+    ```
+
+    Remember to clear the cache and perform search engine reindex afterwords.
+
+    The above configuration will result in the following boosting (Content Type / Field):
+    - `folder/name: 20.0`
+    - `folder/title: 10.0`
+
+### Indexing related objects
+
+You can use indexation of related objects to search through text of related content.
+Indexing is disabled by default.
+To set it up you need to define the maximum indexing depth using the following YAML configuration:
+
+```yaml
+ez_search_engine_solr:
+    # ...
+    connections:
+        default:
+            # ...
+            indexing_depth:
+                # Default value: 0 - no relation indexing, 1 - direct relations, 2nd level  relations, 3rd level  relations (maximum value).
+                default: 1      
+                content_type:
+                    # Index depth defined for specific content type
+                    article: 2
+```
 
 ## Extending the Solr Search Engine Bundle
 

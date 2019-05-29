@@ -1,15 +1,15 @@
 # Extending modules
 
-## Universal Discovery module
+## Universal Discovery Widget (UDW)
 
 Universal Discovery module allows you to browse the content structure and search for content
-using an interactive interface: the browse view and the search view.
+using an interactive interface: browse, search, create, and bookmarks view .
 
-!!! tip "Tutorial"
+!!! tip " UDW tutorial"
 
     For a detailed example on how to add a new UDW tab, see [step 5 of the Extending Admin UI tutorial](../tutorials/extending_admin_ui/5_creating_a_udw_tab.md).
 
-### How to use it?
+### How to use UDW?
 
 With vanilla JS:
 
@@ -37,7 +37,7 @@ const props = {
 <UniversalDiscoveryModule {...props} />
 ```
 
-### Adding new tabs to the Universal Discovery module
+### Adding new tabs to the UDW
 
 The Universal Discovery module is highly customizable. It allows you to add new tabs to the module.
 
@@ -128,6 +128,115 @@ The following props are deprecated:
 
 - **cotfForcedLanguage** _{String}_ - language code. When set, Content on the Fly is locked on this language.
 - **languages** and **contentTypes** are lists of languages and Content Types in the system, read from the application config.
+
+### Configuration
+
+You can configure Universal Discovery module in [universal_discovery_widget.yml file.](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/config/universal_discovery_widget.yml)
+There you can set e.g. visible tabs, allowed Content Types, search limits etc.
+
+```yaml
+system:
+    <siteaccess|siteaccess_group>:
+        universal_discovery_widget_module:
+            configuration:
+                default:
+                    visible_tabs: [browse, search, bookmarks]
+                    allowed_content_types: []
+                    search:
+                        results_per_page: 10
+                        limit: 50
+```
+
+UDW configuration is SiteAccess-aware.
+For each defined SiteAccess, you need to be able to use the same configuration tree in order to define SiteAccess-specific config.
+These settings need to be mapped to SiteAccess-aware internal parameters that you can retrieve via the ConfigResolver.
+For more information on ConfigResolver, see [eZ Platform dynamic configuration basics.](config_dynamic#configresolver)
+
+#### Adding new configuration
+
+UDW configuration can change dynamically depending on occurring events.
+It can be used e.g. for defining which content should be exposed to a user after logging in.
+
+By default only one element from configuration file is applied to Universal Discovery module.
+You can modify it dynamically by passing context to generate configuration based on a specific event.
+This context event is caught by event listener `ConfigResolveEvent::NAME` before the original configuration is used.
+Depending on what additional parameters are provided, original or event-specific configuration is applied.
+
+In the example below `my_custom_udw` is used as a base configuration element for the following steps:
+
+```yaml
+ezpublish:
+    system:
+        <siteaccess|siteaccess_group>:
+            universal_discovery_widget_module:
+                configuration:
+                    my_custom_udw:
+                        multiple: false
+```
+
+##### Adding new configuration to a button
+
+In the `ez_udw_config` Twig helper define a specific part of YAML configuration that will be used to render the **Content Browser**.
+You can find Twig helper in your button template.
+In the example below, a key is pointing to `my_custom_udw` configuration and has additional parameter `johndoe`.
+
+```html+twig
+<button class="btn btn-primary open-my-custom-udw" data-udw-config="{{
+    ez_udw_config('my_custom_udw', {
+	    'some_contextual_parameter': 'johndoe'
+	}
+) }}">
+    Open My UDW
+</button>
+```
+
+##### Additional parameters
+
+If an event listener catches additional parameters passed with context, it will use a configuration specified for it in the event subscriber.
+
+In the example below the `johndoe` parameter enables the user to choose multiple items from a **Browser window** by changing `multiple: false` from `my_custom_udw` configuration to `multiple: true`.
+
+```php hl_lines="29 30 31"
+class JohnDoeCanSelectMore implements EventSubscriberInterface
+{
+    private const CONFIGURATION_NAME = 'my_custom_udw';
+
+    /**
+     * Returns an array of event names this subscriber wants to listen to.
+     *
+     * @return array The event names to listen to
+     */
+    public static function getSubscribedEvents()
+    {
+        return [
+            ConfigResolveEvent::NAME => 'onUdwConfigResolve',
+        ];
+    }
+
+    /**
+     * @param \EzSystems\EzPlatformAdminUi\UniversalDiscovery\Event\ConfigResolveEvent $event
+     */
+    public function onUdwConfigResolve(ConfigResolveEvent $event)
+    {
+        if ($event->getConfigName !== self::CONFIGURATION_NAME) {
+		    return;
+		}
+
+        $config = $event->getConfig();
+		$context = $event->getContext();
+
+        if (isset($context['some_contextual_parameter'])) {
+			if ($context['some_contextual_parameter'] === 'johndoe') {
+			    $config['multiple'] = true;
+			}
+		}
+
+        $event->setConfig($config);
+    }
+}
+```
+
+For more information follow [Symfony Doctrine Event Listeners and Subscribers tutorial.](https://symfony.com/doc/3.4/event_dispatcher.html#creating-an-event-subscriber)
 
 ## Sub-items List
 

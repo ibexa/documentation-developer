@@ -2,11 +2,10 @@
 
 eZ Platform exposes a very powerful Search API, allowing both full-text search and querying the content Repository using several built-in Search Criteria and Sort Clauses. These are supported across different search engines, allowing you to plug in another search engine without changing your code.
 
-Currently three search engines exist in their own eZ Platform Bundles:
+Currently two search engines exist in their own eZ Platform Bundles:
 
 1.  [Legacy search engine](search_engines.md#legacy-search-engine-bundle), a database-powered search engine for basic needs.
 1.  [Solr](solr.md), an integration providing better overall performance, much better scalability and support for more advanced search capabilities **(recommended)**
-1.  [ElasticSearch](search_engines.md#elasticsearch-bundle), similar to Solr integration, currently not under active development *(experimental, not supported)*
 
 ## Search Criteria and Sort Clauses
 
@@ -275,7 +274,7 @@ The list below presents the Criteria available in the `eZ\Publish\API\Repository
 |`DateMetadata`|`target` ( `DateMetadata::MODIFIED`, `DateMetadata::CREATED`)</br>`operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `BETWEEN`)</br>`value` being integer(s) representing unix timestamp.|
 |`Field`|`target` (FieldDefinition identifier), `operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `LIKE`, `BETWEEN`, `CONTAINS`), `value` being scalar(s) relevant for the field.|
 |`FieldRelation`|`target` (FieldDefinition identifier)</br>`operator` (`IN`, `CONTAINS`)</br>`value` being array of scalars representing Content ID of relation.</br>Use of `IN` means the relation needs to have one of the provided IDs, while `CONTAINS` implies it needs to have all provided IDs.|
-|`FullText`|`value` which is the string to search for</br>`properties` is array to set additional properties for use with search engines like Solr/ElasticSearch.|
+|`FullText`|`value` which is the string to search for</br>`properties` is array to set additional properties for use with search engines like Solr.|
 |`LanguageCode`|`value` string(s) representing Language Code(s) on the Content (not on Fields)</br>`matchAlwaysAvailable` as boolean.|
 |`LocationId`|`value` scalar(s) representing the Location ID.|
 |`LocationRemoteId`|`value` string(s) representing the Location Remote ID.|
@@ -284,7 +283,7 @@ The list below presents the Criteria available in the `eZ\Publish\API\Repository
 |`LogicalOr`|A `LogicalOperator` that takes `array` of other Criteria, makes sure one of the Criteria match.|
 |`MapLocationDistance`| `target` (FieldDefinition identifier)</br>`operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `BETWEEN`)</br>`distance` as float(s) from a position using `latitude` as float, `longitude` as float as arguments|
 |`MatchAll`|No arguments, mainly for internal use when no `filter` or `query` is provided on Query object.|
-|`MatchNone`|No arguments, mainly for internal use by the [BlockingLimitation](limitations.md#blockinglimitation).|
+|`MatchNone`|No arguments, mainly for internal use by the [Blocking Limitation](limitation_reference.md#blocking-limitation).|
 |`ObjectStateId`|`value` string(s) representing the Content Object State ID.|
 |`ParentLocationId`|`value` scalar(s) representing the Parent's Location ID.|
 |`RemoteId`|`value` string(s) representing the Content Remote ID.|
@@ -407,7 +406,7 @@ Available tags for Sort Clause handlers in Legacy Storage Engine are:
 services:
     ezpublish.search.legacy.gateway.criterion_handler.common.content_id:
         class: eZ\Publish\Core\Search\Legacy\Content\Common\Gateway\CriterionHandler\ContentId
-        arguments: [@ezpublish.api.storage_engine.legacy.dbhandler]
+        arguments: ['@ezpublish.api.storage_engine.legacy.dbhandler']
         tags:
           - {name: ezpublish.search.legacy.gateway.criterion_handler.content}
           - {name: ezpublish.search.legacy.gateway.criterion_handler.location}
@@ -418,7 +417,7 @@ services:
 ``` yaml
 ezpublish.search.legacy.gateway.sort_clause_handler.location.depth:
     class: eZ\Publish\Core\Search\Legacy\Content\Location\Gateway\SortClauseHandler\Location\Depth
-    arguments: [@ezpublish.api.storage_engine.legacy.dbhandler]
+    arguments: ['@ezpublish.api.storage_engine.legacy.dbhandler']
     tags:
         - {name: ezpublish.search.legacy.gateway.sort_clause_handler.location}
 ```

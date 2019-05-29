@@ -49,16 +49,16 @@ Next, in your [standard view configuration](../guide/content_rendering.md#config
 
 ``` yaml
 folder:
-    controller: "ez_query:locationQueryAction"
-    template: "full/folder.html.twig"
+    controller: ez_query:locationQueryAction
+    template: full/folder.html.twig
     match:
-        Identifier\ContentType: "folder"
+        Identifier\ContentType: folder
     params:
         query:
-            query_type: 'LocationChildren'
+            query_type: LocationChildren
             parameters:
-                parentLocationId: "@=location.id"
-            assign_results_to: 'items'
+                parentLocationId: '@=location.id'
+            assign_results_to: items
 ```
 
 In this case the `controller` key points to the Query Controller's `locationQuery` action. `assign_results_to` identifies the parameter containing all the retrieved children that will later be used in the templates, like here in `app/Resources/views/full/folder.html.twig`:
@@ -82,9 +82,9 @@ Configuring for the use of a Custom Controller starts with pointing to it in you
 ``` yaml
 folder:
     controller: app.controller.folder:showAction
-    template: "full/folder.html.twig"
+    template: full/folder.html.twig
     match:
-        Identifier\ContentType: "folder"
+        Identifier\ContentType: folder
 ```
 
 You can see here the standard view config consisting of the `template` and `match` keys. Under the `controller` key you need to provide here the path to the Controller and the action. They are defined in `AppBundle/Controller/FolderController.php`:
@@ -202,7 +202,6 @@ Next, you must register these two services in `AppBundle/Resources/config/servic
 
 ``` yaml
 services:
-
     app.criteria.children:
         class: AppBundle\Criteria\Children
 

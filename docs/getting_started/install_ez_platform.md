@@ -13,6 +13,8 @@ To install eZ Platform you need a stack with your operating system, MySQL and PH
 
 You can install it by following your favorite tutorial, for example: [Install LAMP stack on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04).
 
+Additionally, you need [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/lang/en/docs/install/#debian-stable) for asset management.
+
 [For production](#prepare-installation-for-production) you also need Apache or nginx as the HTTP server (Apache is used as an example below).
 [For development](#use-phps-built-in-server), you can use the built-in PHP server instead.
 
@@ -22,11 +24,17 @@ Before getting started, make sure you review the [requirements](requirements.md)
 
 ## Get Composer
 
-Install Composer, the PHP command line dependency manager.
+Install a recent stable version of Composer, the PHP command line dependency manager.
 Use the package manager for your Linux distribution. For example on Ubuntu:
 
 ``` bash
 apt-get install composer
+```
+
+To verify you got a recent stable version of Composer, you can run:
+
+``` bash
+composer -V
 ```
 
 !!! tip "Install Composer locally"
@@ -114,6 +122,10 @@ After a moment the installer will ask you to provide a few parameters:
 
     If you want to change any of these parameters later, you can do it in `app/config/parameters.yml`.
 
+!!! tip "Using PostgreSQL"
+
+    If you want an installation with PostgreSQL instead of MySQL, refer to [Using PostgreSQL](../guide/databases.md#using-postgresql).
+
 ## Create database
 
 !!! tip
@@ -151,6 +163,10 @@ At this point you can use PHP's built-in server: `php bin/console server:start`.
 
 If you want to use an Apache web server, you need to [set up directory permissions](#set-up-permissions) and [prepare a virtual host](#set-up-virtual-host).
 
+!!! caution
+
+    PHP's built-in server is for development use only. For security and performance reasons it should not be used in production.
+
 ## Prepare installation for production
 
 To use eZ Platform with an HTTP server, you need to [set up directory permissions](#set-up-permissions) and [prepare a virtual host](#set-up-virtual-host).
@@ -169,6 +185,8 @@ Future files and directories created by these two users will need to inherit tho
 !!! caution
 
     For security reasons, in production web server should not have write access to other directories than `var`. Skip the step above and follow the link below for production needs instead.
+
+    You must also make sure that the web server cannot interpret files in the `var` directory through PHP. To do so, follow the instructions on [setting up a virtual host below](#set-up-virtual-host).
 
 To set up permissions for production, it is recommended to use an ACL (Access Control List).
 See [Setting up or Fixing File Permissions](http://symfony.com/doc/3.4/setup/file_permissions.html) in Symfony documentation

@@ -103,7 +103,7 @@ To move over your own custom configurations, follow the conventions below and ma
                 storage: ~
                 # For search engine, pick the one configured in parameters.yml, either "legacy" or "solr"
                 search:
-                    engine: %search_engine%
+                    engine: '%search_engine%'
                     connection: default
     ```
 
@@ -240,7 +240,7 @@ If you later realize that you provided the convert script with incorrect image C
 
 So, if you first ran the command:
 
-`php cin/console ezxmltext:convert-to-richtext --image-content-types=image,custom_image -v`
+`php bin/console ezxmltext:convert-to-richtext --image-content-types=image,custom_image -v`
 
 But later realize the last identifier should be `profile`, not ``custom_image``, you may execute :
 
@@ -407,20 +407,20 @@ If your legacy site uses old-style URL aliases, to upgrade them successfully you
 ``` yaml
 # in vendor/ezsystems/ezpublish-kernel/eZ/Publish/Core/settings/storage\_engines/common.yml
     ezpublish.persistence.slug_converter:
-        class: "%ezpublish.persistence.slug_converter.class%"
+        class: '%ezpublish.persistence.slug_converter.class%'
         arguments:
-            - "@ezpublish.api.storage_engine.transformation_processor"
-            - { transformation: "urlalias_compat" }
+            - '@ezpublish.api.storage_engine.transformation_processor'
+            - { transformation: urlalias_compat }
 ```
 
 In case of URLs with extended UTF-encoded names, the workaround must make use of `urlalias_iri`:
 
 ``` yaml
     ezpublish.persistence.slug_converter:
-        class: "%ezpublish.persistence.slug_converter.class%"
+        class: '%ezpublish.persistence.slug_converter.class%'
         arguments:
-            - "@ezpublish.api.storage_engine.transformation_processor"
-            - { transformation: "urlalias_iri" }
+            - '@ezpublish.api.storage_engine.transformation_processor'
+            - { transformation: urlalias_iri }
 ```
 
 

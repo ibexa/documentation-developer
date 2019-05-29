@@ -30,13 +30,14 @@ Custom Field Types have to be programmed in PHP. However, the built-in Field Ty
 | [ISBN](#isbn-field-type) | Handles International Standard Book Number (ISBN) in 10-digit or 13-digit format.  | Yes | Yes |
 | [Keyword](#keyword-field-type) | Stores keywords. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
 | [MapLocation](#maplocation-field-type) | Stores map coordinates. | Yes, with MapLocationDistance criterion | Yes |
+| [Matrix](#matrix-field-type) | Represents and handles a table of rows and columns of data. | No | No |
 | [Media](#media-field-type) | Validates and stores a media file. | No | Yes |
 | [Null](#null-field-type) | Used as fallback for missing Field Types and for testing purposes. | N/A | N/A |
 | [Page](#page-field-type) | Stores a Page with a layout consisting of multiple zones. | N/A | N/A |
 | [Rating](#rating-field-type) | **Deprecated** | N/A | N/A |
 | [Relation](#relation-field-type) | Validates and stores a relation to a Content item. | Yes, with both Field and FieldRelation criterions | Yes |
 | [RelationList](#relationlist-field-type) | Validates and stores a list of relations to Content items. | Yes, with FieldRelation criterion | Yes |
-| [RichText](#richtext-field-type) | Validates and stores structured rich text in DocBook xml format, and exposes it in several formats. | Yes[^1^](#1-note-on-legacy-search-engine)  | Yes |
+| [RichText](#richtext-field-type) | Validates and stores structured rich text in DocBook xml format, and exposes it in several formats. Available via [eZ Platform RichTextBundle](https://github.com/ezsystems/ezplatform-richtext). | Yes[^1^](#1-note-on-legacy-search-engine)  | Yes |
 | [Selection](#selection-field-type) | Validates and stores a single selection or multiple choices from a list of options. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
 | [TextBlock](#textblock-field-type) | Validates and stores a larger block of text. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
 | [TextLine](#textline-field-type) | Validates and stores a single line of text. | Yes | Yes |
@@ -64,7 +65,6 @@ Proper indexing of these Field Types is done with [Solr Search Bundle](../guide/
 |------|------|------|------|------|
 |[Tags](https://github.com/netgen/TagsBundle)|Tags Field and full-fledged taxonomy management|Yes|Yes, since Netgen Tags v3.0.0|No (but can be previewed in Studio Demo)|
 |[Price](https://github.com/ezcommunity/EzPriceBundle)|Price Field for use in product catalogs|Yes|No|Yes|
-|[Matrix](https://github.com/ezcommunity/EzMatrixFieldTypeBundle)|Matrix Field for matrix data|Yes|No|Yes|
 
 ### Generate new Field Type
 
@@ -1140,7 +1140,7 @@ ImageAsset Field Type allows configuring the following options:
 
 Example configuration:
 
-```php
+``` yaml
 ezpublish:
     system:
        default:
@@ -1163,7 +1163,7 @@ ezpublish:
             content_view:
                 asset_image:
                     default:
-                        template: '::custom_image_asset_template.html.twig'
+                        template: ::custom_image_asset_template.html.twig
                         match: []
 ```
 
@@ -1427,13 +1427,68 @@ Example use:
 ezpublish:
     system:
         site_group:
-            api_keys: { google_maps: "MY_KEY" }
+            api_keys: { google_maps: MY_KEY }
 ```
 
 !!! note
 
     The option to automatically get user coordinates through the "Locate me" button
     is only available when the back office is served through the `https://` protocol.
+
+## Matrix Field Type
+
+This Field represents and handles a table of rows and columns of data.
+
+| Name     | Internal name | Expected input |
+|----------|---------------|----------------|
+| `Matrix` | `ezmatrix`    | `array`        |
+
+The Matrix Field Type is available via the eZ Platform Matrix Bundle
+provided by the [ezplatform-matrix-fieldtype](https://github.com/ezsystems/ezplatform-matrix-fieldtype) package.
+
+### PHP API Field Type
+
+#### Input expectations
+
+|Type|Description|Example|
+|------|------|------|
+|`array`|array of `EzSystems\EzPlatformMatrixFieldtype\FieldType\Value\Row` objects which contain column data|see below|
+
+Example of input:
+
+```php
+new FieldType\Value([
+    new FieldType\Value\Row(['col1' => 'Row 1, Col 1', 'col2' => 'Row 1, Col 2']),
+    new FieldType\Value\Row(['col1' => 'Row 2, Col 1', 'col2' => 'Row 2, Col 2']),
+    new FieldType\Value\Row(['col1' => 'Row 3, Col 1', 'col2' => 'Row 3, Col 2']),
+]);
+```
+
+#### Value Object
+
+`EzSystems\EzPlatformMatrixFieldtype\FieldType\Value` offers the following properties:
+
+|Property|Type|Description|
+|------|------|------|
+|`rows`|`RowsCollection`|Array of `Row` objects containing an array of cells (`Row::getCells()` returns array `['col1' => 'Value 1', /* ... */]`)|
+
+#### Validation
+
+The minimum number of rows is set on Content Type level for each Field.
+
+Validation checks for empty rows. A row is considered empty if it contains only empty cells (or cells containing only spaces). Empty rows are removed.
+
+If, after removing empty rows, the number of rows does not fulfill the configured `Minimum number of rows`, the Field will not validate.
+
+For example, the following input will not validate if `Minimum number of rows` is set to 3, because the second row is empty:
+
+```php
+new FieldType\Value([
+    new FieldType\Value\Row(['col1' => 'Row 1, Col 1', 'col2' => 'Row 1, Col 2']),
+    new FieldType\Value\Row(['col1' => '', 'col2' => '']),
+    new FieldType\Value\Row(['col1' => 'Row 3, Col 1', 'col2' => 'Row 3, Col 2']),
+]);
+```
 
 ## Media Field Type
 
@@ -1585,17 +1640,17 @@ Following shows example on how eZ Publish "datatype" `ezpaex` could be configure
 
 services:
     ezpublish.fieldType.ezpaex:
-        class: "%ezpublish.fieldType.eznull.class%"
+        class: '%ezpublish.fieldType.eznull.class%'
         parent: ezpublish.fieldType
-        arguments: ["ezpaex"]
+        arguments: [ezpaex]
         tags: [{name: ezpublish.fieldType, alias: ezpaex}]
 
     ezpublish.fieldType.ezpaex.converter:
-        class: "%ezpublish.fieldType.eznull.converter.class%"
+        class: '%ezpublish.fieldType.eznull.converter.class%'
         tags: [{name: ezpublish.storageEngine.legacy.converter, alias: ezpaex}]
 
     ezpublish.fieldType.ezpaex.indexable:
-        class: "%ezpublish.fieldType.indexable.unindexed.class%"
+        class: '%ezpublish.fieldType.indexable.unindexed.class%'
         tags: [{name: ezpublish.fieldType.indexable, alias: ezpaex}]
 ```
 
@@ -1881,14 +1936,17 @@ $validators = [
 
 ## RichText Field Type
 
+!!! caution "Deprecated"
+
+    Make sure to enable new version of the RichText Field Type provided via [eZ Platform RichTextBundle](https://github.com/ezsystems/ezplatform-richtext).
+
+    The RichText Field Type provided by Kernel via the `eZ\Publish\Core\FieldType\RichText` namespace is deprecated. Refer to PHPDoc whenever you want to implement any interface or extend any base class from that namespace.
+
 This Field Type validates and stores structured rich text, and exposes it in several formats.
 
 |Name|Internal name|Expected input|
 |------|------|------|
 |`RichText`|`ezrichtext`|mixed|
-
-The RichText Field Type is available via the eZ Platform RichText Bundle
-provided by the https://github.com/ezsystems/ezplatform-richtext package.
 
 ### PHP API Field Type 
 

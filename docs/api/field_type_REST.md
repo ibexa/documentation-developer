@@ -13,7 +13,7 @@ When REST API is used, conversion needs to be done for Field Type values, settin
 
 ## Extension points
 
-Some Field Types will require additional processing, for example a Field Type storing a binary file, or one having more complex settings or validator configuration. For this purpose specific implementations of an abstract class `eZ\Publish\Core\REST\Common\FieldTypeProcessor` are used. This class provides following methods:
+Some Field Types will require additional processing, for example a Field Type storing a binary file, or one having more complex settings or validator configuration. For this purpose specific implementations of an abstract class `EzSystems\EzPlatformRest\FieldTypeProcessor` are used. This class provides following methods:
 
 |Method|Description|
 |------|-----------|

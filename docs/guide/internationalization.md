@@ -15,6 +15,8 @@ The multilanguage system operates based on a global translation list that contai
 
 ```
 php bin/console assetic:dump
+yarn encore <environment>
+# OR php bin/console ezplatform:encore:compile
 ```
 
 **The new language must then be added to the [SiteAccess](siteaccess.md) configuration**. Once this is done, any user with proper permissions can create Content item versions in these languages in the user interface.
@@ -31,7 +33,7 @@ For example, let's say that you need to store information about marathon contest
 
 ### Access control
 
-You can control whether a User or User group is able to translate content or not. You do this by adding a [Language limitation](limitations.md#languagelimitation) to Policies that allow creating or editing content. This limitation enables you to define which Role can work with which languages in the system. (For more information of the permissions system, see [Permissions](permissions.md).)
+You can control whether a User or User group is able to translate content or not. You do this by adding a [Language Limitation](limitation_reference.md#language-limitation) to Policies that allow creating or editing content. This limitation enables you to define which Role can work with which languages in the system. (For more information of the permissions system, see [Permissions](permissions.md).)
 
 In addition, you can also control the access to the global translation list by using the Content/Translations Policy. This Policy allows users to add and remove languages from the global translation list.
 
@@ -72,7 +74,7 @@ You can also omit the route, in this case, the current route will be used (i.e. 
 
 ### Using sub-requests
 
-When using sub-requests, you lose the context of the master request (e.g. current route, current location, etc.). This is because sub-requests can be displayed separately, with [ESI or Hinclude](templates.md#rendering-and-cache).
+When using sub-requests, you lose the context of the master request (e.g. current route, current location, etc.). This is because sub-requests can be displayed separately, with [ESI](templates.md#rendering-and-cache).
 
 If you want to render language switch links in a sub-request with a correct `RouteReference`, you must pass it as an argument to your sub-controller from the master request.
 
@@ -268,7 +270,7 @@ You can also assign a Default content availability flag to Content Types (availa
 
 Note that if a language is not provided in the list of prioritized languages and it is not the Content item's first language, the URL alias for this content in this language will not be generated.
 
-## Translating the UI of eZ Platform
+## Back Office languages
 
 ### Installing new UI translations
 
@@ -276,12 +278,30 @@ If you want to install a new language in your project, install the corresponding
 
 For example, if you want to translate your application into French, run:
 
-    `composer require ezplatform-i18n/ezplatform-i18n-fr_fr`
+`composer require ezplatform-i18n/ezplatform-i18n-fr_fr`
 
 and then clear the cache.
 
 Now you can reload your eZ Platform back end which will be translated in French (if your browser is configured to `fr_FR`.)
 
-##### UI translation
+!!! tip
+
+    If you do not want to add a bundle with Back Office translation, you can manually add the necessary xliff files.
+    Add the language to an array under `ezpublish.system.<siteaccess>.user_preferences.additional_translations`, for example:
+
+    `ezpublish.system.<siteaccess>.user_preferences.additional_translations: ['pl_PL', 'fr_FR']`
+
+    Then, run `composer run post-update-cmd` and clear the cache.
+
+##### Contributing Back Office translations
 
 To learn how to contribute to a translation, see [Contributing translations](../community_resources/translations.md).
+
+### Choosing language of the Back Office
+
+Once you have language packages installed, you can switch the language of the Back Office
+in the User Settings menu.
+
+Otherwise, the language will be selected based on the browser language.
+If you do not have a language defined in the browser, the language will be selected
+based on `parameters.locale_fallback` in `default_parameters.yml`

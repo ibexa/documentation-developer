@@ -103,6 +103,7 @@ The following table presents all native matchers.
 |`Id\ContentType`|Matches the ID number of the Content Type that the Content item is an instance of.|
 |`Id\ContentTypeGroup`|Matches the ID number of the group containing the Content Type that the Content item is an instance of.|
 |`Id\Location`|Matches the ID number of a Location. *In the case of a Content item, matched against the main location.*|
+|`Id\LocationRemote`|Matches the Remote ID number of a Location. *In the case of a Content item, matches against the main Location.*|
 |`Id\ParentContentType`|Matches the ID number of the parent Content Type. *In the case of a Content item, matched against the main location.*|
 |`Id\ParentLocation`|Matches the ID number of the parent Location. *In the case of a Content item, matched against the main location.*|
 |`Id\Remote`|Matches the remoteId of either Content or Location, depending on the object matched.|
@@ -115,14 +116,24 @@ The following table presents all native matchers.
 
 ### Content view templates
 
-#### Available variables
+#### Template variables
+
+Every content view offers a set of variables you can use in templates and controllers.
+
+You can view the whole list of variables by using the `dump()` Twig function in your template.
+You can also dump a specific variable, for example `dump(location.id)`.
+
+Main Content-related variables include:
 
 |Variable name|Type|Description|
 |------|------|------|
-|`location`|[eZ\Publish\Core\Repository\Values\Content\Location](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Repository/Values/Content/Location.php)|The Location object. Contains meta information on the Content (ContentInfo) (only when accessing a Location) |
 |`content`|[eZ\Publish\Core\Repository\Values\Content\Content](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Repository/Values/Content/Content.php)|The Content item, containing all Fields and version information (VersionInfo)|
+|`location`|[eZ\Publish\Core\Repository\Values\Content\Location](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Repository/Values/Content/Location.php)|The Location object. Contains meta information on the Content (ContentInfo) (only when accessing a Location) |
 |`noLayout`|Boolean|If true, indicates if the Content item/Location is to be displayed without any pagelayout (i.e. AJAX, sub-requests, etc.). It's generally `false` when displaying a Content item in view type **full**.|
 |`viewBaseLayout`|String|The base layout template to use when the view is requested to be generated outside of the pagelayout (when `noLayout` is true).|
+
+The `dump()` function also displays other variables, such as specific configuration including the SiteAccess
+under the `ezpublish` key.
 
 #### Template inheritance and sub-requests
 
@@ -191,10 +202,10 @@ services:
     acme.my_view_provider:
         class: Acme\DemoBundle\Content\MyViewProvider
         tags:
-            - {name: ezpublish.view_provider, type: 'eZ\Publish\Core\MVC\Symfony\View\ContentView', priority: 30}
+            - {name: ezpublish.view_provider, type: eZ\Publish\Core\MVC\Symfony\View\ContentView, priority: 30}
 ```
 
-`type` should point to a class implementing the `View\View` interface. It determines which type of View will be handled by the `ViewProvider`. Out of the box it's either `eZ\Publish\Core\MVC\Symfony\View\ContentView` or `eZ\Publish\Core\MVC\Symfony\View\BlockView`.
+`type` should point to a class implementing the `View\View` interface. It determines which type of View will be handled by the `ViewProvider`. Out of the box it's `eZ\Publish\Core\MVC\Symfony\View\ContentView`.
 
 `priority` is an integer giving the priority to the `ViewProvider`. The priority range is from -255 to 255.
 
@@ -261,30 +272,6 @@ This section presents the events that are triggered by eZ Platform.
 |`ezpublish.pre_content_view`|Right before a view is rendered for a Content item, via the content view controller.|This event is triggered by the view manager and allows you to inject additional parameters to the content view template. The event listener method receives an `eZ\Publish\Core\MVC\Symfony\Event\PreContentViewEvent` object.|
 |`ezpublish.api.contentException`|The API throws an exception that could not be caught internally (missing field type, internal error...).|This event allows further programmatic handling (like rendering a custom view) for the exception thrown. The event listener method receives an `eZ\Publish\Core\MVC\Symfony\Event\APIContentExceptionEvent object`.|
 
-## Creating a new design using Bundle Inheritance
-
-Due to the fact that eZ Platform is built using the Symfony 2 framework, it is possible to benefit from most of its stock features such as Bundle Inheritance. To learn more about this concept in general, check out the [related Symfony documentation](http://symfony.com/doc/current/cookbook/bundles/override.html).
-
-Bundle Inheritance allows you to customize a template from a parent bundle. This is very convenient when creating a custom design for an already existing piece of code.
-
-The following example shows how to create a customized version of a template from the DemoBundle.
-
-### Creating a bundle
-
-Create a new bundle to host your design using the dedicated command (from your app installation):
-
-``` bash
-php bin/console generate:bundle
-```
-
-### Configuring bundle to inherit from another
-
-Following the related [Symfony documentation](http://symfony.com/doc/current/cookbook/bundles/inheritance.html), modify your bundle to make it inherit from the "eZDemoBundle". Then copy a template from the DemoBundle in the new bundle, following the same directory structure. Customize this template, clear application caches and reload the page. You custom design should be available.
-
-### Known limitation
-
-If you are experiencing problems with routes not working after adding your bundle, take a look at [this issue](https://jira.ez.no/browse/EZP-23575).
-
 ## Reference
 
 ### Twig Helper
@@ -301,16 +288,6 @@ This helper is accessible from all Twig templates and allows you to easily retri
 |`ezpublish.systemUriString`|	Returns the "system" URI string. System URI is the URI for internal content controller. If current route is not an URLAlias, then the current Pathinfo is returned.|
 |`ezpublish.viewParameters`|Returns the view parameters as a hash.|
 |`ezpublish.viewParametersString`|Returns the view parameters as a string.|
-|`ezpublish.legacy`|Returns legacy information.|
 |`ezpublish.translationSiteAccess`|Returns the translation SiteAccess for a given language, or null if it cannot be found.|
 |`ezpublish.availableLanguages`|Returns the list of available languages.|
 |`ezpublish.configResolver`|Returns the config resolver.|
-
-#### Legacy property
-
-The `ezpublish.legacy` property returns an object of type [ParameterBag](http://api.symfony.com/2.8/Symfony/Component/HttpFoundation/ParameterBag.html), which is a container for key/value pairs, and contains additional properties to retrieve/handle legacy information.
-
-!!! note
-
-    `ezpublish.legacy` is only available **when viewing content in legacy fallback** (e.g. no corresponding Twig templates).
-    See [5.x documentation](https://doc.ez.no/display/EZP/Twig+Helper#TwigHelper-Legacy) for more information.

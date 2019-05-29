@@ -13,7 +13,7 @@ ezsystems_extending_tutorial.all_content_list.list:
     defaults:
         page: 1
         contentTypeIdentifier: false
-        _controller: 'EzSystemsExtendingTutorialBundle:AllContentList:list'
+        _controller: EzSystemsExtendingTutorialBundle:AllContentList:list
 ```
 
 ## Modify the controller
@@ -188,8 +188,8 @@ inside `<section class="container my-4">`:
                     <tr>
                         <td><a href={{path('ez_urlalias', {'contentId': article.contentInfo.id})}}>{{ ez_content_name(article.contentInfo) }}</a></td>
                         <td>{{ article.contentInfo.contentTypeId }}</td>
-                        <td>{{ article.contentInfo.modificationDate|localizeddate( 'short', 'medium' ) }}</td>
-                        <td>{{ article.contentInfo.publishedDate|localizeddate( 'short', 'medium' ) }}</td>
+                        <td>{{ article.contentInfo.modificationDate|ez_full_datetime }}</td>
+                        <td>{{ article.contentInfo.publishedDate|ez_full_datetime }}</td>
                     </tr>
                 {% endfor %}
                 </tbody>
@@ -203,7 +203,7 @@ inside `<section class="container my-4">`:
 
 !!! tip
 
-    If you cannot see the results, clear the cache and reload the application.
+    If you cannot see the results or encounter an error, clear the cache and reload the application.
 
 At this point you should see a drop-down menu at the top of the content list.
 Select a Content Type and the list will filter to show only Content items of this type.

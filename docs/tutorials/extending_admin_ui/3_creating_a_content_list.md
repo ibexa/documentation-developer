@@ -26,7 +26,7 @@ EzSystems\ExtendingTutorialBundle\EventListener\:
 
 Then create a `MyMenuListener.php` file in `src/EzSystems/ExtendingTutorialBundle/EventListener`:
 
-``` php hl_lines="14 28"
+``` php hl_lines="14 26"
 <?php
 
 namespace EzSystems\ExtendingTutorialBundle\EventListener;
@@ -61,7 +61,7 @@ class MyMenuListener implements EventSubscriberInterface
 
 This listener subscribes to the `ConfigureMenuEvent::MAIN_MENU` event (see line 14).
 
-Line 28 points to the new route that you need to add to the routing file.
+Line 26 points to the new route that you need to add to the routing file.
 
 ## Add routing
 
@@ -72,7 +72,7 @@ ezsystems_extending_tutorial.all_content_list.list:
     path: /all_content_list/{page}
     defaults:
         page: 1
-        _controller: 'EzSystemsExtendingTutorialBundle:AllContentList:list'
+        _controller: EzSystemsExtendingTutorialBundle:AllContentList:list
 ```
 
 ## Create a controller
@@ -84,11 +84,11 @@ Add the following block (indented, under the `services` key) to that file:
 
 ``` yaml
 EzSystems\ExtendingTutorialBundle\Controller\:
-    resource: "../../Controller/*"
+    resource: '../../Controller/*'
     autowire: true
     autoconfigure: true
     public: false
-    exclude: "../../Controller/{Controller}"
+    exclude: '../../Controller/{Controller}'
 ```
 
 Then, in `src/EzSystems/ExtendingTutorialBundle/Controller` create a `AllContentListController.php` file:
@@ -185,8 +185,8 @@ Finally, create an `all_content_list.html.twig` file in `src/EzSystems/Extending
                 <tr>
                     <td><a href={{path('ez_urlalias', {'contentId': article.contentInfo.id})}}>{{ ez_content_name(article.contentInfo) }}</a></td>
                     <td>{{ article.contentInfo.contentTypeId }}</td>
-                    <td>{{ article.contentInfo.modificationDate|localizeddate( 'short', 'medium' ) }}</td>
-                    <td>{{ article.contentInfo.publishedDate|localizeddate( 'short', 'medium' ) }}</td>
+                    <td>{{ article.contentInfo.modificationDate|ez_full_datetime }}</td>
+                    <td>{{ article.contentInfo.publishedDate|ez_full_datetime }}</td>
                 </tr>
             {% endfor %}
             </tbody>
@@ -200,7 +200,7 @@ Finally, create an `all_content_list.html.twig` file in `src/EzSystems/Extending
 
 !!! tip
 
-    If you cannot see the results, clear the cache and reload the application.
+    If you cannot see the results or encounter an error, clear the cache and reload the application.
 
 At this point you can go to the Back Office and under "Content" you will see the new "Content list" item.
 Select it and you will see the list of all Content items in the Repository.

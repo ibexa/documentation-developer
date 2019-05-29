@@ -129,7 +129,7 @@ which ensures the tab looks the same as the existing tabs.
 
 !!! tip
 
-    If you cannot see the results, clear the cache and reload the application.
+    If you cannot see the results or encounter an error, clear the cache and reload the application.
 
 At this point you can go to the Dashboard in the Back Office.
 In the "Everyone" block you can see the new "Articles" tab with the first ten articles in the Repository.

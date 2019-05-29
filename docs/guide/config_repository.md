@@ -142,11 +142,11 @@ For example, the following command removes archived versions as user `admin`, bu
 `ezplatform_default_settings.yml` contains two settings that indicate which Content Types are treated like users and user groups:
 
 ``` yaml
-# User identifier
-ezsettings.default.user_content_type_identifier: ['user']
-
-# User Group identifier
-ezsettings.default.user_group_content_type_identifier: ['user_group']
+ezpublish:
+    system:
+        default:
+            user_content_type_identifier: [user]
+            user_group_content_type_identifier: [user_group]
 ```
 
 You can override these settings if you have other Content Types that should be treated as users/user groups in the Back Office.

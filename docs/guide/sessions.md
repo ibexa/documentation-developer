@@ -91,7 +91,7 @@ Alternatively if you need to configure Memcached servers dynamically:
         class: eZ\Bundle\EzPublishCoreBundle\Session\Handler\NativeSessionHandler
         arguments:
          - '%session.save_path%'
-         - 'memcached'
+         - memcached
 ```
 
 - Set `%ezplatform.session.handler_id%` (or `SESSION_HANDLER_ID` env var) to `app.session.handler.native_memcached`
@@ -143,8 +143,8 @@ framework:
 
 parameters:
     pdo.db_options:
-        db_table:    session
-        db_id_col:   session_id
+        db_table: session
+        db_id_col: session_id
         db_data_col: session_value
         db_time_col: session_time
 
@@ -152,11 +152,11 @@ services:
     pdo:
         class: PDO
         arguments:
-            dsn:      "mysql:dbname=<mysql_database>"
-            user:     <mysql_user>
+            dsn: 'mysql:dbname=<mysql_database>'
+            user: <mysql_user>
             password: <mysql_password>
 
     session.handler.pdo:
-        class:     Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler
-        arguments: ["@pdo", "%pdo.db_options%"]
+        class: Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler
+        arguments: ['@pdo', '%pdo.db_options%']
 ```
