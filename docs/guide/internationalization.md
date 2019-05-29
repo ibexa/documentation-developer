@@ -267,17 +267,3 @@ When setting up SiteAccesses with different language versions, you can specify a
 You can also assign a Default content availability flag to Content Types (available in the Admin Panel). When this flag is assigned, Content items of this type will be available even when they do not have a language version in any of the languages configured for the current SiteAccess.
 
 Note that if a language is not provided in the list of prioritized languages and it is not the Content item's first language, the URL alias for this content in this language will not be generated.
-
-## Translating the UI of eZ Platform
-
-### Installing new UI translations
-
-If you want to install a new language in your project, install the corresponding package.
-
-For example, if you want to translate your application into French, run:
-
-    `composer require ezplatform-i18n/ezplatform-i18n-fr_fr`
-
-and then clear the cache.
-
-Now you can reload your eZ Platform back end which will be translated in French (if your browser is configured to `fr_FR`.)
