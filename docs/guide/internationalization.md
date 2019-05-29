@@ -269,39 +269,3 @@ When setting up SiteAccesses with different language versions, you can specify a
 You can also assign a Default content availability flag to Content Types (available in the Admin Panel). When this flag is assigned, Content items of this type will be available even when they do not have a language version in any of the languages configured for the current SiteAccess.
 
 Note that if a language is not provided in the list of prioritized languages and it is not the Content item's first language, the URL alias for this content in this language will not be generated.
-
-## Back Office languages
-
-### Installing new UI translations
-
-If you want to install a new language in your project, install the corresponding package.
-
-For example, if you want to translate your application into French, run:
-
-`composer require ezplatform-i18n/ezplatform-i18n-fr_fr`
-
-and then clear the cache.
-
-Now you can reload your eZ Platform back end which will be translated in French (if your browser is configured to `fr_FR`.)
-
-!!! tip
-
-    If you do not want to add a bundle with Back Office translation, you can manually add the necessary xliff files.
-    Add the language to an array under `ezpublish.system.<siteaccess>.user_preferences.additional_translations`, for example:
-
-    `ezpublish.system.<siteaccess>.user_preferences.additional_translations: ['pl_PL', 'fr_FR']`
-
-    Then, run `composer run post-update-cmd` and clear the cache.
-
-##### Contributing Back Office translations
-
-To learn how to contribute to a translation, see [Contributing translations](../community_resources/translations.md).
-
-### Choosing language of the Back Office
-
-Once you have language packages installed, you can switch the language of the Back Office
-in the User Settings menu.
-
-Otherwise, the language will be selected based on the browser language.
-If you do not have a language defined in the browser, the language will be selected
-based on `parameters.locale_fallback` in `default_parameters.yml`
