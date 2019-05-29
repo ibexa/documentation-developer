@@ -34,6 +34,11 @@ You can extend the Back Office in the following areas:
 - [Page blocks](extending_page.md#creating-page-blocks)
 - [Form fields](extending_form_builder.md#extending-form-fields)
 
+!!! note "String translations"
+
+    Refer to [Custom string translations](back_office_translations.md#custom-string-translations)
+    to learn how to provide string translations when extending the Back Office.
+
 ## Menus
 
 Back Office menus are based on the [KnpMenuBundle](https://github.com/KnpLabs/KnpMenuBundle) and are easily extensible.
@@ -111,7 +116,7 @@ After creating a subscriber, add it to `app/config/services.yml`:
 services:
     EzSystems\EzPlatformAdminUi\EventListener\MenuListener:
         tags:
-           - { name: kernel.event.subscriber } 
+           - { name: kernel.event.subscriber }
 
 ```
 
