@@ -64,7 +64,6 @@ If a problem occurs, the following warning appears:
 _ConfigResolver was used to load parameter `languages` before SiteAccess was loaded by services: "my.own.service", "ez.service.used.to.early"._
 _This can cause issues. Try to use ConfigResolver lazily, make commands that rely on them lazy, or try to mark the service as lazy._
 
-
 To avoid issues:
 
 - Avoid eager usage of config resolver (e.g. in service factories).
