@@ -284,6 +284,7 @@ You can also set each attribute to be `required` and set its `default_value`.
 
 For the `choice` type, you must provide an array of available `choices`.
 Adding `multiple` enables you to choose whether more than one option can be selected.
+It is set to `false` by default.
 
 The example below adds two data attributes, `custom_attribute` and `another_attribute`
 to the Heading element:
@@ -308,8 +309,8 @@ ezpublish:
                                 multiple: true
 ```
 
-This configuration will output `data-<attribute_name>` in the corresponding HTML element,
-in this example as `data-custom-attribute` and `data-another-attribute`.
+This configuration will output `data-ezattribute-<attribute_name>="<value>"` in the corresponding HTML element,
+in this example as `data-ezattribute-custom-attribute="false"` and `data-ezattribute-another-attribute="attr1,attr2"`.
 
 ### Custom CSS classes
 
@@ -318,6 +319,7 @@ The configuration is SiteAccess-aware.
 
 You must provide the available `choices`.
 You can also set the values for `required`, `default_value` and `multiple`.
+`multiple` is set to true by default.
 
 The example below adds a class choice to the Paragraph element:
 
