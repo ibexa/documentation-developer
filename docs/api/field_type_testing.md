@@ -15,7 +15,7 @@ This type of integration test ensures that a Field Type stores its data properly
 
     At the moment only Legacy Storage implementation is available.
 
-The integration tests with the Persistence SPI is in `eZ\Publish\SPI\Tests\FieldType`. In order to implement a test for your custom Field Type, you need to extend the common base class `eZ\Publish\SPI\Tests\FieldType\BaseIntegrationTest` and implement its abstract methods.
+The integration tests with the Persistence SPI are in `eZ\Publish\SPI\Tests\FieldType`. In order to implement a test for your custom Field Type, you need to extend the common base class `eZ\Publish\SPI\Tests\FieldType\BaseIntegrationTest` and implement its abstract methods.
 
 !!! tip
 
