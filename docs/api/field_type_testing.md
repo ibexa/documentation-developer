@@ -5,7 +5,7 @@ Field Types should be integration tested on 2 different levels:
 1.  Their integration with the Persistence SPI
 2.  Their integration with the Public API
 
-For both test environments, infrastructure is already in place, so you can easily implement the required tests for your custom Field Type
+For both test environments, infrastructure is already in place, so you can easily implement the required tests for your custom Field Type.
 
 ## Persistence SPI
 
@@ -15,7 +15,7 @@ This type of integration test ensures that a Field Type stores its data properly
 
     At the moment only Legacy Storage implementation is available.
 
-The integration tests with the Persistence SPI can be found in `eZ\Publish\SPI\Tests\FieldType`. In order to implement a test for your custom Field Type, you need to extend the common base class `eZ\Publish\SPI\Tests\FieldType\BaseIntegrationTest` and implement its abstract methods.
+The integration tests with the Persistence SPI is in `eZ\Publish\SPI\Tests\FieldType`. In order to implement a test for your custom Field Type, you need to extend the common base class `eZ\Publish\SPI\Tests\FieldType\BaseIntegrationTest` and implement its abstract methods.
 
 !!! tip
 

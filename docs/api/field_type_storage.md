@@ -5,7 +5,7 @@
 If you want to store Field values in regular eZ Platform database tables,
 the `FieldValue` must be converted to the storage-specific format used by the Persistence SPI:
 `eZ\Publish\SPI\Persistence\Content\FieldValue`.
-After restoring a Field of the Field Type, the conversion must be reversed.
+After restoring a Field of the Field Type, you must reverse the conversion.
 
 The following methods of the Field Type are responsible for that:
 
@@ -27,7 +27,7 @@ The SPI `FieldValue` struct has properties which the Field Type can use:
 The default Legacy storage engine cannot store arbitrary value information as provided by a Field Type.
 This means that using this storage engine requires a conversion.
 
-The conversion takes place through the interface `eZ\Publish\Core\Persistence\Legacy\Content\FieldValue\Converter`,
+The conversion takes place through the `eZ\Publish\Core\Persistence\Legacy\Content\FieldValue\Converter` interface,
 which you must implement in your Field Type. The interface contains the following methods:
 
 |Method|Description|
@@ -55,7 +55,7 @@ The tag has the following attribute:
 
 | Attribute name | Usage |
 |----------------|-------|
-| alias | Represents the `fieldTypeIdentifier` (just like for the [Field Type service](field_type_type_and_value.md#registration)). |
+| `alias` | Represents the `fieldTypeIdentifier` (just like for the [Field Type service](field_type_type_and_value.md#registration)). |
 
 !!! tip
 
@@ -77,9 +77,9 @@ calls one of the following methods to also access the external data:
 |------|-----------|
 |`hasFieldData()`|Returns whether the Field Type stores external data at all.|
 |`storeFieldData()`|Called right before a Field of the Field Type is stored. The method stores `$externalData`. It returns `true` if the call manipulated internal data of the given Field, so that it is updated in the internal database.|
-|`getFieldData()`|Is called after a Field has been restored from the database in order to restore `$externalData`.|
+|`getFieldData()`|Called after a Field has been restored from the database in order to restore `$externalData`.|
 |`deleteFieldData()`|Must delete external data for the given Field, if exists.|
-|`getIndexData()`|Returns the actual index data for the provided `eZ\Publish\SPI\Persistence\Content\Field`. For more information see [search service](field_type_search.md#search-field-values).|
+|`getIndexData()`|Returns the actual index data for the provided `eZ\Publish\SPI\Persistence\Content\Field`. For more information, see [search service](field_type_search.md#search-field-values).|
 
 Each of the above methods receives a `$context` array with information on the underlying storage and the environment.
 This context can be used to store data in the eZ Platform data storage,
@@ -103,7 +103,7 @@ The registry mechanism is realized as a base class for `FieldStorage` implementa
 
 |Method|Description|
 |------|-----------|
-|`addGateway()`|Allows the registration of additional `StorageGateway`s from the outside. Furthermore, an associative array of `StorageGateway`s can be given to the constructor for basic initialization. This array should originate from the Dependency Injection mechanism.|
+|`addGateway()`|Allows the registration of additional `StorageGateway`s from the outside. Furthermore, an associative array of `StorageGateway`s can be given to the constructor for basic initialization. This array should originate from the Dependency injection mechanism.|
 |`getGateway()`|This protected method is used by the implementation to retrieve the correct `StorageGateway` for the current context.|
 
 !!! tip
@@ -145,7 +145,7 @@ services:
         arguments: ["@ezpublish.api.storage_engine.legacy.connection"]
 ```
 
-`ezpublish.api.storage_engine.legacy.connection` is of type `Doctrine\DBAL\Connection`. If your gateway still uses an implementation of `eZ\Publish\Core\Persistence\Database\DatabaseHandler` (`eZ\Publish\Core\Persistence\Doctrine\ConnectionHandler`), instead of the `ezpublish.api.storage_engine.legacy.connection` you can pass the `ezpublish.api.storage_engine.legacy.dbhandler` service.
+Note that `ezpublish.api.storage_engine.legacy.connection` is of type `Doctrine\DBAL\Connection`. If your gateway still uses an implementation of `eZ\Publish\Core\Persistence\Database\DatabaseHandler` (`eZ\Publish\Core\Persistence\Doctrine\ConnectionHandler`), instead of the `ezpublish.api.storage_engine.legacy.connection`, you can pass the `ezpublish.api.storage_engine.legacy.dbhandler` service.
 
 For this to work properly, your storage handler must inherit from `eZ\Publish\SPI\FieldType\GatewayBasedStorage`.
 

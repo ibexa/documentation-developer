@@ -8,12 +8,14 @@ It can implement two interfaces:
 
 - `EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface` to provide editing support
 - `EzSystems\RepositoryForms\FieldType\FieldDefinitionFormMapperInterface` to provide Field Type definition editing support,
-when you require non-standard settings.
+when you require non-standard settings
 
 ### FieldValueFormMapperInterface
 
 The `FieldValueFormMapperInterface::mapFieldValueForm` method accepts two arguments:
-`FormInterface` (form for the current Field) and `FieldData` (underlying data for current field form).
+
+- `FormInterface` — form for the current Field
+- `FieldData` — underlying data for current field form
 
 You have to add your form type to the content editing form. The example shows how `ezboolean` injects the form:
 
@@ -94,7 +96,7 @@ public function mapFieldDefinitionForm(FormInterface $fieldDefinitionForm, Field
 ```
 
 Use names corresponding to the keys used in Field Type's `eZ\Publish\SPI\FieldType\FieldType::$settingsSchema` implementation.
-Special key `defaultValue` allows you to specify a field for setting default value assigned during content editing.
+The special `defaultValue` key allows you to specify a field for setting the default value assigned during content editing.
 
 ### Registering the service
 
@@ -107,8 +109,10 @@ Acme\ExampleBundle\FieldType\Mapper\CustomFieldTypeMapper:
         - { name: ez.fieldFormMapper.value, fieldType: custom }
 ```
 
-Services must be tagged with `ez.fieldFormMapper.value` when providing content editing support (`FieldValueFormMapperInterface` interface)
-and with `ez.fieldFormMapper.definition` when providing Field Type definition editing support (`FieldDefinitionFormMapperInterface` interface).
+Tag the mapper according to the support you need to provide:
+
+- Add the `ez.fieldFormMapper.value` tag when providing content editing support (`FieldValueFormMapperInterface` interface).
+- Add the `ez.fieldFormMapper.definition` tag when providing Field Type definition editing support (`FieldDefinitionFormMapperInterface` interface).
 The `fieldType` key has to correspond to the name of your Field Type.
 
 ## Content view templates
@@ -145,7 +149,7 @@ The block can receive the following variables:
 | `versionInfo` | `eZ\Publish\API\Repository\Values\Content\VersionInfo` | The VersionInfo of the Content item the Field belongs to |
 | `fieldSettings` | mixed | Settings of the Field (depends on the Field Type) |
 | `parameters` | hash | Options passed to `ez_render_field()` under the `'parameters'` key |
-| `attr` | hash | The attributes to add the generate the HTML markup, passed to ez_render_field()` under the `'attr'` key. Contains at least a class entry, containing <fieldtypeidentifier>-field |
+| `attr` | hash | The attributes to add the generate the HTML markup, passed to ez_render_field()` under the `'attr'` key. <br> Contains at least a class entry, containing <fieldtypeidentifier>-field |
 
 ### Reusing blocks
 
@@ -159,7 +163,7 @@ You can for example use `simple_block_field`, `simple_inline_field` or `field_at
 
 ### Registering your template
 
-If you don't use [eZ Design Engine](../guide/design_engine.md) or want to have separate templates per Field Type and/or SiteAccess,
+If you don't use [eZ Design Engine](../guide/design_engine.md) or you want to have separate templates per Field Type and/or SiteAccess,
 you can register a template with the following configuration:
 
 ``` yaml
@@ -178,7 +182,7 @@ ezpublish:
 ### Back Office view template
 
 For templates for previewing the Field in the Back Office,
-using eZ Design is recommended (with `ez_platform_standard_design.override_kernel_templates` set to `true`).
+using eZ Design is recommended with `ez_platform_standard_design.override_kernel_templates` set to `true`.
 With eZ Design you can apply a template (e.g. `Resources/views/themes/admin/content_fields.html.twig`) without any extra configuration.
 
 If you do not use eZ Design, apply the following configuration:

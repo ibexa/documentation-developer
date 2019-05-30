@@ -35,7 +35,7 @@ The type is asked to validate the settings (provided by the user) before the Pub
 
 As in `validateFieldSettings()`, this method verifies that the given validator configuration complies to the schema provided by `getValidatorConfigurationSchema()`.
 
-It is important to note that the schema definitions of the Field Type can be both of arbitrary and serializable format, it is highly recommended to use a simple hash structure.
+It is important to note that the schema definitions of the Field Type can be both of arbitrary and serializable format. It is highly recommended to use a simple hash structure.
 
 !!! note
 
@@ -45,16 +45,16 @@ This will also apply to all user interfaces and the REST API, which therefore mu
 
 ### Field Type name
 
-To be able to generate Content item name when the Field is part of a name schema or a url schema,
-implement `eZ\Publish\SPI\FieldType\Nameable` and register this service using the tag `ezpublish.fieldType.nameable`.
+To be able to generate a Content item name when the Field is part of a name schema or a URL schema,
+implement `eZ\Publish\SPI\FieldType\Nameable` and register this service using the `ezpublish.fieldType.nameable` tag.
 
-The method `eZ\Publish\SPI\FieldType\Nameable::getFieldName` will be used to retrieve the name.
+The `eZ\Publish\SPI\FieldType\Nameable::getFieldName` method will be used to retrieve the name.
 
 ``` yaml
 ezpublish.fieldType.ezobjectrelation.nameable_field:
-    class: %ezpublish.fieldType.ezobjectrelation.nameable_field.class%
+    class: '%ezpublish.fieldType.ezobjectrelation.nameable_field.class%'
     arguments:
-      - @ezpublish.spi.persistence.cache.contentHandler
+      - '@ezpublish.spi.persistence.cache.contentHandler'
     tags:
         - {name: ezpublish.fieldType.nameable, alias: ezobjectrelation}
 ```
@@ -65,7 +65,7 @@ A Field Type needs to deal with the custom value format provided by it. In order
 
 #### `acceptValue()`
 
-This method is responsible for accepting and converting user input for the Field. It checks the input structure by accepting, building and returning a different structure holding the data.
+This method is responsible for accepting and converting user input for the Field. It checks the input structure by accepting, building, and returning a different structure holding the data.
 
 For example: a user provides an HTTP link as a string, `acceptValue()` converts the link to a URL Field Type value object. Unlike the `FieldType\Value` constructor, it is possible to make this method aware of multiple input types (object or primitive).
 
@@ -75,19 +75,22 @@ For example: a user provides an HTTP link as a string, `acceptValue()` converts 
 
 #### `getEmptyValue()`
 
-The Field Type can specify that the user may define a default value for the `Field` of the type through settings. If no default value is provided, the Field Type is asked for an "empty value" as the final fallback. The value chain for filling a specific Field of the Field Type is as follows:
+The Field Type can specify that the user may define a default value for the `Field` of the type through settings. If no default value is provided, the Field Type is asked for an "empty value" as the final fallback. 
+
+The value chain for filling a specific Field of the Field Type is as follows:
 
 1. Is a value provided by the filling user?
 2. If not, is a default value provided by the`FieldDefinition`?
-3. If not, take the empty value provided by the `FieldType`
+3. If not, take the empty value provided by the `FieldType`.
 
 #### `validate()`
 
-In contrast to `acceptValue()` this method validates the plausibility of the given value, based on the Field Type settings and validator configuration, stored in the corresponding `FieldDefinition`.
+In contrast to `acceptValue()` this method validates the plausibility of the given value.
+It is based on the Field Type settings and validator configuration and stored in the corresponding `FieldDefinition`.
 
 ### Serialization
 
-When [REST API](rest_api_guide.md) is used, conversion needs to be done for Field Type values, settings and validator configurations. These are converted to and from a simple hash format that can be encoded in REST payload. As conversion needs to be done both when transmitting and receiving data through REST, Field Type implements following pairs of methods:
+When [REST API](rest_api_guide.md) is used, conversion needs to be done for Field Type values, settings and validator configurations. These are converted to and from a simple hash format that can be encoded in REST payload. As conversion needs to be done both when transmitting and receiving data through REST, Field Type implements the following pairs of methods:
 
 |Method|Description|
 |------|-----------|
@@ -100,28 +103,28 @@ When [REST API](rest_api_guide.md) is used, conversion needs to be done for Fiel
 
 ## Registration
 
-A Field Type must be registered as a service.
+A Field Type must be registered as a service:
 
 ``` yaml
 services:
     EzSystems\EzPlatformMatrixFieldtype\FieldType\Type:
         parent: ezpublish.fieldType
         tags:
-            - {name: ezpublish.fieldType, alias: 'ezmatrix'}
+            - {name: ezpublish.fieldType, alias: ezmatrix}
 ```
 
-`parent`
+#### `parent`
 
 As described in the [Symfony Dependency Injection Component documentation](http://symfony.com/doc/master/components/dependency_injection/parentservices.html), the `parent` config key indicates that you want your service to inherit from the parent's dependencies, including constructor arguments and method calls. This helps avoiding repetition in your Field Type configuration and keeps consistency between all Field Types.
 
-`tags`
+#### `tags`
 
 You must tag the Field Type service with `ezpublish.fieldType` so it is recognized as a regular Field Type.
 The `alias` key is the `fieldTypeIdentifier`.
 
 !!! tip
 
-    Configuration of built-in Field Types is located in [`EzPublishCoreBundle/Resources/config/fieldtypes.yml`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.0/eZ/Publish/Core/settings/fieldtypes.yml).
+    The configuration of built-in Field Types is located in [`EzPublishCoreBundle/Resources/config/fieldtypes.yml`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.0/eZ/Publish/Core/settings/fieldtypes.yml).
 
 ## Field Type settings
 
@@ -152,7 +155,9 @@ The settings are mapped into Symfony forms via the [FormMapper](field_type_form_
 
 ## Extensibility points
 
-Some Field Types will require additional processing, for example a Field Type storing a binary file, or one having more complex settings or validator configuration. For this purpose specific implementations of an abstract class `eZ\Publish\Core\REST\Common\FieldTypeProcessor` are used. This class provides the following methods:
+Some Field Types will require additional processing, for example a Field Type storing a binary file, or one having more complex settings or validator configuration. For this purpose specific implementations of an abstract class `eZ\Publish\Core\REST\Common\FieldTypeProcessor` are used. 
+
+This class provides the following methods:
 
 |Method|Description|
 |------|-----------|
