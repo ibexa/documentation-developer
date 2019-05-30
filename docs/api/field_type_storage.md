@@ -81,7 +81,7 @@ calls one of the following methods to also access the external data:
 |`deleteFieldData()`|Must delete external data for the given Field, if exists.|
 |`getIndexData()`|Returns the actual index data for the provided `eZ\Publish\SPI\Persistence\Content\Field`. For more information, see [search service](field_type_search.md#search-field-values).|
 
-Each of the above methods receives a `$context` array with information on the underlying storage and the environment.
+Each of the above methods (except `hasFieldData`) receives a `$context` array with information on the underlying storage and the environment.
 This context can be used to store data in the eZ Platform data storage,
 but outside of the normal structures (e.g. a custom table in an SQL database).
 
@@ -119,12 +119,14 @@ Here is an example for the `ezurl` Field Type:
 
 ``` yaml
 services:
-    ezpublish.fieldType.ezurl.externalStorage:
-        class: '\eZ\Publish\Core\FieldType\Url\UrlStorage'
-        arguments:
-            - "@ezpublish.fieldType.ezurl.storage_gateway"
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Acme\ExampleBundle\FieldType\MyField\Storage\MyFieldStorage: ~
         tags:
-            - {name: ezpublish.fieldType.externalStorageHandler, alias: ezurl}
+            - {name: ezpublish.fieldType.externalStorageHandler, alias: myfield}
 ```
 
 The configuration requires providing the `ezpublish.fieldType.externalStorageHandler` tag, with the `alias` attribute being the *fieldTypeIdentifier*. You also have to inject the gateway in `arguments`, [see below](#gateway-based-storage).
@@ -140,16 +142,18 @@ parameters:
     ezpublish.fieldType.ezurl.storage_gateway.class: eZ\Publish\Core\FieldType\Url\UrlStorage\Gateway\LegacyStorage
 
 services:
-    ezpublish.fieldType.ezurl.storage_gateway:
-        class: %ezpublish.fieldType.ezurl.storage_gateway.class%
-        arguments: ["@ezpublish.api.storage_engine.legacy.connection"]
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Acme\ExampleBundle\FieldType\MyField\Storage\Gateway\DoctrineStorage: ~
 ```
 
 Note that `ezpublish.api.storage_engine.legacy.connection` is of type `Doctrine\DBAL\Connection`. If your gateway still uses an implementation of `eZ\Publish\Core\Persistence\Database\DatabaseHandler` (`eZ\Publish\Core\Persistence\Doctrine\ConnectionHandler`), instead of the `ezpublish.api.storage_engine.legacy.connection`, you can pass the `ezpublish.api.storage_engine.legacy.dbhandler` service.
 
-For this to work properly, your storage handler must inherit from `eZ\Publish\SPI\FieldType\GatewayBasedStorage`.
 
-Also note that there can be several gateways per Field Type (one per storage engine).
+Also note that there can be several gateways per Field Type (one per storage engine). In this case it's recommended to either create base implementation which each gateway can inherit or create interface which each gateway must implement and reference it instead of specific implementation when type-hinting method arguments.
 
 !!! tip
 

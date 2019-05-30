@@ -147,7 +147,7 @@ The block can receive the following variables:
 | `field` | `eZ\Publish\API\Repository\Values\Content\Field` | The field to display |
 | `contentInfo` | `eZ\Publish\API\Repository\Values\Content\ContentInfo` | The ContentInfo of the Content item the Field belongs to |
 | `versionInfo` | `eZ\Publish\API\Repository\Values\Content\VersionInfo` | The VersionInfo of the Content item the Field belongs to |
-| `fieldSettings` | mixed | Settings of the Field (depends on the Field Type) |
+| `fieldSettings` | array | Settings of the Field (depends on the Field Type) |
 | `parameters` | hash | Options passed to `ez_render_field()` under the `'parameters'` key |
 | `attr` | hash | The attributes to add the generate the HTML markup, passed to ez_render_field()` under the `'attr'` key. <br> Contains at least a class entry, containing <fieldtypeidentifier>-field |
 

@@ -31,6 +31,5 @@ which resides in `eZ\Publish\API\Repository\Tests\FieldType\BaseIntegrationTest`
 
 !!! note
 
-    Note that the In-Memory stubs for the Public API integration test suite do not perform actual Field Type calls, but mainly emulate the behavior of a Field Type for the sake of simplicity.
 
     If your Field Type needs to convert data between `storeFieldData()` and `getFieldData()`, you need to additionally implement an `eZ\Publish\API\Repository\Tests\Stubs\PseudoExternalStorage`, which performs this task. Running the tests against the business layer implementation of the Public API is not affected by this.
