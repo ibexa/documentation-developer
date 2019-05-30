@@ -48,7 +48,7 @@ Those converters also need to be correctly exposed as services and tagged with `
 services:
     eZ\Publish\Core\Persistence\Legacy\Content\FieldValue\Converter\TextLine:
         tags:
-            - {name: ezpublish.storageEngine.legacy.converter, alias: ezstring, lazy: true, callback: '::create'}
+            - {name: ezpublish.storageEngine.legacy.converter, alias: ezstring}
 ```
 
 The tag has following attributes:
@@ -56,8 +56,6 @@ The tag has following attributes:
 | Attribute name | Usage |
 |----------------|-------|
 | alias | Represents the `fieldTypeIdentifier` (just like for the [Field Type service](field_type_type_and_value.md#registration)). |
-| lazy | Boolean indicating if the converter should be lazy loaded or not. Performance-wise, it is recommended to set it to true unless you have very specific reasons. |
-| callback | If lazy is set to true, it represents the callback that will be called to build the converter. Any valid callback can be used. Note that if the callback is defined in the converter class, the class name can be omitted. This way, in the example above, the full callback will be resolved to `eZ\Publish\Core\Persistence\Legacy\Content\FieldValue\Converter\TextLine::create` |
 
 !!! tip
 

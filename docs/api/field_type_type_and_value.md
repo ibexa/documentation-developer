@@ -61,7 +61,7 @@ ezpublish.fieldType.ezobjectrelation.nameable_field:
 
 ## Value handling
 
-A Field Type needs to deal with the custom value format provided by it. In order for the public API to work properly, it delegates working with such custom Field values to the corresponding Field Type. The `SPI\FieldType\FieldType` interface therefore provides the following methods:
+A Field Type needs to deal with the custom value format provided by it. In order for the public API to work properly, it delegates working with such custom Field values to the corresponding Field Type. The `ez\Publish\SPI\FieldType\FieldType` interface therefore provides the following methods:
 
 #### `acceptValue()`
 

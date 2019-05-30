@@ -33,7 +33,6 @@ The following sequence diagrams visualize the process of creating and publishing
 
 !!! note "indexLocation()"
 
-    `indexLocation()` is implemented for **ElasticSearch** only.
     For **Solr** Locations are indexed during Content indexing.
     For **Legacy/SQL** indexing is not required as Location data already exists in a database.
 
