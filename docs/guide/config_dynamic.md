@@ -49,9 +49,9 @@ It will log all instances of `getParameter()` that may be used unsafely.
 
 To avoid issues:
 - Avoid eager usage of config resolver (e.g. in service factories).
-- Instead of using `ctor('$dynamic_param$')`, use `(setter('$dynamic_param$'))` as it allows the system to update the scope changes.
-- Load the parameter lazily by injecting ConfigResolver with the required value only when necessary.
-- Try using [lazy commands](https://symfony.com/doc/current/console/lazy_commands.html) (applicable only to eZ Platform v2.5 or higher).
+- Instead of using `ctor('$dynamic_param$')`, use `(setter('$dynamic_param$'))` as it allows the system to update your service with changes on scope changes.
+- Load the parameter lazily by injecting ConfigResolver, and get the parameter from it _when_ you need to instead of during construction.
+- Try using [lazy commands](https://symfony.com/doc/current/console/lazy_commands.html) (applicable only to Symfony v3.4 or higher).
 - Try configuring [lazy services](https://symfony.com/doc/current/service_container/lazy_services.html).
 
 !!! tip
