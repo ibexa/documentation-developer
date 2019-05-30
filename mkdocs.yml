@@ -65,7 +65,6 @@ pages:
             - 'Form and template': 'api/field_type_form_and_template.md'
             - 'Storage': 'api/field_type_storage.md'
             - 'Validation': 'api/field_type_validation.md'
-            - 'Testing': 'api/field_type_testing.md'
             - 'Searching': 'api/field_type_search.md'
             - 'Reference': 'api/field_type_reference.md'
         - GraphQL:

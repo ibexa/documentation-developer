@@ -82,8 +82,9 @@ calls one of the following methods to also access the external data:
 |`getIndexData()`|Returns the actual index data for the provided `eZ\Publish\SPI\Persistence\Content\Field`. For more information, see [search service](field_type_search.md#search-field-values).|
 
 Each of the above methods (except `hasFieldData`) receives a `$context` array with information on the underlying storage and the environment.
-This context can be used to store data in the eZ Platform data storage,
-but outside of the normal structures (e.g. a custom table in an SQL database).
+To retrieve and store data in the eZ Platform data storage,
+but outside of the normal structures (e.g. a custom table in an SQL database),
+use [Gateway-based storage](#gateway-based-storage) with properly injected Doctrine Connection.
 
 Note that the Field Type must take care on its own for being compliant with different data sources and that third parties can extend the data source support easily.
 
@@ -115,7 +116,7 @@ The registry mechanism is realized as a base class for `FieldStorage` implementa
 To use external storage, you need to define a service implementing the `eZ\Publish\SPI\FieldType\FieldStorage` interface
 and tag it as `ezpublish.fieldType.externalStorageHandler` to be recognized by the Repository.
 
-Here is an example for the `ezurl` Field Type:
+Here is an example for the `myfield` Field Type:
 
 ``` yaml
 services:
@@ -138,9 +139,6 @@ External storage configuration for basic Field Types is located in [eZ/Publish/C
 Using gateway-based storage requires another service implementing `eZ\Publish\SPI\FieldType\StorageGateway` to be injected into the [external storage handler](#storing-external-data)).
 
 ``` yaml
-parameters:
-    ezpublish.fieldType.ezurl.storage_gateway.class: eZ\Publish\Core\FieldType\Url\UrlStorage\Gateway\LegacyStorage
-
 services:
     _defaults:
         autowire: true
