@@ -4,7 +4,7 @@ In this step you will enable other users to create accounts on your site, access
 
 ## Enable registration
 
-From Admin, go to the **Roles** management screen and select the **Anonymous** Role.
+From Admin, go to the **Roles** management screen and click on the **Anonymous** Role.
 
 ![Available Roles](img/step_6_role_mgmt_screen.png)
 
@@ -25,7 +25,7 @@ ezpublish:
             # existing content_view keys
             user_registration:
                 templates:
-                    form: 'user/registration_form.html.twig'
+                    form: user/registration_form.html.twig
 ```
 
 This indicates which template will be used to render the registration form.
@@ -201,7 +201,7 @@ Now add the following Policies to the Contributors Role.
 !!! tip
 
     The Limitations are a powerful tool for fine-tuning the permission management of the Users.
-    See [the documentation about Limitations for more technical details](../../guide/limitations.md#usergrouplimitation)
+    See [the documentation about Limitations for more technical details](../../guide/limitation_reference.md#content-type-group-limitation)
 
 Once the Policies are set, go to the "Assignments" tab and assign the Role to the User Group *Go Bike Members*.
 

@@ -28,7 +28,11 @@
 
 #### RichText Field Type
 
-RichText Field Type has been extracted to a separate bundle, [ezplatform-richtext](https://github.com/ezsystems/ezplatform-richtext).
+RichText Field Type has been extracted to a separate bundle, [ezsystems/ezplatform-richtext](https://github.com/ezsystems/ezplatform-richtext). Relying on any class from the `eZ\Publish\Core\FieldType\RichText` namespace is deprecated.
+
+If you're implementing any interface or extending any base class from the old namespace, refer to its PHPDoc to see what to implement or extend instead.
+Make sure to enable the new eZ Platform RichTextBundle.
+
 See [RichText Field Type Reference](../api/field_type_reference.md#richtext-field-type).
 
 #### RichText block
@@ -145,7 +149,7 @@ This release introduces a few simplifications to API use for Content Types:
 
 #### Load multiple Locations
 
-You are now able to load multiple Locations at once. The biggest benefit of this feature is saving up to several seconds of load time on complex landing pages when HTTP cache is cold or disabled.  
+You are now able to load multiple Locations at once, using `LocationService->loadLocationList()`. The biggest benefit of this feature is saving load time on complex landing pages when HTTP cache is cold or disabled, including when in development mode.  
 
 ### BC breaks and important behavior changes
 
@@ -166,14 +170,14 @@ You are now able to load multiple Locations at once. The biggest benefit of this
 !!! enterprise
 
     ### Update eZ Enterprise v2.4 to v2.4.2
-    
+
     This release brings [full support for Map\Host matcher](https://jira.ez.no/browse/EZEE-2572) when SiteAccesses are configured for different domains.
-    
+
     Token-based authentication (based on JSON Web Token specification) replaced cookie-based authentication that did not work with SiteAccesses configured for a different domains in the Page Builder.
     Authentication mechanizm is enabled by default in v2.4.2, however, the following steps are required during upgrade from v2.4 to v2.4.2+ Enterprise installation:
 
     1\. Register `LexikJWTAuthenticationBundle` bundle in `/app/AppKernel.php`
-    
+
     ``` php
      public function registerBundles()
      {
@@ -185,9 +189,9 @@ You are now able to load multiple Locations at once. The biggest benefit of this
          );
      }
     ```
-     
+
     2\. Add the following configuration to `/app/config/config.yml`
-     
+
     ``` yaml
      lexik_jwt_authentication:
          secret_key: '%secret%'
@@ -202,11 +206,11 @@ You are now able to load multiple Locations at once. The biggest benefit of this
              query_parameter:
                  enabled: false
     ```
-     
+
     By default `HS256` is used as signature algorithm for generated token but we strongly recommend switching to SSH keys. For more information see [`LexikJWTAuthenticationBundle` installation instruction.](https://github.com/lexik/LexikJWTAuthenticationBundle/blob/master/Resources/doc/index.md#installation)
-     
+
     3\. Add `EzSystems\EzPlatformPageBuilder\Security\EditorialMode\TokenAuthenticator` authentication provider to `ezpublish_front` firewall before `form_login` in `app/config/security.yml`:
-     
+
     ``` yaml
      security:
          # ...
@@ -219,13 +223,12 @@ You are now able to load multiple Locations at once. The biggest benefit of this
                      require_previous_session: false
                  # ...
     ```
-     
+
     4\. Make sure that parameter `page_builder.token_authenticator.enabled` has value `true`. If the parameter is not present, add it to `/app/config/config.yml`:
-      
+
     ``` yaml
      # ...
      parameters:
         # ...
         page_builder.token_authenticator.enabled: true
     ```
-     

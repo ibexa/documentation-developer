@@ -100,6 +100,7 @@ pages:
         - Permissions:
             - 'Permissions': 'guide/permissions.md'
             - 'Limitations': 'guide/limitations.md'
+            - 'Limitation reference': 'guide/limitation_reference.md'
             - 'User management': 'guide/user_management.md'
             - 'Custom Policies': 'guide/custom_policies.md'
         - 'Backup': 'guide/backup.md'
@@ -110,15 +111,20 @@ pages:
         - Multisite:
             - 'Multisite': 'guide/multisite.md'
             - 'SiteAccess': 'guide/siteaccess.md'
-        - 'Languages': 'guide/internationalization.md'
+        - Languages:
+            - 'Languages': 'guide/internationalization.md'
+            - 'Back Office translations': 'guide/back_office_translations.md'
         - Repository:
             - 'Repository': 'guide/repository.md'
+            - 'Databases': 'guide/databases.md'
             - 'SignalSlots': 'guide/signalslots.md'
             - 'Signals reference': 'guide/signals_reference.md'
         - Cache:
             - 'HTTP cache': 'guide/http_cache.md'
             - 'Persistence cache': 'guide/persistence_cache.md'
-        - 'Clustering': 'guide/clustering.md'
+        - Clustering:
+            - 'Clustering': 'guide/clustering.md'
+            - 'AWS S3 clustering': 'guide/clustering_aws_s3.md'
         - DevOps:
             - 'DevOps': 'guide/devops.md'
             - 'Performance': 'guide/performance.md'
@@ -131,14 +137,14 @@ pages:
             - 'Extending eZ Platform': 'guide/extending_ez_platform.md'
             - 'Extending modules': 'guide/extending_modules.md'
             - 'Extending the Online Editor': 'guide/extending_online_editor.md'
-            - 'Extending Page': 'guide/extending_page.md'
+            - 'Creating custom Page blocks': 'guide/extending_page.md'
+            - 'Creating custom richtext blocks': 'guide/richtext_block.md'
             - 'Extending Form Builder': 'guide/extending_form_builder.md'
         - 'Service container': 'guide/service_container.md'
         - 'Personalization': 'guide/personalization.md'
     - Cookbook:
         - 'Accept header-based REST API response': 'cookbook/creating_custom_rest_api_response.md'
         - 'API search result pagination': 'cookbook/paginating_api_search_results.md'
-        - 'AWS S3 clustering': 'cookbook/setting_up_amazon_aws_s3_clustering.md'
         - 'Binary attachments via REST API': 'cookbook/creating_content_with_binary_attachments_via_rest_api.md'
         - 'Creating custom dropdowns': 'cookbook/creating_custom_dropdowns.md'
         - 'Cross-origin HTTP requests': 'cookbook/making_cross_origin_http_requests.md'
@@ -154,15 +160,16 @@ pages:
         - 'Retrieving root Location': 'cookbook/retrieving_root_location.md'
         - 'RouteReference': 'cookbook/using_routereference.md'
         - 'Siteaccess-aware bundle configuration': 'cookbook/exposing_siteaccess_aware_configuration_for_your_bundle.md'
-        - 'Using PostgreSQL': 'cookbook/using_postgresql.md'
         - 'Using simple templates': 'cookbook/displaying_content_with_simple_templates.md'
     - Resources and community:
         - 'Resources': 'community_resources/resources.md'
         - 'Release process and roadmap': 'community_resources/release_process.md'
+        - 'Support and Maintenance FAQ': 'community_resources/support_maintenance_faq.md'
         - Contributing:
             - 'How to contribute': 'community_resources/contributing.md'
             - 'Report and follow issues': 'community_resources/report_follow_issues.md'
             - 'Development guidelines': 'community_resources/development_guidelines.md'
+            - 'Contribute code': 'community_resources/code.md'
             - 'Contribute translations': 'community_resources/translations.md'
             - 'Contribute documentation': 'community_resources/documentation.md'
         - UI Guidelines:

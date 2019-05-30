@@ -37,7 +37,7 @@ Custom Field Types have to be programmed in PHP. However, the built-in Field Ty
 | [Rating](#rating-field-type) | **Deprecated** | N/A | N/A |
 | [Relation](#relation-field-type) | Validates and stores a relation to a Content item. | Yes, with both Field and FieldRelation criterions | Yes |
 | [RelationList](#relationlist-field-type) | Validates and stores a list of relations to Content items. | Yes, with FieldRelation criterion | Yes |
-| [RichText](#richtext-field-type) | Validates and stores structured rich text in DocBook xml format, and exposes it in several formats. | Yes[^1^](#1-note-on-legacy-search-engine)  | Yes |
+| [RichText](#richtext-field-type) | Validates and stores structured rich text in DocBook xml format, and exposes it in several formats. Available via [eZ Platform RichTextBundle](https://github.com/ezsystems/ezplatform-richtext). | Yes[^1^](#1-note-on-legacy-search-engine)  | Yes |
 | [Selection](#selection-field-type) | Validates and stores a single selection or multiple choices from a list of options. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
 | [TextBlock](#textblock-field-type) | Validates and stores a larger block of text. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
 | [TextLine](#textline-field-type) | Validates and stores a single line of text. | Yes | Yes |
@@ -1140,7 +1140,7 @@ ImageAsset Field Type allows configuring the following options:
 
 Example configuration:
 
-```php
+``` yaml
 ezpublish:
     system:
        default:
@@ -1163,7 +1163,7 @@ ezpublish:
             content_view:
                 asset_image:
                     default:
-                        template: '::custom_image_asset_template.html.twig'
+                        template: ::custom_image_asset_template.html.twig
                         match: []
 ```
 
@@ -1427,7 +1427,7 @@ Example use:
 ezpublish:
     system:
         site_group:
-            api_keys: { google_maps: "MY_KEY" }
+            api_keys: { google_maps: MY_KEY }
 ```
 
 !!! note
@@ -1640,17 +1640,17 @@ Following shows example on how eZ Publish "datatype" `ezpaex` could be configure
 
 services:
     ezpublish.fieldType.ezpaex:
-        class: "%ezpublish.fieldType.eznull.class%"
+        class: '%ezpublish.fieldType.eznull.class%'
         parent: ezpublish.fieldType
-        arguments: ["ezpaex"]
+        arguments: [ezpaex]
         tags: [{name: ezpublish.fieldType, alias: ezpaex}]
 
     ezpublish.fieldType.ezpaex.converter:
-        class: "%ezpublish.fieldType.eznull.converter.class%"
+        class: '%ezpublish.fieldType.eznull.converter.class%'
         tags: [{name: ezpublish.storageEngine.legacy.converter, alias: ezpaex}]
 
     ezpublish.fieldType.ezpaex.indexable:
-        class: "%ezpublish.fieldType.indexable.unindexed.class%"
+        class: '%ezpublish.fieldType.indexable.unindexed.class%'
         tags: [{name: ezpublish.fieldType.indexable, alias: ezpaex}]
 ```
 
@@ -1936,14 +1936,17 @@ $validators = [
 
 ## RichText Field Type
 
+!!! caution "Deprecated"
+
+    Make sure to enable new version of the RichText Field Type provided via [eZ Platform RichTextBundle](https://github.com/ezsystems/ezplatform-richtext).
+
+    The RichText Field Type provided by Kernel via the `eZ\Publish\Core\FieldType\RichText` namespace is deprecated. Refer to PHPDoc whenever you want to implement any interface or extend any base class from that namespace.
+
 This Field Type validates and stores structured rich text, and exposes it in several formats.
 
 |Name|Internal name|Expected input|
 |------|------|------|
 |`RichText`|`ezrichtext`|mixed|
-
-The RichText Field Type is available via the eZ Platform RichText Bundle
-provided by the https://github.com/ezsystems/ezplatform-richtext package.
 
 ### PHP API Field Type 
 

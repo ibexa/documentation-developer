@@ -220,7 +220,7 @@ This is the file where you define your action's URL matching. The generated file
 
 ``` yaml
 ez_systems_cookbook_homepage:
-    path:     /hello/{name}
+    path: /hello/{name}
     defaults: { _controller: EzSystemsCookbookBundle:Default:index }
 ```
 
@@ -230,7 +230,7 @@ You can safely remove this default code, and replace it with this:
 
 ``` yaml
 ezsystems_cookbook_hello:
-    path:     /cookbook/hello/{name}
+    path: /cookbook/hello/{name}
     defaults: { _controller: EzSystemsCookbookBundle:Default:hello }
 ```
 

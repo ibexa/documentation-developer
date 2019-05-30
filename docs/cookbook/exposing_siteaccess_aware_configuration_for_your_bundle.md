@@ -22,16 +22,16 @@ An abstract `Configuration` class has been added, simplifying the way to add a
 ``` yaml
 acme_example:
     system:
-        my_siteaccess:
-            foo: "bar"
+        <siteaccess>:
+            foo: bar
             setting_a:
                 number: 456
                 enabled: true
 
-        my_siteaccess_group:
-            foo: "baz"
+        <siteaccess_group>:
+            foo: baz
             setting_a:
-                string: "foobar"
+                string: foobar
                 number: 123
                 enabled: false
 ```

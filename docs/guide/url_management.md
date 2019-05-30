@@ -134,11 +134,11 @@ ezpublish:
             transformation_groups:
                 example_group:
                     commands:
-                        - 'space_normalize'
-                        - 'hyphen_normalize'
-                        - 'apostrophe_normalize'
-                        - 'doublequote_normalize'
-                        - 'your_custom_command'
+                        - space_normalize
+                        - hyphen_normalize
+                        - apostrophe_normalize
+                        - doublequote_normalize
+                        - your_custom_command
                     cleanup_method: url_cleanup
 ```
 

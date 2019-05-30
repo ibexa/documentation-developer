@@ -6,13 +6,12 @@
 
 !!! note "Enable the bundle"
 
-    If you have previously disabled the bundle, add/update composer dependencies:
-
+    If you have previously disabled the bundle, add/update composer dependencies: 
     ``` bash
     composer require --no-update ezsystems/ezplatform-solr-search-engine:~1.0
     composer update
     ```
-
+    
     Make sure `EzPublishSolrSearchEngineBundle` is activated with the following line in the `app/AppKernel.php` file: `new EzSystems\EzPlatformSolrSearchEngineBundle\EzSystemsEzPlatformSolrSearchEngineBundle()`
 
 ### Step 1: Configuring and starting Solr
@@ -46,9 +45,9 @@ bin/solr start -f -a "-Dsolr.solr.home=multicore"
 
 ##### Solr 6
 
-Download and extract Solr. Solr Bundle 1.3 and higher supports Solr 6 *(currently tested with Solr 6.6LTS)*:
+Download and extract Solr. Solr Bundle 1.3 and higher supports Solr 6 *(currently tested and recommended with Solr 6.6LTS)*:
 
-- [solr-6.6.5.tgz](http://archive.apache.org/dist/lucene/solr/6.6.5/solr-6.6.5.tgz) or [solr-6.6.5.zip](http://archive.apache.org/dist/lucene/solr/6.6.5/solr-6.6.5.zip)
+- [solr-6.6.5.tgz](http://archive.apache.org/dist/lucene/solr/6.6.5/solr-6.6.5.tgz) or [solr-6.6.5.zip](http://archive.apache.org/dist/lucene/solr/6.6.5/solr-6.6.5.zip)
 
 !!! caution "Solr"
 
@@ -121,8 +120,8 @@ Out of the box in eZ Platform the following is enabled for a simple setup (in `c
 ez_search_engine_solr:
     endpoints:
         endpoint0:
-            dsn: %solr_dsn%
-            core: %solr_core%
+            dsn: '%solr_dsn%'
+            core: '%solr_core%'
     connections:
         default:
             entry_endpoints:
@@ -141,10 +140,10 @@ and one very different language that should receive proper language analysis for
 ez_search_engine_solr:
     endpoints:
         endpoint0:
-            dsn: %solr_dsn%
+            dsn: '%solr_dsn%'
             core: core0
         endpoint1:
-            dsn: %solr_dsn%
+            dsn: '%solr_dsn%'
             core: core1
     connections:
         default:
@@ -171,25 +170,25 @@ If full language analysis features are preferred, then each language can be conf
 ez_search_engine_solr:
     endpoints:
         endpoint0:
-            dsn: %solr_dsn%
+            dsn: '%solr_dsn%'
             core: core0
         endpoint1:
-            dsn: %solr_dsn%
+            dsn: '%solr_dsn%'
             core: core1
         endpoint2:
-            dsn: %solr_dsn%
+            dsn: '%solr_dsn%'
             core: core2
         endpoint3:
-            dsn: %solr_dsn%
+            dsn: '%solr_dsn%'
             core: core3
         endpoint4:
-            dsn: %solr_dsn%
+            dsn: '%solr_dsn%'
             core: core4
         endpoint5:
-            dsn: %solr_dsn%
+            dsn: '%solr_dsn%'
             core: core5
         endpoint6:
-            dsn: %solr_dsn%
+            dsn: '%solr_dsn%'
             core: core6
     connections:
         default:
@@ -224,7 +223,7 @@ In the example below we configured Solr Bundle to work with secured Solr core.
 ez_search_engine_solr:
     endpoints:
         endpoint0:
-            dsn: %solr_dsn%
+            dsn: '%solr_dsn%'
             core: core0
             user: example
             pass: password
@@ -243,7 +242,7 @@ ezpublish:
         default:
             storage: ~
             search:
-                engine: %search_engine%
+                engine: '%search_engine%'
                 connection: default
 ```
 
@@ -335,11 +334,11 @@ The configuration above will result in the following boosting (Content Type / Fi
 
     Currently, boosting on particular fields is missing.
     However, it could be configured using 3rd party [Novactive/NovaeZSolrSearchExtraBundle](https://github.com/Novactive/NovaeZSolrSearchExtraBundle) in case of custom search implementation, e.g. to handle your front-end search form.
-    Unfortunately, this doesn't affect search performed in the administration interface. 
-    
-    The following example presents boosting configuration for Folder's `name` and `description` fields. 
+    Unfortunately, this doesn't affect search performed in the administration interface.
+
+    The following example presents boosting configuration for Folder's `name` and `description` fields.
     First, in `ezplatform.yml` configure [custom fulltext fields](https://github.com/Novactive/NovaeZSolrSearchExtraBundle/blob/master/doc/custom_fields.md).
-    
+
     ```yaml
     ez_solr_search_extra:
         system:
@@ -350,36 +349,36 @@ The configuration above will result in the following boosting (Content Type / Fi
                     custom_folder_description:
                         - folder/description
     ```
-    
+
     The second step requires you to use `\Novactive\EzSolrSearchExtra\Query\Content\Criterion\MultipleFieldsFullText` instead of default `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\FullText`.
     The following example shows custom query which benefits from the custom fields created in the previous example.
-    
+
     ```php
     <?php
-    
+
     namespace AppBundle\Controller;
-    
+
     use eZ\Publish\API\Repository\SearchService;
     use eZ\Publish\API\Repository\Values\Content\Query;
     use Symfony\Component\HttpFoundation\Request;
     use Symfony\Component\HttpFoundation\Response;
-    
+
     class SearchController
     {
         /**
          * @var \eZ\Publish\API\Repository\SearchService
          */
         private $searchService;
-    
+
         public function __construct(SearchService $searchService)
         {
             $this->searchService = $searchService;
         }
-    
+
         public function searchAction(Request $request): Response
         {
             $queryString = $request->get('query');
-            
+
             $query = new Query();
             $query->query = new \Novactive\EzSolrSearchExtra\Query\Content\Criterion\MultipleFieldsFullText(
                 $queryString,
@@ -390,20 +389,40 @@ The configuration above will result in the following boosting (Content Type / Fi
                     ]
                 ]
             );
-    
+
             $searchResult = $this->searchService->findContent($query);
-            
+
             ...
         }
     }
     ```
-    
+
     Remember to clear the cache and perform search engine reindex afterwords.
-    
+
     The above configuration will result in the following boosting (Content Type / Field):
     - `folder/name: 20.0`
     - `folder/title: 10.0`
-    
+
+### Indexing related objects
+
+You can use indexation of related objects to search through text of related content.
+Indexing is disabled by default.
+To set it up you need to define the maximum indexing depth using the following YAML configuration:
+
+```yaml
+ez_search_engine_solr:
+    # ...
+    connections:
+        default:
+            # ...
+            indexing_depth:
+                # Default value: 0 - no relation indexing, 1 - direct relations, 2nd level  relations, 3rd level  relations (maximum value).
+                default: 1      
+                content_type:
+                    # Index depth defined for specific content type
+                    article: 2
+```
+
 ## Extending the Solr Search Engine Bundle
 
 ### Document field mappers
@@ -536,3 +555,85 @@ my_webinar_app.webinar_event_title_fulltext_field_mapper:
     tags:
         - {name: ezpublish.search.solr.field_mapper.content}
 ```
+
+## Configuring Solr Replication (master/slave)
+
+!!! note
+
+    The configuration below has been tested on Solr 6.5.5. Version 4.x should also work.
+
+### Configuring Master for replication
+
+First you need to change the core configuration in `solrconfig.xml` (for example `*/opt/solr/server/ez/collection1/conf/solrconfig.xml` ).
+You can copy and paste the code below before any other `requestHandler` section.
+
+```xml
+<requestHandler name="/replication" class="solr.ReplicationHandler">
+  <lst name="master">
+    <str name="replicateAfter">optimize</str>
+    <str name="backupAfter">optimize</str>
+    <str name="confFiles">schema.xml,stopwords.txt,elevate.xml</str>
+    <str name="commitReserveDuration">00:00:10</str>
+  </lst>
+  <int name="maxNumberOfBackups">2</int>
+  <lst name="invariants">
+    <str name="maxWriteMBPerSec">16</str>
+  </lst>
+</requestHandler>
+<str name="confFiles">solrconfig_slave.xml:solrconfig.xml,x.xml,y.xml</str>
+```
+
+Then restart the master with:
+
+```bash
+sudo su - solr -c "/opt/solr/bin/solr restart"
+```
+
+### Configuring Slave for replication
+
+You have to edit the same file on the slave server, and use the code below:
+
+```xml
+<requestHandler name="/replication" class="solr.ReplicationHandler">
+  <lst name="slave">
+
+    <!-- fully qualified url for the replication handler of master. It is
+         possible to pass on this as a request param for the fetchindex command -->
+    <str name="masterUrl">http://123.456.789.0:8983/solr/collection1/replication</str>
+
+    <!-- Interval in which the slave should poll master.  Format is HH:mm:ss .
+         If this is absent slave does not poll automatically.
+         But a fetchindex can be triggered from the admin or the http API -->
+    <str name="pollInterval">00:00:20</str>
+
+    <!-- THE FOLLOWING PARAMETERS ARE USUALLY NOT REQUIRED-->
+    <!-- To use compression while transferring the index files. The possible
+         values are internal|external.  If the value is 'external' make sure
+         that your master Solr has the settings to honor the accept-encoding header.
+         See here for details: http://wiki.apache.org/solr/SolrHttpCompression
+         If it is 'internal' everything will be taken care of automatically.
+         USE THIS ONLY IF YOUR BANDWIDTH IS LOW.
+         THIS CAN ACTUALLY SLOWDOWN REPLICATION IN A LAN -->
+    <str name="compression">internal</str>
+
+    <!-- The following values are used when the slave connects to the master to
+         download the index files.  Default values implicitly set as 5000ms and
+         10000ms respectively. The user DOES NOT need to specify these unless the
+         bandwidth is extremely low or if there is an extremely high latency -->
+    <str name="httpConnTimeout">5000</str>
+    <str name="httpReadTimeout">10000</str>
+
+    <!-- If HTTP Basic authentication is enabled on the master, then the slave
+         can be configured with the following -->
+    <str name="httpBasicAuthUser">username</str>
+    <str name="httpBasicAuthPassword">password</str>
+  </lst>
+</requestHandler>
+```
+
+Next, restart Solr slave.
+
+Connect to the Solr slave interface (http://localhost:8983/solr), go to your core and check the replication status:
+
+![Solr Slave](img/solr.PNG)
+

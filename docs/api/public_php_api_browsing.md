@@ -69,9 +69,6 @@ The first thing you do is use the Content Service to load a Content item using i
 ``` php
 foreach( $contentType->fieldDefinitions as $fieldDefinition )
 {
-    // ignore ezpage
-    if( $fieldDefinition->fieldTypeIdentifier == 'ezpage' )
-        continue;
     $output->write( $fieldDefinition->identifier . ": " );
     $fieldType = $fieldTypeService->getFieldType( $fieldDefinition->fieldTypeIdentifier );
     $fieldValue = $content->getFieldValue( $fieldDefinition->identifier );
