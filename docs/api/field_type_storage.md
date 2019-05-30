@@ -51,7 +51,7 @@ services:
             - {name: ezpublish.storageEngine.legacy.converter, alias: ezstring}
 ```
 
-The tag has following attributes:
+The tag has the following attribute:
 
 | Attribute name | Usage |
 |----------------|-------|
