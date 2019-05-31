@@ -54,23 +54,22 @@ Both `getParameter()` and `hasParameter()` can take three arguments:
 2. `$namespace` - your application namespace, `myapp` in the previous example. If null, the default namespace will be used, which is `ezsettings` by default.
 3. `$scope` - a SiteAccess name. If null, the current SiteAccess will be used.
 
-### ConfigResolver unsafe parameters  
 
-In debug mode, ConfigResolver detects if parameters were loaded prior to initialization of SiteAccess to warn about issues.
-It will log all instances of `getParameter()` that may be used unsafely.
+!!! note
 
-If a problem occurs, the following warning appears:
-
-_ConfigResolver was used to load parameter `languages` before SiteAccess was loaded by services: "my.own.service", "ez.service.used.to.early"._
-_This can cause issues. Try to use ConfigResolver lazily, make commands that rely on them lazy, or try to mark the service as lazy._
-
-To avoid such issues:
-
-- Avoid eager usage of config resolver (e.g. in service factories).
-- Instead of using `ctor('$dynamic_param$')`, use `(setter('$dynamic_param$'))` as it allows the system to update your service with changes on scope changes.
-- Load the parameter lazily by injecting ConfigResolver, and get the parameter from it _when_ you need to instead of during construction.
-- Try using [lazy commands](https://symfony.com/doc/current/console/lazy_commands.html).
-- Try configuring [lazy services](https://symfony.com/doc/current/service_container/lazy_services.html).
+    In debug mode, ConfigResolver detects if parameters were loaded prior to initialization of SiteAccess to warn about issues.
+    It will log all instances of `getParameter()` that may be used unsafely.
+    
+    If a problem occurs, you will reveive a warning that ConfigResolver had been used to load parameter `languages`
+    before SiteAccess was loaded by services: `my.own.service` and `ez.service.used.to.early`.
+       
+    To avoid such issues:
+    
+    - Avoid eager usage of config resolver (e.g. in service factories).
+    - Instead of using `ctor('$dynamic_param$')`, use `(setter('$dynamic_param$'))` as it allows the system to update your service with changes on scope changes.
+    - Load the parameter lazily by injecting ConfigResolver, and get the parameter from it _when_ you need to instead of during construction.
+    - Try using [lazy commands](https://symfony.com/doc/current/console/lazy_commands.html).
+    - Try configuring [lazy services](https://symfony.com/doc/current/service_container/lazy_services.html).
 
 ## Inject the ConfigResolver in your services
 
