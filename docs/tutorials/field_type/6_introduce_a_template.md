@@ -8,7 +8,7 @@ In order to display data of the Field Type from templates, you need to create an
 
 !!! tip
 
-    See documentation about [Field Type templates](../../api/field_type_template.md) and about [importing settings from a bundle](../../cookbook/importing_settings_from_a_bundle.md).
+    See documentation about [Field Type templates](../../api/field_type_form_and_template.md) and about [importing settings from a bundle](../../cookbook/importing_settings_from_a_bundle.md).
 
 In short, such a template must:
 
@@ -72,7 +72,7 @@ You then call the `block` function to process the `simple_block_field` template 
 
 ## Registering the template
 
-As explained in the [FieldType template documentation](../../api/field_type_template.md#registering-your-template), a Field Type template needs to be registered in the eZ Platform semantic configuration.
+As explained in the [FieldType template documentation](../../api/field_type_form_and_template.md#registering-your-template), a Field Type template needs to be registered in the eZ Platform semantic configuration.
 
 To make sure the configuration is part of the bundle and no manual configuration is required,
 you need to make the bundle extend the eZ Platform semantic configuration.
