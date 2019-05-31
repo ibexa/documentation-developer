@@ -61,15 +61,12 @@ pages:
             - 'Locations': 'api/public_php_api_locations.md'
         - Field Type:
             - 'Field Type API': 'api/field_type_api.md'
-            - 'Reference': 'api/field_type_reference.md'
-            - 'REST API interaction': 'api/field_type_REST.md'
-            - 'Public API interaction': 'api/field_type_public.md'
-            - 'Schema': 'api/field_type_setting_schema.md'
-            - 'Template': 'api/field_type_template.md'
-            - 'Registration': 'api/field_type_registration.md'
-            - 'Testing': 'api/field_type_testing.md'
+            - 'Type and Value': 'api/field_type_type_and_value.md'
+            - 'Form and template': 'api/field_type_form_and_template.md'
             - 'Storage': 'api/field_type_storage.md'
-            - 'Search': 'api/field_type_search.md'
+            - 'Validation': 'api/field_type_validation.md'
+            - 'Searching': 'api/field_type_search.md'
+            - 'Reference': 'api/field_type_reference.md'
     - Guide:
         - 'Architecture': 'guide/architecture.md'
         - 'Bundles': 'guide/bundles.md'
@@ -139,7 +136,6 @@ pages:
         - 'Personalization': 'guide/personalization.md'
     - Cookbook:
         - 'Accept header-based REST API response': 'cookbook/creating_custom_rest_api_response.md'
-        - 'Adding Field Types': 'cookbook/adding_new_field_types.md'
         - 'API search result pagination': 'cookbook/paginating_api_search_results.md'
         - 'Binary attachments via REST API': 'cookbook/creating_content_with_binary_attachments_via_rest_api.md'
         - 'Creating custom dropdowns': 'cookbook/creating_custom_dropdowns.md'
