@@ -60,8 +60,8 @@ Both `getParameter()` and `hasParameter()` can take three arguments:
     In debug mode, ConfigResolver detects if parameters were loaded prior to initialization of SiteAccess to warn about issues.
     It will log all instances of `getParameter()` that may be used unsafely.
     
-    If a problem occurs, you will reveive a warning that ConfigResolver had been used to load parameter `languages`
-    before SiteAccess was loaded by services: `my.own.service` and `ez.service.used.to.early`.
+    If a problem occurs, you will receive a warning that ConfigResolver had been used to load parameter `languages`
+    before SiteAccess was loaded by services: `my.own.service` and `ez.service.used.too.early`.
        
     To avoid such issues:
     
