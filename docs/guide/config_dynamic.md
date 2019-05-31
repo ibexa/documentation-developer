@@ -64,12 +64,12 @@ If a problem occurs, the following warning appears:
 _ConfigResolver was used to load parameter `languages` before SiteAccess was loaded by services: "my.own.service", "ez.service.used.to.early"._
 _This can cause issues. Try to use ConfigResolver lazily, make commands that rely on them lazy, or try to mark the service as lazy._
 
-To avoid issues:
+To avoid such issues:
 
 - Avoid eager usage of config resolver (e.g. in service factories).
 - Instead of using `ctor('$dynamic_param$')`, use `(setter('$dynamic_param$'))` as it allows the system to update your service with changes on scope changes.
 - Load the parameter lazily by injecting ConfigResolver, and get the parameter from it _when_ you need to instead of during construction.
-- Try using [lazy commands](https://symfony.com/doc/current/console/lazy_commands.html) (applicable only to Symfony v3.4 or higher).
+- Try using [lazy commands](https://symfony.com/doc/current/console/lazy_commands.html).
 - Try configuring [lazy services](https://symfony.com/doc/current/service_container/lazy_services.html).
 
 ## Inject the ConfigResolver in your services
