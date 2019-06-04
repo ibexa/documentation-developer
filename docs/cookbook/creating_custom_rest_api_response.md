@@ -98,24 +98,6 @@ class ValueObjectVisitorDispatcher extends BaseValueObjectVisitorDispatcher
 }
 ```
 
-The response needs to have a proper type. The way to assure it is to override the format generator (e.g. xml/json).
-
-```php
-<?php
-
-namespace AppBundle\Rest\Generator;
-
-use eZ\Publish\Core\REST\Common\Output\Generator\Json as BaseJson;
-
-class Json extends BaseJson
-{
-    protected function generateMediaType($name, $type)
-    {
-        return "application/my.api.{$name}+{$type}";
-    }
-}
-```
-
 To be able to use the overridden type you also need to implement new Compiler Pass. For more details see [Symfony doc](https://symfony.com/doc/2.8/service_container/compiler_passes.html).
 
 ```php
@@ -191,12 +173,14 @@ All the other keys need to correspond with the current namespace of your bundle.
 parameters:
     app.rest.output.visitor.json.regexps:
         - '(^application/my\.api\.[A-Za-z]+\+json$)'
+    app.rest.generator.json.vendor: 'my.api'
 
 services:
     app.rest.output.generator.json:
-        class: AppBundle\Rest\Generator\Json
+        class: eZ\Publish\Core\REST\Common\Output\Generator\Json
         arguments:
             - '@ezpublish_rest.output.generator.json.field_type_hash_generator'
+            - '%app.rest.generator.json.vendor%'
         calls:
             - [ setFormatOutput, [ '%kernel.debug%' ] ]
 
