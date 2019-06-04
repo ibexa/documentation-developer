@@ -6,19 +6,19 @@
 
 When developing your website it is best practice to use one or several custom bundles.
 However, dealing with core bundle semantic configuration can be a bit tedious
-if you maintain it in the main `ezplatform.yaml` configuration file.
+if you maintain it in the main `templates/ezplatform.yml` configuration file.
 
 This page shows how to import configuration from a bundle in two ways: the manual way and the implicit way.
 
 ## Importing settings manually
 
 Importing manually is the simpler of the two ways and has the advantage of being explicit.
-It relies on using the `imports` statement in your main `ezplatform.yml`:
+It relies on using the `imports` statement in your main `ezplatform.yaml`:
 
 ``` yaml
 imports:
     # Import the template selection rules that reside in your custom AcmeExampleBundle.
-    - {resource: "@AcmeExampleBundle/Resources/config/templates_rules.yml"}
+    - {resource: "@AcmeExampleBundle/Resources/config/templates_rules.yaml"}
  
 ezpublish:
     # ...
@@ -49,7 +49,7 @@ ezpublish:
 
 !!! tip
 
-    If you want to import configuration for development use only, you can do so in `ezplatform_dev.yml` 
+    If you want to import configuration for development use only, you can do so in `ezplatform_dev.yaml` 
 
 ## Importing settings implicitly
 
@@ -60,7 +60,7 @@ This assumes you have knowledge of [service container extensions](http://symfony
 
 !!! note
 
-    Configuration loaded this way will be overridden by the main `ezplatform.yml` file.
+    Configuration loaded this way will be overridden by the main `ezplatform.yaml` file.
 
 In `Acme/ExampleBundle/DependencyInjection/AcmeExampleExtension`:
 
@@ -96,17 +96,17 @@ class AcmeExampleExtension extends Extension implements PrependExtensionInterfac
     public function prepend( ContainerBuilder $container )
     {
         // Loading your YAML file containing template rules
-        $configFile = __DIR__ . '/../Resources/config/template_rules.yml';
+        $configFile = __DIR__ . '/../Resources/config/template_rules.yaml';
         $config = Yaml::parse( file_get_contents( $configFile ) );
         // Explicitly prepend loaded configuration for "ezpublish" namespace.
-        // It will be placed under the "ezpublish" configuration key, like in ezplatform.yml.
+        // It will be placed under the "ezpublish" configuration key, like in ezplatform.yaml.
         $container->prependExtensionConfig( 'ezpublish', $config );
         $container->addResource( new FileResource( $configFile ) );
     }
 }
 ```
 
-In `AcmeExampleBundle/Resources/config/template_rules.yml`:
+In `AcmeExampleBundle/Resources/config/template_rules.yaml`:
 
 ``` yaml
 # You explicitly prepended config for "ezpublish" namespace in the service container extension, 

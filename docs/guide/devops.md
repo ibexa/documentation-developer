@@ -56,7 +56,7 @@ include Symfony cache use, and a [persistence cache](persistence_cache.md#persis
 
     For long-running scripts, see [Executing long-running console commands](performance.md#executing-long-running-console-commands).
 
-If you are running out of memory and don't need to keep track of cache hits and misses, you can disable persistence cache logging, represented by the setting `parameters.ezpublish.spi.persistence.cache.persistenceLogger.enableCallLogging`. In `config_dev.yml`:
+If you are running out of memory and don't need to keep track of cache hits and misses, you can disable persistence cache logging, represented by the setting `parameters.ezpublish.spi.persistence.cache.persistenceLogger.enableCallLogging`. In `config_dev.yaml`:
 
 ``` yaml
 parameters:

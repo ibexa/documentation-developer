@@ -11,7 +11,7 @@ You will be able to filter the list by Content Types using a drop-down menu.
 
 The first step is to add an event listener.
 
-To register the listener as a service, add the following block to `src/EzSystems/ExtendingTutorialBundle/Resources/config/services.yml`.
+To register the listener as a service, add the following block to `src/EzSystems/ExtendingTutorialBundle/Resources/config/services.yaml`.
 Place the block indented, under the `services` key:
 
 ``` yaml
@@ -65,7 +65,7 @@ Line 26 points to the new route that you need to add to the routing file.
 
 ## Add routing
 
-Add the following block to `src/EzSystems/ExtendingTutorialBundle/Resources/config/routing.yml`:
+Add the following block to `src/EzSystems/ExtendingTutorialBundle/Resources/config/routing.yaml`:
 
 ``` yaml hl_lines="5"
 ezsystems_extending_tutorial.all_content_list.list:
@@ -79,7 +79,7 @@ ezsystems_extending_tutorial.all_content_list.list:
 
 As you can see in the code above, the next step is creating a controller that will take care of the article list view.
 
-First, ensure that the controller is configured in `services.yml`.
+First, ensure that the controller is configured in `services.yaml`.
 Add the following block (indented, under the `services` key) to that file:
 
 ``` yaml

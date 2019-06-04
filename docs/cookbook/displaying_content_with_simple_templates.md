@@ -22,7 +22,7 @@ Now you need a config that will decide when this template is used.
 
 You can place the config in the `config` folder in either of two places: a separate file or the preexisting `ezplatform.yaml`. In this case you'll use the latter.
 
-In `ezplatform.yml` under the `ezpublish` and `system` keys add the following config (pay attention to indentation. `default` should be indented relative to `system`):
+In `ezplatform.yaml` under the `ezpublish` and `system` keys add the following config (pay attention to indentation. `default` should be indented relative to `system`):
 
 ``` yaml
 # 'default' is the SiteAccess.

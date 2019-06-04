@@ -36,7 +36,7 @@ you need to create your own admin SiteAccesses and add them to this group. In ca
 
 ## Configuring SiteAccesses
 
-You configure SiteAccess in your config files (e.g. `ezplatform.yml`) under the `ezpublish.siteacess` keys.
+You configure SiteAccess in your config files (e.g. `ezplatform.yaml`) under the `ezpublish.siteacess` keys.
 The required elements of the configuration are:
 
 #### `list`

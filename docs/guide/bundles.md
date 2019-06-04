@@ -198,7 +198,7 @@ You can see an example of organizing a simple project in the [companion reposito
 
 ### Versioning a project
 
-The recommended method is to version the whole ezplatform repository. Per installation configuration should use `parameters.yml`.
+The recommended method is to version the whole ezplatform repository. Per installation configuration should use `parameters.yaml`.
 
 ## Built-in bundles
 

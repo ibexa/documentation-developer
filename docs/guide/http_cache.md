@@ -314,11 +314,11 @@ ezpublish:
 
     You may specify service ID and token:
 
-    - using the `service_id` and `key` settings (sub elements of "fastly") in `app/config/ezplatform.yml`
-    - by setting the parameters `fastly_service_id` and `fastly_key` in `app/config/parameters.yml`
+    - using the `service_id` and `key` settings (sub elements of "fastly") in `app/config/ezplatform.yaml`
+    - by setting the parameters `fastly_service_id` and `fastly_key` in `app/config/parameters.yaml`
     - by setting the environment variables `FASTLY_SERVICE_ID` and `FASTLY_KEY`
 
-    Unless you need different settings per SiteAccess it is recommended to either use `app/config/parameters.yml`
+    Unless you need different settings per SiteAccess it is recommended to either use `app/config/parameters.yaml`
     or the environment variables.
 
     ##### Clear the cache

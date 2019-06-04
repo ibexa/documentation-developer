@@ -210,13 +210,13 @@ Hello world
 
 In this short chapter, you will see how to create a new route that will catch a custom URL and execute a controller action. You will create a new route, `/cookbook/test`, that displays a simple 'Hello world' message. This tutorial is a simplified version of the official one that can be found on <http://symfony.com/doc/current/book/controller.html>.
 
-During your bundle's generation, you have chosen to generate the bundle with default code snippets. Fortunately, almost everything you need is part of those snippets. You just need to do some editing, in particular in two locations: `src/EzSystems/Resources/CookbookBundle/config/routing.yml` and `src/EzSystems/CookbookBundle/Controllers/DefaultController.php`. The first one will be used to configure your route (`/cookbook/test`) as well as the controller action the route should execute, while the latter will contain the actual action's code.
+During your bundle's generation, you have chosen to generate the bundle with default code snippets. Fortunately, almost everything you need is part of those snippets. You just need to do some editing, in particular in two locations: `src/EzSystems/Resources/CookbookBundle/config/routing.yaml` and `src/EzSystems/CookbookBundle/Controllers/DefaultController.php`. The first one will be used to configure your route (`/cookbook/test`) as well as the controller action the route should execute, while the latter will contain the actual action's code.
 
-### routing.yml
+### routing.yaml
 
 This is the file where you define your action's URL matching. The generated file contains this YAML block:
 
-**Generated routing.yml**
+**Generated routing.yaml**
 
 ``` yaml
 ez_systems_cookbook_homepage:
@@ -226,7 +226,7 @@ ez_systems_cookbook_homepage:
 
 You can safely remove this default code, and replace it with this:
 
-**Edited routing.yml**
+**Edited routing.yaml**
 
 ``` yaml
 ezsystems_cookbook_hello:
@@ -251,7 +251,7 @@ public function helloAction( $name )
 }
 ```
 
- This method receives the parameter defined in `routing.yml`. It is called "name" in the route definition, and must be called $name in the matching action. Since the action is named "hello" in `routing.yml`, the expected method name is `helloAction`.
+ This method receives the parameter defined in `routing.yaml`. It is called "name" in the route definition, and must be called $name in the matching action. Since the action is named "hello" in `routing.yaml`, the expected method name is `helloAction`.
 
 Controller actions **must** return a Response object that will contain the response's content, the headers, and various optional properties that affect the action's behavior. In your case, you simply set the content, using `setContent()`, to "Hello $name". Go to <http://ezplatform/cookbook/hello/YourName>, and you should get "Hello YourName".
 

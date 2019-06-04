@@ -60,7 +60,7 @@ You can select a different cache backend and configure its parameters in the rel
 #### Multi Repository setup
 
 You can [configure multisite to work with multiple repositories](multisite.md#multisite-with-multiple-repositories).
-Then, in `ezplatform.yml` you can specify which cache pool you want to use on a SiteAccess or SiteAccess group level.
+Then, in `ezplatform.yaml` you can specify which cache pool you want to use on a SiteAccess or SiteAccess group level.
 
 The following example shows use in a SiteAccess group:
 
@@ -142,7 +142,7 @@ services:
             - name: cache.pool
               clearer: cache.app_clearer
               provider: 'redis://secret@example.com:1234/13'
-              # Default CACHE_NAMESPACE value, see app/config/cache_pool/cache.redis.yml for usage with e.g. multi repo.
+              # Default CACHE_NAMESPACE value, see app/config/cache_pool/cache.redis.yaml for usage with e.g. multi repo.
               namespace: 'ez'
 ```
 
@@ -188,7 +188,7 @@ For best performance we recommend use of Redis Sentinel if it fits your needs. H
 See [Memcached Cache Adapter in Symfony documentation](https://symfony.com/doc/3.4/components/cache/adapters/memcached_adapter.html#configure-the-connection)
 for information on how to configure Memcached.
 
-Out of the box in `config/cache_pool/cache.memcached.yml` you'll find a default example that can be used.
+Out of the box in `config/cache_pool/cache.memcached.yaml` you'll find a default example that can be used.
 
 !!! cloud "eZ Platform Cloud"
 
@@ -205,11 +205,11 @@ services:
             - name: cache.pool
               clearer: cache.app_clearer
               provider: 'memcached://user:pass@localhost?weight=33'
-              # Default CACHE_NAMESPACE value, see app/config/cache_pool/cache.redis.yml for usage with e.g. multi repo.
+              # Default CACHE_NAMESPACE value, see app/config/cache_pool/cache.redis.yaml for usage with e.g. multi repo.
               namespace: 'ez'
 ```
 
-See `config/default_parameters.yml` and `config/cache_pool/cache.memcached.yml` for further details on `CACHE_POOL`, `CACHE_DSN` and `CACHE_NAMESPACE`.
+See `config/default_parameters.yaml` and `config/cache_pool/cache.memcached.yaml` for further details on `CACHE_POOL`, `CACHE_DSN` and `CACHE_NAMESPACE`.
 
 !!! caution "Clearing Memcached cache"
 

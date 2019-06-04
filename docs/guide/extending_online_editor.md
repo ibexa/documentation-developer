@@ -19,7 +19,7 @@ If you want to learn how to apply them to your installation follow [Creating a c
 
 **Example: YouTube tag**
 
-Preparation of the tag always starts with the configuration file that should be added to the `config` folder. This is sample configuration for the YouTube tag, `custom_tags.yml`:
+Preparation of the tag always starts with the configuration file that should be added to the `config` folder. This is sample configuration for the YouTube tag, `custom_tags.yaml`:
 
 ```yaml
 ezpublish:
@@ -106,7 +106,7 @@ FactBox tag is a good example for showcasing possibilities of `ezcontent` proper
 Each custom tag has an `ezcontent` property that contains the tag's main content.
 This property is editable by a tab in a custom tag.
 
-Create the `custom_tags.yml` configuration file that will be added to the `config` folder. This is sample configuration for FactBox tag:
+Create the `custom_tags.yaml` configuration file that will be added to the `config` folder. This is sample configuration for FactBox tag:
 
 ```yaml hl_lines="10"
 ezpublish:

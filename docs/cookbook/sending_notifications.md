@@ -176,7 +176,7 @@ You can add the template that is defined above in the `render()` method to one o
 ```
 
 
-Finally, you need to add an entry to `services.yml`:
+Finally, you need to add an entry to `services.yaml`:
 
 ``` yaml
 services:

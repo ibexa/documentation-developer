@@ -16,7 +16,7 @@ Then go to `<yourdomain>/register`. The registration form is unstyled, so you ne
 
 ## Customize registration forms
 
-In the `app/config/views.yml` file add a `user_registration` key under `site_group`, at the same level as `content_view`:
+In the `app/config/views.yaml` file add a `user_registration` key under `site_group`, at the same level as `content_view`:
 
 ```yaml
 ezpublish:
@@ -109,7 +109,7 @@ The second template will render the actual fields of the registration form. Crea
 ```
 
 The third template you need to prepare covers the confirmation page that is displayed when a user completes registration.
-First, point to the new template in the configuration. Add a `confirmation` key to `views.yml`:
+First, point to the new template in the configuration. Add a `confirmation` key to `views.yaml`:
 
 ``` yaml hl_lines="4"
 user_registration:

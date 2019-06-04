@@ -161,7 +161,7 @@ class AppBundle extends Bundle
 
 ## Configuration
 
-The last thing you need to do is to set a configuration which should be located in the `services.yml` file of your bundle.
+The last thing you need to do is to set a configuration which should be located in the `services.yaml` file of your bundle.
 The important part are the keys:
 
 - `app.rest.output.visitor.json.regexps` which helps identifying proper header

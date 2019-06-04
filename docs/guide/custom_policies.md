@@ -71,7 +71,7 @@ class MyPolicyProvider extends YamlPolicyProvider
     protected function getFiles()
     {
         return [
-             __DIR__ . '/../Resources/config/policies.yml',
+             __DIR__ . '/../Resources/config/policies.yaml',
          ];
     }
 }

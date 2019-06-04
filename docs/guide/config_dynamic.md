@@ -112,7 +112,7 @@ This service has `ezpublish.config.dynamic_setting.parser` for ID and implements
 
 ### Limitations
 
-- It is not possible to use dynamic settings in your semantic configuration (e.g. `config.yml` or `ezplatform.yml`) as they are meant primarily for parameter injection in services.
+- It is not possible to use dynamic settings in your semantic configuration (e.g. `config.yaml` or `ezplatform.yaml`) as they are meant primarily for parameter injection in services.
 - It is not possible to define an array of options having dynamic settings. They will not be parsed. Workaround is to use separate arguments/setters.
 - Injecting dynamic settings in request listeners is **not recommended**, as it won't be resolved with the correct scope
 (request listeners are instantiated before SiteAccess match).

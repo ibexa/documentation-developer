@@ -72,7 +72,7 @@ As explained in more detail in the [authentication page](general_rest_usage.md#r
 
 To enable basic auth based authentication, you need to edit `config/packages/security.yaml` and uncomment the configuration block about REST
 
-**security.yml**
+**security.yaml**
 
 ```yaml
 security:

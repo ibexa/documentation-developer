@@ -10,7 +10,7 @@ LiipImagineBundle only works on image blobs (no command line tool is needed). Se
 
 ## Configuring image variations
 
-Custom image variations are defined in `ezplatform.yml` or any imported semantic configuration file. The definition is [dynamic](configuration.md#dynamic-configuration-with-the-configresolver), so it can be configured per SiteAccess and all the other scopes.
+Custom image variations are defined in `ezplatform.yaml` or any imported semantic configuration file. The definition is [dynamic](configuration.md#dynamic-configuration-with-the-configresolver), so it can be configured per SiteAccess and all the other scopes.
 
 ``` yaml
 # Example image variation definition

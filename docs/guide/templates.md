@@ -13,16 +13,16 @@ Each template must be mentioned in a configuration file together with a definiti
 
 !!! note
 
-    If you decide to create a new configuration file, you will need to import it by including an import statement in `ezplatform.yml`. Add the following code at the beginning of `ezplatform.yml`:
+    If you decide to create a new configuration file, you will need to import it by including an import statement in `ezplatform.yaml`. Add the following code at the beginning of `ezplatform.yaml`:
 
     ``` yaml
     imports:
-        - { resource: <your_file_name>.yml }
+        - { resource: <your_file_name>.yaml }
     ```
 
 !!! tip
 
-    If you are using the recommended .yml files for configuration, here are the basic rules for this format:
+    If you are using the recommended .yaml files for configuration, here are the basic rules for this format:
 
     The configuration is based on pairs of a key and its value, separated by a colon, presented in the following form: key: value. The value of the key may contain further keys, with their values containing further keys, and so on. This hierarchy is marked using indentation – each level lower in the hierarchy must be indented in comparison with its parent.
 
@@ -88,7 +88,7 @@ Templates in eZ Platform are written in the Twig templating language.
 
     Most of a Twig template file can look like an ordinary HTML file. This is also where you can define places where Content items or their fields will be embedded.
 
-The configuration described above lets you select one template to be used in a given situation, but this does not mean you are limited to only one file per case. It is possible to include other templates in the main template file. For example, you can have a single template for the footer of a page and include it in many other templates. Such templates do not need to be mentioned in the configuration .yml file.
+The configuration described above lets you select one template to be used in a given situation, but this does not mean you are limited to only one file per case. It is possible to include other templates in the main template file. For example, you can have a single template for the footer of a page and include it in many other templates. Such templates do not need to be mentioned in the configuration .yaml file.
 
 !!! tip
 

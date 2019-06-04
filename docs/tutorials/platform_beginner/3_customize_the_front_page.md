@@ -9,7 +9,7 @@ You will customize this step by instructing Platform to use a custom template to
 
 To use a custom template when rendering the root content, create a `content_view` configuration block for `ezpublish`.
 
-Edit `app/config/ezplatform.yml`. Find the `site_group` key and uncomment it.
+Edit `app/config/ezplatform.yaml`. Find the `site_group` key and uncomment it.
 Add the following block under `site_group`, but before `admin_group`
 (pay attention to indentation: `content_view` should be one level below `site_group`):
 
@@ -299,7 +299,7 @@ Now you need to indicate when this template should be used.
     The code blocks shown here include the full structure of the YAML file to help you learn where to place new blocks.
     Be careful not to duplicate existing keys, because YAML does not allow it.
 
-Go back to `app/config/ezplatform.yml` and add the following configuration (under the existing `content_view` and `full` keys:):
+Go back to `app/config/ezplatform.yaml` and add the following configuration (under the existing `content_view` and `full` keys:):
 
 ``` yaml
 site_group:

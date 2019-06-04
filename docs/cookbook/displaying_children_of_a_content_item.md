@@ -77,7 +77,7 @@ This template makes use of the `items` specified in `assign_results_to` to list 
 
 There are three different ways of using a Custom Controller that you can learn about in the [Custom Controller section](../guide/controllers.md#custom-rendering-logic). In this case we will be applying the first of these, that is using the Custom Controller alongside the built-in ViewController.
 
-Configuring for the use of a Custom Controller starts with pointing to it in your standard view configuration (which you can keep in `ezplatform.yml` or a separate file, for example `views.yml`):
+Configuring for the use of a Custom Controller starts with pointing to it in your standard view configuration (which you can keep in `ezplatform.yaml` or a separate file, for example `views.yaml`):
 
 ``` yaml
 folder:
@@ -198,7 +198,7 @@ class Children
 }
 ```
 
-Next, you must register these two services in `config/services.yml`:
+Next, you must register these two services in `config/services.yaml`:
 
 ``` yaml
 services:

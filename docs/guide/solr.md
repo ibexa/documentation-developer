@@ -266,7 +266,7 @@ If you have not configured your setup correctly, some exceptions might happen on
 Here are the most common issues you may encounter:
 
 - Exception if Binary files in database have an invalid path prefix
-    - Make sure `var_dir` is configured properly in `ezplatform.yml` configuration.
+    - Make sure `var_dir` is configured properly in `ezplatform.yaml` configuration.
     - If your database is inconsistent in regards to file paths, try to update entries to be correct *(make sure to make a backup first)*.
 - Exception on unsupported Field Types
     - Make sure to implement all Field Types in your installation, or to configure missing ones as [NullType](../api/field_type_reference.md#null-field-type) if implementation is not needed.
@@ -447,7 +447,7 @@ To avoid duplication, full-text data is indexed on the Content document only. Kn
 
 Indexing additional data is done by implementing a document field mapper and registering it at one of the five extension points described above.
 You can create the field mapper class anywhere inside your bundle,
-as long as when you register it as a service, the `class` parameter in your `services.yml` matches the correct path.
+as long as when you register it as a service, the `class` parameter in your `services.yaml` matches the correct path.
 There are three different field mappers. Each mapper implements two methods, by the same name, but accepting different arguments:
 
 - `ContentFieldMapper`

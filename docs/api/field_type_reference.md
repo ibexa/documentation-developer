@@ -1424,7 +1424,7 @@ Example:
 Example use:
 
 ``` yaml
-# ezplatform.yml
+# ezplatform.yaml
 ezpublish:
     system:
         site_group:

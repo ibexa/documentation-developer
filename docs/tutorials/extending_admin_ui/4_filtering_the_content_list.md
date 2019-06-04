@@ -5,7 +5,7 @@ In this step you will enable the content list to be filtered by Content Types.
 ## Update routing
 
 First, modify the route to the content list page.
-In `src/EzSystems/ExtendingTutorialBundle/Resources/config/routing.yml` add the `contentTypeIdentifier` parameter and set its default value:
+In `src/EzSystems/ExtendingTutorialBundle/Resources/config/routing.yaml` add the `contentTypeIdentifier` parameter and set its default value:
 
 ``` yml hl_lines="2 5"
 ezsystems_extending_tutorial.all_content_list.list:

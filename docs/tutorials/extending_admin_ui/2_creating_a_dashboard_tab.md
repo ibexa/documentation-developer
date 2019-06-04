@@ -15,7 +15,7 @@ This tab, called "Articles", will list ten most recently modified Content items 
 
 ## Register a service
 
-First, add the following block to `src/EzSystems/ExtendingTutorialBundle/Resources/config/services.yml`,
+First, add the following block to `src/EzSystems/ExtendingTutorialBundle/Resources/config/services.yaml`,
 which was created when [the bundle was generated](1_creating_a_bundle.md). Place the block indented, under the `services` key:
 
 ``` yml

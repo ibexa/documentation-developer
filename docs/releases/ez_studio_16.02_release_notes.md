@@ -163,7 +163,7 @@ Caution!
 
 If you had custom siteaccesses or languages set up in your installation, a conflict may appear here. This is because new siteaccesses are introduced in Studio demo in this release: "fr" for French, "de" for German and "no" for Norwegian.
 
-To avoid overriding your siteaccesses with the new ones, you need to accept your own changes in the `app/config/ezplatform.yml` file.
+To avoid overriding your siteaccesses with the new ones, you need to accept your own changes in the `app/config/ezplatform.yaml` file.
 
 If you have no custom siteaccesses or languages and no conflict occurs, you can do one of the following things:
 
@@ -277,6 +277,6 @@ git merge upgrade-1.2.0
 
 Double check the following before you test:
 
-You should now have a new route in` app/config/routing.yml`:
+You should now have a new route in` app/config/routing.yaml`:
 
-`_ezplatformRepositoryFormsRoutes:    resource: "@EzSystemsRepositoryFormsBundle/Resources/config/routing.yml"`
+`_ezplatformRepositoryFormsRoutes:    resource: "@EzSystemsRepositoryFormsBundle/Resources/config/routing.yaml"`

@@ -114,7 +114,7 @@ Alternatively if you have needs to configure Redis servers dynamically:
 
 !!! note
 
-    For eZ Platform Cloud (and Platform.sh), this is already configured in `config/env/platformsh.php` based on `.platform.yml` config.
+    For eZ Platform Cloud (and Platform.sh), this is already configured in `config/env/platformsh.php` based on `.platform.yaml` config.
 
 If you are on `php-redis` v4.2.0 and higher, you can optionally tweak [`php-redis` settings](https://github.com/phpredis/phpredis#session-locking) for session locking.
 

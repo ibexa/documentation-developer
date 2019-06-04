@@ -103,7 +103,7 @@ e.g. configuration for Landing Page Blocks could be placed in `landing_page_bloc
 
     ```yaml
     imports:
-        - { resource: landing_page_blocks.yml }
+        - { resource: landing_page_blocks.yaml }
     ```
 
 #### How can I implement authentication in an eZ Platform-based project?

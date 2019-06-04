@@ -138,7 +138,7 @@ Let's do this now with the `line` view for Rides.
 
 ## Create a line template for Rides
 
-Add a rule for the `ride` template in your `app/config/ezplatform.yml `file.
+Add a rule for the `ride` template in your `app/config/ezplatform.yaml `file.
 `line` should be at the same level as `full`.
 
 ``` yaml

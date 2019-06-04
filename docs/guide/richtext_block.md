@@ -32,7 +32,7 @@
 
     ``` yaml
     imports:
-        - resource: { layouts.yml }
+        - resource: { layouts.yaml }
     ```
 
     Next, create a subscriber that converts a string of data into XML.
@@ -95,7 +95,7 @@
 
     ```
 
-    Note that in the line 32, `my_block` is the name of the block defined in the `layouts.yml` file (line 3).
+    Note that in the line 32, `my_block` is the name of the block defined in the `layouts.yaml` file (line 3).
     This line also implements the `PreRender` method.
     Lines 41-51 handle the conversion of content into XML string.
 

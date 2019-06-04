@@ -34,7 +34,7 @@ logout:
 !!! note
 
     You can fully customize the routes and/or the controller used for login.
-    However, remember to match `login_path`, `check_path` and `logout.path` from `security.yml`.
+    However, remember to match `login_path`, `check_path` and `logout.path` from `security.yaml`.
 
     See [security configuration reference](http://symfony.com/doc/3.4/reference/configuration/security.html) and [standard login form documentation](http://symfony.com/doc/3.4/security/form_login_setup.html).
 
@@ -63,7 +63,7 @@ ezpublish:
 
 ##### Redirection after login
 
-By default, Symfony redirects to the [URI configured in `security.yml` as `default_target_path`](http://symfony.com/doc/3.4/reference/configuration/security.html). If not set, it defaults to `/`.
+By default, Symfony redirects to the [URI configured in `security.yaml` as `default_target_path`](http://symfony.com/doc/3.4/reference/configuration/security.html). If not set, it defaults to `/`.
 
 #### Remember me
 

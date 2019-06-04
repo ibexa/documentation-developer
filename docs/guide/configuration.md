@@ -14,11 +14,11 @@ REVIEW
 
 Main configuration files are located in the `app/config` folder.
 
-- `parameters.yml` contains infrastructure-related configuration. It is created based on the default settings defined in `parameters.yml.dist`.
-- `config.yml` contains configuration stemming from Symfony and covers settings such as search engine or cache configuration.
-- `ezplatform.yml` contains general configuration that is specific for eZ Platform, like for example SiteAccess settings.
-- `security.yml` is the place for security-related settings.
-- `routing.yml` defines routes that will be used throughout the application.
+- `parameters.yaml` contains infrastructure-related configuration. It is created based on the default settings defined in `parameters.yaml.dist`.
+- `config.yaml` contains configuration stemming from Symfony and covers settings such as search engine or cache configuration.
+- `ezplatform.yaml` contains general configuration that is specific for eZ Platform, like for example SiteAccess settings.
+- `security.yaml` is the place for security-related settings.
+- `routing.yaml` defines routes that will be used throughout the application.
 
 Configuration can be made environment-specific using separate files for each environment.
 These files contain additional settings and point to the general (not environment-specific) configuration that is applied in other cases.

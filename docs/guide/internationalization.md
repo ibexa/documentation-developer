@@ -179,17 +179,17 @@ If several translation SiteAccesses share the same language reference, **the fi
 
 #### Custom locale configuration
 
-If you need to use a custom locale, you can configure it in `ezplatform.yml`, adding it to the *conversion map*:
+If you need to use a custom locale, you can configure it in `ezplatform.yaml`, adding it to the *conversion map*:
 
 ``` yaml
 ezpublish:
     # Locale conversion map between eZ Publish format (e.g. fre-FR) to POSIX (e.g. fr_FR).
-    # The key is the eZ Publish locale. Check locale.yml in EzPublishCoreBundle to see natively supported locales.
+    # The key is the eZ Publish locale. Check locale.yaml in EzPublishCoreBundle to see natively supported locales.
     locale_conversion:
         eng-DE: en_DE
 ```
 
-A locale *conversion map* example [can be found in the `core` bundle, on `locale.yml`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/locale.yml).
+A locale *conversion map* example [can be found in the `core` bundle, on `locale.yaml`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/locale.yaml).
 
 ### More complex translation setup
 
