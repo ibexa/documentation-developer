@@ -329,7 +329,8 @@ ezpublish:
 
     #### Configuration on Platform.sh
 
-    If using Platform.sh, it's best to configure the Fastly credentials via Platform.sh variables.
+    If using Platform.sh, it's best to configure the Fastly credentials via [Platform.sh variables](https://docs.platform.sh/frameworks/ez/fastly.html).
+    You'll also need to [disable Varnish](https://docs.platform.sh/frameworks/ez/fastly.html#remove-varnish-configuration) which is enabled by default in provided configuration for Platform.sh.
     See the [Platform.sh Professional documentation](https://docs.platform.sh/frameworks/ez.html)
     for running eZ Platform Enterprise on Platform.sh.  If using Platform.sh Enterprise see the [Platform.sh Enterprise Documentation](https://ent.docs.platform.sh/frameworks/ez.html).
 

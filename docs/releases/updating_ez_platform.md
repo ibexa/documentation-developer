@@ -500,7 +500,12 @@ Some versions require updates to the database. Look through [the list of databas
 
     The old configuration is deprecated, so if you use custom tags, you need to modify your config accordingly.
 
-## 5. Dump assets
+## 5 Platform.sh changes
+
+If you are hosting your site on Platform.sh be aware of the fact that Varnish is enabled by default as of eZ Platform 1.13.5, 2.4.3 and 2.5.0.
+If you are using Fastly, please read about [how to disable Varnish](https://docs.platform.sh/frameworks/ez/fastly.html#remove-varnish-configuration).
+
+## 6. Dump assets
 
 The web assets must be dumped again if you are using the `prod` environment. In `dev` this happens automatically:
 
@@ -516,7 +521,7 @@ php bin/console assets:install --symlink -e prod
 php bin/console assetic:dump -e prod
 ```
 
-## 6. Commit, test and merge
+## 7. Commit, test and merge
 
 Once all the conflicts have been resolved, and `composer.lock` updated, the merge can be committed. Note that you may or may not keep `composer.lock`, depending on your version management workflow. If you do not wish to keep it, run `git reset HEAD <file>` to remove it from the changes. Run `git commit`, and adapt the message if necessary. You can now verify the project and once the update has been approved, go back to `master`, and merge your update branch:
 
