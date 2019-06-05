@@ -338,9 +338,14 @@ ezpublish:
 
     ### Setting Time-To-Live value for Page blocks
 
-    By default block cache respects `$content.ttl_cache$` and `$content.default_ttl$` settings. However if the given block value has a since / till date, this will be taken into account for the TTL caclucaltion for the block and also for the overall page.
-    
-    In order to overload this behavour you'll need to listen to [BlockResponseEvents::BLOCK_RESPONSE](extending_page/#block-render-response). For instance if you want to disabled cache for a cusotm block you can set priority of 100, match for the given block type and call `$event->getResponse()->setPrivate()`. If you want to just adjust the default logic you can rather set priorty to -200 and for instance set another TTL.
+    Block cache by default respects `$content.ttl_cache$` and `$content.default_ttl$` settings.
+    However, if the given block value has a since / till date,
+    this will be taken into account for the TTL calculation for the block and also for the whole page.
+
+    To overload this behavior, listen to [BlockResponseEvents::BLOCK_RESPONSE](extending_page/#block-render-response).
+    For instance, to disable cache for a custom block you can set a priority of 100,
+    match for the given block type and call `$event->getResponse()->setPrivate()`.
+    If you only want to adjust the default logic, you can set priority to `-200` and for instance set another TTL.
 
 !!! note "Invalidating Varnish cache using tokens"
 
