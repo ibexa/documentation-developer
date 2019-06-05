@@ -94,7 +94,7 @@ Create an `app/Resources/views/layouts/sidebar.html.twig` file:
 
             {% for block in zones[0].blocks %}
                 <div class="landing-page__block block_{{ block.type }}" data-ez-block-id="{{ block.id }}">
-                    {{ render_esi(controller('EzPlatformPageFieldTypeBundle:Block:render', {
+                    {{ render_esi(controller('EzPlatformPageFieldTypeBundle\Controller\BlockController::renderAction', {
                         'locationId': locationId,
                         'contentId': contentInfo.id,
                         'blockId': block.id,
@@ -111,7 +111,7 @@ Create an `app/Resources/views/layouts/sidebar.html.twig` file:
 
             {% for block in zones[1].blocks %}
                 <div class="landing-page__block block_{{ block.type }}" data-ez-block-id="{{ block.id }}">
-                    {{ render_esi(controller('EzPlatformPageFieldTypeBundle:Block:render', {
+                    {{ render_esi(controller('EzPlatformPageFieldTypeBundle\Controller\BlockController::renderAction', {
                         'locationId': locationId,
                         'contentId': contentInfo.id,
                         'blockId': block.id,

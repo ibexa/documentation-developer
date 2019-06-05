@@ -72,7 +72,7 @@ ezsystems_extending_tutorial.all_content_list.list:
     path: /all_content_list/{page}
     defaults:
         page: 1
-        _controller: EzSystemsExtendingTutorialBundle:AllContentList:list
+        _controller: EzSystems\ExtendingTutorialBundle\Controller\AllContentListController::listAction
 ```
 
 ## Create a controller

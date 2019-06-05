@@ -80,7 +80,7 @@ If you want to render language switch links in a sub-request with a correct `Ro
 
 ``` html+twig
 {# Render the language switch links in a sub-controller #}
-{{ render( controller( 'AcmeTestBundle:Default:languages', {'routeRef': ez_route()} ) ) }}
+{{ render( controller( 'Acme\TestBundle\Controller\DefaultController::languagesAction', {'routeRef': ez_route()} ) ) }}
 ```
 
 ``` php

@@ -38,7 +38,7 @@ ezpublish:
             content_view:
                 full:
                     article:
-                        controller: AcmeTestBundle:Default:articleViewEnhanced
+                        controller: Acme\TestBundle\Controller\DefaultController::articleViewEnhancedAction
                         template: AcmeTestBundle:full:article.html.twig
                         match:
                             Identifier\ContentType: [article]
@@ -106,7 +106,7 @@ ezpublish:
             content_view:
                 full:
                     folder:
-                        controller: AcmeTestBundle:Default:viewFolder
+                        controller: Acme\TestBundle\Controller\DefaultController::viewFolderAction
                         match:
                             Identifier\ContentType: [folder]
                             Identifier\Section: [standard]

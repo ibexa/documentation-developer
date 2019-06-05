@@ -81,7 +81,7 @@ Configuring for the use of a Custom Controller starts with pointing to it in you
 
 ``` yaml
 folder:
-    controller: app.controller.folder:showAction
+    controller: app.controller.folder::showAction
     template: full/folder.html.twig
     match:
         Identifier\ContentType: folder

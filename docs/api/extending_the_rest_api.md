@@ -58,7 +58,7 @@ Next, you need to create the REST route. Define the route's [controller as a ser
 myRestBundle_hello_world:
     path: '/my_rest_bundle/hello/{name}'
     defaults:
-        _controller: myRestBundle.controller.default:sayHello
+        _controller: My\Bundle\RestBundle\Rest\Controller\DefaultController::sayHelloAction
     methods: [GET]
 ```
 
@@ -286,7 +286,7 @@ Finally, a new Route should be added to `routing_rest.yml`
 myRestBundle_hello_world_using_post:
     path: /my_rest_bundle/hello/
     defaults:
-        _controller: myRestBundle.controller.default:sayHelloUsingPost
+        _controller: My\Bundle\RestBundle\Rest\Controller\DefaultController::sayHelloUsingPostAction
     methods: [POST]
 ```
 
