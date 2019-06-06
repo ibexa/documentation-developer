@@ -2101,6 +2101,7 @@ The Field Type handles a block of multiple lines of unformatted text. It is cap
 #### Input expectations
 
 |Type|Example|
+|----|-------|
 |`string`|`"This is a block of unformatted text"`|
 
 #### Value object
@@ -2110,6 +2111,7 @@ The Field Type handles a block of multiple lines of unformatted text. It is cap
 The Value class of this Field Type contains the following properties:
 
 |Property|Type|Description|
+|--------|----|-----------|
 |`$text`|`string`|This property will be used for the text content.|
 
 ###### String representation
