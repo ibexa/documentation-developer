@@ -1,9 +1,5 @@
 # Bundles
 
-## Dealing with bundles
-
-eZ Platform is based on the Symfony framework and applies a similar way of organizing the app. Like in Symfony, where ["everything is a bundle"](http://symfony.com/doc/current/book/bundles.html), your eZ Platform application is going to be a collection of bundles.
-
 ### What is a bundle?
 
 A bundle in Symfony (and eZ Platform) is a separate part of your application that implements a feature. You can create bundles yourself or make use of available open-source bundles. You can also reuse the bundles you create in other projects or share them with the community.
@@ -13,7 +9,6 @@ Many eZ Platform functionalities are provided through separate bundles included 
 ### How to use bundles?
 
 All the bundles containing built-in eZ Platform functionalities are installed automatically.
-By default, a clean eZ Platform installation also contains an AppBundle where you can place your custom code.
 
 You can see a list of other available community-developed bundles on <https://ezplatform.com/Bundles>.
 Refer to their respective pages for instructions on how to install them.
@@ -190,7 +185,8 @@ eZConfigManager.add({
 
 ### Configuration
 
-Configuration may go into `app/config`. However, service definitions from `AppBundle` should go into `src/AppBundle/Resources/config`.
+You project's configuration is placed in the respective files in `config/packages`.
+See [Configuration](configuration.md) for more information.
 
 ### Project example
 
@@ -198,7 +194,7 @@ You can see an example of organizing a simple project in the [companion reposito
 
 ### Versioning a project
 
-The recommended method is to version the whole ezplatform repository. Per installation configuration should use `parameters.yaml`.
+The recommended method is to version the whole ezplatform repository.
 
 ## Built-in bundles
 
