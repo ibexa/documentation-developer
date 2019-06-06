@@ -31,6 +31,14 @@
 ### Random sorting
 
 
+## Other changes
+
+### Improved translating of notifications
+
+`TranslationService` is not injected into the `NotificationService`.
+You can now use `TranslatableNotificationHandlerInterface` for translated notifications.
+
+
 ## Deprecations and removals
 
 ### SignalSlots
@@ -40,6 +48,9 @@
 ### Elastic Search
 
 ### REST server
+
+REST-related code has been moved from Kernel to a new [`ezsystems/ezplatform-rest`](https://github.com/ezsystems/ezplatform-rest) package.
+This also removed the REST client from Kernel.
 
 
 ## Backwards compatibility breaks
@@ -62,13 +73,17 @@
 
 ### REST server
 
+Removal of REST code from Kernel to a separate package results in the following change:
+
+`eZ\Publish\Core\REST` and `eZ\Publish\Core\REST\Common\` namespaces are replaced by `EzSystems\EzPlatformRest`.
+
+REST client has been dropped.
+
 ### User Field Type
 
 ### HTTP cache bundle
 
 ### Deprecated Field Types
-
-### TranslationService
 
 
 ## Requirements changes
