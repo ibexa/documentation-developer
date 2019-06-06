@@ -10,17 +10,17 @@ However, you can also use XML or PHP formats for configuration.
 
 ### Configuration files
 
-REVIEW
+Configuration files are located in the `config` folder.
+Configuration is provided per package in the `config/packages` folder,
+and routes are defined per package in `config/routes`.
 
-Main configuration files are located in the `app/config` folder.
+`config/packages/ezplatform.yaml` contains basic configuration (coming from [ezpublish-kernel](https://github.com/ezsystems/ezpublish-kernel)).
+It stores, among others, [SiteAccess](siteaccess.md) information and content view config.
 
-- `parameters.yaml` contains infrastructure-related configuration. It is created based on the default settings defined in `parameters.yaml.dist`.
-- `config.yaml` contains configuration stemming from Symfony and covers settings such as search engine or cache configuration.
-- `ezplatform.yaml` contains general configuration that is specific for eZ Platform, like for example SiteAccess settings.
-- `security.yaml` is the place for security-related settings.
-- `routing.yaml` defines routes that will be used throughout the application.
+Other configuration is provided in respective files, e.g. `config/packages/ezplatform_admin_ui.yaml`,
+`config/packages/ezplatform_http_cache.yaml`.
 
-Configuration can be made environment-specific using separate files for each environment.
+Configuration can be made environment-specific using separate folders for each environment.
 These files contain additional settings and point to the general (not environment-specific) configuration that is applied in other cases.
 
 !!! tip
