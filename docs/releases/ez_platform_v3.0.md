@@ -47,6 +47,8 @@ You can now use `TranslatableNotificationHandlerInterface` for translated notifi
 
 ### Elastic Search
 
+Elastic Search support has been dropped.
+
 ### REST server
 
 REST-related code has been moved from Kernel to a new [`ezsystems/ezplatform-rest`](https://github.com/ezsystems/ezplatform-rest) package.
@@ -84,6 +86,10 @@ REST client has been dropped.
 ### HTTP cache bundle
 
 ### Deprecated Field Types
+
+### Elastic Search
+
+Elastic Search support has been dropped.
 
 
 ## Requirements changes
