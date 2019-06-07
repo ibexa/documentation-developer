@@ -60,13 +60,13 @@ class ArticleListController extends Controller
         <ul>
         {# Loop over the page results #}
         {% for article in pagerArticle %}
-            <li><a href={{ path('ez_urlalias', {'contentId': article.content_info.id}) }}>{{ez_content_name( article ) }}</a></li>
+            <li><a href={{ path('ez_urlalias', {'contentId': article.contentInfo.id}) }}>{{ez_content_name( article ) }}</a></li>
         {% endfor %}
         </ul>
     </div>
  
     {# Only display Pagerfanta navigator if needed. #}
-    {% if pagerArticle.have_to_paginate() %}
+    {% if pagerArticle.haveToPaginate() %}
     <div class="pagerfanta">
         {{ pagerfanta( pagerArticle, 'twitter_bootstrap_translated', {'routeName': location} ) }}
     </div>

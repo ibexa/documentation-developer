@@ -242,7 +242,7 @@ The *translated name* is held in a `VersionInfo` object, in the `names` prope
 
 {# In earlier versions the same is available using Twig translation helper ez_content_name() #}
 <h2>Translated Content name: {{ ez_content_name( content ) }}</h2>
-<h3>Also works from ContentInfo: {{ ez_content_name( content.content_info ) }}</h3>
+<h3>Also works from ContentInfo: {{ ez_content_name( content.contentInfo ) }}</h3>
 ```
 
 The helper will by default follow the prioritized languages order. If there is no translation for your prioritized languages, the helper will always return the name in the main language.
@@ -259,7 +259,7 @@ You can also **force a locale** in a second argument:
     This property is the actual Content name, but **in the main language only** (so it is not translated).
 
     ``` html+twig
-    <h2>Content name: {{ content.content_info.name }}</h2>
+    <h2>Content name: {{ content.contentInfo.name }}</h2>
     ```
 
     In PHP that would be:

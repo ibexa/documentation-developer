@@ -117,7 +117,7 @@ The `<head>` of the `<table>` is contained in this **Ride** list template, while
             <p>{{ 'There are no Rides yet.'|trans }}</p>
         {% endif %}
 
-        {% if pagerRides.have_to_paginate() %}
+        {% if pagerRides.haveToPaginate() %}
             <div class="colo-xs-12 text-center">
                 <div class="pagerfanta pagination">
                     {{ pagerfanta( pagerRides, 'twitter_bootstrap3_translated', {'routeName': location } ) }}
@@ -159,7 +159,7 @@ Because this template will be rendered inside a table, it starts with a `<tr>` t
 ``` html+twig
 <tr>
     <td>
-        <a href="{{ path( "ez_urlalias", { 'locationId': content.content_info.mainLocationId } ) }}"
+        <a href="{{ path( "ez_urlalias", { 'locationId': content.contentInfo.mainLocationId } ) }}"
         target="_self">
             <strong>
                 {{ content.name }}

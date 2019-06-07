@@ -6,7 +6,7 @@ eZ Platform comes with a collection of Field Types that can be used to build pow
 
 !!! tip
 
-    For general Field Type documentation, see [Field Type API](../api/field_type_api.md). 
+    For general Field Type documentation, see [Field Type API](../api/field_type_api.md).
     For the documentation on how to implement a custom Field Type, see the [Creating a Tweet Field Type](../tutorials/field_type/creating_a_tweet_field_type.md) tutorial.
 
 Custom Field Types have to be programmed in PHP. However, the built-in Field Types are usually sufficient enough for typical scenarios. The following table gives an overview of the supported Field Types that come with eZ Platform.
@@ -1699,7 +1699,7 @@ services:
 
     |Parameter|Description|
     |---------|-----------|
-    |`locationId`|ID of the Location of the Content item which can be accessed by `content_info.id`|
+    |`locationId`|ID of the Location of the Content item which can be accessed by `contentInfo.id`|
     |`blockId`|ID of the block which you want to render|
     |`versionNo`|Version number of the Content item to render|
     |`languageCode`|Language code of the Content item to render|
