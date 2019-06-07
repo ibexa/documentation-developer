@@ -146,7 +146,7 @@ You can add the template that is defined above in the `render()` method to one o
 In this example use the `AppBundle`:
 
 ```
-{% extends '@EzPlatformAdminUi/notifications/notification_row.html.twig' %}
+{% extends '@ezdesign/account/notifications/list_item.html.twig' %}
 
 {% trans_default_domain 'custom_notification' %}
 

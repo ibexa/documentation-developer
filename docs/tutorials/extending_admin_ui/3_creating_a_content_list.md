@@ -149,20 +149,20 @@ The highlighted line 41 indicates the template that will be used to display the 
 Finally, create an `all_content_list.html.twig` file in `src/EzSystems/ExtendingTutorialBundle/Resources/views/list`:
 
 ``` html+twig
-{% extends 'EzPlatformAdminUiBundle::layout.html.twig' %}
+{% extends '@ezdesign::layout.html.twig' %}
 
 {% block title %}{{ 'Content List'|trans }}{% endblock %}
 
 {%- block breadcrumbs -%}
-    {% include '@EzPlatformAdminUi/parts/breadcrumbs.html.twig' with { items: [
+    {% include '@ezdesign/ui/breadcrumbs.html.twig' with { items: [
         { value: 'url.list'|trans|desc('Content List') }
     ]} %}
 {%- endblock -%}
 
 {%- block page_title -%}
-    {% include '@EzPlatformAdminUi/parts/page_title.html.twig' with {
+    {% include '@ezdesign/ui/page_title.html.twig' with {
         title: 'url.list'|trans|desc('Content List'),
-        iconName: 'article'
+        icon_name: 'article'
     } %}
 {%- endblock -%}
 

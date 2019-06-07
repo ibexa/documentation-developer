@@ -65,6 +65,6 @@ ezpublish:
         default:
             content_edit:
                 templates:
-                    edit: content_edit/content_edit.html.twig
-                    create_draft: content_edit/content_create_draft.html.twig
+                    edit: content/edit/content_edit.html.twig
+                    create_draft: content/edit/content_create_draft.html.twig
 ```

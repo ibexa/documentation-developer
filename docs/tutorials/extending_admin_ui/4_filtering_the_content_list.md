@@ -137,20 +137,20 @@ inside `<section class="container my-4">`:
 ??? tip "Complete template code"
 
     ``` html+twig hl_lines="20 21 22 23 24 25 26 27 28 29 30 31 32 33 34"
-    {% extends 'EzPlatformAdminUiBundle::layout.html.twig' %}
+    {% extends '@ezdesign::layout.html.twig' %}
 
     {% block title %}{{ 'Content List'|trans }}{% endblock %}
 
     {%- block breadcrumbs -%}
-        {% include '@EzPlatformAdminUi/parts/breadcrumbs.html.twig' with { items: [
+        {% include '@ezdesign/ui/breadcrumbs.html.twig' with { items: [
             { value: 'url.list'|trans|desc('Content List') }
         ]} %}
     {%- endblock -%}
 
     {%- block page_title -%}
-        {% include '@EzPlatformAdminUi/parts/page_title.html.twig' with {
+        {% include '@ezdesign/ui/page_title.html.twig' with {
             title: 'url.list'|trans|desc('Content List'),
-            iconName: 'article'
+            icon_name: 'article'
         } %}
     {%- endblock -%}
 

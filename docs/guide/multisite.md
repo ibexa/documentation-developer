@@ -178,5 +178,5 @@ a separate `event/pagelayout.html.twig` and a template to be used for articles.
 When no view is defined under `event`, such as in the case of the `news` Content Type,
 the template defined under `default` will apply. `default` will also be used for all SiteAccesses other than `event`.
 
-To load the base (default) layout in templates you now need to use `{% extends noLayout == true ? viewbaseLayout : pagelayout %}`.
+To load the base (default) layout in templates you now need to use `{% extends no_layout == true ? view_base_layout : page_layout %}`.
 (See [Template inheritance and sub-requests](content_rendering.md#template-inheritance-and-sub-requests) for more information).

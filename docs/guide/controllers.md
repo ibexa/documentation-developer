@@ -81,7 +81,7 @@ These parameters can then be used in templates, for example:
 
 ``` html+twig
 <!--article.html.twig-->
-{% extends noLayout ? viewbaseLayout : "eZDemoBundle::pagelayout.html.twig" %}
+{% extends no_layout ? view_base_layout : "eZDemoBundle::pagelayout.html.twig" %}
 
 {% block content %}
     <h1>{{ ez_render_field( content, 'title' ) }}</h1>
