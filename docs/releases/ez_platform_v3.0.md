@@ -38,6 +38,10 @@
 `TranslationService` is not injected into the `NotificationService`.
 You can now use `TranslatableNotificationHandlerInterface` for translated notifications.
 
+### Renamed templates and parameters
+
+Templates and parameters used by the Back Office have been renamed for consistency.
+Refer to [Backwards compatibility doc]() for full list of changes.
 
 ## Deprecations and removals
 
