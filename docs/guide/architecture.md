@@ -24,7 +24,7 @@ The architecture of eZ Platform is layered and uses clearly defined APIs between
 |[Persistence cache](persistence_cache.md)|The implementation of SPI\Persistence that decorates the main backend implementation.|
 |[Search](search.md)|Search API that allows both full-text search and querying the content.|
 |[SQL Storage Engine](search_engines.md#legacy-search-engine-bundle)|Legacy search engine is SQL-based and uses Doctrine's database connection.|
-|[Solr Storage Engine](solr.md)|Transparent drop-in replacement for the SQL-based Legacy search engine powering eZ Platform Search API by default.|
+|[Solr Storage Engine](solr.md)|Transparent drop-in replacement for the SQL-based Legacy search engine.|
 |[IO](file_management.md#native-io-handler)|The IO API is organized around two types of handlers, both used by the IOService.|
 |[IO Handler](clustering.md#dfs-io-handler)|The IO Handler manipulates metadata, making up for the potential inconsistency of network-based filesystems.|
 |[Recommendation](personalization.md#enabling-recommendations)|Recommendation API.|
