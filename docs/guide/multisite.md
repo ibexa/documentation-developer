@@ -115,6 +115,12 @@ ezpublish:
 
 If not specified, the `index_page` is the configured content root.
 
+## Multisite with multiple repositories
+
+Multisite is configurable to use one or multiple repositories.
+With multiple repositories, each site can have a separate repository.
+To configure multisite with multiple repositories, [configure the repositories](https://doc.ezplatform.com/en/latest/guide/config_repository/) and perform [multi repository setup](https://doc.ezplatform.com/en/latest/guide/persistence_cache/#multi-repository-setup).
+
 ### Limitations when using with multisite URI matching with multi-repository setup
 
 !!! caution
