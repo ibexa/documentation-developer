@@ -149,14 +149,12 @@ parameters:
         db_time_col: session_time
 
 services:
-    pdo:
-        class: PDO
+    PDO:
         arguments:
             dsn: 'mysql:dbname=<mysql_database>'
             user: <mysql_user>
             password: <mysql_password>
 
-    session.handler.pdo:
-        class: Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler
+    Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler:
         arguments: ['@pdo', '%pdo.db_options%']
 ```

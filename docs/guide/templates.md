@@ -11,13 +11,13 @@ To apply a template to any part of your webpage, you need three (optionally four
 
 Each template must be mentioned in a configuration file together with a definition of the situation in which it is used. You can use the `ezplatform.yaml` file located in the `config/packages` folder, or create your own separate configuration file in that folder that will list all your templates.
 
-!!! note
+!!! tip
 
-    If you decide to create a new configuration file, you will need to import it by including an import statement in `ezplatform.yaml`. Add the following code at the beginning of `ezplatform.yaml`:
+    If you create a new configuration file outside the `packages` folder, you will need to import it by including an import statement in `ezplatform.yaml`. Add the following code at the beginning of `ezplatform.yaml`:
 
     ``` yaml
     imports:
-        - { resource: <your_file_name>.yaml }
+        - { resource: ../<your_file_name>.yaml }
     ```
 
 !!! tip
@@ -421,12 +421,8 @@ class PreContentViewListener
 Service configuration:
 
 ``` yaml
-parameters:
-    app.pre_content_view_listener.class: App\EventListener\PreContentViewListener
-
 services:
-    app.pre_content_view_listener:
-        class: '%ezdemo.pre_content_view_listener.class%'
+    App\EventListener\PreContentViewListener:
         tags:
             - {name: kernel.event_listener, event: ezpublish.pre_content_view, method: onPreContentView}
 ```

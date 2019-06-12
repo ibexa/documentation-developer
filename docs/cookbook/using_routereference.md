@@ -118,12 +118,8 @@ class MyRouteReferenceListener implements EventSubscriberInterface
 Service declaration (in `config/services.yaml`):
 
 ``` yaml
-parameters:
-    app.my_route_reference_listener.class: App\EventListener\MyRouteReferenceListener
-
 services:
-    app.my_route_reference_listener:
-        class: '%app.my_route_reference_listener.class%'
+    App\EventListener\MyRouteReferenceListener:
         tags:
             - { name: kernel.event_subscriber }
 ```

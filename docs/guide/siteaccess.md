@@ -652,8 +652,7 @@ Let's define a simple service which depends on the Repository's ContentService a
 
 ```yaml
 services:
-    app.test.my_service:
-        class: App\MyService
+    App\MyService:
         arguments: ['@ezpublish.api.service.content']
         calls:
             - [setSiteAccess, ['@ezpublish.siteaccess']]

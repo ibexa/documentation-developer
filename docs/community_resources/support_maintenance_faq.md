@@ -98,12 +98,13 @@ rm -rf var/cache/*
 In order to avoid merge conflicts on important configuration settings during upgrades,
 moving as much as possible of your configuration to your own files can be a good idea.
 
-All project-specific parameters should be kept in separate files,
-e.g. configuration for Landing Page Blocks could be placed in `landing_page_blocks.yaml` which should be imported in `config/ezplatform.yaml`:
+All project-specific parameters should be kept in separate files.
+For example, configuration for Landing Page Blocks could be placed in `config/packages/landing_page_blocks.yaml`.
+You can also place it in `config/landing_page_blocks.yaml`, which should be imported in `config/ezplatform.yaml`:
 
     ```yaml
     imports:
-        - { resource: landing_page_blocks.yaml }
+        - { resource: ../landing_page_blocks.yaml }
     ```
 
 #### How can I implement authentication in an eZ Platform-based project?

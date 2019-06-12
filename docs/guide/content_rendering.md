@@ -197,8 +197,7 @@ By default, the [Configured ViewProvider](#configuring-views-the-viewprovider) i
 
 ``` yaml
 services:
-    appe.my_view_provider:
-        class: App\Content\MyViewProvider
+    App\Content\MyViewProvider:
         tags:
             - {name: ezpublish.view_provider, type: eZ\Publish\Core\MVC\Symfony\View\ContentView, priority: 30}
 ```

@@ -81,7 +81,7 @@ Configuring for the use of a Custom Controller starts with pointing to it in you
 
 ``` yaml
 folder:
-    controller: app.controller.folder::showAction
+    controller: App\Controller\FolderController::showAction
     template: full/folder.html.twig
     match:
         Identifier\ContentType: folder
@@ -205,7 +205,7 @@ services:
     app.criteria.children:
         class: App\Criteria\Children
 
-    app.controller.folder:
+    App\Controller\FolderController:
         class: App\Controller\FolderController
         arguments:
             - '@ezpublish.api.service.search'

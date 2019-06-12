@@ -20,18 +20,9 @@ SetEnvIf Request_URI ".*" SYMFONY_ENV="dev"
 
 ## Using custom environments
 
-If you want to use a custom environment (something other than `prod` and `dev`), you need to create the dedicated configuration files for your environment:
-
-- `config/config_<env_name>.yaml`
-- `config/ezplatform_<env_name>.yaml`
+If you want to use a custom environment (something other than `prod` and `dev`), you need to place dedicated configuration files in a separate folder:
+`config/packages/<env_name>/config_<env_name>.yaml`
 
 The name used as `<env_name>` is the one that can be used as value of the `ENVIRONMENT` variable.
-
-Those files must import the main configuration file, just like the default [`config_dev.yaml`](https://github.com/ezsystems/ezpublish-community/blob/master/ezpublish/config/config_dev.yaml) does:
-
-``` yaml
-imports:
-    - { resource: config.yaml }
-```
 
 This enables you to override settings defined in the main configuration file, depending on your environment (for example database settings).

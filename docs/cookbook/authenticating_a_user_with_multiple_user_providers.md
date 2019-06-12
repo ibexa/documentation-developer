@@ -53,12 +53,8 @@ security:
 In `services.yaml`:
 
 ``` yaml
-parameters:
-    app.interactive_event_listener.class: App\EventListener\InteractiveLoginListener
-
 services:
-    app.interactive_event_listener:
-        class: '%app.interactive_event_listener.class%'
+    App\EventListener\InteractiveLoginListener:
         arguments: ['@ezpublish.api.service.user']
         tags:
             - { name: kernel.event_subscriber } 

@@ -31,8 +31,7 @@ In your eZ Platform configuration, e.g. `config/packages/ezplatform.yml`, set up
 
 ``` yaml
 services:
-    amazon.s3_client:
-        class: Aws\S3\S3Client
+    Aws\S3\S3Client:
         arguments:
             -
                 version: latest
