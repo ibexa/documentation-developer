@@ -245,7 +245,7 @@ Only then your database will work properly.
          <field name="_version_" type="long" indexed="true" stored="true" multiValued="false" />
     ```
     
-    You can now follow the steps form <1.13.
+    You can now follow the steps from <1.13.
 
 ??? note "Updating from <1.13"
 
@@ -317,7 +317,7 @@ Only then your database will work properly.
 
     `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.13.3-to-6.13.4.sql`
     
-    You can now follow the steps form <2.2.
+    You can now follow the steps from <2.2.
 
 ??? note "Updating from <2.2"
 
@@ -439,7 +439,7 @@ Only then your database will work properly.
     Custom converters must implement the `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\ConverterInterface` interface.
     `convert()` will parse XML `\DOMNode $node` and return an array of `\EzSystems\EzPlatformPageFieldType\FieldType\LandingPage\Model\Attribute` objects.
     
-    You can now follow the steps form <2.3.
+    You can now follow the steps from <2.3.
 
 ??? note "Updating from <2.3"
 
@@ -485,7 +485,7 @@ Only then your database will work properly.
             After the update, in order to create forms, you have to add a new Content Type (e.g. named "Form") that contains `Form` Field (this Content Type can contain other fields
             as well). After that you can use forms inside Landing Pages via Embed block.
      
-    You can now follow the steps form <2.4.
+    You can now follow the steps from <2.4.
 
 ??? note "Updating from <2.4"
 
@@ -530,7 +530,7 @@ Only then your database will work properly.
 
     The old configuration is deprecated, so if you use custom tags, you need to modify your config accordingly.
     
-    You can now follow the steps form <2.5.
+    You can now follow the steps from <2.5.
 
 !!! note "Updating from <2.5"
 
