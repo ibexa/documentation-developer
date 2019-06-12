@@ -343,7 +343,7 @@ ezpublish:
     this will be taken into account for the TTL calculation for the block and also for the whole page.
 
     To overload this behavior, listen to [BlockResponseEvents::BLOCK_RESPONSE](extending_page/#block-render-response).
-    For instance, to disable cache for a custom block you can set a priority of 100,
+    For instance, to disable cache for a custom block you can set a listener's priority to `100`,
     match for the given block type and call `$event->getResponse()->setPrivate()`.
     If you only want to adjust the default logic, you can set priority to `-200` and for instance set another TTL.
 
