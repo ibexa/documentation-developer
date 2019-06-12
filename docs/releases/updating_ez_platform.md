@@ -199,7 +199,7 @@ Some versions require updates to the database. Look through [the list of databas
 
 During database update you have to go through all the changes between your starting version and your final version
 **e.g. during update from v2.2 to v2.5 you have to perform all the steps from: <2.3, <2.4 and <2.5**.
-Only then your database will work properly.
+Only then will your database work properly.
 
 ??? note "Updating from <1.7"
 
