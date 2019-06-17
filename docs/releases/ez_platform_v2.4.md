@@ -144,9 +144,9 @@ The outdated Policy labels are now updated:
 
 This release introduces a few simplifications to API use for Content Types:
 
-- Exposes `content->getContentType()` for easier use, including from Twig as `content.contentType`, when iterating over resultset of content/locations these will be loaded in one go effectivly.
-- Adds possibility to load several Content Types in bulk using `ContentTypeService->loadContentTypeList()`
-- In `UserService` there is now `isUser()` and `isUserGroup()` which does not need to do a lookup to database in order to tell if a Content object is of type user or user group.
+- Exposes `content->getContentType()` for easier use, including from Twig as `content.contentType`. When iterating over the result set of content/Locations these will effectively be loaded all at once.
+- Adds possibility to load several Content Types in bulk using `ContentTypeService->loadContentTypeList()`.
+- `UserService` now exposes `isUser()` and `isUserGroup()`. They do not need to do a lookup to the database in order to tell if a Content item is of type User or User Group.
 
 #### Load multiple Locations
 
