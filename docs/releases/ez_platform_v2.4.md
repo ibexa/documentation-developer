@@ -190,7 +190,7 @@ You are now able to load multiple Locations at once, using `LocationService->loa
      }
     ```
 
-    2\. Add the following configuration to `/app/config/config.yaml`
+    2\. Add the following configuration to `/app/config/config.yml`
 
     ``` yaml
      lexik_jwt_authentication:
@@ -209,7 +209,7 @@ You are now able to load multiple Locations at once, using `LocationService->loa
 
     By default `HS256` is used as signature algorithm for generated token but we strongly recommend switching to SSH keys. For more information see [`LexikJWTAuthenticationBundle` installation instruction.](https://github.com/lexik/LexikJWTAuthenticationBundle/blob/master/Resources/doc/index.md#installation)
 
-    3\. Add `EzSystems\EzPlatformPageBuilder\Security\EditorialMode\TokenAuthenticator` authentication provider to `ezpublish_front` firewall before `form_login` in `app/config/security.yaml`:
+    3\. Add `EzSystems\EzPlatformPageBuilder\Security\EditorialMode\TokenAuthenticator` authentication provider to `ezpublish_front` firewall before `form_login` in `app/config/security.yml`:
 
     ``` yaml
      security:
@@ -224,7 +224,7 @@ You are now able to load multiple Locations at once, using `LocationService->loa
                  # ...
     ```
 
-    4\. Make sure that parameter `page_builder.token_authenticator.enabled` has value `true`. If the parameter is not present, add it to `/app/config/config.yaml`:
+    4\. Make sure that parameter `page_builder.token_authenticator.enabled` has value `true`. If the parameter is not present, add it to `/app/config/config.yml`:
 
     ``` yaml
      # ...

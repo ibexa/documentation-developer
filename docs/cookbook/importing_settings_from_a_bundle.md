@@ -6,7 +6,7 @@
 
 When developing your website it is best practice to use one or several custom bundles.
 However, dealing with core bundle semantic configuration can be a bit tedious
-if you maintain it in the main `templates/ezplatform.yml` configuration file.
+if you maintain it in the main `config/packages/ezplatform.yaml` configuration file.
 
 This page shows how to import configuration from a bundle in two ways: the manual way and the implicit way.
 

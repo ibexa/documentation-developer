@@ -298,8 +298,8 @@ ezpublish:
 
     It is recommended to use either `config/services.yaml` or the environment variable.
 
-    Note that in `config/ezplatform.yaml`, the `purge_server` setting is an array while `purge_server` in
-    `config/parameters.yaml` and the `HTTPCACHE_PURGE_SERVER` environment variable should be a string.
+    Note that in `config/ezplatform.yaml`, the `purge_servers` setting is an array
+    while the `HTTPCACHE_PURGE_SERVER` environment variable should be a string.
 
     ##### Fastly service ID and API token
 
@@ -314,11 +314,11 @@ ezpublish:
 
     You may specify service ID and token:
 
-    - using the `service_id` and `key` settings (sub elements of "fastly") in `app/config/ezplatform.yaml`
-    - by setting the parameters `fastly_service_id` and `fastly_key` in `app/config/parameters.yaml`
+    - using the `service_id` and `key` settings (sub elements of "fastly") in `config/packages/ezplatform.yaml`
+    - by setting the parameters `fastly_service_id` and `fastly_key` in `config/packages/ezplatform-http-cache-fastly.yaml`
     - by setting the environment variables `FASTLY_SERVICE_ID` and `FASTLY_KEY`
 
-    Unless you need different settings per SiteAccess it is recommended to either use `app/config/parameters.yaml`
+    Unless you need different settings per SiteAccess it is recommended to either use `config/packages/ezplatform.yaml`
     or the environment variables.
 
     ##### Clear the cache

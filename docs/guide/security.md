@@ -19,7 +19,7 @@ security:
             logout: ~
 ```
 
-And in `config/packages/routing.yaml`:
+And in `config/routes.yaml`:
 
 ``` yaml
 login:

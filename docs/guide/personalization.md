@@ -46,7 +46,7 @@ recommendationBundleRestRoutes:
 
 !!! note "Legacy support"
 
-    Legacy support is disabled by default. To enable the legacy search engine (requires `ezpublish-kernel` bundle) copy these service definitions to your `app/config/services.yaml` file and uncomment them:
+    Legacy support is disabled by default. To enable the legacy search engine (requires `ezpublish-kernel` bundle) copy these service definitions to your `config/services.yaml` file and uncomment them:
 
     ``` yaml
     # ez_recommendation.legacy.search_engine:
@@ -127,7 +127,7 @@ Place this in a settings file which won't be affected by an update to the Recomm
 
 Visitor events (clicks, buys, ...) on the site need to be sent to the Personalization Solution for the recommendations to be calculated. The content types that are marked to be tracked are also exported to the Personalization Engine. Please note that you can only recommend what you track!
 
-By defining the Content Types in the local `app/config/config.yaml` file, the content will be initially exported by a script. After this, it will be kept in sync with the Personalization Solution everytime a change occurs in the eZ Platform back office.
+By defining the Content Types in the local `config/packages/config.yaml` file, the content will be initially exported by a script. After this, it will be kept in sync with the Personalization Solution everytime a change occurs in the eZ Platform back office.
 
 The bundle's configuration is SiteAccess-aware. This is an example of the settings (in `config.yaml`):
 
@@ -154,7 +154,7 @@ The following parameters need to be included in the settings file:
 
 #### Advanced configuration
 
-If the content's author or image are stored in a different Field, you can specify its name in the `parameters.yaml` file:
+If the content's author or image are stored in a different Field, you can specify its name in the `services.yaml` file:
 
 ``` yaml
 ez_recommendation.field_identifiers:

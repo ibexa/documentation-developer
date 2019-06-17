@@ -261,7 +261,7 @@ Some versions require updates to the database. Look through [the list of databas
 
     Since v1.8 you can add a File field to the Form block on a Landing Page. Files uploaded through such a form will be automatically placed in a specific folder in the repository.
 
-    If you are upgrading to v1.8 you need to create this folder and assign it to a new specific Section. Then, add them in the config (for example, in `app/config/default_parameters.yaml`, depending on how your configuration is set up):
+    If you are upgrading to v1.8 you need to create this folder and assign it to a new specific Section. Then, add them in the config (for example, in `app/config/default_parameters.yml`, depending on how your configuration is set up):
 
     ``` bash
         #Location id of the root for form uploads
@@ -337,7 +337,7 @@ Some versions require updates to the database. Look through [the list of databas
 
     You should also change the character set that is specified in the application config:
 
-    In `app/config/config.yaml`, set the following:
+    In `app/config/config.yml`, set the following:
 
     ``` yml
     doctrine:
@@ -346,7 +346,7 @@ Some versions require updates to the database. Look through [the list of databas
                 default:
                     charset: utf8mb4
     ```
-    Also make the corresponding change in `app/config/dfs/dfs.yaml`.
+    Also make the corresponding change in `app/config/dfs/dfs.yml`.
 
     ##### Page builder
 
@@ -522,13 +522,13 @@ Some versions require updates to the database. Look through [the list of databas
 
     The introduction of [support for PostgreSQL](../guide/databases.md#using-postgresql) includes a change in the way database schema is generated.
 
-    It is now created based on [YAML configuration](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage/legacy/schema.yaml), using the new [`DoctrineSchemaBundle`](https://github.com/ezsystems/doctrine-dbal-schema).
+    It is now created based on [YAML configuration](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage/legacy/schema.yml), using the new [`DoctrineSchemaBundle`](https://github.com/ezsystems/doctrine-dbal-schema).
 
     If you are updating your application according to the usual procedure, no additional actions are required.
     However, if you do not update your meta-repository, you need to take two additional steps:
 
     - enable `EzSystems\DoctrineSchemaBundle\DoctrineSchemaBundle()` in `AppKernel.php`
-    - add [`ez_doctrine_schema`](https://github.com/ezsystems/ezplatform/blob/master/app/config/config.yaml#L33) configuration
+    - add [`ez_doctrine_schema`](https://github.com/ezsystems/ezplatform/blob/master/app/config/config.yml#L33) configuration
 
     #### Changes to Matrix Field Type
 
