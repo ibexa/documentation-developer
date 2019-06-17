@@ -83,7 +83,7 @@ An event subscriber can be implemented as follows:
 
 ``` php
 <?php
-namespace EzSystems\EzPlatformAdminUi\EventListener;
+namespace App\EventListener;
 
 use EzSystems\EzPlatformAdminUi\Menu\Event\ConfigureMenuEvent;
 use EzSystems\EzPlatformAdminUi\Menu\MainMenuBuilder;
@@ -110,17 +110,18 @@ class MenuListener implements EventSubscriberInterface
 }
 ```
 
-After creating a subscriber, add it to `config/services.yaml`:
+If [the autoconfigure option](https://symfony.com/doc/4.3/service_container.html#the-autoconfigure-option) is disabled,
+you need to register the service with the `kernel.event.subscriber` tag in `config/services.yaml`:
 
 ``` yaml
 services:
-    EzSystems\EzPlatformAdminUi\EventListener\MenuListener:
+    App\EventListener\MenuListener:
         tags:
            - { name: kernel.event.subscriber }
 
 ```
 
-Providing the `kernel.event.subscriber` tag is necessary only if [the autoconfigure option](https://symfony.com/doc/3.4/service_container.html#the-autoconfigure-option) is disabled.
+
 
 ### Adding menu items
 
@@ -212,7 +213,7 @@ $menu->addChild(
     'menu_item_with_params',
     [
         'extras' => [
-            'template' => 'AppBundle::menu_item_template.html.twig',
+            'template' => 'adminui/menu_item_template.html.twig',
             'template_parameters' => [
                 'custom_parameter' => 'value',
             ],
@@ -221,7 +222,7 @@ $menu->addChild(
 );
 ```
 
-You can then use the variable `custom_parameter` in `AppBundle::menu_item_template.html.twig`.
+You can then use the variable `custom_parameter` in `templates/adminui/menu_item_template.html.twig`.
 
 #### Translatable labels
 
@@ -269,6 +270,8 @@ In the following example, the `DashboardEventSubscriber.php` reverses the order 
 (in a default installation this makes the "Everyone" block appear above the "Me" block):
 
 ``` php
+<?php
+
 namespace App\EventListener;
 
 use EzSystems\EzPlatformAdminUi\Component\Event\RenderGroupEvent;
@@ -309,7 +312,7 @@ You can extend existing tab groups with new tabs, or create your own tab groups.
 
 ### Adding a new tab group
 
-To create a custom tab group with additional logic you need to create it at the level of compiling the Symfony container, using a [CompilerPass](https://symfony.com/doc/3.4/service_container/compiler_passes.html).
+To create a custom tab group with additional logic you need to create it at the level of compiling the Symfony container, using a [CompilerPass](https://symfony.com/doc/4.3/service_container/compiler_passes.html).
 
 For example, in `src/DependencyInjection/Compiler/CustomTabGroupPass.php`:
 
@@ -360,6 +363,8 @@ Before you add a tab to a group you must create the tab's PHP class and define i
 ``` yaml
 App\Custom\Tab:
     parent: EzSystems\EzPlatformAdminUi\Tab\AbstractTab
+    autowire: true
+    autoconfigure: false
     tags:
         - { name: ezplatform.tab, group: custom-tab-group }
 ```
@@ -394,7 +399,7 @@ class Tab extends AbstractTab
     {
         // Do rendering here
 
-        return $this->twig->render('AppBundle:my_tabs/custom.html.twig', [
+        return $this->twig->render('my_tabs/custom.html.twig', [
             'foo' => 'Bar!',
         ]);
     }
@@ -658,6 +663,8 @@ In this case all you have to do is add a service definition (with proper paramet
 ``` yaml
 appbundle.components.my_twig_component:
     parent: EzSystems\EzPlatformAdminUi\Component\TwigComponent
+    autowire: true
+    autoconfigure: false
     arguments:
         $template: path/to/file.html.twig
         $parameters:
@@ -674,6 +681,8 @@ With `LinkComponent` and `ScriptComponent` you provide `$href` and `$src` as arg
 ``` yaml
 app.components.my_link_component:
     parent: EzSystems\EzPlatformAdminUi\Component\LinkComponent
+    autowire: true
+    autoconfigure: false
     arguments:
         $href: 'http://address.of/file.css'
     tags:
@@ -683,6 +692,8 @@ app.components.my_link_component:
 ``` yaml
 app.components.my_script_component:
     parent: EzSystems\EzPlatformAdminUi\Component\ScriptComponent
+    autowire: true
+    autoconfigure: false
     arguments:
         $src: 'http://address.of/file.js'
     tags:
@@ -726,7 +737,7 @@ You can also format date and time by using the following services:
 - `@ezplatform.user.settings.full_date_format.formatter`
 - `@ezplatform.user.settings.full_time_format.formatter`
 
-To use them, create an `src\AppBundle\Service\MyService.php` file containing:
+To use them, create an `src\Service\MyService.php` file containing:
 
 ``` php
 <?php
