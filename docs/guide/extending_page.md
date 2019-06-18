@@ -356,7 +356,7 @@
 
     Some blocks can have slightly more complex configuration. An example is the Collection block, which requires an `options` key.
     This key defines which Content Types can be added to it.
-    See [this example from the Studio Demo](https://github.com/ezsystems/ezstudio-demo-bundle/blob/master/Resources/config/default_layouts.yaml#L160):
+    See [this example from the Studio Demo](https://github.com/ezsystems/ezstudio-demo-bundle/blob/master/Resources/config/default_layouts.yml#L160):
 
     ``` yaml
     blocks:

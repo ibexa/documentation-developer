@@ -59,7 +59,7 @@ The tag has the following attribute:
 
 !!! tip
 
-    Converter configuration for built-in Field Types is located in [`eZ/Publish/Core/settings/fieldtype_external_storages.yaml`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/fieldtype_external_storages.yaml).
+    Converter configuration for built-in Field Types is located in [`eZ/Publish/Core/settings/fieldtype_external_storages.yaml`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/fieldtype_external_storages.yml).
 
 ## Storing external data
 
@@ -132,7 +132,7 @@ services:
 
 The configuration requires providing the `ezpublish.fieldType.externalStorageHandler` tag, with the `alias` attribute being the *fieldTypeIdentifier*. You also have to inject the gateway in `arguments`, [see below](#gateway-based-storage).
 
-External storage configuration for basic Field Types is located in [eZ/Publish/Core/settings/fieldtype_external_storages.yaml](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/fieldtype_external_storages.yaml).
+External storage configuration for basic Field Types is located in [eZ/Publish/Core/settings/fieldtype_external_storages.yaml](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/fieldtype_external_storages.yml).
 
 #### Registration
 
@@ -155,4 +155,4 @@ Also note that there can be several gateways per Field Type (one per storage eng
 
 !!! tip
 
-    Gateway configuration for built-in Field Types is located in [`EzPublishCoreBundle/Resources/config/storage_engines.yaml`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.0/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage_engines.yaml).
+    Gateway configuration for built-in Field Types is located in [`EzPublishCoreBundle/Resources/config/storage_engines.yaml`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.0/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage_engines.yml).

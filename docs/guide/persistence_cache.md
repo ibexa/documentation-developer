@@ -54,7 +54,7 @@ The underlying cache system is exposed as an `ezpublish.cache_pool` service, and
 
 ### Configuration
 
-By default, configuration currently uses **FileSystem** to store cache files, which is defined in [`.env`](https://github.com/ezsystems/ezplatform/blob/master/.env).
+By default, configuration currently uses **FileSystem** to store cache files, which is defined in the [`.env` file](https://github.com/ezsystems/ezplatform/blob/master/.env).
 You can select a different cache backend and configure its parameters in the relevant file in the `cache_pool` folder.
 
 #### Multi Repository setup

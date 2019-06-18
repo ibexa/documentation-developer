@@ -97,7 +97,7 @@ Add the new `translation_siteaccesses` here. After the `site_group` you register
                 # templates common to both the en and fr SiteAccess
 ```
 
-`ezplatform.yaml` with SiteAccesses should now be configured. Clear to cache to complete the job:
+`ezplatform.yaml` with SiteAccesses should now be configured. Clear the cache to complete the job:
 
 ``` bash
 php bin/console cache:clear

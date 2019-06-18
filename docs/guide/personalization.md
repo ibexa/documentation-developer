@@ -89,7 +89,7 @@ Allow public HTTP(S) access to the recommendation bundle API (`<ezplatform-host>
 
     If the company policy is to use BASIC AUTH on the API interfaces, you need to add some specific configuration.
 
-You probably have some access restrictions on your site defined in app/config/security.yaml
+You probably have some access restrictions on your site defined in `app/config/security.yaml`
 
 ``` yaml
 security:
