@@ -140,7 +140,7 @@ pages:
             - 'Creating custom richtext blocks': 'guide/richtext_block.md'
             - 'Extending Form Builder': 'guide/extending_form_builder.md'
         - 'Service container': 'guide/service_container.md'
-        - 'Personalization': 'guide/personalization.md'
+        - 'Recommendation': 'guide/personalization.md'
     - Cookbook:
         - 'Accept header-based REST API response': 'cookbook/creating_custom_rest_api_response.md'
         - 'API search result pagination': 'cookbook/paginating_api_search_results.md'
