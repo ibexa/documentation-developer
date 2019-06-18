@@ -338,22 +338,13 @@ ezpublish:
 
     ### Setting Time-To-Live value for Page blocks
 
-    Page blocks are rendered using Edge Site Include which means you can set different TTL values for each Page block type.
-    The TTL setting is available in the configuration under a `ttl` key. The value has to be set in seconds:
+    Block cache by default respects `$content.ttl_cache$` and `$content.default_ttl$` settings.
+    However, if the given block value has a since / till date,
+    this will be taken into account for the TTL calculation for the block and also for the whole page.
 
-    ``` yaml
-    ez_systems_landing_page_field_type:
-        blocks:
-            block_type:
-                ttl: 600
-                views:
-                    (...)
-    ```
-
-    `block_type` should be replaced with the actual block name, e.g. `embed`, `collection`, `schedule`, etc.
-    In the example above `block_type` will be cached for 10 minutes.
-
-    By default blocks are not cached (TTL = 0) for backwards compatibility reasons.
+    To overload this behavior, listen to [BlockResponseEvents::BLOCK_RESPONSE](extending_page/#block-render-response),
+    and set prioroty to for instance `-200` to adapt what Page Field type does by default. E.g. in order to disable cache
+    for the block use `$event->getResponse()->setPrivate()`.
 
 !!! note "Invalidating Varnish cache using tokens"
 
