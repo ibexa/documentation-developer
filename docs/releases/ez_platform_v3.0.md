@@ -13,10 +13,21 @@
 
 ### Symfony 4
 
+Version v3.0 moves eZ Platform to Symfony 4.3 from the previously used Symfony 3.
+
+This entails several changes to the way projects are organized.
+Refer to [Symfony upgrade documentation](https://github.com/symfony/symfony/blob/master/UPGRADE-4.0.md)
+for details of all changes.
+
 ### Field Type creation
 
-### Using events instead of SignalSlots
+### Using Events instead of SignalSlots
 
+The application now uses Symfony Events instead of SignalSlots.
+The application triggers two Events per operation: one before and one after the relevant thing happens
+(see for example [BookmarkEvents](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Event/Bookmark/BookmarkEvents.php)).
+
+To use them, create [Event Listeners](https://symfony.com/doc/4.3/event_dispatcher.html) in your code.
 
 ## New features
 
@@ -46,6 +57,9 @@ Refer to [Backwards compatibility doc]() for full list of changes.
 ## Deprecations and removals
 
 ### SignalSlots
+
+SignalSlots are removed from the application.
+Use [Event Listeners](https://symfony.com/doc/4.3/event_dispatcher.html) in your code instead.
 
 ### Deprecated Field Types
 
