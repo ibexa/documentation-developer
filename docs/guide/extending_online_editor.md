@@ -274,6 +274,15 @@ The available elements are:
 - `tr`
 - `td`
 
+!!! caution "Overriding embed templates"
+
+    If you override the default templates to `embedinline`, `embed` or `embedimage` elements,
+    (e.g. `EzPublishCoreBundle:default:content/embed.html.twig`),
+    the data attributes and classes will not be rendered automatically.
+
+    Instead, you can make use of the `data_attributes` and `class` properties in your templates.
+    The `ez_data_attributes_serialize` helper enables you to serialize the datab attribute array.
+
 ### Custom data attributes
 
 Custom data attributes are configured under the `fieldtypes.ezrichtext.attributes` key.
