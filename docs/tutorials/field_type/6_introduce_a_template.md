@@ -91,13 +91,13 @@ class EzSystemsTweetFieldTypeExtension extends Extension implements PrependExten
 {
     public function prepend(ContainerBuilder $container)
     {
-        $config = Yaml::parse(file_get_contents(__DIR__.'/../Resources/config/ez_field_templates.yml'));
+        $config = Yaml::parse(file_get_contents(__DIR__.'/../Resources/config/ez_field_templates.yaml'));
         $container->prependExtensionConfig('ezpublish', $config);
     }
 }
 ```
 
-Next, provide the template mapping in `Resources/config/ez_field_templates.yml`:
+Next, provide the template mapping in `Resources/config/ez_field_templates.yaml`:
 
 ``` yml
 system:

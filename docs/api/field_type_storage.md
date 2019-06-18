@@ -59,7 +59,7 @@ The tag has the following attribute:
 
 !!! tip
 
-    Converter configuration for built-in Field Types is located in [`eZ/Publish/Core/settings/fieldtype_external_storages.yml`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/fieldtype_external_storages.yml).
+    Converter configuration for built-in Field Types is located in [`eZ/Publish/Core/settings/fieldtype_external_storages.yaml`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/fieldtype_external_storages.yml).
 
 ## Storing external data
 
@@ -125,14 +125,14 @@ services:
         autoconfigure: true
         public: false
 
-    Acme\ExampleBundle\FieldType\MyField\Storage\MyFieldStorage: ~
+    App\FieldType\MyField\Storage\MyFieldStorage: ~
         tags:
             - {name: ezpublish.fieldType.externalStorageHandler, alias: myfield}
 ```
 
 The configuration requires providing the `ezpublish.fieldType.externalStorageHandler` tag, with the `alias` attribute being the *fieldTypeIdentifier*. You also have to inject the gateway in `arguments`, [see below](#gateway-based-storage).
 
-External storage configuration for basic Field Types is located in [eZ/Publish/Core/settings/fieldtype_external_storages.yml](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/fieldtype_external_storages.yml).
+External storage configuration for basic Field Types is located in [eZ/Publish/Core/settings/fieldtype_external_storages.yaml](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/fieldtype_external_storages.yml).
 
 #### Registration
 
@@ -145,7 +145,7 @@ services:
         autoconfigure: true
         public: false
 
-    Acme\ExampleBundle\FieldType\MyField\Storage\Gateway\DoctrineStorage: ~
+    App\FieldType\MyField\Storage\Gateway\DoctrineStorage: ~
 ```
 
 Note that `ezpublish.api.storage_engine.legacy.connection` is of type `Doctrine\DBAL\Connection`. If your gateway still uses an implementation of `eZ\Publish\Core\Persistence\Database\DatabaseHandler` (`eZ\Publish\Core\Persistence\Doctrine\ConnectionHandler`), instead of the `ezpublish.api.storage_engine.legacy.connection`, you can pass the `ezpublish.api.storage_engine.legacy.dbhandler` service.
@@ -155,4 +155,4 @@ Also note that there can be several gateways per Field Type (one per storage eng
 
 !!! tip
 
-    Gateway configuration for built-in Field Types is located in [`EzPublishCoreBundle/Resources/config/storage_engines.yml`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.0/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage_engines.yml).
+    Gateway configuration for built-in Field Types is located in [`EzPublishCoreBundle/Resources/config/storage_engines.yaml`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.0/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage_engines.yml).

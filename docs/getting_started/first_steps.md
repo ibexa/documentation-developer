@@ -36,7 +36,7 @@ To display Content in the front page you need to define content views and templa
 
 Content views decide which templates and controllers are used to display Content.
 
-1\. In `app/config/ezplatform.yml`, under `ezpublish.system`, uncomment the `site_group` key
+1\. In `config/packages/ezplatform.yaml`, under `ezpublish.system`, uncomment the `site_group` key
 and add the following block (pay attention to indentation: `content_view` should be one level below `site_group`):
 
 ``` yaml
@@ -82,7 +82,7 @@ You can use SiteAccesses to serve different versions of the website.
 
 SiteAccesses are used depending on matching rules. They are set up in YAML configuration under the `ezpublish.siteaccess.list` key.
 
-1\. In `app/config/ezplatform.yml` add a new SiteAccess called `de` for the German version of the website:
+1\. In `config/packages/ezplatform.yaml` add a new SiteAccess called `de` for the German version of the website:
 
 ``` yaml
 ezpublish:
@@ -157,7 +157,7 @@ Each theme is stored in a separate folder and assigned to a SiteAccess.
 
 To create a new theme:
 
-1\. Add the following configuration at the bottom of `app/config/ezplatform.yml` (at the same level as `ezpublish`):
+1\. Add the following configuration at the bottom of `config/packages/ezplatform.yaml` (at the same level as `ezpublish`):
 
 ``` yaml
 ezdesign:
@@ -175,7 +175,7 @@ ezdesign:
 
 This means that the app will look for the `blog_post.html.twig` file in a folder relevant for the SiteAccess: `de_design` for the `de` SiteAccess, or `site_design` for other SiteAccesses in `site_group`.
 
-5\. Create a `themes` folder under `app/Resources/views`, and two folders under it: `de_design` and `site_design`.
+5\. Create a `themes` folder under `templates`, and two folders under it: `de_design` and `site_design`.
 
 6\. Move the existing `full\blog_post.html.twig` file under `site_design`.
 

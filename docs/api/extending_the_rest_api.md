@@ -40,11 +40,11 @@ class DefaultController extends BaseController
 
 As mentioned earlier, your REST routes are required to use the REST URI prefix. To do so, the easiest way is to import your routing file using this prefix.
 
-**app/config/routing.yml**
+**config/routing.yaml**
 
 ``` yaml
 myRestBundle_rest_routes:
-    resource: '@MyRestBundle/Resources/config/routing_rest.yml'
+    resource: '@MyRestBundle/Resources/config/routing_rest.yaml'
     prefix: '%ezpublish_rest.path_prefix%'
 ```
 
@@ -52,19 +52,19 @@ Using a distinct file for REST routes allows you to use the prefix for all this 
 
 Next, you need to create the REST route. Define the route's [controller as a service](http://symfony.com/doc/current/cookbook/controller/service.html) since your controller was defined as such.
 
-**My/Bundle/RestBundle/Resources/config/routing\_rest.yml**
+**My/Bundle/RestBundle/Resources/config/routing\_rest.yaml**
 
 ``` yaml
 myRestBundle_hello_world:
     path: '/my_rest_bundle/hello/{name}'
     defaults:
-        _controller: myRestBundle.controller.default:sayHello
+        _controller: My\Bundle\RestBundle\Rest\Controller\DefaultController::sayHelloAction
     methods: [GET]
 ```
 
 Due to [EZP-23016](https://jira.ez.no/browse/EZP-23016) - Custom REST API routes (v2) are not accessible from the legacy backend, custom REST routes must be prefixed with `ezpublish_rest_`, or they won't be detected correctly.
 
-**My/Bundle/RestBundle/Resources/config/services.yml**
+**My/Bundle/RestBundle/Resources/config/services.yaml**
 
 ``` yaml
 services:
@@ -122,7 +122,7 @@ A `ValueObjectVisitor` will take a Value returned by a REST controller, whatever
 
 Create the service for your `ValueObjectVisitor` first.
 
-**My/Bundle/RestBundle/Resources/config/services.yml**
+**My/Bundle/RestBundle/Resources/config/services.yaml**
 
 ``` yaml
 services:
@@ -208,9 +208,9 @@ Let's see what it would look like with a Content-Type of `application/vnd.my.Gre
 </Greetings>
 ```
 
-First, you need to create a service with the appropriate tag in `services.yml`.
+First, you need to create a service with the appropriate tag in `services.yaml`.
 
-**My/Bundle/RestBundle/Resources/config/services.yml**
+**My/Bundle/RestBundle/Resources/config/services.yaml**
 
 ``` yaml
 services:
@@ -280,13 +280,13 @@ use EzSystems\EzPlatformRest\Message;
 
 The `inputDispatcher` is responsible for matching the `Content-Type` sent in the header with the Greetings `InputParser` class.
 
-Finally, a new Route should be added to `routing_rest.yml`
+Finally, a new Route should be added to `routing_rest.yaml`
 
 ``` yaml
 myRestBundle_hello_world_using_post:
     path: /my_rest_bundle/hello/
     defaults:
-        _controller: myRestBundle.controller.default:sayHelloUsingPost
+        _controller: My\Bundle\RestBundle\Rest\Controller\DefaultController::sayHelloUsingPostAction
     methods: [POST]
 ```
 

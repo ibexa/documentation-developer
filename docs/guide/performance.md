@@ -98,7 +98,7 @@ To avoid quickly running out of memory while executing such commands you should 
 1. For logging using monolog, if you use either the default `fingers_crossed`, or `buffer` handler, make sure to specify `buffer_size` to limit how large the buffer grows before it gets flushed:
 
     ``` yaml
-    # config_prod.yml (partial example)
+    # config_prod.yaml (partial example)
     monolog:
         handlers:
             main:

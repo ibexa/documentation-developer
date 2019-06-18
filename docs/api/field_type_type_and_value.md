@@ -124,7 +124,7 @@ The `alias` key is the `fieldTypeIdentifier`.
 
 !!! tip
 
-    The configuration of built-in Field Types is located in [`EzPublishCoreBundle/Resources/config/fieldtypes.yml`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.0/eZ/Publish/Core/settings/fieldtypes.yml).
+    The configuration of built-in Field Types is located in [`EzPublishCoreBundle/Resources/config/fieldtypes.yaml`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.0/eZ/Publish/Core/settings/fieldtypes.yml).
 
 ## Field Type settings
 

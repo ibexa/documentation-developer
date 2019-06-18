@@ -16,7 +16,7 @@ This enables updates to content to trigger cache invalidation.
 
 ### Cache and expiration configuration
 
-This is how cache can be configured in `ezplatform.yml`:
+This is how cache can be configured in `config/packages/ezplatform.yaml`:
 
 ``` yaml
 ezpublish:
@@ -120,7 +120,7 @@ The returned Location IDs are sent for purge using the selected purge type.
 #### Symfony Proxy: Local purge type
 
 By default, invalidation requests will be emulated and sent to the Symfony proxy cache store.
-In `ezplatform.yml`:
+In `config/packages/ezplatform.yaml`:
 
 ``` yaml
 ezpublish:
@@ -132,7 +132,7 @@ ezpublish:
 
 With Varnish you can configure one or several servers that should be purged over HTTP.
 This purge type is asynchronous, and flushed by the end of Symfony kernel-request/console cycle (during the terminate event).
-Settings for purge servers can be configured per SiteAccess group or SiteAccess (in `ezplatform.yml`):
+Settings for purge servers can be configured per SiteAccess group or SiteAccess:
 
 ``` yaml
 ezpublish:
@@ -253,7 +253,7 @@ fastcgi_param SYMFONY_TRUSTED_PROXIES "193.22.44.22";
 #### Update YML configuration
 
 Secondly, you need to tell eZ Platform to use an HTTP-based purge client (specifically the FosHttpCache Varnish purge client),
-and specify the URL Varnish can be reached on (in `ezplatform.yml`):
+and specify the URL Varnish can be reached on:
 
 The following configuration is not required as eZ Platform will read the environment variables set above.
 
@@ -292,14 +292,14 @@ ezpublish:
 
     Both `purge_type` and `purge_server` can be set in one of the following ways:
 
-    - in `app/config/ezplatform.yml`
-    - by adding the parameter `purge_type` or `purge_server` respectively in `app/config/parameters.yml`
+    - in `config/packages/ezplatform.yaml`
+    - by adding the parameter `purge_type` or `purge_server` respectively in `config/packages/ezplatform.yaml`
     - by setting the `HTTPCACHE_PURGE_TYPE` environment variable.
 
-    It is recommended to use either `app/config/parameters.yml` or the environment variable.
+    It is recommended to use either `config/services.yaml` or the environment variable.
 
-    Note that in `app/config/ezplatform.yml`, the `purge_server` setting is an array while `purge_server` in
-    `app/config/parameters.yml` and the `HTTPCACHE_PURGE_SERVER` environment variable should be a string.
+    Note that in `config/ezplatform.yaml`, the `purge_servers` setting is an array
+    while the `HTTPCACHE_PURGE_SERVER` environment variable should be a string.
 
     ##### Fastly service ID and API token
 
@@ -314,11 +314,11 @@ ezpublish:
 
     You may specify service ID and token:
 
-    - using the `service_id` and `key` settings (sub elements of "fastly") in `app/config/ezplatform.yml`
-    - by setting the parameters `fastly_service_id` and `fastly_key` in `app/config/parameters.yml`
+    - using the `service_id` and `key` settings (sub elements of "fastly") in `config/packages/ezplatform.yaml`
+    - by setting the parameters `fastly_service_id` and `fastly_key` in `config/packages/ezplatform-http-cache-fastly.yaml`
     - by setting the environment variables `FASTLY_SERVICE_ID` and `FASTLY_KEY`
 
-    Unless you need different settings per SiteAccess it is recommended to either use `app/config/parameters.yml`
+    Unless you need different settings per SiteAccess it is recommended to either use `config/packages/ezplatform.yaml`
     or the environment variables.
 
     ##### Clear the cache

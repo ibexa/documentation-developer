@@ -167,7 +167,7 @@ class OnPublishSlot extends BaseSlot
 
 You now need to register `OnPublishSlot` as a service in the ServiceContainer and identify it as a valid Slot.
 
-In `services.yml` (in your bundle):
+In `services.yaml` (in your bundle):
 
 ``` yaml
 services:
@@ -207,7 +207,7 @@ All you need to do is to implement an event listener or subscriber and register 
 
 This very simple example will just log the received signal.
 
-In `services.yml` (in your bundle):
+In `services.yaml`:
 
 ``` yaml
 services:

@@ -63,7 +63,7 @@ To do this, inject the `ezpublish.config.resolver` service:
 
 ``` yaml
 parameters:
-    my_service.class: Acme\ExampleBundle\Service
+    my_service.class: App\Service
  
 services:
     my_service:
@@ -72,7 +72,7 @@ services:
 ```
 
 ``` php
-namespace Acme\ExampleBundle;
+namespace App;
 
 use eZ\Publish\Core\MVC\ConfigResolverInterface;
  
@@ -112,7 +112,7 @@ This service has `ezpublish.config.dynamic_setting.parser` for ID and implements
 
 ### Limitations
 
-- It is not possible to use dynamic settings in your semantic configuration (e.g. `config.yml` or `ezplatform.yml`) as they are meant primarily for parameter injection in services.
+- It is not possible to use dynamic settings in your semantic configuration (e.g. `config.yaml` or `ezplatform.yaml`) as they are meant primarily for parameter injection in services.
 - It is not possible to define an array of options having dynamic settings. They will not be parsed. Workaround is to use separate arguments/setters.
 - Injecting dynamic settings in request listeners is **not recommended**, as it won't be resolved with the correct scope
 (request listeners are instantiated before SiteAccess match).
@@ -133,17 +133,17 @@ Defining a simple service needing a `languages` parameter (that is, prioritized 
 
 ``` yaml
 parameters:
-    acme_example.my_service.class: Acme\ExampleBundle\MyServiceClass
+    app.my_service.class: App\MyServiceClass
 
 services:
-    acme_example.my_service:
-        class: '%acme_example.my_service.class%'
+    app.my_service:
+        class: '%app.my_service.class%'
         calls:
             - [setLanguages, ['$languages$']]
 ```
 
 ``` php
-namespace Acme\ExampleBundle;
+namespace App;
 
 class MyServiceClass
 {
@@ -169,16 +169,16 @@ class MyServiceClass
 
 ``` yaml
 parameters:
-    acme_example.my_service.class: Acme\ExampleBundle\MyServiceClass
+    app.my_service.class: App\MyServiceClass
 
 services:
-    acme_example.my_service:
-        class: '%acme_example.my_service.class%'
+    app.my_service:
+        class: '%app.my_service.class%'
         arguments: ['$languages$']
 ```
 
 ``` php
-namespace Acme\ExampleBundle;
+namespace App;
 
 class MyServiceClass
 {
@@ -206,24 +206,23 @@ class MyServiceClass
 
 ``` yaml
 parameters:
-    acme_example.my_service.class: Acme\ExampleBundle\MyServiceClass
-    # "acme" is our parameter namespace.
+    app.my_service.class: App\MyServiceClass
     # Null is the default value.
-    acme.default.some_parameter: ~
-    acme.site_group.some_parameter: value
-    acme.admin_group.some_parameter: another value
+    app.default.some_parameter: ~
+    app.site_group.some_parameter: value
+    app.admin_group.some_parameter: another value
  
 services:
-    acme_example.my_service:
-        class: '%acme_example.my_service.class%'
+    app.my_service:
+        class: '%app.my_service.class%'
         # The following argument will automatically resolve to the right value, depending on the current SiteAccess.
-        # We specify "acme" as the namespace we want to use for parameter resolving.
+        # We specify "app" as the namespace we want to use for parameter resolving.
         calls:
-            - [setSomeParameter, ['$some_parameter;acme$']]
+            - [setSomeParameter, ['$some_parameter;app$']]
 ```
 
 ``` php
-namespace Acme\ExampleBundle;
+namespace App;
 class MyServiceClass
 {
     private $myParameter;

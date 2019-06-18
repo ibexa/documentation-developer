@@ -19,7 +19,7 @@ If you want to learn how to apply them to your installation follow [Creating a c
 
 **Example: YouTube tag**
 
-Preparation of the tag always starts with the configuration file that should be added to `app/Resources/config`. This is sample configuration for the YouTube tag, `custom_tags.yml`:
+Preparation of the tag always starts with the configuration file that should be added to the `config` folder. This is sample configuration for the YouTube tag, `custom_tags.yaml`:
 
 ```yaml
 ezpublish:
@@ -33,7 +33,7 @@ ezrichtext:
     custom_tags:
         ezyoutube:
             # The template used for front-end rendering of the custom tag
-            template: AppBundle:field_type/ezrichtext/custom_tag:ezyoutube.html.twig
+            template: field_type/ezrichtext/custom_tag/ezyoutube.html.twig
             # An icon for the custom tag as displayed in the Online Editor's toolbar.
             icon: '/assets/field_type/ezrichtext/custom_tag/icon/youtube-color.svg#youtube-color'
             attributes:
@@ -87,7 +87,7 @@ The configuration requires an `ezyoutube.html.twig` template for the custom tag 
     {% endif %}
     ```
 
-To ensure the new tag has labels, provide translations in `app/Resources/translations/custom_tags.en.yaml` file:
+To ensure the new tag has labels, provide translations in `translations/custom_tags.en.yaml` file:
 
 ```yaml
 ezrichtext.custom_tags.ezyoutube.label: Youtube
@@ -106,7 +106,7 @@ FactBox tag is a good example for showcasing possibilities of `ezcontent` proper
 Each custom tag has an `ezcontent` property that contains the tag's main content.
 This property is editable by a tab in a custom tag.
 
-Create the `custom_tags.yml` configuration file that will be added to `app/Resources/config`. This is sample configuration for FactBox tag:
+Create the `custom_tags.yaml` configuration file that will be added to the `config` folder. This is sample configuration for FactBox tag:
 
 ```yaml hl_lines="10"
 ezpublish:
@@ -119,7 +119,7 @@ ezpublish:
 ezrichtext:
     custom_tags:
         ezfactbox:
-            template: AppBundle:field_type/ezrichtext/custom_tag:ezfactbox.html.twig
+            template: field_type/ezrichtext/custom_tag/ezfactbox.html.twig
             icon: '/assets/field_type/ezrichtext/custom_tag/icon/factbox.svg#factbox'
             attributes:
                 name:
@@ -136,7 +136,7 @@ Remember to provide your own files for the template and the icon.
 Line 10 points to `ezfactbox.html.twig` template described below.
 Attributes listed below the custom tag can be set when adding the tag to a RichText Field.
 
-The configuration requires an `ezfactbox.html.twig` template for the custom tag that will be placed in `/Resources/views/field_type/ezrichtext/custom_tag`:
+The configuration requires an `ezfactbox.html.twig` template for the custom tag that will be placed in `/templates/field_type/ezrichtext/custom_tag`:
 
 ```html+twig
 <div class="ez-factbox ez-factbox--{{ params.style }}">
@@ -157,7 +157,7 @@ The configuration requires an `ezfactbox.html.twig` template for the custom tag 
     {% endif %}
     ```
 
-To ensure the new tag has labels, provide translations in `app/Resources/translations/custom_tags.en.yaml` file:
+To ensure the new tag has labels, provide translations in `translations/custom_tags.en.yaml` file:
 
 ```yaml
 # ezfactbox
@@ -175,7 +175,7 @@ Custom tags can also be placed inline with the following configuration:
 ezrichtext:
     custom_tags:
         badge:
-            template: AppBundle:field_type/ezrichtext/custom_tag:badge.html.twig
+            template: field_type/ezrichtext/custom_tag/badge.html.twig
             icon: '/bundles/ezplatformadminui/img/ez-icons.svg#bookmark'
             is_inline: true
             attributes:
@@ -228,7 +228,7 @@ The system expects two kinds of configuration:
 ### Translations
 
 Labels that appear for each custom style in the Online Editor need to be translated using Symfony translation system.
-The translation domain is called `custom_styles`. For the code example above, you can do it in a `app/Resources/translations/custom_styles.en.yml` file:
+The translation domain is called `custom_styles`. For the code example above, you can do it in a `translations/custom_styles.en.yaml` file:
 
 ```yaml
 ezrichtext.custom_styles.highlighted_block.label: Highlighted block
@@ -241,19 +241,19 @@ The `template` key points to the template used to render the custom style. It is
 
 In the example above, the template files for the front end could be:
 
-- `app/Resources/views/themes/standard/field_type/ezrichtext/custom_style/highlighted_word.html.twig`:
+- `templates/themes/standard/field_type/ezrichtext/custom_style/highlighted_word.html.twig`:
 
 ``` html+twig
 <span class="ezstyle-{{ name }}">{% spaceless %}{{ content|raw }}{% endspaceless %}</span>
 ```
 
-- `app/Resources/views/themes/standard/field_type/ezrichtext/custom_style/highlighted_block.html.twig`:
+- `templates/themes/standard/field_type/ezrichtext/custom_style/highlighted_block.html.twig`:
 
 ``` html+twig
 <div class="{% if align is defined %}align-{{ align }}{% endif %} ezstyle-{{ name }}">{% spaceless %}{{ content|raw }}{% endspaceless %}</div>
 ```
 
-Templates for Content View in the Back Office would be `app/Resources/views/themes/admin/field_type/ezrichtext/custom_style/highlighted_word.html.twig` and `app/Resources/views/themes/admin/field_type/ezrichtext/custom_style/highlighted_block.html.twig` respectively (assuming Admin SiteAccess uses the `admin` theme).
+Templates for Content View in the Back Office would be `templates/themes/admin/field_type/ezrichtext/custom_style/highlighted_word.html.twig` and `templates/themes/admin/field_type/ezrichtext/custom_style/highlighted_block.html.twig` respectively (assuming Admin SiteAccess uses the `admin` theme).
 
 ## Plugins configuration
 

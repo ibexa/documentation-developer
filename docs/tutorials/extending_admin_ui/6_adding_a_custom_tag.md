@@ -8,7 +8,7 @@ In this step you will add a custom tag which will enable you to embed YouTube vi
 ## Configure the custom tag
 
 First, create a file that will contain the configuration for the custom tags.
-Add file `custom_tags.yml` to `src/EzSystems/ExtendingTutorialBundle/Resources/config`:
+Add file `custom_tags.yaml` to `src/EzSystems/ExtendingTutorialBundle/Resources/config`:
 
 ``` yaml hl_lines="5 10 12"
 ezpublish:
@@ -93,7 +93,7 @@ use Symfony\Component\Yaml\Yaml;
 public function prepend( ContainerBuilder $container )
 {
     $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
-    $loader->load('custom_tags.yml');
+    $loader->load('custom_tags.yaml');
 }
 ```
 
@@ -124,13 +124,13 @@ public function prepend( ContainerBuilder $container )
             $config = $this->processConfiguration($configuration, $configs);
 
             $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-            $loader->load('services.yml');
+            $loader->load('services.yaml');
         }
 
         public function prepend( ContainerBuilder $container )
         {
             $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
-            $loader->load('custom_tags.yml');
+            $loader->load('custom_tags.yaml');
         }
     }
     ```

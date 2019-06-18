@@ -32,7 +32,7 @@ This method gets name of the default field to be used for sorting. As Field Type
 
 ## Register Indexable Implementations
 
-Implement `eZ\Publish\SPI\FieldType\Indexable` as an extra service and register this Service using the `ezpublish.fieldType.indexable` tag. Example from [`indexable_fieldtypes.yml`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/indexable_fieldtypes.yml):
+Implement `eZ\Publish\SPI\FieldType\Indexable` as an extra service and register this Service using the `ezpublish.fieldType.indexable` tag. Example from [`indexable_fieldtypes.yaml`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/indexable_fieldtypes.yml):
 
 ``` yml
 ezpublish.fieldType.indexable.ezkeyword:
@@ -83,7 +83,7 @@ The default available search Field Types that can be found in the `eZ\Publish\SP
 As mentioned before, if you use the standard type definitions, there is no need to configure the search backend in any way.
 The Field definitions are handled using `dynamicField` definitions in Solr, for example.
 
-If you want to configure the handling of your field, you can always add a special field definition to the Solr `schema.xml`. For fields, the Field Type names used by the Solr search backend look like this: `<content_type_identifier>/<field_identifier>/<search_field_name>_<type>`. 
+If you want to configure the handling of your field, you can always add a special field definition to the Solr `schema.xml`. For fields, the Field Type names used by the Solr search backend look like this: `<content_type_identifier>/<field_identifier>/<search_field_name>_<type>`.
 You can define custom `dynamicField` definitions to match, for example, on your custom `_<type>` definition.
 
 You could also define a custom Field definition for certain fields, like for the name Field in an article:

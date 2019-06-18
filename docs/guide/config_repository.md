@@ -91,7 +91,7 @@ repositories:
 
 These identifiers can be given human-readable values and can be translated. Those values are used when editing Content Types.
 The translation domain is `ezplatform_fields_groups`.
-This example in `app/Resources/translations/ezplatform_fields_groups.en.yml` defines English names for Field groups:
+This example in `translations/ezplatform_fields_groups.en.yaml` defines English names for Field groups:
 
 ``` yaml
 content: Content
@@ -102,7 +102,7 @@ user_data: User data
 ## Limit of archived Content item versions
 
 `default_version_archive_limit` controls the number of archived versions per Content item that are stored in the Repository.
-By default it is set to 5. This setting is configured in the following way (typically in `ezplatform.yml`):
+By default it is set to 5. This setting is configured in the following way (typically in `ezplatform.yaml`):
 
 ``` yaml
 ezpublish:
@@ -139,7 +139,7 @@ For example, the following command removes archived versions as user `admin`, bu
 
 ## User identifiers
 
-`ezplatform_default_settings.yml` contains two settings that indicate which Content Types are treated like users and user groups:
+`ezplatform_default_settings.yaml` contains two settings that indicate which Content Types are treated like users and user groups:
 
 ``` yaml
 ezpublish:
