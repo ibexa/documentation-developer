@@ -214,8 +214,6 @@ Place the following code snippet in the `<head>` section of your header template
 {% endif %}
 ```
 
-To check if tracking is enabled on the front end, use the `ez_recommendation_enabled()` Twig function.
-
 !!! tip "How tracking works"
 
     In the eZ Services documentation you can find more information
@@ -454,19 +452,28 @@ This file is responsible for sending notifications to recommendation API after t
 To render recommended content, use a dedicated `showRecommendationsAction` from the `RecommendationController.php`:
 
 ``` html+twig
-{% if ez_recommendation_enabled() %}
-    <div class="container">
-        render_esi(controller(‘EzRecommendationClientBundle:Recommendation:showRecommendations’, {
-                       ‘contextItems’: content.id,
-                       ‘scenario’: ‘front’,
-                       ‘outputTypeId’: ‘blog_post’,
-                       ‘limit’: 3,
-                       ‘template’: ‘EzRecommendationClientBundle::recommendations.html.twig’,
-                       ‘attributes’: [‘title’, ‘intro’, ‘image’, ‘uri’]
-                   }))
-    </div>
-{% endif %}
+render_esi(controller(‘EzRecommendationClientBundle:Recommendation:showRecommendations’, {
+               ‘contextItems’: content.id,
+               ‘scenario’: ‘front’,
+               ‘outputTypeId’: ‘blog_post’,
+               ‘limit’: 3,
+               ‘template’: ‘EzRecommendationClientBundle::recommendations.html.twig’,
+               ‘attributes’: [‘title’, ‘intro’, ‘image’, ‘uri’]
+           }))
 ```
+
+!!! tip
+
+    To check if tracking is enabled on the front end, use the `ez_recommendation_enabled()` Twig function.
+    You can wrap the call to the `RecommendationController` with:
+
+    ``` html+twig
+    {% if ez_recommendation_enabled() %}
+        <div class="container">
+            {# ... #}
+        </div>
+    {% endif %}
+    ```
 
 ### Parameters
 
