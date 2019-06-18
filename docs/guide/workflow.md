@@ -150,7 +150,7 @@
 
     !!! note
 
-        This example only works if your workflow is a [direct acycling graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph)
+        This example only works if your workflow is a [directed acycling graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph)
         (it doesn't have directed cycles).
 
     The subscriber listens for the `WorkflowEvents::WORKFLOW_STAGE_CHANGE` event
