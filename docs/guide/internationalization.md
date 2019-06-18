@@ -74,17 +74,17 @@ You can also omit the route, in this case, the current route will be used (i.e. 
 
 ### Using sub-requests
 
-When using sub-requests, you lose the context of the master request (e.g. current route, current location, etc.). This is because sub-requests can be displayed separately, with [ESI or Hinclude](templates.md#rendering-and-cache).
+When using sub-requests, you lose the context of the master request (e.g. current route, current location, etc.). This is because sub-requests can be displayed separately, with [ESI](templates.md#rendering-and-cache).
 
 If you want to render language switch links in a sub-request with a correct `RouteReference`, you must pass it as an argument to your sub-controller from the master request.
 
 ``` html+twig
 {# Render the language switch links in a sub-controller #}
-{{ render( controller( 'AcmeTestBundle:Default:languages', {'routeRef': ez_route()} ) ) }}
+{{ render( controller( 'App\Controller\DefaultController::languagesAction', {'routeRef': ez_route()} ) ) }}
 ```
 
 ``` php
-namespace Acme\TestBundle\Controller;
+namespace App\Controller;
 
 use eZ\Bundle\EzPublishCoreBundle\Controller;
 use eZ\Publish\Core\MVC\Symfony\Routing\RouteReference;
@@ -93,7 +93,7 @@ class DefaultController extends Controller
 {
     public function languagesAction( RouteReference $routeRef )
     {
-        return $this->render( 'AcmeTestBundle:Default:languages.html.twig', [ 'routeRef' => $routeRef ] );
+        return $this->render( 'languages.html.twig', [ 'routeRef' => $routeRef ] );
     }
 }
 ```
@@ -142,8 +142,6 @@ Another way of using multiple languages is setting up a separate SiteAccess for 
 Configuration is not mandatory, but can help to distinguish which SiteAccesses can be considered *translation SiteAccesses*.
 
 ``` yaml
-# ezplatform.yml
-
 ezpublish:
     siteaccess:
         default_siteaccess: eng
@@ -181,17 +179,17 @@ If several translation SiteAccesses share the same language reference, **the fi
 
 #### Custom locale configuration
 
-If you need to use a custom locale, you can configure it in `ezplatform.yml`, adding it to the *conversion map*:
+If you need to use a custom locale, you can configure it in `ezplatform.yaml`, adding it to the *conversion map*:
 
 ``` yaml
 ezpublish:
     # Locale conversion map between eZ Publish format (e.g. fre-FR) to POSIX (e.g. fr_FR).
-    # The key is the eZ Publish locale. Check locale.yml in EzPublishCoreBundle to see natively supported locales.
+    # The key is the eZ Publish locale. Check locale.yaml in EzPublishCoreBundle to see natively supported locales.
     locale_conversion:
         eng-DE: en_DE
 ```
 
-A locale *conversion map* example [can be found in the `core` bundle, on `locale.yml`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/locale.yml).
+A locale *conversion map* example [can be found in the `core` bundle, on `locale.yaml`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/locale.yaml).
 
 ### More complex translation setup
 
@@ -200,8 +198,6 @@ There are some cases where your SiteAccesses share settings (repository, content
 The solution is defining new groups:
 
 ``` yaml
-# ezplatform.yml
-
 ezpublish:
     siteaccess:
         default_siteaccess: eng
@@ -269,39 +265,3 @@ When setting up SiteAccesses with different language versions, you can specify a
 You can also assign a Default content availability flag to Content Types (available in the Admin Panel). When this flag is assigned, Content items of this type will be available even when they do not have a language version in any of the languages configured for the current SiteAccess.
 
 Note that if a language is not provided in the list of prioritized languages and it is not the Content item's first language, the URL alias for this content in this language will not be generated.
-
-## Back Office languages
-
-### Installing new UI translations
-
-If you want to install a new language in your project, install the corresponding package.
-
-For example, if you want to translate your application into French, run:
-
-`composer require ezplatform-i18n/ezplatform-i18n-fr_fr`
-
-and then clear the cache.
-
-Now you can reload your eZ Platform back end which will be translated in French (if your browser is configured to `fr_FR`.)
-
-!!! tip
-
-    If you do not want to add a bundle with Back Office translation, you can manually add the necessary xliff files.
-    Add the language to an array under `ezpublish.system.<siteaccess>.user_preferences.additional_translations`, for example:
-
-    `ezpublish.system.<siteaccess>.user_preferences.additional_translations: ['pl_PL', 'fr_FR']`
-
-    Then, run `composer run post-update-cmd` and clear the cache.
-
-##### Contributing Back Office translations
-
-To learn how to contribute to a translation, see [Contributing translations](../community_resources/translations.md).
-
-### Choosing language of the Back Office
-
-Once you have language packages installed, you can switch the language of the Back Office
-in the User Settings menu.
-
-Otherwise, the language will be selected based on the browser language.
-If you do not have a language defined in the browser, the language will be selected
-based on `parameters.locale_fallback` in `default_parameters.yml`

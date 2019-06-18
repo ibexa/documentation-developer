@@ -9,7 +9,7 @@ The following example shows how to use pagination on a list of all Articles in t
 ``` php
 <?php
 
-namespace AppBundle\Controller;
+namespace App\Controller;
 
 use eZ\Bundle\EzPublishCoreBundle\Controller;
 use eZ\Publish\API\Repository\Values\Content\Query;

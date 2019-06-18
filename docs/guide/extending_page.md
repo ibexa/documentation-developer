@@ -117,12 +117,12 @@
 
     You can also use one of the [built-in Symfony types](https://symfony.com/doc/current/forms.html#built-in-field-types), e.g. `AbstractType` for any custom type or `IntegerType` for numeric types.
 
-    To define the type, create a file `src/AppBundle/Block/Attribute/MyStringAttributeType.php` that contains:
+    To define the type, create a file `src/Block/Attribute/MyStringAttributeType.php` that contains:
 
     ``` php hl_lines="5 6 15"
     <?php declare(strict_types=1);
 
-    namespace AppBundle\Block\Attribute;
+    namespace App\Block\Attribute;
 
     use Symfony\Component\Form\AbstractType;
     use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -144,7 +144,7 @@
     Note that the attribute uses `AbstractType` (line 5) and `TextType` (line 6).
     Adding `getBlockPrefix` (line 15) returns a unique prefix key for a custom template of the attribute.
 
-    Next, configure a template by creating a `src/AppBundle/Resources/views/custom_form_templates.html.twig` file:
+    Next, configure a template by creating a `templates/custom_form_templates.html.twig` file:
 
     ``` html+twig
     {% block my_string_attribute_widget %}
@@ -157,7 +157,7 @@
     {# more templates here #}
     ```
 
-    Add the template to `Resources/config/ez_field_templates.yml`:
+    Add the template to `Resources/config/ez_field_templates.yaml`:
 
     ``` yaml
     system:
@@ -175,18 +175,18 @@
      my_application.block.attribute.my_string:
             class: EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Attribute\FormTypeMapper\GenericFormTypeMapper
             arguments:
-                $formTypeClass: AppBundle\Block\Attribute\MyStringAttributeType
+                $formTypeClass: App\Block\Attribute\MyStringAttributeType
             tags:
                 - { name: ezplatform.page_builder.attribute_form_type_mapper, alias: my_string }
     ```
 
     For creating your own mapper, create a class that inherits from `EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Attribute\FormTypeMapper\AttributeFormTypeMapperInterface`.
-    Then, register the class along with a tag by creating a `src/AppBundle/Block/Attribute/MyStringAttributeMapper.php` file:
+    Then, register the class along with a tag by creating a `src/Block/Attribute/MyStringAttributeMapper.php` file:
 
     ``` php
     <?php declare(strict_types=1);
 
-    namespace AppBundle\Block\Attribute;
+    namespace App\Block\Attribute;
 
     use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Definition\BlockAttributeDefinition;
     use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Definition\BlockDefinition;
@@ -223,7 +223,7 @@
     The final step is to register your mapper as a service:
 
     ``` yaml
-    AppBundle\Block\Attribute\MyStringAttributeMapper:
+    App\Block\Attribute\MyStringAttributeMapper:
             tags:
                 - { name: ezplatform.page_builder.attribute_form_type_mapper, alias: my_string }
     ```
@@ -343,7 +343,6 @@
     All Page blocks, both those that come out of the box and custom ones, can have multiple templates. This allows you to create different styles for each block and let the editor choose them when adding the block from the UI. The templates are defined in your configuration files like in the following example, with `simplelist` and `special` being the template names:
 
     ``` yaml
-    # app/config/block_templates.yml
     blocks:
         contentlist:
             views:
@@ -534,13 +533,13 @@
 
     ## Extensibility on block preview update
 
-    When block preview is updated, JavaScript event `postUpdateBlocksPreview` is fired.
+    When block preview is updated, JavaScript event `ez-post-update-blocks-preview` is fired.
     You can use it to run your own JS scripts, such as reinitializing the work of a slider
     or any other JS-based feature implemented inside your block preview.
 
     ``` js
     (function () {
-        window.document.body.addEventListener('postUpdateBlocksPreview', () => console.log('block updated'), false);
+        window.document.body.addEventListener('ez-post-update-blocks-preview', () => console.log('block updated'), false);
     })();
     ```
 

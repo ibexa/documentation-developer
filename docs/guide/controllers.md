@@ -38,8 +38,8 @@ ezpublish:
             content_view:
                 full:
                     article:
-                        controller: AcmeTestBundle:Default:articleViewEnhanced
-                        template: AcmeTestBundle:full:article.html.twig
+                        controller: App\Controller\DefaultController::articleViewEnhancedAction
+                        template: full/article.html.twig
                         match:
                             Identifier\ContentType: [article]
 ```
@@ -47,10 +47,9 @@ ezpublish:
 With this configuration, the following controller will forward the request to the built-in `ViewController` with some additional parameters:
 
 ``` php
-// Controller
 <?php
 
-namespace Acme\TestBundle\Controller;
+namespace App\Controller;
 
 use eZ\Bundle\EzPublishCoreBundle\Controller;
 use eZ\Publish\Core\MVC\Symfony\View\ContentView;
@@ -81,7 +80,7 @@ These parameters can then be used in templates, for example:
 
 ``` html+twig
 <!--article.html.twig-->
-{% extends noLayout ? viewbaseLayout : "eZDemoBundle::pagelayout.html.twig" %}
+{% extends no_layout ? view_base_layout : "pagelayout.html.twig" %}
 
 {% block content %}
     <h1>{{ ez_render_field( content, 'title' ) }}</h1>
@@ -99,26 +98,24 @@ One way to add custom logic to all responses is to use your own listener. Please
 If you want to apply only your custom controller **in a given match situation** and not use the `ViewController` at all, in the configuration you need to indicate the controller, but no template, for example:
 
 ``` yaml
-#ezplatform.yml
 ezpublish:
     system:
         default:
             content_view:
                 full:
                     folder:
-                        controller: AcmeTestBundle:Default:viewFolder
+                        controller: App\Controller\DefaultController::viewFolderAction
                         match:
                             Identifier\ContentType: [folder]
                             Identifier\Section: [standard]
 ```
 
-In this example, as the `ViewController` is not applied, the custom controller takes care of the whole process of displaying content, including pointing to the template to be used (in this case, `AcmeTestBundle::custom_controller_folder.html.twig`):
+In this example, as the `ViewController` is not applied, the custom controller takes care of the whole process of displaying content, including pointing to the template to be used (in this case, `full/custom_controller_folder.html.twig`):
 
 ``` php
-// Controller
 <?php
 
-namespace Acme\TestBundle\Controller;
+namespace App\Controller;
 
 use eZ\Bundle\EzPublishCoreBundle\Controller;
 use eZ\Publish\Core\MVC\Symfony\View\ContentView;
@@ -131,7 +128,7 @@ class DefaultController extends Controller
         $content = $view->getContent();
 
         $response = $this->render(
-            'AcmeTestBundle::custom_controller_folder.html.twig',
+            'full/custom_controller_folder.html.twig',
             [
                 'location' => $location,
                 'content' => $content,
@@ -151,8 +148,7 @@ class DefaultController extends Controller
 Here again custom parameters can be used in the template, e.g.:
 
 ``` html+twig
-<!--custom\_controller\_folder.html.twig-->
-{% extends "eZDemoBundle::pagelayout.html.twig" %}
+{% extends "pagelayout.html.twig" %}
 
 {% block content %}
 <h1>{{ ez_render_field( content, 'name' ) }}</h1>

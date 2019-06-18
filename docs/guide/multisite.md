@@ -11,7 +11,7 @@ This feature is a reimplementation of the [PathPrefix](http://doc.ez.no/eZ-Publi
 
 ## Configuring multisite
 
-Multisite is configured in `ezplatform.yml`, either at [SiteAccess](siteaccess.md) or SiteAccess group level:
+Multisite is configured in `ezplatform.yaml`, either at [SiteAccess](siteaccess.md) or SiteAccess group level:
 
 ``` yaml
 ezpublish:
@@ -101,11 +101,9 @@ despite the fact that it is not a sub-item of the "Event" Location.
 ### Setting the Index Page
 
 The Index Page is the page shown when the root index `/` is accessed.
-You can configure the Index Page separately for each SiteAccess. Place the parameter `index_page` in your `ezplatform.yml` file, under the correct SiteAccess:
+You can configure the Index Page separately for each SiteAccess. Place the parameter `index_page` in your `ezplatform.yaml` file, under the correct SiteAccess:
 
 ``` yaml
-# ezplatform.yml
-
 ezpublish:
     system:
         event:
@@ -114,6 +112,12 @@ ezpublish:
 ```
 
 If not specified, the `index_page` is the configured content root.
+
+## Multisite with multiple repositories
+
+Multisite can be configured to use one or multiple repositories.
+With multiple repositories, each site can have a separate repository.
+To configure multisite with multiple repositories, [configure the repositories](config_repository.md) and perform [multi repository setup](persistence_cache.md#multi-repository-setup).
 
 ### Limitations when using with multisite URI matching with multi-repository setup
 
@@ -146,7 +150,7 @@ To do this, organize your templates in the following folder structure:
 
 ![Organising templates](img/organising_templates.png "Organising templates")
 
-Now you can use this view configuration (stored e.g. in a `views.yml` file):
+Now you can use this view configuration (stored e.g. in a `views.yaml` file):
 
 ``` yaml
 ezpublish:
@@ -178,5 +182,5 @@ a separate `event/pagelayout.html.twig` and a template to be used for articles.
 When no view is defined under `event`, such as in the case of the `news` Content Type,
 the template defined under `default` will apply. `default` will also be used for all SiteAccesses other than `event`.
 
-To load the base (default) layout in templates you now need to use `{% extends noLayout == true ? viewbaseLayout : pagelayout %}`.
+To load the base (default) layout in templates you now need to use `{% extends no_layout == true ? view_base_layout : page_layout %}`.
 (See [Template inheritance and sub-requests](content_rendering.md#template-inheritance-and-sub-requests) for more information).

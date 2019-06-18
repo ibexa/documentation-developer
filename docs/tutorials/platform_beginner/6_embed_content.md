@@ -40,7 +40,7 @@ Go back to one of your existing Rides, edit it and link some Landmarks to it.
 
 Now you need to create the line view for Landmarks.
 
-Declare a new override rule in `app/config/views.yml`:
+Declare a new override rule in `app/config/views.yaml`:
 
 ``` yaml
 ezpublish:
@@ -93,7 +93,7 @@ Create the template for the line view of a Landmark: `app/Resources/views/line/l
 ```
 
 Like before, you use an image variation here (line 4) and you need to configure it.
-Add the following section to `app/config/image_variations.yml`, at the same level as `ride_list`:
+Add the following section to `app/config/image_variations.yaml`, at the same level as `ride_list`:
 
 ``` yaml
 landmark_list:
@@ -143,7 +143,7 @@ class RideController extends Controller
 }
 ```
 
-Update `app/config/views.yml` to mention the RideController by adding a line with the `controller` key to the view config.
+Update `app/config/views.yaml` to mention the RideController by adding a line with the `controller` key to the view config.
 
 ``` yaml hl_lines="8"
 ezpublish:

@@ -82,7 +82,7 @@ All listeners receive an `eZ\Publish\Core\MVC\Symfony\Event\RouteReferenceGener
 which contains the current request object and the route reference.
 
 ``` php
-namespace Acme\AcmeExampleBundle\EventListener;
+namespace App\EventListener;
 
 use eZ\Publish\Core\MVC\Symfony\Event\RouteReferenceGenerationEvent;
 use eZ\Publish\Core\MVC\Symfony\MVCEvents;
@@ -103,27 +103,23 @@ class MyRouteReferenceListener implements EventSubscriberInterface
         $request = $event->getRequest();
 
         // Let's say you want to change the route name if "some_parameter" param is present
-        if ( $routeReference->has( 'some_parameter' )
+        if ( $routeReference->has( 'some_parameter' ) )
         {
             $routeReference->setRoute( 'a_specific_route' );
             // Remove "some_parameter", as you don't need it any more
             $routeReference->remove( 'some_parameter' );
             // Add another parameter
-            $routeReference->set( 'another_parameter', [ 'parameters', 'are', 'fun' ];
+            $routeReference->set( 'another_parameter', [ 'parameters', 'are', 'fun' ] );
         }
     }
 }
 ```
 
-Service declaration (in `AcmeExampleBundle/Resources/config/services.yml`):
+Service declaration (in `config/services.yaml`):
 
 ``` yaml
-parameters:
-    acme.my_route_reference_listener.class: Acme\AcmeExampleBundle\EventListener\MyRouteReferenceListener
-
 services:
-    acme.my_route_reference_listener:
-        class: %acme.my_route_reference_listener.class%
+    App\EventListener\MyRouteReferenceListener:
         tags:
             - { name: kernel.event_subscriber }
 ```

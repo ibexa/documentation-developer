@@ -256,7 +256,7 @@ Then, you can use this `DataTransformer` in the `FormMapper` like this:
 // (...)
 ```  
 Next thing is to tell the system that the `FormMapper` right now works also as `FieldDefinitionFormMapper`.
-In order to do that add an extra tag definition in `Resources/config/fieldtypes.yml`:
+In order to do that add an extra tag definition in `Resources/config/fieldtypes.yaml`:
 
 ``` yml
     ezsystems.tweetbundle.fieldtype.eztweet.form_mapper:
@@ -282,7 +282,7 @@ To do that, create a file containing the view, `Resources/views/platformui/conte
 {% endblock %}
 ```
 
-Register the new template in the configuration by editing the `Resources/config/ez_field_templates.yml` file:
+Register the new template in the configuration by editing the `Resources/config/ez_field_templates.yaml` file:
 
 ```yml
 fielddefinition_edit_templates:

@@ -14,12 +14,12 @@ For assets, the system uses the Symfony Asset component with asset packages.
 
 - **Theme**: A labeled collection of templates and assets.
 
-  Typically a directory containing templates. For example, templates located under `app/Resources/views/themes/my_theme`
-  or `src/AppBundle/Resources/views/themes/my_theme` are part of `my_theme` theme.
+  Typically a directory containing templates. For example, templates located under `templates/themes/my_theme`
+  are part of `my_theme` theme.
 
 !!! caution
 
-    After creating a new folder either in `app/Resources/views/themes/` or your bundle's `Resources/views/themes/` directory
+    After creating a new folder either in a project's or your bundle's `templates/themes/` directory
     you need to clear Symfony cache (`bin/console cache:clear`), even if you are working in the dev environment.
 
 - **Design**: A collection of themes.
@@ -75,7 +75,6 @@ To define and use a design, you need to:
 Here is a simple example:
 
 ```yaml
-# ezplatform.yml
 ezdesign:
     # You declare all available designs under "design_list".
     design_list:
@@ -132,26 +131,26 @@ Using the `ezdesign` package will resolve current design with theme fallback.
 
 By convention, an asset theme directory can be located in:
 - `<bundle_directory>/Resources/public/themes/`
-- `web/assets/themes/`
+- `assets/themes/`
 
 Typical paths can be for example:
 - `<bundle_directory>/Resources/public/themes/foo/` => Assets will be part of the `foo` theme.
 - `<bundle_directory>/Resources/public/themes/bar/` => Assets will be part of the `bar` theme.
-- `web/assets/themes/biz/` => Assets will be part of the `biz` theme.
+- `assets/themes/biz/` => Assets will be part of the `biz` theme.
 
-It is also possible to use `web/assets` as a global override directory.
+It is also possible to use `assets` as a global override directory.
 If called asset is present **directly under this directory**, it will always be considered first.
 
 !!! caution
 
     You must have *installed* your assets with `assets:install` command, so that your public resources are
-    *installed* into the `web/` directory.
+    *installed* into the `assets/` directory.
 
 ### Fallback order
 
 The default fallback order is:
-- Application assets directory: `web/assets/`
-- Application theme directory: `web/assets/themes/<theme_name>/`
+- Application assets directory: `assets/`
+- Application theme directory: `assets/themes/<theme_name>/`
 - Bundle theme directory: `web/bundles/<bundle_directory>/themes/<theme_name>/`
 
 Calling `asset("js/foo.js", "ezdesign")` can for example be resolved to `web/bundles/app/themes/my_theme/js/foo.js`.
@@ -170,7 +169,7 @@ In debug mode (e.g. `dev` environment), assets are being resolved at runtime.
 This behavior can, however, be controlled by the `disable_assets_pre_resolution` setting.
 
 ```yaml
-# ezplatform_prod.yml
+# ezplatform_prod.yaml
 ezdesign:
     # Force runtime resolution
     # Default value is '%kernel.debug%'
@@ -180,12 +179,11 @@ ezdesign:
 ## Design usage with templates
 
 By convention, a theme directory must be located under `<bundle_directory>/Resources/views/themes/` or global
-`app/Resources/views/themes/` directories.
+`templates/themes/` directories.
 
 Typical paths can be for example:
-- `app/Resources/views/themes/foo/` => Templates will be part of the `foo` theme.
-- `app/Resources/views/themes/bar/` => Templates will be part of the `bar` theme.
-- `src/AppBundle/Resources/views/themes/foo/` => Templates will be part of the `foo`theme.
+- `templates/themes/foo/` => Templates will be part of the `foo` theme.
+- `templates/themes/bar/` => Templates will be part of the `bar` theme.
 - `src/Acme/TestBundle/Resources/views/themes/the_best/` => Templates will be part of `the_best` theme.
 
 In order to use the configured design with templates, you need to use the **`@ezdesign`** special **Twig namespace**.
@@ -223,7 +221,7 @@ The default fallback order is:
 
 !!! note
 
-    Bundle fallback order is the instantiation order in `AppKernel`.
+    Bundle fallback order is the instantiation order in `bundles.php`.
 
 #### Additional theme paths
 
@@ -239,7 +237,7 @@ ezdesign:
     templates_theme_paths:
         # FOSUserBundle templates will be part of "my_theme" theme
         my_theme:
-            - %kernel.root_dir%/../vendor/friendsofsymfony/user-bundle/Resources/views
+            - '%kernel.root_dir%/../vendor/friendsofsymfony/user-bundle/Resources/views'
 ```
 
 !!! note "Paths precedence"
@@ -254,7 +252,7 @@ It is possible to add additional global override directories, similar to `app/Re
 ```yaml
 ezdesign:
     templates_override_paths:
-        - %kernel.root_dir%/another_override_directory
+        - '%kernel.root_dir%/another_override_directory'
         - /some/other/directory
 ```
 
@@ -283,7 +281,7 @@ Default config:
 ezdesign:
     phpstorm:
         # Activates PHPStorm support
-        enabled: %kernel.debug%
+        enabled: '%kernel.debug%'
         # Path where to store PHPStorm configuration file for additional Twig namespaces (ide-twig.json).
-        twig_config_path: %kernel.root_dir%/..
+        twig_config_path: '%kernel.root_dir%/..'
 ```

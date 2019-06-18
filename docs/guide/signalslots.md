@@ -72,9 +72,9 @@ So, a stub for the implementation could look like this:
 ``` php
 namespace Acme\TestBundle\Slot;
 
-use eZ\Publish\Core\SignalSlot\Slot as BaseSlot;
 use eZ\Publish\API\Repository\Repository;
-use eZ\Publish\SignalSlot\Signal;
+use eZ\Publish\Core\SignalSlot\Slot as BaseSlot;
+use eZ\Publish\Core\SignalSlot\Signal;
 
 class CreateUrlAliasesOnPublishSlot extends BaseSlot
 {
@@ -82,21 +82,22 @@ class CreateUrlAliasesOnPublishSlot extends BaseSlot
      * @var \eZ\Publish\API\Repository\Repository
      */
     private $repository;
-    public function __construct( Repository $repository )
-    {
-        $this->repository = $repository;
-    }
 
-    public function receive( Signal $signal )
-    {
-        if ( !$signal instanceof Signal\ContentService\PublishVersionSignal )
-        {
-            return;
-        }
-        // Load content
-        // Load locations
-        // Create URL aliases
-    }
+    public function __construct(Repository $repository)
+    {
+        $this->repository = $repository;
+    }
+
+    public function receive(Signal $signal)
+    {
+        if (!$signal instanceof Signal\ContentService\PublishVersionSignal ) {
+            return;
+        }
+
+        // Load content
+        // Load locations
+        // Create URL aliases
+    }
 }
 ```
 
@@ -166,7 +167,7 @@ class OnPublishSlot extends BaseSlot
 
 You now need to register `OnPublishSlot` as a service in the ServiceContainer and identify it as a valid Slot.
 
-In `services.yml` (in your bundle):
+In `services.yaml` (in your bundle):
 
 ``` yaml
 services:
@@ -206,7 +207,7 @@ All you need to do is to implement an event listener or subscriber and register 
 
 This very simple example will just log the received signal.
 
-In `services.yml` (in your bundle):
+In `services.yaml`:
 
 ``` yaml
 services:

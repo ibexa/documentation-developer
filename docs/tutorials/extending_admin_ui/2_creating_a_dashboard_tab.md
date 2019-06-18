@@ -15,7 +15,7 @@ This tab, called "Articles", will list ten most recently modified Content items 
 
 ## Register a service
 
-First, add the following block to `src/EzSystems/ExtendingTutorialBundle/Resources/config/services.yml`,
+First, add the following block to `src/EzSystems/ExtendingTutorialBundle/Resources/config/services.yaml`,
 which was created when [the bundle was generated](1_creating_a_bundle.md). Place the block indented, under the `services` key:
 
 ``` yml
@@ -107,7 +107,7 @@ class EveryoneArticleTab extends AbstractTab implements OrderedTabInterface
         $pager->setMaxPerPage($limit);
         $pager->setCurrentPage($page);
 
-        return $this->twig->render('EzPlatformAdminUiBundle:dashboard/tab:all_content.html.twig', [
+        return $this->twig->render('@ezdesign/ui/dashboard/tab:all_content.html.twig', [
             'data' => $this->pagerContentToDataMapper->map($pager),
         ]);
     }

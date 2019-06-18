@@ -42,7 +42,7 @@ Preparing a new layout requires three things:
 
 #### Create entry in configuration
 
-First create a new file for layout configuration, `app/config/layouts.yml`:
+First create a new file for layout configuration, `app/config/layouts.yaml`:
 
 ``` yaml hl_lines="3 5 7 8"
 ezplatform_page_fieldtype:
@@ -61,10 +61,10 @@ ezplatform_page_fieldtype:
 ```
 
 Creating the file is not enough, you also need to tell the app to read and use it.
-Add the following line to `app/config/config.yml`, at the end of the `imports` block:
+Add the following line to `app/config/config.yaml`, at the end of the `imports` block:
 
 ``` yaml
-- { resource: layouts.yml }
+- { resource: layouts.yaml }
 ```
 
 #### Add thumbnail
@@ -94,7 +94,7 @@ Create an `app/Resources/views/layouts/sidebar.html.twig` file:
 
             {% for block in zones[0].blocks %}
                 <div class="landing-page__block block_{{ block.type }}" data-ez-block-id="{{ block.id }}">
-                    {{ render_esi(controller('EzPlatformPageFieldTypeBundle:Block:render', {
+                    {{ render_esi(controller('EzPlatformPageFieldTypeBundle\Controller\BlockController::renderAction', {
                         'locationId': locationId,
                         'contentId': contentInfo.id,
                         'blockId': block.id,
@@ -111,7 +111,7 @@ Create an `app/Resources/views/layouts/sidebar.html.twig` file:
 
             {% for block in zones[1].blocks %}
                 <div class="landing-page__block block_{{ block.type }}" data-ez-block-id="{{ block.id }}">
-                    {{ render_esi(controller('EzPlatformPageFieldTypeBundle:Block:render', {
+                    {{ render_esi(controller('EzPlatformPageFieldTypeBundle\Controller\BlockController::renderAction', {
                         'locationId': locationId,
                         'contentId': contentInfo.id,
                         'blockId': block.id,
@@ -177,7 +177,7 @@ Add this new template, `app/Resources/views/full/landing_page.html.twig`:
 This template simply renders the page content. If there is any additional content or formatting you would like to apply to every Page, it should be placed in this template.
 
 Now you need to tell the app to use this template to render Pages.
-Edit the `app/config/views.yml` file and add the following code under the `full:` key:
+Edit the `app/config/views.yaml` file and add the following code under the `full:` key:
 
 ``` yaml
 landing_page:

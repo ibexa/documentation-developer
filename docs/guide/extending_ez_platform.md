@@ -34,6 +34,11 @@ You can extend the Back Office in the following areas:
 - [Page blocks](extending_page.md#creating-page-blocks)
 - [Form fields](extending_form_builder.md#extending-form-fields)
 
+!!! note "String translations"
+
+    Refer to [Custom string translations](back_office_translations.md#custom-string-translations)
+    to learn how to provide string translations when extending the Back Office.
+
 ## Menus
 
 Back Office menus are based on the [KnpMenuBundle](https://github.com/KnpLabs/KnpMenuBundle) and are easily extensible.
@@ -104,6 +109,18 @@ class MenuListener implements EventSubscriberInterface
     }
 }
 ```
+
+After creating a subscriber, add it to `config/services.yaml`:
+
+``` yaml
+services:
+    EzSystems\EzPlatformAdminUi\EventListener\MenuListener:
+        tags:
+           - { name: kernel.event.subscriber }
+
+```
+
+Providing the `kernel.event.subscriber` tag is necessary only if [the autoconfigure option](https://symfony.com/doc/3.4/service_container.html#the-autoconfigure-option) is disabled.
 
 ### Adding menu items
 
@@ -252,7 +269,7 @@ In the following example, the `DashboardEventSubscriber.php` reverses the order 
 (in a default installation this makes the "Everyone" block appear above the "Me" block):
 
 ``` php
-namespace AppBundle\EventListener;
+namespace App\EventListener;
 
 use EzSystems\EzPlatformAdminUi\Component\Event\RenderGroupEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -294,10 +311,10 @@ You can extend existing tab groups with new tabs, or create your own tab groups.
 
 To create a custom tab group with additional logic you need to create it at the level of compiling the Symfony container, using a [CompilerPass](https://symfony.com/doc/3.4/service_container/compiler_passes.html).
 
-For example, in `src/AppBundle/DependencyInjection/Compiler/CustomTabGroupPass.php`:
+For example, in `src/DependencyInjection/Compiler/CustomTabGroupPass.php`:
 
 ``` php
-namespace AppBundle\DependencyInjection\Compiler;
+namespace App\DependencyInjection\Compiler;
 
 use EzSystems\EzPlatformAdminUi\Tab\TabGroup;
 use EzSystems\EzPlatformAdminUi\Tab\TabRegistry;
@@ -341,7 +358,7 @@ This will render the group and all tabs assigned to it.
 Before you add a tab to a group you must create the tab's PHP class and define it as a Symfony service with the `ezplatform.tab` tag:
 
 ``` yaml
-AppBundle\Custom\Tab:
+App\Custom\Tab:
     parent: EzSystems\EzPlatformAdminUi\Tab\AbstractTab
     tags:
         - { name: ezplatform.tab, group: custom-tab-group }
@@ -353,10 +370,10 @@ This configuration also assigns the new tab to `custom-tab-group`.
 
     If the `custom-tab-group` does not yet exist, it will be created automatically at this point.
 
-The tab class can look like this (in `src/AppBundle/Custom/Tab.php`):
+The tab class can look like this (in `src/Custom/Tab.php`):
 
 ``` php
-namespace AppBundle\Custom;
+namespace App\Custom;
 
 use EzSystems\EzPlatformAdminUi\Tab\AbstractTab;
 
@@ -608,7 +625,7 @@ A component is any class that implements the `Renderable` interface.
 It must be tagged as a service:
 
 ``` yaml
-AppBundle\Component\MyNewComponent:
+App\Component\MyNewComponent:
     tags:
         - { name: ezplatform.admin_ui.component, group: content-edit-form-before }
 ```
@@ -655,7 +672,7 @@ This renders the `path/to/file.html.twig` template with `first_param` and `secon
 With `LinkComponent` and `ScriptComponent` you provide `$href` and `$src` as arguments, respectively:
 
 ``` yaml
-appbundle.components.my_link_component:
+app.components.my_link_component:
     parent: EzSystems\EzPlatformAdminUi\Component\LinkComponent
     arguments:
         $href: 'http://address.of/file.css'
@@ -664,7 +681,7 @@ appbundle.components.my_link_component:
 ```
 
 ``` yaml
-appbundle.components.my_script_component:
+app.components.my_script_component:
     parent: EzSystems\EzPlatformAdminUi\Component\ScriptComponent
     arguments:
         $src: 'http://address.of/file.js'
@@ -714,7 +731,7 @@ To use them, create an `src\AppBundle\Service\MyService.php` file containing:
 ``` php
 <?php
 
-namespace AppBundle\Service;
+namespace App\Service;
 
 use EzSystems\EzPlatformUser\UserSetting\DateTimeFormat\FormatterInterface;
 
@@ -745,11 +762,11 @@ class MyService
 }
 ```
 
-Then, add the following to `app/config/services.yml`:
+Then, add the following to `config/services.yaml`:
 
 ``` yaml
 services:    
-    AppBundle\Service\MyService:
+    App\Service\MyService:
         arguments:
             $shortDateTimeFormatter: '@ezplatform.user.settings.short_datetime_format.formatter'
 ```
@@ -761,14 +778,14 @@ You can add new preferences to the User settings menu in the Back Office.
 To do so, create a setting class implementing two interfaces:
 `ValueDefinitionInterface` and `FormMapperInterface`.
 
-In this example the class is located in `AppBundle/Setting/Unit.php`
+In this example the class is located in `src/Setting/Unit.php`
 and enables the user to select their preference for metric or imperial unit systems.
 
 ``` php
 <?php
 declare(strict_types=1);
 
-namespace AppBundle\Setting;
+namespace App\Setting;
 
 use EzSystems\EzPlatformUser\UserSetting\FormMapperInterface;
 use EzSystems\EzPlatformUser\UserSetting\ValueDefinitionInterface;
@@ -836,7 +853,7 @@ class Unit implements ValueDefinitionInterface, FormMapperInterface
 Register the class as a service:
 
 ``` yaml
-AppBundle\Setting\Unit:
+App\Setting\Unit:
     tags:
         - { name: ezplatform.admin_ui.user_setting.value, identifier: unit, priority: 50 }
         - { name: ezplatform.admin_ui.user_setting.form_mapper, identifier: unit }

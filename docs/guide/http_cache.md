@@ -16,7 +16,7 @@ This enables updates to content to trigger cache invalidation.
 
 ### Cache and expiration configuration
 
-This is how cache can be configured in `ezplatform.yml`:
+This is how cache can be configured in `config/packages/ezplatform.yaml`:
 
 ``` yaml
 ezpublish:
@@ -120,7 +120,7 @@ The returned Location IDs are sent for purge using the selected purge type.
 #### Symfony Proxy: Local purge type
 
 By default, invalidation requests will be emulated and sent to the Symfony proxy cache store.
-In `ezplatform.yml`:
+In `config/packages/ezplatform.yaml`:
 
 ``` yaml
 ezpublish:
@@ -132,7 +132,7 @@ ezpublish:
 
 With Varnish you can configure one or several servers that should be purged over HTTP.
 This purge type is asynchronous, and flushed by the end of Symfony kernel-request/console cycle (during the terminate event).
-Settings for purge servers can be configured per SiteAccess group or SiteAccess (in `ezplatform.yml`):
+Settings for purge servers can be configured per SiteAccess group or SiteAccess:
 
 ``` yaml
 ezpublish:
@@ -253,7 +253,7 @@ fastcgi_param SYMFONY_TRUSTED_PROXIES "193.22.44.22";
 #### Update YML configuration
 
 Secondly, you need to tell eZ Platform to use an HTTP-based purge client (specifically the FosHttpCache Varnish purge client),
-and specify the URL Varnish can be reached on (in `ezplatform.yml`):
+and specify the URL Varnish can be reached on:
 
 The following configuration is not required as eZ Platform will read the environment variables set above.
 
@@ -292,14 +292,14 @@ ezpublish:
 
     Both `purge_type` and `purge_server` can be set in one of the following ways:
 
-    - in `app/config/ezplatform.yml`
-    - by adding the parameter `purge_type` or `purge_server` respectively in `app/config/parameters.yml`
+    - in `config/packages/ezplatform.yaml`
+    - by adding the parameter `purge_type` or `purge_server` respectively in `config/packages/ezplatform.yaml`
     - by setting the `HTTPCACHE_PURGE_TYPE` environment variable.
 
-    It is recommended to use either `app/config/parameters.yml` or the environment variable.
+    It is recommended to use either `config/services.yaml` or the environment variable.
 
-    Note that in `app/config/ezplatform.yml`, the `purge_server` setting is an array while `purge_server` in
-    `app/config/parameters.yml` and the `HTTPCACHE_PURGE_SERVER` environment variable should be a string.
+    Note that in `config/ezplatform.yaml`, the `purge_servers` setting is an array
+    while the `HTTPCACHE_PURGE_SERVER` environment variable should be a string.
 
     ##### Fastly service ID and API token
 
@@ -314,11 +314,11 @@ ezpublish:
 
     You may specify service ID and token:
 
-    - using the `service_id` and `key` settings (sub elements of "fastly") in `app/config/ezplatform.yml`
-    - by setting the parameters `fastly_service_id` and `fastly_key` in `app/config/parameters.yml`
+    - using the `service_id` and `key` settings (sub elements of "fastly") in `config/packages/ezplatform.yaml`
+    - by setting the parameters `fastly_service_id` and `fastly_key` in `config/packages/ezplatform-http-cache-fastly.yaml`
     - by setting the environment variables `FASTLY_SERVICE_ID` and `FASTLY_KEY`
 
-    Unless you need different settings per SiteAccess it is recommended to either use `app/config/parameters.yml`
+    Unless you need different settings per SiteAccess it is recommended to either use `config/packages/ezplatform.yaml`
     or the environment variables.
 
     ##### Clear the cache
@@ -329,7 +329,8 @@ ezpublish:
 
     #### Configuration on Platform.sh
 
-    If using Platform.sh, it's best to configure the Fastly credentials via Platform.sh variables.
+    If using Platform.sh, it's best to configure the Fastly credentials via [Platform.sh variables](https://docs.platform.sh/frameworks/ez/fastly.html).
+    You'll also need to [disable Varnish](https://docs.platform.sh/frameworks/ez/fastly.html#remove-varnish-configuration) which is enabled by default in provided configuration for Platform.sh.
     See the [Platform.sh Professional documentation](https://docs.platform.sh/frameworks/ez.html)
     for running eZ Platform Enterprise on Platform.sh.  If using Platform.sh Enterprise see the [Platform.sh Enterprise Documentation](https://ent.docs.platform.sh/frameworks/ez.html).
 
@@ -337,22 +338,13 @@ ezpublish:
 
     ### Setting Time-To-Live value for Page blocks
 
-    Page blocks are rendered using Edge Site Include which means you can set different TTL values for each Page block type.
-    The TTL setting is available in the configuration under a `ttl` key. The value has to be set in seconds:
+    Block cache by default respects `$content.ttl_cache$` and `$content.default_ttl$` settings.
+    However, if the given block value has a since / till date,
+    this will be taken into account for the TTL calculation for the block and also for the whole page.
 
-    ``` yaml
-    ez_systems_landing_page_field_type:
-        blocks:
-            block_type:
-                ttl: 600
-                views:
-                    (...)
-    ```
-
-    `block_type` should be replaced with the actual block name, e.g. `embed`, `collection`, `schedule`, etc.
-    In the example above `block_type` will be cached for 10 minutes.
-
-    By default blocks are not cached (TTL = 0) for backwards compatibility reasons.
+    To overload this behavior, listen to [BlockResponseEvents::BLOCK_RESPONSE](extending_page/#block-render-response),
+    and set prioroty to for instance `-200` to adapt what Page Field type does by default. E.g. in order to disable cache
+    for the block use `$event->getResponse()->setPrivate()`.
 
 !!! note "Invalidating Varnish cache using tokens"
 
@@ -533,6 +525,7 @@ based on your decision.
     - [http_resp_hdr_len](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-resp-hdr-len) (e.g. 32k)
     - [http_max_hdr](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-max-hdr) (e.g. 128)
     - [http_resp_size](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-resp-size) (e.g. 64k)
+    - [workspace_backend](https://varnish-cache.org/docs/6.0/reference/varnishd.html#workspace-backend) (e.g. 128k)
 
     If you need to see these long headers in the `varnishlog` adapt the [vsl_reclen](https://varnish-cache.org/docs/5.1/reference/varnishd.html#vsl-reclen) setting.
 

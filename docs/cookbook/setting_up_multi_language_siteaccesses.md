@@ -5,7 +5,7 @@ Combining translated content with multiple SiteAccesses successfully can be chal
 To achieve this for the most typical setups you need to follow three steps:
 
 1. [Create your translations](#create-a-new-translation) in the database via eZ Platform back office.
-1. [Create at least two SiteAccesses](#create-new-siteaccesses) in `ezplatform.yml` to deliver the right translated content at the right time.
+1. [Create at least two SiteAccesses](#create-new-siteaccesses) in `ezplatform.yaml` to deliver the right translated content at the right time.
 1. [Set the correct permissions](#set-permissions-for-the-new-siteaccesses) for the anonymous user to read each SiteAccess.
 
 Without these three steps, your SiteAccess configuration will either not work or you will be left with duplicate content from an SEO perspective.
@@ -34,7 +34,7 @@ and use the first segment of the URI to match to another. For example:
 - `www.mysite.com` to match to English
 - `www.mysite.com/fr` to match to French
 
-To achieve this you need to create at least two new SiteAccesses in your `ezplatform.yml` file.
+To achieve this you need to create at least two new SiteAccesses in your `ezplatform.yaml` file.
 
 The first bit of this working example lists the new SiteAccesses `en` and `fr` and adds them both to a common group `site_group`
 (this group will be used for shared settings such as API keys, cache locations, etc.).
@@ -76,16 +76,16 @@ siteaccess:
 !!! note
 
     For dynamic URLs you can replace `www.mysite.com` with `%site_domain%`
-    and then enter `site_domain` as a new entry in `parameters.yml` at the same level as the database settings.
+    and then enter `site_domain` as a new entry in `services.yaml` at the same level as the database settings.
 
-Further down in `ezplatform.yml` is the `system` section which comes with the default group named `site_group` (the same group that you modified earlier).
+Further down in `ezplatform.yaml` is the `system` section which comes with the default group named `site_group` (the same group that you modified earlier).
 Add the new `translation_siteaccesses` here. After the `site_group` you register the SiteAccess languages:
 
 ``` yaml
     system:
         site_group:
             api_keys: { google_maps: yourapikey }
-            cache_pool_name: %cache_pool%
+            cache_pool_name: '%cache_pool%'
             var_dir: var/site
             translation_siteaccesses: [fr, en]
         fr:
@@ -97,7 +97,7 @@ Add the new `translation_siteaccesses` here. After the `site_group` you register
                 # templates common to both the en and fr SiteAccess
 ```
 
-`ezplatform.yml` with SiteAccesses should now be configured. Clear to cache to complete the job:
+`ezplatform.yaml` with SiteAccesses should now be configured. Clear the cache to complete the job:
 
 ``` bash
 php bin/console cache:clear
@@ -121,7 +121,7 @@ you can remove the `site` SiteAccess as it is no longer required.
 It was not possible to remove `site` before, as you first needed to give the appropriate permissions to the new SiteAccesses (`en` and `fr`),
 without which your site would not have loaded correctly.
 
-In `ezplatform.yml` set the `default_siteaccess` to `en`,
+In `ezplatform.yaml` set the `default_siteaccess` to `en`,
 this will act as the [fallback](../guide/siteaccess/#multilanguage-sites) should none of the matches have been hit.
 Last but not least, remove `site` from the `list` and `groups` section:
 

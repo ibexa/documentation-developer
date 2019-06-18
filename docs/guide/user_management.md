@@ -11,7 +11,7 @@ To change password, the user must have the `user/password` permission.
 When the user requests a reset of a forgotten password, an email is sent to them with a token.
 It allows them to create a new password.
 
-The template for this email is located in `/Resources/views/Security/mail/forgot_user_password.html.twig` in `ezsystems/ezplatform-user`.
+The template for this email is located in `templates/Security/mail/forgot_user_password.html.twig` in `ezsystems/ezplatform-user`.
 You can customize it according to your needs.
 
 The validity of the password recovery token can be set using the `ezpublish.system.<siteaccess>.security.token_interval_spec` parameter.
@@ -49,14 +49,14 @@ ezpublish:
                     confirmation: user/registration_confirmation.html.twig
 ```
 
-With this configuration you place the templates in `app/Resources/views/user/registration_form.html.twig` and `app/Resources/views/user/registration_confirmation.html.twig`.
+With this configuration you place the templates in `templates/user/registration_form.html.twig` and `templates/user/registration_confirmation.html.twig`.
 
 Here are default templates that you can reuse and/or modify:
 
 **Registration form:**
 
 ``` html+twig
-{% extends noLayout is defined and noLayout == true ? viewbaseLayout : pagelayout %}
+{% extends no_layout is defined and no_layout == true ? view_base_layout : page_layout %}
 {% block content %}
      {% import "EzSystemsRepositoryFormsBundle:Content:content_form.html.twig" as contentForms %}
 
@@ -69,7 +69,7 @@ Here are default templates that you can reuse and/or modify:
 **Registration confirmation:**
 
 ``` html+twig
-{% extends noLayout is defined and noLayout == true ? viewbaseLayout : pagelayout %}
+{% extends no_layout is defined and no_layout == true ? view_base_layout : page_layout %}
 {% block content %}
     <h1>Your account has been created</h1>
     <p class="user-register-confirmation-message">

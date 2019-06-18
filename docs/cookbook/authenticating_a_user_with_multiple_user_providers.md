@@ -29,7 +29,7 @@ You can override `getUser()` to return whatever User class you want, as long a
 Here is a very simple example using the in-memory user provider.
 
 ``` yaml
-# app/config/security.yml
+# config/security.yaml
 security:
     providers:
         # Chaining in_memory and ezpublish user providers
@@ -50,15 +50,11 @@ security:
 
 ## Implementing the listener
 
-In `services.yml` in your AcmeExampleBundle:
+In `services.yaml`:
 
 ``` yaml
-parameters:
-    acme_example.interactive_event_listener.class: Acme\ExampleBundle\EventListener\InteractiveLoginListener
-
 services:
-    acme_example.interactive_event_listener:
-        class: %acme_example.interactive_event_listener.class%
+    App\EventListener\InteractiveLoginListener:
         arguments: ['@ezpublish.api.service.user']
         tags:
             - { name: kernel.event_subscriber } 
@@ -68,7 +64,7 @@ Do not mix `MVCEvents::INTERACTIVE_LOGIN` event (specific to eZ Platform) and `S
 
 ``` php
 <?php
-namespace Acme\ExampleBundle\EventListener;
+namespace App\EventListener;
 
 use eZ\Publish\API\Repository\UserService;
 use eZ\Publish\Core\MVC\Symfony\Event\InteractiveLoginEvent;

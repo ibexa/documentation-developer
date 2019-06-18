@@ -24,11 +24,17 @@ Before getting started, make sure you review the [requirements](requirements.md)
 
 ## Get Composer
 
-Install Composer, the PHP command line dependency manager.
+Install a recent stable version of Composer, the PHP command line dependency manager.
 Use the package manager for your Linux distribution. For example on Ubuntu:
 
 ``` bash
 apt-get install composer
+```
+
+To verify you got a recent stable version of Composer, you can run:
+
+``` bash
+composer -V
 ```
 
 !!! tip "Install Composer locally"
@@ -114,7 +120,7 @@ After a moment the installer will ask you to provide a few parameters:
 
 !!! tip
 
-    If you want to change any of these parameters later, you can do it in `app/config/parameters.yml`.
+    If you want to change any of these parameters later, you can do it in the `.env` file.
 
 !!! tip "Using PostgreSQL"
 

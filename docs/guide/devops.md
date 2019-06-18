@@ -56,7 +56,7 @@ include Symfony cache use, and a [persistence cache](persistence_cache.md#persis
 
     For long-running scripts, see [Executing long-running console commands](performance.md#executing-long-running-console-commands).
 
-If you are running out of memory and don't need to keep track of cache hits and misses, you can disable persistence cache logging, represented by the setting `parameters.ezpublish.spi.persistence.cache.persistenceLogger.enableCallLogging`. In `config_dev.yml`:
+If you are running out of memory and don't need to keep track of cache hits and misses, you can disable persistence cache logging, represented by the setting `parameters.ezpublish.spi.persistence.cache.persistenceLogger.enableCallLogging`. In `config_dev.yaml`:
 
 ``` yaml
 parameters:
@@ -69,7 +69,7 @@ eZ Platform uses the [Monolog](https://github.com/Seldaek/monolog) component to 
 
 According to [their documentation](https://seldaek.github.io/monolog/doc/02-handlers-formatters-processors.html#log-to-files-and-syslog), it "logs records to a file and creates one logfile per day. It will also delete files older than `$maxFiles`".
 
-Monolog's handler can be configured in `app/config/config.yml`:
+Monolog's handler can be configured in `config/packages/<environment>/monolog.yaml`:
 
 ``` yaml
 monolog:
@@ -77,7 +77,7 @@ monolog:
         main:
             type: rotating_file
             max_files: 10
-            path: %kernel.logs_dir%/%kernel.environment%.log
+            path: '%kernel.logs_dir%/%kernel.environment%.log'
             level: debug
 ```
 

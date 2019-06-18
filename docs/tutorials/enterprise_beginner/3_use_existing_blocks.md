@@ -38,7 +38,7 @@ First, create an override template for the Content List block: `app/Resources/vi
 ```
 
 Then add a configuration that will tell the app to use this template instead of the default one.
-In `app/config/layouts.yml` add the following code at the end of the file, under the `ezplatform_page_fieldtype` key on the same level as `layouts`:
+In `app/config/layouts.yaml` add the following code at the end of the file, under the `ezplatform_page_fieldtype` key on the same level as `layouts`:
 
 ``` yaml
 blocks:
@@ -51,7 +51,7 @@ blocks:
 
 The template makes use of an [image variation](../../guide/images.md) (line 10).
 It is the thumbnail of the Dog Breed image that will be displayed in the block.
-To configure this variation, open the `app/config/image_variations.yml` file and add the following code under the `image_variations` key:
+To configure this variation, open the `app/config/image_variations.yaml` file and add the following code under the `image_variations` key:
 
 ``` yaml
 content_list:
@@ -111,7 +111,7 @@ Publish the page now and move on to creating another type of block.
 
 The next block is the Content Scheduler block that will air articles at predetermined times.
 
-First, add a configuration that points to the layout. Go to `app/config/layouts.yml` again and add the following code under `blocks` on the same level as the `contentlist` key:
+First, add a configuration that points to the layout. Go to `app/config/layouts.yaml` again and add the following code under `blocks` on the same level as the `contentlist` key:
 
 ``` yaml
 schedule:
@@ -150,7 +150,7 @@ When you look at the template, you can see three blocks, each of which will rend
 So far you only have templates for `full` view for Articles. This means you need to create a `featured` view template,
 otherwise you will get an error when trying to add Content to the block.
 
-You need to modify the `app/config/views.yml` file to indicate when to use the template.
+You need to modify the `app/config/views.yaml` file to indicate when to use the template.
 Add the following code to this file, on the same level as the `full` key:
 
 ``` yaml
@@ -171,7 +171,7 @@ Now create an `app/Resources/views/featured/article.html.twig` file:
 ```
 
 Like in the case of the Content List block, the template specifies an image variation.
-Add it in `app/config/image_variations.yml` under the `image_variations` key:
+Add it in `app/config/image_variations.yaml` under the `image_variations` key:
 
 ``` yaml
 featured_article:

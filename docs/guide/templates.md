@@ -9,20 +9,20 @@ To apply a template to any part of your webpage, you need three (optionally four
 1. Assets used by the template (for example, CSS or JS files, images, etc.)
 1. (optional) A custom controller used when the template is read which allows you more detailed control over the page.
 
-Each template must be mentioned in a configuration file together with a definition of the situation in which it is used. You can use the `ezplatform.yml` file located in the `app/config/` folder, or create your own separate configuration file in that folder that will list all your templates.
+Each template must be mentioned in a configuration file together with a definition of the situation in which it is used. You can use the `ezplatform.yaml` file located in the `config/packages` folder, or create your own separate configuration file in that folder that will list all your templates.
 
-!!! note
+!!! tip
 
-    If you decide to create a new configuration file, you will need to import it by including an import statement in `ezplatform.yml`. Add the following code at the beginning of `ezplatform.yml`:
+    If you create a new configuration file outside the `packages` folder, you will need to import it by including an import statement in `ezplatform.yaml`. Add the following code at the beginning of `ezplatform.yaml`:
 
     ``` yaml
     imports:
-        - { resource: <your_file_name>.yml }
+        - { resource: ../<your_file_name>.yaml }
     ```
 
 !!! tip
 
-    If you are using the recommended .yml files for configuration, here are the basic rules for this format:
+    If you are using the recommended .yaml files for configuration, here are the basic rules for this format:
 
     The configuration is based on pairs of a key and its value, separated by a colon, presented in the following form: key: value. The value of the key may contain further keys, with their values containing further keys, and so on. This hierarchy is marked using indentation – each level lower in the hierarchy must be indented in comparison with its parent.
 
@@ -42,7 +42,7 @@ ezpublish:
                         match:
                             Identifier\ContentType: [article]
                     blog_post:
-                        controller: app.controller.blog:showBlogPostAction
+                        controller: App\Controller\BlogController::showBlogPostAction
                         template: full/blog_post.html.twig
                         match:
                             Identifier\ContentType: [blog_post]
@@ -88,7 +88,7 @@ Templates in eZ Platform are written in the Twig templating language.
 
     Most of a Twig template file can look like an ordinary HTML file. This is also where you can define places where Content items or their fields will be embedded.
 
-The configuration described above lets you select one template to be used in a given situation, but this does not mean you are limited to only one file per case. It is possible to include other templates in the main template file. For example, you can have a single template for the footer of a page and include it in many other templates. Such templates do not need to be mentioned in the configuration .yml file.
+The configuration described above lets you select one template to be used in a given situation, but this does not mean you are limited to only one file per case. It is possible to include other templates in the main template file. For example, you can have a single template for the footer of a page and include it in many other templates. Such templates do not need to be mentioned in the configuration .yaml file.
 
 !!! tip
 
@@ -98,23 +98,13 @@ The main template for your webpage is placed in a pagelayout.
 You can define the pagelayout per SiteAccess using the `ezpublish.system.<SiteAccess>.pagelayout` setting.
 This template will be used by default for those parts of the website where no other templates are defined.
 
-A `pagelayout.html.twig` file exists already in Demo Bundles, but if you are using a clean installation, you need to create it from scratch. This file is typically located in a bundle, for example using the built-in AppBundle: `src/AppBundle/Resources/views`. The name of the bundle must the added whenever the file is called, like in the example below.
+A `pagelayout.html.twig` file exists already in Demo Bundles, but if you are using a clean installation, you need to create it from scratch. This file is typically located in the `templates` folder.
 
 Any further templates will extend and modify this one, so they need to start with a line like this:
 
 ``` html+twig
-{% extends "AppBundle::pagelayout.html.twig" %}
+{% extends "pagelayout.html.twig" %}
 ```
-
-!!! note
-
-    Although using AppBundle is recommended, you could also place the template files directly in `<installation_folder>/app/Resources/views`. Then the files could be referenced in code without any prefix.
-
-!!! tip "Template paths"
-
-    In short, the `Resources/views` part of the path is automatically added whenever a template file is referenced. What you need to provide is the bundle name, name of any subfolder within `/views/`, and file name, all three separated by colons (:)
-
-    To find out more about the way of referencing template files placed in bundles, see [Referencing Templates in a Bundle](http://symfony.com/doc/current/book/templating.html#referencing-templates-in-a-bundle) in Symfony documentation.
 
 Templates can be extended using a Twig [`block`](http://twig.sensiolabs.org/doc/functions/block.html) tag. This tag lets you define a named section in the template that will be filled in by the child template. For example, you can define a "title" block in the main template. Any child template that extends it can also contain a "title" block. In this case the contents of the block from the child template will be placed inside this block in the parent template (and override what was inside this block):
 
@@ -131,7 +121,7 @@ Templates can be extended using a Twig [`block`](http://twig.sensiolabs.org/doc/
 
 ``` html+twig
 <!--child.html.twig-->
-{% extends "AppBundle::pagelayout.html.twig" %}
+{% extends "pagelayout.html.twig" %}
 {% block title %}
     <h1>Specific title</h1>
 {% endblock %}
@@ -163,7 +153,7 @@ This renders the value of the Field with identifier "description" of the current
 {{ ez_render_field(
        content,
        'description',
-       { 'template': 'AppBundle:fields:description.html.twig' }
+       { 'template': 'fields/description.html.twig' }
    ) }}
 ```
 
@@ -181,7 +171,7 @@ This example renders the Content item with Location ID 33 using the line view. T
 
 #### Assets
 
-Asset files such as CSS stylesheets, JS scripts or image files can be defined in the templates and need to be included in the directory structure in the same way as with any other web project. Assets are placed in the `web/` folder in your installation.
+Asset files such as CSS stylesheets, JS scripts or image files can be defined in the templates and need to be included in the directory structure in the same way as with any other web project. Assets are placed in the `public/` folder in your installation.
 
 Instead of linking to stylesheets or embedding images like usually, you can use the [`asset`](http://symfony.com/doc/current/book/templating.html#linking-to-assets) function.
 
@@ -379,32 +369,6 @@ Just like for regular Symfony controllers, you can take advantage of [ESI](https
 
 Only scalar variables (not objects) can be sent via `render_esi`.
 
-##### Asynchronous rendering using hinclude
-
-Symfony also supports asynchronous content rendering with the help of the [hinclude.js](http://mnot.github.com/hinclude/) library.
-
-``` html+twig
-<!--Asynchronous rendering-->
-{{ render_hinclude(controller("ez_content:viewAction", {"contentId": 123, "viewType": "line"})) }}
-```
-
-Only scalar variables (not objects) can be sent via `render_hinclude`.
-
-##### Display a default text
-
-If you want to display a default text while a controller is loaded asynchronously, you have to pass a second parameter to your `render_hinclude` Twig function.
-
-``` html+twig
-<!--Display a default text during asynchronous loading of a controller-->
-{{ render_hinclude(controller('EzCorporateDesignBundle:Header:userLinks'), {'default': "<div style='color:red'>loading</div>"}) }}
-```
-
-See also: [Custom rendering logic](controllers.md#custom-rendering-logic).
-
-[hinclude.js](http://mnot.github.com/hinclude/) needs to be properly included in your layout to work.
-
-[Refer to Symfony documentation](https://symfony.com/doc/current/templating/hinclude.html) for all available options.
-
 ## Rendering in preview
 
 When previewing content in the back office, the draft view is rendered using the [PreviewController](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/MVC/Symfony/Controller/Content/PreviewController.php).
@@ -433,7 +397,7 @@ The following example injects `my_variable` and `my_array` variables in all cont
 
 ``` php
 <?php
-namespace Acme\ExampleBundle\EventListener;
+namespace App\EventListener;
 
 use eZ\Publish\Core\MVC\Symfony\Event\PreContentViewEvent;
 
@@ -457,12 +421,8 @@ class PreContentViewListener
 Service configuration:
 
 ``` yaml
-parameters:
-    app.pre_content_view_listener.class: Acme\ExampleBundle\EventListener\PreContentViewListener
-
 services:
-    app.pre_content_view_listener:
-        class: %ezdemo.pre_content_view_listener.class%
+    App\EventListener\PreContentViewListener:
         tags:
             - {name: kernel.event_listener, event: ezpublish.pre_content_view, method: onPreContentView}
 ```

@@ -73,8 +73,8 @@
                     {# create a new layer with appropriate id #}
                     {# the div's class takes the type of the block that is placed in it #}
                     <div class="landing-page__block block_{{ block.type }}" data-ez-block-id="{{ block.id }}">
-                        {# render the block by using the "EzPlatformPageFieldTypeBundle:Block:render" controller #}
-                        {{ render_esi(controller('EzPlatformPageFieldTypeBundle:Block:render', {
+                        {# render the block by using the "EzPlatformPageFieldTypeBundle\Controller\BlockController:renderAction" controller #}
+                        {{ render_esi(controller('EzPlatformPageFieldTypeBundle\Controller\BlockController:renderAction', {
                                 'contentId': contentInfo.id,
                                 'blockId': block.id,
                                 'versionNo': versionInfo.versionNo,
@@ -90,7 +90,7 @@
             {% if zones[1].blocks %}
                 {% for block in zones[1].blocks %}
                     <div class="landing-page__block block_{{ block.type }}" data-ez-block-id="{{ block.id }}">
-                        {{ render_esi(controller('EzPlatformPageFieldTypeBundle:Block:render', {
+                        {{ render_esi(controller('EzPlatformPageFieldTypeBundle\Controller\BlockController:renderAction', {
                                 'contentId': contentInfo.id,
                                 'blockId': block.id,
                                 'versionNo': versionInfo.versionNo,

@@ -5,7 +5,7 @@ In this step you will enable the content list to be filtered by Content Types.
 ## Update routing
 
 First, modify the route to the content list page.
-In `src/EzSystems/ExtendingTutorialBundle/Resources/config/routing.yml` add the `contentTypeIdentifier` parameter and set its default value:
+In `src/EzSystems/ExtendingTutorialBundle/Resources/config/routing.yaml` add the `contentTypeIdentifier` parameter and set its default value:
 
 ``` yml hl_lines="2 5"
 ezsystems_extending_tutorial.all_content_list.list:
@@ -13,7 +13,7 @@ ezsystems_extending_tutorial.all_content_list.list:
     defaults:
         page: 1
         contentTypeIdentifier: false
-        _controller: EzSystemsExtendingTutorialBundle:AllContentList:list
+        _controller: EzSystems\ExtendingTutorialBundle\Controller\AllContentListControler::listAction
 ```
 
 ## Modify the controller
@@ -137,20 +137,20 @@ inside `<section class="container my-4">`:
 ??? tip "Complete template code"
 
     ``` html+twig hl_lines="20 21 22 23 24 25 26 27 28 29 30 31 32 33 34"
-    {% extends 'EzPlatformAdminUiBundle::layout.html.twig' %}
+    {% extends '@ezdesign::layout.html.twig' %}
 
     {% block title %}{{ 'Content List'|trans }}{% endblock %}
 
     {%- block breadcrumbs -%}
-        {% include '@EzPlatformAdminUi/parts/breadcrumbs.html.twig' with { items: [
+        {% include '@ezdesign/ui/breadcrumbs.html.twig' with { items: [
             { value: 'url.list'|trans|desc('Content List') }
         ]} %}
     {%- endblock -%}
 
     {%- block page_title -%}
-        {% include '@EzPlatformAdminUi/parts/page_title.html.twig' with {
+        {% include '@ezdesign/ui/page_title.html.twig' with {
             title: 'url.list'|trans|desc('Content List'),
-            iconName: 'article'
+            icon_name: 'article'
         } %}
     {%- endblock -%}
 

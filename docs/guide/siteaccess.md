@@ -36,7 +36,7 @@ you need to create your own admin SiteAccesses and add them to this group. In ca
 
 ## Configuring SiteAccesses
 
-You configure SiteAccess in your config files (e.g. `ezplatform.yml`) under the `ezpublish.siteacess` keys.
+You configure SiteAccess in your config files (e.g. `ezplatform.yaml`) under the `ezpublish.siteacess` keys.
 The required elements of the configuration are:
 
 #### `list`
@@ -132,7 +132,7 @@ List of interfaces where you can apply SiteAccess names:
 
 You can also translate SiteAccess names. Displayed names depend on the selected language of the administration interface.
 
-To define translation you need to put them in YAML file with correct language code e.g. `app/Resources/translations/ezplatform_siteaccess.en.yml`:
+To define translation you need to put them in YAML file with correct language code e.g. `translations/ezplatform_siteaccess.en.yaml`:
 
 ```yaml
 en: Tasteful Planet
@@ -187,10 +187,9 @@ SiteAccess matching is done through `eZ\Publish\MVC\SiteAccess\Matcher` objects
 
 To be usable, every SiteAccess must be provided a matcher.
 
-You can configure SiteAccess matching in your main `app/config/ezplatform.yml`:
+You can configure SiteAccess matching in your main `config/packages/ezplatform.yaml`:
 
 ``` yaml
-# ezplatform.yml
 ezpublish:
     siteaccess:
         default_siteaccess: ezdemo_site
@@ -466,7 +465,6 @@ They are based on logical combinations, or/and, using logical compound matchers:
 Each compound matcher will specify two or more sub-matchers. A rule will match if all the matchers combined with the logical matcher are positive. The example above would have used `Map\Host` and `Map\Uri`, combined with a `LogicalAnd`. When both the URI and host match, the SiteAccess configured with "match" is used.
 
 ``` yaml
-# ezplatform.yml
 ezpublish:
     siteaccess:
         match:
@@ -579,7 +577,7 @@ This allows you to link different resources referenced in the same content repos
 See [ez\_urlalias](twig_functions_reference.md#ez_urlalias) for more information about linking to a Location.
 
 ``` php
-namespace Acme\TestBundle\Controller;
+namespace App\Controller;
 
 use eZ\Bundle\EzPublishCoreBundle\Controller as BaseController;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -654,8 +652,7 @@ Let's define a simple service which depends on the Repository's ContentService a
 
 ```yaml
 services:
-    acme.test.my_service:
-        class: Acme\AcmeTestBundle\MyService
+    App\MyService:
         arguments: ['@ezpublish.api.service.content']
         calls:
             - [setSiteAccess, ['@ezpublish.siteaccess']]
@@ -663,7 +660,7 @@ services:
 
 ```php
 <?php
-namespace Acme\AcmeTestBundle;
+namespace App;
 
 use eZ\Publish\API\Repository\ContentService;
 use eZ\Publish\Core\MVC\Symfony\SiteAccess;

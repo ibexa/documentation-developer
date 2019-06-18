@@ -443,7 +443,7 @@ Place the compiled files in `src/EzSystems/ExtendingTutorialBundle/Resources/pub
 ## Add configuration
 
 Next, ensure that the React modules will be correctly initialized.
-To do this, add the following instructions to `src/EzSystems/ExtendingTutorialBundle/Resources/config/services.yml`.
+To do this, add the following instructions to `src/EzSystems/ExtendingTutorialBundle/Resources/config/services.yaml`.
 This adds JavaScript files into specific zones inside the built-in `layout.html.twig` file.
 
 ReactJS modules (the compiled files) should be placed in the `custom-admin-ui-modules` group,
@@ -529,7 +529,7 @@ class EzSystemsExtendingTutorialExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('services.yml');
+        $loader->load('services.yaml');
     }
 }
 ```

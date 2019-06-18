@@ -17,7 +17,7 @@ The goal of this feature is to make it easy to implement a SiteAccess-aware sem
 
 ## Semantic configuration parsing
 
-An abstract `Configuration` class has been added, simplifying the way to add a SiteAccess settings tree like the following in `ezplatform.yml` or `config.yml`:
+An abstract `Configuration` class has been added, simplifying the way to add a SiteAccess settings tree like the following in `ezplatform.yaml`:
 
 ``` yaml
 acme_example:
@@ -105,7 +105,7 @@ class AcmeExampleExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load( 'default_settings.yml' );
+        $loader->load( 'default_settings.yaml' );
 
         // "acme_example" will be the namespace as used in ConfigResolver format.
         $processor = new ConfigurationProcessor($container, 'acme_example');
@@ -142,7 +142,7 @@ class AcmeExampleExtension extends Extension
 
     Always ensure you have defined and loaded default settings.
 
-In `@AcmeExampleBundle/Resources/config/default_settings.yml`:
+In `@AcmeExampleBundle/Resources/config/default_settings.yaml`:
 
 ``` yaml
 parameters:
@@ -161,7 +161,7 @@ When you define a hash as semantic config, you sometimes don't want the SiteAcce
 but *enrich* them by appending new entries. This is made possible by using `$processor->mapConfigArray()`,
 which needs to be called outside the closure (before or after), in order to be called only once.
 
-Consider the following default config in `default_settings.yml`:
+Consider the following default config in `default_settings.yaml`:
 
 ``` yaml
 parameters:
@@ -173,7 +173,7 @@ parameters:
         language: php
 ```
 
-And then this semantic config in `ezplatform.yml or config.yml`:
+And then this semantic config in `ezplatform.yaml`:
 
 ``` yaml
 acme_example:
@@ -209,7 +209,7 @@ In the example above, entries were merged in respect to the scope order of prece
 
 You can add another level by passing `ContextualizerInterface::MERGE_FROM_SECOND_LEVEL` as an option (third argument) to`$contextualizer->mapConfigArray()`.
 
-In `default_settings.yml`:
+In `default_settings.yaml`:
 
 ``` yaml
 parameters:
@@ -221,7 +221,7 @@ parameters:
         language: [php]
 ```
 
-Semantic config (`ezplatform.yml` / `config.yml`):
+Semantic config (`ezplatform.yaml` / `config.yaml`):
 
 ``` yaml
 acme_example:

@@ -38,7 +38,7 @@ $bundles = [
 
 ### 2. Import additional routing
 
-Import additional routing by adding the following lines to your `routing.yml` file:
+Import additional routing by adding the following lines to your `routing.yaml` file:
 
 ``` yaml
 recommendationBundleRestRoutes:
@@ -119,7 +119,7 @@ You define Content Types to track in the local `app/config/config.yml` file.
 The content will then be initially exported by a script.
 After this, it will be kept in sync with the Personalization Solution every time a change occurs in the eZ Platform Back Office.
 
-The bundle's configuration is SiteAccess-aware. This is an example of the settings (in `config.yml`):
+The bundle's configuration is SiteAccess-aware. This is an example of the settings (in `config.yaml`):
 
 ``` yaml
 ez_recommendation:
@@ -158,7 +158,7 @@ ez_recommendation.field_identifiers:
         blog_post: main_image
 ```
 
-In case a content owner ID is missing, you can set up the default content author in the `default_settings.yml` file:
+In case a content owner ID is missing, you can set up the default content author in the `default_settings.yaml` file:
 
 ``` yaml
 ez_recommendation.default.author_id: 14   # ID: 14 is default ID of admin user
@@ -570,7 +570,7 @@ For example, to retrieve the `rss` variation of the image, use:
 
 ### Logging
 
-Most operations are logged via the `ez_recommendation` [Monolog channel](http://symfony.com/doc/current/cookbook/logging/channels_handlers.html).
+Most operations are logged via the `ez_recommendation` [Monolog channel](http://symfony.com/doc/4.3/cookbook/logging/channels_handlers.html).
 To log everything about Recommendation to `dev.recommendation.log`, add the following to your `config.yml`:
 
 ``` yaml
@@ -578,7 +578,7 @@ monolog:
     handlers:
         ez_recommendation:
             type: stream
-            path: %kernel.logs_dir%/%kernel.environment%.recommendation.log
+            path: '%kernel.logs_dir%/%kernel.environment%.recommendation.log'
             channels: [ez_recommendation]
             level: info
 ```

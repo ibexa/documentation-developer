@@ -14,12 +14,12 @@ The first step is creating your own implementation of `ValueObjectVisitor`. It c
 ```php
 <?php
 
-namespace AppBundle\Rest\ValueObjectVisitor;
+namespace App\Rest\ValueObjectVisitor;
 
 use eZ\Publish\API\Repository\Repository;
-use eZ\Publish\Core\REST\Common\Output\Generator;
-use eZ\Publish\Core\REST\Common\Output\Visitor;
-use eZ\Publish\Core\REST\Server\Output\ValueObjectVisitor\VersionInfo as BaseVersionInfo;
+use EzSystems\EzPlatformRest\Output\Generator;
+use EzSystems\EzPlatformRest\Output\Visitor;
+use EzSystems\EzPlatformRest\Server\Output\ValueObjectVisitor\VersionInfo as BaseVersionInfo;
 use eZ\Publish\API\Repository\Values\Content\VersionInfo as APIVersionInfo;
 
 class VersionInfo extends BaseVersionInfo
@@ -54,17 +54,17 @@ class VersionInfo extends BaseVersionInfo
 ## Overriding response type
 
 Next, make sure that your new implementation of serialization applies only to the selected objects. In order to do that, you need to
-decorate `eZ\Publish\Core\REST\Common\Output\ValueObjectVisitorDispatcher` from `ezpublish-kernel`.
+decorate `EzSystems\EzPlatformRest\Output\ValueObjectVisitorDispatcher` from `ezpublish-kernel`.
 
 ```php
 <?php
 
-namespace AppBundle\Rest;
+namespace App\Rest;
 
-use eZ\Publish\Core\REST\Common\Output\Generator;
-use eZ\Publish\Core\REST\Common\Output\ValueObjectVisitorDispatcher as BaseValueObjectVisitorDispatcher;
-use eZ\Publish\Core\REST\Common\Output\Exceptions\NoVisitorFoundException;
-use eZ\Publish\Core\REST\Common\Output\Visitor;
+use EzSystems\EzPlatformRest\Output\Generator;
+use EzSystems\EzPlatformRest\Output\ValueObjectVisitorDispatcher as BaseValueObjectVisitorDispatcher;
+use EzSystems\EzPlatformRest\Output\Exceptions\NoVisitorFoundException;
+use EzSystems\EzPlatformRest\Output\Visitor;
 
 class ValueObjectVisitorDispatcher extends BaseValueObjectVisitorDispatcher
 {
@@ -98,30 +98,12 @@ class ValueObjectVisitorDispatcher extends BaseValueObjectVisitorDispatcher
 }
 ```
 
-The response needs to have a proper type. The way to assure it is to override the format generator (e.g. xml/json).
+To be able to use the overridden type you also need to implement new Compiler Pass. For more details see [Symfony doc](https://symfony.com/doc/master/service_container/compiler_passes.html).
 
 ```php
 <?php
 
-namespace AppBundle\Rest\Generator;
-
-use eZ\Publish\Core\REST\Common\Output\Generator\Json as BaseJson;
-
-class Json extends BaseJson
-{
-    protected function generateMediaType($name, $type)
-    {
-        return "application/my.api.{$name}+{$type}";
-    }
-}
-```
-
-To be able to use the overridden type you also need to implement new Compiler Pass. For more details see [Symfony doc](https://symfony.com/doc/2.8/service_container/compiler_passes.html).
-
-```php
-<?php
-
-namespace AppBundle\DependencyInjection\Compiler;
+namespace App\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -160,7 +142,7 @@ Also, don't forget to register it in your bundle!
 ```php
 <?php
 
-namespace AppBundle;
+namespace App;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -179,7 +161,7 @@ class AppBundle extends Bundle
 
 ## Configuration
 
-The last thing you need to do is to set a configuration which should be located in the `services.yml` file of your bundle.
+The last thing you need to do is to set a configuration which should be located in the `services.yaml` file of your bundle.
 The important part are the keys:
 
 - `app.rest.output.visitor.json.regexps` which helps identifying proper header
@@ -191,17 +173,19 @@ All the other keys need to correspond with the current namespace of your bundle.
 parameters:
     app.rest.output.visitor.json.regexps:
         - '(^application/my\.api\.[A-Za-z]+\+json$)'
+    app.rest.generator.json.vendor: 'my.api'
 
 services:
     app.rest.output.generator.json:
-        class: AppBundle\Rest\Generator\Json
+        class: EzSystems\EzPlatformRest\Output\Generator\Json
         arguments:
             - '@ezpublish_rest.output.generator.json.field_type_hash_generator'
+            - '%app.rest.generator.json.vendor%'
         calls:
-            - [ setFormatOutput, [ %kernel.debug% ] ]
+            - [ setFormatOutput, [ '%kernel.debug%' ] ]
 
     app.rest.output.visitor.json:
-        class: %ezpublish_rest.output.visitor.class%
+        class: '%ezpublish_rest.output.visitor.class%'
         arguments:
             - '@app.rest.output.generator.json'
             - '@app.rest.output.value_object_visitor.dispatcher'
@@ -209,12 +193,12 @@ services:
             - { name: ezpublish_rest.output.visitor, regexps: app.rest.output.visitor.json.regexps, priority: 200 }
 
     app.rest.output.value_object_visitor.dispatcher:
-        class: AppBundle\Rest\ValueObjectVisitorDispatcher
+        class: App\Rest\ValueObjectVisitorDispatcher
         arguments:
             - '@ezpublish_rest.output.value_object_visitor.dispatcher'
 
     app.rest.output.value_object_visitor.version_info:
-        class: AppBundle\Rest\ValueObjectVisitor\VersionInfo
+        class: App\Rest\ValueObjectVisitor\VersionInfo
         parent: ezpublish_rest.output.value_object_visitor.base
         arguments:
             - '@ezpublish.api.repository'
