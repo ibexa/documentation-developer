@@ -185,6 +185,10 @@ If you want to first test how the update proceeds without actually updating any 
 
 Some versions require updates to the database. Look through [the list of database update scripts](https://github.com/ezsystems/ezpublish-kernel/tree/master/data/update/mysql) for a script for the version you are updating to (database version numbers correspond to the `ezpublish-kernel` version).
 
+During database update, you have to go through all the changes between your current version and your final version
+**e.g. during update from v2.2 to v2.5 you have to perform all the steps from: <2.3, <2.4 and <2.5**.
+Only after applying all changes your database will work properly.
+
 ??? note "Updating from <1.7"
 
     ### Updating from <1.7
@@ -228,10 +232,14 @@ Some versions require updates to the database. Look through [the list of databas
          -->
          <field name="_version_" type="long" indexed="true" stored="true" multiValued="false" />
     ```
+    
+    You can now follow the steps from <1.13.
 
 !!! note "Updating from <1.13"
 
     ### Updating from <1.13
+    
+    If you are updating from a version prior to 1.7, you have to implement all the changes from *Updating from <1.7* before following the steps below.
 
     ##### `content/publish` permission
 
