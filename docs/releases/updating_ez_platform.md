@@ -187,6 +187,10 @@ If you want to first test how the update proceeds without actually updating any 
 
 Some versions require updates to the database. Look through [the list of database update scripts](https://github.com/ezsystems/ezpublish-kernel/tree/master/data/update/mysql) for a script for the version you are updating to (database version numbers correspond to the `ezpublish-kernel` version).
 
+During database update, you have to go through all the changes between your current version and your final version
+**e.g. during update from v2.2 to v2.5 you have to perform all the steps from: <2.3, <2.4 and <2.5**.
+Only after applying all changes your database will work properly.
+
 ??? note "Updating from <1.7"
 
     ### Updating from <1.7
@@ -230,10 +234,14 @@ Some versions require updates to the database. Look through [the list of databas
          -->
          <field name="_version_" type="long" indexed="true" stored="true" multiValued="false" />
     ```
+    
+    You can now follow the steps from <1.13.
 
 ??? note "Updating from <1.13"
 
     ### Updating from <1.13
+    
+    If you are updating from a version prior to 1.7, you have to implement all the changes from *Updating from <1.7* before following the steps below.
 
     ##### `content/publish` permission
 
@@ -298,10 +306,14 @@ Some versions require updates to the database. Look through [the list of databas
     Apply the following database update script:
 
     `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.13.3-to-6.13.4.sql`
+    
+    You can now follow the steps from <2.2.
 
 ??? note "Updating from <2.2"
 
     ### Updating from <2.2
+    
+    If you are updating from a version prior to 1.13, you have to implement all the changes from *Updating from <1.13* before following the steps below.
 
     ##### Change from UTF8 to UTF8MB4
 
@@ -416,10 +428,14 @@ Some versions require updates to the database. Look through [the list of databas
 
     Custom converters must implement the `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\ConverterInterface` interface.
     `convert()` will parse XML `\DOMNode $node` and return an array of `\EzSystems\EzPlatformPageFieldType\FieldType\LandingPage\Model\Attribute` objects.
+    
+    You can now follow the steps from <2.3.
 
 ??? note "Updating from <2.3"
 
     ### Updating from <2.3
+    
+    If you are updating from a version prior to 2.2, you have implement all the changes from *Updating from <2.2* before following the steps below.
 
     Apply the following database update script:
 
@@ -458,10 +474,14 @@ Some versions require updates to the database. Look through [the list of databas
 
             After the update, in order to create forms, you have to add a new Content Type (e.g. named "Form") that contains `Form` Field (this Content Type can contain other fields
             as well). After that you can use forms inside Landing Pages via Embed block.
+     
+    You can now follow the steps from <2.4.
 
 !!! note "Updating from <2.4"
 
     ### Updating from <2.4
+    
+    If you are updating from a version prior to 2.3, you have implement all the changes from *Updating from <2.3* before following the steps below.
 
     !!! enterprise
 
