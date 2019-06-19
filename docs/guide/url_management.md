@@ -181,6 +181,10 @@ In this case, accessing `<yourdomain>/pictures/home/photo/` will load `<yourdoma
 URL wildcards can be created with the Public API with the help of the `URLWildcardService`:
 
 ``` php
+$source = 'pictures/*/*';
+$destination = 'media/images/{1}/{2}';
+$redirect = true;
+
 $urlWildcardService = $repository->getURLWildcardService();
 $repository->sudo(function ($repository) use ($urlWildcardService, $source, $destination, $redirect) {
     $urlWildcardService->create($source, $destination, $redirect);
