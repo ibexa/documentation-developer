@@ -25,7 +25,6 @@ Persistence cache aims at caching most `SPI\Persistence` calls used in common p
 
 Notes:
 
-- `UrlWildCardHandler` is not currently cached.
 - Currently in case of transactions this is handled by clearing all cache on rollback, so avoid using rollbacks
   as part of your normal application logic flow. For instance if you connect to third party service and it frequently
   fails, make sure to re-try several times, and if that does not help, consider making the logic async by design.
