@@ -260,7 +260,6 @@ The QueryController is configured in the `query` array, inside the `params` of t
 Results from the search are assigned to the `blog_posts` variable as a `SearchResult` object. In addition, since the standard ViewController is used, the currently viewed `location` and `content` are also available.
 
 ``` yaml
-#app/Resources/views/content/full/blog.html.twig
 <h1>{{ ez_content_name(content) }}</h1>
 
 {% for blog_post in blog_posts.searchHits %}

@@ -4,8 +4,7 @@
 
     The following recipe is valid for any type of settings supported by Symfony framework.
 
-When developing your website it is best practice to use one or several custom bundles.
-However, dealing with core bundle semantic configuration can be a bit tedious
+If you are keeping some of your code in a bundle, dealing with core bundle semantic configuration can be tedious
 if you maintain it in the main `config/packages/ezplatform.yaml` configuration file.
 
 This page shows how to import configuration from a bundle in two ways: the manual way and the implicit way.
@@ -34,11 +33,11 @@ ezpublish:
             content_view:
                 full:
                     article:
-                        template: AcmeExampleBundle:full:article.html.twig
+                        template: AcmeExampleBundle/Resources/view/full/article.html.twig
                         match:
                             Identifier\ContentType: [article]
                     special:
-                        template: '::special.html.twig'
+                        template: AcmeExampleBundle/Resources/view/full/special.html.twig
                         match:
                             Id\Content: 142
 ```
@@ -49,7 +48,7 @@ ezpublish:
 
 !!! tip
 
-    If you want to import configuration for development use only, you can do so in `ezplatform_dev.yaml` 
+    If you want to import configuration for development use only, you can do so in `config/packages/dev/ezplatform.yaml` 
 
 ## Importing settings implicitly
 
@@ -116,11 +115,11 @@ system:
         content_view:
             full:
                 article:
-                    template: AcmeExampleBundle:full:article.html.twig
+                    template: AcmeExampleBundle/Resources/view/full/article.html.twig
                     match:
                         Identifier\ContentType: [article]
                 special:
-                    template: '::special.html.twig'
+                    template: AcmeExampleBundle/Resources/view/full/special.html.twig
                     match:
                         Id\Content: 142
 ```

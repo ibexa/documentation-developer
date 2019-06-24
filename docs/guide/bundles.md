@@ -15,7 +15,7 @@ Refer to their respective pages for instructions on how to install them.
 
 ### How to create bundles?
 
-You can generate a new bundle using a `generate:bundle` command. See [Symfony documentation on generating bundles](http://symfony.com/doc/current/bundles/SensioGeneratorBundle/commands/generate_bundle.html).
+See [Symfony documentation on bundles](https://symfony.com/doc/current/bundles.html) to learn how to structure your bundle.
 
 ### How to remove a bundle?
 

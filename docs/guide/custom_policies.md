@@ -35,7 +35,7 @@ Name provided in the hash for each Limitation is the same value set in the `alia
 For example:
 
 ``` php
-namespace Acme\FooBundle\AcmeFooBundle\Security;
+namespace App\Security;
 
 use eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\ConfigBuilderInterface;
 use eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Security\PolicyProvider\PolicyProviderInterface;
