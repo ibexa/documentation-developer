@@ -1,6 +1,6 @@
 # Updating from <2.2
     
-If you are updating from a version prior to 1.13, you have to implement all the changes from *Updating from <1.13* before following the steps below.
+If you are updating from a version prior to 1.13, you have to implement all the changes from [Updating from <1.13](4_update_1.13.md) before following the steps below.
 
 !!! note
 
@@ -28,7 +28,7 @@ Be aware that these upgrade statements may fail due to index collisions.
 This is because the indexes have been shortened, so duplicates may occur.
 If that happens, you must remove the duplicates manually, and then repeat the statements that failed.
 
-After successfully running those statements, change the character set and collation for each table, as described in https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/upgrade/7.2.md.
+After successfully running those statements, change the character set and collation for each table, as described in [kernel upgrade documentation.](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/upgrade/7.2.md)
 
 You should also change the character set that is specified in the application config:
 
@@ -41,6 +41,7 @@ doctrine:
             default:
                 charset: utf8mb4
 ```
+
 Also make the corresponding change in `app/config/dfs/dfs.yml`.
 
 ## Page builder
@@ -122,4 +123,4 @@ tags:
 Custom converters must implement the `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\ConverterInterface` interface.
 `convert()` will parse XML `\DOMNode $node` and return an array of `\EzSystems\EzPlatformPageFieldType\FieldType\LandingPage\Model\Attribute` objects.
 
-You can now follow the steps from <2.3.
+You can now follow the steps from [Updating from <2.3](4_update_2.3.md).

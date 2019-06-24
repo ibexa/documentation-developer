@@ -89,11 +89,14 @@ git pull upstream <version>
 
     Don't forget the `v` here, you want to pull the tag `<version>` and not the branch `<version>` (i.e: `v1.11.0`, and NOT `1.11.0` or `1.10` which is dev branch).
 
-At this stage you may get conflicts, which are a normal part of the procedure and no reason to worry. The most common ones will be on `composer.json` and `composer.lock`.
+At this stage you may get conflicts, which are a normal part of the procedure and no reason to worry.
+The most common ones will be on `composer.json` and `composer.lock`.
 
-The latter can be ignored, as it will be regenerated when we execute `composer update` later. The easiest is to checkout the version from the tag and add it to the changes:
+The latter can be ignored, as it will be regenerated when we execute `composer update` later.
+The easiest is to checkout the version from the tag and add it to the changes:
 
-If you get a **lot** of conflicts (on the `doc` folder for instance), and eZ Platform was installed from the [ezplatform.com](https://ezplatform.com) or [support.ez.no](https://support.ez.no) (for Enterprise and eZ Commerce) tarball, it might be because of incomplete history. You will have to run `git fetch upstream --unshallow` to load the full history, and run the merge again.
+If you get a **lot** of conflicts (on the `doc` folder for instance), and eZ Platform was installed from the [ezplatform.com](https://ezplatform.com) or [support.ez.no](https://support.ez.no) (for Enterprise and eZ Commerce) tarball, it might be because of incomplete history.
+You will have to run `git fetch upstream --unshallow` to load the full history, and run the merge again.
 
 **From your new update branch**
 

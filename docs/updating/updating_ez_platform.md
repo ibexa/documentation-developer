@@ -1,7 +1,7 @@
 # Updating eZ Platform
 
 
-This page explains how to update eZ Platform to a new version.
+This section explains how to update eZ Platform to a new version.
 
 In the following instructions, replace `<version>` with the version of eZ Platform you are updating to (for example: `v1.7.0`).
 If you are testing a release candidate, use the latest rc tag (for example: `v1.7.1-rc1`).

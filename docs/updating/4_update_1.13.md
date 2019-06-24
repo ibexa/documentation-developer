@@ -10,7 +10,8 @@ If you are updating from a version prior to 1.7, you have to implement all the c
 
 ## `content/publish` permission
 
-v1.8.0 introduced a new `content/publish` permission separated out of the `content/edit` permission. `edit` now covers only editing content, without the right to publishing it. For that you need the `publish` permission. `edit` without `publish` can be used in conjunction with the Content review workflow to ensure that a user cannot publish content themselves, but must pass it on for review.
+v1.8.0 introduced a new `content/publish` permission separated out of the `content/edit` permission. `edit` now covers only editing content, without the right to publishing it. For that you need the `publish` permission.
+`edit` without `publish` can be used in conjunction with the Content review workflow to ensure that a user cannot publish content themselves, but must pass it on for review.
 
 To make sure existing users will be able to both edit and publish content, those with the `content/edit` permission will be given the `content/publish` permission by the following database update script:
 
@@ -22,9 +23,11 @@ mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-k
 
 To complete this step you have to [dump assets](#5-dump-assets) first.
 
-Since v1.8 you can add a File field to the Form block on a Landing Page. Files uploaded through such a form will be automatically placed in a specific folder in the repository.
+Since v1.8 you can add a File field to the Form block on a Landing Page.
+Files uploaded through such a form will be automatically placed in a specific folder in the repository.
 
-If you are upgrading to v1.8 you need to create this folder and assign it to a new specific Section. Then, add them in the config (for example, in `app/config/default_parameters.yml`, depending on how your configuration is set up):
+If you are upgrading to v1.8 you need to create this folder and assign it to a new specific Section.
+Then, add them in the config (for example, in `app/config/default_parameters.yml`, depending on how your configuration is set up):
 
 ``` bash
 #Location id of the root for form uploads
@@ -36,7 +39,9 @@ form_builder.upload_folder.section_identifier: <section identifier>
 
 ## `ezsearch_return_count` table removal
 
-v1.11.0 removes the `ezsearch_return_count` table, which had been removed in eZ Publish legacy since 5.4/2014.11. This avoids issues which would occur when you upgrade using legacy bridge. Apply the following database update script if your installation has not had the table removed by an earlier eZ Publish upgrade:
+v1.11.0 removes the `ezsearch_return_count` table, which had been removed in eZ Publish legacy since 5.4/2014.11.
+This avoids issues which would occur when you upgrade using legacy bridge.
+Apply the following database update script if your installation has not had the table removed by an earlier eZ Publish upgrade:
 
 ``` bash
 mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.10.0-to-6.11.0.sql
@@ -44,7 +49,9 @@ mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-k
 
 ## Increased password hash length
 
-v1.12.0 improves password security by introducing support for PHP's `PASSWORD_BCRYPT` and `PASSWORD_DEFAULT` hashing algorithms. By default `PASSWORD_DEFAULT` is used. This currently uses bcrypt, but this may change in the future as PHP adds support for new and stronger algorithms.
+v1.12.0 improves password security by introducing support for PHP's `PASSWORD_BCRYPT` and `PASSWORD_DEFAULT` hashing algorithms.
+By default `PASSWORD_DEFAULT` is used.
+This currently uses bcrypt, but this may change in the future as PHP adds support for new and stronger algorithms.
 Apply the following database update script to change the schema and enable the storage of longer passwords:
 Note that the script is available for PostgreSQL as well.
 

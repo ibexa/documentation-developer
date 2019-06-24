@@ -1,6 +1,6 @@
 # 2. Merge composer.json
 
-#### Manual merging
+## Manual merging
 
 !!! note "Sorted packages since 2.4 changes"
 
@@ -26,7 +26,7 @@ Once you are done, inspect the file, either using an editor or by running `git d
 
 Once finished, run `git add composer.json` and commit`.`
 
-#### Fixing other conflicts (if any)
+## Fixing other conflicts (if any)
 
 Depending on the local changes you have done, you may get other conflicts on configuration files, kernel, etc.
 
