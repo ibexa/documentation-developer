@@ -5,11 +5,20 @@
 
 ### Symfony 4
 
+v3.0 now uses Symfony 4 instead of Symfony 3.
+Refer to [Symfony changelog](https://github.com/symfony/symfony/blob/master/CHANGELOG-4.0.md)
+and [Symfony upgrade guides](https://github.com/symfony/symfony/blob/master/UPGRADE-4.0.md)
+to learn about all changes it entails.
+
+See [Updating to v3.0](updating_to_3.0.md) for the steps you need to take to update your project to Symfony 4.
+
 ### ConfigResolver
 
 ### Field Types
 
 ### SignalSlots
+
+`SignalSlots` have been removed. Symfony Event are used instead.
 
 ### Twig helper names
 
@@ -35,6 +44,9 @@ REST client has been dropped.
 
 Elastic Search support has been dropped.
 
+### Assetic support
+
+Assetic support has been dropped.
 
 ## Deprecations
 
