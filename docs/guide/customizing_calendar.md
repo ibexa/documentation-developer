@@ -3,7 +3,7 @@
 ## Custom calendar events
 
 The calendar widget allows you to display all scheduled events.
-You can also configure it to display your custom event types or from [multiple external resources](#displaying-events-from-multiple-resources-in-calendar).
+You can also configure it to display your custom event types or display them from [multiple external resources](#displaying-events-from-multiple-resources-in-calendar).
 
 ## Configuring custom calendar events
 
