@@ -50,7 +50,7 @@ bin/solr create_core -c collection1 -d server/ez/template
 
 ##### SolrCloud
 
-SolrCloud is a cluster of Solr servers. It allows you to:
+SolrCloud is a cluster of Solr servers. It enables you to:
 
 - centralize configuration
 - automatically load balancing and fail-over for queries
@@ -204,7 +204,7 @@ ez_search_engine_solr:
 
 #### SolrCloud example
 
-To use SolrCloud you need to specify data distribution strategy for connection via `distribution_strategy` option. The possible values are:
+To use SolrCloud you need to specify data distribution strategy for connection via the `distribution_strategy` option. The possible values are:
 
 - [`standalone`](https://lucene.apache.org/solr/guide/6_6/legacy-scaling-and-distribution.html) - current implementation and default value
 - [`cloud`](https://lucene.apache.org/solr/guide/6_6/solrcloud.html) - SolrCloud
