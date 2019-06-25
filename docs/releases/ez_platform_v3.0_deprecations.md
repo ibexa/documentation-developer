@@ -22,7 +22,74 @@ See [Updating to v3.0](updating_to_3.0.md) for the steps you need to take to upd
 
 ### Twig helper names
 
+Selected Twig helper names have been changed.
+
+Additionally, the `ez_trans_prop` Twig function has been removed.
+
+##### Functions renamed:
+
+|Former name|New name|
+|-----------|--------|
+|`ez_is_field_empty`|`ez_field_is_empty`|
+|`ezplatform_admin_ui_component_group`|`ez_render_component_group`|
+|`ez_platform_tabs`|`ez_render_tab_group`|
+|`ez_render_fielddefinition_edit`|`ez_render_field_definition_edit`|
+|`ez_path_string_to_locations`|`ez_path_to_locations`|
+|`ez_image_asset_content_field_identifier`|`ez_content_field_identifier_image_asset`|
+|`encode_field`|`ez_field_encode`|
+|`ez_http_tag_location`|`ez_http_cache_tag_location`|
+|`ez_first_filled_image_field_identifier`|`ez_content_field_identifier_first_filled_image`|
+|`ez_render_fielddefinition_settings`|`ez_render_field_definition_settings`|
+|`encode_block_value`|`ez_block_value_encode`|
+|`ezplatform_page_builder_cross_origin_helper`|`ez_page_builder_cross_origin_helper`|
+
+##### Global variables renamed:
+
+|Former name|New name|
+|-----------|--------|
+|`admin_ui_config`|`ez_admin_ui_config`|
+|`ezpublish`|`ezplatform`|
+
+##### Filters renamed:
+
+|Former name|New name|
+|-----------|--------|
+|`richtext_to_html5`|`ez_richtext_to_html5`|
+|`richtext_to_html5_edit`|`ez_richtext_to_html5_edit`|
+
 ### JavaScript event names and code cleanup
+
+Selected event names have been changed.
+
+#### In Admin UI (`ezplatform-admin-ui`):
+
+|Former name|New name|
+|-----------|--------|
+|`invalidFileSize`|`ez-invalid-file-size`|
+|`addressNotFound`|`ez-address-not-found`|
+|`cancelErrors`|`ez-cancel-errors`|
+
+
+#### In Page Builder (`ezplatform-page-builder`):
+
+|Former name|New name|
+|-----------|--------|
+|`openUdw`|`ez-open-udw`|
+|`openAirtimePopup`|`ez-open-airtime-popup`|
+|`postUpdateBlocksPreview`|`ez-post-update-blocks-preview`|
+|`pbIframeLoaded`|`ez-page-builder-iframe-loaded`|
+|`pbHideTools`|`ez-page-builder-hide-tools`|
+
+Additionally, the listener for `pbPreviewReloaded` has been removed.
+
+#### In Form Builder (`ezplatform-form-builder`):
+
+|Former name|New name|
+|-----------|--------|
+|`openUdw`|`ez-open-udw`|
+|`updateFieldName`|`ez-update-field-name`|
+|`fbFormBuilderLoaded`|`ez-form-builder-loaded`|
+|`fbFormBuilderUnloaded`|`ez-form-builder-unloaded`
 
 ### Online Editor
 
