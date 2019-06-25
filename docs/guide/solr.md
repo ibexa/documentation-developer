@@ -20,29 +20,6 @@ The example presents a configuration with single core, look to [Solr](https://cw
 
 #### Download and configure
 
-##### Solr 4.10.4
-
-Download and extract Solr. Solr Bundle 1.x supports Solr 4.10.4:
-
-- [solr-4.10.4.tgz](http://archive.apache.org/dist/lucene/solr/4.10.4/solr-4.10.4.tgz) or [solr-4.10.4.zip](http://archive.apache.org/dist/lucene/solr/4.10.4/solr-4.10.4.zip)
-
-Copy the necessary configuration files. In the example below from the root of your project to the place you extracted Solr:
-
-``` bash
-# Make sure to replace the /opt/solr/ path with where you have placed Solr
-cd /opt/solr/example
-mkdir -p multicore/collection1/conf
-cp -R <ezplatform-solr-search-engine>/lib/Resources/config/solr/* multicore/collection1/conf
-cp solr/collection1/conf/{currency.xml,stopwords.txt,synonyms.txt} multicore/collection1/conf
-## Remove default cores configuration and add core configuration
-sed -i.bak 's/<core name=".*" instanceDir=".*" \/>//g' multicore/solr.xml
-sed -i.bak "s/<shardHandlerFactory/<core name=\"collection1\" instanceDir=\"collection1\" \/><shardHandlerFactory/g" multicore/solr.xml
-cp multicore/core0/conf/solrconfig.xml multicore/collection1/conf
-sed -i.bak s/core0/collection1/g multicore/collection1/conf/solrconfig.xml
-cd /opt/solr
-bin/solr start -f -a "-Dsolr.solr.home=multicore"
-```
-
 ##### Solr 6
 
 Download and extract Solr. Solr Bundle 1.3 and higher supports Solr 6 *(currently tested and recommended with Solr 6.6LTS)*:
@@ -71,9 +48,19 @@ bin/solr -s ez
 bin/solr create_core -c collection1 -d server/ez/template
 ```
 
+##### SolrCloud
+
+SolrCloud is a cluster of Solr servers. It allows you to:
+
+- centralize configuration
+- automatically load balancing and fail-over for queries
+- integrate ZooKeeper for cluster coordination and configuration
+
+To set SolrCloud up follow [SolrCloud reference guide.](https://lucene.apache.org/solr/guide/6_6/solrcloud.html)
+
 #### Further configuration
 
-On both Solr 4 and 6 Solr the bundle does not commit Solr index changes directly on repository updates, leaving it up to you to tune this using `solrconfig.xml` as best practice suggests.
+The bundle does not commit Solr index changes directly on repository updates, leaving it up to you to tune this using `solrconfig.xml` as best practice suggests.
 
 This setting is **required** if you want to see the changes after publish. It is strongly recommended to set-up `solrconfig.xml` like this:
 
@@ -124,6 +111,7 @@ ez_search_engine_solr:
             core: '%solr_core%'
     connections:
         default:
+            distribution_strategy: standalone
             entry_endpoints:
                 - endpoint0
             mapping:
@@ -146,6 +134,7 @@ ez_search_engine_solr:
             core: core1
     connections:
         default:
+            distribution_strategy: standalone
             entry_endpoints:
                 - endpoint0
                 - endpoint1
@@ -190,6 +179,7 @@ ez_search_engine_solr:
             core: core6
     connections:
         default:
+            distribution_strategy: standalone
             entry_endpoints:
                 - endpoint0
                 - endpoint1
@@ -211,6 +201,47 @@ ez_search_engine_solr:
                 # This is useful to reduce number of cores queried for always available language fallbacks
                 main_translations: endpoint6
 ```
+
+#### SolrCloud example
+
+To use SolrCloud you need to specify data distribution strategy for connection via `distribution_strategy` option. The possible values are:
+
+- [`standalone`](https://lucene.apache.org/solr/guide/6_6/legacy-scaling-and-distribution.html) - current implementation and default value
+- [`cloud`](https://lucene.apache.org/solr/guide/6_6/solrcloud.html) - SolrCloud
+
+The example is based on multi-core setup so any specific language analysis options could be specified on the collection level.
+
+``` yaml
+ez_search_engine_solr:
+    endpoints:
+        main:
+            dsn: '%solr_dsn%'
+            core: '%solr_main_core%' 
+        en:
+            dsn: '%solr_dsn%'
+            core: '%solr_en_core%'
+        fr:
+            dsn: '%solr_dsn%'
+            core: '%solr_fr_core%'
+        # ...
+    connections:
+        default:
+            distribution_strategy: cloud
+            entry_endpoints:
+                - main
+                - en
+                - fr
+             # -  ...
+            mapping:
+                translations:
+                    eng-GB: en
+                    fre-FR: fr
+                    # ...
+                main_translations: main
+```
+
+This solution uses the default SolrCloud [document routing strategy: `compositeId`](https://lucene.apache.org/solr/guide/6_6/shards-and-indexing-data-in-solrcloud.html#ShardsandIndexingDatainSolrCloud-DocumentRouting).
+In comparison to `implicit` strategy eZ Platform does not need to know shards list.
 
 #### Solr Basic HTTP Authorization
 Solr core can be secured with Basic HTTP Authorization. See more information here: [Solr Basic Authentication Plugin](https://cwiki.apache.org/confluence/display/solr/Basic+Authentication+Plugin).
@@ -291,10 +322,6 @@ Here are the most common issues you may encounter:
     When you don't specify anything to sort on, the result will be sorted by this relevance.
     Anything set on `$query->filter`, or in REST using `Filter` element, will *not* affect scoring and only works
     as a pure filter for the result. Thus make sure to place Criteria you want to affect scoring on `query`.
-
-!!! caution "Solr"
-
-    Solr version 4.x does not support scoring on location search.
 
 Boosting currently happens when indexing, so if you change your configuration you will need to re-index.
 
@@ -556,7 +583,7 @@ my_webinar_app.webinar_event_title_fulltext_field_mapper:
 
 !!! note
 
-    The configuration below has been tested on Solr 6.5.5. Version 4.x should also work.
+    The configuration below has been tested on Solr 6.5.5.
 
 ### Configuring Master for replication
 
