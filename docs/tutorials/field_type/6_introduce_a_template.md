@@ -106,5 +106,5 @@ system:
             - {template: EzSystemsTweetFieldTypeBundle:fields:eztweet.html.twig, priority: 0}
 ```
 
-Notice that you do not need to provide the `ezpublish` YAML block here.
-This is because you already import the configuration under the `ezpublish` namespace in the `prepend` method.
+Notice that you do not need to provide the `ezplatform` YAML block here.
+This is because you already import the configuration under the `ezplatform` namespace in the `prepend` method.

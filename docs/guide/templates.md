@@ -55,7 +55,7 @@ ezpublish:
 
 This is what individual keys in the configuration mean:
 
-- `ezpublish` and `system` are obligatory at the start of any configuration file which defines views.
+- `ezplatform` and `system` are obligatory at the start of any configuration file which defines views.
 - `default` defines the SiteAccess for which the configuration will be used. "default", as the name suggests, determines what views are used when no other configuration is chosen. You can also have separate keys defining views for other SiteAccesses.
 - `user` and `layout` point to the main template file that is used in any situation where no other template is defined. All other templates extend this one.
 - `content_view` defines the view provider.

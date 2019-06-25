@@ -12,12 +12,12 @@ In addition to the [native functions provided by Twig](http://twig.sensiolabs.or
 - [`ez_field_value`](#ez_field_value) - returns a Content item's Field value in the current language
 - [`ez_field`](#ez_field) - returns a Field from a Content item in the current language
 - [`ez_file_size`](#ez_file_size) - returns the size of a file as string
-- [`ez_first_filled_image_field_identifier`](#ez_first_filled_image_field_identifier) - returns the identifier of the first image field that is not empty
+- [`ez_content_field_identifier_first_filled_image`](#ez_content_field_identifier_first_filled_image) - returns the identifier of the first image field that is not empty
 - [`ez_full_datetime`](#ez_full_datetime-ez_full_date-ez_full_time) - outputs date and time in full format
 - [`ez_full_date`](#ez_full_datetime-ez_full_date-ez_full_time) - outputs date in full format
 - [`ez_full_time`](#ez_full_datetime-ez_full_date-ez_full_time) - outputs time in full format
 - [`ez_image_alias`](#ez_image_alias) - displays a selected variation of an image
-- [`ez_is_field_empty`](#ez_is_field_empty) - checks if a Content item's Field value is considered empty in the current language
+- [`ez_field_is_empty`](#ez_field_is_empty) - checks if a Content item's Field value is considered empty in the current language
 - [`ez_short_datetime`](#ez_short_datetime-ez_short_date-ez_short_time) - outputs date and time in short format
 - [`ez_short_date`](#ez_short_datetime-ez_short_date-ez_short_time) - outputs date in short format
 - [`ez_short_time`](#ez_short_datetime-ez_short_date-ez_short_time) - outputs time in short format
@@ -218,17 +218,17 @@ It returns a string.
 {{ 42698273|ez_file_size( 4 ) }} //Output with English SiteAccess : 42.6983 MB
 ```
 
-### `ez_first_filled_image_field_identifier`
+### `ez_content_field_identifier_first_filled_image`
 
 #### Description
 
-`ez_first_filled_image_field_identifier` is a Twig helper which returns the identifier of the first image field that is not empty.
+`ez_content_field_identifier_first_filled_image` is a Twig helper which returns the identifier of the first image field that is not empty.
 
 It can be used for example to identify the first image in an article to render it in an embed or line view.
 
 #### Prototype and Arguments
 
-`ez_first_filled_image_field_identifier ( eZ\Publish\API\Repository\Values\Content\Content content ) : string`
+`ez_content_field_identifier_first_filled_image` ( eZ\Publish\API\Repository\Values\Content\Content content ) : string`
 
 | Argument name | Type                                               | Description                       |
 |---------------|----------------------------------------------------|-----------------------------------|
@@ -270,11 +270,11 @@ The filters also accept an optional `timezone` parameter for displaying date and
 
 See [images](images.md) for more information about image variations.
 
-### `ez_is_field_empty`
+### `ez_field_is_empty`
 
 #### Description
 
-`ez_is_field_empty()` is a Twig helper which checks if a Content item's Field value is considered empty in the current language.
+`ez_field_is_empty()` is a Twig helper which checks if a Content item's Field value is considered empty in the current language.
 
 It returns a Boolean value (`true` or `false`).
 
@@ -282,7 +282,7 @@ If the Content item does not have a translation in the current language, the mai
 
 #### Prototype and Arguments
 
-`ez_is_field_empty ( eZ\Publish\API\Repository\Values\Content\Content content, eZ\Publish\API\Repository\Values\Content\Field|string fieldDefIdentifier [, string forcedLanguage ] ) : bool`
+`ez_field_is_empty ( eZ\Publish\API\Repository\Values\Content\Content content, eZ\Publish\API\Repository\Values\Content\Field|string fieldDefIdentifier [, string forcedLanguage ] ) : bool`
 
 | Argument name | Type | Description |
 |---------------|------|-------------|
@@ -296,7 +296,7 @@ If the Content item does not have a translation in the current language, the mai
 
 ``` html+twig
 {# Display "description" field if not empty #}
-{% if not ez_is_field_empty( content, "description" ) %}
+{% if not ez_field_is_empty( content, "description" ) %}
     <div class="description">
         {{ ez_render_field( content, "description" ) }}
     </div>

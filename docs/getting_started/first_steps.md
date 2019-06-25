@@ -157,7 +157,7 @@ Each theme is stored in a separate folder and assigned to a SiteAccess.
 
 To create a new theme:
 
-1\. Add the following configuration at the bottom of `config/packages/ezplatform.yaml` (at the same level as `ezpublish`):
+1\. Add the following configuration at the bottom of `config/packages/ezplatform.yaml` (at the same level as `ezplatform`):
 
 ``` yaml
 ezdesign:

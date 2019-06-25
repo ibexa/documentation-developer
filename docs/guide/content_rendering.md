@@ -131,7 +131,7 @@ Main Content-related variables include:
 |`view_base_layout`|String|The base layout template to use when the view is requested to be generated outside of the pagelayout (when `no_layout` is true).|
 
 The `dump()` function also displays other variables, such as specific configuration including the SiteAccess
-under the `ezpublish` key.
+under the `ezplatform` key.
 
 #### Template inheritance and sub-requests
 
@@ -273,18 +273,18 @@ This section presents the events that are triggered by eZ Platform.
 
 ### Twig Helper
 
-eZ Platform comes with a Twig helper as a [global variable](http://symfony.com/doc/master/cookbook/templating/global_variables.html) named `ezpublish`.
+eZ Platform comes with a Twig helper as a [global variable](http://symfony.com/doc/master/cookbook/templating/global_variables.html) named `ezplatform`.
 
 This helper is accessible from all Twig templates and allows you to easily retrieve useful information.
 
 |Property|Description|
 |------|------|
-|`ezpublish.siteaccess`|Returns the current SiteAccess.|
-|`ezpublish.rootLocation`|Returns the root Location object.|
-|`ezpublish.requestedUriString`|Returns the requested URI string (also known as semanticPathInfo).|
-|`ezpublish.systemUriString`|	Returns the "system" URI string. System URI is the URI for internal content controller. If current route is not an URLAlias, then the current Pathinfo is returned.|
-|`ezpublish.viewParameters`|Returns the view parameters as a hash.|
-|`ezpublish.viewParametersString`|Returns the view parameters as a string.|
-|`ezpublish.translationSiteAccess`|Returns the translation SiteAccess for a given language, or null if it cannot be found.|
-|`ezpublish.availableLanguages`|Returns the list of available languages.|
-|`ezpublish.configResolver`|Returns the config resolver.|
+|`ezplatform.siteaccess`|Returns the current SiteAccess.|
+|`ezplatform.rootLocation`|Returns the root Location object.|
+|`ezplatform.requestedUriString`|Returns the requested URI string (also known as semanticPathInfo).|
+|`ezplatform.systemUriString`|	Returns the "system" URI string. System URI is the URI for internal content controller. If current route is not an URLAlias, then the current Pathinfo is returned.|
+|`ezplatform.viewParameters`|Returns the view parameters as a hash.|
+|`ezplatform.viewParametersString`|Returns the view parameters as a string.|
+|`ezplatform.translationSiteAccess`|Returns the translation SiteAccess for a given language, or null if it cannot be found.|
+|`ezplatform.availableLanguages`|Returns the list of available languages.|
+|`ezplatform.configResolver`|Returns the config resolver.|

@@ -43,7 +43,7 @@ ezpublish:
 
 The following parameters are set for each variation:
 
-- `reference`: Name of a reference variation to base the variation on. If set to `null` (or `~`, which means `null` in YAML), the variation will take the original image for reference. It can be any available variation configured in the `ezpublish` namespace, or a `filter_set` defined in the `liip_imagine` namespace.
+- `reference`: Name of a reference variation to base the variation on. If set to `null` (or `~`, which means `null` in YAML), the variation will take the original image for reference. It can be any available variation configured in the `ezplatform` namespace, or a `filter_set` defined in the `liip_imagine` namespace.
 - `filters`: Array of filter definitions (hashes containing `name` and `params` keys). See possible values [below](#available-filters).
 
 !!! caution
@@ -141,7 +141,7 @@ liip_imagine:
 
 !!! note
 
-    Notice that the `liip_imagine` key is not placed under `image_variations`, but at the same level as `ezpublish`.
+    Notice that the `liip_imagine` key is not placed under `image_variations`, but at the same level as `ezplatform`.
 
 ## Rendering image variations
 
