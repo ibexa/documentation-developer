@@ -98,9 +98,6 @@ The Solr Search Engine Bundle can be configured in many ways. The config further
     env(SOLR_DSN): 'http://localhost:8983/solr'
     env(SOLR_CORE): collection1
 ```
-
-
-
 #### Single-core example (default)
 
 Out of the box in eZ Platform the following is enabled for a simple setup:
