@@ -99,6 +99,8 @@ The Solr Search Engine Bundle can be configured in many ways. The config further
     env(SOLR_CORE): collection1
 ```
 
+
+
 #### Single-core example (default)
 
 Out of the box in eZ Platform the following is enabled for a simple setup:
@@ -111,7 +113,6 @@ ez_search_engine_solr:
             core: '%solr_core%'
     connections:
         default:
-            distribution_strategy: standalone
             entry_endpoints:
                 - endpoint0
             mapping:
@@ -134,7 +135,6 @@ ez_search_engine_solr:
             core: core1
     connections:
         default:
-            distribution_strategy: standalone
             entry_endpoints:
                 - endpoint0
                 - endpoint1
@@ -179,7 +179,6 @@ ez_search_engine_solr:
             core: core6
     connections:
         default:
-            distribution_strategy: standalone
             entry_endpoints:
                 - endpoint0
                 - endpoint1
@@ -204,10 +203,7 @@ ez_search_engine_solr:
 
 #### SolrCloud example
 
-To use SolrCloud you need to specify data distribution strategy for connection via the `distribution_strategy` option. The possible values are:
-
-- [`standalone`](https://lucene.apache.org/solr/guide/6_6/legacy-scaling-and-distribution.html) - current implementation and default value
-- [`cloud`](https://lucene.apache.org/solr/guide/6_6/solrcloud.html) - SolrCloud
+To use SolrCloud you need to specify data distribution strategy for connection via the `distribution_strategy` option to [`cloud`.](https://lucene.apache.org/solr/guide/6_6/solrcloud.html)
 
 The example is based on multi-core setup so any specific language analysis options could be specified on the collection level.
 
