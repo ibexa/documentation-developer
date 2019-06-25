@@ -241,7 +241,6 @@ ez_search_engine_solr:
 ```
 
 This solution uses the default SolrCloud [document routing strategy: `compositeId`.](https://lucene.apache.org/solr/guide/6_6/shards-and-indexing-data-in-solrcloud.html#ShardsandIndexingDatainSolrCloud-DocumentRouting)
-In comparison to `implicit` strategy eZ Platform does not need to know shards list.
 
 #### Solr Basic HTTP Authorization
 Solr core can be secured with Basic HTTP Authorization. See more information here: [Solr Basic Authentication Plugin.](https://cwiki.apache.org/confluence/display/solr/Basic+Authentication+Plugin)
