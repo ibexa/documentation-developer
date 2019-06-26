@@ -152,7 +152,7 @@ New API improvements include:
 
 ## Requirements changes
 
-Due to using Webpack Encore, you now need [Node.js and yarn](updating_ez_platform.md#3-update-the-app)
+Due to using Webpack Encore, you now need [Node.js and yarn](../updating/3_update_app.md)
 to install or update eZ Platform.
 
 This release also changes support for versions of the following third-party software:
