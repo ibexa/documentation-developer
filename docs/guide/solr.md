@@ -20,29 +20,6 @@ The example presents a configuration with single core, look to [Solr](https://cw
 
 #### Download and configure
 
-##### Solr 4.10.4
-
-Download and extract Solr. Solr Bundle 1.x supports Solr 4.10.4:
-
-- [solr-4.10.4.tgz](http://archive.apache.org/dist/lucene/solr/4.10.4/solr-4.10.4.tgz) or [solr-4.10.4.zip](http://archive.apache.org/dist/lucene/solr/4.10.4/solr-4.10.4.zip)
-
-Copy the necessary configuration files. In the example below from the root of your project to the place you extracted Solr:
-
-``` bash
-# Make sure to replace the /opt/solr/ path with where you have placed Solr
-cd /opt/solr/example
-mkdir -p multicore/collection1/conf
-cp -R <ezplatform-solr-search-engine>/lib/Resources/config/solr/* multicore/collection1/conf
-cp solr/collection1/conf/{currency.xml,stopwords.txt,synonyms.txt} multicore/collection1/conf
-## Remove default cores configuration and add core configuration
-sed -i.bak 's/<core name=".*" instanceDir=".*" \/>//g' multicore/solr.xml
-sed -i.bak "s/<shardHandlerFactory/<core name=\"collection1\" instanceDir=\"collection1\" \/><shardHandlerFactory/g" multicore/solr.xml
-cp multicore/core0/conf/solrconfig.xml multicore/collection1/conf
-sed -i.bak s/core0/collection1/g multicore/collection1/conf/solrconfig.xml
-cd /opt/solr
-bin/solr start -f -a "-Dsolr.solr.home=multicore"
-```
-
 ##### Solr 6
 
 Download and extract Solr. Solr Bundle 1.3 and higher supports Solr 6 *(currently tested and recommended with Solr 6.6LTS)*:
@@ -71,9 +48,19 @@ bin/solr -s ez
 bin/solr create_core -c collection1 -d server/ez/template
 ```
 
+##### SolrCloud
+
+SolrCloud is a cluster of Solr servers. It enables you to:
+
+- centralize configuration
+- automatically load balance and fail-over for queries
+- integrate ZooKeeper for cluster coordination and configuration
+
+To set SolrCloud up follow [SolrCloud reference guide.](https://lucene.apache.org/solr/guide/6_6/solrcloud.html)
+
 #### Further configuration
 
-On both Solr 4 and 6 Solr the bundle does not commit Solr index changes directly on repository updates, leaving it up to you to tune this using `solrconfig.xml` as best practice suggests.
+The bundle does not commit Solr index changes directly on repository updates, leaving it up to you to tune this using `solrconfig.xml` as best practice suggests.
 
 This setting is **required** if you want to see the changes after publish. It is strongly recommended to set-up `solrconfig.xml` like this:
 
@@ -214,8 +201,45 @@ ez_search_engine_solr:
                 main_translations: endpoint6
 ```
 
+#### SolrCloud example
+
+To use SolrCloud you need to specify data distribution strategy for connection via the `distribution_strategy` option to [`cloud`.](https://lucene.apache.org/solr/guide/6_6/solrcloud.html)
+
+The example is based on multi-core setup so any specific language analysis options could be specified on the collection level.
+
+``` yaml
+ez_search_engine_solr:
+    endpoints:
+        main:
+            dsn: '%solr_dsn%'
+            core: '%solr_main_core%' 
+        en:
+            dsn: '%solr_dsn%'
+            core: '%solr_en_core%'
+        fr:
+            dsn: '%solr_dsn%'
+            core: '%solr_fr_core%'
+        # ...
+    connections:
+        default:
+            distribution_strategy: cloud
+            entry_endpoints:
+                - main
+                - en
+                - fr
+             # -  ...
+            mapping:
+                translations:
+                    eng-GB: en
+                    fre-FR: fr
+                    # ...
+                main_translations: main
+```
+
+This solution uses the default SolrCloud [document routing strategy: `compositeId`.](https://lucene.apache.org/solr/guide/6_6/shards-and-indexing-data-in-solrcloud.html#ShardsandIndexingDatainSolrCloud-DocumentRouting)
+
 #### Solr Basic HTTP Authorization
-Solr core can be secured with Basic HTTP Authorization. See more information here: [Solr Basic Authentication Plugin](https://cwiki.apache.org/confluence/display/solr/Basic+Authentication+Plugin).
+Solr core can be secured with Basic HTTP Authorization. See more information here: [Solr Basic Authentication Plugin.](https://cwiki.apache.org/confluence/display/solr/Basic+Authentication+Plugin)
 In the example below we configured Solr Bundle to work with secured Solr core.
 
 ``` yaml
@@ -296,10 +320,6 @@ Here are the most common issues you may encounter:
     Anything set on `$query->filter`, or in REST using `Filter` element, will *not* affect scoring and only works
     as a pure filter for the result. Thus make sure to place Criteria you want to affect scoring on `query`.
 
-!!! caution "Solr"
-
-    Solr version 4.x does not support scoring on location search.
-
 Boosting currently happens when indexing, so if you change your configuration you will need to re-index.
 
 Boosting tells the search engine which parts of the content model have more importance when searching, and is an important part of tuning your search results relevance. Importance is defined using a numeric value, where `1.0` is default, values higher than that are more important, and values lower (down to `0.0`) are less important.
@@ -337,7 +357,7 @@ The configuration above will result in the following boosting (Content Type / Fi
     Unfortunately, this doesn't affect search performed in the administration interface.
 
     The following example presents boosting configuration for Folder's `name` and `description` fields.
-    First, in `ezplatform.yml` configure [custom fulltext fields](https://github.com/Novactive/NovaeZSolrSearchExtraBundle/blob/master/doc/custom_fields.md).
+    First, in `ezplatform.yml` configure [custom fulltext fields.](https://github.com/Novactive/NovaeZSolrSearchExtraBundle/blob/master/doc/custom_fields.md)
 
     ```yaml
     ez_solr_search_extra:
@@ -560,11 +580,11 @@ my_webinar_app.webinar_event_title_fulltext_field_mapper:
 
 !!! note
 
-    The configuration below has been tested on Solr 6.5.5. Version 4.x should also work.
+    The configuration below has been tested on Solr 6.5.5.
 
 ### Configuring Master for replication
 
-First you need to change the core configuration in `solrconfig.xml` (for example `*/opt/solr/server/ez/collection1/conf/solrconfig.xml` ).
+First you need to change the core configuration in `solrconfig.xml` (for example `*/opt/solr/server/ez/collection1/conf/solrconfig.xml`).
 You can copy and paste the code below before any other `requestHandler` section.
 
 ```xml
