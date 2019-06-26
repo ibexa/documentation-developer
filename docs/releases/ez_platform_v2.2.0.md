@@ -37,10 +37,9 @@ In the Page block config you can now specify the CSS class with its own style fo
 
 !!! caution "Updating to 2.2"
 
-    Refer to [Updating eZ Platform](updating_ez_platform.md#4-update-database) for a database update script.
+    Refer to [Updating eZ Platform](../updating/4_update_2.2.md) for a database update script.
 
-    To update to 2.2 with existing Content you will need a dedicated script for converting the Landing Page into the new Page.
-    [This script is currently a work in progress.](https://jira.ez.no/browse/EZEE-2150)
+    To update to 2.2 with existing Content you will need a [dedicated script for converting the Landing Page into the new Page](../updating/4_update_2.2.md#migrate-landing-pages).
 
 ### Bookmarks
 
@@ -61,6 +60,11 @@ You can find the list of all bookmarks in *Browse content* section. There, you c
 eZ Platform now comes with two designs using the [design engine](../guide/design_engine.md): `standard` for content view and `admin` for the Back Office.
 See [default designs](../guide/design_engine.md#default-designs) for more information.
 
+!!! caution
+
+    If you encounter problems during upgrading, disable the override
+    by setting `ez_platform_standard_design.override_kernel_templates` to `false`.
+
 ### Previewing User and User Group permissions
 
 When viewing User or User Group Content items you can now preview what permissions are assigned to them.
@@ -75,7 +79,7 @@ Database charset is changed from UTF8 to UTF8MB4, in order to support 4-byte cha
 
 !!! caution
 
-    To cover this change when upgrading, follow the instructions in the [update guide](updating_ez_platform.md#4-update-database).
+    To cover this change when upgrading, follow the instructions in the [update guide](../updating/4_update_2.2.md).
 
 ### URL generation pattern
 
@@ -100,9 +104,22 @@ Installation types used with the `ezplatform:install` command are now more consi
 
 You can also use the new `composer ezplatform-install` command which automatically chooses a correct installation type for the given meta-repository.
 
+## API changes
+
 ### Notifications
 
 [Notification Bundle](https://github.com/ezsystems/ezstudio-notifications) is now moved into CoreBundle of [EzPublishKernel](https://github.com/ezsystems/ezpublish-kernel).  This allows whole community to get access to eZ notification system.
+
+### Bookmarks
+
+New Bookmark service had been added. Bookmark operations are now available via the REST API.
+
+### Simplified use of Content and languages in API
+
+This release introduces a few notable simplifications to API use. Here are some highlights:
+
+- [Location object now gives access to Content](../api/public_php_api_browsing.md#location-object-with-access-to-content)
+- [Optional SiteAccessAware Repository](../api/public_php_api_browsing.md#siteaccess-aware-repository-optional)
 
 ## Full list of new features, improvements and bug fixes since v2.1.0
 
