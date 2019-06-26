@@ -192,11 +192,8 @@ If you use classes from the `Leafo\ScssPhp` namespace, change them to `ScssPhp\S
 
 ### SolrCloud
 
-You can now take advantage of SolrCloud in eZ Platform Solr search engine.
+You can now take advantage of [SolrCloud in eZ Platform Solr search engine]((../guide/solr.md#solrcloud)).
 It enables you to set up a cluster of Solr servers for highly available and fault tolerant environment.
-
-See [SolrCloud configuration](../guide/solr.md#solrcloud)
-for detailed information.
 
 ### Online Editor
 
