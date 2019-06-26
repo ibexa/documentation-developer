@@ -15,7 +15,7 @@ Custom image variations are defined in `ezplatform.yaml` or any imported semanti
 ``` yaml
 # Example image variation definition
 
-ezpublish:
+ezplatform:
     system:
         my_siteaccess:
             image_variations:
@@ -87,7 +87,7 @@ ezsettings.default.image_variations:
 LiipImagineBundle supports [post-processors on image aliases](http://symfony.com/doc/master/bundles/LiipImagineBundle/post-processors.html). You can specify them in image variation configuration:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         my_siteaccess:
             image_variations:
@@ -108,7 +108,7 @@ Please refer to [post-processor documentation in LiipImagineBundle](http://symfo
 This configuration defines a `medium` image variation that is scaled to a width of 700 px.
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         my_siteaccess:
             image_variations:
@@ -126,7 +126,7 @@ This configuration adds a limit to the image quality using a liip filter.
 You can use both an eZ Platform and a liip filter for the same image variation, in this case `medium`.
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         my_siteaccess:
             image_variations:
@@ -306,7 +306,7 @@ interface PlaceholderProvider
 Placeholder generation can be configured for each [`binary_handler`](file_management/#handling-binary-files) under the `ezpublish.image_placeholder` key:
 
 ```yaml
-ezpublish:
+ezplatform:
     # ...
     image_placeholder:
         <BINARY_HANDLER_NAME>:
@@ -321,7 +321,7 @@ If there is no configuration assigned to [`binary_handler`](file_management/#han
 **Example 1 - placeholders with basic information about original image**
 
 ```yaml
-ezpublish:
+ezplatform:
     # ...
     image_placeholder:
         default:
@@ -336,7 +336,7 @@ ezpublish:
 **Example 2 - placeholders from remote source**
 
 ```yaml
-ezpublish:
+ezplatform:
     # ...
     image_placeholder:
         default:
@@ -348,7 +348,7 @@ ezpublish:
 **Example 3 - placeholders from live version of a site**
 
 ```yaml
-ezpublish:
+ezplatform:
     # ...
     image_placeholder:
         default:

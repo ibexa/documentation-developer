@@ -14,7 +14,7 @@ Add the following block under `site_group`, but before `admin_group`
 (pay attention to indentation: `content_view` should be one level below `site_group`):
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         site_group:
             # existing keys, do not change them

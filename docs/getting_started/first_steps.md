@@ -80,12 +80,12 @@ For example, if the title of the Blog post is "First blog post", the address wil
 
 You can use SiteAccesses to serve different versions of the website.
 
-SiteAccesses are used depending on matching rules. They are set up in YAML configuration under the `ezpublish.siteaccess.list` key.
+SiteAccesses are used depending on matching rules. They are set up in YAML configuration under the `ezplatform.siteaccess.list` key.
 
 1\. In `config/packages/ezplatform.yaml` add a new SiteAccess called `de` for the German version of the website:
 
 ``` yaml
-ezpublish:
+ezplatform:
     # ...
     siteaccess:
         list: [site, admin, de]

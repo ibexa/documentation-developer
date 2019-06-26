@@ -30,7 +30,7 @@ A short configuration file can look like this:
 
 ``` yaml
 # Sample configuration file
-ezpublish:
+ezplatform:
     system:
         default:
             user:
@@ -95,7 +95,7 @@ The configuration described above lets you select one template to be used in a g
     See [Including Templates](http://symfony.com/doc/current/book/templating.html#including-templates) in Symfony documentation for more information on including templates.
 
 The main template for your webpage is placed in a pagelayout.
-You can define the pagelayout per SiteAccess using the `ezpublish.system.<SiteAccess>.pagelayout` setting.
+You can define the pagelayout per SiteAccess using the `ezplatform.system.<SiteAccess>.pagelayout` setting.
 This template will be used by default for those parts of the website where no other templates are defined.
 
 A `pagelayout.html.twig` file exists already in Demo Bundles, but if you are using a clean installation, you need to create it from scratch. This file is typically located in the `templates` folder.

@@ -55,7 +55,7 @@ As an example, you can separate all content view configuration into its own file
 Remove the corresponding code from `ezplatform.yaml`. The `views.yaml` should look like this:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         site_group:
             content_view:
