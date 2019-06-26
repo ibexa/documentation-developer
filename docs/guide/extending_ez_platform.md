@@ -343,6 +343,16 @@ class CustomTabGroupPass implements CompilerPassInterface
 }
 ```
 
+You also need to add the compiler pass to `Kernel.php`:
+
+``` php
+protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader): void
+{
+    //
+    $container->addCompilerPass(new CustomTabGroupPass());
+}
+```
+
 A shorter way that you can use when no custom logic is required, is to add your own tab with the new group.
 If a tab's group is not defined, it will be created automatically.
 
@@ -366,14 +376,10 @@ App\Custom\Tab:
     autowire: true
     autoconfigure: false
     tags:
-        - { name: ezplatform.tab, group: custom-tab-group }
+        - { name: ezplatform.tab, group: dashboard-everyone }
 ```
 
-This configuration also assigns the new tab to `custom-tab-group`.
-
-!!! tip
-
-    If the `custom-tab-group` does not yet exist, it will be created automatically at this point.
+This configuration also assigns the new tab to `dashboard-everyone`.
 
 The tab class can look like this (in `src/Custom/Tab.php`):
 
