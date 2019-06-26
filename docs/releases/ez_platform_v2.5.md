@@ -185,10 +185,29 @@ for detailed information.
 
 ## eZ Platform v2.5.2
 
+### Updating
+
+The `leafo/scssphp` package had to be replaced by `scssphp/scssphp` does to maintainability.
+If you use classes from the `Leafo\ScssPhp` namespace, change them to `ScssPhp\ScssPhp`.
+
 ### SolrCloud
 
 You can now take advantage of SolrCloud in eZ Platform Solr search engine.
-It enables you to set up a cluster of Solr servers for highly available and fault tolerant environment. 
+It enables you to set up a cluster of Solr servers for highly available and fault tolerant environment.
 
 See [SolrCloud configuration](../guide/solr.md#solrcloud)
 for detailed information.
+
+### Online Editor
+
+#### Custom attributes
+
+It is now possible to add [custom data attributes and CSS classes](../guide/extending_online_editor.md#custom-data-attributes-and-classes) to elements in the Online Editor.
+
+#### Translatable custom tag choice attributes
+
+You can now translate labels of choice attributes in Custom tags using the `ezrichtext.custom_tags.<tag_name>.attributes.<attribute>.choices.<choice>.label` configuration key.
+
+### URL Wildcards
+
+[URL wildcards](../guide/url_management.md#url-wildcards) enable you to set up global URL redirections.
