@@ -182,3 +182,13 @@ for detailed information.
 | [eZ Platform v2.5.0-rc1](https://github.com/ezsystems/ezplatform/releases/tag/v2.5.0-rc1) | [eZ Enterprise v2.5.0-rc1](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.5.0-rc1) |
 | [eZ Platform v2.5.0-beta2](https://github.com/ezsystems/ezplatform/releases/tag/v2.5.0-beta2) | [eZ Enterprise v2.5.0-beta2](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.5.0-beta2) |
 | [eZ Platform v2.5.0-beta1](https://github.com/ezsystems/ezplatform/releases/tag/v2.5.0-beta1) | [eZ Enterprise v2.5.0-beta1](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.5.0-beta1) |
+
+## eZ Platform v2.5.2
+
+### SolrCloud
+
+You can now take advantage of SolrCloud in eZ Platform Solr search engine.
+It enables you to set up a cluster of Solr servers for highly available and fault tolerant environment. 
+
+See [SolrCloud configuration](../guide/solr.md#solrcloud)
+for detailed information.
