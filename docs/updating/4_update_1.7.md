@@ -10,7 +10,7 @@ Apply the following database update script:
     **e.g. during update from v2.2 to v2.5 you have to perform all the steps from: <2.3, <2.4 and <2.5**.
     Only after applying all changes your database will work properly.
 
-## Solr index time boosting
+## Changes to Solr Bundle
 
 Solr Bundle v1.4 introduced among other things index time boosting feature, this involves a slight change to the Solr scheme that will need to be applied to your config.
 

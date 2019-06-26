@@ -103,7 +103,7 @@ you have an option to continue, but migrated Landing Pages will come without tho
 
 After the migration is finished, you need to clear cache.
 
-### Migrating custom blocks
+### Migrate custom blocks
 
 For block types with custom storage you need to provide a dedicated converter but for simple blocks you can use `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\DefaultConverter` as your service class.
 

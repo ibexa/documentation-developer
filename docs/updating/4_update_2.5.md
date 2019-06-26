@@ -8,7 +8,6 @@ If you are updating from a version prior to 2.4, you have implement all the chan
     **e.g. during update from v2.2 to v2.5 you have to perform all the steps from: <2.3, <2.4 and <2.5**.
     Only after applying all changes your database will work properly.
 
-
 ## Database update script
 
 Apply the following database update script:
@@ -25,7 +24,7 @@ If you are updating your application according to the usual procedure, no additi
 However, if you do not update your meta-repository, you need to take two additional steps:
 
 - enable `EzSystems\DoctrineSchemaBundle\DoctrineSchemaBundle()` in `AppKernel.php`
-- add [`ez_doctrine_schema`](https://github.com/ezsystems/ezplatform/blob/master/app/config/config.yml#L33) configuration
+- add [`ez_doctrine_schema`](https://github.com/ezsystems/ezplatform/blob/2.5/app/config/config.yml#L33) configuration
 
 ## Changes to Matrix Field Type
 

@@ -14,7 +14,7 @@ Apply the following database update script:
 
 `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.2.0-to-7.3.0.sql`
 
-## Trashed timestamp
+## Changes to timestamp
 
 A new timestamp column has been added in order to keep track of when items were trashed, this is exposed in the API but not yet in UI.
 
@@ -28,7 +28,7 @@ mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-k
 
 !!! enterprise
 
-    To create the "Forms" container under the content tree root use the following command:
+    To create the *Forms* container under the content tree root use the following command:
 
     ``` bash
     php bin/console ezplatform:form-builder:create-forms-container
