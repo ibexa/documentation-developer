@@ -4,7 +4,7 @@
 
 !!! note "Sorted packages since 2.4 changes"
 
-    Since 2.4 packages in `composer.json` are sorted, which means more conflicts when updating to 2.4, but far fewer conflicts in the future. This is controlled by [sort-packages](https://getcomposer.org/doc/06-config.md#sort-packages) config in `composer.json`.
+    Because the 2.4 packages in `composer.json` are sorted, there will be more conflicts when updating to 2.4, but far fewer conflicts in the future. This is controlled by [sort-packages](https://getcomposer.org/doc/06-config.md#sort-packages) config in `composer.json`.
 
 Conflicts in `composer.json` need to be fixed manually. If you're not familiar with the diff output, you may checkout the tag's version and inspect the changes. It should be readable for most:
 
@@ -22,9 +22,9 @@ git checkout -p composer.json
 
 Answer `no` (do not discard) to the requirement changes of `ezsystems` dependencies. Answer `yes` (discard) to removals of your changes.
 
-Once you are done, inspect the file, either using an editor or by running `git diff composer.json`. You may also test the file's sanity with `composer validate`, and test the dependencies by running `composer update --dry-run`. (will output what it would do to dependencies, without applying the changes.
+Once you are done, inspect the file, by either using an editor or running `git diff composer.json`. You may also test the file's sanity with `composer validate`, and test the dependencies by running `composer update --dry-run` (it will output what it would do to the dependencies, without applying the changes).
 
-Once finished, run `git add composer.json` and commit`.`
+Once finished, run `git add composer.json` and commit.
 
 ## Fixing other conflicts
 
