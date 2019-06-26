@@ -22,7 +22,7 @@ mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-k
 
 ## Folder for form-uploaded files
 
-To complete this step you have to [dump assets](#5-dump-assets) first.
+To complete this step you have to [dump assets](6_dump_assets.md) first.
 
 Since v1.8 you can add a File field to the Form block on a Landing Page.
 Files uploaded through such a form will be automatically placed in a specific folder in the repository.

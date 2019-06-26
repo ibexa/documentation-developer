@@ -1,12 +1,13 @@
 # Updating eZ Platform
 
-
 This section explains how to update eZ Platform to a new version.
 
-In the following instructions, replace `<version>` with the version of eZ Platform you are updating to (for example: `v1.7.0`).
-If you are testing a release candidate, use the latest rc tag (for example: `v1.7.1-rc1`).
+In the following instructions, replace `<version>` with the version of eZ Platform you are updating to (for example: `v2.5.0`).
+If you are testing a release candidate, use the latest rc tag (for example: `v2.5.0-rc1`).
 
 ## Update procedure
+
+To update your eZ Platform installation follow the steps below:
 
 1. [Check out a tagged version](1_check_out_version.md)
 1. [Merge composer.json](2_merge_composer.md)
