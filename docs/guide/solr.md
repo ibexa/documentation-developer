@@ -53,7 +53,7 @@ bin/solr create_core -c collection1 -d server/ez/template
 SolrCloud is a cluster of Solr servers. It enables you to:
 
 - centralize configuration
-- automatically load balancing and fail-over for queries
+- automatically load balance and fail-over for queries
 - integrate ZooKeeper for cluster coordination and configuration
 
 To set SolrCloud up follow [SolrCloud reference guide.](https://lucene.apache.org/solr/guide/6_6/solrcloud.html)
