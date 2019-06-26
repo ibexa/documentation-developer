@@ -105,7 +105,7 @@
 
     ``` html+twig hl_lines="2"
     <div class="block-richtext {{ block_class }}">
-                {{ document | richtext_to_html5 }}
+                {{ document | ez_richtext_to_html5 }}
     </div>
 
     ```
