@@ -51,7 +51,7 @@ Content items moved to Trash can be viewed and trash can be emptied.
 
 ### Preview of upgrade support from eZ Publish Platform 5.4/2014.11
 
-This release contains migrations tools for migrating XmlText to RichText, this is explained in the new [5.4.x/2014.11 upgrade documentation page](updating_ez_platform.md).
+This release contains migrations tools for migrating XmlText to RichText, this is explained in the new [5.4.x/2014.11 upgrade documentation page](../updating/updating_ez_platform.md).
 
 ### eZ Platform Demo
 

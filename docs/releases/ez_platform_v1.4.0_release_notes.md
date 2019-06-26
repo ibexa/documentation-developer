@@ -87,7 +87,7 @@ Further reading: [Docker Tools](../guide/docker_tools.md)
 
 ## Updating
 
-To update to this version, follow the [Updating eZ Platform](updating_ez_platform.md) guide and use v1.4.0 as `<version>`.
+To update to this version, follow the [Updating eZ Platform](../updating/updating_ez_platform.md) guide and use v1.4.0 as `<version>`.
 
  
 
