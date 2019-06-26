@@ -80,12 +80,12 @@ For example, if the title of the Blog post is "First blog post", the address wil
 
 You can use SiteAccesses to serve different versions of the website.
 
-SiteAccesses are used depending on matching rules. They are set up in YAML configuration under the `ezplatform.siteaccess.list` key.
+SiteAccesses are used depending on matching rules. They are set up in YAML configuration under the `ezpublish.siteaccess.list` key.
 
 1\. In `config/packages/ezplatform.yaml` add a new SiteAccess called `de` for the German version of the website:
 
 ``` yaml
-ezplatform:
+ezpublish:
     # ...
     siteaccess:
         list: [site, admin, de]
@@ -157,7 +157,7 @@ Each theme is stored in a separate folder and assigned to a SiteAccess.
 
 To create a new theme:
 
-1\. Add the following configuration at the bottom of `config/packages/ezplatform.yaml` (at the same level as `ezplatform`):
+1\. Add the following configuration at the bottom of `config/packages/ezplatform.yaml` (at the same level as `ezpublish`):
 
 ``` yaml
 ezdesign:

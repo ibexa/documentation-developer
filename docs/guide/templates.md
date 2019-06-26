@@ -30,7 +30,7 @@ A short configuration file can look like this:
 
 ``` yaml
 # Sample configuration file
-ezplatform:
+ezpublish:
     system:
         default:
             user:
@@ -55,7 +55,7 @@ ezplatform:
 
 This is what individual keys in the configuration mean:
 
-- `ezplatform` and `system` are obligatory at the start of any configuration file which defines views.
+- `ezpublish` and `system` are obligatory at the start of any configuration file which defines views.
 - `default` defines the SiteAccess for which the configuration will be used. "default", as the name suggests, determines what views are used when no other configuration is chosen. You can also have separate keys defining views for other SiteAccesses.
 - `user` and `layout` point to the main template file that is used in any situation where no other template is defined. All other templates extend this one.
 - `content_view` defines the view provider.
@@ -95,7 +95,7 @@ The configuration described above lets you select one template to be used in a g
     See [Including Templates](http://symfony.com/doc/current/book/templating.html#including-templates) in Symfony documentation for more information on including templates.
 
 The main template for your webpage is placed in a pagelayout.
-You can define the pagelayout per SiteAccess using the `ezplatform.system.<SiteAccess>.pagelayout` setting.
+You can define the pagelayout per SiteAccess using the `ezpublish.system.<SiteAccess>.pagelayout` setting.
 This template will be used by default for those parts of the website where no other templates are defined.
 
 A `pagelayout.html.twig` file exists already in Demo Bundles, but if you are using a clean installation, you need to create it from scratch. This file is typically located in the `templates` folder.

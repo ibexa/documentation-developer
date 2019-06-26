@@ -20,7 +20,7 @@ ezpublish:
                         - {name: geometry/scaledownonly, params: [140, 100]}
 ```
 
-At the beginning of the `ezplatform.yaml` file (before the `ezplatform` key), add the following lines to import the content of `app/config/image_variations.yaml`:
+At the beginning of the `ezplatform.yaml` file (before the `ezpublish` key), add the following lines to import the content of `app/config/image_variations.yaml`:
 
 ``` yaml
 imports:
@@ -55,7 +55,7 @@ As an example, you can separate all content view configuration into its own file
 Remove the corresponding code from `ezplatform.yaml`. The `views.yaml` should look like this:
 
 ``` yaml
-ezplatform:
+ezpublish:
     system:
         site_group:
             content_view:
