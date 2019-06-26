@@ -165,6 +165,8 @@ ezrichtext.custom_tags.ezfactbox.label: FactBox
 ezrichtext.custom_tags.ezfactbox.description: ''
 ezrichtext.custom_tags.ezfactbox.attributes.name.label: Name
 ezrichtext.custom_tags.ezfactbox.attributes.style.label: Style
+ezrichtext.custom_tags.ezfactbox.attributes.style.choices.light.label: Light style
+ezrichtext.custom_tags.ezfactbox.attributes.style.choices.dark.label: Dark style
 ```
 
 ### Inline custom tags
