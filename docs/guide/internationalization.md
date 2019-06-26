@@ -9,6 +9,10 @@ A version always has at least one translation which by default is the *initial/m
 
 Different translations of the same Content item can be edited separately. This means that different users can work on translations into different languages at the same time.
 
+Each version, including a draft, contains all the existing translations.
+However, even if work on a draft takes time and other translations are updated in the meantime,
+publishing the draft will not overwrite later modifications.
+
 ### Adding available languages
 
 The multilanguage system operates based on a global translation list that contains all languages available in the installation. Languages can be [added to this list from the Admin Panel](https://doc.ezplatform.com/projects/userguide/en/latest/creating_content_advanced/#languages) in the Back Office. After adding a language be sure to dump all assets to the file system:
