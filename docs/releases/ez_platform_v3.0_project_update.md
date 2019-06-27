@@ -1,4 +1,4 @@
-# Updating to v3.0
+# eZ Platform v3.0 project update
 
 Updating to v3.0 requires you to adapt your project and your custom code.
 This is due to the switch from Symfony 3 to Symfony 4, as well as due to deprecation of certain features.
