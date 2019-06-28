@@ -28,7 +28,7 @@
     This configuration defines a new block, its view and configuration templates, and attribute type `richtext` (line 15).
     Remember to provide an icon for the block in the `assets/images/blocks/` folder.
 
-    Next, add `layouts.yaml` to `config/config.yaml` under the `imports` key:
+    Next, add `layouts.yaml` to `config/ezplatform.yaml` under the `imports` key:
 
     ``` yaml
     imports:
@@ -127,7 +127,7 @@
 
     ``` yaml
     services:
-        AppBundle\Event\Subscriber\RichTextBlockSubscriber:
+        App\Event\Subscriber\RichTextBlockSubscriber:
             tags:
                 - { name: kernel.event_subscriber }
     ```

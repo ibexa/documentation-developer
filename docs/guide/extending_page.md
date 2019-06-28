@@ -76,7 +76,7 @@
 
     |Type|Description|Options|
     |----|----|----|
-    |`integer`|Intereger value|-|
+    |`integer`|Integer value|-|
     |`string`|String|-|
     |`url`|URL|-|
     |`text`|Text block|-|
@@ -157,13 +157,13 @@
     {# more templates here #}
     ```
 
-    Add the template to `Resources/config/ez_field_templates.yaml`:
+    Add the template to your configuration:
 
     ``` yaml
     system:
         default:
             field_templates:
-                - { template: AppBundle:ezform_field.html.twig, priority: 0 }
+                - { template: ezform_field.html.twig, priority: 0 }
     ```
 
     At this point, the attribute type configuration is complete, but it requires a mapper.
@@ -190,6 +190,7 @@
 
     use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Definition\BlockAttributeDefinition;
     use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Definition\BlockDefinition;
+    use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Attribute\FormTypeMapper\AttributeFormTypeMapperInterface;
     use Symfony\Component\Form\FormBuilderInterface;
 
     class MyStringAttributeMapper implements AttributeFormTypeMapperInterface
@@ -236,9 +237,9 @@
             my_block:
                 name: MyBlock
                 category: default
-                thumbnail: bundles/appbundle/images/thumbnails/my_block.svg
+                thumbnail: images/thumbnails/my_block.svg
                 views:
-                    default: { name: Default block layout, template: AppBundle:my_block.html.twig, priority: -255 }
+                    default: { name: Default block layout, template: my_block.html.twig, priority: -255 }
                 attributes:
                     my_string_attribute:
                         type: my_string
@@ -356,22 +357,24 @@
 
     Some blocks can have slightly more complex configuration. An example is the Collection block, which requires an `options` key.
     This key defines which Content Types can be added to it.
-    See [this example from the Studio Demo](https://github.com/ezsystems/ezstudio-demo-bundle/blob/master/Resources/config/default_layouts.yml#L160):
+    See [this example from the eZ Enterprise Demo](https://github.com/ezsystems/ezplatform-ee-demo/blob/master/app/config/default_layouts.yml#L219):
 
     ``` yaml
     blocks:
         collection:
+            thumbnail: '/bundles/ezplatformadminui/img/ez-icons.svg#collection'
             views:
-                content:
-                    template: eZStudioDemoBundle:blocks:collection.content.html.twig
-                    name: Content List View
+                cards:
+                    template: '@ezdesign/blocks/collection/cards.html.twig'
+                    name: 'Cards'
                     options:
-                        match: [article, blog_post]
-                gallery:
-                    template: eZStudioDemoBundle:blocks:collection.content.html.twig
-                    name: Gallery View
+                        match: [article, blog_post, image, product, place]
+
+                list:
+                    template: '@ezdesign/blocks/collection/list.html.twig'
+                    name: 'List'
                     options:
-                        match: [image]
+                        match: [article, blog_post, image, product, place]
     ```
 
     ## Block definition events

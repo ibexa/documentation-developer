@@ -50,7 +50,7 @@ content_view:
 
 Content view templates use the [Twig templating engine](https://twig.symfony.com/).
 
-2\. Create a template file `app/Resources/views/full/blog_post.html.twig`:
+2\. Create a template file `templates/full/blog_post.html.twig`:
 
 ``` html+twig
 <h1>{{ ez_render_field(content, 'title') }}</h1>
