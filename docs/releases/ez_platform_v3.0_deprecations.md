@@ -32,7 +32,7 @@ ez.fieldFormMapper.definition -> ezplatform.field_type.form_mapper.definition
 
 ### SignalSlots
 
-`SignalSlots` have been removed. Symfony Event are used instead.
+`SignalSlots` have been removed. Symfony Events are used instead.
 
 ### Twig helper names
 
@@ -111,7 +111,7 @@ Additionally, the listener for `pbPreviewReloaded` has been removed.
 
 Removal of REST code from Kernel to a separate package results in the following change:
 
-`eZ\Publish\Core\REST` and `eZ\Publish\Core\REST\Common\` namespaces are replaced by `EzSystems\EzPlatformRest`.
+`eZ\Publish\Core\REST` and `eZ\Publish\Core\REST\Common\` namespaces have been replaced by `EzSystems\EzPlatformRest`.
 
 REST client has been dropped.
 
@@ -141,7 +141,7 @@ View parameter `pagelayout` set by `pagelayout` setting is deprecated, use `page
 
 ### Template organization
 
-This release also renames a number of templates in the Back Office:
+The following templates used in the Back Office have been renamed:
 
 ??? note "Renamed templates"
 

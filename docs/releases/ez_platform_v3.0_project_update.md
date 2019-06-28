@@ -45,6 +45,10 @@ Content of `app/Resources/assets` has been moved to `assets`.
 v3.0 removes SignalSlots and replaces them with Symfony Events.
 To use them, create [Event Listeners](https://symfony.com/doc/4.3/event_dispatcher.html) in your code.
 
+## Field Types
+
+## HTTP cache
+
 ## Renamed templates and template parameters
 
 The naming and location of templates in the Back Office have been changed.
