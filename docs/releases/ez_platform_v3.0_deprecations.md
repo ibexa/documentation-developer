@@ -12,8 +12,6 @@ to learn about all changes it entails.
 
 See [v3.0 project update](ez_platform_v3.0_project_update.md) for the steps you need to take to update your project to Symfony 4.
 
-### ConfigResolver
-
 ### Field Types
 
 Tags used to register Field Type features in the dependency injection container have changed:
