@@ -1,6 +1,6 @@
 # Customizing calendar widget
 
-The calendar widget allows you to display all scheduled events.
+By default, the calendar widget allows you to display all scheduled events.
 You can also configure it to display your custom event types or display them from [external resources](#configuring-custom-calendar-event-sources).
 
 Optionally, you can customize the color of a custom event and make it look different depending on the [SiteAccess configuration](../guide/siteaccess.md#configuring-siteaccesses). 
@@ -35,12 +35,12 @@ final class MyEvent extends Event
 }
 ```
 
-Here, you create a new class for you event based on `\EzSystems\EzPlatformCalendar\Calendar\Event`.
-Line 7 points out to the custom event definition of associated actions.
+Here, you define a new class for you event based on `\EzSystems\EzPlatformCalendar\Calendar\Event`.
+Line 7 points out to the custom event definition for actions associated with your event.
 
-Provide a definition for your event by creating `\App\Calendar\EventType\MyEventType.php`:
+Proceed with providing the definition for your event by creating `\App\Calendar\EventType\MyEventType.php`:
 
-``` PHP hl_lines="28 29 30 31"
+``` PHP hl_lines="28 29 30 31 33 34 35 36"
 
 <?php
 
@@ -73,9 +73,15 @@ final class MyEventType implements EventTypeInterface
     {
         return $this->translator->trans($event->getId(), [], 'MyEvents');
     }
+    
+    public function getTypeLabel(): string
+        {
+            return $this->translator->trans('event_type.private.label', [], 'my_calendar_extension');
+        }
 }
 ```
 Here, lines 28-31 are responsible for building names for your custom events using a pattern.
+Lines 33-36 use the `\EzSystems\EzPlatformCalendar\Calendar\EventType\EventTypeInterface::getTypeLabel` to generate a label.
 
 Complete the procedure by registering the new event:
 
@@ -180,7 +186,7 @@ Note that line 6 points out to the event you want to customize.
 ## Accessing calendar configuration
 
 The calendar widget configuration is accessible from JavaScript by using the `eZ.calendar.config` global variable.
-You can configure a label, color and actions for each of the events that the widget displays.
+You can configure a label, color, and actions for each of the events that the widget displays.
 
 For example:
 
