@@ -19,7 +19,7 @@ If you want to learn how to apply them to your installation follow [Creating a c
 
 **Example: YouTube tag**
 
-Preparation of the tag always starts with the configuration file that should be added to `app/Resources/config`. This is sample configuration for the YouTube tag, `custom_tags.yml`:
+Preparation of the tag always starts with the configuration file that should be added to the `config` folder. This is sample configuration for the YouTube tag, `custom_tags.yaml`:
 
 ```yaml
 ezpublish:
@@ -33,7 +33,7 @@ ezrichtext:
     custom_tags:
         ezyoutube:
             # The template used for front-end rendering of the custom tag
-            template: AppBundle:field_type/ezrichtext/custom_tag:ezyoutube.html.twig
+            template: field_type/ezrichtext/custom_tag/ezyoutube.html.twig
             # An icon for the custom tag as displayed in the Online Editor's toolbar.
             icon: '/assets/field_type/ezrichtext/custom_tag/icon/youtube-color.svg#youtube-color'
             attributes:
@@ -87,7 +87,7 @@ The configuration requires an `ezyoutube.html.twig` template for the custom tag 
     {% endif %}
     ```
 
-To ensure the new tag has labels, provide translations in `app/Resources/translations/custom_tags.en.yaml` file:
+To ensure the new tag has labels, provide translations in `translations/custom_tags.en.yaml` file:
 
 ```yaml
 ezrichtext.custom_tags.ezyoutube.label: Youtube
@@ -106,7 +106,7 @@ FactBox tag is a good example for showcasing possibilities of `ezcontent` proper
 Each custom tag has an `ezcontent` property that contains the tag's main content.
 This property is editable by a tab in a custom tag.
 
-Create the `custom_tags.yml` configuration file that will be added to `app/Resources/config`. This is sample configuration for FactBox tag:
+Create the `custom_tags.yaml` configuration file that will be added to the `config` folder. This is sample configuration for FactBox tag:
 
 ```yaml hl_lines="10"
 ezpublish:
@@ -119,7 +119,7 @@ ezpublish:
 ezrichtext:
     custom_tags:
         ezfactbox:
-            template: AppBundle:field_type/ezrichtext/custom_tag:ezfactbox.html.twig
+            template: field_type/ezrichtext/custom_tag/ezfactbox.html.twig
             icon: '/assets/field_type/ezrichtext/custom_tag/icon/factbox.svg#factbox'
             attributes:
                 name:
@@ -136,7 +136,7 @@ Remember to provide your own files for the template and the icon.
 Line 10 points to `ezfactbox.html.twig` template described below.
 Attributes listed below the custom tag can be set when adding the tag to a RichText Field.
 
-The configuration requires an `ezfactbox.html.twig` template for the custom tag that will be placed in `/Resources/views/field_type/ezrichtext/custom_tag`:
+The configuration requires an `ezfactbox.html.twig` template for the custom tag that will be placed in `/templates/field_type/ezrichtext/custom_tag`:
 
 ```html+twig
 <div class="ez-factbox ez-factbox--{{ params.style }}">
@@ -157,7 +157,7 @@ The configuration requires an `ezfactbox.html.twig` template for the custom tag 
     {% endif %}
     ```
 
-To ensure the new tag has labels, provide translations in `app/Resources/translations/custom_tags.en.yaml` file:
+To ensure the new tag has labels, provide translations in `translations/custom_tags.en.yaml` file:
 
 ```yaml
 # ezfactbox
@@ -165,6 +165,8 @@ ezrichtext.custom_tags.ezfactbox.label: FactBox
 ezrichtext.custom_tags.ezfactbox.description: ''
 ezrichtext.custom_tags.ezfactbox.attributes.name.label: Name
 ezrichtext.custom_tags.ezfactbox.attributes.style.label: Style
+ezrichtext.custom_tags.ezfactbox.attributes.style.choices.light.label: Light style
+ezrichtext.custom_tags.ezfactbox.attributes.style.choices.dark.label: Dark style
 ```
 
 ### Inline custom tags
@@ -175,7 +177,7 @@ Custom tags can also be placed inline with the following configuration:
 ezrichtext:
     custom_tags:
         badge:
-            template: AppBundle:field_type/ezrichtext/custom_tag:badge.html.twig
+            template: field_type/ezrichtext/custom_tag/badge.html.twig
             icon: '/bundles/ezplatformadminui/img/ez-icons.svg#bookmark'
             is_inline: true
             attributes:
@@ -228,7 +230,7 @@ The system expects two kinds of configuration:
 ### Translations
 
 Labels that appear for each custom style in the Online Editor need to be translated using Symfony translation system.
-The translation domain is called `custom_styles`. For the code example above, you can do it in a `app/Resources/translations/custom_styles.en.yml` file:
+The translation domain is called `custom_styles`. For the code example above, you can do it in a `translations/custom_styles.en.yaml` file:
 
 ```yaml
 ezrichtext.custom_styles.highlighted_block.label: Highlighted block
@@ -241,19 +243,123 @@ The `template` key points to the template used to render the custom style. It is
 
 In the example above, the template files for the front end could be:
 
-- `app/Resources/views/themes/standard/field_type/ezrichtext/custom_style/highlighted_word.html.twig`:
+- `templates/themes/standard/field_type/ezrichtext/custom_style/highlighted_word.html.twig`:
 
 ``` html+twig
 <span class="ezstyle-{{ name }}">{% spaceless %}{{ content|raw }}{% endspaceless %}</span>
 ```
 
-- `app/Resources/views/themes/standard/field_type/ezrichtext/custom_style/highlighted_block.html.twig`:
+- `templates/themes/standard/field_type/ezrichtext/custom_style/highlighted_block.html.twig`:
 
 ``` html+twig
 <div class="{% if align is defined %}align-{{ align }}{% endif %} ezstyle-{{ name }}">{% spaceless %}{{ content|raw }}{% endspaceless %}</div>
 ```
 
-Templates for Content View in the Back Office would be `app/Resources/views/themes/admin/field_type/ezrichtext/custom_style/highlighted_word.html.twig` and `app/Resources/views/themes/admin/field_type/ezrichtext/custom_style/highlighted_block.html.twig` respectively (assuming Admin SiteAccess uses the `admin` theme).
+Templates for Content View in the Back Office would be `templates/themes/admin/field_type/ezrichtext/custom_style/highlighted_word.html.twig` and `templates/themes/admin/field_type/ezrichtext/custom_style/highlighted_block.html.twig` respectively (assuming Admin SiteAccess uses the `admin` theme).
+
+## Custom data attributes and classes
+
+You can add custom data attributes and CSS classes to elements in the Online Editor.
+
+The available elements are:
+
+- `embedinline`
+- `embed`
+- `formatted`
+- `heading`
+- `embedimage`
+- `ul`
+- `ol`
+- `li`
+- `paragraph`
+- `table`
+- `tr`
+- `td`
+
+!!! caution "Overriding embed templates"
+
+    If you override the default templates for `embedinline`, `embed` or `embedimage` elements,
+    (e.g. `EzPublishCoreBundle:default:content/embed.html.twig`),
+    the data attributes and classes will not be rendered automatically.
+
+    Instead, you can make use of the `data_attributes` and `class` properties in your templates.
+    The `ez_data_attributes_serialize` helper enables you to serialize the data attribute array.
+
+### Custom data attributes
+
+Custom data attributes are configured under the `fieldtypes.ezrichtext.attributes` key.
+The configuration is SiteAccess-aware.
+
+A custom data attribute can belong to one of four types: `choice`, `boolean`, `string`, or `number`.
+You can also set each attribute to be `required` and set its `default_value`.
+
+For the `choice` type, you must provide an array of available `choices`.
+Adding `multiple` enables you to choose whether more than one option can be selected.
+It is set to `false` by default.
+
+The example below adds two data attributes, `custom_attribute` and `another_attribute`
+to the Heading element:
+
+``` yaml
+ezpublish:
+    system:
+        # The configuration only works with an admin (Back Office) SiteAccess
+        <siteaccess>:
+            fieldtypes:
+                ezrichtext:
+                    attributes:
+                        heading:
+                            custom-attribute:
+                                type: boolean
+                                default_value: false
+                            another-attribute:
+                                type: choice
+                                choices: [attr1, attr1]
+                                default_value: attr2
+                                required: false
+                                multiple: true
+```
+
+This configuration will output `data-ezattribute-<attribute_name>="<value>"` in the corresponding HTML element,
+in this example as `data-ezattribute-custom-attribute="false"` and `data-ezattribute-another-attribute="attr1,attr2"`.
+
+### Custom CSS classes
+
+Custom CSS classes are configured under the `fieldtypes.ezrichtext.classes` key.
+The configuration is SiteAccess-aware.
+
+You must provide the available `choices`.
+You can also set the values for `required`, `default_value` and `multiple`.
+`multiple` is set to true by default.
+
+The example below adds a class choice to the Paragraph element:
+
+``` yaml
+ezpublish:
+    system:
+        # The configuration only works with an admin (Back Office) SiteAccess
+        <siteaccess>:
+            fieldtypes:
+                ezrichtext:                            
+                    classes:
+                        paragraph:
+                            choices: [regular, special]
+                            default_value: regular
+                            required: false
+                            multiple: false
+```
+
+### Label translations
+
+You can provide label translations for custom attributes with the translation extractor `ez_online_editor_attributes`.
+It gets a full list of custom attributes for all elements in all scopes.
+
+For example:
+
+``` bash
+php ./bin/console translation:extract --enable-extractor=ez_online_editor_attributes
+    --dir=./app/Resources/views --output-dir=./app/Resources/translations/ --output-format=yaml
+```
 
 ## Plugins configuration
 

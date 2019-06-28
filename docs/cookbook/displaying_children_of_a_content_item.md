@@ -15,10 +15,10 @@ The Query Controller is a predefined custom content view Controller that runs a 
 
 If you need to create a simple Query it's easier to use the Query Controller than to build a completely custom one, as you will not have to write custom PHP code. Like with a [Custom Controller](#using-a-custom-controller), however, you will be able to use properties of the viewed Content or Location as parameters.
 
-The main file in this case is an `AppBundle/QueryType/LocationChildrenQueryType.php` file which generates a Query that retrieves the children of the current Location.
+The main file in this case is an `src/QueryType/LocationChildrenQueryType.php` file which generates a Query that retrieves the children of the current Location.
 
 ``` php
-namespace AppBundle\QueryType;
+namespace App\QueryType;
 
 use eZ\Publish\API\Repository\Values\Content\LocationQuery;
 use eZ\Publish\API\Repository\Values\Content\Query\Criterion\ParentLocationId;
@@ -45,6 +45,14 @@ class LocationChildrenQueryType implements QueryType
 }
 ```
 
+Register the QueryType as a service in `services/yaml`:
+
+``` yaml
+App\QueryType\LocationChildrenQueryType:
+    tags:
+        - { name: ezpublish.query_type }
+```
+
 Next, in your [standard view configuration](../guide/content_rendering.md#configuring-views-the-viewprovider) file add a section (under `content_view`) that indicates when this Controller will be used. It is similar to regular view config, but contains additional information:
 
 ``` yaml
@@ -61,7 +69,7 @@ folder:
             assign_results_to: items
 ```
 
-In this case the `controller` key points to the Query Controller's `locationQuery` action. `assign_results_to` identifies the parameter containing all the retrieved children that will later be used in the templates, like here in `app/Resources/views/full/folder.html.twig`:
+In this case the `controller` key points to the Query Controller's `locationQuery` action. `assign_results_to` identifies the parameter containing all the retrieved children that will later be used in the templates, like here in `templates/full/folder.html.twig`:
 
 ``` html+twig
 <h1>{{ ez_content_name(content) }}</h1>
@@ -77,21 +85,21 @@ This template makes use of the `items` specified in `assign_results_to` to list 
 
 There are three different ways of using a Custom Controller that you can learn about in the [Custom Controller section](../guide/controllers.md#custom-rendering-logic). In this case we will be applying the first of these, that is using the Custom Controller alongside the built-in ViewController.
 
-Configuring for the use of a Custom Controller starts with pointing to it in your standard view configuration (which you can keep in `ezplatform.yml` or a separate file, for example `views.yml`):
+Configuring for the use of a Custom Controller starts with pointing to it in your standard view configuration (which you can keep in `ezplatform.yaml` or a separate file, for example `views.yaml`):
 
 ``` yaml
 folder:
-    controller: app.controller.folder:showAction
+    controller: App\Controller\FolderController::showAction
     template: full/folder.html.twig
     match:
         Identifier\ContentType: folder
 ```
 
-You can see here the standard view config consisting of the `template` and `match` keys. Under the `controller` key you need to provide here the path to the Controller and the action. They are defined in `AppBundle/Controller/FolderController.php`:
+You can see here the standard view config consisting of the `template` and `match` keys. Under the `controller` key you need to provide here the path to the Controller and the action. They are defined in `src/Controller/FolderController.php`:
 
 ``` php
 <?php
-namespace AppBundle\Controller;
+namespace App\Controller;
 
 use eZ\Publish\API\Repository\ContentService;
 use eZ\Publish\API\Repository\LocationService;
@@ -100,7 +108,7 @@ use eZ\Publish\API\Repository\Values\Content\Query;
 use eZ\Publish\API\Repository\Values\Content\Query\SortClause;
 use eZ\Publish\Core\MVC\ConfigResolverInterface;
 use eZ\Publish\Core\MVC\Symfony\View\ContentView;
-use AppBundle\Criteria\Children;
+use App\Criteria\Children;
 
 class FolderController
 {
@@ -111,13 +119,13 @@ class FolderController
     /** @var \eZ\Publish\Core\MVC\ConfigResolverInterface */
     protected $configResolver;
 
-    /** @var \AppBundle\Criteria\Children */
+    /** @var \App\Criteria\Children */
     protected $childrenCriteria;
 
     /**
      * @param \eZ\Publish\API\Repository\SearchService $searchService
      * @param \eZ\Publish\Core\MVC\ConfigResolverInterface $configResolver
-     * @param \AppBundle\Criteria\Children $childrenCriteria
+     * @param \App\Criteria\Children $childrenCriteria
      */
     public function __construct(
         SearchService $searchService,
@@ -167,11 +175,11 @@ class FolderController
 ```
 
 As you can see, this Controller makes use of the `generateChildCriterion`,
-which means you need to provide an `AppBundle/Criteria/Children.php` file containing this function:
+which means you need to provide an `src/Criteria/Children.php` file containing this function:
 
 ``` php
 <?php
-namespace AppBundle\Criteria;
+namespace App\Criteria;
 
 use eZ\Publish\API\Repository\Values\Content\Location;
 use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
@@ -198,46 +206,24 @@ class Children
 }
 ```
 
-Next, you must register these two services in `AppBundle/Resources/config/services.yml`:
+Next, you must register these two services in `config/services.yaml`:
 
 ``` yaml
 services:
     app.criteria.children:
-        class: AppBundle\Criteria\Children
+        class: App\Criteria\Children
 
-    app.controller.folder:
-        class: AppBundle\Controller\FolderController
+    App\Controller\FolderController:
+        class: App\Controller\FolderController
         arguments:
             - '@ezpublish.api.service.search'
             - '@ezpublish.config.resolver'
             - '@app.criteria.children'
+        tags:
+              - { name: controller.service_arguments }
 ```
 
-The next step is to create an `AppBundle/DependencyInjection/AppExtension.php` file to load service configuration:
-
-``` php
-<?php
-namespace AppBundle\DependencyInjection;
-
-use Symfony\Component\HttpKernel\DependencyInjection\Extension;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
-use Symfony\Component\Config\FileLocator;
-
-class AppExtension extends Extension
-{
-    public function load(array $configs, ContainerBuilder $container)
-    {
-        $loader = new YamlFileLoader(
-            $container,
-            new FileLocator(__DIR__ . '/../Resources/config')
-        );
-        $loader->load('services.yml');
-    }
-}
-```
-
-Finally, let's use the Controller in a template in `app/Resources/views/full/folder.html.twig`:
+Finally, let's use the Controller in a template in `templates/full/folder.html.twig`:
 
 ``` html+twig
 <h1>{{ ez_content_name(content) }}</h1>

@@ -45,7 +45,7 @@ rm ezp_cron.txt
 ### Configuration
 
 Configuration of external URLs validation is SiteAccess-aware and is stored under `ezpublish.system.<SITEACCESS>.url_checker`.
-Example configuration (in `/app/config/ezplatform.yml`):
+Example configuration (in `config/packages/ezplatform.yaml`):
 
 ```yml
 ezpublish:
@@ -113,7 +113,7 @@ and register it with an `ezpublish.url_handler` tag. For instance:
 
 ```yaml
 app.url_checker.handler.custom:
-    class: 'AppBundle\URLChecker\Handler\CustomHandler'
+    class: 'App\URLChecker\Handler\CustomHandler'
     ...
     tags:
         - { name: ezpublish.url_handler, scheme: custom }
@@ -170,3 +170,34 @@ bin/console ezplatform:urls:regenerate-aliases
 ```
 
 Use an `--iteration-count` parameter to define how many Locations should be processed at once, to avoid too much memory use.
+
+## URL wildcards
+
+Using the Public API you can set up global URL wildcards for redirections.
+
+For example, a URL wildcard called `pictures/*/*` can use `media/images/{1}/{2}` as destination.
+In this case, accessing `<yourdomain>/pictures/home/photo/` will load `<yourdomain>/media/images/home/photo/`.
+
+URL wildcards can be created with the Public API with the help of the `URLWildcardService`:
+
+``` php
+$source = 'pictures/*/*';
+$destination = 'media/images/{1}/{2}';
+$redirect = true;
+
+$urlWildcardService = $repository->getURLWildcardService();
+$repository->sudo(function ($repository) use ($urlWildcardService, $source, $destination, $redirect) {
+    $urlWildcardService->create($source, $destination, $redirect);
+});
+```
+
+If `$redirect` is set to `true`, the redirection will change the URL address.
+If it is `false`, the old URL address will be used, with the new content.
+
+URL wildcards must be enabled in configuration with:
+
+``` yaml
+ezpublish:
+    url_wildcards:
+        enabled: true
+```

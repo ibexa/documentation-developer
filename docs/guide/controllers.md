@@ -38,8 +38,8 @@ ezpublish:
             content_view:
                 full:
                     article:
-                        controller: AcmeTestBundle:Default:articleViewEnhanced
-                        template: AcmeTestBundle:full:article.html.twig
+                        controller: App\Controller\DefaultController::articleViewEnhancedAction
+                        template: full/article.html.twig
                         match:
                             Identifier\ContentType: [article]
 ```
@@ -47,10 +47,9 @@ ezpublish:
 With this configuration, the following controller will forward the request to the built-in `ViewController` with some additional parameters:
 
 ``` php
-// Controller
 <?php
 
-namespace Acme\TestBundle\Controller;
+namespace App\Controller;
 
 use eZ\Bundle\EzPublishCoreBundle\Controller;
 use eZ\Publish\Core\MVC\Symfony\View\ContentView;
@@ -81,7 +80,7 @@ These parameters can then be used in templates, for example:
 
 ``` html+twig
 <!--article.html.twig-->
-{% extends noLayout ? viewbaseLayout : "eZDemoBundle::pagelayout.html.twig" %}
+{% extends no_layout ? view_base_layout : "pagelayout.html.twig" %}
 
 {% block content %}
     <h1>{{ ez_render_field( content, 'title' ) }}</h1>
@@ -99,26 +98,24 @@ One way to add custom logic to all responses is to use your own listener. Please
 If you want to apply only your custom controller **in a given match situation** and not use the `ViewController` at all, in the configuration you need to indicate the controller, but no template, for example:
 
 ``` yaml
-#ezplatform.yml
 ezpublish:
     system:
         default:
             content_view:
                 full:
                     folder:
-                        controller: AcmeTestBundle:Default:viewFolder
+                        controller: App\Controller\DefaultController::viewFolderAction
                         match:
                             Identifier\ContentType: [folder]
                             Identifier\Section: [standard]
 ```
 
-In this example, as the `ViewController` is not applied, the custom controller takes care of the whole process of displaying content, including pointing to the template to be used (in this case, `AcmeTestBundle::custom_controller_folder.html.twig`):
+In this example, as the `ViewController` is not applied, the custom controller takes care of the whole process of displaying content, including pointing to the template to be used (in this case, `full/custom_controller_folder.html.twig`):
 
 ``` php
-// Controller
 <?php
 
-namespace Acme\TestBundle\Controller;
+namespace App\Controller;
 
 use eZ\Bundle\EzPublishCoreBundle\Controller;
 use eZ\Publish\Core\MVC\Symfony\View\ContentView;
@@ -131,7 +128,7 @@ class DefaultController extends Controller
         $content = $view->getContent();
 
         $response = $this->render(
-            'AcmeTestBundle::custom_controller_folder.html.twig',
+            'full/custom_controller_folder.html.twig',
             [
                 'location' => $location,
                 'content' => $content,
@@ -151,8 +148,7 @@ class DefaultController extends Controller
 Here again custom parameters can be used in the template, e.g.:
 
 ``` html+twig
-<!--custom\_controller\_folder.html.twig-->
-{% extends "eZDemoBundle::pagelayout.html.twig" %}
+{% extends "pagelayout.html.twig" %}
 
 {% block content %}
 <h1>{{ ez_render_field( content, 'name' ) }}</h1>
@@ -180,9 +176,10 @@ The Query controller makes it easy to retrieve content without writing custom PH
 
 This example assumes a "Blog" container that contains a set of "Blog post" items. The goal is, when viewing a Blog, to list the Blog posts it contains.
 
-Three items are required:
+Four items are required:
 
 - a `LocationChildren` QueryType - It will generate a Query retrieving the children of a given Location id
+- service registration of the QueryType
 - a View template - It will render the Blog, and list the Blog posts it contains
 - a `content_view` configuration - It will instruct Platform, when viewing a Content item of type Blog, to use the Query Controller, the view template, and the `LocationChildren` QueryType. It will also map the id of the viewed Blog to the QueryType parameters, and set which Twig variable the results will be assigned to.
 
@@ -191,9 +188,8 @@ Three items are required:
 QueryTypes are described in more detail in the [next section](#querytype-objects). In short, a QueryType can build a Query object, optionally based on a set of parameters. The following example will build a Query that retrieves the sub-items of a Location:
 
 ``` php
-// src/AppBundle/QueryType/LocationChildrenQueryType.php
 <?php
-namespace AppBundle\QueryType;
+namespace App\QueryType;
 
 use eZ\Publish\API\Repository\Values\Content\LocationQuery;
 use eZ\Publish\API\Repository\Values\Content\Query\Criterion\ParentLocationId;
@@ -220,19 +216,25 @@ class LocationChildrenQueryType implements QueryType
 }
 ```
 
-Any class will be registered as a QueryType when it:
+#### Service registration
 
-- implements the QueryType interface,
-- is located in the QueryType subfolder of a bundle, and in a file named `<Something>QueryType.php`.
+The QueryType must be registered as a service with the `ezpublish.query_type` tag:
 
-If the QueryType has dependencies, it can be manually tagged as a service using the `ezpublish.query_type` service tag, but it is not required in that case.
+``` yaml
+App\QueryType\LocationChildrenQueryType:
+    tags:
+        - { name: ezpublish.query_type }
+```
+
+If it is located in the `QueryType` subfolder of a bundle in a file named `<Something>QueryType.php`,
+a QueryType will be registered automatically.
+However, if it has dependencies, you still need to register it manually, even from a bundle.
 
 #### The `content_view` configuration
 
 We now need a view configuration that matches Content items of type "Blog", and uses the QueryController to fetch the blog posts:
 
 ``` yaml
-# app/config/ezplatform.yml
 ezpublish:
       system:
             site_group:
@@ -264,7 +266,6 @@ The QueryController is configured in the `query` array, inside the `params` of t
 Results from the search are assigned to the `blog_posts` variable as a `SearchResult` object. In addition, since the standard ViewController is used, the currently viewed `location` and `content` are also available.
 
 ``` yaml
-#app/Resources/views/content/full/blog.html.twig
 <h1>{{ ez_content_name(content) }}</h1>
 
 {% for blog_post in blog_posts.searchHits %}
@@ -299,7 +300,7 @@ The Query is configured in a `query` hash in `params`, you could specify the Que
 
 #### QueryType objects
 
-QueryType is an object that build a Query. It is different from [Public API queries](../api/public_php_api.md).
+QueryType is an object that builds a Query. It is different from [Public API queries](../api/public_php_api.md).
 
 To make a new QueryType available to the Query Controller, you need to create a PHP class that implements the QueryType interface, then register it as such in the Service Container.
 
@@ -357,9 +358,12 @@ It accepts an optional `type` parameter that can be set to a ContentType identif
 
 ``` php
 <?php
-namespace AppBundle\QueryType;
+namespace App\QueryType;
+
 use eZ\Publish\Core\QueryType\QueryType;
+use eZ\Publish\API\Repository\Values\Content\LocationQuery;
 use eZ\Publish\API\Repository\Values\Content\Query;
+
 class LatestContentQueryType implements QueryType
 {
     public function getQuery(array $parameters = [])
@@ -369,7 +373,7 @@ class LatestContentQueryType implements QueryType
             $criteria[] = new Query\Criterion\ContentTypeIdentifier($parameters['type']);
         }
         // 10 is the default limit we set, but you can have one defined in the parameters
-        return new Query([
+        return new LocationQuery([
             'filter' => new Query\Criterion\LogicalAnd($criteria),
             'sortClauses' => [new Query\SortClause\DatePublished()],
             'limit' => isset($parameters['limit']) ? $parameters['limit'] : 10,
@@ -377,7 +381,7 @@ class LatestContentQueryType implements QueryType
     }
     public static function getName()
     {
-        return 'AppBundle:LatestContent';
+        return 'LatestContent';
     }
     /**
      * Returns an array listing the parameters supported by the QueryType.
@@ -403,15 +407,15 @@ In addition to creating a class for a `QueryType`, you must also register the Qu
 #### By convention
 
 Any class named `<Bundle>\QueryType\*QueryType` that implements the QueryType interface will be registered as a custom QueryType.
-Example: `AppBundle\QueryType\LatestContentQueryType`.
+Example: `AcmeExampleBundle\QueryType\LatestContentQueryType`.
 
 #### Using a service tag
 
-If the proposed convention doesn't work for you, QueryTypes can be manually tagged in the service declaration:
+QueryTypes can be manually tagged in the service declaration.
+You need to do this when your QueryType is located in your project, not in a separate bundle:
 
 ``` yaml
-acme.query.latest_content:
-    class: AppBundle\Query\LatestContent
+App\QueryType\LatestContent:
     tags:
         - {name: ezpublish.query_type}
 ```
@@ -444,9 +448,10 @@ The LatestContentQueryType from the [example above](#querytype-example-latest-co
 ``` php
 <?php
 
-namespace AppBundle\QueryType;
+namespace App\QueryType;
 
 use eZ\Publish\API\Repository\Values\Content\Query;
+use eZ\Publish\API\Repository\Values\Content\LocationQuery;
 use eZ\Publish\Core\QueryType\OptionsResolverBasedQueryType;
 use eZ\Publish\Core\QueryType\QueryType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -462,7 +467,7 @@ class OptionsBasedLatestContentQueryType extends OptionsResolverBasedQueryType i
             $criteria[] = new Query\Criterion\ContentTypeIdentifier($parameters['type']);
         }
 
-        return new Query([
+        return new LocationQuery([
             'filter' => new Query\Criterion\LogicalAnd($criteria),
             'sortClauses' => [
                 new Query\SortClause\DatePublished()
@@ -473,7 +478,7 @@ class OptionsBasedLatestContentQueryType extends OptionsResolverBasedQueryType i
 
     public static function getName()
     {
-        return 'AppBundle:LatestContent';
+        return 'LatestContent';
     }
 
     protected function configureOptions(OptionsResolver $resolver)

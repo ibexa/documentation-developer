@@ -83,7 +83,7 @@ An event subscriber can be implemented as follows:
 
 ``` php
 <?php
-namespace EzSystems\EzPlatformAdminUi\EventListener;
+namespace App\EventListener;
 
 use EzSystems\EzPlatformAdminUi\Menu\Event\ConfigureMenuEvent;
 use EzSystems\EzPlatformAdminUi\Menu\MainMenuBuilder;
@@ -110,17 +110,18 @@ class MenuListener implements EventSubscriberInterface
 }
 ```
 
-After creating a subscriber, add it to `app/config/services.yml`:
+If [the autoconfigure option](https://symfony.com/doc/4.3/service_container.html#the-autoconfigure-option) is disabled,
+you need to register the service with the `kernel.event.subscriber` tag in `config/services.yaml`:
 
 ``` yaml
 services:
-    EzSystems\EzPlatformAdminUi\EventListener\MenuListener:
+    App\EventListener\MenuListener:
         tags:
            - { name: kernel.event.subscriber }
 
 ```
 
-Providing the `kernel.event.subscriber` tag is necessary only if [the autoconfigure option](https://symfony.com/doc/3.4/service_container.html#the-autoconfigure-option) is disabled.
+
 
 ### Adding menu items
 
@@ -212,7 +213,7 @@ $menu->addChild(
     'menu_item_with_params',
     [
         'extras' => [
-            'template' => 'AppBundle::menu_item_template.html.twig',
+            'template' => 'admin_ui/menu_item_template.html.twig',
             'template_parameters' => [
                 'custom_parameter' => 'value',
             ],
@@ -221,7 +222,7 @@ $menu->addChild(
 );
 ```
 
-You can then use the variable `custom_parameter` in `AppBundle::menu_item_template.html.twig`.
+You can then use the variable `custom_parameter` in `templates/admin_ui/menu_item_template.html.twig`.
 
 #### Translatable labels
 
@@ -269,7 +270,9 @@ In the following example, the `DashboardEventSubscriber.php` reverses the order 
 (in a default installation this makes the "Everyone" block appear above the "Me" block):
 
 ``` php
-namespace AppBundle\EventListener;
+<?php
+
+namespace App\EventListener;
 
 use EzSystems\EzPlatformAdminUi\Component\Event\RenderGroupEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -309,12 +312,12 @@ You can extend existing tab groups with new tabs, or create your own tab groups.
 
 ### Adding a new tab group
 
-To create a custom tab group with additional logic you need to create it at the level of compiling the Symfony container, using a [CompilerPass](https://symfony.com/doc/3.4/service_container/compiler_passes.html).
+To create a custom tab group with additional logic you need to create it at the level of compiling the Symfony container, using a [CompilerPass](https://symfony.com/doc/4.3/service_container/compiler_passes.html).
 
-For example, in `src/AppBundle/DependencyInjection/Compiler/CustomTabGroupPass.php`:
+For example, in `src/DependencyInjection/Compiler/CustomTabGroupPass.php`:
 
 ``` php
-namespace AppBundle\DependencyInjection\Compiler;
+namespace App\DependencyInjection\Compiler;
 
 use EzSystems\EzPlatformAdminUi\Tab\TabGroup;
 use EzSystems\EzPlatformAdminUi\Tab\TabRegistry;
@@ -340,14 +343,24 @@ class CustomTabGroupPass implements CompilerPassInterface
 }
 ```
 
+You also need to add the compiler pass to `src/Kernel.php`:
+
+``` php
+protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader): void
+{
+    //
+    $container->addCompilerPass(new CustomTabGroupPass());
+}
+```
+
 A shorter way that you can use when no custom logic is required, is to add your own tab with the new group.
 If a tab's group is not defined, it will be created automatically.
 
-A new tab group can be rendered using the [`ez_platform_tabs`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Templating/Twig/TabExtension.php#L58) Twig helper:
+A new tab group can be rendered using the [`ez_render_tab_group`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Templating/Twig/TabExtension.php#L58) Twig helper:
 
 ``` html+twig
 <div class="my-tabs">
-    {{ ez_platform_tabs('custom-tab-group') }}
+    {{ ez_render_tab_group('custom-tab-group') }}
 </div>
 ```
 
@@ -358,22 +371,20 @@ This will render the group and all tabs assigned to it.
 Before you add a tab to a group you must create the tab's PHP class and define it as a Symfony service with the `ezplatform.tab` tag:
 
 ``` yaml
-AppBundle\Custom\Tab:
+App\Custom\Tab:
     parent: EzSystems\EzPlatformAdminUi\Tab\AbstractTab
+    autowire: true
+    autoconfigure: false
     tags:
-        - { name: ezplatform.tab, group: custom-tab-group }
+        - { name: ezplatform.tab, group: dashboard-everyone }
 ```
 
-This configuration also assigns the new tab to `custom-tab-group`.
+This configuration also assigns the new tab to `dashboard-everyone`.
 
-!!! tip
-
-    If the `custom-tab-group` does not yet exist, it will be created automatically at this point.
-
-The tab class can look like this (in `src/AppBundle/Custom/Tab.php`):
+The tab class can look like this (in `src/Custom/Tab.php`):
 
 ``` php
-namespace AppBundle\Custom;
+namespace App\Custom;
 
 use EzSystems\EzPlatformAdminUi\Tab\AbstractTab;
 
@@ -394,7 +405,7 @@ class Tab extends AbstractTab
     {
         // Do rendering here
 
-        return $this->twig->render('AppBundle:my_tabs/custom.html.twig', [
+        return $this->twig->render('my_tabs/custom.html.twig', [
             'foo' => 'Bar!',
         ]);
     }
@@ -625,15 +636,15 @@ A component is any class that implements the `Renderable` interface.
 It must be tagged as a service:
 
 ``` yaml
-AppBundle\Component\MyNewComponent:
+App\Component\MyNewComponent:
     tags:
         - { name: ezplatform.admin_ui.component, group: content-edit-form-before }
 ```
 
 `group` indicates where the widget will be displayed. The available groups are:
 
-- [`stylesheet-head`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L88)
-- [`script-head`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L89)
+- [`stylesheet-head`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/themes/admin/ui/layout.html.twig#L96)
+- [`script-head`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/themes/admin/ui/layout.html.twig#L97)
 - [`stylesheet-body`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L175)
 - [`script-body`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L176)
 - [`custom-admin-ui-modules`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/layout.html.twig#L147)
@@ -643,6 +654,7 @@ AppBundle\Component\MyNewComponent:
 - [`content-create-form-before`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/content/content_edit/content_create.html.twig#L60)
 - [`content-create-form-after`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/content/content_edit/content_create.html.twig#L68)
 - [`dashboard-blocks`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/dashboard/dashboard.html.twig#L30)
+- [`calendar-widget-before`](https://github.com/ezsystems/ezplatform-calendar/blob/master/src/bundle/Resources/views/themes/admin/calendar/view.html.twig#L21)
 
 ### Base component classes
 
@@ -658,6 +670,8 @@ In this case all you have to do is add a service definition (with proper paramet
 ``` yaml
 appbundle.components.my_twig_component:
     parent: EzSystems\EzPlatformAdminUi\Component\TwigComponent
+    autowire: true
+    autoconfigure: false
     arguments:
         $template: path/to/file.html.twig
         $parameters:
@@ -672,8 +686,10 @@ This renders the `path/to/file.html.twig` template with `first_param` and `secon
 With `LinkComponent` and `ScriptComponent` you provide `$href` and `$src` as arguments, respectively:
 
 ``` yaml
-appbundle.components.my_link_component:
+app.components.my_link_component:
     parent: EzSystems\EzPlatformAdminUi\Component\LinkComponent
+    autowire: true
+    autoconfigure: false
     arguments:
         $href: 'http://address.of/file.css'
     tags:
@@ -681,8 +697,10 @@ appbundle.components.my_link_component:
 ```
 
 ``` yaml
-appbundle.components.my_script_component:
+app.components.my_script_component:
     parent: EzSystems\EzPlatformAdminUi\Component\ScriptComponent
+    autowire: true
+    autoconfigure: false
     arguments:
         $src: 'http://address.of/file.js'
     tags:
@@ -726,12 +744,12 @@ You can also format date and time by using the following services:
 - `@ezplatform.user.settings.full_date_format.formatter`
 - `@ezplatform.user.settings.full_time_format.formatter`
 
-To use them, create an `src\AppBundle\Service\MyService.php` file containing:
+To use them, create an `src\Service\MyService.php` file containing:
 
 ``` php
 <?php
 
-namespace AppBundle\Service;
+namespace App\Service;
 
 use EzSystems\EzPlatformUser\UserSetting\DateTimeFormat\FormatterInterface;
 
@@ -762,11 +780,11 @@ class MyService
 }
 ```
 
-Then, add the following to `app/config/services.yml`:
+Then, add the following to `config/services.yaml`:
 
 ``` yaml
 services:    
-    AppBundle\Service\MyService:
+    App\Service\MyService:
         arguments:
             $shortDateTimeFormatter: '@ezplatform.user.settings.short_datetime_format.formatter'
 ```
@@ -778,14 +796,14 @@ You can add new preferences to the User settings menu in the Back Office.
 To do so, create a setting class implementing two interfaces:
 `ValueDefinitionInterface` and `FormMapperInterface`.
 
-In this example the class is located in `AppBundle/Setting/Unit.php`
+In this example the class is located in `src/Setting/Unit.php`
 and enables the user to select their preference for metric or imperial unit systems.
 
 ``` php
 <?php
 declare(strict_types=1);
 
-namespace AppBundle\Setting;
+namespace App\Setting;
 
 use EzSystems\EzPlatformUser\UserSetting\FormMapperInterface;
 use EzSystems\EzPlatformUser\UserSetting\ValueDefinitionInterface;
@@ -853,7 +871,7 @@ class Unit implements ValueDefinitionInterface, FormMapperInterface
 Register the class as a service:
 
 ``` yaml
-AppBundle\Setting\Unit:
+App\Setting\Unit:
     tags:
         - { name: ezplatform.admin_ui.user_setting.value, identifier: unit, priority: 50 }
         - { name: ezplatform.admin_ui.user_setting.form_mapper, identifier: unit }
@@ -862,3 +880,33 @@ AppBundle\Setting\Unit:
 You can order the settings in the User menu by setting their `priority`.
 
 The value of the setting is accessible with `ez_user_settings['unit']`.
+
+### User settings edit templates
+
+You can also define a template to be used when editing the given setting:
+
+``` yaml
+ezpublish:
+    system:
+        admin_group:
+            user_settings_update_view:
+                full:
+                    unit:
+                        template: AppBundle:user:settings/update_unit.html.twig
+                        match:
+                            Identifier: [ unit ]
+```
+
+The template must extend the `@ezdesign/user/settings/update.html.twig` template:
+
+``` html+twig
+{% extends '@ezdesign/user/settings/update.html.twig' %}
+
+{% block form %}
+    {{ parent() }}
+    <div class="alert ez-alert--info mt-4" role="alert">
+        Imperial units are: yard, mile, pound, etc.</br>
+        Metric units are: meter, kilometer, kilogram, etc.
+    </div>
+{% endblock %}
+```

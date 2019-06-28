@@ -10,7 +10,7 @@ LiipImagineBundle only works on image blobs (no command line tool is needed). Se
 
 ## Configuring image variations
 
-Custom image variations are defined in `ezplatform.yml` or any imported semantic configuration file. The definition is [dynamic](configuration.md#dynamic-configuration-with-the-configresolver), so it can be configured per SiteAccess and all the other scopes.
+Custom image variations are defined in `ezplatform.yaml` or any imported semantic configuration file. The definition is [dynamic](configuration.md#dynamic-configuration-with-the-configresolver), so it can be configured per SiteAccess and all the other scopes.
 
 ``` yaml
 # Example image variation definition
@@ -56,7 +56,7 @@ The following parameters are set for each variation:
 
 ### Built-in image variations
 
-A few basic image variations are included by default in eZ Platform in the `default_settings.yml` config file:
+A few basic image variations are included by default in eZ Platform in the `default_settings.yaml` config file:
 
 ``` yaml
 ezsettings.default.image_variations:
@@ -160,7 +160,6 @@ ez_render_field( content, 'image', { parameters: { 'alias': 'medium' } } )
 If you were using ImageMagick, install [Imagick](http://php.net/imagick) or [Gmagick](http://php.net/gmagick) PHP extensions and activate the driver in `liip_imagine `([see LiipImagineBundle configuration documentation for more information](http://symfony.com/doc/master/bundles/LiipImagineBundle/configuration.html)):
 
 ``` yaml
-# ezplatform.yml or config.yml
 liip_imagine:
     # Driver can be either "imagick", "gmagick" or "gd", depending on the PHP extension you're using.
     driver: imagick

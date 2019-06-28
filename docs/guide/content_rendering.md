@@ -21,7 +21,6 @@ The **ViewProvider** allows you to configure template selection when using the `
 The ViewProvider takes its configuration from your SiteAccess in the `content_view` section. This configuration is [necessary for views to be defined](templates.md#templating-basics) and is a hash built in the following way:
 
 ``` yaml
-#app/config/ezplatform.yml
 ezpublish:
     system:
         # Defines the scope: a valid SiteAccess, SiteAccess group or even "global"
@@ -32,9 +31,8 @@ ezpublish:
                 full:
                     # A simple unique key for your matching ruleset
                     folderRuleset:
-                        # The template identifier to load, following the Symfony bundle notation for templates
-                        # See http://symfony.com/doc/current/book/controller.html#rendering-templates
-                        template: eZDemoBundle:full:small_folder.html.twig
+                        # The template identifier to load
+                        template: full/small_folder.html.twig
                         # Hash of matchers to use, with their corresponding values to match against
                         match:
                             # The key defines the matcher rule (class name or service identifier)
@@ -129,8 +127,8 @@ Main Content-related variables include:
 |------|------|------|
 |`content`|[eZ\Publish\Core\Repository\Values\Content\Content](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Repository/Values/Content/Content.php)|The Content item, containing all Fields and version information (VersionInfo)|
 |`location`|[eZ\Publish\Core\Repository\Values\Content\Location](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Repository/Values/Content/Location.php)|The Location object. Contains meta information on the Content (ContentInfo) (only when accessing a Location) |
-|`noLayout`|Boolean|If true, indicates if the Content item/Location is to be displayed without any pagelayout (i.e. AJAX, sub-requests, etc.). It's generally `false` when displaying a Content item in view type **full**.|
-|`viewBaseLayout`|String|The base layout template to use when the view is requested to be generated outside of the pagelayout (when `noLayout` is true).|
+|`no_layout`|Boolean|If true, indicates if the Content item/Location is to be displayed without any pagelayout (i.e. AJAX, sub-requests, etc.). It's generally `false` when displaying a Content item in view type **full**.|
+|`view_base_layout`|String|The base layout template to use when the view is requested to be generated outside of the pagelayout (when `no_layout` is true).|
 
 The `dump()` function also displays other variables, such as specific configuration including the SiteAccess
 under the `ezpublish` key.
@@ -139,10 +137,10 @@ under the `ezpublish` key.
 
 Like any template, a content view template can use [template inheritance](http://symfony.com/doc/current/book/templating.html#template-inheritance-and-layouts). However keep in mind that your Content may be also requested via [sub-requests](https://symfony.com/doc/current/templating/embedding_controllers.html) (see below how to render [embedded Content items](templates.md#embedding-content-items)), in which case you probably don't want the global layout to be used.
 
-If you use different templates for embedded content views, this should not be a problem. If you'd rather use the same template, you can use an extra `noLayout` view parameter for the sub-request, and conditionally extend an empty pagelayout:
+If you use different templates for embedded content views, this should not be a problem. If you'd rather use the same template, you can use an extra `no_layout` view parameter for the sub-request, and conditionally extend an empty pagelayout:
 
 ``` html+twig
-{% extends noLayout ? viewbaseLayout : "AcmeDemoBundle::pagelayout.html.twig" %}
+{% extends no_layout ? view_base_layout : "pagelayout.html.twig" %}
 
 {% block content %}
 ...
@@ -168,7 +166,7 @@ Templates for the most common view types (content/full, line, embed, or block) c
 
 ###### Example
 
-Add this configuration to `app/config/config.yml` to use `app/Resources/content/view/full.html.twig` as the default template when viewing Content with the `full` view type:
+Add this configuration to `config/packages/ezplatform_admin_ui.yaml` to use `templates/content/view/full.html.twig` as the default template when viewing Content with the `full` view type:
 
 ``` yaml
 parameters:
@@ -177,7 +175,7 @@ parameters:
 
 ##### Customizing the default controller
 
-The controller used to render content by default can also be changed. The `ezsettings.default.content_view_defaults` container parameter contains a hash that defines how content is rendered by default. It contains a set of [content view rules for the common view types](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/default_settings.yml#L37-L65). This hash can be redefined to whatever suits your requirements, including custom controllers, or even matchers.
+The controller used to render content by default can also be changed. The `ezsettings.default.content_view_defaults` container parameter contains a hash that defines how content is rendered by default. It contains a set of [content view rules for the common view types](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/default_settings.yaml#L37-L65). This hash can be redefined to whatever suits your requirements, including custom controllers, or even matchers.
 
 ### View providers
 
@@ -199,8 +197,7 @@ By default, the [Configured ViewProvider](#configuring-views-the-viewprovider) i
 
 ``` yaml
 services:
-    acme.my_view_provider:
-        class: Acme\DemoBundle\Content\MyViewProvider
+    App\Content\MyViewProvider:
         tags:
             - {name: ezpublish.view_provider, type: eZ\Publish\Core\MVC\Symfony\View\ContentView, priority: 30}
 ```
@@ -214,7 +211,7 @@ services:
 ``` php
 // Custom ViewProvider
 <?php
-namespace Acme\DemoBundle\Content;
+namespace App\Content;
 
 use eZ\Publish\Core\MVC\Symfony\View\ContentView;
 use eZ\Publish\Core\MVC\Symfony\View\View;
@@ -246,13 +243,13 @@ class MyViewProvider implements ViewProvider
         // Let's check location Id
         if ($location->id === self::HOMEPAGE_ID) {
             // Special template for home page, passing "foo" variable to the template
-            return new ContentView("AcmeDemoBundle:$viewType:home.html.twig", ['foo' => 'bar']);
+            return new ContentView("$viewType/home.html.twig", ['foo' => 'bar']);
         }
 
         // And let's also check ContentType Id
         if ($location->contentInfo->contentTypeId === self::FOLDER_CONTENT_TYPE_ID) {
-            // For view full, it will load AcmeDemoBundle:full:small_folder.html.twig
-            return new ContentView("AcmeDemoBundle:$viewType:small_folder.html.twig");
+            // For view full, it will load full/small_folder.html.twig
+            return new ContentView("$viewType/small_folder.html.twig");
         }
 
         return null;
@@ -276,18 +273,18 @@ This section presents the events that are triggered by eZ Platform.
 
 ### Twig Helper
 
-eZ Platform comes with a Twig helper as a [global variable](http://symfony.com/doc/master/cookbook/templating/global_variables.html) named `ezpublish`.
+eZ Platform comes with a Twig helper as a [global variable](http://symfony.com/doc/master/cookbook/templating/global_variables.html) named `ezplatform`.
 
 This helper is accessible from all Twig templates and allows you to easily retrieve useful information.
 
 |Property|Description|
 |------|------|
-|`ezpublish.siteaccess`|Returns the current SiteAccess.|
-|`ezpublish.rootLocation`|Returns the root Location object.|
-|`ezpublish.requestedUriString`|Returns the requested URI string (also known as semanticPathInfo).|
-|`ezpublish.systemUriString`|	Returns the "system" URI string. System URI is the URI for internal content controller. If current route is not an URLAlias, then the current Pathinfo is returned.|
-|`ezpublish.viewParameters`|Returns the view parameters as a hash.|
-|`ezpublish.viewParametersString`|Returns the view parameters as a string.|
-|`ezpublish.translationSiteAccess`|Returns the translation SiteAccess for a given language, or null if it cannot be found.|
-|`ezpublish.availableLanguages`|Returns the list of available languages.|
-|`ezpublish.configResolver`|Returns the config resolver.|
+|`ezplatform.siteaccess`|Returns the current SiteAccess.|
+|`ezplatform.rootLocation`|Returns the root Location object.|
+|`ezplatform.requestedUriString`|Returns the requested URI string (also known as semanticPathInfo).|
+|`ezplatform.systemUriString`|	Returns the "system" URI string. System URI is the URI for internal content controller. If current route is not an URLAlias, then the current Pathinfo is returned.|
+|`ezplatform.viewParameters`|Returns the view parameters as a hash.|
+|`ezplatform.viewParametersString`|Returns the view parameters as a string.|
+|`ezplatform.translationSiteAccess`|Returns the translation SiteAccess for a given language, or null if it cannot be found.|
+|`ezplatform.availableLanguages`|Returns the list of available languages.|
+|`ezplatform.configResolver`|Returns the config resolver.|

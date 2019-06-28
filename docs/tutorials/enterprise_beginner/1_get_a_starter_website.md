@@ -67,14 +67,14 @@ Place the [`pagelayout.html.twig`](https://github.com/ezsystems/ezstudio-beginne
 
 Place two configuration files in `app/config` folder:
 
-- [`views.yml`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/app/config/views.yml)
-- [`image_variations.yml`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/app/config/image_variations.yml)
+- [`views.yaml`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/app/config/views.yaml)
+- [`image_variations.yaml`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/app/config/image_variations.yaml)
 
-Modify the `config.yml` file located in `app/config` folder and add the following lines at the end of the `imports` block:
+Modify the `config.yaml` file located in `app/config` folder and add the following lines at the end of the `imports` block:
 
 ``` yaml
-    - { resource: views.yml }
-    - { resource: image_variations.yml }
+    - { resource: views.yaml }
+    - { resource: image_variations.yaml }
 ```
 
 In `web/assets` folder create:
@@ -89,7 +89,7 @@ Finally, add the following files to `src/AppBundle`, to create dynamic links in
 - [`Controller/MenuController.php`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/src/AppBundle/Controller/MenuController.php)
 - [`DependencyInjection/AppExtension.php`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/src/AppBundle/DependencyInjection/AppExtension.php)
 - [`QueryType/MenuQueryType.php`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/src/AppBundle/QueryType/MenuQueryType.php)
-- [`Resources/config/services.yml`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/src/AppBundle/Resources/config/services.yml)
+- [`Resources/config/services.yaml`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/src/AppBundle/Resources/config/services.yaml)
 
 All the files you've placed in `src/AppBundle` are not the scope of this tutorial and we won't go here into detail on how they work.
 

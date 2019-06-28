@@ -6,7 +6,7 @@ eZ Platform comes with a collection of Field Types that can be used to build pow
 
 !!! tip
 
-    For general Field Type documentation, see [Field Type API](../api/field_type_api.md). 
+    For general Field Type documentation, see [Field Type API](../api/field_type_api.md).
     For the documentation on how to implement a custom Field Type, see the [Creating a Tweet Field Type](../tutorials/field_type/creating_a_tweet_field_type.md) tutorial.
 
 Custom Field Types have to be programmed in PHP. However, the built-in Field Types are usually sufficient enough for typical scenarios. The following table gives an overview of the supported Field Types that come with eZ Platform.
@@ -1424,7 +1424,7 @@ Example:
 Example use:
 
 ``` yaml
-# ezplatform.yml
+# ezplatform.yaml
 ezpublish:
     system:
         site_group:
@@ -1707,7 +1707,7 @@ services:
     Example usage:
 
     ``` html+twig
-    {{ render_esi(controller('EzPlatformPageFieldTypeBundle:Block:render', {
+    {{ render_esi(controller('EzPlatformPageFieldTypeBundle\Controller\BlockController::renderAction', {
         'locationId': locationId,
         'blockId': block.id,
         'versionNo': versionInfo.versionNo,
@@ -1727,9 +1727,9 @@ services:
                 {% for block in blocks %}
                     {# create a new layer with appropriate ID #}
                     <div class="landing-page__block block_{{ block.type }}" data-ez-block-id="{{ block.id }}">
-                        {# render the block by using the "EzPlatformPageFieldTypeBundle:Block:render" controller #}
+                        {# render the block by using the "EzPlatformPageFieldTypeBundle\Controller\BlockController::renderAction" controller #}
                         {# location.id is the ID of the Location of the current Content item, block.id is the ID of the current block #}
-                        {{ render_esi(controller('EzPlatformPageFieldTypeBundle:Block:render', {
+                        {{ render_esi(controller('EzPlatformPageFieldTypeBundle\Controller\BlockController::renderAction', {
                             'locationId': locationId,
                             'blockId': block.id,
                             'versionNo': versionInfo.versionNo,

@@ -83,7 +83,7 @@ This release has received lots of fixes to remove deprecation warnings when runn
         -   *Contribution by Inviqa to improve performance when running eZ Platform on S3*
 -   ##### Developer Experience:
 
-    -   Docker: Added Redis support and some more inline documentation ([see `doc/` folder](https://github.com/ezsystems/ezplatform/blob/ff191377fc68c53478c68da892f9eb79dce6347e/doc/docker-compose/redis.yml))
+    -   Docker: Added Redis support and some more inline documentation ([see `doc/` folder](https://github.com/ezsystems/ezplatform/blob/ff191377fc68c53478c68da892f9eb79dce6347e/doc/docker-compose/redis.yaml))
 
 ## Full list of changes
 
@@ -91,7 +91,7 @@ For full list of changes see issue list in JIRA:  [44 issues](https://jira.ez.n
 
 ## Updating
 
-To update to this version, follow the [Updating eZ Platform](updating_ez_platform.md) guide and use `v1.5.0` as `<version>`.
+To update to this version, follow the [Updating eZ Platform](../updating/updating_ez_platform.md) guide and use `v1.5.0` as `<version>`.
 
 ### New eZ packages in this release
 

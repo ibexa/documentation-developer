@@ -163,7 +163,7 @@
     ``` yaml hl_lines="5"
     services:
         # ...
-        AppBundle\Event\Workflow\PublishOnLastStageSubscriber:
+        App\Event\Workflow\PublishOnLastStageSubscriber:
             arguments:
                 $publishOnLastStageWorkflows: '%app.workflow.publish_on_last_stage%'
     ```
@@ -195,5 +195,5 @@
     ``` yaml
     services:
         # ...
-        AppBundle\Event\Subscriber\EndWorkflowSubscriber: ~
+        App\Event\Subscriber\EndWorkflowSubscriber: ~
     ```

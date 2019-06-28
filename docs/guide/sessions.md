@@ -25,7 +25,7 @@ so you can also define session configuration per SiteAccess and SiteAccess group
 
 ### Session options per SiteAccess
 
-All site-related session configuration can be defined per SiteAccess and SiteAccess group (in `ezplatform.yml`):
+All site-related session configuration can be defined per SiteAccess and SiteAccess group:
 
 ``` yaml
 ezpublish:
@@ -55,7 +55,7 @@ Symfony can be configured to use custom handlers, or just fall back to what is 
 eZ Platform adapts Symfony's defaults to make sure its session save path is always taken into account:
 
 ``` yaml
-# Default config.yml session configuration
+# Default session configuration
 framework:
     session:
         # handler_id can be set to null (~) like default in Symfony, if it so will use default session handler from php.ini
@@ -80,7 +80,7 @@ See [shared sessions in the clustering guide](clustering.md#shared-sessions).
 To set up eZ Platform using [Memcached](https://pecl.php.net/package/memcached) you need to:
 
 - [Configure the session save handler settings in `php.ini`](http://php.net/manual/en/memcached.sessions.php)
-- Set `%ezplatform.session.handler_id%` to `~` (null_ in `app/config/parameter.yml`
+- Set `%ezplatform.session.handler_id%` to `~` (null) in `config/packages/ezplatform.yaml`
 
 Alternatively if you need to configure Memcached servers dynamically:
 
@@ -105,16 +105,16 @@ session locking.
 To set up eZ Platform using the [Redis](https://pecl.php.net/package/redis) you need to:
 
 - [Configure the session save handler settings in `php.ini`](https://github.com/phpredis/phpredis/#php-session-handler)
-- Set `%ezplatform.session.handler_id%` to `~` _(null)_ in `app/config/parameter.yml`
+- Set `%ezplatform.session.handler_id%` to `~` _(null)_ in `config/packages/ezplatform.yaml`
 
 Alternatively if you have needs to configure Redis servers dynamically:
 
 - Set `%ezplatform.session.handler_id%` (or `SESSION_HANDLER_ID` env var) to `ezplatform.core.session.handler.native_redis`
 - Set `%ezplatform.session.save_path%` (or `SESSION_SAVE_PATH` env var) to [save_path config for Redis](https://github.com/phpredis/phpredis/#php-session-handler)
 
-!!! note
+!!! cloud "eZ Platform Cloud"
 
-    For eZ Platform Cloud (and Platform.sh), this is already configured in `app/config/env/platformsh.php` based on `.platform.yml` config.
+    For eZ Platform Cloud (and Platform.sh), this is already configured in `config/env/platformsh.php` based on `.platform.yaml` config.
 
 If you are on `php-redis` v4.2.0 and higher, you can optionally tweak [`php-redis` settings](https://github.com/phpredis/phpredis#session-locking) for session locking.
 
@@ -149,14 +149,12 @@ parameters:
         db_time_col: session_time
 
 services:
-    pdo:
-        class: PDO
+    PDO:
         arguments:
             dsn: 'mysql:dbname=<mysql_database>'
             user: <mysql_user>
             password: <mysql_password>
 
-    session.handler.pdo:
-        class: Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler
+    Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler:
         arguments: ['@pdo', '%pdo.db_options%']
 ```

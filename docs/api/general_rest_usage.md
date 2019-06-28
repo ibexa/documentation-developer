@@ -261,13 +261,11 @@ More information can be found in [Session-based authentication chapter of the RE
 
 ### HTTP Basic authentication
 
-To enable HTTP basic authentication, you need to edit `app/config/security.yml`, and add/uncomment the following block. Note that this is enabled by default.
+To enable HTTP basic authentication, you need to edit `config/packages/security.yaml`, and add/uncomment the following block. Note that this is enabled by default.
 
 !!! caution
 
     Until [EZP-22192](https://jira.ez.no/browse/EZP-22192) is implemented, enabling basic authentication in REST will prevent PlatformUI from working.
-
-**ezplatform.yml**
 
 ``` yaml
 ezpublish_rest:

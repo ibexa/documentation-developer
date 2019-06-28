@@ -117,4 +117,4 @@ If you would like to request an Enterprise Demo instance: <http://ez.no/Forms/Di
 
 ### Updating
 
-**eZ Platform**: To update to this version, follow the [Updating eZ Platform](updating_ez_platform.md) guide and use v1.7.0 as `<version>`.
+**eZ Platform**: To update to this version, follow the [Updating eZ Platform](../updating/updating_ez_platform.md) guide and use v1.7.0 as `<version>`.

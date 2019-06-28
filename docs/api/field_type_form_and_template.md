@@ -103,7 +103,7 @@ The special `defaultValue` key allows you to specify a field for setting the def
 The FormMapper must be registered as a service:
 
 ``` yaml
-Acme\ExampleBundle\FieldType\Mapper\CustomFieldTypeMapper:
+App\FieldType\Mapper\CustomFieldTypeMapper:
     tags:
         - { name: ez.fieldFormMapper.definition, fieldType: custom }
         - { name: ez.fieldFormMapper.value, fieldType: custom }
@@ -172,7 +172,7 @@ ezpublish:
         <siteaccess>:
             field_templates:
                 -
-                    template: 'AcmeExampleBundle:fields:custom_field_template.html.twig'
+                    template: 'fields/custom_field_template.html.twig'
                     # Priority is optional (default is 0). The higher it is, the higher your template gets in the list.
                     priority: 10
 ```
@@ -192,7 +192,7 @@ ezpublish:
     systems:
         admin_group:
             field_templates:
-                - { template: 'AcmeExampleBundle:adminui/field:custom_field_view.html.twig', priority: 10 }
+                - { template: 'adminui/field/custom_field_view.html.twig', priority: 10 }
 ```
 
 ### Field edit template
@@ -203,7 +203,7 @@ under the `twig.form_themes` key:
 ``` yaml
 twig:
     form_themes:
-        - 'AcmeExampleBundle:adminui/field:custom_field_template.html.twig'
+        - 'adminui/field/custom_field_template.html.twig'
 ```
 
 We encourage using custom form types for encapsulation as this makes templating easier by providing Twig block name.

@@ -6,7 +6,7 @@
 
 ## Symfony authentication
 
-To use Symfony authentication with eZ Platform, use the following configuration (in `app/config/security.yml`):
+To use Symfony authentication with eZ Platform, use the following configuration (in `config/packages/security.yaml`):
 
 ``` yaml
 security:
@@ -19,7 +19,7 @@ security:
             logout: ~
 ```
 
-And in `app/config/routing.yml`:
+And in `config/routes.yaml`:
 
 ``` yaml
 login:
@@ -34,7 +34,7 @@ logout:
 !!! note
 
     You can fully customize the routes and/or the controller used for login.
-    However, remember to match `login_path`, `check_path` and `logout.path` from `security.yml`.
+    However, remember to match `login_path`, `check_path` and `logout.path` from `security.yaml`.
 
     See [security configuration reference](http://symfony.com/doc/3.4/reference/configuration/security.html) and [standard login form documentation](http://symfony.com/doc/3.4/security/form_login_setup.html).
 
@@ -50,20 +50,20 @@ A `SecurityController` is used to manage all security-related actions and is thu
 
 The base template used is [`EzPublishCoreBundle:Security:login.html.twig`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/views/Security/login.html.twig).
 
-The layout used by default is `%ezpublish.content_view.viewbase_layout%` (empty layout) but can be configured together with the login template (in `ezplatform.yml`):
+The layout used by default is `%ezpublish.content_view.viewbase_layout%` (empty layout) but can be configured together with the login template:
 
 ``` yaml
 ezpublish:
     system:
         my_siteaccess:
             user:
-                layout: AcmeTestBundle::layout.html.twig
-                login_template: AcmeTestBundle:User:login.html.twig
+                layout: layout.html.twig
+                login_template: user/login.html.twig
 ```
 
 ##### Redirection after login
 
-By default, Symfony redirects to the [URI configured in `security.yml` as `default_target_path`](http://symfony.com/doc/3.4/reference/configuration/security.html). If not set, it defaults to `/`.
+By default, Symfony redirects to the [URI configured in `security.yaml` as `default_target_path`](http://symfony.com/doc/3.4/reference/configuration/security.html). If not set, it defaults to `/`.
 
 #### Remember me
 

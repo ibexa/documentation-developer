@@ -21,7 +21,7 @@ This version introduces the **Page Builder** which replaces the Landing Page edi
     They will be included again in a future release.
 
     The Places Page Builder block has been removed from the clean installation and will only be available in the demo out of the box.
-    If you had been using this block in your site, re-apply its configuration based on [the demo](https://github.com/ezsystems/ezplatform-ee-demo/blob/master/app/config/blocks.yml).
+    If you had been using this block in your site, re-apply its configuration based on [the demo](https://github.com/ezsystems/ezplatform-ee-demo/blob/master/app/config/blocks.yaml).
 
 #### Modifying the Page Content Type
 
@@ -37,9 +37,9 @@ In the Page block config you can now specify the CSS class with its own style fo
 
 !!! caution "Updating to 2.2"
 
-    Refer to [Updating eZ Platform](updating_ez_platform.md#4-update-database) for a database update script.
+    Refer to [Updating eZ Platform](../updating/4_update_2.2.md) for a database update script.
 
-    To update to 2.2 with existing Content you will need a [dedicated script for converting the Landing Page into the new Page](updating_ez_platform.md#migrate-landing-pages).
+    To update to 2.2 with existing Content you will need a [dedicated script for converting the Landing Page into the new Page](../updating/4_update_2.2.md#migrate-landing-pages).
 
 ### Bookmarks
 
@@ -79,7 +79,7 @@ Database charset is changed from UTF8 to UTF8MB4, in order to support 4-byte cha
 
 !!! caution
 
-    To cover this change when upgrading, follow the instructions in the [update guide](updating_ez_platform.md#4-update-database).
+    To cover this change when upgrading, follow the instructions in the [update guide](../updating/4_update_2.2.md).
 
 ### URL generation pattern
 

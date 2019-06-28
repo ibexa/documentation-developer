@@ -9,6 +9,10 @@ A version always has at least one translation which by default is the *initial/m
 
 Different translations of the same Content item can be edited separately. This means that different users can work on translations into different languages at the same time.
 
+Each version, including a draft, contains all the existing translations.
+However, even if work on a draft takes time and other translations are updated in the meantime,
+publishing the draft will not overwrite later modifications.
+
 ### Adding available languages
 
 The multilanguage system operates based on a global translation list that contains all languages available in the installation. Languages can be [added to this list from the Admin Panel](https://doc.ezplatform.com/projects/userguide/en/latest/creating_content_advanced/#languages) in the Back Office. After adding a language be sure to dump all assets to the file system:
@@ -80,11 +84,11 @@ If you want to render language switch links in a sub-request with a correct `Ro
 
 ``` html+twig
 {# Render the language switch links in a sub-controller #}
-{{ render( controller( 'AcmeTestBundle:Default:languages', {'routeRef': ez_route()} ) ) }}
+{{ render( controller( 'App\Controller\DefaultController::languagesAction', {'routeRef': ez_route()} ) ) }}
 ```
 
 ``` php
-namespace Acme\TestBundle\Controller;
+namespace App\Controller;
 
 use eZ\Bundle\EzPublishCoreBundle\Controller;
 use eZ\Publish\Core\MVC\Symfony\Routing\RouteReference;
@@ -93,7 +97,7 @@ class DefaultController extends Controller
 {
     public function languagesAction( RouteReference $routeRef )
     {
-        return $this->render( 'AcmeTestBundle:Default:languages.html.twig', [ 'routeRef' => $routeRef ] );
+        return $this->render( 'languages.html.twig', [ 'routeRef' => $routeRef ] );
     }
 }
 ```
@@ -142,8 +146,6 @@ Another way of using multiple languages is setting up a separate SiteAccess for 
 Configuration is not mandatory, but can help to distinguish which SiteAccesses can be considered *translation SiteAccesses*.
 
 ``` yaml
-# ezplatform.yml
-
 ezpublish:
     siteaccess:
         default_siteaccess: eng
@@ -181,17 +183,17 @@ If several translation SiteAccesses share the same language reference, **the fi
 
 #### Custom locale configuration
 
-If you need to use a custom locale, you can configure it in `ezplatform.yml`, adding it to the *conversion map*:
+If you need to use a custom locale, you can configure it in `ezplatform.yaml`, adding it to the *conversion map*:
 
 ``` yaml
 ezpublish:
     # Locale conversion map between eZ Publish format (e.g. fre-FR) to POSIX (e.g. fr_FR).
-    # The key is the eZ Publish locale. Check locale.yml in EzPublishCoreBundle to see natively supported locales.
+    # The key is the eZ Publish locale. Check locale.yaml in EzPublishCoreBundle to see natively supported locales.
     locale_conversion:
         eng-DE: en_DE
 ```
 
-A locale *conversion map* example [can be found in the `core` bundle, on `locale.yml`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/locale.yml).
+A locale *conversion map* example [can be found in the `core` bundle, on `locale.yaml`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/locale.yaml).
 
 ### More complex translation setup
 
@@ -200,8 +202,6 @@ There are some cases where your SiteAccesses share settings (repository, content
 The solution is defining new groups:
 
 ``` yaml
-# ezplatform.yml
-
 ezpublish:
     siteaccess:
         default_siteaccess: eng

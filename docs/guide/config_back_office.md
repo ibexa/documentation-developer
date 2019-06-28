@@ -4,7 +4,7 @@
 
 Copying large subtrees can cause performance issues, so you can limit the number of Content items
 that can be copied at once using `ezpublish.system.<SiteAccess>.subtree_operations.copy_subtree.limit`
-in `parameters.yml`.
+in `config/packages/ezplatform_admin_ui.yaml`.
 
 The default value is `100`. You can set it to `-1` for no limit,
 or to `0` to completely disable copying subtrees.
@@ -14,7 +14,7 @@ You can copy subtree from CLI using the command: `bin/console ezplatform:copy-su
 ## Pagination limits
 
 Default pagination limits for different sections of the Back Office can be defined through respective settings in
-[`ezplatform_default_settings.yml`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/config/ezplatform_default_settings.yml#L7)
+[`ezplatform_default_settings.yaml`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/config/ezplatform_default_settings.yaml#L7)
 
 ## Default Locations
 

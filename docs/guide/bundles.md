@@ -1,9 +1,5 @@
 # Bundles
 
-## Dealing with bundles
-
-eZ Platform is based on the Symfony 3 framework and applies a similar way of organizing the app. Like in Symfony, where ["everything is a bundle"](http://symfony.com/doc/current/book/bundles.html), your eZ Platform application is going to be a collection of bundles.
-
 ### What is a bundle?
 
 A bundle in Symfony (and eZ Platform) is a separate part of your application that implements a feature. You can create bundles yourself or make use of available open-source bundles. You can also reuse the bundles you create in other projects or share them with the community.
@@ -13,48 +9,47 @@ Many eZ Platform functionalities are provided through separate bundles included 
 ### How to use bundles?
 
 All the bundles containing built-in eZ Platform functionalities are installed automatically.
-By default, a clean eZ Platform installation also contains an AppBundle where you can place your custom code.
 
 You can see a list of other available community-developed bundles on <https://ezplatform.com/Bundles>.
 Refer to their respective pages for instructions on how to install them.
 
 ### How to create bundles?
 
-You can generate a new bundle using a `generate:bundle` command. See [Symfony documentation on generating bundles](http://symfony.com/doc/current/bundles/SensioGeneratorBundle/commands/generate_bundle.html).
+See [Symfony documentation on bundles](https://symfony.com/doc/current/bundles.html) to learn how to structure your bundle.
 
 ### How to remove a bundle?
 
 To remove a bundle (either one you created yourself, or an out-of-the-box one that you do not need) see the [How to Remove a Bundle](http://symfony.com/doc/current/bundles/remove.html) instruction in Symfony doc.
 
-## Structuring a bundle
+## Structuring your project
 
-### The AppBundle
+### PHP code
 
-Most projects can use the provided `AppBundle`, in the `src` folder. It is enabled by default. The project's PHP code (controllers, event listeners, etc.) can be placed there.
+The project's PHP code (controllers, event listeners, etc.) should be placed in the `src` folder.
 
 Reusable libraries should be packaged so that they can easily be managed using Composer.
 
 ### Templates
 
-Project templates should go into `app/Resources/views`.
+Project templates should go into the `templates` folder.
 
-They can then be referenced in code without any prefix, for example `app/Resources/views/content/full.html.twig` can be referenced in Twig templates or PHP as `content/full.html.twig`.
+They can then be referenced in code without any prefix, for example `templates/full/article.html.twig` can be referenced in Twig templates or PHP as `full/article.html.twig`.
 
 ### Assets
 
-Project assets should go into the `web` folder.
+Project assets should go into the `assets` folder.
 
-They can be referenced as relative to the root, for example `web/js/script.js` can be referenced as `js/script.js` from templates.
+They can be referenced as relative to the root, for example `assets/js/script.js` can be referenced as `js/script.js` from templates.
 
-All project assets are accessible through the `web/assets` path.
+All project assets are accessible through the `assets` path.
 
-??? note "Removing `web/assets` manually"
+??? note "Removing `assets` manually"
 
-	If you ever remove the `web/assets` folder manually, you need to dump translations before performing
+	If you ever remove the `assets` folder manually, you need to dump translations before performing
 	the `yarn encore <dev|prod>` command:
 
 	```
-	php bin/console bazinga:js-translation:dump web/assets --merge-domains
+	php bin/console bazinga:js-translation:dump assets --merge-domains
 	```
 
 #### Importing assets from a bundle
@@ -190,7 +185,8 @@ eZConfigManager.add({
 
 ### Configuration
 
-Configuration may go into `app/config`. However, service definitions from `AppBundle` should go into `src/AppBundle/Resources/config`.
+You project's configuration is placed in the respective files in `config/packages`.
+See [Configuration](configuration.md) for more information.
 
 ### Project example
 
@@ -198,7 +194,7 @@ You can see an example of organizing a simple project in the [companion reposito
 
 ### Versioning a project
 
-The recommended method is to version the whole ezplatform repository. Per installation configuration should use `parameters.yml`.
+The recommended method is to version the whole ezplatform repository.
 
 ## Built-in bundles
 
@@ -231,6 +227,7 @@ The following tables give an overview of the main eZ Platform bundles.
     |ezplatform-page-builder|contains eZ Platform Page editor for eZ Platform EE 2.2+|
     |ezplatform-ee-installer|provides `ezplatform:install` Symfony console command which is the installer for eZ Platform Enterprise v2|
     |ezplatform-http-cache-fastly|extends ezplatform-http-cache to support Fastly, for use on Platform.sh PE or standalone|
+    |ezplatform-calendar|extends the Back Office by adding the calendar tab with the calendar widget|
 
 ### Optional bundles
 
@@ -264,7 +261,7 @@ The following tables give an overview of the main eZ Platform bundles.
 |------|-----------|
 |[CookbookBundle](https://github.com/ezsystems/CookbookBundle)|working examples for using eZ Platform Public API|
 |[ezplatform-com](https://github.com/ezsystems/ezplatform-com)|the eZ Systems Developer Hub for the Open Source PHP CMS eZ Platform (example site)|
-|[ezplatform-ee-demo](https://github.com/ezsystems/ezplatform-ee-demo)|fork of the "ezplatform-ee" meta repository, contains changes to composer.json, AppKernel.php and config necessary to enable eZ Platform Enterprise Edition Demo. Not recommended for a clean install for new projects, but great for observation and learning (example site)|
+|[ezplatform-ee-demo](https://github.com/ezsystems/ezplatform-ee-demo)|fork of the "ezplatform-ee" meta repository, contains changes necessary to enable eZ Platform Enterprise Edition Demo. Not recommended for a clean install for new projects, but great for observation and learning (example site)|
 |[ezplatform-demo](https://github.com/ezsystems/ezplatform-demo)|fork of "ezplatform" meta repository, contains code and dependencies for demo distribution of eZ Platform. Not recommended for a clean installation for new projects, but great for observation and learning(example site)|
 |[TweetFieldTypeBundle](https://github.com/ezsystems/TweetFieldTypeBundle)|bundle that is created in the Field Type Tutorial (example field type)|
 |[ezplatform-drawio-fieldtype](https://github.com/ezsystems/ezplatform-drawio-fieldtype)|provides support for diagrams editing in eZ Platform via draw.io (example field type)|

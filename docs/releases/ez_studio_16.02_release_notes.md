@@ -279,4 +279,4 @@ Double check the following before you test:
 
 You should now have a new route in` app/config/routing.yml`:
 
-`_ezplatformRepositoryFormsRoutes:    resource: "@EzSystemsRepositoryFormsBundle/Resources/config/routing.yml"`
+`_ezplatformRepositoryFormsRoutes:    resource: "@EzSystemsRepositoryFormsBundle/Resources/config/routing.yaml"`

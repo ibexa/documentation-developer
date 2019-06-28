@@ -14,7 +14,7 @@ The first step is creating your own implementation of `ValueObjectVisitor`. It c
 ```php
 <?php
 
-namespace AppBundle\Rest\ValueObjectVisitor;
+namespace ExampleBundle\Rest\ValueObjectVisitor;
 
 use eZ\Publish\API\Repository\Repository;
 use EzSystems\EzPlatformRest\Output\Generator;
@@ -59,7 +59,7 @@ decorate `EzSystems\EzPlatformRest\Output\ValueObjectVisitorDispatcher` from `ez
 ```php
 <?php
 
-namespace AppBundle\Rest;
+namespace ExampleBundle\Rest;
 
 use EzSystems\EzPlatformRest\Output\Generator;
 use EzSystems\EzPlatformRest\Output\ValueObjectVisitorDispatcher as BaseValueObjectVisitorDispatcher;
@@ -103,7 +103,7 @@ To be able to use the overridden type you also need to implement new Compiler Pa
 ```php
 <?php
 
-namespace AppBundle\DependencyInjection\Compiler;
+namespace ExampleBundle\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -142,13 +142,13 @@ Also, don't forget to register it in your bundle!
 ```php
 <?php
 
-namespace AppBundle;
+namespace ExampleBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use AppBundle\DependencyInjection\Compiler\ValueObjectVisitorPass;
 
-class AppBundle extends Bundle
+class ExampleBundle extends Bundle
 {
     public function build(ContainerBuilder $container)
     {
@@ -161,13 +161,13 @@ class AppBundle extends Bundle
 
 ## Configuration
 
-The last thing you need to do is to set a configuration which should be located in the `services.yml` file of your bundle.
+The last thing you need to do is to set a configuration which should be located in the `services.yaml` file of your bundle.
 The important part are the keys:
 
 - `app.rest.output.visitor.json.regexps` which helps identifying proper header
 - `priority` which should be set high enough, to not be overridden by another implementation
 
-All the other keys need to correspond with the current namespace of your bundle. In this example it is just `AppBundle`.
+All the other keys need to correspond with the current namespace of your bundle. In this example it is just `ExampleBundle`.
 
 ```yaml
 parameters:
@@ -193,12 +193,12 @@ services:
             - { name: ezpublish_rest.output.visitor, regexps: app.rest.output.visitor.json.regexps, priority: 200 }
 
     app.rest.output.value_object_visitor.dispatcher:
-        class: AppBundle\Rest\ValueObjectVisitorDispatcher
+        class: ExampleBundle\Rest\ValueObjectVisitorDispatcher
         arguments:
             - '@ezpublish_rest.output.value_object_visitor.dispatcher'
 
     app.rest.output.value_object_visitor.version_info:
-        class: AppBundle\Rest\ValueObjectVisitor\VersionInfo
+        class: ExampleBundle\Rest\ValueObjectVisitor\VersionInfo
         parent: ezpublish_rest.output.value_object_visitor.base
         arguments:
             - '@ezpublish.api.repository'

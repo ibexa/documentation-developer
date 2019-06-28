@@ -85,12 +85,25 @@ To install Composer dependencies, from the folder into which you downloaded eZ P
 composer install
 ```
 
-After a moment the installer will ask you to provide a few parameters:
+## Change installation parameters
 
-1. Choose a [secret](http://symfony.com/doc/current/reference/configuration/framework.html#secret); it should be a random string, made up of up to 32 characters, numbers, and symbols. This is used by Symfony when generating [CSRF tokens](https://symfony.com/doc/current/security/csrf.html), [encrypting cookies](http://symfony.com/doc/current/cookbook/security/remember_me.html), and for creating signed URIs when using [ESI (Edge Side Includes)](https://symfony.com/doc/current/http_cache/esi.html).
-1. You can accept the default options for `database_driver`, `database_host` and `database_port`.
-1. Select a `database_name` or accept the default one.
-1. Provide your `database_user` and `database_password`.
+At this point you can configure your database via the `DATABASE_URL` in the `.env` file:
+`DATABASE_URL=mysql://user:password@host:port/name`.
+
+Choose a [secret](http://symfony.com/doc/current/reference/configuration/framework.html#secret)
+and provide it in the `APP_SECRET` parameter in `.env`.
+It should be a random string, made up of up to 32 characters, numbers, and symbols.
+This is used by Symfony when generating [CSRF tokens](https://symfony.com/doc/current/security/csrf.html),
+[encrypting cookies](http://symfony.com/doc/current/cookbook/security/remember_me.html),
+and for creating signed URIs when using [ESI (Edge Side Includes)](https://symfony.com/doc/current/http_cache/esi.html).
+
+Alternatively, you can also change individual installation parameters in `.env`, such as:
+
+- `DATABASE_USER`
+- `DATABASE_PASSWORD`
+- `DATABASE_NAME`
+- `DATABASE_HOST`
+- `DATABASE_PORT`
 
 !!! tip "Using PostgreSQL"
 

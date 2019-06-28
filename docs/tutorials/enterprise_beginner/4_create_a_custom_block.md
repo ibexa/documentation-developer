@@ -16,7 +16,7 @@ To create a custom block from scratch you need four elements:
 
 ### Block configuration
 
-In `app/config/layouts.yml` add the following block under the `blocks` key:
+In `app/config/layouts.yaml` add the following block under the `blocks` key:
 
 ``` yaml hl_lines="10"
 blocks:
@@ -183,7 +183,7 @@ private function findContentItems(Location $location): array
 
 ### Add the listener to services
 
-Finally, you need to add the listener as a service. Add the following configuration to `app/config/services.yml` under the `services` key:
+Finally, you need to add the listener as a service. Add the following configuration to `app/config/services.yaml` under the `services` key:
 
 ``` yaml
 services:
