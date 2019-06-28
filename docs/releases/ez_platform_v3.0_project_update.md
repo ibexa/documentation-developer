@@ -47,6 +47,10 @@ To use them, create [Event Listeners](https://symfony.com/doc/4.3/event_dispatch
 
 ## Field Types
 
+To update to v3.0, your Field Type must not implement the `eZ\Publish\SPI\FieldType\Nameable` interface.
+Remove the `getFieldName(Value $value, FieldDefinition $fieldDefinition, $languageCode)` method.
+You must also adjust `getName()` arguments and add return type hints `string`.
+
 ## HTTP cache
 
 ## Renamed templates and template parameters
