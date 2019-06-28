@@ -53,6 +53,55 @@ You must also adjust `getName()` arguments and add return type hints `string`.
 
 ## HTTP cache
 
+## Resolving settings
+
+Due to changes in the way Dependency Injection Container functions in Symfony,
+it is recommended to inject the ConfigResolver and get the relevant setting
+instead of using dynamic settings (through `$setting$`).
+
+It is also not recommended to get a setting from the ConfigResolver in a class constructor.
+
+If you used either of these options before, it is advisable to rework your code to the new way, for example:
+
+```
+<?php
+
+use eZ\Publish\Core\MVC\ConfigResolverInterface;
+
+class MyService
+{
+    /** @var \eZ\Publish\Core\MVC\ConfigResolverInterface */
+    private $configResolver;
+
+    public function __construct(ConfigResolverInterface $configResolver)
+    {
+        $this->configResolver = $configResolver;
+    }
+
+    public function myMethodWhichUsesSetting(): void
+    {
+        $setting = $this->configResolver->getParameter('setting');
+    }
+}
+```
+
+instead of:
+
+```
+<?php
+
+use eZ\Publish\Core\MVC\ConfigResolverInterface;
+
+class MyService
+{
+    public function __construct(ConfigResolverInterface $configResolver)
+    {
+        $this->setting = $configResolver->getParameter('setting');
+    }
+
+}
+```
+
 ## Renamed templates and template parameters
 
 The naming and location of templates in the Back Office have been changed.
