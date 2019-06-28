@@ -21,7 +21,7 @@ These setups are tested by QA and are generally recommended setups. For security
 |Operating system|10.x "Buster" *(upcoming)*|18.04 LTS "Bionic"|8.x *(upcoming)*|
 |Web Server|Nginx 1.14</br>Apache 2.4|Nginx 1.14</br>Apache 2.4|Nginx 1.14</br>Apache 2.4|
 |DBMS|MariaDB 10.3\*|MariaDB 10.1</br>MySQL 5.7\*|MariaDB 10.3\*</br>MySQL 8.0\*|
-|PHP|PHP 7.3|PHP 7.3|PHP 7.3|
+|PHP|PHP 7.3|PHP 7.3</br>(upgraded from the version delivered with the OS)|PHP 7.3</br>(upgraded from the version delivered with the OS)|
 |PHP packages|php-cli</br>php-fpm</br>php-mysql or php-pgsql</br>php-xml</br>php-intl</br>php-curl</br>php-gd *or* php-imagick|php-cli</br>php-fpm</br>php-mysql or php-pgsql</br>php-xml</br>php-mbstring</br>php-intl</br>php-curl</br>php-gd *or* php-imagick|php-cli</br>php-fpm</br>php-mysqlnd or php-pgsql</br>php-xml</br>php-mbstring</br>php-process</br>php-intl</br>php-pear *(optional, provides pecl)*</br>php-gd *or* php-imagick *(via [pecl](https://pecl.php.net/package/imagick))*|
 |Cluster PHP packages|[php-redis](https://pecl.php.net/package/redis) *(3.1.3+)*|[php-redis](https://pecl.php.net/package/redis) *(3.1.3+)*|[php-redis](https://pecl.php.net/package/redis) *(3.1.3+)*|
 
