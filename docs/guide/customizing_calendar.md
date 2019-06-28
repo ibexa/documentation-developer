@@ -232,7 +232,7 @@ services:
 You can change the foreground and background color of a custom event.
 The setting is SiteAccess-aware.
 
-To customize the the color of a custom event, add the following configuration to `config/packages/ezplatform.yml`:
+To customize the color of a custom event, add the following configuration to `config/packages/ezplatform.yml`:
 
 ``` YAML hl_lines="6"
 ezpublish:
