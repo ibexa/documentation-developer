@@ -70,7 +70,7 @@ To register the `FormMapper` as a service, add the following lines to `Resources
     ezsystems.tweetbundle.fieldtype.eztweet.form_mapper:
         class: EzSystems\TweetFieldTypeBundle\eZ\Publish\FieldType\Tweet\FormMapper
         tags:
-            - {name: ez.fieldFormMapper.value, fieldType: eztweet}
+            - {name: ezplatform.field_type.form_mapper.value, fieldType: eztweet}
         arguments: ['@ezpublish.api.service.field_type']
 ```
 

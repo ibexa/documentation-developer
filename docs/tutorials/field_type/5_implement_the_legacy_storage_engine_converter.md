@@ -132,7 +132,7 @@ public function getIndexColumn()
 
 Just like a Type, a Legacy Converter needs to be registered and tagged in the service container.
 
-The tag is `ezpublish.storageEngine.legacy.converter`, and it requires an `alias` attribute to be set to the Field Type identifier (`eztweet`).
+The tag is `ezplatform.field_type.legacy_storage.converter`, and it requires an `alias` attribute to be set to the Field Type identifier (`eztweet`).
 Add this block to `Resources/config/fieldtypes.yaml`:
 
 ``` yml
@@ -142,5 +142,5 @@ services:
     ezsystems.tweetbundle.fieldtype.eztweet.converter:
         class: EzSystems\TweetFieldTypeBundle\eZ\Publish\FieldType\Tweet\LegacyConverter
         tags:
-            - {name: ezpublish.storageEngine.legacy.converter, alias: eztweet}
+            - {name: ezplatform.field_type.legacy_storage.converter, alias: eztweet}
 ```
