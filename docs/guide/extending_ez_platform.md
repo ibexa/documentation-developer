@@ -213,7 +213,7 @@ $menu->addChild(
     'menu_item_with_params',
     [
         'extras' => [
-            'template' => 'adminui/menu_item_template.html.twig',
+            'template' => 'admin_ui/menu_item_template.html.twig',
             'template_parameters' => [
                 'custom_parameter' => 'value',
             ],
@@ -222,7 +222,7 @@ $menu->addChild(
 );
 ```
 
-You can then use the variable `custom_parameter` in `templates/adminui/menu_item_template.html.twig`.
+You can then use the variable `custom_parameter` in `templates/admin_ui/menu_item_template.html.twig`.
 
 #### Translatable labels
 
@@ -343,7 +343,7 @@ class CustomTabGroupPass implements CompilerPassInterface
 }
 ```
 
-You also need to add the compiler pass to `Kernel.php`:
+You also need to add the compiler pass to `src/Kernel.php`:
 
 ``` php
 protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader): void

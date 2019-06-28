@@ -407,7 +407,7 @@ In addition to creating a class for a `QueryType`, you must also register the Qu
 #### By convention
 
 Any class named `<Bundle>\QueryType\*QueryType` that implements the QueryType interface will be registered as a custom QueryType.
-Example: `AcmeExample\QueryType\LatestContentQueryType`.
+Example: `AcmeExampleBundle\QueryType\LatestContentQueryType`.
 
 #### Using a service tag
 

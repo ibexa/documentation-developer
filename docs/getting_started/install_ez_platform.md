@@ -111,8 +111,23 @@ composer create-project --keep-vcs ezsystems/ezplatform .
 
 ## Change installation parameters
 
-At this point you  can change any installation parameters, such as `DATABASE_NAME` or `DATABASE_USER`,
-in the `.env` file.
+At this point you can configure your database via the `DATABASE_URL` in the `.env` file:
+`DATABASE_URL=mysql://user:password@host:port/name`.
+
+Choose a [secret](http://symfony.com/doc/current/reference/configuration/framework.html#secret)
+and provide it in the `APP_SECRET` parameter in `.env`.
+It should be a random string, made up of up to 32 characters, numbers, and symbols.
+This is used by Symfony when generating [CSRF tokens](https://symfony.com/doc/current/security/csrf.html),
+[encrypting cookies](http://symfony.com/doc/current/cookbook/security/remember_me.html),
+and for creating signed URIs when using [ESI (Edge Side Includes)](https://symfony.com/doc/current/http_cache/esi.html).
+
+Alternatively, you can also change individual installation parameters in `.env`, such as:
+
+- `DATABASE_USER`
+- `DATABASE_PASSWORD`
+- `DATABASE_NAME`
+- `DATABASE_HOST`
+- `DATABASE_PORT`
 
 !!! tip "Using PostgreSQL"
 
