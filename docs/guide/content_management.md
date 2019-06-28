@@ -36,7 +36,8 @@ Under this root there are preset top level Locations in each installation which 
 This part of the tree is typically used for organizing folders, articles, information pages, etc.
 This means that it contains the actual content structure of the site,
 which can be viewed by selecting the **Content structure** tab in the Content mode interface.
-The default ID number of the **Content** Location is 2; it contains a Folder Content item.
+The default ID number of the **Content** Location is 2, it can be [modified via configuration](config_repository.md#top-level-locations).
+It contains a Folder Content item.
 
 #### Media
 
@@ -44,7 +45,8 @@ The default ID number of the **Content** Location is 2; it contains a Folder Con
 that is frequently used by Content items located below the **Content** node.
 It usually contains images, animations, documents and other files.
 They can be viewed by selecting the **Media library** tab in the Content mode interface.
-The default ID number of the **Media** Location is 43; it contains a Folder Content item.
+The default ID number of the **Media** Location is 43, it can be [modified via configuration](config_repository.md#top-level-locations).
+It contains a Folder Content item.
 
 #### Users
 
@@ -55,7 +57,8 @@ A User is simply a Content item of the User account Content Type.
 The Users are organized within User Group Content items below this Location.
 In other words, the **Users** Location contains the actual Users and User Groups,
 which can be viewed by selecting the **Users** tab in the Admin Panel.
-The default ID number of the **Users** Location is 5; it contains a User Group Content item.
+The default ID number of the **Users** Location is 5, it can be [modified via configuration](config_repository.md#top-level-locations).
+It contains a User Group Content item.
 
 #### Other top level Locations
 
