@@ -1,16 +1,18 @@
-# Customizing the calendar widget
-
-## Custom calendar events
+# Customizing calendar widget
 
 The calendar widget allows you to display all scheduled events.
-You can also configure it to display your custom event types or display them from [multiple external resources](#displaying-events-from-multiple-resources-in-calendar).
+You can also configure it to display your custom event types or display them from [external resources](#configuring-custom-calendar-event-sources).
+
+Optionally, you can customize the color of a custom event and make it look different depending on the [SiteAccess configuration](../guide/siteaccess.md#configuring-siteaccesses). 
+
+You can also [change the calendar](#accessing-calendar-configuration) configuration by accessing the configuration from the JavaScript.
 
 ## Configuring custom calendar events
 
 Configuring custom events allows you to tailor the calendar to your needs.
 You can create a custom event by taking a few steps to define the event and actions for it.
 
-First, create a new event by creating `\EzSystems\EzPlatformCalendar\Calendar\EventType\MyEvent.php`
+First, create a new event by creating `src\Calendar\EventType\MyEvent.php`
 
 ``` PHP hl_lines="7"
 
@@ -18,9 +20,9 @@ First, create a new event by creating `\EzSystems\EzPlatformCalendar\Calendar\Ev
 
 declare(strict_types=1);
 
-namespace AppBundle\Calendar\Event;
+namespace App\Calendar\Event;
 
-use AppBundle\Calendar\EventType\MyEventType;
+use App\Calendar\EventType\MyEventType;
 use DateTimeInterface;
 use EzSystems\EzPlatformCalendar\Calendar\Event;
 
@@ -36,7 +38,7 @@ final class MyEvent extends Event
 Here, you create a new class for you event based on `\EzSystems\EzPlatformCalendar\Calendar\Event`.
 Line 7 points out to the custom event definition of associated actions.
 
-Provide a definition for your event by creating `\EzSystems\EzPlatformCalendar\Calendar\EventType\MyEventType.php`:
+Provide a definition for your event by creating `\App\Calendar\EventType\MyEventType.php`:
 
 ``` PHP hl_lines="28 29 30 31"
 
@@ -44,7 +46,7 @@ Provide a definition for your event by creating `\EzSystems\EzPlatformCalendar\C
 
 declare(strict_types=1);
 
-namespace AppBundle\Calendar\EventType;
+namespace App\Calendar\EventType;
 
 use EzSystems\EzPlatformCalendar\Calendar\Event;
 use EzSystems\EzPlatformCalendar\Calendar\EventType\EventTypeInterface;
@@ -80,14 +82,14 @@ Complete the procedure by registering the new event:
 ``` YAML
 services:
 
-  AppBundle\Calendar\EventType\CustomEventType:
+  App\Calendar\EventType\CustomEventType:
         tags:
             - { name: ezplatform.calendar.event_type }
 
 ```
 
 
-## Displaying events from multiple resources in calendar
+## Configuring custom calendar event sources
 
 You can configure the calendar through `CalendarService` to display events from:
 
@@ -102,10 +104,10 @@ For adding an in-memory collection as event source, create `MyEventSourceFactory
 
 declare(strict_types=1);
 
-namespace AppBundle\Calendar\EventSourceFactory;
+namespace App\Calendar\EventSourceFactory;
 
-use AppBundle\Calendar\Event\HolidayEvent;
-use AppBundle\Calendar\EventType\HolidayEventType;
+use App\Calendar\Event\HolidayEvent;
+use App\Calendar\EventType\HolidayEventType;
 use DateTime;
 use DateTimeInterface;
 use EzSystems\EzPlatformCalendar\Calendar\EventCollection;
@@ -114,7 +116,7 @@ use EzSystems\EzPlatformCalendar\Calendar\EventSource\InMemoryEventSource;
 
 final class MyEventSourceFactory
 {
-    /** @var \AppBundle\Calendar\EventType\HolidayEventType */
+    /** @var \App\Calendar\EventType\HolidayEventType */
     private $eventType;
     public function __construct(HolidayEventType $eventType)
     {
@@ -145,13 +147,55 @@ You must also register the new source:
 ``` YAML
 services:
 
-    AppBundle\Calendar\EventSourceFactory\MyEventSourceFactory:
+    App\Calendar\EventSourceFactory\MyEventSourceFactory:
         arguments:
-            $eventType: '@AppBundle\Calendar\EventType\MyEventType'
+            $eventType: '@App\Calendar\EventType\MyEventType'
     
-    AppBundle\Calendar\EventSource\HolidaysEventSource:
+    App\Calendar\EventSource\HolidaysEventSource:
         class: EzSystems\EzPlatformCalendar\Calendar\EventSource\InMemoryEventSource
-        factory: 'AppBundle\Calendar\EventSourceFactory\MyEventSourceFactory:createEventSource'
+        factory: 'App\Calendar\EventSourceFactory\MyEventSourceFactory:createEventSource'
         tags:
             - { name: ezplatform.calendar.event_source }
 ```
+
+## Customizing custom events appearance
+
+You can change the foreground and background color of a custom event.
+The setting is SiteAccess-aware.
+
+To customize the the color of a custom event, add the following configuration to `config/packages/ezplatform.yml`:
+
+```yaml hl_lines="6"
+ezpublish:
+    system:
+        admin_group:
+            calendar:
+                event_types:
+                    event:
+                        color: '#FFFFFF'
+```
+
+Note that line 6 points out to the event you want to customize.
+
+## Accessing calendar configuration
+
+The calendar widget configuration is accessible from JavaScript by using the `eZ.calendar.config` global variable.
+You can configure a label, color and actions for each of the events that the widget displays.
+
+For example:
+
+```javascript
+{
+   "types":{
+      "event":{
+         "label":"My Custom Event",
+         "color":"#000000",
+         "actions":[],
+         "isSelectable":false
+      },
+   }
+}
+```
+
+
+
