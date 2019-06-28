@@ -42,13 +42,13 @@ which you must implement in your Field Type. The interface contains the followin
 
 The registration of a `Converter` currently works through the `$config` parameter of [`eZ\Publish\Core\Persistence\Legacy\Handler`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.0/eZ/Publish/Core/Persistence/Legacy/Handler.php).
 
-Those converters also need to be correctly exposed as services and tagged with `ezpublish.storageEngine.legacy.converter`:
+Those converters also need to be correctly exposed as services and tagged with `ezplatform.field_type.legacy_storage.converter`:
 
 ``` yaml
 services:
     eZ\Publish\Core\Persistence\Legacy\Content\FieldValue\Converter\TextLine:
         tags:
-            - {name: ezpublish.storageEngine.legacy.converter, alias: ezstring}
+            - {name: ezplatform.field_type.legacy_storage.converter, alias: ezstring}
 ```
 
 The tag has the following attribute:

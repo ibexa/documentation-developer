@@ -105,14 +105,14 @@ The FormMapper must be registered as a service:
 ``` yaml
 App\FieldType\Mapper\CustomFieldTypeMapper:
     tags:
-        - { name: ez.fieldFormMapper.definition, fieldType: custom }
-        - { name: ez.fieldFormMapper.value, fieldType: custom }
+        - { name: ezplatform.field_type.form_mapper.definition, fieldType: custom }
+        - { name: ezplatform.field_type.form_mapper.value, fieldType: custom }
 ```
 
 Tag the mapper according to the support you need to provide:
 
-- Add the `ez.fieldFormMapper.value` tag when providing content editing support (`FieldValueFormMapperInterface` interface).
-- Add the `ez.fieldFormMapper.definition` tag when providing Field Type definition editing support (`FieldDefinitionFormMapperInterface` interface).
+- Add the `ezplatform.field_type.form_mapper.value` tag when providing content editing support (`FieldValueFormMapperInterface` interface).
+- Add the `ezplatform.field_type.form_mapper.definition` tag when providing Field Type definition editing support (`FieldDefinitionFormMapperInterface` interface).
 The `fieldType` key has to correspond to the name of your Field Type.
 
 ## Content view templates

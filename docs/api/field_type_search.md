@@ -32,13 +32,13 @@ This method gets name of the default field to be used for sorting. As Field Type
 
 ## Register Indexable Implementations
 
-Implement `eZ\Publish\SPI\FieldType\Indexable` as an extra service and register this Service using the `ezpublish.fieldType.indexable` tag. Example from [`indexable_fieldtypes.yaml`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/indexable_fieldtypes.yml):
+Implement `eZ\Publish\SPI\FieldType\Indexable` as an extra service and register this Service using the `ezplatform.field_type.indexable` tag. Example from [`indexable_fieldtypes.yaml`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/indexable_fieldtypes.yml):
 
-``` yml
+``` yaml
 ezpublish.fieldType.indexable.ezkeyword:
     class: eZ\Publish\Core\FieldType\Keyword\SearchField
     tags:
-        - {name: ezpublish.fieldType.indexable, alias: ezkeyword}
+        - {name: ezplatform.field_type.indexable, alias: ezkeyword}
 ```
 
 Note that `alias` should be the same as Field Type ID.

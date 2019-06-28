@@ -1644,15 +1644,15 @@ services:
         class: '%ezpublish.fieldType.eznull.class%'
         parent: ezpublish.fieldType
         arguments: [ezpaex]
-        tags: [{name: ezpublish.fieldType, alias: ezpaex}]
+        tags: [{name: ezplatform.field_type, alias: ezpaex}]
 
     ezpublish.fieldType.ezpaex.converter:
         class: '%ezpublish.fieldType.eznull.converter.class%'
-        tags: [{name: ezpublish.storageEngine.legacy.converter, alias: ezpaex}]
+        tags: [{name: ezplatform.field_type.legacy_storage.converter, alias: ezpaex}]
 
     ezpublish.fieldType.ezpaex.indexable:
         class: '%ezpublish.fieldType.indexable.unindexed.class%'
-        tags: [{name: ezpublish.fieldType.indexable, alias: ezpaex}]
+        tags: [{name: ezplatform.field_type.indexable, alias: ezpaex}]
 ```
 
 !!! enterprise

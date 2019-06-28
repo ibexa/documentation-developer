@@ -262,8 +262,8 @@ In order to do that add an extra tag definition in `Resources/config/fieldtypes.
     ezsystems.tweetbundle.fieldtype.eztweet.form_mapper:
         class: EzSystems\TweetFieldTypeBundle\eZ\Publish\FieldType\Tweet\FormMapper
         tags:
-            - {name: ez.fieldFormMapper.value, fieldType: eztweet}
-            - {name: ez.fieldFormMapper.definition, fieldType: eztweet}
+            - {name: ezplatform.field_type.form_mapper.value, fieldType: eztweet}
+            - {name: ezplatform.field_type.form_mapper.definition, fieldType: eztweet}
         arguments: ['@ezpublish.api.service.field_type']
 ```
 

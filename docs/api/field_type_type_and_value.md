@@ -110,7 +110,7 @@ services:
     EzSystems\EzPlatformMatrixFieldtype\FieldType\Type:
         parent: ezpublish.fieldType
         tags:
-            - {name: ezpublish.fieldType, alias: ezmatrix}
+            - {name: ezplatform.field_type, alias: ezmatrix}
 ```
 
 #### `parent`
@@ -119,7 +119,7 @@ As described in the [Symfony Dependency Injection Component documentation](http:
 
 #### `tags`
 
-You must tag the Field Type service with `ezpublish.fieldType` so it is recognized as a regular Field Type.
+You must tag the Field Type service with `ezplatform.field_type` so it is recognized as a regular Field Type.
 The `alias` key is the `fieldTypeIdentifier`.
 
 !!! tip
