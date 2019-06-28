@@ -33,11 +33,11 @@ ezpublish:
             content_view:
                 full:
                     article:
-                        template: AcmeExampleBundle/Resources/view/full/article.html.twig
+                        template: '@AcmeExample/full/article.html.twig'
                         match:
                             Identifier\ContentType: [article]
                     special:
-                        template: AcmeExampleBundle/Resources/view/full/special.html.twig
+                        template: '@AcmeExample/full/special.html.twig'
                         match:
                             Id\Content: 142
 ```
@@ -115,11 +115,11 @@ system:
         content_view:
             full:
                 article:
-                    template: AcmeExampleBundle/Resources/view/full/article.html.twig
+                    template: '@AcmeExample/full/article.html.twig'
                     match:
                         Identifier\ContentType: [article]
                 special:
-                    template: AcmeExampleBundle/Resources/view/full/special.html.twig
+                    template: '@AcmeExample/full/special.html.twig'
                     match:
                         Id\Content: 142
 ```
