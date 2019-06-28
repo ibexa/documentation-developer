@@ -16,6 +16,20 @@ See [v3.0 project update](ez_platform_v3.0_project_update.md) for the steps you 
 
 ### Field Types
 
+Tags used to register Field Type features in the dependency injection container have changed:
+
+```
+ezpublish.fieldType -> ezplatform.field_type
+ezpublish.fieldType.indexable -> ezplatform.field_type.indexable
+ezpublish.storageEngine.legacy.converter -> ezplatform.field_type.legacy_storage.converter
+ezpublish.fieldType.parameterProvider -> ezplatform.field_type.parameter_provider
+ezpublish_rest.field_type_processor -> ezplatform.field_type.rest.processor
+ez.fieldFormMapper.value -> ezplatform.field_type.form_mapper.value
+ez.fieldFormMapper.definition -> ezplatform.field_type.form_mapper.definition
+```
+
+`\eZ\Publish\Core\FieldType\FieldType::getName`, which had been deprecated, is in use again.
+
 ### SignalSlots
 
 `SignalSlots` have been removed. Symfony Event are used instead.
@@ -106,6 +120,8 @@ REST client has been dropped.
 ### HTTP cache bundle
 
 ### Deprecated Field Types
+
+Deprecated `ezprice` and `ezpage` Field Types have been removed.
 
 ### Elastic Search
 
