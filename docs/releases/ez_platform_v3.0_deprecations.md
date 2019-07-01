@@ -1,5 +1,6 @@
 # eZ Platform v3.0 deprecations and BC breaks
 
+This page lists backwards compatibility breaks and deprecations introduced in eZ Platform v3.0.
 
 ## Backwards compatibility breaks
 
