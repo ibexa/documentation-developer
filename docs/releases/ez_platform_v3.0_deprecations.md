@@ -101,8 +101,6 @@ Additionally, the listener for `pbPreviewReloaded` has been removed.
 |`fbFormBuilderLoaded`|`ez-form-builder-loaded`|
 |`fbFormBuilderUnloaded`|`ez-form-builder-unloaded`
 
-### Online Editor
-
 ### REST server
 
 Removal of REST code from Kernel to a separate package results in the following change:
@@ -121,6 +119,7 @@ HTTP cache bundle now uses FOS Cache Bundle v2. This entails:
 - `EzSystems\PlatformHttpCacheBundle\Handler\TagHandler` has been changed so that the tag is now provided as an option in `header_formatter`
 - `tagResponse()` from `tagHandler` has been replaced by `tagSymfonyResponse()`
 - deprecated `EzSystems\PlatformHttpCacheBundle\Handler\TagHandlerInterface` has been removed
+- `EzSystems\PlatformHttpCacheBundle\PurgeClient\PurgeClientInterface` now only accept an array as argument in the `purge()` method, instead of an int.
 
 ### Deprecated Field Types
 
@@ -134,7 +133,7 @@ Elastic Search support has been dropped.
 
 Assetic support has been dropped.
 
-### Miscellaeneous
+### Miscellaneous
 
 - Deprecated `SubtreeQuery` class has been removed. In v3.0 it was replaced by `\EzSystems\EzPlatformAdminUi\QueryType\SubtreeQueryType`.
 
