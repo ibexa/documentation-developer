@@ -33,11 +33,7 @@ To use them, create [Event Listeners](https://symfony.com/doc/4.3/event_dispatch
 
 ### Schedule calendar
 
-### Custom attributes in Rich Text elements
-
 ### Defining buttons in Online Editor toolbars
-
-### Solr Cloud
 
 ### Random sorting
 
@@ -52,7 +48,7 @@ You can now use `TranslatableNotificationHandlerInterface` for translated notifi
 ### Renamed templates and parameters
 
 Templates and parameters used by the Back Office have been renamed for consistency.
-Refer to [Backwards compatibility doc]() for full list of changes.
+Refer to [Backwards compatibility doc](ez_platform_v3.0_deprecations.md) for full list of changes.
 
 ## Deprecations and removals
 
@@ -75,8 +71,13 @@ This also removed the REST client from Kernel.
 
 ## Requirements changes
 
+eZ Platform now requires using PHP 7.3.
+
+!!! note
+
+    Some OS-es, such as  Ubuntu 10.x or CentoOS 8.x come with PHP 7.2.
+    In such cases remember to update PHP version manually.
 
 ## Updating
-
 
 ## Full changelog
