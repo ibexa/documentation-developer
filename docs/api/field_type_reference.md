@@ -1937,11 +1937,7 @@ $validators = [
 
 ## RichText Field Type
 
-!!! caution "Deprecated"
-
-    Make sure to enable new version of the RichText Field Type provided via [eZ Platform RichTextBundle](https://github.com/ezsystems/ezplatform-richtext).
-
-    The RichText Field Type provided by Kernel via the `eZ\Publish\Core\FieldType\RichText` namespace is deprecated. Refer to PHPDoc whenever you want to implement any interface or extend any base class from that namespace.
+The RichText Field Type is available via the eZ Platform RichText Field Type Bundle provided by the [ezplatform-richtext](https://github.com/ezsystems/ezplatform-richtext) package.
 
 This Field Type validates and stores structured rich text, and exposes it in several formats.
 
