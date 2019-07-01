@@ -3,7 +3,7 @@
 By default, the calendar widget allows you to display all scheduled events.
 You can also configure it to display your custom event types or display them from [custom sources](#configuring-custom-calendar-event-sources).
 
-Optionally, you can [change the color of a custom event](#customizing-event-color) and make it look differently depending on the [SiteAccess configuration](../guide/siteaccess.md#configuring-siteaccesses).
+Optionally, you can [change the colors and icons](#customizing-colors-and-icons) and make the widget look differently depending on the [SiteAccess configuration](../guide/siteaccess.md#configuring-siteaccesses).
 
 ## Configuring custom calendar events
 
@@ -146,6 +146,8 @@ services:
 
 Note that in lines: 4, 7, 10 you provide custom-created tags used in line 15 to assign actions to an event.
 
+You can also change the icon for the assigned action. See [customizing colors and icons](#customizing-colors-and-icons).
+
 
 ## Configuring custom calendar event sources
 
@@ -208,8 +210,7 @@ final class MyEventSourceFactory
         $this->createEvent("Event 1", new DateTime("2019-01-01")),
         $this->createEvent("Event 2", new DateTime("2019-01-02")),
         // ...
-    ```
-    
+    ```    
 
 Complete the procedure by registering the new source:
 
@@ -227,12 +228,12 @@ services:
             - { name: ezplatform.calendar.event_source }
 ```
 
-## Customizing event color
+## Customizing colors and icons
 
-You can change the foreground and background color of a custom event.
+You can change the foreground and background color of a custom event or change the icon of an event or action.
 The setting is SiteAccess-aware.
 
-To customize the color of a custom event, add the following configuration to `config/packages/ezplatform.yml`:
+To customize the appearance settings, add the following configuration to `config/packages/ezplatform.yml`:
 
 ``` YAML hl_lines="6"
 ezpublish:
@@ -241,10 +242,16 @@ ezpublish:
             calendar:
                 event_types:
                     event_name:
+                        icon: '/assets/images/event_icon.svg'
                         color: '#FFFFFF'
+                        actions:
+                            foo:
+                                icon: '/assets/images/foo_icon.svg'                                
+                            bar:
+                                icon: '/assets/images/bar_icon.svg'
 ```
 
-Note that line 6 points to the event name you want to customize.
+Note that line 6 contains the name of the event you want to customize.
 
 
 
