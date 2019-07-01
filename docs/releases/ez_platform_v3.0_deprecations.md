@@ -30,10 +30,6 @@ ez.fieldFormMapper.definition -> ezplatform.field_type.form_mapper.definition
 
 The deprecated `eZ\Publish\Core\FieldType\RichText` namespace has been removed.
 
-### SignalSlots
-
-`SignalSlots` have been removed. Symfony Events are used instead.
-
 ### Twig helper names
 
 Selected Twig helper names have been changed.

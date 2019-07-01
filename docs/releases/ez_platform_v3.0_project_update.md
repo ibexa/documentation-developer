@@ -40,11 +40,6 @@ Translation files have been moved out of `app/Resources/translations` into `tran
 Content of the `web` folder is now placed in `public`.
 Content of `app/Resources/assets` has been moved to `assets`.
 
-## Replacing SignalSlots with Events
-
-v3.0 removes SignalSlots and replaces them with Symfony Events.
-To use them, create [Event Listeners](https://symfony.com/doc/4.3/event_dispatcher.html) in your code.
-
 ## Field Types
 
 To update to v3.0, your Field Type must not implement the `eZ\Publish\SPI\FieldType\Nameable` interface.
