@@ -115,6 +115,13 @@ REST client has been dropped.
 
 ### HTTP cache bundle
 
+HTTP cache bundle now uses FOS Cache Bundle v2. This entails:
+
+- `EzSystems\PlatformHttpCacheBundle\Proxy\TagAwareStore` has been removed
+- `EzSystems\PlatformHttpCacheBundle\Handler\TagHandler` has been changed so that the tag is now provided as an option in `header_formatter`
+- `tagResponse()` from `tagHandler` has been replaced by `tagSymfonyResponse()`
+- deprecated `EzSystems\PlatformHttpCacheBundle\Handler\TagHandlerInterface` has been removed
+
 ### Deprecated Field Types
 
 Deprecated `ezprice` and `ezpage` Field Types have been removed.
