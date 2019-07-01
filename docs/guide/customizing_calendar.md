@@ -1,4 +1,4 @@
-# Customizing calendar widget
+# Customizing Calendar widget
 
 By default, the calendar widget allows you to display all scheduled events.
 You can also configure it to display your custom event types or display them from [custom sources](#configuring-custom-calendar-event-sources).
