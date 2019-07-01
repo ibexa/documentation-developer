@@ -28,6 +28,8 @@ ez.fieldFormMapper.definition -> ezplatform.field_type.form_mapper.definition
 
 `\eZ\Publish\Core\FieldType\FieldType::getName`, which had been deprecated, is in use again.
 
+The deprecated `eZ\Publish\Core\FieldType\RichText` namespace has been removed.
+
 ### SignalSlots
 
 `SignalSlots` have been removed. Symfony Events are used instead.
