@@ -153,6 +153,6 @@ ezpublish:
 
 The Universal Discovery Widget module (UDW) can be found in [Extending modules.](extending_modules.md#universal-discovery-widget-udw)
 
-## Customizing Calendar Widget
+## Customizing calendar widget
 
-For details on adding custom events to the calendar widget and customizing their appearance, see the [customizing Calendar widget](customizing_calendar.md) section. 
+For details on adding custom events to the calendar widget and customizing their appearance, see [customizing Calendar widget](customizing_calendar.md). 

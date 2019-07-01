@@ -1,18 +1,17 @@
-# Customizing Calendar widget
+# Customizing calendar widget
 
-By default, the calendar widget allows you to display all scheduled events.
+By default, the calendar widget enables you to display all scheduled events.
 You can also configure it to display your custom event types or display them from [custom sources](#configuring-custom-calendar-event-sources).
 
 Optionally, you can [change the colors and icons](#customizing-colors-and-icons) and make the widget look differently depending on the [SiteAccess configuration](../guide/siteaccess.md#configuring-siteaccesses).
 
 ## Configuring custom calendar events
 
-Configuring custom events allows you to tailor the calendar to your needs.
 You can create a custom event by taking a few steps to define the event and actions for it.
 
 First, create a new event by creating `src\Calendar\EventType\MyEvent.php`
 
-``` PHP hl_lines="7"
+``` php hl_lines="7"
 
 <?php
 
@@ -33,12 +32,12 @@ final class MyEvent extends Event
 }
 ```
 
-Here, you define a new class for you event based on `\EzSystems\EzPlatformCalendar\Calendar\Event`.
+Here, you define a new class for your event based on `\EzSystems\EzPlatformCalendar\Calendar\Event`.
 Line 7 points to the custom event definition for actions associated with your event.
 
 Proceed with providing the definition for your event by creating `\App\Calendar\EventType\MyEventType.php`:
 
-``` PHP hl_lines="28 29 30 31 33 34 35 36"
+``` php hl_lines="28 29 30 31 33 34 35 36"
 
 <?php
 
@@ -79,13 +78,12 @@ final class MyEventType implements EventTypeInterface
 }
 ```
 Here, lines 28-31 are responsible for building names for your custom events using a pattern.
-Lines 33-36 use the `\EzSystems\EzPlatformCalendar\Calendar\EventType\EventTypeInterface::getTypeLabel` to generate a label.
+Lines 33-36 use `\EzSystems\EzPlatformCalendar\Calendar\EventType\EventTypeInterface::getTypeLabel` to generate a label.
 
 Complete the procedure by registering the new event:
 
-``` YAML
+``` yaml
 services:
-
   App\Calendar\EventType\CustomEventType:
         tags:
             - { name: ezplatform.calendar.event_type }
@@ -95,15 +93,15 @@ services:
 ### Adding actions to events
 
 The definition of the event action implements [`Calendar\EventAction\EventActionInterface`](https://github.com/ezsystems/ezplatform-calendar/blob/master/src/lib/Calendar/EventAction/EventActionInterface.php).
-The [`EventTypeInterface::getActions`](https://github.com/ezsystems/ezplatform-calendar/blob/b88392263deec46d7603d7ecf67ab9bb908787e0/src/lib/Calendar/EventType/EventTypeInterface.php#L44) 
-method specifies actions supported by a specific even type.
+The [`EventTypeInterface::getActions`](https://github.com/ezsystems/ezplatform-calendar/blob/master/src/lib/Calendar/EventType/EventTypeInterface.php#L44) 
+method specifies actions supported by a specific event type.
 
 You can add an action to an event by injecting it using the event type constructor:
 
-``` PHP
+``` php
 <?php
 
-# ...
+// ...
 
 final class ExampleEventType implements EventTypeInterface
 {
@@ -115,7 +113,7 @@ final class ExampleEventType implements EventTypeInterface
         $this->actions = new EventActionCollection($actions);
     }
 
-    # ...
+    // ...
 
     public function getActions(): EventActionCollection
     {
@@ -126,7 +124,7 @@ final class ExampleEventType implements EventTypeInterface
 
 The added actions require registering them as services:
 
-``` YAML hl_lines="4 7 10 15"
+``` yaml hl_lines="4 7 10 15"
 services:
 
     EzSystems\EzPlatformCalendarDemo\Event\Example\Action\FooAction:
@@ -158,7 +156,7 @@ You can implement a custom event source by using:
 
 To add an in-memory collection as an event source, create `app/Calendar/EventSourceFactory/MyEventSourceFactory.php`:
 
-``` PHP hl_lines="26 27 28"
+``` php hl_lines="26 27 28"
 <?php
 
 declare(strict_types=1);
@@ -205,7 +203,7 @@ final class MyEventSourceFactory
     
     For example:
     
-    ```PHP
+    ```php
     $collection_name = new EventCollection([
         $this->createEvent("Event 1", new DateTime("2019-01-01")),
         $this->createEvent("Event 2", new DateTime("2019-01-02")),
@@ -214,7 +212,7 @@ final class MyEventSourceFactory
 
 Complete the procedure by registering the new source:
 
-``` YAML
+``` yaml
 services:
 
     App\Calendar\EventSourceFactory\MyEventSourceFactory:
@@ -235,7 +233,7 @@ The setting is SiteAccess-aware.
 
 To customize the appearance settings, add the following configuration to `config/packages/ezplatform.yml`:
 
-``` YAML hl_lines="6"
+``` yaml hl_lines="6"
 ezpublish:
     system:
         admin_group:

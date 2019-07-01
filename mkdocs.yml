@@ -139,7 +139,7 @@ pages:
             - 'Creating custom Page blocks': 'guide/extending_page.md'
             - 'Creating custom richtext blocks': 'guide/richtext_block.md'
             - 'Extending Form Builder': 'guide/extending_form_builder.md'
-            - 'Customizing Calendar widget': 'guide/customizing_calendar.md'
+            - 'Customizing calendar widget': 'guide/customizing_calendar.md'
         - 'Service container': 'guide/service_container.md'
         - 'Recommendation': 'guide/personalization.md'
     - Cookbook:
