@@ -110,8 +110,6 @@ Removal of REST code from Kernel to a separate package results in the following 
 
 REST client has been dropped.
 
-### User Field Type
-
 ### HTTP cache bundle
 
 HTTP cache bundle now uses FOS Cache Bundle v2. This entails:
