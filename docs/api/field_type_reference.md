@@ -1937,6 +1937,8 @@ $validators = [
 
 ## RichText Field Type
 
+The RichText Field Type is available via the eZ Platform RichText Field Type Bundle provided by the [ezplatform-richtext](https://github.com/ezsystems/ezplatform-richtext) package.
+
 This Field Type validates and stores structured rich text, and exposes it in several formats.
 
 |Name|Internal name|Expected input|
