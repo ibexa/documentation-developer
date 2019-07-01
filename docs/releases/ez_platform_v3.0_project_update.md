@@ -46,8 +46,6 @@ To update to v3.0, your Field Type must not implement the `eZ\Publish\SPI\FieldT
 Remove the `getFieldName(Value $value, FieldDefinition $fieldDefinition, $languageCode)` method.
 You must also adjust `getName()` arguments and add return type hints `string`.
 
-## HTTP cache
-
 ## Resolving settings
 
 Due to changes in the way Dependency Injection Container functions in Symfony,
