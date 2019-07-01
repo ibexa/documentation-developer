@@ -8,7 +8,7 @@ This is due to the switch from Symfony 3 to Symfony 4, as well as due to depreca
 !!! tip
 
     Refer to [Symfony 4 upgrade doc](https://github.com/symfony/symfony/blob/master/UPGRADE-4.0.md)
-    for details of all changes related to the switch to Symfony 4.
+    for details on all changes related to the switch to Symfony 4.
 
 Symfony 4 changes the organization of your project into folders and bundles.
 When updating to eZ Platform v3.0 you need to move your files and modify file paths and namespace references.
@@ -56,7 +56,7 @@ It is also not recommended to get a setting from the ConfigResolver in a class c
 
 If you used either of these options before, it is advisable to rework your code to the new way, for example:
 
-```
+``` php
 <?php
 
 use eZ\Publish\Core\MVC\ConfigResolverInterface;
@@ -80,7 +80,7 @@ class MyService
 
 instead of:
 
-```
+``` php
 <?php
 
 use eZ\Publish\Core\MVC\ConfigResolverInterface;
@@ -101,4 +101,4 @@ The naming and location of templates in the Back Office have been changed.
 If you extend or modify these templates, you need to adapt your code.
 
 Refer to [the list of removals and deprecations](ez_platform_v3.0_deprecations.md#template-organization)
-for a full list of changes.
+for the full list of changes.
