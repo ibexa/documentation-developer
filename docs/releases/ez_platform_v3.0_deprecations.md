@@ -127,6 +127,10 @@ Elastic Search support has been dropped.
 
 Assetic support has been dropped.
 
+### Miscellaeneous
+
+- Deprecated `SubtreeQuery` class has been removed. In v3.0 it was replaced by `\EzSystems\EzPlatformAdminUi\QueryType\SubtreeQueryType`.
+
 ## Deprecations
 
 ### Template parameter names
