@@ -98,20 +98,9 @@ ezpublish:
 
 ## Referencing current design
 
-It is possible to reference current design in order to inject it into a service.
-To do so, you just need to reference the `$design$` dynamic setting:
-
-```yaml
-services:
-    my_service:
-        class: Foo\Bar
-        arguments: ['$design$']
-```
-
-It is also possible to use the `ConfigResolver` service (`ezpublish.config.resolver`):
+To reference current design in your code, use the `ConfigResolver` service (`ezpublish.config.resolver`):
 
 ```php
-// In a controller
 $currentDesign = $this->getConfigResolver->getParameter('design');
 ```
 
@@ -215,8 +204,7 @@ ezpublish:
 ### Fallback order
 
 The default fallback order is:
-- Application view directory: `app/Resources/views/`
-- Application theme directory: `app/Resources/views/themes/<theme_name>/`
+- Application theme directory: `templates/themes/<theme_name>/`
 - Bundle theme directory: `src/<bundle_directory>/Resources/views/themes/<theme_name>/`
 
 !!! note
@@ -247,7 +235,7 @@ ezdesign:
 
 #### Additional override paths
 
-It is possible to add additional global override directories, similar to `app/Resources/views/`.
+It is possible to add additional global override directories:
 
 ```yaml
 ezdesign:
@@ -255,10 +243,6 @@ ezdesign:
         - '%kernel.root_dir%/another_override_directory'
         - /some/other/directory
 ```
-
-!!! note
-
-    `app/Resources/views/` will **always** be the top level override directory.
 
 ### PHPStorm support
 
