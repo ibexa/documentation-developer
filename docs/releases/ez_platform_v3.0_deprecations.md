@@ -1,4 +1,4 @@
-# eZ Platform v3.0 deprecations and BC breaks
+# eZ Platform v3.0 deprecations and backwards compatibility breaks
 
 This page lists backwards compatibility breaks and deprecations introduced in eZ Platform v3.0.
 
@@ -15,7 +15,7 @@ See [v3.0 project update](ez_platform_v3.0_project_update.md) for the steps you 
 
 ### Field Types
 
-Tags used to register Field Type features in the dependency injection container have changed:
+Tags used to register Field Type features in the dependency injection container are renamed:
 
 ```
 ezpublish.fieldType -> ezplatform.field_type
@@ -29,11 +29,11 @@ ez.fieldFormMapper.definition -> ezplatform.field_type.form_mapper.definition
 
 `\eZ\Publish\Core\FieldType\FieldType::getName`, which had been deprecated, is in use again.
 
-The deprecated `eZ\Publish\Core\FieldType\RichText` namespace has been removed.
+The deprecated `eZ\Publish\Core\FieldType\RichText` namespace and `eZ\Publish\SPI\FieldType\Nameable` interface have been removed.
 
 ### Twig helper names
 
-Selected Twig helper names have been changed.
+Selected Twig helpers names have been changed.
 
 Additionally, the `ez_trans_prop` Twig function has been removed.
 
@@ -104,7 +104,7 @@ Additionally, the listener for `pbPreviewReloaded` has been removed.
 
 ### REST server
 
-Removal of REST code from Kernel to a separate package results in the following change:
+Transfer of REST code from Kernel to a separate package results in the following change:
 
 `eZ\Publish\Core\REST` and `eZ\Publish\Core\REST\Common\` namespaces have been replaced by `EzSystems\EzPlatformRest`.
 
@@ -140,9 +140,9 @@ Assetic support has been dropped.
 
 ### Template parameter names
 
-Using the SiteAccess-aware `pagelayout` setting is deprecated, use `page_layout` instead.
+The SiteAccess-aware `pagelayout` setting is deprecated in favor of `page_layout`.
 
-View parameter `pagelayout` set by `pagelayout` setting is deprecated, use `page_layout` instead in your Twig templates.
+View parameter `pagelayout` set by `pagelayout` setting is deprecated  in favor of  `page_layout`.
 
 ### Template organization
 
