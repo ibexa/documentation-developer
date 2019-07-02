@@ -1,4 +1,4 @@
-# Step 2 - Creating a Dashboard tab
+# Step 1 - Creating a Dashboard tab
 
 The Dashboard is the front page that you visit after logging in to the Back Office.
 By default it contains two blocks: "Me" and "Everyone", which list Content items and Media.

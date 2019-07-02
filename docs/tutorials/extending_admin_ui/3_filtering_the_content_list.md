@@ -1,4 +1,4 @@
-# Step 4 - Filtering the content list
+# Step 3 - Filtering the content list
 
 In this step you will enable the content list to be filtered by Content Types.
 

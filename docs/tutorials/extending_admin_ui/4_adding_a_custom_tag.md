@@ -1,4 +1,4 @@
-# Step 6 - Creating a custom tag
+# Step 4 - Creating a custom tag
 
 eZ Platform's RichText Field contains some built-in elements you can use, such as an image or a table.
 You can also add custom tags that will enable you to add additional elements to RichText Fields.

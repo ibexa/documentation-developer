@@ -5,10 +5,6 @@
 Universal Discovery module allows you to browse the content structure and search for content
 using an interactive interface: browse, search, create, and bookmarks view .
 
-!!! tip " UDW tutorial"
-
-    For a detailed example on how to add a new UDW tab, see [step 5 of the Extending Admin UI tutorial](../tutorials/extending_admin_ui/5_creating_a_udw_tab.md).
-
 ### How to use UDW?
 
 With vanilla JS:
