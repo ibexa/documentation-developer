@@ -37,7 +37,6 @@ To use them, create [Event Listeners](https://symfony.com/doc/4.3/event_dispatch
 
 ### Random sorting
 
-
 ## Other changes
 
 ### Improved translating of notifications
@@ -59,6 +58,8 @@ Use [Event Listeners](https://symfony.com/doc/4.3/event_dispatcher.html) in your
 
 ### Deprecated Field Types
 
+Deprecated `ezprice` and `ezpage` Field Types have been removed.
+
 ### Elastic Search
 
 Elastic Search support has been dropped.
@@ -67,7 +68,6 @@ Elastic Search support has been dropped.
 
 REST-related code has been moved from Kernel to a new [`ezsystems/ezplatform-rest`](https://github.com/ezsystems/ezplatform-rest) package.
 This also removed the REST client from Kernel.
-
 
 ## Requirements changes
 
