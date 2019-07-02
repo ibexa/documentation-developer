@@ -5,20 +5,20 @@ In this step you will enable the content list to be filtered by Content Types.
 ## Update routing
 
 First, modify the route to the content list page.
-In `src/EzSystems/ExtendingTutorialBundle/Resources/config/routing.yaml` add the `contentTypeIdentifier` parameter and set its default value:
+In `config/routes.yaml` add the `contentTypeIdentifier` parameter and set its default value:
 
 ``` yml hl_lines="2 5"
-ezsystems_extending_tutorial.all_content_list.list:
+all_content_list.list:
     path: /all_content_list/{page}/{contentTypeIdentifier}
     defaults:
         page: 1
         contentTypeIdentifier: false
-        _controller: EzSystems\ExtendingTutorialBundle\Controller\AllContentListControler::listAction
+        _controller: App\Controller\AllContentListController::listAction
 ```
 
 ## Modify the controller
 
-Introduce changes to `src/EzSystems/ExtendingTutorialBundle/Controller/AllContentListController.php`, so that it takes the selected Content Type into account.
+Introduce changes to `src/Controller/AllContentListController.php`, so that it takes the selected Content Type into account.
 
 First, provide the new `contentTypeIdentifier` parameter in the `listAction` function:
 `public function listAction($contentTypeIdentifier = false, $page = 1)`.
@@ -52,7 +52,7 @@ Finally, provide the new parameter to `$this->render`, after `articles`:
     ``` php hl_lines="25 33 34 35 45 46 47 48 49 54"
     <?php
 
-    namespace EzSystems\ExtendingTutorialBundle\Controller;
+    namespace App\Controller;
 
     use EzSystems\EzPlatformAdminUiBundle\Controller\Controller;
     use eZ\Publish\API\Repository\SearchService;
@@ -100,7 +100,7 @@ Finally, provide the new parameter to `$this->render`, after `articles`:
                 $contentTypes[$group->identifier] = $this->contentTypeService->loadContentTypes($group);
             }
 
-            return $this->render('@EzSystemsExtendingTutorial/list/all_content_list.html.twig', [
+            return $this->render('list/all_content_list.html.twig', [
                 'totalCount' => $paginator->getNbResults(),
                 'articles' => $paginator,
                 'contentTypes' => $contentTypes,
@@ -113,7 +113,7 @@ Finally, provide the new parameter to `$this->render`, after `articles`:
 
 The last thing to do is to update the template by adding a drop-down menu for choosing Content Types.
 
-Add the following block to `src/EzSystems/ExtendingTutorialBundle/Resources/views/list/all_content_list.html.twig`
+Add the following block to `templates/list/all_content_list.html.twig`
 inside `<section class="container my-4">`:
 
 ``` html+twig
@@ -126,7 +126,7 @@ inside `<section class="container my-4">`:
             {% for group, types in contentTypes %}
             <h6 class="dropdown-header">{{ group }}</h6>
                 {% for type in types %}
-                    <a class="dropdown-item" href="{{ path('ezsystems_extending_tutorial.all_content_list.list', { 'contentTypeIdentifier': type.identifier }) }}">{{ type.name }}</a>
+                    <a class="dropdown-item" href="{{ path('all_content_list.list', { 'contentTypeIdentifier': type.identifier }) }}">{{ type.name }}</a>
                 {% endfor %}
             {% endfor %}
         </div>
@@ -137,7 +137,7 @@ inside `<section class="container my-4">`:
 ??? tip "Complete template code"
 
     ``` html+twig hl_lines="20 21 22 23 24 25 26 27 28 29 30 31 32 33 34"
-    {% extends '@ezdesign::layout.html.twig' %}
+    {% extends '@ezdesign/ui/layout.html.twig' %}
 
     {% block title %}{{ 'Content List'|trans }}{% endblock %}
 
@@ -165,7 +165,7 @@ inside `<section class="container my-4">`:
                         {% for group, types in contentTypes %}
                         <h6 class="dropdown-header">{{ group }}</h6>
                             {% for type in types %}
-                                <a class="dropdown-item" href="{{ path('ezsystems_extending_tutorial.all_content_list.list', { 'contentTypeIdentifier': type.identifier }) }}">{{ type.name }}</a>
+                                <a class="dropdown-item" href="{{ path('all_content_list.list', { 'contentTypeIdentifier': type.identifier }) }}">{{ type.name }}</a>
                             {% endfor %}
                         {% endfor %}
                     </div>

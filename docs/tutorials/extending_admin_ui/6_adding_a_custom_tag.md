@@ -8,7 +8,7 @@ In this step you will add a custom tag which will enable you to embed YouTube vi
 ## Configure the custom tag
 
 First, create a file that will contain the configuration for the custom tags.
-Add file `custom_tags.yaml` to `src/EzSystems/ExtendingTutorialBundle/Resources/config`:
+Add file `custom_tags.yaml` to `config/packages`:
 
 ``` yaml hl_lines="5 10 12"
 ezpublish:
@@ -21,7 +21,7 @@ ezpublish:
 ezrichtext:
     custom_tags:
         ezyoutube:
-            template: EzSystemsExtendingTutorialBundle:field_type/ezrichtext/custom_tag:ezyoutube.html.twig
+            template: field_type/ezrichtext/custom_tag/ezyoutube.html.twig
             icon: '/bundles/ezplatformadminui/img/ez-icons.svg#video'
             attributes:
                 title:
@@ -56,7 +56,7 @@ Then attributes of the custom tag are listed. These attributes can be set when a
 ## Create a template
 
 Next, create the template that is referred to in the configuration.
-In `src/EzSystems/ExtendingTutorialBundle/Resources/views/field_type/ezrichtext/custom_tag` add the following `ezyoutube.html.twig` file:
+In `templates/field_type/ezrichtext/custom_tag` add the following `ezyoutube.html.twig` file:
 
 ``` html+twig
 <div{% if params.align is defined %} style="text-align: {{ params.align }};"{% endif %}>
@@ -70,75 +70,10 @@ In `src/EzSystems/ExtendingTutorialBundle/Resources/views/field_type/ezrichtext/
 </div>
 ```
 
-## Import configuration
-
-Make sure that the configuration is imported.
-Make the following changes to `src/EzSystems/ExtendingTutorialBundle/DependencyInjection/EzSystemsExtendingTutorialExtension.php`:
-
-- Add the following `use` statememnts:
-
-``` php
-use Symfony\Component\Config\Resource\FileResource;
-use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
-use Symfony\Component\Yaml\Yaml;
-```
-
-- Add `implements PrependExtensionInterface` to the class name, so it looks like this:
-
-`class EzSystemsExtendingTutorialExtension extends Extension implements PrependExtensionInterface`
-
-- Add a `prepend` function:
-
-``` php
-public function prepend( ContainerBuilder $container )
-{
-    $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
-    $loader->load('custom_tags.yaml');
-}
-```
-
-??? tip "Complete file"
-
-    ``` php hl_lines="9 10 11 13 27 28 29 30 31"
-
-    <?php
-
-    namespace EzSystems\ExtendingTutorialBundle\DependencyInjection;
-
-    use Symfony\Component\DependencyInjection\ContainerBuilder;
-    use Symfony\Component\Config\FileLocator;
-    use Symfony\Component\HttpKernel\DependencyInjection\Extension;
-    use Symfony\Component\DependencyInjection\Loader;
-    use Symfony\Component\Config\Resource\FileResource;
-    use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
-    use Symfony\Component\Yaml\Yaml;
-
-    class EzSystemsExtendingTutorialExtension extends Extension implements PrependExtensionInterface
-    {
-        /**
-         * {@inheritdoc}
-         */
-        public function load(array $configs, ContainerBuilder $container)
-        {
-            $configuration = new Configuration();
-            $config = $this->processConfiguration($configuration, $configs);
-
-            $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-            $loader->load('services.yaml');
-        }
-
-        public function prepend( ContainerBuilder $container )
-        {
-            $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
-            $loader->load('custom_tags.yaml');
-        }
-    }
-    ```
-
 ## Add labels
 
 Finally, add labels to the custom tag's editing interface.
-Provide them in a `src/EzSystems/ExtendingTutorialBundle/Resources/translations/custom_tags.en.yaml` file:
+Provide them in a `translations/custom_tags.en.yaml` file:
 
 ``` yaml
 ezrichtext.custom_tags.ezyoutube.label: Youtube
