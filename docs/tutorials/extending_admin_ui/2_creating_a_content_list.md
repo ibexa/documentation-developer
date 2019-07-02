@@ -66,7 +66,7 @@ all_content_list.list:
 
 As you can see in the code above, the next step is creating a controller that will take care of the article list view.
 
-In `src/Controller` create a `AllContentListController.php` file (it will be registered automatically):
+In `src/Controller` create an `AllContentListController.php` file (it will be registered automatically):
 
 ```php hl_lines="41"
 <?php
