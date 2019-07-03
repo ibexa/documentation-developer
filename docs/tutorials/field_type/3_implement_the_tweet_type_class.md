@@ -11,7 +11,7 @@ A Type class must implement `eZ\Publish\SPI\FieldType\FieldType` ("Field Type in
 
 All native Field Types also extend the `eZ\Publish\SPI\FieldType\FieldType` abstract class that implements this interface and provides implementation facilities through a set of abstract methods of its own. In this case, Type classes implement a mix of methods from the Field Type interface and from the abstract Field Type.
 
-To allow the Field Type to retrieve content name use the `\eZ\Publish\SPI\FieldType\FieldType::getName` method.
+To allow the Field Type to retrieve content name use the `eZ\Publish\SPI\FieldType\FieldType::getName` method.
 
 Let's go over those methods and their implementation.
 
