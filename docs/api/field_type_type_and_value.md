@@ -48,13 +48,6 @@ This will also apply to all user interfaces and the REST API, which therefore mu
 To be able to retrieve a Content item name when the Field is part of a name schema or a URL schema,
 use `eZ\Publish\Core\FieldType\FieldType::getName` method.
 
-``` yaml
-ezpublish.fieldType.ezobjectrelation.nameable_field:
-    class: '%ezpublish.fieldType.ezobjectrelation.nameable_field.class%'
-    arguments:
-      - '@ezpublish.spi.persistence.cache.contentHandler'
-```
-
 ## Value handling
 
 A Field Type needs to deal with the custom value format provided by it. In order for the public API to work properly, it delegates working with such custom Field values to the corresponding Field Type. The `ez\Publish\SPI\FieldType\FieldType` interface therefore provides the following methods:
