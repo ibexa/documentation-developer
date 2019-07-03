@@ -45,7 +45,7 @@ This will also apply to all user interfaces and the REST API, which therefore mu
 
 ### Field Type name
 
-The content item name is retrieved by `eZ\Publish\SPI\FieldType\FieldType::getName` method which must be implemented.
+The content item name is retrieved by the `eZ\Publish\SPI\FieldType\FieldType::getName` method which must be implemented.
 To generate Content item name or URL alias the Field Type name must be a part of a name schema or a URL schema.
 
 ## Value handling
