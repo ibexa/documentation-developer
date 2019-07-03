@@ -9,19 +9,17 @@ You will customize this step by instructing Platform to use a custom template to
 
 To use a custom template when rendering the root content, create a `content_view` configuration block for `ezpublish`.
 
-Edit `app/config/ezplatform.yaml`. Find the `site_group` key and uncomment it.
-Add the following block under `site_group`, but before `admin_group`
-(pay attention to indentation: `content_view` should be one level below `site_group`):
+Edit `/config/packages/ezplatform.yaml`.
+Add the following block under `system` while paying attention to indentation: `content_view` should be one level below `site_group`:
 
 ``` yaml
 ezpublish:
     system:
         site_group:
-            # existing keys, do not change them
             content_view:
                 full:
                     home_page:
-                        template: full/home_page.html.twig
+                        template: home_page.html.twig
                         match:
                             Id\Location: 2
 ```
@@ -49,7 +47,7 @@ Next, you need to create the template that you indicated in configuration.
 
 For the time being, fill the template with a basic "Hello world" message.
 
-Create a `home_page.html.twig` file in `app/Resources/views/full`:
+Create a `home_page.html.twig` file in `templates/`:
 
 ``` html+twig
 <div>
