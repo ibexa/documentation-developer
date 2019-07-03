@@ -11,7 +11,7 @@ A Type class must implement `eZ\Publish\SPI\FieldType\FieldType` ("Field Type in
 
 All native Field Types also extend the `eZ\Publish\Core\FieldType\FieldType` abstract class that implements this interface and provides implementation facilities through a set of abstract methods of its own. In this case, Type classes implement a mix of methods from the Field Type interface and from the abstract Field Type.
 
-The recommended way to allow the Field Type to be able to generate content name is through implementing the `eZ\Publish\SPI\FieldType\Nameable` interface.
+To allow the Field Type to retrieve content name use the `\eZ\Publish\Core\FieldType\FieldType::getName` method.
 
 Let's go over those methods and their implementation.
 
@@ -337,7 +337,6 @@ namespace EzSystems\TweetFieldTypeBundle\eZ\Publish\FieldType\Tweet;
 
 use eZ\Publish\Core\FieldType\FieldType;
 use eZ\Publish\Core\FieldType\ValidationError;
-use eZ\Publish\SPI\FieldType\Nameable;
 use eZ\Publish\SPI\Persistence\Content\FieldValue as PersistenceValue;
 use eZ\Publish\Core\FieldType\Value as CoreValue;
 use eZ\Publish\SPI\FieldType\Value as SPIValue;

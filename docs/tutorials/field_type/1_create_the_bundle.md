@@ -74,7 +74,6 @@ Now prepare the files for two classes you will need for the Field Type:
 namespace EzSystems\TweetFieldTypeBundle\eZ\Publish\FieldType\Tweet;
 
 use eZ\Publish\Core\FieldType\FieldType;
-use eZ\Publish\SPI\FieldType\Nameable;
 
 class Type extends FieldType implements Nameable
 {

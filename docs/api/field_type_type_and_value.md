@@ -45,19 +45,8 @@ This will also apply to all user interfaces and the REST API, which therefore mu
 
 ### Field Type name
 
-To be able to generate a Content item name when the Field is part of a name schema or a URL schema,
-implement `eZ\Publish\SPI\FieldType\Nameable` and register this service using the `ezpublish.fieldType.nameable` tag.
-
-The `eZ\Publish\SPI\FieldType\Nameable::getFieldName` method will be used to retrieve the name.
-
-``` yaml
-ezpublish.fieldType.ezobjectrelation.nameable_field:
-    class: '%ezpublish.fieldType.ezobjectrelation.nameable_field.class%'
-    arguments:
-      - '@ezpublish.spi.persistence.cache.contentHandler'
-    tags:
-        - {name: ezpublish.fieldType.nameable, alias: ezobjectrelation}
-```
+To be able to retrieve a Content item name when the Field is part of a name schema or a URL schema,
+use `eZ\Publish\Core\FieldType\FieldType::getName` method.
 
 ## Value handling
 
@@ -151,7 +140,6 @@ An example schema could look like this:
 ```
 
 The settings are mapped into Symfony forms via the [FormMapper](field_type_form_and_template.md#formmapper).
-
 
 ## Extensibility points
 
