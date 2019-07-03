@@ -2,7 +2,7 @@
 
 !!! tip
 
-    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/ezstudio-beginner-tutorial/tree/v2-step1).
+    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/tree/v3-step1).
 
 To set up the starter website, you need to follow these steps:
 
@@ -58,40 +58,58 @@ Edit it to remove the Image Field that has a Content Relation (ezobjectrelation)
 
     For an introduction on how to use templates in eZ Platform, take a look at the [Building a Bicycle Route Tracker in eZ Platform tutorial](../platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md)
 
-Place the [`pagelayout.html.twig`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/app/Resources/views/pagelayout.html.twig) and [`pagelayout_menu.html.twig`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/app/Resources/views/pagelayout_menu.html.twig) files in `app/Resources/views` folder. Create a new folder, called `full`, under `views`. Place further template files in it:
+Place the [`pagelayout.html.twig`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/templates/pagelayout.html.twig) and [`pagelayout_menu.html.twig`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/templates/pagelayout_menu.html.twig) files in the `templates` folder. Create a new folder, called `full`, under `templates`. Place further template files in it:
 
-- [`article.html.twig`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/app/Resources/views/full/article.html.twig)
-- [`dog_breed.html.twig`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/app/Resources/views/full/dog_breed.html.twig)
-- [`folder.html.twig`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/app/Resources/views/full/folder.html.twig)
-- [`tip.html.twig`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/app/Resources/views/full/tip.html.twig)
+- [`article.html.twig`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/templates/full/article.html.twig)
+- [`dog_breed.html.twig`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/templates/full/dog_breed.html.twig)
+- [`folder.html.twig`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/templates/full/folder.html.twig)
+- [`tip.html.twig`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/templates/full/tip.html.twig)
 
-Place two configuration files in `app/config` folder:
+Place two configuration files in the `config` folder:
 
-- [`views.yaml`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/app/config/views.yaml)
-- [`image_variations.yaml`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/app/config/image_variations.yaml)
+- [`views.yaml`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/config/views.yaml)
+- [`image_variations.yaml`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/config/image_variations.yaml)
 
-Modify the `config.yaml` file located in `app/config` folder and add the following lines at the end of the `imports` block:
+Modify the `ezplatform.yaml` file located in `config/packages` folder and add the following block at the start of the file:
 
 ``` yaml
-    - { resource: views.yaml }
-    - { resource: image_variations.yaml }
+imports:
+    - { resource: ../views.yaml }
+    - { resource: ../image_variations.yaml }
 ```
 
-In `web/assets` folder create:
+Create an `assets` folder in the project root:
 
-- a `css` subfolder and add this stylesheet file to it: [`style.css`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/web/assets/css/style.css)
-- an `images` subfolder and add the [`header.jpg`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/web/assets/images/header.jpg) file to it
+- create a `css` folder and add the following stylesheet: [`style.css`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/web/assets/css/style.css) to it
+- create an `images` subfolder and add the [`header.jpg`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/web/assets/images/header.jpg) file to it
 
-In `src/AppBundle` folder create a `QueryType` subfolder and add [`LocationChildrenQueryType.php`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v2-step1/src/AppBundle/QueryType/LocationChildrenQueryType.php) to it. This file allows your folders to display all content that they contain (read up on it [in the documentation](../../guide/controllers.md#query-controller)).
+Replace the `webpack.config.js` file in the project root folder with the [provided file]((https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/webpack.config.js)). Next, in `config/packages/webpack_encore.yaml`, replace the `output_path: '%kernel.project_dir%/public/build'` line with `output_path: '%kernel.project_dir%/public/assets/build'`.
 
-Finally, add the following files to `src/AppBundle`, to create dynamic links in the top menu:
+Next, in the terminal run the commands:
 
-- [`Controller/MenuController.php`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/src/AppBundle/Controller/MenuController.php)
-- [`DependencyInjection/AppExtension.php`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/src/AppBundle/DependencyInjection/AppExtension.php)
-- [`QueryType/MenuQueryType.php`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/src/AppBundle/QueryType/MenuQueryType.php)
-- [`Resources/config/services.yaml`](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step1/src/AppBundle/Resources/config/services.yaml)
+``` sh
+yarn encore dev
+php bin/console cache:clear
+```
 
-All the files you've placed in `src/AppBundle` are not the scope of this tutorial and we won't go here into detail on how they work.
+!!! tip
+
+    Compiling assets with Webpack Encore is explained in [the beginner tutorial](../platform_beginner/3_customize_the_front_page.md).
+
+In the `src` folder create a `QueryType` subfolder and add [`LocationChildrenQueryType.php`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/src/QueryType/LocationChildrenQueryType.php) and [`QueryType/MenuQueryType.php`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/src/QueryType/MenuQueryType.php) to it.
+Add [`MenuController.php`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/src/Controller/MenuController.php) to `src/Controller`.
+
+These files take care of displaying content of folders and of the top menu (read up on it [in the documentation](../../guide/controllers.md#query-controller)).
+
+Additionally in `config/services.yaml` add the following block under the `services` key:
+
+``` yaml
+App\QueryType\LocationChildrenQueryType:
+    tags:
+        - { name: ezpublish.query_type }
+```
+
+All the files you've placed in `src` are not the scope of this tutorial and we won't go here into detail on how they work.
 
 This is what the structure of the new and modified files should look like (excluding pre-existing files):
 
