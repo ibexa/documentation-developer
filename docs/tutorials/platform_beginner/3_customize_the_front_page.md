@@ -9,7 +9,7 @@ You will customize this step by instructing Platform to use a custom template to
 
 To use a custom template when rendering the root content, create a `content_view` configuration block for `ezpublish`.
 
-Edit `/config/packages/ezplatform.yaml`.
+Edit `config/packages/ezplatform.yaml`.
 Add the following block under `system` while paying attention to indentation: `content_view` should be one level below `site_group`:
 
 ``` yaml
@@ -62,120 +62,120 @@ Refresh the page and you will see a simple, unstyled version of the message.
 Most sites have a general layout which includes things like header with a logo or footer.
 It is displayed on every page, and the content of the page is placed inside it.
 
-To add a template like this to your site, create a `main_layout.html.twig` file in `app/Resources/views` and paste the following code into it:
+To add a template like this to your site, create a `main_layout.html.twig` file in `templates/` and paste the following code into it:
 
 ``` html+twig hl_lines="12 13 14 52 53 89 90 91 92"
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="eZ Platform beginner tutorial">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="eZ Platform beginner tutorial">
 
-        <title>eZ Platform Beginner Tutorial</title>
+    <title>eZ Platform Beginner Tutorial</title>
 
-        {% stylesheets 'assets/css/*' filter='cssrewrite' %}
-            <link rel="stylesheet" href="{{ asset_url }}" />
-        {% endstylesheets %}
+    {{  encore_entry_link_tags('tutorial') }}
 
-        <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
-    </head>
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+</head>
 
-    <body>
-        <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-fixed-top" id="total-navbar">
-            <div class="container">
-                <!-- Brand and toggle -->
-                <div class="navbar-header page-scroll">
-                    <a class="navbar-brand" href="/">
-                        <img alt="Brand" src="{{ asset('assets/images/logo.png') }}">
-                    </a>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top" id="total-navbar">
+    <div class="container">
+        <!-- Brand and toggle -->
+        <div class="navbar-header page-scroll">
+            <a class="navbar-brand" href="/">
+                <img alt="Brand" src="{{ asset('../assets/images/logo.png') }}">
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!-- Header -->
+<header class="below-navbar">
+    <div class="container">
+        <div class="row" id="banner">
+            <div class="col-xs-12">
+                <div class="banner-header-block">
+                    <img alt="Go Bike! logo" src="{{ asset('../assets/images/wordmark.png') }}" style="width:100%" />
+                    <h3 class="banner-header">{{ 'Discover new rides! Go Bike!'|trans }}</h3>
                 </div>
             </div>
-        </nav>
+        </div>
+    </div>
+</header>
 
-        <!-- Header -->
-        <header class="below-navbar">
-            <div class="container">
-                <div class="row" id="banner">
-                    <div class="col-xs-12">
-                        <div class="banner-header-block">
-                            <img alt="Go Bike! logo" src="{{ asset('assets/images/wordmark.png') }}" style="width:100%" />
-                            <h3 class="banner-header">{{ 'Discover new rides! Go Bike!'|trans }}</h3>
-                        </div>
-                    </div>
+<section>
+    <div class="container">
+        <div class="row regular-content-size">
+            <div class="col-xs-12 box-style">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="text-center">
+    <div class="footer-color-one">
+    </div>
+    <div class="footer-color-two">
+        <div class="container">
+            <div class="row regular-content-size">
+                <div class="col-xs-8 col-xs-offset-2 footer-links-block">
+                    <ul class="list-inline footer-links">
+                        <li><a href="#">{{ 'About Us'|trans }}</a></li>
+                        <li><a href="/">{{ 'All Rides'|trans }}</a></li>
+                        <li><a href="#">{{ 'Submit a Ride'|trans }}</a></li>
+                        <li><a href="#">{{ 'My Account'|trans }}</a></li>
+                        <li><a href="#">{{ 'FAQ'|trans }}</a></li>
+                    </ul>
                 </div>
             </div>
-        </header>
-
-        <section>
-            <div class="container">
-                <div class="row regular-content-size">
-                    <div class="col-xs-12 box-style">
-                        {% block content %}
-                        {% endblock %}
-                    </div>
+        </div>
+    </div>
+    <div class="footer-color-three">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <p class="small">Website design &#38; content © copyright {{ "now"|date("Y") }} eZ Systems. This website was made with eZ Platform.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</footer>
 
-        <!-- Footer -->
-        <footer class="text-center">
-            <div class="footer-color-one">
-            </div>
-            <div class="footer-color-two">
-                <div class="container">
-                    <div class="row regular-content-size">
-                        <div class="col-xs-8 col-xs-offset-2 footer-links-block">
-                            <ul class="list-inline footer-links">
-                                <li><a href="#">{{ 'About Us'|trans }}</a></li>
-                                <li><a href="/">{{ 'All Rides'|trans }}</a></li>
-                                <li><a href="#">{{ 'Submit a Ride'|trans }}</a></li>
-                                <li><a href="#">{{ 'My Account'|trans }}</a></li>
-                                <li><a href="#">{{ 'FAQ'|trans }}</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-color-three">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <p class="small">Website design &#38; content © copyright {{ "now"|date("Y") }} eZ Systems. This website was made with eZ Platform</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+{{ encore_entry_script_tags('tutorial-js') }}
 
-        {% javascripts 'assets/js/jquery.min.js'
-                        'assets/js/*' %}
-            <script src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-
-    </body>
+</body>
 </html>
 ```
 
-For now the site has no stylesheets or assets. In the highlighted lines (12-14, 89-92) the template points to the path to store asset files, such as CSS stylesheets, JS scripts and images.
+For now the site has no stylesheets or assets. 
+In the highlighted lines (12-14, 89-92) the template points to the path to store asset files, such as CSS stylesheets, JS scripts and images.
 
-!!! tip
+### Adding assets
 
-    This code goes through all files in `web/assets/css` and `web/assets/js` and loads them as stylesheets and JS scripts respectively.
-    See [Symfony assetic doc](http://symfony.com/doc/2.8/frontend/assetic/asset_management.html#assets) for more information.
+Download [`assets.zip`](img/assets.zip) which contains the prepared asset files. 
 
-[Download assets.zip](img/assets.zip) which contains the prepared asset files. Then unpack its contents to the `web/assets/` directory, so that the structure looks like this:
+Then unpack its contents to the following directories:
 
-![File structure](img/bike_tutorial_listing_web.png)
+- `css`, `fonts`, and `js` folders to `assets/`
+- `images` to `public/assets/`
+
+Before proceeding, ensure that the structure of the added files looks like this:
+
+![File structure](img/bike_tutorial_listing_web_v3.png)
 
 ### Extending templates
 
-Now you need to indicate that the `app/Resources/views/full/home_page.html.twig` template should make use of the page layout.
+Now you need to indicate that the `templates/home_page.html.twig` template should make use of the page layout.
 Edit `home_page.html.twig` and replace it with the following code:
 
 ``` html+twig hl_lines="1 3 7"
@@ -199,24 +199,15 @@ Refresh the page and you should now see the "Hello world" placed inside a styled
 
 ![Homepage with a Hello world](img/bike_tutorial_hello_world.png)
 
-!!! tip
+!!! note "Clear the cache and regenerate the assets"
 
     If you are in prod environment, you need to regenerate the web assets. Run the following command:
 
-    ​```
-    php bin/console assetic:dump --env=prod web
-    yarn encore prod
-    ​```
-
-!!! note "Clear the cache"
-
-    Each time you change the templates, you should clear the cache. It's not mandatory in dev environment.
-
-    To clear the cache:
-
-    ``` bash
+    ​``` bash
     $ php bin/console cache:clear
-    ```
+    $ php bin/console assets:install
+    yarn encore prod 
+    ​```
 
 At this point, the template is static. It doesn't render any dynamic data from the Repository.
 
