@@ -85,30 +85,30 @@ You can also modify the following form templates:
 **Changing user password:**
 
 ``` yaml
-ezpublish.system.<siteaccess>.user_change_password.templates.form
-ezpublish.system.<siteaccess>.user_change_password.templates.success
+ezsettings.<siteaccess>.user_change_password.templates.form
+ezsettings.<siteaccess>.user_change_password.templates.success
 ```
 
 **Password recovery forms:**
 
 ``` yaml
-ezpublish.system.<siteaccess>.user_forgot_password.templates.form
-ezpublish.system.<siteaccess>.user_forgot_password_success.templates.form
-ezpublish.system.<siteaccess>.user_forgot_password_login.templates.form
-ezpublish.system.<siteaccess>.user_forgot_password.templates.mail
+ezsettings.<siteaccess>.user_forgot_password.templates.form
+ezsettings.<siteaccess>.user_forgot_password_success.templates.form
+ezsettings.<siteaccess>.user_forgot_password_login.templates.form
+ezsettings.<siteaccess>.user_forgot_password.templates.mail
 ```
 
 **Resetting password:**
 
 ``` yaml
-ezpublish.system.<siteaccess>.user_reset_password.templates.form
-ezpublish.system.<siteaccess>.user_reset_password.templates.invalid_link
-ezpublish.system.<siteaccess>.user_reset_password.templates.success
+ezsettings.<siteaccess>.user_reset_password.templates.form
+ezsettings.<siteaccess>.user_reset_password.templates.invalid_link
+ezsettings.<siteaccess>.user_reset_password.templates.success
 ```
 
 **User settings:**
 
 ``` yaml
-ezpublish.system.<siteaccess>.user_settings.templates.list
-ezpublish.system.<siteaccess>.user_settings.templates.update
+ezsettings.<siteaccess>.user_settings.templates.list
+ezsettings.<siteaccess>.user_settings.templates.update
 ```
