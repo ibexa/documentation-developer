@@ -151,3 +151,16 @@ ezpublish:
 
 You can override these settings if you have other Content Types that should be treated as users/user groups in the Back Office.
 When viewing such Content in the Back Office you will be able to see e.g. the assigned Policies.
+
+## Top-level Locations
+
+You can change the default path for top-level Locations such as Content or Media, e.g.:
+
+```yaml
+ezpublish:
+    system:
+        <siteaccess>:
+            subtree_paths:
+                content: '/1/18/'
+                media: '/1/57/'
+```
