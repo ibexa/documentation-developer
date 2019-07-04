@@ -47,7 +47,7 @@ Next, you need to create the template that you indicated in configuration.
 
 For the time being, fill the template with a basic "Hello world" message.
 
-Create a `home_page.html.twig` file in `templates/`:
+Create a `home_page.html.twig` file in `templates/full/`:
 
 ``` html+twig
 <div>
@@ -62,7 +62,7 @@ Refresh the page and you will see a simple, unstyled version of the message.
 Most sites have a general layout which includes things like header with a logo or footer.
 It is displayed on every page, and the content of the page is placed inside it.
 
-To add a template like this to your site, create a `main_layout.html.twig` file in `templates/full/` and paste the following code into it:
+To add a template like this to your site, create a `main_layout.html.twig` file in `templates/` and paste the following code into it:
 
 ``` html+twig hl_lines="12 87"
 <!DOCTYPE html>
@@ -198,7 +198,7 @@ Encore
 
 Note that `.addStyleEntry('tutorial', [])` and `.addEntry('tutorial-js', [])` refer respectively to
 `{{  encore_entry_link_tags('tutorial') }}` and `{{ encore_entry_script_tags('tutorial-js') }}` from `main_layout.html.twig`.
-This configuration creates a list of files included to be added to a template.
+This configuration creates a bundle consisting of files to be added to a template.
 
 Additionally, in the same file, uncomment these two following lines:
 
@@ -213,7 +213,7 @@ And comment out this line:
 module.exports = [ eZConfig, ...customConfigs ];
 ```
 
-??? tip " See the complete `webpack.config.js`"
+??? tip " See the complete `webpack.config.js` file"
 
     ``` javascript hl_lines="16 17 18 19 20 21 22 23 24 25 26 30 31 34"
     const Encore = require('@symfony/webpack-encore');
@@ -265,7 +265,7 @@ At this point the bundles are created and ready to be used.
 
 Now you have to configure the `main_layout.html.twig` template that uses the assets to extend the `home_page.html.twig` template.
 
-To add one template to another, edit `templates/home_page.html.twig` and replace it with the following code:
+To add one template to another, edit `templates/full/home_page.html.twig` and replace it with the following code:
 
 ``` html+twig hl_lines="1 3 7"
 {% extends "main_layout.html.twig" %}
@@ -305,7 +305,7 @@ But before that, you can use the existing page layout to render the content of a
 
 ### Create the Ride view
 
-Create a Twig template `template/ride.html.twig` with the following code:
+Create a Twig template `templates/full/ride.html.twig` with the following code:
 
 ``` html+twig
 {% extends "main_layout.html.twig" %}
