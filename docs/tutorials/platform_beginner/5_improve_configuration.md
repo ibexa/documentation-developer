@@ -20,7 +20,7 @@ ezpublish:
                         - {name: geometry/scaledownonly, params: [140, 100]}
 ```
 
-At the beginning of the `config/packages/ezplatform.yaml` file (before the `parameters` key), add the following lines to import the content of `config/packages/image_variations.yaml`:
+At the beginning of the `config/packages/ezplatform.yaml` file (before the `parameters` key), add the following lines to import the content of `image_variations.yaml`:
 
 ``` yaml
 imports:
