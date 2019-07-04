@@ -1,4 +1,4 @@
-# Step 2 - Creating a Dashboard tab
+# Step 1 - Creating a Dashboard tab
 
 The Dashboard is the front page that you visit after logging in to the Back Office.
 By default it contains two blocks: "Me" and "Everyone", which list Content items and Media.
@@ -15,11 +15,10 @@ This tab, called "Articles", will list ten most recently modified Content items 
 
 ## Register a service
 
-First, add the following block to `src/EzSystems/ExtendingTutorialBundle/Resources/config/services.yaml`,
-which was created when [the bundle was generated](1_creating_a_bundle.md). Place the block indented, under the `services` key:
+First, add the following block to `config/services.yaml`. Place the block indented, under the `services` key:
 
 ``` yml
-EzSystems\ExtendingTutorialBundle\Tab\Dashboard\Everyone\EveryoneArticleTab:
+App\Tab\Dashboard\Everyone\EveryoneArticleTab:
     autowire: true
     autoconfigure: true
     public: false
@@ -33,12 +32,12 @@ This configuration points to the `EveryoneArticleTab.php` file, which you now ne
 
 ## Create a tab
 
-Create an `EveryoneArticleTab.php` file in `src/EzSystems/ExtendingTutorialBundle/Tab/Dashboard/Everyone`:
+Create an `EveryoneArticleTab.php` file in `src/Tab/Dashboard/Everyone`:
 
 ``` php hl_lines="17 47"
 <?php
 
-namespace EzSystems\ExtendingTutorialBundle\Tab\Dashboard\Everyone;
+namespace App\Tab\Dashboard\Everyone;
 
 use eZ\Publish\API\Repository\SearchService;
 use eZ\Publish\Core\Pagination\Pagerfanta\ContentSearchAdapter;
@@ -107,7 +106,7 @@ class EveryoneArticleTab extends AbstractTab implements OrderedTabInterface
         $pager->setMaxPerPage($limit);
         $pager->setCurrentPage($page);
 
-        return $this->twig->render('@ezdesign/ui/dashboard/tab:all_content.html.twig', [
+        return $this->twig->render('@ezdesign/ui/dashboard/tab/all_content.html.twig', [
             'data' => $this->pagerContentToDataMapper->map($pager),
         ]);
     }

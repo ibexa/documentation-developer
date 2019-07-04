@@ -1,4 +1,4 @@
-# Step 3 - Creating a content list
+# Step 2 - Creating a content list
 
 The next thing you will extend in this tutorial is the top menu.
 
@@ -11,25 +11,12 @@ You will be able to filter the list by Content Types using a drop-down menu.
 
 The first step is to add an event listener.
 
-To register the listener as a service, add the following block to `src/EzSystems/ExtendingTutorialBundle/Resources/config/services.yaml`.
-Place the block indented, under the `services` key:
-
-``` yaml
-EzSystems\ExtendingTutorialBundle\EventListener\:
-    resource: '../../EventListener/*'
-    autowire: true
-    autoconfigure: true
-    public: true
-    tags:
-        - { name: kernel.event_subscriber }
-```
-
-Then create a `MyMenuListener.php` file in `src/EzSystems/ExtendingTutorialBundle/EventListener`:
+Create a `MyMenuListener.php` file in `src/EventListener`. It will be registered automatically:
 
 ``` php hl_lines="14 26"
 <?php
 
-namespace EzSystems\ExtendingTutorialBundle\EventListener;
+namespace App\EventListener;
 
 use EzSystems\EzPlatformAdminUi\Menu\Event\ConfigureMenuEvent;
 use EzSystems\EzPlatformAdminUi\Menu\MainMenuBuilder;
@@ -52,7 +39,7 @@ class MyMenuListener implements EventSubscriberInterface
             'all_content_list',
             [
                 'label' => 'Content List',
-                'route' => 'ezsystems_extending_tutorial.all_content_list.list',
+                'route' => 'all_content_list.list',
             ]
         );
     }
@@ -65,38 +52,26 @@ Line 26 points to the new route that you need to add to the routing file.
 
 ## Add routing
 
-Add the following block to `src/EzSystems/ExtendingTutorialBundle/Resources/config/routing.yaml`:
+Add the following block to `config/routes.yaml`:
 
 ``` yaml hl_lines="5"
-ezsystems_extending_tutorial.all_content_list.list:
+all_content_list.list:
     path: /all_content_list/{page}
     defaults:
         page: 1
-        _controller: EzSystems\ExtendingTutorialBundle\Controller\AllContentListController::listAction
+        _controller: App\Controller\AllContentListController::listAction
 ```
 
 ## Create a controller
 
 As you can see in the code above, the next step is creating a controller that will take care of the article list view.
 
-First, ensure that the controller is configured in `services.yaml`.
-Add the following block (indented, under the `services` key) to that file:
-
-``` yaml
-EzSystems\ExtendingTutorialBundle\Controller\:
-    resource: '../../Controller/*'
-    autowire: true
-    autoconfigure: true
-    public: false
-    exclude: '../../Controller/{Controller}'
-```
-
-Then, in `src/EzSystems/ExtendingTutorialBundle/Controller` create a `AllContentListController.php` file:
+In `src/Controller` create an `AllContentListController.php` file (it will be registered automatically):
 
 ```php hl_lines="41"
 <?php
 
-namespace EzSystems\ExtendingTutorialBundle\Controller;
+namespace App\Controller;
 
 use EzSystems\EzPlatformAdminUiBundle\Controller\Controller;
 use eZ\Publish\API\Repository\SearchService;
@@ -134,7 +109,7 @@ class AllContentListController extends Controller
         $paginator->setMaxPerPage(8);
         $paginator->setCurrentPage($page);
 
-        return $this->render('@EzSystemsExtendingTutorial/list/all_content_list.html.twig', [
+        return $this->render('list/all_content_list.html.twig', [
             'totalCount' => $paginator->getNbResults(),
             'articles' => $paginator,
         ]);
@@ -146,10 +121,10 @@ The highlighted line 41 indicates the template that will be used to display the 
 
 ## Add a template
 
-Finally, create an `all_content_list.html.twig` file in `src/EzSystems/ExtendingTutorialBundle/Resources/views/list`:
+Finally, create an `all_content_list.html.twig` file in `templates/list`:
 
 ``` html+twig
-{% extends '@ezdesign::layout.html.twig' %}
+{% extends '@ezdesign/ui/layout.html.twig' %}
 
 {% block title %}{{ 'Content List'|trans }}{% endblock %}
 

@@ -15,7 +15,7 @@ To learn how to extend the eZ Platform Back Office follow [Extending Admin UI tu
 Custom tags enable you to add more features to the Rich Text editor beyond the built-in ones.
 They are configured under the `ezrichtext` key.
 
-If you want to learn how to apply them to your installation follow [Creating a custom tag tutorial](../tutorials/extending_admin_ui/6_adding_a_custom_tag).
+If you want to learn how to apply them to your installation follow [Creating a custom tag tutorial](../tutorials/extending_admin_ui/4_adding_a_custom_tag).
 
 **Example: YouTube tag**
 
