@@ -152,7 +152,7 @@ system:
                         Identifier\ContentType: ride
 ```
 
-Create the `templates/line/ride.html.twig` template.
+Create the `templates/line/rides.html.twig` template.
 
 Because this template will be rendered inside a table, it starts with a `<tr>` tag.
 

@@ -175,7 +175,7 @@ Before proceeding, ensure that the structure of the added files looks like this:
 
 ### Configuring Webpack
 
-Now you need to configure the Webpack to create bundles of CSS stylesheets and JS scripts.
+Now you need to configure Webpack to create bundles of CSS stylesheets and JS scripts.
 First, you have to indicate which files to include in the bundles.
 
 Open the `webpack.config.js` file located in the root folder of your project.
@@ -287,8 +287,8 @@ This is where the `home_page.html.twig` will be rendered.
 Clear the cache and regenerate the assets by running the following commands:
 
 ​``` bash
-$ php bin/console cache:clear
-$ php bin/console assets:install
+php bin/console cache:clear
+php bin/console assets:install
 yarn encore prod 
 ​```
 
