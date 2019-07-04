@@ -182,3 +182,29 @@ for detailed information.
 | [eZ Platform v2.5.0-rc1](https://github.com/ezsystems/ezplatform/releases/tag/v2.5.0-rc1) | [eZ Enterprise v2.5.0-rc1](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.5.0-rc1) |
 | [eZ Platform v2.5.0-beta2](https://github.com/ezsystems/ezplatform/releases/tag/v2.5.0-beta2) | [eZ Enterprise v2.5.0-beta2](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.5.0-beta2) |
 | [eZ Platform v2.5.0-beta1](https://github.com/ezsystems/ezplatform/releases/tag/v2.5.0-beta1) | [eZ Enterprise v2.5.0-beta1](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.5.0-beta1) |
+
+## eZ Platform v2.5.2
+
+### Updating
+
+The `leafo/scssphp` package had to be replaced by `scssphp/scssphp` due to maintainability.
+If you use classes from the `Leafo\ScssPhp` namespace, change them to `ScssPhp\ScssPhp`.
+
+### SolrCloud
+
+You can now take advantage of [SolrCloud in eZ Platform Solr search engine](../guide/solr.md#solrcloud).
+It enables you to set up a cluster of Solr servers for highly available and fault tolerant environment.
+
+### Online Editor
+
+#### Custom attributes
+
+It is now possible to add [custom data attributes and CSS classes](../guide/extending_online_editor.md#custom-data-attributes-and-classes) to elements in the Online Editor.
+
+#### Translatable custom tag choice attributes
+
+You can now translate labels of choice attributes in Custom tags using the `ezrichtext.custom_tags.<tag_name>.attributes.<attribute>.choices.<choice>.label` configuration key.
+
+### URL Wildcards
+
+[URL wildcards](../guide/url_management.md#url-wildcards) enable you to set up global URL redirections.
