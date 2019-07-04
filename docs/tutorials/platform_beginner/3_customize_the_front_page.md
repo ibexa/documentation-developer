@@ -64,7 +64,7 @@ It is displayed on every page, and the content of the page is placed inside it.
 
 To add a template like this to your site, create a `main_layout.html.twig` file in `templates/` and paste the following code into it:
 
-``` html+twig hl_lines="12 13 14 52 53 89 90 91 92"
+``` html+twig hl_lines="12 87"
 <!DOCTYPE html>
 <html lang="en">
 
@@ -157,26 +157,113 @@ To add a template like this to your site, create a `main_layout.html.twig` file 
 </html>
 ```
 
-For now the site has no stylesheets or assets. 
-In the highlighted lines (12-14, 89-92) the template points to the path to store asset files, such as CSS stylesheets, JS scripts and images.
+In the highlighted lines (12 and 87) the template takes advantage of [Symfony Webpack Encore](https://symfony.com/doc/current/frontend.html#webpack-encore)
+— an integration of Webpack that enables you to build CSS stylesheets and JS scripts as bundles and add them to the project.
 
 ### Adding assets
 
-Download [`assets.zip`](img/assets.zip) which contains the prepared asset files. 
+Because for now the site has no stylesheets or asset, download [`assets.zip`](img/assets.zip) which contains the prepared asset files. 
 
 Then unpack its contents to the following directories:
 
 - `css`, `fonts`, and `js` folders to `assets/`
-- `images` to `public/assets/`
+- `images` folder to `public/assets/`
 
 Before proceeding, ensure that the structure of the added files looks like this:
 
 ![File structure](img/bike_tutorial_listing_web_v3.png)
 
+### Configuring Webpack
+
+Now you need to configure the Webpack to create bundles of CSS stylesheets and JS scripts.
+First, you have to indicate which files to include in the bundles.
+
+Open the `webpack.config.js` file located in the root folder of your project.
+Paste the following code right under `// Put your config here`:
+
+``` javascript hl_lines="3 9"
+// Put your config here.
+Encore
+    .addStyleEntry('tutorial', [
+        path.resolve(__dirname, './assets/css/normalize.css'),
+        path.resolve(__dirname, './assets/css/bootstrap.min.css'),
+        path.resolve(__dirname, './assets/css/bootstrap-theme.css'),
+        path.resolve(__dirname, './assets/css/style.css')
+    ])
+    .addEntry('tutorial-js', [
+        path.resolve(__dirname, './assets/js/jquery.min.js'),
+        path.resolve(__dirname, './assets/js/bootstrap.min.js')
+    ]);
+``` 
+
+Note that `.addStyleEntry('tutorial', [])` and `.addEntry('tutorial-js', [])` refer respectively to
+`{{  encore_entry_link_tags('tutorial') }}` and `{{ encore_entry_script_tags('tutorial-js') }}`.
+
+In the same file, uncomment these two following lines:
+
+``` javascript
+const projectConfig = Encore.getWebpackConfig();
+module.exports = [ eZConfig, ...customConfigs, projectConfig ];
+```
+
+And comment out this line:
+
+``` javascript
+module.exports = [ eZConfig, ...customConfigs ];
+```
+
+??? tip " See the complete `webpack.config.js`"
+
+    ``` javascript hl_lines="16 17 18 19 20 21 22 23 24 25 26 30 31 34"
+    const Encore = require('@symfony/webpack-encore');
+    const path = require('path');
+    const getEzConfig = require('./ez.webpack.config.js');
+    const eZConfigManager = require('./ez.webpack.config.manager.js');
+    const eZConfig = getEzConfig(Encore);
+    const customConfigs = require('./ez.webpack.custom.configs.js');
+    
+    Encore.reset();
+    Encore.setOutputPath('public/assets/build')
+        .setPublicPath('/assets/build')
+        .enableSassLoader()
+        .enableReactPreset()
+        .enableSingleRuntimeChunk();
+    
+    // Put your config here.
+    Encore
+        .addStyleEntry('tutorial', [
+            path.resolve(__dirname, './assets/css/normalize.css'),
+            path.resolve(__dirname, './assets/css/bootstrap.min.css'),
+            path.resolve(__dirname, './assets/css/bootstrap-theme.css'),
+            path.resolve(__dirname, './assets/css/style.css')
+        ])
+        .addEntry('tutorial-js', [
+            path.resolve(__dirname, './assets/js/jquery.min.js'),
+            path.resolve(__dirname, './assets/js/bootstrap.min.js')
+        ]);
+    
+    // uncomment the two lines below, if you added a new entry 
+    // (by Encore.addEntry() or Encore.addStyleEntry() method) to your own Encore configuration for your project
+    const projectConfig = Encore.getWebpackConfig();
+    module.exports = [ eZConfig, ...customConfigs, projectConfig ];
+    
+    // comment out this line if you've uncommented the above lines
+    // module.exports = [ eZConfig, ...customConfigs ];
+    ```
+
+The final step in configuring the asset bundles is changing the output path for Webpack to build the assets.
+In `config/packages/webpack_encore.yaml` change the `output_path` to the following:
+
+``` yaml
+output_path: '%kernel.project.dir%/public/assets/build'
+```
+
+At this point the bundles are created and ready to be used.
+
 ### Extending templates
 
-Now you need to indicate that the `templates/home_page.html.twig` template should make use of the page layout.
-Edit `home_page.html.twig` and replace it with the following code:
+Now you have to configure the `main_layout.html.twig` template that uses the assets to extend the `home_page.html.twig` template.
+To add one template to another, edit `templates/home_page.html.twig` and replace it with the following code:
 
 ``` html+twig hl_lines="1 3 7"
 {% extends "main_layout.html.twig" %}
@@ -203,7 +290,7 @@ Refresh the page and you should now see the "Hello world" placed inside a styled
 
     If you are in prod environment, you need to regenerate the web assets. Run the following command:
 
-    ​``` bash
+    ​```bash
     $ php bin/console cache:clear
     $ php bin/console assets:install
     yarn encore prod 
