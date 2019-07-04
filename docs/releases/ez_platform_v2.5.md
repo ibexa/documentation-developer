@@ -187,7 +187,7 @@ for detailed information.
 
 ### Updating
 
-The `leafo/scssphp` package had to be replaced by `scssphp/scssphp` does to maintainability.
+The `leafo/scssphp` package had to be replaced by `scssphp/scssphp` due to maintainability.
 If you use classes from the `Leafo\ScssPhp` namespace, change them to `ScssPhp\ScssPhp`.
 
 ### SolrCloud
