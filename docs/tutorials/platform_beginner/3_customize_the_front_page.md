@@ -19,7 +19,7 @@ ezpublish:
             content_view:
                 full:
                     home_page:
-                        template: home_page.html.twig
+                        template: full/home_page.html.twig
                         match:
                             Id\Location: 2
 ```
@@ -62,7 +62,7 @@ Refresh the page and you will see a simple, unstyled version of the message.
 Most sites have a general layout which includes things like header with a logo or footer.
 It is displayed on every page, and the content of the page is placed inside it.
 
-To add a template like this to your site, create a `main_layout.html.twig` file in `templates/` and paste the following code into it:
+To add a template like this to your site, create a `main_layout.html.twig` file in `templates/full/` and paste the following code into it:
 
 ``` html+twig hl_lines="12 87"
 <!DOCTYPE html>
@@ -158,7 +158,7 @@ To add a template like this to your site, create a `main_layout.html.twig` file 
 ```
 
 In the highlighted lines (12 and 87) the template takes advantage of [Symfony Webpack Encore](https://symfony.com/doc/current/frontend.html#webpack-encore)
-— an integration of Webpack that enables you to build CSS stylesheets and JS scripts as bundles and add them to the project.
+— an integration of Webpack that enables you to build bundles of CSS stylesheets and JS scripts and add them to the project.
 
 ### Adding assets
 
@@ -197,9 +197,10 @@ Encore
 ``` 
 
 Note that `.addStyleEntry('tutorial', [])` and `.addEntry('tutorial-js', [])` refer respectively to
-`{{  encore_entry_link_tags('tutorial') }}` and `{{ encore_entry_script_tags('tutorial-js') }}`.
+`{{  encore_entry_link_tags('tutorial') }}` and `{{ encore_entry_script_tags('tutorial-js') }}` from `main_layout.html.twig`.
+This configuration creates a list of files included to be added to a template.
 
-In the same file, uncomment these two following lines:
+Additionally, in the same file, uncomment these two following lines:
 
 ``` javascript
 const projectConfig = Encore.getWebpackConfig();
@@ -263,6 +264,7 @@ At this point the bundles are created and ready to be used.
 ### Extending templates
 
 Now you have to configure the `main_layout.html.twig` template that uses the assets to extend the `home_page.html.twig` template.
+
 To add one template to another, edit `templates/home_page.html.twig` and replace it with the following code:
 
 ``` html+twig hl_lines="1 3 7"
@@ -282,21 +284,19 @@ The code above points to `main_layout.html.twig` in line 1. It also wraps your "
 If you look back at the main layout template, you can see an empty `{% block content %}{% endblock %}` section (lines 52-53).
 This is where the `home_page.html.twig` will be rendered.
 
+Clear the cache and regenerate the assets by running the following commands:
+
+​``` bash
+$ php bin/console cache:clear
+$ php bin/console assets:install
+yarn encore prod 
+​```
+
 Refresh the page and you should now see the "Hello world" placed inside a styled layout.
 
 ![Homepage with a Hello world](img/bike_tutorial_hello_world.png)
 
-!!! note "Clear the cache and regenerate the assets"
-
-    If you are in prod environment, you need to regenerate the web assets. Run the following command:
-
-    ​```bash
-    $ php bin/console cache:clear
-    $ php bin/console assets:install
-    yarn encore prod 
-    ​```
-
-At this point, the template is static. It doesn't render any dynamic data from the Repository.
+At this point, the template is static. It does not render any dynamic data from the Repository.
 
 You'll render a list of all Rides here in the next step.
 But before that, you can use the existing page layout to render the content of a single Ride.
@@ -305,7 +305,7 @@ But before that, you can use the existing page layout to render the content of a
 
 ### Create the Ride view
 
-Create a Twig template `app/Resources/views/full/ride.html.twig` with the following code:
+Create a Twig template `template/ride.html.twig` with the following code:
 
 ``` html+twig
 {% extends "main_layout.html.twig" %}
@@ -375,7 +375,7 @@ Now you need to indicate when this template should be used.
     The code blocks shown here include the full structure of the YAML file to help you learn where to place new blocks.
     Be careful not to duplicate existing keys, because YAML does not allow it.
 
-Go back to `app/config/ezplatform.yaml` and add the following configuration (under the existing `content_view` and `full` keys:):
+Go back to `config/packages/ezplatform.yaml` and add the following configuration (under the existing `content_view` and `full` keys:):
 
 ``` yaml
 site_group:

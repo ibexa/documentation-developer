@@ -6,28 +6,28 @@ In this step you will display a table of all Rides on the front page.
 
 ## Customize the homepage template
 
-In `Resources/views/full/home_page.html.twig` replace the "Hello world" with a call to a controller which will display the list of all existing Rides:
+In `templates/full/home_page.html.twig` replace the "Hello world" with a call to a controller which will display the list of all existing Rides:
 
 ``` html+twig hl_lines="5"
 {% extends "main_layout.html.twig" %}
 
 {% block content %}
     <div class="col-xs-10 col-xs-offset-1 text-justified">
-        {{ render( controller( "AppBundle:Homepage:getAllRides" ) ) }}
+        {{ render_esi( controller( 'App\\Controller\\HomepageController::getAllRidesAction' ) ) }}
     </div>
 {% endblock %}
 ```
 
-The application will look for a `getAllRidesAction` inside the `HomepageController` in `AppBundle`.
+The application will look for a `getAllRidesAction` inside the `HomepageController` in `App\Controller`.
 
 ## Create a controller for the home page
 
-Create the `/src/AppBundle/Controller/HomepageController.php` file:
+Create the `src/Controller/HomepageController.php` file:
 
 ``` php hl_lines="23 24 37 38"
 <?php
 
-namespace AppBundle\Controller;
+namespace App\Controller;
 
 use eZ\Publish\API\Repository\Values\Content\LocationQuery;
 use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
@@ -81,11 +81,11 @@ class HomepageController extends Controller
 ```
 
 This controller searches for all visible Content items of the type **Ride** (lines 37-38)
-and renders them using the `list/rides.html.twig` template (line 23-24).
+and renders them using the `templates/list/rides.html.twig` template (line 23-24).
 
 ## Create a template to list all Rides
 
-Create `app/Resources/views/list/rides.html.twig`. It displays the list of Rides in a `<table>` tag.
+Create `templates/list/rides.html.twig`. It displays the list of Rides in a `<table>` tag.
 The `<head>` of the `<table>` is contained in this **Ride** list template, while each `<tr>` (line of the table) will be provided by the line ride template.
 
 ``` html+twig hl_lines="19"
@@ -138,7 +138,7 @@ Let's do this now with the `line` view for Rides.
 
 ## Create a line template for Rides
 
-Add a rule for the `ride` template in your `app/config/ezplatform.yaml `file.
+Add a rule for the `ride` template in your `config/packages/ezplatform.yaml `file.
 `line` should be at the same level as `full`.
 
 ``` yaml
@@ -147,12 +147,12 @@ system:
         content_view:
             line:
                 ride:
-                    template: line/ride.html.twig
+                    template: line/rides.html.twig
                     match:
                         Identifier\ContentType: ride
 ```
 
-Create the `app/Resources/views/line/ride.html.twig` template.
+Create the `templates/line/ride.html.twig` template.
 
 Because this template will be rendered inside a table, it starts with a `<tr>` tag.
 
@@ -164,7 +164,7 @@ Because this template will be rendered inside a table, it starts with a `<tr>` t
             <strong>
                 {{ content.name }}
             </strong>
-            {% if not ez_is_field_empty( content, 'photo' ) %}
+            {% if not ez_field_is_empty( content, 'photo' ) %}
                 {{ ez_render_field(content, 'photo') }}
             {% endif %}
         </a>
