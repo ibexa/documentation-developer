@@ -127,7 +127,8 @@ Deprecated `ezprice` and `ezpage` Field Types have been removed.
 
 ### Elastic Search
 
-Experimental, deprecated and unsupported code for Elastic Search 1.4.2 has been dropped from kernel.
+Experimental, deprecated and unsupported code for Elastic Search 1.4.2 has been dropped from kernel,
+to be replaced with a dedicated bundle for the latest Elastic version in the future.
 
 ### Assetic support
 
