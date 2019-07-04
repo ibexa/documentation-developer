@@ -28,7 +28,7 @@ Tags used to register Field Type features in the dependency injection container 
 |`ez.fieldFormMapper.value`|`ezplatform.field_type.form_mapper.value`|
 |`ez.fieldFormMapper.definition`|`ezplatform.field_type.form_mapper.definition`|
 
-Deprecated method `eZ\Publish\SPI\FieldType\FieldType::getName` is now supported with a new signature simailr to `eZ\Publish\SPI\FieldType\Nameable::getFieldName()`, which has been removed.
+Deprecated method `eZ\Publish\SPI\FieldType\FieldType::getName` is now supported with a new signature similar to `eZ\Publish\SPI\FieldType\Nameable::getFieldName()`, which has been removed.
 See [eZ Platform v3.0 project update](ez_platform_v3.0_project_update.md#field-types) for further information.
 
 The deprecated `eZ\Publish\Core\FieldType\RichText` namespace has been removed, as it was moved to a seperate bundle in v2.4.
