@@ -31,7 +31,7 @@ There are three ways in which you can apply a custom logic:
 To use your custom controller on top of the built-in `ViewController` you need to point to both the controller and the template in the configuration, for example:
 
 ``` yaml
-#ezplatform.yml
+#ezplatform.yaml
 ezpublish:
     system:
         default:

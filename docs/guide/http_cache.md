@@ -250,7 +250,7 @@ fastcgi_param SYMFONY_TRUSTED_PROXIES "193.22.44.22";
     Otherwise, you might notice incorrect schema (`http` instead of `https`) in the URLs for the images or other binary files
     when they are rendered inline by Symfony *(as used by file-based field templates)*, as opposed to via ESI.
 
-#### Update YML configuration
+#### Update YAML configuration
 
 Secondly, you need to tell eZ Platform to use an HTTP-based purge client (specifically the FosHttpCache Varnish purge client),
 and specify the URL Varnish can be reached on:

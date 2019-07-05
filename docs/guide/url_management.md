@@ -47,7 +47,7 @@ rm ezp_cron.txt
 Configuration of external URLs validation is SiteAccess-aware and is stored under `ezpublish.system.<SITEACCESS>.url_checker`.
 Example configuration (in `config/packages/ezplatform.yaml`):
 
-```yml
+```yaml
 ezpublish:
     system:
         default:
