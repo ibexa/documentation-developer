@@ -2,7 +2,7 @@
 
 ## Create the Landmark Content Type
 
-Now you need to create the second Content Type needed in the site, **Landmark**.
+Now you need to create the second Content Type needed in the site, Landmark.
 
 Go to **Admin** &gt; **Content Types**, and under the **Content** group, create the Landmark Content Type.
 
@@ -22,7 +22,7 @@ Then create all Fields with the following information: 
 
 Confirm the creation of the Content Type by selecting **Save**.
 
-Create a "Landmarks" Folder and add some Landmarks to it.
+Create a *Landmarks* Folder and add some Landmarks to it.
 Note that you will need pictures (for the Photo Field) to represent them.
 
 ## Add Landmarks to Ride Content Type definition
@@ -107,7 +107,7 @@ landmark_list:
 
 ### Create the RideController
 
-In the App directory, create a `src/Controller/RideController.php` file:
+Create a `src/Controller/RideController.php` file:
 
 ``` php
 <?php

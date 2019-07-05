@@ -157,8 +157,8 @@ To add a template like this to your site, create a `main_layout.html.twig` file 
 </html>
 ```
 
-In the highlighted lines (12 and 87) the template takes advantage of [Symfony Webpack Encore](https://symfony.com/doc/current/frontend.html#webpack-encore)
-— an integration of Webpack that enables you to build bundles of CSS stylesheets and JS scripts and add them to the project.
+Note that in the highlighted lines (12 and 87) the template takes advantage of [Symfony Webpack Encore](https://symfony.com/doc/current/frontend.html#webpack-encore).
+This tutorial will lead you through configuring Webpack, but first you need assets.
 
 ### Adding assets
 
@@ -175,7 +175,11 @@ Before proceeding, ensure that the structure of the added files looks like this:
 
 ### Configuring Webpack
 
-Now you need to configure Webpack to create bundles of CSS stylesheets and JS scripts.
+In eZ Platform, you can add assets by using [Symfony Webpack Encore](https://symfony.com/doc/current/frontend.html#webpack-encore) 
+— an integration of Webpack that enables you to build bundles of CSS stylesheets and JS scripts and add them to the project.
+For more details, see [importing assets from a bundle](/guide/bundles.md#importing-assets-from-a-bundle).
+
+Now you'll learn how to configure Webpack to create bundles.
 First, you have to indicate which files to include in the bundles.
 
 Open the `webpack.config.js` file located in the root folder of your project.
@@ -263,7 +267,7 @@ At this point the bundles are created and ready to be used.
 
 ### Extending templates
 
-Now you have to configure the `main_layout.html.twig` template that uses the assets to extend the `home_page.html.twig` template.
+Now you have to add the `main_layout.html.twig` template that uses the assets to the `home_page.html.twig` template.
 
 To add one template to another, edit `templates/full/home_page.html.twig` and replace it with the following code:
 
@@ -287,8 +291,8 @@ This is where the `home_page.html.twig` will be rendered.
 Clear the cache and regenerate the assets by running the following commands:
 
 ​``` bash
-php bin/console cache:clear
-php bin/console assets:install
+$ php bin/console cache:clear
+$ php bin/console assets:install
 yarn encore prod 
 ​```
 

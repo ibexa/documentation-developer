@@ -18,7 +18,7 @@ In `templates/full/home_page.html.twig` replace the "Hello world" with a call t
 {% endblock %}
 ```
 
-The application will look for a `getAllRidesAction` inside the `HomepageController` in `App\Controller`.
+The application will look for a `getAllRidesAction` inside the `HomepageController.php` located in `App\Controller`.
 
 ## Create a controller for the home page
 
@@ -182,4 +182,5 @@ Because this template will be rendered inside a table, it starts with a `<tr>` t
 ```
 
 Now go to the homepage of your website and you will see the list of Rides.
-However, the Ride photos are too large and stretch the table. In the next step you will ensure they are displayed in proper size.
+However, the Ride photos are too large and stretch the table.
+In the next step you will ensure they are displayed in proper size.

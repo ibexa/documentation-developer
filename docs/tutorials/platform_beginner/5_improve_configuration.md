@@ -7,7 +7,7 @@ Image variations are different versions of the same image. You can use them to s
 So far the images in the ride list are fitted to the templates automatically, and the result does not look good.
 Now you will create a variation to specify how you want the images to look in detail.
 
-Create a new file: `config/packages/image_variations.yaml`:
+Create a new `config/packages/image_variations.yaml` file containing:
 
 ``` yaml
 ezpublish:
