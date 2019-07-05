@@ -4,7 +4,7 @@ In this step you will enable other users to create accounts on your site, access
 
 ## Enable registration
 
-From Admin, go to the **Roles** management screen and click on the **Anonymous** Role.
+From **Admin**, go to the **Roles** management screen and click on the **Anonymous** Role.
 
 ![Available Roles](img/step_6_role_mgmt_screen.png)
 
@@ -16,9 +16,9 @@ Then go to `<yourdomain>/register`. The registration form is unstyled, so you ne
 
 ## Customize registration forms
 
-In the `app/config/views.yaml` file add a `user_registration` key under `site_group`, at the same level as `content_view`:
+In the `config/packages/views.yaml` file add a `user_registration` key under `site_group`, at the same level as `content_view`:
 
-```yaml
+``` yaml
 ezpublish:
     system:
         site_group:
@@ -30,7 +30,7 @@ ezpublish:
 
 This indicates which template will be used to render the registration form.
 
-Create the file `app/Resources/views/user/registration_form.html.twig`:
+Create the file `templates/user/registration_form.html.twig`:
 
 ``` html+twig hl_lines="10"
 {% extends "main_layout.html.twig" %}
@@ -56,7 +56,7 @@ Create the file `app/Resources/views/user/registration_form.html.twig`:
 ```
 
 In line 10 you can see that another file is imported: `registration_content_form.html.twig`.
-The second template will render the actual fields of the registration form. Create this file as well (as `app/Resources/views/user/registration_content_form.html.twig`):
+The second template will render the actual fields of the registration form. Create this file as well (as `templates/user/registration_content_form.html.twig`):
 
 ``` html+twig
 {% macro display_form(form) %}
@@ -108,17 +108,17 @@ The second template will render the actual fields of the registration form. Crea
 {% endmacro %}
 ```
 
-The third template you need to prepare covers the confirmation page that is displayed when a user completes registration.
-First, point to the new template in the configuration. Add a `confirmation` key to `views.yaml`:
+The third template you need to prepare covers the confirmation page that is displayed when a user completes the registration.
+First, point to the new template in the configuration. Add a `confirmation` key to `config/packages/views.yaml`:
 
 ``` yaml hl_lines="4"
 user_registration:
     templates:
-        form: 'user/registration_form.html.twig'
-        confirmation: 'user/registration_confirmation.html.twig'
+        form: user/registration_form.html.twig
+        confirmation: user/registration_confirmation.html.twig
 ```
 
-Then create the `app/Resources/views/user/registration_confirmation.html.twig` template:
+Then create the `templates/user/registration_confirmation.html.twig` template:
 
 ``` html+twig
 {% extends "main_layout.html.twig"  %}
@@ -221,6 +221,8 @@ Now you have created your first website with eZ Platform.
 - create a content model
 - organize files in an eZ Platform project
 - configure views for different Content Types
+- add assets to an eZ Platform project
+- use and configure Webpack Encore
 - use Twig templates and controllers to display content
 - enable user registration
 - manage user permissions

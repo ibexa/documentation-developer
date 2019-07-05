@@ -4,7 +4,7 @@
 
 Now you need to create the second Content Type needed in the site, **Landmark**.
 
-Go to Admin &gt; Content types, and under the **Content** group, create the Landmark Content Type.
+Go to **Admin** &gt; **Content Types**, and under the **Content** group, create the Landmark Content Type.
 
 A Landmark is an interesting place that Rides go through. Each Ride may be related to multiple Landmarks.
 
@@ -16,23 +16,26 @@ Then create all Fields with the following information: 
 | Field Type   | Name             | Identifier       |  Required | Searchable | Translatable |
 | ------------ | ---------------- | ---------------- | --------- | ---------- | ------------ |
 | Text line    | Name             | `name`           | yes       | yes        | yes          |
-| Rich Text    | Description      | `description`    | no        | yes        | yes          |
+| Rich text    | Description      | `description`    | no        | yes        | yes          |
 | Image Asset  | Photo            | `photo`          | yes       | no         | no           |
 | Map location | Location         | `location`       | yes       | yes        | no           |
 
-Confirm the creation of the Content Type by selecting Save.
+Confirm the creation of the Content Type by selecting **Save**.
 
-Create a "Landmarks" Folder add some Landmarks to it.
+Create a "Landmarks" Folder and add some Landmarks to it.
 Note that you will need pictures (for the Photo Field) to represent them.
 
 ## Add Landmarks to Ride Content Type definition
 
 Now edit the Ride Content Type in order to add a Multiple Content Relation between the two Content Types.
-Create a new Field called "Landmarks" with identifier `landmarks` and allow Content Type "Landmark" to be added to it:
+Create a new **Content relations (multiple)** Field called "Landmarks" with identifier `landmarks` and allow Content Type "Landmark" to be added to it:
 
 ![Adding Landmarks to the Ride Content Type](img/bike_ride_adding_landmarks_to_the_ride_content_type.png "Adding a relation between the Ride and the Landmark using Content Relations (multiple)")
 
+Confirm by clicking **Save**.
+
 Go back to one of your existing Rides, edit it and link some Landmarks to it.
+Click **Publish**.
 
 ## Display a list of Landmarks in Ride view
 
@@ -40,7 +43,7 @@ Go back to one of your existing Rides, edit it and link some Landmarks to it.
 
 Now you need to create the line view for Landmarks.
 
-Declare a new override rule in `app/config/views.yaml`:
+Declare a new override rule in `config/packages/views.yaml`:
 
 ``` yaml
 ezpublish:
@@ -55,7 +58,7 @@ ezpublish:
                             Identifier\ContentType: landmark
 ```
 
-Create the template for the line view of a Landmark: `app/Resources/views/line/landmark.html.twig`:
+Add the template for the line view of a Landmark by creating `templates/line/landmark.html.twig`:
 
 ``` html+twig hl_lines="4"
 <section>
@@ -93,7 +96,7 @@ Create the template for the line view of a Landmark: `app/Resources/views/line/l
 ```
 
 Like before, you use an image variation here (line 4) and you need to configure it.
-Add the following section to `app/config/image_variations.yaml`, at the same level as `ride_list`:
+Add the following section to `config/packages/image_variations.yaml`, at the same level as `ride_list`:
 
 ``` yaml
 landmark_list:
@@ -104,12 +107,12 @@ landmark_list:
 
 ### Create the RideController
 
-In the AppBundle directory, create a new file: `src/AppBundle/Controller/RideController.php`
+In the App directory, create a `src/Controller/RideController.php` file:
 
 ``` php
 <?php
 
-namespace AppBundle\Controller;
+namespace App\Controller;
 
 use eZ\Bundle\EzPublishCoreBundle\Controller;
 use eZ\Publish\Core\MVC\Symfony\View\ContentView;
@@ -143,7 +146,7 @@ class RideController extends Controller
 }
 ```
 
-Update `app/config/views.yaml` to mention the RideController by adding a line with the `controller` key to the view config.
+Update `config/packages/views.yaml` to mention the `RideController.php` by adding a line with the `controller` key to the view config:
 
 ``` yaml hl_lines="8"
 ezpublish:
@@ -153,7 +156,7 @@ ezpublish:
                 full:
                     ride:
                         template: full/ride.html.twig
-                        controller: AppBundle:Ride:viewRideWithLandmarks
+                        controller: App\Controller\RideController::viewRideWithLandmarksAction
                         match:
                             Identifier\ContentType: ride
 ```
