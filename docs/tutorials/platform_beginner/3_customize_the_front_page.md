@@ -10,7 +10,7 @@ You will customize this step by instructing Platform to use a custom template to
 To use a custom template when rendering the root content, create a `content_view` configuration block for `ezpublish`.
 
 Edit `config/packages/ezplatform.yaml`.
-Add the following block under `system` while paying attention to indentation: `content_view` should be one level below `site_group`:
+Add the following block under `system` while paying attention to indentation — `content_view` should be one level below `site_group`:
 
 ``` yaml
 ezpublish:
@@ -185,8 +185,7 @@ First, you have to indicate which files to include in the bundles.
 Open the `webpack.config.js` file located in the root folder of your project.
 Paste the following code right under `// Put your config here`:
 
-``` javascript hl_lines="3 9"
-// Put your config here.
+``` javascript hl_lines="2 8"
 Encore
     .addStyleEntry('tutorial', [
         path.resolve(__dirname, './assets/css/normalize.css'),
