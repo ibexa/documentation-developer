@@ -11,7 +11,7 @@
     
     You can create a custom event by taking a few steps to define the event and actions for it.
     
-    First, create a new event by creating `src\Calendar\EventType\MyEvent.php`
+    First, create a new event by creating `src/Calendar/EventType/MyEvent.php`
     
     ``` php hl_lines="7"
     
@@ -37,7 +37,7 @@
     Here, you define a new class for your event based on `\EzSystems\EzPlatformCalendar\Calendar\Event`.
     Line 7 points to the custom event definition for actions associated with your event.
     
-    Proceed with providing the definition for your event by creating `\App\Calendar\EventType\MyEventType.php`:
+    Proceed with providing the definition for your event by creating `src/Calendar/EventType/MyEventType.php`:
     
     ``` php hl_lines="28 29 30 31 33 34 35 36"
     
@@ -82,7 +82,7 @@
     Here, lines 28-31 are responsible for building names for your custom events using a pattern.
     Lines 33-36 use `\EzSystems\EzPlatformCalendar\Calendar\EventType\EventTypeInterface::getTypeLabel` to generate a label.
     
-    Complete the procedure by registering the new event:
+    Complete the procedure by registering the new event in `config/services.yaml`:
     
     ``` yaml
     services:
@@ -124,7 +124,7 @@
     }
     ```
     
-    The added actions require registering them as services:
+    The added actions require registering them as services in `config/services.yaml`:
     
     ``` yaml hl_lines="4 7 10 15"
     services:
@@ -160,7 +160,7 @@
     - [`EzSystems\EzPlatformCalendar\Calendar\EventSourceInterface`](https://github.com/ezsystems/ezplatform-calendar/blob/master/src/lib/Calendar/EventSource/EventSourceInterface.php)
     - [`EzSystems\EzPlatformCalendar\Calendar\InMemoryEventSource`](https://github.com/ezsystems/ezplatform-calendar/blob/master/src/lib/Calendar/EventSource/InMemoryEventSource.php)
     
-    To add an in-memory collection as an event source, create `app/Calendar/EventSourceFactory/MyEventSourceFactory.php`:
+    To add an in-memory collection as an event source, create `src/Calendar/EventSourceFactory/MyEventSourceFactory.php`:
     
     ``` php hl_lines="26 27 28"
     <?php
@@ -216,7 +216,7 @@
             // ...
         ```    
     
-    Complete the procedure by registering the new source:
+    Complete the procedure by registering the new source in `config/services.yaml`:
     
     ``` yaml
     services:
@@ -246,13 +246,13 @@
                 calendar:
                     event_types:
                         event_name:
-                            icon: '/assets/images/event_icon.svg'
+                            icon: /assets/images/event_icon.svg
                             color: '#FFFFFF'
                             actions:
                                 foo:
-                                    icon: '/assets/images/foo_icon.svg'                                
+                                    icon: /assets/images/foo_icon.svg                               
                                 bar:
-                                    icon: '/assets/images/bar_icon.svg'
+                                    icon: /assets/images/bar_icon.svg
     ```
     
     Note that line 6 contains the name of the event you want to customize.
