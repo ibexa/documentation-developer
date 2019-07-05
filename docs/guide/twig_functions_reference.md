@@ -307,7 +307,7 @@ If the Content item does not have a translation in the current language, the mai
 
 ``` html+twig
 {# Display "description" field if not empty #}
-{% if not ez_is_field_empty( content, field ) %}
+{% if not ez_field_is_empty( content, field ) %}
     <div class="description">
         {{ ez_render_field( content, field.fieldDefIdentifier ) }}
     </div>
@@ -318,7 +318,7 @@ If the Content item does not have a translation in the current language, the mai
 
 ``` html+twig
 {# Display "description" field if it exists and is not empty #}
-{% if content.fields.description is defined and not ez_is_field_empty( content, "description" ) %}
+{% if content.fields.description is defined and not ez_field_is_empty( content, "description" ) %}
     <div class="description">
         {{ ez_render_field( content, "description" ) }}
     </div>
