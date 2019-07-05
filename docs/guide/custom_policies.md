@@ -124,7 +124,7 @@ To provide support for editing custom policies in the Back Office you need to im
 
 Next, register the service in DIC (Dependency Injection Container) with the `ez.limitation.formMapper` tag and set the `limitationType` attribute to the Limitation type's identifier:
 
-```yml
+```yaml
 app.security.limitation.custom_limitation.mapper:
     class: 'App\Security\Limitation\Mapper\CustomLimitationFormMapper'
     arguments:
@@ -137,7 +137,7 @@ If you want to provide human-readable names of the custom Limitation values, you
 
 Then register the service in DIC with the `ez.limitation.valueMapper` tag and set the `limitationType` attribute to Limitation type's identifier:
 
-```yml
+```yaml
 app.security.limitation.custom_limitation.mapper:
     class: 'App\Security\Limitation\Mapper\CustomLimitationValueMapper'
     arguments:
@@ -159,7 +159,7 @@ create a Twig template containing block definition which follows the naming conv
 
 Add it to the configuration under `ezpublish.system.<SCOPE>.limitation_value_templates`:
 
-```yml
+```yaml
 ezpublish:
     system:
         default:

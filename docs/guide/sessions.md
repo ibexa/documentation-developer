@@ -86,7 +86,7 @@ Alternatively if you need to configure Memcached servers dynamically:
 
 - Create a Symfony service like this:
 
-```yml
+```yaml
     app.session.handler.native_memcached:
         class: eZ\Bundle\EzPublishCoreBundle\Session\Handler\NativeSessionHandler
         arguments:

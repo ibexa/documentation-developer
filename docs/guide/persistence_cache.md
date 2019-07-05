@@ -90,7 +90,7 @@ For other processes, the object will be refreshed when it expires or evicted whe
 
 In-Memory cache is configured globally, and has the following default settings:
 
-```yml
+```yaml
 parameters:
     # Config for metadata cache pool, here showing default config
     # ttl: Maximum number of  milliseconds objects are kept in-memory (3000ms = 3s)

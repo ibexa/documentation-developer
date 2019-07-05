@@ -34,7 +34,7 @@ You should also change the character set that is specified in the application co
 
 In `app/config/config.yml`, set the following:
 
-``` yml
+``` yaml
 doctrine:
     dbal:
         connections:
