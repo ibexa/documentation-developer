@@ -2,28 +2,30 @@
 
 !!! note "Symfony and Twig template functions/filters/tags"
 
-    For the template functionality provided by Symfony Framework, see [Symfony Twig Extensions Reference page](http://symfony.com/doc/current/reference/twig_reference.html). For those provided by the underlying Twig template engine, see [Twig Reference page](http://twig.sensiolabs.org/documentation#reference)
+    For the template functionality provided by Symfony Framework, see [Symfony Twig Extensions Reference page](http://symfony.com/doc/current/reference/twig_reference.html). For those provided by the underlying Twig template engine, see [Twig Reference page](http://twig.sensiolabs.org/documentation#reference).
 
 In addition to the [native functions provided by Twig](http://twig.sensiolabs.org/doc/functions/index.html), eZ Platform offers the following:
 
-- [`ez_content_name`](#ez_content_name) - displays a Content item's name in the current language
-- [`ez_field_description`](#ez_field_description) - returns the description from the FieldDefinition of a Content item's Field in the current language
-- [`ez_field_name`](#ez_field_name) - returns the name from the FieldDefinition of a Content item's Field in the current language
-- [`ez_field_value`](#ez_field_value) - returns a Content item's Field value in the current language
-- [`ez_field`](#ez_field) - returns a Field from a Content item in the current language
-- [`ez_file_size`](#ez_file_size) - returns the size of a file as string
-- [`ez_content_field_identifier_first_filled_image`](#ez_content_field_identifier_first_filled_image) - returns the identifier of the first image field that is not empty
-- [`ez_full_datetime`](#ez_full_datetime-ez_full_date-ez_full_time) - outputs date and time in full format
-- [`ez_full_date`](#ez_full_datetime-ez_full_date-ez_full_time) - outputs date in full format
-- [`ez_full_time`](#ez_full_datetime-ez_full_date-ez_full_time) - outputs time in full format
-- [`ez_image_alias`](#ez_image_alias) - displays a selected variation of an image
-- [`ez_field_is_empty`](#ez_field_is_empty) - checks if a Content item's Field value is considered empty in the current language
-- [`ez_short_datetime`](#ez_short_datetime-ez_short_date-ez_short_time) - outputs date and time in short format
-- [`ez_short_date`](#ez_short_datetime-ez_short_date-ez_short_time) - outputs date in short format
-- [`ez_short_time`](#ez_short_datetime-ez_short_date-ez_short_time) - outputs time in short format
-- [`ez_render_field`](#ez_render_field) - displays a Content item's Field value, taking advantage of the template block exposed by the Field Type used
-- [`ez_trans_prop`](#ez_trans_prop) - gets the translated value of a multi valued(translations) property
-- [`ez_urlalias`](#ez_urlalias) - is a special route name for generating URLs for a Location from the given parameters
+|Twig function|Description|
+|-------------|-----------|
+|[`ez_content_name`](#ez_content_name)|Displays a Content item's name in the current language.|
+|[`ez_field_description`](#ez_field_description)|Returns the description from the FieldDefinition of a Content item's Field in the current language.|
+|[`ez_field_name`](#ez_field_name)|Returns the name from the FieldDefinition of a Content item's Field in the current language.|
+|[`ez_field_value`](#ez_field_value)|Returns a Content item's Field value in the current language.|
+|[`ez_field`](#ez_field)|Returns a Field from a Content item in the current language.|
+|[`ez_file_size`](#ez_file_size)|Returns the size of a file as string.|
+|[`ez_content_field_identifier_first_filled_image`](#ez_content_field_identifier_first_filled_image)|Returns the identifier of the first image field that is not empty.|
+|[`ez_full_datetime`](#ez_full_datetime-ez_full_date-ez_full_time)|Outputs date and time in full format.|
+|[`ez_full_date`](#ez_full_datetime-ez_full_date-ez_full_time)|Outputs date in full format.|
+|[`ez_full_time`](#ez_full_datetime-ez_full_date-ez_full_time)|Outputs time in full format.|
+|[`ez_image_alias`](#ez_image_alias)|Displays a selected variation of an image.|
+|[`ez_field_is_empty`](#ez_field_is_empty)|Checks if a Content item's Field value is considered empty in the current language.|
+|[`ez_short_datetime`](#ez_short_datetime-ez_short_date-ez_short_time)|Outputs date and time in short format.|
+|[`ez_short_date`](#ez_short_datetime-ez_short_date-ez_short_time)|Outputs date in short format.|
+|[`ez_short_time`](#ez_short_datetime-ez_short_date-ez_short_time)|Outputs time in short format.|
+|[`ez_render_field`](#ez_render_field)|Displays a Content item's Field value, taking advantage of the template block exposed by the Field Type used.|
+|[`ez_trans_prop`](#ez_trans_prop)|Gets the translated value of a multi valued(translations) property.|
+|[`ez_urlalias`](#ez_urlalias)|It is a special route name for generating URLs for a Location from the given parameters.|
 
 ### `ez_content_name`
 
@@ -307,7 +309,7 @@ If the Content item does not have a translation in the current language, the mai
 
 ``` html+twig
 {# Display "description" field if not empty #}
-{% if not ez_is_field_empty( content, field ) %}
+{% if not ez_field_is_empty( content, field ) %}
     <div class="description">
         {{ ez_render_field( content, field.fieldDefIdentifier ) }}
     </div>
@@ -318,7 +320,7 @@ If the Content item does not have a translation in the current language, the mai
 
 ``` html+twig
 {# Display "description" field if it exists and is not empty #}
-{% if content.fields.description is defined and not ez_is_field_empty( content, "description" ) %}
+{% if content.fields.description is defined and not ez_field_is_empty( content, "description" ) %}
     <div class="description">
         {{ ez_render_field( content, "description" ) }}
     </div>
