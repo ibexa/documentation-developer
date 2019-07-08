@@ -660,6 +660,7 @@ services:
 
 ```php
 <?php
+
 namespace App;
 
 use eZ\Publish\API\Repository\ContentService;

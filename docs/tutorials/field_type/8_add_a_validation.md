@@ -166,6 +166,7 @@ This is a minimal example of `eZ/Publish/FieldType/Tweet/FormMapper.php`:
 
 ```php
 <?php
+
 namespace EzSystems\TweetFieldTypeBundle\eZ\Publish\FieldType\Tweet;
 
 use EzSystems\RepositoryForms\Data\FieldDefinitionData;
@@ -296,6 +297,7 @@ To achieve this, implement these two functions in `eZ/Publish/FieldType/Tweet/Le
 
 ```php
 <?php
+
 public function toStorageFieldDefinition(FieldDefinition $fieldDef, StorageFieldDefinition $storageDef)
 {
     $storageDef->dataText1 = json_encode(
