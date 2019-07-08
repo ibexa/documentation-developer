@@ -1,4 +1,4 @@
-# Step 2 - Create the content model
+# Step 2 — Create the content model
 
 How your content is structured is a very important part of an eZ Platform project. Think of it as the database design of your application.
 

@@ -1,4 +1,4 @@
-# Step 6 - Embed content
+# Step 7 — Embed content
 
 ## Create the Landmark Content Type
 

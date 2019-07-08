@@ -1,4 +1,4 @@
-# Step 7 - Enable account registration
+# Step 8 — Enable account registration
 
 In this step you will enable other users to create accounts on your site, access the Back Office and create content.
 

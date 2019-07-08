@@ -1,4 +1,4 @@
-# Step 5 - Improve configuration
+# Step 6 — Improve configuration
 
 ## Define image variations
 
