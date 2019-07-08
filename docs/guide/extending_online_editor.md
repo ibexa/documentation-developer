@@ -358,7 +358,7 @@ For example:
 
 ``` bash
 php ./bin/console translation:extract --enable-extractor=ez_online_editor_attributes
-    --dir=./app/Resources/views --output-dir=./app/Resources/translations/ --output-format=yaml
+    --dir=./templates --output-dir=./translations/ --output-format=yaml
 ```
 
 ## Plugins configuration
