@@ -179,7 +179,7 @@ In eZ Platform, you can add assets by using [Symfony Webpack Encore](https://sym
 — an integration of Webpack that enables you to build bundles of CSS stylesheets and JS scripts and add them to the project.
 For more details, see [importing assets from a bundle](../guide/bundles.md#importing-assets-from-a-bundle).
 
-To create bundles, first, indicate which files to include in the bundles.
+To create bundles, first, indicate which files to include in them.
 
 Open the `webpack.config.js` file located in the root folder of your project.
 Paste the following code right under `// Put your config here`:
