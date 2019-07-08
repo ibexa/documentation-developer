@@ -28,11 +28,11 @@ It will enable the user to add information and photos of their routes and indica
 
 In this tutorial you will go through the following steps:
 
-- [1. Get ready](1_get_ready.md)
-- [2. Create the content model](2_create_the_content_model.md)
-- [3. Customize the front page](3_customize_the_front_page.md)
-- [4. Display a single content item](4_display_single_content_item.md)
-- [5. Display a list of content items](5_display_a_list_of_content_items.md)
-- [6. Improve configuration](6_improve_configuration.md)
-- [7. Embed content](7_embed_content.md)
-- [8. Enable account registration](8_enable_account_registration.md)
+1. [Get ready](1_get_ready.md)
+1. [Create the content model](2_create_the_content_model.md)
+1. [Customize the front page](3_customize_the_front_page.md)
+1. [Display a single content item](4_display_single_content_item.md)
+1. [Display a list of content items](5_display_a_list_of_content_items.md)
+1. [Improve configuration](6_improve_configuration.md)
+1. [Embed content](7_embed_content.md)
+1. [Enable account registration](8_enable_account_registration.md)
