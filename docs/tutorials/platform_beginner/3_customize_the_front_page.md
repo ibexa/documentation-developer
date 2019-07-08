@@ -175,12 +175,11 @@ Before proceeding, ensure that the structure of the added files looks like this:
 
 ### Configuring Webpack
 
-In eZ Platform, you can add assets by using [Symfony Webpack Encore](https://symfony.com/doc/current/frontend.html#webpack-encore) 
+In eZ Platform, you can add assets by using [Symfony Webpack Encore](https://symfony.com/doc/4.3/frontend.html#webpack-encore) 
 — an integration of Webpack that enables you to build bundles of CSS stylesheets and JS scripts and add them to the project.
 For more details, see [importing assets from a bundle](../guide/bundles.md#importing-assets-from-a-bundle).
 
-Now you'll learn how to configure Webpack to create bundles.
-First, you need to indicate which files to include in the bundles.
+To create bundles, first, indicate which files to include in the bundles.
 
 Open the `webpack.config.js` file located in the root folder of your project.
 Paste the following code right under `// Put your config here`:
@@ -255,7 +254,6 @@ module.exports = [ eZConfig, ...customConfigs ];
     // module.exports = [ eZConfig, ...customConfigs ];
     ```
 
-The final step in configuring the asset bundles is changing the output path for Webpack to build the assets.
 Finally, in `config/packages/webpack_encore.yaml` change the `output_path` for Webpack to the following:
 
 ``` yaml
