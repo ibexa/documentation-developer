@@ -157,12 +157,12 @@ To add a template like this to your site, create a `main_layout.html.twig` file 
 </html>
 ```
 
-Note that in the highlighted lines (12 and 87) the template takes advantage of [Symfony Webpack Encore](https://symfony.com/doc/current/frontend.html#webpack-encore).
+Note that in the highlighted lines (12 and 87) the template takes advantage of [Symfony Webpack Encore](https://symfony.com/doc/4.3/frontend.html#webpack-encore).
 This tutorial will lead you through configuring Webpack, but first you need assets.
 
 ### Adding assets
 
-Because for now the site has no stylesheets or asset, download [`assets.zip`](img/assets.zip) which contains the prepared asset files. 
+The site has no stylesheets or assets yet. You need to download [`assets.zip`](img/assets.zip) which contains the prepared asset files. 
 
 Then unpack its contents to the following directories:
 
@@ -177,10 +177,10 @@ Before proceeding, ensure that the structure of the added files looks like this:
 
 In eZ Platform, you can add assets by using [Symfony Webpack Encore](https://symfony.com/doc/current/frontend.html#webpack-encore) 
 — an integration of Webpack that enables you to build bundles of CSS stylesheets and JS scripts and add them to the project.
-For more details, see [importing assets from a bundle](/guide/bundles.md#importing-assets-from-a-bundle).
+For more details, see [importing assets from a bundle](../guide/bundles.md#importing-assets-from-a-bundle).
 
 Now you'll learn how to configure Webpack to create bundles.
-First, you have to indicate which files to include in the bundles.
+First, you need to indicate which files to include in the bundles.
 
 Open the `webpack.config.js` file located in the root folder of your project.
 Paste the following code right under `// Put your config here`:
@@ -256,7 +256,7 @@ module.exports = [ eZConfig, ...customConfigs ];
     ```
 
 The final step in configuring the asset bundles is changing the output path for Webpack to build the assets.
-In `config/packages/webpack_encore.yaml` change the `output_path` to the following:
+Finally, in `config/packages/webpack_encore.yaml` change the `output_path` for Webpack to the following:
 
 ``` yaml
 output_path: '%kernel.project.dir%/public/assets/build'
@@ -295,7 +295,7 @@ $ php bin/console assets:install
 yarn encore prod 
 ​```
 
-Refresh the page and you should now see the "Hello world" placed inside a styled layout.
+Refresh the page and you should see the "Hello world" placed inside a styled layout.
 
 ![Homepage with a Hello world](img/bike_tutorial_hello_world.png)
 
