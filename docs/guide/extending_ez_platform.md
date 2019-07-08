@@ -459,6 +459,8 @@ class TabEvents
 As an example, see how `OrderedTabInterface` is implemented:
 
 ```php
+<?php
+
 namespace EzSystems\EzPlatformAdminUi\Tab\Event\Subscriber;
 
 use EzSystems\EzPlatformAdminUi\Tab\Event\TabEvents;

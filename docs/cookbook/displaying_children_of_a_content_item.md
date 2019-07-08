@@ -13,11 +13,14 @@ This recipe will show how to use both those methods to display all children of a
 
 The Query Controller is a predefined custom content view Controller that runs a Repository Query.
 
-If you need to create a simple Query it's easier to use the Query Controller than to build a completely custom one, as you will not have to write custom PHP code. Like with a [Custom Controller](#using-a-custom-controller), however, you will be able to use properties of the viewed Content or Location as parameters.
+If you need to create a simple Query it's easier to use the Query Controller than to build a completely custom one, as you will not have to write custom PHP code. 
+Like with a [Custom Controller](#using-a-custom-controller), however, you will be able to use properties of the viewed Content or Location as parameters.
 
 The main file in this case is an `src/QueryType/LocationChildrenQueryType.php` file which generates a Query that retrieves the children of the current Location.
 
 ``` php
+<?php
+
 namespace App\QueryType;
 
 use eZ\Publish\API\Repository\Values\Content\LocationQuery;
@@ -99,6 +102,7 @@ You can see here the standard view config consisting of the `template` and `matc
 
 ``` php
 <?php
+
 namespace App\Controller;
 
 use eZ\Publish\API\Repository\ContentService;
@@ -179,6 +183,7 @@ which means you need to provide an `src/Criteria/Children.php` file containing t
 
 ``` php
 <?php
+
 namespace App\Criteria;
 
 use eZ\Publish\API\Repository\Values\Content\Location;
