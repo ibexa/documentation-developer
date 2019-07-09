@@ -17,8 +17,9 @@ and enable `DoctrineSchemaBundle` in `AppKernel.php`.
 
 When you run `composer install`, you will be asked to [provide installation parameters](../getting_started/install_ez_platform.md#provide-installation-parameters).
 
-If you use PostgreSQL, two parameters need to be set differently than when using MySQL:
+If you use PostgreSQL, the following parameters need to be set differently than when using MySQL:
 
+- `env(DATABASE_PLATFORM)` must be set to `pgsql` instead of `mysql`
 - `env(DATABASE_DRIVER)` must be set to `pdo_pgsql` instead of the default `pdo_mysql`
 - `env(DATABASE_CHARSET)` must be set to `utf8`, because the default value of `utf8mb4` is MySQL-specific.
 
