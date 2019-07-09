@@ -18,7 +18,7 @@ These setups are tested by QA and are generally recommended setups. For security
 
 ||Debian|Ubuntu|RHEL / CentOS|
 |------|------|------|------|
-|Operating system|10.x "Buster" *(ETA Spring 2019)*|18.04 LTS "Bionic"|8.x *(ETA Spring 2019)*|
+|Operating system|10.x "Buster"|18.04 LTS "Bionic"|8.x|
 |Web Server|Nginx 1.14</br>Apache 2.4|Nginx 1.14</br>Apache 2.4|Nginx 1.14</br>Apache 2.4|
 |DBMS|MariaDB 10.3\*|MariaDB 10.1</br>MySQL 5.7\*|MariaDB 10.3\*</br>MySQL 8.0\*|
 |PHP|PHP 7.3|PHP 7.2|PHP 7.2|
