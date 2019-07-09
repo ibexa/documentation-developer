@@ -37,6 +37,8 @@ To use them, create [Event Listeners](https://symfony.com/doc/4.3/event_dispatch
 
 ### Random sorting
 
+The list of common Sort Clauses has been extended by the Random sorting option. 
+
 ## Other changes
 
 ### Improved translating of notifications
