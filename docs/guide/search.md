@@ -342,6 +342,7 @@ The list below presents the Sort Clauses available in the `eZ\Publish\API\Repos
 |`DatePublished`|`?sortDirection`|
 |`Field`|`typeIdentifier` as string</br>`fieldIdentifier` as string</br> `?sortDirection`</br>`?languageCode` as string|
 |`MapLocationDistance `|`typeIdentifier` as string</br>`fieldIdentifier` as string</br>`latitude` as float</br>`longitude` as float</br>`?sortDirection`</br>`?languageCode` as string|
+|`Random`|`?sortDirection`|
 |`SectionIdentifier`|`?sortDirection`|
 |`SectionName`|`?sortDirection`|
 
