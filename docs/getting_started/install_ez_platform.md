@@ -129,7 +129,7 @@ Alternatively, you can also change individual installation parameters in `.env`,
 - `DATABASE_HOST`
 - `DATABASE_PORT`
 - `DATABASE_PLATFORM` — defines the driver used by the doctrine to connect to the database (e.g. `mysql` or `pgsql`)
-- `DATABASE_DRIVER` — handles the prefix for distinguishing the database you are connecting to (e.g. `mysql` or `pgsql`)
+- `DATABASE_DRIVER` — handles the prefix for distinguishing the database you are connecting to (e.g. `pdo_mysql` or `pdo_pgsql`)
 
 !!! tip "Using PostgreSQL"
 
