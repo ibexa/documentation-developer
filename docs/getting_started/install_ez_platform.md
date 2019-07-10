@@ -122,7 +122,10 @@ This is used by Symfony when generating [CSRF tokens](https://symfony.com/doc/cu
 and for creating signed URIs when using [ESI (Edge Side Includes)](https://symfony.com/doc/current/http_cache/esi.html).
 
 Alternatively, you can also change individual installation parameters in `.env`.
-It is recommended to store the database credentials in a `.env.local` file and not commit it to the Version Control System.
+
+!!! tip
+
+    It is recommended to store the database credentials in a `.env.local` file and not commit it to the Version Control System.
 
 The configuration requires providing the following parameters:
 
