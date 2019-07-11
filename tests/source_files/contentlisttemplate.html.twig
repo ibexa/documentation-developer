@@ -12,7 +12,7 @@
                         }) }}
                     </div>
                     <h4><a href="{{ path(content.location) }}">{{ ez_content_name(content.content) }}</a></h4>
-                    {% if not ez_is_field_empty(content.content, 'short_description') %}
+                    {% if not ez_field_is_empty(content.content, 'short_description') %}
                         <div class="attribute-short-description">
                             {{ ez_render_field(content.content, 'short_description') }}
                         </div>

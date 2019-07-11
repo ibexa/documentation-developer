@@ -23,20 +23,6 @@ class ConfigurationContext implements Context
     {
         $this->basePath = $basePath;
     }
-
-    /**
-     * @Given I add necessary configuration
-     */
-    public function addImportToEzplatformConfig(): void
-    {
-        // HACK bypass repository not having siteacces set for Behat Contexts
-        $config = new ConfigurationEditor(sprintf('%s/app/config/config.yml', $this->basePath));
-        $config->add([
-            'ezpublish.system.default.var_dir' => 'var/site',
-        ]);
-        $this->clearCache();
-    }
-
     /**
      * @Given I set the Landing Page template configuration in :filePath
      */
@@ -143,7 +129,7 @@ class ConfigurationContext implements Context
         $config = new ConfigurationEditor(sprintf('%s/%s', $this->basePath, $filePath));
         $config->add([
             'ezplatform_page_fieldtype.blocks.random.name' => 'Random block',
-            'ezplatform_page_fieldtype.blocks.random.thumbnail' => 'assets/images/blocks/random_block.svg',
+            'ezplatform_page_fieldtype.blocks.random.thumbnail' => '/assets/images/blocks/random_block.svg#random',
             'ezplatform_page_fieldtype.blocks.random.views.random.template' => 'blocks/random/default.html.twig',
             'ezplatform_page_fieldtype.blocks.random.views.random.name' => 'Random Content Block View',
             'ezplatform_page_fieldtype.blocks.random.attributes.parent.type' => 'embed',
@@ -164,5 +150,13 @@ class ConfigurationContext implements Context
         ]);
 
         $application->run($input);
+    }
+
+    /**
+     * @Given I rebuild Webpack Encore assets
+     */
+    public function rebuildYarn(): void
+    {
+        shell_exec("yarn encore dev");
     }
 }
