@@ -87,21 +87,21 @@ Replace the `webpack.config.js` file in the project root folder with the [provid
 
 Next, in the terminal run the commands:
 
-``` sh
+``` bash
 yarn encore dev
 php bin/console cache:clear
 ```
 
 !!! tip
 
-    Compiling assets with Webpack Encore is explained in [the beginner tutorial](../platform_beginner/3_customize_the_front_page.md).
+    Compiling assets with Webpack Encore is explained in [the beginner tutorial](../platform_beginner/3_customize_the_front_page.md#configuring-webpack).
 
 In the `src` folder create a `QueryType` subfolder and add [`LocationChildrenQueryType.php`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/src/QueryType/LocationChildrenQueryType.php) and [`QueryType/MenuQueryType.php`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/src/QueryType/MenuQueryType.php) to it.
 Add [`MenuController.php`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/src/Controller/MenuController.php) to `src/Controller`.
 
 These files take care of displaying content of folders and of the top menu (read up on it [in the documentation](../../guide/controllers.md#query-controller)).
 
-Additionally in `config/services.yaml` add the following block under the `services` key:
+Additionally, in `config/services.yaml` add the following block under the `services` key:
 
 ``` yaml
 App\QueryType\LocationChildrenQueryType:
