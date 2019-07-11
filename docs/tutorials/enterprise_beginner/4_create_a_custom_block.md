@@ -183,8 +183,7 @@ private function findContentItems(Location $location): array
 At this point the new custom block is ready to be used.
 
 You're left with the last cosmetic changes. First, the new Block has a broken icon in the Elements menu in Page mode.
-This is because you haven't provided this icon yet. If
- you look back to the YAML configuration, you can see the icon file defined as `random_block.svg` (line 4). Download [the provided file](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step4/public/assets/images/blocks/random_block.svg) and place it in `public/assets/images/blocks`.
+This is because you haven't provided this icon yet. If you look back to the YAML configuration, you can see the icon file defined as `random_block.svg` (line 4). Download [the provided file](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step4/public/assets/images/blocks/random_block.svg) and place it in `public/assets/images/blocks`.
 
 Finally, add some styling for the new block. Add the following to the end of the `assets/css/style.css` file:
 
@@ -211,7 +210,7 @@ Finally, add some styling for the new block. Add the following to the end of the
 }
 ```
 
-Run `yarn encore dev` to regenerate assets.
+Run `yarn encore <dev|prod>` to regenerate assets.
 
 Go back to editing the Front Page. Drag a Random Block from the Elements menu on the right to the Page's side column.
 Access the block's settings and choose the "All Tips" folder from the menu. Save and publish all the changes.

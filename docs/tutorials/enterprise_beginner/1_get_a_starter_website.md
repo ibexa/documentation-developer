@@ -65,18 +65,10 @@ Place the [`pagelayout.html.twig`](https://github.com/ezsystems/ezplatform-ee-be
 - [`folder.html.twig`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/templates/full/folder.html.twig)
 - [`tip.html.twig`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/templates/full/tip.html.twig)
 
-Place two configuration files in the `config` folder:
+Place two configuration files in the `config/packages` folder:
 
-- [`views.yaml`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/config/views.yaml)
-- [`image_variations.yaml`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/config/image_variations.yaml)
-
-Modify the `ezplatform.yaml` file located in `config/packages` folder and add the following block at the start of the file:
-
-``` yaml
-imports:
-    - { resource: ../views.yaml }
-    - { resource: ../image_variations.yaml }
-```
+- [`views.yaml`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/config/packages/views.yaml)
+- [`image_variations.yaml`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/config/packages/image_variations.yaml)
 
 Create an `assets` folder in the project root:
 
@@ -88,7 +80,7 @@ Replace the `webpack.config.js` file in the project root folder with the [provid
 Next, in the terminal run the commands:
 
 ``` bash
-yarn encore dev
+yarn encore <dev|prod>
 php bin/console cache:clear
 ```
 

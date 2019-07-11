@@ -18,7 +18,7 @@ Go to the front page of your website (`<yourdomain>`). You can see that it looks
 
     `php bin/console cache:clear`
 
-    `yarn encore dev`
+    `yarn encore <dev|prod>`
 
 Log in to the Back Office. Go to Content &gt; Content Structure.
 The **Home** Content item is the first page that is shown to the visitor.
@@ -169,7 +169,7 @@ Add this new template, `templates/full/landing_page.html.twig`:
 This template simply renders the page content. If there is any additional content or formatting you would like to apply to every Page, it should be placed in this template.
 
 Now you need to tell the app to use this template to render Pages.
-Edit the `config/views.yaml` file and add the following code under the `full:` key:
+Edit the `config/packages/views.yaml` file and add the following code under the `full:` key:
 
 ``` yaml
 landing_page:

@@ -51,7 +51,7 @@ blocks:
 
 The template makes use of an [image variation](../../guide/images.md) (line 10).
 It is the thumbnail of the Dog Breed image that will be displayed in the block.
-To configure this variation, open the `config/image_variations.yaml` file and add the following code under the `image_variations` key:
+To configure this variation, open the `config/packages/image_variations.yaml` file and add the following code under the `image_variations` key:
 
 ``` yaml
 content_list:
@@ -89,7 +89,7 @@ Finally, add some styling to the block. Add the following CSS to the end of the�
 }
 ```
 
-Run `yarn encore dev` to regenerate assets.
+Run `yarn encore <dev|prod>` to regenerate assets.
 
 At this point you can start adding blocks to the Page.
 You do it in the Page tab in Edit mode by dragging a block from the menu on the right to the correct zone on the page.
@@ -152,7 +152,7 @@ When you look at the template, you can see three blocks, each of which will rend
 So far you only have templates for `full` view for Articles. This means you need to create a `featured` view template,
 otherwise you will get an error when trying to add Content to the block.
 
-You need to modify the `config/views.yaml` file to indicate when to use the template.
+You need to modify the `config/packages/views.yaml` file to indicate when to use the template.
 Add the following code to this file, on the same level as the `full` key:
 
 ``` yaml
@@ -173,7 +173,7 @@ Now create a `templates/featured/article.html.twig` file:
 ```
 
 Like in the case of the Content List block, the template specifies an image variation.
-Add it in `config/image_variations.yaml` under the `image_variations` key:
+Add it in `config/packages/image_variations.yaml` under the `image_variations` key:
 
 ``` yaml
 featured_article:
@@ -217,7 +217,7 @@ The Block is already operational, but first update the stylesheet. Add the follo
 }
 ```
 
-Run `yarn encore dev` to regenerate assets.
+Run `yarn encore <dev|prod>` to regenerate assets.
 
 At this point you can add a new Content Scheduler block to your Page and fill it with content to see how it works.
 
