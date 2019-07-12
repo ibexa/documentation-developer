@@ -87,7 +87,7 @@ They are available via [updates.ez.no](https://updates.ez.no).
 
     !!! note "Moving from trial"
 
-        If you started with a trial installation, you should adjust the channel(s) you use in order to get software under [BUL license instead of a TTL license](https://ez.no/About-our-Software/Licenses-and-agreements/).
+        If you started with a trial installation, you should [adjust the channel(s)](#edit-composerjson) you use in order to get software under [BUL license instead of a TTL license](https://ez.no/About-our-Software/Licenses-and-agreements/).
 
     ## Edit composer.json
 
