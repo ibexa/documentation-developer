@@ -97,13 +97,21 @@ This is used by Symfony when generating [CSRF tokens](https://symfony.com/doc/cu
 [encrypting cookies](http://symfony.com/doc/current/cookbook/security/remember_me.html),
 and for creating signed URIs when using [ESI (Edge Side Includes)](https://symfony.com/doc/current/http_cache/esi.html).
 
-Alternatively, you can also change individual installation parameters in `.env`, such as:
+Alternatively, you can also change individual installation parameters in `.env`.
+
+!!! tip
+
+    It is recommended to store the database credentials in your `.env.local` file and not commit it to the Version Control System.
+
+The configuration requires providing the following parameters:
 
 - `DATABASE_USER`
 - `DATABASE_PASSWORD`
 - `DATABASE_NAME`
 - `DATABASE_HOST`
 - `DATABASE_PORT`
+- `DATABASE_PLATFORM` —  prefix for distinguishing the database you are connecting to (e.g. `mysql` or `pgsql`)
+- `DATABASE_DRIVER` — driver used by Doctrine to connect to the database (e.g. `pdo_mysql` or `pdo_pgsql`)
 
 !!! tip "Using PostgreSQL"
 
