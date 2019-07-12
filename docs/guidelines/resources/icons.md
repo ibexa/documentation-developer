@@ -573,6 +573,12 @@ code_example]]
         <p class="icon-label">options</p>
     </div>
     <div class="icon-box">
+        <svg class="ez-icon ez-icon-panels">
+            <use xlink:href="../../ez-icons.svg#panels"></use>
+        </svg>
+        <p class="icon-label">panels</p>
+    </div>
+    <div class="icon-box">
         <svg class="ez-icon ez-icon-pdf-file">
             <use xlink:href="../../ez-icons.svg#pdf-file"></use>
         </svg>
@@ -613,6 +619,12 @@ code_example]]
             <use xlink:href="../../ez-icons.svg#portfolio"></use>
         </svg>
         <p class="icon-label">portfolio</p>
+    </div>
+    <div class="icon-box">
+        <svg class="ez-icon ez-icon-previewed">
+            <use xlink:href="../../ez-icons.svg#previewed"></use>
+        </svg>
+        <p class="icon-label">previewed</p>
     </div>
     <div class="icon-box">
         <svg class="ez-icon ez-icon-profile">
