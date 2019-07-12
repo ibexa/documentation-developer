@@ -20,13 +20,6 @@ ezpublish:
                         - {name: geometry/scaledownonly, params: [140, 100]}
 ```
 
-At the beginning of the `config/packages/ezplatform.yaml` file (before the `parameters` key), add the following lines to import the content of `image_variations.yaml`:
-
-``` yaml
-imports:
-    - { resource: image_variations.yaml }
-```
-
 Next, modify the templates to use these variations. Variation names are provided as parameters when rendering the image content.
 
 In `templates/line/rides.html.twig` add the `'alias': 'ride_list'` parameter in the following way, in lines 8-10:
@@ -76,10 +69,4 @@ ezpublish:
                         template: line/ride.html.twig
                         match:
                             Identifier\ContentType: ride
-```
-
-Import the file in `ezplatform.yaml`, like you did with `image_variations.yaml`:
-
-``` yaml
-- { resource: views.yaml }
 ```
