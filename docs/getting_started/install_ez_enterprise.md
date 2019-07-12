@@ -19,6 +19,7 @@ They are available via [updates.ez.no](https://updates.ez.no).
     - Trial (limited access to try for up to 120 days):
         - [ttl](https://updates.ez.no/ttl/) eZ Platform Enterprise Trial packages
         - [ttl_com](https://updates.ez.no/ttl_com/) eZ Commerce Trial packages
+    - Enterprise Business User License (requires valid subscription):
         - [bul](https://updates.ez.no/bul/) available with an eZ Platform Enterprise subscription
         - [bul_com](https://updates.ez.no/bul_com/) available with an eZ Commerce subscription
 
