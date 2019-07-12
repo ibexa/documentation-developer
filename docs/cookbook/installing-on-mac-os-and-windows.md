@@ -101,7 +101,7 @@ Alternatively, you can also change individual installation parameters in `.env`.
 
 !!! tip
 
-    It is recommended to store the database credentials in a `.env.local` file and not commit it to the Version Control System.
+    It is recommended to store the database credentials in your `.env.local` file and not commit it to the Version Control System.
 
 The configuration requires providing the following parameters:
 
@@ -110,8 +110,8 @@ The configuration requires providing the following parameters:
 - `DATABASE_NAME`
 - `DATABASE_HOST`
 - `DATABASE_PORT`
-- `DATABASE_PLATFORM` —  handles the prefix for distinguishing the database you are connecting to (e.g. `mysql` or `pgsql`)
-- `DATABASE_DRIVER` — defines the driver used by the doctrine to connect to the database (e.g. `pdo_mysql` or `pdo_pgsql`)
+- `DATABASE_PLATFORM` —  prefix for distinguishing the database you are connecting to (e.g. `mysql` or `pgsql`)
+- `DATABASE_DRIVER` — driver used by Doctrine to connect to the database (e.g. `pdo_mysql` or `pdo_pgsql`)
 
 !!! tip "Using PostgreSQL"
 
