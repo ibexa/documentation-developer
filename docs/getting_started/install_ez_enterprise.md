@@ -2,13 +2,13 @@
 
 !!! enterprise
 
-    To install eZ Enterprise, follow the procedure described in [Install eZ Platform](install_ez_platform.md).
+    To install eZ Enterprise, start with the procedure described in [Install eZ Platform](install_ez_platform.md).
     Because you do not have access to the Enterprise GitHub repositories,
     you need to [download an archive](install_ez_platform.md#a-download-ez-platform) from the Support Portal.
 
     There are a few special steps you need to take when installing eZ Enterprise:
 
-    ## Setting up authentication tokens for eZ Enterprise
+    ## Set up authentication tokens
 
     eZ Enterprise subscribers have access to commercial packages at [updates.ez.no/bul/](https://updates.ez.no/bul/).
     The site is password-protected. You will need to set up authentication tokens to get access to it.
@@ -53,18 +53,33 @@
         They will become active again if the agreement is renewed, but this process may take up to 24 hours.
         _(If the agreement is renewed before the expiry date, there will be no disruption of service.)_
 
+    ## Create project
+
+    In order to install a new project using `composer create-project` to get latest version of eZ Enterprise,
+    you'll need to tell Composer which token to use before the project folder is created in the first place.
+    This can be done in the following way:
+
+    ``` bash
+    COMPOSER_AUTH='{"http-basic":{"updates.ez.no":{"username":"<installation-key>","password":"<token-password>"}}}' composer create-project --keep-vcs --repository=https://updates.ez.no/bul/ ezsystems/ezplatform-ee my-new-ee-project
+    ```
+
     !!! tip "Usage of authentication token with `composer create-project`"
 
         If you have several projects set up on your machine,
         they should all use different tokens set in `auth.json` file in project directory.
 
-        But in order to install a new project using `composer create-project` to get latest version of eZ Enterprise,
-        you'll need to tell Composer which token to use before the project folder is created in the first place.
-        This can be done in the following way:
+    !!! note "Moving from trial"
 
-        ``` bash
-        COMPOSER_AUTH='{"http-basic":{"updates.ez.no":{"username":"<installation-key>","password":"<token-password>"}}}' composer create-project --keep-vcs ezsystems/ezplatform-ee my-new-ee-project
-        ```
+        If you started with a trial installation, you should [adjust the channel(s)](#edit-composerjson) you use in order to get software under [BUL license instead of a TTL license](https://ez.no/About-our-Software/Licenses-and-agreements/).
+
+    ## Edit composer.json
+
+    Edit `composer.json` in your project root and change the URL defined in the `repositories` section to point to the `bul*` URLs listed above.
+    Once that is done, you can execute `composer update` to get packages with the correct license.
+
+    !!! note
+
+        You can now refer back to [Installing eZ Platform](install_ez_platform/#provide-installation-parameters) for finishing steps of the installation process.
 
     ## Enable Date-based Publisher
 

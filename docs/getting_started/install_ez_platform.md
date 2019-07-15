@@ -49,7 +49,7 @@ There are two ways to get eZ Platform. The result is the same, so you can use th
 
 !!! enterprise "Authentication tokens for eZ Enterprise"
 
-    When installing eZ Enterprise, you need to [set up authentication tokens](install_ez_enterprise.md#setting-up-authentication-tokens-for-ez-enterprise) for use with Composer.
+    If you are installing eZ Enterprise, from this point refer to [Install eZ Enterprise](install_ez_enterprise.md).
 
 ### A. Download eZ Platform
 
