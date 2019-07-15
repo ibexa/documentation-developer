@@ -72,8 +72,8 @@ Place two configuration files in the `config/packages` folder:
 
 Create an `assets` folder in the project root:
 
-- create a `css` folder and add the following stylesheet: [`style.css`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/web/assets/css/style.css) to it
-- create an `images` subfolder and add the [`header.jpg`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/web/assets/images/header.jpg) file to it
+- create a `css` folder and add the following stylesheet: [`style.css`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/assets/css/style.css) to it
+- create an `images` subfolder and add the [`header.jpg`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/assets/images/header.jpg) file to it
 
 Replace the `webpack.config.js` file in the project root folder with the [provided file]((https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/webpack.config.js)). Next, in `config/packages/webpack_encore.yaml`, replace the `output_path: '%kernel.project_dir%/public/build'` line with `output_path: '%kernel.project_dir%/public/assets/build'`.
 
