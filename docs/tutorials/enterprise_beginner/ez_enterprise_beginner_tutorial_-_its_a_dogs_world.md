@@ -19,7 +19,7 @@ After finishing this tutorial, you will:
 
 ## Scenario
 
-In the course of this scenario you will built a website for a magazine for dog owners called 'It's a Dog's World'.
+In the course of this scenario you will build a website for a magazine for dog owners called 'It's a Dog's World'.
 
 You will create a welcome page that will showcase the magazine's three most important types of content: articles, dog breed information and tips.
 
