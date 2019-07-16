@@ -4,7 +4,7 @@
 
     To create a richtext [custom Page block](extending_page.md), you need to define its layout, provide templates, add a subscriber and register it as a service.
 
-    Start with creating a `config/layouts.yaml` file containing:
+    Start with creating a `config/packages/layouts.yaml` file containing:
 
     ``` yaml hl_lines="3 15"
     ezplatform_page_fieldtype:
@@ -28,7 +28,7 @@
     This configuration defines a new block, its view and configuration templates, and attribute type `richtext` (line 15).
     Remember to provide an icon for the block in the `assets/images/blocks/` folder.
 
-    Next, add `layouts.yaml` to `config/ezplatform.yaml` under the `imports` key:
+    Next, add `layouts.yaml` to `config/packages/ezplatform.yaml` under the `imports` key:
 
     ``` yaml
     imports:
