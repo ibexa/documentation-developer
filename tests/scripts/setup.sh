@@ -1,8 +1,8 @@
 #!/bin/bash
 
 TUTORIAL_REPOSITORY=https://github.com/ezsystems/ezplatform-ee-beginner-tutorial
-STEP1_BRANCH=v2-step1
-STEP4_BRANCH=master
+STEP1_BRANCH=v3-step1
+STEP4_BRANCH=v3-step4
 TUTORIAL_DATA_DIRECTORY_1=tutorial_data_1
 TUTORIAL_DATA_DIRECTORY_2=tutorial_data_2
 IMAGES_SOURCE=vendor/ezsystems/developer-documentation/docs/tutorials/enterprise_beginner/img/photos.zip

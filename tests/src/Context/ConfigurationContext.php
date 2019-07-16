@@ -140,23 +140,11 @@ class ConfigurationContext implements Context
         ]);
     }
 
-    private function clearCache(): void
-    {
-        $application = new Application($this->kernel);
-        $application->setAutoExit(false);
-
-        $input = new ArrayInput([
-            'command' => 'cache:clear',
-        ]);
-
-        $application->run($input);
-    }
-
     /**
      * @Given I rebuild Webpack Encore assets
      */
     public function rebuildYarn(): void
     {
-        shell_exec("yarn encore dev");
+        shell_exec("bin/console ezplatform:encore:compile");
     }
 }

@@ -40,6 +40,7 @@ Feature: Setup eZ Platform Enterprise dogs tutorial
             | Tip2        |
             | Tip3        |
         And I delete eZ Platform Folder under Home
+        And I rebuild Webpack Encore assets
 
     @step2
     Scenario: Prepare the Landing Page
