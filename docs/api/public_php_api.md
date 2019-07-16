@@ -5,7 +5,7 @@ The Public PHP API enables you to interact with eZ Platform's Repository and con
 You can use it to create, read, update, manage and delete all objects available in eZ Platform:
 content and related objects such as Sections, Locations, Content Types, languages, etc.
 
-The PHP API is built on top of a layered architecture, including a persistence API that abstracts storage.
+The PHP API is built on top of a layered architecture, including a persistence SPI that abstracts storage.
 Using the API ensures your code will be forward compatible with future releases based on other storage engines.
 
 !!! tip
@@ -21,11 +21,11 @@ Those services are obtained using `get[ServiceName]()` methods: `getContentServ
 
 ## Value objects
 
-The services provide interaction with read-only value objects from the `eZ\Publish\Core\Repository\Values` namespace.
+The services provide interaction with read-only value objects from the `eZ\Publish\API\Repository\Values` namespace.
 Those objects are divided into sub-namespaces: `Content`, `ContentType`, `User` and `ObjectState`.
 Each sub-namespace contains a set of value objects,
-such as [`Content\Content`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Repository/Values/Content/Content.php)
-or [`User\Role`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Repository/Values/User/Role.php).
+such as [`Content\Content`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Content.php)
+or [`User\Role`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/User/Role.php).
 
 Value objects come with their own properties, such as `$content->id` or `$location->hidden`,
 as well as with methods that provide access to more related information,
@@ -68,7 +68,9 @@ You can use this method to perform an action that the current user does not have
 For example, to [hide a Location](public_php_api_locations.md#hideunhide-location), use:
 
 ``` php
-$hiddenLocation = $repository->sudo(function ($repository) use ($location) {
+use eZ\Publish\API\Repository\Repository;
+
+$hiddenLocation = $repository->sudo(function (Repository $repository) use ($location) {
     return $repository->getLocationService()->hideLocation($location);
 });
 ```
