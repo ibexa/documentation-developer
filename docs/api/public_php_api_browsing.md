@@ -235,20 +235,6 @@ $sectionService = $repository->getSectionService();
 $userService = $repository->getUserService();
 ```
 
-### Setting the Repository User
-
-In a command line script, the repository runs as if executed by the anonymous user. In order to identify it as a different user, you need to use the `UserService` together with `PermissionResolver` as follows (in the example `admin` is the login of the administrator user):
-
-``` php
-$permissionResolver = $repository->getPermissionResolver();
-$user = $userService->loadUserByLogin('admin');
-$permissionResolver->setCurrentUserReference($user);
-```
-
-This may be crucial when writing maintenance or synchronization scripts.
-
-This is of course not required in template functions or controller code, as the HTTP layer will take care of identifying the user, and automatically set it in the repository.
-
 ### The ContentInfo Value Object
 
 You will now load a `ContentInfo` object using the provided ID and use it to get your Content item's metadata

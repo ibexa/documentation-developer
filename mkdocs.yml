@@ -54,7 +54,6 @@ pages:
             - 'REST API reference': 'api/rest_api_reference.md'
         - Public PHP API:
             - 'Public PHP API': 'api/public_php_api.md'
-            - 'Customization': 'api/public_php_api_customization.md'
             - 'Browsing Content': 'api/public_php_api_browsing.md'
             - 'Searching': 'api/public_php_api_search.md'
             - 'Managing Content': 'api/public_php_api_managing_content.md'
