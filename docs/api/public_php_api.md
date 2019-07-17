@@ -2,15 +2,15 @@
 
 The Public PHP API enables you to interact with eZ Platform's Repository and content model from your PHP code.
 
-You can use it to create, read, update, manage and delete all objects available in eZ Platform:
+You can use it to create, read, update, manage, and delete all objects available in eZ Platform, namely 
 content and related objects such as Sections, Locations, Content Types, languages, etc.
 
 The PHP API is built on top of a layered architecture, including a persistence SPI that abstracts storage.
-Using the API ensures your code will be forward compatible with future releases based on other storage engines.
+Using the API ensures that your code will be forward compatible with future releases based on other storage engines.
 
 !!! tip
 
-    For more information see a [presentation about eZ Platform APIs](https://alongosz.github.io/ezconf2018-api/).
+    For more information see a [presentation about eZ Platform API.](https://alongosz.github.io/ezconf2018-api/)
 
 ## Using API services
 
@@ -113,7 +113,7 @@ $permissionResolver->setCurrentUserReference($user);
 This is not required in template functions or controller code,
 as the HTTP layer takes care of identifying the user, and automatically sets it in the repository.
 
-If you want to identify a user with their credentia ls instead, provide them in the following way:
+If you want to identify a user with their credentials instead, provide them in the following way:
 
 ``` php
 $permissionResolver = $repository->getPermissionResolver();
