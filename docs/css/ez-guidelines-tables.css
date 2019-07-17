@@ -36,7 +36,7 @@
 .ez-guidelines-tables__with-header .table tbody td {
     padding: 0.7em 1.4em;
     font-size: 0.875em;
-    line-height: 20px;
+    line-height: 1.25em;
     vertical-align: middle;
     border-top: 1px solid #a8c8d5;
 }
@@ -51,10 +51,26 @@
 .ez-guidelines-tables__with-header--action-btn .table td:last-of-type {
     text-align: end;
 }
-.ez-guidelines-tables__with-header .table .btn-icon .ez-icon-edit {
+.ez-guidelines-tables__with-header--action-btn .ez-code-example .ez-table__cell--has-checkbox {
+    width: 5%;
+}
+.ez-guidelines-tables__with-header--action-btn .ez-code-example .ez-table__cell--has-action-btns {
+    padding-right: 1.75em;
+    padding-left: .75em;
+}
+.ez-guidelines-tables__with-header--action-btn .ez-code-example .btn-icon {
+    padding: 0;
+}
+.ez-guidelines-tables__with-header--action-btn .table .btn-icon .ez-icon-edit {
     fill: #f15a10;
-    width: 42px;
-    height: 42px;
+    width: 1.5em;
+    height: 1.5em;
+}
+.md-typeset .ez-guidelines-tables__with-header--action-btn .ez-code-example svg {
+    max-width: none;
+}
+.bootstrap-iso .ez-guidelines-tables__with-header--action-btn .ez-code-example svg:not(:root) {
+    overflow: visible;
 }
 .ez-guidelines-tables__with-header .ez-table-header .btn {
     line-height: 0.85;
