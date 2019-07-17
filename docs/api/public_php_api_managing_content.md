@@ -2,33 +2,13 @@
 
 In the following recipes, you will see how to create Content.
 
-## Identifying to the repository with a login and a password
+## Create and update structs
 
-As seen earlier, the Repository executes operations with a user's credentials. In a web context, the currently logged-in user is automatically identified. In a command line context, you need to manually log a user in. You have already seen how to manually load and set a user using their login. If you would like to identify a user using their credentials instead, this can be achieved in the following way:
-
-**authentication**
-
-``` php
-$permissionResolver = $repository->getPermissionResolver();
-$user = $userService->loadUserByCredentials( $username, $password );
-$permissionResolver->setCurrentUserReference($user);
-```
-
-!!! tip "Using `sudo()`"
-
-    To skip permission checks, you can use the `sudo()` method.
-    It allows API execution to be performed with full access, sand-boxed.
-
-    You can use this method to perform an action that the current user does not have permissions for.
-    This option is recommended instead of setting the admin user as the current user.
-
-    For example, to [hide a Location](public_php_api_locations.md#hideunhide-location), use:
-
-    ``` php
-    $hiddenLocation = $repository->sudo(function ($repository) use ($location) {
-        return $repository->getLocationService()->hideLocation($location);
-    });
-    ```
+In order to update or create elements in the Repository, you need to use structs.
+They are usually provided by the service that manages the value objects you want to alter or create.
+For instance, the Content service has a `getContentCreateStruct()` method
+that returns a new `ContentCreateStruct` object.
+Equivalent methods exist for `UpdateStruct` objects as well, and for most value objects.
 
 ## Creating content
 
