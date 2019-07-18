@@ -18,7 +18,7 @@
         reload: true
     ```
     
-    For information about available options, see [the bundle's documentation](https://github.com/Gregwar/CaptchaBundle#options).
+    For information about available options, see [the bundle's documentation.](https://github.com/Gregwar/CaptchaBundle#options)
 
     ## Extending Form fields
 
