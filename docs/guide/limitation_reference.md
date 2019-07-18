@@ -329,24 +329,7 @@ A Limitation to specify if the User has access to content within a specific Subt
 
 ### Usability notes
 
-If you want to limit User's access to a subtree you need to:
- 
- 1. Create a Subtree limitation for the User.
- 1. Create additional Policy with Location limitation.
-
-**Cookbook**, **Dinner recipes** and **Dessert recipes** containers are not accessible in the frontend. 
-
-![Subtree file structure](img/subtree_usability_notes_1.png)
-
-To give the vegetarian editors access only to the **Vegetarian** dinner recipes section assign to the Role with your vegetarian editors e.g. Editor a Subtree limitation `Cookbook/Dinner recipes/Vegetarian`. 
-
-In the next step create a `content/read` Policy with the Location limitations **Cookbook** and **Dinner recipes**.
-Assign it to the Role with Subtree limitation `Cookbook/Dinner recipes/Vegetarian`.
-Only then the limitations are combined with `AND` resulting in an empty set.
-
-The vegetarian editors should now see the following Content Tree:
-
-![Limited subtree file structure](img/subtree_usability_notes_2.png)
+For more information on how to restrict user's access to part of the Subtree follow [the example in the Admin management section](admin_panel.md#restrict-editing-to-part-of-the-tree).
 
 ## Workflow Stage Limitation
 
