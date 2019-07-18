@@ -1,4 +1,4 @@
-# Step 3 - Use existing blocks
+# Step 3 — Use existing blocks
 
 !!! tip
 

@@ -1,4 +1,4 @@
-# Step 2 - Prepare the Page
+# Step 2 — Prepare the Page
 
 !!! tip
 

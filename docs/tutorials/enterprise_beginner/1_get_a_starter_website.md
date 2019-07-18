@@ -1,4 +1,4 @@
-# Step 1 - Get a starter website
+# Step 1 — Get a starter website
 
 !!! tip
 

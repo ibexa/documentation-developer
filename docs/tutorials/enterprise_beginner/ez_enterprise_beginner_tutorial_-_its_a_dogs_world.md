@@ -31,7 +31,8 @@ You will do this by means of a Page, making use of its specific blocks, and craf
 
 In this tutorial you will go through the following steps:
 
-- [1. Get a starter website](1_get_a_starter_website.md)
-- [2. Prepare the Page](2_prepare_the_landing_page.md)
-- [3. Use existing blocks](3_use_existing_blocks.md)
-- [4. Create a custom block](4_create_a_custom_block.md)
+1. [Get a starter website](1_get_a_starter_website.md)
+1. [Prepare the Page](2_prepare_the_landing_page.md)
+1. [Use existing blocks](3_use_existing_blocks.md)
+1. [Create a custom block](4_create_a_custom_block.md)
+1. [Create a newsletter form](5_create_newsletter_form.md)
