@@ -105,7 +105,6 @@ In order to identify as a different user, you need to use the `UserService` toge
 (in the example `admin` is the login of the administrator user):
 
 ``` php
-$permissionResolver = $repository->getPermissionResolver();
 $user = $userService->loadUserByLogin('admin');
 $permissionResolver->setCurrentUserReference($user);
 ```
@@ -116,7 +115,28 @@ as the HTTP layer takes care of identifying the user, and automatically sets it 
 If you want to identify a user with their credentials instead, provide them in the following way:
 
 ``` php
-$permissionResolver = $repository->getPermissionResolver();
 $user = $userService->loadUserByCredentials($username, $password);
 $permissionResolver->setCurrentUserReference($user);
+```
+
+## Exception handling
+
+PHP API uses [Exceptions](http://php.net/exceptions) to handle errors.
+Each API method may throw different exceptions, depending on what it does.
+
+It is good practice to cover every exception you expect to happen.
+
+For example if you are using a command which takes the Content ID as a parameter,
+the ID may either not exist, or the referenced Content item may not be visible to our user.
+
+Both cases should be covered with error messages:
+
+``` php
+try {
+    // ...
+    } catch (\eZ\Publish\API\Repository\Exceptions\NotFoundException $e) {
+        $output->writeln("<error>No content with id $contentId found</error>");
+    } catch (\eZ\Publish\API\Repository\Exceptions\UnauthorizedException $e) {
+        $output->writeln("<error>Permission denied on content with id $contentId</error>");
+    }
 ```
