@@ -7,8 +7,18 @@
     ### Captcha field
 
     The Captcha Form field is based on [Gregwar/CaptchaBundle](https://github.com/Gregwar/CaptchaBundle).
-
-    See [the bundle's documentation](https://github.com/Gregwar/CaptchaBundle#options) for information about available options.
+    
+    You can customize the field by adding configuration to `config/packages/gregwar_captcha.yaml` under `gregwar_captcha`:
+        
+    ``` yaml
+    gregwar_captcha:
+        as_url: true
+        width: 150
+        invalid_message: Retry.
+        reload: true
+    ```
+    
+    For information about available options, see [the bundle's documentation.](https://github.com/Gregwar/CaptchaBundle#options)
 
     ## Extending Form fields
 
