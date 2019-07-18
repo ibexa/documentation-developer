@@ -22,8 +22,12 @@ In the Form Builder, add and configure (using the **Basic** and **Validation** t
 |Captcha|CAPTCHA|yes|—|
 |Button|Sign up!|—|Action: Show a message</br>Message to display: Thank you!|
 
+The configuration should look like this:
+
+![Adding Fields to Newsletter Form](img/enterprise_tut_form_creation.png "Adding Fields to Newsletter Form")
+
 After adding all fields, go to the previous menu and click **Publish**.
-Now you can edit the Page, add a Form block below the Random block.
+Now you can edit the Page and add a Form block below the Random block.
 Edit the block and select the form you created. Click **Submit**.
 
 The Page should refresh with the Form block.
@@ -103,9 +107,9 @@ ezpublish:
                 - { templates: "form_field.html.twig", priority: 30 }
 ```
 
-Clear the cache by running `bin/console cache:clear` and refresh the Page to see results.
+Clear the cache by running `bin/console cache:clear` and refresh the Page to see the results.
 
-### Configure the bundle
+### Configure the Form field
 
 Before applying the final styling of the block, you need to configure the [CAPTCHA field](../../guide/extending_form_builder.md#captcha-field).
 In `app/config/config.yml`, under the `gregwar_captcha` key, add the following configuration:
@@ -118,7 +122,7 @@ gregwar_captcha:
     length: 4
    
 ```
-The configuration resizes the CAPTCHA image (line 3), changes the error message (line 4), enables the user to reload the code (line 5), and changes the length of the code to four elements (line 6).
+The configuration resizes the CAPTCHA image (line 3), changes the error message (line 4), enables the user to reload the code (line 5), and changes shortens the code to four elements (line 6).
 
 ### Add stylesheet
 
@@ -176,7 +180,7 @@ Add the following code to `web/assets/css/style.css`:
 }
 ```
 
-Your newsletter form block is finished and should look like this:
+Your newsletter form block is ready.
 
 ![Newsletter Form Block](img/enterprise_tut_final_form.png "Newsletter Form Block")
 
