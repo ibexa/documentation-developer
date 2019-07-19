@@ -16,6 +16,8 @@ After finishing this tutorial, you will:
 - Be able to create a Page and customize its layout
 - Be able to prepare and customize Page blocks
 - Be able to create a custom block
+- Know how to use Form Builder and configure your form
+- Know how to apply custom styling to blocks
 
 ## Scenario
 

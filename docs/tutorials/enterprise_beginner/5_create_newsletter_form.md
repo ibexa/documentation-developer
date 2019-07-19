@@ -9,7 +9,7 @@ The final step of this tutorial assists you in adding to the home page a Form bl
 
 Start with creating a Form Content item.
 In the **Forms** panel, click **Create** and select **Form**.
-Enter the title, e.g. "Sign up for Newsletter" and click **Create a form**.
+Provide the title, e.g. "Sign up for Newsletter" and click **Create a form**.
 
 In the Form Builder, add and configure (using the **Basic** and **Validation** tabs) the following form fields:
 
@@ -19,26 +19,26 @@ In the Form Builder, add and configure (using the **Basic** and **Validation** t
 |Single line input|Surname|no|Minimum length = 3|
 |Dropdown|Select topic|yes|Options:</br>- News</br>- Tips </br> - Articles|
 |Email|Email address|yes|—|
-|Captcha|CAPTCHA|yes|—|
+|Captcha|CAPTCHA|—|—|
 |Button|Sign up!|—|Action: Show a message</br>Message to display: Thank you!|
 
 The configuration should look like this:
 
 ![Adding Fields to Newsletter Form](img/enterprise_tut_form_creation.png "Adding Fields to Newsletter Form")
 
-After adding all fields, go to the previous menu and click **Publish**.
+When you add all the fields, go to the previous menu and click **Publish**.
 Now you can edit the Front Page and add a Form block below the Random block.
 Edit the block and select the form you created. Click **Submit**.
 
 The Page should refresh with the Form block.
 
-![Newsletter Form Block](img/enterprise_tut_first_form.png "Newsletter Form Block")
+![Newsletter Form Block](img/enterprise_tut_first_form.png "Raw Newsletter Form Block")
 
-It clearly differs from the page design, so let's proceed with customizing the block's layout.
+It clearly differs from the page design, so you also need to customize the block's layout.
 
 ### Change the block template
 
-First, add a new template for the Form block, using a similar design to the Random block.
+First, add a new template for the Form block to align it with the Random block design.
 Create an `app/Resources/views/blocks/form/newsletter.html.twig` file:
 
 ``` html+twig
@@ -54,7 +54,7 @@ Create an `app/Resources/views/blocks/form/newsletter.html.twig` file:
 </div>
 ```
 
-Append the new template to the block by adding to `app/config/layouts.yml`.
+Append the new template to the block by adding it to `app/config/layouts.yml`.
 Add the following configuration under the `blocks` key at the same level as other block names, e.g. `random`:
 
 ``` yaml hl_lines="3"
@@ -69,15 +69,15 @@ blocks:
 
 Now you have to apply the template to the block.
 Go back to editing the Page.
-Edit the Form block again, and in the **Design** tab, select the **Newsletter Form View**.
-Click **Submit**.
+Edit the Form block again. 
+In the **Design** tab, select the **Newsletter Form View** and click **Submit**.
 
 The block remains unchanged, but the results will be visible when you add CSS styling.
 
 ### Change the field template 
 
 At this point, you need to change the field template.
-This will result in alternating the position and design of the Form fields.
+This results in alternating the position and design of the Form fields.
 
 Create an `app/Resources/views/form_field.html.twig` file:
 
@@ -122,7 +122,7 @@ gregwar_captcha:
     length: 4
    
 ```
-The configuration resizes the CAPTCHA image (line 3), changes the error message (line 4), enables the user to reload the code (line 5), and changes shortens the code to four elements (line 6).
+The configuration resizes the CAPTCHA image (line 3), changes the error message (line 4), enables the user to reload the code (line 5), and shortens the authentication code (line 6).
 
 ### Add stylesheet
 
@@ -184,6 +184,8 @@ Your newsletter form block is ready.
 
 ![Newsletter Form Block](img/enterprise_tut_final_form.png "Newsletter Form Block")
 
+Open the home page and enter a couple of mock submissions.
+
 ### Manage the submissions
 
 You can view all submissions in the Back Office.
@@ -207,6 +209,5 @@ You have learned how to:
 - Create custom blocks
 - Use Form Builder and configure your form
 - Apply custom styling to blocks
-- Configure a bundle
 
 ![Final result of the tutorial](img/enterprise_tut_main_screen.png "Final result of the tutorial")
