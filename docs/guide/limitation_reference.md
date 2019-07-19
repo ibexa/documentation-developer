@@ -327,6 +327,10 @@ A Limitation to specify if the User has access to content within a specific Subt
 |------|------|------|
 |`<Location_pathString>`|`<Location_name>`|All valid location `pathStrings` can be set as value(s)|
 
+### Usage notes
+
+For more information on how to restrict user's access to part of the Subtree follow [the example in the Admin management section](admin_panel.md#restrict-editing-to-part-of-the-tree).
+
 ## Workflow Stage Limitation
 
 A Limitation to specify if the User can edit content in a specific workflow stage.
