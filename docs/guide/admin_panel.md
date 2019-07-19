@@ -131,11 +131,15 @@ Further manipulation of trash requires the `content/restore` Policy to restore i
 
 #### Restrict editing to part of the tree
 
-If you want to let the User create or edit content, but only in one part of the content tree, you need to use Limitations. Three Limitations that could be used here are `Section` Limitation, `Location` Limitation and `Subtree of Location` Limitation.
+If you want to let the User create or edit content, but only in one part of the content tree, you need to use Limitations.
+Three Limitations that could be used here are `Section` Limitation, `Location` Limitation and `Subtree of Location` Limitation.
 
 ##### Section Limitation
 
-Let's assume you have two Folders under your Home: Blog and Articles. You can let a User create content for the blogs, but not in Articles by adding a `Section` Limitation the Blog Content item. This will allow the User to publish content anywhere under this Location in the structure. Section does not have to belong to the same Subtree of Location in the content structure, any Locations can be assigned to it.
+Let's assume you have two Folders under your Home: Blog and Articles.
+You can let a User create content for the blogs, but not in Articles by adding a `Section` Limitation the Blog Content item.
+This will allow the User to publish content anywhere under this Location in the structure.
+Section does not have to belong to the same Subtree of Location in the content structure, any Locations can be assigned to it.
 
 ##### Location Limitation
 
@@ -143,11 +147,11 @@ If you add a `Location` Limitation and point to the same Location, the User will
 
 ##### Subtree of Location Limitation
 
-If you want to limit User's access to a subtree you need to use `Subtree of Location` Limitation.
+If you want to limit User's access to a subtree you need to use the `Subtree of Location` Limitation.
 To do so, you need to create two new Roles for a User Group:
  
- 1. Role with a Subtree Limitation for the User
- 1. Role with a Location Limitation for the Subtree
+ 1. Role with a `Subtree` Limitation for the User
+ 1. Role with a `Location` Limitation for the Subtree
 
 Follow the example below to learn how to do that.
 
@@ -156,13 +160,13 @@ Follow the example below to learn how to do that.
 ![Subtree file structure](img/subtree_usability_notes_1.png)
 
 To give the vegetarian editors access only to the **Vegetarian** dinner recipes section create a new Role e.g. *EditorVeg*.
-Next, add to it a `content/read` Policy with the Subtree Limitation `Cookbook/Dinner recipes/Vegetarian`.
+Next, add to it a `content/read` Policy with the `Subtree` Limitation for `Cookbook/Dinner recipes/Vegetarian`.
 Assign the Role to the vegetarian editors User Group.
 It will allow users from that group to access the **Vegetarian** container but not **Cookbook** and **Dinner recipes**.
 
 To give users access to **Cookbook** and **Dinner recipes** containers you need to
-  create a new Role e.g. *EditorVegAccess*.
-Next, add to it a `content/read` Policy with the Location limitations **Cookbook** and **Dinner recipes**.
+create a new Role e.g. *EditorVegAccess*.
+Next, add to it a `content/read` Policy with the `Location` Limitations **Cookbook** and **Dinner recipes**.
 Assign the new Role to the vegetarian editors User Group as well.
 Only then the limitations are combined with `AND` resulting in an empty set.
 
