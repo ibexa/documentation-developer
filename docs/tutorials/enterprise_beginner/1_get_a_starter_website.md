@@ -1,4 +1,4 @@
-# Step 1 - Get a starter website
+# Step 1 — Get a starter website
 
 !!! tip
 
@@ -48,7 +48,7 @@ Edit it to remove the Image Field that has a Content Relation (ezobjectrelation)
 
 | Field Type | Name  | Identifier | Required | Searchable | Translatable |
 |------------|-------|------------|----------|------------|--------------|
-| Image      | Image | `image`    |          |            | yes          |
+| Image      | Image | `image`    | no       | no         | yes          |
 
 ![New image Field in the Article Content Type](img/enterprise_tut_image_in_article_ct.png)
 
@@ -75,7 +75,7 @@ Create an `assets` folder in the project root:
 - create a `css` folder and add the following stylesheet: [`style.css`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/assets/css/style.css) to it
 - create an `images` subfolder and add the [`header.jpg`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/assets/images/header.jpg) file to it
 
-Replace the `webpack.config.js` file in the project root folder with the [provided file]((https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/webpack.config.js)). Next, in `config/packages/webpack_encore.yaml`, replace the `output_path: '%kernel.project_dir%/public/build'` line with `output_path: '%kernel.project_dir%/public/assets/build'`.
+Replace the `webpack.config.js` file in the project root folder with the [provided file](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/webpack.config.js). Next, in `config/packages/webpack_encore.yaml`, replace the `output_path: '%kernel.project_dir%/public/build'` line with `output_path: '%kernel.project_dir%/public/assets/build'`.
 
 Next, in the terminal run the commands:
 

@@ -1,4 +1,4 @@
-# Step 4 - Creating a custom block
+# Step 4 — Create a custom block
 
 !!! tip
 
