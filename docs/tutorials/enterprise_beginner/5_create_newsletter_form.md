@@ -41,7 +41,7 @@ It clearly differs from the page design, so you also need to customize the block
 First, add a new template for the Form block to align it with the Random block design.
 Create an `app/Resources/views/blocks/form/newsletter.html.twig` file:
 
-``` html+twig
+``` html+twig hl_lines="1"
 <div class="row">
     <div class="block-form {{ block_class }}">
         {{ fos_httpcache_tag('relation-location-' ~ locationId) }}
@@ -53,6 +53,8 @@ Create an `app/Resources/views/blocks/form/newsletter.html.twig` file:
     </div>
 </div>
 ```
+
+This template extends the default block layout by adding an additional class (line 1) that shares CSS styling with the Random block.
 
 Append the new template to the block by adding it to `app/config/layouts.yml`.
 Add the following configuration under the `blocks` key at the same level as other block names, e.g. `random`:
@@ -122,7 +124,7 @@ gregwar_captcha:
     length: 4
    
 ```
-The configuration resizes the CAPTCHA image (line 3), changes the error message (line 4), enables the user to reload the code (line 5), and shortens the authentication code (line 6).
+The configuration resizes the CAPTCHA image (line 2), changes the error message (line 3), enables the user to reload the code (line 4), and shortens the authentication code (line 5).
 
 ### Add stylesheet
 
