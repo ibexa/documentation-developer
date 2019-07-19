@@ -1,15 +1,15 @@
 # Step 5 — Create a newsletter form
 
 !!! tip
-    You can find all filed used and modified in this step on [GitHub.](ADD)
+    You can find all files used and modified in this step on [GitHub.](ADD)
 
 The final step of this tutorial assists you in adding to the home page a Form block for signing up to a newsletter.
 
 ### Add a Form block
 
 Start with creating a Form Content item.
-In the **Forms Panel**, click **Create** and select **Form**.
-Enter the title, eg. "Sign up for Newsletter" and click **Create a form**.
+In the **Forms** panel, click **Create** and select **Form**.
+Enter the title, e.g. "Sign up for Newsletter" and click **Create a form**.
 
 In the Form Builder, add and configure (using the **Basic** and **Validation** tabs) the following form fields:
 
@@ -27,7 +27,7 @@ The configuration should look like this:
 ![Adding Fields to Newsletter Form](img/enterprise_tut_form_creation.png "Adding Fields to Newsletter Form")
 
 After adding all fields, go to the previous menu and click **Publish**.
-Now you can edit the Page and add a Form block below the Random block.
+Now you can edit the Front Page and add a Form block below the Random block.
 Edit the block and select the form you created. Click **Submit**.
 
 The Page should refresh with the Form block.
@@ -38,8 +38,8 @@ It clearly differs from the page design, so let's proceed with customizing the b
 
 ### Change the block template
 
-First, add a new template for the Form block that will align it with the Random block.
-Create an `app/resources/views/blocks/form/newsletter.html.twig` file:
+First, add a new template for the Form block, using a similar design to the Random block.
+Create an `app/Resources/views/blocks/form/newsletter.html.twig` file:
 
 ``` html+twig
 <div class="row">
@@ -55,7 +55,7 @@ Create an `app/resources/views/blocks/form/newsletter.html.twig` file:
 ```
 
 Append the new template to the block by adding to `app/config/layouts.yml`.
-Add the following configuration under the `blocks` key at the same level as other block names, eg. `random`:
+Add the following configuration under the `blocks` key at the same level as other block names, e.g. `random`:
 
 ``` yaml hl_lines="3"
 blocks:
@@ -79,7 +79,7 @@ The block remains unchanged, but the results will be visible when you add CSS st
 At this point, you need to change the field template.
 This will result in alternating the position and design of the Form fields.
 
-Create an `app/resources/views/form_field.html.twig` file:
+Create an `app/Resources/views/form_field.html.twig` file:
 
 ``` html+twig
 {% block ezform_field %}
@@ -126,7 +126,7 @@ The configuration resizes the CAPTCHA image (line 3), changes the error message 
 
 ### Add stylesheet
 
-The remaining step in configuring the block is adding the CSS styling.
+The remaining step in configuring the block is adding CSS styling.
 Add the following code to `web/assets/css/style.css`:
 
 ``` css
@@ -187,7 +187,7 @@ Your newsletter form block is ready.
 ### Manage the submissions
 
 You can view all submissions in the Back Office.
-Go to **Forms Panel**. From the Content Tree, select the Form and view the **Submissions** tab.
+Go to **Forms** panel. From the Content Tree, select the Form and view the **Submissions** tab.
 There, after selecting submission(s), click **Download** or **Delete**.
 To see details about a submission, click **View**.
 
@@ -205,7 +205,7 @@ You have learned how to:
 - Make use of existing blocks and adapt them to your needs
 - Plan content airtime using the Content Scheduler block
 - Create custom blocks
-- Use Forms and Form Builder
+- Use Form Builder and configure your form
 - Apply custom styling to blocks
 - Configure a bundle
 
