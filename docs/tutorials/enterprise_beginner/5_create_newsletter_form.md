@@ -1,7 +1,7 @@
 # Step 5 — Create a newsletter form
 
 !!! tip
-    You can find all files used and modified in this step on [GitHub.](ADD)
+    You can find all files used and modified in this step on [GitHub.](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/tree/v2-master)
 
 The final step of this tutorial assists you in adding to the home page a Form block for signing up to a newsletter.
 
@@ -103,8 +103,8 @@ In `app/config/views.yml`, at the same level as `pagelayout` and `user`, add:
 ezpublish:
     system:
         site_group:
-            field_templates:
-                - { templates: "form_field.html.twig", priority: 30 }
+            field_template:
+                - { template: "form_field.html.twig", priority: 30 }
 ```
 
 Clear the cache by running `bin/console cache:clear` and refresh the Page to see the results.

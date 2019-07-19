@@ -2,7 +2,7 @@
 
 !!! tip
 
-    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/ezstudio-beginner-tutorial/tree/v2-master).
+    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/tree/v2-step4).
 
 This step will guide you through creating a custom block.
 The custom block will display a randomly chosen Content item from a selected folder.
