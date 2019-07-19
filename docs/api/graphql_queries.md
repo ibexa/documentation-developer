@@ -254,7 +254,7 @@ You can paginate plural fields using `edges`:
     articles(sortBy: _datePublished, first:3) {
       pageInfo {
         hasNextPage
-        endcursor
+        endCursor
       }
       edges {
         node {
