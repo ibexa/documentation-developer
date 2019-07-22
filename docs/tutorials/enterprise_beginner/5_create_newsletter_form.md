@@ -56,7 +56,7 @@ Create an `templates/blocks/form/newsletter.html.twig` file:
 
 This template extends the default block layout by adding an additional class (line 1) that shares CSS styling with the Random block.
 
-Append the new template to the block by adding it to `config/packages/layouts.yaml`.
+Append the new template to the block by adding it to `config/packages/ezplatform_page_fieldtype.yaml`.
 Add the following configuration under the `blocks` key at the same level as other block names, e.g. `random`:
 
 ``` yaml hl_lines="3"
@@ -105,7 +105,7 @@ In `config/packages/views.yaml`, at the same level as `pagelayout` and `user`, a
 ezpublish:
     system:
         site_group:
-            field_template:
+            field_templates:
                 - { template: "form_field.html.twig", priority: 30 }
 ```
 
