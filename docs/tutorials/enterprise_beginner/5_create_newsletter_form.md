@@ -1,7 +1,7 @@
 # Step 5 — Create a newsletter form
 
 !!! tip
-    You can find all files used and modified in this step on [GitHub.](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/tree/v2-master)
+    You can find all files used and modified in this step on [GitHub.](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/tree/v3-master)
 
 The final step of this tutorial assists you in adding to the home page a Form block for signing up to a newsletter.
 
