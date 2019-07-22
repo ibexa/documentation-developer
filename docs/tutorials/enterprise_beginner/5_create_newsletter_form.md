@@ -81,7 +81,7 @@ The block remains unchanged, but the results will be visible when you add CSS st
 At this point, you need to change the field template.
 This results in alternating the position and design of the Form fields.
 
-Create an `templates/form_field.html.twig` file:
+Create a `templates/form_field.html.twig` file:
 
 ``` html+twig
 {% block ezform_field %}
