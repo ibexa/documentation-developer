@@ -105,7 +105,7 @@ In `app/config/views.yml`, at the same level as `pagelayout` and `user`, add:
 ezpublish:
     system:
         site_group:
-            field_template:
+            field_templates:
                 - { template: "form_field.html.twig", priority: 30 }
 ```
 
