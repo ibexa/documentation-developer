@@ -99,14 +99,11 @@ Create a `templates/form_field.html.twig` file:
 ```
 
 Next, assign the template to the Page.
-In `config/packages/views.yaml`, at the same level as `pagelayout` and `user`, add:
+In `config/packages/views.yaml`, at the same level as `pagelayout`, add:
 
 ``` yaml
-ezpublish:
-    system:
-        site_group:
-            field_templates:
-                - { template: "form_field.html.twig", priority: 30 }
+field_templates:
+    - { template: "form_field.html.twig", priority: 30 }
 ```
 
 Clear the cache by running `bin/console cache:clear` and refresh the Page to see the results.
@@ -134,7 +131,7 @@ Add the following code to `assets/css/style.css`:
 ``` css
 /* Newsletter Form block */
 .block-form {
-    border: 2px solid #8b7f7b;
+    border: 1px solid #8b7f7b;
     border-radius: 5px;
     padding: 0 25px 25px 25px;
     margin-top: 15px;
