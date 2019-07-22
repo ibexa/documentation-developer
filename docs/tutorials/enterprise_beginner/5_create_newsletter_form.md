@@ -90,7 +90,7 @@ Create an `templates/form_field.html.twig` file:
         {% set form = formValue.createView() %}
         {% form_theme form 'bootstrap_4_layout.html.twig' %}
         {% spaceless %}
-            {% if not ez_is_field_empty(content, field) %}
+            {% if not ez_field_is_empty(content, field) %}
                 {{ form(form) }}
             {% endif %}
         {% endspaceless %}
@@ -181,12 +181,17 @@ Add the following code to `assets/css/style.css`:
     text-align: center;
 }
 ```
+Reinstall the assets and clear the cache by running the following commands:
 
+``` bash
+yarn encore <dev|prod>
+php bin/console cache:clear
+```
 Your newsletter form block is ready.
 
 ![Newsletter Form Block](img/enterprise_tut_final_form.png "Newsletter Form Block")
 
-Open the home page and enter a couple of mock submissions.
+Refresh the Page and enter a couple of mock submissions.
 
 ### Manage the submissions
 
