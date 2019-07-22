@@ -28,6 +28,7 @@ pages:
             - '2. Prepare the Landing Page': 'tutorials/enterprise_beginner/2_prepare_the_landing_page.md'
             - '3. Use existing blocks': 'tutorials/enterprise_beginner/3_use_existing_blocks.md'
             - '4. Create a custom block': 'tutorials/enterprise_beginner/4_create_a_custom_block.md'
+            - '5. Create a newsletter form': 'tutorials/enterprise_beginner/5_create_newsletter_form.md'
         - Create a Field Type:
             - 'Create a Tweet Field Type': 'tutorials/field_type/creating_a_tweet_field_type.md'
             - '1. Create the bundle': 'tutorials/field_type/1_create_the_bundle.md'
