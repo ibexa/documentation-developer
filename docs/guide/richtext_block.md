@@ -4,7 +4,7 @@
 
     To create a richtext [custom Page block](extending_page.md), you need to define its layout, provide templates, add a subscriber and register it as a service.
 
-    Start with creating a `config/packages/layouts.yaml` file containing:
+    Start with providing the block configuration in `config/packages/ezplatform_page_fieldtype.yaml`:
 
     ``` yaml hl_lines="3 15"
     ezplatform_page_fieldtype:
@@ -15,7 +15,7 @@
                 configuration_template: blocks/my_block/config.html.twig
                 views:
                     default:
-                        template:
+                        template: blocks/my_block/default.html.twig
                         name: My block view
                         priority: -255                    
                 attributes:
@@ -27,13 +27,6 @@
 
     This configuration defines a new block, its view and configuration templates, and attribute type `richtext` (line 15).
     Remember to provide an icon for the block in the `assets/images/blocks/` folder.
-
-    Next, add `layouts.yaml` to `config/packages/ezplatform.yaml` under the `imports` key:
-
-    ``` yaml
-    imports:
-        - resource: { layouts.yaml }
-    ```
 
     Next, create a subscriber that converts a string of data into XML.
     Create a `src/Event/Subscriber/RichTextBlockSubscriber.php` file containing:
@@ -95,7 +88,7 @@
 
     ```
 
-    Note that in the line 32, `my_block` is the name of the block defined in the `layouts.yaml` file (line 3).
+    Note that in the line 32, `my_block` is the name of the block defined in the `ezplatform_page_fieldtype.yaml` file (line 3).
     This line also implements the `PreRender` method.
     Lines 41-51 handle the conversion of content into XML string.
 
@@ -123,7 +116,7 @@
 
     ```
 
-    Complete the procedure with registering the subscriber as a service:
+    Complete the procedure with registering the subscriber as a service in `config/services.yaml`:
 
     ``` yaml
     services:
