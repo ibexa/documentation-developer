@@ -72,6 +72,7 @@ ezpublish:
                 engine: legacy
                 connection: my_connection_name
                 config: {}
+            # Configuring search is required when using Legacy search engine
             search:
                 connection: my_connection_name
         second_repository:
