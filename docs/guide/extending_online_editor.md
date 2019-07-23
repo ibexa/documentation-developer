@@ -314,7 +314,7 @@ ezpublish:
                                 default_value: false
                             another-attribute:
                                 type: choice
-                                choices: [attr1, attr1]
+                                choices: [attr1, attr2]
                                 default_value: attr2
                                 required: false
                                 multiple: true
