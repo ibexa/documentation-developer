@@ -4,7 +4,7 @@
 
     You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/tree/v3-step4).
 
-The last of the planned Page elements is to create a custom block.
+This step will guide you through creating a custom block.
 The custom block will display a randomly chosen Content item from a selected folder.
 
 To create a custom block from scratch you need four elements:
@@ -219,16 +219,3 @@ Refresh the home page. The Tip of the Day block will display a random Tip from t
 Refresh the page a few more times and you will see the tip change randomly.
 
 ![Random Block with a Tip](img/enterprise_tut_random_block.png "Random Block with a Tip")
-
-### Congratulations!
-
-You have finished the tutorial and created your first customized Page.
-
-You have learned how to:
-
-- Create and customize a Page
-- Make use of existing blocks and adapt them to your needs
-- Plan content airtimes using the Content Scheduler block
-- Create custom blocks
-
-![Final result of the tutorial](img/enterprise_tut_main_screen.png "Final result of the tutorial")
