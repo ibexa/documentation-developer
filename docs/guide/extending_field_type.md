@@ -28,6 +28,7 @@ Przykładowy typ pola reprezentujący punkt w dwuwymiarowej przestrzeni:
 1. Stworzyc klase Value z atrybutami/polami x i y, ktore reprezentuja wspolrzedne Value.php - konwencja klasa powinna nazywac sie "Value"
 
 ## Definicja FT 
+666
 class Point2D extends 
 
 2. Implementacja definicji Field Type extends Generic Field Type
