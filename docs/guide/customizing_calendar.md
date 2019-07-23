@@ -86,7 +86,7 @@
     
     ``` yaml
     services:
-      App\Calendar\EventType\CustomEventType:
+      App\Calendar\EventType\MyEventType:
             tags:
                 - { name: ezplatform.calendar.event_type }
     
@@ -150,8 +150,7 @@
     method to reload the calendar data.
     
     !!! tip
-        You can also change the icon for the assigned action. See [customizing colors and icons](#customizing-colors-and-icons).
-    
+        You can also change the icon for the assigned action. See [customizing colors and icons](#customizing-colors-and-icons).    
     
     ## Configuring custom calendar event sources
     
@@ -205,7 +204,7 @@
     
     !!! note
     
-        When providing the list of events for  `$collection_name = new EventCollection()`, you must put all the `createEvent()` elements sorted according to their time stamp.
+        When providing the list of events for `$collection_name = new EventCollection()`, you must put all the `createEvent()` elements sorted according to their time stamp.
         
         For example:
         
@@ -237,12 +236,12 @@
     You can change the foreground and background color of a custom event or change the icon of an event or action.
     The setting is SiteAccess-aware.
     
-    To customize the appearance settings, add the following configuration to `config/packages/ezplatform.yml`:
+    To customize the appearance settings, add the following configuration to `config/packages/ezplatform.yaml`:
     
     ``` yaml hl_lines="6"
     ezpublish:
         system:
-            admin_group:
+            <siteaccess>:
                 calendar:
                     event_types:
                         event_name:
@@ -257,74 +256,6 @@
     
     Note that line 6 contains the name of the event you want to customize.
     
-    ## Adding custom styling
-    
-    Apart from changing the colors and icons of your custom events, you can change additional calendar elements.
-    You can modify the style of modal windows and elements appearing in the calendar widget.
-    
-    ### Customizing modal windows
-    
-    To customize the modal windows appearing when performing actions on events, create `public/assets/Calendar/custom_modals.scss`:
-    
-    ``` scss hl_lines="4 5 11 18 28 33 34 38 42 46"
-    @import './public/bundles/ezplatformadminui/scss/custom.scss';
-    @import './public/bundles/ezplatformadminui/scss/functions/calculate.rem';
-    
-    .ez-modal--discard-publish-later {
-        .modal-dialog {
-            max-width: calculateRem(800px);
-            background-color: #FFFFFF;
-            border-radius: calculateRem(4px);
-        }
-    
-        .modal-header {
-            border-bottom: none;
-            padding: calculateRem(15px) calculateRem(15px) 0 calculateRem(15px);
-            position: relative;
-            min-height: calculateRem(40px);
-        }
-    
-        .modal-body {
-            padding: calculateRem(15px) calculateRem(30px);
-    
-            .ez-modal-body__main,
-            .ez-modal-body__explanation {
-                margin-bottom: 0;
-                color: $ez-black;
-            }
-        }
-    
-        .modal-footer {
-            border-top: none;
-        }
-    }
-    
-    .ez-modal--reschedule-publish-later {
-        .modal-dialog {
-            width: calculateRem(342px);
-        }
-    
-        .modal-header {
-            background-color: #FFFFFF;
-        }
-    
-        .modal-footer {
-            border-top: none;
-        }
-    
-        .ez-reschedule-publish-later-modal {
-            &__input-label {
-                font-weight: bold;
-            }
-    
-            &__input {
-                width: calculateRem(180px);
-            }
-        }
-    }
-    ```
-    
-    Apply the `custom_modals.scss` file
-
-
-
+    !!! tip
+        
+        After modifying the assets, for the new configuration to take effect, run: `yarn encore <dev|prod>`.
