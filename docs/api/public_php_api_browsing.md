@@ -254,7 +254,7 @@ $content = $this->contentService->loadContent($contentId, $configResolver->getPa
 
 ### SiteAccess-aware Repository
 
-The optional SiteAccess-aware repository is an instance of the eZ Platform Repository API
+The optional SiteAccess-aware Repository is an instance of the eZ Platform Repository API
 which injects prioritized languages if you don't specify languages.
 
 It is available as a private service `ezpublish.siteaccessaware.repository`,
@@ -263,7 +263,7 @@ with services corresponding to regular services, e.g. `ezpublish.siteaccessaware
 
 It is used out of the box in parameter converters for Content and Location as well as in content view.
 
-When using SiteAccess-aware repository, the following code:
+When using SiteAccess-aware Repository, the following code:
 
 ``` php
 $content = $this->contentService->loadContent(
