@@ -55,6 +55,7 @@
   <ul class="list-group list-group-flush">
       <li class="list-group-item"><a href="https://doc.ezplatform.com/projects/userguide/en/latest/" class="card-link">User Guide</a></li>
       <li class="list-group-item"><a href="https://doc.ezplatform.com/projects/ezservices/en/latest/" class="card-link">eZ Services documentation</a></li>
+      <li class="list-group-item"><a href="https://doc.ez.no/commerce" class="card-link">eZ Commerce documentation</a></li>
     <li class="list-group-item"><a href="https://doc.ez.no/display/EZP/eZ+Publish+5.x+Developer+Documentation" class="card-link">eZ Publish 5 documentation</a></li>
     <li class="list-group-item"><a href="https://doc.ez.no/eZ-Publish" class="card-link">eZ Publish Legacy documentation</a></li>
   </ul>
