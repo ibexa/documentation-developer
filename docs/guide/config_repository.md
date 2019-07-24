@@ -63,8 +63,21 @@ doctrine:
 
 ezpublish:
     repositories:
-        first_repository: { storage: { engine: legacy, connection: my_connection_name, config: {} } }
-        second_repository: { storage: { engine: legacy, connection: another_connection_name, config: {} } }
+        first_repository: 
+            storage: 
+                engine: legacy
+                connection: my_connection_name
+                config: {}
+            # Configuring search is required when using Legacy search engine
+            search:
+                connection: my_connection_name
+        second_repository:
+            storage: 
+                engine: legacy
+                connection: another_connection_name
+                config: {}
+            search:
+                connection: another_connection_name
 
     # ...
 
