@@ -1,12 +1,12 @@
 # Browsing and viewing content
 
-To retrieve a Content item and its information you need to make use of the `ContentService`.
+To retrieve a Content item and its information, you need to make use of the `ContentService`.
 
-The service should be [injected into the constructor of your command or controller](https://symfony.com/doc/3.4/service_container.html).
+The service should be [injected into the constructor of your command or controller.](https://symfony.com/doc/3.4/service_container.html)
 
 !!! tip "Console commands"
 
-    To learn more about commands in Symfony, refer to [Console Commands](https://symfony.com/doc/3.4/console.html).
+    To learn more about commands in Symfony, refer to [Console Commands.](https://symfony.com/doc/3.4/console.html)
 
 ## Viewing content metadata
 
@@ -66,12 +66,12 @@ foreach ($locations as $location) {
 [`LocationService::loadLocations()`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.2/eZ/Publish/API/Repository/LocationService.php#L95)
 uses `ContentInfo` to get all the Locations of a Content item.
 This method returns an array of [`Location`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.2/eZ/Publish/API/Repository/Values/Content/Location.php) value objects.
-For each Location, the code above prints our its `pathString` (the internal representation of the path).
+For each Location, the code above prints out its `pathString` (the internal representation of the path).
 
 #### URL Aliases
 
 The [`URLAliasService`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.2/eZ/Publish/API/Repository/URLAliasService.php)
-additionally enables you to also retrieve the human-readable URL alias of each Location.
+additionally enables you to retrieve the human-readable URL alias of each Location.
 
 [`URLAliasService::reverseLookup()`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.2/eZ/Publish/API/Repository/URLAliasService.php#L125)
 gets the Location's main [URL alias](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.2/eZ/Publish/API/Repository/Values/Content/URLAlias.php):
@@ -126,7 +126,7 @@ $versionInfoArray = $this->contentService->loadVersions($contentInfo, VersionInf
 Content Relations are versioned.
 To list Relations to and from your Content,
 you need to provide the [`ContentService::loadRelations()`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.2/eZ/Publish/API/Repository/ContentService.php#L347) method with a `VersionInfo` object.
-You can get the current version's `VersionInfo` using [`ContentService::loadVersionInfo()`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.2/eZ/Publish/API/Repository/ContentService.php#L80).
+You can get the current version's `VersionInfo` using [`ContentService::loadVersionInfo()`.](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.2/eZ/Publish/API/Repository/ContentService.php#L80)
 
 ``` php
 $versionInfo = $this->contentService->loadVersionInfo($contentInfo);
@@ -180,9 +180,9 @@ $output->writeln("Section: $section->name");
 ### Object states
 
 You can retrieve [Object states](../guide/admin_panel.md#object-states) of a Content item
-using [`ObjectStateService::getContentState()`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.2/eZ/Publish/API/Repository/ObjectStateService.php#L176).
+using [`ObjectStateService::getContentState()`.](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.2/eZ/Publish/API/Repository/ObjectStateService.php#L176)
 You need to provide it with the Object state group.
-All Object state groups can be retrieved through [`loadObjectStateGroups()`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.2/eZ/Publish/API/Repository/ObjectStateService.php#L59).
+All Object state groups can be retrieved through [`loadObjectStateGroups()`.](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.2/eZ/Publish/API/Repository/ObjectStateService.php#L59)
 
 ``` php
 $stateGroups = $this->objectStateService->loadObjectStateGroups();
@@ -284,8 +284,8 @@ $name = $content->getVersionInfo()->getName();
 
 ## Getting all content in a subtree
 
-To go through all Content items contained in a subtree,
-you need to use the [`LocationService`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.2/eZ/Publish/API/Repository/LocationService.php).
+To go through all the Content items contained in a subtree,
+you need to use the [`LocationService`.](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.2/eZ/Publish/API/Repository/LocationService.php)
 
 ``` php hl_lines="14 23"
 //...
@@ -335,4 +335,4 @@ This is a lazy property. It will trigger loading of Content when first used.
 In case of bulk of Locations coming from Search or Location Service,
 the Content will also be loaded in bulk for the whole Location result set. 
 
-To learn more about this functionality see [Lazy object properties](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/api/lazy_properties.md).
+To learn more about this functionality see [Lazy object properties.](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/api/lazy_properties.md)

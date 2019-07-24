@@ -127,7 +127,7 @@ Each API method may throw different exceptions, depending on what it does.
 It is good practice to cover every exception you expect to happen.
 
 For example if you are using a command which takes the Content ID as a parameter,
-the ID may either not exist, or the referenced Content item may not be visible to our user.
+the ID may either not exist, or the referenced Content item may not be visible to the user.
 
 Both cases should be covered with error messages:
 
