@@ -131,11 +131,9 @@ You can get the current version's `VersionInfo` using [`ContentService::loadV
 ``` php
 $versionInfo = $this->contentService->loadVersionInfo($contentInfo);
 $relations = $this->contentService->loadRelations($versionInfo);
-if (count($relations)) {
-    foreach ($relations as $relation) {
-        $name = $relation->destinationContentInfo->name;
-        $output->write("Relation to content $name");
-    }
+foreach ($relations as $relation) {
+    $name = $relation->destinationContentInfo->name;
+    $output->write("Relation to content $name");
 }
 ```
 
