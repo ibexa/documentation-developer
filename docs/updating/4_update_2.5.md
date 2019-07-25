@@ -65,11 +65,11 @@ bin/console cache:pool:clear cache.redis
     When updating to v2.5.3, you need to run the following script to add missing indexes:
     
     ``` bash
-    CREATE INDEX `ezpage_map_zones_pages_zone_id` ON ezpage_map_zones_pages(`zone_id`);
-    CREATE INDEX `ezpage_map_zones_pages_page_id` ON ezpage_map_zones_pages(`page_id`);
-    CREATE INDEX `ezpage_map_blocks_zones_block_id` ON ezpage_map_blocks_zones(`block_id`);
-    CREATE INDEX `ezpage_map_blocks_zones_zone_id` ON ezpage_map_blocks_zones(`zone_id`);
-    CREATE INDEX `ezpage_map_attributes_blocks_attribute_id` ON ezpage_map_attributes_blocks(`attribute_id`);
-    CREATE INDEX `ezpage_map_attributes_blocks_block_id` ON ezpage_map_attributes_blocks(`block_id`);
+    CREATE INDEX ezpage_map_zones_pages_zone_id ON ezpage_map_zones_pages(zone_id);
+    CREATE INDEX ezpage_map_zones_pages_page_id ON ezpage_map_zones_pages(page_id);
+    CREATE INDEX ezpage_map_blocks_zones_block_id ON ezpage_map_blocks_zones(block_id);
+    CREATE INDEX ezpage_map_blocks_zones_zone_id ON ezpage_map_blocks_zones(zone_id);
+    CREATE INDEX ezpage_map_attributes_blocks_attribute_id ON ezpage_map_attributes_blocks(attribute_id);
+    CREATE INDEX ezpage_map_attributes_blocks_block_id ON ezpage_map_attributes_blocks(block_id);
     ```
     
