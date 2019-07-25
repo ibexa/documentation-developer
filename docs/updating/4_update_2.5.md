@@ -55,14 +55,14 @@ bin/console cache:pool:clear cache.redis
 
 ## Updating to 2.5.3
 
-This step is only **required for versions higher than 2.2 and lower than 2.5.3**.
-In case of versions lower than 2.2, please skip this step or ignore the information that  indexes from a script below already exist.
+### Page builder
 
 !!! enterprise
+
+    This step is only **required when updating from versions higher than 2.2 and lower than 2.5.3**.
+    In case of versions lower than 2.2, please skip this step or ignore the information that  indexes from a script below already exist.
     
-    To update to v2.5.3, you need to run a script to add database tables for the Page Builder. You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/2.2/Resources/sql/schema.sql#L58
-    
-    When updating an Enterprise installation, you also need to run the following script due to changes in the tables:
+    When updating an Enterprise installation to v 2.5.3, you need to run the following script to add missing indexes:
     
     ```
     ALTER TABLE ezpage_map_zones_pages ADD INDEX `ezpage_map_zones_pages_zone_id` (`zone_id`);
