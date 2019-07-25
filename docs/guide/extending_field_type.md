@@ -3,32 +3,32 @@
 Ograniczony wybor, nie daje mozliwosc rozwijanie przez to, ze sa w corze
 Money, Language, Currency, Birth Day
 
-Generic Field Type is used as a template for any Field Type you would like to create. It makes creation process faster and easier. 
+Generic Field Type is used as a template for any Field Type you would like to create.
+It makes creation process faster and easier. 
 Generic Field Type comes with the implementation of basic methods, reduces the number of classes which must be created and simplifies tagging process during the creation of custom Field Type.
-
 
 Bazowa implementacja, ktora wykorzystuje Symfony serializer, symfony validator component
 
 !!! tip
 
-    Generic Field Type should not be used when a very specific implementation is needed.
+    Generic Field Type should not be used when a very specific implementation is needed or the way data is stored requires careful control.
     Nie uzywac kiedy potrzebujesz scislej kontrali nad tym jak dane sa przechowywane/prezystowane
-    
-Generic Field Type to bazowa implementacja dla niestandardowych typów pól upraszczająca proces do niezbędnego minimum:
 
-Zdefiniowania VO
-Zdefiniowania formularza dla VO z pkt. 1
-Definicji pola + konfiguracja w YAMLu
-Twig z blokiem renderującego wartośc pola
-Przykładowy typ pola reprezentujący punkt w dwuwymiarowej przestrzeni:
+Simplified process of creating custom Field Type:
 
-## Value Object np punkt 2D - stworzenie punktu/zdefiniowanie klasy
+- Define Value Object
+- Define form for Value Object
+- Define fields and configuration
+- Render fields
+- Final results
 
-0. Katalog FieldType w src a w nim katalog Point2D na swojej clean installation in your project - baza
+## Define Value Object
+
+Create `FieldType/HelloWorld` directory in `src` on your clean installation. 
 1. Stworzyc klase Value z atrybutami/polami x i y, ktore reprezentuja wspolrzedne Value.php - konwencja klasa powinna nazywac sie "Value"
 
 ## Definicja FT 
-666
+
 class Point2D extends 
 
 2. Implementacja definicji Field Type extends Generic Field Type
@@ -77,7 +77,7 @@ field_templates:
 
 5. Tylko klianie
 
-## Value Validation
+### Value Validation
 
 Generic Field Type uses `symfony/validator` component to validate field values.
 As shown in the example for the simple cases annotations could be used to define constraints.
@@ -91,9 +91,10 @@ In more advanced cases like validation based on the field definition, the `eZ/Pu
  } 
 ```
 
-## Settings Validation
+### Settings Validation
 
-Generic Field Type is also using `symfony/validator` component to validate field settings. To do so the `eZ/Publish/SPI/FieldType/Generic/Type::getFieldSettingsConstraints` method has to be overridden. 
+Generic Field Type is also using `symfony/validator` component to validate field settings.
+To do so the `eZ/Publish/SPI/FieldType/Generic/Type::getFieldSettingsConstraints` method has to be overridden. 
 
 [Symfony documentation](https://symfony.com/doc/4.3/validation/raw_values.html)
 
@@ -128,9 +129,9 @@ final class Type extends GenericType
 }
 ```
 
-## Storage Converter
+### Storage Converter
 
-If `eZ\Publish\Core\Persistence\Legacy\Content\FieldValue\CnType then `eZ\Publish\Core\FieldType\Generic\Converter` will be used as storage converter.
+If `eZ\Publish\Core\Persistence\Legacy\Content\FieldValue\CnType` then `eZ\Publish\Core\FieldType\Generic\Converter` will be used as storage converter.
 
 Internally the field definition / value are serialized to JSON format using `symfony/serializer` component and stored in `data_text`/`data_text5` columns.
 
