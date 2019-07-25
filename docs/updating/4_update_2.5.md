@@ -65,11 +65,11 @@ bin/console cache:pool:clear cache.redis
     When updating to v2.5.3, you need to run the following script to add missing indexes:
     
     ``` bash
-    ALTER TABLE ezpage_map_zones_pages ADD INDEX `ezpage_map_zones_pages_zone_id` (`zone_id`);
-    ALTER TABLE ezpage_map_zones_pages ADD INDEX `ezpage_map_zones_pages_page_id` (`page_id`);
-    ALTER TABLE ezpage_map_blocks_zones ADD INDEX `ezpage_map_blocks_zones_block_id` (`block_id`);
-    ALTER TABLE ezpage_map_blocks_zones ADD INDEX `ezpage_map_blocks_zones_zone_id` (`zone_id`);
-    ALTER TABLE ezpage_map_attributes_blocks ADD INDEX `ezpage_map_attributes_attribute_id` (`attribute_id`);
-    ALTER TABLE ezpage_map_attributes_blocks ADD INDEX `ezpage_map_attributes_block_id` ON (`block_id`);
+    CREATE INDEX `ezpage_map_zones_pages_zone_id` ON ezpage_map_zones_pages(`zone_id`);
+    CREATE INDEX `ezpage_map_zones_pages_page_id` ON ezpage_map_zones_pages(`page_id`);
+    CREATE INDEX `ezpage_map_blocks_zones_block_id` ON ezpage_map_blocks_zones(`block_id`);
+    CREATE INDEX `ezpage_map_blocks_zones_zone_id` ON ezpage_map_blocks_zones(`zone_id`);
+    CREATE INDEX `ezpage_map_attributes_blocks_attribute_id` ON ezpage_map_attributes_blocks(`attribute_id`);
+    CREATE INDEX `ezpage_map_attributes_blocks_block_id` ON ezpage_map_attributes_blocks(`block_id`);
     ```
     
