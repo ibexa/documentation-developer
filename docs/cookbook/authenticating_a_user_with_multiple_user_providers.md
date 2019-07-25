@@ -1,6 +1,6 @@
 # Authenticating a user with multiple user providers
 
-Symfony provides native support for [multiple user providers](https://symfony.com/doc/3.4/security/multiple_user_providers.html). This makes it easy to integrate any kind of login handlers, including SSO and existing third party bundles (e.g. [FR3DLdapBundle](https://github.com/Maks3w/FR3DLdapBundle), [HWIOauthBundle](https://github.com/hwi/HWIOAuthBundle), [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle), [BeSimpleSsoAuthBundle](http://github.com/BeSimple/BeSimpleSsoAuthBundle), etc.).
+Symfony provides native support for [multiple user providers](https://symfony.com/doc/4.3/security/multiple_user_providers.html). This makes it easy to integrate any kind of login handlers, including SSO and existing third party bundles (e.g. [FR3DLdapBundle](https://github.com/Maks3w/FR3DLdapBundle), [HWIOauthBundle](https://github.com/hwi/HWIOAuthBundle), [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle), [BeSimpleSsoAuthBundle](http://github.com/BeSimple/BeSimpleSsoAuthBundle), etc.).
 
 However, to be able to use *external* user providers with eZ Platform, a valid Platform user needs to be injected into the repository. This is mainly for the kernel to be able to manage content-related permissions (but not limited to this).
 
@@ -24,12 +24,10 @@ It is possible to customize the user class used by extending `ezpublish.securit
 
 You can override `getUser()` to return whatever User class you want, as long as it implements `eZ\Publish\Core\MVC\Symfony\Security\UserInterface`.
 
-**Example**
-
-Here is a very simple example using the in-memory user provider.
+Here is an example of using the in-memory user provider:
 
 ``` yaml
-# config/security.yaml
+# config/packages/security.yaml
 security:
     providers:
         # Chaining in_memory and ezpublish user providers
@@ -50,7 +48,7 @@ security:
 
 ## Implementing the listener
 
-In `services.yaml`:
+In `config/services.yaml`:
 
 ``` yaml
 services:
@@ -60,10 +58,11 @@ services:
             - { name: kernel.event_subscriber } 
 ```
 
-Do not mix `MVCEvents::INTERACTIVE_LOGIN` event (specific to eZ Platform) and `SecurityEvents::INTERACTIVE_LOGIN` event (fired by Symfony security component)
+Do not mix `MVCEvents::INTERACTIVE_LOGIN` event (specific to eZ Platform) and `SecurityEvents::INTERACTIVE_LOGIN` event (fired by Symfony security component).
 
 ``` php
 <?php
+
 namespace App\EventListener;
 
 use eZ\Publish\API\Repository\UserService;

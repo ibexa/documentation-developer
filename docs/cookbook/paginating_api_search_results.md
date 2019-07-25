@@ -75,7 +75,7 @@ class ArticleListController extends Controller
 {% endblock %}
 ```
 
-For more information and examples, have a look at [PagerFanta documentation](https://github.com/whiteoctober/Pagerfanta/blob/master/README.md).
+For more information and examples, see [PagerFanta documentation](https://github.com/whiteoctober/Pagerfanta/blob/master/README.md).
 
 ### Adapters
 

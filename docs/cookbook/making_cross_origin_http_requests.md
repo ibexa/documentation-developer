@@ -4,7 +4,7 @@ eZ Platform ships with [NelmioCorsBundle](https://github.com/nelmio/NelmioCorsB
 an open-source Symfony bundle that provides support for [CORS (Cross-Origin Resource Sharing)](http://www.w3.org/TR/cors/).
 The REST API is pre-configured to respond to such requests, as long as you customize the allowed origins as explained below.
 
-## What is CORS
+## What is CORS?
 
 Supported by most modern browsers, this W3C specification defines a set of custom headers
 that, under specific circumstances, allow HTTP requests between different hosts.
@@ -13,12 +13,12 @@ The main use-case is execution of AJAX code from one site towards another.
 !!! tip "More information about CORS"
 
     - [W3C specification](http://www.w3.org/TR/cors/)
-    - an excellent [tutorial about CORS on html5rocks.com](http://www.html5rocks.com/en/tutorials/cors/)
-    - [overview of CORS on developer.mozilla.org](https://developer.mozilla.org/en-US/docs/HTTP/Access_control_CORS)
+    - [Tutorial about CORS on html5rocks.com](http://www.html5rocks.com/en/tutorials/cors/)
+    - [Overview of CORS on developer.mozilla.org](https://developer.mozilla.org/en-US/docs/HTTP/Access_control_CORS)
 
 ## Configuration
 
-Since CORS support is provided by a third party bundle, we re-use the semantical configuration it provides.
+Since CORS support is provided by a third party bundle, we re-use the semantic configuration it provides.
 You can read more about it in [NelmioCorsBundle's README](https://github.com/nelmio/NelmioCorsBundle/blob/master/README.md).
 
 The origin of a request is one of the main criteria for allowing or blocking a cross-origin request.
@@ -38,8 +38,8 @@ nelmio_cors:
 
 #### Changing configuration of NelmioCorsBundle for eZ Platform REST
 
-The default configuration of NelmioCorsBundle for eZ Platform REST paths is set in [nelmio_cors.yaml](https://github.com/ezsystems/ezplatform-rest/blob/master/src/bundle/Resources/config/nelmio_cors.yml) file.
-To adapt these settings to your own needs you have to overwrite them in `nelmio_cors.yaml` file under the same configuration path, for instance:
+The default configuration of NelmioCorsBundle for eZ Platform REST paths is set in the [nelmio_cors.yaml](https://github.com/ezsystems/ezplatform-rest/blob/master/src/bundle/Resources/config/nelmio_cors.yml) file.
+To adapt these settings to your own needs you have to overwrite them in the `nelmio_cors.yaml` file under the same configuration path, for instance:
 
 ```yaml
 nelmio_cors:

@@ -1,6 +1,6 @@
 # Exposing SiteAccess-aware configuration for your bundle
 
-Symfony Config component makes it possible to define *semantic configuration*, exposed to the end developer.
+The [Symfony Config component](https://symfony.com/doc/4.3/components/config.html) makes it possible to define *semantic configuration*, exposed to the end developer.
 This configuration is validated by rules you define, e.g. validating type (string, array, integer, boolean, etc.).
 Usually, once validated and processed, this semantic configuration is then mapped to internal *key/value* parameters stored in the `ServiceContainer`.
 
@@ -8,8 +8,8 @@ eZ Platform uses this for its core configuration, but adds another configuration
 For each defined SiteAccess, you need to be able to use the same configuration tree in order to define SiteAccess-specific config.
 These settings then need to be mapped to SiteAccess-aware internal parameters that you can retrieve via the `ConfigResolver`.
 For this, internal keys need to follow the format `<namespace>.<scope>.<parameter_name>`.
-`namespace`is specific to your app or bundle, `scope`is the SiteAccess, SiteAccess group, `default` or `global`,
-and `parameter_name`is the actual setting *identifier*.
+`namespace`is specific to your app or bundle, `scope` is the SiteAccess, SiteAccess group, `default` or `global`,
+and `parameter_name` is the actual setting *identifier*.
 
 For more information on ConfigResolver, namespaces and scopes, see [eZ Platform configuration basics](../guide/configuration.md).
 
@@ -17,7 +17,7 @@ The goal of this feature is to make it easy to implement a SiteAccess-aware sem
 
 ## Semantic configuration parsing
 
-An abstract `Configuration` class has been added, simplifying the way to add a SiteAccess settings tree like the following in `ezplatform.yaml`:
+An abstract `Configuration` class has been added, simplifying the way to add a SiteAccess settings tree like the following in `config/packages/ezplatform.yaml`:
 
 ``` yaml
 acme_example:
@@ -39,7 +39,9 @@ acme_example:
 The class's fully qualified name is `eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\SiteAccessAware\Configuration`.
 All you have to do is to extend it and use `$this->generateScopeBaseNode()`:
 
-``` php
+``` php hl_lines="17"
+<?php
+
 namespace Acme\ExampleBundle\DependencyInjection;
 
 use eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\SiteAccessAware\Configuration as SiteAccessConfiguration;
@@ -83,6 +85,8 @@ This is usually done in the DIC extension.
 For SiteAccess-aware settings, new `ConfigurationProcessor` and `Contextualizer` classes have been introduced to ease the process.
 
 ``` php
+<?php
+
 namespace Acme\ExampleBundle\DependencyInjection;
 
 use eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\SiteAccessAware\ConfigurationProcessor;
@@ -158,7 +162,7 @@ parameters:
 ### Merging hash values between scopes
 
 When you define a hash as semantic config, you sometimes don't want the SiteAccess settings to replace the default or group values,
-but *enrich* them by appending new entries. This is made possible by using `$processor->mapConfigArray()`,
+but *enrich* them by appending new entries. This is possible by using `$processor->mapConfigArray()`,
 which needs to be called outside the closure (before or after), in order to be called only once.
 
 Consider the following default config in `default_settings.yaml`:
@@ -205,9 +209,9 @@ parameters:
 
 #### Merge from second level
 
-In the example above, entries were merged in respect to the scope order of precedence. However, if you define the `planets` key for`siteaccess1`, it will completely override the default value since the merge process is done at only 1 level.
+In the example above, entries were merged in respect to the scope order of precedence. However, if you define the `planets` key for `siteaccess1`, it will completely override the default value since the merge process is done at only 1 level.
 
-You can add another level by passing `ContextualizerInterface::MERGE_FROM_SECOND_LEVEL` as an option (third argument) to`$contextualizer->mapConfigArray()`.
+You can add another level by passing `ContextualizerInterface::MERGE_FROM_SECOND_LEVEL` as an option (third argument) to `$contextualizer->mapConfigArray()`.
 
 In `default_settings.yaml`:
 

@@ -7,12 +7,12 @@
 If you are keeping some of your code in a bundle, dealing with core bundle semantic configuration can be tedious
 if you maintain it in the main `config/packages/ezplatform.yaml` configuration file.
 
-This page shows how to import configuration from a bundle in two ways: the manual way and the implicit way.
+This page shows how to import configuration from a bundle in two ways: [the manual way](#importing-settings-manually) and [the implicit way](#importing-settings-implicitly).
 
 ## Importing settings manually
 
 Importing manually is the simpler of the two ways and has the advantage of being explicit.
-It relies on using the `imports` statement in your main `ezplatform.yaml`:
+It relies on using the `imports` statement in your main `config/packages/ezplatform.yaml`:
 
 ``` yaml
 imports:
@@ -55,7 +55,7 @@ ezpublish:
 The following example shows how to implicitly load settings on the example of eZ Platform kernel.
 Note that this is also valid for any bundle.
 
-This assumes you have knowledge of [service container extensions](http://symfony.com/doc/current/book/service_container.html#importing-configuration-via-container-extensions).
+This assumes you have knowledge of [service container extensions](http://symfony.com/doc/4.3/book/service_container.html#importing-configuration-via-container-extensions).
 
 !!! note
 

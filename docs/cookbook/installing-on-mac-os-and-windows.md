@@ -1,9 +1,9 @@
-# Installing eZ Platform on Mac OS or Windows
+# Installing eZ Platform on macOS or Windows
 
 Installing eZ Platform for production is only supported on Linux.
 See [Install eZ Platform](../getting_started/install_ez_platform.md) for a regular installation guide.
 
-This page explains how you can install eZ Platform on Mac OS or Windows (for development only).
+This page explains how you can install eZ Platform on macOS or Windows (for development only).
 
 ### Prepare work environment
 
@@ -58,7 +58,7 @@ The instructions below assumes you are using Apache.
 
 ## Get Composer
 
-??? "Mac OS"
+??? "macOS"
 
     Install Composer using a package manager, for example [Homebrew](https://brew.sh/).
 
@@ -150,15 +150,14 @@ To set up virtual host use the template provided with eZ Platform: `<your instal
 
 Copy the virtual host template under the name `<your_site_name>.conf` into your Apache directory:
 
-- `/private/etc/apache2/users/` on Mac OS
+- `/private/etc/apache2/users/` on macOS
 - `<Apache>\conf\vhosts` on Windows
 
-Modify `<your_site_name>.conf` to fit your installation. Then restart Apache server.
+Modify `<your_site_name>.conf` to fit your installation. Then restart the Apache server.
 
 ## Set up permissions
 
 Directories `var` and `web/var` need to be writable by CLI and web server user.
 Future files and directories created by these two users will need to inherit those permissions.
 
-See [Setting up or Fixing File Permissions](http://symfony.com/doc/3.4/setup/file_permissions.html) in Symfony documentation
-for more information.
+For more information, see [Setting up or Fixing File Permissions](http://symfony.com/doc/4.3/setup/file_permissions.html).
