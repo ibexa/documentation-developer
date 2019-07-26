@@ -8,7 +8,7 @@ When developing your website it is best practice to use one or several custom bu
 However, dealing with core bundle semantic configuration can be a bit tedious
 if you maintain it in the main `app/config/ezplatform.yml` configuration file.
 
-This page shows how to import configuration from a bundle in two ways: the manual way and the implicit way.
+This page shows how to import configuration from a bundle in two ways: [the manual way](#importing-settings-manually) and [the implicit way](#importing-settings-implicitly).
 
 ## Importing settings manually
 

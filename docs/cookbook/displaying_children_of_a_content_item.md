@@ -45,7 +45,7 @@ class LocationChildrenQueryType implements QueryType
 }
 ```
 
-Next, in your [standard view configuration](../guide/content_rendering.md#configuring-views-the-viewprovider) file add a section (under `content_view`) that indicates when this Controller will be used. It is similar to regular view config, but contains additional information:
+Next, in your [standard view configuration](../guide/content_rendering.md#configuring-views-the-viewprovider) file, under `content_view`, add a section that indicates when this Controller will be used. It is similar to regular view config, but contains additional information:
 
 ``` yaml
 folder:
@@ -75,7 +75,7 @@ This template makes use of the `items` specified in `assign_results_to` to list 
 
 ## Using a Custom Controller
 
-There are three different ways of using a Custom Controller that you can learn about in the [Custom Controller section](../guide/controllers.md#custom-rendering-logic). In this case we will be applying the first of these, that is using the Custom Controller alongside the built-in ViewController.
+There are three different ways of using a Custom Controller that you can learn about in the [Custom Controller section](../guide/controllers.md#custom-rendering-logic). In this case we will apply the first of these, that is using the Custom Controller alongside the built-in ViewController.
 
 Configuring for the use of a Custom Controller starts with pointing to it in your standard view configuration (which you can keep in `ezplatform.yml` or a separate file, for example `views.yml`):
 
@@ -91,6 +91,7 @@ You can see here the standard view config consisting of the `template` and `matc
 
 ``` php
 <?php
+
 namespace AppBundle\Controller;
 
 use eZ\Publish\API\Repository\ContentService;
@@ -171,6 +172,7 @@ which means you need to provide an `AppBundle/Criteria/Children.php` file contai
 
 ``` php
 <?php
+
 namespace AppBundle\Criteria;
 
 use eZ\Publish\API\Repository\Values\Content\Location;
@@ -217,6 +219,7 @@ The next step is to create an `AppBundle/DependencyInjection/AppExtension.php` f
 
 ``` php
 <?php
+
 namespace AppBundle\DependencyInjection;
 
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;

@@ -85,7 +85,7 @@ eZ Platform, the foundation of all eZ software, can theoretically run and execu
 
 Examples of Development setups:
 
--   OS: Windows, Mac OS X, Linux
+-   OS: Windows, macOS X, Linux
 -   Filesystem: NTFS, HFS+, ...
 
 Examples of Experimental setups:
