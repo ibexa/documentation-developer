@@ -82,6 +82,8 @@ All listeners receive an `eZ\Publish\Core\MVC\Symfony\Event\RouteReferenceGener
 which contains the current request object and the route reference.
 
 ``` php
+<?php
+
 namespace App\EventListener;
 
 use eZ\Publish\Core\MVC\Symfony\Event\RouteReferenceGenerationEvent;

@@ -4,7 +4,7 @@
 
     ## Override email template  
 
-    Email is one of the Submit button options you can choose from in the Form Builder Interface.
+    Email is one of the Submit button options you can choose from in the Form Builder.
     It allows you to list email addresses where notifications about newly filled forms should be sent to.
 
     ![Email notification](img/email_notification.png)
@@ -22,6 +22,6 @@
 
     ## Configure sender details
 
-    To send emails you also need to remember to configure `sender_address` in `config/packages/swiftmailer.yaml`.
+    To send emails you also need to configure `sender_address` in `config/packages/swiftmailer.yaml`.
     It acts as a sender address and a return address where all bounced messages will be returned to.
-    You can learn more by visiting [Symfony Mailer Configuration Reference.](https://symfony.com/doc/3.4/reference/configuration/swiftmailer.html#sender-address)
+    You can learn more by visiting [Symfony Mailer Configuration Reference.](https://symfony.com/doc/4.3/reference/configuration/swiftmailer.html#sender-address)

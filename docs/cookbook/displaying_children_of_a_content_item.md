@@ -48,7 +48,7 @@ class LocationChildrenQueryType implements QueryType
 }
 ```
 
-Register the QueryType as a service in `services/yaml`:
+Register the QueryType as a service in `config/services.yaml`:
 
 ``` yaml
 App\QueryType\LocationChildrenQueryType:
@@ -56,7 +56,7 @@ App\QueryType\LocationChildrenQueryType:
         - { name: ezpublish.query_type }
 ```
 
-Next, in your [standard view configuration](../guide/content_rendering.md#configuring-views-the-viewprovider) file add a section (under `content_view`) that indicates when this Controller will be used. It is similar to regular view config, but contains additional information:
+Next, in your [standard view configuration](../guide/content_rendering.md#configuring-views-the-viewprovider) file, under `content_view`, add a section that indicates when this Controller will be used. It is similar to regular view config, but contains additional information:
 
 ``` yaml
 folder:
@@ -86,7 +86,7 @@ This template makes use of the `items` specified in `assign_results_to` to list 
 
 ## Using a Custom Controller
 
-There are three different ways of using a Custom Controller that you can learn about in the [Custom Controller section](../guide/controllers.md#custom-rendering-logic). In this case we will be applying the first of these, that is using the Custom Controller alongside the built-in ViewController.
+There are three different ways of using a Custom Controller that you can learn about in the [Custom Controller](../guide/controllers.md#custom-rendering-logic) section. In this case we will apply the first of these, that is using the Custom Controller alongside the built-in ViewController.
 
 Configuring for the use of a Custom Controller starts with pointing to it in your standard view configuration (which you can keep in `ezplatform.yaml` or a separate file, for example `views.yaml`):
 
@@ -225,7 +225,7 @@ services:
             - '@ezpublish.config.resolver'
             - '@app.criteria.children'
         tags:
-              - { name: controller.service_arguments }
+            - { name: controller.service_arguments }
 ```
 
 Finally, let's use the Controller in a template in `templates/full/folder.html.twig`:

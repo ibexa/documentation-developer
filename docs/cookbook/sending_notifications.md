@@ -46,18 +46,19 @@ const eventInfo = new CustomEvent('ez-notify', {
 });
 ```
 
-Dispatch the event with `document.body.dispatchEvent(eventInfo);`
+Dispatch the event with `document.body.dispatchEvent(eventInfo);`.
 
 ## Create custom notifications using the Flex Workflow mechanism
 
 You can send your own custom notifications to the user with the same mechanism that is used to send notification from Flex Workflow.
 
-To create a new notification you must use `createNotification(eZ\Publish\API\Repository\Values\Notification\CreateStruct $createStruct)` method from `\eZ\Publish\API\Repository\NotificationService`.
+To create a new notification you must use the `createNotification(eZ\Publish\API\Repository\Values\Notification\CreateStruct $createStruct)` method from `\eZ\Publish\API\Repository\NotificationService`.
 
 Example:
 
 ```php
 <?php
+
 use eZ\Publish\API\Repository\NotificationService;
 use eZ\Publish\API\Repository\Values\Notification\CreateStruct;
 
@@ -176,7 +177,7 @@ You can add the template that is defined above in the `render()` method to one o
 ```
 
 
-Finally, you need to add an entry to `services.yaml`:
+Finally, you need to add an entry to `config/services.yaml`:
 
 ``` yaml
 services:
@@ -184,7 +185,8 @@ services:
         autowire: true
         autoconfigure: false
         public: false
+        
     App\Notification\MyRenderer:
-    tags:
-        - { name: ezpublish.notification.renderer, alias: MyNotification:TypeName }
+        tags:
+            - { name: ezpublish.notification.renderer, alias: MyNotification:TypeName }
 ```

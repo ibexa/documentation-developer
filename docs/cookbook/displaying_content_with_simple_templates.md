@@ -16,11 +16,11 @@ Let's create a very simple template, called `article.html.twig`, that you will u
 </div>
 ```
 
-Place this file in the `templates` folder.
+Place this file in the `templates/full` folder.
 
 Now you need a config that will decide when this template is used.
 
-You can place the config in the `config` folder in either of two places: a separate file or the preexisting `ezplatform.yaml`. In this case you'll use the latter.
+You can place the config in the `config/packages` folder in either of two places: a separate file or the preexisting `ezplatform.yaml`. In this case you'll use the latter.
 
 In `ezplatform.yaml` under the `ezpublish` and `system` keys add the following config (pay attention to indentation. `default` should be indented relative to `system`):
 
@@ -69,7 +69,7 @@ Besides the `full` view type you can create many other view types. They can be u
 
 ## Listing children
 
-To see how to list children of a Content item, for example all content contained in a folder, see [Displaying children of a Content item](displaying_children_of_a_content_item.md)
+To see how to list children of a Content item, for example all content contained in a folder, see [Displaying children of a Content item](displaying_children_of_a_content_item.md).
 
 ## Adding links
 
