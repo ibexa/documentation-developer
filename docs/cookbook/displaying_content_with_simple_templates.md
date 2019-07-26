@@ -65,11 +65,11 @@ You can also make use of other [Twig functions](../guide/twig_functions_referenc
 
 ## Different views
 
-Besides the `full` view type you can create many other view types. They can be used for example when rendering children of a folder or when embedding one Content item in another. See [embedding Content items](../guide/templates.md#embedding-content-items).
+Besides the `full` view type you can create many other view types. They can be used for example when rendering children of a folder or when embedding one Content item in another. See [Embedding Content items](../guide/templates.md#embedding-content-items).
 
 ## Listing children
 
-To see how to list children of a Content item, for example all content contained in a folder, see [displaying children of a Content item](displaying_children_of_a_content_item.md).
+To see how to list children of a Content item, for example all content contained in a folder, see [Displaying children of a Content item](displaying_children_of_a_content_item.md).
 
 ## Adding links
 
