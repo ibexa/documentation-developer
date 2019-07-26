@@ -18,6 +18,8 @@ If you need to create a simple Query it's easier to use the Query Controller tha
 The main file in this case is an `AppBundle/QueryType/LocationChildrenQueryType.php` file which generates a Query that retrieves the children of the current Location.
 
 ``` php
+<?php
+
 namespace AppBundle\QueryType;
 
 use eZ\Publish\API\Repository\Values\Content\LocationQuery;
@@ -45,7 +47,7 @@ class LocationChildrenQueryType implements QueryType
 }
 ```
 
-Next, in your [standard view configuration](../guide/content_rendering.md#configuring-views-the-viewprovider) file add a section (under `content_view`) that indicates when this Controller will be used. It is similar to regular view config, but contains additional information:
+Next, in your [standard view configuration](../guide/content_rendering.md#configuring-views-the-viewprovider) file, under `content_view`, add a section that indicates when this Controller will be used. It is similar to regular view config, but contains additional information:
 
 ``` yaml
 folder:
@@ -91,6 +93,7 @@ You can see here the standard view config consisting of the `template` and `matc
 
 ``` php
 <?php
+
 namespace AppBundle\Controller;
 
 use eZ\Publish\API\Repository\ContentService;
@@ -171,6 +174,7 @@ which means you need to provide an `AppBundle/Criteria/Children.php` file contai
 
 ``` php
 <?php
+
 namespace AppBundle\Criteria;
 
 use eZ\Publish\API\Repository\Values\Content\Location;
@@ -217,6 +221,7 @@ The next step is to create an `AppBundle/DependencyInjection/AppExtension.php` f
 
 ``` php
 <?php
+
 namespace AppBundle\DependencyInjection;
 
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;

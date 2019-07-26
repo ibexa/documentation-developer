@@ -230,7 +230,7 @@ Every custom matcher can be specified with a fully qualified class name (e.g. `\
 
 !!! note
 
-    Make sure to type the matcher in correct case. If it is in wrong case like "Uri" instead of "URI," it will work well on systems like Mac OS X because of their case-insensitive file system, but will fail when you deploy it to a Linux server. This is a known artifact of [PSR-0 autoloading](http://www.php-fig.org/psr/psr-0/) of PHP classes.
+    Make sure to type the matcher in correct case. If it is in wrong case like "Uri" instead of "URI," it will work well on systems like macOS X because of their case-insensitive file system, but will fail when you deploy it to a Linux server. This is a known artifact of [PSR-0 autoloading](http://www.php-fig.org/psr/psr-0/) of PHP classes.
 
 ### Available matchers
 

@@ -16,7 +16,7 @@ Let's create a very simple template, called `article.html.twig`, that you will u
 </div>
 ```
 
-Place this file in the `app/Resources/views` folder.
+Place this file in the `app/Resources/views/full` folder.
 
 Now you need a config that will decide when this template is used.
 
@@ -69,7 +69,7 @@ Besides the `full` view type you can create many other view types. They can be u
 
 ## Listing children
 
-To see how to list children of a Content item, for example all content contained in a folder, see [Displaying children of a Content item](displaying_children_of_a_content_item.md)
+To see how to list children of a Content item, for example all content contained in a folder, see [Displaying children of a Content item](displaying_children_of_a_content_item.md).
 
 ## Adding links
 
