@@ -1,6 +1,6 @@
-# Creating custom dropdowns
+# Creating custom drop-downs
 
-In eZ Platform you are able to implement custom dropdowns anywhere in the Back Office.
+In eZ Platform you are able to implement custom drop-downs anywhere in the Back Office.
 Follow the steps below, to learn how to integrate this small component to fit your project's needs.
 
 ## Prepare custom dropdown structure
@@ -29,7 +29,7 @@ First prepare the HTML code structure in the following way:
 ```
 
 The highlighted line two in the code above contains a hidden native `select` input. It stores the selection values.
-Input is hidden because custom dropdown duplicates its functionality.
+Input is hidden because a custom drop-down duplicates its functionality.
 
 !!! caution
 
@@ -51,7 +51,7 @@ If you want to allow users to pick multiple items from a list, add the `multiple
 
 ## Add attributes
 
-Next look into the `data-value` attribute in the code above (line 11 and 12) to duplicated options with the CSS class: `ez-custom-dropdown__item`.
+Next, look into the `data-value` attribute in the code above (line 11 and 12) to duplicated options with the CSS class: `ez-custom-dropdown__item`.
 It stores a value of an option from a select input.
 
 You can provide placeholder text for your custom dropdown. To do so:
@@ -59,7 +59,9 @@ You can provide placeholder text for your custom dropdown. To do so:
 - put a `data-value` attribute with no value `data-value=""`
 - add a `disabled` attribute to the item in the duplicated list of options 
 
-as shown in the example below.  It will make it unclickable.
+It will make it un-clickable.
+
+Example
  
 ```html
 <li data-value="" class="ez-custom-dropdown__item" disabled>Select an option</li>
