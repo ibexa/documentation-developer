@@ -155,7 +155,7 @@ class ValueObjectVisitorPass implements CompilerPassInterface
 }
 ```
 
-Also, don't forget to register it in your bundle!
+Also, do not forget to register it in your bundle.
 
 ```php
 <?php
@@ -280,4 +280,4 @@ Please note that you should set a proper `Accept` header value. For this example
 
 !!! tip
 
-    You can test your response by using JavaScript/AJAX example code, see [Testing the API](../api/rest_api_guide/#testing-the-api).
+    You can test your response by using JavaScript/AJAX example code, see [testing the API](../api/rest_api_guide/#testing-the-api).

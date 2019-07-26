@@ -8,7 +8,7 @@ eZ Platform uses this for its core configuration, but adds another configuration
 For each defined SiteAccess, you need to be able to use the same configuration tree in order to define SiteAccess-specific config.
 These settings then need to be mapped to SiteAccess-aware internal parameters that you can retrieve via the `ConfigResolver`.
 For this, internal keys need to follow the format `<namespace>.<scope>.<parameter_name>`.
-`namespace`is specific to your app or bundle, `scope`is the SiteAccess, SiteAccess group, `default` or `global`,
+`namespace` is specific to your app or bundle, `scope` is the SiteAccess, SiteAccess group, `default` or `global`,
 and `parameter_name`is the actual setting *identifier*.
 
 For more information on ConfigResolver, namespaces and scopes, see [eZ Platform configuration basics](../guide/configuration.md).
@@ -40,6 +40,8 @@ The class's fully qualified name is `eZ\Bundle\EzPublishCoreBundle\DependencyIn
 All you have to do is to extend it and use `$this->generateScopeBaseNode()`:
 
 ``` php
+<?php
+
 namespace Acme\ExampleBundle\DependencyInjection;
 
 use eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\SiteAccessAware\Configuration as SiteAccessConfiguration;
@@ -83,6 +85,8 @@ This is usually done in the DIC extension.
 For SiteAccess-aware settings, new `ConfigurationProcessor` and `Contextualizer` classes have been introduced to ease the process.
 
 ``` php
+<?php
+
 namespace Acme\ExampleBundle\DependencyInjection;
 
 use eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\SiteAccessAware\ConfigurationProcessor;
@@ -158,7 +162,7 @@ parameters:
 ### Merging hash values between scopes
 
 When you define a hash as semantic config, you sometimes don't want the SiteAccess settings to replace the default or group values,
-but *enrich* them by appending new entries. This is made possible by using `$processor->mapConfigArray()`,
+but *enrich* them by appending new entries. This is possible by using `$processor->mapConfigArray()`,
 which needs to be called outside the closure (before or after), in order to be called only once.
 
 Consider the following default config in `default_settings.yml`:

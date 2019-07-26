@@ -16,7 +16,7 @@ Let's create a very simple template, called `article.html.twig`, that you will u
 </div>
 ```
 
-Place this file in the `app/Resources/views` folder.
+Place this file in the `app/Resources/views/full` folder.
 
 Now you need a config that will decide when this template is used.
 
