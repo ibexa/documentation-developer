@@ -148,11 +148,6 @@
 
     You can use the [`PublishOnLastStageSubscriber.php`](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.5.0/src/AppBundle/Event/Workflow/PublishOnLastStageSubscriber.php) from eZ Platform demo as a basis for the subscriber.
 
-    !!! note
-
-        This example only works if your workflow is a [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph)
-        (it doesn't have directed cycles).
-
     The subscriber listens for the `WorkflowEvents::WORKFLOW_STAGE_CHANGE` event
     ([line 61](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.5.0/src/AppBundle/Event/Workflow/PublishOnLastStageSubscriber.php#L61)).
     When the event occurs, it publishes the relevant Content item
