@@ -1,143 +1,190 @@
 # Creating custom Field Type
 
-Ograniczony wybor, nie daje mozliwosc rozwijanie przez to, ze sa w corze
-Money, Language, Currency, Birth Day
+Generic Field Type can be used as a template for any Field Type you would like to create.
+It makes creation and customization process easier and faster.
+Generic Field Type can be especially useful during customization of such fields as: language, currency, birth date etc.
 
-Generic Field Type is used as a template for any Field Type you would like to create.
-It makes creation process faster and easier. 
-Generic Field Type comes with the implementation of basic methods, reduces the number of classes which must be created and simplifies tagging process during the creation of custom Field Type.
-
-Bazowa implementacja, ktora wykorzystuje Symfony serializer, symfony validator component
+Generic Field Type comes with the implementation of basic methods, reduces the number of classes which must be created and simplifies tagging process.
+Base implementation uses Symfony serializer and Symfony validator component.
 
 !!! tip
 
-    Generic Field Type should not be used when a very specific implementation is needed or the way data is stored requires careful control.
-    Nie uzywac kiedy potrzebujesz scislej kontrali nad tym jak dane sa przechowywane/prezystowane
+    Generic Field Type should not be used when a very specific implementation is needed or the way data is stored requires thorough control.
 
-Simplified process of creating custom Field Type:
+Simplified process of creating custom Field Type based on Generic Field Type:
 
 - Define Value Object
-- Define form for Value Object
 - Define fields and configuration
+- Define form for Value Object
 - Render fields
 - Final results
 
 ## Define Value Object
 
-Create `FieldType/HelloWorld` directory in `src` on your clean installation. 
-1. Stworzyc klase Value z atrybutami/polami x i y, ktore reprezentuja wspolrzedne Value.php - konwencja klasa powinna nazywac sie "Value"
+To begin, you need a clean installation of eZ Platform.
 
-## Definicja FT 
+Create `Value.php` inside `src/FieldType/HelloWorld` directory.
+The Value class of a Field Type is very simple.
+It contains only basic logic, because the rest of the logic is handled by the `Type` class.
+The `HelloWorld` Value class should contain:
 
-class Point2D extends 
+- public properties that retrieve name
+- an implementation of the `__toString()` method
 
-2. Implementacja definicji Field Type extends Generic Field Type
-dodac nowa klase w services.yaml `App\Type`
-
-```yaml
-App\FieldType\Point2D\Type:
-    tags:
-        - { name: ezplatform.field_type, alias: point2d }
+```php
+<?php
+/* /src/FieldType/HelloWorld/Value.php */
+//Properties of the class Value
+{
+    private $name;
+  
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+    public function setName(?string $name): void
+    {
+        $this->name = $name;
+    }
+    
+    public function __toString()
+    {
+        return "Hello {$this->name}!";
+    }
+}
 ```
 
-## Formularz do edycji FT (jest maly, mozna dolozyc do tej klasy)
+## Define fields and configuration
 
-3. Formularz stworzyc w katalogu src/Form/Type tam dodac klase Point2DType (extends abstractType, zaimplementowac BuildForm)
+In this step you will implement definition of a Field Type extending Generic Field Type in `Value.php` `Type` class.
+
+```php
+<?php
+namespace App\FieldType\HelloWorld;
+
+use eZ\Publish\SPI\FieldType\Generic\Type as GenericType;
+
+final class Type extends GenericType implements FieldValueFormMapperInterface
+{
+    public function getFieldTypeIdentifier(): string
+    {
+        return 'hello_world';
+    }
+}
+```
+
+Add a new `App\Type` class in `config/services.yaml`
+
+```yaml
+App\FieldType\HelloWorld\Type:
+    tags:
+        - { name: ezplatform.field_type, alias: hello_world }
+```
+
+## Define form for Value Object
+
+To define form for your Field Type create `src/Form/Type` directory.  
+
+Formularz stworzyc w katalogu `src/Form/Type` tam dodac klase `Point2DType` (extends abstractType, zaimplementowac BuildForm)
 Wazne: metoda BuildForm dodaje pola, w ktore bedzie sie wprowadzac wspolrzedne x i y
 Pozwala uniknac implementacji Data Transformera, 
 ustawic opcje data class na Value::class
 
-- dodac do definicji FT, dodajemy interfejs FieldValueFormMappperInterface (\EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface)
-
-- do formularza edycji tresci dodajemy pole pozwalajace wprowadzic wartosc dla naszego FT
-
-- dodac kolejny tag do definicji serwisu: ` - { name: ezplatform.field_type.form_mapper.value, fieldType: point2d }`
-
-## Widok dla wartosci FT
-
-4. W katalogu templates tworzymy plik `field_type.html.twig`
-w srodku tworzymy blok 
-
-```twig
-{% block point2d_field %}
-    ({{ field.value.getX() }}, {{ field.value.getY() }})
-{% endblock %}
-```
-
-dodac do konfiguracji config/packages/ezplatform.yaml
-
-pod ezpublish.system.default: 
-
-```yaml
-field_templates:
-    - { template: 'field_type.html.twig', priority: 0 }
-```
-
-## Publikujemy
-
-5. Tylko klianie
-
-### Value Validation
-
-Generic Field Type uses `symfony/validator` component to validate field values.
-As shown in the example for the simple cases annotations could be used to define constraints.
-
-In more advanced cases like validation based on the field definition, the `eZ/Publish/SPI/FieldType/Generic/Type::getFieldValueConstraints` method has to be overridden.
+- dodac do definicji FT, dodajemy interfejs `FieldValueFormMappperInterface` (`\EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface`)
 
 ```php
- protected function getFieldValueConstraints(FieldDefinition $fieldDefinition): ?Assert\Collection 
- { 
-     return null; 
- } 
-```
+<?php
+namespace App\FieldType\HelloWorld;
 
-### Settings Validation
-
-Generic Field Type is also using `symfony/validator` component to validate field settings.
-To do so the `eZ/Publish/SPI/FieldType/Generic/Type::getFieldSettingsConstraints` method has to be overridden. 
-
-[Symfony documentation](https://symfony.com/doc/4.3/validation/raw_values.html)
-
-For example:
-
-```php
-namespace AppBundle\FieldType\Point2D;
-
-// ... 
+use App\Form\Type\HelloWorldType;
 use eZ\Publish\SPI\FieldType\Generic\Type as GenericType;
-use Symfony\Component\Validator\Constraints as Assert;
-// ... 
+use EzSystems\RepositoryForms\Data\Content\FieldData;
+use EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface;
+use Symfony\Component\Form\FormInterface;
 
-final class Type extends GenericType
+final class Type extends GenericType implements FieldValueFormMapperInterface
 {
-    protected $settingsSchema = [
-        'format' => [
-            'default' => "%f"
-        ],
-    ];
-
-    // ... 
-
-    protected function getFieldSettingsConstraints(): ?Assert\Collection
+    public function getFieldTypeIdentifier(): string
     {
-        return new Assert\Collection([
-            'format' => [
-                new Assert\NotBlank()
-            ]
+        return 'hello_world';
+    }
+    public function mapFieldValueForm(FormInterface $fieldForm, FieldData $data): void
+    {
+        $definition = $data->fieldDefinition;
+        $fieldForm->add('value', HelloWorldType::class, [
+            'required' => $definition->isRequired,
+            'label' => $definition->getName()
         ]);
     }
 }
 ```
 
-### Storage Converter
+- do formularza edycji tresci dodajemy pole pozwalajace wprowadzic wartosc dla naszego FT
+`src/Form/Type/HelloWorld.php`
 
-If `eZ\Publish\Core\Persistence\Legacy\Content\FieldValue\CnType` then `eZ\Publish\Core\FieldType\Generic\Converter` will be used as storage converter.
+```php
+<?php
+/* /src/AppBundle/FieldType/HelloWorld/Type.php */
+namespace AppBundle\FieldType\HelloWorld;
+use AppBundle\Form\Type\HelloWorldType;
+use eZ\Publish\Core\FieldType\Generic\Type as GenericType;
+use EzSystems\RepositoryForms\Data\Content\FieldData;
+use EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface;
+use Symfony\Component\Form\FormInterface;
+final class Type extends GenericType implements FieldValueFormMapperInterface
+{
+    public function getFieldTypeIdentifier(): string
+    {
+        return 'hello_world';
+    }
+    public function mapFieldValueForm(FormInterface $fieldForm, FieldData $data): void
+    {
+        $definition = $data->fieldDefinition;
+        $fieldForm->add('value', HelloWorldType::class, [
+            'required' => $definition->isRequired,
+            'label' => $definition->getName()
+        ]);
+    }
+}
+```
 
-Internally the field definition / value are serialized to JSON format using `symfony/serializer` component and stored in `data_text`/`data_text5` columns.
+- dodac kolejny tag do definicji serwisu: ` - { name: ezplatform.field_type.form_mapper.value, fieldType: point2d }`
 
+in `config/services.yaml`
 
-Jeśli użytkownik nie zdefiniowano jawnie konwertera (implementacji eZ\Publish\Core\Persistence\Legacy\Content\FieldValue\Converter) zostanie użyty domyślny konwerter.
+```yaml
+App\FieldType\HelloWorld\Type:
+    tags:
+        - { name: ezplatform.field_type.form_mapper.value, fieldType: hello_world }
+```
 
-Wartość pola i ustawienia przechowywane są w formacie JSON odpowiednio w kolumnach data_text/data_text5, gdzie do serializacji wykorzystywany jest komponent Serializer (https://symfony.com/doc/current/components/serializer.html).
+## Render fields
 
-Wartość pola i ustawienia walidatowane są przy wykorzystawniu komponentu Validator (https://symfony.com/doc/current/components/validator.html).
+### Create template
+
+Next thing to create is the template. It will define the default display of `HelloWorld` field.
+In templates directory create `field_type.html.twig` file.
+Inside add a following block:
+
+```twig
+{% block hello_world_field %}
+    Hello <b>{{ field.value.getName() }}!</b>
+{% endblock %}
+```
+
+### Template mapping
+
+Next, provide the template mapping in `config/packages/ezplatform.yaml`:
+
+```yaml
+ezpublish:
+    system:
+        default: 
+            # ...
+            field_templates:
+                - { template: 'field_type.html.twig', priority: 0 }
+```
+
+## Final results
+
+You can now select and use your new Field Type in the Back Office interface.
