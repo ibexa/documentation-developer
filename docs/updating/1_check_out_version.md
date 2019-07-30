@@ -34,7 +34,7 @@ git remote add upstream http://github.com/ezsystems/ezcommerce.git
 
     Assuming you have installed packages on your installation (`composer install`), do the following steps:
 
-    1. Add [sort-packages](https://getcomposer.org/doc/06-config.md#sort-packages) to the `config` section in `composer.json` as shown in the highlighted line:
+    1\. Add [sort-packages](https://getcomposer.org/doc/06-config.md#sort-packages) to the `config` section in `composer.json` as shown in the highlighted line:
 
     ``` json hl_lines="3"
     "config": {
@@ -46,7 +46,7 @@ git remote add upstream http://github.com/ezsystems/ezcommerce.git
     },
     ```
 
-    2. Use `composer require` to get Composer to sort your packages:
+    2\. Use `composer require` to get Composer to sort your packages:
 
     With this new option you should ideally always use `composer require` to add or adjust packages to make sure they
     are sorted. The following code example updates a few requirements with what you can also expect in the upcoming
@@ -59,7 +59,7 @@ git remote add upstream http://github.com/ezsystems/ezcommerce.git
     composer require --dev --no-scripts --no-update roave/security-advisories:dev-master
     ```
 
-    3. Check that you can install/update packages:
+    3\. Check that you can install/update packages:
 
     ``` bash
     composer update
@@ -67,7 +67,7 @@ git remote add upstream http://github.com/ezsystems/ezcommerce.git
 
     You can consider the result a success if Composer says there were no updates, or if it updated packages without stopping with conflicts.
 
-    4. Now that packages are sorted, save your work.
+    4\. Now that packages are sorted, save your work.
 
     With packages sorted you are ready to pull in changes
     As they will also be sorted, it will be easier to see which changes are relevant to your `composer.json`.
