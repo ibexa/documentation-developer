@@ -137,6 +137,10 @@ to be replaced with a dedicated bundle for the latest Elastic version in the fut
 
 Assetic support has been dropped.
 
+### Universal Discovery Widget
+
+The deprecated `universal_discovery_widget_module.default_location_id` setting has been replaced with `universal_discovery_widget_module.configuration.default.starting_location_id`.
+
 ### Miscellaneous
 
 - Deprecated `SubtreeQuery` class has been removed. In v3.0 it was replaced by `\EzSystems\EzPlatformAdminUi\QueryType\SubtreeQueryType`.
