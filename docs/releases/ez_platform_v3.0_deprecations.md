@@ -27,6 +27,8 @@ Tags used to register Field Type features in the dependency injection container 
 |`ezpublish_rest.field_type_processor`|`ezplatform.field_type.rest.processor`|
 |`ez.fieldFormMapper.value`|`ezplatform.field_type.form_mapper.value`|
 |`ez.fieldFormMapper.definition`|`ezplatform.field_type.form_mapper.definition`|
+|`ezpublish.fieldType.externalStorageHandler`|`ezplatform.field_type.external_storage_handler`|
+|`ezpublish.fieldType.externalStorageHandler.gateway`|`ezplatform.field_type.external_storage_handler.gateway`|
 
 Deprecated method `eZ\Publish\SPI\FieldType\FieldType::getName` is now supported with a new signature similar to `eZ\Publish\SPI\FieldType\Nameable::getFieldName()`, which has been removed.
 See [eZ Platform v3.0 project update](ez_platform_v3.0_project_update.md#field-types) for further information.
