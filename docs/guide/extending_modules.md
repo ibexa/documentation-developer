@@ -127,8 +127,8 @@ The following props are deprecated:
 
 ### Configuration
 
-You can configure Universal Discovery module in [universal_discovery_widget.yaml file.](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/config/universal_discovery_widget.yaml)
-There you can set e.g. visible tabs, allowed Content Types, search limits etc.
+You can configure Universal Discovery module in the [`universal_discovery_widget.yaml`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/config/universal_discovery_widget.yaml) file.
+There you can set e.g. the starting location ID, visible tabs, allowed Content Types, search limits, etc.
 
 ```yaml
 system:
@@ -136,6 +136,7 @@ system:
         universal_discovery_widget_module:
             configuration:
                 default:
+                    starting_location_id: 1
                     visible_tabs: [browse, search, bookmarks]
                     allowed_content_types: []
                     search:
