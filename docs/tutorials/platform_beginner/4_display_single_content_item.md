@@ -14,7 +14,7 @@ Create a Twig template `templates/full/ride.html.twig` with the following code:
     <section>
         <div class="row regular-content-size">
             <div class="col-xs-12">
-                <h3 class="center bottom-plus new-header">{{ content.name }}</h2>
+                <h3 class="center bottom-plus new-header">{{ content.name }}</h3>
             </div>
         </div>
     </section>
