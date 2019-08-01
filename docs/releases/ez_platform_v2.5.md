@@ -208,3 +208,10 @@ You can now translate labels of choice attributes in Custom tags using the `ezri
 ### URL Wildcards
 
 [URL wildcards](../guide/url_management.md#url-wildcards) enable you to set up global URL redirections.
+
+## eZ Platform v2.5.3
+
+### API improvements
+
+`SectionService::loadSection` has been improved to return a filtered list when user does not have access to a Section,
+instead of throwing an exception.
