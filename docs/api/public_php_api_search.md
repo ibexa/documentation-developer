@@ -75,8 +75,8 @@ With the Legacy search engine both properties will give identical results.
 
 ## Searching in a controller
 
-You can use the `SearchService` similarly in a controller, as long as you provide the required parameters
-(in the example below, `locationId` is provided to list all children of a Location).
+You can use the `SearchService` similarly in a controller, as long as you provide the required parameters.
+For example, in the code below `locationId` is provided to list all children of a Location.
 
 ``` php hl_lines="20 21 22"
 //...
@@ -105,7 +105,7 @@ class CustomController extends Controller
 }
 ```
 
-Rendering results is then relegated to [templates](../guide/templates.md) (lines 20-22).
+The rendering of results is then relegated to [templates](../guide/templates.md) (lines 20-22).
 
 ### Paginating search results
 
