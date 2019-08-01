@@ -71,5 +71,8 @@ bin/console cache:pool:clear cache.redis
     CREATE INDEX ezpage_map_blocks_zones_zone_id ON ezpage_map_blocks_zones(zone_id);
     CREATE INDEX ezpage_map_attributes_blocks_attribute_id ON ezpage_map_attributes_blocks(attribute_id);
     CREATE INDEX ezpage_map_attributes_blocks_block_id ON ezpage_map_attributes_blocks(block_id);
+    CREATE INDEX ezpage_blocks_design_block_id ON ezpage_blocks_design(block_id);
+    CREATE INDEX ezpage_blocks_visibility_block_id ON ezpage_blocks_visibility(block_id);
+    CREATE INDEX ezpage_pages_content_id_version_no ON ezpage_pages(content_id, version_no);
     ```
     
