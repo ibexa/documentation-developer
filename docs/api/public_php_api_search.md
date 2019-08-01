@@ -68,9 +68,9 @@ You can use two properties of the `Query` object to search for Content: `query` 
 
 In contrast to `filter`, `query` has an effect of search scoring (relevancy).
 It affects default sorting if no Sort Clause is used.
-As such, `query` is recommended when the search uses is based on user input.
+As such, `query` is recommended when the search uses are based on user input.
 
-The difference between `query` and `filter` is only in play when using Solr search engine.
+The difference between `query` and `filter` is only relevant when using Solr search engine.
 With the Legacy search engine both properties will give identical results.
 
 ## Searching in a controller
@@ -109,7 +109,7 @@ The rendering of results is then relegated to [templates](../guide/templates.md)
 
 ### Paginating search results
 
-To paginate search results, it is recommended to use the [Pagerfanta library](https://github.com/whiteoctober/Pagerfanta) and [eZ Platform's adapters for it](https://github.com/ezsystems/ezpublish-kernel/tree/v7.5.2/eZ/Publish/Core/Pagination/Pagerfanta).
+To paginate search results, it is recommended to use the [Pagerfanta library](https://github.com/whiteoctober/Pagerfanta) and [eZ Platform's adapters for it.](https://github.com/ezsystems/ezpublish-kernel/tree/v7.5.2/eZ/Publish/Core/Pagination/Pagerfanta)
 
 ``` php
 //...
@@ -151,7 +151,7 @@ Pagination can then be rendered for example using the following template:
 {% endif %}
 ```
 
-For more information and examples, see [PagerFanta documentation](https://github.com/whiteoctober/Pagerfanta/blob/master/README.md).
+For more information and examples, see [PagerFanta documentation.](https://github.com/whiteoctober/Pagerfanta/blob/master/README.md)
 
 #### Pagerfanta adapters
 
@@ -208,7 +208,7 @@ $query->filter = new Criterion\LogicalAnd([
 
 Criteria are independent of one another. This can lead to unexpected behavior, for instance because Content can have multiple Locations.
 
-For example, a Content item has two locations: visible Location A and hidden Location B.
+For example, a Content item has two Locations: visible Location A and hidden Location B.
 You perform the following query:
 
 ``` php
