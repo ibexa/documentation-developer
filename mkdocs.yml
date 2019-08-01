@@ -142,7 +142,6 @@ pages:
         - 'Personalization': 'guide/personalization.md'
     - Cookbook:
         - 'Accept header-based REST API response': 'cookbook/creating_custom_rest_api_response.md'
-        - 'API search result pagination': 'cookbook/paginating_api_search_results.md'
         - 'Binary attachments via REST API': 'cookbook/creating_content_with_binary_attachments_via_rest_api.md'
         - 'Creating custom dropdowns': 'cookbook/creating_custom_dropdowns.md'
         - 'Cross-origin HTTP requests': 'cookbook/making_cross_origin_http_requests.md'
