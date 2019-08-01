@@ -60,7 +60,7 @@ $output->writeln($result->getName());
 
 !!! tip
 
-    See [Search Criteria reference](../guide/search.md#search-criteria-reference) for full list and details of available Search Criteria.
+    For full list and details of available Search Criteria, see [Search Criteria reference](../guide/search.md#search-criteria-reference).
 
 ### Search with `query` and `filter`
 
@@ -71,7 +71,7 @@ It affects default sorting if no Sort Clause is used.
 As such, `query` is recommended when the search uses is based on user input.
 
 The difference between `query` and `filter` is only in play when using Solr search engine.
-With Legacy search engine both properties will give identical results.
+With the Legacy search engine both properties will give identical results.
 
 ## Searching in a controller
 
@@ -165,7 +165,7 @@ For more information and examples, see [PagerFanta documentation](https://github
 ## Complex search
 
 For more complex searches, you need to combine multiple Criteria.
-You can do it using logical operators `LogicalAnd`, `LogicalOr` and `LogicalNot`.
+You can do it using logical operators: `LogicalAnd`, `LogicalOr`, and `LogicalNot`.
 
 ``` php hl_lines="6 7 8 11"
 $query = new LocationQuery;
@@ -184,7 +184,7 @@ foreach ($result->searchHits as $searchHit) {
 }
 ```
 
-This example takes three parameters from a command, `$text`, `$contentTypeId`, and `$locationId`.
+This example takes three parameters from a command — `$text`, `$contentTypeId`, and `$locationId`.
 It then combines them using `Criterion\LogicalAnd` to search for Content items
 that belong to a specific subtree, have the chosen Content Type and contain the provided text (lines 6-8).
 
@@ -221,12 +221,11 @@ $query->filter = new Criterion\LogicalAnd([
 The query searches for Location B using the `LocationId` Criterion,
 and for visible Content using the `Visibility` Criterion.
 
-The query will find the Content because both conditions are satisfied:
+Even though the Location B is hidden, the query will find the Content because both conditions are satisfied:
 
 - the Content item has Location B
 - the Content item is visible (it has the visible Location A)
 
-even though Location B is hidden.
 
 ## Sorting results
 
@@ -244,7 +243,7 @@ $query->sortClauses = [
 
 !!! tip
 
-    See [Sort Clause reference](../guide/search.md#sort-clauses-reference) for full list and details of available Sort Clauses.
+    For the full list and details of available Sort Clauses, see [Sort Clause reference](../guide/search.md#sort-clauses-reference).
 
 ## Faceted search
 
