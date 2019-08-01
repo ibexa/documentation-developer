@@ -14,7 +14,7 @@ You can copy subtree from CLI using the command: `bin/console ezplatform:copy-su
 ## Pagination limits
 
 Default pagination limits for different sections of the Back Office can be defined through respective settings in
-[`ezplatform_default_settings.yml`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/config/ezplatform_default_settings.yml#L7)
+[`ezplatform_default_settings.yml`](https://github.com/ezsystems/ezplatform-admin-ui/blob/v1.5.4/src/bundle/Resources/config/ezplatform_default_settings.yml#L7)
 
 ## Default Locations
 
