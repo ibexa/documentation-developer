@@ -65,7 +65,6 @@ pages:
         - Configuration:
             - 'Configuration': 'guide/configuration.md'
             - 'Dynamic config': 'guide/config_dynamic.md'
-            - 'Back Office config': 'guide/config_back_office.md'
             - 'Repository config': 'guide/config_repository.md'
         - 'Admin management': 'guide/admin_panel.md'
         - 'Content model': 'guide/content_model.md'
