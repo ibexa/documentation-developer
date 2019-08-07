@@ -155,12 +155,11 @@ class ConfigurationContext implements Context
 	/**
 	 * @Given I create configuration of Form field to :filePath
 	 */
-	public function addFormFieldConfig($filePath): void
+	public function addFormFieldConfig($configPath, TableNode $imports): void
 	{
-		$config = new ConfigurationEditor(sprintf('%s/%s', $this->basePath, $filePath));
+		$config = new ConfigurationEditor(sprintf('%s/%s', $this->basePath, $configPath));
 		$config->add([
-			'ezpublish.system.site.field_templates.template' => 'form_field.html.twig',
-			'ezpublish.system.site.field_templates.priority' => '30'
+			'ezpublish.system.site.field_templates' => ['template' => 'form_field.html.twig', 'priority' => 30,],
 		]);
 	}
 
