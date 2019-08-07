@@ -73,3 +73,15 @@ Feature: Setup eZ Platform Enterprise dogs tutorial
         And I copy the block icon to "public/assets/images/blocks"
         And I append to "assets/css/style.css" file "randomblock.css"
         And I rebuild Webpack Encore assets
+
+    @step5
+    Scenario: Create a newsletter form block
+        Given I create configuration of Form block to "config/packages/ezplatform_page_fieldtype.yaml"
+        And I create a file "templates/blocks/form/newsletter.html.twig" containing "form_newsletter_view.html.twig"
+        And I create a file "templates/form_field.html.twig" containing "form_field_theme.html.twig"
+        And I create configuration of Form field to "config/packages/views.yaml"
+        And I create configuration of Captcha field to "config/packages/gregwar_captcha.yaml"
+        And I append to "assets/css/style.css" file "form_style.css"
+        And I rebuild Webpack Encore assets
+        And I clear the cache
+

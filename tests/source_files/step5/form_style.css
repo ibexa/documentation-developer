@@ -1,0 +1,50 @@
+/* Newsletter Form block */
+.block-form {
+    border: 1px solid #8b7f7b;
+    border-radius: 5px;
+    padding: 0 25px 25px 25px;
+    margin-top: 15px;
+}
+
+.block-form .ezstring-field {
+    display: inline-block;
+    font-variant: small-caps;
+    font-size: 1.2em;
+    width: 100%;
+    text-align: right;
+    padding-top: 20px;
+}
+
+.block-form .col-form-label {
+    display: none;
+}
+
+.block-form .form-group {
+    font-variant: small-caps;
+    font-size: 1em;
+    margin-top: 12px;
+}
+
+.captcha_image {
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+.captcha_reload {
+    font-variant: all-small-caps;
+    padding-left: 5px;
+}
+
+.btn-primary {
+    background-color: rgb(103,85,80);
+    border-color: rgb(103,85,80);
+    margin-top: 15px;
+    margin-bottom: -20px;
+}
+
+/* Newsletter Form block - Thank you message */
+
+.block-form h3 {
+    font-variant: all-small-caps;
+    text-align: center;
+}
