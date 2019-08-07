@@ -166,7 +166,7 @@ class ConfigurationContext implements Context
 	/**
 	 * @Given I create configuration of Captcha field to :filePath
 	 */
-	public function addCaptchaConfig($configPath, TableNode $imports): void
+	public function addCaptchaConfig($configPath): void
 	{
 		$config = new ConfigurationEditor(sprintf('%s/%s', $this->basePath, $configPath));
 		$config->add([
