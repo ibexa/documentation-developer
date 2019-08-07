@@ -155,7 +155,7 @@ class ConfigurationContext implements Context
 	/**
 	 * @Given I create configuration of Form field to :filePath
 	 */
-	public function addFormFieldConfig($configPath, TableNode $imports): void
+	public function addFormFieldConfig($configPath): void
 	{
 		$config = new ConfigurationEditor(sprintf('%s/%s', $this->basePath, $configPath));
 		$config->add([
