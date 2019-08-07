@@ -46,8 +46,8 @@ Feature: Setup eZ Platform Enterprise dogs tutorial
     Scenario: Prepare the Landing Page
         Given I create a file "config/packages/ezplatform_page_fieldtype.yaml" containing "step2/layoutdefinition.yaml"
         And I add thumbnail image to "public/assets/images/layouts/"
-        And I create a file "templates/layouts/sidebar.html.twig" containing "sidebartemplate.html.twig"
-        And I create a file "templates/full/landing_page.html.twig" containing "landingpagetemplate.html.twig"
+        And I create a file "templates/layouts/sidebar.html.twig" containing "step2/sidebartemplate.html.twig"
+        And I create a file "templates/full/landing_page.html.twig" containing "step2/landingpagetemplate.html.twig"
         And I set the Landing Page template configuration in "config/packages/views.yaml"
         And I rebuild Webpack Encore assets
 
@@ -56,22 +56,22 @@ Feature: Setup eZ Platform Enterprise dogs tutorial
         Given I create a file "templates/blocks/contentlist/default.html.twig" containing "step3/contentlisttemplate.html.twig"
         And I add Content List layout configuration to "config/packages/ezplatform_page_fieldtype.yaml"
         And I set Content List image variations in "config/packages/image_variations.yaml"
-        And I append to "assets/css/style.css" file "landingpage.css"
+        And I append to "assets/css/style.css" file "step3/landingpage.css"
         And I add Content Scheduler layout configuration to "config/packages/ezplatform_page_fieldtype.yaml"
-        And I create a file "templates/blocks/schedule/featured.html.twig" containing "scheduleblock.html.twig"
+        And I create a file "templates/blocks/schedule/featured.html.twig" containing "step3/scheduleblock.html.twig"
         And I set template for Article in "config/packages/views.yaml"
-        And I create a file "templates/featured/article.html.twig" containing "article.html.twig"
+        And I create a file "templates/featured/article.html.twig" containing "step3/article.html.twig"
         And I set Content Scheduler image variations in "config/packages/image_variations.yaml"
-        And I append to "assets/css/style.css" file "contentscheduler.css"
+        And I append to "assets/css/style.css" file "step3/contentscheduler.css"
         And I rebuild Webpack Encore assets
 
     @step4
     Scenario: Create a custom block
         Given I create configuration of Random block to "config/packages/ezplatform_page_fieldtype.yaml"
-        And I create a file "templates/blocks/random/default.html.twig" containing "random.html.twig"
-        And I create a file "src/Event/RandomBlockListener.php" containing "RandomBlockListener.php"
+        And I create a file "templates/blocks/random/default.html.twig" containing "step4/random.html.twig"
+        And I create a file "src/Event/RandomBlockListener.php" containing "step4/RandomBlockListener.php"
         And I copy the block icon to "public/assets/images/blocks"
-        And I append to "assets/css/style.css" file "randomblock.css"
+        And I append to "assets/css/style.css" file "step4/randomblock.css"
         And I rebuild Webpack Encore assets
 
     @step5
@@ -81,7 +81,7 @@ Feature: Setup eZ Platform Enterprise dogs tutorial
         And I create a file "templates/form_field.html.twig" containing "step5/form_field_theme.html.twig"
         And I create configuration of Form field to "config/packages/views.yaml"
         And I create configuration of Captcha field to "config/packages/gregwar_captcha.yaml"
-        And I append to "assets/css/style.css" file "form_style.css"
+        And I append to "assets/css/style.css" file "step5/form_style.css"
         And I rebuild Webpack Encore assets
         And I clear the cache
 
