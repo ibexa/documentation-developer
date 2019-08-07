@@ -44,7 +44,7 @@ Feature: Setup eZ Platform Enterprise dogs tutorial
 
     @step2
     Scenario: Prepare the Landing Page
-        Given I create a file "config/packages/ezplatform_page_fieldtype.yaml" containing "layoutdefinition.yaml"
+        Given I create a file "config/packages/ezplatform_page_fieldtype.yaml" containing "step2/layoutdefinition.yaml"
         And I add thumbnail image to "public/assets/images/layouts/"
         And I create a file "templates/layouts/sidebar.html.twig" containing "sidebartemplate.html.twig"
         And I create a file "templates/full/landing_page.html.twig" containing "landingpagetemplate.html.twig"
@@ -53,7 +53,7 @@ Feature: Setup eZ Platform Enterprise dogs tutorial
 
     @step3
     Scenario: Use existing blocks
-        Given I create a file "templates/blocks/contentlist/default.html.twig" containing "contentlisttemplate.html.twig"
+        Given I create a file "templates/blocks/contentlist/default.html.twig" containing "step3/contentlisttemplate.html.twig"
         And I add Content List layout configuration to "config/packages/ezplatform_page_fieldtype.yaml"
         And I set Content List image variations in "config/packages/image_variations.yaml"
         And I append to "assets/css/style.css" file "landingpage.css"
@@ -77,8 +77,8 @@ Feature: Setup eZ Platform Enterprise dogs tutorial
     @step5
     Scenario: Create a newsletter form block
         Given I create configuration of Form block to "config/packages/ezplatform_page_fieldtype.yaml"
-        And I create a file "templates/blocks/form/newsletter.html.twig" containing "form_newsletter_view.html.twig"
-        And I create a file "templates/form_field.html.twig" containing "form_field_theme.html.twig"
+        And I create a file "templates/blocks/form/newsletter.html.twig" containing "step5/form_newsletter_view.html.twig"
+        And I create a file "templates/form_field.html.twig" containing "step5/form_field_theme.html.twig"
         And I create configuration of Form field to "config/packages/views.yaml"
         And I create configuration of Captcha field to "config/packages/gregwar_captcha.yaml"
         And I append to "assets/css/style.css" file "form_style.css"
