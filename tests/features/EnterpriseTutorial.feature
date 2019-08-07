@@ -83,5 +83,4 @@ Feature: Setup eZ Platform Enterprise dogs tutorial
         And I create configuration of Captcha field to "config/packages/gregwar_captcha.yaml"
         And I append to "assets/css/style.css" file "step5/form_style.css"
         And I rebuild Webpack Encore assets
-        And I clear the cache
 

@@ -155,7 +155,7 @@ class ConfigurationContext implements Context
 	/**
 	 * @Given I create configuration of Form field to :filePath
 	 */
-	public function addFormFieldConfig($configPath, TableNode $imports): void
+	public function addFormFieldConfig ($filePath): void
 	{
 		$config = new ConfigurationEditor(sprintf('%s/%s', $this->basePath, $configPath));
 		$config->add([
@@ -185,11 +185,5 @@ class ConfigurationContext implements Context
         shell_exec("bin/console ezplatform:encore:compile");
     }
 
-    /**
-	 * Given I clear cache
-	 */
-    public function clearCacge(): void
-	{
-		shell_exec("bin/console cache:clear");
-	}
+
 }
