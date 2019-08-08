@@ -161,8 +161,8 @@ class ConfigurationContext implements Context
 	{
 		$config = new ConfigurationEditor(sprintf('%s/%s', $this->basePath, $filePath));
 		$config->add([
-			'ezplatform_page_fieldtype.layouts.blocks.form.views.newsletter.template' => 'blocks/form/newsletter.html.twig',
-			'ezplatform_page_fieldtype.layouts.blocks.form.views.newsletter.name' => 'Newsletter Form View',
+			'ezplatform_page_fieldtype.blocks.form.views.newsletter.template' => 'blocks/form/newsletter.html.twig',
+			'ezplatform_page_fieldtype.blocks.form.views.newsletter.name' => 'Newsletter Form View',
 		]);
 	}
 
