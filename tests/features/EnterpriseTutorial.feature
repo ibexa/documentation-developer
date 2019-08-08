@@ -48,33 +48,42 @@ Feature: Setup eZ Platform Enterprise dogs tutorial
 
     @step2
     Scenario: Prepare the Landing Page
-        Given I create a file "app/config/layouts.yml" containing "layoutdefinition.yml"
+        Given I create a file "app/config/layouts.yml" containing "step2/layoutdefinition.yml"
         And I add imports to "app/config/config.yml"
             | name        |
             | layouts.yml |
         And I add thumbnail image to "web/assets/images/layouts/"
-        And I create a file "app/Resources/views/layouts/sidebar.html.twig" containing "sidebartemplate.html.twig"
-        And I create a file "app/Resources/views/full/landing_page.html.twig" containing "landingpagetemplate.html.twig"
+        And I create a file "app/Resources/views/layouts/sidebar.html.twig" containing "step2/sidebartemplate.html.twig"
+        And I create a file "app/Resources/views/full/landing_page.html.twig" containing "step2/landingpagetemplate.html.twig"
         And I set the Landing Page template configuration in "app/config/views.yml"
 
     @step3
     Scenario: Use existing blocks
-        Given I create a file "app/Resources/views/blocks/contentlist/default.html.twig" containing "contentlisttemplate.html.twig"
+        Given I create a file "app/Resources/views/blocks/contentlist/default.html.twig" containing "step3/contentlisttemplate.html.twig"
         And I add Content List layout configuration to "app/config/layouts.yml"
         And I set Content List image variations in "app/config/image_variations.yml"
-        And I append to "web/assets/css/style.css" file "landingpage.css"
+        And I append to "web/assets/css/style.css" file "step3/landingpage.css"
         And I add Content Scheduler layout configuration to "app/config/layouts.yml"
-        And I create a file "app/Resources/views/blocks/schedule/featured.html.twig" containing "scheduleblock.html.twig"
+        And I create a file "app/Resources/views/blocks/schedule/featured.html.twig" containing "step3/scheduleblock.html.twig"
         And I set template for Article in "app/config/views.yml"
-        And I create a file "app/Resources/views/featured/article.html.twig" containing "article.html.twig"
+        And I create a file "app/Resources/views/featured/article.html.twig" containing "step3/article.html.twig"
         And I set Content Scheduler image variations in "app/config/image_variations.yml"
-        And I append to "web/assets/css/style.css" file "contentscheduler.css"
+        And I append to "web/assets/css/style.css" file "step3/contentscheduler.css"
 
     @step4
     Scenario: Create a custom block
         Given I create configuration of Random block to "app/config/layouts.yml"
-        And I create a file "app/Resources/views/blocks/random/default.html.twig" containing "random.html.twig"
-        And I create a file "src/AppBundle/Event/RandomBlockListener.php" containing "RandomBlockListener.php"
+        And I create a file "app/Resources/views/blocks/random/default.html.twig" containing "step4/random.html.twig"
+        And I create a file "src/AppBundle/Event/RandomBlockListener.php" containing "step4/RandomBlockListener.php"
         And I copy the block icon to "web/assets/images/blocks"
         And I add RandomBlockListener service configuration to "app/config/services.yml"
-        And I append to "web/assets/css/style.css" file "randomblock.css"
+        And I append to "web/assets/css/style.css" file "step4/randomblock.css"
+
+    @step5
+    Scenario: Create a newsletter block
+        Given I create configuration of Form block to "app/config/layouts.yml"
+        And I create a file "app/Resources/views/blocks/form/newsletter.html.twig" containing "step5/form_newsletter_view.html.twig"
+        And I create a file "app/Resources/views/form_field.html.twig" containing "step5/form_field_theme.html.twig"
+        And I create configuration of Form field to "app/config/views.yml"
+        And I create configuration of Captcha field to "app/config/config.yml"
+        And I append to "web/assets/css/style.css" file "step5/form_style.css"
