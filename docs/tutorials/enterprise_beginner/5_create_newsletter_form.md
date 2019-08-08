@@ -134,7 +134,7 @@ Add the following code to `web/assets/css/style.css`:
 ``` css
 /* Newsletter Form block */
 .block-form {
-    border: 2px solid #8b7f7b;
+    border: 1px solid #8b7f7b;
     border-radius: 5px;
     padding: 0 25px 25px 25px;
     margin-top: 15px;
