@@ -198,7 +198,7 @@ Finally, add some styling for the new block. Add the following to the end of the
 
 .random-block h4 {
     font-variant: small-caps;
-    font-size: .8em;
+    font-size: 1.2em;
 }
 
 .random-block h5 {
