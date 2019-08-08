@@ -21,7 +21,7 @@ All Signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
 |Signal type|Properties|Triggered by|
 |------|------|------|
 |`ContentService\AddRelationSignal`|`srcContentId` (source contentId, aka referrer)</br>`srcVersionNo`</br>`dstContentId` (destination contentId, aka target)|`ContentService::addRelation()`|
-|`ContentService\AddTranslationInfoSignal`|N/A|`ContentService::addTranslationInfo()`|
+|`ContentService\AddTranslationInfoSignal` (deprecated)|N/A||
 |`ContentService\CopyContentSignal`|`srcContentId` (original content ID)</br>`srcVersionNo`</br>`dstContentId` (contentId of the copy)</br>`dstVersionNo`</br>`dstParentLocationId` (locationId where the content has been copied)|`ContentService::copyContent()`|
 |`ContentService\CreateContentDraftSignal`|`contentId`</br>`versionNo`</br>`userId` (ID of User used to create the draft, or null - current User)|`ContentService::createContentDraft()`|
 |`ContentService\CreateContentSignal`|`contentId`</br>`versionNo`|`ContentService::createContent()`|
