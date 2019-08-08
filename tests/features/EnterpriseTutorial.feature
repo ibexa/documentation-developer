@@ -81,7 +81,7 @@ Feature: Setup eZ Platform Enterprise dogs tutorial
 
     @step5
     Scenario: Create a newsletter block
-        Given: I create configuration of Form block to "app/config/layouts.yml"
+        Given I create configuration of Form block to "app/config/layouts.yml"
         And I create a file "app/Resources/views/blocks/form/newsletter.html.twig" containing "step5/form_newsletter_view.html.twig"
         And I create a file "app/Resources/views/form_field.html.twig" containing "step5/form_field_theme.html.twig"
         And I create configuration of Form field to "app/config/views.yml"
