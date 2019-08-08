@@ -167,7 +167,7 @@ class ConfigurationContext implements Context
 	}
 
 	/**
-	 * Given I create configuration of Form field to :filePath
+	 * @Given I create configuration of Form field to :filePath
 	 */
 	public function addFormFieldConfig($configPath): void
 	{
