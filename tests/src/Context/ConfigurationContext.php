@@ -140,6 +140,43 @@ class ConfigurationContext implements Context
         ]);
     }
 
+	/**
+	 * @Given I create configuration of Form block to :filePath
+	 */
+	public function addFormBlockConfig($filePath): void
+	{
+		$config = new ConfigurationEditor(sprintf('%s/%s', $this->basePath, $filePath));
+		$config->add([
+			'ezplatform_page_fieldtype.blocks.form.views.newsletter.template' => 'blocks/form/newsletter.html.twig',
+			'ezplatform_page_fieldtype.blocks.form.views.newsletter.name' => 'Newsletter Form View',
+		]);
+	}
+
+	/**
+	 * @Given I create configuration of Form field to :filePath
+	 */
+	public function addFormFieldConfig($configPath): void
+	{
+		$config = new ConfigurationEditor(sprintf('%s/%s', $this->basePath, $configPath));
+		$config->add([
+			'ezpublish.system.site.field_templates' => [['template' => 'form_field.html.twig', 'priority' => 30,]],
+		]);
+	}
+
+	/**
+	 * @Given I create configuration of Captcha field to :filePath
+	 */
+	public function addCaptchaConfig($configPath): void
+	{
+		$config = new ConfigurationEditor(sprintf('%s/%s', $this->basePath, $configPath));
+		$config->add([
+			'gregwar_captcha.width' => '150',
+			'gregwar_captcha.invalid_message' => 'Please, enter again.',
+			'gregwar_captcha.reload' => 'true',
+			'gregwar_captcha.length' => '4',
+		]);
+	}
+
     /**
      * @Given I rebuild Webpack Encore assets
      */
