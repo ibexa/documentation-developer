@@ -184,6 +184,4 @@ class ConfigurationContext implements Context
     {
         shell_exec("bin/console ezplatform:encore:compile");
     }
-
-
 }
