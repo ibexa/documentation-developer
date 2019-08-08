@@ -32,7 +32,7 @@ All Signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
 |`ContentService\HideContentSignal`|`contentId`|`ContentService::hideContent()`|
 |`ContentService\PublishVersionSignal`|`contentId`</br>`versionNo`|`ContentService::publishVersion()`|
 |`ContentService\RevealContentSignal`|`contentId`|`ContentService::revealContent()`|
-|`ContentService\TranslateVersionSignal`|`contentId`</br>`versionNo`</br>`userId`||
+|`ContentService\TranslateVersionSignal` (deprecated)|`contentId`</br>`versionNo`</br>`userId`||
 |`ContentService\UpdateContentMetadataSignal`|`contentId`|`ContentService::updateContentMetadata()`|
 |`ContentService\UpdateContentSignal`|`contentId`</br>`versionNo`|`ContentService::updateContent()`|
 
