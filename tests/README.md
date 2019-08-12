@@ -2,7 +2,7 @@
 
 ## Enterprise Tutorial
 
-These tests should be run using ezplatform-ee metarepository.
+These tests should be run using the ezplatform-ee metarepository.
 
 1. Add developer-documentation to your project by running the following commands:
 ```
@@ -23,7 +23,7 @@ default:
             kernel:
                 env: prod
 ```
-1. Run tests:
-`bin/behat --profile=doc` to run all of them
-`bin/behat --profile=doc --tags=step1` to run a specific one
+1. Run tests by using one of the following commands:
+- To run all tests, use: `bin/behat --profile=doc`
+- To run a specific test step, use: `bin/behat --profile=doc --tags=step1`
 1. After execution, run `composer run post-install-cmd`.
