@@ -144,3 +144,9 @@ php bin/console cache:clear
 ```
 
 You should now be able to load your eZ Platform site in the `en` and `fr` SiteAccess displaying English and French content.
+
+!!! tip
+    
+    If you encounter issues when configuring SiteAccess, use the following command to debug or speed up the configuration process:
+    
+    `bin/console [—-siteaccess=<SA>] ezplatform:debug:config-resolver <param.name>`

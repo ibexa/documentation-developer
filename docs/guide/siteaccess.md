@@ -40,7 +40,7 @@ You configure SiteAccess in your config files (e.g. `ezplatform.yml`) under the 
 
 !!! tip
     
-    If you encounter issues when configuring SiteAccess, you can use the following command to debug or speed up the configuration process:
+    If you encounter issues when configuring SiteAccess, use the following command to debug or speed up the configuration process:
     
     `bin/console [—-siteaccess=<SA>] ezplatform:debug:config-resolver <param.name>`
     
