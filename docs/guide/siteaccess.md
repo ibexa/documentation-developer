@@ -37,6 +37,15 @@ you need to create your own admin SiteAccesses and add them to this group. In ca
 ## Configuring SiteAccesses
 
 You configure SiteAccess in your config files (e.g. `ezplatform.yml`) under the `ezpublish.siteacess` keys.
+
+!!! tip
+    
+    If you encounter issues when configuring SiteAccess, you can use the following command to debug or speed up the configuration process:
+    
+    `bin/console [—-siteaccess=<SA>] ezplatform:debug:config-resolver <param.name>`
+    
+    The command also enables you to test how different parameters work when configuring [scopes](#scope). 
+
 The required elements of the configuration are:
 
 #### `list`
