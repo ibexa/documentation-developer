@@ -14,7 +14,7 @@ composer show -a ezystems/developer-documentation
 ```
 2. Run setup script:
 `./vendor/ezsystems/developer-documentation/tests/scripts/setup.sh`
-3. In the `behat.yml.dist`, adjust the `default.extensions.Behat\Symfony2Extension.kernel.env` value to your SYMFONY_ENV.
+3. In the `behat.yml.dist` file, adjust the `default.extensions.Behat\Symfony2Extension.kernel.env` value to your SYMFONY_ENV.
 For example:
 ```
 default:
