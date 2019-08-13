@@ -44,7 +44,7 @@ You configure SiteAccess in your config files (e.g. `ezplatform.yml`) under the 
     
     `bin/console [—-siteaccess=<SA>] ezplatform:debug:config-resolver <param.name>`
     
-    The command also enables you to test how different parameters work when configuring [scopes](#scope). 
+    For advanced users, the command can be used to test how different parameters work when configuring [scopes](#scope). 
 
 The required elements of the configuration are:
 
