@@ -37,9 +37,9 @@ The deprecated `eZ\Publish\Core\FieldType\RichText` namespace has been removed, 
 
 The following classes and namespaces have been deprecated and dropped:
 
-- `\eZ\Publish\SPI\FieldType\EventListener` 
-- `\eZ\Publish\SPI\FieldType\Event`
-- `\eZ\Publish\SPI\FieldType\Events\**`
+- `eZ\Publish\SPI\FieldType\EventListener` 
+- `eZ\Publish\SPI\FieldType\Event`
+- `eZ\Publish\SPI\FieldType\Events\**`
 
 ### Twig helper names
 
