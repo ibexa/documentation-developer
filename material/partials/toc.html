@@ -7,6 +7,11 @@
   {% if toc_ | first is defined %}
     <label class="md-nav__title" for="toc">{{ lang.t("toc.title") }}</label>
     <ul class="md-nav__list" data-md-scrollfix>
+      <li class="md-nav__item">
+        <a href="#" title="Permanent link" class="md-nav__link md-nav__permlink">
+          {{ page.title }}
+        </a>
+      </li>
       {% for toc_item in toc_ %}
         <li class="md-nav__item">
           <a href="{{ toc_item.url }}" title="{{ toc_item.title }}" class="md-nav__link">
