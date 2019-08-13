@@ -295,6 +295,7 @@ figure {
 figcaption {
     font-size: 13px;
     font-style: italic;
+    text-align: center;
 }
 
 a.external:after {
