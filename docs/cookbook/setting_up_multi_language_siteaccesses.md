@@ -147,6 +147,6 @@ You should now be able to load your eZ Platform site in the `en` and `fr` SiteAc
 
 !!! tip
     
-    If you encounter issues when configuring SiteAccess or want to check that system picks up the right value, use the following command:
+    If you encounter issues when configuring SiteAccess or want to check that system uses the correct value, use the following command:
     
     `bin/console [—-siteaccess=<SA>] ezplatform:debug:config-resolver <param.name>`
