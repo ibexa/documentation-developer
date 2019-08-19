@@ -215,3 +215,17 @@ You can now translate labels of choice attributes in Custom tags using the `ezri
 
 `SectionService::loadSection` has been improved to return a filtered list when user does not have access to a Section,
 instead of throwing an exception.
+
+## eZ Platform v2.5.4
+
+### Permission improvements
+
+`RoleService` methods have been improved to return a filtered list when user does not have access to content,
+instead of throwing an exception. The following methods are affected:
+
+- `RoleService::loadRoles`
+- `RoleService::getRoleAssignmentsForUser`
+- `RoleService::getRoleAssignmentsForUserGroup`
+
+`content/cleantrash` Policy now allows the user to empty the trash
+even if normally they would not have do not have access to the trashed content.
