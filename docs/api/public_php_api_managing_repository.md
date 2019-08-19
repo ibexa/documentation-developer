@@ -22,8 +22,8 @@ $this->sectionService->createSection($sectionCreateStruct);
 You can use `SectionService` to retrieve Section information such as whether it is in use, or the total number of content assigned to it:
 
 ``` php
-$output->writeln(($this->sectionService->isSectionUsed($section) ? "This section is in use." : "This section is not in use."));
-$output->writeln("Number of Content items in this section: " . $this->sectionService->countAssignedContents($section));
+$output->writeln(($this->sectionService->isSectionUsed($section) ? 'This section is in use.' : 'This section is not in use.'));
+$output->writeln('Number of Content items in this section: ' . $this->sectionService->countAssignedContents($section));
 ```
 
 ### Listing content in a Section
@@ -122,7 +122,7 @@ $this->objectStateService->setContentState($contentInfo, $objectStateGroup, $obj
     ``` php
     $workflowMetadata = $this->workflowService->loadWorkflowMetadataForContent($content, $workflowName);
     foreach ($workflowMetadata->markings as $marking) {
-        $output->writeln($content->getName() . " is in stage " . $marking->name . " in workflow " . $workflowMetadata->workflow->getName());
+        $output->writeln($content->getName() . ' is in stage ' . $marking->name . ' in workflow ' . $workflowMetadata->workflow->getName());
     }
     ```
 
@@ -164,7 +164,7 @@ To view a list of all bookmarks, use [`BookmarkService::loadBookmarks`](https://
 ``` php
 $bookmarkList = $this->bookmarkService->loadBookmarks();
 
-$output->writeln("Total bookmarks: " . $bookmarkList->totalCount);
+$output->writeln('Total bookmarks: ' . $bookmarkList->totalCount);
 
 foreach ($bookmarkList->items as $bookmark) {
     $output->writeln($bookmark->getContentInfo()->name);
@@ -196,7 +196,7 @@ To get a list of all Languages in the system use [`LanguageService::loadLanguage
 $languageList = $this->languageService->loadLanguages();
 
 foreach ($languageList as $language) {
-    $output->writeln($language->languageCode . ": " . $language->name);
+    $output->writeln($language->languageCode . ': ' . $language->name);
 }
 ```
 
@@ -208,7 +208,7 @@ Then, use [`LanguageService::createLanguage`](https://github.com/ezsystems/ezpub
 
 ``` php
 $languageCreateStruct = $this->languageService->newLanguageCreateStruct();
-$languageCreateStruct->languageCode = "ger-DE";
-$languageCreateStruct->name = "German";
+$languageCreateStruct->languageCode = 'ger-DE';
+$languageCreateStruct->name = 'German';
 $this->languageService->createLanguage($languageCreateStruct);
 ```

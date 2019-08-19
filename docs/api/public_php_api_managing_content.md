@@ -143,16 +143,19 @@ $contentTypeCreateStruct = $this->contentTypeService->newContentTypeCreateStruct
 $contentTypeCreateStruct->mainLanguageCode = 'eng-GB';
 $contentTypeCreateStruct->nameSchema = '<title>';
 
-$contentTypeCreateStruct->names = array(
+$contentTypeCreateStruct->names = [
     'eng-GB' => $contentTypeIdentifier,
-);
+];
 
 $titleFieldCreateStruct = $this->contentTypeService->newFieldDefinitionCreateStruct('title', 'ezstring');
-$titleFieldCreateStruct->names = array('eng-GB' => 'Title');
+$titleFieldCreateStruct->names = ['eng-GB' => 'Title'];
 $contentTypeCreateStruct->addFieldDefinition($titleFieldCreateStruct);
 
 try {
-    $contentTypeDraft = $this->contentTypeService->createContentType($contentTypeCreateStruct, array($contentTypeGroup));
+    $contentTypeDraft = $this->contentTypeService->createContentType(
+        $contentTypeCreateStruct, 
+        [$contentTypeGroup]
+    );
     $this->contentTypeService->publishContentTypeDraft($contentTypeDraft);
     $output->writeln("Content type '$contentTypeIdentifier' with ID $contentTypeDraft->id created");
 } catch //...
@@ -162,8 +165,8 @@ You can specify more details of the Field definition in the create struct, for e
 
 ``` php
 $titleFieldCreateStruct = $this->contentTypeService->newFieldDefinitionCreateStruct('title', 'ezstring');
-$titleFieldCreateStruct->names = array('eng-GB' => 'Title');
-$titleFieldCreateStruct->descriptions = array('eng-GB' => 'The Title');
+$titleFieldCreateStruct->names = ['eng-GB' => 'Title'];
+$titleFieldCreateStruct->descriptions = ['eng-GB' => 'The Title'];
 $titleFieldCreateStruct->fieldGroup = 'content';
 $titleFieldCreateStruct->position = 10;
 $titleFieldCreateStruct->isTranslatable = true;
