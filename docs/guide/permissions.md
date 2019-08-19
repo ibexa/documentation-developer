@@ -121,7 +121,7 @@ Further manipulation of trash requires the `content/restore` Policy to restore i
 !!! caution
 
     With the `content/cleantrash` Policy, the User can empty the trash even if they do not have access to the trashed content,
-    e.g. because it belonged to a Section they to not have permissions for.
+    e.g. because it belonged to a Section they do not have permissions for.
 
 #### Registering Users
 
