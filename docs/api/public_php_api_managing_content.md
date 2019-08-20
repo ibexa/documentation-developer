@@ -68,8 +68,11 @@ You can remove a Location either by deleting it, or sending it to Trash.
 
 Deleting makes use of [`LocationService::deleteLocation()`.](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/LocationService.php#L213)
 It permanently deletes the Location, together with its whole subtree.
+
 Content which has only this one Location will be permanently deleted as well.
 Content which has more Locations will be still available in its other Locations.
+If you delete the [main Location](#changing-the-main-location) of a Content item that has more Locations,
+another Location will become the main one.
 
 ``` php
 $this->locationService->deleteLocation($location);
