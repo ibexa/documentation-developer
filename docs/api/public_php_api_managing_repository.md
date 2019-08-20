@@ -29,7 +29,7 @@ $output->writeln('Number of Content items in this section: ' . $this->sectionSer
 ### Listing content in a Section
 
 To list Content items assigned to a Section you need to make a [query](php_public_api_search.md)
-for Content belonging to this section, by applying the [`SearchService`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/SearchService.php):
+for Content belonging to this section, by applying the [`SearchService`:](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/SearchService.php)
 
 ``` php
 $query = new LocationQuery();
@@ -66,7 +66,7 @@ States are grouped into Object state groups.
 ### Creating Object states
 
 To create an Object state group and add Object states to it,
-you need to make use of the [`ObjectStateService`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ObjectStateService.php):
+you need to make use of the [`ObjectStateService`:](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ObjectStateService.php)
 
 ``` php
 $objectStateGroupStruct = $this->objectStateService->newObjectStateGroupCreateStruct('rank');
@@ -76,7 +76,7 @@ $this->objectStateService->createObjectStateGroup($objectStateGroupStruct);
 ```
 
 [`ObjectStateService::createObjectStateGroup`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ObjectStateService.php#L36)
-takes as argument an [`ObjectStateGroupCreateStruct`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/ObjectState/ObjectStateGroupCreateStruct.php),
+takes as argument an [`ObjectStateGroupCreateStruct`,](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/ObjectState/ObjectStateGroupCreateStruct.php)
 in which you need to specify the identifier, default language and at least one name for the group.
 
 To create an Object state inside a group,
@@ -146,7 +146,7 @@ $this->objectStateService->setContentState($contentInfo, $objectStateGroup, $obj
     ```
 
     To apply a transition to a Content item, use `WorkflowService::apply`.
-    Additionally, to you can check if the transition is possible for the given object using `WorkflowService::can`:
+    Additionally, you can check if the transition is possible for the given object using `WorkflowService::can`:
 
     ``` php
     if ($this->workflowService->can($workflowMetadata, $transitionName)) {
@@ -159,7 +159,7 @@ $this->objectStateService->setContentState($contentInfo, $objectStateGroup, $obj
 [`BookmarkService`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/BookmarkService.php)
 enables you to read, add and remove bookmarks from content.
 
-To view a list of all bookmarks, use [`BookmarkService::loadBookmarks`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/BookmarkService.php#L54):
+To view a list of all bookmarks, use [`BookmarkService::loadBookmarks`:](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/BookmarkService.php#L54)
 
 ``` php
 $bookmarkList = $this->bookmarkService->loadBookmarks();
@@ -180,7 +180,7 @@ $location = $this->locationService->loadLocation($locationId);
 $this->bookmarkService->createBookmark($location);
 ```
 
-You can remove a bookmark from a Location with [`BookmarkService::deleteBookmark`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/BookmarkService.php#L42):
+You can remove a bookmark from a Location with [`BookmarkService::deleteBookmark`:](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/BookmarkService.php#L42)
 
 ``` php
 $this->bookmarkService->deleteBookmark($location);
@@ -190,7 +190,7 @@ $this->bookmarkService->deleteBookmark($location);
 
 ### Getting Language information
 
-To get a list of all Languages in the system use [`LanguageService::loadLanguages`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/LanguageService.php#L81):
+To get a list of all Languages in the system use [`LanguageService::loadLanguages`:](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/LanguageService.php#L81)
 
 ``` php
 $languageList = $this->languageService->loadLanguages();

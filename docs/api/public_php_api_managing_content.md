@@ -8,7 +8,7 @@ using [`LocationService`.](https://github.com/ezsystems/ezpublish-kernel/blob/v7
 ### Adding a new Location to a Content item
 
 Every published Content item must be assigned at least one Location.
-One Content item can have more that one Location, which means it is present in more than one place
+One Content item can have more that one Location, which means it is presented in more than one place
 in the content tree.
 
 Creating a new Location, like creating content, requires using a struct,
@@ -52,7 +52,7 @@ $this->contentService->updateContentMetadata($contentInfo, $contentUpdateStruct)
 
 To hide or reveal (unhide) a Location you need to make use of
 [`LocationService::hideLocation`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/LocationService.php#L175)
-or [`LocationService::unhideLocation`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/LocationService.php#L189):
+or [`LocationService::unhideLocation`:](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/LocationService.php#L189)
 
 ``` php
 $hiddenLocation = $locationService->hideLocation($location);
@@ -85,7 +85,7 @@ $this->trashService->trash($location);
 
 ### Moving and copying a subtree
 
-You can move a Location with its whole subtree using [`LocationService::moveSubtree`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/LocationService.php#L204):
+You can move a Location with its whole subtree using [`LocationService::moveSubtree`:](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/LocationService.php#L204)
 
 ``` php
 $sourceLocation = $this->locationService->loadLocation($sourceLocationId);
@@ -108,7 +108,7 @@ but it copies the Location and its subtree instead of moving it.
 
 ## Trash
 
-To empty the Trash (remove all Locations in Trash), use [`TrashService::emptyTrash`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/TrashService.php#L72),
+To empty the Trash (remove all Locations in Trash), use [`TrashService::emptyTrash`,](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/TrashService.php#L72)
 which takes no arguments.
 
 You can recover an item from Trash using [`TrashService::recover`.](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/TrashService.php#L60)
@@ -131,7 +131,7 @@ $this->trashService->recover($trashItem, $newParent);
 
 ### Creating Content Types
 
-To operate on Content Types, you need to make use of [`ContentTypeService`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ContentTypeService.php).
+To operate on Content Types, you need to make use of [`ContentTypeService`.](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ContentTypeService.php)
 
 Creating a new Content Type, like creating content, must happen with the use of a struct, because a Content Type value object is read-only.
 In this case you use [`ContentTypeCreateStruct`.](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/ContentType/ContentTypeCreateStruct.php)
@@ -177,7 +177,7 @@ $contentTypeCreateStruct->addFieldDefinition($titleFieldCreateStruct);
 
 ### Copying Content Types
 
-To copy a Content Type, use [`ContentTypeService::copyContentType`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ContentTypeService.php#L244):
+To copy a Content Type, use [`ContentTypeService::copyContentType`:](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ContentTypeService.php#L244)
 
 ``` php
 $copy = $this->contentTypeService->copyContentType($contentType);
@@ -186,7 +186,7 @@ $copy = $this->contentTypeService->copyContentType($contentType);
 The copy will automatically be given an identifier based on the original Content Type identifier
 and the copy's ID, for example: `copy_of_folder_21`.
 
-To change the identifier of the copy, use a [`ContentTypeUpdateStruct`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/ContentType/ContentTypeUpdateStruct.php):
+To change the identifier of the copy, use a [`ContentTypeUpdateStruct`:](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/ContentType/ContentTypeUpdateStruct.php)
 
 ``` php
 $copyDraft = $this->contentTypeService->createContentTypeDraft($copiedContentType);
