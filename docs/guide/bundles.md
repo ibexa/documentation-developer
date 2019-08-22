@@ -276,7 +276,7 @@ The following tables give an overview of the main eZ Platform bundles.
 |------|-----------|
 |[developer-documentation](https://github.com/ezsystems/developer-documentation)|source for the developer documentation for eZ Platform, an open source CMS based on the Symfony Full Stack Framework in PHP. https://doc.ezplatform.com|
 |[user-documentation](https://github.com/ezsystems/user-documentation)|source for the user documentation for eZ Platform, an open source CMS based on the Symfony Full Stack Framework in PHP|
-|[ezservices-documentation](https://github.com/ezsystems/ezservices-documentation)|source for the eZ Services documentation for eZ Platform, an open source CMS based on the Symfony Full Stack Framework in PHP|
+|[ezpersonalization-documentation](https://github.com/ezsystems/ezservices-documentation)|source for the eZ Personalization documentation for eZ Platform, an open source CMS based on the Symfony Full Stack Framework in PHP|
 
 ### Legacy
 

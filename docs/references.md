@@ -45,4 +45,4 @@
 
 ## Personalization Solution
 
-- [Services documentation](https://doc.ezplatform.com/projects/ezservices/en/latest/)
+- [Personalization documentation](https://doc.ezplatform.com/projects/ezpersonalization/en/latest/)

@@ -275,11 +275,10 @@ extra:
       url: '/'
     - title: 'eZ Platform User Documentation'
       url: '/projects/userguide'
-    - title: 'eZ Services Documentation'
-      url: '/projects/ezservices'
+    - title: 'eZ Personalization Documentation'
+      url: '/projects/ezpersonalization'
     - title: 'eZ Commerce'
       url: 'https://doc.ez.no/commerce'
-      
 
 extra_css:
   - fonts/MavenPro.css
