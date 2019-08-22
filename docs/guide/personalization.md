@@ -5,7 +5,7 @@ It allows you to track the way visitors use your website and recommends content 
 
 !!! tip "More information"
 
-    - [eZ Services documentation](https://doc.ezplatform.com/projects/ezservices)
+    - [eZ Personalization documentation](https://doc.ezplatform.com/projects/ezpersonalization)
 
 !!! note "Personalization Bundle v1"
 
@@ -127,7 +127,7 @@ Place this in a settings file which won't be affected by an update to the Recomm
 
 Visitor events (clicks, buys, ...) on the site need to be sent to the Personalization Solution for the recommendations to be calculated. The content types that are marked to be tracked are also exported to the Personalization Engine. Please note that you can only recommend what you track!
 
-By defining the Content Types in the local `app/config/config.yml` file, the content will be initially exported by a script. After this, it will be kept in sync with the Personalization Solution everytime a change occurs in the eZ Platform back office.
+By defining the Content Types in the local `app/config/config.yml` file, the content will be initially exported by a script. After this, it will be kept in sync with the Personalization Solution every time a change occurs in the eZ Platform back office.
 
 The bundle's configuration is SiteAccess-aware. This is an example of the settings (in `config.yml`):
 
@@ -200,7 +200,7 @@ The `EzSystemsRecommendationBundle` delivers a Twig extension which helps integr
 
 !!! note "How tracking works"
 
-    In the YOOCHOOSE documentation you can find more information about [tracking in general](https://doc.ezplatform.com/projects/ezservices/en/latest/personalization/developer_guide/tracking_api/) and about the [generic asynchronous JavaScript tracker] (https://doc.ezplatform.com/projects/ezservices/en/latest/personalization/developer_guide/tracking_with_yct/).
+    In the YOOCHOOSE documentation you can find more information about [tracking in general](https://doc.ezplatform.com/projects/ezpersonalization/en/latest/personalization/developer_guide/tracking_api/) and about the [generic asynchronous JavaScript tracker] (https://doc.ezplatform.com/projects/ezpersonalization/en/latest/personalization/developer_guide/tracking_with_yct/).
 
 ### 2. Check if the bundle provides REST data
 
