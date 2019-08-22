@@ -1,4 +1,4 @@
-# Step 3 -  Create form for editing Field Type
+# Step 3 - Create form for editing Field Type
 
 !!! tip
 
@@ -37,7 +37,7 @@ final class Point2DType extends AbstractType
 }
 ```
 
-## Add Form Mappper Interface
+## Add Form Mapper Interface
 
 Add `FieldValueFormMappperInterface` interface (`EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface`) to Field Type definition in ` src/FieldType/Point2D/Type.php`.
 
