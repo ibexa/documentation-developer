@@ -22,8 +22,7 @@ class CreateContentCommand extends Command
         $contentTypeIdentifier = $input->getArgument('contentType');
         $title = $input->getArgument('title');
 
-        try
-        {
+        try {
             $contentType = $this->contentTypeService->loadContentTypeByIdentifier($contentTypeIdentifier);
             $contentCreateStruct = $this->contentService->newContentCreateStruct($contentType, 'eng-GB');
             $contentCreateStruct->setField('title', $title);
@@ -56,6 +55,9 @@ Therefore, to create a Content item of the Image type (or any other Content Type
 the `ContentCreateStruct` is slightly more complex then in the previous example:
 
 ``` php
+$file = '/path/to/image.png';
+$name = 'Image name';
+
 $contentType = $this->contentTypeService->loadContentTypeByIdentifier('image');
 $contentCreateStruct = $this->contentService->newContentCreateStruct($contentType, 'eng-GB');
 $contentCreateStruct->setField('name', $name);
@@ -75,7 +77,7 @@ based on the input file.
 
 ### Creating content with RichText
 
-The RichText Field accepts values in eZ Platform's variant of the [Docbook](https://docbook.org/) format.
+The RichText Field accepts values in eZ Platform's variant of the [Docbook](https://github.com/docbook/wiki/wiki) format.
 You can see more information about this format in [Field Types reference](field_type_reference.md#example-of-the-field-types-internal-format).
 
 For example, to add a simple RichText paragraph, provide the following as input:
@@ -103,6 +105,7 @@ This method works on a draft, so to publish your changes you need to use `Conten
 ``` php
 try {
     $contentDraft = $this->contentService->createContentDraft($contentInfo);
+    $newName = 'New content name';
 
     $contentUpdateStruct = $this->contentService->newContentUpdateStruct();
     $contentUpdateStruct->initialLanguageCode = 'eng-GB';
@@ -122,10 +125,12 @@ To translate a Content item to a new language, you need to update it and provide
 
 ``` php
 $contentDraft = $this->contentService->createContentDraft($contentInfo);
+$newLanguage = 'ger-DE';
+$translatedName = 'Name in German';
 
 $contentUpdateStruct = $this->contentService->newContentUpdateStruct();
 $contentUpdateStruct->initialLanguageCode = $newLanguage;
-$contentUpdateStruct->setField('name', $newName);
+$contentUpdateStruct->setField('name', $translatedName);
 
 $contentDraft = $this->contentService->updateContent($contentDraft->versionInfo, $contentUpdateStruct);
 $this->contentService->publishVersion($contentDraft->versionInfo);
@@ -135,6 +140,9 @@ You can also update content in multiple languages at once using the `setField` m
 Only one language must still be set a version's initial language:
 
 ``` php
+$anotherLanguagee = 'fre-FR';
+$newNameInAnotherLanguage = "Name in French";
+
 $contentUpdateStruct = $this->contentService->newContentUpdateStruct();
 $contentUpdateStruct->initialLanguageCode = $newLanguage;
 $contentUpdateStruct->setField('name', $newName);
