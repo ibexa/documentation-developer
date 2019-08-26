@@ -117,4 +117,7 @@ $(document).ready(function () {
 
     $("#imageModal").click(function(){ $(this).hide() });
 
+    $('.md-nav__permlink').attr('href', '#' + $('h1').attr('id'));
+    $('.md-nav__permlink').html($('h1').text().replace('¶', ''));
+
 });
