@@ -42,7 +42,7 @@ This method must receive a `ContentCreateStruct` and an array of Location struct
 
 `ContentCreateStruct` (which extends `ContentStruct`) is created through [`ContentService::newContentCreateStruct`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ContentService.php#L486) (line 18),
 which receives the Content Type and the primary language for the Content item.
-(See [Translating content](#translating-content) for information about translating the Content item into other languages).
+For information about translating a Content item into other languages, see [Translating content](#translating-content).
 
 [`ContentStruct::setField`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/ContentStruct.php#L31) (line 19) enables you to define the Field values.
 When the Field accepts a simple value, you can provide it directly, as in the example above.
@@ -51,8 +51,8 @@ For some Field Types, for example [images](#creating-an-image), you need to prov
 ### Creating an image
 
 Image Field Type requires providing an instance of its Value type to the [`ContentStruct::setField`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/ContentStruct.php#L31) method.
-Therefore, to create a Content item of the Image type (or any other Content Type with an `image` Field Type),
-the `ContentCreateStruct` is slightly more complex then in the previous example:
+Therefore, when creating a Content item of the Image type (or any other Content Type with an `image` Field Type),
+the `ContentCreateStruct` is slightly more complex than in the previous example:
 
 ``` php
 $file = '/path/to/image.png';
@@ -89,7 +89,7 @@ For example, to add a simple RichText paragraph, provide the following as input:
 ## Publishing a draft
 
 [`ContentService::createContent`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ContentService.php#L204) creates a Content with only one draft version.
-To publish it use [`ContentService::publishVersion`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ContentService.php#L298).
+To publish it, use [`ContentService::publishVersion`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ContentService.php#L298).
 This method must get the [`VersionInfo`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/VersionInfo.php) object of a draft version.
 
 ``` php
@@ -137,7 +137,7 @@ $this->contentService->publishVersion($contentDraft->versionInfo);
 ```
 
 You can also update content in multiple languages at once using the `setField` method's third argument.
-Only one language must still be set a version's initial language:
+Only one language must still be set as a version's initial language:
 
 ``` php
 $anotherLanguagee = 'fre-FR';
@@ -152,7 +152,7 @@ $contentUpdateStruct->setField('name', $newNameInAnotherLanguage, $anotherLangua
 ### Deleting a translation
 
 You can delete a single translation from a Content item's version using [`ContentService::deleteTranslationFromDraft`.](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ContentService.php#L452)
-The method must be provided a `VersionInfo` object and the code of the language to delete:
+The method must be provided with a `VersionInfo` object and the code of the language to delete:
 
 ``` php
 $this->contentService->deleteTranslationFromDraft($versionInfo, $language);
