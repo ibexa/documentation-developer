@@ -30,6 +30,10 @@ body {
     color: #f15a22;
 }
 
+.md-nav__heading {
+    font-weight: 700;
+}
+
 .md-nav__link:hover {
     color: #f15a22;
 }
