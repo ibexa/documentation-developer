@@ -105,7 +105,7 @@ foreach ($versionInfos as $versionInfo) {
     $creator = $this->userService->loadUser($versionInfo->creatorId);
     $output->write("Version $versionInfo->versionNo ");
     $output->write(" by " . $creator->contentInfo->name);
-    $output->writeln(" " . $this->outputStatus($versionInfo->status) . " " . $versionInfo->initialLanguageCode);
+    $output->writeln(" " . $versionInfo->initialLanguageCode);
 }
 ```
 

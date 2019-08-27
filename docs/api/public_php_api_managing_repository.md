@@ -19,17 +19,17 @@ $this->sectionService->createSection($sectionCreateStruct);
 
 ### Getting Section information
 
-You can use `SectionService` to retrieve Section information such as whether it is in use, or the total number of content assigned to it:
+You can use `SectionService` to retrieve Section information such as whether it is in use:
 
 ``` php
 $output->writeln(($this->sectionService->isSectionUsed($section) ? 'This section is in use.' : 'This section is not in use.'));
-$output->writeln('Number of Content items in this section: ' . $this->sectionService->countAssignedContents($section));
 ```
 
 ### Listing content in a Section
 
 To list Content items assigned to a Section you need to make a [query](php_public_api_search.md)
-for Content belonging to this section, by applying the [`SearchService`:](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/SearchService.php)
+for Content belonging to this section, by applying the [`SearchService`.](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/SearchService.php)
+You can also use the query to get the total number of assigned Content items:
 
 ``` php
 $query = new LocationQuery();
@@ -38,6 +38,7 @@ $query->filter = new Criterion\SectionId([
 ]);
 
 $result = $this->searchService->findContentInfo($query);
+$output->writeln('Number of Content items in this section: ' . $result->totalCount);
 
 foreach ($result->searchHits as $seachResult) {
     $output->writeln($seachResult->valueObject->name);
