@@ -797,7 +797,7 @@ services:
 
 ### Default settings
 
-Back Office provides default set of `ezsettings` for `admin_group` SiteAccess.
+Back Office provides a default set of `ezsettings` for `admin_group` SiteAccess.
 Keep in mind that those settings might be easily overridden by global or SiteAccess `ezsettings`, as well as all bundles, including third party and yours.
 For this reason, `ezsettings` values mentioned in the documentation might not work in your project.
 
