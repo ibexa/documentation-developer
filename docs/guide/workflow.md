@@ -93,7 +93,7 @@
     Each stage in the workflow has an identifier and can be assigned a label and a color (lines 16-18).
 
     Each transition also has an identifier. It must state between which stages it transitions, or be marked as `reverse` of a different transition.
-    Transitions can also have labels, color, and icons (lines 33-38).
+    Transitions can also have labels, colors, and icons (lines 33-38).
 
     `notification` (lines 69-72) defines who will be notified when a transition happens by providing the User or User Group ID.
     Notifications will be displayed in the user menu.
