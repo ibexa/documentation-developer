@@ -128,7 +128,7 @@ ezpublish:
                             '@App\Matcher\MyMatcher': 2
 ```
 
-The service must be tagged with `ezpublish.view.matcher`
+The service must be tagged with `ezplatform.view.matcher`
 and must implement `\eZ\Publish\Core\MVC\Symfony\Matcher\ContentBased\ViewMatcherInterface`. 
 
 ### Content view templates
