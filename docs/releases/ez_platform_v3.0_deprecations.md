@@ -155,7 +155,7 @@ The deprecated `universal_discovery_widget_module.default_location_id` setting h
 
 ### User settings
 
-As a result of moving it to the [`ezplatform-user`](https://github.com/ezsystems/ezplatform-user) package, the following deprecated code for handling the user settings has been dropped:
+As a result of moving user settings to the [`ezplatform-user`](https://github.com/ezsystems/ezplatform-user) package, the following deprecated code for handling the settings has been dropped:
 
 - `EzSystems\EzPlatformAdminUi\UserSetting\`
 - `EzSystems\EzPlatformAdminUi\Pagination\Pagerfanta\UserSettingsAdapter`
