@@ -373,7 +373,7 @@ This code will load `my_field_template.html.twig` located in `templates/fields/`
 ``` html+twig
 {# Assuming "my_field_identifier" from the template above example is an ezkeyword field. #}
 {% block ezkeyword_field %}
-    {% spaceless %}
+    {% apply spaceless %}
         {% if field.value.values|length() > 0 %}
         <ul>
             {% for keyword in field.value.values %}
@@ -381,7 +381,7 @@ This code will load `my_field_template.html.twig` located in `templates/fields/`
             {% endfor %}
         </ul>
         {% endif %}
-    {% endspaceless %}
+    {% endapply %}
 {% endblock %}
 ```
 
@@ -421,7 +421,7 @@ you can specify the current template to be the source of the Field block.
 
 {# Here begins the inline block for my ezkeyword field #}
 {% block ezkeyword_field %}
-    {% spaceless %}
+    {% apply spaceless %}
         {% if field.value.values|length() > 0 %}
         <ul>
             {% for keyword in field.value.values %}
@@ -429,7 +429,7 @@ you can specify the current template to be the source of the Field block.
             {% endfor %}
         </ul>
         {% endif %}
-    {% endspaceless %}
+    {% endapply %}
 {% endblock %}
 ```
 
