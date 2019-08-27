@@ -145,7 +145,7 @@ App\FieldType\HelloWorld\Type:
 
 ### Create a template
 
-Next thing to create is the template. It will define the default display of `HelloWorld` field.
+Create the template for new Field Type. It will define the default display of `HelloWorld` field.
 In `templates` directory create `field_type.html.twig` file.
 Inside add a following code block:
 
@@ -157,7 +157,7 @@ Inside add a following code block:
 
 ### Template mapping
 
-Next, provide the template mapping in `config/packages/ezplatform.yaml`:
+Provide the template mapping in `config/packages/ezplatform.yaml`:
 
 ```yaml
 ezpublish:
@@ -170,4 +170,4 @@ ezpublish:
 
 ## Final results
 
-You should be able to add a new Content Type in the Back Office interface. 
+Finally, you should be able to add a new Content Type in the Back Office interface. 
