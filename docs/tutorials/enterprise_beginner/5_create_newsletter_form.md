@@ -89,11 +89,11 @@ Create a `templates/form_field.html.twig` file:
     {% if formValue %}
         {% set form = formValue.createView() %}
         {% form_theme form 'bootstrap_4_layout.html.twig' %}
-        {% spaceless %}
+        {% apply spaceless %}
             {% if not ez_field_is_empty(content, field) %}
                 {{ form(form) }}
             {% endif %}
-        {% endspaceless %}
+        {% endapply %}
     {% endif %}
 {% endblock %}
 ```
