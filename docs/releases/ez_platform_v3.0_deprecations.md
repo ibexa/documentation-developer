@@ -153,6 +153,16 @@ The deprecated `universal_discovery_widget_module.default_location_id` setting h
 
 ## Deprecations
 
+### User settings
+
+As a result of moving it to the [`ezplatform-user`](https://github.com/ezsystems/ezplatform-user) package, the following deprecated code for handling the user settings has been dropped:
+
+- `EzSystems\EzPlatformAdminUi\UserSetting\`
+- `EzSystems\EzPlatformAdminUi\Pagination\Pagerfanta\UserSettingsAdapter`
+- `EzSystems\EzPlatformAdminUi\Form\Type\User\Setting\UserSettingUpdateType`
+- `EzSystems\EzPlatformAdminUiBundle\Controller\UserProfile\UserPasswordChangeController`
+- `EzSystems\EzPlatformAdminUiBundle\Controller\User\{UserSettingsController,UserForgotPasswordController}`
+
 ### Template parameter names
 
 The SiteAccess-aware `pagelayout` setting is deprecated in favor of `page_layout`.
