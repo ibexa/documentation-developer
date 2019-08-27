@@ -795,7 +795,7 @@ services:
 
 ## Settings
 
-## Default settings
+### Default settings
 
 Back Office provides default set of `ezsettings` for `admin_group` SiteAccess.
 Keep in mind that those settings might be easily overridden by global or SiteAccess `ezsettings`, as well as all bundles, including third party and yours.
