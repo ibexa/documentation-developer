@@ -88,7 +88,6 @@ services:
             - { name: serializer.denormalizer }
 ```
 
-
 ## Change format in flight
 
 To change format in flight you need to add to `src/FieldType/Point2D/Value.php`:

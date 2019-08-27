@@ -39,6 +39,16 @@ pages:
             - '6. Introduce a template': 'tutorials/field_type/6_introduce_a_template.md'
             - '7. Allow adding and editing the Field in Back Office': 'tutorials/field_type/7_allow_adding_and_editing_the_field_in_back_office.md'
             - '8. Add a validation': 'tutorials/field_type/8_add_a_validation.md'
+        - Generic Field Type:
+            - 'Creating Point 2D Field Type': 'tutorials/generic_field_type/creating_a_point2d_field_type.md'
+            - '1. Implement Value class': 'tutorials/generic_field_type/1_implement_the_point2d_value_class.md'
+            - '2. Define Field Type': 'tutorials/generic_field_type/2_define_point2d_field_type.md'
+            - '3. Create a form': 'tutorials/generic_field_type/3_register_point2d_as_a_service.md'
+            - '4. Introduce a template': 'tutorials/generic_field_type/4_introduce_a_template.md'
+            - '5. Add a new field': 'tutorials/generic_field_type/5_add_a_field.md'
+            - '6. Implement settings': 'tutorials/generic_field_type/6_settings.md'
+            - '7. Add basic validation': 'tutorials/generic_field_type/7_add_a_validation.md'
+            - '8. Data migration': 'tutorials/generic_field_type/8_data_migration.md'
         - Extending Admin UI:
             - 'Extending Admin UI': 'tutorials/extending_admin_ui/extending_admin_ui.md'
             - '1. Creating a Dashboard tab': 'tutorials/extending_admin_ui/1_creating_a_dashboard_tab.md'
