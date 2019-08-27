@@ -24,9 +24,11 @@ You can extend the Back Office in the following areas:
 - [Menus](#menus)
 - [Dashboard](#dashboard)
 - [Tabs](#tabs)
+- [Custom Content Type icons](#custom-content-type-icons)
 - [Workflow event timeline](#workflow-event-timeline)
 - [Injecting custom components](#injecting-custom-components)
 - [Format date and time](#format-date-and-time)
+- [Settings](#settings)
 - [Universal Discovery module](extending_modules.md#universal-discovery-module)
 - [Sub-items list](extending_modules.md#sub-items-list)
 - [Multi-file upload](extending_modules.md#multi-file-upload)
@@ -791,7 +793,15 @@ services:
             $shortDateTimeFormatter: '@ezplatform.user.settings.short_datetime_format.formatter'
 ```
 
-## User settings
+## Settings
+
+### Default settings
+
+Back Office provides a default set of `ezsettings` for `admin_group` SiteAccess.
+Keep in mind that those settings might be easily overridden by global or SiteAccess `ezsettings`, as well as all bundles, including third party and yours.
+For this reason, `ezsettings` values mentioned in the documentation might not work in your project.
+
+### User settings
 
 You can add new preferences to the User settings menu in the Back Office.
 
@@ -883,9 +893,9 @@ You can order the settings in the User menu by setting their `priority`.
 
 The value of the setting is accessible with `ez_user_settings['unit']`.
 
-### User settings edit templates
+### Templates settings
 
-You can also define a template to be used when editing the given setting:
+You can define a template to be used when editing the given setting:
 
 ``` yaml
 ezpublish:
