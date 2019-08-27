@@ -93,7 +93,9 @@
     Each stage in the workflow has an identifier and can be assigned a label and a color (lines 16-18).
 
     Each transition also has an identifier. It must state between which stages it transitions, or be marked as `reverse` of a different transition.
+    
     Transitions can also have labels, colors, and icons (lines 33-38).
+    If you don't define a custom color for a transition, a default setting will be used (`$ez-color-base-light`, i.e. `#878787`).
 
     `notification` (lines 69-72) defines who will be notified when a transition happens by providing the User or User Group ID.
     Notifications will be displayed in the user menu.
