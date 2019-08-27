@@ -44,8 +44,8 @@ The full list of available services covers:
 The services provide interaction with read-only value objects from the `eZ\Publish\API\Repository\Values` namespace.
 Those objects are divided into sub-namespaces: `Content`, `ContentType`, `User` and `ObjectState`.
 Each sub-namespace contains a set of value objects,
-such as [`Content\Content`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.2/eZ/Publish/API/Repository/Values/Content/Content.php)
-or [`User\Role`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.2/eZ/Publish/API/Repository/Values/User/Role.php).
+such as [`Content\Content`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/Content.php)
+or [`User\Role`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/User/Role.php).
 
 Value objects come with their own properties, such as `$content->id` or `$location->hidden`,
 as well as with methods that provide access to more related information,
