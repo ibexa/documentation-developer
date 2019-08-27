@@ -21,14 +21,12 @@ Simplified process of creating custom Field Type based on Generic Field Type:
 
 ## Define Value Object
 
-To begin, you need a clean installation of eZ Platform.
-
 Create `Value.php` inside `src/FieldType/HelloWorld` directory.
 The Value class of a Field Type is very simple.
 It contains only basic logic, because the rest of the logic is handled by the `Type` class.
 The `HelloWorld` Value class should contain:
 
-- public properties that retrieve name
+- public properties that retrieve `name`
 - an implementation of the `__toString()` method
 
 ```php
@@ -56,7 +54,7 @@ The `HelloWorld` Value class should contain:
 
 ## Define fields and configuration
 
-In this step you will implement definition of a Field Type extending Generic Field Type in `Value.php` `Type` class.
+In this step you will implement definition of a Field Type extending Generic Field Type in `src/FieldType/HelloWorld/Type.php` class.
 
 ```php
 <?php
@@ -73,7 +71,7 @@ final class Type extends GenericType implements FieldValueFormMapperInterface
 }
 ```
 
-Add a new `App\Type` class in `config/services.yaml`
+Next, add the `ezplatform.field_type` class to `config/services.yaml`:
 
 ```yaml
 App\FieldType\HelloWorld\Type:
@@ -83,14 +81,33 @@ App\FieldType\HelloWorld\Type:
 
 ## Define form for Value Object
 
-To define form for your Field Type create `src/Form/Type` directory.  
+Create `src/Form/Type/HelloWorldType.php` form:
 
-Formularz stworzyc w katalogu `src/Form/Type` tam dodac klase `Point2DType` (extends abstractType, zaimplementowac BuildForm)
-Wazne: metoda BuildForm dodaje pola, w ktore bedzie sie wprowadzac wspolrzedne x i y
-Pozwala uniknac implementacji Data Transformera, 
-ustawic opcje data class na Value::class
+```php
+<?php
+declare(strict_types=1);
+namespace AppBundle\Form\Type;
+use AppBundle\FieldType\HelloWorld\Value;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+final class HelloWorldType extends AbstractType
+{
+    public function buildForm(FormBuilderInterface $builder, array $options): void
+    {
+        $builder->add('name', TextType::class);
+    }
+    public function configureOptions(OptionsResolver $resolver): void
+    {
+        $resolver->setDefaults([
+            'data_class' => Value::class
+        ]);
+    }
+}
+```
 
-- dodac do definicji FT, dodajemy interfejs `FieldValueFormMappperInterface` (`\EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface`)
+Add `FieldValueFormMappperInterface` interface (`EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface`) to Field Type definition in `src/FieldType/HellowWorld/Type.php`:
 
 ```php
 <?php
@@ -104,10 +121,7 @@ use Symfony\Component\Form\FormInterface;
 
 final class Type extends GenericType implements FieldValueFormMapperInterface
 {
-    public function getFieldTypeIdentifier(): string
-    {
-        return 'hello_world';
-    }
+    ...
     public function mapFieldValueForm(FormInterface $fieldForm, FieldData $data): void
     {
         $definition = $data->fieldDefinition;
@@ -119,38 +133,7 @@ final class Type extends GenericType implements FieldValueFormMapperInterface
 }
 ```
 
-- do formularza edycji tresci dodajemy pole pozwalajace wprowadzic wartosc dla naszego FT
-`src/Form/Type/HelloWorld.php`
-
-```php
-<?php
-/* /src/AppBundle/FieldType/HelloWorld/Type.php */
-namespace AppBundle\FieldType\HelloWorld;
-use AppBundle\Form\Type\HelloWorldType;
-use eZ\Publish\Core\FieldType\Generic\Type as GenericType;
-use EzSystems\RepositoryForms\Data\Content\FieldData;
-use EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface;
-use Symfony\Component\Form\FormInterface;
-final class Type extends GenericType implements FieldValueFormMapperInterface
-{
-    public function getFieldTypeIdentifier(): string
-    {
-        return 'hello_world';
-    }
-    public function mapFieldValueForm(FormInterface $fieldForm, FieldData $data): void
-    {
-        $definition = $data->fieldDefinition;
-        $fieldForm->add('value', HelloWorldType::class, [
-            'required' => $definition->isRequired,
-            'label' => $definition->getName()
-        ]);
-    }
-}
-```
-
-- dodac kolejny tag do definicji serwisu: ` - { name: ezplatform.field_type.form_mapper.value, fieldType: point2d }`
-
-in `config/services.yaml`
+Next, add the `ezplatform.field_type.form_mapper.value` class to `config/services.yml`:
 
 ```yaml
 App\FieldType\HelloWorld\Type:
@@ -160,13 +143,13 @@ App\FieldType\HelloWorld\Type:
 
 ## Render fields
 
-### Create template
+### Create a template
 
 Next thing to create is the template. It will define the default display of `HelloWorld` field.
-In templates directory create `field_type.html.twig` file.
-Inside add a following block:
+In `templates` directory create `field_type.html.twig` file.
+Inside add a following code block:
 
-```twig
+```html+twig
 {% block hello_world_field %}
     Hello <b>{{ field.value.getName() }}!</b>
 {% endblock %}
@@ -187,4 +170,4 @@ ezpublish:
 
 ## Final results
 
-You can now select and use your new Field Type in the Back Office interface.
+You should be able to add a new Content Type in the Back Office interface. 

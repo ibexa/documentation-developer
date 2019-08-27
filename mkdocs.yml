@@ -136,6 +136,7 @@ pages:
             - 'Extending eZ Platform': 'guide/extending_ez_platform.md'
             - 'Extending modules': 'guide/extending_modules.md'
             - 'Extending the Online Editor': 'guide/extending_online_editor.md'
+            - 'Creating custom Field Type': 'guide/extending_field_type.md'
             - 'Creating custom Page blocks': 'guide/extending_page.md'
             - 'Creating custom richtext blocks': 'guide/richtext_block.md'
             - 'Extending Form Builder': 'guide/extending_form_builder.md'
