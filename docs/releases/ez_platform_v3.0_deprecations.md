@@ -153,7 +153,7 @@ The deprecated `universal_discovery_widget_module.default_location_id` setting h
 
 #### View matching
 
-When matching views using custom services, the services must be now tagged with `ezpublish.matcher.view`.
+When matching views using custom services, the services must be now tagged with `ezpublish.view.matcher`.
 The matching must be configured in the following way:
 
 ``` yaml
