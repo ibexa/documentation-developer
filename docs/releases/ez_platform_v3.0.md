@@ -61,6 +61,8 @@ Use [Event Listeners](https://symfony.com/doc/4.3/event_dispatcher.html) in your
 ### Deprecated Field Types
 
 Deprecated `ezprice` and `ezpage` Field Types have been removed.
+Nameable field type interface has been removed and replaced by `eZ\Publish\SPI\FieldType\FieldType::getName`.
+Refer to [Backwards compatibility doc](ez_platform_v3.0_deprecations.md#field-types) for full list of changes on Field Types.
 
 ### Elastic Search
 
