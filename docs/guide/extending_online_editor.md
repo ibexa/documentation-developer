@@ -246,13 +246,13 @@ In the example above, the template files for the front end could be:
 - `app/Resources/views/themes/standard/field_type/ezrichtext/custom_style/highlighted_word.html.twig`:
 
 ``` html+twig
-<span class="ezstyle-{{ name }}">{% spaceless %}{{ content|raw }}{% endspaceless %}</span>
+<span class="ezstyle-{{ name }}">{% apply spaceless %}{{ content|raw }}{% endapply %}</span>
 ```
 
 - `app/Resources/views/themes/standard/field_type/ezrichtext/custom_style/highlighted_block.html.twig`:
 
 ``` html+twig
-<div class="{% if align is defined %}align-{{ align }}{% endif %} ezstyle-{{ name }}">{% spaceless %}{{ content|raw }}{% endspaceless %}</div>
+<div class="{% if align is defined %}align-{{ align }}{% endif %} ezstyle-{{ name }}">{% apply spaceless %}{{ content|raw }}{% endapply %}</div>
 ```
 
 Templates for Content View in the Back Office would be `app/Resources/views/themes/admin/field_type/ezrichtext/custom_style/highlighted_word.html.twig` and `app/Resources/views/themes/admin/field_type/ezrichtext/custom_style/highlighted_block.html.twig` respectively (assuming Admin SiteAccess uses the `admin` theme).

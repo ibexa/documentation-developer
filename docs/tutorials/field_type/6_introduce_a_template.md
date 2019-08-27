@@ -29,15 +29,15 @@ A basic template (`TweetFieldTypeBundle/Resources/views/fields/eztweet.html.twig
 
 ``` html+twig
 {% block eztweet_field %}
-    {% spaceless %}
+    {% apply spaceless %}
         {{ field.value.contents|raw }}
-    {% endspaceless %}
+    {% endapply %}
 {% endblock %}
 ```
 
 `field.value.contents` is piped through the `raw` twig operator, since the variable contains HTML code.
 Without it, the HTML markup would be visible directly, because Twig escapes variables by default.
-Notice that the code is nested within a `spaceless` tag, so that you can format the template in a readable manner
+Notice that the code is nested within a `apply spaceless` tag, so that you can format the template in a readable manner
 without jeopardizing the display with unwanted spaces.
 
 ### Using the content field helpers
@@ -58,12 +58,12 @@ The helper will use `field_attributes` to add the HTML attributes to the generat
 {% extends "EzPublishCoreBundle::content_fields.html.twig" %}
 
 {% block eztweet_field %}
-    {% spaceless %}
+    {% apply spaceless %}
         {% set field_value %}
             {{ field.value.contents|raw }}
         {% endset %}
         {{ block( 'simple_block_field' ) }}
-    {% endspaceless %}
+    {% endapply %}
 {% endblock %}
 ```
 

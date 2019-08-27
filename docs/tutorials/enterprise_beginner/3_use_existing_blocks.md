@@ -125,7 +125,7 @@ The configuration defines one view for the Schedule block called `featured` and
 Create the new file `app/Resources/views/blocks/schedule/featured.html.twig`:
 
 ``` html+twig hl_lines="11"
-{% spaceless %}
+{% apply spaceless %}
     <div class="schedule-layout schedule-layout--grid">
         <div class="featured-articles-block">
             <h2 class="heading">{{ 'Featured Articles'|trans }}</h2>
@@ -143,7 +143,7 @@ Create the new file `app/Resources/views/blocks/schedule/featured.html.twig`:
             </div>
         </div>
     </div>
-{% endspaceless %}
+{% endapply %}
 ```
 
 When you look at the template, you can see three blocks, each of which will render the Content items using the `featured` view (line 11).
