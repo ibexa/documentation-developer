@@ -34,6 +34,12 @@ These setups are tested by QA and are generally recommended setups. For security
 |Package manager|Composer (recent stable version)|
 |Asset manager|`Node.js` 10.15.3 LTS</br>`yarn` 1.15.2 or higher|
 
+!!! caution
+
+    If your Java version is higher than 8 you need to downgrade it to Oracle Java/Open JDK: 8. 
+    You can do it by following your favorite tutorial, for example:
+    [How to downgrade Java on Ubuntu/Kali Linux.](https://flicsdb.com/how-to-downgrade-java-on-ubuntu-kali-linux/)
+
 ### Other supported setups
 
 For security and performance we generally recommend (unless otherwise noted and marked with \*) using the newer versions of components below.
