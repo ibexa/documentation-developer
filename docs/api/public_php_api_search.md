@@ -15,8 +15,8 @@ The service should be [injected into the constructor of your command or controll
 To search through Content you need to create a [`LocationQuery`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/LocationQuery.php)
 and provide your search criteria as a series of Criterion objects.
 
-For example, searching for all Content of the selected Content Type, you need to use one Criterion,
-in this case `Criterion\ContentTypeIdentifier` (line 14).
+For example, to search for all Content of a selected Content Type, use one Criterion,
+`Criterion\ContentTypeIdentifier` (line 14).
 
 The following command takes the Content Type identifier as an argument and lists all results:
 
@@ -49,8 +49,8 @@ class FindContentCommand extends Command
 retrieves [`ContentInfo`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/ContentInfo.php) objects of the found Content items.
 You can also use [`SearchService::findContent`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/SearchService.php#L122) to get full Content objects, together with their Field information.
 
-You can also query for a single result, for example by providing a Content ID,
-with the [`SearchService::findSingle`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/SearchService.php#L159) method:
+To query for a single result, for example by providing a Content ID,
+use the [`SearchService::findSingle`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/SearchService.php#L159) method:
 
 ``` php
 $criterion = new Criterion\ContentId($contentId);
@@ -68,7 +68,7 @@ You can use two properties of the `Query` object to search for Content: `query` 
 
 In contrast to `filter`, `query` has an effect of search scoring (relevancy).
 It affects default sorting if no Sort Clause is used.
-As such, `query` is recommended when the search uses are based on user input.
+As such, `query` is recommended when the search is based on user input.
 
 The difference between `query` and `filter` is only relevant when using Solr search engine.
 With the Legacy search engine both properties will give identical results.
@@ -253,7 +253,7 @@ $query->sortClauses = [
 
     To find out if a given search engine supports any of the advanced search capabilities,
     use the [`eZ\Publish\API\Repository\SearchService::supports`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/SearchService.php#L187-L197) method:
-    
+
     ``` php
     $facetSupport = $this->searchService->supports(SearchService::CAPABILITY_FACETS);
     ```

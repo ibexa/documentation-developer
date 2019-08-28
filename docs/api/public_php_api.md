@@ -2,7 +2,7 @@
 
 The Public PHP API enables you to interact with eZ Platform's Repository and content model from your PHP code.
 
-You can use it to create, read, update, manage, and delete all objects available in eZ Platform, namely 
+You can use it to create, read, update, manage, and delete all objects available in eZ Platform, namely
 content and related objects such as Sections, Locations, Content Types, languages, etc.
 
 The PHP API is built on top of a layered architecture, including a persistence SPI that abstracts storage.
@@ -17,35 +17,34 @@ Using the API ensures that your code will be forward compatible with future rele
 You can access the PHP API by injecting relevant services into your code.
 
 The API provides access to Content, User, Content Types and other features through various services.
-Those services are obtained using `get[ServiceName]()` methods: `getContentService()`, `getUserService()`, etc.
+Those services are obtained using `get[ServiceName]()` methods: `getContentService()`, `getUserService()`, etc.
 
 The full list of available services covers:
 
-- ContentService
-- ContentTypeService
-- FieldTypeService
-- LanguageService
-- LocationService
-- NotificationService
-- ObjectStateService
-- RoleService
-- SearchService
-- SectionService
-- TranslationService
-- TrashService
-- URLAliasService
-- URLService
-- URLWildcardService
-- UserPreferenceService
-- UserService
+- [ContentService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ContentService.php)
+- [ContentTypeService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ContentTypeService.php)
+- [FieldTypeService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/FieldTypeService.php)
+- [LanguageService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/LanguageService.php)
+- [LocationService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/LocationService.php)
+- [NotificationService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/NotificationService.php)
+- [ObjectStateService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ObjectStateService.php)
+- [RoleService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/RoleService.php)
+- [SearchService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/SearchService.php)
+- [SectionService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/SectionService.php)
+- [TranslationService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/TranslationService.php)
+- [TrashService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/TrashService.php)
+- [URLAliasService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/URLAliasService.php)
+- [URLService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/URLService.php)
+- [URLWildcardService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/URLWildcardService.php)
+- [UserPreferenceService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/UserPreferenceService.php)
+- [UserService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/UserService.php)
 
 ## Value objects
 
 The services provide interaction with read-only value objects from the `eZ\Publish\API\Repository\Values` namespace.
-Those objects are divided into sub-namespaces: `Content`, `ContentType`, `User` and `ObjectState`.
+Those objects are divided into sub-namespaces, such as `Content`, `User` or `ObjectState`.
 Each sub-namespace contains a set of value objects,
-such as [`Content\Content`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/Content.php)
-or [`User\Role`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/User/Role.php).
+such as [`Content\Content`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/Content.php) or [`User\Role`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/User/Role.php).
 
 Value objects come with their own properties, such as `$content->id` or `$location->hidden`,
 as well as with methods that provide access to more related information,
@@ -53,12 +52,14 @@ such as `Relation::getSourceContentInfo()` or `Role::getPolicies()`.
 
 ### Creating and updating objects
 
-Value objects serve to fetch data from the Repository and are read-only.
+Value objects fetch data from the Repository and are read-only.
 To create and modify Repository values you need to use structs, such as `getContentCreateStruct()` or `getContentUpdateStruct()`.
 
 ### Value info objects
 
-Some complex value objects have an `Info` counterpart, for example `ContentInfo` for `Content`.
+Some complex value objects have an `Info` counterpart,
+for example [`ContentInfo`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/ContentInfo.php)
+for [`Content`.](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/Content.php)
 These objects provide you with lower-level information.
 For instance, `ContentInfo` contains `currentVersionNo` or `remoteId`,
 while `Content` enables you to retrieve Fields, Content Type, or previous versions.
@@ -68,27 +69,30 @@ while `Content` enables you to retrieve Fields, Content Type, or previous versio
 One of the responsibilities of the Repository is user authentication. Every action is executed *as* a user.
 
 When using the PHP API, authentication is performed in three ways:
+
 - [automatically in the Back Office](#back-office-authentication)
 - [using `sudo()`](#using-sudo)
 - by [setting the Repository user](#setting-the-repository-user)
 
 ### Back Office authentication
 
-When actions are performed through the Back Office, they are executed as the logged-in user.
-This user's permissions will affect the behavior of the Repository.
-The user may, for example, not be allowed to create Content, or view a particular Section.
+When actions are performed through the Back Office, they are executed as the logged-in User.
+This User's permissions will affect the behavior of the Repository.
+The User may, for example, not be allowed to create Content, or view a particular Section.
 
 ### Using `sudo()`
 
 To skip permission checks, you can use the `sudo()` method.
 It allows API execution to be performed with full access, sand-boxed.
 
-You can use this method to perform an action that the current user does not have permissions for.
+You can use this method to perform an action that the current User does not have permissions for.
 
-For example, to [hide a Location](public_php_api_locations.md#hideunhide-location), use:
+For example, to [hide a Location](public_php_api_managing_content.md#hiding-and-revealing-locations), use:
 
 ``` php
 use eZ\Publish\API\Repository\Repository;
+
+//...
 
 $hiddenLocation = $repository->sudo(function (Repository $repository) use ($location) {
     return $repository->getLocationService()->hideLocation($location);
