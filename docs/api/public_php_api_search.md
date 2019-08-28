@@ -1,4 +1,4 @@
-# Searching
+# Content search
 
 [`SearchService`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/SearchService.php)
 enables you to perform search queries using the PHP API.
