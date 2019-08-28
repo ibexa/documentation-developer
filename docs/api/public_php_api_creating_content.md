@@ -1,5 +1,10 @@
 # Creating content
 
+!!! note
+
+    Creating most objects will be impossible for an anonymous user.
+    Make sure to [authenticate](public_php_api.md#setting-the-repository-user) as a user with sufficient permissions.
+
 ## Creating Content item draft
 
 Value objects such as Content items are read-only, so to create or modify them you need to use structs.
@@ -7,7 +12,7 @@ Value objects such as Content items are read-only, so to create or modify them y
 [`ContentService::newContentCreateStruct`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ContentService.php#L486)
 returns a new [`ContentCreateStruct`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/ContentCreateStruct.php) object.
 
-``` php hl_lines="18 19 22"
+``` php hl_lines="17 18 21"
 //...
 use eZ\Publish\API\Repository\ContentService;
 use eZ\Publish\API\Repository\ContentTypeService;
@@ -37,20 +42,20 @@ class CreateContentCommand extends Command
 }
 ```
 
-This command creates a draft using [`ContentService::createContent`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ContentService.php#L204) (line 22).
+This command creates a draft using [`ContentService::createContent`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ContentService.php#L204) (line 21).
 This method must receive a `ContentCreateStruct` and an array of Location structs.
 
-`ContentCreateStruct` (which extends `ContentStruct`) is created through [`ContentService::newContentCreateStruct`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ContentService.php#L486) (line 18),
+`ContentCreateStruct` (which extends `ContentStruct`) is created through [`ContentService::newContentCreateStruct`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ContentService.php#L486) (line 17),
 which receives the Content Type and the primary language for the Content item.
 For information about translating a Content item into other languages, see [Translating content](#translating-content).
 
-[`ContentStruct::setField`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/ContentStruct.php#L31) (line 19) enables you to define the Field values.
+[`ContentStruct::setField`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/ContentStruct.php#L31) (line 18) enables you to define the Field values.
 When the Field accepts a simple value, you can provide it directly, as in the example above.
 For some Field Types, for example [images](#creating-an-image), you need to provide an instance of a Value type.
 
 ### Creating an image
 
-Image Field Type requires providing an instance of its Value type to the [`ContentStruct::setField`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/ContentStruct.php#L31) method.
+Image Field Type requires an instance of its Value type, which you must provide to the [`ContentStruct::setField`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/ContentStruct.php#L31) method.
 Therefore, when creating a Content item of the Image type (or any other Content Type with an `image` Field Type),
 the `ContentCreateStruct` is slightly more complex than in the previous example:
 
@@ -100,7 +105,7 @@ $content = $this->contentService->publishVersion($draft->versionInfo);
 
 To update an existing Content item, you need to prepare a [`ContentUpdateStruct`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/ContentUpdateStruct.php)
 and pass it to [`ContentService::updateContent`.](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ContentService.php#L276)
-This method works on a draft, so to publish your changes you need to use `ContentService::publishVersion` as well:
+This method works on a draft, so to publish your changes you need to use [`ContentService::publishVersion`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ContentService.php#L298) as well:
 
 ``` php
 try {
@@ -119,7 +124,7 @@ try {
 
 ## Translating content
 
-Content translations are created per version. Every version by default contains all the existing translations.
+Content translations are created per version. By default every version contains all existing translations.
 
 To translate a Content item to a new language, you need to update it and provide a new `initialLanguageCode`:
 
@@ -137,7 +142,7 @@ $this->contentService->publishVersion($contentDraft->versionInfo);
 ```
 
 You can also update content in multiple languages at once using the `setField` method's third argument.
-Only one language must still be set as a version's initial language:
+Only one language can still be set as a version's initial language:
 
 ``` php
 $anotherLanguagee = 'fre-FR';

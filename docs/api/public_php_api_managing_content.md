@@ -7,7 +7,7 @@ using [`LocationService`.](https://github.com/ezsystems/ezpublish-kernel/blob/v7
 
 ### Adding a new Location to a Content item
 
-Every published Content item must be assigned at least one Location.
+Every published Content item must have at least one Location.
 One Content item can have more that one Location, which means it is presented in more than one place
 in the content tree.
 
@@ -24,8 +24,8 @@ $contentInfo = $this->contentService->loadContentInfo($contentId);
 $newLocation = $this->locationService->createLocation($contentInfo, $locationCreateStruct);
 ```
 
-`LocationCreateStruct` must be provided with the parent Location ID.
-It sets the `parentLocationId` property of the newly created Location.
+`LocationCreateStruct` must receive the parent Location ID.
+It sets the `parentLocationId` property of the new Location.
 
 You can also provide other properties for the Location, otherwise they will be set to their defaults:
 
@@ -156,7 +156,7 @@ $contentTypeCreateStruct->addFieldDefinition($titleFieldCreateStruct);
 
 try {
     $contentTypeDraft = $this->contentTypeService->createContentType(
-        $contentTypeCreateStruct, 
+        $contentTypeCreateStruct,
         [$contentTypeGroup]
     );
     $this->contentTypeService->publishContentTypeDraft($contentTypeDraft);

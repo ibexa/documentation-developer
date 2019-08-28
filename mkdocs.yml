@@ -56,10 +56,10 @@ pages:
         - Public PHP API:
             - 'Public PHP API': 'api/public_php_api.md'
             - 'Browsing Content': 'api/public_php_api_browsing.md'
-            - 'Searching': 'api/public_php_api_search.md'
+            - 'Content search': 'api/public_php_api_search.md'
+            - 'Creating Content': 'api/public_php_api_creating_content.md'
             - 'Managing Content': 'api/public_php_api_managing_content.md'
             - 'Managing Repository': 'api/public_php_api_managing_repository.md'
-            - 'Creating Content': 'api/public_php_api_creating_content.md'
         - Field Type:
             - 'Field Type API': 'api/field_type_api.md'
             - 'Type and Value': 'api/field_type_type_and_value.md'
