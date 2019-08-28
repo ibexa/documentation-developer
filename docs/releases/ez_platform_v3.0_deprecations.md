@@ -210,6 +210,18 @@ As a result of moving user settings to the [`ezplatform-user`](https://github.co
 - `EzSystems\EzPlatformAdminUiBundle\Controller\UserProfile\UserPasswordChangeController`
 - `EzSystems\EzPlatformAdminUiBundle\Controller\User\{UserSettingsController,UserForgotPasswordController}`
 
+### Choice Loaders
+
+The following choiceLoaders classes deprecated in v2.5 have been removed:
+
+- `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\PermissionAwareContentTypeChoiceLoader`
+- `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\PermissionAwareLanguageChoiceLoader`
+
+Instead, use the following classes:
+
+- `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\ContentCreateContentTypeChoiceLoader`
+- `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\ContentCreateLanguageChoiceLoader` 
+
 ### Template parameter names
 
 The SiteAccess-aware `pagelayout` setting is deprecated in favor of `page_layout`.
