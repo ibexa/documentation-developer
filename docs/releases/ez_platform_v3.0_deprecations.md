@@ -162,7 +162,7 @@ content_view:
         folder:
             template: folder.html.twig
             match:
-                '@App\Matcher\MyMatcher': 2
+                '@App\Matcher\MyMatcher': ~
 ```
 
 ## Deprecations

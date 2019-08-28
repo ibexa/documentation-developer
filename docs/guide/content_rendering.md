@@ -125,7 +125,7 @@ ezpublish:
                     folder:
                         template: folder.html.twig
                         match:
-                            '@App\Matcher\MyMatcher': 2
+                            '@App\Matcher\MyMatcher': ~
 ```
 
 The service must be tagged with `ezplatform.view.matcher`
