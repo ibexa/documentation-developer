@@ -2,6 +2,10 @@
 
 Symfony provides native support for [multiple user providers](https://symfony.com/doc/3.4/security/multiple_user_providers.html). This makes it easy to integrate any kind of login handlers, including SSO and existing third party bundles (e.g. [FR3DLdapBundle](https://github.com/Maks3w/FR3DLdapBundle), [HWIOauthBundle](https://github.com/hwi/HWIOAuthBundle), [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle), [BeSimpleSsoAuthBundle](http://github.com/BeSimple/BeSimpleSsoAuthBundle), etc.).
 
+!!! caution
+
+    `BeSimpleSsoAuthBundle` requires outdated version of `kriswallsmith/buzz` package (>=0.7,<=0.16.1) and therefore cannot be used in eZ Platform 2.5.
+    
 However, to be able to use *external* user providers with eZ Platform, a valid Platform user needs to be injected into the repository. This is mainly for the kernel to be able to manage content-related permissions (but not limited to this).
 
 Depending on your context, you will either want to create a Platform user, return an existing user, or even always use a generic user.
