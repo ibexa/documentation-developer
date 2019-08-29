@@ -37,7 +37,11 @@ To use them, create [Event Listeners](https://symfony.com/doc/4.3/event_dispatch
 
 ### Random sorting
 
-The list of common Sort Clauses has been extended by the Random sorting option. 
+The list of common Sort Clauses has been extended by the Random sorting option.
+
+### Custom Workflow transition color
+
+You can configure a custom color for each of the transitions defined in the Workflow.
 
 ## Other changes
 
