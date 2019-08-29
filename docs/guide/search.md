@@ -1,6 +1,6 @@
 # Search
 
-eZ Platform exposes a very powerful Search API, allowing both full-text search and querying the content Repository using several built-in Search Criteria and Sort Clauses. These are supported across different search engines, allowing you to plug in another search engine without changing your code.
+eZ Platform exposes a very powerful [Search API](../api/public_php_api_search.md), allowing both full-text search and querying the content Repository using several built-in Search Criteria and Sort Clauses. These are supported across different search engines, allowing you to plug in another search engine without changing your code.
 
 Currently two search engines exist in their own eZ Platform Bundles:
 
@@ -12,54 +12,7 @@ Currently two search engines exist in their own eZ Platform Bundles:
 Search Criteria and Sort Clauses are value object classes used for building a search query, to define filter criteria and ordering of the result set.
 eZ Platform provides a number of standard Search Criteria and Sort Clauses that you can use out of the box and that should cover the majority of use cases.
 
-As an example take a look at the built-in `ContentId` Criterion
-
-``` php
-<?php
-
-namespace eZ\Publish\API\Repository\Values\Content\Query\Criterion;
-
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion\Operator\Specifications;
-use eZ\Publish\API\Repository\Values\Content\Query\CriterionInterface;
-
-/**
- * A criterion that matches content based on its id
- *
- * Supported operators:
- * - IN: will match from a list of ContentId
- * - EQ: will match against one ContentId
- */
-class ContentId extends Criterion implements CriterionInterface
-{
-    /**
-     * Creates a new ContentId criterion
-     *
-     * @param int|int[] $value One or more content Id that must be matched.
-     *
-     * @throws \InvalidArgumentException if a non numeric id is given
-     * @throws \InvalidArgumentException if the value type doesn't match the operator
-     */
-    public function __construct( $value )
-    {
-        parent::__construct( null, null, $value );
-    }
-
-    public function getSpecifications()
-    {
-        $types = Specifications::TYPE_INTEGER | Specifications::TYPE_STRING;
-        return [
-            new Specifications( Operator::IN, Specifications::FORMAT_ARRAY, $types ),
-            new Specifications( Operator::EQ, Specifications::FORMAT_SINGLE, $types ),
-        ];
-    }
-
-    public static function createFromQueryBuilder( $target, $operator, $value )
-    {
-        return new self( $value );
-    }
-}
-```
+For an example of how to use and combine Criteria and Sort Clauses, refer to [Searching in PHP API](../api/public_php_api_search.md).
 
 ### Search engine handling of Search Criteria and Sort Clauses
 
@@ -67,158 +20,8 @@ As Search Criteria and Sort Clauses are value objects which are used to define 
 Each storage engine needs to implement its own handlers for the corresponding Criterion and Sort Clause value object,
 which will be used to translate the value object into a storage-specific search query.
 
-Example of the `ContentId` Criterion handler in Legacy storage engine:
-
-``` php
-<?php
-
-namespace eZ\Publish\Core\Search\Legacy\Content\Common\Gateway\CriterionHandler;
-
-use eZ\Publish\Core\Search\Legacy\Content\Common\Gateway\CriterionHandler;
-use eZ\Publish\Core\Search\Legacy\Content\Common\Gateway\CriteriaConverter;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
-use eZ\Publish\Core\Persistence\Database\SelectQuery;
-
-/**
- * Content ID criterion handler
- */
-class ContentId extends CriterionHandler
-{
-    /**
-     * Check if this criterion handler accepts to handle the given criterion.
-     *
-     * @param \eZ\Publish\API\Repository\Values\Content\Query\Criterion $criterion
-     *
-     * @return boolean
-     */
-    public function accept( Criterion $criterion )
-    {
-        return $criterion instanceof Criterion\ContentId;
-    }
-
-    /**
-     * Generate query expression for a Criterion this handler accepts
-     *
-     * accept() must be called before calling this method.
-     *
-     * @param \eZ\Publish\Core\Search\Legacy\Content\Common\Gateway\CriteriaConverter $converter
-     * @param \eZ\Publish\Core\Persistence\Database\SelectQuery $query
-     * @param \eZ\Publish\API\Repository\Values\Content\Query\Criterion $criterion
-     *
-     * @return \eZ\Publish\Core\Persistence\Database\Expression
-     */
-    public function handle( CriteriaConverter $converter, SelectQuery $query, Criterion $criterion )
-    {
-        return $query->expr->in(
-            $this->dbHandler->quoteColumn( "id", "ezcontentobject" ),
-            $criterion->value
-        );
-    }
-}
-```
-
-Example of a `ContentId` Criterion handler in Solr storage engine:
-
-``` php
-<?php
-
-namespace EzSystems\EzPlatformSolrSearchEngine\Query\Content\CriterionVisitor;
-
-use EzSystems\EzPlatformSolrSearchEngine\Query\CriterionVisitor;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion\Operator;
-
-/**
- * Visits the ContentId criterion
- */
-class ContentIdIn extends CriterionVisitor
-{
-    /**
-     * Check if visitor is applicable to current criterion
-     *
-     * @param Criterion $criterion
-     *
-     * @return boolean
-     */
-    public function canVisit( Criterion $criterion )
-    {
-        return
-            $criterion instanceof Criterion\ContentId &&
-            ( ( $criterion->operator ?: Operator::IN ) === Operator::IN ||
-              $criterion->operator === Operator::EQ );
-    }
-
-
-    /**
-     * Map field value to a proper Solr representation
-     *
-     * @param Criterion $criterion
-     * @param CriterionVisitor $subVisitor
-     *
-     * @return string
-     */
-    public function visit( Criterion $criterion, CriterionVisitor $subVisitor = null )
-    {
-        return '(' .
-            implode(
-                ' OR ',
-                array_map(
-                    function ( $value )
-                    {
-                        return 'id:"' . $value . '"';
-                    },
-                    $criterion->value
-                )
-            ) .
-            ')';
-    }
-}
-```
-
-#### Criteria independence
-
-Criteria are independent of one another. This can lead to unexpected behavior, for instance because Content can have multiple Locations.
-
-As an example, take a Content item with two Locations: Location A and Location B.
-
-- Location A is visible
-- Location B is hidden
-
-When you search for the ID of Location B with the `LocationId` Criterion and with Visibility Criterion set to `Visibility::VISIBLE`
-the search will return the Content because both conditions are satisfied:
-
-- the Content item has Location B
-- the Content item is visible (it has Location A which is visible)
-
-``` php hl_lines="17 18 27"
-<?php
-
-use eZ\Publish\API\Repository\Values\Content\Query;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion\LogicalAnd;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion\LocationId;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion\Visibility;
-
-/** @var string|int $locationBId */
-/** @var \eZ\Publish\API\Repository\Repository $repository */
-
-$searchService = $repository->getSearchService();
-
-$query = new Query(
-    [
-        'filter' => new LogicalAnd(
-            [
-                new LocationId( $locationBId ),
-                new Visibility( Visibility::VISIBLE ),
-            ]
-        ),
-    ]
-);
-
-$searchResult = $searchService->findContent( $query );
-
-// Content is found
-$content = $searchResult->searchHits[0];
-```
+As an example take a look at the [`ContentId` Criterion handler](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.2/eZ/Publish/Core/Search/Legacy/Content/Common/Gateway/CriterionHandler/ContentId.php) in Legacy search engine
+or [`ContentId` Criterion handler](https://github.com/ezsystems/ezplatform-solr-search-engine/blob/v1.7.0/lib/Query/Common/CriterionVisitor/ContentIdIn.php) in Solr search engine.
 
 ## Search Criteria Reference
 
@@ -344,6 +147,38 @@ The list below presents the Sort Clauses available in the `eZ\Publish\API\Repos
 |`MapLocationDistance `|`typeIdentifier` as string</br>`fieldIdentifier` as string</br>`latitude` as float</br>`longitude` as float</br>`?sortDirection`</br>`?languageCode` as string|
 |`SectionIdentifier`|`?sortDirection`|
 |`SectionName`|`?sortDirection`|
+
+## Search Facet reference
+
+Search Facets enable you to apply [faceted search](../api/public_php_api_search.md#faceted-search)
+to get a count of search results for each Facet value.
+
+### Available FacetBuilders
+
+#### ContentTypeFacetBuilder
+
+Arguments:
+
+- `name`: `string`
+- `minCount` (optional): `integer`
+- `limit` (optional): `integer`
+
+#### SectionFacetBuilder
+
+Arguments:
+
+- `name`: `string`
+- `minCount` (optional): `integer`
+- `limit` (optional): `integer`
+
+#### UserFacetBuilder
+
+Arguments:
+
+- `name`: `string`
+- `type`: `string` [`OWNER = 'owner'`, `GROUP = 'group'`, `MODIFIER = 'modifier'`]
+- `minCount` (optional): `integer`
+- `limit` (optional): `integer`
 
 ## Custom Criteria and Sort Clauses
 
