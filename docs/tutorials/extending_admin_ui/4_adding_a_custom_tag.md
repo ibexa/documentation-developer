@@ -73,7 +73,7 @@ ezrichtext.custom_tags.factbox.attributes.style.choices.dark.label: Dark style
     If you cannot see the results or encounter an error, clear the cache and reload the application.
 
 At this point you can go to the Back Office and start editing any Content with a RichText Field (e.g. a Folder or an Article).
-When you edit the Field, you can see the new tag appear in the elements menu. Add it, provide a Name and select a style.
+When you edit the Field, you can see the new tag appear in the elements menu. Add it, provide a name and select a style.
 You can now edit the content of the Factbox:
 
 ![Example of a Factbox custom tag](img/custom_tag.png "Previewing a Content item with a Factbox custom tag")
