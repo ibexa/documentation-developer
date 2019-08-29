@@ -78,6 +78,88 @@ Here are default templates that you can reuse and/or modify:
 {% endblock %}
 ```
 
+### Password expiration template
+
+You can use a custom template for displaying information about password expiration. 
+To configure the template, use the `\eZ\Publish\Core\MVC\Symfony\View\LoginFormView` by subscribing to the [`\eZ\Publish\Core\MVC\Symfony\MVCEvents::PRE_CONTENT_VIEW`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/MVC/Symfony/MVCEvents.php#L21-L29) event.
+
+Subscriber example:
+
+``` php hl_lines="23 40 42"
+<?php
+
+declare(strict_types=1);
+
+namespace App\EventSubscriber;
+
+use eZ\Publish\Core\MVC\Symfony\Event\PreContentViewEvent;
+use eZ\Publish\Core\MVC\Symfony\MVCEvents;
+use eZ\Publish\Core\MVC\Symfony\View\LoginFormView;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\Security\Core\Exception\CredentialsExpiredException;
+
+final class LoginFormViewSubscriber implements EventSubscriberInterface
+{
+    /**
+     * Returns an array of events this subscriber wants to listen to.
+     *
+     * @return string[]
+     */
+    public static function getSubscribedEvents(): array
+    {
+        return [
+            MVCEvents::PRE_CONTENT_VIEW => 'onPreContentView',
+        ];
+    }
+    
+    public function onPreContentView(PreContentViewEvent $event): void
+    {
+        $view = $event->getContentView();
+        
+        if (!($view instanceof LoginFormView)) {
+            return ;
+        }
+        
+        $view->addParameters([
+            'foo' => 'foo',
+            'bar' => 'bar'
+        ]);
+        
+        if ($view->CredentialsExpiredException() instanceof CredentialsExpiredException) {
+            // View with instruction to unlock account
+            $view->setTemplateIdentifier('templates/login/expired_credentials.html.twig');
+        }
+    }
+}
+
+```
+
+The subscriber uses the `MVCEvents::PRE_CONTENT_VIEW` (line 23) event to verify the credentials before rendering the login template.
+At the instance of exception (line 40), the subscriber displays the `expired_credentials.html.twig` template (line 42).
+Provide the template and point to it in line 42.
+
+Template example:
+
+```html+twig
+{% extends '@ezdesign/Security/base.html.twig' %}
+
+{%- block content -%}
+    <h2 class="ez-login__header">
+        {{ 'authentication.credentials_expired'|trans|desc('Your password has expired') }}
+    </h2>
+    <p>
+        {{ 'authentication.credentials_expired.message'|trans|desc(
+            'For security reasons, your password has expired and needs to be changed. An email has been sent to you with instructions.'
+        ) }}
+    </p>
+    <p>
+        <a href="{{ path('ezplatform.user.forgot_password') }}" class="btn btn-primary ez-btn ez-btn--login">
+            {{ 'authentication.credentials_expired.reset_password'|trans|desc('Reset password') }}
+        </a>
+    </p>
+{%- endblock -%}
+```
+
 ### Other user management templates
 
 You can also modify the following form templates:
