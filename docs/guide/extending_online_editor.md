@@ -17,98 +17,9 @@ They are configured under the `ezrichtext` key.
 
 If you want to learn how to apply them to your installation follow [Creating a custom tag tutorial](../tutorials/extending_admin_ui/4_adding_a_custom_tag).
 
-**Example: YouTube tag**
-
-Preparation of the tag always starts with the configuration file that should be added to the `config` folder. This is sample configuration for the YouTube tag, `custom_tags.yaml`:
+Preparation of the tag always starts with the configuration file that should be added to the `config` folder. This is sample configuration for the Factbox tag, in `custom_tags.yaml`:
 
 ```yaml
-ezpublish:
-    system:
-        default:
-            fieldtypes:
-                ezrichtext:
-                    custom_tags: [ezyoutube]
-
-ezrichtext:
-    custom_tags:
-        ezyoutube:
-            # The template used for front-end rendering of the custom tag
-            template: field_type/ezrichtext/custom_tag/ezyoutube.html.twig
-            # An icon for the custom tag as displayed in the Online Editor's toolbar.
-            icon: '/assets/field_type/ezrichtext/custom_tag/icon/youtube-color.svg#youtube-color'
-            attributes:
-                title:
-                    type: string
-                    required: true
-                    default_value: ''
-                video_url:
-                    type: string
-                    required: true
-                width:
-                    type: number
-                    required: true
-                    default_value: 640
-                height:
-                    type: number
-                    required: true
-                    default_value: 360
-                autoplay:
-                    type: boolean
-                    default_value: false
-                align:
-                    type: choice
-                    required: false
-                    default_value: left
-                    choices: [left, center, right]
-```
-
-Remember to provide your own files for the template and the icon.
-Each custom tag can have any number of attributes.
-Supported attribute types are:
-`string`, `number`, `boolean` and `choice` (which requires a list of choices provided by the `choices` key).
-
-The configuration requires an `ezyoutube.html.twig` template for the custom tag that will be placed in `templates/field_type/ezrichtext/custom_tag`:
-
-```html+twig
-<div{% if params.align is defined %} style="text-align: {{ params.align }};"{% endif %}>
-    <iframe type="text/html" width="{{ params.width }}" height="{{ params.height }}"
-        src="{{ params.video_url|replace({'https://youtu.be/' : 'https://www.youtube.com/embed/'}) }}?autoplay={{ params.autoplay == 'true' ? 1 : 0 }}"
-        frameborder="0"></iframe>
-</div>
-```
-
-!!! tip
-
-    Remember that if an attribute is not required, you need to check if it is defined in the template, for example:
-
-    ```html+twig
-    {% if params.your_attribute is defined %}
-        ...
-    {% endif %}
-    ```
-
-To ensure the new tag has labels, provide translations in `translations/custom_tags.en.yaml` file:
-
-```yaml
-ezrichtext.custom_tags.ezyoutube.label: Youtube
-ezrichtext.custom_tags.ezyoutube.description: ''
-ezrichtext.custom_tags.ezyoutube.attributes.autoplay.label: Autoplay
-ezrichtext.custom_tags.ezyoutube.attributes.height.label: Height
-ezrichtext.custom_tags.ezyoutube.attributes.title.label: Title
-ezrichtext.custom_tags.ezyoutube.attributes.video_url.label: Video url
-ezrichtext.custom_tags.ezyoutube.attributes.width.label: Width
-ezrichtext.custom_tags.ezyoutube.attributes.align.label: Align
-```
-
-**Example: FactBox tag**
-
-FactBox tag is a good example for showcasing possibilities of `ezcontent` property.
-Each custom tag has an `ezcontent` property that contains the tag's main content.
-This property is editable by a tab in a custom tag.
-
-Create the `custom_tags.yaml` configuration file that will be added to the `config` folder. This is sample configuration for FactBox tag:
-
-```yaml hl_lines="10"
 ezpublish:
     system:
         admin_group:
@@ -133,8 +44,9 @@ ezrichtext:
 ```
 
 Remember to provide your own files for the template and the icon.
-Line 10 points to `ezfactbox.html.twig` template described below.
-Attributes listed below the custom tag can be set when adding the tag to a RichText Field.
+Each custom tag can have any number of attributes.
+Supported attribute types are:
+`string`, `number`, `boolean` and `choice` (which requires a list of choices provided by the `choices` key).
 
 The configuration requires an `ezfactbox.html.twig` template for the custom tag that will be placed in `templates/field_type/ezrichtext/custom_tag`:
 
@@ -147,11 +59,15 @@ The configuration requires an `ezfactbox.html.twig` template for the custom tag 
 </div>
 ```
 
+FactBox tag is a good example for showcasing possibilities of `ezcontent` property.
+Each custom tag has an `ezcontent` property that contains the tag's main content.
+This property is editable by a tab in a custom tag.
+
 !!! tip
 
     Remember that if an attribute is not required, you need to check if it is defined in the template, for example:
 
-    ```twig
+    ```html+twig
     {% if params.your_attribute is defined %}
         ...
     {% endif %}
@@ -160,7 +76,6 @@ The configuration requires an `ezfactbox.html.twig` template for the custom tag 
 To ensure the new tag has labels, provide translations in `translations/custom_tags.en.yaml` file:
 
 ```yaml
-# ezfactbox
 ezrichtext.custom_tags.ezfactbox.label: FactBox
 ezrichtext.custom_tags.ezfactbox.description: ''
 ezrichtext.custom_tags.ezfactbox.attributes.name.label: Name
