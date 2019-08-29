@@ -32,9 +32,7 @@ Download and extract Solr. Solr Bundle 1.3 and higher supports Solr 6 *(currentl
     
 !!! caution "Java version"
 
-    If your Java version is higher than 8, you need to downgrade it to Oracle Java/Open JDK: 8. 
-    You can do it by following your favorite tutorial, for example:
-    [How to downgrade Java on Ubuntu/Kali Linux.](https://flicsdb.com/how-to-downgrade-java-on-ubuntu-kali-linux/)
+    If your Java version is higher than 8, you need to downgrade it to Oracle Java/Open JDK: 8.
 
 Copy the necessary configuration files. In the example below from the root of your project to the place you extracted Solr:
 
