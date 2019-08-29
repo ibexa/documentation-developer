@@ -176,6 +176,11 @@ HTTP cache bundle now uses FOS Cache Bundle v2. This entails:
 - `tagResponse()` from `tagHandler` has been replaced by `tagSymfonyResponse()`
 - deprecated `EzSystems\PlatformHttpCacheBundle\Handler\TagHandlerInterface` has been removed
 - `EzSystems\PlatformHttpCacheBundle\PurgeClient\PurgeClientInterface` now only accept an array as argument in the `purge()` method, instead of an int.
+- The `X-User-Hash` header for recognizing user context has been changed to `X-User-Context-Hash`.
+- The `key` header for purging tags has been changed to `xkey-softpurge`.
+- The `PURGE` method has been changed to `PURGEKEY`.
+- The `ezplatform.http_cache.tags.header` parameter has been removed.
+Configuration now relies on FOS Cache configuration and its default values.
 
 ### Deprecated Field Types
 
