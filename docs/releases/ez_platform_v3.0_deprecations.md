@@ -165,6 +165,21 @@ content_view:
                 '@App\Matcher\MyMatcher': ~
 ```
 
+#### SiteAccess matching
+
+When matching SiteAcceses using custom services, the SiteAccess must be now tagged with `ezplatform.siteaccess.matcher`.
+The matching must be configured in the following way:
+
+``` yaml
+siteaccess:
+    list: [site]
+    groups:
+        site_group: [site]
+    default_siteaccess: site
+    match:
+        '@App\Matcher\MySiteaccessMatcher': 1
+```
+
 ## Deprecations
 
 ### Template parameter names
