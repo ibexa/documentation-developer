@@ -485,7 +485,6 @@ fos_http_cache:
         enabled: true
         # User context hash is cached during 10min
         hash_cache_ttl: 600
-        user_hash_header: X-User-Context-Hash
 ```
 
 ## HTTP cache tagging
