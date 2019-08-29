@@ -167,8 +167,7 @@ content_view:
 
 #### SiteAccess matching
 
-When matching SiteAcceses using custom services, the SiteAccess must be now tagged with `ezplatform.siteaccess.matcher`.
-The matching must be configured in the following way:
+When matching SiteAcceses using custom services, the SiteAccess matcher service must be now tagged with `ezplatform.siteaccess.matcher`.
 
 ## Deprecations
 
