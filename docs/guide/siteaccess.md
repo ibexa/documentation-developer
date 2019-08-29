@@ -459,12 +459,12 @@ ezpublish:
             site_group: [site]
         default_siteaccess: site
         match:
-            '@App\Matcher\MySiteaccessMatcher': 1
+            '@App\Matcher\MySiteaccessMatcher': ~
 ```
 
 The service must be tagged with `ezplatform.siteaccess.matcher`
 and must implement `eZ\Bundle\EzPublishCoreBundle\SiteAccess\Matcher`
-(or `eZ\Publish\Core\MVC\Symfony\SiteAccess\VersatileMatcher` if you want to use reverse matching).
+(and `eZ\Publish\Core\MVC\Symfony\SiteAccess\VersatileMatcher` if you want to use reverse matching).
 
 ### Compound SiteAccess matcher
 
