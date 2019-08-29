@@ -53,6 +53,10 @@ Download and extract Solr. Solr Bundle 1.3 and higher supports Solr 6 *(currentl
 !!! caution "Solr"
 
     Solr versions older than 6.6.2 have a security vulnerability. Remember to download or update to a higher version.
+    
+!!! caution "Java version"
+
+    If your Java version is higher than 8, you need to downgrade it to Oracle Java/Open JDK: 8.
 
 Copy the necessary configuration files. In the example below from the root of your project to the place you extracted Solr:
 
