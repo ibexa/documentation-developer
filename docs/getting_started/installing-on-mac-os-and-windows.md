@@ -1,7 +1,7 @@
 # Installing eZ Platform on macOS or Windows
 
 Installing eZ Platform for production is only supported on Linux.
-See [Install eZ Platform](../getting_started/install_ez_platform.md) for a regular installation guide.
+See [Install eZ Platform](install_ez_platform.md) for a regular installation guide.
 
 This page explains how you can install eZ Platform on macOS or Windows (for development only).
 

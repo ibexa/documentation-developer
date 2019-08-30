@@ -35,7 +35,7 @@ Input is hidden because a custom drop-down duplicates its functionality.
 
     Do not remove `select` input. Removal would break the functionality of any submission form.
 
-![Dropdown expanded state](img/dropdown_expanded_state.jpg)
+![Dropdown expanded state](../cookbook/img/dropdown_expanded_state.jpg)
 
 ## Generate `<select>` input
 
@@ -47,7 +47,7 @@ If you want to allow users to pick multiple items from a list, add the `multiple
     <select class="ez-custom-dropdown__select" hidden multiple></select>
 ```
 
-![Dropdown multiple selection](img/dropdown_multiple_selection.jpg)
+![Dropdown multiple selection](../cookbook/img/dropdown_multiple_selection.jpg)
 
 ## Add attributes
 
