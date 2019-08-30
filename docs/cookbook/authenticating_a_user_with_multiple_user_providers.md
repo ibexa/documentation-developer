@@ -4,7 +4,7 @@ Symfony provides native support for [multiple user providers](https://symfony.c
 
 !!! caution
 
-    `BeSimpleSsoAuthBundle` requires an outdated version of `kriswallsmith/buzz` package (>=0.7,<=0.16.1) and therefore cannot be used in eZ Platform 2.5.
+    `BeSimpleSsoAuthBundle` requires an outdated version of `kriswallsmith/buzz` package (>=0.7,<=0.16.1) and therefore cannot be used in eZ Platform 2.5 until that is solved in `BeSimpleSsoAuthBundle` itself.
     
 However, to be able to use *external* user providers with eZ Platform, a valid Platform user needs to be injected into the repository. This is mainly for the kernel to be able to manage content-related permissions (but not limited to this).
 
