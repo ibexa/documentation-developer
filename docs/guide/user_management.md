@@ -12,7 +12,7 @@ When the user requests a reset of a forgotten password, an email is sent to them
 It allows them to create a new password.
 
 The template for this email is located in `templates/Security/mail/forgot_user_password.html.twig` in `ezsystems/ezplatform-user`.
-You can customize it according to your needs.
+You can [customize it according to your needs](#customize-login-form).
 
 The validity of the password recovery token can be set using the `ezpublish.system.<siteaccess>.security.token_interval_spec` parameter.
 By default it is set to `PT1H` (one hour).
@@ -78,12 +78,23 @@ Here are default templates that you can reuse and/or modify:
 {% endblock %}
 ```
 
-### Password expiration template
+### Customize login form
 
-You can use a custom template for displaying information about password expiration. 
-To configure the template, you can use a subscriber similar to the following:
+You can use a custom template for example to display information about password expiration or to customize [other user management templates](#other-user-management-templates).
 
-``` php hl_lines="40 42"
+If you need only to change a template, you can use the following configuration:
+
+```yaml
+ezpublish:
+    system:
+        my_siteaccess:
+            user:
+                login_template: '@ezdesign/Security/login.html.twig'
+```
+
+In case of more advanced template customization, you can use a subscriber similar to the following:
+
+``` php hl_lines="23 35 40 42"
 <?php
 
 declare(strict_types=1);
@@ -132,9 +143,11 @@ final class LoginFormViewSubscriber implements EventSubscriberInterface
 
 ```
 
+In the provided example, in line 23, the `PRE_CONTENT_VIEW` event is used (for details, see [eZ Publish Core events](content_rendering.md#ez-publish-core)).
+You can also pass additional parameters to the view (line 35).
+In this case, at the instance of exception (line 40), the subscriber displays the `expired_credentials.html.twig` template (line 42).
 
-Here, at the instance of exception (line 40), the subscriber displays the `expired_credentials.html.twig` template (line 42).
-Provide the template and point to it in line 42.
+Remember to Provide the template and point to it in the subscriber.
 
 Template example:
 

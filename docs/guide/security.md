@@ -61,60 +61,6 @@ ezpublish:
                 login_template: user/login.html.twig
 ```
 
-##### Additional security parameters
-
-You can add additional security parameters to the login form by using the `\eZ\Publish\Core\MVC\Symfony\View\LoginFormView` and subscribing to the [`\eZ\Publish\Core\MVC\Symfony\MVCEvents::PRE_CONTENT_VIEW`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/MVC/Symfony/MVCEvents.php#L21-L29) event.
-
-Example:
-
-```php hl_lines="23 35 36 37"
-
-<?php
-
-declare(strict_types=1);
-
-namespace App\EventSubscriber;
-
-use eZ\Publish\Core\MVC\Symfony\Event\PreContentViewEvent;
-use eZ\Publish\Core\MVC\Symfony\MVCEvents;
-use eZ\Publish\Core\MVC\Symfony\View\LoginFormView;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\Security\Core\Exception\CredentialsExpiredException;
-
-final class LoginFormViewSubscriber implements EventSubscriberInterface
-{
-    /**
-     * Returns an array of events this subscriber wants to listen to.
-     *
-     * @return string[]
-     */
-    public static function getSubscribedEvents(): array
-    {
-        return [
-            MVCEvents::PRE_CONTENT_VIEW => 'onPreContentView',
-        ];
-    }
-    
-    public function onPreContentView(PreContentViewEvent $event): void
-    {
-        $view = $event->getContentView();
-        
-        if (!($view instanceof LoginFormView)) {
-            return ;
-        }
-        
-        $view->addParameters([
-            'foo' => 'foo',
-            'bar' => 'bar'
-        ]);
-    }
-}
-
-```
-The subscriber uses the `MVCEvents::PRE_CONTENT_VIEW` (line 23) event to to inject additional parameters  before rendering the login template.
-Here, `addParameters()` (line 35) is responsible for adding a new parameter to the login form view.
-
-
 ##### Redirection after login
 
 By default, Symfony redirects to the [URI configured in `security.yaml` as `default_target_path`](http://symfony.com/doc/3.4/reference/configuration/security.html). If not set, it defaults to `/`.
