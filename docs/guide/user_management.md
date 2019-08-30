@@ -81,11 +81,9 @@ Here are default templates that you can reuse and/or modify:
 ### Password expiration template
 
 You can use a custom template for displaying information about password expiration. 
-To configure the template, use the `\eZ\Publish\Core\MVC\Symfony\View\LoginFormView` by subscribing to the [`\eZ\Publish\Core\MVC\Symfony\MVCEvents::PRE_CONTENT_VIEW`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/MVC/Symfony/MVCEvents.php#L21-L29) event.
+To configure the template, you can use a subscriber similar to the following:
 
-Subscriber example:
-
-``` php hl_lines="23 40 42"
+``` php hl_lines="40 42"
 <?php
 
 declare(strict_types=1);
@@ -134,8 +132,8 @@ final class LoginFormViewSubscriber implements EventSubscriberInterface
 
 ```
 
-The subscriber uses the `MVCEvents::PRE_CONTENT_VIEW` (line 23) event to verify the credentials before rendering the login template.
-At the instance of exception (line 40), the subscriber displays the `expired_credentials.html.twig` template (line 42).
+
+Here, at the instance of exception (line 40), the subscriber displays the `expired_credentials.html.twig` template (line 42).
 Provide the template and point to it in line 42.
 
 Template example:
