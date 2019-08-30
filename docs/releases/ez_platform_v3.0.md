@@ -83,6 +83,11 @@ Elastic Search support has been dropped.
 REST-related code has been moved from Kernel to a new [`ezsystems/ezplatform-rest`](https://github.com/ezsystems/ezplatform-rest) package.
 This also removed the REST client from Kernel.
 
+### Online Editor
+
+Online Editor front-end code and assets have been moved to the `ezplatform-richtext` repository.
+Refer to [Backwards compatibility doc](ez_platform_v3.0_deprecations.md#online-editor) for full list of resulting changes.
+
 ## Requirements changes
 
 eZ Platform now requires using PHP 7.3.
