@@ -203,9 +203,14 @@ The deprecated `universal_discovery_widget_module.default_location_id` setting h
 
 Configuration providers exposing the following JavaScript variables have been dropped:
 
-- `eZ.adminUiConfig.alloyEditor` replaced by `eZ.richText`
+- `eZ.adminUiConfig.alloyEditor` replaced by `eZ.richText.alloyEditor`
 - `eZ.adminUiConfig.richTextCustomTags` replaced by `eZ.richText.customTags`
 - `eZ.adminUiConfig.richTextCustomStyles` replaced by `eZ.richtext.customStyles`
+
+The following Webpack Encore entries have been changed:
+
+- `ezplatform-admin-ui-alloyeditor-css` replaced by `ezplatform-richtext-onlineeditor-css`
+- `ezplatform-admin-ui-alloyeditor-js` replaced by `ezplatform-richtext-onlineeditor-js`
 
 All Online Editor front-end code and assets (such as JS, CSS, fonts, etc.)
 have been moved from `ezplatform-admin-ui` to `ezplatform-richtext`.
