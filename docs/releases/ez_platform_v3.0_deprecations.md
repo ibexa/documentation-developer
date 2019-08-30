@@ -203,6 +203,24 @@ The deprecated `universal_discovery_widget_module.default_location_id` setting h
 
 - Deprecated `SubtreeQuery` class has been removed. In v3.0 it was replaced by `\EzSystems\EzPlatformAdminUi\QueryType\SubtreeQueryType`.
 
+#### View matching
+
+When matching views using custom services, the services must be now tagged with `ezplatform.view.matcher`.
+The matching must be configured in the following way:
+
+``` yaml
+content_view:
+    full:
+        folder:
+            template: folder.html.twig
+            match:
+                '@App\Matcher\MyMatcher': ~
+```
+
+#### SiteAccess matching
+
+When matching SiteAcceses using custom services, the SiteAccess matcher service must be now tagged with `ezplatform.siteaccess.matcher`.
+
 ## Deprecations
 
 ### User settings

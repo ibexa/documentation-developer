@@ -447,6 +447,25 @@ regex: `^/foo(\\w+)bar`; itemNumber: 1
 
 Matched SiteAccess: `test`
 
+### Custom matchers
+
+Beside the built-in matchers, you can also use your own services to match SiteAcceses:
+
+``` yaml
+ezpublish:
+    siteaccess:
+        list: [site]
+        groups:
+            site_group: [site]
+        default_siteaccess: site
+        match:
+            '@App\Matcher\MySiteaccessMatcher': ~
+```
+
+The service must be tagged with `ezplatform.siteaccess.matcher`
+and must implement `eZ\Bundle\EzPublishCoreBundle\SiteAccess\Matcher`
+(and `eZ\Publish\Core\MVC\Symfony\SiteAccess\VersatileMatcher` if you want to use reverse matching).
+
 ### Compound SiteAccess matcher
 
 The Compound SiteAccess matcher enables you to combine several matchers together, for example:
