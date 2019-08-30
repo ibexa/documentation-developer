@@ -55,6 +55,12 @@ You can now use `TranslatableNotificationHandlerInterface` for translated notifi
 Templates and parameters used by the Back Office have been renamed for consistency.
 Refer to [Backwards compatibility doc](ez_platform_v3.0_deprecations.md) for full list of changes.
 
+### HTTP Cache
+
+HTTP cache bundle now uses FOS Cache Bundle v2.
+Refer to [Backwards compatibility doc](ez_platform_v3.0_deprecations.md#http-cache-bundle)
+for full list of changes this entails.
+
 ## Deprecations and removals
 
 ### SignalSlots
