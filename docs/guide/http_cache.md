@@ -583,33 +583,27 @@ See [Tagging from code](http://foshttpcachebundle.readthedocs.io/en/1.3/features
 
 ### How purge tagging is done
 
-This bundle uses Repository API Slots to listen to Signals emitted on Repository operations, and depending on the
-operation triggers expiry on a specific tag or set of tags.
+This bundle uses Repository API Event Subscribers to listen to Events emitted on Repository operations,
+and depending on the operation triggers expiry on a specific tag or set of tags.
 
-For example on Move Location Signal the following tags will be purged:
+For example on Move Location Event the following tags will be purged:
 
 ```php
-/**
- * @param \eZ\Publish\Core\SignalSlot\Signal\LocationService\MoveSubtreeSignal $signal
- */
-protected function generateTags(Signal $signal)
-{
-    return [
-        // The tree itself being moved (all children will have this tag)
-        'path-' . $signal->locationId,
-        // old parent
-        'location-' . $signal->oldParentLocationId,
-        // old siblings
-        'parent-' . $signal->oldParentLocationId,
-        // new parent
-        'location-' . $signal->newParentLocationId,
-        // new siblings
-        'parent-' . $signal->newParentLocationId,
-    ];
-}
+[
+    // The tree itself being moved (all children will have this tag)
+    'path-' . $event->getLocation()->id,
+    // old parent
+    'location-' . $event->getLocation()->parentLocationId,
+    // old siblings
+    'parent-' . $event->getLocation()->parentLocationId,
+    // new parent
+    'location-' . $event->getNewParentLocation()->id,
+    // new siblings
+    'parent-' . $event->getNewParentLocation()->id,
+];
 ```
 
-All Slots can be found in `ezplatform-http-cache/src/SignalSlot`.
+All Event Subscribers can be found in `ezplatform-http-cache/src/EventSubscriber/CachePurge`.
 
 #### ResponseTagger API
 
