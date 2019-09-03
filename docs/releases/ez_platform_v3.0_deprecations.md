@@ -80,15 +80,20 @@ Additionally, the `ez_trans_prop` Twig function has been removed.
 
 ### JavaScript event names and code cleanup
 
+#### Event names changed
+
 Selected event names have been changed.
 
-#### In Admin UI (`ezplatform-admin-ui`):
+##### In Admin UI (`ezplatform-admin-ui`):
 
 |Former name|New name|
 |-----------|--------|
 |`invalidFileSize`|`ez-invalid-file-size`|
 |`addressNotFound`|`ez-address-not-found`|
 |`cancelErrors`|`ez-cancel-errors`|
+|`userPreferedTimezone`|`userPreferredTimezone`|
+|`userPreferedFullDateTimeFormat`|`userPreferredFullDateTimeFormat`|
+|`userPreferedShortDateTimeFormat`|`userPreferredShortDateTimeFormat`|
 |`ezsettings.default.content_type.about`|`ezsettings.admin_group.content_type.about`|
 |`ezsettings.default.content_type.article`|`ezsettings.admin_group.content_type.article`|
 |`ezsettings.default.content_type.blog`|`ezsettings.admin_group.content_type.blog`|
@@ -138,7 +143,7 @@ Selected event names have been changed.
 |`ezsettings.default.content_tree_module.ignored_content_types`|`ezsettings.admin_group.content_tree_module.ignored_content_types`|
 |`ezsettings.default.content_tree_module.tree_root_location_id`|`ezsettings.admin_group.content_tree_module.tree_root_location_id`|
 
-#### In Page Builder (`ezplatform-page-builder`):
+##### In Page Builder (`ezplatform-page-builder`):
 
 |Former name|New name|
 |-----------|--------|
@@ -150,7 +155,7 @@ Selected event names have been changed.
 
 Additionally, the listener for `pbPreviewReloaded` has been removed.
 
-#### In Form Builder (`ezplatform-form-builder`):
+##### In Form Builder (`ezplatform-form-builder`):
 
 |Former name|New name|
 |-----------|--------|
@@ -158,6 +163,25 @@ Additionally, the listener for `pbPreviewReloaded` has been removed.
 |`updateFieldName`|`ez-update-field-name`|
 |`fbFormBuilderLoaded`|`ez-form-builder-loaded`|
 |`fbFormBuilderUnloaded`|`ez-form-builder-unloaded`
+
+##### 
+
+#### Code cleanup
+
+Selected deprecated functions have been dropped.
+
+|Dropped code|Use instead|
+|------------|-----------|
+|`forcedLanguage`|`allowedLanguages`|
+|`formatPHP`|`formatICU`|
+|`formatDate`|`formatFullDateTime`|
+|`formatShortDate`|`formatShortDateTime`|
+|`formatDateWithTimezone`|`formatFullDateTime`|
+|`formatShortDateWithTimezone`|`formatShortDateTime`|
+|`SearchPaginationComponent`|`ContentTablePaginationComponent`|
+|`SearchResultsComponent`|`ContentTableComponent`|
+|`SearchResultsItemComponent`|`ContentTableItemComponent`|
+|`onlyContentOnTheFly`|`visibleTabs`|
 
 ### REST server
 
