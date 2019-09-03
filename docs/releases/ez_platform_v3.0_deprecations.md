@@ -164,8 +164,6 @@ Additionally, the listener for `pbPreviewReloaded` has been removed.
 |`fbFormBuilderLoaded`|`ez-form-builder-loaded`|
 |`fbFormBuilderUnloaded`|`ez-form-builder-unloaded`
 
-##### 
-
 #### Code cleanup
 
 Selected deprecated functions have been dropped.
