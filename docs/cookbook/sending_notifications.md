@@ -2,10 +2,10 @@
 
 You can send two types on notifications to the users.
 
-[Notification bars](#display-notification-bars) are displayed in specific situations as a message bar.
-They will be shown to whoever is doing a specific operation in the Back Office.
+[Notification bar](#display-notification-bars) is displayed in specific situations as a message bar appearing at the bottom of the page.
+It appears to whoever is doing a specific operation in the Back Office.
 
-![Example of an info notification](img/notification2.png)
+![Example of an info notification](img/notification2.png "Example of the notification bar")
 
 [Flex Workflow notifications](#create-custom-notifications-using-the-flex-workflow-mechanism) are sent to a specific user.
 They will appear in their profile in the Back Office.
