@@ -127,7 +127,7 @@ The following props are deprecated:
 
 - **cotfForcedLanguage** _{String}_ - language code. When set, Content on the Fly is locked on this language.
 - **languages** and **contentTypes** are lists of languages and Content Types in the system, read from the application config.
-- **onlyContentOnTheFly** _{Boolean}_ - when true, only Content on the Fly is shown in the UDW. Default value: `false`.
+- **onlyContentOnTheFly** _{Boolean}_ - when true, only Content on the Fly is shown in the Universal Discovery Widget (UDW). Default value: `false`.
 
 ### Configuration
 
