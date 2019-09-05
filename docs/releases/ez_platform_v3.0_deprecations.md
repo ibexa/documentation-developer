@@ -166,11 +166,11 @@ Additionally, the listener for `pbPreviewReloaded` has been removed.
 
 #### Code cleanup
 
-Selected deprecated functions have been dropped.
+Due to the code cleanup, the following deprecated items have been dropped: 
 
 |Dropped code|Use instead|
 |------------|-----------|
-|`forcedLanguage`|`allowedLanguages`|
+|`cotfForcedLanguage`|`allowedLanguages`|
 |`formatPHP`|`formatICU`|
 |`formatDate`|`formatFullDateTime`|
 |`formatShortDate`|`formatShortDateTime`|
