@@ -91,9 +91,6 @@ Selected event names have been changed.
 |`invalidFileSize`|`ez-invalid-file-size`|
 |`addressNotFound`|`ez-address-not-found`|
 |`cancelErrors`|`ez-cancel-errors`|
-|`userPreferedTimezone`|`userPreferredTimezone`|
-|`userPreferedFullDateTimeFormat`|`userPreferredFullDateTimeFormat`|
-|`userPreferedShortDateTimeFormat`|`userPreferredShortDateTimeFormat`|
 |`ezsettings.default.content_type.about`|`ezsettings.admin_group.content_type.about`|
 |`ezsettings.default.content_type.article`|`ezsettings.admin_group.content_type.article`|
 |`ezsettings.default.content_type.blog`|`ezsettings.admin_group.content_type.blog`|
@@ -168,18 +165,18 @@ Additionally, the listener for `pbPreviewReloaded` has been removed.
 
 Due to the code cleanup, the following deprecated items have been dropped: 
 
-|Dropped code|Use instead|
-|------------|-----------|
-|`cotfForcedLanguage`|`allowedLanguages`|
-|`formatPHP`|`formatICU`|
-|`formatDate`|`formatFullDateTime`|
-|`formatShortDate`|`formatShortDateTime`|
-|`formatDateWithTimezone`|`formatFullDateTime`|
-|`formatShortDateWithTimezone`|`formatShortDateTime`|
-|`SearchPaginationComponent`|`ContentTablePaginationComponent`|
-|`SearchResultsComponent`|`ContentTableComponent`|
-|`SearchResultsItemComponent`|`ContentTableItemComponent`|
-|`onlyContentOnTheFly`|`visibleTabs`|
+|Dropped code|Belongs to|Use instead|
+|------------|----------|-----------|
+|`formatPHP`|`window.moment.fn`|`formatICU`|
+|`formatDate`|`window.eZ.helpers.timezone`|`formatFullDateTime`|
+|`formatShortDate`|`window.eZ.helpers.timezone`|`formatShortDateTime`|
+|`formatDateWithTimezone`|`window.eZ.helpers.timezone`|`formatFullDateTime`|
+|`formatShortDateWithTimezone`|`window.eZ.helpers.timezone`|`formatShortDateTime`|
+|`SearchPaginationComponent`|-|`ContentTablePaginationComponent`|
+|`SearchResultsComponent`|-|`ContentTableComponent`|
+|`SearchResultsItemComponent`|-|`ContentTableItemComponent`|
+|`onlyContentOnTheFly`|-|`visibleTabs`|
+|`cotfForcedLanguage`|-|`cotfAllowedLanguages`|
 
 ### REST server
 
