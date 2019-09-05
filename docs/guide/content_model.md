@@ -125,6 +125,10 @@ They determine what Fields of what Field Types will be included in all Content i
 
     You can assign each Field defined in a Content Type to a group by selecting one of the groups in the Category drop-down. [Available groups can be configured in the content repository](configuration.md#content-repository-configuration).
 
+!!! caution
+    
+    In case of Content Types containing many Field Types you should be aware of possible memory-related issues on publishing/editing. They are caused by the limitation of how many `$_POST` input variables may be accepted. The easiest way to fix them is increasing `max_input_vars` value in `php.ini` configuration file.
+
 ### Modifying Content Types
 
 A Content Type and its Field definitions can be modified after creation,
