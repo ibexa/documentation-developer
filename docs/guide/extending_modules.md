@@ -116,7 +116,6 @@ Optionally, Universal Discovery module can take a following list of props:
 - **labels** _{Object}_ - a hash containing text messages to be placed across many places in a component. It contains text labels for child components, see [universal.discovery.module.js](https://github.com/ezsystems/ezplatform-admin-ui-modules/blob/master/src/modules/universal-discovery/universal.discovery.module.js#L438) for details,
 - **selectedItemsLimit** _{Number}_ - the limit of items that can be selected. Should be combined with the `multiple` attribute set to `true`. Default value is `0`, which means no limit,
 - **allowContainersOnly** _{Boolean}_ - when true, only containers can be selected. Default value: `false`,
-- **onlyContentOnTheFly** _{Boolean}_ - when true, only Content on the Fly is shown in the UDW. Default value: `false`,
 - **cotfPreselectedLanguage** _{String}_ - language that is preselected in Content on the Fly,
 - **cotfAllowedLanguages** _{Array}_ - languages that are available in Content on the Fly,
 - **cotfPreselectedContentType** _{String}_ - Content Type that is preselected in Content on the Fly,
@@ -128,6 +127,7 @@ The following props are deprecated:
 
 - **cotfForcedLanguage** _{String}_ - language code. When set, Content on the Fly is locked on this language.
 - **languages** and **contentTypes** are lists of languages and Content Types in the system, read from the application config.
+- **onlyContentOnTheFly** _{Boolean}_ - when true, only Content on the Fly is shown in the Universal Discovery Widget (UDW). Default value: `false`.
 
 ### Configuration
 
