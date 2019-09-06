@@ -127,7 +127,7 @@ They determine what Fields of what Field Types will be included in all Content i
 
 !!! caution
     
-In case of Content Types containing many Field Types you should be aware of possible memory-related issues with publishing/editing. They are caused by the limitation of how many `$_POST` input variables can be accepted. The easiest way to fix them is by increasing the `max_input_vars` value in the `php.ini` configuration file.
+In case of Content Types containing many Field Types you should be aware of possible memory-related issues with publishing/editing. They are caused by the limitation of how many `$_POST` input variables can be accepted. The easiest way to fix them is by increasing the `max_input_vars` value in the `php.ini` configuration file. You may also experience performance problems with such large Content Types, in particular when you have many Content items.
 
 ### Modifying Content Types
 
