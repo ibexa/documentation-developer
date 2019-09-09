@@ -86,6 +86,7 @@ pages:
         - 'Content model': 'guide/content_model.md'
         - Content rendering:
             - 'Content rendering': 'guide/content_rendering.md'
+            - 'Content item rendering': 'cookbook/displaying_content_with_simple_templates.md'
             - 'Controllers': 'guide/controllers.md'
             - 'Templates': 'guide/templates.md'
             - 'Design engine': 'guide/design_engine.md'
@@ -157,7 +158,6 @@ pages:
         - 'Retrieving root Location': 'cookbook/retrieving_root_location.md'
         - 'RouteReference': 'cookbook/using_routereference.md'
         - 'Siteaccess-aware bundle configuration': 'cookbook/exposing_siteaccess_aware_configuration_for_your_bundle.md'
-        - 'Using simple templates': 'cookbook/displaying_content_with_simple_templates.md'
     - Resources and community:
         - 'Resources': 'community_resources/resources.md'
         - 'Release process and roadmap': 'community_resources/release_process.md'

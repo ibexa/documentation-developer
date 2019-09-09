@@ -1,12 +1,13 @@
-# Displaying content with simple templates
+# Content item rendering
 
-This page describes basic steps needed to render content on a page.
+By default (without any configuration), a Content item renders without any template.
+You can configure the platform to render it using different templates depending on the scenario.
+Templates are written in the Twig templating language.
+This section describes basic steps needed to render a Content item on a page.
 
 ## Rendering a full page
 
-By default (without any configuration), a Content item will be rendered without any template. In your config you can tell the app to render it using different templates depending on the situation. Templates are written in the Twig templating language.
-
-Let's create a very simple template, called `article.html.twig`, that you will use to render an article:
+First, create a simple `templates/full/article.html.twig` template to render an article Content item on full page:
 
 ``` html+twig
 <div>
@@ -15,14 +16,11 @@ Let's create a very simple template, called `article.html.twig`, that you will u
     {{ ez_render_field(content, 'body') }}
 </div>
 ```
-
-Place this file in the `templates/full` folder.
-
-Now you need a config that will decide when this template is used.
+Now the template requires a configuration determining when to use it.
 
 You can place the config in the `config/packages` folder in either of two places: a separate file or the preexisting `ezplatform.yaml`. In this case you'll use the latter.
 
-In `ezplatform.yaml` under the `ezpublish` and `system` keys add the following config (pay attention to indentation. `default` should be indented relative to `system`):
+In `ezplatform.yaml`, under the `ezpublish` and `system` keys, add the following config:
 
 ``` yaml
 # 'default' is the SiteAccess.
@@ -41,13 +39,20 @@ default:
                     Identifier\ContentType: [article]
 ```
 
-In the `match` section you can use different ways to identify the situation where the template will be used, not only the Content Type, see [Matchers](../guide/content_rendering.md#view-matchers).
+Pay attention to indentation – `default` should be indented relative to `system`.
+Use `match` to identify not only the Content Type, but also the situation where the template will be used.
+For details, see [Matchers](../guide/content_rendering.md#view-matchers).
 
-At this point all Articles should render using the new template. If you do not see changes, clear the cache (`php bin/console cache:clear`).
+At this point all Content items that are articles should render using the new template.
+If you do not see changes, clear the cache by running: `php bin/console cache:clear`.
 
 ## Rendering page elements
 
-In the example above you used the `ez_render_field` Twig function to render the 'body' Field of the content item. Each Content item can have multiple fields and you can render them in different ways in the template. Other Twig functions let you access different properties of your content. To see an example, let's extend the template a bit:
+In the example above you used the `ez_render_field` Twig function to render the `body` Field of the Content item. 
+Each Content item can have multiple fields and you can render them in differently. 
+Other Twig functions let you access different properties of your content. 
+
+To see it in practice, let's extend the template a bit:
 
 ``` html+twig
 {# This renders the Content name of the article #}
@@ -61,21 +66,23 @@ In the example above you used the `ez_render_field` Twig function to render the 
 </div>
 ```
 
-You can also make use of other [Twig functions](../guide/twig_functions_reference.md), for example [`ez_field_value`](../guide/twig_functions_reference.md#ez_field_value), which renders the value of the Field without a template.
+You can also use other [Twig functions](../guide/twig_functions_reference.md), for example [`ez_field_value`](../guide/twig_functions_reference.md#ez_field_value), which renders the value of the Field without a template.
 
 ## Different views
 
-Besides the `full` view type you can create many other view types. They can be used for example when rendering children of a folder or when embedding one Content item in another. See [Embedding Content items](../guide/templates.md#embedding-content-items).
+Besides the `full` view type, you can create many other view types. 
+They can be used for example when rendering children of a folder or when [embedding one Content item in another](../guide/templates.md#embedding-content-items).
 
 ## Listing children
 
-To see how to list children of a Content item, for example all content contained in a folder, see [Displaying children of a Content item](displaying_children_of_a_content_item.md).
+For details on listing children of a Content item, for example all content contained in a folder, see [Displaying children of a Content item](displaying_children_of_a_content_item.md).
 
 ## Adding links
 
-To add links to your templates you use the `ez_urlalias` path. To see how it works, let's add one more line to the `article.html.twig` template:
+To add links to your templates, use the `ez_urlalias` path. 
+To see how it works, let's add one more line to the `article.html.twig` template:
 
-``` html+twig
+``` html+twig hl_lines="3"
 <h1>{{ ez_content_name(content) }}</h1>
 {# The link points to the content in Location ID 2, which is the Home Content item #}
 <a href="{{ path('ez_urlalias', {locationId: 2}) }}">Back</a>
@@ -83,4 +90,5 @@ To add links to your templates you use the `ez_urlalias` path. To see how it wor
 {# ... #}
 ```
 
-Instead of pointing to a specific Content item by its Location ID you can also use here a variable, see [this example in the Demo Bundle](https://github.com/ezsystems/ezplatform-demo/blob/e15b93ade4b8c1f9084c5adac51239d239f9f7d8/app/Resources/views/full/blog.html.twig#L25).
+Instead of pointing to a specific Content item by its Location ID, you can use a variable.
+For more details, see [this example in the Demo Bundle.](https://github.com/ezsystems/ezplatform-demo/blob/e15b93ade4b8c1f9084c5adac51239d239f9f7d8/app/Resources/views/full/blog.html.twig#L25)
