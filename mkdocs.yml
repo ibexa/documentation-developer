@@ -86,7 +86,7 @@ pages:
         - 'Content model': 'guide/content_model.md'
         - Content rendering:
             - 'Content rendering': 'guide/content_rendering.md'
-            - 'Content item rendering': 'cookbook/displaying_content_with_simple_templates.md'
+            - 'Content item rendering': 'guide/content_item_rendering.md'
             - 'Controllers': 'guide/controllers.md'
             - 'Templates': 'guide/templates.md'
             - 'Design engine': 'guide/design_engine.md'

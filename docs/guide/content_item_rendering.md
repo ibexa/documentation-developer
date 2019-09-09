@@ -66,7 +66,7 @@ To see it in practice, let's extend the template a bit:
 </div>
 ```
 
-You can also use other [Twig functions](../guide/twig_functions_reference.md), for example [`ez_field_value`](../guide/twig_functions_reference.md#ez_field_value), which renders the value of the Field without a template.
+You can also use other [Twig functions](twig_functions_reference.md), for example [`ez_field_value`](../guide/twig_functions_reference.md#ez_field_value), which renders the value of the Field without a template.
 
 ## Different views
 
@@ -75,7 +75,7 @@ They can be used for example when rendering children of a folder or when [embedd
 
 ## Listing children
 
-For details on listing children of a Content item, for example all content contained in a folder, see [Displaying children of a Content item](displaying_children_of_a_content_item.md).
+For details on listing children of a Content item, for example all content contained in a folder, see [Displaying children of a Content item](../cookbook/displaying_children_of_a_content_item.md).
 
 ## Adding links
 
