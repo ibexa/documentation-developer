@@ -86,10 +86,10 @@ pages:
         - 'Content model': 'guide/content_model.md'
         - Content rendering:
             - 'Content rendering': 'guide/content_rendering.md'
-            - 'Content item rendering': 'guide/content_item_rendering.md'
             - 'Controllers': 'guide/controllers.md'
             - 'Templates': 'guide/templates.md'
             - 'Design engine': 'guide/design_engine.md'
+            - 'Content item rendering': 'guide/content_item_rendering.md'
             - 'Page rendering': 'guide/page_rendering.md'
             - 'Twig functions reference': 'guide/twig_functions_reference.md'
         - Content management:
