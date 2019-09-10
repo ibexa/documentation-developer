@@ -18,7 +18,8 @@ First, create a simple `templates/full/article.html.twig` template to render an 
 ```
 Now the template requires a configuration determining when to use it.
 
-You can place the config in the `config/packages` folder in either of two places: a separate file or the preexisting `ezplatform.yaml`. In this case you'll use the latter.
+You can place the config in the `config/packages` folder in either of two places: a separate file or the preexisting `ezplatform.yaml`.
+In this case you'll use the latter.
 
 In `ezplatform.yaml`, under the `ezpublish` and `system` keys, add the following config:
 
@@ -49,7 +50,7 @@ If you do not see changes, clear the cache by running: `php bin/console cache:cl
 ## Rendering page elements
 
 In the example above you used the `ez_render_field` Twig function to render the `body` Field of the Content item. 
-Each Content item can have multiple fields and you can render them in differently. 
+Each Content item can have multiple fields and you can render them differently. 
 Other Twig functions let you access different properties of your content. 
 
 To see it in practice, let's extend the template a bit:
@@ -70,7 +71,7 @@ You can also use other [Twig functions](twig_functions_reference.md), for exampl
 
 ## Different views
 
-Besides the `full` view type, you can create many other view types. 
+Besides the `full` view type, you can create other view types. 
 They can be used for example when rendering children of a folder or when [embedding one Content item in another](../guide/templates.md#embedding-content-items).
 
 ## Listing children
