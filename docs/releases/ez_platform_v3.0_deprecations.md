@@ -177,6 +177,15 @@ Due to the code cleanup, the following deprecated items have been dropped:
 |`SearchResultsItemComponent`|-|`ContentTableItemComponent`|
 |`onlyContentOnTheFly`|-|`visibleTabs`|
 |`cotfForcedLanguage`|-|`cotfAllowedLanguages`|
+|`canEdit`|ezplatform-admin-ui|`can_administrate`|
+|`canAssign`|ezplatform-admin-ui|`can_administrate`|
+|`baseLanguage`|ezplatform-admin-ui|`base_language`|
+|`contentType`|ezplatform-admin-ui|`content_type`|
+|`isPublished`|ezplatform-admin-ui|`ContentInfo::isPublished`|
+|`fieldDefinitionsByGroup`|ezplatform-admin-ui|-|
+|`full`|ezplatform-admin-ui|-|
+|`short`|ezplatform-admin-ui|-|
+|`limit`|ezplatform-admin-ui|-|
 
 ### REST server
 
