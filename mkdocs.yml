@@ -152,7 +152,6 @@ pages:
         - 'Cross-origin HTTP requests': 'cookbook/making_cross_origin_http_requests.md'
         - 'Customizing email notifications': 'cookbook/customizing_form_builder_email_notifications.md'
         - 'Displaying Content children': 'cookbook/displaying_children_of_a_content_item.md'
-        - 'Importing settings from a bundle': 'cookbook/importing_settings_from_a_bundle.md'
         - 'Multiple user providers': 'cookbook/authenticating_a_user_with_multiple_user_providers.md'
         - 'Notifications': 'cookbook/sending_notifications.md'
         - 'Retrieving root Location': 'cookbook/retrieving_root_location.md'
