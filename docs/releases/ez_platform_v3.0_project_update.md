@@ -112,43 +112,51 @@ for the full list of changes.
 
 ## Custom Installers
 
-eZ Platform provides extension point to create named custom installer which can be used instead of the native one, by executing the Symfony command:
+eZ Platform provides extension point to create named custom installer which can be used instead of the native one.
+To use it, execute the Symfony command:
+
 ``` bash
 php ./bin/console ezplatform:install <installer type name>
 ```
 
-In eZ Platform v3.0 service definitions around that extension point have changed:
+In eZ Platform v3.0, service definitions around that extension point have changed:
 
-1. The deprecated Clean Installer has been dropped from the `ezpublish-kernel` package. If your project uses custom installer and has relied on Clean Installer service definition (`ezplatform.installer.clean_installer`) you need to switch to Core Installer.
+1\. The deprecated Clean Installer has been dropped from `ezpublish-kernel` package.
+If your project uses custom installer and has relied on Clean Installer service definition (`ezplatform.installer.clean_installer`) you need to switch to Core Installer.
 
-    Before:
-    ``` php
-    services:
-        Acme\App\Installer\MyCustomInstaller:
-            parent: ezplatform.installer.clean_installer
-    ```
+Before:
+    
+``` php
+services:
+    Acme\App\Installer\MyCustomInstaller:
+        parent: ezplatform.installer.clean_installer
+```
 
-    After:
-    ``` php
-    services:
-        Acme\App\Installer\MyCustomInstaller:
-            parent: EzSystems\PlatformInstallerBundle\Installer\CoreInstaller
-    ```
+After:
+    
+``` php
+services:
+    Acme\App\Installer\MyCustomInstaller:
+        parent: EzSystems\PlatformInstallerBundle\Installer\CoreInstaller
+```
 
-    CoreInstaller relies on [DoctrineSchemaBundle](https://github.com/ezsystems/doctrine-dbal-schema), so custom schema can be installed defining Symfony Event Subscriber subscribing to  `\EzSystems\DoctrineSchema\API\Event\SchemaBuilderEvents::BUILD_SCHEMA` event.
+`CoreInstaller` relies on [`DoctrineSchemaBundle`](https://github.com/ezsystems/doctrine-dbal-schema).
+Custom schema can be installed defining Symfony Event Subscriber subscribing to `EzSystems\DoctrineSchema\API\Event\SchemaBuilderEvents::BUILD_SCHEMA` event.
 
-2. The deprecated Symfony Service definition `ezplatform.installer.db_based_installer` has been removed in favor of its FQCN-named definition.
+2\. The deprecated Symfony Service definition `ezplatform.installer.db_based_installer` has been removed in favor of its FQCN-named definition.
 
-    Before:
-    ``` php
-    services:
-        Acme\App\Installer\MyCustomInstaller:
-            parent: ezplatform.installer.db_based_installer
-    ```
+Before:
 
-    After:
-    ``` php
-    services:
-        Acme\App\Installer\MyCustomInstaller:
-            parent: EzSystems\PlatformInstallerBundle\Installer\DbBasedInstaller
-    ```
+``` php
+services:
+    Acme\App\Installer\MyCustomInstaller:
+        parent: ezplatform.installer.db_based_installer
+```
+
+After:
+
+``` php
+services:
+    Acme\App\Installer\MyCustomInstaller:
+        parent: EzSystems\PlatformInstallerBundle\Installer\DbBasedInstaller
+```
