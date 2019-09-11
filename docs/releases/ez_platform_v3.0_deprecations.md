@@ -177,7 +177,7 @@ Due to the code cleanup, the following deprecated items have been dropped:
 |`SearchResultsItemComponent`|-|`ContentTableItemComponent`|
 |`onlyContentOnTheFly`|-|`visibleTabs`|
 |`cotfForcedLanguage`|-|`cotfAllowedLanguages`|
-|`ContentTypeNames`|`window.eZ.adminUiConfig`|`contentTypes`|
+|`contentTypeNames`|`window.eZ.adminUiConfig`|`contentTypes`|
 
 ### REST server
 
