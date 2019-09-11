@@ -61,6 +61,10 @@ HTTP cache bundle now uses FOS Cache Bundle v2.
 Refer to [Backwards compatibility doc](ez_platform_v3.0_deprecations.md#http-cache-bundle)
 for full list of changes this entails.
 
+### Helpers
+
+New helper method `window.eZ.helpers.contentType.getContentTypeName` replaces deprecated `ContentTypeNames`.
+
 ## Deprecations and removals
 
 ### SignalSlots
@@ -98,5 +102,10 @@ eZ Platform now requires using PHP 7.3.
     In such cases remember to update PHP version manually.
 
 ## Updating
+
+### Custom Installers
+
+The Symfony Service definitions, providing extension point to create custom installers, have been removed.
+See [eZ Platform v3.0 project update instructions](./ez_platform_v3.0_project_update.md#custom-installers) for upgrade details.
 
 ## Full changelog
