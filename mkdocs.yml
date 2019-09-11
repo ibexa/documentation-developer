@@ -50,7 +50,6 @@ pages:
             - 'REST API guide': 'api/rest_api_guide.md'
             - 'REST API usage': 'api/general_rest_usage.md'
             - 'Extending the REST API': 'api/extending_the_rest_api.md'
-            - 'JavaScript client': 'api/js_client.md'
             - 'REST API reference': 'api/rest_api_reference.md'
         - Public PHP API:
             - 'Public PHP API': 'api/public_php_api.md'
