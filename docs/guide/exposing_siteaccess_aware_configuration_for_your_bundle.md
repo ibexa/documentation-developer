@@ -1,4 +1,4 @@
-# Exposing SiteAccess-aware configuration for your bundle
+# Exposing SiteAccess-aware configuration for bundle
 
 The [Symfony Config component](https://symfony.com/doc/4.3/components/config.html) makes it possible to define *semantic configuration*, exposed to the end developer.
 This configuration is validated by rules you define, e.g. validating type (string, array, integer, boolean, etc.).
@@ -6,12 +6,15 @@ Usually, once validated and processed, this semantic configuration is then mappe
 
 eZ Platform uses this for its core configuration, but adds another configuration level, the **SiteAccess**.
 For each defined SiteAccess, you need to be able to use the same configuration tree in order to define SiteAccess-specific config.
-These settings then need to be mapped to SiteAccess-aware internal parameters that you can retrieve via the `ConfigResolver`.
-For this, internal keys need to follow the format `<namespace>.<scope>.<parameter_name>`.
-`namespace`is specific to your app or bundle, `scope` is the SiteAccess, SiteAccess group, `default` or `global`,
-and `parameter_name` is the actual setting *identifier*.
 
-For more information on ConfigResolver, namespaces and scopes, see [eZ Platform configuration basics](../guide/configuration.md).
+These settings then need to be mapped to SiteAccess-aware internal parameters that you can retrieve via the `ConfigResolver`.
+For this, internal keys need to follow the format `<namespace>.<scope>.<parameter_name>`, where:
+
+- `namespace` is specific to your app or bundle
+- `scope` is the SiteAccess, SiteAccess group, `default` or `global`
+- `parameter_name` is the actual setting *identifier*
+
+For more information on ConfigResolver, namespaces and scopes, see [eZ Platform configuration basics](configuration.md).
 
 The goal of this feature is to make it easy to implement a SiteAccess-aware semantic configuration and its mapping to internal config for any eZ Platform bundle developer.
 
@@ -36,7 +39,7 @@ acme_example:
                 enabled: false
 ```
 
-The class's fully qualified name is `eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\SiteAccessAware\Configuration`.
+The fully qualified name of the class is `eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\SiteAccessAware\Configuration`.
 All you have to do is to extend it and use `$this->generateScopeBaseNode()`:
 
 ``` php hl_lines="17"
@@ -144,7 +147,7 @@ class AcmeExampleExtension extends Extension
 
 !!! caution "Important"
 
-    Always ensure you have defined and loaded default settings.
+    Always ensure that you have defined and loaded default settings.
 
 In `@AcmeExampleBundle/Resources/config/default_settings.yaml`:
 
@@ -265,7 +268,7 @@ A few limitations exist with this scope hash merge:
 
 - Semantic setting name and internal name will be the same (like `foo_setting` in the examples above).
 - Applicable to first level semantic parameter only (i.e. settings right under the SiteAccess name).
-- Merge is not recursive. Only second level merge is possible by using `ContextualizerInterface::MERGE_FROM_SECOND_LEVEL` option.
+- Merge is not recursive. Only second level merge is possible by using the `ContextualizerInterface::MERGE_FROM_SECOND_LEVEL` option.
 
 ## Dedicated mapper object
 
@@ -278,4 +281,4 @@ This can be useful if you have a lot of configuration to map and don't want to p
 As specified above, `$contextualizer->mapConfigArray()` is not to be used within the *scope loop*, like for simple values.
 When using a closure/callable, you usually call it before or after `$processor->mapConfig()`.
 For mapper objects, a dedicated interface can be used: `HookableConfigurationMapperInterface`,
-which defines 2 methods: `preMap()` and `postMap()`.
+which defines two methods: `preMap()` and `postMap()`.

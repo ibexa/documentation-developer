@@ -114,6 +114,7 @@ pages:
             - 'Multisite': 'guide/multisite.md'
             - 'SiteAccess': 'guide/siteaccess.md'
             - 'Multi-language SiteAccess': 'guide/multi_language_siteaccesses.md'
+            - 'SiteAccess-aware bundle configuration': 'guide/exposing_siteaccess_aware_configuration_for_your_bundle.md'
         - Languages:
             - 'Languages': 'guide/internationalization.md'
             - 'Back Office translations': 'guide/back_office_translations.md'
@@ -139,7 +140,7 @@ pages:
             - 'Extending modules': 'guide/extending_modules.md'
             - 'Extending the Online Editor': 'guide/extending_online_editor.md'
             - 'Extending Form Builder': 'guide/extending_form_builder.md'
-        - Customization:
+        - Customizing eZ Platform:
             - 'Creating custom Page blocks': 'guide/extending_page.md'
             - 'Creating custom richtext blocks': 'guide/richtext_block.md'
             - 'Creating custom drop-downs': 'guide/creating_custom_dropdowns.md'
@@ -156,7 +157,6 @@ pages:
         - 'Notifications': 'cookbook/sending_notifications.md'
         - 'Retrieving root Location': 'cookbook/retrieving_root_location.md'
         - 'RouteReference': 'cookbook/using_routereference.md'
-        - 'Siteaccess-aware bundle configuration': 'cookbook/exposing_siteaccess_aware_configuration_for_your_bundle.md'
     - Resources and community:
         - 'Resources': 'community_resources/resources.md'
         - 'Release process and roadmap': 'community_resources/release_process.md'

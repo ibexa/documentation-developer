@@ -43,7 +43,7 @@ Keys are usually prefixed by a *namespace* corresponding to your application. Al
 For configuration that is meant to be exposed to an end-user (or end-developer),
 it's usually a good idea to also [implement semantic configuration](https://symfony.com/doc/3.4/components/config/definition.html).
 
-Note that you can also [implement SiteAccess-aware semantic configuration](../cookbook/exposing_siteaccess_aware_configuration_for_your_bundle.md).
+Note that you can also [implement SiteAccess-aware semantic configuration](exposing_siteaccess_aware_configuration_for_your_bundle.md).
 
 For example:
 
@@ -70,6 +70,7 @@ For specific configuration settings, see:
 - [Content views](content_rendering.md#configuring-views-the-viewprovider)
 - [Multisite](multisite.md#configuring-multisite)
 - [SiteAccess](siteaccess.md#configuring-siteaccesses)
+- [SiteAccess-aware bundle configuration](exposing_siteaccess_aware_configuration_for_your_bundle.md)
 - [Image variations](images.md#configuring-image-variations)
 - [Multi-file upload](file_management.md#multi-file-upload)
 - [Logging and debug](devops.md#logging-and-debug-configuration)
