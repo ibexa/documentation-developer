@@ -177,15 +177,17 @@ Due to the code cleanup, the following deprecated items have been dropped:
 |`SearchResultsItemComponent`|-|`ContentTableItemComponent`|
 |`onlyContentOnTheFly`|-|`visibleTabs`|
 |`cotfForcedLanguage`|-|`cotfAllowedLanguages`|
-|`canEdit`|ezplatform-admin-ui|`can_administrate`|
-|`canAssign`|ezplatform-admin-ui|`can_administrate`|
-|`baseLanguage`|ezplatform-admin-ui|`base_language`|
-|`contentType`|ezplatform-admin-ui|`content_type`|
-|`isPublished`|ezplatform-admin-ui|`ContentInfo::isPublished`|
-|`fieldDefinitionsByGroup`|ezplatform-admin-ui|-|
-|`full`|ezplatform-admin-ui|-|
-|`short`|ezplatform-admin-ui|-|
-|`limit`|ezplatform-admin-ui|-|
+|`canEdit`|`EzSystems\EzPlatformAdminUiBundle\Controller\LanguageController::listAction`|`can_administrate`|
+|`canAssign`|`EzSystems\EzPlatformAdminUiBundle\Controller\LanguageController::listAction`|`can_administrate`|
+|`canEdit`|`EzSystems\EzPlatformAdminUiBundle\Controller\LanguageController::viewAction`|`can_administrate`|
+|`canAssign`|`EzSystems\EzPlatformAdminUiBundle\Controller\LanguageController::viewAction`|`can_administrate`|
+|`baseLanguage`|`EzSystems\EzPlatformAdminUi\EventListener\ContentTranslateViewFilterParametersListener::onFilterViewParameters`|`base_language`|
+|`contentType`|`EzSystems\EzPlatformAdminUi\EventListener\ContentTranslateViewFilterParametersListener::onFilterViewParameters`|`content_type`|
+|`isPublished`|`EzSystems\EzPlatformAdminUi\EventListener\ContentTranslateViewFilterParametersListener::onFilterViewParameters`|`ContentInfo::isPublished`|
+|`fieldDefinitionsByGroup`|`EzSystems\EzPlatformAdminUi\Tab\LocationView\ContentTab`| `field_definitions_by_group` |
+|`full`|`window.eZ.adminUiConfig.dateFormat`| `fullDateTime` |
+|`short`|`window.eZ.adminUiConfig.dateFormat`| `shortDateTime` |
+|`limit`|`EzSystems\EzPlatformAdminUi\UI\Module\Subitems\ContentViewParameterSupplier`| - |
 
 ### REST server
 
