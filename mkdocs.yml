@@ -146,7 +146,6 @@ pages:
         - 'Customizing email notifications': 'cookbook/customizing_form_builder_email_notifications.md'
         - 'Displaying Content children': 'cookbook/displaying_children_of_a_content_item.md'
         - 'Creating drag and drop interface': 'cookbook/drag_and_drop.md'
-        - 'Importing settings from a bundle': 'cookbook/importing_settings_from_a_bundle.md'
         - 'Installing on macOS or Windows': 'cookbook/installing-on-mac-os-and-windows.md'
         - 'Multi-language SiteAccesses': 'cookbook/setting_up_multi_language_siteaccesses.md'
         - 'Multiple user providers': 'cookbook/authenticating_a_user_with_multiple_user_providers.md'
