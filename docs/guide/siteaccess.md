@@ -230,7 +230,12 @@ You need to set several parameters:
 
 - `ezpublish.siteaccess.default_siteaccess` is the default SiteAccess that will be used if matching was not successful. This ensures that a SiteAccess is always defined.
 - `ezpublish.siteaccess.list` is the list of all available SiteAccesses in your website.
-- `ezpublish.siteaccess.groups` defines which groups SiteAccesses belong to. This is useful when you want to mutualize settings between several SiteAccesses and avoid config duplication. Siteaccess groups are treated the same as regular SiteAccesses as far as configuration is concerned. A SiteAccess can be part of several groups. A SiteAccess configuration has always precedence on the group configuration. *WARNING* - Do not remove or rename `admin_group` group. It's used to distinguish common siteaccesses from admin ones. In case of multisite with multiple admin panels, remember to add any additional admin siteaccess to this group.
+- `ezpublish.siteaccess.groups` defines which groups SiteAccesses belong to. This is useful when you want to mutualize settings between several SiteAccesses and avoid config duplication. Siteaccess groups are treated the same as regular SiteAccesses as far as configuration is concerned. A SiteAccess can be part of several groups. A SiteAccess configuration has always precedence on the group configuration.
+
+!!! caution "admin_group"
+
+    Do not remove or rename `admin_group` group. It is used to distinguish common SiteAccesses from admin ones. In case of multisite with multiple Admin Panels, remember to add any additional admin SiteAccessed to this group.
+
 - `ezpublish.siteaccess.match` holds the matching configuration. It consists in a hash where the key is the name of the matcher class. If the matcher class doesn't start with a **\\** , it will be considered relative to `eZ\Publish\MVC\SiteAccess\Matcher` (e.g. `Map\Host` will refer to  `eZ\Publish\MVC\SiteAccess\Matcher\Map\Host`)
 
 Every custom matcher can be specified with a fully qualified class name (e.g. `\My\SiteAccess\Matcher`) or by a service identifier prefixed by @ (e.g. `@my_matcher_service`).
