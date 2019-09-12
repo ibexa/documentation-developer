@@ -86,6 +86,7 @@ pages:
             - 'Controllers': 'guide/controllers.md'
             - 'Templates': 'guide/templates.md'
             - 'Design engine': 'guide/design_engine.md'
+            - 'Content item rendering': 'guide/displaying_content_with_simple_templates.md'
             - 'Page rendering': 'guide/page_rendering.md'
             - 'Twig functions reference': 'guide/twig_functions_reference.md'
         - Content management:
@@ -154,7 +155,6 @@ pages:
         - 'Retrieving root Location': 'cookbook/retrieving_root_location.md'
         - 'RouteReference': 'cookbook/using_routereference.md'
         - 'SiteAccess-aware bundle configuration': 'cookbook/exposing_siteaccess_aware_configuration_for_your_bundle.md'
-        - 'Using simple templates': 'cookbook/displaying_content_with_simple_templates.md'
     - Resources and community:
         - 'Resources': 'community_resources/resources.md'
         - 'Release process and roadmap': 'community_resources/release_process.md'

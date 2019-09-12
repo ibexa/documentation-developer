@@ -59,7 +59,7 @@ Content view templates use the [Twig templating engine](https://twig.symfony.com
 
 !!! tip "More information"
 
-    - [Displaying content with simple templates](../cookbook/displaying_content_with_simple_templates.md)
+    - [Displaying content with simple templates](../guide/displaying_content_with_simple_templates.md)
     - [Templates](../guide/templates.md)
     - [Twig documentation](https://twig.symfony.com/doc/2.x/)
 
