@@ -5,7 +5,8 @@ Go to the admin interface (<yourdomain>/admin) and log in with the default usern
 
 ## Add new Content Type
 
- In Back Office select **Admin** and navigate to **Content Types** tab. Under **Content** category create new Content Type:
+In Back Office select **Admin** and navigate to **Content Types** tab.
+Under **Content** category create new Content Type:
 
 ![Creating new Content Type](img/create_new_content_type.png)
 

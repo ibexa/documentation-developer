@@ -17,7 +17,7 @@ The Value class of a Field Type is by design very simple.
 It is used to represent an instance of the Field Type within a Content item.
 Each Field presents its data using an instance of the Type's Value class.
 A Value class must implement the `eZ\Publish\SPI\FieldType\Value` interface.
-For more information about Field Type Value see [Value handling](../../api/field_type_type_and_value/#value-handling) 
+For more information about Field Type Value see [Value handling](../../api/field_type_type_and_value/#value-handling).
 
 !!! tip
 
@@ -25,8 +25,8 @@ For more information about Field Type Value see [Value handling](../../api/field
 
 The Value class contains:
 
-- public properties: used to store the actual data
-- an implementation of the `__toString()` method: required by the Value interface it inherits from
+- public properties, used to store the actual data
+- an implementation of the `__toString()` method, required by the Value interface it inherits from
 
 By default, the constructor from `FieldType\Value` will be used.
 It allows you to pass a hash of property/value pairs.
