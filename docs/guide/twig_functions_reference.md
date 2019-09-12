@@ -498,7 +498,7 @@ The filters also accept an optional `timezone` parameter for displaying date and
 
 If the Content item does not have a translation in the current language, the main language (see [further down for details](#main-language-use)) will be used if this is supported by the provided **object**. This behavior is identical when forcing a language using **forcedLanguage**.
 
-If languages were specified during retrieval of a given value object, you can get translated values directly in several cases now, including examples below. For further info see [Internationalization](internationalization.md).
+If languages were specified during retrieval of a given value object, you can get translated values directly in several cases now, including examples below. For more details, see [Languages](internationalization.md).
 
 #### Prototype and Arguments
 
