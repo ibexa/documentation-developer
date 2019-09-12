@@ -8,7 +8,7 @@ In order to display data of the Field Type from templates, you need to create an
 
 !!! tip
 
-    See documentation about [Field Type templates](../../api/field_type_form_and_template.md) and about [importing settings from a bundle](../guide/bundles.md#importing-configuration-from-a-bundle).
+    See documentation about [Field Type templates](../../api/field_type_form_and_template.md) and about [importing settings from a bundle](../../guide/bundles.md#importing-configuration-from-a-bundle).
 
 In short, such a template must:
 
