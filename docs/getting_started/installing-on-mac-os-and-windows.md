@@ -1,42 +1,47 @@
-# Installing eZ Platform on macOS or Windows
+# Install eZ Platform on macOS or Windows
 
 Installing eZ Platform for production is only supported on Linux.
-See [Install eZ Platform](../getting_started/install_ez_platform.md) for a regular installation guide.
+See [Install eZ Platform](install_ez_platform.md) for a regular installation guide.
 
-This page explains how you can install eZ Platform on macOS or Windows (for development only).
+This section explains how to install eZ Platform on macOS or Windows (for development only).
 
 ### Prepare work environment
 
 To install eZ Platform you need a stack with MySQL and PHP.
 Additionally, you need [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/lang/en/docs/install/) for asset management.
-If you want to use a web server, you need to install it as well: Apache on Windows or Apache/nginx on macOS.
+If you want to use a web server, you need to install it as well:
+ 
+- For Windows: Apache
+- For macOS: Apache/nginx
+
 The instructions below assumes you are using Apache.
 
 ??? "Windows"
 
-    Locate `php.ini` file and open it in a text editor. Provide missing values to relevant parameters e.g. `date.timezone` and `memory_limit`:
+    Locate `php.ini` file and open it in a text editor.
+    Provide missing values to relevant parameters, e.g. `date.timezone` and `memory_limit`:
 
     ``` bash
     date.timezone = "Europe/Warsaw"
     memory_limit = 4G
     ```
 
-    Uncomment or add extensions relevant to your project e.g. `opcache` extension for PHP (suggested, but not required):
+    Uncomment or add extensions relevant to your project, e.g. `opcache` extension for PHP (recommended, but not required):
 
     ``` bash
     zend_extension=opcache.so
     ```
 
     Edit Apache configuration file `httpd.conf`.
-    Replace placeholder values with corresponding values from your project e.g. `ServerName localhost:80`.
-    Uncomment relevant modules e.g.
+    Replace placeholder values with corresponding values from your project, e.g. `ServerName localhost:80`.
+    Uncomment relevant modules, e.g.:
 
     ``` bash
     LoadModule rewrite_module modules/mod_rewrite.so
     LoadModule vhost_alias_module libexec/apache2/mod_vhost_alias.so
     ```
 
-    Start Apache using command line:
+    Start Apache using the following command line:
 
     ``` bash
     httpd.exe
@@ -71,7 +76,7 @@ The instructions below assumes you are using Apache.
 Download and extract an archive into the location where you want your project root directory to be from [ezplatform.com](https://ezplatform.com/#download-option) (for open-source version) or from the [Support portal](https://support.ez.no/Downloads) (for eZ Enterprise), or clone the [GitHub repository](https://github.com/ezsystems/ezplatform):
 
 ``` bash
-git clone https://github.com/ezsystems/ezplatform .
+git clone https://github.com/ezsystems/ezplatform
 ```
 
 !!! tip

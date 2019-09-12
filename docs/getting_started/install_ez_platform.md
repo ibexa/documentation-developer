@@ -5,7 +5,7 @@
     Installation for production is only supported on Linux.
 
     To install eZ Platform for development on macOS or Windows,
-    see [a cookbook recipe on installing on those systems](../cookbook/installing-on-mac-os-and-windows.md).
+    see [Install on macOS or Windows](installing-on-mac-os-and-windows.md).
 
 ## Prepare work environment
 
