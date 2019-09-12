@@ -50,7 +50,6 @@ pages:
             - 'REST API guide': 'api/rest_api_guide.md'
             - 'REST API usage': 'api/general_rest_usage.md'
             - 'Extending the REST API': 'api/extending_the_rest_api.md'
-            - 'JavaScript client': 'api/js_client.md'
             - 'REST API reference': 'api/rest_api_reference.md'
         - Public PHP API:
             - 'Public PHP API': 'api/public_php_api.md'
@@ -154,7 +153,7 @@ pages:
         - 'Notifications': 'cookbook/sending_notifications.md'
         - 'Retrieving root Location': 'cookbook/retrieving_root_location.md'
         - 'RouteReference': 'cookbook/using_routereference.md'
-        - 'Siteaccess-aware bundle configuration': 'cookbook/exposing_siteaccess_aware_configuration_for_your_bundle.md'
+        - 'SiteAccess-aware bundle configuration': 'cookbook/exposing_siteaccess_aware_configuration_for_your_bundle.md'
         - 'Using simple templates': 'cookbook/displaying_content_with_simple_templates.md'
     - Resources and community:
         - 'Resources': 'community_resources/resources.md'

@@ -177,6 +177,17 @@ Due to the code cleanup, the following deprecated items have been dropped:
 |`SearchResultsItemComponent`|-|`ContentTableItemComponent`|
 |`onlyContentOnTheFly`|-|`visibleTabs`|
 |`cotfForcedLanguage`|-|`cotfAllowedLanguages`|
+|`canEdit`|`EzSystems\EzPlatformAdminUiBundle\Controller\LanguageController::listAction`|`can_administrate`|
+|`canAssign`|`EzSystems\EzPlatformAdminUiBundle\Controller\LanguageController::listAction`|`can_administrate`|
+|`canEdit`|`EzSystems\EzPlatformAdminUiBundle\Controller\LanguageController::viewAction`|`can_administrate`|
+|`canAssign`|`EzSystems\EzPlatformAdminUiBundle\Controller\LanguageController::viewAction`|`can_administrate`|
+|`baseLanguage`|`EzSystems\EzPlatformAdminUi\EventListener\ContentTranslateViewFilterParametersListener::onFilterViewParameters`|`base_language`|
+|`contentType`|`EzSystems\EzPlatformAdminUi\EventListener\ContentTranslateViewFilterParametersListener::onFilterViewParameters`|`content_type`|
+|`isPublished`|`EzSystems\EzPlatformAdminUi\EventListener\ContentTranslateViewFilterParametersListener::onFilterViewParameters`|`ContentInfo::isPublished`|
+|`fieldDefinitionsByGroup`|`EzSystems\EzPlatformAdminUi\Tab\LocationView\ContentTab`| `field_definitions_by_group` |
+|`full`|`window.eZ.adminUiConfig.dateFormat`| `fullDateTime` |
+|`short`|`window.eZ.adminUiConfig.dateFormat`| `shortDateTime` |
+|`limit`|`EzSystems\EzPlatformAdminUi\UI\Module\Subitems\ContentViewParameterSupplier`| - |
 |`contentTypeNames`|`window.eZ.adminUiConfig`|`contentTypes`|
 
 ### REST server
