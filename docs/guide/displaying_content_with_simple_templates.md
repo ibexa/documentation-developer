@@ -20,7 +20,8 @@ First, create a simple `templates/full/article.html.twig` template to render an 
 ```
 Now the template requires a configuration determining when to use it.
 
-You can place the config in the `config/packages` folder in either of two places: a separate file or the preexisting `ezplatform.yaml`. In this case you'll use the latter.
+You can place the config in the `config/packages` folder in either of two places: a separate file or the preexisting `ezplatform.yaml`.
+In this case you'll use the latter.
 
 In `ezplatform.yaml`, under the `ezpublish` and `system` keys, add the following config:
 
@@ -42,7 +43,7 @@ default:
 ```
 Pay attention to indentation – `default` should be indented relative to `system`.
 Use `match` to identify not only the Content Type, but also the scenario for using the template.
-For details, see [Matchers](../guide/content_rendering.md#view-matchers).
+For details, see [Matchers](content_rendering.md#view-matchers).
 
 At this point all Content items that are articles should render using the new template.
 If you do not see changes, clear the cache by running: `php bin/console cache:clear`.
@@ -67,12 +68,12 @@ To see it in practice, let's extend the template:
 </div>
 ```
 
-You can also use other [Twig functions](twig_functions_reference.md), for example [`ez_field_value`](../guide/twig_functions_reference.md#ez_field_value), which renders the value of the Field without a template.
+You can also use other [Twig functions](twig_functions_reference.md), for example [`ez_field_value`](twig_functions_reference.md#ez_field_value), which renders the value of the Field without a template.
 
 ## Different views
 
-Besides the `full` view type, you can create many other view types.
-They can be used for example when rendering children of a folder or when [embedding one Content item in another](../guide/templates.md#embedding-content-items).
+Besides the `full` view type, you can create other view types.
+They can be used for example when rendering children of a folder or when [embedding one Content item in another](templates.md#embedding-content-items).
 
 ## Listing children
 
