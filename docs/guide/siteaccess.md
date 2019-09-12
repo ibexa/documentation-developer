@@ -234,7 +234,7 @@ You need to set several parameters:
 
 !!! caution "admin_group"
 
-    Do not remove or rename `admin_group` group. It is used to distinguish common SiteAccesses from admin ones. In case of multisite with multiple Admin Panels, remember to add any additional admin SiteAccessed to this group.
+    Do not remove or rename `admin_group` group. It is used to distinguish common SiteAccesses from admin ones. In case of multisite with multiple Admin Panels, remember to add any additional admin SiteAccesses to this group.
 
 - `ezpublish.siteaccess.match` holds the matching configuration. It consists in a hash where the key is the name of the matcher class. If the matcher class doesn't start with a **\\** , it will be considered relative to `eZ\Publish\MVC\SiteAccess\Matcher` (e.g. `Map\Host` will refer to  `eZ\Publish\MVC\SiteAccess\Matcher\Map\Host`)
 
