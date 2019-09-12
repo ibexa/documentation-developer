@@ -188,6 +188,7 @@ Due to the code cleanup, the following deprecated items have been dropped:
 |`full`|`window.eZ.adminUiConfig.dateFormat`| `fullDateTime` |
 |`short`|`window.eZ.adminUiConfig.dateFormat`| `shortDateTime` |
 |`limit`|`EzSystems\EzPlatformAdminUi\UI\Module\Subitems\ContentViewParameterSupplier`| - |
+|`contentTypeNames`|`window.eZ.adminUiConfig`|`contentTypes`|
 
 ### REST server
 
