@@ -40,7 +40,7 @@ It enables you to manually select a set of Content items to be displayed.
 
     To enable adding content to a Collection block in a clean installation,
     you need to configure the views for the block and define which Content Types can be embedded in it.
-    See [block templates](../guide/extending_landing_page.md#block-templates) for more information and an example.
+    See [block templates](../guide/page_rendering.md#block-templates) for more information and an example.
 
 #### RecommendationBundle adapted for YooChoose v2
 
