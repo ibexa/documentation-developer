@@ -34,8 +34,6 @@ This release enables you to [use PostgreSQL](../guide/databases.md#using-postgre
 
 Database schema is now created based on [YAML configuration](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage/legacy/schema.yaml).
 
-See [Using PostgreSQL](../cookbook/using_postgresql.md) for more information.
-
 ### GraphQL
 
 You can now take advantage of [GraphQL](../api/graphql.md) to query and operate on content.
