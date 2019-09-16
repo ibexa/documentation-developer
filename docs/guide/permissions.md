@@ -118,6 +118,11 @@ To remove an archived version of content, the User must have the `content/versio
 
 Further manipulation of trash requires the `content/restore` Policy to restore items from trash, and `content/cleantrash` to completely delete all content from the trash.
 
+!!! caution
+
+    With the `content/cleantrash` Policy, the User can empty the trash even if they do not have access to the trashed content,
+    e.g. because it belonged to a Section they do not have permissions for.
+
 #### Registering Users
 
 To allow anonymous users to register through the `/register` route, you need to grant the `user/register` Policy to the Anonymous User Group.
@@ -202,7 +207,7 @@ Users are treated like other content, so to create and modify them the User need
 |               | `urltranslator`      | manage URL aliases of a Content item|
 |               | `pendinglist`        | unused                                                                                                                                  |
 |               | `restore`            | restore content from Trash                                                                                                              |
-|               | `cleantrash`         | empty the trash                                                                                                                         |
+|               | `cleantrash`         | empty the trash (even when the User does not have access to individual Content items) |
 | `Content Type`       | `update`             | modify existing Content Types. Also required to create new Content Types                                                                |
 |               | `create`             | create new Content Types. Also required to edit exiting Content Types                                                                   |
 |               | `delete`             | delete Content Types                                                                                                                    |

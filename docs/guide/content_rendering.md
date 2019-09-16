@@ -112,6 +112,25 @@ The following table presents all native matchers.
 |`Depth`|Matches the depth of the Location. The depth of a top level Location is 1.|
 |`UrlAlias`|Matches the virtual URL of the Location (i.e. `/My/Content-Uri`). **Important: Matches when the UrlAlias of the Location starts with the value passed.** *Not supported for Content (aka content_view).*|
 
+### Custom matchers
+
+Beside the built-in matchers, you can also use your own services to match views:
+
+``` yaml
+ezpublish:
+    system:
+        site:
+            content_view:
+                full:
+                    folder:
+                        template: folder.html.twig
+                        match:
+                            '@App\Matcher\MyMatcher': ~
+```
+
+The service must be tagged with `ezplatform.view.matcher`
+and must implement `\eZ\Publish\Core\MVC\Symfony\Matcher\ContentBased\ViewMatcherInterface`. 
+
 ### Content view templates
 
 #### Template variables

@@ -50,15 +50,14 @@ pages:
             - 'REST API guide': 'api/rest_api_guide.md'
             - 'REST API usage': 'api/general_rest_usage.md'
             - 'Extending the REST API': 'api/extending_the_rest_api.md'
-            - 'JavaScript client': 'api/js_client.md'
             - 'REST API reference': 'api/rest_api_reference.md'
         - Public PHP API:
             - 'Public PHP API': 'api/public_php_api.md'
-            - 'Customization': 'api/public_php_api_customization.md'
             - 'Browsing Content': 'api/public_php_api_browsing.md'
-            - 'Searching': 'api/public_php_api_search.md'
+            - 'Content search': 'api/public_php_api_search.md'
+            - 'Creating Content': 'api/public_php_api_creating_content.md'
             - 'Managing Content': 'api/public_php_api_managing_content.md'
-            - 'Locations': 'api/public_php_api_locations.md'
+            - 'Managing Repository': 'api/public_php_api_managing_repository.md'
         - Field Type:
             - 'Field Type API': 'api/field_type_api.md'
             - 'Type and Value': 'api/field_type_type_and_value.md'
@@ -116,8 +115,6 @@ pages:
         - Repository:
             - 'Repository': 'guide/repository.md'
             - 'Databases': 'guide/databases.md'
-            - 'SignalSlots': 'guide/signalslots.md'
-            - 'Signals reference': 'guide/signals_reference.md'
         - Cache:
             - 'HTTP cache': 'guide/http_cache.md'
             - 'Persistence cache': 'guide/persistence_cache.md'
@@ -143,7 +140,6 @@ pages:
         - 'Recommendation': 'guide/personalization.md'
     - Cookbook:
         - 'Accept header-based REST API response': 'cookbook/creating_custom_rest_api_response.md'
-        - 'API search result pagination': 'cookbook/paginating_api_search_results.md'
         - 'Binary attachments via REST API': 'cookbook/creating_content_with_binary_attachments_via_rest_api.md'
         - 'Creating custom drop-downs': 'cookbook/creating_custom_dropdowns.md'
         - 'Cross-origin HTTP requests': 'cookbook/making_cross_origin_http_requests.md'
@@ -155,10 +151,9 @@ pages:
         - 'Multi-language SiteAccesses': 'cookbook/setting_up_multi_language_siteaccesses.md'
         - 'Multiple user providers': 'cookbook/authenticating_a_user_with_multiple_user_providers.md'
         - 'Notifications': 'cookbook/sending_notifications.md'
-        - 'Request parameters as API objects': 'cookbook/converting_request_parameters_into_api_objects.md'
         - 'Retrieving root Location': 'cookbook/retrieving_root_location.md'
         - 'RouteReference': 'cookbook/using_routereference.md'
-        - 'Siteaccess-aware bundle configuration': 'cookbook/exposing_siteaccess_aware_configuration_for_your_bundle.md'
+        - 'SiteAccess-aware bundle configuration': 'cookbook/exposing_siteaccess_aware_configuration_for_your_bundle.md'
         - 'Using simple templates': 'cookbook/displaying_content_with_simple_templates.md'
     - Resources and community:
         - 'Resources': 'community_resources/resources.md'
@@ -275,11 +270,10 @@ extra:
       url: '/'
     - title: 'eZ Platform User Documentation'
       url: '/projects/userguide'
-    - title: 'eZ Services Documentation'
-      url: '/projects/ezservices'
+    - title: 'eZ Personalization Documentation'
+      url: '/projects/ezpersonalization'
     - title: 'eZ Commerce'
       url: 'https://doc.ez.no/commerce'
-      
 
 extra_css:
   - fonts/MavenPro.css

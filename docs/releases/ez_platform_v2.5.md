@@ -34,8 +34,6 @@ This release enables you to [use PostgreSQL](../guide/databases.md#using-postgre
 
 Database schema is now created based on [YAML configuration](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage/legacy/schema.yaml).
 
-See [Using PostgreSQL](../cookbook/using_postgresql.md) for more information.
-
 ### GraphQL
 
 You can now take advantage of [GraphQL](../api/graphql.md) to query and operate on content.
@@ -229,3 +227,12 @@ instead of throwing an exception. The following methods are affected:
 
 `content/cleantrash` Policy now allows the user to empty the trash
 even if normally they would not have do not have access to the trashed content.
+
+### Deprecated features
+
+This section provides a list of deprecated features to be removed in eZ Platform v3.0.
+
+#### Custom Installers
+
+- The `\EzSystems\PlatformInstallerBundle\Installer\CleanInstaller` class and its Service Container definition (`ezplatform.installer.clean_installer`) have been deprecated in favor of `EzSystems\PlatformInstallerBundle\Installer\CoreInstaller` which requires the [Doctrine Schema Bundle](https://github.com/ezsystems/doctrine-dbal-schema) to be enabled.
+- The `ezplatform.installer.db_based_installer` Service Container definition has been deprecated in favor of its FQCN-named equivalent (`EzSystems\PlatformInstallerBundle\Installer\DbBasedInstaller`).

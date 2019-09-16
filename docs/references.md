@@ -26,7 +26,6 @@
     - [Role Policies map](guide/permissions.md#available-policies)
 - Repository:
     - [Services](guide/repository.md#services-public-api)
-    - [Signals reference](guide/signalslots.md#signals-reference)
 - Search:
     - [Search Criteria reference](guide/search.md#search-criteria-reference)
     - [Sort Clause reference](guide/search.md#sort-clauses-reference)
@@ -45,4 +44,4 @@
 
 ## Personalization Solution
 
-- [Services documentation](https://doc.ezplatform.com/projects/ezservices/en/latest/)
+- [Personalization documentation](https://doc.ezplatform.com/projects/ezpersonalization/en/latest/)

@@ -122,7 +122,3 @@ In order to test it, just save this code to some test.html file in the web folde
 If necessary, substitute `59` with the Content item ID of an item from your database. You will get the ContentInfo for item 59 in JSON encoding.
 
 Note that by default, session authentication is used. This means that the session cookie will be transparently sent together with the request, and every AJAX call will have the same permissions as the currently logged in user.
-
-!!! note "JavaScript REST Client"
-
-    To ease the use of the eZ Platform REST API, we provide a JavaScript REST Client. Its basic usage is explained in [Using the JavaScript REST API Client](js_client.md#using-the-javascript-rest-api-client).

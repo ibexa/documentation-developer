@@ -83,8 +83,6 @@ See the [Query controller page](../guide/content_rendering.md) for more informa
 
 In this release we are starting to share tools to help you use Docker with eZ Platform. What we share today has gone through several iterations to try to become as simple as possible. It uses plain Docker and Docker Compose to avoid having to learn anything specific with these tools, and it uses official docker images to take advantage of continued innovation by Docker Inc. and the ecosystem.
 
-Further reading: [Docker Tools](../guide/docker_tools.md)
-
 ## Updating
 
 To update to this version, follow the [Updating eZ Platform](../updating/updating_ez_platform.md) guide and use v1.4.0 as `<version>`.

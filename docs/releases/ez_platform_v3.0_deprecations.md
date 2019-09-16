@@ -80,18 +80,67 @@ Additionally, the `ez_trans_prop` Twig function has been removed.
 
 ### JavaScript event names and code cleanup
 
+#### Event names changed
+
 Selected event names have been changed.
 
-#### In Admin UI (`ezplatform-admin-ui`):
+##### In Admin UI (`ezplatform-admin-ui`):
 
 |Former name|New name|
 |-----------|--------|
 |`invalidFileSize`|`ez-invalid-file-size`|
 |`addressNotFound`|`ez-address-not-found`|
 |`cancelErrors`|`ez-cancel-errors`|
+|`ezsettings.default.content_type.about`|`ezsettings.admin_group.content_type.about`|
+|`ezsettings.default.content_type.article`|`ezsettings.admin_group.content_type.article`|
+|`ezsettings.default.content_type.blog`|`ezsettings.admin_group.content_type.blog`|
+|`ezsettings.default.content_type.blog_post`|`ezsettings.admin_group.content_type.blog_post`|
+|`ezsettings.default.content_type.folder`|`ezsettings.admin_group.content_type.folder`|
+|`ezsettings.default.content_type.form`|`ezsettings.admin_group.content_type.form`|
+|`ezsettings.default.content_type.place`|`ezsettings.admin_group.content_type.place`|
+|`ezsettings.default.content_type.product`|`ezsettings.admin_group.content_type.product`|
+|`ezsettings.default.content_type.field`|`ezsettings.admin_group.content_type.field`|
+|`ezsettings.default.content_type.user`|`ezsettings.admin_group.content_type.user`|
+|`ezsettings.default.content_type.user_group`|`ezsettings.admin_group.content_type.user_group`|
+|`ezsettings.default.content_type.file`|`ezsettings.admin_group.content_type.file`|
+|`ezsettings.default.content_type.gallery`|`ezsettings.admin_group.content_type.gallery`|
+|`ezsettings.default.content_type.image`|`ezsettings.admin_group.content_type.image`|
+|`ezsettings.default.content_type.video`|`ezsettings.admin_group.content_type.video`|
+|`ezsettings.default.content_type.landing_page`|`ezsettings.admin_group.content_type.landing_page`|
+|`ezsettings.default.content_type.default-config`|`ezsettings.admin_group.content_type.default-config`|
+|`ezsettings.default.pagination.search_limit`|`ezsettings.admin_group.pagination.search_limit`|
+|`ezsettings.default.pagination.trash_limit`|`ezsettings.admin_group.pagination.trash_limit`|
+|`ezsettings.default.pagination.section_limit`|`ezsettings.admin_group.pagination.section_limit`|
+|`ezsettings.default.pagination.language_limit`|`ezsettings.admin_group.pagination.language_limit`|
+|`ezsettings.default.pagination.role_limit`|`ezsettings.admin_group.pagination.role_limit`|
+|`ezsettings.default.pagination.content_type_group_limit`|`ezsettings.admin_group.pagination.content_type_group_limit`|
+|`ezsettings.default.pagination.content_type_limit`|`ezsettings.admin_group.pagination.content_type_limit`|
+|`ezsettings.default.pagination.role_assignment_limit`|`ezsettings.admin_group.pagination.role_assignment_limit`|
+|`ezsettings.default.pagination.policy_limit`|`ezsettings.admin_group.pagination.policy_limit`|
+|`ezsettings.default.pagination.version_draft_limit`|`ezsettings.admin_group.pagination.version_draft_limit`|
+|`ezsettings.default.pagination.content_system_url_limit`|`ezsettings.admin_group.pagination.content_system_url_limit`|
+|`ezsettings.default.pagination.content_custom_url_limit`|`ezsettings.admin_group.pagination.content_custom_url_limit`|
+|`ezsettings.default.pagination.content_role_limit`|`ezsettings.admin_group.pagination.content_role_limit`|
+|`ezsettings.default.pagination.content_policy_limit`|`ezsettings.admin_group.pagination.content_policy_limit`|
+|`ezsettings.default.pagination.bookmark_limit`|`ezsettings.admin_group.pagination.bookmark_limit`|
+|`ezsettings.default.pagination.notification_limit`|`ezsettings.admin_group.pagination.notification_limit`|
+|`ezsettings.default.pagination.content_draft_limit`|`ezsettings.admin_group.pagination.content_draft_limit`|
+|`ezsettings.default.security.token_interval_spec`|`ezsettings.admin_group.security.token_interval_spec`|
+|`ezsettings.default.user_content_type_identifier`|`ezsettings.admin_group.user_content_type_identifier`|
+|`ezsettings.default.user_group_content_type_identifier`|`ezsettings.admin_group.user_group_content_type_identifier`|
+|`ezsettings.default.subtree_operations.copy_subtree.limit`|`ezsettings.admin_group.subtree_operations.copy_subtree.limit`|
+|`ezsettings.default.notifications.error.timeout`|`ezsettings.admin_group.notifications.error.timeout`|
+|`ezsettings.default.notifications.warning.timeout`|`ezsettings.admin_group.notifications.warning.timeout`|
+|`ezsettings.default.notifications.success.timeout`|`ezsettings.admin_group.notifications.success.timeout`|
+|`ezsettings.default.notifications.info.timeout`|`ezsettings.admin_group.notifications.info.timeout`|
+|`ezsettings.default.content_tree_module.load_more_limit`|`ezsettings.admin_group.content_tree_module.load_more_limit`|
+|`ezsettings.default.content_tree_module.children_load_max_limit`|`ezsettings.admin_group.content_tree_module.children_load_max_limit`|
+|`ezsettings.default.content_tree_module.tree_max_depth`|`ezsettings.admin_group.content_tree_module.tree_max_depth`|
+|`ezsettings.default.content_tree_module.allowed_content_types`|`ezsettings.admin_group.content_tree_module.allowed_content_types`|
+|`ezsettings.default.content_tree_module.ignored_content_types`|`ezsettings.admin_group.content_tree_module.ignored_content_types`|
+|`ezsettings.default.content_tree_module.tree_root_location_id`|`ezsettings.admin_group.content_tree_module.tree_root_location_id`|
 
-
-#### In Page Builder (`ezplatform-page-builder`):
+##### In Page Builder (`ezplatform-page-builder`):
 
 |Former name|New name|
 |-----------|--------|
@@ -103,7 +152,7 @@ Selected event names have been changed.
 
 Additionally, the listener for `pbPreviewReloaded` has been removed.
 
-#### In Form Builder (`ezplatform-form-builder`):
+##### In Form Builder (`ezplatform-form-builder`):
 
 |Former name|New name|
 |-----------|--------|
@@ -111,6 +160,35 @@ Additionally, the listener for `pbPreviewReloaded` has been removed.
 |`updateFieldName`|`ez-update-field-name`|
 |`fbFormBuilderLoaded`|`ez-form-builder-loaded`|
 |`fbFormBuilderUnloaded`|`ez-form-builder-unloaded`
+
+#### Code cleanup
+
+Due to the code cleanup, the following deprecated items have been dropped: 
+
+|Dropped code|Belongs to|Use instead|
+|------------|----------|-----------|
+|`formatPHP`|`window.moment.fn`|`formatICU`|
+|`formatDate`|`window.eZ.helpers.timezone`|`formatFullDateTime`|
+|`formatShortDate`|`window.eZ.helpers.timezone`|`formatShortDateTime`|
+|`formatDateWithTimezone`|`window.eZ.helpers.timezone`|`formatFullDateTime`|
+|`formatShortDateWithTimezone`|`window.eZ.helpers.timezone`|`formatShortDateTime`|
+|`SearchPaginationComponent`|-|`ContentTablePaginationComponent`|
+|`SearchResultsComponent`|-|`ContentTableComponent`|
+|`SearchResultsItemComponent`|-|`ContentTableItemComponent`|
+|`onlyContentOnTheFly`|-|`visibleTabs`|
+|`cotfForcedLanguage`|-|`cotfAllowedLanguages`|
+|`canEdit`|`EzSystems\EzPlatformAdminUiBundle\Controller\LanguageController::listAction`|`can_administrate`|
+|`canAssign`|`EzSystems\EzPlatformAdminUiBundle\Controller\LanguageController::listAction`|`can_administrate`|
+|`canEdit`|`EzSystems\EzPlatformAdminUiBundle\Controller\LanguageController::viewAction`|`can_administrate`|
+|`canAssign`|`EzSystems\EzPlatformAdminUiBundle\Controller\LanguageController::viewAction`|`can_administrate`|
+|`baseLanguage`|`EzSystems\EzPlatformAdminUi\EventListener\ContentTranslateViewFilterParametersListener::onFilterViewParameters`|`base_language`|
+|`contentType`|`EzSystems\EzPlatformAdminUi\EventListener\ContentTranslateViewFilterParametersListener::onFilterViewParameters`|`content_type`|
+|`isPublished`|`EzSystems\EzPlatformAdminUi\EventListener\ContentTranslateViewFilterParametersListener::onFilterViewParameters`|`ContentInfo::isPublished`|
+|`fieldDefinitionsByGroup`|`EzSystems\EzPlatformAdminUi\Tab\LocationView\ContentTab`| `field_definitions_by_group` |
+|`full`|`window.eZ.adminUiConfig.dateFormat`| `fullDateTime` |
+|`short`|`window.eZ.adminUiConfig.dateFormat`| `shortDateTime` |
+|`limit`|`EzSystems\EzPlatformAdminUi\UI\Module\Subitems\ContentViewParameterSupplier`| - |
+|`contentTypeNames`|`window.eZ.adminUiConfig`|`contentTypes`|
 
 ### REST server
 
@@ -129,6 +207,11 @@ HTTP cache bundle now uses FOS Cache Bundle v2. This entails:
 - `tagResponse()` from `tagHandler` has been replaced by `tagSymfonyResponse()`
 - deprecated `EzSystems\PlatformHttpCacheBundle\Handler\TagHandlerInterface` has been removed
 - `EzSystems\PlatformHttpCacheBundle\PurgeClient\PurgeClientInterface` now only accept an array as argument in the `purge()` method, instead of an int.
+- The `X-User-Hash` header for recognizing user context has been changed to `X-User-Context-Hash`.
+- The `key` header for purging tags has been changed to `xkey-softpurge`.
+- The `PURGE` method has been changed to `PURGEKEY`.
+- The `ezplatform.http_cache.tags.header` parameter has been removed.
+Configuration now relies on FOS Cache configuration and its default values.
 
 ### Deprecated Field Types
 
@@ -147,11 +230,67 @@ Assetic support has been dropped.
 
 The deprecated `universal_discovery_widget_module.default_location_id` setting has been replaced with `universal_discovery_widget_module.configuration.default.starting_location_id`.
 
+### Online Editor
+
+Configuration providers exposing the following JavaScript variables have been dropped:
+
+- `eZ.adminUiConfig.alloyEditor` replaced by `eZ.richText.alloyEditor`
+- `eZ.adminUiConfig.richTextCustomTags` replaced by `eZ.richText.customTags`
+- `eZ.adminUiConfig.richTextCustomStyles` replaced by `eZ.richtext.customStyles`
+
+The following Webpack Encore entries have been changed:
+
+- `ezplatform-admin-ui-alloyeditor-css` replaced by `ezplatform-richtext-onlineeditor-css`
+- `ezplatform-admin-ui-alloyeditor-js` replaced by `ezplatform-richtext-onlineeditor-js`
+
+All Online Editor front-end code and assets (such as JS, CSS, fonts, etc.)
+have been moved from `ezplatform-admin-ui` to `ezplatform-richtext`.
+
 ### Miscellaneous
 
 - Deprecated `SubtreeQuery` class has been removed. In v3.0 it was replaced by `\EzSystems\EzPlatformAdminUi\QueryType\SubtreeQueryType`.
 
+#### View matching
+
+When matching views using custom services, the services must be now tagged with `ezplatform.view.matcher`.
+The matching must be configured in the following way:
+
+``` yaml
+content_view:
+    full:
+        folder:
+            template: folder.html.twig
+            match:
+                '@App\Matcher\MyMatcher': ~
+```
+
+#### SiteAccess matching
+
+When matching SiteAcceses using custom services, the SiteAccess matcher service must be now tagged with `ezplatform.siteaccess.matcher`.
+
 ## Deprecations
+
+### User settings
+
+As a result of moving user settings to the [`ezplatform-user`](https://github.com/ezsystems/ezplatform-user) package, the following deprecated code for handling the settings has been dropped:
+
+- `EzSystems\EzPlatformAdminUi\UserSetting\`
+- `EzSystems\EzPlatformAdminUi\Pagination\Pagerfanta\UserSettingsAdapter`
+- `EzSystems\EzPlatformAdminUi\Form\Type\User\Setting\UserSettingUpdateType`
+- `EzSystems\EzPlatformAdminUiBundle\Controller\UserProfile\UserPasswordChangeController`
+- `EzSystems\EzPlatformAdminUiBundle\Controller\User\{UserSettingsController,UserForgotPasswordController}`
+
+### Choice Loaders
+
+The following choiceLoaders classes deprecated in v2.5 have been removed:
+
+- `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\PermissionAwareContentTypeChoiceLoader`
+- `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\PermissionAwareLanguageChoiceLoader`
+
+Instead, use the following classes:
+
+- `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\ContentCreateContentTypeChoiceLoader`
+- `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\ContentCreateLanguageChoiceLoader` 
 
 ### Template parameter names
 
