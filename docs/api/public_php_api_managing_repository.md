@@ -27,7 +27,7 @@ $output->writeln(($this->sectionService->isSectionUsed($section) ? 'This section
 
 ### Listing content in a Section
 
-To list Content items assigned to a Section you need to make a [query](php_public_api_search.md)
+To list Content items assigned to a Section you need to make a [query](public_php_api_search.md)
 for Content belonging to this section, by applying the [`SearchService`.](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/SearchService.php)
 You can also use the query to get the total number of assigned Content items:
 

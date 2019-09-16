@@ -16,7 +16,7 @@ For example, an article can be at the same time under "Local news" and "Sports n
 Even in such a case, one of these places is always the main Location.
 
 You can change the main Location in the Back Office in the Locations tab,
-or [through the API](../api/public_php_api_locations.md#setting-a-content-items-main-location).
+or [through the API](../api/public_php_api_managing_content.md#changing-the-main-location).
 
 ### Top level Locations
 
