@@ -228,6 +228,11 @@ instead of throwing an exception. The following methods are affected:
 `content/cleantrash` Policy now allows the user to empty the trash
 even if normally they would not have do not have access to the trashed content.
 
+### Docker environment
+
+BCMath PHP extension has been added to the Docker environments
+in order to enable the Allure reporting tool.
+
 ### Deprecated features
 
 This section provides a list of deprecated features to be removed in eZ Platform v3.0.
