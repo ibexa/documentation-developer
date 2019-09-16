@@ -11,7 +11,7 @@ Without these three steps, your SiteAccess configuration will either not work or
 ## Create a new translation
 
 By creating a new translation, you indicate that a Content item has other language versions.
-A newly defined translation then can be used according to the SiteAccess configuration.
+A newly defined translation can then be used according to the SiteAccess configuration.
 For more details on language versions, see [Languages](internationalization.md).
 
 1. Log in to the Back Office.
@@ -148,4 +148,4 @@ siteaccess:
 
 Clear the cache by running: `php bin/console cache:clear`.
 
-Now you should be able to load your eZ Platform site using the `en` and `fr` SiteAccess to display contant in English and French.
+Now you should be able to load your eZ Platform site using the `en` and `fr` SiteAccess to display content in English and French.
