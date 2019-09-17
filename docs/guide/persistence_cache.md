@@ -120,7 +120,8 @@ parameters:
 Redis is used via [Redis pecl extension](https://pecl.php.net/package/redis).
 
 See [Redis Cache Adapter in Symfony documentation](https://symfony.com/doc/3.4/components/cache/adapters/redis_adapter.html#configure-the-connection)
-for information on how to configure Redis.
+for information on how to configure Redis. Make sure to configure redis with the right eviction policy. So, you can be safe that tag <=> cache
+relationship survives eviction (cache cleanup when Redis runs out of memory). Use any `volatile-*` eviction policy, OR `noeviction` if you sure that your data will NEVER fill up memory.
 
 Out of the box in `config/packages/cache_pool/cache.redis.yaml` you'll find a default example that can be used.
 
