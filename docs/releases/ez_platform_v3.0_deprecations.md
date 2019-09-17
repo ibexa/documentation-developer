@@ -78,7 +78,7 @@ Additionally, the `ez_trans_prop` Twig function has been removed.
 |`richtext_to_html5`|`ez_richtext_to_html5`|
 |`richtext_to_html5_edit`|`ez_richtext_to_html5_edit`|
 
-### JavaScript event names and code cleanup
+### JavaScript
 
 #### Event names changed
 
@@ -161,11 +161,11 @@ Additionally, the listener for `pbPreviewReloaded` has been removed.
 |`fbFormBuilderLoaded`|`ez-form-builder-loaded`|
 |`fbFormBuilderUnloaded`|`ez-form-builder-unloaded`
 
-#### Code cleanup
+#### Code removals
 
-Due to the code cleanup, the following deprecated items have been dropped: 
+Due to the code cleanup, the following deprecated items have been removed: 
 
-|Dropped code|Belongs to|Use instead|
+|Removed code|Belongs to|Use instead|
 |------------|----------|-----------|
 |`formatPHP`|`window.moment.fn`|`formatICU`|
 |`formatDate`|`window.eZ.helpers.timezone`|`formatFullDateTime`|
@@ -179,16 +179,6 @@ Due to the code cleanup, the following deprecated items have been dropped:
 |`cotfForcedLanguage`|-|`cotfAllowedLanguages`|
 |`canEdit`|`EzSystems\EzPlatformAdminUiBundle\Controller\LanguageController::listAction`|`can_administrate`|
 |`canAssign`|`EzSystems\EzPlatformAdminUiBundle\Controller\LanguageController::listAction`|`can_administrate`|
-|`canEdit`|`EzSystems\EzPlatformAdminUiBundle\Controller\LanguageController::viewAction`|`can_administrate`|
-|`canAssign`|`EzSystems\EzPlatformAdminUiBundle\Controller\LanguageController::viewAction`|`can_administrate`|
-|`baseLanguage`|`EzSystems\EzPlatformAdminUi\EventListener\ContentTranslateViewFilterParametersListener::onFilterViewParameters`|`base_language`|
-|`contentType`|`EzSystems\EzPlatformAdminUi\EventListener\ContentTranslateViewFilterParametersListener::onFilterViewParameters`|`content_type`|
-|`isPublished`|`EzSystems\EzPlatformAdminUi\EventListener\ContentTranslateViewFilterParametersListener::onFilterViewParameters`|`ContentInfo::isPublished`|
-|`fieldDefinitionsByGroup`|`EzSystems\EzPlatformAdminUi\Tab\LocationView\ContentTab`| `field_definitions_by_group` |
-|`full`|`window.eZ.adminUiConfig.dateFormat`| `fullDateTime` |
-|`short`|`window.eZ.adminUiConfig.dateFormat`| `shortDateTime` |
-|`limit`|`EzSystems\EzPlatformAdminUi\UI\Module\Subitems\ContentViewParameterSupplier`| - |
-|`contentTypeNames`|`window.eZ.adminUiConfig`|`contentTypes`|
 
 ### REST server
 
@@ -213,9 +203,7 @@ HTTP cache bundle now uses FOS Cache Bundle v2. This entails:
 - The `ezplatform.http_cache.tags.header` parameter has been removed.
 Configuration now relies on FOS Cache configuration and its default values.
 
-### Deprecated Field Types
 
-Deprecated `ezprice` and `ezpage` Field Types have been removed.
 
 ### Elastic Search
 
@@ -246,11 +234,7 @@ The following Webpack Encore entries have been changed:
 All Online Editor front-end code and assets (such as JS, CSS, fonts, etc.)
 have been moved from `ezplatform-admin-ui` to `ezplatform-richtext`.
 
-### Miscellaneous
-
-- Deprecated `SubtreeQuery` class has been removed. In v3.0 it was replaced by `\EzSystems\EzPlatformAdminUi\QueryType\SubtreeQueryType`.
-
-#### View matching
+### View matching
 
 When matching views using custom services, the services must be now tagged with `ezplatform.view.matcher`.
 The matching must be configured in the following way:
@@ -264,11 +248,36 @@ content_view:
                 '@App\Matcher\MyMatcher': ~
 ```
 
-#### SiteAccess matching
+### SiteAccess matching
 
 When matching SiteAcceses using custom services, the SiteAccess matcher service must be now tagged with `ezplatform.siteaccess.matcher`.
 
-## Deprecations
+### Miscellaneous
+
+- Deprecated `SubtreeQuery` class has been removed. In v3.0 it was replaced by `\EzSystems\EzPlatformAdminUi\QueryType\SubtreeQueryType`.
+
+## Deprecations and removals
+
+### Admin UI
+
+Due to the code cleanup, the following deprecated items have been removed: 
+
+|Removed code|Belongs to|Use instead|
+|------------|----------|-----------|
+|`canEdit`|`EzSystems\EzPlatformAdminUiBundle\Controller\LanguageController::viewAction`|`can_administrate`|
+|`canAssign`|`EzSystems\EzPlatformAdminUiBundle\Controller\LanguageController::viewAction`|`can_administrate`|
+|`baseLanguage`|`EzSystems\EzPlatformAdminUi\EventListener\ContentTranslateViewFilterParametersListener::onFilterViewParameters`|`base_language`|
+|`contentType`|`EzSystems\EzPlatformAdminUi\EventListener\ContentTranslateViewFilterParametersListener::onFilterViewParameters`|`content_type`|
+|`isPublished`|`EzSystems\EzPlatformAdminUi\EventListener\ContentTranslateViewFilterParametersListener::onFilterViewParameters`|`ContentInfo::isPublished`|
+|`fieldDefinitionsByGroup`|`EzSystems\EzPlatformAdminUi\Tab\LocationView\ContentTab`| `field_definitions_by_group` |
+|`full`|`window.eZ.adminUiConfig.dateFormat`| `fullDateTime` |
+|`short`|`window.eZ.adminUiConfig.dateFormat`| `shortDateTime` |
+|`limit`|`EzSystems\EzPlatformAdminUi\UI\Module\Subitems\ContentViewParameterSupplier`| - |
+|`contentTypeNames`|`window.eZ.adminUiConfig`|`contentTypes`|
+
+### Field Types
+
+Deprecated `ezprice` and `ezpage` Field Types have been removed.
 
 ### User settings
 
@@ -292,13 +301,15 @@ Instead, use the following classes:
 - `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\ContentCreateContentTypeChoiceLoader`
 - `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\ContentCreateLanguageChoiceLoader` 
 
-### Template parameter names
+### Templates
+
+#### Template parameter names
 
 The SiteAccess-aware `pagelayout` setting is deprecated in favor of `page_layout`.
 
 View parameter `pagelayout` set by `pagelayout` setting is deprecated in favor of  `page_layout`.
 
-### Template organization
+#### Template organization
 
 The following templates used in the Back Office have been renamed:
 
