@@ -1,10 +1,12 @@
 # Creating custom Field Type
 
-Generic Field Type can be used as a template for any Field Type you would like to create.
+Generic Field Type can be used as a template for any Field Type you want to create.
 It makes creation and customization process easier and faster.
-Generic Field Type can be especially useful during customization of such fields as: language, currency, birth date etc.
+Generic Field Type can be especially useful during customization of such fields as:
+language, currency, birth date etc.
 
-Generic Field Type comes with the implementation of basic methods, reduces the number of classes which must be created and simplifies tagging process.
+Generic Field Type comes with the implementation of basic methods,
+reduces the number of classes which must be created and simplifies tagging process.
 Base implementation uses Symfony serializer and Symfony validator component.
 
 !!! tip
@@ -71,7 +73,7 @@ final class Type extends GenericType implements FieldValueFormMapperInterface
 }
 ```
 
-Next, add the `ezplatform.field_type` class to `config/services.yaml`:
+Next, add the `ezplatform.field_type` class to the `config/services.yaml`:
 
 ```yaml
 App\FieldType\HelloWorld\Type:
@@ -170,4 +172,4 @@ ezpublish:
 
 ## Final results
 
-Finally, you should be able to add a new Content Type in the Back Office interface. 
+Finally, you should be able to add a new Content Type in the Back Office interface.
