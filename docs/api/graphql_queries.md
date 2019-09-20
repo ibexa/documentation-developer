@@ -181,6 +181,68 @@ Response:
 }
 ```
 
+## Querying Locations
+
+To query a Location and its children, use the repository schema:
+
+```
+{
+  _repository {
+    location(locationId: 2) {
+      children {
+        edges {
+          node {
+            content {
+              _name
+              _type {
+                name
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+Response:
+
+```
+{
+  "data": {
+    "_repository": {
+      "location": {
+        "children": {
+          "edges": [
+            {
+              "node": {
+                "content": {
+                  "_name": "About us",
+                  "_type": {
+                    "name": "About"
+                  }
+                }
+              }
+            },
+            {
+              "node": {
+                "content": {
+                  "_name": "Travel literature, How to get started",
+                  "_type": {
+                    "name": "Article"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+```
+
 ## Filtering
 
 To get all articles with a specific text:
