@@ -13,7 +13,7 @@ In `templates/full/home_page.html.twig` replace the "Hello world" with a call t
 
 {% block content %}
     <div class="col-xs-10 col-xs-offset-1 text-justified">
-        {{ render_esi( controller( 'App\\Controller\\HomepageController::getAllRidesAction' ) ) }}
+        {{ render_esi( controller( 'App\\Controller\\HomepageController::getAllRidesAction', {'location': location, 'request': app.request} ) ) }}
     </div>
 {% endblock %}
 ```
