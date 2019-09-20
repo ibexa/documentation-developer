@@ -40,7 +40,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class HomepageController extends Controller
 {
-    public function getAllRidesAction(Request $request)
+    public function getAllRidesAction(Request $request, Location $location)
     {
         $repository = $this->getRepository();
         $locationService = $repository->getLocationService();
@@ -51,6 +51,7 @@ class HomepageController extends Controller
             'list/rides.html.twig',
             [
                 'pagerRides' => $this->findRides($rootLocation, $request),
+                'location' => $location
             ]
         );
     }
