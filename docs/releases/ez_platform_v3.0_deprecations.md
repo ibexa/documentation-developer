@@ -234,12 +234,20 @@ The following Webpack Encore entries have been changed:
 All Online Editor front-end code and assets (such as JS, CSS, fonts, etc.)
 have been moved from `ezplatform-admin-ui` to `ezplatform-richtext`.
 
-### Custom Installers
+### Installers
+
+#### Custom Installers
 
 The following Symfony Service definitions, providing extension point to create custom installers, have been removed:
 
 - `ezplatform.installer.clean_installer`
 - `ezplatform.installer.db_based_installer`
+
+#### Enterprise Edition installer
+
+The `ezstudio.installer.studio_installer` service has been renamed to the FQCN-named
+service `EzSystems\EzPlatformEnterpriseEditionInstallerBundle\Installer\Installer`.
+Deprecated `ezplatform.ee.installer.class` DIC parameter has been removed.
 
 See [eZ Platform v3.0 project update instructions](./ez_platform_v3.0_project_update.md#custom-installers) for upgrade details.
 
