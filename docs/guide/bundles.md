@@ -213,7 +213,7 @@ ezpublish:
     # ...
 ```
 
-The `templates_rules.yaml` should then be placed in the `Resources/config` folder in AcmeExampleBundle.
+The `templates_rules.yaml` should then be placed in the `Resources/config` folder in `AcmeExampleBundle`.
 The configuration tree from this file will be merged with the main one.
 
 ``` yaml
@@ -269,7 +269,7 @@ use Symfony\Component\Yaml\Yaml;
 /**
  * This is the class that loads and manages your bundle configuration
  *
- * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
+ * To learn more see {@link http://symfony.com/doc/4.3/cookbook/bundles/extension.html}
  */
 class AcmeExampleExtension extends Extension implements PrependExtensionInterface
 {
@@ -318,7 +318,6 @@ system:
 
     Service container extensions are called only when the container is being compiled,
     so performance will not be affected.
-
 
 ### Project example
 
