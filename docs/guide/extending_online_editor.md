@@ -194,7 +194,7 @@ The available elements are:
 !!! caution "Overriding embed templates"
 
     If you override the default templates for `embedinline`, `embed` or `embedimage` elements,
-    (e.g. `EzPublishCoreBundle:default:content/embed.html.twig`),
+    (e.g. `@EzPublishCore/default/content/embed.html.twig`),
     the data attributes and classes will not be rendered automatically.
 
     Instead, you can make use of the `data_attributes` and `class` properties in your templates.

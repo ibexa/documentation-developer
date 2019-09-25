@@ -12,7 +12,7 @@ In order to display data of the Field Type from templates, you need to create an
 
 In short, such a template must:
 
-- extend `EzPublishCoreBundle::content_fields.html.twig`
+- extend `@EzPublishCore/content_fields.html.twig`
 - define a dedicated Twig block for the type, named by convention `<TypeIdentifier_field>`, in this case, `eztweet_field`
 - be registered in parameters
 
@@ -43,7 +43,7 @@ without jeopardizing the display with unwanted spaces.
 ### Using the content field helpers
 
 Even though the above will work just fine, a few helpers will enable you to get something a bit more flexible.
-The [EzPublishCoreBundle::content_fields.html.twig](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/views/content_fields.html.twig) template,
+The [EzPublishCore/content_fields.html.twig](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/views/content_fields.html.twig) template,
 where the native Field Type templates are implemented, provides a few helpers: `simple_block_field`, `simple_inline_field` and `field_attributes`.
 The first two are used to display a Field either as a block or inline.
 `field_attributes` makes it easier to use the `attr` variable that contains additional (HTML) attributes for the field.
@@ -55,7 +55,7 @@ Then, create a `field_value` variable that will be used by the helper to print o
 The helper will use `field_attributes` to add the HTML attributes to the generated `div`.
 
 ``` html+twig
-{% extends "EzPublishCoreBundle::content_fields.html.twig" %}
+{% extends "@EzPublishCore/content_fields.html.twig" %}
 
 {% block eztweet_field %}
     {% apply spaceless %}

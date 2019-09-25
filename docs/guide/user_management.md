@@ -58,7 +58,7 @@ Here are default templates that you can reuse and/or modify:
 ``` html+twig
 {% extends no_layout is defined and no_layout == true ? view_base_layout : page_layout %}
 {% block content %}
-     {% import "EzSystemsRepositoryFormsBundle:Content:content_form.html.twig" as contentForms %}
+     {% import "@EzSystemsRepositoryForms/Content/content_form.html.twig" as contentForms %}
 
      <section class="ez-content-edit">
          {{ contentForms.display_form(form) }}
