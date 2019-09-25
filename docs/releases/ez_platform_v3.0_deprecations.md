@@ -309,6 +309,16 @@ The SiteAccess-aware `pagelayout` setting is deprecated in favor of `page_layout
 
 View parameter `pagelayout` set by `pagelayout` setting is deprecated in favor of  `page_layout`.
 
+#### Template paths
+
+Following the [upgrade to Symfony 4](#symfony-4), [the templating component integration is now deprecated.](https://symfony.com/blog/new-in-symfony-4-3-deprecated-the-templating-component-integration)
+As a result, the way to indicate a template path has changed.
+
+Example:
+
+- Now: `"@@EzPlatformUser/user_settings/list.html.twig"`
+- Formerly: `"EzPlatformUserBundle:user_settings:list.html.twig"`
+
 #### Template organization
 
 The following templates used in the Back Office have been renamed:
