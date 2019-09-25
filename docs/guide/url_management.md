@@ -172,7 +172,7 @@ bin/console ezplatform:urls:regenerate-aliases
 You can also extend the command by the following parameters:
 
 - `--iteration-count` — to define how many Locations should be processed at once to avoid too much memory use
-- `--location-id` — to regenerate URLs for specific locations only, e.g. `ezplatform:urls:regenerate-aliases --location-id=1 --location-id=2`
+- `--location-id` — to regenerate URLs for specific Locations only, e.g. `ezplatform:urls:regenerate-aliases --location-id=1 --location-id=2`
 
 ## URL wildcards
 
