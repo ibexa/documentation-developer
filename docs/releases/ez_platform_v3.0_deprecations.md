@@ -203,8 +203,6 @@ HTTP cache bundle now uses FOS Cache Bundle v2. This entails:
 - The `ezplatform.http_cache.tags.header` parameter has been removed.
 Configuration now relies on FOS Cache configuration and its default values.
 
-
-
 ### Elastic Search
 
 Experimental, deprecated and unsupported code for Elastic Search 1.4.2 has been dropped from kernel,
@@ -299,7 +297,12 @@ The following choiceLoaders classes deprecated in v2.5 have been removed:
 Instead, use the following classes:
 
 - `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\ContentCreateContentTypeChoiceLoader`
-- `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\ContentCreateLanguageChoiceLoader` 
+- `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\ContentCreateLanguageChoiceLoader`
+
+### Symfony Services
+
+The `date_based_publisher.permission_resolver` Symfony Service deprecated in v2.5 has been removed. 
+Instead, inject `eZ\Publish\API\Repository\PermissionResolver` and rely on auto-wiring.
 
 ### Templates
 
