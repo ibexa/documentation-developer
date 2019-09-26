@@ -120,9 +120,12 @@ parameters:
 Redis is used via [Redis pecl extension](https://pecl.php.net/package/redis).
 
 See [Redis Cache Adapter in Symfony documentation](https://symfony.com/doc/3.4/components/cache/adapters/redis_adapter.html#configure-the-connection)
-for information on how to connect to Redis. Main difference in eZ Platform is that we ship with a optimized Adapter called RedisTagAwareAdapter _(see `app/config/cache_pool/cache.redis.yml` for configuration example)_.
+for information on how to connect to Redis.
+Main difference is that eZ Platform ships with an optimized Adapter called RedisTagAwareAdapter
+(see `app/config/cache_pool/cache.redis.yml` for a configuration example).
 
-This optimized adapter depends on configuring a eviction policy which does *not* risk deleting Tag relation data when reaching memory limits.
+This optimized adapter depends on configuring an eviction policy
+which does *not* risk deleting Tag relation data when reaching memory limits.
 Currently, the recommended eviction policy is `volatile-lru`.
 
 Out of the box in `config/packages/cache_pool/cache.redis.yaml` you'll find a default example that can be used.
