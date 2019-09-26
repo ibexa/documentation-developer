@@ -252,6 +252,11 @@ content_view:
 
 When matching SiteAccesses using custom services, the SiteAccess matcher service must be now tagged with `ezplatform.siteaccess.matcher`.
 
+### Database
+
+- The "Setup" folder and Section have been removed from clean installation data.
+- The "Design" Section has been removed from clean installation data.
+
 ### Miscellaneous
 
 - Deprecated `SubtreeQuery` class has been removed. In v3.0 it was replaced by `\EzSystems\EzPlatformAdminUi\QueryType\SubtreeQueryType`.
