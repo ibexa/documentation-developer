@@ -250,7 +250,7 @@ content_view:
 
 ### SiteAccess matching
 
-When matching SiteAcceses using custom services, the SiteAccess matcher service must be now tagged with `ezplatform.siteaccess.matcher`.
+When matching SiteAccesses using custom services, the SiteAccess matcher service must be now tagged with `ezplatform.siteaccess.matcher`.
 
 ### Miscellaneous
 
@@ -308,6 +308,21 @@ Instead, use the following classes:
 The SiteAccess-aware `pagelayout` setting is deprecated in favor of `page_layout`.
 
 View parameter `pagelayout` set by `pagelayout` setting is deprecated in favor of  `page_layout`.
+
+#### Template configuration
+
+Following the [upgrade to Symfony 4](#symfony-4), [the templating component integration is now deprecated.](https://symfony.com/blog/new-in-symfony-4-3-deprecated-the-templating-component-integration)
+As a result, the way to indicate a template path has changed.
+
+Example 1:
+
+- Now: `"@@EzPlatformUser/user_settings/list.html.twig"`
+- Formerly: `"EzPlatformUserBundle:user_settings:list.html.twig"`
+
+Example 2:
+
+- Now: `{% extends "@EzPublishCore/content_fields.html.twig" %}`
+- Formerly: `{% extends "EzPublishCoreBundle::content_fields.html.twig" %}`
 
 #### Template organization
 
