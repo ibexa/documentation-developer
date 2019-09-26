@@ -302,7 +302,7 @@ Instead, use the following classes:
 ### Symfony Services
 
 The `date_based_publisher.permission_resolver` Symfony Service deprecated in v2.5 has been removed. 
-Instead, inject `eZ\Publish\API\Repository\PermissionResolver` and rely on auto-wiring.
+Instead, you can inject `eZ\Publish\API\Repository\PermissionResolver` and rely on auto-wiring.
 
 ### Templates
 
