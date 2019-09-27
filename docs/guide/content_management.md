@@ -30,13 +30,12 @@ Under this root there are preset top level Locations in each installation which 
 
 ![Content and Media top Locations](img/content_structure_media_library.png)
 
-#### Home
+#### Content
 
-**Home** is the top level Location for the actual contents of a site.
+The top level Location for the actual contents of a site
+can be viewed by selecting the **Content structure** tab in the Content mode interface.
 This part of the tree is typically used for organizing folders, articles, information pages, etc.
-This means that it contains the actual content structure of the site,
-which can be viewed by selecting the **Content structure** tab in the Content mode interface.
-The default ID number of the **Home** Location is 2, but it can be [modified via configuration](config_repository.md#top-level-locations).
+The default ID number of this Location is 2, but it can be [modified via configuration](config_repository.md#top-level-locations).
 It contains a Folder Content item.
 
 #### Media
