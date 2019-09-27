@@ -32,11 +32,10 @@ Under this root there are preset top level Locations in each installation which 
 
 #### Content
 
-**Content** is the top level Location for the actual contents of a site.
+The top level Location for the actual contents of a site
+can be viewed by selecting the **Content structure** tab in the Content mode interface.
 This part of the tree is typically used for organizing folders, articles, information pages, etc.
-This means that it contains the actual content structure of the site,
-which can be viewed by selecting the **Content structure** tab in the Content mode interface.
-The default ID number of the **Content** Location is 2, but it can be [modified via configuration](config_repository.md#top-level-locations).
+The default ID number of this Location is 2, but it can be [modified via configuration](config_repository.md#top-level-locations).
 It contains a Folder Content item.
 
 #### Media
@@ -60,9 +59,13 @@ which can be viewed by selecting the **Users** tab in the Admin Panel.
 The default ID number of the **Users** Location is 5, but it can be [modified via configuration](config_repository.md#top-level-locations).
 It contains a User Group Content item.
 
-#### Other top level Locations
+!!! enterprise
 
-Another top level location, with the ID 48, corresponds to **Setup** and is not regularly used to store content.
+    #### Forms
+
+    **Forms** is the top level Location that is intended for Forms created using the [Form Builder](https://doc.ezplatform.com/projects/userguide/en/master/creating_content_advanced/#forms).
+
+#### Other top level Locations
 
 You should not add any more content directly below Location 1, but instead store any content under one of those top-level Locations.
 
