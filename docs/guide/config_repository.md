@@ -167,7 +167,7 @@ When viewing such Content in the Back Office you will be able to see e.g. the as
 
 ## Top-level Locations
 
-You can change the default path for top-level Locations such as Content or Media, e.g.:
+You can change the default path for top-level Locations such as Content or Media in the Back Office, e.g.:
 
 ```yaml
 ezpublish:
