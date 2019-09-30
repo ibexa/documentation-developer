@@ -206,6 +206,8 @@ To query a Location and its children, use the repository schema:
 }
 ```
 
+The query accepts `locationId`, `remoteId` and `urlAlias` as arguments.
+
 Response:
 
 ```
