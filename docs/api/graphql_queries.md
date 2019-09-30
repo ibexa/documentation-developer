@@ -245,6 +245,25 @@ Response:
 }
 ```
 
+You can also query the children of a Content item:
+
+```
+{
+  content {
+    folder(id: 1) {
+      name
+      _location {
+        children {
+          edges {
+            # ...
+          }
+        }
+      }
+    }
+  }
+}
+```
+
 ## Filtering
 
 To get all articles with a specific text:
