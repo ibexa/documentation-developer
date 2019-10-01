@@ -92,6 +92,10 @@ This also removed the REST client from Kernel.
 Online Editor front-end code and assets have been moved to the `ezplatform-richtext` repository.
 Refer to [Backwards compatibility doc](ez_platform_v3.0_deprecations.md#online-editor) for full list of resulting changes.
 
+### Configuration through `ezplatform`
+
+In YAML configuration, `ezplatform` is now used instead of `ezpublish` as the main configuration key.
+
 ## Requirements changes
 
 eZ Platform now requires using PHP 7.3.
