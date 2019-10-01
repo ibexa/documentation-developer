@@ -147,7 +147,7 @@ Switch to the Translations tab and add a new translation.
 
 !!! tip "More information"
 
-    - [Internationalization](../guide/internationalization.md)
+    - [Languages](../guide/internationalization.md)
     - [Multi-language SiteAccesses and corresponding translations](../guide/multi_language_siteaccesses.md)
 
 ## Add a design
