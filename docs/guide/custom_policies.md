@@ -110,8 +110,8 @@ class AcmeExampleBundle extends Bundle
 
         // ...
  
-        // Retrieve "ezpublish" container extension
-        $eZExtension = $container->getExtension('ezpublish');
+        // Retrieve "ezplatform" container extension
+        $eZExtension = $container->getExtension('ezplatform');
         // Add the policy provider
         $eZExtension->addPolicyProvider(new MyPolicyProvider());
     }
@@ -157,10 +157,10 @@ create a Twig template containing block definition which follows the naming conv
 {% endblock %}
 ```
 
-Add it to the configuration under `ezpublish.system.<SCOPE>.limitation_value_templates`:
+Add it to the configuration under `ezplatform.system.<SCOPE>.limitation_value_templates`:
 
 ```yaml
-ezpublish:
+ezplatform:
     system:
         default:
             limitation_value_templates:

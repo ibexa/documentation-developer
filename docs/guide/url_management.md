@@ -44,11 +44,11 @@ rm ezp_cron.txt
 
 ### Configuration
 
-Configuration of external URLs validation is SiteAccess-aware and is stored under `ezpublish.system.<SITEACCESS>.url_checker`.
+Configuration of external URLs validation is SiteAccess-aware and is stored under `ezplatform.system.<SITEACCESS>.url_checker`.
 Example configuration (in `config/packages/ezplatform.yaml`):
 
 ```yaml
-ezpublish:
+ezplatform:
     system:
         default:
             url_checker:
@@ -123,10 +123,10 @@ The `scheme` attribute is mandatory and has to correspond to the name of the pro
 
 ## URL alias patterns
 
-You can configure how eZ Platform generates URL aliases. The configuration is available under `ezpublish.url_alias.slug_converter`, for example:
+You can configure how eZ Platform generates URL aliases. The configuration is available under `ezplatform.url_alias.slug_converter`, for example:
 
 ``` yaml
-ezpublish:
+ezplatform:
     url_alias:
         slug_converter:
             transformation: example_group
@@ -197,7 +197,7 @@ If it is `false`, the old URL address will be used, with the new content.
 URL wildcards must be enabled in configuration with:
 
 ``` yaml
-ezpublish:
+ezplatform:
     url_wildcards:
         enabled: true
 ```

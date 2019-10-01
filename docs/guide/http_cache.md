@@ -19,7 +19,7 @@ This enables updates to content to trigger cache invalidation.
 This is how cache can be configured in `config/packages/ezplatform.yaml`:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         my_siteaccess:
             content:
@@ -123,7 +123,7 @@ By default, invalidation requests will be emulated and sent to the Symfony proxy
 In `config/packages/ezplatform.yaml`:
 
 ``` yaml
-ezpublish:
+ezplatform:
     http_cache:
         purge_type: local
 ```
@@ -135,7 +135,7 @@ This purge type is asynchronous, and flushed by the end of Symfony kernel-reques
 Settings for purge servers can be configured per SiteAccess group or SiteAccess:
 
 ``` yaml
-ezpublish:
+ezplatform:
     http_cache:
         purge_type: http
 
@@ -258,7 +258,7 @@ and specify the URL Varnish can be reached on:
 The following configuration is not required as eZ Platform will read the environment variables set above.
 
 ``` yaml
-ezpublish:
+ezplatform:
     http_cache:
         purge_type: http
 
@@ -465,7 +465,7 @@ Content-Type: application/vnd.fos.user-context-hash
 
 ##### Known limitations of the user hash generation
 
-If you are using URI-based SiteAccesses matching, the default SiteAccess on the domain needs to point to the same repository, because `/_fos_user_context_hash` is not SiteAccess-aware by default (see `ezpublish.default_router.non_siteaccess_aware_routes` parameter). Varnish does not have knowledge about SiteAccesses, so it won't be able to get user content hash if the default SiteAccess relies on URI.  
+If you are using URI-based SiteAccesses matching, the default SiteAccess on the domain needs to point to the same repository, because `/_fos_user_context_hash` is not SiteAccess-aware by default (see `ezplatform.default_router.non_siteaccess_aware_routes` parameter). Varnish does not have knowledge about SiteAccesses, so it won't be able to get user content hash if the default SiteAccess relies on URI.  
 
 ##### Default options for FOSHttpCacheBundle defined in eZ Platform
 

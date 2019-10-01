@@ -36,7 +36,7 @@ you need to create your own admin SiteAccesses and add them to this group. In ca
 
 ## Configuring SiteAccesses
 
-You configure SiteAccess in your config files (e.g. `ezplatform.yaml`) under the `ezpublish.siteacess` keys.
+You configure SiteAccess in your config files (e.g. `ezplatform.yaml`) under the `ezplatform.siteacess` keys.
 The required elements of the configuration are:
 
 #### `list`
@@ -63,7 +63,7 @@ The rule or set of rules by which SiteAccesses are matched. See [SiteAccess matc
     `siteaccess_list` is an array of SiteAccess identifiers:
 
     ``` yaml
-    ezpublish:
+    ezplatform:
         system:
             admin:
                 page_builder:
@@ -78,7 +78,7 @@ The rule or set of rules by which SiteAccesses are matched. See [SiteAccess matc
 
 ### Settings per SiteAccess
 
-Various system settings can be set per SiteAccess or SiteAccess group under the `ezpublish.system` key. These settings include languages or the `var` directory.
+Various system settings can be set per SiteAccess or SiteAccess group under the `ezplatform.system` key. These settings include languages or the `var` directory.
 
 ### Multilanguage sites
 
@@ -90,7 +90,7 @@ A site has content in two languages: English and Norwegian. It has one URI per l
 Such configuration would look like this:
 
 ``` yaml
-ezpublish:
+ezplatform:
     siteaccess:
         # There are two SiteAccesses
         list: [eng, nor]
@@ -103,7 +103,7 @@ ezpublish:
             URIElement: 1
 
 
-ezpublish:
+ezplatform:
     # root node for configuration per SiteAccess
     system:
         # Configuration for the 'eng' SiteAccess
@@ -158,7 +158,7 @@ In short: if you want a match that will always apply, regardless of SiteAccesses
 To define a fallback, use `default`.
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         global:
             # If set, this value will be used regardless of any other var_dir configuration
@@ -190,7 +190,7 @@ To be usable, every SiteAccess must be provided a matcher.
 You can configure SiteAccess matching in your main `config/packages/ezplatform.yaml`:
 
 ``` yaml
-ezpublish:
+ezplatform:
     siteaccess:
         default_siteaccess: ezdemo_site
         list:
@@ -218,15 +218,15 @@ ezpublish:
 
 You need to set several parameters:
 
-- `ezpublish.siteaccess.default_siteaccess` is the default SiteAccess that will be used if matching was not successful. This ensures that a SiteAccess is always defined.
-- `ezpublish.siteaccess.list` is the list of all available SiteAccesses in your website.
-- `ezpublish.siteaccess.groups` defines which groups SiteAccesses belong to. This is useful when you want to mutualize settings between several SiteAccesses and avoid config duplication. Siteaccess groups are treated the same as regular SiteAccesses as far as configuration is concerned. A SiteAccess can be part of several groups. A SiteAccess configuration has always precedence on the group configuration.
+- `ezplatform.siteaccess.default_siteaccess` is the default SiteAccess that will be used if matching was not successful. This ensures that a SiteAccess is always defined.
+- `ezplatform.siteaccess.list` is the list of all available SiteAccesses in your website.
+- `ezplatform.siteaccess.groups` defines which groups SiteAccesses belong to. This is useful when you want to mutualize settings between several SiteAccesses and avoid config duplication. Siteaccess groups are treated the same as regular SiteAccesses as far as configuration is concerned. A SiteAccess can be part of several groups. A SiteAccess configuration has always precedence on the group configuration.
 
 !!! caution "admin_group"
 
     Do not remove or rename `admin_group` group. It is used to distinguish common SiteAccesses from admin ones. In case of multisite with multiple Admin Panels, remember to add any additional admin SiteAccesses to this group.
 
-- `ezpublish.siteaccess.match` holds the matching configuration. It consists in a hash where the key is the name of the matcher class. If the matcher class doesn't start with a **\\** , it will be considered relative to `eZ\Publish\MVC\SiteAccess\Matcher` (e.g. `Map\Host` will refer to  `eZ\Publish\MVC\SiteAccess\Matcher\Map\Host`)
+- `ezplatform.siteaccess.match` holds the matching configuration. It consists in a hash where the key is the name of the matcher class. If the matcher class doesn't start with a **\\** , it will be considered relative to `eZ\Publish\MVC\SiteAccess\Matcher` (e.g. `Map\Host` will refer to  `eZ\Publish\MVC\SiteAccess\Matcher\Map\Host`)
 
 Every custom matcher can be specified with a fully qualified class name (e.g. `\My\SiteAccess\Matcher`) or by a service identifier prefixed by @ (e.g. `@my_matcher_service`).
 
@@ -256,7 +256,7 @@ Maps a URI element to a SiteAccess. This is the default matcher used when choosi
 **Configuration.** The element number you want to match (starting from 1)
 
 ``` yaml
-ezpublish:
+ezplatform:
     siteaccess:
         match:
             URIElement: 1
@@ -277,7 +277,7 @@ Matches URI using pre and/or post sub-strings in the first URI segment.
 **Configuration.** The prefix and/or suffix (none are required)
 
 ``` yaml
-ezpublish:
+ezplatform:
     siteaccess:
         match:
             URIText:
@@ -296,7 +296,7 @@ Maps an element in the host name to a SiteAccess.
 **Configuration.** The element number you want to match (starting from 1)
 
 ``` yaml
-ezpublish:
+ezplatform:
     siteaccess:
         match:
             HostElement: 2
@@ -313,7 +313,7 @@ Matches a SiteAccess in the host name, using pre and/or post sub-strings.
 **Configuration.** The prefix and/or suffix (none are required)
 
 ``` yaml
-ezpublish:
+ezplatform:
     siteaccess:
         match:
             HostText:
@@ -332,7 +332,7 @@ Maps a host name to a SiteAccess.
 **Configuration.** A hash map of host/siteaccess
 
 ``` yaml
-ezpublish:
+ezplatform:
     siteaccess:
         match:
             Map\Host:
@@ -358,7 +358,7 @@ Maps a URI to a SiteAccess.
 **Configuration.** A hash map of URI/siteaccess
 
 ```yaml
-ezpublish:
+ezplatform:
     siteaccess:
         match:
             Map\URI:
@@ -382,7 +382,7 @@ Maps a port to a SiteAccess.
 **Configuration.** A hash map of Port/siteaccess
 
 ``` yaml
-ezpublish:
+ezplatform:
     siteaccess:
         match:
             Match\Port:
@@ -410,7 +410,7 @@ Matches against a regexp and extracts a portion of it.
 **Configuration.** The regexp to match against and the captured element to use
 
 ``` yaml
-ezpublish:
+ezplatform:
     siteaccess:
         match:
             Regex\Host:
@@ -438,7 +438,7 @@ Matches against a regexp and extracts a portion of it.
 **Configuration.** The regexp to match against and the captured element to use
 
 ``` yaml
-ezpublish:
+ezplatform:
     siteaccess:
         match:
             Regex\URI:
@@ -458,7 +458,7 @@ Matched SiteAccess: `test`
 Beside the built-in matchers, you can also use your own services to match SiteAcceses:
 
 ``` yaml
-ezpublish:
+ezplatform:
     siteaccess:
         list: [site]
         groups:
@@ -490,7 +490,7 @@ They are based on logical combinations, or/and, using logical compound matchers:
 Each compound matcher will specify two or more sub-matchers. A rule will match if all the matchers combined with the logical matcher are positive. The example above would have used `Map\Host` and `Map\Uri`, combined with a `LogicalAnd`. When both the URI and host match, the SiteAccess configured with "match" is used.
 
 ``` yaml
-ezpublish:
+ezplatform:
     siteaccess:
         match:
             Compound\LogicalAnd:

@@ -21,7 +21,7 @@ The **ViewProvider** allows you to configure template selection when using the `
 The ViewProvider takes its configuration from your SiteAccess in the `content_view` section. This configuration is [necessary for views to be defined](templates.md#templating-basics) and is a hash built in the following way:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         # Defines the scope: a valid SiteAccess, SiteAccess group or even "global"
         front_siteaccess:
@@ -117,7 +117,7 @@ The following table presents all native matchers.
 Beside the built-in matchers, you can also use your own services to match views:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         site:
             content_view:
@@ -150,7 +150,7 @@ Main Content-related variables include:
 |`view_base_layout`|String|The base layout template to use when the view is requested to be generated outside of the pagelayout (when `no_layout` is true).|
 
 The `dump()` function also displays other variables, such as specific configuration including the SiteAccess
-under the `ezpublish` key.
+under the `ezplatform` key.
 
 #### Template inheritance and sub-requests
 

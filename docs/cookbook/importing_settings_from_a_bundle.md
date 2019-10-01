@@ -19,7 +19,7 @@ imports:
     # Import the template selection rules that reside in your custom AcmeExampleBundle.
     - {resource: "@AcmeExampleBundle/Resources/config/templates_rules.yaml"}
  
-ezpublish:
+ezplatform:
     # ...
 ```
 
@@ -27,7 +27,7 @@ The `templates_rules.yaml` should then be placed in `Resources/config` in AcmeEx
 The configuration tree from this file will be merged with the main one.
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         <siteaccess>:
             content_view:
@@ -97,9 +97,9 @@ class AcmeExampleExtension extends Extension implements PrependExtensionInterfac
         // Loading your YAML file containing template rules
         $configFile = __DIR__ . '/../Resources/config/template_rules.yaml';
         $config = Yaml::parse( file_get_contents( $configFile ) );
-        // Explicitly prepend loaded configuration for "ezpublish" namespace.
-        // It will be placed under the "ezpublish" configuration key, like in ezplatform.yaml.
-        $container->prependExtensionConfig( 'ezpublish', $config );
+        // Explicitly prepend loaded configuration for "ezplatform" namespace.
+        // It will be placed under the "ezplatform" configuration key, like in ezplatform.yaml.
+        $container->prependExtensionConfig( 'ezplatform', $config );
         $container->addResource( new FileResource( $configFile ) );
     }
 }
@@ -108,7 +108,7 @@ class AcmeExampleExtension extends Extension implements PrependExtensionInterfac
 In `AcmeExampleBundle/Resources/config/template_rules.yaml`:
 
 ``` yaml
-# You explicitly prepended config for "ezpublish" namespace in the service container extension, 
+# You explicitly prepended config for "ezplatform" namespace in the service container extension, 
 # so no need to repeat it here
 system:
     <siteaccess>:
