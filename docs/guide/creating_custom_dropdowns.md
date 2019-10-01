@@ -1,7 +1,7 @@
 # Creating custom drop-downs
 
-In eZ Platform you are able to implement custom drop-downs anywhere in the Back Office.
-Follow the steps below, to learn how to integrate this small component to fit your project's needs.
+In eZ Platform, you can implement custom drop-downs anywhere in the Back Office.
+Follow the steps below to learn how to integrate this component to fit it to your project needs.
 
 ## Prepare custom dropdown structure
 
@@ -28,20 +28,22 @@ First prepare the HTML code structure in the following way:
 </div>
 ```
 
-The highlighted line two in the code above contains a hidden native `select` input. It stores the selection values.
+In line two, the code above contains a hidden native `select` input. It stores the selection values.
 Input is hidden because a custom drop-down duplicates its functionality.
 
 !!! caution
 
-    Do not remove `select` input. Removal would break the functionality of any submission form.
+    Do not remove `select` input. Removing it would break the functionality of any submission form.
 
 ![Dropdown expanded state](img/dropdown_expanded_state.jpg)
 
 ## Generate `<select>` input
 
-Next step is generating a standard select input with `ez-custom-dropdown__select` CSS class added to `<select>` element.
+Next step is generating a standard select input with the `ez-custom-dropdown__select` CSS class added to the `<select>` element.
 This element should contain at least one additional attribute: `hidden`. 
 If you want to allow users to pick multiple items from a list, add the `multiple` attribute to the same element.
+
+Example:
 
 ```html
     <select class="ez-custom-dropdown__select" hidden multiple></select>
@@ -99,7 +101,7 @@ Full list of options:
 |`hasDefaultSelection`|contains a boolean value. If set to `true` the first option will be selected as a placeholder or selected value|optional|
 |`selectedItemTemplate`|contains a literal template string with placeholders for `value` and `label` data|optional|
 
-In the above code samples you will find 4 of 5 configuration options.
+In the code samples provided above you will find 4 of 5 configuration options.
 Default template HTML code structure for missing `selectedItemTemplate` looks like this:
 
 ```html
