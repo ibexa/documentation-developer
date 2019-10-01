@@ -14,7 +14,7 @@ Without these three steps, your SiteAccess configuration will either not work or
 
 !!! tip
 
-    Here is the full guide on [Internationalization](../guide/internationalization.md).
+    Here is the full guide on [Languages](../guide/internationalization.md).
 
 1. Log in to your eZ Platform Back Office.
 1. In the **Admin** Panel, open the **Languages** tab.
