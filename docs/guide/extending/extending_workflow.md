@@ -1,4 +1,4 @@
-# Extending the Workflow
+# Extending Workflow
 
 ## Workflow event timeline
 

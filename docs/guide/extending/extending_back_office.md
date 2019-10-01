@@ -1,4 +1,4 @@
-# Extending the Back Office
+# Extending Back Office
 
 ## Custom Content Type icons
 

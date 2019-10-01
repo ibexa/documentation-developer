@@ -1,4 +1,4 @@
-# Extending the Online Editor
+# Extending Online Editor
 
 The Online Editor is based on [Alloy Editor](https://alloyeditor.com/).
 Refer to [Alloy Editor documentation](https://alloyeditor.com/docs/develop/) to learn how to extend the Online Editor with new elements.

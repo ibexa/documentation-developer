@@ -1,4 +1,4 @@
-# Extending the Dashboard
+# Extending Dashboard
 
 To extend the Dashboard, make use of an event subscriber.
 
