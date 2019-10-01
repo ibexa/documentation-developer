@@ -28,7 +28,7 @@ First prepare the HTML code structure in the following way:
 </div>
 ```
 
-In line 2, the code above contains a hidden native `select` input. It stores the selection values.
+In line two, the code above contains a hidden native `select` input. It stores the selection values.
 Input is hidden because a custom drop-down duplicates its functionality.
 
 !!! caution
