@@ -110,8 +110,8 @@ class AcmeExampleBundle extends Bundle
 
         // ...
  
-        // Retrieve "ezplatform" container extension
-        $eZExtension = $container->getExtension('ezplatform');
+        // Retrieve "ezpublish" container extension
+        $eZExtension = $container->getExtension('ezpublish');
         // Add the policy provider
         $eZExtension->addPolicyProvider(new MyPolicyProvider());
     }

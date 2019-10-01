@@ -94,17 +94,17 @@ In-Memory cache is configured globally, and has the following default settings:
 parameters:
     # Config for metadata cache pool, here showing default config
     # ttl: Maximum number of  milliseconds objects are kept in-memory (3000ms = 3s)
-    ezplatform.spi.persistence.cache.inmemory.ttl: 3000
+    ezpublish.spi.persistence.cache.inmemory.ttl: 3000
     # limit: Maximum number of cache objects to place in-memory, to avoid consuming too much memory
-    ezplatform.spi.persistence.cache.inmemory.limit: 100
+    ezpublish.spi.persistence.cache.inmemory.limit: 100
     # enabled: Is the in-memory cache enabled
-    ezplatform.spi.persistence.cache.inmemory.enable: true
+    ezpublish.spi.persistence.cache.inmemory.enable: true
 
     # Config for content cache pool, here showing default config
     ## WARNING: TTL is on purpose low to avoid getting outdated data in prod! For dev environment, you can safely increase it (e.g. by x3)
-    ezplatform.spi.persistence.cache.inmemory.content.ttl: 300
-    ezplatform.spi.persistence.cache.inmemory.content.limit: 100
-    ezplatform.spi.persistence.cache.inmemory.content.enable: true
+    ezpublish.spi.persistence.cache.inmemory.content.ttl: 300
+    ezpublish.spi.persistence.cache.inmemory.content.limit: 100
+    ezpublish.spi.persistence.cache.inmemory.content.enable: true
 ```
 
 !!! caution "In-Memory cache is per-process"

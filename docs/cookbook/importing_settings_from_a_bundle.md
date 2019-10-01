@@ -105,6 +105,10 @@ class AcmeExampleExtension extends Extension implements PrependExtensionInterfac
 }
 ```
 
+!!! note
+
+    You must place your bundle before EzPlatformCoreBundle in `bundles.php`.
+
 In `AcmeExampleBundle/Resources/config/template_rules.yaml`:
 
 ``` yaml

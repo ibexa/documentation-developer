@@ -465,7 +465,7 @@ Content-Type: application/vnd.fos.user-context-hash
 
 ##### Known limitations of the user hash generation
 
-If you are using URI-based SiteAccesses matching, the default SiteAccess on the domain needs to point to the same repository, because `/_fos_user_context_hash` is not SiteAccess-aware by default (see `ezplatform.default_router.non_siteaccess_aware_routes` parameter). Varnish does not have knowledge about SiteAccesses, so it won't be able to get user content hash if the default SiteAccess relies on URI.  
+If you are using URI-based SiteAccesses matching, the default SiteAccess on the domain needs to point to the same repository, because `/_fos_user_context_hash` is not SiteAccess-aware by default (see `ezpublish.default_router.non_siteaccess_aware_routes` parameter). Varnish does not have knowledge about SiteAccesses, so it won't be able to get user content hash if the default SiteAccess relies on URI.  
 
 ##### Default options for FOSHttpCacheBundle defined in eZ Platform
 

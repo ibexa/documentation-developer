@@ -143,7 +143,7 @@ Any `BinaryFile` returned by the public API is prefixed with the value of this 
 Default value: `$var_dir$/$storage_dir$`
 Example: `/var/ezdemo_site/storage`
 
-Used to configure the default URL decorator service (`ezplatform.core.io.default_url_decorator`), used by all binary data handlers to generate the URI of loaded files. It is always interpreted as an absolute URI, meaning that unless it contains a scheme (http://, ftp://), it will be prepended with a '/'.
+Used to configure the default URL decorator service (`ezpublish.core.io.default_url_decorator`), used by all binary data handlers to generate the URI of loaded files. It is always interpreted as an absolute URI, meaning that unless it contains a scheme (http://, ftp://), it will be prepended with a '/'.
 
 This setting is SiteAccess-aware.
 
