@@ -1,33 +1,38 @@
-# Setting up multi-language SiteAccesses and corresponding translations
+# multi-language SiteAccesses
 
-Combining translated content with multiple SiteAccesses successfully can be challenging for new users of eZ Platform.
+To combine translated content with multiple SiteAccesses, perform the following steps:
 
-To achieve this for the most typical setups you need to follow three steps:
-
-1. [Create your translations](#create-a-new-translation) in the database via eZ Platform Back Office.
+1. [Create your translations](#create-a-new-translation) in the database by using the Back Office.
 1. [Create at least two SiteAccesses](#create-new-siteaccesses) in `ezplatform.yml` to deliver the right translated content at the right time.
-1. [Set the correct permissions](#set-permissions-for-the-new-siteaccesses) for the anonymous user to read each SiteAccess.
+1. [Set the correct permissions](#set-permissions-for-the-new-siteaccesses) for an anonymous user to read each SiteAccess.
 
 Without these three steps, your SiteAccess configuration will either not work or you will be left with duplicate content from an SEO perspective.
 
 ## Create a new translation
 
-!!! tip
+By creating a new translation, you indicate that a Content item has other language versions.
+A newly defined translation can then be used according to the SiteAccess configuration.
+For more details on language versions, see [Languages](../guide/internationalization.md).
 
-    Here is the full guide on [Languages](../guide/internationalization.md).
-
-1. Log in to your eZ Platform Back Office.
+1. Log in to the Back Office.
 1. In the **Admin** Panel, open the **Languages** tab.
-1. Click **Create a new language** and follow the on-screen prompts to register your new language (e.g. `fre-FR`).
-1. After saving the new language, refresh the eZ Platform back-office assets by running: `php bin/console assetic:dump` and `yarn encore <prod|dev>` (or `php bin/console ezplatform:encore:compile`).
+1. Click **Create a new language** and follow the on-screen prompts. For the purpose of this procedure, configure `fre-FR` as a new language.
+1. After saving the new language, refresh the assets by running:
+ 
+``` bash
+php bin/console assetic:dump
+yarn encore <prod|dev>
+#OR
+php bin/console ezplatform:encore:compile
+```
 
-Reload the Back Office and you can now start translating content.
+Reload the Back Office.
+Now you can now start translating content.
 
 ## Create new SiteAccesses
 
-!!! tip
-
-    Here is the full guide on [SiteAccesses](../guide/siteaccess.md).
+Now you can configure SiteAccess to match it with the newly-configured translation.
+For more details, see [SiteAccess](../guide/siteaccess.md).
 
 The most typical setup for a site with translated content is to map the base of the domain to one language
 and use the first segment of the URI to match to another. For example:
