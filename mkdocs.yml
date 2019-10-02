@@ -132,6 +132,7 @@ pages:
         - Security:
             - 'Development Security': 'guide/security.md'
             - 'Reporting Issues': 'guide/reporting_issues.md'
+        - 'Notifications': 'guide/sending_notifications.md'
         - Extending eZ Platform:
             - 'Extending eZ Platform': 'guide/extending_ez_platform.md'
             - 'Extending modules': 'guide/extending_modules.md'
@@ -146,14 +147,12 @@ pages:
         - 'Binary attachments via REST API': 'cookbook/creating_content_with_binary_attachments_via_rest_api.md'
         - 'Creating custom drop-downs': 'cookbook/creating_custom_dropdowns.md'
         - 'Cross-origin HTTP requests': 'cookbook/making_cross_origin_http_requests.md'
-        - 'Customizing email notifications': 'cookbook/customizing_form_builder_email_notifications.md'
         - 'Displaying Content children': 'cookbook/displaying_children_of_a_content_item.md'
         - 'Creating drag and drop interface': 'cookbook/drag_and_drop.md'
         - 'Importing settings from a bundle': 'cookbook/importing_settings_from_a_bundle.md'
         - 'Installing on macOS or Windows': 'cookbook/installing-on-mac-os-and-windows.md'
         - 'Multi-language SiteAccesses': 'cookbook/setting_up_multi_language_siteaccesses.md'
         - 'Multiple user providers': 'cookbook/authenticating_a_user_with_multiple_user_providers.md'
-        - 'Notifications': 'cookbook/sending_notifications.md'
         - 'Retrieving root Location': 'cookbook/retrieving_root_location.md'
         - 'RouteReference': 'cookbook/using_routereference.md'
         - 'SiteAccess-aware bundle configuration': 'cookbook/exposing_siteaccess_aware_configuration_for_your_bundle.md'
