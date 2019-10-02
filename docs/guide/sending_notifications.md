@@ -19,7 +19,7 @@ There are four types of notifications: `info`, `success`, `warning` and `error`.
 
 ### Display notifications from PHP
 
-To send a notification from PHP, inject the [`TranslatableNotificationHandlerInterface`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/lib/Notification/TranslatableNotificationHandler.php) into your class.
+To send a notification from PHP, inject the `TranslatableNotificationHandlerInterface` into your class.
 
 ``` php
 $this->notificationHandler->info(
