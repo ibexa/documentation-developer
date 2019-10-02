@@ -1,13 +1,17 @@
 # Install eZ Platform on macOS or Windows
 
-Installing eZ Platform for production is only supported on Linux.
-See [Install eZ Platform](install_ez_platform.md) for a regular installation guide.
+This page show how to perform a installation of eZ Platform on macOS or Windows.
 
-This section explains how to install eZ Platform on macOS or Windows (for development only).
+!!! caution
+
+    This procedure is **for development purposes only**.
+    Inslalling eZ Platform for production purposes is supported only on Linux.
+    
+    If you want to use eZ Platform in the production environment, see [Installing eZ Platform](../getting_started/install_ez_platform.md).  
 
 ### Prepare work environment
 
-To install eZ Platform you need a stack with MySQL and PHP.
+To install eZ Platform, you need a stack with MySQL and PHP.
 Additionally, you need [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/lang/en/docs/install/) for asset management.
 If you want to use a web server, you need to install it as well:
  
@@ -26,7 +30,7 @@ The instructions below assumes you are using Apache.
     memory_limit = 4G
     ```
 
-    Uncomment or add extensions relevant to your project, e.g. `opcache` extension for PHP (recommended, but not required):
+    Uncomment or add extensions relevant to your project, e.g. `opcache` extension for PHP (recommended, not required):
 
     ``` bash
     zend_extension=opcache.so
@@ -41,15 +45,11 @@ The instructions below assumes you are using Apache.
     LoadModule vhost_alias_module libexec/apache2/mod_vhost_alias.so
     ```
 
-    Start Apache using the following command line:
-
-    ``` bash
-    httpd.exe
-    ```
+    Start Apache by running: `httpd.exe`.
 
     !!! note
 
-        You can install Apache as a Windows service by running this command in CMD as administrator:
+        You can install Apache as a Windows service by running the following command in CMD as administrator:
 
         ``` bash
         httpd.exe -k -install
@@ -65,7 +65,7 @@ The instructions below assumes you are using Apache.
 
 ??? "macOS"
 
-    Install Composer using a package manager, for example [Homebrew](https://brew.sh/).
+    Install Composer using a package manager, for example [Homebrew.](https://brew.sh/)
 
 ??? "Windows"
 
@@ -96,11 +96,11 @@ At this point you can configure your database via the `DATABASE_URL` in the `.en
 `DATABASE_URL=mysql://user:password@host:port/name`.
 
 Choose a [secret](http://symfony.com/doc/current/reference/configuration/framework.html#secret)
-and provide it in the `APP_SECRET` parameter in `.env`.
-It should be a random string, made up of up to 32 characters, numbers, and symbols.
-This is used by Symfony when generating [CSRF tokens](https://symfony.com/doc/current/security/csrf.html),
+and provide it in the `APP_SECRET` parameter in the `.env` file.
+The secret should be a random string consisting of up to 32 characters, numbers, and symbols.
+This is used by Symfony for generating [CSRF tokens](https://symfony.com/doc/current/security/csrf.html),
 [encrypting cookies](http://symfony.com/doc/current/cookbook/security/remember_me.html),
-and for creating signed URIs when using [ESI (Edge Side Includes)](https://symfony.com/doc/current/http_cache/esi.html).
+and creating signed URIs when using [ESI (Edge Side Includes)](https://symfony.com/doc/current/http_cache/esi.html).
 
 Alternatively, you can also change individual installation parameters in `.env`.
 
@@ -128,7 +128,7 @@ The configuration requires providing the following parameters:
 
     You can omit this step. If you do not create a database now, it will be created automatically in the next step.
 
-Create a database. Run the following command inside MySQL Shell:
+Create a database by running the following command inside MySQL Shell:
 
 ``` bash
 CREATE DATABASE ezplatform CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
@@ -136,13 +136,9 @@ CREATE DATABASE ezplatform CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
 
 ## Install eZ Platform
 
-Before executing the following command make sure that the user set during `composer install` has sufficient permissions.
+Before executing the following command, ensure that the user set during `composer install` has sufficient permissions.
 
-Install eZ Platform with:
-
-``` bash
-composer ezplatform-install
-```
+Install eZ Platform by running: `composer ezplatform-install`.
 
 !!! note
 
@@ -151,14 +147,14 @@ composer ezplatform-install
 
 ## Set up virtual host
 
-To set up virtual host use the template provided with eZ Platform: `<your installation directory>/doc/apache2/vhost.template`.
+To set up virtual host, use the template provided with eZ Platform: `<your installation directory>/doc/apache2/vhost.template`.
 
 Copy the virtual host template under the name `<your_site_name>.conf` into your Apache directory:
 
-- `/private/etc/apache2/users/` on macOS
-- `<Apache>\conf\vhosts` on Windows
+- For Windows: `<Apache>\conf\vhosts`
+- For macOS: `/private/etc/apache2/users/`
 
-Modify `<your_site_name>.conf` to fit your installation. Then restart the Apache server.
+Modify `<your_site_name>.conf` to fit it to your installation. Then restart the Apache server.
 
 ## Set up permissions
 

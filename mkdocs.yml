@@ -8,7 +8,6 @@ pages:
         - 'Requirements': 'getting_started/requirements.md'
         - 'Install eZ Platform': 'getting_started/install_ez_platform.md'
         - 'Install eZ Enterprise': 'getting_started/install_ez_enterprise.md'
-        - 'Install on macOS or Windows': 'getting_started/installing-on-mac-os-and-windows.md'
         - 'First steps': 'getting_started/first_steps.md'
         - 'Bundles starter pack': 'getting_started/bundles_starter_pack.md'
         - 'Troubleshooting': 'getting_started/troubleshooting.md'
@@ -160,6 +159,7 @@ pages:
         - 'Release process and roadmap': 'community_resources/release_process.md'
         - 'Support and Maintenance FAQ': 'community_resources/support_maintenance_faq.md'
         - Contributing:
+            - 'Install eZ Platform on macOS or Windows': 'getting_started/installing-on-mac-os-and-windows.md'
             - 'How to contribute': 'community_resources/contributing.md'
             - 'Report and follow issues': 'community_resources/report_follow_issues.md'
             - 'Development guidelines': 'community_resources/development_guidelines.md'
