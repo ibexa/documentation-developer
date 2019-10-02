@@ -6,10 +6,13 @@ Usually, once validated and processed, this semantic configuration is then mappe
 
 eZ Platform uses this for its core configuration, but adds another configuration level, the **SiteAccess**.
 For each defined SiteAccess, you need to be able to use the same configuration tree in order to define SiteAccess-specific config.
+
 These settings then need to be mapped to SiteAccess-aware internal parameters that you can retrieve via the `ConfigResolver`.
-For this, internal keys need to follow the format `<namespace>.<scope>.<parameter_name>`.
-`namespace` is specific to your app or bundle, `scope`is the SiteAccess, SiteAccess group, `default` or `global`,
-and `parameter_name` is the actual setting *identifier*.
+For this, internal keys need to follow the format `<namespace>.<scope>.<parameter_name>`, where:
+
+- `namespace` is specific to your app or bundle
+- `scope`is the SiteAccess, SiteAccess group, `default` or `global`
+- `parameter_name` is the actual setting *identifier*
 
 For more information on ConfigResolver, namespaces and scopes, see [eZ Platform configuration basics](../guide/configuration.md).
 
@@ -36,7 +39,7 @@ acme_example:
                 enabled: false
 ```
 
-The class's fully qualified name is `eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\SiteAccessAware\Configuration`.
+The fully qualified name of the class is `eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\SiteAccessAware\Configuration`.
 All you have to do is to extend it and use `$this->generateScopeBaseNode()`:
 
 ``` php
@@ -177,7 +180,7 @@ parameters:
         language: php
 ```
 
-And then this semantic config in `ezplatform.yml or config.yml`:
+And then this semantic config in `ezplatform.yml` or `config.yml`:
 
 ``` yaml
 acme_example:
