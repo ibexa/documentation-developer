@@ -312,7 +312,7 @@ class MyService implements SiteAccessAware
 }
 ```
 
-# Exposing SiteAccess-aware configuration for your bundle
+## Exposing SiteAccess-aware configuration for your bundle
 
 The [Symfony Config component](https://symfony.com/doc/4.3/components/config.html) makes it possible to define *semantic configuration*, exposed to the end developer.
 This configuration is validated by rules you define, e.g. validating type (string, array, integer, boolean, etc.).
@@ -332,7 +332,7 @@ For more information on ConfigResolver, namespaces and scopes, see [eZ Platform
 
 The goal of this feature is to make it easy to implement a SiteAccess-aware semantic configuration and its mapping to internal config for any eZ Platform bundle developer.
 
-## Semantic configuration parsing
+### Semantic configuration parsing
 
 An abstract `Configuration` class has been added, simplifying the way to add a SiteAccess settings tree like the following in `config/packages/ezplatform.yaml`:
 
@@ -394,7 +394,7 @@ class Configuration extends SiteAccessConfiguration
     Default name for the *SiteAccess root node* is `system`, but you can customize it.
     To do this, pass the name you want to use as a second argument of `$this->generateScopeBaseNode()`.
 
-## Mapping to internal settings
+### Mapping to internal settings
 
 Semantic configuration must always be mapped to internal key/value settings within the `ServiceContainer`.
 This is usually done in the DIC extension.
@@ -476,7 +476,7 @@ parameters:
         language: php
 ```
 
-### Merging hash values between scopes
+#### Merging hash values between scopes
 
 When you define a hash as semantic config, you sometimes don't want the SiteAccess settings to replace the default or group values,
 but *enrich* them by appending new entries. This is possible by using `$processor->mapConfigArray()`,
@@ -524,7 +524,7 @@ parameters:
         language: javascript
 ```
 
-#### Merge from second level
+##### Merge from second level
 
 In the example above, entries were merged in respect to the scope order of precedence. However, if you define the `planets` key for `siteaccess1`, it will completely override the default value since the merge process is done at only 1 level.
 
@@ -576,7 +576,7 @@ parameters:
 There is also another option, `ContextualizerInterface::UNIQUE`,
 to be used when you want to ensure your array setting has unique values. It will only work on normal arrays though, not hashes.
 
-#### Limitations
+##### Limitations
 
 A few limitations exist with this scope hash merge:
 
@@ -584,13 +584,13 @@ A few limitations exist with this scope hash merge:
 - Applicable to first level semantic parameter only (i.e. settings right under the SiteAccess name).
 - Merge is not recursive. Only second level merge is possible by using `ContextualizerInterface::MERGE_FROM_SECOND_LEVEL` option.
 
-## Dedicated mapper object
+### Dedicated mapper object
 
 Instead of passing a callable to `$processor->mapConfig()`, an instance of `eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\SiteAccessAware\ConfigurationMapperInterface` can be passed.
 
 This can be useful if you have a lot of configuration to map and don't want to pollute your DIC extension class (better for maintenance).
 
-### Merging hash values between scopes
+#### Merging hash values between scopes
 
 As specified above, `$contextualizer->mapConfigArray()` is not to be used within the *scope loop*, like for simple values.
 When using a closure/callable, you usually call it before or after `$processor->mapConfig()`.
