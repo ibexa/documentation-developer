@@ -44,7 +44,7 @@ For example:
 
 To achieve this you need to create at least two new SiteAccesses in your `config/packages/ezplatform.yaml` file.
 
-The first bit of this working example lists the new SiteAccesses `en` and `fr` and adds them both to a common group `site_group` (line 8).
+The first bit of this working example lists the new SiteAccesses: `en` and `fr` and adds them both to a common `site_group` (line 8).
 This group will be used for sharing settings such as API keys, cache locations, etc.
 
 ``` yaml hl_lines="8"
@@ -116,14 +116,14 @@ Now allow the Anonymous user Role to read content on the new SiteAccesses:
 1. In the **Admin** Panel, open the **Roles** tab.
 1. Click the **Anonymous** role.
 1. Edit the limitations of the module `user`.
-1. You should be able to see three SiteAccesses in a multi-select, select them all and click **Save**.
+1. You should be able to see three SiteAccesses in a multi-select. Select them all and click **Save**.
 1. Clear the cache by running: `php bin/console cache:clear`.
 
 You should now be able to reload your site in the `en` and `fr` SiteAccess.
 
 ## Replace the `site` SiteAccess
 
-eZ Platform ships with a pre-made SiteAccess named `site`.
+eZ Platform ships with a pre-configured SiteAccess named `site`.
 As you have now successfully introduced two new SiteAccesses, remove the `site` SiteAccess as it is no longer required.
 It was not possible to remove `site` before, as you first needed to give the appropriate permissions to the new SiteAccesses (`en` and `fr`),
 without which your site would not have loaded correctly.
