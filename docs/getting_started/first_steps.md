@@ -148,7 +148,7 @@ Switch to the Translations tab and add a new translation.
 !!! tip "More information"
 
     - [Languages](../guide/internationalization.md)
-    - [Multi-language SiteAccesses and corresponding translations](../guide/multi_language_siteaccesses.md)
+    - [Setting up multi-language SiteAccesses and corresponding translations](../cookbook/setting_up_multi_language_siteaccesses.md)
 
 ## Add a design
 
