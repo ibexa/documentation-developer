@@ -143,8 +143,8 @@ pages:
             - 'Extending Workflow': 'guide/extending/extending_workflow.md'
             - 'Creating custom Page blocks': 'guide/extending/extending_page.md'
             - 'Creating custom richtext blocks': 'guide/extending/richtext_block.md'
-            - 'Creating custom drop-downs': 'guide/creating_custom_dropdowns.md'
-            - 'Creating drag and drop interface': 'guide/drag_and_drop.md'
+            - 'Creating custom drop-downs': 'guide/extending/creating_custom_dropdowns.md'
+            - 'Creating drag and drop interface': 'guide/extending/drag_and_drop.md'
         - 'Service container': 'guide/service_container.md'
         - 'Recommendation': 'guide/personalization.md'
     - Cookbook:

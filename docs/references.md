@@ -31,7 +31,7 @@
     - [Sort Clause reference](guide/search.md#sort-clauses-reference)
     - [Solr](guide/solr.md)
 - Extending eZ Platform:
-    - [General extensibility](guide/extending_ez_platform.md#general-extensibility)
+    - [General extensibility](guide/extending/extending_ez_platform.md)
 
 ## Front end
 

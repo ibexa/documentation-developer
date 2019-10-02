@@ -18,7 +18,7 @@ either built-in Symfony events or events dispatched by the application.
 See [Extending menus](extending_menus.md) for an example on how to use an event subscriber
 to extend one of the menus in the Back Office.
 
-Some extensibility, such as [adding custom tags](extend_online_editor.md#custom-tags),
+Some extensibility, such as [adding custom tags](extending_online_editor.md#custom-tags),
 is possible without writing your own code, with configuration and templating only.
 
 !!! tip "Tutorial"
@@ -51,7 +51,7 @@ Additionally you can:
 
 !!! note "String translations"
 
-    Refer to [Custom string translations](back_office_translations.md#custom-string-translations)
+    Refer to [Custom string translations](../back_office_translations.md#custom-string-translations)
     to learn how to provide string translations when extending the Back Office.
 
 !!! tip

@@ -2,7 +2,7 @@
 
 The Online Editor is based on [Alloy Editor](https://alloyeditor.com/).
 Refer to [Alloy Editor documentation](https://alloyeditor.com/docs/develop/) to learn how to extend the Online Editor with new elements.
-To learn how to extend the eZ Platform Back Office follow [Extending Admin UI tutorial](../tutorials/extending_admin_ui/extending_admin_ui).
+To learn how to extend the eZ Platform Back Office follow [Extending Admin UI tutorial](../../tutorials/extending_admin_ui/extending_admin_ui).
 
 !!! note
 
@@ -15,7 +15,7 @@ To learn how to extend the eZ Platform Back Office follow [Extending Admin UI tu
 Custom tags enable you to add more features to the Rich Text editor beyond the built-in ones.
 They are configured under the `ezrichtext` key.
 
-If you want to learn how to apply them to your installation follow [Creating a custom tag tutorial](../tutorials/extending_admin_ui/4_adding_a_custom_tag).
+If you want to learn how to apply them to your installation follow [Creating a custom tag tutorial](../../tutorials/extending_admin_ui/4_adding_a_custom_tag).
 
 Preparation of the tag always starts with the configuration file that should be added to the `config` folder. This is sample configuration for the Factbox tag, in `custom_tags.yaml`:
 
@@ -154,7 +154,7 @@ ezrichtext.custom_styles.highlighted_word.label: Highlighted word
 
 ### Rendering
 
-The `template` key points to the template used to render the custom style. It is recommended to use the [design engine](design_engine.md).
+The `template` key points to the template used to render the custom style. It is recommended to use the [design engine](../design_engine.md).
 
 In the example above, the template files for the front end could be:
 

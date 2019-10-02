@@ -2,7 +2,7 @@
 
 ## Workflow event timeline
 
-[Workflow event timeline](workflow.md) is used out of the box to display workflow transitions.
+[Workflow event timeline](../workflow.md) is used out of the box to display workflow transitions.
 
 You can also use it to render custom entries in the timeline, for example system alerts on workflows.
 

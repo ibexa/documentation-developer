@@ -150,7 +150,7 @@ app.components.my_script_component:
 
 ## Format date and time
 
-Apart from changing the [date and time formats](config_back_office#date-and-time-formats), you can use Twig filters:
+Apart from changing the [date and time formats](../config_back_office#date-and-time-formats), you can use Twig filters:
 
 - `ez_short_datetime`
 - `ez_short_date`
@@ -174,7 +174,7 @@ The following are examples of using the filters:
 The filters accept an optional `timezone` parameter for displaying date and time in a chosen time zone.
 The default time zone is set in the User settings menu.
 
-For details, see reference materials on the [full format filters](twig_functions_reference.md#ez_full_datetime-ez_full_date-ez_full_time) and [short format filters](twig_functions_reference.md#ez_short_datetime-ez_short_date-ez_short_time).
+For details, see reference materials on the [full format filters](../twig_functions_reference.md#ez_full_datetime-ez_full_date-ez_full_time) and [short format filters](../twig_functions_reference.md#ez_short_datetime-ez_short_date-ez_short_time).
 
 You can also format date and time by using the following services:
 
