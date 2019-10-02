@@ -1,4 +1,4 @@
-# multi-language SiteAccesses
+# Multi-language SiteAccesses
 
 To combine translated content with multiple SiteAccesses, perform the following steps:
 
@@ -42,9 +42,9 @@ For example:
 - `www.mysite.com` to match to English
 - `www.mysite.com/fr` to match to French
 
-To achieve this you need to create at least two new SiteAccesses in your `ezplatform.yml` file.
+To achieve this, you need to create at least two new SiteAccesses in your `ezplatform.yml` file.
 
-The first bit of this working example lists the new SiteAccesses `en` and `fr` and adds them both to a common group `site_group` (line 8).
+The first bit of this working example lists the new SiteAccesses: `en` and `fr` and adds them both to a common `site_group` (line 8).
 This group will be used for sharing settings such as API keys, cache locations, etc.
 
 ``` yaml hl_lines="8"
@@ -117,7 +117,7 @@ Now allow the Anonymous user Role to read content on the new SiteAccesses:
 1. In the **Admin** Panel, open the **Roles** tab.
 1. Click the **Anonymous** role.
 1. Edit the limitations of the module `user`.
-1. You should be able to see three SiteAccesses in a multi-select, select them all and click **Save**.
+1. You should be able to see three SiteAccesses in a multi-select. Select them all and click **Save**.
 1. Clear the cache by running: `php bin/console cache:clear`. 
 
 You should now be able to reload your site in the `en` and `fr` SiteAccess.
