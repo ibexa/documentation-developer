@@ -64,7 +64,7 @@ siteaccess:
 Below, in the second section of the SiteAccess block, you declare what matches to which SiteAccess.
 In the example you have two matches. The simplest is `Map\Host` — when the host is `www.mysite.com`, the match is `en` (lines 11-12).
 When the host and URI both match, you hit the `fr` SiteAccess, i.e., when the URI is `/fr` and the host is `www.mysite.com`.
-For a full list of available matchers, see [SiteAccess matching](../guide/siteaccess.md#siteaccess-matching).
+For a full list of available matchers, see [SiteAccess matching](../guide/siteaccess_matching.md).
 
 ``` yaml hl_lines="11 12"
 siteaccess:
