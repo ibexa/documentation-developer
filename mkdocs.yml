@@ -110,6 +110,7 @@ pages:
         - Multisite:
             - 'Multisite': 'guide/multisite.md'
             - 'SiteAccess': 'guide/siteaccess.md'
+            - 'Multi-language SiteAccesses': 'guide/multi_language_siteaccesses.md'
         - Languages:
             - 'Languages': 'guide/internationalization.md'
             - 'Back Office translations': 'guide/back_office_translations.md'
@@ -151,7 +152,6 @@ pages:
         - 'Creating drag and drop interface': 'cookbook/drag_and_drop.md'
         - 'Importing settings from a bundle': 'cookbook/importing_settings_from_a_bundle.md'
         - 'Installing on macOS or Windows': 'cookbook/installing-on-mac-os-and-windows.md'
-        - 'Multi-language SiteAccesses': 'cookbook/setting_up_multi_language_siteaccesses.md'
         - 'Multiple user providers': 'cookbook/authenticating_a_user_with_multiple_user_providers.md'
         - 'Notifications': 'cookbook/sending_notifications.md'
         - 'Retrieving root Location': 'cookbook/retrieving_root_location.md'

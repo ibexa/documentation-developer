@@ -12,7 +12,7 @@ Without these three steps, your SiteAccess configuration will either not work or
 
 By creating a new translation, you indicate that a Content item has other language versions.
 A newly defined translation can then be used according to the SiteAccess configuration.
-For more details on language versions, see [Languages](../guide/internationalization.md).
+For more details on language versions, see [Languages](internationalization.md).
 
 1. Log in to the Back Office.
 1. In the **Admin** Panel, open the **Languages** tab.
@@ -32,7 +32,7 @@ Now you can now start translating content.
 ## Create new SiteAccesses
 
 Now you can configure SiteAccess to match it with the newly-configured translation.
-For more details, see [SiteAccess](../guide/siteaccess.md).
+For more details, see [SiteAccess](siteaccess.md).
 
 The most typical setup for a site with translated content is to map the base of the domain to one language
 and use the first segment of the URI to match to another. 
@@ -65,7 +65,7 @@ Below, in the second section of the SiteAccess block, you declare what matches t
 In the example below you have two matches. 
 The simplest is ` Map\Host` — when the host is `www.mysite.com`, the match is `en` (lines 11-12).
 When the host and URI both match, you hit the `fr` SiteAccess, i.e., when the URI is `/fr` and the host is `www.mysite.com`.
-For a full list of available matchers, see [SiteAccess matching](../guide/siteaccess.md#siteaccess-matching).
+For a full list of available matchers, see [SiteAccess matching](siteaccess.md#siteaccess-matching).
 
 ``` yaml hl_lines="11 12"
 siteaccess:
@@ -130,7 +130,7 @@ It was not possible to remove `site` before, as you first needed to give the app
 without which your site would not have loaded correctly.
 
 In `ezplatform.yml`, set the `default_siteaccess` to `en`.
-This will act as the [fallback](../guide/siteaccess/#multilanguage-sites) in case none of the matches have been hit.
+This will act as the [fallback](siteaccess/#multilanguage-sites) in case none of the matches have been hit.
 
 Lastly, remove `site` from the `list` and `groups` section.
 The final version of the `ezplatform.yml` should look like this:
