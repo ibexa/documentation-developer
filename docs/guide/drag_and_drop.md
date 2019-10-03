@@ -1,8 +1,8 @@
 # Creating drag and drop interface
 
-In eZ Platform you are able to create a generic interface for drag and drop interactions that can be reused in many places.
+In eZ Platform, you can create a generic interface for drag and drop interactions reusable in many places.
 
-First prepare the HTML code structure that will be placed in a Twig template in the following way:
+First, prepare the HTML code structure that will be placed in a Twig template in the following way:
 
 ```html
 <div class="items-container" data-placeholder="HTML template for placeholder"></div>
@@ -18,7 +18,7 @@ const draggable = new window.eZ.core.Draggable({
 });
 ```
 
-For more information on creating Twig templates, see [Templating basics](../guide/templates.md).
+For more information on creating Twig templates, see [Templating basics](templates.md).
 
 ## Options
 
