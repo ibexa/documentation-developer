@@ -14,7 +14,7 @@ When that SiteAccess is used, they override the default configuration.
 
 A SiteAccess is selected using one or more matchers – rules based on the uri or its parts. Example matching criteria are elements of the uri, host name (or its parts), port number, etc.
 
-For detailed information on how SiteAccess matchers work, see [SiteAccess Matching](siteaccess-matching.md).
+For detailed information on how SiteAccess matchers work, see [SiteAccess Matching](siteaccess_matching.md).
 
 ### SiteAccesses use cases
 
@@ -62,7 +62,7 @@ Collects SiteAccesses into groups that can be used later for configuration.
 
 #### `match`
 
-The rule or set of rules by which SiteAccesses are matched. See [SiteAccess matching](siteaccess-matching.md) for more information.
+The rule or set of rules by which SiteAccesses are matched. See [SiteAccess matching](siteaccess_matching.md) for more information.
 
 !!! enterprise
 
