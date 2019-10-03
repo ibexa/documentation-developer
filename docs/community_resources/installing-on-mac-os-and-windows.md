@@ -76,7 +76,7 @@ The instructions below assumes you are using Apache.
 Download and extract an archive into the location where you want your project root directory to be from [ezplatform.com](https://ezplatform.com/#download-option) (for open-source version) or from the [Support portal](https://support.ez.no/Downloads) (for eZ Enterprise), or clone the [GitHub repository](https://github.com/ezsystems/ezplatform):
 
 ``` bash
-git clone https://github.com/ezsystems/ezplatform
+git clone https://github.com/ezsystems/ezplatform .
 ```
 
 !!! tip
@@ -138,7 +138,11 @@ CREATE DATABASE ezplatform CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
 
 Before executing the following command, ensure that the user set during `composer install` has sufficient permissions.
 
-Install eZ Platform by running: `composer ezplatform-install`.
+Install eZ Platform by running: 
+
+``` bash
+composer ezplatform-install
+```
 
 !!! note
 
