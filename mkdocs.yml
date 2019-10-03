@@ -110,6 +110,7 @@ pages:
         - Multisite:
             - 'Multisite': 'guide/multisite.md'
             - 'SiteAccess': 'guide/siteaccess.md'
+            - 'SiteAccess Matching': 'guide/siteaccess_matching.md'
         - Languages:
             - 'Languages': 'guide/internationalization.md'
             - 'Back Office translations': 'guide/back_office_translations.md'
@@ -156,7 +157,6 @@ pages:
         - 'Notifications': 'cookbook/sending_notifications.md'
         - 'Retrieving root Location': 'cookbook/retrieving_root_location.md'
         - 'RouteReference': 'cookbook/using_routereference.md'
-        - 'SiteAccess-aware bundle configuration': 'cookbook/exposing_siteaccess_aware_configuration_for_your_bundle.md'
         - 'Using simple templates': 'cookbook/displaying_content_with_simple_templates.md'
     - Resources and community:
         - 'Resources': 'community_resources/resources.md'
