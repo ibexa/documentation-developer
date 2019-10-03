@@ -20,7 +20,7 @@ If you want to learn how to apply them to your installation follow [Creating a c
 Preparation of the tag always starts with the configuration file that should be added to the `config` folder. This is sample configuration for the Factbox tag, in `custom_tags.yaml`:
 
 ```yaml
-ezpublish:
+ezplatform:
     system:
         admin_group:
             fieldtypes:
@@ -116,7 +116,7 @@ Inline styles apply to the selected portion of text only, while block styles app
 The sample configuration is as follows:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         admin_group:
             fieldtypes:
@@ -136,7 +136,7 @@ ezrichtext:
 The system expects two kinds of configuration:
 
 - a global list of custom styles, defined under the node `ezrichtext.custom_styles`,
-- a list of enabled custom styles for a given Admin SiteAccess or Admin SiteAccess group, located under the node `ezpublish.system.<scope>.fieldtypes.ezrichtext.custom_styles`
+- a list of enabled custom styles for a given Admin SiteAccess or Admin SiteAccess group, located under the node `ezplatform.system.<scope>.fieldtypes.ezrichtext.custom_styles`
 
 !!! note
 
@@ -216,7 +216,7 @@ The example below adds two data attributes, `custom_attribute` and `another_attr
 to the Heading element:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         # The configuration only works with an admin (Back Office) SiteAccess
         <siteaccess>:
@@ -250,7 +250,7 @@ You can also set the values for `required`, `default_value` and `multiple`.
 The example below adds a class choice to the Paragraph element:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         # The configuration only works with an admin (Back Office) SiteAccess
         <siteaccess>:

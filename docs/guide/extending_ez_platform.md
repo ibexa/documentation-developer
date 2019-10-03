@@ -546,7 +546,7 @@ A configuration of the default icon for Content Type is possible via `default-co
 For example:
 
 ```yaml
-ezpublish:
+ezplatform:
     system:
        default:
            content_type:
@@ -558,7 +558,7 @@ To configure a custom icon you just need to replace the `default-config` key wit
 For example:
 
 ```yaml
-ezpublish:
+ezplatform:
     system:
        default:
            content_type:
@@ -620,7 +620,7 @@ Use an `\EzSystems\EzPlatformWorkflow\Event\TimelineEvents::COLLECT_ENTRIES` eve
 To provide custom templates for new event timeline entries, use the following configuration:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         default:
             workflows_config:
@@ -898,7 +898,7 @@ The value of the setting is accessible with `ez_user_settings['unit']`.
 You can define a template to be used when editing the given setting:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         admin_group:
             user_settings_update_view:

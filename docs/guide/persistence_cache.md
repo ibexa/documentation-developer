@@ -64,7 +64,7 @@ Then, in `ezplatform.yaml` you can specify which cache pool you want to use on a
 The following example shows use in a SiteAccess group:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         # "site_group" refers to the group configured in site access
         site_group:

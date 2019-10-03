@@ -53,7 +53,7 @@ The base template used is [`EzPublishCore/Security/login.html.twig`](https://git
 The layout used by default is `%ezpublish.content_view.viewbase_layout%` (empty layout) but can be configured together with the login template:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         my_siteaccess:
             user:

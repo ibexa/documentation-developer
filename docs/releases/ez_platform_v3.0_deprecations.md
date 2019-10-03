@@ -41,6 +41,10 @@ The following classes and namespaces have been deprecated and dropped:
 - `eZ\Publish\SPI\FieldType\Event`
 - `eZ\Publish\SPI\FieldType\Events\**`
 
+### Configuration through `ezplatform`
+
+In YAML configuration, `ezplatform` is now used instead of `ezpublish` as the main configuration key.
+
 ### Twig helper names
 
 Selected Twig helpers names have been changed.

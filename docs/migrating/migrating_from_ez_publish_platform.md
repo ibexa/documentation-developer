@@ -95,7 +95,7 @@ To move over your own custom configurations, follow the conventions below and ma
 
     ``` yaml
     # Default ezplatform.yaml repositories configuration with comments
-    ezpublish:
+    ezplatform:
         # Repositories configuration, set up default repository to support solr if enabled
         repositories:
             default:

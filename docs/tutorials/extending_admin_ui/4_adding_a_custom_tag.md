@@ -11,7 +11,7 @@ First, create a file that will contain the configuration for the custom tags.
 Add file `custom_tags.yaml` to `config/packages`:
 
 ``` yaml hl_lines="5 10"
-ezpublish:
+ezplatform:
     system:
         default:
             fieldtypes:
