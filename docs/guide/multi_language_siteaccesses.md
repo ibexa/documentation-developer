@@ -65,7 +65,7 @@ Below, in the second section of the SiteAccess block, you declare what matches t
 In the example below you have two matches. 
 The simplest is ` Map\Host` — when the host is `www.mysite.com`, the match is `en` (lines 11-12).
 When the host and URI both match, you hit the `fr` SiteAccess, i.e., when the URI is `/fr` and the host is `www.mysite.com`.
-For a full list of available matchers, see [SiteAccess matching](siteaccess.md#siteaccess-matching).
+For a full list of available matchers, see [SiteAccess matching](../guide/siteaccess_matching.md).
 
 ``` yaml hl_lines="11 12"
 siteaccess:
@@ -130,7 +130,7 @@ It was not possible to remove `site` before, as you first needed to give the app
 without which your site would not have loaded correctly.
 
 In `ezplatform.yml`, set the `default_siteaccess` to `en`.
-This will act as the [fallback](siteaccess/#multilanguage-sites) in case none of the matches have been hit.
+This will act as the [fallback](../guide/siteaccess/#multilanguage-sites) in case none of the matches have been hit.
 
 Lastly, remove `site` from the `list` and `groups` section.
 The final version of the `ezplatform.yml` should look like this:
