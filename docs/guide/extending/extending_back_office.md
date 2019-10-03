@@ -2,12 +2,11 @@
 
 ## Custom Content Type icons
 
-To add custom icons for existing Content Types or custom Content Types in eZ Platform follow the instructions below.
+To add custom icons for existing Content Types or custom Content Types in eZ Platform, follow the instructions below.
 
 ### Configuration
 
-A configuration of the default icon for Content Type is possible via `default-config` key.
-For example:
+A configuration of the default icon for Content Type is possible via the `default-config` key, e.g.:
 
 ```yaml
 ezpublish:
@@ -18,7 +17,7 @@ ezpublish:
                  thumbnail: /assets/images/mydefaulticon.svg
 ```
 
-To configure a custom icon you just need to replace the `default-config` key with a Content Type identifier.
+To configure a custom icon, you need to replace the `default-config` key with a Content Type identifier.
 For example:
 
 ```yaml
@@ -36,7 +35,7 @@ ezpublish:
 
 ### Custom icons in Twig templates
 
-Content Type icons are accessible in Twig templates via `ez_content_type_icon` function.
+Content Type icons are accessible in Twig templates via the `ez_content_type_icon` function.
 It requires Content Type identifier as an argument. The function returns the path to a Content Type icon.
 
 ```twig
@@ -45,16 +44,16 @@ It requires Content Type identifier as an argument. The function returns the pat
 </svg>
 ```
 
-If the icon for given Content Type is **not specified** in the configuration the default icon will be returned.
+If the icon for a given Content Type is **not specified** in the configuration, the default icon is returned.
 
 ### Custom icons in JavaScript
 
 Content Types icons configuration is stored in a global object: `eZ.adminUiConfig.contentTypes`.
 
-You can easily retrieve icon URL with a helper function `getContentTypeIcon`, set on a global object `eZ.helpers.contentType`.
-It takes Content Type identifier as an argument and returns:
+You can easily retrieve the icon URL with the `getContentTypeIcon`  helper function that is set on the global `eZ.helpers.contentType` object.
+It takes Content Type identifier as an argument and returns one of the following items:
 
- - URL of given Content Type's icon or
+ - URL of a given Content Type's icon
  - `null` if there is no Content Type with given identifier
 
 Example with `getContentTypeIcon`:
@@ -106,7 +105,7 @@ you can make use of the following base classes:
 - `LinkComponent` renders the HTML `<link>` tag.
 - `ScriptComponent` renders the HTML `<script>` tag.
 
-In this case all you have to do is add a service definition (with proper parameters), for example:
+In this case, all you have to do is add a service definition (with proper parameters), for example:
 
 ``` yaml
 appbundle.components.my_twig_component:
