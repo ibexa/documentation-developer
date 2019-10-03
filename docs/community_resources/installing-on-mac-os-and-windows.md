@@ -1,6 +1,6 @@
 # Install eZ Platform on macOS or Windows
 
-This page show how to perform a installation of eZ Platform on macOS or Windows.
+This page explains how to install eZ Platform on macOS or Windows.
 
 !!! caution
 
@@ -22,7 +22,7 @@ The instructions below assumes you are using Apache.
 
 ??? "Windows"
 
-    Locate `php.ini` file and open it in a text editor.
+    Locate the `php.ini` file and open it in a text editor.
     Provide missing values to relevant parameters, e.g. `date.timezone` and `memory_limit`:
 
     ``` bash
