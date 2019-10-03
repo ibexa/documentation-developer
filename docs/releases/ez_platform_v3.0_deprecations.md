@@ -78,7 +78,7 @@ Additionally, the `ez_trans_prop` Twig function has been removed.
 |`richtext_to_html5`|`ez_richtext_to_html5`|
 |`richtext_to_html5_edit`|`ez_richtext_to_html5_edit`|
 
-### JavaScript event names and code cleanup
+### JavaScript
 
 #### Event names changed
 
@@ -161,11 +161,11 @@ Additionally, the listener for `pbPreviewReloaded` has been removed.
 |`fbFormBuilderLoaded`|`ez-form-builder-loaded`|
 |`fbFormBuilderUnloaded`|`ez-form-builder-unloaded`
 
-#### Code cleanup
+#### Code removals
 
-Due to the code cleanup, the following deprecated items have been dropped: 
+Due to the code cleanup, the following deprecated items have been removed: 
 
-|Dropped code|Belongs to|Use instead|
+|Removed code|Belongs to|Use instead|
 |------------|----------|-----------|
 |`formatPHP`|`window.moment.fn`|`formatICU`|
 |`formatDate`|`window.eZ.helpers.timezone`|`formatFullDateTime`|
@@ -177,6 +177,8 @@ Due to the code cleanup, the following deprecated items have been dropped:
 |`SearchResultsItemComponent`|-|`ContentTableItemComponent`|
 |`onlyContentOnTheFly`|-|`visibleTabs`|
 |`cotfForcedLanguage`|-|`cotfAllowedLanguages`|
+|`canEdit`|`EzSystems\EzPlatformAdminUiBundle\Controller\LanguageController::listAction`|`can_administrate`|
+|`canAssign`|`EzSystems\EzPlatformAdminUiBundle\Controller\LanguageController::listAction`|`can_administrate`|
 
 ### REST server
 
@@ -200,10 +202,6 @@ HTTP cache bundle now uses FOS Cache Bundle v2. This entails:
 - The `PURGE` method has been changed to `PURGEKEY`.
 - The `ezplatform.http_cache.tags.header` parameter has been removed.
 Configuration now relies on FOS Cache configuration and its default values.
-
-### Deprecated Field Types
-
-Deprecated `ezprice` and `ezpage` Field Types have been removed.
 
 ### Elastic Search
 
@@ -234,11 +232,7 @@ The following Webpack Encore entries have been changed:
 All Online Editor front-end code and assets (such as JS, CSS, fonts, etc.)
 have been moved from `ezplatform-admin-ui` to `ezplatform-richtext`.
 
-### Miscellaneous
-
-- Deprecated `SubtreeQuery` class has been removed. In v3.0 it was replaced by `\EzSystems\EzPlatformAdminUi\QueryType\SubtreeQueryType`.
-
-#### View matching
+### View matching
 
 When matching views using custom services, the services must be now tagged with `ezplatform.view.matcher`.
 The matching must be configured in the following way:
@@ -252,11 +246,131 @@ content_view:
                 '@App\Matcher\MyMatcher': ~
 ```
 
-#### SiteAccess matching
+### SiteAccess matching
 
-When matching SiteAcceses using custom services, the SiteAccess matcher service must be now tagged with `ezplatform.siteaccess.matcher`.
+When matching SiteAccesses using custom services, the SiteAccess matcher service must be now tagged with `ezplatform.siteaccess.matcher`.
 
-## Deprecations
+### Database
+
+The following obsolete tables have been removed from the database schema:
+
+??? note "Removed database tables"
+
+    - ezapprove_items
+    - ezbasket
+    - ezcollab_group
+    - ezcollab_item
+    - ezcollab_item_group_link
+    - ezcollab_item_message_link
+    - ezcollab_item_participant_link
+    - ezcollab_item_status
+    - ezcollab_notification_rule
+    - ezcollab_profile
+    - ezcollab_simple_message
+    - ezcomment
+    - ezcomment_notification
+    - ezcomment_subscriber
+    - ezcomment_subscription
+    - ezcontentbrowserecent
+    - ezcurrencydata
+    - ezdiscountrule
+    - ezdiscountsubrule
+    - ezdiscountsubrule_value
+    - ezenumobjectvalue
+    - ezenumvalue
+    - ezforgot_password
+    - ezgeneral_digest_user_settings
+    - ezinfocollection
+    - ezinfocollection_attribute
+    - ezisbn_group
+    - ezisbn_group_range
+    - ezisbn_registrant_range
+    - ezm_block
+    - ezm_pool
+    - ezmessage
+    - ezmodule_run
+    - ezmultipricedata
+    - eznotificationcollection
+    - eznotificationcollection_item
+    - eznotificationevent
+    - ezoperation_memento
+    - ezorder
+    - ezorder_item
+    - ezorder_nr_incr
+    - ezorder_status
+    - ezorder_status_history
+    - ezpaymentobject
+    - ezpdf_export
+    - ezpending_actions
+    - ezprest_authcode
+    - ezprest_authorized_clients
+    - ezprest_clients
+    - ezprest_token
+    - ezproductcategory
+    - ezproductcollection
+    - ezproductcollection_item
+    - ezproductcollection_item_opt
+    - ezpublishingqueueprocesses
+    - ezrss_export
+    - ezrss_export_item
+    - ezrss_import
+    - ezscheduled_script
+    - ezsearch_search_phrase
+    - ezsession
+    - ezsubtree_notification_rule
+    - eztipafriend_counter
+    - eztipafriend_request
+    - eztrigger
+    - ezuservisit
+    - ezuser_discountrule
+    - ezvatrule
+    - ezvatrule_product_category
+    - ezvattype
+    - ezview_counter
+    - ezwaituntildatevalue
+    - ezwishlist
+    - ezworkflow
+    - ezworkflow_assign
+    - ezworkflow_event
+    - ezworkflow_group
+    - ezworkflow_group_link
+    - ezworkflow_process
+
+You can drop unused tables from your database by executing:
+
+``` sql
+DROP TABLE <table_name>;
+```
+
+- The "Setup" folder and Section have been removed from clean installation data.
+- The "Design" Section has been removed from clean installation data.
+
+### Miscellaneous
+
+- Deprecated `SubtreeQuery` class has been removed. In v3.0 it was replaced by `\EzSystems\EzPlatformAdminUi\QueryType\SubtreeQueryType`.
+
+## Deprecations and removals
+
+### Admin UI
+
+Due to the code cleanup, the following deprecated items have been removed: 
+
+|Removed code|Belongs to|Use instead|
+|------------|----------|-----------|
+|`canEdit`|`EzSystems\EzPlatformAdminUiBundle\Controller\LanguageController::viewAction`|`can_administrate`|
+|`canAssign`|`EzSystems\EzPlatformAdminUiBundle\Controller\LanguageController::viewAction`|`can_administrate`|
+|`baseLanguage`|`EzSystems\EzPlatformAdminUi\EventListener\ContentTranslateViewFilterParametersListener::onFilterViewParameters`|`base_language`|
+|`contentType`|`EzSystems\EzPlatformAdminUi\EventListener\ContentTranslateViewFilterParametersListener::onFilterViewParameters`|`content_type`|
+|`isPublished`|`EzSystems\EzPlatformAdminUi\EventListener\ContentTranslateViewFilterParametersListener::onFilterViewParameters`|`ContentInfo::isPublished`|
+|`fieldDefinitionsByGroup`|`EzSystems\EzPlatformAdminUi\Tab\LocationView\ContentTab`| `field_definitions_by_group` |
+|`full`|`window.eZ.adminUiConfig.dateFormat`| `fullDateTime` |
+|`short`|`window.eZ.adminUiConfig.dateFormat`| `shortDateTime` |
+|`limit`|`EzSystems\EzPlatformAdminUi\UI\Module\Subitems\ContentViewParameterSupplier`| - |
+|`contentTypeNames`|`window.eZ.adminUiConfig`|`contentTypes`|
+
+### Field Types
+
+Deprecated `ezprice` and `ezpage` Field Types have been removed.
 
 ### User settings
 
@@ -278,15 +392,37 @@ The following choiceLoaders classes deprecated in v2.5 have been removed:
 Instead, use the following classes:
 
 - `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\ContentCreateContentTypeChoiceLoader`
-- `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\ContentCreateLanguageChoiceLoader` 
+- `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\ContentCreateLanguageChoiceLoader`
 
-### Template parameter names
+### Symfony Services
+
+The `date_based_publisher.permission_resolver` Symfony Service deprecated in v2.5 has been removed. 
+Instead, you can inject `eZ\Publish\API\Repository\PermissionResolver` and rely on auto-wiring.
+
+### Templates
+
+#### Template parameter names
 
 The SiteAccess-aware `pagelayout` setting is deprecated in favor of `page_layout`.
 
 View parameter `pagelayout` set by `pagelayout` setting is deprecated in favor of  `page_layout`.
 
-### Template organization
+#### Template configuration
+
+Following the [upgrade to Symfony 4](#symfony-4), [the templating component integration is now deprecated.](https://symfony.com/blog/new-in-symfony-4-3-deprecated-the-templating-component-integration)
+As a result, the way to indicate a template path has changed.
+
+Example 1:
+
+- Now: `"@@EzPlatformUser/user_settings/list.html.twig"`
+- Formerly: `"EzPlatformUserBundle:user_settings:list.html.twig"`
+
+Example 2:
+
+- Now: `{% extends "@EzPublishCore/content_fields.html.twig" %}`
+- Formerly: `{% extends "EzPublishCoreBundle::content_fields.html.twig" %}`
+
+#### Template organization
 
 The following templates used in the Back Office have been renamed:
 

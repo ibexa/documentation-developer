@@ -395,7 +395,7 @@ This code will load `my_field_template.html.twig` located in `templates/fields/`
     {# templates/fields/my_field_template.html.twig #}
     {# Assuming "my_field_identifier" from above template example is an ezkeyword field. #}
      
-    {% use "EzPublishCoreBundle::content_fields.html.twig" with ezkeyword_field as base_ezkeyword_field %}
+    {% use "@EzPublishCore/content_fields.html.twig" with ezkeyword_field as base_ezkeyword_field %}
      
     {# Surround base block with a simple div #}
     {% block ezkeyword_field %}
@@ -464,10 +464,10 @@ It will then be used every time the Field is rendered with `ez_render_field()`.
 The content of the template must be placed in a Twig block corresponding to the Field Type's internal name
 (e.g. `{% block ezstring_field %}`) for `ezstring`.
 
-The template must also extend `EzPublishCoreBundle::content_fields.html.twig`.
+The template must also extend `EzPublishCore/content_fields.html.twig`.
 
 ``` html+twig
-{% extends "EzPublishCoreBundle::content_fields.html.twig" %}
+{% extends "@EzPublishCore/content_fields.html.twig" %}
 
 {% block ezstring_field %}
     {# template content here #}
@@ -500,7 +500,7 @@ The filters also accept an optional `timezone` parameter for displaying date and
 
 If the Content item does not have a translation in the current language, the main language (see [further down for details](#main-language-use)) will be used if this is supported by the provided **object**. This behavior is identical when forcing a language using **forcedLanguage**.
 
-If languages were specified during retrieval of a given value object, you can get translated values directly in several cases now, including examples below. For further info see [Internationalization](internationalization.md).
+If languages were specified during retrieval of a given value object, you can get translated values directly in several cases now, including examples below. For more details, see [Languages](internationalization.md).
 
 #### Prototype and Arguments
 

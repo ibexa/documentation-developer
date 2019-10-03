@@ -46,7 +46,7 @@ In addition, you can also control the access to the global translation list by u
 Once more than one language is defined in the global translation list and there is content in different languages, the question is how can this be exposed to use by the visitor. There are two ways to do this:
 
 1. Implement a mechanism called [language switcher](#language-switcher). It lets you create links to switch between different translations of a Content item.
-1. If you want to have completely separate versions of the website, each with content in its own language, you can [use SiteAccesses](#using-siteaccesses-for-handling-translations). In this case, depending on the URI used to access the website, a different site will open, with a language set in configuration settings. All Content items will then be displayed in this language.
+1. If you want to have completely separate versions of the website, each with content in its own language, you can [use SiteAccesses](#using-siteaccesses-for-handling-translations). In this case, depending on the URI used to access the website, a different site will open, with a language set in configuration settings. All Content items will then be displayed in this language. For details, see [Multi-language SiteAccesses](multi_language_siteaccesses.md).
 
 ## Language switcher
 
