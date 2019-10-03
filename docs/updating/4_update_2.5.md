@@ -75,4 +75,13 @@ bin/console cache:pool:clear cache.redis
     CREATE INDEX ezpage_blocks_visibility_block_id ON ezpage_blocks_visibility(block_id);
     CREATE INDEX ezpage_pages_content_id_version_no ON ezpage_pages(content_id, version_no);
     ```
-    
+
+## Updating to 2.5.6
+
+### Password recovery
+
+Run the following script to update the database to cover new password recovery options:
+
+``` sql
+UPDATE ezuser SET password_updated_at = UNIX_TIMESTAMP();
+```
