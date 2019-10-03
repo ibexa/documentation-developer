@@ -72,7 +72,7 @@ For this, you only have to tweak the extension class generated in the bundle [in
 to load the extension bundle's `yui.yml` and `css.yml` and to process their respective content with PlatformUI's configuration.
 The default empty `yui.yml` and `css.yml` also have to be created so that eZ Platform is still usable.
 
-If you want to get more details on this operation, you can read the [Exposing SiteAccess-aware configuration for your bundle](../../cookbook/exposing_siteaccess_aware_configuration_for_your_bundle.md) recipe.
+If you want to get more details on this operation, see [Exposing SiteAccess-aware configuration for your bundle](siteaccess.md#exposing-siteaccess-aware-configuration-for-your-bundle).
 
 After this, you just have to make sure the bundle has a `Resources/public` directory to install the assets with the following command:
 
