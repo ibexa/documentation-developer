@@ -1,45 +1,53 @@
-# Setting up multi-language SiteAccesses and corresponding translations
+# Multi-language SiteAccesses
 
-Combining translated content with multiple SiteAccesses successfully can be challenging for new users of eZ Platform.
+To combine translated content with multiple SiteAccesses, perform the following steps:
 
-To achieve this for the most typical setups you need to follow three steps:
-
-1. [Create your translations](#create-a-new-translation) in the database via eZ Platform Back Office.
+1. [Create your translations](#create-a-new-translation) in the database by using the Back Office.
 1. [Create at least two SiteAccesses](#create-new-siteaccesses) in `ezplatform.yml` to deliver the right translated content at the right time.
-1. [Set the correct permissions](#set-permissions-for-the-new-siteaccesses) for the anonymous user to read each SiteAccess.
+1. [Set the correct permissions](#set-permissions-for-the-new-siteaccesses) for an anonymous user to read each SiteAccess.
 
 Without these three steps, your SiteAccess configuration will either not work or you will be left with duplicate content from an SEO perspective.
 
 ## Create a new translation
 
-!!! tip
+By creating a new translation, you indicate that a Content item has other language versions.
+A newly defined translation can then be used according to the SiteAccess configuration.
+For more details on language versions, see [Languages](internationalization.md).
 
-    Here is the full guide on [Languages](../guide/internationalization.md).
-
-1. Log in to your eZ Platform Back Office.
+1. Log in to the Back Office.
 1. In the **Admin** Panel, open the **Languages** tab.
-1. Click **Create a new language** and follow the on-screen prompts to register your new language (e.g. `fre-FR`).
-1. After saving the new language, refresh the eZ Platform back-office assets by running: `php bin/console assetic:dump` and `yarn encore <prod|dev>` (or `php bin/console ezplatform:encore:compile`).
+1. Click **Create a new language** and follow the on-screen prompts. For the purpose of this procedure, configure `fre-FR` as a new language.
+1. After saving the new language, refresh the assets by running:
+ 
+``` bash
+php bin/console assetic:dump
+yarn encore <prod|dev>
+#OR
+php bin/console ezplatform:encore:compile
+```
 
-Reload the Back Office and you can now start translating content.
+Reload the Back Office.
+Now you can now start translating content.
 
 ## Create new SiteAccesses
 
-!!! tip
-
-    Here is the full guide on [SiteAccesses](../guide/siteaccess.md).
+Now you can configure SiteAccess to match it with the newly-configured translation.
+For more details, see [SiteAccess](siteaccess.md).
 
 The most typical setup for a site with translated content is to map the base of the domain to one language
-and use the first segment of the URI to match to another. For example:
+and use the first segment of the URI to match to another. 
+
+For example:
+
 - `www.mysite.com` to match to English
 - `www.mysite.com/fr` to match to French
 
-To achieve this you need to create at least two new SiteAccesses in your `ezplatform.yml` file.
+To achieve this, you need to create at least two new SiteAccesses in your `ezplatform.yml` file.
 
-The first bit of this working example lists the new SiteAccesses `en` and `fr` and adds them both to a common group `site_group`.
-This group will be used for shared settings such as API keys, cache locations, etc.
+The first bit of this working example lists the new SiteAccesses: `en` and `fr` and adds them both to a common `site_group` (line 8).
+This group will be used for sharing settings such as API keys, cache locations, etc.
 
-``` yaml
+``` yaml hl_lines="8"
 siteaccess:
     default_siteaccess: site
     list:
@@ -53,12 +61,13 @@ siteaccess:
             - fr
 ```
 
-In the second section of the SiteAccess block, declare what matches to which SiteAccess.
-In the example below you have two matches. The first is a simple host match — when the host is `www.mysite.com` the match is `en`.
+Below, in the second section of the SiteAccess block, you declare what matches to which SiteAccess.
+In the example below you have two matches. 
+The simplest is ` Map\Host` — when the host is `www.mysite.com`, the match is `en` (lines 11-12).
 When the host and URI both match, you hit the `fr` SiteAccess, i.e., when the URI is `/fr` and the host is `www.mysite.com`.
 For a full list of available matchers, see [SiteAccess matching](../guide/siteaccess_matching.md).
 
-``` yaml
+``` yaml hl_lines="11 12"
 siteaccess:
     default_siteaccess: site
         # ...
@@ -97,33 +106,34 @@ Add the new `translation_siteaccesses` here. After the `site_group`, you registe
                 # templates common to both the en and fr SiteAccess
 ```
 
-`ezplatform.yml` with SiteAccesses should now be configured. Clear to cache to complete the job:
-
-``` bash
-php bin/console cache:clear
-```
+The `ezplatform.yml` file with SiteAccesses should now be configured.
+Clear to cache by running: `php bin/console cache:clear`.
 
 ## Set permissions for the new SiteAccesses
 
 Now allow the Anonymous user Role to read content on the new SiteAccesses:
 
-1. Log in to the eZ Platform Back Office.
+1. Log in to the Back Office.
 1. In the **Admin** Panel, open the **Roles** tab.
-1. Click the role **Anonymous**.
+1. Click the **Anonymous** role.
 1. Edit the limitations of the module `user`.
-1. You should be able to see three SiteAccesses in a multi-select, select them all and click **Save**.
-1. Clear the cache again. You should now be able to reload your site in the `en` and `fr` SiteAccess.
+1. You should be able to see three SiteAccesses in a multi-select. Select them all and click **Save**.
+1. Clear the cache by running: `php bin/console cache:clear`. 
+
+You should now be able to reload your site in the `en` and `fr` SiteAccess.
 
 ## Replace the `site` SiteAccess
 
-eZ Platform ships with a premade SiteAccess named `site`. As you have now successfully introduced two new SiteAccesses,
+eZ Platform ships with a pre-configured SiteAccess named `site`. As you have now successfully introduced two new SiteAccesses,
 you can remove the `site` SiteAccess as it is no longer required.
 It was not possible to remove `site` before, as you first needed to give the appropriate permissions to the new SiteAccesses (`en` and `fr`),
 without which your site would not have loaded correctly.
 
-In `ezplatform.yml` set the `default_siteaccess` to `en`,
-this will act as the [fallback](../guide/siteaccess/#multilanguage-sites) should none of the matches have been hit.
-Lastly, remove `site` from the `list` and `groups` section:
+In `ezplatform.yml`, set the `default_siteaccess` to `en`.
+This will act as the [fallback](siteaccess.md#multilanguage-sites) in case none of the matches have been hit.
+
+Lastly, remove `site` from the `list` and `groups` section.
+The final version of the `ezplatform.yml` should look like this:
 
 ``` yaml
 siteaccess:
@@ -137,13 +147,9 @@ siteaccess:
             - fr
 ```
 
-Clear the cache again:
+Clear the cache by running: `php bin/console cache:clear`.
 
-``` bash
-php bin/console cache:clear
-```
-
-You should now be able to load your eZ Platform site in the `en` and `fr` SiteAccess displaying English and French content.
+Now you should be able to load your eZ Platform site using the `en` and `fr` SiteAccess to display content in English and French.
 
 !!! tip
     
