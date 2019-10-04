@@ -18,6 +18,14 @@ To update to v2.5.3, additionally run the following script:
 
 `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.5.2-to-7.5.3.sql`
 
+To update to v2.5.6, additionally run the following script:
+
+`mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.5.4-to-7.5.5.sql`
+
+or for PostgreSQL:
+
+`psql <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-7.5.4-to-7.5.5.sql`
+
 ## Changes to database schema
 
 The introduction of [support for PostgreSQL](../guide/databases.md#using-postgresql) includes a change in the way database schema is generated.
@@ -80,8 +88,10 @@ bin/console cache:pool:clear cache.redis
 
 ### Password recovery
 
-Run the following script to update the database to cover new password recovery options:
+Run the following script to update the database:
 
-``` sql
-UPDATE ezuser SET password_updated_at = UNIX_TIMESTAMP();
-```
+`mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.5.4-to-7.5.5.sql`
+
+or for PostgreSQL:
+
+`psql <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-7.5.4-to-7.5.5.sql`
