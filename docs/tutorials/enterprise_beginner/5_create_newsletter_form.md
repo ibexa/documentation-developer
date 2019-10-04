@@ -113,7 +113,7 @@ Clear the cache by running `bin/console cache:clear` and refresh the Page to see
 
 ### Configure the Form field
 
-Before applying the final styling of the block, you need to configure the [CAPTCHA field](../../guide/extending_form_builder.md#captcha-field).
+Before applying the final styling of the block, you need to configure the [CAPTCHA field](../../guide/extending/extending_form_builder.md#captcha-field).
 In `app/config/config.yml`, under the `gregwar_captcha` key, add the following configuration:
 
 ``` yaml
