@@ -247,3 +247,12 @@ This section provides a list of deprecated features to be removed in eZ Platform
 ### Configuration through `ezplatform`
 
 In YAML configuration, you can now use `ezplatform` as well as `ezpublish` as the main configuration key.
+
+### API improvements
+
+The following PHP API methods have been added:
+
+- `ContentService::countContentDrafts` returns the number of all drafts for the provided user
+- `ContentService::loadContentDraftList` returns a list of all drafts for the provided user
+- `ContentService::countReverseRelations` returns the number of all reverse relations for a Content item
+- `ContentService::loadReverseRelationList` returns a list of all reverse relations for a Content item
