@@ -8,7 +8,7 @@ In order to display data of the Field Type from templates, you need to create an
 
 !!! tip
 
-    See documentation about [Field Type templates](../../api/field_type_form_and_template.md) and about [importing settings from a bundle](../../cookbook/importing_settings_from_a_bundle.md).
+    See documentation about [Field Type templates](../../api/field_type_form_and_template.md) and about [importing settings from a bundle](../../guide/bundles.md#importing-configuration-from-a-bundle.md).
 
 In short, such a template must:
 
