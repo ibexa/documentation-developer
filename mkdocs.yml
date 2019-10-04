@@ -120,6 +120,7 @@ pages:
         - Extending eZ Platform:
             - 'Extending eZ Platform': 'guide/extending_ez_platform.md'
             - 'Extending the Dashboard': 'guide/dashboard.md'
+            - 'Extending Form Builder' : 'guide/extending_form_builder.md'
             - 'Other extensibility': 'guide/other_extensibility.md'
         - 'Service container': 'guide/service_container.md'
         - 'Personalization': 'guide/personalization.md'
