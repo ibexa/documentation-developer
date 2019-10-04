@@ -445,7 +445,7 @@ If you want to override a Field template every time it occurs,
 you can append it to the Field templates list.
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         my_siteaccess:
             field_templates:

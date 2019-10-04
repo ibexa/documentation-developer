@@ -160,7 +160,7 @@ Depending on what additional parameters are provided, original or event-specific
 In the example below `my_custom_udw` is used as a base configuration element for the following steps:
 
 ```yaml
-ezpublish:
+ezplatform:
     system:
         <siteaccess|siteaccess_group>:
             universal_discovery_widget_module:

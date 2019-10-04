@@ -1142,7 +1142,7 @@ ImageAsset Field Type allows configuring the following options:
 Example configuration:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
        default:
             fieldtypes:
@@ -1158,7 +1158,7 @@ ezpublish:
 Internally the Image Asset Type is rendered via subrequest (similar to other relation types). Rendering customization is possible by configuring view type `asset_image`:
 
 ```php
-ezpublish:
+ezplatform:
     system:
        default:           
             content_view:
@@ -1425,7 +1425,7 @@ Example use:
 
 ``` yaml
 # ezplatform.yaml
-ezpublish:
+ezplatform:
     system:
         site_group:
             api_keys: { google_maps: MY_KEY }

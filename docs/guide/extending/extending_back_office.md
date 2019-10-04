@@ -9,7 +9,7 @@ To add custom icons for existing Content Types or custom Content Types in eZ Pla
 A configuration of the default icon for Content Type is possible via the `default-config` key, e.g.:
 
 ```yaml
-ezpublish:
+ezplatform:
     system:
        default:
            content_type:
@@ -21,7 +21,7 @@ To configure a custom icon, you need to replace the `default-config` key with a 
 For example:
 
 ```yaml
-ezpublish:
+ezplatform:
     system:
        default:
            content_type:

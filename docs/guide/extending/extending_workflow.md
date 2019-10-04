@@ -16,7 +16,7 @@ Use an `\EzSystems\EzPlatformWorkflow\Event\TimelineEvents::COLLECT_ENTRIES` eve
 To provide custom templates for new event timeline entries, use the following configuration:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         default:
             workflows_config:

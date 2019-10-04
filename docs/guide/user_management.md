@@ -14,7 +14,7 @@ It allows them to create a new password.
 The template for this email is located in `templates/Security/mail/forgot_user_password.html.twig` in `ezsystems/ezplatform-user`.
 You can customize it according to your needs.
 
-The validity of the password recovery token can be set using the `ezpublish.system.<siteaccess>.security.token_interval_spec` parameter.
+The validity of the password recovery token can be set using the `ezplatform.system.<siteaccess>.security.token_interval_spec` parameter.
 By default it is set to `PT1H` (one hour).
 
 ## Registering new users
@@ -26,7 +26,7 @@ You can allow your users to create accounts by employing the `/register` route. 
 By default, new Users generated in this way are placed in the Guest accounts group. You can select a different default group in the following section of configuration:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         default:
             user_registration:
@@ -40,7 +40,7 @@ You can use custom templates for the registration form and registration confirma
 The templates are defined with the following configuration:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         default:
             user_registration:

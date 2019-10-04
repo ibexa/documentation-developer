@@ -103,7 +103,7 @@ The value of the setting is accessible with `ez_user_settings['unit']`.
 You can define a template to be used when editing the given setting:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         admin_group:
             user_settings_update_view:

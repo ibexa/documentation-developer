@@ -3,7 +3,7 @@
 ## Copy subtree limit
 
 Copying large subtrees can cause performance issues, so you can limit the number of Content items
-that can be copied at once using `ezpublish.system.<SiteAccess>.subtree_operations.copy_subtree.limit`
+that can be copied at once using `ezplatform.system.<SiteAccess>.subtree_operations.copy_subtree.limit`
 in `config/packages/ezplatform_admin_ui.yaml`.
 
 The default value is `100`. You can set it to `-1` for no limit,
@@ -21,7 +21,7 @@ Default pagination limits for different sections of the Back Office can be defin
 Default Location IDs for Content structure, Media and Users in the menu are configured using the following settings:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         default:
             location_ids:
@@ -36,7 +36,7 @@ To define the timeout for hiding Back-Office notification bars, per notification
 use the following configuration (times are provided in milliseconds):
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         admin:
             notifications:
@@ -59,7 +59,7 @@ The default Location for files uploaded in this way is `/Media/Files/Form Upload
 You can change it with the following configuration:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         default:
             form_builder:
@@ -76,7 +76,7 @@ This format is used throughout the Back Office.
 You can set the list of available formats with the following configuration:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         <siteaccess>:
             user_preferences:
@@ -97,7 +97,7 @@ ezpublish:
 The default date and time format is set using:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         <siteaccess>:
             user_preferences:
@@ -123,7 +123,7 @@ With this configuration you can:
 - override Content Tree's root for specific Locations
 
 ```yaml
-ezpublish:
+ezplatform:
     system:
         # any SiteAccess or SiteAccess group
         admin_group:
