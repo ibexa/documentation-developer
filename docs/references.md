@@ -19,7 +19,7 @@
     - [Twig functions reference](guide/twig_functions_reference.md)
     - [Twig helpers list](guide/content_rendering.md#twig-helper)
     - [Available image variation filters](guide/images.md#available-filters)
-    - [Available SiteAccess matchers](guide/siteaccess.md#available-matchers)
+    - [Available SiteAccess matchers](guide/siteaccess_matching.md#available-matchers)
     - [Available View Matchers](guide/content_rendering.md#available-matchers)
 - Permissions:
     - [Limitation reference](guide/limitation_reference.md)
