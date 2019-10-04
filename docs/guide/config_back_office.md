@@ -109,7 +109,7 @@ ezplatform:
                     time_format: 'hh:mm'
 ```
 
-You can also [format date and time](extending_ez_platform.md#format-date-and-time) by using Twig filters and PHP services.
+You can also [format date and time](extending/extending_ez_platform.md#format-date-and-time) by using Twig filters and PHP services.
 
 ## Content Tree
 
@@ -151,4 +151,4 @@ ezplatform:
 
 ## Universal Discovery Widget (UDW) configuration
 
-The Universal Discovery Widget module (UDW) can be found in [Extending modules.](extending_modules.md#universal-discovery-widget-udw)
+The Universal Discovery Widget module (UDW) can be found in [Extending modules.](extending/extending_modules.md#universal-discovery-widget-udw)

@@ -145,7 +145,7 @@ system:
 UDW configuration is SiteAccess-aware.
 For each defined SiteAccess, you need to be able to use the same configuration tree in order to define SiteAccess-specific config.
 These settings need to be mapped to SiteAccess-aware internal parameters that you can retrieve via the ConfigResolver.
-For more information on ConfigResolver, see [eZ Platform dynamic configuration basics.](config_dynamic#configresolver)
+For more information on ConfigResolver, see [eZ Platform dynamic configuration basics.](../config_dynamic#configresolver)
 
 #### Adding new configuration
 
