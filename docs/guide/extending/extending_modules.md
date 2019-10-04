@@ -7,7 +7,7 @@ using an interactive interface: browse, search, create, and bookmarks view .
 
 !!! tip " UDW tutorial"
 
-    For a detailed example on how to add a new UDW tab, see [step 5 of the Extending Admin UI tutorial](../tutorials/extending_admin_ui/5_creating_a_udw_tab.md).
+    For a detailed example on how to add a new UDW tab, see [step 5 of the Extending Admin UI tutorial](../../tutorials/extending_admin_ui/5_creating_a_udw_tab.md).
 
 ### How to use UDW?
 
@@ -150,7 +150,7 @@ system:
 UDW configuration is SiteAccess-aware.
 For each defined SiteAccess, you need to be able to use the same configuration tree in order to define SiteAccess-specific config.
 These settings need to be mapped to SiteAccess-aware internal parameters that you can retrieve via the ConfigResolver.
-For more information on ConfigResolver, see [eZ Platform dynamic configuration basics.](config_dynamic#configresolver)
+For more information on ConfigResolver, see [eZ Platform dynamic configuration basics.](../config_dynamic#configresolver)
 
 #### Adding new configuration
 

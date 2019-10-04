@@ -342,7 +342,7 @@ ezpublish:
     However, if the given block value has a since / till date,
     this will be taken into account for the TTL calculation for the block and also for the whole page.
 
-    To overload this behavior, listen to [BlockResponseEvents::BLOCK_RESPONSE](extending_page/#block-render-response),
+    To overload this behavior, listen to [BlockResponseEvents::BLOCK_RESPONSE](extending/extending_page/#block-render-response),
     and set prioroty to for instance `-200` to adapt what Page Field type does by default. E.g. in order to disable cache
     for the block use `$event->getResponse()->setPrivate()`.
 

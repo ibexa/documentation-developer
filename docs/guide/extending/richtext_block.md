@@ -99,7 +99,7 @@
     This line also implements the `PreRender` method.
     Lines 41-51 handle the conversion of content into XML string.
     
-    At this point you need to create [templates](/guide/templates.md#templating-basics) for displaying and configuring your block.
+    At this point you need to create [templates](../templates.md#templating-basics) for displaying and configuring your block.
             
     Start with creating the view template in `app/Resources/views/blocks/my_block/richtext.html.twig`:
         
@@ -132,4 +132,4 @@
                 - { name: kernel.event_subscriber }
     ```
         
-    For details on customizing additional options of the block or creating custom blocks with other attribute types, see [Creating custom Page blocks](/guide/extending_page.md).
+    For details on customizing additional options of the block or creating custom blocks with other attribute types, see [Creating custom Page blocks](extending_page.md).
