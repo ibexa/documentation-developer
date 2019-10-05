@@ -134,6 +134,7 @@ $availableLanguages = $translationHelper->getAvailableLanguages();
 ## Using SiteAccesses for handling translations
 
 Another way of using multiple languages is setting up a separate SiteAccess for each language.
+For more details, see [Multi-language SiteAccess](multi_language_siteaccesses.md).
 
 ### Explicit *translation SiteAccesses*
 
