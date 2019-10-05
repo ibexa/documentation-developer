@@ -56,7 +56,7 @@ siteaccess:
 In the second section of the SiteAccess block declare what matches to which SiteAccess.
 In the example below you have two matches. The first is a simple host match — when the host is `www.mysite.com` the match is `en`.
 When the host and URI both match, you hit the `fr` SiteAccess, i.e., when the URI is `/fr` and the host is `www.mysite.com`.
-For a full list of available matchers see [SiteAccess Matching.](../guide/siteaccess.md#siteaccess-matching)
+For a full list of available matchers see [SiteAccess Matching.](../guide/siteaccess_matching.md#)
 
 ``` yaml
 siteaccess:
