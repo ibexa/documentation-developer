@@ -1,11 +1,11 @@
-# Creating custom notifications for Flex Workflow
+# Custom notifications for Flex Workflow
 
 !!! note
 
-    This recipe assumes you have a back end for notifications and want to display them
+    This procedure assumes that you have a back end for notifications and want to display them
     in the notification system used by the Flex Workflow.
 
-To create a custom notification you have to provide two plugins in the `flex-workflow` bundle,
+To create a custom notification, you have to provide two plugins in the `flex-workflow` bundle,
 one for the `notificationsPopupView` and second for the `notificationIndicatorView`.
 
 Start from creating a plugin for `notificationIndicatorView` which is responsible for displaying a text in the notification bar.
@@ -84,7 +84,7 @@ YUI.add('mb-notificationmessagecreatorplugin', function (Y) {
 ```
 
 Now create a plugin for the `notificationsPopupView`. It will be responsible for creating a proper notification struct.
-Again start with creating a dependency in `yui.yml`:
+Again, start with creating a dependency in `yui.yml`:
 
 ``` yaml
 mb-notificationstructparserplugin:
@@ -176,7 +176,8 @@ YUI.add('mb-notificationstructparserplugin', function (Y) {
 });
 ```
 
-Now you can clear cache (`php app/console --env=prod cache:clear`) and your notification should be displayed properly.
+Now you can clear cache by running: `php app/console --env=prod cache:clear`.
+Your notification should be displayed properly.
 In the image below you can check what is what in the notification struct:  
 
 ![Notification](img/notification.png)
