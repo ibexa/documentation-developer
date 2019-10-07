@@ -86,7 +86,6 @@ pages:
             - 'Controllers': 'guide/controllers.md'
             - 'Templates': 'guide/templates.md'
             - 'Design engine': 'guide/design_engine.md'
-            - 'Content item rendering': 'guide/displaying_content_with_simple_templates.md'
             - 'Page rendering': 'guide/page_rendering.md'
             - 'Twig functions reference': 'guide/twig_functions_reference.md'
         - Content management:
