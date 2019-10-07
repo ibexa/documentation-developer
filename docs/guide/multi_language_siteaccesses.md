@@ -31,13 +31,14 @@ The most typical setup for a site with translated content is to map the base of 
 and use the first segment of the URI to match to another. 
 
 For example:
+
 - `www.mysite.com` to match to English
 - `www.mysite.com/fr` to match to French
 
 To achieve this, you need to create at least two new SiteAccesses in your `ezplatform.yml` file.
 
 The first bit of this working example lists the new SiteAccesses: `en` and `fr` and adds them both to a common group `site_group` (line 8).
-This group will be used for shared settings such as API keys, cache locations, etc.).
+This group will be used for sharing settings such as API keys, cache locations, etc.).
 
 ``` yaml hl_lines="8"
 siteaccess:
