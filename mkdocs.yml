@@ -94,6 +94,7 @@ pages:
             - 'Multisite': 'guide/multisite.md'
             - 'SiteAccess': 'guide/siteaccess.md'
             - 'SiteAccess Matching': 'guide/siteaccess_matching.md'
+            - 'Multi-language SiteAccesses': 'guide/multi_language_siteaccesses.md'
         - Languages:
             - 'Languages': 'guide/internationalization.md'
             - 'Back Office translations': 'guide/back_office_translations.md'
@@ -129,7 +130,6 @@ pages:
         - 'Displaying Content children': 'cookbook/displaying_children_of_a_content_item.md'
         - 'Importing settings from a bundle': 'cookbook/importing_settings_from_a_bundle.md'
         - 'Installing on macOS or Windows': 'cookbook/installing-on-mac-os-and-windows.md'
-        - 'Multi-language SiteAccesses': 'cookbook/setting_up_multi_language_siteaccesses.md'
         - 'Multiple user providers': 'cookbook/authenticating_a_user_with_multiple_user_providers.md'
         - 'Notifications': 'cookbook/creating_custom_notifications_for_flex_workflow.md'
         - 'Request parameters as API objects': 'cookbook/converting_request_parameters_into_api_objects.md'
