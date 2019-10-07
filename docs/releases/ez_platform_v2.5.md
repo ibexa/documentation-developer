@@ -241,3 +241,27 @@ This section provides a list of deprecated features to be removed in eZ Platform
 
 - The `\EzSystems\PlatformInstallerBundle\Installer\CleanInstaller` class and its Service Container definition (`ezplatform.installer.clean_installer`) have been deprecated in favor of `EzSystems\PlatformInstallerBundle\Installer\CoreInstaller` which requires the [Doctrine Schema Bundle](https://github.com/ezsystems/doctrine-dbal-schema) to be enabled.
 - The `ezplatform.installer.db_based_installer` Service Container definition has been deprecated in favor of its FQCN-named equivalent (`EzSystems\PlatformInstallerBundle\Installer\DbBasedInstaller`).
+
+## eZ Platform v2.5.6
+
+### Configuration through `ezplatform`
+
+In YAML configuration, you can now use `ezplatform` as well as `ezpublish` as the main configuration key.
+
+### API improvements
+
+The following PHP API methods have been added:
+
+- `ContentService::countContentDrafts` returns the number of all drafts for the provided user
+- `ContentService::loadContentDraftList` returns a list of all drafts for the provided user
+- `ContentService::countReverseRelations` returns the number of all reverse relations for a Content item
+- `ContentService::loadReverseRelationList` returns a list of all reverse relations for a Content item
+
+### Solr 7.7
+
+With v2.5.6 you can optionally use Solr 7.7. To enable it:
+
+1. Update the `ezplatform-solr-search-engine` package version to ~2.0.
+2. Follow [Solr upgrade documentation](https://lucene.apache.org/solr/guide/7_7/solr-upgrade-notes.html).
+3. Reindex your content.
+4. Clear cache.
