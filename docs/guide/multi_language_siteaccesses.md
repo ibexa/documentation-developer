@@ -141,7 +141,7 @@ siteaccess:
 
 Clear the cache again by running: `php app/console cache:clear`.
 
-Now be able to load your eZ Platform site in the `en` and `fr` SiteAccess displaying English and French content.
+Now you should be able to load your eZ Platform site using the `en` and `fr` SiteAccess to display content in English and French.
 
 !!! tip
     
