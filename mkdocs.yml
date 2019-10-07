@@ -118,6 +118,7 @@ pages:
         - Security:
             - 'Development Security': 'guide/security.md'
             - 'Reporting Issues': 'guide/reporting_issues.md'
+        - 'Notifications': 'guide/custom_notifications_for_flex_workflow.md'
         - Extending eZ Platform:
             - 'Extending eZ Platform': 'guide/extending_ez_platform.md'
             - 'Extending the Dashboard': 'guide/dashboard.md'
@@ -132,7 +133,6 @@ pages:
         - 'Displaying Content children': 'cookbook/displaying_children_of_a_content_item.md'
         - 'Installing on macOS or Windows': 'cookbook/installing-on-mac-os-and-windows.md'
         - 'Multiple user providers': 'cookbook/authenticating_a_user_with_multiple_user_providers.md'
-        - 'Notifications': 'cookbook/creating_custom_notifications_for_flex_workflow.md'
         - 'Retrieving root Location': 'cookbook/retrieving_root_location.md'
         - 'RouteReference': 'cookbook/using_routereference.md'
         - 'Using simple templates': 'cookbook/displaying_content_with_simple_templates.md'
