@@ -17,6 +17,26 @@ You can customize it according to your needs.
 The validity of the password recovery token can be set using the `ezplatform.system.<siteaccess>.security.token_interval_spec` parameter.
 By default it is set to `PT1H` (one hour).
 
+### Setting password expiration
+
+You can set password expiry rules, which will force users to change their passwords periodically.
+
+Password expiry is defined per User Field Type.
+You can set it for the User Content Type in the `ezuser` Field Type's settings:
+
+![Password expiry settings](img/password_expiry.png)
+
+You can also decide when the user will be notified that they need to change their password.
+The notification will be displayed in the Back Office after login and in the User Content item's preview.
+
+### Repeating passwords
+
+You can set a rule that the password cannot be reused.
+You set it for the User Content Type in the `ezuser` Field Type's settings.
+When this is set, the user will not be able to set a password that had been in use before.
+
+This rule is valid by default when password expiration is set.
+
 ## Registering new users
 
 You can allow your users to create accounts by employing the `/register` route. This route leads to a registration form that, when filled in, creates a new User Content item in the repository.
