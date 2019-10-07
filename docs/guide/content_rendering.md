@@ -52,7 +52,7 @@ ezpublish:
 
 !!! tip
 
-    You can define your template selection rules, alongside other settings, in a different bundle. [Read the cookbook recipe to learn more about it](../cookbook/importing_settings_from_a_bundle.md).
+    You can define your template selection rules, alongside other settings, in a different bundle. See [Importing configuration from a bundle](bundles.md#importing-configuration-from-a-bundle.md).
 
     You can also [use your own custom controller to render a Content/Location](controllers.md##custom-rendering-logic).
 
