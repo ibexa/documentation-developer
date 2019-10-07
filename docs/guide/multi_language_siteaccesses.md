@@ -125,7 +125,7 @@ It was not possible to remove `site` before, as you first needed to give the app
 without which your site would not have loaded correctly.
 
 In `ezplatform.yml`, set the `default_siteaccess` to `en`.
-This will act as the [fallback](siteaccess/#multilanguage-sites) should none of the matches have been hit.
+This will act as the [fallback](siteaccess.md#multilanguage-sites) should none of the matches have been hit.
 
 Lastly, remove `site` from the `list` and `groups` section.
 The final version of the `ezplatform.yml` should look like this:
