@@ -206,7 +206,7 @@ To query a Location and its children, use the repository schema:
 }
 ```
 
-The query accepts `locationId`, `remoteId` and `urlAlias` as arguments.
+The query accepts `locationId`, `remoteId`, and `urlAlias` as arguments.
 
 Response:
 
@@ -353,7 +353,7 @@ This query returns the first three articles, ordered by their publication date.
 If the current `Connection` (list of results) is not finished yet and there are more items to read,
 `hasNextPage` will be `true`.
 
-For the `children` node you can use the following pagination method:
+For the `children` node, you can use the following pagination method:
 
 ```
 {
