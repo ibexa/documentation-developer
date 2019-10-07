@@ -50,6 +50,10 @@ for user passwords.
 
 ## Other changes
 
+### GraphQL
+
+In GraphQL you can now [query Locations and their children](../api/graphql_queries.md#querying-locations).
+
 ### Improved translating of notifications
 
 `TranslationService` is not injected into the `NotificationService`.
