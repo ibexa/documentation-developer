@@ -259,9 +259,9 @@ The following PHP API methods have been added:
 
 ### Solr 7.7
 
-With v2.5.6 you can use Solr 7.7. To enable it:
+With v2.5.6 you can optionally use Solr 7.7. To enable it:
 
-- update the `ezplatform-solr-search-engine` package version to ~2.0
-- refer to [Solr upgrade documentation](https://lucene.apache.org/solr/guide/7_7/solr-upgrade-notes.html)
-- reindex your content
-- clear cache
+1. Update the `ezplatform-solr-search-engine` package version to ~2.0.
+2. Follow [Solr upgrade documentation](https://lucene.apache.org/solr/guide/7_7/solr-upgrade-notes.html).
+3. Reindex your content.
+4. Clear cache.
