@@ -56,7 +56,7 @@ Configuration may go into `app/config`. However, service definitions from `App
 
 !!! tip
 
-    The following recipe is valid for any type of settings supported by Symfony framework.
+    The following procedure is valid for any type of settings supported by Symfony framework.
 
 If you are keeping some of your code in a bundle, dealing with core bundle semantic configuration can be tedious
 if you maintain it in the main `app/config/ezplatform.yml` configuration file.
