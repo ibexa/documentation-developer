@@ -16,3 +16,9 @@ Start with the version closest to your current version:
 - [Updating from <2.5](4_update_2.5.md)
 
 Only after applying all changes your database will work properly.
+
+!!! caution
+
+    Always back up your data before running any database update scripts.
+
+    After updating the database, clear the cache.
