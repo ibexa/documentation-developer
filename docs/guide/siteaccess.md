@@ -61,7 +61,7 @@ The rule or set of rules by which SiteAccesses are matched. See [SiteAccess matc
 
 Various system settings can be set per SiteAccess or SiteAccess group under the `ezpublish.system` key. These settings include languages or the `var` directory.
 
-### Example: multilanguage sites
+### Multilanguage sites
 
 A site has content in two languages: English and Norwegian. It has one URI per language: `http://example.com/eng` and `http://example.com/nor`. Uri parts of each language (eng, nor) are mapped to a *SiteAccess*, commonly named like the URI part: `eng`, `nor`. Using semantic configuration, each of these SiteAccesses can be assigned a prioritized list of languages it should display:
 
