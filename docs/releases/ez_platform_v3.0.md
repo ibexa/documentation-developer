@@ -43,6 +43,11 @@ The list of common Sort Clauses has been extended by the Random sorting option.
 
 You can configure a custom color for each of the transitions defined in the Workflow.
 
+### Password rules
+
+You can now set [password expiration rules](../guide/user_management.md#setting-password-expiration)
+for user passwords.
+
 ## Other changes
 
 ### Improved translating of notifications
