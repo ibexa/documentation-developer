@@ -20,15 +20,16 @@ The example presents a configuration with single core, look to [Solr](https://cw
 
 #### Download and configure
 
+!!! note "Solr versions"
+
+    `ezplatform-solr-search-engine` v1 still supports Solr 6.
+    Since v2 `ezplatform-solr-search-engine` works only with Solr 7.
+
 ##### Solr 7
 
 Download and extract Solr. Solr Bundle 2 and higher supports Solr 7 *(currently tested and recommended with Solr 7.7)*:
 
 - [solr-7.7.2.tgz](http://archive.apache.org/dist/lucene/solr/7.7.2/solr-7.7.2.tgz) or [solr-7.7.2.zip](http://archive.apache.org/dist/lucene/solr/7.7.2/solr-7.7.2.zip)
-    
-!!! caution "Java version"
-
-    If your Java version is higher than 8, you need to downgrade it to Oracle Java/Open JDK: 8.
 
 Copy the necessary configuration files. In the example below from the root of your project to the place you extracted Solr:
 
@@ -308,9 +309,9 @@ Here are the most common issues you may encounter:
 
 ### Boost configuration
 
-!!! note
+!!! caution "Index time boosting"
 
-    Boosting is available since Solr bundle version 1.4.
+    Index time boosting is not available in the Solr Search Engine Bundle.
 
 !!! tip "How boosting interacts with Search API"
 
