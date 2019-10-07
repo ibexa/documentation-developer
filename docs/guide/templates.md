@@ -230,7 +230,7 @@ To render a Content item on a full page, first you need to create a `templates/f
 ```
 
 Next, you need to provide the [template configuration](#template-configuration).
-You can place the config in the `config/packages` folder in either of two places: a separate file or the preexisting `ezplatform.yaml`.
+You can place the config in the `config/packages/` folder in either of two places: a new configuration file or the pre-existing `ezplatform.yaml` file.
 In this case you'll use the latter.
 
 In `ezplatform.yaml`, under the `ezpublish` and `system` keys, add the following config:
@@ -285,6 +285,7 @@ To see it in practice, extend the `templates/full/article.html.twig` template:
 ```
 
 For more details on the `ez_render_field()` helper, see [Twig functions reference guide](twig_functions_reference.md#ez_render_field).
+
 You can also use other [Twig functions](twig_functions_reference.md), for example [`ez_field_value`](twig_functions_reference.md#ez_field_value), which renders the value of the Field without a template.
 
 !!! tip
@@ -397,11 +398,6 @@ See also: [Cross-SiteAccess links](siteaccess.md#cross-siteaccess-links)
 
 To render an embedded Content from a Twig template you need to **do a subrequest with the `ez_content` controller**.
 
-### Listing Content item children
-
-For details on listing children of a Content item, for example all content contained in a folder, see [Displaying children of a Content item](../cookbook/displaying_children_of_a_content_item.md).
-
-
 #### Using the `ez_content` controller
 
 This controller is exactly the same as [the ViewController presented above](content_rendering.md#the-viewcontroller). It has one main `viewAction` that renders a Content item.
@@ -443,6 +439,10 @@ For example:
       )
 ) }}
 ```
+
+### Listing Content item children
+
+For details on listing children of a Content item, for example all content contained in a folder, see [Displaying children of a Content item](../cookbook/displaying_children_of_a_content_item.md).
 
 #### Rendering and cache
 
