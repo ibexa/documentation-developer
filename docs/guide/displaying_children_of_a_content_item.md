@@ -94,7 +94,7 @@ folder:
 ```
 
 You can see here the standard view config consisting of the `template` and `match` keys.
-Under the `controller` key you need to provide here the path to the Controller and the action.
+Under the `controller` key, you need to provide here the path to the Controller and the action.
 They are defined in `AppBundle/Controller/FolderController.php`:
 
 ``` php
