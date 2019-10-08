@@ -8,7 +8,7 @@ The Location can also be changed by configuration.
 
 ### Retrieving root Location ID
 
-Root location ID can be retrieved from [ConfigResolver](configuration.md#dynamic-configuration-with-the-configresolver).
+Root location ID can be retrieved from [ConfigResolver](config_dynamic.md#configresolver).
 The parameter name is `content.tree_root.location_id`.
 
 ``` php
