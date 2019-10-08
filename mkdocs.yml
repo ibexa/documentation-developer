@@ -74,6 +74,7 @@ pages:
             - 'Templates': 'guide/templates.md'
             - 'Landing Page rendering': 'guide/landing_page_rendering.md'
             - 'Displaying Content children': 'guide/displaying_children_of_a_content_item.md'
+            - 'Retrieving root Location': 'guide/retrieving_root_location.md'
             - 'Twig functions reference': 'guide/twig_functions_reference.md'
         - Content management:
             - 'Content management': 'guide/content_management.md'
@@ -133,7 +134,6 @@ pages:
         - 'Installing on macOS or Windows': 'cookbook/installing-on-mac-os-and-windows.md'
         - 'Multiple user providers': 'cookbook/authenticating_a_user_with_multiple_user_providers.md'
         - 'Request parameters as API objects': 'cookbook/converting_request_parameters_into_api_objects.md'
-        - 'Retrieving root Location': 'cookbook/retrieving_root_location.md'
         - 'RouteReference': 'cookbook/using_routereference.md'
         - 'Using simple templates': 'cookbook/displaying_content_with_simple_templates.md'
     - Resources and community:
