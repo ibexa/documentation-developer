@@ -88,7 +88,7 @@ pages:
             - 'Design engine': 'guide/design_engine.md'
             - 'Page rendering': 'guide/page_rendering.md'
             - 'Displaying Content children': 'guide/displaying_children_of_a_content_item.md'
-            - 'Retrieving root Location': 'guide/retrieving_root_location.md
+            - 'Retrieving root Location': 'guide/retrieving_root_location.md'
             - 'Twig functions reference': 'guide/twig_functions_reference.md'
         - Content management:
             - 'Content management': 'guide/content_management.md'
