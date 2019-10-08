@@ -88,6 +88,7 @@ pages:
             - 'Permissions': 'guide/permissions.md'
             - 'Limitations': 'guide/limitations.md'
             - 'Limitation reference': 'guide/limitation_reference.md'
+            - 'User management': 'guide/user_management.md'
             - 'Custom Policies': 'guide/custom_policies.md'
         - 'Backup': 'guide/backup.md'
         - Search:
@@ -133,7 +134,6 @@ pages:
         - 'Binary attachments via REST API': 'cookbook/creating_content_with_binary_attachments_via_rest_api.md'
         - 'Cross-origin HTTP requests': 'cookbook/making_cross_origin_http_requests.md'
         - 'Installing on macOS or Windows': 'cookbook/installing-on-mac-os-and-windows.md'
-        - 'Multiple user providers': 'cookbook/authenticating_a_user_with_multiple_user_providers.md'
         - 'RouteReference': 'cookbook/using_routereference.md'
         - 'Using simple templates': 'cookbook/displaying_content_with_simple_templates.md'
     - Resources and community:
