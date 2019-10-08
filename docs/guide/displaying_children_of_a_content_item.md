@@ -244,7 +244,7 @@ class AppExtension extends Extension
 }
 ```
 
-Finally, let's use the Controller in a `app/Resources/views/full/folder.html.twig` template:
+Finally, let's use the Controller in the `app/Resources/views/full/folder.html.twig` template:
 
 ``` html+twig
 <h1>{{ ez_content_name(content) }}</h1>
