@@ -112,6 +112,7 @@ pages:
         - Multisite:
             - 'Multisite': 'guide/multisite.md'
             - 'SiteAccess': 'guide/siteaccess.md'
+            - 'SiteAccess Matching': 'guide/siteaccess_matching.md'
             - 'Multi-language SiteAccesses': 'guide/multi_language_siteaccesses.md'
         - Languages:
             - 'Languages': 'guide/internationalization.md'
