@@ -69,7 +69,7 @@ Besides the `full` view type you can create many other view types. They can be u
 
 ## Listing children
 
-To see how to list children of a Content item, for example all content contained in a folder, see [Displaying children of a Content item](displaying_children_of_a_content_item.md).
+To see how to list children of a Content item, for example all content contained in a folder, see [Displaying children of a Content item](../guide/displaying_children_of_a_content_item.md).
 
 ## Adding links
 

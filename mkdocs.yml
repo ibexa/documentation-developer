@@ -88,6 +88,7 @@ pages:
             - 'Templates': 'guide/templates.md'
             - 'Design engine': 'guide/design_engine.md'
             - 'Page rendering': 'guide/page_rendering.md'
+            - 'Displaying Content children': 'guide/displaying_children_of_a_content_item.md'
             - 'Twig functions reference': 'guide/twig_functions_reference.md'
         - Content management:
             - 'Content management': 'guide/content_management.md'
@@ -155,7 +156,6 @@ pages:
         - 'Accept header-based REST API response': 'cookbook/creating_custom_rest_api_response.md'
         - 'Binary attachments via REST API': 'cookbook/creating_content_with_binary_attachments_via_rest_api.md'
         - 'Cross-origin HTTP requests': 'cookbook/making_cross_origin_http_requests.md'
-        - 'Displaying Content children': 'cookbook/displaying_children_of_a_content_item.md'
         - 'Installing on macOS or Windows': 'cookbook/installing-on-mac-os-and-windows.md'
         - 'Multiple user providers': 'cookbook/authenticating_a_user_with_multiple_user_providers.md'
         - 'Retrieving root Location': 'cookbook/retrieving_root_location.md'
