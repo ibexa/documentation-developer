@@ -1,14 +1,14 @@
 # Retrieving root Location
 
-The root Location can be a starting point for API queries, or even links to home page.
+The root Location can be a starting point for API queries or even links to home page.
 
 By default, the root Location ID is `2`, but the best practice is to retrieve it dynamically.
-This is because eZ Platform can be used for [multisite development](../guide/multisite.md),
-and the root Location can vary. The Location can also be changed by configuration.
+This is because eZ Platform can be used for [multisite development](multisite.md) and the root Location can vary.
+The Location can also be changed by configuration.
 
 ### Retrieving root Location ID
 
-Root location ID can be retrieved from [ConfigResolver](../guide/configuration.md#dynamic-configuration-with-the-configresolver).
+Root location ID can be retrieved from [ConfigResolver](config_dynamic.md#configresolver).
 The parameter name is `content.tree_root.location_id`.
 
 ``` php
@@ -33,15 +33,15 @@ class DefaultController extends Controller
 
 ### Retrieving the root Location
 
-#### From a template
+#### From template
 
-Root Location is exposed in the [global Twig helper](../guide/content_rendering.md#twig-helper).
+Root Location is exposed in the [global Twig helper](content_rendering.md#twig-helper).
 
 ``` html+twig
 <a href="{{ path( ezpublish.rootLocation ) }}" title="Link to homepage">Home page</a>
 ```
 
-#### From a controller
+#### From controller
 
 ``` php
 <?php
