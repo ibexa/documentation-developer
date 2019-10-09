@@ -73,7 +73,7 @@ $link = $this->generateUrl($routeRef);
 
 ## Extending the RouteReference generation process
 
-When generating the route reference, the `RouteReferenceGenerator` service initiates the `MVCEvents::ROUTE_REFERENCE_GENERATION` (`ezpublish.routing.reference_generation`) event.
+When generating the route reference, the `RouteReferenceGenerator` service sends the `MVCEvents::ROUTE_REFERENCE_GENERATION` (`ezpublish.routing.reference_generation`) event.
 This event can be listened to in order to modify the final route reference
 (adding/changing parameters, changing the route name, etc.).
 
