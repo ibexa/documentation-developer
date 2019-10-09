@@ -40,7 +40,7 @@ In production setups:
 
 !!! tip "For Development use, try eZ Launchpad"
 
-    For a ready solution that allows you to share code between your host and the underlying running VM system without this performance hit, try [eZ Launchpad](https://ezsystems.github.io/launchpad/).
+    For a ready solution that allows you to share code between your host and the underlying running VM system without this performance hit, try [eZ Launchpad](https://ezsystems.github.io/launchpad/) made by and support by the eZ Community.
 
 ### Web server
 
