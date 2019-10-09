@@ -8,8 +8,7 @@ Example use cases are:
 - Download links
 - Passing a Content item instead of a Location (and using its `mainLocationId`)
 
-`RouteReference` represents a route (to a Location object, a declared route, etc.) with its parameters
-and can be passed to the `Router` for link generation.
+`RouteReference` represents a route (to a Location object, a declared route, etc.) with its parameters and can be passed to the `Router` for generating a link.
 `RouteReference` works like [Symfony's `ControllerReference`](http://api.symfony.com/2.3/Symfony/Component/HttpKernel/Controller/ControllerReference.html) for sub-requests.
 
 The advantage of a `RouteReference` is that its parameters can be modified later,
@@ -27,7 +26,7 @@ ez_route( [routing_resource[, parameters_hash]] )
 
 - `routing_resource` can be any valid resource (route name, Location object, etc.).
 If omitted (`null`), the current route will be taken into account.
-- `parameters_hash` is a hash with arbitrary key/values. It will be passed to the router in the end.
+- `parameters_hash` is a hash with arbitrary key/values. It will be passed to the router in the end
 
 Minimal usage is pretty straightforward:
 
@@ -74,11 +73,11 @@ $link = $this->generateUrl($routeRef);
 
 ## Extending the RouteReference generation process
 
-When generating the route reference, the `RouteReferenceGenerator` service fires an `MVCEvents::ROUTE_REFERENCE_GENERATION` (`ezpublish.routing.reference_generation`) event.
+When generating the route reference, the `RouteReferenceGenerator` service initiates the `MVCEvents::ROUTE_REFERENCE_GENERATION` (`ezpublish.routing.reference_generation`) event.
 This event can be listened to in order to modify the final route reference
 (adding/changing parameters, changing the route name, etc.).
 
-All listeners receive an `eZ\Publish\Core\MVC\Symfony\Event\RouteReferenceGenerationEvent` object,
+All listeners receive the `eZ\Publish\Core\MVC\Symfony\Event\RouteReferenceGenerationEvent` object,
 which contains the current request object and the route reference.
 
 ``` php
@@ -128,4 +127,4 @@ services:
 
 !!! tip "Example"
 
-    A real-life implementation example on RouteReference is the [LanguageSwitcher](../guide/internationalization.md#language-switcher) (`eZ\Publish\Core\MVC\Symfony\EventListener\LanguageSwitchListener`).
+    A real-life implementation example on RouteReference is the [LanguageSwitcher](internationalization.md#language-switcher) (`eZ\Publish\Core\MVC\Symfony\EventListener\LanguageSwitchListener`).
