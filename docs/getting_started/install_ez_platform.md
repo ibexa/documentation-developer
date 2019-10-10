@@ -238,5 +238,5 @@ Open your project in the browser and you should see the welcome page.
 !!! tip "eZ Launchpad for quick deployment"
 
     If you want to get your eZ Platform installation up and running quickly,
-    you can use Docker-based [eZ Launchpad](https://ezsystems.github.io/launchpad/) support by the eZ Community,
+    you can use Docker-based [eZ Launchpad](https://ezsystems.github.io/launchpad/), supported by the eZ Community,
     which takes care of the whole setup for you.
