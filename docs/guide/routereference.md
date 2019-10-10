@@ -9,7 +9,7 @@ Example use cases are:
 - Passing a Content item instead of a Location (and using its `mainLocationId`)
 
 `RouteReference` represents a route (to a Location object, a declared route, etc.) with its parameters
-and can be passed to the `Router` for link generation.
+and can be passed to the `Router` for generating a link.
 `RouteReference` works like [Symfony's `ControllerReference`](http://api.symfony.com/2.3/Symfony/Component/HttpKernel/Controller/ControllerReference.html) for sub-requests.
 
 The advantage of a `RouteReference` is that its parameters can be modified later,
@@ -74,11 +74,11 @@ $link = $this->generateUrl($routeRef);
 
 ## Extending the RouteReference generation process
 
-When generating the route reference, the `RouteReferenceGenerator` service fires an `MVCEvents::ROUTE_REFERENCE_GENERATION` (`ezpublish.routing.reference_generation`) event.
+When generating the route reference, the `RouteReferenceGenerator` service sends the `MVCEvents::ROUTE_REFERENCE_GENERATION` (`ezpublish.routing.reference_generation`) event.
 This event can be listened to in order to modify the final route reference
 (adding/changing parameters, changing the route name, etc.).
 
-All listeners receive an `eZ\Publish\Core\MVC\Symfony\Event\RouteReferenceGenerationEvent` object,
+All listeners receive the `eZ\Publish\Core\MVC\Symfony\Event\RouteReferenceGenerationEvent` object,
 which contains the current request object and the route reference.
 
 ``` php
