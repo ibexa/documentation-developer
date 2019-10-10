@@ -155,7 +155,6 @@ pages:
             - 'Creating drag and drop interface': 'guide/extending/drag_and_drop.md'
         - 'Service container': 'guide/service_container.md'
         - 'Recommendation': 'guide/personalization.md'
-    - Cookbook:
     - Resources and community:
         - 'Resources': 'community_resources/resources.md'
         - 'Release process and roadmap': 'community_resources/release_process.md'
