@@ -45,7 +45,6 @@ pages:
             - 'JavaScript client': 'api/js_client.md'
             - 'REST API reference': 'api/rest_api_reference.md'
             - 'Accept header-based REST API response': 'api/creating_custom_rest_api_response.md'
-            - 'API search result pagination': 'api/paginating_api_search_results.md'
             - 'Binary attachments via REST API': 'api/creating_content_with_binary_attachments_via_rest_api.md'
             - 'Cross-origin HTTP requests': 'api/making_cross_origin_http_requests.md'
             - 'Request parameters as API objects': 'api/converting_request_parameters_into_api_objects.md'
@@ -54,6 +53,7 @@ pages:
             - 'Customization': 'api/public_php_api_customization.md'
             - 'Browsing Content': 'api/public_php_api_browsing.md'
             - 'Searching': 'api/public_php_api_search.md'
+            - 'Search result pagination': 'api/paginating_api_search_results.md'
             - 'Managing Content': 'api/public_php_api_managing_content.md'
             - 'Locations': 'api/public_php_api_locations.md'
         - Field Type:
