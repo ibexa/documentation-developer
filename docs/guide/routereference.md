@@ -4,12 +4,12 @@ Sometimes, when generating links to a resource, you need to modify the default r
 
 Example use cases are:
 
-- [Language switch links](../guide/internationalization.md#language-switcher)
+- [Language switch links](internationalization.md#language-switcher)
 - Download links
 - Passing a Content item instead of a Location (and using its `mainLocationId`)
 
 `RouteReference` represents a route (to a Location object, a declared route, etc.) with its parameters
-and can be passed to the `Router` for link generation.
+and can be passed to the `Router` for generating links.
 `RouteReference` works like [Symfony's `ControllerReference`](http://api.symfony.com/2.3/Symfony/Component/HttpKernel/Controller/ControllerReference.html) for sub-requests.
 
 The advantage of a `RouteReference` is that its parameters can be modified later,
@@ -132,4 +132,4 @@ services:
 
 !!! tip "Example"
 
-    A real-life implementation example on RouteReference is the [LanguageSwitcher](../guide/internationalization.md#language-switcher) (`eZ\Publish\Core\MVC\Symfony\EventListener\LanguageSwitchListener`).
+    A real-life implementation example on RouteReference is the [LanguageSwitcher](internationalization.md#language-switcher) (`eZ\Publish\Core\MVC\Symfony\EventListener\LanguageSwitchListener`).

@@ -85,6 +85,7 @@ pages:
             - 'Content management': 'guide/content_management.md'
             - 'Images': 'guide/images.md'
             - 'File management': 'guide/file_management.md'
+            - 'RouteReference': 'guide/routereference.md'
             - 'URL management': 'guide/url_management.md'
             - 'User-generated content': 'guide/user_generated_content.md'
         - Permissions:
@@ -133,7 +134,6 @@ pages:
         - 'Service container': 'guide/service_container.md'
         - 'Personalization': 'guide/personalization.md'
     - Cookbook:
-        - 'RouteReference': 'cookbook/using_routereference.md'
         - 'Using simple templates': 'cookbook/displaying_content_with_simple_templates.md'
     - Resources and community:
         - 'Resources': 'community_resources/resources.md'
