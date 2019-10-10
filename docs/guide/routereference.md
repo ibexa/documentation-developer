@@ -132,4 +132,4 @@ services:
 
 !!! tip "Example"
 
-    A real-life implementation example on RouteReference is the [LanguageSwitcher](../guide/internationalization.md#language-switcher) (`eZ\Publish\Core\MVC\Symfony\EventListener\LanguageSwitchListener`).
+    A real-life implementation example on RouteReference is the [LanguageSwitcher](internationalization.md#language-switcher) (`eZ\Publish\Core\MVC\Symfony\EventListener\LanguageSwitchListener`).
