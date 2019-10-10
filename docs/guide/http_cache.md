@@ -19,7 +19,7 @@ This enables updates to content to trigger cache invalidation.
 This is how cache can be configured in `config/packages/ezplatform.yaml`:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         my_siteaccess:
             content:
@@ -123,7 +123,7 @@ By default, invalidation requests will be emulated and sent to the Symfony proxy
 In `config/packages/ezplatform.yaml`:
 
 ``` yaml
-ezpublish:
+ezplatform:
     http_cache:
         purge_type: local
 ```
@@ -135,7 +135,7 @@ This purge type is asynchronous, and flushed by the end of Symfony kernel-reques
 Settings for purge servers can be configured per SiteAccess group or SiteAccess:
 
 ``` yaml
-ezpublish:
+ezplatform:
     http_cache:
         purge_type: http
 
@@ -258,7 +258,7 @@ and specify the URL Varnish can be reached on:
 The following configuration is not required as eZ Platform will read the environment variables set above.
 
 ``` yaml
-ezpublish:
+ezplatform:
     http_cache:
         purge_type: http
 
@@ -342,7 +342,7 @@ ezpublish:
     However, if the given block value has a since / till date,
     this will be taken into account for the TTL calculation for the block and also for the whole page.
 
-    To overload this behavior, listen to [BlockResponseEvents::BLOCK_RESPONSE](extending_page/#block-render-response),
+    To overload this behavior, listen to [BlockResponseEvents::BLOCK_RESPONSE](extending/extending_page/#block-render-response),
     and set prioroty to for instance `-200` to adapt what Page Field type does by default. E.g. in order to disable cache
     for the block use `$event->getResponse()->setPrivate()`.
 

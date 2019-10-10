@@ -53,7 +53,7 @@ The base template used is [`EzPublishCore/Security/login.html.twig`](https://git
 The layout used by default is `%ezpublish.content_view.viewbase_layout%` (empty layout) but can be configured together with the login template:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         my_siteaccess:
             user:
@@ -86,7 +86,7 @@ If you want to use this feature, you must at least extend the login template in 
 
 Symfony provides native support for [multiple user providers](https://symfony.com/doc/3.4/security/multiple_user_providers.html). This makes it easy to integrate any kind of login handlers, including SSO and existing third-party bundles (e.g. [FR3DLdapBundle](https://github.com/Maks3w/FR3DLdapBundle), [HWIOauthBundle](https://github.com/hwi/HWIOAuthBundle), [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle), [BeSimpleSsoAuthBundle](http://github.com/BeSimple/BeSimpleSsoAuthBundle), etc.).
 
-See [Authenticating a user with multiple user provider](../cookbook/authenticating_a_user_with_multiple_user_providers.md) for more information.
+See [Authenticating a user with multiple user provider](user_management.md#authenticating-user-with-multiple-user-providers) for more information.
 
 ## Security advisories
 

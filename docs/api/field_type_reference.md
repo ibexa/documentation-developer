@@ -790,7 +790,7 @@ This Field Type does not support settings.
 
     The Form Field Type stores a Form consisting of one or more form fields.
 
-    See [Extending Form Builder](../guide/extending_form_builder.md) for more information
+    See [Extending Form Builder](../guide/extending/extending_form_builder.md) for more information
     about working with Forms.
 
 ## Image Field Type
@@ -1142,7 +1142,7 @@ ImageAsset Field Type allows configuring the following options:
 Example configuration:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
        default:
             fieldtypes:
@@ -1158,7 +1158,7 @@ ezpublish:
 Internally the Image Asset Type is rendered via subrequest (similar to other relation types). Rendering customization is possible by configuring view type `asset_image`:
 
 ```php
-ezpublish:
+ezplatform:
     system:
        default:           
             content_view:
@@ -1425,7 +1425,7 @@ Example use:
 
 ``` yaml
 # ezplatform.yaml
-ezpublish:
+ezplatform:
     system:
         site_group:
             api_keys: { google_maps: MY_KEY }
@@ -1683,7 +1683,7 @@ services:
 
     ### Blocks
 
-    For information on how to create and configure new blocks for the Page, see [Creating Page blocks](../guide/extending_page.md#creating-page-blocks).
+    For information on how to create and configure new blocks for the Page, see [Creating Page blocks](../guide/extending/extending_page.md#creating-page-blocks).
 
     ### Rendering Pages
 

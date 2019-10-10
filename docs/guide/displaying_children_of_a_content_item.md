@@ -1,19 +1,20 @@
-# Displaying children of a Content item
+# Displaying  Content item children
 
-One of the basic design tasks you may need to complete when creating your website is configuring one page to display all of its children. For example you can have a blog display blog posts, or a folder show all articles it contains.
+One of the basic design tasks you may need to complete when creating your website is configuring one page to display all of its children.
+For example you can configure a blog displaying all blog posts or a folder showing all articles it contains.
 
 There are two ways to make a Content item display its children:
 
 1. [Using the Query Controller](#using-the-query-controller)
 1. [Using a Custom Controller](#using-a-custom-controller)
 
-This recipe will show how to use both those methods to display all children of a Content item with the Content Type Folder.
+This procedure demonstrates how to use both these methods to display all children of a Content item with the Content Type Folder.
 
 ## Using the Query Controller
 
-The Query Controller is a predefined custom content view Controller that runs a Repository Query.
+The Query Controller is a pre-defined custom content view Controller that runs a Repository Query.
 
-If you need to create a simple Query it's easier to use the Query Controller than to build a completely custom one, as you will not have to write custom PHP code. 
+If you need to create a simple Query, it is easier to use the Query Controller than to build a completely custom one, as you will not have to write custom PHP code. 
 Like with a [Custom Controller](#using-a-custom-controller), however, you will be able to use properties of the viewed Content or Location as parameters.
 
 The main file in this case is an `src/QueryType/LocationChildrenQueryType.php` file which generates a Query that retrieves the children of the current Location.
@@ -86,9 +87,11 @@ This template makes use of the `items` specified in `assign_results_to` to list 
 
 ## Using a Custom Controller
 
-There are three different ways of using a Custom Controller that you can learn about in the [Custom Controller](../guide/controllers.md#custom-rendering-logic) section. In this case we will apply the first of these, that is using the Custom Controller alongside the built-in ViewController.
+There are three different ways of using a Custom Controller. See [Custom Controller](../guide/controllers.md#custom-rendering-logic) section.
 
-Configuring for the use of a Custom Controller starts with pointing to it in your standard view configuration (which you can keep in `ezplatform.yaml` or a separate file, for example `views.yaml`):
+In this case, we will be using the Custom Controller alongside the built-in ViewController.
+
+Configuring for the use of a Custom Controller starts with pointing to it in your standard view configuration (which you can keep in `ezplatform.yaml` or as a separate file, for example `views.yaml`):
 
 ``` yaml
 folder:
@@ -98,7 +101,9 @@ folder:
         Identifier\ContentType: folder
 ```
 
-You can see here the standard view config consisting of the `template` and `match` keys. Under the `controller` key you need to provide here the path to the Controller and the action. They are defined in `src/Controller/FolderController.php`:
+You can see here the standard view config consisting of the `template` and `match` keys.
+Under the `controller` key, you need to provide the path to the Controller and the action.
+They are defined in `src/Controller/FolderController.php`:
 
 ``` php
 <?php
@@ -228,7 +233,7 @@ services:
             - { name: controller.service_arguments }
 ```
 
-Finally, let's use the Controller in a template in `templates/full/folder.html.twig`:
+Finally, let's use the Controller in a `templates/full/folder.html.twig` template:
 
 ``` html+twig
 <h1>{{ ez_content_name(content) }}</h1>

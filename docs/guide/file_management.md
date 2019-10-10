@@ -15,7 +15,7 @@ IO handlers can be configured using semantic configuration and are configurable 
 This is the default configuration:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         default:
             io:
@@ -42,7 +42,7 @@ The 'default' Flysystem adapter's directory is based on your site settings, and 
 #### Configure the permissions of generated files
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         default:
             io:
@@ -113,7 +113,7 @@ For [more information about REST API see the documentation](../api/rest_api_guid
 By default, images and binary files referenced by content will be served from the same server as the application, for example `/var/ezdemo_site/storage/images/3/6/4/6/6463-1-eng-GB/kidding.png`. This is the default semantic configuration:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         default:
             io:
@@ -127,7 +127,7 @@ ezpublish:
 One common use case is to use an optimized nginx to serve images in an optimized way. The example image above could be made available as `http://static.example.com/images/3/6/4/6/6463-1-eng-GB/kidding.png` by setting up a server that uses `ezpublish/ezpublish_legacy/var/ezdemo_site/storage`. The configuration would be as follows:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         default:
             io:

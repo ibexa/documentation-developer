@@ -36,7 +36,7 @@ you need to create your own admin SiteAccesses and add them to this group. In ca
 
 ## Configuring SiteAccesses
 
-You configure SiteAccess in your config files (e.g. `ezplatform.yaml`) under the `ezpublish.siteacess` keys.
+You configure SiteAccess in your config files (e.g. `ezplatform.yaml`) under the `ezplatform.siteacess` keys.
 The required elements of the configuration are:
 
 #### `list`
@@ -63,7 +63,7 @@ The rule or set of rules by which SiteAccesses are matched. See [SiteAccess matc
     `siteaccess_list` is an array of SiteAccess identifiers:
 
     ``` yaml
-    ezpublish:
+    ezplatform:
         system:
             admin:
                 page_builder:
@@ -78,7 +78,7 @@ The rule or set of rules by which SiteAccesses are matched. See [SiteAccess matc
 
 ### Settings per SiteAccess
 
-Various system settings can be set per SiteAccess or SiteAccess group under the `ezpublish.system` key. These settings include languages or the `var` directory.
+Various system settings can be set per SiteAccess or SiteAccess group under the `ezplatform.system` key. These settings include languages or the `var` directory.
 
 ### Multilanguage sites
 
@@ -90,7 +90,7 @@ A site has content in two languages: English and Norwegian. It has one URI per l
 Such configuration would look like this:
 
 ``` yaml
-ezpublish:
+ezplatform:
     siteaccess:
         # There are two SiteAccesses
         list: [eng, nor]
@@ -103,7 +103,7 @@ ezpublish:
             URIElement: 1
 
 
-ezpublish:
+ezplatform:
     # root node for configuration per SiteAccess
     system:
         # Configuration for the 'eng' SiteAccess
@@ -158,7 +158,7 @@ In short: if you want a match that will always apply, regardless of SiteAccesses
 To define a fallback, use `default`.
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         global:
             # If set, this value will be used regardless of any other var_dir configuration

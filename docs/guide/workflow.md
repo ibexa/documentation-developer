@@ -16,7 +16,7 @@
     The workflow is defined in the `config/packages/workflow.yaml` configuration file.
 
     ``` yaml hl_lines="16 17 18 33 34 34 35 36 37 38 69 70 71 72"
-    ezpublish:
+    ezplatform:
         system:
             # Workflow configuration is SiteAccess-aware
             default:

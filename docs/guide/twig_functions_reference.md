@@ -238,7 +238,7 @@ It can be used for example to identify the first image in an article to render i
 
 ### `ez_full_datetime`, `ez_full_date`, `ez_full_time`
 
-These Twig filters are used to [format date and time](extending_ez_platform.md#format-date-and-time).
+These Twig filters are used to [format date and time](extending/extending_ez_platform.md#format-date-and-time).
 The formats are defined in [user preferences](config_back_office.md#date-and-time-formats).
 
 | Twig filter | Description |
@@ -445,7 +445,7 @@ If you want to override a Field template every time it occurs,
 you can append it to the Field templates list.
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         my_siteaccess:
             field_templates:
@@ -476,7 +476,7 @@ The template must also extend `EzPublishCore/content_fields.html.twig`.
 
 ### `ez_short_datetime`, `ez_short_date`, `ez_short_time`
 
-These Twig filters are used to [format date and time](extending_ez_platform.md#format-date-and-time).
+These Twig filters are used to [format date and time](extending/extending_ez_platform.md#format-date-and-time).
 The formats are defined in [user preferences](config_back_office.md#date-and-time-formats).
 
 | Twig filter | Description |
