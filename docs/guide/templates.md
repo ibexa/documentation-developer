@@ -70,7 +70,7 @@ This is what individual keys in the configuration mean:
 - `article` and `blog_post` are the keys that start the configuration for one individual case of using a template. You can name these keys any way you want, and you can have as many of them as you need.
 - `template` names the template to be used in this case, including the folder it is stored in (starting from `app/Resources/views`).
 - `controller` defines the controller to be used in this case. Optional, if this key is absent, the default controller is used.
-- `match` defines the situation in which the template will be used. There are different criteria which can be used to "match" a template to a situation, for example a Content Type, a specific Location ID, Section, etc. You can view the full list of matchers here: [View provider configuration](content_rendering#configuring-views-the-viewprovider). You can specify more than one matcher for any template; the matchers will be linked with an AND operator.
+- `match` defines the situation in which the template will be used. There are different criteria which can be used to "match" a template to a situation, for example a Content Type, a specific Location ID, Section, etc. You can view the full list of matchers here: [View provider configuration](content_rendering.md#configuring-views-the-viewprovider). You can specify more than one matcher for any template; the matchers will be linked with an AND operator.
 
 In the example above, three different templates are mentioned, two to be used in the full view, and one in the line view. 
 Notice that two separate templates are defined for the `article` Content Type. 
@@ -88,8 +88,8 @@ The default, built-in views are:
 - **embed** – used when one Content item is embedded in another, as a block
 - **embed-inline** – used when a Content item is embedded inline in another block 
 
-Other, custom view types can be created, used for example for [embedding one Content item in another](templates.md#embedding-content-items), but only these four have built-in controllers in the system.
-For more details, see [View provider configuration](content_rendering#configuring-views-the-viewprovider).
+Other, custom view types can be created, used for example for [embedding one Content item in another](#embedding-content-items), but only these four have built-in controllers in the system.
+For more details, see [View provider configuration](content_rendering.md#configuring-views-the-viewprovider).
 
 ### Template file
 
@@ -260,7 +260,7 @@ If you do not see changes, clear the cache by running: `php bin/console cache:cl
  
 #### Using the Field Type's template block
 
-All built-in Field Types come with [their own Twig template](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/views/content_fields.html.twig).
+All built-in Field Types come with [their own Twig template.](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/views/content_fields.html.twig)
 You can render any Field using this default template using the `ez_render_field()` helper.
 
 ``` html+twig
@@ -368,7 +368,7 @@ Linking to other Locations is done with a [native `path()` Twig helper](http://
 <a href="{{ path( location ) }}">Some link to a Location</a>
 ```
 
-If you don't have the Location object, but only its Location ID, you can generate the URLAlias the following way:
+If you don't have the Location object, but only its ID, you can generate the URL alias the following way:
 
 ``` html+twig
 <a href="{{ path( "ez_urlalias", {"locationId": 123} ) }}">Some link to a Location, with its ID only</a>
