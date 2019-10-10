@@ -2,7 +2,7 @@
 
 Customized REST API response can be used in many situations, both for headless and more traditional setups. REST responses can be enriched in a clean way and limit client-to-server round trips.
 
-To do this you can take advantage of eZ Platform's [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS)-based REST API and extend it with custom Content Types for your own needs. In this cookbook you will add comments count to `eZ\Publish\API\Repository\Values\Content\VersionInfo` responses.
+To do this you can take advantage of eZ Platform's [HATEOAS-based](https://en.wikipedia.org/wiki/HATEOAS) REST API and extend it with custom Content Types for your own needs. In this cookbook you will add comments count to `eZ\Publish\API\Repository\Values\Content\VersionInfo` responses.
 
 ## Implementation of dedicated Visitor
 
@@ -98,7 +98,7 @@ class ValueObjectVisitorDispatcher extends BaseValueObjectVisitorDispatcher
 }
 ```
 
-To be able to use the overridden type you also need to implement new Compiler Pass. For more details see [Symfony doc](https://symfony.com/doc/2.8/service_container/compiler_passes.html).
+To be able to use the overridden type you also need to implement new Compiler Pass. For more details, see [Symfony doc.](https://symfony.com/doc/2.8/service_container/compiler_passes.html)
 
 ```php
 <?php
