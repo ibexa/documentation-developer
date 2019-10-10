@@ -88,7 +88,8 @@ Create `src/Form/Type/HelloWorldType.php` form:
 ```php
 <?php
 declare(strict_types=1);
-namespace AppBundle\Form\Type;
+namespace App\Form\Type;
+use App\FieldType\HelloWorld\Value;
 use AppBundle\FieldType\HelloWorld\Value;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
