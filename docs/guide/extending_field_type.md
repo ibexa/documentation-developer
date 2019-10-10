@@ -163,7 +163,7 @@ Inside add a following code block:
 Provide the template mapping in `config/packages/ezplatform.yaml`:
 
 ```yaml
-ezpublish:
+ezplatform:
     system:
         default: 
             # ...
