@@ -5,9 +5,9 @@ This page shows how to create content via the REST API on the example of uploadi
 ## Creating a draft
 
 A draft is created with a POST request to `/api/ezp/v2/content/objects`.
-Its body should contain all of the required data in the structured format (see [Creating content: data property](../api/field_type_reference/#creating-content-data-property)).
+Its body should contain all of the required data in the structured format (see [Creating content: data property](field_type_reference.md#creating-content-data-property)).
 As for the response, it's possible to use either JSON or XML in input.
-The following examples use JSON (and assume [HTTP Basic Auth](../api/general_rest_usage/#http-basic-authentication) is enabled).
+The following examples use JSON (and assume [HTTP Basic Auth](/general_rest_usage.md#http-basic-authentication) is enabled).
 
 ``` php
 // URL to eZ Platform installation
