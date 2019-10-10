@@ -99,6 +99,7 @@ pages:
             - 'Images': 'guide/images.md'
             - 'File management': 'guide/file_management.md'
             - 'URL management': 'guide/url_management.md'
+            - 'RouteReference': 'guide/routereference.md'
             - 'User-generated content': 'guide/user_generated_content.md'
             - 'Editorial workflow': 'guide/workflow.md'
         - Permissions:
@@ -158,7 +159,6 @@ pages:
         - 'Service container': 'guide/service_container.md'
         - 'Recommendation': 'guide/personalization.md'
     - Cookbook:
-        - 'RouteReference': 'cookbook/using_routereference.md'
         - 'Using simple templates': 'cookbook/displaying_content_with_simple_templates.md'
     - Resources and community:
         - 'Resources': 'community_resources/resources.md'
