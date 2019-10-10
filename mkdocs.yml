@@ -156,7 +156,6 @@ pages:
         - 'Service container': 'guide/service_container.md'
         - 'Recommendation': 'guide/personalization.md'
     - Cookbook:
-        - 'Using simple templates': 'cookbook/displaying_content_with_simple_templates.md'
     - Resources and community:
         - 'Resources': 'community_resources/resources.md'
         - 'Release process and roadmap': 'community_resources/release_process.md'
