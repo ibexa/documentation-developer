@@ -1,8 +1,8 @@
-# Extending the Online Editor
+# Extending Online Editor
 
 The Online Editor is based on [Alloy Editor](https://alloyeditor.com/).
 Refer to [Alloy Editor documentation](https://alloyeditor.com/docs/develop/) to learn how to extend the Online Editor with new elements.
-To learn how to extend the eZ Platform Back Office follow [Extending Admin UI tutorial](../tutorials/extending_admin_ui/extending_admin_ui).
+To learn how to extend the eZ Platform Back Office follow [Extending Admin UI tutorial](../../tutorials/extending_admin_ui/extending_admin_ui).
 
 !!! note
 
@@ -15,12 +15,12 @@ To learn how to extend the eZ Platform Back Office follow [Extending Admin UI tu
 Custom tags enable you to add more features to the Rich Text editor beyond the built-in ones.
 They are configured under the `ezrichtext` key.
 
-If you want to learn how to apply them to your installation follow [Creating a custom tag tutorial](../tutorials/extending_admin_ui/4_adding_a_custom_tag).
+If you want to learn how to apply them to your installation follow [Creating a custom tag tutorial](../../tutorials/extending_admin_ui/4_adding_a_custom_tag).
 
 Preparation of the tag always starts with the configuration file that should be added to the `config` folder. This is sample configuration for the Factbox tag, in `custom_tags.yaml`:
 
 ```yaml
-ezpublish:
+ezplatform:
     system:
         admin_group:
             fieldtypes:
@@ -102,6 +102,13 @@ ezrichtext:
 `is_inline` is an optional key.
 The default value is `false`, so if it is not set, the custom tag will be treated as a block tag.
 
+!!! caution "Incorrect configuration"
+
+    Newer configuration options, such as `is_inline`, only work with the configuration provided above.
+    If your project uses [old configuration](../updating/4_update_2.4.md#changes-to-custom-tags),
+    these options will not work.
+    You need to update your configuration to be placed under the `ezrichtext` key.
+
 ## Custom styles
 
 You can extend the Online Editor with custom text styles.
@@ -116,7 +123,7 @@ Inline styles apply to the selected portion of text only, while block styles app
 The sample configuration is as follows:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         admin_group:
             fieldtypes:
@@ -136,7 +143,7 @@ ezrichtext:
 The system expects two kinds of configuration:
 
 - a global list of custom styles, defined under the node `ezrichtext.custom_styles`,
-- a list of enabled custom styles for a given Admin SiteAccess or Admin SiteAccess group, located under the node `ezpublish.system.<scope>.fieldtypes.ezrichtext.custom_styles`
+- a list of enabled custom styles for a given Admin SiteAccess or Admin SiteAccess group, located under the node `ezplatform.system.<scope>.fieldtypes.ezrichtext.custom_styles`
 
 !!! note
 
@@ -154,7 +161,7 @@ ezrichtext.custom_styles.highlighted_word.label: Highlighted word
 
 ### Rendering
 
-The `template` key points to the template used to render the custom style. It is recommended to use the [design engine](design_engine.md).
+The `template` key points to the template used to render the custom style. It is recommended to use the [design engine](../design_engine.md).
 
 In the example above, the template files for the front end could be:
 
@@ -194,7 +201,7 @@ The available elements are:
 !!! caution "Overriding embed templates"
 
     If you override the default templates for `embedinline`, `embed` or `embedimage` elements,
-    (e.g. `EzPublishCoreBundle:default:content/embed.html.twig`),
+    (e.g. `@EzPublishCore/default/content/embed.html.twig`),
     the data attributes and classes will not be rendered automatically.
 
     Instead, you can make use of the `data_attributes` and `class` properties in your templates.
@@ -216,7 +223,7 @@ The example below adds two data attributes, `custom_attribute` and `another_attr
 to the Heading element:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         # The configuration only works with an admin (Back Office) SiteAccess
         <siteaccess>:
@@ -250,7 +257,7 @@ You can also set the values for `required`, `default_value` and `multiple`.
 The example below adds a class choice to the Paragraph element:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         # The configuration only works with an admin (Back Office) SiteAccess
         <siteaccess>:

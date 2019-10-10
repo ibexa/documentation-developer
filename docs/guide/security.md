@@ -48,12 +48,12 @@ Authentication is provided using the Symfony Security component.
 
 A `SecurityController` is used to manage all security-related actions and is thus used to display the login form. It follows all standards explained in [Symfony security documentation](http://symfony.com/doc/3.4/security/form_login_setup.html).
 
-The base template used is [`EzPublishCoreBundle:Security:login.html.twig`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/views/Security/login.html.twig).
+The base template used is [`EzPublishCore/Security/login.html.twig`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/views/Security/login.html.twig).
 
 The layout used by default is `%ezpublish.content_view.viewbase_layout%` (empty layout) but can be configured together with the login template:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         my_siteaccess:
             user:
@@ -73,7 +73,7 @@ Refer to the [Symfony cookbook on this topic](http://symfony.com/doc/3.4/securit
 If you want to use this feature, you must at least extend the login template in order to add the required checkbox:
 
 ``` html+twig
-{% extends "EzPublishCoreBundle:Security:login.html.twig" %}
+{% extends "@EzPublishCore/Security/login.html.twig" %}
 
 {% block login_fields %}
     {{ parent() }}
@@ -86,7 +86,7 @@ If you want to use this feature, you must at least extend the login template in 
 
 Symfony provides native support for [multiple user providers](https://symfony.com/doc/3.4/security/multiple_user_providers.html). This makes it easy to integrate any kind of login handlers, including SSO and existing third-party bundles (e.g. [FR3DLdapBundle](https://github.com/Maks3w/FR3DLdapBundle), [HWIOauthBundle](https://github.com/hwi/HWIOAuthBundle), [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle), [BeSimpleSsoAuthBundle](http://github.com/BeSimple/BeSimpleSsoAuthBundle), etc.).
 
-See [Authenticating a user with multiple user provider](../cookbook/authenticating_a_user_with_multiple_user_providers.md) for more information.
+See [Authenticating a user with multiple user provider](user_management.md#authenticating-user-with-multiple-user-providers) for more information.
 
 ## Security advisories
 

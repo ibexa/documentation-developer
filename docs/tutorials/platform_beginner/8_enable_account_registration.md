@@ -19,7 +19,7 @@ Then go to `<yourdomain>/register`. The registration form is unstyled, so you ne
 In the `config/packages/views.yaml` file add a `user_registration` key under `site_group`, at the same level as `content_view`:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         site_group:
             # existing content_view keys

@@ -7,11 +7,11 @@ To apply a template to any part of your webpage, you need three (optionally four
 1. An entry in the configuration that defines which template should be used in what situation
 1. The template file itself
 1. Assets used by the template (for example, CSS or JS files, images, etc.)
-1. (optional) A custom controller used when the template is read which allows you more detailed control over the page.
+1. *Optional:* A custom controller used when the template is read which allows you more detailed control over the page.
 
 Each template must be mentioned in a configuration file together with a definition of the situation in which it is used. You can use the `ezplatform.yaml` file located in the `config/packages` folder, or create your own separate configuration file in that folder that will list all your templates.
 
-!!! tip
+!!! note
 
     If you create a new configuration file outside the `packages` folder, you will need to import it by including an import statement in `ezplatform.yaml`. Add the following code at the beginning of `ezplatform.yaml`:
 
@@ -24,13 +24,15 @@ Each template must be mentioned in a configuration file together with a definiti
 
     If you are using the recommended .yaml files for configuration, here are the basic rules for this format:
 
-    The configuration is based on pairs of a key and its value, separated by a colon, presented in the following form: key: value. The value of the key may contain further keys, with their values containing further keys, and so on. This hierarchy is marked using indentation – each level lower in the hierarchy must be indented in comparison with its parent.
+    - The configuration is based on pairs of a key and its value, separated by a colon, presented in the following form: `key: value`. 
+    - The value of the key may contain further keys, with their values containing further keys, and so on.
+    - This hierarchy is marked using indentation – each level lower in the hierarchy must be indented in comparison with its parent.
 
 A short configuration file can look like this:
 
 ``` yaml
 # Sample configuration file
-ezpublish:
+ezplatform:
     system:
         default:
             user:
@@ -55,7 +57,7 @@ ezpublish:
 
 This is what individual keys in the configuration mean:
 
-- `ezpublish` and `system` are obligatory at the start of any configuration file which defines views.
+- `ezplatform` and `system` are obligatory at the start of any configuration file which defines views.
 - `default` defines the SiteAccess for which the configuration will be used. "default", as the name suggests, determines what views are used when no other configuration is chosen. You can also have separate keys defining views for other SiteAccesses.
 - `user` and `layout` point to the main template file that is used in any situation where no other template is defined. All other templates extend this one.
 - `content_view` defines the view provider.
@@ -95,7 +97,7 @@ The configuration described above lets you select one template to be used in a g
     See [Including Templates](http://symfony.com/doc/current/book/templating.html#including-templates) in Symfony documentation for more information on including templates.
 
 The main template for your webpage is placed in a pagelayout.
-You can define the pagelayout per SiteAccess using the `ezpublish.system.<SiteAccess>.pagelayout` setting.
+You can define the pagelayout per SiteAccess using the `ezplatform.system.<SiteAccess>.pagelayout` setting.
 This template will be used by default for those parts of the website where no other templates are defined.
 
 A `pagelayout.html.twig` file exists already in Demo Bundles, but if you are using a clean installation, you need to create it from scratch. This file is typically located in the `templates` folder.

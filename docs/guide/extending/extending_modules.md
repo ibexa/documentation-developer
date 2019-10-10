@@ -145,7 +145,7 @@ system:
 UDW configuration is SiteAccess-aware.
 For each defined SiteAccess, you need to be able to use the same configuration tree in order to define SiteAccess-specific config.
 These settings need to be mapped to SiteAccess-aware internal parameters that you can retrieve via the ConfigResolver.
-For more information on ConfigResolver, see [eZ Platform dynamic configuration basics.](config_dynamic#configresolver)
+For more information on ConfigResolver, see [eZ Platform dynamic configuration basics.](../config_dynamic#configresolver)
 
 #### Adding new configuration
 
@@ -160,7 +160,7 @@ Depending on what additional parameters are provided, original or event-specific
 In the example below `my_custom_udw` is used as a base configuration element for the following steps:
 
 ```yaml
-ezpublish:
+ezplatform:
     system:
         <siteaccess|siteaccess_group>:
             universal_discovery_widget_module:

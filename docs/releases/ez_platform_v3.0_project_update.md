@@ -49,9 +49,9 @@ You must also adjust `getName()` arguments and add return type hints `string`.
 ### Extending Field Type templates
 
 If you extended templates for `ezobjectrelationlist_field`, `ezimageasset_field`, or `ezobjectrelation_field` Fields
-using `{% extends "EzPublishCoreBundle::content_fields.html.twig" %}`,
+using `{% extends "@EzPublishCore/content_fields.html.twig" %}`,
 you now need to extend `EzSystemsPlatformHttpCache` instead, if you wish to make use of cache:
-`{% extends "EzSystemsPlatformHttpCache::content_fields.html.twig" %}`.
+`{% extends "@EzSystemsPlatformHttpCache/content_fields.html.twig" %}`.
 
 ## Resolving settings
 
