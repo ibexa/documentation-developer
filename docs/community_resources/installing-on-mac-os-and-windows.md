@@ -38,7 +38,7 @@ The instructions below assumes you are using Apache.
 
     Edit Apache configuration file `httpd.conf`.
     Replace placeholder values with corresponding values from your project, e.g. `ServerName localhost:80`.
-    Uncomment relevant modules, e.g.
+    Uncomment relevant modules, e.g.:
 
     ``` bash
     LoadModule rewrite_module modules/mod_rewrite.so
