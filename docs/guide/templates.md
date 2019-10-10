@@ -444,7 +444,7 @@ For example:
 
 ### Listing Content item children
 
-For details on listing children of a Content item, for example all content contained in a folder, see [Displaying children of a Content item](../cookbook/displaying_children_of_a_content_item.md).
+For details on listing children of a Content item, for example all content contained in a folder, see [Displaying children of a Content item](displaying_children_of_a_content_item.md).
 
 #### Rendering and cache
 
