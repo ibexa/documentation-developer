@@ -236,6 +236,27 @@ The following Webpack Encore entries have been changed:
 All Online Editor front-end code and assets (such as JS, CSS, fonts, etc.)
 have been moved from `ezplatform-admin-ui` to `ezplatform-richtext`.
 
+### Installers
+
+#### Custom Installers
+
+The following Symfony Service definitions, providing extension point to create custom installers, have been removed:
+
+- `ezplatform.installer.clean_installer`
+- `ezplatform.installer.db_based_installer`
+
+#### Enterprise Edition installer
+
+The `ezstudio.installer.studio_installer` service has been renamed to the FQCN-named
+service `EzSystems\EzPlatformEnterpriseEditionInstallerBundle\Installer\Installer`.
+Deprecated `ezplatform.ee.installer.class` DIC parameter has been removed.
+
+See [eZ Platform v3.0 project update instructions](./ez_platform_v3.0_project_update.md#custom-installers) for upgrade details.
+
+### Miscellaneous
+
+- Deprecated `SubtreeQuery` class has been removed. In v3.0 it was replaced by `\EzSystems\EzPlatformAdminUi\QueryType\SubtreeQueryType`.
+
 ### View matching
 
 When matching views using custom services, the services must be now tagged with `ezplatform.view.matcher`.
@@ -348,6 +369,13 @@ DROP TABLE <table_name>;
 
 - The "Setup" folder and Section have been removed from clean installation data.
 - The "Design" Section has been removed from clean installation data.
+
+### Extensibility
+
+#### Adding new tabs in the Back Office
+
+The way of adding custom tab groups in the Back Office has changed.
+You now need to [make use of the `TabsComponent`](../guide/extending/extending_tabs.md#adding-a-new-tab-group).
 
 ### Miscellaneous
 

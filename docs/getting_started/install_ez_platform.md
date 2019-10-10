@@ -5,7 +5,7 @@
     Installation for production is only supported on Linux.
 
     To install eZ Platform for development on macOS or Windows,
-    see [a cookbook recipe on installing on those systems](../cookbook/installing-on-mac-os-and-windows.md).
+    see [Install on macOS or Windows](../community_resources/installing-on-mac-os-and-windows.md).
 
 ## Prepare work environment
 
@@ -253,5 +253,5 @@ Open your project in the browser and you should see the welcome page.
 !!! tip "eZ Launchpad for quick deployment"
 
     If you want to get your eZ Platform installation up and running quickly,
-    you can use Docker-based [eZ Launchpad](https://ezsystems.github.io/launchpad/)
+    you can use Docker-based [eZ Launchpad](https://ezsystems.github.io/launchpad/), supported by the eZ Community,
     which takes care of the whole setup for you.

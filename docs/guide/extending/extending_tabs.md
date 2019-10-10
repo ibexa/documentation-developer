@@ -8,7 +8,32 @@ You can extend existing tab groups with new tabs, or create your own tab groups.
 
 ## Adding a new tab group
 
-To create a custom tab group with additional logic you need to create it at the level of compiling the Symfony container, using a [CompilerPass](https://symfony.com/doc/4.3/service_container/compiler_passes.html).
+New tab groups are created using the [`TabsComponent`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/lib/Component/TabsComponent.php).
+
+Register your tab group as a service:
+
+``` yaml
+app.my_tabs.custom_group:
+    parent: EzSystems\EzPlatformAdminUi\Component\TabsComponent
+    autowire: true
+    autoconfigure: false
+    arguments:
+        $groupIdentifier: 'custom_group'
+    tags:
+        - { name: ezplatform.admin_ui.component, group: 'dashboard-blocks' }
+```
+
+The tab group must be tagged with `ezplatform.admin_ui.component`.
+The `group` tag indicates where the group will be rendered.
+For the list of possible rendering places, see [Injecting custom components](extending_back_office.md#injecting-custom-components).
+
+`$groupIdentifier` is the name that you point to when assigning a tab to this group.
+You can also provide the `$template` argument to use a custom template for rendering the group.
+
+### Adding a tab group with custom logic
+
+To create a custom tab group with additional logic, you need to create it at the level of compiling the Symfony container,
+using a [CompilerPass.](https://symfony.com/doc/4.3/service_container/compiler_passes.html)
 
 For example, in `src/DependencyInjection/Compiler/CustomTabGroupPass.php`:
 
@@ -49,19 +74,6 @@ protected function configureContainer(ContainerBuilder $container, LoaderInterfa
 }
 ```
 
-A shorter way that you can use when no custom logic is required, is to add your own tab with the new group.
-If a tab's group is not defined, it will be created automatically.
-
-A new tab group can be rendered using the [`ez_render_tab_group`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Templating/Twig/TabExtension.php#L58) Twig helper:
-
-``` html+twig
-<div class="my-tabs">
-    {{ ez_render_tab_group('custom-tab-group') }}
-</div>
-```
-
-This will render the group and all tabs assigned to it.
-
 ## Adding a new tab
 
 Before you add a tab to a group you must create the tab's PHP class and define it as a Symfony service with the `ezplatform.tab` tag:
@@ -76,6 +88,7 @@ App\Custom\Tab:
 ```
 
 This configuration also assigns the new tab to `dashboard-everyone`.
+You can also use here the name of your own [custom tab group](#adding-a-new-tab-group).
 
 The tab class can look like this (in `src/Custom/Tab.php`):
 
