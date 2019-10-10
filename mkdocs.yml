@@ -155,7 +155,6 @@ pages:
         - 'Service container': 'guide/service_container.md'
         - 'Recommendation': 'guide/personalization.md'
     - Cookbook:
-        - 'Installing on macOS or Windows': 'cookbook/installing-on-mac-os-and-windows.md'
         - 'RouteReference': 'cookbook/using_routereference.md'
         - 'Using simple templates': 'cookbook/displaying_content_with_simple_templates.md'
     - Resources and community:
@@ -163,6 +162,7 @@ pages:
         - 'Release process and roadmap': 'community_resources/release_process.md'
         - 'Support and Maintenance FAQ': 'community_resources/support_maintenance_faq.md'
         - Contributing:
+            - 'Install eZ Platform on macOS or Windows': 'community_resources/installing-on-mac-os-and-windows.md'
             - 'How to contribute': 'community_resources/contributing.md'
             - 'Report and follow issues': 'community_resources/report_follow_issues.md'
             - 'Development guidelines': 'community_resources/development_guidelines.md'
