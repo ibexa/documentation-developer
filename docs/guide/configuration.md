@@ -43,7 +43,7 @@ Keys are usually prefixed by a *namespace* corresponding to your application. Al
 For configuration that is meant to be exposed to an end-user (or end-developer),
 it's usually a good idea to also [implement semantic configuration](https://symfony.com/doc/3.4/components/config/definition.html).
 
-Note that you can also [implement SiteAccess-aware semantic configuration](../cookbook/exposing_siteaccess_aware_configuration_for_your_bundle.md).
+Note that you can also [implement SiteAccess-aware semantic configuration](siteaccess.md#exposing-siteaccess-aware-configuration-for-your-bundle).
 
 For example:
 

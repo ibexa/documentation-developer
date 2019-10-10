@@ -238,7 +238,7 @@ It can be used for example to identify the first image in an article to render i
 
 ### `ez_full_datetime`, `ez_full_date`, `ez_full_time`
 
-These Twig filters are used to [format date and time](extending_ez_platform.md#format-date-and-time).
+These Twig filters are used to [format date and time](extending/extending_ez_platform.md#format-date-and-time).
 The formats are defined in [user preferences](config_back_office.md#date-and-time-formats).
 
 | Twig filter | Description |
@@ -395,7 +395,7 @@ This code will load `my_field_template.html.twig` located in `templates/fields/`
     {# templates/fields/my_field_template.html.twig #}
     {# Assuming "my_field_identifier" from above template example is an ezkeyword field. #}
      
-    {% use "EzPublishCoreBundle::content_fields.html.twig" with ezkeyword_field as base_ezkeyword_field %}
+    {% use "@EzPublishCore/content_fields.html.twig" with ezkeyword_field as base_ezkeyword_field %}
      
     {# Surround base block with a simple div #}
     {% block ezkeyword_field %}
@@ -445,7 +445,7 @@ If you want to override a Field template every time it occurs,
 you can append it to the Field templates list.
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         my_siteaccess:
             field_templates:
@@ -464,10 +464,10 @@ It will then be used every time the Field is rendered with `ez_render_field()`.
 The content of the template must be placed in a Twig block corresponding to the Field Type's internal name
 (e.g. `{% block ezstring_field %}`) for `ezstring`.
 
-The template must also extend `EzPublishCoreBundle::content_fields.html.twig`.
+The template must also extend `EzPublishCore/content_fields.html.twig`.
 
 ``` html+twig
-{% extends "EzPublishCoreBundle::content_fields.html.twig" %}
+{% extends "@EzPublishCore/content_fields.html.twig" %}
 
 {% block ezstring_field %}
     {# template content here #}
@@ -476,7 +476,7 @@ The template must also extend `EzPublishCoreBundle::content_fields.html.twig`.
 
 ### `ez_short_datetime`, `ez_short_date`, `ez_short_time`
 
-These Twig filters are used to [format date and time](extending_ez_platform.md#format-date-and-time).
+These Twig filters are used to [format date and time](extending/extending_ez_platform.md#format-date-and-time).
 The formats are defined in [user preferences](config_back_office.md#date-and-time-formats).
 
 | Twig filter | Description |
@@ -500,7 +500,7 @@ The filters also accept an optional `timezone` parameter for displaying date and
 
 If the Content item does not have a translation in the current language, the main language (see [further down for details](#main-language-use)) will be used if this is supported by the provided **object**. This behavior is identical when forcing a language using **forcedLanguage**.
 
-If languages were specified during retrieval of a given value object, you can get translated values directly in several cases now, including examples below. For further info see [Internationalization](internationalization.md).
+If languages were specified during retrieval of a given value object, you can get translated values directly in several cases now, including examples below. For more details, see [Languages](internationalization.md).
 
 #### Prototype and Arguments
 

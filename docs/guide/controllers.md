@@ -32,7 +32,7 @@ To use your custom controller on top of the built-in `ViewController` you need t
 
 ``` yaml
 #ezplatform.yaml
-ezpublish:
+ezplatform:
     system:
         default:
             content_view:
@@ -98,7 +98,7 @@ One way to add custom logic to all responses is to use your own listener. Please
 If you want to apply only your custom controller **in a given match situation** and not use the `ViewController` at all, in the configuration you need to indicate the controller, but no template, for example:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         default:
             content_view:
@@ -235,7 +235,7 @@ However, if it has dependencies, you still need to register it manually, even fr
 We now need a view configuration that matches Content items of type "Blog", and uses the QueryController to fetch the blog posts:
 
 ``` yaml
-ezpublish:
+ezplatform:
       system:
             site_group:
                 content_view:

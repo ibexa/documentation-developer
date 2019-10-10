@@ -167,7 +167,7 @@ If you don't use [eZ Design Engine](../guide/design_engine.md) or you want to ha
 you can register a template with the following configuration:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         <siteaccess>:
             field_templates:
@@ -188,7 +188,7 @@ With eZ Design you can apply a template (e.g. `Resources/views/themes/admin/cont
 If you do not use eZ Design, apply the following configuration:
 
 ``` yaml
-ezpublish:
+ezplatform:
     systems:
         admin_group:
             field_templates:

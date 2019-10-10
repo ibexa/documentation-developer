@@ -71,8 +71,58 @@ As metadata handler, create a DFS one, configured with a Doctrine connection.
 
     The default database install will now include the dfs table *in the same database*
 
-For production, we strongly recommend creating the DFS table in its own database, using the `vendor/ezsystems/ezpublish-kernel/data/mysql/dfs_schema.sql` file.
-In our example, we will use one named `dfs`.
+For production, it is recommended to create the DFS table in its own database,
+manually importing its schema definition:
+
+??? note "dfs_schema.sql (MySQL)"
+
+    ``` sql
+        CREATE TABLE ezdfsfile (
+          name text NOT NULL,
+          name_trunk text NOT NULL,
+          name_hash varchar(34) NOT NULL DEFAULT '',
+          datatype varchar(255) NOT NULL DEFAULT 'application/octet-stream',
+          scope varchar(25) NOT NULL DEFAULT '',
+          size bigint(20) unsigned NOT NULL DEFAULT '0',
+          mtime int(11) NOT NULL DEFAULT '0',
+          expired tinyint(1) NOT NULL DEFAULT '0',
+          status tinyint(1) NOT NULL DEFAULT '0',
+          PRIMARY KEY (name_hash),
+          KEY ezdfsfile_name (name (191)),
+          KEY ezdfsfile_name_trunk (name_trunk (191)),
+          KEY ezdfsfile_mtime (mtime),
+          KEY ezdfsfile_expired_name (expired,name (191))
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+    ```
+
+??? note "dfs_schema.sql (PostgreSQL)"
+
+    ``` sql
+    CREATE TABLE ezdfsfile (
+      name_hash varchar(34) DEFAULT '' NOT NULL,
+      name text NOT NULL,
+      name_trunk text NOT NULL,
+      datatype varchar(255) DEFAULT 'application/octet-stream' NOT NULL,
+      scope character varying(25) DEFAULT '' NOT NULL,
+      size bigint DEFAULT 0 NOT NULL,
+      mtime integer DEFAULT 0 NOT NULL,
+      expired boolean DEFAULT false NOT NULL,
+      status boolean DEFAULT false NOT NULL
+    );
+
+    ALTER TABLE ONLY ezdfsfile
+      ADD CONSTRAINT ezdfsfile_pkey PRIMARY KEY (name_hash);
+
+    CREATE INDEX ezdfsfile_expired_name ON ezdfsfile USING btree (expired, name);
+    CREATE INDEX ezdfsfile_mtime ON ezdfsfile USING btree (mtime);
+    CREATE INDEX ezdfsfile_name ON ezdfsfile USING btree (name);
+    CREATE INDEX ezdfsfile_name_trunk ON ezdfsfile USING btree (name_trunk);
+    ```
+
+!!! note
+    On eZ Platform Cloud (and Platform.sh) a separate DFS database is supported for MySQL only.
+
+This example uses Doctrine connection named `dfs`:
 
 ``` yaml
 # new Doctrine connection for the DFS legacy_dfs_cluster metadata handler.
@@ -107,7 +157,7 @@ ez_io:
                 connection: doctrine.dbal.dfs_connection
 
 # set the application handlers
-ezpublish:
+ezplatform:
     system:
         default:
             io:
@@ -130,7 +180,7 @@ If you decide to change this setting, make sure you also set `io.url_prefix` to 
 If you set the NFS adapter's directory to `/path/to/nfs/storage`, use this configuration so that the files can be served by Symfony:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         default:
             io:
@@ -142,7 +192,7 @@ If in the example above, this server listens on `http://static.example.com/`
 and uses `/path/to/nfs/storage` as the document root, configure `io.url_prefix` as follows:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         default:
             io:

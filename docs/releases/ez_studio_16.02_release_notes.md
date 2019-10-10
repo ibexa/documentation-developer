@@ -10,7 +10,6 @@ For the release notes of the corresponding *(and included)* eZ Platform release,
 ### Quick links
 
 -   [Installation instructions](https://github.com/ezsystems/ezplatform/blob/v15.05/INSTALL.md)
--   [Requirements](requirements.md)
 -   Download:
 
     -   As Customer with eZ Enterprise subscription: <https://support.ez.no/Downloads> *([BUL](http://ez.no/About-our-Software/Licenses-and-agreements/eZ-Business-Use-License-Agreement-eZ-BUL-Version-2.1?return=/About-our-Software/Licenses-and-agreements/eZ-Business-Use-License-Agreement-eZ-BUL-Version-2.1?processed=1457699707&return=%2FAbout-our-Software%2FLicenses-and-agreements%2FeZ-Business-Use-License-Agreement-eZ-BUL-Version-2.1?return=%2FAbout-our-Software%2FLicenses-and-agreements%2FeZ-Business-Use-License-Agreement-eZ-BUL-Version-2.1) License)*

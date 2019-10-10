@@ -9,7 +9,7 @@ You can define several Repositories within a single application. However, you ca
 To use the default Repository connection, you do not need to specify its details:
 
 ``` yaml
-ezpublish:
+ezplatform:
     repositories:
         # Defining Repository with alias "main"
         # Default storage engine is used, with default connection
@@ -27,10 +27,10 @@ ezpublish:
     As such, you can refer to [DoctrineBundle's documentation](https://github.com/doctrine/DoctrineBundle/blob/master/Resources/doc/configuration.rst#doctrine-dbal-configuration).
 
 If no Repository is specified for a SiteAccess or SiteAccess group,
-the first Repository defined under `ezpublish.repositories` will be used:
+the first Repository defined under `ezplatform.repositories` will be used:
 
 ``` yaml
-ezpublish:
+ezplatform:
     repositories:
         main: ~
     system:
@@ -61,7 +61,7 @@ doctrine:
             another_connection_name:
                 # ...
 
-ezpublish:
+ezplatform:
     repositories:
         first_repository: 
             storage: 
@@ -118,7 +118,7 @@ user_data: User data
 By default it is set to 5. This setting is configured in the following way (typically in `ezplatform.yaml`):
 
 ``` yaml
-ezpublish:
+ezplatform:
     repositories:
         default:
             options:
@@ -155,7 +155,7 @@ For example, the following command removes archived versions as user `admin`, bu
 `ezplatform_default_settings.yaml` contains two settings that indicate which Content Types are treated like users and user groups:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         default:
             user_content_type_identifier: [user]
@@ -167,10 +167,10 @@ When viewing such Content in the Back Office you will be able to see e.g. the as
 
 ## Top-level Locations
 
-You can change the default path for top-level Locations such as Content or Media, e.g.:
+You can change the default path for top-level Locations such as Content or Media in the Back Office, e.g.:
 
 ```yaml
-ezpublish:
+ezplatform:
     system:
         <siteaccess>:
             subtree_paths:

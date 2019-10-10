@@ -10,7 +10,7 @@ Now you will create a variation to specify how you want the images to look in de
 Create a new `config/packages/image_variations.yaml` file containing:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         default:
             image_variations:
@@ -51,7 +51,7 @@ Remove the corresponding code from `ezplatform.yaml`.
 The `views.yaml` file should look like this:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         site_group:
             content_view:

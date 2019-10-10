@@ -14,7 +14,7 @@ This feature is a reimplementation of the [PathPrefix](http://doc.ez.no/eZ-Publi
 Multisite is configured in `ezplatform.yaml`, either at [SiteAccess](siteaccess.md) or SiteAccess group level:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         site_group:
             content:
@@ -56,7 +56,7 @@ To see how multisite can be used, let's look at an example of two sites using th
 Separate SiteAccesses are set up for the two sites:
 
 ``` yaml
-ezpublish:
+ezplatform:
     siteaccess:
         list: [site, event]
         groups:
@@ -73,7 +73,7 @@ This is your content structure:
 You can now set the root level for `event` to only access the "Event" Location and its sub-items:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         event:
             content:
@@ -104,7 +104,7 @@ The Index Page is the page shown when the root index `/` is accessed.
 You can configure the Index Page separately for each SiteAccess. Place the parameter `index_page` in your `ezplatform.yaml` file, under the correct SiteAccess:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         event:
             # The page to show when accessing IndexPage (/)
@@ -153,7 +153,7 @@ To do this, organize your templates in the following folder structure:
 Now you can use this view configuration (stored e.g. in a `views.yaml` file):
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         default:
             pagelayout: pagelayout.html.twig

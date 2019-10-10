@@ -4,7 +4,7 @@ The 16.04 release of eZ Studio is available as of 28 April 2016.
 
 The semantic version of this release is v1.3.0.
 
-For the release notes of the corresponding *(and included)* eZ Platform release, see [eZ Platform 2016.04 Release notes](../../ez_platform_2016.04_release_notes.md)
+For the release notes of the corresponding *(and included)* eZ Platform release, see [eZ Platform 2016.04 Release notes](ez_platform_2016.04_release_notes.md)
 
  
 

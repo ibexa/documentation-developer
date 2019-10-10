@@ -49,9 +49,9 @@ You must also adjust `getName()` arguments and add return type hints `string`.
 ### Extending Field Type templates
 
 If you extended templates for `ezobjectrelationlist_field`, `ezimageasset_field`, or `ezobjectrelation_field` Fields
-using `{% extends "EzPublishCoreBundle::content_fields.html.twig" %}`,
+using `{% extends "@EzPublishCore/content_fields.html.twig" %}`,
 you now need to extend `EzSystemsPlatformHttpCache` instead, if you wish to make use of cache:
-`{% extends "EzSystemsPlatformHttpCache::content_fields.html.twig" %}`.
+`{% extends "@EzSystemsPlatformHttpCache/content_fields.html.twig" %}`.
 
 ## Resolving settings
 
@@ -109,3 +109,54 @@ If you extend or modify these templates, you need to adapt your code.
 
 Refer to [the list of removals and deprecations](ez_platform_v3.0_deprecations.md#template-organization)
 for the full list of changes.
+
+## Custom Installers
+
+eZ Platform provides extension point to create named custom installer which can be used instead of the native one.
+To use it, execute the Symfony command:
+
+``` bash
+php ./bin/console ezplatform:install <installer type name>
+```
+
+In eZ Platform v3.0, service definitions around that extension point have changed:
+
+1\. The deprecated Clean Installer has been dropped from `ezpublish-kernel` package.
+If your project uses custom installer and has relied on Clean Installer service definition (`ezplatform.installer.clean_installer`) you need to switch to Core Installer.
+
+Before:
+    
+``` php
+services:
+    Acme\App\Installer\MyCustomInstaller:
+        parent: ezplatform.installer.clean_installer
+```
+
+After:
+    
+``` php
+services:
+    Acme\App\Installer\MyCustomInstaller:
+        parent: EzSystems\PlatformInstallerBundle\Installer\CoreInstaller
+```
+
+`CoreInstaller` relies on [`DoctrineSchemaBundle`](https://github.com/ezsystems/doctrine-dbal-schema).
+Custom schema can be installed defining Symfony Event Subscriber subscribing to `EzSystems\DoctrineSchema\API\Event\SchemaBuilderEvents::BUILD_SCHEMA` event.
+
+2\. The deprecated Symfony Service definition `ezplatform.installer.db_based_installer` has been removed in favor of its FQCN-named definition.
+
+Before:
+
+``` php
+services:
+    Acme\App\Installer\MyCustomInstaller:
+        parent: ezplatform.installer.db_based_installer
+```
+
+After:
+
+``` php
+services:
+    Acme\App\Installer\MyCustomInstaller:
+        parent: EzSystems\PlatformInstallerBundle\Installer\DbBasedInstaller
+```
