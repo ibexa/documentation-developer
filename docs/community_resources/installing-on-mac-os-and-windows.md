@@ -165,4 +165,4 @@ Modify `<your_site_name>.conf` to fit it to your installation. Then restart the 
 Directories `var` and `web/var` need to be writable by CLI and web server user.
 Future files and directories created by these two users will need to inherit those permissions.
 
-For more information, see [Setting up or Fixing File Permissions](http://symfony.com/doc/4.3/setup/file_permissions.html).
+For more information, see [Setting up or Fixing File Permissions.](http://symfony.com/doc/4.3/setup/file_permissions.html)
