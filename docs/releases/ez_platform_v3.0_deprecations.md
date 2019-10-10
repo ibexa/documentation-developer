@@ -370,6 +370,13 @@ DROP TABLE <table_name>;
 - The "Setup" folder and Section have been removed from clean installation data.
 - The "Design" Section has been removed from clean installation data.
 
+### Extensibility
+
+#### Adding new tabs in the Back Office
+
+The way of adding custom tab groups in the Back Office has changed.
+You now need to [make use of the `TabsComponent`](../guide/extending/extending_tabs.md#adding-a-new-tab-group).
+
 ### Miscellaneous
 
 - Deprecated `SubtreeQuery` class has been removed. In v3.0 it was replaced by `\EzSystems\EzPlatformAdminUi\QueryType\SubtreeQueryType`.
