@@ -90,7 +90,6 @@ The default, built-in views are:
 
 Other, custom view types can be created, user for example for [embedding one Content item in another](#embedding-content-items), but only these four have built-in controllers in the system.
 
-See [View provider configuration](content_rendering#configuring-views-the-viewprovider) for more details.
 For more details, see [View provider configuration](content_rendering.md#configuring-views-the-viewprovider).
 
 ### Template file
@@ -273,7 +272,7 @@ If you do not see changes, clear the cache by running: `php bin/console cache:cl
 
 #### Using the Field Type's template block
 
-All built-in Field Types come with [their own Twig template](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/views/content_fields.html.twig).
+All built-in Field Types come with [their own Twig template.](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/views/content_fields.html.twig)
 You can render any Field using this default template using the `ez_render_field()` helper.
 
 ``` html+twig
@@ -298,6 +297,7 @@ To see it in practice, extend the `app/Resources/views/full/article.html.twig` t
 ```
 
 For more details on the `ez_render_field()` helper, see [Twig functions reference guide](twig_functions_reference.md#ez_render_field).
+
 You can also use other [Twig functions](../guide/twig_functions_reference.md), for example [`ez_field_value`](../guide/twig_functions_reference.md#ez_field_value), which renders the value of the Field without a template.
 
 !!! tip
