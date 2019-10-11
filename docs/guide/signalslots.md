@@ -108,7 +108,7 @@ class CreateUrlAliasesOnPublishSlot extends BaseSlot
     1.  Make the Slot available through the Symfony service container as a service
     1.  Register the Slot to react to the Signal of type `eZ\Publish\Core\SignalSlot\Signal\ContentService\PublishVersionSignal`
 
-    See [Listening to Core events](#listening-to-core-events.md) recipe in the developer cookbook for more information.
+    For more details, See [Listening to Core events](signalslots.md#listening-to-core-events.md).
 
 !!! note "Important note about template matching"
 
