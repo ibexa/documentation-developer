@@ -8,7 +8,7 @@
 To create a custom notification, you have to provide two plugins in the `flex-workflow` bundle,
 one for the `notificationsPopupView` and second for the `notificationIndicatorView`.
 
-Start from creating a plugin for `notificationIndicatorView` which is responsible for displaying a text in the notification bar.
+Start with creating a plugin for `notificationIndicatorView` which is responsible for displaying a text in the notification bar.
 
 You have to start with adding dependencies in `Resources/config/yui.yml`: 
 
