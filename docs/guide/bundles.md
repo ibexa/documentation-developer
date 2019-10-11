@@ -52,7 +52,7 @@ All project assets are accessible through the `web/assets` path.
 
 Configuration may go into `app/config`. However, service definitions from `AppBundle` should go into `src/AppBundle/Resources/config`.
 
-#### Importing settings from a bundle
+#### Importing configuration from a bundle
 
 !!! tip
 
