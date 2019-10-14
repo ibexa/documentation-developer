@@ -77,7 +77,7 @@ The list below presents the Criteria available in the `eZ\Publish\API\Repository
 |`DateMetadata`|`target` ( `DateMetadata::MODIFIED`, `DateMetadata::CREATED`)</br>`operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `BETWEEN`)</br>`value` being integer(s) representing unix timestamp.|
 |`Field`|`target` (FieldDefinition identifier), `operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `LIKE`, `BETWEEN`, `CONTAINS`), `value` being scalar(s) relevant for the field.|
 |`FieldRelation`|`target` (FieldDefinition identifier)</br>`operator` (`IN`, `CONTAINS`)</br>`value` being array of scalars representing Content ID of relation.</br>Use of `IN` means the relation needs to have one of the provided IDs, while `CONTAINS` implies it needs to have all provided IDs.|
-|`FullText`|`value` which is the string to search for</br>`properties` is array to set additional properties for use with search engines like Solr.|
+|`FullText`|`value` which is the string to search for</br>`properties` is array to set additional properties for use with search engines like Solr.</br>For advanced search, extend the query syntax by using:</br> `word`, `"phrase"`, `(group)`, `+mandatory`, `-prohibited`, `AND`, `&&`, `OR`, `||`, `NOT`, `!`. |
 |`LanguageCode`|`value` string(s) representing Language Code(s) on the Content (not on Fields)</br>`matchAlwaysAvailable` as boolean.|
 |`LocationId`|`value` scalar(s) representing the Location ID.|
 |`LocationRemoteId`|`value` string(s) representing the Location Remote ID.|
