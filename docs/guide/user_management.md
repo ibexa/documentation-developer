@@ -27,12 +27,12 @@ To access the settings, perform the following actions:
 
 1. In the Back Office, in the **Admin** Panel, open the **Content Types** tab.
 1. In the **Content Type Groups** table, click on **Users**.
-1. Edit the User Content item.
+1. Edit the User Content Type.
 1. In the **Content field definitions** list, view the settings for **User account (ezuser)**.
 
 ### Password attributes
 
-In the **User account `ezuser`** Field definition, you can determine if the password must contain at least:
+In the **User account (ezuser)** Field definition, you can determine if the password must contain at least:
 
 - One uppercase letter
 - One lowercase letter
@@ -43,7 +43,7 @@ You can also set the minimum password length.
 
 ### Password expiration
 
-In the **User account `ezuser`** Field definition, you can set password expiry rules, which will force users to change their passwords periodically.
+In the **User account (ezuser)** Field definition, you can set password expiry rules, which will force users to change their passwords periodically.
 
 ![Password expiry settings](img/password_expiry.png)
 
@@ -53,7 +53,7 @@ The notification will be displayed in the Back Office after login and in the Use
 ### Repeating passwords
 
 You can set a rule that the password cannot be reused.
-You set it for the User Content Type in the `ezuser` Field Type's settings.
+You set it for the User Content Type in the **User account (ezuser)** Field Type's settings.
 When this is set, the user will not be able to set a password that had been in use before.
 
 This rule is valid by default when password expiration is set.
