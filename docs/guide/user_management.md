@@ -17,7 +17,7 @@ You can customize it according to your needs.
 The validity of the password recovery token can be set using the `ezplatform.system.<siteaccess>.security.token_interval_spec` parameter.
 By default it is set to `PT1H` (one hour).
 
-## Password settings
+## Password rules
 
 You can customize the password policy in your project.
 Each password setting is customizable per User Field Type.
@@ -29,6 +29,11 @@ To access the password settings:
 1. In the **Content Type Groups** table, click on **Users**.
 1. Edit the User Content Type.
 1. In the **Content field definitions** list, view the settings for **User account (ezuser)**.
+
+!!! tip
+
+    There can be other Content Types that function as users, beyond the built-in User Content Type.
+    For details, see [User Identifiers](config_repository.md#user-identifiers).
 
 ### Password attributes
 
