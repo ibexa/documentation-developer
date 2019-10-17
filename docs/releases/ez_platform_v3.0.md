@@ -33,6 +33,10 @@ To use them, create [Event Listeners](https://symfony.com/doc/4.3/event_dispatch
 
 ### Schedule calendar
 
+### Manage planned publications with Dashboard
+    
+You can now reschedule or cancel planned future publications right from the Dashboard.
+
 ### Defining buttons in Online Editor toolbars
 
 ### Random sorting
@@ -45,7 +49,7 @@ You can configure a custom color for each of the transitions defined in the Work
 
 ### Password rules
 
-You can now set [password expiration rules](../guide/user_management.md#setting-password-expiration)
+You can now set [password expiration rules](../guide/user_management.md#password-expiration)
 for user passwords.
 
 ## Other changes
