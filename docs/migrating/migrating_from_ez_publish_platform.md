@@ -8,17 +8,17 @@ eZ Publish Platform (5.x) introduced a new Symfony-based technology stack that c
 
 An upgrade from eZ Publish Platform 5.4.x (Enterprise edition) or 2014.11 (Community edition) to newer versions of eZ Platform must be performed in stages. It can be done in many different ways, but a recommended approach is to:
 
-1. _If you need to migrate ezflow data:_ Migrate from eZ Publish Platform directly to the v1.7 LTS release _(covered on this page)_.
+1. _If you need to migrate ezflow data:_ Migrate from eZ Publish Platform directly to the v1.7LTS release _(covered on this page)_.
     - Optional; Add legacy bridge to be able to gradual migrate your legacy code if you have it
-    - Once ready; Migrate eZ FLow to eZ Landing page
-2. You can then proceed with consecutive upgrades to further versions, covered on [v1.7LTS and v2.5LTS](releases/updating_ez_platform.md).
-    - Migrate eZ Landing page to eZ Page Builder
-    - Migrate XmlText to RichText
-    - Optional; If you added legacy bridge in step 1, you can now remove that and xmltext package
+    - 1.1 Once ready; Migrate eZ Flow to eZ Landing page
+2. You can then proceed with consecutive upgrades to v2.5LTS version, covered on [Updating eZ Platform](../updating/updating_ez_platform.md) section, including:
+    - 2.1. Migrate eZ Landing page to eZ Page Builder
+    - 2.2. Migrate XmlText to RichText _(using latest version of `ezplatform-xmltext-fieldtype` and eZ Platform)_
+    - _Recommended: Once these steps are done, all legacy packages and xmltext-fieldtype can be uninstalled._
     
 !!! tip
 
-    Work is being done to simplify this further to not have to upgrade via 1.7LTS, eta on that is early fall 2019. However all the tools needed to bring you from 4.x and 5.x to Platform, with or withouth legacy bridge, already exists so you can safly consider it ready for use already.
+    Work is being done to iterativly simplify this further, and contributions are more then welcome on that. However all the tools needed to bring you from 4.x and 5.x to eZ Platform, with or withouth legacy bridge, already exists so you can safly consider it supported and ready for use already.
 
 !!! caution "Things to be aware of when planning a migration"
 
