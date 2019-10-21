@@ -498,7 +498,7 @@ It is available from the container as `ezpublish.query_type.registry`.
 
 ``` php
 <?php
-class MyCommand extends ContainerAwareCommand
+class MyCommand extends Command
 {
     protected function execute(InputInterface $input, OutputInterface $output)
     {
