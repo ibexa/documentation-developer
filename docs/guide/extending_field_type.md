@@ -1,19 +1,19 @@
 # Creating custom Field Type
 
-Generic Field Type can be used as a template for any Field Type you want to create.
-It makes creation and customization process easier and faster.
-Generic Field Type can be especially useful during customization of such fields as:
+The Generic Field Type can be used as a template for any Field Type you want to create.
+It makes the creation and customization process easier and faster.
+The Generic Field Type can be especially useful during customization of such fields as:
 language, currency, birth date etc.
 
-Generic Field Type comes with the implementation of basic methods,
-reduces the number of classes which must be created and simplifies tagging process.
+The Generic Field Type comes with the implementation of basic methods,
+reduces the number of classes which must be created and simplifies the tagging process.
 Its base implementation uses Symfony serializer and Symfony validator component.
 
 !!! tip
 
-    Generic Field Type should not be used when a very specific implementation is needed or the way data is stored requires thorough control.
+    You should not use the Generic Field Type when you need a very specific implementation or complete control over the way data is stored.
 
-Simplified process of creating custom Field Type based on a Generic Field Type requires following steps:
+The simplified process of creating a custom Field Type based on a Generic Field Type requires the following steps:
 
 - Define Value Object
 - Define fields and configuration
@@ -24,8 +24,7 @@ Simplified process of creating custom Field Type based on a Generic Field Type r
 ## Define Value Object
 
 Create `Value.php` in `src/FieldType/HelloWorld` directory.
-The Value class of a Field Type is very simple.
-It contains only the basic logic of a Field Type, the rest of it is handled by the `Type` class.
+The Value class of a Field Type contains only the basic logic of a Field Type, the rest of it is handled by the `Type` class.
 For more information about Field Type Value see [Value handling](../../api/field_type_type_and_value/#value-handling).
 
 The `HelloWorld` Value class should contain:
@@ -66,8 +65,8 @@ final class Value implements ValueInterface
 
 ## Define fields and configuration
 
-In this step you will implement definition of a Field Type extending Generic Field Type in `src/FieldType/HelloWorld/Type.php` class.
-It provides settings for the Field Type and implementation of the `eZ\Publish\SPI\FieldType\FieldType` interface.
+In this step you will implement a definition of a Field Type extending the Generic Field Type in the `src/FieldType/HelloWorld/Type.php` class.
+It provides settings for the Field Type and an implementation of the `eZ\Publish\SPI\FieldType\FieldType` interface.
 
 ```php
 <?php
@@ -86,7 +85,7 @@ final class Type extends GenericType implements FieldValueFormMapperInterface
 
 For more information about the Type class of a Field Type see [Type class](../../api/field_type_type_and_value.md#type-class).
 
-Next, add the `ezplatform.field_type` class to the `config/services.yaml`:
+Next, add the `ezplatform.field_type` class to `config/services.yaml`:
 
 ```yaml
 App\FieldType\HelloWorld\Type:
@@ -96,18 +95,21 @@ App\FieldType\HelloWorld\Type:
 
 ## Define form for Value Object
 
-Create `src/Form/Type/HelloWorldType.php` form.
-It allows you to edit your new Field Type.
+Create a `src/Form/Type/HelloWorldType.php` form.
+It enables you to edit your new Field Type.
 
 ```php
 <?php
 declare(strict_types=1);
+
 namespace App\Form\Type;
+
 use App\FieldType\HelloWorld\Value;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+
 final class HelloWorldType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -124,8 +126,8 @@ final class HelloWorldType extends AbstractType
 ```
 
 Now you will map Field definitions into Symfony forms with FormMapper.
-Add `FieldValueFormMappperInterface` interface (`EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface`)
-to Field Type definition in `src/FieldType/HellowWorld/Type.php`.
+Add `FieldValueFormMapperInterface` interface (`EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface`)
+to the Field Type definition in `src/FieldType/HellowWorld/Type.php`.
 
 ```php
 <?php
@@ -167,9 +169,8 @@ App\FieldType\HelloWorld\Type:
 
 ### Create a template
 
-Create template for the new Field Type. It will define the default display of `HelloWorld` field.
-In `templates` directory create `field_type.html.twig` file.
-Inside add a following code block:
+Create a template for the new Field Type. It will define the default display of the `HelloWorld` field.
+In the `templates` directory create a `field_type.html.twig` file:
 
 ```html+twig
 {% block hello_world_field %}
@@ -197,11 +198,11 @@ Navigate to **Content Types** tab and under **Content** category create a new Co
 
 ![Creating new Content Type](img/extending_field_type_create.png)
 
-Next, define **Hello World** field:
+Next, define a **Hello World** field:
 
 ![Defining Hello World](img/extending_field_type_definition.png)
 
-After saving, your **Hello World** Field Type should be available under **Content** in the sidebar menu.
+After saving, your **Hello World** Content Type should be available under **Content** in the sidebar menu.
 
 ![Creating Hello World](img/extending_field_type_hello_world.png)
 
