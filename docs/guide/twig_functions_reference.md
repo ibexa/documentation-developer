@@ -266,7 +266,7 @@ The filters also accept an optional `timezone` parameter for displaying date and
 |---------------|--------------------------------------------------------|-------------------------------------------|
 | `field`       | `eZ\Publish\API\Repository\Values\Content\Field`       | The image Field                           |
 | `versionInfo` | `eZ\Publish\API\Repository\Values\Content\VersionInfo` | The VersionInfo that the Field belongs to |
-| `variantName` | `string`                                               | Name of the image variation to be used. To display original image alias use `original` as a image variation |
+| `variantName` | `string`                                               | Name of the image variation to be used. To display original image alias, use `original` as an image variation. |
 
 See [images](images.md) for more information about image variations.
 
