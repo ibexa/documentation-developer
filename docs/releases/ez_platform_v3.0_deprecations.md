@@ -587,6 +587,11 @@ The SiteAccess-aware `pagelayout` setting is deprecated in favor of `page_layout
 
 View parameter `pagelayout` set by `pagelayout` setting is deprecated in favor of  `page_layout`.
 
+### Controllers
+
+The `eZ\Bundle\EzPublishCoreBundle\Controller` now extends `Symfony\Bundle\FrameworkBundle\Controller\AbstractController` instead of `Symfony\Bundle\FrameworkBundle\Controller\Controller` which has limited access to the dependency injection container.
+For details, see [Service Subscribers Locators.](https://symfony.com/doc/current/service_container/service_subscribers_locators.html)
+
 ## flex-workflow
 
 No deprecations or backward compatibility breaks to document.
