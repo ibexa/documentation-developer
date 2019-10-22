@@ -8,7 +8,7 @@
 
     If you have previously disabled the bundle, add/update composer dependencies:
     ``` bash
-    composer require --no-update ezsystems/ezplatform-solr-search-engine:~1.0
+    composer require --no-update ezsystems/ezplatform-solr-search-engine:~2.0
     composer update
     ```
 
@@ -16,19 +16,20 @@
 
 ### Step 1: Configuring and starting Solr
 
-The example presents a configuration with single core, look to [Solr](https://cwiki.apache.org/confluence/display/solr/Solr+Cores+and+solr.xml) [documentation](https://wiki.apache.org/solr/CoreAdmin) for configuring Solr in other ways, including examples.
+The example presents a configuration with a single core. For configuring Solr in other ways, including examples, see [Solr Cores and `solr.xml`](https://cwiki.apache.org/confluence/display/solr/Solr+Cores+and+solr.xml) and [core administration](https://wiki.apache.org/solr/CoreAdmin).
 
 #### Download and configure
 
-##### Solr 6
+!!! note "Solr versions"
 
-Download and extract Solr. Solr Bundle 1.3 and higher supports Solr 6 *(currently tested and recommended with Solr 6.6LTS)*:
+    `ezplatform-solr-search-engine` v1 still supports Solr 6.
+    Since v2 `ezplatform-solr-search-engine` works only with Solr 7.
 
-- [solr-6.6.5.tgz](http://archive.apache.org/dist/lucene/solr/6.6.5/solr-6.6.5.tgz) or [solr-6.6.5.zip](http://archive.apache.org/dist/lucene/solr/6.6.5/solr-6.6.5.zip)
+##### Solr 7
 
-!!! caution "Solr"
+Download and extract Solr. Solr Bundle 2 and higher supports Solr 7 *(currently tested and recommended with Solr 7.7)*:
 
-    Solr versions older than 6.6.2 have a security vulnerability. Remember to download or update to a higher version.
+- [solr-7.7.2.tgz](http://archive.apache.org/dist/lucene/solr/7.7.2/solr-7.7.2.tgz) or [solr-7.7.2.zip](http://archive.apache.org/dist/lucene/solr/7.7.2/solr-7.7.2.zip)
 
 Copy the necessary configuration files. In the example below from the root of your project to the place you extracted Solr:
 
@@ -37,11 +38,11 @@ Copy the necessary configuration files. In the example below from the root of yo
 cd /opt/solr
 mkdir -p server/ez/template
 cp -R <ezplatform-solr-search-engine>/lib/Resources/config/solr/* server/ez/template
-cp server/solr/configsets/basic_configs/conf/{currency.xml,solrconfig.xml,stopwords.txt,synonyms.txt,elevate.xml} server/ez/template
+cp server/solr/configsets/_default/conf/{currency.xml,solrconfig.xml,stopwords.txt,synonyms.txt,elevate.xml} server/ez/template
 cp server/solr/solr.xml server/ez
 
 # Modify solrconfig.xml to remove the section that doesn't agree with your schema
-sed -i.bak '/<updateRequestProcessorChain name="add-unknown-fields-to-the-schema">/,/<\/updateRequestProcessorChain>/d' server/ez/template/solrconfig.xml
+sed -i.bak '/<updateRequestProcessorChain name="add-unknown-fields-to-the-schema".*/,/<\/updateRequestProcessorChain>/d' server/ez/template/solrconfig.xml
  
 # Start Solr (but apply autocommit settings below first if you need to)
 bin/solr -s ez
@@ -56,7 +57,7 @@ SolrCloud is a cluster of Solr servers. It enables you to:
 - automatically load balance and fail-over for queries
 - integrate ZooKeeper for cluster coordination and configuration
 
-To set SolrCloud up follow [SolrCloud reference guide.](https://lucene.apache.org/solr/guide/6_6/solrcloud.html)
+To set SolrCloud up follow [SolrCloud reference guide.](https://lucene.apache.org/solr/guide/7_7/solrcloud.html)
 
 #### Further configuration
 
@@ -80,7 +81,7 @@ This setting is **required** if you want to see the changes after publish. It is
 
 #### Generating configuration
 
-The command line tool `bin/generate-solr-config.sh` generates Solr 6 configuration automatically.
+The command line tool `bin/generate-solr-config.sh` generates Solr 7 configuration automatically.
 It can be used for deploying to eZ Platform Cloud (Platform.sh) and on-premise installs.
 
 Execute the script from the eZ Platform root directory for further information:
@@ -201,7 +202,7 @@ ez_search_engine_solr:
 
 #### SolrCloud example
 
-To use SolrCloud you need to specify data distribution strategy for connection via the `distribution_strategy` option to [`cloud`.](https://lucene.apache.org/solr/guide/6_6/solrcloud.html)
+To use SolrCloud you need to specify data distribution strategy for connection via the `distribution_strategy` option to [`cloud`.](https://lucene.apache.org/solr/guide/7_7/solrcloud.html)
 
 The example is based on multi-core setup so any specific language analysis options could be specified on the collection level.
 
@@ -234,7 +235,7 @@ ez_search_engine_solr:
                 main_translations: main
 ```
 
-This solution uses the default SolrCloud [document routing strategy: `compositeId`.](https://lucene.apache.org/solr/guide/6_6/shards-and-indexing-data-in-solrcloud.html#ShardsandIndexingDatainSolrCloud-DocumentRouting)
+This solution uses the default SolrCloud [document routing strategy: `compositeId`.](https://lucene.apache.org/solr/guide/7_7/shards-and-indexing-data-in-solrcloud.html#ShardsandIndexingDatainSolrCloud-DocumentRouting)
 
 #### Solr Basic HTTP Authorization
 Solr core can be secured with Basic HTTP Authorization. See more information here: [Solr Basic Authentication Plugin.](https://cwiki.apache.org/confluence/display/solr/Basic+Authentication+Plugin)
@@ -257,7 +258,7 @@ Obviously, you should pass credentials for every configured and HTTP Basic secur
 The following is an example of configuring Solr search engine, where `connection` name is same as in the example above, and engine is set to `solr`:
 
 ``` yaml
-ezpublish:
+ezplatform:
     repositories:
         default:
             storage: ~
@@ -304,9 +305,9 @@ Here are the most common issues you may encounter:
 
 ### Boost configuration
 
-!!! note
+!!! caution "Index time boosting"
 
-    Boosting is available since Solr bundle version 1.4.
+    Index time boosting is not available in the Solr Search Engine Bundle.
 
 !!! tip "How boosting interacts with Search API"
 
@@ -454,7 +455,7 @@ An example of the latter is indexing data through the Location hierarchy: from t
 This may be needed when you want to find the Content with full-text search, or to simplify search for a complicated data model.
 
 To do this effectively, you first need to understand how the data is indexed with the Solr search engine.
-Solr uses [documents](https://lucene.apache.org/solr/guide/6_6/overview-of-documents-fields-and-schema-design.html#how-solr-sees-the-world) as a unit of data that is indexed.
+Solr uses [documents](https://lucene.apache.org/solr/guide/7_7/overview-of-documents-fields-and-schema-design.html#how-solr-sees-the-world) as a unit of data that is indexed.
 Documents are indexed per translation, as Content blocks. A block is a nested document structure.
 When used in eZ Platform, a parent document represents Content, and Locations are indexed as child documents of the Content.
 To avoid duplication, full-text data is indexed on the Content document only. Knowing this, you have the option to index additional data on:
@@ -576,7 +577,7 @@ my_webinar_app.webinar_event_title_fulltext_field_mapper:
 
 !!! note
 
-    The configuration below has been tested on Solr 6.5.5.
+    The configuration below has been tested on Solr 7.7.
 
 ### Configuring Master for replication
 

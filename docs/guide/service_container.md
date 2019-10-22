@@ -41,12 +41,12 @@ You will find all service tags exposed by Symfony in [its reference documentatio
 |`twig.loader`|Registers a template loader for Twig|
 |`ezpublish.content_view_provider`|Registers a ContentViewProvider for template selection depending on content/Location being viewed|
 |`ezpublish.storageEngine`|Registers a storage engine in the Repository factory|
-|[`ezpublish.fieldType`](../api/field_type_type_and_value.md#registration)|Registers a Field Type|
+|[`ezplatform.field_type`](../api/field_type_type_and_value.md#registration)|Registers a Field Type|
 
 ### Legacy
 
 |Tag name|Usage|
 |------|------|
-|`ezpublish.storageEngine.legacy.converter`|Registers a converter for a Field Type in Legacy storage engine|
-|`ezpublish.fieldType.externalStorageHandler`|Registers an external storage handler for a Field Type|
-|`ezpublish.fieldType.externalStorageHandler.gateway`|Registers an external storage gateway for a Field Type in Legacy storage engine|
+|`ezplatform.field_type.legacy_storage.converter`|Registers a converter for a Field Type in Legacy storage engine|
+|`ezplatform.field_type.external_storage_handler`|Registers an external storage handler for a Field Type|
+|`ezplatform.field_type.external_storage_handler.gateway`|Registers an external storage gateway for a Field Type in Legacy storage engine|

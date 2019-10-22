@@ -21,7 +21,7 @@ The **ViewProvider** allows you to configure template selection when using the `
 The ViewProvider takes its configuration from your SiteAccess in the `content_view` section. This configuration is [necessary for views to be defined](templates.md#templating-basics) and is a hash built in the following way:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         # Defines the scope: a valid SiteAccess, SiteAccess group or even "global"
         front_siteaccess:
@@ -50,7 +50,8 @@ ezpublish:
 
 !!! tip
 
-    You can define your template selection rules, alongside other settings, in a different bundle. [Read the cookbook recipe to learn more about it](../cookbook/importing_settings_from_a_bundle.md).
+    You can define your template selection rules, alongside other settings, in a different bundle.
+    For details, see [Importing configuration from a bundle](bundles.md#importing-configuration-from-a-bundle).
 
     You can also [use your own custom controller to render a Content/Location](controllers.md##custom-rendering-logic).
 
@@ -112,6 +113,25 @@ The following table presents all native matchers.
 |`Depth`|Matches the depth of the Location. The depth of a top level Location is 1.|
 |`UrlAlias`|Matches the virtual URL of the Location (i.e. `/My/Content-Uri`). **Important: Matches when the UrlAlias of the Location starts with the value passed.** *Not supported for Content (aka content_view).*|
 
+### Custom matchers
+
+Beside the built-in matchers, you can also use your own services to match views:
+
+``` yaml
+ezplatform:
+    system:
+        site:
+            content_view:
+                full:
+                    folder:
+                        template: folder.html.twig
+                        match:
+                            '@App\Matcher\MyMatcher': ~
+```
+
+The service must be tagged with `ezplatform.view.matcher`
+and must implement `\eZ\Publish\Core\MVC\Symfony\Matcher\ContentBased\ViewMatcherInterface`. 
+
 ### Content view templates
 
 #### Template variables
@@ -131,7 +151,7 @@ Main Content-related variables include:
 |`view_base_layout`|String|The base layout template to use when the view is requested to be generated outside of the pagelayout (when `no_layout` is true).|
 
 The `dump()` function also displays other variables, such as specific configuration including the SiteAccess
-under the `ezpublish` key.
+under the `ezplatform` key.
 
 #### Template inheritance and sub-requests
 
@@ -159,10 +179,10 @@ Templates for the most common view types (content/full, line, embed, or block) c
 
 | Controller                                              | ViewType | Parameter                                         | Default value                                           |
 |---------------------------------------------------------|----------|---------------------------------------------------|---------------------------------------------------------|
-| `ez_content:viewAction`                                 | `full`   | `ezplatform.default_view_templates.content.full`  | `"EzPublishCoreBundle:default:content/full.html.twig"`  |
-| `ez_content:viewAction`                                 | `line`   | `ezplatform.default_view_templates.content.line`  | `"EzPublishCoreBundle:default:content/line.html.twig"`  |
-| `ez_content:viewAction`                                 | `embed`  | `ezplatform.default_view_templates.content.embed` | `"EzPublishCoreBundle:default:content/embed.html.twig"` |
-| `ez_page:viewAction`                                    | `n/a`    | `ezplatform.default_view_templates.block`         | `"EzPublishCoreBundle:default:block/block.html.twig"`   |
+| `ez_content:viewAction`                                 | `full`   | `ezplatform.default_view_templates.content.full`  | `'@@EzPublishCore/default/content/full.html.twig'`      |
+| `ez_content:viewAction`                                 | `line`   | `ezplatform.default_view_templates.content.line`  | `'@@EzPublishCore/default/content/line.html.twig'`      |
+| `ez_content:viewAction`                                 | `embed`  | `ezplatform.default_view_templates.content.embed` | `'@@EzPublishCore/default/content/embed.html.twig'`     |
+| `ez_page:viewAction`                                    | `n/a`    | `ezplatform.default_view_templates.block`         | `'@@EzPublishCore/default/block/block.html.twig'`       |
 
 ###### Example
 
@@ -273,18 +293,18 @@ This section presents the events that are triggered by eZ Platform.
 
 ### Twig Helper
 
-eZ Platform comes with a Twig helper as a [global variable](http://symfony.com/doc/master/cookbook/templating/global_variables.html) named `ezpublish`.
+eZ Platform comes with a Twig helper as a [global variable](http://symfony.com/doc/master/cookbook/templating/global_variables.html) named `ezplatform`.
 
 This helper is accessible from all Twig templates and allows you to easily retrieve useful information.
 
 |Property|Description|
 |------|------|
-|`ezpublish.siteaccess`|Returns the current SiteAccess.|
-|`ezpublish.rootLocation`|Returns the root Location object.|
-|`ezpublish.requestedUriString`|Returns the requested URI string (also known as semanticPathInfo).|
-|`ezpublish.systemUriString`|	Returns the "system" URI string. System URI is the URI for internal content controller. If current route is not an URLAlias, then the current Pathinfo is returned.|
-|`ezpublish.viewParameters`|Returns the view parameters as a hash.|
-|`ezpublish.viewParametersString`|Returns the view parameters as a string.|
-|`ezpublish.translationSiteAccess`|Returns the translation SiteAccess for a given language, or null if it cannot be found.|
-|`ezpublish.availableLanguages`|Returns the list of available languages.|
-|`ezpublish.configResolver`|Returns the config resolver.|
+|`ezplatform.siteaccess`|Returns the current SiteAccess.|
+|`ezplatform.rootLocation`|Returns the root Location object.|
+|`ezplatform.requestedUriString`|Returns the requested URI string (also known as semanticPathInfo).|
+|`ezplatform.systemUriString`|	Returns the "system" URI string. System URI is the URI for internal content controller. If current route is not an URLAlias, then the current Pathinfo is returned.|
+|`ezplatform.viewParameters`|Returns the view parameters as a hash.|
+|`ezplatform.viewParametersString`|Returns the view parameters as a string.|
+|`ezplatform.translationSiteAccess`|Returns the translation SiteAccess for a given language, or null if it cannot be found.|
+|`ezplatform.availableLanguages`|Returns the list of available languages.|
+|`ezplatform.configResolver`|Returns the config resolver.|

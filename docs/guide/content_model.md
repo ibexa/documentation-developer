@@ -125,6 +125,18 @@ They determine what Fields of what Field Types will be included in all Content i
 
     You can assign each Field defined in a Content Type to a group by selecting one of the groups in the Category drop-down. [Available groups can be configured in the content repository](configuration.md#content-repository-configuration).
 
+!!! caution
+    
+    In case of Content Types containing many Field Types you should be aware of possible memory-related issues with publishing/editing.
+    They are caused by the limitation of how many `$_POST` input variables can be accepted.
+    
+    The easiest way to fix them is by increasing the `max_input_vars` value in the `php.ini` configuration file.
+    Note that this solution is not universally recommended and you're proceeding on your own risk.
+    
+    Setting the limit inappropriately may damage your project or cause other issues.
+    You may also experience performance problems with such large Content Types, in particular when you have many Content items.
+    If you're experincing too many issues, consider rearranging your project to avoid them.
+
 ### Modifying Content Types
 
 A Content Type and its Field definitions can be modified after creation,
@@ -179,7 +191,7 @@ A new version is created every time a Content item is edited. The previous publi
 Only one version can be published at the same time.
 When you publish a new version, the previous published version changes its status to Archived.
 
-The number of preserved archived versions is set in `ezpublish.repositories.default.options.default_version_archive_limit`.
+The number of preserved archived versions is set in `ezplatform.repositories.default.options.default_version_archive_limit`.
 By default it is set to 5.
 
 A new version is also created when a new [language](internationalization.md) is added to the Content item.

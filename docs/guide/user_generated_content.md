@@ -60,7 +60,7 @@ You can use custom templates for the content editing forms.
 Define the templates in the following configuration:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         default:
             content_edit:

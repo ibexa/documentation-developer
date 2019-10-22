@@ -34,7 +34,7 @@ You should also change the character set that is specified in the application co
 
 In `app/config/config.yml`, set the following:
 
-``` yml
+``` yaml
 doctrine:
     dbal:
         connections:
@@ -107,7 +107,7 @@ After the migration is finished, you need to clear cache.
 
 For block types with custom storage you need to provide a dedicated converter but for simple blocks you can use `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\DefaultConverter` as your service class.
 
-You also need to redefine [YAML configuration](../guide/extending_page.md#creating-page-blocks) for your custom blocks.
+You also need to redefine [YAML configuration](../guide/extending/extending_page.md#creating-page-blocks) for your custom blocks.
 
 !!! caution
 

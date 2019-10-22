@@ -37,7 +37,7 @@ class FileContext implements Context
      */
     public function addThumbnail($path): void
     {
-        $sourcePath = sprintf('%s/%s', $this->basePath, 'tutorial_data_2/web/assets/images/layouts/sidebar.png');
+        $sourcePath = sprintf('%s/%s', $this->basePath, 'tutorial_data_2/public/assets/images/layouts/sidebar.png');
         $destinationPath = sprintf('%s/%s/%s', $this->basePath, $path, 'sidebar.png');
         $this->createDirectoryStructure($destinationPath);
 
@@ -49,7 +49,7 @@ class FileContext implements Context
      */
     public function copyIcon($path): void
     {
-        $sourcePath = sprintf('%s/%s', $this->basePath, 'tutorial_data_2/web/assets/images/blocks/random_block.svg');
+        $sourcePath = sprintf('%s/%s', $this->basePath, 'tutorial_data_2/public/assets/images/blocks/random_block.svg');
         $destinationPath = sprintf('%s/%s/%s', $this->basePath, $path, 'random_block.svg');
         $this->createDirectoryStructure($destinationPath);
 

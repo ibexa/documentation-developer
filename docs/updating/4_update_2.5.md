@@ -14,6 +14,18 @@ Apply the following database update script:
 
 `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.4.0-to-7.5.0.sql`
 
+To update to v2.5.3, additionally run the following script:
+
+`mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.5.2-to-7.5.3.sql`
+
+To update to v2.5.6, additionally run the following script:
+
+`mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.5.4-to-7.5.5.sql`
+
+or for PostgreSQL:
+
+`psql <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-7.5.4-to-7.5.5.sql`
+
 ## Changes to database schema
 
 The introduction of [support for PostgreSQL](../guide/databases.md#using-postgresql) includes a change in the way database schema is generated.
@@ -48,3 +60,38 @@ or by executing the following command:
 ```bash
 bin/console cache:pool:clear cache.redis
 ```
+
+## Updating to 2.5.3
+
+### Page builder
+
+!!! enterprise
+
+    This step is only **required when updating from versions higher than 2.2 and lower than 2.5.3**.
+    In case of versions lower than 2.2, please skip this step or ignore the information that indexes from a script below already exist.
+    
+    When updating to v2.5.3, you need to run the following script to add missing indexes:
+    
+    ``` bash
+    CREATE INDEX ezpage_map_zones_pages_zone_id ON ezpage_map_zones_pages(zone_id);
+    CREATE INDEX ezpage_map_zones_pages_page_id ON ezpage_map_zones_pages(page_id);
+    CREATE INDEX ezpage_map_blocks_zones_block_id ON ezpage_map_blocks_zones(block_id);
+    CREATE INDEX ezpage_map_blocks_zones_zone_id ON ezpage_map_blocks_zones(zone_id);
+    CREATE INDEX ezpage_map_attributes_blocks_attribute_id ON ezpage_map_attributes_blocks(attribute_id);
+    CREATE INDEX ezpage_map_attributes_blocks_block_id ON ezpage_map_attributes_blocks(block_id);
+    CREATE INDEX ezpage_blocks_design_block_id ON ezpage_blocks_design(block_id);
+    CREATE INDEX ezpage_blocks_visibility_block_id ON ezpage_blocks_visibility(block_id);
+    CREATE INDEX ezpage_pages_content_id_version_no ON ezpage_pages(content_id, version_no);
+    ```
+
+## Updating to 2.5.6
+
+### Password recovery
+
+Run the following script to update the database:
+
+`mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.5.4-to-7.5.5.sql`
+
+or for PostgreSQL:
+
+`psql <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-7.5.4-to-7.5.5.sql`

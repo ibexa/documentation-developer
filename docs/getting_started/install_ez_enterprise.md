@@ -6,7 +6,7 @@ They are available via [updates.ez.no](https://updates.ez.no).
 
 !!! enterprise
 
-    To install eZ Enterprise, follow the procedure described in [Install eZ Platform](install_ez_platform.md).
+    To install eZ Enterprise, start with the procedure described in [Install eZ Platform](install_ez_platform.md).
     Because you do not have access to the Enterprise GitHub repositories,
     you need to [download an archive](install_ez_platform.md#a-download-ez-platform) from the Support Portal, or follow instructions below in order to use `composer create-project`.
 
@@ -19,16 +19,11 @@ They are available via [updates.ez.no](https://updates.ez.no).
     - Trial (limited access to try for up to 120 days):
         - [ttl](https://updates.ez.no/ttl/) eZ Platform Enterprise Trial packages
         - [ttl_com](https://updates.ez.no/ttl_com/) eZ Commerce Trial packages
+    - Enterprise Business User License (requires valid subscription):
         - [bul](https://updates.ez.no/bul/) available with an eZ Platform Enterprise subscription
         - [bul_com](https://updates.ez.no/bul_com/) available with an eZ Commerce subscription
 
     Once you have set up authentication below, the links above give you access to see the available packages and releases.
-
-    !!! note "Moving from trial"
-
-        If you started with a trial installation, you should adjust the channel(s) you use in order to get software under [BUL license instead of a TTL license](https://ez.no/About-our-Software/Licenses-and-agreements/).
-        Do this by editing `composer.json` in your project root and changing URL defined in the `repositories` section to point to the `bul*` URLs listed above.
-        Once that is done, you can execute `composer update` to get packages with the correct license.
 
     ## Set up authentication tokens
 
@@ -75,18 +70,33 @@ They are available via [updates.ez.no](https://updates.ez.no).
         They will become active again if the agreement is renewed, but this process may take up to 24 hours.
         _(If the agreement is renewed before the expiry date, there will be no disruption of service.)_
 
+    ## Create project
+
+    In order to install a new project using `composer create-project` to get latest version of eZ Enterprise,
+    you'll need to tell Composer which token to use before the project folder is created in the first place.
+    This can be done in the following way:
+
+    ``` bash
+    COMPOSER_AUTH='{"http-basic":{"updates.ez.no":{"username":"<installation-key>","password":"<token-password>"}}}' composer create-project --keep-vcs --repository=https://updates.ez.no/bul/ ezsystems/ezplatform-ee my-new-ee-project
+    ```
+
     !!! tip "Usage of authentication token with `composer create-project`"
 
         If you have several projects set up on your machine,
         they should all use different tokens set in `auth.json` file in project directory.
 
-        But in order to install a new project using `composer create-project` to get latest version of eZ Enterprise,
-        you'll need to tell Composer which token to use before the project folder is created in the first place.
-        This can be done in the following way:
+    !!! note "Moving from trial"
 
-        ``` bash
-        COMPOSER_AUTH='{"http-basic":{"updates.ez.no":{"username":"<installation-key>","password":"<token-password>"}}}' composer create-project --repository=https://updates.ez.no/bul/ ezsystems/ezplatform-ee my-new-ee-project
-        ```
+        If you started with a trial installation, you should [adjust the channel(s)](#edit-composerjson) you use in order to get software under [BUL license instead of a TTL license](https://ez.no/About-our-Software/Licenses-and-agreements/).
+
+    ## Edit composer.json
+
+    Edit `composer.json` in your project root and change the URL defined in the `repositories` section to point to the `bul*` URLs listed above.
+    Once that is done, you can execute `composer update` to get packages with the correct license.
+
+    !!! note
+
+        You can now refer back to [Installing eZ Platform](install_ez_platform/#provide-installation-parameters) for finishing steps of the installation process.
 
     ## Enable Date-based Publisher
 

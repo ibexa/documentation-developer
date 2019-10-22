@@ -42,13 +42,13 @@ which you must implement in your Field Type. The interface contains the followin
 
 The registration of a `Converter` currently works through the `$config` parameter of [`eZ\Publish\Core\Persistence\Legacy\Handler`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.0/eZ/Publish/Core/Persistence/Legacy/Handler.php).
 
-Those converters also need to be correctly exposed as services and tagged with `ezpublish.storageEngine.legacy.converter`:
+Those converters also need to be correctly exposed as services and tagged with `ezplatform.field_type.legacy_storage.converter`:
 
 ``` yaml
 services:
     eZ\Publish\Core\Persistence\Legacy\Content\FieldValue\Converter\TextLine:
         tags:
-            - {name: ezpublish.storageEngine.legacy.converter, alias: ezstring}
+            - {name: ezplatform.field_type.legacy_storage.converter, alias: ezstring}
 ```
 
 The tag has the following attribute:
@@ -114,7 +114,7 @@ The registry mechanism is realized as a base class for `FieldStorage` implementa
 ### Registering external storage
 
 To use external storage, you need to define a service implementing the `eZ\Publish\SPI\FieldType\FieldStorage` interface
-and tag it as `ezpublish.fieldType.externalStorageHandler` to be recognized by the Repository.
+and tag it as `ezplatform.field_type.external_storage_handler` to be recognized by the Repository.
 
 Here is an example for the `myfield` Field Type:
 
@@ -127,10 +127,10 @@ services:
 
     App\FieldType\MyField\Storage\MyFieldStorage: ~
         tags:
-            - {name: ezpublish.fieldType.externalStorageHandler, alias: myfield}
+            - {name: ezplatform.field_type.external_storage_handler, alias: myfield}
 ```
 
-The configuration requires providing the `ezpublish.fieldType.externalStorageHandler` tag, with the `alias` attribute being the *fieldTypeIdentifier*. You also have to inject the gateway in `arguments`, [see below](#gateway-based-storage).
+The configuration requires providing the `ezplatform.field_type.external_storage_handler` tag, with the `alias` attribute being the *fieldTypeIdentifier*. You also have to inject the gateway in `arguments`, [see below](#gateway-based-storage).
 
 External storage configuration for basic Field Types is located in [eZ/Publish/Core/settings/fieldtype_external_storages.yaml](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/fieldtype_external_storages.yml).
 

@@ -23,20 +23,6 @@ class ConfigurationContext implements Context
     {
         $this->basePath = $basePath;
     }
-
-    /**
-     * @Given I add necessary configuration
-     */
-    public function addImportToEzplatformConfig(): void
-    {
-        // HACK bypass repository not having siteacces set for Behat Contexts
-        $config = new ConfigurationEditor(sprintf('%s/app/config/config.yml', $this->basePath));
-        $config->add([
-            'ezpublish.system.default.var_dir' => 'var/site',
-        ]);
-        $this->clearCache();
-    }
-
     /**
      * @Given I set the Landing Page template configuration in :filePath
      */
@@ -143,7 +129,7 @@ class ConfigurationContext implements Context
         $config = new ConfigurationEditor(sprintf('%s/%s', $this->basePath, $filePath));
         $config->add([
             'ezplatform_page_fieldtype.blocks.random.name' => 'Random block',
-            'ezplatform_page_fieldtype.blocks.random.thumbnail' => 'assets/images/blocks/random_block.svg',
+            'ezplatform_page_fieldtype.blocks.random.thumbnail' => '/assets/images/blocks/random_block.svg#random',
             'ezplatform_page_fieldtype.blocks.random.views.random.template' => 'blocks/random/default.html.twig',
             'ezplatform_page_fieldtype.blocks.random.views.random.name' => 'Random Content Block View',
             'ezplatform_page_fieldtype.blocks.random.attributes.parent.type' => 'embed',
@@ -154,15 +140,48 @@ class ConfigurationContext implements Context
         ]);
     }
 
-    private function clearCache(): void
+	/**
+	 * @Given I create configuration of Form block to :filePath
+	 */
+	public function addFormBlockConfig($filePath): void
+	{
+		$config = new ConfigurationEditor(sprintf('%s/%s', $this->basePath, $filePath));
+		$config->add([
+			'ezplatform_page_fieldtype.blocks.form.views.newsletter.template' => 'blocks/form/newsletter.html.twig',
+			'ezplatform_page_fieldtype.blocks.form.views.newsletter.name' => 'Newsletter Form View',
+		]);
+	}
+
+	/**
+	 * @Given I create configuration of Form field to :filePath
+	 */
+	public function addFormFieldConfig($configPath): void
+	{
+		$config = new ConfigurationEditor(sprintf('%s/%s', $this->basePath, $configPath));
+		$config->add([
+			'ezpublish.system.site.field_templates' => [['template' => 'form_field.html.twig', 'priority' => 30,]],
+		]);
+	}
+
+	/**
+	 * @Given I create configuration of Captcha field to :filePath
+	 */
+	public function addCaptchaConfig($configPath): void
+	{
+		$config = new ConfigurationEditor(sprintf('%s/%s', $this->basePath, $configPath));
+		$config->add([
+			'gregwar_captcha.width' => '150',
+			'gregwar_captcha.invalid_message' => 'Please, enter again.',
+			'gregwar_captcha.reload' => 'true',
+			'gregwar_captcha.length' => '4',
+		]);
+	}
+
+    /**
+     * @Given I rebuild Webpack Encore assets
+     */
+    public function rebuildYarn(): void
     {
-        $application = new Application($this->kernel);
-        $application->setAutoExit(false);
-
-        $input = new ArrayInput([
-            'command' => 'cache:clear',
-        ]);
-
-        $application->run($input);
+        shell_exec("bin/console ezplatform:encore:compile");
     }
 }

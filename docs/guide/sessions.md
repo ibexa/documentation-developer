@@ -28,7 +28,7 @@ so you can also define session configuration per SiteAccess and SiteAccess group
 All site-related session configuration can be defined per SiteAccess and SiteAccess group:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         my_siteaccess:
             session:
@@ -86,7 +86,7 @@ Alternatively if you need to configure Memcached servers dynamically:
 
 - Create a Symfony service like this:
 
-```yml
+```yaml
     app.session.handler.native_memcached:
         class: eZ\Bundle\EzPublishCoreBundle\Session\Handler\NativeSessionHandler
         arguments:

@@ -35,7 +35,7 @@ Name provided in the hash for each Limitation is the same value set in the `alia
 For example:
 
 ``` php
-namespace Acme\FooBundle\AcmeFooBundle\Security;
+namespace App\Security;
 
 use eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\ConfigBuilderInterface;
 use eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Security\PolicyProvider\PolicyProviderInterface;
@@ -124,7 +124,7 @@ To provide support for editing custom policies in the Back Office you need to im
 
 Next, register the service in DIC (Dependency Injection Container) with the `ez.limitation.formMapper` tag and set the `limitationType` attribute to the Limitation type's identifier:
 
-```yml
+```yaml
 app.security.limitation.custom_limitation.mapper:
     class: 'App\Security\Limitation\Mapper\CustomLimitationFormMapper'
     arguments:
@@ -137,7 +137,7 @@ If you want to provide human-readable names of the custom Limitation values, you
 
 Then register the service in DIC with the `ez.limitation.valueMapper` tag and set the `limitationType` attribute to Limitation type's identifier:
 
-```yml
+```yaml
 app.security.limitation.custom_limitation.mapper:
     class: 'App\Security\Limitation\Mapper\CustomLimitationValueMapper'
     arguments:
@@ -157,10 +157,10 @@ create a Twig template containing block definition which follows the naming conv
 {% endblock %}
 ```
 
-Add it to the configuration under `ezpublish.system.<SCOPE>.limitation_value_templates`:
+Add it to the configuration under `ezplatform.system.<SCOPE>.limitation_value_templates`:
 
-```yml
-ezpublish:
+```yaml
+ezplatform:
     system:
         default:
             limitation_value_templates:

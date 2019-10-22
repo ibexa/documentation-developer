@@ -37,7 +37,7 @@ If you do not have a language defined in the browser, it will be selected based 
 To read more about language managing in eZ Platform, see the following doc pages:
 
 - [Back Office languages](../guide/internationalization/#back-office-languages)
-- [Setting up multi-language SiteAccesses and corresponding translations](../cookbook/setting_up_multi_language_siteaccesses/)
+- [Multi-language SiteAccesses and corresponding translations](../guide/multi_language_siteaccesses.md)
 
 #### How can I apply patches to the installation?
 

@@ -1,8 +1,8 @@
-# Step 2 - Prepare the Page
+# Step 2 — Prepare the Page
 
 !!! tip
 
-    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/ezstudio-beginner-tutorial/tree/v2-step2).
+    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/tree/v3-step2).
 
 In this step you'll prepare and configure your front page, together with its layout and templates.
 
@@ -18,7 +18,7 @@ Go to the front page of your website (`<yourdomain>`). You can see that it looks
 
     `php bin/console cache:clear`
 
-    `php bin/console assets:install`
+    `yarn encore <dev|prod>`
 
 Log in to the Back Office. Go to Content &gt; Content Structure.
 The **Home** Content item is the first page that is shown to the visitor.
@@ -26,7 +26,7 @@ Here you can check what Content Type it belongs to: it is a Landing Page.
 
 ![Home Content item is a Landing Page](img/enterprise_tut_home_is_an_lp.png)
 
-The page contains one Tag block and is displayed without any template.
+The page contains one Code block and is displayed without any template.
 Now go to the Page tab. This is the mode that enables you to work with Pages. Click Edit and you will see that the Home Page has only one zone with the block.
 
 ![Empty Page with default layout](img/enterprise_tut_empty_single_block.png)
@@ -42,7 +42,7 @@ Preparing a new layout requires three things:
 
 #### Create entry in configuration
 
-First create a new file for layout configuration, `app/config/layouts.yaml`:
+First create a new file for layout configuration, `config/packages/ezplatform_page_fieldtype.yaml`:
 
 ``` yaml hl_lines="3 5 7 8"
 ezplatform_page_fieldtype:
@@ -60,22 +60,15 @@ ezplatform_page_fieldtype:
                     name: Second zone
 ```
 
-Creating the file is not enough, you also need to tell the app to read and use it.
-Add the following line to `app/config/config.yaml`, at the end of the `imports` block:
-
-``` yaml
-- { resource: layouts.yaml }
-```
-
 #### Add thumbnail
 
 !!! tip
 
-    For a detailed description of creating a Page layout, see [Page layouts](../../guide/page_rendering.md#page-layouts):
+    For a detailed description of creating a Page layout, see [Page layouts](../../guide/page_rendering.md#page-layouts).
 
 The `sidebar` (line 3) is the internal key of the layout. `name` (line 5) is displayed in the interface when the user selects a layout.
 The `thumbnail` (line 7) points to an image file that is shown when creating a new Landing Page next to the name.
-Use the [supplied thumbnail file](https://github.com/ezsystems/ezstudio-beginner-tutorial/blob/v2-step2/web/assets/images/layouts/sidebar.png) and place it in the `web/assets/images/layouts/` folder.
+Use the [supplied thumbnail file](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step2/public/assets/images/layouts/sidebar.png) and place it in the `public/assets/images/layouts/` folder.
 
 The `template` (line 8) points to the Twig file containing the template for this layout.
 
@@ -84,9 +77,9 @@ The `template` (line 8) points to the Twig file containing the template for thi
 Configuration points to `sidebar.html.twig` as the template for the layout.
 The template defines what zones will be available in the layout.
 
-Create an `app/Resources/views/layouts/sidebar.html.twig` file:
+Create a `templates/layouts/sidebar.html.twig` file:
 
-``` html+twig hl_lines="2 7 15 20"
+``` html+twig hl_lines="2 7 19 24"
 <div class="landing-page__zones">
     <main class="landing-page__zone landing-page__zone--{{ zones[0].id }} col-xs-8" data-ez-zone-id="{{ zones[0].id }}">
         {% if zones[0].blocks %}
@@ -94,7 +87,7 @@ Create an `app/Resources/views/layouts/sidebar.html.twig` file:
 
             {% for block in zones[0].blocks %}
                 <div class="landing-page__block block_{{ block.type }}" data-ez-block-id="{{ block.id }}">
-                    {{ render_esi(controller('EzPlatformPageFieldTypeBundle\Controller\BlockController::renderAction', {
+                    {{ render_esi(controller('EzSystems\\EzPlatformPageFieldTypeBundle\\Controller\\BlockController::renderAction', {
                         'locationId': locationId,
                         'contentId': contentInfo.id,
                         'blockId': block.id,
@@ -111,7 +104,7 @@ Create an `app/Resources/views/layouts/sidebar.html.twig` file:
 
             {% for block in zones[1].blocks %}
                 <div class="landing-page__block block_{{ block.type }}" data-ez-block-id="{{ block.id }}">
-                    {{ render_esi(controller('EzPlatformPageFieldTypeBundle\Controller\BlockController::renderAction', {
+                    {{ render_esi(controller('EzSystems\\EzPlatformPageFieldTypeBundle\\Controller\\BlockController::renderAction', {
                         'locationId': locationId,
                         'contentId': contentInfo.id,
                         'blockId': block.id,
@@ -123,7 +116,6 @@ Create an `app/Resources/views/layouts/sidebar.html.twig` file:
         {% endif %}
     </aside>
 </div>
-
 ```
 
 The above template creates two columns and defines their widths. Each column is at the same time a zone, and each zone renders the blocks that it contains.
@@ -136,7 +128,7 @@ The above template creates two columns and defines their widths. Each column is 
 !!! note
 
     A zone in a layout template **must have** the `data-ez-zone-id` attribute (lines 2 and 19).
-    A block **must have** the `data-ez-block-id` attribute (lines 7 and 20)
+    A block **must have** the `data-ez-block-id` attribute (lines 7 and 24)
 
 With these three elements: configuration, thumbnail and template, the new layout is ready to use.
 
@@ -150,7 +142,7 @@ The empty zones you defined in the template will be visible in the editor.
 
 !!! tip
 
-    If the new layout is not available when editing the Page, you may need to clear the cache (using `php app/console cache:clear`) and/or reload the app.
+    If the new layout is not available when editing the Page, you may need to clear the cache (using `php bin/console cache:clear`) and/or reload the app.
 
 ![Empty page with new layout](img/enterprise_tut_new_layout.png)
 
@@ -162,7 +154,7 @@ This is because the looks of a Page are controller by two separate template file
 The `sidebar.html.twig` file defines how zones are organized and how content is displayed in them.
 But you also need a general template file that will be used for every Page, regardless of its layout.
 
-Add this new template, `app/Resources/views/full/landing_page.html.twig`:
+Add this new template, `templates/full/landing_page.html.twig`:
 
 ``` html+twig
 {% extends 'pagelayout.html.twig' %}
@@ -177,7 +169,7 @@ Add this new template, `app/Resources/views/full/landing_page.html.twig`:
 This template simply renders the page content. If there is any additional content or formatting you would like to apply to every Page, it should be placed in this template.
 
 Now you need to tell the app to use this template to render Pages.
-Edit the `app/config/views.yaml` file and add the following code under the `full:` key:
+Edit the `config/packages/views.yaml` file and add the following code under the `full:` key:
 
 ``` yaml
 landing_page:

@@ -6,7 +6,7 @@
 
 Persistence cache can best be described as an implementation of `SPI\Persistence` that decorates the main backend implementation, aka Storage Engine *(currently: "Legacy Storage Engine")*.
 
-As shown in the illustration, this is done in the exact same way as the SignalSlot feature is a custom implementation of `API\Repository` decorating the main Repository.
+As shown in the illustration, this is done in the exact same way as the Event layer is a custom implementation of `API\Repository` decorating the main Repository.
 In the case of Persistence Cache, instead of sending events on calls passed on to the decorated implementation, most of the load calls are cached, and calls that perform changes purge the affected caches.
 Cache handlers *(Memcached, Redis, Filesystem, etc.)* can be configured using Symfony configuration.
 For details on how to reuse this Cache service in your own custom code, see below.
@@ -64,7 +64,7 @@ Then, in `ezplatform.yaml` you can specify which cache pool you want to use on a
 The following example shows use in a SiteAccess group:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         # "site_group" refers to the group configured in site access
         site_group:
@@ -90,7 +90,7 @@ For other processes, the object will be refreshed when it expires or evicted whe
 
 In-Memory cache is configured globally, and has the following default settings:
 
-```yml
+```yaml
 parameters:
     # Config for metadata cache pool, here showing default config
     # ttl: Maximum number of  milliseconds objects are kept in-memory (3000ms = 3s)
@@ -120,7 +120,13 @@ parameters:
 Redis is used via [Redis pecl extension](https://pecl.php.net/package/redis).
 
 See [Redis Cache Adapter in Symfony documentation](https://symfony.com/doc/3.4/components/cache/adapters/redis_adapter.html#configure-the-connection)
-for information on how to configure Redis.
+for information on how to connect to Redis.
+Main difference is that eZ Platform ships with an optimized Adapter called RedisTagAwareAdapter
+(see `app/config/cache_pool/cache.redis.yml` for a configuration example).
+
+This optimized adapter depends on configuring an eviction policy
+which does *not* risk deleting Tag relation data when reaching memory limits.
+Currently, the recommended eviction policy is `volatile-lru`.
 
 Out of the box in `config/packages/cache_pool/cache.redis.yaml` you'll find a default example that can be used.
 
