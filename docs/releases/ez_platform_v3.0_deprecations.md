@@ -83,15 +83,15 @@ See [eZ Platform v3.0 project update instructions](./ez_platform_v3.0_project_up
 
 ## date-based-publisher
 
-No changes at the moment.
+No deprecations or backward compatibility breaks to document.
 
 ## doctrine-dbal-schema
 
-No changes at the moment.
+No deprecations or backward compatibility breaks to document.
 
 ## ez-support-tools
 
-No changes at the moment.
+No deprecations or backward compatibility breaks to document.
 
 ## ezplatform-admin-ui
 
@@ -317,7 +317,7 @@ Instead, use the following classes:
 
 ## ezplatform-admin-ui-assets
 
-No changes at the moment.
+No deprecations or backward compatibility breaks to document.
 
 ## ezplatform-admin-ui-modules
 
@@ -327,19 +327,19 @@ The deprecated `universal_discovery_widget_module.default_location_id` setting h
 
 ## ezplatform-core
 
-No changes at the moment.
+No deprecations or backward compatibility breaks to document.
 
 ## ezplatform-cron
 
-No changes at the moment.
+No deprecations or backward compatibility breaks to document.
 
 ## ezplatform-design-engine
 
-No changes at the moment.
+No deprecations or backward compatibility breaks to document.
 
 ## ezplatform-graphql
 
-No changes at the moment.
+No deprecations or backward compatibility breaks to document.
 
 ## ezplatform-http-cache
 
@@ -359,7 +359,7 @@ This entails that:
 
 ## ezplatform-ee-installer
 
-No changes at the moment.
+No deprecations or backward compatibility breaks to document.
 
 ## ezplatform-form-builder
 
@@ -396,15 +396,15 @@ Additionally, the listener for `pbPreviewReloaded` has been removed.
 
 ## ezplatform-page-fieldtype
 
-No changes at the moment.
+No deprecations or backward compatibility breaks to document.
 
 ## ezplatform-matrix-fieldtype
 
-No changes at the moment.
+No deprecations or backward compatibility breaks to document.
 
 ## ezplatform-rest
 
-No changes at the moment.
+No deprecations or backward compatibility breaks to document.
 
 ## ezplatform-richtext
 
@@ -440,11 +440,11 @@ content_view:
 
 ## ezplatform-solr-search-engine
 
-No changes at the moment.
+No deprecations or backward compatibility breaks to document.
 
 ## ezplatform-standard-design
 
-No changes at the moment.
+No deprecations or backward compatibility breaks to document.
 
 ## ezplatform-user
 
@@ -461,7 +461,7 @@ the following deprecated code for handling the settings has been dropped:
 
 ## ezplatform-workflow
 
-No changes at the moment.
+No deprecations or backward compatibility breaks to document.
 
 ## ezpublish-kernel
 
@@ -589,8 +589,8 @@ View parameter `pagelayout` set by `pagelayout` setting is deprecated in favor o
 
 ## flex-workflow
 
-No changes at the moment.
+No deprecations or backward compatibility breaks to document.
 
 ## repository-forms
 
-No changes at the moment.
+No deprecations or backward compatibility breaks to document.
