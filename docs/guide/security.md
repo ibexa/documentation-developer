@@ -13,6 +13,7 @@ security:
     firewalls:
         ezpublish_front:
             pattern: ^/
+            user_checker: eZ\Publish\Core\MVC\Symfony\Security\UserChecker
             anonymous: ~
             form_login:
                 require_previous_session: false
