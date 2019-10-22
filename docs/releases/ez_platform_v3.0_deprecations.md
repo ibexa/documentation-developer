@@ -342,7 +342,7 @@ No deprecations or backward compatibility breaks to document.
 
 ## ezplatform-design-engine
 
-No deprecations or backward compatibility breaks to document.
+The deprecated `Twig\Loader\ExistsLoaderInterface` has been removed.
 
 ## ezplatform-graphql
 
