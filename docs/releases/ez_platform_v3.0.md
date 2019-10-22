@@ -78,6 +78,10 @@ for full list of changes this entails.
 
 New helper method `window.eZ.helpers.contentType.getContentTypeName` replaces deprecated `ContentTypeNames`.
 
+### User Field Type
+
+User data is now treated as an external storage.
+
 ## Deprecations and removals
 
 ### SignalSlots
