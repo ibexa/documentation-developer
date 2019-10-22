@@ -112,7 +112,7 @@ No changes at the moment.
 |`encode_block_value`|`ez_block_value_encode`|
 |`ezplatform_page_builder_cross_origin_helper`|`ez_page_builder_cross_origin_helper`|
 
-### Twig helper names
+### Twig helper renamed
 
 Selected Twig helpers names have been changed.
 
@@ -219,11 +219,11 @@ The following deprecated items have been removed:
 |`limit`|`EzSystems\EzPlatformAdminUi\UI\Module\Subitems\ContentViewParameterSupplier`| - |
 |`contentTypeNames`|`window.eZ.adminUiConfig`|`contentTypes`|
 
-##### SubtreeQuery
+#### SubtreeQuery
 
 Deprecated `SubtreeQuery` class has been removed. In v3.0, it was replaced by `EzSystems\EzPlatformAdminUi\QueryType\SubtreeQueryType`.
 
-### Permission Choice Loaders
+#### Permission Choice Loaders
 
 The following choiceLoaders classes deprecated in v2.5 have been removed:
 
@@ -235,7 +235,7 @@ Instead, use the following classes:
 - `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\ContentCreateContentTypeChoiceLoader`
 - `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\ContentCreateLanguageChoiceLoader`
 
-### Template organization
+### Templates renamed
 
 The following templates used in the Back Office have been renamed:
 
