@@ -299,6 +299,13 @@ The following deprecated items have been removed:
 |`limit`|`EzSystems\EzPlatformAdminUi\UI\Module\Subitems\ContentViewParameterSupplier`| - |
 |`contentTypeNames`|`window.eZ.adminUiConfig`|`contentTypes`|
 
+Following the upgrade to Symfony 4, the following event classes have been deprecated:
+
+|Deprecated|Use instead|
+|----------|-----------|
+|`Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent`|`Symfony\Component\HttpKernel\Event\ExceptionEvent`|
+|`Symfony\Component\HttpKernel\Event\GetResponseEvent`|`Symfony\Component\HttpKernel\Event\RequestEvent`|
+
 ##### SubtreeQuery
 
 Deprecated `SubtreeQuery` class has been removed. In v3.0, it was replaced by `EzSystems\EzPlatformAdminUi\QueryType\SubtreeQueryType`.
