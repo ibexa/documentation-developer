@@ -192,50 +192,7 @@ Selected event names have been changed.
 |`ezsettings.default.content_tree_module.ignored_content_types`|`ezsettings.admin_group.content_tree_module.ignored_content_types`|
 |`ezsettings.default.content_tree_module.tree_root_location_id`|`ezsettings.admin_group.content_tree_module.tree_root_location_id`|
 
-### Online Editor
-
-All Online Editor front-end code and assets (such as JS, CSS, fonts, etc.)
-have been moved from `ezplatform-admin-ui` to `ezplatform-richtext`.
-
-### Adding new tabs in the Back Office
-
-The way of adding custom tab groups in the Back Office has changed.
-You now need to [make use of the `TabsComponent`](../guide/extending/extending_tabs.md#adding-a-new-tab-group).
-
-### Code cleanup
-
-The following deprecated items have been removed: 
-
-|Removed code|Belongs to|Use instead|
-|------------|----------|-----------|
-|`canEdit`|`EzSystems\EzPlatformAdminUiBundle\Controller\LanguageController::viewAction`|`can_administrate`|
-|`canAssign`|`EzSystems\EzPlatformAdminUiBundle\Controller\LanguageController::viewAction`|`can_administrate`|
-|`baseLanguage`|`EzSystems\EzPlatformAdminUi\EventListener\ContentTranslateViewFilterParametersListener::onFilterViewParameters`|`base_language`|
-|`contentType`|`EzSystems\EzPlatformAdminUi\EventListener\ContentTranslateViewFilterParametersListener::onFilterViewParameters`|`content_type`|
-|`isPublished`|`EzSystems\EzPlatformAdminUi\EventListener\ContentTranslateViewFilterParametersListener::onFilterViewParameters`|`ContentInfo::isPublished`|
-|`fieldDefinitionsByGroup`|`EzSystems\EzPlatformAdminUi\Tab\LocationView\ContentTab`| `field_definitions_by_group` |
-|`full`|`window.eZ.adminUiConfig.dateFormat`| `fullDateTime` |
-|`short`|`window.eZ.adminUiConfig.dateFormat`| `shortDateTime` |
-|`limit`|`EzSystems\EzPlatformAdminUi\UI\Module\Subitems\ContentViewParameterSupplier`| - |
-|`contentTypeNames`|`window.eZ.adminUiConfig`|`contentTypes`|
-
-#### SubtreeQuery
-
-Deprecated `SubtreeQuery` class has been removed. In v3.0, it was replaced by `EzSystems\EzPlatformAdminUi\QueryType\SubtreeQueryType`.
-
-#### Permission Choice Loaders
-
-The following choiceLoaders classes deprecated in v2.5 have been removed:
-
-- `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\PermissionAwareContentTypeChoiceLoader`
-- `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\PermissionAwareLanguageChoiceLoader`
-
-Instead, use the following classes:
-
-- `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\ContentCreateContentTypeChoiceLoader`
-- `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\ContentCreateLanguageChoiceLoader`
-
-### Templates renamed
+### Template organization
 
 The following templates used in the Back Office have been renamed:
 
@@ -314,6 +271,49 @@ The following templates used in the Back Office have been renamed:
 |Security/reset_user_password/success.html.twig|security/reset_user_password/success.html.twig|
 |user-profile/change_user_password.html.twig|user_profile/change_user_password.html.twig|
 |user-profile/form_fields.html.twig|user_profile/form_fields.html.twig|
+
+### Online Editor
+
+All Online Editor front-end code and assets (such as JS, CSS, fonts, etc.)
+have been moved from `ezplatform-admin-ui` to `ezplatform-richtext`.
+
+### Adding new tabs in the Back Office
+
+The way of adding custom tab groups in the Back Office has changed.
+You now need to [make use of the `TabsComponent`](../guide/extending/extending_tabs.md#adding-a-new-tab-group).
+
+### Code cleanup
+
+The following deprecated items have been removed: 
+
+|Removed code|Belongs to|Use instead|
+|------------|----------|-----------|
+|`canEdit`|`EzSystems\EzPlatformAdminUiBundle\Controller\LanguageController::viewAction`|`can_administrate`|
+|`canAssign`|`EzSystems\EzPlatformAdminUiBundle\Controller\LanguageController::viewAction`|`can_administrate`|
+|`baseLanguage`|`EzSystems\EzPlatformAdminUi\EventListener\ContentTranslateViewFilterParametersListener::onFilterViewParameters`|`base_language`|
+|`contentType`|`EzSystems\EzPlatformAdminUi\EventListener\ContentTranslateViewFilterParametersListener::onFilterViewParameters`|`content_type`|
+|`isPublished`|`EzSystems\EzPlatformAdminUi\EventListener\ContentTranslateViewFilterParametersListener::onFilterViewParameters`|`ContentInfo::isPublished`|
+|`fieldDefinitionsByGroup`|`EzSystems\EzPlatformAdminUi\Tab\LocationView\ContentTab`| `field_definitions_by_group` |
+|`full`|`window.eZ.adminUiConfig.dateFormat`| `fullDateTime` |
+|`short`|`window.eZ.adminUiConfig.dateFormat`| `shortDateTime` |
+|`limit`|`EzSystems\EzPlatformAdminUi\UI\Module\Subitems\ContentViewParameterSupplier`| - |
+|`contentTypeNames`|`window.eZ.adminUiConfig`|`contentTypes`|
+
+##### SubtreeQuery
+
+Deprecated `SubtreeQuery` class has been removed. In v3.0, it was replaced by `EzSystems\EzPlatformAdminUi\QueryType\SubtreeQueryType`.
+
+### Permission Choice Loaders
+
+The following choiceLoaders classes deprecated in v2.5 have been removed:
+
+- `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\PermissionAwareContentTypeChoiceLoader`
+- `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\PermissionAwareLanguageChoiceLoader`
+
+Instead, use the following classes:
+
+- `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\ContentCreateContentTypeChoiceLoader`
+- `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\ContentCreateLanguageChoiceLoader`
 
 ## ezplatform-admin-ui-assets
 
