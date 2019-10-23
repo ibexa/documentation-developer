@@ -1,17 +1,18 @@
-# Step 6 - Implement Point2D settings
+# Step 6 - Implement Point 2D settings
 
 Implementing settings allows you to define in what format the field is shown on the page.
-To do so, you will create the `format` field where you will be able to change the way coordinates for Point2D are displayed.
+To do so, you will create the `format` field where you will be able to change the way coordinates for Point 2D are displayed.
 
 ## Define Field Type format
 
-In this step you will create the `format` field for Point2D coordinates.
+In this step you will create the `format` field for Point 2D coordinates.
 To do that, you need to define `SettingsSchema` definition.
 The coordinates should be displayed as strings with default names `x` and `y`.
 
 Open `src/FieldType/Point2D/Type.php` and change it according to the following code block:
 
 ```php
+<?php
 namespace App\FieldType\Point2D;
 
 use App\Form\Type\Point2DSettingsType;
@@ -22,7 +23,6 @@ use EzSystems\RepositoryForms\Data\FieldDefinitionData;
 
 final class Type extends GenericType implements FieldValueFormMapperInterface
 {
-
     public function getSettingsSchema(): array
     {
         return [
@@ -32,9 +32,10 @@ final class Type extends GenericType implements FieldValueFormMapperInterface
             ],
         ];
     }
+}
 ```
 
-## Adding format field
+## Add a format field
 
 Define `Point2DSettingsType` class and add `format` field in `src/Form/Type/Point2DSettingsType.php`:
 
@@ -42,9 +43,13 @@ Define `Point2DSettingsType` class and add `format` field in `src/Form/Type/Poin
 <?php
 declare(strict_types=1);
 namespace App\Form\Type;
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+
+...
+
 final class Point2DSettingsType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -63,6 +68,7 @@ In `src/FieldType/Point2D/Type.php` you will:
 - add a `mapFieldDefinitionForm` at the end, it will define the field settings
 
 ```php
+<?php
 namespace App\FieldType\Point2D;
 
 use EzSystems\RepositoryForms\FieldType\FieldDefinitionFormMapperInterface;
@@ -105,7 +111,7 @@ Create `templates/field_type_definition.html.twig`:
 {% endblock %}
 ```
 
-### Add configuration for Format
+### Add configuration for the format field
 
 Next, provide the template mapping in `config/packages/ezplatform.yaml`:
 
@@ -117,15 +123,9 @@ system:
             - { template: 'field_type_definition.html.twig', priority: 0 }
 ```
 
-## Add a new field
-
-You can go to Back-Office and see the results of your work by adding a new Content Type.
-
-TODO: add screenshots
-
 ## Redefine template
 
-Finally redefine the Point2D template so it accommodates the new `format` field.
+Finally redefine the Point 2D template so it accommodates the new `format` field.
 
 In `templates/field_type.html.twig` replace the content with:
 
@@ -138,3 +138,8 @@ In `templates/field_type.html.twig` replace the content with:
 {% endblock %}
 ```
 
+## Add a new Content Type
+
+Now, you can go to the Back-Office Admin Panel and see the results of your work by adding a new Content Type.
+
+![Point 2D definition with format field](img/field_definition_format_field.png)

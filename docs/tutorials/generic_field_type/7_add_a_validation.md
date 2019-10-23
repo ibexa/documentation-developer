@@ -7,6 +7,8 @@
 To provide basic validation that ensures both coordinates are provided add assertion to the `src/FieldType/Point2D/Value.php`:
 
 ```php
+<?php
+
 use Symfony\Component\Validator\Constraints as Assert;
 
 final class Value implements ValueInterface
@@ -26,3 +28,7 @@ final class Value implements ValueInterface
      */
     private $y;
 ```
+
+As a result, if a user will try to publish the Point 2D with just one value, they will receive an error message.
+
+![Point 2D validation](img/point2d_validation.png)
