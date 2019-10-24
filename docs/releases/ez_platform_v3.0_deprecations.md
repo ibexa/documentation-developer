@@ -194,6 +194,8 @@ Selected event names have been changed.
 
 ### Template organization
 
+#### Templates renamed
+
 The following templates used in the Back Office have been renamed:
 
 |Former name|New name|
@@ -271,6 +273,17 @@ The following templates used in the Back Office have been renamed:
 |Security/reset_user_password/success.html.twig|security/reset_user_password/success.html.twig|
 |user-profile/change_user_password.html.twig|user_profile/change_user_password.html.twig|
 |user-profile/form_fields.html.twig|user_profile/form_fields.html.twig|
+
+#### Templates relocated
+
+The `credentials_expired.html.twig` template has been relocated:
+
+Former location|New location|
+|---------------|------------|
+|`src/bundle/Resources/views/Security/error`|`src/bundle/Resources/views/themes/admin/account/error`|
+
+You can refer to this template as: `@ezdesign/account/error/credentials_expired.html.twig`.
+For details, see [Template configuration](#template-configuration).
 
 ### Online Editor
 
