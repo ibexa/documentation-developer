@@ -161,9 +161,7 @@ services:
         parent: EzSystems\PlatformInstallerBundle\Installer\DbBasedInstaller
 ```
 
-## Other project adjustments
-
-### Configure user checker
+## User checker
 
 Add the user checker to firewall by adding the following line to `config/packages/security.yaml`:
 
