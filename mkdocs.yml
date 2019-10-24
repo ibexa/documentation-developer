@@ -264,7 +264,8 @@ extra:
     ft: ['2.2', '2.3','2.4']
     dev: ['master']
   append_bootstrap:
-    - '/guidelines/'
+    - '/guidelines/components/'
+    - '/guidelines/resources/'
     - '/index.md'
   related_docs:
     - title: 'eZ Platform Developer Documentation'
