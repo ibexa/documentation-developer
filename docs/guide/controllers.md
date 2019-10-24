@@ -176,10 +176,9 @@ The Query controller makes it easy to retrieve content without writing custom PH
 
 This example assumes a "Blog" container that contains a set of "Blog post" items. The goal is, when viewing a Blog, to list the Blog posts it contains.
 
-Four items are required:
+Three items are required:
 
 - a `LocationChildren` QueryType - It will generate a Query retrieving the children of a given Location id
-- service registration of the QueryType
 - a View template - It will render the Blog, and list the Blog posts it contains
 - a `content_view` configuration - It will instruct Platform, when viewing a Content item of type Blog, to use the Query Controller, the view template, and the `LocationChildren` QueryType. It will also map the id of the viewed Blog to the QueryType parameters, and set which Twig variable the results will be assigned to.
 
@@ -215,20 +214,6 @@ class LocationChildrenQueryType implements QueryType
     }
 }
 ```
-
-#### Service registration
-
-The QueryType must be registered as a service with the `ezpublish.query_type` tag:
-
-``` yaml
-App\QueryType\LocationChildrenQueryType:
-    tags:
-        - { name: ezpublish.query_type }
-```
-
-If it is located in the `QueryType` subfolder of a bundle in a file named `<Something>QueryType.php`,
-a QueryType will be registered automatically.
-However, if it has dependencies, you still need to register it manually, even from a bundle.
 
 #### The `content_view` configuration
 
@@ -402,25 +387,24 @@ QueryType names should use a unique namespace, in order to avoid conflicts with 
 
 ### Registering the QueryType into the service container
 
-In addition to creating a class for a `QueryType`, you must also register the QueryType with the Service Container. This can be done in two ways: by convention, and with a service tag.
+QueryTypes which implement the `QueryType` interface are registered automatically
+if your services are set to `autoconfigure: true` in `_defaults`.
 
-#### By convention
-
-Any class named `<Bundle>\QueryType\*QueryType` that implements the QueryType interface will be registered as a custom QueryType.
-Example: `AcmeExampleBundle\QueryType\LatestContentQueryType`.
-
-#### Using a service tag
-
-QueryTypes can be manually tagged in the service declaration.
-You need to do this when your QueryType is located in your project, not in a separate bundle:
+Otherwise, you can register your QueryType with a service tag:
 
 ``` yaml
-App\QueryType\LatestContent:
+App\Query\LatestContent:
     tags:
-        - {name: ezpublish.query_type}
+        - { name: ezpublish.query_type }
 ```
 
-The effect is exactly the same as when registering by convention.
+You can also use an explicit alias instead of the name:
+
+``` yaml
+App\Query\LatestContent:
+    tags:
+        - { name: ezpublish.query_type, alias: LatestContent }
+```
 
 !!! tip "More information"
 
