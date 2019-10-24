@@ -8,7 +8,7 @@ We design and build a new generation of content management software. This has be
 
 ## Simple
 
-Our interface is the result of our vision: to deliver tools that simplify the way people — developers, designers, editors and marketers — interact with content.</div>
+Our interface is the result of our vision: to deliver tools that simplify the way people — developers, designers, editors and marketers — interact with content.
 
 ## Content-centric
 
