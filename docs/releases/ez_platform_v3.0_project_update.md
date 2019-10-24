@@ -160,3 +160,16 @@ services:
     Acme\App\Installer\MyCustomInstaller:
         parent: EzSystems\PlatformInstallerBundle\Installer\DbBasedInstaller
 ```
+
+## User checker
+
+Add the user checker to firewall by adding the following line to `config/packages/security.yaml`:
+
+``` yaml
+security:
+    firewalls:
+        ezpublish_front:
+            # ...
+            user_checker: eZ\Publish\Core\MVC\Symfony\Security\UserChecker
+            # ...
+```
