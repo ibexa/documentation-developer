@@ -262,11 +262,12 @@ Results from the search are assigned to the `blog_posts` variable as a `SearchRe
 
 #### `controller`
 
-Three Controller Actions are available, each for a different type of search:
+Four Controller actions are available:
 
 - `locationQueryAction` runs a Location Search
 - `contentQueryAction` runs a Content Search
 - `contentInfoQueryAction` runs a Content Info search
+- `pagingQueryAction` returns a `pagerFanta` object and can be used to quickly [paginate query results](#paginating-with-querytypes)
 
 See the [Search](search.md) documentation page for more details about different types of search.
 
@@ -409,6 +410,38 @@ App\Query\LatestContent:
 !!! tip "More information"
 
     Follow the FieldType creation Tutorial and learn how to [Register the Field Type as a service](../tutorials/field_type/4_register_the_field_type_as_a_service.md).
+
+### Paginating with QueryTypes
+
+Using the `ez_query:pagingQueryAction` you can quickly get paginated results of a query:
+
+``` yaml hl_lines="4 13"
+content_view:
+    full:
+        folder:
+            controller: ez_query:pagingQueryAction
+            template: full/folder.html.twig
+            match:
+                Identifier\ContentType: folder
+            params:
+                query:
+                    query_type: LocationChildren
+                    parameters:
+                        parentLocationId: '@=location.id'
+                    limit: 5
+                    assign_results_to: items
+```
+
+`limit` defines how many query results are listed on a page.
+
+Pagination controls are provided in the `pagerfanta` Twig variable:
+
+``` html+twig hl_lines="4"
+{% for item in items %}
+    <h2><a href={{ path('ez_urlalias', {'contentId': item.valueObject.contentInfo.id}) }}>{{ ez_content_name(item.valueObject.contentInfo) }}</a></h2>
+{% endfor %}
+{{ pagerfanta( items, 'ez', {'routeName': location } ) }}
+```
 
 ### The OptionsResolverBasedQueryType abstract class
 
