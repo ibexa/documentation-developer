@@ -276,13 +276,11 @@ The following templates used in the Back Office have been renamed:
 
 #### Templates relocated
 
-The `credentials_expired.html.twig` template has been relocated:
 
-Former location|New location|
-|---------------|------------|
-|`src/bundle/Resources/views/Security/error`|`src/bundle/Resources/views/themes/admin/account/error`|
+|Template name|Former location|New location|
+|------------|---------------|------------|
+|`@ezdesign/account/error/credentials_expired.html.twig`|`src/bundle/Resources/views/Security/error`|`src/bundle/Resources/views/themes/admin/account/error`|
 
-You can refer to this template as: `@ezdesign/account/error/credentials_expired.html.twig`.
 For details, see [Template configuration](#template-configuration).
 
 ### Online Editor
