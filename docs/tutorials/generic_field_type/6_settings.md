@@ -1,12 +1,12 @@
 # Step 6 - Implement Point 2D settings
 
-Implementing settings allows you to define in what format the field is shown on the page.
+Implementing settings enables you to define in what format the Field is shown on the page.
 To do so, you will create the `format` field where you will be able to change the way coordinates for Point 2D are displayed.
 
 ## Define Field Type format
 
 In this step you will create the `format` field for Point 2D coordinates.
-To do that, you need to define `SettingsSchema` definition.
+To do that, you need to define a `SettingsSchema` definition.
 The coordinates should be displayed as strings with default names `x` and `y`.
 
 Open `src/FieldType/Point2D/Type.php` and change it according to the following code block:
@@ -61,10 +61,10 @@ final class Point2DSettingsType extends AbstractType
 
 ## FieldDefinitionFormMapper Interface
 
-Now, enable user to add the coordinates which will be validated.
+Now, enable the user to add the coordinates which will be validated.
 In `src/FieldType/Point2D/Type.php` you will:
  
-- inject `FieldDefinitionFormMapperInterface` extension implementing `EzSystems\RepositoryForms\FieldType\FieldDefinitionFormMapperInterface`
+- inject the `FieldDefinitionFormMapperInterface` extension implementing `EzSystems\RepositoryForms\FieldType\FieldDefinitionFormMapperInterface`
 - add a `mapFieldDefinitionForm` at the end, it will define the field settings
 
 ```php
@@ -73,11 +73,11 @@ namespace App\FieldType\Point2D;
 
 use EzSystems\RepositoryForms\FieldType\FieldDefinitionFormMapperInterface;
 
-...
+// ...
 
 final class Type extends GenericType implements FieldValueFormMapperInterface, FieldDefinitionFormMapperInterface
 
-...
+// ...
 
     public function mapFieldDefinitionForm(FormInterface $fieldDefinitionForm, FieldDefinitionData $data)
     {
@@ -98,7 +98,7 @@ tags:
 
 ## Field Type definition
 
-To be able to display new `format` field, you need to add a template for it.
+To be able to display the new `format` field, you need to add a template for it.
 Create `templates/field_type_definition.html.twig`:
 
 ```html+twig

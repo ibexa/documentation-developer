@@ -6,7 +6,7 @@
 
 ## Point 2D template
 
-In order to display data of the Field Type, you need to create and register a template for it.
+In order to display data from the Field Type, you need to create and register a template for it.
 Each Field Type template receives a set of variables that can be used to achieve the desired goal.
 In this case the most important variable is the `field`, an instance of `eZ\Publish\API\Repository\Values\Content\Field`.
 In addition to its own metadata (`id`, `fieldDefIdentifier`, etc.), it exposes the Field Value through the `value` property.
@@ -14,7 +14,7 @@ In addition to its own metadata (`id`, `fieldDefIdentifier`, etc.), it exposes t
 Remember that [Field Type templates can be overridden](../../guide/twig_functions_reference.md#override-a-field-template-block) in order to tweak what is displayed and how.
 For more information see the documentation about [Field Type templates](../../api/field_type_form_and_template.md#content-view-templates).
 
-First, create a `field_type.html.twig` template in `templates` directory.
+First, create a `field_type.html.twig` template in the `templates` directory.
 It will define the default display of a Point 2D.
 Your basic template for Point 2D should look like this:
 

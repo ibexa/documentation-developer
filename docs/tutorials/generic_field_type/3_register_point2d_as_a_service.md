@@ -6,10 +6,10 @@
 
 ## Create a form
 
-To be able to edit your new Field Type, you need to create a `Point2DType.php` form in `src/Form/Type` directory.
-Next add a `Point2DType` class that extends an `abstractType` and implement the `buildForm()` method.
+To be able to edit your new Field Type, you need to create a `Point2DType.php` form in the `src/Form/Type` directory.
+Next add a `Point2DType` class that extends the `AbstractType` and implements the `buildForm()` method.
 This method adds fields for `x` and `y` coordinates.
-It also allows you to skip implementation of Data Transformer.
+It also enables you to skip implementation of Data Transformer.
 
 ```php
 <?php
@@ -34,15 +34,16 @@ final class Point2DType extends AbstractType
 
 ## Add a Form Mapper Interface
 
-The FormMapper adds the Field definitions into Symfony forms by `add()` method. 
+The FormMapper adds the Field definitions into Symfony forms using the `add()` method. 
 You will add it to be able to edit the fields later on.
 For more information about the FormMappers see [Field Type form and template](../../api/field_type_form_and_template.md).
 
 First add a `FieldValueFormMappperInterface` interface (`EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface`) to Field Type definition in the `src/FieldType/Point2D/Type.php`.
 
 Next add a `mapFieldValueForm()` with the following arguments:
-- Name of the property the field value will map to: `value`
-- Type of the field: `Point2DType::class`
+
+- Name of the property the Field value will map to: `value`
+- Type of the Field: `Point2DType::class`
 - Custom options: `required` and `label`
 
 Final version of the Type class should have the following statements and functions:
@@ -74,7 +75,7 @@ final class Type extends GenericType implements FieldValueFormMapperInterface
 }
 ```
 
-Finally add a field that will allow you to add values to the Field Type in the content edition form `src/Form/Type/Point2DType.php`:
+Finally add a field that will enable you to add values to the Field Type in the content edition form `src/Form/Type/Point2DType.php`:
 
 ```php
 <?php

@@ -29,6 +29,6 @@ final class Value implements ValueInterface
     private $y;
 ```
 
-As a result, if a user will try to publish the Point 2D with just one value, they will receive an error message.
+As a result, if a user tries to publish the Point 2D with just one value, they will receive an error message.
 
 ![Point 2D validation](img/point2d_validation.png)

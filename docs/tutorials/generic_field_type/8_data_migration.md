@@ -4,10 +4,10 @@
 
     You can find all files used and modified in this step on [GitHub]().
 
-Adding data migration allows you to easily change the output of the Field Type to fit your current needs.
-This process is important when Field Type needs to be compared for sorting and searching purposes
-Serialization allows objects to change into array by normalizing them, and then into selected format by encoding them.
-In revers deserialization changes different formats into arrays by decoding and then denormalizing them into objects.
+Adding data migration enables you to easily change the output of the Field Type to fit your current needs.
+This process is important when a Field Type needs to be compared for sorting and searching purposes.
+Serialization allows changing objects to array by normalizing them, and then to the selected format by encoding them.
+In reverse, deserialization changes different formats into arrays by decoding and then denormalizing them into objects.
 
 For more information on Serializer Components follow [Symfony documentation.](https://symfony.com/doc/4.3/components/serializer.html)
 
@@ -41,7 +41,7 @@ final class ValueNormalizer implements NormalizerInterface
 
 ##  Add Normalizer class
 
-Next, add a `serializer.normalizer` class to the `config/services.yml`:
+Next, add the `ValueNormalizer` class to the `config/services.yml` with a `serializer.normalizer` tag:
  
 ```yaml
 services:
@@ -53,7 +53,7 @@ services:
 
 ## Backward compatibility
 
-To accept old versions of the Field Type you need to add support for the denormalization in a `src/Serializer/Point2D/ValueDenormalizer.php`:
+To accept old versions of the Field Type you need to add support for denormalization in a `src/Serializer/Point2D/ValueDenormalizer.php`:
 
 ```php
 <?php

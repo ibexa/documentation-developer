@@ -28,7 +28,7 @@ The Point 2D Value class will contain:
 - an implementation of the `__toString()` method, required by the Value interface it inherits from
 
 By default, the constructor from `FieldType\Value` will be used.
-It allows you to pass a hash of property/value pairs.
+It enables you to pass a hash of property/value pairs.
 
 The Point 2D is going to store two elements:
 
@@ -50,7 +50,7 @@ private $y;
 }
 ```
 
-To match the `FieldType\Value` interface you also need to add a `getX()`,  `setX`, `getY`, `setY`, `__toString()` methods, in addition to the constructor.
+To match the `FieldType\Value` interface you also need to add `getX()`,  `setX`, `getY`, `setY`, `__toString()` methods to the constructor.
 A Value class must also implement the `eZ\Publish\SPI\FieldType\Value` interface.
 It will return the point 2D.
 The final code should look like this:
