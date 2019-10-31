@@ -232,7 +232,7 @@ It can be used for example to identify the first image in an article to render i
 |---------------|--------------------------------------------------------|-------------------------------------------|
 | `field`       | `eZ\Publish\API\Repository\Values\Content\Field`       | The image Field                           |
 | `versionInfo` | `eZ\Publish\API\Repository\Values\Content\VersionInfo` | The VersionInfo that the Field belongs to |
-| `variantName` | `string`                                               | Name of the image variation to be used        |
+| `variantName` | `string`                                               | Name of the image variation to be used. To display original image alias, use `original` as an image variation. |
 
 See [images](images.md) for more information about image variations.
 
