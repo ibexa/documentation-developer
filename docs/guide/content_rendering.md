@@ -193,6 +193,9 @@ parameters:
     ezplatform.default_view_templates.content.full: "content/view/full.html.twig"
 ```
 
+Alternatively, the design engine can be used for this. If your theme is `site`, create `themes/site/default/content/{viewType}.html.twig` to use it instead of the core one.
+
+
 ##### Customizing the default controller
 
 The controller used to render content by default can also be changed. The `ezsettings.default.content_view_defaults` container parameter contains a hash that defines how content is rendered by default. It contains a set of [content view rules for the common view types](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/default_settings.yaml#L37-L65). This hash can be redefined to whatever suits your requirements, including custom controllers, or even matchers.
