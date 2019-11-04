@@ -267,7 +267,7 @@ Four Controller actions are available:
 - `locationQueryAction` runs a Location Search
 - `contentQueryAction` runs a Content Search
 - `contentInfoQueryAction` runs a Content Info search
-- `pagingQueryAction` returns a `pagerFanta` object and can be used to quickly [paginate query results](#paginating-with-querytypes)
+- `pagingQueryAction` returns a `PagerFanta` object and can be used to quickly [paginate query results](#paginating-with-querytypes)
 
 See the [Search](search.md) documentation page for more details about different types of search.
 
@@ -388,21 +388,18 @@ QueryType names should use a unique namespace, in order to avoid conflicts with 
 
 ### Registering the QueryType into the service container
 
-QueryTypes which implement the `QueryType` interface are registered automatically
-if your services are set to `autoconfigure: true` in `_defaults`.
+QueryTypes must be registered as Symfony Services and implement the `\eZ\Publish\Core\QueryType\QueryType` interface.
+A `QueryType` service is registered automatically when `autoconfigure: true` is set either for that service or in `_defaults`.
+
+!!! tip
+
+    In the default eZ Platform installation services are autoconfigured by default for the `App` namespace,
+    so no additional registration is required.
 
 Otherwise, you can register your QueryType with a service tag:
 
 ``` yaml
-App\Query\LatestContent:
-    tags:
-        - { name: ezpublish.query_type }
-```
-
-You can also use an explicit alias instead of the name:
-
-``` yaml
-App\Query\LatestContent:
+App\QueryType\LatestContent:
     tags:
         - { name: ezpublish.query_type, alias: LatestContent }
 ```
@@ -434,7 +431,11 @@ content_view:
 
 `limit` defines how many query results are listed on a page.
 
-Pagination controls are provided in the `pagerfanta` Twig variable:
+!!! tip
+
+    See [Content view configuration](#the-content_view-configuration) for details on this configuration.
+
+Pagination controls are provided in the `pagerfanta` Twig function:
 
 ``` html+twig hl_lines="4"
 {% for item in items %}
