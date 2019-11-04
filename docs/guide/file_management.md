@@ -100,6 +100,17 @@ It also accepts optional query parameters:
 
 The [ez\_render\_field](twig_functions_reference.md#ez_render_field) Twig helper will by default generate a working link.
 
+### Download link generation
+
+To generate a direct download link for the `File` Field Type you have to create
+a Route Reference with the `ez_route` helper, passing `content` and `File` Field identifier as parameters.
+Optional parameter `inLanguage` may be used to specify File content translation.
+
+```twig
+  {% set routeReference = ez_route( 'ez_content_download', {'content': content, 'fieldIdentifier': 'file', 'inLanguage': content.prioritizedFieldLanguageCode  } ) %}
+  <a href="{{ path( routeReference ) }}">Download</a>
+```
+
 ### REST API: `uri` property
 
 The `uri` property of Binary Fields in REST contains a valid download URL, of the same format as the Public API, prefixed with the same host as the REST Request.
