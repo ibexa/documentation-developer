@@ -552,7 +552,7 @@ class SvgExtension extends AbstractExtension
 }
 ```
 
-Thanks to that we can load SVG files in our templates using generated links and newly created Twig helper:
+Now you can load SVG files in your templates using generated links and newly created Twig helper:
 
 ```twig
 {% set svgField = ez_field(content, 'image_identifier') %}
