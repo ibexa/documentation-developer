@@ -496,7 +496,7 @@ class SvgController extends Controller
 }
 ```
 
-To be able to use a proper link in your templates you also need a dedicated Twig extension:
+To be able to use a proper link in your templates, you also need a dedicated Twig extension:
 
 ```php
 <?php
