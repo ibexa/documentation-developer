@@ -19,8 +19,8 @@ You can then proceed with consecutive upgrades to further versions: v1.13 LTS an
 
     1. Additionally there are some other topics to be aware of for the code migration from eZ Publish to eZ Platform:
 
+        - Symfony deprecations. The recommended version to migrate to is eZ Platform v2.5 LTS, which is using Symfony 3.4 LTS.
         - [Field Types reference](../api/field_type_reference.md) for overview of Field Types that do and don't exist in eZ Platform
-        - Symfony 2.8, this is also the case on later 5.4.x versions, but not the first ones including 2014.11
         - API changes. While we have a strict backwards compatibility focus, some deprecated API features were removed and some changes were done to internal parts of the system. See [ezpublish-kernel:doc/bc/changes-6.0.md](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.0/doc/bc/changes-6.0.md)
 
 !!! note
