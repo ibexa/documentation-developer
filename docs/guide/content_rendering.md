@@ -193,7 +193,8 @@ parameters:
     ezplatform.default_view_templates.content.full: "content/view/full.html.twig"
 ```
 
-Alternatively, the design engine can be used for this. If your theme is `site`, create `themes/site/default/content/{viewType}.html.twig` to use it instead of the core one.
+Alternatively, you can do it using the design engine. For example, if your theme is `site`,
+create `themes/site/default/content/<viewType>.html.twig` to override the core template.
 
 
 ##### Customizing the default controller
