@@ -131,7 +131,7 @@ The following props are deprecated:
 
 ### Configuration
 
-You can configure Universal Discovery module in [universal_discovery_widget.yml file.](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/config/universal_discovery_widget.yml)
+You can configure Universal Discovery module in [universal_discovery_widget.yml file.](https://github.com/ezsystems/ezplatform-admin-ui/blob/1.5/src/bundle/Resources/config/universal_discovery_widget.yml)
 There you can set e.g. visible tabs, allowed Content Types, search limits etc.
 
 ```yaml
