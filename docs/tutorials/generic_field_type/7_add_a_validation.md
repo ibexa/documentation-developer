@@ -27,6 +27,8 @@ final class Value implements ValueInterface
      * @Assert\NotBlank()
      */
     private $y;
+    
+ // ...   
 ```
 
 As a result, if a user tries to publish the Point 2D with just one value, they will receive an error message.

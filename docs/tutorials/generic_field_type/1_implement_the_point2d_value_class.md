@@ -6,9 +6,12 @@
 
 ## Project installation
 
-Start by [installing eZ Platform](../../getting_started/install_ez_platform/), [configuring a server](../../getting_started/requirements/),
-and [starting the web server](../../getting_started/install_ez_platform/#use-phps-built-in-server).
- 
+To start the tutorial, you need to make a clean eZ Platform installation.
+Following the guide for your system [install eZ Platform](../../getting_started/install_ez_platform.md),
+[configure a server](../../getting_started/requirements.md),
+and [start the web server](../../getting_started/install_ez_platform.md#use-phps-built-in-server).
+Remember to install using the `dev` environment.
+
 Open your project with a clean installation and create the base directory for a new Point 2D Field Type in `src/FieldType/Point2D`.
 
 ## The Value class
@@ -16,7 +19,7 @@ Open your project with a clean installation and create the base directory for a 
 The Value class of a Field Type is by design very simple.
 It is used to represent an instance of the Field Type within a Content item.
 Each Field presents its data using an instance of the Type's Value class.
-For more information about Field Type Value see [Value handling](../../api/field_type_type_and_value/#value-handling).
+For more information about Field Type Value see [Value handling](../../api/field_type_type_and_value.md#value-handling).
 
 !!! tip
 
@@ -40,13 +43,13 @@ At this point, it does not matter where they are stored. You want to focus on wh
 `src/FieldType/Point2D/Value.php` should have the following properties:
 
 ```php
-<?php
 {
 //Properties of the class Value
-/** @var float|null */
-private $x;
-/** @var float|null */
-private $y;
+
+    /** @var float|null */
+    private $x;
+    /** @var float|null */
+    private $y;
 }
 ```
 

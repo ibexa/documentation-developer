@@ -23,14 +23,12 @@ This tutorial is aimed at developers who are familiar with eZ Platform and are c
 
 ## Content of the tutorial
 
-This tutorial will demonstrate how to create a Field Type on the example of the Generic Field Type.
-It will show you how to use the Generic Field Type as a template for a custom Field Type. 
+This tutorial will show you how to use the Generic Field Type as a template for a custom Field Type. You will:
 
-## Preparation
-
-To start the tutorial, you need to make a clean eZ Platform installation.
-Follow the guide for your system from [Install eZ Platform](../../getting_started/install_ez_platform.md).
-Remember to install using the `dev` environment.
+- Create a custom Point 2D Field Type with two coordinates as an input e.g. (4,5)
+- Register the new Field Type as a service and define its template
+- Add basic validation to your Point 2D
+- Add a data migration to the Field Type so you will be able to easily change its output
 
 ## Steps
 

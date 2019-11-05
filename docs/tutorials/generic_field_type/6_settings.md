@@ -13,16 +13,27 @@ Open `src/FieldType/Point2D/Type.php` and change it according to the following c
 
 ```php
 <?php
+declare(strict_types=1);
+
 namespace App\FieldType\Point2D;
 
 use App\Form\Type\Point2DSettingsType;
+use App\Form\Type\Point2DType;
 use eZ\Publish\API\Repository\Values\ContentType\FieldDefinition;
+use eZ\Publish\SPI\FieldType\Generic\Type as GenericType;
 use eZ\Publish\SPI\FieldType\Value;
+use EzSystems\RepositoryForms\Data\Content\FieldData;
 use EzSystems\RepositoryForms\Data\FieldDefinitionData;
+use EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface;
+use Symfony\Component\Form\FormInterface;
 
+final class Type extends GenericType
 
-final class Type extends GenericType implements FieldValueFormMapperInterface
 {
+    public function getFieldTypeIdentifier(): string
+    {
+        return 'point2d';
+    }
     public function getSettingsSchema(): array
     {
         return [
@@ -31,6 +42,14 @@ final class Type extends GenericType implements FieldValueFormMapperInterface
                 'default' => '(%x%, %y%)',
             ],
         ];
+    }
+    public function mapFieldValueForm(FormInterface $fieldForm, FieldData $data)
+    {
+        $definition = $data->fieldDefinition;
+        $fieldForm->add('value', Point2DType::class, [
+            'required' => $definition->isRequired,
+            'label' => $definition->getName()
+        ]);
     }
 }
 ```
@@ -48,9 +67,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-...
-
 final class Point2DSettingsType extends AbstractType
+
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {

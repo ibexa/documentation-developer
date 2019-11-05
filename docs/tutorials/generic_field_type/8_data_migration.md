@@ -97,7 +97,6 @@ services:
 To change the format in flight you need to add to `src/FieldType/Point2D/Value.php`:
 
 ```php
-<?php
 public function __construct(array $coords = [])
 {
     if (!empty($coords)) {
