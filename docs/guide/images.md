@@ -392,7 +392,7 @@ After establishing media library you can create object relations between the mai
 
 To learn more about ImageAsset Field Type and its customization see [Field Type Reference](../api/field_type_reference.md#imageasset-field-type).
 
-##Handling SVG images
+## Handling SVG images
 
 Currently, eZ Platform does not allow you to store SVG images using `Image` or `ImageAsset` FieldType. Until the full support for this MIME type is in place, you can work things around by relying on `File` FieldType and implementing custom extension which would enable you to display/download files in your templates.
 
