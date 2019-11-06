@@ -438,6 +438,16 @@ content_view:
                 '@App\Matcher\MyMatcher': ~
 ```
 
+### Service tags
+
+The following `ezrichtext` service tags have been extended to be consistent with other service tags:
+
+|Currently|Formerly|
+|---------|--------|
+|`ezplatform.ezrichtext.converter.output.xhtml5`|`ezrichtext.converter.output.xhtml5`|
+|`ezplatform.ezrichtext.converter.input.xhtml5`|`ezrichtext.converter.input.xhtml5`|
+|`ezplatform.ezrichtext.validator.input.ezxhtml5`|`ezrichtext.validator.input.ezxhtml5`|
+
 ## ezplatform-solr-search-engine
 
 No deprecations or backward compatibility breaks to document.
