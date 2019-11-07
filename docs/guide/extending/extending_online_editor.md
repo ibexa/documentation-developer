@@ -67,6 +67,14 @@ Each custom tag can have any number of attributes.
 Supported attribute types are:
 `string`, `number`, `boolean` and `choice` (which requires a list of choices provided by the `choices` key).
 
+Next, add `custom_tags.yml` to `app/config/config.yml` under the `imports` key:
+
+``` yaml
+imports:
+# ...
+    - { resource: custom_tags.yml }
+```
+
 The configuration requires an `ezyoutube.html.twig` template for the custom tag that will be placed in `/Resources/views/field_type/ezrichtext/custom_tag`:
 
 ```html+twig
@@ -136,7 +144,9 @@ Remember to provide your own files for the template and the icon.
 Line 10 points to `ezfactbox.html.twig` template described below.
 Attributes listed below the custom tag can be set when adding the tag to a RichText Field.
 
-The configuration requires an `ezfactbox.html.twig` template for the custom tag that will be placed in `/Resources/views/field_type/ezrichtext/custom_tag`:
+Ensure that the `custom_tags.yml` is added to `app/config/config.yml` under the `imports` key.
+
+Now, the configuration requires an `ezfactbox.html.twig` template for the custom tag that will be placed in `/Resources/views/field_type/ezrichtext/custom_tag`:
 
 ```html+twig
 <div class="ez-factbox ez-factbox--{{ params.style }}">
