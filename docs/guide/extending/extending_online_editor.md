@@ -171,11 +171,13 @@ ezrichtext.custom_tags.ezfactbox.attributes.style.choices.dark.label: Dark style
 
 **Example: Link tag**
 
-You can also configure a custom tag with a `link` attribute type
+You can also configure a custom tag with a `link` attribute.
+It is useful when migrating from eZ Publish to eZ Platform.
+
 
 The configuration in `custom_tags.yml` is:
 
-```yaml hl_lines="24 25 26"
+```yaml hl_lines="24 25"
 ezpublish:
     system:
         admin_group:
@@ -189,27 +191,27 @@ ezrichtext:
             template: '@ezdesign/custom_tags/vcustom.html.twig'
             icon: '/bundles/ezplatformadminui/img/ez-icons.svg#link'
             attributes:
-                title:
+                attrTitle:
                     type: string
                     required: false
-                description:
+                attrDesc:
                     type: string
                     required: false
-                color:
+                attrColor:
                     type: choice
                     required: false
                     choices: [Red, Blue, Green]
-                link:
+                attrUrl:
                     type: link
                     required: false
 ```
 
 Remember to provide your own files for the template and the icon.
-The configuration requires the `link` attribute along with `type` and `required` parameters (lines 24-26).
+This custom tag requires the `attrUrl` attribute with the `type` parameter set as `link`. (lines 24-25).
 
-Ensure that the `custom_tags.yml` file is added to `app/config/config.yml` under the `imports` key.
+Before proceeding, ensure that the `custom_tags.yml` file is added to `app/config/config.yml` under the `imports` key.
 
-Create a `Resources/views/field_type/ezrichtext/linktag.html.twig` template:
+Next, create a `Resources/views/field_type/ezrichtext/linktag.html.twig` template:
 
 ``` html+twig
 <h2>vcustom</h2>
@@ -222,10 +224,10 @@ Lastly, provide the translation for your tag components in a `aapp/Resources/tra
 
 ```yaml
  ezrichtext.custom_tags.linktag.label: 'Link Tag'
- ezrichtext.custom_tags.linktag.attributes.title.label: 'Title'
- ezrichtext.custom_tags.linktag.attributes.description.label: 'Description'
- ezrichtext.custom_tags.linktag.attributes.color.label: 'Color'
- ezrichtext.custom_tags.linktag.attributes.link.label: 'URL'
+ ezrichtext.custom_tags.linktag.attributes.attrTitle.label: 'Title'
+ ezrichtext.custom_tags.linktag.attributes.attrDesc.label: 'Description'
+ ezrichtext.custom_tags.linktag.attributes.attrColor.label: 'Color'
+ ezrichtext.custom_tags.linktag.attributes.attrUrl.label: 'URL'
  ```
 
 ### Inline custom tags
