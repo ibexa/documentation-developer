@@ -193,7 +193,7 @@ parameters:
     ezplatform.default_view_templates.content.full: "content/view/full.html.twig"
 ```
 
-Alternatively, you can do it using the design engine. For example, if your theme is `site`,
+Alternatively, you can do it using the [design engine](design_engine.md). For example, if your theme is `site`,
 create `themes/site/default/content/<viewType>.html.twig` to override the core template.
 
 
