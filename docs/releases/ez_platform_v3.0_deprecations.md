@@ -398,7 +398,7 @@ Additionally, the listener for `pbPreviewReloaded` has been removed.
 
 ### Namespace location update
 
-The following namespaces have their locations changed:
+The following namespaces have been changed:
 
 |Namespace|Former location|New location|
 |---------|------------|---------------|
