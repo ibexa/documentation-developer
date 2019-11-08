@@ -171,9 +171,7 @@ ezrichtext.custom_tags.ezfactbox.attributes.style.choices.dark.label: Dark style
 
 **Example: Link tag**
 
-You can also configure a custom tag with a `link` attribute.
-It is useful when migrating from eZ Publish to eZ Platform.
-
+You can also configure a custom tag with a `link` attribute that is useful when migrating from eZ Publish to eZ Platform.
 
 The configuration in `custom_tags.yml` is:
 
@@ -207,7 +205,7 @@ ezrichtext:
 ```
 
 Remember to provide your own files for the template and the icon.
-This custom tag requires the `attrUrl` attribute with the `type` parameter set as `link`. (lines 24-25).
+In this example, the tag has the `attrUrl` attribute with the `type` parameter set as `link`. (lines 24-25).
 
 Before proceeding, ensure that the `custom_tags.yml` file is added to `app/config/config.yml` under the `imports` key.
 
@@ -220,7 +218,7 @@ Next, create a `Resources/views/field_type/ezrichtext/linktag.html.twig` templat
 {% endfor %}
 ```
 
-Lastly, provide the translation for your tag components in a `aapp/Resources/translations/linktag.en.yaml` file:
+Lastly, provide the translations in a `aapp/Resources/translations/linktag.en.yaml` file:
 
 ```yaml
  ezrichtext.custom_tags.linktag.label: 'Link Tag'
