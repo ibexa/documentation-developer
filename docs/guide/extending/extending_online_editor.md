@@ -144,7 +144,7 @@ Remember to provide your own files for the template and the icon.
 Line 10 points to `ezfactbox.html.twig` template described below.
 Attributes listed below the custom tag can be set when adding the tag to a RichText Field.
 
-Ensure that the `custom_tags.yml` is added to `app/config/config.yml` under the `imports` key.
+Ensure that the `custom_tags.yml` file is added to `app/config/config.yml` under the `imports` key.
 
 Now, the configuration requires an `ezfactbox.html.twig` template for the custom tag that will be placed in `/Resources/views/field_type/ezrichtext/custom_tag`:
 
