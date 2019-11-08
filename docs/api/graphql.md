@@ -62,6 +62,11 @@ Access it through `<yourdomain>/graphiql`.
 
 Here you can run your queries and preview the results in an easy-to-read format.
 
+!!! note
+
+    Selected queries and mutations require administrator permission to be executed properly.
+    In such case, access the GraphiQL through `<yourdomain>/admin/graphiql`.
+
 ### Reference
 
 GraphiQL offers side-by-side reference based on your generated schema in the **Docs** pane.
