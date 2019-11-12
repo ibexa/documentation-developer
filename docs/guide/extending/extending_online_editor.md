@@ -209,7 +209,7 @@ In this example, the tag has the `attrUrl` attribute with the `type` parameter s
 
 Before proceeding, ensure that the `custom_tags.yml` file is added to `app/config/config.yml` under the `imports` key.
 
-Next, create a `Resources/views/field_type/ezrichtext/linktag.html.twig` template:
+Next, create a `app/Resources/views/field_type/ezrichtext/linktag.html.twig` template:
 
 ``` html+twig
 <h2>vcustom</h2>
@@ -218,7 +218,7 @@ Next, create a `Resources/views/field_type/ezrichtext/linktag.html.twig` templat
 {% endfor %}
 ```
 
-Lastly, provide the translations in a `aapp/Resources/translations/linktag.en.yaml` file:
+Lastly, provide the translations in a `app/Resources/translations/linktag.en.yaml` file:
 
 ```yaml
  ezrichtext.custom_tags.linktag.label: 'Link Tag'
