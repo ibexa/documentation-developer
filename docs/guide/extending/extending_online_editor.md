@@ -173,7 +173,7 @@ ezrichtext.custom_tags.ezfactbox.attributes.style.choices.dark.label: Dark style
 
 You can also configure a custom tag with a `link` attribute that is useful when migrating from eZ Publish to eZ Platform.
 
-The configuration in `custom_tags.yml` is:
+The configuration in `app/config/custom_tags.yml` is:
 
 ```yaml hl_lines="24 25"
 ezpublish:
@@ -207,7 +207,13 @@ ezrichtext:
 Remember to provide your own files for the template and the icon.
 In this example, the tag has the `attrUrl` attribute with the `type` parameter set as `link`. (lines 24-25).
 
-Before proceeding, ensure that the `custom_tags.yml` file is added to `app/config/config.yml` under the `imports` key.
+Before proceeding, ensure that the `custom_tags.yml` file is added to `app/config/config.yml` under the `imports` key:
+
+``` yaml
+imports:
+# ...
+    - { resource: custom_tags.yml }
+```
 
 Next, create a `app/Resources/views/field_type/ezrichtext/linktag.html.twig` template:
 
