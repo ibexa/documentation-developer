@@ -7,7 +7,7 @@
 ## Project installation
 
 To start the tutorial, you need to make a clean eZ Platform installation.
-Following the guide for your system [install eZ Platform](../../getting_started/install_ez_platform.md),
+Following the guide for your system to [install eZ Platform](../../getting_started/install_ez_platform.md),
 [configure a server](../../getting_started/requirements.md),
 and [start the web server](../../getting_started/install_ez_platform.md#use-phps-built-in-server).
 Remember to install using the `dev` environment.
@@ -23,7 +23,7 @@ For more information about Field Type Value see [Value handling](../../api/field
 
 !!! tip
 
-    Value class should always be contained in the file named `Value.php`.
+    Value class should always be contained in a file named `Value.php`.
 
 The Point 2D Value class will contain:
 
@@ -61,6 +61,7 @@ The final code should look like this:
 ```php
 <?php
 declare(strict_types=1);
+
 namespace App\FieldType\Point2D;
 
 use eZ\Publish\SPI\FieldType\Value as ValueInterface;

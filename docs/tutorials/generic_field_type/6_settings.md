@@ -56,11 +56,12 @@ final class Type extends GenericType
 
 ## Add a format field
 
-Define `Point2DSettingsType` class and add `format` field in `src/Form/Type/Point2DSettingsType.php`:
+Define a `Point2DSettingsType` class and add a `format` field in `src/Form/Type/Point2DSettingsType.php`:
 
 ```php
 <?php
 declare(strict_types=1);
+
 namespace App\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
@@ -107,7 +108,7 @@ final class Type extends GenericType implements FieldValueFormMapperInterface, F
 
 ## Add a new tag
 
-Next, add `FieldDefinitionFormMapper` as an extra tag definition in `config/services.yaml`:
+Next, add `FieldDefinitionFormMapper` as an extra tag definition for `App\FieldType\Point2D\Type` in `config/services.yaml`:
 
 ```yaml
 tags:
@@ -134,11 +135,12 @@ Create `templates/field_type_definition.html.twig`:
 Next, provide the template mapping in `config/packages/ezplatform.yaml`:
 
 ```yaml
-system:
-    default:
-        ...
-        fielddefinition_edit_templates:
-            - { template: 'field_type_definition.html.twig', priority: 0 }
+ezplatform:
+    system:
+        default:
+            # ...
+            fielddefinition_edit_templates:
+                - { template: 'field_type_definition.html.twig', priority: 0 }
 ```
 
 ## Redefine template
@@ -158,6 +160,6 @@ In `templates/field_type.html.twig` replace the content with:
 
 ## Add a new Content Type
 
-Now, you can go to the Back-Office Admin Panel and see the results of your work by adding a new Content Type.
+Now, you can go to Admin in the Back Office and see the results of your work by editing the Point 2D Content Type.
 
 ![Point 2D definition with format field](img/field_definition_format_field.png)

@@ -12,7 +12,7 @@ Field Types are responsible for:
 - Storing data, either using the native storage engine mechanisms or specific means
 - Validating input data
 - Making the data searchable (if applicable)
-- Displaying fields
+- Displaying Fields
 
 You can find more information in [Field Type documentation](../../api/field_type_api.md).
 It describes how each component of a Field Type interacts with the various layers of the system, and how to implement them.
@@ -25,10 +25,10 @@ This tutorial is aimed at developers who are familiar with eZ Platform and are c
 
 This tutorial will show you how to use the Generic Field Type as a template for a custom Field Type. You will:
 
-- Create a custom Point 2D Field Type with two coordinates as an input e.g. (4,5)
+- Create a custom Point 2D Field Type with two coordinates as input, e.g. (4,5)
 - Register the new Field Type as a service and define its template
 - Add basic validation to your Point 2D
-- Add a data migration to the Field Type so you will be able to easily change its output
+- Add data migration to the Field Type so you will be able to easily change its output
 
 ## Steps
 

@@ -1,7 +1,7 @@
 # Step 5 - Add a new Point 2D field
 
 All actions in this step are done in the admin interface also called the Back Office.
-Go to the admin interface (`<yourdomain>/admin`) and log in with the default username: admin and the default password: publish. 
+Go to the admin interface (`<yourdomain>/admin`) and log in with the default username: `admin` and the default password: `publish`. 
 
 ## Add new Content Type
 
@@ -34,7 +34,7 @@ In **Content structure** select **Create** from right sidebar menu. There, under
 
 ![Selecting Point 2D from sidebar](img/menu_point2d.png)
 
-In **New Point 2D** tab you can fill in coordinates of your point e.g. 3x,5y. Provided coordinates will be used as a title for a new point.
+In **New Point 2D** tab you can fill in coordinates of your point e.g. 3, 5. Provided coordinates will be used as a title for a new point.
 
 ![Creating Point 2D](img/creating_new_point2d.png)
 

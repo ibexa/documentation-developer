@@ -18,6 +18,7 @@ First you need to add support for normalization in a `src/Serializer/Point2D/Val
 ```php
 <?php
 declare(strict_types=1);
+
 namespace App\Serializer\Point2D;
 
 use App\FieldType\Point2D\Value;
@@ -45,7 +46,7 @@ Next, add the `ValueNormalizer` class to the `config/services.yml` with a `seria
  
 ```yaml
 services:
-    ...
+    # ...
     App\Serializer\Point2D\ValueNormalizer:
         tags:
             - { name: serializer.normalizer }
@@ -58,6 +59,7 @@ To accept old versions of the Field Type you need to add support for denormaliza
 ```php
 <?php
 declare(strict_types=1);
+
 namespace App\Serializer\Point2D;
 
 use App\FieldType\Point2D\Value;
@@ -86,15 +88,15 @@ Next, add the `serializer.denormalizer` class to `config/services.yml`:
  
 ```yaml
 services:
-    ...
+    # ...
     App\Serializer\Point2D\ValueDenormalizer:
         tags:
             - { name: serializer.denormalizer }
 ```
 
-## Change format in flight
+## Change format on the fly
 
-To change the format in flight you need to add to `src/FieldType/Point2D/Value.php`:
+To change the format on the fly you need to add a constructor to `src/FieldType/Point2D/Value.php`:
 
 ```php
 public function __construct(array $coords = [])
