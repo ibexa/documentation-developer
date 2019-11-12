@@ -1,13 +1,8 @@
 # Creating custom Field Type
 
-The Generic Field Type can be used as a template for any Field Type you want to create.
-It makes the creation and customization process easier and faster.
-The Generic Field Type can be especially useful during customization of such fields as:
-language, currency, birth date etc.
-
-The Generic Field Type comes with the implementation of basic methods,
-reduces the number of classes which must be created and simplifies the tagging process.
-Its base implementation uses Symfony serializer and Symfony validator component.
+The Generic Field Type is an abstract implementation of Field Types holding structured data e.g. Address.
+It can be used as a base for custom Field Types.
+The Generic Field Type comes with the implementation of basic methods, reduces the number of classes which must be created and simplifies the tagging process. 
 
 !!! tip
 
