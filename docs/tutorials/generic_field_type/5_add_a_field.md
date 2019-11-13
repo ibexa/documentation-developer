@@ -34,7 +34,7 @@ In **Content structure**, from the right sidebar menu, select **Create**. There,
 
 ![Selecting Point 2D from sidebar](img/menu_point2d.png)
 
-In **New Point 2D** tab, you can fill in coordinates of your point. e.g. 3, 5. Provided coordinates will be used as a title for a new point.
+In **New Point 2D** tab, you can fill in coordinates of your point, e.g. 3, 5. Provided coordinates will be used as a title for a new point.
 
 ![Creating Point 2D](img/creating_new_point2d.png)
 
