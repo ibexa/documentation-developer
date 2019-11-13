@@ -5,12 +5,12 @@ Go to the admin interface (`<yourdomain>/admin`) and log in with the default use
 
 ## Add new Content Type
 
-In the Back Office select **Admin** and navigate to the **Content Types** tab.
-Under **Content** category create a new Content Type:
+In the Back Office, select **Admin** and navigate to the **Content Types** tab.
+Under **Content** category, create a new Content Type:
 
 ![Creating new Content Type](img/create_new_content_type.png)
 
-New Content Type should have following settings:
+New Content Type should have the following settings:
 
 - **Name:** Point 2D
 - **Identifier:** point_2d
@@ -30,14 +30,14 @@ Save everything and go back to the **Content/Content structure** tab.
 
 ## Create your content
 
-In **Content structure** select **Create** from right sidebar menu. There, under **Content** you should see Point 2D Content Type you just added. Click it to create new content.
+In **Content structure**, from the right sidebar menu, select **Create**. There, under **Content**, you should see Point 2D Content Type you just added. Click it to create new content.
 
 ![Selecting Point 2D from sidebar](img/menu_point2d.png)
 
-In **New Point 2D** tab you can fill in coordinates of your point e.g. 3, 5. Provided coordinates will be used as a title for a new point.
+In **New Point 2D** tab, you can fill in coordinates of your point. e.g. 3, 5. Provided coordinates will be used as a title for a new point.
 
 ![Creating Point 2D](img/creating_new_point2d.png)
 
-Select **Publish** and you should see a new point **(3,5)** in the content tree.
+Click **Publish**. Now, you should see a new **(3,5)** point in the content tree.
 
 ![New Point 2D](img/new_point2d.png)

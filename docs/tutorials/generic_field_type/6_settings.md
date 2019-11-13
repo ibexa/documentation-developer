@@ -1,6 +1,6 @@
 # Step 6 - Implement Point 2D settings
 
-Implementing settings enables you to define in what format the Field is shown on the page.
+Implementing settings enables you to define the format for displaying the Field on the page.
 To do so, you will create the `format` field where you will be able to change the way coordinates for Point 2D are displayed.
 
 ## Define Field Type format
@@ -84,7 +84,7 @@ Now, enable the user to add the coordinates which will be validated.
 In `src/FieldType/Point2D/Type.php` you will:
  
 - inject the `FieldDefinitionFormMapperInterface` extension implementing `EzSystems\RepositoryForms\FieldType\FieldDefinitionFormMapperInterface`
-- add a `mapFieldDefinitionForm` at the end, it will define the field settings
+- add a `mapFieldDefinitionForm` at the end that will define the field settings
 
 ```php
 <?php
@@ -145,7 +145,7 @@ ezplatform:
 
 ## Redefine template
 
-Finally redefine the Point 2D template so it accommodates the new `format` field.
+Finally, redefine the Point 2D template so it accommodates the new `format` field.
 
 In `templates/field_type.html.twig` replace the content with:
 

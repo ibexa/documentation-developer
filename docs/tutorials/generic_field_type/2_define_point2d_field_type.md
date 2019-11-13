@@ -8,12 +8,12 @@
 
 The Type contains logic of the Field Type: validating data, transforming from various formats, describing the validators, etc.
 A Generic Type class must implement `eZ\Publish\SPI\FieldType\Generic\Type` (Generic Field Type interface).
-For more information about the Type class of a Field Type see [Type class](../../api/field_type_type_and_value.md#type-class).
+For more information about the Type class of a Field Type, see [Type class](../../api/field_type_type_and_value.md#type-class).
 
 
 ## Field Type identifier
 
-First create `src/FieldType/Point2D/Type.php`.
+First, create `src/FieldType/Point2D/Type.php`.
 Add a `getFieldTypeIdentifier()` method to it. The new method will return the string that **uniquely** identifies your Generic Field Type, in this case `point2d`:
 
 ```php

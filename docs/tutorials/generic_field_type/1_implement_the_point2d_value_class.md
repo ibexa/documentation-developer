@@ -7,7 +7,7 @@
 ## Project installation
 
 To start the tutorial, you need to make a clean eZ Platform installation.
-Following the guide for your system to [install eZ Platform](../../getting_started/install_ez_platform.md),
+Follow the guide for your system to [install eZ Platform](../../getting_started/install_ez_platform.md),
 [configure a server](../../getting_started/requirements.md),
 and [start the web server](../../getting_started/install_ez_platform.md#use-phps-built-in-server).
 Remember to install using the `dev` environment.
@@ -19,7 +19,7 @@ Open your project with a clean installation and create the base directory for a 
 The Value class of a Field Type is by design very simple.
 It is used to represent an instance of the Field Type within a Content item.
 Each Field presents its data using an instance of the Type's Value class.
-For more information about Field Type Value see [Value handling](../../api/field_type_type_and_value.md#value-handling).
+For more information about Field Type Value, see [Value handling](../../api/field_type_type_and_value.md#value-handling).
 
 !!! tip
 
@@ -53,7 +53,7 @@ At this point, it does not matter where they are stored. You want to focus on wh
 }
 ```
 
-To match the `FieldType\Value` interface you also need to add `getX()`,  `setX`, `getY`, `setY`, `__toString()` methods to the constructor.
+To match the `FieldType\Value` interface, you also need to add `getX()`,  `setX`, `getY`, `setY`, and `__toString()` methods to the constructor.
 A Value class must also implement the `eZ\Publish\SPI\FieldType\Value` interface.
 It will return the point 2D.
 The final code should look like this:

@@ -9,11 +9,11 @@ This process is important when a Field Type needs to be compared for sorting and
 Serialization allows changing objects to array by normalizing them, and then to the selected format by encoding them.
 In reverse, deserialization changes different formats into arrays by decoding and then denormalizing them into objects.
 
-For more information on Serializer Components follow [Symfony documentation.](https://symfony.com/doc/4.3/components/serializer.html)
+For more information on Serializer Components, see [Symfony documentation.](https://symfony.com/doc/4.3/components/serializer.html)
 
 ## Normalization 
 
-First you need to add support for normalization in a `src/Serializer/Point2D/ValueNormalizer.php`:
+First, you need to add support for normalization in a `src/Serializer/Point2D/ValueNormalizer.php`:
 
 ```php
 <?php
@@ -96,7 +96,7 @@ services:
 
 ## Change format on the fly
 
-To change the format on the fly you need to add a constructor to `src/FieldType/Point2D/Value.php`:
+To change the format on the fly, you need to add a constructor to `src/FieldType/Point2D/Value.php`:
 
 ```php
 public function __construct(array $coords = [])
