@@ -54,7 +54,7 @@ The underlying cache system is exposed as an `ezpublish.cache_pool` service, and
 
 ### Configuration
 
-By [default](https://github.com/ezsystems/ezplatform/blob/v2.5.6/app/config/default_parameters.yml#L78), configuration uses **cache.tagaware.filesystem** service to store cache files, service is defined in `app/config/cache_pool/cache.tagaware.filesystem.yml` to use [FilesystemTagAwareAdapter](https://github.com/ezsystems/ezplatform/blob/v2.5.6/app/config/cache_pool/cache.tagaware.filesystem.yml#L7), and includion of this service is done by `app/config/env/generic.php`.
+By [default](https://github.com/ezsystems/ezplatform/blob/v2.5.6/app/config/default_parameters.yml#L78), configuration uses **cache.tagaware.filesystem** service to store cache files, service is defined in `app/config/cache_pool/cache.tagaware.filesystem.yml` to use [FilesystemTagAwareAdapter](https://github.com/ezsystems/ezplatform/blob/v2.5.6/app/config/cache_pool/cache.tagaware.filesystem.yml#L7), and loading of this service is done by `app/config/env/generic.php`.
 
 You can select a different cache backend and configure its parameters in the relevant file in the `cache_pool` folder.
 
