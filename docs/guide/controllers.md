@@ -263,7 +263,7 @@ Results from the search are assigned to the `blog_posts` variable as a `SearchRe
 
 #### `controller`
 
-Four Controller actions are available:
+Following Controller actions are available:
 
 - `locationQueryAction` runs a Location Search
 - `contentQueryAction` runs a Content Search
@@ -389,7 +389,7 @@ QueryType names should use a unique namespace, in order to avoid conflicts with 
 
 ### Registering the QueryType into the service container
 
-QueryTypes must be registered as Symfony Services and implement the `\eZ\Publish\Core\QueryType\QueryType` interface.
+QueryTypes must be registered as Symfony Services and implement the `eZ\Publish\Core\QueryType\QueryType` interface.
 A `QueryType` service is registered automatically when `autoconfigure: true` is set either for that service or in `_defaults`.
 
 !!! tip
