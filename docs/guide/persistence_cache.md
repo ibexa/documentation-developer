@@ -46,7 +46,7 @@ If you'd like to see where/how to contribute additional caches, see the [source 
     [APCu, Array, Chain, Doctrine, Filesystem, Memcached, PDO & Doctrine DBAL, Php Array, Proxy, Redis](https://symfony.com/doc/current/components/cache/cache_pools.html#creating-cache-pools).
     We only officially support using Filesystem for single server and Redis or Memcached for Clustered setups.
 
-*Use of Memcached or Redis as shared cache backend is a requirement for use in Clustering setup. For an overview of this feature, see [Clustering](clustering.md). Filesystem adapters arefor instance **not** made for being used over a shared filesystem.*
+*Use of Memcached or Redis as shared cache backend is a requirement for use in Clustering setup. For an overview of this feature, see [Clustering](clustering.md). Filesystem adapters are for instance **not** made for being used over a shared filesystem.*
 
 **Cache service**
 
