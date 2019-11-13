@@ -476,6 +476,22 @@ No deprecations or backward compatibility breaks to document.
 Experimental, deprecated and unsupported code for Elastic Search 1.4.2 has been dropped from kernel,
 to be replaced with a dedicated bundle for the latest Elastic version in the future.
 
+### Legacy Storage Gateways
+
+The following deprecated (since v6.11) Legacy Storage Gateways have been removed:
+
+- `eZ\Publish\Core\FieldType\BinaryFile\BinaryBaseStorage\Gateway\LegacyStorage`
+- `eZ\Publish\Core\FieldType\BinaryFile\BinaryFileStorage\Gateway\LegacyStorage`
+- `eZ\Publish\Core\FieldType\MapLocation\MapLocationStorage\Gateway\LegacyStorage`
+- `eZ\Publish\Core\FieldType\Image\ImageStorage\Gateway\LegacyStorage`
+- `eZ\Publish\Core\FieldType\Keyword\KeywordStorage\Gateway\LegacyStorage`
+- `eZ\Publish\Core\FieldType\Media\MediaStorage\Gateway\LegacyStorage`
+- `eZ\Publish\Core\FieldType\Url\UrlStorage\Gateway\LegacyStorage`
+- `eZ\Publish\Core\FieldType\User\UserStorage\Gateway\LegacyStorage`
+
+Use `DoctrineStorage` Gateways from the same namespace instead.
+Removed classes refer to External Storage for core Field Types only.
+
 ### REST server
 
 Transfer of REST code from kernel to a separate package results in the following change:
