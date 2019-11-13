@@ -176,11 +176,12 @@ The Query controller makes it easy to retrieve content without writing custom PH
 
 This example assumes a "Blog" container that contains a set of "Blog post" items. The goal is, when viewing a Blog, to list the Blog posts it contains.
 
-Three items are required:
+Four items are required:
 
 - a `LocationChildren` QueryType - It will generate a Query retrieving the children of a given Location id
 - a View template - It will render the Blog, and list the Blog posts it contains
 - a `content_view` configuration - It will instruct Platform, when viewing a Content item of type Blog, to use the Query Controller, the view template, and the `LocationChildren` QueryType. It will also map the id of the viewed Blog to the QueryType parameters, and set which Twig variable the results will be assigned to.
+- [service registration of the QueryType](#registering-the-querytype-into-the-service-container)
 
 #### The LocationChildren QueryType
 
