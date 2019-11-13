@@ -179,9 +179,9 @@ This example assumes a "Blog" container that contains a set of "Blog post" items
 Four items are required:
 
 - a `LocationChildren` QueryType - It will generate a Query retrieving the children of a given Location id
-- service registration of the QueryType
 - a View template - It will render the Blog, and list the Blog posts it contains
 - a `content_view` configuration - It will instruct Platform, when viewing a Content item of type Blog, to use the Query Controller, the view template, and the `LocationChildren` QueryType. It will also map the id of the viewed Blog to the QueryType parameters, and set which Twig variable the results will be assigned to.
+- [service registration of the QueryType](#registering-the-querytype-into-the-service-container)
 
 #### The LocationChildren QueryType
 
@@ -215,20 +215,6 @@ class LocationChildrenQueryType implements QueryType
     }
 }
 ```
-
-#### Service registration
-
-The QueryType must be registered as a service with the `ezpublish.query_type` tag:
-
-``` yaml
-App\QueryType\LocationChildrenQueryType:
-    tags:
-        - { name: ezpublish.query_type }
-```
-
-If it is located in the `QueryType` subfolder of a bundle in a file named `<Something>QueryType.php`,
-a QueryType will be registered automatically.
-However, if it has dependencies, you still need to register it manually, even from a bundle.
 
 #### The `content_view` configuration
 
@@ -277,11 +263,12 @@ Results from the search are assigned to the `blog_posts` variable as a `SearchRe
 
 #### `controller`
 
-Three Controller Actions are available, each for a different type of search:
+Following Controller actions are available:
 
 - `locationQueryAction` runs a Location Search
 - `contentQueryAction` runs a Content Search
 - `contentInfoQueryAction` runs a Content Info search
+- `pagingQueryAction` returns a `PagerFanta` object and can be used to quickly [paginate query results](#paginating-with-querytypes)
 
 See the [Search](search.md) documentation page for more details about different types of search.
 
@@ -402,29 +389,61 @@ QueryType names should use a unique namespace, in order to avoid conflicts with 
 
 ### Registering the QueryType into the service container
 
-In addition to creating a class for a `QueryType`, you must also register the QueryType with the Service Container. This can be done in two ways: by convention, and with a service tag.
+QueryTypes must be registered as Symfony Services and implement the `eZ\Publish\Core\QueryType\QueryType` interface.
+A `QueryType` service is registered automatically when `autoconfigure: true` is set either for that service or in `_defaults`.
 
-#### By convention
+!!! tip
 
-Any class named `<Bundle>\QueryType\*QueryType` that implements the QueryType interface will be registered as a custom QueryType.
-Example: `AcmeExampleBundle\QueryType\LatestContentQueryType`.
+    In the default eZ Platform installation services are autoconfigured by default for the `App` namespace,
+    so no additional registration is required.
 
-#### Using a service tag
-
-QueryTypes can be manually tagged in the service declaration.
-You need to do this when your QueryType is located in your project, not in a separate bundle:
+Otherwise, you can register your QueryType with a service tag:
 
 ``` yaml
 App\QueryType\LatestContent:
     tags:
-        - {name: ezpublish.query_type}
+        - { name: ezpublish.query_type, alias: LatestContent }
 ```
-
-The effect is exactly the same as when registering by convention.
 
 !!! tip "More information"
 
     Follow the FieldType creation Tutorial and learn how to [Register the Field Type as a service](../tutorials/field_type/4_register_the_field_type_as_a_service.md).
+
+### Paginating with QueryTypes
+
+Using the `ez_query:pagingQueryAction` you can quickly get paginated results of a query:
+
+``` yaml hl_lines="4 13"
+content_view:
+    full:
+        folder:
+            controller: ez_query:pagingQueryAction
+            template: full/folder.html.twig
+            match:
+                Identifier\ContentType: folder
+            params:
+                query:
+                    query_type: LocationChildren
+                    parameters:
+                        parentLocationId: '@=location.id'
+                    limit: 5
+                    assign_results_to: items
+```
+
+`limit` defines how many query results are listed on a page.
+
+!!! tip
+
+    See [Content view configuration](#the-content_view-configuration) for details on this configuration.
+
+Pagination controls are provided in the `pagerfanta` Twig function:
+
+``` html+twig hl_lines="4"
+{% for item in items %}
+    <h2><a href={{ path('ez_urlalias', {'contentId': item.valueObject.contentInfo.id}) }}>{{ ez_content_name(item.valueObject.contentInfo) }}</a></h2>
+{% endfor %}
+{{ pagerfanta( items, 'ez', {'routeName': location } ) }}
+```
 
 ### The OptionsResolverBasedQueryType abstract class
 
