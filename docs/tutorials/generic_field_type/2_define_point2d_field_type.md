@@ -35,7 +35,7 @@ final class Type extends GenericType
 
 ## Add a new class
 
-Next, add the `ezplatform.field_type` class to `config/services.yml`:
+Next, add the `ezplatform.field_type` class to `config/services.yaml`:
 
 ``` yaml
 services:

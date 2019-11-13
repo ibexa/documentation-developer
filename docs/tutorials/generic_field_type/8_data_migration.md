@@ -42,7 +42,7 @@ final class ValueNormalizer implements NormalizerInterface
 
 ##  Add Normalizer class
 
-Next, add the `ValueNormalizer` class to the `config/services.yml` with a `serializer.normalizer` tag:
+Next, add the `ValueNormalizer` class to the `config/services.yaml` with a `serializer.normalizer` tag:
  
 ```yaml
 services:
@@ -84,7 +84,7 @@ final class ValueDenormalizer implements DenormalizerInterface
 
 ## Add Denormalizer class
 
-Next, add the `serializer.denormalizer` class to `config/services.yml`:
+Next, add the `serializer.denormalizer` class to `config/services.yaml`:
  
 ```yaml
 services:
