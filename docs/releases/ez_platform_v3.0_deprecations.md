@@ -490,7 +490,7 @@ The following deprecated (since v6.11) Legacy Storage Gateways have been removed
 - `eZ\Publish\Core\FieldType\User\UserStorage\Gateway\LegacyStorage`
 
 Use `DoctrineStorage` Gateways from the same namespace instead.
-Removed classes refer to External Storage for core Field Types only.
+The removed classes refer to External Storage for core Field Types only.
 
 ### REST server
 
