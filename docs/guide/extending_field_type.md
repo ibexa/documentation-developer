@@ -136,7 +136,7 @@ use Symfony\Component\Form\FormInterface;
 
 final class Type extends GenericType implements FieldValueFormMapperInterface
 {
-    ...
+    # ...
     public function mapFieldValueForm(FormInterface $fieldForm, FieldData $data): void
     {
         $definition = $data->fieldDefinition;
