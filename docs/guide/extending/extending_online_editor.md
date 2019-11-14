@@ -235,7 +235,7 @@ Lastly, provide the translations in a `app/Resources/translations/linktag.en.yam
  ezrichtext.custom_tags.linktag.attributes.attrUrl.label: 'URL'
 ```
 
-No you can use the tag.
+Now you can use the tag.
 In the Back Office, create or edit a Content item that has a Rich Text Field Type.
 In the Online Editor, click **Add**, and from the list of available tags select the Link Tag icon.
 
