@@ -179,7 +179,7 @@ ezrichtext.custom_tags.ezfactbox.attributes.style.choices.light.label: Light sty
 ezrichtext.custom_tags.ezfactbox.attributes.style.choices.dark.label: Dark style
 ```
 
-**Example: Link tag**
+[**Example: Link tag**](#example-link-tag)
 
 You can also configure a custom tag with a `link` attribute that offers a basic UI with text input.
 It is useful when migrating from eZ Publish to eZ Platform.

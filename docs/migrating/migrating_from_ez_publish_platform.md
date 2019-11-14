@@ -373,7 +373,7 @@ Below is a table of what is currently supported, and their corresponding name in
 
 | [XmlText](https://github.com/ezsystems/ezpublish-legacy/blob/2019.03/extension/ezoe/settings/ezoe_attributes.ini#L33-L48)        | [RichText](https://github.com/ezsystems/ezplatform-richtext/blob/master/src/bundle/DependencyInjection/Configuration.php#L17)           | Note  |
 | ------------- | ------------- | :-----: |
-| `link`        | `link`        |  Treated as a string, no special UI provided by eZ Platform editor |
+| `link`        | [`link`](../guide/extending/extending_online_editor#example-link-tag)        |  Treated as a string, no special UI provided by eZ Platform editor |
 | `number`      | `number`      |  |
 | `int`         | `number`      |  |
 | `checkbox`    | `boolean`     |  |
