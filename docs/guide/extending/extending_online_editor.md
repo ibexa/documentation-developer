@@ -179,6 +179,78 @@ ezrichtext.custom_tags.ezfactbox.attributes.style.choices.light.label: Light sty
 ezrichtext.custom_tags.ezfactbox.attributes.style.choices.dark.label: Dark style
 ```
 
+**Example: Link tag**
+
+You can also configure a custom tag with a `link` attribute that offers a basic UI with text input.
+It is useful when migrating from eZ Publish to eZ Platform.
+
+The configuration in `app/config/custom_tags.yml` is:
+
+```yaml hl_lines="24 25"
+ezpublish:
+    system:
+        admin_group:
+            fieldtypes:
+                ezrichtext:
+                    custom_tags: [linktag]
+
+ezrichtext:
+    custom_tags:
+        linktag:
+            template: '@ezdesign/custom_tags/vcustom.html.twig'
+            icon: '/bundles/ezplatformadminui/img/ez-icons.svg#link'
+            attributes:
+                attrTitle:
+                    type: string
+                    required: false
+                attrDesc:
+                    type: string
+                    required: false
+                attrColor:
+                    type: choice
+                    required: false
+                    choices: [Red, Blue, Green]
+                attrUrl:
+                    type: link
+                    required: false
+```
+
+Remember to provide your own files for the template and the icon.
+In this example, the tag has the `attrUrl` attribute with the `type` parameter set as `link`. (lines 24-25).
+
+Before proceeding, ensure that the `custom_tags.yml` file is added to `app/config/config.yml` under the `imports` key:
+
+``` yaml
+imports:
+# ...
+    - { resource: custom_tags.yml }
+```
+
+Next, create a `app/Resources/views/field_type/ezrichtext/linktag.html.twig` template:
+
+``` html+twig
+<h2>vcustom</h2>
+{% for attr_name, attr_value in params %}
+    <div><strong>{{ attr_name }}</strong>: {{ attr_value }}</div>
+{% endfor %}
+```
+
+Lastly, provide the translations in a `app/Resources/translations/linktag.en.yaml` file:
+
+``` yaml
+ ezrichtext.custom_tags.linktag.label: 'Link Tag'
+ ezrichtext.custom_tags.linktag.attributes.attrTitle.label: 'Title'
+ ezrichtext.custom_tags.linktag.attributes.attrDesc.label: 'Description'
+ ezrichtext.custom_tags.linktag.attributes.attrColor.label: 'Color'
+ ezrichtext.custom_tags.linktag.attributes.attrUrl.label: 'URL'
+```
+
+Now you can use the tag.
+In the Back Office, create or edit a Content item that has a Rich Text Field Type.
+In the Online Editor, click **Add**, and from the list of available tags select the Link Tag icon.
+
+![Link Tag](img/custom_tag_link.png "Link Tag in the Online Editor") 
+
 ### Inline custom tags
 
 Custom tags can also be placed inline with the following configuration:
