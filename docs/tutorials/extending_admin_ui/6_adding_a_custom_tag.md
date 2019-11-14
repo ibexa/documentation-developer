@@ -5,7 +5,7 @@ You can also add custom tags that will enable you to add additional elements to 
 
 In this step you will add a custom tag which will enable you to embed YouTube videos in Fields.
 
-Full documentation of custom tags is available [here](../../guide/extending/extending_online_editor#custom-tags)
+See full documentation of custom tags in [Extending the Online Editor](../../guide/extending/extending_online_editor#custom-tags).
 
 ## Configure the custom tag
 
