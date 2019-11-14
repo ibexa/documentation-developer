@@ -189,7 +189,7 @@ Now you can use the tag.
 In the Back Office, create or edit a Content item that has a RichText Field Type.
 In the Online Editor, click **Add**, and from the list of available tags select the FactBox tag icon.
 
-![YouTube Tag](img/custom_tag_factbox.png "FactBox Tag in the Online Editor" )
+![FactBox Tag](img/custom_tag_factbox.png "FactBox Tag in the Online Editor" )
 
 **Example: Link tag**
 
