@@ -227,13 +227,19 @@ Next, create a `app/Resources/views/field_type/ezrichtext/linktag.html.twig` tem
 
 Lastly, provide the translations in a `app/Resources/translations/linktag.en.yaml` file:
 
-```yaml
+``` yaml
  ezrichtext.custom_tags.linktag.label: 'Link Tag'
  ezrichtext.custom_tags.linktag.attributes.attrTitle.label: 'Title'
  ezrichtext.custom_tags.linktag.attributes.attrDesc.label: 'Description'
  ezrichtext.custom_tags.linktag.attributes.attrColor.label: 'Color'
  ezrichtext.custom_tags.linktag.attributes.attrUrl.label: 'URL'
- ```
+```
+
+No you can use the tag.
+In the Back Office, create or edit a Content item that has a Rich Text Field Type.
+In the Online Editor, click **Add**, and from the list of available tags select the Link Tag icon.
+
+![Link Tag](img/custom_tag_link.png "Link Tag in the Online Editor") 
 
 ### Inline custom tags
 
