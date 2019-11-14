@@ -171,7 +171,8 @@ ezrichtext.custom_tags.ezfactbox.attributes.style.choices.dark.label: Dark style
 
 **Example: Link tag**
 
-You can also configure a custom tag with a `link` attribute that is useful when migrating from eZ Publish to eZ Platform.
+You can also configure a custom tag with a `link` attribute that offers a basic UI with text input.
+It is useful when migrating from eZ Publish to eZ Platform.
 
 The configuration in `app/config/custom_tags.yml` is:
 
