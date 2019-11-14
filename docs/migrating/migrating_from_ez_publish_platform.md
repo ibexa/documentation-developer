@@ -365,9 +365,9 @@ When you are ready to migrate your eZ Publish XmlText content to the eZ Platform
 **Custom tags**
 
 eZ Platform now supports custom tags, (including inline custom tags), and limited use of custom tag attributes.
-After migration to richtext, you'll need to adapt your custom tag config for eZ Platform and rewrite the custom tags in twig
+After migration to RichText, you'll need to adapt your custom tag config for eZ Platform and rewrite the custom tags in Twig
 
-See [eZ Platform custom tag documentation](https://doc.ezplatform.com/en/latest/guide/extending/extending_online_editor/#custom-tags) for more info.
+See [eZ Platform custom tag documentation](../guide/extending/extending_online_editor.md#custom-tags) for more info.
 If you in legacy as configured custom attributes in OE using [ezoe_attributes.ini](https://github.com/ezsystems/ezpublish-legacy/blob/master/extension/ezoe/settings/ezoe_attributes.ini#L33-L48), please note that not all types are supported.
 Below is a table of what is currently supported, and their corresponding name in eZ Platform.
 
