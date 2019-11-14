@@ -108,6 +108,12 @@ ezrichtext.custom_tags.ezyoutube.attributes.width.label: Width
 ezrichtext.custom_tags.ezyoutube.attributes.align.label: Align
 ```
 
+Now you can use the tag.
+In the Back Office, create or edit a Content item that has a RichText Field Type.
+In the Online Editor, click **Add**, and from the list of available tags select the YouTube tag icon.
+
+![YouTube Tag](img/custom_tag_ezyt.png "YouTube Tag in the Online Editor" )
+
 **Example: FactBox tag**
 
 FactBox tag is a good example for showcasing possibilities of `ezcontent` property.
@@ -179,6 +185,12 @@ ezrichtext.custom_tags.ezfactbox.attributes.style.choices.light.label: Light sty
 ezrichtext.custom_tags.ezfactbox.attributes.style.choices.dark.label: Dark style
 ```
 
+Now you can use the tag.
+In the Back Office, create or edit a Content item that has a RichText Field Type.
+In the Online Editor, click **Add**, and from the list of available tags select the FactBox tag icon.
+
+![FactBox Tag](img/custom_tag_factbox.png "FactBox Tag in the Online Editor" )
+
 **Example: Link tag**
 
 You can also configure a custom tag with a `link` attribute that offers a basic UI with text input.
@@ -246,8 +258,8 @@ Lastly, provide the translations in a `app/Resources/translations/linktag.en.yam
 ```
 
 Now you can use the tag.
-In the Back Office, create or edit a Content item that has a Rich Text Field Type.
-In the Online Editor, click **Add**, and from the list of available tags select the Link Tag icon.
+In the Back Office, create or edit a Content item that has a RichText Field Type.
+In the Online Editor, click **Add**, and from the list of available tags select the Link tag icon.
 
 ![Link Tag](img/custom_tag_link.png "Link Tag in the Online Editor") 
 
