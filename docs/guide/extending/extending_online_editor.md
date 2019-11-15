@@ -17,7 +17,7 @@ They are configured under the `ezrichtext` key.
 
 If you want to learn how to apply them to your installation follow [Creating a custom tag tutorial](../../tutorials/extending_admin_ui/6_adding_a_custom_tag).
 
-**Example: YouTube tag**
+#### Example: YouTube tag
 
 Preparation of the tag always starts with the configuration file that should be added to `app/Resources/config`. This is sample configuration for the YouTube tag, `custom_tags.yml`:
 
@@ -108,7 +108,7 @@ ezrichtext.custom_tags.ezyoutube.attributes.width.label: Width
 ezrichtext.custom_tags.ezyoutube.attributes.align.label: Align
 ```
 
-**Example: FactBox tag**
+#### Example: FactBox tag
 
 FactBox tag is a good example for showcasing possibilities of `ezcontent` property.
 Each custom tag has an `ezcontent` property that contains the tag's main content.
@@ -179,7 +179,7 @@ ezrichtext.custom_tags.ezfactbox.attributes.style.choices.light.label: Light sty
 ezrichtext.custom_tags.ezfactbox.attributes.style.choices.dark.label: Dark style
 ```
 
-[**Example: Link tag**](#example-link-tag)
+#### Example: Link tag
 
 You can also configure a custom tag with a `link` attribute that offers a basic UI with text input.
 It is useful when migrating from eZ Publish to eZ Platform.

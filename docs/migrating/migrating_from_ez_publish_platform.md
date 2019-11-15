@@ -364,16 +364,17 @@ When you are ready to migrate your eZ Publish XmlText content to the eZ Platform
 
 **Custom tags**
 
-eZ Platform now supports custom tags, (including inline custom tags), and limited use of custom tag attributes.
-After migration to RichText, you'll need to adapt your custom tag config for eZ Platform and rewrite the custom tags in Twig
+eZ Platform now supports custom tags, including inline custom tags, and limited use of custom tag attributes.
+After migrating to RichText, you need to adapt your custom tag config for eZ Platform and rewrite the custom tags in Twig.
+See [Custom tag documentation](../guide/extending/extending_online_editor.md#custom-tags) for more info.
 
-See [eZ Platform custom tag documentation](../guide/extending/extending_online_editor.md#custom-tags) for more info.
-If you in legacy as configured custom attributes in OE using [ezoe_attributes.ini](https://github.com/ezsystems/ezpublish-legacy/blob/master/extension/ezoe/settings/ezoe_attributes.ini#L33-L48), please note that not all types are supported.
-Below is a table of what is currently supported, and their corresponding name in eZ Platform.
+If you configured custom attributes in legacy in OE using [ezoe_attributes.ini](https://github.com/ezsystems/ezpublish-legacy/blob/master/extension/ezoe/settings/ezoe_attributes.ini#L33-L48), note that not all types are supported.
 
-| [XmlText](https://github.com/ezsystems/ezpublish-legacy/blob/2019.03/extension/ezoe/settings/ezoe_attributes.ini#L33-L48)        | [RichText](https://github.com/ezsystems/ezplatform-richtext/blob/master/src/bundle/DependencyInjection/Configuration.php#L17)           | Note  |
-| ------------- | ------------- | :-----: |
-| `link`        | [`link`](../guide/extending/extending_online_editor.md#example-link-tag)        |  Treated as a string, no special UI provided by eZ Platform editor |
+Below is a table of the tags that are currently supported, and their corresponding names in eZ Platform.
+
+| [XmlText](https://github.com/ezsystems/ezpublish-legacy/blob/2019.03/extension/ezoe/settings/ezoe_attributes.ini#L33-L48) | [RichText](https://github.com/ezsystems/ezplatform-richtext/blob/2.5/src/bundle/DependencyInjection/Configuration.php#L17) | Note  |
+| ------------- | ------------- | ----- |
+| `link`        | [`link`](../guide/extending/extending_online_editor.md#example-link-tag) |  Treated as a string, no special UI provided by the eZ Platform editor |
 | `number`      | `number`      |  |
 | `int`         | `number`      |  |
 | `checkbox`    | `boolean`     |  |
