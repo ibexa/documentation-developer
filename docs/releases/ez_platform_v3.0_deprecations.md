@@ -383,7 +383,6 @@ Instances of the following deprecated event classes have been replaced:
 |`Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent`|`Symfony\Component\HttpKernel\Event\ExceptionEvent`|
 |`Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent`|`Symfony\Component\HttpKernel\Event\ViewEvent`|
 |`Symfony\Component\HttpKernel\Event\FilterResponseEvent`|`Symfony\Component\HttpKernel\Event\ResponseEvent`|
-|`Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent`|`Symfony\Component\HttpKernel\Event\ExceptionEvent`|
 |`Symfony\Component\HttpKernel\Event\GetResponseEvent`|`Symfony\Component\HttpKernel\Event\RequestEvent`|
 |`Twig_Extension`|`Twig\Extension\AbstractExtension`|
 |`Twig_SimpleFunction`|`Twig\TwigFunction`|
