@@ -306,6 +306,9 @@ Following the upgrade to Symfony 4, the following event classes have been deprec
 |`Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent`|`Symfony\Component\HttpKernel\Event\ExceptionEvent`|
 |`Symfony\Component\HttpKernel\Event\GetResponseEvent`|`Symfony\Component\HttpKernel\Event\RequestEvent`|
 
+Also, as of Symfony 4, the `transchoice` has been replaced with `trans`.
+New translation strings are required.
+
 ##### SubtreeQuery
 
 Deprecated `SubtreeQuery` class has been removed. In v3.0, it was replaced by `EzSystems\EzPlatformAdminUi\QueryType\SubtreeQueryType`.
@@ -342,13 +345,20 @@ No deprecations or backward compatibility breaks to document.
 
 ## ezplatform-design-engine
 
-The deprecated `Twig\Loader\ExistsLoaderInterface` has been removed.
+### Code cleanup
+
+- The deprecated `Twig\Loader\ExistsLoaderInterface` has been removed.
+- The deprecated `\Twig_Profiler_Profile` Twig class has been replaced with `Twig\Profiler\Profile`.
+- The deprecated `\Twig_Environment` Twig class has been replaced with `Twig\Environment`
+
 
 ## ezplatform-graphql
 
 No deprecations or backward compatibility breaks to document.
 
 ## ezplatform-http-cache
+
+### FOS Cache Bundle v2
 
 HTTP cache bundle now uses FOS Cache Bundle v2. 
 
@@ -363,6 +373,20 @@ This entails that:
 - The `key` header for purging tags has been changed to `xkey-softpurge`.
 - The `PURGE` method has been changed to `PURGEKEY`.
 - The `ezplatform.http_cache.tags.header` parameter has been removed. Configuration now relies on FOS Cache configuration and its default values.
+
+### Code cleanup
+
+Instances of the following deprecated event classes have been replaced:
+
+|Deprecated class|Replaced with|
+|----------------|-------------|
+|`Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent`|`Symfony\Component\HttpKernel\Event\ExceptionEvent`|
+|`Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent`|`Symfony\Component\HttpKernel\Event\ViewEvent`|
+|`Symfony\Component\HttpKernel\Event\FilterResponseEvent`|`Symfony\Component\HttpKernel\Event\ResponseEvent`|
+|`Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent`|`Symfony\Component\HttpKernel\Event\ExceptionEvent`|
+|`Symfony\Component\HttpKernel\Event\GetResponseEvent`|`Symfony\Component\HttpKernel\Event\RequestEvent`|
+|`Twig_Extension`|`Twig\Extension\AbstractExtension`|
+|`Twig_SimpleFunction`|`Twig\TwigFunction`|
 
 ## ezplatform-ee-installer
 
@@ -465,6 +489,10 @@ the following deprecated code for handling the settings has been dropped:
 - `EzSystems\EzPlatformAdminUi\Form\Type\User\Setting\UserSettingUpdateType`
 - `EzSystems\EzPlatformAdminUiBundle\Controller\UserProfile\UserPasswordChangeController`
 - `EzSystems\EzPlatformAdminUiBundle\Controller\User\{UserSettingsController,UserForgotPasswordController}`
+
+### Code cleanup
+
+The deprecated `Symfony\Bundle\FrameworkBundle\Controller\Controller` has been replaced with `Symfony\Bundle\FrameworkBundle\Controller\AbstractController`.
 
 ## ezplatform-workflow
 
@@ -588,6 +616,10 @@ DROP TABLE <table_name>;
 The `date_based_publisher.permission_resolver` Symfony Service deprecated in v2.5 has been removed. 
 Instead, you can inject `eZ\Publish\API\Repository\PermissionResolver` and rely on auto-wiring.
 
+### Symfony MIME component
+
+The deprecated `Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesserInterface` has been replaced with `Symfony\Component\Mime\MimeTypesInterface`.
+
 ### Template parameter names
 
 The SiteAccess-aware `pagelayout` setting is deprecated in favor of `page_layout`.
@@ -600,6 +632,33 @@ The `eZ\Bundle\EzPublishCoreBundle\Controller` now extends `Symfony\Bundle\Frame
 For details, see [Service Subscribers Locators.](https://symfony.com/doc/current/service_container/service_subscribers_locators.html)
 
 The `Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand` is deprecated, use `Symfony\Component\Console\Command\Command` instead.
+
+### Code cleanup
+
+Instances of the deprecated code have been replaced:
+
+|Deprecated|Replaced with|
+|----------|-------------|
+|`Symfony\Component\Security\Core\User\AdvancedUserInterface`|`Symfony\Component\Security\Core\User\UserInterface`|
+|`Symfony\Component\HttpKernel\Event\FilterResponseEvent`|`Symfony\Component\HttpKernel\Event\ResponseEvent`|
+|`Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent`|`Symfony\Component\HttpKernel\Event\ViewEvent`|
+|`Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent`|`Symfony\Component\HttpKernel\Event\ExceptionEvent`|
+|`Symfony\Component\HttpKernel\Event\GetResponseEvent`|`Symfony\Component\HttpKernel\Event\RequestEvent`|
+|`Symfony\Component\HttpKernel\Event\FilterControllerArgumentsEvent`|`Symfony\Component\HttpKernel\Event\ControllerEvent`|
+
+Also, as of Symfony 4, the `transchoice` has been replaced with `trans`.
+New translation strings are required.
+
+### Twig classes
+
+The following deprecated Twig classes have been replaced:
+
+|Deprecated|Replaced with|
+|----------|-------------|
+|`Twig_Extensions_Extension_Intl`|`Twig\Extensions\IntlExtension`|
+|`Twig_Template`|`Twig\Template`|
+|`Twig_Node`|`Twig\Node\Node`|
+
 
 ## flex-workflow
 
