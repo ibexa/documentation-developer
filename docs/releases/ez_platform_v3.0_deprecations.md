@@ -306,7 +306,7 @@ Following the upgrade to Symfony 4, the following event classes have been deprec
 |`Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent`|`Symfony\Component\HttpKernel\Event\ExceptionEvent`|
 |`Symfony\Component\HttpKernel\Event\GetResponseEvent`|`Symfony\Component\HttpKernel\Event\RequestEvent`|
 
-Also, as of Symfony 4, the `transchoice` has been replaced with `trans`.
+Also, as of Symfony 4, the `transchoice` Twig filter has been replaced with `trans`.
 New translation strings are required.
 
 ##### SubtreeQuery
@@ -348,8 +348,8 @@ No deprecations or backward compatibility breaks to document.
 ### Code cleanup
 
 - The deprecated `Twig\Loader\ExistsLoaderInterface` has been removed.
-- The deprecated `\Twig_Profiler_Profile` Twig class has been replaced with `Twig\Profiler\Profile`.
-- The deprecated `\Twig_Environment` Twig class has been replaced with `Twig\Environment`
+- The deprecated `Twig_Profiler_Profile` Twig class has been replaced with `Twig\Profiler\Profile`.
+- The deprecated `Twig_Environment` Twig class has been replaced with `Twig\Environment`
 
 
 ## ezplatform-graphql
@@ -627,10 +627,10 @@ View parameter `pagelayout` set by `pagelayout` setting is deprecated in favor o
 
 ### Controllers
 
-The `eZ\Bundle\EzPublishCoreBundle\Controller` now extends `Symfony\Bundle\FrameworkBundle\Controller\AbstractController` instead of `Symfony\Bundle\FrameworkBundle\Controller\Controller` which has limited access to the dependency injection container.
+`eZ\Bundle\EzPublishCoreBundle\Controller` now extends `Symfony\Bundle\FrameworkBundle\Controller\AbstractController` instead of `Symfony\Bundle\FrameworkBundle\Controller\Controller` which has limited access to the dependency injection container.
 For details, see [Service Subscribers Locators.](https://symfony.com/doc/current/service_container/service_subscribers_locators.html)
 
-The `Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand` is deprecated, use `Symfony\Component\Console\Command\Command` instead.
+`Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand` is deprecated, use `Symfony\Component\Console\Command\Command` instead.
 
 ### Code cleanup
 
@@ -645,7 +645,7 @@ Instances of the deprecated code have been replaced:
 |`Symfony\Component\HttpKernel\Event\GetResponseEvent`|`Symfony\Component\HttpKernel\Event\RequestEvent`|
 |`Symfony\Component\HttpKernel\Event\FilterControllerArgumentsEvent`|`Symfony\Component\HttpKernel\Event\ControllerEvent`|
 
-Also, as of Symfony 4, the `transchoice` has been replaced with `trans`.
+Also, as of Symfony 4, the `transchoice` Twig filter has been replaced with `trans`.
 New translation strings are required.
 
 ### Twig classes
