@@ -320,7 +320,7 @@ Besides lots of smaller improvements and fixes found bellow, and mentioned above
 
 Symfony 2.7 LTS is now fully supported, and no deprecation errors should be thrown anymore. This should also ensure compatibility with the 2.8 and 3.0 releases planned for November this year.
 
-Dynamic settings have been refactored to use the [Expression Language](http://symfony.com/doc/current/components/expression_language/index.html) instead of fake services.
+Dynamic settings have been refactored to use the [Expression Language](http://symfony.com/doc/2.8/components/expression_language/index.html) instead of fake services.
 
 More info: [Symfony 2.7/3.0 epic](https://jira.ez.no/browse/EZP-24094), [Symfony 2.7 announcement blog post](http://symfony.com/blog/symfony-2-7-0-released)
 
