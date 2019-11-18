@@ -416,7 +416,7 @@ use Symfony\Component\DependencyInjection\Loader;
 /**
  * This is the class that loads and manages your bundle configuration
  *
- * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
+ * To learn more see {@link http://symfony.com/doc/4.3/cookbook/bundles/extension.html}
  */
 class AcmeExampleExtension extends Extension
 {

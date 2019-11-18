@@ -15,11 +15,11 @@ Refer to their respective pages for instructions on how to install them.
 
 ### How to create bundles?
 
-See [Symfony documentation on bundles](https://symfony.com/doc/current/bundles.html) to learn how to structure your bundle.
+See [Symfony documentation on bundles](https://symfony.com/doc/4.3/bundles.html) to learn how to structure your bundle.
 
 ### How to remove a bundle?
 
-To remove a bundle (either one you created yourself, or an out-of-the-box one that you do not need) see the [How to Remove a Bundle](http://symfony.com/doc/current/bundles/remove.html) instruction in Symfony doc.
+To remove a bundle (either one you created yourself, or an out-of-the-box one that you do not need) see the [How to Remove a Bundle](http://symfony.com/doc/3.4/bundles/remove.html) instruction in Symfony doc.
 
 ## Structuring your project
 
@@ -54,7 +54,7 @@ All project assets are accessible through the `assets` path.
 
 #### Importing assets from a bundle
 
-eZ Platform uses [Webpack Encore](https://symfony.com/doc/3.4/frontend.html#webpack-encore) for asset management.
+eZ Platform uses [Webpack Encore](https://symfony.com/doc/4.3/frontend.html#webpack-encore) for asset management.
 
 ##### Configuration from a bundle
 
@@ -429,6 +429,6 @@ The following tables give an overview of the main eZ Platform bundles.
 
 When you use an external bundle, you can override its parts, such as templates, controllers, etc.
 
-To do so, make use of [Symfony's bundle override mechanism](https://symfony.com/doc/3.4/bundles/override.html).
+To do so, make use of [Symfony's bundle override mechanism](https://symfony.com/doc/4.3/bundles/override.html).
 
 Note that when overriding files, the path inside your application has to correspond to the path inside the bundle.
