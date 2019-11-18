@@ -2,7 +2,7 @@
 
 ## Content cache
 
-eZ Platform uses [Symfony HTTP cache](http://symfony.com/doc/4.3/http_cache.html) to manage content "view" cache with an [expiration model](http://symfony.com/doc/3.4/http_cache.html#expiration-caching).
+eZ Platform uses [Symfony HTTP cache](http://symfony.com/doc/4.3/http_cache.html) to manage content "view" cache with an [expiration model](http://symfony.com/doc/4.3/http_cache.html#expiration-caching).
 In addition it is extended (using FOSHttpCache) to add several advanced features.
 For content coming from eZ Platform itself, the following applies:
 

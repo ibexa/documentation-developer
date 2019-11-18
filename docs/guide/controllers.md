@@ -462,7 +462,7 @@ The LatestContentQueryType from the [example above](#querytype-example-latest-co
 
 !!! note
 
-    For further information see the [Symfony's Options Resolver documentation page](http://symfony.com/doc/current/components/options_resolver.html)
+    For further information see the [Symfony's Options Resolver documentation page](http://symfony.com/doc/4.3/components/options_resolver.html)
 
 ``` php
 <?php

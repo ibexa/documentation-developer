@@ -19,7 +19,7 @@ See [Symfony documentation on bundles](https://symfony.com/doc/4.3/bundles.html)
 
 ### How to remove a bundle?
 
-To remove a bundle (either one you created yourself, or an out-of-the-box one that you do not need) see the [How to Remove a Bundle](http://symfony.com/doc/current/bundles/remove.html) instruction in Symfony doc.
+To remove a bundle (either one you created yourself, or an out-of-the-box one that you do not need) see the [How to Remove a Bundle](http://symfony.com/doc/3.4/bundles/remove.html) instruction in Symfony doc.
 
 ## Structuring your project
 
