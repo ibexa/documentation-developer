@@ -36,7 +36,7 @@ In this tutorial you will go through the following steps:
 
 - [1. Implement the Point 2D Value class](1_implement_the_point2d_value_class.md)
 - [2. Define the Point 2D Field Type](2_define_point2d_field_type.md)
-- [3. Create form for editing Field Type](3_register_point2d_as_a_service.md)
+- [3. Create form for editing Field Type](3_create_form_for_point2d.md)
 - [4. Introduce a template](4_introduce_a_template.md)
 - [5. Add a new Point 2D field](5_add_a_field.md)
 - [6. Implement Point 2D settings](6_settings.md)

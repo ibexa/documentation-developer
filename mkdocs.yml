@@ -43,7 +43,7 @@ pages:
             - 'Creating Point 2D Field Type': 'tutorials/generic_field_type/creating_a_point2d_field_type.md'
             - '1. Implement Value class': 'tutorials/generic_field_type/1_implement_the_point2d_value_class.md'
             - '2. Define Field Type': 'tutorials/generic_field_type/2_define_point2d_field_type.md'
-            - '3. Create a form': 'tutorials/generic_field_type/3_register_point2d_as_a_service.md'
+            - '3. Create a form': 'tutorials/generic_field_type/3_create_form_for_point2d.md'
             - '4. Introduce a template': 'tutorials/generic_field_type/4_introduce_a_template.md'
             - '5. Add a new field': 'tutorials/generic_field_type/5_add_a_field.md'
             - '6. Implement settings': 'tutorials/generic_field_type/6_settings.md'
