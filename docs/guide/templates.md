@@ -450,7 +450,7 @@ For details on listing children of a Content item, for example all content conta
 
 ##### ESI
 
-Just like for regular Symfony controllers, you can take advantage of [ESI](https://symfony.com/doc/current/http_cache/esi.html) and use different cache levels:
+Just like for regular Symfony controllers, you can take advantage of [ESI](https://symfony.com/doc/4.3/http_cache/esi.html) and use different cache levels:
 
 ``` html+twig
 {{ render_esi(controller("ez_content:viewAction", {"contentId": 123, "viewType": "line"})) }}
