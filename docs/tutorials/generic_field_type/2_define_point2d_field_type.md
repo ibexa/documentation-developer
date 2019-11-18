@@ -10,7 +10,6 @@ The Type contains logic of the Field Type: validating data, transforming from va
 A Generic Type class must implement `eZ\Publish\SPI\FieldType\Generic\Type` (Generic Field Type interface).
 For more information about the Type class of a Field Type, see [Type class](../../api/field_type_type_and_value.md#type-class).
 
-
 ## Field Type identifier
 
 First, create `src/FieldType/Point2D/Type.php`.
@@ -37,7 +36,7 @@ final class Type extends GenericType
 
 Next, add the `ezplatform.field_type` class to `config/services.yaml`:
 
-``` yaml
+```yaml
 services:
     # ...
     App\FieldType\Point2D\Type:

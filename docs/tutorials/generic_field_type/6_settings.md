@@ -106,6 +106,58 @@ final class Type extends GenericType implements FieldValueFormMapperInterface, F
     }
 ```
 
+??? tip "Complete `Type.php` code"
+
+    ```php
+    <?php
+    declare(strict_types=1);
+    
+    namespace App\FieldType\Point2D;
+    
+    use App\Form\Type\Point2DSettingsType;
+    use App\Form\Type\Point2DType;
+    use eZ\Publish\API\Repository\Values\ContentType\FieldDefinition;
+    use eZ\Publish\SPI\FieldType\Generic\Type as GenericType;
+    use eZ\Publish\SPI\FieldType\Value;
+    use EzSystems\RepositoryForms\Data\Content\FieldData;
+    use EzSystems\RepositoryForms\Data\FieldDefinitionData;
+    use EzSystems\RepositoryForms\FieldType\FieldDefinitionFormMapperInterface;
+    use EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface;
+    use Symfony\Component\Form\FormInterface;
+    
+    final class Type extends GenericType implements FieldValueFormMapperInterface, FieldDefinitionFormMapperInterface
+    
+    {
+        public function getFieldTypeIdentifier(): string
+        {
+            return 'point2d';
+        }
+        public function getSettingsSchema(): array
+        {
+            return [
+                'format' => [
+                    'type' => 'string',
+                    'default' => '(%x%, %y%)',
+                ],
+            ];
+        }
+        public function mapFieldValueForm(FormInterface $fieldForm, FieldData $data)
+        {
+            $definition = $data->fieldDefinition;
+            $fieldForm->add('value', Point2DType::class, [
+                'required' => $definition->isRequired,
+                'label' => $definition->getName()
+            ]);
+        }
+        public function mapFieldDefinitionForm(FormInterface $fieldDefinitionForm, FieldDefinitionData $data)
+        {
+            $fieldDefinitionForm->add('fieldSettings', Point2DSettingsType::class, [
+                'label' => false
+            ]);
+        }
+    }
+    ```
+
 ## Add a new tag
 
 Next, add `FieldDefinitionFormMapper` as an extra tag definition for `App\FieldType\Point2D\Type` in `config/services.yaml`:
@@ -118,7 +170,7 @@ tags:
 ## Field Type definition
 
 To be able to display the new `format` field, you need to add a template for it.
-Create `templates/field_type_definition.html.twig`:
+Create `templates/point2d_field_type_definition.html.twig`:
 
 ```html+twig
 {% block point2d_field_definition_edit %}
@@ -140,14 +192,14 @@ ezplatform:
         default:
             # ...
             fielddefinition_edit_templates:
-                - { template: 'field_type_definition.html.twig', priority: 0 }
+                - { template: 'point2d_field_type_definition.html.twig', priority: 0 }
 ```
 
 ## Redefine template
 
 Finally, redefine the Point 2D template so it accommodates the new `format` field.
 
-In `templates/field_type.html.twig` replace the content with:
+In `templates/point2d_field.html.twig` replace the content with:
 
 ```html+twig
 {% block point2d_field %}

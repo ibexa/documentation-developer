@@ -41,7 +41,7 @@ For more information about the FormMappers, see [Field Type form and template](.
 
 First, add a `FieldValueFormMapperInterface` interface (`EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface`) to Field Type definition in the `src/FieldType/Point2D/Type.php`.
 
-Next, add a `mapFieldValueForm()` with the following arguments:
+Next, add a `mapFieldValueForm()` with the following arguments (highlighted lines):
 
 - Name of the property the Field value will map to: `value`
 - Type of the Field: `Point2DType::class`
@@ -49,7 +49,7 @@ Next, add a `mapFieldValueForm()` with the following arguments:
 
 Final version of the Type class should have the following statements and functions:
 
-```php
+```php hl_lines="16 17 18 19 20 21 22 23"
 <?php
 namespace App\FieldType\Point2D;
 
@@ -110,7 +110,7 @@ final class Point2DType extends AbstractType
 
 Next, add the `ezplatform.field_type.form_mapper.value` class to `config/services.yaml`:
 
-```yaml
+```yaml hl_lines="4"
 App\FieldType\Point2D\Type:
     tags:
         - { name: ezplatform.field_type, alias: point2d }

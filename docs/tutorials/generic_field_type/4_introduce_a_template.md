@@ -14,7 +14,7 @@ In addition to its own metadata (`id`, `fieldDefIdentifier`, etc.), it exposes t
 Remember that [Field Type templates can be overridden](../../guide/twig_functions_reference.md#override-a-field-template-block) in order to tweak what is displayed and how.
 For more information, see the documentation about [Field Type templates](../../api/field_type_form_and_template.md#content-view-templates).
 
-First, create a `field_type.html.twig` template in the `templates` directory.
+First, create a `point2d_field.html.twig` template in the `templates` directory.
 It will define the default display of a Point 2D.
 Your basic template for Point 2D should look like this:
 
@@ -37,5 +37,5 @@ ezplatform:
         default:
             # ...
             field_templates:
-                - { template: 'field_type.html.twig', priority: 0 }
+                - { template: 'point2d_field.html.twig', priority: 0 }
 ```
