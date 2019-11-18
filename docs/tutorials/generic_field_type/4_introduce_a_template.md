@@ -24,9 +24,6 @@ Your basic template for Point 2D should look like this:
 {% endblock %}
 ```
 
-The `field.value.getX` and  the `field.value.getY` are piped through the `raw` Twig operator, since the variable contains HTML code.
-Without it, the HTML markup would be visible directly, because Twig escapes variables by default.
-
 ## Template mapping
 
 Next, provide the template mapping in `config/packages/ezplatform.yaml`:

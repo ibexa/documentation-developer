@@ -13,7 +13,7 @@ For more information about the Type class of a Field Type, see [Type class](../.
 ## Field Type identifier
 
 First, create `src/FieldType/Point2D/Type.php`.
-Add a `getFieldTypeIdentifier()` method to it. The new method will return the string that **uniquely** identifies your Generic Field Type, in this case `point2d`:
+Add a `getFieldTypeIdentifier()` method to it. The new method will return the string that **uniquely** identifies your Field Type, in this case `point2d`:
 
 ```php
 <?php

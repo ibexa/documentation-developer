@@ -9,7 +9,6 @@
 To edit your new Field Type, create a `Point2DType.php` form in the `src/Form/Type` directory.
 Next, add a `Point2DType` class that extends the `AbstractType` and implements the `buildForm()` method.
 This method adds fields for `x` and `y` coordinates.
-It also enables you to skip implementation of Data Transformer.
 
 ```php
 <?php

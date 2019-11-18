@@ -23,7 +23,7 @@ For more information about Field Type Value, see [Value handling](../../api/fiel
 
 !!! tip
 
-    Value class should always be contained in a file named `Value.php`.
+    According to the convention, the class representing Field Type value should be named `Value` and should be placed in the same namespace as the Type definition.
 
 The Point 2D Value class will contain:
 
@@ -53,9 +53,11 @@ At this point, it does not matter where they are stored. You want to focus on wh
 }
 ```
 
-To match the `FieldType\Value` interface, you also need to add `getX()`,  `setX`, `getY`, `setY`, and `__toString()` methods to the constructor.
 A Value class must also implement the `eZ\Publish\SPI\FieldType\Value` interface.
-It will return the point 2D.
+To match the `FieldType\Value` interface, you need to implement `__toString()` method.
+You also need to add getters and setters for `x` and `y` properties.
+This class will represent the point 2D.
+
 The final code should look like this:
 
 ```php
