@@ -91,7 +91,6 @@ ezpublish:
             user_change_password:
                 templates:
                     form: <path_to_template>
-                    confirmation: <path_to_template>
 ```
 
 **Password recovery forms:**
