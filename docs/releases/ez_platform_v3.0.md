@@ -21,6 +21,8 @@ for details of all changes.
 
 ### Field Type creation
 
+You can now use [Generic Field Type](../guide/extending_field_type.md) as a template for your custom Field Types.
+
 ### Using Events instead of SignalSlots
 
 The application now uses Symfony Events instead of SignalSlots.
