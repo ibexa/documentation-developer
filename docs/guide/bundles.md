@@ -148,6 +148,10 @@ add a `Resources/encore/ez.webpack.custom.config.js` file, for example:
 	module.exports = customConfig;
 ```
 
+!!! tip
+
+    If you don't plan to add multiple entry files on the same page in your custom config, use the `disableSingleRuntimeChunk()` funtion to avoid adding a separate `runtime.js` file. Otherwise, your JS code may be run multiple times. By default, the `enableSingleRuntimeChunk()` function is used.
+
 ##### Configuration from main project files
 
 If you prefer to include the asset configuration in the main project files,
