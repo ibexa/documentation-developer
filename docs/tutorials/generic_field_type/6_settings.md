@@ -83,14 +83,14 @@ final class Point2DSettingsType extends AbstractType
 Now, enable the user to add the coordinates which will be validated.
 In `src/FieldType/Point2D/Type.php` you will:
  
-- inject the `FieldDefinitionFormMapperInterface` extension implementing `EzSystems\RepositoryForms\FieldType\FieldDefinitionFormMapperInterface`
+- inject the `FieldDefinitionFormMapperInterface` extension implementing `EzSystems\EzPlatformAdminUi\FieldType\FieldDefinitionFormMapperInterface`
 - add a `mapFieldDefinitionForm` at the end that will define the field settings
 
 ```php
 <?php
 namespace App\FieldType\Point2D;
 
-use EzSystems\RepositoryForms\FieldType\FieldDefinitionFormMapperInterface;
+use EzSystems\EzPlatformAdminUi\FieldType\FieldDefinitionFormMapperInterface;
 
 // ...
 
@@ -121,7 +121,7 @@ final class Type extends GenericType implements FieldValueFormMapperInterface, F
     use eZ\Publish\SPI\FieldType\Value;
     use EzSystems\RepositoryForms\Data\Content\FieldData;
     use EzSystems\RepositoryForms\Data\FieldDefinitionData;
-    use EzSystems\RepositoryForms\FieldType\FieldDefinitionFormMapperInterface;
+    use EEzSystems\EzPlatformAdminUi\FieldType\FieldDefinitionFormMapperInterface;
     use EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface;
     use Symfony\Component\Form\FormInterface;
     
