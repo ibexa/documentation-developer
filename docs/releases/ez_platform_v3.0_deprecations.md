@@ -288,6 +288,11 @@ have been moved from `ezplatform-admin-ui` to `ezplatform-richtext`.
 The way of adding custom tab groups in the Back Office has changed.
 You now need to [make use of the `TabsComponent`](../guide/extending/extending_tabs.md#adding-a-new-tab-group).
 
+### Content Type forms
+
+Content Type editing, including Action Dispatchers, Form Processors, Types and Data classes related to Content Types/Limitations,
+has been moved to `ezplatform-admin-ui` from `repository-forms`.
+
 ### Code cleanup
 
 The following deprecated items have been removed: 
@@ -330,6 +335,10 @@ No deprecations or backward compatibility breaks to document.
 ### Universal Discovery Widget
 
 The deprecated `universal_discovery_widget_module.default_location_id` setting has been replaced with `universal_discovery_widget_module.configuration.default.starting_location_id`.
+
+## ezplatform-content-forms
+
+This new package contains forms for content creation moved from `repository-forms`.
 
 ## ezplatform-core
 
@@ -625,4 +634,19 @@ No deprecations or backward compatibility breaks to document.
 
 ## repository-forms
 
-No deprecations or backward compatibility breaks to document.
+Forms located in `repository-forms` have been moved to other packages.
+
+Content Type editing, including Action Dispatchers, Form Processors, Types and Data classes related to Content Types/Limitations,
+has been moved to `ezplatform-admin-ui`.
+
+The following locations have been changed:
+
+| Former location | New location |
+|----------|-----|
+|`EzSystems\RepositoryForms\FieldType\FieldDefinitionFormMapperInterface`|`EzSystems\EzPlatformAdminUi\FieldType\FieldDefinitionFormMapperInterface`|
+|`EzSystems\RepositoryForms\Limitation\LimitationFormMapperInterface`|`EzSystems\EzPlatformAdminUi\Limitation\LimitationFormMapperInterface`|
+|`EzSystems\RepositoryForms\Limitation\LimitationValueMapperInterface`|`EzSystems\EzPlatformAdminUi\Limitation\LimitationValueMapperInterface`|
+
+Forms for content creation have been moved to a new package `ezplatform-content-forms`.
+
+`repository-forms` still remains as an additional layer, do your custom implementations using the package will still work.

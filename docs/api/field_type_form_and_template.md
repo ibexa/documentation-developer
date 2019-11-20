@@ -7,7 +7,7 @@ The FormMapper maps Field definitions into Symfony forms, allowing Field editing
 It can implement two interfaces:
 
 - `EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface` to provide editing support
-- `EzSystems\RepositoryForms\FieldType\FieldDefinitionFormMapperInterface` to provide Field Type definition editing support,
+- `EzSystems\EzPlatformAdminUi\FieldType\FieldDefinitionFormMapperInterface` to provide Field Type definition editing support,
 when you require non-standard settings
 
 ### FieldValueFormMapperInterface
