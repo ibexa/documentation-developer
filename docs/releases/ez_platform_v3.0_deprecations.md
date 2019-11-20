@@ -647,6 +647,6 @@ The following locations have been changed:
 |`EzSystems\RepositoryForms\Limitation\LimitationFormMapperInterface`|`EzSystems\EzPlatformAdminUi\Limitation\LimitationFormMapperInterface`|
 |`EzSystems\RepositoryForms\Limitation\LimitationValueMapperInterface`|`EzSystems\EzPlatformAdminUi\Limitation\LimitationValueMapperInterface`|
 
-Forms for content creation have been moved to a new package `ezplatform-content-forms`.
+Forms for content creation have been moved to a new `ezplatform-content-forms` package.
 
-`repository-forms` still remains as an additional layer, do your custom implementations using the package will still work.
+`repository-forms` remains as an additional layer ensuring that your custom implementations that use the package will still work.
