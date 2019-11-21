@@ -493,21 +493,55 @@ class OptionsBasedLatestContentQueryType extends OptionsResolverBasedQueryType i
 
 ### Using QueryTypes from PHP code
 
-All QueryTypes are registered in the QueryType registry.
-It is available from the container as `ezpublish.query_type.registry`.
+All QueryTypes are registered in the QueryType registry, which is a Symfony Service injectable as `ezpublish.query_type.registry`:
 
-``` php
+``` yaml
+services:
+    App\Controller\LatestContentController:
+            autowire: true
+            autoconfigure: true
+            arguments:
+                $registry: '@ezpublish.query_type.registry'
+```
+
+Example of PHP code:
+
+```php
+
 <?php
-class MyCommand extends Command
+
+declare(strict_types=1);
+
+namespace App\Controller;
+
+use eZ\Publish\API\Repository\SearchService;
+use eZ\Publish\Core\QueryType\QueryTypeRegistry;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+
+final class LatestContentController extends AbstractController
 {
-    protected function execute(InputInterface $input, OutputInterface $output)
+
+    /** @var \eZ\Publish\Core\QueryType\QueryTypeRegistry */
+    private $registry;
+    
+    /** @var \eZ\Publish\API\Repository\SearchService */
+    private $searchService;
+    
+    public function __construct(QueryTypeRegistry $registry, SearchService $searchService)
     {
-        $queryType     = $this->getContainer()->get('ezpublish.query_type.registry')->getQueryType('AcmeBundle:LatestContent');
-        $query         = $queryType->getQuery(['type' => 'article']);
-        $searchResults = $this->getContainer()->get('ezpublish.api.service.search')->findContent($query);
-        foreach ($searchResults->searchHits as $searchHit) {
-            $output->writeln($searchHit->valueObject->contentInfo->name);
-        }
+    	$this->searchService = $searchService;
+        $this->registry = $registry;    	
+    }
+
+    public function showLatestContentAction(string $template, string $contentType): Response
+    {
+    	$queryType = $this->registry->getQueryType('LatestContent');
+    	$query = $queryType->getQuery(['type' => $contentType]);
+    	$searchResults = $this->searchService->findContent($query);
+    	
+    	return $this->render($template, ['results' => $searchResults]);
     }
 }
+
 ```

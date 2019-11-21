@@ -499,6 +499,13 @@ No deprecations or backward compatibility breaks to document.
 
 ## ezpublish-kernel
 
+### Controllers
+
+The `eZ\Bundle\EzPublishCoreBundle\Controller` now extends `Symfony\Bundle\FrameworkBundle\Controller\AbstractController` instead of `Symfony\Bundle\FrameworkBundle\Controller\Controller` which has limited access to the dependency injection container.
+For details, see [Service Subscribers Locators.](https://symfony.com/doc/current/service_container/service_subscribers_locators.html)
+
+The `Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand` is deprecated, use `Symfony\Component\Console\Command\Command` instead.
+
 ### Elastic Search
 
 Experimental, deprecated and unsupported code for Elastic Search 1.4.2 has been dropped from kernel,
@@ -624,13 +631,6 @@ The deprecated `Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesserI
 The SiteAccess-aware `pagelayout` setting is deprecated in favor of `page_layout`.
 
 View parameter `pagelayout` set by `pagelayout` setting is deprecated in favor of  `page_layout`.
-
-### Controllers
-
-The `eZ\Bundle\EzPublishCoreBundle\Controller` now extends `Symfony\Bundle\FrameworkBundle\Controller\AbstractController` instead of `Symfony\Bundle\FrameworkBundle\Controller\Controller` which has limited access to the dependency injection container.
-For details, see [Service Subscribers Locators.](https://symfony.com/doc/current/service_container/service_subscribers_locators.html)
-
-The `Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand` is deprecated, use `Symfony\Component\Console\Command\Command` instead.
 
 ### Code cleanup
 
