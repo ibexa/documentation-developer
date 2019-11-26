@@ -22,6 +22,10 @@ Currently this covers [Subtree of Location](limitation_reference.md#subtree-of-l
 
 ## Available Limitations
 
+!!! tip
+
+    Core Policies with Limitations are defined in [`EzPublishCoreBundle/Resources/config/policies.yml`](https://github.com/ezsystems/ezpublish-kernel/blob/6.7/eZ/Bundle/EzPublishCoreBundle/Resources/config/policies.yml).
+
 Each function in one of the four modules (content, section, state, user) can be assigned different Limitations.
 
 !!! tip "Functions without Limitations"
