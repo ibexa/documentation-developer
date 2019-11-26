@@ -30,7 +30,7 @@ public function listBlogPostsAction(Location $location)
 
 !!! tip
 
-    If you want to understand how it works, you can check [Symfony's ParamConverter documentation](http://symfony.com/doc/master/bundles/SensioFrameworkExtraBundle/annotations/converters.html) and the [pull request implementing the Repository ParamConverters](https://github.com/ezsystems/ezpublish-kernel/pull/1128).
+    If you want to understand how it works, you can check [Symfony's ParamConverter documentation](https://symfony.com/doc/3.0/bundles/SensioFrameworkExtraBundle/annotations/converters.html) and the [pull request implementing the Repository ParamConverters](https://github.com/ezsystems/ezpublish-kernel/pull/1128).
 
 !!! tip "Migrating your current application"
 

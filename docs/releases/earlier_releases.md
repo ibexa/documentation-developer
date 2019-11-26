@@ -159,7 +159,7 @@ The location tab also allows to manage (add, remove, hide/unhide) locations, as 
 
 Bundles can now declare custom modules, policies and limitations.
 
-Links: [documentation](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/security/permissions/policies_extensibility.md), [EZP-24862](https://jira.ez.no/browse/EZP-24862).
+Links: [documentation](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.10/doc/specifications/security/permissions/policies_extensibility.md), [EZP-24862](https://jira.ez.no/browse/EZP-24862).
 
 ![](img/platform_custom_policies.png)
 
@@ -320,7 +320,7 @@ Besides lots of smaller improvements and fixes found bellow, and mentioned above
 
 Symfony 2.7 LTS is now fully supported, and no deprecation errors should be thrown anymore. This should also ensure compatibility with the 2.8 and 3.0 releases planned for November this year.
 
-Dynamic settings have been refactored to use the [Expression Language](http://symfony.com/fr/doc/current/components/expression_language/index.html) instead of fake services.
+Dynamic settings have been refactored to use the [Expression Language](https://symfony.com/doc/2.8/components/expression_language.html) instead of fake services.
 
 More info: [Symfony 2.7/3.0 epic](https://jira.ez.no/browse/EZP-24094), [Symfony 2.7 announcement blog post](http://symfony.com/blog/symfony-2-7-0-released)
 
@@ -330,7 +330,7 @@ More info: [Symfony 2.7/3.0 epic](https://jira.ez.no/browse/EZP-24094), [Symfon
 
 Content types can now be created or edited from PlatformUI, inside the Admin panel. The feature isn't visually integrated yet, but already covers most FieldTypes. Progress can be followed on the Epic above.
 
-Forms themselves use the [Symfony Forms component](http://symfony.com/doc/current/components/form/introduction.html). The implementation has been done in a distinct package, dedicated to providing Forms for the eZ Repository domain: [Repository Forms](https://github.com/ezsystems/repository-forms).
+Forms themselves use the [Symfony Forms component](https://symfony.com/doc/2.8/components/form.html). The implementation has been done in a distinct package, dedicated to providing Forms for the eZ Repository domain: [Repository Forms](https://github.com/ezsystems/repository-forms).
 
 More info: [Content type management epic](http://jira.ez.no/browse/EZP-24070), [repository-forms on Github](https://github.com/ezsystems/repository-forms), [repository-forms on Packagist](https://packagist.org/packages/ezsystems/repository-forms).
 
@@ -359,7 +359,7 @@ More info: [Technical specifications](https://github.com/ezsystems/ezpublish-ke
 
 A new controller and route have been added, and the Image and BinaryFile content field templates have been updated. Permissions are transparently checked during download, and HTTP resume is supported. The [Route Reference API](../api/rest_api_reference.md), provides facilities to generate the right path from templates, and a valid URI is exposed over REST.
 
-More info:  [Specificaftions](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/proposed/content_download/content_download.md), [Implementation story](https://jira.ez.no/browse/EZP-23550), [Content view module epic](https://jira.ez.no/browse/EZP-24144).
+More info:  [Specificaftions](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.10/doc/specifications/proposed/content_download/content_download.md), [Implementation story](https://jira.ez.no/browse/EZP-23550), [Content view module epic](https://jira.ez.no/browse/EZP-24144).
 
  
 
@@ -440,7 +440,7 @@ Epics tentatively\* planned for first LTS release:  [0 issue](https://jira.ez.
 
 #### Quick links
 
--   [Install](https://github.com/ezsystems/ezplatform/blob/master/INSTALL.md)
+-   [Install](https://github.com/ezsystems/ezplatform/blob/v1.7.4/INSTALL.md)
 -   [Requirements](../getting_started/requirements.md)
 -   Upgrading: *As this is a alpha release, there is no upgrade instructions yet, this is planned for Beta during the Summer.*
 
@@ -501,7 +501,7 @@ This is used for Relation, Relation List and Section assignment selection so far
 Welcome to the first release of eZ Platform, 15.01 serves two purposes: As first alpha release of eZ Platform, and also as eZ Publish Community edition v2015.01 by installing optional legacy packages. Further information about eZ Platform (and eZ Studio), and what you can expect, can be found [here](http://ez.no/Blog/What-to-Expect-from-eZ-Studio-and-eZ-Platform)
 
 #### Quick links
--   [Install](https://github.com/ezsystems/ezplatform/blob/master/INSTALL.md)
+-   [Install](https://github.com/ezsystems/ezplatform/blob/v1.7.4/INSTALL.md)
 -   [Requirements](../getting_started/requirements.md)
 -   Upgrading: *As this is a alpha release, there is no upgrade instructions yet, this is planned for Beta during the Summer.*
 

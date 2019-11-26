@@ -71,7 +71,3 @@ For example, if you want to translate your application into French, you just hav
 and then clear the cache.
 
 Now you can reload your eZ Platform administration page which will be translated in French (if your browser is configured to fr\_FR.)
-
-## Full translation workflow
-
-You can read a full description of how new translations are prepared and distributed in [the documentation of GitHub](https://github.com/ezsystems/ezplatform/blob/master/doc/i18n/translation_workflow.md).

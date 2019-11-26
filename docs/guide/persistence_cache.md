@@ -34,7 +34,7 @@ Notes:
 - Some tree/batch operations will cause clearing all persistence cache, this will be improved in the future when we change to a cache service cable of cache tagging.
 - Search is not defined as Persistence and the queries themselves are not planned to be cached. Use [Solr](solr.md) which does this for you to improve scale and offload your database.
 
-*For further details on which calls are cached or not, and where/how to contribute additional caches, see the [source](https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/Core/Persistence/Cache).*
+*For further details on which calls are cached or not, and where/how to contribute additional caches, see the [source](https://github.com/ezsystems/ezpublish-kernel/tree/v6.7.10/eZ/Publish/Core/Persistence/Cache).*
 
 ## Persistence cache configuration
 

@@ -281,7 +281,7 @@ Extending `EzSystems\PlatformUIBundle\Controller\Controller` is not strictly re
 By doing that, the actions provided by the controller are automatically restricted to authenticated users.
 This base controller also provides the base API to handle notifications if needed.
 
-To learn how to write Symfony controllers, please read [the Symfony Controller documentation](http://symfony.com/doc/current/book/controller.html).
+To learn how to write Symfony controllers, please read [the Symfony Controller documentation](https://symfony.com/doc/2.8/controller.html).
 
 The `list` action in `ListController` uses the following Twig template:
 

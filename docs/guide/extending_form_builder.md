@@ -62,7 +62,7 @@
                     template: EzSystemsFormBuilderBundle:fields:single_line_text/basic.html.twig
     ```
 
-    You can also provide additional options using the `options:` key. For example, you can make sure that the data entered in a field will not to be stored in the database, like for example in the [built-in Captcha field](https://github.com/ezsystems/ezstudio-form-builder/blob/5fd44dc5419a2e969f2a17acbda794f321e5c946/bundle/Resources/config/default_fields.yml#L134).
+    You can also provide additional options using the `options:` key. For example, you can make sure that the data entered in a field will not to be stored in the database, like for example in the [built-in Captcha field](https://github.com/ezsystems/ezstudio-form-builder/blob/1.1/bundle/Resources/config/default_fields.yml#L134).
 
     When creating a new template for the field definition, remember to add the mandatory `ezform-field` class and `field.id` as shown below: 
 

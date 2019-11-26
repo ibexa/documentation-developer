@@ -20,7 +20,7 @@ So to appear selected, the route names must match and a given route parameter sh
 - the `Y.eZ.NavigationItemSubtreeView` also adds a match on a route parameter,
 but in this case it considers the `id` route parameter and checks whether the matched id in the application route is a descendant of a given Location id.
 
-The default structure of the Navigation Hub is defined in the [Navigation Hub view service attributes](https://github.com/ezsystems/PlatformUIBundle/blob/master/Resources/public/js/views/services/ez-navigationhubviewservice.js#L407).
+The default structure of the Navigation Hub is defined in the [Navigation Hub view service attributes](https://github.com/ezsystems/PlatformUIBundle/blob/v1.7.9/Resources/public/js/views/services/ez-navigationhubviewservice.js#L407).
 
 ## Adding a new navigation item
 

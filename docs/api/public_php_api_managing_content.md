@@ -221,7 +221,7 @@ You embed an image in your XML, using the `<embed>` tag, providing an image Cont
 
 !!! note "Using a custom format as input"
 
-    More input formats will be added later. The API for that is actually already available: you simply need to implement the [`XmlText\Input`](https://github.com/ezsystems/ezplatform-xmltext-fieldtype/tree/master/lib/FieldType/XmlText/Input) interface. It contains one method, `getInternalRepresentation()` that must return an internal XML string. Create your own bundle, add your implementation to it, and use it in your code.
+    More input formats will be added later. The API for that is actually already available: you simply need to implement the [`XmlText\Input`](https://github.com/ezsystems/ezplatform-xmltext-fieldtype/tree/v1.7.3/lib/FieldType/XmlText/Input) interface. It contains one method, `getInternalRepresentation()` that must return an internal XML string. Create your own bundle, add your implementation to it, and use it in your code.
 
 ``` php
 $input = new \My\XmlText\CustomInput( 'My custom format string' );
