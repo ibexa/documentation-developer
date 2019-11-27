@@ -12,7 +12,7 @@
 ## Back end
 
 - API:
-    - [REST API reference](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst)
+    - [REST API reference](https://github.com/ezsystems/ezpublish-kernel/blob/v6.13.6/doc/specifications/rest/REST-API-V2.rst)
     - [Public PHP API](api/public_php_api.md)
     - [Field Types reference](api/field_type_reference.md)
 - Content model and rendering:
