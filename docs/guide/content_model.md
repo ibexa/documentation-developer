@@ -110,7 +110,7 @@ Each Content Type is characterized by a set of metadata which define the general
 
 **Default sort order** – another rule for sorting sub-items. This decides the sort order for the criterion chosen above.
 
-<a id="default-content-availability"></a>**Default content availability** – a flag which indicates if Content items of this Content Type should be available even without a corresponding language version. If this flag is not set, a Content item of this Type will not be available when it does not have a language version corresponding to the current SiteAccess. By setting this flag you can make instances of this Content Type available regardless of the language criterion.
+<a id="default-content-availability"></a>**Make content available even with missing translations** – a flag which indicates if Content items of this Content Type should be available even without a corresponding language version. See [Content availability](content_management.md#content-availability).
 
 ![Creating a new Content Type](img/admin_panel_new_content_type.png)
 
