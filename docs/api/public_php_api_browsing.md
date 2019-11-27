@@ -1,12 +1,12 @@
 # Browsing and viewing content
 
-To retrieve a Content item and its information, you need to make use of the [`ContentService`.](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ContentService.php)
+To retrieve a Content item and its information, you need to make use of the [`ContentService`.](https://github.com/ezsystems/ezpublish-kernel/blob/v6.13.6/eZ/Publish/API/Repository/ContentService.php)
 
-The service should be [injected into the constructor of your command or controller.](https://symfony.com/doc/3.4/service_container.html)
+The service should be [injected into the constructor of your command or controller.](https://symfony.com/doc/2.8/service_container.html)
 
 !!! tip "Console commands"
 
-    To learn more about commands in Symfony, refer to [Console Commands.](https://symfony.com/doc/3.4/console.html)
+    To learn more about commands in Symfony, refer to [Console Commands.](https://symfony.com/doc/2.8/console.html)
 
 ## Viewing content metadata
 
@@ -325,4 +325,4 @@ This is a lazy property. It will trigger loading of Content when first used.
 In case of bulk of Locations coming from Search or Location Service,
 the Content will also be loaded in bulk for the whole Location result set.
 
-To learn more about this functionality see [Lazy object properties.](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/api/lazy_properties.md)
+To learn more about this functionality see [Lazy object properties.](https://github.com/ezsystems/ezpublish-kernel/blob/6.13.7/doc/specifications/api/lazy_properties.md)

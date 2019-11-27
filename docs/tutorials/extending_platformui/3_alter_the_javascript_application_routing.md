@@ -5,7 +5,7 @@
 The essential task of the PlatformUI Application component is to handle the routing. It is based on
 [the routing capabilities provided by the YUI App component](http://yuilibrary.com/yui/docs/app/#hash-based-urls-only)
 and it uses hash-based URIs. By default, the PlatformUI Application will recognize and handle
-[several routes which are declared in the app component itself](https://github.com/ezsystems/PlatformUIBundle/blob/master/Resources/public/js/apps/ez-platformuiapp.js#L904).
+[several routes which are declared in the app component itself](https://github.com/ezsystems/PlatformUIBundle/blob/v1.13.5/Resources/public/js/apps/ez-platformuiapp.js#L904).
 
 A route is described by an object with the following properties:
 

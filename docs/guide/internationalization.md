@@ -190,7 +190,7 @@ ezpublish:
         eng-DE: en_DE
 ```
 
-A locale *conversion map* example [can be found in the `core` bundle, on `locale.yml`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/locale.yml).
+A locale *conversion map* example [can be found in the `core` bundle, on `locale.yml`](https://github.com/ezsystems/ezpublish-kernel/blob/v6.13.6/eZ/Bundle/EzPublishCoreBundle/Resources/config/locale.yml).
 
 ### More complex translation setup
 

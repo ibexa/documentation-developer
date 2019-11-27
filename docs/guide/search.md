@@ -255,7 +255,7 @@ ezpublish.search.legacy.gateway.sort_clause_handler.location.depth:
 
 !!! note "See also"
 
-    See also [Symfony documentation about Service Container](http://symfony.com/doc/current/book/service_container.html#service-parameters) for passing parameters.
+    See also [Symfony documentation about Service Container](http://symfony.com/doc/2.8/service_container.html#service-parameters) for passing parameters.
 
 ## Reindexing
 

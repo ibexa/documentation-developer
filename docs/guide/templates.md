@@ -107,7 +107,7 @@ The configuration described above lets you select one template to be used in a g
 
 !!! tip
 
-    See [Including Templates](http://symfony.com/doc/current/book/templating.html#including-templates) in Symfony documentation for more information on including templates.
+    See [Including Templates](https://symfony.com/doc/2.8/components/templating.html#including-templates) in Symfony documentation for more information on including templates.
 
 The main template for your webpage (defined per SiteAccess) is placed in the `pagelayout.html.twig` file. This template will be used by default for those parts of the website where no other templates are defined.
 
@@ -127,7 +127,7 @@ Any further templates will extend and modify this one, so they need to start wit
 
     In short, the `Resources/views` part of the path is automatically added whenever a template file is referenced. What you need to provide is the bundle name, name of any subfolder within `/views/`, and file name, all three separated by colons (:)
 
-    To find out more about the way of referencing template files placed in bundles, see [Referencing Templates in a Bundle](http://symfony.com/doc/current/book/templating.html#referencing-templates-in-a-bundle) in Symfony documentation.
+    To find out more about the way of referencing template files placed in bundles, see [Referencing Templates in a Bundle](https://symfony.com/doc/2.8/components/templating.html#usage) in Symfony documentation.
 
 Templates can be extended using a Twig [`block`](http://twig.sensiolabs.org/doc/functions/block.html) tag. This tag lets you define a named section in the template that will be filled in by the child template. For example, you can define a "title" block in the main template. Any child template that extends it can also contain a "title" block. In this case the contents of the block from the child template will be placed inside this block in the parent template (and override what was inside this block):
 
@@ -196,7 +196,7 @@ This example renders the Content item with Location ID 33 using the line view. T
 
 Asset files such as CSS stylesheets, JS scripts or image files can be defined in the templates and need to be included in the directory structure in the same way as with any other web project. Assets are placed in the `web/` folder in your installation.
 
-Instead of linking to stylesheets or embedding images like usually, you can use the [`asset`](http://symfony.com/doc/current/book/templating.html#linking-to-assets) function.
+Instead of linking to stylesheets or embedding images like usually, you can use the [`asset`](https://symfony.com/doc/2.8/components/templating/assetshelper.html) function.
 
 #### Controller
 
@@ -420,7 +420,7 @@ You can use this controller from templates with the following syntax:
 
 The example above renders the Content item whose ID is **123** with the view type **line**.
 
-Referencing the `ez_content` controller follows the syntax of *controllers as a service*, [as explained in Symfony documentation](http://symfony.com/doc/current/cookbook/controller/service.html).
+Referencing the `ez_content` controller follows the syntax of *controllers as a service*, [as explained in Symfony documentation](https://symfony.com/doc/2.8/controller/service.html).
 
 ##### Available arguments
 
@@ -454,7 +454,7 @@ For example:
 
 ##### ESI
 
-Just like for regular Symfony controllers, you can take advantage of [ESI](https://symfony.com/doc/current/http_cache/esi.html) and use different cache levels:
+Just like for regular Symfony controllers, you can take advantage of [ESI](https://symfony.com/doc/2.8/http_cache/esi.html) and use different cache levels:
 
 ``` html+twig
 {{ render_esi(controller("ez_content:viewAction", {"contentId": 123, "viewType": "line"})) }}

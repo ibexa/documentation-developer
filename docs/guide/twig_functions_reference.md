@@ -2,7 +2,7 @@
 
 !!! note "Symfony and Twig template functions/filters/tags"
 
-    For the template functionality provided by Symfony Framework, see [Symfony Twig Extensions Reference page](http://symfony.com/doc/current/reference/twig_reference.html). For those provided by the underlying Twig template engine, see [Twig Reference page](http://twig.sensiolabs.org/documentation#reference)
+    For the template functionality provided by Symfony Framework, see [Symfony Twig Extensions Reference page](https://symfony.com/doc/2.8/reference/twig_reference.html). For those provided by the underlying Twig template engine, see [Twig Reference page](http://twig.sensiolabs.org/documentation#reference)
 
 In addition to the [native functions provided by Twig](http://twig.sensiolabs.org/doc/functions/index.html), eZ Platform offers the following:
 
@@ -411,7 +411,7 @@ you can specify the current template to be the source of the Field block.
 
     **Using `_self` will only work if your current template is extending another one.**
 
-    This is basically the same limitation as for [Symfony form themes](https://symfony.com/doc/current/form/form_themes.html).
+    This is basically the same limitation as for [Symfony form themes](https://symfony.com/doc/2.8/form/form_themes.html).
 
 ##### Global override
 

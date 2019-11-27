@@ -13,7 +13,7 @@ To add the pagination, we need to modify the whole component *stack* to accept a
 As you can see in the [corresponding commit](https://github.com/ezsystems/ExtendingPlatformUIConferenceBundle/commit/3c447588bff4e021ea16ec7f18ab23e812a4bf40),
 this is a purely Symfony-related task where we have to modify the `routing.yml` to accept an optional parameter and the action to use it.
 
-This is detailed in the [Symfony Controller documentation](http://symfony.com/doc/current/book/controller.html).
+This is detailed in the [Symfony Controller documentation](https://symfony.com/doc/2.8/controller.html).
 
 ### JavaScript application routing to accept an `offset` parameter
 
