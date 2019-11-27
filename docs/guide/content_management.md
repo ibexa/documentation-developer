@@ -167,7 +167,7 @@ Together, the flags represent the three visibility statuses:
 
 ## Content availability
 
-The Default content availability flag enables you to control whether content is available when it is missing translations.
+The Default content availability flag enables you to control whether content is available when its translation is missing.
 
 You can set the flag in Content Type definition by checking the "Make content available even with missing translations" option.
 It is automatically applied to any new Content item of this Type.
@@ -193,10 +193,10 @@ that should always be visible to the user, such as media files or user Content i
 You can also use it for organizational Content Types.
 
 For example, you can assign the flag to a Blog Content Type which is intended to contain Blog Posts
-in multiple languages. If the Blog is in Norwegian only, it would not be visible for readers
-using the English or German SiteAcceses.
+in multiple languages. If the Blog is in English only, it would not be visible for readers
+using the Norwegian or German SiteAcceses.
 However, if you set the default availability flag for the Blog Content Type,
-it will be displayed in the main language (e.g. English) and enable the users to browse individual
+it will be displayed to them in English (if it is set as a main language) and will enable the users to browse individual
 posts in other languages.
 
 ## Content Relations
