@@ -120,6 +120,7 @@ Optionally, Universal Discovery module can take a following list of props:
 - **cotfAllowedLanguages** _{Array}_ - languages that are available in Content on the Fly,
 - **cotfPreselectedContentType** _{String}_ - Content Type that is preselected in Content on the Fly,
 - **cotfAllowedContentTypes** _{Array}_ - Content Types that are available in Content on the Fly,
+- **allowedContentTypes** _{Array}_ - Content Types that are available in other UDW tabs,
 - **cotfPreselectedLocation** _{Number}_ - Location that is preselected in Content on the Fly,
 - **cotfAllowedLocations** _{Array}_ - Locations that are available in Content on the Fly
 
