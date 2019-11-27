@@ -63,6 +63,7 @@ For security and performance we generally recommend (unless otherwise noted and 
 -   PHP extensions/modules
     -   curl
     -   ctype
+    -   dom (usually bundled with `xml` extension package)
     -   fileinfo
     -   iconv
     -   intl
