@@ -259,7 +259,7 @@ ezpublish.search.legacy.gateway.sort_clause_handler.location.depth:
 
 !!! note "See also"
 
-    See also [Symfony documentation about Service Container](http://symfony.com/doc/current/book/service_container.html#service-parameters) for passing parameters.
+    See also [Symfony documentation about Service Container](https://symfony.com/doc/3.4/service_container.html#service-parameters) for passing parameters.
 
 ### Search using custom Field Criterion [REST]
 

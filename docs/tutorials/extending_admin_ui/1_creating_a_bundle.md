@@ -1,7 +1,7 @@
 # Step 1 - Creating a bundle
 
 To extend eZ Platform's Back Office, the very first thing to do is to create a Symfony bundle.
-For that, you can use [the Symfony generate bundle command](http://symfony.com/doc/current/bundles/SensioGeneratorBundle/commands/generate_bundle.html) in the following way:
+For that, you can use [the Symfony generate bundle command](https://symfony.com/doc/3.0/bundles/SensioGeneratorBundle/commands/generate_bundle.html) in the following way:
 
 ``` bash
 bin/console generate:bundle --namespace=EzSystems/ExtendingTutorialBundle --dir=src --format=yml --no-interaction

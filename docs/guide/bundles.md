@@ -2,7 +2,7 @@
 
 ## Dealing with bundles
 
-eZ Platform is based on the Symfony 3 framework and applies a similar way of organizing the app. Like in Symfony, where ["everything is a bundle"](http://symfony.com/doc/current/book/bundles.html), your eZ Platform application is going to be a collection of bundles.
+eZ Platform is based on the Symfony 3 framework and applies a similar way of organizing the app. Like in Symfony, where ["everything is a bundle"](https://symfony.com/doc/3.4/bundles.html), your eZ Platform application is going to be a collection of bundles.
 
 ### What is a bundle?
 
@@ -20,11 +20,11 @@ Refer to their respective pages for instructions on how to install them.
 
 ### How to create bundles?
 
-You can generate a new bundle using a `generate:bundle` command. See [Symfony documentation on generating bundles](http://symfony.com/doc/current/bundles/SensioGeneratorBundle/commands/generate_bundle.html).
+You can generate a new bundle using a `generate:bundle` command. See [Symfony documentation on generating bundles](https://symfony.com/doc/3.0/bundles/SensioGeneratorBundle/index.html).
 
 ### How to remove a bundle?
 
-To remove a bundle (either one you created yourself, or an out-of-the-box one that you do not need) see the [How to Remove a Bundle](http://symfony.com/doc/current/bundles/remove.html) instruction in Symfony doc.
+To remove a bundle (either one you created yourself, or an out-of-the-box one that you do not need) see the [How to Remove a Bundle](https://symfony.com/doc/3.4/bundles.html) instruction in Symfony doc.
 
 ## Structuring a bundle
 
@@ -253,7 +253,7 @@ ezpublish:
 The following example shows how to implicitly load settings on the example of eZ Platform kernel.
 Note that this is also valid for any bundle.
 
-This assumes you are familiar with [service container extensions.](http://symfony.com/doc/current/book/service_container.html#importing-configuration-via-container-extensions)
+This assumes you are familiar with [service container extensions.](https://symfony.com/doc/3.4/service_container.html)
 
 !!! note
 
@@ -373,7 +373,6 @@ The following tables give an overview of the main eZ Platform bundles.
 |---------|-----------|
 |[ezplatform-installer](https://github.com/ezsystems/ezplatform-installer)|package provides `ezplatform:install` Symfony console command which is the installer for eZ Platform v2|
 |[ezplatform-i18n](https://github.com/ezsystems/ezplatform-i18n)|centralized internationalization|
-|[ezplatform-multi-file-upload](https://github.com/ezsystems/ezplatform-multi-file-upload)|allows uploading multiple files as new content items at once|
 |[ezplatform-demo-assets](https://github.com/ezsystems/ezplatform-demo-assets)|contains binary install data for ezsystems/ezplatform-demo|
 |[ezplatform-automated-translation](https://github.com/ezsystems/ezplatform-automated-translation)|adds automated translation|
 |[EzSystemsPrivacyCookieBundle](https://github.com/ezsystems/EzSystemsPrivacyCookieBundle)|adds privacy cookie banner|

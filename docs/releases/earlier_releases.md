@@ -320,7 +320,7 @@ Besides lots of smaller improvements and fixes found bellow, and mentioned above
 
 Symfony 2.7 LTS is now fully supported, and no deprecation errors should be thrown anymore. This should also ensure compatibility with the 2.8 and 3.0 releases planned for November this year.
 
-Dynamic settings have been refactored to use the [Expression Language](http://symfony.com/fr/doc/current/components/expression_language/index.html) instead of fake services.
+Dynamic settings have been refactored to use the [Expression Language](https://symfony.com/doc/3.4/components/expression_language.html) instead of fake services.
 
 More info: [Symfony 2.7/3.0 epic](https://jira.ez.no/browse/EZP-24094), [Symfony 2.7 announcement blog post](http://symfony.com/blog/symfony-2-7-0-released)
 
@@ -330,7 +330,7 @@ More info: [Symfony 2.7/3.0 epic](https://jira.ez.no/browse/EZP-24094), [Symfon
 
 Content types can now be created or edited from PlatformUI, inside the Admin panel. The feature isn't visually integrated yet, but already covers most FieldTypes. Progress can be followed on the Epic above.
 
-Forms themselves use the [Symfony Forms component](http://symfony.com/doc/current/components/form/introduction.html). The implementation has been done in a distinct package, dedicated to providing Forms for the eZ Repository domain: [Repository Forms](https://github.com/ezsystems/repository-forms).
+Forms themselves use the [Symfony Forms component](https://symfony.com/doc/3.4/components/form.html). The implementation has been done in a distinct package, dedicated to providing Forms for the eZ Repository domain: [Repository Forms](https://github.com/ezsystems/repository-forms).
 
 More info: [Content type management epic](http://jira.ez.no/browse/EZP-24070), [repository-forms on Github](https://github.com/ezsystems/repository-forms), [repository-forms on Packagist](https://packagist.org/packages/ezsystems/repository-forms).
 

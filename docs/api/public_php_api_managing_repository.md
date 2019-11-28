@@ -129,7 +129,7 @@ $this->objectStateService->setContentState($contentInfo, $objectStateGroup, $obj
 
     !!! tip
 
-        `marking`, a term from [Symfony Workflow,](https://symfony.com/doc/current/components/workflow.html)
+        `marking`, a term from [Symfony Workflow,](https://symfony.com/doc/3.4/components/workflow.html)
         refers to a state in a workflow.
 
     To get a list of all workflows that can be used for a given Content item, use `WorkflowRegistry`:
