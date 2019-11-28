@@ -21,7 +21,7 @@ This version introduces the **Page Builder** which replaces the Landing Page edi
     They will be included again in a future release.
 
     The Places Page Builder block has been removed from the clean installation and will only be available in the demo out of the box.
-    If you had been using this block in your site, re-apply its configuration based on [the demo](https://github.com/ezsystems/ezplatform-ee-demo/blob/master/app/config/blocks.yml).
+    If you had been using this block in your site, re-apply its configuration based on [the demo](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.2.2/app/config/blocks.yml).
 
 #### Modifying the Page Content Type
 

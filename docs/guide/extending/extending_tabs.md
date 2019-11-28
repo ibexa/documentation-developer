@@ -42,7 +42,7 @@ class CustomTabGroupPass implements CompilerPassInterface
 A shorter way that you can use when no custom logic is required, is to add your own tab with the new group.
 If a tab's group is not defined, it will be created automatically.
 
-A new tab group can be rendered using the [`ez_platform_tabs`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Templating/Twig/TabExtension.php#L58) Twig helper:
+A new tab group can be rendered using the [`ez_platform_tabs`](https://github.com/ezsystems/ezplatform-admin-ui/blob/v1.5.7/src/bundle/Templating/Twig/TabExtension.php#L58) Twig helper:
 
 ``` html+twig
 <div class="my-tabs">

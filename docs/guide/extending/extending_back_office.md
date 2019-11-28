@@ -84,17 +84,17 @@ AppBundle\Component\MyNewComponent:
 
 `group` indicates where the widget will be displayed. The available groups are:
 
-- [`stylesheet-head`](https://github.com/ezsystems/ezplatform-admin-ui/blob/1.5/src/bundle/Resources/views/layout.html.twig#L93)
-- [`script-head`](https://github.com/ezsystems/ezplatform-admin-ui/blob/1.5/src/bundle/Resources/views/layout.html.twig#L94)
-- [`stylesheet-body`](https://github.com/ezsystems/ezplatform-admin-ui/blob/1.5/src/bundle/Resources/views/layout.html.twig#L160)
-- [`script-body`](https://github.com/ezsystems/ezplatform-admin-ui/blob/1.5/src/bundle/Resources/views/layout.html.twig#L161)
-- [`custom-admin-ui-modules`](https://github.com/ezsystems/ezplatform-admin-ui/blob/1.5/src/bundle/Resources/views/layout.html.twig#L152)
-- [`custom-admin-ui-config`](https://github.com/ezsystems/ezplatform-admin-ui/blob/1.5/src/bundle/Resources/views/layout.html.twig#L153)
-- [`content-edit-form-before`](https://github.com/ezsystems/ezplatform-admin-ui/blob/1.5/src/bundle/Resources/views/content/content_edit/content_edit.html.twig#L74)
-- [`content-edit-form-after`](https://github.com/ezsystems/ezplatform-admin-ui/blob/1.5/src/bundle/Resources/views/content/content_edit/content_edit.html.twig#L84)
-- [`content-create-form-before`](https://github.com/ezsystems/ezplatform-admin-ui/blob/1.5/src/bundle/Resources/views/content/content_edit/content_create.html.twig#L60)
-- [`content-create-form-after`](https://github.com/ezsystems/ezplatform-admin-ui/blob/1.5/src/bundle/Resources/views/content/content_edit/content_create.html.twig#L68)
-- [`dashboard-blocks`](https://github.com/ezsystems/ezplatform-admin-ui/blob/1.5/src/bundle/Resources/views/dashboard/dashboard.html.twig#L28)
+- [`stylesheet-head`](https://github.com/ezsystems/ezplatform-admin-ui/blob/v1.5.7/src/bundle/Resources/views/layout.html.twig#L93)
+- [`script-head`](https://github.com/ezsystems/ezplatform-admin-ui/blob/v1.5.7/src/bundle/Resources/views/layout.html.twig#L94)
+- [`stylesheet-body`](https://github.com/ezsystems/ezplatform-admin-ui/blob/v1.5.7/src/bundle/Resources/views/layout.html.twig#L160)
+- [`script-body`](https://github.com/ezsystems/ezplatform-admin-ui/blob/v1.5.7/src/bundle/Resources/views/layout.html.twig#L161)
+- [`custom-admin-ui-modules`](https://github.com/ezsystems/ezplatform-admin-ui/blob/v1.5.7/src/bundle/Resources/views/layout.html.twig#L152)
+- [`custom-admin-ui-config`](https://github.com/ezsystems/ezplatform-admin-ui/blob/v1.5.7/src/bundle/Resources/views/layout.html.twig#L153)
+- [`content-edit-form-before`](https://github.com/ezsystems/ezplatform-admin-ui/blob/v1.5.7/src/bundle/Resources/views/content/content_edit/content_edit.html.twig#L74)
+- [`content-edit-form-after`](https://github.com/ezsystems/ezplatform-admin-ui/blob/v1.5.7/src/bundle/Resources/views/content/content_edit/content_edit.html.twig#L84)
+- [`content-create-form-before`](https://github.com/ezsystems/ezplatform-admin-ui/blob/v1.5.7/src/bundle/Resources/views/content/content_edit/content_create.html.twig#L60)
+- [`content-create-form-after`](https://github.com/ezsystems/ezplatform-admin-ui/blob/v1.5.7/src/bundle/Resources/views/content/content_edit/content_create.html.twig#L68)
+- [`dashboard-blocks`](https://github.com/ezsystems/ezplatform-admin-ui/blob/v1.5.7/src/bundle/Resources/views/dashboard/dashboard.html.twig#L28)
 
 ### Base component classes
 

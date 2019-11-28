@@ -1997,7 +1997,7 @@ This format is used by eZ Platform's Online Editor.
 </section>
 ```
 
-For more information about internal format and input formats, see [Field Type's conversion test fixtures on GitHub](https://github.com/ezsystems/ezplatform-richtext/tree/master/tests/lib/eZ/RichText/Converter/Xslt/_fixtures).
+For more information about internal format and input formats, see [Field Type's conversion test fixtures on GitHub](https://github.com/ezsystems/ezplatform-richtext/tree/v1.1.3/tests/lib/eZ/RichText/Converter/Xslt/_fixtures).
 
 For example, ezxml does not use explicit level attributes for `<header>` elements, instead `<header>` element levels are indicated through the level of nesting inside `<section>` elements.
 
@@ -2055,7 +2055,7 @@ When creating RichText content with the REST API, it is possible to provide data
 
 When the value given over REST API is transformed into a Field Type's `Value` object, it will be treated as a string. This means you can use any supported input format for input over REST API.
 
-For further information about the [internal implementation of RichText Field Type, see the kernel documentation](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rich_text/ezdocbook.md)
+For further information about the [internal implementation of RichText Field Type, see the kernel documentation](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/doc/specifications/rich_text/ezdocbook.md)
 
 ## Selection Field Type
 

@@ -4,7 +4,7 @@ eZ Platform can support custom data to be stored in the Fields of a Content item
 To do so, you need to create a custom Field Type.
 
 A custom Field Type must implement the **FieldType Service Provider Interfaces**
-available in the [`eZ\Publish\SPI\FieldType`](https://github.com/ezsystems/ezpublish-kernel/tree/v7.5.0/eZ/Publish/SPI/FieldType) namespace.
+available in the [`eZ\Publish\SPI\FieldType`](https://github.com/ezsystems/ezpublish-kernel/tree/v7.5.5/eZ/Publish/SPI/FieldType) namespace.
 
 In order to provide custom functionality for a Field Type, the SPI interacts with multiple layers of the eZ Platform architecture:
 

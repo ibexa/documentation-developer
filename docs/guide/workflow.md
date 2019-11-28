@@ -146,12 +146,12 @@
 
     To publish a Content item once it reaches the final stage of a workflow, you need to set up an event subscriber.
 
-    You can use the [`PublishOnLastStageSubscriber.php`](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.5.0/src/AppBundle/Event/Workflow/PublishOnLastStageSubscriber.php) from eZ Platform demo as a basis for the subscriber.
+    You can use the [`PublishOnLastStageSubscriber.php`](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.5.6/src/AppBundle/Event/Workflow/PublishOnLastStageSubscriber.php) from eZ Platform demo as a basis for the subscriber.
 
     The subscriber listens for the `WorkflowEvents::WORKFLOW_STAGE_CHANGE` event
-    ([line 61](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.5.0/src/AppBundle/Event/Workflow/PublishOnLastStageSubscriber.php#L61)).
+    ([line 61](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.5.6/src/AppBundle/Event/Workflow/PublishOnLastStageSubscriber.php#L61)).
     When the event occurs, it publishes the relevant Content item
-    ([line 87](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.5.0/src/AppBundle/Event/Workflow/PublishOnLastStageSubscriber.php#L87)).
+    ([line 87](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.5.6/src/AppBundle/Event/Workflow/PublishOnLastStageSubscriber.php#L87)).
 
     The subscriber must be registered as a service:
 
@@ -180,9 +180,9 @@
     To avoid cluttering the tables with published content, you can use an event subscriber
     which will automatically move content to the last stage of the workflow after it has been published.
 
-    You can use the [`EndWorkflowSubscriber.php`](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.5.0/src/AppBundle/Event/Subscriber/EndWorkflowSubscriber.php) from eZ Platform demo as a basis for the subscriber.
+    You can use the [`EndWorkflowSubscriber.php`](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.5.6/src/AppBundle/Event/Subscriber/EndWorkflowSubscriber.php) from eZ Platform demo as a basis for the subscriber.
 
-    The [`doEndWorkflows()`](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.5.0/src/AppBundle/Event/Subscriber/EndWorkflowSubscriber.php#L105) function in the example
+    The [`doEndWorkflows()`](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.5.6/src/AppBundle/Event/Subscriber/EndWorkflowSubscriber.php#L105) function in the example
     applies all transitions that are needed to bring the Content item to the final workflow stage.
 
     The subscriber must also be registered as a service:

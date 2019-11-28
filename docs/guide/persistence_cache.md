@@ -25,7 +25,7 @@ Persistence cache aims at caching most `SPI\Persistence` calls used in common p
 
 Notes:
 
-- [Cache tagging](https://symfony.com/doc/current/components/cache/cache_invalidation.html#using-cache-tags) is used in
+- [Cache tagging](https://symfony.com/doc/3.4/components/cache/cache_invalidation.html#using-cache-tags) is used in
   order to allow clearing cache by alternative indexes.
   For instance tree operations or changes to Content Types are
   examples of operations that also need to invalidate content cache by tags.
@@ -38,14 +38,14 @@ which has info on cache use in two places:
 - Symfony Cache tab: for Symfony Cache itself, the tab shows cache lookups to cache backends
 - eZ Platform tab: shows calls made to database back end, and if they are cached or not
 
-To see where and how to contribute additional caches, refer to the [source code](https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/Core/Persistence/Cache).
+To see where and how to contribute additional caches, refer to the [source code](https://github.com/ezsystems/ezpublish-kernel/tree/v7.5.5/eZ/Publish/Core/Persistence/Cache).
 
 ## Persistence cache configuration
 
 !!! note
 
     Current implementation uses Symfony cache. It technically supports the following cache backends:
-    [APCu, Array, Chain, Doctrine, Filesystem, Memcached, PDO & Doctrine DBAL, Php Array, Proxy, Redis](https://symfony.com/doc/current/components/cache/cache_pools.html#creating-cache-pools).
+    [APCu, Array, Chain, Doctrine, Filesystem, Memcached, PDO & Doctrine DBAL, Php Array, Proxy, Redis](https://symfony.com/doc/3.4/components/cache/cache_pools.html#creating-cache-pools).
     eZ Platform officially supports only using Filesystem for single server and Redis or Memcached for clustered setups.
 
 Use of Memcached or Redis as shared cache back end is a requirement for use in clustering setup.

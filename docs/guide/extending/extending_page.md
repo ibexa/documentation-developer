@@ -115,7 +115,7 @@
     First, define the attribute type.
     You can use one of the types available in `ezplatform-page-fieldtype/src/lib/Form/Type/BlockAttribute/*`.
 
-    You can also use one of the [built-in Symfony types](https://symfony.com/doc/current/forms.html#built-in-field-types), e.g. `AbstractType` for any custom type or `IntegerType` for numeric types.
+    You can also use one of the [built-in Symfony types](https://symfony.com/doc/3.4/forms.html), e.g. `AbstractType` for any custom type or `IntegerType` for numeric types.
 
     To define the type, create a file `src/AppBundle/Block/Attribute/MyStringAttributeType.php` that contains:
 
@@ -357,7 +357,6 @@
 
     Some blocks can have slightly more complex configuration. An example is the Collection block, which requires an `options` key.
     This key defines which Content Types can be added to it.
-    See [this example from the Studio Demo](https://github.com/ezsystems/ezstudio-demo-bundle/blob/master/Resources/config/default_layouts.yml#L160):
 
     ``` yaml
     blocks:

@@ -50,7 +50,7 @@ myRestBundle_rest_routes:
 
 Using a distinct file for REST routes allows you to use the prefix for all this file's routes without affecting other routes from your bundle.
 
-Next, you need to create the REST route. Define the route's [controller as a service](http://symfony.com/doc/current/cookbook/controller/service.html) since your controller was defined as such.
+Next, you need to create the REST route. Define the route's [controller as a service](https://symfony.com/doc/3.4/controller/service.html) since your controller was defined as such.
 
 **My/Bundle/RestBundle/Resources/config/routing\_rest.yml**
 
@@ -292,7 +292,7 @@ myRestBundle_hello_world_using_post:
 
 !!! note
 
-    POST requests are not able to access the Repository without performing a user authentication. For more information check [REST API Authentication](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#authentication).
+    POST requests are not able to access the Repository without performing a user authentication. For more information check [REST API Authentication](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/doc/specifications/rest/REST-API-V2.rst#authentication).
 
 You can look into the built-in `InputParsers`, in `eZ/Publish/Core/REST/Server/Input/Parser`, for more examples.
 
@@ -316,7 +316,7 @@ with `someresource` being a unique key.
 
 The `router.generate` call dynamically renders a URI based on the name of the route and the optional parameters that are passed as the other arguments (in the code above this is the `contentId`).
 
-This syntax is based on [Symfony's expression language](http://symfony.com/doc/current/components/expression_language/index.html), an extensible component that allows limited/readable scripting to be used outside code context.
+This syntax is based on [Symfony's expression language](https://symfony.com/doc/3.4/components/expression_language.html), an extensible component that allows limited/readable scripting to be used outside code context.
 
 The above configuration will add the following entry to the root resource:
 

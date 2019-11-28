@@ -38,7 +38,7 @@ nelmio_cors:
 
 #### Changing configuration of NelmioCorsBundle for eZ Platform REST
 
-The default configuration of NelmioCorsBundle for eZ Platform REST paths is set in the [nelmio_cors.yml](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishRestBundle/Resources/config/nelmio_cors.yml) file. 
+The default configuration of NelmioCorsBundle for eZ Platform REST paths is set in the [nelmio_cors.yml](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Bundle/EzPublishRestBundle/Resources/config/nelmio_cors.yml) file. 
 To adapt these settings to your own needs you have to overwrite them in the `app/config/config.yml` file under the same configuration path, for instance:
 
 ```yaml
