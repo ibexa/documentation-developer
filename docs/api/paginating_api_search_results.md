@@ -2,7 +2,7 @@
 
 When listing content (e.g. blog posts), pagination is a very common use case and can be difficult to implement by hand.
 
-To avoid duplicating work, it is recommended to use the [Pagerfanta library](https://github.com/whiteoctober/Pagerfanta) and [eZ Platform's adapters for it](https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/Core/Pagination/Pagerfanta).
+To avoid duplicating work, it is recommended to use the [Pagerfanta library](https://github.com/whiteoctober/Pagerfanta) and [eZ Platform's adapters for it](https://github.com/ezsystems/ezpublish-kernel/tree/v6.7.10/eZ/Publish/Core/Pagination/Pagerfanta).
 
 The following example shows how to use pagination on a list of all Articles in the site.
 
@@ -81,7 +81,7 @@ For more information and examples, see [PagerFanta documentation](https://github
 
 |Adapter class name|Description|
 |------|------|
-|`eZ\Publish\Core\Pagination\Pagerfanta\ContentSearchAdapter`|Makes a search against passed Query and returns [Content](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Content.php) objects.|
-|`eZ\Publish\Core\Pagination\Pagerfanta\ContentSearchHitAdapter`|Same as ContentSearchAdapter but returns [SearchHit](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Search/SearchHit.php) objects instead.|
+|`eZ\Publish\Core\Pagination\Pagerfanta\ContentSearchAdapter`|Makes a search against passed Query and returns [Content](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.10/eZ/Publish/API/Repository/Values/Content/Content.php) objects.|
+|`eZ\Publish\Core\Pagination\Pagerfanta\ContentSearchHitAdapter`|Same as ContentSearchAdapter but returns [SearchHit](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.10/eZ/Publish/API/Repository/Values/Content/Search/SearchHit.php) objects instead.|
 |`eZ\Publish\Core\Pagination\Pagerfanta\LocationSearchAdapter`|Makes a Location search against passed Query and returns Location objects.|
-|`eZ\Publish\Core\Pagination\Pagerfanta\LocationSearchHitAdapter`|Same as LocationSearchAdapter but returns [SearchHit](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Search/SearchHit.php) objects instead.|
+|`eZ\Publish\Core\Pagination\Pagerfanta\LocationSearchHitAdapter`|Same as LocationSearchAdapter but returns [SearchHit](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.10/eZ/Publish/API/Repository/Values/Content/Search/SearchHit.php) objects instead.|

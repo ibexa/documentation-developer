@@ -6,7 +6,7 @@ It is also good practice to provide a Value object class for storing the custom 
 
 ## Type class
 
-The Type class of a Field Type provides an implementation of the [`eZ\Publish\SPI\FieldType\FieldType`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/SPI/FieldType/FieldType.php) interface.
+The Type class of a Field Type provides an implementation of the [`eZ\Publish\SPI\FieldType\FieldType`](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.10/eZ/Publish/SPI/FieldType/FieldType.php) interface.
 
 ### Field Definition handling
 

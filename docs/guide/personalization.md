@@ -552,7 +552,7 @@ delivers the following response *if* the content Fields were previously (and suc
 
 Displaying image variations is not currently supported out of the box.
 
-You can work around this limitation by creating your own template (based on [recommendations.html.twig](https://github.com/ezsystems/ezstudio-demo/blob/master/app/Resources/EzSystemsRecommendationBundle/views/recommendations.html.twig))
+You can work around this limitation by creating your own template (based on [recommendations.html.twig](https://github.com/ezsystems/ezplatform-ee-demo/blob/v1.7.4/app/Resources/EzSystemsRecommendationBundle/views/recommendations.html.twig))
 or your own Twig extension (based on [RecommendationTwigExtension.php](https://github.com/ezsystems/EzSystemsRecommendationBundle/blob/master/Twig/RecommendationTwigExtension.php#L237)).
 
 If you want to access a specific image variation through API, you need to add the `image` parameter to the request URL with the name of the variation as its value.
@@ -581,7 +581,7 @@ Take a look at the scenario configuration in the [Admin Dashboard](https://admin
 
 ### Logging
 
-Most operations are logged via the `ez_recommendation` [Monolog channel](http://symfony.com/doc/current/cookbook/logging/channels_handlers.html). To log everything about Recommendation to `dev.recommendation.log`, add the following to your `config.yml`:
+Most operations are logged via the `ez_recommendation` [Monolog channel](https://symfony.com/doc/2.8/logging/channels_handlers.html). To log everything about Recommendation to `dev.recommendation.log`, add the following to your `config.yml`:
 
 ``` yaml
 monolog:

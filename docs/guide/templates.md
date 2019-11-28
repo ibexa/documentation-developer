@@ -107,7 +107,7 @@ The configuration described above lets you select one template to be used in a g
 
 !!! tip
 
-    See [Including Templates](http://symfony.com/doc/current/book/templating.html#including-templates) in Symfony documentation for more information on including templates.
+    See [Including Templates](https://symfony.com/doc/2.8/templating.html#including-other-templates) in Symfony documentation for more information on including templates.
 
 The main template for your webpage (defined per SiteAccess) is placed in the `pagelayout.html.twig` file. This template will be used by default for those parts of the website where no other templates are defined.
 
@@ -127,7 +127,7 @@ Any further templates will extend and modify this one, so they need to start wit
 
     In short, the `Resources/views` part of the path is automatically added whenever a template file is referenced. What you need to provide is the bundle name, name of any subfolder within `/views/`, and file name, all three separated by colons (:)
 
-    To find out more about the way of referencing template files placed in bundles, see [Referencing Templates in a Bundle](http://symfony.com/doc/current/book/templating.html#referencing-templates-in-a-bundle) in Symfony documentation.
+    To find out more about the way of referencing template files placed in bundles, see [Referencing Templates in a Bundle](https://symfony.com/doc/2.8/templating.html#referencing-templates-in-a-bundle) in Symfony documentation.
 
 Templates can be extended using a Twig [`block`](http://twig.sensiolabs.org/doc/functions/block.html) tag. This tag lets you define a named section in the template that will be filled in by the child template. For example, you can define a "title" block in the main template. Any child template that extends it can also contain a "title" block. In this case the contents of the block from the child template will be placed inside this block in the parent template (and override what was inside this block):
 
@@ -196,7 +196,7 @@ This example renders the Content item with Location ID 33 using the line view. T
 
 Asset files such as CSS stylesheets, JS scripts or image files can be defined in the templates and need to be included in the directory structure in the same way as with any other web project. Assets are placed in the `web/` folder in your installation.
 
-Instead of linking to stylesheets or embedding images like usually, you can use the [`asset`](http://symfony.com/doc/current/book/templating.html#linking-to-assets) function.
+Instead of linking to stylesheets or embedding images like usually, you can use the [`asset`](https://symfony.com/doc/2.8/templating.html#including-stylesheets-and-javascripts-in-twig) function.
 
 #### Controller
 
@@ -216,7 +216,7 @@ In order to display the Fields' value the way you want, you can either manipulat
 
 #### Getting raw Field value
 
-As you have access to the Content item in the template, you can use [its public methods](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Repository/Values/Content/Content.php) to access all the information you need. You can also use the `ez_field_value` helper to get the [Field's value only](twig_functions_reference.md#ez_field_value). It will return the correct language if there are several, based on language priorities.
+As you have access to the Content item in the template, you can use [its public methods](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.10/eZ/Publish/Core/Repository/Values/Content/Content.php) to access all the information you need. You can also use the `ez_field_value` helper to get the [Field's value only](twig_functions_reference.md#ez_field_value). It will return the correct language if there are several, based on language priorities.
 
 ``` html+twig
 {# With the following, myFieldValue will be in the Content item's main language, regardless of the current language #}
@@ -270,7 +270,7 @@ If you do not see changes, clear the cache by running: `php bin/console cache:cl
 
 #### Using the Field Type's template block
 
-All built-in Field Types come with [their own Twig template.](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/views/content_fields.html.twig)
+All built-in Field Types come with [their own Twig template.](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.10/eZ/Bundle/EzPublishCoreBundle/Resources/views/content_fields.html.twig)
 You can render any Field using this default template using the `ez_render_field()` helper.
 
 ``` html+twig
@@ -383,7 +383,7 @@ If you don't have the Location object, but only its ID, you can generate the URL
 !!! tip
 
     Instead of pointing to a specific Content item by its Location ID, you can also use here a variable.
-    Fore more details, see [this example in the Demo Bundle.](https://github.com/ezsystems/ezplatform-demo/blob/e15b93ade4b8c1f9084c5adac51239d239f9f7d8/app/Resources/views/full/blog.html.twig#L25)
+    Fore more details, see [this example in the Demo Bundle.](https://github.com/ezsystems/ezplatform-demo/blob/v1.7.4/app/Resources/views/full/blog.html.twig#L25)
 
 You can also use the Content ID. In that case the generated link will point to the Content item's main Location.
 
@@ -415,7 +415,7 @@ You can use this controller from templates with the following syntax:
 
 The example above renders the Content item whose ID is **123** with the view type **line**.
 
-Referencing the `ez_content` controller follows the syntax of *controllers as a service*, [as explained in Symfony documentation](http://symfony.com/doc/current/cookbook/controller/service.html).
+Referencing the `ez_content` controller follows the syntax of *controllers as a service*, [as explained in Symfony documentation](https://symfony.com/doc/2.8/controller/service.html).
 
 ##### Available arguments
 
@@ -453,7 +453,7 @@ For details on listing children of a Content item, for example all content conta
 
 ##### ESI
 
-Just like for regular Symfony controllers, you can take advantage of [ESI](https://symfony.com/doc/current/http_cache/esi.html) and use different cache levels:
+Just like for regular Symfony controllers, you can take advantage of [ESI](https://symfony.com/doc/2.8/http_cache/esi.html) and use different cache levels:
 
 ``` html+twig
 {{ render_esi(controller("ez_content:viewAction", {"contentId": 123, "viewType": "line"})) }}
@@ -463,10 +463,10 @@ Only scalar variables (not objects) can be sent via `render_esi`.
 
 ## Rendering in preview
 
-When previewing content in the back office, the draft view is rendered using the [PreviewController](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/MVC/Symfony/Controller/Content/PreviewController.php).
+When previewing content in the back office, the draft view is rendered using the [PreviewController](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.10/eZ/Publish/Core/MVC/Symfony/Controller/Content/PreviewController.php).
 
 The first draft of a yet unpublished Content item does not have a Location, because Locations are only assigned when content is published.
-To enable rendering in such cases, the PreviewController [creates a temporary virtual Location](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Helper/PreviewLocationProvider.php#L65).
+To enable rendering in such cases, the PreviewController [creates a temporary virtual Location](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.10/eZ/Publish/Core/Helper/PreviewLocationProvider.php#L65).
 This Location has some of the properties of the future Location, such as the parent Location ID.
 However, it does not fully replace a normal Location.
 
@@ -483,7 +483,7 @@ To avoid such situations, you can check if the Location is virtual using the `lo
 
 You can dynamically inject variables in content view templates by listening to the `ezpublish.pre_content_view` event.
 
-The event listener method receives an [`eZ\Publish\Core\MVC\Symfony\Event\PreContentViewEvent`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/MVC/Symfony/Event/PreContentViewEvent.php) object.
+The event listener method receives an [`eZ\Publish\Core\MVC\Symfony\Event\PreContentViewEvent`](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.10/eZ/Publish/Core/MVC/Symfony/Event/PreContentViewEvent.php) object.
 
 The following example injects `my_variable` and `my_array` variables in all content view templates.
 

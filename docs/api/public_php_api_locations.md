@@ -6,7 +6,7 @@
 
     <https://github.com/ezsystems/CookbookBundle/blob/master/Command/AddLocationToContentCommand.php>
 
-You have seen earlier how you can create a Location for a newly created `Content`. It is of course also possible to add a new [`Location`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Location.php) to an existing `Content`.
+You have seen earlier how you can create a Location for a newly created `Content`. It is of course also possible to add a new [`Location`](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.10/eZ/Publish/API/Repository/Values/Content/Location.php) to an existing `Content`.
 
 ``` php
 try
@@ -34,7 +34,7 @@ This is the required code. As you can see, both the Content Service and the Loca
 $locationCreateStruct = $locationService->newLocationCreateStruct( $parentLocationId );
 ```
 
-Like during creation of a new Content item, you need to get a new `LocationCreateStruct`. You will use it to set your new [`Location`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Location.php)'s properties. The new Location's parent ID is provided as a parameter to `LocationService::newLocationCreateStruct`.
+Like during creation of a new Content item, you need to get a new `LocationCreateStruct`. You will use it to set your new [`Location`](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.10/eZ/Publish/API/Repository/Values/Content/Location.php)'s properties. The new Location's parent ID is provided as a parameter to `LocationService::newLocationCreateStruct`.
 
 In this example, the default values for the various `LocationCreateStruct` properties are used. You could of course have set custom values, like setting the Location as hidden ($location-&gt;hidden = true), or changed the remoteId (`$location->remoteId = $myRemoteId`).
 

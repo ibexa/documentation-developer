@@ -166,7 +166,7 @@ private function browseLocation( Location $location, OutputInterface $output, $d
 }
 ```
 
-`LocationService::loadLocationChildren()` returns a [LocationList](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/LocationList.php) value objects that you can iterate over.
+`LocationService::loadLocationChildren()` returns a [LocationList](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.10/eZ/Publish/API/Repository/Values/Content/LocationList.php) value objects that you can iterate over.
 
 Note that unlike `loadLocation()`, you don't need to care for permissions here: the currently logged-in user's permissions will be respected when loading children, and Locations that can't be viewed won't be returned at all.
 
@@ -235,7 +235,7 @@ foreach ( $locations as $location )
 }
 ```
 
-First use `LocationService::loadLocations()` to **get** the **Locations** for `ContentInfo`. This method returns an array of [`Location`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Location.php) value objects. In this example, you print out the Location's path string (/path/to/content). You also use [URLAliasService::reverseLookup()](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/URLAliasService.html#method_reverseLookup) to get the Location's main [URLAlias](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/URLAlias.html).
+First use `LocationService::loadLocations()` to **get** the **Locations** for `ContentInfo`. This method returns an array of [`Location`](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.10/eZ/Publish/API/Repository/Values/Content/Location.php) value objects. In this example, you print out the Location's path string (/path/to/content). You also use [URLAliasService::reverseLookup()](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/URLAliasService.html#method_reverseLookup) to get the Location's main [URLAlias](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/URLAlias.html).
 
 ### Relations
 
