@@ -2,13 +2,13 @@
 
 ## Dealing with bundles
 
-eZ Platform is based on the Symfony2 framework and applies a similar way of organizing the app. Like in Symfony, where ["everything is a bundle"](http://symfony.com/doc/current/book/bundles.html), your eZ Platform application is going to be a collection of bundles.
+eZ Platform is based on the Symfony2 framework and applies a similar way of organizing the app. Like in Symfony, where ["everything is a bundle"](https://symfony.com/doc/2.8/bundles.html), your eZ Platform application is going to be a collection of bundles.
 
 ### What is a bundle?
 
 A bundle in Symfony (and eZ Platform) is a separate part of your application that implements a feature. You can create bundles yourself or make use of available open-source bundles. You can also reuse the bundles you create in other projects or share them with the community.
 
-Many eZ Platform functionalities are provided through separate bundles included in the installation. You can see the bundles that are automatically installed with eZ Platform in [composer.json](https://github.com/ezsystems/ezplatform/blob/master/composer.json).
+Many eZ Platform functionalities are provided through separate bundles included in the installation. You can see the bundles that are automatically installed with eZ Platform in [composer.json](https://github.com/ezsystems/ezplatform/blob/v1.13.5/composer.json).
 
 ### How to use bundles?
 
@@ -20,11 +20,11 @@ Refer to their respective pages for instructions on how to install them.
 
 ### How to create bundles?
 
-You can generate a new bundle using a `generate:bundle` command. See [Symfony documentation on generating bundles](http://symfony.com/doc/current/bundles/SensioGeneratorBundle/commands/generate_bundle.html).
+You can generate a new bundle using a `generate:bundle` command. See [Symfony documentation on generating bundles](https://symfony.com/doc/3.0/bundles/SensioGeneratorBundle/commands/generate_bundle.html).
 
 ### How to remove a bundle?
 
-To remove a bundle (either one you created yourself, or an out-of-the-box one that you do not need) see the [How to Remove a Bundle](http://symfony.com/doc/current/bundles/remove.html) instruction in Symfony doc.
+To remove a bundle (either one you created yourself, or an out-of-the-box one that you do not need) see the [How to Remove a Bundle](https://symfony.com/doc/2.8/bundles.html) instruction in Symfony doc.
 
 ## Structuring a bundle
 
@@ -109,7 +109,7 @@ ezpublish:
 The following example shows how to implicitly load settings on the example of eZ Platform kernel.
 Note that this is also valid for any bundle.
 
-This assumes you are familiar with [service container extensions.](http://symfony.com/doc/current/book/service_container.html#importing-configuration-via-container-extensions)
+This assumes you are familiar with [service container extensions.](https://symfony.com/doc/2.8/service_container/import.html)
 
 !!! note
 

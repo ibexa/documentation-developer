@@ -19,8 +19,8 @@ This tutorial talks and uses a lots of concepts coming from Symfony, eZ Platform
 
 ### Symfony-related documentation pages
 
-- From a Symfony point of view, in this tutorial we mainly wrote a controller and with the associated routing configuration, [the Controller book page](http://symfony.com/doc/current/book/controller.html) is definitively the most important Symfony related page to read
-- We also defined a Controller as a service in this tutorial, this is detailed in [How to Define Controllers as Services](http://symfony.com/doc/current/cookbook/controller/service.html).
+- From a Symfony point of view, in this tutorial we mainly wrote a controller and with the associated routing configuration, [the Controller book page](https://symfony.com/doc/2.8/controller.html) is definitively the most important Symfony related page to read
+- We also defined a Controller as a service in this tutorial, this is detailed in [How to Define Controllers as Services](https://symfony.com/doc/2.8/controller/service.html).
 - [Twig for Template Designers](http://twig.sensiolabs.org/doc/templates.html) explains how to write Twig templates
 
 ### eZ Platform-related documentation pages

@@ -105,7 +105,7 @@ composer create-project --no-dev --keep-vcs ezsystems/ezplatform .
 
 After a moment the installer will ask you to provide a few parameters:
 
-1. Choose a [secret](http://symfony.com/doc/current/reference/configuration/framework.html#secret); it should be a random string, made up of up to 32 characters, numbers, and symbols. This is used by Symfony when generating [CSRF tokens](https://symfony.com/doc/current/security/csrf.html), [encrypting cookies](http://symfony.com/doc/current/cookbook/security/remember_me.html), and for creating signed URIs when using [ESI (Edge Side Includes)](https://symfony.com/doc/current/http_cache/esi.html).
+1. Choose a [secret](https://symfony.com/doc/2.8/reference/configuration/framework.html#secret); it should be a random string, made up of up to 32 characters, numbers, and symbols. This is used by Symfony when generating [CSRF tokens](https://symfony.com/doc/2.8/security/csrf_in_login_form.html), [encrypting cookies](https://symfony.com/doc/2.8/security/remember_me.html), and for creating signed URIs when using [ESI (Edge Side Includes)](https://symfony.com/doc/2.8/http_cache/esi.html).
 1. You can accept the default options for `database_driver`, `database_host` and `database_port`.
 1. Select a `database_name` or accept the default one.
 1. Provide your `database_user` and `database_password`.
@@ -178,7 +178,7 @@ Future files and directories created by these two users will need to inherit tho
     You must also make sure that the web server cannot interpret files in the `var` directory through PHP. To do so, follow the instructions on [setting up a virtual host below](#set-up-virtual-host).
 
 To set up permissions for production, it is recommended to use an ACL (Access Control List).
-See [Setting up or Fixing File Permissions](http://symfony.com/doc/3.4/setup/file_permissions.html) in Symfony documentation
+See [Setting up or Fixing File Permissions](http://symfony.com/doc/2.8setup/file_permissions.html) in Symfony documentation
 for information on how to do it on different systems.
 
 ### Set up virtual host

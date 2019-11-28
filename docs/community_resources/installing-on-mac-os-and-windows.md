@@ -99,7 +99,7 @@ composer install
 
 After a moment the installer will ask you to provide a few parameters:
 
-1. Choose a [secret](http://symfony.com/doc/current/reference/configuration/framework.html#secret). It should be a random string consisting of up to 32 characters, numbers, and symbols. This is used by Symfony for generating [CSRF tokens](https://symfony.com/doc/current/security/csrf.html), [encrypting cookies](http://symfony.com/doc/current/cookbook/security/remember_me.html), and for creating signed URIs when using [ESI (Edge Side Includes)](https://symfony.com/doc/current/http_cache/esi.html).
+1. Choose a [secret](https://symfony.com/doc/2.8/reference/configuration/framework.html#secret). It should be a random string consisting of up to 32 characters, numbers, and symbols. This is used by Symfony for generating [CSRF tokens](https://symfony.com/doc/2.8/security/csrf_in_login_form.html), [encrypting cookies](https://symfony.com/doc/2.8/security/remember_me.html), and for creating signed URIs when using [ESI (Edge Side Includes)](https://symfony.com/doc/2.8/http_cache/esi.html).
 1. You can accept the default options for `database_driver`, `database_host`, and `database_port`.
 1. Select a `database_name` or accept the default one.
 1. Provide your `database_user` and `database_password`.
@@ -149,4 +149,4 @@ Modify `<your_site_name>.conf` to fit it to your installation. Then restart the 
 Directories `var` and `web/var` need to be writable by CLI and web server user.
 Future files and directories created by these two users will need to inherit those permissions.
 
-For more information, see [Setting up or Fixing File Permissions.](http://symfony.com/doc/3.4/setup/file_permissions.html)
+For more information, see [Setting up or Fixing File Permissions.](http://symfony.com/doc/2.8/setup/file_permissions.html)

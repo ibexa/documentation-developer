@@ -255,4 +255,4 @@ If no rule is specified for a Content Type, the `default_mappings` will be used.
 
 You can also define the maximum permitted uploaded file size under `max_file_size`.
 
-Default setting for multi-file upload are defined in [default\_settings.yml](https://github.com/ezsystems/ezplatform-ee-multi-file-upload/blob/master/bundle/Resources/config/default_settings.yml).
+Default setting for multi-file upload are defined in [default\_settings.yml](https://github.com/ezsystems/ezplatform-multi-file-upload/blob/v0.1.3/bundle/Resources/config/default_settings.yml).
