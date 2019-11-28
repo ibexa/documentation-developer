@@ -8,7 +8,7 @@ eZ Platform is based on the Symfony 3 framework and applies a similar way of org
 
 A bundle in Symfony (and eZ Platform) is a separate part of your application that implements a feature. You can create bundles yourself or make use of available open-source bundles. You can also reuse the bundles you create in other projects or share them with the community.
 
-Many eZ Platform functionalities are provided through separate bundles included in the installation. You can see the bundles that are automatically installed with eZ Platform in [composer.json](https://github.com/ezsystems/ezplatform/blob/master/composer.json).
+Many eZ Platform functionalities are provided through separate bundles included in the installation. You can see the bundles that are automatically installed with eZ Platform in [composer.json](https://github.com/ezsystems/ezplatform/blob/v2.5.6/composer.json).
 
 ### How to use bundles?
 
@@ -88,7 +88,7 @@ To import CSS files only, use:
     After adding new files, run `php bin/console cache:clear`.
 
     For a full example of importing asset configuration,
-    see [`ez.config.js`](https://github.com/ezsystems/ezplatform-admin-ui-modules/blob/master/Resources/encore/ez.config.js)
+    see [`ez.config.js`](https://github.com/ezsystems/ezplatform-admin-ui-modules/blob/v1.5.5/Resources/encore/ez.config.js)
 
 To edit existing configuration entries, create a `Resources/encore/ez.config.manager.js` file:
 
@@ -131,7 +131,7 @@ module.exports = (eZConfig, eZConfigManager) => {
     After adding new files, run `php bin/console cache:clear`.
 
 	For a full example of overriding configuration,
-    see [`ez.config.manager.js`](https://github.com/ezsystems/ezplatform-matrix-fieldtype/blob/master/src/bundle/Resources/encore/ez.config.manager.js).
+    see [`ez.config.manager.js`](https://github.com/ezsystems/ezplatform-matrix-fieldtype/blob/v1.0.1/src/bundle/Resources/encore/ez.config.manager.js).
 
 To add new configuration under your own namespace and with its own dependencies,
 add a `Resources/encore/ez.webpack.custom.config.js` file, for example:
@@ -160,7 +160,7 @@ add a `Resources/encore/ez.webpack.custom.config.js` file, for example:
 ##### Configuration from main project files
 
 If you prefer to include the asset configuration in the main project files,
-add it in [`webpack.config.js`](https://github.com/ezsystems/ezplatform/blob/master/webpack.config.js#L14).
+add it in [`webpack.config.js`](https://github.com/ezsystems/ezplatform/blob/v2.5.6/webpack.config.js#L15).
 
 To overwrite built-in assets, use the following configuration to replace, remove or add asset files
 in `webpack.config.js`:

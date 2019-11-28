@@ -21,30 +21,30 @@ Those services are obtained using `get[ServiceName]()` methods: `getContentServi
 
 The full list of available services covers:
 
-- [ContentService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ContentService.php)
-- [ContentTypeService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ContentTypeService.php)
-- [FieldTypeService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/FieldTypeService.php)
-- [LanguageService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/LanguageService.php)
-- [LocationService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/LocationService.php)
-- [NotificationService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/NotificationService.php)
-- [ObjectStateService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ObjectStateService.php)
-- [RoleService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/RoleService.php)
-- [SearchService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/SearchService.php)
-- [SectionService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/SectionService.php)
-- [TranslationService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/TranslationService.php)
-- [TrashService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/TrashService.php)
-- [URLAliasService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/URLAliasService.php)
-- [URLService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/URLService.php)
-- [URLWildcardService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/URLWildcardService.php)
-- [UserPreferenceService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/UserPreferenceService.php)
-- [UserService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/UserService.php)
+- [ContentService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/ContentService.php)
+- [ContentTypeService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/ContentTypeService.php)
+- [FieldTypeService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/FieldTypeService.php)
+- [LanguageService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/LanguageService.php)
+- [LocationService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/LocationService.php)
+- [NotificationService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/NotificationService.php)
+- [ObjectStateService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/ObjectStateService.php)
+- [RoleService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/RoleService.php)
+- [SearchService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/SearchService.php)
+- [SectionService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/SectionService.php)
+- [TranslationService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/TranslationService.php)
+- [TrashService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/TrashService.php)
+- [URLAliasService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/URLAliasService.php)
+- [URLService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/URLService.php)
+- [URLWildcardService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/URLWildcardService.php)
+- [UserPreferenceService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/UserPreferenceService.php)
+- [UserService](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/UserService.php)
 
 ## Value objects
 
 The services provide interaction with read-only value objects from the `eZ\Publish\API\Repository\Values` namespace.
 Those objects are divided into sub-namespaces, such as `Content`, `User` or `ObjectState`.
 Each sub-namespace contains a set of value objects,
-such as [`Content\Content`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/Content.php) or [`User\Role`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/User/Role.php).
+such as [`Content\Content`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/Values/Content/Content.php) or [`User\Role`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/Values/User/Role.php).
 
 Value objects come with their own properties, such as `$content->id` or `$location->hidden`,
 as well as with methods that provide access to more related information,
@@ -58,8 +58,8 @@ To create and modify Repository values you need to use structs, such as `getCont
 ### Value info objects
 
 Some complex value objects have an `Info` counterpart,
-for example [`ContentInfo`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/ContentInfo.php)
-for [`Content`.](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/Content.php)
+for example [`ContentInfo`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/Values/Content/ContentInfo.php)
+for [`Content`.](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/Values/Content/Content.php)
 These objects provide you with lower-level information.
 For instance, `ContentInfo` contains `currentVersionNo` or `remoteId`,
 while `Content` enables you to retrieve Fields, Content Type, or previous versions.

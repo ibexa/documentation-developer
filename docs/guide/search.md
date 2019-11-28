@@ -20,8 +20,8 @@ As Search Criteria and Sort Clauses are value objects which are used to define 
 Each storage engine needs to implement its own handlers for the corresponding Criterion and Sort Clause value object,
 which will be used to translate the value object into a storage-specific search query.
 
-As an example take a look at the [`ContentId` Criterion handler](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.2/eZ/Publish/Core/Search/Legacy/Content/Common/Gateway/CriterionHandler/ContentId.php) in Legacy search engine
-or [`ContentId` Criterion handler](https://github.com/ezsystems/ezplatform-solr-search-engine/blob/v1.7.0/lib/Query/Common/CriterionVisitor/ContentIdIn.php) in Solr search engine.
+As an example take a look at the [`ContentId` Criterion handler](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/Core/Search/Legacy/Content/Common/Gateway/CriterionHandler/ContentId.php) in Legacy search engine
+or [`ContentId` Criterion handler](https://github.com/ezsystems/ezplatform-solr-search-engine/blob/v1.7.1/lib/Query/Common/CriterionVisitor/ContentIdIn.php) in Solr search engine.
 
 ## Search Criteria Reference
 

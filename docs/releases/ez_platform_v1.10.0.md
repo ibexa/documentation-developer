@@ -25,7 +25,7 @@ This is a first step. We aim to provide more in terms of table support in the ed
 
 #### New Design Engine
 
-This is a new way to handle design, theming and design overrides, similar to what we had in eZ Publish. It enables you to define different Themes which are collections of assets and templates. You can then assemble Themes (that can override each other) to define Designs, and eventually, assign a Design to a SiteAccess. This is a powerful concept that we will aim to use in our out-of-the-box templates and demo sites. It comes especially handy when using eZ Platform for a multisite installation and willing to reuse design parts. Further info can be found in the [Bundle documentation](https://github.com/ezsystems/ezplatform-design-engine/tree/master/doc).
+This is a new way to handle design, theming and design overrides, similar to what we had in eZ Publish. It enables you to define different Themes which are collections of assets and templates. You can then assemble Themes (that can override each other) to define Designs, and eventually, assign a Design to a SiteAccess. This is a powerful concept that we will aim to use in our out-of-the-box templates and demo sites. It comes especially handy when using eZ Platform for a multisite installation and willing to reuse design parts. Further info can be found in the [Bundle documentation](https://github.com/ezsystems/ezplatform-design-engine/tree/v2.0.0/doc).
 
 ![](img/newdesigntable.png)
 
@@ -76,7 +76,7 @@ In addition to that, we made progress on providing native support for faceted se
 
 EXPERIMENTAL FEATURE
 
-Starting with 1.10, a new command `ezplatform:io:migrate-files` has been added, allowing you to migrate files from one storage to another, for instance file system to S3, or S3 to NFS or opposite. For documentation check the [technical feature documentation](https://github.com/ezsystems/ezpublish-kernel/blob/6.7/doc/specifications/io/io_migration_script.md) for now.
+Starting with 1.10, a new command `ezplatform:io:migrate-files` has been added, allowing you to migrate files from one storage to another, for instance file system to S3, or S3 to NFS or opposite. For documentation check the [technical feature documentation](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/doc/specifications/io/io_migration_script.md) for now.
 
 #### Miscellaneous
 

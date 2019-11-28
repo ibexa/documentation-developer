@@ -21,7 +21,7 @@ You can then proceed with consecutive upgrades to further versions: v1.13 LTS an
 
         - Symfony deprecations. The recommended version to migrate to is eZ Platform v2.5 LTS, which is using Symfony 3.4 LTS.
         - [Field Types reference](../api/field_type_reference.md) for overview of Field Types that do and don't exist in eZ Platform
-        - API changes. While we have a strict backwards compatibility focus, some deprecated API features were removed and some changes were done to internal parts of the system. See [ezpublish-kernel:doc/bc/changes-6.0.md](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.0/doc/bc/changes-6.0.md)
+        - API changes. While we have a strict backwards compatibility focus, some deprecated API features were removed and some changes were done to internal parts of the system. See [ezpublish-kernel:doc/bc/changes-6.0.md](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/doc/bc/changes-6.0.md)
 
 !!! note
 
@@ -119,7 +119,7 @@ Move over registration of _your_ bundles you have from src and from composer pac
 
 ##### 2.5. Optional: Install Legacy Bridge
 
-If you don't plan to migrate content directly to newer eZ Platform Field Types, you can optionally install Legacy Bridge and gradually handle code and subsequent content migration afterwards. For installation instructions see [here](https://github.com/ezsystems/LegacyBridge/blob/master/INSTALL.md).
+If you don't plan to migrate content directly to newer eZ Platform Field Types, you can optionally install Legacy Bridge and gradually handle code and subsequent content migration afterwards. For installation instructions see [here](https://github.com/ezsystems/LegacyBridge/blob/v2.1.1/INSTALL.md).
 
 !!! note
 

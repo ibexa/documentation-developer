@@ -120,7 +120,7 @@ class AcmeExampleBundle extends Bundle
 
 ## Integrating custom Limitation types with the UI
 
-To provide support for editing custom policies in the Back Office you need to implement [`EzSystems\RepositoryForms\Limitation\LimitationFormMapperInterface`](https://github.com/ezsystems/repository-forms/blob/master/lib/Limitation/LimitationFormMapperInterface.php).
+To provide support for editing custom policies in the Back Office you need to implement [`EzSystems\RepositoryForms\Limitation\LimitationFormMapperInterface`](https://github.com/ezsystems/repository-forms/blob/v2.5.4/lib/Limitation/LimitationFormMapperInterface.php).
 
 Next, register the service in DIC (Dependency Injection Container) with the `ez.limitation.formMapper` tag and set the `limitationType` attribute to the Limitation type's identifier:
 
@@ -133,7 +133,7 @@ acme.security.limitation.custom_limitation.mapper:
         - { name: 'ez.limitation.formMapper', limitationType: 'Custom' }
 ```
 
-If you want to provide human-readable names of the custom Limitation values, you need to implement [`\EzSystems\RepositoryForms\Limitation\LimitationValueMapperInterface`](https://github.com/ezsystems/repository-forms/blob/master/lib/Limitation/LimitationValueMapperInterface.php).
+If you want to provide human-readable names of the custom Limitation values, you need to implement [`\EzSystems\RepositoryForms\Limitation\LimitationValueMapperInterface`](https://github.com/ezsystems/repository-forms/blob/v2.5.4/lib/Limitation/LimitationValueMapperInterface.php).
 
 Then register the service in DIC with the `ez.limitation.valueMapper` tag and set the `limitationType` attribute to Limitation type's identifier:
 
@@ -170,7 +170,7 @@ ezpublish:
 
 !!! note
 
-    If you skip this part, Limitation values will be rendered using an [`ez_limitation_value_fallback`](https://github.com/ezsystems/repository-forms/blob/master/bundle/Resources/views/limitation_values.html.twig#L1-L6) block as comma-separated list.
+    If you skip this part, Limitation values will be rendered using an [`ez_limitation_value_fallback`](https://github.com/ezsystems/repository-forms/blob/v2.5.4/bundle/Resources/views/limitation_values.html.twig) block as comma-separated list.
 
 You can also provide translation of the Limitation type identifier by adding an entry to the translation file under the `ezrepoforms_policies` domain.
 The key must follow the naming convention: `policy.limitation.identifier.<LIMITATION TYPE>`.

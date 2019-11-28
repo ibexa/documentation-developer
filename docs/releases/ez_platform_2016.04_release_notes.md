@@ -66,7 +66,7 @@ ezpublish:
       pagelayout: "pagelayout.html.twig" # app/Resources/views/pagelayout.html.twig
 ```
 
-This setting will be used by the default content view templates. It is recommended that you also use it in your own templates, so that the site's layout management is centralized. Examples can be found in the [eZ Platform demo templates](https://github.com/ezsystems/ezplatform-demo/blob/master/app/Resources/views/full/blog.html.twig#L1).
+This setting will be used by the default content view templates. It is recommended that you also use it in your own templates, so that the site's layout management is centralized. Examples can be found in the [eZ Platform demo templates](https://github.com/ezsystems/ezplatform-demo/blob/v2.5.6/app/Resources/views/themes/tastefulplanet/full/blog.html.twig).
 
 Thanks go to [Carlos Revillo](https://doc.ez.no/display/~desorden) for the contribution.
 

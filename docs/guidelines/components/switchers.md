@@ -3,7 +3,7 @@ We list here all the switchers that eZ Platform uses.
 
 ##<div class="mgt-3 header-line">Switcher</div>
 <div class="ez-guidelines-switcher">
-<p class="mgt-minus-3 mgb-3">We created `switcher` as a SASS @mixin function (check [`ezplatform-admin-ui/src/bundle/Resources/public/scss/_mixins.scss`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/public/scss/_mixins.scss)).</p>
+<p class="mgt-minus-3 mgb-3">We created `switcher` as a SASS @mixin function (check [`ezplatform-admin-ui/src/bundle/Resources/public/scss/_mixins.scss`](https://github.com/ezsystems/ezplatform-admin-ui/blob/v1.5.7/src/bundle/Resources/public/scss/_mixins.scss)).</p>
 <p  class="mgb-5">Specify its size in the @mixin function: `@include checkbox-switcher($size);` in the corresponding `.scss` stylesheet. By default its size is set to 2rem.</p>
 <div class="ez-guidelines-switcher">
 [[code_example {html}

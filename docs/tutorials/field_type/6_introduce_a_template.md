@@ -43,7 +43,7 @@ without jeopardizing the display with unwanted spaces.
 ### Using the content field helpers
 
 Even though the above will work just fine, a few helpers will enable you to get something a bit more flexible.
-The [EzPublishCoreBundle::content_fields.html.twig](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/views/content_fields.html.twig) template,
+The [EzPublishCoreBundle::content_fields.html.twig](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Bundle/EzPublishCoreBundle/Resources/views/content_fields.html.twig) template,
 where the native Field Type templates are implemented, provides a few helpers: `simple_block_field`, `simple_inline_field` and `field_attributes`.
 The first two are used to display a Field either as a block or inline.
 `field_attributes` makes it easier to use the `attr` variable that contains additional (HTML) attributes for the field.
