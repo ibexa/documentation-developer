@@ -69,7 +69,7 @@ $(document).ready(function () {
                     version = $('.version-warning .version').html(),
                     parts = $('.rst-other-versions dd a').first().attr('href').split('/');
 
-		parts[4] = version;
+                parts[4] = version;
                 url = parts.join('/');
 
                 $('.version-warning .version').html($('<a href ="' + url + '" class="external">' + version + '</a>'));
