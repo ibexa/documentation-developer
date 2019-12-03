@@ -35,12 +35,12 @@ final class Point2DType extends AbstractType
 ## Add a Form Mapper Interface
 
 The FormMapper adds the Field definitions into Symfony forms using the `add()` method. 
-You will add it to be able to edit the fields later on.
+The `FieldValueFormMapperInterface` provides edit form for your Field Type in the administration interface.
 For more information about the FormMappers, see [Field Type form and template](../../api/field_type_form_and_template.md).
 
-First, add a `FieldValueFormMapperInterface` interface (`EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface`) to Field Type definition in the `src/FieldType/Point2D/Type.php`.
+First, implement a `FieldValueFormMapperInterface` interface (`EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface`) to Field Type definition in the `src/FieldType/Point2D/Type.php`.
 
-Next, add a `mapFieldValueForm()` with the following arguments (highlighted lines):
+Next, implement a `mapFieldValueForm()` method and invoke `FormInterface::add` method with the following arguments (highlighted lines):
 
 - Name of the property the Field value will map to: `value`
 - Type of the Field: `Point2DType::class`
@@ -75,7 +75,7 @@ final class Type extends GenericType implements FieldValueFormMapperInterface
 }
 ```
 
-Finally, add a field that will enable you to add values to the Field Type in the content edition form in `src/Form/Type/Point2DType.php`:
+Finally, add `configureOptions` method and set default value of `data_class` to `Value::class`. It will allow your form to work on this object.
 
 ```php
 <?php
@@ -107,7 +107,7 @@ final class Point2DType extends AbstractType
 
 ## Add a new class
 
-Next, add the `ezplatform.field_type.form_mapper.value` class to `config/services.yaml`:
+Next, add the `ezplatform.field_type.form_mapper.value` tag to `config/services.yaml`:
 
 ```yaml hl_lines="4"
 App\FieldType\Point2D\Type:

@@ -42,7 +42,7 @@ final class ValueNormalizer implements NormalizerInterface
 
 ##  Add Normalizer class
 
-Next, add the `ValueNormalizer` class to the `config/services.yaml` with a `serializer.normalizer` tag:
+Next, add the `ValueNormalizer` service definition to the `config/services.yaml` with a `serializer.normalizer` tag:
  
 ```yaml
 services:
@@ -84,7 +84,7 @@ final class ValueDenormalizer implements DenormalizerInterface
 
 ## Add Denormalizer class
 
-Next, add the `serializer.denormalizer` class to `config/services.yaml`:
+Next, add the `ValueDenormalizer` service definition to `config/services.yaml` with a `serializer.denormalizer` tag:
  
 ```yaml
 services:
@@ -108,4 +108,4 @@ public function __construct(array $coords = [])
 }
 ```
 
-Now you can easily change the output of the Point 2D Field Type.
+Now you can easily change the internal representation format of the Point 2D Field Type.

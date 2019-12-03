@@ -7,7 +7,7 @@
 ## The Type class
 
 The Type contains logic of the Field Type: validating data, transforming from various formats, describing the validators, etc.
-A Generic Type class must implement `eZ\Publish\SPI\FieldType\Generic\Type` (Generic Field Type interface).
+In our example Point 2D Field Type will extend `eZ\Publish\SPI\FieldType\Generic\Type` class.
 For more information about the Type class of a Field Type, see [Type class](../../api/field_type_type_and_value.md#type-class).
 
 ## Field Type identifier
@@ -34,7 +34,7 @@ final class Type extends GenericType
 
 ## Add a new class
 
-Next, add the `ezplatform.field_type` class to `config/services.yaml`:
+Next, add the `ezplatform.field_type` tag to `config/services.yaml`:
 
 ```yaml
 services:

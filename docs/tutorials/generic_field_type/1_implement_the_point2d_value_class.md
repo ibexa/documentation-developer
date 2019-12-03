@@ -27,13 +27,12 @@ For more information about Field Type Value, see [Value handling](../../api/fiel
 
 The Point 2D Value class will contain:
 
-- public properties, used to store the actual data
-- an implementation of the `__toString()` method, required by the Value interface it inherits from
+- private properties, used to store the actual data
+- an implementation of the `__toString()` method, required by the Value interface
 
 By default, the constructor from `FieldType\Value` will be used.
-It enables you to pass a hash of property/value pairs.
 
-The Point 2D is going to store two elements:
+The Point 2D is going to store two elements (coordinates for point 2D):
 
 - `x` value
 - `y` value

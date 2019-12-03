@@ -7,11 +7,11 @@ To do so, you will create the `format` field where you will be able to change th
 
 In this step you will create the `format` field for Point 2D coordinates.
 To do that, you need to define a `SettingsSchema` definition.
-The coordinates should be displayed as strings with default names `x` and `y`.
+You will also specify coordinates as a placeholder values `%x%` and `%y%`.
 
-Open `src/FieldType/Point2D/Type.php` and change it according to the following code block:
+Open `src/FieldType/Point2D/Type.php` and add a `getSettingsSchema` method according to the following code block:
 
-```php
+```php hl_lines="23 24 25 26 27 28 29 30"
 <?php
 declare(strict_types=1);
 
@@ -34,6 +34,7 @@ final class Type extends GenericType
     {
         return 'point2d';
     }
+    
     public function getSettingsSchema(): array
     {
         return [
@@ -43,6 +44,7 @@ final class Type extends GenericType
             ],
         ];
     }
+    
     public function mapFieldValueForm(FormInterface $fieldForm, FieldData $data)
     {
         $definition = $data->fieldDefinition;
@@ -55,6 +57,8 @@ final class Type extends GenericType
 ```
 
 ## Add a format field
+
+In this part you will define and implement the edit form for your Field Type. 
 
 Define a `Point2DSettingsType` class and add a `format` field in `src/Form/Type/Point2DSettingsType.php`:
 
@@ -83,8 +87,8 @@ final class Point2DSettingsType extends AbstractType
 Now, enable the user to add the coordinates which will be validated.
 In `src/FieldType/Point2D/Type.php` you will:
  
-- inject the `FieldDefinitionFormMapperInterface` extension implementing `EzSystems\EzPlatformAdminUi\FieldType\FieldDefinitionFormMapperInterface`
-- add a `mapFieldDefinitionForm` at the end that will define the field settings
+- implement the `FieldDefinitionFormMapperInterface` interface
+- add a `mapFieldDefinitionForm` method at the end that will define the field settings
 
 ```php
 <?php
@@ -141,6 +145,7 @@ final class Type extends GenericType implements FieldValueFormMapperInterface, F
                 ],
             ];
         }
+        
         public function mapFieldValueForm(FormInterface $fieldForm, FieldData $data)
         {
             $definition = $data->fieldDefinition;
@@ -149,6 +154,7 @@ final class Type extends GenericType implements FieldValueFormMapperInterface, F
                 'label' => $definition->getName()
             ]);
         }
+        
         public function mapFieldDefinitionForm(FormInterface $fieldDefinitionForm, FieldDefinitionData $data)
         {
             $fieldDefinitionForm->add('fieldSettings', Point2DSettingsType::class, [
