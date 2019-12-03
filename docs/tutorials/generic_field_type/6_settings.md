@@ -7,7 +7,7 @@ To do so, you will create the `format` field where you will be able to change th
 
 In this step you will create the `format` field for Point 2D coordinates.
 To do that, you need to define a `SettingsSchema` definition.
-You will also specify coordinates as a placeholder values `%x%` and `%y%`.
+You will also specify coordinates as placeholder values `%x%` and `%y%`.
 
 Open `src/FieldType/Point2D/Type.php` and add a `getSettingsSchema` method according to the following code block:
 

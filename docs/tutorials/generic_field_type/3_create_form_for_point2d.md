@@ -35,7 +35,7 @@ final class Point2DType extends AbstractType
 ## Add a Form Mapper Interface
 
 The FormMapper adds the Field definitions into Symfony forms using the `add()` method. 
-The `FieldValueFormMapperInterface` provides edit form for your Field Type in the administration interface.
+The `FieldValueFormMapperInterface` provides an edit form for your Field Type in the administration interface.
 For more information about the FormMappers, see [Field Type form and template](../../api/field_type_form_and_template.md).
 
 First, implement a `FieldValueFormMapperInterface` interface (`EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface`) to Field Type definition in the `src/FieldType/Point2D/Type.php`.
@@ -75,7 +75,7 @@ final class Type extends GenericType implements FieldValueFormMapperInterface
 }
 ```
 
-Finally, add `configureOptions` method and set default value of `data_class` to `Value::class`. It will allow your form to work on this object.
+Finally, add a `configureOptions` method and set default value of `data_class` to `Value::class`. It will allow your form to work on this object.
 
 ```php
 <?php
