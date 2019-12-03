@@ -11,7 +11,7 @@ You will also specify coordinates as placeholder values `%x%` and `%y%`.
 
 Open `src/FieldType/Point2D/Type.php` and add a `getSettingsSchema` method according to the following code block:
 
-```php hl_lines="23 24 25 26 27 28 29 30"
+```php hl_lines="24 25 26 27 28 29 30 31 32"
 <?php
 declare(strict_types=1);
 
