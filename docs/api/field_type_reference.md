@@ -7,7 +7,6 @@ eZ Platform comes with a collection of Field Types that can be used to build pow
 !!! tip
 
     For general Field Type documentation, see [Field Type API](../api/field_type_api.md).
-    For the documentation on how to implement a custom Field Type, see the [Creating a Tweet Field Type](../tutorials/field_type/creating_a_tweet_field_type.md) tutorial.
 
 Custom Field Types have to be programmed in PHP. However, the built-in Field Types are usually sufficient enough for typical scenarios. The following table gives an overview of the supported Field Types that come with eZ Platform.
 
@@ -68,8 +67,6 @@ Proper indexing of these Field Types is done with [Solr Search Bundle](../guide/
 |[Price](https://github.com/ezcommunity/EzPriceBundle)|Price Field for use in product catalogs|Yes|No|Yes|
 
 ### Generate new Field Type
-
-You can learn how to create a custom Field Type by following the [Creating a Tweet Field Type](../tutorials/field_type/creating_a_tweet_field_type.md) tutorial
 
 You can also make use of the [Field Type Generator Bundle](https://github.com/Smile-SA/EzFieldTypeGeneratorBundle) from our partner Smile.
 It helps you get started by creating a skeleton for a Field Type, including templates for the editorial interface. 

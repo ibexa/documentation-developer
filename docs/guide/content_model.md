@@ -149,7 +149,7 @@ If a Field definition is deleted from the Content Type, all the corresponding Fi
 
 A Field is the smallest unit of storage in the content model and the building block of all Content items. Every Field belongs to a Field Type.
 
-Beyond the built-in set of Field Types, you can create your own. See the [Create a Field Type](../tutorials/field_type/creating_a_tweet_field_type.md) tutorial
+Beyond the built-in set of Field Types, you can create your own.
 
 ### Field value validation
 
