@@ -64,5 +64,3 @@ Additionally you can:
 ## Adding new Field Types
 
 You can extend eZ Platform by adding new [Field Types](../../api/field_type_api.md).
-
-To learn how to add a new Field Type, refer to the [Creating a Tweet Field Type tutorial](../../tutorials/field_type/creating_a_tweet_field_type.md).
