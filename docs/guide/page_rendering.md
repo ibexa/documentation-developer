@@ -125,7 +125,7 @@
 
     To override the default block template, create a new template.
     Place it in a path that mirrors the original default template from the bundle folder.
-    Foor example:
+    For example:
     `/app/Resources/EzPlatformPageFieldTypeBundle/views/blocks/gallery.html.twig`.
 
     !!! tip
