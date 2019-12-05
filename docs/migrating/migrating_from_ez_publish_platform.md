@@ -86,16 +86,16 @@ To move over your own custom configurations, follow the conventions below and ma
 - `<old-ez-root>/ezpublish/config/config.yaml =>  <new-ez-root>/app/config/config.yaml`
     -  *For system/framework config, and for defining global db, cache, search settings.*
 - `<old-ez-root>/ezpublish/config/ezpublish.yaml => <new-ez-root>/app/config/ezplatform.yaml`
-    -  *For SiteAccess, site groups and repository settings.*
+    -  *For SiteAccess, site groups and Repository settings.*
 
-!!! note "Changes to repository configuration"
+!!! note "Changes to Repository configuration"
 
-    When moving configuration over, be aware that as of 5.4.5 and higher, repository configuration has been enhanced to allow configuring storage engine and search engine independently.
+    When moving configuration over, be aware that as of 5.4.5 and higher, Repository configuration has been enhanced to allow configuring storage engine and search engine independently.
 
     ``` yaml
-    # Default ezplatform.yaml repositories configuration with comments
+    # Default ezplatform.yaml Repositories configuration with comments
     ezplatform:
-        # Repositories configuration, set up default repository to support solr if enabled
+        # Repositories configuration, set up default Repository to support solr if enabled
         repositories:
             default:
                 # For storage engine use kernel default (current LegacyStorageEngine)

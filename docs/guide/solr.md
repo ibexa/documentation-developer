@@ -61,7 +61,7 @@ To set SolrCloud up follow [SolrCloud reference guide.](https://lucene.apache.or
 
 #### Further configuration
 
-The bundle does not commit Solr index changes directly on repository updates, leaving it up to you to tune this using `solrconfig.xml` as best practice suggests.
+The bundle does not commit Solr index changes directly on Repository updates, leaving it up to you to tune this using `solrconfig.xml` as best practice suggests.
 
 This setting is **required** if you want to see the changes after publish. It is strongly recommended to set-up `solrconfig.xml` like this:
 
@@ -452,18 +452,18 @@ You can use document field mappers to index additional data in the search engine
 
 The additional data can come from external sources (e.g. from a recommendation system), or from internal ones.
 An example of the latter is indexing data through the Location hierarchy: from the parent Location to the child Location, or indexing child data on the parent Location.
-This may be needed when you want to find the Content with full-text search, or to simplify search for a complicated data model.
+This may be needed when you want to find the content with full-text search, or to simplify search for a complicated data model.
 
 To do this effectively, you first need to understand how the data is indexed with the Solr search engine.
 Solr uses [documents](https://lucene.apache.org/solr/guide/7_7/overview-of-documents-fields-and-schema-design.html#how-solr-sees-the-world) as a unit of data that is indexed.
-Documents are indexed per translation, as Content blocks. A block is a nested document structure.
-When used in eZ Platform, a parent document represents Content, and Locations are indexed as child documents of the Content.
+Documents are indexed per translation, as content blocks. A block is a nested document structure.
+When used in eZ Platform, a parent document represents content, and Locations are indexed as child documents of the Content item.
 To avoid duplication, full-text data is indexed on the Content document only. Knowing this, you have the option to index additional data on:
 
-- all block documents (meaning Content and its Locations, all translations)
+- all block documents (meaning content and its Locations, all translations)
 - all block documents per translation
-- Content documents
-- Content documents per translation
+- content documents
+- content documents per translation
 - Location documents
 
 Indexing additional data is done by implementing a document field mapper and registering it at one of the five extension points described above.
@@ -561,7 +561,7 @@ class WebinarEventTitleFulltextFieldMapper extends ContentFieldMapper
 }
 ```
 
-Since you index full text data only on the Content document, you would register the service like this:
+Since you index full text data only on the content document, you would register the service like this:
 
 ``` yaml
 my_webinar_app.webinar_event_title_fulltext_field_mapper:

@@ -2,7 +2,7 @@
 
 ## The ViewController
 
-eZ Platform comes with a native controller to display your content, known as the **`ViewController`**. It is called each time you try to reach a Content item from its **Url Alias** (human-readable, translatable URI generated for any content based on URL patterns defined per Content Type). It is able to render any content created in the admin interface or via the [Public API Guide](../api/public_php_api.md).
+eZ Platform comes with a native controller to display your content, known as the **`ViewController`**. It is called each time you try to reach a Content item from its **URL alias** (human-readable, translatable URI generated for any content based on URL patterns defined per Content Type). It is able to render any content created in the admin interface or via the [Public API Guide](../api/public_php_api.md).
 
 It can also be called straight by its direct URI: 
 
@@ -141,7 +141,7 @@ Every content view offers a set of variables you can use in templates and contro
 You can view the whole list of variables by using the `dump()` Twig function in your template.
 You can also dump a specific variable, for example `dump(location.id)`.
 
-Main Content-related variables include:
+Main content-related variables include:
 
 |Variable name|Type|Description|
 |------|------|------|
@@ -186,7 +186,7 @@ Templates for the most common view types (content/full, line, embed, or block) c
 
 ###### Example
 
-Add this configuration to `config/packages/ezplatform_admin_ui.yaml` to use `templates/content/view/full.html.twig` as the default template when viewing Content with the `full` view type:
+Add this configuration to `config/packages/ezplatform_admin_ui.yaml` to use `templates/content/view/full.html.twig` as the default template when viewing content with the `full` view type:
 
 ``` yaml
 parameters:
@@ -306,7 +306,7 @@ This helper is accessible from all Twig templates and allows you to easily retri
 |`ezplatform.siteaccess`|Returns the current SiteAccess.|
 |`ezplatform.rootLocation`|Returns the root Location object.|
 |`ezplatform.requestedUriString`|Returns the requested URI string (also known as semanticPathInfo).|
-|`ezplatform.systemUriString`|	Returns the "system" URI string. System URI is the URI for internal content controller. If current route is not an URLAlias, then the current Pathinfo is returned.|
+|`ezplatform.systemUriString`|	Returns the "system" URI string. System URI is the URI for internal content controller. If current route is not a URL alias, then the current Pathinfo is returned.|
 |`ezplatform.viewParameters`|Returns the view parameters as a hash.|
 |`ezplatform.viewParametersString`|Returns the view parameters as a string.|
 |`ezplatform.translationSiteAccess`|Returns the translation SiteAccess for a given language, or null if it cannot be found.|

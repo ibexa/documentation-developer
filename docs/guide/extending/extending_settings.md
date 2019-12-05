@@ -8,7 +8,7 @@ For this reason, `ezsettings` values mentioned in the documentation might not wo
 
 ## User settings
 
-You can add new preferences to the User settings menu in the Back Office.
+You can add new preferences to the User Settings menu in the Back Office.
 
 To do so, create a setting class implementing two interfaces:
 `ValueDefinitionInterface` and `FormMapperInterface`.

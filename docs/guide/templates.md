@@ -101,7 +101,7 @@ Templates in eZ Platform are written in the Twig templating language.
 
     At its core, a Twig template is an HTML frame of the page that will be displayed. Inside this frame you define places (and manners) in which different parts of your Content items will be displayed (rendered).
 
-    Most of a Twig template file can look like an ordinary HTML file. This is also where you can define places where Content items or their fields will be embedded.
+    Most of a Twig template file can look like an ordinary HTML file. This is also where you can define places where Content items or their Fields will be embedded.
 
 The configuration described above lets you select one template to be used in a given situation, but this does not mean you are limited to only one template file per case. It is possible to include other templates in the main template file. For example, you can have a single template for the footer of a page and include it in many other templates. Such templates do not need to be mentioned in the configuration .yaml file.
 
@@ -204,7 +204,7 @@ By creating multiple templates and configuring them properly, you can configure 
 ### Content item Fields
 
 A view template receives the requested Content item, holding all Fields.
-In order to display the Fields' value the way you want, you can either manipulate the Field Value object itself, or use a custom template.
+In order to display the Fields' value the way you want, you can either manipulate the Field value object itself, or use a custom template.
 
 #### Getting raw Field value
 
@@ -269,13 +269,13 @@ You can render any Field using this default template using the `ez_render_field
 {{ ez_render_field( content, 'some_field_identifier' ) }}
 ```
 
-You can use this helper to render various Content item fields.
-This, paired with the fact that each Content item can have multiple fields and you can render them differently, offers more rendering options.
+You can use this helper to render various Content item Fields.
+This, paired with the fact that each Content item can have multiple Fields and you can render them differently, offers more rendering options.
 
 To see it in practice, extend the `templates/full/article.html.twig` template:
 
 ``` html+twig
-{# This renders the Content name of the article #}
+{# This renders the content name of the article #}
 <h1>{{ ez_content_name(content) }}</h1>
 <div>
     {# Here you add a rendering of a different Field, 'intro' #}
@@ -325,7 +325,7 @@ You can also **force a locale** in a second argument:
 
 !!! note "Name property in ContentInfo"
 
-    This property is the actual Content name, but **in the main language only** (so it is not translated).
+    This property is the actual content name, but **in the main language only** (so it is not translated).
 
     ``` html+twig
     <h2>Content name: {{ content.contentInfo.name }}</h2>
@@ -363,7 +363,7 @@ parameters:
 
 #### Links to other Locations
 
-Linking to other Locations is done with a [native `path()` Twig helper](http://symfony.com/doc/2.3/book/templating.html#linking-to-pages) (or `url()` if you want to generate absolute URLs). When you pass it the Location object, `path()` will generate the URLAlias.
+Linking to other Locations is done with a [native `path()` Twig helper](http://symfony.com/doc/2.3/book/templating.html#linking-to-pages) (or `url()` if you want to generate absolute URLs). When you pass it the Location object, `path()` will generate the URL alias.
 
 ``` html+twig
 {# Assuming "location" variable is a valid eZ\Publish\API\Repository\Values\Content\Location object #}
@@ -382,7 +382,7 @@ If you don't have the Location object, but only its ID, you can generate the URL
     For more details, see [this example in the Demo Bundle.](https://github.com/ezsystems/ezplatform-demo/blob/e15b93ade4b8c1f9084c5adac51239d239f9f7d8/app/Resources/views/full/blog.html.twig#L25)
 
 
-You can also use the Content ID. In that case the generated link will point to the Content item's main Location.
+You can also use the Content item's ID. In that case the generated link will point to the Content item's main Location.
 
 ``` html+twig
 <a href="{{ path( "ez_urlalias", {"contentId": 456} ) }}">Some link from a contentId</a>

@@ -75,11 +75,11 @@ The list below presents the Criteria available in the `eZ\Publish\API\Repository
 |`ContentTypeId`|`value` scalar(s) representing the Content Type ID.|
 |`ContentTypeIdentifier`|`value` string(s) representing the Content Type Identifier, example: "article".|
 |`DateMetadata`|`target` ( `DateMetadata::MODIFIED`, `DateMetadata::CREATED`)</br>`operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `BETWEEN`)</br>`value` being integer(s) representing unix timestamp.|
-|`Field`|`target` (FieldDefinition identifier), `operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `LIKE`, `BETWEEN`, `CONTAINS`), `value` being scalar(s) relevant for the field.|
-|`FieldRelation`|`target` (FieldDefinition identifier)</br>`operator` (`IN`, `CONTAINS`)</br>`value` being array of scalars representing Content ID of relation.</br>Use of `IN` means the relation needs to have one of the provided IDs, while `CONTAINS` implies it needs to have all provided IDs.|
+|`Field`|`target` (Field definition identifier), `operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `LIKE`, `BETWEEN`, `CONTAINS`), `value` being scalar(s) relevant for the field.|
+|`FieldRelation`|`target` (Field definition identifier)</br>`operator` (`IN`, `CONTAINS`)</br>`value` being array of scalars representing Content ID of Relation.</br>Use of `IN` means the Relation needs to have one of the provided IDs, while `CONTAINS` implies it needs to have all provided IDs.|
 |`FullText`|`value` which is the string to search for</br>`properties` is array to set additional properties for use with search engines like Solr.</br>For advanced search, you can extend the query syntax by using:</br> `word`, `"phrase"`, `(group)`, `+mandatory`, `-prohibited`, `AND`, `&&`, `OR`, `||`, `NOT`, `!`. |
 |`IsFieldEmpty`|`('field_name')` – determines if the Field is empty</br>Optionally:</br> `-false` –  for searching Fields that are *not* empty</br>`-true` – used by default, for searching Fields that are empty| 
-|`LanguageCode`|`value` string(s) representing Language Code(s) on the Content (not on Fields)</br>`matchAlwaysAvailable` as boolean.|
+|`LanguageCode`|`value` string(s) representing language code(s) on the content (not on Fields)</br>`matchAlwaysAvailable` as boolean.|
 |`LocationId`|`value` scalar(s) representing the Location ID.|
 |`LocationRemoteId`|`value` string(s) representing the Location Remote ID.|
 |`LogicalAnd`|A `LogicalOperator` that takes `array` of other Criteria, makes sure all Criteria match.|
@@ -88,10 +88,10 @@ The list below presents the Criteria available in the `eZ\Publish\API\Repository
 |`MapLocationDistance`| `target` (FieldDefinition identifier)</br>`operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `BETWEEN`)</br>`distance` as float(s) from a position using `latitude` as float, `longitude` as float as arguments|
 |`MatchAll`|No arguments, mainly for internal use when no `filter` or `query` is provided on Query object.|
 |`MatchNone`|No arguments, mainly for internal use by the [Blocking Limitation](limitation_reference.md#blocking-limitation).|
-|`ObjectStateId`|`value` string(s) representing the Content Object State ID.|
-|`ParentLocationId`|`value` scalar(s) representing the Parent's Location ID.|
-|`RemoteId`|`value` string(s) representing the Content Remote ID.|
-|`SectionId`|`value` scalar(s) representing the Content Section ID.|
+|`ObjectStateId`|`value` string(s) representing the Object state ID.|
+|`ParentLocationId`|`value` scalar(s) representing the parent's Location ID.|
+|`RemoteId`|`value` string(s) representing the content remote ID.|
+|`SectionId`|`value` scalar(s) representing the Section ID.|
 |`Subtree`|`value` string(s) representing the Location ID in which you can filter. If the Location ID is `/1/2/20/42`, you will filter everything under `42`.|
 |`UserMetadata`|`target` (`UserMetadata::OWNER`, `UserMetadata::GROUP`, `UserMetadata::MODIFIER`)</br>`operator` (`IN`, `EQ`), `value` scalar(s) representing the User or User Group ID(s).|
 |`Visibility`|`value` (`Visibility::VISIBLE`, `Visibility::HIDDEN`).</br>*Note: This acts on all assigned Locations when used with Content Search, meaning hidden content will be returned if it has a Location which is visible. Use Location Search to avoid this.*|
@@ -111,7 +111,7 @@ Implementation and availability of a handler sometimes depends on search engine
 
 #### Common concepts for all Sort Clauses 
 
-Refer to the [list below](#list-of-sort-clauses) to see how to use each Sort Clause, as it depends on the Sort Clause Value constructor, but in general you should be aware of the following common concept:
+Refer to the [list below](#list-of-sort-clauses) to see how to use each Sort Clause, as it depends on the Sort Clause value constructor, but in general you should be aware of the following common concept:
 
 - `sortDirection`: The direction to perform the sort, either `Query::SORT_ASC` *(default)* or `Query::SORT_DESC`
 

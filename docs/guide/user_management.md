@@ -26,9 +26,9 @@ You can change the [password attributes](#password-attributes) or [password expi
 To access the password settings:
 
 1. In the Back Office, in the **Admin** Panel, open the **Content Types** tab.
-1. In the **Content Type Groups** table, click on **Users**.
+1. In the **Content Type groups** table, click on **Users**.
 1. Edit the User Content Type.
-1. In the **Content field definitions** list, view the settings for **User account (ezuser)**.
+1. In the **Field definitions** list, view the settings for **User account (ezuser)**.
 
 !!! tip
 
@@ -168,23 +168,23 @@ ezsettings.<siteaccess>.user_settings.templates.update
 Symfony provides native support for [multiple user providers](https://symfony.com/doc/4.3/security/multiple_user_providers.html).
 This makes it easy to integrate any kind of login handlers, including SSO and existing third party bundles (e.g. [FR3DLdapBundle](https://github.com/Maks3w/FR3DLdapBundle), [HWIOauthBundle](https://github.com/hwi/HWIOAuthBundle), [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle), [BeSimpleSsoAuthBundle](http://github.com/BeSimple/BeSimpleSsoAuthBundle), etc.).
 
-However, to be able to use *external* user providers with eZ Platform, a valid Platform user needs to be injected into the repository.
+However, to be able to use *external* user providers with eZ Platform, a valid Platform user needs to be injected into the Repository.
 This is mainly for the kernel to be able to manage content-related permissions (but not limited to this).
 
-Depending on your context, you will either want to create a Platform user, return an existing user, or even always use a generic user.
+Depending on your context, you will either want to create a Platform User, return an existing User, or even always use a generic User.
 
 Whenever an *external* user is matched (i.e. one that does not come from Platform repository, like coming from LDAP), eZ Platform kernel initiates an `MVCEvents::INTERACTIVE_LOGIN` event.
 Every service listening to this event receives an `eZ\Publish\Core\MVC\Symfony\Event\InteractiveLoginEvent` object which contains the original security token (that holds the matched user) and the request.
 
-Then, it is up to the listener to retrieve a Platform user from the repository and to assign it back to the event object.
+Then, it is up to the listener to retrieve a Platform User from the Repository and to assign it back to the event object.
 This user will be injected into the repository and used for the rest of the request.
 
-If no eZ Platform user is returned, the Anonymous User will be used.
+If no eZ Platform User is returned, the Anonymous User will be used.
 
 ### User exposed and security token
 
 When an *external* user is matched, a different token will be injected into the security context, the `InteractiveLoginToken`.
-This token holds a `UserWrapped` instance which contains the originally matched user and the *API user* (the one from the eZ Platform repository).
+This token holds a `UserWrapped` instance which contains the originally matched User and the *API user* (the one from the eZ Platform Repository).
 
 Note that the *API user* is mainly used for permission checks against the repository and thus stays *under the hood*.
 
@@ -261,8 +261,8 @@ class InteractiveLoginListener implements EventSubscriberInterface
 
     public function onInteractiveLogin(InteractiveLoginEvent $event)
     {
-        // This loads a generic user and assigns it back to the event.
-        // You may want to create users here, or even load predefined users depending on your own rules.
+        // This loads a generic User and assigns it back to the event.
+        // You may want to create Users here, or even load predefined Users depending on your own rules.
         $event->setApiUser($this->userService->loadUserByLogin( 'lolautruche' ));
     }
 } 

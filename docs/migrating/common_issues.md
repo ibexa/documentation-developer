@@ -31,14 +31,14 @@ See [Regenerating URL aliases](../guide/url_management.md#regenerating-url-alias
 the first time article is published (upon creation). It only happens after the article is
 edited and published.
 
-If this error occurs use the console command below. It will clean up redundant relations rows:
+If this error occurs use the console command below. It will clean up redundant Relations rows:
 
 ```
 php bin/console ezpublish:update:legacy_storage_clean_up_relation_type_eq_zero
 ```
 The command can be executed in two modes:
 
-- list / dry-run - prints table with all corrupted relations that will be deleted (to be executed first)
+- list / dry-run - prints table with all corrupted Relations that will be deleted (to be executed first)
 - fix - executes clean up
 
 You can read more about this issue here: [EZP-27254](https://jira.ez.no/browse/EZP-27254)
@@ -46,9 +46,9 @@ You can read more about this issue here: [EZP-27254](https://jira.ez.no/browse/E
 ## Always available flag set on all Fields
 
 Always available flag is set on all Fields, instead of only on Fields in the main
-language. This problem occurs when eZ Platform is used to create Content that is both
+language. This problem occurs when eZ Platform is used to create content that is both
 always available and has multiple translations. The cleanup script will correctly set
-always available flag for prioritized language filtering in Legacy Search Engine.
+always available flag for prioritized language filtering in Legacy search engine.
 
 ```
 php bin/console ezpublish:update:legacy_storage_fix_fields_always_available_flag

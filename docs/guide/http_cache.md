@@ -111,7 +111,7 @@ without the possibility of clearing it.
 eZ Platform returns content-related responses with an `X-Location-Id` header.
 The responses are stored together by the configured HTTP cache.
 This allows you to clear (invalidate) HTTP cache representing specifically a given Content item.
-On publishing the Content, a cache purger is triggered with the Content ID in question,
+On publishing the content, a cache purger is triggered with the content ID in question,
 which in turn figures out affected Locations based on [HTTP cache tag](#http-cache-tagging) logic.
 The returned Location IDs are sent for purge using the selected purge type.
 
@@ -154,7 +154,7 @@ For further information on setting up Varnish, see [Using Varnish](#using-varnis
 
 ### Purging
 
-While purging on Content, updates are handled for you.
+While purging on content, updates are handled for you.
 On actions against the eZ Platform APIs, there are times you might have to purge manually.
 
 #### Purge by command with Symfony proxy
@@ -506,8 +506,8 @@ when someone requests them.
 
 #### Available tags
 
-- `content-<content-id>` - Used on anything that is affected by changes to Content, that is Content itself, Locations, and so on.
-- `content-type-<content-type-id>` - For use when the Content Type changes, affecting Content of its type.
+- `content-<content-id>` - Used on anything that is affected by changes to content, that is content itself, Locations, and so on.
+- `content-type-<content-type-id>` - For use when the Content Type changes, affecting content of its type.
 - `location-<location-id>` - Used for clearing all cache relevant for a given Location.
 - `parent-<parent-location-id>` - Useful for clearing all children of a parent, or in all siblings.
 - `path-<location-id>` - For operations that change the tree itself, like move, remove, etc.
@@ -516,9 +516,9 @@ Note that the system does not add this tag to responses itself, just purges if p
 Response tagging using this tag is currently meant to be done inline in the template logic / views
 based on your decision.
 
-!!! tip "Troubleshooting - Content tagged by a big number of tags (too long headers)"
+!!! tip "Troubleshooting - content tagged by a big number of tags (too long headers)"
 
-    In case of complex Content, for instance Landing Pages with many blocks, you might get into trouble with too long response `xkey` header. Because of this, necessary cache entries may not be tagged properly. You will also see `502 Headers too long` errors.
+    In case of complex content, for instance Landing Pages with many blocks, you might get into trouble with too long response `xkey` header. Because of this, necessary cache entries may not be tagged properly. You will also see `502 Headers too long` errors.
     If this is the case, customize the following runtime settings on your Varnish instance(s):
 
     - [http_resp_hdr_len](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-resp-hdr-len) (e.g. 32k)

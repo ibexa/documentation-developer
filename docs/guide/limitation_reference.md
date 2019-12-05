@@ -89,7 +89,7 @@ A Limitation to specify if the User has access to content with a specific Conten
 
 |Value|UI value|Description|
 |------|------|------|
-|`<ContentType_id>`|`<ContentType_name>`|All valid ContentType IDs can be set as value(s)|
+|`<ContentType_id>`|`<ContentType_name>`|All valid Content Type IDs can be set as value(s)|
 
 
 ## Content Type of Parent Limitation
@@ -157,7 +157,7 @@ A Limitation to specify if the User has access to content with a specific Locati
 
 ## New Section Limitation
 
-A Limitation to specify if the User has access to (assigning) a given Section (to content).
+A Limitation to specify if the User has access to assigning content to a given Section.
 
 In the `section/assign` Policy you can combine this with Section Limitation to limit both from and to values.
 
@@ -329,7 +329,7 @@ A Limitation to specify if the User has access to content within a specific Subt
 
 ### Usage notes
 
-For more information on how to restrict user's access to part of the Subtree follow [the example in the Admin management section](admin_panel.md#restrict-editing-to-part-of-the-tree).
+For more information on how to restrict User's access to part of the Subtree follow [the example in the Admin management section](admin_panel.md#restrict-editing-to-part-of-the-tree).
 
 ## Workflow Stage Limitation
 
