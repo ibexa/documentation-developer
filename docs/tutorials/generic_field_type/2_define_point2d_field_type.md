@@ -32,7 +32,7 @@ final class Type extends GenericType
 }
 ```
 
-## Add a new class
+## Add a new service definition
 
 Next, add the `ezplatform.field_type` tag to `config/services.yaml`:
 

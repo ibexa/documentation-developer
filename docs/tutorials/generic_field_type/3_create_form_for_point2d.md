@@ -105,7 +105,7 @@ final class Point2DType extends AbstractType
 }
 ```
 
-## Add a new class
+## Add a new tag
 
 Next, add the `ezplatform.field_type.form_mapper.value` tag to `config/services.yaml`:
 

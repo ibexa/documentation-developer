@@ -23,7 +23,7 @@ For more information about Field Type Value, see [Value handling](../../api/fiel
 
 !!! tip
 
-    According to the convention, the class representing Field Type value should be named `Value` and should be placed in the same namespace as the Type definition.
+    According to the convention, the class representing Field Type Value should be named `Value` and should be placed in the same namespace as the Type definition.
 
 The Point 2D Value class will contain:
 
