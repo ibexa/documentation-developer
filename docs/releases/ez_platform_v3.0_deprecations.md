@@ -460,6 +460,15 @@ No deprecations or backward compatibility breaks to document.
 
 ## ezplatform-richtext
 
+### Input and output converters
+
+Following the removal of `ezrichtext` Field Type from kernel, the following deprecated converter tags have been changed:
+
+|Formerly|Currently|
+|--------|---------|
+|`ezpublish.ezrichtext.converter.output.xhtml5`|`ezrichtext.converter.output.xhtml5`|
+|`ezpublish.ezrichtext.converter.input.xhtml5`|`ezrichtext.converter.input.xhtml5`|
+
 ### Online Editor
 
 Configuration providers exposing the following JavaScript variables have been dropped:
@@ -542,6 +551,29 @@ The `Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand` is deprecated
 
 Experimental, deprecated and unsupported code for Elastic Search 1.4.2 has been dropped from kernel,
 to be replaced with a dedicated bundle for the latest Elastic version in the future.
+
+### Field Types
+
+The `ezrichtext` Field Type has been removed from `ezpublish-kernel`.
+Use [`ezplatform-richtext`](https://github.com/ezsystems/ezplatform-richtext) instead.
+
+Following this change:
+
+- The `eZ\Publish\Core\FieldType\RichText` namespace has been dropped. All classes are available in `ezplatform-richtext`.
+- The configuration has to be performed differently:
+
+Formerly:
+
+``` yaml 
+ezpublish:
+    ezrichtext:
+```
+
+Now:
+
+``` yaml
+ezrichtext:
+```
 
 ### Legacy Storage Gateways
 
