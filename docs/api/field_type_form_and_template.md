@@ -6,7 +6,7 @@ The FormMapper maps Field definitions into Symfony forms, allowing Field editing
 
 It can implement two interfaces:
 
-- `EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface` to provide editing support
+- `EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface` to provide editing support
 - `EzSystems\EzPlatformAdminUi\FieldType\FieldDefinitionFormMapperInterface` to provide Field Type definition editing support,
 when you require non-standard settings
 
@@ -20,7 +20,7 @@ The `FieldValueFormMapperInterface::mapFieldValueForm` method accepts two argume
 You have to add your form type to the content editing form. The example shows how `ezboolean` injects the form:
 
 ``` php
-use EzSystems\RepositoryForms\Data\Content\FieldData;
+use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
 use EzSystems\RepositoryForms\Form\Type\FieldType\CheckboxFieldType;
 use Symfony\Component\Form\FormInterface;
 

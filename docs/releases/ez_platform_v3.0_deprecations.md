@@ -441,7 +441,14 @@ Additionally, the listener for `pbPreviewReloaded` has been removed.
 
 ## ezplatform-page-fieldtype
 
-No deprecations or backward compatibility breaks to document.
+### Namespace location update
+
+The following namespaces have been changed:
+
+|Namespace|Former location|New location|
+|---------|------------|---------------|
+|`FieldData`|`EzSystems\RepositoryForms\Data\Content\`|`EzSystems\EzPlatformContentForms\Data\Content\`|
+|`FieldValueFormMapperInterface`|`EzSystems\RepositoryForms\FieldType\`|`EzSystems\EzPlatformContentForms\FieldType\`
 
 ## ezplatform-matrix-fieldtype
 
