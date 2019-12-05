@@ -2,7 +2,7 @@
 
 !!! note "Symfony and Twig template functions/filters/tags"
 
-    For the template functionality provided by Symfony Framework, see [Symfony Twig Extensions Reference page](http://symfony.com/doc/current/reference/twig_reference.html). For those provided by the underlying Twig template engine, see [Twig Reference page](http://twig.sensiolabs.org/documentation#reference).
+    For the template functionality provided by Symfony Framework, see [Symfony Twig Extensions Reference page](http://symfony.com/doc/4.3/reference/twig_reference.html). For those provided by the underlying Twig template engine, see [Twig Reference page](http://twig.sensiolabs.org/documentation#reference).
 
 In addition to the [native functions provided by Twig](http://twig.sensiolabs.org/doc/functions/index.html), eZ Platform offers the following:
 
@@ -238,7 +238,7 @@ It can be used for example to identify the first image in an article to render i
 
 ### `ez_full_datetime`, `ez_full_date`, `ez_full_time`
 
-These Twig filters are used to [format date and time](extending_ez_platform.md#format-date-and-time).
+These Twig filters are used to [format date and time](extending/extending_ez_platform.md#format-date-and-time).
 The formats are defined in [user preferences](config_back_office.md#date-and-time-formats).
 
 | Twig filter | Description |
@@ -268,7 +268,7 @@ The filters also accept an optional `timezone` parameter for displaying date and
 |---------------|--------------------------------------------------------|-------------------------------------------|
 | `field`       | `eZ\Publish\API\Repository\Values\Content\Field`       | The image Field                           |
 | `versionInfo` | `eZ\Publish\API\Repository\Values\Content\VersionInfo` | The VersionInfo that the Field belongs to |
-| `variantName` | `string`                                               | Name of the image variation to be used        |
+| `variantName` | `string`                                               | Name of the image variation to be used. To display original image alias, use `original` as an image variation. |
 
 See [images](images.md) for more information about image variations.
 
@@ -373,7 +373,7 @@ This code will load `my_field_template.html.twig` located in `templates/fields/`
 ``` html+twig
 {# Assuming "my_field_identifier" from the template above example is an ezkeyword field. #}
 {% block ezkeyword_field %}
-    {% spaceless %}
+    {% apply spaceless %}
         {% if field.value.values|length() > 0 %}
         <ul>
             {% for keyword in field.value.values %}
@@ -381,7 +381,7 @@ This code will load `my_field_template.html.twig` located in `templates/fields/`
             {% endfor %}
         </ul>
         {% endif %}
-    {% endspaceless %}
+    {% endapply %}
 {% endblock %}
 ```
 
@@ -395,7 +395,7 @@ This code will load `my_field_template.html.twig` located in `templates/fields/`
     {# templates/fields/my_field_template.html.twig #}
     {# Assuming "my_field_identifier" from above template example is an ezkeyword field. #}
      
-    {% use "EzPublishCoreBundle::content_fields.html.twig" with ezkeyword_field as base_ezkeyword_field %}
+    {% use "@EzPublishCore/content_fields.html.twig" with ezkeyword_field as base_ezkeyword_field %}
      
     {# Surround base block with a simple div #}
     {% block ezkeyword_field %}
@@ -421,7 +421,7 @@ you can specify the current template to be the source of the Field block.
 
 {# Here begins the inline block for my ezkeyword field #}
 {% block ezkeyword_field %}
-    {% spaceless %}
+    {% apply spaceless %}
         {% if field.value.values|length() > 0 %}
         <ul>
             {% for keyword in field.value.values %}
@@ -429,7 +429,7 @@ you can specify the current template to be the source of the Field block.
             {% endfor %}
         </ul>
         {% endif %}
-    {% endspaceless %}
+    {% endapply %}
 {% endblock %}
 ```
 
@@ -437,7 +437,7 @@ you can specify the current template to be the source of the Field block.
 
     **Using `_self` will only work if your current template is extending another one.**
 
-    This is basically the same limitation as for [Symfony form themes](https://symfony.com/doc/current/form/form_themes.html).
+    This is basically the same limitation as for [Symfony form themes](https://symfony.com/doc/4.3/form/form_themes.html).
 
 ##### Global override
 
@@ -445,7 +445,7 @@ If you want to override a Field template every time it occurs,
 you can append it to the Field templates list.
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         my_siteaccess:
             field_templates:
@@ -464,10 +464,10 @@ It will then be used every time the Field is rendered with `ez_render_field()`.
 The content of the template must be placed in a Twig block corresponding to the Field Type's internal name
 (e.g. `{% block ezstring_field %}`) for `ezstring`.
 
-The template must also extend `EzPublishCoreBundle::content_fields.html.twig`.
+The template must also extend `EzPublishCore/content_fields.html.twig`.
 
 ``` html+twig
-{% extends "EzPublishCoreBundle::content_fields.html.twig" %}
+{% extends "@EzPublishCore/content_fields.html.twig" %}
 
 {% block ezstring_field %}
     {# template content here #}
@@ -476,7 +476,7 @@ The template must also extend `EzPublishCoreBundle::content_fields.html.twig`.
 
 ### `ez_short_datetime`, `ez_short_date`, `ez_short_time`
 
-These Twig filters are used to [format date and time](extending_ez_platform.md#format-date-and-time).
+These Twig filters are used to [format date and time](extending/extending_ez_platform.md#format-date-and-time).
 The formats are defined in [user preferences](config_back_office.md#date-and-time-formats).
 
 | Twig filter | Description |
@@ -500,7 +500,7 @@ The filters also accept an optional `timezone` parameter for displaying date and
 
 If the Content item does not have a translation in the current language, the main language (see [further down for details](#main-language-use)) will be used if this is supported by the provided **object**. This behavior is identical when forcing a language using **forcedLanguage**.
 
-If languages were specified during retrieval of a given value object, you can get translated values directly in several cases now, including examples below. For further info see [Internationalization](internationalization.md).
+If languages were specified during retrieval of a given value object, you can get translated values directly in several cases now, including examples below. For more details, see [Languages](internationalization.md).
 
 #### Prototype and Arguments
 

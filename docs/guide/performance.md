@@ -40,7 +40,7 @@ In production setups:
 
 !!! tip "For Development use, try eZ Launchpad"
 
-    For a ready solution that allows you to share code between your host and the underlying running VM system without this performance hit, try [eZ Launchpad](https://ezsystems.github.io/launchpad/).
+    For a ready solution that allows you to share code between your host and the underlying running VM system without this performance hit, try [eZ Launchpad](https://ezsystems.github.io/launchpad/), made by and supported by the eZ Community.
 
 ### Web server
 
@@ -134,4 +134,4 @@ The things you will need to do:
 2. Change the command so that the master process takes care of forking child processes in slices.
     1. For execution in-order, [you may look to our platform installer code](https://github.com/ezsystems/ezpublish-kernel/blob/6.2/eZ/Bundle/PlatformInstallerBundle/src/Command/InstallPlatformCommand.php#L230)
     used to fork out Solr indexing after installation to avoid cache issues.
-    2. For parallel execution of the slices, [see Symfony doc for further instruction](http://symfony.com/doc/current/components/process.html#process-signals).
+    2. For parallel execution of the slices, [see Symfony doc for further instruction](http://symfony.com/doc/4.3/components/process.html#process-signals).

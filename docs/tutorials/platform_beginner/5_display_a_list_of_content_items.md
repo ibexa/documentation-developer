@@ -13,7 +13,7 @@ In `templates/full/home_page.html.twig` replace the "Hello world" with a call t
 
 {% block content %}
     <div class="col-xs-10 col-xs-offset-1 text-justified">
-        {{ render_esi( controller( 'App\\Controller\\HomepageController::getAllRidesAction' ) ) }}
+        {{ render_esi( controller( 'App\\Controller\\HomepageController::getAllRidesAction', {'location': location, 'request': app.request} ) ) }}
     </div>
 {% endblock %}
 ```
@@ -40,7 +40,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class HomepageController extends Controller
 {
-    public function getAllRidesAction(Request $request)
+    public function getAllRidesAction(Request $request, Location $location)
     {
         $repository = $this->getRepository();
         $locationService = $repository->getLocationService();
@@ -51,6 +51,7 @@ class HomepageController extends Controller
             'list/rides.html.twig',
             [
                 'pagerRides' => $this->findRides($rootLocation, $request),
+                'location' => $location
             ]
         );
     }

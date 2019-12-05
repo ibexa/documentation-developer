@@ -5,7 +5,7 @@
     Installation for production is only supported on Linux.
 
     To install eZ Platform for development on macOS or Windows,
-    see [a cookbook recipe on installing on those systems](../cookbook/installing-on-mac-os-and-windows.md).
+    see [Install on macOS or Windows](../community_resources/installing-on-mac-os-and-windows.md).
 
 ## Prepare work environment
 
@@ -114,12 +114,12 @@ composer create-project --keep-vcs ezsystems/ezplatform .
 At this point you can configure your database via the `DATABASE_URL` in the `.env` file:
 `DATABASE_URL=mysql://user:password@host:port/name`.
 
-Choose a [secret](http://symfony.com/doc/current/reference/configuration/framework.html#secret)
+Choose a [secret](http://symfony.com/doc/4.3/reference/configuration/framework.html#secret)
 and provide it in the `APP_SECRET` parameter in `.env`.
 It should be a random string, made up of up to 32 characters, numbers, and symbols.
-This is used by Symfony when generating [CSRF tokens](https://symfony.com/doc/current/security/csrf.html),
+This is used by Symfony when generating [CSRF tokens](https://symfony.com/doc/4.3/security/csrf.html),
 [encrypting cookies](http://symfony.com/doc/current/cookbook/security/remember_me.html),
-and for creating signed URIs when using [ESI (Edge Side Includes)](https://symfony.com/doc/current/http_cache/esi.html).
+and for creating signed URIs when using [ESI (Edge Side Includes)](https://symfony.com/doc/4.3/http_cache/esi.html).
 
 Alternatively, you can also change individual installation parameters in `.env`.
 
@@ -204,7 +204,7 @@ Future files and directories created by these two users will need to inherit tho
     You must also make sure that the web server cannot interpret files in the `var` directory through PHP. To do so, follow the instructions on [setting up a virtual host below](#set-up-virtual-host).
 
 To set up permissions for production, it is recommended to use an ACL (Access Control List).
-See [Setting up or Fixing File Permissions](http://symfony.com/doc/3.4/setup/file_permissions.html) in Symfony documentation
+See [Setting up or Fixing File Permissions](http://symfony.com/doc/4.3/setup/file_permissions.html) in Symfony documentation
 for information on how to do it on different systems.
 
 ### Set up virtual host
@@ -253,5 +253,5 @@ Open your project in the browser and you should see the welcome page.
 !!! tip "eZ Launchpad for quick deployment"
 
     If you want to get your eZ Platform installation up and running quickly,
-    you can use Docker-based [eZ Launchpad](https://ezsystems.github.io/launchpad/)
+    you can use Docker-based [eZ Launchpad](https://ezsystems.github.io/launchpad/), supported by the eZ Community,
     which takes care of the whole setup for you.

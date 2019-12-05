@@ -21,7 +21,7 @@ The **ViewProvider** allows you to configure template selection when using the `
 The ViewProvider takes its configuration from your SiteAccess in the `content_view` section. This configuration is [necessary for views to be defined](templates.md#templating-basics) and is a hash built in the following way:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         # Defines the scope: a valid SiteAccess, SiteAccess group or even "global"
         front_siteaccess:
@@ -50,7 +50,8 @@ ezpublish:
 
 !!! tip
 
-    You can define your template selection rules, alongside other settings, in a different bundle. [Read the cookbook recipe to learn more about it](../cookbook/importing_settings_from_a_bundle.md).
+    You can define your template selection rules, alongside other settings, in a different bundle.
+    For details, see [Importing configuration from a bundle](bundles.md#importing-configuration-from-a-bundle).
 
     You can also [use your own custom controller to render a Content/Location](controllers.md##custom-rendering-logic).
 
@@ -112,6 +113,25 @@ The following table presents all native matchers.
 |`Depth`|Matches the depth of the Location. The depth of a top level Location is 1.|
 |`UrlAlias`|Matches the virtual URL of the Location (i.e. `/My/Content-Uri`). **Important: Matches when the UrlAlias of the Location starts with the value passed.** *Not supported for Content (aka content_view).*|
 
+### Custom matchers
+
+Beside the built-in matchers, you can also use your own services to match views:
+
+``` yaml
+ezplatform:
+    system:
+        site:
+            content_view:
+                full:
+                    folder:
+                        template: folder.html.twig
+                        match:
+                            '@App\Matcher\MyMatcher': ~
+```
+
+The service must be tagged with `ezplatform.view.matcher`
+and must implement `\eZ\Publish\Core\MVC\Symfony\Matcher\ContentBased\ViewMatcherInterface`. 
+
 ### Content view templates
 
 #### Template variables
@@ -131,11 +151,11 @@ Main Content-related variables include:
 |`view_base_layout`|String|The base layout template to use when the view is requested to be generated outside of the pagelayout (when `no_layout` is true).|
 
 The `dump()` function also displays other variables, such as specific configuration including the SiteAccess
-under the `ezpublish` key.
+under the `ezplatform` key.
 
 #### Template inheritance and sub-requests
 
-Like any template, a content view template can use [template inheritance](http://symfony.com/doc/current/book/templating.html#template-inheritance-and-layouts). However keep in mind that your Content may be also requested via [sub-requests](https://symfony.com/doc/current/templating/embedding_controllers.html) (see below how to render [embedded Content items](templates.md#embedding-content-items)), in which case you probably don't want the global layout to be used.
+Like any template, a content view template can use [template inheritance](http://symfony.com/doc/4.3/book/templating.html#template-inheritance-and-layouts). However keep in mind that your Content may be also requested via [sub-requests](https://symfony.com/doc/4.3/templating/embedding_controllers.html) (see below how to render [embedded Content items](templates.md#embedding-content-items)), in which case you probably don't want the global layout to be used.
 
 If you use different templates for embedded content views, this should not be a problem. If you'd rather use the same template, you can use an extra `no_layout` view parameter for the sub-request, and conditionally extend an empty pagelayout:
 
@@ -159,10 +179,10 @@ Templates for the most common view types (content/full, line, embed, or block) c
 
 | Controller                                              | ViewType | Parameter                                         | Default value                                           |
 |---------------------------------------------------------|----------|---------------------------------------------------|---------------------------------------------------------|
-| `ez_content:viewAction`                                 | `full`   | `ezplatform.default_view_templates.content.full`  | `"EzPublishCoreBundle:default:content/full.html.twig"`  |
-| `ez_content:viewAction`                                 | `line`   | `ezplatform.default_view_templates.content.line`  | `"EzPublishCoreBundle:default:content/line.html.twig"`  |
-| `ez_content:viewAction`                                 | `embed`  | `ezplatform.default_view_templates.content.embed` | `"EzPublishCoreBundle:default:content/embed.html.twig"` |
-| `ez_page:viewAction`                                    | `n/a`    | `ezplatform.default_view_templates.block`         | `"EzPublishCoreBundle:default:block/block.html.twig"`   |
+| `ez_content:viewAction`                                 | `full`   | `ezplatform.default_view_templates.content.full`  | `'@@EzPublishCore/default/content/full.html.twig'`      |
+| `ez_content:viewAction`                                 | `line`   | `ezplatform.default_view_templates.content.line`  | `'@@EzPublishCore/default/content/line.html.twig'`      |
+| `ez_content:viewAction`                                 | `embed`  | `ezplatform.default_view_templates.content.embed` | `'@@EzPublishCore/default/content/embed.html.twig'`     |
+| `ez_page:viewAction`                                    | `n/a`    | `ezplatform.default_view_templates.block`         | `'@@EzPublishCore/default/block/block.html.twig'`       |
 
 ###### Example
 
@@ -172,6 +192,10 @@ Add this configuration to `config/packages/ezplatform_admin_ui.yaml` to use `tem
 parameters:
     ezplatform.default_view_templates.content.full: "content/view/full.html.twig"
 ```
+
+Alternatively, you can do it using the [design engine](design_engine.md). For example, if your theme is `site`,
+create `themes/site/default/content/<viewType>.html.twig` to override the core template.
+
 
 ##### Customizing the default controller
 
@@ -273,7 +297,7 @@ This section presents the events that are triggered by eZ Platform.
 
 ### Twig Helper
 
-eZ Platform comes with a Twig helper as a [global variable](http://symfony.com/doc/master/cookbook/templating/global_variables.html) named `ezplatform`.
+eZ Platform comes with a Twig helper as a [global variable](http://symfony.com/doc/4.3/cookbook/templating/global_variables.html) named `ezplatform`.
 
 This helper is accessible from all Twig templates and allows you to easily retrieve useful information.
 

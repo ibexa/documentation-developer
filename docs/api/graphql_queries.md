@@ -181,6 +181,89 @@ Response:
 }
 ```
 
+## Querying Locations
+
+To query a Location and its children, use the repository schema:
+
+```
+{
+  _repository {
+    location(locationId: 2) {
+      children {
+        edges {
+          node {
+            content {
+              _name
+              _type {
+                name
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+The query accepts `locationId`, `remoteId`, and `urlAlias` as arguments.
+
+Response:
+
+```
+{
+  "data": {
+    "_repository": {
+      "location": {
+        "children": {
+          "edges": [
+            {
+              "node": {
+                "content": {
+                  "_name": "About us",
+                  "_type": {
+                    "name": "About"
+                  }
+                }
+              }
+            },
+            {
+              "node": {
+                "content": {
+                  "_name": "Travel literature, How to get started",
+                  "_type": {
+                    "name": "Article"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+```
+
+You can also query the children of a Content item:
+
+```
+{
+  content {
+    folder(id: 1) {
+      name
+      _location {
+        children {
+          edges {
+            # ...
+          }
+        }
+      }
+    }
+  }
+}
+```
+
 ## Filtering
 
 To get all articles with a specific text:
@@ -269,3 +352,65 @@ You can paginate plural fields using `edges`:
 This query returns the first three articles, ordered by their publication date.
 If the current `Connection` (list of results) is not finished yet and there are more items to read,
 `hasNextPage` will be `true`.
+
+For the `children` node, you can use the following pagination method:
+
+```
+{
+  _repository {
+    location(locationId: 2) {
+      children(first: 3) {
+        pages {
+          number
+          cursor
+        }
+        edges {
+          node {
+            content {
+              _name
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+Response:
+
+```
+{
+  "data": {
+    "_repository": {
+      "location": {
+        "children": {
+          "pages": [
+            {
+              "number": 2,
+              "cursor": "YXJyYXljb25uZWN0aW9uOjE="
+            },
+            {
+              "number": 3,
+              "cursor": "YXJyYXljb25uZWN0aW9uOjM="
+            }
+          ],
+          "edges": [
+            {
+              # ...
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+```
+
+In the response, `number` contains page numbers, starting with 2 (because 1 is the default).
+
+To request a specific page, provide the `cursor` as an argument to `children`:
+
+```
+children(first: 3, after: "YXJyYXljb25uZWN0aW9uOjM=")
+```

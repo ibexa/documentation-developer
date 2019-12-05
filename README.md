@@ -10,7 +10,7 @@ an open source CMS based on the Symfony Full Stack Framework in PHP.
 1. Open JIRA board: https://jira.ez.no/
 1. eZ Systems Website: https://ez.no/
 1. User documentation: https://doc.ezplatform.com/projects/userguide/en/latest/
-1. Personalization Solution: https://doc.ezplatform.com/projects/ezservices/en/latest/
+1. Personalization Solution: https://doc.ezplatform.com/projects/ezpersonalization/en/latest/
 
 
 ## How to Contribute

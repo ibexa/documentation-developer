@@ -33,11 +33,11 @@ When running eZ Platform in the `dev` environment you have access to the standar
 
 #### SPI (persistence)
 
-This section provides the number of non-cached [SPI](repository.md#spi) calls and handlers. You can see details of these calls in the [Symfony Profiler](http://symfony.com/doc/2.8/profiler.html) page.
+This section provides the number of non-cached [SPI](repository.md#spi) calls and handlers. You can see details of these calls in the [Symfony Profiler](http://symfony.com/doc/4.3/profiler.html) page.
 
 #### SiteAccess
 
-Here you can see the name of the current SiteAccess and how it was matched. For reference see the [list of possible SiteAccess matchers](siteaccess.md#available-matchers).
+Here you can see the name of the current SiteAccess and how it was matched. For reference see the [list of possible SiteAccess matchers](siteaccess_matching.md#available-matchers).
 
 ## Logging and debug configuration
 

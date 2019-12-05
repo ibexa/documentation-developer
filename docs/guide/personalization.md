@@ -9,7 +9,7 @@ and personalized newsletter features (embedding personalized content in your new
 !!! tip "More information"
 
     This page covers the `ezrecommentation-client`, which communicates with the Recommendation engine.
-    To learn more about the engine itself, see [eZ Services documentation](https://doc.ezplatform.com/projects/ezservices).
+    To learn more about the engine itself, see [eZ Personalization documentation](https://doc.ezplatform.com/projects/ezpersonalization).
 
 ## Installation
 
@@ -218,7 +218,7 @@ Place the following code snippet in the `<head>` section of your header template
 
     In the eZ Services documentation you can find more information
     about [tracking in general](https://doc.ezplatform.com/projects/ezservices/en/latest/personalization/developer_guide/tracking_api/)
-    and about the [generic asynchronous JavaScript tracker](https://doc.ezplatform.com/projects/ezservices/en/latest/personalization/developer_guide/tracking_with_yct/).
+    and about the [generic asynchronous JavaScript tracker](https://doc.ezplatform.com/projects/ezpersonalization/en/latest/personalization/developer_guide/tracking_with_yct/).
 
 ### Checking if the bundle provides REST data
 
