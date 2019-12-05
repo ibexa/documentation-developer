@@ -29,16 +29,6 @@ pages:
             - '3. Use existing blocks': 'tutorials/enterprise_beginner/3_use_existing_blocks.md'
             - '4. Create a custom block': 'tutorials/enterprise_beginner/4_create_a_custom_block.md'
             - '5. Create a newsletter form': 'tutorials/enterprise_beginner/5_create_newsletter_form.md'
-        - Create a Field Type:
-            - 'Create a Tweet Field Type': 'tutorials/field_type/creating_a_tweet_field_type.md'
-            - '1. Create the bundle': 'tutorials/field_type/1_create_the_bundle.md'
-            - '2. Implement the Tweet&#92Value Class': 'tutorials/field_type/2_implement_the_tweet_value_class.md'
-            - '3. Implement the Tweet&#92Type Class': 'tutorials/field_type/3_implement_the_tweet_type_class.md'
-            - '4. Register the Field Type as a service': 'tutorials/field_type/4_register_the_field_type_as_a_service.md'
-            - '5. Implement the legacy storage engine': 'tutorials/field_type/5_implement_the_legacy_storage_engine_converter.md'
-            - '6. Introduce a template': 'tutorials/field_type/6_introduce_a_template.md'
-            - '7. Allow adding and editing the Field in Back Office': 'tutorials/field_type/7_allow_adding_and_editing_the_field_in_back_office.md'
-            - '8. Add a validation': 'tutorials/field_type/8_add_a_validation.md'
         - Extending Admin UI:
             - 'Extending Admin UI': 'tutorials/extending_admin_ui/extending_admin_ui.md'
             - '1. Creating a Dashboard tab': 'tutorials/extending_admin_ui/1_creating_a_dashboard_tab.md'
@@ -264,7 +254,8 @@ extra:
     ft: ['2.2', '2.3','2.4']
     dev: ['master']
   append_bootstrap:
-    - '/guidelines/'
+    - '/guidelines/components/'
+    - '/guidelines/resources/'
     - '/index.md'
   related_docs:
     - title: 'eZ Platform Developer Documentation'

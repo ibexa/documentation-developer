@@ -116,6 +116,7 @@ Optionally, Universal Discovery module can take a following list of props:
 - **cotfAllowedLanguages** _{Array}_ - languages that are available in Content on the Fly,
 - **cotfPreselectedContentType** _{String}_ - Content Type that is preselected in Content on the Fly,
 - **cotfAllowedContentTypes** _{Array}_ - Content Types that are available in Content on the Fly,
+- **allowedContentTypes** _{Array}_ - Content Types that are available in other UDW tabs,
 - **cotfPreselectedLocation** _{Number}_ - Location that is preselected in Content on the Fly,
 - **cotfAllowedLocations** _{Array}_ - Locations that are available in Content on the Fly
 
@@ -231,7 +232,7 @@ class JohnDoeCanSelectMore implements EventSubscriberInterface
 }
 ```
 
-For more information follow [Symfony Doctrine Event Listeners and Subscribers tutorial.](https://symfony.com/doc/3.4/event_dispatcher.html#creating-an-event-subscriber)
+For more information follow [Symfony Doctrine Event Listeners and Subscribers tutorial.](https://symfony.com/doc/4.3/event_dispatcher.html#creating-an-event-subscriber)
 
 ## Sub-items List
 

@@ -9,7 +9,7 @@ Example use cases are:
 - Passing a Content item instead of a Location (and using its `mainLocationId`)
 
 `RouteReference` represents a route (to a Location object, a declared route, etc.) with its parameters and can be passed to the `Router` for generating a link.
-`RouteReference` works like [Symfony's `ControllerReference`](http://api.symfony.com/2.3/Symfony/Component/HttpKernel/Controller/ControllerReference.html) for sub-requests.
+`RouteReference` works like [Symfony's `ControllerReference`](http://api.symfony.com/4.3/Symfony/Component/HttpKernel/Controller/ControllerReference.html) for sub-requests.
 
 The advantage of a `RouteReference` is that its parameters can be modified later,
 and then passed to the router (e.g. to generate a link to the same location in several different languages).

@@ -13,7 +13,7 @@ This interface is accessible in your browser at `http://<yourdomain>/admin`.
 The Back Office uses React-based modules that make each part of the UI extensible,
 and Bootstrap for styling.
 
-To extend the Back Office with PHP code, you can use [events](https://symfony.com/doc/current/event_dispatcher.html),
+To extend the Back Office with PHP code, you can use [events](https://symfony.com/doc/4.3/event_dispatcher.html),
 either built-in Symfony events or events dispatched by the application.
 See [Extending menus](extending_menus.md) for an example on how to use an event subscriber
 to extend one of the menus in the Back Office.
@@ -64,5 +64,3 @@ Additionally you can:
 ## Adding new Field Types
 
 You can extend eZ Platform by adding new [Field Types](../../api/field_type_api.md).
-
-To learn how to add a new Field Type, refer to the [Creating a Tweet Field Type tutorial](../../tutorials/field_type/creating_a_tweet_field_type.md).

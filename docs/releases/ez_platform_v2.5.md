@@ -22,7 +22,7 @@ For full description of the interface, see [Content Tree](https://doc.ezplatform
 
 ### Webpack Encore
 
-This release introduces [Webpack Encore](https://symfony.com/doc/3.4/frontend.html#webpack-encore)
+This release introduces [Webpack Encore](https://symfony.com/doc/4.3/frontend.html#webpack-encore)
 as the preferred tool for asset management.
 This leads to [changes in requirements](#requirements-changes).
 

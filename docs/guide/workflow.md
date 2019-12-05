@@ -119,7 +119,7 @@
 
     ## Workflow service
 
-    Workflow makes use of the Symfony [Workflow Component](https://symfony.com/doc/3.4/components/workflow.html),
+    Workflow makes use of the Symfony [Workflow Component](https://symfony.com/doc/4.3/components/workflow.html),
     but special eZ Platform treatment is covered in the Workflow service.
 
     The service implements the following methods:

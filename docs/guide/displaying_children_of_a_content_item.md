@@ -49,14 +49,6 @@ class LocationChildrenQueryType implements QueryType
 }
 ```
 
-Register the QueryType as a service in `config/services.yaml`:
-
-``` yaml
-App\QueryType\LocationChildrenQueryType:
-    tags:
-        - { name: ezpublish.query_type }
-```
-
 Next, in your [standard view configuration](../guide/content_rendering.md#configuring-views-the-viewprovider) file, under `content_view`, add a section that indicates when this Controller will be used. It is similar to regular view config, but contains additional information:
 
 ``` yaml

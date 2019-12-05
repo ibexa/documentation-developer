@@ -155,7 +155,7 @@ under the `ezplatform` key.
 
 #### Template inheritance and sub-requests
 
-Like any template, a content view template can use [template inheritance](http://symfony.com/doc/current/book/templating.html#template-inheritance-and-layouts). However keep in mind that your Content may be also requested via [sub-requests](https://symfony.com/doc/current/templating/embedding_controllers.html) (see below how to render [embedded Content items](templates.md#embedding-content-items)), in which case you probably don't want the global layout to be used.
+Like any template, a content view template can use [template inheritance](http://symfony.com/doc/4.3/book/templating.html#template-inheritance-and-layouts). However keep in mind that your Content may be also requested via [sub-requests](https://symfony.com/doc/4.3/templating/embedding_controllers.html) (see below how to render [embedded Content items](templates.md#embedding-content-items)), in which case you probably don't want the global layout to be used.
 
 If you use different templates for embedded content views, this should not be a problem. If you'd rather use the same template, you can use an extra `no_layout` view parameter for the sub-request, and conditionally extend an empty pagelayout:
 
@@ -192,6 +192,10 @@ Add this configuration to `config/packages/ezplatform_admin_ui.yaml` to use `tem
 parameters:
     ezplatform.default_view_templates.content.full: "content/view/full.html.twig"
 ```
+
+Alternatively, you can do it using the [design engine](design_engine.md). For example, if your theme is `site`,
+create `themes/site/default/content/<viewType>.html.twig` to override the core template.
+
 
 ##### Customizing the default controller
 
@@ -293,7 +297,7 @@ This section presents the events that are triggered by eZ Platform.
 
 ### Twig Helper
 
-eZ Platform comes with a Twig helper as a [global variable](http://symfony.com/doc/master/cookbook/templating/global_variables.html) named `ezplatform`.
+eZ Platform comes with a Twig helper as a [global variable](http://symfony.com/doc/4.3/cookbook/templating/global_variables.html) named `ezplatform`.
 
 This helper is accessible from all Twig templates and allows you to easily retrieve useful information.
 

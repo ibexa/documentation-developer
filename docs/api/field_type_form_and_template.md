@@ -7,7 +7,7 @@ The FormMapper maps Field definitions into Symfony forms, allowing Field editing
 It can implement two interfaces:
 
 - `EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface` to provide editing support
-- `EzSystems\RepositoryForms\FieldType\FieldDefinitionFormMapperInterface` to provide Field Type definition editing support,
+- `EzSystems\EzPlatformAdminUi\FieldType\FieldDefinitionFormMapperInterface` to provide Field Type definition editing support,
 when you require non-standard settings
 
 ### FieldValueFormMapperInterface
@@ -53,7 +53,7 @@ In the example above, `CheckboxFieldType::class` is used, but you can use standa
 
 It's good practice to encapsulate Fields with custom types as it allows easier templating.
 Type has to be compatible with your Field Type's `eZ\Publish\Core\FieldType\Value` implementation.
-You can use a [`DataTransformer`](https://symfony.com/doc/3.4/form/data_transformers.html) to achieve that or just assure correct property and form field names.
+You can use a [`DataTransformer`](https://symfony.com/doc/4.3/form/data_transformers.html) to achieve that or just assure correct property and form field names.
 
 ### FieldDefinitionFormMapperInterface
 

@@ -15,11 +15,11 @@ Refer to their respective pages for instructions on how to install them.
 
 ### How to create bundles?
 
-See [Symfony documentation on bundles](https://symfony.com/doc/current/bundles.html) to learn how to structure your bundle.
+See [Symfony documentation on bundles](https://symfony.com/doc/4.3/bundles.html) to learn how to structure your bundle.
 
 ### How to remove a bundle?
 
-To remove a bundle (either one you created yourself, or an out-of-the-box one that you do not need) see the [How to Remove a Bundle](http://symfony.com/doc/current/bundles/remove.html) instruction in Symfony doc.
+To remove a bundle (either one you created yourself, or an out-of-the-box one that you do not need) see the [How to Remove a Bundle](http://symfony.com/doc/3.4/bundles/remove.html) instruction in Symfony doc.
 
 ## Structuring your project
 
@@ -54,7 +54,7 @@ All project assets are accessible through the `assets` path.
 
 #### Importing assets from a bundle
 
-eZ Platform uses [Webpack Encore](https://symfony.com/doc/3.4/frontend.html#webpack-encore) for asset management.
+eZ Platform uses [Webpack Encore](https://symfony.com/doc/4.3/frontend.html#webpack-encore) for asset management.
 
 ##### Configuration from a bundle
 
@@ -147,6 +147,10 @@ add a `Resources/encore/ez.webpack.custom.config.js` file, for example:
 	// Config or array of configs: [customConfig1, customConfig2];
 	module.exports = customConfig;
 ```
+
+!!! tip
+
+    If you don't plan to add multiple entry files on the same page in your custom config, use the `disableSingleRuntimeChunk()` funtion to avoid adding a separate `runtime.js` file. Otherwise, your JS code may be run multiple times. By default, the `enableSingleRuntimeChunk()` function is used.
 
 ##### Configuration from main project files
 
@@ -340,7 +344,7 @@ The following tables give an overview of the main eZ Platform bundles.
 |Bundle|Description|
 |---------|-----------|
 |[ezpublish-kernel](https://github.com/ezsystems/ezpublish-kernel)|contains the core of the whole eZ Platform application e.g. EzPublishCoreBundle|
-|[repository-forms](https://github.com/ezsystems/repository-forms)|provides form-based interaction for the Repository Value objects|
+|[ezplatform-content-forms](https://github.com/ezsystems/ezplatform-content-forms)|provides form-based integration for the Symfony Forms into Content and User objects in kernel|
 |[ezplatform-solr-search-engine](https://github.com/ezsystems/ezplatform-solr-search-engine)|[Solr-powered](http://lucene.apache.org/solr/) search handler for eZ Platform|
 |[ez-support-tools](https://github.com/ezsystems/ez-support-tools)|provides functionality for system information|
 |[ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache)|HTTP cache handling for eZ Platform, using multi tagging (incl Varnish xkey)|
@@ -398,7 +402,6 @@ The following tables give an overview of the main eZ Platform bundles.
 |[ezplatform-com](https://github.com/ezsystems/ezplatform-com)|the eZ Systems Developer Hub for the Open Source PHP CMS eZ Platform (example site)|
 |[ezplatform-ee-demo](https://github.com/ezsystems/ezplatform-ee-demo)|fork of the "ezplatform-ee" meta repository, contains changes necessary to enable eZ Platform Enterprise Edition Demo. Not recommended for a clean install for new projects, but great for observation and learning (example site)|
 |[ezplatform-demo](https://github.com/ezsystems/ezplatform-demo)|fork of "ezplatform" meta repository, contains code and dependencies for demo distribution of eZ Platform. Not recommended for a clean installation for new projects, but great for observation and learning(example site)|
-|[TweetFieldTypeBundle](https://github.com/ezsystems/TweetFieldTypeBundle)|bundle that is created in the Field Type Tutorial (example field type)|
 |[ezplatform-drawio-fieldtype](https://github.com/ezsystems/ezplatform-drawio-fieldtype)|provides support for diagrams editing in eZ Platform via draw.io (example field type)|
 |[ezplatform-ui-2.0-introduction](https://github.com/ezsystems/ezplatform-ui-2.0-introduction)|an example of eZ Platform extensibility in version 2|
 |[ezplatform-ee-beginner-tutorial](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial)|resources used in the eZ Platform Enterprise Edition Beginner Tutorial|
@@ -429,6 +432,6 @@ The following tables give an overview of the main eZ Platform bundles.
 
 When you use an external bundle, you can override its parts, such as templates, controllers, etc.
 
-To do so, make use of [Symfony's bundle override mechanism](https://symfony.com/doc/3.4/bundles/override.html).
+To do so, make use of [Symfony's bundle override mechanism](https://symfony.com/doc/4.3/bundles/override.html).
 
 Note that when overriding files, the path inside your application has to correspond to the path inside the bundle.

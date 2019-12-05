@@ -78,6 +78,7 @@ The list below presents the Criteria available in the `eZ\Publish\API\Repository
 |`Field`|`target` (FieldDefinition identifier), `operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `LIKE`, `BETWEEN`, `CONTAINS`), `value` being scalar(s) relevant for the field.|
 |`FieldRelation`|`target` (FieldDefinition identifier)</br>`operator` (`IN`, `CONTAINS`)</br>`value` being array of scalars representing Content ID of relation.</br>Use of `IN` means the relation needs to have one of the provided IDs, while `CONTAINS` implies it needs to have all provided IDs.|
 |`FullText`|`value` which is the string to search for</br>`properties` is array to set additional properties for use with search engines like Solr.</br>For advanced search, you can extend the query syntax by using:</br> `word`, `"phrase"`, `(group)`, `+mandatory`, `-prohibited`, `AND`, `&&`, `OR`, `||`, `NOT`, `!`. |
+|`IsFieldEmpty`|`('field_name')` – determines if the Field is empty</br>Optionally:</br> `-false` –  for searching Fields that are *not* empty</br>`-true` – used by default, for searching Fields that are empty| 
 |`LanguageCode`|`value` string(s) representing Language Code(s) on the Content (not on Fields)</br>`matchAlwaysAvailable` as boolean.|
 |`LocationId`|`value` scalar(s) representing the Location ID.|
 |`LocationRemoteId`|`value` string(s) representing the Location Remote ID.|
@@ -258,7 +259,7 @@ eZ\Publish\Core\Search\Legacy\Content\Location\Gateway\SortClauseHandler\Locatio
 
 !!! note "See also"
 
-    See also [Symfony documentation about Service Container](http://symfony.com/doc/current/book/service_container.html#service-parameters) for passing parameters.
+    See also [Symfony documentation about Service Container](http://symfony.com/doc/4.3/book/service_container.html#service-parameters) for passing parameters.
 
 ### Search using custom Field Criterion [REST]
 

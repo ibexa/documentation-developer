@@ -1,4 +1,4 @@
-# <div class="header-h1 mgb-0">User Interface Guidelines</div>
+# User Interface Guidelines
 
 This is a resource for developers, product managers, and designers, providing a unified language to build and customize eZ Platform admin user interface (aka Admin UI). We use it to simplify how we can build and offer a consistent interface across our content management platform.
 
