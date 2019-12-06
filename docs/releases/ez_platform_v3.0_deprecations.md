@@ -697,7 +697,7 @@ Also, as of Symfony 4, the `transchoice` Twig filter has been replaced with `tra
 New translation strings are required.
 
 The deprecated `eZ\Publish\Core\MVC\Symfony\Matcher\MatcherInterface` interface has been dropped.
-The deprecated classes relying on that interface have been removed as well:
+The following deprecated classes relying on that interface have been removed as well:
 
 - `eZ\Publish\Core\MVC\Symfony\Matcher\AbstractMatcherFactory`
 - `eZ\Publish\Core\MVC\Symfony\Matcher\ContentBasedMatcherFactory`
