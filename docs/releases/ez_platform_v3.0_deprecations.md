@@ -289,7 +289,7 @@ You now need to [make use of the `TabsComponent`](../guide/extending/extending_t
 Content Type editing, including Action Dispatchers, Form Processors, Types and Data classes related to Content Types/Limitations,
 has been moved to `ezplatform-admin-ui` from `repository-forms`.
 
-### Code cleanup
+### Code cleanup in Admin UI
 
 The following deprecated items have been removed: 
 
@@ -356,7 +356,7 @@ No deprecations or backward compatibility breaks to document.
 
 ## ezplatform-design-engine
 
-### Code cleanup
+### Code cleanup in Design Engine
 
 - The deprecated `Twig\Loader\ExistsLoaderInterface` has been removed.
 - The deprecated `Twig_Profiler_Profile` Twig class has been replaced with `Twig\Profiler\Profile`.
@@ -403,7 +403,7 @@ This entails that:
 - The `PURGE` method has been changed to `PURGEKEY`.
 - The `ezplatform.http_cache.tags.header` parameter has been removed. Configuration now relies on FOS Cache configuration and its default values.
 
-### Code cleanup
+### Code cleanup in HTTP Cache
 
 Instances of the following deprecated event classes have been replaced:
 
@@ -415,6 +415,8 @@ Instances of the following deprecated event classes have been replaced:
 |`Symfony\Component\HttpKernel\Event\GetResponseEvent`|`Symfony\Component\HttpKernel\Event\RequestEvent`|
 |`Twig_Extension`|`Twig\Extension\AbstractExtension`|
 |`Twig_SimpleFunction`|`Twig\TwigFunction`|
+
+Selected deprecated Role Service methods have been removed. For details, see [code cleanup in kernel](#code-cleanup-in-kernel).
 
 ## ezpublish-kernel
 
@@ -596,7 +598,7 @@ The SiteAccess-aware `pagelayout` setting is deprecated in favor of `page_layout
 
 View parameter `pagelayout` set by `pagelayout` setting is deprecated in favor of  `page_layout`.
 
-### Code cleanup
+### Code cleanup in kernel
 
 Instances of the deprecated code have been replaced:
 
@@ -619,6 +621,16 @@ The following deprecated classes relying on that interface have been removed as 
 - `eZ\Publish\Core\MVC\Symfony\Matcher\ContentBasedMatcherFactory`
 - `eZ\Publish\Core\MVC\Symfony\Matcher\ContentMatcherFactory`
 - `eZ\Publish\Core\MVC\Symfony\Matcher\LocationMatcherFactory`
+
+The following deprecated Role Service methods have been removed:
+
+- `eZ\Publish\API\Repository\RoleService::updateRole`
+- `eZ\Publish\API\Repository\RoleService::addPolicy`
+- `eZ\Publish\API\Repository\RoleService::deletePolicy`
+- `eZ\Publish\API\Repository\RoleService::updatePolicy`
+- `eZ\Publish\API\Repository\RoleService::loadPoliciesByUserId`
+- `eZ\Publish\API\Repository\RoleService::unassignRoleFromUser`
+- `eZ\Publish\API\Repository\RoleService::unassignRoleFromUserGroup`
 
 ### Twig classes
 
@@ -665,7 +677,9 @@ The following namespaces have been changed:
 
 ## ezplatform-rest
 
-No deprecations or backward compatibility breaks to document.
+### Code cleanup in rest
+
+Selected deprecated Role Service methods have been removed. For details, see [code cleanup in kernel](#code-cleanup-in-kernel).
 
 ## ezplatform-richtext
 
@@ -739,7 +753,7 @@ the following deprecated code for handling the settings has been dropped:
 - `EzSystems\EzPlatformAdminUiBundle\Controller\UserProfile\UserPasswordChangeController`
 - `EzSystems\EzPlatformAdminUiBundle\Controller\User\{UserSettingsController,UserForgotPasswordController}`
 
-### Code cleanup
+### Code cleanup in user
 
 The deprecated `Symfony\Bundle\FrameworkBundle\Controller\Controller` has been replaced with `Symfony\Bundle\FrameworkBundle\Controller\AbstractController`.
 
