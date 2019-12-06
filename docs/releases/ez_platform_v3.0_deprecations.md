@@ -560,19 +560,19 @@ Use [`ezplatform-richtext`](https://github.com/ezsystems/ezplatform-richtext) in
 Following this change:
 
 - The `eZ\Publish\Core\FieldType\RichText` namespace has been dropped. All classes are available in `ezplatform-richtext`.
-- The configuration has to be performed differently:
+- The only correct configuration (recommended as of v2.4) looks the following way:
 
-Formerly:
-
-``` yaml 
-ezpublish:
-    ezrichtext:
-```
-
-Now:
+Now (as of v3.0):
 
 ``` yaml
 ezrichtext:
+```
+
+Formerly (deprecated as of v2.4, removed as of v3.0)
+
+``` yaml
+ezpublish:
+    ezrichtext
 ```
 
 ### Legacy Storage Gateways
