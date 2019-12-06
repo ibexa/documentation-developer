@@ -462,7 +462,7 @@ No deprecations or backward compatibility breaks to document.
 
 ### Input and output converters
 
-Following the removal of `ezrichtext` Field Type from kernel, the following deprecated converter tags have been changed:
+Following the removal of the `ezrichtext` Field Type from kernel, the following deprecated converter tags have been changed:
 
 |Formerly|Currently|
 |--------|---------|
