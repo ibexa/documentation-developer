@@ -554,6 +554,12 @@ to be replaced with a dedicated bundle for the latest Elastic version in the fut
 
 ### Field Types
 
+#### Star Rating
+
+The unused `ezsrrating` Field Type has been removed along with the related database storage and clean installation entries.
+
+#### RichText
+
 The `ezrichtext` Field Type has been removed from `ezpublish-kernel`.
 Use [`ezplatform-richtext`](https://github.com/ezsystems/ezplatform-richtext) instead.
 
