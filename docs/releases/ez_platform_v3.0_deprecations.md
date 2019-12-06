@@ -89,10 +89,6 @@ No deprecations or backward compatibility breaks to document.
 
 No deprecations or backward compatibility breaks to document.
 
-## ez-support-tools
-
-No deprecations or backward compatibility breaks to document.
-
 ## ezplatform-admin-ui
 
 ### Functions renamed
@@ -366,6 +362,24 @@ No deprecations or backward compatibility breaks to document.
 - The deprecated `Twig_Profiler_Profile` Twig class has been replaced with `Twig\Profiler\Profile`.
 - The deprecated `Twig_Environment` Twig class has been replaced with `Twig\Environment`
 
+## ezplatform-ee-installer
+
+No deprecations or backward compatibility breaks to document.
+
+## ezplatform-form-builder
+
+### JavaScript
+
+#### Event names changed
+
+The following event names have been changed:
+
+|Former name|New name|
+|-----------|--------|
+|`openUdw`|`ez-open-udw`|
+|`updateFieldName`|`ez-update-field-name`|
+|`fbFormBuilderLoaded`|`ez-form-builder-loaded`|
+|`fbFormBuilderUnloaded`|`ez-form-builder-unloaded`
 
 ## ezplatform-graphql
 
@@ -401,142 +415,6 @@ Instances of the following deprecated event classes have been replaced:
 |`Symfony\Component\HttpKernel\Event\GetResponseEvent`|`Symfony\Component\HttpKernel\Event\RequestEvent`|
 |`Twig_Extension`|`Twig\Extension\AbstractExtension`|
 |`Twig_SimpleFunction`|`Twig\TwigFunction`|
-
-## ezplatform-ee-installer
-
-No deprecations or backward compatibility breaks to document.
-
-## ezplatform-form-builder
-
-### JavaScript
-
-#### Event names changed
-
-The following event names have been changed:
-
-|Former name|New name|
-|-----------|--------|
-|`openUdw`|`ez-open-udw`|
-|`updateFieldName`|`ez-update-field-name`|
-|`fbFormBuilderLoaded`|`ez-form-builder-loaded`|
-|`fbFormBuilderUnloaded`|`ez-form-builder-unloaded`
-
-## ezplatform-page-builder
-
-#### JavaScript
-
-#### Event names changed
-
-The following event names have been changed:
-
-|Former name|New name|
-|-----------|--------|
-|`openUdw`|`ez-open-udw`|
-|`openAirtimePopup`|`ez-open-airtime-popup`|
-|`postUpdateBlocksPreview`|`ez-post-update-blocks-preview`|
-|`pbIframeLoaded`|`ez-page-builder-iframe-loaded`|
-|`pbHideTools`|`ez-page-builder-hide-tools`|
-
-Additionally, the listener for `pbPreviewReloaded` has been removed.
-
-## ezplatform-page-fieldtype
-
-### Namespace location update
-
-The following namespaces have been changed:
-
-|Namespace|Former location|New location|
-|---------|------------|---------------|
-|`FieldData`|`EzSystems\RepositoryForms\Data\Content\`|`EzSystems\EzPlatformContentForms\Data\Content\`|
-|`FieldValueFormMapperInterface`|`EzSystems\RepositoryForms\FieldType\`|`EzSystems\EzPlatformContentForms\FieldType\`
-
-## ezplatform-matrix-fieldtype
-
-No deprecations or backward compatibility breaks to document.
-
-## ezplatform-rest
-
-No deprecations or backward compatibility breaks to document.
-
-## ezplatform-richtext
-
-### Input and output converters
-
-Following the removal of the `ezrichtext` Field Type from kernel, the following deprecated converter tags have been changed:
-
-|Formerly|Currently|
-|--------|---------|
-|`ezpublish.ezrichtext.converter.output.xhtml5`|`ezrichtext.converter.output.xhtml5`|
-|`ezpublish.ezrichtext.converter.input.xhtml5`|`ezrichtext.converter.input.xhtml5`|
-
-### Online Editor
-
-Configuration providers exposing the following JavaScript variables have been dropped:
-
-- `eZ.adminUiConfig.alloyEditor` replaced by `eZ.richText.alloyEditor`
-- `eZ.adminUiConfig.richTextCustomTags` replaced by `eZ.richText.customTags`
-- `eZ.adminUiConfig.richTextCustomStyles` replaced by `eZ.richtext.customStyles`
-
-The following Webpack Encore entries have been changed:
-
-- `ezplatform-admin-ui-alloyeditor-css` replaced by `ezplatform-richtext-onlineeditor-css`
-- `ezplatform-admin-ui-alloyeditor-js` replaced by `ezplatform-richtext-onlineeditor-js`
-
-All Online Editor front-end code and assets (such as JS, CSS, fonts, etc.)
-have been moved from `ezplatform-admin-ui` to `ezplatform-richtext`.
-
-### View matching
-
-When matching views using custom services, the services must be now tagged with `ezplatform.view.matcher`.
-The matching must be configured in the following way:
-
-``` yaml
-content_view:
-    full:
-        folder:
-            template: folder.html.twig
-            match:
-                '@App\Matcher\MyMatcher': ~
-```
-
-### Service tags
-
-The following `ezrichtext` service tags have been extended to be consistent with other service tags:
-
-|Currently|Formerly|
-|---------|--------|
-|`ezplatform.ezrichtext.converter.output.xhtml5`|`ezrichtext.converter.output.xhtml5`|
-|`ezplatform.ezrichtext.converter.input.xhtml5`|`ezrichtext.converter.input.xhtml5`|
-|`ezplatform.ezrichtext.validator.input.ezxhtml5`|`ezrichtext.validator.input.ezxhtml5`|
-
-## ezplatform-solr-search-engine
-
-No deprecations or backward compatibility breaks to document.
-
-## ezplatform-standard-design
-
-No deprecations or backward compatibility breaks to document.
-
-## ezplatform-user
-
-### User settings
-
-As a result of moving user settings to the [`ezplatform-user`](https://github.com/ezsystems/ezplatform-user) package,
-the following deprecated code for handling the settings has been dropped:
-
-- `EzSystems\EzPlatformAdminUi\UserSetting\`
-- `EzSystems\EzPlatformAdminUi\Pagination\Pagerfanta\UserSettingsAdapter`
-- `EzSystems\EzPlatformAdminUi\Form\Type\User\Setting\UserSettingUpdateType`
-- `EzSystems\EzPlatformAdminUiBundle\Controller\UserProfile\UserPasswordChangeController`
-- `EzSystems\EzPlatformAdminUiBundle\Controller\User\{UserSettingsController,UserForgotPasswordController}`
-
-### Code cleanup
-
-The deprecated `Symfony\Bundle\FrameworkBundle\Controller\Controller` has been replaced with `Symfony\Bundle\FrameworkBundle\Controller\AbstractController`.
-
-## ezplatform-workflow
-
-No deprecations or backward compatibility breaks to document.
 
 ## ezpublish-kernel
 
@@ -752,6 +630,126 @@ The following deprecated Twig classes have been replaced:
 |`Twig_Template`|`Twig\Template`|
 |`Twig_Node`|`Twig\Node\Node`|
 
+## ezplatform-matrix-fieldtype
+
+No deprecations or backward compatibility breaks to document.
+
+## ezplatform-page-builder
+
+#### JavaScript
+
+#### Event names changed
+
+The following event names have been changed:
+
+|Former name|New name|
+|-----------|--------|
+|`openUdw`|`ez-open-udw`|
+|`openAirtimePopup`|`ez-open-airtime-popup`|
+|`postUpdateBlocksPreview`|`ez-post-update-blocks-preview`|
+|`pbIframeLoaded`|`ez-page-builder-iframe-loaded`|
+|`pbHideTools`|`ez-page-builder-hide-tools`|
+
+Additionally, the listener for `pbPreviewReloaded` has been removed.
+
+## ezplatform-page-fieldtype
+
+### Namespace location update
+
+The following namespaces have been changed:
+
+|Namespace|Former location|New location|
+|---------|------------|---------------|
+|`FieldData`|`EzSystems\RepositoryForms\Data\Content\`|`EzSystems\EzPlatformContentForms\Data\Content\`|
+|`FieldValueFormMapperInterface`|`EzSystems\RepositoryForms\FieldType\`|`EzSystems\EzPlatformContentForms\FieldType\`
+
+## ezplatform-rest
+
+No deprecations or backward compatibility breaks to document.
+
+## ezplatform-richtext
+
+### Input and output converters
+
+Following the removal of the `ezrichtext` Field Type from kernel, the following deprecated converter tags have been changed:
+
+|Formerly|Currently|
+|--------|---------|
+|`ezpublish.ezrichtext.converter.output.xhtml5`|`ezrichtext.converter.output.xhtml5`|
+|`ezpublish.ezrichtext.converter.input.xhtml5`|`ezrichtext.converter.input.xhtml5`|
+
+### Online Editor
+
+Configuration providers exposing the following JavaScript variables have been dropped:
+
+- `eZ.adminUiConfig.alloyEditor` replaced by `eZ.richText.alloyEditor`
+- `eZ.adminUiConfig.richTextCustomTags` replaced by `eZ.richText.customTags`
+- `eZ.adminUiConfig.richTextCustomStyles` replaced by `eZ.richtext.customStyles`
+
+The following Webpack Encore entries have been changed:
+
+- `ezplatform-admin-ui-alloyeditor-css` replaced by `ezplatform-richtext-onlineeditor-css`
+- `ezplatform-admin-ui-alloyeditor-js` replaced by `ezplatform-richtext-onlineeditor-js`
+
+All Online Editor front-end code and assets (such as JS, CSS, fonts, etc.)
+have been moved from `ezplatform-admin-ui` to `ezplatform-richtext`.
+
+### View matching
+
+When matching views using custom services, the services must be now tagged with `ezplatform.view.matcher`.
+The matching must be configured in the following way:
+
+``` yaml
+content_view:
+    full:
+        folder:
+            template: folder.html.twig
+            match:
+                '@App\Matcher\MyMatcher': ~
+```
+
+### Service tags
+
+The following `ezrichtext` service tags have been extended to be consistent with other service tags:
+
+|Currently|Formerly|
+|---------|--------|
+|`ezplatform.ezrichtext.converter.output.xhtml5`|`ezrichtext.converter.output.xhtml5`|
+|`ezplatform.ezrichtext.converter.input.xhtml5`|`ezrichtext.converter.input.xhtml5`|
+|`ezplatform.ezrichtext.validator.input.ezxhtml5`|`ezrichtext.validator.input.ezxhtml5`|
+
+## ezplatform-solr-search-engine
+
+No deprecations or backward compatibility breaks to document.
+
+## ezplatform-standard-design
+
+No deprecations or backward compatibility breaks to document.
+
+## ezplatform-user
+
+### User settings
+
+As a result of moving user settings to the [`ezplatform-user`](https://github.com/ezsystems/ezplatform-user) package,
+the following deprecated code for handling the settings has been dropped:
+
+- `EzSystems\EzPlatformAdminUi\UserSetting\`
+- `EzSystems\EzPlatformAdminUi\Pagination\Pagerfanta\UserSettingsAdapter`
+- `EzSystems\EzPlatformAdminUi\Form\Type\User\Setting\UserSettingUpdateType`
+- `EzSystems\EzPlatformAdminUiBundle\Controller\UserProfile\UserPasswordChangeController`
+- `EzSystems\EzPlatformAdminUiBundle\Controller\User\{UserSettingsController,UserForgotPasswordController}`
+
+### Code cleanup
+
+The deprecated `Symfony\Bundle\FrameworkBundle\Controller\Controller` has been replaced with `Symfony\Bundle\FrameworkBundle\Controller\AbstractController`.
+
+## ezplatform-workflow
+
+No deprecations or backward compatibility breaks to document.
+
+## ez-support-tools
+
+No deprecations or backward compatibility breaks to document.
 
 ## flex-workflow
 
