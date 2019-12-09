@@ -598,7 +598,7 @@ The SiteAccess-aware `pagelayout` setting is deprecated in favor of `page_layout
 
 View parameter `pagelayout` set by `pagelayout` setting is deprecated in favor of  `page_layout`.
 
-### Code cleanup in kernel
+### Code cleanup in eZ Platform Kernel
 
 Instances of the deprecated code have been replaced:
 
@@ -677,7 +677,7 @@ The following namespaces have been changed:
 
 ## ezplatform-rest
 
-### Code cleanup in rest
+### Code cleanup in eZ Platform REST
 
 Selected deprecated Role Service methods have been removed. For details, see [code cleanup in kernel](#code-cleanup-in-kernel).
 
@@ -753,7 +753,7 @@ the following deprecated code for handling the settings has been dropped:
 - `EzSystems\EzPlatformAdminUiBundle\Controller\UserProfile\UserPasswordChangeController`
 - `EzSystems\EzPlatformAdminUiBundle\Controller\User\{UserSettingsController,UserForgotPasswordController}`
 
-### Code cleanup in user
+### Code cleanup in eZ Platform User
 
 The deprecated `Symfony\Bundle\FrameworkBundle\Controller\Controller` has been replaced with `Symfony\Bundle\FrameworkBundle\Controller\AbstractController`.
 
