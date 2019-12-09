@@ -717,7 +717,7 @@ The following deprecated Twig classes have been replaced:
 
 ## flex-workflow
 
-No deprecations or backward compatibility breaks to document.
+This package is deprecated. Its functionality has been moved to `ezplatform-workflow`.
 
 ## repository-forms
 
