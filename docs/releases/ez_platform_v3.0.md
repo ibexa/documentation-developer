@@ -84,6 +84,11 @@ New helper method `window.eZ.helpers.contentType.getContentTypeName` replaces de
 
 User data is now treated as an external storage.
 
+### SiteAccess-aware Repository
+
+The Repository now uses the SiteAccess-aware layer by default.
+This means Repository objects will now be loaded in the translation corresponding to the SiteAccess.
+
 ## Deprecations and removals
 
 ### SignalSlots
@@ -114,6 +119,11 @@ Refer to [Backwards compatibility doc](ez_platform_v3.0_deprecations.md#online-e
 ### Configuration through `ezplatform`
 
 In YAML configuration, `ezplatform` is now used instead of `ezpublish` as the main configuration key.
+
+### Content forms
+
+The new `ezplatform-content-forms` package contains forms for content creation moved from `repository-forms`,
+while Content Type editing has been moved to `ezplatform-admin-ui` from `repository-forms`.
 
 ## Requirements changes
 
