@@ -484,6 +484,13 @@ Transfer of REST code from kernel to a separate package results in the following
 - The `eZ\Publish\Core\REST` and `eZ\Publish\Core\REST\Common\` namespaces have been replaced by `EzSystems\EzPlatformRest`.
 - REST client has been dropped.
 
+### SiteAccess-aware Repository
+
+The Repository now uses the SiteAccess-aware layer by default.
+This means Repository objects will now be loaded in the translation corresponding to the SiteAccess.
+To load an object with all its translations, explicitly pass `eZ\Publish\API\Repository\Values\Content\Language::ALL`
+as the prioritized languages list.
+
 ### SiteAccess matching
 
 When matching SiteAccesses using custom services, the SiteAccess matcher service must be now tagged with `ezplatform.siteaccess.matcher`.

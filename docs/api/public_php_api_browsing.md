@@ -235,51 +235,18 @@ For each Field they print out its identifier, and then using [`FieldTypeService`
 
 ## Viewing content in different languages
 
-If you do not specify any language code, a Field object is returned in the Content item's main language.
+The Repository is SiteAccess-aware, so languages defined by the SiteAccess are automatically taken into account when loading content.
 
-In the `getField` call you can specify the language code of the language you want to get Field value in:
+To load a specific language, provide its language code when loading the Content item:
 
 ``` php
-$field = $content->getFieldValue($fieldDefinition->identifier, 'fre-FR');
+$content = $this->contentService->loadContent($contentId, ['ger-DE']);
 ```
 
-If you want to take SiteAccess languages into account,
-inject the [`ConfigResolver`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Bundle/EzPublishCoreBundle/DependencyInjection/Configuration/ConfigResolver.php) into your code
-and provide prioritized languages when loading content.
-They will be taken into account by the returned Content object when retrieving translated properties like fields, for example:
+To load all languages as a prioritized list, use `Language::ALL`:
 
 ``` php
-$content = $this->contentService->loadContent($contentId, $configResolver->getParameter('languages'));
-```
-
-### SiteAccess-aware Repository
-
-The optional SiteAccess-aware Repository is an instance of the eZ Platform Repository API
-which injects prioritized languages if you don't specify languages.
-
-It is available as a private service `ezpublish.siteaccessaware.repository`,
-with services corresponding to regular services, e.g. `ezpublish.siteaccessaware.service.content`,
-`ezpublish.siteaccessaware.service.content_type`, etc.
-
-It is used out of the box in parameter converters for Content and Location as well as in content view.
-
-When using SiteAccess-aware Repository, the following code:
-
-``` php
-$content = $this->contentService->loadContent(
-    42,
-    $this->configResolver->getParameter('languages')
-);
-
-$name = $content->getVersionInfo()->getName();
-```
-
-becomes:
-
-``` php
-$content = $this->contentService->loadContent(42);
-
-$name = $content->getVersionInfo()->getName();
+$contentService->loadContent($content->id, Language::ALL);
 ```
 
 ## Getting all content in a subtree
