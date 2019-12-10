@@ -785,11 +785,14 @@ has been moved to `ezplatform-admin-ui`.
 
 The following locations have been changed:
 
-| Former location | New location |
-|----------|-----|
-|`EzSystems\RepositoryForms\FieldType\FieldDefinitionFormMapperInterface`|`EzSystems\EzPlatformAdminUi\FieldType\FieldDefinitionFormMapperInterface`|
-|`EzSystems\RepositoryForms\Limitation\LimitationFormMapperInterface`|`EzSystems\EzPlatformAdminUi\Limitation\LimitationFormMapperInterface`|
-|`EzSystems\RepositoryForms\Limitation\LimitationValueMapperInterface`|`EzSystems\EzPlatformAdminUi\Limitation\LimitationValueMapperInterface`|
+| Former location                                                          | New location                                                               |
+|--------------------------------------------------------------------------|----------------------------------------------------------------------------|
+| `EzSystems\RepositoryForms\Data\Content\FieldData`                       | `EzSystems\EzPlatformContentForms\Data\Content\FieldData`                  |
+| `EzSystems\RepositoryForms\Data\FieldDefinitionData`                     | `EzSystems\EzPlatformAdminUi\Form\Data\FieldDefinitionData`                |
+| `EzSystems\RepositoryForms\FieldType\FieldDefinitionFormMapperInterface` | `EzSystems\EzPlatformAdminUi\FieldType\FieldDefinitionFormMapperInterface` |
+| `EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface`      | `EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface` |
+| `EzSystems\RepositoryForms\Limitation\LimitationFormMapperInterface`     | `EzSystems\EzPlatformAdminUi\Limitation\LimitationFormMapperInterface`     |
+| `EzSystems\RepositoryForms\Limitation\LimitationValueMapperInterface`    | `EzSystems\EzPlatformAdminUi\Limitation\LimitationValueMapperInterface`    |
 
 Forms for content creation have been moved to a new `ezplatform-content-forms` package.
 
