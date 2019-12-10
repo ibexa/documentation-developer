@@ -629,6 +629,8 @@ The following deprecated classes relying on that interface have been removed as 
 - `eZ\Publish\Core\MVC\Symfony\Matcher\ContentMatcherFactory`
 - `eZ\Publish\Core\MVC\Symfony\Matcher\LocationMatcherFactory`
 
+#### Role Service methods
+
 The following deprecated Role Service methods have been removed:
 
 - `eZ\Publish\API\Repository\RoleService::updateRole`
@@ -638,6 +640,17 @@ The following deprecated Role Service methods have been removed:
 - `eZ\Publish\API\Repository\RoleService::loadPoliciesByUserId`
 - `eZ\Publish\API\Repository\RoleService::unassignRoleFromUser`
 - `eZ\Publish\API\Repository\RoleService::unassignRoleFromUserGroup`
+
+#### Permission-related methods
+
+The following deprecated permission-related methods have been removed:
+
+- `eZ\Publish\API\Repository\UserService::loadAnonymousUser`
+- `eZ\Publish\API\Repository\Repository::getCurrentUser`
+- `eZ\Publish\API\Repository\Repository::getCurrentUserReference`
+- `eZ\Publish\API\Repository\Repository::setCurrentUser`
+- `eZ\Publish\API\Repository\Repository::hasAccess`
+- `eZ\Publish\API\Repository\Repository::canUser`
 
 ### Twig classes
 
