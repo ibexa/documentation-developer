@@ -163,10 +163,8 @@ When performing search endpoint (`/views`), the criteria model allows combining 
 
 By default, if multiple criteria are given, but not wrapped by any operator, the `AND` operator is used.
 
-However, when trying to use the same type of criterion for multiple times, the parser will wrap it with the `OR`
-operator. 
-While this is a side effect of internal operations of the view query parser, trying to make
-the `AND` query for different values of the same criterion type has no practical sense as it always returns no results.
+When using the same criterion for multiple times, the parser wraps it with the `OR` operator.
+Note that making the `AND` query for different values of the same criterion type always returns zero results.
 
 XML example:
 
@@ -222,7 +220,7 @@ JSON example:
 !!! note
 
     The structure for `ContentTypeIdentifierCriterion` with multiple values is slightly
-    different in JSON format, because the parser excepts keys to be unique.
+    different in JSON format, because the parser expects keys to be unique.
 
 ## Specifying a siteaccess
 
