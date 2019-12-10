@@ -211,7 +211,7 @@ Users are treated like other content, so to create and modify them the User need
 | `Content Type`       | `update`             | modify existing Content Types. Also required to create new Content Types                                                                |
 |               | `create`             | create new Content Types. Also required to edit exiting Content Types                                                                   |
 |               | `delete`             | delete Content Types                                                                                                                    |
-| `state`       | `assign`             | assign Object states to content items                                                                                                   |
+| `state`       | `assign`             | assign Object states to Content items                                                                                                   |
 |               | `administrate`       | view, add and edit Object states                                                                                                        |
 | `role`        | `assign`             | assign Roles to Users and User Groups                                                                                                   |
 |               | `update`             | modify existing Roles                                                                                                                   |

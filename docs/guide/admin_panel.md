@@ -55,7 +55,7 @@ If you want to give your users possibility to register themselves follow a tutor
 
 ## Roles
 
-To give users an access to your website you need to assign them Roles in the Admin panel.
+To give users an access to your website you need to assign them Roles in the Admin Panel.
 Each Role consists of:
 
 **Policies**
