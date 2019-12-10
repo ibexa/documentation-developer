@@ -785,9 +785,10 @@ has been moved to `ezplatform-admin-ui`.
 
 The following locations have been changed:
 
-| Former location | New location |
-|----------|-----|
-|`EzSystems\RepositoryForms\FieldType\FieldDefinitionFormMapperInterface`|`EzSystems\EzPlatformAdminUi\FieldType\FieldDefinitionFormMapperInterface`|
+|Former location|New location|
+|---------------|------------|
+|`EzSystems\RepositoryForms\Data\FieldDefinitionData`| `EzSystems\EzPlatformAdminUi\Form\Data\FieldDefinitionData`|
+|`EzSystems\RepositoryForms\FieldType\FieldDefinitionFormMapperInterface`|`EzSystems\EzPlatformAdminUi\FieldType\FieldDefinitionFormMapperInterface` |
 |`EzSystems\RepositoryForms\Limitation\LimitationFormMapperInterface`|`EzSystems\EzPlatformAdminUi\Limitation\LimitationFormMapperInterface`|
 |`EzSystems\RepositoryForms\Limitation\LimitationValueMapperInterface`|`EzSystems\EzPlatformAdminUi\Limitation\LimitationValueMapperInterface`|
 
