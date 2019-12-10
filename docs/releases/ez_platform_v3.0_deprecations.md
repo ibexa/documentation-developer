@@ -789,7 +789,7 @@ No deprecations or backward compatibility breaks to document.
 
 ### Code cleanup in Flex Workflow
 
-The deprecated `EzSystems\FlexWorkflow\API\Repository\RepositoryInterface::canUser` method has been removed.
+Selected deprecated permission-related methods have been removed. For details, see [code cleanup in kernel](#code-cleanup-in-kernel).
 
 ## repository-forms
 
