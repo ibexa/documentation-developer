@@ -787,7 +787,9 @@ No deprecations or backward compatibility breaks to document.
 
 ## flex-workflow
 
-No deprecations or backward compatibility breaks to document.
+### Code cleanup in Flex Workflow
+
+The deprecated `EzSystems\FlexWorkflow\API\Repository\RepositoryInterface::canUser` method has been removed.
 
 ## repository-forms
 
