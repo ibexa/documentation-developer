@@ -153,6 +153,77 @@ X-HTTP-Method-Override: PATCH
 
 Both methods are always mentioned, when applicable, in the specifications.
 
+### Logical operators
+
+When performing search endpoint (`/views`), the criteria model allows combining criteria using the following logical operators:
+
+- `AND`
+- `OR`
+- `NOT`
+
+By default, if multiple criteria are given, but not wrapped by any operator, the `AND` operator is used.
+
+However, when trying to use the same type of criterion for multiple times, the parser will wrap it with the `OR`
+operator. 
+While this is a side effect of internal operations of the view query parser, trying to make
+the `AND` query for different values of the same criterion type has no practical sense as it always returns no results.
+
+XML example:
+
+``` xml
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewInput>
+  <identifier>test</identifier>
+  <ContentQuery>
+    <Filter>
+        <AND>
+            <OR>
+                <ContentTypeIdentifierCriterion>folder</ContentTypeIdentifierCriterion>
+                <ContentTypeIdentifierCriterion>article</ContentTypeIdentifierCriterion>
+            </OR>
+            <SectionIdentifierCriterion>standard</SectionIdentifierCriterion>
+        </AND>
+    </Filter>
+    <limit>10</limit>
+    <offset>0</offset>
+    <SortClauses>
+      <ContentName>ascending</ContentName>
+    </SortClauses>
+  </ContentQuery>
+</ViewInput>
+``` 
+
+JSON example:
+
+``` json
+{
+  "ViewInput": {
+    "identifier": "test",
+    "ContentQuery": {
+      "Filter": {
+        "AND": {
+          "OR": {
+            "ContentTypeIdentifierCriterion": [
+              "folder",
+              "article"
+            ]
+          },
+          "SectionIdentifierCriterion": "standard"
+        }
+      },
+      "limit": "10",
+      "offset": "0",
+      "SortClauses": { "ContentName": "ascending" }
+    }
+  }
+}
+```
+
+!!! note
+
+    The structure for `ContentTypeIdentifierCriterion` with multiple values is slightly
+    different in JSON format, because the parser excepts keys to be unique.
+
 ## Specifying a siteaccess
 
 One of the principles of REST is that the same resource (Content, Location, ContentType, etc.) should be unique. The purpose is mostly to make it simple to cache your REST API using a reverse proxy like Varnish. If the same resource is available at multiple locations, cache purging becomes much more complex.
