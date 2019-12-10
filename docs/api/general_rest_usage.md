@@ -168,7 +168,7 @@ operator.
 While this is a side effect of internal operations of the view query parser, trying to make
 the `AND` query for different values of the same criterion type has no practical sense as it always returns no results.
 
-XML example:
+**Logical operators XML example**
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -193,7 +193,7 @@ XML example:
 </ViewInput>
 ``` 
 
-JSON example:
+**Logical operators JSON example**
 
 ``` json
 {
