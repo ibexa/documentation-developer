@@ -34,7 +34,7 @@ These are most common actions you may need to take in a new installation.
 
 To display Content in the front page you need to define content views and templates.
 
-Content views decide which templates and controllers are used to display Content.
+Content views decide which templates and controllers are used to display content.
 
 1\. In `config/packages/ezplatform.yaml`, under `ezplatform.system`, uncomment the `site_group` key
 and add the following block (pay attention to indentation: `content_view` should be one level below `site_group`):

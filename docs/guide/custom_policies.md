@@ -85,7 +85,7 @@ custom_module:
     custom_function_2: [CustomLimitation]
 ```
 
-### Extending existing policies
+### Extending existing Policies
 
 A `PolicyProvider` may provide new functions to a module, and additional Limitations to an existing function. 
 **It is however strongly encouraged to add functions to your own Policy modules.**

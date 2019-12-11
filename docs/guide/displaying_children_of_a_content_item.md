@@ -15,7 +15,7 @@ This procedure demonstrates how to use both these methods to display all childre
 The Query Controller is a pre-defined custom content view Controller that runs a Repository Query.
 
 If you need to create a simple Query, it is easier to use the Query Controller than to build a completely custom one, as you will not have to write custom PHP code. 
-Like with a [Custom Controller](#using-a-custom-controller), however, you will be able to use properties of the viewed Content or Location as parameters.
+Like with a [Custom Controller](#using-a-custom-controller), however, you will be able to use properties of the viewed Content item or Location as parameters.
 
 The main file in this case is an `src/QueryType/LocationChildrenQueryType.php` file which generates a Query that retrieves the children of the current Location.
 

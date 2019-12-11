@@ -15,7 +15,7 @@ If you are updating from a version prior to 1.7, you have to implement all the c
 v1.8.0 introduced a new `content/publish` permission separated out of the `content/edit` permission.
 `edit` now covers only editing content, without the right to publishing it.
 For that you need the `publish` permission.
-`edit` without `publish` can be used in conjunction with the Content review workflow to ensure that a user cannot publish content themselves, but must pass it on for review.
+`edit` without `publish` can be used in conjunction with the content review workflow to ensure that a user cannot publish content themselves, but must pass it on for review.
 
 To make sure existing users will be able to both edit and publish content, those with the `content/edit` permission will be given the `content/publish` permission by the following database update script:
 

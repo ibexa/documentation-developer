@@ -33,7 +33,7 @@ Together these major improvements make it practically impossible to run eZ Platf
 
 If you are coming directly from legacy (4.x), you need to follow the best practice 5.x Platform migration path and do the following:
 
-- Rewrite custom Field Types for the new Platform stack. Alternatively you can use Null Field Type as a dummy implementation for the custom FieldTypes that you don't want to migrate. Using Null Field Type will prevent errors from the Platform Stack, see [Null Field Type Reference](../api/field_type_reference.md#null-field-type)
+- Rewrite custom Field Types for the new Platform stack. Alternatively you can use Null Field Type as a dummy implementation for the custom Field Types that you don't want to migrate. Using Null Field Type will prevent errors from the Platform Stack, see [Null Field Type Reference](../api/field_type_reference.md#null-field-type)
 - Rewrite custom web front end to use the new Platform/Symfony stack, see [Beginner Tutorial](../tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md)
 - Rewrite custom admin modules to use the new Platform/Symfony stack
     - And if you do this while on 5.x, you can use several of the [available legacy migration features](https://doc.ez.no/display/EZP/Legacy+code+and+features) to make the new code appear in legacy admin

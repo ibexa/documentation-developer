@@ -88,9 +88,9 @@ security:
                 realm: eZ Publish REST API
 ```
 
-Create a user with the name of the customerID and a password which is the license key in your local security provider.
-This user must have access granted on the URLs provided by the bundle API (see above).
-In order to tell the recommender to use this user and password to request resources on the eZ Platform instance,
+Create a User with the name of the customerID and a password which is the license key in your local security provider.
+This User must have access granted on the URLs provided by the bundle API (see above).
+In order to tell the recommender to use this User and password to request resources on the eZ Platform instance,
 you can configure this as follows (an example file is available in the bundle under `Resources/config/default_settings.yml`):
 
 ``` yaml

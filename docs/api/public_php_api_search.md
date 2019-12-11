@@ -12,10 +12,10 @@ The service should be [injected into the constructor of your command or controll
 
 ## Performing a search
 
-To search through Content you need to create a [`LocationQuery`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/LocationQuery.php)
+To search through content you need to create a [`LocationQuery`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/LocationQuery.php)
 and provide your search criteria as a series of Criterion objects.
 
-For example, to search for all Content of a selected Content Type, use one Criterion,
+For example, to search for all content of a selected Content Type, use one Criterion,
 `Criterion\ContentTypeIdentifier` (line 14).
 
 The following command takes the Content Type identifier as an argument and lists all results:
@@ -64,7 +64,7 @@ $output->writeln($result->getName());
 
 ### Search with `query` and `filter`
 
-You can use two properties of the `Query` object to search for Content: `query` and `filter`.
+You can use two properties of the `Query` object to search for content: `query` and `filter`.
 
 In contrast to `filter`, `query` has an effect of search scoring (relevancy).
 It affects default sorting if no Sort Clause is used.
@@ -206,7 +206,7 @@ $query->filter = new Criterion\LogicalAnd([
 
 ### Combining independent Criteria
 
-Criteria are independent of one another. This can lead to unexpected behavior, for instance because Content can have multiple Locations.
+Criteria are independent of one another. This can lead to unexpected behavior, for instance because content can have multiple Locations.
 
 For example, a Content item has two Locations: visible Location A and hidden Location B.
 You perform the following query:
@@ -219,9 +219,9 @@ $query->filter = new Criterion\LogicalAnd([
 ```
 
 The query searches for Location B using the `LocationId` Criterion,
-and for visible Content using the `Visibility` Criterion.
+and for visible content using the `Visibility` Criterion.
 
-Even though the Location B is hidden, the query will find the Content because both conditions are satisfied:
+Even though the Location B is hidden, the query will find the content because both conditions are satisfied:
 
 - the Content item has Location B
 - the Content item is visible (it has the visible Location A)
