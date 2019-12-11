@@ -61,11 +61,11 @@ Each tab definition is an object containing properties:
     - **onItemSelect** _{Function}_ - a callback to be invoked when content is selected
     - **maxHeight** _{Number}_ - the maximum height of the panel container
     - **id** _{String}_ - panel identifier
-    - **startingLocationId** _{Number}_ - location ID
-    - **findLocationsByParentLocationId** _{Function}_ - finds locations related to the parent location
+    - **startingLocationId** _{Number}_ - Location ID
+    - **findLocationsByParentLocationId** _{Function}_ - finds Locations related to the parent Location
     - **findContentBySearchQuery** _{Function}_ - finds content matching a given text query
-    - **contentTypesMap** _{Object}_ - content types map with content type ids as keys
-    - **multiple** _{Boolean}_ - can select multiple content items flag
+    - **contentTypesMap** _{Object}_ - Content Type map with Content Type IDs as keys
+    - **multiple** _{Boolean}_ - can select multiple Content items flag
     - **labels** _{Object}_ - a hash containing text messages to be placed across many places in a component
 - **attrs** {Object} - any optional list of props that should applied to the panel component.
 It can override the panel props listed above.
@@ -80,27 +80,27 @@ There are 2 types of properties: **required** and **optional**.
 Without all the following properties the Universal Discovery module will not work.
 
 **onConfirm** _{Function}_ - a callback to be invoked when a user clicks on the confirm button
-in a Universal Discovery popup. The function takes one param: `content` which is an array of content items structs.
+in a Universal Discovery popup. The function takes one param: `content` which is an array of Content item structs.
 
 **onCancel** _{Function}_ - a callback to be invoked when a user clicks on the cancel button
 in a Universal Discovery popup. It takes no extra params.
 
-**restInfo** _{Function}_ - a config hash containing: token (_{String}_) and siteaccess (_{String}_).
+**restInfo** _{Function}_ - a config hash containing: token (_{String}_) and SiteAccess (_{String}_).
 
 #### Optional props
 
 Optionally, Universal Discovery module can take a following list of props:
 
 - **loadContentInfo** _{Function}_ - loads content info. It takes 3 params: `restInfo`, `contentId` and `callback`
-- **loadContentTypes** _{Function}_ - loads content types data. It takes 2 params: `restInfo`, `callback`,
-- **canSelectContent** _{Function}_ - checks whether a content item can be selected. It takes one param: a `data` object containing an `item` property as the content struct and `itemsCount` as a number of selected items in UDW,
-- **findContentBySearchQuery** _{Function}_ - finds a content using a search query. It takes 3 params: `restInfo`, `query` and `callback`,
-- **findLocationsByParentLocationId** _{Function}_ - finds sub items of a given location. It takes 3 params: `restInfo`, `parentLocationId` and `callback`,
+- **loadContentTypes** _{Function}_ - loads Content Type data. It takes 2 params: `restInfo`, `callback`,
+- **canSelectContent** _{Function}_ - checks whether a Content item can be selected. It takes one param: a `data` object containing an `item` property as the content struct and `itemsCount` as a number of selected items in UDW,
+- **findContentBySearchQuery** _{Function}_ - finds content using a search query. It takes 3 params: `restInfo`, `query` and `callback`,
+- **findLocationsByParentLocationId** _{Function}_ - finds sub-items of a given Location. It takes 3 params: `restInfo`, `parentLocationId` and `callback`,
 - **title** _{String}_ - the title of Universal Discovery popup. Default value: `Find content`,
 - **multiple** _{Boolean}_ - can select multiple content items flag. Default value: `true`,
 - **activeTab** _{String}_ - active tab identifier. Default value: `browse`,
 - **visibleTabs** _{Array}_ - which UDW tabs are available (e.g. Browse, Search, Create),
-- **startingLocationId** _{Number}_ - location ID. Default value: `1`,
+- **startingLocationId** _{Number}_ - Location ID. Default value: `1`,
 - **maxHeight** _{Number}_ - maximum height of panel container. Default value: `500`,
 - **searchResultsPerPage** _{Number}_ - max amount of items visible per page in the search results. Default value: `10`,
 - **extraTabs** _{Array}_ - optional, extra tabs. Each tab definition is an object containing the following properties (all of them are required):
@@ -237,7 +237,7 @@ For more information follow [Symfony Doctrine Event Listeners and Subscribers tu
 ## Sub-items List
 
 The Sub-items List module is meant to be used as a part of the editorial interface of eZ Platform.
-It provides an interface for listing the Sub-items of any Location.
+It provides an interface for listing the sub-items of any Location.
 
 !!! caution
 
@@ -285,7 +285,7 @@ The `<SubItemsModule />` module can handle additional properties. There are 2 ty
 
 Without all the following properties the Sub-items module will not work.
 
-- **parentLocationId** _{Number}_ - parent location ID.
+- **parentLocationId** _{Number}_ - parent Location ID.
 - **restInfo** _{Object}_ - backend config object:
     - **token** _{String}_ - CSRF token,
     - **siteaccess** _{String}_ - SiteAccess identifier.
@@ -296,37 +296,37 @@ Without all the following properties the Sub-items module will not work.
 
 Optionally, Sub-items module can take a following list of props:
 
-- **loadContentInfo** _{Function}_ - loads content items info. Takes 2 params:
+- **loadContentInfo** _{Function}_ - loads Content item info. Takes 2 params:
     - **contentIds** _{Array}_ - list of content IDs
     - **callback** _{Function}_ - a callback invoked when content info is loaded
-- **loadContentTypes** _{Function}_ - loads content types. Takes one param:
-    - **callback** _{Function}_ - callback invoked when content types are loaded
-- **loadLocation** _{Function}_ - loads location. Takes 4 params:
+- **loadContentTypes** _{Function}_ - loads Content Types. Takes one param:
+    - **callback** _{Function}_ - callback invoked when Content Types are loaded
+- **loadLocation** _{Function}_ - loads Location. Takes 4 params:
     - **restInfo** _{Object}_ - REST info params:
         - **token** _{String}_ - the user token
         - **siteaccess** _{String}_ - the current SiteAccess
     - **queryConfig** _{Object}_ - query config:
-        - **locationId** _{Number}_ - location ID
-        - **limit** _{Number}_ - content item limit
+        - **locationId** _{Number}_ - Location ID
+        - **limit** _{Number}_ - Content item limit
         - **offset** _{Number}_ - items offset
-        - **sortClauses** _{Object}_ - the sort clauses, e.g. {LocationPriority: 'ascending'}
-    - **callback** _{Function}_ - callback invoked when location is loaded
-- **updateLocationPriority** - updates item location priority. Takes 2 params:
+        - **sortClauses** _{Object}_ - the Sort Clauses, e.g. {LocationPriority: 'ascending'}
+    - **callback** _{Function}_ - callback invoked when Location is loaded
+- **updateLocationPriority** - updates item Location priority. Takes 2 params:
     - **params** _{Object}_ - parameters hash containing:
         - **priority** _{Number}_ - priority value
-        - **location** _{String}_ - REST location id
+        - **location** _{String}_ - REST Location ID
         - **token** _{String}_ - CSRF token
         - **siteaccess** _{String}_ - SiteAccess identifier
-    - **callback** _{Function}_ - callback invoked when content location priority is updated
+    - **callback** _{Function}_ - callback invoked when Location priority is updated
 - **activeView** _{String}_ - active list view identifier
 - **extraActions** _{Array}_ - list of extra actions. Each action is an object containing:
     - **component** _{Element}_ - React component class
     - **attrs** _{Object}_ - additional component properties
-- **items** _{Array}_ - list of location sub items
+- **items** _{Array}_ - list of Location's sub-items
 - **limit** _{Number}_ - items limit count
 - **offset** _{Number}_ - items limit offset
 - **labels** _{Object}_ - list of module labels, see [sub.items.module.js](https://github.com/ezsystems/ezplatform-admin-ui-modules/blob/master/src/modules/sub-items/sub.items.module.js#L371) for details. Contains definitions for sub components:
-    - **subItems** _{Object}_ - list of sub items module labels
+    - **subItems** _{Object}_ - list of sub-items module labels
     - **tableView** _{Object}_ - list of table view component labels
     - **tableViewItem** _{Object}_ - list of table item view component labels
     - **loadMore** _{Object}_ - list of load more component labels
@@ -424,24 +424,24 @@ Without all the following properties the Multi-file Upload will not work.
 - **onAfterUpload** _{Function}_ - a callback to be invoked just after a file has been uploaded
 - **adminUiConfig** _{Object}_ - UI config object. It should keep the following structure:
     - **multiFileUpload** _{Object}_  - multi file upload module config:
-        - **defaultMappings** _{Array}_ - a list of file type to content type mappings
+        - **defaultMappings** _{Array}_ - a list of file type to Content Type mappings
         Sample mapping be an object and should follow the convention:
             - **contentTypeIdentifier** _{String}_ - Content Type identifier
-            - **contentFieldIdentifier** _{String}_ - Content field identifier
-            - **nameFieldIdentifier** _{String}_ - name field identifier
-            - **mimeTypes** _{Array}_ - a list of file typers assigned to a specific content type
-        - **fallbackContentType** _{Object}_ - a fallback content type definition. Should contain the following info:
-            - **contentTypeIdentifier** _{String}_ - Content Type identifier
-            - **contentFieldIdentifier** _{String}_ - Content Field identifier
+            - **contentFieldIdentifier** _{String}_ - Field identifier
             - **nameFieldIdentifier** _{String}_ - name Field identifier
-        - **locationMappings** _{Array}_ - list of file type to content type mappings based on a location identifier
+            - **mimeTypes** _{Array}_ - a list of file types assigned to a specific Content Type
+        - **fallbackContentType** _{Object}_ - a fallback Content Type definition. Should contain the following info:
+            - **contentTypeIdentifier** _{String}_ - Content Type identifier
+            - **contentFieldIdentifier** _{String}_ - Field identifier
+            - **nameFieldIdentifier** _{String}_ - name Field identifier
+        - **locationMappings** _{Array}_ - list of file type to Content Type mappings based on a Location identifier
         - **maxFileSize** {Number} - maximum file size allowed for uploading. It's a number of bytes
     - **token** _{String}_ - CSRF token
     - **siteaccess** _{String}_ - SiteAccess identifier
-- **parentInfo** _{Object}_ - parent location meta information:
+- **parentInfo** _{Object}_ - parent Location meta information:
     - **contentTypeIdentifier** _{String}_ - Content Type identifier
-    - **contentTypeId** _{Number}_ - Content Type id
-    - **locationPath** _{String}_ - location path string
+    - **contentTypeId** _{Number}_ - Content Type ID
+    - **locationPath** _{String}_ - Location path string
     - **language** _{String}_ - language code identifier
 
 #### Optional properties
@@ -450,18 +450,18 @@ Optionally, the Multi-file Upload module can take a following list of props:
 
 - **checkCanUpload** _{Function}_ - checks whether am uploaded file can be uploaded. The callback takes 4 params:
     - **file** _{File}_ - file object,
-    - **parentInfo** _{Object}_ - parent location meta information,
+    - **parentInfo** _{Object}_ - parent Location meta information,
     - **config** _{Object}_ - Multi-file Upload module config,
     - **callbacks** _{Object}_ - error callbacks list: **fileTypeNotAllowedCallback** and **fileSizeNotAllowedCallback**.
 - **createFileStruct** _{Function}_ - a function that creates a _ContentCreate_ struct. The function takes 2 params:
     - **file** _{File}_ - file object,
     - **params** _{Object}_ - params hash containing: **parentInfo** and **adminUiConfig** stored under the **config** key.
-- **deleteFile** _{Function}_ - a function deleting Content created from a given file. It takes 3 params:
-    - **systemInfo** _{Object}_ - hash containing information about CSRF token and siteaccess: **token** and **siteaccess**,
+- **deleteFile** _{Function}_ - a function deleting content created from a given file. It takes 3 params:
+    - **systemInfo** _{Object}_ - hash containing information about CSRF token and SiteAccess: **token** and **siteaccess**,
     - **struct** _{Object}_ - Content struct,
     - **callback** _{Function}_ - content deleted callback.
 - **onPopupClose** _{Function}_ - function invoked when closing a Multi-file Upload popup. It takes one param: **itemsUploaded** - the list of uploaded items.
-- **publishFile** _{Function}_ - publishes an uploaded file-based content item. Takes 3 params:
+- **publishFile** _{Function}_ - publishes an uploaded file-based Content item. Takes 3 params:
     - **data** _{Object}_ - an object containing information about:
         - **struct** _{Object}_ - the ContentCreate struct (),
         - **token** _{String}_ - CSRF token,

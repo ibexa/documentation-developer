@@ -10,8 +10,8 @@ The `/content/create/nodraft` route shows a Content item creation form for a gi
 
 ### Creating a new draft
 
-The `content/create/draft` route allows you to create a new draft for the selected content item.
-Provide it with the Content ID as an argument.
+The `content/create/draft` route allows you to create a new draft for the selected Content item.
+Provide it with the content ID as an argument.
 
 For example, `content/create/draft/59` creates a new draft of the Content item with ID 59.
 
@@ -25,7 +25,7 @@ The `/content/edit/nodraft` route shows a Content item creation form for a give
 | `languageCode`          | `string`  | Language code the Content item must be created in. Example: `eng-GB`       |
 | `parentLocationId`      | `integer` | ID of the Location the Content item must be created in. Example: `2`       |
 
-This means that `/content/create/nodraft/folder/eng-GB/2` will enable you to create a Folder in English as a child of LocationId 2.
+This means that `/content/create/nodraft/folder/eng-GB/2` will enable you to create a Folder in English as a child of Location with ID 2.
 
 For now a limited subset of Field Types is supported:
 
@@ -48,7 +48,7 @@ To edit an existing draft, use the `/content/edit/draft/`
 | Argument                | Type      | Description                                                              |
 |-------------------------|-----------|--------------------------------------------------------------------------|
 | `contentId`             | `integer` | ContentId of the item to edit.                                           |
-| `versionNo`             | `integer` | Number of the Version to edit. The version must be an unpublished draft. |
+| `versionNo`             | `integer` | Number of the version to edit. The version must be an unpublished draft. |
 | `languageCode`          | `string`  | Language code of the version. Example: `eng-GB`                          |
 
 For example, `/content/edit/draft/1/5/eng-GB` enables you to edit draft 5 of Content item 1 in English.

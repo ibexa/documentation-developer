@@ -3,7 +3,7 @@
 
 As explained in the [introduction](rest_api_guide.md), the REST API is based on a limited list of general principles:
 
--   each resource (URI) interacts with a part of the system (Content, URL aliases, User Groups, etc.),
+-   each resource (URI) interacts with a part of the system (content, URL aliases, User Groups, etc.),
 -   for each resource, one or more HTTP methods are available, each having a different effect (DELETE a Content item, GET a URL Alias, GET a list of user groups, etc.),
 -   media-type request headers indicate what kind of data type (Content / ContentInfo), and data format (JSON or XML), are expected as a response, and what can be requested.
 
@@ -125,7 +125,7 @@ Responses depend on:
 -   The URI,
 -   Request headers, like the Accept one.
 
-URI parameters are of course also used. They usually serve as filters / options for the requested resource. For instance, they can be used to customize a list's offset/limit. To filter a list, specify which fields you want from a content etc. For almost all resources, those parameters must be provided as GET ones. Below request would return the 5 first relations for Version 2 of Content 59:
+URI parameters are of course also used. They usually serve as filters / options for the requested resource. For instance, they can be used to customize a list's offset/limit. To filter a list, specify which fields you want from a content etc. For almost all resources, those parameters must be provided as GET ones. Below request would return the 5 first relations for version 2 of Content item 59:
 
 **GET request with limit parameter**
 
@@ -222,11 +222,11 @@ Note that making the `AND` query for different values of the same criterion type
     The structure for `ContentTypeIdentifierCriterion` with multiple values is slightly
     different in JSON format, because the parser expects keys to be unique.
 
-## Specifying a siteaccess
+## Specifying a SiteAccess
 
-One of the principles of REST is that the same resource (Content, Location, ContentType, etc.) should be unique. The purpose is mostly to make it simple to cache your REST API using a reverse proxy like Varnish. If the same resource is available at multiple locations, cache purging becomes much more complex.
+One of the principles of REST is that the same resource (Content item, Location, Content Type, etc.) should be unique. The purpose is mostly to make it simple to cache your REST API using a reverse proxy like Varnish. If the same resource is available at multiple locations, cache purging becomes much more complex.
 
-Due to this, we decided not to enable siteaccess matching with REST. In order to specify a siteaccess when talking to the REST API, a custom header, `X-Siteaccess`, needs to be provided. If it isn't, the default one will be used:
+Due to this, we decided not to enable SiteAccess matching with REST. In order to specify a SiteAccess when talking to the REST API, a custom header, `X-Siteaccess`, needs to be provided. If it isn't, the default one will be used:
 
 **X-Siteaccess header example**
 

@@ -46,10 +46,10 @@ class ViewContentMetaDataCommand extends Command
 `ContentInfo` is loaded from the [`ContentService`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ContentService.php) (line 13).
 It provides you with basic content metadata such as modification and publication dates or main language code.
 
-!!! note "Retrieving Content information in a controller"
+!!! note "Retrieving content information in a controller"
 
-    To retrieve Content information in a controller, you also make use of the `ContentService`,
-    but rendering specific elements (e.g. Content information or Field values)
+    To retrieve content information in a controller, you also make use of the `ContentService`,
+    but rendering specific elements (e.g. content information or Field values)
     is relegated to [templates](../guide/templates.md).
 
 ### Locations
@@ -118,13 +118,13 @@ $versionInfoArray = $this->contentService->loadVersions($contentInfo, VersionInf
 
 !!! note
 
-    Requesting Version data may be impossible for an anonymous user.
+    Requesting version data may be impossible for an anonymous user.
     Make sure to [authenticate](public_php_api.md#setting-the-repository-user) as a user with sufficient permissions.
 
 ### Relations
 
 Content Relations are versioned.
-To list Relations to and from your Content,
+To list Relations to and from your content,
 you need to pass a `VersionInfo` object to the [`ContentService::loadRelations`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ContentService.php#L347) method.
 You can get the current version's `VersionInfo` using [`ContentService::loadVersionInfo`.](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ContentService.php#L80)
 
@@ -298,7 +298,7 @@ returns a [`LocationList`](https://github.com/ezsystems/ezpublish-kernel/blob/v7
 When dealing with Location objects (and Trash objects), you can get access to Content item directly using `$location->getContent`.
 In Twig this can also be accessed by `location.content`.
 
-This is a lazy property. It will trigger loading of Content when first used.
+This is a lazy property. It will trigger loading of content when first used.
 In case of bulk of Locations coming from Search or Location Service,
 the Content will also be loaded in bulk for the whole Location result set.
 

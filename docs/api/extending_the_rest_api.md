@@ -161,7 +161,7 @@ class Hello extends ValueObjectVisitor
 }
 ```
 
-The easiest way to handle cache is to re-use the `CachedValue` Value Object. It acts as a proxy, and adds the cache headers, depending on the configuration, for a given object and set of options.
+The easiest way to handle cache is to re-use the `CachedValue` value object. It acts as a proxy, and adds the cache headers, depending on the configuration, for a given object and set of options.
 
 When you want the response to be cached, return an instance of `CachedValue`, with your Value Object as the argument. You can also pass a Location ID using the second argument, so that the response is tagged with it:
 

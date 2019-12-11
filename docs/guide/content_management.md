@@ -43,7 +43,6 @@ It contains a Folder Content item.
 **Media** is the top level Location which stores and organizes information
 that is frequently used by Content items located below the **Content** node.
 It usually contains images, animations, documents and other files.
-They can be viewed by selecting the **Media library** tab in the Content mode interface.
 The default ID number of the **Media** Location is 43, but it can be [modified via configuration](config_repository.md#top-level-locations).
 It contains a Folder Content item.
 
@@ -216,12 +215,12 @@ These Fields allow you to select one or more other Content items in the Field va
 
 *Relations at Content item level* can be of three different types:
 
-- *Common relations* are created between two Content items using the Public API.
-- *RichText linked relations* are created using a Field of the RichText type.
+- *Common Relations* are created between two Content items using the Public API.
+- *RichText linked Relations* are created using a Field of the RichText type.
 When an internal link (a link to another Location or Content item) is placed in a RichText Field,
 the system automatically creates a Relation.
 The Relation is automatically removed from the system when the link is removed from the Content item.
-- *RichText embedded relations* also use a RichText Field.
+- *RichText embedded Relations* also use a RichText Field.
 When an Embed element is placed in a RichText Field, the system automatically creates a Relation
 between the embedded Content item and the one with the RichText Field.
 The Relation is automatically removed from the system when the link is removed from the Content item.

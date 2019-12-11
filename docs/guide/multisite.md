@@ -113,19 +113,19 @@ ezplatform:
 
 If not specified, the `index_page` is the configured content root.
 
-## Multisite with multiple repositories
+## Multisite with multiple Repositories
 
-Multisite can be configured to use one or multiple repositories.
-With multiple repositories, each site can have a separate repository.
-To configure multisite with multiple repositories, [configure the repositories](config_repository.md) and perform [multi repository setup](persistence_cache.md#multi-repository-setup).
+Multisite can be configured to use one or multiple Repositories.
+With multiple Repositories, each site can have a separate Repository.
+To configure multisite with multiple Repositories, [configure the repositories](config_repository.md) and perform [multi-Repository setup](persistence_cache.md#multi-repository-setup).
 
-### Limitations when using with multisite URI matching with multi-repository setup
+### Limitations when using with multisite URI matching with multi-Repository setup
 
 !!! caution
 
-    Only one repository (database) can be used per domain.
-    This does not prohibit using [different repositories](persistence_cache.md#multi-repository-setup) on different subdomains.
-    However, when using URI matching for multisite setup, all SiteAccesses sharing domain also need to share repository.
+    Only one Repository (database) can be used per domain.
+    This does not prohibit using [different Repositories](persistence_cache.md#multi-repository-setup) on different subdomains.
+    However, when using URI matching for multisite setup, all SiteAccesses sharing domain also need to share Repository.
     For example:
 
     - `ez.no` domain can use `ez_repo`

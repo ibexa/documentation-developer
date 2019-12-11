@@ -10,7 +10,7 @@ For example, a `section/assign` Policy allows the User to assign content to Sect
 
 When you add a Policy to a Role, you can also restrict it using one or more **Limitations**.
 A Policy with a Limitation will only apply when the condition in the Limitation is fulfilled.
-For example, a `content/publish` Policy with a `ContentType` Limitation on the "Blog Post" Content Type will allow the User to publish only Blog Posts, and not other Content.
+For example, a `content/publish` Policy with a `ContentType` Limitation on the "Blog Post" Content Type will allow the User to publish only Blog Posts, and not other content.
 
 A Limitation, like a Policy, specifies what a User *can* do, not what they *can't do*.
 A `Section` Limitation, for example, *gives* the User access to the selected Section, not *prohibits* it.
@@ -30,7 +30,7 @@ you can split your Policy in two, each with one of these Limitations.
 Every User or User Group can have many roles. A User can also belong to many groups, for example, Administrators, Editors, Subscribers.
 
 It is best practice to avoid assigning Roles to users directly.
-Instead, try to organize your content so that it can be covered with general roles assigned to User Groups.
+Instead, try to organize your content so that it can be covered with general Roles assigned to User Groups.
 
 Using Groups is easier to manage and more secure. It also improves system performance.
 The more Role assignments and complex Policies you add for a given User, the more complex the search/load queries will be, because they always take permissions into account.
@@ -112,15 +112,15 @@ Hiding and revealing Location requires one more Policy: `content/hide`.
 
 #### Removing content
 
-To send content to trash, the User needs to have the `content/remove` Policy.
+To send content to Trash, the User needs to have the `content/remove` Policy.
 
 To remove an archived version of content, the User must have the `content/versionremove` Policy.
 
-Further manipulation of trash requires the `content/restore` Policy to restore items from trash, and `content/cleantrash` to completely delete all content from the trash.
+Further manipulation of Trash requires the `content/restore` Policy to restore items from Trash, and `content/cleantrash` to completely delete all content from the Trash.
 
 !!! caution
 
-    With the `content/cleantrash` Policy, the User can empty the trash even if they do not have access to the trashed content,
+    With the `content/cleantrash` Policy, the User can empty the Trash even if they do not have access to the trashed content,
     e.g. because it belonged to a Section they do not have permissions for.
 
 #### Registering Users
@@ -130,7 +130,7 @@ To allow anonymous users to register through the `/register` route, you need to 
 #### Admin
 
 To access the Admin in the Back Office the User must have the `setup/administrate` Policy.
-This will allow the User to view the Languages and Content Types.
+This will allow the User to view the languages and Content Types.
 
 Additional Policies are needed for each section of the Admin.
 
@@ -152,10 +152,10 @@ Additional Policies are needed for each section of the Admin.
 
 - `Content Type/create`, `Content Type/update`, `Content Type/delete` to add, modify and remove Content Types
 
-##### Object States
+##### Object states
 
-- `state/administrate` to view a list of Object States, add and edit them
-- `state/assign` to assign Objects States to Content
+- `state/administrate` to view a list of Object states, add and edit them
+- `state/assign` to assign Objects states to Content
 
 ##### Roles
 
@@ -207,13 +207,13 @@ Users are treated like other content, so to create and modify them the User need
 |               | `urltranslator`      | manage URL aliases of a Content item|
 |               | `pendinglist`        | unused                                                                                                                                  |
 |               | `restore`            | restore content from Trash                                                                                                              |
-|               | `cleantrash`         | empty the trash (even when the User does not have access to individual Content items) |
+|               | `cleantrash`         | empty the Trash (even when the User does not have access to individual Content items) |
 | `Content Type`       | `update`             | modify existing Content Types. Also required to create new Content Types                                                                |
 |               | `create`             | create new Content Types. Also required to edit exiting Content Types                                                                   |
 |               | `delete`             | delete Content Types                                                                                                                    |
-| `state`       | `assign`             | assign Object States to Content items                                                                                                   |
-|               | `administrate`       | view, add and edit Object States                                                                                                        |
-| `role`        | `assign`             | assign roles to Users and User Groups                                                                                                   |
+| `state`       | `assign`             | assign Object states to Content items                                                                                                   |
+|               | `administrate`       | view, add and edit Object states                                                                                                        |
+| `role`        | `assign`             | assign Roles to Users and User Groups                                                                                                   |
 |               | `update`             | modify existing Roles                                                                                                                   |
 |               | `create`             | create new Roles                                                                                                                        |
 |               | `delete`             | delete Roles                                                                                                                            |
@@ -224,7 +224,7 @@ Users are treated like other content, so to create and modify them the User need
 | `setup`       | `administrate`       | access Admin                                                                                                                            |
 |               | `install`            | unused                                                                                                                                  |
 |               | `setup`              | unused                                                                                                                                  |
-|               | `system_info`        | view the System information tab in Admin                                                                                      |
+|               | `system_info`        | view the System Information tab in Admin                                                                                      |
 | `user`        | `login`              | log in to the application                                                                                                               |
 |               | `password`           | unused                                                                                                                                  |
 |               | `preferences`        | access and set user preferences                                                                                                                                  |
@@ -253,16 +253,16 @@ public function performAccessCheck(): void
 
 - `module` is the Policy module (e.g. `content`)
 - `function` is the function inside the module (e.g. `read`)
-- `limitations` are optional limitations to check against. Here you can provide two keys:
+- `limitations` are optional Limitations to check against. Here you can provide two keys:
     - `valueObject` is the object you want to check for, for example `ContentInfo`.
     - `targets` are a table of value objects that are the target of the operation.
-    For example, to check if Content can be assigned to a Section, provide the Section as `targets`.
-    `targets` accept Location, Object State and Section objects.
+    For example, to check if content can be assigned to a Section, provide the Section as `targets`.
+    `targets` accept Location, Object state and Section objects.
 
 ### Checking user access
 
 To check if a user has access to an operation, use the `isGranted()` method.
-For example, to check if Content can be assigned to a section:
+For example, to check if content can be assigned to a Section:
 
 ``` php
 $hasAccess = $this->isGranted(

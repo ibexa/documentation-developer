@@ -1,6 +1,6 @@
 # Extending tabs
 
-Many elements of the Back Office interface, such as System Info or Location View, are built using tabs.
+Many elements of the Back Office interface, such as System Information or Location View, are built using tabs.
 
 ![Tabs in System Information](img/tabs_system_info.png)
 

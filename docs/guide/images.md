@@ -375,7 +375,7 @@ For example:
 Additionally you can provide two parameters:
 
 - `iteration-count` is the number of images to be recreated in a single iteration, to reduce memory use. Default is `25`.
-- `user` is the identifier of a user with proper permission who will perform the operation (`read`, `versionread`, `edit` and `publish`). Default is `admin`.
+- `user` is the identifier of a User with proper permission who will perform the operation (`read`, `versionread`, `edit` and `publish`). Default is `admin`.
 
 !!! caution
 
@@ -386,7 +386,7 @@ Additionally you can provide two parameters:
 You can store images in the media library as independent Content items of a generic Image Content Type to reuse them across the system.
 It is achieved by uploading images to an ImageAsset Field Type.
 
-For ImageAsset field to be reused you have to publish it. Only then is notification triggered stating image has been published under the Location and can now be reused.
-After establishing media library you can create object relations between the main Content item and the image content item being used by it.
+For an ImageAsset Field to be reused you have to publish it. Only then is notification triggered stating image has been published under the Location and can now be reused.
+After establishing media library you can create object Relations between the main Content item and the image Content item being used by it.
 
 To learn more about ImageAsset Field Type and its customization see [Field Type Reference](../api/field_type_reference.md#imageasset-field-type).

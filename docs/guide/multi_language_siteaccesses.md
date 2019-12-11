@@ -116,7 +116,7 @@ Now allow the Anonymous user Role to read content on the new SiteAccesses:
 1. In the **Admin** Panel, open the **Roles** tab.
 1. Click the **Anonymous** role.
 1. Edit the limitations of the module `user`.
-1. You should be able to see three SiteAccesses in a multi-select. Select them all and click **Save**.
+1. You should be able to see three SiteAccesses in a multi-select. Select them all and click **Update**.
 1. Clear the cache by running: `php bin/console cache:clear`.
 
 You should now be able to reload your site in the `en` and `fr` SiteAccess.

@@ -89,7 +89,7 @@ You can remove the bundle after the migration is complete.
 The command will migrate Landing Pages created in eZ Platform 1.x, 2.0 and 2.1 to new Pages.
 The operation is transactional and will roll back in case of errors.
 
-If there are missing block definitions, such as Form Block or Schedule Block,
+If there are missing block definitions, such as Form block or Schedule block,
 you have an option to continue, but migrated Landing Pages will come without those blocks.
 
 !!! tip
@@ -111,7 +111,7 @@ You also need to redefine [YAML configuration](../guide/extending/extending_page
 
 !!! caution
 
-    Since v2.2 you no longer need to use services for custom Page Blocks, you can create them using YAML configuration.
+    Since v2.2 you no longer need to use services for custom Page blocks, you can create them using YAML configuration.
 
 The service definition has to be tagged as:
 
