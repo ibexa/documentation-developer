@@ -9,9 +9,9 @@ As explained in the [introduction](rest_api_guide.md), the REST API is based on 
 
 ## Anatomy of REST call
 
-### What we can learn from a GET request?
+### GET request
 
-This verb is used to query the API for information. It is one of the two operations web browsers implement, and the one most commonly used.
+The GET request is used to query the API for information. It is one of the two operations web browsers implement, and the one most commonly used.
 
 ### Request
 
@@ -41,10 +41,10 @@ Accept-Patch: application/vnd.ez.api.ContentUpdate+xml;charset=utf8
 Content-Type: application/vnd.ez.api.ContentInfo+xml
 ```
 
-###### HTTP Code
+###### HTTP code
 
-The API responded here with a standard `200 OK` HTTP response code, which is the expected response code for a typica; GET request.
-Some GET requests, like [getting a Content item's current version,](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#get-current-version) may reply with a `301 Moved permanently` or `307 Temporary redirect` code.
+The API responded here with a standard `200 OK` HTTP response code, which is the expected response code for a typical GET request.
+Some GET requests, like [getting a Content item's current version,](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#get-current-version) may return a `301 Moved permanently` or `307 Temporary redirect` code.
 
 Errors are indicated with HTTP error codes, e.g. `404 Not Found` or `500 Internal Server Error`.
 The [REST specifications](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst) provide the list of every HTTP response code you can expect from implemented resources.
@@ -253,7 +253,7 @@ Note that making the `AND` query for different values of the same criterion type
     The structure for `ContentTypeIdentifierCriterion` with multiple values is slightly
     different in JSON format, because the parser expects keys to be unique.
 
-## Specifying a SiteAccess
+## Specifying SiteAccess
 
 One of the principles of REST is that the same resource (Content item, Location, Content Type, etc.) should be unique.
 It allows caching your REST API using a reverse proxy like Varnish.
@@ -271,7 +271,7 @@ Accept: application/vnd.ez.api.Root+json
 X-Siteaccess: ezdemo_site_admin
 ```
 
-## REST API Authentication
+## REST API authentication
 
 The REST API supports two authentication methods:
 
@@ -280,7 +280,7 @@ The REST API supports two authentication methods:
 
 Session-based is the default authentication method as it is needed for UI.
 
-### Session based authentication
+### Session-based authentication
 
 This authentication method requires a Session cookie to be sent with each request.
 
@@ -365,7 +365,7 @@ It is important to keep the CSRF Token for the duration of the session as it nee
 
 For details, see [Session-based authentication](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#session-based-authentication) in the REST specifications.
 
-### HTTP Basic authentication
+### HTTP basic authentication
 
 To enable HTTP basic authentication, edit `config/packages/security.yaml`, and add/uncomment the following block. Note that this is enabled by default.
 
@@ -419,11 +419,11 @@ A few error codes apply to most resources (if they *are* applicable):
 
 Depending on your client implementation, handle these codes by checking if an error code (4xx or 5xx) was returned instead of the expected 2xx or 3xx.
 
-## REST API Countries list
+## REST API countries list
 
 Countries list is a REST service that gives access to an [ISO-3166](http://en.wikipedia.org/wiki/ISO_3166) formatted list of world countries. It is useful when presenting a country options list from any application.
 
-### Get the list of countries
+### Obtaining list of countries
 
 To send a GET request to the REST API Countries list, provide the Content Type header: `application/vnd.ez.api.CountriesList+xml`.
 
@@ -460,11 +460,11 @@ The **country codes** can be represented as:
 
 - two-letter code (alpha-2) — recommended as the general purpose code
 - three-letter code (alpha-3) — related to the country name
-- three digit numeric code (numeric-3) — useful if you need to avoid using Latin script
+- three-digit numeric code (numeric-3) — useful if you need to avoid using Latin script
 
-For details, see [the ISO-3166 glossary](http://www.iso.org/iso/home/standards/country_codes/country_codes_glossary.htm).
+For details, see the [ISO-3166 glossary.](http://www.iso.org/iso/home/standards/country_codes/country_codes_glossary.htm)
 
-**Body XML Response**
+**Body XML response**
 
 ``` xml
 <CountriesList>
