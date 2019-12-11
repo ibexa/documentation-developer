@@ -416,7 +416,8 @@ Instances of the following deprecated event classes have been replaced:
 |`Twig_Extension`|`Twig\Extension\AbstractExtension`|
 |`Twig_SimpleFunction`|`Twig\TwigFunction`|
 
-Selected deprecated Role Service methods have been removed. For details, see [code cleanup in kernel](#code-cleanup-in-kernel).
+Selected deprecated Role Service and permission-related methods have been removed.
+For details, see [code cleanup in kernel](#code-cleanup-in-kernel).
 
 ## ezpublish-kernel
 
@@ -699,9 +700,15 @@ The following namespaces have been changed:
 
 ### Code cleanup in eZ Platform REST
 
-Selected deprecated Role Service methods have been removed. For details, see [code cleanup in kernel](#code-cleanup-in-kernel).
+Selected deprecated Role Service and permission-related methods have been removed.
+For details, see [code cleanup in kernel](#code-cleanup-in-kernel).
 
 ## ezplatform-richtext
+
+### Code cleanup in eZ Platform RichText
+
+Selected deprecated permission-related methods have been removed.
+For details, see [code cleanup in kernel](#code-cleanup-in-kernel).
 
 ### Input and output converters
 
