@@ -8,7 +8,6 @@
 
 ## Overview
 
-
 ## Notable changes
 
 ### Symfony 4
@@ -88,6 +87,10 @@ User data is now treated as an external storage.
 
 The Repository now uses the SiteAccess-aware layer by default.
 This means Repository objects will now be loaded in the translation corresponding to the SiteAccess.
+
+### REST API
+
+Revealing and hiding content can now be performed via REST API.
 
 ## Deprecations and removals
 
