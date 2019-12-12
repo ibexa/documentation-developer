@@ -3,12 +3,13 @@
 One of the basic design tasks you may need to complete when creating your website is configuring one page to display all of its children.
 For example you can configure a blog displaying all blog posts or a folder showing all articles it contains.
 
-There are two ways to make a Content item display its children:
+There are three ways to make a Content item display its children:
 
 1. [Using the Query Controller](#using-the-query-controller)
+1. [Using the Content query Field Type](#using-the-content-query-field-type)
 1. [Using a Custom Controller](#using-a-custom-controller)
 
-This procedure demonstrates how to use both these methods to display all children of a Content item with the Content Type Folder.
+This procedure demonstrates how to use these three methods to display all children of a Content item with the Content Type Folder.
 
 ## Using the Query Controller
 
@@ -76,6 +77,41 @@ In this case the `controller` key points to the Query Controller's `locationQuer
 ```
 
 This template makes use of the `items` specified in `assign_results_to` to list every child of the folder.
+
+## Using the Content query Field Type
+
+You can also use the same Query Type as above to list the children of a Content item using the Content query Field Type.
+
+To do this, add a Content query Field to your Folder Content Type's definition.
+
+Select "Location children" as the Query type. Provide the `parentLocationId` parameter
+that the Query type requires:
+
+```
+parentLocationId: '@=mainLocation.id'
+```
+
+To customize the display template, in your [standard view configuration](../guide/content_rendering.md#configuring-views-the-viewprovider) file,
+under `content_view`, add a section that indicates the matcher and template to use: 
+
+``` yaml
+content_query_field:
+    folder:
+        match:
+            Identifier\ContentType: folder
+        template: full/folder.html.twig
+```
+
+Then, provide the template in `templates/full/folder.html.twig`.
+The query results are available in the `items` variable:
+
+``` html+twig
+<h1>{{ ez_content_name(content) }}</h1>
+
+{% for item in items %}
+    <h2><a href={{ path('ez_urlalias', {'contentId': item.contentInfo.id}) }}>{{ ez_content_name(item.contentInfo) }}</a></h2>
+{% endfor %}
+```
 
 ## Using a Custom Controller
 
