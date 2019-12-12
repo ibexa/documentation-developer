@@ -407,13 +407,13 @@ For the complete list of error codes and the conditions in which they apply, see
 
 A few error codes apply to most resources (if they *are* applicable):
 
-|Error code|Description|
+|Error code|Error message|Description|
 |----------|-----------|
-|`404 Not Found`|Returned when the request failed because the request object was not found.|
-|`405 Method Not Allowed`|Returned when the requested REST API resource does not support the HTTP verb that was used.|
-|`406 Not Acceptable`|Returned when an accept header sent with the requested is not supported.|
-|`500 Internal Server Error`|The server encountered an unexpected condition, usually an exception, which prevents it from fulfilling the request: database down, permissions or configuration error.|
-|`501 Not Implemented`|Returned when the requested method has not yet been implemented. For eZ Platform, most of Users, User groups, Content items, Locations and Content Types have been implemented. Some of their methods, as well as other features, may return a 501.|
+|`404`|Not Found|Returned when the request failed because the request object was not found.|
+|`405`|Method Not Allowed|Returned when the requested REST API resource does not support the HTTP verb that was used.|
+|`406`|Not Acceptable|Returned when an accept header sent with the requested is not supported.|
+|`500`|Internal Server Error|The server encountered an unexpected condition, usually an exception, which prevents it from fulfilling the request: database down, permissions or configuration error.|
+|`501`|Not Implemented|Returned when the requested method has not yet been implemented. For eZ Platform, most of Users, User groups, Content items, Locations and Content Types have been implemented. Some of their methods, as well as other features, may return a 501.|
 
 #### Error handling in your REST implementation
 
