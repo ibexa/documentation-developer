@@ -125,7 +125,7 @@ final class Type extends GenericType implements FieldValueFormMapperInterface, F
     use eZ\Publish\SPI\FieldType\Value;
     use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
     use EzSystems\EzPlatformContentForms\Data\FieldDefinitionData;
-    use EEzSystems\EzPlatformAdminUi\FieldType\FieldDefinitionFormMapperInterface;
+    use EzSystems\EzPlatformAdminUi\FieldType\FieldDefinitionFormMapperInterface;
     use EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface;
     use Symfony\Component\Form\FormInterface;
     
