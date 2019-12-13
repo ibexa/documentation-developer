@@ -13,13 +13,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 final class Value implements ValueInterface
 
-    /**
+   /**
      * @var float|null
      *
      * @Assert\NotBlank()
      */
-     
-     private $x;
+    private $x;
      
     /**
      * @var float|null
