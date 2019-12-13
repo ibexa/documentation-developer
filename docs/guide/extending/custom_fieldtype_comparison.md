@@ -2,10 +2,10 @@
 
 !!! enterprise
     
-    In the Back Office, you can compare the contents of a Field Type.
-    Comparing is possible only between two versions of the same Field Type that are in the same language.
+    In the Back Office, you can compare the contents of Fields.
+    Comparing is possible only between two versions of the same Field that are in the same language.
     
-    You can add the possibility to compare other Field Types, including the custom ones.
+    You can add the possibility to compare custom and other unsupported Field Types.
     You can base the configuration on the comparison mechanism created for the `ezstring` Field Type.
     
     ## Field Type configuration
@@ -23,12 +23,12 @@
     ```
     
     This method fetches the data to compare and determines which [comparison engines](#comparison-engine) should be used.
-    Therefore, the `ComparisonData` object is specific to the Field Type you want to compare.
+    The `ComparisonData` object is specific to the Field Type you want to compare.
     
     In case of `ezstring`, the implementation is:
     
     ``` php
-    public function getDataToCompare(Value $value): ComparisonData;
+    public function getDataToCompare(Value $value): ComparisonData
     {
         return new TextLine([
             'textLine' => new StringComparisonValue([
@@ -38,8 +38,8 @@
     }
     ```
     
-    Also, the Field Type requires additional configuration (e.g. `comparable_fieldtypes.yaml`).
-    An exemplary configuration, in this case for `ezstring`, looks the following way:
+    Also, the Field Type must be registered as a service and tagged as comparable (e.g. `comparable_fieldtypes.yaml`).
+    An example configuration, in this case for `ezstring`, looks the following way:
     
     ``` yaml
     EzSystems\EzPlatformContentComparison\FieldType\TextLine\Comparable:
@@ -49,10 +49,10 @@
     
     ## Comparison engine
     
-    The comparison engine handles the operations required for comparing the contents of Field Types.
+    The comparison engine handles the operations required for comparing the contents of Fields.
     Note that each Field Type requires a separate comparison engine.
     
-    When creating a custom engine, ensure that it implements the `\EzSystems\EzPlatformContentComparison\Engine\ComparisonEngine` interface:
+    When creating a custom engine, ensure that it implements the `EzSystems\EzPlatformContentComparison\Engine\ComparisonEngine` interface:
     
     ``` php
     namespace EzSystems\EzPlatformContentComparison\Engine;
@@ -68,7 +68,7 @@
     }
     ```
     
-    The engine requires also configuration similar to the following one:
+    The engine must also be registered as a service:
     
     ``` yaml
     
@@ -77,11 +77,11 @@
         - { name: ezplatform.field_type.comparable.engine, supported_type: EzSystems\EzPlatformContentComparison\Comparison\Field\TextLine }
     ```
     
-    When configuring the engines, ensure that you provided both `ezplatform.field_type.comparable.engine` and `supported_type` tags.
+    When configuring the engines, ensure to tag them with both the `ezplatform.field_type.comparable.engine` and `supported_type` tags.
     
     ### VersionDiff
     
-    For the comparison purposes, `VersionDiff` is built by `ContentComparisonService::CompareVersions`.
+    `VersionDiff` is built by `ContentComparisonService::CompareVersions`.
     It consists of an array of `EzSystems\EzPlatformContentComparison\Values\FieldValueDiff`.
     It is an object that holds `EzSystems\EzPlatformContentComparison\Result\ComparisonResult`.
     It is specific to a Field Type because different Field Types have distinct way of showing the difference between their versions. 
