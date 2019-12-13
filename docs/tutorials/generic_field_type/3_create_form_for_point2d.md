@@ -38,7 +38,7 @@ The FormMapper adds the Field definitions into Symfony forms using the `add()` m
 The `FieldValueFormMapperInterface` provides an edit form for your Field Type in the administration interface.
 For more information about the FormMappers, see [Field Type form and template](../../api/field_type_form_and_template.md).
 
-First, implement a `FieldValueFormMapperInterface` interface (`EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface`) to Field Type definition in the `src/FieldType/Point2D/Type.php`.
+First, implement a `FieldValueFormMapperInterface` interface (`EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface`) to Field Type definition in the `src/FieldType/Point2D/Type.php`.
 
 Next, implement a `mapFieldValueForm()` method and invoke `FormInterface::add` method with the following arguments (highlighted lines):
 
@@ -54,8 +54,8 @@ namespace App\FieldType\Point2D;
 
 use App\Form\Type\Point2DType;
 use eZ\Publish\SPI\FieldType\Generic\Type as GenericType;
-use EzSystems\RepositoryForms\Data\Content\FieldData;
-use EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface;
+use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
+use EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface;
 use Symfony\Component\Form\FormInterface;
 
 final class Type extends GenericType implements FieldValueFormMapperInterface

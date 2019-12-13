@@ -73,7 +73,7 @@ final class Value implements ValueInterface
     private $x;
     /** @var float|null */
     private $y;
-    public function __construct(?float $x, ?float $y)
+    public function __construct(?float $x = null, ?float $y = null)
     {
         $this->x = $x;
         $this->y = $y;

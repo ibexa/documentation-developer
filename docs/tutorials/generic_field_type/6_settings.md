@@ -22,9 +22,9 @@ use App\Form\Type\Point2DType;
 use eZ\Publish\API\Repository\Values\ContentType\FieldDefinition;
 use eZ\Publish\SPI\FieldType\Generic\Type as GenericType;
 use eZ\Publish\SPI\FieldType\Value;
-use EzSystems\RepositoryForms\Data\Content\FieldData;
-use EzSystems\RepositoryForms\Data\FieldDefinitionData;
-use EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface;
+use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
+use EzSystems\EzPlatformContentForms\Data\FieldDefinitionData;
+use EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface;
 use Symfony\Component\Form\FormInterface;
 
 final class Type extends GenericType
@@ -123,10 +123,10 @@ final class Type extends GenericType implements FieldValueFormMapperInterface, F
     use eZ\Publish\API\Repository\Values\ContentType\FieldDefinition;
     use eZ\Publish\SPI\FieldType\Generic\Type as GenericType;
     use eZ\Publish\SPI\FieldType\Value;
-    use EzSystems\RepositoryForms\Data\Content\FieldData;
-    use EzSystems\RepositoryForms\Data\FieldDefinitionData;
+    use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
+    use EzSystems\EzPlatformContentForms\Data\FieldDefinitionData;
     use EEzSystems\EzPlatformAdminUi\FieldType\FieldDefinitionFormMapperInterface;
-    use EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface;
+    use EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface;
     use Symfony\Component\Form\FormInterface;
     
     final class Type extends GenericType implements FieldValueFormMapperInterface, FieldDefinitionFormMapperInterface
