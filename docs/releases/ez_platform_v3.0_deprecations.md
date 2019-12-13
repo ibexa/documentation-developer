@@ -814,4 +814,5 @@ The following locations have been changed:
 
 Forms for content creation have been moved to a new `ezplatform-content-forms` package.
 
-`repository-forms` remains as an additional layer ensuring that your custom implementations that use the package will still work.
+`repository-forms` remains as an additional layer ensuring that your custom implementations that use the package will still work
+if you add the package manually to your `composer.json`.
