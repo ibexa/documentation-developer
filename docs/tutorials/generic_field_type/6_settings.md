@@ -23,7 +23,7 @@ use eZ\Publish\API\Repository\Values\ContentType\FieldDefinition;
 use eZ\Publish\SPI\FieldType\Generic\Type as GenericType;
 use eZ\Publish\SPI\FieldType\Value;
 use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
-use EzSystems\EzPlatformContentForms\Data\FieldDefinitionData;
+use EzSystems\EzPlatformAdminUi\Form\Data\FieldDefinitionData;
 use EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface;
 use Symfony\Component\Form\FormInterface;
 
@@ -102,7 +102,7 @@ final class Type extends GenericType implements FieldValueFormMapperInterface, F
 
 // ...
 
-    public function mapFieldDefinitionForm(FormInterface $fieldDefinitionForm, FieldDefinitionData $data)
+    public function mapFieldDefinitionForm(FormInterface $fieldDefinitionForm, FieldDefinitionData $data): void
     {
         $fieldDefinitionForm->add('fieldSettings', Point2DSettingsType::class, [
             'label' => false
@@ -124,7 +124,7 @@ final class Type extends GenericType implements FieldValueFormMapperInterface, F
     use eZ\Publish\SPI\FieldType\Generic\Type as GenericType;
     use eZ\Publish\SPI\FieldType\Value;
     use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
-    use EzSystems\EzPlatformContentForms\Data\FieldDefinitionData;
+    use EzSystems\EzPlatformAdminUi\Form\Data\FieldDefinitionData;
     use EzSystems\EzPlatformAdminUi\FieldType\FieldDefinitionFormMapperInterface;
     use EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface;
     use Symfony\Component\Form\FormInterface;
@@ -155,7 +155,7 @@ final class Type extends GenericType implements FieldValueFormMapperInterface, F
             ]);
         }
         
-        public function mapFieldDefinitionForm(FormInterface $fieldDefinitionForm, FieldDefinitionData $data)
+        public function mapFieldDefinitionForm(FormInterface $fieldDefinitionForm, FieldDefinitionData $data): void
         {
             $fieldDefinitionForm->add('fieldSettings', Point2DSettingsType::class, [
                 'label' => false
