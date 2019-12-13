@@ -139,6 +139,7 @@ pages:
             - 'Extending the Online Editor': 'guide/extending/extending_online_editor.md'
             - 'Extending Form Builder': 'guide/extending/extending_form_builder.md'
             - 'Extending Workflow': 'guide/extending/extending_workflow.md'
+            - 'Creating custom Field Type': 'guide/extending_field_type.md'
             - 'Creating custom Page blocks': 'guide/extending/extending_page.md'
             - 'Creating custom richtext blocks': 'guide/extending/richtext_block.md'
             - 'Creating custom drop-downs': 'guide/extending/creating_custom_dropdowns.md'
