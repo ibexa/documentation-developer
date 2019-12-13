@@ -121,7 +121,7 @@ final class HelloWorldType extends AbstractType
 ```
 
 Now you will map Field definitions into Symfony forms with FormMapper.
-Add `FieldValueFormMapperInterface` interface (`EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface`)
+Add `FieldValueFormMapperInterface` interface (`EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface`)
 to the Field Type definition in `src/FieldType/HellowWorld/Type.php`.
 
 ```php
@@ -130,8 +130,8 @@ namespace App\FieldType\HelloWorld;
 
 use App\Form\Type\HelloWorldType;
 use eZ\Publish\SPI\FieldType\Generic\Type as GenericType;
-use EzSystems\RepositoryForms\Data\Content\FieldData;
-use EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface;
+use EzSystems\EzPlatformContentForms\Data\Content\FieldDataa;
+use EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface;
 use Symfony\Component\Form\FormInterface;
 
 final class Type extends GenericType implements FieldValueFormMapperInterface
