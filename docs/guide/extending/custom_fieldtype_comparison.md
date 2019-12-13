@@ -53,10 +53,6 @@ Note that each Field Type requires a separate comparison engine.
 When creating a custom engine, ensure that it implements the `\EzSystems\EzPlatformContentComparison\Engine\ComparisonEngine` interface:
 
 ``` php
-<?php
-
-declare(strict_types=1);
-
 namespace EzSystems\EzPlatformContentComparison\Engine;
 
 use EzSystems\EzPlatformContentComparison\Comparison\ComparisonData;
