@@ -96,7 +96,7 @@ services:
 
 ## Change format on the fly
 
-To change the format on the fly, you need to add a constructor to `src/FieldType/Point2D/Value.php`:
+To change the format on the fly, you need to replace the constructor in `src/FieldType/Point2D/Value.php`:
 
 ```php
 public function __construct(array $coords = [])
