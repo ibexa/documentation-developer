@@ -111,7 +111,7 @@ class MyService
 
 Add the user checker to firewall by adding the following line to `config/packages/security.yaml`:
 
-``` yaml
+``` yaml hl_lines="5"
 security:
     firewalls:
         ezpublish_front:
