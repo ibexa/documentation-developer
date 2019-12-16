@@ -7,7 +7,7 @@ This is due to the switch from Symfony 3 to Symfony 4, as well as due to depreca
 
 !!! tip
 
-    For details on all changes related to the switch to Symfony 4 see [Symfony 4 upgrade doc.](https://github.com/symfony/symfony/blob/master/UPGRADE-4.0.md)
+    For details on all changes related to the switch to Symfony 4, see [Symfony 4 upgrade doc.](https://github.com/symfony/symfony/blob/master/UPGRADE-4.0.md)
 
 Symfony 4 changes the organization of your project into folders and bundles.
 When updating to eZ Platform v3.0 you need to move your files and modify file paths and namespace references.
@@ -187,13 +187,13 @@ Change the respective namespaces if your custom code extends any of the followin
 
 ### RichText and Online Editor
 
-Online Editor front-end code and assets (such as JS, CSS, fonts, etc.) [have been moved from `ezplatform-admin-ui` to `ezplatform-richtext`](ez_platform_v3.0_deprecations.md#online-editor).
+Online Editor front-end code and assets (such as JS, CSS, fonts, etc.) have been [moved from `ezplatform-admin-ui` to `ezplatform-richtext`](ez_platform_v3.0_deprecations.md#online-editor).
 
 The `ezrichtext` Field Type has been [moved from `ezpublish-kernel` to `ezplatform-richtext`](ez_platform_v3.0_deprecations.md#richtext).
 
 ### Repository forms
 
-Content Type editing [has been moved from `repository-forms` to `ezplatform-admin-ui`](ez_platform_v3.0_deprecations.md#content-type-forms).
+Content Type editing has been [moved from `repository-forms` to `ezplatform-admin-ui`](ez_platform_v3.0_deprecations.md#content-type-forms).
 
 Forms for content creation have been [moved from `repository-forms` to `ezplatform-content-forms`](ez_platform_v3.0_deprecations.md#repository-forms).
 
