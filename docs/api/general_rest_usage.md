@@ -173,7 +173,7 @@ In addition to the usual GET, POST, PUT, and DELETE HTTP verbs, the API supports
 - PUBLISH
 
 They should be recognized by most of the HTTP servers. 
-If you the server does not recognize the custom methods you use, you can customize a standard verb (e.g. POST or PUT) with the `X-HTTP-Method-Override` header.
+If the server does not recognize the custom methods you use, you can customize a standard verb (e.g. POST or PUT) with the `X-HTTP-Method-Override` header.
 
 **PATCH HTTP request**
 
@@ -401,14 +401,14 @@ Error handling in the REST API is fully based on the HTTP error codes.
 The most common are: `401 Unauthorized`, `404 Not Found`, or `500 Internal Server Error`.
 The REST API uses them along with a few more, to allow proper error handling.
 
-For the complete list of error codes and the conditions in which they apply, see the [reference documentation](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst).
+For the complete list of error codes and the conditions in which they apply, see the [reference documentation.](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst)
 
 ### General error codes
 
 A few error codes apply to most resources (if they *are* applicable):
 
 |Error code|Error message|Description|
-|----------|-----------|
+|----------|-----------|-------------|
 |`404`|Not Found|Returned when the request failed because the request object was not found.|
 |`405`|Method Not Allowed|Returned when the requested REST API resource does not support the HTTP verb that was used.|
 |`406`|Not Acceptable|Returned when an accept header sent with the requested is not supported.|
@@ -425,7 +425,7 @@ Countries list is a REST service that gives access to an [ISO-3166](http://en.wi
 
 ### Obtaining list of countries
 
-To send a GET request to the REST API Countries list, provide the Content Type header: `application/vnd.ez.api.CountriesList+xml`.
+To send a GET request to the REST API countries list, provide the Content Type header: `application/vnd.ez.api.CountriesList+xml`.
 
 **Countries list request**
 
