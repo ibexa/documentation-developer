@@ -153,6 +153,7 @@ pages:
             - 'Creating custom Page blocks': 'guide/extending/extending_page.md'
             - 'Creating custom richtext blocks': 'guide/extending/richtext_block.md'
             - 'Creating custom drop-downs': 'guide/extending/creating_custom_dropdowns.md'
+            - 'Creating custom Field Type comparison': 'guide/extending/custom_fieldtype_comparison.md'
             - 'Creating drag and drop interface': 'guide/extending/drag_and_drop.md'
         - 'Service container': 'guide/service_container.md'
         - 'Recommendation': 'guide/personalization.md'

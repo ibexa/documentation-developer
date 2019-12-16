@@ -367,6 +367,7 @@ The following tables give an overview of the main eZ Platform bundles.
     |ezplatform-ee-installer|provides `ezplatform:install` Symfony console command which is the installer for eZ Platform Enterprise v2|
     |ezplatform-http-cache-fastly|extends ezplatform-http-cache to support Fastly, for use on Platform.sh PE or standalone|
     |ezplatform-calendar|extends the Back Office by adding the calendar tab with the calendar widget|
+    |ezplatform-content-comparison|allows comparing between two versions of the same Field|
 
 ### Optional bundles
 
