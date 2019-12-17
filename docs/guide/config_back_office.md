@@ -151,8 +151,8 @@ ezplatform:
 
 ## Universal Discovery Widget (UDW) configuration
 
-The Universal Discovery Widget module (UDW) can be found in [Extending modules.](extending/extending_modules.md#universal-discovery-widget-udw)
+The Universal Discovery Widget module (UDW) can be found in [Extending modules](extending/extending_modules.md#universal-discovery-widget-udw).
 
 ## Customizing calendar widget
 
-For details on adding custom events to the calendar widget and customizing their appearance, see [customizing Calendar widget](customizing_calendar.md). 
+For details on adding custom events to the calendar widget and customizing their appearance, see [customizing Calendar widget](extending/customizing_calendar.md). 
