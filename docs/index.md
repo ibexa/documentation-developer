@@ -1,6 +1,6 @@
 # eZ Platform developer documentation
 
-Welcome to eZ Platform developer documentation, unless otherwise noted this documentation covers pure eZ Platform and eZ Platform Enterpise features only. For other sofware & solutions from eZ Systems, see "Further documentation" below.
+Welcome to eZ Platform & eZ Platform Enterprise developer documentation.
 
 <div class="card">
     <div class="card-body">
