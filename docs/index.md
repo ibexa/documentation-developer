@@ -1,4 +1,4 @@
- # eZ Platform and eZ Platform Enterprise developer documentation
+# eZ Platform and eZ Platform Enterprise developer documentation
 
 &nbsp;
 
