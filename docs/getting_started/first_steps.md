@@ -36,16 +36,17 @@ To display Content in the front page you need to define content views and templa
 
 Content views decide which templates and controllers are used to display content.
 
-1\. In `config/packages/ezplatform.yaml`, under `ezplatform.system`, uncomment the `site_group` key
-and add the following block (pay attention to indentation: `content_view` should be one level below `site_group`):
+1\. In `config/packages/ezplatform.yaml`, under `ezplatform.system`
+add the following block (pay attention to indentation: `site_group` should be one level below `system`):
 
 ``` yaml
-content_view:
-    full:
-        blog_post:
-            template: full\blog_post.html.twig
-            match:
-                Identifier\ContentType: [blog_post]
+site_group:
+    content_view:
+        full:
+            blog_post:
+                template: full\blog_post.html.twig
+                match:
+                    Identifier\ContentType: [blog_post]
 ```
 
 Content view templates use the [Twig templating engine](https://twig.symfony.com/).
@@ -87,7 +88,7 @@ SiteAccesses are used depending on matching rules. They are set up in YAML confi
 ezplatform:
     # ...
     siteaccess:
-        list: [site, admin, de]
+        list: [site, de]
         groups:
             site_group: [site, de]
 ```
@@ -167,7 +168,7 @@ ezdesign:
 
 2\. In configuration of the `de` SiteAccess (under `ezplatform.system.de`) add: `design: de_design`
 
-3\. Under `site_group`, add `design: site_design`
+3\. Under `site`, add `design: site_design`
 
 4\. Go back to the `content_view` configuration for the blog post. Change the path to the template so that it points to the folder for the correct design:
 `template: '@ezdesign\full\blog_post.html.twig'`
@@ -198,19 +199,19 @@ Call the group "Bloggers".
 
 3\. Go to Admin > Roles. Create a new Role called "Blogger".
 
-4\. Enter the Role and add Policies that will allow the User to log in:
+4\. Add Policies that will allow the User to log in:
 
-- `user/login`
-- `content/read`
-- `content/versionread`
-- `section/view`
-- `content/reverserelatedlist`
+- `User/Login`
+- `Content/Read`
+- `Content/Versionread`
+- `Section/View`
+- `Content/Reverserelatedlist`
 
 5\. Now add Policies that will allow the User to create and publish content, limited to Blog Posts:
 
-- `content/create` with Limitation for Class (Content Type) Blog Post
-- `content/edit` with Limitation for Class (Content Type) Blog Post
-- `content/publish` with Limitation for Class (Content Type) Blog Post
+- `Content/Create` with Limitation for Content Type Blog Post
+- `Content/Edit` with Limitation for Content Type Blog Post
+- `Content/Publish` with Limitation for Content Type Blog Post
 
 ![Adding Limitations to a Policy](img/first-steps-policy-limitations.png)
 
