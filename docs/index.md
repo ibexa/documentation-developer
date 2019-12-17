@@ -1,6 +1,6 @@
-# eZ Platform developer documentation
+ # eZ Platform and eZ Platform Enterprise developer documentation
 
-Welcome to eZ Platform & eZ Platform Enterprise developer documentation.
+&nbsp;
 
 <div class="card">
     <div class="card-body">
