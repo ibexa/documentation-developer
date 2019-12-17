@@ -91,7 +91,7 @@ For full list of changes see issue list in JIRA:  [44 issues](https://jira.ez.n
 
 ## Updating
 
-To update to this version, follow the [Updating eZ Platform](updating_ez_platform.md) guide and use `v1.5.0` as `<version>`.
+To update to this version, follow the [Updating eZ Platform](../updating/updating_ez_platform.md) guide and use `v1.5.0` as `<version>`.
 
 ### New eZ packages in this release
 

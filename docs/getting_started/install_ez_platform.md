@@ -4,8 +4,8 @@
 
     Installation for production is only supported on Linux.
 
-    To install eZ Platform for development on Mac OS or Windows,
-    see [a cookbook recipe on installing on those systems](../cookbook/installing-on-mac-os-and-windows.md).
+    To install eZ Platform for development on macOS or Windows,
+    see [Install on macOS or Windows](../community_resources/installing-on-mac-os-and-windows.md).
 
 ## Prepare work environment
 
@@ -57,7 +57,7 @@ There are two ways to get eZ Platform. The result is the same, so you can use th
 
 !!! enterprise "Authentication tokens for eZ Enterprise"
 
-    When installing eZ Enterprise, you need to [set up authentication tokens](install_ez_enterprise.md#setting-up-authentication-tokens-for-ez-enterprise) for use with Composer.
+    If you are installing eZ Enterprise, from this point refer to [Install eZ Enterprise](install_ez_enterprise.md).
 
 ### A. Download eZ Platform
 
@@ -109,18 +109,33 @@ composer create-project --keep-vcs ezsystems/ezplatform .
     composer create-project --keep-vcs ezsystems/ezplatform . ^2.3.1
     ```
 
-## Provide installation parameters
+## Change installation parameters
 
-After a moment the installer will ask you to provide a few parameters:
+At this point you can configure your database via the `DATABASE_URL` in the `.env` file:
+`DATABASE_URL=mysql://user:password@host:port/name`.
 
-1. Choose a [secret](http://symfony.com/doc/current/reference/configuration/framework.html#secret); it should be a random string, made up of up to 32 characters, numbers, and symbols. This is used by Symfony when generating [CSRF tokens](https://symfony.com/doc/current/security/csrf.html), [encrypting cookies](http://symfony.com/doc/current/cookbook/security/remember_me.html), and for creating signed URIs when using [ESI (Edge Side Includes)](https://symfony.com/doc/current/http_cache/esi.html).
-1. You can accept the default options for `database_driver`, `database_host` and `database_port`.
-1. Select a `database_name` or accept the default one.
-1. Provide your `database_user` and `database_password`.
+Choose a [secret](http://symfony.com/doc/4.3/reference/configuration/framework.html#secret)
+and provide it in the `APP_SECRET` parameter in `.env`.
+It should be a random string, made up of up to 32 characters, numbers, and symbols.
+This is used by Symfony when generating [CSRF tokens](https://symfony.com/doc/4.3/security/csrf.html),
+[encrypting cookies](http://symfony.com/doc/current/cookbook/security/remember_me.html),
+and for creating signed URIs when using [ESI (Edge Side Includes)](https://symfony.com/doc/4.3/http_cache/esi.html).
+
+Alternatively, you can also change individual installation parameters in `.env`.
 
 !!! tip
 
-    If you want to change any of these parameters later, you can do it in the `.env` file.
+    It is recommended to store the database credentials in your `.env.local` file and not commit it to the Version Control System.
+
+The configuration requires providing the following parameters:
+
+- `DATABASE_USER`
+- `DATABASE_PASSWORD`
+- `DATABASE_NAME`
+- `DATABASE_HOST`
+- `DATABASE_PORT`
+- `DATABASE_PLATFORM` —  prefix for distinguishing the database you are connecting to (e.g. `mysql` or `pgsql`)
+- `DATABASE_DRIVER` — driver used by Doctrine to connect to the database (e.g. `pdo_mysql` or `pdo_pgsql`)
 
 !!! tip "Using PostgreSQL"
 
@@ -189,7 +204,7 @@ Future files and directories created by these two users will need to inherit tho
     You must also make sure that the web server cannot interpret files in the `var` directory through PHP. To do so, follow the instructions on [setting up a virtual host below](#set-up-virtual-host).
 
 To set up permissions for production, it is recommended to use an ACL (Access Control List).
-See [Setting up or Fixing File Permissions](http://symfony.com/doc/3.4/setup/file_permissions.html) in Symfony documentation
+See [Setting up or Fixing File Permissions](http://symfony.com/doc/4.3/setup/file_permissions.html) in Symfony documentation
 for information on how to do it on different systems.
 
 ### Set up virtual host
@@ -238,5 +253,5 @@ Open your project in the browser and you should see the welcome page.
 !!! tip "eZ Launchpad for quick deployment"
 
     If you want to get your eZ Platform installation up and running quickly,
-    you can use Docker-based [eZ Launchpad](https://ezsystems.github.io/launchpad/)
+    you can use Docker-based [eZ Launchpad](https://ezsystems.github.io/launchpad/), supported by the eZ Community,
     which takes care of the whole setup for you.

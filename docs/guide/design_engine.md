@@ -82,7 +82,7 @@ ezdesign:
         # "theme1" will be tried first. If a template cannot be found in "theme1", "theme2" will be tried out.
         my_design: [theme1, theme2]
 
-ezpublish:
+ezplatform:
     # ...
     system:
         my_siteaccess:
@@ -98,20 +98,9 @@ ezpublish:
 
 ## Referencing current design
 
-It is possible to reference current design in order to inject it into a service.
-To do so, you just need to reference the `$design$` dynamic setting:
-
-```yaml
-services:
-    my_service:
-        class: Foo\Bar
-        arguments: ['$design$']
-```
-
-It is also possible to use the `ConfigResolver` service (`ezpublish.config.resolver`):
+To reference current design in your code, use the `ConfigResolver` service (`ezpublish.config.resolver`):
 
 ```php
-// In a controller
 $currentDesign = $this->getConfigResolver->getParameter('design');
 ```
 
@@ -199,7 +188,7 @@ In order to use the configured design with templates, you need to use the **`@ez
 You can also use `@ezdesign` notation in your eZ template selection rules:
 
 ```yaml
-ezpublish:
+ezplatform:
     system:
         my_siteaccess:
             content_view:
@@ -215,8 +204,7 @@ ezpublish:
 ### Fallback order
 
 The default fallback order is:
-- Application view directory: `app/Resources/views/`
-- Application theme directory: `app/Resources/views/themes/<theme_name>/`
+- Application theme directory: `templates/themes/<theme_name>/`
 - Bundle theme directory: `src/<bundle_directory>/Resources/views/themes/<theme_name>/`
 
 !!! note
@@ -247,7 +235,7 @@ ezdesign:
 
 #### Additional override paths
 
-It is possible to add additional global override directories, similar to `app/Resources/views/`.
+It is possible to add additional global override directories:
 
 ```yaml
 ezdesign:
@@ -255,10 +243,6 @@ ezdesign:
         - '%kernel.root_dir%/another_override_directory'
         - /some/other/directory
 ```
-
-!!! note
-
-    `app/Resources/views/` will **always** be the top level override directory.
 
 ### PHPStorm support
 

@@ -37,7 +37,7 @@ If you do not have a language defined in the browser, it will be selected based 
 To read more about language managing in eZ Platform, see the following doc pages:
 
 - [Back Office languages](../guide/internationalization/#back-office-languages)
-- [Setting up multi-language SiteAccesses and corresponding translations](../cookbook/setting_up_multi_language_siteaccesses/)
+- [Multi-language SiteAccesses and corresponding translations](../guide/multi_language_siteaccesses.md)
 
 #### How can I apply patches to the installation?
 
@@ -99,7 +99,7 @@ In order to avoid merge conflicts on important configuration settings during upg
 moving as much as possible of your configuration to your own files can be a good idea.
 
 All project-specific parameters should be kept in separate files.
-For example, configuration for Landing Page Blocks could be placed in `config/packages/landing_page_blocks.yaml`.
+For example, configuration for Page Blocks could be placed in `config/packages/landing_page_blocks.yaml`.
 You can also place it in `config/landing_page_blocks.yaml`, which should be imported in `config/ezplatform.yaml`:
 
     ```yaml

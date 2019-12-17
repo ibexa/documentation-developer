@@ -28,9 +28,9 @@ Add a new line either before or after this one:
 $loader->load('fieldtypes.yaml');
 ```
 
-Like most API components, Field Types use the [Symfony service tag mechanism](http://symfony.com/doc/3.4/service_container/tags.html).
+Like most API components, Field Types use the [Symfony service tag mechanism](http://symfony.com/doc/4.3/service_container/tags.html).
 
-A service can be assigned one or several tags, with specific parameters. When the dependency injection container is compiled into a PHP file, tags are read by `CompilerPass` implementations that add extra handling for tagged services. Each service tagged as `ezpublish.fieldType` is added to a [registry](http://martinfowler.com/eaaCatalog/registry.html) using the alias argument as its unique identifier (`ezstring`, `ezxmltext`, etc.). Each Field Type must also inherit from the abstract `ezpublish.fieldType` service. This ensures that the initialization steps shared by all Field Types are executed.
+A service can be assigned one or several tags, with specific parameters. When the dependency injection container is compiled into a PHP file, tags are read by `CompilerPass` implementations that add extra handling for tagged services. Each service tagged as `ezplatform.field_type` is added to a [registry](http://martinfowler.com/eaaCatalog/registry.html) using the alias argument as its unique identifier (`ezstring`, `ezxmltext`, etc.). Each Field Type must also inherit from the abstract `ezplatform.field_type` service. This ensures that the initialization steps shared by all Field Types are executed.
 
 Now you can create a YAML file dedicated to the bundle: `Resources/config/fieldtypes.yaml`
 
@@ -40,7 +40,7 @@ services:
         parent: ezpublish.fieldType
         class: EzSystems\TweetFieldTypeBundle\eZ\Publish\FieldType\Tweet\Type
         tags:
-            - {name: ezpublish.fieldType, alias: eztweet}
+            - {name: ezplatform.field_type, alias: eztweet}
             - {name: ezpublish.fieldType.nameable, alias: eztweet}
         arguments: ['@ezsystems.tweetbundle.twitter.client']
 ```

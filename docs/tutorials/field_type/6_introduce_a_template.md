@@ -8,11 +8,11 @@ In order to display data of the Field Type from templates, you need to create an
 
 !!! tip
 
-    See documentation about [Field Type templates](../../api/field_type_form_and_template.md) and about [importing settings from a bundle](../../cookbook/importing_settings_from_a_bundle.md).
+    See documentation about [Field Type templates](../../api/field_type_form_and_template.md) and about [importing settings from a bundle](../../guide/bundles.md#importing-configuration-from-a-bundle).
 
 In short, such a template must:
 
-- extend `EzPublishCoreBundle::content_fields.html.twig`
+- extend `@EzPublishCore/content_fields.html.twig`
 - define a dedicated Twig block for the type, named by convention `<TypeIdentifier_field>`, in this case, `eztweet_field`
 - be registered in parameters
 
@@ -29,21 +29,21 @@ A basic template (`TweetFieldTypeBundle/Resources/views/fields/eztweet.html.twig
 
 ``` html+twig
 {% block eztweet_field %}
-    {% spaceless %}
+    {% apply spaceless %}
         {{ field.value.contents|raw }}
-    {% endspaceless %}
+    {% endapply %}
 {% endblock %}
 ```
 
 `field.value.contents` is piped through the `raw` twig operator, since the variable contains HTML code.
 Without it, the HTML markup would be visible directly, because Twig escapes variables by default.
-Notice that the code is nested within a `spaceless` tag, so that you can format the template in a readable manner
+Notice that the code is nested within a `apply spaceless` tag, so that you can format the template in a readable manner
 without jeopardizing the display with unwanted spaces.
 
 ### Using the content field helpers
 
 Even though the above will work just fine, a few helpers will enable you to get something a bit more flexible.
-The [EzPublishCoreBundle::content_fields.html.twig](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/views/content_fields.html.twig) template,
+The [@EzPublishCore/content_fields.html.twig](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/views/content_fields.html.twig) template,
 where the native Field Type templates are implemented, provides a few helpers: `simple_block_field`, `simple_inline_field` and `field_attributes`.
 The first two are used to display a Field either as a block or inline.
 `field_attributes` makes it easier to use the `attr` variable that contains additional (HTML) attributes for the field.
@@ -55,15 +55,15 @@ Then, create a `field_value` variable that will be used by the helper to print o
 The helper will use `field_attributes` to add the HTML attributes to the generated `div`.
 
 ``` html+twig
-{% extends "EzPublishCoreBundle::content_fields.html.twig" %}
+{% extends "@EzPublishCore/content_fields.html.twig" %}
 
 {% block eztweet_field %}
-    {% spaceless %}
+    {% apply spaceless %}
         {% set field_value %}
             {{ field.value.contents|raw }}
         {% endset %}
         {{ block( 'simple_block_field' ) }}
-    {% endspaceless %}
+    {% endapply %}
 {% endblock %}
 ```
 
@@ -97,6 +97,10 @@ class EzSystemsTweetFieldTypeExtension extends Extension implements PrependExten
 }
 ```
 
+!!! note
+
+    You must place your bundle before EzPlatformCoreBundle in `bundles.php`.
+
 Next, provide the template mapping in `Resources/config/ez_field_templates.yaml`:
 
 ``` yml
@@ -106,5 +110,5 @@ system:
             - {template: EzSystemsTweetFieldTypeBundle:fields:eztweet.html.twig, priority: 0}
 ```
 
-Notice that you do not need to provide the `ezpublish` YAML block here.
-This is because you already import the configuration under the `ezpublish` namespace in the `prepend` method.
+Notice that you do not need to provide the `ezplatform` YAML block here.
+This is because you already import the configuration under the `ezplatform` namespace in the `prepend` method.

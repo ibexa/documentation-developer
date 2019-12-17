@@ -1,10 +1,10 @@
-# Step 4 - Creating a custom block
+# Step 4 — Create a custom block
 
 !!! tip
 
-    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/ezstudio-beginner-tutorial/tree/v2-master).
+    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/tree/v3-step4).
 
-The last of the planned Page elements is to create a custom block.
+This step will guide you through creating a custom block.
 The custom block will display a randomly chosen Content item from a selected folder.
 
 To create a custom block from scratch you need four elements:
@@ -16,35 +16,34 @@ To create a custom block from scratch you need four elements:
 
 ### Block configuration
 
-In `app/config/layouts.yaml` add the following block under the `blocks` key:
+In `config/packages/ezplatform_page_fieldtype.yaml` add the following block under the `blocks` key:
 
 ``` yaml hl_lines="10"
-blocks:
-    random:
-        name: Random block
-        thumbnail: assets/images/blocks/random_block.svg
-        views:
-            random:
-                template: blocks/random/default.html.twig
-                name: Random Content Block View
-        attributes:
-            parent:
-                type: embed
-                name: Parent
-                validators:
-                    not_blank:
-                        message: You must provide value
-                    regexp:
-                        options:
-                            pattern: '/[0-9]+/'
-                        message: Choose a Content item
+random:
+    name: Random block
+    thumbnail: /assets/images/blocks/random_block.svg#random
+    views:
+        random:
+            template: blocks/random/default.html.twig
+            name: Random Content Block View
+    attributes:
+        parent:
+            type: embed
+            name: Parent
+            validators:
+                not_blank:
+                    message: You must provide value
+                regexp:
+                    options:
+                        pattern: '/[0-9]+/'
+                    message: Choose a Content item
 ```
 
 This configuration defines one attribute, `parent`. You will use it to select the folder containing tips.
 
 ### Block template
 
-You also need to create the block template, `app/Resources/views/blocks/random/default.html.twig`:
+You also need to create the block template, `templates/blocks/random/default.html.twig`:
 
 ``` html+twig
 <div class="row random-block">
@@ -58,14 +57,14 @@ You also need to create the block template, `app/Resources/views/blocks/random/
 
 ### Block listener
 
-Block listener provides the logic for the block. It is contained in `src/AppBundle/Event/RandomBlockListener.php`:
+Block listener provides the logic for the block. It is contained in `src/Event/RandomBlockListener.php`:
 
 ``` php
 <?php
 
 declare(strict_types=1);
 
-namespace AppBundle\Event;
+namespace App\Event;
 
 use eZ\Publish\API\Repository\Values\Content\Location;
 use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Renderer\BlockRenderEvents;
@@ -181,23 +180,12 @@ private function findContentItems(Location $location): array
 }
 ```
 
-### Add the listener to services
-
-Finally, you need to add the listener as a service. Add the following configuration to `app/config/services.yaml` under the `services` key:
-
-``` yaml
-services:
-    AppBundle\Event\RandomBlockListener:
-        tags:
-            - { name: kernel.event_subscriber }
-```
-
 At this point the new custom block is ready to be used.
 
 You're left with the last cosmetic changes. First, the new Block has a broken icon in the Elements menu in Page mode.
-This is because you haven't provided this icon yet. If you look back to the YAML configuration, you can see the icon file defined as `random_block.svg` (line 4). Download [the provided file](img/enterprise_tut_random_block.svg) and place it in `web/assets/images/blocks`.
+This is because you haven't provided this icon yet. If you look back to the YAML configuration, you can see the icon file defined as `random_block.svg` (line 4). Download [the provided file](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step4/public/assets/images/blocks/random_block.svg) and place it in `public/assets/images/blocks`.
 
-Finally, add some styling for the new block. Add the following to the end of the `web/assets/css/style.css` file:
+Finally, add some styling for the new block. Add the following to the end of the `assets/css/style.css` file:
 
 ``` css
 /* Random block */
@@ -210,7 +198,7 @@ Finally, add some styling for the new block. Add the following to the end of the
 
 .random-block h4 {
     font-variant: small-caps;
-    font-size: .8em;
+    font-size: 1.2em;
 }
 
 .random-block h5 {
@@ -222,6 +210,8 @@ Finally, add some styling for the new block. Add the following to the end of the
 }
 ```
 
+Run `yarn encore <dev|prod>` to regenerate assets.
+
 Go back to editing the Front Page. Drag a Random Block from the Elements menu on the right to the Page's side column.
 Access the block's settings and choose the "All Tips" folder from the menu. Save and publish all the changes.
 
@@ -229,16 +219,3 @@ Refresh the home page. The Tip of the Day block will display a random Tip from t
 Refresh the page a few more times and you will see the tip change randomly.
 
 ![Random Block with a Tip](img/enterprise_tut_random_block.png "Random Block with a Tip")
-
-### Congratulations!
-
-You have finished the tutorial and created your first customized Page.
-
-You have learned how to:
-
-- Create and customize a Page
-- Make use of existing blocks and adapt them to your needs
-- Plan content airtimes using the Content Scheduler block
-- Create custom blocks
-
-![Final result of the tutorial](img/enterprise_tut_main_screen.png "Final result of the tutorial")

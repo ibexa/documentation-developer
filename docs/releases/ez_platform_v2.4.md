@@ -67,14 +67,14 @@ The new `embed-inline` built-in view type enables embedding Content items within
 #### Custom tag - `ezcontent`
 
 The `ezcontent` property is now editable in the UI and can be used to store the output/preview of a custom tag.
-To learn how it works, see [FactBox tag](../guide/extending_online_editor/#factbox-tag).
+To learn how it works, see [FactBox tag](../guide/extending/extending_online_editor/#factbox-tag).
 
 ### Content Type translation
 
 You can now translate Content Type names and Field definitions.
 
 This possibility is available automatically when you have the target language configured
-(in the same way as for translating content, see [Internationatlization](../guide/internationalization.md)).
+(in the same way as for translating content, see [Languages](../guide/internationalization.md)).
 
 ![Content type with existing translations](img/2.4_content_type_translations.png "Available translation of a Content Type")
 

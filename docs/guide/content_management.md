@@ -16,7 +16,7 @@ For example, an article can be at the same time under "Local news" and "Sports n
 Even in such a case, one of these places is always the main Location.
 
 You can change the main Location in the Back Office in the Locations tab,
-or [through the API](../api/public_php_api_locations.md#setting-a-content-items-main-location).
+or [through the API](../api/public_php_api_managing_content.md#changing-the-main-location).
 
 ### Top level Locations
 
@@ -32,19 +32,19 @@ Under this root there are preset top level Locations in each installation which 
 
 #### Content
 
-**Content** is the top level Location for the actual contents of a site.
+The top level Location for the actual contents of a site
+can be viewed by selecting the **Content structure** tab in the Content mode interface.
 This part of the tree is typically used for organizing folders, articles, information pages, etc.
-This means that it contains the actual content structure of the site,
-which can be viewed by selecting the **Content structure** tab in the Content mode interface.
-The default ID number of the **Content** Location is 2; it contains a Folder Content item.
+The default ID number of this Location is 2, but it can be [modified via configuration](config_repository.md#top-level-locations).
+It contains a Folder Content item.
 
 #### Media
 
 **Media** is the top level Location which stores and organizes information
 that is frequently used by Content items located below the **Content** node.
 It usually contains images, animations, documents and other files.
-They can be viewed by selecting the **Media library** tab in the Content mode interface.
-The default ID number of the **Media** Location is 43; it contains a Folder Content item.
+The default ID number of the **Media** Location is 43, but it can be [modified via configuration](config_repository.md#top-level-locations).
+It contains a Folder Content item.
 
 #### Users
 
@@ -55,11 +55,16 @@ A User is simply a Content item of the User account Content Type.
 The Users are organized within User Group Content items below this Location.
 In other words, the **Users** Location contains the actual Users and User Groups,
 which can be viewed by selecting the **Users** tab in the Admin Panel.
-The default ID number of the **Users** Location is 5; it contains a User Group Content item.
+The default ID number of the **Users** Location is 5, but it can be [modified via configuration](config_repository.md#top-level-locations).
+It contains a User Group Content item.
+
+!!! enterprise
+
+    #### Forms
+
+    **Forms** is the top level Location that is intended for Forms created using the [Form Builder](https://doc.ezplatform.com/projects/userguide/en/master/creating_content_advanced/#forms).
 
 #### Other top level Locations
-
-Another top level location, with the ID 48, corresponds to **Setup** and is not regularly used to store content.
 
 You should not add any more content directly below Location 1, but instead store any content under one of those top-level Locations.
 
@@ -159,6 +164,40 @@ Together, the flags represent the three visibility statuses:
 
     If you need to restrict access to a given Content item, use [**Sections**](admin_panel.md#sections) or other [**Limitations**](limitations.md), which are permission-based.
 
+## Content availability
+
+The Default content availability flag enables you to control whether content is available when its translation is missing.
+
+You can set the flag in Content Type definition by checking the "Make content available even with missing translations" option.
+It is automatically applied to any new Content item of this Type.
+
+![Default content availability](img/availability_flag.png)
+
+A Content item with this flag will be available in its main language
+even if it is not translated into the language of the current SiteAccess.
+
+Without the flag, a Content item will not be available at all if it does not have a language version
+corresponding to the current SiteAccess.
+
+!!! note
+
+    There is currently no way in the Back Office to edit the Content availability flag
+    for an already published Content item.
+    
+    To do this via [PHP API](../api/public_php_api_creating_content.md#updating-content), set the [`alwaysAvailable` property](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/ContentMetadataUpdateStruct.php#L52) of the Content metadata.
+
+The Default availability flag is used for the out-of-the box Content Types representing content
+that should always be visible to the user, such as media files or user Content items.
+
+You can also use it for organizational Content Types.
+
+For example, you can assign the flag to a Blog Content Type which is intended to contain Blog Posts
+in multiple languages. If the Blog is in English only, it would not be visible for readers
+using the Norwegian or German SiteAcceses.
+However, if you set the default availability flag for the Blog Content Type,
+it will be displayed to them in English (if it is set as a main language) and will enable the users to browse individual
+posts in other languages.
+
 ## Content Relations
 
 Content items are located in a tree structure through the Locations they are placed in.
@@ -176,12 +215,12 @@ These Fields allow you to select one or more other Content items in the Field va
 
 *Relations at Content item level* can be of three different types:
 
-- *Common relations* are created between two Content items using the Public API.
-- *RichText linked relations* are created using a Field of the RichText type.
+- *Common Relations* are created between two Content items using the Public API.
+- *RichText linked Relations* are created using a Field of the RichText type.
 When an internal link (a link to another Location or Content item) is placed in a RichText Field,
 the system automatically creates a Relation.
 The Relation is automatically removed from the system when the link is removed from the Content item.
-- *RichText embedded relations* also use a RichText Field.
+- *RichText embedded Relations* also use a RichText Field.
 When an Embed element is placed in a RichText Field, the system automatically creates a Relation
 between the embedded Content item and the one with the RichText Field.
 The Relation is automatically removed from the system when the link is removed from the Content item.

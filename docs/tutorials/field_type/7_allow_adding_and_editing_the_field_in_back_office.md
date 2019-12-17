@@ -16,10 +16,10 @@ In `eZ/Publish/FieldType/Tweet/FormMapper.php`:
 <?php
 namespace EzSystems\TweetFieldTypeBundle\eZ\Publish\FieldType\Tweet;
 
-use EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface;
+use EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormInterface;
-use EzSystems\RepositoryForms\Data\Content\FieldData;
+use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
 use eZ\Publish\Core\Repository\FieldTypeService;
 
 
@@ -70,7 +70,7 @@ To register the `FormMapper` as a service, add the following lines to `Resources
     ezsystems.tweetbundle.fieldtype.eztweet.form_mapper:
         class: EzSystems\TweetFieldTypeBundle\eZ\Publish\FieldType\Tweet\FormMapper
         tags:
-            - {name: ez.fieldFormMapper.value, fieldType: eztweet}
+            - {name: ezplatform.field_type.form_mapper.value, fieldType: eztweet}
         arguments: ['@ezpublish.api.service.field_type']
 ```
 

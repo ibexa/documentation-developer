@@ -15,11 +15,11 @@ Refer to their respective pages for instructions on how to install them.
 
 ### How to create bundles?
 
-You can generate a new bundle using a `generate:bundle` command. See [Symfony documentation on generating bundles](http://symfony.com/doc/current/bundles/SensioGeneratorBundle/commands/generate_bundle.html).
+See [Symfony documentation on bundles](https://symfony.com/doc/4.3/bundles.html) to learn how to structure your bundle.
 
 ### How to remove a bundle?
 
-To remove a bundle (either one you created yourself, or an out-of-the-box one that you do not need) see the [How to Remove a Bundle](http://symfony.com/doc/current/bundles/remove.html) instruction in Symfony doc.
+To remove a bundle (either one you created yourself, or an out-of-the-box one that you do not need) see the [How to Remove a Bundle](http://symfony.com/doc/3.4/bundles/remove.html) instruction in Symfony doc.
 
 ## Structuring your project
 
@@ -54,7 +54,7 @@ All project assets are accessible through the `assets` path.
 
 #### Importing assets from a bundle
 
-eZ Platform uses [Webpack Encore](https://symfony.com/doc/3.4/frontend.html#webpack-encore) for asset management.
+eZ Platform uses [Webpack Encore](https://symfony.com/doc/4.3/frontend.html#webpack-encore) for asset management.
 
 ##### Configuration from a bundle
 
@@ -148,6 +148,10 @@ add a `Resources/encore/ez.webpack.custom.config.js` file, for example:
 	module.exports = customConfig;
 ```
 
+!!! tip
+
+    If you don't plan to add multiple entry files on the same page in your custom config, use the `disableSingleRuntimeChunk()` funtion to avoid adding a separate `runtime.js` file. Otherwise, your JS code may be run multiple times. By default, the `enableSingleRuntimeChunk()` function is used.
+
 ##### Configuration from main project files
 
 If you prefer to include the asset configuration in the main project files,
@@ -188,9 +192,144 @@ eZConfigManager.add({
 You project's configuration is placed in the respective files in `config/packages`.
 See [Configuration](configuration.md) for more information.
 
+#### Importing configuration from a bundle
+
+!!! tip
+
+    The following procedure is applicable to any type of settings supported by Symfony framework.
+
+If you are keeping some of your code in a bundle, dealing with core bundle semantic configuration can be tedious
+if you maintain it in the main `config/packages/ezplatform.yaml` configuration file.
+
+You can import configuration from a bundle in two ways: [the manual way](#importing-configuration-manually) and [the implicit way](#importing-configuration-implicitly).
+
+##### Importing configuration manually
+
+Out of the two ways possible, importing configuration manually is the simplest and has the advantage of being explicit.
+It relies on using the `imports` statement in your main `config/packages/ezplatform.yaml`:
+
+``` yaml
+imports:
+    # Import the template selection rules that reside in your custom AcmeExampleBundle.
+    - {resource: "@AcmeExampleBundle/Resources/config/templates_rules.yaml"}
+ 
+ezplatform:
+    # ...
+```
+
+The `templates_rules.yaml` should then be placed in the `Resources/config` folder in `AcmeExampleBundle`.
+The configuration tree from this file will be merged with the main one.
+
+``` yaml
+ezplatform:
+    system:
+        <siteaccess>:
+            content_view:
+                full:
+                    article:
+                        template: '@AcmeExample/full/article.html.twig'
+                        match:
+                            Identifier\ContentType: [article]
+                    special:
+                        template: '@AcmeExample/full/special.html.twig'
+                        match:
+                            Id\Content: 142
+```
+
+!!! caution
+
+    If both cover the same settings, the imported configuration overrides the main configuration files.
+
+!!! tip
+
+    If you want to import configuration for development use only, you can do so in `config/packages/dev/ezplatform.yaml`.
+
+##### Importing configuration implicitly
+
+The following example shows how to implicitly load settings on the example of eZ Platform kernel.
+Note that this is also valid for any bundle.
+
+This assumes you are familiar with [service container extensions.](http://symfony.com/doc/4.3/book/service_container.html#importing-configuration-via-container-extensions)
+
+!!! note
+
+    Configuration loaded this way will be overridden by the main `ezplatform.yaml` file.
+
+In `Acme/ExampleBundle/DependencyInjection/AcmeExampleExtension`:
+
+``` php
+<?php
+
+namespace Acme\ExampleBundle\DependencyInjection;
+
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\Config\Resource\FileResource;
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
+use Symfony\Component\HttpKernel\DependencyInjection\Extension;
+use Symfony\Component\DependencyInjection\Loader;
+use Symfony\Component\Yaml\Yaml;
+
+/**
+ * This is the class that loads and manages your bundle configuration
+ *
+ * To learn more see {@link http://symfony.com/doc/4.3/cookbook/bundles/extension.html}
+ */
+class AcmeExampleExtension extends Extension implements PrependExtensionInterface
+{
+    // ...
+
+    /**
+     * Allow an extension to prepend the extension configurations.
+     * Here we will load our template selection rules.
+
+     *
+     * @param ContainerBuilder $container
+     */
+    public function prepend( ContainerBuilder $container )
+    {
+        // Loading your YAML file containing template rules
+        $configFile = __DIR__ . '/../Resources/config/template_rules.yaml';
+        $config = Yaml::parse( file_get_contents( $configFile ) );
+        // Explicitly prepend loaded configuration for "ezplatform" namespace.
+        // It will be placed under the "ezplatform" configuration key, like in ezplatform.yaml.
+        $container->prependExtensionConfig( 'ezplatform', $config );
+        $container->addResource( new FileResource( $configFile ) );
+    }
+}
+```
+
+!!! note
+
+    You must place your bundle before EzPlatformCoreBundle in `bundles.php`.
+
+In `AcmeExampleBundle/Resources/config/template_rules.yaml`:
+
+``` yaml
+# You explicitly prepended config for "ezplatform" namespace in the service container extension, 
+# so no need to repeat it here
+system:
+    <siteaccess>:
+        content_view:
+            full:
+                article:
+                    template: '@AcmeExample/full/article.html.twig'
+                    match:
+                        Identifier\ContentType: [article]
+                special:
+                    template: '@AcmeExample/full/special.html.twig'
+                    match:
+                        Id\Content: 142
+```
+
+!!! note "Performance"
+
+    Service container extensions are called only when the container is being compiled,
+    so performance will not be affected.
+
 ### Project example
 
-You can see an example of organizing a simple project in the [companion repository](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial) for the [eZ Enterprise Beginner tutorial](../tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world.md)
+You can see an example of organizing a simple project in the [companion repository](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial) for the [eZ Enterprise Beginner tutorial](../tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world.md).
 
 ### Versioning a project
 
@@ -205,7 +344,7 @@ The following tables give an overview of the main eZ Platform bundles.
 |Bundle|Description|
 |---------|-----------|
 |[ezpublish-kernel](https://github.com/ezsystems/ezpublish-kernel)|contains the core of the whole eZ Platform application e.g. EzPublishCoreBundle|
-|[repository-forms](https://github.com/ezsystems/repository-forms)|provides form-based interaction for the Repository Value objects|
+|[ezplatform-content-forms](https://github.com/ezsystems/ezplatform-content-forms)|provides form-based integration for the Symfony Forms into Content and User objects in kernel|
 |[ezplatform-solr-search-engine](https://github.com/ezsystems/ezplatform-solr-search-engine)|[Solr-powered](http://lucene.apache.org/solr/) search handler for eZ Platform|
 |[ez-support-tools](https://github.com/ezsystems/ez-support-tools)|provides functionality for system information|
 |[ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache)|HTTP cache handling for eZ Platform, using multi tagging (incl Varnish xkey)|
@@ -223,10 +362,12 @@ The following tables give an overview of the main eZ Platform bundles.
     |---------|-----------|
     |date-based-publisher|provides the date based publishing functionality for the eZ Studio product|
     |flex-workflow|implementation of a collaboration feature that lets you send content draft to any user for a review or rewriting|
-    |ezplatform-page-fieldtype|page handling FieldType for eZ Platform EE 2.2+|
+    |ezplatform-page-fieldtype|page handling Field Type for eZ Platform EE 2.2+|
     |ezplatform-page-builder|contains eZ Platform Page editor for eZ Platform EE 2.2+|
     |ezplatform-ee-installer|provides `ezplatform:install` Symfony console command which is the installer for eZ Platform Enterprise v2|
     |ezplatform-http-cache-fastly|extends ezplatform-http-cache to support Fastly, for use on Platform.sh PE or standalone|
+    |ezplatform-calendar|extends the Back Office by adding the calendar tab with the calendar widget|
+    |ezplatform-content-comparison|allows comparing between two versions of the same Field|
 
 ### Optional bundles
 
@@ -262,7 +403,6 @@ The following tables give an overview of the main eZ Platform bundles.
 |[ezplatform-com](https://github.com/ezsystems/ezplatform-com)|the eZ Systems Developer Hub for the Open Source PHP CMS eZ Platform (example site)|
 |[ezplatform-ee-demo](https://github.com/ezsystems/ezplatform-ee-demo)|fork of the "ezplatform-ee" meta repository, contains changes necessary to enable eZ Platform Enterprise Edition Demo. Not recommended for a clean install for new projects, but great for observation and learning (example site)|
 |[ezplatform-demo](https://github.com/ezsystems/ezplatform-demo)|fork of "ezplatform" meta repository, contains code and dependencies for demo distribution of eZ Platform. Not recommended for a clean installation for new projects, but great for observation and learning(example site)|
-|[TweetFieldTypeBundle](https://github.com/ezsystems/TweetFieldTypeBundle)|bundle that is created in the Field Type Tutorial (example field type)|
 |[ezplatform-drawio-fieldtype](https://github.com/ezsystems/ezplatform-drawio-fieldtype)|provides support for diagrams editing in eZ Platform via draw.io (example field type)|
 |[ezplatform-ui-2.0-introduction](https://github.com/ezsystems/ezplatform-ui-2.0-introduction)|an example of eZ Platform extensibility in version 2|
 |[ezplatform-ee-beginner-tutorial](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial)|resources used in the eZ Platform Enterprise Edition Beginner Tutorial|
@@ -275,7 +415,7 @@ The following tables give an overview of the main eZ Platform bundles.
 |------|-----------|
 |[developer-documentation](https://github.com/ezsystems/developer-documentation)|source for the developer documentation for eZ Platform, an open source CMS based on the Symfony Full Stack Framework in PHP. https://doc.ezplatform.com|
 |[user-documentation](https://github.com/ezsystems/user-documentation)|source for the user documentation for eZ Platform, an open source CMS based on the Symfony Full Stack Framework in PHP|
-|[ezservices-documentation](https://github.com/ezsystems/ezservices-documentation)|source for the eZ Services documentation for eZ Platform, an open source CMS based on the Symfony Full Stack Framework in PHP|
+|[ezpersonalization-documentation](https://github.com/ezsystems/ezservices-documentation)|source for the eZ Personalization documentation for eZ Platform, an open source CMS based on the Symfony Full Stack Framework in PHP|
 
 ### Legacy
 
@@ -293,6 +433,6 @@ The following tables give an overview of the main eZ Platform bundles.
 
 When you use an external bundle, you can override its parts, such as templates, controllers, etc.
 
-To do so, make use of [Symfony's bundle override mechanism](https://symfony.com/doc/3.4/bundles/override.html).
+To do so, make use of [Symfony's bundle override mechanism](https://symfony.com/doc/4.3/bundles/override.html).
 
 Note that when overriding files, the path inside your application has to correspond to the path inside the bundle.

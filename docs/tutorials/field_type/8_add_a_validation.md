@@ -166,11 +166,12 @@ This is a minimal example of `eZ/Publish/FieldType/Tweet/FormMapper.php`:
 
 ```php
 <?php
+
 namespace EzSystems\TweetFieldTypeBundle\eZ\Publish\FieldType\Tweet;
 
 use EzSystems\RepositoryForms\Data\FieldDefinitionData;
 use EzSystems\RepositoryForms\FieldType\FieldDefinitionFormMapperInterface;
-use EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface;
+use EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormInterface;
 
@@ -262,8 +263,8 @@ In order to do that add an extra tag definition in `Resources/config/fieldtypes.
     ezsystems.tweetbundle.fieldtype.eztweet.form_mapper:
         class: EzSystems\TweetFieldTypeBundle\eZ\Publish\FieldType\Tweet\FormMapper
         tags:
-            - {name: ez.fieldFormMapper.value, fieldType: eztweet}
-            - {name: ez.fieldFormMapper.definition, fieldType: eztweet}
+            - {name: ezplatform.field_type.form_mapper.value, fieldType: eztweet}
+            - {name: ezplatform.field_type.form_mapper.definition, fieldType: eztweet}
         arguments: ['@ezpublish.api.service.field_type']
 ```
 
@@ -296,6 +297,7 @@ To achieve this, implement these two functions in `eZ/Publish/FieldType/Tweet/Le
 
 ```php
 <?php
+
 public function toStorageFieldDefinition(FieldDefinition $fieldDef, StorageFieldDefinition $storageDef)
 {
     $storageDef->dataText1 = json_encode(

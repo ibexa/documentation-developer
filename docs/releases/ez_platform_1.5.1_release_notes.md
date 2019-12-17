@@ -5,7 +5,7 @@
 
 eZ announces the availability of 1.5.1, a maintenance release available for all users of eZ Platform 1.5.0.
 
-Follow the [eZ Platform Update Instructions](../releases/updating_ez_platform.md) to apply this update to your platforms.
+Follow the [eZ Platform Update Instructions](../updating/updating_ez_platform.md) to apply this update to your platforms.
 
 ## Package Details
 

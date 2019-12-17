@@ -7,7 +7,6 @@ eZ Platform comes with a collection of Field Types that can be used to build pow
 !!! tip
 
     For general Field Type documentation, see [Field Type API](../api/field_type_api.md).
-    For the documentation on how to implement a custom Field Type, see the [Creating a Tweet Field Type](../tutorials/field_type/creating_a_tweet_field_type.md) tutorial.
 
 Custom Field Types have to be programmed in PHP. However, the built-in Field Types are usually sufficient enough for typical scenarios. The following table gives an overview of the supported Field Types that come with eZ Platform.
 
@@ -68,8 +67,6 @@ Proper indexing of these Field Types is done with [Solr Search Bundle](../guide/
 |[Price](https://github.com/ezcommunity/EzPriceBundle)|Price Field for use in product catalogs|Yes|No|Yes|
 
 ### Generate new Field Type
-
-You can learn how to create a custom Field Type by following the [Creating a Tweet Field Type](../tutorials/field_type/creating_a_tweet_field_type.md) tutorial
 
 You can also make use of the [Field Type Generator Bundle](https://github.com/Smile-SA/EzFieldTypeGeneratorBundle) from our partner Smile.
 It helps you get started by creating a skeleton for a Field Type, including templates for the editorial interface. 
@@ -790,7 +787,7 @@ This Field Type does not support settings.
 
     The Form Field Type stores a Form consisting of one or more form fields.
 
-    See [Extending Form Builder](../guide/extending_form_builder.md) for more information
+    See [Extending Form Builder](../guide/extending/extending_form_builder.md) for more information
     about working with Forms.
 
 ## Image Field Type
@@ -1142,7 +1139,7 @@ ImageAsset Field Type allows configuring the following options:
 Example configuration:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
        default:
             fieldtypes:
@@ -1158,7 +1155,7 @@ ezpublish:
 Internally the Image Asset Type is rendered via subrequest (similar to other relation types). Rendering customization is possible by configuring view type `asset_image`:
 
 ```php
-ezpublish:
+ezplatform:
     system:
        default:           
             content_view:
@@ -1425,7 +1422,7 @@ Example use:
 
 ``` yaml
 # ezplatform.yaml
-ezpublish:
+ezplatform:
     system:
         site_group:
             api_keys: { google_maps: MY_KEY }
@@ -1644,15 +1641,15 @@ services:
         class: '%ezpublish.fieldType.eznull.class%'
         parent: ezpublish.fieldType
         arguments: [ezpaex]
-        tags: [{name: ezpublish.fieldType, alias: ezpaex}]
+        tags: [{name: ezplatform.field_type, alias: ezpaex}]
 
     ezpublish.fieldType.ezpaex.converter:
         class: '%ezpublish.fieldType.eznull.converter.class%'
-        tags: [{name: ezpublish.storageEngine.legacy.converter, alias: ezpaex}]
+        tags: [{name: ezplatform.field_type.legacy_storage.converter, alias: ezpaex}]
 
     ezpublish.fieldType.ezpaex.indexable:
         class: '%ezpublish.fieldType.indexable.unindexed.class%'
-        tags: [{name: ezpublish.fieldType.indexable, alias: ezpaex}]
+        tags: [{name: ezplatform.field_type.indexable, alias: ezpaex}]
 ```
 
 !!! enterprise
@@ -1683,7 +1680,7 @@ services:
 
     ### Blocks
 
-    For information on how to create and configure new blocks for the Page, see [Creating Page blocks](../guide/extending_page.md#creating-page-blocks).
+    For information on how to create and configure new blocks for the Page, see [Creating Page blocks](../guide/extending/extending_page.md#creating-page-blocks).
 
     ### Rendering Pages
 
@@ -1937,11 +1934,7 @@ $validators = [
 
 ## RichText Field Type
 
-!!! caution "Deprecated"
-
-    Make sure to enable new version of the RichText Field Type provided via [eZ Platform RichTextBundle](https://github.com/ezsystems/ezplatform-richtext).
-
-    The RichText Field Type provided by Kernel via the `eZ\Publish\Core\FieldType\RichText` namespace is deprecated. Refer to PHPDoc whenever you want to implement any interface or extend any base class from that namespace.
+The RichText Field Type is available via the eZ Platform RichText Field Type Bundle provided by the [ezplatform-richtext](https://github.com/ezsystems/ezplatform-richtext) package.
 
 This Field Type validates and stores structured rich text, and exposes it in several formats.
 

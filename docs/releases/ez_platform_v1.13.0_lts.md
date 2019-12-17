@@ -21,7 +21,7 @@ You can edit a link in the manager and it will be updated automatically in all C
 
 Following [EZP-27759](https://jira.ez.no/browse/EZP-27759) you can now copy a Content item with all of its sub-items in the back office.
 
-The maximum number of Content items that can be copied this way can be set in configuration, see [Copy subtree limit](../guide/best_practices.md#copy-subtree-limit).
+The maximum number of Content items that can be copied this way can be set in configuration, see [Copy subtree limit](../guide/config_back_office.md#copy-subtree-limit).
 
 ![Copy subtree option in the menu](img/copy_subtree_button.png)
 
@@ -67,4 +67,4 @@ If you would like to request an eZ Enterprise Demo instance: <http://ez.no/Forms
 
 ### Updating
 
-To update to this version, follow the [Updating eZ Platform](updating_ez_platform.md) guide and use v1.13.0 as `<version>`.
+To update to this version, follow the [Updating eZ Platform](../updating/updating_ez_platform.md) guide and use v1.13.0 as `<version>`.

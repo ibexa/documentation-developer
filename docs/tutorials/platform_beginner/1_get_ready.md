@@ -1,4 +1,4 @@
-# Step 1 - Get ready
+# Step 1 — Get ready
 
 To begin the tutorial, you need a clean installation of eZ Platform.
 

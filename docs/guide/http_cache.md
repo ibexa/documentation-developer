@@ -2,7 +2,7 @@
 
 ## Content cache
 
-eZ Platform uses [Symfony HTTP cache](http://symfony.com/doc/3.4/http_cache.html) to manage content "view" cache with an [expiration model](http://symfony.com/doc/3.4/http_cache.html#expiration-caching).
+eZ Platform uses [Symfony HTTP cache](http://symfony.com/doc/4.3/http_cache.html) to manage content "view" cache with an [expiration model](http://symfony.com/doc/4.3/http_cache.html#expiration-caching).
 In addition it is extended (using FOSHttpCache) to add several advanced features.
 For content coming from eZ Platform itself, the following applies:
 
@@ -11,7 +11,7 @@ This enables updates to content to trigger cache invalidation.
     - Uses a custom `X-Location-Id` header, which both Symfony and Varnish proxy are able to invalidate cache on
     (for details see [Cache purging](#cache-purging).)
 - To be able to also cache requests by logged-in users, cache is **[context-aware](#context-aware-http-cache)**.
-    - Uses a custom Vary header `X-User-Hash` to allow pages to vary by user rights
+    - Uses a custom Vary header `X-User-Context-Hash` to allow pages to vary by user rights
     (not by unique user, which is better served by browser cache.)
 
 ### Cache and expiration configuration
@@ -19,7 +19,7 @@ This enables updates to content to trigger cache invalidation.
 This is how cache can be configured in `config/packages/ezplatform.yaml`:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         my_siteaccess:
             content:
@@ -74,7 +74,7 @@ fos_http_cache:
 
 ### Making your controller response content-aware
 
-Sometimes you need your controller's cache to be invalidated at the same time as specific content changes (i.e. [ESI sub-requests with `render` twig helper](http://symfony.com/doc/3.4/http_cache/esi.html), for a menu for instance). To be able to do that, you need to add `X-Location-Id` header to the response object:
+Sometimes you need your controller's cache to be invalidated at the same time as specific content changes (i.e. [ESI sub-requests with `render` twig helper](http://symfony.com/doc/4.3/http_cache/esi.html), for a menu for instance). To be able to do that, you need to add `X-Location-Id` header to the response object:
 
 ``` php
 use Symfony\Component\HttpFoundation\Response;
@@ -96,7 +96,7 @@ use Symfony\Component\HttpFoundation\Response;
 // Inside a controller action
 // Tells proxy configured to support this header to take the rights of a user (user hash) into account for the cache
 $response = new Response();
-$response->setVary('X-User-Hash');
+$response->setVary('X-User-Context-Hash');
 ```
 
 ## Cache purging
@@ -111,7 +111,7 @@ without the possibility of clearing it.
 eZ Platform returns content-related responses with an `X-Location-Id` header.
 The responses are stored together by the configured HTTP cache.
 This allows you to clear (invalidate) HTTP cache representing specifically a given Content item.
-On publishing the Content, a cache purger is triggered with the Content ID in question,
+On publishing the content, a cache purger is triggered with the content ID in question,
 which in turn figures out affected Locations based on [HTTP cache tag](#http-cache-tagging) logic.
 The returned Location IDs are sent for purge using the selected purge type.
 
@@ -123,7 +123,7 @@ By default, invalidation requests will be emulated and sent to the Symfony proxy
 In `config/packages/ezplatform.yaml`:
 
 ``` yaml
-ezpublish:
+ezplatform:
     http_cache:
         purge_type: local
 ```
@@ -135,7 +135,7 @@ This purge type is asynchronous, and flushed by the end of Symfony kernel-reques
 Settings for purge servers can be configured per SiteAccess group or SiteAccess:
 
 ``` yaml
-ezpublish:
+ezplatform:
     http_cache:
         purge_type: http
 
@@ -154,7 +154,7 @@ For further information on setting up Varnish, see [Using Varnish](#using-varnis
 
 ### Purging
 
-While purging on Content, updates are handled for you.
+While purging on content, updates are handled for you.
 On actions against the eZ Platform APIs, there are times you might have to purge manually.
 
 #### Purge by command with Symfony proxy
@@ -250,7 +250,7 @@ fastcgi_param SYMFONY_TRUSTED_PROXIES "193.22.44.22";
     Otherwise, you might notice incorrect schema (`http` instead of `https`) in the URLs for the images or other binary files
     when they are rendered inline by Symfony *(as used by file-based field templates)*, as opposed to via ESI.
 
-#### Update YML configuration
+#### Update YAML configuration
 
 Secondly, you need to tell eZ Platform to use an HTTP-based purge client (specifically the FosHttpCache Varnish purge client),
 and specify the URL Varnish can be reached on:
@@ -258,7 +258,7 @@ and specify the URL Varnish can be reached on:
 The following configuration is not required as eZ Platform will read the environment variables set above.
 
 ``` yaml
-ezpublish:
+ezplatform:
     http_cache:
         purge_type: http
 
@@ -342,7 +342,7 @@ ezpublish:
     However, if the given block value has a since / till date,
     this will be taken into account for the TTL calculation for the block and also for the whole page.
 
-    To overload this behavior, listen to [BlockResponseEvents::BLOCK_RESPONSE](extending_page/#block-render-response),
+    To overload this behavior, listen to [BlockResponseEvents::BLOCK_RESPONSE](extending/extending_page/#block-render-response),
     and set prioroty to for instance `-200` to adapt what Page Field type does by default. E.g. in order to disable cache
     for the block use `$event->getResponse()->setPrivate()`.
 
@@ -365,7 +365,7 @@ this context must be present in the original request.
 
 As the response can vary on a request header, the base solution is to make the kernel do a sub-request
 in order to retrieve the user context hash (aka user hash).
-Once the user hash has been retrieved, it's injected in the original request in the `X-User-Hash` custom header,
+Once the user hash has been retrieved, it's injected in the original request in the `X-User-Context-Hash` custom header,
 making it possible to *vary* the HTTP response on this header:
 
 ``` php
@@ -376,12 +376,12 @@ use Symfony\Component\HttpFoundation\Response;
 
 // Inside a controller action
 $response = new Response();
-$response->setVary('X-User-Hash');
+$response->setVary('X-User-Context-Hash');
 ```
 
 [FOSHttpCacheBundle's user context feature](http://foshttpcachebundle.readthedocs.org/en/latest/features/user-context.html) is activated by default.
 
-Name of the [user hash header is configurable in FOSHttpCacheBundle](http://foshttpcachebundle.readthedocs.org/en/latest/reference/configuration/user-context.html). By default eZ Platform sets it to `**X-User-Hash**`.
+Name of the [user hash header is configurable in FOSHttpCacheBundle](http://foshttpcachebundle.readthedocs.org/en/latest/reference/configuration/user-context.html). By default eZ Platform sets it to `**X-User-Context-Hash**`.
 
 This solution is [implemented in Symfony reverse proxy ](http://foshttpcachebundle.readthedocs.org/en/latest/features/symfony-http-cache.html) and is also accessible to [dedicated reverse proxies like Varnish](http://foshttpcache.readthedocs.org/en/latest/varnish-configuration.html).
 
@@ -432,11 +432,11 @@ eZ Platform already interferes with the hash generation process by adding the cu
 
     [Examples of user hash generation](https://github.com/ezsystems/ezplatform/tree/master/doc/varnish/vcl)
 
-##### New anonymous `X-User-Hash`
+##### New anonymous `X-User-Context-Hash`
 
-The anonymous `X-User-Hash` is generated based on the `anonymous user`, `group` and `role`.
+The anonymous `X-User-Context-Hash` is generated based on the `anonymous user`, `group` and `role`.
 
-If you need to find out the anonymous `X-User-Hash`:
+If you need to find out the anonymous `X-User-Context-Hash`:
 
 1\. Connect to your server (*shh* should be enough)
 
@@ -455,7 +455,7 @@ HTTP/1.1 200 OK
 Date: Mon, 03 Oct 2016 15:34:08 GMT
 Server: Apache/2.4.18 (Ubuntu)
 X-Powered-By: PHP/7.0.8-0ubuntu0.16.04.2
-X-User-Hash: b1731d46b0e7a375a5b024e950fdb8d49dd25af85a5c7dd5116ad2a18cda82cb
+X-User-Context-Hash: b1731d46b0e7a375a5b024e950fdb8d49dd25af85a5c7dd5116ad2a18cda82cb
 Cache-Control: max-age=600, public
 Vary: Cookie,Authorization
 Content-Type: application/vnd.fos.user-context-hash
@@ -485,7 +485,6 @@ fos_http_cache:
         enabled: true
         # User context hash is cached during 10min
         hash_cache_ttl: 600
-        user_hash_header: X-User-Hash
 ```
 
 ## HTTP cache tagging
@@ -507,8 +506,8 @@ when someone requests them.
 
 #### Available tags
 
-- `content-<content-id>` - Used on anything that is affected by changes to Content, that is Content itself, Locations, and so on.
-- `content-type-<content-type-id>` - For use when the Content Type changes, affecting Content of its type.
+- `content-<content-id>` - Used on anything that is affected by changes to content, that is content itself, Locations, and so on.
+- `content-type-<content-type-id>` - For use when the Content Type changes, affecting content of its type.
 - `location-<location-id>` - Used for clearing all cache relevant for a given Location.
 - `parent-<parent-location-id>` - Useful for clearing all children of a parent, or in all siblings.
 - `path-<location-id>` - For operations that change the tree itself, like move, remove, etc.
@@ -517,9 +516,9 @@ Note that the system does not add this tag to responses itself, just purges if p
 Response tagging using this tag is currently meant to be done inline in the template logic / views
 based on your decision.
 
-!!! tip "Troubleshooting - Content tagged by a big number of tags (too long headers)"
+!!! tip "Troubleshooting - content tagged by a big number of tags (too long headers)"
 
-    In case of complex Content, for instance Landing Pages with many blocks, you might get into trouble with too long response `xkey` header. Because of this, necessary cache entries may not be tagged properly. You will also see `502 Headers too long` errors.
+    In case of complex content, for instance Landing Pages with many blocks, you might get into trouble with too long response `xkey` header. Because of this, necessary cache entries may not be tagged properly. You will also see `502 Headers too long` errors.
     If this is the case, customize the following runtime settings on your Varnish instance(s):
 
     - [http_resp_hdr_len](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-resp-hdr-len) (e.g. 32k)
@@ -584,33 +583,27 @@ See [Tagging from code](http://foshttpcachebundle.readthedocs.io/en/1.3/features
 
 ### How purge tagging is done
 
-This bundle uses Repository API Slots to listen to Signals emitted on Repository operations, and depending on the
-operation triggers expiry on a specific tag or set of tags.
+This bundle uses Repository API Event Subscribers to listen to Events emitted on Repository operations,
+and depending on the operation triggers expiry on a specific tag or set of tags.
 
-For example on Move Location Signal the following tags will be purged:
+For example on Move Location Event the following tags will be purged:
 
 ```php
-/**
- * @param \eZ\Publish\Core\SignalSlot\Signal\LocationService\MoveSubtreeSignal $signal
- */
-protected function generateTags(Signal $signal)
-{
-    return [
-        // The tree itself being moved (all children will have this tag)
-        'path-' . $signal->locationId,
-        // old parent
-        'location-' . $signal->oldParentLocationId,
-        // old siblings
-        'parent-' . $signal->oldParentLocationId,
-        // new parent
-        'location-' . $signal->newParentLocationId,
-        // new siblings
-        'parent-' . $signal->newParentLocationId,
-    ];
-}
+[
+    // The tree itself being moved (all children will have this tag)
+    'path-' . $event->getLocation()->id,
+    // old parent
+    'location-' . $event->getLocation()->parentLocationId,
+    // old siblings
+    'parent-' . $event->getLocation()->parentLocationId,
+    // new parent
+    'location-' . $event->getNewParentLocation()->id,
+    // new siblings
+    'parent-' . $event->getNewParentLocation()->id,
+];
 ```
 
-All Slots can be found in `ezplatform-http-cache/src/SignalSlot`.
+All Event Subscribers can be found in `ezplatform-http-cache/src/EventSubscriber/CachePurge`.
 
 #### ResponseTagger API
 

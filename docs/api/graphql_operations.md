@@ -3,7 +3,7 @@
 Operations on content in GraphQL are performed using [mutations](https://graphql.org/learn/queries/#mutations).
 They include creating, updating, and deleting Content items.
 
-The schema contains two mutations per Content type, e.g. `createFolder` and `updateFolder`.
+The schema contains two mutations per Content Type, e.g. `createFolder` and `updateFolder`.
 You can also make use of the generic `deleteContent` and `uploadFiles` mutations.
 
 ## Creating content

@@ -8,7 +8,7 @@ FieldTypes, like any other eZ Platform extensions, must be provided as Symfony b
 
 Once you have [installed eZ Platform](../../getting_started/install_ez_platform/), including the creation of a database for the tutorial, [configured a server](../../getting_started/requirements/), and [started the web server](../../getting_started/install_ez_platform/#use-phps-built-in-server), you need to create a code base for the tutorial.
 
-The Field Type will be placed in a [Symfony bundle](http://symfony.com/doc/3.4/bundles.html).
+The Field Type will be placed in a [Symfony bundle](http://symfony.com/doc/4.3/bundles.html).
 You can get started with a bundle using the built-in Symfony bundle generator.
 Then you will configure the bundle to be able to write the code you need to create a Field Type.
 
@@ -74,7 +74,6 @@ Now prepare the files for two classes you will need for the Field Type:
 namespace EzSystems\TweetFieldTypeBundle\eZ\Publish\FieldType\Tweet;
 
 use eZ\Publish\Core\FieldType\FieldType;
-use eZ\Publish\SPI\FieldType\Nameable;
 
 class Type extends FieldType implements Nameable
 {

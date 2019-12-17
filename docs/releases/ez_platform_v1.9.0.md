@@ -34,7 +34,7 @@ In version 1.8 we introduced a new Content Browser in the Universal Discovery Wi
 
 -   You can now restore from Trash content whose original Location has been deleted.
 -   Pasted thead/tfood tags are now kept in RichText Field Type, and its Online Editor
--   Solr 6 is now supported in [Solr Bundle](../guide/solr_bundle.md)
+-   Solr 6 is now supported in [Solr Bundle](../guide/solr.md)
 
 ### eZ Platform Enterprise Edition - Studio
 
@@ -46,8 +46,6 @@ In version 1.8 we introduced a new Content Browser in the Universal Discovery Wi
 #### Tag and taxonomy management
 
 The eZ Enterprise Demo now uses the [Netgen Tags bundle](https://github.com/netgen/TagsBundle). This bundle was recently ported to eZ Platform and provides a powerful, solid and user-friendly way to categorize content using tags. The solution lets editors and administrators define their taxonomies in a dedicated interface. These taxonomies that are immediately available for editors working on content who want to categorize any content types. 
-
- 
 
 ![](img/eztags.gif)
 
@@ -77,8 +75,6 @@ The eZ Enterprise Demo now uses the [Netgen Tags bundle](https://github.com/netg
 
 -   Download at [eZPlatform.com](http://ezplatform.com/#download)
 
- 
-
 #### eZ Enterprise
 
 -   [Customers: eZ Enterprise subscription (BUL License)](https://support.ez.no/Downloads)*
@@ -87,10 +83,8 @@ The eZ Enterprise Demo now uses the [Netgen Tags bundle](https://github.com/netg
 
 If you would like to request an eZ Enterprise Demo instance: <http://ez.no/Forms/Discover-eZ-Studio>
 
- 
-
 ### Updating
 
-To update to this version, follow the [Updating eZ Platform](updating_ez_platform.md) guide and use v1.9.0 as `<version>`.
+To update to this version, follow the [Updating eZ Platform](../updating/updating_ez_platform.md) guide and use v1.9.0 as `<version>`.
 
  

@@ -50,7 +50,7 @@ myRestBundle_rest_routes:
 
 Using a distinct file for REST routes allows you to use the prefix for all this file's routes without affecting other routes from your bundle.
 
-Next, you need to create the REST route. Define the route's [controller as a service](http://symfony.com/doc/current/cookbook/controller/service.html) since your controller was defined as such.
+Next, you need to create the REST route. Define the route's [controller as a service](http://symfony.com/doc/4.3/cookbook/controller/service.html) since your controller was defined as such.
 
 **My/Bundle/RestBundle/Resources/config/routing\_rest.yaml**
 
@@ -161,7 +161,7 @@ class Hello extends ValueObjectVisitor
 }
 ```
 
-The easiest way to handle cache is to re-use the `CachedValue` Value Object. It acts as a proxy, and adds the cache headers, depending on the configuration, for a given object and set of options.
+The easiest way to handle cache is to re-use the `CachedValue` value object. It acts as a proxy, and adds the cache headers, depending on the configuration, for a given object and set of options.
 
 When you want the response to be cached, return an instance of `CachedValue`, with your Value Object as the argument. You can also pass a Location ID using the second argument, so that the response is tagged with it:
 
@@ -316,7 +316,7 @@ with `someresource` being a unique key.
 
 The `router.generate` call dynamically renders a URI based on the name of the route and the optional parameters that are passed as the other arguments (in the code above this is the `contentId`).
 
-This syntax is based on [Symfony's expression language](http://symfony.com/doc/current/components/expression_language/index.html), an extensible component that allows limited/readable scripting to be used outside code context.
+This syntax is based on [Symfony's expression language](http://symfony.com/doc/4.3/components/expression_language/index.html), an extensible component that allows limited/readable scripting to be used outside code context.
 
 The above configuration will add the following entry to the root resource:
 

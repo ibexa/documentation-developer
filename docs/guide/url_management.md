@@ -44,11 +44,11 @@ rm ezp_cron.txt
 
 ### Configuration
 
-Configuration of external URLs validation is SiteAccess-aware and is stored under `ezpublish.system.<SITEACCESS>.url_checker`.
+Configuration of external URLs validation is SiteAccess-aware and is stored under `ezplatform.system.<SITEACCESS>.url_checker`.
 Example configuration (in `config/packages/ezplatform.yaml`):
 
-```yml
-ezpublish:
+```yaml
+ezplatform:
     system:
         default:
             url_checker:
@@ -123,10 +123,10 @@ The `scheme` attribute is mandatory and has to correspond to the name of the pro
 
 ## URL alias patterns
 
-You can configure how eZ Platform generates URL aliases. The configuration is available under `ezpublish.url_alias.slug_converter`, for example:
+You can configure how eZ Platform generates URL aliases. The configuration is available under `ezplatform.url_alias.slug_converter`, for example:
 
 ``` yaml
-ezpublish:
+ezplatform:
     url_alias:
         slug_converter:
             transformation: example_group
@@ -146,7 +146,7 @@ ezpublish:
 The `transformation_groups` key contains the available patterns for URL generation.
 There are three types of `separator` available: `dash`, `underscore` and `space`.
 
-A transformation group consists of an array of commands (see [all available commands](https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/Core/Persistence/Tests/TransformationProcessor/_fixtures/transformations)) and a [`cleanupMethod`](https://github.com/ezsystems/ezpublish-kernel-ee/blob/master/eZ/Publish/Core/Persistence/Legacy/Content/UrlAlias/SlugConverter.php#L290).
+A transformation group consists of an array of commands (see [all available commands](https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/Core/Persistence/Tests/TransformationProcessor/_fixtures/transformations)) and a [`cleanupMethod`](https://github.com/ezsystems/ezpublish-kernel-ee/blob/5.4/eZ/Publish/Core/Persistence/Legacy/Content/UrlAlias/SlugConverter.php#L245).
 
 You can make use of pre-defined transformation groups.
 You can also add your own, with your own set of commands.
@@ -169,4 +169,38 @@ Before applying the command, back up your database and make sure it is not modif
 bin/console ezplatform:urls:regenerate-aliases
 ```
 
-Use an `--iteration-count` parameter to define how many Locations should be processed at once, to avoid too much memory use.
+You can also extend the command by the following parameters:
+
+- `--iteration-count` — to define how many Locations should be processed at once to reduce memory usage
+- `--location-id` — to regenerate URLs for specific Locations only, e.g. `ezplatform:urls:regenerate-aliases --location-id=1 --location-id=2`
+
+## URL wildcards
+
+Using the Public API you can set up global URL wildcards for redirections.
+
+For example, a URL wildcard called `pictures/*/*` can use `media/images/{1}/{2}` as destination.
+In this case, accessing `<yourdomain>/pictures/home/photo/` will load `<yourdomain>/media/images/home/photo/`.
+
+URL wildcards can be created with the Public API with the help of the `URLWildcardService`:
+
+``` php
+$source = 'pictures/*/*';
+$destination = 'media/images/{1}/{2}';
+$redirect = true;
+
+$urlWildcardService = $repository->getURLWildcardService();
+$repository->sudo(function ($repository) use ($urlWildcardService, $source, $destination, $redirect) {
+    $urlWildcardService->create($source, $destination, $redirect);
+});
+```
+
+If `$redirect` is set to `true`, the redirection will change the URL address.
+If it is `false`, the old URL address will be used, with the new content.
+
+URL wildcards must be enabled in configuration with:
+
+``` yaml
+ezplatform:
+    url_wildcards:
+        enabled: true
+```

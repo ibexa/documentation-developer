@@ -106,6 +106,6 @@ If you would like to request an eZ Enterprise Demo instance: <http://ez.no/Forms
 
 ### Updating
 
-**eZ Platform**: To update to this version, follow the [Updating eZ Platform](../releases/updating_ez_platform.md) guide and use v1.6.0 as `<version>`.
+**eZ Platform**: To update to this version, follow the [Updating eZ Platform](../updating/updating_ez_platform.md) guide and use v1.6.0 as `<version>`.
 
  

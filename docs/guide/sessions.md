@@ -11,7 +11,7 @@ It is further enhanced in eZ Platform with support for SiteAccess-aware session
 ## Configuration
 
 Symfony offers the possibility to change many session options at application level
-(i.e. in Symfony [`framework` configuration](https://symfony.com/doc/3.4/reference/configuration/framework.html#session)).
+(i.e. in Symfony [`framework` configuration](https://symfony.com/doc/4.3/reference/configuration/framework.html#session)).
 These options include:
 
 - `cookie_domain`
@@ -28,7 +28,7 @@ so you can also define session configuration per SiteAccess and SiteAccess group
 All site-related session configuration can be defined per SiteAccess and SiteAccess group:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         my_siteaccess:
             session:
@@ -86,7 +86,7 @@ Alternatively if you need to configure Memcached servers dynamically:
 
 - Create a Symfony service like this:
 
-```yml
+```yaml
     app.session.handler.native_memcached:
         class: eZ\Bundle\EzPublishCoreBundle\Session\Handler\NativeSessionHandler
         arguments:
@@ -133,7 +133,7 @@ If you want to make sure sessions survive Redis or server restarts, consider usi
 For setups where database is preferred for storing sessions, you may use Symfony's PdoSessionHandler,
 although it is not currently recommended from performance perspective.
 
-Below is a configuration example for eZ Platform. Refer to the [Symfony Cookbook](http://symfony.com/doc/3.4/doctrine/pdo_session_storage.html) for full documentation.
+Below is a configuration example for eZ Platform. Refer to the [Symfony Cookbook](http://symfony.com/doc/4.3/doctrine/pdo_session_storage.html) for full documentation.
 
 ``` yaml
 framework:

@@ -13,9 +13,10 @@
     Each workflow consists of stages and transitions between them.
 
     The following configuration defines a workflow where you can pass a draft to technical review, then to proofreading, and to final approval.
+    The workflow is defined in the `config/packages/workflow.yaml` configuration file.
 
-    ``` yaml hl_lines="16 17 18 33 34 35 36 37 64 65 66 67"
-    ezpublish:
+    ``` yaml hl_lines="16 17 18 33 34 34 35 36 37 38 69 70 71 72"
+    ezplatform:
         system:
             # Workflow configuration is SiteAccess-aware
             default:
@@ -51,12 +52,14 @@
                                 from: draft
                                 to: technical
                                 label: To technical review
+                                color: '#cb8888'
                                 icon: '/bundles/ezplatformadminui/img/ez-icons.svg#comment'
                                 notification:
                                     user_group: 13
                             back_to_draft:
                                 reverse: to_technical
                                 label: Back to draft
+                                color: '#888888'
                                 icon: '/bundles/ezplatformadminui/img/ez-icons.svg#comment'
                                 notification:
                                     user_group: 13
@@ -64,12 +67,14 @@
                                 from: technical
                                 to: proofread
                                 label: To proofreading
+                                color: '#8888ba'
                                 icon: '/bundles/ezplatformadminui/img/ez-icons.svg#comment'
                                 notification:
                                     user_group: 13
                             back_to_technical:
                                 reverse: to_proofread
                                 label: Back to technical review
+                                color: '#cb8888'
                                 icon: '/bundles/ezplatformadminui/img/ez-icons.svg#comment'
                                 notification:
                                     user_group: 13
@@ -77,6 +82,7 @@
                                 from: proofread
                                 to: done
                                 label: Done
+                                color: '#88ad88'
                                 icon: '/bundles/ezplatformadminui/img/ez-icons.svg#comment'
                                 notification:
                                     # Which User Group or User to notify about this transition
@@ -87,9 +93,11 @@
     Each stage in the workflow has an identifier and can be assigned a label and a color (lines 16-18).
 
     Each transition also has an identifier. It must state between which stages it transitions, or be marked as `reverse` of a different transition.
-    Transitions can also have labels and icons (lines 36-37).
+    
+    Transitions can also have labels, colors, and icons (lines 33-38).
+    If you don't define a custom color for a transition, a default setting will be used (`$ez-color-base-light`, i.e. `#878787`).
 
-    `notification` (lines 64-67) defines who will be notified when a transition happens by providing the User or User Group ID.
+    `notification` (lines 69-72) defines who will be notified when a transition happens by providing the User or User Group ID.
     Notifications will be displayed in the user menu.
 
     You can view all configured workflows in the Admin Panel by selecting **Workflow**.
@@ -111,7 +119,7 @@
 
     ## Workflow service
 
-    Workflow makes use of the Symfony [Workflow Component](https://symfony.com/doc/3.4/components/workflow.html),
+    Workflow makes use of the Symfony [Workflow Component](https://symfony.com/doc/4.3/components/workflow.html),
     but special eZ Platform treatment is covered in the Workflow service.
 
     The service implements the following methods:
@@ -148,11 +156,6 @@
 
     You can use the [`PublishOnLastStageSubscriber.php`](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.5.0/src/AppBundle/Event/Workflow/PublishOnLastStageSubscriber.php) from eZ Platform demo as a basis for the subscriber.
 
-    !!! note
-
-        This example only works if your workflow is a [direct acycling graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph)
-        (it doesn't have directed cycles).
-
     The subscriber listens for the `WorkflowEvents::WORKFLOW_STAGE_CHANGE` event
     ([line 61](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.5.0/src/AppBundle/Event/Workflow/PublishOnLastStageSubscriber.php#L61)).
     When the event occurs, it publishes the relevant Content item
@@ -163,7 +166,7 @@
     ``` yaml hl_lines="5"
     services:
         # ...
-        AppBundle\Event\Workflow\PublishOnLastStageSubscriber:
+        App\Event\Workflow\PublishOnLastStageSubscriber:
             arguments:
                 $publishOnLastStageWorkflows: '%app.workflow.publish_on_last_stage%'
     ```
@@ -195,5 +198,5 @@
     ``` yaml
     services:
         # ...
-        AppBundle\Event\Subscriber\EndWorkflowSubscriber: ~
+        App\Event\Subscriber\EndWorkflowSubscriber: ~
     ```

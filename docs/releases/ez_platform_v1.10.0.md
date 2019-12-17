@@ -7,7 +7,7 @@ If you are looking for the Long Term Support (LTS) release, see[ https://ezplat
 
 Upgrade notes
 
-This release contains special steps to follow further described in [Updating eZ Platform](updating_ez_platform.md).
+This release contains special steps to follow further described in [Updating eZ Platform](../updating/updating_ez_platform.md).
 
 ## Notable changes since v1.9.0
 
@@ -68,9 +68,9 @@ $value = $content->getFieldValue('body');
 
 #### SOLR: Index time boosting & Improved Facets support
 
-One of the new features in 1.10 *(Solr Bundle 1.4)* is the possibility to [configure index time boosting](../guide/solr_bundle.md), which enables you to properly tune the search results to be relevant for your content architecture.
+One of the new features in 1.10 *(Solr Bundle 1.4)* is the possibility to [configure index time boosting](../guide/solr.md), which enables you to properly tune the search results to be relevant for your content architecture.
 
-In addition to that, we made progress on providing native support for faceted search within eZ Platform when using the Solr Bundle. You can now use facets based on ContentTypes, Sections and Users, see [Browsing, finding, viewing](../guide/guide_to_ez_platform.md) page for how to use them. We plan to provide more facets natively in the coming releases.
+In addition to that, we made progress on providing native support for faceted search within eZ Platform when using the Solr Bundle. You can now use facets based on ContentTypes, Sections and Users, see [Performing a Faceted Search](../api/public_php_api_search.md#performing-a-faceted-search) page for how to use them. We plan to provide more facets natively in the coming releases.
 
 #### Cluster migration script
 
@@ -110,19 +110,15 @@ Kudos to [@emodric](https://twitter.com/emodric) for the Tags bundle, [@pspanja]
 
 ### Installation
 
-[Installation Guide](docs/getting_started/install_ez_platform.md)
+[Installation Guide](../getting_started/install_ez_platform.md)
 
-[Technical Requirements](docs/getting_started/requirements.md)
+[Technical Requirements](../getting_started/requirements.md)
 
 ### Download
 
 #### eZ Platform
 
 -   Download at [eZPlatform.com](http://ezplatform.com/#download)
-
- 
-
- 
 
 #### eZ Enterprise
 
@@ -132,12 +128,10 @@ Kudos to [@emodric](https://twitter.com/emodric) for the Tags bundle, [@pspanja]
 
 If you would like to request an eZ Enterprise Demo instance: <http://ez.no/Forms/Discover-eZ-Studio>
 
-
-
 ### Updating
 
-To update to this version, follow the [Updating eZ Platform](../releases/updating_ez_platform.md) guide and use v1.10.0 as `<version>`.
+To update to this version, follow the [Updating eZ Platform](../updating/updating_ez_platform.md) guide and use v1.10.0 as `<version>`.
 
-**Note:** When updating eZ Platform Enterprise Edition, you need to [add the new EzSystemsPlatformEEAssetsBundle](updating_ez_platform.md#update_the_app)
+**Note:** When updating eZ Platform Enterprise Edition, you need to [add the new EzSystemsPlatformEEAssetsBundle](../updating/3_update_app.md)
 
  

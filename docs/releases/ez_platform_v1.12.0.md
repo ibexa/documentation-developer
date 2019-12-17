@@ -70,7 +70,7 @@ If you would like to request an eZ Enterprise Demo instance: <http://ez.no/Forms
 
 ### Updating
 
-To update to this version, follow the [Updating eZ Platform](updating_ez_platform.md) guide and use v1.12.0 as `<version>`.
+To update to this version, follow the [Updating eZ Platform](../updating/updating_ez_platform.md) guide and use v1.12.0 as `<version>`.
 
 !!! caution "BC: Change for Varnish users"
 
