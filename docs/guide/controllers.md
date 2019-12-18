@@ -564,7 +564,8 @@ final class LatestContentController extends AbstractController
 ### Content query Field Type
 
 The [Content query Field Type](../api/field_type_reference.md#content-query-field-type)
-enables you to get query results in a Content item's Field.
+enables you to configure a content query that will use parameters from a Field definition.
+The results will be available in a Content item's Field.
 
 Use it by adding a Content query Field Type to your Content Type.
 
@@ -617,5 +618,5 @@ Query results are provided to the template in the `items` variable:
 ```
 
 The default view type is `line`, defined under `itemViewType`.
-You can change it by passing a different view to `viewType` in the template.
-You can also define a different view type globally by overriding the default `parameters.ezcontentquery_item_view` parameter.
+You can change it by passing a different view to `viewType` in the template, e.g.:
+`"viewType": "list"`.
