@@ -578,7 +578,7 @@ parentLocationId: '@=mainLocation.id'
 
 Select the Content Type of items you want to return in the **Returned type** dropdown.
 To take it into account, your Query Type must filter on the Content Type.
-You can then provide the selected Content Type through the `returnedType` variable:
+Provide the selected Content Type through the `returnedType` variable:
 
 ```
 contentType: '@=returnedType'
