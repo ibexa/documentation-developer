@@ -575,9 +575,9 @@ and provide the parameters that are required by the Query Type, e.g.:
 parentLocationId: '@=mainLocation.id'
 ```
 
-You can also select the Content Type of items you want to return in the **Returned type** dropdown.
+Select the Content Type of items you want to return in the **Returned type** dropdown.
 To take it into account, your Query Type must filter on the Content Type.
-You can then provide the selected Content Type thorough the `returnedType` variable:
+You can then provide the selected Content Type through the `returnedType` variable:
 
 ```
 contentType: '@=returnedType'
@@ -600,6 +600,7 @@ content_view:
         blog_posts:
             match:
                 Identifier\ContentType: blog
+                Identifier\FieldDefinition: posts
             template: "blog_posts.html.twig"
 ```
 
@@ -615,5 +616,6 @@ Query results are provided to the template in the `items` variable:
 {% endfor %}
 ```
 
-The default view type is `line`.
-You can define a different view type by overriding the default `parameters.ezcontentquery_item_view` parameter.
+The default view type is `line`, defined under `itemViewType`.
+You can change it by passing a different view to `viewType` in the template.
+You can also define a different view type globally by overriding the default `parameters.ezcontentquery_item_view` parameter.

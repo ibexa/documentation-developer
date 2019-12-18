@@ -96,13 +96,14 @@ under `content_view`, add a section that indicates the matcher and template to u
 
 ``` yaml
 content_query_field:
-    folder:
+    folder_children:
         match:
             Identifier\ContentType: folder
-        template: full/folder.html.twig
+            Identifier\FieldDefinition: children
+        template: content_query/folder.html.twig
 ```
 
-Then, provide the template in `templates/full/folder.html.twig`.
+Then, provide the template in `templates/content_query/folder.html.twig`.
 The query results are available in the `items` variable:
 
 ``` html+twig
