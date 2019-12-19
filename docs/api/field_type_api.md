@@ -44,11 +44,11 @@ will be treated as [external storage](field_type_storage.md#external-storage).
 
 The following sequence diagrams visualize the process of creating and publishing new content across all layers, especially focused on the interaction with a Field Type.
 
-### Create Content Sequence
+## Create Content Sequence
 
 ![Create Content Sequence](img/create_content_sequence.png)
 
-### Publish Content Sequence
+## Publish Content Sequence
 
 !!! note "indexLocation()"
 
