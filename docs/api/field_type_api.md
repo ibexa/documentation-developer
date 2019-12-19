@@ -20,6 +20,11 @@ To do so, you need to create a custom Field Type.
 A custom Field Type must implement the **FieldType Service Provider Interfaces**
 available in the [`eZ\Publish\SPI\FieldType`](https://github.com/ezsystems/ezpublish-kernel/tree/v7.5.0/eZ/Publish/SPI/FieldType) namespace.
 
+!!! note "Registration"
+
+    Remember that all your custom Filed Types must be registered in `config/services.yml`.
+    For more information see [Registration section](field_type_type_and_value.md#registration).
+
 In order to provide custom functionality for a Field Type, the SPI interacts with multiple layers of the eZ Platform architecture:
 
 ![Field Type Overview](img/field_type_overview.png)
