@@ -1,6 +1,6 @@
-# Extending Universal Discovery Widget (UDW)
+# Extending Universal Discovery Widget
 
-Universal Discovery module allows you to browse the content structure and search for content
+Universal Discovery Widget (UDW) allows you to browse the content structure and search for content
 using an interactive interface: browse, search, create, and bookmarks view .
 
 ## How to use UDW?
@@ -33,7 +33,7 @@ const props = {
 
 ## Adding new tabs to the UDW
 
-The Universal Discovery module is highly customizable. It allows you to add new tabs to the module.
+The Universal Discovery Widget is highly customizable. It allows you to add new tabs to the module.
 
 ``` jsx
 const props = {
@@ -75,7 +75,7 @@ There are 2 types of properties: **required** and **optional**.
 
 ### Required properties
 
-Without all the following properties the Universal Discovery module will not work.
+Without all the following properties the Universal Discovery Widget will not work.
 
 **onConfirm** _{Function}_ - a callback to be invoked when a user clicks on the confirm button
 in a Universal Discovery popup. The function takes one param: `content` which is an array of Content item structs.
@@ -87,7 +87,7 @@ in a Universal Discovery popup. It takes no extra params.
 
 ### Optional props
 
-Optionally, Universal Discovery module can take a following list of props:
+Optionally, Universal Discovery Widget can take a following list of props:
 
 - **loadContentInfo** _{Function}_ - loads content info. It takes 3 params: `restInfo`, `contentId` and `callback`
 - **loadContentTypes** _{Function}_ - loads Content Type data. It takes 2 params: `restInfo`, `callback`,
@@ -124,7 +124,7 @@ The following props are deprecated:
 
 ## Configuration
 
-You can configure Universal Discovery module in the [`universal_discovery_widget.yaml`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/config/universal_discovery_widget.yaml) file.
+You can configure Universal Discovery Widget in the [`universal_discovery_widget.yaml`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/config/universal_discovery_widget.yaml) file.
 There you can set e.g. the starting location ID, visible tabs, allowed Content Types, search limits, etc.
 
 ```yaml
@@ -151,7 +151,7 @@ For more information on ConfigResolver, see [eZ Platform dynamic configuration b
 UDW configuration can change dynamically depending on occurring events.
 It can be used e.g. for defining which content should be exposed to a user after logging in.
 
-By default only one element from configuration file is applied to Universal Discovery module.
+By default only one element from configuration file is applied to Universal Discovery Widget.
 You can modify it dynamically by passing context to generate configuration based on a specific event.
 This context event is caught by event listener `ConfigResolveEvent::NAME` before the original configuration is used.
 Depending on what additional parameters are provided, original or event-specific configuration is applied.
