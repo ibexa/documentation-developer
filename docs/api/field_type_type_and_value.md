@@ -100,8 +100,8 @@ When [REST API](rest_api_guide.md) is used, conversion needs to be done for Fiel
 
 ## Registration
 
-A Field Type needs to have defined an indexable class. 
-If you are using Solr Bundle, each Filed Type must be registered in `config/services.yml`:
+A Field Type needs to have an indexable class defined. 
+If you are using Solr Bundle, each Field Type must be registered in `config/services.yml`:
 
 ``` yaml
 services:
@@ -111,7 +111,7 @@ services:
             - {name: ezplatform.field_type, alias: ezmatrix}
 ```
 
-Items that are not to be indexed, should be registered with `unindexed` class with the parameter `ezpublish.fieldType.indexable.unindexed.class`:
+Items that are not to be indexed should be registered with the `unindexed` class with the parameter `ezpublish.fieldType.indexable.unindexed.class`:
 
 ```yaml
 services:
