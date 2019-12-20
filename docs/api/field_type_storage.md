@@ -24,8 +24,26 @@ The SPI `FieldValue` struct has properties which the Field Type can use:
 
 ### Legacy storage engine
 
+The Legacy storage engine uses the `ezcontentobject_attribute` table to store Field values,
+and `ezcontentclass_attribute` to store Field definition values.
+They are both based on the same principle.
+
+Each row represents a Field or a Field definition, and offers several free fields of different types, where the type can store its data e.g.
+
+- `ezcontentobject_attribute` offers:
+    - `data_int`
+    - `data_text`
+    - `data_float`
+- `ezcontentclass_attribute` offers:
+    - four `data_int` (`data_int1` to `data_int4`) fields
+    - four `data_float` (`data_float1` to `data_float4`) ones
+    - five `data_text` (`data_text1` to `data_text5`)
+
+Each type is free to use those fields in any way it requires.
+
 The default Legacy storage engine cannot store arbitrary value information as provided by a Field Type.
 This means that using this storage engine requires a conversion.
+Converters will map a Field's semantic values to the fields described above, for both settings (validation and configuration) and value.
 
 The conversion takes place through the `eZ\Publish\Core\Persistence\Legacy\Content\FieldValue\Converter` interface,
 which you must implement in your Field Type. The interface contains the following methods:
@@ -36,7 +54,9 @@ which you must implement in your Field Type. The interface contains the followin
 |`toFieldValue()`|Converts the other way around.|
 |`toStorageFieldDefinition()`|Converts a Persistence `FieldDefinition` to a storage specific one.|
 |`toFieldDefinition`|Converts the other way around.|
-|`getIndexColumn()`|Returns the storage column which is used for indexing.|
+|`getIndexColumn()`|Returns the storage column which is used for indexing either `sort_key_string` or `sort_key_int`.|
+
+Just like a Type, a Legacy Converter needs to be registered and tagged in the service container.
 
 #### Registering a converter
 
