@@ -73,14 +73,14 @@
     Transitions can also have labels, colors, and icons (lines 33-35).
     If you don't define a custom color for a transition, a default setting will be used (`$ez-color-base-light`, i.e. `#878787`).
     
-    You can require that a reviewer be selected when content is sent through a transition (lines 36-37).
+    You can require that a reviewer has to be selected when content is sent through a transition (lines 36-37).
     The user will then not have the option to send the Content item without selecting a reviewer:
     
     ![Required reviewer option in a workflow](img/workflow_reviewers.png)
     
     !!! note
     
-        If a User does not have the permissions to view of edit the Content item,
+        If a User does not have the permissions to view or edit the Content item,
         you cannot select them as a reviewer.
     
     You can view all configured workflows in the Admin Panel by selecting **Workflow**.
@@ -129,7 +129,7 @@
     First, you can notify whole User Groups or specific Users about a transition
     by providing the User or User Group ID under the` notification` key.
     
-    In this case the User does not have to be selected as a reviewer.
+    In this case, the User does not have to be selected as a reviewer.
 
     ``` yaml
     custom_workflow:
