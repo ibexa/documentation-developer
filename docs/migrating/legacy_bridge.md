@@ -34,7 +34,11 @@ In addition it contains the following features:
 _Besides those is contains several bug fixes, smaller improvements, optimizations, and it also adds support for use with PHP 7.2- 7.3, and eZ Platform 1.x/2.x._
 
 
-### eZ product support limitations
+### Limitations
+
+All requests and commands needs to go true eZ Platform in order for the bridge between the two systems to work, this involves everything from cache, user sessions and search index. The only thing not shared between the two systems is a database connection, even if the database itself is shared this means you need to close transactions in one system before you can expect to read it in the other system.
+
+#### eZ product support limitations
 
 Legacy is considered as a supported add-on to eZ Platform, with limitations.
 Support is thus limited by what legacy supported to begin with, and what is [supported](../getting_started/requirements.md) in combination with eZ Platform, and further
