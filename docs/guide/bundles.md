@@ -361,12 +361,13 @@ The following tables give an overview of the main eZ Platform bundles.
     |Bundle|Description|
     |---------|-----------|
     |date-based-publisher|provides the date based publishing functionality for the eZ Studio product|
-	|ezplatform-workflow|implementation of a collaboration feature that lets you send content draft to any user for a review or rewriting|
-    |ezplatform-page-fieldtype|page handling FieldType for eZ Platform EE 2.2+|
+	  |ezplatform-workflow|implementation of a collaboration feature that lets you send content draft to any user for a review or rewriting|
+    |ezplatform-page-fieldtype|page handling Field Type for eZ Platform EE 2.2+|
     |ezplatform-page-builder|contains eZ Platform Page editor for eZ Platform EE 2.2+|
     |ezplatform-ee-installer|provides `ezplatform:install` Symfony console command which is the installer for eZ Platform Enterprise v2|
     |ezplatform-http-cache-fastly|extends ezplatform-http-cache to support Fastly, for use on Platform.sh PE or standalone|
     |ezplatform-calendar|extends the Back Office by adding the calendar tab with the calendar widget|
+    |ezplatform-content-comparison|allows comparing between two versions of the same Field|
 
 ### Optional bundles
 

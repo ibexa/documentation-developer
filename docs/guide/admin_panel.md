@@ -22,7 +22,7 @@ If a Content item has multiple Location assignments then it is always the Sectio
 In addition, if the main Location of a Content item with multiple Location assignments is changed then the Section ID of that item will be updated.
 
 When content is moved to a different Location, the item itself and all of its subtree will be assigned to the Section of the new Location.
-Note that it works only for copy and move; assigning a new Section to a parent Content item does not affect the subtree, meaning that Subtree cannot currently be updated this way.
+Note that it works only for copy and move; assigning a new Section to a parent Content item does not affect the subtree, meaning that subtree cannot currently be updated this way.
 
 Sections can only be removed if no Content items are assigned to them. Even then, it should be done carefully.
 When a Section is deleted, it is only its definition itself that will be removed.
@@ -55,8 +55,8 @@ If you want to give your users possibility to register themselves follow a tutor
 
 ## Roles
 
-To give users an access to your website you need to assign them roles in the Admin panel.
-Each role consists of:
+To give users an access to your website you need to assign them Roles in the Admin Panel.
+Each Role consists of:
 
 **Policies**
 
@@ -73,7 +73,7 @@ See [example below](#restrict-editing-to-part-of-the-tree).
 
 **Assignments**
 
-After you created all Policies, you can assign the Role to users and/or groups with possible additional Limitations.
+After you created all Policies, you can assign the Role to Users and/or User Groups with possible additional Limitations.
 Every User or User Group can have multiple Roles.
 A User can also belong to many groups, for example, Administrators, Editors, Subscribers.
 
@@ -122,11 +122,11 @@ This also lets the user copy and move content, as well as add new Locations to a
 
 #### Removing content
 
-To send content to trash, the User needs to have the `content/remove` Policy.
+To send content to Trash, the User needs to have the `content/remove` Policy.
 
 To remove an archived version of content, the User must have the `content/versionremove` Policy.
 
-Further manipulation of trash requires the `content/restore` Policy to restore items from trash, and `content/cleantrash` to completely delete all content from the trash.
+Further manipulation of Trash requires the `content/restore` Policy to restore items from Trash, and `content/cleantrash` to completely delete all content from Trash.
 
 
 #### Restrict editing to part of the tree
@@ -213,8 +213,8 @@ See [Languages](internationalization.md) for further information.
 ## Content Types
 
 A Content Type is a base for new Content items.
-It defines what fields will be available in the Content item.
-For example, a new Content Type called *Article* can have fields such as title, author, body, image, etc.
+It defines what Fields will be available in the Content item.
+For example, a new Content Type called *Article* can have Fields such as title, author, body, image, etc.
 Based on this Content Type, you can create any number of Content items.
 Content Types are organized into groups.
 You can add your own groups here to keep your Content Types in better order.

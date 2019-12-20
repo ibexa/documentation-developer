@@ -28,7 +28,7 @@ $output->writeln(($this->sectionService->isSectionUsed($section) ? 'This section
 ### Listing content in a Section
 
 To list Content items assigned to a Section you need to make a [query](public_php_api_search.md)
-for Content belonging to this section, by applying the [`SearchService`.](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/SearchService.php)
+for content belonging to this section, by applying the [`SearchService`.](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/SearchService.php)
 You can also use the query to get the total number of assigned Content items:
 
 ``` php
@@ -189,9 +189,9 @@ $this->bookmarkService->deleteBookmark($location);
 
 ## Languages
 
-### Getting Language information
+### Getting language information
 
-To get a list of all Languages in the system use [`LanguageService::loadLanguages`:](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/LanguageService.php#L81)
+To get a list of all languages in the system use [`LanguageService::loadLanguages`:](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/LanguageService.php#L81)
 
 ``` php
 $languageList = $this->languageService->loadLanguages();
@@ -201,7 +201,7 @@ foreach ($languageList as $language) {
 }
 ```
 
-### Creating a Language
+### Creating a language
 
 To create a new language, you need to create a [`LanguageCreateStruct`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/LanguageCreateStruct.php)
 and provide it with the language code and language name.

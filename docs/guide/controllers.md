@@ -266,8 +266,8 @@ Results from the search are assigned to the `blog_posts` variable as a `SearchRe
 Following Controller actions are available:
 
 - `locationQueryAction` runs a Location Search
-- `contentQueryAction` runs a Content Search
-- `contentInfoQueryAction` runs a Content Info search
+- `contentQueryAction` runs a content Search
+- `contentInfoQueryAction` runs a ContentInfo search
 - `pagingQueryAction` returns a `PagerFanta` object and can be used to quickly [paginate query results](#paginating-with-querytypes)
 
 See the [Search](search.md) documentation page for more details about different types of search.
@@ -278,9 +278,9 @@ The Query is configured in a `query` hash in `params`, you could specify the Que
 
 - `query_type` - Name of the Query Type that will be used to run the query, defined by the class name.
 - `parameters` - Query Type parameters that can be provided in two ways:
-        1. As scalar values, for example an identifier, an id, etc.
-        1. Using the Expression language. This simple script language, similar to Twig syntax, lets you write expressions that get value from the current Content and/or Location:
-            - For example, `@=location.id` will be evaluated to the currently viewed location's ID.`content`, `location` and `view` are available as variables in expressions.
+        1. As scalar values, for example an identifier, an ID, etc.
+        1. Using the Expression language. This simple script language, similar to Twig syntax, lets you write expressions that get value from the current Content item and/or Location:
+            - For example, `@=location.id` will be evaluated to the currently viewed Location's ID.`content`, `location` and `view` are available as variables in expressions.
 - `assign_results_to`
     - This is the name of the Twig variable that will be assigned the results.
     - Note that the results are the SearchResult object returned by the SearchService.
@@ -307,7 +307,7 @@ interface QueryType
  /**
  * Builds and returns the Query object
  *
- * The Query can be either a Content or a Location one.
+ * The Query can be either a content or a Location one.
  *
  * @param array $parameters A hash of parameters that will be used to build the Query
  * @return \eZ\Publish\API\Repository\Values\Content\Query
@@ -332,7 +332,7 @@ interface QueryType
 
 A QueryType may accept parameters, including string, array and other types, depending on the implementation. They can be used in any way, such as:
 
-- customizing an element's value (limit, ContentType identifier, etc.)
+- customizing an element's value (limit, Content Type identifier, etc.)
 - conditionally adding/removing criteria from the query
 - setting the limit/offset
 
@@ -341,7 +341,7 @@ The implementations should use Symfony's `OptionsResolver` for parameter handlin
 ### QueryType example: latest content
 
 This QueryType returns a Query that searches for **the 10 last published Content items, ordered by reverse publishing date**.
-It accepts an optional `type` parameter that can be set to a ContentType identifier:
+It accepts an optional `type` parameter that can be set to a Content Type identifier:
 
 ``` php
 <?php
@@ -404,10 +404,6 @@ App\QueryType\LatestContent:
     tags:
         - { name: ezpublish.query_type, alias: LatestContent }
 ```
-
-!!! tip "More information"
-
-    Follow the FieldType creation Tutorial and learn how to [Register the Field Type as a service](../tutorials/field_type/4_register_the_field_type_as_a_service.md).
 
 ### Paginating with QueryTypes
 

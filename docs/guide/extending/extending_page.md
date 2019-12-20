@@ -311,10 +311,10 @@
 
     ##### Exposing content relations from blocks
 
-    Page blocks, for example Embed Block or Collection Block, can embed other Content items.
-    Publishing a Page with such blocks creates relations to those Content items.
+    Page blocks, for example Embed block or Collection block, can embed other Content items.
+    Publishing a Page with such blocks creates Relations to those Content items.
 
-    When creating a custom block with embeds, you can ensure such relations are created using the block relation collection event.
+    When creating a custom block with embeds, you can ensure such Relations are created using the block Relation collection event.
 
     The event is dispatched on content publication. You can hook your event listener to one of the events:
 
@@ -323,9 +323,9 @@
 
     To expose relations, pass an array containing Content IDs to the `\EzSystems\EzPlatformPageFieldType\Event\CollectBlockRelationsEvent::setRelations()` method.
 
-    You don't have to keep track of relations. If embedded Content changes, old relations will be removed automatically.
+    You don't have to keep track of Relations. If embedded Content changes, old Relations will be removed automatically.
 
-    Providing relations will also invalidate HTTP cache for your block response in one of the related Content items changes.
+    Providing Relations will also invalidate HTTP cache for your block response in one of the related Content items changes.
 
     ##### Block render response
 

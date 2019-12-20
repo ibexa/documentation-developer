@@ -9,8 +9,8 @@ In addition to the [native functions provided by Twig](http://twig.sensiolabs.or
 |Twig function|Description|
 |-------------|-----------|
 |[`ez_content_name`](#ez_content_name)|Displays a Content item's name in the current language.|
-|[`ez_field_description`](#ez_field_description)|Returns the description from the FieldDefinition of a Content item's Field in the current language.|
-|[`ez_field_name`](#ez_field_name)|Returns the name from the FieldDefinition of a Content item's Field in the current language.|
+|[`ez_field_description`](#ez_field_description)|Returns the description from the Field definition of a Content item's Field in the current language.|
+|[`ez_field_name`](#ez_field_name)|Returns the name from the Field definition of a Content item's Field in the current language.|
 |[`ez_field_value`](#ez_field_value)|Returns a Content item's Field value in the current language.|
 |[`ez_field`](#ez_field)|Returns a Field from a Content item in the current language.|
 |[`ez_file_size`](#ez_file_size)|Returns the size of a file as string.|
@@ -35,7 +35,7 @@ In addition to the [native functions provided by Twig](http://twig.sensiolabs.or
 
 If the Content item does not have a translation in the current language, the name in the main language is always returned. This behavior is identical when forcing a language.
 
-If languages were specified during retrieval of Content object, you can render name directly using `$content->getName()` (Twig: `content.name`) and it will take the prioritised languages into account. If not, it falls back to the main language, just like `ez_content_name()` does. For usage with ContentInfo, see examples below.
+If languages were specified during retrieval of the Content item, you can render name directly using `$content->getName()` (Twig: `content.name`) and it will take the prioritised languages into account. If not, it falls back to the main language, just like `ez_content_name()` does. For usage with ContentInfo, see examples below.
 
 #### Prototype and Arguments
 
@@ -81,7 +81,7 @@ $translatedContentName = $this->get( 'ezpublish.translation_helper' )->getTransl
 
 #### Description
 
-`ez_field_description()` is a Twig helper which returns the description from the FieldDefinition of a Content item's Field in the current language.
+`ez_field_description()` is a Twig helper which returns the description from the Field definition of a Content item's Field in the current language.
 
 This can be useful when you don't want to use a sub-request and custom controller to be able to display this information.
 
@@ -94,7 +94,7 @@ If the Content item does not have a translation in the current language, the mai
 | Argument name | Type | Description |
 |---------------|------|-------------|
 | `content` | `eZ\Publish\API\Repository\Values\Content\Content` or `eZ\Publish\API\Repository\Values\Content\ContentInfo ` | Content/ContentInfo object the **fieldDefIdentifier** belongs to. |
-| `fieldDefIdentifier` | `string` | Identifier of the Field you want to get the FieldDefinition description from. |
+| `fieldDefIdentifier` | `string` | Identifier of the Field you want to get the Field definition description from. |
 | `forcedLanguage` | `string` | Language you want to force (e.g. "eng-US"), otherwise takes prioritized languages from SiteAccess settings. |
 
 #### Usage
@@ -107,7 +107,7 @@ If the Content item does not have a translation in the current language, the mai
 
 #### Description
 
-`ez_field_name()` is a Twig helper which returns the name from the FieldDefinition of a Content item's Field in the current language.
+`ez_field_name()` is a Twig helper which returns the name from the Field definition of a Content item's Field in the current language.
 
 This can be useful when you don't want to use a sub-request and custom controller to be able to display this information.
 
@@ -120,7 +120,7 @@ If the Content item does not have a translation in the current language, the mai
 | Argument name | Type | Description |
 |---------------|------|-------------|
 | `content` | `eZ\Publish\API\Repository\Values\Content\Content` or `eZ\Publish\API\Repository\Values\Content\ContentInfo` | Content / ContentInfo object the **fieldDefIdentifier** belongs to. |
-| `fieldDefIdentifier` | `string` | Identifier of the Field you want to get the FieldDefinition name from. |
+| `fieldDefIdentifier` | `string` | Identifier of the Field you want to get the Field definition name from. |
 | `forcedLanguage` | `string` | Language you want to force (e.g. "`jpn-JP`"), otherwise takes prioritized languages from SiteAccess settings. |
 
 #### Usage
@@ -141,7 +141,7 @@ If the Content item does not have a translation in the current language, the mai
 
 !!! tip
 
-    If languages were specified during retrieval of Content object, you can get field value directly using `content->getFieldValue('title')` and it will take the prioritised languages into account. If not, it falls back to the main language, just like **ez\_field\_value()** does.
+    If languages were specified during retrieval of the Content item, you can get field value directly using `content->getFieldValue('title')` and it will take the prioritised languages into account. If not, it falls back to the main language, just like **ez\_field\_value()** does.
 
 #### Prototype and Arguments
 
@@ -149,9 +149,9 @@ If the Content item does not have a translation in the current language, the mai
 
 | Argument name        | Type                                               | Description                                                                                            |
 |----------------------|----------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| `content`            | `eZ\Publish\API\Repository\Values\Content\Content` | Content object the field referred to with `fieldDefIdentifier` belongs to.                           |
-| `fieldDefIdentifier` | `string`                                           | Identifier of the field you want to get the value from.                                                 |
-| `forcedLanguage`     | `string`                                           | Locale you want the Content name translation in (e.g. "fre-FR"). Null by default (takes current locale) |
+| `content`            | `eZ\Publish\API\Repository\Values\Content\Content` | Content item the Field referred to with `fieldDefIdentifier` belongs to.                           |
+| `fieldDefIdentifier` | `string`                                           | Identifier of the Field you want to get the value from.                                                 |
+| `forcedLanguage`     | `string`                                           | Locale you want the content name translation in (e.g. "fre-FR"). Null by default (takes current locale) |
 
 #### Usage
 
@@ -163,7 +163,7 @@ If the Content item does not have a translation in the current language, the mai
 
 #### Description
 
-`ez_field()` is a Twig helper which returns a Field  in the current language. The field gives you access to the field value, as well as the Field's Definition identifier and Type identifier.
+`ez_field()` is a Twig helper which returns a Field  in the current language. The Field gives you access to the Field value, as well as the Field's definition identifier and Field Type identifier.
 
 !!! tip
 
@@ -173,7 +173,7 @@ If the Content item does not have a translation in the current language, the mai
 
 !!! tip
 
-    If languages were specified during retrieval of Content object, you can get field directly using `content->getField('title')` and it will take the prioritised languages into account. If not, it falls back to the main language, just like **ez\_field()** does.
+    If languages were specified during retrieval of the Content item, you can get the Field directly using `content->getField('title')` and it will take the prioritised languages into account. If not, it falls back to the main language, just like **ez\_field()** does.
 
 #### Prototype and Arguments
 
@@ -181,9 +181,9 @@ If the Content item does not have a translation in the current language, the mai
 
 | Argument name        | Type                                               | Description                                                                                            |
 |----------------------|----------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| `content`            | `eZ\Publish\API\Repository\Values\Content\Content` | Content object the field referred to with `fieldDefIdentifier` belongs to.                           |
-| `fieldDefIdentifier` | `string`                                           | Identifier of the field you want to get the value from.                                                 |
-| `forcedLanguage`     | `string`                                           | Locale you want the Content name translation in (e.g. "fre-FR"). Null by default (takes current locale) |
+| `content`            | `eZ\Publish\API\Repository\Values\Content\Content` | Content item the Field referred to with `fieldDefIdentifier` belongs to.                           |
+| `fieldDefIdentifier` | `string`                                           | Identifier of the Field you want to get the value from.                                                 |
+| `forcedLanguage`     | `string`                                           | Locale you want the content name translation in (e.g. "fre-FR"). Null by default (takes current locale) |
 
 #### Usage
 
@@ -290,14 +290,14 @@ If the Content item does not have a translation in the current language, the mai
 |---------------|------|-------------|
 | `content` | `eZ\Publish\API\Repository\Values\Content\Content` | Content item the displayed Field belongs to. |
 | `fieldDefIdentifier` | `eZ\Publish\API\Repository\Values\Content\Field or string` | The Field you want to check or its identifier. |
-| `forcedLanguage` | `string` | Locale you want the Content name translation in (e.g. "fre-FR"). Null by default (takes current locale) |
+| `forcedLanguage` | `string` | Locale you want the content name translation in (e.g. "fre-FR"). Null by default (takes current locale) |
 
 #### Usage
 
 ##### Using the Field identifier as parameter
 
 ``` html+twig
-{# Display "description" field if not empty #}
+{# Display "description" Field if not empty #}
 {% if not ez_field_is_empty( content, "description" ) %}
     <div class="description">
         {{ ez_render_field( content, "description" ) }}
@@ -419,7 +419,7 @@ you can specify the current template to be the source of the Field block.
     <div class="tags">{{ ez_render_field( content, "tags" , { "template": _self } ) }}</div>
 {% endblock %}
 
-{# Here begins the inline block for my ezkeyword field #}
+{# Here begins the inline block for my ezkeyword Field #}
 {% block ezkeyword_field %}
     {% apply spaceless %}
         {% if field.value.values|length() > 0 %}
@@ -514,14 +514,14 @@ If languages were specified during retrieval of a given value object, you can ge
 
 ##### Main language use
 
-Main language is be applied in the following way for Value objects that support this:
+Main language is be applied in the following way for value objects that support this:
 
 - *When attribute is retrieved via object property*: Use **mainLanguageCode** property if it exists as fallback language, but only if either **alwaysAvailable** property does not exist, or is true.
 - *When attribute is retrieved via object method*: Provide `$language = null` as the only argument to the method, the logic of the ValueObject decides if this gives a fallback value or not.
 
 #### Usage
 
-Example below shows how this function can be used to get the Content name with exact same result as using `ez_content_name(content)`:
+Example below shows how this function can be used to get the content name with exact same result as using `ez_content_name(content)`:
 
 ``` html+twig
 {{ ez_trans_prop( versionInfo, "name" ) }}

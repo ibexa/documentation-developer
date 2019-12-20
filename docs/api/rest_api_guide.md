@@ -20,7 +20,7 @@ REST (REpresentational State Transfer) is a web services architecture that follo
 
 ### Resources
 
-The API provides a set of URIs, each of them identifying and providing access to operations on a certain resource. For instance, the URI `/content/objects/59` will allow you to interact with the Content with ID 59, while `/content/types/1` will allow you to interact with the Content Type with ID 1.
+The API provides a set of URIs, each of them identifying and providing access to operations on a certain resource. For instance, the URI `/content/objects/59` will allow you to interact with the Content item with ID 59, while `/content/types/1` will allow you to interact with the Content Type with ID 1.
 
 ### HTTP methods
 
@@ -28,9 +28,9 @@ It uses HTTP methods ( **`GET`** , **`POST`** , **`PUT`** , **`DELETE`** , etc.)
 
 |Action|Description|
 |------|-----------|
-|`GET  /content/objects/2`| Provides you with data about Content \#2|
-|`PATCH  /content/objects/2`| Updates the Content \#2's metadata (section, main language, main location...)|
-|`DELETE  /content/objects/2`| Deletes Content \#2|
+|`GET  /content/objects/2`| Provides you with data about Content item \#2|
+|`PATCH  /content/objects/2`| Updates the Content item \#2's metadata (section, main language, main location...)|
+|`DELETE  /content/objects/2`| Deletes Content item \#2|
 |`COPY  /content/objects/2`| Creates a copy of this Content|
 
 !!! note "Caution with custom HTTP verbs"

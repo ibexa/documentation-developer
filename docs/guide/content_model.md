@@ -35,7 +35,7 @@ The name is in the main language of the Content item.
     `name` is always searchable, even if the Field(s) used to generate it are not.
 
 **`sectionId`** - the unique number of the Section to which the Content item belongs.
-New Content items are placed in the Standard section by default.
+New Content items are placed in the Standard Section by default.
 This behavior can be changed, but content must always belong to some Section.
 See [Sections](admin_panel.md#sections) for more information.
 
@@ -43,7 +43,7 @@ See [Sections](admin_panel.md#sections) for more information.
 
 **`published`** - true if a published version exists, otherwise false.
 
-**`ownerId`** - ID of the user who initially created the Content item.
+**`ownerId`** - ID of the User who initially created the Content item.
 It is set by the system the first time the Content item is published.
 The ownership of an item cannot be modified and will not change even if the owner is removed from the system.
 
@@ -106,9 +106,9 @@ Each Content Type is characterized by a set of metadata which define the general
 
     This flag was added for convenience and only affects the interface. In other words, it doesn't control any actual low-level logic, it simply controls the way the graphical user interface behaves.
 
-**Default field for sorting children** – rule for sorting sub-items. If the instances of this Content Type can serve as containers, their children will be sorted according to what is selected here.
+**Sort children by default by** – rule for sorting sub-items. If the instances of this Content Type can serve as containers, their children will be sorted according to what is selected here.
 
-**Default sort order** – another rule for sorting sub-items. This decides the sort order for the criterion chosen above.
+**Sort children by default in order** – another rule for sorting sub-items. This decides the sort order for the criterion chosen above.
 
 <a id="default-content-availability"></a>**Make content available even with missing translations** – a flag which indicates if Content items of this Content Type should be available even without a corresponding language version. See [Content availability](content_management.md#content-availability).
 

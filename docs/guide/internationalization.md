@@ -37,7 +37,7 @@ For example, let's say that you need to store information about marathon contest
 
 ### Access control
 
-You can control whether a User or User group is able to translate content or not. You do this by adding a [Language Limitation](limitation_reference.md#language-limitation) to Policies that allow creating or editing content. This limitation enables you to define which Role can work with which languages in the system. (For more information of the permissions system, see [Permissions](permissions.md).)
+You can control whether a User or User Group is able to translate content or not. You do this by adding a [Language Limitation](limitation_reference.md#language-limitation) to Policies that allow creating or editing content. This Limitation enables you to define which Role can work with which languages in the system. (For more information of the permissions system, see [Permissions](permissions.md).)
 
 In addition, you can also control the access to the global translation list by using the Content/Translations Policy. This Policy allows users to add and remove languages from the global translation list.
 
@@ -197,7 +197,7 @@ A locale *conversion map* example [can be found in the `core` bundle, on `locale
 
 ### More complex translation setup
 
-There are some cases where your SiteAccesses share settings (repository, content settings, etc.), but you don't want all of them to share the same `translation_siteaccesses` setting. This can be for example the case when you use separate SiteAccesses for mobile versions of a website.
+There are some cases where your SiteAccesses share settings (Repository, content settings, etc.), but you don't want all of them to share the same `translation_siteaccesses` setting. This can be for example the case when you use separate SiteAccesses for mobile versions of a website.
 
 The solution is defining new groups:
 
@@ -259,7 +259,7 @@ ezplatform:
 
 If the `translation_siteaccesses` setting is not provided, implicit *related SiteAccesses* will be used instead. SiteAccesses are considered *related* if they share:
 
-- The same repository
+- The same Repository
 - The same root `location_id` (see [Multisite](multisite.md))
 
 ### Fallback languages and missing translations

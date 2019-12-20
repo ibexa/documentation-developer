@@ -7,8 +7,7 @@ This is due to the switch from Symfony 3 to Symfony 4, as well as due to depreca
 
 !!! tip
 
-    Refer to [Symfony 4 upgrade doc](https://github.com/symfony/symfony/blob/master/UPGRADE-4.0.md)
-    for details on all changes related to the switch to Symfony 4.
+    For details on all changes related to the switch to Symfony 4, see [Symfony 4 upgrade doc.](https://github.com/symfony/symfony/blob/master/UPGRADE-4.0.md)
 
 Symfony 4 changes the organization of your project into folders and bundles.
 When updating to eZ Platform v3.0 you need to move your files and modify file paths and namespace references.
@@ -53,7 +52,13 @@ using `{% extends "@EzPublishCore/content_fields.html.twig" %}`,
 you now need to extend `EzSystemsPlatformHttpCache` instead, if you wish to make use of cache:
 `{% extends "@EzSystemsPlatformHttpCache/content_fields.html.twig" %}`.
 
-## Resolving settings
+## Configuration
+
+### `ezpublish` configuration key
+
+The main YAML configuration key is now [`ezplatform` instead of `ezpublish`](ez_platform_v3.0_deprecations.md#configuration-through-ezplatform).
+
+### Resolving settings
 
 Due to changes in the way Dependency Injection Container functions in Symfony,
 it is recommended to inject the ConfigResolver and get the relevant setting
@@ -102,15 +107,29 @@ class MyService
 }
 ```
 
-## Renamed templates and template parameters
+### User checker
+
+Add the user checker to firewall by adding the following line to `config/packages/security.yaml`:
+
+``` yaml hl_lines="5"
+security:
+    firewalls:
+        ezpublish_front:
+            # ...
+            user_checker: eZ\Publish\Core\MVC\Symfony\Security\UserChecker
+            # ...
+```
+
+## Templates
 
 The naming and location of templates in the Back Office have been changed.
 If you extend or modify these templates, you need to adapt your code.
 
-Refer to [the list of removals and deprecations](ez_platform_v3.0_deprecations.md#template-organization)
-for the full list of changes.
+For the full list of template changes, see [the list of removals and deprecations](ez_platform_v3.0_deprecations.md#template-organization).
 
-## Custom Installers
+A number of [Twig functions have also been renamed](ez_platform_v3.0_deprecations.md#functions-renamed).
+
+## Custom installers
 
 eZ Platform provides extension point to create named custom installer which can be used instead of the native one.
 To use it, execute the Symfony command:
@@ -161,15 +180,27 @@ services:
         parent: EzSystems\PlatformInstallerBundle\Installer\DbBasedInstaller
 ```
 
-## User checker
+## Packages
 
-Add the user checker to firewall by adding the following line to `config/packages/security.yaml`:
+Code related to various parts of the application has been moved between repositories.
+Change the respective namespaces if your custom code extends any of the following.
 
-``` yaml
-security:
-    firewalls:
-        ezpublish_front:
-            # ...
-            user_checker: eZ\Publish\Core\MVC\Symfony\Security\UserChecker
-            # ...
-```
+### RichText and Online Editor
+
+Online Editor front-end code and assets (such as JS, CSS, fonts, etc.) have been [moved from `ezplatform-admin-ui` to `ezplatform-richtext`](ez_platform_v3.0_deprecations.md#online-editor).
+
+The `ezrichtext` Field Type has been [moved from `ezpublish-kernel` to `ezplatform-richtext`](ez_platform_v3.0_deprecations.md#richtext).
+
+### Repository forms
+
+Content Type editing has been [moved from `repository-forms` to `ezplatform-admin-ui`](ez_platform_v3.0_deprecations.md#content-type-forms).
+
+Forms for content creation have been [moved from `repository-forms` to `ezplatform-content-forms`](ez_platform_v3.0_deprecations.md#repository-forms).
+
+### User settings
+
+User settings have been [moved from `ezplatform-admin-ui` to `ezplatform-user`](ez_platform_v3.0_deprecations.md#user-settings).
+
+### Flex Workflow
+
+[`flex-workflow` has been combined with `ezplatform-workflow`](ez_platform_v3.0_deprecations.md#flex-workflow) in the form of a Quick Review functionality.
