@@ -7,7 +7,7 @@ It appears to whoever is doing a specific operation in the Back Office.
 
 ![Example of an info notification](img/notification2.png "Example of the notification bar")
 
-[Flex Workflow notifications](#create-custom-notifications-using-the-flex-workflow-mechanism) are sent to a specific user.
+[Custom notifications](#create-custom-notifications) are sent to a specific user.
 They will appear in their profile in the Back Office.
 
 ![Notification in profile](img/notification3.png)
@@ -47,9 +47,9 @@ const eventInfo = new CustomEvent('ez-notify', {
 
 Dispatch the event with `document.body.dispatchEvent(eventInfo);`.
 
-## Create custom notifications using the Flex Workflow mechanism
+## Create custom notifications
 
-You can send your own custom notifications to the user with the same mechanism that is used to send notification from Flex Workflow.
+You can send your own custom notifications to the user which will be displayed in the user menu.
 
 To create a new notification you must use the `createNotification(eZ\Publish\API\Repository\Values\Notification\CreateStruct $createStruct)` method from `\eZ\Publish\API\Repository\NotificationService`.
 

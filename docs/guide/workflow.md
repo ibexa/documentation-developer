@@ -12,10 +12,10 @@
 
     Each workflow consists of stages and transitions between them.
 
-    The following configuration defines a workflow where you can pass a draft to technical review, then to proofreading, and to final approval.
-    The workflow is defined in the `config/packages/workflow.yaml` configuration file.
+    The following configuration defines a workflow where you can pass a draft to proofreading, and then to final approval.
+    The workflow is defined in the `config/packages/ezplatform.yaml` configuration file.
 
-    ``` yaml hl_lines="16 17 18 33 34 34 35 36 37 38 69 70 71 72"
+    ``` yaml hl_lines="16 17 18 30 31 32 33 34 35 36 37"
     ezplatform:
         system:
             # Workflow configuration is SiteAccess-aware
@@ -25,18 +25,15 @@
                     custom_workflow:
                         name: Custom Workflow
                         matchers:
-                            # Which Content Types can use this workflow
+                            # Which Content Types can use this workflow, optional
                             content_type: article
-                            # Which status of the Content item can use this workflow. Available statuses are draft and published.
+                            # Which status of the Content item can use this workflow, optional. Available statuses are draft and published.
                             content_status: draft
                         # All stages the content goes through
                         stages:
                             draft:
                                 label: Draft
                                 color: '#f15a10'
-                            technical:
-                                label: Technical review
-                                color: '#10f15a'
                             proofread:
                                 label: Proofread
                                 color: '#5a10f1'
@@ -48,61 +45,126 @@
                         initial_stage: draft
                         # Available transitions between stages
                         transitions:
-                            to_technical:
-                                from: draft
-                                to: technical
-                                label: To technical review
-                                color: '#cb8888'
-                                icon: '/bundles/ezplatformadminui/img/ez-icons.svg#comment'
-                                notification:
-                                    user_group: 13
-                            back_to_draft:
-                                reverse: to_technical
-                                label: Back to draft
-                                color: '#888888'
-                                icon: '/bundles/ezplatformadminui/img/ez-icons.svg#comment'
-                                notification:
-                                    user_group: 13
                             to_proofread:
-                                from: technical
+                                from: draft
                                 to: proofread
                                 label: To proofreading
                                 color: '#8888ba'
                                 icon: '/bundles/ezplatformadminui/img/ez-icons.svg#comment'
-                                notification:
-                                    user_group: 13
-                            back_to_technical:
+                                reviewers:
+                                    required: true
+                            back_to_draft:
                                 reverse: to_proofread
-                                label: Back to technical review
+                                label: Back to draft
                                 color: '#cb8888'
                                 icon: '/bundles/ezplatformadminui/img/ez-icons.svg#comment'
-                                notification:
-                                    user_group: 13
                             done:
                                 from: proofread
                                 to: done
                                 label: Done
                                 color: '#88ad88'
                                 icon: '/bundles/ezplatformadminui/img/ez-icons.svg#comment'
-                                notification:
-                                    # Which User Group or User to notify about this transition
-                                    user_group: 13
-                                    user: 14
     ```
 
     Each stage in the workflow has an identifier and can be assigned a label and a color (lines 16-18).
 
     Each transition also has an identifier. It must state between which stages it transitions, or be marked as `reverse` of a different transition.
     
-    Transitions can also have labels, colors, and icons (lines 33-38).
+    Transitions can also have labels, colors, and icons (lines 33-35).
     If you don't define a custom color for a transition, a default setting will be used (`$ez-color-base-light`, i.e. `#878787`).
-
-    `notification` (lines 69-72) defines who will be notified when a transition happens by providing the User or User Group ID.
-    Notifications will be displayed in the user menu.
-
+    
+    You can require that a reviewer has to be selected when content is sent through a transition (lines 36-37).
+    The user will then not have the option to send the Content item without selecting a reviewer:
+    
+    ![Required reviewer option in a workflow](img/workflow_reviewers.png)
+    
+    !!! note
+    
+        If a User does not have the permissions to view or edit the Content item,
+        you cannot select them as a reviewer.
+    
     You can view all configured workflows in the Admin Panel by selecting **Workflow**.
 
     ![Workflow in Admin Panel](img/workflow_panel.png)
+
+    ## Publishing content with workflow
+
+    You can automatically publish a Content item once it has reached a specific stage.
+    To do so, configure the `publish` action for a transition:
+    
+    ``` yaml
+    custom_workflow:
+        # ...
+        transitions:
+            # ...
+            done:
+                from: proofread
+                to: done
+                label: Done
+                color: '#88ad88'
+                actions:
+                    publish: ~
+    ```
+    
+    You can also add the action in stage configuration.
+    It will be performed when the Content item reaches this stage:
+    
+    ``` yaml
+    custom_workflow:
+        # ...
+        stages:
+            # ...
+            done:
+                label: Done
+                color: '#301203'
+                last_stage: true
+                actions:
+                    publish: ~
+    ```
+
+    ## Sending notifications
+
+    There are two ways to send notifications about changes in the workflow.
+
+    First, you can notify whole User Groups or specific Users about a transition
+    by providing the User or User Group ID under the` notification` key.
+    
+    In this case, the User does not have to be selected as a reviewer.
+
+    ``` yaml
+    custom_workflow:
+        # ...
+        transitions:
+            # ...
+            done:
+                from: proofread
+                to: done
+                label: Done
+                color: '#88ad88'
+                notification:
+                    # Which User Group or User to notify about this transition
+                    user_group: 13
+                    user: 14
+    ```
+
+    Second, when an editor selects a reviewer in the Back Office,
+    your configuration can send a notification to the reviewer:
+    
+    ``` yaml
+    custom_workflow:
+        # ...
+        stages:
+            # ...
+            proofread:
+                label: Proofread
+                color: '#5a10f1'
+                actions:
+                    notify_reviewer: ~
+    ```
+
+    In both cases, the notifications will be displayed in the user menu:
+
+    ![Notification about content to review](img/workflow_notification.png)
 
     ## Permissions
 
@@ -141,62 +203,3 @@
 
     `\EzSystems\EzPlatformWorkflow\Value\WorkflowMetadata` object contains all information about a workflow, such as ID, name, transitions and current stage.
     `\EzSystems\EzPlatformWorkflow\Value\WorkflowMetadata::$workflow` gives you direct access to native Symfony Workflow object.
-
-    ## Publishing content with workflow
-
-    The workflow functionality only operates on workflow stages.
-    It does not perform operations on content, such as publishing it, out of the box.
-
-    This means it does not automatically publish a Content item when it reaches the final stage of a workflow.
-    It can be done with a custom implementation.
-
-    ### Publish content that reaches final stage
-
-    To publish a Content item once it reaches the final stage of a workflow, you need to set up an event subscriber.
-
-    You can use the [`PublishOnLastStageSubscriber.php`](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.5.0/src/AppBundle/Event/Workflow/PublishOnLastStageSubscriber.php) from eZ Platform demo as a basis for the subscriber.
-
-    The subscriber listens for the `WorkflowEvents::WORKFLOW_STAGE_CHANGE` event
-    ([line 61](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.5.0/src/AppBundle/Event/Workflow/PublishOnLastStageSubscriber.php#L61)).
-    When the event occurs, it publishes the relevant Content item
-    ([line 87](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.5.0/src/AppBundle/Event/Workflow/PublishOnLastStageSubscriber.php#L87)).
-
-    The subscriber must be registered as a service:
-
-    ``` yaml hl_lines="5"
-    services:
-        # ...
-        App\Event\Workflow\PublishOnLastStageSubscriber:
-            arguments:
-                $publishOnLastStageWorkflows: '%app.workflow.publish_on_last_stage%'
-    ```
-
-    You must also provide the identifier of the workflow you want the subscriber to apply to.
-    Do it in the `app.workflow.publish_on_last_stage` parameter:
-
-    ``` yaml
-    parameters:
-        app.workflow.publish_on_last_stage: [editorial_workflow, legal_workflow]
-    ```
-
-    ### Finish workflow for published content
-
-    With proper permissions, you can publish content even before it has gone through a whole workflow.
-    Afterward it will still be visible in the review queue
-    and in the relevant stage of **Content item(s) under review** tab under **Workflow** in the Admin panel.
-
-    To avoid cluttering the tables with published content, you can use an event subscriber
-    which will automatically move content to the last stage of the workflow after it has been published.
-
-    You can use the [`EndWorkflowSubscriber.php`](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.5.0/src/AppBundle/Event/Subscriber/EndWorkflowSubscriber.php) from eZ Platform demo as a basis for the subscriber.
-
-    The [`doEndWorkflows()`](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.5.0/src/AppBundle/Event/Subscriber/EndWorkflowSubscriber.php#L105) function in the example
-    applies all transitions that are needed to bring the Content item to the final workflow stage.
-
-    The subscriber must also be registered as a service:
-
-    ``` yaml
-    services:
-        # ...
-        App\Event\Subscriber\EndWorkflowSubscriber: ~
-    ```
