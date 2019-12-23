@@ -44,7 +44,24 @@ You can now reschedule or cancel planned future publications right from the Dash
 
 The list of common Sort Clauses has been extended by the Random sorting option.
 
-### Custom Workflow transition color
+### Workflow improvements
+
+#### Workflow actions
+
+You can now configure your workflows to [automatically publish content](../guide/workflow.md#publishing-content-with-workflow).
+
+#### Reviewers
+
+When sending content through a workflow, the user can now select reviewers.
+You can require that a user select reviewers when sending content through the workflow.
+
+In the configuration you can also set the workflow to [automatically notify the selected reviewers](../guide/workflow.md#sending-notifications).
+
+#### Quick review
+
+A built-in Quick Review offers a quick workflow configuration for your basic needs.
+
+#### Custom transition color
 
 You can configure a custom color for each of the transitions defined in the Workflow.
 
