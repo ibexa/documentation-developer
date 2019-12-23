@@ -1,4 +1,4 @@
-# eZ Platform developer documentation
+# eZ Platform and eZ Platform Enterprise developer documentation
 
 &nbsp;
 
@@ -55,7 +55,8 @@
       <li class="list-group-item"><a href="https://doc.ezplatform.com/projects/userguide/en/latest/" class="card-link">User Guide</a></li>
       <li class="list-group-item"><a href="https://doc.ezplatform.com/projects/ezpersonalization/en/latest/" class="card-link">eZ Services documentation</a></li>
       <li class="list-group-item"><a href="https://doc.ez.no/commerce" class="card-link">eZ Commerce documentation</a></li>
-    <li class="list-group-item"><a href="https://doc.ez.no/display/EZP/eZ+Publish+5.x+Developer+Documentation" class="card-link">eZ Publish 5 documentation</a></li>
+    <li class="list-group-item"><a href="https://doc.ez.no/display/EZP/eZ+Publish+5.x+Developer+Documentation" class="card-link">eZ Publish 5</a></li>
+    <li class="list-group-item"><a href="https://github.com/ezsystems/LegacyBridge/blob/master/INSTALL.md" class="card-link">Legacy Bridge</a></li>
     <li class="list-group-item"><a href="https://doc.ez.no/eZ-Publish" class="card-link">eZ Publish Legacy documentation</a></li>
   </ul>
 </div>

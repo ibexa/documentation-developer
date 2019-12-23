@@ -190,6 +190,7 @@ pages:
     - Migrating to eZ Platform:
         - 'Migrating from eZ Publish Platform': 'migrating/migrating_from_ez_publish_platform.md'
         - 'Migrating from eZ Publish': 'migrating/migrating_from_ez_publish.md'
+        - 'Legacy Bridge': 'migrating/legacy_bridge.md'
         - 'Common issues': 'migrating/common_issues.md'
     - Updating eZ Platform:
         - 'Updating eZ Platform': 'updating/updating_ez_platform.md'
