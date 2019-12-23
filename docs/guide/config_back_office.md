@@ -151,4 +151,4 @@ ezplatform:
 
 ## Universal Discovery Widget (UDW) configuration
 
-The Universal Discovery Widget module (UDW) can be found in [Extending modules.](extending/extending_modules.md#universal-discovery-widget-udw)
+The Universal Discovery Widget (UDW) can be found in [Extending UDW.](extending/extending_udw.md)
