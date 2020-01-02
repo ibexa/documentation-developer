@@ -125,7 +125,37 @@ The following props are deprecated:
 ## Configuration
 
 You can configure Universal Discovery Widget in the [`universal_discovery_widget.yaml`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/config/universal_discovery_widget.yaml) file.
-There you can set e.g. the starting location ID, visible tabs, allowed Content Types, search limits, etc.
+There you can set:
+
+|YML|React props|Values|Definition|
+|---|-----------|------|----------|
+|multiple|multiple|True/false|The possibility to choose one or many locations.|
+|multiple_items_limit|multipleItemsLimit|number|Maximal number of items with configuration `multiple: true`.|
+|root_location_id|rootLocationId|number| UDW will display location only below this content tree element.|
+|starting_location_id|startingLocationId|Number|This location will be displayed/marked as a starting location in UDW.|
+|containers_only|containersOnly|True/false|If set to `true` you will be able to select only containers.|
+|allowed_content_types|allowedContentTypes|Null/[]/[‘contentTypeIdentifier’]|List of allowed Content Types: null – all Content Types are allowed, [] – empty table, no Content Types are allowed.|
+|active_sort_clause|activeSortClause|DatePublished/ContentName| Clause under which children in the content tree will be sorted.|
+|active_sort_order|activeSortOrder|ascending/descending|Order of sorting children in the content tree.|
+|active_tab|activeTab|browse/search/bookmarks|Starting tab in UDW.|
+active_view|activeView|finder/grid|Starting view in UDW.|
+|allow_content_edit|allowContentEdit|true/false|Visibility of `Edit` content button in UDW.|
+|selected_locations|selectedLocations|[]/[locationId]|Location that will be selected automatically.|			
+|grupa content_on_the_fly||||
+|allowed_languages|allowedLanguages|null/[]/[languageCode]|Languages available in content on the fly: null - all, [] - none|
+|allowed_locations|allowedLocations|null/[]/[locationId]|Under which location creating content is allowed: null - everywhere, [] - nowhere|
+|preselected_language|preselectedLanguage|null/languageCode|First language on COTF language list - null - take language order defined in the system|
+|preselected_content_type|preselectedContentType|null/contentTypeIdentifier|Content marked in COTF|
+|hidden|hidden|true/false|COTF visibility.|
+|auto_confirm_after_publish|autoConfirmAfterPublish|true/false|If set to `true` UDW will shut down after publishing the content.|
+|grupa tabs_config|Configuration for each tab: browse/search/bookmarks||
+|items_per_page|itemsPerPage|number|Number of items that will be shown on one page.|
+|priority|priority|number|Priority of items shown in the tab list - item with a highest value will be displayed as first.|
+|hidden|hidden|true/false|Hides specific tabs.|
+|Configuration available only on JS||||			
+||onConfirm|function| Callback to invoke after your choice in UDW is confirmed.|
+
+
 
 ```yaml
 system:
@@ -141,12 +171,9 @@ system:
                         limit: 50
 ```
 
-UDW configuration is SiteAccess-aware.
-For each defined SiteAccess, you need to be able to use the same configuration tree in order to define SiteAccess-specific config.
-These settings need to be mapped to SiteAccess-aware internal parameters that you can retrieve via the ConfigResolver.
-For more information on ConfigResolver, see [eZ Platform dynamic configuration basics.](../config_dynamic#configresolver)
+UDW configuration is SiteAccess-aware. For each defined SiteAccess, you need to be able to use the same configuration tree in order to define SiteAccess-specific config. These settings need to be mapped to SiteAccess-aware internal parameters that you can retrieve via the ConfigResolver. For more information on ConfigResolver, see [eZ Platform dynamic configuration basics](../config_dynamic.md#configresolver).
 
-### Adding new configuration
+## Adding new configuration
 
 UDW configuration can change dynamically depending on occurring events.
 It can be used e.g. for defining which content should be exposed to a user after logging in.
