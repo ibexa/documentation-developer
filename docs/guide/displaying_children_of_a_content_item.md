@@ -5,20 +5,19 @@ For example you can configure a blog displaying all blog posts or a folder showi
 
 There are three ways to make a Content item display its children:
 
-1. [Using the Query Controller](#using-the-query-controller)
 1. [Using the Content query Field Type](#using-the-content-query-field-type)
+1. [Using the Query Controller](#using-the-query-controller)
 1. [Using a Custom Controller](#using-a-custom-controller)
 
 This procedure demonstrates how to use these three methods to display all children of a Content item with the Content Type Folder.
 
-## Using the Query Controller
+## Using the Content query Field Type
 
-The Query Controller is a pre-defined custom content view Controller that runs a Repository Query.
+The Query Controller is a pre-defined custom content view Controller that runs a Repository Query
+that you can use together with the Content query Field Type.
 
-If you need to create a simple Query, it is easier to use the Query Controller than to build a completely custom one, as you will not have to write custom PHP code. 
-Like with a [Custom Controller](#using-a-custom-controller), however, you will be able to use properties of the viewed Content item or Location as parameters.
-
-The main file in this case is an `src/QueryType/LocationChildrenQueryType.php` file which generates a Query that retrieves the children of the current Location.
+The Query Type in this example is contained an `src/QueryType/LocationChildrenQueryType.php` file
+which generates a Query that retrieves the children of the current Location.
 
 ``` php
 <?php
@@ -50,39 +49,7 @@ class LocationChildrenQueryType implements QueryType
 }
 ```
 
-Next, in your [standard view configuration](../guide/content_rendering.md#configuring-views-the-viewprovider) file, under `content_view`, add a section that indicates when this Controller will be used. It is similar to regular view config, but contains additional information:
-
-``` yaml
-folder:
-    controller: ez_query:locationQueryAction
-    template: full/folder.html.twig
-    match:
-        Identifier\ContentType: folder
-    params:
-        query:
-            query_type: LocationChildren
-            parameters:
-                parentLocationId: '@=location.id'
-            assign_results_to: items
-```
-
-In this case the `controller` key points to the Query Controller's `locationQuery` action. `assign_results_to` identifies the parameter containing all the retrieved children that will later be used in the templates, like here in `templates/full/folder.html.twig`:
-
-``` html+twig
-<h1>{{ ez_content_name(content) }}</h1>
-
-{% for item in items.searchHits %}
-  <h2><a href={{ path('ez_urlalias', {'contentId': item.valueObject.contentInfo.id}) }}>{{ ez_content_name(item.valueObject.contentInfo) }}</a></h2>
-{% endfor %}
-```
-
-This template makes use of the `items` specified in `assign_results_to` to list every child of the folder.
-
-## Using the Content query Field Type
-
-You can also use the same Query Type as above to list the children of a Content item using the Content query Field Type.
-
-To do this, add a Content query Field to your Folder Content Type's definition.
+To use the Query Type with a Content query Field, add the Field to your Folder Content Type's definition.
 
 Select "Location children" as the Query type. Provide the `parentLocationId` parameter
 that the Query type requires:
@@ -113,6 +80,38 @@ The query results are available in the `items` variable:
     <h2><a href={{ path('ez_urlalias', {'contentId': item.contentInfo.id}) }}>{{ ez_content_name(item.contentInfo) }}</a></h2>
 {% endfor %}
 ```
+
+## Using the Query Controller
+
+You can also use the same Query Type as above together with the Query Controller.
+
+In your [standard view configuration](../guide/content_rendering.md#configuring-views-the-viewprovider) file, under `content_view`, add a section that indicates when this Controller will be used. It is similar to regular view config, but contains additional information:
+
+``` yaml
+folder:
+    controller: ez_query:locationQueryAction
+    template: full/folder.html.twig
+    match:
+        Identifier\ContentType: folder
+    params:
+        query:
+            query_type: LocationChildren
+            parameters:
+                parentLocationId: '@=location.id'
+            assign_results_to: items
+```
+
+In this case the `controller` key points to the Query Controller's `locationQuery` action. `assign_results_to` identifies the parameter containing all the retrieved children that will later be used in the templates, like here in `templates/full/folder.html.twig`:
+
+``` html+twig
+<h1>{{ ez_content_name(content) }}</h1>
+
+{% for item in items.searchHits %}
+  <h2><a href={{ path('ez_urlalias', {'contentId': item.valueObject.contentInfo.id}) }}>{{ ez_content_name(item.valueObject.contentInfo) }}</a></h2>
+{% endfor %}
+```
+
+This template makes use of the `items` specified in `assign_results_to` to list every child of the folder.
 
 ## Using a Custom Controller
 
