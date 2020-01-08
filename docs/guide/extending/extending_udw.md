@@ -64,15 +64,14 @@ There you can set following properties:
 
 |YML</br>React props|Values|Required|Definition|
 |-------------------|------|--------|----------|
-|title</br>`title`|string|yes|The title of Universal Discovery popup.|
 |multiple</br>`multiple`|true</br>false|no|The possibility to choose multiple Locations.|
-|multiple_items_limit</br>`multipleItemsLimit`|number|no|Maximal number of items with configuration `multiple: true`.|
+|multiple_items_limit</br>`multipleItemsLimit`|number|no|Maximum number of items with configuration `multiple: true`.|
 |root_location_id</br>`rootLocationId`|number|no|UDW will display Locations only below this Content Tree element.|
 |starting_location_id</br>`startingLocationId`|number|no|This Location will be displayed as a starting Location in UDW.|
 |containers_only</br>`containersOnly`|true</br>false|no|When set to `true` only containers can be selected.|
 |allowed_content_types</br>`allowedContentTypes`|null</br>[]</br>[‘contentTypeIdentifier’]|yes|List of allowed Content Types:</br>`null` – all Content Types are allowed,</br>`[]` – empty table, no Content Types are allowed.|
 |active_sort_clause</br>`activeSortClause`|DatePublished</br>ContentName|no|Clause under which children in the Content Tree will be sorted.|
-|active_sort_order</br>`activeSortOrder`|ascending</br>descending|no|Sorting order of children in the Content Tree.|
+|active_sort_order</br>`activeSortOrder`|ascending</br>descending|no|Sorting order of the children in the Content Tree.|
 |active_tab</br>`activeTab`|browse</br>search</br>bookmarks|no|Starting tab in the UDW.|
 |active_view</br>`activeView`|finder</br>grid|no|Starting view in the UDW.|
 |allow_content_edit</br>`allowContentEdit`|true</br>false|yes|Visibility of `Edit` content button in UDW.|
@@ -84,33 +83,36 @@ There you can set following properties:
 |-------------------|------|--------|----------|
 |allowed_languages</br>`allowedLanguages`|null</br>[]</br>[languageCode]|yes|Languages available in content on the fly: null - all, [] - none.|
 |allowed_locations</br>`allowedLocations`|null</br>[]</br>[locationId]|yes|Under which Location creating content is allowed:</br>null - everywhere, [] - nowhere.|
-|preselected_language</br>`preselectedLanguage`|null</br>languageCode|yes|First language on the Content on the Fly language list:</br>null - take language order defined in the system.|
+|preselected_language</br>`preselectedLanguage`|null</br>languageCode|yes|First language on the Content on the Fly language list:</br>null - language order defined in the system.|
 |preselected_content_type</br>`preselectedContentType`|null</br>contentTypeIdentifier|yes|Content marked in Content on the Fly.|
 |hidden</br>`hidden`|true</br>false|yes|Content on the Fly visibility.|
-|auto_confirm_after_publish</br>`autoConfirmAfterPublish`|true</br>false|yes|If set to `true` UDW will shut down after publishing the content.|
+|auto_confirm_after_publish</br>`autoConfirmAfterPublish`|true</br>false|yes|If set to `true` UDW will be automatically closed after publishing the content.|
 
 ### Tabs Config Group
 
-Configuration for each tab: browse/search/bookmarks
+Configuration for each tab e.g. browse, search, bookmarks etc.
 
 |YML</br>React props|Values|Required|Definition|
 |-------------------|------|--------|----------|
 |items_per_page</br>`itemsPerPage`|number|yes|Number of items that will be shown on one page.|
 |priority</br>`priority`|number|yes|Priority of items shown in the tab list. Item with a highest value will be displayed as first.|
-|hidden</br>`hidden`|true</br>false|yes|Hides specific tabs.|
+|hidden</br>`hidden`|true</br>false|yes|Hides or reveals specific tabs.|
 
-### Configuration available only on JS
+### Configuration available only through JS
 
 |React props|Values|Required|Definition|
 |-----------|------|--------|----------|	
-|onConfirm|function|yes|A callback to be invoked when a user clicks on the confirm button in a Universal Discovery popup. The function takes one param: content which is an array of Content item structs.|
-|onCancel|function|yes|A callback to be invoked when a user clicks on the cancel button in a Universal Discovery popup. It takes no extra params.|
+|`onConfirm`|function|yes|A callback to be invoked when a user clicks on the confirm button in a Universal Discovery Widget.|
+|`onCancel`|function|yes|A callback to be invoked when a user clicks on the cancel button in a Universal Discovery Widget.|
+|`title`|string|yes|The title of Universal Discovery Widget.|
 
 UDW configuration is SiteAccess-aware. For each defined SiteAccess, you need to be able to use the same configuration tree in order to define SiteAccess-specific config.
 These settings need to be mapped to SiteAccess-aware internal parameters that you can retrieve via the ConfigResolver.
 For more information on ConfigResolver, see [eZ Platform dynamic configuration basics](../config_dynamic.md#configresolver).
 
 ### Example configuration
+
+Default configuration of [the Universal Discovery Widget:](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/config/universal_discovery_widget.yaml)
 
 ```yaml
 system:
