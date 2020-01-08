@@ -195,7 +195,7 @@ Note that paths to repository images must be relative to the `var/<site>/storag
 
 ### Available filters
 
-In addition to [filters exposed by LiipImagineBundle](http://symfony.com/doc/2.0/bundles/LiipImagineBundle/configuration.html), the following are available:
+In addition to [filters exposed by LiipImagineBundle](http://symfony.com/doc/2.0/bundles/LiipImagineBundle/filters.html), the following are available:
 
 | Filter name                  | Parameters                                  | Description                                                                                        |
 |------------------------------|---------------------------------------------|----------------------------------------------------------------------------------------------------|
