@@ -29,112 +29,88 @@ const props = {
 
 ## Adding new tabs to the UDW
 
-The Universal Discovery Widget is highly customizable. It allows you to add new tabs to the module.
+The Universal Discovery Widget is highly customizable.
+It allows you to add new tabs to the module ijn the following way:
 
 ``` jsx
 window.eZ.addConfig(
     'adminUiConfig.universalDiscoveryWidget.tabs',
     [
         {
-            id: {String}, // tab id - 'browse'
-            component: {Element}, // React component that represents content of a tab
-            label: {String}, // label text - 'Browse'
-            icon: {String}, // path to the icon - '/bundles/ezplatformadminui/img/ez-icons.svg#browse'
+            id: {String},
+            component: {Element},
+            label: {String},
+            icon: {String},
         },
     ],
     true
 );
 ```
 
-## Property list
+Each tab definition is an object containing properties:
 
-The `<UniversalDiscoveryModule />` module can handle additional properties.
-There are 2 types of properties: **required** and **optional**.
-
-### Required properties
-
-Without all the following properties the Universal Discovery Widget will not work.
-
-**onConfirm** _{Function}_ - a callback to be invoked when a user clicks on the confirm button
-in a Universal Discovery popup. The function takes one param: `content` which is an array of Content item structs.
-
-**onCancel** _{Function}_ - a callback to be invoked when a user clicks on the cancel button
-in a Universal Discovery popup. It takes no extra params.
-
-**restInfo** _{Function}_ - a config hash containing: token (_{String}_) and SiteAccess (_{String}_).
-
-### Optional props
-
-Optionally, Universal Discovery Widget can take a following list of props:
-
-- **loadContentInfo** _{Function}_ - loads content info. It takes 3 params: `restInfo`, `contentId` and `callback`
-- **loadContentTypes** _{Function}_ - loads Content Type data. It takes 2 params: `restInfo`, `callback`,
-- **canSelectContent** _{Function}_ - checks whether a Content item can be selected. It takes one param: a `data` object containing an `item` property as the content struct and `itemsCount` as a number of selected items in UDW,
-- **findContentBySearchQuery** _{Function}_ - finds content using a search query. It takes 3 params: `restInfo`, `query` and `callback`,
-- **findLocationsByParentLocationId** _{Function}_ - finds sub-items of a given Location. It takes 3 params: `restInfo`, `parentLocationId` and `callback`,
-- **title** _{String}_ - the title of Universal Discovery popup. Default value: `Find content`,
-- **multiple** _{Boolean}_ - can select multiple content items flag. Default value: `true`,
-- **activeTab** _{String}_ - active tab identifier. Default value: `browse`,
-- **visibleTabs** _{Array}_ - which UDW tabs are available (e.g. Browse, Search, Create),
-- **startingLocationId** _{Number}_ - Location ID. Default value: `1`,
-- **maxHeight** _{Number}_ - maximum height of panel container. Default value: `500`,
-- **searchResultsPerPage** _{Number}_ - max amount of items visible per page in the search results. Default value: `10`,
-- **extraTabs** _{Array}_ - optional, extra tabs. Each tab definition is an object containing the following properties (all of them are required):
-    - **id** _{String}_ - unique tab identifier (it cannot be: `browse` or `search`),
-    - **title** _{String}_ - tab button title/label,
-    - **panel** _{Element}_ - any kind of React component,
-    - **attrs** _{Object}_ - any optional list of props that should applied to the panel component.
-})),
-- **labels** _{Object}_ - a hash containing text messages to be placed across many places in a component. It contains text labels for child components, see [universal.discovery.module.js](https://github.com/ezsystems/ezplatform-admin-ui-modules/blob/master/src/modules/universal-discovery/universal.discovery.module.js#L438) for details,
-- **selectedItemsLimit** _{Number}_ - the limit of items that can be selected. Should be combined with the `multiple` attribute set to `true`. Default value is `0`, which means no limit,
-- **allowContainersOnly** _{Boolean}_ - when true, only containers can be selected. Default value: `false`,
-- **cotfPreselectedLanguage** _{String}_ - language that is preselected in Content on the Fly,
-- **cotfAllowedLanguages** _{Array}_ - languages that are available in Content on the Fly,
-- **cotfPreselectedContentType** _{String}_ - Content Type that is preselected in Content on the Fly,
-- **cotfAllowedContentTypes** _{Array}_ - Content Types that are available in Content on the Fly,
-- **allowedContentTypes** _{Array}_ - Content Types that are available in other UDW tabs,
-- **cotfPreselectedLocation** _{Number}_ - Location that is preselected in Content on the Fly,
-- **cotfAllowedLocations** _{Array}_ - Locations that are available in Content on the Fly
-
-The following props are deprecated:
-
-- **languages** and **contentTypes** are lists of languages and Content Types in the system, read from the application config.
+|Property|Value|Definition|
+|-----------|------|----------|
+|id|string|Tab ID - `browse`|
+|component|element|React component that represents content of a tab|
+|label|string|Label text e.g. `Browse`|
+|icon|string|Path to the icon e.g. `/bundles/ezplatformadminui/img/ez-icons.svg#browse`|
 
 ## Configuration
 
 You can configure Universal Discovery Widget in the [`universal_discovery_widget.yaml`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/config/universal_discovery_widget.yaml) file.
-There you can set:
 
-|YML|React props|Values|Definition|
-|---|-----------|------|----------|
-|multiple|multiple|`true`/`false`|The possibility to choose one or many locations.|
-|multiple_items_limit|multipleItemsLimit|number|Maximal number of items with configuration `multiple: true`.|
-|root_location_id|rootLocationId|number| UDW will display location only below this content tree element.|
-|starting_location_id|startingLocationId|Number|This location will be displayed/marked as a starting location in UDW.|
-|containers_only|containersOnly|True/false|If set to `true` you will be able to select only containers.|
-|allowed_content_types|allowedContentTypes|Null/[]/[‘contentTypeIdentifier’]|List of allowed Content Types: null – all Content Types are allowed, [] – empty table, no Content Types are allowed.|
-|active_sort_clause|activeSortClause|DatePublished/ContentName| Clause under which children in the content tree will be sorted.|
-|active_sort_order|activeSortOrder|ascending/descending|Order of sorting children in the content tree.|
-|active_tab|activeTab|browse/search/bookmarks|Starting tab in UDW.|
-active_view|activeView|finder/grid|Starting view in UDW.|
-|allow_content_edit|allowContentEdit|true/false|Visibility of `Edit` content button in UDW.|
-|selected_locations|selectedLocations|[]/[locationId]|Location that will be selected automatically.|
-|grupa content_on_the_fly||||
-|allowed_languages|allowedLanguages|null/[]/[languageCode]|Languages available in content on the fly: null - all, [] - none|
-|allowed_locations|allowedLocations|null/[]/[locationId]|Under which location creating content is allowed: null - everywhere, [] - nowhere|
-|preselected_language|preselectedLanguage|null/languageCode|First language on COTF language list - null - take language order defined in the system|
-|preselected_content_type|preselectedContentType|null/contentTypeIdentifier|Content marked in COTF|
-|hidden|hidden|true/false|COTF visibility.|
-|auto_confirm_after_publish|autoConfirmAfterPublish|true/false|If set to `true` UDW will shut down after publishing the content.|
-|grupa tabs_config|Configuration for each tab: browse/search/bookmarks||
-|items_per_page|itemsPerPage|number|Number of items that will be shown on one page.|
-|priority|priority|number|Priority of items shown in the tab list - item with a highest value will be displayed as first.|
-|hidden|hidden|true/false|Hides specific tabs.|
-|Configuration available only on JS||||			
-||onConfirm|function|A callback to be invoked when a user clicks on the confirm button in a Universal Discovery popup. The function takes one param: content which is an array of Content item structs.|
-||onCancel|function|A callback to be invoked when a user clicks on the cancel button in a Universal Discovery popup. It takes no extra params.|
+There you can set following properties:
 
-**Example configuration:**
+|YML</br>React props|Values|Required|Definition|
+|-------------------|------|--------|----------|
+|title</br>`title`|string|yes|The title of Universal Discovery popup.|
+|multiple</br>`multiple`|true</br>false|no|The possibility to choose multiple Locations.|
+|multiple_items_limit</br>`multipleItemsLimit`|number|no|Maximal number of items with configuration `multiple: true`.|
+|root_location_id</br>`rootLocationId`|number|no|UDW will display Locations only below this Content Tree element.|
+|starting_location_id</br>`startingLocationId`|number|no|This Location will be displayed as a starting Location in UDW.|
+|containers_only</br>`containersOnly`|true</br>false|no|When set to `true` only containers can be selected.|
+|allowed_content_types</br>`allowedContentTypes`|null</br>[]</br>[‘contentTypeIdentifier’]|yes|List of allowed Content Types:</br>`null` – all Content Types are allowed,</br>`[]` – empty table, no Content Types are allowed.|
+|active_sort_clause</br>`activeSortClause`|DatePublished</br>ContentName|no|Clause under which children in the Content Tree will be sorted.|
+|active_sort_order</br>`activeSortOrder`|ascending</br>descending|no|Sorting order of children in the Content Tree.|
+|active_tab</br>`activeTab`|browse</br>search</br>bookmarks|no|Starting tab in the UDW.|
+|active_view</br>`activeView`|finder</br>grid|no|Starting view in the UDW.|
+|allow_content_edit</br>`allowContentEdit`|true</br>false|yes|Visibility of `Edit` content button in UDW.|
+|selected_locations</br>`selectedLocations`|[]</br>[locationId]|no|Location that will be selected automatically.|
+
+### Content on the Fly Group
+
+|YML</br>React props|Values|Required|Definition|
+|-------------------|------|--------|----------|
+|allowed_languages</br>`allowedLanguages`|null</br>[]</br>[languageCode]|yes|Languages available in content on the fly: null - all, [] - none.|
+|allowed_locations</br>`allowedLocations`|null</br>[]</br>[locationId]|yes|Under which Location creating content is allowed:</br>null - everywhere, [] - nowhere.|
+|preselected_language</br>`preselectedLanguage`|null</br>languageCode|yes|First language on the Content on the Fly language list:</br>null - take language order defined in the system.|
+|preselected_content_type</br>`preselectedContentType`|null</br>contentTypeIdentifier|yes|Content marked in Content on the Fly.|
+|hidden</br>`hidden`|true</br>false|yes|Content on the Fly visibility.|
+|auto_confirm_after_publish</br>`autoConfirmAfterPublish`|true</br>false|yes|If set to `true` UDW will shut down after publishing the content.|
+
+### Tabs Config Group
+
+Configuration for each tab: browse/search/bookmarks
+
+|YML</br>React props|Values|Required|Definition|
+|-------------------|------|--------|----------|
+|items_per_page</br>`itemsPerPage`|number|yes|Number of items that will be shown on one page.|
+|priority</br>`priority`|number|yes|Priority of items shown in the tab list. Item with a highest value will be displayed as first.|
+|hidden</br>`hidden`|true</br>false|yes|Hides specific tabs.|
+
+### Configuration available only on JS
+
+|React props|Values|Required|Definition|
+|-----------|------|--------|----------|	
+|onConfirm|function|yes|A callback to be invoked when a user clicks on the confirm button in a Universal Discovery popup. The function takes one param: content which is an array of Content item structs.|
+|onCancel|function|yes|A callback to be invoked when a user clicks on the cancel button in a Universal Discovery popup. It takes no extra params.|
+
+UDW configuration is SiteAccess-aware. For each defined SiteAccess, you need to be able to use the same configuration tree in order to define SiteAccess-specific config.
+These settings need to be mapped to SiteAccess-aware internal parameters that you can retrieve via the ConfigResolver.
+For more information on ConfigResolver, see [eZ Platform dynamic configuration basics](../config_dynamic.md#configresolver).
+
+### Example configuration
 
 ```yaml
 system:
@@ -174,8 +150,6 @@ system:
                             items_per_page: 50
                             priority: 30
 ```
-
-UDW configuration is SiteAccess-aware. For each defined SiteAccess, you need to be able to use the same configuration tree in order to define SiteAccess-specific config. These settings need to be mapped to SiteAccess-aware internal parameters that you can retrieve via the ConfigResolver. For more information on ConfigResolver, see [eZ Platform dynamic configuration basics](../config_dynamic.md#configresolver).
 
 ## Adding new configuration
 
