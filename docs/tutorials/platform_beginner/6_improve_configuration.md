@@ -44,7 +44,7 @@ Clear cache and refresh the front page. Photos should now have a regular size an
 
 In a larger site there are many elements that need configuration. To keep it more organized, you can split parts of configuration into separate files.
 
-As an example, you can separate all content view configuration into its own file. Create an `config/packages/views.yaml` file. 
+As an example, you can separate all content view configuration into its own file. Create a `config/packages/views.yaml` file. 
 Copy everything under `content_view` from `config/packages/ezplatform.yaml` and move it to the new file.
 Remove the corresponding code from `ezplatform.yaml`. 
 
