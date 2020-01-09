@@ -20,12 +20,12 @@
         </div>
     </div>
     <div class="card text-center">
-        <div class="card-body"><a href="getting_started/quickstart/">
+        <div class="card-body"><a href="getting_started/install_ez_platform/">
         <svg class="ez-icon front-page-icon">
             <use xlink:href="guidelines/ez-icons.svg#publish"></use>
         </svg></a></div>
         <div class="card-footer bg-transparent">
-            <p class="card-text"><a href="getting_started/quickstart/" class="card-link">Quickstart</a></p>
+            <p class="card-text"><a href="getting_started/install_ez_platform/" class="card-link">Installation</a></p>
         </div>
     </div>
     <div class="card text-center">

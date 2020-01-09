@@ -172,16 +172,6 @@ This operation is performed only once when you install eZ Platform Enterprise Ed
 
     To make use of [Link Manager](../guide/url_management.md), you need to [set up cron](../guide/url_management/#enable-automatic-url-validation).
 
-## Use PHP's built-in server
-
-At this point you can use PHP's built-in server: `php bin/console server:start`.
-
-If you want to use an Apache web server, you need to [set up directory permissions](#set-up-permissions) and [prepare a virtual host](#set-up-virtual-host).
-
-!!! caution
-
-    PHP's built-in server is for development use only. For security and performance reasons it should not be used in production.
-
 ## Prepare installation for production
 
 To use eZ Platform with an HTTP server, you need to [set up directory permissions](#set-up-permissions) and [prepare a virtual host](#set-up-virtual-host).
