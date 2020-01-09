@@ -14,15 +14,7 @@ composer show -a ezystems/developer-documentation
 ```
 2. Run setup script:
 `./vendor/ezsystems/developer-documentation/tests/scripts/setup.sh`
-3. In the `behat.yml.dist` file, adjust the `default.extensions.Behat\Symfony2Extension.kernel.env` value to your SYMFONY_ENV.
-For example:
-```
-default:
-    extensions:
-        Behat\Symfony2Extension:
-            kernel:
-                env: prod
-```
+3. Run `export APP_ENV=behat` in the console.
 4. Run tests by using one of the following commands:
 - To run all tests, use: `bin/behat --profile=doc`
 - To run a specific test step, use: `bin/behat --profile=doc --tags=step1`
