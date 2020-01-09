@@ -30,7 +30,7 @@ const props = {
 ## Adding new tabs to the UDW
 
 The Universal Discovery Widget is highly customizable.
-It allows you to add new tabs to the module ijn the following way:
+It enables you to add new tabs to the module in the following way:
 
 ``` jsx
 window.eZ.addConfig(
@@ -51,16 +51,16 @@ Each tab definition is an object containing properties:
 
 |Property|Value|Definition|
 |-----------|------|----------|
-|id|string|Tab ID - `browse`|
-|component|element|React component that represents content of a tab|
-|label|string|Label text e.g. `Browse`|
-|icon|string|Path to the icon e.g. `/bundles/ezplatformadminui/img/ez-icons.svg#browse`|
+|id|string|Tab ID, e.g. `browse`|
+|component|element|React component that represents the contents of a tab|
+|label|string|Label text, e.g. `Browse`|
+|icon|string|Path to the icon, e.g. `/bundles/ezplatformadminui/img/ez-icons.svg#browse`|
 
 ## Configuration
 
 You can configure Universal Discovery Widget in the [`universal_discovery_widget.yaml`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/config/universal_discovery_widget.yaml) file.
 
-There you can set following properties:
+There you can set the following properties:
 
 |YML</br>React props|Values|Required|Definition|
 |-------------------|------|--------|----------|
@@ -69,8 +69,8 @@ There you can set following properties:
 |root_location_id</br>`rootLocationId`|number|no|UDW will display Locations only below this Content Tree element.|
 |starting_location_id</br>`startingLocationId`|number|no|This Location will be displayed as a starting Location in UDW.|
 |containers_only</br>`containersOnly`|true</br>false|no|When set to `true` only containers can be selected.|
-|allowed_content_types</br>`allowedContentTypes`|null</br>[]</br>[‘contentTypeIdentifier’]|yes|List of allowed Content Types:</br>`null` – all Content Types are allowed,</br>`[]` – empty table, no Content Types are allowed.|
-|active_sort_clause</br>`activeSortClause`|DatePublished</br>ContentName|no|Clause under which children in the Content Tree will be sorted.|
+|allowed_content_types</br>`allowedContentTypes`|null</br>[]</br>[`contentTypeIdentifier`]|yes|List of allowed Content Types:</br>`null` – all Content Types are allowed,</br>`[]` – empty table, no Content Types are allowed.|
+|active_sort_clause</br>`activeSortClause`|DatePublished</br>ContentName|no|Sort Clause by which children in the Content Tree will be sorted.|
 |active_sort_order</br>`activeSortOrder`|ascending</br>descending|no|Sorting order of the children in the Content Tree.|
 |active_tab</br>`activeTab`|browse</br>search</br>bookmarks|no|Starting tab in the UDW.|
 |active_view</br>`activeView`|finder</br>grid|no|Starting view in the UDW.|
@@ -81,16 +81,16 @@ There you can set following properties:
 
 |YML</br>React props|Values|Required|Definition|
 |-------------------|------|--------|----------|
-|allowed_languages</br>`allowedLanguages`|null</br>[]</br>[languageCode]|yes|Languages available in content on the fly: null - all, [] - none.|
-|allowed_locations</br>`allowedLocations`|null</br>[]</br>[locationId]|yes|Under which Location creating content is allowed:</br>null - everywhere, [] - nowhere.|
+|allowed_languages</br>`allowedLanguages`|null</br>[]</br>[languageCode]|yes|Languages available in Content on the Fly:</br>`null` - all,</br>`[]` - none.|
+|allowed_locations</br>`allowedLocations`|null</br>[]</br>[locationId]|yes|Location under which creating content is allowed:</br>`null` - everywhere,</br>`[]` - nowhere.|
 |preselected_language</br>`preselectedLanguage`|null</br>languageCode|yes|First language on the Content on the Fly language list:</br>null - language order defined in the system.|
-|preselected_content_type</br>`preselectedContentType`|null</br>contentTypeIdentifier|yes|Content marked in Content on the Fly.|
+|preselected_content_type</br>`preselectedContentType`|null</br>contentTypeIdentifier|yes|Content selected in Content on the Fly.|
 |hidden</br>`hidden`|true</br>false|yes|Content on the Fly visibility.|
 |auto_confirm_after_publish</br>`autoConfirmAfterPublish`|true</br>false|yes|If set to `true` UDW will be automatically closed after publishing the content.|
 
 ### Tabs Config Group
 
-Configuration for each tab e.g. browse, search, bookmarks etc.
+General configuration for tabs e.g. browse, search, bookmarks etc.
 
 |YML</br>React props|Values|Required|Definition|
 |-------------------|------|--------|----------|
