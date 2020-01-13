@@ -226,7 +226,7 @@ instead of throwing an exception. The following methods are affected:
 - `RoleService::getRoleAssignmentsForUserGroup`
 
 `content/cleantrash` Policy now allows the user to empty the trash
-even if normally they would not have do not have access to the trashed content.
+even if they would not have access to the trashed content.
 
 ### Docker environment
 
