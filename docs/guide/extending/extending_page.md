@@ -14,7 +14,8 @@
         blocks:
             example_block:
                 name: Example Block
-                category: default
+                # Group that the block will be placed in the Elements menu
+                category: Example
                 thumbnail: assets/images/blocks/exampleblock.svg
                 configuration_template: blocks/config.html.twig
                 views:
@@ -252,6 +253,7 @@
     You can overwrite following properties in the existing blocks:
 
     - `thumbnail`
+    - `category`
     - `name`
     - `views`
 
