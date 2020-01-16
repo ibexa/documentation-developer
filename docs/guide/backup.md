@@ -23,7 +23,7 @@ var/logs/*
  
 ```
 # MySQL
-mysqldump -u root --add-drop-table <database_name> > db_backup.sql
+mysqldump -u <database_user> --add-drop-table <database_name> > db_backup.sql
 
 # PostgreSQL
 pg_dump -c --if-exists <database_name> > db_backup.sql
