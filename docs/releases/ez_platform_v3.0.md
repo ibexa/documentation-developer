@@ -70,6 +70,10 @@ You can configure a custom color for each of the transitions defined in the Work
 You can now set [password expiration rules](../guide/user_management.md#password-expiration)
 for user passwords.
 
+### Grouping blocks in Page Builder
+
+You can now assign Page Builder blocks to groups using the `ezplatform_page_fieldtype.blocks.<block_name>.category` setting.
+
 ## Other changes
 
 ### GraphQL
