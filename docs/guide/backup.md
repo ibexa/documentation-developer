@@ -22,7 +22,11 @@ var/logs/*
 3\. Create a dump of the database:
  
 ```
-mysqldump -u root --add-drop-table example > db_backup.sql
+# MySQL
+mysqldump -u root --add-drop-table <database_name> > db_backup.sql
+
+# PostgreSQL
+pg_dump -c --if-exists <database_name> > db_backup.sql
 ```
 
 4\. In parent directory create a tar archive of the files (including the DB dump) using the "tar" command:
@@ -32,5 +36,3 @@ tar cfz backup_of_ezplatform.tar.gz ezplatform
 ```
 
 At this point, the file `backup_of_ezplatform.tar.gz` should contain a backup of DB and files.
-
-    
