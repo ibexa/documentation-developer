@@ -14,7 +14,7 @@
         blocks:
             example_block:
                 name: Example Block
-                # Group that the block will be placed in the Elements menu
+                # The group that contains the block in the Elements menu
                 category: Example
                 thumbnail: assets/images/blocks/exampleblock.svg
                 configuration_template: blocks/config.html.twig
@@ -250,7 +250,7 @@
 
     #### Overwriting existing blocks
 
-    You can overwrite following properties in the existing blocks:
+    You can overwrite the following properties in the existing blocks:
 
     - `thumbnail`
     - `category`
