@@ -4,7 +4,6 @@ copyright: "Copyright 1999-2020 eZ Systems AS and others"
 pages:
     - 'Documentation': 'index.md'
     - Getting started:
-        - 'Quickstart': 'getting_started/quickstart.md'
         - 'Requirements': 'getting_started/requirements.md'
         - 'Install eZ Platform': 'getting_started/install_ez_platform.md'
         - 'Install eZ Enterprise': 'getting_started/install_ez_enterprise.md'
