@@ -32,6 +32,11 @@ To use them, create [Event Listeners](https://symfony.com/doc/4.3/event_dispatch
 
 ## New features
 
+### Content query Field Type
+
+The new [Content query Field Type](../api/field_type_reference.md#content-query-field-type)
+enables you to configure a content query that will use parameters from a Field definition.
+
 ### Schedule calendar
 
 ### Manage planned publications with Dashboard
