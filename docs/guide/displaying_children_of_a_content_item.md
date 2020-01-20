@@ -3,21 +3,21 @@
 One of the basic design tasks you may need to complete when creating your website is configuring one page to display all of its children.
 For example you can configure a blog displaying all blog posts or a folder showing all articles it contains.
 
-There are two ways to make a Content item display its children:
+There are three ways to make a Content item display its children:
 
+1. [Using the Content query Field Type](#using-the-content-query-field-type)
 1. [Using the Query Controller](#using-the-query-controller)
 1. [Using a Custom Controller](#using-a-custom-controller)
 
-This procedure demonstrates how to use both these methods to display all children of a Content item with the Content Type Folder.
+This procedure demonstrates how to use these three methods to display all children of a Content item with the Content Type Folder.
 
-## Using the Query Controller
+## Using the Content query Field Type
 
-The Query Controller is a pre-defined custom content view Controller that runs a Repository Query.
+The Query Controller is a pre-defined custom content view Controller that runs a Repository Query
+that you can use together with the Content query Field Type.
 
-If you need to create a simple Query, it is easier to use the Query Controller than to build a completely custom one, as you will not have to write custom PHP code. 
-Like with a [Custom Controller](#using-a-custom-controller), however, you will be able to use properties of the viewed Content item or Location as parameters.
-
-The main file in this case is an `src/QueryType/LocationChildrenQueryType.php` file which generates a Query that retrieves the children of the current Location.
+The Query Type in this example is contained an `src/QueryType/LocationChildrenQueryType.php` file
+which generates a Query that retrieves the children of the current Location.
 
 ``` php
 <?php
@@ -49,7 +49,43 @@ class LocationChildrenQueryType implements QueryType
 }
 ```
 
-Next, in your [standard view configuration](../guide/content_rendering.md#configuring-views-the-viewprovider) file, under `content_view`, add a section that indicates when this Controller will be used. It is similar to regular view config, but contains additional information:
+To use the Query Type with a Content query Field, add the Field to your Folder Content Type's definition.
+
+Select "Location children" as the Query type. Provide the `parentLocationId` parameter
+that the Query type requires:
+
+```
+parentLocationId: '@=mainLocation.id'
+```
+
+To customize the display template, in your [standard view configuration](../guide/content_rendering.md#configuring-views-the-viewprovider) file,
+under `content_view`, add a section that indicates the matcher and template to use: 
+
+``` yaml
+content_query_field:
+    folder_children:
+        match:
+            Identifier\ContentType: folder
+            Identifier\FieldDefinition: children
+        template: content_query/folder.html.twig
+```
+
+Then, provide the template in `templates/content_query/folder.html.twig`.
+The query results are available in the `items` variable:
+
+``` html+twig
+<h1>{{ ez_content_name(content) }}</h1>
+
+{% for item in items %}
+    <h2><a href={{ path('ez_urlalias', {'contentId': item.contentInfo.id}) }}>{{ ez_content_name(item.contentInfo) }}</a></h2>
+{% endfor %}
+```
+
+## Using the Query Controller
+
+You can also use the same Query Type as above together with the Query Controller.
+
+In your [standard view configuration](../guide/content_rendering.md#configuring-views-the-viewprovider) file, under `content_view`, add a section that indicates when this Controller will be used. It is similar to regular view config, but contains additional information:
 
 ``` yaml
 folder:
