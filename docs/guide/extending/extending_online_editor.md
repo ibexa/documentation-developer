@@ -190,7 +190,7 @@ The default value is `false`, so if it is not set, the custom tag will be treate
 ## Custom toolbars
 
 You can extend the Online Editor with the custom toolbars.
-The feature depends on [Alloy Editor styles](https://alloyeditor.com/docs/features/styles.html).
+The feature depends on [Alloy Editor](https://alloyeditor.com/).
 
 Preparation of the custom toolbar starts with creating a new toolbar config.
 If you want to learn how to do it, follow [Creating a Toolbar.](https://alloyeditor.com/docs/develop/create_toolbars.html)
@@ -204,7 +204,7 @@ You can do it at the bottom of the toolbar config file:
 eZ.addConfig('ezAlloyEditor.CustomSelections.ContentVariableEdit', ContentVariableEditConfig);
 ```
 
-With this step the `ContentVariableEditConfig` toolbar is injected and ready to be used.
+With this step the `ContentVariableEditConfig` toolbar is injected and is ready to be used.
 
 ## Custom styles
 
