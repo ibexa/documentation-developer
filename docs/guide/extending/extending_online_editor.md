@@ -196,12 +196,12 @@ Preparation of the custom toolbar starts with creating a new toolbar config.
 If you want to learn how to do it, follow [Creating a Toolbar.](https://alloyeditor.com/docs/develop/create_toolbars.html)
 
 Next, add the toolbar config to the `ezplatform-admin-ui-alloyeditor-js` entry using encore.
-Finally, add the toolbar JavaScript class to `ezAlloyEditor.CustomSelections.<TOOLBAR_NAME>` eZ config.
+Finally, add the toolbar JavaScript class to `ezAlloyEditor.customSelections.<TOOLBAR_NAME>` eZ config.
 
 You can do it at the bottom of the toolbar config file:
 
 ```js
-eZ.addConfig('ezAlloyEditor.CustomSelections.ContentVariableEdit', ContentVariableEditConfig);
+eZ.addConfig('ezAlloyEditor.customSelections.ContentVariableEdit', ContentVariableEditConfig);
 ```
 
 With this step the `ContentVariableEditConfig` toolbar is injected and is ready to be used.
