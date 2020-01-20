@@ -506,3 +506,67 @@ class MyCommand extends ContainerAwareCommand
     }
 }
 ```
+
+### Content query Field Type
+
+The [Content query Field Type](../api/field_type_reference.md#content-query-field-type)
+enables you to configure a content query that will use parameters from a Field definition.
+The results will be available in a Content item's Field.
+
+The Content query Field Type is available via the eZ Platform Query Field Type Bundle
+provided by the [ezplatform-query-fieldtype](https://github.com/ezsystems/ezplatform-query-fieldtype) package.
+You need to add the package manually to your project.
+
+Use it by adding a Content query Field Type to your Content Type.
+
+Select a predefined [Query Type](#query-controller) from a list
+and provide the parameters that are required by the Query Type, e.g.:
+
+```
+parentLocationId: '@=mainLocation.id'
+```
+
+Select the Content Type of items you want to return in the **Returned type** dropdown.
+To take it into account, your Query Type must filter on the Content Type.
+Provide the selected Content Type through the `returnedType` variable:
+
+```
+contentType: '@=returnedType'
+```
+
+The following variables are available in parameter expressions:
+
+- `returnedType` - the identifier of the Content Type selected in the **Returned type** dropdown
+- `content` - the current Content item
+- `contentInfo` - the current Content item's ContentInfo
+- `mainLocation` - the current Content item's main Location
+
+#### Content query Field Type view
+
+Configure the Content query Field Type's view using the `content_query_field` view type:
+
+``` yaml
+content_view:
+    content_query_field:
+        blog_posts:
+            match:
+                Identifier\ContentType: blog
+                Identifier\FieldDefinition: posts
+            template: "blog_posts.html.twig"
+```
+
+Query results are provided to the template in the `items` variable:
+
+``` html+twig
+{% for item in items %}
+    {{ render(controller("ez_content:viewAction", {
+        "contentId": item.id,
+        "content": item,
+        "viewType": itemViewType
+    })) }}
+{% endfor %}
+```
+
+The default view type is `line`, defined under `itemViewType`.
+You can change it by passing a different view to `viewType` in the template, e.g.:
+`"viewType": "list"`.
