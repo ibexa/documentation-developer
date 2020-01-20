@@ -192,14 +192,14 @@ ezplatform:
 Finally, you should be able to add a new Content Type in the Back Office interface.
 Navigate to **Content Types** tab and under **Content** category create a new Content Type:
 
-![Creating new Content Type](img/extending_field_type_create.png)
+![Creating new Content Type](../img/extending_field_type_create.png)
 
 Next, define a **Hello World** field:
 
-![Defining Hello World](img/extending_field_type_definition.png)
+![Defining Hello World](../img/extending_field_type_definition.png)
 
 After saving, your **Hello World** Content Type should be available under **Content** in the sidebar menu.
 
-![Creating Hello World](img/extending_field_type_hello_world.png)
+![Creating Hello World](../img/extending_field_type_hello_world.png)
 
-For more detailed tutorial on Generic Field Type follow [Creating a Point 2D Field Type ](../tutorials/generic_field_type/creating_a_point2d_field_type.md).
+For more detailed tutorial on Generic Field Type follow [Creating a Point 2D Field Type ](../../tutorials/generic_field_type/creating_a_point2d_field_type.md).
