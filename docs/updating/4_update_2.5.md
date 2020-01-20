@@ -86,7 +86,7 @@ bin/console cache:pool:clear cache.redis
 
 ## Updating to 2.5.6
 
-### Password Expiration
+### Password expiration
 
 Run the following script to update the database:
 
