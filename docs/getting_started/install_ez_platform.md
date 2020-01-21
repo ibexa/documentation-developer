@@ -132,10 +132,10 @@ After a moment the installer will ask you to provide a few parameters:
 
     You can omit this step. If you do not create a database now, it will be created automatically in the next step.
 
-Create a database. Run the following command inside MySQL Shell:
+To manually create a database, ensure that you [changed the installation parameters](#provide-installation-parameters), then run the following Symfony command:
 
 ``` bash
-CREATE DATABASE ezplatform CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
+php ./bin/console doctrine:database:create
 ```
 
 ## Install eZ Platform
