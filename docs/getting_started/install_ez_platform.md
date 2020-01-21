@@ -153,6 +153,12 @@ Create a database. Run the following command inside MySQL Shell:
 CREATE DATABASE ezplatform CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
 ```
 
+To manually create a database, ensure that you [changed the installation parameters](#change-installation-parameters), then run the following Symfony command:
+
+``` bash
+php ./bin/console doctrine:database:create
+```
+
 ## Install eZ Platform
 
 Install eZ Platform with:
