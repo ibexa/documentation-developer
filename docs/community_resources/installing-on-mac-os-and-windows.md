@@ -113,7 +113,7 @@ After a moment, the installer prompts you to provide a few parameters:
 
     You can omit this step. If you do not create a database now, it will be created automatically in the next step.
 
-To manually create a database, ensure that you [changed the installation parameters](#change-installation-parameters), then run the following Symfony command:
+To manually create a database, ensure that you [changed the installation parameters](#provide-installation-parameters), then run the following Symfony command:
 
 ``` bash
 php ./bin/console doctrine:database:create
