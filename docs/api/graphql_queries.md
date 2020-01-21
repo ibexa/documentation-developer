@@ -181,6 +181,72 @@ Response:
 }
 ```
 
+### Get Matrix Field Type
+
+To get a Matrix Field Type use `product` field.
+
+Below example shows Product Content Type that has two fields:
+
+- `name`: `ezstring`
+- `features`: `ezmatrix` with two columns: `name` and `price`
+
+Fields of that type return a list of `ProductFeaturesRow`.
+
+```
+{
+  content {
+    product(contentId: 123) {
+      name
+      features {
+        name
+        price
+      }
+    }
+  }
+}
+```
+
+Response:
+
+```
+{
+  content {
+    _types {
+      product {
+        features {
+          settings {
+            minimumRows
+            columns {
+              name
+              identifier
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+Mutation - fields of that type expect a `ProductFeaturesRowInput`:
+
+```
+mutation AddProduct {
+  createProduct(
+    parentLocationId: $parentLocationId,
+    input: {
+      name: "test",
+      features: [
+        {name: "foo", weight: "200", price: "20"}
+        {name: "bar", weight: "300", price: "15"}
+      ]
+    }
+  ) {
+    name
+  }
+}
+```
+
 ## Querying Locations
 
 To query a Location and its children, use the repository schema:
