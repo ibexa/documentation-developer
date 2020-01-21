@@ -183,9 +183,9 @@ Response:
 
 ### Get Matrix Field Type
 
-To get a Matrix Field Type use `product` field.
+To get a Matrix Field Type, use `product` field.
 
-Below example shows Product Content Type that has two fields:
+The example below shows Product Content Type that has two fields:
 
 - `name`: `ezstring`
 - `features`: `ezmatrix` with two columns: `name` and `price`
