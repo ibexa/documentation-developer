@@ -94,6 +94,8 @@ To install Composer dependencies, from the folder into which you downloaded eZ P
 composer install
 ```
 
+## Provide installation parameters
+
 After a moment, the installer prompts you to provide a few parameters:
 
 1. Choose a [secret](https://symfony.com/doc/3.4/reference/configuration/framework.html#secret). The secret should be a random string consisting of up to 32 characters, numbers, and symbols. This is used by Symfony when generating [CSRF tokens](https://symfony.com/doc/3.4/security/csrf_in_login_form.html), [encrypting cookies](https://symfony.com/doc/3.4/security/remember_me.html), and for creating signed URIs when using [ESI (Edge Side Includes)](https://symfony.com/doc/3.4/http_cache/esi.html).
@@ -111,10 +113,10 @@ After a moment, the installer prompts you to provide a few parameters:
 
     You can omit this step. If you do not create a database now, it will be created automatically in the next step.
 
-Create a database by running the following command inside MySQL Shell:
+To manually create a database, ensure that you [changed the installation parameters](#change-installation-parameters), then run the following Symfony command:
 
 ``` bash
-CREATE DATABASE ezplatform CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
+php ./bin/console doctrine:database:create
 ```
 
 ## Install eZ Platform
