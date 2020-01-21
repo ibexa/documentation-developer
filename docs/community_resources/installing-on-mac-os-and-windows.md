@@ -120,7 +120,7 @@ The configuration requires providing the following parameters:
 
 !!! tip "Using PostgreSQL"
 
-    If you want an installation with PostgreSQL instead of MySQL, refer to [Using PostgreSQL](../guide/databases.md#using-postgresql).
+    If you want an installation with PostgreSQL instead of MySQL, see [Using PostgreSQL](../guide/databases.md#using-postgresql).
 
 ## Create database
 
@@ -128,10 +128,10 @@ The configuration requires providing the following parameters:
 
     You can omit this step. If you do not create a database now, it will be created automatically in the next step.
 
-Create a database by running the following command inside MySQL Shell:
+To manually create a database, ensure that you [changed the installation parameters](#change-installation-parameters), then run the following Symfony command:
 
 ``` bash
-CREATE DATABASE ezplatform CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
+php ./bin/console doctrine:database:create
 ```
 
 ## Install eZ Platform
