@@ -29,6 +29,16 @@ The application triggers two Events per operation: one before and one after the 
 
 To use Symfony Events, create [Event Listeners](https://symfony.com/doc/4.3/event_dispatcher.html) in your code.
 
+### New bundles
+
+The list of bundles in v3.0 has been extended by the following ones:
+
+- `ezplatform-calendar`
+- `ezplatform-content-comparison`
+- `ezplatform-workflow`
+
+For details, see [Bundles](../guide/bundles.md).
+
 ## New features
 
 ### Content query Field Type
