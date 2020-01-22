@@ -1,6 +1,9 @@
 # Reporting security issues in eZ Systems products
 
-The security of our software is a primary concern and we take it seriously. No engineering team is perfect though, and if you do discover a security issue in one of our products we are very grateful for your help in reporting it to us privately, and refraining from public disclosure until we have found the solution and distributed it. Thank you!
+The security of our software is a primary concern and we take it seriously. 
+For more information on security in our products, see [eZ Systems Security Policy](https://ez.no/Software-information/Security-policy).
+
+No engineering team is perfect though, and if you do discover a security issue in one of our products we are very grateful for your help in reporting it to us privately, and refraining from public disclosure until we have found the solution and distributed it. Thank you!
 
 ## Channels
 
