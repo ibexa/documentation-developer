@@ -1,0 +1,20 @@
+/* Random block */
+.random-block {
+    border: 1px solid #83705a;
+    border-radius: 5px;
+    padding: 0 25px 25px 25px;
+    margin-top: 15px;
+}
+
+.random-block h4 {
+    font-variant: small-caps;
+    font-size: 1.2em;
+}
+
+.random-block h5 {
+    font-size: 1.2em;
+}
+
+.random-block-text {
+    font-size: .85em;
+}

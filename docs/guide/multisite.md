@@ -11,10 +11,10 @@ This feature is a reimplementation of the [PathPrefix](http://doc.ez.no/eZ-Publi
 
 ## Configuring multisite
 
-Multisite is configured in `ezplatform.yml`, either at [SiteAccess](siteaccess.md) or SiteAccess group level:
+Multisite is configured in `ezplatform.yaml`, either at [SiteAccess](siteaccess.md) or SiteAccess group level:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         site_group:
             content:
@@ -56,7 +56,7 @@ To see how multisite can be used, let's look at an example of two sites using th
 Separate SiteAccesses are set up for the two sites:
 
 ``` yaml
-ezpublish:
+ezplatform:
     siteaccess:
         list: [site, event]
         groups:
@@ -73,7 +73,7 @@ This is your content structure:
 You can now set the root level for `event` to only access the "Event" Location and its sub-items:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         event:
             content:
@@ -101,12 +101,10 @@ despite the fact that it is not a sub-item of the "Event" Location.
 ### Setting the Index Page
 
 The Index Page is the page shown when the root index `/` is accessed.
-You can configure the Index Page separately for each SiteAccess. Place the parameter `index_page` in your `ezplatform.yml` file, under the correct SiteAccess:
+You can configure the Index Page separately for each SiteAccess. Place the parameter `index_page` in your `ezplatform.yaml` file, under the correct SiteAccess:
 
 ``` yaml
-# ezplatform.yml
-
-ezpublish:
+ezplatform:
     system:
         event:
             # The page to show when accessing IndexPage (/)
@@ -115,13 +113,19 @@ ezpublish:
 
 If not specified, the `index_page` is the configured content root.
 
-### Limitations when using with multisite URI matching with multi-repository setup
+## Multisite with multiple Repositories
+
+Multisite can be configured to use one or multiple Repositories.
+With multiple Repositories, each site can have a separate Repository.
+To configure multisite with multiple Repositories, [configure the repositories](config_repository.md) and perform [multi-Repository setup](persistence_cache.md#multi-repository-setup).
+
+### Limitations when using with multisite URI matching with multi-Repository setup
 
 !!! caution
 
-    Only one repository (database) can be used per domain.
-    This does not prohibit using [different repositories](persistence_cache.md#multi-repository-setup) on different subdomains.
-    However, when using URI matching for multisite setup, all SiteAccesses sharing domain also need to share repository.
+    Only one Repository (database) can be used per domain.
+    This does not prohibit using [different Repositories](persistence_cache.md#multi-repository-setup) on different subdomains.
+    However, when using URI matching for multisite setup, all SiteAccesses sharing domain also need to share Repository.
     For example:
 
     - `ez.no` domain can use `ez_repo`
@@ -146,10 +150,10 @@ To do this, organize your templates in the following folder structure:
 
 ![Organising templates](img/organising_templates.png "Organising templates")
 
-Now you can use this view configuration (stored e.g. in a `views.yml` file):
+Now you can use this view configuration (stored e.g. in a `views.yaml` file):
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         default:
             pagelayout: pagelayout.html.twig
@@ -178,5 +182,5 @@ a separate `event/pagelayout.html.twig` and a template to be used for articles.
 When no view is defined under `event`, such as in the case of the `news` Content Type,
 the template defined under `default` will apply. `default` will also be used for all SiteAccesses other than `event`.
 
-To load the base (default) layout in templates you now need to use `{% extends noLayout == true ? viewbaseLayout : pagelayout %}`.
+To load the base (default) layout in templates you now need to use `{% extends no_layout == true ? view_base_layout : page_layout %}`.
 (See [Template inheritance and sub-requests](content_rendering.md#template-inheritance-and-sub-requests) for more information).

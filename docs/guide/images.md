@@ -10,12 +10,12 @@ LiipImagineBundle only works on image blobs (no command line tool is needed). Se
 
 ## Configuring image variations
 
-Custom image variations are defined in `ezplatform.yml` or any imported semantic configuration file. The definition is [dynamic](configuration.md#dynamic-configuration-with-the-configresolver), so it can be configured per SiteAccess and all the other scopes.
+Custom image variations are defined in `ezplatform.yaml` or any imported semantic configuration file. The definition is [dynamic](configuration.md#dynamic-configuration-with-the-configresolver), so it can be configured per SiteAccess and all the other scopes.
 
 ``` yaml
 # Example image variation definition
 
-ezpublish:
+ezplatform:
     system:
         my_siteaccess:
             image_variations:
@@ -43,7 +43,7 @@ ezpublish:
 
 The following parameters are set for each variation:
 
-- `reference`: Name of a reference variation to base the variation on. If set to `null` (or `~`, which means `null` in YAML), the variation will take the original image for reference. It can be any available variation configured in the `ezpublish` namespace, or a `filter_set` defined in the `liip_imagine` namespace.
+- `reference`: Name of a reference variation to base the variation on. If set to `null` (or `~`, which means `null` in YAML), the variation will take the original image for reference. It can be any configured variation, or a `filter_set` defined in the `liip_imagine` namespace.
 - `filters`: Array of filter definitions (hashes containing `name` and `params` keys). See possible values [below](#available-filters).
 
 !!! caution
@@ -56,7 +56,7 @@ The following parameters are set for each variation:
 
 ### Built-in image variations
 
-A few basic image variations are included by default in eZ Platform in the `default_settings.yml` config file:
+A few basic image variations are included by default in eZ Platform in the `default_settings.yaml` config file:
 
 ``` yaml
 ezsettings.default.image_variations:
@@ -87,7 +87,7 @@ ezsettings.default.image_variations:
 LiipImagineBundle supports [post-processors on image aliases](http://symfony.com/doc/master/bundles/LiipImagineBundle/post-processors.html). You can specify them in image variation configuration:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         my_siteaccess:
             image_variations:
@@ -108,7 +108,7 @@ Please refer to [post-processor documentation in LiipImagineBundle](http://symfo
 This configuration defines a `medium` image variation that is scaled to a width of 700 px.
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         my_siteaccess:
             image_variations:
@@ -126,7 +126,7 @@ This configuration adds a limit to the image quality using a liip filter.
 You can use both an eZ Platform and a liip filter for the same image variation, in this case `medium`.
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         my_siteaccess:
             image_variations:
@@ -141,7 +141,7 @@ liip_imagine:
 
 !!! note
 
-    Notice that the `liip_imagine` key is not placed under `image_variations`, but at the same level as `ezpublish`.
+    Notice that the `liip_imagine` key is not placed under `image_variations`, but at the same level as `ezplatform`.
 
 ## Rendering image variations
 
@@ -160,7 +160,6 @@ ez_render_field( content, 'image', { parameters: { 'alias': 'medium' } } )
 If you were using ImageMagick, install [Imagick](http://php.net/imagick) or [Gmagick](http://php.net/gmagick) PHP extensions and activate the driver in `liip_imagine `([see LiipImagineBundle configuration documentation for more information](http://symfony.com/doc/master/bundles/LiipImagineBundle/configuration.html)):
 
 ``` yaml
-# ezplatform.yml or config.yml
 liip_imagine:
     # Driver can be either "imagick", "gmagick" or "gd", depending on the PHP extension you're using.
     driver: imagick
@@ -199,7 +198,7 @@ Note that paths to repository images must be relative to the `var/<site>/storag
 
 ### Available filters
 
-In addition to [filters exposed by LiipImagineBundle](http://symfony.com/doc/master/bundles/LiipImagineBundle/configuration.html), the following are available:
+In addition to [filters exposed by LiipImagineBundle](http://symfony.com/doc/master/bundles/LiipImagineBundle/filters.html), the following are available:
 
 | Filter name                  | Parameters                                  | Description                                                                                        |
 |------------------------------|---------------------------------------------|----------------------------------------------------------------------------------------------------|
@@ -304,10 +303,10 @@ interface PlaceholderProvider
 
 ### Semantic configuration
 
-Placeholder generation can be configured for each [`binary_handler`](file_management/#handling-binary-files) under the `ezpublish.image_placeholder` key:
+Placeholder generation can be configured for each [`binary_handler`](file_management/#handling-binary-files) under the `ezplatform.image_placeholder` key:
 
 ```yaml
-ezpublish:
+ezplatform:
     # ...
     image_placeholder:
         <BINARY_HANDLER_NAME>:
@@ -322,7 +321,7 @@ If there is no configuration assigned to [`binary_handler`](file_management/#han
 **Example 1 - placeholders with basic information about original image**
 
 ```yaml
-ezpublish:
+ezplatform:
     # ...
     image_placeholder:
         default:
@@ -337,7 +336,7 @@ ezpublish:
 **Example 2 - placeholders from remote source**
 
 ```yaml
-ezpublish:
+ezplatform:
     # ...
     image_placeholder:
         default:
@@ -349,7 +348,7 @@ ezpublish:
 **Example 3 - placeholders from live version of a site**
 
 ```yaml
-ezpublish:
+ezplatform:
     # ...
     image_placeholder:
         default:
@@ -376,7 +375,7 @@ For example:
 Additionally you can provide two parameters:
 
 - `iteration-count` is the number of images to be recreated in a single iteration, to reduce memory use. Default is `25`.
-- `user` is the identifier of a user with proper permission who will perform the operation (`read`, `versionread`, `edit` and `publish`). Default is `admin`.
+- `user` is the identifier of a User with proper permission who will perform the operation (`read`, `versionread`, `edit` and `publish`). Default is `admin`.
 
 !!! caution
 
@@ -387,7 +386,7 @@ Additionally you can provide two parameters:
 You can store images in the media library as independent Content items of a generic Image Content Type to reuse them across the system.
 It is achieved by uploading images to an ImageAsset Field Type.
 
-For ImageAsset field to be reused you have to publish it. Only then is notification triggered stating image has been published under the Location and can now be reused.
-After establishing media library you can create object relations between the main Content item and the image content item being used by it.
+For an ImageAsset Field to be reused you have to publish it. Only then is notification triggered stating image has been published under the Location and can now be reused.
+After establishing media library you can create object Relations between the main Content item and the image Content item being used by it.
 
 To learn more about ImageAsset Field Type and its customization see [Field Type Reference](../api/field_type_reference.md#imageasset-field-type).

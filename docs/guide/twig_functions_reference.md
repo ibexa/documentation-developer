@@ -2,28 +2,30 @@
 
 !!! note "Symfony and Twig template functions/filters/tags"
 
-    For the template functionality provided by Symfony Framework, see [Symfony Twig Extensions Reference page](http://symfony.com/doc/current/reference/twig_reference.html). For those provided by the underlying Twig template engine, see [Twig Reference page](http://twig.sensiolabs.org/documentation#reference)
+    For the template functionality provided by Symfony Framework, see [Symfony Twig Extensions Reference page](http://symfony.com/doc/4.3/reference/twig_reference.html). For those provided by the underlying Twig template engine, see [Twig Reference page](http://twig.sensiolabs.org/documentation#reference).
 
 In addition to the [native functions provided by Twig](http://twig.sensiolabs.org/doc/functions/index.html), eZ Platform offers the following:
 
-- [`ez_content_name`](#ez_content_name) - displays a Content item's name in the current language
-- [`ez_field_description`](#ez_field_description) - returns the description from the FieldDefinition of a Content item's Field in the current language
-- [`ez_field_name`](#ez_field_name) - returns the name from the FieldDefinition of a Content item's Field in the current language
-- [`ez_field_value`](#ez_field_value) - returns a Content item's Field value in the current language
-- [`ez_field`](#ez_field) - returns a Field from a Content item in the current language
-- [`ez_file_size`](#ez_file_size) - returns the size of a file as string
-- [`ez_first_filled_image_field_identifier`](#ez_first_filled_image_field_identifier) - returns the identifier of the first image field that is not empty
-- [`ez_full_datetime`](#ez_full_datetime-ez_full_date-ez_full_time) - outputs date and time in full format
-- [`ez_full_date`](#ez_full_datetime-ez_full_date-ez_full_time) - outputs date in full format
-- [`ez_full_time`](#ez_full_datetime-ez_full_date-ez_full_time) - outputs time in full format
-- [`ez_image_alias`](#ez_image_alias) - displays a selected variation of an image
-- [`ez_is_field_empty`](#ez_is_field_empty) - checks if a Content item's Field value is considered empty in the current language
-- [`ez_short_datetime`](#ez_short_datetime-ez_short_date-ez_short_time) - outputs date and time in short format
-- [`ez_short_date`](#ez_short_datetime-ez_short_date-ez_short_time) - outputs date in short format
-- [`ez_short_time`](#ez_short_datetime-ez_short_date-ez_short_time) - outputs time in short format
-- [`ez_render_field`](#ez_render_field) - displays a Content item's Field value, taking advantage of the template block exposed by the Field Type used
-- [`ez_trans_prop`](#ez_trans_prop) - gets the translated value of a multi valued(translations) property
-- [`ez_urlalias`](#ez_urlalias) - is a special route name for generating URLs for a Location from the given parameters
+|Twig function|Description|
+|-------------|-----------|
+|[`ez_content_name`](#ez_content_name)|Displays a Content item's name in the current language.|
+|[`ez_field_description`](#ez_field_description)|Returns the description from the Field definition of a Content item's Field in the current language.|
+|[`ez_field_name`](#ez_field_name)|Returns the name from the Field definition of a Content item's Field in the current language.|
+|[`ez_field_value`](#ez_field_value)|Returns a Content item's Field value in the current language.|
+|[`ez_field`](#ez_field)|Returns a Field from a Content item in the current language.|
+|[`ez_file_size`](#ez_file_size)|Returns the size of a file as string.|
+|[`ez_content_field_identifier_first_filled_image`](#ez_content_field_identifier_first_filled_image)|Returns the identifier of the first image field that is not empty.|
+|[`ez_full_datetime`](#ez_full_datetime-ez_full_date-ez_full_time)|Outputs date and time in full format.|
+|[`ez_full_date`](#ez_full_datetime-ez_full_date-ez_full_time)|Outputs date in full format.|
+|[`ez_full_time`](#ez_full_datetime-ez_full_date-ez_full_time)|Outputs time in full format.|
+|[`ez_image_alias`](#ez_image_alias)|Displays a selected variation of an image.|
+|[`ez_field_is_empty`](#ez_field_is_empty)|Checks if a Content item's Field value is considered empty in the current language.|
+|[`ez_short_datetime`](#ez_short_datetime-ez_short_date-ez_short_time)|Outputs date and time in short format.|
+|[`ez_short_date`](#ez_short_datetime-ez_short_date-ez_short_time)|Outputs date in short format.|
+|[`ez_short_time`](#ez_short_datetime-ez_short_date-ez_short_time)|Outputs time in short format.|
+|[`ez_render_field`](#ez_render_field)|Displays a Content item's Field value, taking advantage of the template block exposed by the Field Type used.|
+|[`ez_trans_prop`](#ez_trans_prop)|Gets the translated value of a multi valued(translations) property.|
+|[`ez_urlalias`](#ez_urlalias)|It is a special route name for generating URLs for a Location from the given parameters.|
 
 ### `ez_content_name`
 
@@ -33,7 +35,7 @@ In addition to the [native functions provided by Twig](http://twig.sensiolabs.or
 
 If the Content item does not have a translation in the current language, the name in the main language is always returned. This behavior is identical when forcing a language.
 
-If languages were specified during retrieval of Content object, you can render name directly using `$content->getName()` (Twig: `content.name`) and it will take the prioritised languages into account. If not, it falls back to the main language, just like `ez_content_name()` does. For usage with ContentInfo, see examples below.
+If languages were specified during retrieval of the Content item, you can render name directly using `$content->getName()` (Twig: `content.name`) and it will take the prioritised languages into account. If not, it falls back to the main language, just like `ez_content_name()` does. For usage with ContentInfo, see examples below.
 
 #### Prototype and Arguments
 
@@ -79,7 +81,7 @@ $translatedContentName = $this->get( 'ezpublish.translation_helper' )->getTransl
 
 #### Description
 
-`ez_field_description()` is a Twig helper which returns the description from the FieldDefinition of a Content item's Field in the current language.
+`ez_field_description()` is a Twig helper which returns the description from the Field definition of a Content item's Field in the current language.
 
 This can be useful when you don't want to use a sub-request and custom controller to be able to display this information.
 
@@ -92,7 +94,7 @@ If the Content item does not have a translation in the current language, the mai
 | Argument name | Type | Description |
 |---------------|------|-------------|
 | `content` | `eZ\Publish\API\Repository\Values\Content\Content` or `eZ\Publish\API\Repository\Values\Content\ContentInfo ` | Content/ContentInfo object the **fieldDefIdentifier** belongs to. |
-| `fieldDefIdentifier` | `string` | Identifier of the Field you want to get the FieldDefinition description from. |
+| `fieldDefIdentifier` | `string` | Identifier of the Field you want to get the Field definition description from. |
 | `forcedLanguage` | `string` | Language you want to force (e.g. "eng-US"), otherwise takes prioritized languages from SiteAccess settings. |
 
 #### Usage
@@ -105,7 +107,7 @@ If the Content item does not have a translation in the current language, the mai
 
 #### Description
 
-`ez_field_name()` is a Twig helper which returns the name from the FieldDefinition of a Content item's Field in the current language.
+`ez_field_name()` is a Twig helper which returns the name from the Field definition of a Content item's Field in the current language.
 
 This can be useful when you don't want to use a sub-request and custom controller to be able to display this information.
 
@@ -118,7 +120,7 @@ If the Content item does not have a translation in the current language, the mai
 | Argument name | Type | Description |
 |---------------|------|-------------|
 | `content` | `eZ\Publish\API\Repository\Values\Content\Content` or `eZ\Publish\API\Repository\Values\Content\ContentInfo` | Content / ContentInfo object the **fieldDefIdentifier** belongs to. |
-| `fieldDefIdentifier` | `string` | Identifier of the Field you want to get the FieldDefinition name from. |
+| `fieldDefIdentifier` | `string` | Identifier of the Field you want to get the Field definition name from. |
 | `forcedLanguage` | `string` | Language you want to force (e.g. "`jpn-JP`"), otherwise takes prioritized languages from SiteAccess settings. |
 
 #### Usage
@@ -139,7 +141,7 @@ If the Content item does not have a translation in the current language, the mai
 
 !!! tip
 
-    If languages were specified during retrieval of Content object, you can get field value directly using `content->getFieldValue('title')` and it will take the prioritised languages into account. If not, it falls back to the main language, just like **ez\_field\_value()** does.
+    If languages were specified during retrieval of the Content item, you can get field value directly using `content->getFieldValue('title')` and it will take the prioritised languages into account. If not, it falls back to the main language, just like **ez\_field\_value()** does.
 
 #### Prototype and Arguments
 
@@ -147,9 +149,9 @@ If the Content item does not have a translation in the current language, the mai
 
 | Argument name        | Type                                               | Description                                                                                            |
 |----------------------|----------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| `content`            | `eZ\Publish\API\Repository\Values\Content\Content` | Content object the field referred to with `fieldDefIdentifier` belongs to.                           |
-| `fieldDefIdentifier` | `string`                                           | Identifier of the field you want to get the value from.                                                 |
-| `forcedLanguage`     | `string`                                           | Locale you want the Content name translation in (e.g. "fre-FR"). Null by default (takes current locale) |
+| `content`            | `eZ\Publish\API\Repository\Values\Content\Content` | Content item the Field referred to with `fieldDefIdentifier` belongs to.                           |
+| `fieldDefIdentifier` | `string`                                           | Identifier of the Field you want to get the value from.                                                 |
+| `forcedLanguage`     | `string`                                           | Locale you want the content name translation in (e.g. "fre-FR"). Null by default (takes current locale) |
 
 #### Usage
 
@@ -161,7 +163,7 @@ If the Content item does not have a translation in the current language, the mai
 
 #### Description
 
-`ez_field()` is a Twig helper which returns a Field  in the current language. The field gives you access to the field value, as well as the Field's Definition identifier and Type identifier.
+`ez_field()` is a Twig helper which returns a Field  in the current language. The Field gives you access to the Field value, as well as the Field's definition identifier and Field Type identifier.
 
 !!! tip
 
@@ -171,7 +173,7 @@ If the Content item does not have a translation in the current language, the mai
 
 !!! tip
 
-    If languages were specified during retrieval of Content object, you can get field directly using `content->getField('title')` and it will take the prioritised languages into account. If not, it falls back to the main language, just like **ez\_field()** does.
+    If languages were specified during retrieval of the Content item, you can get the Field directly using `content->getField('title')` and it will take the prioritised languages into account. If not, it falls back to the main language, just like **ez\_field()** does.
 
 #### Prototype and Arguments
 
@@ -179,9 +181,9 @@ If the Content item does not have a translation in the current language, the mai
 
 | Argument name        | Type                                               | Description                                                                                            |
 |----------------------|----------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| `content`            | `eZ\Publish\API\Repository\Values\Content\Content` | Content object the field referred to with `fieldDefIdentifier` belongs to.                           |
-| `fieldDefIdentifier` | `string`                                           | Identifier of the field you want to get the value from.                                                 |
-| `forcedLanguage`     | `string`                                           | Locale you want the Content name translation in (e.g. "fre-FR"). Null by default (takes current locale) |
+| `content`            | `eZ\Publish\API\Repository\Values\Content\Content` | Content item the Field referred to with `fieldDefIdentifier` belongs to.                           |
+| `fieldDefIdentifier` | `string`                                           | Identifier of the Field you want to get the value from.                                                 |
+| `forcedLanguage`     | `string`                                           | Locale you want the content name translation in (e.g. "fre-FR"). Null by default (takes current locale) |
 
 #### Usage
 
@@ -218,17 +220,17 @@ It returns a string.
 {{ 42698273|ez_file_size( 4 ) }} //Output with English SiteAccess : 42.6983 MB
 ```
 
-### `ez_first_filled_image_field_identifier`
+### `ez_content_field_identifier_first_filled_image`
 
 #### Description
 
-`ez_first_filled_image_field_identifier` is a Twig helper which returns the identifier of the first image field that is not empty.
+`ez_content_field_identifier_first_filled_image` is a Twig helper which returns the identifier of the first image field that is not empty.
 
 It can be used for example to identify the first image in an article to render it in an embed or line view.
 
 #### Prototype and Arguments
 
-`ez_first_filled_image_field_identifier ( eZ\Publish\API\Repository\Values\Content\Content content ) : string`
+`ez_content_field_identifier_first_filled_image` ( eZ\Publish\API\Repository\Values\Content\Content content ) : string`
 
 | Argument name | Type                                               | Description                       |
 |---------------|----------------------------------------------------|-----------------------------------|
@@ -236,7 +238,7 @@ It can be used for example to identify the first image in an article to render i
 
 ### `ez_full_datetime`, `ez_full_date`, `ez_full_time`
 
-These Twig filters are used to [format date and time](extending_ez_platform.md#format-date-and-time).
+These Twig filters are used to [format date and time](extending/extending_ez_platform.md#format-date-and-time).
 The formats are defined in [user preferences](config_back_office.md#date-and-time-formats).
 
 | Twig filter | Description |
@@ -266,15 +268,15 @@ The filters also accept an optional `timezone` parameter for displaying date and
 |---------------|--------------------------------------------------------|-------------------------------------------|
 | `field`       | `eZ\Publish\API\Repository\Values\Content\Field`       | The image Field                           |
 | `versionInfo` | `eZ\Publish\API\Repository\Values\Content\VersionInfo` | The VersionInfo that the Field belongs to |
-| `variantName` | `string`                                               | Name of the image variation to be used        |
+| `variantName` | `string`                                               | Name of the image variation to be used. To display original image alias, use `original` as an image variation. |
 
 See [images](images.md) for more information about image variations.
 
-### `ez_is_field_empty`
+### `ez_field_is_empty`
 
 #### Description
 
-`ez_is_field_empty()` is a Twig helper which checks if a Content item's Field value is considered empty in the current language.
+`ez_field_is_empty()` is a Twig helper which checks if a Content item's Field value is considered empty in the current language.
 
 It returns a Boolean value (`true` or `false`).
 
@@ -282,21 +284,21 @@ If the Content item does not have a translation in the current language, the mai
 
 #### Prototype and Arguments
 
-`ez_is_field_empty ( eZ\Publish\API\Repository\Values\Content\Content content, eZ\Publish\API\Repository\Values\Content\Field|string fieldDefIdentifier [, string forcedLanguage ] ) : bool`
+`ez_field_is_empty ( eZ\Publish\API\Repository\Values\Content\Content content, eZ\Publish\API\Repository\Values\Content\Field|string fieldDefIdentifier [, string forcedLanguage ] ) : bool`
 
 | Argument name | Type | Description |
 |---------------|------|-------------|
 | `content` | `eZ\Publish\API\Repository\Values\Content\Content` | Content item the displayed Field belongs to. |
 | `fieldDefIdentifier` | `eZ\Publish\API\Repository\Values\Content\Field or string` | The Field you want to check or its identifier. |
-| `forcedLanguage` | `string` | Locale you want the Content name translation in (e.g. "fre-FR"). Null by default (takes current locale) |
+| `forcedLanguage` | `string` | Locale you want the content name translation in (e.g. "fre-FR"). Null by default (takes current locale) |
 
 #### Usage
 
 ##### Using the Field identifier as parameter
 
 ``` html+twig
-{# Display "description" field if not empty #}
-{% if not ez_is_field_empty( content, "description" ) %}
+{# Display "description" Field if not empty #}
+{% if not ez_field_is_empty( content, "description" ) %}
     <div class="description">
         {{ ez_render_field( content, "description" ) }}
     </div>
@@ -307,7 +309,7 @@ If the Content item does not have a translation in the current language, the mai
 
 ``` html+twig
 {# Display "description" field if not empty #}
-{% if not ez_is_field_empty( content, field ) %}
+{% if not ez_field_is_empty( content, field ) %}
     <div class="description">
         {{ ez_render_field( content, field.fieldDefIdentifier ) }}
     </div>
@@ -318,7 +320,7 @@ If the Content item does not have a translation in the current language, the mai
 
 ``` html+twig
 {# Display "description" field if it exists and is not empty #}
-{% if content.fields.description is defined and not ez_is_field_empty( content, "description" ) %}
+{% if content.fields.description is defined and not ez_field_is_empty( content, "description" ) %}
     <div class="description">
         {{ ez_render_field( content, "description" ) }}
     </div>
@@ -362,16 +364,16 @@ You can use the template you need by filling the `template` entry in the `params
 {{ ez_render_field( 
        content, 
        'my_field_identifier',
-       { 'template': 'AcmeExampleBundle:fields:my_field_template.html.twig' }
+       { 'template': 'fields/my_field_template.html.twig' }
    ) }}
 ```
 
-This code will load `my_field_template.html.twig` located in `AcmeExampleBundle/Resources/views/fields/`.
+This code will load `my_field_template.html.twig` located in `templates/fields/`.
 
 ``` html+twig
 {# Assuming "my_field_identifier" from the template above example is an ezkeyword field. #}
 {% block ezkeyword_field %}
-    {% spaceless %}
+    {% apply spaceless %}
         {% if field.value.values|length() > 0 %}
         <ul>
             {% for keyword in field.value.values %}
@@ -379,7 +381,7 @@ This code will load `my_field_template.html.twig` located in `AcmeExampleBundle/
             {% endfor %}
         </ul>
         {% endif %}
-    {% endspaceless %}
+    {% endapply %}
 {% endblock %}
 ```
 
@@ -390,10 +392,10 @@ This code will load `my_field_template.html.twig` located in `AcmeExampleBundle/
     using the [`use` Twig tag](http://twig.sensiolabs.org/doc/tags/use.html).
 
     ``` html+twig
-    {# AcmeExampleBundle/Resources/views/fields/my_field_template.html.twig #}
+    {# templates/fields/my_field_template.html.twig #}
     {# Assuming "my_field_identifier" from above template example is an ezkeyword field. #}
      
-    {% use "EzPublishCoreBundle::content_fields.html.twig" with ezkeyword_field as base_ezkeyword_field %}
+    {% use "@EzPublishCore/content_fields.html.twig" with ezkeyword_field as base_ezkeyword_field %}
      
     {# Surround base block with a simple div #}
     {% block ezkeyword_field %}
@@ -410,16 +412,16 @@ If you want to override a specific Field template only once
 you can specify the current template to be the source of the Field block.
 
 ``` html+twig
-{% extends "AcmeExampleBundle::pagelayout.html.twig" %}
+{% extends "pagelayout.html.twig" %}
 
 {% block content %}
     {# Note that "tags" is a field using ezkeyword fieldType #}
     <div class="tags">{{ ez_render_field( content, "tags" , { "template": _self } ) }}</div>
 {% endblock %}
 
-{# Here begins the inline block for my ezkeyword field #}
+{# Here begins the inline block for my ezkeyword Field #}
 {% block ezkeyword_field %}
-    {% spaceless %}
+    {% apply spaceless %}
         {% if field.value.values|length() > 0 %}
         <ul>
             {% for keyword in field.value.values %}
@@ -427,7 +429,7 @@ you can specify the current template to be the source of the Field block.
             {% endfor %}
         </ul>
         {% endif %}
-    {% endspaceless %}
+    {% endapply %}
 {% endblock %}
 ```
 
@@ -435,7 +437,7 @@ you can specify the current template to be the source of the Field block.
 
     **Using `_self` will only work if your current template is extending another one.**
 
-    This is basically the same limitation as for [Symfony form themes](https://symfony.com/doc/current/form/form_themes.html).
+    This is basically the same limitation as for [Symfony form themes](https://symfony.com/doc/4.3/form/form_themes.html).
 
 ##### Global override
 
@@ -443,12 +445,12 @@ If you want to override a Field template every time it occurs,
 you can append it to the Field templates list.
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         my_siteaccess:
             field_templates:
                 - 
-                    template: AcmeExampleBundle:fields:my_field_template.html.twig
+                    template: fields/my_field_template.html.twig
                     # Priority is optional (default is 0). The higher it is, the higher your template gets in the list.
                     priority: 10
 ```
@@ -462,10 +464,10 @@ It will then be used every time the Field is rendered with `ez_render_field()`.
 The content of the template must be placed in a Twig block corresponding to the Field Type's internal name
 (e.g. `{% block ezstring_field %}`) for `ezstring`.
 
-The template must also extend `EzPublishCoreBundle::content_fields.html.twig`.
+The template must also extend `EzPublishCore/content_fields.html.twig`.
 
 ``` html+twig
-{% extends "EzPublishCoreBundle::content_fields.html.twig" %}
+{% extends "@EzPublishCore/content_fields.html.twig" %}
 
 {% block ezstring_field %}
     {# template content here #}
@@ -474,7 +476,7 @@ The template must also extend `EzPublishCoreBundle::content_fields.html.twig`.
 
 ### `ez_short_datetime`, `ez_short_date`, `ez_short_time`
 
-These Twig filters are used to [format date and time](extending_ez_platform.md#format-date-and-time).
+These Twig filters are used to [format date and time](extending/extending_ez_platform.md#format-date-and-time).
 The formats are defined in [user preferences](config_back_office.md#date-and-time-formats).
 
 | Twig filter | Description |
@@ -498,7 +500,7 @@ The filters also accept an optional `timezone` parameter for displaying date and
 
 If the Content item does not have a translation in the current language, the main language (see [further down for details](#main-language-use)) will be used if this is supported by the provided **object**. This behavior is identical when forcing a language using **forcedLanguage**.
 
-If languages were specified during retrieval of a given value object, you can get translated values directly in several cases now, including examples below. For further info see [Internationalization](internationalization.md).
+If languages were specified during retrieval of a given value object, you can get translated values directly in several cases now, including examples below. For more details, see [Languages](internationalization.md).
 
 #### Prototype and Arguments
 
@@ -512,14 +514,14 @@ If languages were specified during retrieval of a given value object, you can ge
 
 ##### Main language use
 
-Main language is be applied in the following way for Value objects that support this:
+Main language is be applied in the following way for value objects that support this:
 
 - *When attribute is retrieved via object property*: Use **mainLanguageCode** property if it exists as fallback language, but only if either **alwaysAvailable** property does not exist, or is true.
 - *When attribute is retrieved via object method*: Provide `$language = null` as the only argument to the method, the logic of the ValueObject decides if this gives a fallback value or not.
 
 #### Usage
 
-Example below shows how this function can be used to get the Content name with exact same result as using `ez_content_name(content)`:
+Example below shows how this function can be used to get the content name with exact same result as using `ez_content_name(content)`:
 
 ``` html+twig
 {{ ez_trans_prop( versionInfo, "name" ) }}

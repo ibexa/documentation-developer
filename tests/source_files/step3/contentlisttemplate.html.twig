@@ -1,0 +1,24 @@
+<div>
+    <h3 class="heading">{{ parentName }}</h3>
+    {% if contentArray|length > 0 %}
+        <div class="content-list">
+            {% for content in contentArray %}
+                <div class="content-list-item">
+                    <div class="content-list-item-image">
+                        {{ ez_render_field(content.content, 'photo', {
+                            'parameters': {
+                                'alias': 'content_list'
+                            }
+                        }) }}
+                    </div>
+                    <h4><a href="{{ path(content.location) }}">{{ ez_content_name(content.content) }}</a></h4>
+                    {% if not ez_field_is_empty(content.content, 'short_description') %}
+                        <div class="attribute-short-description">
+                            {{ ez_render_field(content.content, 'short_description') }}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>

@@ -9,7 +9,7 @@ For the release notes of the corresponding eZ Studio release, see [eZ Studio 20
 ### Quick links
 
 -   [Installation instructions](../getting_started/install_ez_platform.md)
--   [Requirements](updating_ez_platform.md)
+-   [Requirements](../updating/updating_ez_platform.md)
 -   [Download](http://share.ez.no/downloads/downloads/ez-platform-1.3.0)
 
 ## Changes since 16.02
@@ -80,4 +80,4 @@ More importantly, this has been done to make it possible to developers to extend
 
 ## Updating
 
-To update to this version, follow the [Updating eZ Platform](updating_ez_platform.md) guide and use **v1.3.0** as version.
+To update to this version, follow the [Updating eZ Platform](../updating/updating_ez_platform.md) guide and use **v1.3.0** as version.

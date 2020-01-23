@@ -1,0 +1,19 @@
+{% apply spaceless %}
+    <div class="schedule-layout schedule-layout--grid">
+        <div class="featured-articles-block">
+            <h2 class="heading">{{ 'Featured Articles'|trans }}</h2>
+            <div>
+                {% for idx in 0..2 %}
+                    <div class="col-md-4 featured-article-container">
+                        {% if items[idx] is defined %}
+                            {{ render(controller('ez_content:viewLocation', {
+                                'locationId': items[idx].id,
+                                'viewType': 'featured'
+                            })) }}
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endapply %}

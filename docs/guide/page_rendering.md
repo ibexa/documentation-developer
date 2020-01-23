@@ -31,7 +31,7 @@
                 name: Right sidebar
                 description: Main section with sidebar on the right
                 thumbnail: /assets/images/layouts/sidebar.png
-                template: AppBundle:layouts:sidebar.html.twig
+                template: layouts/sidebar.html.twig
                 zones:
                     first:
                         name: First zone
@@ -49,7 +49,7 @@
     |{ID}/name|string|Name of the layout|Yes|
     |{ID}/description|string|Description of the layout|Yes|
     |{ID}/thumbnail|string|<path> to thumbnail image|Yes|
-    |{ID}/template|string|<path> to template View, for example: `AppBundle:layouts:sidebar.html.twig`</br>`<bundle>:<directory>:<file name>`|Yes|
+    |{ID}/template|string|<path> to template View|Yes|
     |{ID}/zones|string|Collection of zones|Yes|
     |{ID}/{zone}/zone_id|string|ID of the zone|Yes|
     |{ID}/{zone}/name|string|Zone name|Yes|
@@ -73,8 +73,8 @@
                     {# create a new layer with appropriate id #}
                     {# the div's class takes the type of the block that is placed in it #}
                     <div class="landing-page__block block_{{ block.type }}" data-ez-block-id="{{ block.id }}">
-                        {# render the block by using the "EzPlatformPageFieldTypeBundle:Block:render" controller #}
-                        {{ render_esi(controller('EzPlatformPageFieldTypeBundle:Block:render', {
+                        {# render the block by using the "EzPlatformPageFieldTypeBundle\Controller\BlockController:renderAction" controller #}
+                        {{ render_esi(controller('EzPlatformPageFieldTypeBundle\Controller\BlockController:renderAction', {
                                 'contentId': contentInfo.id,
                                 'blockId': block.id,
                                 'versionNo': versionInfo.versionNo,
@@ -90,7 +90,7 @@
             {% if zones[1].blocks %}
                 {% for block in zones[1].blocks %}
                     <div class="landing-page__block block_{{ block.type }}" data-ez-block-id="{{ block.id }}">
-                        {{ render_esi(controller('EzPlatformPageFieldTypeBundle:Block:render', {
+                        {{ render_esi(controller('EzPlatformPageFieldTypeBundle\Controller\BlockController:renderAction', {
                                 'contentId': contentInfo.id,
                                 'blockId': block.id,
                                 'versionNo': versionInfo.versionNo,
@@ -125,8 +125,8 @@
 
     To override the default block template, create a new template.
     Place it in a path that mirrors the original default template from the bundle folder.
-    Foor example:
-    `/app/Resources/EzPlatformPageFieldTypeBundle/views/blocks/gallery.html.twig`.
+    For example:
+    `templates/bundles/EzPlatformPageFieldTypeBundle/blocks/gallery.html.twig`.
 
     !!! tip
 

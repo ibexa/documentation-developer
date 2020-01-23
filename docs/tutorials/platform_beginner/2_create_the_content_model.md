@@ -1,4 +1,4 @@
-# Step 2 - Create the content model
+# Step 2 — Create the content model
 
 How your content is structured is a very important part of an eZ Platform project. Think of it as the database design of your application.
 
@@ -33,7 +33,7 @@ Go to **Admin** in the top bar and choose **Content Types** in the sub menu:
 
 You will see a list of **Content Type Groups**. They are used to group Content Types in a logical way.
 
-Select **Content** and then activate the plus icon. 
+Select **Content** and then click the plus icon. 
 
 ![Create a content type button](img/bike_tutorial_create_content_type.png)
 
@@ -48,7 +48,7 @@ Then create all Fields with the following information: 
 | ------------ | ---------------- | ---------------- | --------- | ---------- | ------------ |
 | Text line    | Name             | `name`           | yes       | yes        | yes          |
 | Image Asset  | Photo            | `photo`          | no        | no         | no           |
-| Rich Text    | Description      | `description`    | yes       | yes        | yes          |
+| Rich text    | Description      | `description`    | yes       | yes        | yes          |
 | Map location | Starting point   | `starting_point` | yes       | yes        | no           |
 | Map location | Ending point     | `ending_point`   | yes       | yes        | no           |
 | Integer      | Length           | `length`         | yes       | yes        | no           |
@@ -57,9 +57,11 @@ Confirm the creation of the Content Type by selecting Save.
 
 ## Create Rides
 
-Go back to the Content structure page by selecting Content in the top bar. Then browse the Content tree and create a Folder named *All Rides* using the **Create** button in the Action bar on the right of the screen. Publish the Folder.
+Go back to the Content structure page by selecting **Content** in the top bar. 
+Then browse the Content tree and create a Folder named *All Rides* using the **Create** button in the Action bar on the right of the screen. 
+Publish the Folder.
 
-While in the folder, create a few of Rides using the Create button, add photos and publish them.
+While in the folder, create a few of Rides using the **Create** button, add photos and publish them.
 
 ![Ready for Step 3](img/bike_tutorial_all_rides_admin.png)
 

@@ -24,8 +24,26 @@ The SPI `FieldValue` struct has properties which the Field Type can use:
 
 ### Legacy storage engine
 
+The Legacy storage engine uses the `ezcontentobject_attribute` table to store Field values,
+and `ezcontentclass_attribute` to store Field definition values.
+They are both based on the same principle.
+
+Each row represents a Field or a Field definition, and offers several free fields of different types, where the type can store its data e.g.
+
+- `ezcontentobject_attribute` offers:
+    - `data_int`
+    - `data_text`
+    - `data_float`
+- `ezcontentclass_attribute` offers:
+    - four `data_int` (`data_int1` to `data_int4`) fields
+    - four `data_float` (`data_float1` to `data_float4`) ones
+    - five `data_text` (`data_text1` to `data_text5`)
+
+Each type is free to use those fields in any way it requires.
+
 The default Legacy storage engine cannot store arbitrary value information as provided by a Field Type.
 This means that using this storage engine requires a conversion.
+Converters will map a Field's semantic values to the fields described above, for both settings (validation and configuration) and value.
 
 The conversion takes place through the `eZ\Publish\Core\Persistence\Legacy\Content\FieldValue\Converter` interface,
 which you must implement in your Field Type. The interface contains the following methods:
@@ -36,19 +54,21 @@ which you must implement in your Field Type. The interface contains the followin
 |`toFieldValue()`|Converts the other way around.|
 |`toStorageFieldDefinition()`|Converts a Persistence `FieldDefinition` to a storage specific one.|
 |`toFieldDefinition`|Converts the other way around.|
-|`getIndexColumn()`|Returns the storage column which is used for indexing.|
+|`getIndexColumn()`|Returns the storage column which is used for indexing either `sort_key_string` or `sort_key_int`.|
+
+Just like a Type, a Legacy Converter needs to be registered and tagged in the service container.
 
 #### Registering a converter
 
 The registration of a `Converter` currently works through the `$config` parameter of [`eZ\Publish\Core\Persistence\Legacy\Handler`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.0/eZ/Publish/Core/Persistence/Legacy/Handler.php).
 
-Those converters also need to be correctly exposed as services and tagged with `ezpublish.storageEngine.legacy.converter`:
+Those converters also need to be correctly exposed as services and tagged with `ezplatform.field_type.legacy_storage.converter`:
 
 ``` yaml
 services:
     eZ\Publish\Core\Persistence\Legacy\Content\FieldValue\Converter\TextLine:
         tags:
-            - {name: ezpublish.storageEngine.legacy.converter, alias: ezstring}
+            - {name: ezplatform.field_type.legacy_storage.converter, alias: ezstring}
 ```
 
 The tag has the following attribute:
@@ -59,7 +79,7 @@ The tag has the following attribute:
 
 !!! tip
 
-    Converter configuration for built-in Field Types is located in [`eZ/Publish/Core/settings/fieldtype_external_storages.yml`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/fieldtype_external_storages.yml).
+    Converter configuration for built-in Field Types is located in [`eZ/Publish/Core/settings/fieldtype_external_storages.yaml`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/fieldtype_external_storages.yml).
 
 ## Storing external data
 
@@ -114,7 +134,7 @@ The registry mechanism is realized as a base class for `FieldStorage` implementa
 ### Registering external storage
 
 To use external storage, you need to define a service implementing the `eZ\Publish\SPI\FieldType\FieldStorage` interface
-and tag it as `ezpublish.fieldType.externalStorageHandler` to be recognized by the Repository.
+and tag it as `ezplatform.field_type.external_storage_handler` to be recognized by the Repository.
 
 Here is an example for the `myfield` Field Type:
 
@@ -125,14 +145,14 @@ services:
         autoconfigure: true
         public: false
 
-    Acme\ExampleBundle\FieldType\MyField\Storage\MyFieldStorage: ~
+    App\FieldType\MyField\Storage\MyFieldStorage: ~
         tags:
-            - {name: ezpublish.fieldType.externalStorageHandler, alias: myfield}
+            - {name: ezplatform.field_type.external_storage_handler, alias: myfield}
 ```
 
-The configuration requires providing the `ezpublish.fieldType.externalStorageHandler` tag, with the `alias` attribute being the *fieldTypeIdentifier*. You also have to inject the gateway in `arguments`, [see below](#gateway-based-storage).
+The configuration requires providing the `ezplatform.field_type.external_storage_handler` tag, with the `alias` attribute being the *fieldTypeIdentifier*. You also have to inject the gateway in `arguments`, [see below](#gateway-based-storage).
 
-External storage configuration for basic Field Types is located in [eZ/Publish/Core/settings/fieldtype_external_storages.yml](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/fieldtype_external_storages.yml).
+External storage configuration for basic Field Types is located in [eZ/Publish/Core/settings/fieldtype_external_storages.yaml](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/fieldtype_external_storages.yml).
 
 #### Registration
 
@@ -145,7 +165,7 @@ services:
         autoconfigure: true
         public: false
 
-    Acme\ExampleBundle\FieldType\MyField\Storage\Gateway\DoctrineStorage: ~
+    App\FieldType\MyField\Storage\Gateway\DoctrineStorage: ~
 ```
 
 Note that `ezpublish.api.storage_engine.legacy.connection` is of type `Doctrine\DBAL\Connection`. If your gateway still uses an implementation of `eZ\Publish\Core\Persistence\Database\DatabaseHandler` (`eZ\Publish\Core\Persistence\Doctrine\ConnectionHandler`), instead of the `ezpublish.api.storage_engine.legacy.connection`, you can pass the `ezpublish.api.storage_engine.legacy.dbhandler` service.
@@ -155,4 +175,4 @@ Also note that there can be several gateways per Field Type (one per storage eng
 
 !!! tip
 
-    Gateway configuration for built-in Field Types is located in [`EzPublishCoreBundle/Resources/config/storage_engines.yml`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.0/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage_engines.yml).
+    Gateway configuration for built-in Field Types is located in [`EzPublishCoreBundle/Resources/config/storage_engines.yaml`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.0/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage_engines.yml).

@@ -1,297 +1,283 @@
-# Searching
+# Content search
 
-This section covers how the [`SearchService`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/SearchService.html) can be used to search for Content, by using a [`Query`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Query.html) and a combinations of [`Criteria`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Query/Criterion.html) you will get a [`SearchResult`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Search/SearchResult.html) object back containing list of Content and count of total hits. In the future this object will also include facets, spell checking etc. when running on a backend that supports it *(for instance Solr)*.
+[`SearchService`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/SearchService.php)
+enables you to perform search queries using the PHP API.
 
-!!! note
+The service should be [injected into the constructor of your command or controller.](https://symfony.com/doc/4.3/service_container.html)
 
-    To be able to use search API described in this section, you need to create some content (articles, folders) under eZ Platform root.
+!!! tip "SearchService in the Back Office"
 
-### Difference between filter and query
+    `SearchService` is also used in the Back Office of eZ Platform,
+    in components such as Universal Discovery Widget or Sub-items List.
 
-Query object contains two properties you can set criteria on `filter` and `query`. You can mix and match use or use both at the same time, there is one distinction between the two:
+## Performing a search
 
--   `query` Has an effect on scoring *(relevancy)* calculation, and also on the default sorting if `sortClause` is not specified, *when used with Solr.* Typically `query` is used for `FullText` search criterion, otherwise you can place everything else on `filter`.
+To search through content you need to create a [`LocationQuery`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/LocationQuery.php)
+and provide your search criteria as a series of Criterion objects.
 
-## Full text search
+For example, to search for all content of a selected Content Type, use one Criterion,
+`Criterion\ContentTypeIdentifier` (line 14).
 
-!!! tip "Checking feature support per search engine"
+The following command takes the Content Type identifier as an argument and lists all results:
 
-    To find out if a given search engine supports advanced full text capabilities, use the [`$searchService->supports($capabilityFlag)`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/SearchService.php#L187-L197) method.
+``` php hl_lines="14 16"
+//...
+use eZ\Publish\API\Repository\SearchService;
+use eZ\Publish\API\Repository\Values\Content\LocationQuery;
+use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
 
-!!! note "Full code"
-
-    <https://github.com/ezsystems/CookbookBundle/blob/master/Command/FindContentCommand.php>
-
-In this recipe, you will run a simple full text search over every compatible attribute.
-
-### Query and Criterion objects
-
-Described above`Query` object is used to build up a Content query based on a set of `Criterion` objects.
-
-```php
-$query = new \eZ\Publish\API\Repository\Values\Content\Query();
-// Use 'query' over 'filter' for FullText to get hit score (relevancy) with Solr
-$query->query = new Query\Criterion\FullText( $text );
-```
-
-Multiple criteria can be grouped together using "logical criteria", such as [LogicalAnd](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Query/Criterion/LogicalAnd.html) or [LogicalOr](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Query/Criterion/LogicalOr.html). Since in this case you only want to run a text search, simply use a [`FullText`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Query/Criterion/FullText.html) criterion object.
-
-The full list of criteria can be found on your installation in the following directory [vendor/ezsystems/ezpublish-kernel/eZ/Publish/API/Repository/Values/Content/Query/Criterion](https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/API/Repository/Values/Content/Query/Criterion). Additionally you may look at integration tests like [vendor/ezsystems/ezpublish-kernel/eZ/Publish/API/Repository/Tests/SearchServiceTest.php](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Tests/SearchServiceTest.php) for more details on how these are used.
-
-### Running the search query
-
-The `Query` object is given as an argument to [`SearchService::findContent()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/SearchService.html#method_findContent). This method returns a `SearchResult` object. This object provides you with various information about the search operation (number of results, time taken, spelling suggestions, or facets, as well as, of course, the results themselves).
-
-``` php
-$result = $searchService->findContent( $query );
-$output->writeln( 'Found ' . $result->totalCount . ' items' );
-foreach ( $result->searchHits as $searchHit )
+class FindContentCommand extends Command
 {
-    $output->writeln( $searchHit->valueObject->contentInfo->name );
+    // ...
+    protected function execute(InputInterface $input, OutputInterface $output)
+    {
+        $contentTypeId = $input->getArgument('contentTypeId');
+
+        $query = new LocationQuery();
+        $query->filter = new Criterion\ContentTypeIdentifier($contentTypeId);
+
+        $result = $this->searchService->findContentInfo($query);
+        $output->writeln('Found ' . $result->totalCount . ' items');
+        foreach ($result->searchHits as $searchHit) {
+            $output->writeln($searchHit->valueObject->name);
+        }
+    }
 }
 ```
 
-The `searchHits` properties of the `SearchResult` object is an array of `SearchHit` objects. In `valueObject` property of `SearchHit`, you will find the `Content` object that matches the given `Query`.
+[`SearchService::findContentInfo`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/SearchService.php#L142) (line 16)
+retrieves [`ContentInfo`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/ContentInfo.php) objects of the found Content items.
+You can also use [`SearchService::findContent`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/SearchService.php#L122) to get full Content objects, together with their Field information.
 
-!!! Tip
-
-    If you you are searching using a unique identifier, for instance using the Content ID or Content remote ID criterion, then you can use [`SearchService::findSingle()`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/SearchService.html#method_findSingle), this takes a Criterion and returns a single Content item, or throws a `NotFound` exception if none is found.
-
-## Retrieving Sort Clauses for parent Location
-
-You can use the method `$parentLocation->getSortClauses()` to return an array of Sort Clauses for direct use on `LocationQuery->sortClauses`.
-
-## Performing an advanced search
-
-!!! note "Full code"
-
-    <https://github.com/ezsystems/CookbookBundle/blob/master/Command/FindContent2Command.php>
-
-As explained in the previous chapter, Criterion objects are grouped together using logical criteria. You will now see how multiple criteria objects can be combined into a fine grained search `Query`.
+To query for a single result, for example by providing a Content ID,
+use the [`SearchService::findSingle`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/SearchService.php#L159) method:
 
 ``` php
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
-use eZ\Publish\API\Repository\Values\Content\Query;
-
-// [...]
-
-$query = new Query();
-$criterion1 = new Criterion\Subtree( $locationService->loadLocation( 2 )->pathString );
-$criterion2 = new Criterion\ContentTypeIdentifier( 'folder' );
-$query->filter = new Criterion\LogicalAnd(
-    array( $criterion1, $criterion2 )
-);
-
-$result = $searchService->findContent( $query );
-```
-
-A [`Subtree`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Query/Criterion/Subtree.html) criterion limits the search to the subtree with `pathString`, which looks like: `/1/2/`. A [`ContentTypeId`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Query/Criterion/ContentTypeId.html) Criterion to limit the search to Content of Content Type 1. Those two criteria are grouped with a `LogicalAnd` operator. The query is executed as before, with `SearchService::findContent()`.
-
-### Fine-tuning search results
-
-#### `$languageFilter`
-
-The `$languageFilter` parameter provides a prioritized list of languages for the current SiteAccess. Passing it is recommended for front-end use, because otherwise all languages of the Content items will be returned.
-
-Additionally, you can make use of the `useAlwaysAvailable` argument of the `$languageFilter`. This in turn uses the `alwaysAvailable` flag which by default is set on Content Type. When it is set to `true`, it ensures that when a language from the prioritized list can't be matched, the Content will be returned in its main language.
-
-#### `Criterion\Visibility`
-
-`Criterion\Visibility` enables you to ensure that only visible content will be returned.
-
-Note that the criterion behaves differently depending on the method you use, because Locations have visibility, but Content does not. This means that when using the `LocationQuery` (`findLocations($query)`), the method will return the Location, if it is visible. When used with the `Query` (`findContent($query)`), however, the Content item will be returned even if one of its Locations is visible (although others may be hidden). That is why using `Criterion\Visibility` is recommended with `LocationQuery`.
-
-This example shows the usage of both `$languageFilter` and `Criterion\Visibility`:
-
-``` php
-$query = new LocationQuery([
-    'filter' => new Criterion\LogicalAnd([
-    new Criterion\Visibility(Criterion\Visibility::VISIBLE),
-    new Criterion\ParentLocationId($parentLocation->id),
-    ];),
-    'sortClauses' => $parentLocation->getSortClauses(),
-]);
-$searchService->findLocations($query,
-    ['languages' => $configResolver->getParameter('languages')]);
-```
-
-## Performing a fetch like search
-
-!!! note "Full code"
-
-    <https://github.com/ezsystems/CookbookBundle/blob/master/Command/FindContent3Command.php>
-
-A search isn't only meant for searching, it also provides the interface for what was called "fetch" in previous versions. As this is back-end agnostic, eZ Platform "ezfind" fetch functions are now powered by Solr.
-
-Following the examples above you now change it a bit to combine several criteria with both an AND and an OR condition.
-
-``` php
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
-use eZ\Publish\API\Repository\Values\Content\Query;
-
-// [...]
-
-$query = new Query();
-$query->filter = new Criterion\LogicalAnd(
-    array(
-        new Criterion\ParentLocationId( 2 ),
-        new Criterion\LogicalOr(
-            array(
-                new Criterion\ContentTypeIdentifier( 'folder' ),
-                new Criterion\ContentTypeId( 2 )
-            )
-        )
-    )
-);
-
-$result = $searchService->findContent( $query );
-```
-
-A `ParentLocationId` criterion limits the search to the children of Location 2. An array of `ContentTypeId` Criteria to limit the search to Content of Content Type's with ID 1 or 2 grouped in a `LogicalOr` operator. Those two criteria are grouped with a `LogicalAnd` operator. As always the query is executed as before, with `SearchService::findContent()`.
-
-Change the Location filter to use the Subtree criterion filter as shown in the advanced search example above.
-
-### Using in() instead of OR
-
-The above example is fine, but it can be optimized by taking advantage of the fact that all filter criteria support being given an array of values (IN operator) instead of a single value (EQ operator).
-
-You can also use the [`ContentTypeIdentifier`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Query/Criterion/ContentTypeIdentifier.html) Criterion:
-
-``` php
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
-use eZ\Publish\API\Repository\Values\Content\Query;
-
-// [...]
-
-$query = new Query();
-$query->filter = new Criterion\LogicalAnd(
-    array(
-        new Criterion\ParentLocationId( 2 ),
-        new Criterion\ContentTypeIdentifier( array( 'article', 'folder' ) )
-    )
-);
-
-$result = $searchService->findContent( $query );
+$criterion = new Criterion\ContentId($contentId);
+$result = $this->searchService->findSingle($criterion);
+$output->writeln($result->getName());
 ```
 
 !!! tip
 
-    All filter criteria are capable of doing an "IN" selection, the `ParentLocationId` above could, for example, have been provided `array( 2, 43 )` to include second level children in both your content tree (2) and your media tree (43).
+    For full list and details of available Search Criteria, see [Search Criteria reference](../guide/search.md#search-criteria-reference).
 
-## Performing a faceted search
+### Search with `query` and `filter`
 
-!!! note
+You can use two properties of the `Query` object to search for content: `query` and `filter`.
 
-    Faceted search is only available with Solr search engine.
+In contrast to `filter`, `query` has an effect of search scoring (relevancy).
+It affects default sorting if no Sort Clause is used.
+As such, `query` is recommended when the search is based on user input.
 
-To perform a faceted search, set the `Query->facetBuilders` property.
-Relevant facets will be returned in `SearchResult->facets`.
+The difference between `query` and `filter` is only relevant when using Solr search engine.
+With the Legacy search engine both properties will give identical results.
 
-All facet builders share the following properties:
+## Searching in a controller
 
-|Property|Description|
-|--------|-----------|
-|`name`| Recommended, sets the human-readable name of the returned facet for use in UI. If you need translation this value should already be translated.|
-|`minCount`| Optional, the minimum number of hits to create a group, e.g. minimum number of Content items in a given facet for it to be returned.|
-|`limit`| Optional, the maximum number of facets to be returned; only this number of facets with the greatest number of hits will be returned.|
+You can use the `SearchService` similarly in a controller, as long as you provide the required parameters.
+For example, in the code below `locationId` is provided to list all children of a Location.
 
-As an example, apply `UserFacet` to be able to group content according to the creator:
+``` php hl_lines="20 21 22"
+//...
+use eZ\Publish\API\Repository\SearchService;
+use eZ\Publish\API\Repository\Values\Content\LocationQuery;
+use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
+
+class CustomController extends Controller
+{
+    //...
+    public function showContentAction($locationId)
+    {
+        $query = new LocationQuery();
+        $query->filter = new Criterion\ParentLocationId($locationId);
+
+        $results = $this->searchService->findContentInfo($query);
+        $items = [];
+        foreach ($results->searchHits as $searchHit) {
+            $items[] = $searchHit;
+        }
+
+        return $this->render('custom.html.twig', [
+            'items' => $items,
+        ]);
+    }
+}
+```
+
+The rendering of results is then relegated to [templates](../guide/templates.md) (lines 20-22).
+
+### Paginating search results
+
+To paginate search results, it is recommended to use the [Pagerfanta library](https://github.com/whiteoctober/Pagerfanta) and [eZ Platform's adapters for it.](https://github.com/ezsystems/ezpublish-kernel/tree/v7.5.3/eZ/Publish/Core/Pagination/Pagerfanta)
 
 ``` php
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
-use eZ\Publish\API\Repository\Values\Content\Query\FacetBuilder;
+//...
+use eZ\Publish\Core\Pagination\Pagerfanta\ContentSearchAdapter;
+use Symfony\Component\HttpFoundation\Request;
+use Pagerfanta\Pagerfanta;
 
-// [...]
+class CustomController extends Controller
+{
+    //...
+    public function showContentAction(Request $request, $locationId)
+    {
+        // formulate a $query
 
-$query = new Query();
-$query->filter = new Criterion\ContentTypeIdentifier(['article']);
-$query->facetBuilders[] = new FacetBuilder\UserFacetBuilder(
+        $pager = new Pagerfanta(
+            new ContentSearchAdapter($query, $this->searchService)
+        );
+        $pager->setMaxPerPage(3);
+        $pager->setCurrentPage($request->get('page', 1));
+
+        return $this->render('custom.html.twig', [
+                'totalItemCount' => $pager->getNbResults(),
+                'pagerItems' => $pager,
+            ]
+        );
+    }
+}
+```
+
+Pagination can then be rendered for example using the following template:
+
+``` html+twig
+{% for item in pagerItems %}
+    <h2><a href={{ path('ez_urlalias', {'contentId': item.contentInfo.id}) }}>{{ ez_content_name(item) }}</a></h2>
+{% endfor %}
+
+{% if pagerItems.haveToPaginate() %}
+    {{ pagerfanta( pagerArticle, 'ez') }}
+{% endif %}
+```
+
+For more information and examples, see [PagerFanta documentation.](https://github.com/whiteoctober/Pagerfanta/blob/master/README.md)
+
+#### Pagerfanta adapters
+
+|Adapter class name|Description|
+|------|------|
+|[`ContentSearchAdapter`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/Core/Pagination/Pagerfanta/ContentSearchAdapter.php)|Makes a search against passed Query and returns [Content](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/Content.php) objects.|
+|[`ContentSearchHitAdapter`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/Core/Pagination/Pagerfanta/ContentSearchHitAdapter.php)|Makes a search against passed Query and returns [SearchHit](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/Search/SearchHit.php) objects instead.|
+|[`LocationSearchAdapter`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/Core/Pagination/Pagerfanta/LocationSearchAdapter.php)|Makes a Location search against passed Query and returns [Location](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/Location.php) objects.|
+|[`LocationSearchHitAdapter`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/Core/Pagination/Pagerfanta/LocationSearchHitAdapter.php)|Makes a Location search against passed Query and  returns [SearchHit](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/Search/SearchHit.php) objects instead.|
+
+## Complex search
+
+For more complex searches, you need to combine multiple Criteria.
+You can do it using logical operators: `LogicalAnd`, `LogicalOr`, and `LogicalNot`.
+
+``` php hl_lines="6 7 8 11"
+$query = new LocationQuery;
+$criterion1 = new Criterion\Subtree($this->locationService->loadLocation($locationId)->pathString);
+$criterion2 = new Criterion\ContentTypeId($contentTypeId);
+$criterion3 = new Criterion\FullText($text);
+
+$query->query = new Criterion\LogicalAnd(
+    [$criterion1, $criterion2, $criterion3]
+);
+
+$result = $this->searchService->findContentInfo($query);
+$output->writeln('Found ' . $result->totalCount . ' items');
+foreach ($result->searchHits as $searchHit) {
+    $output->writeln($searchHit->valueObject->name);
+}
+```
+
+This example takes three parameters from a command — `$text`, `$contentTypeId`, and `$locationId`.
+It then combines them using `Criterion\LogicalAnd` to search for Content items
+that belong to a specific subtree, have the chosen Content Type and contain the provided text (lines 6-8).
+
+This also shows that you can get the total number of search results using the `totalCount` property of search results (line 11).
+
+You can also nest different operators to construct more complex queries.
+The example below uses the `LogicalNot` operator to search for all children of the selected parent
+that do not belong to the provided Content Type:
+
+``` php
+$query->filter = new Criterion\LogicalAnd([
+        new Criterion\ParentLocationId($locationId),
+        new Criterion\LogicalNot(
+            new Criterion\ContentTypeIdentifier($contentTypeId)
+        )
+    ]
+);
+```
+
+### Combining independent Criteria
+
+Criteria are independent of one another. This can lead to unexpected behavior, for instance because content can have multiple Locations.
+
+For example, a Content item has two Locations: visible Location A and hidden Location B.
+You perform the following query:
+
+``` php
+$query->filter = new Criterion\LogicalAnd([
+    new LocationId($locationBId),
+    new Visibility(Visibility::VISIBLE),
+]);
+```
+
+The query searches for Location B using the `LocationId` Criterion,
+and for visible content using the `Visibility` Criterion.
+
+Even though the Location B is hidden, the query will find the content because both conditions are satisfied:
+
+- the Content item has Location B
+- the Content item is visible (it has the visible Location A)
+
+
+## Sorting results
+
+To sort the results of a query, use one of more [Sort Clauses](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/Query/SortClause.php).
+
+For example, to order search results by their publicationg date, from oldest to newest,
+and then alphabetically by content name, add the following Sort Clauses to the query:
+
+``` php
+$query->sortClauses = [
+    new SortClause\DatePublished(LocationQuery::SORT_ASC),
+    new SortClause\ContentName(LocationQuery::SORT_DESC),
+];
+```
+
+!!! tip
+
+    For the full list and details of available Sort Clauses, see [Sort Clause reference](../guide/search.md#sort-clauses-reference).
+
+## Faceted search
+
+!!! tip "Checking feature support per search engine"
+
+    Faceted search is available only for the Solr search engine.
+
+    To find out if a given search engine supports any of the advanced search capabilities,
+    use the [`eZ\Publish\API\Repository\SearchService::supports`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/SearchService.php#L187-L197) method:
+
+    ``` php
+    $facetSupport = $this->searchService->supports(SearchService::CAPABILITY_FACETS);
+    ```
+
+Faceted search enables you to find the count of search results for each Facet value.
+
+To do this, you need to make use of the query's `$facetBuilders` property:
+
+``` php
+$query->facetBuilders[] = new FacetBuilderUserFacetBuilder(
     [
-        'name' => 'Document owner',
-        // Specific to UserFacetBuilder, one of: OWNER, GROUP or MODIFIER
+        'name' => 'User',
         'type' => FacetBuilder\UserFacetBuilder::OWNER,
         'minCount' => 2,
         'limit' => 5
     ]
 );
 
-$result = $searchService->findContentInfo( $query );
-list( $userId, $articleCount ) = $result->facets[0]->entries;
+$result = $this->searchService->findContentInfo($query);
+
+$output->writeln("Number of results per facet value: ");
+foreach ($result->facets[0]->entries as $facetEntry) {
+    $output->writeln("* " . $facetEntry);
+}
 ```
 
-### Available FacetBuilders
-
-#### ContentTypeFacetBuilder
-
-Arguments:
-
-- `name`: `string`
-- `minCount` (optional): `integer`
-- `limit` (optional): `integer`
-
-Example:
-
-``` php
-    $query->facetBuilders[] = new FacetBuilder\ContentTypeFacetBuilder(
-        [
-            'name' => 'ContentType',
-        ]
-    );
-```
-
-#### SectionFacetBuilder
-
-Arguments:
-
-- `name`: `string`
-- `minCount` (optional): `integer`
-- `limit` (optional): `integer`
-
-Example:
-
-``` php
-    $query->facetBuilders[] = new FacetBuilder\SectionFacetBuilder(
-        [
-            'name' => 'Section',
-        ]
-    );
-```
-
-#### UserFacetBuilder
-
-Arguments:
-
-- `name`: `string`
-- `type`: `string` [`OWNER = 'owner'`, `GROUP = 'group'`, `MODIFIER = 'modifier'`]
-- `minCount` (optional): `integer`
-- `limit` (optional): `integer`
-
-Example:
-
-``` php
-    $query->facetBuilders[] = new FacetBuilder\UserFacetBuilder(
-        [
-            'name' => 'User',
-            'type' => FacetBuilder\UserFacetBuilder::GROUP,
-        ]
-    );
-```
-
-## Performing a pure search count
-
-In many cases you might need the number of Content items matching a search, but with no need to do anything else with the results.
-
-Thanks to the fact that the `searchHits` property of the [`SearchResult`](http://apidoc.ez.no/sami/trunk/NS/html/eZ/Publish/API/Repository/Values/Content/Search/SearchResult.html) object always refers to the total amount, it is enough to run a standard search and set `$limit` to 0. This way no results will be retrieved, and the search will not be slowed down, even when the number of matching results is huge.
-
-``` php
-use eZ\Publish\API\Repository\Values\Content\Query;
-
-// [...]
-
-$query = new Query();
-$query->limit = 0;
-
-// [...] ( Add criteria as shown above )
-
-$resultCount = $searchService->findContent( $query )->totalCount;
-```
+See [Search Facet reference](../guide/search.md#search-facet-reference) for details of all available Facets.

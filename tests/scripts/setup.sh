@@ -1,8 +1,8 @@
 #!/bin/bash
 
 TUTORIAL_REPOSITORY=https://github.com/ezsystems/ezplatform-ee-beginner-tutorial
-STEP1_BRANCH=v2-step1
-STEP4_BRANCH=master
+STEP1_BRANCH=v3-step1
+STEP4_BRANCH=v3-step4
 TUTORIAL_DATA_DIRECTORY_1=tutorial_data_1
 TUTORIAL_DATA_DIRECTORY_2=tutorial_data_2
 IMAGES_SOURCE=vendor/ezsystems/developer-documentation/docs/tutorials/enterprise_beginner/img/photos.zip
@@ -20,18 +20,19 @@ mkdir $IMAGES_DESTINATION
 unzip $IMAGES_SOURCE -d $IMAGES_DESTINATION
 
 # copy templates, styles and configuration files
-cp $TUTORIAL_DATA_DIRECTORY_1/app/Resources/views/{pagelayout.html.twig,pagelayout_menu.html.twig} ./app/Resources/views
+cp $TUTORIAL_DATA_DIRECTORY_1/templates/{pagelayout.html.twig,pagelayout_menu.html.twig} ./templates
 
-mkdir ./app/Resources/views/full
-cp $TUTORIAL_DATA_DIRECTORY_1/app/Resources/views/full/{article.html.twig,dog_breed.html.twig,folder.html.twig,tip.html.twig} ./app/Resources/views/full
-cp $TUTORIAL_DATA_DIRECTORY_1/app/config/{views.yml,image_variations.yml} ./app/config
+mkdir ./templates/full
+cp $TUTORIAL_DATA_DIRECTORY_1/templates/full/{article.html.twig,dog_breed.html.twig,folder.html.twig,tip.html.twig} ./templates/full
+cp $TUTORIAL_DATA_DIRECTORY_1/config/packages/{views.yaml,image_variations.yaml,webpack_encore.yaml} ./config/packages
+cp $TUTORIAL_DATA_DIRECTORY_1/config/services.yaml ./config
 
-mkdir web/{assets,assets/css,assets/images}
-cp $TUTORIAL_DATA_DIRECTORY_1/web/assets/css/style.css ./web/assets/css
-cp $TUTORIAL_DATA_DIRECTORY_1/web/assets/images/header.jpg ./web/assets/images
+cp $TUTORIAL_DATA_DIRECTORY_1/webpack.config.js ./
 
-mkdir src/AppBundle/{QueryType,Controller,DependencyInjection,Resources,Resources/config}
-cp $TUTORIAL_DATA_DIRECTORY_1/src/AppBundle/QueryType/{LocationChildrenQueryType.php,MenuQueryType.php} ./src/AppBundle/QueryType
-cp $TUTORIAL_DATA_DIRECTORY_1/src/AppBundle/DependencyInjection/AppExtension.php ./src/AppBundle/DependencyInjection/
-cp $TUTORIAL_DATA_DIRECTORY_1/src/AppBundle/Controller/MenuController.php ./src/AppBundle/Controller/
-cp $TUTORIAL_DATA_DIRECTORY_1/src/AppBundle/Resources/config/services.yml ./src/AppBundle/Resources/config
+mkdir -p ./assets/{css,images}
+cp $TUTORIAL_DATA_DIRECTORY_1/assets/css/style.css assets/css
+cp $TUTORIAL_DATA_DIRECTORY_1/assets/images/header.jpg assets/images
+
+mkdir ./src/QueryType
+cp $TUTORIAL_DATA_DIRECTORY_1/src/QueryType/{LocationChildrenQueryType.php,MenuQueryType.php} ./src/QueryType
+cp $TUTORIAL_DATA_DIRECTORY_1/src/Controller/MenuController.php ./src/Controller/

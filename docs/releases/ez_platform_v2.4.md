@@ -67,14 +67,14 @@ The new `embed-inline` built-in view type enables embedding Content items within
 #### Custom tag - `ezcontent`
 
 The `ezcontent` property is now editable in the UI and can be used to store the output/preview of a custom tag.
-To learn how it works, see [FactBox tag](../guide/extending_online_editor/#factbox-tag).
+To learn how it works, see [FactBox tag](../guide/extending/extending_online_editor/#factbox-tag).
 
 ### Content Type translation
 
 You can now translate Content Type names and Field definitions.
 
 This possibility is available automatically when you have the target language configured
-(in the same way as for translating content, see [Internationatlization](../guide/internationalization.md)).
+(in the same way as for translating content, see [Languages](../guide/internationalization.md)).
 
 ![Content type with existing translations](img/2.4_content_type_translations.png "Available translation of a Content Type")
 
@@ -144,8 +144,9 @@ The outdated Policy labels are now updated:
 
 This release introduces a few simplifications to API use for Content Types:
 
-- Exposes `content->getContentType()` for easier use, including from Twig as `content.contentType`
-- Adds possibility to load several Content Types in bulk using `ContentTypeService->loadContentTypeList()`
+- Exposes `content->getContentType()` for easier use, including from Twig as `content.contentType`. When iterating over the result set of content/Locations these will effectively be loaded all at once.
+- Adds possibility to load several Content Types in bulk using `ContentTypeService->loadContentTypeList()`.
+- `UserService` now exposes `isUser()` and `isUserGroup()`. They do not need to do a lookup to the database in order to tell if a Content item is of type User or User Group.
 
 #### Load multiple Locations
 

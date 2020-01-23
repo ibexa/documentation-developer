@@ -10,27 +10,29 @@ However, you can also use XML or PHP formats for configuration.
 
 ### Configuration files
 
-Main configuration files are located in the `app/config` folder.
+Configuration files are located in the `config` folder.
+Configuration is provided per package in the `config/packages` folder,
+and routes are defined per package in `config/routes`.
 
-- `parameters.yml` contains infrastructure-related configuration. It is created based on the default settings defined in `parameters.yml.dist`.
-- `config.yml` contains configuration stemming from Symfony and covers settings such as search engine or cache configuration.
-- `ezplatform.yml` contains general configuration that is specific for eZ Platform, like for example SiteAccess settings.
-- `security.yml` is the place for security-related settings.
-- `routing.yml` defines routes that will be used throughout the application.
+`config/packages/ezplatform.yaml` contains basic configuration (coming from [ezpublish-kernel](https://github.com/ezsystems/ezpublish-kernel)).
+It stores, among others, [SiteAccess](siteaccess.md) information and content view config.
 
-Configuration can be made environment-specific using separate files for each environment.
+Other configuration is provided in respective files, e.g. `config/packages/ezplatform_admin_ui.yaml`,
+`config/packages/ezplatform_http_cache.yaml`.
+
+Configuration can be made environment-specific using separate folders for each environment.
 These files contain additional settings and point to the general (not environment-specific) configuration that is applied in other cases.
 
 !!! tip
 
-    Read more about [how configuration is handled in Symfony](https://symfony.com/doc/3.4/best_practices/configuration.html).
+    Read more about [how configuration is handled in Symfony](https://symfony.com/doc/4.3/best_practices/configuration.html).
 
 ### Configuration handling
 
 !!! note
 
     Configuration is tightly related to the service container.
-    To fully understand it, you need to be familiar with [Symfony's service container](service_container.md) and [its configuration](https://symfony.com/doc/3.4/service_container.html#service-parameters).
+    To fully understand it, you need to be familiar with [Symfony's service container](service_container.md) and [its configuration](https://symfony.com/doc/4.3/service_container.html#service-parameters).
 
 Basic configuration handling in eZ Platform is similar to what is commonly possible with Symfony.
 You can define key/value pairs in your configuration files.
@@ -39,9 +41,9 @@ Internally and by convention, keys follow a **dot syntax**, where the different 
 Keys are usually prefixed by a *namespace* corresponding to your application. All kinds of values are accepted, including arrays and deep hashes.
 
 For configuration that is meant to be exposed to an end-user (or end-developer),
-it's usually a good idea to also [implement semantic configuration](https://symfony.com/doc/3.4/components/config/definition.html).
+it's usually a good idea to also [implement semantic configuration.](https://symfony.com/doc/4.3/components/config/definition.html)
 
-Note that you can also [implement SiteAccess-aware semantic configuration](../cookbook/exposing_siteaccess_aware_configuration_for_your_bundle.md).
+Note that you can also [implement SiteAccess-aware semantic configuration](siteaccess.md#exposing-siteaccess-aware-configuration-for-your-bundle).
 
 For example:
 

@@ -14,7 +14,7 @@ When that SiteAccess is used, they override the default configuration.
 
 A SiteAccess is selected using one or more matchers – rules based on the uri or its parts. Example matching criteria are elements of the uri, host name (or its parts), port number, etc.
 
-For detailed information on how SiteAccess matchers work, see [SiteAccess Matching](#siteaccess-matching).
+For detailed information on how SiteAccess matchers work, see [SiteAccess Matching](siteaccess_matching.md).
 
 ### SiteAccesses use cases
 
@@ -36,7 +36,7 @@ you need to create your own admin SiteAccesses and add them to this group. In ca
 
 ## Configuring SiteAccesses
 
-You configure SiteAccess in your config files (e.g. `ezplatform.yml`) under the `ezpublish.siteacess` keys.
+You configure SiteAccess in your config files (e.g. `ezplatform.yaml`) under the `ezplatform.siteacess` keys.
 The required elements of the configuration are:
 
 #### `list`
@@ -53,7 +53,7 @@ Collects SiteAccesses into groups that can be used later for configuration.
 
 #### `match`
 
-The rule or set of rules by which SiteAccesses are matched. See [SiteAccess matching](#siteaccess-matching) for more information.
+The rule or set of rules by which SiteAccesses are matched. See [SiteAccess matching](siteaccess_matching.md) for more information.
 
 !!! enterprise
 
@@ -63,7 +63,7 @@ The rule or set of rules by which SiteAccesses are matched. See [SiteAccess matc
     `siteaccess_list` is an array of SiteAccess identifiers:
 
     ``` yaml
-    ezpublish:
+    ezplatform:
         system:
             admin:
                 page_builder:
@@ -78,7 +78,7 @@ The rule or set of rules by which SiteAccesses are matched. See [SiteAccess matc
 
 ### Settings per SiteAccess
 
-Various system settings can be set per SiteAccess or SiteAccess group under the `ezpublish.system` key. These settings include languages or the `var` directory.
+Various system settings can be set per SiteAccess or SiteAccess group under the `ezplatform.system` key. These settings include languages or the `var` directory.
 
 ### Multilanguage sites
 
@@ -90,7 +90,7 @@ A site has content in two languages: English and Norwegian. It has one URI per l
 Such configuration would look like this:
 
 ``` yaml
-ezpublish:
+ezplatform:
     siteaccess:
         # There are two SiteAccesses
         list: [eng, nor]
@@ -103,7 +103,7 @@ ezpublish:
             URIElement: 1
 
 
-ezpublish:
+ezplatform:
     # root node for configuration per SiteAccess
     system:
         # Configuration for the 'eng' SiteAccess
@@ -132,7 +132,7 @@ List of interfaces where you can apply SiteAccess names:
 
 You can also translate SiteAccess names. Displayed names depend on the selected language of the administration interface.
 
-To define translation you need to put them in YAML file with correct language code e.g. `app/Resources/translations/ezplatform_siteaccess.en.yml`:
+To define translation you need to put them in YAML file with correct language code e.g. `translations/ezplatform_siteaccess.en.yaml`:
 
 ```yaml
 en: Tasteful Planet
@@ -158,7 +158,7 @@ In short: if you want a match that will always apply, regardless of SiteAccesses
 To define a fallback, use `default`.
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         global:
             # If set, this value will be used regardless of any other var_dir configuration
@@ -181,387 +181,6 @@ This mechanism is not limited to eZ Platform internal settings (the `ezsettings
 Always prefer semantic configuration especially for internal eZ settings.
 Manually editing internal eZ settings is possible, but at your own risk, as unexpected behavior can occur.
 
-## SiteAccess Matching
-
-SiteAccess matching is done through `eZ\Publish\MVC\SiteAccess\Matcher` objects. You can configure this matching and even develop custom matchers.
-
-To be usable, every SiteAccess must be provided a matcher.
-
-You can configure SiteAccess matching in your main `app/config/ezplatform.yml`:
-
-``` yaml
-# ezplatform.yml
-ezpublish:
-    siteaccess:
-        default_siteaccess: ezdemo_site
-        list:
-            - ezdemo_site
-            - eng
-            - fre
-            - fr_eng
-            - ezdemo_site_admin
-        groups:
-            ezdemo_site_group:
-                - ezdemo_site
-                - eng
-                - fre
-                - fr_eng
-                - ezdemo_site_admin
-        match:
-            Map\URI:
-                ezdemo_site: ezdemo_site
-                eng: eng
-                fre: fre
-                fr_eng: fr_eng
-                ezdemo_site_admin: ezdemo_site_admin
-```
-
-You need to set several parameters:
-
-- `ezpublish.siteaccess.default_siteaccess` is the default SiteAccess that will be used if matching was not successful. This ensures that a SiteAccess is always defined.
-- `ezpublish.siteaccess.list` is the list of all available SiteAccesses in your website.
-- `ezpublish.siteaccess.groups` *(optional)* defines which groups SiteAccesses belong to. This is useful when you want to mutualize settings between several SiteAccesses and avoid config duplication. Siteaccess groups are treated the same as regular SiteAccesses as far as configuration is concerned. A SiteAccess can be part of several groups. A SiteAccess configuration has always precedence on the group configuration.
-- `ezpublish.siteaccess.match` holds the matching configuration. It consists in a hash where the key is the name of the matcher class. If the matcher class doesn't start with a **\\** , it will be considered relative to `eZ\Publish\MVC\SiteAccess\Matcher` (e.g. `Map\Host` will refer to  `eZ\Publish\MVC\SiteAccess\Matcher\Map\Host`)
-
-Every custom matcher can be specified with a fully qualified class name (e.g. `\My\SiteAccess\Matcher`) or by a service identifier prefixed by @ (e.g. `@my_matcher_service`).
-
-- In the case of a fully qualified class name, the matching configuration will be passed in the constructor.
-- In the case of a service, it must implement `eZ\Bundle\EzPublishCoreBundle\SiteAccess\Matcher`. The matching configuration will be passed to `setMatchingConfiguration()`.
-
-!!! note
-
-    Make sure to type the matcher in correct case. If it is in wrong case like "Uri" instead of "URI," it will work well on systems like Mac OS X because of their case-insensitive file system, but will fail when you deploy it to a Linux server. This is a known artifact of [PSR-0 autoloading](http://www.php-fig.org/psr/psr-0/) of PHP classes.
-
-### Available matchers
-
-- [URIElement](#urielement)
-- [URIText](#uritext)
-- [HostElement](#hostelement)
-- [HostText](#hosttext)
-- [Map\Host](#map92host)
-- [Map\URI](#map92uri)
-- [Map\Port](#map92port)
-- [Regex\Host](#regex92host) (deprecated)
-- [Regex\URI](#regex92uri) (deprecated)
-
-#### URIElement
-
-Maps a URI element to a SiteAccess. This is the default matcher used when choosing URI matching in setup wizard. 	
-
-**Configuration.** The element number you want to match (starting from 1)
-
-``` yaml
-ezpublish:
-    siteaccess:
-        match:
-            URIElement: 1
-```
-
-*Important:* When using a value > 1, the matcher will concatenate the elements with `_`.
-
-**Example.** URI: `/ezdemo_site/foo/bar`
-
-Element number: 1; Matched SiteAccess: `ezdemo_site`
-
-Element number: 2; Matched SiteAccess: `ezdemo_site_foo`
-
-#### URIText
-
-Matches URI using pre and/or post sub-strings in the first URI segment.
-
-**Configuration.** The prefix and/or suffix (none are required)
-
-``` yaml
-ezpublish:
-    siteaccess:
-        match:
-            URIText:
-                prefix: foo
-                suffix: bar
-```
-
-**Example.** URI: `/footestbar/my/content`
-
-Prefix: `foo`; Suffix: `bar`; Matched SiteAccess: `test`
-
-#### HostElement
-
-Maps an element in the host name to a SiteAccess.
-
-**Configuration.** The element number you want to match (starting from 1)
-
-``` yaml
-ezpublish:
-    siteaccess:
-        match:
-            HostElement: 2
-```
-
-**Example.** Host name: `www.example.com`
-
-Element number: 2; Matched SiteAccess: `example`
-
-#### HostText
-
-Matches a SiteAccess in the host name, using pre and/or post sub-strings.
-
-**Configuration.** The prefix and/or suffix (none are required)
-
-``` yaml
-ezpublish:
-    siteaccess:
-        match:
-            HostText:
-                prefix: www.
-                suffix: .com
-```
-
-**Example.** Host name: `www.foo.com`
-
-Prefix: `www.`; Suffix: `.com`; Matched SiteAccess: `foo`
-
-#### Map\\Host
-
-Maps a host name to a SiteAccess.
-
-**Configuration.** A hash map of host/siteaccess
-
-``` yaml
-ezpublish:
-    siteaccess:
-        match:
-            Map\Host:
-                www.foo.com: foo_front
-                adm.foo.com: foo_admin
-                www.bar-stuff.fr: bar_front
-                adm.bar-stuff.fr: bar_admin
-```
-
-**Example.** Map:
-
-- `www.foo.com` => `foo_front`
-- `admin.foo.com` => `foo_admin`
-
-Host name: `www.example.com`
-
-Matched SiteAccess: `foo_front`
-
-#### Map\\URI
-
-Maps a URI to a SiteAccess.
-
-**Configuration.** A hash map of URI/siteaccess
-
-```yaml
-ezpublish:
-    siteaccess:
-        match:
-            Map\URI:
-                ezdemo: ezdemo_site
-                ezadmin: ezdemo_site_admin
-```
-
-**Example.** URI: `/ezdemo/my/content`
-
-Map:
-
-- `ezdemo` => `ezdemo_site`
-- `ezadmin` => `ezdemo_site_admin`
-
-Matched SiteAccess: `ezdemo_site`
-
-#### Map\\Port
-
-Maps a port to a SiteAccess.
-
-**Configuration.** A hash map of Port/siteaccess
-
-``` yaml
-ezpublish:
-    siteaccess:
-        match:
-            Match\Port:
-                80: foo
-                8080: bar
-```
-
-**Example.** URL: `http://ezpublish.dev:8080/my/content`
-
-Map:
-
-- `80`: `foo`
-- `8080`: `bar`
-
-Matched SiteAccess: `bar`
-
-#### Regex\\Host
-
-!!! caution
-
-    This matcher is deprecated.
-
-Matches against a regexp and extracts a portion of it.
-
-**Configuration.** The regexp to match against and the captured element to use
-
-``` yaml
-ezpublish:
-    siteaccess:
-        match:
-            Regex\Host:
-                regex: '^(\\w+_sa)$'
-                # Default is 1
-                itemNumber: 1
-```
-
-**Example.** Host name: `example_sa`
-
-regex: `^(\\w+)_sa$`
-
-itemNumber: 1
-
-Matched SiteAccess: `example`
-
-#### Regex\\URI
-
-!!! caution
-
-    This matcher is deprecated.
-
-Matches against a regexp and extracts a portion of it.
-
-**Configuration.** The regexp to match against and the captured element to use
-
-``` yaml
-ezpublish:
-    siteaccess:
-        match:
-            Regex\URI:
-                regex: '^/foo(\\w+)bar'
-                # Default is 1
-                itemNumber: 1
-```
-
-**Example.** URI: `/footestbar/something`
-
-regex: `^/foo(\\w+)bar`; itemNumber: 1
-
-Matched SiteAccess: `test`
-
-### Compound SiteAccess matcher
-
-The Compound SiteAccess matcher enables you to combine several matchers together, for example:
-
-- `http://example.com/en` matches site\_en (match on host=example.com *and* URIElement(1)=en)
-- `http://example.com/fr` matches site\_fr (match on host=example.com *and* URIElement(1)=fr)
-- `http://admin.example.com` matches site\_admin (match on host=admin.example.com)
-
-Compound matchers correspond to the legacy **host\_uri** matching feature.
-
-They are based on logical combinations, or/and, using logical compound matchers:
-
-- `Compound\LogicalAnd`
-- `Compound\LogicalOr`
-
-Each compound matcher will specify two or more sub-matchers. A rule will match if all the matchers combined with the logical matcher are positive. The example above would have used `Map\Host` and `Map\Uri`, combined with a `LogicalAnd`. When both the URI and host match, the SiteAccess configured with "match" is used.
-
-``` yaml
-# ezplatform.yml
-ezpublish:
-    siteaccess:
-        match:
-            Compound\LogicalAnd:
-                # Nested matchers, with their configuration.
-                # No need to specify their matching values (true is enough).
-                site_en:
-                    matchers:
-                        Map\URI:
-                            en: true
-                        Map\Host:
-                            example.com: true
-                    match: site_en
-                site_fr:
-                    matchers:
-                        Map\URI:
-                            fr: true
-                        Map\Host:
-                            example.com: true
-                    match: site_fr
-            Map\Host:
-                admin.example.com: site_admin
-```
-
-### Matching by request header
-
-It is possible to define which SiteAccess to use by setting an `X-Siteaccess` header in your request. This can be useful for REST requests.
-
-In such a case, `X-Siteaccess` must be the *SiteAccess name* (e.g. `ezdemo_site`).
-
-### Matching by environment variable
-
-It is also possible to define which SiteAccess to use directly via an **EZPUBLISH\_SITEACCESS** environment variable.
-
-This is recommended if you want to get performance gain since no matching logic is done in this case.
-
-You can define this environment variable directly from your web server configuration:
-
-``` xml
-<!--Apache VirtualHost example-->
-# This configuration assumes that mod_env is activated
-<VirtualHost *:80>
-    DocumentRoot "/path/to/ezpublish5/web/folder"
-    ServerName example.com
-    ServerAlias www.example.com
-    SetEnv EZPUBLISH_SITEACCESS ezdemo_site
-</VirtualHost>
-```
-
-!!! tip
-
-    You can also do it via PHP-FPM configuration file, if you use it. See  [PHP-FPM documentation](http://php.net/manual/en/install.fpm.configuration.php#example-60) for more information.
-
-!!! note "Precedence"
-
-    The precedence order for SiteAccess matching is the following (the first matched wins):
-
-    1.  Request header
-    1.  Environment variable
-    1.  Configured matchers
-
-### URILexer and semanticPathinfo
-
-In some cases, after matching a SiteAccess, it is necessary to modify the original request URI. This is for example needed with URI-based matchers since the SiteAccess is contained in the original URI and is not part of the route itself.
-
-The problem is addressed by *analyzing* this URI and by modifying it when needed through the **URILexer** interface.
-
-``` php
-// URILexer interface
-
-/**
- * Interface for SiteAccess matchers that need to alter the URI after matching.
- * This is useful when you have the SiteAccess in the URI like "/<siteaccessName>/my/awesome/uri"
- */
-interface URILexer
-{
-    /**
-     * Analyses $uri and removes the SiteAccess part, if needed.
-     *
-     * @param string $uri The original URI
-     * @return string The modified URI
-     */
-    public function analyseURI( $uri );
-    /**
-     * Analyses $linkUri when generating a link to a route, in order to have the SiteAccess part back in the URI.
-     *
-     * @param string $linkUri
-     * @return string The modified link URI
-     */
-    public function analyseLink( $linkUri );
-}
-```
-
-Once modified, the URI is stored in the ***semanticPathinfo*** request attribute, and the original pathinfo is not modified.
-
 ## Cross-SiteAccess links
 
 When using the [multisite](multisite.md) feature, it is sometimes useful to be able to generate cross-links between different sites within one installation.
@@ -579,7 +198,7 @@ This allows you to link different resources referenced in the same content repos
 See [ez\_urlalias](twig_functions_reference.md#ez_urlalias) for more information about linking to a Location.
 
 ``` php
-namespace Acme\TestBundle\Controller;
+namespace App\Controller;
 
 use eZ\Bundle\EzPublishCoreBundle\Controller as BaseController;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -654,8 +273,7 @@ Let's define a simple service which depends on the Repository's ContentService a
 
 ```yaml
 services:
-    acme.test.my_service:
-        class: Acme\AcmeTestBundle\MyService
+    App\MyService:
         arguments: ['@ezpublish.api.service.content']
         calls:
             - [setSiteAccess, ['@ezpublish.siteaccess']]
@@ -663,7 +281,8 @@ services:
 
 ```php
 <?php
-namespace Acme\AcmeTestBundle;
+
+namespace App;
 
 use eZ\Publish\API\Repository\ContentService;
 use eZ\Publish\Core\MVC\Symfony\SiteAccess;
@@ -692,3 +311,288 @@ class MyService implements SiteAccessAware
     }
 }
 ```
+
+## Exposing SiteAccess-aware configuration for your bundle
+
+The [Symfony Config component](https://symfony.com/doc/4.3/components/config.html) makes it possible to define *semantic configuration*, exposed to the end developer.
+This configuration is validated by rules you define, e.g. validating type (string, array, integer, boolean, etc.).
+Usually, once validated and processed, this semantic configuration is then mapped to internal *key/value* parameters stored in the `ServiceContainer`.
+
+eZ Platform uses this for its core configuration, but adds another configuration level, the **SiteAccess**.
+For each defined SiteAccess, you need to be able to use the same configuration tree in order to define SiteAccess-specific config.
+
+These settings then need to be mapped to SiteAccess-aware internal parameters that you can retrieve via the `ConfigResolver`.
+For this, internal keys need to follow the format `<namespace>.<scope>.<parameter_name>`. where:
+
+- `namespace`is specific to your app or bundle
+- `scope` is the SiteAccess, SiteAccess group, `default` or `global`
+- `parameter_name` is the actual setting *identifier*
+
+For more information on ConfigResolver, namespaces and scopes, see [eZ Platform configuration basics](../guide/configuration.md).
+
+The goal of this feature is to make it easy to implement a SiteAccess-aware semantic configuration and its mapping to internal config for any eZ Platform bundle developer.
+
+### Semantic configuration parsing
+
+An abstract `Configuration` class has been added, simplifying the way to add a SiteAccess settings tree like the following in `config/packages/ezplatform.yaml`:
+
+``` yaml
+acme_example:
+    system:
+        <siteaccess>:
+            foo: bar
+            setting_a:
+                number: 456
+                enabled: true
+
+        <siteaccess_group>:
+            foo: baz
+            setting_a:
+                string: foobar
+                number: 123
+                enabled: false
+```
+
+The fully qualified name of the class is `eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\SiteAccessAware\Configuration`.
+All you have to do is to extend it and use `$this->generateScopeBaseNode()`:
+
+``` php hl_lines="17"
+<?php
+
+namespace Acme\ExampleBundle\DependencyInjection;
+
+use eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\SiteAccessAware\Configuration as SiteAccessConfiguration;
+use Symfony\Component\Config\Definition\Builder\NodeBuilder;
+use Symfony\Component\Config\Definition\Builder\TreeBuilder;
+
+class Configuration extends SiteAccessConfiguration
+{
+    public function getConfigTreeBuilder()
+    {
+        $treeBuilder = new TreeBuilder();
+        $rootNode = $treeBuilder->root( 'acme_example' );
+
+        // $systemNode will then be the root of SiteAccess-aware settings.
+        $systemNode = $this->generateScopeBaseNode($rootNode);
+        $systemNode
+            ->scalarNode( 'foo' )->isRequired()->end()
+            ->arrayNode( 'setting_a' )
+                ->children()
+                    ->scalarNode( "string" )->end()
+                    ->integerNode( "number" )->end()
+                    ->booleanNode( "enabled" )->end()
+                ->end()
+            ->end();
+
+        return $treeBuilder;
+    }
+}
+```
+
+!!! note
+
+    Default name for the *SiteAccess root node* is `system`, but you can customize it.
+    To do this, pass the name you want to use as a second argument of `$this->generateScopeBaseNode()`.
+
+### Mapping to internal settings
+
+Semantic configuration must always be mapped to internal key/value settings within the `ServiceContainer`.
+This is usually done in the DIC extension.
+
+For SiteAccess-aware settings, new `ConfigurationProcessor` and `Contextualizer` classes have been introduced to ease the process.
+
+``` php
+<?php
+
+namespace Acme\ExampleBundle\DependencyInjection;
+
+use eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\SiteAccessAware\ConfigurationProcessor;
+use eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\SiteAccessAware\ContextualizerInterface;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\HttpKernel\DependencyInjection\Extension;
+use Symfony\Component\DependencyInjection\Loader;
+
+/**
+ * This is the class that loads and manages your bundle configuration
+ *
+ * To learn more see {@link http://symfony.com/doc/4.3/cookbook/bundles/extension.html}
+ */
+class AcmeExampleExtension extends Extension
+{
+    public function load(array $configs, ContainerBuilder $container)
+    {
+        $configuration = $this->getConfiguration($configs, $container);
+        $config = $this->processConfiguration($configuration, $configs);
+
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader->load( 'default_settings.yaml' );
+
+        // "acme_example" will be the namespace as used in ConfigResolver format.
+        $processor = new ConfigurationProcessor($container, 'acme_example');
+        $processor->mapConfig(
+            $config,
+            // Any kind of callable can be used here.
+            // It will be called for each declared scope/SiteAccess.
+            function ($scopeSettings, $currentScope, ContextualizerInterface $contextualizer)
+            {
+                // Will map the "foo" setting to "acme_example.<$currentScope>.foo" container parameter
+                // It will then be possible to retrieve this parameter through ConfigResolver in the application code:
+                // $helloSetting = $configResolver->getParameter( 'foo', 'acme_example' );
+                $contextualizer->setContextualParameter('foo', $currentScope, $scopeSettings['foo']);
+            }
+        );
+
+        // Now map "setting_a" and ensure the key defined for "my_siteaccess" overrides the one for "my_siteaccess_group"
+        // It is done outside the closure as it is needed only once.
+        $processor->mapConfigArray('setting_a', $config);
+    }
+}
+```
+
+!!! tip
+
+    You can map simple settings by calling `$processor->mapSetting()`, without having to call `$processor->mapConfig()` with a callable.
+
+    ``` php
+    $processor = new ConfigurationProcessor($container, 'acme_example');
+    $processor->mapSetting('foo', $config);
+    ```
+
+!!! caution "Important"
+
+    Always ensure you have defined and loaded default settings.
+
+In `@AcmeExampleBundle/Resources/config/default_settings.yaml`:
+
+``` yaml
+parameters:
+    acme_example.default.foo: bar
+    acme_example.default.setting_a:
+        string: ~
+        os_types: [windows]
+        number: 0
+        enabled: false
+        language: php
+```
+
+#### Merging hash values between scopes
+
+When you define a hash as semantic config, you sometimes don't want the SiteAccess settings to replace the default or group values,
+but *enrich* them by appending new entries. This is possible by using `$processor->mapConfigArray()`,
+which needs to be called outside the closure (before or after), in order to be called only once.
+
+Consider the following default config in `default_settings.yaml`:
+
+``` yaml
+parameters:
+    acme_example.default.setting_a:
+        string: ~
+        os_types: [windows]
+        number: 0
+        enabled: false
+        language: php
+```
+
+And then this semantic config in `ezplatform.yaml`:
+
+``` yaml
+acme_example:
+    system:
+        siteaccess_group:
+            setting_a:
+                string: foobar
+                number: 123
+
+        # Assuming "siteaccess1" is part of "siteaccess_group"
+        siteaccess1:
+            setting_a:
+                number: 456
+                enabled: true
+                language: javascript
+```
+
+What you want here is that keys defined for `setting_a` are merged between default/group/SiteAccess, like this:
+
+``` yaml
+parameters:
+    acme_example.siteaccess1.setting_a:
+        string: foobar
+        os_types: [windows]
+        number: 456
+        enabled: true
+        language: javascript
+```
+
+##### Merge from second level
+
+In the example above, entries were merged in respect to the scope order of precedence. However, if you define the `planets` key for `siteaccess1`, it will completely override the default value since the merge process is done at only 1 level.
+
+You can add another level by passing `ContextualizerInterface::MERGE_FROM_SECOND_LEVEL` as an option (third argument) to `$contextualizer->mapConfigArray()`.
+
+In `default_settings.yaml`:
+
+``` yaml
+parameters:
+    acme_example.default.setting_a:
+        string: ~
+        os_types: [windows]
+        number: 0
+        enabled: false
+        language: [php]
+```
+
+Semantic config (`ezplatform.yaml` / `config.yaml`):
+
+``` yaml
+acme_example:
+    system:
+        siteaccess_group:
+            setting_a:
+                string: foobar
+                os_types: [macos, linux]
+                number: 123
+
+        # Assuming "siteaccess1" is part of "siteaccess_group"
+        siteaccess1:
+            setting_a:
+                number: 456
+                enabled: true
+                language: [javascript, python]
+```
+
+Result of using `ContextualizerInterface::MERGE_FROM_SECOND_LEVEL` option:
+
+``` yaml
+parameters:
+    acme_example.siteaccess1.setting_a:
+        string: foobar
+        os_types: [windows, macos, linux]
+        number: 456
+        enabled: true
+        language: [php, javascript, python]
+```
+
+There is also another option, `ContextualizerInterface::UNIQUE`,
+to be used when you want to ensure your array setting has unique values. It will only work on normal arrays though, not hashes.
+
+##### Limitations
+
+A few limitations exist with this scope hash merge:
+
+- Semantic setting name and internal name will be the same (like `foo_setting` in the examples above).
+- Applicable to first level semantic parameter only (i.e. settings right under the SiteAccess name).
+- Merge is not recursive. Only second level merge is possible by using `ContextualizerInterface::MERGE_FROM_SECOND_LEVEL` option.
+
+### Dedicated mapper object
+
+Instead of passing a callable to `$processor->mapConfig()`, an instance of `eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\SiteAccessAware\ConfigurationMapperInterface` can be passed.
+
+This can be useful if you have a lot of configuration to map and don't want to pollute your DIC extension class (better for maintenance).
+
+#### Merging hash values between scopes
+
+As specified above, `$contextualizer->mapConfigArray()` is not to be used within the *scope loop*, like for simple values.
+When using a closure/callable, you usually call it before or after `$processor->mapConfig()`.
+For mapper objects, a dedicated interface can be used: `HookableConfigurationMapperInterface`,
+which defines 2 methods: `preMap()` and `postMap()`.

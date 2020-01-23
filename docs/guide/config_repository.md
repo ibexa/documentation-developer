@@ -9,7 +9,7 @@ You can define several Repositories within a single application. However, you ca
 To use the default Repository connection, you do not need to specify its details:
 
 ``` yaml
-ezpublish:
+ezplatform:
     repositories:
         # Defining Repository with alias "main"
         # Default storage engine is used, with default connection
@@ -27,10 +27,10 @@ ezpublish:
     As such, you can refer to [DoctrineBundle's documentation](https://github.com/doctrine/DoctrineBundle/blob/master/Resources/doc/configuration.rst#doctrine-dbal-configuration).
 
 If no Repository is specified for a SiteAccess or SiteAccess group,
-the first Repository defined under `ezpublish.repositories` will be used:
+the first Repository defined under `ezplatform.repositories` will be used:
 
 ``` yaml
-ezpublish:
+ezplatform:
     repositories:
         main: ~
     system:
@@ -61,10 +61,23 @@ doctrine:
             another_connection_name:
                 # ...
 
-ezpublish:
+ezplatform:
     repositories:
-        first_repository: { storage: { engine: legacy, connection: my_connection_name, config: {} } }
-        second_repository: { storage: { engine: legacy, connection: another_connection_name, config: {} } }
+        first_repository: 
+            storage: 
+                engine: legacy
+                connection: my_connection_name
+                config: {}
+            # Configuring search is required when using Legacy search engine
+            search:
+                connection: my_connection_name
+        second_repository:
+            storage: 
+                engine: legacy
+                connection: another_connection_name
+                config: {}
+            search:
+                connection: another_connection_name
 
     # ...
 
@@ -91,7 +104,7 @@ repositories:
 
 These identifiers can be given human-readable values and can be translated. Those values are used when editing Content Types.
 The translation domain is `ezplatform_fields_groups`.
-This example in `app/Resources/translations/ezplatform_fields_groups.en.yml` defines English names for Field groups:
+This example in `translations/ezplatform_fields_groups.en.yaml` defines English names for Field groups:
 
 ``` yaml
 content: Content
@@ -102,10 +115,10 @@ user_data: User data
 ## Limit of archived Content item versions
 
 `default_version_archive_limit` controls the number of archived versions per Content item that are stored in the Repository.
-By default it is set to 5. This setting is configured in the following way (typically in `ezplatform.yml`):
+By default it is set to 5. This setting is configured in the following way (typically in `ezplatform.yaml`):
 
 ``` yaml
-ezpublish:
+ezplatform:
     repositories:
         default:
             options:
@@ -130,8 +143,9 @@ The command takes the following optional parameters:
 - `status` or `t` - status of versions to remove: `draft`, `archived` or `all`
 - `keep` or `k` - number of versions to keep
 - `user` or `u` - the User that the command will be performed as. The User must have the `content/remove`, `content/read` and `content/versionread` Policies. By default the `administrator` user is applied.
+- `excluded-content-types` - exclude versions of one or multiple Content Types from the cleanup procedure; separate multiple Content Types identifiers with the comma.
 
-`ezplatform:content:cleanup-versions --status <status name> --keep <number of versions> --user <user name>`
+`ezplatform:content:cleanup-versions --status <status name> --keep <number of versions> --user <user name> --excluded-content-types article,blog_post`
 
 For example, the following command removes archived versions as user `admin`, but leaves the 5 most recent versions:
 
@@ -139,10 +153,10 @@ For example, the following command removes archived versions as user `admin`, bu
 
 ## User identifiers
 
-`ezplatform_default_settings.yml` contains two settings that indicate which Content Types are treated like users and user groups:
+`ezplatform_default_settings.yaml` contains two settings that indicate which Content Types are treated like users and user groups:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         default:
             user_content_type_identifier: [user]
@@ -151,3 +165,16 @@ ezpublish:
 
 You can override these settings if you have other Content Types that should be treated as users/user groups in the Back Office.
 When viewing such Content in the Back Office you will be able to see e.g. the assigned Policies.
+
+## Top-level Locations
+
+You can change the default path for top-level Locations such as Content or Media in the Back Office, e.g.:
+
+```yaml
+ezplatform:
+    system:
+        <siteaccess>:
+            subtree_paths:
+                content: '/1/18/'
+                media: '/1/57/'
+```

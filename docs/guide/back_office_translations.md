@@ -22,9 +22,9 @@ If your browser language is set to French, the Back Office will be displayed in 
 !!! tip
 
     If you do not want to add a bundle with Back Office translation, you can manually add the necessary .xliff files.
-    Add the language to an array under `ezpublish.system.<siteaccess>.user_preferences.additional_translations`, for example:
+    Add the language to an array under `ezplatform.system.<siteaccess>.user_preferences.additional_translations`, for example:
 
-    `ezpublish.system.<siteaccess>.user_preferences.additional_translations: ['pl_PL', 'fr_FR']`
+    `ezplatform.system.<siteaccess>.user_preferences.additional_translations: ['pl_PL', 'fr_FR']`
 
     Then, run `composer run post-update-cmd` and clear the cache.
 
@@ -39,7 +39,7 @@ in the User Settings menu.
 
 Otherwise, the language will be selected based on the browser language.
 If you do not have a language defined in the browser, the language will be selected
-based on `parameters.locale_fallback` in `default_parameters.yml`.
+based on `parameters.locale_fallback` in `config/packages/ezplatform.yaml`.
 
 ## Custom string translations
 

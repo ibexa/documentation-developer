@@ -13,7 +13,7 @@ use eZ\Publish\API\Repository\Values\ContentType\FieldDefinitionCreateStruct;
 
 class TutorialContentTypeContext implements Context
 {
-    /** @var \EzSystems\RepositoryForms\Behat\Context\ContentTypeContext */
+    /** @var \EzSystems\EzPlatformContentForms\Behat\Context\ContentTypeContext */
     private $contentTypeContext;
 
     private $fieldTypeMap = ['Text line' => 'ezstring', 'Image' => 'ezimage', 'RichText' => 'ezrichtext', 'Text block' => 'eztext'];
@@ -22,7 +22,7 @@ class TutorialContentTypeContext implements Context
     public function gatherContexts(BeforeScenarioScope $scope)
     {
         $environment = $scope->getEnvironment();
-        $this->contentTypeContext = $environment->getContext('EzSystems\RepositoryForms\Behat\Context\ContentTypeContext');
+        $this->contentTypeContext = $environment->getContext('EzSystems\EzPlatformContentForms\Behat\Context\ContentTypeContext');
     }
 
     /**

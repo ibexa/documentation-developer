@@ -32,12 +32,12 @@ The language of the Back Office is based on the browser language.
 In order to change it you should install the proper package for your language (see [language packages list](https://github.com/ezplatform-i18n)).
 Once you have language packages installed, you can switch the language of the Back Office in the User Settings menu.
 
-If you do not have a language defined in the browser, it will be selected based on the `parameters.locale_fallback` parameter located in `default_parameters.yml`.
+If you do not have a language defined in the browser, it will be selected based on the `parameters.locale_fallback` parameter located in `config/packages/ezplatform.yaml`.
 
 To read more about language managing in eZ Platform, see the following doc pages:
 
 - [Back Office languages](../guide/internationalization/#back-office-languages)
-- [Setting up multi-language SiteAccesses and corresponding translations](../cookbook/setting_up_multi_language_siteaccesses/)
+- [Multi-language SiteAccesses and corresponding translations](../guide/multi_language_siteaccesses.md)
 
 #### How can I apply patches to the installation?
 
@@ -98,20 +98,14 @@ rm -rf var/cache/*
 In order to avoid merge conflicts on important configuration settings during upgrades,
 moving as much as possible of your configuration to your own files can be a good idea.
 
-There are two basic approaches to achieving that goal:
-
-1. All project-specific parameters should be kept in separate files,
-e.g. configuration for Landing Page Blocks could be placed in `landing_page_blocks.yml` which should be imported in `app/config/config.yml`:
+All project-specific parameters should be kept in separate files.
+For example, configuration for Page Blocks could be placed in `config/packages/landing_page_blocks.yaml`.
+You can also place it in `config/landing_page_blocks.yaml`, which should be imported in `config/ezplatform.yaml`:
 
     ```yaml
     imports:
-        - { resource: landing_page_blocks.yml }
+        - { resource: ../landing_page_blocks.yaml }
     ```
-
-2. The same configuration could be moved to your bundle e.g. `AppBundle/Resources/config/landing_page_blocks.yml`.
-
-For more information, see [Configuration documentation](../guide/configuration.md)
-and [Symfony best practices](https://symfony.com/doc/3.4/best_practices/configuration.html).
 
 #### How can I implement authentication in an eZ Platform-based project?
 

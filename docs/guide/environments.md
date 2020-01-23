@@ -5,7 +5,7 @@ You can configure several environments, such as production, development or stagi
 
 !!! tip
 
-    See also [the Symfony Recipe about "How to Master and Create new Environments"](http://symfony.com/doc/2.8/configuration/environments.html)
+    See also [the Symfony Recipe about "How to Master and Create new Environments"](http://symfony.com/doc/3.4/configuration/environments.html)
 
 ## Web server configuration
 
@@ -20,18 +20,9 @@ SetEnvIf Request_URI ".*" SYMFONY_ENV="dev"
 
 ## Using custom environments
 
-If you want to use a custom environment (something other than `prod` and `dev`), you need to create the dedicated configuration files for your environment:
-
-- `app/config/config_<env_name>.yml`
-- `app/config/ezplatform_<env_name>.yml`
+If you want to use a custom environment (something other than `prod` and `dev`), you need to place dedicated configuration files in a separate folder:
+`config/packages/<env_name>/config_<env_name>.yaml`
 
 The name used as `<env_name>` is the one that can be used as value of the `ENVIRONMENT` variable.
-
-Those files must import the main configuration file, just like the default [`config_dev.yml`](https://github.com/ezsystems/ezpublish-community/blob/master/ezpublish/config/config_dev.yml) does:
-
-``` yaml
-imports:
-    - { resource: config.yml }
-```
 
 This enables you to override settings defined in the main configuration file, depending on your environment (for example database settings).

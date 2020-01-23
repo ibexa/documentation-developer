@@ -19,9 +19,8 @@ You can then proceed with consecutive upgrades to further versions: v1.13 LTS an
 
     1. Additionally there are some other topics to be aware of for the code migration from eZ Publish to eZ Platform:
 
+        - Symfony deprecations. The recommended version to migrate to is eZ Platform v2.5 LTS, which is using Symfony 3.4 LTS.
         - [Field Types reference](../api/field_type_reference.md) for overview of Field Types that do and don't exist in eZ Platform
-        - eZ Platform RichText Field Type capabilities, currently not covering [Custom Tags](https://jira.ez.no/browse/EZP-25357)
-        - Symfony 2.8, this is also the case on later 5.4.x versions, but not the first ones including 2014.11
         - API changes. While we have a strict backwards compatibility focus, some deprecated API features were removed and some changes were done to internal parts of the system. See [ezpublish-kernel:doc/bc/changes-6.0.md](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.0/doc/bc/changes-6.0.md)
 
 !!! note
@@ -82,26 +81,26 @@ While no longer bundled, the XmlText Field Type still exists and is needed to p
 
 To move over your own custom configurations, follow the conventions below and manually move the settings over:
 
-- `<old-ez-root>/ezpublish/config/parameters.yml => <new-ez-root>/app/config/parameters.yml`
+- `<old-ez-root>/ezpublish/config/parameters.yaml => <new-ez-root>/app/config/parameters.yaml`
     -  *For parameters like before, for new parameters you'll be prompted on later step.*
-- `<old-ez-root>/ezpublish/config/config.yml =>  <new-ez-root>/app/config/config.yml`
+- `<old-ez-root>/ezpublish/config/config.yaml =>  <new-ez-root>/app/config/config.yaml`
     -  *For system/framework config, and for defining global db, cache, search settings.*
-- `<old-ez-root>/ezpublish/config/ezpublish.yml => <new-ez-root>/app/config/ezplatform.yml`
-    -  *For SiteAccess, site groups and repository settings.*
+- `<old-ez-root>/ezpublish/config/ezpublish.yaml => <new-ez-root>/app/config/ezplatform.yaml`
+    -  *For SiteAccess, site groups and Repository settings.*
 
-!!! note "Changes to repository configuration"
+!!! note "Changes to Repository configuration"
 
-    When moving configuration over, be aware that as of 5.4.5 and higher, repository configuration has been enhanced to allow configuring storage engine and search engine independently.
+    When moving configuration over, be aware that as of 5.4.5 and higher, Repository configuration has been enhanced to allow configuring storage engine and search engine independently.
 
     ``` yaml
-    # Default ezplatform.yml repositories configuration with comments
-    ezpublish:
-        # Repositories configuration, set up default repository to support solr if enabled
+    # Default ezplatform.yaml Repositories configuration with comments
+    ezplatform:
+        # Repositories configuration, set up default Repository to support solr if enabled
         repositories:
             default:
                 # For storage engine use kernel default (current LegacyStorageEngine)
                 storage: ~
-                # For search engine, pick the one configured in parameters.yml, either "legacy" or "solr"
+                # For search engine, pick the one configured in parameters.yaml, either "legacy" or "solr"
                 search:
                     engine: '%search_engine%'
                     connection: default
@@ -109,7 +108,7 @@ To move over your own custom configurations, follow the conventions below and ma
 
 !!! note "Make sure to adapt SiteAccess names"
 
-    In the default configurations in **ezplatform.yml** you'll find existing SiteAccesses like `site`, and depending on installation perhaps a few others, all under a site group called `site\_group`. Make sure to change those to what you had in **ezpublish.yml** to avoid issues with having to log in to your website, given user/login policy rules will need to be updated if you change names of SiteAccess as part of the upgrade.
+    In the default configurations in **ezplatform.yaml** you'll find existing SiteAccesses like `site`, and depending on installation perhaps a few others, all under a site group called `site\_group`. Make sure to change those to what you had in **ezpublish.yaml** to avoid issues with having to log in to your website, given user/login policy rules will need to be updated if you change names of SiteAccess as part of the upgrade.
 
 ##### 2.4. Bundles
 
@@ -171,7 +170,7 @@ When that is done, execute the following to update and install all packages from
 
 !!! note
 
-    At the end of the process, you will be asked for values for parameters.yml not already moved from old installation, or new *(as defined in parameters.yml.dist)*.
+    At the end of the process, you will be asked for values for parameters.yaml not already moved from old installation, or new *(as defined in parameters.yaml.dist)*.
 
 ##### 2.8 Register EzSystemsEzPlatformXmlTextFieldTypeBundle
 
@@ -405,7 +404,7 @@ It is possible that after the upgrade your admin screen will be unstyled. This m
 If your legacy site uses old-style URL aliases, to upgrade them successfully you need to apply a workaround to the slug converter. Where the slug converter service is defined, set second config parameter to use `urlalias_compat` by adding a new argument to the existing settings:
 
 ``` yaml
-# in vendor/ezsystems/ezpublish-kernel/eZ/Publish/Core/settings/storage\_engines/common.yml
+# in vendor/ezsystems/ezpublish-kernel/eZ/Publish/Core/settings/storage\_engines/common.yaml
     ezpublish.persistence.slug_converter:
         class: '%ezpublish.persistence.slug_converter.class%'
         arguments:

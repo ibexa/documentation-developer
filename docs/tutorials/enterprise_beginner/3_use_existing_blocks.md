@@ -1,14 +1,14 @@
-# Step 3 - Use existing blocks
+# Step 3 — Use existing blocks
 
 !!! tip
 
-    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/ezstudio-beginner-tutorial/tree/v2-step3).
+    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/tree/v3-step3).
 
 In this step you'll add a Content List block and a Content Scheduler block and customize them.
 
 ### Add a Content List block
 
-First, create an override template for the Content List block: `app/Resources/views/blocks/contentlist/default.html.twig`:
+First, create an override template for the Content List block: `templates/blocks/contentlist/default.html.twig`:
 
 ``` html+twig hl_lines="10"
 <div>
@@ -25,7 +25,7 @@ First, create an override template for the Content List block: `app/Resources/vi
                         }) }}
                     </div>
                     <h4><a href="{{ path(content.location) }}">{{ ez_content_name(content.content) }}</a></h4>
-                    {% if not ez_is_field_empty(content.content, 'short_description') %}
+                    {% if not ez_field_is_empty(content.content, 'short_description') %}
                         <div class="attribute-short-description">
                             {{ ez_render_field(content.content, 'short_description') }}
                         </div>
@@ -38,7 +38,7 @@ First, create an override template for the Content List block: `app/Resources/vi
 ```
 
 Then add a configuration that will tell the app to use this template instead of the default one.
-In `app/config/layouts.yml` add the following code at the end of the file, under the `ezplatform_page_fieldtype` key on the same level as `layouts`:
+In `config/packages/ezplatform_page_fieldtype.yaml` add the following code at the end of the file, under the `ezplatform_page_fieldtype` key on the same level as `layouts`:
 
 ``` yaml
 blocks:
@@ -51,7 +51,7 @@ blocks:
 
 The template makes use of an [image variation](../../guide/images.md) (line 10).
 It is the thumbnail of the Dog Breed image that will be displayed in the block.
-To configure this variation, open the `app/config/image_variations.yml` file and add the following code under the `image_variations` key:
+To configure this variation, open the `config/packages/image_variations.yaml` file and add the following code under the `image_variations` key:
 
 ``` yaml
 content_list:
@@ -61,7 +61,7 @@ content_list:
         - {name: geometry/crop, params: [80, 80, 0, 0]}
 ```
 
-Finally, add some styling to the block. Add the following CSS to the end of the `web/assets/css/style.css` file:
+Finally, add some styling to the block. Add the following CSS to the end of the `assets/css/style.css` file:
 
 ``` css
 /* Landing Page */
@@ -89,6 +89,8 @@ Finally, add some styling to the block. Add the following CSS to the end of the�
 }
 ```
 
+Run `yarn encore <dev|prod>` to regenerate assets.
+
 At this point you can start adding blocks to the Page.
 You do it in the Page tab in Edit mode by dragging a block from the menu on the right to the correct zone on the page.
 
@@ -111,7 +113,7 @@ Publish the page now and move on to creating another type of block.
 
 The next block is the Content Scheduler block that will air articles at predetermined times.
 
-First, add a configuration that points to the layout. Go to `app/config/layouts.yml` again and add the following code under `blocks` on the same level as the `contentlist` key:
+First, add a configuration that points to the layout. Go to `config/packages/ezplatform_page_fieldtype.yaml` again and add the following code under `blocks` on the same level as the `contentlist` key:
 
 ``` yaml
 schedule:
@@ -122,10 +124,10 @@ schedule:
 ```
 
 The configuration defines one view for the Schedule block called `featured` and points to a `featured.html.twig` template.
-Create the new file `app/Resources/views/blocks/schedule/featured.html.twig`:
+Create the new file `templates/blocks/schedule/featured.html.twig`:
 
 ``` html+twig hl_lines="11"
-{% spaceless %}
+{% apply spaceless %}
     <div class="schedule-layout schedule-layout--grid">
         <div class="featured-articles-block">
             <h2 class="heading">{{ 'Featured Articles'|trans }}</h2>
@@ -143,14 +145,14 @@ Create the new file `app/Resources/views/blocks/schedule/featured.html.twig`:
             </div>
         </div>
     </div>
-{% endspaceless %}
+{% endapply %}
 ```
 
 When you look at the template, you can see three blocks, each of which will render the Content items using the `featured` view (line 11).
 So far you only have templates for `full` view for Articles. This means you need to create a `featured` view template,
 otherwise you will get an error when trying to add Content to the block.
 
-You need to modify the `app/config/views.yml` file to indicate when to use the template.
+You need to modify the `config/packages/views.yaml` file to indicate when to use the template.
 Add the following code to this file, on the same level as the `full` key:
 
 ``` yaml
@@ -161,7 +163,7 @@ featured:
             Identifier\ContentType: article
 ```
 
-Now create an `app/Resources/views/featured/article.html.twig` file:
+Now create a `templates/featured/article.html.twig` file:
 
 ``` html+twig
 {% set imageAlias = ez_image_alias(content.getField('image'), content.versionInfo, 'featured_article') %}
@@ -171,7 +173,7 @@ Now create an `app/Resources/views/featured/article.html.twig` file:
 ```
 
 Like in the case of the Content List block, the template specifies an image variation.
-Add it in `app/config/image_variations.yml` under the `image_variations` key:
+Add it in `config/packages/image_variations.yaml` under the `image_variations` key:
 
 ``` yaml
 featured_article:
@@ -180,7 +182,7 @@ featured_article:
         - {name: geometry/scaleheightdownonly, params: [200]}
 ```
 
-The Block is already operational, but first update the stylesheet. Add the following CSS at the end of the `web/assets/css/style.css` file:
+The Block is already operational, but first update the stylesheet. Add the following CSS at the end of the `assets/css/style.css` file:
 
 ``` css
 /* Featured articles Content Scheduler block */
@@ -214,6 +216,8 @@ The Block is already operational, but first update the stylesheet. Add the follo
     border-bottom: none;
 }
 ```
+
+Run `yarn encore <dev|prod>` to regenerate assets.
 
 At this point you can add a new Content Scheduler block to your Page and fill it with content to see how it works.
 

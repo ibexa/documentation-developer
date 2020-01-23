@@ -4,7 +4,7 @@ The 16.04 release of eZ Studio is available as of 28 April 2016.
 
 The semantic version of this release is v1.3.0.
 
-For the release notes of the corresponding *(and included)* eZ Platform release, see [eZ Platform 2016.04 Release notes](../../ez_platform_2016.04_release_notes.md)
+For the release notes of the corresponding *(and included)* eZ Platform release, see [eZ Platform 2016.04 Release notes](ez_platform_2016.04_release_notes.md)
 
  
 
@@ -49,7 +49,7 @@ Use the new Options menu to send a Content item to trash. You then need to go to
 
 -   When installing, you can now choose Studio with demo content, or a clean installation.
 
-The main meta repository has been split in two: **ezstudio** with clean installer and **ezstudio-demo** with demo content. See the [Updating eZ Platform](updating_ez_platform.md) guide to learn how to select the repository to update to.
+The main meta repository has been split in two: **ezstudio** with clean installer and **ezstudio-demo** with demo content. See the [Updating eZ Platform](../updating/updating_ez_platform.md) guide to learn how to select the repository to update to.
 
  
 
@@ -135,4 +135,4 @@ The main meta repository has been split in two: **ezstudio** with clean installe
 
 ## Updating
 
-To update to this version, follow the [Updating eZ Platform](updating_ez_platform.md) guide and use v1.3.0 as `<version>`.
+To update to this version, follow the [Updating eZ Platform](../updating/updating_ez_platform.md) guide and use v1.3.0 as `<version>`.

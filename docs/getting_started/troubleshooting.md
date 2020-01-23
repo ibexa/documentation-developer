@@ -5,7 +5,7 @@ This page lists potential problems that you may encounter while installing, conf
 ## Initial installation options
 
 If you accepted default options during `composer install`, but need to change some of them later,
-you can do it in `app/config/parameters.yml`.
+you can do it in the `.env` file.
 
 ## Enable swap on systems with limited RAM
 

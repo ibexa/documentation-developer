@@ -19,20 +19,19 @@
     - [Twig functions reference](guide/twig_functions_reference.md)
     - [Twig helpers list](guide/content_rendering.md#twig-helper)
     - [Available image variation filters](guide/images.md#available-filters)
-    - [Available SiteAccess matchers](guide/siteaccess.md#available-matchers)
+    - [Available SiteAccess matchers](guide/siteaccess_matching.md#available-matchers)
     - [Available View Matchers](guide/content_rendering.md#available-matchers)
 - Permissions:
     - [Limitation reference](guide/limitation_reference.md)
     - [Role Policies map](guide/permissions.md#available-policies)
 - Repository:
     - [Services](guide/repository.md#services-public-api)
-    - [Signals reference](guide/signalslots.md#signals-reference)
 - Search:
     - [Search Criteria reference](guide/search.md#search-criteria-reference)
     - [Sort Clause reference](guide/search.md#sort-clauses-reference)
     - [Solr](guide/solr.md)
 - Extending eZ Platform:
-    - [General extensibility](guide/extending_ez_platform.md#general-extensibility)
+    - [General extensibility](guide/extending/extending_ez_platform.md)
 
 ## Front end
 
@@ -45,4 +44,4 @@
 
 ## Personalization Solution
 
-- [Services documentation](https://doc.ezplatform.com/projects/ezservices/en/latest/)
+- [Personalization documentation](https://doc.ezplatform.com/projects/ezpersonalization/en/latest/)

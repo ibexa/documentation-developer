@@ -87,4 +87,4 @@ Major changes in this release centered around [Landing Page improvements](https:
 
 ## Updating
 
-To update to this version, follow the [Updating eZ Platform](../releases/updating_ez_platform.md) guide and use `v1.5.0` as `<version>`.
+To update to this version, follow the [Updating eZ Platform](../updating/updating_ez_platform.md) guide and use `v1.5.0` as `<version>`.

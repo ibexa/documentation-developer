@@ -6,52 +6,30 @@
 
 !!! note "Enable the bundle"
 
-    If you have previously disabled the bundle, add/update composer dependencies: 
+    If you have previously disabled the bundle, add/update composer dependencies:
     ``` bash
-    composer require --no-update ezsystems/ezplatform-solr-search-engine:~1.0
+    composer require --no-update ezsystems/ezplatform-solr-search-engine:~2.0
     composer update
     ```
-    
+
     Make sure `EzPublishSolrSearchEngineBundle` is activated with the following line in the `app/AppKernel.php` file: `new EzSystems\EzPlatformSolrSearchEngineBundle\EzSystemsEzPlatformSolrSearchEngineBundle()`
 
 ### Step 1: Configuring and starting Solr
 
-The example presents a configuration with single core, look to [Solr](https://cwiki.apache.org/confluence/display/solr/Solr+Cores+and+solr.xml) [documentation](https://wiki.apache.org/solr/CoreAdmin) for configuring Solr in other ways, including examples.
+The example presents a configuration with a single core. For configuring Solr in other ways, including examples, see [Solr Cores and `solr.xml`](https://cwiki.apache.org/confluence/display/solr/Solr+Cores+and+solr.xml) and [core administration](https://wiki.apache.org/solr/CoreAdmin).
 
 #### Download and configure
 
-##### Solr 4.10.4
+!!! note "Solr versions"
 
-Download and extract Solr. Solr Bundle 1.x supports Solr 4.10.4:
+    `ezplatform-solr-search-engine` v1 still supports Solr 6.
+    Since v2 `ezplatform-solr-search-engine` works only with Solr 7.
 
-- [solr-4.10.4.tgz](http://archive.apache.org/dist/lucene/solr/4.10.4/solr-4.10.4.tgz) or [solr-4.10.4.zip](http://archive.apache.org/dist/lucene/solr/4.10.4/solr-4.10.4.zip)
+##### Solr 7
 
-Copy the necessary configuration files. In the example below from the root of your project to the place you extracted Solr:
+Download and extract Solr. Solr Bundle 2 and higher supports Solr 7 *(currently tested and recommended with Solr 7.7)*:
 
-``` bash
-# Make sure to replace the /opt/solr/ path with where you have placed Solr
-cd /opt/solr/example
-mkdir -p multicore/collection1/conf
-cp -R <ezplatform-solr-search-engine>/lib/Resources/config/solr/* multicore/collection1/conf
-cp solr/collection1/conf/{currency.xml,stopwords.txt,synonyms.txt} multicore/collection1/conf
-## Remove default cores configuration and add core configuration
-sed -i.bak 's/<core name=".*" instanceDir=".*" \/>//g' multicore/solr.xml
-sed -i.bak "s/<shardHandlerFactory/<core name=\"collection1\" instanceDir=\"collection1\" \/><shardHandlerFactory/g" multicore/solr.xml
-cp multicore/core0/conf/solrconfig.xml multicore/collection1/conf
-sed -i.bak s/core0/collection1/g multicore/collection1/conf/solrconfig.xml
-cd /opt/solr
-bin/solr start -f -a "-Dsolr.solr.home=multicore"
-```
-
-##### Solr 6
-
-Download and extract Solr. Solr Bundle 1.3 and higher supports Solr 6 *(currently tested and recommended with Solr 6.6LTS)*:
-
-- [solr-6.6.5.tgz](http://archive.apache.org/dist/lucene/solr/6.6.5/solr-6.6.5.tgz) or [solr-6.6.5.zip](http://archive.apache.org/dist/lucene/solr/6.6.5/solr-6.6.5.zip)
-
-!!! caution "Solr"
-
-    Solr versions older than 6.6.2 have a security vulnerability. Remember to download or update to a higher version.
+- [solr-7.7.2.tgz](http://archive.apache.org/dist/lucene/solr/7.7.2/solr-7.7.2.tgz) or [solr-7.7.2.zip](http://archive.apache.org/dist/lucene/solr/7.7.2/solr-7.7.2.zip)
 
 Copy the necessary configuration files. In the example below from the root of your project to the place you extracted Solr:
 
@@ -60,20 +38,30 @@ Copy the necessary configuration files. In the example below from the root of yo
 cd /opt/solr
 mkdir -p server/ez/template
 cp -R <ezplatform-solr-search-engine>/lib/Resources/config/solr/* server/ez/template
-cp server/solr/configsets/basic_configs/conf/{currency.xml,solrconfig.xml,stopwords.txt,synonyms.txt,elevate.xml} server/ez/template
+cp server/solr/configsets/_default/conf/{currency.xml,solrconfig.xml,stopwords.txt,synonyms.txt,elevate.xml} server/ez/template
 cp server/solr/solr.xml server/ez
 
 # Modify solrconfig.xml to remove the section that doesn't agree with your schema
-sed -i.bak '/<updateRequestProcessorChain name="add-unknown-fields-to-the-schema">/,/<\/updateRequestProcessorChain>/d' server/ez/template/solrconfig.xml
+sed -i.bak '/<updateRequestProcessorChain name="add-unknown-fields-to-the-schema".*/,/<\/updateRequestProcessorChain>/d' server/ez/template/solrconfig.xml
  
 # Start Solr (but apply autocommit settings below first if you need to)
 bin/solr -s ez
 bin/solr create_core -c collection1 -d server/ez/template
 ```
 
+##### SolrCloud
+
+SolrCloud is a cluster of Solr servers. It enables you to:
+
+- centralize configuration
+- automatically load balance and fail-over for queries
+- integrate ZooKeeper for cluster coordination and configuration
+
+To set SolrCloud up follow [SolrCloud reference guide.](https://lucene.apache.org/solr/guide/7_7/solrcloud.html)
+
 #### Further configuration
 
-On both Solr 4 and 6 Solr the bundle does not commit Solr index changes directly on repository updates, leaving it up to you to tune this using `solrconfig.xml` as best practice suggests.
+The bundle does not commit Solr index changes directly on Repository updates, leaving it up to you to tune this using `solrconfig.xml` as best practice suggests.
 
 This setting is **required** if you want to see the changes after publish. It is strongly recommended to set-up `solrconfig.xml` like this:
 
@@ -93,7 +81,7 @@ This setting is **required** if you want to see the changes after publish. It is
 
 #### Generating configuration
 
-The command line tool `bin/generate-solr-config.sh` generates Solr 6 configuration automatically.
+The command line tool `bin/generate-solr-config.sh` generates Solr 7 configuration automatically.
 It can be used for deploying to eZ Platform Cloud (Platform.sh) and on-premise installs.
 
 Execute the script from the eZ Platform root directory for further information:
@@ -104,7 +92,7 @@ Execute the script from the eZ Platform root directory for further information:
 
 ### Step 2: Configuring the bundle
 
-The Solr Search Engine Bundle can be configured in many ways. The config further below assumes you have parameters set up for Solr DSN and search engine *(however both are optional)*, for example (in `parameters.yml`):
+The Solr Search Engine Bundle can be configured in many ways. The config further below assumes you have parameters set up for Solr DSN and search engine *(however both are optional)*, for example:
 
 ``` yaml
     env(SEARCH_ENGINE): solr
@@ -114,7 +102,7 @@ The Solr Search Engine Bundle can be configured in many ways. The config further
 
 #### Single-core example (default)
 
-Out of the box in eZ Platform the following is enabled for a simple setup (in `config.yml`):
+Out of the box in eZ Platform the following is enabled for a simple setup:
 
 ``` yaml
 ez_search_engine_solr:
@@ -136,7 +124,6 @@ The following example separates one language. The installation contains several 
 and one very different language that should receive proper language analysis for proper stemming and sorting behavior by Solr:
 
 ``` yaml
-# config.yml
 ez_search_engine_solr:
     endpoints:
         endpoint0:
@@ -166,7 +153,6 @@ If full language analysis features are preferred, then each language can be conf
     Make sure to test this setup against a single-core setup, as it might perform worse than single-core if your project uses a lot of language fallbacks per SiteAccess, as queries will then be performed across several cores at once.
 
 ``` yaml
-# config.yml
 ez_search_engine_solr:
     endpoints:
         endpoint0:
@@ -214,12 +200,48 @@ ez_search_engine_solr:
                 main_translations: endpoint6
 ```
 
+#### SolrCloud example
+
+To use SolrCloud you need to specify data distribution strategy for connection via the `distribution_strategy` option to [`cloud`.](https://lucene.apache.org/solr/guide/7_7/solrcloud.html)
+
+The example is based on multi-core setup so any specific language analysis options could be specified on the collection level.
+
+``` yaml
+ez_search_engine_solr:
+    endpoints:
+        main:
+            dsn: '%solr_dsn%'
+            core: '%solr_main_core%' 
+        en:
+            dsn: '%solr_dsn%'
+            core: '%solr_en_core%'
+        fr:
+            dsn: '%solr_dsn%'
+            core: '%solr_fr_core%'
+        # ...
+    connections:
+        default:
+            distribution_strategy: cloud
+            entry_endpoints:
+                - main
+                - en
+                - fr
+             # -  ...
+            mapping:
+                translations:
+                    eng-GB: en
+                    fre-FR: fr
+                    # ...
+                main_translations: main
+```
+
+This solution uses the default SolrCloud [document routing strategy: `compositeId`.](https://lucene.apache.org/solr/guide/7_7/shards-and-indexing-data-in-solrcloud.html#ShardsandIndexingDatainSolrCloud-DocumentRouting)
+
 #### Solr Basic HTTP Authorization
-Solr core can be secured with Basic HTTP Authorization. See more information here: [Solr Basic Authentication Plugin](https://cwiki.apache.org/confluence/display/solr/Basic+Authentication+Plugin).
+Solr core can be secured with Basic HTTP Authorization. See more information here: [Solr Basic Authentication Plugin.](https://cwiki.apache.org/confluence/display/solr/Basic+Authentication+Plugin)
 In the example below we configured Solr Bundle to work with secured Solr core.
 
 ``` yaml
-# config.yml
 ez_search_engine_solr:
     endpoints:
         endpoint0:
@@ -236,8 +258,7 @@ Obviously, you should pass credentials for every configured and HTTP Basic secur
 The following is an example of configuring Solr search engine, where `connection` name is same as in the example above, and engine is set to `solr`:
 
 ``` yaml
-# ezplatform.yml
-ezpublish:
+ezplatform:
     repositories:
         default:
             storage: ~
@@ -246,7 +267,7 @@ ezpublish:
                 connection: default
 ```
 
-`%search_engine%` is a parameter that is configured in `app/config/parameters.yml`, and should be changed from its default value `legacy` to `solr` to activate Solr as the search engine.
+`%search_engine%` is a parameter that is configured in `config/packages/ezplatform.yaml`, and should be changed from its default value `legacy` to `solr` to activate Solr as the search engine.
 
 ### Step 4: Clear prod cache
 
@@ -270,7 +291,7 @@ If you have not configured your setup correctly, some exceptions might happen on
 Here are the most common issues you may encounter:
 
 - Exception if Binary files in database have an invalid path prefix
-    - Make sure `var_dir` is configured properly in `ezplatform.yml` configuration.
+    - Make sure `var_dir` is configured properly in `ezplatform.yaml` configuration.
     - If your database is inconsistent in regards to file paths, try to update entries to be correct *(make sure to make a backup first)*.
 - Exception on unsupported Field Types
     - Make sure to implement all Field Types in your installation, or to configure missing ones as [NullType](../api/field_type_reference.md#null-field-type) if implementation is not needed.
@@ -284,9 +305,9 @@ Here are the most common issues you may encounter:
 
 ### Boost configuration
 
-!!! note
+!!! caution "Index time boosting"
 
-    Boosting is available since Solr bundle version 1.4.
+    Index time boosting is not available in the Solr Search Engine Bundle.
 
 !!! tip "How boosting interacts with Search API"
 
@@ -296,15 +317,11 @@ Here are the most common issues you may encounter:
     Anything set on `$query->filter`, or in REST using `Filter` element, will *not* affect scoring and only works
     as a pure filter for the result. Thus make sure to place Criteria you want to affect scoring on `query`.
 
-!!! caution "Solr"
-
-    Solr version 4.x does not support scoring on location search.
-
 Boosting currently happens when indexing, so if you change your configuration you will need to re-index.
 
 Boosting tells the search engine which parts of the content model have more importance when searching, and is an important part of tuning your search results relevance. Importance is defined using a numeric value, where `1.0` is default, values higher than that are more important, and values lower (down to `0.0`) are less important.
 
-Boosting is configured per connection that you configure to use for a given Repository, like in this `config.yml` example:
+Boosting is configured per connection that you configure to use for a given Repository, like in this `config/packages/ezplatform_solr.yaml` example:
 
 ``` yaml
 ez_search_engine_solr:
@@ -337,7 +354,7 @@ The configuration above will result in the following boosting (Content Type / Fi
     Unfortunately, this doesn't affect search performed in the administration interface.
 
     The following example presents boosting configuration for Folder's `name` and `description` fields.
-    First, in `ezplatform.yml` configure [custom fulltext fields](https://github.com/Novactive/NovaeZSolrSearchExtraBundle/blob/master/doc/custom_fields.md).
+    First, in `ezplatform_solr.yaml` configure [custom fulltext fields.](https://github.com/Novactive/NovaeZSolrSearchExtraBundle/blob/master/doc/custom_fields.md)
 
     ```yaml
     ez_solr_search_extra:
@@ -356,7 +373,7 @@ The configuration above will result in the following boosting (Content Type / Fi
     ```php
     <?php
 
-    namespace AppBundle\Controller;
+    namespace App\Controller;
 
     use eZ\Publish\API\Repository\SearchService;
     use eZ\Publish\API\Repository\Values\Content\Query;
@@ -435,23 +452,23 @@ You can use document field mappers to index additional data in the search engine
 
 The additional data can come from external sources (e.g. from a recommendation system), or from internal ones.
 An example of the latter is indexing data through the Location hierarchy: from the parent Location to the child Location, or indexing child data on the parent Location.
-This may be needed when you want to find the Content with full-text search, or to simplify search for a complicated data model.
+This may be needed when you want to find the content with full-text search, or to simplify search for a complicated data model.
 
 To do this effectively, you first need to understand how the data is indexed with the Solr search engine.
-Solr uses [documents](https://lucene.apache.org/solr/guide/6_6/overview-of-documents-fields-and-schema-design.html#how-solr-sees-the-world) as a unit of data that is indexed.
-Documents are indexed per translation, as Content blocks. A block is a nested document structure.
-When used in eZ Platform, a parent document represents Content, and Locations are indexed as child documents of the Content.
+Solr uses [documents](https://lucene.apache.org/solr/guide/7_7/overview-of-documents-fields-and-schema-design.html#how-solr-sees-the-world) as a unit of data that is indexed.
+Documents are indexed per translation, as content blocks. A block is a nested document structure.
+When used in eZ Platform, a parent document represents content, and Locations are indexed as child documents of the Content item.
 To avoid duplication, full-text data is indexed on the Content document only. Knowing this, you have the option to index additional data on:
 
-- all block documents (meaning Content and its Locations, all translations)
+- all block documents (meaning content and its Locations, all translations)
 - all block documents per translation
-- Content documents
-- Content documents per translation
+- content documents
+- content documents per translation
 - Location documents
 
 Indexing additional data is done by implementing a document field mapper and registering it at one of the five extension points described above.
 You can create the field mapper class anywhere inside your bundle,
-as long as when you register it as a service, the `class` parameter in your `services.yml` matches the correct path.
+as long as when you register it as a service, the `class` parameter in your `services.yaml` matches the correct path.
 There are three different field mappers. Each mapper implements two methods, by the same name, but accepting different arguments:
 
 - `ContentFieldMapper`
@@ -544,7 +561,7 @@ class WebinarEventTitleFulltextFieldMapper extends ContentFieldMapper
 }
 ```
 
-Since you index full text data only on the Content document, you would register the service like this:
+Since you index full text data only on the content document, you would register the service like this:
 
 ``` yaml
 my_webinar_app.webinar_event_title_fulltext_field_mapper:
@@ -560,11 +577,11 @@ my_webinar_app.webinar_event_title_fulltext_field_mapper:
 
 !!! note
 
-    The configuration below has been tested on Solr 6.5.5. Version 4.x should also work.
+    The configuration below has been tested on Solr 7.7.
 
 ### Configuring Master for replication
 
-First you need to change the core configuration in `solrconfig.xml` (for example `*/opt/solr/server/ez/collection1/conf/solrconfig.xml` ).
+First you need to change the core configuration in `solrconfig.xml` (for example `*/opt/solr/server/ez/collection1/conf/solrconfig.xml`).
 You can copy and paste the code below before any other `requestHandler` section.
 
 ```xml
@@ -636,4 +653,3 @@ Next, restart Solr slave.
 Connect to the Solr slave interface (http://localhost:8983/solr), go to your core and check the replication status:
 
 ![Solr Slave](img/solr.PNG)
-

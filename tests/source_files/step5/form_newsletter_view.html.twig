@@ -1,0 +1,10 @@
+<div class="row">
+    <div class="block-form {{ block_class }}">
+        {{ fos_httpcache_tag('relation-location-' ~ locationId) }}
+        {{ render(controller('ez_content:viewLocation', {
+            'locationId': locationId,
+            'viewType': 'embed'
+        })) }}
+        <style type="text/css">{{ block_style|raw }}</style>
+    </div>
+</div>

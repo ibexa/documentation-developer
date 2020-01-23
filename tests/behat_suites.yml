@@ -9,7 +9,7 @@ doc:
                     basePath: '%paths.base%'
                 - EzSystems\DeveloperDocumentation\Test\Context\FileContext:
                     basePath: '%paths.base%'
-                - EzSystems\RepositoryForms\Behat\Context\ContentTypeContext
+                - EzSystems\EzPlatformContentForms\Behat\Context\ContentTypeContext
                 - EzSystems\DeveloperDocumentation\Test\Context\ContentContext:
                     basePath: '%paths.base%'
                     repository: '@ezpublish.api.repository'

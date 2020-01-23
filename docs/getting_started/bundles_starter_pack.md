@@ -1,6 +1,6 @@
 # Bundles starter pack
 
-eZ Platform application is a collection of bundles, similar to Symfony where ["everything is a bundle"](http://symfony.com/doc/current/book/bundles.html). Bundles listed below are useful additions to your clean eZ Platform installation. By using them you can improve your Platform usage.
+eZ Platform application is a collection of bundles, similar to Symfony where ["everything is a bundle"](http://symfony.com/doc/4.3/book/bundles.html). Bundles listed below are useful additions to your clean eZ Platform installation. By using them you can improve your Platform usage.
 
 For more information about eZ Platform bundle structure check out:
 
@@ -44,8 +44,7 @@ This bundles are not necessarily something you would install but they are useful
 |------|-----------|
 |[CookbookBundle](https://github.com/ezsystems/CookbookBundle)|working examples for using eZ Platform Public API|
 |[ezplatform-com](https://github.com/ezsystems/ezplatform-com)|the eZ Systems Developer Hub for the Open Source PHP CMS eZ Platform (example site)|
-|[ezplatform-ee-demo](https://github.com/ezsystems/ezplatform-ee-demo)|fork of the "ezplatform-ee" meta repository, contains changes to composer.json, AppKernel.php and config necessary to enable eZ Platform Enterprise Edition Demo. Not recommended for a clean install for new projects, but great for observation and learning (example site)|
+|[ezplatform-ee-demo](https://github.com/ezsystems/ezplatform-ee-demo)|fork of the "ezplatform-ee" meta repository, contains changes necessary to enable eZ Platform Enterprise Edition Demo. Not recommended for a clean install for new projects, but great for observation and learning (example site)|
 |[ezplatform-demo](https://github.com/ezsystems/ezplatform-demo)|fork of "ezplatform" meta repository, contains code and dependencies for demo distribution of eZ Platform. Not recommended for a clean installation for new projects, but great for observation and learning(example site)|
-|[TweetFieldTypeBundle](https://github.com/ezsystems/TweetFieldTypeBundle)|bundle that is created in the [Field Type Tutorial](../tutorials/field_type/creating_a_tweet_field_type.md) (example field type)|
 |[ezplatform-drawio-fieldtype](https://github.com/ezsystems/ezplatform-drawio-fieldtype)| provides support for diagrams editing in eZ Platform via draw.io (example field type)|
 |[ezplatform-ui-2.0-introduction](https://github.com/ezsystems/ezplatform-ui-2.0-introduction)|an example of eZ Platform extensibility in version 2|

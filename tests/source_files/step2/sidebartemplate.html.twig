@@ -1,0 +1,36 @@
+<div class="landing-page__zones">
+    <main class="landing-page__zone landing-page__zone--{{ zones[0].id }} col-xs-8" data-ez-zone-id="{{ zones[0].id }}">
+        {% if zones[0].blocks %}
+            {% set locationId = parameters.location is not null ? parameters.location.id : contentInfo.mainLocationId %}
+
+            {% for block in zones[0].blocks %}
+                <div class="landing-page__block block_{{ block.type }}" data-ez-block-id="{{ block.id }}">
+                    {{ render_esi(controller('EzSystems\\EzPlatformPageFieldTypeBundle\\Controller\\BlockController::renderAction', {
+                        'locationId': locationId,
+                        'contentId': contentInfo.id,
+                        'blockId': block.id,
+                        'versionNo': versionInfo.versionNo,
+                        'languageCode': field.languageCode
+                    })) }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </main>
+    <aside class="landing-page__zone landing-page__zone--{{ zones[1].id }} col-xs-4" data-ez-zone-id="{{ zones[1].id }}">
+        {% if zones[1].blocks %}
+            {% set locationId = parameters.location is not null ? parameters.location.id : contentInfo.mainLocationId %}
+
+            {% for block in zones[1].blocks %}
+                <div class="landing-page__block block_{{ block.type }}" data-ez-block-id="{{ block.id }}">
+                    {{ render_esi(controller('EzSystems\\EzPlatformPageFieldTypeBundle\\Controller\\BlockController::renderAction', {
+                        'locationId': locationId,
+                        'contentId': contentInfo.id,
+                        'blockId': block.id,
+                        'versionNo': versionInfo.versionNo,
+                        'languageCode': field.languageCode
+                    })) }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </aside>
+</div>

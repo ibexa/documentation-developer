@@ -6,8 +6,7 @@ eZ Platform comes with a collection of Field Types that can be used to build pow
 
 !!! tip
 
-    For general Field Type documentation, see [Field Type API](../api/field_type_api.md). 
-    For the documentation on how to implement a custom Field Type, see the [Creating a Tweet Field Type](../tutorials/field_type/creating_a_tweet_field_type.md) tutorial.
+    For general Field Type documentation, see [Field Type API](../api/field_type_api.md).
 
 Custom Field Types have to be programmed in PHP. However, the built-in Field Types are usually sufficient enough for typical scenarios. The following table gives an overview of the supported Field Types that come with eZ Platform.
 
@@ -68,8 +67,6 @@ Proper indexing of these Field Types is done with [Solr Search Bundle](../guide/
 |[Price](https://github.com/ezcommunity/EzPriceBundle)|Price Field for use in product catalogs|Yes|No|Yes|
 
 ### Generate new Field Type
-
-You can learn how to create a custom Field Type by following the [Creating a Tweet Field Type](../tutorials/field_type/creating_a_tweet_field_type.md) tutorial
 
 You can also make use of the [Field Type Generator Bundle](https://github.com/Smile-SA/EzFieldTypeGeneratorBundle) from our partner Smile.
 It helps you get started by creating a skeleton for a Field Type, including templates for the editorial interface. 
@@ -302,6 +299,19 @@ $checkboxValue = new Checkbox\Value( true );
 ###### String representation
 
 As this Field Type is not a string but a boolean, it will return "1" (true) or "0" (false) in cases where it is cast to string.
+
+## Content query Field Type
+
+This Field Type maps an executable Repository query to a Field.
+
+| Name      | Internal name | Expected input |
+|-----------|---------------|----------------|
+| `Content query` | `ezcontentquery`   | `string`        |
+
+The Content query Field Type is available via the eZ Platform Query Field Type Bundle
+provided by the [ezplatform-query-fieldtype](https://github.com/ezsystems/ezplatform-query-fieldtype) package.
+
+For information on the Field Type's usage, see [Query Field Type in controller documentation](../guide/controllers.md#query-field-type).
 
 ## Country Field Type
 
@@ -790,7 +800,7 @@ This Field Type does not support settings.
 
     The Form Field Type stores a Form consisting of one or more form fields.
 
-    See [Extending Form Builder](../guide/extending_form_builder.md) for more information
+    See [Extending Form Builder](../guide/extending/extending_form_builder.md) for more information
     about working with Forms.
 
 ## Image Field Type
@@ -1142,7 +1152,7 @@ ImageAsset Field Type allows configuring the following options:
 Example configuration:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
        default:
             fieldtypes:
@@ -1158,7 +1168,7 @@ ezpublish:
 Internally the Image Asset Type is rendered via subrequest (similar to other relation types). Rendering customization is possible by configuring view type `asset_image`:
 
 ```php
-ezpublish:
+ezplatform:
     system:
        default:           
             content_view:
@@ -1424,8 +1434,8 @@ Example:
 Example use:
 
 ``` yaml
-# ezplatform.yml
-ezpublish:
+# ezplatform.yaml
+ezplatform:
     system:
         site_group:
             api_keys: { google_maps: MY_KEY }
@@ -1644,15 +1654,15 @@ services:
         class: '%ezpublish.fieldType.eznull.class%'
         parent: ezpublish.fieldType
         arguments: [ezpaex]
-        tags: [{name: ezpublish.fieldType, alias: ezpaex}]
+        tags: [{name: ezplatform.field_type, alias: ezpaex}]
 
     ezpublish.fieldType.ezpaex.converter:
         class: '%ezpublish.fieldType.eznull.converter.class%'
-        tags: [{name: ezpublish.storageEngine.legacy.converter, alias: ezpaex}]
+        tags: [{name: ezplatform.field_type.legacy_storage.converter, alias: ezpaex}]
 
     ezpublish.fieldType.ezpaex.indexable:
         class: '%ezpublish.fieldType.indexable.unindexed.class%'
-        tags: [{name: ezpublish.fieldType.indexable, alias: ezpaex}]
+        tags: [{name: ezplatform.field_type.indexable, alias: ezpaex}]
 ```
 
 !!! enterprise
@@ -1683,7 +1693,7 @@ services:
 
     ### Blocks
 
-    For information on how to create and configure new blocks for the Page, see [Creating Page blocks](../guide/extending_page.md#creating-page-blocks).
+    For information on how to create and configure new blocks for the Page, see [Creating Page blocks](../guide/extending/extending_page.md#creating-page-blocks).
 
     ### Rendering Pages
 
@@ -1707,7 +1717,7 @@ services:
     Example usage:
 
     ``` html+twig
-    {{ render_esi(controller('EzPlatformPageFieldTypeBundle:Block:render', {
+    {{ render_esi(controller('EzPlatformPageFieldTypeBundle\Controller\BlockController::renderAction', {
         'locationId': locationId,
         'blockId': block.id,
         'versionNo': versionInfo.versionNo,
@@ -1727,9 +1737,9 @@ services:
                 {% for block in blocks %}
                     {# create a new layer with appropriate ID #}
                     <div class="landing-page__block block_{{ block.type }}" data-ez-block-id="{{ block.id }}">
-                        {# render the block by using the "EzPlatformPageFieldTypeBundle:Block:render" controller #}
+                        {# render the block by using the "EzPlatformPageFieldTypeBundle\Controller\BlockController::renderAction" controller #}
                         {# location.id is the ID of the Location of the current Content item, block.id is the ID of the current block #}
-                        {{ render_esi(controller('EzPlatformPageFieldTypeBundle:Block:render', {
+                        {{ render_esi(controller('EzPlatformPageFieldTypeBundle\Controller\BlockController::renderAction', {
                             'locationId': locationId,
                             'blockId': block.id,
                             'versionNo': versionInfo.versionNo,
@@ -1937,11 +1947,7 @@ $validators = [
 
 ## RichText Field Type
 
-!!! caution "Deprecated"
-
-    Make sure to enable new version of the RichText Field Type provided via [eZ Platform RichTextBundle](https://github.com/ezsystems/ezplatform-richtext).
-
-    The RichText Field Type provided by Kernel via the `eZ\Publish\Core\FieldType\RichText` namespace is deprecated. Refer to PHPDoc whenever you want to implement any interface or extend any base class from that namespace.
+The RichText Field Type is available via the eZ Platform RichText Field Type Bundle provided by the [ezplatform-richtext](https://github.com/ezsystems/ezplatform-richtext) package.
 
 This Field Type validates and stores structured rich text, and exposes it in several formats.
 
@@ -2156,6 +2162,7 @@ The Field Type handles a block of multiple lines of unformatted text. It is cap
 #### Input expectations
 
 |Type|Example|
+|----|-------|
 |`string`|`"This is a block of unformatted text"`|
 
 #### Value object
@@ -2165,6 +2172,7 @@ The Field Type handles a block of multiple lines of unformatted text. It is cap
 The Value class of this Field Type contains the following properties:
 
 |Property|Type|Description|
+|--------|----|-----------|
 |`$text`|`string`|This property will be used for the text content.|
 
 ###### String representation

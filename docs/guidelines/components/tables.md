@@ -95,19 +95,23 @@ code_example]]
             <th>Version</th>
             <th>Modified language</th>
             <th>Contributor</th>
+            <th>Created</th>
+            <th>Last saved</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td class="ez-checkbox-cell">
+            <td class="ez-table__cell ez-table__cell--has-checkbox">
                 <input type="checkbox">
             </td>
-            <td>1</td>
-            <td>English (United Kingdom)</td>
-            <td>Administrator User</td>
-            <td>
-                <button type="button" class="btn btn-icon">
+            <td class="ez-table__cell">1</td>
+            <td class="ez-table__cell">English (United Kingdom)</td>
+            <td class="ez-table__cell">Administrator User</td>
+            <td class="ez-table__cell">May 03, 2019 15:05</td>
+            <td class="ez-table__cell">May 03, 2019 15:05</td>
+            <td class="ez-table__cell ez-table__cell--has-action-btns text-right">
+                <button type="button" class="btn btn-icon mx-2 ez-btn--content-edit" title="Restore Archived Version">
                     <svg class="ez-icon ez-icon-edit">
                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../ez-icons.svg#archive-restore"></use>
                     </svg>

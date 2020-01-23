@@ -7,30 +7,34 @@ To apply a template to any part of your webpage, you need three (optionally four
 1. An entry in the configuration that defines which template should be used in what situation
 1. The template file itself
 1. Assets used by the template (for example, CSS or JS files, images, etc.)
-1. (optional) A custom controller used when the template is read which allows you more detailed control over the page.
+1. *Optionally:* A custom controller used when the template is read which allows you more detailed control over the page.
 
-Each template must be mentioned in a configuration file together with a definition of the situation in which it is used. You can use the `ezplatform.yml` file located in the `app/config/` folder, or create your own separate configuration file in that folder that will list all your templates.
+Each template must be mentioned in a configuration file together with a definition of the situation in which it is used. You can use the `ezplatform.yaml` file located in the `config/packages` folder, or create your own separate configuration file in that folder that will list all your templates.
 
 !!! note
 
-    If you decide to create a new configuration file, you will need to import it by including an import statement in `ezplatform.yml`. Add the following code at the beginning of `ezplatform.yml`:
+    If you create a new configuration file outside the `packages` folder, you will need to import it by including an import statement in `ezplatform.yaml`. Add the following code at the beginning of `ezplatform.yaml`:
 
     ``` yaml
     imports:
-        - { resource: <your_file_name>.yml }
+        - { resource: ../<your_file_name>.yaml }
     ```
 
 !!! tip
 
-    If you are using the recommended .yml files for configuration, here are the basic rules for this format:
+    If you are using the recommended .yaml files for configuration, here are the basic rules for this format:
 
-    The configuration is based on pairs of a key and its value, separated by a colon, presented in the following form: key: value. The value of the key may contain further keys, with their values containing further keys, and so on. This hierarchy is marked using indentation – each level lower in the hierarchy must be indented in comparison with its parent.
+    - The configuration is based on pairs of a key and its value, separated by a colon, presented in the following form: `key: value`. 
+    - The value of the key may contain further keys, with their values containing further keys, and so on.
+    - This hierarchy is marked using indentation – each level lower in the hierarchy must be indented in comparison with its parent.
+
+### Template configuration
 
 A short configuration file can look like this:
 
 ``` yaml
 # Sample configuration file
-ezpublish:
+ezplatform:
     system:
         default:
             user:
@@ -42,7 +46,7 @@ ezpublish:
                         match:
                             Identifier\ContentType: [article]
                     blog_post:
-                        controller: app.controller.blog:showBlogPostAction
+                        controller: App\Controller\BlogController::showBlogPostAction
                         template: full/blog_post.html.twig
                         match:
                             Identifier\ContentType: [blog_post]
@@ -55,7 +59,7 @@ ezpublish:
 
 This is what individual keys in the configuration mean:
 
-- `ezpublish` and `system` are obligatory at the start of any configuration file which defines views.
+- `ezplatform` and `system` are obligatory at the start of any configuration file which defines views.
 - `default` defines the SiteAccess for which the configuration will be used. "default", as the name suggests, determines what views are used when no other configuration is chosen. You can also have separate keys defining views for other SiteAccesses.
 - `user` and `layout` point to the main template file that is used in any situation where no other template is defined. All other templates extend this one.
 - `content_view` defines the view provider.
@@ -68,15 +72,26 @@ This is what individual keys in the configuration mean:
 - `article` and `blog_post` are the keys that start the configuration for one individual case of using a template. You can name these keys any way you want, and you can have as many of them as you need.
 - `template` names the template to be used in this case, including the folder it is stored in (starting from `app/Resources/views`).
 - `controller` defines the controller to be used in this case. Optional, if this key is absent, the default controller is used.
-- `match` defines the situation in which the template will be used. There are different criteria which can be used to "match" a template to a situation, for example a Content Type, a specific Location ID, Section, etc. You can view the full list of matchers here: [View provider configuration](content_rendering#configuring-views-the-viewprovider). You can specify more than one matcher for any template; the matchers will be linked with an AND operator.
+- `match` defines the situation in which the template will be used. There are different criteria which can be used to "match" a template to a situation, for example a Content Type, a specific Location ID, Section, etc. You can view the full list of matchers here: [View provider configuration](content_rendering.md#configuring-views-the-viewprovider). You can specify more than one matcher for any template; the matchers will be linked with an AND operator.
 
-In the example above, three different templates are mentioned, two to be used in full view, and one in line view. Notice that two separate templates are defined for the "article" Content Type. They use the same matcher, but will be used in different situations – one when an Article is displayed in full view, and one in line view. Their templates are located in different folders. The line template will also make use of a custom controller, while the remaining cases will employ the default one.
+In the example above, three different templates are mentioned, two to be used in the full view, and one in the line view. 
+Notice that two separate templates are defined for the `article` Content Type. 
+They use the same matcher, but will be used in different situations – one when an Article is displayed in the full view, and one in the line view. 
+Templates for each of the view types are located in different folders. 
+The line template will also make use of a custom controller, while the remaining cases will employ the default one.
 
 ##### Full, line and other views
 
-Each Content item can be rendered differently, using different templates, depending on the type of view it is displayed in. The default, built-in views are **full** (used when the Content item is displayed by itself, as a full page), **line** (used when it is displayed as an item in the list, for example a listing of contents of a folder), **embed** (used when one Content item is embedded in another, as a block) and **embed-inline** (used when a Content item is embedded inline in another block). Other, custom view types can be created, but only these four have built-in controllers in the system.
+Each Content item can be rendered differently, using different templates, depending on the type of view it is displayed in.
+The default, built-in views are:
+ 
+- **full** – used when the Content item is displayed by itself, as a full page
+- **line** – used when it is displayed as an item in the list, for example a listing of contents of a folder
+- **embed** – used when one Content item is embedded in another, as a block
+- **embed-inline** – used when a Content item is embedded inline in another block 
 
-See [View provider configuration](content_rendering#configuring-views-the-viewprovider) for more details.
+Other, custom view types can be created, used for example for [embedding one Content item in another](#embedding-content-items), but only these four have built-in controllers in the system.
+For more details, see [View provider configuration](content_rendering.md#configuring-views-the-viewprovider).
 
 ### Template file
 
@@ -86,35 +101,25 @@ Templates in eZ Platform are written in the Twig templating language.
 
     At its core, a Twig template is an HTML frame of the page that will be displayed. Inside this frame you define places (and manners) in which different parts of your Content items will be displayed (rendered).
 
-    Most of a Twig template file can look like an ordinary HTML file. This is also where you can define places where Content items or their fields will be embedded.
+    Most of a Twig template file can look like an ordinary HTML file. This is also where you can define places where Content items or their Fields will be embedded.
 
-The configuration described above lets you select one template to be used in a given situation, but this does not mean you are limited to only one file per case. It is possible to include other templates in the main template file. For example, you can have a single template for the footer of a page and include it in many other templates. Such templates do not need to be mentioned in the configuration .yml file.
+The configuration described above lets you select one template to be used in a given situation, but this does not mean you are limited to only one template file per case. It is possible to include other templates in the main template file. For example, you can have a single template for the footer of a page and include it in many other templates. Such templates do not need to be mentioned in the configuration .yaml file.
 
 !!! tip
 
-    See [Including Templates](http://symfony.com/doc/current/book/templating.html#including-templates) in Symfony documentation for more information on including templates.
+    See [Including Templates](http://symfony.com/doc/4.3/book/templating.html#including-templates) in Symfony documentation for more information on including templates.
 
 The main template for your webpage is placed in a pagelayout.
-You can define the pagelayout per SiteAccess using the `ezpublish.system.<SiteAccess>.pagelayout` setting.
+You can define the pagelayout per SiteAccess using the `ezplatform.system.<SiteAccess>.pagelayout` setting.
 This template will be used by default for those parts of the website where no other templates are defined.
 
-A `pagelayout.html.twig` file exists already in Demo Bundles, but if you are using a clean installation, you need to create it from scratch. This file is typically located in a bundle, for example using the built-in AppBundle: `src/AppBundle/Resources/views`. The name of the bundle must the added whenever the file is called, like in the example below.
+A `pagelayout.html.twig` file exists already in Demo Bundles, but if you are using a clean installation, you need to create it from scratch. This file is typically located in the `templates` folder.
 
 Any further templates will extend and modify this one, so they need to start with a line like this:
 
 ``` html+twig
-{% extends "AppBundle::pagelayout.html.twig" %}
+{% extends "pagelayout.html.twig" %}
 ```
-
-!!! note
-
-    Although using AppBundle is recommended, you could also place the template files directly in `<installation_folder>/app/Resources/views`. Then the files could be referenced in code without any prefix.
-
-!!! tip "Template paths"
-
-    In short, the `Resources/views` part of the path is automatically added whenever a template file is referenced. What you need to provide is the bundle name, name of any subfolder within `/views/`, and file name, all three separated by colons (:)
-
-    To find out more about the way of referencing template files placed in bundles, see [Referencing Templates in a Bundle](http://symfony.com/doc/current/book/templating.html#referencing-templates-in-a-bundle) in Symfony documentation.
 
 Templates can be extended using a Twig [`block`](http://twig.sensiolabs.org/doc/functions/block.html) tag. This tag lets you define a named section in the template that will be filled in by the child template. For example, you can define a "title" block in the main template. Any child template that extends it can also contain a "title" block. In this case the contents of the block from the child template will be placed inside this block in the parent template (and override what was inside this block):
 
@@ -131,7 +136,7 @@ Templates can be extended using a Twig [`block`](http://twig.sensiolabs.org/doc/
 
 ``` html+twig
 <!--child.html.twig-->
-{% extends "AppBundle::pagelayout.html.twig" %}
+{% extends "pagelayout.html.twig" %}
 {% block title %}
     <h1>Specific title</h1>
 {% endblock %}
@@ -163,7 +168,7 @@ This renders the value of the Field with identifier "description" of the current
 {{ ez_render_field(
        content,
        'description',
-       { 'template': 'AppBundle:fields:description.html.twig' }
+       { 'template': 'fields/description.html.twig' }
    ) }}
 ```
 
@@ -181,9 +186,9 @@ This example renders the Content item with Location ID 33 using the line view. T
 
 #### Assets
 
-Asset files such as CSS stylesheets, JS scripts or image files can be defined in the templates and need to be included in the directory structure in the same way as with any other web project. Assets are placed in the `web/` folder in your installation.
+Asset files such as CSS stylesheets, JS scripts or image files can be defined in the templates and need to be included in the directory structure in the same way as with any other web project. Assets are placed in the `public/` folder in your installation.
 
-Instead of linking to stylesheets or embedding images like usually, you can use the [`asset`](http://symfony.com/doc/current/book/templating.html#linking-to-assets) function.
+Instead of linking to stylesheets or embedding images like usually, you can use the [`asset`](http://symfony.com/doc/4.3/book/templating.html#linking-to-assets) function.
 
 #### Controller
 
@@ -193,10 +198,13 @@ See [Custom rendering logic](controllers.md#custom-rendering-logic) for more in
 
 ## Rendering Content items
 
+By default (without any configuration), a Content item is rendered without any template. 
+By creating multiple templates and configuring them properly, you can configure the platform to render Content items differently depending on the scenario. 
+
 ### Content item Fields
 
 A view template receives the requested Content item, holding all Fields.
-In order to display the Fields' value the way you want, you can either manipulate the Field Value object itself, or use a custom template.
+In order to display the Fields' value the way you want, you can either manipulate the Field value object itself, or use a custom template.
 
 #### Getting raw Field value
 
@@ -211,15 +219,76 @@ As you have access to the Content item in the template, you can use [its public 
 {% set myTranslatedFieldValue = ez_field_value( content, 'some_field_identifier' ) %}
 ```
 
+#### Rendering Content items on full page
+
+To render a Content item on a full page, first you need to create a `templates/full/article.html.twig` template:
+
+``` html+twig
+<div>
+    {# 'ez_render_field' is one of the available Twig functions.
+    It will render the 'body' Field of the current 'content' #}
+    {{ ez_render_field(content, 'body') }}
+</div>
+```
+
+Next, you need to provide the [template configuration](#template-configuration).
+You can place the config in the `config/packages/` folder in either of two places: a new configuration file or the pre-existing `ezplatform.yaml` file.
+In this case you'll use the latter.
+
+In `ezplatform.yaml`, under the `ezpublish` and `system` keys, add the following config:
+
+``` yaml
+# 'default' is the SiteAccess.
+default:
+    # 'content_view' indicates that you will be defining view configuration.
+    content_view:
+        # 'full' is the type of view to use. Defining other view types is described below.
+        full:
+            # Here starts the entry for our view. You can give it any name you want, as long as it is unique.
+            article:
+                # This is the path to the template file, relative to the 'templates' folder.
+                template: full/article.html.twig
+                # This identifies the situations when the template will be used.
+                match:
+                    # The template will be used when the Content Type of the content is 'article'.
+                    Identifier\ContentType: [article]
+```
+Pay attention to indentation – `default` should be indented relative to `system`.
+Use `match` to identify not only the Content Type, but also the scenario for using the template.
+For details, see [Matchers](content_rendering.md#view-matchers).
+
+At this point all Content items that are articles should render using the new template.
+If you do not see changes, clear the cache by running: `php bin/console cache:clear`.
+ 
 #### Using the Field Type's template block
 
-All built-in Field Types come with [their own Twig template](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/views/content_fields.html.twig). You can render any Field using this default template using the `ez_render_field()` helper.
+All built-in Field Types come with [their own Twig template.](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/views/content_fields.html.twig)
+You can render any Field using this default template using the `ez_render_field()` helper.
 
 ``` html+twig
 {{ ez_render_field( content, 'some_field_identifier' ) }}
 ```
 
-Refer to [`ez_render_field`](twig_functions_reference.md#ez_render_field) for further information.
+You can use this helper to render various Content item Fields.
+This, paired with the fact that each Content item can have multiple Fields and you can render them differently, offers more rendering options.
+
+To see it in practice, extend the `templates/full/article.html.twig` template:
+
+``` html+twig
+{# This renders the content name of the article #}
+<h1>{{ ez_content_name(content) }}</h1>
+<div>
+    {# Here you add a rendering of a different Field, 'intro' #}
+    <b>{{ ez_render_field(content, 'intro') }}</b>
+</div>    
+<div>
+    {{ ez_render_field(content, 'body') }}
+</div>
+```
+
+For more details on the `ez_render_field()` helper, see [Twig functions reference guide](twig_functions_reference.md#ez_render_field).
+
+You can also use other [Twig functions](twig_functions_reference.md), for example [`ez_field_value`](twig_functions_reference.md#ez_field_value), which renders the value of the Field without a template.
 
 !!! tip
 
@@ -256,7 +325,7 @@ You can also **force a locale** in a second argument:
 
 !!! note "Name property in ContentInfo"
 
-    This property is the actual Content name, but **in the main language only** (so it is not translated).
+    This property is the actual content name, but **in the main language only** (so it is not translated).
 
     ``` html+twig
     <h2>Content name: {{ content.contentInfo.name }}</h2>
@@ -294,20 +363,26 @@ parameters:
 
 #### Links to other Locations
 
-Linking to other Locations is done with a [native `path()` Twig helper](http://symfony.com/doc/2.3/book/templating.html#linking-to-pages) (or `url()` if you want to generate absolute URLs). When you pass it the Location object, `path()` will generate the URLAlias.
+Linking to other Locations is done with a [native `path()` Twig helper](http://symfony.com/doc/2.3/book/templating.html#linking-to-pages) (or `url()` if you want to generate absolute URLs). When you pass it the Location object, `path()` will generate the URL alias.
 
 ``` html+twig
 {# Assuming "location" variable is a valid eZ\Publish\API\Repository\Values\Content\Location object #}
 <a href="{{ path( location ) }}">Some link to a Location</a>
 ```
 
-If you don't have the Location object, but only its ID, you can generate the URLAlias the following way:
+If you don't have the Location object, but only its ID, you can generate the URL alias the following way:
 
 ``` html+twig
 <a href="{{ path( "ez_urlalias", {"locationId": 123} ) }}">Some link to a Location, with its ID only</a>
 ```
 
-You can also use the Content ID. In that case the generated link will point to the Content item's main Location.
+!!! tip
+
+    Instead of pointing to a specific Content item by its Location ID, you can also use here a variable.
+    For more details, see [this example in the Demo Bundle.](https://github.com/ezsystems/ezplatform-demo/blob/e15b93ade4b8c1f9084c5adac51239d239f9f7d8/app/Resources/views/full/blog.html.twig#L25)
+
+
+You can also use the Content item's ID. In that case the generated link will point to the Content item's main Location.
 
 ``` html+twig
 <a href="{{ path( "ez_urlalias", {"contentId": 456} ) }}">Some link from a contentId</a>
@@ -337,7 +412,7 @@ You can use this controller from templates with the following syntax:
 
 The example above renders the Content item whose ID is **123** with the view type **line**.
 
-Referencing the `ez_content` controller follows the syntax of *controllers as a service*, [as explained in Symfony documentation](http://symfony.com/doc/current/cookbook/controller/service.html).
+Referencing the `ez_content` controller follows the syntax of *controllers as a service*, [as explained in Symfony documentation](http://symfony.com/doc/4.3/cookbook/controller/service.html).
 
 ##### Available arguments
 
@@ -367,11 +442,15 @@ For example:
 ) }}
 ```
 
+### Listing Content item children
+
+For details on listing children of a Content item, for example all content contained in a folder, see [Displaying children of a Content item](displaying_children_of_a_content_item.md).
+
 #### Rendering and cache
 
 ##### ESI
 
-Just like for regular Symfony controllers, you can take advantage of [ESI](https://symfony.com/doc/current/http_cache/esi.html) and use different cache levels:
+Just like for regular Symfony controllers, you can take advantage of [ESI](https://symfony.com/doc/4.3/http_cache/esi.html) and use different cache levels:
 
 ``` html+twig
 {{ render_esi(controller("ez_content:viewAction", {"contentId": 123, "viewType": "line"})) }}
@@ -407,7 +486,7 @@ The following example injects `my_variable` and `my_array` variables in all cont
 
 ``` php
 <?php
-namespace Acme\ExampleBundle\EventListener;
+namespace App\EventListener;
 
 use eZ\Publish\Core\MVC\Symfony\Event\PreContentViewEvent;
 
@@ -431,12 +510,8 @@ class PreContentViewListener
 Service configuration:
 
 ``` yaml
-parameters:
-    app.pre_content_view_listener.class: Acme\ExampleBundle\EventListener\PreContentViewListener
-
 services:
-    app.pre_content_view_listener:
-        class: '%ezdemo.pre_content_view_listener.class%'
+    App\EventListener\PreContentViewListener:
         tags:
             - {name: kernel.event_listener, event: ezpublish.pre_content_view, method: onPreContentView}
 ```

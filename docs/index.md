@@ -1,4 +1,4 @@
-# eZ Platform developer documentation
+# eZ Platform and eZ Platform Enterprise developer documentation
 
 &nbsp;
 
@@ -20,12 +20,12 @@
         </div>
     </div>
     <div class="card text-center">
-        <div class="card-body"><a href="getting_started/quickstart/">
+        <div class="card-body"><a href="getting_started/install_ez_platform/">
         <svg class="ez-icon front-page-icon">
             <use xlink:href="guidelines/ez-icons.svg#publish"></use>
         </svg></a></div>
         <div class="card-footer bg-transparent">
-            <p class="card-text"><a href="getting_started/quickstart/" class="card-link">Quickstart</a></p>
+            <p class="card-text"><a href="getting_started/install_ez_platform/" class="card-link">Installation</a></p>
         </div>
     </div>
     <div class="card text-center">
@@ -47,15 +47,15 @@
     <li class="list-group-item"><a href="releases/ez_platform_v2.5/" class="card-link">Releases</a></li>
     <li class="list-group-item"><a href="migrating/migrating_from_ez_publish_platform/" class="card-link">Migration</a></li>
     <li class="list-group-item"><a href="community_resources/resources/" class="card-link">Community resources</a></li>
-    <li class="list-group-item"><a href="cookbook/authenticating_a_user_with_multiple_user_providers/" class="card-link">Cookbook</a></li>
   </ul>
 </div>
 <div class="card">
   <div class="card-header">Further documentation</div>
   <ul class="list-group list-group-flush">
       <li class="list-group-item"><a href="https://doc.ezplatform.com/projects/userguide/en/latest/" class="card-link">User Guide</a></li>
-      <li class="list-group-item"><a href="https://doc.ezplatform.com/projects/ezservices/en/latest/" class="card-link">eZ Services documentation</a></li>
-    <li class="list-group-item"><a href="https://doc.ez.no/display/EZP/eZ+Publish+5.x+Developer+Documentation" class="card-link">eZ Publish 5 documentation</a></li>
+      <li class="list-group-item"><a href="https://doc.ezplatform.com/projects/ezpersonalization/en/latest/" class="card-link">eZ Services documentation</a></li>
+      <li class="list-group-item"><a href="https://doc.ez.no/commerce" class="card-link">eZ Commerce documentation</a></li>
+    <li class="list-group-item"><a href="https://doc.ez.no/display/EZP/eZ+Publish+5.x+Developer+Documentation" class="card-link">eZ Publish 5</a></li>
     <li class="list-group-item"><a href="https://doc.ez.no/eZ-Publish" class="card-link">eZ Publish Legacy documentation</a></li>
   </ul>
 </div>

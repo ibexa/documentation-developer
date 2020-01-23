@@ -12,10 +12,10 @@ Its connections are defined in the same way as for storage engine, and no furthe
 
 ### Configuring the Repository with the Legacy search engine
 
-Search can be configured independently from storage, and the following configuration example (in `ezpublish.yml`) shows both the default values, and how you configure legacy as the search engine:
+Search can be configured independently from storage, and the following configuration example shows both the default values, and how you configure legacy as the search engine:
 
 ``` yaml
-ezpublish:
+ezplatform:
     repositories:
         main:
             storage:

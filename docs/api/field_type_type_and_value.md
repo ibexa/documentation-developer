@@ -1,8 +1,16 @@
 # Type and Value classes
 
-A Field Type must contain a Type class which contains the logic of the Field Type.
+A Field Type must contain a Type class which contains the logic of the Field Type: validating data, transforming from various formats, describing the validators, etc.
+A Type class must implement `eZ\Publish\SPI\FieldType\FieldType` ("Field Type interface").
+All native Field Types also extend the `eZ\Publish\SPI\FieldType\FieldType` abstract class that implements this interface and provides implementation facilities through a set of abstract methods of its own. 
 
-It is also good practice to provide a Value object class for storing the custom Field value provided by the Field Type.
+You should also provide a Value object class for storing the custom Field value provided by the Field Type. 
+The Value is used to represent an instance of the Field Type within a Content item.
+Each Field will present its data using an instance of the Type's Value class.
+A Value class must implement the `eZ\Publish\SPI\FieldType\Value` interface.
+It may also extend the `eZ\Publish\Core\FieldType\Value` abstract class.
+It is meant to be stateless and as lightweight as possible.
+This class must contain as little logic as possible, because the logic is handled by the Type class.
 
 ## Type class
 
@@ -45,19 +53,8 @@ This will also apply to all user interfaces and the REST API, which therefore mu
 
 ### Field Type name
 
-To be able to generate a Content item name when the Field is part of a name schema or a URL schema,
-implement `eZ\Publish\SPI\FieldType\Nameable` and register this service using the `ezpublish.fieldType.nameable` tag.
-
-The `eZ\Publish\SPI\FieldType\Nameable::getFieldName` method will be used to retrieve the name.
-
-``` yaml
-ezpublish.fieldType.ezobjectrelation.nameable_field:
-    class: '%ezpublish.fieldType.ezobjectrelation.nameable_field.class%'
-    arguments:
-      - '@ezpublish.spi.persistence.cache.contentHandler'
-    tags:
-        - {name: ezpublish.fieldType.nameable, alias: ezobjectrelation}
-```
+The content item name is retrieved by the `eZ\Publish\SPI\FieldType\FieldType::getName` method which must be implemented.
+To generate Content item name or URL alias the Field Type name must be a part of a name schema or a URL schema.
 
 ## Value handling
 
@@ -103,28 +100,44 @@ When [REST API](rest_api_guide.md) is used, conversion needs to be done for Fiel
 
 ## Registration
 
-A Field Type must be registered as a service:
+A Field Type needs to have an indexable class defined. 
+If you are using Solr Bundle, each Field Type must be registered in `config/services.yml`:
 
 ``` yaml
 services:
     EzSystems\EzPlatformMatrixFieldtype\FieldType\Type:
         parent: ezpublish.fieldType
         tags:
-            - {name: ezpublish.fieldType, alias: ezmatrix}
+            - {name: ezplatform.field_type, alias: ezmatrix}
+```
+
+Items that are not to be indexed should be registered with the `unindexed` class with the parameter `ezpublish.fieldType.indexable.unindexed.class`:
+
+```yaml
+services:
+    EzSystems\EzPlatformMatrixFieldtype\FieldType\Type:
+        class: %ezpublish.fieldType.indexable.unindexed.class%
+        tags:
+            - {name: ezplatform.field_type, alias: ezmatrix}
 ```
 
 #### `parent`
 
-As described in the [Symfony Dependency Injection Component documentation](http://symfony.com/doc/master/components/dependency_injection/parentservices.html), the `parent` config key indicates that you want your service to inherit from the parent's dependencies, including constructor arguments and method calls. This helps avoiding repetition in your Field Type configuration and keeps consistency between all Field Types.
+As described in the [Symfony Dependency Injection Component documentation](http://symfony.com/doc/4.3/components/dependency_injection/parentservices.html), the `parent` config key indicates that you want your service to inherit from the parent's dependencies, including constructor arguments and method calls. This helps avoiding repetition in your Field Type configuration and keeps consistency between all Field Types.
 
 #### `tags`
 
-You must tag the Field Type service with `ezpublish.fieldType` so it is recognized as a regular Field Type.
-The `alias` key is the `fieldTypeIdentifier`.
+Like most API components, Field Types use the [Symfony service tag mechanism](http://symfony.com/doc/4.3/service_container/tags.html).
+
+A service can be assigned one or several tags, with specific parameters.
+When the dependency injection container is compiled into a PHP file, tags are read by `CompilerPass` implementations that add extra handling for tagged services.
+Each service tagged as `ezplatform.field_type` is added to a [registry](http://martinfowler.com/eaaCatalog/registry.html) using the `alias` key as its unique `fieldTypeIdentifier` e.g. `ezstring`.
+Each Field Type must also inherit from the abstract `ezplatform.field_type` service.
+This ensures that the initialization steps shared by all Field Types are executed.
 
 !!! tip
 
-    The configuration of built-in Field Types is located in [`EzPublishCoreBundle/Resources/config/fieldtypes.yml`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.0/eZ/Publish/Core/settings/fieldtypes.yml).
+    The configuration of built-in Field Types is located in [`EzPublishCoreBundle/Resources/config/fieldtypes.yaml`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.0/eZ/Publish/Core/settings/fieldtypes.yml).
 
 ## Field Type settings
 
@@ -151,7 +164,6 @@ An example schema could look like this:
 ```
 
 The settings are mapped into Symfony forms via the [FormMapper](field_type_form_and_template.md#formmapper).
-
 
 ## Extensibility points
 

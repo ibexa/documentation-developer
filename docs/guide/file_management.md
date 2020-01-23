@@ -15,7 +15,7 @@ IO handlers can be configured using semantic configuration and are configurable 
 This is the default configuration:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         default:
             io:
@@ -42,7 +42,7 @@ The 'default' Flysystem adapter's directory is based on your site settings, and 
 #### Configure the permissions of generated files
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         default:
             io:
@@ -100,6 +100,17 @@ It also accepts optional query parameters:
 
 The [ez\_render\_field](twig_functions_reference.md#ez_render_field) Twig helper will by default generate a working link.
 
+### Download link generation
+
+To generate a direct download link for the `File` Field Type you have to create
+a Route Reference with the `ez_route` helper, passing `content` and `File` Field identifier as parameters.
+Optional parameter `inLanguage` may be used to specify File content translation.
+
+```twig
+  {% set routeReference = ez_route( 'ez_content_download', {'content': content, 'fieldIdentifier': 'file', 'inLanguage': content.prioritizedFieldLanguageCode  } ) %}
+  <a href="{{ path( routeReference ) }}">Download</a>
+```
+
 ### REST API: `uri` property
 
 The `uri` property of Binary Fields in REST contains a valid download URL, of the same format as the Public API, prefixed with the same host as the REST Request.
@@ -113,7 +124,7 @@ For [more information about REST API see the documentation](../api/rest_api_guid
 By default, images and binary files referenced by content will be served from the same server as the application, for example `/var/ezdemo_site/storage/images/3/6/4/6/6463-1-eng-GB/kidding.png`. This is the default semantic configuration:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         default:
             io:
@@ -127,7 +138,7 @@ ezpublish:
 One common use case is to use an optimized nginx to serve images in an optimized way. The example image above could be made available as `http://static.example.com/images/3/6/4/6/6463-1-eng-GB/kidding.png` by setting up a server that uses `ezpublish/ezpublish_legacy/var/ezdemo_site/storage`. The configuration would be as follows:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         default:
             io:
@@ -255,4 +266,4 @@ If no rule is specified for a Content Type, the `default_mappings` will be used.
 
 You can also define the maximum permitted uploaded file size under `max_file_size`.
 
-Default setting for multi-file upload are defined in [default\_settings.yml](https://github.com/ezsystems/ezplatform-ee-multi-file-upload/blob/master/bundle/Resources/config/default_settings.yml).
+Default setting for multi-file upload are defined in [config/packages/ezplatform_ee_multi_file_upload.yaml](https://github.com/ezsystems/ezplatform-ee-multi-file-upload/blob/master/bundle/Resources/config/default_settings.yaml).
