@@ -1,6 +1,7 @@
 # Ancestor Criterion
 
-`Ancestor` Search Criterion searches for content that is an ancestor of the provided Location, including this Location.
+The [`Ancestor` Search Criterion](https://github.com/ezsystems/ezpublish-kernel/blob/v8.0.0-beta3/eZ/Publish/API/Repository/Values/Content/Query/Criterion/Ancestor.php)
+searches for content that is an ancestor of the provided Location, including this Location.
 
 ## Arguments
 

@@ -1,6 +1,7 @@
 # IsFieldEmpty Criterion
 
-`IsFieldEmpty` Search Criterion searches for content based on whether a specified Field is empty or not.
+The [`IsFieldEmpty` Search Criterion](https://github.com/ezsystems/ezpublish-kernel/blob/v8.0.0-beta3/eZ/Publish/API/Repository/Values/Content/Query/Criterion/IsFieldEmpty.php)
+searches for content based on whether a specified Field is empty or not.
 
 ## Arguments
 

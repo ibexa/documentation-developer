@@ -1,7 +1,7 @@
 # MapLocationDistance Criterion
 
-`MapLocationDistance` Search Criterion searches content based on the distance between the location
-contained in a MapLocation Field and the provided coordinates.
+The [`MapLocationDistance` Search Criterion](https://github.com/ezsystems/ezpublish-kernel/blob/v8.0.0-beta3/eZ/Publish/API/Repository/Values/Content/Query/Criterion/MapLocationDistance.php)
+searches content based on the distance between the location contained in a MapLocation Field and the provided coordinates.
 
 ## Arguments
 

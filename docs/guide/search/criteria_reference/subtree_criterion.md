@@ -1,6 +1,7 @@
 # Subtree Criterion
 
-`Subtree` Search Criterion searches for content based on its subtree.
+The [`Subtree` Search Criterion](https://github.com/ezsystems/ezpublish-kernel/blob/v8.0.0-beta3/eZ/Publish/API/Repository/Values/Content/Query/Criterion/Subtree.php)
+searches for content based on its subtree.
 It will return the Content item and all the Content items below it in the subtree.
 
 ## Arguments

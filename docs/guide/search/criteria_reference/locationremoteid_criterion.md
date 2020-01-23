@@ -1,6 +1,7 @@
 # LocationRemoteId Criterion
 
-`LocationRemoteId` Search Criterion searches for content based in the Location remote ID.
+The [`LocationRemoteId` Search Criterion](https://github.com/ezsystems/ezpublish-kernel/blob/v8.0.0-beta3/eZ/Publish/API/Repository/Values/Content/Query/Criterion/LocationRemoteId.php)
+searches for content based in the Location remote ID.
 
 ## Arguments
 
