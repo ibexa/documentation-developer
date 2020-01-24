@@ -229,7 +229,7 @@ Even though the Location B is hidden, the query will find the content because bo
 
 ## Sorting results
 
-To sort the results of a query, use one of more [Sort Clauses](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/Query/SortClause.php).
+To sort the results of a query, use one of more [Sort Clauses](../guide/search/sort_clause_reference.md).
 
 For example, to order search results by their publicationg date, from oldest to newest,
 and then alphabetically by content name, add the following Sort Clauses to the query:
@@ -243,7 +243,7 @@ $query->sortClauses = [
 
 !!! tip
 
-    For the full list and details of available Sort Clauses, see [Sort Clause reference](../guide/search.md#sort-clauses-reference).
+    For the full list and details of available Sort Clauses, see [Sort Clause reference](../guide/search/sort_clause/reference.md).
 
 ## Faceted search
 

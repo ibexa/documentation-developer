@@ -23,60 +23,6 @@ which will be used to translate the value object into a storage-specific search 
 As an example take a look at the [`ContentId` Criterion handler](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.2/eZ/Publish/Core/Search/Legacy/Content/Common/Gateway/CriterionHandler/ContentId.php) in Legacy search engine
 or [`ContentId` Criterion handler](https://github.com/ezsystems/ezplatform-solr-search-engine/blob/v1.7.0/lib/Query/Common/CriterionVisitor/ContentIdIn.php) in Solr search engine.
 
-## Sort Clauses Reference
-
-Sort Clauses are the sorting options for Content and Location Search in eZ Platform.
-
-A Sort Clause consists of two parts (similar to Criterion and Facet Builder):
-
-- The API Value: `SortClause`
-- Specific handler per search engine: `SortClausesHandler`
-
-The `SortClause` represents the value you use in the API, while `SortClauseHandler` deals with the business logic in the background, translating the value to something the search engine can understand.
-
-Implementation and availability of a handler sometimes depends on search engine capabilities and limitations.
-
-#### Common concepts for all Sort Clauses 
-
-Refer to the [list below](#list-of-sort-clauses) to see how to use each Sort Clause, as it depends on the Sort Clause value constructor, but in general you should be aware of the following common concept:
-
-- `sortDirection`: The direction to perform the sort, either `Query::SORT_ASC` *(default)* or `Query::SORT_DESC`
-
-You can use the method `SearchService::getSortClauseFromLocation( Location $location )` to return an array of Sort Clauses that you can use on `LocationQuery->sortClauses`.
-
-#### List of Sort Clauses 
-
-The list below presents the Sort Clauses available in the `eZ\Publish\API\Repository\Values\Content\Query\SortClause` namespace:
-
-!!! tip
-
-    Arguments starting with "`?`" are optional.
-
-##### Only for LocationSearch
-
-| Sort Clause                     | Constructor arguments |
-|---------------------------------|-----------------------------------|
-| `Location\Depth`                | `?sortDirection`                  |
-| `Location\Id`                   | `?sortDirection`                  |
-| `Location\IsMainLocation`       | `?sortDirection`                  |
-| `Location\Depth`                | `?sortDirection`                  |
-| `Location\Priority`             | `?sortDirection`                  |
-| `Location\Visibility `          | `?sortDirection`                  |
-
-##### Common
-
-|Sort Clause|Constructor arguments |
-|------|------|
-|`ContentId`|`?sortDirection`|
-|`ContentName`|`?sortDirection`|
-|`DateModified`|`?sortDirection`|
-|`DatePublished`|`?sortDirection`|
-|`Field`|`typeIdentifier` as string</br>`fieldIdentifier` as string</br> `?sortDirection`</br>`?languageCode` as string|
-|`MapLocationDistance `|`typeIdentifier` as string</br>`fieldIdentifier` as string</br>`latitude` as float</br>`longitude` as float</br>`?sortDirection`</br>`?languageCode` as string|
-|`Random`|`?seed` as integer (recommended to use with Solr only for performance reasons)</br>`?sortDirection`|
-|`SectionIdentifier`|`?sortDirection`|
-|`SectionName`|`?sortDirection`|
-
 ## Search Facet reference
 
 Search Facets enable you to apply [faceted search](../api/public_php_api_search.md#faceted-search)
