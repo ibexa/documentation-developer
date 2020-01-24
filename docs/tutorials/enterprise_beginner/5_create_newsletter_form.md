@@ -115,13 +115,13 @@ In `config/packages/gregwar_captcha.yaml`, under the `gregwar_captcha` key, add 
 
 ``` yaml
 gregwar_captcha:
+    # existing keys
     width: 150
     invalid_message: Please, enter again.
     reload: true
     length: 4
-   
 ```
-The configuration resizes the CAPTCHA image (line 2), changes the error message (line 3), enables the user to reload the code (line 4), and shortens the authentication code (line 5).
+The configuration resizes the CAPTCHA image (line 3), changes the error message (line 4), enables the user to reload the code (line 5), and shortens the authentication code (line 6).
 
 ### Add stylesheet
 

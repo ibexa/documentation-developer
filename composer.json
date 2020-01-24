@@ -10,7 +10,7 @@
     },
     "require": {
         "behat/behat": "^3.4.3",
-        "ezsystems/repository-forms": "^3.0@dev",
+        "ezsystems/ezplatform-content-forms": "^1.0@dev",
         "symfony/property-access": "^4.3"
     },
     "require-dev": {

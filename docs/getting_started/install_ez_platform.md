@@ -147,10 +147,10 @@ The configuration requires providing the following parameters:
 
     You can omit this step. If you do not create a database now, it will be created automatically in the next step.
 
-Create a database. Run the following command inside MySQL Shell:
+To manually create a database, ensure that you [changed the installation parameters](#change-installation-parameters), then run the following Symfony command:
 
 ``` bash
-CREATE DATABASE ezplatform CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
+php ./bin/console doctrine:database:create
 ```
 
 ## Install eZ Platform
@@ -171,16 +171,6 @@ This operation is performed only once when you install eZ Platform Enterprise Ed
 !!! tip "Enabling Link manager"
 
     To make use of [Link Manager](../guide/url_management.md), you need to [set up cron](../guide/url_management/#enable-automatic-url-validation).
-
-## Use PHP's built-in server
-
-At this point you can use PHP's built-in server: `php bin/console server:start`.
-
-If you want to use an Apache web server, you need to [set up directory permissions](#set-up-permissions) and [prepare a virtual host](#set-up-virtual-host).
-
-!!! caution
-
-    PHP's built-in server is for development use only. For security and performance reasons it should not be used in production.
 
 ## Prepare installation for production
 

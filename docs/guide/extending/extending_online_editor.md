@@ -98,7 +98,7 @@ It is useful when migrating from eZ Publish to eZ Platform.
 The configuration in `app/config/custom_tags.yml` is:
 
 ```yaml hl_lines="24 25"
-ezpublish:
+ezplatform:
     system:
         admin_group:
             fieldtypes:

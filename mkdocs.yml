@@ -1,10 +1,9 @@
 site_name: eZ Platform Developer Documentation
 repo_url: https://github.com/ezsystems/developer-documentation
-copyright: "Copyright 1999-2019 eZ Systems AS and others"
+copyright: "Copyright 1999-2020 eZ Systems AS and others"
 pages:
     - 'Documentation': 'index.md'
     - Getting started:
-        - 'Quickstart': 'getting_started/quickstart.md'
         - 'Requirements': 'getting_started/requirements.md'
         - 'Install eZ Platform': 'getting_started/install_ez_platform.md'
         - 'Install eZ Enterprise': 'getting_started/install_ez_enterprise.md'
@@ -145,14 +144,16 @@ pages:
             - 'Extending Menus': 'guide/extending/extending_menus.md'
             - 'Extending tabs': 'guide/extending/extending_tabs.md'
             - 'Extending settings': 'guide/extending/extending_settings.md'
-            - 'Extending modules': 'guide/extending/extending_modules.md'
+            - 'Extending UDW': 'guide/extending/extending_udw.md'
+            - 'Extending Multi-file Upload': 'guide/extending/extending_multifile_upload.md'
+            - 'Extending Sub-items List': 'guide/extending/extending_subitems_list.md'
             - 'Extending the Online Editor': 'guide/extending/extending_online_editor.md'
             - 'Extending Form Builder': 'guide/extending/extending_form_builder.md'
             - 'Extending Workflow': 'guide/extending/extending_workflow.md'
             - 'Extending Calendar': 'guide/extending/customizing_calendar.md'
-            - 'Creating custom Field Type': 'guide/extending_field_type.md'
+            - 'Creating custom Field Type': 'guide/extending/extending_field_type.md'
             - 'Creating custom Page blocks': 'guide/extending/extending_page.md'
-            - 'Creating custom richtext blocks': 'guide/extending/richtext_block.md'
+            - 'Creating custom RichText blocks': 'guide/extending/richtext_block.md'
             - 'Creating custom drop-downs': 'guide/extending/creating_custom_dropdowns.md'
             - 'Creating custom Field Type comparison': 'guide/extending/custom_fieldtype_comparison.md'
             - 'Creating drag and drop interface': 'guide/extending/drag_and_drop.md'

@@ -202,4 +202,4 @@ After saving, your **Hello World** Content Type should be available under **Cont
 
 ![Creating Hello World](img/extending_field_type_hello_world.png)
 
-For more detailed tutorial on Generic Field Type follow [Creating a Point 2D Field Type ](../tutorials/generic_field_type/creating_a_point2d_field_type.md).
+For more detailed tutorial on Generic Field Type follow [Creating a Point 2D Field Type ](../../tutorials/generic_field_type/creating_a_point2d_field_type.md).

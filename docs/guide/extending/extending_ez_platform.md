@@ -39,9 +39,9 @@ You can extend the Back Office by adding and extending:
 
 React modules enable you to extend:
 
-- [Universal Discovery Widget](extending_modules.md#universal-discovery-module) used for content browsing,
-- [Sub-items list](extending_modules.md#sub-items-list) presented in content preview,
-- [Multi-file upload](extending_modules.md#multi-file-upload) for quick uploading of media files.
+- [Universal Discovery Widget](extending_udw.md) used for content browsing,
+- [Sub-items list](extending_subitems_list.md) presented in content preview,
+- [Multi-file upload](extending_multifile_upload.md) for quick uploading of media files.
 
 Additionally you can:
 
