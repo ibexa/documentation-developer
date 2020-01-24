@@ -62,6 +62,14 @@ $output->writeln($result->getName());
 
     For full list and details of available Search Criteria, see [Search Criteria reference](../guide/search.md#search-criteria-reference).
 
+!!! note "Search result limit"
+
+    By default search returns up to 25 results. You can change it by setting a different limit to the query:
+
+    ``` php
+    $query->limit = 100;
+    ```
+
 ### Search with `query` and `filter`
 
 You can use two properties of the `Query` object to search for content: `query` and `filter`.
