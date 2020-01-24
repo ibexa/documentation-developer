@@ -12,7 +12,6 @@ You can create a custom event by taking a few steps to define the event and acti
 First, create a new event by creating `src/Calendar/EventType/MyEvent.php`
 
 ``` php hl_lines="7"
-
 <?php
 
 declare(strict_types=1);
@@ -32,13 +31,12 @@ final class MyEvent extends Event
 }
 ```
 
-Here, you define a new class for your event based on `\EzSystems\EzPlatformCalendar\Calendar\Event`.
+Here, you define a new class for your event based on `EzSystems\EzPlatformCalendar\Calendar\Event`.
 Line 7 points to the custom event definition for actions associated with your event.
 
-Proceed with providing the definition for your event by creating `src/Calendar/EventType/MyEventType.php`:
+Proceed with creating `src/Calendar/EventType/MyEventType.php`:
 
-``` php hl_lines="28 29 30 31 33 34 35 36"
-
+```php hl_lines="28 29 30 31 33 34 35 36"
 <?php
 
 declare(strict_types=1);
@@ -46,6 +44,7 @@ declare(strict_types=1);
 namespace App\Calendar\EventType;
 
 use EzSystems\EzPlatformCalendar\Calendar\Event;
+use EzSystems\EzPlatformCalendar\EventAction\EventActionCollection;
 use EzSystems\EzPlatformCalendar\Calendar\EventType\EventTypeInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -61,7 +60,7 @@ final class MyEventType implements EventTypeInterface
         $this->translator = $translator;
     }
 
-    public function getTypeIdentifier(): string;
+    public function getTypeIdentifier(): string
     {
         return self::EVENT_TYPE_IDENTIFIER;
     }
@@ -75,6 +74,11 @@ final class MyEventType implements EventTypeInterface
         {
             return $this->translator->trans('event_type.private.label', [], 'my_calendar_extension');
         }
+        
+    public function getActions(): EventActionCollection
+    {
+    	return new EventActionCollection();
+    }
 }
 ```
 Here, lines 28-31 are responsible for building names for your custom events using a pattern.
@@ -150,7 +154,7 @@ method to reload the calendar data.
 !!! tip
     You can also change the icon for the assigned action. See [customizing colors and icons](#customizing-colors-and-icons).    
 
-## Configuring custom calendar event sources
+## Configuring custom event sources
 
 You can implement a custom event source by using:
 
@@ -159,7 +163,7 @@ You can implement a custom event source by using:
 
 To add an in-memory collection as an event source, create `src/Calendar/EventSourceFactory/MyEventSourceFactory.php`:
 
-``` php hl_lines="26 27 28"
+```php Example event
 <?php
 
 declare(strict_types=1);
@@ -178,6 +182,7 @@ final class MyEventSourceFactory
 {
     /** @var \App\Calendar\EventType\ExampleEventType */
     private $eventType;
+    
     public function __construct(ExampleEventType $eventType)
     {
         $this->eventType = $eventType;
@@ -185,12 +190,13 @@ final class MyEventSourceFactory
 
     public function createEventSource(): EventSourceInterface
     {
-        $collection_name = new EventCollection([
-            $this->createEvent("Event 1", new DateTime("YYYY-MM-DD")),
-            $this->createEvent("Event 2", new DateTime("YYYY-MM-DD")),
+        $collection_example = new EventCollection([
+            $this->createEvent("Example event 1", new DateTime("YYYY-MM-DD")),
+            $this->createEvent("Example event 2", new DateTime("YYYY-MM-DD")),
             // ...
         ]);
-        return new InMemoryEventSource($MyEvents);
+        
+        return new InMemoryEventSource($collection_example);
     }
 
     private function createEvent(string $id, DateTimeInterface $dateTime): MyEvent
@@ -202,18 +208,18 @@ final class MyEventSourceFactory
 
 !!! note
 
-    When providing the list of events for `$collection_name = new EventCollection()`, you must put all the `createEvent()` elements sorted according to their time stamp.
+    When providing the list of events for `$collection_example = new EventCollection()`, you must put all the `createEvent()` elements sorted according to their time stamp.
     
     For example:
     
     ```php
-    $collection_name = new EventCollection([
-        $this->createEvent("Event 1", new DateTime("2019-01-01")),
-        $this->createEvent("Event 2", new DateTime("2019-01-02")),
+    $collection_example = new EventCollection([
+        $this->createEvent("Event 1", new DateTime("2020-01-01")),
+        $this->createEvent("Event 2", new DateTime("2020-01-02")),
         // ...
     ```    
 
-Complete the procedure by registering the new source in `config/services.yaml`:
+Continue the configuration with registering the new event source in `config/services.yaml`:
 
 ``` yaml
 services:
@@ -224,7 +230,7 @@ services:
     
     App\Calendar\EventSource\HolidaysEventSource:
         class: EzSystems\EzPlatformCalendar\Calendar\EventSource\InMemoryEventSource
-        factory: 'App\Calendar\EventSourceFactory\MyEventSourceFactory:createEventSource'
+        factory: '@App\Calendar\EventSourceFactory\MyEventSourceFactory','createEventSource']
         tags:
             - { name: ezplatform.calendar.event_source }
 ```
@@ -237,7 +243,7 @@ The setting is SiteAccess-aware.
 To customize the appearance settings, add the following configuration to `config/packages/ezplatform.yaml`:
 
 ``` yaml hl_lines="6"
-ezpublish:
+ezplatform:
     system:
         <siteaccess>:
             calendar:
@@ -245,15 +251,8 @@ ezpublish:
                     event_name:
                         icon: /assets/images/event_icon.svg
                         color: '#FFFFFF'
-                        actions:
-                            foo:
-                                icon: /assets/images/foo_icon.svg                               
-                            bar:
-                                icon: /assets/images/bar_icon.svg
 ```
 
 Note that line 6 contains the name of the event you want to customize.
 
-!!! tip
-    
-    After modifying the assets, for the new configuration to take effect, run: `yarn encore <dev|prod>`.
+After modifying the assets, for the new configuration to take effect, run: `yarn encore <dev|prod>`.
