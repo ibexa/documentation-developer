@@ -1,9 +1,9 @@
-# Customizing calendar widget
+# Customizing Calendar widget
 
-By default, the calendar widget enables you to display all scheduled events.
-You can also configure it to display your custom event types or display them from [custom sources](#configuring-custom-calendar-event-sources).
+By default, the Calendar widget enables you to display all scheduled events and perform basic actions on them.
+You can also configure it to display your custom event types or display them from [custom sources](#configuring-custom-event-sources).
 
-Optionally, you can [change the colors and icons](#customizing-colors-and-icons) and make the widget look differently depending on the [SiteAccess configuration](../guide/siteaccess.md#configuring-siteaccesses).
+Optionally, you can [change the colors and icons](#customizing-colors-and-icons) and make the widget look differently depending on the [SiteAccess configuration](../siteaccess.md#configuring-siteaccesses).
 
 ## Configuring custom events
 
@@ -82,7 +82,7 @@ final class MyEventType implements EventTypeInterface
 }
 ```
 Here, lines 28-31 are responsible for building names for your custom events using a pattern.
-Lines 33-36 use `\EzSystems\EzPlatformCalendar\Calendar\EventType\EventTypeInterface::getTypeLabel` to generate a label.
+Lines 33-36 use `EzSystems\EzPlatformCalendar\Calendar\EventType\EventTypeInterface::getTypeLabel` to generate a label.
 
 Complete the procedure by registering the new event in `config/services.yaml`:
 
@@ -208,7 +208,7 @@ final class MyEventSourceFactory
 
 !!! note
 
-    When providing the list of events for `$collection_example = new EventCollection()`, you must put all the `createEvent()` elements sorted according to their time stamp.
+    When creating the list of events for `$collection_example = new EventCollection()`, you must put chronologically all the `createEvent()` entities.
     
     For example:
     
@@ -251,6 +251,9 @@ ezplatform:
                     event_name:
                         icon: /assets/images/event_icon.svg
                         color: '#FFFFFF'
+                        actions:
+                            action_name:
+                                icon: /assets/images/action_icon.svg
 ```
 
 Note that line 6 contains the name of the event you want to customize.
