@@ -1,6 +1,9 @@
 # Reporting security issues in eZ Systems products
 
-The security of our software is a primary concern and we take it seriously. No engineering team is perfect though, and if you do discover a security issue in one of our products we are very grateful for your help in reporting it to us privately, and refraining from public disclosure until we have found the solution and distributed it. Thank you!
+The security of our software is a primary concern and we take it seriously. 
+For more information on security in our products, see [eZ Systems Security Policy](https://ez.no/Software-information/Security-policy).
+
+No engineering team is perfect though, and if you do discover a security issue in one of our products we are very grateful for your help in reporting it to us privately, and refraining from public disclosure until we have found the solution and distributed it. Thank you!
 
 ## Channels
 
@@ -14,7 +17,7 @@ Please be verbose when reporting issues. The issue will be solved faster if you 
 
 - A **title** describing the gist of the issue in one sentence
 - A **description** which includes the steps you take to produce the problem, what you expect the result to be, and what actually happens.
-- Make it clear **why you consider it a security issue**. If you know, also include what type of security issue it is (example: SQL injection, CSRF, role/policy failure), what the nature of it is (example: slowing/stopping a web site, leaking sensitive information, destroying data, privilege escalation) and how easy it is to exploit (example: Does it require editor login?).
+- Make it clear **why you consider it a security issue**. If you know, also include what type of security issue it is (example: SQL injection, CSRF, Role/Policy failure), what the nature of it is (example: slowing/stopping a web site, leaking sensitive information, destroying data, privilege escalation) and how easy it is to exploit (example: Does it require editor login?).
 
 ## Dialogue
 

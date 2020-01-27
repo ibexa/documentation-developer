@@ -5,21 +5,19 @@ The GraphQL implementation for eZ Platform is located in [`ezsystems/ezplatform-
 
 ## Setup
 
-To use GraphQL, you need to generate the domain schema:
+Using GraphQL requires a domain schema.
+The schema is generated automatically when installing eZ Platform.
+
+When you modify Content Types in your installation, you need to regenerate the schema:
 
 ``` bash
 php bin/console ezplatform:graphql:generate-schema
 php bin/console cache:clear
 ```
 
-This produces YAML files located in `app/config/graphql/ezplatform`.
+YAML files with the schema are located in `config/graphql/types/ezplatform`.
 They contain information about the domain objects and the fields
 you can [query](graphql_queries.md) and [operate on](graphql_operations.md).
-
-!!! note
-
-    When you modify Content Types in your installation, you need to regenerate the schema
-    using the command above.
 
 ## Domain schema
 
@@ -30,7 +28,7 @@ For each Content Type the schema exposes a singular and plural field, e.g. `arti
 Use the singular field to query a single Content item, and the plural to get a whole `Connection`
 (a list of Content items that supports pagination).
 
-You can request additional content information such as the Section or Objects States,
+You can request additional content information such as the Section or Objects states,
 available under the `_info` field.
 
 You can also query Content Type and Content Type group information through the `_info` and `_types` fields.

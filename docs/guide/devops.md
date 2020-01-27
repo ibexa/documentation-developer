@@ -18,9 +18,9 @@ php bin/console --env=prod cache:clear -h
 
     In [clustering](clustering.md) setup (with several web servers), the command to clear file cache needs to be executed on every web server.
 
-### Clearing Content cache on a cluster setup
+### Clearing content cache on a cluster setup
 
-For a [cluster](clustering.md) setup, the Content cache ([HTTP cache](http_cache.md) and [Persistence cache](persistence_cache.md)) must be set up to be shared among the servers. And while all relevant cache is cleared for you on Repository changes when using the APIs, there might be times where you'll need to clear cache manually: 
+For a [cluster](clustering.md) setup, the content cache ([HTTP cache](http_cache.md) and [Persistence cache](persistence_cache.md)) must be set up to be shared among the servers. And while all relevant cache is cleared for you on Repository changes when using the APIs, there might be times where you'll need to clear cache manually: 
 
 - Varnish: [Cache purge](http_cache.md#cache-purging)
 - Persistence Cache: [Using Cache service](persistence_cache.md#using-cache-service)
@@ -33,11 +33,11 @@ When running eZ Platform in the `dev` environment you have access to the standar
 
 #### SPI (persistence)
 
-This section provides the number of non-cached [SPI](repository.md#spi) calls and handlers. You can see details of these calls in the [Symfony Profiler](http://symfony.com/doc/2.8/profiler.html) page.
+This section provides the number of non-cached [SPI](repository.md#spi) calls and handlers. You can see details of these calls in the [Symfony Profiler](http://symfony.com/doc/4.3/profiler.html) page.
 
 #### SiteAccess
 
-Here you can see the name of the current SiteAccess and how it was matched. For reference see the [list of possible SiteAccess matchers](siteaccess.md#available-matchers).
+Here you can see the name of the current SiteAccess and how it was matched. For reference see the [list of possible SiteAccess matchers](siteaccess_matching.md#available-matchers).
 
 ## Logging and debug configuration
 

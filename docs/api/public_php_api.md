@@ -78,7 +78,7 @@ When using the PHP API, authentication is performed in three ways:
 
 When actions are performed through the Back Office, they are executed as the logged-in User.
 This User's permissions will affect the behavior of the Repository.
-The User may, for example, not be allowed to create Content, or view a particular Section.
+The User may, for example, not be allowed to create content, or view a particular Section.
 
 ### Using `sudo()`
 

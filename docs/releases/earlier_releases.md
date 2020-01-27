@@ -262,7 +262,7 @@ As can be seen in the epic, this feature is being worked on, and will quickly ev
 
 Until now, the `SearchService` was using the Legacy database search implementation. It was quite limited, and performed very badly. The Solr implementation has been worked on since last summer, and finally made it into the product.
 
-After [configuration and setup](../guide/solr_bundle.md), Solr will be used by the SearchService for all of your Location, Content and ContentInfo queries. It has very advanced multilanguage capabilities, and will offer great performances whenever you need to grab Content or Locations from the Repository. 
+After [configuration and setup](../guide/solr.md), Solr will be used by the SearchService for all of your Location, Content and ContentInfo queries. It has very advanced multilanguage capabilities, and will offer great performances whenever you need to grab Content or Locations from the Repository. 
 
 Note that as it is lifts off many limitations, this feature will also be made available to Enterprise customers eZ Publish Platform 5.4 via a specific update.
 
@@ -320,7 +320,7 @@ Besides lots of smaller improvements and fixes found bellow, and mentioned above
 
 Symfony 2.7 LTS is now fully supported, and no deprecation errors should be thrown anymore. This should also ensure compatibility with the 2.8 and 3.0 releases planned for November this year.
 
-Dynamic settings have been refactored to use the [Expression Language](http://symfony.com/fr/doc/current/components/expression_language/index.html) instead of fake services.
+Dynamic settings have been refactored to use the [Expression Language](http://symfony.com/doc/2.8/components/expression_language/index.html) instead of fake services.
 
 More info: [Symfony 2.7/3.0 epic](https://jira.ez.no/browse/EZP-24094), [Symfony 2.7 announcement blog post](http://symfony.com/blog/symfony-2-7-0-released)
 

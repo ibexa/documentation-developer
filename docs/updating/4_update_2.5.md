@@ -18,6 +18,14 @@ To update to v2.5.3, additionally run the following script:
 
 `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.5.2-to-7.5.3.sql`
 
+To update to v2.5.6, additionally run the following script:
+
+`mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.5.4-to-7.5.5.sql`
+
+or for PostgreSQL:
+
+`psql <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-7.5.4-to-7.5.5.sql`
+
 ## Changes to database schema
 
 The introduction of [support for PostgreSQL](../guide/databases.md#using-postgresql) includes a change in the way database schema is generated.
@@ -75,4 +83,15 @@ bin/console cache:pool:clear cache.redis
     CREATE INDEX ezpage_blocks_visibility_block_id ON ezpage_blocks_visibility(block_id);
     CREATE INDEX ezpage_pages_content_id_version_no ON ezpage_pages(content_id, version_no);
     ```
-    
+
+## Updating to 2.5.6
+
+### Password expiration
+
+Run the following script to update the database:
+
+`mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.5.4-to-7.5.5.sql`
+
+or for PostgreSQL:
+
+`psql <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-7.5.4-to-7.5.5.sql`

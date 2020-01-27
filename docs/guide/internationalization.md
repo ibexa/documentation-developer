@@ -37,7 +37,7 @@ For example, let's say that you need to store information about marathon contest
 
 ### Access control
 
-You can control whether a User or User group is able to translate content or not. You do this by adding a [Language Limitation](limitation_reference.md#language-limitation) to Policies that allow creating or editing content. This limitation enables you to define which Role can work with which languages in the system. (For more information of the permissions system, see [Permissions](permissions.md).)
+You can control whether a User or User Group is able to translate content or not. You do this by adding a [Language Limitation](limitation_reference.md#language-limitation) to Policies that allow creating or editing content. This Limitation enables you to define which Role can work with which languages in the system. (For more information of the permissions system, see [Permissions](permissions.md).)
 
 In addition, you can also control the access to the global translation list by using the Content/Translations Policy. This Policy allows users to add and remove languages from the global translation list.
 
@@ -46,7 +46,7 @@ In addition, you can also control the access to the global translation list by u
 Once more than one language is defined in the global translation list and there is content in different languages, the question is how can this be exposed to use by the visitor. There are two ways to do this:
 
 1. Implement a mechanism called [language switcher](#language-switcher). It lets you create links to switch between different translations of a Content item.
-1. If you want to have completely separate versions of the website, each with content in its own language, you can [use SiteAccesses](#using-siteaccesses-for-handling-translations). In this case, depending on the URI used to access the website, a different site will open, with a language set in configuration settings. All Content items will then be displayed in this language.
+1. If you want to have completely separate versions of the website, each with content in its own language, you can [use SiteAccesses](#using-siteaccesses-for-handling-translations). In this case, depending on the URI used to access the website, a different site will open, with a language set in configuration settings. All Content items will then be displayed in this language. For details, see [Multi-language SiteAccesses](multi_language_siteaccesses.md).
 
 ## Language switcher
 
@@ -146,7 +146,7 @@ Another way of using multiple languages is setting up a separate SiteAccess for 
 Configuration is not mandatory, but can help to distinguish which SiteAccesses can be considered *translation SiteAccesses*.
 
 ``` yaml
-ezpublish:
+ezplatform:
     siteaccess:
         default_siteaccess: eng
         list:
@@ -186,7 +186,7 @@ If several translation SiteAccesses share the same language reference, **the fi
 If you need to use a custom locale, you can configure it in `ezplatform.yaml`, adding it to the *conversion map*:
 
 ``` yaml
-ezpublish:
+ezplatform:
     # Locale conversion map between eZ Publish format (e.g. fre-FR) to POSIX (e.g. fr_FR).
     # The key is the eZ Publish locale. Check locale.yaml in EzPublishCoreBundle to see natively supported locales.
     locale_conversion:
@@ -197,12 +197,12 @@ A locale *conversion map* example [can be found in the `core` bundle, on `locale
 
 ### More complex translation setup
 
-There are some cases where your SiteAccesses share settings (repository, content settings, etc.), but you don't want all of them to share the same `translation_siteaccesses` setting. This can be for example the case when you use separate SiteAccesses for mobile versions of a website.
+There are some cases where your SiteAccesses share settings (Repository, content settings, etc.), but you don't want all of them to share the same `translation_siteaccesses` setting. This can be for example the case when you use separate SiteAccesses for mobile versions of a website.
 
 The solution is defining new groups:
 
 ``` yaml
-ezpublish:
+ezplatform:
     siteaccess:
         default_siteaccess: eng
         list:
@@ -259,7 +259,7 @@ ezpublish:
 
 If the `translation_siteaccesses` setting is not provided, implicit *related SiteAccesses* will be used instead. SiteAccesses are considered *related* if they share:
 
-- The same repository
+- The same Repository
 - The same root `location_id` (see [Multisite](multisite.md))
 
 ### Fallback languages and missing translations

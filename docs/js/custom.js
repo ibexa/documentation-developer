@@ -65,8 +65,12 @@ $(document).ready(function () {
             });
 
             if ($('.version-warning').length) {
-                var version = $('.version-warning .version').html(),
-                    url = $('.rst-other-versions dd a').first().attr('href').replace('latest', version);
+                var url, 
+                    version = $('.version-warning .version').html(),
+                    parts = $('.rst-other-versions dd a').first().attr('href').split('/');
+
+                parts[4] = version;
+                url = parts.join('/');
 
                 $('.version-warning .version').html($('<a href ="' + url + '" class="external">' + version + '</a>'));
             }

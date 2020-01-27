@@ -3,70 +3,54 @@
 eZ Platform's RichText Field contains some built-in elements you can use, such as an image or a table.
 You can also add custom tags that will enable you to add additional elements to RichText Fields.
 
-In this step you will add a custom tag which will enable you to embed YouTube videos in Fields.
+In this step you will add a custom tag which will enable you to create a special note box called a Factbox.
+
+See full documentation of custom tags in [Extending the Online Editor](../../guide/extending/extending_online_editor#custom-tags).
 
 ## Configure the custom tag
 
 First, create a file that will contain the configuration for the custom tags.
 Add file `custom_tags.yaml` to `config/packages`:
 
-``` yaml hl_lines="5 10 12"
-ezpublish:
+``` yaml hl_lines="5 10"
+ezplatform:
     system:
         default:
             fieldtypes:
                 ezrichtext:
-                    custom_tags: [ezyoutube]
+                    custom_tags: [factbox]
 
 ezrichtext:
     custom_tags:
-        ezyoutube:
-            template: field_type/ezrichtext/custom_tag/ezyoutube.html.twig
-            icon: '/bundles/ezplatformadminui/img/ez-icons.svg#video'
+        factbox:
+            template: field_type/ezrichtext/custom_tag/factbox.html.twig
+            icon: '/bundles/ezplatformadminui/img/ez-icons.svg#warning'
             attributes:
-                title:
+                name:
                     type: string
                     required: true
-                    default_value: ''
-                video_url:
-                    type: string
-                    required: true
-                width:
-                    type: number
-                    required: true
-                    default_value: 640
-                height:
-                    type: number
-                    required: true
-                    default_value: 360
-                autoplay:
-                    type: boolean
-                    default_value: false
-                align:
+                style:
                     type: choice
-                    required: false
-                    default_value: left
-                    choices: [left, center, right]
+                    required: true
+                    default_value: light
+                    choices: [light, dark]
 ```
 
-The configuration first lists all custom tags that you have in the configuration (line 5) - in this case `ezyoutube`.
-`ezyoutube` is then configured. Line 10 points to the template used to render the tag.
+The configuration first lists all custom tags that you have in the configuration (line 5) - in this case `factbox`.
+`factbox` is then configured. Line 10 points to the template used to render the tag.
 Then attributes of the custom tag are listed. These attributes can be set when adding the tag to a RichText Field.
 
 ## Create a template
 
 Next, create the template that is referred to in the configuration.
-In `templates/field_type/ezrichtext/custom_tag` add the following `ezyoutube.html.twig` file:
+In `templates/field_type/ezrichtext/custom_tag` add the following `factbox.html.twig` file:
 
 ``` html+twig
-<div{% if params.align is defined %} style="text-align: {{ params.align }};"{% endif %}>
-    <iframe
-        type="text/html"
-        width="{{ params.width }}"
-        height="{{ params.height }}"
-        src="{{ params.video_url|replace({'https://youtu.be/' : 'https://www.youtube.com/embed/'}) }}?autoplay={{ params.autoplay == 'true' ? 1 : 0 }}"
-        frameborder="0">
-    </iframe>
+<div class="ez-factbox ez-factbox--{{ params.style }}">
+    <p>{{ params.name }}</p>
+    <div>
+        {{ content|raw }}
+    </div>
 </div>
 ```
 
@@ -76,14 +60,12 @@ Finally, add labels to the custom tag's editing interface.
 Provide them in a `translations/custom_tags.en.yaml` file:
 
 ``` yaml
-ezrichtext.custom_tags.ezyoutube.label: Youtube
-ezrichtext.custom_tags.ezyoutube.description: ''
-ezrichtext.custom_tags.ezyoutube.attributes.autoplay.label: Autoplay
-ezrichtext.custom_tags.ezyoutube.attributes.height.label: Height
-ezrichtext.custom_tags.ezyoutube.attributes.title.label: Title
-ezrichtext.custom_tags.ezyoutube.attributes.video_url.label: Video url
-ezrichtext.custom_tags.ezyoutube.attributes.width.label: Width
-ezrichtext.custom_tags.ezyoutube.attributes.align.label: Align
+ezrichtext.custom_tags.factbox.label: FactBox
+ezrichtext.custom_tags.factbox.description: ''
+ezrichtext.custom_tags.factbox.attributes.name.label: Name
+ezrichtext.custom_tags.factbox.attributes.style.label: Style
+ezrichtext.custom_tags.factbox.attributes.style.choices.light.label: Light style
+ezrichtext.custom_tags.factbox.attributes.style.choices.dark.label: Dark style
 ```
 
 ## Check results
@@ -93,7 +75,7 @@ ezrichtext.custom_tags.ezyoutube.attributes.align.label: Align
     If you cannot see the results or encounter an error, clear the cache and reload the application.
 
 At this point you can go to the Back Office and start editing any Content with a RichText Field (e.g. a Folder or an Article).
-When you edit the Field, you can see the new tag appear in the elements menu. Add it and provide a YouTube embed address (obtained through the "Share" link on YouTube).
-A player with the video will appear.
+When you edit the Field, you can see the new tag appear in the elements menu. Add it, provide a name and select a style.
+You can now edit the content of the Factbox:
 
-![Example of a Youtube custom tag](img/custom_tag.png "Previewing a Content item with a Youtube custom tag")
+![Example of a Factbox custom tag](img/custom_tag.png "Previewing a Content item with a Factbox custom tag")

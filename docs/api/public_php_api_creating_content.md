@@ -93,7 +93,7 @@ For example, to add a simple RichText paragraph, provide the following as input:
 
 ## Publishing a draft
 
-[`ContentService::createContent`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ContentService.php#L204) creates a Content with only one draft version.
+[`ContentService::createContent`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ContentService.php#L204) creates a Content item with only one draft version.
 To publish it, use [`ContentService::publishVersion`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ContentService.php#L298).
 This method must get the [`VersionInfo`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/VersionInfo.php) object of a draft version.
 

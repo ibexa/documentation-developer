@@ -85,7 +85,7 @@ custom_module:
     custom_function_2: [CustomLimitation]
 ```
 
-### Extending existing policies
+### Extending existing Policies
 
 A `PolicyProvider` may provide new functions to a module, and additional Limitations to an existing function. 
 **It is however strongly encouraged to add functions to your own Policy modules.**
@@ -120,7 +120,7 @@ class AcmeExampleBundle extends Bundle
 
 ## Integrating custom Limitation types with the UI
 
-To provide support for editing custom policies in the Back Office you need to implement [`EzSystems\RepositoryForms\Limitation\LimitationFormMapperInterface`](https://github.com/ezsystems/repository-forms/blob/master/lib/Limitation/LimitationFormMapperInterface.php).
+To provide support for editing custom policies in the Back Office, you need to implement [`EzSystems\EzPlatformAdminUi\Limitation\LimitationFormMapperInterface`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/lib/Limitation/LimitationFormMapperInterface.php).
 
 Next, register the service in DIC (Dependency Injection Container) with the `ez.limitation.formMapper` tag and set the `limitationType` attribute to the Limitation type's identifier:
 
@@ -133,7 +133,7 @@ app.security.limitation.custom_limitation.mapper:
         - { name: 'ez.limitation.formMapper', limitationType: 'Custom' }
 ```
 
-If you want to provide human-readable names of the custom Limitation values, you need to implement [`\EzSystems\RepositoryForms\Limitation\LimitationValueMapperInterface`](https://github.com/ezsystems/repository-forms/blob/master/lib/Limitation/LimitationValueMapperInterface.php).
+If you want to provide human-readable names of the custom Limitation values, you need to implement [`EzSystems\EzPlatformAdminUi\Limitation\LimitationValueMapperInterface`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/lib/Limitation/LimitationValueMapperInterface.php).
 
 Then register the service in DIC with the `ez.limitation.valueMapper` tag and set the `limitationType` attribute to Limitation type's identifier:
 
@@ -157,10 +157,10 @@ create a Twig template containing block definition which follows the naming conv
 {% endblock %}
 ```
 
-Add it to the configuration under `ezpublish.system.<SCOPE>.limitation_value_templates`:
+Add it to the configuration under `ezplatform.system.<SCOPE>.limitation_value_templates`:
 
 ```yaml
-ezpublish:
+ezplatform:
     system:
         default:
             limitation_value_templates:

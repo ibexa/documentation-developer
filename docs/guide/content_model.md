@@ -35,7 +35,7 @@ The name is in the main language of the Content item.
     `name` is always searchable, even if the Field(s) used to generate it are not.
 
 **`sectionId`** - the unique number of the Section to which the Content item belongs.
-New Content items are placed in the Standard section by default.
+New Content items are placed in the Standard Section by default.
 This behavior can be changed, but content must always belong to some Section.
 See [Sections](admin_panel.md#sections) for more information.
 
@@ -43,7 +43,7 @@ See [Sections](admin_panel.md#sections) for more information.
 
 **`published`** - true if a published version exists, otherwise false.
 
-**`ownerId`** - ID of the user who initially created the Content item.
+**`ownerId`** - ID of the User who initially created the Content item.
 It is set by the system the first time the Content item is published.
 The ownership of an item cannot be modified and will not change even if the owner is removed from the system.
 
@@ -106,11 +106,11 @@ Each Content Type is characterized by a set of metadata which define the general
 
     This flag was added for convenience and only affects the interface. In other words, it doesn't control any actual low-level logic, it simply controls the way the graphical user interface behaves.
 
-**Default field for sorting children** – rule for sorting sub-items. If the instances of this Content Type can serve as containers, their children will be sorted according to what is selected here.
+**Sort children by default by** – rule for sorting sub-items. If the instances of this Content Type can serve as containers, their children will be sorted according to what is selected here.
 
-**Default sort order** – another rule for sorting sub-items. This decides the sort order for the criterion chosen above.
+**Sort children by default in order** – another rule for sorting sub-items. This decides the sort order for the criterion chosen above.
 
-<a id="default-content-availability"></a>**Default content availability** – a flag which indicates if Content items of this Content Type should be available even without a corresponding language version. If this flag is not set, a Content item of this Type will not be available when it does not have a language version corresponding to the current SiteAccess. By setting this flag you can make instances of this Content Type available regardless of the language criterion.
+<a id="default-content-availability"></a>**Make content available even with missing translations** – a flag which indicates if Content items of this Content Type should be available even without a corresponding language version. See [Content availability](content_management.md#content-availability).
 
 ![Creating a new Content Type](img/admin_panel_new_content_type.png)
 
@@ -125,6 +125,18 @@ They determine what Fields of what Field Types will be included in all Content i
 
     You can assign each Field defined in a Content Type to a group by selecting one of the groups in the Category drop-down. [Available groups can be configured in the content repository](configuration.md#content-repository-configuration).
 
+!!! caution
+    
+    In case of Content Types containing many Field Types you should be aware of possible memory-related issues with publishing/editing.
+    They are caused by the limitation of how many `$_POST` input variables can be accepted.
+    
+    The easiest way to fix them is by increasing the `max_input_vars` value in the `php.ini` configuration file.
+    Note that this solution is not universally recommended and you're proceeding on your own risk.
+    
+    Setting the limit inappropriately may damage your project or cause other issues.
+    You may also experience performance problems with such large Content Types, in particular when you have many Content items.
+    If you're experincing too many issues, consider rearranging your project to avoid them.
+
 ### Modifying Content Types
 
 A Content Type and its Field definitions can be modified after creation,
@@ -137,7 +149,7 @@ If a Field definition is deleted from the Content Type, all the corresponding Fi
 
 A Field is the smallest unit of storage in the content model and the building block of all Content items. Every Field belongs to a Field Type.
 
-Beyond the built-in set of Field Types, you can create your own. See the [Create a Field Type](../tutorials/field_type/creating_a_tweet_field_type.md) tutorial
+Beyond the built-in set of Field Types, you can create your own.
 
 ### Field value validation
 
@@ -179,7 +191,7 @@ A new version is created every time a Content item is edited. The previous publi
 Only one version can be published at the same time.
 When you publish a new version, the previous published version changes its status to Archived.
 
-The number of preserved archived versions is set in `ezpublish.repositories.default.options.default_version_archive_limit`.
+The number of preserved archived versions is set in `ezplatform.repositories.default.options.default_version_archive_limit`.
 By default it is set to 5.
 
 A new version is also created when a new [language](internationalization.md) is added to the Content item.

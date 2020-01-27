@@ -110,18 +110,18 @@ Clear the cache by running `bin/console cache:clear` and refresh the Page to see
 
 ### Configure the Form field
 
-Before applying the final styling of the block, you need to configure the [CAPTCHA field](../../guide/extending_form_builder.md#captcha-field).
+Before applying the final styling of the block, you need to configure the [CAPTCHA field](../../guide/extending/extending_form_builder.md#captcha-field).
 In `config/packages/gregwar_captcha.yaml`, under the `gregwar_captcha` key, add the following configuration:
 
 ``` yaml
 gregwar_captcha:
+    # existing keys
     width: 150
     invalid_message: Please, enter again.
     reload: true
     length: 4
-   
 ```
-The configuration resizes the CAPTCHA image (line 2), changes the error message (line 3), enables the user to reload the code (line 4), and shortens the authentication code (line 5).
+The configuration resizes the CAPTCHA image (line 3), changes the error message (line 4), enables the user to reload the code (line 5), and shortens the authentication code (line 6).
 
 ### Add stylesheet
 

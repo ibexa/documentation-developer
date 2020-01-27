@@ -7,7 +7,6 @@ eZ Platform comes with a collection of Field Types that can be used to build pow
 !!! tip
 
     For general Field Type documentation, see [Field Type API](../api/field_type_api.md).
-    For the documentation on how to implement a custom Field Type, see the [Creating a Tweet Field Type](../tutorials/field_type/creating_a_tweet_field_type.md) tutorial.
 
 Custom Field Types have to be programmed in PHP. However, the built-in Field Types are usually sufficient enough for typical scenarios. The following table gives an overview of the supported Field Types that come with eZ Platform.
 
@@ -68,8 +67,6 @@ Proper indexing of these Field Types is done with [Solr Search Bundle](../guide/
 |[Price](https://github.com/ezcommunity/EzPriceBundle)|Price Field for use in product catalogs|Yes|No|Yes|
 
 ### Generate new Field Type
-
-You can learn how to create a custom Field Type by following the [Creating a Tweet Field Type](../tutorials/field_type/creating_a_tweet_field_type.md) tutorial
 
 You can also make use of the [Field Type Generator Bundle](https://github.com/Smile-SA/EzFieldTypeGeneratorBundle) from our partner Smile.
 It helps you get started by creating a skeleton for a Field Type, including templates for the editorial interface. 
@@ -302,6 +299,19 @@ $checkboxValue = new Checkbox\Value( true );
 ###### String representation
 
 As this Field Type is not a string but a boolean, it will return "1" (true) or "0" (false) in cases where it is cast to string.
+
+## Content query Field Type
+
+This Field Type maps an executable Repository query to a Field.
+
+| Name      | Internal name | Expected input |
+|-----------|---------------|----------------|
+| `Content query` | `ezcontentquery`   | `string`        |
+
+The Content query Field Type is available via the eZ Platform Query Field Type Bundle
+provided by the [ezplatform-query-fieldtype](https://github.com/ezsystems/ezplatform-query-fieldtype) package.
+
+For information on the Field Type's usage, see [Query Field Type in controller documentation](../guide/controllers.md#query-field-type).
 
 ## Country Field Type
 
@@ -790,7 +800,7 @@ This Field Type does not support settings.
 
     The Form Field Type stores a Form consisting of one or more form fields.
 
-    See [Extending Form Builder](../guide/extending_form_builder.md) for more information
+    See [Extending Form Builder](../guide/extending/extending_form_builder.md) for more information
     about working with Forms.
 
 ## Image Field Type
@@ -1142,7 +1152,7 @@ ImageAsset Field Type allows configuring the following options:
 Example configuration:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
        default:
             fieldtypes:
@@ -1158,7 +1168,7 @@ ezpublish:
 Internally the Image Asset Type is rendered via subrequest (similar to other relation types). Rendering customization is possible by configuring view type `asset_image`:
 
 ```php
-ezpublish:
+ezplatform:
     system:
        default:           
             content_view:
@@ -1425,7 +1435,7 @@ Example use:
 
 ``` yaml
 # ezplatform.yaml
-ezpublish:
+ezplatform:
     system:
         site_group:
             api_keys: { google_maps: MY_KEY }
@@ -1683,7 +1693,7 @@ services:
 
     ### Blocks
 
-    For information on how to create and configure new blocks for the Page, see [Creating Page blocks](../guide/extending_page.md#creating-page-blocks).
+    For information on how to create and configure new blocks for the Page, see [Creating Page blocks](../guide/extending/extending_page.md#creating-page-blocks).
 
     ### Rendering Pages
 

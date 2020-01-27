@@ -46,7 +46,7 @@ Now you need to create the line view for Landmarks.
 Declare a new override rule in `config/packages/views.yaml`:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         site_group:
             content_view:
@@ -149,7 +149,7 @@ class RideController extends Controller
 Update `config/packages/views.yaml` to mention the `RideController.php` by adding a line with the `controller` key to the view config:
 
 ``` yaml hl_lines="8"
-ezpublish:
+ezplatform:
     system:
         site_group:
             content_view:

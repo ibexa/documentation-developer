@@ -44,11 +44,11 @@ rm ezp_cron.txt
 
 ### Configuration
 
-Configuration of external URLs validation is SiteAccess-aware and is stored under `ezpublish.system.<SITEACCESS>.url_checker`.
+Configuration of external URLs validation is SiteAccess-aware and is stored under `ezplatform.system.<SITEACCESS>.url_checker`.
 Example configuration (in `config/packages/ezplatform.yaml`):
 
 ```yaml
-ezpublish:
+ezplatform:
     system:
         default:
             url_checker:
@@ -123,10 +123,10 @@ The `scheme` attribute is mandatory and has to correspond to the name of the pro
 
 ## URL alias patterns
 
-You can configure how eZ Platform generates URL aliases. The configuration is available under `ezpublish.url_alias.slug_converter`, for example:
+You can configure how eZ Platform generates URL aliases. The configuration is available under `ezplatform.url_alias.slug_converter`, for example:
 
 ``` yaml
-ezpublish:
+ezplatform:
     url_alias:
         slug_converter:
             transformation: example_group
@@ -169,7 +169,10 @@ Before applying the command, back up your database and make sure it is not modif
 bin/console ezplatform:urls:regenerate-aliases
 ```
 
-Use an `--iteration-count` parameter to define how many Locations should be processed at once, to avoid too much memory use.
+You can also extend the command by the following parameters:
+
+- `--iteration-count` — to define how many Locations should be processed at once to reduce memory usage
+- `--location-id` — to regenerate URLs for specific Locations only, e.g. `ezplatform:urls:regenerate-aliases --location-id=1 --location-id=2`
 
 ## URL wildcards
 
@@ -197,7 +200,7 @@ If it is `false`, the old URL address will be used, with the new content.
 URL wildcards must be enabled in configuration with:
 
 ``` yaml
-ezpublish:
+ezplatform:
     url_wildcards:
         enabled: true
 ```

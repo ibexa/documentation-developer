@@ -1,12 +1,12 @@
 # Step 1 - Creating a Dashboard tab
 
 The Dashboard is the front page that you visit after logging in to the Back Office.
-By default it contains two blocks: "Me" and "Everyone", which list Content items and Media.
+By default it contains two blocks: "My content" and "Common content", which list Content items and Media.
 The "Me" block additionally lists the current user's drafts.
 
 ![Unmodified dashboard](img/dashboard.png)
 
-In this step you will add a new tab to the "Everyone" block in the Dashboard.
+In this step you will add a new tab to the "Common content" block in the Dashboard.
 This tab, called "Articles", will list ten most recently modified Content items of the Content Type `article`.
 
 !!! tip
@@ -26,7 +26,7 @@ App\Tab\Dashboard\Everyone\EveryoneArticleTab:
         - { name: ezplatform.tab, group: dashboard-everyone }
 ```
 
-The tags indicate that this is a Dashboard tab that will be placed in the "Everyone" block.
+The tags indicate that this is a Dashboard tab that will be placed in the "Common content" block.
 
 This configuration points to the `EveryoneArticleTab.php` file, which you now need to create.
 
@@ -48,7 +48,7 @@ use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
 use eZ\Publish\API\Repository\Values\Content\Query\SortClause;
 use eZ\Publish\API\Repository\Values\Content\LocationQuery;
 use Pagerfanta\Pagerfanta;
-use Symfony\Component\Translation\TranslatorInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 use Twig\Environment;
 
 class EveryoneArticleTab extends AbstractTab implements OrderedTabInterface
@@ -116,7 +116,7 @@ class EveryoneArticleTab extends AbstractTab implements OrderedTabInterface
 !!! tip
 
     The tab extends `AbstractTab`.
-    There are also [other tab types that you can extend](../../guide/extending_ez_platform.md#adding-a-new-tab).
+    There are also [other tab types that you can extend](../../guide/extending/extending_tabs.md).
 
 The tab also implements `OrderedTabInterface` (see line 17), which enables you to define the order in which the tab is displayed in the Dashboard.
 This is done using the `getOrder` method (see line 47).
@@ -131,6 +131,6 @@ which ensures the tab looks the same as the existing tabs.
     If you cannot see the results or encounter an error, clear the cache and reload the application.
 
 At this point you can go to the Dashboard in the Back Office.
-In the "Everyone" block you can see the new "Articles" tab with the first ten articles in the Repository.
+In the "Common content" block you can see the new "Articles" tab with the first ten articles in the Repository.
 
 ![Articles tab in the Dashboard](img/dashboard_articles_tab.png "Articles tab in the Dashboard")

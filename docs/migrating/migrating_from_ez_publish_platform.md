@@ -19,9 +19,8 @@ You can then proceed with consecutive upgrades to further versions: v1.13 LTS an
 
     1. Additionally there are some other topics to be aware of for the code migration from eZ Publish to eZ Platform:
 
+        - Symfony deprecations. The recommended version to migrate to is eZ Platform v2.5 LTS, which is using Symfony 3.4 LTS.
         - [Field Types reference](../api/field_type_reference.md) for overview of Field Types that do and don't exist in eZ Platform
-        - eZ Platform RichText Field Type capabilities, currently not covering [Custom Tags](https://jira.ez.no/browse/EZP-25357)
-        - Symfony 2.8, this is also the case on later 5.4.x versions, but not the first ones including 2014.11
         - API changes. While we have a strict backwards compatibility focus, some deprecated API features were removed and some changes were done to internal parts of the system. See [ezpublish-kernel:doc/bc/changes-6.0.md](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.0/doc/bc/changes-6.0.md)
 
 !!! note
@@ -87,16 +86,16 @@ To move over your own custom configurations, follow the conventions below and ma
 - `<old-ez-root>/ezpublish/config/config.yaml =>  <new-ez-root>/app/config/config.yaml`
     -  *For system/framework config, and for defining global db, cache, search settings.*
 - `<old-ez-root>/ezpublish/config/ezpublish.yaml => <new-ez-root>/app/config/ezplatform.yaml`
-    -  *For SiteAccess, site groups and repository settings.*
+    -  *For SiteAccess, site groups and Repository settings.*
 
-!!! note "Changes to repository configuration"
+!!! note "Changes to Repository configuration"
 
-    When moving configuration over, be aware that as of 5.4.5 and higher, repository configuration has been enhanced to allow configuring storage engine and search engine independently.
+    When moving configuration over, be aware that as of 5.4.5 and higher, Repository configuration has been enhanced to allow configuring storage engine and search engine independently.
 
     ``` yaml
-    # Default ezplatform.yaml repositories configuration with comments
-    ezpublish:
-        # Repositories configuration, set up default repository to support solr if enabled
+    # Default ezplatform.yaml Repositories configuration with comments
+    ezplatform:
+        # Repositories configuration, set up default Repository to support solr if enabled
         repositories:
             default:
                 # For storage engine use kernel default (current LegacyStorageEngine)

@@ -74,7 +74,7 @@ ez_io:
 In your eZ Platform system settings, e.g. `config/packages/ezplatform.yaml`, enable the binary data handler:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         default:
             io:

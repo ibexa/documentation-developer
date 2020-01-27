@@ -8,7 +8,7 @@ You will learn to extend a few points of the Back Office:
 
 - Add a tab in the Dashboard listing all Articles
 - Add a menu item that lists all Content items filtered by Content Type
-- Add a custom tag to the Online Editor for embedding YouTube videos
+- Add a custom tag to the Online Editor for creating note boxes
 
 To follow this tutorial you need to:
 

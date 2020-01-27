@@ -7,13 +7,13 @@ You will customize this step by instructing Platform to use a custom template to
 
 ## Content rendering configuration
 
-To use a custom template when rendering the root content, create a `content_view` configuration block for `ezpublish`.
+To use a custom template when rendering the root content, create a `content_view` configuration block for `ezplatform`.
 
 Edit `config/packages/ezplatform.yaml`.
 Add the following block under `system` while paying attention to indentation — `content_view` should be one level below `site_group`:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         site_group:
             content_view:
@@ -177,7 +177,7 @@ Before proceeding, ensure that the structure of the added files looks like this:
 
 In eZ Platform, you can add assets by using [Symfony Webpack Encore](https://symfony.com/doc/4.3/frontend.html#webpack-encore) 
 — an integration of Webpack that enables you to build bundles of CSS stylesheets and JS scripts and add them to the project.
-For more details, see [importing assets from a bundle](../guide/bundles.md#importing-assets-from-a-bundle).
+For more details, see [importing assets from a bundle](../../guide/bundles.md#importing-assets-from-a-bundle).
 
 To create bundles, first, indicate which files to include in them.
 
@@ -257,7 +257,7 @@ module.exports = [ eZConfig, ...customConfigs ];
 Finally, in `config/packages/webpack_encore.yaml` change the `output_path` for Webpack to the following:
 
 ``` yaml
-output_path: '%kernel.project.dir%/public/assets/build'
+output_path: '%kernel.project_dir%/public/assets/build'
 ```
 
 At this point the bundles are created and ready to be used.
@@ -287,11 +287,11 @@ This is where the `home_page.html.twig` will be rendered.
 
 Clear the cache and regenerate the assets by running the following commands:
 
-​``` bash
-$ php bin/console cache:clear
-$ php bin/console assets:install
+``` bash
+php bin/console cache:clear
+php bin/console assets:install
 yarn encore prod 
-​```
+```
 
 Refresh the page and you should see the "Hello world" placed inside a styled layout.
 

@@ -22,7 +22,7 @@ For full description of the interface, see [Content Tree](https://doc.ezplatform
 
 ### Webpack Encore
 
-This release introduces [Webpack Encore](https://symfony.com/doc/3.4/frontend.html#webpack-encore)
+This release introduces [Webpack Encore](https://symfony.com/doc/4.3/frontend.html#webpack-encore)
 as the preferred tool for asset management.
 This leads to [changes in requirements](#requirements-changes).
 
@@ -33,8 +33,6 @@ Assetic is still in use, but it will be deprecated in a future version.
 This release enables you to [use PostgreSQL](../guide/databases.md#using-postgresql) for database instead of the default MySQL.
 
 Database schema is now created based on [YAML configuration](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage/legacy/schema.yaml).
-
-See [Using PostgreSQL](../cookbook/using_postgresql.md) for more information.
 
 ### GraphQL
 
@@ -83,11 +81,11 @@ You can now link fragments of text by adding Anchors in Rich Text Fields.
 
 #### Inline custom tags
 
-You can now create [inline custom tags](../guide/extending_online_editor.md#inline-custom-tags) in Rich Text Fields.
+You can now create [inline custom tags](../guide/extending/extending_online_editor.md#inline-custom-tags) in Rich Text Fields.
 
 #### Custom CK Editor plugins
 
-You can now easily use [custom CK Editor plugins](../guide/extending_online_editor.md#plugins-configuration) in AlloyEditor.
+You can now easily use [custom CK Editor plugins](../guide/extending/extending_online_editor.md#plugins-configuration) in AlloyEditor.
 
 ### Hiding and revealing content
 
@@ -116,7 +114,7 @@ The User Settings menu has been expanded with the following options:
 
 This release introduced several Back Office improvements to facilitate editorial experience, including:
 
-- [Icons for Content Types and the ability to define them](../guide/extending_ez_platform.md#custom-content-type-icons)
+- [Icons for Content Types and the ability to define them](../guide/extending/extending_ez_platform.md#custom-content-type-icons)
 - Ability to collapse and expand content preview to have easier access to the Sub-items list
 - Responsive Sub-items table with selectable column layout
 - Simpler assigning of Object States to content
@@ -199,7 +197,7 @@ It enables you to set up a cluster of Solr servers for highly available and faul
 
 #### Custom attributes
 
-It is now possible to add [custom data attributes and CSS classes](../guide/extending_online_editor.md#custom-data-attributes-and-classes) to elements in the Online Editor.
+It is now possible to add [custom data attributes and CSS classes](../guide/extending/extending_online_editor.md#custom-data-attributes-and-classes) to elements in the Online Editor.
 
 #### Translatable custom tag choice attributes
 
@@ -215,3 +213,55 @@ You can now translate labels of choice attributes in Custom tags using the `ezri
 
 `SectionService::loadSection` has been improved to return a filtered list when user does not have access to a Section,
 instead of throwing an exception.
+
+## eZ Platform v2.5.4
+
+### Permission improvements
+
+`RoleService` methods have been improved to return a filtered list when user does not have access to content,
+instead of throwing an exception. The following methods are affected:
+
+- `RoleService::loadRoles`
+- `RoleService::getRoleAssignmentsForUser`
+- `RoleService::getRoleAssignmentsForUserGroup`
+
+`content/cleantrash` Policy now allows the user to empty the trash
+even if they would not have access to the trashed content.
+
+### Docker environment
+
+BCMath PHP extension has been added to the Docker environments
+in order to enable the Allure reporting tool.
+
+### Deprecated features
+
+This section provides a list of deprecated features to be removed in eZ Platform v3.0.
+
+#### Custom Installers
+
+- The `\EzSystems\PlatformInstallerBundle\Installer\CleanInstaller` class and its Service Container definition (`ezplatform.installer.clean_installer`) have been deprecated in favor of `EzSystems\PlatformInstallerBundle\Installer\CoreInstaller` which requires the [Doctrine Schema Bundle](https://github.com/ezsystems/doctrine-dbal-schema) to be enabled.
+- The `ezplatform.installer.db_based_installer` Service Container definition has been deprecated in favor of its FQCN-named equivalent (`EzSystems\PlatformInstallerBundle\Installer\DbBasedInstaller`).
+
+## eZ Platform v2.5.6
+
+### Configuration through `ezplatform`
+
+In YAML configuration, you can now use `ezplatform` as well as `ezpublish` as the main configuration key.
+
+### API improvements
+
+The following PHP API methods have been added:
+
+- `ContentService::countContentDrafts` returns the number of all drafts for the provided user
+- `ContentService::loadContentDraftList` returns a list of all drafts for the provided user
+- `ContentService::countReverseRelations` returns the number of all reverse relations for a Content item
+- `ContentService::loadReverseRelationList` returns a list of all reverse relations for a Content item
+
+### Solr 7.7
+
+With v2.5.6 you can optionally use Solr 7.7. To enable it:
+
+1. Update the `ezplatform-solr-search-engine` package version to ~2.0.
+2. Follow [Solr upgrade documentation](https://lucene.apache.org/solr/guide/7_7/solr-upgrade-notes.html).
+3. Reindex your content.
+4. Clear cache.

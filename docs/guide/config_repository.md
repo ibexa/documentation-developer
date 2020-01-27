@@ -9,7 +9,7 @@ You can define several Repositories within a single application. However, you ca
 To use the default Repository connection, you do not need to specify its details:
 
 ``` yaml
-ezpublish:
+ezplatform:
     repositories:
         # Defining Repository with alias "main"
         # Default storage engine is used, with default connection
@@ -27,10 +27,10 @@ ezpublish:
     As such, you can refer to [DoctrineBundle's documentation](https://github.com/doctrine/DoctrineBundle/blob/master/Resources/doc/configuration.rst#doctrine-dbal-configuration).
 
 If no Repository is specified for a SiteAccess or SiteAccess group,
-the first Repository defined under `ezpublish.repositories` will be used:
+the first Repository defined under `ezplatform.repositories` will be used:
 
 ``` yaml
-ezpublish:
+ezplatform:
     repositories:
         main: ~
     system:
@@ -61,7 +61,7 @@ doctrine:
             another_connection_name:
                 # ...
 
-ezpublish:
+ezplatform:
     repositories:
         first_repository: 
             storage: 
@@ -118,7 +118,7 @@ user_data: User data
 By default it is set to 5. This setting is configured in the following way (typically in `ezplatform.yaml`):
 
 ``` yaml
-ezpublish:
+ezplatform:
     repositories:
         default:
             options:
@@ -143,8 +143,9 @@ The command takes the following optional parameters:
 - `status` or `t` - status of versions to remove: `draft`, `archived` or `all`
 - `keep` or `k` - number of versions to keep
 - `user` or `u` - the User that the command will be performed as. The User must have the `content/remove`, `content/read` and `content/versionread` Policies. By default the `administrator` user is applied.
+- `excluded-content-types` - exclude versions of one or multiple Content Types from the cleanup procedure; separate multiple Content Types identifiers with the comma.
 
-`ezplatform:content:cleanup-versions --status <status name> --keep <number of versions> --user <user name>`
+`ezplatform:content:cleanup-versions --status <status name> --keep <number of versions> --user <user name> --excluded-content-types article,blog_post`
 
 For example, the following command removes archived versions as user `admin`, but leaves the 5 most recent versions:
 
@@ -155,7 +156,7 @@ For example, the following command removes archived versions as user `admin`, bu
 `ezplatform_default_settings.yaml` contains two settings that indicate which Content Types are treated like users and user groups:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         default:
             user_content_type_identifier: [user]
@@ -167,10 +168,10 @@ When viewing such Content in the Back Office you will be able to see e.g. the as
 
 ## Top-level Locations
 
-You can change the default path for top-level Locations such as Content or Media, e.g.:
+You can change the default path for top-level Locations such as Content or Media in the Back Office, e.g.:
 
 ```yaml
-ezpublish:
+ezplatform:
     system:
         <siteaccess>:
             subtree_paths:

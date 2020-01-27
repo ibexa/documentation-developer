@@ -82,7 +82,7 @@ ezdesign:
         # "theme1" will be tried first. If a template cannot be found in "theme1", "theme2" will be tried out.
         my_design: [theme1, theme2]
 
-ezpublish:
+ezplatform:
     # ...
     system:
         my_siteaccess:
@@ -188,7 +188,7 @@ In order to use the configured design with templates, you need to use the **`@ez
 You can also use `@ezdesign` notation in your eZ template selection rules:
 
 ```yaml
-ezpublish:
+ezplatform:
     system:
         my_siteaccess:
             content_view:

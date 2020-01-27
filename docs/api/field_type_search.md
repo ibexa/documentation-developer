@@ -24,11 +24,11 @@ This example from the `Url` Field Type shows that the Field Type will always ret
 
 ### `getDefaultMatchField()`
 
-This method retrieves the name of the default field to be used for matching. As Field Types can index multiple fields (see [MapLocation](field_type_reference.md#maplocation-field-type) Field Type's implementation of this interface), this method is used to define the default field for matching. The default field is typically used by the Field criterion.
+This method retrieves the name of the default Field to be used for matching. As Field Types can index multiple Fields (see [MapLocation](field_type_reference.md#maplocation-field-type) Field Type's implementation of this interface), this method is used to define the default field for matching. The default Field is typically used by the Field criterion.
 
 ### `getDefaultSortField()`
 
-This method gets name of the default field to be used for sorting. As Field Types can index multiple fields (see [MapLocation](field_type_reference.md#maplocation-field-type) Field Type's implementation of this interface), this method is used to define default field for sorting. Default field is typically used by Field sort clause.
+This method gets name of the default Field to be used for sorting. As Field Types can index multiple Fields (see [MapLocation](field_type_reference.md#maplocation-field-type) Field Type's implementation of this interface), this method is used to define default field for sorting. Default Field is typically used by Field sort clause.
 
 ## Register Indexable Implementations
 
@@ -45,13 +45,13 @@ Note that `alias` should be the same as Field Type ID.
 
 ## Search Field Values
 
-The search field values returned by the `getIndexData` method are simple value objects consisting of the following properties:
+The search Field values returned by the `getIndexData` method are simple value objects consisting of the following properties:
 
 |Property|Description|
 |--------|-----------|
 |`$name`|The name of the field|
 |`$value`|The value of the field|
-|`$type`|An `eZ\Publish\SPI\Persistence\Content\Search\FieldType` instance, describing the type information of the field.|
+|`$type`|An `eZ\Publish\SPI\Persistence\Content\Search\FieldType` instance, describing the type information of the Field.|
 
 ## Search Field Types
 
@@ -62,13 +62,13 @@ The default available search Field Types that can be found in the `eZ\Publish\SP
 |Field Type|Description|
 |--------|-----------|
 |`BooleanField`|Boolean values.|
-|`CustomField`|Custom field, for custom search data types. Will probably require additional configuration in the search backend.|
+|`CustomField`|Custom Field, for custom search data types. Will probably require additional configuration in the search backend.|
 |`DateField`|Date field. Can be used for date range queries.|
 |`DocumentField`|Document field|
 |`FloatField`|Field for floating point numbers.|
-|`FullTextField`|Represents full text searchable value of the Field which can be indexed by the legacy search engine. Some full text fields are stored as an array of strings.|
+|`FullTextField`|Represents full text searchable value of the Field which can be indexed by the legacy search engine. Some full text Fields are stored as an array of strings.|
 |`GeoLocationField`|Field used for Geo Location.|
-|`IdentifierField`|Field used for IDs. Basically acts like the string field, but will not be queried by fulltext searches|
+|`IdentifierField`|Field used for IDs. Basically acts like the string Field, but will not be queried by fulltext searches|
 |`IntegerField`|Field for integer numbers.|
 |`MultipleBooleanField`|Multiple boolean values.|
 |`MultipleIdentifierField`|Multiple IDs values.|
@@ -83,10 +83,10 @@ The default available search Field Types that can be found in the `eZ\Publish\SP
 As mentioned before, if you use the standard type definitions, there is no need to configure the search backend in any way.
 The Field definitions are handled using `dynamicField` definitions in Solr, for example.
 
-If you want to configure the handling of your field, you can always add a special field definition to the Solr `schema.xml`. For fields, the Field Type names used by the Solr search backend look like this: `<content_type_identifier>/<field_identifier>/<search_field_name>_<type>`.
+If you want to configure the handling of your Field, you can always add a special Field definition to the Solr `schema.xml`. For Fields, the Field Type names used by the Solr search backend look like this: `<content_type_identifier>/<field_identifier>/<search_field_name>_<type>`.
 You can define custom `dynamicField` definitions to match, for example, on your custom `_<type>` definition.
 
-You could also define a custom Field definition for certain fields, like for the name Field in an article:
+You could also define a custom Field definition for certain Fields, like for the name Field in an article:
 
 ```
 <field name="article/name/value_s" type="string" indexed="true" stored="true" required="false"/>

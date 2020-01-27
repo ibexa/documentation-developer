@@ -2,9 +2,7 @@
 
 This page lists backwards compatibility breaks and deprecations introduced in eZ Platform v3.0.
 
-## Backwards compatibility breaks
-
-### Symfony 4
+## Symfony 4
 
 v3.0 now uses Symfony 4 instead of Symfony 3.
 Refer to [Symfony changelog](https://github.com/symfony/symfony/blob/master/CHANGELOG-4.0.md)
@@ -14,9 +12,24 @@ to learn about all changes it entails.
 See [v3.0 project update](ez_platform_v3.0_project_update.md) for the steps you need to take to update your project to Symfony 4.
 See also [full requirements for installing eZ Platform](../getting_started/requirements.md).
 
-### Field Types
+### Template configuration
 
-Tags used to register Field Type features in the dependency injection container are renamed:
+Following the [upgrade to Symfony 4](#symfony-4), [the templating component integration is now deprecated.](https://symfony.com/blog/new-in-symfony-4-3-deprecated-the-templating-component-integration)
+As a result, the way to indicate a template path has changed.
+
+Example 1:
+
+- Now: `"@@EzPlatformUser/user_settings/list.html.twig"`
+- Formerly: `"EzPlatformUserBundle:user_settings:list.html.twig"`
+
+Example 2:
+
+- Now: `{% extends "@EzPublishCore/content_fields.html.twig" %}`
+- Formerly: `{% extends "EzPublishCoreBundle::content_fields.html.twig" %}`
+
+## Field Types
+
+The following tags used to register Field Type features in the dependency injection container have been renamed:
 
 |Former name|New name|
 |-----------|--------|
@@ -41,13 +54,44 @@ The following classes and namespaces have been deprecated and dropped:
 - `eZ\Publish\SPI\FieldType\Event`
 - `eZ\Publish\SPI\FieldType\Events\**`
 
-### Twig helper names
+Deprecated `ezprice` and `ezpage` Field Types have been removed.
 
-Selected Twig helpers names have been changed.
+## Configuration through `ezplatform`
 
-Additionally, the `ez_trans_prop` Twig function has been removed.
+In YAML configuration, `ezplatform` is now used instead of `ezpublish` as the main configuration key.
 
-##### Functions renamed:
+## Assetic support
+
+Assetic support has been dropped.
+
+## Installers
+
+### Custom Installers
+
+The following Symfony Service definitions that provide extension point to create custom installers have been removed:
+
+- `ezplatform.installer.clean_installer`
+- `ezplatform.installer.db_based_installer`
+
+### Enterprise Edition installer
+
+The `ezstudio.installer.studio_installer` service has been renamed to the FQCN-named
+service `EzSystems\EzPlatformEnterpriseEditionInstallerBundle\Installer\Installer`.
+Deprecated `ezplatform.ee.installer.class` DIC parameter has been removed.
+
+See [eZ Platform v3.0 project update instructions](./ez_platform_v3.0_project_update.md#custom-installers) for upgrade details.
+
+## date-based-publisher
+
+No deprecations or backward compatibility breaks to document.
+
+## doctrine-dbal-schema
+
+No deprecations or backward compatibility breaks to document.
+
+## ezplatform-admin-ui
+
+### Functions renamed
 
 |Former name|New name|
 |-----------|--------|
@@ -64,25 +108,31 @@ Additionally, the `ez_trans_prop` Twig function has been removed.
 |`encode_block_value`|`ez_block_value_encode`|
 |`ezplatform_page_builder_cross_origin_helper`|`ez_page_builder_cross_origin_helper`|
 
-##### Global variables renamed:
+### Twig helper renamed
+
+Selected Twig helpers names have been changed.
+
+Additionally, the `ez_trans_prop` Twig function has been removed.
+
+### Global variables renamed
 
 |Former name|New name|
 |-----------|--------|
 |`admin_ui_config`|`ez_admin_ui_config`|
 |`ezpublish`|`ezplatform`|
 
-##### Filters renamed:
+### Filters renamed
 
 |Former name|New name|
 |-----------|--------|
 |`richtext_to_html5`|`ez_richtext_to_html5`|
 |`richtext_to_html5_edit`|`ez_richtext_to_html5_edit`|
 
-### JavaScript event names and code cleanup
+### JavaScript
+
+#### Event names changed
 
 Selected event names have been changed.
-
-#### In Admin UI (`ezplatform-admin-ui`):
 
 |Former name|New name|
 |-----------|--------|
@@ -138,102 +188,9 @@ Selected event names have been changed.
 |`ezsettings.default.content_tree_module.ignored_content_types`|`ezsettings.admin_group.content_tree_module.ignored_content_types`|
 |`ezsettings.default.content_tree_module.tree_root_location_id`|`ezsettings.admin_group.content_tree_module.tree_root_location_id`|
 
-#### In Page Builder (`ezplatform-page-builder`):
-
-|Former name|New name|
-|-----------|--------|
-|`openUdw`|`ez-open-udw`|
-|`openAirtimePopup`|`ez-open-airtime-popup`|
-|`postUpdateBlocksPreview`|`ez-post-update-blocks-preview`|
-|`pbIframeLoaded`|`ez-page-builder-iframe-loaded`|
-|`pbHideTools`|`ez-page-builder-hide-tools`|
-
-Additionally, the listener for `pbPreviewReloaded` has been removed.
-
-#### In Form Builder (`ezplatform-form-builder`):
-
-|Former name|New name|
-|-----------|--------|
-|`openUdw`|`ez-open-udw`|
-|`updateFieldName`|`ez-update-field-name`|
-|`fbFormBuilderLoaded`|`ez-form-builder-loaded`|
-|`fbFormBuilderUnloaded`|`ez-form-builder-unloaded`
-
-### REST server
-
-Transfer of REST code from Kernel to a separate package results in the following change:
-
-`eZ\Publish\Core\REST` and `eZ\Publish\Core\REST\Common\` namespaces have been replaced by `EzSystems\EzPlatformRest`.
-
-REST client has been dropped.
-
-### HTTP cache bundle
-
-HTTP cache bundle now uses FOS Cache Bundle v2. This entails:
-
-- `EzSystems\PlatformHttpCacheBundle\Proxy\TagAwareStore` has been removed
-- `EzSystems\PlatformHttpCacheBundle\Handler\TagHandler` has been changed so that the tag is now provided as an option in `header_formatter`
-- `tagResponse()` from `tagHandler` has been replaced by `tagSymfonyResponse()`
-- deprecated `EzSystems\PlatformHttpCacheBundle\Handler\TagHandlerInterface` has been removed
-- `EzSystems\PlatformHttpCacheBundle\PurgeClient\PurgeClientInterface` now only accept an array as argument in the `purge()` method, instead of an int.
-- The `X-User-Hash` header for recognizing user context has been changed to `X-User-Context-Hash`.
-- The `key` header for purging tags has been changed to `xkey-softpurge`.
-- The `PURGE` method has been changed to `PURGEKEY`.
-- The `ezplatform.http_cache.tags.header` parameter has been removed.
-Configuration now relies on FOS Cache configuration and its default values.
-
-### Deprecated Field Types
-
-Deprecated `ezprice` and `ezpage` Field Types have been removed.
-
-### Elastic Search
-
-Experimental, deprecated and unsupported code for Elastic Search 1.4.2 has been dropped from kernel,
-to be replaced with a dedicated bundle for the latest Elastic version in the future.
-
-### Assetic support
-
-Assetic support has been dropped.
-
-### Universal Discovery Widget
-
-The deprecated `universal_discovery_widget_module.default_location_id` setting has been replaced with `universal_discovery_widget_module.configuration.default.starting_location_id`.
-
-### Miscellaneous
-
-- Deprecated `SubtreeQuery` class has been removed. In v3.0 it was replaced by `\EzSystems\EzPlatformAdminUi\QueryType\SubtreeQueryType`.
-
-## Deprecations
-
-### User settings
-
-As a result of moving user settings to the [`ezplatform-user`](https://github.com/ezsystems/ezplatform-user) package, the following deprecated code for handling the settings has been dropped:
-
-- `EzSystems\EzPlatformAdminUi\UserSetting\`
-- `EzSystems\EzPlatformAdminUi\Pagination\Pagerfanta\UserSettingsAdapter`
-- `EzSystems\EzPlatformAdminUi\Form\Type\User\Setting\UserSettingUpdateType`
-- `EzSystems\EzPlatformAdminUiBundle\Controller\UserProfile\UserPasswordChangeController`
-- `EzSystems\EzPlatformAdminUiBundle\Controller\User\{UserSettingsController,UserForgotPasswordController}`
-
-### Choice Loaders
-
-The following choiceLoaders classes deprecated in v2.5 have been removed:
-
-- `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\PermissionAwareContentTypeChoiceLoader`
-- `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\PermissionAwareLanguageChoiceLoader`
-
-Instead, use the following classes:
-
-- `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\ContentCreateContentTypeChoiceLoader`
-- `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\ContentCreateLanguageChoiceLoader` 
-
-### Template parameter names
-
-The SiteAccess-aware `pagelayout` setting is deprecated in favor of `page_layout`.
-
-View parameter `pagelayout` set by `pagelayout` setting is deprecated in favor of  `page_layout`.
-
 ### Template organization
+
+#### Templates renamed
 
 The following templates used in the Back Office have been renamed:
 
@@ -312,3 +269,550 @@ The following templates used in the Back Office have been renamed:
 |Security/reset_user_password/success.html.twig|security/reset_user_password/success.html.twig|
 |user-profile/change_user_password.html.twig|user_profile/change_user_password.html.twig|
 |user-profile/form_fields.html.twig|user_profile/form_fields.html.twig|
+
+#### Templates relocated
+
+The `@ezdesign/account/error/credentials_expired.html.twig` has been relocated from `src/bundle/Resources/views/Security/error` to `src/bundle/Resources/views/themes/admin/account/error`.
+
+### Online Editor
+
+All Online Editor front-end code and assets (such as JS, CSS, fonts, etc.)
+have been moved from `ezplatform-admin-ui` to `ezplatform-richtext`.
+
+### Adding new tabs in the Back Office
+
+The way of adding custom tab groups in the Back Office has changed.
+You now need to [make use of the `TabsComponent`](../guide/extending/extending_tabs.md#adding-a-new-tab-group).
+
+### Content Type forms
+
+Content Type editing, including Action Dispatchers, Form Processors, Types and Data classes related to Content Types/Limitations,
+has been moved to `ezplatform-admin-ui` from `repository-forms`.
+
+### Code cleanup in Admin UI
+
+The following deprecated items have been removed: 
+
+|Removed code|Belongs to|Use instead|
+|------------|----------|-----------|
+|`canEdit`|`EzSystems\EzPlatformAdminUiBundle\Controller\LanguageController::viewAction`|`can_administrate`|
+|`canAssign`|`EzSystems\EzPlatformAdminUiBundle\Controller\LanguageController::viewAction`|`can_administrate`|
+|`baseLanguage`|`EzSystems\EzPlatformAdminUi\EventListener\ContentTranslateViewFilterParametersListener::onFilterViewParameters`|`base_language`|
+|`contentType`|`EzSystems\EzPlatformAdminUi\EventListener\ContentTranslateViewFilterParametersListener::onFilterViewParameters`|`content_type`|
+|`isPublished`|`EzSystems\EzPlatformAdminUi\EventListener\ContentTranslateViewFilterParametersListener::onFilterViewParameters`|`ContentInfo::isPublished`|
+|`fieldDefinitionsByGroup`|`EzSystems\EzPlatformAdminUi\Tab\LocationView\ContentTab`| `field_definitions_by_group` |
+|`full`|`window.eZ.adminUiConfig.dateFormat`| `fullDateTime` |
+|`short`|`window.eZ.adminUiConfig.dateFormat`| `shortDateTime` |
+|`limit`|`EzSystems\EzPlatformAdminUi\UI\Module\Subitems\ContentViewParameterSupplier`| - |
+|`contentTypeNames`|`window.eZ.adminUiConfig`|`contentTypes`|
+
+Following the upgrade to Symfony 4, the following event classes have been deprecated:
+
+|Deprecated|Use instead|
+|----------|-----------|
+|`Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent`|`Symfony\Component\HttpKernel\Event\ExceptionEvent`|
+|`Symfony\Component\HttpKernel\Event\GetResponseEvent`|`Symfony\Component\HttpKernel\Event\RequestEvent`|
+
+Also, as of Symfony 4, the `transchoice` Twig filter has been replaced with `trans`.
+New translation strings are required.
+
+##### SubtreeQuery
+
+Deprecated `SubtreeQuery` class has been removed. In v3.0, it was replaced by `EzSystems\EzPlatformAdminUi\QueryType\SubtreeQueryType`.
+
+### Permission Choice Loaders
+
+The following choiceLoaders classes deprecated in v2.5 have been removed:
+
+- `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\PermissionAwareContentTypeChoiceLoader`
+- `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\PermissionAwareLanguageChoiceLoader`
+
+Instead, use the following classes:
+
+- `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\ContentCreateContentTypeChoiceLoader`
+- `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\ContentCreateLanguageChoiceLoader`
+
+## ezplatform-admin-ui-assets
+
+No deprecations or backward compatibility breaks to document.
+
+## ezplatform-admin-ui-modules
+
+### Universal Discovery Widget
+
+The deprecated `universal_discovery_widget_module.default_location_id` setting has been replaced with `universal_discovery_widget_module.configuration.default.starting_location_id`.
+
+## ezplatform-content-forms
+
+This new package contains forms for content creation moved from `repository-forms`.
+
+## ezplatform-core
+
+No deprecations or backward compatibility breaks to document.
+
+## ezplatform-cron
+
+No deprecations or backward compatibility breaks to document.
+
+## ezplatform-design-engine
+
+### Code cleanup in Design Engine
+
+- The deprecated `Twig\Loader\ExistsLoaderInterface` has been removed.
+- The deprecated `Twig_Profiler_Profile` Twig class has been replaced with `Twig\Profiler\Profile`.
+- The deprecated `Twig_Environment` Twig class has been replaced with `Twig\Environment`
+
+## ezplatform-ee-installer
+
+No deprecations or backward compatibility breaks to document.
+
+## ezplatform-form-builder
+
+### JavaScript
+
+#### Event names changed
+
+The following event names have been changed:
+
+|Former name|New name|
+|-----------|--------|
+|`openUdw`|`ez-open-udw`|
+|`updateFieldName`|`ez-update-field-name`|
+|`fbFormBuilderLoaded`|`ez-form-builder-loaded`|
+|`fbFormBuilderUnloaded`|`ez-form-builder-unloaded`
+
+## ezplatform-graphql
+
+No deprecations or backward compatibility breaks to document.
+
+## ezplatform-http-cache
+
+### FOS Cache Bundle v2
+
+HTTP cache bundle now uses FOS Cache Bundle v2. 
+
+This entails that:
+
+- `EzSystems\PlatformHttpCacheBundle\Proxy\TagAwareStore` has been removed.
+- `EzSystems\PlatformHttpCacheBundle\Handler\TagHandler` has been changed so that the tag is now provided as an option in `header_formatter`.
+- `tagResponse()` from `tagHandler` has been replaced by `tagSymfonyResponse()`.
+- Deprecated `EzSystems\PlatformHttpCacheBundle\Handler\TagHandlerInterface` has been removed.
+- `EzSystems\PlatformHttpCacheBundle\PurgeClient\PurgeClientInterface` now only accepts an array as argument in the `purge()` method, instead of an int.
+- The `X-User-Hash` header for recognizing user context has been changed to `X-User-Context-Hash`.
+- The `key` header for purging tags has been changed to `xkey-softpurge`.
+- The `PURGE` method has been changed to `PURGEKEY`.
+- The `ezplatform.http_cache.tags.header` parameter has been removed. Configuration now relies on FOS Cache configuration and its default values.
+
+### Code cleanup in HTTP Cache
+
+Instances of the following deprecated event classes have been replaced:
+
+|Deprecated class|Replaced with|
+|----------------|-------------|
+|`Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent`|`Symfony\Component\HttpKernel\Event\ExceptionEvent`|
+|`Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent`|`Symfony\Component\HttpKernel\Event\ViewEvent`|
+|`Symfony\Component\HttpKernel\Event\FilterResponseEvent`|`Symfony\Component\HttpKernel\Event\ResponseEvent`|
+|`Symfony\Component\HttpKernel\Event\GetResponseEvent`|`Symfony\Component\HttpKernel\Event\RequestEvent`|
+|`Twig_Extension`|`Twig\Extension\AbstractExtension`|
+|`Twig_SimpleFunction`|`Twig\TwigFunction`|
+
+Selected deprecated Role Service and permission-related methods have been removed.
+For details, see [code cleanup in kernel](#code-cleanup-in-kernel).
+
+## ezpublish-kernel
+
+### Controllers
+
+The `eZ\Bundle\EzPublishCoreBundle\Controller` now extends `Symfony\Bundle\FrameworkBundle\Controller\AbstractController` instead of `Symfony\Bundle\FrameworkBundle\Controller\Controller` which has limited access to the dependency injection container.
+For details, see [Service Subscribers Locators.](https://symfony.com/doc/current/service_container/service_subscribers_locators.html)
+
+The `Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand` is deprecated, use `Symfony\Component\Console\Command\Command` instead.
+
+### Elastic Search
+
+Experimental, deprecated and unsupported code for Elastic Search 1.4.2 has been dropped from kernel,
+to be replaced with a dedicated bundle for the latest Elastic version in the future.
+
+### Field Types
+
+#### Star Rating
+
+The unused `ezsrrating` Field Type has been removed along with the related database storage and clean installation entries.
+
+#### RichText
+
+The `ezrichtext` Field Type has been removed from `ezpublish-kernel`.
+Use [`ezplatform-richtext`](https://github.com/ezsystems/ezplatform-richtext) instead.
+
+Following this change:
+
+- The `eZ\Publish\Core\FieldType\RichText` namespace has been dropped. All classes are available in `ezplatform-richtext`.
+- The only correct configuration (recommended as of v2.4) looks the following way:
+
+Now (as of v3.0):
+
+``` yaml
+ezrichtext:
+```
+
+Formerly (deprecated as of v2.4, removed as of v3.0)
+
+``` yaml
+ezpublish:
+    ezrichtext
+```
+
+### Legacy Storage Gateways
+
+The following deprecated (since v6.11) Legacy Storage Gateways have been removed:
+
+- `eZ\Publish\Core\FieldType\BinaryFile\BinaryBaseStorage\Gateway\LegacyStorage`
+- `eZ\Publish\Core\FieldType\BinaryFile\BinaryFileStorage\Gateway\LegacyStorage`
+- `eZ\Publish\Core\FieldType\MapLocation\MapLocationStorage\Gateway\LegacyStorage`
+- `eZ\Publish\Core\FieldType\Image\ImageStorage\Gateway\LegacyStorage`
+- `eZ\Publish\Core\FieldType\Keyword\KeywordStorage\Gateway\LegacyStorage`
+- `eZ\Publish\Core\FieldType\Media\MediaStorage\Gateway\LegacyStorage`
+- `eZ\Publish\Core\FieldType\Url\UrlStorage\Gateway\LegacyStorage`
+- `eZ\Publish\Core\FieldType\User\UserStorage\Gateway\LegacyStorage`
+
+Use `DoctrineStorage` Gateways from the same namespace instead.
+The removed classes refer to External Storage for core Field Types only.
+
+### REST server
+
+Transfer of REST code from kernel to a separate package results in the following change:
+
+- The `eZ\Publish\Core\REST` and `eZ\Publish\Core\REST\Common\` namespaces have been replaced by `EzSystems\EzPlatformRest`.
+- REST client has been dropped.
+
+### SiteAccess-aware Repository
+
+The Repository now uses the SiteAccess-aware layer by default.
+This means Repository objects will now be loaded in the translation corresponding to the SiteAccess.
+To load an object with all its translations, explicitly pass `eZ\Publish\API\Repository\Values\Content\Language::ALL`
+as the prioritized languages list.
+
+### SiteAccess matching
+
+When matching SiteAccesses using custom services, the SiteAccess matcher service must be now tagged with `ezplatform.siteaccess.matcher`.
+
+### Database
+
+The following obsolete tables have been removed from the database schema:
+
+??? note "Removed database tables"
+
+    - ezapprove_items
+    - ezbasket
+    - ezcollab_group
+    - ezcollab_item
+    - ezcollab_item_group_link
+    - ezcollab_item_message_link
+    - ezcollab_item_participant_link
+    - ezcollab_item_status
+    - ezcollab_notification_rule
+    - ezcollab_profile
+    - ezcollab_simple_message
+    - ezcomment
+    - ezcomment_notification
+    - ezcomment_subscriber
+    - ezcomment_subscription
+    - ezcontentbrowserecent
+    - ezcurrencydata
+    - ezdiscountrule
+    - ezdiscountsubrule
+    - ezdiscountsubrule_value
+    - ezenumobjectvalue
+    - ezenumvalue
+    - ezforgot_password
+    - ezgeneral_digest_user_settings
+    - ezinfocollection
+    - ezinfocollection_attribute
+    - ezisbn_group
+    - ezisbn_group_range
+    - ezisbn_registrant_range
+    - ezm_block
+    - ezm_pool
+    - ezmessage
+    - ezmodule_run
+    - ezmultipricedata
+    - eznotificationcollection
+    - eznotificationcollection_item
+    - eznotificationevent
+    - ezoperation_memento
+    - ezorder
+    - ezorder_item
+    - ezorder_nr_incr
+    - ezorder_status
+    - ezorder_status_history
+    - ezpaymentobject
+    - ezpdf_export
+    - ezpending_actions
+    - ezprest_authcode
+    - ezprest_authorized_clients
+    - ezprest_clients
+    - ezprest_token
+    - ezproductcategory
+    - ezproductcollection
+    - ezproductcollection_item
+    - ezproductcollection_item_opt
+    - ezpublishingqueueprocesses
+    - ezrss_export
+    - ezrss_export_item
+    - ezrss_import
+    - ezscheduled_script
+    - ezsearch_search_phrase
+    - ezsession
+    - ezsubtree_notification_rule
+    - eztipafriend_counter
+    - eztipafriend_request
+    - eztrigger
+    - ezuservisit
+    - ezuser_discountrule
+    - ezvatrule
+    - ezvatrule_product_category
+    - ezvattype
+    - ezview_counter
+    - ezwaituntildatevalue
+    - ezwishlist
+    - ezworkflow
+    - ezworkflow_assign
+    - ezworkflow_event
+    - ezworkflow_group
+    - ezworkflow_group_link
+    - ezworkflow_process
+
+You can drop unused tables from your database by executing:
+
+``` sql
+DROP TABLE <table_name>;
+```
+
+- The "Setup" folder and Section have been removed from clean installation data.
+- The "Design" Section has been removed from clean installation data.
+
+### Symfony Services
+
+The `date_based_publisher.permission_resolver` Symfony Service deprecated in v2.5 has been removed. 
+Instead, you can inject `eZ\Publish\API\Repository\PermissionResolver` and rely on auto-wiring.
+
+### Symfony MIME component
+
+The deprecated `Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesserInterface` has been replaced with `Symfony\Component\Mime\MimeTypesInterface`.
+
+### Template parameter names
+
+The SiteAccess-aware `pagelayout` setting is deprecated in favor of `page_layout`.
+
+View parameter `pagelayout` set by `pagelayout` setting is deprecated in favor of  `page_layout`.
+
+### Code cleanup in eZ Platform Kernel
+
+Instances of the deprecated code have been replaced:
+
+|Deprecated|Replaced with|
+|----------|-------------|
+|`Symfony\Component\Security\Core\User\AdvancedUserInterface`|`Symfony\Component\Security\Core\User\UserInterface`|
+|`Symfony\Component\HttpKernel\Event\FilterResponseEvent`|`Symfony\Component\HttpKernel\Event\ResponseEvent`|
+|`Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent`|`Symfony\Component\HttpKernel\Event\ViewEvent`|
+|`Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent`|`Symfony\Component\HttpKernel\Event\ExceptionEvent`|
+|`Symfony\Component\HttpKernel\Event\GetResponseEvent`|`Symfony\Component\HttpKernel\Event\RequestEvent`|
+|`Symfony\Component\HttpKernel\Event\FilterControllerArgumentsEvent`|`Symfony\Component\HttpKernel\Event\ControllerEvent`|
+
+Also, as of Symfony 4, the `transchoice` Twig filter has been replaced with `trans`.
+New translation strings are required.
+
+The deprecated `eZ\Publish\Core\MVC\Symfony\Matcher\MatcherInterface` interface has been dropped.
+The following deprecated classes relying on that interface have been removed as well:
+
+- `eZ\Publish\Core\MVC\Symfony\Matcher\AbstractMatcherFactory`
+- `eZ\Publish\Core\MVC\Symfony\Matcher\ContentBasedMatcherFactory`
+- `eZ\Publish\Core\MVC\Symfony\Matcher\ContentMatcherFactory`
+- `eZ\Publish\Core\MVC\Symfony\Matcher\LocationMatcherFactory`
+
+#### Role Service methods
+
+The following deprecated Role Service methods have been removed:
+
+- `eZ\Publish\API\Repository\RoleService::updateRole`
+- `eZ\Publish\API\Repository\RoleService::addPolicy`
+- `eZ\Publish\API\Repository\RoleService::deletePolicy`
+- `eZ\Publish\API\Repository\RoleService::updatePolicy`
+- `eZ\Publish\API\Repository\RoleService::loadPoliciesByUserId`
+- `eZ\Publish\API\Repository\RoleService::unassignRoleFromUser`
+- `eZ\Publish\API\Repository\RoleService::unassignRoleFromUserGroup`
+
+#### Permission-related methods
+
+The following deprecated permission-related methods have been removed:
+
+- `eZ\Publish\API\Repository\UserService::loadAnonymousUser`
+- `eZ\Publish\API\Repository\Repository::getCurrentUser`
+- `eZ\Publish\API\Repository\Repository::getCurrentUserReference`
+- `eZ\Publish\API\Repository\Repository::setCurrentUser`
+- `eZ\Publish\API\Repository\Repository::hasAccess`
+- `eZ\Publish\API\Repository\Repository::canUser`
+
+### Twig classes
+
+The following deprecated Twig classes have been replaced:
+
+|Deprecated|Replaced with|
+|----------|-------------|
+|`Twig_Extensions_Extension_Intl`|`Twig\Extensions\IntlExtension`|
+|`Twig_Template`|`Twig\Template`|
+|`Twig_Node`|`Twig\Node\Node`|
+
+## ezplatform-matrix-fieldtype
+
+No deprecations or backward compatibility breaks to document.
+
+## ezplatform-page-builder
+
+#### JavaScript
+
+#### Event names changed
+
+The following event names have been changed:
+
+|Former name|New name|
+|-----------|--------|
+|`openUdw`|`ez-open-udw`|
+|`openAirtimePopup`|`ez-open-airtime-popup`|
+|`postUpdateBlocksPreview`|`ez-post-update-blocks-preview`|
+|`pbIframeLoaded`|`ez-page-builder-iframe-loaded`|
+|`pbHideTools`|`ez-page-builder-hide-tools`|
+
+Additionally, the listener for `pbPreviewReloaded` has been removed.
+
+## ezplatform-page-fieldtype
+
+### Namespace location update
+
+The following namespaces have been changed:
+
+|Namespace|Former location|New location|
+|---------|------------|---------------|
+|`FieldData`|`EzSystems\RepositoryForms\Data\Content\`|`EzSystems\EzPlatformContentForms\Data\Content\`|
+|`FieldValueFormMapperInterface`|`EzSystems\RepositoryForms\FieldType\`|`EzSystems\EzPlatformContentForms\FieldType\`
+
+## ezplatform-rest
+
+### Code cleanup in eZ Platform REST
+
+Selected deprecated Role Service and permission-related methods have been removed.
+For details, see [code cleanup in kernel](#code-cleanup-in-kernel).
+
+## ezplatform-richtext
+
+### Code cleanup in eZ Platform RichText
+
+Selected deprecated permission-related methods have been removed.
+For details, see [code cleanup in kernel](#code-cleanup-in-kernel).
+
+### Input and output converters
+
+Following the removal of the `ezrichtext` Field Type from kernel, the following deprecated converter tags have been changed:
+
+|Formerly|Currently|
+|--------|---------|
+|`ezpublish.ezrichtext.converter.output.xhtml5`|`ezrichtext.converter.output.xhtml5`|
+|`ezpublish.ezrichtext.converter.input.xhtml5`|`ezrichtext.converter.input.xhtml5`|
+
+### Online Editor
+
+Configuration providers exposing the following JavaScript variables have been dropped:
+
+- `eZ.adminUiConfig.alloyEditor` replaced by `eZ.richText.alloyEditor`
+- `eZ.adminUiConfig.richTextCustomTags` replaced by `eZ.richText.customTags`
+- `eZ.adminUiConfig.richTextCustomStyles` replaced by `eZ.richtext.customStyles`
+
+The following Webpack Encore entries have been changed:
+
+- `ezplatform-admin-ui-alloyeditor-css` replaced by `ezplatform-richtext-onlineeditor-css`
+- `ezplatform-admin-ui-alloyeditor-js` replaced by `ezplatform-richtext-onlineeditor-js`
+
+All Online Editor front-end code and assets (such as JS, CSS, fonts, etc.)
+have been moved from `ezplatform-admin-ui` to `ezplatform-richtext`.
+
+### View matching
+
+When matching views using custom services, the services must be now tagged with `ezplatform.view.matcher`.
+The matching must be configured in the following way:
+
+``` yaml
+content_view:
+    full:
+        folder:
+            template: folder.html.twig
+            match:
+                '@App\Matcher\MyMatcher': ~
+```
+
+### Service tags
+
+The following `ezrichtext` service tags have been extended to be consistent with other service tags:
+
+|Currently|Formerly|
+|---------|--------|
+|`ezplatform.ezrichtext.converter.output.xhtml5`|`ezrichtext.converter.output.xhtml5`|
+|`ezplatform.ezrichtext.converter.input.xhtml5`|`ezrichtext.converter.input.xhtml5`|
+|`ezplatform.ezrichtext.validator.input.ezxhtml5`|`ezrichtext.validator.input.ezxhtml5`|
+
+## ezplatform-solr-search-engine
+
+No deprecations or backward compatibility breaks to document.
+
+## ezplatform-standard-design
+
+No deprecations or backward compatibility breaks to document.
+
+## ezplatform-user
+
+### User settings
+
+As a result of moving user settings to the [`ezplatform-user`](https://github.com/ezsystems/ezplatform-user) package,
+the following deprecated code for handling the settings has been dropped:
+
+- `EzSystems\EzPlatformAdminUi\UserSetting\`
+- `EzSystems\EzPlatformAdminUi\Pagination\Pagerfanta\UserSettingsAdapter`
+- `EzSystems\EzPlatformAdminUi\Form\Type\User\Setting\UserSettingUpdateType`
+- `EzSystems\EzPlatformAdminUiBundle\Controller\UserProfile\UserPasswordChangeController`
+- `EzSystems\EzPlatformAdminUiBundle\Controller\User\{UserSettingsController,UserForgotPasswordController}`
+
+### Code cleanup in eZ Platform User
+
+The deprecated `Symfony\Bundle\FrameworkBundle\Controller\Controller` has been replaced with `Symfony\Bundle\FrameworkBundle\Controller\AbstractController`.
+
+## ezplatform-workflow
+
+No deprecations or backward compatibility breaks to document.
+
+## ez-support-tools
+
+No deprecations or backward compatibility breaks to document.
+
+## flex-workflow
+
+This package is deprecated. Its functionality has been moved to `ezplatform-workflow`.
+
+## repository-forms
+
+Forms located in `repository-forms` have been moved to other packages.
+
+Content Type editing, including Action Dispatchers, Form Processors, Types and Data classes related to Content Types/Limitations,
+has been moved to `ezplatform-admin-ui`.
+
+The following locations have been changed:
+
+|Former location|New location|
+|---------------|------------|
+|`EzSystems\RepositoryForms\Data\FieldDefinitionData`| `EzSystems\EzPlatformAdminUi\Form\Data\FieldDefinitionData`|
+|`EzSystems\RepositoryForms\FieldType\FieldDefinitionFormMapperInterface`|`EzSystems\EzPlatformAdminUi\FieldType\FieldDefinitionFormMapperInterface` |
+|`EzSystems\RepositoryForms\Limitation\LimitationFormMapperInterface`|`EzSystems\EzPlatformAdminUi\Limitation\LimitationFormMapperInterface`|
+|`EzSystems\RepositoryForms\Limitation\LimitationValueMapperInterface`|`EzSystems\EzPlatformAdminUi\Limitation\LimitationValueMapperInterface`|
+
+Forms for content creation have been moved to a new `ezplatform-content-forms` package.
+
+`repository-forms` remains as an additional layer ensuring that your custom implementations that use the package will still work.
+To use this repository, you have to add the package manually to your `composer.json`.

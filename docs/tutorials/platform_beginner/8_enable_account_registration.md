@@ -19,7 +19,7 @@ Then go to `<yourdomain>/register`. The registration form is unstyled, so you ne
 In the `config/packages/views.yaml` file add a `user_registration` key under `site_group`, at the same level as `content_view`:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         site_group:
             # existing content_view keys
@@ -192,8 +192,8 @@ Now add the following Policies to the Contributors Role.
 - User/Password
 - Content/Read
 - Content/Versionread
-- Content/Create with Limitations: Content Type limited to Ride and Landmark Content Types and Subtree of Location to the `Member Rides`
-- Content/Publish with Limitations: Content Type limited to Ride and Landmark Content Types and Subtree of Location to the `Member Rides`
+- Content/Create with Limitations: Content Type limited to Ride and Landmark Content Types and Subtree to the `Member Rides`
+- Content/Publish with Limitations: Content Type limited to Ride and Landmark Content Types and Subtree to the `Member Rides`
 - Content/Edit with Limitation: Owner limited to `Self`
 - Section/View
 - Content/Reverserelatedlist
