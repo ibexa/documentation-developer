@@ -92,6 +92,10 @@ for user passwords.
 
 You can now assign Page Builder blocks to groups using the `ezplatform_page_fieldtype.blocks.<block_name>.category` setting.
 
+### Bulk actions in Sub-items list
+
+You can now use the Sub-items list to quickly hide, reveal, to add Locations to multiple Content items.
+
 ## Other changes
 
 ### GraphQL
