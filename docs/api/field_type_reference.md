@@ -1503,13 +1503,13 @@ new FieldType\Value([
 
 ### GraphQL Field Type operations
 
-To get a Matrix Field Type you will need a Content ID, a Content Type and a field. 
-The types that are used for input and returned are named after the Content Type and the field: 
+To get a Matrix Field Type, you will need to specify a Content ID, a Content Type, and a Field Type. 
+The types used for input and returned are named after the Type and the Field: 
 
 - `{TypeIdentifier}{FieldIdentifier}RowInput`
 - `{TypeIdentifier}{FieldIdentifier}Row`
 
-Below example shows GraphQL query for a List Content Type (Content Type with a Matrix Field Type added), that has two fields:
+The example below shows GraphQL query for a List Content Type (Content Type with a Matrix Field Type added), that has two fields:
 
 - `name`: `ezstring`
 - `ingredientList`: `ezmatrix` with two columns: `ingredient` and `quantity`
