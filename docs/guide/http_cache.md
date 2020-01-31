@@ -387,6 +387,9 @@ ezpublish:
 
     It is recommended to use either `app/config/parameters.yml` or the environment variable.
 
+    As of eZ Platform EE v1.13.6 and 2.5.9, you no longer need to set `HTTPCACHE_PURGE_SERVER` if you set `purge_type`
+    via `HTTPCACHE_PURGE_TYPE`. If you set `purge_type` by any other means, you still will need to set `purge_server` too.
+
     Note that in `app/config/ezplatform.yml`, the `purge_server` setting is an array while `purge_server` in
     `app/config/parameters.yml` and the `HTTPCACHE_PURGE_SERVER` environment variable should be a string.
 
