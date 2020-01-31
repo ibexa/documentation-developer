@@ -1503,13 +1503,13 @@ new FieldType\Value([
 
 ### GraphQL Field Type operations
 
-To get a Matrix Field Type, you will need to specify a Content ID, a Content Type, and a Field Type. 
-The types used for input and returned are named after the Type and the Field: 
+To get a Field of the Matrix Field Type with GraphQL, you will need to specify a Content ID, a Content Type, and a Field Type. 
+The types that are used for input and returned are named after the Type and the Field: 
 
 - `{TypeIdentifier}{FieldIdentifier}RowInput`
 - `{TypeIdentifier}{FieldIdentifier}Row`
 
-The example below shows GraphQL query for a Recipe Content Type (Content Type with a Matrix Field Type added), that has two fields:
+The example below shows a GraphQL query for a Recipe Content item (belonging to a Content Type with a Matrix Field added), that has two Fields:
 
 - `name`: `ezstring`
 - `ingredients`: `ezmatrix` with two columns: `ingredient` and `quantity`
@@ -1552,14 +1552,14 @@ The Type returned for the Matrix Field exposes columns defined in the Field defi
 }
 ```
 
-**Query for the Field Type and Field definition's details**
+#### Query for the Field Type and Field definition's details
 
 With this query you can inspect:
 
 - the existing types 
-- details of Content Types, and their fields in the context of a back office like applications
+- details of Content Types, and their Fields in the context of developing your own application
 
-In case of Matrix Field Type, you can ask for the list of columns, their names and identifiers.
+In case of a Matrix Field, you can ask for the list of columns, their names and identifiers.
 
 
 ```
@@ -1582,7 +1582,7 @@ In case of Matrix Field Type, you can ask for the list of columns, their names a
 }
 ```
 
-Response should list the exposed Field Type settings:
+The response will list the exposed Field Type settings:
 
 - minimumRows
 - columns
@@ -1619,11 +1619,11 @@ Example response:
 }
 ```
 
-**Mutation**
+#### Mutation
 
 To create a Matrix Field Type you need to define Field Type and Field definition identifiers.
 
-Below example shows you how to create a Recipe Content Type (Content Type with a Matrix Field Type added) that has two fields:
+The example below shows how to create a Recipe Content item (belonging to a Content Type with a Matrix Field Type added) that has two Fields:
 
 - `name`: `"Cake Ingredient List"`
 - `ingredients`: `ezmatrix` with two columns: `ingredient` and `quantity`
@@ -1646,7 +1646,7 @@ Below example shows you how to create a Recipe Content Type (Content Type with a
 }
 ```
 
-Response should confirm creation of the new Recipe Field:
+The response will confirm creation of the new Recipe Field:
 
 ```
 {
