@@ -181,72 +181,6 @@ Response:
 }
 ```
 
-### Get Matrix Field Type
-
-To get a Matrix Field Type, use `product` field.
-
-The example below shows Product Content Type that has two fields:
-
-- `name`: `ezstring`
-- `features`: `ezmatrix` with two columns: `name` and `price`
-
-Fields of that type return a list of `ProductFeaturesRow`.
-
-```
-{
-  content {
-    product(contentId: 123) {
-      name
-      features {
-        name
-        price
-      }
-    }
-  }
-}
-```
-
-Response:
-
-```
-{
-  content {
-    _types {
-      product {
-        features {
-          settings {
-            minimumRows
-            columns {
-              name
-              identifier
-            }
-          }
-        }
-      }
-    }
-  }
-}
-```
-
-Mutation - fields of that type expect a `ProductFeaturesRowInput`:
-
-```
-mutation AddProduct {
-  createProduct(
-    parentLocationId: $parentLocationId,
-    input: {
-      name: "test",
-      features: [
-        {name: "foo", weight: "200", price: "20"}
-        {name: "bar", weight: "300", price: "15"}
-      ]
-    }
-  ) {
-    name
-  }
-}
-```
-
 ## Querying Locations
 
 To query a Location and its children, use the repository schema:
@@ -480,3 +414,7 @@ To request a specific page, provide the `cursor` as an argument to `children`:
 ```
 children(first: 3, after: "YXJyYXljb25uZWN0aW9uOjM=")
 ```
+
+### Get Matrix Field Type
+
+To get a Matrix Field Type with GraphQL, see [Matrix Field Type reference](field_type_reference.md#graphql-matrix-field-type-query).

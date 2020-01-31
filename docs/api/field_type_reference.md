@@ -1501,6 +1501,157 @@ new FieldType\Value([
 ]);
 ```
 
+### GraphQL Field Type operations
+
+To get a Matrix Field Type you will need a Content ID, a Content Type and a field. 
+The types that are used for input and returned are named after the Content Type and the field: 
+
+- `{TypeIdentifier}{FieldIdentifier}RowInput`
+- `{TypeIdentifier}{FieldIdentifier}Row`
+
+Below example shows GraphQL query for a List Content Type (Content Type with a Matrix Field Type added), that has two fields:
+
+- `name`: `ezstring`
+- `ingredientList`: `ezmatrix` with two columns: `ingredient` and `quantity`
+
+```
+{
+  content {
+    #provide content ID, location ID or remote ID
+    list(id: 123) {
+      name
+      ingredientList {
+        ingredient
+        quantity
+      }
+    }
+  }
+}
+```
+
+The Type returned for the Matrix Field exposes columns defined in the Field definition:
+
+```
+{
+  "data": {
+    "content": {
+      "list": {
+        "name": "Cake ingredients",
+        "ingredientList": [
+          {
+            "ingredient": "Butter",
+            "quantity": "200 grams"
+          },
+          {
+            "ingredient": "Sugar",
+            "quantity": "100 grams"
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+**Query for the Field Type and Field definition's details**
+
+```
+{
+  content {
+    _types {
+      list {
+        ingredientList {
+          settings {
+            minimumRows
+            columns {
+              name
+              identifier
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+Response should list the exposed Field Type settings:
+
+- minimumRows
+- columns
+    - name
+    - identifier
+
+Example response:
+
+```
+{
+  "data": {
+    "content": {
+      "_types": {
+        "list": {
+          "ingredientList": {
+            "settings": {
+              "minimumRows": 1,
+              "columns": [
+                {
+                  "name": "ingredient",
+                  "identifier": "ingredient"
+                },
+                {
+                  "name": "quantity",
+                  "identifier": "quantity"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+**Mutation**
+
+To create a Matrix Field Type you need to define Field Type and Field definition identifiers.
+
+Below example shows you how to create a List Content Type (Content Type with a Matrix Field Type added) that has two fields:
+
+- `name`: `"Cake Ingredient List"`
+- `ingredientList`: `ezmatrix` with two columns: `ingredient` and `quantity`
+
+```
+ mutation AddList {
+  createList(
+    language: eng_GB
+    parentLocationId: 2,
+    input: {
+      name: "Cake Ingredient List",
+      ingredientList: [
+        {ingredient: "sugar", quantity: "100 grams"}
+        {ingredient: "butter", quantity: "200 grams"}
+      ]
+    }
+  ) {
+    name
+  }
+}
+```
+
+Response should confirm creation of the new List Field:
+
+```
+{
+  "data": {
+    "createList": {
+      "name": "Cake Ingredient List"
+    }
+  }
+}
+
+```
+
 ## Media Field Type
 
 This Field Type represents and handles a media (audio/video) binary file.
