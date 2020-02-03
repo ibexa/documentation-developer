@@ -13,7 +13,8 @@ The service should be [injected into the constructor of your command or controll
 ### ContentInfo
 
 Basic content metadata is available through [`ContentInfo`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/ContentInfo.php) objects and their properties.
-This value object mostly provides primitive fields, such as `contentTypeId`, `publishedDate`, or `mainLocationId`.
+This value object provides primitive fields, such as `contentTypeId`, `publishedDate`, or `mainLocationId`,
+as well as methods for retrieving selected properties.
 
 You can also use it to request other Content-related value objects from various services:
 
@@ -36,7 +37,7 @@ class ViewContentMetaDataCommand extends Command
             $output->writeln("Last modified: " . $contentInfo->modificationDate->format('Y-m-d'));
             $output->writeln("Published: ". $contentInfo->publishedDate->format('Y-m-d'));
             $output->writeln("RemoteId: $contentInfo->remoteId");
-            $output->writeln("Main Language: $contentInfo->mainLanguageCode");
+            $output->writeln("Main Language: " . $contentInfo->getMainLanguage()->name);
             $output->writeln("Always available: " . ($contentInfo->alwaysAvailable ? 'Yes' : 'No'));
         } catch //..
     }
@@ -87,11 +88,11 @@ foreach ($locations as $location) {
 ### Content Type
 
 You can retrieve the Content Type of a Content item
-through the [`getContentType`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/Content.php#L107) method of the Content object:
+through the [`getContentType`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/ContentInfo.php#L186) method of the ContentInfo object:
 
 ``` php
 $content = $this->contentService->loadContent($contentId);
-$output->writeln("Content Type: " . $content->getContentType()->getName());
+$output->writeln("Content Type: " . $contentInfo->getContentType()->identifier);
 ```
 
 ### Versions
@@ -102,10 +103,9 @@ use the [`ContentService::loadVersions`](https://github.com/ezsystems/ezpublish-
 ``` php
 $versionInfos = $this->contentService->loadVersions($contentInfo);
 foreach ($versionInfos as $versionInfo) {
-    $creator = $this->userService->loadUser($versionInfo->creatorId);
     $output->write("Version $versionInfo->versionNo ");
-    $output->write(" by " . $creator->contentInfo->name);
-    $output->writeln(" in " . $versionInfo->initialLanguageCode);
+    $output->write(" by " . $versionInfo->getCreator()->getName());
+    $output->writeln(" in " . $versionInfo->getInitialLanguage()->name);
 }
 ```
 
@@ -150,12 +150,10 @@ and the optional Field this relation is made with.
 
 ### Owning user
 
-You can use [`UserService::loadUser`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/UserService.php#L141)
-with the `ownerId` property of `ContentInfo` to load the Content item's owner as a `User` value object.
+You can use the `getOwner` method of the `ContentInfo` object to load the Content item's owner as a `User` value object.
 
 ``` php
-$owner = $userService->loadUser($contentInfo->ownerId);
-$output->writeln('Owner: ' . $owner->contentInfo->name);
+$output->writeln("Owner: " . $contentInfo->getOwner()->getName());
 ```
 
 To get the creator of the current version and not the Content item's owner,
@@ -163,13 +161,12 @@ you need to use the `creatorId` property from the current version's `VersionInfo
 
 ### Section
 
-The Section's ID can be found in the `sectionId` property of the `ContentInfo` object.
-To get the matching Section value object,
-you need to use the [`SectionService::loadSection`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/SectionService.php#L57) method.
+You can find the Section to which a Content item belongs through
+the [`getSection`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/ContentInfo.php#L191) method
+of the ContentInfo object:
 
 ``` php
-$section = $sectionService->loadSection($contentInfo->sectionId);
-$output->writeln("Section: $section->name");
+$output->writeln("Section: " . $contentInfo->getSection()->name);
 ```
 
 !!! note
@@ -292,6 +289,19 @@ returns a [`LocationList`](https://github.com/ezsystems/ezpublish-kernel/blob/v7
 !!! note
 
     Refer to [Searching](public_php_api_search.md) for information on more complex search queries.
+
+## Getting parent Location
+
+To get the parent Location of content, you first need to determine which Location is the main one,
+in case the Content item has multiple Locations.
+You can do it through the `getMainLocation` method of the ContentInfo object.
+
+Next, use the `getParentLocation` method of the Location object to access the parent Location:
+
+``` php
+$mainLocation = $contentInfo->getMainLocation();
+$output->writeln("Parent Location: " . $mainLocation->getParentLocation()->pathString);
+```
 
 ## Getting content from a Location
 
