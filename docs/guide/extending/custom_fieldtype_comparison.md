@@ -14,11 +14,11 @@
     
     ``` php
     use eZ\Publish\SPI\FieldType\Value;
-    use EzSystems\EzPlatformContentComparison\Comparison\ComparisonData;
+    use EzSystems\EzPlatformContentComparison\FieldType\FieldTypeComparisonValue;
     
     interface Comparable
     {
-        public function getDataToCompare(Value $value): ComparisonData;
+        public function getDataToCompare(SPIValue $value): FieldTypeComparisonValue;
     }
     ```
     
@@ -28,9 +28,9 @@
     In case of `ezstring`, the implementation is:
     
     ``` php
-    public function getDataToCompare(Value $value): ComparisonData
+    public function getDataToCompare(SPIValue $value): FieldTypeComparisonValue
     {
-        return new TextLine([
+        return new Value([
             'textLine' => new StringComparisonValue([
                 'value' => $value->text,
             ]),
@@ -52,19 +52,19 @@
     The comparison engine handles the operations required for comparing the contents of Fields.
     Note that each Field Type requires a separate comparison engine.
     
-    When creating a custom engine, ensure that it implements the `EzSystems\EzPlatformContentComparison\Engine\ComparisonEngine` interface:
+    When creating a custom engine, ensure that it implements the `EzSystems\EzPlatformContentComparison\Engine\FieldTypeComparisonEngine` interface:
     
     ``` php
     namespace EzSystems\EzPlatformContentComparison\Engine;
     
-    use EzSystems\EzPlatformContentComparison\Comparison\ComparisonData;
+    use EzSystems\EzPlatformContentComparison\FieldType\FieldTypeComparisonValue;
     use EzSystems\EzPlatformContentComparison\Result\ComparisonResult;
     
-    interface ComparisonEngine
+    interface FieldTypeComparisonEngine
     {
-        public function compareFieldsData(ComparisonData $comparisonDataA, ComparisonData $comparisonDataB): ComparisonResult;
+        public function compareFieldsTypeValues(FieldTypeComparisonValue $comparisonDataA, FieldTypeComparisonValue $comparisonDataB): ComparisonResult;
     
-        public function areFieldsDataEqual(ComparisonData $comparisonDataA, ComparisonData $comparisonDataB): bool;
+        public function shouldRunComparison(FieldTypeComparisonValue $comparisonDataA, FieldTypeComparisonValue $comparisonDataB): bool;
     }
     ```
     
@@ -82,15 +82,15 @@
     ### VersionDiff
     
     `VersionDiff` is built by `ContentComparisonService::CompareVersions`.
-    It consists of an array of `EzSystems\EzPlatformContentComparison\Values\FieldValueDiff`.
+    It consists of an array of `EzSystems\EzPlatformContentComparison\FieldValueDiff`.
     It is an object that holds `EzSystems\EzPlatformContentComparison\Result\ComparisonResult`.
     It is specific to a Field Type because different Field Types have distinct way of showing the difference between their versions. 
     
     ``` php
     namespace EzSystems\EzPlatformContentComparison\Service;
     
-    use eZ\Publish\API\Repository\Values\Content\VersionDiff\VersionDiff;
     use eZ\Publish\API\Repository\Values\Content\VersionInfo;
+    use EzSystems\EzPlatformContentComparison\VersionDiff;
     
     interface ContentComparisonService
     {
