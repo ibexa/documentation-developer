@@ -18,7 +18,7 @@
     
     interface Comparable
     {
-        public function getDataToCompare(SPIValue $value): FieldTypeComparisonValue;
+        public function getDataToCompare(Value $value): FieldTypeComparisonValue;
     }
     ```
     
@@ -73,8 +73,8 @@
     ``` yaml
     
     EzSystems\EzPlatformContentComparison\Engine\FieldType\TextLineComparisonEngine:
-      tags:
-        - { name: ezplatform.field_type.comparable.engine, supported_type: EzSystems\EzPlatformContentComparison\Comparison\Field\TextLine }
+        tags:
+            - { name: ezplatform.field_type.comparable.engine, supported_type: EzSystems\EzPlatformContentComparison\FieldType\TextLine\Value }
     ```
     
     When configuring the engines, ensure to tag them with both the `ezplatform.field_type.comparable.engine` and `supported_type` tags.
