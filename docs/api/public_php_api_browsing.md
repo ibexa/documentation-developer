@@ -88,7 +88,7 @@ foreach ($locations as $location) {
 ### Content Type
 
 You can retrieve the Content Type of a Content item
-through the [`getContentType`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/ContentInfo.php#L168) method of the ContentInfo object:
+through the [`getContentType`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/ContentInfo.php#L186) method of the ContentInfo object:
 
 ``` php
 $content = $this->contentService->loadContent($contentId);
