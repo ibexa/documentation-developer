@@ -653,6 +653,10 @@ The following deprecated permission-related methods have been removed:
 - `eZ\Publish\API\Repository\Repository::hasAccess`
 - `eZ\Publish\API\Repository\Repository::canUser`
 
+#### createFromQueryBuilder methods
+
+Deprecated `creatFromQueryBuilder` methods have been removed from Criterion classes.
+
 ### Twig classes
 
 The following deprecated Twig classes have been replaced:
