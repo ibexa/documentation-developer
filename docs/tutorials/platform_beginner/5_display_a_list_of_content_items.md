@@ -39,7 +39,7 @@ In `templates/full/home_page.html.twig` replace the "Hello world" with a table t
 {% endblock %}
 ```
 
-The `rides` variable you use in line 5 above needs to contains a list of all Rides.
+The `rides` variable you use in line 5 above needs to contain a list of all Rides.
 To get this list, you will use a Query Type.
 
 ## Create a QueryType for the home page
@@ -111,7 +111,7 @@ You defined the name `Ride` in the Query Type file in the `getName` method.
 
 Using the `pagingQueryAction` of the built-in `ez_query` controller (line 6)
 enables you to automatically get paginated results.
-You set the limit of results per page in the `limit` parameter.
+You can set the limit of results per page in the `limit` parameter.
 
 ### View types
 
