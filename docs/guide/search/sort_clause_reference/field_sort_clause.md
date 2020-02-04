@@ -9,7 +9,7 @@ Results of the query that do not belong to the Content Type are ranked lower.
 ## Arguments
 
 - `typeIdentifier` - string representing the identifier of the Content Type to which the Field belongs
-- `fieldIdentifier` - string representing the identified of the Field to sort by
+- `fieldIdentifier` - string representing the identifier of the Field to sort by
 - `sortDirection` (optional) - Query or LocationQuery constant, either `Query::SORT_ASC` or `Query::SORT_DESC`.
 
 ## Example

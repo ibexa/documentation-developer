@@ -2,14 +2,6 @@
 
 Sort Clauses are the sorting options for Content and Location Search.
 
-A Sort Clause consists of two parts:
-
-- The API Value: `SortClause`
-- Specific handler per search engine: `SortClausesHandler`
-
-`SortClause` represents the value you use in the API, while `SortClauseHandler` deals with the business logic in the background,
-translating the value to something the search engine can understand.
-
 Capabilities of individual Sort Clauses can depend on the search engine.
 
 All Sort Clauses can take the following optional argument:
