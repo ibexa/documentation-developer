@@ -64,7 +64,7 @@ It is displayed on every page, and the content of the page is placed inside it.
 
 To add a template like this to your site, create a `main_layout.html.twig` file in `templates/` and paste the following code into it:
 
-``` html+twig hl_lines="12 87"
+``` html+twig hl_lines="12 89"
 <!DOCTYPE html>
 <html lang="en">
 
@@ -76,11 +76,13 @@ To add a template like this to your site, create a `main_layout.html.twig` file 
 
     <title>eZ Platform Beginner Tutorial</title>
 
-    {{  encore_entry_link_tags('tutorial') }}
+    {{ encore_entry_link_tags('tutorial') }}
 
     <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+
+    <script src="{{ asset('bundles/ezplatformadminuiassets/vendors/jquery/dist/jquery.min.js') }}"></script>
 </head>
 
 <body>
@@ -157,7 +159,7 @@ To add a template like this to your site, create a `main_layout.html.twig` file 
 </html>
 ```
 
-Note that in the highlighted lines (12 and 87) the template takes advantage of [Symfony Webpack Encore](https://symfony.com/doc/4.3/frontend.html#webpack-encore).
+Note that in the highlighted lines (12 and 89) the template takes advantage of [Symfony Webpack Encore](https://symfony.com/doc/4.3/frontend.html#webpack-encore).
 This tutorial will lead you through configuring Webpack, but first you need assets.
 
 ### Adding assets
@@ -193,7 +195,6 @@ Encore
         path.resolve(__dirname, './assets/css/style.css')
     ])
     .addEntry('tutorial-js', [
-        path.resolve(__dirname, './assets/js/jquery.min.js'),
         path.resolve(__dirname, './assets/js/bootstrap.min.js')
     ]);
 ``` 
@@ -217,7 +218,7 @@ module.exports = [ eZConfig, ...customConfigs ];
 
 ??? tip " See the complete `webpack.config.js` file"
 
-    ``` javascript hl_lines="16 17 18 19 20 21 22 23 24 25 26 30 31 34"
+    ``` javascript hl_lines="16 17 18 19 20 21 22 23 24 25 29 30 33"
     const Encore = require('@symfony/webpack-encore');
     const path = require('path');
     const getEzConfig = require('./ez.webpack.config.js');
@@ -241,7 +242,6 @@ module.exports = [ eZConfig, ...customConfigs ];
             path.resolve(__dirname, './assets/css/style.css')
         ])
         .addEntry('tutorial-js', [
-            path.resolve(__dirname, './assets/js/jquery.min.js'),
             path.resolve(__dirname, './assets/js/bootstrap.min.js')
         ]);
     
@@ -253,12 +253,6 @@ module.exports = [ eZConfig, ...customConfigs ];
     // comment out this line if you've uncommented the above lines
     // module.exports = [ eZConfig, ...customConfigs ];
     ```
-
-Finally, in `config/packages/webpack_encore.yaml` change the `output_path` for Webpack to the following:
-
-``` yaml
-output_path: '%kernel.project_dir%/public/assets/build'
-```
 
 At this point the bundles are created and ready to be used.
 

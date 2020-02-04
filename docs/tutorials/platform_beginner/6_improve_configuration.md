@@ -56,17 +56,23 @@ ezplatform:
         site_group:
             content_view:
                 full:
+                    home_page:
+                        controller: ez_query:pagingQueryAction
+                        template: full/home_page.html.twig
+                        match:
+                            Id\Location: 2
+                        params:
+                            query:
+                                query_type: Ride
+                                limit: 4
+                                assign_results_to: rides
                     ride:
                         template: full/ride.html.twig
                         match:
                             Identifier\ContentType: ride
-                    home_page:
-                        template: full/home_page.html.twig
-                        match:
-                            Id\Location: 2
                 line:
                     ride:
-                        template: line/ride.html.twig
+                        template: line/rides.html.twig
                         match:
                             Identifier\ContentType: ride
 ```

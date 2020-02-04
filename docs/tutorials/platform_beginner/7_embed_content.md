@@ -62,36 +62,36 @@ Add the template for the line view of a Landmark by creating `templates/line/lan
 
 ``` html+twig hl_lines="4"
 <section>
-<div class="col-xs-4 photos-box">
-    <a href="#bikeModal{{ content.id }}" data-toggle="modal">
-        {{ ez_render_field( content, 'photo', { parameters: { 'alias': 'landmark_list', 'class': 'img-responsive img-rounded'}}) }}
-    </a>
-</div>
+    <div class="col-xs-4 photos-box">
+        <a href="#bikeModal{{ content.id }}" data-toggle="modal">
+            {{ ez_render_field( content, 'photo', { parameters: { 'alias': 'landmark_list', 'class': 'img-rounded'}}) }}
+        </a>
+    </div>
 
-{# MODAL #}
-<div class="bike-modal modal fade" id="bikeModal{{ content.id }}" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
+    {# MODAL #}
+    <div class="bike-modal modal fade" id="bikeModal{{ content.id }}" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-8 col-xs-offset-2">
-                    <div class="modal-body text-center">
-                        <h2>{{ content.name }}</h2>
-                        <hr class="featurette-divider">
-                        {{ ez_render_field( content, 'photo', { parameters: { 'alias': 'large'}, attr: { 'class': 'img-responsive img-rounded' }}) }}
-                        {{ ez_render_field( content, 'description', { attr: { 'class': 'padding-box text-justify' }}) }}
-                        {{ ez_render_field( content, 'location', { parameters: {'width': '100%', 'height': '250px', 'showMap': true, 'showInfo': false }}) }}
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-8 col-xs-offset-2">
+                        <div class="modal-body text-center">
+                            <h2>{{ content.name }}</h2>
+                            <hr class="featurette-divider">
+                            {{ ez_render_field( content, 'photo', { parameters: { 'alias': 'large'}, attr: { 'class': 'img-responsive img-rounded' }}) }}
+                            {{ ez_render_field( content, 'description', { attr: { 'class': 'padding-box text-justify' }}) }}
+                            {{ ez_render_field( content, 'location', { parameters: {'width': '100%', 'height': '250px', 'showMap': true, 'showInfo': false }}) }}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </section>
 ```
 
@@ -116,27 +116,25 @@ namespace App\Controller;
 
 use eZ\Bundle\EzPublishCoreBundle\Controller;
 use eZ\Publish\Core\MVC\Symfony\View\ContentView;
+use eZ\Publish\API\Repository\ContentService;
 
 class RideController extends Controller
 {
-    /**
-     * Action used to display a ride
-     *    - Adds the list of all related Landmarks to the response.
-     *
-     * @param ContentView $view
-     *
-     * @return ContentView $view
-     */
+    private $contentService;
+
+    public function __construct(ContentService $contentService)
+    {
+        $this->contentService = $contentService;
+    }
+
     public function viewRideWithLandmarksAction(ContentView $view)
     {
-        $repository = $this->getRepository();
-        $contentService = $repository->getContentService();
         $currentContent = $view->getContent();
         $landmarksListId = $currentContent->getFieldValue('landmarks');
         $landmarksList = [];
 
         foreach ($landmarksListId->destinationContentIds as $landmarkId) {
-            $landmarksList[$landmarkId] = $contentService->loadContent($landmarkId);
+            $landmarksList[$landmarkId] = $this->contentService->loadContent($landmarkId);
         }
 
         $view->addParameters(['landmarksList' => $landmarksList]);
