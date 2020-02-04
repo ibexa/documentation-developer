@@ -13,25 +13,21 @@ In `templates/full/home_page.html.twig` replace the "Hello world" with a table t
 
 {% block content %}
     <div class="col-xs-10 col-xs-offset-1 text-justified">
-        {% for ride in rides.currentPageResults %}
-            {% if loop.first %}
-                <table class="table table-hover">
-                <thead>
-                <tr class="table-header">
-                    <th>{{ 'Ride'|trans }}</th>
-                    <th>{{ 'From'|trans }}</th>
-                    <th>{{ 'To'|trans }}</th>
-                    <th>{{ 'Distance'|trans }}</th>
-                </tr>
-                </thead>
-                <tbody>
-            {% endif %}
-            {{ render( controller( 'ez_content:viewAction', { 'location': ride.valueObject, 'viewType': 'line' } )) }}
-            {% if loop.last %}
-                </tbody>
-                </table>
-            {% endif %}
-        {% endfor %}
+        <table class="table table-hover">
+            <thead>
+            <tr class="table-header">
+                <th>{{ 'Ride'|trans }}</th>
+                <th>{{ 'From'|trans }}</th>
+                <th>{{ 'To'|trans }}</th>
+                <th>{{ 'Distance'|trans }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for ride in rides.currentPageResults %}
+                {{ render( controller( 'ez_content:viewAction', { 'location': ride.valueObject, 'viewType': 'line' } )) }}
+            {% endfor %}
+            </tbody>
+        </table>
         {% if rides.haveToPaginate() %}
             <div class="col-xs-12 text-center">
                 <div class="pagerfanta pagination">

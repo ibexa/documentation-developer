@@ -76,13 +76,13 @@ To add a template like this to your site, create a `main_layout.html.twig` file 
 
     <title>eZ Platform Beginner Tutorial</title>
 
+    <script src="{{ asset('bundles/ezplatformadminuiassets/vendors/jquery/dist/jquery.min.js') }}"></script>
+
     {{ encore_entry_link_tags('tutorial') }}
 
     <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
-
-    <script src="{{ asset('bundles/ezplatformadminuiassets/vendors/jquery/dist/jquery.min.js') }}"></script>
 </head>
 
 <body>
