@@ -12,7 +12,11 @@ searches for content based on the date when it was created or last modified.
 ## Example
 
 ``` php
-$query->query = new Criterion\DateMetadata(Criterion\DateMetadata::CREATED, Criterion\Operator::BETWEEN, [1576800000, 1576972800]);
+$query->query = new Criterion\DateMetadata(
+    Criterion\DateMetadata::CREATED,
+    Criterion\Operator::BETWEEN,
+    [1576800000, 1576972800]
+);
 ```
 
 ## Use case

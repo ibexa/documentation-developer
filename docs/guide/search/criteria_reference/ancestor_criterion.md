@@ -5,12 +5,12 @@ searches for content that is an ancestor of the provided Location, including thi
 
 ## Arguments
 
-- `value` - string representing the pathString of the Location
+- `value` - array of Location pathStrings
 
 ## Example
 
 ``` php
-$query->query = new Criterion\Ancestor($this->locationService->loadLocation(62)->pathString);
+$query->query = new Criterion\Ancestor([$this->locationService->loadLocation(62)->pathString]);
 ```
 
 ## Use case
@@ -19,7 +19,7 @@ You can use the Ancestor Search Criterion to create a list of breadcrumbs leadin
 
 ``` php hl_lines="2"
 $query = new LocationQuery();
-$query->query = new Criterion\Ancestor($this->locationService->loadLocation($locationId)->pathString);
+$query->query = new Criterion\Ancestor([$this->locationService->loadLocation($locationId)->pathString]);
 
 $results = $this->searchService->findLocations($query);
 $breadcrumbs = [];

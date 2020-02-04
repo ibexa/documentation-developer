@@ -2,21 +2,14 @@
 
 Search Criteria are filters for Content and Location Search.
 
-A Criterion consist of two parts:
-
-- The API Value: `Criterion`
-- Specific handler per search engine: `CriterionHandler`
-
-`Criterion` represents the value you use in the API, while `CriterionHandler` deals with the business logic in the background translating the value to something the search engine can understand. `CriterionHandler` also handles `ezkeyword` external storage for Legacy (SQL-based) search.
-
-Support and capabilities of individual Criteria can depend on the search engine.
-
 Criteria can take some of the following arguments:
 
 - `target` - when the Criterion supports targeting a specific Field, example: `FieldDefinition` or Metadata identifier
 - `value` - the value(s) to filter on, typically a scalar or array of scalars.
 - `operator` - constants on `eZ\Publish\API\Repository\Values\Content\Query\Criterion\Operator`: `IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `LIKE`, `BETWEEN`, `CONTAINS`. Most Criteria do not expose this and select `EQ` or `IN` depending on whether the value is scalar or an array. `IN` and `BETWEEN` always act on an array of values, while the other operators act on single scalar value
 - `valueData` - additional value data, required by some Criteria, for instance `MapLocationDistance`
+
+Support and capabilities of individual Criteria can depend on the search engine.
 
 In the Legacy search engine, the field index/sort key column is limited to 255 characters by design.
 Due to this storage limitation, searching content using the eZ Country Field Type or Keyword when there are multiple values selected may not return all the expected results.

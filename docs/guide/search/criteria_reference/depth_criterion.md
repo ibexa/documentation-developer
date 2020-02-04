@@ -10,6 +10,12 @@ This Criterion is available only for Location Search.
 - `operator` - Operator constant (IN, EQ, GT, GTE, LT, LTE, BETWEEN)
 - `value` - int(s) representing the Location depth(s)
 
+The `value` argument requires:
+
+- a list of ints for `Operator::IN`
+- exactly two ints for `Operator::BETWEEN`
+- a single int for other Operators
+
 ## Example
 
 ``` php

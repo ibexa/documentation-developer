@@ -10,7 +10,7 @@ searches for content based on the ID of its Content Type group.
 ## Example
 
 ``` php
-$query->query = new Criterion\ContentTypeGroupId(1);
+$query->query = new Criterion\ContentTypeGroupId([1, 2]);
 ```
 
 ## Use case
@@ -19,7 +19,7 @@ You can use the `ContentTypeGroupId` Criterion to query all Media Content items
 (the default ID for the Media Content Type group is 3):
 
 ``` php hl_lines="1"
-        $query->query = new Criterion\ContentTypeGroupId(3);
+        $query->query = new Criterion\ContentTypeGroupId([3]);
 
         $results = $this->searchService->findContent($query);
         $media = [];

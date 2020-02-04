@@ -11,6 +11,11 @@ searches content based on the distance between the location contained in a MapLo
 - `latitude` - float representing the latitude of the location to calculate distance to
 - `longitude` - float representing the longitude of the location to calculate distance to
 
+The `distance` argument requires:
+
+- a list of floats for `Operator::IN` or `Operator::BETWEEN`
+- a single float for other Operators
+
 ## Example
 
 ``` php

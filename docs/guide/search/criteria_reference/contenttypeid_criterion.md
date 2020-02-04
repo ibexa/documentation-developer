@@ -10,5 +10,5 @@ searches for content based on the ID of its Content Type.
 ## Example
 
 ``` php
-$query->query = new Criterion\ContentTypeId(44);
+$query->query = new Criterion\ContentTypeId([44]);
 ```
