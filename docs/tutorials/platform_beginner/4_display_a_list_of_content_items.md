@@ -24,28 +24,38 @@ The application will look for a `getAllRidesAction` inside the `HomepageControll
 
 Create the `/src/AppBundle/Controller/HomepageController.php` file:
 
-``` php hl_lines="23 24 37 38"
+``` php hl_lines="33 34 47 48"
 <?php
 
 namespace AppBundle\Controller;
 
+use eZ\Publish\API\Repository\ContentService;
+use eZ\Publish\API\Repository\LocationService;
+use eZ\Publish\API\Repository\Values\Content\Location;
 use eZ\Publish\API\Repository\Values\Content\LocationQuery;
 use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
-use eZ\Publish\Core\MVC\Symfony\Controller\Controller;
 use eZ\Publish\API\Repository\Values\Content\Query\SortClause;
-use eZ\Publish\API\Repository\Values\Content\Location;
+use eZ\Publish\Core\MVC\Symfony\Controller\Controller;
 use eZ\Publish\Core\Pagination\Pagerfanta\LocationSearchAdapter;
 use Pagerfanta\Pagerfanta;
 use Symfony\Component\HttpFoundation\Request;
 
 class HomepageController extends Controller
 {
+    private $contentService;
+
+    private $locationService;
+
+    public function __construct(ContentService $contentService, LocationService $locationService)
+    {
+        $this->contentService = $contentService;
+        $this->locationService = $locationService;
+    }
+
     public function getAllRidesAction(Request $request, Location $location)
     {
-        $repository = $this->getRepository();
-        $locationService = $repository->getLocationService();
         $rootLocationId = $this->getConfigResolver()->getParameter('content.tree_root.location_id');
-        $rootLocation = $locationService->loadLocation($rootLocationId);
+        $rootLocation = $this->locationService->loadLocation($rootLocationId);
 
         return $this->render(
             'list/rides.html.twig',
@@ -61,7 +71,6 @@ class HomepageController extends Controller
         $query = new LocationQuery();
         $query->query = new Criterion\LogicalAnd(
             [
-                new Criterion\Subtree($rootLocation->pathString),
                 new Criterion\Visibility(Criterion\Visibility::VISIBLE),
                 new Criterion\ContentTypeIdentifier(['ride']),
             ]
@@ -81,39 +90,52 @@ class HomepageController extends Controller
 }
 ```
 
-This controller searches for all visible Content items of the type **Ride** (lines 37-38)
-and renders them using the `list/rides.html.twig` template (line 23-24).
+This controller searches for all visible Content items of the type **Ride** (lines 47-48)
+and renders them using the `list/rides.html.twig` template (line 33-34).
+
+### Register the controller
+
+!!! tip
+
+    Dealing with Symfony services is not in the scope of this tutorial, so we won't go here into detail on how they work.
+    To learn more about this topic, take a look at [Symfony Service Container documentation](https://symfony.com/doc/3.4/service_container.html).
+
+Because you are using the `ContentService`, you need to register the `HomepageController` as a service.
+
+Add the following section in `app/config/services.yml`, under the `services` key:
+
+``` yaml
+AppBundle\Controller\:
+    public: true
+    resource: '../../src/AppBundle/Controller/*'
+```
 
 ## Create a template to list all Rides
 
 Create `app/Resources/views/list/rides.html.twig`. It displays the list of Rides in a `<table>` tag.
 The `<head>` of the `<table>` is contained in this **Ride** list template, while each `<tr>` (line of the table) will be provided by the line ride template.
 
-``` html+twig hl_lines="19"
+``` html+twig hl_lines="17"
 <div class="row regular-content-size">
     <div class="col-xs-12 box-style">
         <h3 class="center bottom-plus new-header">{{ 'List of all Rides'|trans }}</h3>
         {% if pagerRides is not empty %}
-            {# Loop over the page results #}
-            {% for ride in pagerRides.currentPageResults %}
-                {% if loop.first %}
-                    <table class="table table-hover">
-                        <thead>
-                            <tr class="table-header">
-                                <th>{{ 'Ride'|trans }}</th>
-                                <th>{{ 'From'|trans }}</th>
-                                <th>{{ 'To'|trans }}</th>
-                                <th>{{ 'Distance'|trans }}</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                {% endif %}
-                {{ render( controller( 'ez_content:viewAction', { 'location': ride, 'viewType': 'line' } )) }}
-                {% if loop.last %}
-                        </tbody>
-                    </table>
-                {% endif %}
-            {% endfor %}
+            <table class="table table-hover">
+                <thead>
+                <tr class="table-header">
+                    <th>{{ 'Ride'|trans }}</th>
+                    <th>{{ 'From'|trans }}</th>
+                    <th>{{ 'To'|trans }}</th>
+                    <th>{{ 'Distance'|trans }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {# Loop over the page results #}
+                {% for ride in pagerRides.currentPageResults %}
+                    {{ render( controller( 'ez_content:viewAction', { 'location': ride, 'viewType': 'line' } )) }}
+                {% endfor %}
+                </tbody>
+            </table>
         {% else %}
             <p>{{ 'There are no Rides yet.'|trans }}</p>
         {% endif %}
@@ -132,7 +154,7 @@ The `<head>` of the `<table>` is contained in this **Ride** list template, while
 ### View types
 
 So far you have been using the `full` view type to render the Ride's full view.
-Here, on the other hand, you use the `line` view, as indicated by `'viewType': 'line'` (line 19).
+Here, on the other hand, you use the `line` view, as indicated by `'viewType': 'line'` (line 17).
 
 You can configure custom view types with any name you want, as long as you include them in the configuration.
 Let's do this now with the `line` view for Rides.
