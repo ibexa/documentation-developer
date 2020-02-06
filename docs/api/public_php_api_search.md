@@ -16,7 +16,7 @@ To search through content you need to create a [`LocationQuery`](https://github.
 and provide your search criteria as a series of Criterion objects.
 
 For example, to search for all content of a selected Content Type, use one Criterion,
-`Criterion\ContentTypeIdentifier` (line 14).
+[`Criterion\ContentTypeIdentifier`](../guide/search/criteria_reference/contenttypeidentifier_criterion.md) (line 14).
 
 The following command takes the Content Type identifier as an argument and lists all results:
 
@@ -218,8 +218,8 @@ $query->filter = new Criterion\LogicalAnd([
 ]);
 ```
 
-The query searches for Location B using the `LocationId` Criterion,
-and for visible content using the `Visibility` Criterion.
+The query searches for Location B using the [`LocationId` Criterion](../guide/search/criteria_reference/locationid_criterion.md),
+and for visible content using the [`Visibility` Criterion](../guide/search/criteria_reference/visibility_criterion.md).
 
 Even though the Location B is hidden, the query will find the content because both conditions are satisfied:
 
