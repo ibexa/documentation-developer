@@ -44,6 +44,7 @@ pages:
             - '2. Creating a content list': 'tutorials/extending_admin_ui/2_creating_a_content_list.md'
             - '3. Filtering the content list': 'tutorials/extending_admin_ui/3_filtering_the_content_list.md'
             - '4. Creating a custom tag': 'tutorials/extending_admin_ui/4_adding_a_custom_tag.md'
+        - 'Creating a UDW tab': 'tutorials/mini_tutorials/adding_tab_to_udw.md'
     - API:
         - REST API guide:
             - 'REST API guide': 'api/rest_api_guide.md'
