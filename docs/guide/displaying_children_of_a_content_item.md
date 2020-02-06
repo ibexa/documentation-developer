@@ -106,7 +106,7 @@ content_query_field:
         template: content_query/folder.html.twig
 ```
 
-Then, provide the template in `templates/content_query/folder.html.twig`.
+Then, provide the template in `app/Resources/views/content_query/folder.html.twig`.
 The query results are available in the `items` variable:
 
 ``` html+twig
