@@ -4,11 +4,11 @@ The Universal Discovery Widget (UDW) is a separate React module. By default, it 
 
 ![UDW default tabs](img/udw_tabs.png)
 
-In this tutorial you will add a new tab called Images, which will display all Content items of the type 'Image'.
+In this tutorial you will add a new tab called Images which will display all Content items of the type 'Image'.
 
 ## Create a tab
 
-First add an `image.tab.module.js` module in `assets/js/image-tab/`.
+First add an `image.tab.module.js` file in `assets/js/image-tab/`.
 
 ```js
 import React, { useContext } from 'react';
@@ -27,8 +27,8 @@ const ImageTabModule = () => {
 };
 ```
 
-Next add the tab to the configuration in the same file.
-Each tab definition is an object containing properties:
+Next, add the tab to the configuration in the same file.
+Each tab definition is an object containing the following properties:
 
 |Property|Value|Definition|
 |-----------|------|----------|
@@ -55,7 +55,7 @@ eZ.addConfig(
 The module will govern the creation of the new tab.
 
 
-??? tip "See the final look of `image.tab.module.js`"
+??? tip "Complete `image.tab.module.js` code"
 
     ```js
     import React, { useContext } from 'react';
@@ -91,7 +91,7 @@ The module will govern the creation of the new tab.
 
 ## Add tab to webpack config
 
-In `webpack.config.js` add configuration for a new module:
+In `webpack.config.js`, add configuration for the new module:
 
 ```js
 eZConfigManager.add({
@@ -101,7 +101,7 @@ eZConfigManager.add({
 });
 ```
 
-## Provide ReactJS development files
+## Provide ReactJS files
 
 Next, you need to provide a set of files that will be used to render the module:
 
@@ -187,7 +187,7 @@ export const loadImageContent = ({ token, siteaccess, contentId }, callback) => 
 
 ### `images.list.js`
 
-Next, create an images list by adding an `images.list.js` to `assets/js/image-tab/components/`:
+Next, create an image list by adding an `images.list.js` to `assets/js/image-tab/components/`:
 
 ```js
 import React, { useState, useContext, useEffect } from 'react';
@@ -447,7 +447,7 @@ Ensure that the new tab is styled by adding the following files to `assets/css/`
 }
 ```
 
-### Add css into webpack
+### Add css to webpack
 
 Finally, add css in `webpack.config.js`:
 
@@ -459,7 +459,7 @@ eZConfigManager.add({
 });
 ```
 
-??? tip "See the complete look of `webpack.config.js`"
+??? tip "Complete `webpack.config.js` code"
 
     ```js
     const Encore = require('@symfony/webpack-encore');
