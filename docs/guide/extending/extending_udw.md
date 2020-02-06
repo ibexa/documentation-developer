@@ -29,32 +29,7 @@ const props = {
 
 ## Adding new tabs to the UDW
 
-The Universal Discovery Widget is highly customizable.
-It enables you to add new tabs to the module in the following way:
-
-``` jsx
-window.eZ.addConfig(
-    'adminUiConfig.universalDiscoveryWidget.tabs',
-    [
-        {
-            id: {String},
-            component: {Element},
-            label: {String},
-            icon: {String},
-        },
-    ],
-    true
-);
-```
-
-Each tab definition is an object containing properties:
-
-|Property|Value|Definition|
-|-----------|------|----------|
-|id|string|Tab ID, e.g. `browse`|
-|component|element|React component that represents the contents of a tab|
-|label|string|Label text, e.g. `Browse`|
-|icon|string|Path to the icon, e.g. `/bundles/ezplatformadminui/img/ez-icons.svg#browse`|
+The Universal Discovery Widget enables you to add new tabs to the module. To learn more, see [Creating a UDW tab tutorial](../../tutorials/mini_tutorials/adding_tab_to_udw.md).
 
 ## Configuration
 

@@ -25,7 +25,15 @@ const ImageTabModule = () => {
 };
 ```
 
-Next add the tab to the configuration in the same file. The module will govern the creation of the new tab.
+Next add the tab to the configuration in the same file.
+Each tab definition is an object containing properties:
+
+|Property|Value|Definition|
+|-----------|------|----------|
+|id|string|Tab ID, e.g. `image`|
+|component|element|React component that represents the contents of a tab|
+|label|string|Label text, e.g. `Images`|
+|icon|string|Path to the icon, e.g. `/bundles/ezplatformadminui/img/ez-icons.svg#image`|
 
 ```js
 eZ.addConfig(
@@ -41,6 +49,9 @@ eZ.addConfig(
     true
 );
 ```
+
+The module will govern the creation of the new tab.
+
 
 ??? tip "See the final look of `image.tab.module.js`"
 
