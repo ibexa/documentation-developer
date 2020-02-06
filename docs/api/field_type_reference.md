@@ -29,12 +29,12 @@ Custom Field Types have to be programmed in PHP. However, the built-in Field Ty
 | [ISBN](#isbn-field-type) | Handles International Standard Book Number (ISBN) in 10-digit or 13-digit format.  | Yes | Yes |
 | [Keyword](#keyword-field-type) | Stores keywords. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
 | [Landing Page](#landing-page-field-type) | Stores a Landing Page with a layout consisting of multiple zones. | N/A | N/A |
-| [MapLocation](#maplocation-field-type) | Stores map coordinates. | Yes, with MapLocationDistance criterion | Yes |
+| [MapLocation](#maplocation-field-type) | Stores map coordinates. | Yes, with [`MapLocationDistance` Criterion](../guide/search/criteria_reference/maplocationdistance_criterion.md) Criterion | Yes |
 | [Media](#media-field-type) | Validates and stores a media file. | No | Yes |
 | [Null](#null-field-type) | Used as fallback for missing Field Types and for testing purposes. | N/A | N/A |
 | [Rating](#rating-field-type) | **Deprecated** | N/A | N/A |
-| [Relation](#relation-field-type) | Validates and stores a relation to a Content item. | Yes, with both Field and FieldRelation criterions | Yes |
-| [RelationList](#relationlist-field-type) | Validates and stores a list of relations to Content items. | Yes, with FieldRelation criterion | Yes |
+| [Relation](#relation-field-type) | Validates and stores a relation to a Content item. | Yes, with both [`Field`](../guide/search/criteria_reference/field_criterion.md) and [`FieldRelation`](../guide/search/criteria_reference/fieldrelation_criterion.md) Criteria | Yes |
+| [RelationList](#relationlist-field-type) | Validates and stores a list of relations to Content items. | Yes, with [`FieldRelation` Criterion](../guide/search/criteria_reference/fieldrelation_criterion.md) | Yes |
 | [RichText](#richtext-field-type) | Validates and stores structured rich text in DocBook xml format, and exposes it in several formats. | Yes[^1^](#1-note-on-legacy-search-engine)  | Yes |
 | [Selection](#selection-field-type) | Validates and stores a single selection or multiple choices from a list of options. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
 | [TextBlock](#textblock-field-type) | Validates and stores a larger block of text. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |

@@ -24,7 +24,7 @@ This example from the `Url` Field Type shows that the Field Type will always ret
 
 ### `getDefaultMatchField()`
 
-This method retrieves the name of the default field to be used for matching. As Field Types can index multiple fields (see [MapLocation](field_type_reference.md#maplocation-field-type) Field Type's implementation of this interface), this method is used to define the default field for matching. The default field is typically used by the Field criterion.
+This method retrieves the name of the default Field to be used for matching. As Field Types can index multiple Fields (see [MapLocation](field_type_reference.md#maplocation-field-type) Field Type's implementation of this interface), this method is used to define the default field for matching. The default Field is typically used by the [`Field` Search Criterion](../guide/search/criteria_reference/field_criterion.md).
 
 ### `getDefaultSortField()`
 

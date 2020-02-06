@@ -23,78 +23,6 @@ which will be used to translate the value object into a storage-specific search 
 As an example take a look at the [`ContentId` Criterion handler](https://github.com/ezsystems/ezpublish-kernel/blob/v6.13.6/eZ/Publish/Core/Search/Legacy/Content/Common/Gateway/CriterionHandler/ContentId.php) in Legacy search engine
 or [`ContentId` Criterion handler](https://github.com/ezsystems/ezplatform-solr-search-engine/blob/v1.5.8/lib/Query/Common/CriterionVisitor/ContentIdIn.php) in Solr search engine.
 
-## Search Criteria Reference
-
-Criteria are the filters for Content and Location Search.
-
-A Criterion consist of two parts (similar to Sort Clause and Facet Builder):
-
-- The API Value: `Criterion`
-- Specific handler per search engine: `CriterionHandler`
-
-`Criterion` represents the value you use in the API, while `CriterionHandler` deals with the business logic in the background translating the value to something the search engine can understand.
-
-Implementation and availability of a handler typically depends on search engine capabilities and limitations.
-Currently only Legacy (SQL-based) search engine is available out of the box,
-and for instance its support for Field Criterion is not optimal.
-You should avoid heavy use of these until future improvements to the search engine.
-
-#### Common concepts for most Criteria
-
-Refer to the [list below](#list-of-criteria) to see how to use each Criterion, as it depends on the Criterion Value constructor, but in general you should be aware of the following common concepts:
-
-- `target`: Exposed if the given Criterion supports targeting a specific subfield, example: `FieldDefinition` or Metadata identifier
-- `value`: The value(s) to filter on, this is typically a scalar or array of scalars.
-- `operator`: Exposed on some Criteria:
-    - all operators can be seen as constants on `eZ\Publish\API\Repository\Values\Content\Query\Criterion\Operator`: `IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `LIKE`, `BETWEEN`, `CONTAINS`
-    - most Criteria do not expose this and select `EQ` or `IN` depending if value is scalar or an array
-    - `IN` and `BETWEEN` always act on an array of values, while the other operators act on single scalar value
-- `valueData`: Additional value data, required by some Criteria, for instance MapLocationDistance
-
-In the Legacy search engine, the field index/sort key column is limited to 255 characters by design.
-Due to this storage limitation, searching content using the eZ Country Field Type or Keyword when there are multiple values selected may not return all the expected results.
-
-#### List of Criteria
-
-The list below presents the Criteria available in the `eZ\Publish\API\Repository\Values\Content\Query\Criterion` namespace:
-
-##### Only for LocationSearch
-
-|Criterion|Constructor arguments description|
-|------|------|
-|`Location\Depth`|`operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `BETWEEN`)</br>`value` being the Location depth(s) as integer(s).|
-|`Location\IsMainLocation`|Whether or not the Location is a main Location.</br>`value (Location\IsMainLocation::MAIN, Location\IsMainLocation::NOT_MAIN)`|
-|`Location\Priority`|Priorities are integers that can be used for sorting in ascending or descending order. What is higher or lower priority in relation to the priority number is left to your choice.</br>`operator` (`GT`, `GTE`, `LT`, `LTE`, `BETWEEN`), `value` being the location priority(s) as an integer(s).|
-
-##### Common
-
-|Criterion|Constructor arguments description|
-|------|------|
-|`ContentId`|`value` scalar(s) representing the Content ID.|
-|`ContentTypeGroupId`|`value` scalar(s) representing the Content Type Group ID.|
-|`ContentTypeId`|`value` scalar(s) representing the Content Type ID.|
-|`ContentTypeIdentifier`|`value` string(s) representing the Content Type Identifier, example: "article".|
-|`DateMetadata`|`target` ( `DateMetadata::MODIFIED`, `DateMetadata::CREATED`)</br>`operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `BETWEEN`)</br>`value` being integer(s) representing unix timestamp.|
-|`Field`|`target` (FieldDefinition identifier), `operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `LIKE`, `BETWEEN`, `CONTAINS`), `value` being scalar(s) relevant for the field.|
-|`FieldRelation`|`target` (FieldDefinition identifier)</br>`operator` (`IN`, `CONTAINS`)</br>`value` being array of scalars representing Content ID of relation.</br>Use of `IN` means the relation needs to have one of the provided IDs, while `CONTAINS` implies it needs to have all provided IDs.|
-|`FullText`|`value` which is the string to search for</br>`properties` is array to set additional properties for use with search engines like Solr.</br>For advanced search, you can extend the query syntax by using:</br> `word`, `"phrase"`, `(group)`, `+mandatory`, `-prohibited`, `AND`, `&&`, `OR`, `||`, `NOT`, `!`. |
-|`LanguageCode`|`value` string(s) representing Language Code(s) on the Content (not on Fields)</br>`matchAlwaysAvailable` as boolean.|
-|`LocationId`|`value` scalar(s) representing the Location ID.|
-|`LocationRemoteId`|`value` string(s) representing the Location Remote ID.|
-|`LogicalAnd`|A `LogicalOperator` that takes `array` of other Criteria, makes sure all Criteria match.|
-|`LogicalNot`|A `LogicalOperator` that takes `array` of other Criteria, makes sure none of the Criteria match.|
-|`LogicalOr`|A `LogicalOperator` that takes `array` of other Criteria, makes sure one of the Criteria match.|
-|`MapLocationDistance`| `target` (FieldDefinition identifier)</br>`operator` (`IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `BETWEEN`)</br>`distance` as float(s) from a position using `latitude` as float, `longitude` as float as arguments|
-|`MatchAll`|No arguments, mainly for internal use when no `filter` or `query` is provided on Query object.|
-|`MatchNone`|No arguments, mainly for internal use by the [Blocking Limitation](limitation_reference.md#blocking-limitation).|
-|`ObjectStateId`|`value` string(s) representing the Content Object State ID.|
-|`ParentLocationId`|`value` scalar(s) representing the Parent's Location ID.|
-|`RemoteId`|`value` string(s) representing the Content Remote ID.|
-|`SectionId`|`value` scalar(s) representing the Content Section ID.|
-|`Subtree`|`value` string(s) representing the Location ID in which you can filter. If the Location ID is `/1/2/20/42`, you will filter everything under `42`.|
-|`UserMetadata`|`target` (`UserMetadata::OWNER`, `UserMetadata::GROUP`, `UserMetadata::MODIFIER`)</br>`operator` (`IN`, `EQ`), `value` scalar(s) representing the User or User Group ID(s).|
-|`Visibility`|`value` (`Visibility::VISIBLE`, `Visibility::HIDDEN`).</br>*Note: This acts on all assigned Locations when used with Content Search, meaning hidden content will be returned if it has a Location which is visible. Use Location Search to avoid this.*|
-
 ## Sort Clauses Reference
 
 Sort Clauses are the sorting options for Content and Location Search in eZ Platform.
@@ -201,6 +129,7 @@ Each type has dedicated methods in the Search Service:
 | Type of search | Method in Search Service |
 |----------------|--------------------------|
 | Content        | `findContent()`          |
+| Content        | `findContentInfo()`      |
 | Content        | `findSingle()`           |
 | Location       | `findLocations()`        |
 

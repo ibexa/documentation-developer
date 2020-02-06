@@ -15,8 +15,8 @@ The service should be [injected into the constructor of your command or controll
 To search through Content you need to create a [`LocationQuery`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/LocationQuery.php)
 and provide your search criteria as a series of Criterion objects.
 
-For example, to search for all Content of a selected Content Type, use one Criterion,
-`Criterion\ContentTypeIdentifier` (line 14).
+For example, to search for all content of a selected Content Type, use one Criterion,
+[`Criterion\ContentTypeIdentifier`](../guide/search/criteria_reference/contenttypeidentifier_criterion.md) (line 14).
 
 The following command takes the Content Type identifier as an argument and lists all results:
 
@@ -218,8 +218,8 @@ $query->filter = new Criterion\LogicalAnd([
 ]);
 ```
 
-The query searches for Location B using the `LocationId` Criterion,
-and for visible Content using the `Visibility` Criterion.
+The query searches for Location B using the [`LocationId` Criterion](../guide/search/criteria_reference/locationid_criterion.md),
+and for visible content using the [`Visibility` Criterion](../guide/search/criteria_reference/visibility_criterion.md).
 
 Even though the Location B is hidden, the query will find the Content because both conditions are satisfied:
 
