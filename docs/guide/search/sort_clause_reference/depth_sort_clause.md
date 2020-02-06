@@ -10,6 +10,6 @@ sorts search results by the depth of the Location in the Content tree.
 ## Example
 
 ``` php
-$query = new LocationQuery;
+$query = new LocationQuery();
 $query->sortClauses = [new SortClause\Depth()];
 ```

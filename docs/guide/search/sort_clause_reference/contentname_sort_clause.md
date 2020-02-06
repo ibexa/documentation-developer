@@ -10,6 +10,6 @@ sorts search results by the Content items' names.
 ## Example
 
 ``` php
-$query = new LocationQuery;
+$query = new LocationQuery();
 $query->sortClauses = [new SortClause\ContentName()];
 ```

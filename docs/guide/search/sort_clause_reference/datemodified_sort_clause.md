@@ -10,6 +10,6 @@ sorts search results by the date and time of the last modification of a Content 
 ## Example
 
 ``` php
-$query = new LocationQuery;
+$query = new LocationQuery();
 $query->sortClauses = [new SortClause\DateModified()];
 ```

@@ -14,6 +14,6 @@ sorts search results by the distance of the indicated MapLocation Field to the p
 ## Example
 
 ``` php
-$query = new LocationQuery;
+$query = new LocationQuery();
 $query->sortClauses = [new SortClause\MapLocationDistance('place', 'location', 49.542889, 20.111349)];
 ```

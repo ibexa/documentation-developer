@@ -10,6 +10,6 @@ sorts search results by the Section name of the Content items.
 ## Example
 
 ``` php
-$query = new LocationQuery;
+$query = new LocationQuery();
 $query->sortClauses = [new SortClause\SectionName()];
 ```

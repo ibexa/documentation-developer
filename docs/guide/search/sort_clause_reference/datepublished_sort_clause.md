@@ -10,6 +10,6 @@ sorts search results by the date and time of the first publication of a Content 
 ## Example
 
 ``` php
-$query = new LocationQuery;
+$query = new LocationQuery();
 $query->sortClauses = [new SortClause\DatePublished()];
 ```

@@ -12,6 +12,6 @@ Locations that are not main Locations are ranked as lower values (e.g. with asce
 ## Example
 
 ``` php
-$query = new LocationQuery;
+$query = new LocationQuery();
 $query->sortClauses = [new SortClause\Location\InMainLocation()];
 ```

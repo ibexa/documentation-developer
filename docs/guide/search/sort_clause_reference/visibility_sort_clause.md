@@ -12,6 +12,6 @@ Locations that are not visible are ranked as higher values (e.g. with ascending 
 ## Example
 
 ``` php
-$query = new LocationQuery;
+$query = new LocationQuery();
 $query->sortClauses = [new SortClause\Location\Visibility()];
 ```

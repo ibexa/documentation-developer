@@ -15,6 +15,6 @@ Results of the query that do not belong to the Content Type are ranked lower.
 ## Example
 
 ``` php
-$query = new LocationQuery;
+$query = new LocationQuery();
 $query->sortClauses = [new SortClause\Field('article', 'title')];
 ```

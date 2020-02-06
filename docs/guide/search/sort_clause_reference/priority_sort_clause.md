@@ -10,6 +10,6 @@ sorts search results by the priority of the Location.
 ## Example
 
 ``` php
-$query = new LocationQuery;
+$query = new LocationQuery();
 $query->sortClauses = [new SortClause\Location\Priority()];
 ```

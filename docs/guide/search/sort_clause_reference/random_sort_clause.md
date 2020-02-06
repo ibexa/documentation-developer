@@ -11,6 +11,6 @@ orders search results randomly.
 ## Example
 
 ``` php
-$query = new LocationQuery;
+$query = new LocationQuery();
 $query->sortClauses = [new SortClause\Random()];
 ```
