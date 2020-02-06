@@ -123,7 +123,7 @@ The following subset of the [ICU date and time formats](https://unicode-org.gith
 |w, WW|week|
 |d, dd|day of the month|
 |D, DDD|day of the year|
-|E, EE, EEE, EEEE, EEEEEE, e, ee, eee, eeee, eeeeee, c, cc, ccc, cccc, cccccc|week|
+|E, EE, EEE, EEEE, EEEEEE, e, ee, eee, eeee, eeeeee, c, cc, ccc, cccc, cccccc|weekday|
 |a|AM or PM|
 |h, hh, H, HH, k, kk|hour|
 |m, mm|minute|
