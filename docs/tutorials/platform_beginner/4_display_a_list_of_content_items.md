@@ -97,8 +97,7 @@ and renders them using the `list/rides.html.twig` template (line 33-34).
 
 !!! tip
 
-    Dealing with Symfony services is not in the scope of this tutorial, so we won't go here into detail on how they work.
-    To learn more about this topic, take a look at [Symfony Service Container documentation](https://symfony.com/doc/3.4/service_container.html).
+    To learn how to use Symfony services, see [Symfony Service Container documentation](https://symfony.com/doc/3.4/service_container.html).
 
 Because you are using the `ContentService`, you need to register the `HomepageController` as a service.
 
