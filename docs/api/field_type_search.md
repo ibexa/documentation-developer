@@ -28,7 +28,7 @@ This method retrieves the name of the default Field to be used for matching. As 
 
 ### `getDefaultSortField()`
 
-This method gets name of the default Field to be used for sorting. As Field Types can index multiple Fields (see [MapLocation](field_type_reference.md#maplocation-field-type) Field Type's implementation of this interface), this method is used to define default field for sorting. Default Field is typically used by Field sort clause.
+This method gets name of the default Field to be used for sorting. As Field Types can index multiple Fields (see [MapLocation](field_type_reference.md#maplocation-field-type) Field Type's implementation of this interface), this method is used to define default field for sorting. Default Field is typically used by the [`Field` Sort Clause](../guide/search/sort_clause_reference/field_sort_clause.md).
 
 ## Register Indexable Implementations
 
