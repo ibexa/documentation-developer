@@ -62,6 +62,14 @@ $output->writeln($result->getName());
 
     For full list and details of available Search Criteria, see [Search Criteria reference](../guide/search.md#search-criteria-reference).
 
+!!! note "Search result limit"
+
+    By default search returns up to 25 results. You can change it by setting a different limit to the query:
+
+    ``` php
+    $query->limit = 100;
+    ```
+
 ### Search with `query` and `filter`
 
 You can use two properties of the `Query` object to search for Content: `query` and `filter`.
@@ -229,7 +237,7 @@ Even though the Location B is hidden, the query will find the Content because bo
 
 ## Sorting results
 
-To sort the results of a query, use one of more [Sort Clauses](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/Values/Content/Query/SortClause.php).
+To sort the results of a query, use one of more [Sort Clauses](../guide/search/sort_clause_reference.md).
 
 For example, to order search results by their publicationg date, from oldest to newest,
 and then alphabetically by content name, add the following Sort Clauses to the query:
@@ -243,7 +251,7 @@ $query->sortClauses = [
 
 !!! tip
 
-    For the full list and details of available Sort Clauses, see [Sort Clause reference](../guide/search.md#sort-clauses-reference).
+    For the full list and details of available Sort Clauses, see [Sort Clause reference](../guide/search/sort_clause/reference.md).
 
 ## Faceted search
 

@@ -29,7 +29,7 @@
     - [Signals reference](guide/signalslots.md#signals-reference)
 - Search:
     - [Search Criteria reference](guide/search.md#search-criteria-reference)
-    - [Sort Clause reference](guide/search.md#sort-clauses-reference)
+    - [Sort Clause reference](guide/search/sort_clause_reference.md)
     - [Solr](guide/solr.md)
 - Extending eZ Platform:
     - [General extensibility](guide/extending//extending_ez_platform.md#general-extensibility)
