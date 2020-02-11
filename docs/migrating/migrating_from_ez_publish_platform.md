@@ -114,44 +114,44 @@ To move over your own custom configurations, follow the conventions below and ma
 
 Image aliases defined in legacy must also be defined for eZ Platform. Since image aliases in legacy may be scattered around
 in different `image.ini` files in various extensions, you may find it easier to find all image alias definitions using
-the legacy admin ( Available from `Setup`--> `Ini settings` ).
+the legacy admin (**Setup** > **Ini settings**).
 
 See [Image documentation page](../../guide/images/) for information about how to define image aliases.
 
-Take as an example, a legacy image alias defined as this:
+For an example, see a legacy image alias defined as follows in `ezpublish_legacy/settings/siteaccess/ezdemo_site/image.ini.append.php`:
 
-    ```
-    #ezpublish_legacy/settings/siteaccess/ezdemo_site/image.ini.append.php
-    [articleimage]
-    Reference=
-    Filters[]
-    Filters[]=geometry/scalewidth=770
+```
+[articleimage]
+Reference=
+Filters[]
+Filters[]=geometry/scalewidth=770
 
-    [articlethumbnail]
-    Reference=
-    Filters[]
-    Filters[]=geometry/scaledownonly=170;220
-    ```
+[articlethumbnail]
+Reference=
+Filters[]
+Filters[]=geometry/scaledownonly=170;220
+```
 
 The corresponding image alias configuration for eZ Platform would be:
 
-    ``` yaml
-    ezpublish:
-        siteaccess:
-            groups:
-                # Define the siteaccesses where given image aliases are in use
-                image_aliases_group: [ezdemo_site, eng, ezdemo_site_admin, admin]
-        system:
-            image_aliases_group:
-                image_variations:
-                    articleimage:
-                        reference: null
-                        filters:
-                            - { name: geometry/scalewidth, params: [770] }
-                    articlethumbnail:
-                        reference: null
-                        filters:
-                            - { name: geometry/scaledownonly, params: [170, 220] }    ```
+``` yaml
+ezpublish:
+    siteaccess:
+        groups:
+            # Define the siteaccesses where given image aliases are in use
+            image_aliases_group: [ezdemo_site, eng, ezdemo_site_admin, admin]
+    system:
+        image_aliases_group:
+            image_variations:
+                articleimage:
+                    reference: null
+                    filters:
+                        - { name: geometry/scalewidth, params: [770] }
+                articlethumbnail:
+                    reference: null
+                    filters:
+                        - { name: geometry/scaledownonly, params: [170, 220] }
+```
 
 ##### 2.4. Bundles
 
