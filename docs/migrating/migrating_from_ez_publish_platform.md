@@ -110,6 +110,49 @@ To move over your own custom configurations, follow the conventions below and ma
 
     In the default configurations in **ezplatform.yml** you'll find existing SiteAccesses like `site`, and depending on installation perhaps a few others, all under a site group called `site\_group`. Make sure to change those to what you had in **ezpublish.yml** to avoid issues with having to log in to your website, given user/login policy rules will need to be updated if you change names of SiteAccess as part of the upgrade.
 
+###### 2.3.1 Image aliases
+
+Image aliases defined in legacy must also be defined for eZ Platform. Since image aliases in legacy may be scattered around
+in different `image.ini` files in various extensions, you may find it easier to find all image alias definitions using
+the legacy admin ( Available from `Setup`--> `Ini settings` ).
+
+See [Image documentation page](../../guide/images/) for information about how to define image aliases.
+
+Take as an example, a legacy image alias defined as this:
+
+    ```
+    #ezpublish_legacy/settings/siteaccess/ezdemo_site/image.ini.append.php
+    [articleimage]
+    Reference=
+    Filters[]
+    Filters[]=geometry/scalewidth=770
+
+    [articlethumbnail]
+    Reference=
+    Filters[]
+    Filters[]=geometry/scaledownonly=170;220
+    ```
+
+The corresponding image alias configuration for eZ Platform would be:
+
+    ``` yaml
+    ezpublish:
+        siteaccess:
+            groups:
+                # Define the siteaccesses where given image aliases are in use
+                image_aliases_group: [ezdemo_site, eng, ezdemo_site_admin, admin]
+        system:
+            image_aliases_group:
+                image_variations:
+                    articleimage:
+                        reference: null
+                        filters:
+                            - { name: geometry/scalewidth, params: [770] }
+                    articlethumbnail:
+                        reference: null
+                        filters:
+                            - { name: geometry/scaledownonly, params: [170, 220] }    ```
+
 ##### 2.4. Bundles
 
 Move over registration of _your_ bundles you have from src and from composer packages, from old to new kernel:
