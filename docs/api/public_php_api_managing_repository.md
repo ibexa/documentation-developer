@@ -213,3 +213,14 @@ $languageCreateStruct->languageCode = 'ger-DE';
 $languageCreateStruct->name = 'German';
 $this->languageService->createLanguage($languageCreateStruct);
 ```
+
+## URLs
+
+[`URLService`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/URLService.php)
+enables you to find, load and update URLs.
+
+To view a list of all URLs, use [`URLService::findUrls`:](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/URLService.php#L33)
+
+```php
+$
+```
