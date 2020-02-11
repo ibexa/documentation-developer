@@ -28,6 +28,11 @@ For each Content Type the schema exposes a singular and plural field, e.g. `arti
 Use the singular field to query a single Content item, and the plural to get a whole `Connection`
 (a list of Content items that supports pagination).
 
+With the queries you can inspect:
+
+- the existing types 
+- details of Content Types, and their Fields in the context of developing your own application
+
 You can request additional content information such as the Section or Objects states,
 available under the `_info` field.
 
