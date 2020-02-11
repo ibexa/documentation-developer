@@ -1507,7 +1507,7 @@ To get a Field of the Matrix Field Type with GraphQL, you will need to specify a
 
 The types that are used for input and returned are named after the Type and the Field: 
 
-- `{TypeIdentifier}{FieldIdentifier}RowInput` e.g. `dish.nutritionFacts`, `event.agenda`
+- `{TypeIdentifier}{FieldIdentifier}RowInput` e.g. `dish.nutritionFacts`, `event.agenda`: `DishNutritionFactsRowInput`, `EventAgendaRowInput`
 - `{TypeIdentifier}{FieldIdentifier}Row`
 
 The example below shows a GraphQL query for a Recipe Content item (belonging to a Content Type with a Matrix Field added), that has two Fields:
