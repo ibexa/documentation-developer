@@ -591,6 +591,10 @@ The following variables are available in parameter expressions:
 - `contentInfo` - the current Content item's ContentInfo
 - `mainLocation` - the current Content item's main Location
 
+#### Pagination
+
+You can paginate the query results by checking the **Enable pagination** box and selecting a limit of results per page.
+
 #### Content query Field Type view
 
 Configure the Content query Field Type's view using the `content_query_field` view type:
@@ -615,6 +619,10 @@ Query results are provided to the template in the `items` variable:
         "viewType": itemViewType
     })) }}
 {% endfor %}
+
+{% if isPaginationEnabled %}
+    {{ pagerfanta( items, 'ez', {'routeName': location, 'pageParameter': pageParameter } ) }}
+{% endif %}
 ```
 
 The default view type is `line`, defined under `itemViewType`.
