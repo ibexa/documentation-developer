@@ -111,6 +111,25 @@ ezplatform:
 
 You can also [format date and time](extending/extending_ez_platform.md#format-date-and-time) by using Twig filters and PHP services.
 
+### Allowed formats
+
+The following subset of the [ICU date and time formats](https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/classSimpleDateFormat.html#details) is allowed:
+
+|Symbol|Meaning|
+|---|---|
+|y, yy, yyyy, Y, YY, YYYY|year|
+|q, Q|quarter|
+|M, MM, MMM, MMMM, L, LL, LLL, LLLL|month|
+|w, WW|week|
+|d, dd|day of the month|
+|D, DDD|day of the year|
+|E, EE, EEE, EEEE, EEEEEE, e, ee, eee, eeee, eeeeee, c, cc, ccc, cccc, cccccc|weekday|
+|a|AM or PM|
+|h, hh, H, HH, k, kk|hour|
+|m, mm|minute|
+|s, ss, S...|second|
+|Z, ZZ, ZZZ, ZZZZZ|timezone|
+
 ## Content Tree
 
 With this configuration you can:
