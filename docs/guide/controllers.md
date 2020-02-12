@@ -541,6 +541,22 @@ The following variables are available in parameter expressions:
 - `contentInfo` - the current Content item's ContentInfo
 - `mainLocation` - the current Content item's main Location
 
+#### Pagination
+
+You can paginate the query results by checking the **Enable pagination** box and selecting a limit of results per page.
+
+The following optional parameters are available:
+
+- `enablePagination` - when true, pagination will be enabled even if it is disabled in the Field definition
+- `disablePagination` - when true, pagination will be disabled even if it is enabled in the Field definition
+- `itemsPerPage` - limit of results per page, overriding the limit set in Field definition. It is required if `enablePagination` is set to true and pagination is disabled in the Field definition
+
+For example:
+
+```
+{{ ez_render_field(content, 'posts', {'parameters': {'enablePagination': true, 'itemsPerPage': 8}}) }}
+```
+
 #### Content query Field Type view
 
 Configure the Content query Field Type's view using the `content_query_field` view type:
@@ -570,3 +586,13 @@ Query results are provided to the template in the `items` variable:
 The default view type is `line`, defined under `itemViewType`.
 You can change it by passing a different view to `viewType` in the template, e.g.:
 `"viewType": "list"`.
+
+The `isPaginationEnabled` parameter indicates if pagination is enabled.
+When pagination is enabled, `items` is an instance of PagerFanta:
+
+```
+{% if isPaginationEnabled %}
+    {{ pagerfanta( items, 'ez', {'routeName': location, 'pageParameter': pageParameter } ) }}
+{% endif %}
+```
+In case of pagination, `pageParameter` contains the page parameter to use as the PagerFanta `pageParameter` argument.

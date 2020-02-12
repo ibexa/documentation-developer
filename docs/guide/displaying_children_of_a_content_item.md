@@ -94,6 +94,8 @@ that the Query type requires:
 parentLocationId: '@=mainLocation.id'
 ```
 
+You can paginate the query results by checking the **Enable pagination** box and selecting a limit of results per page.
+
 To customize the display template, in your [standard view configuration](../guide/content_rendering.md#configuring-views-the-viewprovider) file,
 under `content_view`, add a section that indicates the matcher and template to use:
 
@@ -115,6 +117,10 @@ The query results are available in the `items` variable:
 {% for item in items %}
     <h2><a href={{ path('ez_urlalias', {'contentId': item.contentInfo.id}) }}>{{ ez_content_name(item.contentInfo) }}</a></h2>
 {% endfor %}
+
+{% if isPaginationEnabled %}
+    {{ pagerfanta( items, 'ez', {'routeName': location, 'pageParameter': pageParameter } ) }}
+{% endif %}
 ```
 
 ## Using a Custom Controller
