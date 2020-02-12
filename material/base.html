@@ -8,7 +8,7 @@
   'theme': {
     'name': null,
     'custom_dir': 'material',
-    'favicon': 'img/favicon.ico',
+    'favicon': '../images/favicon.png',
     'language': 'en',
     'palette': {
       'primary': 'blue grey',
@@ -173,8 +173,13 @@
             <article class="md-content__inner md-typeset{{ ns.bootstrap_extra_css }}">
               {% block content %}
                 {% if page.edit_url %}
-                  <a href="{{ page.edit_url }}" title="{{ lang.t('edit.link.title') }}" class="md-icon md-content__icon">&#xE3C9;</a>
-                  <a href="{{ page.edit_url|replace('/edit/', '/blob/') }}" title="{{ lang.t('show.link.title') }}" class="md-icon md-content__icon">&#xE873;</a>
+                  {% if '/latest/' in page.edit_url %}
+                    <a href="{{ page.edit_url|replace('/latest/', '/' ~ config.extra.version_warning.latest.0 ~ '/') }}" title="{{ lang.t('edit.link.title') }}" class="md-icon md-content__icon">&#xE3C9;</a>
+                    <a href="{{ page.edit_url|replace('/edit/latest/', '/blob/' ~ config.extra.version_warning.latest.0 ~ '/') }}" title="{{ lang.t('show.link.title') }}" class="md-icon md-content__icon">&#xE873;</a>
+                  {% else %}
+                    <a href="{{ page.edit_url }}" title="{{ lang.t('edit.link.title') }}" class="md-icon md-content__icon">&#xE3C9;</a>
+                    <a href="{{ page.edit_url|replace('/edit/', '/blob/') }}" title="{{ lang.t('show.link.title') }}" class="md-icon md-content__icon">&#xE873;</a>
+                  {% endif %}
                 {% endif %}
                 {% if not "\x3ch1" in page.content %}
                   <h1>{{ page.title | default(config.site_name, true)}}</h1>
