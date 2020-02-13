@@ -134,6 +134,20 @@ This means that Repository objects will now be loaded in the translation corresp
 
 Revealing and hiding content can now be performed via REST API.
 
+### PHP API
+
+New methods have been introduced to the PHP API:
+
+`\eZ\Publish\API\Repository\Values\Content\ContentInfo::getContentType`
+`\eZ\Publish\API\Repository\Values\Content\ContentInfo::getSection`
+`\eZ\Publish\API\Repository\Values\Content\ContentInfo::getMainLanguage`
+`\eZ\Publish\API\Repository\Values\Content\ContentInfo::getMainLocation`
+`\eZ\Publish\API\Repository\Values\Content\ContentInfo::getOwner`
+`\eZ\Publish\API\Repository\Values\Content\VersionInfo::getCreator`
+`\eZ\Publish\API\Repository\Values\Content\VersionInfo::getInitialLanguage`
+`\eZ\Publish\API\Repository\Values\Content\VersionInfo::getLanguages`
+`\eZ\Publish\API\Repository\Values\Content\Location::getParentLocation`
+
 ## Deprecations and removals
 
 ### SignalSlots
