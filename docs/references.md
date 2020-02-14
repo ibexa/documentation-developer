@@ -27,9 +27,9 @@
 - Repository:
     - [Services](guide/repository.md#services-public-api)
 - Search:
-    - [Search Criteria reference](guide/search.md#search-criteria-reference)
+    - [Search Criteria reference](guide/search/search_criteria_reference.md)
     - [Sort Clause reference](guide/search/sort_clause_reference.md)
-    - [Solr](guide/solr.md)
+    - [Solr](guide/search/solr.md)
 - Extending eZ Platform:
     - [General extensibility](guide/extending/extending_ez_platform.md)
 
