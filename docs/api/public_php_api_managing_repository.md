@@ -216,11 +216,27 @@ $this->languageService->createLanguage($languageCreateStruct);
 
 ## URLs
 
+### URLService
+
 [`URLService`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/URLService.php)
 enables you to find, load and update URLs.
 
-To view a list of all URLs, use [`URLService::findUrls`:](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/URLService.php#L33)
+To view a list of all URLs, use [`URLService::findUrls`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/URLService.php#L33)
+
+`URLService::findUrls` takes as argument a [`URLQuery`,](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/URL/URLQuery.php)
+in which you need to specify:
+
+- query filter e.g. section
+- sort clauses for URL queries
+- offset for search hits, used for paging the results
+- query limit, if value is `0`, search query will not return any search hits
 
 ```php
-$
+$URLQuery = $this->URLService->newURLQuery();
+$URLQuery->filter = 'section';
+$URLQuery->sortClauses = 'descending';
+$URLQuery->offset = '0';
+$URLQuery->limit = '25'
+
+$this->URLService->findUrls($query);
 ```
