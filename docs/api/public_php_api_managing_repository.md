@@ -219,7 +219,7 @@ $this->languageService->createLanguage($languageCreateStruct);
 ### URLService
 
 [`URLService`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/URLService.php)
-enables you to find, load and update URLs.
+enables you to find, load and update external URLs used in ezrichtext and ezurl field types.
 
 To view a list of all URLs, use [`URLService::findUrls`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/URLService.php#L33)
 
