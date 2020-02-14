@@ -44,5 +44,3 @@ Due to this storage limitation, searching content using the eZ Country Field Typ
 |[Subtree](criteria_reference/subtree_criterion.md)|Location subtree|Content and Location|
 |[UserMetadata](criteria_reference/usermetadata_criterion.md)|The creator or modifier of a Content item|Content and Location|
 |[Visibility](criteria_reference/visibility_criterion.md)|Whether the Content item is visible or not|Content and Location|
-
-## Sort Clauses
