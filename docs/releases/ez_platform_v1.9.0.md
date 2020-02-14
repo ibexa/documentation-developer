@@ -34,7 +34,7 @@ In version 1.8 we introduced a new Content Browser in the Universal Discovery Wi
 
 -   You can now restore from Trash content whose original Location has been deleted.
 -   Pasted thead/tfood tags are now kept in RichText Field Type, and its Online Editor
--   Solr 6 is now supported in [Solr Bundle](../guide/solr.md)
+-   Solr 6 is now supported in [Solr Bundle](../guide/search/solr.md)
 
 ### eZ Platform Enterprise Edition - Studio
 

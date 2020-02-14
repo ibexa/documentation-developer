@@ -270,7 +270,7 @@ Following Controller actions are available:
 - `contentInfoQueryAction` runs a ContentInfo search
 - `pagingQueryAction` returns a `PagerFanta` object and can be used to quickly [paginate query results](#paginating-with-querytypes)
 
-See the [Search](search.md) documentation page for more details about different types of search.
+See the [Search](search/search.md) documentation page for more details about different types of search.
 
 #### `params`
 

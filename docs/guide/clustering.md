@@ -24,7 +24,7 @@ For further details on requirements, see [Requirements page](../getting_started/
 
 It is also recommended to use:
 
-- [Solr](solr.md) for better search and performance
+- [Solr](search/solr.md) for better search and performance
 - a CDN for improved performance and faster ping time worldwide
     - in eZ Platform Enterprise Edition you can use Fastly, which has native support as HTTP cache and CDN.
 - active/passive database for failover

@@ -183,7 +183,7 @@ The default value is `false`, so if it is not set, the custom tag will be treate
 !!! caution "Incorrect configuration"
 
     Newer configuration options, such as `is_inline`, only work with the configuration provided above.
-    If your project uses [old configuration](../updating/4_update_2.4.md#changes-to-custom-tags),
+    If your project uses [old configuration](../../updating/4_update_2.4.md#changes-to-custom-tags),
     these options will not work.
     You need to update your configuration to be placed under the `ezrichtext` key.
 

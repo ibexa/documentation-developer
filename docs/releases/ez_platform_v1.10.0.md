@@ -68,7 +68,7 @@ $value = $content->getFieldValue('body');
 
 #### SOLR: Index time boosting & Improved Facets support
 
-One of the new features in 1.10 *(Solr Bundle 1.4)* is the possibility to [configure index time boosting](../guide/solr.md), which enables you to properly tune the search results to be relevant for your content architecture.
+One of the new features in 1.10 *(Solr Bundle 1.4)* is the possibility to [configure index time boosting](../guide/search/solr.md), which enables you to properly tune the search results to be relevant for your content architecture.
 
 In addition to that, we made progress on providing native support for faceted search within eZ Platform when using the Solr Bundle. You can now use facets based on ContentTypes, Sections and Users, see [Performing a Faceted Search](../api/public_php_api_search.md#performing-a-faceted-search) page for how to use them. We plan to provide more facets natively in the coming releases.
 
