@@ -219,17 +219,17 @@ $this->languageService->createLanguage($languageCreateStruct);
 ### URLService
 
 [`URLService`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/URLService.php)
-enables you to find, load and update external URLs used in ezrichtext and ezurl field types.
+enables you to find, load and update external URLs used in RichText and URL Fields.
 
 To view a list of all URLs, use [`URLService::findUrls`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/URLService.php#L33)
 
 `URLService::findUrls` takes as argument a [`URLQuery`,](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/URL/URLQuery.php)
 in which you need to specify:
 
-- query filter e.g. section
-- sort clauses for URL queries
+- query filter e.g. Section
+- Sort Clauses for URL queries
 - offset for search hits, used for paging the results
-- query limit, if value is `0`, search query will not return any search hits
+- query limit. If value is `0`, search query will not return any search hits
 
 ```php
 $URLQuery = $this->URLService->newURLQuery();
