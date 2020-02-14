@@ -232,11 +232,21 @@ in which you need to specify:
 - query limit. If value is `0`, search query will not return any search hits
 
 ```php
-$URLQuery = $this->URLService->newURLQuery();
-$URLQuery->filter = 'section';
-$URLQuery->sortClauses = 'descending';
-$URLQuery->offset = '0';
-$URLQuery->limit = '25'
+use eZ\Publish\API\Repository\Values\URL\Query\Criterion;
+use eZ\Publish\API\Repository\Values\URL\Query\SortClause; 
 
-$this->URLService->findUrls($query);
+# ...
+
+$urlQuery = new URLQuery();
+$urlQuery->filter = new Criterion\LogicalAnd([
+    new Criterion\SectionIdentifier(['standard']),
+    new Criterion\Validity(true),
+]);
+$urlQuery->sortClauses = [
+    new SortClause\URL(SortClause::SORT_DESC)
+];
+$urlQuery->offset = 0;
+$urlQuery->limit = 25;
+
+$results = $this->URLService->findUrls($urlQuery);
 ```
