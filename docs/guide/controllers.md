@@ -282,7 +282,7 @@ Three Controller Actions are available, each for a different type of search:
 - `contentQueryAction` runs a Content Search
 - `contentInfoQueryAction` runs a Content Info search
 
-See the [Search](search.md) documentation page for more details about different types of search.
+See the [Search](search/search.md) documentation page for more details about different types of search.
 
 #### `params`
 

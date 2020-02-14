@@ -171,7 +171,7 @@ Aside from the Field Type, the Field definition in a Content Type provides the f
 
 Note that the Required flag is in no way related to Field validation. A Field's value is validated whether the Field is set as required or not.
 
-**[Searchable](search.md)** – a flag which indicates if the value of the Field will be indexed for searching.
+**[Searchable](search/search.md)** – a flag which indicates if the value of the Field will be indexed for searching.
 
 The Searchable flag is not available for some Fields, because some Field Types do not allow searching through their values.
 
