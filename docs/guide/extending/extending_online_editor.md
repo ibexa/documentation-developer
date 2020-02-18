@@ -228,9 +228,7 @@ In the template file `acronym.html.twig` you provide the explanation as `attr_va
 to the title of the `abbr` tag:
 
 ``` html+twig
-{% for attr_value in params %}
-    <abbr title="{{ attr_value }}">{{ content }}</abbr>
-{% endfor %}
+<abbr title="{{ params.explanation }}">{{ content }}</abbr>
 ```
 
 ![Acronym custom tag](img/oe_custom_tag_acronym.png)
