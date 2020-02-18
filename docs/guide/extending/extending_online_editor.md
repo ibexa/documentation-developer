@@ -149,11 +149,11 @@ Next, create a `app/Resources/views/field_type/ezrichtext/linktag.html.twig` tem
 Lastly, provide the translations in a `app/Resources/translations/linktag.en.yaml` file:
 
 ``` yaml
- ezrichtext.custom_tags.linktag.label: 'Link Tag'
- ezrichtext.custom_tags.linktag.attributes.attrTitle.label: 'Title'
- ezrichtext.custom_tags.linktag.attributes.attrDesc.label: 'Description'
- ezrichtext.custom_tags.linktag.attributes.attrColor.label: 'Color'
- ezrichtext.custom_tags.linktag.attributes.attrUrl.label: 'URL'
+ezrichtext.custom_tags.linktag.label: 'Link Tag'
+ezrichtext.custom_tags.linktag.attributes.attrTitle.label: 'Title'
+ezrichtext.custom_tags.linktag.attributes.attrDesc.label: 'Description'
+ezrichtext.custom_tags.linktag.attributes.attrColor.label: 'Color'
+ezrichtext.custom_tags.linktag.attributes.attrUrl.label: 'URL'
 ```
 
 Now you can use the tag.
@@ -186,6 +186,54 @@ The default value is `false`, so if it is not set, the custom tag will be treate
     If your project uses [old configuration](../../updating/4_update_2.4.md#changes-to-custom-tags),
     these options will not work.
     You need to update your configuration to be placed under the `ezrichtext` key.
+
+### Use cases
+
+#### Acronym
+
+You can create an inline custom tag that will display a hovering tooltip with an explanation of an acronym.
+
+``` yaml
+ezpublish:
+    system:
+        admin_group:
+            fieldtypes:
+                ezrichtext:
+                    custom_tags: [acronym]
+
+ezrichtext:
+    custom_tags:
+        acronym:
+            template: field_type/ezrichtext/custom_tag/acronym.html.twig
+            icon: '/bundles/ezplatformadminui/img/ez-icons.svg#information'
+            is_inline: true
+            attributes:
+                explanation:
+                    type: 'string'
+```
+
+The `explanation` attribute will contain the meaning of the acronym that will be provided
+while editing in the Online Editor.
+
+Label translations can be provided in `translations/custom_tags.en.yaml`:
+
+``` yaml
+ezrichtext.custom_tags.acronym.label: 'Acronym'
+ezrichtext.custom_tags.acronym.attributes.meaning.label: 'Explanation'
+```
+
+![Adding an explanation to an Acronym custom tag](img/oe_custom_tag_add_acronym.png)
+
+In the template file `acronym.html.twig` you provide the explanation as `attr_value`
+to the title of the `abbr` tag:
+
+``` html+twig
+{% for attr_value in params %}
+    <abbr title="{{ attr_value }}">{{ content }}</abbr>
+{% endfor %}
+```
+
+![Acronym custom tag](img/oe_custom_tag_acronym.png)
 
 ## Custom styles
 
@@ -256,6 +304,102 @@ In the example above, the template files for the front end could be:
 ```
 
 Templates for Content View in the Back Office would be `templates/themes/admin/field_type/ezrichtext/custom_style/highlighted_word.html.twig` and `templates/themes/admin/field_type/ezrichtext/custom_style/highlighted_block.html.twig` respectively (assuming Admin SiteAccess uses the `admin` theme).
+
+### Use cases
+
+#### Note box
+
+You can create a custom style that will place a paragraph in a note box:
+
+![Example of a note box custom style](img/oe_custom_style_note_box.png)
+
+``` yaml
+ezpublish:
+    system:
+        admin_group:
+            fieldtypes:
+                ezrichtext:
+                    custom_styles: [note_box]
+
+ezrichtext:
+    custom_styles:
+        note_box:
+            template: field_type/ezrichtext/custom_style/note_box.html.twig
+```
+
+The indicated `note_box.html.twig` template wraps the content of the selected text (`{{ content }}`)
+in a custom CSS class:
+
+``` html+twig
+<div class="note">{{ content }}</div>
+```
+
+``` css
+.note {
+    display: block;
+    background-color: #faa015;
+    border-left: solid 5px #353535;
+    line-height: 18px;
+    padding: 15px;
+    color: #fff;
+    font-weight: bold;
+}
+```
+
+Label translation can be provided in `translations/custom_styles.en.yaml`:
+
+``` yaml
+ezrichtext.custom_styles.note_box.label: 'Note box'
+```
+
+![Adding a Note box custom style](img/oe_custom_style_note_box_select.png)
+
+!!! tip
+
+    You can also create a similar note box using [custom classes](#note-box_1).
+
+#### Text highlight
+
+You can create an inline custom style that highlights a part of a text:
+
+![Example of a custom style highlighting a portion of text](img/oe_custom_style_highlight.png)
+
+``` yaml
+ezpublish:
+    system:
+        admin_group:
+            fieldtypes:
+                ezrichtext:
+                    custom_styles: [highlight]
+                    
+ezrichtext:
+    custom_styles:
+        highlight:
+            template: field_type/ezrichtext/custom_style/highlight.html.twig
+            inline: true
+```
+
+The indicated `highlight.html.twig` template wraps the content of the selected text (`{{ content }}`)
+in a custom CSS class:
+
+``` html+twig
+<span class="highlight">{{ content }}</span>
+```
+
+``` css
+.highlight {
+    background-color: #fcc672;
+    border-radius: 25% 40% 25% 40%;
+}
+```
+
+Label translation can be provided in `translations/custom_styles.en.yaml`:
+
+``` yaml
+ezrichtext.custom_styles.highlight.label: 'Highlight'
+```
+
+![Adding a Highlight custom style](img/oe_custom_style_highlight_select.png)
 
 ## Custom data attributes and classes
 
@@ -360,6 +504,37 @@ For example:
 php ./bin/console translation:extract --enable-extractor=ez_online_editor_attributes
     --dir=./templates --output-dir=./translations/ --output-format=yaml
 ```
+
+### Use cases
+
+#### Note box
+
+You can create a custom class that will enable you to place a paragraph element in a note box:
+
+![Example of a note box custom style](img/oe_custom_style_note_box.png)
+
+``` yaml
+ezpublish:
+    system:
+        admin_group:
+            fieldtypes:
+                ezrichtext:
+                    classes:
+                        paragraph:
+                            choices: [regular, tip_box, warning_box]
+                            default_value: regular
+                            required: false
+                            multiple: false
+```
+
+This enables you to choose one of three classes for each paragraph element: `regular`, `tip_box`, or `warning_box`
+that you can then style individually using CSS.
+
+![Selecting a custom style for a paragraph](img/oe_custom_class_note_box_select.png)
+
+!!! tip
+
+    You can also create a similar note box using [custom styles](#note-box).
 
 ## Plugins configuration
 
