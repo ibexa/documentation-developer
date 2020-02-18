@@ -90,7 +90,34 @@ In the Online Editor, click **Add**, and from the list of available tags select 
 
 ![FactBox Tag](img/custom_tag_factbox.png "FactBox Tag in the Online Editor" )
 
-**Example: Link tag**
+### Inline custom tags
+
+Custom tags can also be placed inline with the following configuration:
+
+``` yaml hl_lines="6"
+ezrichtext:
+    custom_tags:
+        badge:
+            template: field_type/ezrichtext/custom_tag/badge.html.twig
+            icon: '/bundles/ezplatformadminui/img/ez-icons.svg#bookmark'
+            is_inline: true
+            attributes:
+                # ...
+```
+
+`is_inline` is an optional key.
+The default value is `false`, so if it is not set, the custom tag will be treated as a block tag.
+
+!!! caution "Incorrect configuration"
+
+    Newer configuration options, such as `is_inline`, only work with the configuration provided above.
+    If your project uses [old configuration](../../updating/4_update_2.4.md#changes-to-custom-tags),
+    these options will not work.
+    You need to update your configuration to be placed under the `ezrichtext` key.
+
+### Use cases
+
+#### Link tag
 
 You can also configure a custom tag with a `link` attribute that offers a basic UI with text input.
 It is useful when migrating from eZ Publish to eZ Platform.
@@ -161,33 +188,6 @@ In the Back Office, create or edit a Content item that has a RichText Field Type
 In the Online Editor, click **Add**, and from the list of available tags select the Link tag icon.
 
 ![Link Tag](img/custom_tag_link.png "Link Tag in the Online Editor") 
-
-### Inline custom tags
-
-Custom tags can also be placed inline with the following configuration:
-
-``` yaml hl_lines="6"
-ezrichtext:
-    custom_tags:
-        badge:
-            template: field_type/ezrichtext/custom_tag/badge.html.twig
-            icon: '/bundles/ezplatformadminui/img/ez-icons.svg#bookmark'
-            is_inline: true
-            attributes:
-                # ...
-```
-
-`is_inline` is an optional key.
-The default value is `false`, so if it is not set, the custom tag will be treated as a block tag.
-
-!!! caution "Incorrect configuration"
-
-    Newer configuration options, such as `is_inline`, only work with the configuration provided above.
-    If your project uses [old configuration](../../updating/4_update_2.4.md#changes-to-custom-tags),
-    these options will not work.
-    You need to update your configuration to be placed under the `ezrichtext` key.
-
-### Use cases
 
 #### Acronym
 
