@@ -61,7 +61,7 @@ Default values are 0644 for files and 0755 for directories.
 
 !!! note
 
-    In case when NFS [adapter](file_management.md#adapter) is in use, you should configure file permissions under `oneup_flysystem` key instead, as follows:
+    When using the NFS [adapter](file_management.md#adapter), configure file permissions under the `oneup_flysystem` key instead, as follows:
     
     ``` yaml
     oneup_flysystem:
