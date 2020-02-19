@@ -3,12 +3,12 @@
 {% set config = {
   'site_name': 'eZ Platform Developer Documentation',
   'repo_url': 'https://github.com/ezsystems/developer-documentation',
-  'copyright': 'Copyright 1999-2019 eZ Systems AS and others',
+  'copyright': 'Copyright 1999-2020 eZ Systems AS and others',
   'plugins': config.plugins,
   'theme': {
     'name': null,
     'custom_dir': 'material',
-    'favicon': 'img/favicon.ico',
+    'favicon': '../images/favicon.png',
     'language': 'en',
     'palette': {
       'primary': 'blue grey',
@@ -96,6 +96,7 @@
       <link rel="stylesheet" href="{{ path }}">
     {% endfor %}
     {% block extrahead %}{% endblock %}
+    <meta name="google-site-verification" content="JGNozWEjBoXLGwbAeTgoctki-80pg1i2Y5h-OfuhaZs" />
   </head>
   {% if palette.primary or palette.accent %}
     {% set primary = palette.primary | replace(" ", "-") | lower %}
@@ -173,8 +174,13 @@
             <article class="md-content__inner md-typeset{{ ns.bootstrap_extra_css }}">
               {% block content %}
                 {% if page.edit_url %}
-                  <a href="{{ page.edit_url }}" title="{{ lang.t('edit.link.title') }}" class="md-icon md-content__icon">&#xE3C9;</a>
-                  <a href="{{ page.edit_url|replace('/edit/', '/blob/') }}" title="{{ lang.t('show.link.title') }}" class="md-icon md-content__icon">&#xE873;</a>
+                  {% if '/latest/' in page.edit_url %}
+                    <a href="{{ page.edit_url|replace('/latest/', '/' ~ config.extra.version_warning.latest.0 ~ '/') }}" title="{{ lang.t('edit.link.title') }}" class="md-icon md-content__icon">&#xE3C9;</a>
+                    <a href="{{ page.edit_url|replace('/edit/latest/', '/blob/' ~ config.extra.version_warning.latest.0 ~ '/') }}" title="{{ lang.t('show.link.title') }}" class="md-icon md-content__icon">&#xE873;</a>
+                  {% else %}
+                    <a href="{{ page.edit_url }}" title="{{ lang.t('edit.link.title') }}" class="md-icon md-content__icon">&#xE3C9;</a>
+                    <a href="{{ page.edit_url|replace('/edit/', '/blob/') }}" title="{{ lang.t('show.link.title') }}" class="md-icon md-content__icon">&#xE873;</a>
+                  {% endif %}
                 {% endif %}
                 {% if not "\x3ch1" in page.content %}
                   <h1>{{ page.title | default(config.site_name, true)}}</h1>

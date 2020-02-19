@@ -23,14 +23,14 @@ All Signals are relative to `eZ\Publish\Core\SignalSlot\Signal` namespace.
 |`ContentService\AddRelationSignal`|`srcContentId` (source contentId, aka referrer)</br>`srcVersionNo`</br>`dstContentId` (destination contentId, aka target)|`ContentService::addRelation()`|
 |`ContentService\AddTranslationInfoSignal` (deprecated)|N/A||
 |`ContentService\CopyContentSignal`|`srcContentId` (original content ID)</br>`srcVersionNo`</br>`dstContentId` (contentId of the copy)</br>`dstVersionNo`</br>`dstParentLocationId` (locationId where the content has been copied)|`ContentService::copyContent()`|
-|`ContentService\CreateContentDraftSignal`|`contentId`</br>`versionNo`</br>`userId` (ID of User used to create the draft, or null - current User)|`ContentService::createContentDraft()`|
+|`ContentService\CreateContentDraftSignal`|`contentId`</br>`versionNo`</br>`newVersionNo`</br>`userId` (ID of User used to create the draft, or null - current User)</br>`languageCode`|`ContentService::createContentDraft()`|
 |`ContentService\CreateContentSignal`|`contentId`</br>`versionNo`|`ContentService::createContent()`|
 |`ContentService\DeleteContentSignal`|`contentId`</br>`affectedLocationIds`|`ContentService::deleteContent()`|
 |`ContentService\DeleteRelationSignal`|`srcContentId`</br>`srcVersionNo`</br>`dstContentId`|`ContentService::deleteRelation()`|
 |`ContentService\DeleteTranslationSignal`|`contentId`</br>`languageCode`|`ContentService::deleteTranslation()`|
 |`ContentService\DeleteVersionSignal`|`contentId`</br>`versionNo`|`ContentService::deleteVersion()`|
 |`ContentService\HideContentSignal`|`contentId`|`ContentService::hideContent()`|
-|`ContentService\PublishVersionSignal`|`contentId`</br>`versionNo`|`ContentService::publishVersion()`|
+|`ContentService\PublishVersionSignal`|`contentId`</br>`versionNo`</br>`affectedTranslations`|`ContentService::publishVersion()`|
 |`ContentService\RevealContentSignal`|`contentId`|`ContentService::revealContent()`|
 |`ContentService\TranslateVersionSignal` (deprecated)|`contentId`</br>`versionNo`</br>`userId`||
 |`ContentService\UpdateContentMetadataSignal`|`contentId`|`ContentService::updateContentMetadata()`|

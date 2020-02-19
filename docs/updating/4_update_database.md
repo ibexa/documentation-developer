@@ -1,6 +1,6 @@
 # 4. Update database
 
-Some versions require updates to the database. Look through [the list of database update scripts](https://github.com/ezsystems/ezpublish-kernel/tree/master/data/update/mysql)
+Some versions require updates to the database. Look through [the list of database update scripts](https://github.com/ezsystems/ezpublish-kernel/tree/v7.5.5/data/update/mysql)
 for a script for the version you are updating to (database version numbers correspond to the `ezpublish-kernel` version).
 
 During database update, you have to go through all the changes between your current version and your final version

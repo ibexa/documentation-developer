@@ -30,14 +30,14 @@ Custom Field Types have to be programmed in PHP. However, the built-in Field Ty
 | [Integer](#integer-field-type) | Validates and stores an integer value. | Yes | Yes |
 | [ISBN](#isbn-field-type) | Handles International Standard Book Number (ISBN) in 10-digit or 13-digit format.  | Yes | Yes |
 | [Keyword](#keyword-field-type) | Stores keywords. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
-| [MapLocation](#maplocation-field-type) | Stores map coordinates. | Yes, with MapLocationDistance criterion | Yes |
+| [MapLocation](#maplocation-field-type) | Stores map coordinates. | Yes, with [`MapLocationDistance` Criterion](../guide/search/criteria_reference/maplocationdistance_criterion.md) | Yes |
 | [Matrix](#matrix-field-type) | Represents and handles a table of rows and columns of data. | No | No |
 | [Media](#media-field-type) | Validates and stores a media file. | No | Yes |
 | [Null](#null-field-type) | Used as fallback for missing Field Types and for testing purposes. | N/A | N/A |
 | [Page](#page-field-type) | Stores a Page with a layout consisting of multiple zones. | N/A | N/A |
 | [Rating](#rating-field-type) | **Deprecated** | N/A | N/A |
-| [Relation](#relation-field-type) | Validates and stores a relation to a Content item. | Yes, with both Field and FieldRelation criterions | Yes |
-| [RelationList](#relationlist-field-type) | Validates and stores a list of relations to Content items. | Yes, with FieldRelation criterion | Yes |
+| [Relation](#relation-field-type) | Validates and stores a relation to a Content item. | Yes, with both [`Field`](../guide/search/criteria_reference/field_criterion.md) and [`FieldRelation`](../guide/search/criteria_reference/fieldrelation_criterion.md) Criteria | Yes |
+| [RelationList](#relationlist-field-type) | Validates and stores a list of relations to Content items. | Yes, with [`FieldRelation` Criterion](../guide/search/criteria_reference/fieldrelation_criterion.md) | Yes |
 | [RichText](#richtext-field-type) | Validates and stores structured rich text in DocBook xml format, and exposes it in several formats. Available via [eZ Platform RichTextBundle](https://github.com/ezsystems/ezplatform-richtext). | Yes[^1^](#1-note-on-legacy-search-engine)  | Yes |
 | [Selection](#selection-field-type) | Validates and stores a single selection or multiple choices from a list of options. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
 | [TextBlock](#textblock-field-type) | Validates and stores a larger block of text. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
@@ -52,7 +52,7 @@ Legacy Search/Storage Engine index is limited to 255 characters in database desi
 so formatted and unformatted text blocks will only index the first part.
 In case of multiple selection Field Types like Keyword, Selection, Country, etc.,
 only the first choices are indexed. They are indexed only as a text blob separated by string separator.
-Proper indexing of these Field Types is done with [Solr Search Bundle](../guide/solr.md).
+Proper indexing of these Field Types is done with [Solr Search Bundle](../guide/search/solr.md).
 
 ### Other Field Types
 
@@ -302,6 +302,20 @@ $checkboxValue = new Checkbox\Value( true );
 ###### String representation
 
 As this Field Type is not a string but a boolean, it will return "1" (true) or "0" (false) in cases where it is cast to string.
+
+## Content query Field Type
+
+This Field Type maps an executable Repository query to a Field.
+
+| Name      | Internal name | Expected input |
+|-----------|---------------|----------------|
+| `Content query` | `ezcontentquery`   | `string`        |
+
+The Content query Field Type is available via the eZ Platform Query Field Type Bundle
+provided by the [ezplatform-query-fieldtype](https://github.com/ezsystems/ezplatform-query-fieldtype) package.
+You need to add the package manually to your project.
+
+For information on the Field Type's usage, see [Query Field Type in controller documentation](../guide/controllers.md#query-field-type).
 
 ## Country Field Type
 
@@ -1997,7 +2011,7 @@ This format is used by eZ Platform's Online Editor.
 </section>
 ```
 
-For more information about internal format and input formats, see [Field Type's conversion test fixtures on GitHub](https://github.com/ezsystems/ezplatform-richtext/tree/master/tests/lib/eZ/RichText/Converter/Xslt/_fixtures).
+For more information about internal format and input formats, see [Field Type's conversion test fixtures on GitHub](https://github.com/ezsystems/ezplatform-richtext/tree/v1.1.3/tests/lib/eZ/RichText/Converter/Xslt/_fixtures).
 
 For example, ezxml does not use explicit level attributes for `<header>` elements, instead `<header>` element levels are indicated through the level of nesting inside `<section>` elements.
 
@@ -2055,7 +2069,7 @@ When creating RichText content with the REST API, it is possible to provide data
 
 When the value given over REST API is transformed into a Field Type's `Value` object, it will be treated as a string. This means you can use any supported input format for input over REST API.
 
-For further information about the [internal implementation of RichText Field Type, see the kernel documentation](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rich_text/ezdocbook.md)
+For further information about the [internal implementation of RichText Field Type, see the kernel documentation](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/doc/specifications/rich_text/ezdocbook.md)
 
 ## Selection Field Type
 

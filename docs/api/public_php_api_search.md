@@ -1,6 +1,6 @@
 # Content search
 
-[`SearchService`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/SearchService.php)
+[`SearchService`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/SearchService.php)
 enables you to perform search queries using the PHP API.
 
 The service should be [injected into the constructor of your command or controller.](https://symfony.com/doc/3.4/service_container.html)
@@ -12,11 +12,11 @@ The service should be [injected into the constructor of your command or controll
 
 ## Performing a search
 
-To search through Content you need to create a [`LocationQuery`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/LocationQuery.php)
+To search through Content you need to create a [`LocationQuery`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/Values/Content/LocationQuery.php)
 and provide your search criteria as a series of Criterion objects.
 
-For example, to search for all Content of a selected Content Type, use one Criterion,
-`Criterion\ContentTypeIdentifier` (line 14).
+For example, to search for all content of a selected Content Type, use one Criterion,
+[`Criterion\ContentTypeIdentifier`](../guide/search/criteria_reference/contenttypeidentifier_criterion.md) (line 14).
 
 The following command takes the Content Type identifier as an argument and lists all results:
 
@@ -45,12 +45,12 @@ class FindContentCommand extends Command
 }
 ```
 
-[`SearchService::findContentInfo`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/SearchService.php#L142) (line 16)
-retrieves [`ContentInfo`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/ContentInfo.php) objects of the found Content items.
-You can also use [`SearchService::findContent`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/SearchService.php#L122) to get full Content objects, together with their Field information.
+[`SearchService::findContentInfo`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/SearchService.php#L142) (line 16)
+retrieves [`ContentInfo`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/Values/Content/ContentInfo.php) objects of the found Content items.
+You can also use [`SearchService::findContent`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/SearchService.php#L122) to get full Content objects, together with their Field information.
 
 To query for a single result, for example by providing a Content ID,
-use the [`SearchService::findSingle`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/SearchService.php#L159) method:
+use the [`SearchService::findSingle`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/SearchService.php#L159) method:
 
 ``` php
 $criterion = new Criterion\ContentId($contentId);
@@ -60,7 +60,15 @@ $output->writeln($result->getName());
 
 !!! tip
 
-    For full list and details of available Search Criteria, see [Search Criteria reference](../guide/search.md#search-criteria-reference).
+    For full list and details of available Search Criteria, see [Search Criteria reference](../guide/search/search_criteria_reference.md).
+
+!!! note "Search result limit"
+
+    By default search returns up to 25 results. You can change it by setting a different limit to the query:
+
+    ``` php
+    $query->limit = 100;
+    ```
 
 ### Search with `query` and `filter`
 
@@ -109,7 +117,7 @@ The rendering of results is then relegated to [templates](../guide/templates.md)
 
 ### Paginating search results
 
-To paginate search results, it is recommended to use the [Pagerfanta library](https://github.com/whiteoctober/Pagerfanta) and [eZ Platform's adapters for it.](https://github.com/ezsystems/ezpublish-kernel/tree/v7.5.3/eZ/Publish/Core/Pagination/Pagerfanta)
+To paginate search results, it is recommended to use the [Pagerfanta library](https://github.com/whiteoctober/Pagerfanta) and [eZ Platform's adapters for it.](https://github.com/ezsystems/ezpublish-kernel/tree/v7.5.5/eZ/Publish/Core/Pagination/Pagerfanta)
 
 ``` php
 //...
@@ -157,10 +165,10 @@ For more information and examples, see [PagerFanta documentation.](https://githu
 
 |Adapter class name|Description|
 |------|------|
-|[`ContentSearchAdapter`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/Core/Pagination/Pagerfanta/ContentSearchAdapter.php)|Makes a search against passed Query and returns [Content](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/Content.php) objects.|
-|[`ContentSearchHitAdapter`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/Core/Pagination/Pagerfanta/ContentSearchHitAdapter.php)|Makes a search against passed Query and returns [SearchHit](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/Search/SearchHit.php) objects instead.|
-|[`LocationSearchAdapter`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/Core/Pagination/Pagerfanta/LocationSearchAdapter.php)|Makes a Location search against passed Query and returns [Location](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/Location.php) objects.|
-|[`LocationSearchHitAdapter`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/Core/Pagination/Pagerfanta/LocationSearchHitAdapter.php)|Makes a Location search against passed Query and  returns [SearchHit](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/Search/SearchHit.php) objects instead.|
+|[`ContentSearchAdapter`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/Core/Pagination/Pagerfanta/ContentSearchAdapter.php)|Makes a search against passed Query and returns [Content](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/Values/Content/Content.php) objects.|
+|[`ContentSearchHitAdapter`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/Core/Pagination/Pagerfanta/ContentSearchHitAdapter.php)|Makes a search against passed Query and returns [SearchHit](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/Values/Content/Search/SearchHit.php) objects instead.|
+|[`LocationSearchAdapter`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/Core/Pagination/Pagerfanta/LocationSearchAdapter.php)|Makes a Location search against passed Query and returns [Location](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/Values/Content/Location.php) objects.|
+|[`LocationSearchHitAdapter`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/Core/Pagination/Pagerfanta/LocationSearchHitAdapter.php)|Makes a Location search against passed Query and  returns [SearchHit](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/Values/Content/Search/SearchHit.php) objects instead.|
 
 ## Complex search
 
@@ -218,8 +226,8 @@ $query->filter = new Criterion\LogicalAnd([
 ]);
 ```
 
-The query searches for Location B using the `LocationId` Criterion,
-and for visible Content using the `Visibility` Criterion.
+The query searches for Location B using the [`LocationId` Criterion](../guide/search/criteria_reference/locationid_criterion.md),
+and for visible content using the [`Visibility` Criterion](../guide/search/criteria_reference/visibility_criterion.md).
 
 Even though the Location B is hidden, the query will find the Content because both conditions are satisfied:
 
@@ -229,7 +237,7 @@ Even though the Location B is hidden, the query will find the Content because bo
 
 ## Sorting results
 
-To sort the results of a query, use one of more [Sort Clauses](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/Query/SortClause.php).
+To sort the results of a query, use one of more [Sort Clauses](../guide/search/sort_clause_reference.md).
 
 For example, to order search results by their publicationg date, from oldest to newest,
 and then alphabetically by content name, add the following Sort Clauses to the query:
@@ -243,7 +251,7 @@ $query->sortClauses = [
 
 !!! tip
 
-    For the full list and details of available Sort Clauses, see [Sort Clause reference](../guide/search.md#sort-clauses-reference).
+    For the full list and details of available Sort Clauses, see [Sort Clause reference](../guide/search/sort_clause_reference.md).
 
 ## Faceted search
 
@@ -252,7 +260,7 @@ $query->sortClauses = [
     Faceted search is available only for the Solr search engine.
 
     To find out if a given search engine supports any of the advanced search capabilities,
-    use the [`eZ\Publish\API\Repository\SearchService::supports`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/SearchService.php#L187-L197) method:
+    use the [`eZ\Publish\API\Repository\SearchService::supports`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/SearchService.php#L187-L197) method:
 
     ``` php
     $facetSupport = $this->searchService->supports(SearchService::CAPABILITY_FACETS);
@@ -280,4 +288,4 @@ foreach ($result->facets[0]->entries as $facetEntry) {
 }
 ```
 
-See [Search Facet reference](../guide/search.md#search-facet-reference) for details of all available Facets.
+See [Search Facet reference](../guide/search/search.md#search-facet-reference) for details of all available Facets.

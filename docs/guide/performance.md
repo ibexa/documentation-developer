@@ -12,7 +12,7 @@ If you are in a hurry, the most important recommendations on this page are:
 - Dump optimized Composer autoload classmap
 - Use a full web (Nginx/Apache) server with vhost
 - Avoid shared filesystems for code (Docker for Mac/Win, VirtualBox/*, Vagrant, etc.), or find ways to optimize or work around the issues.
-- For clustering (mainly relevant for production/staging), reduce latency to Redis/Memcached, use Varnish and [Solr](solr.md).
+- For clustering (mainly relevant for production/staging), reduce latency to Redis/Memcached, use Varnish and [Solr](search/solr.md).
 
 ## Client
 
@@ -78,12 +78,12 @@ In production setups:
 
 ### Search
 
-- Use [Solr Bundle and Solr](solr.md) to greatly offload your database and get more stable performance on your installation.
+- Use [Solr Bundle and Solr](search/solr.md) to greatly offload your database and get more stable performance on your installation.
 
 ## Executing long-running console commands
 
 Executing long-running console commands can result in running out of memory.
-Two examples of such commands are a custom import command and the indexing command provided by the [Solr Bundle](../guide/solr.md).
+Two examples of such commands are a custom import command and the indexing command provided by the [Solr Bundle](search/solr.md).
 
 ### Reducing memory usage
 
@@ -132,6 +132,6 @@ The things you will need to do:
     2. *If not defined, it is the master process which will execute the processes until nothing is left to process.*
 
 2. Change the command so that the master process takes care of forking child processes in slices.
-    1. For execution in-order, [you may look to our platform installer code](https://github.com/ezsystems/ezpublish-kernel/blob/6.2/eZ/Bundle/PlatformInstallerBundle/src/Command/InstallPlatformCommand.php#L230)
+    1. For execution in-order, [you may look to our platform installer code](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Bundle/PlatformInstallerBundle/src/Command/InstallPlatformCommand.php)
     used to fork out Solr indexing after installation to avoid cache issues.
-    2. For parallel execution of the slices, [see Symfony doc for further instruction](http://symfony.com/doc/current/components/process.html#process-signals).
+    2. For parallel execution of the slices, [see Symfony doc for further instruction](https://symfony.com/doc/3.4/components/process.html#process-signals).

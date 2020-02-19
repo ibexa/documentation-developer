@@ -198,7 +198,7 @@ By default the Symfony reverse proxy, written in PHP, is used to handle cache, b
 
 For Varnish to work properly with eZ, you'll need to use one of the provided files as a basis:
 
-- [Varnish 4 VCL xkey example](https://github.com/ezsystems/ezplatform/blob/master/doc/varnish/vcl/varnish4_xkey.vcl)
+- [Varnish 4 VCL xkey example](https://github.com/ezsystems/ezplatform/blob/v2.5.6/doc/varnish/vcl/varnish4_xkey.vcl)
 
 !!! note
 
@@ -298,6 +298,9 @@ ezpublish:
 
     It is recommended to use either `app/config/parameters.yml` or the environment variable.
 
+    As of eZ Enterprise v1.13.6 and v2.5.9, you no longer need to set `HTTPCACHE_PURGE_SERVER` if you set `purge_type`
+    via `HTTPCACHE_PURGE_TYPE`. If you set `purge_type` by any other means, you will still need to set `purge_server` too.
+
     Note that in `app/config/ezplatform.yml`, the `purge_server` setting is an array while `purge_server` in
     `app/config/parameters.yml` and the `HTTPCACHE_PURGE_SERVER` environment variable should be a string.
 
@@ -349,7 +352,7 @@ ezpublish:
 !!! note "Invalidating Varnish cache using tokens"
 
     In setups where the Varnish server IP can change (for example on platform.sh/eZ Platform Cloud),
-    you can use token-based cache invalidation via [ez_purge_acl](https://github.com/ezsystems/ezplatform-http-cache/blob/master/docs/varnish/vcl/varnish4.vcl#L166).
+    you can use token-based cache invalidation via [ez_purge_acl](https://github.com/ezsystems/ezplatform-http-cache/blob/v0.9.1/docs/varnish/vcl/varnish4.vcl#L163).
 
     In such a case use a strong, secure hash and make sure to keep the token secret.
 
@@ -430,7 +433,7 @@ eZ Platform already interferes with the hash generation process by adding the cu
 
 !!! tip
 
-    [Examples of user hash generation](https://github.com/ezsystems/ezplatform/tree/master/doc/varnish/vcl)
+    [Examples of user hash generation](https://github.com/ezsystems/ezplatform/tree/v2.5.6/doc/varnish/vcl)
 
 ##### New anonymous `X-User-Hash`
 

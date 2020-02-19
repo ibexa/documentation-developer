@@ -7,8 +7,8 @@ which can later be used e.g. as basis for permissions.
 
 ### Creating Sections
 
-To create a new Section, you need to make use of the [`SectionCreateStruct`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/SectionCreateStruct.php)
-and pass it to the [`SectionService::createSection`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/SectionService.php#L32) method:
+To create a new Section, you need to make use of the [`SectionCreateStruct`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/Values/Content/SectionCreateStruct.php)
+and pass it to the [`SectionService::createSection`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/SectionService.php#L32) method:
 
 ``` php 
 $sectionCreateStruct = $this->sectionService->newSectionCreateStruct();
@@ -28,7 +28,7 @@ $output->writeln(($this->sectionService->isSectionUsed($section) ? 'This section
 ### Listing content in a Section
 
 To list Content items assigned to a Section you need to make a [query](public_php_api_search.md)
-for Content belonging to this section, by applying the [`SearchService`.](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/SearchService.php)
+for Content belonging to this section, by applying the [`SearchService`.](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/SearchService.php)
 You can also use the query to get the total number of assigned Content items:
 
 ``` php
@@ -47,9 +47,9 @@ foreach ($result->searchHits as $seachResult) {
 
 ### Assigning Section to content
 
-To assign content to a Section, use the [`SectionService::assignSection`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/SectionService.php#L111) method.
+To assign content to a Section, use the [`SectionService::assignSection`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/SectionService.php#L111) method.
 You need to provide it with the `ContentInfo` object of the Content item,
-and the [`Section`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/Section.php) object:
+and the [`Section`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/Values/Content/Section.php) object:
 
 ``` php
 $contentInfo = $this->contentService->loadContentInfo($contentId);
@@ -67,7 +67,7 @@ States are grouped into Object state groups.
 ### Creating Object states
 
 To create an Object state group and add Object states to it,
-you need to make use of the [`ObjectStateService`:](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ObjectStateService.php)
+you need to make use of the [`ObjectStateService`:](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/ObjectStateService.php)
 
 ``` php
 $objectStateGroupStruct = $this->objectStateService->newObjectStateGroupCreateStruct('rank');
@@ -76,12 +76,12 @@ $objectStateGroupStruct->names = ['eng-GB' => 'rank'];
 $this->objectStateService->createObjectStateGroup($objectStateGroupStruct);
 ```
 
-[`ObjectStateService::createObjectStateGroup`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ObjectStateService.php#L36)
-takes as argument an [`ObjectStateGroupCreateStruct`,](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/ObjectState/ObjectStateGroupCreateStruct.php)
+[`ObjectStateService::createObjectStateGroup`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/ObjectStateService.php#L36)
+takes as argument an [`ObjectStateGroupCreateStruct`,](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/Values/ObjectState/ObjectStateGroupCreateStruct.php)
 in which you need to specify the identifier, default language and at least one name for the group.
 
 To create an Object state inside a group,
-use [`ObjectStateService::newObjectStateCreateStruct`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ObjectStateService.php#L210)
+use [`ObjectStateService::newObjectStateCreateStruct`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/ObjectStateService.php#L210)
 and provide it with an `ObjectStateCreateStruct`:
 
 ``` php
@@ -101,7 +101,7 @@ $this->objectStateService->createObjectState($objectStateGroup, $stateSpecialStr
 ### Assigning Object state
 
 To assign an Object state to a Content item,
-use [`ObjectStateService::setContentState`.](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ObjectStateService.php#L164)
+use [`ObjectStateService::setContentState`.](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/ObjectStateService.php#L164)
 Provide it with a `ContentInfo` object of the Content item, the Object state group and the Object state:
 
 ``` php
@@ -129,7 +129,7 @@ $this->objectStateService->setContentState($contentInfo, $objectStateGroup, $obj
 
     !!! tip
 
-        `marking`, a term from [Symfony Workflow,](https://symfony.com/doc/current/components/workflow.html)
+        `marking`, a term from [Symfony Workflow,](https://symfony.com/doc/3.4/components/workflow.html)
         refers to a state in a workflow.
 
     To get a list of all workflows that can be used for a given Content item, use `WorkflowRegistry`:
@@ -157,10 +157,10 @@ $this->objectStateService->setContentState($contentInfo, $objectStateGroup, $obj
 
 ## Bookmarks
 
-[`BookmarkService`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/BookmarkService.php)
+[`BookmarkService`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/BookmarkService.php)
 enables you to read, add and remove bookmarks from content.
 
-To view a list of all bookmarks, use [`BookmarkService::loadBookmarks`:](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/BookmarkService.php#L54)
+To view a list of all bookmarks, use [`BookmarkService::loadBookmarks`:](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/BookmarkService.php#L54)
 
 ``` php
 $bookmarkList = $this->bookmarkService->loadBookmarks();
@@ -173,7 +173,7 @@ foreach ($bookmarkList->items as $bookmark) {
 ```
 
 You can add a bookmark to a Content item by providing its Location object
-to the [`BookmarkService::createBookmark`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/BookmarkService.php#L31) method:
+to the [`BookmarkService::createBookmark`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/BookmarkService.php#L31) method:
 
 ``` php
 $location = $this->locationService->loadLocation($locationId);
@@ -181,7 +181,7 @@ $location = $this->locationService->loadLocation($locationId);
 $this->bookmarkService->createBookmark($location);
 ```
 
-You can remove a bookmark from a Location with [`BookmarkService::deleteBookmark`:](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/BookmarkService.php#L42)
+You can remove a bookmark from a Location with [`BookmarkService::deleteBookmark`:](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/BookmarkService.php#L42)
 
 ``` php
 $this->bookmarkService->deleteBookmark($location);
@@ -191,7 +191,7 @@ $this->bookmarkService->deleteBookmark($location);
 
 ### Getting Language information
 
-To get a list of all Languages in the system use [`LanguageService::loadLanguages`:](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/LanguageService.php#L81)
+To get a list of all Languages in the system use [`LanguageService::loadLanguages`:](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/LanguageService.php#L81)
 
 ``` php
 $languageList = $this->languageService->loadLanguages();
@@ -203,13 +203,50 @@ foreach ($languageList as $language) {
 
 ### Creating a Language
 
-To create a new language, you need to create a [`LanguageCreateStruct`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/Content/LanguageCreateStruct.php)
+To create a new language, you need to create a [`LanguageCreateStruct`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/Values/Content/LanguageCreateStruct.php)
 and provide it with the language code and language name.
-Then, use [`LanguageService::createLanguage`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/LanguageService.php#L29) and pass the `LanguageCreateStruct` to it:
+Then, use [`LanguageService::createLanguage`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/LanguageService.php#L29) and pass the `LanguageCreateStruct` to it:
 
 ``` php
 $languageCreateStruct = $this->languageService->newLanguageCreateStruct();
 $languageCreateStruct->languageCode = 'ger-DE';
 $languageCreateStruct->name = 'German';
 $this->languageService->createLanguage($languageCreateStruct);
+```
+
+## URLs
+
+### URLService
+
+[`URLService`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/URLService.php)
+enables you to find, load and update external URLs used in RichText and URL Fields.
+
+To view a list of all URLs, use [`URLService::findUrls`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/URLService.php#L33)
+
+`URLService::findUrls` takes as argument a [`URLQuery`,](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/Values/URL/URLQuery.php)
+in which you need to specify:
+
+- query filter e.g. Section
+- Sort Clauses for URL queries
+- offset for search hits, used for paging the results
+- query limit. If value is `0`, search query will not return any search hits
+
+```php
+use eZ\Publish\API\Repository\Values\URL\Query\Criterion;
+use eZ\Publish\API\Repository\Values\URL\Query\SortClause; 
+
+# ...
+
+$urlQuery = new URLQuery();
+$urlQuery->filter = new Criterion\LogicalAnd([
+    new Criterion\SectionIdentifier(['standard']),
+    new Criterion\Validity(true),
+]);
+$urlQuery->sortClauses = [
+    new SortClause\URL(SortClause::SORT_DESC)
+];
+$urlQuery->offset = 0;
+$urlQuery->limit = 25;
+
+$results = $this->URLService->findUrls($urlQuery);
 ```

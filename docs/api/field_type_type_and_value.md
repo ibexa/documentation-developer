@@ -6,7 +6,7 @@ It is also good practice to provide a Value object class for storing the custom 
 
 ## Type class
 
-The Type class of a Field Type provides an implementation of the [`eZ\Publish\SPI\FieldType\FieldType`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/SPI/FieldType/FieldType.php) interface.
+The Type class of a Field Type provides an implementation of the [`eZ\Publish\SPI\FieldType\FieldType`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/SPI/FieldType/FieldType.php) interface.
 
 ### Field Definition handling
 
@@ -115,7 +115,7 @@ services:
 
 #### `parent`
 
-As described in the [Symfony Dependency Injection Component documentation](http://symfony.com/doc/master/components/dependency_injection/parentservices.html), the `parent` config key indicates that you want your service to inherit from the parent's dependencies, including constructor arguments and method calls. This helps avoiding repetition in your Field Type configuration and keeps consistency between all Field Types.
+As described in the [Symfony Dependency Injection Component documentation](https://symfony.com/doc/3.4/service_container/parent_services.html), the `parent` config key indicates that you want your service to inherit from the parent's dependencies, including constructor arguments and method calls. This helps avoiding repetition in your Field Type configuration and keeps consistency between all Field Types.
 
 #### `tags`
 

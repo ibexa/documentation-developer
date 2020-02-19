@@ -48,7 +48,7 @@ Edit it to remove the Image Field that has a Content Relation (ezobjectrelation)
 
 | Field Type | Name  | Identifier | Required | Searchable | Translatable |
 |------------|-------|------------|----------|------------|--------------|
-| Image      | Image | `image`    |no        |no          | yes          |
+| Image      | Image | `image`    |yes       |no          | yes          |
 
 ![New image Field in the Article Content Type](img/enterprise_tut_image_in_article_ct.png)
 

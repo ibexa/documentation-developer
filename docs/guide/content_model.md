@@ -20,7 +20,7 @@ The Fields can cover data ranging from single variables and text lines to media 
 
 #### Content information
 
-General information about a Content item is stored in a [`ContentInfo`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/ContentInfo.php) object.
+General information about a Content item is stored in a [`ContentInfo`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/Values/Content/ContentInfo.php) object.
 `ContentInfo` does not include Fields. It contains following information:
 
 **`id`** - the unique ID of the Content object. These numbers are not recycled, so if an item is deleted, its ID will not be reused when a new one is created.
@@ -110,7 +110,7 @@ Each Content Type is characterized by a set of metadata which define the general
 
 **Default sort order** – another rule for sorting sub-items. This decides the sort order for the criterion chosen above.
 
-<a id="default-content-availability"></a>**Default content availability** – a flag which indicates if Content items of this Content Type should be available even without a corresponding language version. If this flag is not set, a Content item of this Type will not be available when it does not have a language version corresponding to the current SiteAccess. By setting this flag you can make instances of this Content Type available regardless of the language criterion.
+<a id="default-content-availability"></a>**Make content available even with missing translations** – a flag which indicates if Content items of this Content Type should be available even without a corresponding language version. See [Content availability](content_management.md#content-availability).
 
 ![Creating a new Content Type](img/admin_panel_new_content_type.png)
 
@@ -171,7 +171,7 @@ Aside from the Field Type, the Field definition in a Content Type provides the f
 
 Note that the Required flag is in no way related to Field validation. A Field's value is validated whether the Field is set as required or not.
 
-**[Searchable](search.md)** – a flag which indicates if the value of the Field will be indexed for searching.
+**[Searchable](search/search.md)** – a flag which indicates if the value of the Field will be indexed for searching.
 
 The Searchable flag is not available for some Fields, because some Field Types do not allow searching through their values.
 

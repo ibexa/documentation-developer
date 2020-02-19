@@ -25,27 +25,32 @@ Persistence cache aims at caching most `SPI\Persistence` calls used in common p
 
 Notes:
 
-- Currently in case of transactions this is handled by clearing all cache on rollback, so avoid using rollbacks
-  as part of your normal application logic flow. For instance if you connect to third party service and it frequently
-  fails, make sure to re-try several times, and if that does not help, consider making the logic async by design.
-- [Cache tagging](https://symfony.com/doc/current/components/cache/cache_invalidation.html#using-cache-tags) is used in
+- [Cache tagging](https://symfony.com/doc/3.4/components/cache/cache_invalidation.html#using-cache-tags) is used in
   order to allow clearing cache by alternative indexes.
   For instance tree operations or changes to Content Types are
   examples of operations that also need to invalidate content cache by tags.
 - Search is not defined as persistence and the queries themselves are not planned to be cached as they are too complex by design (full text, facets, etc.).
-  Use [Solr](solr.md) which caches this for you to improve scale, and to offload your database.
+  Use [Solr](search/solr.md) which caches this for you to improve scale/performance, and to offload your database.
 
-*For further details on which calls are cached or not, and where/how to contribute additional caches, see the [source](https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/Core/Persistence/Cache).*
+For further details on which calls are cached or not, see details in the [Symfony Web Debug Toolbar](devops.md#web-debug-toolbar)
+which has info on cache use in two places:
+
+- Symfony Cache tab: for Symfony Cache itself, the tab shows cache lookups to cache backends
+- eZ Platform tab: shows calls made to database back end, and if they are cached or not
+
+To see where and how to contribute additional caches, refer to the [source code](https://github.com/ezsystems/ezpublish-kernel/tree/v7.5.5/eZ/Publish/Core/Persistence/Cache).
 
 ## Persistence cache configuration
 
 !!! note
 
     Current implementation uses Symfony cache. It technically supports the following cache backends:
-    [APCu, Array, Chain, Doctrine, Filesystem, Memcached, PDO & Doctrine DBAL, Php Array, Proxy, Redis](https://symfony.com/doc/current/components/cache/cache_pools.html#creating-cache-pools).
-    We recommend using Redis for clustering and Filesystem for single server.
+    [APCu, Array, Chain, Doctrine, Filesystem, Memcached, PDO & Doctrine DBAL, Php Array, Proxy, Redis](https://symfony.com/doc/3.4/components/cache/cache_pools.html#creating-cache-pools).
+    eZ Platform officially supports only using Filesystem for single server and Redis or Memcached for clustered setups.
 
-*Use of Memcached or Redis is a requirement for use in Clustering setup. For an overview of this feature, see [Clustering](clustering.md).*
+Use of Memcached or Redis as shared cache back end is a requirement for use in clustering setup.
+For an overview of this feature, see [Clustering](clustering.md).
+Filesystem adapters, for example, are **not** intended to be used over a shared filesystem.
 
 **Cache service**
 
@@ -53,7 +58,12 @@ The underlying cache system is exposed as an `ezpublish.cache_pool` service, and
 
 ### Configuration
 
-By default, configuration currently uses **FileSystem** to store cache files, which is defined in [`default_parameters.yml`](https://github.com/ezsystems/ezplatform/blob/master/app/config/default_parameters.yml#L34).
+By [default](https://github.com/ezsystems/ezplatform/blob/v2.5.6/app/config/default_parameters.yml#L78),
+configuration uses the `cache.tagaware.filesystem` service to store cache files.
+The service is defined in `app/config/cache_pool/cache.tagaware.filesystem.yml`
+to use [FilesystemTagAwareAdapter](https://github.com/ezsystems/ezplatform/blob/v2.5.6/app/config/cache_pool/cache.tagaware.filesystem.yml#L7).
+This service is loaded through `app/config/env/generic.php`.
+
 You can select a different cache backend and configure its parameters in the relevant file in the `cache_pool` folder.
 
 #### Multi Repository setup
@@ -117,17 +127,35 @@ parameters:
 
 ### Redis
 
-[Redis](http://redis.io/), an in-memory data structure store, is the recommended cache solution for clustering.
+[Redis](http://redis.io/), an in-memory data structure store, is one of the supported cache solutions for clustering.
 Redis is used via [Redis pecl extension](https://pecl.php.net/package/redis).
 
 See [Redis Cache Adapter in Symfony documentation](https://symfony.com/doc/3.4/components/cache/adapters/redis_adapter.html#configure-the-connection)
 for information on how to connect to Redis.
-Main difference is that eZ Platform ships with an optimized Adapter called RedisTagAwareAdapter
-(see `app/config/cache_pool/cache.redis.yml` for a configuration example).
 
-This optimized adapter depends on configuring an eviction policy
-which does *not* risk deleting Tag relation data when reaching memory limits.
-Currently, the recommended eviction policy is `volatile-lru`.
+#### Supported Adapters
+
+There are two Redis adapters available out of the box that fit different needs.
+
+##### `Symfony\Component\Cache\Adapter\RedisTagAwareAdapter`
+
+**Requirement**: Redis server configured with eviction [`maxmemory-policy`](https://redis.io/topics/lru-cache#eviction-policies):
+`volatile-ttl`, `volatile-lru` or `volatile-lfu` (Redis 4.0+).
+Use of LRU or LFU is recommended. It is also possible to use `noeviction`, but it is usually not practical.
+
+**Pros**: It is typically faster than `RedisAdapter`, because fewer lookups needed to cache backend.
+
+**Cons**: Consumes much more memory. To avoid situations where Redis stops accepting new cache
+(warnings about `Failed to save key`), set aside enough memory for the Redis server.
+
+##### `Symfony\Component\Cache\Adapter\RedisAdapter`
+
+**Pros**: Uses a bit less memory than `RedisTagAwareAdapter`, so it eliminated the risk of stopping saving cache when there is not enough memory.
+
+**Cons**: 1.5-2x more lookups to the back-end cache server then `RedisTagAwareAdapter`.
+Depending on the number of lookups and latency to cache server this might affect page load time.
+
+#### Adjusting configuration
 
 Out of the box in `app/config/cache_pool/cache.redis.yml` you'll find a default example that can be used.
 
@@ -189,10 +217,23 @@ For best performance we recommend use of Redis Sentinel if it fits your needs. H
 
 ### Memcached
 
-[Memcached, a distributed caching solution](http://memcached.org/) is an alternative cache solution, besides using Redis.
+[Memcached, a distributed caching solution](http://memcached.org/) is a cache solution that is supported for clustering use, as an alternative to Redis.
 
 See [Memcached Cache Adapter in Symfony documentation](https://symfony.com/doc/3.4/components/cache/adapters/memcached_adapter.html#configure-the-connection)
 for information on how to configure Memcached.
+
+
+#### Supported Adapters
+
+There is one Memcached adapter available out of the box.
+
+##### `Symfony\Component\Cache\Adapter\MemcachedAdapter`
+
+**Pros**: Memcached is able to handle much more concurrent load by design (multi threaded), and typically uses far less memory than Redis in general due to a simpler data structure.
+
+**Cons**: 1.5-2x more lookups to the back-end cache server then `RedisTagAwareAdapter`. Depending on the number of lookups and latency to cache server this might affect page load time.
+
+#### Adjusting configuration
 
 Out of the box in `app/config/cache_pool/cache.memcached.yml` you'll find a default example that can be used.
 

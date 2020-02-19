@@ -597,7 +597,7 @@ if the content Fields were previously exported by the export script.
 Displaying image variations is not currently supported out of the box.
 
 You can work around this limitation by creating your own template
-(based on [recommendations.html.twig](https://github.com/ezsystems/ezrecommendation-client/blob/master/src/bundle/Resources/views/recommendations.html.twig)).
+(based on [recommendations.html.twig](https://github.com/ezsystems/ezrecommendation-client/blob/v1.1.2/src/bundle/Resources/views/recommendations.html.twig)).
 
 If you want to access a specific image variation through API, you need to add the `image` parameter to the request URL with the name of the variation as its value.
 For example, to retrieve the `rss` variation of the image, use:

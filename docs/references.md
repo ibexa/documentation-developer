@@ -12,7 +12,7 @@
 ## Back end
 
 - API:
-    - [REST API reference](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst)
+    - [REST API reference](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/doc/specifications/rest/REST-API-V2.rst)
     - [Public PHP API](api/public_php_api.md)
     - [Field Types reference](api/field_type_reference.md)
 - Content model and rendering:
@@ -28,9 +28,9 @@
     - [Services](guide/repository.md#services-public-api)
     - [Signals reference](guide/signalslots.md#signals-reference)
 - Search:
-    - [Search Criteria reference](guide/search.md#search-criteria-reference)
-    - [Sort Clause reference](guide/search.md#sort-clauses-reference)
-    - [Solr](guide/solr.md)
+    - [Search Criteria reference](guide/search/search_criteria_reference.md)
+    - [Sort Clause reference](guide/search/sort_clause_reference.md)
+    - [Solr](guide/search/solr.md)
 - Extending eZ Platform:
     - [General extensibility](guide/extending//extending_ez_platform.md#general-extensibility)
 

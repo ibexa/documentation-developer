@@ -6,7 +6,7 @@ Image variations (image aliases) enable you to define and use different versions
 
 Image variations are generated with [LiipImagineBundle](https://github.com/liip/LiipImagineBundle), using the underlying [Imagine library from avalanche123](http://imagine.readthedocs.org/en/latest/). This bundle supports GD (default), Imagick or Gmagick PHP extensions, and enables you to define flexible filters in PHP. Image files are stored using the `IOService,` and are completely independent from the Image Field Type. They are generated only once and cleared on demand (e.g. on content removal).
 
-LiipImagineBundle only works on image blobs (no command line tool is needed). See the [bundle's documentation to learn more on that topic](http://symfony.com/doc/master/bundles/LiipImagineBundle/configuration.html).
+LiipImagineBundle only works on image blobs (no command line tool is needed). See the [bundle's documentation to learn more on that topic](http://symfony.com/doc/2.0/bundles/LiipImagineBundle/configuration.html).
 
 ## Configuring image variations
 
@@ -84,7 +84,7 @@ ezsettings.default.image_variations:
 
 ### Post-Processors
 
-LiipImagineBundle supports [post-processors on image aliases](http://symfony.com/doc/master/bundles/LiipImagineBundle/post-processors.html). You can specify them in image variation configuration:
+LiipImagineBundle supports [post-processors on image aliases](http://symfony.com/doc/2.0/bundles/LiipImagineBundle/post-processors.html). You can specify them in image variation configuration:
 
 ``` yaml
 ezpublish:
@@ -99,7 +99,7 @@ ezpublish:
                         jpegoptim: {}
 ```
 
-Please refer to [post-processor documentation in LiipImagineBundle](http://symfony.com/doc/master/bundles/LiipImagineBundle/post-processors.html) for details.
+Please refer to [post-processor documentation in LiipImagineBundle](http://symfony.com/doc/2.0/bundles/LiipImagineBundle/post-processors.html) for details.
 
 ## Configuration examples
 
@@ -157,7 +157,7 @@ ez_render_field( content, 'image', { parameters: { 'alias': 'medium' } } )
 
 ### Instantiate `LiipImagineBundle` in your kernel class
 
-If you were using ImageMagick, install [Imagick](http://php.net/imagick) or [Gmagick](http://php.net/gmagick) PHP extensions and activate the driver in `liip_imagine `([see LiipImagineBundle configuration documentation for more information](http://symfony.com/doc/master/bundles/LiipImagineBundle/configuration.html)):
+If you were using ImageMagick, install [Imagick](http://php.net/imagick) or [Gmagick](http://php.net/gmagick) PHP extensions and activate the driver in `liip_imagine `([see LiipImagineBundle configuration documentation for more information](http://symfony.com/doc/2.0/bundles/LiipImagineBundle/configuration.html)):
 
 ``` yaml
 # ezplatform.yml or config.yml
@@ -191,7 +191,7 @@ The first example will clear the image files for the `large` variation. The sec
 
 ### Resolving image URLs
 
-You can use LiipImagine's `liip:image:cache:resolve` script to resolve the path to image variations generated from the original image, with one or more paths as arguments. See [LiipImagineBundle documentation](http://symfony.com/doc/current/bundles/LiipImagineBundle/commands.html#resolve-cache) for more information.
+You can use LiipImagine's `liip:image:cache:resolve` script to resolve the path to image variations generated from the original image, with one or more paths as arguments. See [LiipImagineBundle documentation](http://symfony.com/doc/2.0/bundles/LiipImagineBundle/commands.html#resolve-cache) for more information.
 
 Note that paths to repository images must be relative to the `var/<site>/storage/images` directory, for example: `7/4/2/0/247-1-eng-GB/test.jpg`.
 
@@ -199,7 +199,7 @@ Note that paths to repository images must be relative to the `var/<site>/storag
 
 ### Available filters
 
-In addition to [filters exposed by LiipImagineBundle](http://symfony.com/doc/master/bundles/LiipImagineBundle/configuration.html), the following are available:
+In addition to [filters exposed by LiipImagineBundle](http://symfony.com/doc/2.0/bundles/LiipImagineBundle/filters.html), the following are available:
 
 | Filter name                  | Parameters                                  | Description                                                                                        |
 |------------------------------|---------------------------------------------|----------------------------------------------------------------------------------------------------|
@@ -218,7 +218,7 @@ In addition to [filters exposed by LiipImagineBundle](http://symfony.com/doc/mas
 | resize                       | {size: \[width, height\]}                   | Simple resize filter (provided by LiipImagineBundle).                                              |
 | colorspace/gray              | N/A                                         | Converts the image to grayscale.                                                                   |
 
-LiipImagineBundle supports additional settings, it is possible to combine filters from the list above with [the ones provided in LiipImagineBundle](http://symfony.com/doc/master/bundles/LiipImagineBundle/filters.html) or custom ones.
+LiipImagineBundle supports additional settings, it is possible to combine filters from the list above with [the ones provided in LiipImagineBundle](http://symfony.com/doc/2.0/bundles/LiipImagineBundle/filters.html) or custom ones.
 
 ### Discarded filters
 
@@ -232,7 +232,7 @@ The following filters exist in the Imagine library but are not used in eZ Platfo
 
 ### Custom filters
 
-Please refer to [LiipImagineBundle documentation on custom filters](http://symfony.com/doc/master/bundles/LiipImagineBundle/filters.html#custom-filters). [Imagine library documentation](http://imagine.readthedocs.org/en/latest/) may also be useful.
+Please refer to [LiipImagineBundle documentation on custom filters](http://symfony.com/doc/2.0/bundles/LiipImagineBundle/filters.html#custom-filters). [Imagine library documentation](http://imagine.readthedocs.org/en/latest/) may also be useful.
 
 ## Setting placeholder generator
 

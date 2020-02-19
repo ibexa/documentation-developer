@@ -24,15 +24,15 @@ This example from the `Url` Field Type shows that the Field Type will always ret
 
 ### `getDefaultMatchField()`
 
-This method retrieves the name of the default field to be used for matching. As Field Types can index multiple fields (see [MapLocation](field_type_reference.md#maplocation-field-type) Field Type's implementation of this interface), this method is used to define the default field for matching. The default field is typically used by the Field criterion.
+This method retrieves the name of the default Field to be used for matching. As Field Types can index multiple Fields (see [MapLocation](field_type_reference.md#maplocation-field-type) Field Type's implementation of this interface), this method is used to define the default field for matching. The default Field is typically used by the [`Field` Search Criterion](../guide/search/criteria_reference/field_criterion.md).
 
 ### `getDefaultSortField()`
 
-This method gets name of the default field to be used for sorting. As Field Types can index multiple fields (see [MapLocation](field_type_reference.md#maplocation-field-type) Field Type's implementation of this interface), this method is used to define default field for sorting. Default field is typically used by Field sort clause.
+This method gets name of the default Field to be used for sorting. As Field Types can index multiple Fields (see [MapLocation](field_type_reference.md#maplocation-field-type) Field Type's implementation of this interface), this method is used to define default field for sorting. Default Field is typically used by the [`Field` Sort Clause](../guide/search/sort_clause_reference/field_sort_clause.md).
 
 ## Register Indexable Implementations
 
-Implement `eZ\Publish\SPI\FieldType\Indexable` as an extra service and register this Service using the `ezpublish.fieldType.indexable` tag. Example from [`indexable_fieldtypes.yml`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/indexable_fieldtypes.yml):
+Implement `eZ\Publish\SPI\FieldType\Indexable` as an extra service and register this Service using the `ezpublish.fieldType.indexable` tag. Example from [`indexable_fieldtypes.yml`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/Core/settings/indexable_fieldtypes.yml):
 
 ``` yml
 ezpublish.fieldType.indexable.ezkeyword:
@@ -94,4 +94,4 @@ You could also define a custom Field definition for certain fields, like for the
 
 !!! note
 
-    If you want to learn more about the Solr implementation and detailed information about configuring it, check out the [Solr Search Bundle](../guide/solr.md).
+    If you want to learn more about the Solr implementation and detailed information about configuring it, check out the [Solr Search Bundle](../guide/search/solr.md).

@@ -2,7 +2,7 @@
 
 !!! note "Symfony and Twig template functions/filters/tags"
 
-    For the template functionality provided by Symfony Framework, see [Symfony Twig Extensions Reference page](http://symfony.com/doc/current/reference/twig_reference.html). For those provided by the underlying Twig template engine, see [Twig Reference page](http://twig.sensiolabs.org/documentation#reference)
+    For the template functionality provided by Symfony Framework, see [Symfony Twig Extensions Reference page](https://symfony.com/doc/3.4/reference/twig_reference.html). For those provided by the underlying Twig template engine, see [Twig Reference page](http://twig.sensiolabs.org/documentation#reference)
 
 In addition to the [native functions provided by Twig](http://twig.sensiolabs.org/doc/functions/index.html), eZ Platform offers the following:
 
@@ -331,7 +331,7 @@ If the Content item does not have a translation in the current language, the mai
 
 `ez_render_field()` is a Twig helper that displays a Content item's Field value, taking advantage of the template block exposed by the Field Type used.
 
-Template blocks for built-in Field Types [reside in EzPublishCoreBundle](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/views/content_fields.html.twig).
+Template blocks for built-in Field Types [reside in EzPublishCoreBundle](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Bundle/EzPublishCoreBundle/Resources/views/content_fields.html.twig).
 
 See section of [Using the Field Type's template block](templates.md#using-the-field-types-template-block) for more information.
 
@@ -435,7 +435,7 @@ you can specify the current template to be the source of the Field block.
 
     **Using `_self` will only work if your current template is extending another one.**
 
-    This is basically the same limitation as for [Symfony form themes](https://symfony.com/doc/current/form/form_themes.html).
+    This is basically the same limitation as for [Symfony form themes](https://symfony.com/doc/3.4/form/form_themes.html).
 
 ##### Global override
 

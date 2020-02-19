@@ -2,13 +2,13 @@
 
 ## Dealing with bundles
 
-eZ Platform is based on the Symfony 3 framework and applies a similar way of organizing the app. Like in Symfony, where ["everything is a bundle"](http://symfony.com/doc/current/book/bundles.html), your eZ Platform application is going to be a collection of bundles.
+eZ Platform is based on the Symfony 3 framework and applies a similar way of organizing the app. Like in Symfony, where ["everything is a bundle"](https://symfony.com/doc/3.4/bundles.html), your eZ Platform application is going to be a collection of bundles.
 
 ### What is a bundle?
 
 A bundle in Symfony (and eZ Platform) is a separate part of your application that implements a feature. You can create bundles yourself or make use of available open-source bundles. You can also reuse the bundles you create in other projects or share them with the community.
 
-Many eZ Platform functionalities are provided through separate bundles included in the installation. You can see the bundles that are automatically installed with eZ Platform in [composer.json](https://github.com/ezsystems/ezplatform/blob/master/composer.json).
+Many eZ Platform functionalities are provided through separate bundles included in the installation. You can see the bundles that are automatically installed with eZ Platform in [composer.json](https://github.com/ezsystems/ezplatform/blob/v2.5.6/composer.json).
 
 ### How to use bundles?
 
@@ -20,11 +20,11 @@ Refer to their respective pages for instructions on how to install them.
 
 ### How to create bundles?
 
-You can generate a new bundle using a `generate:bundle` command. See [Symfony documentation on generating bundles](http://symfony.com/doc/current/bundles/SensioGeneratorBundle/commands/generate_bundle.html).
+You can generate a new bundle using a `generate:bundle` command. See [Symfony documentation on generating bundles](https://symfony.com/doc/3.0/bundles/SensioGeneratorBundle/index.html).
 
 ### How to remove a bundle?
 
-To remove a bundle (either one you created yourself, or an out-of-the-box one that you do not need) see the [How to Remove a Bundle](http://symfony.com/doc/current/bundles/remove.html) instruction in Symfony doc.
+To remove a bundle (either one you created yourself, or an out-of-the-box one that you do not need) see the [How to Remove a Bundle](https://symfony.com/doc/3.4/bundles.html) instruction in Symfony doc.
 
 ## Structuring a bundle
 
@@ -88,7 +88,7 @@ To import CSS files only, use:
     After adding new files, run `php bin/console cache:clear`.
 
     For a full example of importing asset configuration,
-    see [`ez.config.js`](https://github.com/ezsystems/ezplatform-admin-ui-modules/blob/master/Resources/encore/ez.config.js)
+    see [`ez.config.js`](https://github.com/ezsystems/ezplatform-admin-ui-modules/blob/v1.5.5/Resources/encore/ez.config.js)
 
 To edit existing configuration entries, create a `Resources/encore/ez.config.manager.js` file:
 
@@ -131,7 +131,7 @@ module.exports = (eZConfig, eZConfigManager) => {
     After adding new files, run `php bin/console cache:clear`.
 
 	For a full example of overriding configuration,
-    see [`ez.config.manager.js`](https://github.com/ezsystems/ezplatform-matrix-fieldtype/blob/master/src/bundle/Resources/encore/ez.config.manager.js).
+    see [`ez.config.manager.js`](https://github.com/ezsystems/ezplatform-matrix-fieldtype/blob/v1.0.1/src/bundle/Resources/encore/ez.config.manager.js).
 
 To add new configuration under your own namespace and with its own dependencies,
 add a `Resources/encore/ez.webpack.custom.config.js` file, for example:
@@ -153,10 +153,14 @@ add a `Resources/encore/ez.webpack.custom.config.js` file, for example:
 	module.exports = customConfig;
 ```
 
+!!! tip
+
+    If you don't plan to add multiple entry files on the same page in your custom config, use the `disableSingleRuntimeChunk()` funtion to avoid adding a separate `runtime.js` file. Otherwise, your JS code may be run multiple times. By default, the `enableSingleRuntimeChunk()` function is used.
+
 ##### Configuration from main project files
 
 If you prefer to include the asset configuration in the main project files,
-add it in [`webpack.config.js`](https://github.com/ezsystems/ezplatform/blob/master/webpack.config.js#L14).
+add it in [`webpack.config.js`](https://github.com/ezsystems/ezplatform/blob/v2.5.6/webpack.config.js#L15).
 
 To overwrite built-in assets, use the following configuration to replace, remove or add asset files
 in `webpack.config.js`:
@@ -249,7 +253,7 @@ ezpublish:
 The following example shows how to implicitly load settings on the example of eZ Platform kernel.
 Note that this is also valid for any bundle.
 
-This assumes you are familiar with [service container extensions.](http://symfony.com/doc/current/book/service_container.html#importing-configuration-via-container-extensions)
+This assumes you are familiar with [service container extensions.](https://symfony.com/doc/3.4/service_container.html)
 
 !!! note
 
@@ -369,7 +373,6 @@ The following tables give an overview of the main eZ Platform bundles.
 |---------|-----------|
 |[ezplatform-installer](https://github.com/ezsystems/ezplatform-installer)|package provides `ezplatform:install` Symfony console command which is the installer for eZ Platform v2|
 |[ezplatform-i18n](https://github.com/ezsystems/ezplatform-i18n)|centralized internationalization|
-|[ezplatform-multi-file-upload](https://github.com/ezsystems/ezplatform-multi-file-upload)|allows uploading multiple files as new content items at once|
 |[ezplatform-demo-assets](https://github.com/ezsystems/ezplatform-demo-assets)|contains binary install data for ezsystems/ezplatform-demo|
 |[ezplatform-automated-translation](https://github.com/ezsystems/ezplatform-automated-translation)|adds automated translation|
 |[EzSystemsPrivacyCookieBundle](https://github.com/ezsystems/EzSystemsPrivacyCookieBundle)|adds privacy cookie banner|

@@ -32,7 +32,7 @@ Assetic is still in use, but it will be deprecated in a future version.
 
 This release enables you to [use PostgreSQL](../guide/databases.md#using-postgresql) for database instead of the default MySQL.
 
-Database schema is now created based on [YAML configuration](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage/legacy/schema.yaml).
+Database schema is now created based on [YAML configuration](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage/legacy/schema.yaml).
 
 ### GraphQL
 
@@ -168,7 +168,7 @@ This version introduces stricter default password quality requirements.
 Passwords must be at least 10 characters long, and must include upper and lower case letters, and digits.
 Existing passwords are not changed.
 
-See [backwards compatibility changes](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/bc/changes-7.5.md)
+See [backwards compatibility changes](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/doc/bc/changes-7.5.md)
 for detailed information.
 
 ## Full changelog
@@ -190,7 +190,7 @@ If you use classes from the `Leafo\ScssPhp` namespace, change them to `ScssPhp\S
 
 ### SolrCloud
 
-You can now take advantage of [SolrCloud in eZ Platform Solr search engine](../guide/solr.md#solrcloud).
+You can now take advantage of [SolrCloud in eZ Platform Solr search engine](../guide/search/solr.md#solrcloud).
 It enables you to set up a cluster of Solr servers for highly available and fault tolerant environment.
 
 ### Online Editor
@@ -226,7 +226,7 @@ instead of throwing an exception. The following methods are affected:
 - `RoleService::getRoleAssignmentsForUserGroup`
 
 `content/cleantrash` Policy now allows the user to empty the trash
-even if normally they would not have do not have access to the trashed content.
+even if they would not have access to the trashed content.
 
 ### Docker environment
 

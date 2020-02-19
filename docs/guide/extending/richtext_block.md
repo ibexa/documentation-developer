@@ -1,8 +1,8 @@
-# Creating custom richtext blocks
+# Creating custom RichText blocks
 
 !!! enterprise
 
-    To create a richtext [custom Page block](extending_page.md), you need to define its layout, provide templates, add a subscriber and register it as a service.
+    To create a RichText [custom Page block](extending_page.md), you need to define its layout, provide templates, add a subscriber and register it as a service.
     
     Start with creating an `app/config/layouts.yml` file containing:
     
