@@ -361,16 +361,16 @@ php ./bin/console translation:extract --enable-extractor=ez_online_editor_attrib
     --dir=./templates --output-dir=./translations/ --output-format=yaml
 ```
 
-## Plugins configuration
+## Custom plugins
 
-If you develop your plugin, you need to add it to the CKEditor plugins by `add` method.
-For more information, follow [Creating a CKEditor Plugin tutorial.](https://ckeditor.com/docs/ckeditor4/latest/guide/plugin_sdk_sample.html)
-If you downloaded a plugin from the CKEditor, you need to include it in a page after AlloyEditor is loaded.
+You can add your own plugins to the Online Editor.
 
-To enable your new CKEditor plugin in, define it in the RichText AlloyEditor Semantic Configuration.
-The configuration is available at:
+For more information, follow [Creating Online Editor plugin](online_editor_plugin.md).
 
-```yaml
+You can also download an existing plugin from the CKEditor.
+In this case, include it in a page after AlloyEditor is loaded:
+
+``` yaml
 ezrichtext:
     alloy_editor:
         extra_plugins: [plugin1, plugin2]
