@@ -111,7 +111,7 @@ The default value is `false`, so if it is not set, the custom tag will be treate
 !!! caution "Incorrect configuration"
 
     Newer configuration options, such as `is_inline`, only work with the configuration provided above.
-    If your project uses [old configuration](../../updating/4_update_2.4.md#changes-to-custom-tags),
+    If your project uses [configuration from version prior to 2.4](../../updating/4_update_2.4.md#changes-to-custom-tags),
     these options will not work.
     You need to update your configuration to be placed under the `ezrichtext` key.
 
@@ -224,7 +224,7 @@ ezrichtext.custom_tags.acronym.attributes.meaning.label: 'Explanation'
 
 ![Adding an explanation to an Acronym custom tag](img/oe_custom_tag_add_acronym.png)
 
-In the template file `acronym.html.twig` you provide the explanation as `attr_value`
+In the template file `acronym.html.twig` provide the explanation as `attr_value`
 to the title of the `abbr` tag:
 
 ``` html+twig
@@ -525,7 +525,7 @@ ezpublish:
                             multiple: false
 ```
 
-This enables you to choose one of three classes for each paragraph element: `regular`, `tip_box`, or `warning_box`
+This enables you to choose one of the following classes for each paragraph element: `regular`, `tip_box`, or `warning_box`
 that you can then style individually using CSS.
 
 ![Selecting a custom style for a paragraph](img/oe_custom_class_note_box_select.png)
