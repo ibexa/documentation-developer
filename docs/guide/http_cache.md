@@ -298,6 +298,9 @@ ezplatform:
 
     It is recommended to use either `config/services.yaml` or the environment variable.
 
+    As of eZ Enterprise v1.13.6 and v2.5.9, you no longer need to set `HTTPCACHE_PURGE_SERVER` if you set `purge_type`
+    via `HTTPCACHE_PURGE_TYPE`. If you set `purge_type` by any other means, you will still need to set `purge_server` too.
+
     Note that in `config/ezplatform.yaml`, the `purge_servers` setting is an array
     while the `HTTPCACHE_PURGE_SERVER` environment variable should be a string.
 
