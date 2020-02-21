@@ -6,11 +6,16 @@ In this step you will add an edit button to the content list. The following tuto
 
 Introduce changes to `src/Controller/AllContentListController.php`, so that it allows content editing from the content list.
 
-First, add the new `FormFactory $formFactory` parameter and the `$this->formFactory = $formFactory;` argument to the `__construct` function:
+First, inject `EzSystems\EzPlatformAdminUi\Form\Factory\FormFactory` service into your controller.
+
+To do so, add the new `FormFactory $formFactory` parameter and the `$this->formFactory = $formFactory;` argument to the `__construct` function:
 
 ```php hl_lines="1 5"
-public function __construct(SearchService $searchService, ContentTypeService $contentTypeService, FormFactory $formFactory)
-{
+public function __construct(
+    SearchService $searchService,
+    ContentTypeService $contentTypeService,
+    FormFactory $formFactory
+) {
     $this->searchService = $searchService;
     $this->contentTypeService = $contentTypeService;
     $this->formFactory = $formFactory;
@@ -23,13 +28,14 @@ Next, provide a new use statement for `FormFactory` parameter:
 use EzSystems\EzPlatformAdminUi\Form\Factory\FormFactory;
 ```
 
-After the lines setting the `$paginator` parameters, add the following code line:
+Create underlining form for handling requests for content editing.
+Add the following code line after e.g. the lines setting the `$paginator` parameters:
 
 ```php
 $editForm = $this->formFactory->contentEdit();
 ```
 
-Finally, provide the new parameter to `$this->render`, after `articles`:
+Finally, provide the new parameter to `$this->render`, it can be added after e.g. `articles`:
 
 ``` php
 'form_edit' => $editForm->createView(),
@@ -119,7 +125,7 @@ Next, add the edit button as a new <td> tag inside `<section class="container my
 </td>
 ```
 
-After that, add a hidden form with js listeners for draft conflict checks by adding the following code block inside `{%- block content -%}`, right under `<section class="container my-4">`:
+After that, add a hidden form for redirecting to content edit page by adding the following code block inside `{%- block content -%}`, right under `<section class="container my-4">`:
 
 ```html+twig
 {{ form_start(form_edit, {
@@ -132,7 +138,7 @@ After that, add a hidden form with js listeners for draft conflict checks by add
 {% include '@ezdesign/content/modal/version_conflict.html.twig' %}
 ```
 
-Finally, add a javascript block at the end of the twig file:
+Finally, add a javascript block with js listeners at the end of the twig file:
 
 ```html+twig
 {% block javascripts %}
@@ -140,8 +146,6 @@ Finally, add a javascript block at the end of the twig file:
 {%- endblock -%}
 
 ```
-
-### Render button
 
 ??? tip "Complete template code"
 
