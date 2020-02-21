@@ -1,6 +1,6 @@
-# Step 3 - Filtering the content list
+# Step 3a - Filtering the content list
 
-In this step you will enable the content list to be filtered by Content Types.
+In this step you will enable the content list to be filtered by Content Types.  The following tutorial is based on the [Step 2 - Creating a content list](2_creating_a_content_list.md).
 
 ## Update routing
 

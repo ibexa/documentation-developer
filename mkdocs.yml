@@ -42,7 +42,8 @@ pages:
             - 'Extending Admin UI': 'tutorials/extending_admin_ui/extending_admin_ui.md'
             - '1. Creating a Dashboard tab': 'tutorials/extending_admin_ui/1_creating_a_dashboard_tab.md'
             - '2. Creating a content list': 'tutorials/extending_admin_ui/2_creating_a_content_list.md'
-            - '3. Filtering the content list': 'tutorials/extending_admin_ui/3_filtering_the_content_list.md'
+            - '3a. Filtering the content list': 'tutorials/extending_admin_ui/3_filtering_the_content_list.md'
+            - '3b. Adding Edit button to content list': 'tutorials/extending_admin_ui/3b_adding_edit_button_content_list.md'
             - '4. Creating a custom tag': 'tutorials/extending_admin_ui/4_adding_a_custom_tag.md'
         - 'Creating a UDW tab': 'tutorials/mini_tutorials/adding_tab_to_udw.md'
     - API:
