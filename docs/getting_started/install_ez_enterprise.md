@@ -59,7 +59,7 @@ They are available via [updates.ez.no](https://updates.ez.no).
 
         If you are using Platform.sh, you can set the token as an environment variable.
 
-        When you do, make sure the **Visible during runtime** box in Platform.sh configuration in *unchecked*.
+        When you do, make sure the **Visible during runtime** box in Platform.sh configuration is *unchecked*.
         This will ensure that the token is not exposed.
         
         ![Setting token to be invisible during runtime](img/psh_addvariable.png)
