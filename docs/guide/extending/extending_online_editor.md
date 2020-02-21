@@ -233,6 +233,25 @@ to the title of the `abbr` tag:
 
 ![Acronym custom tag](img/oe_custom_tag_acronym.png)
 
+## Custom toolbars
+
+You can extend the Online Editor with the custom toolbars.
+The feature depends on [Alloy Editor](https://alloyeditor.com/).
+
+Preparation of the custom toolbar starts with creating a new toolbar config.
+If you want to learn how to do it, see [Creating a Toolbar.](https://alloyeditor.com/docs/develop/create_toolbars.html)
+
+Next, add the toolbar config to the `ezplatform-admin-ui-alloyeditor-js` entry using encore.
+Finally, add the toolbar JavaScript class to `ezAlloyEditor.customSelections.<TOOLBAR_NAME>` eZ config.
+
+You can do it at the bottom of the toolbar config file:
+
+```js
+eZ.addConfig('ezAlloyEditor.customSelections.ContentVariableEdit', ContentVariableEditConfig);
+```
+
+With this step, the `ContentVariableEditConfig` toolbar is injected and ready to be used.
+
 ## Custom styles
 
 You can extend the Online Editor with custom text styles.
