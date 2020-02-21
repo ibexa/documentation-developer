@@ -1,16 +1,16 @@
 # Step 3b - Adding Edit button to content list
 
-In this step you will add an edit button to the content list. The following tutorial is based on the [Step 2 - Creating a content list](2_creating_a_content_list.md).
+In this step you will add an edit button to the content list. The following tutorial is requires the completed [Step 2 - Creating a content list](2_creating_a_content_list.md).
 
 ## Modify the controller
 
-Introduce changes to `src/Controller/AllContentListController.php`, so that it allows content editing from the content list.
+Introduce changes to `src/Controller/AllContentListController.php`, so that it enables content editing from the content list.
 
-First, inject `EzSystems\EzPlatformAdminUi\Form\Factory\FormFactory` service into your controller.
+First, inject the `EzSystems\EzPlatformAdminUi\Form\Factory\FormFactory` service into your controller.
 
 To do so, add the new `FormFactory $formFactory` parameter and the `$this->formFactory = $formFactory;` argument to the `__construct` function:
 
-```php hl_lines="1 5"
+```php hl_lines="4 8"
 public function __construct(
     SearchService $searchService,
     ContentTypeService $contentTypeService,
@@ -28,14 +28,14 @@ Next, provide a new use statement for `FormFactory` parameter:
 use EzSystems\EzPlatformAdminUi\Form\Factory\FormFactory;
 ```
 
-Create underlining form for handling requests for content editing.
+Create an underlying form for handling requests for content editing.
 Add the following code line after e.g. the lines setting the `$paginator` parameters:
 
 ```php
 $editForm = $this->formFactory->contentEdit();
 ```
 
-Finally, provide the new parameter to `$this->render`, it can be added after e.g. `articles`:
+Finally, provide the new parameter to `$this->render`. It can be added after e.g. `articles`:
 
 ``` php
 'form_edit' => $editForm->createView(),
@@ -92,9 +92,9 @@ Finally, provide the new parameter to `$this->render`, it can be added after e.g
 ## Change the template
 
 The last thing to do is to add the edit button to the content list template.
-All below code blocks should be added to `templates/list/all_content_list.html.twig`.
+All the code blocks below should be added to `templates/list/all_content_list.html.twig`.
 
-First, add `<th>{{ 'Edit'|trans }}</th>` header to the content list table inside `<section class="container my-4">`:
+First, add a `<th>{{ 'Edit'|trans }}</th>` header to the content list table inside `<section class="container my-4">`:
 
 ```html+twig  hl_lines="8"
 <table class="table">
@@ -109,7 +109,7 @@ First, add `<th>{{ 'Edit'|trans }}</th>` header to the content list table inside
     </thead>
 ```
 
-Next, add the edit button as a new <td> tag inside `<section class="container my-4">`:
+Next, add the edit button as a new `<td>` tag inside `<section class="container my-4">`:
 
 ```html+twig
 <td>
@@ -125,7 +125,7 @@ Next, add the edit button as a new <td> tag inside `<section class="container my
 </td>
 ```
 
-After that, add a hidden form for redirecting to content edit page by adding the following code block inside `{%- block content -%}`, right under `<section class="container my-4">`:
+After that, add a hidden form for redirecting to the content edit page by adding the following code block inside `{%- block content -%}`, right under `<section class="container my-4">`:
 
 ```html+twig
 {{ form_start(form_edit, {
@@ -138,7 +138,7 @@ After that, add a hidden form for redirecting to content edit page by adding the
 {% include '@ezdesign/content/modal/version_conflict.html.twig' %}
 ```
 
-Finally, add a javascript block with js listeners at the end of the twig file:
+Finally, add a JavaScript block with js listeners at the end of the twig file:
 
 ```html+twig
 {% block javascripts %}
@@ -227,7 +227,7 @@ Finally, add a javascript block with js listeners at the end of the twig file:
 
     If you cannot see the results or encounter an error, clear the cache and reload the application.
 
-At this point you should see the edit button beside each content item in the content list.
-Select the edit button to change your content items.
+At this point you should see the edit button beside each Content item in the content list.
+Select the edit button to change your Content items.
 
 ![Edit button in content list](img/content_list_edit.png "Edit button in content list")
