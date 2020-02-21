@@ -61,6 +61,8 @@ They are available via [updates.ez.no](https://updates.ez.no).
 
         When you do, make sure the **Visible during runtime** box in Platform.sh configuration in *unchecked*.
         This will ensure that the token is not exposed.
+        
+        ![Setting token to be invisible during runtime](img/psh_addvariable.png)
 
     After this, when running Composer to get updates, you will be asked for a username and password. Use:
 
