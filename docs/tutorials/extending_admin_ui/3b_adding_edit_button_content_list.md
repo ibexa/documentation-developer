@@ -9,12 +9,12 @@ Introduce changes to `src/Controller/AllContentListController.php`, so that it a
 First, add the new `FormFactory $formFactory` parameter and the `$this->formFactory = $formFactory;` argument to the `__construct` function:
 
 ```php hl_lines="1 5"
-    public function __construct(SearchService $searchService, ContentTypeService $contentTypeService, FormFactory $formFactory)
-    {
-        $this->searchService = $searchService;
-        $this->contentTypeService = $contentTypeService;
-        $this->formFactory = $formFactory;
-    }
+public function __construct(SearchService $searchService, ContentTypeService $contentTypeService, FormFactory $formFactory)
+{
+    $this->searchService = $searchService;
+    $this->contentTypeService = $contentTypeService;
+    $this->formFactory = $formFactory;
+}
 ```
 
 Next, provide a new use statement for `FormFactory` parameter:
