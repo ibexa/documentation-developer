@@ -7,7 +7,7 @@ and find a script for the database version you are updating to.
 
 !!! tip "Database version number"
 
-    Database version numbers correspond to the `ezpublish-kernel` version.
+    Database version number corresponds to the `ezpublish-kernel` version.
 
     To find out which `ezpublish-kernel` version you have, after running `composer update` or `composer install`
     run `composer show ezsystems/ezpublish-kernel|grep versions`.
