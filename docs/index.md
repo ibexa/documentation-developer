@@ -45,7 +45,7 @@
   <div class="card-header">Other topics</div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item"><a href="releases/ez_platform_v2.5/" class="card-link">Releases</a></li>
-    <li class="list-group-item"><a href="migrating/migrating_from_ez_publish_platform/" class="card-link">Migration</a></li>
+    <li class="list-group-item"><a href="migrating/migrating_to_v3/" class="card-link">Migration</a></li>
     <li class="list-group-item"><a href="community_resources/resources/" class="card-link">Community resources</a></li>
   </ul>
 </div>
