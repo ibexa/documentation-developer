@@ -405,7 +405,7 @@ When you are ready to migrate your eZ Publish XmlText content to the eZ Platform
 
 `php -d memory_limit=1536M bin/console ezxmltext:convert-to-richtext --export-dir=ezxmltext-export --export-dir-filter=notice,warning,error --concurrency 4 -v`
 
-**Custom tags**
+**Custom tags and attributes**
 
 eZ Platform now supports custom tags, including inline custom tags, and limited use of custom tag attributes.
 After migrating to RichText, you need to adapt your custom tag config for eZ Platform and rewrite the custom tags in Twig.
