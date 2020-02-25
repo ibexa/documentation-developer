@@ -63,6 +63,8 @@
         Default views have a `priority` of -255.
         It's good practice to keep the value between -255 and 255.
 
+    ## Block attributes
+
     A block has a number of attributes, each with the following properties:
 
     |||
@@ -73,7 +75,7 @@
     |`validators`|Available validators are `not_blank` and `regexp`.|
     |`options`|Additional options, dependent on the attribute type.|
 
-    Attribute types:
+    #### Available attribute types
 
     |Type|Description|Options|
     |----|----|----|
@@ -248,7 +250,7 @@
 
     ```
 
-    #### Overwriting existing blocks
+    ## Overwriting existing blocks
 
     You can overwrite the following properties in the existing blocks:
 
@@ -257,7 +259,7 @@
     - `name`
     - `views`
 
-    #### Block configuration modal
+    ## Block configuration modal
 
     The block configuration modal by default contains two tabs, Basic and Design.
 
@@ -269,7 +271,7 @@
     You can disable the Design tab by setting `ezsettings.default.page_builder.block_styling_enabled` to `false`.
     It is set to `true` by default.
 
-    ##### Block configuration template
+    #### Block modal template
 
     The template for the configuration modal of built-in Page blocks is contained in
     `vendor/ezsystems/ezplatform-page-builder/src/bundle/Resources/views/page_builder/block/config.html.twig`.
@@ -311,7 +313,7 @@
     {% endblock %}
     ```
 
-    ##### Exposing content relations from blocks
+    #### Exposing content relations from blocks
 
     Page blocks, for example Embed block or Collection block, can embed other Content items.
     Publishing a Page with such blocks creates Relations to those Content items.
@@ -329,7 +331,7 @@
 
     Providing Relations will also invalidate HTTP cache for your block response in one of the related Content items changes.
 
-    ##### Block render response
+    #### Block render response
 
     Block responses dispatch their response events which enables you to modify the Response object.
     You can use them for example to change cache headers.
