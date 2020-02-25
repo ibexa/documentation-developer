@@ -180,9 +180,9 @@ final class LoginFormViewSubscriber implements EventSubscriberInterface
             'bar' => 'bar'
         ]);
         
-        if ($view->CredentialsExpiredException() instanceof CredentialsExpiredException) {
+        if ($view->getLastAuthenticationException() instanceof CredentialsExpiredException) {
             // View with instruction to unlock account
-            $view->setTemplateIdentifier('templates/login/expired_credentials.html.twig');
+            $view->setTemplateIdentifier('login/expired_credentials.html.twig');
         }
     }
 }
