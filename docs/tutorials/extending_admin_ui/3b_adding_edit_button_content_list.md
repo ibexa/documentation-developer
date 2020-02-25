@@ -43,7 +43,7 @@ Finally, provide the new parameter to `$this->render`. It can be added after e.g
 
 ??? tip "Complete controller code"
 
-    ```php hl_lines="6 20 24 36 40"
+    ```php hl_lines="6 20 25 30 45 49"
     <?php
     
     namespace App\Controller;
@@ -63,7 +63,13 @@ Finally, provide the new parameter to `$this->render`. It can be added after e.g
     
         private $contentTypeService;
     
-        public function __construct(SearchService $searchService, ContentTypeService $contentTypeService, FormFactory $formFactory)
+        private $formFactory;
+    
+        public function __construct(
+            SearchService $searchService,
+            ContentTypeService $contentTypeService,
+            FormFactory $formFactory
+        )
         {
             $this->searchService = $searchService;
             $this->contentTypeService = $contentTypeService;
@@ -72,11 +78,14 @@ Finally, provide the new parameter to `$this->render`. It can be added after e.g
     
         public function listAction($page = 1)
         {
-            $query = new LocationQuery();        $criterions = [
-            new Criterion\Visibility(Criterion\Visibility::VISIBLE),
-        ];        $query->query = new Criterion\LogicalAnd($criterions);        $paginator = new Pagerfanta(
-            new LocationSearchAdapter($query, $this->searchService)
-        );
+            $query = new LocationQuery();
+            $criterions = [
+                new Criterion\Visibility(Criterion\Visibility::VISIBLE),
+            ];
+            $query->query = new Criterion\LogicalAnd($criterions);
+            $paginator = new Pagerfanta(
+                new LocationSearchAdapter($query, $this->searchService)
+            );
             $paginator->setMaxPerPage(8);
             $paginator->setCurrentPage($page);
             $editForm = $this->formFactory->contentEdit();
