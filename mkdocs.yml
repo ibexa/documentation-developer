@@ -1,7 +1,7 @@
 site_name: eZ Platform Developer Documentation
 repo_url: https://github.com/ezsystems/developer-documentation
 copyright: "Copyright 1999-2020 eZ Systems AS and others"
-pages:
+nav:
     - 'Documentation': 'index.md'
     - Getting started:
         - 'Requirements': 'getting_started/requirements.md'
@@ -305,7 +305,7 @@ theme:
       tabs: false
   search_index_only: false
 
-theme_dir: material
+# theme_dir: material
 
 extra:
   version_warning:
