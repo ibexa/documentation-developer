@@ -415,7 +415,7 @@ If you configured custom attributes in legacy in OE using [ezoe_attributes.ini](
 
 Below is a table of the tags that are currently supported, and their corresponding names in eZ Platform.
 
-| [XmlText](https://github.com/ezsystems/ezpublish-legacy/blob/2019.03/extension/ezoe/settings/ezoe_attributes.ini#L33-L48) | [RichText](https://github.com/ezsystems/ezplatform-richtext/blob/v1.1.3/src/bundle/DependencyInjection/Configuration.php#L17) | Note  |
+| [XmlText](https://github.com/ezsystems/ezpublish-legacy/blob/2019.03/extension/ezoe/settings/ezoe_attributes.ini#L33-L48) | [RichText](https://github.com/ezsystems/ezplatform-richtext/blob/v1.1.5/src/bundle/DependencyInjection/Configuration.php#L17) | Note  |
 | ------------- | ------------- | ----- |
 | `link`        | [`link`](../guide/extending/extending_online_editor.md#example-link-tag) |  Treated as a string, no special UI provided by the eZ Platform editor |
 | `number`      | `number`      |  |
