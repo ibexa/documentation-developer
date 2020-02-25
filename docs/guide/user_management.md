@@ -139,7 +139,8 @@ ezpublish:
                 login_template: '@ezdesign/Security/login.html.twig'
 ```
 
-In case of more advanced template customization, you can use a subscriber, for example:
+In case of more advanced template customization, you can use a subscriber,
+for example in `src/EventSubscriber/LoginFormViewSubscriber.php`:
 
 ``` php hl_lines="23 35 40 42"
 <?php
@@ -194,7 +195,8 @@ In the provided example, in line 23, the `PRE_CONTENT_VIEW` event is used
 You can also pass additional parameters to the view (line 35).
 In this case, at the instance of exception (line 40), the subscriber displays the `expired_credentials.html.twig` template (line 42).
 
-Remember to provide a template and point to it in the subscriber:
+Remember to provide a template and point to it in the subscriber
+(in this case, in `templates/login/expired_credentials.html.twig`):
 
 ```html+twig
 {% extends '@ezdesign/Security/base.html.twig' %}
