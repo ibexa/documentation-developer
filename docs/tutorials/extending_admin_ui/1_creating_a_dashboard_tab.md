@@ -1,8 +1,8 @@
 # Step 1 - Creating a Dashboard tab
 
 The Dashboard is the front page that you visit after logging in to the Back Office.
-You can also get to it from any other page by selecting eZ logo in the top left corner.
-By default, Dashboard contains two blocks: "My content" and "Common content", which list Content items and Media.
+You can also get to it from any other page by selecting the site logo in the top left corner.
+By default, the Dashboard contains two blocks: "My content" and "Common content", which list Content items and Media.
 The "Me" block additionally lists the current user's drafts.
 
 ![Unmodified dashboard](img/dashboard.png)
@@ -131,7 +131,7 @@ which ensures the tab looks the same as the existing tabs.
 
     If you cannot see the results or encounter an error, clear the cache and reload the application.
 
-At this point you can go to the Dashboard in the Back Office, select eZ logo in the top left corner.
+At this point you can go to the Dashboard in the Back Office, select the site logo in the top left corner.
 In the "Common content" block you can see the new "Articles" tab with the first ten articles in the Repository.
 
 ![Articles tab in the Dashboard](img/dashboard_articles_tab.png "Articles tab in the Dashboard")
