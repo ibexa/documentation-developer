@@ -126,7 +126,8 @@ Here are default templates that you can reuse and/or modify:
 
 ### Customize login form
 
-You can use a custom template for example to display information about password expiration or to customize [other user management templates](#other-user-management-templates).
+You can use a custom template for example to display information about password expiration
+or to customize [other user management templates](#other-user-management-templates).
 
 If you need only to change a template, you can use the following configuration:
 
@@ -138,7 +139,7 @@ ezpublish:
                 login_template: '@ezdesign/Security/login.html.twig'
 ```
 
-In case of more advanced template customization, you can use a subscriber similar to the following:
+In case of more advanced template customization, you can use a subscriber, for example:
 
 ``` php hl_lines="23 35 40 42"
 <?php
@@ -186,16 +187,14 @@ final class LoginFormViewSubscriber implements EventSubscriberInterface
         }
     }
 }
-
 ```
 
-In the provided example, in line 23, the `PRE_CONTENT_VIEW` event is used (for details, see [eZ Publish Core events](content_rendering.md#ez-publish-core)).
+In the provided example, in line 23, the `PRE_CONTENT_VIEW` event is used
+(for details, see [eZ Publish Core events](content_rendering.md#ez-publish-core)).
 You can also pass additional parameters to the view (line 35).
 In this case, at the instance of exception (line 40), the subscriber displays the `expired_credentials.html.twig` template (line 42).
 
-Remember to provide a template and point to it in the subscriber.
-
-Template example:
+Remember to provide a template and point to it in the subscriber:
 
 ```html+twig
 {% extends '@ezdesign/Security/base.html.twig' %}
