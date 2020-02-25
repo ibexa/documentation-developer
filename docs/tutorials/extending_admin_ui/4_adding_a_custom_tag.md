@@ -75,7 +75,7 @@ ezrichtext.custom_tags.factbox.attributes.style.choices.dark.label: Dark style
     If you cannot see the results or encounter an error, clear the cache and reload the application.
 
 At this point you can go to the Back Office and start editing any Content with a RichText Field (e.g. a Folder or an Article).
-Click Add (plus icon) on the left side of RichText Field, and from the list of available tags select the FactBox tag icon (exclamation mark icon).
+Click Add (plus icon) on the left side of the RichText Field, and from the list of available tags select the FactBox tag icon (exclamation mark icon).
 
 ![List of available tags](img/custom_tag_available_tags.png "Previewing a list of available tags")
 
