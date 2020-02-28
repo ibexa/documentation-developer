@@ -49,8 +49,9 @@ There you can set the following properties:
 |active_sort_order</br>`activeSortOrder`|ascending</br>descending|no|Sorting order of the children in the Content Tree.|
 |active_tab</br>`activeTab`|browse</br>search</br>bookmarks|no|Starting tab in the UDW.|
 |active_view</br>`activeView`|finder</br>grid|no|Starting view in the UDW.|
-|allow_content_edit</br>`allowContentEdit`|true</br>false|yes|Visibility of `Edit` content button in UDW.|
+|allow_redirects</br>`allowRedirects`|true</br>false|yes|Allows UDW to redirect to other page, e.g. from Content Structure to Browse in Content Edit.|
 |selected_locations</br>`selectedLocations`|[]</br>[locationId]|no|Location that will be selected automatically.|
+|allow_confirmation</br>`allowConfirmation`|true</br>false|yes|Shows the confirmations buttons in the UDW, if set to false, it will not be possible to confirm selection.|
 
 ### Content on the Fly Group
 
@@ -106,7 +107,8 @@ system:
                     active_sort_order: 'ascending'
                     active_tab: 'browse'
                     active_view: 'finder'
-                    allow_content_edit: false
+                    allow_redirects: false
+                    allow_confirmation: true
                     content_on_the_fly:
                         allowed_languages: null
                         allowed_locations: null
