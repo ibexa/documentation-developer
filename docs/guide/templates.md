@@ -492,7 +492,7 @@ ezplatform:
                 my_custom_variable: variable_value
 ```
 
-You can access this variable directly in all templates is that SiteAccess:
+You can access this variable directly in all templates in that SiteAccess:
 
 ``` html+twig
 {{ my_custom_variable }}
@@ -514,7 +514,7 @@ ezplatform:
 ```
 
 Custom variables can be nested.
-You can use Expression language to access values such as 
+You can use Expression language to access values such as:
 
 ``` yaml
 article:
