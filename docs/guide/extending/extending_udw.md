@@ -49,7 +49,7 @@ There you can set the following properties:
 |active_sort_order</br>`activeSortOrder`|ascending</br>descending|no|Sorting order of the children in the Content Tree.|
 |active_tab</br>`activeTab`|browse</br>search</br>bookmarks|no|Starting tab in the UDW.|
 |active_view</br>`activeView`|finder</br>grid|no|Starting view in the UDW.|
-|allow_redirects</br>`allowRedirects`|true</br>false|yes|Allows to redirect content from the UDW tab to another pages, e.g. to Content Edit page.|
+|allow_redirects</br>`allowRedirects`|true</br>false|yes|Allows to redirect content from the UDW tab to another page, e.g. to Content Edit page.|
 |selected_locations</br>`selectedLocations`|[]</br>[locationId]|no|Location that will be selected automatically.|
 |allow_confirmation</br>`allowConfirmation`|true</br>false|yes|Shows confirmations buttons in the UDW. If set to false, it will not be possible to confirm selection.|
 
