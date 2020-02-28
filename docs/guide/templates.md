@@ -478,6 +478,101 @@ To avoid such situations, you can check if the Location is virtual using the `lo
 
 ## Exposing additional variables
 
+### Contextual Twig variables
+
+You can create custom Twig variables for use in templates.
+
+The variables can be set per SiteAccess, or per content view.
+
+``` yaml
+ezplatform:
+    system:
+        <siteaccess>:
+            twig_variables:
+                my_custom_variable: variable_value
+```
+
+You can access this variable directly in all templates is that SiteAccess:
+
+``` html+twig
+{{ my_custom_variable }}
+```
+
+Variables set per content view will only be available when this view is matched:
+
+``` yaml
+ezplatform:
+    system:
+        <siteaccess>:
+            full:
+                article:
+                    template: 'full/article.html.twig'
+                    params:
+                        my_custom_variables: variable_value
+                    match:
+                        Identifier\ContentType: article
+```
+
+Custom variables can be nested.
+You can use Expression language to access values such as 
+
+``` yaml
+article:
+    template: 'full/article.html.twig'
+    params:
+        content:
+            content_type_name: "@=content.contentType.identifier"
+```
+
+``` html+twig
+{{ content.content_type_name }}
+```
+
+#### Custom variable providers
+
+You can also use Twig variables coming from custom variable providers.
+
+``` php
+<?php
+declare(strict_types=1);
+
+namespace App\Provider;
+
+use \eZ\Publish\Core\MVC\Symfony\View\View;
+use eZ\Publish\SPI\MVC\View\VariableProvider;
+
+class MyVariableProvider implements VariableProvider
+{
+    public function getTwigVariables(View $view, array $options = []): object
+    {
+        return (object)[
+            'my_variable' => 'Value of ' . $this->getIdentifier(),
+        ];
+    }
+
+    public function getIdentifier(): string
+    {
+        return 'my_variable_provider';
+    }
+}
+```
+
+Register the provider as a service:
+
+``` yaml
+App\Provider\MyVariableProvider:
+    autoconfigure: true
+```
+
+``` yaml
+article:
+    template: 'full/article.html.twig'
+    params:
+        provided_variable: "@=twig_variable_provider('my_variable_provider').my_variable"
+```
+
+### Dynamic variable injection
+
 You can dynamically inject variables in content view templates by listening to the `ezpublish.pre_content_view` event.
 
 The event listener method receives an [`eZ\Publish\Core\MVC\Symfony\Event\PreContentViewEvent`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/MVC/Symfony/Event/PreContentViewEvent.php) object.
