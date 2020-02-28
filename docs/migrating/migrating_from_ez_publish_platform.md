@@ -405,6 +405,34 @@ When you are ready to migrate your eZ Publish XmlText content to the eZ Platform
 
 `php -d memory_limit=1536M bin/console ezxmltext:convert-to-richtext --export-dir=ezxmltext-export --export-dir-filter=notice,warning,error --concurrency 4 -v`
 
+**Custom tags and attributes**
+
+eZ Platform now supports custom tags, including inline custom tags, and limited use of custom tag attributes.
+After migrating to RichText, you need to adapt your custom tag config for eZ Platform and rewrite the custom tags in Twig.
+See [Custom tag documentation](../guide/extending/extending_online_editor.md#custom-tags) for more info.
+
+If you configured custom attributes in legacy in OE using [ezoe_attributes.ini](https://github.com/ezsystems/ezpublish-legacy/blob/master/extension/ezoe/settings/ezoe_attributes.ini#L33-L48), note that not all types are supported.
+
+Below is a table of the tags that are currently supported, and their corresponding names in eZ Platform.
+
+| [XmlText](https://github.com/ezsystems/ezpublish-legacy/blob/2019.03/extension/ezoe/settings/ezoe_attributes.ini#L33-L48) | [RichText](https://github.com/ezsystems/ezplatform-richtext/blob/v1.1.5/src/bundle/DependencyInjection/Configuration.php#L17) | Note  |
+| ------------- | ------------- | ----- |
+| `link`        | [`link`](../guide/extending/extending_online_editor.md#example-link-tag) |  |
+| `number`      | `number`      |  |
+| `int`         | `number`      |  |
+| `checkbox`    | `boolean`     |  |
+| `select`      | `choice`      |  |
+| `text`        | `string`      |  |
+| `textarea`    | Not supported |   Use `string` as workaround |
+| `email`       | Not supported |   Use `string` as workaround |
+| `hidden`      | Not supported |   Use `string` as workaround |
+| `color`       | Not supported |   Use `string` as workaround |
+| `htmlsize`    | Not supported |   Use `string` as workaround |
+| `csssize`     | Not supported |   Use `string` as workaround |
+| `csssize4`    | Not supported |   Use `string` as workaround |
+| `cssborder`   | Not supported |   Use `string` as workaround |
+
+
 ###### 3.2.2 Migrate Page field to Page (eZ Enterprise only)
 
 **If** you use Page field (ezflow) and an eZ Enterprise subscription, and are ready to migrate your eZ Publish Flow content to the eZ Enterprise Page format, you can use a script to migrate your old Page content to new Page, to start using a pure eZ Enterprise setup. See [Migrating legacy Page field (ezflow) to new Page (Enterprise)](#migrating-legacy-page-field-ezflow-to-new-page-enterprise) for more information.
