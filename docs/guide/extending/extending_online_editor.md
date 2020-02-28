@@ -17,7 +17,7 @@ They are configured under the `ezrichtext` key.
 
 If you want to learn how to apply them to your installation follow [Creating a custom tag tutorial](../../tutorials/extending_admin_ui/6_adding_a_custom_tag).
 
-**Example: YouTube tag**
+#### Example: YouTube tag
 
 Preparation of the tag always starts with the configuration file that should be added to `app/Resources/config`. This is sample configuration for the YouTube tag, `custom_tags.yml`:
 
@@ -114,7 +114,7 @@ In the Online Editor, click **Add**, and from the list of available tags select 
 
 ![YouTube Tag](img/custom_tag_ezyt.png "YouTube Tag in the Online Editor" )
 
-**Example: FactBox tag**
+#### Example: FactBox tag
 
 FactBox tag is a good example for showcasing possibilities of `ezcontent` property.
 Each custom tag has an `ezcontent` property that contains the tag's main content.
