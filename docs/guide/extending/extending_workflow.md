@@ -11,48 +11,42 @@ or goes through a transition in a workflow.
 ``` yaml
 custom_workflow:
     # ...
-    stages:
+    transitions:
         # ...
-        proofread:
-            label: Proofread
-            color: '#5a10f1'
+        to_proofread:
+            label: To proofreading
+            color: '#8888ba'
             actions:
-                stage_action:
+                transition_action:
                     data:
                         message: "This notification is called by content reaching a stage in workflow"
-                    condition:
-                        - subject.contentType.identifier == "article"
 ```
 
-The configuration indicates the name of the custom action (`stage_action`)
-and the `condition` under which it is going to be called.
-In this case, the action will be performed if the Content item to reach this stage belongs to the Article Content Type.
-
+The configuration indicates the name of the custom action (`transition_action`) that will call the action.
 `data` contains additional data that can be passed to the action. In this case it a message to display.
 
-To define what the action does, create an Event Listener, in this case `src/EventListener/StageListener.php`:
+To define what the action does, create an Event Listener, in this case `src/EventListener/TransitionListener.php`:
 
 ``` php
 // ...
-use EzSystems\EzPlatformWorkflow\Event\Action\AbstractStageWorkflowActionListener;
-use Symfony\Component\Workflow\Event\Event;
+use EzSystems\EzPlatformWorkflow\Event\Action\AbstractTransitionWorkflowActionListener;
+use Symfony\Component\Workflow\Event\TransitionEvent;
 
-class StageListener extends AbstractStageWorkflowActionListener
+class TransitionListener extends AbstractTransitionWorkflowActionListener
 {
     /// ...
 
     public function getIdentifier(): string
     {
-        return 'stage_action';
+        return 'transition_action';
     }
 
-    public function onWorkflowEvent(Event $event): void
+    public function onWorkflowEvent(TransitionEvent $event): void
     {
         $this->permissionResolver->setCurrentUserReference($this->userService->loadUserByLogin('admin'));
 
-        $metadata = $this->getActionMetadata($event->getWorkflow(), $event->getMarking()->getPlaces());
-
-        $message = $metadata['data']['message'];
+        $context = $event->getContext();
+        $message = $context->message;
 
         $this->notificationHandler->info(
             $message,
@@ -63,14 +57,43 @@ class StageListener extends AbstractStageWorkflowActionListener
 }
 ```
 
-This Listener displays a notification bar at the bottom of the page when an Article reaches the `proofread` stage.
+This Listener displays a notification bar at the bottom of the page when a Content item goes through the `to_proofread` transision.
 
 The listener must be registered as a service:
 
 ``` yaml
-App\EventListener\StageListener:
+App\EventListener\TransitionListener:
     tags:
         - { name: ezplatform.workflow.action_listener }
+```
+
+`$event->getContext()` gives you access to the context of the action.
+The context contains:
+
+- `$workflowId` - the ID of the current workflow
+- `$message` - content of the message input by the user when sending the Content item through the transitions
+- `$reviewerId`: ID of the User who was selected as a reviewer
+- `$result`: an array of transition actions performed so far
+
+Context enables you to take into account the transition history of the Content items.
+
+You can set the `result` using the `setResult()` method.
+
+For example, you can modify the message is the Content item has been previously sent back to proofreading:
+
+``` php
+$this->setResult($event, 'was_sent_back');
+```
+
+You can then use this result as a condition for other actions:
+
+``` yaml
+actions:
+    stage_action:
+        data:
+            message: "This Content item had been sent back to proofreading"
+        condition:
+            - result.transition_action == `was_sent_back`
 ```
 
 ## Workflow event timeline
