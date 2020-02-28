@@ -276,8 +276,7 @@ The `@ezdesign/account/error/credentials_expired.html.twig` has been relocated f
 
 ### Universal Discovery Widget
 
-The `allow_content_edit` configuration key has been replaced by `allow_redirects` key.
-A new key `allow_confirmation` has been added.
+The UDW configuration has been changed.
 For the full list of UDW configuration keys and their descriptions, see [UDW configuration](../guide/extending/extending_udw.md#configuration).
 
 ### Online Editor
