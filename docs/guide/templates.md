@@ -508,7 +508,7 @@ ezplatform:
                 article:
                     template: 'full/article.html.twig'
                     params:
-                        my_custom_variables: variable_value
+                        my_custom_variable: variable_value
                     match:
                         Identifier\ContentType: article
 ```
@@ -520,17 +520,26 @@ You can use Expression language to access values such as:
 article:
     template: 'full/article.html.twig'
     params:
-        content:
+        my_custom_variable:
             content_type_name: "@=content.contentType.identifier"
 ```
 
 ``` html+twig
-{{ content.content_type_name }}
+{{ my_custom_variable.content_type_name }}
 ```
+
+!!! caution
+
+    It is possible to overwrite an existing parameter, so it is good practice to avoid existing
+    parameter names such as `content` or `location`.
+
+    Use `{{ dump() }}` to view the list of all parameters available in the given template.
+
+### Dynamic variable injection
 
 #### Custom variable providers
 
-You can also use Twig variables coming from custom variable providers.
+In your templates you can use Twig variables coming from custom variable providers.
 
 ``` php
 <?php
@@ -571,7 +580,7 @@ article:
         provided_variable: "@=twig_variable_provider('my_variable_provider').my_variable"
 ```
 
-### Dynamic variable injection
+#### Injecting variables through event
 
 You can dynamically inject variables in content view templates by listening to the `ezpublish.pre_content_view` event.
 
