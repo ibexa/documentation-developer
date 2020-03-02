@@ -765,7 +765,8 @@ The following `ezrichtext` service tags have been extended to be consistent with
 
 ## ezplatform-solr-search-engine
 
-No deprecations or backward compatibility breaks to document.
+The `ezplatform:solr_create_index` command has been removed.
+Use `ezplatform:reindex` instead.
 
 ## ezplatform-standard-design
 
