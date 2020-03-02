@@ -98,6 +98,10 @@ You can now use the Sub-items list to quickly hide, reveal, to add Locations to 
 
 ## Other changes
 
+### Universal Discovery Widget
+
+The configuration for Universal Discovery Widget (UDW) has been rewritten. For full list of changes, see [Backwards compatibility doc](ez_platform_v3.0_deprecations.md#universal-discovery-widget).
+
 ### GraphQL
 
 In GraphQL, you can now [query Locations and their children](../api/graphql_queries.md#querying-locations).
