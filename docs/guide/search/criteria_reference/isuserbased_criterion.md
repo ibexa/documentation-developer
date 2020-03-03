@@ -1,0 +1,24 @@
+# IsUserBased Criterion
+
+The [`IsUserBased` Search Criterion](https://github.com/ezsystems/ezpublish-kernel/blob/v8.0.0-beta3/eZ/Publish/API/Repository/Values/Content/Query/Criterion/IsUserBased.php)
+searches for content that plays the role of a User account.
+
+!!! note
+
+    In the default setup only the User Content Type is treated as User accounts.
+    However, you can also [set other Content Types to be treated as such](../config_repository.md#user-identifiers).
+
+## Arguments
+
+- (optional) `value` - bool representing whether to search for User-based (default `true`)
+or non-User-based content
+
+## Limitations
+
+The `IsUserBased` Criterion is not available in Solr search engine.
+
+## Example
+
+``` php
+$query->query = new Criterion\IsUserBased();
+```
