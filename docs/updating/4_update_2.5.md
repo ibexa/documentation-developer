@@ -26,6 +26,20 @@ or for PostgreSQL:
 
 `psql <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-7.5.4-to-7.5.5.sql`
 
+To update to v2.5.9, additionally run the following script:
+
+`mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.5.6-to-7.5.7.sql`
+
+or for PostgreSQL:
+
+`psql <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-7.5.6-to-7.5.7.sql`
+
+Additionally, reindex the content:
+
+``` bash
+php bin/console ezplatform:reindex
+```
+
 ## Changes to database schema
 
 The introduction of [support for PostgreSQL](../guide/databases.md#using-postgresql) includes a change in the way database schema is generated.
