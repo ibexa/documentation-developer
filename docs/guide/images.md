@@ -303,7 +303,7 @@ interface PlaceholderProvider
 
 ### Semantic configuration
 
-Placeholder generation can be configured for each [`binary_handler`](file_management/#handling-binary-files) under the `ezplatform.image_placeholder` key:
+Placeholder generation can be configured for each [`binary_handler`](file_management.md#handling-binary-files) under the `ezplatform.image_placeholder` key:
 
 ```yaml
 ezplatform:
