@@ -24,7 +24,6 @@ In addition to the [native functions provided by Twig](http://twig.sensiolabs.or
 |[`ez_short_date`](#ez_short_datetime-ez_short_date-ez_short_time)|Outputs date in short format.|
 |[`ez_short_time`](#ez_short_datetime-ez_short_date-ez_short_time)|Outputs time in short format.|
 |[`ez_render_field`](#ez_render_field)|Displays a Content item's Field value, taking advantage of the template block exposed by the Field Type used.|
-|[`ez_trans_prop`](#ez_trans_prop)|Gets the translated value of a multi valued(translations) property.|
 |[`ez_urlalias`](#ez_urlalias)|It is a special route name for generating URLs for a Location from the given parameters.|
 
 ### `ez_content_name`
@@ -491,47 +490,6 @@ If the argument is null, the filter returns the current date and time in the sel
 For example `{{ contentInfo.publishedDate|ez_full_datetime }}` will return `03 May 2019 23:03`.
 
 The filters also accept an optional `timezone` parameter for displaying date and time in a chosen time zone.
-
-### `ez_trans_prop`
-
-#### Description
-
-`ez_trans_prop()` is a generic, low level Twig helper which gets the translated value of a multi valued(translations) property.
-
-If the Content item does not have a translation in the current language, the main language (see [further down for details](#main-language-use)) will be used if this is supported by the provided **object**. This behavior is identical when forcing a language using **forcedLanguage**.
-
-If languages were specified during retrieval of a given value object, you can get translated values directly in several cases now, including examples below. For more details, see [Languages](internationalization.md).
-
-#### Prototype and Arguments
-
-`ez_trans_prop ( ValueObject object, string property [, string forcedLanguage ] ) : string|null`
-
-|Argument name|Type|Description|
-|------|------|------|
-|`object`|`eZ\Publish\API\Repository\Values\ValueObject`|ValueObject object **property** belongs to.|
-|`property`|`string`|Property to get translated value from, logic is using one of the following (in this order):</br>object method `get{property}`</br>object property `{property}s`|
-|`forcedLanguage`|`string`|Optional language we want to force (e.g. `"eng-US"``), otherwise takes prioritized languages from SiteAccess settings.|
-
-##### Main language use
-
-Main language is be applied in the following way for value objects that support this:
-
-- *When attribute is retrieved via object property*: Use **mainLanguageCode** property if it exists as fallback language, but only if either **alwaysAvailable** property does not exist, or is true.
-- *When attribute is retrieved via object method*: Provide `$language = null` as the only argument to the method, the logic of the ValueObject decides if this gives a fallback value or not.
-
-#### Usage
-
-Example below shows how this function can be used to get the content name with exact same result as using `ez_content_name(content)`:
-
-``` html+twig
-{{ ez_trans_prop( versionInfo, "name" ) }}
-```
-
-Example for `ContentType->names`:
-
-``` html+twig
-{{ ez_trans_prop( contentType, "name" ) }}
-```
 
 ### `ez_urlalias`
 
