@@ -74,6 +74,11 @@ Forms for content creation have been [moved from `repository-forms` to `ezplatfo
 
 If your templates extend any of those built-in templates, you need to update their paths
 
+### Deprecated controller actions
+
+If your templates still use the deprecated `viewLocation` and `embedLocation` actions of `ViewController`,
+you need to rewrite them to use `viewAction` and `embedAction` respectively.
+
 ## Configuration
 
 ### `ezpublish` configuration key
@@ -194,7 +199,14 @@ public function receive(Signal $signal)
 // your code
 ```
 
-## Online Editor
+## Online Editor and RichText
+
+### RichText
+
+Deprecated code related to the RichText Field Type has been removed from `ezpublish-kernel`.
+
+If your code still relies on the `eZ\Publish\Core\FieldType\RichText` namespace, you need to rewrite it
+to use `EzSystems\EzPlatformRichText\eZ\RichText` instead.
 
 ### Extra buttons
 
@@ -291,5 +303,28 @@ security:
             user_checker: eZ\Publish\Core\MVC\Symfony\Security\UserChecker
             # ...
 ```
+
+### Command
+
+If your custom commands use `Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand`
+you need to rewrite them to use `Symfony\Component\Console\Command\Command` instead,
+because `ContainerAwareCommand` is deprecated.
+
+### Permission-related methods
+
+Some deprecated [permission-related methods](../releases/ez_platform_v3.0_deprecations.md#permission-related-methods) have been removed.
+If your code uses them, you need to rewrite it to use the permission resolver.
+
+### Container parameters
+
+A numer of Symfony Dependency Injection Container parameters [have been dropped](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/bc/8.0/dropped-container-parameters.md).
+
+To check if your code uses them, search for all occurrences of `ezpublish\..*\.class` (regular expression pattern)
+and [decorate Symfony services](https://symfony.com/doc/4.4/service_container/service_decoration.html) instead.
+
+### QueryTypes
+
+If your code relies on automatically registering QueryTypes through the naming convention `<Bundle>\QueryType\*QueryType`,
+you need to register your QueryTypes as services and tag them with `ezpublish.query`, or enable their automatic configuration (`autoconfigure: true`).
 
 ## Database update
