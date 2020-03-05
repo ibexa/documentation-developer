@@ -274,6 +274,11 @@ The following templates used in the Back Office have been renamed:
 
 The `@ezdesign/account/error/credentials_expired.html.twig` has been relocated from `src/bundle/Resources/views/Security/error` to `src/bundle/Resources/views/themes/admin/account/error`.
 
+### Universal Discovery Widget
+
+The UDW configuration has been changed.
+For the full list of UDW configuration keys and their descriptions, see [UDW configuration](../guide/extending/extending_udw.md#configuration).
+
 ### Online Editor
 
 All Online Editor front-end code and assets (such as JS, CSS, fonts, etc.)
