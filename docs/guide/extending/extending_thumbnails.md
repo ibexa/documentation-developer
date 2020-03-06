@@ -1,11 +1,12 @@
 # Extending thumbnails
 
 Thumbnails enable you to easily choose an image for a specific Content Type.
+If you do not want to use custom thumbnails [`ContentType` icons](../../resources/icons.md#content-types) will be used instead.
 
 ## Thumbnail mechanism 
 
 The thumbnail mechanism has two layers, and each layer can have many implementations.
-The mechanism checks if any of the implementations returns an image.
+The mechanism checks if any of the implementations returns an image that can be a thumbnail.
 If found, the image is used as a Content Type thumbnail.
 
 First layer of the mechanism contains strategy pattern that focuses on finding a thumbnail.
@@ -14,20 +15,20 @@ For example for users thumbnails can be downloaded from an avatar-generating ser
 
 For this layer there are two default implementations.
 The first looks for images in Fields, and after that the second one will look for them in the Content Type.
-If there are no Fields with a thumbnail image, the Content Type icon will be used as a thumbnail.
+If there are no Fields that contain an image that can be a thumbnail, the Content Type icon will be used as a thumbnail.
 This mechanism can be modified to fit your site needs, so you can decide from where and how the thumbnails will be downloaded.
 
-Second layer of thumbnail mechanism enables selection of thumbnail from a Field. 
-It searches all the Fields for images with function "Can be a thumbnail" turned on.
+Second layer of thumbnail mechanism enables selection of thumbnail from a Field that first layer has found. 
+It searches the Field for images with function "Can be a thumbnail" turned on.
 
 ![Can be a thumbnail setting](img/extending_thumbnail_can_be.png)
 
-This layer will return the first nonempty Field that can be a thumbnail.
-If there are no Fields with a thumbnail option turned on, the `ContentType` icon will be used.
+If there is more than one image in the Field, this layer will return the first nonempty image that can be a thumbnail.
 
 ### Add a thumbnail mechanism 
 
-First, create `StaticStrategy.php` in `src/Strategy`. It is a base strategy for returning static thumbnails.
+First, create `StaticStrategy.php` in `src/Strategy`.
+It is a base strategy for returning thumbnails from a static file.
 
 ```php
 <?php
