@@ -14,9 +14,13 @@ Apply the following database update script:
 
 `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.4.0-to-7.5.0.sql`
 
+### v2.5.3
+
 To update to v2.5.3, additionally run the following script:
 
 `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.5.2-to-7.5.3.sql`
+
+### v2.5.6
 
 To update to v2.5.6, additionally run the following script:
 
@@ -25,6 +29,8 @@ To update to v2.5.6, additionally run the following script:
 or for PostgreSQL:
 
 `psql <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-7.5.4-to-7.5.5.sql`
+
+### v2.5.9
 
 To update to v2.5.9, additionally run the following script:
 
