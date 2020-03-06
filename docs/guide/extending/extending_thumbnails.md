@@ -9,21 +9,27 @@ The thumbnail mechanism has two layers, and each layer can have many implementat
 The mechanism checks if any of the implementations returns an image that can be a thumbnail.
 If found, the image is used as a Content Type thumbnail.
 
-First layer of the mechanism contains strategy pattern that focuses on finding a thumbnail.
+### First layer
+
+First layer of the mechanism contains strategy pattern that focuses on finding a thumbnail source.
 The thumbnail can be found inside or outside the Content Type.
 For example for users thumbnails can be downloaded from an avatar-generating service.
 
-For this layer there are two default implementations.
-The first looks for images in Fields, and after that the second one will look for them in the Content Type.
-If there are no Fields that contain an image that can be a thumbnail, the Content Type icon will be used as a thumbnail.
-This mechanism can be modified to fit your site needs, so you can decide from where and how the thumbnails will be downloaded.
+For this layer there are following default implementations:
 
-Second layer of thumbnail mechanism enables selection of thumbnail from a Field that first layer has found. 
-It searches the Content Type for Fields e.g. images with function "Can be a thumbnail" turned on.
+- Mechanism looks for Fields that can be thumbnail, if found, mechanism moves to the second layer.
+- If there are no Fields that can be a thumbnail, the Content Type icon will be used as a thumbnail.
+
+### Second layer
+
+Second layer of mechanism enables selection of thumbnail from a Field that the first layer has found. 
+It searches the Content Type for all the Fields e.g. images with function "Can be a thumbnail" turned on.
 
 ![Can be a thumbnail setting](img/extending_thumbnail_can_be.png)
 
 If there is more than one Field in the Content Type that can be used as a thumbnail, this layer will return the first nonempty Field as a thumbnail.
+
+This mechanism can be modified to fit your site needs, so you can decide from where and how the thumbnails will be downloaded.
 
 ### Add a thumbnail mechanism 
 
