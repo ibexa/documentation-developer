@@ -1,6 +1,6 @@
 # Extending thumbnails
 
-Thumbnails enable you to easily choose an image for a specific Content Type.
+The thumbnails API enable you to easily choose an image for a specific content.
 If you do not want to use custom thumbnails [`ContentType` icons](../../resources/icons.md#content-types) will be used instead.
 
 ## Thumbnail mechanism 
@@ -19,16 +19,16 @@ If there are no Fields that contain an image that can be a thumbnail, the Conten
 This mechanism can be modified to fit your site needs, so you can decide from where and how the thumbnails will be downloaded.
 
 Second layer of thumbnail mechanism enables selection of thumbnail from a Field that first layer has found. 
-It searches the Field for images with function "Can be a thumbnail" turned on.
+It searches the Content Type for Fields e.g. images with function "Can be a thumbnail" turned on.
 
 ![Can be a thumbnail setting](img/extending_thumbnail_can_be.png)
 
-If there is more than one image in the Field, this layer will return the first nonempty image that can be a thumbnail.
+If there is more than one Field in the Content Type that can be used as a thumbnail, this layer will return the first nonempty Field as a thumbnail.
 
 ### Add a thumbnail mechanism 
 
-First, create `StaticStrategy.php` in `src/Strategy`.
-It is a base strategy for returning thumbnails from a static file.
+First, create base strategy for returning custom thumbnails from a static file.
+Create `StaticStrategy.php` in `src/Strategy`.
 
 ```php
 <?php
