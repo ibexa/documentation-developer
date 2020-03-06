@@ -187,7 +187,7 @@ nav:
         - Extending eZ Platform:
             - 'Extending eZ Platform': 'guide/extending/extending_ez_platform.md'
             - 'Extending Back Office': 'guide/extending/extending_back_office.md'
-            - 'Extending Thumbnails': 'guide/extending/extending_thumbnails.md'
+            - 'Extending thumbnails': 'guide/extending/extending_thumbnails.md'
             - 'Extending Dashboard': 'guide/extending/extending_dashboard.md'
             - 'Extending Menus': 'guide/extending/extending_menus.md'
             - 'Extending tabs': 'guide/extending/extending_tabs.md'
