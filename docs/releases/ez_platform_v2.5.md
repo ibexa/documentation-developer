@@ -265,3 +265,13 @@ With v2.5.6 you can optionally use Solr 7.7. To enable it:
 2. Follow [Solr upgrade documentation](https://lucene.apache.org/solr/guide/7_7/solr-upgrade-notes.html).
 3. Reindex your content.
 4. Clear cache.
+
+## eZ Platform v2.5.9
+
+### Search result improvements
+
+When searching in the Back Office you can now select languages to filter results through.
+
+### Searchable Matrix Field
+
+The Matrix Field is not fully searchable.
