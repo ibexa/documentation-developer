@@ -1,29 +1,29 @@
 # Extending thumbnails
 
-Thumbnails allow you to easily choose an image for a specific Content Type.
+Thumbnails enable you to easily choose an image for a specific Content Type.
 
 ## Thumbnail mechanism 
 
-Thumbnail mechanism has two layers, and each layer can have many implementations.
-The mechanism checks if any of the implementations contains an image.
-If found, the image is returned as a Content Type thumbnail.
+The thumbnail mechanism has two layers, and each layer can have many implementations.
+The mechanism checks if any of the implementations returns an image.
+If found, the image is used as a Content Type thumbnail.
 
 First layer of the mechanism contains strategy pattern that focuses on finding a thumbnail.
-The thumbnail can be found inside or outside the Content Type
-e.g. for users thumbnails can be downloaded from avatar generating service.
+The thumbnail can be found inside or outside the Content Type.
+For example for users thumbnails can be downloaded from an avatar-generating service.
 
 For this layer there are two default implementations.
 First looks for images in Field Types, and after that the second one will look for them in Content Type.
-If there are no Field Types with a thumbnail image, the `ContentType` icon will be used as a thumbnail.
+If there are no Fields with a thumbnail image, the Content Type icon will be used as a thumbnail.
 This mechanism can be modified to fit your site needs, so you can decide from where and how the thumbnails will be downloaded.
 
-Second layer of Thumbnail mechanism enables selection of thumbnail from a Field Type. 
-It searches all the Field Types for images with function "Can be a thumbnail" turned on.
+Second layer of thumbnail mechanism enables selection of thumbnail from a Field. 
+It searches all the Fields for images with function "Can be a thumbnail" turned on.
 
 ![Can be a thumbnail setting](img/extending_thumbnail_can_be.png)
 
-This layer will return the fist nonempty Filed Type that can be a thumbnail.
-If there are no Field Types with a thumbnail option turned on, the `ContentType` icon will be used.
+This layer will return the first nonempty Field that can be a thumbnail.
+If there are no Fields with a thumbnail option turned on, the `ContentType` icon will be used.
 
 ### Add a thumbnail mechanism 
 
@@ -59,7 +59,7 @@ final class StaticStrategy implements ThumbnailStrategy
 }
 ```
 
-Next, add the `ezplatform.spi.content.thumbnail_strategy` tag with `priority: 100` to `config/services.yaml`:
+Next, add the strategy with the `ezplatform.spi.content.thumbnail_strategy` tag and `priority: 100` to `config/services.yaml`:
  
 ```yaml
 services:
@@ -70,21 +70,21 @@ services:
             - { name: ezplatform.spi.content.thumbnail_strategy, priority: 100 }
 ```
 
-Priority `100` will allow this strategy to be evoked as first on clean installation or before any other strategy with lower priority.
+Priority `100` will allow this strategy to be used first on a clean installation or before any other strategy with lower priority.
 
 At this point you can go to the Back Office and check the results.
 
-## Other fields as thumbnails
+## Other Fields as thumbnails
 
-Any Field Type can generate a thumbnail e.g.
+Any Field Type can generate a thumbnail, e.g.:
 
-- `DateAndTime` - you can add a mini calendar thumbnail for Appointment Content Type and on the day of the appointment a clock thumbnail with a specific time when it takes place
-- `eztext` -  you can add a first letter of the text block that is inside
+- DateAndTime (`ezdatetime`) - you can add a mini calendar thumbnail for Appointment Content Type and on the day of the appointment a clock thumbnail with a specific time when it takes place
+- TextBlock (`eztext`) -  you can add a first letter of the text block that is inside
 
-### Add eztext field as thumbnail
+### Add eztext Field as thumbnail
 
-First, create a strategy that will add support for `extext` as the thumbnail.
-It will allow you to add a thumbnail URL in the text field.
+First, create a strategy that will add support for `eztext` as the thumbnail.
+It will enable you to add a thumbnail URL in the text field.
 
 Add `ImageUrlThumbnailStrategy.php` in `src/FieldType/ImageUrl`.
 
@@ -115,7 +115,7 @@ class ImageUrlThumbnailStrategy implements ThumbnailStrategy
 }
 ```
 
-Next, add the `ezplatform.spi.field.thumbnail_strategy` tag to `config/services.yaml`:
+Next, add the strategy with the `ezplatform.spi.field.thumbnail_strategy` tag to `config/services.yaml`:
 
  ```yaml
  services:
