@@ -13,7 +13,7 @@ The thumbnail can be found inside or outside the Content Type.
 For example for users thumbnails can be downloaded from an avatar-generating service.
 
 For this layer there are two default implementations.
-First looks for images in Field Types, and after that the second one will look for them in Content Type.
+The first looks for images in Fields, and after that the second one will look for them in the Content Type.
 If there are no Fields with a thumbnail image, the Content Type icon will be used as a thumbnail.
 This mechanism can be modified to fit your site needs, so you can decide from where and how the thumbnails will be downloaded.
 
