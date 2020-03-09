@@ -17,7 +17,7 @@ For example for users thumbnails can be downloaded from an avatar-generating ser
 
 For this layer there are following default implementations:
 
-- Mechanism looks for Fields that can be thumbnail, if found, mechanism moves to the second layer.
+- The mechanism looks for Fields that can be thumbnail, if found, the mechanism moves to the second layer.
 - If there are no Fields that can be a thumbnail, the Content Type icon will be used as a thumbnail.
 
 ### Second layer
