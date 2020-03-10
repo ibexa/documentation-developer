@@ -16,6 +16,11 @@ but you will also need to update your code.
 At this point to need to introduce changes to your code
 to reflex changes in project structure, deprecations and improvements introduced in v3.
 
+!!! tip
+
+    To make the changes easier, you can use [rector](https://github.com/rectorphp/rector)
+    to refactor your Symfony and PHPunit code.
+
 ### Project structure
 
 !!! tip
