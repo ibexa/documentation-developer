@@ -672,6 +672,18 @@ The following deprecated Twig classes have been replaced:
 |`Twig_Template`|`Twig\Template`|
 |`Twig_Node`|`Twig\Node\Node`|
 
+### Password hashes
+
+Insecure password hash types deprecated since v1.13 have been removed:
+
+- `PASSWORD_HASH_MD5_PASSWORD`
+- `PASSWORD_HASH_MD5_USER`
+- `PASSWORD_HASH_MD5_SITE`
+- `PASSWORD_HASH_PLAINTEXT`
+
+Login with the removed hashes will no longer work.
+Users can request a new, valid password using the "Forgot password" feature.
+
 ## ezplatform-matrix-fieldtype
 
 No deprecations or backward compatibility breaks to document.
