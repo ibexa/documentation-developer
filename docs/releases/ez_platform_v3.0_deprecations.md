@@ -684,6 +684,26 @@ Insecure password hash types deprecated since v1.13 have been removed:
 Login with the removed hashes will no longer work.
 Users can request a new, valid password using the "Forgot password" feature.
 
+### Strict Types for Public API
+
+The strict types have been added to all methods from the following interfaces:
+
+- [`ContentTypeServiceInterface`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/ContentTypeService.php)
+- [`ContentServiceInterface`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/ContentService.php)
+- [`FieldTypeServiceInterface`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/FieldTypeService.php)
+- [`LanguageServiceInterface`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/LanguageService.php)
+- [`LocationServiceInterface`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/LocationService.php)
+- [`ObjectStateServiceInterface`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/ObjectStateService.php)
+- [`RoleServiceInterface`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/RoleService.php)
+- [`SectionServiceInterface`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/SectionService.php)
+- [`SearchServiceInterface`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/SearchService.php)
+- [`TranslationServiceInterface`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/TranslationService.php)
+- [`TrashServiceInterface`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/TrashService.php)
+- [`URLAliasServiceInterface`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/URLAliasService.php)
+- [`URLServiceInterface`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/URLService.php)
+- [`URLWildcardServiceInterface`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/URLWildcardService.php)
+- [`UserServiceInterface`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/UserService.php)
+
 ## ezplatform-matrix-fieldtype
 
 No deprecations or backward compatibility breaks to document.
