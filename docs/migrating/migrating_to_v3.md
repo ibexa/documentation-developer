@@ -1,7 +1,7 @@
 # Migrating to v3
 
-To migrate your v2 project to v3, you need to follow the [standard upgrade procedure](../updating/updating_ez_platform.md),
-but you will also need to update your code.
+To migrate your v2 project to v3, you need to follow the [standard update procedure](../updating/updating_ez_platform.md),
+but you will also need to make changes to your code.
 
 ## Check out and update the app
 
@@ -11,9 +11,9 @@ but you will also need to update your code.
 
 3\. [Update the app](3_update_app.md)
 
-## Introduce changes to your code
+## Make changes to your code
 
-At this point to need to introduce changes to your code
+At this point you need to make changes to your code
 to reflex changes in project structure, deprecations and improvements introduced in v3.
 
 !!! tip
@@ -80,12 +80,8 @@ As a result, the way to indicate a template path has changed.
 
 For example:
 
-- **Use**: `"@@EzPlatformUser/user_settings/list.html.twig"`
-- **Instead of**: `"EzPlatformUserBundle:user_settings:list.html.twig"`
-
-
-- **Use**: `{% extends "@EzPublishCore/content_fields.html.twig" %}`
-- **Instead of**: `{% extends "EzPublishCoreBundle::content_fields.html.twig" %}`
+- **Use:** `"@@EzPlatformUser/user_settings/list.html.twig"` **instead of:** `"EzPlatformUserBundle:user_settings:list.html.twig"`
+- **Use:** `{% extends "@EzPublishCore/content_fields.html.twig" %}` **instead of:** `{% extends "EzPublishCoreBundle::content_fields.html.twig" %}`
 
 #### Form templates
 
@@ -116,7 +112,7 @@ ezplatform:
             # ...
 ```
 
-**Instead of:***
+**instead of:**
 
 ``` yaml
 ezpublish:
@@ -278,8 +274,6 @@ to use `EzSystems\EzPlatformRichText\eZ\RichText` instead.
 
 [`flex-workflow` has been combined with `ezplatform-workflow`](../releases/ez_platform_v3.0_deprecations.md#flex-workflow) in the form of a Quick Review functionality.
 
-#### Migrating your data
-
 ### Universal Discovery Widget
 
 If you extended the Universal Discovery Widget
@@ -314,17 +308,10 @@ php ./bin/console ezplatform:install <installer type name>
 In eZ Platform v3.0, service definitions around that extension point have changed:
 
 1\. The deprecated Clean Installer has been dropped from `ezpublish-kernel` package.
-If your project uses custom installer and has relied on Clean Installer service definition (`ezplatform.installer.clean_installer`) you need to switch to Core Installer.
+If your project uses custom installer and has relied on Clean Installer service definition (`ezplatform.installer.clean_installer`)
+you need to switch to Core Installer.
 
-Before:
-    
-``` php
-services:
-    Acme\App\Installer\MyCustomInstaller:
-        parent: ezplatform.installer.clean_installer
-```
-
-After:
+**Use:**
     
 ``` php
 services:
@@ -332,25 +319,33 @@ services:
         parent: EzSystems\PlatformInstallerBundle\Installer\CoreInstaller
 ```
 
+**instead of**:
+    
+``` php
+services:
+    Acme\App\Installer\MyCustomInstaller:
+        parent: ezplatform.installer.clean_installer
+```
+
 `CoreInstaller` relies on [`DoctrineSchemaBundle`](https://github.com/ezsystems/doctrine-dbal-schema).
 Custom schema can be installed defining Symfony Event Subscriber subscribing to `EzSystems\DoctrineSchema\API\Event\SchemaBuilderEvents::BUILD_SCHEMA` event.
 
 2\. The deprecated Symfony Service definition `ezplatform.installer.db_based_installer` has been removed in favor of its FQCN-named definition.
 
-Before:
-
-``` php
-services:
-    Acme\App\Installer\MyCustomInstaller:
-        parent: ezplatform.installer.db_based_installer
-```
-
-After:
+**Use:**
 
 ``` php
 services:
     Acme\App\Installer\MyCustomInstaller:
         parent: EzSystems\PlatformInstallerBundle\Installer\DbBasedInstaller
+```
+
+**instead of:**
+
+``` php
+services:
+    Acme\App\Installer\MyCustomInstaller:
+        parent: ezplatform.installer.db_based_installer
 ```
 
 ### Other changes
@@ -390,6 +385,10 @@ and [decorate Symfony services](https://symfony.com/doc/4.4/service_container/se
 
 If your code relies on automatically registering QueryTypes through the naming convention `<Bundle>\QueryType\*QueryType`,
 you need to register your QueryTypes as services and tag them with `ezpublish.query`, or enable their automatic configuration (`autoconfigure: true`).
+
+#### Deprecations
+
+For a full list of changes, see [Deprecations and backwards compatibility breaks](../releases/ez_platform_v3.0_deprecations.md)
 
 ## Update the database
 
