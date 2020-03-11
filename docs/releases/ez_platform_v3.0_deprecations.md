@@ -686,7 +686,7 @@ Users can request a new, valid password using the "Forgot password" feature.
 
 ### Strict types for PHP API
 
-The strict types have been added to all methods from the following interfaces:
+Strict types have been added to all methods from the following interfaces:
 
 - [`ContentTypeServiceInterface`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/ContentTypeService.php)
 - [`ContentServiceInterface`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/ContentService.php)
