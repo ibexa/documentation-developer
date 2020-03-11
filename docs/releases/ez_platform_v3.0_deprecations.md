@@ -684,7 +684,7 @@ Insecure password hash types deprecated since v1.13 have been removed:
 Login with the removed hashes will no longer work.
 Users can request a new, valid password using the "Forgot password" feature.
 
-### Strict Types for Public API
+### Strict types for PHP API
 
 The strict types have been added to all methods from the following interfaces:
 
