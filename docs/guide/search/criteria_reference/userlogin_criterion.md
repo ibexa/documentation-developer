@@ -13,3 +13,7 @@ searches for content based on the User ID.
 ``` php
 $query->query = new Criterion\UserLogin(['johndoe']);
 ```
+
+``` php
+$query->query = new Criterion\UserLogin('adm*', Criterion\Operator::LIKE);
+```

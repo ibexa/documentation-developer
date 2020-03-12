@@ -13,3 +13,7 @@ searches for content based on the email assigned to the User account.
 ``` php
 $query->query = new Criterion\UserEmail(['johndoe']);
 ```
+
+``` php
+$query->query = new Criterion\UserEmail('nospam*', Criterion\Operator::LIKE);
+```
