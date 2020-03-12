@@ -5,10 +5,15 @@ searches for content based on its Object State identifier.
 
 ## Arguments
 
-- `value` - int(s) representing the Object State identifier(s)
+- `value` - string(s) representing the Object State identifier(s)
+- (optional) `target` - string representing the Object State group
 
 ## Example
 
 ``` php
 $query->query = new Criterion\ObjectStateIdentifier(['ready']);
+```
+
+``` php
+$query->query = new Criterion\ObjectStateIdentifier(['not_locked'], 'ez_lock');
 ```

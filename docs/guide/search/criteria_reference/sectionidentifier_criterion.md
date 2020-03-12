@@ -5,7 +5,7 @@ searches for content based on the identifier of the Section it is assigned to.
 
 ## Arguments
 
-- `value` - int(s) representing the identifiers of the Section(s)
+- `value` - string(s) representing the identifiers of the Section(s)
 
 ## Example
 
