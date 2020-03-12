@@ -221,6 +221,7 @@ nav:
         - UI Guidelines:
             - 'Introduction': 'guidelines/Introduction.md'
             - Components:
+                - 'Badges': 'guidelines/components/badges.md'
                 - 'Buttons': 'guidelines/components/buttons.md'
                 - 'Form components': 'guidelines/components/form_components.md'
                 - 'Modals': 'guidelines/components/modals.md'
