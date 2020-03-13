@@ -232,9 +232,9 @@ services:
 ### Add tooltips
 
 Tooltips help provide more information for the users when they hover over, focus on, or tap an element.
-eZ Platform tooltips are using [Bootstrap tooltips.](https://getbootstrap.com/docs/4.1/components/tooltips/)
+eZ Platform tooltips use [Bootstrap tooltips.](https://getbootstrap.com/docs/4.1/components/tooltips/)
 
-To create a tooltip you have to add a `title` attribute with  custom tooltip text for HTMLnode.
+To create a tooltip you have to add a `title` attribute with a custom tooltip text for HTMLnode.
 
 ```html
 <button title="custom tooltip text"</button>
@@ -253,7 +253,7 @@ Example of a tooltip with additional attributes:
 </button>
 ```
 
-You can also add tooltips helpers to JavaScript `eZ.helpers` object:
+You can also add tooltip helpers to the JavaScript `eZ.helpers` object:
 
 - `eZ.helpers.tooltips.parse(optional HTMLnode)` - creates a tooltip. Equivalent of `$(selector).tooltip()`. HTMLnode will execute `querySelectorAll` on this object, a `window.document` is default value.
 - `eZ.helpers.tooltips.hideAll(optional HTMLnode)` - closes all tooltips. Equivalent of `$(selector).tooltip('hide')`. HTMLnode will execute `querySelectorAll` on this object, a `window.document` is default value.
