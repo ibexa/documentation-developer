@@ -237,7 +237,7 @@ eZ Platform tooltips use [Bootstrap tooltips.](https://getbootstrap.com/docs/4.1
 To create a tooltip you have to add a `title` attribute with a custom tooltip text for HTMLnode.
 
 ```html
-<button title="custom tooltip text"</button>
+<button title="custom tooltip text">click me</button>
 ```
 
 Additionally, you can add following attributes:
