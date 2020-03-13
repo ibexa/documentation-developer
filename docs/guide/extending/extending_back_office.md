@@ -248,7 +248,9 @@ Additionally, you can add following attributes:
 Example of a tooltip with additional attributes:
 
 ```html
-<button title="custom tooltip text" data-extra-classes="additinal_class" data-tooltip-container-selector="selector">click me</button>
+<button title="custom tooltip text" data-extra-classes="additinal_class" data-tooltip-container-selector="selector">
+	click me
+</button>
 ```
 
 You can also add tooltips helpers to JavaScript `eZ.helpers` object:
