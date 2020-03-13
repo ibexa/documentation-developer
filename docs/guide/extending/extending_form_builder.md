@@ -22,7 +22,7 @@
 
     ## Extending Form fields
 
-    You can extend the Form Builder by adding new form fields or modifying existing ones.
+    You can extend the Form Builder by adding new Form fields or modifying existing ones.
     Form fields are defined in YAML configuration.
 
     For example, to create a Country Form field:

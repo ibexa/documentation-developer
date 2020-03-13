@@ -451,7 +451,7 @@ The available elements are:
 Custom data attributes are configured under the `fieldtypes.ezrichtext.attributes` key.
 The configuration is SiteAccess-aware.
 
-A custom data attribute can belong to one of four types: `choice`, `boolean`, `string`, or `number`.
+A custom data attribute can belong to one of the following types: `choice`, `boolean`, `string`, or `number`.
 You can also set each attribute to be `required` and set its `default_value`.
 
 For the `choice` type, you must provide an array of available `choices`.

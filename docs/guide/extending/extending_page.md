@@ -172,7 +172,7 @@
     At this point, the attribute type configuration is complete, but it requires a mapper.
     Depending on the complexity of the type, you can use a `GenericFormTypeMapper` or create your own.
 
-    For a generic mapper, register it as a service by adding:
+    For a generic mapper, register it as a service by adding to `config/services.yaml`:
 
     ``` yaml
      my_application.block.attribute.my_string:

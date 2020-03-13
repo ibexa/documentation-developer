@@ -38,7 +38,7 @@
     }
     ```
     
-    Also, the Field Type must be registered as a service and tagged as comparable (e.g. `comparable_fieldtypes.yaml`).
+    Also, the Field Type must be registered as a service and tagged as comparable (e.g. `config/comparable_fieldtypes.yaml`).
     An example configuration, in this case for `ezstring`, looks the following way:
     
     ``` yaml

@@ -112,7 +112,7 @@ Without all the following properties the Multi-file Upload will not work.
 
 ### Optional properties
 
-Optionally, the Multi-file Upload module can take a following list of props:
+Optionally, the Multi-file Upload module can take a following list of properties:
 
 - **checkCanUpload** _{Function}_ - checks whether am uploaded file can be uploaded. The callback takes 4 params:
     - **file** _{File}_ - file object,

@@ -19,7 +19,7 @@ See [Extending menus](extending_menus.md) for an example on how to use an event 
 to extend one of the menus in the Back Office.
 
 Some extensibility, such as [adding custom tags](extending_online_editor.md#custom-tags),
-is possible without writing your own code, with configuration and templating only.
+is possible without writing your own code, with a configuration and templating only.
 
 !!! tip "Tutorial"
 
