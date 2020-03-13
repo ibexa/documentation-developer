@@ -41,6 +41,7 @@ Due to this storage limitation, searching content using the eZ Country Field Typ
 |[Priority](criteria_reference/priority_criterion.md)|Location priority|Location only|
 |[RemoteId](criteria_reference/remoteid_criterion.md)|Remote content ID|Content and Location|
 |[SectionId](criteria_reference/sectionid_criterion.md)|The Section content is assigned to|Content and Location|
+|[Sibling](criteria_reference/sibling_criterion.md)|Locations that are children of the same parent|Content and Location|
 |[Subtree](criteria_reference/subtree_criterion.md)|Location subtree|Content and Location|
 |[UserMetadata](criteria_reference/usermetadata_criterion.md)|The creator or modifier of a Content item|Content and Location|
 |[Visibility](criteria_reference/visibility_criterion.md)|Whether the Content item is visible or not|Content and Location|

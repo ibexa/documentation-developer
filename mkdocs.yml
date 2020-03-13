@@ -136,6 +136,7 @@ nav:
                 - 'Priority': 'guide/search/criteria_reference/priority_criterion.md'
                 - 'RemoteId': 'guide/search/criteria_reference/remoteid_criterion.md'
                 - 'SectionId': 'guide/search/criteria_reference/sectionid_criterion.md'
+                - 'Sibling': 'guide/search/criteria_reference/sibling_criterion.md'
                 - 'Subtree': 'guide/search/criteria_reference/subtree_criterion.md'
                 - 'UserMetadata': 'guide/search/criteria_reference/usermetadata_criterion.md'
                 - 'Visibility': 'guide/search/criteria_reference/visibility_criterion.md'
