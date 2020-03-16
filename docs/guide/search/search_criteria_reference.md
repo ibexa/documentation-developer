@@ -45,6 +45,7 @@ Due to this storage limitation, searching content using the eZ Country Field Typ
 |[RemoteId](criteria_reference/remoteid_criterion.md)|Remote content ID|Content and Location|
 |[SectionId](criteria_reference/sectionid_criterion.md)|ID of the Section content is assigned to|Content and Location|
 |[SectionIdentifier](criteria_reference/sectionidentifier_criterion.md)|Identifier of the Section content is assigned to|Content and Location|
+|[Sibling](criteria_reference/sibling_criterion.md)|Locations that are children of the same parent|Content and Location|
 |[Subtree](criteria_reference/subtree_criterion.md)|Location subtree|Content and Location|
 |[UserEmail](criteria_reference/useremail_criterion.md)|Email address of a User account|Content and Location|
 |[UserId](criteria_reference/userid_criterion.md)|User ID|Content and Location|

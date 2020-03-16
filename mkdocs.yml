@@ -140,6 +140,7 @@ nav:
                 - 'RemoteId': 'guide/search/criteria_reference/remoteid_criterion.md'
                 - 'SectionId': 'guide/search/criteria_reference/sectionid_criterion.md'
                 - 'SectionIdentifier': 'guide/search/criteria_reference/sectionidentifier_criterion.md'
+                - 'Sibling': 'guide/search/criteria_reference/sibling_criterion.md'
                 - 'Subtree': 'guide/search/criteria_reference/subtree_criterion.md'
                 - 'UserEmail': 'guide/search/criteria_reference/useremail_criterion.md'
                 - 'UserId': 'guide/search/criteria_reference/userid_criterion.md'
