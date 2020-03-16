@@ -13,3 +13,11 @@ searches for content under the same parent as the indicated Location.
 ``` php
 $query->query = new Criterion\Sibling(59, 2);
 ```
+
+You can also use the named constructor `Criterion\Sibling::fromLocation`
+and provide it with the Location object:
+
+``` php
+$location = $locationService->loadLocation(59);
+$query->query = Criterion\Sibling::fromLocation($location);
+```
