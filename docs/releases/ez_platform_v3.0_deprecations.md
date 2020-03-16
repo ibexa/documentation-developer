@@ -467,6 +467,13 @@ ezpublish:
     ezrichtext
 ```
 
+### Signal Slots
+
+Signal Slots have been replaced by Symfony Events and Event Listeners.
+
+The application triggers two Events per operation: one before and one after the relevant thing happens
+(see for example [Bookmark events](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Event/BookmarkService.php)).
+
 ### Legacy Storage Gateways
 
 The following deprecated (since v6.11) Legacy Storage Gateways have been removed:
