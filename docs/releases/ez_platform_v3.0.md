@@ -96,6 +96,11 @@ You can now assign Page Builder blocks to groups using the `ezplatform_page_fiel
 
 You can now use the Sub-items list to quickly hide, reveal, to add Locations to multiple Content items.
 
+### Tooltips
+
+You can now add custom tooltips to provide more information for the users when they hover over, focus on, or tap an element.
+For more information see [Add tooltips](../guide/extending/extending_back_office.md#add-tooltips)
+
 ## Other changes
 
 ### Universal Discovery Widget
