@@ -83,6 +83,22 @@ A built-in Quick Review offers a quick workflow configuration for your basic nee
 
 You can configure a custom color for each of the transitions defined in the Workflow.
 
+### Search Criteria
+
+The following new Search Criteria have been added:
+
+|Search Criterion|Search based on|
+|-----|-----|
+|[IsUserBased](../../guide/search/criteria_reference/isuserbased_criterion.md)|Whether content represents a User account|
+|[IsUserEnabled](../../guide/search/criteria_reference/isuserenabled_criterion.md)|Whether a User account is enabled|
+|[ObjectStateIdentifier](../../guide/search/criteria_reference/objectstateidentifier_criterion.md)|Object State Identifier|
+|[SectionId](../../guide/search/criteria_reference/sectionid_criterion.md)|ID of the Section content is assigned to|
+|[SectionIdentifier](../../guide/search/criteria_reference/sectionidentifier_criterion.md)|Identifier of the Section content is assigned to|
+|[UserEmail](../../guide/search/criteria_reference/useremail_criterion.md)|Email address of a User account|
+|[Sibling](../../guide/search/criteria_reference/sibling_criterion.md)|Locations that are children of the same parent|
+|[UserId](../../guide/search/criteria_reference/userid_criterion.md)|User ID|
+|[UserLogin](../../guide/search/criteria_reference/userlogin_criterion.md)|User login|
+
 ### Password rules
 
 You can now set [password expiration rules](../guide/user_management.md#password-expiration)
