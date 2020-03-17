@@ -6,7 +6,10 @@ If you do not want to use custom thumbnails [`ContentType` icons](../../resource
 ## Thumbnail mechanism 
 
 The thumbnail mechanism has two layers, and each layer can have many implementations.
-The mechanism checks if any of the implementations returns an image that can be a thumbnail.
+The mechanism checks if any of the implementations returns a field e.g. `ezimage` that has function "Can be a thumbnail" turned on.
+
+![Can be a thumbnail setting](img/extending_thumbnail_can_be.png)
+
 If found, the image is used as a Content Type thumbnail.
 
 ### First layer
@@ -24,8 +27,6 @@ For this layer there are following default implementations:
 
 Second layer of mechanism enables selection of thumbnail from a Field that the first layer has found. 
 It searches the Content Type for all the Fields e.g. images with function "Can be a thumbnail" turned on.
-
-![Can be a thumbnail setting](img/extending_thumbnail_can_be.png)
 
 If there is more than one Field in the Content Type that can be used as a thumbnail, this layer will return the first nonempty Field as a thumbnail.
 
