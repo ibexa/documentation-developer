@@ -115,12 +115,16 @@ You can now use the Sub-items list to quickly hide, reveal, to add Locations to 
 ### Tooltips
 
 You can now add custom tooltips to provide more information for the users when they hover over, focus on, or tap an element.
-For more information see [Add tooltips](../guide/extending/extending_back_office.md#add-tooltips)
+For more information see [Add tooltips](../guide/extending/extending_back_office.md#add-tooltips).
 
 ### Thumbnails
 
 The new thumbnails API allows you to easily choose an image for each content.
-For more information see [Extending thumbnails](../guide/extending/extending_thumbnails.md )
+For more information see [Extending thumbnails](../guide/extending/extending_thumbnails.md).
+
+### Type hints for Public API
+
+Strict types have been added to Public API methods, for full list see [backwards compatibility breaks](ez_platform_v3.0_deprecations.md#strict-types-for-php-api).
 
 ## Other changes
 
