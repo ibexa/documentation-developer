@@ -63,6 +63,35 @@ When this is set, the user will not be able to set a password that had been in u
 
 This rule is valid by default when password expiration is set.
 
+## Login methods
+
+Two login methods are available: with User name or with email.
+
+Providers for these two methods are `ezpublish.security.user_provider.username`
+and `ezpublish.security.user_provider.email`, respectively.
+
+You can configure which method is allowed in `packages/security.yaml`:
+
+``` yaml
+security:
+    providers:
+        ezplatform:
+            chain:
+                providers: [ezplatform_username, ezplatform_email]
+
+        ezplatform_username:
+            id: ezpublish.security.user_provider.username
+
+        ezplatform_email:
+            id: ezpublish.security.user_provider.email
+
+    firewalls:
+        #...    
+        ezpublish_front:
+            # ...
+            provider: ezplatform
+```
+
 ## Registering new users
 
 You can allow your users to create accounts by employing the `/register` route. This route leads to a registration form that, when filled in, creates a new User Content item in the repository.
