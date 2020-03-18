@@ -446,6 +446,42 @@ For example:
 
 For details on listing children of a Content item, for example all content contained in a folder, see [Displaying children of a Content item](displaying_children_of_a_content_item.md).
 
+### Non-content related Query Types
+
+If you use [Query Types](controllers.md#query-controller) that do not make use of the current content or location
+(e.g. rendering a list of latest blog posts, or a menu),
+you can render them in your templates using `ez_render_<type>_query` (e.g. `ez_render_content_query`) Twig functions
+or their ESI equivalents: `ez_render_content_query_esi`.
+
+``` html+twig
+{{ ez_render_content_query({
+    'query': {
+        'query_type': 'LatestContent',
+        'assign_results_to': 'latest_articles'
+    },
+    'template': 'latest/latest.html.twig',
+}) }}
+```
+
+You can also set pagination using the Twig function:
+
+``` html+twig
+{{ ez_render_location_query({
+    'query': {
+        'query_type': 'LatestContent',
+        'assign_results_to': 'latest_articles'
+    },
+    'pagination': {
+        'enabled': true,
+        'limit': 5,
+        'page_param': 'page'
+    },
+    'template': 'latest/latest.html.twig',
+}) }}
+```
+
+Using this function does not require adding anything to your content view configuration.
+
 #### Rendering and cache
 
 ##### ESI
