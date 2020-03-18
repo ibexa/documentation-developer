@@ -8,12 +8,12 @@ You can also use it to render custom entries in the timeline, for example system
 
 ### Adding custom entry type
 
-To add a custom entry type, create a custom class extending `\EzSystems\EzPlatformWorkflow\WorkflowTimeline\Value\AbstractEntry`.
-Use an `\EzSystems\EzPlatformWorkflow\Event\TimelineEvents::COLLECT_ENTRIES` event to add your entries to the timeline.
+To add a custom entry type, create a custom class extending `EzSystems\EzPlatformWorkflow\WorkflowTimeline\Value\AbstractEntry`.
+Use an `EzSystems\EzPlatformWorkflow\Event\TimelineEvents::COLLECT_ENTRIES` event to add your entries to the timeline.
 
 ### Providing custom templates
 
-To provide custom templates for new event timeline entries, use the following configuration:
+To provide custom templates for new event timeline entries, use the following configuration in `config/packages/ezplatform.yaml`:
 
 ``` yaml
 ezplatform:

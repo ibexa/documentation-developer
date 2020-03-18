@@ -6,7 +6,7 @@ To add custom icons for existing Content Types or custom Content Types in eZ Pla
 
 ### Configuration
 
-A configuration of the default icon for Content Type is possible via the `default-config` key, e.g.:
+A configuration of the default icon for Content Type is possible via the `default-config` key in `config/packages/ezplatform.yaml`, e.g.:
 
 ```yaml
 ezplatform:
@@ -73,7 +73,7 @@ The Back Office has designated places where you can use your own components.
 
 Components enable you to inject widgets (e.g. Dashboard blocks) and HTML code (e.g. a tag for loading JS or CSS files).
 A component is any class that implements the `Renderable` interface.
-It must be tagged as a service:
+It must be tagged as a service in `config/services.yaml`:
 
 ``` yaml
 App\Component\MyNewComponent:

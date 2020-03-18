@@ -49,12 +49,12 @@ The `<SubItemsModule />` module can handle additional properties. There are 2 ty
 
 Without all the following properties the Sub-items module will not work.
 
-- **parentLocationId** _{Number}_ - parent Location ID.
+- **parentLocationId** _{Number}_ - parent Location ID
 - **restInfo** _{Object}_ - backend config object:
-    - **token** _{String}_ - CSRF token,
-    - **siteaccess** _{String}_ - SiteAccess identifier.
-- **handleEditItem** _{Function}_ - callback to handle edit content action.
-- **generateLink** _{Function}_ - callback to handle view content action.
+    - **token** _{String}_ - CSRF token
+    - **siteaccess** _{String}_ - SiteAccess identifier
+- **handleEditItem** _{Function}_ - callback to handle edit content action
+- **generateLink** _{Function}_ - callback to handle view content action
 
 ### Optional properties
 
@@ -89,7 +89,7 @@ Optionally, Sub-items module can take a following list of props:
 - **items** _{Array}_ - list of Location's sub-items
 - **limit** _{Number}_ - items limit count
 - **offset** _{Number}_ - items limit offset
-- **labels** _{Object}_ - list of module labels, see [sub.items.module.js](https://github.com/ezsystems/ezplatform-admin-ui-modules/blob/master/src/modules/sub-items/sub.items.module.js#L371) for details. Contains definitions for sub components:
+- **labels** _{Object}_ - list of module labels, see [sub.items.module.js](https://github.com/ezsystems/ezplatform-admin-ui-modules/blob/master/src/modules/sub-items/sub.items.module.js) for details. Contains definitions for sub components:
     - **subItems** _{Object}_ - list of sub-items module labels
     - **tableView** _{Object}_ - list of table view component labels
     - **tableViewItem** _{Object}_ - list of table item view component labels

@@ -10,7 +10,7 @@ You can extend existing tab groups with new tabs, or create your own tab groups.
 
 New tab groups are created using the [`TabsComponent`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/lib/Component/TabsComponent.php).
 
-Register your tab group as a service:
+Register your tab group as a service in `config/services.yaml`:
 
 ``` yaml
 app.my_tabs.custom_group:
@@ -76,7 +76,7 @@ protected function configureContainer(ContainerBuilder $container, LoaderInterfa
 
 ## Adding a new tab
 
-Before you add a tab to a group you must create the tab's PHP class and define it as a Symfony service with the `ezplatform.tab` tag:
+Before you add a tab to a group you must create the tab's PHP class and define it as a Symfony service with the `ezplatform.tab` tag in `config/services.yaml`:
 
 ``` yaml
 App\Custom\Tab:
