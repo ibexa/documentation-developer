@@ -85,7 +85,7 @@ class Unit implements ValueDefinitionInterface, FormMapperInterface
 }
 ```
 
-Register the class as a service:
+Add new service definitions:
 
 ``` yaml
 App\Setting\Unit:
@@ -100,7 +100,7 @@ The value of the setting is accessible with `ez_user_settings['unit']`.
 
 ## Templates settings
 
-You can define a template to be used when editing the given setting:
+You can define a template to be used when editing the given setting in `config/packages/ezplatform.yaml`:
 
 ``` yaml
 ezplatform:
