@@ -14,39 +14,121 @@ custom_workflow:
     transitions:
         # ...
         to_proofread:
+            from: draft
+            to: proofread
             label: To proofreading
-            color: '#8888ba'
             actions:
-                transition_action:
+                proofread_transition_action:
                     data:
-                        message: "This notification is called by content reaching a stage in workflow"
+                        message: "The article has gone to proofreading"
 ```
 
-The configuration indicates the name of the custom action (`transition_action`) that will call the action.
+The configuration indicates the name of the custom action (`proofread_transition_action`) that will call the action.
 `data` contains additional data that can be passed to the action. In this case it a message to display.
 
-To define what the action does, create an Event Listener, in this case `src/EventListener/TransitionListener.php`:
+To define what the action does, create an Event Listener, in this case `src/EventListener/ProofreadTransitionListener.php`:
 
-``` php
-// ...
+``` php hl_lines="27 36"
+<?php
+
+declare(strict_types=1);
+
+namespace App\EventListener;
+
 use EzSystems\EzPlatformWorkflow\Event\Action\AbstractTransitionWorkflowActionListener;
 use Symfony\Component\Workflow\Event\TransitionEvent;
+use EzSystems\EzPlatformAdminUi\Notification\TranslatableNotificationHandlerInterface as NotificationInterface;
 
-class TransitionListener extends AbstractTransitionWorkflowActionListener
+class ProofreadTransitionListener extends AbstractTransitionWorkflowActionListener
 {
-    /// ...
+    private $notificationHandler;
+
+    public function __construct(NotificationInterface $notificationHandler)
+    {
+        $this->notificationHandler = $notificationHandler;
+    }
 
     public function getIdentifier(): string
     {
-        return 'transition_action';
+        return 'proofread_transition_action';
     }
 
     public function onWorkflowEvent(TransitionEvent $event): void
     {
-        $this->permissionResolver->setCurrentUserReference($this->userService->loadUserByLogin('admin'));
+        $metadata = $this->getActionMetadata($event->getWorkflow(), $event->getTransition());
+        $message = $metadata['data']['message'];
 
+        $this->notificationHandler->info(
+            $message,
+            [],
+            'domain'
+        );
+
+        $this->setResult($event, true);
+
+    }
+}
+```
+
+This Listener displays a notification bar at the bottom of the page when a Content item goes through the `to_proofread` transition.
+
+The content of the notification is the message configured in `actions.proofread_transition_action.data`.
+To get it, you access the metadata for this transition through `getActionMetadata()` (line 27).
+
+The listener must be registered as a service:
+
+``` yaml
+App\EventListener\ProofreadTransitionListener:
+    tags:
+        - { name: ezplatform.workflow.action_listener }
+```
+
+Line 36 in the listener above sets a custom result value for the transition.
+You can use this value in other stages and transitions for this Content item, for example:
+
+``` yaml
+done:
+    from: proofread
+    to: done
+    label: Done
+    actions:
+        done_transition_action:
+            condition:
+                - result.proofread_transition_action == true
+```
+
+The action indicated here will be performed only if the result from the `proofread_transition_action` is set to `true`.
+Then, the following listener is called:
+
+``` php hl_lines="27"
+<?php
+
+declare(strict_types=1);
+
+namespace App\EventListener;
+
+use EzSystems\EzPlatformWorkflow\Event\Action\AbstractTransitionWorkflowActionListener;
+use Symfony\Component\Workflow\Event\TransitionEvent;
+use EzSystems\EzPlatformAdminUi\Notification\TranslatableNotificationHandlerInterface as NotificationInterface;
+
+class DoneTransitionListener extends AbstractTransitionWorkflowActionListener
+{
+    private $notificationHandler;
+
+    public function __construct(NotificationInterface $notificationHandler)
+    {
+        $this->notificationHandler = $notificationHandler;
+    }
+
+    public function getIdentifier(): string
+    {
+        return 'done_transition_action';
+    }
+
+    public function onWorkflowEvent(TransitionEvent $event): void
+    {
         $context = $event->getContext();
-        $message = $context->message;
+        $message = $context['message'];
 
         $this->notificationHandler->info(
             $message,
@@ -57,17 +139,12 @@ class TransitionListener extends AbstractTransitionWorkflowActionListener
 }
 ```
 
-This Listener displays a notification bar at the bottom of the page when a Content item goes through the `to_proofread` transision.
+This listener also displays a notification, but in this case its content is taken from the message
+that the user types when choosing the `Done` transition.
 
-The listener must be registered as a service:
+The message is contained in the context of the action.
 
-``` yaml
-App\EventListener\TransitionListener:
-    tags:
-        - { name: ezplatform.workflow.action_listener }
-```
-
-`$event->getContext()` gives you access to the context of the action.
+`$event->getContext()` gives you access to the context.
 The context contains:
 
 - `$workflowId` - the ID of the current workflow
@@ -75,25 +152,13 @@ The context contains:
 - `$reviewerId`: ID of the User who was selected as a reviewer
 - `$result`: an array of transition actions performed so far
 
-Context enables you to take into account the transition history of the Content items.
+You can also modify the context using the `setContext()` method.
+For example, you can override the message typed by the user:
 
-You can set the `result` using the `setResult()` method.
-
-For example, you can modify the message is the Content item has been previously sent back to proofreading:
-
-``` php
-$this->setResult($event, 'was_sent_back');
 ```
-
-You can then use this result as a condition for other actions:
-
-``` yaml
-actions:
-    stage_action:
-        data:
-            message: "This Content item had been sent back to proofreading"
-        condition:
-            - result.transition_action == `was_sent_back`
+$new_context = $context;
+$new_context['message'] = "This article went through proofreading";
+$event->setContext($new_context);
 ```
 
 ## Workflow event timeline
