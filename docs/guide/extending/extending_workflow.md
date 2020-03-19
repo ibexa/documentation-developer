@@ -65,7 +65,6 @@ class ProofreadTransitionListener extends AbstractTransitionWorkflowActionListen
         );
 
         $this->setResult($event, true);
-
     }
 }
 ```
