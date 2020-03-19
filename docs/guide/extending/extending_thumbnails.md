@@ -94,20 +94,20 @@ Any Field Type can generate a thumbnail, e.g.:
 First, create a strategy that will add support for `eztext` as the thumbnail.
 It will enable you to add a thumbnail URL in the text field.
 
-Add `ImageUrlThumbnailStrategy.php` in `src/FieldType/ImageUrl`.
+Add `FieldValueUrl.php` in `eZ/Thumbnails`.
 
 ```php
 <?php
 ​
 declare(strict_types=1);
 ​
-namespace App\FieldType\ImageUrl;
+namespace App\Thumbnails;
 ​
 use eZ\Publish\API\Repository\Values\Content\Field;
 use eZ\Publish\API\Repository\Values\Content\Thumbnail;
 use eZ\Publish\SPI\Repository\Strategy\ContentThumbnail\Field\ThumbnailStrategy;
 ​
-class ImageUrlThumbnailStrategy implements ThumbnailStrategy
+class FieldValueUrl implements ThumbnailStrategy
 {
 	public function getFieldTypeIdentifier(): string
 	{
@@ -127,7 +127,7 @@ Next, add the strategy with the `ezplatform.spi.field.thumbnail_strategy` tag to
 
  ```yaml
  services:
-     App\FieldType\ImageUrl\ImageUrlThumbnailStrategy:
+     App\Thumbnails\FieldValueUrl:
          tags:
              - { name: ezplatform.spi.field.thumbnail_strategy }
  ```
