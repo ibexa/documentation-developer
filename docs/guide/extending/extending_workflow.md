@@ -6,7 +6,7 @@
 enable you to automatically publish a Content item or to send a notification to reviewers.
 
 You can also create custom actions that will be called when content reaches a specific stage
-or goes through a transition in a workflow.
+or goes through a transition in a workflow. In `config/packages/ezplatform.yaml`:
 
 ``` yaml
 custom_workflow:
@@ -74,7 +74,7 @@ This Listener displays a notification bar at the bottom of the page when a Conte
 The content of the notification is the message configured in `actions.proofread_transition_action.data`.
 To get it, access the metadata for this transition through `getActionMetadata()` (line 27).
 
-The listener must be registered as a service:
+The listener must be registered as a service (in `config/services.yaml`):
 
 ``` yaml
 App\EventListener\ProofreadTransitionListener:
@@ -97,7 +97,7 @@ done:
 ```
 
 The action indicated here will be performed only if the result from the `proofread_transition_action` is set to `true`.
-Then, the following listener is called:
+Then, the following `src/EventListener/DoneTransitionListener` is called:
 
 ``` php hl_lines="27"
 <?php
