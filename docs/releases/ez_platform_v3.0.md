@@ -68,6 +68,8 @@ The list of common Sort Clauses has been extended by the Random sorting option.
 
 You can now configure your workflows to [automatically publish content](../guide/workflow.md#publishing-content-with-workflow).
 
+You can also create [custom workflow actions](../guide/extending/extending_workflow.md#adding-custom-actions).
+
 #### Reviewers
 
 When sending content through a workflow, the user can now select reviewers.
