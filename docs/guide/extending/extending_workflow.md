@@ -3,7 +3,7 @@
 ## Adding custom actions
 
 [Built-in actions in the Editorial Workflow](../workflow.md#publishing-content-with-workflow)
-enable you to automatically publish a Content item or to sent a notification to reviewers.
+enable you to automatically publish a Content item or to send a notification to reviewers.
 
 You can also create custom actions that will be called when content reaches a specific stage
 or goes through a transition in a workflow.
@@ -24,9 +24,9 @@ custom_workflow:
 ```
 
 The configuration indicates the name of the custom action (`proofread_transition_action`) that will call the action.
-`data` contains additional data that can be passed to the action. In this case it a message to display.
+`data` contains additional data that can be passed to the action. In this case, a message to display.
 
-To define what the action does, create an Event Listener, in this case `src/EventListener/ProofreadTransitionListener.php`:
+To define what the action does, create an Event Listener `src/EventListener/ProofreadTransitionListener.php`:
 
 ``` php hl_lines="27 36"
 <?php
@@ -72,7 +72,7 @@ class ProofreadTransitionListener extends AbstractTransitionWorkflowActionListen
 This Listener displays a notification bar at the bottom of the page when a Content item goes through the `to_proofread` transition.
 
 The content of the notification is the message configured in `actions.proofread_transition_action.data`.
-To get it, you access the metadata for this transition through `getActionMetadata()` (line 27).
+To get it, access the metadata for this transition through `getActionMetadata()` (line 27).
 
 The listener must be registered as a service:
 
@@ -147,7 +147,7 @@ The message is contained in the context of the action.
 The context contains:
 
 - `$workflowId` - the ID of the current workflow
-- `$message` - content of the message input by the user when sending the Content item through the transitions
+- `$message` - content of the user's message when sending the Content item through the transitions
 - `$reviewerId`: ID of the User who was selected as a reviewer
 - `$result`: an array of transition actions performed so far
 
