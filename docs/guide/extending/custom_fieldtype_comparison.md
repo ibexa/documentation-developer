@@ -10,11 +10,11 @@
     
     ## Field Type configuration
     
-    First, ensure that the Field Type to compare implements the `EzSystems\EzPlatformContentComparison\FieldType\Comparable` interface with the following method:
+    First, ensure that the Field Type to compare implements the `EzSystems\EzPlatformVersionComparison\FieldType\Comparable` interface with the following method:
     
     ``` php
     use eZ\Publish\SPI\FieldType\Value;
-    use EzSystems\EzPlatformContentComparison\FieldType\FieldTypeComparisonValue;
+    use EzSystems\EzPlatformVersionComparison\FieldType\FieldTypeComparisonValue;
     
     interface Comparable
     {
@@ -42,7 +42,7 @@
     An example configuration, in this case for `ezstring`, looks the following way:
     
     ``` yaml
-    EzSystems\EzPlatformContentComparison\FieldType\TextLine\Comparable:
+    EzSystems\EzPlatformVersionComparison\FieldType\TextLine\Comparable:
       tags:
         - { name: ezplatform.field_type.comparable, alias: ezstring }
     ```
@@ -52,13 +52,13 @@
     The comparison engine handles the operations required for comparing the contents of Fields.
     Note that each Field Type requires a separate comparison engine.
     
-    When creating a custom engine, ensure that it implements the `EzSystems\EzPlatformContentComparison\Engine\FieldTypeComparisonEngine` interface:
+    When creating a custom engine, ensure that it implements the `EzSystems\EzPlatformVersionComparison\Engine\FieldTypeComparisonEngine` interface:
     
     ``` php
-    namespace EzSystems\EzPlatformContentComparison\Engine;
+    namespace EzSystems\EzPlatformVersionComparison\Engine;
     
-    use EzSystems\EzPlatformContentComparison\FieldType\FieldTypeComparisonValue;
-    use EzSystems\EzPlatformContentComparison\Result\ComparisonResult;
+    use EzSystems\EzPlatformVersionComparison\FieldType\FieldTypeComparisonValue;
+    use EzSystems\EzPlatformVersionComparison\Result\ComparisonResult;
     
     interface FieldTypeComparisonEngine
     {
@@ -72,29 +72,29 @@
     
     ``` yaml
     
-    EzSystems\EzPlatformContentComparison\Engine\FieldType\TextLineComparisonEngine:
+    EzSystems\EzPlatformVersionComparison\Engine\FieldType\TextLineComparisonEngine:
         tags:
-            - { name: ezplatform.field_type.comparable.engine, supported_type: EzSystems\EzPlatformContentComparison\FieldType\TextLine\Value }
+            - { name: ezplatform.field_type.comparable.engine, supported_type: EzSystems\EzPlatformVersionComparison\FieldType\TextLine\Value }
     ```
     
     When configuring the engines, ensure to tag them with both the `ezplatform.field_type.comparable.engine` and `supported_type` tags.
     
     ### VersionDiff
     
-    `VersionDiff` is built by `ContentComparisonService::CompareVersions`.
-    It consists of an array of `EzSystems\EzPlatformContentComparison\FieldValueDiff`.
-    It is an object that holds `EzSystems\EzPlatformContentComparison\Result\ComparisonResult`.
+    `VersionDiff` is built by `VersionComparisonService::compare`.
+    It consists of an array of `EzSystems\EzPlatformVersionComparison\FieldValueDiff`.
+    It is an object that holds `EzSystems\EzPlatformVersionComparison\Result\ComparisonResult`.
     It is specific to a Field Type because different Field Types have distinct way of showing the difference between their versions. 
     
     ``` php
-    namespace EzSystems\EzPlatformContentComparison\Service;
+    namespace EzSystems\EzPlatformVersionComparison\Service;
     
     use eZ\Publish\API\Repository\Values\Content\VersionInfo;
-    use EzSystems\EzPlatformContentComparison\VersionDiff;
+    use EzSystems\EzPlatformVersionComparison\VersionDiff;
     
-    interface ContentComparisonService
+    interface VersionComparisonService
     {
-        public function compareVersions(
+        public function compare(
             VersionInfo $versionA,
             VersionInfo $versionB,
             ?string $languageCode = null
