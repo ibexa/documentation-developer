@@ -437,7 +437,7 @@ The `Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand` is deprecated
 
 #### ViewController
 
-Deprecated `viewLocation` and `embedLocation` actions of `ViewController` have been removed, along with related route `_ezpublishLocation`.
+Deprecated `viewLocation` and `embedLocation` actions of the `ViewController` have been removed, along with related route `_ezpublishLocation`.
 Use:
  
 - `viewAction` instead of `viewLocation`
@@ -624,10 +624,10 @@ The deprecated `Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesserI
 
 ### Symfony Dependency Injection Container 
 
-The deprecated Symfony Dependency Injection Container parameters ending with `.class` have been removed, services relying on them have now their classes defined explicitly.
+The deprecated Symfony Dependency Injection Container parameters ending with `.class` have been removed, services relying on them now have their classes defined explicitly.
 To properly decorate a Symfony service, use the `decorates` attribute instead.
 For the full list of the dropped parameters, see
-  [kernel documentation.](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/bc/8.0/dropped-container-parameters.md)
+[kernel documentation.](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/bc/8.0/dropped-container-parameters.md)
 
 ### Template parameter names
 
