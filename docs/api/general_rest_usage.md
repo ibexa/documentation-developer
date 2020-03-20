@@ -44,10 +44,10 @@ Content-Type: application/vnd.ez.api.ContentInfo+xml
 ###### HTTP code
 
 The API responded here with a standard `200 OK` HTTP response code, which is the expected response code for a typical GET request.
-Some GET requests, like [getting a Content item's current version,](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/doc/specifications/rest/REST-API-V2.rst#get-current-version) may return a `301 Moved permanently` or `307 Temporary redirect` code.
+Some GET requests, like [getting a Content item's current version,](https://ezsystems.github.io/ezplatform-rest-reference/#managing-content-get-current-version) may return a `301 Moved permanently` or `307 Temporary redirect` code.
 
 Errors are indicated with HTTP error codes, e.g. `404 Not Found` or `500 Internal Server Error`.
-The [REST specifications](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/doc/specifications/rest/REST-API-V2.rst) provide the list of every HTTP response code you can expect from implemented resources.
+The [REST specifications](https://doc.ezplatform.com/rest-api-reference) provide the list of every HTTP response code you can expect from implemented resources.
 
 ###### Content-Type header
 
@@ -72,7 +72,7 @@ REST will use the `Accept-Patch` header to indicate how to **modify** the return
 
 Depending on the resource, request and response headers will vary.
 
-For instance [creating Content](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/doc/specifications/rest/REST-API-V2.rst#creating-content) and [getting a Content item's current version](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/doc/specifications/rest/REST-API-V2.rst#get-current-version)
+For instance [creating Content](https://ezsystems.github.io/ezplatform-rest-reference/#managing-content-create-content-type) and [getting a Content item's current version](https://ezsystems.github.io/ezplatform-rest-reference/#managing-content-get-current-version)
 will both send a **Location header** to provide you with the requested resource's ID.
 
 Those particular headers generally match a specific list of HTTP response codes.
@@ -82,7 +82,7 @@ Location is sent by `201 Created`, `301 Moved permanently`, `307 Temporary redir
 
 This request header is the request counterpart of the Location response header.
 It is used for a COPY or MOVE operation on a resource to indicate where the resource should be moved to by using the ID of the destination.
-An example of such a request is [copying a Content item](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/doc/specifications/rest/REST-API-V2.rst#copy-content).
+An example of such a request is [copying a Content item](https://ezsystems.github.io/ezplatform-rest-reference/#managing-content-copy-content).
 
 #### Response body
 
@@ -401,7 +401,7 @@ Error handling in the REST API is fully based on the HTTP error codes.
 The most common are: `401 Unauthorized`, `404 Not Found`, or `500 Internal Server Error`.
 The REST API uses them along with a few more, to allow proper error handling.
 
-For the complete list of error codes and the conditions in which they apply, see the [reference documentation.](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/doc/specifications/rest/REST-API-V2.rst)
+For the complete list of error codes and the conditions in which they apply, see the [reference documentation.](https://doc.ezplatform.com/rest-api-reference)
 
 ### General error codes
 
