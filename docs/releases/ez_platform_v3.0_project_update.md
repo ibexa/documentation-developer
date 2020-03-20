@@ -140,7 +140,7 @@ php ./bin/console ezplatform:install <installer type name>
 
 In eZ Platform v3.0, service definitions around that extension point have changed:
 
-1\. The deprecated Clean Installer has been dropped from `ezpublish-kernel` package.
+1\. The deprecated Clean Installer has been dropped from `ezplatform-kernel` package.
 If your project uses custom installer and has relied on Clean Installer service definition (`ezplatform.installer.clean_installer`) you need to switch to Core Installer.
 
 Before:
@@ -189,7 +189,7 @@ Change the respective namespaces if your custom code extends any of the followin
 
 Online Editor front-end code and assets (such as JS, CSS, fonts, etc.) have been [moved from `ezplatform-admin-ui` to `ezplatform-richtext`](ez_platform_v3.0_deprecations.md#online-editor).
 
-The `ezrichtext` Field Type has been [moved from `ezpublish-kernel` to `ezplatform-richtext`](ez_platform_v3.0_deprecations.md#richtext).
+The `ezrichtext` Field Type has been [moved from `ezplatform-kernel` to `ezplatform-richtext`](ez_platform_v3.0_deprecations.md#richtext).
 
 ### Repository forms
 

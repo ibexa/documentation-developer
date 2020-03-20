@@ -424,7 +424,12 @@ Instances of the following deprecated event classes have been replaced:
 Selected deprecated Role Service and permission-related methods have been removed.
 For details, see [code cleanup in kernel](#code-cleanup-in-kernel).
 
-## ezpublish-kernel
+## ezplatform-kernel
+
+### ezplatform-kernel package
+
+eZ Platform now makes use of [`ezplatform-kernel`](https://github.com/ezsystems/ezplatform-kernel) instead of `ezpublish-kernel`.
+This change is introduced without BC breaks.
 
 ### Controllers
 
@@ -446,7 +451,7 @@ The unused `ezsrrating` Field Type has been removed along with the related datab
 
 #### RichText
 
-The `ezrichtext` Field Type has been removed from `ezpublish-kernel`.
+The `ezrichtext` Field Type has been removed from `ezplatform-kernel`.
 Use [`ezplatform-richtext`](https://github.com/ezsystems/ezplatform-richtext) instead.
 
 Following this change:
