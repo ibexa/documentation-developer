@@ -388,6 +388,12 @@ you need to register your QueryTypes as services and tag them with `ezpublish.qu
 
 #### Deprecations
 
+The deprecated Symfony Dependency Injection Container parameters that end with `.class` have been
+  removed.
+
+Search for all occurrences of `ezpublish\..*\.class` (regular expression pattern) in your project.
+You can either replace them by the actual class (not recommended) or follow the [Symfony documentation](https://symfony.com/doc/5.0/service_container/service_decoration.html).
+
 For a full list of changes, see [Deprecations and backwards compatibility breaks](../releases/ez_platform_v3.0_deprecations.md)
 
 ## Update the database
@@ -409,3 +415,5 @@ At this point you can continue with the standard update procedure:
 6\. [Dump assets](6_dump_assets.md)
 
 7\. [Commit, test and merge](7_commit_test_merge.md)
+
+## Database update
