@@ -438,7 +438,7 @@ The `Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand` is deprecated
 #### ViewController
 
 Deprecated `viewLocation` and `embedLocation` actions of `ViewController` have been removed, along with related route `_ezpublishLocation`.
-As stated in the controller, use `viewAction` in place of `viewLocation` and `embedAction` in place od `embedLocation`.
+Use `viewAction` in place of `viewLocation` and `embedAction` in place od `embedLocation`.
 
 ### Elastic Search
 
