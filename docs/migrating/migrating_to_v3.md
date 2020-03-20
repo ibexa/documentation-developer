@@ -416,4 +416,3 @@ At this point you can continue with the standard update procedure:
 
 7\. [Commit, test and merge](7_commit_test_merge.md)
 
-## Database update
