@@ -428,10 +428,20 @@ For details, see [code cleanup in kernel](#code-cleanup-in-kernel).
 
 ### Controllers
 
+#### AbstractController
+
 The `eZ\Bundle\EzPublishCoreBundle\Controller` now extends `Symfony\Bundle\FrameworkBundle\Controller\AbstractController` instead of `Symfony\Bundle\FrameworkBundle\Controller\Controller` which has limited access to the dependency injection container.
-For details, see [Service Subscribers Locators.](https://symfony.com/doc/current/service_container/service_subscribers_locators.html)
+For details, see [Service Subscribers Locators.](https://symfony.com/doc/5.1/service_container/service_subscribers_locators.html)
 
 The `Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand` is deprecated, use `Symfony\Component\Console\Command\Command` instead.
+
+#### ViewController
+
+Deprecated `viewLocation` and `embedLocation` actions of the `ViewController` have been removed, along with related route `_ezpublishLocation`.
+Use:
+ 
+- `viewAction` instead of `viewLocation`
+- `embedAction` instead of `embedLocation`
 
 ### Elastic Search
 
@@ -611,6 +621,13 @@ Instead, you can inject `eZ\Publish\API\Repository\PermissionResolver` and rely 
 ### Symfony MIME component
 
 The deprecated `Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesserInterface` has been replaced with `Symfony\Component\Mime\MimeTypesInterface`.
+
+### Symfony Dependency Injection Container 
+
+The deprecated Symfony Dependency Injection Container parameters ending with `.class` have been removed, services relying on them now have their classes defined explicitly.
+To properly decorate a Symfony service, use the `decorates` attribute instead.
+For the full list of the dropped parameters, see
+[kernel documentation.](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/bc/8.0/dropped-container-parameters.md)
 
 ### Template parameter names
 
