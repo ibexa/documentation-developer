@@ -237,6 +237,7 @@ nav:
                 - 'Switchers': 'guidelines/components/switchers.md'
                 - 'Tables': 'guidelines/components/tables.md'
                 - 'Tabs': 'guidelines/components/tabs.md'
+                - 'Tooltips': 'guidelines/components/tooltips.md'
             - Resources:
                 - 'Typography': 'guidelines/resources/typography.md'
                 - 'Colors': 'guidelines/resources/colors.md'
@@ -349,6 +350,7 @@ extra_javascript:
   - js/docs.switcher.js
   - js/ez-guidelines-switchers.js
   - js/ez-guidelines-modals.js
+  - js/ez-guidelines-tooltips.js
   - '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js'
 markdown_extensions:
   - admonition

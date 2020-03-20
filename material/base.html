@@ -236,7 +236,11 @@
       {% endif %}
       <script>app.initialize({version:"{{ mkdocs_version }}",url:{base:"{{ base_url }}"}})</script>
       {% for path in extra_javascript %}
-        <script src="{{ path }}"></script>
+        {% if 'jquery' in path and 'bootstrap-iso' in ns.bootstrap_extra_css %}
+          {# jquery already loaded #}
+        {% else %}
+          <script src="{{ path }}"></script>
+        {% endif %}
       {% endfor %}
       <script>
         window.doc_version_warning = {{ config.extra.version_warning|tojson }};
