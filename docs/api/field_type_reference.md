@@ -2216,7 +2216,7 @@ When creating RichText content with the REST API, it is possible to provide data
 
 When the value given over REST API is transformed into a Field Type's `Value` object, it will be treated as a string. This means you can use any supported input format for input over REST API.
 
-For further information about the [internal implementation of RichText Field Type, see the kernel documentation](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rich_text/ezdocbook.md)
+For further information about the [internal implementation of RichText Field Type, see the kernel documentation](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/doc/specifications/rich_text/ezdocbook.md)
 
 ## Selection Field Type
 

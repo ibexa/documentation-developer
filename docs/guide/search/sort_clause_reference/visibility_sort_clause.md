@@ -1,6 +1,6 @@
 # Visibility Sort Clause
 
-The [`Location\Visibility` Sort Clause](https://github.com/ezsystems/ezpublish-kernel/blob/v8.0.0-beta3/eZ/Publish/API/Repository/Values/Content/Query/SortClause/Location/Visibility.php)
+The [`Location\Visibility` Sort Clause](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Query/SortClause/Location/Visibility.php)
 sorts search results by whether the Location is visible or not.
 
 Locations that are not visible are ranked as higher values (e.g. with ascending order they will be returned last).

@@ -156,7 +156,7 @@ You are now able to load multiple Locations at once, using `LocationService->loa
 
 - Online Editor format for `ezlink` inside `ezembed` tag changed to an anchor tag. See [ezplatform-richtext/pull/20](https://github.com/ezsystems/ezplatform-richtext/pull/20).
 - The merge order of content edit forms has been changed. It can affect you if you extended the content edit template. See [ezplatform-admin-ui/pull/720](https://github.com/ezsystems/ezplatform-admin-ui/pull/720).
-- Changes to the handling of multilingual Content Types, see [BC notes in the kernel](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/bc/changes-7.4.md).
+- Changes to the handling of multilingual Content Types, see [BC notes in the kernel](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/doc/bc/changes-7.4.md).
 
 ## Full list of new features, improvements and bug fixes since v2.3
 

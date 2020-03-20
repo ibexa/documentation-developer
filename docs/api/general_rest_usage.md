@@ -44,10 +44,10 @@ Content-Type: application/vnd.ez.api.ContentInfo+xml
 ###### HTTP code
 
 The API responded here with a standard `200 OK` HTTP response code, which is the expected response code for a typical GET request.
-Some GET requests, like [getting a Content item's current version,](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#get-current-version) may return a `301 Moved permanently` or `307 Temporary redirect` code.
+Some GET requests, like [getting a Content item's current version,](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/doc/specifications/rest/REST-API-V2.rst#get-current-version) may return a `301 Moved permanently` or `307 Temporary redirect` code.
 
 Errors are indicated with HTTP error codes, e.g. `404 Not Found` or `500 Internal Server Error`.
-The [REST specifications](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst) provide the list of every HTTP response code you can expect from implemented resources.
+The [REST specifications](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/doc/specifications/rest/REST-API-V2.rst) provide the list of every HTTP response code you can expect from implemented resources.
 
 ###### Content-Type header
 
@@ -58,13 +58,13 @@ As long as a response contains an actual HTTP body, the Content Type header will
 
 ###### Accept-Patch header
 
-It tells you that the received content can be modified by patching it with a [ContentUpdateStruct](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/ContentUpdateStruct.php) in XML format:
+It tells you that the received content can be modified by patching it with a [ContentUpdateStruct](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/ContentUpdateStruct.php) in XML format:
 
  `Accept-Patch: application/vnd.ez.api.ContentUpdate+xml;charset=utf8`
 
 JSON would also work, with the proper format.
 
-As the example above shows, sending a PATCH `/content/objects/23` request with a [ContentUpdateStruct](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/ContentUpdateStruct.php) XML payload will update this content.
+As the example above shows, sending a PATCH `/content/objects/23` request with a [ContentUpdateStruct](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/ContentUpdateStruct.php) XML payload will update this content.
 
 REST will use the `Accept-Patch` header to indicate how to **modify** the returned **data**.
 
@@ -72,7 +72,7 @@ REST will use the `Accept-Patch` header to indicate how to **modify** the return
 
 Depending on the resource, request and response headers will vary.
 
-For instance [creating Content](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#creating-content) and [getting a Content item's current version](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#get-current-version)
+For instance [creating Content](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/doc/specifications/rest/REST-API-V2.rst#creating-content) and [getting a Content item's current version](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/doc/specifications/rest/REST-API-V2.rst#get-current-version)
 will both send a **Location header** to provide you with the requested resource's ID.
 
 Those particular headers generally match a specific list of HTTP response codes.
@@ -82,7 +82,7 @@ Location is sent by `201 Created`, `301 Moved permanently`, `307 Temporary redir
 
 This request header is the request counterpart of the Location response header.
 It is used for a COPY or MOVE operation on a resource to indicate where the resource should be moved to by using the ID of the destination.
-An example of such a request is [copying a Content item](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#copy-content).
+An example of such a request is [copying a Content item](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/doc/specifications/rest/REST-API-V2.rst#copy-content).
 
 #### Response body
 
@@ -108,11 +108,11 @@ Load ContentInfo response body, expand source:
 </Content>
 ```
 
-The XML body is a serialized version of a [ContentInfo](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/ContentInfo.php) struct.
+The XML body is a serialized version of a [ContentInfo](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/ContentInfo.php) struct.
 Most of the REST API calls will involve exchanging XML or JSON representations of the public API.
 
 The example above shows that Content item 23 can be modified by sending a `vendor/application/vnd.ez.ContentUpdate+xml`.
-This media type again matches a Value in the API, [ContentUpdateStruct](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/ContentUpdateStruct.php).
+This media type again matches a Value in the API, [ContentUpdateStruct](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/ContentUpdateStruct.php).
 
 The REST API data structs mostly match a PHP Public API value object.
 
@@ -129,7 +129,7 @@ Depending on how much data you need, you may choose to crawl those relations or 
 
 ##### XSD files
 
-For each XML structure known to the REST API, you can find [XSD files](https://github.com/ezsystems/ezpublish-kernel/tree/master/doc/specifications/rest/xsd) in the XSD folder of the specifications.
+For each XML structure known to the REST API, you can find [XSD files](https://github.com/ezsystems/ezplatform-kernel/tree/master/doc/specifications/rest/xsd) in the XSD folder of the specifications.
 They will allow you to validate your XML and to learn about every option these XML structures feature.
 
 ## Request parameters
@@ -363,7 +363,7 @@ Content-Type: application/vnd.ez.api.Session+xml
 The `csrfToken` is returned in the login response.
 It is important to keep the CSRF Token for the duration of the session as it needs to be sent with requests other than GET/HEAD when auth is set to session (in most cases it is).
 
-For details, see [Session-based authentication](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst#session-based-authentication) in the REST specifications.
+For details, see [Session-based authentication](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/doc/specifications/rest/REST-API-V2.rst#session-based-authentication) in the REST specifications.
 
 ### HTTP basic authentication
 
@@ -401,7 +401,7 @@ Error handling in the REST API is fully based on the HTTP error codes.
 The most common are: `401 Unauthorized`, `404 Not Found`, or `500 Internal Server Error`.
 The REST API uses them along with a few more, to allow proper error handling.
 
-For the complete list of error codes and the conditions in which they apply, see the [reference documentation.](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rest/REST-API-V2.rst)
+For the complete list of error codes and the conditions in which they apply, see the [reference documentation.](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/doc/specifications/rest/REST-API-V2.rst)
 
 ### General error codes
 

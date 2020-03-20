@@ -1,6 +1,6 @@
 # Field Sort Clause
 
-The [`Field` Sort Clause](https://github.com/ezsystems/ezpublish-kernel/blob/v8.0.0-beta3/eZ/Publish/API/Repository/Values/Content/Query/SortClause/Field.php)
+The [`Field` Sort Clause](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Query/SortClause/Field.php)
 sorts search results by the value of one of the Content items' Fields.
 
 Search results of the provided Content Type are sorted in Field value order.

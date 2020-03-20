@@ -227,9 +227,9 @@ Add the following new bundle to your new kernel file, `<new-ez-root>/app/AppKern
 
 Import to your database the changes provided in one of the following files. It's also recommended to read inline comments as you might not need to run some of the queries:
 
-`MySQL: <new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-5.4.0-to-6.13.0.sql`
+`MySQL: <new-ez-root>/vendor/ezsystems/ezplatform-kernel/data/update/mysql/dbupdate-5.4.0-to-6.13.0.sql`
 
-`Postgres: <new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-5.4.0-to-6.13.0.sql`
+`Postgres: <new-ez-root>/vendor/ezsystems/ezplatform-kernel/data/update/postgres/dbupdate-5.4.0-to-6.13.0.sql`
 
 ##### 3.2. Once you are ready to migrate content to Platform Field Types
 
@@ -475,7 +475,7 @@ It is possible that after the upgrade your admin screen will be unstyled. This m
 If your legacy site uses old-style URL aliases, to upgrade them successfully you need to apply a workaround to the slug converter. Where the slug converter service is defined, set second config parameter to use `urlalias_compat` by adding a new argument to the existing settings:
 
 ``` yaml
-# in vendor/ezsystems/ezpublish-kernel/eZ/Publish/Core/settings/storage\_engines/common.yaml
+# in vendor/ezsystems/ezplatform-kernel/eZ/Publish/Core/settings/storage\_engines/common.yaml
     ezpublish.persistence.slug_converter:
         class: '%ezpublish.persistence.slug_converter.class%'
         arguments:

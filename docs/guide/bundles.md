@@ -343,7 +343,7 @@ The following tables give an overview of the main eZ Platform bundles.
 
 |Bundle|Description|
 |---------|-----------|
-|[ezpublish-kernel](https://github.com/ezsystems/ezpublish-kernel)|contains the core of the whole eZ Platform application e.g. EzPublishCoreBundle|
+|[ezplatform-kernel](https://github.com/ezsystems/ezplatform-kernel)|contains the core of the whole eZ Platform application e.g. EzPublishCoreBundle|
 |[ezplatform-content-forms](https://github.com/ezsystems/ezplatform-content-forms)|provides form-based integration for the Symfony Forms into Content and User objects in kernel|
 |[ezplatform-solr-search-engine](https://github.com/ezsystems/ezplatform-solr-search-engine)|[Solr-powered](http://lucene.apache.org/solr/) search handler for eZ Platform|
 |[ez-support-tools](https://github.com/ezsystems/ez-support-tools)|provides functionality for system information|

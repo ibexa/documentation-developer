@@ -1,6 +1,6 @@
 # ParentLocationId Criterion
 
-The [`ParentLocationId` Search Criterion](https://github.com/ezsystems/ezpublish-kernel/blob/v8.0.0-beta3/eZ/Publish/API/Repository/Values/Content/Query/Criterion/ParentLocationId.php)
+The [`ParentLocationId` Search Criterion](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Query/Criterion/ParentLocationId.php)
 searches for content based on the Location ID of its parent.
 
 ## Arguments

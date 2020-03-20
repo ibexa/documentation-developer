@@ -1,6 +1,6 @@
 # DatePublished Sort Clause
 
-The [`DatePublished` Sort Clause](https://github.com/ezsystems/ezpublish-kernel/blob/v8.0.0-beta3/eZ/Publish/API/Repository/Values/Content/Query/SortClause/DatePublished.php)
+The [`DatePublished` Sort Clause](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Query/SortClause/DatePublished.php)
 sorts search results by the date and time of the first publication of a Content item.
 
 ## Arguments

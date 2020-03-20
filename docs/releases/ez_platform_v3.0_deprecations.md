@@ -472,7 +472,7 @@ ezpublish:
 Signal Slots have been replaced by [Symfony Events and Event Listeners](https://symfony.com/doc/5.0/event_dispatcher.html).
 
 The application triggers two Events per operation: one before and one after the relevant thing happens
-(see for example [Bookmark events](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Event/BookmarkService.php)).
+(see for example [Bookmark events](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/Event/BookmarkService.php)).
 
 ### Legacy Storage Gateways
 
@@ -695,21 +695,21 @@ Users can request a new, valid password using the "Forgot password" feature.
 
 Strict types have been added to all methods from the following interfaces:
 
-- [`ContentTypeServiceInterface`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/ContentTypeService.php)
-- [`ContentServiceInterface`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/ContentService.php)
-- [`FieldTypeServiceInterface`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/FieldTypeService.php)
-- [`LanguageServiceInterface`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/LanguageService.php)
-- [`LocationServiceInterface`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/LocationService.php)
-- [`ObjectStateServiceInterface`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/ObjectStateService.php)
-- [`RoleServiceInterface`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/RoleService.php)
-- [`SectionServiceInterface`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/SectionService.php)
-- [`SearchServiceInterface`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/SearchService.php)
-- [`TranslationServiceInterface`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/TranslationService.php)
-- [`TrashServiceInterface`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/TrashService.php)
-- [`URLAliasServiceInterface`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/URLAliasService.php)
-- [`URLServiceInterface`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/URLService.php)
-- [`URLWildcardServiceInterface`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/URLWildcardService.php)
-- [`UserServiceInterface`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/UserService.php)
+- [`ContentTypeServiceInterface`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentTypeService.php)
+- [`ContentServiceInterface`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php)
+- [`FieldTypeServiceInterface`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/FieldTypeService.php)
+- [`LanguageServiceInterface`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LanguageService.php)
+- [`LocationServiceInterface`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LocationService.php)
+- [`ObjectStateServiceInterface`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ObjectStateService.php)
+- [`RoleServiceInterface`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/RoleService.php)
+- [`SectionServiceInterface`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/SectionService.php)
+- [`SearchServiceInterface`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/SearchService.php)
+- [`TranslationServiceInterface`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/TranslationService.php)
+- [`TrashServiceInterface`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/TrashService.php)
+- [`URLAliasServiceInterface`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/URLAliasService.php)
+- [`URLServiceInterface`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/URLService.php)
+- [`URLWildcardServiceInterface`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/URLWildcardService.php)
+- [`UserServiceInterface`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/UserService.php)
 
 ## ezplatform-matrix-fieldtype
 

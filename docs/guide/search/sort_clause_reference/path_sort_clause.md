@@ -1,6 +1,6 @@
 # Path Sort Clause
 
-The [`Location\Path` Sort Clause](https://github.com/ezsystems/ezpublish-kernel/blob/v8.0.0-beta3/eZ/Publish/API/Repository/Values/Content/Query/SortClause/Location/Path.php)
+The [`Location\Path` Sort Clause](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Query/SortClause/Location/Path.php)
 sorts search results by the pathString of the Location.
 
 !!! note

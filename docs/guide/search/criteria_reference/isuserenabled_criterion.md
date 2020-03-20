@@ -1,6 +1,6 @@
 # IsUserEnabled Criterion
 
-The [`IsUserEnabled` Search Criterion](https://github.com/ezsystems/ezpublish-kernel/blob/v8.0.0-beta3/eZ/Publish/API/Repository/Values/Content/Query/Criterion/IsUserEnabled.php)
+The [`IsUserEnabled` Search Criterion](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Query/Criterion/IsUserEnabled.php)
 searches for User accounts that are enabled or disabled.
 
 ## Arguments

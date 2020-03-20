@@ -20,7 +20,7 @@ The Fields can cover data ranging from single variables and text lines to media 
 
 #### Content information
 
-General information about a Content item is stored in a [`ContentInfo`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/ContentInfo.php) object.
+General information about a Content item is stored in a [`ContentInfo`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/ContentInfo.php) object.
 `ContentInfo` does not include Fields. It contains following information:
 
 **`id`** - the unique ID of the Content object. These numbers are not recycled, so if an item is deleted, its ID will not be reused when a new one is created.
