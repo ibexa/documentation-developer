@@ -98,7 +98,7 @@ Additionally, in `config/services.yaml` add the following block under the `servi
 ``` yaml
 App\QueryType\LocationChildrenQueryType:
     tags:
-        - { name: ezpublish.query_type }
+        - { name: ezplatform.query_type }
 ```
 
 All the files you've placed in `src` are not the scope of this tutorial and we won't go here into detail on how they work.

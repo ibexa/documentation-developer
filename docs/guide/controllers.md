@@ -402,7 +402,7 @@ Otherwise, you can register your QueryType with a service tag:
 ``` yaml
 App\QueryType\LatestContent:
     tags:
-        - { name: ezpublish.query_type, alias: LatestContent }
+        - { name: ezplatform.query_type, alias: LatestContent }
 ```
 
 ### Paginating with QueryTypes
