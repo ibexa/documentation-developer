@@ -402,7 +402,7 @@ Otherwise, you can register your QueryType with a service tag:
 ``` yaml
 App\QueryType\LatestContent:
     tags:
-        - { name: ezpublish.query_type, alias: LatestContent }
+        - { name: ezplatform.query_type, alias: LatestContent }
 ```
 
 ### Paginating with QueryTypes
@@ -508,7 +508,7 @@ class OptionsBasedLatestContentQueryType extends OptionsResolverBasedQueryType i
 
 ### Using QueryTypes from PHP code
 
-All QueryTypes are registered in the QueryType registry, which is a Symfony Service injectable as `ezpublish.query_type.registry`:
+All QueryTypes are registered in the QueryType registry, which is a Symfony Service injectable as `ezplatform.query_type.registry`:
 
 ``` yaml
 services:
@@ -516,7 +516,7 @@ services:
             autowire: true
             autoconfigure: true
             arguments:
-                $registry: '@ezpublish.query_type.registry'
+                $registry: '@ezplatform.query_type.registry'
 ```
 
 Example of PHP code:

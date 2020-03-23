@@ -477,6 +477,10 @@ ezpublish:
     ezrichtext
 ```
 
+#### Tags
+
+Deprecated `ezpublish.query_type` tag has been removed in favour of `ezplatform.query_type` tag.
+
 ### Signal Slots
 
 Signal Slots have been replaced by [Symfony Events and Event Listeners](https://symfony.com/doc/5.0/event_dispatcher.html).
