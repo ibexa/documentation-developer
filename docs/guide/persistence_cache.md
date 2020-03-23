@@ -135,7 +135,7 @@ for information on how to connect to Redis.
 
 There are two Redis adapters available out of the box that fit different needs.
 
-##### `Symfony\Component\Cache\Adapter\RedisTagAwareAdapter`
+##### `Symfony\Component\Cache\Adapter\TagAware\RedisTagAwareAdapter`
 
 **Requirement**: Redis server configured with eviction [`maxmemory-policy`](https://redis.io/topics/lru-cache#eviction-policies):
 `volatile-ttl`, `volatile-lru` or `volatile-lfu` (Redis 4.0+).
