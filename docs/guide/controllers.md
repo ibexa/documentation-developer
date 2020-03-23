@@ -508,7 +508,7 @@ class OptionsBasedLatestContentQueryType extends OptionsResolverBasedQueryType i
 
 ### Using QueryTypes from PHP code
 
-All QueryTypes are registered in the QueryType registry, which is a Symfony Service injectable as `ezplatform.query_type.registry`:
+All QueryTypes are registered in the QueryType registry, which is a Symfony Service injectable as `ezpublish.query_type.registry`:
 
 ``` yaml
 services:
@@ -516,7 +516,7 @@ services:
             autowire: true
             autoconfigure: true
             arguments:
-                $registry: '@ezplatform.query_type.registry'
+                $registry: '@ezpublish.query_type.registry'
 ```
 
 Example of PHP code:
