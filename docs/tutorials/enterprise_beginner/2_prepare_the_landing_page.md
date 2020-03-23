@@ -60,7 +60,7 @@ ezplatform_page_fieldtype:
                     name: Second zone
 ```
 
-#### Add thumbnail
+#### Add Content Type icon
 
 !!! tip
 
@@ -68,7 +68,7 @@ ezplatform_page_fieldtype:
 
 The `sidebar` (line 3) is the internal key of the layout. `name` (line 5) is displayed in the interface when the user selects a layout.
 The `thumbnail` (line 7) points to an image file that is shown when creating a new Landing Page next to the name.
-Use the [supplied thumbnail file](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step2/public/assets/images/layouts/sidebar.png) and place it in the `public/assets/images/layouts/` folder.
+Use the [supplied Content Type icon file](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step2/public/assets/images/layouts/sidebar.png) and place it in the `public/assets/images/layouts/` folder.
 
 The `template` (line 8) points to the Twig file containing the template for this layout.
 
@@ -130,7 +130,7 @@ The above template creates two columns and defines their widths. Each column is 
     A zone in a layout template **must have** the `data-ez-zone-id` attribute (lines 2 and 19).
     A block **must have** the `data-ez-block-id` attribute (lines 7 and 24)
 
-With these three elements: configuration, thumbnail and template, the new layout is ready to use.
+With these three elements: configuration, icon and template, the new layout is ready to use.
 
 ### Change Home Page layout
 
