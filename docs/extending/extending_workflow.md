@@ -2,7 +2,7 @@
 
 ## Adding custom actions
 
-[Built-in actions in the Editorial Workflow](../workflow.md#publishing-content-with-workflow)
+[Built-in actions in the Editorial Workflow](../guide/workflow.md#publishing-content-with-workflow)
 enable you to automatically publish a Content item or to send a notification to reviewers.
 
 You can also create custom actions that will be called when content reaches a specific stage
@@ -162,7 +162,7 @@ $event->setContext($new_context);
 
 ## Workflow event timeline
 
-[Workflow event timeline](../workflow.md) is used out of the box to display workflow transitions.
+[Workflow event timeline](../guide/workflow.md) is used out of the box to display workflow transitions.
 
 You can also use it to render custom entries in the timeline, for example system alerts on workflows.
 

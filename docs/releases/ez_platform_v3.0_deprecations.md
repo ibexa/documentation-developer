@@ -277,7 +277,7 @@ The `@ezdesign/account/error/credentials_expired.html.twig` has been relocated f
 ### Universal Discovery Widget
 
 The UDW configuration has been changed.
-For the full list of UDW configuration keys and their descriptions, see [UDW configuration](../guide/extending/extending_udw.md#configuration).
+For the full list of UDW configuration keys and their descriptions, see [UDW configuration](../extending/extending_udw.md#configuration).
 
 ### Online Editor
 
@@ -287,7 +287,7 @@ have been moved from `ezplatform-admin-ui` to `ezplatform-richtext`.
 ### Adding new tabs in the Back Office
 
 The way of adding custom tab groups in the Back Office has changed.
-You now need to [make use of the `TabsComponent`](../guide/extending/extending_tabs.md#adding-a-new-tab-group).
+You now need to [make use of the `TabsComponent`](../extending/extending_tabs.md#adding-a-new-tab-group).
 
 ### Content Type forms
 

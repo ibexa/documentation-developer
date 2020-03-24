@@ -117,7 +117,7 @@ class EveryoneArticleTab extends AbstractTab implements OrderedTabInterface
 !!! tip
 
     The tab extends `AbstractTab`.
-    There are also [other tab types that you can extend](../../guide/extending/extending_tabs.md).
+    There are also [other tab types that you can extend](../../extending/extending_tabs.md).
 
 The tab also implements `OrderedTabInterface` (see line 17), which enables you to define the order in which the tab is displayed in the Dashboard.
 This is done using the `getOrder` method (see line 47).

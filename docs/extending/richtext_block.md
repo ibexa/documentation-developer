@@ -92,7 +92,7 @@
     This line also implements the `PreRender` method.
     Lines 41-51 handle the conversion of content into XML string.
 
-    At this point you need to create [templates](../templates.md#templating-basics) for displaying and configuring your block.
+    At this point you need to create [templates](../guide/templates.md#templating-basics) for displaying and configuring your block.
 
     Start with creating the view template in `templates/blocks/my_block/richtext.html.twig`:
 

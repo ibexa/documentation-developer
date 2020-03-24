@@ -34,7 +34,7 @@ For list of issues fixed in 15.12.1 see [13 issues](https://jira.ez.no/secure/Is
 -   Display language names instead of language code
 -   [API doc js-rest-client](http://ezsystems.github.io/javascript-rest-client/)
 -   [API doc Platform UI](http://ezsystems.github.io/platformui-javascript-api/)
--   [Tutorials for extending UI](../guide/extending/extending_ez_platform.md)
+-   [Tutorials for extending UI](../tutorials/extending_admin_ui/extending_admin_ui.md)
 
 ### New projects in work for future releases
 

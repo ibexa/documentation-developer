@@ -78,7 +78,7 @@ final class Type extends GenericType implements FieldValueFormMapperInterface
 }
 ```
 
-For more information about the Type class of a Field Type see [Type class](../../api/field_type_type_and_value.md#type-class).
+For more information about the Type class of a Field Type see [Type class](../api/field_type_type_and_value.md#type-class).
 
 Next, add the `ezplatform.field_type` class to `config/services.yaml`:
 
@@ -149,7 +149,7 @@ final class Type extends GenericType implements FieldValueFormMapperInterface
 }
 ```
 
-For more information about the FormMappers see [Field Type form and template](../../api/field_type_form_and_template.md).
+For more information about the FormMappers see [Field Type form and template](../api/field_type_form_and_template.md).
 
 Next, add the `ezplatform.field_type.form_mapper.value` class to `config/services.yml`:
 
@@ -202,4 +202,4 @@ After saving, your **Hello World** Content Type should be available under **Cont
 
 ![Creating Hello World](img/extending_field_type_hello_world.png)
 
-For more detailed tutorial on Generic Field Type follow [Creating a Point 2D Field Type ](../../tutorials/generic_field_type/creating_a_point2d_field_type.md).
+For more detailed tutorial on Generic Field Type follow [Creating a Point 2D Field Type ](../tutorials/generic_field_type/creating_a_point2d_field_type.md).
