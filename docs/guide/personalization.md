@@ -106,7 +106,7 @@ ezrecommendation:
                     method: basic
                     login: 12345
                     password: 1234-5678-9012-3456-7890
-                document_root: '%kernel.root_dir%/../web/var/export/'
+                document_root: '%kernel.project_dir%/web/var/export/'
 ```
 
 With the `user` authentication method, login must be the same as `customer_id` and `password` must be the same as `license_key`.
