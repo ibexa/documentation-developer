@@ -89,6 +89,10 @@ You can remove the bundle after the migration is complete.
 The command will migrate Landing Pages created in eZ Platform 1.x, 2.0 and 2.1 to new Pages.
 The operation is transactional and will roll back in case of errors.
 
+The Page Builder in 2.2 does not offer all blocks that Landing Page editor did. The removed blocks include Schedule and Form blocks.
+The Places Page Builder block has been removed from the clean installation and will only be available in the demo out of the box. If you had been using this block in your site, re-apply its configuration based on the [demo](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.2.2/app/config/blocks.yml)
+Later versions of pagebuilder has support for the "Content Scheduler" block, but migration of Schedule blocks to this "Content Scheduler" block is not supported. 
+
 If there are missing block definitions, such as Form Block or Schedule Block,
 you have an option to continue, but migrated Landing Pages will come without those blocks.
 
@@ -103,24 +107,41 @@ you have an option to continue, but migrated Landing Pages will come without tho
 
 After the migration is finished, you need to clear cache.
 
+### Migrate layouts
+
+The `ez_block:renderBlockAction` controller used in layout templates has been replaced by `EzPlatformPageFieldTypeBundle:Block:render`. This controller has to additional parameters, `locationId` and `languageCode`. Only `languageCode` is required.
+Also, the html class `data-studio-zone` has been replaced with `data-ez-zone-id`
+See [documentation](../guide/page_rendering.md#layout-template) for an example on usage of the new controller.
+
 ### Migrate custom blocks
 
-For block types with custom storage you need to provide a dedicated converter but for simple blocks you can use `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\DefaultConverter` as your service class.
+Landingpage blocks (2.1 and earlier) was defined using a class implementing `EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Model\AbstractBlockType`. 
+In pagebuilder (2.2), this interface is no longer present. Instead the logic of your block must be implemented in a [Listener](../guide/extending/extending_page.md#block-rendering-events).
+Typically, what you previously would do in `getTemplateParameters()`, you'll now do in the `onBlockPreRender()` event handler.
 
-You also need to redefine [YAML configuration](../guide/extending/extending_page.md#creating-page-blocks) for your custom blocks.
+The definition of block parameters has to be moved from `createBlockDefinition()` to the [YAML configuration](../guide/extending/extending_page.md#creating-page-blocks) for your custom blocks.
 
-!!! caution
+More information about how custom blocks are implemented in Pagebuilder, please have a look at the [documentation](../guide/extending/extending_page.md)
 
-    Since v2.2 you no longer need to use services for custom Page Blocks, you can create them using YAML configuration.
-
-The service definition has to be tagged as:
-
-``` yaml
-tags:
-    - { name: ezplatform.fieldtype.ezlandingpage.migration.attribute.converter, block_type: my_block_type_identifier }
-```
-
+For the migration of blocks from landingpage you Pagebuilder, you'll need to provide a converter for attributes of custom blocks. For simple blocks you can use `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\DefaultConverter`.
 Custom converters must implement the `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\ConverterInterface` interface.
 `convert()` will parse XML `\DOMNode $node` and return an array of `\EzSystems\EzPlatformPageFieldType\FieldType\LandingPage\Model\Attribute` objects.
+
+Below is an example of a simple converter for a custom block:
+
+``` yaml
+    app.block.foobar.converter:
+        class: EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\DefaultConverter
+        tags:
+            - { name: ezplatform.fieldtype.ezlandingpage.migration.attribute.converter, block_type: foobar }
+```
+
+Notice the service tag that must be used for attribute converters.
+
+This converter is only needed when running the `ezplatform:page:migrate` script and can be removed once that has completed.
+
+#### Example on how to migrate layouts and blocks to the new Page Builder
+
+In the `upgraded_to_2.2` branch in this [git repo](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/tree/upgraded_to_2.2) you may see and example on how to migrate your source code in order to make a layout and a block work with the new Landing page
 
 You can now follow the steps from [Updating from <2.3](4_update_2.3.md).
