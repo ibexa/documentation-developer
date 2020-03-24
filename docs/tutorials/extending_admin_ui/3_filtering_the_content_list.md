@@ -126,7 +126,7 @@ inside `<section class="container my-4">`:
             {% for group, types in contentTypes %}
             <h6 class="dropdown-header">{{ group }}</h6>
                 {% for type in types %}
-                    <a class="dropdown-item" href="{{ path('all_content_list.list', { 'contentTypeIdentifier': type.identifier }) }}">{{ type.name }}</a>
+                    <a class="dropdown-item" href="{{ ez_path('all_content_list.list', { 'contentTypeIdentifier': type.identifier }) }}">{{ type.name }}</a>
                 {% endfor %}
             {% endfor %}
         </div>
@@ -165,7 +165,7 @@ inside `<section class="container my-4">`:
                         {% for group, types in contentTypes %}
                         <h6 class="dropdown-header">{{ group }}</h6>
                             {% for type in types %}
-                                <a class="dropdown-item" href="{{ path('all_content_list.list', { 'contentTypeIdentifier': type.identifier }) }}">{{ type.name }}</a>
+                                <a class="dropdown-item" href="{{ ez_path('all_content_list.list', { 'contentTypeIdentifier': type.identifier }) }}">{{ type.name }}</a>
                             {% endfor %}
                         {% endfor %}
                     </div>
@@ -186,7 +186,7 @@ inside `<section class="container my-4">`:
                 <tbody>
                 {% for article in articles %}
                     <tr>
-                        <td><a href={{path('ez_urlalias', {'contentId': article.contentInfo.id})}}>{{ ez_content_name(article.contentInfo) }}</a></td>
+                        <td><a href={{ez_path(content)}}>{{ ez_content_name(article.contentInfo) }}</a></td>
                         <td>{{ article.contentInfo.contentTypeId }}</td>
                         <td>{{ article.contentInfo.modificationDate|ez_full_datetime }}</td>
                         <td>{{ article.contentInfo.publishedDate|ez_full_datetime }}</td>

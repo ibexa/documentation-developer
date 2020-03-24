@@ -124,7 +124,7 @@ Optional parameter `inLanguage` may be used to specify File content translation.
 
 ```twig
   {% set routeReference = ez_route( 'ez_content_download', {'content': content, 'fieldIdentifier': 'file', 'inLanguage': content.prioritizedFieldLanguageCode  } ) %}
-  <a href="{{ path( routeReference ) }}">Download</a>
+  <a href="{{ ez_path( routeReference ) }}">Download</a>
 ```
 
 ### REST API: `uri` property

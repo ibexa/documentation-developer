@@ -499,7 +499,7 @@ The filters also accept an optional `timezone` parameter for displaying date and
 
 #### Prototype and Arguments
 
-`path( eZ\Publish\API\Repository\Values\Content\Location|string name [, array parameters ] [, bool absolute ] ) : string`
+`ez_path( eZ\Publish\API\Repository\Values\Content\Location|string name [, array parameters ] [, bool absolute ] ) : string`
 
 |Argument name|Type|Description|
 |------|------|------|
@@ -509,11 +509,11 @@ The filters also accept an optional `timezone` parameter for displaying date and
 
 #### Working with Location
 
-Linking to other Locations is fairly easy and is done with the [native `path()` Twig helper](http://symfony.com/doc/2.3/book/templating.html#linking-to-pages) (or `url()` if you want to generate absolute URLs). You just have to pass it the Location object and `path()` will generate the URLAlias for you.
+Linking to other Locations is fairly easy and is done with the `ez_path()` Twig helper (or `ez_url()` if you want to generate absolute URLs). You just have to pass it the Location object and `ez_path()` will generate the URLAlias for you.
 
 ``` html+twig
 {# Assuming "location" variable is a valid eZ\Publish\API\Repository\Values\Content\Location object #}
-<a href="{{ path( location ) }}">Some link to a location</a>
+<a href="{{ ez_path( location ) }}">Some link to a location</a>
 ```
 
 #### I don't have the Location object
@@ -521,13 +521,13 @@ Linking to other Locations is fairly easy and is done with the [native `path()`
 ##### Generating a link from a Location ID
 
 ``` html+twig
-<a href="{{ path( "ez_urlalias", {"locationId": 123} ) }}">Some link to a location, with its Id only</a>
+<a href="{{ ez_path( "ez_urlalias", {"locationId": 123} ) }}">Some link to a location, with its Id only</a>
 ```
 
 ##### Generating a link from a Content ID
 
 ``` html+twig
-<a href="{{ path( "ez_urlalias", {"contentId": 456} ) }}">Some link from a contentId</a>
+<a href="{{ ez_path( "ez_urlalias", {"contentId": 456} ) }}">Some link from a contentId</a>
 ```
 
 !!! note
@@ -544,6 +544,6 @@ For a Location alias set up a 301 redirect to the Location's current URL when:
 
 !!! note "Under the hood"
 
-    In the back end, `path()` uses the Router to generate links.
+    In the back end, `ez_path()` uses the Router to generate links.
 
     This makes it also easy to generate links from PHP, via the `router` service.

@@ -138,7 +138,7 @@ After that, add a hidden form for redirecting to the content edit page by adding
 
 ```html+twig
 {{ form_start(form_edit, {
-    'action': path('ezplatform.content.edit'),
+    'action': ez_path('ezplatform.content.edit'),
     'attr':
     { 'class': 'ez-edit-content-form'}
 }) }}
@@ -194,7 +194,7 @@ Finally, add a JavaScript block with js listeners at the end of the twig file:
                 <tbody>
                 {% for article in articles %}
                     <tr>
-                        <td><a href={{path('ez_urlalias', {'contentId': article.contentInfo.id})}}>{{ ez_content_name(article.contentInfo) }}</a></td>
+                        <td><a href={{ez_path(content)}}>{{ ez_content_name(article.contentInfo) }}</a></td>
                         <td>{{ article.contentInfo.contentTypeId }}</td>
                         <td>{{ article.contentInfo.modificationDate|ez_full_datetime }}</td>
                         <td>{{ article.contentInfo.publishedDate|ez_full_datetime }}</td>
@@ -216,7 +216,7 @@ Finally, add a JavaScript block with js listeners at the end of the twig file:
             {{ pagerfanta(articles, 'ez') }}
         </section>    
         {{ form_start(form_edit, {
-            'action': path('ezplatform.content.edit'),
+            'action': ez_path('ezplatform.content.edit'),
             'attr':
             { 'class': 'ez-edit-content-form'}
         }) }}

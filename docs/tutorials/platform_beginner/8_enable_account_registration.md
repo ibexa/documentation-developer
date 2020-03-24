@@ -140,7 +140,7 @@ Then create the `templates/user/registration_confirmation.html.twig` template:
 
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
-                    <button type="button" class="btn btn-block btn-primary" onclick="window.location='{{ path('login') }}';">{{ 'Log in'|trans }}</button>
+                    <button type="button" class="btn btn-block btn-primary" onclick="window.location='{{ ez_path('login') }}';">{{ 'Log in'|trans }}</button>
                 </div>
             </div>
         </section>

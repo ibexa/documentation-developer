@@ -60,20 +60,20 @@ To generate a language switch link, you need to generate the `RouteReference`, 
 
 ``` html+twig
 {# Given that "location" variable is a valid Location object #}
-<a href="{{ url( ez_route( location, {"language": "fre-FR"} ) ) }}">{{ ez_content_name( content ) }}</a>
+<a href="{{ ez_url( ez_route( location, {"language": "fre-FR"} ) ) }}">{{ ez_content_name( content ) }}</a>
 
 {# Generating a link to a declared route instead of Location #}
-<a href="{{ url( ez_route( 'my_route', {"language": "fre-FR"} ) ) }}">My link</a>
+<a href="{{ ez_url( ez_route( 'my_route', {"language": "fre-FR"} ) ) }}">My link</a>
 ```
 
 You can also omit the route, in this case, the current route will be used (i.e. switch the current page):
 
 ``` html+twig
 {# Using Twig named parameters #}
-<a href="{{ url( ez_route( params={"language": "fre-FR"} ) ) }}">My link</a>
+<a href="{{ ez_url( ez_route( params={"language": "fre-FR"} ) ) }}">My link</a>
 
 {# Identical to the following, using ordered parameters #}
-<a href="{{ url( ez_route( null, {"language": "fre-FR"} ) ) }}">My link</a>
+<a href="{{ ez_url( ez_route( null, {"language": "fre-FR"} ) ) }}">My link</a>
 ```
 
 ### Using sub-requests
@@ -110,7 +110,7 @@ class DefaultController extends Controller
     {# This time, alter the "siteaccess" parameter directly. #}
     {# You get the right SiteAccess with the help of ezpublish.translationSiteAccess() helper #}
     {% do routeRef.set( "siteaccess", ezpublish.translationSiteAccess( lang ) ) %}
-    <a href="{{ url( routeRef ) }}">{{ lang }}</a><br />
+    <a href="{{ ez_url( routeRef ) }}">{{ lang }}</a><br />
 {% endfor %}
 ```
 
