@@ -2,7 +2,7 @@
 
 ## Twig filters
 
-Apart from changing the [date and time formats](../config_back_office#date-and-time-formats), you can use Twig filters:
+Apart from changing the [date and time formats](../guide/config_back_office.md#date-and-time-formats), you can use Twig filters:
 
 - `ez_short_datetime`
 - `ez_short_date`

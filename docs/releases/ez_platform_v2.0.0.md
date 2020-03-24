@@ -29,7 +29,7 @@ eZ Platform has become a pure Symfony application, based on Symfony 3, which bri
 #### Back-office interface
 
 The back-office interface no longer uses YUI, and is instead based on React components and Bootstrap, which makes it easier to extend.
-Explore Extending section in the menu to learn how to extend the new version of the UI.
+Explore the Extending section in the menu to learn how to extend the new version of the UI.
 
 The features of eZ Platform remain the same as in 1.x versions. However, the look of the interface has changed significantly.
 
