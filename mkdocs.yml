@@ -45,34 +45,6 @@ nav:
             - '3a. Filtering the content list': 'tutorials/extending_admin_ui/3_filtering_the_content_list.md'
             - '3b. Adding Edit button to content list': 'tutorials/extending_admin_ui/3b_adding_edit_button_content_list.md'
             - '4. Creating a custom tag': 'tutorials/extending_admin_ui/4_adding_a_custom_tag.md'
-    - Extending eZ Platform:
-        - 'Extending Back Office':
-            - 'Extending Dashboard': 'extending/extending_dashboard.md'
-            - 'Extending Menus': 'extending/extending_menus.md'
-            - 'Extending tabs': 'extending/extending_tabs.md'
-            - 'Extending settings': 'extending/extending_settings.md'
-            - 'Extending date and time': 'extending/extending_date_and_time.md'
-            - 'Extending tooltips': 'extending/extending_tooltips.md'
-            - 'Creating custom Page blocks': 'extending/extending_page.md'
-            - 'Creating custom RichText blocks': 'extending/richtext_block.md'
-            - 'Creating custom icons': 'extending/custom_icons.md'
-            - 'Extending thumbnails': 'extending/extending_thumbnails.md'
-            - 'Injecting custom components': 'extending/custom_components.md'
-        - 'Extending Form Builder': 'extending/extending_form_builder.md'
-        - 'Extending Workflow': 'extending/extending_workflow.md'
-        - 'Extending Online Editor':
-            - 'Extending Online Editor': 'extending/extending_online_editor.md'
-            - 'Creating Online Editor plugin': 'extending/online_editor_plugin.md'
-        - 'Extending Modules':
-            - 'Extending UDW': 'extending/extending_udw.md'
-            - 'Creating a UDW tab': 'extending/adding_tab_to_udw.md'
-            - 'Extending Multi-file Upload': 'extending/extending_multifile_upload.md'
-            - 'Extending Sub-items List': 'extending/extending_subitems_list.md'
-            - 'Creating custom drop-downs': 'extending/creating_custom_dropdowns.md'
-            - 'Creating drag and drop interface': 'extending/drag_and_drop.md'
-        - 'Field Types':
-            - 'Creating custom Field Type': 'extending/extending_field_type.md'
-            - 'Creating custom Field Type comparison': 'extending/custom_fieldtype_comparison.md'
     - API:
         - REST API guide:
             - 'REST API guide': 'api/rest_api_guide.md'
@@ -221,6 +193,34 @@ nav:
         - 'Notifications': 'guide/sending_notifications.md'
         - 'Service container': 'guide/service_container.md'
         - 'Recommendation': 'guide/personalization.md'
+    - Extending eZ Platform:
+        - 'Extending Back Office':
+            - 'Extending Dashboard': 'extending/extending_dashboard.md'
+            - 'Extending Menus': 'extending/extending_menus.md'
+            - 'Extending tabs': 'extending/extending_tabs.md'
+            - 'Extending settings': 'extending/extending_settings.md'
+            - 'Extending date and time': 'extending/extending_date_and_time.md'
+            - 'Extending tooltips': 'extending/extending_tooltips.md'
+            - 'Creating custom Page blocks': 'extending/extending_page.md'
+            - 'Creating custom RichText blocks': 'extending/richtext_block.md'
+            - 'Creating custom icons': 'extending/custom_icons.md'
+            - 'Extending thumbnails': 'extending/extending_thumbnails.md'
+            - 'Injecting custom components': 'extending/custom_components.md'
+        - 'Extending Form Builder': 'extending/extending_form_builder.md'
+        - 'Extending Workflow': 'extending/extending_workflow.md'
+        - 'Extending Online Editor':
+            - 'Extending Online Editor': 'extending/extending_online_editor.md'
+            - 'Creating Online Editor plugin': 'extending/online_editor_plugin.md'
+        - 'Extending Modules':
+            - 'Extending UDW': 'extending/extending_udw.md'
+            - 'Creating a UDW tab': 'extending/adding_tab_to_udw.md'
+            - 'Extending Multi-file Upload': 'extending/extending_multifile_upload.md'
+            - 'Extending Sub-items List': 'extending/extending_subitems_list.md'
+            - 'Creating custom drop-downs': 'extending/creating_custom_dropdowns.md'
+            - 'Creating drag and drop interface': 'extending/drag_and_drop.md'
+        - 'Field Types':
+            - 'Creating custom Field Type': 'extending/extending_field_type.md'
+            - 'Creating custom Field Type comparison': 'extending/custom_fieldtype_comparison.md'
     - Resources and community:
         - 'Resources': 'community_resources/resources.md'
         - 'Release process and roadmap': 'community_resources/release_process.md'
