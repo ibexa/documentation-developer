@@ -292,7 +292,7 @@ myRestBundle_hello_world_using_post:
 
 !!! note
 
-    POST requests are not able to access the Repository without performing a user authentication. For more information check [REST API Authentication](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/doc/specifications/rest/REST-API-V2.rst#authentication).
+    POST requests are not able to access the Repository without performing a user authentication. For more information check [REST API Authentication](https://github.com/ezsystems/ezpublish-kernel/blob/v1.0.0/doc/specifications/rest/REST-API-V2.rst#authentication).
 
 You can look into the built-in `InputParsers`, in `eZ/Publish/Core/REST/Server/Input/Parser`, for more examples.
 
