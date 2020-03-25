@@ -100,7 +100,7 @@ It will list all User accounts with duplicate emails.
 
 !!! caution
 
-    Because logging in with email was now available until version v3.0,
+    Because logging in with email was not available until version v3.0,
     you can come across issues if you use the option on an existing database.
     
     This may happen if more than one account uses the same email address.
