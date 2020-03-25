@@ -211,6 +211,7 @@ nav:
         - 'Extending Workflow': 'extending/extending_workflow.md'
         - 'Extending Online Editor':
             - 'Extending Online Editor': 'extending/extending_online_editor.md'
+            - 'Creating Online Editor button': 'extending/online_editor_button.md'
             - 'Creating Online Editor plugin': 'extending/online_editor_plugin.md'
         - 'Extending Modules':
             - 'Extending UDW': 'extending/extending_udw.md'
