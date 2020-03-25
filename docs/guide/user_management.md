@@ -119,7 +119,7 @@ Here are default templates that you can reuse and/or modify:
 {% block content %}
     <h1>Your account has been created</h1>
     <p class="user-register-confirmation-message">
-        Thank you for registering an account. You can now <a href="{{ ez_path('login') }}">login</a>.
+        Thank you for registering an account. You can now <a href="{{ path('login') }}">login</a>.
     </p>
 {% endblock %}
 ```
@@ -211,7 +211,7 @@ Remember to provide a template and point to it in the subscriber
         ) }}
     </p>
     <p>
-        <a href="{{ ez_path('ezplatform.user.forgot_password') }}" class="btn btn-primary ez-btn ez-btn--login">
+        <a href="{{ path('ezplatform.user.forgot_password') }}" class="btn btn-primary ez-btn ez-btn--login">
             {{ 'authentication.credentials_expired.reset_password'|trans|desc('Reset password') }}
         </a>
     </p>

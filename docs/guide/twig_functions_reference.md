@@ -499,11 +499,15 @@ The filters also accept an optional `timezone` parameter for displaying date and
 
 #### Prototype and Arguments
 
-`ez_path( eZ\Publish\API\Repository\Values\Content\Location|string name [, array parameters ] [, bool absolute ] ) : string`
+`ez_path( eZ\Publish\API\Repository\Values\Content\Location|
+    \eZ\Publish\API\Repository\Values\Content\Content|
+    \eZ\Publish\API\Repository\Values\Content\ContentInfo|
+    \eZ\Publish\API\Repository\Values\Content\Location|
+    \eZ\Publish\Core\MVC\Symfony\Routing\RouteReference name [, array parameters ] [, bool absolute ] ) : string`
 
 |Argument name|Type|Description|
 |------|------|------|
-|`name`|`string | \eZ\Publish\API\Repository\Values\Content\Location`|The name of the route or a Location instance|
+|`name`|`string | `\eZ\Publish\API\Repository\Values\Content\Location`</br>`\eZ\Publish\API\Repository\Values\Content\Content`</br>`\eZ\Publish\API\Repository\Values\Content\ContentInfo`</br>`\eZ\Publish\API\Repository\Values\Content\Location`</br>`\eZ\Publish\Core\MVC\Symfony\Routing\RouteReference`|The name of the route, Location or Content instance|
 |`parameters`|`array`|A hash of parameters:</br>`locationId`</br>`contentId`|
 |`absolute`|`boolean`|Whether to generate an absolute URL|
 
@@ -521,13 +525,13 @@ Linking to other Locations is fairly easy and is done with the `ez_path()` Twig 
 ##### Generating a link from a Location ID
 
 ``` html+twig
-<a href="{{ ez_path( "ez_urlalias", {"locationId": 123} ) }}">Some link to a location, with its Id only</a>
+<a href="{{ path( "ez_urlalias", {"locationId": 123} ) }}">Some link to a location, with its Id only</a>
 ```
 
 ##### Generating a link from a Content ID
 
 ``` html+twig
-<a href="{{ ez_path( "ez_urlalias", {"contentId": 456} ) }}">Some link from a contentId</a>
+<a href="{{ path( "ez_urlalias", {"contentId": 456} ) }}">Some link from a contentId</a>
 ```
 
 !!! note
