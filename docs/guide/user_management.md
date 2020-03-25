@@ -98,6 +98,17 @@ To check that all existing User accounts have unique emails,
 run the `ezplatform:user:audit_database` command.
 It will list all User accounts with duplicate emails.
 
+!!! caution
+
+    Because logging in with email was now available until version v3.0,
+    you can come across issues if you use the option on an existing database.
+    
+    This may happen if more than one account uses the same email address.
+    Login through the User name will still be available.
+    
+    To resolve the issues, run `ezplatform:user:audit_database`
+    and manually modify accounts that have duplicate emails.
+
 ### Login rules
 
 You can set the rules for allowed User names in the Back Office per User Field.
