@@ -96,6 +96,15 @@ If your templates extend any of those built-in templates, you need to update the
 If your templates still use the deprecated `viewLocation` and `embedLocation` actions of `ViewController`,
 you need to rewrite them to use `viewAction` and `embedAction` respectively.
 
+#### Referencing controller actions
+
+To reference controller, you now need to use `serviceOrFqcn::method` syntax instead of
+`bundle:controller:action`:
+
+**Use:** `controller: My\ExampleBundle\Controller\DefaultController::articleViewAction`
+
+**Instead of:** `controller: AcmeExampleBundle:Default:articleView`
+
 ### Configuration
 
 #### `ezpublish` configuration key
@@ -385,6 +394,15 @@ and [decorate Symfony services](https://symfony.com/doc/4.4/service_container/se
 
 If your code relies on automatically registering QueryTypes through the naming convention `<Bundle>\QueryType\*QueryType`,
 you need to register your QueryTypes as services and tag them with `ezpublish.query`, or enable their automatic configuration (`autoconfigure: true`).
+
+#### Symfony namespaces
+
+The following Symfony namespaces have changed. You need to update your code if it uses any of them:
+
+|Use|Instead of|
+|---|---|
+|Symfony\Contracts\Translation\TranslatorInterface|Symfony\Component\Translation\TranslatorInterface|
+|Symfony\Contracts\EventDispatcher\Event|Symfony\Component\EventDispatcher\Event|
 
 #### Deprecations
 
