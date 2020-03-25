@@ -142,6 +142,6 @@ This converter is only needed when running the `ezplatform:page:migrate` script 
 
 #### Example on how to migrate layouts and blocks to the new Page Builder
 
-In the `upgraded_to_2.2` branch in this [git repo](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/tree/upgraded_to_2.2) you may see and example on how to migrate your source code in order to make a layout and a block work with the new Landing page
+In the `upgraded_to_2.2` branch in this [git repo](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/tree/upgraded_to_2.2) you may see an example on how to migrate your source code in order to make a layout and a block work with the new Page Builder.
 
 You can now follow the steps from [Updating from <2.3](4_update_2.3.md).
