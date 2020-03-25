@@ -92,6 +92,27 @@ security:
             provider: ezplatform
 ```
 
+You can customize per User Field whether the email address used as a login method must be unique or not.
+
+To check that all existing User accounts have unique emails,
+run the `ezplatform:user:audit_database` command.
+It will list all User accounts with duplicate emails.
+
+### Login rules
+
+You can set the rules for allowed User names in the Back Office per User Field.
+
+The rules are set using regular expressions.
+
+For example, to ensure that User names can only contain lowercase letters,
+set `[a-z]+$` as **Username pattern**:
+
+![Setting a User name pattern](img/username_pattern.png)
+
+To check that all existing User accounts have names that fit the current pattern,
+run the `ezplatform:user:audit_database` command.
+It will check all User accounts in the database and list those that do not fit the pattern.
+
 ## Registering new users
 
 You can allow your users to create accounts by employing the `/register` route. This route leads to a registration form that, when filled in, creates a new User Content item in the repository.
