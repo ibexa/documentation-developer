@@ -266,11 +266,11 @@ params:
 
 All built-in Query Types take the following optional parameters:
 
-- `limit`	- limit for number of search hits to return
+- `limit` - limit for number of search hits to return
 - `offset` - offset for search hits, used for paging the results
 - `sort` - sorting options
 - `filter` - additional query filters:
-    - `content_type` - return only results of given content types
+    - `content_type` - return only results of given Content Types
     - `visible_only` - return only visible results (default `true`)
     - `siteaccess_aware` - return only results limited to current SiteAccess root (default `true`)
 
@@ -294,7 +294,7 @@ params:
 !!! note "Sorting order"
 
     To provide sorting order to the `sort` parameter, use names of the Sort Clauses in
-    `\eZ\Publish\API\Repository\Values\Content\Query\SortClause`.
+    `eZ\Publish\API\Repository\Values\Content\Query\SortClause`.
 
 #### Using built-in Query Types
 
@@ -303,7 +303,7 @@ This example assumes a "Blog" container that contains a set of "Blog post" items
 Two items are required:
 
 - a View template - It will render the Blog, and list the Blog posts it contains
-- a `content_view` configuration - It will instruct Platform, when viewing a Content item of type Blog, to use the Query Controller, the view template, and the `Children` QueryType. It will also map the id of the viewed Blog to the QueryType parameters, and set which Twig variable the results will be assigned to.
+- a `content_view` configuration - It will instruct Platform, when viewing a Content item of type Blog, to use the Query Controller, the view template, and the `Children` QueryType. It will also map the ID of the viewed Blog to the QueryType parameters, and set which Twig variable the results will be assigned to.
 
 #### The `content_view` configuration
 
@@ -333,7 +333,7 @@ The view's controller action is set to the QueryController's `contentQuery` acti
 The QueryController is configured in the `query` array, inside the `params` of the `content_view` block:
 
 - `query_type` specifies the QueryType to use, based on its name.
-- `parameters` is a hash where parameters from the QueryType are set. Arbitrary values can be used, as well as properties from the currently viewed [Location](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Location.php) and [ContentInfo](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/ContentInfo.php). In that case, the id of the currently viewed Location is mapped to the QueryType's `location` parameter: `location: '@=location'`
+- `parameters` is a hash where parameters from the QueryType are set. Arbitrary values can be used, as well as properties from the currently viewed [Location](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Location.php) and [ContentInfo](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/ContentInfo.php). In that case, the ID of the currently viewed Location is mapped to the QueryType's `location` parameter: `location: '@=location'`
 - `assign_results_to` sets which Twig variable the search results will be assigned to.
 
 #### The view template
@@ -352,7 +352,7 @@ Results from the search are assigned to the `blog_posts` variable as a `SearchRe
 
 Beyond the built-in Query Types, you can create your own.
 
-For example, this Query Type returns a Query that searches for the 10 last published Content items, ordered by reverse publishing date.
+For example, this Query Type returns a Query that searches for the last ten published Content items, ordered by reverse publishing date.
 It accepts an optional `type` parameter that can be set to a Content Type identifier:
 
 ``` php

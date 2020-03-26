@@ -21,7 +21,7 @@ which retrieves the children of the current Location.
 
 To use the Query Type with a Content query Field, add the Field to your Folder Content Type's definition.
 
-Select "Children" as the Query type. Provide the `content` parameter
+Select "Children" as the Query Type. Provide the `content` parameter
 that the Query type requires:
 
 ```

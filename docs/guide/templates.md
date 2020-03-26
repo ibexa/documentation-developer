@@ -448,7 +448,7 @@ For details on listing children of a Content item, for example all content conta
 
 ### Non-content related Query Types
 
-If you use [Query Types](controllers.md#query-controller) that do not make use of the current content or location
+If you use [Query Types](controllers.md#query-controller) that do not make use of the current content or Location
 (e.g. rendering a list of latest blog posts, or a menu),
 you can render them in your templates using `ez_render_<type>_query` (e.g. `ez_render_content_query`) Twig functions
 or their ESI equivalents: `ez_render_content_query_esi`.
