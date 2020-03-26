@@ -6,164 +6,151 @@ Site Factory is site management User Interface, integrated to Admin UI, allowing
 - multisite configuration
 - multisite management (creating sites, updating sites..
 
-You can enable Site Factory after [clean installation](../getting_started/install_ez_enterprise.md). If you don't you will get an error message: "There is a design configuration error, and you will not be able to create a new site. Please update the configuration."
+After [clean installation](../getting_started/install_ez_enterprise.md) the Site Factory will be enabled but not configured.
+This results in the following message on the **Site** tab:
+"There is a design configuration error, and you will not be able to create a new site. Please update the configuration."
 
-## Configure designs
+If you plan to use Site Factory you need to configure it, if not we recommend disabling it.
+Enabled Site Factory may cause following performance issues:
 
-First, add empty SA groups in `config/packages/ezplatform.yaml`:
+- Config Resolver will look for SiteAccesses in data base
+- Site Factory matchers will be connected to data base in search for new Site Accesses
+
+To configure or disable Site factory follow respectably:
+
+- [Configure Site Factory section](#configure-site-factory)
+- [Disable Site Factory section](#disable-site-factory)
+
+## Configure Site Factory
+
+### Configure designs
+
+First, add empty SiteAccess groups in `config/packages/ezplatform.yaml`:
 
 ```yaml
-ezpublish:
+ezplatform:
+    siteaccess:
+        list: [site, pl, de]
+        groups:
+            site_group: [site, pl, de]
+            sf_group_1: []
+            sf_group_2: []
+            sf_group_3: []
+            
     system:
-        sf_group_1: []
-        sf_group_2: []
-        sf_group_3: []
+        site:
+            languages: [eng-GB] #, pol-PL, ger-DE
+        pl:
+            languages: [pol-PL, eng-GB]
+        de:
+            languages: [ger-DE, eng-GB]
+        sf_group_1:
+    
+        sf_group_2:
+    
+        sf_group_3:
 ```
 
-Next, uncomment SA matcher `'@EzSystems\EzPlatformSiteFactory\SiteAccessMatcher': ~` in the same file and add `ezdesign` configuration:
+Next, uncomment `'@EzSystems\EzPlatformSiteFactory\SiteAccessMatcher': ~` SiteAccess matcher  in `ezplatform.siteaccess.siteaccess`.
+ 
+Add `ezdesign` configuration and configure designs for empty Site Access groups:
 
 ```yaml
+ezplatform:
+
+...
+
 ezdesign:
     design_list:
-        conference: [conference_template]
-        roadshow: [roadshow_template]
-```
-
-Configure those designs for empty SA groups:
-
-```yaml
+        example_1: [example_1_template]
+        example_2: [example_2_template]
+        
 ezpublish:
     system:
         sf_group_1:
-            design: conference
+            design: example_1
         sf_group_2:
-            design: roadshow
+            design: example_2
         sf_group_3:
-            design: roadshow
+            design: example_3
 ```
 
-## Add templates configuration
+The `ezdesign` defines templates for your sites, so remember to add them before continuing.
 
-Finally, you need to add templates configuration in `vendor/ezsystems/ezplatform-site-factory/src/bundle/Resources/config/settings.yaml`:
+### Add templates configuration
 
-```yaml
-templates:
-    ez_conference:
-        siteaccess_group: sf_group_1
-        name: Conference
-        thumbnail: /assets/ezplatform/build/images/marker-icon.2273e3d8.png
-    ez_conference2:
-        siteaccess_group: sf_group_2
-        name: RoadShow_1
-        thumbnail: /assets/ezplatform/build/images/layers-2x.4f0283c6.png
-    ez_conference3:
-        siteaccess_group: sf_group_3
-        name: RoadShow_2
-        thumbnail: /assets/ezplatform/build/images/layers.a6137456.png
-    ez_conference4:
-        siteaccess_group: sf_group_3
-        name: RoadShow_3
-        thumbnail: /assets/ezplatform/build/images/layers.a6137456.png
-```
+Create `config/packages/ez_platform_site_factory.yaml`.
+It will connect SiteAccesses with your templates, add thumbnails and names:
 
-Additionally, if you don't want to create templates in Site Factory package, you can create 
-`config/packages/ez_platform_site_factory.yaml` and add them there.
-
-w nim:
 ```yaml
 ez_platform_site_factory:
     templates:
-        ez_conference:
+        ez_site1:
             siteaccess_group: sf_group_1
-            name: Conference
-            thumbnail: /assets/ezplatform/build/images/marker-icon.2273e3d8.png
-        ez_conference2:
+            name: example_site_1
+            thumbnail: /assets/ezplatform/build/images/example-1-icon.png
+        ez_site2:
             siteaccess_group: sf_group_2
-            name: RoadShow_1
-            thumbnail: /assets/ezplatform/build/images/layers-2x.4f0283c6.png
-```
-        
-## Wyłaczenie narzutu Site Factory - czym jest narzut SF
-
-In `vendor/ezsystems/ezplatform-site-factory/src/bundle/Resources/config/services/site_factory.yaml`:
-
- - change `enabled: false` - nie ma
-- if you used `ezplatform.siteaccess.match: '@EzSystems\EzPlatformSiteFactory\SiteAccessMatcher': ~` you need to remove it
-- you need to have separate connection to database `config/packages/doctrine.yaml` - szczegoly
-- you need to have separate cache poll `config/packages/cache.yaml` - szczegoly
-- in `ezplatform.yaml` you need to add Site Factory matcher - in `ezplatform.siteaccess.siteaccess` add `'@EzSystems\EzPlatformSiteFactory\SiteAccessMatcher'` - przyklad kodu
-
-Example of design configuration in`ezplatform.yaml`:
-
-```yaml
-ezdesign:
-   design_list:
-       conference: [conference_template]
-       roadshow: [roadshow_template]
-ezplatform:
-   system:
-       sf_group_1:
-           design: conference
-       sf_group_2:
-           design: roadshow
-       sf_group_3:
-           design: roadshow
-```
-
-Next change template configuration in `settings.yaml`.
-To to samo, co wyzej?
-
-```yaml
-templates:
-   ez_conference:
-       siteaccess_group: sf_group_1
-       name: Conference
-       thumbnail: /assets/ezplatform/build/images/marker-icon.2273e3d8.png
-   ez_conference2:
-       siteaccess_group: sf_group_2
-       name: RoadShow_1
-       thumbnail: /assets/ezplatform/build/images/layers-2x.4f0283c6.png
-   ez_conference3:
-       siteaccess_group: sf_group_3
-       name: RoadShow_2
-       thumbnail: /assets/ezplatform/build/images/layers.a6137456.png
+            name: example_site_2
+            thumbnail: /assets/ezplatform/build/images/example-2-icon.png
 ```
 
 ### Define domains 
 
 In `.env` file change line 2 to: `COMPOSE_FILE=doc/docker/base-dev.yml:doc/docker/multihost.yml`
 
-Take a look into file `doc/docker/multihost.yml`. 
+Take a look into `doc/docker/multihost.yml` file. 
 Here you can define your domains. 
-To add a new domain you must add it in line 6 and under frontend and backend aliases - przyklad
+To add a new domain you must add it in `command:` and under frontend and backend aliases.
 
-Next you must edit your `etc/hosts` file gdzie? and add there this line:
-`0.0.0.0 site.example.com admin.example.com test.example.com`.
+```yaml hl_lines="3 6 11"
+services:
+  web:
+    command: /bin/bash -c "cd /var/www && cp -a doc/nginx/ez_params.d /etc/nginx && bin/vhost.sh --host-name=site.example.com --host-alias='admin.example.com test.example.com' --template-file=doc/nginx/vhost.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+    networks:
+      frontend:
+        aliases:
+          - site.example.com
+          - admin.example.com
+          - test.example.com
+      backend:
+        aliases:
+          - site.example.com
+          - admin.example.com
+          - test.example.com
 
-Then you must run docker-compose up command in your terminal 
+```
+
+Next you must defined above domains in `etc/hosts` in a terminal.
 
 ```bash
-export COMPOSE_FILE="doc/docker/base-dev.yml:doc/docker/multihost.yml:doc/docker/selenium.yml"
-docker-compose up
-```       
-
-Next, run following commands in the container:
-
-```bash
-composer ezplatform-install
-export APP_ENV=behat
-export APP_DEBUG=1
-bin/ezbehat --mode=behat --profile=setup --suite=MapHost - uruchamia ten feature: https://github.com/ezsystems/BehatBundle/blob/master/features/setup/siteaccessMatcher/MapHost.feature
-composer run post-install-cmd
-w /etc/hosts:
 0.0.0.0 site.example.com admin.example.com test.example.com www.admin.example.com
 ```
 
-Sites should be visible under:
+Then you must run docker-compose up command: 
 
 ```bash
+export COMPOSE_FILE="doc/docker/base-dev.yml:doc/docker/multihost.yml"
+docker-compose up
+```       
+
+Your sites should be now visible under:
+
+```
 http://site.example.com:8080/
 http://admin.example.com:8080/
 http://localhost:8080/
 http://test.example.com:8080/
 ```
+
+## Disable Site Factory
+
+You can disable Site Factory to boost Config Resolver performance.
+Keep in mind that with disabled Site Factory you will not be able to add new sites.
+
+1. In `vendor/ezsystems/ezplatform-site-factory/src/bundle/Resources/config/site_factory.yaml` change enabled to `false`
+1. In `config/packages/ezplatform.yaml` comment the `ezplatform.siteaccess.match: '@EzSystems\EzPlatformSiteFactory\SiteAccessMatcher': ~` if it is uncommented.
+1. Remove separate connection to database in `config/packages/doctrine.yaml`.
+1. Remove separate cache poll in `config/packages/cache.yaml`.
+
+The Site Factory should be disabled.
