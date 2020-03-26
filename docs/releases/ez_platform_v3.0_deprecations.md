@@ -619,7 +619,7 @@ DROP TABLE <table_name>;
 
 #### Content Type Update handlers
 
-The following obsolete handler have been removed:
+The following obsolete handler has been removed:
 
 - `DeferredLegacy` Content Type Update handler
 (`eZ\Publish\Core\Persistence\Legacy\Content\Type\Update\Handler\DeferredLegacy`) with its optional Symfony Container Service (`ezpublish.persistence.legacy.content_type.update_handler.deferred`)
