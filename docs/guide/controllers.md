@@ -353,7 +353,7 @@ Results from the search are assigned to the `blog_posts` variable as a `SearchRe
 Beyond the built-in Query Types, you can create your own.
 
 For example, this Query Type returns a Query that searches for the last ten published Content items, ordered by reverse publishing date.
-It accepts an optional `type` parameter that can be set to a Content Type identifier:
+It accepts an optional `type` parameter [lines 13-15] that can be set to a Content Type identifier (e.g. `article`):
 
 ``` php
 <?php
@@ -393,7 +393,7 @@ class LatestContentQueryType implements QueryType
 }
 ```
 
-In the configuration, use the name of the Query Types as defined in `getName`.
+In content view configuration, use the name of the Query Types as defined in `getName`.
 
 ``` yaml
 content_view:
