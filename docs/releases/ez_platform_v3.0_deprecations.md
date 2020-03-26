@@ -804,6 +804,11 @@ The following Webpack Encore entries have been changed:
 All Online Editor front-end code and assets (such as JS, CSS, fonts, etc.)
 have been moved from `ezplatform-admin-ui` to `ezplatform-richtext`.
 
+#### Custom button configuration
+
+Configuring custom Online Editor buttons with `ezrichtext.alloy_editor.extra_buttons` is deprecated.
+Use [`ezplatform.system.<siteacces>.fieldtypes.ezrichtext.toolbars.<toolbar_identifier>.buttons`](../extending/online_editor_button.md) instead.
+
 ### View matching
 
 When matching views using custom services, the services must be now tagged with `ezplatform.view.matcher`.
