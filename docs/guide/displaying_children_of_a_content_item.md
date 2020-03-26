@@ -49,7 +49,7 @@ The query results are available in the `items` variable:
 <h1>{{ ez_content_name(content) }}</h1>
 
 {% for item in items %}
-    <h2><a href={{ path('ez_urlalias', {'contentId': item.contentInfo.id}) }}>{{ ez_content_name(item.contentInfo) }}</a></h2>
+    <h2><a href={{ ez_path(item.valueObject) }}>{{ ez_content_name(item.contentInfo) }}</a></h2>
 {% endfor %}
 
 {% if isPaginationEnabled %}
@@ -83,7 +83,7 @@ In this case the `controller` key points to the Query Controller's `contentQuery
 <h1>{{ ez_content_name(content) }}</h1>
 
 {% for item in items.searchHits %}
-  <h2><a href={{ path('ez_urlalias', {'contentId': item.valueObject.contentInfo.id}) }}>{{ ez_content_name(item.valueObject.contentInfo) }}</a></h2>
+  <h2><a href={{ ez_path(item.valueObject) }}>{{ ez_content_name(item.valueObject.contentInfo) }}</a></h2>
 {% endfor %}
 ```
 
@@ -243,7 +243,7 @@ Finally, let's use the Controller in a `templates/full/folder.html.twig` templat
 <h1>{{ ez_content_name(content) }}</h1>
 
 {% for item in items %}
-  <h2><a href={{ path('ez_urlalias', {'contentId': item.contentInfo.id}) }}>{{ ez_content_name(item) }}</a></h2>
+  <h2><a href={{ ez_path(item.valueObject) }}>{{ ez_content_name(item) }}</a></h2>
 {% endfor %}
 ```
 

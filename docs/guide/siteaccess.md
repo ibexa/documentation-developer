@@ -229,7 +229,7 @@ class MyController extends BaseController
 
 !!! note "Important"
 
-    As SiteAccess matchers can involve hosts and ports, it is **highly recommended** to generate cross-SiteAccess links in an absolute form (e.g. using `url()` Twig helper).
+    As SiteAccess matchers can involve hosts and ports, it is **highly recommended** to generate cross-SiteAccess links in an absolute form (e.g. using `ez_url()` Twig helper).
 
 #### Troubleshooting
 
