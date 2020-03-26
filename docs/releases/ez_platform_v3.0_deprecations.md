@@ -617,6 +617,15 @@ DROP TABLE <table_name>;
 - The "Setup" folder and Section have been removed from clean installation data.
 - The "Design" Section has been removed from clean installation data.
 
+#### Content Type Update handlers
+
+The following obsolete handler has been removed:
+
+- `DeferredLegacy` Content Type Update handler
+(`eZ\Publish\Core\Persistence\Legacy\Content\Type\Update\Handler\DeferredLegacy`) with its optional Symfony Container Service (`ezpublish.persistence.legacy.content_type.update_handler.deferred`)
+
+Subscribe to eZ Platform Symfony Events to handle deferring of updating of Content items after their Content Type update instead.
+
 ### Symfony Services
 
 The `date_based_publisher.permission_resolver` Symfony Service deprecated in v2.5 has been removed. 
