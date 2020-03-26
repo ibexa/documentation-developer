@@ -56,7 +56,9 @@ You can also filter displayed events and toggle through a day, week, and month v
     
 You can now reschedule or cancel planned future publications right from the Dashboard.
 
-### Defining buttons in Online Editor toolbars
+### Defining buttons in Online Editor
+
+You can now reorder and disable buttons in Online Editor using [YAML configuration](../extending/extending_online_editor.md#customizing-buttons).
 
 ### Random sorting
 
@@ -101,7 +103,25 @@ The following new Search Criteria have been added:
 |[UserId](../../guide/search/criteria_reference/userid_criterion.md)|User ID|
 |[UserLogin](../../guide/search/criteria_reference/userlogin_criterion.md)|User login|
 
-### Password rules
+### Contextual Twig variables
+
+You can now create [contextual Twig variables](../guide/templates.md#contextual-twig-variables) for use in templates.
+They can be defined per SiteAccess, or per content view.
+
+### Built-in Query Types
+
+Five built-in ready-to-use Query Types have been added: `Children`, `Siblings`, `Ancestors`, `RelatedToContent`, and `GeoLocation`.
+
+You can now use the `ez_render_content_query` and `ez_render_location_query` Twig functions
+to make use of Query Types that do not use the current content or Location.
+
+### Login and password options
+
+#### Login by User name or email
+
+You can now give your users th ability to [log in with User name or with email](../guide/user_mnagements.md#login-methods).
+
+#### Password rules
 
 You can now set [password expiration rules](../guide/user_management.md#password-expiration)
 for user passwords.
