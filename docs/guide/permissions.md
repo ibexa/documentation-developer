@@ -232,6 +232,7 @@ Users are treated like other content, so to create and modify them the User need
 |               | `selfedit`           | unused                                                                                                                                  |
 |               | `activation`         | unused                                                                                                                                  |
 | `workflow`    | `change_stage`       | change stage in the specified workflow                                                                                                  |
+| `comparison` | `view` | view version comparison |
 
 ## Permissions for custom controllers
 
