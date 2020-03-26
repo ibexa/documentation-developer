@@ -151,7 +151,7 @@ Pagination can then be rendered for example using the following template:
 
 ``` html+twig
 {% for item in pagerItems %}
-    <h2><a href={{ path('ez_urlalias', {'contentId': item.contentInfo.id}) }}>{{ ez_content_name(item) }}</a></h2>
+    <h2><a href={{ ez_path(item.valueObject}) }}>{{ ez_content_name(item) }}</a></h2>
 {% endfor %}
 
 {% if pagerItems.haveToPaginate() %}

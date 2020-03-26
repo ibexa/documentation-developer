@@ -363,11 +363,11 @@ parameters:
 
 #### Links to other Locations
 
-Linking to other Locations is done with a [native `path()` Twig helper](http://symfony.com/doc/2.3/book/templating.html#linking-to-pages) (or `url()` if you want to generate absolute URLs). When you pass it the Location object, `path()` will generate the URL alias.
+Linking to other Locations is done with the `ez_path()` Twig helper (or `ez_url()` if you want to generate absolute URLs). When you pass it the Location object, `ez_path()` will generate the URL alias.
 
 ``` html+twig
 {# Assuming "location" variable is a valid eZ\Publish\API\Repository\Values\Content\Location object #}
-<a href="{{ path( location ) }}">Some link to a Location</a>
+<a href="{{ ez_path( location ) }}">Some link to a Location</a>
 ```
 
 If you don't have the Location object, but only its ID, you can generate the URL alias the following way:
@@ -390,7 +390,7 @@ You can also use the Content item's ID. In that case the generated link will poi
 
 !!! note "Under the hood"
 
-    In the back end, `path()` uses the Router to generate links.
+    In the back end, `ez_path()` uses the Router to generate links.
 
     This makes it also easy to generate links from PHP, via the `router` service.
 
@@ -508,7 +508,7 @@ To avoid such situations, you can check if the Location is virtual using the `lo
 
 ``` html+twig
 {% if not location.isDraft %}
-    <a href="{{ path(location) }}">{{ ez_content_name(content) }}</a>
+    <a href="{{ ez_path(location) }}">{{ ez_content_name(content) }}</a>
 {% endif %}
 ```
 

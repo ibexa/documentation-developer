@@ -37,8 +37,8 @@ Minimal usage is pretty straightforward:
 {# With a Location, given that the "location" variable is a valid Location object. #}
 {% set routeRef = ez_route( location ) %}
 
-{# Then pass the routeRef variable to path() to generate the link #}
-<a href="{{ path( routeRef ) }}">My link</a>
+{# Then pass the routeRef variable to ez_path() to generate the link #}
+<a href="{{ ez_path( routeRef ) }}">My link</a>
 ```
 
 Passing parameters and playing with the RouteReference:
@@ -52,7 +52,7 @@ Passing parameters and playing with the RouteReference:
 {# Or even modify the route resource itself #}
 {% do routeRef.setRoute( "another_route" ) %}
 
-<a href="{{ path( routeRef ) }}">My link</a>
+<a href="{{ ez_path( routeRef ) }}">My link</a>
 ```
 
 ## PHP
