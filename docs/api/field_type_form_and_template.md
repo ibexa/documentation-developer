@@ -53,7 +53,7 @@ In the example above, `CheckboxFieldType::class` is used, but you can use standa
 
 It's good practice to encapsulate Fields with custom types as it allows easier templating.
 Type has to be compatible with your Field Type's `eZ\Publish\Core\FieldType\Value` implementation.
-You can use a [`DataTransformer`](https://symfony.com/doc/4.3/form/data_transformers.html) to achieve that or just assure correct property and form field names.
+You can use a [`DataTransformer`](https://symfony.com/doc/5.0/form/data_transformers.html) to achieve that or just assure correct property and form field names.
 
 ### FieldDefinitionFormMapperInterface
 

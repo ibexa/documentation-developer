@@ -133,7 +133,7 @@ eZ\Publish\Core\Search\Legacy\Content\Location\Gateway\SortClauseHandler\Locatio
 
 !!! note "See also"
 
-    See also [Symfony documentation about Service Container](http://symfony.com/doc/4.3/book/service_container.html#service-parameters) for passing parameters.
+    See also [Symfony documentation about Service Container](http://symfony.com/doc/5.0/book/service_container.html#service-parameters) for passing parameters.
 
 ### Search using custom Field Criterion [REST]
 
