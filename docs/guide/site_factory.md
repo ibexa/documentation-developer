@@ -4,7 +4,7 @@ Site Factory is site management User Interface, integrated to Admin UI, allowing
 
 - siteaccess configuration (replacing YML configuration)
 - multisite configuration
-- multisite management (creating sites, updating sites..
+- multisite management (creating sites, updating sites.
 
 After [clean installation](../getting_started/install_ez_enterprise.md) the Site Factory will be enabled but not configured.
 This results in the following message on the **Site** tab:
@@ -14,7 +14,7 @@ If you plan to use Site Factory you need to configure it, if not we recommend di
 Enabled Site Factory may cause following performance issues:
 
 - Config Resolver will look for SiteAccesses in data base
-- Site Factory matchers will be connected to data base in search for new Site Accesses
+- Site Factory matchers will be connected to data base in search for new SiteAccesses
 
 To configure or disable Site factory follow respectably:
 
@@ -53,7 +53,7 @@ ezplatform:
 
 Next, uncomment `'@EzSystems\EzPlatformSiteFactory\SiteAccessMatcher': ~` SiteAccess matcher  in `ezplatform.siteaccess.siteaccess`.
  
-Add `ezdesign` configuration and configure designs for empty Site Access groups:
+Add `ezdesign` configuration and configure designs for empty SiteAccess groups:
 
 ```yaml
 ezplatform:
@@ -97,10 +97,12 @@ ez_platform_site_factory:
 
 ### Define domains 
 
+To be able to see your site online you need to define a domain for it.
+
 In `.env` file change line 2 to: `COMPOSE_FILE=doc/docker/base-dev.yml:doc/docker/multihost.yml`
 
 Take a look into `doc/docker/multihost.yml` file. 
-Here you can define your domains. 
+Here you will define your domains. 
 To add a new domain you must add it in `command:` and under frontend and backend aliases.
 
 ```yaml hl_lines="3 6 11"
