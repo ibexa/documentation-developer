@@ -7,7 +7,7 @@ If you are testing a release candidate, use the latest `-rc` tag (for example: `
 
 You may upgrade from any eZ Platform version to the latest 2.5 version. If you for instance are on 2.0. you may then
 upgrade your distribution directly to latest 2.5, but follow all the database updates steps from 2.0 up to 2.5. It is
-recommended that you first run all the db schema updates up to 2.5 before you run other update scripts or procedures.
+recommended that you first run all the database schema updates up to 2.5 before you run other update scripts or procedures.
 
 ## Update procedure
 
