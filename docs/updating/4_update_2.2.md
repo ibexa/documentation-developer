@@ -89,9 +89,12 @@ You can remove the bundle after the migration is complete.
 The command will migrate Landing Pages created in eZ Platform 1.x, 2.0 and 2.1 to new Pages.
 The operation is transactional and will roll back in case of errors.
 
-In 2.2 Page Builder does not offer all blocks that Landing Page editor did. The removed blocks include Schedule and Form blocks.
-The Places block has been removed from the clean installation and will only be available in the demo out of the box. If you had been using this block in your site, re-apply its configuration based on the [demo](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.2.2/app/config/blocks.yml)
-Later versions of Page Builder come with a Content Scheduler block, but migration of Schedule blocks to Content Scheduler blocks is not supported. 
+### Block migration
+
+In 2.2 Page Builder does not offer all blocks that Landing Page editor did. The removed blocks include Keyword, Schedule, and Form blocks.
+The Places block has been removed from the clean installation and will only be available in the demo out of the box. If you had been using this block in your site, re-apply its configuration based on the [demo](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.2.2/app/config/blocks.yml).
+
+Later versions of Page Builder come with a Content Scheduler block and new Form Blocks, but migration of Schedule blocks to Content Scheduler blocks and of Form Blocks is not supported. 
 
 If there are missing block definitions, such as Form Block or Schedule Block,
 you have an option to continue, but migrated Landing Pages will come without those blocks.
@@ -105,21 +108,21 @@ you have an option to continue, but migrated Landing Pages will come without tho
 
     You can use the `--dry-run` switch to test the migration.
 
-After the migration is finished, you need to clear cache.
+After the migration is finished, you need to clear the cache.
 
-### Migrate layouts
+#### Migrate layouts
 
 The `ez_block:renderBlockAction` controller used in layout templates has been replaced by `EzPlatformPageFieldTypeBundle:Block:render`. This controller has two additional parameters, `locationId` and `languageCode`. Only `languageCode` is required.
 Also, the HTML class `data-studio-zone` has been replaced with `data-ez-zone-id`
 See [documentation](../guide/page_rendering.md#layout-template) for an example on usage of the new controller.
 
-### Migrate custom blocks
+#### Migrate custom blocks
 
 Landing Page blocks (from 2.1 and earlier) were defined using a class implementing `EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Model\AbstractBlockType`. 
-In Page Builder (from 2.2 onwards), this interface is no longer present. Instead the logic of your block must be implemented in a [Listener](../guide/extending/extending_page.md#block-rendering-events).
+In Page Builder (from 2.2 onwards), this interface is no longer present. Instead the logic of your block must be implemented in a [Listener](../extending/extending_page.md#block-rendering-events).
 Typically, what you previously would do in `getTemplateParameters()`, you'll now do in the `onBlockPreRender()` event handler.
 
-The definition of block parameters has to be moved from `createBlockDefinition()` to the [YAML configuration](../guide/extending/extending_page.md#creating-page-blocks) for your custom blocks.
+The definition of block parameters has to be moved from `createBlockDefinition()` to the [YAML configuration](../guide/extending_page.md#creating-page-blocks) for your custom blocks.
 
 For more information about how custom blocks are implemented in Pagebuilder, have a look at [Creating custom Page blocks](../extending/extending_page.md)
 
@@ -130,26 +133,26 @@ Custom converters must implement the `\EzSystems\EzPlatformPageMigration\Convert
 Below is an example of a simple converter for a custom block:
 
 ``` yaml
-    app.block.foobar.converter:
-        class: EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\DefaultConverter
-        tags:
-            - { name: ezplatform.fieldtype.ezlandingpage.migration.attribute.converter, block_type: foobar }
+app.block.foobar.converter:
+    class: EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\DefaultConverter
+    tags:
+        - { name: ezplatform.fieldtype.ezlandingpage.migration.attribute.converter, block_type: foobar }
 ```
 
 Notice service tag `ezplatform.fieldtype.ezlandingpage.migration.attribute.converter` that must be used for attribute converters.
 
 This converter is only needed when running the `ezplatform:page:migrate` script and can be removed once that has completed.
 
-#### Example on how to migrate layouts and blocks to the new Page Builder
+#### Page migration example
 
 Below is an example how to migrate a Landing Page Layout and Block to new Page Builder. The code is based on the Random block 
 defined in the [Enterprise Beginner tutorial](../tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world.md)
 
 ??? tip "Landing Page code"
 
-    ```php
+    `app/Resources/views/layouts/sidebar.html.twig`:
 
-    #app/Resources/views/layouts/sidebar.html.twig
+    ```php
     <div data-studio-zones-container>
         <main class="landing-page__zone landing-page__zone--{{ zones[0].id }} landing-page__zone--left col-xs-8" data-studio-zone="{{ zones[0].id }}">
             {% if zones[0].blocks %}
@@ -178,8 +181,11 @@ defined in the [Enterprise Beginner tutorial](../tutorials/enterprise_beginner/e
             {% endif %}
         </aside>
     </div>
+    ```
 
-    #app/config/layouts.yml
+    `app/config/layouts.yml`:
+
+    ``` yaml
     ez_systems_landing_page_field_type:
         layouts:
             sidebar:
@@ -193,8 +199,11 @@ defined in the [Enterprise Beginner tutorial](../tutorials/enterprise_beginner/e
                         name: First zone
                     second:
                         name: Second zone
+    ```
 
-    #src/AppBundle/Block/RandomBlock.php
+    `src/AppBundle/Block/RandomBlock.php`:
+
+    ``` php
     <?php
 
     namespace AppBundle\Block;
@@ -329,9 +338,11 @@ defined in the [Enterprise Beginner tutorial](../tutorials/enterprise_beginner/e
             }
         }
     }
+    ```
 
+    `src/AppBundle/DependencyInjection/AppExtension.php`:
 
-    #src/AppBundle/DependencyInjection/AppExtension.php
+    ``` php
     <?php
 
     namespace AppBundle\DependencyInjection;
@@ -363,18 +374,22 @@ defined in the [Enterprise Beginner tutorial](../tutorials/enterprise_beginner/e
             $container->addResource(new FileResource($configFile));
         }
     }
+    ```
 
+    `src/AppBundle/Resources/config/blocks.yml`:
 
-    #src/AppBundle/Resources/config/blocks.yml
+    ``` yaml
     blocks:
         random:
             views:
                 random:
                     template: AppBundle:blocks:random.html.twig
                     name: Random Content Block View
+    ```
 
+    `src/AppBundle/Resources/config/services.yml`:
 
-    #src/AppBundle/Resources/config/services.yml
+    ``` yaml
     services:
         app.block.random:
             class: AppBundle\Block\RandomBlock
@@ -388,8 +403,9 @@ defined in the [Enterprise Beginner tutorial](../tutorials/enterprise_beginner/e
 
 ??? tip "Corresponding Page Builder code"
 
+    `app/Resources/views/layouts/sidebar.html.twig`:
+
     ```php
-    #app/Resources/views/layouts/sidebar.html.twig
     <div data-studio-zones-container>
         <main class="landing-page__zone landing-page__zone--{{ zones[0].id }} landing-page__zone--left col-xs-8" data-studio-zone="{{ zones[0].id }} data-ez-zone-id="{{ zones[0].id }}">
             {% if zones[0].blocks %}
@@ -424,9 +440,11 @@ defined in the [Enterprise Beginner tutorial](../tutorials/enterprise_beginner/e
             {% endif %}
         </aside>
     </div>
+    ```
 
+    `app/config/layouts.yml`:
 
-    #app/config/layouts.yml
+    ``` yaml
     ezplatform_page_fieldtype:
         layouts:
             sidebar:
@@ -440,8 +458,11 @@ defined in the [Enterprise Beginner tutorial](../tutorials/enterprise_beginner/e
                         name: First zone
                     second:
                         name: Second zone
+    ```
 
-    #src/AppBundle/Block/RandomBlock.php → src/AppBundle/Block/Event/Listener/RandomBlockListener.php
+    `src/AppBundle/Block/Event/Listener/RandomBlockListener.php` in place of `src/AppBundle/Block/RandomBlock.php`:
+
+    ``` php
     <?php
 
     namespace AppBundle\Block\Event\Listener;
@@ -557,9 +578,11 @@ defined in the [Enterprise Beginner tutorial](../tutorials/enterprise_beginner/e
             return $query;
         }
     }
+    ```
 
+    `src/AppBundle/DependencyInjection/AppExtension.php`:
 
-    #src/AppBundle/DependencyInjection/AppExtension.php
+    ``` php
     <?php
 
     namespace AppBundle\DependencyInjection;
@@ -591,9 +614,11 @@ defined in the [Enterprise Beginner tutorial](../tutorials/enterprise_beginner/e
             $container->addResource(new FileResource($configFile));
         }
     }
+    ```
 
+    `src/AppBundle/Resources/config/blocks.yml`:
 
-    #src/AppBundle/Resources/config/blocks.yml
+    ``` yaml
     blocks:
         random:
             name: Random
@@ -612,9 +637,11 @@ defined in the [Enterprise Beginner tutorial](../tutorials/enterprise_beginner/e
                     validators:
                         not_blank:
                             message: Please provide parent node
+    ```
 
+    `src/AppBundle/Resources/config/services.yml`:
 
-    #src/AppBundle/Resources/config/services.yml
+    ``` yaml
     services:
         _defaults:
             autowire: true
