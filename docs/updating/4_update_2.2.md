@@ -110,20 +110,20 @@ After the migration is finished, you need to clear cache.
 ### Migrate layouts
 
 The `ez_block:renderBlockAction` controller used in layout templates has been replaced by `EzPlatformPageFieldTypeBundle:Block:render`. This controller has two additional parameters, `locationId` and `languageCode`. Only `languageCode` is required.
-Also, the html class `data-studio-zone` has been replaced with `data-ez-zone-id`
+Also, the HTML class `data-studio-zone` has been replaced with `data-ez-zone-id`
 See [documentation](../guide/page_rendering.md#layout-template) for an example on usage of the new controller.
 
 ### Migrate custom blocks
 
-Landingpage blocks (2.1 and earlier) was defined using a class implementing `EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Model\AbstractBlockType`. 
-In pagebuilder (2.2), this interface is no longer present. Instead the logic of your block must be implemented in a [Listener](../guide/extending/extending_page.md#block-rendering-events).
+Landing Page blocks (from 2.1 and earlier) were defined using a class implementing `EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Model\AbstractBlockType`. 
+In Page Builder (from 2.2 onwards), this interface is no longer present. Instead the logic of your block must be implemented in a [Listener](../guide/extending/extending_page.md#block-rendering-events).
 Typically, what you previously would do in `getTemplateParameters()`, you'll now do in the `onBlockPreRender()` event handler.
 
 The definition of block parameters has to be moved from `createBlockDefinition()` to the [YAML configuration](../guide/extending/extending_page.md#creating-page-blocks) for your custom blocks.
 
-More information about how custom blocks are implemented in Pagebuilder, please have a look at the [documentation](../guide/extending/extending_page.md)
+For more information about how custom blocks are implemented in Pagebuilder, have a look at [Creating custom Page blocks](../extending/extending_page.md)
 
-For the migration of blocks from landingpage you Pagebuilder, you'll need to provide a converter for attributes of custom blocks. For simple blocks you can use `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\DefaultConverter`.
+For the migration of blocks from Landing Page to Page Builder, you'll need to provide a converter for attributes of custom blocks. For simple blocks you can use `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\DefaultConverter`.
 Custom converters must implement the `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\ConverterInterface` interface.
 `convert()` will parse XML `\DOMNode $node` and return an array of `\EzSystems\EzPlatformPageFieldType\FieldType\LandingPage\Model\Attribute` objects.
 
