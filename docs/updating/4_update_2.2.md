@@ -109,7 +109,7 @@ After the migration is finished, you need to clear cache.
 
 ### Migrate layouts
 
-The `ez_block:renderBlockAction` controller used in layout templates has been replaced by `EzPlatformPageFieldTypeBundle:Block:render`. This controller has to additional parameters, `locationId` and `languageCode`. Only `languageCode` is required.
+The `ez_block:renderBlockAction` controller used in layout templates has been replaced by `EzPlatformPageFieldTypeBundle:Block:render`. This controller has two additional parameters, `locationId` and `languageCode`. Only `languageCode` is required.
 Also, the html class `data-studio-zone` has been replaced with `data-ez-zone-id`
 See [documentation](../guide/page_rendering.md#layout-template) for an example on usage of the new controller.
 
