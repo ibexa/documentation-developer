@@ -22,7 +22,7 @@ If you want to first test how the update proceeds without actually updating any 
 
         in `app/AppKernel.php`.
 
-        This bundle is no longer used in 2.2 and later ( So then you may remove it from `app/AppKernel` again. )
+        This bundle is no longer used in 2.2 and later (you may remove it from `app/AppKernel` again. )
 
 !!! note "Updating from <2.5"
 
