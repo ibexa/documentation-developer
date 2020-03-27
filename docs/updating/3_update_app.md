@@ -24,7 +24,7 @@ If you want to first test how the update proceeds without actually updating any 
 
 !!! note "Updating from <2.5"
 
-    Since v2.5 eZ Platform uses [Webpack Encore](https://symfony.com/doc/4.3/frontend.html#webpack-encore) for asset management.
+    Since v2.5 eZ Platform uses [Webpack Encore](https://symfony.com/doc/5.0/frontend.html#webpack-encore) for asset management.
     You need to install [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/lang/en/docs/install) to update to this version.
 
     In v2.5 it is still possible to use Assetic, like in earlier versions.

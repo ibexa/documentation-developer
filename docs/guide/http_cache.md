@@ -2,7 +2,7 @@
 
 ## Content cache
 
-eZ Platform uses [Symfony HTTP cache](http://symfony.com/doc/4.3/http_cache.html) to manage content "view" cache with an [expiration model](http://symfony.com/doc/4.3/http_cache.html#expiration-caching).
+eZ Platform uses [Symfony HTTP cache](http://symfony.com/doc/5.0/http_cache.html) to manage content "view" cache with an [expiration model](http://symfony.com/doc/5.0/http_cache.html#expiration-caching).
 In addition it is extended (using FOSHttpCache) to add several advanced features.
 For content coming from eZ Platform itself, the following applies:
 
@@ -74,7 +74,7 @@ fos_http_cache:
 
 ### Making your controller response content-aware
 
-Sometimes you need your controller's cache to be invalidated at the same time as specific content changes (i.e. [ESI sub-requests with `render` twig helper](http://symfony.com/doc/4.3/http_cache/esi.html), for a menu for instance). To be able to do that, you need to add `X-Location-Id` header to the response object:
+Sometimes you need your controller's cache to be invalidated at the same time as specific content changes (i.e. [ESI sub-requests with `render` twig helper](http://symfony.com/doc/5.0/http_cache/esi.html), for a menu for instance). To be able to do that, you need to add `X-Location-Id` header to the response object:
 
 ``` php
 use Symfony\Component\HttpFoundation\Response;

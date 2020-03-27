@@ -95,12 +95,12 @@ composer install
 At this point you can configure your database via the `DATABASE_URL` in the `.env` file:
 `DATABASE_URL=mysql://user:password@host:port/name`.
 
-Choose a [secret](http://symfony.com/doc/4.3/reference/configuration/framework.html#secret)
+Choose a [secret](http://symfony.com/doc/5.0/reference/configuration/framework.html#secret)
 and provide it in the `APP_SECRET` parameter in the `.env` file.
 The secret should be a random string consisting of up to 32 characters, numbers, and symbols.
-This is used by Symfony for generating [CSRF tokens](https://symfony.com/doc/4.3/security/csrf.html),
-[encrypting cookies](http://symfony.com/doc/4.3/cookbook/security/remember_me.html),
-and creating signed URIs when using [ESI (Edge Side Includes)](https://symfony.com/doc/4.3/http_cache/esi.html).
+This is used by Symfony for generating [CSRF tokens](https://symfony.com/doc/5.0/security/csrf.html),
+[encrypting cookies](http://symfony.com/doc/5.0/cookbook/security/remember_me.html),
+and creating signed URIs when using [ESI (Edge Side Includes)](https://symfony.com/doc/5.0/http_cache/esi.html).
 
 Alternatively, you can also change individual installation parameters in `.env`.
 
@@ -165,4 +165,4 @@ Modify `<your_site_name>.conf` to fit it to your installation. Then restart the 
 Directories `var` and `web/var` need to be writable by CLI and web server user.
 Future files and directories created by these two users will need to inherit those permissions.
 
-For more information, see [Setting up or Fixing File Permissions.](http://symfony.com/doc/4.3/setup/file_permissions.html)
+For more information, see [Setting up or Fixing File Permissions.](http://symfony.com/doc/5.0/setup/file_permissions.html)

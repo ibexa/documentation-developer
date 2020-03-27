@@ -225,7 +225,7 @@ ezdesign:
     templates_theme_paths:
         # FOSUserBundle templates will be part of "my_theme" theme
         my_theme:
-            - '%kernel.root_dir%/../vendor/friendsofsymfony/user-bundle/Resources/views'
+            - '%kernel.project_dir%/vendor/friendsofsymfony/user-bundle/Resources/views'
 ```
 
 !!! note "Paths precedence"
@@ -240,7 +240,7 @@ It is possible to add additional global override directories:
 ```yaml
 ezdesign:
     templates_override_paths:
-        - '%kernel.root_dir%/another_override_directory'
+        - '%kernel.project_dir%/src/another_override_directory'
         - /some/other/directory
 ```
 
@@ -252,7 +252,7 @@ for `goto` actions.
 `EzPlatformDesignEngine` will generate a `ide-twig.json` file which will contain all detected theme paths for templates in your project.
 It is activated by default in debug mode (`%kernel.debug%`).
 
-By default, this config file will be stored at your project root (`%kernel.root_dir%/..`), but you can customize the path
+By default, this config file will be stored at your project root (`%kernel.project_dir%`), but you can customize the path
 if your PHPStorm project root doesn't match your Symfony project root.
 
 !!! note
@@ -267,5 +267,5 @@ ezdesign:
         # Activates PHPStorm support
         enabled: '%kernel.debug%'
         # Path where to store PHPStorm configuration file for additional Twig namespaces (ide-twig.json).
-        twig_config_path: '%kernel.root_dir%/..'
+        twig_config_path: '%kernel.project_dir%'
 ```

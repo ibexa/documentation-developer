@@ -11,14 +11,14 @@ This is where the service container comes into play. The role of a service conta
 Each time you need a service, you may ask the service container for it.
 It will either build the service with the configuration you provided, or give you an existing instance if it is already available.
 
-eZ Platform uses the [Symfony service container](http://symfony.com/doc/4.3/service_container.html).
+eZ Platform uses the [Symfony service container](http://symfony.com/doc/5.0/service_container.html).
 
 !!! tip
 
     To learn more about the service container, see:
 
-    - [Full documentation of the Dependency Injection Component](http://symfony.com/doc/4.3/components/dependency_injection.html)
-    - [Base service tags](http://symfony.com/doc/4.3/reference/dic_tags.html)
+    - [Full documentation of the Dependency Injection Component](http://symfony.com/doc/5.0/components/dependency_injection.html)
+    - [Base service tags](http://symfony.com/doc/5.0/reference/dic_tags.html)
 
 ## Service tags
 
@@ -26,12 +26,12 @@ Service tags in Symfony DIC are a useful way of dedicating services to a specifi
 
 For instance, if you want to register a [Twig extension](http://twig.sensiolabs.org/doc/advanced.html#creating-extensions) to add custom filters,
 you need to create the PHP class and declare it as a service in the DIC configuration with the `twig.extension` tag
-(see the [Symfony cookbook entry](http://symfony.com/doc/4.3/templating/twig_extension.html) for a full example).
+(see the [Symfony cookbook entry](http://symfony.com/doc/5.0/templating/twig_extension.html) for a full example).
 
 eZ Platform exposes several features this way (see the [list of core service tags](#core-and-api)).
 This is for example the case with Field Types.
 
-You will find all service tags exposed by Symfony in [its reference documentation](http://symfony.com/doc/4.3/reference/dic_tags.html).
+You will find all service tags exposed by Symfony in [its reference documentation](http://symfony.com/doc/5.0/reference/dic_tags.html).
 
 ### Core and API
 
