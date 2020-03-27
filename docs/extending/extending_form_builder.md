@@ -198,5 +198,4 @@
 
     To send emails, you also need to configure `sender_address` in `config/packages/swiftmailer.yaml`.
     It acts as a sender and return address for all bounced messages.
-    For details, see [Symfony Mailer Configuration Reference.](https://symfony.com/doc/4.3/reference/configuration/swiftmailer.html#sender-address)
-
+    For details, see [Symfony Mailer Configuration Reference.](https://symfony.com/doc/5.0/reference/configuration/swiftmailer.html#sender-address)

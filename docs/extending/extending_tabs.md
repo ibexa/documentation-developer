@@ -33,7 +33,7 @@ You can also provide the `$template` argument to use a custom template for rende
 ### Adding a tab group with custom logic
 
 To create a custom tab group with additional logic, you need to create it at the level of compiling the Symfony container,
-using a [CompilerPass.](https://symfony.com/doc/4.3/service_container/compiler_passes.html)
+using a [CompilerPass.](https://symfony.com/doc/5.0/service_container/compiler_passes.html)
 
 For example, in `src/DependencyInjection/Compiler/CustomTabGroupPass.php`:
 

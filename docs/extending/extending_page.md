@@ -118,7 +118,7 @@
     First, define the attribute type.
     You can use one of the types available in `ezplatform-page-fieldtype/src/lib/Form/Type/BlockAttribute/*`.
 
-    You can also use one of the [built-in Symfony types](https://symfony.com/doc/4.3/forms.html#built-in-field-types), e.g. `AbstractType` for any custom type or `IntegerType` for numeric types.
+    You can also use one of the [built-in Symfony types](https://symfony.com/doc/5.0/reference/forms/types.html), e.g. `AbstractType` for any custom type or `IntegerType` for numeric types.
 
     To define the type, create a file `src/Block/Attribute/MyStringAttributeType.php` that contains:
 

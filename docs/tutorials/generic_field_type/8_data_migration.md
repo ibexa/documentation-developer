@@ -9,7 +9,7 @@ This process is important when a Field Type needs to be compared for sorting and
 Serialization allows changing objects to array by normalizing them, and then to the selected format by encoding them.
 In reverse, deserialization changes different formats into arrays by decoding and then denormalizing them into objects.
 
-For more information on Serializer Components, see [Symfony documentation.](https://symfony.com/doc/4.3/components/serializer.html)
+For more information on Serializer Components, see [Symfony documentation.](https://symfony.com/doc/5.0/components/serializer.html)
 
 ## Normalization 
 

@@ -106,7 +106,7 @@ ezrecommendation:
                     method: basic
                     login: 12345
                     password: 1234-5678-9012-3456-7890
-                document_root: '%kernel.root_dir%/../web/var/export/'
+                document_root: '%kernel.project_dir%/public/var/export/'
 ```
 
 With the `user` authentication method, login must be the same as `customer_id` and `password` must be the same as `license_key`.
@@ -608,7 +608,7 @@ For example, to retrieve the `rss` variation of the image, use:
 
 ### Logging
 
-Most operations are logged via the `ez_recommendation` [Monolog channel](http://symfony.com/doc/4.3/cookbook/logging/channels_handlers.html).
+Most operations are logged via the `ez_recommendation` [Monolog channel](http://symfony.com/doc/5.0/cookbook/logging/channels_handlers.html).
 To log everything about Recommendation to `dev.recommendation.log`, add the following to your `config.yml`:
 
 ``` yaml

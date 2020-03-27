@@ -2,19 +2,21 @@
 
 This page lists backwards compatibility breaks and deprecations introduced in eZ Platform v3.0.
 
-## Symfony 4
+## Symfony 5
 
-v3.0 now uses Symfony 4 instead of Symfony 3.
-Refer to [Symfony changelog](https://github.com/symfony/symfony/blob/master/CHANGELOG-4.0.md)
-and [Symfony upgrade guides](https://github.com/symfony/symfony/blob/master/UPGRADE-4.0.md)
+v3.0 now uses Symfony 5 instead of Symfony 3.
+Refer to [Symfony changelog for 4.0](https://github.com/symfony/symfony/blob/master/CHANGELOG-4.0.md)
+and [for 5.0](https://github.com/symfony/symfony/blob/master/CHANGELOG-5.0.md)
+as well as [Symfony upgrade guides for 4.0](https://github.com/symfony/symfony/blob/master/UPGRADE-4.0.md)
+and [for 5.0](https://github.com/symfony/symfony/blob/master/UPGRADE-5.0.md)
 to learn about all changes it entails.
 
-See [v3.0 project update](ez_platform_v3.0_project_update.md) for the steps you need to take to update your project to Symfony 4.
+See [v3.0 project update](ez_platform_v3.0_project_update.md) for the steps you need to take to update your project to Symfony 5.
 See also [full requirements for installing eZ Platform](../getting_started/requirements.md).
 
 ### Template configuration
 
-Following the [upgrade to Symfony 4](#symfony-4), [the templating component integration is now deprecated.](https://symfony.com/blog/new-in-symfony-4-3-deprecated-the-templating-component-integration)
+Following the [upgrade to Symfony 5](#symfony-5), [the templating component integration is now deprecated.](https://symfony.com/blog/new-in-symfony-4-3-deprecated-the-templating-component-integration)
 As a result, the way to indicate a template path has changed.
 
 Example 1:
@@ -311,14 +313,14 @@ The following deprecated items have been removed:
 |`limit`|`EzSystems\EzPlatformAdminUi\UI\Module\Subitems\ContentViewParameterSupplier`| - |
 |`contentTypeNames`|`window.eZ.adminUiConfig`|`contentTypes`|
 
-Following the upgrade to Symfony 4, the following event classes have been deprecated:
+Following the upgrade to Symfony 5, the following event classes have been deprecated:
 
 |Deprecated|Use instead|
 |----------|-----------|
 |`Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent`|`Symfony\Component\HttpKernel\Event\ExceptionEvent`|
 |`Symfony\Component\HttpKernel\Event\GetResponseEvent`|`Symfony\Component\HttpKernel\Event\RequestEvent`|
 
-Also, as of Symfony 4, the `transchoice` Twig filter has been replaced with `trans`.
+Also, as of Symfony 5, the `transchoice` Twig filter has been replaced with `trans`.
 New translation strings are required.
 
 ##### SubtreeQuery
@@ -431,7 +433,7 @@ For details, see [code cleanup in kernel](#code-cleanup-in-kernel).
 #### AbstractController
 
 The `eZ\Bundle\EzPublishCoreBundle\Controller` now extends `Symfony\Bundle\FrameworkBundle\Controller\AbstractController` instead of `Symfony\Bundle\FrameworkBundle\Controller\Controller` which has limited access to the dependency injection container.
-For details, see [Service Subscribers Locators.](https://symfony.com/doc/5.1/service_container/service_subscribers_locators.html)
+For details, see [Service Subscribers Locators.](https://symfony.com/doc/5.0/service_container/service_subscribers_locators.html)
 
 The `Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand` is deprecated, use `Symfony\Component\Console\Command\Command` instead.
 
@@ -661,7 +663,7 @@ Instances of the deprecated code have been replaced:
 |`Symfony\Component\HttpKernel\Event\GetResponseEvent`|`Symfony\Component\HttpKernel\Event\RequestEvent`|
 |`Symfony\Component\HttpKernel\Event\FilterControllerArgumentsEvent`|`Symfony\Component\HttpKernel\Event\ControllerEvent`|
 
-Also, as of Symfony 4, the `transchoice` Twig filter has been replaced with `trans`.
+Also, as of Symfony 5, the `transchoice` Twig filter has been replaced with `trans`.
 New translation strings are required.
 
 The deprecated `eZ\Publish\Core\MVC\Symfony\Matcher\MatcherInterface` interface has been dropped.
@@ -708,6 +710,14 @@ The following deprecated Twig classes have been replaced:
 |`Twig_Extensions_Extension_Intl`|`Twig\Extensions\IntlExtension`|
 |`Twig_Template`|`Twig\Template`|
 |`Twig_Node`|`Twig\Node\Node`|
+
+### Twig intl extension
+
+Twig intl extension [has been dropped.](https://github.com/twigphp/Twig-extensions/blob/master/README.rst)
+
+### EzPublishMigration
+
+The `EzPublishMigration` bundle has been dropped.
 
 ### Password hashes
 
