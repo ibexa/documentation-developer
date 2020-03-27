@@ -136,7 +136,7 @@ Below is an example of a simple converter for a custom block:
             - { name: ezplatform.fieldtype.ezlandingpage.migration.attribute.converter, block_type: foobar }
 ```
 
-Notice the service tag that must be used for attribute converters.
+Notice service tag `ezplatform.fieldtype.ezlandingpage.migration.attribute.converter` that must be used for attribute converters.
 
 This converter is only needed when running the `ezplatform:page:migrate` script and can be removed once that has completed.
 
