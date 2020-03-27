@@ -25,7 +25,7 @@ app.my_tabs.custom_group:
 
 The tab group must be tagged with `ezplatform.admin_ui.component`.
 The `group` tag indicates where the group will be rendered.
-For the list of possible rendering places, see [Injecting custom components](extending_back_office.md#injecting-custom-components).
+For the list of possible rendering places, see [Injecting custom components](custom_components.md).
 
 `$groupIdentifier` is the name that you point to when assigning a tab to this group.
 You can also provide the `$template` argument to use a custom template for rendering the group.

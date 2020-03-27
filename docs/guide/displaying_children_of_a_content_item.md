@@ -16,46 +16,16 @@ This procedure demonstrates how to use these three methods to display all childr
 The Query Controller is a pre-defined custom content view Controller that runs a Repository Query
 that you can use together with the Content query Field Type.
 
-The Query Type in this example is contained an `src/QueryType/LocationChildrenQueryType.php` file
-which generates a Query that retrieves the children of the current Location.
-
-``` php
-<?php
-
-namespace App\QueryType;
-
-use eZ\Publish\API\Repository\Values\Content\LocationQuery;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion\ParentLocationId;
-use eZ\Publish\Core\QueryType\QueryType;
-
-class LocationChildrenQueryType implements QueryType
-{
-    public function getQuery(array $parameters = [])
-    {
-        return new LocationQuery([
-            'filter' => new ParentLocationId($parameters['parentLocationId']),
-        ]);
-    }
-
-    public function getSupportedParameters()
-    {
-        return ['parentLocationId'];
-    }
-
-    public static function getName()
-    {
-        return 'LocationChildren';
-    }
-}
-```
+This example uses the built-in `Children` Query Type
+which retrieves the children of the current Location.
 
 To use the Query Type with a Content query Field, add the Field to your Folder Content Type's definition.
 
-Select "Location children" as the Query type. Provide the `parentLocationId` parameter
+Select "Children" as the Query Type. Provide the `content` parameter
 that the Query type requires:
 
 ```
-parentLocationId: '@=mainLocation.id'
+content: '@=content'
 ```
 
 You can paginate the query results by checking the **Enable pagination** box and selecting a limit of results per page.
@@ -79,7 +49,7 @@ The query results are available in the `items` variable:
 <h1>{{ ez_content_name(content) }}</h1>
 
 {% for item in items %}
-    <h2><a href={{ path('ez_urlalias', {'contentId': item.contentInfo.id}) }}>{{ ez_content_name(item.contentInfo) }}</a></h2>
+    <h2><a href={{ ez_path(item.valueObject) }}>{{ ez_content_name(item.contentInfo) }}</a></h2>
 {% endfor %}
 
 {% if isPaginationEnabled %}
@@ -89,31 +59,31 @@ The query results are available in the `items` variable:
 
 ## Using the Query Controller
 
-You can also use the same Query Type as above together with the Query Controller.
+You can also use the `Children` Query Type together with the Query Controller.
 
 In your [standard view configuration](../guide/content_rendering.md#configuring-views-the-viewprovider) file, under `content_view`, add a section that indicates when this Controller will be used. It is similar to regular view config, but contains additional information:
 
 ``` yaml
 folder:
-    controller: ez_query:locationQueryAction
+    controller: ez_query:contentQueryAction
     template: full/folder.html.twig
     match:
         Identifier\ContentType: folder
     params:
         query:
-            query_type: LocationChildren
+            query_type: Children
             parameters:
-                parentLocationId: '@=location.id'
+                location: '@=location'
             assign_results_to: items
 ```
 
-In this case the `controller` key points to the Query Controller's `locationQuery` action. `assign_results_to` identifies the parameter containing all the retrieved children that will later be used in the templates, like here in `templates/full/folder.html.twig`:
+In this case the `controller` key points to the Query Controller's `contentQuery` action. `assign_results_to` identifies the parameter containing all the retrieved children that will later be used in the templates, like here in `templates/full/folder.html.twig`:
 
 ``` html+twig
 <h1>{{ ez_content_name(content) }}</h1>
 
 {% for item in items.searchHits %}
-  <h2><a href={{ path('ez_urlalias', {'contentId': item.valueObject.contentInfo.id}) }}>{{ ez_content_name(item.valueObject.contentInfo) }}</a></h2>
+  <h2><a href={{ ez_path(item.valueObject) }}>{{ ez_content_name(item.valueObject.contentInfo) }}</a></h2>
 {% endfor %}
 ```
 
@@ -273,7 +243,7 @@ Finally, let's use the Controller in a `templates/full/folder.html.twig` templat
 <h1>{{ ez_content_name(content) }}</h1>
 
 {% for item in items %}
-  <h2><a href={{ path('ez_urlalias', {'contentId': item.contentInfo.id}) }}>{{ ez_content_name(item) }}</a></h2>
+  <h2><a href={{ ez_path(item.valueObject) }}>{{ ez_content_name(item) }}</a></h2>
 {% endfor %}
 ```
 

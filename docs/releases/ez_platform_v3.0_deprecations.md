@@ -279,7 +279,7 @@ The `@ezdesign/account/error/credentials_expired.html.twig` has been relocated f
 ### Universal Discovery Widget
 
 The UDW configuration has been changed.
-For the full list of UDW configuration keys and their descriptions, see [UDW configuration](../guide/extending/extending_udw.md#configuration).
+For the full list of UDW configuration keys and their descriptions, see [UDW configuration](../extending/extending_udw.md#configuration).
 
 ### Online Editor
 
@@ -289,7 +289,7 @@ have been moved from `ezplatform-admin-ui` to `ezplatform-richtext`.
 ### Adding new tabs in the Back Office
 
 The way of adding custom tab groups in the Back Office has changed.
-You now need to [make use of the `TabsComponent`](../guide/extending/extending_tabs.md#adding-a-new-tab-group).
+You now need to [make use of the `TabsComponent`](../extending/extending_tabs.md#adding-a-new-tab-group).
 
 ### Content Type forms
 
@@ -619,6 +619,15 @@ DROP TABLE <table_name>;
 - The "Setup" folder and Section have been removed from clean installation data.
 - The "Design" Section has been removed from clean installation data.
 
+#### Content Type Update handlers
+
+The following obsolete handler has been removed:
+
+- `DeferredLegacy` Content Type Update handler
+(`eZ\Publish\Core\Persistence\Legacy\Content\Type\Update\Handler\DeferredLegacy`) with its optional Symfony Container Service (`ezpublish.persistence.legacy.content_type.update_handler.deferred`)
+
+Subscribe to eZ Platform Symfony Events to handle deferring of updating of Content items after their Content Type update instead.
+
 ### Symfony Services
 
 The `date_based_publisher.permission_resolver` Symfony Service deprecated in v2.5 has been removed. 
@@ -813,6 +822,11 @@ The following Webpack Encore entries have been changed:
 
 All Online Editor front-end code and assets (such as JS, CSS, fonts, etc.)
 have been moved from `ezplatform-admin-ui` to `ezplatform-richtext`.
+
+#### Custom button configuration
+
+Configuring custom Online Editor buttons with `ezrichtext.alloy_editor.extra_buttons` is deprecated.
+Use [`ezplatform.system.<siteacces>.fieldtypes.ezrichtext.toolbars.<toolbar_identifier>.buttons`](../extending/online_editor_button.md) instead.
 
 ### View matching
 

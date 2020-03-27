@@ -111,7 +111,7 @@ The default value is `false`, so if it is not set, the custom tag will be treate
 !!! caution "Incorrect configuration"
 
     Newer configuration options, such as `is_inline`, only work with the configuration provided above.
-    If your project uses [configuration from version prior to 2.4](../../updating/4_update_2.4.md#changes-to-custom-tags),
+    If your project uses [configuration from version prior to 2.4](../updating/4_update_2.4.md#changes-to-custom-tags),
     these options will not work.
     You need to update your configuration to be placed under the `ezrichtext` key.
 
@@ -233,25 +233,6 @@ to the title of the `abbr` tag:
 
 ![Acronym custom tag](img/oe_custom_tag_acronym.png)
 
-## Custom toolbars
-
-You can extend the Online Editor with the custom toolbars.
-The feature depends on [Alloy Editor](https://alloyeditor.com/).
-
-Preparation of the custom toolbar starts with creating a new toolbar config.
-If you want to learn how to do it, see [Creating a Toolbar.](https://alloyeditor.com/docs/develop/create_toolbars.html)
-
-Next, add the toolbar config to the `ezplatform-admin-ui-alloyeditor-js` entry using encore.
-Finally, add the toolbar JavaScript class to `ezAlloyEditor.customSelections.<TOOLBAR_NAME>` eZ config.
-
-You can do it at the bottom of the toolbar config file:
-
-```js
-eZ.addConfig('ezAlloyEditor.customSelections.ContentVariableEdit', ContentVariableEditConfig);
-```
-
-With this step, the `ContentVariableEditConfig` toolbar is injected and ready to be used.
-
 ## Custom styles
 
 You can extend the Online Editor with custom text styles.
@@ -304,7 +285,7 @@ ezrichtext.custom_styles.highlighted_word.label: Highlighted word
 
 ### Rendering
 
-The `template` key points to the template used to render the custom style. It is recommended to use the [design engine](../design_engine.md).
+The `template` key points to the template used to render the custom style. It is recommended to use the [design engine](../guide/design_engine.md).
 
 In the example above, the template files for the front end could be:
 
@@ -553,6 +534,53 @@ that you can then style individually using CSS.
 
     You can also create a similar note box using [custom styles](#note-box).
 
+## Customizing buttons
+
+You can modify the buttons available in Online Editor toolbars through configuration:
+
+``` yaml
+ezplatform:
+    system:
+        admin_group:
+            fieldtypes:
+                ezrichtext:
+                    toolbars:
+                        heading:
+                            buttons:
+                                ezanchor:
+                                    priority: 100
+                                ezembedinline:
+                                    visible: false
+```
+
+For each button you can set `priority`, which defines the order of buttons in the toolbar,
+and `visible`, which can turn off the button when set to `false`.
+
+For a full list of buttons, see [the configuration file.](https://github.com/ezsystems/ezplatform-richtext/blob/v2.0.0/src/bundle/Resources/config/prepend/ezpublish.yaml)
+
+!!! tip
+
+    You can also [create your own custom buttons](online_editor_button.md).
+
+## Custom toolbars
+
+You can extend the Online Editor with the custom toolbars.
+The feature depends on [Alloy Editor](https://alloyeditor.com/).
+
+Preparation of the custom toolbar starts with creating a new toolbar config.
+If you want to learn how to do it, see [Creating a Toolbar.](https://alloyeditor.com/docs/develop/create_toolbars.html)
+
+Next, add the toolbar config to the `ezplatform-admin-ui-alloyeditor-js` entry using encore.
+Finally, add the toolbar JavaScript class to `ezAlloyEditor.customSelections.<TOOLBAR_NAME>` eZ config.
+
+You can do it at the bottom of the toolbar config file:
+
+```js
+eZ.addConfig('ezAlloyEditor.customSelections.ContentVariableEdit', ContentVariableEditConfig);
+```
+
+With this step, the `ContentVariableEditConfig` toolbar is injected and ready to be used.
+
 ## Custom plugins
 
 You can add your own plugins to the Online Editor.
@@ -572,21 +600,3 @@ The name of a plugin needs to be the same as the one passed to `CKEDITOR.plugins
 
 Please keep in mind that if a plugin changes RichText input (in xhtml5/edit format for DocBook), the changes need to be supported by RichText Field Type.
 For example, if a plugin adds some class to some element, you need to confirm that this class is stored when saving or publishing content (it could result in either XML validation error or could be omitted by RichText processor).
-
-## Buttons configuration
-
-Custom buttons can be added to your installation with the following configuration:
-
-```yml hl_lines="4"
-ezrichtext:
-    alloy_editor:
-        extra_buttons:
-            paragraph: [buttonName1, buttonName2]
-            embed: [buttonName1]
-```
-
-Under `extra_buttons` (line 4) specify to what toolbar you want to add a new button e.g. `paragraph`.
-Next to that toolbar, add an array with names of custom buttons that you want to install e.g. `[buttonName1, buttonName2]`.
-
-All new buttons should also be added to AlloyEditor under the same name that's in the configuration file.
-For more information follow [AlloyEditor tutorial on creating a button](https://alloyeditor.com/docs/develop/create_buttons.html).
