@@ -90,7 +90,7 @@ The command will migrate Landing Pages created in eZ Platform 1.x, 2.0 and 2.1 t
 The operation is transactional and will roll back in case of errors.
 
 The Page Builder in 2.2 does not offer all blocks that Landing Page editor did. The removed blocks include Schedule and Form blocks.
-The Places Page Builder block has been removed from the clean installation and will only be available in the demo out of the box. If you had been using this block in your site, re-apply its configuration based on the [demo](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.2.2/app/config/blocks.yml)
+The Places block has been removed from the clean installation and will only be available in the demo out of the box. If you had been using this block in your site, re-apply its configuration based on the [demo](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.2.2/app/config/blocks.yml)
 Later versions of Page Builder come with a Content Scheduler block, but migration of Schedule blocks to Content Scheduler blocks is not supported. 
 
 If there are missing block definitions, such as Form Block or Schedule Block,
