@@ -877,6 +877,10 @@ The Image Field Type supports one `FieldDefinition` option: the maximum size for
 !!!note
 
     Maximum size is rounded to 1 MB (legacy storage limitation).
+      
+!!! note
+
+    As the default value for maximum size is set to 10MB, we recommend setting the `upload_max_filesize` key in the `php.ini` configuration file to a value equal to or higher than that. It will prevent validation errors while editing Content Types.
 
 ### Using an Image Field
 
