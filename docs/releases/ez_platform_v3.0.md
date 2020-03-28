@@ -41,6 +41,14 @@ For details, see [Bundles](../guide/bundles.md).
 
 ## New features
 
+!!! enterprise
+
+    ### Site Factory
+    
+    The new Site management User Interface is now integrated to Admin UI.
+    It enables you to easily create and manage multiple sites from the Back Office without editing the configuration files.
+    For more information on enabling and configuring it, see [Site Factory in developer documentation](../guide/site_factory.md).
+
 ### Content query Field Type
 
 The new [Content query Field Type](../api/field_type_reference.md#content-query-field-type)
