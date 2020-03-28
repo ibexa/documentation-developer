@@ -2,26 +2,23 @@
 
 Site Factory is site management User Interface, integrated to Admin UI, allowing you to configure files without editing:
 
-- siteaccess configuration (replacing YML configuration)
+- siteaccess configuration
 - multisite configuration
-- multisite management (creating sites, updating sites.
+- multisite management
 
-After [clean installation](../getting_started/install_ez_enterprise.md) the Site Factory will be enabled but not configured.
+After [clean installation](../getting_started/install_ez_enterprise.md) the Site Factory will be disabled.
 This results in the following message on the **Site** tab:
 "There is a design configuration error, and you will not be able to create a new site. Please update the configuration."
+If you plan to use Site Factory you need to enable and configure it.
 
-If you plan to use Site Factory you need to configure it, if not we recommend disabling it.
-Enabled Site Factory may cause following performance issues:
-
-- Config Resolver will look for SiteAccesses in data base
-- Site Factory matchers will be connected to data base in search for new SiteAccesses
-
-To configure or disable Site factory follow respectably:
+To enable or disable Site factory follow respectably:
 
 - [Configure Site Factory section](#configure-site-factory)
 - [Disable Site Factory section](#disable-site-factory)
 
-## Configure Site Factory
+## Enable Site Factory
+
+First, to enable Site Factory you need to change enabled to `true` in `vendor/ezsystems/ezplatform-site-factory/src/bundle/Resources/config/site_factory.yaml`.
 
 ### Configure designs
 
@@ -145,7 +142,16 @@ http://localhost:8080/
 http://test.example.com:8080/
 ```
 
+![Site Factory site list](img/site_factory_site_list.png)
+
+For more information on User 
+
 ## Disable Site Factory
+
+Enabled Site Factory may cause following performance issues:
+
+- Config Resolver will look for SiteAccesses in data base
+- Site Factory matchers will be connected to data base in search for new SiteAccesses
 
 You can disable Site Factory to boost Config Resolver performance.
 Keep in mind that with disabled Site Factory you will not be able to add new sites.
@@ -156,3 +162,5 @@ Keep in mind that with disabled Site Factory you will not be able to add new sit
 1. Remove separate cache poll in `config/packages/cache.yaml`.
 
 The Site Factory should be disabled.
+
+![Site Factory disabled](img/site_factory_disabled.png)
