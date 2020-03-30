@@ -160,7 +160,10 @@ Strict types have been added to Public API methods, for full list see [backwards
 
 ### Universal Discovery Widget
 
-The configuration for Universal Discovery Widget (UDW) has been rewritten. For full list of changes, see [Backwards compatibility doc](ez_platform_v3.0_deprecations.md#universal-discovery-widget).
+The configuration for Universal Discovery Widget (UDW) has been rewritten.
+For full list of changes, see [Backwards compatibility doc](ez_platform_v3.0_deprecations.md#universal-discovery-widget) and [Configuration](../extending/extending_udw.md#configuration).
+
+New functionalities have been added, you can now edit content from Universal Discovery Widget.
 
 ### GraphQL
 
