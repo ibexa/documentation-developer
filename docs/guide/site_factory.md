@@ -19,7 +19,7 @@ To enable or disable Site Factory, follow respectively:
 
 ## Enable Site Factory
 
-To enable Site Factory you need to set `enabled` to `true` in `vendor/ezsystems/ezplatform-site-factory/src/bundle/Resources/config/site_factory.yaml`.
+To enable Site Factory you need to set `enabled` to `true` in `vendor/ezsystems/ezplatform-site-factory/src/bundle/Resources/config/settings.yaml`.
 
 ### Configure designs
 
@@ -43,7 +43,7 @@ ezplatform:
         sf_group_3:
 ```
 
-Next, uncomment `'@EzSystems\EzPlatformSiteFactory\SiteAccessMatcher': ~` SiteAccess matcher  in `ezplatform.siteaccess.siteaccess`.
+Uncomment the `'@EzSystems\EzPlatformSiteFactory\SiteAccessMatcher': ~` SiteAccess matcher in `ezplatform.siteaccess.match`.
  
 Add `ezdesign` configuration and configure designs for empty SiteAccess groups:
 
@@ -150,7 +150,7 @@ Enabled Site Factory may cause following performance issues:
 You can disable Site Factory to boost Config Resolver performance.
 Keep in mind that with disabled Site Factory you will not be able to add new sites.
 
-1. In `vendor/ezsystems/ezplatform-site-factory/src/bundle/Resources/config/site_factory.yaml` change enabled to `false`
+1. In `vendor/ezsystems/ezplatform-site-factory/src/bundle/Resources/config/settings.yaml` change enabled to `false`
 1. In `config/packages/ezplatform.yaml` comment the `ezplatform.siteaccess.match: '@EzSystems\EzPlatformSiteFactory\SiteAccessMatcher': ~` if it is uncommented.
 1. Remove separate connection to database in `config/packages/doctrine.yaml`.
 1. Remove separate cache pool in `config/packages/cache.yaml`.
