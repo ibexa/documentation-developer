@@ -5,7 +5,6 @@ Site Factory is site management User Interface, integrated with Admin UI.
 
 - SiteAccess configuration
 - multisite configuration
-- multisite management
 
 After [clean installation](../getting_started/install_ez_enterprise.md) the Site Factory will be disabled.
 This results in the following message on the **Site** tab:
@@ -88,6 +87,9 @@ ez_platform_site_factory:
             thumbnail: /assets/ezplatform/build/images/example-2-icon.png
 ```
 
+You can check the results of your work in the Back Office by going to the **Site** tab.
+There, you should be able to add a new site and choose a design for it.
+
 ### Define domains 
 
 To be able to see your site online you need to define a domain for it.
@@ -96,7 +98,7 @@ In `.env` file change line 2 to: `COMPOSE_FILE=doc/docker/base-dev.yml:doc/docke
 
 Take a look into the `doc/docker/multihost.yml` file. 
 Here you will define your domains. 
-To add a new domain you must add it in `command:` and under frontend and backend aliases.
+To add a new domain you must add it in `command:` and under frontend and backend aliases as shown in the example below.
 
 ```yaml hl_lines="3 6 11"
 services:
