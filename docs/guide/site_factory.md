@@ -12,18 +12,18 @@ This results in the following message on the **Site** tab:
 "There is a design configuration error, and you will not be able to create a new site. Please update the configuration."
 If you plan to use Site Factory you need to enable and configure it.
 
-To enable or disable Site factory follow respectably:
+To enable or disable Site Factory, follow respectively:
 
 - [Enable Site Factory section](#enable-site-factory)
 - [Disable Site Factory section](#disable-site-factory)
 
 ## Enable Site Factory
 
-To enable Site Factory you need to change enabled to `true` in `vendor/ezsystems/ezplatform-site-factory/src/bundle/Resources/config/site_factory.yaml`.
+To enable Site Factory you need to set `enabled` to `true` in `vendor/ezsystems/ezplatform-site-factory/src/bundle/Resources/config/site_factory.yaml`.
 
 ### Configure designs
 
-Next you can configure it, add empty SiteAccess groups in `config/packages/ezplatform.yaml`:
+Next, configure Site Factory by adding empty SiteAccess groups in `config/packages/ezplatform.yaml`:
 
 ```yaml
 ezplatform:
@@ -67,7 +67,7 @@ ezpublish:
             design: example_3
 ```
 
-The `ezdesign` defines templates for your sites, so remember to add them before continuing.
+`ezdesign` defines templates for your sites, so remember to add them before continuing.
 
 ### Add templates configuration
 
@@ -94,7 +94,7 @@ To be able to see your site online you need to define a domain for it.
 
 In `.env` file change line 2 to: `COMPOSE_FILE=doc/docker/base-dev.yml:doc/docker/multihost.yml`
 
-Take a look into `doc/docker/multihost.yml` file. 
+Take a look into the `doc/docker/multihost.yml` file. 
 Here you will define your domains. 
 To add a new domain you must add it in `command:` and under frontend and backend aliases.
 
@@ -116,13 +116,13 @@ services:
 
 ```
 
-Next you must defined above domains in `etc/hosts` in a terminal.
+Next, you must define the domains in `etc/hosts`.
 
 ```bash
 0.0.0.0 site.example.com admin.example.com test.example.com www.admin.example.com
 ```
 
-Then you must run `docker-compose up` command: 
+Then run `docker-compose up`: 
 
 ```bash
 export COMPOSE_FILE="doc/docker/base-dev.yml:doc/docker/multihost.yml"
@@ -144,8 +144,8 @@ http://test.example.com:8080/
 
 Enabled Site Factory may cause following performance issues:
 
-- Config Resolver will look for SiteAccesses in data base
-- Site Factory matchers will be connected to data base in search for new SiteAccesses
+- Config Resolver will look for SiteAccesses in the database
+- Site Factory matchers will be connected to the database in search for new SiteAccesses
 
 You can disable Site Factory to boost Config Resolver performance.
 Keep in mind that with disabled Site Factory you will not be able to add new sites.
@@ -153,7 +153,7 @@ Keep in mind that with disabled Site Factory you will not be able to add new sit
 1. In `vendor/ezsystems/ezplatform-site-factory/src/bundle/Resources/config/site_factory.yaml` change enabled to `false`
 1. In `config/packages/ezplatform.yaml` comment the `ezplatform.siteaccess.match: '@EzSystems\EzPlatformSiteFactory\SiteAccessMatcher': ~` if it is uncommented.
 1. Remove separate connection to database in `config/packages/doctrine.yaml`.
-1. Remove separate cache poll in `config/packages/cache.yaml`.
+1. Remove separate cache pool in `config/packages/cache.yaml`.
 
 The Site Factory should be disabled.
 
