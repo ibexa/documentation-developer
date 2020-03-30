@@ -70,12 +70,11 @@ ezpublish:
 
 ### Add templates configuration
 
-Create `config/packages/ez_platform_site_factory.yaml`.
-It will connect SiteAccesses with your templates.
-Inside add thumbnails and names for your templates:
+Add thumbnails and names for your templates in `config/packages/ez_platform_site_factory.yaml`
+It will connect SiteAccesses with the templates.
 
 ```yaml
-ez_platform_site_factory:
+ezplatform_site_factory:
     templates:
         ez_site1:
             siteaccess_group: sf_group_1
@@ -84,7 +83,7 @@ ez_platform_site_factory:
         ez_site2:
             siteaccess_group: sf_group_2
             name: example_site_2
-            thumbnail: /assets/ezplatform/build/images/example-2-icon.png
+            thumbnail: https://example.thumbnail.com
 ```
 
 You can check the results of your work in the Back Office by going to the **Site** tab.
