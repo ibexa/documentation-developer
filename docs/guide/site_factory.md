@@ -1,8 +1,9 @@
 # Site Factory
 
-Site Factory is site management User Interface, integrated to Admin UI, allowing you to configure files without editing:
+Site Factory is site management User Interface, integrated with Admin UI.
+ It allows you to configure sites without editing:
 
-- siteaccess configuration
+- SiteAccess configuration
 - multisite configuration
 - multisite management
 
@@ -13,16 +14,16 @@ If you plan to use Site Factory you need to enable and configure it.
 
 To enable or disable Site factory follow respectably:
 
-- [Configure Site Factory section](#configure-site-factory)
+- [Enable Site Factory section](#enable-site-factory)
 - [Disable Site Factory section](#disable-site-factory)
 
 ## Enable Site Factory
 
-First, to enable Site Factory you need to change enabled to `true` in `vendor/ezsystems/ezplatform-site-factory/src/bundle/Resources/config/site_factory.yaml`.
+To enable Site Factory you need to change enabled to `true` in `vendor/ezsystems/ezplatform-site-factory/src/bundle/Resources/config/site_factory.yaml`.
 
 ### Configure designs
 
-First, add empty SiteAccess groups in `config/packages/ezplatform.yaml`:
+Next you can configure it, add empty SiteAccess groups in `config/packages/ezplatform.yaml`:
 
 ```yaml
 ezplatform:
@@ -35,12 +36,6 @@ ezplatform:
             sf_group_3: []
             
     system:
-        site:
-            languages: [eng-GB] #, pol-PL, ger-DE
-        pl:
-            languages: [pol-PL, eng-GB]
-        de:
-            languages: [ger-DE, eng-GB]
         sf_group_1:
     
         sf_group_2:
@@ -77,7 +72,8 @@ The `ezdesign` defines templates for your sites, so remember to add them before 
 ### Add templates configuration
 
 Create `config/packages/ez_platform_site_factory.yaml`.
-It will connect SiteAccesses with your templates, add thumbnails and names:
+It will connect SiteAccesses with your templates.
+Inside add thumbnails and names for your templates:
 
 ```yaml
 ez_platform_site_factory:
@@ -126,7 +122,7 @@ Next you must defined above domains in `etc/hosts` in a terminal.
 0.0.0.0 site.example.com admin.example.com test.example.com www.admin.example.com
 ```
 
-Then you must run docker-compose up command: 
+Then you must run `docker-compose up` command: 
 
 ```bash
 export COMPOSE_FILE="doc/docker/base-dev.yml:doc/docker/multihost.yml"
@@ -143,8 +139,6 @@ http://test.example.com:8080/
 ```
 
 ![Site Factory site list](img/site_factory_site_list.png)
-
-For more information on User 
 
 ## Disable Site Factory
 
