@@ -64,6 +64,10 @@ You can also filter displayed events and toggle through a day, week, and month v
     
 You can now reschedule or cancel planned future publications right from the Dashboard.
 
+### Schedule hiding a Content item
+
+You can now schedule hiding Content items.
+
 ### Defining buttons in Online Editor
 
 You can now reorder and disable buttons in Online Editor using [YAML configuration](../extending/extending_online_editor.md#customizing-buttons).
