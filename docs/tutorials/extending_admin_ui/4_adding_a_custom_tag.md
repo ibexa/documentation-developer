@@ -24,6 +24,16 @@ ezplatform:
                             buttons:
                                 factbox:
                                     priority: 5
+                        factbox:
+                            buttons:
+                                ezmoveup:
+                                    priority: 40
+                                ezmovedown:
+                                    priority: 30
+                                ezcustomtagedit:
+                                    priority: 20
+                                ezblockremove:
+                                    priority: 10
 ezrichtext:
     custom_tags:
         factbox:
