@@ -10,12 +10,13 @@
 
 ## Notable changes
 
-### Symfony 4
+### Symfony 5
 
-The version 3.0 moves eZ Platform to Symfony 4.3 from the previously used Symfony 3.
+The version 3.0 moves eZ Platform to Symfony 5.0 from the previously used Symfony 3.
 
 This entails several changes to the way projects are organized.
-For details, see [Symfony upgrade documentation](https://github.com/symfony/symfony/blob/master/UPGRADE-4.0.md).
+For details, see [Symfony 4.0](https://github.com/symfony/symfony/blob/master/UPGRADE-4.0.md)
+and [Symfony 5.0 upgrade documentation](https://github.com/symfony/symfony/blob/master/UPGRADE-5.0.md)
 
 ### Field Type creation
 
@@ -27,7 +28,7 @@ The application now uses Symfony Events instead of SignalSlots.
 The application triggers two Events per operation: one before and one after the relevant thing happens
 (see for example [BookmarkEvents](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Event/Bookmark/BookmarkEvents.php)).
 
-To use Symfony Events, create [Event Listeners](https://symfony.com/doc/4.3/event_dispatcher.html) in your code.
+To use Symfony Events, create [Event Listeners](https://symfony.com/doc/5.0/event_dispatcher.html) in your code.
 
 ### New bundles
 
@@ -224,7 +225,7 @@ New methods have been introduced to the PHP API:
 ### SignalSlots
 
 SignalSlots are removed from the application.
-Use [Event Listeners](https://symfony.com/doc/4.3/event_dispatcher.html) in your code instead.
+Use [Event Listeners](https://symfony.com/doc/5.0/event_dispatcher.html) in your code instead.
 
 ### Deprecated Field Types
 
