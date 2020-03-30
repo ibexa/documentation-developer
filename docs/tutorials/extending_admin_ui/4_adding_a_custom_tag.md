@@ -19,7 +19,11 @@ ezplatform:
             fieldtypes:
                 ezrichtext:
                     custom_tags: [factbox]
-
+                    toolbars:
+                        ezadd:
+                            buttons:
+                                factbox:
+                                    priority: 5
 ezrichtext:
     custom_tags:
         factbox:
