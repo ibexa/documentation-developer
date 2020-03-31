@@ -27,7 +27,6 @@ The secret key cannot be retrieved again after the key has been created, so don'
 !!! note
 
     Make sure that your bucket is configurated as Public to avoid facing 403 errors.
-    [Set bucket as public](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/block-public-access-bucket.html).
     
 ## Set up eZ Platform for AWS S3
 
