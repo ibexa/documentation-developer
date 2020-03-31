@@ -418,6 +418,23 @@ or for PostgreSQL:
 
 `psql <database_name> < vendor/ezsystems/ezpublish-kernel/blob/master/data/update/postgres/dbupdate-7.5.latest-to-8.0.0.sql`
 
+!!! enterprise
+
+    ### Date-based publisher database update
+
+    Apply the following database update script for the Date-based publisher:
+
+    ``` sql
+    BEGIN;
+    ALTER TABLE  `ezdatebasedpublisher_scheduled_version`
+    CHANGE COLUMN `publication_date` `date` INT(11) NOT NULL;
+    ALTER TABLE  `ezdatebasedpublisher_scheduled_version`
+    ADD COLUMN `action` VARCHAR(32);
+    UPDATE `ezdatebasedpublisher_scheduled_version` SET `action` = 'publish';
+    ALTER TABLE  `ezdatebasedpublisher_scheduled_version` CHANGE COLUMN `action` `action` VARCHAR(32) NOT NULL;
+    COMMIT;
+    ```
+
 ### Site Factory
 
 For production, it is recommended to create the `esite` and `ezsite_public_access` tables manually importing their schemas definition:
@@ -494,4 +511,3 @@ At this point you can continue with the standard update procedure:
 6\. [Dump assets](6_dump_assets.md)
 
 7\. [Commit, test and merge](7_commit_test_merge.md)
-
