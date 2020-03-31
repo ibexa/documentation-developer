@@ -83,7 +83,7 @@ To import CSS files only, use:
     After adding new files, run `php bin/console cache:clear`.
 
     For a full example of importing asset configuration,
-    see [`ez.config.js`](https://github.com/ezsystems/ezplatform-admin-ui-modules/blob/master/Resources/encore/ez.config.js)
+    see [`ez.config.js`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/encore/ez.config.js)
 
 To edit existing configuration entries, create a `Resources/encore/ez.config.manager.js` file:
 
@@ -349,7 +349,6 @@ The following tables give an overview of the main eZ Platform bundles.
 |[ez-support-tools](https://github.com/ezsystems/ez-support-tools)|provides functionality for system information|
 |[ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache)|HTTP cache handling for eZ Platform, using multi tagging (incl Varnish xkey)|
 |[ezplatform-admin-ui](https://github.com/ezsystems/ezplatform-admin-ui)|contains Back Office interface for eZ Platform v2+|
-|[ezplatform-admin-ui-modules](https://github.com/ezsystems/ezplatform-admin-ui-modules)|re-useable React JavaScript components for eZ Platform v2+ AdminUI|
 |[ezplatform-admin-ui-assets](https://github.com/ezsystems/ezplatform-admin-ui-assets)|contains assets for AdminUI|
 |[ezplatform-design-engine](https://github.com/ezsystems/ezplatform-design-engine)|design fallback system for eZ Platform similar to legacy design fallback system|
 |[ezplatform-standard-design](https://github.com/ezsystems/ezplatform-standard-design)|defines standard Design and Theme to be handled by ezplatform-design-engine|

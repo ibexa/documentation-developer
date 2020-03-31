@@ -12,7 +12,7 @@ The architecture of eZ Platform is layered and uses clearly defined APIs between
 
 |Layer|Description|
 |-----|-----------|
-|[Admin UI](config_back_office.md)|Admin UI together with Admin UI Modules contain all the necessary parts to run the eZ Platform Back Office interface.|
+|[Admin UI](config_back_office.md)|Admin UI contains all the necessary parts to run the eZ Platform Back Office interface.|
 |[HTTP Cache](http_cache.md)|Symfony HTTP cache is used to manage content "view" cache with an expiration model. In addition it is extended by using FOSHttpCache to add several advanced features.|
 |[eZ Controllers](controllers.md)|Controllers created by you to read information from a Request object, create and return a Response objects.|
 |[Twig templates](twig_functions_reference.md)|Set of custom and built-in Twig templates. User interfaces are developed using the Twig template engine and query the Public API directly.|
