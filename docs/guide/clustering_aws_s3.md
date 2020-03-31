@@ -24,6 +24,11 @@ See <http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html>.
 The secret key cannot be retrieved again after the key has been created, so don't lose it.
 (However, you can create new keys if needed.)
 
+!!! note
+
+    Make sure that your bucket is configurated as Public to avoid facing 403 errors.
+    [Set bucket as public](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/block-public-access-bucket.html).
+    
 ## Set up eZ Platform for AWS S3
 
 In your eZ Platform root directory, run `php composer.phar require league/flysystem-aws-s3-v3`.
