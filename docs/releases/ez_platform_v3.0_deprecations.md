@@ -721,10 +721,6 @@ The following deprecated classes relying on that interface have been removed as 
 - `eZ\Publish\Core\MVC\Symfony\Matcher\ContentMatcherFactory`
 - `eZ\Publish\Core\MVC\Symfony\Matcher\LocationMatcherFactory`
 
-#### createFromQueryBuilder methods
-
-Deprecated `creatFromQueryBuilder` methods have been removed from Criterion classes.
-
 ### Twig classes
 
 The following deprecated Twig classes have been replaced:
