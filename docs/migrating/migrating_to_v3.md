@@ -422,7 +422,9 @@ or for PostgreSQL:
 
     ### Date-based publisher database update
 
-    Apply the following database update script for the Date-based publisher:
+    Apply the following database update script for the Date-based publisher.
+
+    For MySQL:
 
     ``` sql
     BEGIN;
@@ -432,6 +434,17 @@ or for PostgreSQL:
     ADD COLUMN `action` VARCHAR(32);
     UPDATE `ezdatebasedpublisher_scheduled_version` SET `action` = 'publish';
     ALTER TABLE  `ezdatebasedpublisher_scheduled_version` CHANGE COLUMN `action` `action` VARCHAR(32) NOT NULL;
+    COMMIT;
+    ```
+
+    For PostgreSQL:
+
+    ``` sql
+    BEGIN;
+    ALTER TABLE ezdatebasedpublisher_scheduled_version RENAME COLUMN publication_date TO date;
+    ALTER TABLE ezdatebasedpublisher_scheduled_version ADD COLUMN action VARCHAR(32);
+    UPDATE ezdatebasedpublisher_scheduled_version SET action = 'publish';
+    ALTER TABLE ezdatebasedpublisher_scheduled_version ALTER COLUMN action SET NOT NULL ;
     COMMIT;
     ```
 
