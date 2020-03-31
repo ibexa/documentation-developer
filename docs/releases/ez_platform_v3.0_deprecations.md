@@ -428,7 +428,7 @@ Instances of the following deprecated event classes have been replaced:
 Selected deprecated Role Service and permission-related methods have been removed.
 For details, see [code cleanup in kernel](#code-cleanup-in-kernel).
 
-## ezplatform-kernel replaced ezpublish-kernel
+## ezplatform-kernel replacing ezpublish-kernel
 
 ### API methods
 
