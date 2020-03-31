@@ -174,10 +174,16 @@ New functionalities have been added, you can now edit content from Universal Dis
 
 In GraphQL, you can now [query Locations and their children](../api/graphql_queries.md#querying-locations).
 
-### Improved translating of notifications
+### Translations
+
+#### Improved translating of notifications
 
 `TranslationService` is not injected into the `NotificationService`.
 You can now use `TranslatableNotificationHandlerInterface` for translated notifications.
+
+#### Multilingual content route
+
+New multilingual content route for internal translations has been added.
 
 ### Renamed templates and parameters
 
