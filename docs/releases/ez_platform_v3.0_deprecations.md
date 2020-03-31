@@ -620,6 +620,7 @@ DROP TABLE <table_name>;
 
 - The "Setup" folder and Section have been removed from clean installation data.
 - The "Design" Section has been removed from clean installation data.
+- The `ezkeyword_attribute_link` table now has a `version` column.
 
 #### Content Type Update handlers
 
