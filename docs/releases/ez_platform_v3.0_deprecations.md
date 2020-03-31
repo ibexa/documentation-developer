@@ -339,15 +339,17 @@ Instead, use the following classes:
 - `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\ContentCreateContentTypeChoiceLoader`
 - `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\ContentCreateLanguageChoiceLoader`
 
+### Universal Discovery Widget
+
+The deprecated `universal_discovery_widget_module.default_location_id` setting has been replaced with `universal_discovery_widget_module.configuration.default.starting_location_id`.
+
 ## ezplatform-admin-ui-assets
 
 No deprecations or backward compatibility breaks to document.
 
 ## ezplatform-admin-ui-modules
 
-### Universal Discovery Widget
-
-The deprecated `universal_discovery_widget_module.default_location_id` setting has been replaced with `universal_discovery_widget_module.configuration.default.starting_location_id`.
+This package is deprecated. Its code has been moved to [`ezplatform-admin-ui`](#ezplatform-admin-ui).
 
 ## ezplatform-content-forms
 
