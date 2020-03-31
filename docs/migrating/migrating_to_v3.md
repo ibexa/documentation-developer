@@ -3,17 +3,9 @@
 To migrate your v2 project to v3, you need to follow the [standard update procedure](../updating/updating_ez_platform.md),
 but you will also need to make changes to your code.
 
-## Check out and update the app
-
-1\. [Check out a tagged version](../updating/1_check_out_version.md)
-
-2\. [Merge composer.json](../updating/2_merge_composer.md)
-
-3\. [Update the app](3_update_app.md)
-
 ## Make changes to your code
 
-At this point you need to make changes to your code
+Before starting the update procedure you need to make changes to your code
 to reflex changes in project structure, deprecations and improvements introduced in v3.
 
 !!! tip
@@ -21,43 +13,10 @@ to reflex changes in project structure, deprecations and improvements introduced
     To make the changes easier, you can use [rector](https://github.com/rectorphp/rector)
     to refactor your Symfony and PHPunit code.
 
-### Project structure
+### Third-party dependencies
 
-!!! tip
-
-    For details on all changes related to the switch to Symfony 4, see [Symfony 4 upgrade doc.](https://github.com/symfony/symfony/blob/master/UPGRADE-4.0.md)
-
-Symfony 4 changes the organization of your project into folders and bundles.
-When updating to eZ Platform v3 you need to move your files and modify file paths and namespace references.
-
-![Project structure changes in v3](img/folder_structure_v3.png "Project folder structure changes between v2 and v3")
-
-#### Configuration
-
-Configuration files have been moved from `app/Resources/config` to `config`.
-Package-specific configuration is placed in `config/packages` (e.g. `config/packages/ezplatform_admin_ui.yaml`).
-This folder also contains `config/packages/ezplatform.yaml`, which contains all settings coming in from the Kernel.
-
-#### PHP code and bundle organization
-
-In Symfony 4 your code is no longer organized in bundles.
-`AppBundle` has been removed from eZ Platform.
-You need to move all your PHP code, such as controllers or event listeners, in the `src` folder.
-Use the `App` namespace for your custom code instead.
-
-#### View templates
-
-Templates are no longer stored in `app/Resources/views`.
-You need to move all your templates in the `templates` folder in your project's root.
-
-#### Translations
-
-Translation files have been moved out of `app/Resources/translations` into `translations` in your project's root.
-
-#### `web` and assets
-
-Content of the `web` folder is now placed in `public`.
-Content of `app/Resources/assets` has been moved to `assets`.
+Because eZ Platform v3 is based on Symfony 5, you need to make sure that all additional third-party dependencies
+that your project uses have been adapted to Symfony 5.
 
 ### Templates
 
@@ -283,6 +242,9 @@ to use `EzSystems\EzPlatformRichText\eZ\RichText` instead.
 
 [`flex-workflow` has been combined with `ezplatform-workflow`](../releases/ez_platform_v3.0_deprecations.md#flex-workflow) in the form of a Quick Review functionality.
 
+If you used custom subscribers for events in workflow, you can now rewrite this code
+to use [custom actions](../extending/extending_workflow.md#adding-custom-actions).
+
 ### Universal Discovery Widget
 
 If you extended the Universal Discovery Widget
@@ -408,7 +370,7 @@ The following Symfony namespaces have changed. You need to update your code if i
 
 For a full list of changes, see [Deprecations and backwards compatibility breaks](../releases/ez_platform_v3.0_deprecations.md)
 
-## Update the database
+### Update the database
 
 Apply the following database update script:
 
@@ -515,12 +477,61 @@ For production, it is recommended to create the `esite` and `ezsite_public_acces
     CREATE INDEX ezsite_public_access_site_id ON ezsite_public_access (site_id);
     ```
 
+### Update Apache/Nginx configuration
+
+Make sure that you Apache/Nginx configuration is up to date with Symfony 5.
+Refer to [the provided `vhost.template`](https://github.com/ezsystems/ezplatform/blob/master/doc/apache2/vhost.template)
+for an example.
+
+## Adapt project structure
+
+!!! tip
+
+    For details on all changes related to the switch to Symfony 4, see [Symfony 4 upgrade doc.](https://github.com/symfony/symfony/blob/master/UPGRADE-4.0.md)
+
+Symfony 4 changes the organization of your project into folders and bundles.
+When updating to eZ Platform v3 you need to move your files and modify file paths and namespace references.
+
+![Project structure changes in v3](img/folder_structure_v3.png "Project folder structure changes between v2 and v3")
+
+#### Configuration
+
+Configuration files have been moved from `app/Resources/config` to `config`.
+Package-specific configuration is placed in `config/packages` (e.g. `config/packages/ezplatform_admin_ui.yaml`).
+This folder also contains `config/packages/ezplatform.yaml`, which contains all settings coming in from the Kernel.
+
+#### PHP code and bundle organization
+
+In Symfony 4 your code is no longer organized in bundles.
+`AppBundle` has been removed from eZ Platform.
+You need to move all your PHP code, such as controllers or event listeners, in the `src` folder.
+Use the `App` namespace for your custom code instead.
+
+#### View templates
+
+Templates are no longer stored in `app/Resources/views`.
+You need to move all your templates in the `templates` folder in your project's root.
+
+#### Translations
+
+Translation files have been moved out of `app/Resources/translations` into `translations` in your project's root.
+
+#### `web` and assets
+
+Content of the `web` folder is now placed in `public`.
+Content of `app/Resources/assets` has been moved to `assets`.
+
+!!! note
+
+    You also need to update path that refer to the old location, for example in [`webpack.config.js`](../guide/bundles.md#configuration-from-a-bundle)
+
 ## Continue update procedure
 
 At this point you can continue with the standard update procedure:
 
-5\. [Platform.sh changes](5_platform_sh_changes.md)
-
-6\. [Dump assets](6_dump_assets.md)
-
-7\. [Commit, test and merge](7_commit_test_merge.md)
+1. [Check out a tagged version](../updating/1_check_out_version.md)
+1. [Merge composer.json](../updating/2_merge_composer.md)
+1. [Update the app](../updating/3_update_app.md)
+1. [Platform.sh changes](../updating/5_platform_sh_changes.md)
+1. [Dump assets](../updating/6_dump_assets.md)
+1. [Commit, test and merge](../updating/7_commit_test_merge.md)
