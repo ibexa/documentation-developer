@@ -118,7 +118,7 @@ The REST API data structs mostly match a PHP Public API value object.
 
 #### Value objects representation
 
-Value objects like [ContentInfo](https://github.com/ezsystems/ezp-next/blob/master/eZ/Publish/API/Repository/Values/Content/ContentInfo.php) feature two types of fields: 
+Value objects like [ContentInfo](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/ContentInfo.php) feature two types of fields: 
 
 - local fields (e.g. currentVersionNo, name)
 - foreign field(s) references (e.g. sectionId, mainLocationId)
