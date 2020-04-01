@@ -17,7 +17,7 @@ Additionally, you can add following attributes:
 Example of a tooltip with additional attributes:
 
 ```html
-<button title="custom tooltip text" data-extra-classes="additinal_class" data-tooltip-container-selector="selector">
+<button title="custom tooltip text" data-extra-classes="additional_class" data-tooltip-container-selector="selector">
 	click me
 </button>
 ```
