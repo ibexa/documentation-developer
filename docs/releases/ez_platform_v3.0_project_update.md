@@ -1,15 +1,15 @@
 # eZ Platform v3.0 project update
 
 Updating to v3.0 requires you to adapt your project and your custom code.
-This is due to the switch from Symfony 3 to Symfony 4, as well as due to deprecation of certain features.
+This is due to the switch from Symfony 3 to Symfony 5, as well as due to deprecation of certain features.
 
 ## Project structure
 
 !!! tip
 
-    For details on all changes related to the switch to Symfony 4, see [Symfony 4 upgrade doc.](https://github.com/symfony/symfony/blob/master/UPGRADE-4.0.md)
+    For details on all changes related to the switch to Symfony 5, see [Symfony 4 upgrade doc](https://github.com/symfony/symfony/blob/master/UPGRADE-4.0.md) and [Symfony 5 upgrade doc](https://github.com/symfony/symfony/blob/master/UPGRADE-5.0.md).
 
-Symfony 4 changes the organization of your project into folders and bundles.
+Symfony 5 changes the organization of your project into folders and bundles.
 When updating to eZ Platform v3.0 you need to move your files and modify file paths and namespace references.
 
 ### Configuration
@@ -20,7 +20,7 @@ This folder also contains `config/packages/ezplatform.yaml`, which contains all 
 
 ### PHP code and bundle organization
 
-In Symfony 4 your code is no longer organized in bundles.
+In Symfony 5 your code is no longer organized in bundles.
 The `AppBundle` has been removed from eZ Platform.
 Instead, place all your PHP code, such as controllers or event listeners, in the `src` folder.
 Use the `App` namespace for your custom code instead.
