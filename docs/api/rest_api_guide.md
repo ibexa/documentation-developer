@@ -1,6 +1,6 @@
 # REST API Guide
 
-The REST API v2 introduced in eZ Platform allows you to interact with an eZ Platform installation using the HTTP protocol, following a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) interaction model.
+The REST API v3 introduced in eZ Platform allows you to interact with an eZ Platform installation using the HTTP protocol, following a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) interaction model.
 
 !!! info "API"
 
