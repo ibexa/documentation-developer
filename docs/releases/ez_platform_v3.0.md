@@ -36,6 +36,11 @@ The list of bundles in v3.0 has been extended by the following ones:
 
 - `ezplatform-calendar`
 - `ezplatform-content-comparison`
+- `ezplatform-content-forms`
+- `ezplatform-kernel`
+- `ezplatform-rest`
+- `ezplatform-site-factory`
+- `ezplatform-version-comparison`
 - `ezplatform-workflow`
 
 For details, see [Bundles](../guide/bundles.md).
