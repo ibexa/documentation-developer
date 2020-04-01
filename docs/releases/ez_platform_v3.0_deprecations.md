@@ -428,7 +428,52 @@ Instances of the following deprecated event classes have been replaced:
 Selected deprecated Role Service and permission-related methods have been removed.
 For details, see [code cleanup in kernel](#code-cleanup-in-kernel).
 
-## ezpublish-kernel
+## ezplatform-kernel replacing ezpublish-kernel
+
+### API methods
+
+Following API methods have been removed:
+
+* `\eZ\Publish\API\Repository\ContentService::removeTranslation`
+* `\eZ\Publish\API\Repository\UserService::loadAnonymousUser`
+* `\eZ\Publish\API\Repository\Repository::getCurrentUser`
+* `\eZ\Publish\API\Repository\Repository::getCurrentUserReference`
+- `\eZ\Publish\API\Repository\Repository::setCurrentUser`
+- `\eZ\Publish\API\Repository\Repository::hasAccess`
+- `\eZ\Publish\API\Repository\Repository::canUser`
+- `\eZ\Publish\API\Repository\RoleService::updateRole`
+- `\eZ\Publish\API\Repository\RoleService::addPolicy`
+- `\eZ\Publish\API\Repository\RoleService::deletePolicy`
+- `\eZ\Publish\API\Repository\RoleService::updatePolicy`
+- `\eZ\Publish\API\Repository\RoleService::loadPoliciesByUserId`
+- `\eZ\Publish\API\Repository\RoleService::unassignRoleFromUser`
+- `\eZ\Publish\API\Repository\RoleService::unassignRoleFromUserGroup`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\Ancestor::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\ContentId::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\ContentTypeGroupId::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\ContentTypeId::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\ContentTypeIdentifier::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\FieldRelation::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\FullText::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\LanguageCode::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\LocationId::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\LocationRemoteId::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\MatchAll::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\MatchNone::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\MoreLikeThis::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\ObjectStateId::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\ParentLocationId::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\RemoteId::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\SectionId::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\Subtree::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\Visibility::createFromQueryBuilder`
+
+### SPI methods
+
+Following SPI methods have been removed:
+
+- `\eZ\Publish\SPI\Persistence\Content\Handler::removeTranslationFromContent`
 
 ### Controllers
 
@@ -676,33 +721,6 @@ The following deprecated classes relying on that interface have been removed as 
 - `eZ\Publish\Core\MVC\Symfony\Matcher\ContentBasedMatcherFactory`
 - `eZ\Publish\Core\MVC\Symfony\Matcher\ContentMatcherFactory`
 - `eZ\Publish\Core\MVC\Symfony\Matcher\LocationMatcherFactory`
-
-#### Role Service methods
-
-The following deprecated Role Service methods have been removed:
-
-- `eZ\Publish\API\Repository\RoleService::updateRole`
-- `eZ\Publish\API\Repository\RoleService::addPolicy`
-- `eZ\Publish\API\Repository\RoleService::deletePolicy`
-- `eZ\Publish\API\Repository\RoleService::updatePolicy`
-- `eZ\Publish\API\Repository\RoleService::loadPoliciesByUserId`
-- `eZ\Publish\API\Repository\RoleService::unassignRoleFromUser`
-- `eZ\Publish\API\Repository\RoleService::unassignRoleFromUserGroup`
-
-#### Permission-related methods
-
-The following deprecated permission-related methods have been removed:
-
-- `eZ\Publish\API\Repository\UserService::loadAnonymousUser`
-- `eZ\Publish\API\Repository\Repository::getCurrentUser`
-- `eZ\Publish\API\Repository\Repository::getCurrentUserReference`
-- `eZ\Publish\API\Repository\Repository::setCurrentUser`
-- `eZ\Publish\API\Repository\Repository::hasAccess`
-- `eZ\Publish\API\Repository\Repository::canUser`
-
-#### createFromQueryBuilder methods
-
-Deprecated `creatFromQueryBuilder` methods have been removed from Criterion classes.
 
 ### Twig classes
 
