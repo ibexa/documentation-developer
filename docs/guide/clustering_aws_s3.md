@@ -26,7 +26,7 @@ The secret key cannot be retrieved again after the key has been created, so don'
 
 !!! note
 
-    Make sure that your bucket is [configured as Public](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/block-public-access-bucket.html) to avoid facing 403 errors.
+    Make sure that your bucket is [configured as Public](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/block-public-access-bucket.html) to avoid facing 403 errors, as the current S3 handler requires files to be stored publicly for linking to work as intended.
     
 ## Set up eZ Platform for AWS S3
 
