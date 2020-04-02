@@ -417,7 +417,7 @@ or for PostgreSQL:
 
 ### Site Factory
 
-For production, it is recommended to create the `esite` and `ezsite_public_access` tables manually importing their schemas definition:
+For production, it is recommended to create the `ezsite` and `ezsite_public_access` tables manually importing their schemas definition:
 
 ??? "Table structure for table `ezsite` and `ezsite_public_access` (MySQL)"
 
