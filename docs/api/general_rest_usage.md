@@ -208,7 +208,7 @@ The REST API supports two authentication methods:
 
 Session-based is the default authentication method, as it is needed for UI.
 
-!!! note
+!!! note "Limiting anonymous access to metadata over REST API"
     
     There are some API endpoints that might be accessible to the Anonymous User outside of the Back Office due to missing permissions or limitations.
     To prevent that, you can rely on the Symfony securing URL patterns mechanism called [access_control](https://symfony.com/doc/3.4/security/access_control.html).
