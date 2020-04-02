@@ -25,7 +25,7 @@ Typical uses of a SiteAccess are:
 
 !!! enterprise
 
-    If you need to change between SiteAccesses in Page mode, do not use any functions in the page itself (for example, a language switcher). This may cause unexpected errors. Instead, switch between SiteAccesses using the SiteAccess bar above the page.
+    If you need to change between SiteAccesses in Site mode, do not use any functions in the page itself (for example, a language switcher). This may cause unexpected errors. Instead, switch between SiteAccesses using the SiteAccess bar above the page.
 
 #### `admin` SiteAccess
 
