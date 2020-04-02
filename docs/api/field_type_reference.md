@@ -1803,25 +1803,23 @@ This Field Type does not have its own fixed internal name. Its identifier is ins
 
 #### Example for usage of Null Field Type
 
-Following shows example on how eZ Publish "datatype" `ezpaex` could be configured as a eZ Platform "Null Field type":
+The following example shows how an `example` Field Type could be configured as a Null Field Type:
 
 ``` yaml
 # Null Fieldtype example configuration
-
 services:
-    ezpublish.fieldType.ezpaex:
-        class: '%ezpublish.fieldType.eznull.class%'
-        parent: ezpublish.fieldType
-        arguments: [ezpaex]
-        tags: [{name: ezplatform.field_type, alias: ezpaex}]
-
-    ezpublish.fieldType.ezpaex.converter:
-        class: '%ezpublish.fieldType.eznull.converter.class%'
-        tags: [{name: ezplatform.field_type.legacy_storage.converter, alias: ezpaex}]
-
-    ezpublish.fieldType.ezpaex.indexable:
+    ezpublish.fieldType.example:
+        class: eZ\Publish\Core\FieldType\Null\Type
+        autowire: true
+        autoconfigure: false
+        arguments: [example]
+        tags: [{name: ezplatform.field_type, alias: example}]
+    ezpublish.fieldType.example.converter:
+        class: eZ\Publish\Core\Persistence\Legacy\Content\FieldValue\Converter\NullConverter
+        tags: [{name: ezplatform.field_type.legacy_storage.converter, alias: example}]
+    ezpublish.fieldType.example.indexable:
         class: '%ezpublish.fieldType.indexable.unindexed.class%'
-        tags: [{name: ezplatform.field_type.indexable, alias: ezpaex}]
+        tags: [{name: ezplatform.field_type.indexable, alias: example}]
 ```
 
 !!! enterprise
