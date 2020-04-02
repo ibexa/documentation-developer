@@ -4,7 +4,7 @@
 
 <div class="card">
     <div class="card-body">
-        <h4 class="card-title text-center"><a href="releases/ez_platform_v3.0/" class="card-link"><strong>The latest release is v3.0</strong></a></h4>
+        <h4 class="card-title text-center"><a href="releases/ez_platform_v2.0/" class="card-link"><strong>The latest release is v3.0</strong></a></h4>
     </div>
 </div>
 
@@ -44,7 +44,7 @@
 <div class="card">
   <div class="card-header">Other topics</div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item"><a href="releases/ez_platform_v3.0/" class="card-link">Releases</a></li>
+    <li class="list-group-item"><a href="releases/ez_platform_v2.0/" class="card-link">Releases</a></li>
     <li class="list-group-item"><a href="migrating/migrating_from_ez_publish_platform/" class="card-link">Migration</a></li>
     <li class="list-group-item"><a href="community_resources/resources/" class="card-link">Community resources</a></li>
   </ul>
@@ -76,7 +76,7 @@
             <li>Universal Discovery Widget improvements</li>
             <li>New API reference</li>
           </ul>
-          <p>See <a href="releases/ez_platform_v3.0/" class="card-link">3.0 release notes</a> for more information</p>
+          <p>See <a href="releases/ez_platform_v2.0/" class="card-link">3.0 release notes</a> for more information</p>
       </div>
   </div>
 </div>

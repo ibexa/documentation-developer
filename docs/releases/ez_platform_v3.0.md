@@ -2,7 +2,7 @@
 
 **Version number**: v3.0
 
-**Release date**: TBD
+**Release date**: April 2, 2020
 
 **Release type**: Fast Track
 
@@ -15,12 +15,8 @@
 The version 3.0 moves eZ Platform to Symfony 5.0 from the previously used Symfony 3.
 
 This entails several changes to the way projects are organized.
-For details, see [Symfony 4.0](https://github.com/symfony/symfony/blob/master/UPGRADE-4.0.md)
-and [Symfony 5.0 upgrade documentation](https://github.com/symfony/symfony/blob/master/UPGRADE-5.0.md)
-
-### Field Type creation
-
-You can now use [Generic Field Type](../guide/extending_field_type.md) as a template for your custom Field Types.
+For details, see [Symfony 4.0](https://github.com/symfony/symfony/blob/5.0/UPGRADE-4.0.md)
+and [Symfony 5.0 upgrade documentation](https://github.com/symfony/symfony/blob/5.0/UPGRADE-5.0.md)
 
 ### Using Events instead of SignalSlots
 
@@ -55,32 +51,37 @@ For details, see [Bundles](../guide/bundles.md).
     It enables you to easily create and manage multiple sites from the Back Office without editing the configuration files.
     For more information on enabling and configuring it, see [Site Factory in developer documentation](../guide/site_factory.md).
 
-### Content query Field Type
+### Field Types
+
+#### Content query Field Type
 
 The new [Content query Field Type](../api/field_type_reference.md#content-query-field-type)
 enables you to configure a content query that will use parameters from a Field definition.
 
-### Schedule calendar
+#### Field Type creation
+
+You can now use [Generic Field Type](../guide/extending_field_type.md) as a template for your custom Field Types.
+
+### Scheduling
+
+#### Schedule calendar
 
 You can now easily view and perform scheduling actions using the Calendar widget available in the Back Office.
 By default, the widget displays Content items scheduled for future publication, but custom events can be configured as well.
 You can also filter displayed events and toggle through a day, week, and month view.
 
-### Manage planned publications with Dashboard
+#### Manage planned publications with Dashboard
     
 You can now reschedule or cancel planned future publications right from the Dashboard.
 
-### Schedule hiding a Content item
+#### Schedule hiding a Content item
 
 You can now schedule hiding Content items.
+Using Calendar widget available in the Back Office you can also reschedule or cancel hiding a Content item.
 
 ### Defining buttons in Online Editor
 
 You can now reorder and disable buttons in Online Editor using [YAML configuration](../extending/extending_online_editor.md#customizing-buttons).
-
-### Random sorting
-
-The list of common Sort Clauses has been extended by the Random sorting option.
 
 ### Workflow improvements
 
@@ -105,6 +106,21 @@ A built-in Quick Review offers a quick workflow configuration for your basic nee
 
 You can configure a custom color for each of the transitions defined in the Workflow.
 
+### Login and password options
+
+#### Login by User name or email
+
+You can now give your users th ability to [log in with User name or with email](../guide/user_mnagements.md#login-methods).
+
+#### Password rules
+
+You can now set [password expiration rules](../guide/user_management.md#password-expiration)
+for user passwords.
+
+### REST API reference
+
+The REST reference has been moved from Kernel to a new page [eZ Platform REST API.](https://doc.ezplatform.com/rest-api-reference)
+
 ### Search Criteria
 
 The following new Search Criteria have been added:
@@ -121,6 +137,10 @@ The following new Search Criteria have been added:
 |[UserId](../../guide/search/criteria_reference/userid_criterion.md)|User ID|
 |[UserLogin](../../guide/search/criteria_reference/userlogin_criterion.md)|User login|
 
+### Random sorting
+
+The list of common Sort Clauses has been extended by the Random sorting option.
+
 ### Contextual Twig variables
 
 You can now create [contextual Twig variables](../guide/templates.md#contextual-twig-variables) for use in templates.
@@ -132,17 +152,6 @@ Five built-in ready-to-use Query Types have been added: `Children`, `Siblings`, 
 
 You can now use the `ez_render_content_query` and `ez_render_location_query` Twig functions
 to make use of Query Types that do not use the current content or Location.
-
-### Login and password options
-
-#### Login by User name or email
-
-You can now give your users th ability to [log in with User name or with email](../guide/user_mnagements.md#login-methods).
-
-#### Password rules
-
-You can now set [password expiration rules](../guide/user_management.md#password-expiration)
-for user passwords.
 
 ### Grouping blocks in Page Builder
 
@@ -233,6 +242,8 @@ New methods have been introduced to the PHP API:
 
 ## Deprecations and removals
 
+For full list of deprecations and removals, see  [eZ Platform v3.0 deprecations and backwards compatibility breaks](ez_platform_v3.0_deprecations.md).
+
 ### SignalSlots
 
 SignalSlots are removed from the application.
@@ -248,10 +259,15 @@ For a full list of changes on Field Types, see [Backwards compatibility doc](ez_
 
 Elastic Search support has been dropped.
 
+
 ### REST server
 
 REST-related code has been moved from Kernel to a new [`ezsystems/ezplatform-rest`](https://github.com/ezsystems/ezplatform-rest) package.
 Following the change, the REST client has been removed from Kernel.
+
+### Kernel
+
+`ezpublish-kernel` has been replaced by [`ezplatform-kernel`.](https://github.com/ezsystems/ezplatform-kernel)
 
 ### Online Editor
 
@@ -267,9 +283,13 @@ In YAML configuration, the main configuration key is now `ezplatform` instead of
 The new `ezplatform-content-forms` package contains forms for content creation moved from `repository-forms`,
 while Content Type editing has been moved to `ezplatform-admin-ui` from `repository-forms`.
 
+### Custom Installers
+
+The Symfony Service definitions, providing extension point to create custom installers, have been removed.
+
 ## Requirements changes
 
-eZ Platform now requires using PHP 7.3.
+eZ Platform now requires using PHP 7.3. For full list of, see [eZ Platform requirements](../getting_started/requirements.md).
 
 !!! note
 
@@ -278,9 +298,11 @@ eZ Platform now requires using PHP 7.3.
 
 ## Updating
 
-### Custom Installers
-
-The Symfony Service definitions, providing extension point to create custom installers, have been removed.
 For the upgrade details, see [eZ Platform v3.0 project update instructions](./ez_platform_v3.0_project_update.md#custom-installers).
 
 ## Full changelog
+
+| eZ Platform   | eZ Enterprise  |
+|--------------|------------|
+| [List of changes for final of eZ Platform v3.0.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v3.0.0) | [List of changes for final for eZ Platform Enterprise Edition v3.0.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v3.0.0) |
+| [List of changes for rc1 of eZ Platform v3.0.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v3.0.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v3.0.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v3.0.0-rc1) |
