@@ -12,9 +12,11 @@ to automatically refactor your Symfony and PHPunit code.
 
 !!! tip
 
-    For details on all changes related to the switch to Symfony 4, see [Symfony 4 upgrade doc.](https://github.com/symfony/symfony/blob/master/UPGRADE-4.0.md)
+    For details on all changes related to the switch to Symfony 5,
+    see [Symfony upgrade guide for 4.0](https://github.com/symfony/symfony/blob/master/UPGRADE-4.0.md)
+    and [for 5.0](https://github.com/symfony/symfony/blob/master/UPGRADE-5.0.md)
 
-Symfony 4 changes the organization of your project into folders and bundles.
+The latest Symfony versions changed the organization of your project into folders and bundles.
 When updating to eZ Platform v3 you need to move your files and modify file paths and namespace references.
 
 ![Project structure changes in v3](img/folder_structure_v3.png "Project folder structure changes between v2 and v3")
@@ -27,7 +29,7 @@ This folder also contains `config/packages/ezplatform.yaml`, which contains all 
 
 #### PHP code and bundle organization
 
-In Symfony 4 your code is no longer organized in bundles.
+Since Symfony 4 your code is no longer organized in bundles.
 `AppBundle` has been removed from eZ Platform.
 You need to move all your PHP code, such as controllers or event listeners, in the `src` folder.
 Use the `App` namespace for your custom code instead.
@@ -48,7 +50,8 @@ Content of `app/Resources/assets` has been moved to `assets`.
 
 !!! note
 
-    You also need to update path that refer to the old location, for example in [`webpack.config.js`](../guide/bundles.md#configuration-from-a-bundle)
+    You also need to update paths that refer to the old location,
+    for example in [`webpack.config.js`](../guide/bundles.md#configuration-from-a-bundle)
 
 ## 3\. Check out and update the app
 
@@ -56,9 +59,15 @@ Content of `app/Resources/assets` has been moved to `assets`.
 
 2\. [Merge composer.json](../updating/2_merge_composer.md)
 
-3\. [Update the app](3_update_app.md)
+3\. [Update the app](../updating/3_update_app.md)
 
 ## 4\. Make changes to your code
+
+!!! note "Full list of deprecations"
+
+    If you encounter any issue during the upgrade,
+    see [eZ Platform v3.0 deprecations](../releases/ez_platform_v3.0_deprecations.md#template-organization)
+    for details of all required changes to your code.    
 
 ### Third-party dependencies
 
@@ -81,7 +90,7 @@ If your templates use them, you need to update them.
 
 #### Templating component
 
-Following the upgrade to Symfony 4, [the templating component integration is now deprecated.](https://symfony.com/blog/new-in-symfony-4-3-deprecated-the-templating-component-integration)
+[The templating component integration is now deprecated.](https://symfony.com/blog/new-in-symfony-4-3-deprecated-the-templating-component-integration)
 As a result, the way to indicate a template path has changed.
 
 For example:
@@ -95,7 +104,7 @@ Content Type editing has been [moved from `repository-forms` to `ezplatform-admi
 
 Forms for content creation have been [moved from `repository-forms` to `ezplatform-content-forms`](../releases/ez_platform_v3.0_deprecations.md#repository-forms).
 
-If your templates extend any of those built-in templates, you need to update their paths
+If your templates extend any of those built-in templates, you need to update their paths.
 
 #### Deprecated controller actions
 
@@ -104,7 +113,7 @@ you need to rewrite them to use `viewAction` and `embedAction` respectively.
 
 #### Referencing controller actions
 
-To reference controller, you now need to use `serviceOrFqcn::method` syntax instead of
+To reference a controller, you now need to use `serviceOrFqcn::method` syntax instead of
 `bundle:controller:action`:
 
 **Use:** `controller: My\ExampleBundle\Controller\DefaultController::articleViewAction`
@@ -285,6 +294,11 @@ to use `EzSystems\EzPlatformRichText\eZ\RichText` instead.
 
 #### Extra buttons
 
+Configuring custom Online Editor buttons with `ezrichtext.alloy_editor.extra_buttons` is deprecated.
+
+If you added custom buttons in this way, you need to rewrite your code to use
+`ezplatform.system.<siteacces>.fieldtypes.ezrichtext.toolbars.<toolbar_identifier>.buttons` instead.
+
 ### Workflow
 
 [`flex-workflow` has been combined with `ezplatform-workflow`](../releases/ez_platform_v3.0_deprecations.md#flex-workflow) in the form of a Quick Review functionality.
@@ -301,7 +315,7 @@ run the following command:
 
 If you extended the Universal Discovery Widget
 (e.g. added your own tabs or triggered opening the UDW for your own customizations),
-you need to rewrite this extension using the new YAML configuration.
+you need to rewrite this extension using the [new YAML configuration](../extending/extending_udw.md).
 
 ### Back Office extensibility
 
@@ -549,8 +563,8 @@ or for PostgreSQL:
 
 At this point you can continue with the standard update procedure:
 
-5\. [Platform.sh changes](5_platform_sh_changes.md)
+5\. [Platform.sh changes](../updating/5_platform_sh_changes.md)
 
-6\. [Dump assets](6_dump_assets.md)
+6\. [Dump assets](../updating/../updating/6_dump_assets.md)
 
-7\. [Commit, test and merge](7_commit_test_merge.md)
+7\. [Commit, test and merge](../updating/7_commit_test_merge.md)
