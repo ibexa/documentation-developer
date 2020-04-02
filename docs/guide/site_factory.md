@@ -71,11 +71,11 @@ It will connect SiteAccesses with the templates.
 ezplatform_site_factory:
     templates:
         ez_site1:
-            siteaccess_group: sf_group_1
+            siteaccess_group: example_site_factory_group_1
             name: example_site_1
             thumbnail: /path/to/image/example-thumbnail_1.png
         ez_site2:
-            siteaccess_group: sf_group_2
+            siteaccess_group: example_site_factory_group_2
             name: example_site_2
             thumbnail: /path/to/image/example-thumbnail_2.png
 ```
