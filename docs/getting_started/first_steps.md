@@ -8,6 +8,31 @@ These are most common actions you may need to take in a new installation.
     To go through a full tutorial that leads from a clean installation to creating a full site,
     see [Building a bicycle route tracker in eZ Platform](../tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md).
 
+## Remove welcome page
+
+![Welcome page](img/welcome_page.png)
+
+To remove the welcome page and get a completely clean installation to start your project with,
+remove the following files and folders from your installation:
+
+- Delete the file `config/packages/ezplatform_welcome_page.yaml`
+- Delete the `templates/themes/standard` folder
+- Delete the `assets/scss` folder
+- Delete all `translations/ezplatform_welcome_page.*` files
+- In `webpack.config.js` remove the `Encore.addEntry` section and uncomment the last line,
+so that the end of the file looks like this:
+
+``` js
+// Put your config here.
+
+// uncomment the two lines below, if you added a new entry (by Encore.addEntry() or Encore.addStyleEntry() method) to your own Encore configuration for your project
+// const projectConfig = Encore.getWebpackConfig();
+// module.exports = [ eZConfig, ...customConfigs, projectConfig ];
+
+// comment-out this line if you've uncommented the above lines
+module.exports = [ eZConfig, ...customConfigs ];
+```
+
 ## Create a Content Type
 
 1\. Go to the Back Office: `<your_domain>/admin`.

@@ -275,6 +275,7 @@ nav:
         - '6. Dump assets': 'updating/6_dump_assets.md'
         - '7. Commit, test and merge': 'updating/7_commit_test_merge.md'
     - Releases:
+        - 'eZ Platform v3.0': 'releases/ez_platform_v3.0.md'
         - 'eZ Platform v3.0 deprecations and BC breaks': 'releases/ez_platform_v3.0_deprecations.md'
         - 'eZ Platform v2.5 LTS': 'releases/ez_platform_v2.5.md'
         - 'eZ Platform v2.4': 'releases/ez_platform_v2.4.md'
@@ -327,10 +328,10 @@ theme:
 
 extra:
   version_warning:
-    latest: ['2.5']
+    latest: ['3.0']
     previous_lts: ['1.7','1.13']
     lts: ['2.5']
-    ft: ['2.2', '2.3','2.4']
+    ft: []
     dev: ['master']
   append_bootstrap:
     - '/guidelines/components/'
