@@ -22,24 +22,20 @@ To enable Site Factory you need to set `enabled` to `true` in `vendor/ezsystems/
 
 ### Configure designs
 
-Next, configure Site Factory by adding empty SiteAccess groups in `config/packages/ezplatform.yaml`:
+Next, configure Site Factory by adding empty SiteAccess groups (only one empty group is mandatory) in `config/packages/ezplatform.yaml`:
 
 ```yaml
 ezplatform:
     siteaccess:
-        list: [site, pl, de]
+        list: [site]
         groups:
-            site_group: [site, pl, de]
-            sf_group_1: []
-            sf_group_2: []
-            sf_group_3: []
+            site_group: [site]
+            example_site_factory_group_1: []
+            example_site_factory_group_2: []
             
     system:
-        sf_group_1:
-    
-        sf_group_2:
-    
-        sf_group_3:
+        example_site_factory_group_1:
+        example_site_factory_group_2:
 ```
 
 Uncomment the `'@EzSystems\EzPlatformSiteFactory\SiteAccessMatcher': ~` SiteAccess matcher in `ezplatform.siteaccess.match`.
@@ -58,12 +54,10 @@ ezdesign:
         
 ezpublish:
     system:
-        sf_group_1:
+        example_site_factory_group_1:
             design: example_1
-        sf_group_2:
+        example_site_factory_group_2:
             design: example_2
-        sf_group_3:
-            design: example_3
 ```
 
 `ezdesign` defines templates for your sites, so remember to add them before continuing.
@@ -79,11 +73,11 @@ ezplatform_site_factory:
         ez_site1:
             siteaccess_group: sf_group_1
             name: example_site_1
-            thumbnail: /assets/ezplatform/build/images/example-1-icon.png
+            thumbnail: /path/to/image/example-thumbnail_1.png
         ez_site2:
             siteaccess_group: sf_group_2
             name: example_site_2
-            thumbnail: https://example.thumbnail.com
+            thumbnail: /path/to/image/example-thumbnail_2.png
 ```
 
 You can check the results of your work in the Back Office by going to the **Site** tab.
@@ -149,7 +143,7 @@ Enabled Site Factory may cause following performance issues:
 - Site Factory matchers will be connected to the database in search for new SiteAccesses
 
 You can disable Site Factory to boost Config Resolver performance.
-Keep in mind that with disabled Site Factory you will not be able to add new sites.
+Keep in mind that with disabled Site Factory you will not be able to add new sites or use existing sites.
 
 1. In `vendor/ezsystems/ezplatform-site-factory/src/bundle/Resources/config/settings.yaml` change enabled to `false`
 1. In `config/packages/ezplatform.yaml` comment the `ezplatform.siteaccess.match: '@EzSystems\EzPlatformSiteFactory\SiteAccessMatcher': ~` if it is uncommented.
