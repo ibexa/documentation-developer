@@ -796,6 +796,8 @@ The following namespaces have been changed:
 Selected deprecated Role Service and permission-related methods have been removed.
 For details, see [code cleanup in kernel](#code-cleanup-in-kernel).
 
+Using the Criteria element in REST input query (search view) payload has been deprecated since eZ Platform v1.6 and was dropped in this release.
+
 ## ezplatform-richtext
 
 ### Code cleanup in eZ Platform RichText
