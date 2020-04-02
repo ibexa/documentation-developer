@@ -1,20 +1,20 @@
-# Upgrading to v3
+# Upgrading eZ Platform to v3
 
 To upgrade your v2 project to v3, you need to follow the [standard update procedure](../updating/updating_ez_platform.md),
 but you will also need to make changes to your code.
 
 ## 1\. Automatically refactor your code
 
-To simplify the process of adapting your code to Symfony 5, you can use [rector](https://github.com/rectorphp/rector)
-to automatically refactor your Symfony and PHPunit code.
+To simplify the process of adapting your code to Symfony 5, you can use [Rector, a reconstructor tool](https://github.com/rectorphp/rector)
+that will automatically refactor your Symfony and PHPunit code.
 
 ## 2\. Adapt project structure
 
 !!! tip
 
     For details on all changes related to the switch to Symfony 5,
-    see [Symfony upgrade guide for 4.0](https://github.com/symfony/symfony/blob/master/UPGRADE-4.0.md)
-    and [for 5.0](https://github.com/symfony/symfony/blob/master/UPGRADE-5.0.md)
+    see [Symfony upgrade guide for 4.0](https://github.com/symfony/symfony/blob/5.0/UPGRADE-4.0.md)
+    and [for 5.0](https://github.com/symfony/symfony/blob/5.0/UPGRADE-5.0.md)
 
 The latest Symfony versions changed the organization of your project into folders and bundles.
 When updating to eZ Platform v3 you need to move your files and modify file paths and namespace references.
@@ -25,19 +25,19 @@ When updating to eZ Platform v3 you need to move your files and modify file path
 
 Configuration files have been moved from `app/Resources/config` to `config`.
 Package-specific configuration is placed in `config/packages` (e.g. `config/packages/ezplatform_admin_ui.yaml`).
-This folder also contains `config/packages/ezplatform.yaml`, which contains all settings coming in from the Kernel.
+This folder also contains `config/packages/ezplatform.yaml`, which contains all settings coming in from Kernel.
 
 #### PHP code and bundle organization
 
 Since Symfony 4 your code is no longer organized in bundles.
 `AppBundle` has been removed from eZ Platform.
-You need to move all your PHP code, such as controllers or event listeners, in the `src` folder.
+You need to move all your PHP code, such as controllers or event listeners, to the `src` folder.
 Use the `App` namespace for your custom code instead.
 
 #### View templates
 
 Templates are no longer stored in `app/Resources/views`.
-You need to move all your templates in the `templates` folder in your project's root.
+You need to move all your templates to the `templates` folder in your project's root.
 
 #### Translations
 
@@ -51,7 +51,7 @@ Content of `app/Resources/assets` has been moved to `assets`.
 !!! note
 
     You also need to update paths that refer to the old location,
-    for example in [`webpack.config.js`](../guide/bundles.md#configuration-from-a-bundle)
+    for example in [`webpack.config.js`](../guide/bundles.md#configuration-from-a-bundle).
 
 ## 3\. Check out and update the app
 
@@ -249,9 +249,9 @@ If you used Signal Slots to listen for events in you custom code,
 you need to rewrite them using Symfony Events and Listeners instead.
 
 The application now triggers two Events per operation: one before and one after the relevant thing happens
-(see for example [Bookmark events](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Event/BookmarkService.php)).
+(see for example [Bookmark events](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/Event/BookmarkService.php)).
 
-To use them, create [Event Listeners](https://symfony.com/doc/4.3/event_dispatcher.html) in your code,
+To use them, create [Event Listeners](https://symfony.com/doc/5.0/event_dispatcher.html) in your code,
 for example:
 
 **Use:**
@@ -331,7 +331,7 @@ If your code makes use of HTTP cache bundle, see [the list of changes and deprec
 
 If your code extends the REST API, you need to modify namespaces.
 The `eZ\Publish\Core\REST` and `eZ\Publish\Core\REST\Common\` namespaces have been replaced by `EzSystems\EzPlatformRest`.
-This is due to the fact that REST code has been moved from kernel to a new `ezpublish-rest` package.
+This is due to the fact that REST code has been moved from Kernel to a new `ezpublish-rest` package.
 
 #### Custom installers
 
@@ -413,10 +413,10 @@ If your code uses them, you need to rewrite it to use the permission resolver.
 
 #### Container parameters
 
-A numer of Symfony Dependency Injection Container parameters [have been dropped](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/bc/8.0/dropped-container-parameters.md).
+A numer of Symfony Dependency Injection Container parameters [have been dropped](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/doc/bc/1.0/dropped-container-parameters.md).
 
 To check if your code uses them, search for all occurrences of `ezpublish\..*\.class` (regular expression pattern)
-and [decorate Symfony services](https://symfony.com/doc/4.4/service_container/service_decoration.html) instead.
+and [decorate Symfony services](https://symfony.com/doc/5.0/service_container/service_decoration.html) instead.
 
 #### QueryTypes
 
