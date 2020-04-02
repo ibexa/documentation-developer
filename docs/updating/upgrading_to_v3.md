@@ -436,46 +436,6 @@ The following Symfony namespaces have changed. You need to update your code if i
 
 For a full list of changes, see [Deprecations and backwards compatibility breaks](../releases/ez_platform_v3.0_deprecations.md)
 
-### Update the database
-
-Apply the following database update script:
-
-`mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/blob/master/data/update/mysql/dbupdate-7.5.latest-to-8.0.0.sql`
-
-or for PostgreSQL:
-
-`psql <database_name> < vendor/ezsystems/ezpublish-kernel/blob/master/data/update/postgres/dbupdate-7.5.latest-to-8.0.0.sql`
-
-!!! enterprise
-
-    ### Date-based publisher database update
-
-    Apply the following database update script for the Date-based publisher.
-
-    For MySQL:
-
-    ``` sql
-    BEGIN;
-    ALTER TABLE  `ezdatebasedpublisher_scheduled_version`
-    CHANGE COLUMN `publication_date` `date` INT(11) NOT NULL;
-    ALTER TABLE  `ezdatebasedpublisher_scheduled_version`
-    ADD COLUMN `action` VARCHAR(32);
-    UPDATE `ezdatebasedpublisher_scheduled_version` SET `action` = 'publish';
-    ALTER TABLE  `ezdatebasedpublisher_scheduled_version` CHANGE COLUMN `action` `action` VARCHAR(32) NOT NULL;
-    COMMIT;
-    ```
-
-    For PostgreSQL:
-
-    ``` sql
-    BEGIN;
-    ALTER TABLE ezdatebasedpublisher_scheduled_version RENAME COLUMN publication_date TO date;
-    ALTER TABLE ezdatebasedpublisher_scheduled_version ADD COLUMN action VARCHAR(32);
-    UPDATE ezdatebasedpublisher_scheduled_version SET action = 'publish';
-    ALTER TABLE ezdatebasedpublisher_scheduled_version ALTER COLUMN action SET NOT NULL ;
-    COMMIT;
-    ```
-
 ### Site Factory
 
 For production, it is recommended to create the `ezsite` and `ezsite_public_access` tables manually importing their schemas definition:
@@ -558,6 +518,36 @@ Apply the following database update script:
 or for PostgreSQL:
 
 `psql <database_name> < upgrade/db/postgresql/ezplatform-2.5.latest-to-3.0.0.sql`
+
+!!! enterprise
+
+    ### Date-based publisher database update
+
+    Apply the following database update script for the Date-based publisher.
+
+    For MySQL:
+
+    ``` sql
+    BEGIN;
+    ALTER TABLE  `ezdatebasedpublisher_scheduled_version`
+    CHANGE COLUMN `publication_date` `date` INT(11) NOT NULL;
+    ALTER TABLE  `ezdatebasedpublisher_scheduled_version`
+    ADD COLUMN `action` VARCHAR(32);
+    UPDATE `ezdatebasedpublisher_scheduled_version` SET `action` = 'publish';
+    ALTER TABLE  `ezdatebasedpublisher_scheduled_version` CHANGE COLUMN `action` `action` VARCHAR(32) NOT NULL;
+    COMMIT;
+    ```
+
+    For PostgreSQL:
+
+    ``` sql
+    BEGIN;
+    ALTER TABLE ezdatebasedpublisher_scheduled_version RENAME COLUMN publication_date TO date;
+    ALTER TABLE ezdatebasedpublisher_scheduled_version ADD COLUMN action VARCHAR(32);
+    UPDATE ezdatebasedpublisher_scheduled_version SET action = 'publish';
+    ALTER TABLE ezdatebasedpublisher_scheduled_version ALTER COLUMN action SET NOT NULL ;
+    COMMIT;
+    ```
 
 ## 6\. Continue update procedure
 
