@@ -12,7 +12,7 @@
 
 ### Symfony 5
 
-The version 3.0 moves eZ Platform to Symfony 5.0 from the previously used Symfony 3.
+The version 3.0 moves eZ Platform to Symfony 5.0 from the previously used Symfony 3.4.
 
 This entails several changes to the way projects are organized.
 For details, see [Symfony 4.0](https://github.com/symfony/symfony/blob/5.0/UPGRADE-4.0.md)
@@ -30,14 +30,12 @@ To use Symfony Events, create [Event Listeners](https://symfony.com/doc/5.0/even
 
 The list of bundles in v3.0 has been extended by the following ones:
 
-- `ezplatform-calendar`
-- `ezplatform-content-comparison`
-- `ezplatform-content-forms`
-- `ezplatform-kernel`
-- `ezplatform-rest`
-- `ezplatform-site-factory`
-- `ezplatform-version-comparison`
-- `ezplatform-workflow`
+- [`ezplatform-calendar`](https://github.com/ezsystems/ezplatform-calendar)
+- [`ezplatform-content-forms`](https://github.com/ezsystems/ezplatform-content-forms)
+- [`ezplatform-kernel`](https://github.com/ezsystems/ezplatform-kernel)
+- [`ezplatform-rest`](https://github.com/ezsystems/ezplatform-rest)
+- [`ezplatform-site-factory`](https://github.com/ezsystems/ezplatform-site-factory)
+- [`ezplatform-version-comparison`](https://github.com/ezsystems/ezplatform-version-comparison)
 
 For details, see [Bundles](../guide/bundles.md).
 
@@ -47,64 +45,80 @@ For details, see [Bundles](../guide/bundles.md).
 
     ### Site Factory
     
-    The new Site management User Interface is now integrated to Admin UI.
+    The new Site management User Interface is now integrated with Admin UI.
     It enables you to easily create and manage multiple sites from the Back Office without editing the configuration files.
-    For more information on enabling and configuring it, see [Site Factory in developer documentation](../guide/site_factory.md).
+    
+    For more information on: 
+    
+    - enabling and configuring, see [Site Factory in developer documentation](../guide/site_factory.md)
+    - using the Site Factory, see [User Guide](https://doc.ezplatform.com/projects/userguide/en/3.0/site_organization/site_factory/)
+
+    ### Scheduling
+    
+    #### Schedule calendar
+    
+    You can now easily view and perform scheduling actions using the Calendar widget available in the Back Office.
+    By default, the widget displays Content items scheduled for future publication, but custom events can be configured as well.
+    You can also filter displayed events and toggle through a day, week, and month view.
+    
+    #### Manage planned publications with Dashboard
+        
+    You can now reschedule or cancel planned future publications right from the Dashboard.
+    
+    #### Schedule hiding a Content item
+    
+    You can now schedule hiding Content items.
+    Using Calendar widget available in the Back Office you can also reschedule or cancel hiding a Content item.
+    
+    ### Defining buttons in Online Editor
+    
+    You can now reorder and disable buttons in Online Editor using [YAML configuration](../extending/extending_online_editor.md#customizing-buttons).
+
+    ### Workflow improvements
+    
+    #### Workflow actions
+    
+    You can now configure your workflows to [automatically publish content](../guide/workflow.md#publishing-content-with-workflow).
+    
+    You can also create [custom workflow actions](../guide/extending/extending_workflow.md#adding-custom-actions).
+    
+    #### Reviewers
+    
+    When sending content through a workflow, the user can now select reviewers.
+    You can require the user to select reviewers when sending content through the workflow.
+    
+    In the configuration, you can also set the workflow to [automatically notify the selected reviewers](../guide/workflow.md#sending-notifications).
+    
+    #### Quick review
+    
+    A built-in Quick Review offers a quick workflow configuration for your basic needs.
+    
+    #### Custom transition color
+    
+    You can configure a custom color for each of the transitions defined in the Workflow.
+    
+    ### Universal Discovery Widget
+    
+    The Universal Discovery Widget (UDW) has been re-designed and re-written.
+    New functionalities and changes include:
+    
+    - new configuration
+    - filtered search 
+    - resizable column with custom sort order
+    - editing content from UDW
+    
+    For full list of changes, see [Backwards compatibility doc](ez_platform_v3.0_deprecations.md#universal-discovery-widget) and [Configuration](../extending/extending_udw.md#configuration).
 
 ### Field Types
 
 #### Content query Field Type
 
 The new [Content query Field Type](../api/field_type_reference.md#content-query-field-type)
-enables you to configure a content query that will use parameters from a Field definition.
+enables you to configure a Content query that will use parameters from a Field definition.
 
 #### Field Type creation
 
 You can now use [Generic Field Type](../guide/extending_field_type.md) as a template for your custom Field Types.
-
-### Scheduling
-
-#### Schedule calendar
-
-You can now easily view and perform scheduling actions using the Calendar widget available in the Back Office.
-By default, the widget displays Content items scheduled for future publication, but custom events can be configured as well.
-You can also filter displayed events and toggle through a day, week, and month view.
-
-#### Manage planned publications with Dashboard
-    
-You can now reschedule or cancel planned future publications right from the Dashboard.
-
-#### Schedule hiding a Content item
-
-You can now schedule hiding Content items.
-Using Calendar widget available in the Back Office you can also reschedule or cancel hiding a Content item.
-
-### Defining buttons in Online Editor
-
-You can now reorder and disable buttons in Online Editor using [YAML configuration](../extending/extending_online_editor.md#customizing-buttons).
-
-### Workflow improvements
-
-#### Workflow actions
-
-You can now configure your workflows to [automatically publish content](../guide/workflow.md#publishing-content-with-workflow).
-
-You can also create [custom workflow actions](../guide/extending/extending_workflow.md#adding-custom-actions).
-
-#### Reviewers
-
-When sending content through a workflow, the user can now select reviewers.
-You can require the user to select reviewers when sending content through the workflow.
-
-In the configuration, you can also set the workflow to [automatically notify the selected reviewers](../guide/workflow.md#sending-notifications).
-
-#### Quick review
-
-A built-in Quick Review offers a quick workflow configuration for your basic needs.
-
-#### Custom transition color
-
-You can configure a custom color for each of the transitions defined in the Workflow.
 
 ### Login and password options
 
@@ -119,7 +133,7 @@ for user passwords.
 
 ### REST API reference
 
-The REST reference has been moved from Kernel to a new page [eZ Platform REST API.](https://doc.ezplatform.com/rest-api-reference)
+The REST reference has been moved from Kernel to a new page, [eZ Platform REST API.](https://doc.ezplatform.com/rest-api-reference)
 
 ### Search Criteria
 
@@ -164,25 +178,18 @@ You can now use the Sub-items list to quickly hide, reveal, to add Locations to 
 ### Tooltips
 
 You can now add custom tooltips to provide more information for the users when they hover over, focus on, or tap an element.
-For more information see [Add tooltips](../guide/extending/extending_back_office.md#add-tooltips).
+For more information, see [Tooltips UI documentation](../guidelines/components/tooltips.md) and [Guide to adding tooltips](../guide/extending/extending_back_office.md#add-tooltips).
 
 ### Thumbnails
 
 The new thumbnails API allows you to easily choose an image for each content.
-For more information see [Extending thumbnails](../guide/extending/extending_thumbnails.md).
+For more information, see [Extending thumbnails](../guide/extending/extending_thumbnails.md).
 
 ### Type hints for Public API
 
 Strict types have been added to Public API methods, for full list see [backwards compatibility breaks](ez_platform_v3.0_deprecations.md#strict-types-for-php-api).
 
 ## Other changes
-
-### Universal Discovery Widget
-
-The configuration for Universal Discovery Widget (UDW) has been rewritten.
-For full list of changes, see [Backwards compatibility doc](ez_platform_v3.0_deprecations.md#universal-discovery-widget) and [Configuration](../extending/extending_udw.md#configuration).
-
-New functionalities have been added, you can now edit content from Universal Discovery Widget.
 
 ### GraphQL
 
@@ -259,7 +266,6 @@ For a full list of changes on Field Types, see [Backwards compatibility doc](ez_
 
 Elastic Search support has been dropped.
 
-
 ### REST server
 
 REST-related code has been moved from Kernel to a new [`ezsystems/ezplatform-rest`](https://github.com/ezsystems/ezplatform-rest) package.
@@ -298,7 +304,7 @@ eZ Platform now requires using PHP 7.3. For full list of, see [eZ Platform requi
 
 ## Updating
 
-For the upgrade details, see [eZ Platform v3.0 project update instructions](./ez_platform_v3.0_project_update.md#custom-installers).
+For the upgrade details, see [eZ Platform v3.0 project update instructions](../updating/ez_platform_v3.0_project_update.md).
 
 ## Full changelog
 
