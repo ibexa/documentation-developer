@@ -16,8 +16,8 @@ To remove the welcome page and get a completely clean installation to start your
 remove the following files and folders from your installation:
 
 - Delete the file `config/packages/ezplatform_welcome_page.yaml`
-- Delete all files in `templates/themes/standard`, leaving the folder empty
-- Delete the file `assets/scss/welcome_page.scss`
+- Delete the `templates/themes/standard` folder
+- Delete the `assets/scss` folder
 - In `webpack.config.js` remove the `Encore.addEntry` section and uncomment the last line,
 so that the end of the file looks like this:
 
