@@ -18,6 +18,7 @@ remove the following files and folders from your installation:
 - Delete the file `config/packages/ezplatform_welcome_page.yaml`
 - Delete the `templates/themes/standard` folder
 - Delete the `assets/scss` folder
+- Delete all `translations/ezplatform_welcome_page.*` files
 - In `webpack.config.js` remove the `Encore.addEntry` section and uncomment the last line,
 so that the end of the file looks like this:
 
