@@ -280,6 +280,19 @@ The REST API supports two authentication methods:
 
 Session-based is the default authentication method as it is needed for UI.
 
+!!! note "Limiting anonymous access to metadata over REST API"
+    
+    Some API endpoints accessible to the Anonymous User return metadata you might not want to expose, due to insufficient permission limitations.
+    To prevent that, you can rely on the Symfony securing URL patterns mechanism called [access_control](https://symfony.com/doc/3.4/security/access_control.html).
+    The example below shows you how to block listing Content Types for the non-authenticated users.
+    
+    **security.yml**
+    ``` yaml
+    security:
+        access_control:
+            - { path: '^/api/ezp/v2/content/types', roles: ROLE_USER }
+    ```
+
 ### Session-based authentication
 
 This authentication method requires a Session cookie to be sent with each request.
