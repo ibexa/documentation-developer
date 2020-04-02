@@ -1,7 +1,7 @@
 # Site Factory
 
-Site Factory is site management User Interface, integrated with Admin UI.
- It allows you to configure sites without editing:
+Site Factory is a site management User Interface, integrated with Admin UI.
+It enables you to configure sites without editing:
 
 - SiteAccess configuration
 - multisite configuration
@@ -23,7 +23,7 @@ To enable Site Factory you need to set `enabled` to `true` in `vendor/ezsystems/
 ### Configure designs
 
 Next, configure Site Factory by adding empty SiteAccess groups, only one empty group is mandatory.
-Under this group you will be able to configure all settings, which do not expose UI e.g. Content view.
+Under this group you will be able to configure all settings which do not expose UI, e.g. Content view.
 
 Add groups in `config/packages/ezplatform.yaml`:
 
@@ -92,10 +92,10 @@ To be able to see your site online you need to define a domain for it.
 
 !!! caution "Define domain for production environment"
 
-    This steps are for `dev` environment only.
+    These steps are for `dev` environment only.
     If you want to define domains in production environment, you will need to configure Apache or Nginx by yourself.
 
-In `.env` file change line 2 to: `COMPOSE_FILE=doc/docker/base-dev.yml:doc/docker/multihost.yml`
+In the `.env` file change line 2 to: `COMPOSE_FILE=doc/docker/base-dev.yml:doc/docker/multihost.yml`
 
 Take a look into the `doc/docker/multihost.yml` file. 
 Here you will define your domains. 
@@ -151,7 +151,7 @@ Enabled Site Factory may cause following performance issues:
 - Site Factory matchers will be connected to the database in search for new SiteAccesses
 
 You can disable Site Factory to boost Config Resolver performance.
-Keep in mind that with disabled Site Factory you will not be able to add new sites or use existing sites.
+Keep in mind that with disabled Site Factory you will not be able to add new sites or use existing ones.
 
 1. In `vendor/ezsystems/ezplatform-site-factory/src/bundle/Resources/config/settings.yaml` change enabled to `false`
 1. In `config/packages/ezplatform.yaml` comment the `ezplatform.siteaccess.match: '@EzSystems\EzPlatformSiteFactory\SiteAccessMatcher': ~` if it is uncommented.
