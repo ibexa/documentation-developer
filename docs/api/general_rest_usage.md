@@ -145,12 +145,12 @@ For instance, they can be used to customize a list's offset/limit.
 To filter a list, specify which fields you want from a content, etc.
 For almost all resources, these parameters must be provided as GET. 
 
-The example request below would return the first 5 relations for version 2 of the Content item 59:
+The example request below would return the first 5 relations for version 3 of the Content item 59:
 
 **GET request with limit parameter**
 
 ```
-GET /content/objects/59/versions/2/relations&limit=5 HTTP/1.1
+GET /content/objects/59/versions/3/relations&limit=5 HTTP/1.1
 Accept: application/vnd.ez.api.RelationList+xml
 ```
 
