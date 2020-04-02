@@ -2,6 +2,11 @@
 
 This page lists backwards compatibility breaks and deprecations introduced in eZ Platform v3.0.
 
+!!! tip "Upgrade to v3"
+
+    For a guide on moving your project to v3,
+    see [Upgrading to v3](../updating/upgrading_to_v3.md).
+
 ## Symfony 4
 
 v3.0 now uses Symfony 4 instead of Symfony 3.

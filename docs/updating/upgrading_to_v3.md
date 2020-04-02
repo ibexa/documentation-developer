@@ -1,6 +1,6 @@
-# Migrating to v3
+# Upgrading to v3
 
-To migrate your v2 project to v3, you need to follow the [standard update procedure](../updating/updating_ez_platform.md),
+To upgrade your v2 project to v3, you need to follow the [standard update procedure](../updating/updating_ez_platform.md),
 but you will also need to make changes to your code.
 
 ## 1\. Automatically refactor your code
