@@ -97,17 +97,23 @@ For details, see [Bundles](../guide/bundles.md).
     
     You can configure a custom color for each of the transitions defined in the Workflow.
     
-    ### Universal Discovery Widget
+    ## Version comparison
     
-    The Universal Discovery Widget (UDW) has been re-designed and re-written.
-    New functionalities and changes include:
+    You can now compare two versions of the same Content item and preview changes in their Fields:
     
-    - new configuration
-    - filtered search 
-    - resizable column with custom sort order
-    - editing content from UDW
+    ![Version comparison](img/compare_results.png "Version comparison in one-column view")
     
-    For full list of changes, see [Backwards compatibility doc](ez_platform_v3.0_deprecations.md#universal-discovery-widget) and [Configuration](../extending/extending_udw.md#configuration).
+### Universal Discovery Widget
+
+The Universal Discovery Widget (UDW) has been re-designed and re-written.
+New functionalities and changes include:
+
+- new configuration
+- filtered search 
+- resizable column with custom sort order
+- editing content from UDW (Enterprise only)
+
+For full list of changes, see [Backwards compatibility doc](ez_platform_v3.0_deprecations.md#universal-discovery-widget) and [Configuration](../extending/extending_udw.md#configuration).
 
 ### Field Types
 

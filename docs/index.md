@@ -72,6 +72,7 @@
             <li>Content Query Field Type</li>
             <li>Generic Field Type</li>
             <li>Schedule Calendar</li>
+            <li>Version comparison</li>
             <li>Workflow improvements</li>
             <li>Universal Discovery Widget improvements</li>
             <li>New API reference</li>
