@@ -192,6 +192,7 @@ nav:
         - 'Legacy Bridge': 'migrating/legacy_bridge.md'
         - 'Common issues': 'migrating/common_issues.md'
     - Updating eZ Platform:
+        - 'Upgrading to eZ Platform v3': 'updating/upgrading_to_v3.md'
         - 'Updating eZ Platform': 'updating/updating_ez_platform.md'
         - '1. Check out a tagged version': 'updating/1_check_out_version.md'
         - '2. Merge composer.json': 'updating/2_merge_composer.md'
