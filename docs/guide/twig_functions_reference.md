@@ -2,7 +2,7 @@
 
 !!! note "Symfony and Twig template functions/filters/tags"
 
-    For the template functionality provided by Symfony Framework, see [Symfony Twig Extensions Reference page](http://symfony.com/doc/4.3/reference/twig_reference.html). For those provided by the underlying Twig template engine, see [Twig Reference page](http://twig.sensiolabs.org/documentation#reference).
+    For the template functionality provided by Symfony Framework, see [Symfony Twig Extensions Reference page](http://symfony.com/doc/5.0/reference/twig_reference.html). For those provided by the underlying Twig template engine, see [Twig Reference page](http://twig.sensiolabs.org/documentation#reference).
 
 In addition to the [native functions provided by Twig](http://twig.sensiolabs.org/doc/functions/index.html), eZ Platform offers the following:
 
@@ -24,7 +24,6 @@ In addition to the [native functions provided by Twig](http://twig.sensiolabs.or
 |[`ez_short_date`](#ez_short_datetime-ez_short_date-ez_short_time)|Outputs date in short format.|
 |[`ez_short_time`](#ez_short_datetime-ez_short_date-ez_short_time)|Outputs time in short format.|
 |[`ez_render_field`](#ez_render_field)|Displays a Content item's Field value, taking advantage of the template block exposed by the Field Type used.|
-|[`ez_trans_prop`](#ez_trans_prop)|Gets the translated value of a multi valued(translations) property.|
 |[`ez_urlalias`](#ez_urlalias)|It is a special route name for generating URLs for a Location from the given parameters.|
 
 ### `ez_content_name`
@@ -238,7 +237,7 @@ It can be used for example to identify the first image in an article to render i
 
 ### `ez_full_datetime`, `ez_full_date`, `ez_full_time`
 
-These Twig filters are used to [format date and time](extending/extending_ez_platform.md#format-date-and-time).
+These Twig filters are used to [format date and time](../extending/extending_date_and_time.md).
 The formats are defined in [user preferences](config_back_office.md#date-and-time-formats).
 
 | Twig filter | Description |
@@ -437,7 +436,7 @@ you can specify the current template to be the source of the Field block.
 
     **Using `_self` will only work if your current template is extending another one.**
 
-    This is basically the same limitation as for [Symfony form themes](https://symfony.com/doc/4.3/form/form_themes.html).
+    This is basically the same limitation as for [Symfony form themes](https://symfony.com/doc/5.0/form/form_themes.html).
 
 ##### Global override
 
@@ -476,7 +475,7 @@ The template must also extend `EzPublishCore/content_fields.html.twig`.
 
 ### `ez_short_datetime`, `ez_short_date`, `ez_short_time`
 
-These Twig filters are used to [format date and time](extending/extending_ez_platform.md#format-date-and-time).
+These Twig filters are used to [format date and time](../extending/extending_date_and_time.md).
 The formats are defined in [user preferences](config_back_office.md#date-and-time-formats).
 
 | Twig filter | Description |
@@ -492,47 +491,6 @@ For example `{{ contentInfo.publishedDate|ez_full_datetime }}` will return `03 M
 
 The filters also accept an optional `timezone` parameter for displaying date and time in a chosen time zone.
 
-### `ez_trans_prop`
-
-#### Description
-
-`ez_trans_prop()` is a generic, low level Twig helper which gets the translated value of a multi valued(translations) property.
-
-If the Content item does not have a translation in the current language, the main language (see [further down for details](#main-language-use)) will be used if this is supported by the provided **object**. This behavior is identical when forcing a language using **forcedLanguage**.
-
-If languages were specified during retrieval of a given value object, you can get translated values directly in several cases now, including examples below. For more details, see [Languages](internationalization.md).
-
-#### Prototype and Arguments
-
-`ez_trans_prop ( ValueObject object, string property [, string forcedLanguage ] ) : string|null`
-
-|Argument name|Type|Description|
-|------|------|------|
-|`object`|`eZ\Publish\API\Repository\Values\ValueObject`|ValueObject object **property** belongs to.|
-|`property`|`string`|Property to get translated value from, logic is using one of the following (in this order):</br>object method `get{property}`</br>object property `{property}s`|
-|`forcedLanguage`|`string`|Optional language we want to force (e.g. `"eng-US"``), otherwise takes prioritized languages from SiteAccess settings.|
-
-##### Main language use
-
-Main language is be applied in the following way for value objects that support this:
-
-- *When attribute is retrieved via object property*: Use **mainLanguageCode** property if it exists as fallback language, but only if either **alwaysAvailable** property does not exist, or is true.
-- *When attribute is retrieved via object method*: Provide `$language = null` as the only argument to the method, the logic of the ValueObject decides if this gives a fallback value or not.
-
-#### Usage
-
-Example below shows how this function can be used to get the content name with exact same result as using `ez_content_name(content)`:
-
-``` html+twig
-{{ ez_trans_prop( versionInfo, "name" ) }}
-```
-
-Example for `ContentType->names`:
-
-``` html+twig
-{{ ez_trans_prop( contentType, "name" ) }}
-```
-
 ### `ez_urlalias`
 
 #### Description
@@ -541,21 +499,25 @@ Example for `ContentType->names`:
 
 #### Prototype and Arguments
 
-`path( eZ\Publish\API\Repository\Values\Content\Location|string name [, array parameters ] [, bool absolute ] ) : string`
+`ez_path( eZ\Publish\API\Repository\Values\Content\Location|
+    \eZ\Publish\API\Repository\Values\Content\Content|
+    \eZ\Publish\API\Repository\Values\Content\ContentInfo|
+    \eZ\Publish\API\Repository\Values\Content\Location|
+    \eZ\Publish\Core\MVC\Symfony\Routing\RouteReference name [, array parameters ] [, bool absolute ] ) : string`
 
 |Argument name|Type|Description|
 |------|------|------|
-|`name`|`string | \eZ\Publish\API\Repository\Values\Content\Location`|The name of the route or a Location instance|
+|`name`|`string | `\eZ\Publish\API\Repository\Values\Content\Location`</br>`\eZ\Publish\API\Repository\Values\Content\Content`</br>`\eZ\Publish\API\Repository\Values\Content\ContentInfo`</br>`\eZ\Publish\API\Repository\Values\Content\Location`</br>`\eZ\Publish\Core\MVC\Symfony\Routing\RouteReference`|The name of the route, Location or Content instance|
 |`parameters`|`array`|A hash of parameters:</br>`locationId`</br>`contentId`|
 |`absolute`|`boolean`|Whether to generate an absolute URL|
 
 #### Working with Location
 
-Linking to other Locations is fairly easy and is done with the [native `path()` Twig helper](http://symfony.com/doc/2.3/book/templating.html#linking-to-pages) (or `url()` if you want to generate absolute URLs). You just have to pass it the Location object and `path()` will generate the URLAlias for you.
+Linking to other Locations is fairly easy and is done with the `ez_path()` Twig helper (or `ez_url()` if you want to generate absolute URLs). You just have to pass it the Location object and `ez_path()` will generate the URLAlias for you.
 
 ``` html+twig
 {# Assuming "location" variable is a valid eZ\Publish\API\Repository\Values\Content\Location object #}
-<a href="{{ path( location ) }}">Some link to a location</a>
+<a href="{{ ez_path( location ) }}">Some link to a location</a>
 ```
 
 #### I don't have the Location object
@@ -586,6 +548,6 @@ For a Location alias set up a 301 redirect to the Location's current URL when:
 
 !!! note "Under the hood"
 
-    In the back end, `path()` uses the Router to generate links.
+    In the back end, `ez_path()` uses the Router to generate links.
 
     This makes it also easy to generate links from PHP, via the `router` service.

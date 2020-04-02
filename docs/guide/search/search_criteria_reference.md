@@ -30,6 +30,8 @@ Due to this storage limitation, searching content using the eZ Country Field Typ
 |[FullText](criteria_reference/fulltext_criterion.md)|Full text content of a Content item's Fields|Content and Location|
 |[IsFieldEmpty](criteria_reference/isfieldempty_criterion.md)|Whether a specified Field of a Content item is empty or not|Content and Location
 |[IsMainLocation](criteria_reference/ismainlocation_criterion.md)|Whether a Location is the main Location of a Content item|Location only|
+|[IsUserBased](criteria_reference/isuserbased_criterion.md)|Whether content represents a User account|Content and Location|
+|[IsUserEnabled](criteria_reference/isuserenabled_criterion.md)|Whether a User account is enabled|Content and Location|
 |[LanguageCode](criteria_reference/languagecode_criterion.md)|Whether a Content item is translated into the selected language|Content and Location|
 |[LocationId](criteria_reference/locationid_criterion.md)|Location ID|Content and Location|
 |[LocationRemoteId](criteria_reference/locationremoteid_criterion.md)|Location remote ID|Content and Location|
@@ -37,10 +39,16 @@ Due to this storage limitation, searching content using the eZ Country Field Typ
 |[MatchAll](criteria_reference/matchall_criterion.md)|Returns all search results|Content and Location|
 |[MatchNone](criteria_reference/matchnone_criterion.md)|Returns no search results|Content and Location|
 |[ObjectStateId](criteria_reference/objectstateid_criterion.md)|Object State ID|Content and Location|
+|[ObjectStateIdentifier](criteria_reference/objectstateidentifier_criterion.md)|Object State Identifier|Content and Location|
 |[ParentLocationId](criteria_reference/parentlocationid_criterion.md)|Location ID of a Content item's parent|Content and Location|
 |[Priority](criteria_reference/priority_criterion.md)|Location priority|Location only|
 |[RemoteId](criteria_reference/remoteid_criterion.md)|Remote content ID|Content and Location|
-|[SectionId](criteria_reference/sectionid_criterion.md)|The Section content is assigned to|Content and Location|
+|[SectionId](criteria_reference/sectionid_criterion.md)|ID of the Section content is assigned to|Content and Location|
+|[SectionIdentifier](criteria_reference/sectionidentifier_criterion.md)|Identifier of the Section content is assigned to|Content and Location|
+|[Sibling](criteria_reference/sibling_criterion.md)|Locations that are children of the same parent|Content and Location|
 |[Subtree](criteria_reference/subtree_criterion.md)|Location subtree|Content and Location|
+|[UserEmail](criteria_reference/useremail_criterion.md)|Email address of a User account|Content and Location|
+|[UserId](criteria_reference/userid_criterion.md)|User ID|Content and Location|
+|[UserLogin](criteria_reference/userlogin_criterion.md)|User login|Content and Location|
 |[UserMetadata](criteria_reference/usermetadata_criterion.md)|The creator or modifier of a Content item|Content and Location|
 |[Visibility](criteria_reference/visibility_criterion.md)|Whether the Content item is visible or not|Content and Location|

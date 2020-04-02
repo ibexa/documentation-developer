@@ -91,7 +91,7 @@ These parameters can then be used in templates, for example:
 
 ### Adding a listener
 
-One way to add custom logic to all responses is to use your own listener. Please refer to the [Symfony documentation](https://symfony.com/doc/4.3/event_dispatcher/before_after_filters.html#after-filters-with-the-kernel-response-event) for the details on how to achieve this.
+One way to add custom logic to all responses is to use your own listener. Please refer to the [Symfony documentation](https://symfony.com/doc/5.0/event_dispatcher/before_after_filters.html#after-filters-with-the-kernel-response-event) for the details on how to achieve this.
 
 ### Using only your custom controller
 
@@ -172,49 +172,138 @@ The Query controller makes it easy to retrieve content without writing custom PH
 - List of Blog posts in a Blog
 - List of Images in a Gallery
 
-### Usage example
+### Built-in Query Types
+
+You can make use of the following built-in Query Types for quick rendering:
+
+#### Children
+
+The `Children` Query Type retrieves children of the given Location.
+
+It takes `location` or `content` as parameters.
+
+``` yaml
+params:
+    query:
+        query_type: 'Children'
+        parameters:
+            content: '@=content'
+        assign_results_to: items
+```
+
+#### Siblings
+
+The `Siblings` Query Type retrieves Locations that have the same parent as the provided Content item or Location.
+
+It takes `location` or `content` as parameters.
+
+``` yaml
+params:
+    query:
+        query_type: 'Siblings'
+        parameters:
+            content: '@=content'
+        assign_results_to: items
+```
+
+#### Ancestors
+
+The `Ancestors` Query Type retrieves all ancestors (direct parents and their parents) of the provided Location.
+
+It takes `location` or `content` as parameters.
+
+``` yaml
+params:
+    query:
+        query_type: 'Ancestors'
+        parameters:
+            content: '@=content'
+        assign_results_to: items
+```
+
+#### RelatedToContent
+
+The `RelatedToContent` Query Type retrieves content that is a reverse relation to the provided Content item.
+
+It takes `content` or `field` as obligatory parameters.
+`field` indicates the Relation or RelationList Field that contains the relations.
+
+``` yaml
+params:
+    query:
+        query_type: 'RelatedToContent'
+        parameters:
+            content: '@=content'
+            field: 'relations'
+        assign_results_to: items
+```
+
+#### GeoLocation
+
+The `GeoLocation` Query Type retrieves content by distance of the location provided in a MapLocation Field.
+
+It takes the following obligatory parameters:
+
+- `field` - MapLocation Field identifier
+- `distance` - distance to check for
+- `latitude` and `longitude` - coordinates of the location to check distance to
+- (optional) `operator` - operator to check value against, by default `<=`
+
+``` yaml
+params:
+    query:
+        query_type: 'GeoLocation'
+        parameters:
+            field: 'location'
+            distance: 200
+            latitude: '@=content.getFieldValue("location").latitude'
+            longitude: '@=content.getFieldValue("location").longitude'
+            operator: '<'
+        assign_results_to: items
+```
+
+#### General Query Type parameters
+
+All built-in Query Types take the following optional parameters:
+
+- `limit` - limit for number of search hits to return
+- `offset` - offset for search hits, used for paging the results
+- `sort` - sorting options
+- `filter` - additional query filters:
+    - `content_type` - return only results of given Content Types
+    - `visible_only` - return only visible results (default `true`)
+    - `siteaccess_aware` - return only results limited to current SiteAccess root (default `true`)
+
+For example:
+
+``` yaml
+params:
+    query:
+        query_type: 'Children'
+        parameters:
+            content: '@=content'
+            filter:
+                content_type: ['blog_post']
+                visible_only: false
+            limit: 5
+            offset: 2
+            sort: 'content_name asc, date_published desc'
+        assign_results_to: items
+```
+
+!!! note "Sorting order"
+
+    To provide sorting order to the `sort` parameter, use names of the Sort Clauses in
+    `eZ\Publish\API\Repository\Values\Content\Query\SortClause`.
+
+#### Using built-in Query Types
 
 This example assumes a "Blog" container that contains a set of "Blog post" items. The goal is, when viewing a Blog, to list the Blog posts it contains.
 
-Four items are required:
+Two items are required:
 
-- a `LocationChildren` QueryType - It will generate a Query retrieving the children of a given Location id
 - a View template - It will render the Blog, and list the Blog posts it contains
-- a `content_view` configuration - It will instruct Platform, when viewing a Content item of type Blog, to use the Query Controller, the view template, and the `LocationChildren` QueryType. It will also map the id of the viewed Blog to the QueryType parameters, and set which Twig variable the results will be assigned to.
-- [service registration of the QueryType](#registering-the-querytype-into-the-service-container)
-
-#### The LocationChildren QueryType
-
-QueryTypes are described in more detail in the [next section](#querytype-objects). In short, a QueryType can build a Query object, optionally based on a set of parameters. The following example will build a Query that retrieves the sub-items of a Location:
-
-``` php
-<?php
-namespace App\QueryType;
-
-use eZ\Publish\API\Repository\Values\Content\LocationQuery;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion\ParentLocationId;
-use eZ\Publish\Core\QueryType\QueryType;
-
-class LocationChildrenQueryType implements QueryType
-{
-    public function getQuery(array $parameters = [])
-    {
-        return new LocationQuery([
-            'filter' => new ParentLocationId($parameters['parentLocationId']),
-        ]);
-    }
-
-    public function getSupportedParameters()
-    {
-        return ['parentLocationId'];
-    }
-
-    public static function getName()
-    {
-        return 'LocationChildren';
-    }
-}
-```
+- a `content_view` configuration - It will instruct Platform, when viewing a Content item of type Blog, to use the Query Controller, the view template, and the `Children` QueryType. It will also map the ID of the viewed Blog to the QueryType parameters, and set which Twig variable the results will be assigned to.
 
 #### The `content_view` configuration
 
@@ -227,24 +316,24 @@ ezplatform:
                 content_view:
                     full:
                         blog:
-                            controller: ez_query:locationQueryAction
+                            controller: ez_query:contentQueryAction
                             template: content/view/full/blog.html.twig
                             match:
                                 Identifier\ContentType: "blog"
                             params:
                                 query:
-                                    query_type: LocationChildren
+                                    query_type: Children
                                     parameters:
-                                        parentLocationId: '@=location.id'
+                                        location: '@=location'
                                     assign_results_to: blog_posts
 ```
 
-The view's controller action is set to the QueryController's `locationQuery` action (`ez_query:locationQueryAction`). Other actions are available that run a different type of search (contentInfo or content).
+The view's controller action is set to the QueryController's `contentQuery` action (`ez_query:contentQueryAction`). Other actions are available that run a different type of search (contentInfo or location).
 
 The QueryController is configured in the `query` array, inside the `params` of the `content_view` block:
 
 - `query_type` specifies the QueryType to use, based on its name.
-- `parameters` is a hash where parameters from the QueryType are set. Arbitrary values can be used, as well as properties from the currently viewed [Location](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Location.php) and [ContentInfo](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/ContentInfo.php). In that case, the id of the currently viewed Location is mapped to the QueryType's `parentLocationId` parameter: `parentLocationId: "@=location.id"`
+- `parameters` is a hash where parameters from the QueryType are set. Arbitrary values can be used, as well as properties from the currently viewed [Location](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Location.php) and [ContentInfo](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/ContentInfo.php). In that case, the ID of the currently viewed Location is mapped to the QueryType's `location` parameter: `location: '@=location'`
 - `assign_results_to` sets which Twig variable the search results will be assigned to.
 
 #### The view template
@@ -258,6 +347,71 @@ Results from the search are assigned to the `blog_posts` variable as a `SearchRe
   <h2>{{ ez_content_name(blog_post.valueObject.contentInfo) }}</h2>
 {% endfor %}
 ```
+
+### Creating custom Query Types
+
+Beyond the built-in Query Types, you can create your own.
+
+For example, this Query Type returns a Query that searches for the last ten published Content items, ordered by reverse publishing date.
+It accepts an optional `type` parameter [lines 13-15] that can be set to a Content Type identifier (e.g. `article`):
+
+``` php
+<?php
+namespace App\QueryType;
+
+use eZ\Publish\Core\QueryType\QueryType;
+use eZ\Publish\API\Repository\Values\Content\LocationQuery;
+use eZ\Publish\API\Repository\Values\Content\Query;
+
+class LatestContentQueryType implements QueryType
+{
+    public function getQuery(array $parameters = [])
+    {
+        $criteria[] = new Query\Criterion\Visibility(Query\Criterion\Visibility::VISIBLE);
+        if (isset($parameters['type'])) {
+            $criteria[] = new Query\Criterion\ContentTypeIdentifier($parameters['type']);
+        }
+        // 10 is the default limit we set, but you can have one defined in the parameters
+        return new LocationQuery([
+            'filter' => new Query\Criterion\LogicalAnd($criteria),
+            'sortClauses' => [new Query\SortClause\DatePublished()],
+            'limit' => isset($parameters['limit']) ? $parameters['limit'] : 10,
+        ]);
+    }
+    public static function getName()
+    {
+        return 'LatestContent';
+    }
+    /**
+     * Returns an array listing the parameters supported by the QueryType.
+     * @return array
+     */
+    public function getSupportedParameters()
+    {
+        return ['type', 'limit'];
+    }
+}
+```
+
+In content view configuration, use the name of the Query Types as defined in `getName`.
+
+``` yaml
+content_view:
+    full:
+        latest:
+            controller: ez_query:locationQueryAction
+            template: content/view/full/latest.html.twig
+            match:
+                Identifier\ContentType: "latest"
+            params:
+                query:
+                    query_type: LatestContent
+                    parameters:
+                        parentLocationId: '@=location.id'
+                    assign_results_to: latest
+```
+
+Your Query Type must be [registered as a service](#registering-the-querytype-into-the-service-container).
 
 ### Configuration details
 
@@ -285,11 +439,11 @@ The Query is configured in a `query` hash in `params`, you could specify the Que
     - This is the name of the Twig variable that will be assigned the results.
     - Note that the results are the SearchResult object returned by the SearchService.
 
-#### QueryType objects
+### Query Type objects
 
-QueryType is an object that builds a Query. It is different from [Public API queries](../api/public_php_api.md).
+Query Type is an object that builds a Query. It is different from [Public API queries](../api/public_php_api.md).
 
-To make a new QueryType available to the Query Controller, you need to create a PHP class that implements the QueryType interface, then register it as such in the Service Container.
+To make a new Query Type available to the Query Controller, you need to create a PHP class that implements the QueryType interface, then register it as such in the Service Container.
 
 For more information about the [Service Container on its documentation page](service_container.md).
 
@@ -338,49 +492,6 @@ A QueryType may accept parameters, including string, array and other types, depe
 
 The implementations should use Symfony's `OptionsResolver` for parameter handling and resolution.
 
-### QueryType example: latest content
-
-This QueryType returns a Query that searches for **the 10 last published Content items, ordered by reverse publishing date**.
-It accepts an optional `type` parameter that can be set to a Content Type identifier:
-
-``` php
-<?php
-namespace App\QueryType;
-
-use eZ\Publish\Core\QueryType\QueryType;
-use eZ\Publish\API\Repository\Values\Content\LocationQuery;
-use eZ\Publish\API\Repository\Values\Content\Query;
-
-class LatestContentQueryType implements QueryType
-{
-    public function getQuery(array $parameters = [])
-    {
-        $criteria[] = new Query\Criterion\Visibility(Query\Criterion\Visibility::VISIBLE);
-        if (isset($parameters['type'])) {
-            $criteria[] = new Query\Criterion\ContentTypeIdentifier($parameters['type']);
-        }
-        // 10 is the default limit we set, but you can have one defined in the parameters
-        return new LocationQuery([
-            'filter' => new Query\Criterion\LogicalAnd($criteria),
-            'sortClauses' => [new Query\SortClause\DatePublished()],
-            'limit' => isset($parameters['limit']) ? $parameters['limit'] : 10,
-        ]);
-    }
-    public static function getName()
-    {
-        return 'LatestContent';
-    }
-    /**
-     * Returns an array listing the parameters supported by the QueryType.
-     * @return array
-     */
-    public function getSupportedParameters()
-    {
-        return ['type', 'limit'];
-    }
-}
-```
-
 ### Naming of QueryTypes
 
 Each QueryType is named after what is returned by `getName()`. **Names must be unique.** A warning will be thrown during compilation if there is a conflict, and the resulting behavior will be unpredictable.
@@ -402,7 +513,7 @@ Otherwise, you can register your QueryType with a service tag:
 ``` yaml
 App\QueryType\LatestContent:
     tags:
-        - { name: ezpublish.query_type, alias: LatestContent }
+        - { name: ezplatform.query_type, alias: LatestContent }
 ```
 
 ### Paginating with QueryTypes
@@ -458,7 +569,7 @@ The LatestContentQueryType from the [example above](#querytype-example-latest-co
 
 !!! note
 
-    For further information see the [Symfony's Options Resolver documentation page](http://symfony.com/doc/4.3/components/options_resolver.html)
+    For further information see the [Symfony's Options Resolver documentation page](http://symfony.com/doc/5.0/components/options_resolver.html)
 
 ``` php
 <?php

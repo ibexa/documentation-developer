@@ -107,7 +107,7 @@ The configuration described above lets you select one template to be used in a g
 
 !!! tip
 
-    See [Including Templates](http://symfony.com/doc/4.3/book/templating.html#including-templates) in Symfony documentation for more information on including templates.
+    See [Including Templates](http://symfony.com/doc/5.0/book/templating.html#including-templates) in Symfony documentation for more information on including templates.
 
 The main template for your webpage is placed in a pagelayout.
 You can define the pagelayout per SiteAccess using the `ezplatform.system.<SiteAccess>.pagelayout` setting.
@@ -188,7 +188,7 @@ This example renders the Content item with Location ID 33 using the line view. T
 
 Asset files such as CSS stylesheets, JS scripts or image files can be defined in the templates and need to be included in the directory structure in the same way as with any other web project. Assets are placed in the `public/` folder in your installation.
 
-Instead of linking to stylesheets or embedding images like usually, you can use the [`asset`](http://symfony.com/doc/4.3/book/templating.html#linking-to-assets) function.
+Instead of linking to stylesheets or embedding images like usually, you can use the [`asset`](http://symfony.com/doc/5.0/book/templating.html#linking-to-assets) function.
 
 #### Controller
 
@@ -363,11 +363,11 @@ parameters:
 
 #### Links to other Locations
 
-Linking to other Locations is done with a [native `path()` Twig helper](http://symfony.com/doc/2.3/book/templating.html#linking-to-pages) (or `url()` if you want to generate absolute URLs). When you pass it the Location object, `path()` will generate the URL alias.
+Linking to other Locations is done with the `ez_path()` Twig helper (or `ez_url()` if you want to generate absolute URLs). When you pass it the Location object, `ez_path()` will generate the URL alias.
 
 ``` html+twig
 {# Assuming "location" variable is a valid eZ\Publish\API\Repository\Values\Content\Location object #}
-<a href="{{ path( location ) }}">Some link to a Location</a>
+<a href="{{ ez_path( location ) }}">Some link to a Location</a>
 ```
 
 If you don't have the Location object, but only its ID, you can generate the URL alias the following way:
@@ -390,7 +390,7 @@ You can also use the Content item's ID. In that case the generated link will poi
 
 !!! note "Under the hood"
 
-    In the back end, `path()` uses the Router to generate links.
+    In the back end, `ez_path()` uses the Router to generate links.
 
     This makes it also easy to generate links from PHP, via the `router` service.
 
@@ -412,7 +412,7 @@ You can use this controller from templates with the following syntax:
 
 The example above renders the Content item whose ID is **123** with the view type **line**.
 
-Referencing the `ez_content` controller follows the syntax of *controllers as a service*, [as explained in Symfony documentation](http://symfony.com/doc/4.3/cookbook/controller/service.html).
+Referencing the `ez_content` controller follows the syntax of *controllers as a service*, [as explained in Symfony documentation](http://symfony.com/doc/5.0/cookbook/controller/service.html).
 
 ##### Available arguments
 
@@ -446,11 +446,47 @@ For example:
 
 For details on listing children of a Content item, for example all content contained in a folder, see [Displaying children of a Content item](displaying_children_of_a_content_item.md).
 
+### Non-content related Query Types
+
+If you use [Query Types](controllers.md#query-controller) that do not make use of the current content or Location
+(e.g. rendering a list of latest blog posts, or a menu),
+you can render them in your templates using `ez_render_<type>_query` (e.g. `ez_render_content_query`) Twig functions
+or their ESI equivalents: `ez_render_content_query_esi`.
+
+``` html+twig
+{{ ez_render_content_query({
+    'query': {
+        'query_type': 'LatestContent',
+        'assign_results_to': 'latest_articles'
+    },
+    'template': 'latest/latest.html.twig',
+}) }}
+```
+
+You can also set pagination using the Twig function:
+
+``` html+twig
+{{ ez_render_location_query({
+    'query': {
+        'query_type': 'LatestContent',
+        'assign_results_to': 'latest_articles'
+    },
+    'pagination': {
+        'enabled': true,
+        'limit': 5,
+        'page_param': 'page'
+    },
+    'template': 'latest/latest.html.twig',
+}) }}
+```
+
+Using this function does not require adding anything to your content view configuration.
+
 #### Rendering and cache
 
 ##### ESI
 
-Just like for regular Symfony controllers, you can take advantage of [ESI](https://symfony.com/doc/4.3/http_cache/esi.html) and use different cache levels:
+Just like for regular Symfony controllers, you can take advantage of [ESI](https://symfony.com/doc/5.0/http_cache/esi.html) and use different cache levels:
 
 ``` html+twig
 {{ render_esi(controller("ez_content:viewAction", {"contentId": 123, "viewType": "line"})) }}
@@ -472,11 +508,115 @@ To avoid such situations, you can check if the Location is virtual using the `lo
 
 ``` html+twig
 {% if not location.isDraft %}
-    <a href="{{ path(location) }}">{{ ez_content_name(content) }}</a>
+    <a href="{{ ez_path(location) }}">{{ ez_content_name(content) }}</a>
 {% endif %}
 ```
 
 ## Exposing additional variables
+
+### Contextual Twig variables
+
+You can create custom Twig variables for use in templates.
+
+The variables can be set per SiteAccess, or per content view.
+
+``` yaml
+ezplatform:
+    system:
+        <siteaccess>:
+            twig_variables:
+                my_custom_variable: variable_value
+```
+
+You can access this variable directly in all templates in that SiteAccess:
+
+``` html+twig
+{{ my_custom_variable }}
+```
+
+Variables set per content view will only be available when this view is matched:
+
+``` yaml
+ezplatform:
+    system:
+        <siteaccess>:
+            full:
+                article:
+                    template: 'full/article.html.twig'
+                    params:
+                        my_custom_variable: variable_value
+                    match:
+                        Identifier\ContentType: article
+```
+
+Custom variables can be nested.
+You can use Expression language to access values such as:
+
+``` yaml
+article:
+    template: 'full/article.html.twig'
+    params:
+        my_custom_variable:
+            content_type_name: "@=content.contentType.identifier"
+```
+
+``` html+twig
+{{ my_custom_variable.content_type_name }}
+```
+
+!!! caution
+
+    It is possible to overwrite an existing parameter, so it is good practice to avoid existing
+    parameter names such as `content` or `location`.
+
+    Use `{{ dump() }}` to view the list of all parameters available in the given template.
+
+### Dynamic variable injection
+
+#### Custom variable providers
+
+In your templates you can use Twig variables coming from custom variable providers.
+
+``` php
+<?php
+declare(strict_types=1);
+
+namespace App\Provider;
+
+use \eZ\Publish\Core\MVC\Symfony\View\View;
+use eZ\Publish\SPI\MVC\View\VariableProvider;
+
+class MyVariableProvider implements VariableProvider
+{
+    public function getTwigVariables(View $view, array $options = []): object
+    {
+        return (object)[
+            'my_variable' => 'Value of ' . $this->getIdentifier(),
+        ];
+    }
+
+    public function getIdentifier(): string
+    {
+        return 'my_variable_provider';
+    }
+}
+```
+
+Register the provider as a service:
+
+``` yaml
+App\Provider\MyVariableProvider:
+    autoconfigure: true
+```
+
+``` yaml
+article:
+    template: 'full/article.html.twig'
+    params:
+        provided_variable: "@=twig_variable_provider('my_variable_provider').my_variable"
+```
+
+#### Injecting variables through event
 
 You can dynamically inject variables in content view templates by listening to the `ezpublish.pre_content_view` event.
 

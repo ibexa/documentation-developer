@@ -5,7 +5,7 @@ searches for content based on its Object State ID.
 
 ## Arguments
 
-- `value` - int(s) representing the Object State ID
+- `value` - int(s) representing the Object State ID(s)
 
 ## Example
 

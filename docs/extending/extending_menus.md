@@ -69,7 +69,7 @@ class MenuListener implements EventSubscriberInterface
 }
 ```
 
-If [the autoconfigure option](https://symfony.com/doc/4.3/service_container.html#the-autoconfigure-option) is disabled,
+If [the autoconfigure option](https://symfony.com/doc/5.0/service_container.html#the-autoconfigure-option) is disabled,
 you need to register the service with the `kernel.event.subscriber` tag in `config/services.yaml`:
 
 ``` yaml
@@ -80,11 +80,9 @@ services:
 
 ```
 
-
-
 ## Adding menu items
 
-### Add a new menu item under "Content" with custom attributes
+Add a new menu item under "Content" with custom attributes
 
 ``` php
 $menu[MainMenuBuilder::ITEM_CONTENT]->addChild(
@@ -105,7 +103,7 @@ $menu[MainMenuBuilder::ITEM_CONTENT]->addChild(
 );
 ```
 
-### Add a top-level menu item with a child
+Add a top-level menu item with a child:
 
 ``` php
 $menu->addChild(
@@ -118,7 +116,7 @@ $menu['menu_item_1']->addChild(
 );
 ```
 
-### Add an item depending on a condition
+Add an item depending on a condition:
 
 ``` php
 $condition = true;
@@ -130,7 +128,7 @@ if ($condition) {
 }
 ```
 
-### Add a top-level menu item with URL redirection
+Add a top-level menu item with URL redirection:
 
 ``` php
 $menu->addChild(
@@ -145,7 +143,7 @@ $menu->addChild(
 
 ## Modifying menu items
 
-### Remove the *Media* menu item from the Content tab
+Remove the *Media* menu item from the Content tab:
 
 ``` php
 $menu[MainMenuBuilder::ITEM_CONTENT]->removeChild(
@@ -153,7 +151,7 @@ $menu[MainMenuBuilder::ITEM_CONTENT]->removeChild(
 );
 ```
 
-### Reorder menu items, i.e. reverse the order
+Reorder menu items, i.e. reverse the order:
 
 ``` php
 $menu->reorderChildren(

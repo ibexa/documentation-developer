@@ -81,11 +81,11 @@ You can now link fragments of text by adding Anchors in Rich Text Fields.
 
 #### Inline custom tags
 
-You can now create [inline custom tags](../guide/extending/extending_online_editor.md#inline-custom-tags) in Rich Text Fields.
+You can now create [inline custom tags](../extending/extending_online_editor.md#inline-custom-tags) in Rich Text Fields.
 
 #### Custom CK Editor plugins
 
-You can now easily use [custom CK Editor plugins](../guide/extending/extending_online_editor.md#plugins-configuration) in AlloyEditor.
+You can now easily use [custom CK Editor plugins](../extending/extending_online_editor.md#plugins-configuration) in AlloyEditor.
 
 ### Hiding and revealing content
 
@@ -114,7 +114,7 @@ The User Settings menu has been expanded with the following options:
 
 This release introduced several Back Office improvements to facilitate editorial experience, including:
 
-- [Icons for Content Types and the ability to define them](../guide/extending/extending_ez_platform.md#custom-content-type-icons)
+- [Icons for Content Types and the ability to define them](../extending/custom_icons.md)
 - Ability to collapse and expand content preview to have easier access to the Sub-items list
 - Responsive Sub-items table with selectable column layout
 - Simpler assigning of Object States to content
@@ -197,7 +197,7 @@ It enables you to set up a cluster of Solr servers for highly available and faul
 
 #### Custom attributes
 
-It is now possible to add [custom data attributes and CSS classes](../guide/extending/extending_online_editor.md#custom-data-attributes-and-classes) to elements in the Online Editor.
+It is now possible to add [custom data attributes and CSS classes](../extending/extending_online_editor.md#custom-data-attributes-and-classes) to elements in the Online Editor.
 
 #### Translatable custom tag choice attributes
 
@@ -265,3 +265,13 @@ With v2.5.6 you can optionally use Solr 7.7. To enable it:
 2. Follow [Solr upgrade documentation](https://lucene.apache.org/solr/guide/7_7/solr-upgrade-notes.html).
 3. Reindex your content.
 4. Clear cache.
+
+## eZ Platform v2.5.9
+
+### Search result improvements
+
+When searching in the Back Office you can now select languages to filter results through.
+
+### Searchable Matrix Field
+
+The Matrix Field is not fully searchable.

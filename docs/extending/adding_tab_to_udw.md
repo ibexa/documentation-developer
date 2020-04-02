@@ -13,7 +13,7 @@ First add an `image.tab.module.js` file in `assets/js/image-tab/`.
 ```js
 import React, { useContext } from 'react';
 
-import Tab from '../../../vendor/ezsystems/ezplatform-admin-ui-modules/src/modules/universal-discovery/components/tab/tab';
+import Tab from '../../../vendor/ezsystems/ezplatform-admin-ui/src/bundle/ui-dev/src/modules/universal-discovery/components/tab/tab';
 import ImagesList from './components/images.list';
 
 const ImageTabModule = () => {
@@ -60,7 +60,7 @@ The module will govern the creation of the new tab.
     ```js
     import React, { useContext } from 'react';
     
-    import Tab from '../../../vendor/ezsystems/ezplatform-admin-ui-modules/src/modules/universal-discovery/components/tab/tab';
+    import Tab from '../../../vendor/ezsystems/ezplatform-admin-ui/src/bundle/ui-dev/src/modules/universal-discovery/components/tab/tab';
     import ImagesList from './components/images.list';
     
     const ImageTabModule = () => {
@@ -194,7 +194,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import Image from './image';
 import { getImages } from '../services/images.service';
 
-import { RestInfoContext } from '../../../../vendor/ezsystems/ezplatform-admin-ui-modules/src/modules/universal-discovery/universal.discovery.module';
+import { RestInfoContext } from '../../../../vendor/ezsystems/ezplatform-admin-ui/src/bundle/ui-dev/src/modules/universal-discovery/universal.discovery.module';
 
 const ImagesList = () => {
     const [images, setImages] = useState([]);

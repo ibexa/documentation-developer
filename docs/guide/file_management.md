@@ -59,6 +59,22 @@ Default values are 0644 for files and 0755 for directories.
 
     Make sure to configure permissions using a number and *not* a string. If you write "0644" it will *not* be interpreted by PHP as an octal number, and unexpected permissions will be applied.
 
+!!! note
+
+    When using the NFS [adapter](file_management.md#adapter), configure file permissions under the `oneup_flysystem` key instead, as follows:
+    
+    ``` yaml
+    oneup_flysystem:
+        adapters:
+            nfs_adapter:
+                local:
+                    permissions:
+                        file:
+                            public: 0750
+                        dir:
+                            public: 0640
+    ```
+    
 ### The native Flysystem handler
 
 [league/flysystem](http://flysystem.thephpleague.com/) (along with [FlysystemBundle](https://github.com/1up-lab/OneupFlysystemBundle/)) is an abstract file handling library.
@@ -108,7 +124,7 @@ Optional parameter `inLanguage` may be used to specify File content translation.
 
 ```twig
   {% set routeReference = ez_route( 'ez_content_download', {'content': content, 'fieldIdentifier': 'file', 'inLanguage': content.prioritizedFieldLanguageCode  } ) %}
-  <a href="{{ path( routeReference ) }}">Download</a>
+  <a href="{{ ez_path( routeReference ) }}">Download</a>
 ```
 
 ### REST API: `uri` property

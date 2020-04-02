@@ -5,8 +5,8 @@ You can configure several environments, such as production, development or stagi
 
 !!! tip
 
-    See also [the Symfony Recipe about "How to Master and Create new Environments"](http://symfony.com/doc/3.4/configuration/environments.html)
-
+    See also [Environments in Symfony doc](https://symfony.com/doc/5.0/configuration.html#configuration-environments)
+    
 ## Web server configuration
 
 For example, using Apache, in the `VirtualHost` example in [doc/apache2/](https://github.com/ezsystems/ezplatform/tree/master/doc/apache2) in your installation, the required `VirtualHost` configurations have been already included. You can switch to the desired environment by setting the `ENVIRONMENT` variable to `prod`, `dev` or another custom value, like in the following example:

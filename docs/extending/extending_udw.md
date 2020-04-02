@@ -29,7 +29,7 @@ const props = {
 
 ## Adding new tabs to the UDW
 
-The Universal Discovery Widget enables you to add new tabs to the module. To learn more, see [Creating a UDW tab tutorial](../../tutorials/mini_tutorials/adding_tab_to_udw.md).
+The Universal Discovery Widget enables you to add new tabs to the module. To learn more, see [Creating a UDW tab tutorial](adding_tab_to_udw.md).
 
 ## Configuration
 
@@ -49,8 +49,9 @@ There you can set the following properties:
 |active_sort_order</br>`activeSortOrder`|ascending</br>descending|no|Sorting order of the children in the Content Tree.|
 |active_tab</br>`activeTab`|browse</br>search</br>bookmarks|no|Starting tab in the UDW.|
 |active_view</br>`activeView`|finder</br>grid|no|Starting view in the UDW.|
-|allow_content_edit</br>`allowContentEdit`|true</br>false|yes|Visibility of `Edit` content button in UDW.|
+|allow_redirects</br>`allowRedirects`|true</br>false|yes|Allows to redirect content from the UDW tab to another page, e.g. to Content Edit page.|
 |selected_locations</br>`selectedLocations`|[]</br>[locationId]|no|Location that will be selected automatically.|
+|allow_confirmation</br>`allowConfirmation`|true</br>false|yes|Shows confirmations buttons in the UDW. If set to false, it will not be possible to confirm selection.|
 
 ### Content on the Fly Group
 
@@ -83,7 +84,7 @@ General configuration for tabs e.g. browse, search, bookmarks etc.
 
 UDW configuration is SiteAccess-aware. For each defined SiteAccess, you need to be able to use the same configuration tree in order to define SiteAccess-specific config.
 These settings need to be mapped to SiteAccess-aware internal parameters that you can retrieve via the ConfigResolver.
-For more information on ConfigResolver, see [eZ Platform dynamic configuration basics](../config_dynamic.md#configresolver).
+For more information on ConfigResolver, see [eZ Platform dynamic configuration basics](../guide/config_dynamic.md#configresolver).
 
 ### Example configuration
 
@@ -106,7 +107,8 @@ system:
                     active_sort_order: 'ascending'
                     active_tab: 'browse'
                     active_view: 'finder'
-                    allow_content_edit: false
+                    allow_redirects: false
+                    allow_confirmation: true
                     content_on_the_fly:
                         allowed_languages: null
                         allowed_locations: null
@@ -212,4 +214,4 @@ class JohnDoeCanSelectMore implements EventSubscriberInterface
 }
 ```
 
-For more information follow [Symfony Doctrine Event Listeners and Subscribers tutorial.](https://symfony.com/doc/4.3/event_dispatcher.html#creating-an-event-subscriber)
+For more information follow [Symfony Doctrine Event Listeners and Subscribers tutorial.](https://symfony.com/doc/5.0/event_dispatcher.html#creating-an-event-subscriber)

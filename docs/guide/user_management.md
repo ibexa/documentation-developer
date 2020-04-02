@@ -63,6 +63,67 @@ When this is set, the user will not be able to set a password that had been in u
 
 This rule is valid by default when password expiration is set.
 
+## Login methods
+
+Two login methods are available: with User name or with email.
+
+Providers for these two methods are `ezpublish.security.user_provider.username`
+and `ezpublish.security.user_provider.email`, respectively.
+
+You can configure which method is allowed in `packages/security.yaml`:
+
+``` yaml
+security:
+    providers:
+        ezplatform:
+            chain:
+                providers: [ezplatform_username, ezplatform_email]
+
+        ezplatform_username:
+            id: ezpublish.security.user_provider.username
+
+        ezplatform_email:
+            id: ezpublish.security.user_provider.email
+
+    firewalls:
+        #...    
+        ezpublish_front:
+            # ...
+            provider: ezplatform
+```
+
+You can customize per User Field whether the email address used as a login method must be unique or not.
+
+To check that all existing User accounts have unique emails,
+run the `ezplatform:user:audit_database` command.
+It will list all User accounts with duplicate emails.
+
+!!! caution
+
+    Because logging in with email was not available until version v3.0,
+    you can come across issues if you use the option on an existing database.
+    
+    This may happen if more than one account uses the same email address.
+    Login through the User name will still be available.
+    
+    To resolve the issues, run `ezplatform:user:audit_database`
+    and manually modify accounts that have duplicate emails.
+
+### Login rules
+
+You can set the rules for allowed User names in the Back Office per User Field.
+
+The rules are set using regular expressions.
+
+For example, to ensure that User names can only contain lowercase letters,
+set `[a-z]+$` as **Username pattern**:
+
+![Setting a User name pattern](img/username_pattern.png)
+
+To check that all existing User accounts have names that fit the current pattern,
+run the `ezplatform:user:audit_database` command.
+It will check all User accounts in the database and list those that do not fit the pattern.
+
 ## Registering new users
 
 You can allow your users to create accounts by employing the `/register` route. This route leads to a registration form that, when filled in, creates a new User Content item in the repository.
@@ -259,7 +320,7 @@ ezsettings.<siteaccess>.user_settings.templates.update
 
 ## Authenticating user with multiple user providers
 
-Symfony provides native support for [multiple user providers](https://symfony.com/doc/4.3/security/multiple_user_providers.html).
+Symfony provides native support for [multiple user providers](https://symfony.com/doc/5.0/security/multiple_user_providers.html).
 This makes it easy to integrate any kind of login handlers, including SSO and existing third party bundles (e.g. [FR3DLdapBundle](https://github.com/Maks3w/FR3DLdapBundle), [HWIOauthBundle](https://github.com/hwi/HWIOAuthBundle), [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle), [BeSimpleSsoAuthBundle](http://github.com/BeSimple/BeSimpleSsoAuthBundle), etc.).
 
 However, to be able to use *external* user providers with eZ Platform, a valid Platform user needs to be injected into the Repository.

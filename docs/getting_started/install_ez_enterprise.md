@@ -105,11 +105,11 @@ They are available via [updates.ez.no](https://updates.ez.no).
 
     !!! note
 
-        You can now refer back to [Installing eZ Platform](install_ez_platform/#provide-installation-parameters) for finishing steps of the installation process.
+        You can now refer back to [Installing eZ Platform](install_ez_platform.md#change-installation-parameters) for finishing steps of the installation process.
 
     ## Enable Date-based Publisher
 
-    To enable delayed publishing of Content using the Date-based Publisher, you need to set up cron to run the command `bin/console ezstudio:scheduled:publish` periodically.
+    To enable delayed publishing of Content using the Date-based Publisher, you need to set up cron to run the command `bin/console ezplatform:scheduled:run` periodically.
 
     For example, to check for publishing every minute, add the following script:
 

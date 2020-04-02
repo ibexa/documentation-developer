@@ -118,7 +118,7 @@
     First, define the attribute type.
     You can use one of the types available in `ezplatform-page-fieldtype/src/lib/Form/Type/BlockAttribute/*`.
 
-    You can also use one of the [built-in Symfony types](https://symfony.com/doc/4.3/forms.html#built-in-field-types), e.g. `AbstractType` for any custom type or `IntegerType` for numeric types.
+    You can also use one of the [built-in Symfony types](https://symfony.com/doc/5.0/reference/forms/types.html), e.g. `AbstractType` for any custom type or `IntegerType` for numeric types.
 
     To define the type, create a file `src/Block/Attribute/MyStringAttributeType.php` that contains:
 
@@ -172,7 +172,7 @@
     At this point, the attribute type configuration is complete, but it requires a mapper.
     Depending on the complexity of the type, you can use a `GenericFormTypeMapper` or create your own.
 
-    For a generic mapper, register it as a service by adding:
+    For a generic mapper, add a new service definition to `config/services.yaml`:
 
     ``` yaml
      my_application.block.attribute.my_string:
@@ -224,7 +224,7 @@
     }
     ```
 
-    The final step is to register your mapper as a service:
+    The final step is to add a new service definition for your mapper to `config/services.yaml`:
 
     ``` yaml
     App\Block\Attribute\MyStringAttributeMapper:
@@ -265,8 +265,8 @@
 
     In Design you can choose the view that will be used for the block and its styling.
 
-    **Class** indicates the CSS class used for this block.
-    **Style** defines the CSS rules.
+    - **Class** indicates the CSS class used for this block.
+    - **Style** defines the CSS rules.
 
     You can disable the Design tab by setting `ezsettings.default.page_builder.block_styling_enabled` to `false`.
     It is set to `true` by default.
@@ -361,7 +361,7 @@
 
     Some blocks can have slightly more complex configuration. An example is the Collection block, which requires an `options` key.
     This key defines which Content Types can be added to it.
-    See [this example from the eZ Enterprise Demo](https://github.com/ezsystems/ezplatform-ee-demo/blob/master/app/config/default_layouts.yml#L219):
+    See [this example from the eZ Enterprise Demo](https://github.com/ezsystems/ezplatform-ee-demo/blob/master/config/packages/default_layouts.yml#L186):
 
     ``` yaml
     blocks:

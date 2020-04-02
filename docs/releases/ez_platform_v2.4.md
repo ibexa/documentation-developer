@@ -67,7 +67,7 @@ The new `embed-inline` built-in view type enables embedding Content items within
 #### Custom tag - `ezcontent`
 
 The `ezcontent` property is now editable in the UI and can be used to store the output/preview of a custom tag.
-To learn how it works, see [FactBox tag](../guide/extending/extending_online_editor/#factbox-tag).
+To learn how it works, see [FactBox tag](../extending/extending_online_editor/#factbox-tag).
 
 ### Content Type translation
 

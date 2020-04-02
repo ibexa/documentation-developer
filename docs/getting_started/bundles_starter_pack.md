@@ -1,6 +1,6 @@
 # Bundles starter pack
 
-eZ Platform application is a collection of bundles, similar to Symfony where ["everything is a bundle"](http://symfony.com/doc/4.3/book/bundles.html). Bundles listed below are useful additions to your clean eZ Platform installation. By using them you can improve your Platform usage.
+eZ Platform application is a collection of bundles, similar to Symfony where ["everything is a bundle"](http://symfony.com/doc/5.0/book/bundles.html). Bundles listed below are useful additions to your clean eZ Platform installation. By using them you can improve your Platform usage.
 
 For more information about eZ Platform bundle structure check out:
 

@@ -22,7 +22,7 @@
 
     ## Extending Form fields
 
-    You can extend the Form Builder by adding new form fields or modifying existing ones.
+    You can extend the Form Builder by adding new Form fields or modifying existing ones.
     Form fields are defined in YAML configuration.
 
     For example, to create a Country Form field:
@@ -198,5 +198,4 @@
 
     To send emails, you also need to configure `sender_address` in `config/packages/swiftmailer.yaml`.
     It acts as a sender and return address for all bounced messages.
-    For details, see [Symfony Mailer Configuration Reference.](https://symfony.com/doc/4.3/reference/configuration/swiftmailer.html#sender-address)
-
+    For details, see [Symfony Mailer Configuration Reference.](https://symfony.com/doc/5.0/reference/configuration/swiftmailer.html#sender-address)

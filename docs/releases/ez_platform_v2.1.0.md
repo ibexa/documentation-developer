@@ -14,7 +14,7 @@ You can now add custom tags to RichText Fields.
 
 Custom tags enable you to extend the menu of available elements when editing a RichText Field with the Online Editor.
 
-See [Custom tags](../guide/extending/extending_online_editor.md#custom-tags) for more information.
+See [Custom tags](../extending/extending_online_editor.md#custom-tags) for more information.
 
 ### Object states
 

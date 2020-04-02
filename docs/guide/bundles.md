@@ -15,11 +15,11 @@ Refer to their respective pages for instructions on how to install them.
 
 ### How to create bundles?
 
-See [Symfony documentation on bundles](https://symfony.com/doc/4.3/bundles.html) to learn how to structure your bundle.
+See [Symfony documentation on bundles](https://symfony.com/doc/5.0/bundles.html) to learn how to structure your bundle.
 
 ### How to remove a bundle?
 
-To remove a bundle (either one you created yourself, or an out-of-the-box one that you do not need) see the [How to Remove a Bundle](http://symfony.com/doc/3.4/bundles/remove.html) instruction in Symfony doc.
+To remove a bundle (either one you created yourself, or an out-of-the-box one that you do not need) see the [How to Remove a Bundle](http://symfony.com/doc/5.0/bundles/remove.html) instruction in Symfony doc.
 
 ## Structuring your project
 
@@ -54,7 +54,7 @@ All project assets are accessible through the `assets` path.
 
 #### Importing assets from a bundle
 
-eZ Platform uses [Webpack Encore](https://symfony.com/doc/4.3/frontend.html#webpack-encore) for asset management.
+eZ Platform uses [Webpack Encore](https://symfony.com/doc/5.0/frontend.html#webpack-encore) for asset management.
 
 ##### Configuration from a bundle
 
@@ -83,7 +83,7 @@ To import CSS files only, use:
     After adding new files, run `php bin/console cache:clear`.
 
     For a full example of importing asset configuration,
-    see [`ez.config.js`](https://github.com/ezsystems/ezplatform-admin-ui-modules/blob/master/Resources/encore/ez.config.js)
+    see [`ez.config.js`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/encore/ez.config.js)
 
 To edit existing configuration entries, create a `Resources/encore/ez.config.manager.js` file:
 
@@ -249,7 +249,7 @@ ezplatform:
 The following example shows how to implicitly load settings on the example of eZ Platform kernel.
 Note that this is also valid for any bundle.
 
-This assumes you are familiar with [service container extensions.](http://symfony.com/doc/4.3/book/service_container.html#importing-configuration-via-container-extensions)
+This assumes you are familiar with [service container extensions.](https://symfony.com/doc/5.0/service_container/import.html#importing-configuration-via-container-extensions)
 
 !!! note
 
@@ -273,7 +273,7 @@ use Symfony\Component\Yaml\Yaml;
 /**
  * This is the class that loads and manages your bundle configuration
  *
- * To learn more see {@link http://symfony.com/doc/4.3/cookbook/bundles/extension.html}
+ * To learn more see {@link http://symfony.com/doc/5.0/cookbook/bundles/extension.html}
  */
 class AcmeExampleExtension extends Extension implements PrependExtensionInterface
 {
@@ -349,7 +349,6 @@ The following tables give an overview of the main eZ Platform bundles.
 |[ez-support-tools](https://github.com/ezsystems/ez-support-tools)|provides functionality for system information|
 |[ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache)|HTTP cache handling for eZ Platform, using multi tagging (incl Varnish xkey)|
 |[ezplatform-admin-ui](https://github.com/ezsystems/ezplatform-admin-ui)|contains Back Office interface for eZ Platform v2+|
-|[ezplatform-admin-ui-modules](https://github.com/ezsystems/ezplatform-admin-ui-modules)|re-useable React JavaScript components for eZ Platform v2+ AdminUI|
 |[ezplatform-admin-ui-assets](https://github.com/ezsystems/ezplatform-admin-ui-assets)|contains assets for AdminUI|
 |[ezplatform-design-engine](https://github.com/ezsystems/ezplatform-design-engine)|design fallback system for eZ Platform similar to legacy design fallback system|
 |[ezplatform-standard-design](https://github.com/ezsystems/ezplatform-standard-design)|defines standard Design and Theme to be handled by ezplatform-design-engine|
@@ -367,7 +366,7 @@ The following tables give an overview of the main eZ Platform bundles.
     |ezplatform-ee-installer|provides `ezplatform:install` Symfony console command which is the installer for eZ Platform Enterprise v2|
     |ezplatform-http-cache-fastly|extends ezplatform-http-cache to support Fastly, for use on Platform.sh PE or standalone|
     |ezplatform-calendar|extends the Back Office by adding the calendar tab with the calendar widget|
-    |ezplatform-content-comparison|allows comparing between two versions of the same Field|
+    |ezplatform-version-comparison|allows comparing between two versions of the same Field|
 
 ### Optional bundles
 
@@ -433,6 +432,6 @@ The following tables give an overview of the main eZ Platform bundles.
 
 When you use an external bundle, you can override its parts, such as templates, controllers, etc.
 
-To do so, make use of [Symfony's bundle override mechanism](https://symfony.com/doc/4.3/bundles/override.html).
+To do so, make use of [Symfony's bundle override mechanism](https://symfony.com/doc/5.0/bundles/override.html).
 
 Note that when overriding files, the path inside your application has to correspond to the path inside the bundle.

@@ -303,7 +303,7 @@ interface PlaceholderProvider
 
 ### Semantic configuration
 
-Placeholder generation can be configured for each [`binary_handler`](file_management/#handling-binary-files) under the `ezplatform.image_placeholder` key:
+Placeholder generation can be configured for each [`binary_handler`](file_management.md#handling-binary-files) under the `ezplatform.image_placeholder` key:
 
 ```yaml
 ezplatform:
@@ -327,7 +327,7 @@ ezplatform:
         default:
             provider: generic
             options:
-                fontpath: '%kernel.root_dir%/Resources/font/font.ttf'
+                fontpath: '%kernel.project_dir%/src/Resources/font/font.ttf'
                 background: '#EEEEEE'
                 foreground: '#FF0000'
                 text: 'MISSING IMAGE %%width%%x%%height%%'

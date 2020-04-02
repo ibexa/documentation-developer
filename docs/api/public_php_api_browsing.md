@@ -2,11 +2,11 @@
 
 To retrieve a Content item and its information, you need to make use of the [`ContentService`.](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Publish/API/Repository/ContentService.php)
 
-The service should be [injected into the constructor of your command or controller.](https://symfony.com/doc/4.3/service_container.html)
+The service should be [injected into the constructor of your command or controller.](https://symfony.com/doc/5.0/service_container.html)
 
 !!! tip "Console commands"
 
-    To learn more about commands in Symfony, refer to [Console Commands.](https://symfony.com/doc/4.3/console.html)
+    To learn more about commands in Symfony, refer to [Console Commands.](https://symfony.com/doc/5.0/console.html)
 
 ## Viewing content metadata
 
@@ -318,7 +318,7 @@ To learn more about this functionality see [Lazy object properties.](https://git
 
     ## Comparing content versions
 
-    You can compare two versions of a Content item using the `ContentComparisonService`.
+    You can compare two versions of a Content item using the `VersionComparisonService`.
     The versions must have the same language.
 
     For example, to get the comparison between the `name` Field of two versions:
@@ -327,10 +327,10 @@ To learn more about this functionality see [Lazy object properties.](https://git
     $versionFrom = $this->contentService->loadVersionInfo($contentInfo, $versionFromId);
     $versionTo = $this->contentService->loadVersionInfo($contentInfo, $versionToId);
 
-    $nameComparison = $this->comparisonService->compareVersions($versionFrom, $versionTo)->getFieldValueDiffByIdentifier('name')->getComparisonResult();
+    $nameComparison = $this->comparisonService->compare($versionFrom, $versionTo)->getFieldValueDiffByIdentifier('name')->getComparisonResult();
     ```
 
-    `getComparisonResults` returns a `ComparisonResult` object, which depends on the Field Type being compared.
+    `getComparisonResult` returns a `ComparisonResult` object, which depends on the Field Type being compared.
     In the example of a Text Line (ezstring) Field, it is an array of `StringDiff` objects.
 
     Each diff contains a section of the Field to compare (e.g. a part of a text line)

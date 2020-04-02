@@ -45,7 +45,6 @@ nav:
             - '3a. Filtering the content list': 'tutorials/extending_admin_ui/3_filtering_the_content_list.md'
             - '3b. Adding Edit button to content list': 'tutorials/extending_admin_ui/3b_adding_edit_button_content_list.md'
             - '4. Creating a custom tag': 'tutorials/extending_admin_ui/4_adding_a_custom_tag.md'
-        - 'Creating a UDW tab': 'tutorials/mini_tutorials/adding_tab_to_udw.md'
     - API:
         - REST API guide:
             - 'REST API guide': 'api/rest_api_guide.md'
@@ -125,6 +124,8 @@ nav:
                 - 'FullText': 'guide/search/criteria_reference/fulltext_criterion.md'
                 - 'IsFieldEmpty': 'guide/search/criteria_reference/isfieldempty_criterion.md'
                 - 'IsMainLocation': 'guide/search/criteria_reference/ismainlocation_criterion.md'
+                - 'IsUserBased': 'guide/search/criteria_reference/isuserbased_criterion.md'
+                - 'IsUserEnabled': 'guide/search/criteria_reference/isuserenabled_criterion.md'
                 - 'LanguageCode': 'guide/search/criteria_reference/languagecode_criterion.md'
                 - 'LocationId': 'guide/search/criteria_reference/locationid_criterion.md'
                 - 'LocationRemoteId': 'guide/search/criteria_reference/locationremoteid_criterion.md'
@@ -132,11 +133,17 @@ nav:
                 - 'MatchAll': 'guide/search/criteria_reference/matchall_criterion.md'
                 - 'MatchNone': 'guide/search/criteria_reference/matchnone_criterion.md'
                 - 'ObjectStateId': 'guide/search/criteria_reference/objectstateid_criterion.md'
+                - 'ObjectStateIdentifier': 'guide/search/criteria_reference/objectstateidentifier_criterion.md'
                 - 'ParentLocationId': 'guide/search/criteria_reference/parentlocationid_criterion.md'
                 - 'Priority': 'guide/search/criteria_reference/priority_criterion.md'
                 - 'RemoteId': 'guide/search/criteria_reference/remoteid_criterion.md'
                 - 'SectionId': 'guide/search/criteria_reference/sectionid_criterion.md'
+                - 'SectionIdentifier': 'guide/search/criteria_reference/sectionidentifier_criterion.md'
+                - 'Sibling': 'guide/search/criteria_reference/sibling_criterion.md'
                 - 'Subtree': 'guide/search/criteria_reference/subtree_criterion.md'
+                - 'UserEmail': 'guide/search/criteria_reference/useremail_criterion.md'
+                - 'UserId': 'guide/search/criteria_reference/userid_criterion.md'
+                - 'UserLogin': 'guide/search/criteria_reference/userlogin_criterion.md'
                 - 'UserMetadata': 'guide/search/criteria_reference/usermetadata_criterion.md'
                 - 'Visibility': 'guide/search/criteria_reference/visibility_criterion.md'
             - 'Sort Clause reference': 'guide/search/sort_clause_reference.md'
@@ -184,28 +191,37 @@ nav:
             - 'Development Security': 'guide/security.md'
             - 'Reporting Issues': 'guide/reporting_issues.md'
         - 'Notifications': 'guide/sending_notifications.md'
-        - Extending eZ Platform:
-            - 'Extending eZ Platform': 'guide/extending/extending_ez_platform.md'
-            - 'Extending Back Office': 'guide/extending/extending_back_office.md'
-            - 'Extending Dashboard': 'guide/extending/extending_dashboard.md'
-            - 'Extending Menus': 'guide/extending/extending_menus.md'
-            - 'Extending tabs': 'guide/extending/extending_tabs.md'
-            - 'Extending settings': 'guide/extending/extending_settings.md'
-            - 'Extending UDW': 'guide/extending/extending_udw.md'
-            - 'Extending Multi-file Upload': 'guide/extending/extending_multifile_upload.md'
-            - 'Extending Sub-items List': 'guide/extending/extending_subitems_list.md'
-            - 'Extending the Online Editor': 'guide/extending/extending_online_editor.md'
-            - 'Creating Online Editor plugin': 'guide/extending/online_editor_plugin.md'
-            - 'Extending Form Builder': 'guide/extending/extending_form_builder.md'
-            - 'Extending Workflow': 'guide/extending/extending_workflow.md'
-            - 'Creating custom Field Type': 'guide/extending/extending_field_type.md'
-            - 'Creating custom Page blocks': 'guide/extending/extending_page.md'
-            - 'Creating custom RichText blocks': 'guide/extending/richtext_block.md'
-            - 'Creating custom drop-downs': 'guide/extending/creating_custom_dropdowns.md'
-            - 'Creating custom Field Type comparison': 'guide/extending/custom_fieldtype_comparison.md'
-            - 'Creating drag and drop interface': 'guide/extending/drag_and_drop.md'
         - 'Service container': 'guide/service_container.md'
         - 'Recommendation': 'guide/personalization.md'
+    - Extending eZ Platform:
+        - 'Extending Back Office':
+            - 'Extending Dashboard': 'extending/extending_dashboard.md'
+            - 'Extending Menus': 'extending/extending_menus.md'
+            - 'Extending tabs': 'extending/extending_tabs.md'
+            - 'Extending settings': 'extending/extending_settings.md'
+            - 'Extending date and time': 'extending/extending_date_and_time.md'
+            - 'Extending tooltips': 'extending/extending_tooltips.md'
+            - 'Creating custom Page blocks': 'extending/extending_page.md'
+            - 'Creating custom RichText blocks': 'extending/richtext_block.md'
+            - 'Creating custom drop-downs': 'extending/creating_custom_dropdowns.md'
+            - 'Creating custom icons': 'extending/custom_icons.md'
+            - 'Extending thumbnails': 'extending/extending_thumbnails.md'
+            - 'Injecting custom components': 'extending/custom_components.md'
+        - 'Extending Form Builder': 'extending/extending_form_builder.md'
+        - 'Extending Workflow': 'extending/extending_workflow.md'
+        - 'Extending Online Editor':
+            - 'Extending Online Editor': 'extending/extending_online_editor.md'
+            - 'Creating Online Editor button': 'extending/online_editor_button.md'
+            - 'Creating Online Editor plugin': 'extending/online_editor_plugin.md'
+        - 'Extending Modules':
+            - 'Extending UDW': 'extending/extending_udw.md'
+            - 'Creating a UDW tab': 'extending/adding_tab_to_udw.md'
+            - 'Extending Multi-file Upload': 'extending/extending_multifile_upload.md'
+            - 'Extending Sub-items List': 'extending/extending_subitems_list.md'
+            - 'Creating drag and drop interface': 'extending/drag_and_drop.md'
+        - 'Field Types':
+            - 'Creating custom Field Type': 'extending/extending_field_type.md'
+            - 'Creating custom Field Type comparison': 'extending/custom_fieldtype_comparison.md'
     - Resources and community:
         - 'Resources': 'community_resources/resources.md'
         - 'Release process and roadmap': 'community_resources/release_process.md'
@@ -221,6 +237,7 @@ nav:
         - UI Guidelines:
             - 'Introduction': 'guidelines/Introduction.md'
             - Components:
+                - 'Badges': 'guidelines/components/badges.md'
                 - 'Buttons': 'guidelines/components/buttons.md'
                 - 'Form components': 'guidelines/components/form_components.md'
                 - 'Modals': 'guidelines/components/modals.md'
@@ -228,6 +245,7 @@ nav:
                 - 'Switchers': 'guidelines/components/switchers.md'
                 - 'Tables': 'guidelines/components/tables.md'
                 - 'Tabs': 'guidelines/components/tabs.md'
+                - 'Tooltips': 'guidelines/components/tooltips.md'
             - Resources:
                 - 'Typography': 'guidelines/resources/typography.md'
                 - 'Colors': 'guidelines/resources/colors.md'
@@ -340,6 +358,7 @@ extra_javascript:
   - js/docs.switcher.js
   - js/ez-guidelines-switchers.js
   - js/ez-guidelines-modals.js
+  - js/ez-guidelines-tooltips.js
   - '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js'
 markdown_extensions:
   - admonition

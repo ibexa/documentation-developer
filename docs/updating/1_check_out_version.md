@@ -78,7 +78,7 @@ git remote add upstream http://github.com/ezsystems/ezcommerce.git
 
 **1.4.** Then pull the tag into your branch.
 
-If you are unsure which version to pull, run `git ls-remote --tags` to list all possible tags.
+If you are unsure which version to pull, run `git ls-remote --tags upstream` to list all possible tags.
 
 **Pull the tag into your update branch**
 

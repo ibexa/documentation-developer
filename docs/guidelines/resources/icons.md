@@ -237,6 +237,12 @@ code_example]]
         <p class="icon-label">caret-up</p>
     </div>
     <div class="icon-box">
+        <svg class="ez-icon ez-icon-caret-expanded">
+            <use xlink:href="../../ez-icons.svg#caret-expanded"></use>
+        </svg>
+        <p class="icon-label">caret-expanded</p>
+    </div>
+    <div class="icon-box">
         <svg class="ez-icon ez-icon-category">
             <use xlink:href="../../ez-icons.svg#category"></use>
         </svg>
@@ -291,6 +297,18 @@ code_example]]
         <p class="icon-label">clipboard</p>
     </div>
     <div class="icon-box">
+        <svg class="ez-icon ez-icon-column-one">
+            <use xlink:href="../../ez-icons.svg#column-one"></use>
+        </svg>
+        <p class="icon-label">column-one</p>
+    </div>
+    <div class="icon-box">
+        <svg class="ez-icon ez-icon-column-two">
+            <use xlink:href="../../ez-icons.svg#column-two"></use>
+        </svg>
+        <p class="icon-label">column-two</p>
+    </div>
+    <div class="icon-box">
         <svg class="ez-icon ez-icon-comment">
             <use xlink:href="../../ez-icons.svg#comment"></use>
         </svg>
@@ -313,6 +331,12 @@ code_example]]
             <use xlink:href="../../ez-icons.svg#content-type"></use>
         </svg>
         <p class="icon-label">content-type</p>
+    </div>
+    <div class="icon-box">
+        <svg class="ez-icon ez-icon-content-type-group">
+            <use xlink:href="../../ez-icons.svg#content-type-group"></use>
+        </svg>
+        <p class="icon-label">content-type-group</p>
     </div>
     <div class="icon-box">
         <svg class="ez-icon ez-icon-copy">
@@ -411,6 +435,12 @@ code_example]]
         <p class="icon-label">filters</p>
     </div>
     <div class="icon-box">
+        <svg class="ez-icon ez-icon-filters-funnel">
+            <use xlink:href="../../ez-icons.svg#filters-funnel"></use>
+        </svg>
+        <p class="icon-label">filters-funnel</p>
+    </div>
+    <div class="icon-box">
         <svg class="ez-icon ez-icon-focus">
             <use xlink:href="../../ez-icons.svg#focus"></use>
         </svg>
@@ -445,6 +475,18 @@ code_example]]
             <use xlink:href="../../ez-icons.svg#future-publication"></use>
         </svg>
         <p class="icon-label">future-publication</p>
+    </div>
+    <div class="icon-box">
+        <svg class="ez-icon ez-icon-go-to-root">
+            <use xlink:href="../../ez-icons.svg#go-to-root"></use>
+        </svg>
+        <p class="icon-label">go-to-root</p>
+    </div>
+    <div class="icon-box">
+        <svg class="ez-icon ez-icon-go-up">
+            <use xlink:href="../../ez-icons.svg#go-up"></use>
+        </svg>
+        <p class="icon-label">go-up</p>
     </div>
     <div class="icon-box">
         <svg class="ez-icon ez-icon-history">
@@ -505,6 +547,12 @@ code_example]]
             <use xlink:href="../../ez-icons.svg#layout-switch"></use>
         </svg>
         <p class="icon-label">layout-switch</p>
+    </div>
+    <div class="icon-box">
+        <svg class="ez-icon ez-icon-location-add-new">
+            <use xlink:href="../../ez-icons.svg#location-add-new"></use>
+        </svg>
+        <p class="icon-label">location-add-new</p>
     </div>
     <div class="icon-box">
         <svg class="ez-icon ez-icon-lock-unlock">
@@ -723,6 +771,12 @@ code_example]]
         <p class="icon-label">sections</p>
     </div>
     <div class="icon-box">
+        <svg class="ez-icon ez-icon-send-review">
+            <use xlink:href="../../ez-icons.svg#send-review"></use>
+        </svg>
+        <p class="icon-label">send-review</p>
+    </div>
+    <div class="icon-box">
         <svg class="ez-icon ez-icon-settings-block">
             <use xlink:href="../../ez-icons.svg#settings-block"></use>
         </svg>
@@ -733,6 +787,12 @@ code_example]]
             <use xlink:href="../../ez-icons.svg#settings-config"></use>
         </svg>
         <p class="icon-label">settings-config</p>
+    </div>
+    <div class="icon-box">
+        <svg class="ez-icon ez-icon-sites-all">
+            <use xlink:href="../../ez-icons.svg#sites-all"></use>
+        </svg>
+        <p class="icon-label">sites-all</p>
     </div>
     <div class="icon-box">
         <svg class="ez-icon ez-icon-spinner">
@@ -847,6 +907,18 @@ code_example]]
             <use xlink:href="../../ez-icons.svg#users-select"></use>
         </svg>
         <p class="icon-label">users-select</p>
+    </div>
+    <div class="icon-box">
+        <svg class="ez-icon ez-icon-version-compare-action">
+            <use xlink:href="../../ez-icons.svg#version-compare-action"></use>
+        </svg>
+        <p class="icon-label">version-compare-action</p>
+    </div>
+    <div class="icon-box">
+        <svg class="ez-icon ez-icon-version-compare">
+            <use xlink:href="../../ez-icons.svg#version-compare"></use>
+        </svg>
+        <p class="icon-label">version-compare</p>
     </div>
     <div class="icon-box">
         <svg class="ez-icon ez-icon-versions">
@@ -1133,6 +1205,12 @@ code_example]]
         <p class="icon-label">link-anchor</p>
     </div>
     <div class="icon-box">
+        <svg class="ez-icon ez-icon-link-content">
+            <use xlink:href="../../ez-icons.svg#link-content"></use>
+        </svg>
+        <p class="icon-label">link-content</p>
+    </div>
+    <div class="icon-box">
         <svg class="ez-icon ez-icon-link-remove">
             <use xlink:href="../../ez-icons.svg#link-remove"></use>
         </svg>
@@ -1155,6 +1233,12 @@ code_example]]
             <use xlink:href="../../ez-icons.svg#list"></use>
         </svg>
         <p class="icon-label">list</p>
+    </div>
+    <div class="icon-box">
+        <svg class="ez-icon ez-icon-markup">
+            <use xlink:href="../../ez-icons.svg#markup"></use>
+        </svg>
+        <p class="icon-label">markup</p>
     </div>
     <div class="icon-box">
         <svg class="ez-icon ez-icon-paragraph-add">
