@@ -166,7 +166,6 @@ pages:
     - Releases:
         - 'eZ Platform v3.0': 'releases/ez_platform_v3.0.md'
         - 'eZ Platform v3.0 deprecations and BC breaks': 'releases/ez_platform_v3.0_deprecations.md'
-        - 'eZ Platform v3.0 project update': 'releases/ez_platform_v3.0_project_update.md'
         - 'eZ Platform v2.5 LTS': 'releases/ez_platform_v2.5.md'
         - 'eZ Platform v2.4': 'releases/ez_platform_v2.4.md'
         - 'eZ Platform v2.3': 'releases/ez_platform_v2.3.md'
