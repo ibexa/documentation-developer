@@ -90,10 +90,10 @@ There, you should be able to add a new site and choose a design for it.
 
 To be able to see your site online you need to define a domain for it.
 
-!!! warning "Define domain for production environment"
+!!! caution "Define domain for production environment"
 
     This steps are for `dev` environment only.
-    If you want to define domains in production you will need to configure Apache or Nginx by yourself.
+    If you want to define domains in production environment, you will need to configure Apache or Nginx by yourself.
 
 In `.env` file change line 2 to: `COMPOSE_FILE=doc/docker/base-dev.yml:doc/docker/multihost.yml`
 
