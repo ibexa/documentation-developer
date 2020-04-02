@@ -22,7 +22,10 @@ To enable Site Factory you need to set `enabled` to `true` in `vendor/ezsystems/
 
 ### Configure designs
 
-Next, configure Site Factory by adding empty SiteAccess groups (only one empty group is mandatory) in `config/packages/ezplatform.yaml`:
+Next, configure Site Factory by adding empty SiteAccess groups, only one empty group is mandatory.
+Under this group you will be able to configure all settings, which do not expose UI e.g. Content view.
+
+Add groups in `config/packages/ezplatform.yaml`:
 
 ```yaml
 ezplatform:
@@ -86,6 +89,11 @@ There, you should be able to add a new site and choose a design for it.
 ### Define domains 
 
 To be able to see your site online you need to define a domain for it.
+
+!!! warning "Define domain for production environment"
+
+    This steps are for `dev` environment only.
+    If you want to define domains in production you will need to configure Apache or Nginx by yourself.
 
 In `.env` file change line 2 to: `COMPOSE_FILE=doc/docker/base-dev.yml:doc/docker/multihost.yml`
 
