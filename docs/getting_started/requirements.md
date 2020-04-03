@@ -21,7 +21,7 @@ These setups are tested by QA and are generally recommended setups. For security
 |Operating system|10.x "Buster"|19.10 "Eoan"|8.x|
 |Web Server|Nginx 1.14</br>Apache 2.4|Nginx 1.16</br>Apache 2.4|Nginx 1.14</br>Apache 2.4|
 |DBMS|MariaDB 10.3|MariaDB 10.3</br>MySQL 8.0|MariaDB 10.3</br>MySQL 8.0|
-|PHP|PHP 7.3|PHP 7.3|PHP 7.3</br>_(upgraded from the version delivered with the OS)_|
+|PHP|PHP 7.3|PHP 7.3|PHP 7.3</br>(upgraded from the version delivered with the OS)|
 |PHP packages|php-cli</br>php-fpm</br>php-mysql or php-pgsql</br>php-xml</br>php-intl</br>php-curl</br>php-gd *or* php-imagick|php-cli</br>php-fpm</br>php-mysql or php-pgsql</br>php-xml</br>php-mbstring</br>php-intl</br>php-curl</br>php-gd *or* php-imagick|php-cli</br>php-fpm</br>php-mysqlnd or php-pgsql</br>php-xml</br>php-mbstring</br>php-process</br>php-intl</br>php-pear *(optional, provides pecl)*</br>php-gd *or* php-imagick *(via [pecl](https://pecl.php.net/package/imagick))*|
 |Cluster PHP packages|[php-redis](https://pecl.php.net/package/redis) *(3.1+)*|[php-redis](https://pecl.php.net/package/redis) *(3.1+)*|[php-redis](https://pecl.php.net/package/redis) *(3.1+)*|
 
@@ -94,8 +94,6 @@ Examples of Experimental setups:
 -   IO: Azure, (S)FTP, GridFS, [etc.](https://flysystem.thephpleague.com/docs/adapter/local/)
 -   Databases: MSSQL, Oracle (databases technically supported by Doctrine DBAL which we use, but not supported by our installer at the moment, and not covered by automated testing)
 
-Examples of experimental / deprecated bundles:
-- _Currently none, all deprecated system support features have been removed from 3.0_
 
 **While all these options are not actively supported by eZ Systems**, they are community supported. Meaning you can use them with both open source edition and enterprise edition, however if you encounter issues best way to handle them is via contribution, and any such efforts made to improve support for these technologies can contribute to the technology being supported by eZ Systems in the near future.
 
@@ -134,7 +132,7 @@ Please note that the user interface might not look or behave exactly the same ac
 
     ### eZ Platform Cloud Setup support matrix
 
-    All eZ Platform features are supported in accordance to example above. For example: As Legacy bridge is not supported with v3, it is not supported on eZ Platform Cloud either.
+    All eZ Platform features are supported in accordance with the example above. For example: As Legacy Bridge is not supported with v3, it is not supported on eZ Platform Cloud either.
 
     !!! note
 
@@ -149,12 +147,12 @@ Please note that the user interface might not look or behave exactly the same ac
 
     ### Supported eZ Platform Cloud setup
 
-    Because of the large range of possible configurations of eZ Platform, there are many possiblities beyond what is provided in default recommended configuration.
+    Because of the large range of possible configurations of eZ Platform, there are many possiblities beyond what is provided in the default recommended configuration.
 
     Make sure to set aside time and budget for:
 
-    - Verifying your requriments and ensuring it is supported by Platform.sh
-    - Additional time for adaptation and configuration work, and testing by your dev team
+    - Verifying your requirements and ensuring they are supported by Platform.sh
+    - Additional time for adaptation and configuration work, and testing by your development team
     - Additional consulting/onboarding time with Platform.sh, eZ Systems technical services, and/or one of the many partners with prior experience using Platform.sh with eZ Platform
 
     The cost and effort of this is not included in eZ Platform Cloud subscription and will vary depending on the project.
