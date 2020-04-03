@@ -91,7 +91,7 @@ in particular when selecting multiple Content items.
 
 Improvements to the API cover:
 
-- [`UserPreferenceService`](https://github.com/ezsystems/ezpublish-kernel/blob/msster/eZ/Publish/API/Repository/UserPreferenceService.php)
+- [`UserPreferenceService`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.3.0/eZ/Publish/API/Repository/UserPreferenceService.php)
 - [`ASSET` Relation type](https://github.com/ezsystems/ezpublish-kernel/blob/v7.3.0-rc2/eZ/Publish/Core/REST/Client/Input/Parser/Relation.php#L84)
 - `TrashItem->trashed` timestamp covers when a Content item was placed in Trash
 

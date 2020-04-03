@@ -168,7 +168,7 @@ This version introduces stricter default password quality requirements.
 Passwords must be at least 10 characters long, and must include upper and lower case letters, and digits.
 Existing passwords are not changed.
 
-See [backwards compatibility changes](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/doc/bc/changes-7.5.md)
+See [backwards compatibility changes](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/bc/changes-7.5.md)
 for detailed information.
 
 ## Full changelog

@@ -104,8 +104,8 @@ $content = $this->contentService->publishVersion($draft->versionInfo);
 ## Updating content
 
 To update an existing Content item, you need to prepare a [`ContentUpdateStruct`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/ContentUpdateStruct.php)
-and pass it to [`ContentService::updateContent`.](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php#L276)
-This method works on a draft, so to publish your changes you need to use [`ContentService::publishVersion`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php#L298) as well:
+and pass it to [`ContentService::updateContent`.](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php#L314)
+This method works on a draft, so to publish your changes you need to use [`ContentService::publishVersion`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php#L336) as well:
 
 ``` php
 try {
