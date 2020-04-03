@@ -64,7 +64,7 @@ foreach ($locations as $location) {
 }
 ```
 
-[`LocationService::loadLocations`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LocationService.php#L95)
+[`LocationService::loadLocations`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LocationService.php#L94)
 uses `ContentInfo` to get all the Locations of a Content item.
 This method returns an array of [`Location`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Location.php) value objects.
 For each Location, the code above prints out its `pathString` (the internal representation of the path).
@@ -74,7 +74,7 @@ For each Location, the code above prints out its `pathString` (the internal repr
 The [`URLAliasService`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/URLAliasService.php)
 additionally enables you to retrieve the human-readable URL alias of each Location.
 
-[`URLAliasService::reverseLookup`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/URLAliasService.php#L125)
+[`URLAliasService::reverseLookup`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/URLAliasService.php#L146)
 gets the Location's main [URL alias](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/URLAlias.php):
 
 ``` php
@@ -88,7 +88,7 @@ foreach ($locations as $location) {
 ### Content Type
 
 You can retrieve the Content Type of a Content item
-through the [`getContentType`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/ContentInfo.php#L186) method of the ContentInfo object:
+through the [`getContentType`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/ContentInfo.php#L188) method of the ContentInfo object:
 
 ``` php
 $content = $this->contentService->loadContent($contentId);
@@ -98,7 +98,7 @@ $output->writeln("Content Type: " . $contentInfo->getContentType()->identifier);
 ### Versions
 
 To iterate over the versions of a Content item,
-use the [`ContentService::loadVersions`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php#L322) method, which returns an array of `VersionInfo` value objects.
+use the [`ContentService::loadVersions`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php#L360) method, which returns an array of `VersionInfo` value objects.
 
 ``` php
 $versionInfos = $this->contentService->loadVersions($contentInfo);
@@ -125,8 +125,8 @@ $versionInfoArray = $this->contentService->loadVersions($contentInfo, VersionInf
 
 Content Relations are versioned.
 To list Relations to and from your content,
-you need to pass a `VersionInfo` object to the [`ContentService::loadRelations`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php#L347) method.
-You can get the current version's `VersionInfo` using [`ContentService::loadVersionInfo`.](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php#L80)
+you need to pass a `VersionInfo` object to the [`ContentService::loadRelations`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php#L385) method.
+You can get the current version's `VersionInfo` using [`ContentService::loadVersionInfo`.](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php#L82)
 
 ``` php
 $versionInfo = $this->contentService->loadVersionInfo($contentInfo);
@@ -162,7 +162,7 @@ you need to use the `creatorId` property from the current version's `VersionInfo
 ### Section
 
 You can find the Section to which a Content item belongs through
-the [`getSection`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/ContentInfo.php#L191) method
+the [`getSection`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/ContentInfo.php#L193) method
 of the ContentInfo object:
 
 ``` php
@@ -224,7 +224,7 @@ class ViewContentCommand extends Command
 }
 ```
 
-Line 16 shows how [`ContentService::loadContent`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php#L145) loads the Content item provided to the command.
+Line 16 shows how [`ContentService::loadContent`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php#L147) loads the Content item provided to the command.
 Line 17 makes use of the [`ContentTypeService`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentTypeService.php) to retrieve the Content Type of the requested item.
 
 Lines 19-24 iterate over Fields defined by the Content Type.
@@ -283,7 +283,7 @@ class BrowseContentCommand extends Command
 
 `loadLocation` (line 14) returns a value object, here a `Location`.
 
-[`LocationService::loadLocationChildren`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LocationService.php#L107) (line 23)
+[`LocationService::loadLocationChildren`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LocationService.php#L106) (line 23)
 returns a [`LocationList`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/LocationList.php) value object that you can iterate over.
 
 !!! note

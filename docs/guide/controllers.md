@@ -91,7 +91,7 @@ These parameters can then be used in templates, for example:
 
 ### Adding a listener
 
-One way to add custom logic to all responses is to use your own listener. Please refer to the [Symfony documentation](https://symfony.com/doc/4.3/event_dispatcher/before_after_filters.html#after-filters-with-the-kernel-response-event) for the details on how to achieve this.
+One way to add custom logic to all responses is to use your own listener. Please refer to the [Symfony documentation](https://symfony.com/doc/5.0/event_dispatcher/before_after_filters.html#after-filters-with-the-kernel-response-event) for the details on how to achieve this.
 
 ### Using only your custom controller
 
@@ -569,7 +569,7 @@ The LatestContentQueryType from the [example above](#querytype-example-latest-co
 
 !!! note
 
-    For further information see the [Symfony's Options Resolver documentation page](http://symfony.com/doc/4.3/components/options_resolver.html)
+    For further information see the [Symfony's Options Resolver documentation page](http://symfony.com/doc/5.0/components/options_resolver.html)
 
 ``` php
 <?php

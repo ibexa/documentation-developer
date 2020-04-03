@@ -47,7 +47,7 @@ foreach ($result->searchHits as $seachResult) {
 
 ### Assigning Section to content
 
-To assign content to a Section, use the [`SectionService::assignSection`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/SectionService.php#L111) method.
+To assign content to a Section, use the [`SectionService::assignSection`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/SectionService.php#L110) method.
 You need to provide it with the `ContentInfo` object of the Content item,
 and the [`Section`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Section.php) object:
 
@@ -221,7 +221,7 @@ $this->languageService->createLanguage($languageCreateStruct);
 [`URLService`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/URLService.php)
 enables you to find, load and update external URLs used in RichText and URL Fields.
 
-To view a list of all URLs, use [`URLService::findUrls`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/URLService.php#L33)
+To view a list of all URLs, use [`URLService::findUrls`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/URLService.php#L38)
 
 `URLService::findUrls` takes as argument a [`URLQuery`,](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/URL/URLQuery.php)
 in which you need to specify:

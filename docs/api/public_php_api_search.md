@@ -45,12 +45,12 @@ class FindContentCommand extends Command
 }
 ```
 
-[`SearchService::findContentInfo`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/SearchService.php#L142) (line 16)
+[`SearchService::findContentInfo`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/SearchService.php#L144) (line 16)
 retrieves [`ContentInfo`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/ContentInfo.php) objects of the found Content items.
-You can also use [`SearchService::findContent`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/SearchService.php#L122) to get full Content objects, together with their Field information.
+You can also use [`SearchService::findContent`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/SearchService.php#L124) to get full Content objects, together with their Field information.
 
 To query for a single result, for example by providing a Content ID,
-use the [`SearchService::findSingle`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/SearchService.php#L159) method:
+use the [`SearchService::findSingle`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/SearchService.php#L161) method:
 
 ``` php
 $criterion = new Criterion\ContentId($contentId);
@@ -260,7 +260,7 @@ $query->sortClauses = [
     Faceted search is available only for the Solr search engine.
 
     To find out if a given search engine supports any of the advanced search capabilities,
-    use the [`eZ\Publish\API\Repository\SearchService::supports`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/SearchService.php#L187-L197) method:
+    use the [`eZ\Publish\API\Repository\SearchService::supports`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/SearchService.php#L188-L199) method:
 
     ``` php
     $facetSupport = $this->searchService->supports(SearchService::CAPABILITY_FACETS);

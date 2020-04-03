@@ -16,7 +16,7 @@ because a Location value object is read-only.
 
 To add a new Location to existing content you need to create
 a [`LocationCreateStruct`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/LocationCreateStruct.php)
-and pass it to the [`LocationService::createLocation`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LocationService.php#L141) method:
+and pass it to the [`LocationService::createLocation`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LocationService.php#L140) method:
 
 ``` php
 $locationCreateStruct = $this->locationService->newLocationCreateStruct($parentLocationId);
@@ -51,8 +51,8 @@ $this->contentService->updateContentMetadata($contentInfo, $contentUpdateStruct)
 ### Hiding and revealing Locations
 
 To hide or reveal (unhide) a Location you need to make use of
-[`LocationService::hideLocation`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LocationService.php#L175)
-or [`LocationService::unhideLocation`:](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LocationService.php#L189)
+[`LocationService::hideLocation`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LocationService.php#L174)
+or [`LocationService::unhideLocation`:](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LocationService.php#L188)
 
 ``` php
 $hiddenLocation = $locationService->hideLocation($location);
@@ -66,7 +66,7 @@ on the behavior of visible and hidden Locations.
 
 You can remove a Location either by deleting it, or sending it to Trash.
 
-Deleting makes use of [`LocationService::deleteLocation()`.](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LocationService.php#L213)
+Deleting makes use of [`LocationService::deleteLocation()`.](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LocationService.php#L212)
 It permanently deletes the Location, together with its whole subtree.
 
 Content which has only this one Location will be permanently deleted as well.
@@ -79,7 +79,7 @@ $this->locationService->deleteLocation($location);
 ```
 
 To send the Location and its subtree to Trash,
-use [`TrashService::trash`.](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/TrashService.php#L46)
+use [`TrashService::trash`.](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/TrashService.php#L49)
 Items in Trash can be later [restored, or deleted permanently](#trash).
 
 ``` php
@@ -88,7 +88,7 @@ $this->trashService->trash($location);
 
 ### Moving and copying a subtree
 
-You can move a Location with its whole subtree using [`LocationService::moveSubtree`:](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LocationService.php#L204)
+You can move a Location with its whole subtree using [`LocationService::moveSubtree`:](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LocationService.php#L203)
 
 ``` php
 $sourceLocation = $this->locationService->loadLocation($sourceLocationId);
@@ -96,7 +96,7 @@ $targetLocation = $this->locationService->loadLocation($targetLocationId);
 $this->locationService->moveSubtree($sourceLocation, $targetLocation);
 ```
 
-[`LocationService::copySubtree`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LocationService.php#L38) is used in the same way,
+[`LocationService::copySubtree`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LocationService.php#L37) is used in the same way,
 but it copies the Location and its subtree instead of moving it.
 
 !!! tip
@@ -111,10 +111,10 @@ but it copies the Location and its subtree instead of moving it.
 
 ## Trash
 
-To empty the Trash (remove all Locations in Trash), use [`TrashService::emptyTrash`,](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/TrashService.php#L72)
+To empty the Trash (remove all Locations in Trash), use [`TrashService::emptyTrash`,](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/TrashService.php#L75)
 which takes no arguments.
 
-You can recover an item from Trash using [`TrashService::recover`.](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/TrashService.php#L60)
+You can recover an item from Trash using [`TrashService::recover`.](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/TrashService.php#L63)
 You must provide the method with the ID of the object in Trash.
 Trash Location is identical to the origin Location of the object.
 
@@ -180,7 +180,7 @@ $contentTypeCreateStruct->addFieldDefinition($titleFieldCreateStruct);
 
 ### Copying Content Types
 
-To copy a Content Type, use [`ContentTypeService::copyContentType`:](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentTypeService.php#L244)
+To copy a Content Type, use [`ContentTypeService::copyContentType`:](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentTypeService.php#L241)
 
 ``` php
 $copy = $this->contentTypeService->copyContentType($contentType);
