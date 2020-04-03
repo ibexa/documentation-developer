@@ -145,6 +145,8 @@ for user passwords.
 
 You can now duplicate a role with a single click in the Back Office.
 
+![Duplicate a role](img/3.0_duplicate_roles.png "Duplicate a role icon")
+
 ### REST API reference
 
 The REST reference has been moved from Kernel to a new page, [eZ Platform REST API.](https://doc.ezplatform.com/rest-api-reference)
