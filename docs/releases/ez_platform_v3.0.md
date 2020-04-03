@@ -126,9 +126,9 @@ enables you to configure a Content query that will use parameters from a Field d
 
 You can now use [Generic Field Type](../guide/extending_field_type.md) as a template for your custom Field Types.
 
-#### Keyword FieldType
+#### Keyword Field Type
 
-The Keyword FieldType can now support versions.
+The `keyword` Field Type can now recognize versions of a Content.
 
 ### Login and password options
 
