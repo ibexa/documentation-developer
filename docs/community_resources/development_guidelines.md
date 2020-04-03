@@ -53,7 +53,7 @@ We aim to follow the [latest](http://trac.tools.ietf.org/wg/httpbis/trac/wiki#HT
 
 ## REST
 
-For now see the living [REST v2 specification](https://github.com/ezsystems/ezp-next/blob/master/doc/specifications/rest/REST-API-V2.rst) in our git repository for further details.
+For now see the living [REST v2 specification](https://doc.ezplatform.com/rest-api-reference) in our git repository for further details.
 
 ## UI
 

@@ -54,7 +54,7 @@ class VersionInfo extends BaseVersionInfo
 ## Overriding response type
 
 Next, make sure that your new implementation of serialization applies only to the selected objects. In order to do that, you need to
-decorate `EzSystems\EzPlatformRest\Output\ValueObjectVisitorDispatcher` from `ezpublish-kernel`.
+decorate `EzSystems\EzPlatformRest\Output\ValueObjectVisitorDispatcher` from `ezplatform-kernel`.
 
 ```php
 <?php

@@ -2218,8 +2218,6 @@ When creating RichText content with the REST API, it is possible to provide data
 
 When the value given over REST API is transformed into a Field Type's `Value` object, it will be treated as a string. This means you can use any supported input format for input over REST API.
 
-For further information about the [internal implementation of RichText Field Type, see the kernel documentation](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/rich_text/ezdocbook.md)
-
 ## Selection Field Type
 
 The Selection Field Type stores single selections or multiple choices from a list of options, by populating a hash with the list of selected values.

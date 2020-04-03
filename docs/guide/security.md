@@ -49,7 +49,7 @@ Authentication is provided using the Symfony Security component.
 
 A `SecurityController` is used to manage all security-related actions and is thus used to display the login form. It follows all standards explained in [Symfony security documentation](http://symfony.com/doc/5.0/security/form_login_setup.html).
 
-The base template used is [`EzPublishCore/Security/login.html.twig`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/views/Security/login.html.twig).
+The base template used is [`EzPublishCore/Security/login.html.twig`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Bundle/EzPublishCoreBundle/Resources/views/Security/login.html.twig).
 
 The layout used by default is `%ezpublish.content_view.viewbase_layout%` (empty layout) but can be configured together with the login template:
 

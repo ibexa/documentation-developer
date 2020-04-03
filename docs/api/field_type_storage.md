@@ -60,7 +60,7 @@ Just like a Type, a Legacy Converter needs to be registered and tagged in the se
 
 #### Registering a converter
 
-The registration of a `Converter` currently works through the `$config` parameter of [`eZ\Publish\Core\Persistence\Legacy\Handler`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.0/eZ/Publish/Core/Persistence/Legacy/Handler.php).
+The registration of a `Converter` currently works through the `$config` parameter of [`eZ\Publish\Core\Persistence\Legacy\Handler`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/Persistence/Legacy/Handler.php).
 
 Those converters also need to be correctly exposed as services and tagged with `ezplatform.field_type.legacy_storage.converter`:
 
@@ -79,7 +79,7 @@ The tag has the following attribute:
 
 !!! tip
 
-    Converter configuration for built-in Field Types is located in [`eZ/Publish/Core/settings/fieldtype_external_storages.yaml`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/fieldtype_external_storages.yml).
+    Converter configuration for built-in Field Types is located in [`eZ/Publish/Core/settings/fieldtype_external_storages.yaml`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/settings/fieldtype_external_storages.yml).
 
 ## Storing external data
 
@@ -152,7 +152,7 @@ services:
 
 The configuration requires providing the `ezplatform.field_type.external_storage_handler` tag, with the `alias` attribute being the *fieldTypeIdentifier*. You also have to inject the gateway in `arguments`, [see below](#gateway-based-storage).
 
-External storage configuration for basic Field Types is located in [eZ/Publish/Core/settings/fieldtype_external_storages.yaml](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/fieldtype_external_storages.yml).
+External storage configuration for basic Field Types is located in [eZ/Publish/Core/settings/fieldtype_external_storages.yaml](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/settings/fieldtype_external_storages.yml).
 
 #### Registration
 
@@ -175,4 +175,4 @@ Also note that there can be several gateways per Field Type (one per storage eng
 
 !!! tip
 
-    Gateway configuration for built-in Field Types is located in [`EzPublishCoreBundle/Resources/config/storage_engines.yaml`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.0/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage_engines.yml).
+    Gateway configuration for built-in Field Types is located in [`EzPublishCoreBundle/Resources/config/storage_engines.yaml`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage_engines.yml).

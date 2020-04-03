@@ -193,7 +193,7 @@ ezplatform:
         eng-DE: en_DE
 ```
 
-A locale *conversion map* example [can be found in the `core` bundle, on `locale.yaml`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/locale.yaml).
+A locale *conversion map* example [can be found in the `core` bundle, on `locale.yaml`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Bundle/EzPublishCoreBundle/Resources/config/locale.yaml).
 
 ### More complex translation setup
 
