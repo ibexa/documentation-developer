@@ -128,7 +128,7 @@ You can now use [Generic Field Type](../guide/extending_field_type.md) as a temp
 
 #### Keyword Field Type
 
-The `keyword` Field Type can now recognize versions of a Content.
+The `keyword` Field Type can now recognize versions of a Content item.
 
 ### Login and password options
 
