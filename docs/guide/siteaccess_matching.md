@@ -208,7 +208,7 @@ Maps a port to a SiteAccess.
 ezpublish:
     siteaccess:
         match:
-            Match\Port:
+            Map\Port:
                 80: foo
                 8080: bar
 ```
