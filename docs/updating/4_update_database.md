@@ -1,8 +1,8 @@
 # 4. Update database
 
 Some versions require updates to the database. Look through the list of database update scripts
-[for MySQL](https://github.com/ezsystems/ezplatform-kernel/tree/master/data/update/mysql)
-and [for PostgreSQL](https://github.com/ezsystems/ezplatform-kernel/tree/master/data/update/postgres)
+[for MySQL](https://github.com/ezsystems/ezpublish-kernel/tree/master/data/update/mysql)
+and [for PostgreSQL](https://github.com/ezsystems/ezpublish-kernel/tree/master/data/update/postgres)
 and find a script for the database version you are updating to.
 
 !!! tip "Database version number"

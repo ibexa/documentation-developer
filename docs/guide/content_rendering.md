@@ -199,7 +199,7 @@ create `themes/site/default/content/<viewType>.html.twig` to override the core t
 
 ##### Customizing the default controller
 
-The controller used to render content by default can also be changed. The `ezsettings.default.content_view_defaults` container parameter contains a hash that defines how content is rendered by default. It contains a set of [content view rules for the common view types](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Bundle/EzPublishCoreBundle/Resources/config/default_settings.yaml#L37-L65). This hash can be redefined to whatever suits your requirements, including custom controllers, or even matchers.
+The controller used to render content by default can also be changed. The `ezsettings.default.content_view_defaults` container parameter contains a hash that defines how content is rendered by default. It contains a set of [content view rules for the common view types](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Bundle/EzPublishCoreBundle/Resources/config/default_settings.yml#L45-L73). This hash can be redefined to whatever suits your requirements, including custom controllers, or even matchers.
 
 ### View providers
 

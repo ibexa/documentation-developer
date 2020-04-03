@@ -159,7 +159,7 @@ The location tab also allows to manage (add, remove, hide/unhide) locations, as 
 
 Bundles can now declare custom modules, policies and limitations.
 
-Links: [documentation](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/doc/specifications/security/permissions/policies_extensibility.md), [EZP-24862](https://jira.ez.no/browse/EZP-24862).
+Links: [documentation](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/security/permissions/policies_extensibility.md), [EZP-24862](https://jira.ez.no/browse/EZP-24862).
 
 ![](img/platform_custom_policies.png)
 
@@ -359,7 +359,7 @@ More info: [Technical specifications](https://github.com/ezsystems/ezpublish-ke
 
 A new controller and route have been added, and the Image and BinaryFile content field templates have been updated. Permissions are transparently checked during download, and HTTP resume is supported. The [Route Reference API](../api/rest_api_reference.md), provides facilities to generate the right path from templates, and a valid URI is exposed over REST.
 
-More info:  [Specificaftions](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/doc/specifications/proposed/content_download/content_download.md), [Implementation story](https://jira.ez.no/browse/EZP-23550), [Content view module epic](https://jira.ez.no/browse/EZP-24144).
+More info:  [Specificaftions](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/specifications/proposed/content_download/content_download.md), [Implementation story](https://jira.ez.no/browse/EZP-23550), [Content view module epic](https://jira.ez.no/browse/EZP-24144).
 
  
 

@@ -32,7 +32,7 @@ Assetic is still in use, but it will be deprecated in a future version.
 
 This release enables you to [use PostgreSQL](../guide/databases.md#using-postgresql) for database instead of the default MySQL.
 
-Database schema is now created based on [YAML configuration](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage/legacy/schema.yaml).
+Database schema is now created based on [YAML configuration](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage/legacy/schema.yaml).
 
 ### GraphQL
 
