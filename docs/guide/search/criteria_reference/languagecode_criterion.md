@@ -1,6 +1,6 @@
 # LanguageCode Criterion
 
-The [`LanguageCode` Search Criterion](https://github.com/ezsystems/ezpublish-kernel/blob/v8.0.0-beta3/eZ/Publish/API/Repository/Values/Content/Query/Criterion/Location.php)
+The [`LanguageCode` Search Criterion](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Query/Criterion/Location.php)
 searches for content based on whether it is translated into the selected language.
 
 ## Arguments

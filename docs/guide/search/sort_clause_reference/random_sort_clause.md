@@ -1,6 +1,6 @@
 # Random Sort Clause
 
-The [`Random` Sort Clause](https://github.com/ezsystems/ezpublish-kernel/blob/v8.0.0-beta3/eZ/Publish/API/Repository/Values/Content/Query/SortClause/Random.php)
+The [`Random` Sort Clause](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Query/SortClause/Random.php)
 orders search results randomly.
 
 ## Arguments

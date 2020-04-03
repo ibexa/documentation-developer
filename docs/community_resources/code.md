@@ -8,7 +8,7 @@ Once you are done with describing your idea, focus on the main part - sharing th
 eZ uses a regular git workflow, so if you are familiar with the concept, the whole procedure should be pretty straightforward.
 
 eZ Platform is divided into meta-repositories.
-The core of our system is [`ezpublish-kernel`](https://github.com/ezsystems/ezpublish-kernel)
+The core of our system is [`ezplatform-kernel`](https://github.com/ezsystems/ezplatform-kernel)
 containing an advanced Content Model and aiming to provide additional features for the MVC layer (Symfony).
 On the other hand, e.g. `ezplatform-admin-ui` is strictly dedicated to the Admin Panel purposes.
 If you want to learn more about our code structure, take a look at [our organization page on GitHub](https://github.com/ezsystems)

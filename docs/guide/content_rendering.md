@@ -145,8 +145,8 @@ Main content-related variables include:
 
 |Variable name|Type|Description|
 |------|------|------|
-|`content`|[eZ\Publish\Core\Repository\Values\Content\Content](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Repository/Values/Content/Content.php)|The Content item, containing all Fields and version information (VersionInfo)|
-|`location`|[eZ\Publish\Core\Repository\Values\Content\Location](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Repository/Values/Content/Location.php)|The Location object. Contains meta information on the Content (ContentInfo) (only when accessing a Location) |
+|`content`|[eZ\Publish\Core\Repository\Values\Content\Content](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/Repository/Values/Content/Content.php)|The Content item, containing all Fields and version information (VersionInfo)|
+|`location`|[eZ\Publish\Core\Repository\Values\Content\Location](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/Repository/Values/Content/Location.php)|The Location object. Contains meta information on the Content (ContentInfo) (only when accessing a Location) |
 |`no_layout`|Boolean|If true, indicates if the Content item/Location is to be displayed without any pagelayout (i.e. AJAX, sub-requests, etc.). It's generally `false` when displaying a Content item in view type **full**.|
 |`view_base_layout`|String|The base layout template to use when the view is requested to be generated outside of the pagelayout (when `no_layout` is true).|
 
@@ -199,7 +199,7 @@ create `themes/site/default/content/<viewType>.html.twig` to override the core t
 
 ##### Customizing the default controller
 
-The controller used to render content by default can also be changed. The `ezsettings.default.content_view_defaults` container parameter contains a hash that defines how content is rendered by default. It contains a set of [content view rules for the common view types](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/default_settings.yaml#L37-L65). This hash can be redefined to whatever suits your requirements, including custom controllers, or even matchers.
+The controller used to render content by default can also be changed. The `ezsettings.default.content_view_defaults` container parameter contains a hash that defines how content is rendered by default. It contains a set of [content view rules for the common view types](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Bundle/EzPublishCoreBundle/Resources/config/default_settings.yml#L45-L73). This hash can be redefined to whatever suits your requirements, including custom controllers, or even matchers.
 
 ### View providers
 

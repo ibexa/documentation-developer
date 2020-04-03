@@ -14,7 +14,7 @@ This class must contain as little logic as possible, because the logic is handle
 
 ## Type class
 
-The Type class of a Field Type provides an implementation of the [`eZ\Publish\SPI\FieldType\FieldType`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/SPI/FieldType/FieldType.php) interface.
+The Type class of a Field Type provides an implementation of the [`eZ\Publish\SPI\FieldType\FieldType`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/SPI/FieldType/FieldType.php) interface.
 
 ### Field Definition handling
 
@@ -137,7 +137,7 @@ This ensures that the initialization steps shared by all Field Types are execute
 
 !!! tip
 
-    The configuration of built-in Field Types is located in [`EzPublishCoreBundle/Resources/config/fieldtypes.yaml`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.0/eZ/Publish/Core/settings/fieldtypes.yml).
+    The configuration of built-in Field Types is located in [`EzPublishCoreBundle/Resources/config/fieldtypes.yaml`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/settings/fieldtypes.yml).
 
 ## Field Type settings
 

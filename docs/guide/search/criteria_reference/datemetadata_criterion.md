@@ -1,6 +1,6 @@
 # DateMetadata Criterion
 
-The [`DateMetadata` Search Criterion](https://github.com/ezsystems/ezpublish-kernel/blob/v8.0.0-beta3/eZ/Publish/API/Repository/Values/Content/Query/Criterion/DateMetadata.php)
+The [`DateMetadata` Search Criterion](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Query/Criterion/DateMetadata.php)
 searches for content based on the date when it was created or last modified.
 
 ## Arguments

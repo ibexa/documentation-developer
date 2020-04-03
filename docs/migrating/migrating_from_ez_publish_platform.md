@@ -475,7 +475,7 @@ It is possible that after the upgrade your admin screen will be unstyled. This m
 If your legacy site uses old-style URL aliases, to upgrade them successfully you need to apply a workaround to the slug converter. Where the slug converter service is defined, set second config parameter to use `urlalias_compat` by adding a new argument to the existing settings:
 
 ``` yaml
-# in vendor/ezsystems/ezpublish-kernel/eZ/Publish/Core/settings/storage\_engines/common.yaml
+# in vendor/ezsystems/ezplatform-kernel/eZ/Publish/Core/settings/storage\_engines/common.yaml
     ezpublish.persistence.slug_converter:
         class: '%ezpublish.persistence.slug_converter.class%'
         arguments:

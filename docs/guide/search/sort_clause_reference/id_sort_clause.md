@@ -1,6 +1,6 @@
 # Id Sort Clause
 
-The [`Location\Id` Sort Clause](https://github.com/ezsystems/ezpublish-kernel/blob/v8.0.0-beta3/eZ/Publish/API/Repository/Values/Content/Query/SortClause/Location/Id.php)
+The [`Location\Id` Sort Clause](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Query/SortClause/Location/Id.php)
 sorts search results by the ID of the Location.
 
 ## Arguments

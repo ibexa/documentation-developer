@@ -208,7 +208,7 @@ In order to display the Fields' value the way you want, you can either manipulat
 
 #### Getting raw Field value
 
-As you have access to the Content item in the template, you can use [its public methods](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Repository/Values/Content/Content.php) to access all the information you need. You can also use the `ez_field_value` helper to get the [Field's value only](twig_functions_reference.md#ez_field_value). It will return the correct language if there are several, based on language priorities.
+As you have access to the Content item in the template, you can use [its public methods](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/Repository/Values/Content/Content.php) to access all the information you need. You can also use the `ez_field_value` helper to get the [Field's value only](twig_functions_reference.md#ez_field_value). It will return the correct language if there are several, based on language priorities.
 
 ``` html+twig
 {# With the following, myFieldValue will be in the Content item's main language #}
@@ -262,7 +262,7 @@ If you do not see changes, clear the cache by running: `php bin/console cache:cl
  
 #### Using the Field Type's template block
 
-All built-in Field Types come with [their own Twig template.](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/views/content_fields.html.twig)
+All built-in Field Types come with [their own Twig template.](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Bundle/EzPublishCoreBundle/Resources/views/content_fields.html.twig)
 You can render any Field using this default template using the `ez_render_field()` helper.
 
 ``` html+twig
@@ -496,10 +496,10 @@ Only scalar variables (not objects) can be sent via `render_esi`.
 
 ## Rendering in preview
 
-When previewing content in the back office, the draft view is rendered using the [PreviewController](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/MVC/Symfony/Controller/Content/PreviewController.php).
+When previewing content in the back office, the draft view is rendered using the [PreviewController](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/MVC/Symfony/Controller/Content/PreviewController.php).
 
 The first draft of a yet unpublished Content item does not have a Location, because Locations are only assigned when content is published.
-To enable rendering in such cases, the PreviewController [creates a temporary virtual Location](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Helper/PreviewLocationProvider.php#L65).
+To enable rendering in such cases, the PreviewController [creates a temporary virtual Location](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/Helper/PreviewLocationProvider.php#L65).
 This Location has some of the properties of the future Location, such as the parent Location ID.
 However, it does not fully replace a normal Location.
 
@@ -620,7 +620,7 @@ article:
 
 You can dynamically inject variables in content view templates by listening to the `ezpublish.pre_content_view` event.
 
-The event listener method receives an [`eZ\Publish\Core\MVC\Symfony\Event\PreContentViewEvent`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/MVC/Symfony/Event/PreContentViewEvent.php) object.
+The event listener method receives an [`eZ\Publish\Core\MVC\Symfony\Event\PreContentViewEvent`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/MVC/Symfony/Event/PreContentViewEvent.php) object.
 
 The following example injects `my_variable` and `my_array` variables in all content view templates.
 
