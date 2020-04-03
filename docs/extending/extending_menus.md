@@ -69,7 +69,7 @@ class MenuListener implements EventSubscriberInterface
 }
 ```
 
-If [the autoconfigure option](https://symfony.com/doc/4.3/service_container.html#the-autoconfigure-option) is disabled,
+If [the autoconfigure option](https://symfony.com/doc/5.0/service_container.html#the-autoconfigure-option) is disabled,
 you need to register the service with the `kernel.event.subscriber` tag in `config/services.yaml`:
 
 ``` yaml

@@ -106,11 +106,19 @@ This file loads the plugin and button files when loading Online Editor.
 Finally, add the plugin and its button to your eZ Platform configuration:
 
 ``` yaml
+ezplatform:
+    system:
+        admin_group:
+            fieldtypes:
+                ezrichtext:
+                    toolbars:
+                        paragraph:
+                            buttons:
+                                date:
+                                    priority: 0
 ezrichtext:
     alloy_editor:
         extra_plugins: [date]
-        extra_buttons:
-            paragraph: [date]
 ```
 
 At this point you can run `yarn encore dev` and create a Content item with a RichText Field.

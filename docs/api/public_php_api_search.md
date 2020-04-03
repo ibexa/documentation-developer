@@ -3,7 +3,7 @@
 [`SearchService`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/SearchService.php)
 enables you to perform search queries using the PHP API.
 
-The service should be [injected into the constructor of your command or controller.](https://symfony.com/doc/4.3/service_container.html)
+The service should be [injected into the constructor of your command or controller.](https://symfony.com/doc/5.0/service_container.html)
 
 !!! tip "SearchService in the Back Office"
 
@@ -151,7 +151,7 @@ Pagination can then be rendered for example using the following template:
 
 ``` html+twig
 {% for item in pagerItems %}
-    <h2><a href={{ path('ez_urlalias', {'contentId': item.contentInfo.id}) }}>{{ ez_content_name(item) }}</a></h2>
+    <h2><a href={{ ez_path(item.valueObject}) }}>{{ ez_content_name(item) }}</a></h2>
 {% endfor %}
 
 {% if pagerItems.haveToPaginate() %}

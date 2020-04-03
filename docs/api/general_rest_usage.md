@@ -145,12 +145,12 @@ For instance, they can be used to customize a list's offset/limit.
 To filter a list, specify which fields you want from a content, etc.
 For almost all resources, these parameters must be provided as GET. 
 
-The example request below would return the first 5 relations for version 2 of the Content item 59:
+The example request below would return the first 5 relations for version 3 of the Content item 59:
 
 **GET request with limit parameter**
 
 ```
-GET /content/objects/59/versions/2/relations&limit=5 HTTP/1.1
+GET /content/objects/59/versions/3/relations&limit=5 HTTP/1.1
 Accept: application/vnd.ez.api.RelationList+xml
 ```
 
@@ -279,6 +279,19 @@ The REST API supports two authentication methods:
 - **Basic authentication** for writing cross-server procedures, when one remote application executes operations on one/several eZ Platform instances (remote publishing, maintenance, etc).
 
 Session-based is the default authentication method as it is needed for UI.
+
+!!! note "Limiting anonymous access to metadata over REST API"
+    
+    Some API endpoints accessible to the Anonymous User return metadata you might not want to expose, due to insufficient permission limitations.
+    To prevent that, you can rely on the Symfony securing URL patterns mechanism called [access_control](https://symfony.com/doc/3.4/security/access_control.html).
+    The example below shows you how to block listing Content Types for the non-authenticated users.
+    
+    **security.yml**
+    ``` yaml
+    security:
+        access_control:
+            - { path: '^/api/ezp/v2/content/types', roles: ROLE_USER }
+    ```
 
 ### Session-based authentication
 

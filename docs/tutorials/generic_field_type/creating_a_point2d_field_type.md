@@ -4,7 +4,7 @@
 
     The code created in this tutorial is available on [GitHub](https://github.com/ezsystems/generic-field-type-tutorial/tree/master).
 
-This tutorial covers the creation and development of a custom eZ Platform [Field Type](../../api/field_type_reference.md) based on a [Generic Field Type](../../guide/extending/extending_field_type.md).
+This tutorial covers the creation and development of a custom eZ Platform [Field Type](../../api/field_type_reference.md) based on a [Generic Field Type](../../extending/extending_field_type.md).
 The Generic Field Type is a very powerful extension point. It enables you to easily build complex solutions on a ready-to-go Field Type template.
 
 Field Types are responsible for:

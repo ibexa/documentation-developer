@@ -36,7 +36,7 @@ return $this->render('parts/breadcrumbs.html.twig', [
 {% for breadcrumb in breadcrumbs %}
     {% if not loop.first %} -> {% endif %}
     {% if not loop.last %}
-        <a href="{{ path( breadcrumb.valueObject ) }}">{{ breadcrumb.valueObject.contentInfo.name }}</a>
+        <a href="{{ ez_path( breadcrumb.valueObject ) }}">{{ breadcrumb.valueObject.contentInfo.name }}</a>
     {% else %}
         {{ breadcrumb.valueObject.contentInfo.name }}
     {% endif %}

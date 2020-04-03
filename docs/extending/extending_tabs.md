@@ -25,7 +25,7 @@ app.my_tabs.custom_group:
 
 The tab group must be tagged with `ezplatform.admin_ui.component`.
 The `group` tag indicates where the group will be rendered.
-For the list of possible rendering places, see [Injecting custom components](extending_back_office.md#injecting-custom-components).
+For the list of possible rendering places, see [Injecting custom components](custom_components.md).
 
 `$groupIdentifier` is the name that you point to when assigning a tab to this group.
 You can also provide the `$template` argument to use a custom template for rendering the group.
@@ -33,7 +33,7 @@ You can also provide the `$template` argument to use a custom template for rende
 ### Adding a tab group with custom logic
 
 To create a custom tab group with additional logic, you need to create it at the level of compiling the Symfony container,
-using a [CompilerPass.](https://symfony.com/doc/4.3/service_container/compiler_passes.html)
+using a [CompilerPass.](https://symfony.com/doc/5.0/service_container/compiler_passes.html)
 
 For example, in `src/DependencyInjection/Compiler/CustomTabGroupPass.php`:
 

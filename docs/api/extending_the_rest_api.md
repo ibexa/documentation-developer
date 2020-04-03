@@ -50,7 +50,7 @@ myRestBundle_rest_routes:
 
 Using a distinct file for REST routes allows you to use the prefix for all this file's routes without affecting other routes from your bundle.
 
-Next, you need to create the REST route. Define the route's [controller as a service](http://symfony.com/doc/4.3/cookbook/controller/service.html) since your controller was defined as such.
+Next, you need to create the REST route. Define the route's [controller as a service](http://symfony.com/doc/5.0/cookbook/controller/service.html) since your controller was defined as such.
 
 **My/Bundle/RestBundle/Resources/config/routing\_rest.yaml**
 
@@ -316,7 +316,7 @@ with `someresource` being a unique key.
 
 The `router.generate` call dynamically renders a URI based on the name of the route and the optional parameters that are passed as the other arguments (in the code above this is the `contentId`).
 
-This syntax is based on [Symfony's expression language](http://symfony.com/doc/4.3/components/expression_language/index.html), an extensible component that allows limited/readable scripting to be used outside code context.
+This syntax is based on [Symfony's expression language](http://symfony.com/doc/5.0/components/expression_language/index.html), an extensible component that allows limited/readable scripting to be used outside code context.
 
 The above configuration will add the following entry to the root resource:
 

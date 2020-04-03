@@ -13,7 +13,7 @@ A tooltip is displayed automatically when the user hovers the pointer over an ac
 
 !!! note
     Our application relies on [Bootstrap's tooltips](https://getbootstrap.com/docs/4.1/components/tooltips/). Check our their documentation for basic aspects regarding Tooltips configuration.</br>
-    <div class="mgt-2">If you are interested in customizing or extending this component, check out [Extending Back Office](guide/extending/extending_back_office.md#add-tooltips).</div>
+    <div class="mgt-2">If you are interested in customizing or extending this component, check out [Extending Back Office](../../extending/extending_tooltips.md).</div>
 
 **<div class="mgt-3">Behavior & motion</div>**
 A tooltip is displayed upon hovering over an action button. It shows up over 150ms and fades out over 75ms.

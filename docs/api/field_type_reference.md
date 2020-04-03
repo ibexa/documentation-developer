@@ -800,7 +800,7 @@ This Field Type does not support settings.
 
     The Form Field Type stores a Form consisting of one or more form fields.
 
-    See [Extending Form Builder](../guide/extending/extending_form_builder.md) for more information
+    See [Extending Form Builder](../extending/extending_form_builder.md) for more information
     about working with Forms.
 
 ## Image Field Type
@@ -873,6 +873,10 @@ The Image Field Type supports one `FieldDefinition` option: the maximum size for
 !!!note
 
     Maximum size is rounded to 1 MB (legacy storage limitation).
+      
+!!! note
+
+    As the default value for maximum size is set to 10MB, we recommend setting the `upload_max_filesize` key in the `php.ini` configuration file to a value equal to or higher than that. It will prevent validation errors while editing Content Types.
 
 ### Using an Image Field
 
@@ -1799,25 +1803,23 @@ This Field Type does not have its own fixed internal name. Its identifier is ins
 
 #### Example for usage of Null Field Type
 
-Following shows example on how eZ Publish "datatype" `ezpaex` could be configured as a eZ Platform "Null Field type":
+The following example shows how an `example` Field Type could be configured as a Null Field Type:
 
 ``` yaml
 # Null Fieldtype example configuration
-
 services:
-    ezpublish.fieldType.ezpaex:
-        class: '%ezpublish.fieldType.eznull.class%'
-        parent: ezpublish.fieldType
-        arguments: [ezpaex]
-        tags: [{name: ezplatform.field_type, alias: ezpaex}]
-
-    ezpublish.fieldType.ezpaex.converter:
-        class: '%ezpublish.fieldType.eznull.converter.class%'
-        tags: [{name: ezplatform.field_type.legacy_storage.converter, alias: ezpaex}]
-
-    ezpublish.fieldType.ezpaex.indexable:
+    ezpublish.fieldType.example:
+        class: eZ\Publish\Core\FieldType\Null\Type
+        autowire: true
+        autoconfigure: false
+        arguments: [example]
+        tags: [{name: ezplatform.field_type, alias: example}]
+    ezpublish.fieldType.example.converter:
+        class: eZ\Publish\Core\Persistence\Legacy\Content\FieldValue\Converter\NullConverter
+        tags: [{name: ezplatform.field_type.legacy_storage.converter, alias: example}]
+    ezpublish.fieldType.example.indexable:
         class: '%ezpublish.fieldType.indexable.unindexed.class%'
-        tags: [{name: ezplatform.field_type.indexable, alias: ezpaex}]
+        tags: [{name: ezplatform.field_type.indexable, alias: example}]
 ```
 
 !!! enterprise
@@ -1848,7 +1850,7 @@ services:
 
     ### Blocks
 
-    For information on how to create and configure new blocks for the Page, see [Creating Page blocks](../guide/extending/extending_page.md#creating-page-blocks).
+    For information on how to create and configure new blocks for the Page, see [Creating Page blocks](../extending/extending_page.md#creating-page-blocks).
 
     ### Rendering Pages
 

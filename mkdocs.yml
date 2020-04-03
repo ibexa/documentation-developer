@@ -45,7 +45,6 @@ nav:
             - '3a. Filtering the content list': 'tutorials/extending_admin_ui/3_filtering_the_content_list.md'
             - '3b. Adding Edit button to content list': 'tutorials/extending_admin_ui/3b_adding_edit_button_content_list.md'
             - '4. Creating a custom tag': 'tutorials/extending_admin_ui/4_adding_a_custom_tag.md'
-        - 'Creating a UDW tab': 'tutorials/mini_tutorials/adding_tab_to_udw.md'
     - API:
         - REST API guide:
             - 'REST API guide': 'api/rest_api_guide.md'
@@ -192,28 +191,37 @@ nav:
             - 'Development Security': 'guide/security.md'
             - 'Reporting Issues': 'guide/reporting_issues.md'
         - 'Notifications': 'guide/sending_notifications.md'
-        - Extending eZ Platform:
-            - 'Extending eZ Platform': 'guide/extending/extending_ez_platform.md'
-            - 'Extending Back Office': 'guide/extending/extending_back_office.md'
-            - 'Extending Dashboard': 'guide/extending/extending_dashboard.md'
-            - 'Extending Menus': 'guide/extending/extending_menus.md'
-            - 'Extending tabs': 'guide/extending/extending_tabs.md'
-            - 'Extending settings': 'guide/extending/extending_settings.md'
-            - 'Extending UDW': 'guide/extending/extending_udw.md'
-            - 'Extending Multi-file Upload': 'guide/extending/extending_multifile_upload.md'
-            - 'Extending Sub-items List': 'guide/extending/extending_subitems_list.md'
-            - 'Extending the Online Editor': 'guide/extending/extending_online_editor.md'
-            - 'Creating Online Editor plugin': 'guide/extending/online_editor_plugin.md'
-            - 'Extending Form Builder': 'guide/extending/extending_form_builder.md'
-            - 'Extending Workflow': 'guide/extending/extending_workflow.md'
-            - 'Creating custom Field Type': 'guide/extending/extending_field_type.md'
-            - 'Creating custom Page blocks': 'guide/extending/extending_page.md'
-            - 'Creating custom RichText blocks': 'guide/extending/richtext_block.md'
-            - 'Creating custom drop-downs': 'guide/extending/creating_custom_dropdowns.md'
-            - 'Creating custom Field Type comparison': 'guide/extending/custom_fieldtype_comparison.md'
-            - 'Creating drag and drop interface': 'guide/extending/drag_and_drop.md'
         - 'Service container': 'guide/service_container.md'
         - 'Recommendation': 'guide/personalization.md'
+    - Extending eZ Platform:
+        - 'Extending Back Office':
+            - 'Extending Dashboard': 'extending/extending_dashboard.md'
+            - 'Extending Menus': 'extending/extending_menus.md'
+            - 'Extending tabs': 'extending/extending_tabs.md'
+            - 'Extending settings': 'extending/extending_settings.md'
+            - 'Extending date and time': 'extending/extending_date_and_time.md'
+            - 'Extending tooltips': 'extending/extending_tooltips.md'
+            - 'Creating custom Page blocks': 'extending/extending_page.md'
+            - 'Creating custom RichText blocks': 'extending/richtext_block.md'
+            - 'Creating custom drop-downs': 'extending/creating_custom_dropdowns.md'
+            - 'Creating custom icons': 'extending/custom_icons.md'
+            - 'Extending thumbnails': 'extending/extending_thumbnails.md'
+            - 'Injecting custom components': 'extending/custom_components.md'
+        - 'Extending Form Builder': 'extending/extending_form_builder.md'
+        - 'Extending Workflow': 'extending/extending_workflow.md'
+        - 'Extending Online Editor':
+            - 'Extending Online Editor': 'extending/extending_online_editor.md'
+            - 'Creating Online Editor button': 'extending/online_editor_button.md'
+            - 'Creating Online Editor plugin': 'extending/online_editor_plugin.md'
+        - 'Extending Modules':
+            - 'Extending UDW': 'extending/extending_udw.md'
+            - 'Creating a UDW tab': 'extending/adding_tab_to_udw.md'
+            - 'Extending Multi-file Upload': 'extending/extending_multifile_upload.md'
+            - 'Extending Sub-items List': 'extending/extending_subitems_list.md'
+            - 'Creating drag and drop interface': 'extending/drag_and_drop.md'
+        - 'Field Types':
+            - 'Creating custom Field Type': 'extending/extending_field_type.md'
+            - 'Creating custom Field Type comparison': 'extending/custom_fieldtype_comparison.md'
     - Resources and community:
         - 'Resources': 'community_resources/resources.md'
         - 'Release process and roadmap': 'community_resources/release_process.md'
@@ -250,6 +258,7 @@ nav:
         - 'Migrating from eZ Publish': 'migrating/migrating_from_ez_publish.md'
         - 'Common issues': 'migrating/common_issues.md'
     - Updating eZ Platform:
+        - 'Upgrading to eZ Platform v3': 'updating/upgrading_to_v3.md'
         - 'Updating eZ Platform': 'updating/updating_ez_platform.md'
         - '1. Check out a tagged version': 'updating/1_check_out_version.md'
         - '2. Merge composer.json': 'updating/2_merge_composer.md'
@@ -266,8 +275,8 @@ nav:
         - '6. Dump assets': 'updating/6_dump_assets.md'
         - '7. Commit, test and merge': 'updating/7_commit_test_merge.md'
     - Releases:
+        - 'eZ Platform v3.0': 'releases/ez_platform_v3.0.md'
         - 'eZ Platform v3.0 deprecations and BC breaks': 'releases/ez_platform_v3.0_deprecations.md'
-        - 'eZ Platform v3.0 project update': 'releases/ez_platform_v3.0_project_update.md'
         - 'eZ Platform v2.5 LTS': 'releases/ez_platform_v2.5.md'
         - 'eZ Platform v2.4': 'releases/ez_platform_v2.4.md'
         - 'eZ Platform v2.3': 'releases/ez_platform_v2.3.md'
@@ -319,10 +328,10 @@ theme:
 
 extra:
   version_warning:
-    latest: ['2.5']
+    latest: ['3.0']
     previous_lts: ['1.7','1.13']
     lts: ['2.5']
-    ft: ['2.2', '2.3','2.4']
+    ft: []
     dev: ['master']
   append_bootstrap:
     - '/guidelines/components/'

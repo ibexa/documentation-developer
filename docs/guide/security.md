@@ -37,17 +37,17 @@ logout:
     You can fully customize the routes and/or the controller used for login.
     However, remember to match `login_path`, `check_path` and `logout.path` from `security.yaml`.
 
-    See [security configuration reference](http://symfony.com/doc/4.3/reference/configuration/security.html) and [standard login form documentation](http://symfony.com/doc/4.3/security/form_login_setup.html).
+    See [security configuration reference](http://symfony.com/doc/5.0/reference/configuration/security.html) and [standard login form documentation](http://symfony.com/doc/5.0/security/form_login_setup.html).
 
 ### Authentication using Symfony Security component
 
 Authentication is provided using the Symfony Security component.
 
-[Native and universal `form_login`](http://symfony.com/doc/4.3/security/form_login_setup.html) is used, in conjunction with an extended `DaoAuthenticationProvider` (DAO stands for *Data Access Object*), the `RepositoryAuthenticationProvider`. Native behavior of `DaoAuthenticationProvider` has been preserved, making it possible to still use it for pure Symfony applications.
+[Native and universal `form_login`](http://symfony.com/doc/5.0/security/form_login_setup.html) is used, in conjunction with an extended `DaoAuthenticationProvider` (DAO stands for *Data Access Object*), the `RepositoryAuthenticationProvider`. Native behavior of `DaoAuthenticationProvider` has been preserved, making it possible to still use it for pure Symfony applications.
 
 #### Security controller
 
-A `SecurityController` is used to manage all security-related actions and is thus used to display the login form. It follows all standards explained in [Symfony security documentation](http://symfony.com/doc/4.3/security/form_login_setup.html).
+A `SecurityController` is used to manage all security-related actions and is thus used to display the login form. It follows all standards explained in [Symfony security documentation](http://symfony.com/doc/5.0/security/form_login_setup.html).
 
 The base template used is [`EzPublishCore/Security/login.html.twig`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Bundle/EzPublishCoreBundle/Resources/views/Security/login.html.twig).
 
@@ -64,12 +64,12 @@ ezplatform:
 
 ##### Redirection after login
 
-By default, Symfony redirects to the [URI configured in `security.yaml` as `default_target_path`](http://symfony.com/doc/4.3/reference/configuration/security.html). If not set, it defaults to `/`.
+By default, Symfony redirects to the [URI configured in `security.yaml` as `default_target_path`](http://symfony.com/doc/5.0/reference/configuration/security.html). If not set, it defaults to `/`.
 
 #### Remember me
 
 It is possible to use the "Remember me" functionality.
-Refer to the [Symfony cookbook on this topic](http://symfony.com/doc/4.3/security/remember_me.html).
+Refer to the [Symfony cookbook on this topic](http://symfony.com/doc/5.0/security/remember_me.html).
 
 If you want to use this feature, you must at least extend the login template in order to add the required checkbox:
 
@@ -85,7 +85,7 @@ If you want to use this feature, you must at least extend the login template in 
 
 #### Login handlers / SSO
 
-Symfony provides native support for [multiple user providers](https://symfony.com/doc/4.3/security/multiple_user_providers.html). This makes it easy to integrate any kind of login handlers, including SSO and existing third-party bundles (e.g. [FR3DLdapBundle](https://github.com/Maks3w/FR3DLdapBundle), [HWIOauthBundle](https://github.com/hwi/HWIOAuthBundle), [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle), [BeSimpleSsoAuthBundle](http://github.com/BeSimple/BeSimpleSsoAuthBundle), etc.).
+Symfony provides native support for [multiple user providers](https://symfony.com/doc/5.0/security/multiple_user_providers.html). This makes it easy to integrate any kind of login handlers, including SSO and existing third-party bundles (e.g. [FR3DLdapBundle](https://github.com/Maks3w/FR3DLdapBundle), [HWIOauthBundle](https://github.com/hwi/HWIOAuthBundle), [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle), [BeSimpleSsoAuthBundle](http://github.com/BeSimple/BeSimpleSsoAuthBundle), etc.).
 
 See [Authenticating a user with multiple user provider](user_management.md#authenticating-user-with-multiple-user-providers) for more information.
 

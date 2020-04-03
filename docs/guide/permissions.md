@@ -201,7 +201,7 @@ Users are treated like other content, so to create and modify them the User need
 |               | `reverserelatedlist` | see all content that a Content item relates to (even when the User is not allowed to view it as an individual Content items)            |
 |               | `translate`          | unused                                                                                                                                  |
 |               | `remove`             | remove Locations and send content to Trash                                                                                              |
-|               | `versionread`        | view content after publishing, and to preview any content in the Page mode                                                              |
+|               | `versionread`        | view content after publishing, and to preview any content in the Site mode                                                              |
 |               | `versionremove`      | remove archived content versions                                                                                                        |
 |               | `translations`       | manage the language list in Admin                                                                                                  |
 |               | `urltranslator`      | manage URL aliases of a Content item|
@@ -232,6 +232,7 @@ Users are treated like other content, so to create and modify them the User need
 |               | `selfedit`           | unused                                                                                                                                  |
 |               | `activation`         | unused                                                                                                                                  |
 | `workflow`    | `change_stage`       | change stage in the specified workflow                                                                                                  |
+| `comparison` | `view` | view version comparison |
 
 ## Permissions for custom controllers
 

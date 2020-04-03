@@ -25,7 +25,7 @@ Typical uses of a SiteAccess are:
 
 !!! enterprise
 
-    If you need to change between SiteAccesses in Page mode, do not use any functions in the page itself (for example, a language switcher). This may cause unexpected errors. Instead, switch between SiteAccesses using the SiteAccess bar above the page.
+    If you need to change between SiteAccesses in Site mode, do not use any functions in the page itself (for example, a language switcher). This may cause unexpected errors. Instead, switch between SiteAccesses using the SiteAccess bar above the page.
 
 #### `admin` SiteAccess
 
@@ -229,7 +229,7 @@ class MyController extends BaseController
 
 !!! note "Important"
 
-    As SiteAccess matchers can involve hosts and ports, it is **highly recommended** to generate cross-SiteAccess links in an absolute form (e.g. using `url()` Twig helper).
+    As SiteAccess matchers can involve hosts and ports, it is **highly recommended** to generate cross-SiteAccess links in an absolute form (e.g. using `ez_url()` Twig helper).
 
 #### Troubleshooting
 
@@ -314,7 +314,7 @@ class MyService implements SiteAccessAware
 
 ## Exposing SiteAccess-aware configuration for your bundle
 
-The [Symfony Config component](https://symfony.com/doc/4.3/components/config.html) makes it possible to define *semantic configuration*, exposed to the end developer.
+The [Symfony Config component](https://symfony.com/doc/5.0/components/config.html) makes it possible to define *semantic configuration*, exposed to the end developer.
 This configuration is validated by rules you define, e.g. validating type (string, array, integer, boolean, etc.).
 Usually, once validated and processed, this semantic configuration is then mapped to internal *key/value* parameters stored in the `ServiceContainer`.
 
@@ -416,7 +416,7 @@ use Symfony\Component\DependencyInjection\Loader;
 /**
  * This is the class that loads and manages your bundle configuration
  *
- * To learn more see {@link http://symfony.com/doc/4.3/cookbook/bundles/extension.html}
+ * To learn more see {@link http://symfony.com/doc/5.0/cookbook/bundles/extension.html}
  */
 class AcmeExampleExtension extends Extension
 {

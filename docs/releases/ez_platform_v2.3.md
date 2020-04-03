@@ -47,7 +47,7 @@
 
     ![Form Builder submissions](img/2.3_form_builder_submissions.png)
 
-    See [Extending Form Builder](../guide/extending/extending_form_builder.md) for information on how to modify and create Form fields.
+    See [Extending Form Builder](../extending/extending_form_builder.md) for information on how to modify and create Form fields.
 
     !!! tip "User documentation"
 

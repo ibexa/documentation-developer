@@ -24,7 +24,7 @@ First, create an override template for the Content List block: `templates/blocks
                              }
                         }) }}
                     </div>
-                    <h4><a href="{{ path(content.location) }}">{{ ez_content_name(content.content) }}</a></h4>
+                    <h4><a href="{{ ez_path(content.location) }}">{{ ez_content_name(content.content) }}</a></h4>
                     {% if not ez_field_is_empty(content.content, 'short_description') %}
                         <div class="attribute-short-description">
                             {{ ez_render_field(content.content, 'short_description') }}
@@ -167,8 +167,8 @@ Now create a `templates/featured/article.html.twig` file:
 
 ``` html+twig
 {% set imageAlias = ez_image_alias(content.getField('image'), content.versionInfo, 'featured_article') %}
-<div class="featured-article" style="background-image: url('{{ imageAlias.uri }}');">
-    <h4><a class="featured-article-link" href="{{ path('ez_urlalias', {'contentId': content.id}) }}">{{ ez_content_name(content) }}</a></h4>
+<div class="featured-article" style="background-image: ez_url('{{ imageAlias.uri }}');">
+    <h4><a class="featured-article-link" href="{{ ez_path(content) }}">{{ ez_content_name(content) }}</a></h4>
 </div>
 ```
 

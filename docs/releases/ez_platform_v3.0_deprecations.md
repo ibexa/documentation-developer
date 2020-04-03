@@ -2,19 +2,26 @@
 
 This page lists backwards compatibility breaks and deprecations introduced in eZ Platform v3.0.
 
-## Symfony 4
+!!! tip "Upgrade to v3"
 
-v3.0 now uses Symfony 4 instead of Symfony 3.
-Refer to [Symfony changelog](https://github.com/symfony/symfony/blob/master/CHANGELOG-4.0.md)
-and [Symfony upgrade guides](https://github.com/symfony/symfony/blob/master/UPGRADE-4.0.md)
+    For a guide on moving your project to v3,
+    see [Upgrading eZ Platform to v3](../updating/upgrading_to_v3.md).
+
+## Symfony 5
+
+v3.0 now uses Symfony 5 instead of Symfony 3.
+Refer to [Symfony changelog for 4.0](https://github.com/symfony/symfony/blob/master/CHANGELOG-4.0.md)
+and [for 5.0](https://github.com/symfony/symfony/blob/master/CHANGELOG-5.0.md)
+as well as [Symfony upgrade guides for 4.0](https://github.com/symfony/symfony/blob/master/UPGRADE-4.0.md)
+and [for 5.0](https://github.com/symfony/symfony/blob/master/UPGRADE-5.0.md)
 to learn about all changes it entails.
 
-See [v3.0 project update](ez_platform_v3.0_project_update.md) for the steps you need to take to update your project to Symfony 4.
+See [v3.0 project update](ez_platform_v3.0_project_update.md) for the steps you need to take to update your project to Symfony 5.
 See also [full requirements for installing eZ Platform](../getting_started/requirements.md).
 
 ### Template configuration
 
-Following the [upgrade to Symfony 4](#symfony-4), [the templating component integration is now deprecated.](https://symfony.com/blog/new-in-symfony-4-3-deprecated-the-templating-component-integration)
+Following the [upgrade to Symfony 5](#symfony-5), [the templating component integration is now deprecated.](https://symfony.com/blog/new-in-symfony-4-3-deprecated-the-templating-component-integration)
 As a result, the way to indicate a template path has changed.
 
 Example 1:
@@ -277,7 +284,7 @@ The `@ezdesign/account/error/credentials_expired.html.twig` has been relocated f
 ### Universal Discovery Widget
 
 The UDW configuration has been changed.
-For the full list of UDW configuration keys and their descriptions, see [UDW configuration](../guide/extending/extending_udw.md#configuration).
+For the full list of UDW configuration keys and their descriptions, see [UDW configuration](../extending/extending_udw.md#configuration).
 
 ### Online Editor
 
@@ -287,7 +294,7 @@ have been moved from `ezplatform-admin-ui` to `ezplatform-richtext`.
 ### Adding new tabs in the Back Office
 
 The way of adding custom tab groups in the Back Office has changed.
-You now need to [make use of the `TabsComponent`](../guide/extending/extending_tabs.md#adding-a-new-tab-group).
+You now need to [make use of the `TabsComponent`](../extending/extending_tabs.md#adding-a-new-tab-group).
 
 ### Content Type forms
 
@@ -311,14 +318,14 @@ The following deprecated items have been removed:
 |`limit`|`EzSystems\EzPlatformAdminUi\UI\Module\Subitems\ContentViewParameterSupplier`| - |
 |`contentTypeNames`|`window.eZ.adminUiConfig`|`contentTypes`|
 
-Following the upgrade to Symfony 4, the following event classes have been deprecated:
+Following the upgrade to Symfony 5, the following event classes have been deprecated:
 
 |Deprecated|Use instead|
 |----------|-----------|
 |`Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent`|`Symfony\Component\HttpKernel\Event\ExceptionEvent`|
 |`Symfony\Component\HttpKernel\Event\GetResponseEvent`|`Symfony\Component\HttpKernel\Event\RequestEvent`|
 
-Also, as of Symfony 4, the `transchoice` Twig filter has been replaced with `trans`.
+Also, as of Symfony 5, the `transchoice` Twig filter has been replaced with `trans`.
 New translation strings are required.
 
 ##### SubtreeQuery
@@ -337,15 +344,17 @@ Instead, use the following classes:
 - `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\ContentCreateContentTypeChoiceLoader`
 - `EzSystems\EzPlatformAdminUi\Form\Type\ChoiceList\Loader\ContentCreateLanguageChoiceLoader`
 
+### Universal Discovery Widget
+
+The deprecated `universal_discovery_widget_module.default_location_id` setting has been replaced with `universal_discovery_widget_module.configuration.default.starting_location_id`.
+
 ## ezplatform-admin-ui-assets
 
 No deprecations or backward compatibility breaks to document.
 
 ## ezplatform-admin-ui-modules
 
-### Universal Discovery Widget
-
-The deprecated `universal_discovery_widget_module.default_location_id` setting has been replaced with `universal_discovery_widget_module.configuration.default.starting_location_id`.
+This package is deprecated. Its code has been moved to [`ezplatform-admin-ui`](#ezplatform-admin-ui).
 
 ## ezplatform-content-forms
 
@@ -424,19 +433,74 @@ Instances of the following deprecated event classes have been replaced:
 Selected deprecated Role Service and permission-related methods have been removed.
 For details, see [code cleanup in kernel](#code-cleanup-in-kernel).
 
-## ezplatform-kernel
+## ezplatform-kernel replacing ezpublish-kernel
 
 ### ezplatform-kernel package
 
 eZ Platform now makes use of [`ezplatform-kernel`](https://github.com/ezsystems/ezplatform-kernel) instead of `ezpublish-kernel`.
 This change is introduced without BC breaks.
 
+### API methods
+
+Following API methods have been removed:
+
+* `\eZ\Publish\API\Repository\ContentService::removeTranslation`
+* `\eZ\Publish\API\Repository\UserService::loadAnonymousUser`
+* `\eZ\Publish\API\Repository\Repository::getCurrentUser`
+* `\eZ\Publish\API\Repository\Repository::getCurrentUserReference`
+- `\eZ\Publish\API\Repository\Repository::setCurrentUser`
+- `\eZ\Publish\API\Repository\Repository::hasAccess`
+- `\eZ\Publish\API\Repository\Repository::canUser`
+- `\eZ\Publish\API\Repository\RoleService::updateRole`
+- `\eZ\Publish\API\Repository\RoleService::addPolicy`
+- `\eZ\Publish\API\Repository\RoleService::deletePolicy`
+- `\eZ\Publish\API\Repository\RoleService::updatePolicy`
+- `\eZ\Publish\API\Repository\RoleService::loadPoliciesByUserId`
+- `\eZ\Publish\API\Repository\RoleService::unassignRoleFromUser`
+- `\eZ\Publish\API\Repository\RoleService::unassignRoleFromUserGroup`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\Ancestor::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\ContentId::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\ContentTypeGroupId::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\ContentTypeId::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\ContentTypeIdentifier::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\FieldRelation::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\FullText::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\LanguageCode::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\LocationId::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\LocationRemoteId::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\MatchAll::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\MatchNone::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\MoreLikeThis::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\ObjectStateId::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\ParentLocationId::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\RemoteId::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\SectionId::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\Subtree::createFromQueryBuilder`
+- `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\Visibility::createFromQueryBuilder`
+
+### SPI methods
+
+Following SPI methods have been removed:
+
+- `\eZ\Publish\SPI\Persistence\Content\Handler::removeTranslationFromContent`
+
 ### Controllers
 
+#### AbstractController
+
 The `eZ\Bundle\EzPublishCoreBundle\Controller` now extends `Symfony\Bundle\FrameworkBundle\Controller\AbstractController` instead of `Symfony\Bundle\FrameworkBundle\Controller\Controller` which has limited access to the dependency injection container.
-For details, see [Service Subscribers Locators.](https://symfony.com/doc/current/service_container/service_subscribers_locators.html)
+For details, see [Service Subscribers Locators.](https://symfony.com/doc/5.0/service_container/service_subscribers_locators.html)
 
 The `Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand` is deprecated, use `Symfony\Component\Console\Command\Command` instead.
+
+#### ViewController
+
+Deprecated `viewLocation` and `embedLocation` actions of the `ViewController` have been removed, along with related route `_ezpublishLocation`.
+Use:
+ 
+- `viewAction` instead of `viewLocation`
+- `embedAction` instead of `embedLocation`
 
 ### Elastic Search
 
@@ -471,6 +535,10 @@ Formerly (deprecated as of v2.4, removed as of v3.0)
 ezpublish:
     ezrichtext
 ```
+
+#### Tags
+
+Deprecated `ezpublish.query_type` tag has been removed in favour of `ezplatform.query_type` tag.
 
 ### Signal Slots
 
@@ -607,6 +675,16 @@ DROP TABLE <table_name>;
 
 - The "Setup" folder and Section have been removed from clean installation data.
 - The "Design" Section has been removed from clean installation data.
+- The `ezkeyword_attribute_link` table now has a `version` column.
+
+#### Content Type Update handlers
+
+The following obsolete handler has been removed:
+
+- `DeferredLegacy` Content Type Update handler
+(`eZ\Publish\Core\Persistence\Legacy\Content\Type\Update\Handler\DeferredLegacy`) with its optional Symfony Container Service (`ezpublish.persistence.legacy.content_type.update_handler.deferred`)
+
+Subscribe to eZ Platform Symfony Events to handle deferring of updating of Content items after their Content Type update instead.
 
 ### Symfony Services
 
@@ -616,6 +694,13 @@ Instead, you can inject `eZ\Publish\API\Repository\PermissionResolver` and rely 
 ### Symfony MIME component
 
 The deprecated `Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesserInterface` has been replaced with `Symfony\Component\Mime\MimeTypesInterface`.
+
+### Symfony Dependency Injection Container 
+
+The deprecated Symfony Dependency Injection Container parameters ending with `.class` have been removed, services relying on them now have their classes defined explicitly.
+To properly decorate a Symfony service, use the `decorates` attribute instead.
+For the full list of the dropped parameters, see
+[kernel documentation.](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/bc/8.0/dropped-container-parameters.md)
 
 ### Template parameter names
 
@@ -636,7 +721,7 @@ Instances of the deprecated code have been replaced:
 |`Symfony\Component\HttpKernel\Event\GetResponseEvent`|`Symfony\Component\HttpKernel\Event\RequestEvent`|
 |`Symfony\Component\HttpKernel\Event\FilterControllerArgumentsEvent`|`Symfony\Component\HttpKernel\Event\ControllerEvent`|
 
-Also, as of Symfony 4, the `transchoice` Twig filter has been replaced with `trans`.
+Also, as of Symfony 5, the `transchoice` Twig filter has been replaced with `trans`.
 New translation strings are required.
 
 The deprecated `eZ\Publish\Core\MVC\Symfony\Matcher\MatcherInterface` interface has been dropped.
@@ -647,33 +732,6 @@ The following deprecated classes relying on that interface have been removed as 
 - `eZ\Publish\Core\MVC\Symfony\Matcher\ContentMatcherFactory`
 - `eZ\Publish\Core\MVC\Symfony\Matcher\LocationMatcherFactory`
 
-#### Role Service methods
-
-The following deprecated Role Service methods have been removed:
-
-- `eZ\Publish\API\Repository\RoleService::updateRole`
-- `eZ\Publish\API\Repository\RoleService::addPolicy`
-- `eZ\Publish\API\Repository\RoleService::deletePolicy`
-- `eZ\Publish\API\Repository\RoleService::updatePolicy`
-- `eZ\Publish\API\Repository\RoleService::loadPoliciesByUserId`
-- `eZ\Publish\API\Repository\RoleService::unassignRoleFromUser`
-- `eZ\Publish\API\Repository\RoleService::unassignRoleFromUserGroup`
-
-#### Permission-related methods
-
-The following deprecated permission-related methods have been removed:
-
-- `eZ\Publish\API\Repository\UserService::loadAnonymousUser`
-- `eZ\Publish\API\Repository\Repository::getCurrentUser`
-- `eZ\Publish\API\Repository\Repository::getCurrentUserReference`
-- `eZ\Publish\API\Repository\Repository::setCurrentUser`
-- `eZ\Publish\API\Repository\Repository::hasAccess`
-- `eZ\Publish\API\Repository\Repository::canUser`
-
-#### createFromQueryBuilder methods
-
-Deprecated `creatFromQueryBuilder` methods have been removed from Criterion classes.
-
 ### Twig classes
 
 The following deprecated Twig classes have been replaced:
@@ -683,6 +741,14 @@ The following deprecated Twig classes have been replaced:
 |`Twig_Extensions_Extension_Intl`|`Twig\Extensions\IntlExtension`|
 |`Twig_Template`|`Twig\Template`|
 |`Twig_Node`|`Twig\Node\Node`|
+
+### Twig intl extension
+
+Twig intl extension [has been dropped.](https://github.com/twigphp/Twig-extensions/blob/master/README.rst)
+
+### EzPublishMigration
+
+The `EzPublishMigration` bundle has been dropped.
 
 ### Password hashes
 
@@ -698,23 +764,7 @@ Users can request a new, valid password using the "Forgot password" feature.
 
 ### Strict types for PHP API
 
-Strict types have been added to all methods from the following interfaces:
-
-- [`ContentTypeServiceInterface`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentTypeService.php)
-- [`ContentServiceInterface`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php)
-- [`FieldTypeServiceInterface`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/FieldTypeService.php)
-- [`LanguageServiceInterface`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LanguageService.php)
-- [`LocationServiceInterface`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LocationService.php)
-- [`ObjectStateServiceInterface`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ObjectStateService.php)
-- [`RoleServiceInterface`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/RoleService.php)
-- [`SectionServiceInterface`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/SectionService.php)
-- [`SearchServiceInterface`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/SearchService.php)
-- [`TranslationServiceInterface`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/TranslationService.php)
-- [`TrashServiceInterface`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/TrashService.php)
-- [`URLAliasServiceInterface`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/URLAliasService.php)
-- [`URLServiceInterface`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/URLService.php)
-- [`URLWildcardServiceInterface`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/URLWildcardService.php)
-- [`UserServiceInterface`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/UserService.php)
+Strict types have been added to Public API methods.
 
 ## ezplatform-matrix-fieldtype
 
@@ -756,6 +806,8 @@ The following namespaces have been changed:
 Selected deprecated Role Service and permission-related methods have been removed.
 For details, see [code cleanup in kernel](#code-cleanup-in-kernel).
 
+Using the Criteria element in REST input query (search view) payload has been deprecated since eZ Platform v1.6 and was dropped in this release.
+
 ## ezplatform-richtext
 
 ### Code cleanup in eZ Platform RichText
@@ -787,6 +839,11 @@ The following Webpack Encore entries have been changed:
 
 All Online Editor front-end code and assets (such as JS, CSS, fonts, etc.)
 have been moved from `ezplatform-admin-ui` to `ezplatform-richtext`.
+
+#### Custom button configuration
+
+Configuring custom Online Editor buttons with `ezrichtext.alloy_editor.extra_buttons` is deprecated.
+Use [`ezplatform.system.<siteacces>.fieldtypes.ezrichtext.toolbars.<toolbar_identifier>.buttons`](../extending/online_editor_button.md) instead.
 
 ### View matching
 
