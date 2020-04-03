@@ -126,6 +126,10 @@ enables you to configure a Content query that will use parameters from a Field d
 
 You can now use [Generic Field Type](../guide/extending_field_type.md) as a template for your custom Field Types.
 
+#### Keyword FieldType
+
+The Keyword FieldType can now support versions.
+
 ### Login and password options
 
 #### Login by User name or email
@@ -136,6 +140,10 @@ You can now give your users th ability to [log in with User name or with email](
 
 You can now set [password expiration rules](../guide/user_management.md#password-expiration)
 for user passwords.
+
+### Duplicate a role
+
+You can now duplicate a role with a single click in the Back Office.
 
 ### REST API reference
 
