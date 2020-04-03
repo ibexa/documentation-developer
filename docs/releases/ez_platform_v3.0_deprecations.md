@@ -480,6 +480,11 @@ Following SPI methods have been removed:
 
 - `\eZ\Publish\SPI\Persistence\Content\Handler::removeTranslationFromContent`
 
+### Dynamic settings
+
+Using dynamic settings (through `$setting$`) and getting settings from the ConfigResolver in a class constructor is deprecated.
+Instead, inject the ConfigResolver and get the relevant setting.
+
 ### Controllers
 
 #### AbstractController
