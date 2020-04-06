@@ -15,9 +15,6 @@ git clone $TUTORIAL_REPOSITORY --depth=1 -b $STEP4_BRANCH $TUTORIAL_DATA_DIRECTO
 # add suite to Behat
 echo '    - vendor/ezsystems/developer-documentation/tests/behat_suites.yml' >> behat.yml.dist
 
-# add Context service definitions to the appplication
-cat ./vendor/ezsystems/developer-documentation/tests/config/services.yaml >> config/services.yaml
-
 # copy images
 mkdir $IMAGES_DESTINATION
 unzip $IMAGES_SOURCE -d $IMAGES_DESTINATION
@@ -39,3 +36,6 @@ cp $TUTORIAL_DATA_DIRECTORY_1/assets/images/header.jpg assets/images
 mkdir ./src/QueryType
 cp $TUTORIAL_DATA_DIRECTORY_1/src/QueryType/{LocationChildrenQueryType.php,MenuQueryType.php} ./src/QueryType
 cp $TUTORIAL_DATA_DIRECTORY_1/src/Controller/MenuController.php ./src/Controller/
+
+# add Context service definitions to the appplication
+cat ./vendor/ezsystems/developer-documentation/tests/config/services.yaml >> config/services.yaml
