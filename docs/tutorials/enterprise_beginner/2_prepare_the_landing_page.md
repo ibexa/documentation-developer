@@ -27,9 +27,12 @@ Here you can check what Content Type it belongs to: it is a Landing Page.
 ![Home Content item is a Landing Page](img/enterprise_tut_home_is_an_lp.png)
 
 The page contains one Code block and is displayed without any template.
-Now go to the Page tab. This is the mode that enables you to work with Pages. Click Edit and you will see that the Home Page has only one zone with the block.
+Now go to the Site tab and click **site**. This is the mode that enables you to work with Pages. Click Edit and you will see that the Home Page has only one zone with the block.
 
 ![Empty Page with default layout](img/enterprise_tut_empty_single_block.png)
+
+Remove the Tag block. Hover over it and select the trash icon from the menu.
+Switch to editing Page Fields and change the Title of the page to "Home".
 
 The design for the website you are making needs a layout with two zones: a main column and a narrower sidebar.
 eZ Enterprise provides only a one-zone default layout, so you need to create a new one.
@@ -145,9 +148,6 @@ The empty zones you defined in the template will be visible in the editor.
     If the new layout is not available when editing the Page, you may need to clear the cache (using `php bin/console cache:clear`) and/or reload the app.
 
 ![Empty page with new layout](img/enterprise_tut_new_layout.png)
-
-You can also remove the block with "eZ Studio".
-Hover over it and select the trash icon from the menu.
 
 Publish the Home Page. You will notice that it still has some additional text information.
 This is because the looks of a Page are controller by two separate template files, and you have only prepared one of those.

@@ -92,7 +92,7 @@ Finally, add some styling to the block. Add the following CSS to the end of theÂ
 Run `yarn encore <dev|prod>` to regenerate assets.
 
 At this point you can start adding blocks to the Page.
-You do it in the Page tab in Edit mode by dragging a block from the menu on the right to the correct zone on the page.
+You do it in the Site tab in Edit mode by dragging a block from the menu on the right to the correct zone on the page.
 
 Drag a Content List block from the menu to the left zone on the page.
 Click the block and fill in the form. Here you name the block and decide what it will display.
@@ -135,7 +135,7 @@ Create the new file `templates/blocks/schedule/featured.html.twig`:
                 {% for idx in 0..2 %}
                     <div class="col-md-4 featured-article-container">
                         {% if items[idx] is defined %}
-                        {{ render(controller('ez_content:viewLocation', {
+                        {{ render(controller('ez_content:viewAction', {
                             'locationId': items[idx].id,
                             'viewType': 'featured'
                             })) }}
@@ -167,7 +167,7 @@ Now create aÂ `templates/featured/article.html.twig` file:
 
 ``` html+twig
 {% set imageAlias = ez_image_alias(content.getField('image'), content.versionInfo, 'featured_article') %}
-<div class="featured-article" style="background-image: ez_url('{{ imageAlias.uri }}');">
+<div class="featured-article" style="background-image: url('{{ imageAlias.uri }}');">
     <h4><a class="featured-article-link" href="{{ ez_path(content) }}">{{ ez_content_name(content) }}</a></h4>
 </div>
 ```
