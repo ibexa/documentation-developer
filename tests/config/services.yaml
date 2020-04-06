@@ -1,0 +1,13 @@
+# This file is not used directly but copied to config/services.yaml in setup script
+    EzSystems\DeveloperDocumentation\Test\Context\FileContext:
+        arguments:
+            $basePath: '%kernel.project_dir%'
+
+    EzSystems\DeveloperDocumentation\Test\Context\ConfigurationContext:
+        arguments:
+            $basePath: '%kernel.project_dir%'
+
+    EzSystems\DeveloperDocumentation\Test\Context\ContentContext:
+        arguments:
+            $repository: '@ezpublish.api.repository'
+            $basePath: '%kernel.project_dir%'

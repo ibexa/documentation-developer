@@ -5,11 +5,7 @@ doc:
                 - '%paths.base%/vendor/ezsystems/developer-documentation/tests/features'
             contexts:
                 - EzSystems\DeveloperDocumentation\Test\Context\TutorialContentTypeContext
-                - EzSystems\DeveloperDocumentation\Test\Context\ConfigurationContext:
-                    basePath: '%paths.base%'
-                - EzSystems\DeveloperDocumentation\Test\Context\FileContext:
-                    basePath: '%paths.base%'
+                - EzSystems\DeveloperDocumentation\Test\Context\ConfigurationContext
+                - EzSystems\DeveloperDocumentation\Test\Context\FileContext
                 - EzSystems\EzPlatformContentForms\Behat\Context\ContentTypeContext
-                - EzSystems\DeveloperDocumentation\Test\Context\ContentContext:
-                    basePath: '%paths.base%'
-                    repository: '@ezpublish.api.repository'
+                - EzSystems\DeveloperDocumentation\Test\Context\ContentContext
