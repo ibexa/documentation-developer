@@ -48,7 +48,7 @@ Declare a new override rule in `config/packages/views.yaml`:
 ``` yaml
 ezplatform:
     system:
-        site_group:
+        site:
             content_view:
                 #full views here
                 line:
@@ -149,7 +149,7 @@ Update `config/packages/views.yaml` to mention the `RideController.php` by addin
 ``` yaml hl_lines="8"
 ezplatform:
     system:
-        site_group:
+        site:
             content_view:
                 full:
                     ride:
@@ -162,7 +162,7 @@ ezplatform:
 ### Add the Landmark in the Ride full view
 
 Now modify the Ride full view template to include a list of Landmarks.
-Add the following lines at the end of `app/Resources/views/full/ride.html.twig`, before the last `</div>` and the closing tag `{% endblock %}`:
+Add the following lines at the end of `templates/full/ride.html.twig`, before the last `</div>` and the closing tag `{% endblock %}`:
 
 ``` html+twig
 {% if landmarksList is not empty %}

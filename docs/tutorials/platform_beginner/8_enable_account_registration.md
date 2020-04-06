@@ -16,12 +16,12 @@ Then go to `<yourdomain>/register`. The registration form is unstyled, so you ne
 
 ## Customize registration forms
 
-In the `config/packages/views.yaml` file add a `user_registration` key under `site_group`, at the same level as `content_view`:
+In the `config/packages/views.yaml` file add a `user_registration` key under `site`, at the same level as `content_view`:
 
 ``` yaml
 ezplatform:
     system:
-        site_group:
+        site:
             # existing content_view keys
             user_registration:
                 templates:

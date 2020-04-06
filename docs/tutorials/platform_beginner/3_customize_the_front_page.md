@@ -2,7 +2,7 @@
 
 In this step you will create the global layout of your site, and display content using custom templates.
 
-First, go to the root of the site (`<yourdomain>`). You should see the home page of the clean install, without any kind of layout.
+First, go to the root of the site (`<yourdomain>`). You should now see the home page of the clean install, without any kind of layout.
 You will customize this step by instructing Platform to use a custom template to render this Content item.
 
 ## Content rendering configuration
@@ -10,12 +10,12 @@ You will customize this step by instructing Platform to use a custom template to
 To use a custom template when rendering the root content, create a `content_view` configuration block for `ezplatform`.
 
 Edit `config/packages/ezplatform.yaml`.
-Add the following block under `system` while paying attention to indentation — `content_view` should be one level below `site_group`:
+Add the following block under `site` while paying attention to indentation - `content_view` should be one level below `site`:
 
 ``` yaml
 ezplatform:
     system:
-        site_group:
+        site:
             content_view:
                 full:
                     home_page:
@@ -202,57 +202,6 @@ Encore
 Note that `.addStyleEntry('tutorial', [])` and `.addEntry('tutorial-js', [])` refer respectively to
 `{{  encore_entry_link_tags('tutorial') }}` and `{{ encore_entry_script_tags('tutorial-js') }}` from `main_layout.html.twig`.
 This configuration creates a bundle consisting of files to be added to a template.
-
-Additionally, in the same file, uncomment these two following lines:
-
-``` javascript
-const projectConfig = Encore.getWebpackConfig();
-module.exports = [ eZConfig, ...customConfigs, projectConfig ];
-```
-
-And comment out this line:
-
-``` javascript
-module.exports = [ eZConfig, ...customConfigs ];
-```
-
-??? tip " See the complete `webpack.config.js` file"
-
-    ``` javascript hl_lines="16 17 18 19 20 21 22 23 24 25 29 30 33"
-    const Encore = require('@symfony/webpack-encore');
-    const path = require('path');
-    const getEzConfig = require('./ez.webpack.config.js');
-    const eZConfigManager = require('./ez.webpack.config.manager.js');
-    const eZConfig = getEzConfig(Encore);
-    const customConfigs = require('./ez.webpack.custom.configs.js');
-    
-    Encore.reset();
-    Encore.setOutputPath('public/assets/build')
-        .setPublicPath('/assets/build')
-        .enableSassLoader()
-        .enableReactPreset()
-        .enableSingleRuntimeChunk();
-    
-    // Put your config here.
-    Encore
-        .addStyleEntry('tutorial', [
-            path.resolve(__dirname, './assets/css/normalize.css'),
-            path.resolve(__dirname, './assets/css/bootstrap.min.css'),
-            path.resolve(__dirname, './assets/css/bootstrap-theme.css'),
-            path.resolve(__dirname, './assets/css/style.css')
-        ])
-        .addEntry('tutorial-js', [
-            path.resolve(__dirname, './assets/js/bootstrap.min.js')
-        ]);
-    
-    // uncomment the two lines below, if you added a new entry 
-    // (by Encore.addEntry() or Encore.addStyleEntry() method) to your own Encore configuration for your project
-    const projectConfig = Encore.getWebpackConfig();
-    module.exports = [ eZConfig, ...customConfigs, projectConfig ];
-    
-    // comment out this line if you've uncommented the above lines
-    // module.exports = [ eZConfig, ...customConfigs ];
-    ```
 
 At this point the bundles are created and ready to be used.
 
