@@ -78,7 +78,7 @@ Now you need to indicate when this template should be used.
 Go back to `config/packages/ezplatform.yaml` and add the following configuration (under the existing `content_view` and `full` keys:):
 
 ``` yaml
-site_group:
+site:
     content_view:
         full:
             # existing keys, do not change them
