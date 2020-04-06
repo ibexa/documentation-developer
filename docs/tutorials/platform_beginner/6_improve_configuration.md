@@ -53,7 +53,7 @@ The `views.yaml` file should look like this:
 ``` yaml
 ezplatform:
     system:
-        site_group:
+        site:
             content_view:
                 full:
                     home_page:

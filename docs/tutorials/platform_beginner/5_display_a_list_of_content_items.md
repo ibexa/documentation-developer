@@ -8,7 +8,7 @@ In this step you will display a table of all Rides on the front page.
 
 In `templates/full/home_page.html.twig` replace the "Hello world" with a table that will display the list of all existing Rides:
 
-``` html+twig hl_lines="5 18"
+``` html+twig hl_lines="15 16"
 {% extends "main_layout.html.twig" %}
 
 {% block content %}
@@ -39,7 +39,7 @@ In `templates/full/home_page.html.twig` replace the "Hello world" with a table t
 {% endblock %}
 ```
 
-The `rides` variable you use in line 5 above needs to contain a list of all Rides.
+The `rides` variable you use in line 15 above needs to contain a list of all Rides.
 To get this list, you will use a Query Type.
 
 ## Create a QueryType for the home page
@@ -90,7 +90,7 @@ Edit `config/packages/ezplatform.yaml`.
 In the view configuration for the home page indicate that this view will use the Query Type:
 
 ``` yaml hl_lines="6 10 11 12 13 14 15"
-site_group:
+site:
     content_view:
         full:
             # existing keys, do not change them
@@ -106,7 +106,7 @@ site_group:
                         assign_results_to: rides
 ```
 
-The `query_type` parameter in line 13 indicates which Query Type to use.
+The `query_type` parameter in line 12 indicates which Query Type to use.
 You defined the name `Ride` in the Query Type file in the `getName` method.
 
 Using the `pagingQueryAction` of the built-in `ez_query` controller (line 6)
@@ -116,7 +116,7 @@ You can set the limit of results per page in the `limit` parameter.
 ### View types
 
 So far you have been using the `full` view type to render the Ride's full view.
-Here, on the other hand, you use the `line` view, as indicated by `'viewType': 'line'` in the home page template (line 18).
+Here, on the other hand, you use the `line` view, as indicated by `'viewType': 'line'` in the home page template (line 16).
 
 You can configure custom view types with any name you want, as long as you include them in the configuration.
 Let's do this now with the `line` view for Rides.
@@ -128,7 +128,7 @@ Add a rule for the `ride` template in your `config/packages/ezplatform.yaml` fil
 
 ``` yaml
 system:
-    site_group:
+    site:
         content_view:
             line:
                 ride:
