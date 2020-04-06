@@ -26,7 +26,21 @@ ezplatform:
             fieldtypes:
                 ezrichtext:
                     custom_tags: [ezfactbox]
-
+                    toolbars:
+                        ezadd:
+                            buttons:
+                                ezfactbox:
+                                    priority: 5
+                        ezfactbox:
+                            buttons:
+                                ezmoveup:
+                                    priority: 40
+                                ezmovedown:
+                                    priority: 30
+                                ezcustomtagedit:
+                                    priority: 20
+                                ezblockremove:
+                                    priority: 10
 ezrichtext:
     custom_tags:
         ezfactbox:
