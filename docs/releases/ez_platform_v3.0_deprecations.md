@@ -482,8 +482,11 @@ Following SPI methods have been removed:
 
 ### Dynamic settings
 
-Using dynamic settings (through `$setting$`) and getting settings from the ConfigResolver in a class constructor is deprecated.
-Instead, inject the ConfigResolver and get the relevant setting.
+Using dynamic settings (through `$setting$`) and getting settings from the ConfigResolver in a class constructor
+or method call has been dropped.
+
+You should use the ConfigResolver instead.
+Do not store the values globally, call `ConfigResolverInterface::getParameter` instead every time the value is needed.
 
 ### Controllers
 
