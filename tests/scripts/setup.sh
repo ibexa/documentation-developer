@@ -15,7 +15,7 @@ git clone $TUTORIAL_REPOSITORY --depth=1 -b $STEP4_BRANCH $TUTORIAL_DATA_DIRECTO
 # add suite to Behat
 echo '    - vendor/ezsystems/developer-documentation/tests/behat_suites.yml' >> behat.yml.dist
 
-#copy images
+# copy images
 mkdir $IMAGES_DESTINATION
 unzip $IMAGES_SOURCE -d $IMAGES_DESTINATION
 
@@ -24,8 +24,7 @@ cp $TUTORIAL_DATA_DIRECTORY_1/templates/{pagelayout.html.twig,pagelayout_menu.ht
 
 mkdir ./templates/full
 cp $TUTORIAL_DATA_DIRECTORY_1/templates/full/{article.html.twig,dog_breed.html.twig,folder.html.twig,tip.html.twig} ./templates/full
-cp $TUTORIAL_DATA_DIRECTORY_1/config/packages/{views.yaml,image_variations.yaml,webpack_encore.yaml} ./config/packages
-cp $TUTORIAL_DATA_DIRECTORY_1/config/services.yaml ./config
+cp $TUTORIAL_DATA_DIRECTORY_1/config/packages/{views.yaml,image_variations.yaml} ./config/packages
 
 cp $TUTORIAL_DATA_DIRECTORY_1/webpack.config.js ./
 
@@ -34,5 +33,7 @@ cp $TUTORIAL_DATA_DIRECTORY_1/assets/css/style.css assets/css
 cp $TUTORIAL_DATA_DIRECTORY_1/assets/images/header.jpg assets/images
 
 mkdir ./src/QueryType
-cp $TUTORIAL_DATA_DIRECTORY_1/src/QueryType/{LocationChildrenQueryType.php,MenuQueryType.php} ./src/QueryType
-cp $TUTORIAL_DATA_DIRECTORY_1/src/Controller/MenuController.php ./src/Controller/
+cp $TUTORIAL_DATA_DIRECTORY_1/src/QueryType/MenuQueryType.php ./src/QueryType
+
+# add Context service definitions to the appplication
+cat ./vendor/ezsystems/developer-documentation/tests/config/services.yaml >> config/services.yaml

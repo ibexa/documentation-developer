@@ -58,6 +58,8 @@ Edit it to remove the Image Field that has a Content Relation (ezobjectrelation)
 
     For an introduction on how to use templates in eZ Platform, take a look at the [Building a Bicycle Route Tracker in eZ Platform tutorial](../platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md)
 
+First, delete the `config/packages/ezplatform_welcome_page.yaml` file to remove the welcome page.
+
 Place the [`pagelayout.html.twig`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/templates/pagelayout.html.twig) and [`pagelayout_menu.html.twig`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/templates/pagelayout_menu.html.twig) files in the `templates` folder. Create a new folder, called `full`, under `templates`. Place further template files in it:
 
 - [`article.html.twig`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/templates/full/article.html.twig)
@@ -70,12 +72,12 @@ Place two configuration files in the `config/packages` folder:
 - [`views.yaml`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/config/packages/views.yaml)
 - [`image_variations.yaml`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/config/packages/image_variations.yaml)
 
-Create an `assets` folder in the project root:
+In the `assets` folder in the project root:
 
 - create a `css` folder and add the following stylesheet: [`style.css`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/assets/css/style.css) to it
 - create an `images` subfolder and add the [`header.jpg`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/assets/images/header.jpg) file to it
 
-Replace the `webpack.config.js` file in the project root folder with the [provided file](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/webpack.config.js). Next, in `config/packages/webpack_encore.yaml`, replace the `output_path: '%kernel.project_dir%/public/build'` line with `output_path: '%kernel.project_dir%/public/assets/build'`.
+Replace the `webpack.config.js` file in the project root folder with the [provided file](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/webpack.config.js).
 
 Next, in the terminal run the commands:
 
@@ -88,20 +90,10 @@ php bin/console cache:clear
 
     Compiling assets with Webpack Encore is explained in [the beginner tutorial](../platform_beginner/3_customize_the_front_page.md#configuring-webpack).
 
-In the `src` folder create a `QueryType` subfolder and add [`LocationChildrenQueryType.php`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/src/QueryType/LocationChildrenQueryType.php) and [`QueryType/MenuQueryType.php`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/src/QueryType/MenuQueryType.php) to it.
-Add [`MenuController.php`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/src/Controller/MenuController.php) to `src/Controller`.
+In the `src` folder create a `QueryType` subfolder and add [`QueryType/MenuQueryType.php`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/src/QueryType/MenuQueryType.php) to it.
 
-These files take care of displaying content of folders and of the top menu (read up on it [in the documentation](../../guide/controllers.md#query-controller)).
-
-Additionally, in `config/services.yaml` add the following block under the `services` key:
-
-``` yaml
-App\QueryType\LocationChildrenQueryType:
-    tags:
-        - { name: ezplatform.query_type }
-```
-
-All the files you've placed in `src` are not the scope of this tutorial and we won't go here into detail on how they work.
+This file takes care of displaying the top menu (read up on it [in the documentation](../../guide/controllers.md#query-controller)).
+It is not the scope of this tutorial and we won't go here into detail on how it works.
 
 This is what the structure of the new and modified files should look like (excluding pre-existing files):
 

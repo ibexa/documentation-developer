@@ -7,7 +7,6 @@
 namespace EzSystems\DeveloperDocumentation\Test\Context;
 
 use Behat\Gherkin\Node\TableNode;
-use Behat\Symfony2Extension\Context\KernelDictionary;
 use EzSystems\DeveloperDocumentation\Test\ConfigurationEditor;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
@@ -15,8 +14,6 @@ use Behat\Behat\Context\Context;
 
 class ConfigurationContext implements Context
 {
-    use KernelDictionary;
-
     private $basePath;
 
     public function __construct($basePath)
@@ -159,7 +156,7 @@ class ConfigurationContext implements Context
 	{
 		$config = new ConfigurationEditor(sprintf('%s/%s', $this->basePath, $configPath));
 		$config->add([
-			'ezpublish.system.site.field_templates' => [['template' => 'form_field.html.twig', 'priority' => 30,]],
+			'ezpublish.system.site.field_templates' => [['template' => 'fields/form_field.html.twig', 'priority' => 30,]],
 		]);
 	}
 

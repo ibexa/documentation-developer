@@ -45,7 +45,7 @@ Create an `templates/blocks/form/newsletter.html.twig` file:
 <div class="row">
     <div class="block-form {{ block_class }}">
         {{ fos_httpcache_tag('relation-location-' ~ locationId) }}
-        {{ render(controller('ez_content:viewLocation', {
+        {{ render(controller('ez_content:viewAction', {
             'locationId': locationId,
             'viewType': 'embed'
         })) }}
@@ -81,7 +81,7 @@ The block remains unchanged, but the results will be visible when you add CSS st
 At this point, you need to change the field template.
 This results in alternating the position and design of the Form fields.
 
-Create a `templates/form_field.html.twig` file:
+Create a `templates/fields/form_field.html.twig` file:
 
 ``` html+twig
 {% block ezform_field %}
@@ -103,7 +103,7 @@ In `config/packages/views.yaml`, at the same level as `pagelayout`, add:
 
 ``` yaml
 field_templates:
-    - { template: "form_field.html.twig", priority: 30 }
+    - { template: fields/form_field.html.twig, priority: 30 }
 ```
 
 Clear the cache by running `bin/console cache:clear` and refresh the Page to see the results.

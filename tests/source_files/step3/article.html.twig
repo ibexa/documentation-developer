@@ -1,4 +1,4 @@
 {% set imageAlias = ez_image_alias(content.getField('image'), content.versionInfo, 'featured_article') %}
 <div class="featured-article" style="background-image: url('{{ imageAlias.uri }}');">
-    <h4><a class="featured-article-link" href="{{ path('ez_urlalias', {'contentId': content.id}) }}">{{ ez_content_name(content) }}</a></h4>
+    <h4><a class="featured-article-link" href="{{ ez_path(content) }}">{{ ez_content_name(content) }}</a></h4>
 </div>
