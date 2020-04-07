@@ -156,7 +156,7 @@ class ConfigurationContext implements Context
 	{
 		$config = new ConfigurationEditor(sprintf('%s/%s', $this->basePath, $configPath));
 		$config->add([
-			'ezpublish.system.site.field_templates' => [['template' => 'form_field.html.twig', 'priority' => 30,]],
+			'ezpublish.system.site.field_templates' => [['template' => 'fields/form_field.html.twig', 'priority' => 30,]],
 		]);
 	}
 
