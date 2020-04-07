@@ -78,7 +78,7 @@ For security and performance we generally recommend (unless otherwise noted) usi
     -   xml
     -   xsl
     -   zip
-    -   [php-redis](https://pecl.php.net/package/redis) *(3.1+)* *or* [php-memcached](https://pecl.php.net/package/memcached) *(3.x+)*
+    -   [php-redis](https://pecl.php.net/package/redis) *or* [php-memcached](https://pecl.php.net/package/memcached)
 
 
 ### Development and Experimental setups
