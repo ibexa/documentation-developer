@@ -8,7 +8,7 @@ The following server requirements cover both running the software on-premise and
 
 ## Server
 
-eZ software is built to rely on existing technologies and standards. The minimal setup is `PHP`,  `MySQL/MariaDB`, `Apache/Nginx`, `Node.js` and `yarn`. Recommendation for production setups is to use `Varnish`/`Fastly`, `Redis`, `NFS`/`EFS`/`S3` and `Solr` in a [clustered setup](../guide/clustering.md).
+eZ software is built to rely on existing technologies and standards. The minimal setup is `PHP`,  `MySQL/MariaDB`, `Apache/Nginx`, `Node.js` and `yarn`. Recommendation for production setups is to use `Varnish`/`Fastly`, `Redis`/`Memcached`, `NFS`/`EFS`/`S3` and `Solr` in a [clustered setup](../guide/clustering.md).
 
 For supported versions of these technologies see Recommended and Supported setups below.
 
@@ -23,13 +23,13 @@ These setups are tested by QA and are generally recommended setups. For security
 |DBMS|MariaDB 10.3|MariaDB 10.3</br>MySQL 8.0|MariaDB 10.3</br>MySQL 8.0|
 |PHP|PHP 7.3|PHP 7.3|PHP 7.3</br>(upgraded from the version delivered with the OS)|
 |PHP packages|php-cli</br>php-fpm</br>php-mysql or php-pgsql</br>php-xml</br>php-intl</br>php-curl</br>php-gd *or* php-imagick|php-cli</br>php-fpm</br>php-mysql or php-pgsql</br>php-xml</br>php-mbstring</br>php-intl</br>php-curl</br>php-gd *or* php-imagick|php-cli</br>php-fpm</br>php-mysqlnd or php-pgsql</br>php-xml</br>php-mbstring</br>php-process</br>php-intl</br>php-pear *(optional, provides pecl)*</br>php-gd *or* php-imagick *(via [pecl](https://pecl.php.net/package/imagick))*|
-|Cluster PHP packages|[php-redis](https://pecl.php.net/package/redis) *(3.1+)*|[php-redis](https://pecl.php.net/package/redis) *(3.1+)*|[php-redis](https://pecl.php.net/package/redis) *(3.1+)*|
+|Cluster PHP packages|[php-redis](https://pecl.php.net/package/redis) *or* [php-memcached](https://pecl.php.net/package/memcached)|[php-redis](https://pecl.php.net/package/redis) *or* [php-memcached](https://pecl.php.net/package/memcached)|[php-redis](https://pecl.php.net/package/redis) *or* [php-memcached](https://pecl.php.net/package/memcached)|
 
 |||
 |------|------|
 |Search|Solr (recommended; for performance, features and search quality):</br></br>Solr 7.x *Currently tested with Solr 7.7LTS*</br></br>Oracle Java/Open JDK: 8 or higher |
 |Graphic Handler|GraphicsMagick or ImageMagick or GD|
-|[Clustering](../guide/clustering.md)|Linux NFS *or* S3/EFS *(for IO, aka binary files stored in content repository, not supported with legacy)*</br>Redis 3.1 or higher *(preferably separate instances for session & cache, both using one of the `volatile-*` [eviction policies](https://redis.io/topics/lru-cache))*</br>[Varnish](http://varnish-cache.org/) 6.0LTS with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst) *or* [Fastly](https://www.fastly.com/) using [our bundle provided with eZ Platform Enterprise](../guide/http_cache.md#serving-varnish-through-fastly) *(for HttpCache)*|
+|[Clustering](../guide/clustering.md)|Linux NFS *or* S3/EFS *(for IO, aka binary files stored in content repository, not supported with legacy)*</br>Redis 5.0 or higher *(separate instances for session & cache, both using a `volatile-*` [eviction policy](https://redis.io/topics/lru-cache), session instance configured for persistance)*</br>[Varnish](http://varnish-cache.org/) 6.0LTS with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst) *or* [Fastly](https://www.fastly.com/) using [our bundle provided with eZ Platform Enterprise](../guide/http_cache.md#serving-varnish-through-fastly) *(for HttpCache)*|
 |Filesystem|Linux ext4 / XFS|
 |Package manager|Composer (recent stable version)|
 |Asset manager|`Node.js` 10.15.3 LTS</br>`yarn` 1.15.2 or higher|
@@ -51,9 +51,12 @@ For security and performance we generally recommend (unless otherwise noted) usi
     -   7.3
 
 - Cluster
-    - Redis 3.2+ (preferably separate instances for session and cache, both using one of the `volatile-*` [eviction policies](https://redis.io/topics/lru-cache))
-    - Solr 6 (recommended over SQL based Search engine, especially on cluster, as SQL does not provide the same feature set or performance as Solr)
-    - NFS or S3
+    - Cache:
+        - Redis 4.0+ (5.0 recommended, using `volatile-*` [eviction policy](https://redis.io/topics/lru-cache) is requred with default [Redis adapter](../guide/persistence_cache.md#redis))
+        - Memcached 1.5 or higher (See [Memcached adapter](../guide/persistence_cache.md##memcached) info for comparison with Redis)
+    - Session: Either own Redis instance with persistance turned on, or Database.
+    - Search: Solr 7 (recommended over SQL based Search engine, especially on cluster, as SQL does not provide the same feature set or performance as Solr)
+    - IO: NFS or S3
     - HttpCache, using one of:
         - [Varnish](http://varnish-cache.org/) 6.0LTS with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst)
         - [Fastly](https://www.fastly.com/) using [our bundle provided with eZ Platform Enterprise](../guide/http_cache.md#serving-varnish-through-fastly)
