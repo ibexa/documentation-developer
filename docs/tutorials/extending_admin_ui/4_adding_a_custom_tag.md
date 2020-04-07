@@ -3,9 +3,9 @@
 eZ Platform's RichText Field contains some built-in elements you can use, such as an image or a table.
 You can also add custom tags that will enable you to add additional elements to RichText Fields.
 
-In this step you will add a custom tag which will enable you to create a special note box called a Factbox.
+In this step you will add a custom tag, which will enable you to create a special note box called a Factbox.
 
-See full documentation of custom tags in [Extending the Online Editor](../../extending/extending_online_editor#custom-tags).
+See full documentation of custom tags in [Extending the Online Editor](../../extending/extending_online_editor.md#custom-tags).
 
 ## Configure the custom tag
 

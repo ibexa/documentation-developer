@@ -2,8 +2,7 @@
 
 The Dashboard is the front page that you visit after logging in to the Back Office.
 You can also get to it from any other page by selecting the site logo in the top left corner.
-By default, the Dashboard contains two blocks: "My content" and "Common content", which list Content items and Media.
-The "Me" block additionally lists the current user's drafts.
+By default, the Dashboard contains following blocks: "My content" and "Common content", which list Content items and Media.
 
 ![Unmodified dashboard](img/dashboard.png)
 
