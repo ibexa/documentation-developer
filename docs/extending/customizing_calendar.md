@@ -84,7 +84,7 @@ class EventType implements EventTypeInterface
 
 The identifier defined in lines 23-26 can be used later in [configuration](#customizing-colors-and-icons).
 
-Complete the procedure by registering the new event in `config/services.yaml`:
+Complete the procedure by registering the new event type in `config/services.yaml`:
 
 ``` yaml
 services:
@@ -98,8 +98,11 @@ services:
 
 ## Configuring event sources
 
-To add specific Events to your calendar, you need to create a source factory.
+To add specific Events to your calendar, you need to create an event source.
 
+An event source must implement `EzSystems\EzPlatformCalendar\Calendar\EventSource\EventSourceInterface`.
+
+One such built-in implementation is `InMemoryEventSource`.
 To add an in-memory collection as an event source, create `src/Calendar/Holidays/EventSourceFactory.php`:
 
 ```php
@@ -183,7 +186,6 @@ For example, to import a list of bank holidays from a json file:
     "date": "2020-12-25",
     "name": "Christmas Day"
   },
-  //...
 ]
 ```
 
