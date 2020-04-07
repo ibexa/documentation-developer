@@ -128,7 +128,7 @@ Please note that the user interface might not look or behave exactly the same ac
 
     For example:
 
-    - Platform.sh provides (at time of writing) Redis support for versions 3.2, 4.0 and 5.0. eZ Platform supports Redis version 4.0 or higher, and recommeds 5.0. As a result, Redis is supported on eZ Platform Cloud in versions 4.0 and 5.0, but you are recommended to use 5.0.
+    - Platform.sh provides (at time of writing) Redis support for versions 3.2, 4.0 and 5.0. eZ Platform supports Redis version 4.0 or higher, and recommends 5.0. As a result, Redis is supported on eZ Platform Cloud in versions 4.0 and 5.0, but you are recommended to use 5.0.
     - Platform.sh provides Elastic Search service (different versions supported). Elastic Search is not supported for use as search engine for eZ Platform.
 
     Features or services supported by eZ Platform but not covered by Platform.sh may be possible by means of a [custom integration](#custom-integrations).
