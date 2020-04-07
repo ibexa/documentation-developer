@@ -15,7 +15,7 @@ Add file `custom_tags.yaml` to `config/packages`:
 ``` yaml hl_lines="5 10"
 ezplatform:
     system:
-        default:
+        admin_group:
             fieldtypes:
                 ezrichtext:
                     custom_tags: [factbox]
