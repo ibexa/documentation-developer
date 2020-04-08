@@ -88,14 +88,6 @@ Deprecated `ezplatform.ee.installer.class` DIC parameter has been removed.
 
 See [eZ Platform v3.0 project update instructions](./ez_platform_v3.0_project_update.md#custom-installers) for upgrade details.
 
-## date-based-publisher
-
-No deprecations or backward compatibility breaks to document.
-
-## doctrine-dbal-schema
-
-No deprecations or backward compatibility breaks to document.
-
 ## ezplatform-admin-ui
 
 ### Functions renamed
@@ -348,10 +340,6 @@ Instead, use the following classes:
 
 The deprecated `universal_discovery_widget_module.default_location_id` setting has been replaced with `universal_discovery_widget_module.configuration.default.starting_location_id`.
 
-## ezplatform-admin-ui-assets
-
-No deprecations or backward compatibility breaks to document.
-
 ## ezplatform-admin-ui-modules
 
 This package is deprecated. Its code has been moved to [`ezplatform-admin-ui`](#ezplatform-admin-ui).
@@ -360,14 +348,6 @@ This package is deprecated. Its code has been moved to [`ezplatform-admin-ui`](#
 
 This new package contains forms for content creation moved from `repository-forms`.
 
-## ezplatform-core
-
-No deprecations or backward compatibility breaks to document.
-
-## ezplatform-cron
-
-No deprecations or backward compatibility breaks to document.
-
 ## ezplatform-design-engine
 
 ### Code cleanup in Design Engine
@@ -375,10 +355,6 @@ No deprecations or backward compatibility breaks to document.
 - The deprecated `Twig\Loader\ExistsLoaderInterface` has been removed.
 - The deprecated `Twig_Profiler_Profile` Twig class has been replaced with `Twig\Profiler\Profile`.
 - The deprecated `Twig_Environment` Twig class has been replaced with `Twig\Environment`
-
-## ezplatform-ee-installer
-
-No deprecations or backward compatibility breaks to document.
 
 ## ezplatform-form-builder
 
@@ -394,10 +370,6 @@ The following event names have been changed:
 |`updateFieldName`|`ez-update-field-name`|
 |`fbFormBuilderLoaded`|`ez-form-builder-loaded`|
 |`fbFormBuilderUnloaded`|`ez-form-builder-unloaded`
-
-## ezplatform-graphql
-
-No deprecations or backward compatibility breaks to document.
 
 ## ezplatform-http-cache
 
@@ -589,6 +561,14 @@ as the prioritized languages list.
 
 When matching SiteAccesses using custom services, the SiteAccess matcher service must be now tagged with `ezplatform.siteaccess.matcher`.
 
+### Search Indexers
+
+Service Provider abstracts for Search Engine Indexer implementations (`\eZ\Publish\Core\Search\Common\IncrementalIndexer and \eZ\Publish\Core\Search\Common\Indexer`) accepts now `\Doctrine\DBAL\Connection $connection` instead of `\eZ\Publish\Core\Persistence\Database\DatabaseHandler $databaseHandler`.
+Inject it via `@ezpublish.persistence.connection`.
+
+The methods `getContentLocationIds` and `logWarning` of `\eZ\Publish\Core\Search\Common\Indexer` have been dropped.
+For the former one use Location SPI Persistence Handler, for the latter one use Logger directly.
+
 ### Database
 
 The following obsolete tables have been removed from the database schema:
@@ -774,9 +754,36 @@ Users can request a new, valid password using the "Forgot password" feature.
 
 Strict types have been added to Public API methods.
 
-## ezplatform-matrix-fieldtype
+### Zeta Components (eZc) Database handler
 
-No deprecations or backward compatibility breaks to document.
+The deprecated Zeta Components (eZc) Database handler has been dropped.
+All classes and interfaces from `eZ\Publish\Core\Persistence\Database` and `eZ\Publish\Core\Persistence\Doctrine` namespaces have been removed.
+
+The `ezpublish.connection` has been removed. Use `ezpublish.persistence.connection` instead.
+
+The signature of the `\eZ\Publish\Core\Persistence\Legacy\URL\Query\CriterionHandler::handle` contract
+accepts now `\Doctrine\DBAL\Query\QueryBuilder` instead of `\eZ\Publish\Core\Persistence\Database\SelectQuery` and has the following form:
+
+``` php
+use \Doctrine\DBAL\Query\QueryBuilder;
+use \eZ\Publish\Core\Persistence\Legacy\URL\Query\CriteriaConverter;
+use \eZ\Publish\API\Repository\Values\URL\Query\Criterion;
+public function handle(CriteriaConverter $converter, QueryBuilder $query, Criterion $criterion);
+```
+  
+The `ezpublish.api.search_engine.legacy.dbhandler` and `ezpublish.api.storage_engine.legacy.dbhandler`
+have been removed.
+Inject `\Doctrine\DBAL\Connection` via `ezpublish.persistence.connection` instead.
+
+#### Field Type External Storage Handlers 
+
+The Field Type External Storage Handlers `$context` array no longer have the "connection" key.
+You should rely on injected Connection instead.
+
+The `$context` array of `\eZ\Publish\SPI\FieldType\FieldStorage` methods (`storeFieldData`,
+`getFieldData`, `deleteFieldData`, `getIndexData`) is deprecated and will be dropped in the next
+major version.
+You should rely on injected Connection instead.
 
 ## ezplatform-page-builder
 
@@ -882,10 +889,6 @@ The following `ezrichtext` service tags have been extended to be consistent with
 The `ezplatform:solr_create_index` command has been removed.
 Use `ezplatform:reindex` instead.
 
-## ezplatform-standard-design
-
-No deprecations or backward compatibility breaks to document.
-
 ## ezplatform-user
 
 ### User settings
@@ -902,14 +905,6 @@ the following deprecated code for handling the settings has been dropped:
 ### Code cleanup in eZ Platform User
 
 The deprecated `Symfony\Bundle\FrameworkBundle\Controller\Controller` has been replaced with `Symfony\Bundle\FrameworkBundle\Controller\AbstractController`.
-
-## ezplatform-workflow
-
-No deprecations or backward compatibility breaks to document.
-
-## ez-support-tools
-
-No deprecations or backward compatibility breaks to document.
 
 ## flex-workflow
 
