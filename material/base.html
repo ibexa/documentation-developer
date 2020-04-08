@@ -235,7 +235,7 @@
         {% endif %}
       {% endif %}
       <script>app.initialize({version:"{{ mkdocs_version }}",url:{base:"{{ base_url }}"}})</script>
-      {% for path in extra_javascript %}
+      {% for path in extra_javascript if 'search/main.js' not in path %}
         <script src="{{ path }}"></script>
       {% endfor %}
       <script>
