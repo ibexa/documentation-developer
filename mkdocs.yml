@@ -210,6 +210,7 @@ nav:
             - 'Injecting custom components': 'extending/custom_components.md'
         - 'Extending Form Builder': 'extending/extending_form_builder.md'
         - 'Extending Workflow': 'extending/extending_workflow.md'
+        - 'Extending Calendar': 'extending/customizing_calendar.md'
         - 'Extending Online Editor':
             - 'Extending Online Editor': 'extending/extending_online_editor.md'
             - 'Creating Online Editor button': 'extending/online_editor_button.md'
