@@ -40,4 +40,8 @@ In **New Point 2D** tab, you can fill in coordinates of your point, e.g. 3, 5. P
 
 Click **Publish**. Now, you should see a new **(3,5)** point in the content tree.
 
+!!! tip
+
+    If you cannot see the results or encounter an error, clear the cache and reload the application.
+
 ![New Point 2D](img/new_point2d.png)
