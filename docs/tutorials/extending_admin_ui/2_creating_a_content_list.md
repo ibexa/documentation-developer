@@ -158,7 +158,7 @@ Finally, create an `all_content_list.html.twig` file in `templates/list`:
             <tbody>
             {% for article in articles %}
                 <tr>
-                    <td><a href={{ez_path(content)}}>{{ ez_content_name(article.contentInfo) }}</a></td>
+                    <td><a href={{ez_path(article)}}>{{ ez_content_name(article.contentInfo) }}</a></td>
                     <td>{{ article.contentInfo.contentTypeId }}</td>
                     <td>{{ article.contentInfo.modificationDate|ez_full_datetime }}</td>
                     <td>{{ article.contentInfo.publishedDate|ez_full_datetime }}</td>

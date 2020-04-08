@@ -194,7 +194,7 @@ Finally, add a JavaScript block with js listeners at the end of the twig file:
                 <tbody>
                 {% for article in articles %}
                     <tr>
-                        <td><a href={{ez_path(content)}}>{{ ez_content_name(article.contentInfo) }}</a></td>
+                        <td><a href={{ez_path(article)}}>{{ ez_content_name(article.contentInfo) }}</a></td>
                         <td>{{ article.contentInfo.contentTypeId }}</td>
                         <td>{{ article.contentInfo.modificationDate|ez_full_datetime }}</td>
                         <td>{{ article.contentInfo.publishedDate|ez_full_datetime }}</td>
