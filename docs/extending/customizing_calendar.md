@@ -9,7 +9,7 @@
 
     ## Configuring custom events
 
-    This example shows how to create custom Events which add Bank holidays to the calendar.
+    This example shows you how to create custom events which add bank holidays to the calendar.
 
     First, create a new event in `src/Calendar/Holidays/Event.php`:
 
@@ -100,7 +100,7 @@
 
     ## Configuring event sources
 
-    To add specific Events to your calendar, you need to create an event source.
+    To add specific events to your calendar, you need to create an event source.
 
     An event source must implement `EzSystems\EzPlatformCalendar\Calendar\EventSource\EventSourceInterface`.
 
@@ -174,9 +174,7 @@
 
     ### Importing events from external sources
 
-    You can also import events from external sources.
-
-    For example, to import a list of bank holidays from a json file:
+    You can also import events from external sources, e.g. a JSON file:
 
     ``` json
     [
