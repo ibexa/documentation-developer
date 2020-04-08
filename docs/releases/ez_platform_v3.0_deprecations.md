@@ -435,6 +435,11 @@ For details, see [code cleanup in kernel](#code-cleanup-in-kernel).
 
 ## ezplatform-kernel replacing ezpublish-kernel
 
+### ezplatform-kernel package
+
+eZ Platform now makes use of [`ezplatform-kernel`](https://github.com/ezsystems/ezplatform-kernel) instead of `ezpublish-kernel`.
+This change is introduced without BC breaks.
+
 ### API methods
 
 Following API methods have been removed:
@@ -480,6 +485,14 @@ Following SPI methods have been removed:
 
 - `\eZ\Publish\SPI\Persistence\Content\Handler::removeTranslationFromContent`
 
+### Dynamic settings
+
+Using dynamic settings (through `$setting$`) and getting settings from the ConfigResolver in a class constructor
+or method call has been dropped.
+
+You should use the ConfigResolver instead.
+Do not store the values globally. Every time the value is needed call `ConfigResolverInterface::getParameter`.
+
 ### Controllers
 
 #### AbstractController
@@ -510,7 +523,7 @@ The unused `ezsrrating` Field Type has been removed along with the related datab
 
 #### RichText
 
-The `ezrichtext` Field Type has been removed from `ezpublish-kernel`.
+The `ezrichtext` Field Type has been removed from `ezplatform-kernel`.
 Use [`ezplatform-richtext`](https://github.com/ezsystems/ezplatform-richtext) instead.
 
 Following this change:
@@ -540,7 +553,7 @@ Deprecated `ezpublish.query_type` tag has been removed in favour of `ezplatform.
 Signal Slots have been replaced by [Symfony Events and Event Listeners](https://symfony.com/doc/5.0/event_dispatcher.html).
 
 The application triggers two Events per operation: one before and one after the relevant thing happens
-(see for example [Bookmark events](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Event/BookmarkService.php)).
+(see for example [Bookmark events](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/Event/BookmarkService.php)).
 
 ### Legacy Storage Gateways
 
