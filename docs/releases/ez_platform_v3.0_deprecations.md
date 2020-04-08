@@ -485,6 +485,14 @@ Following SPI methods have been removed:
 
 - `\eZ\Publish\SPI\Persistence\Content\Handler::removeTranslationFromContent`
 
+### Dynamic settings
+
+Using dynamic settings (through `$setting$`) and getting settings from the ConfigResolver in a class constructor
+or method call has been dropped.
+
+You should use the ConfigResolver instead.
+Do not store the values globally. Every time the value is needed call `ConfigResolverInterface::getParameter`.
+
 ### Controllers
 
 #### AbstractController
