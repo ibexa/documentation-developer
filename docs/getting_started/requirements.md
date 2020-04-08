@@ -52,14 +52,14 @@ For security and performance we generally recommend (unless otherwise noted) usi
 
 - Cluster
     - Cache:
-        - Redis 4.0+ (5.0 recommended, using `volatile-*` [eviction policy](https://redis.io/topics/lru-cache) is requred with default [Redis adapter](../guide/persistence_cache.md#redis))
-        - Memcached 1.5 or higher (See [Memcached adapter](../guide/persistence_cache.md##memcached) info for comparison with Redis)
-    - Session: Either own Redis instance with persistance turned on, or Database.
-    - Search: Solr 7 (recommended over SQL based Search engine, especially on cluster, as SQL does not provide the same feature set or performance as Solr)
+        - Redis 4.0+ (5.0 recommended, using `volatile-*` [eviction policy](https://redis.io/topics/lru-cache) is required with default [Redis adapter](../guide/persistence_cache.md#redis))
+        - Memcached 1.5 or higher (See [Memcached adapter](../guide/persistence_cache.md##memcached) for comparison with Redis)
+    - Session: either own Redis instance with persistence turned on, or Database.
+    - Search: Solr 7 (recommended over SQL-based Search engine, especially on cluster, as SQL does not provide the same feature set or performance as Solr)
     - IO: NFS or S3
     - HttpCache, using one of:
         - [Varnish](http://varnish-cache.org/) 6.0LTS with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst)
-        - [Fastly](https://www.fastly.com/) using [our bundle provided with eZ Platform Enterprise](../guide/http_cache.md#serving-varnish-through-fastly)
+        - [Fastly](https://www.fastly.com/) using [the bundle provided with eZ Platform Enterprise](../guide/http_cache.md#serving-varnish-through-fastly)
 
 -   PHP extensions/modules
     -   curl
@@ -128,7 +128,7 @@ Please note that the user interface might not look or behave exactly the same ac
 
     For example:
 
-    - Platform.sh provides (at time of writing) Redis support for versions 3.2, 4.0 and 5.0. eZ Platform supports Redis version 4.0 or higher, and recommends 5.0. As a result, Redis is supported on eZ Platform Cloud in versions 4.0 and 5.0, but you are recommended to use 5.0.
+    - Platform.sh provides Redis support for versions 3.2, 4.0 and 5.0. eZ Platform supports Redis version 4.0 or higher, and recommends 5.0. As a result, Redis is supported on eZ Platform Cloud in versions 4.0 and 5.0, but 5.0 is recommended.
     - Platform.sh provides Elastic Search service (different versions supported). Elastic Search is not supported for use as search engine for eZ Platform.
 
     Features or services supported by eZ Platform but not covered by Platform.sh may be possible by means of a [custom integration](#custom-integrations).
