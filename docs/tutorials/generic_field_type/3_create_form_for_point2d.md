@@ -75,9 +75,10 @@ final class Type extends GenericType implements FieldValueFormMapperInterface
 }
 ```
 
-Finally, add a `configureOptions` method and set default value of `data_class` to `Value::class`. It will allow your form to work on this object.
+Finally, add a `configureOptions` method and set default value of `data_class` to `Value::class` in `src/Form/Type/Point2DType.php`.
+It will allow your form to work on this object.
 
-```php
+```php hl_lines="19 20 21 22 23 24"
 <?php
 declare(strict_types=1);
 

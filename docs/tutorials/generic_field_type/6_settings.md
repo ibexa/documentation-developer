@@ -223,6 +223,11 @@ In `templates/point2d_field.html.twig` replace the content with:
 ## Add a new Content Type
 
 Now, you can go to Admin in the Back Office and see the results of your work by editing the Point 2D Content Type.
+
+!!! tip
+
+    If you cannot see the results or encounter an error, clear the cache and reload the application.
+
 Add new format `(%x%, %y%)` in the **Format** field as shown in the screen below.
 
 ![Point 2D definition with format field](img/field_definition_format_field.png)
