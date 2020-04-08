@@ -563,11 +563,11 @@ When matching SiteAccesses using custom services, the SiteAccess matcher service
 
 ### Search Indexers
 
-Service Provider abstracts for Search Engine Indexer implementations (`\eZ\Publish\Core\Search\Common\IncrementalIndexer and \eZ\Publish\Core\Search\Common\Indexer`) accepts now `\Doctrine\DBAL\Connection $connection` instead of `\eZ\Publish\Core\Persistence\Database\DatabaseHandler $databaseHandler`.
-Inject it via `@ezpublish.persistence.connection`.
+Service Provider abstracts for Search Engine Indexer implementations (`\eZ\Publish\Core\Search\Common\IncrementalIndexer` and `\eZ\Publish\Core\Search\Common\Indexer`) now accept `\Doctrine\DBAL\Connection $connection` instead of `\eZ\Publish\Core\Persistence\Database\DatabaseHandler $databaseHandler`.
+Inject them via `@ezpublish.persistence.connection`.
 
 The methods `getContentLocationIds` and `logWarning` of `\eZ\Publish\Core\Search\Common\Indexer` have been dropped.
-For the former one use Location SPI Persistence Handler, for the latter one use Logger directly.
+Use Location SPI Persistence Handler in place of `getContentLocationIds`. Use Logger directly in place of `logWarning`.
 
 ### Database
 
@@ -759,10 +759,10 @@ Strict types have been added to Public API methods.
 The deprecated Zeta Components (eZc) Database handler has been dropped.
 All classes and interfaces from `eZ\Publish\Core\Persistence\Database` and `eZ\Publish\Core\Persistence\Doctrine` namespaces have been removed.
 
-The `ezpublish.connection` has been removed. Use `ezpublish.persistence.connection` instead.
+`ezpublish.connection` has been removed. Use `ezpublish.persistence.connection` instead.
 
 The signature of the `\eZ\Publish\Core\Persistence\Legacy\URL\Query\CriterionHandler::handle` contract
-accepts now `\Doctrine\DBAL\Query\QueryBuilder` instead of `\eZ\Publish\Core\Persistence\Database\SelectQuery` and has the following form:
+now accepts `\Doctrine\DBAL\Query\QueryBuilder` instead of `\eZ\Publish\Core\Persistence\Database\SelectQuery` and has the following form:
 
 ``` php
 use \Doctrine\DBAL\Query\QueryBuilder;
@@ -771,13 +771,13 @@ use \eZ\Publish\API\Repository\Values\URL\Query\Criterion;
 public function handle(CriteriaConverter $converter, QueryBuilder $query, Criterion $criterion);
 ```
   
-The `ezpublish.api.search_engine.legacy.dbhandler` and `ezpublish.api.storage_engine.legacy.dbhandler`
+`ezpublish.api.search_engine.legacy.dbhandler` and `ezpublish.api.storage_engine.legacy.dbhandler`
 have been removed.
 Inject `\Doctrine\DBAL\Connection` via `ezpublish.persistence.connection` instead.
 
 #### Field Type External Storage Handlers 
 
-The Field Type External Storage Handlers `$context` array no longer have the "connection" key.
+The Field Type External Storage Handlers `$context` arrays no longer have the "connection" key.
 You should rely on injected Connection instead.
 
 The `$context` array of `\eZ\Publish\SPI\FieldType\FieldStorage` methods (`storeFieldData`,
