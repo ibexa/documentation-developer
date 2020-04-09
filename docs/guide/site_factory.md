@@ -49,20 +49,16 @@
     
     ```yaml
     ezplatform:
-    
-    ...
-    
-    ezdesign:
-        design_list:
-            example_1: [example_1_template]
-            example_2: [example_2_template]
-            
-    ezpublish:
         system:
             example_site_factory_group_1:
                 design: example_1
             example_site_factory_group_2:
                 design: example_2
+    
+    ezdesign:
+        design_list:
+            example_1: [example_1_template]
+            example_2: [example_2_template]
     ```
     
     `ezdesign` defines templates for your sites, so remember to add them before continuing.
@@ -73,7 +69,7 @@
     It will connect SiteAccesses with the templates.
     
     ```yaml
-    ezplatform_site_factory:
+    ez_platform_site_factory:
         templates:
             ez_site1:
                 siteaccess_group: example_site_factory_group_1
