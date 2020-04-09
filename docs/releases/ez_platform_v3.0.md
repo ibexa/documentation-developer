@@ -22,7 +22,7 @@ and [Symfony 5.0 upgrade documentation](https://github.com/symfony/symfony/blob/
 
 The application now uses Symfony Events instead of SignalSlots.
 The application triggers two Events per operation: one before and one after the relevant thing happens
-(see for example [BookmarkEvents](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/Event/Bookmark/BookmarkEvents.php)).
+(see for example [BookmarkService](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/Event/BookmarkService.php)).
 
 To use Symfony Events, create [Event Listeners](https://symfony.com/doc/5.0/event_dispatcher.html) in your code.
 
@@ -80,7 +80,7 @@ For details, see [Bundles](../guide/bundles.md).
     
     You can now configure your workflows to [automatically publish content](../guide/workflow.md#publishing-content-with-workflow).
     
-    You can also create [custom workflow actions](../guide/extending/extending_workflow.md#adding-custom-actions).
+    You can also create [custom workflow actions](../extending/extending_workflow.md#adding-custom-actions).
     
     #### Reviewers
     
@@ -124,7 +124,7 @@ enables you to configure a Content query that will use parameters from a Field d
 
 #### Field Type creation
 
-You can now use [Generic Field Type](../guide/extending_field_type.md) as a template for your custom Field Types.
+You can now use [Generic Field Type](../extending/extending_field_type.md) as a template for your custom Field Types.
 
 #### Keyword Field Type
 
@@ -134,7 +134,7 @@ The `keyword` Field Type can now recognize versions of a Content item.
 
 #### Login by User name or email
 
-You can now give your users th ability to [log in with User name or with email](../guide/user_mnagements.md#login-methods).
+You can now give your users th ability to [log in with User name or with email](../guide/user_management.md#login-methods).
 
 #### Password rules
 
@@ -157,15 +157,15 @@ The following new Search Criteria have been added:
 
 |Search Criterion|Search based on|
 |-----|-----|
-|[IsUserBased](../../guide/search/criteria_reference/isuserbased_criterion.md)|Whether content represents a User account|
-|[IsUserEnabled](../../guide/search/criteria_reference/isuserenabled_criterion.md)|Whether a User account is enabled|
-|[ObjectStateIdentifier](../../guide/search/criteria_reference/objectstateidentifier_criterion.md)|Object State Identifier|
-|[SectionId](../../guide/search/criteria_reference/sectionid_criterion.md)|ID of the Section content is assigned to|
-|[SectionIdentifier](../../guide/search/criteria_reference/sectionidentifier_criterion.md)|Identifier of the Section content is assigned to|
-|[UserEmail](../../guide/search/criteria_reference/useremail_criterion.md)|Email address of a User account|
-|[Sibling](../../guide/search/criteria_reference/sibling_criterion.md)|Locations that are children of the same parent|
-|[UserId](../../guide/search/criteria_reference/userid_criterion.md)|User ID|
-|[UserLogin](../../guide/search/criteria_reference/userlogin_criterion.md)|User login|
+|[IsUserBased](../guide/search/criteria_reference/isuserbased_criterion.md)|Whether content represents a User account|
+|[IsUserEnabled](../guide/search/criteria_reference/isuserenabled_criterion.md)|Whether a User account is enabled|
+|[ObjectStateIdentifier](../guide/search/criteria_reference/objectstateidentifier_criterion.md)|Object State Identifier|
+|[SectionId](../guide/search/criteria_reference/sectionid_criterion.md)|ID of the Section content is assigned to|
+|[SectionIdentifier](../guide/search/criteria_reference/sectionidentifier_criterion.md)|Identifier of the Section content is assigned to|
+|[UserEmail](../guide/search/criteria_reference/useremail_criterion.md)|Email address of a User account|
+|[Sibling](../guide/search/criteria_reference/sibling_criterion.md)|Locations that are children of the same parent|
+|[UserId](../guide/search/criteria_reference/userid_criterion.md)|User ID|
+|[UserLogin](../guide/search/criteria_reference/userlogin_criterion.md)|User login|
 
 ### Random sorting
 
@@ -194,12 +194,12 @@ You can now use the Sub-items list to quickly hide, reveal, to add Locations to 
 ### Tooltips
 
 You can now add custom tooltips to provide more information for the users when they hover over, focus on, or tap an element.
-For more information, see [Tooltips UI documentation](../guidelines/components/tooltips.md) and [Guide to adding tooltips](../guide/extending/extending_back_office.md#add-tooltips).
+For more information, see [Tooltips UI documentation](../guidelines/components/tooltips.md) and [Guide to adding tooltips](../extending/extending_tooltips.md).
 
 ### Thumbnails
 
 The new thumbnails API allows you to easily choose an image for each content.
-For more information, see [Extending thumbnails](../guide/extending/extending_thumbnails.md).
+For more information, see [Extending thumbnails](../extending/extending_thumbnails.md).
 
 ### Type hints for Public API
 
@@ -320,7 +320,7 @@ eZ Platform now requires using PHP 7.3. For full list of, see [eZ Platform requi
 
 ## Updating
 
-For the upgrade details, see [eZ Platform v3.0 project update instructions](../updating/ez_platform_v3.0_project_update.md).
+For the upgrade details, see [eZ Platform v3.0 project update instructions](../updating/upgrading_to_v3.md).
 
 ## Full changelog
 
