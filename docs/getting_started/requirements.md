@@ -8,7 +8,7 @@ The following server requirements cover both running the software on-premise and
 
 ## Server
 
-eZ software is built to rely on existing technologies and standards. The minimal setup is `PHP`,  `MySQL/MariaDB`, `Apache/Nginx`, `Node.js` and `yarn`. Recommendation for production setups is to use `Varnish`/`Fastly`, `Redis`, `NFS`/`EFS`/`S3` and `Solr` in a [clustered setup](../guide/clustering.md).
+eZ software is built to rely on existing technologies and standards. The minimal setup is `PHP`,  `MySQL/MariaDB`, `Apache/Nginx`, `Node.js` and `yarn`. Recommendation for production setups is to use `Varnish`/`Fastly`, `Redis`/`Memcached`, `NFS`/`EFS`/`S3` and `Solr` in a [clustered setup](../guide/clustering.md).
 
 For supported versions of these technologies see Recommended and Supported setups below.
 
@@ -18,45 +18,48 @@ These setups are tested by QA and are generally recommended setups. For security
 
 ||Debian|Ubuntu|RHEL / CentOS|
 |------|------|------|------|
-|Operating system|10.x "Buster"|18.04 LTS "Bionic"|8.x|
-|Web Server|Nginx 1.14</br>Apache 2.4|Nginx 1.14</br>Apache 2.4|Nginx 1.14</br>Apache 2.4|
-|DBMS|MariaDB 10.3\*|MariaDB 10.1</br>MySQL 5.7\*|MariaDB 10.3\*</br>MySQL 8.0\*|
-|PHP|PHP 7.3|PHP 7.3</br>(upgraded from the version delivered with the OS)|PHP 7.3</br>(upgraded from the version delivered with the OS)|
+|Operating system|10.x "Buster"|19.10 "Eoan"|8.1+|
+|Web Server|Nginx 1.14</br>Apache 2.4|Nginx 1.16</br>Apache 2.4|Nginx 1.14</br>Apache 2.4|
+|DBMS|MariaDB 10.3|MariaDB 10.3</br>MySQL 8.0|MariaDB 10.3</br>MySQL 8.0|
+|PHP|PHP 7.3|PHP 7.3|PHP 7.3|
 |PHP packages|php-cli</br>php-fpm</br>php-mysql or php-pgsql</br>php-xml</br>php-intl</br>php-curl</br>php-gd *or* php-imagick|php-cli</br>php-fpm</br>php-mysql or php-pgsql</br>php-xml</br>php-mbstring</br>php-intl</br>php-curl</br>php-gd *or* php-imagick|php-cli</br>php-fpm</br>php-mysqlnd or php-pgsql</br>php-xml</br>php-mbstring</br>php-process</br>php-intl</br>php-pear *(optional, provides pecl)*</br>php-gd *or* php-imagick *(via [pecl](https://pecl.php.net/package/imagick))*|
-|Cluster PHP packages|[php-redis](https://pecl.php.net/package/redis) *(3.1.3+)*|[php-redis](https://pecl.php.net/package/redis) *(3.1.3+)*|[php-redis](https://pecl.php.net/package/redis) *(3.1.3+)*|
+|Cluster PHP packages|[php-redis](https://pecl.php.net/package/redis) *or* [php-memcached](https://pecl.php.net/package/memcached)|[php-redis](https://pecl.php.net/package/redis) *or* [php-memcached](https://pecl.php.net/package/memcached)|[php-redis](https://pecl.php.net/package/redis) *or* [php-memcached](https://pecl.php.net/package/memcached)|
 
 |||
 |------|------|
-|Search|Solr (recommended; for performance, features and search quality):</br></br>Solr 6.x *Currently tested with Solr 6.6LTS*</br></br>Oracle Java/Open JDK: 8</br></br>*NOTE: If your Java version is higher than 8, you need to downgrade it to Oracle Java/Open JDK: 8.* |
+|Search|Solr (recommended; for performance, features and search quality):</br></br>Solr 7.x *Currently tested with Solr 7.7LTS*</br></br>Oracle Java/Open JDK: 8 or higher |
 |Graphic Handler|GraphicsMagick or ImageMagick or GD|
-|[Clustering](../guide/clustering.md)|Linux NFS *or* S3/EFS *(for IO, aka binary files stored in content repository, not supported with legacy)*</br>Redis 3.2 or higher *(preferably separate instances for session & cache, both using one of the `volatile-*` [eviction policies](https://redis.io/topics/lru-cache))*</br>[Varnish](http://varnish-cache.org/) 5.1 or 6.0LTS *(recommended)* with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst) *or* [Fastly](https://www.fastly.com/) using [our bundle provided with eZ Platform Enterprise](../guide/http_cache.md#serving-varnish-through-fastly) *(for HttpCache)*|
+|[Clustering](../guide/clustering.md)|Linux NFS *or* S3/EFS *(for IO, aka binary files stored in content repository, not supported with legacy)*</br>Redis 5.0 or higher *(separate instances for session & cache, both using a `volatile-*` [eviction policy](https://redis.io/topics/lru-cache), session instance configured for persistance)* *or* [Memcached](https://memcached.org/) 1.5 or higher</br>[Varnish](http://varnish-cache.org/) 6.0LTS with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst) *or* [Fastly](https://www.fastly.com/) using [our bundle provided with eZ Platform Enterprise](../guide/http_cache.md#serving-varnish-through-fastly) *(for HttpCache)*|
 |Filesystem|Linux ext4 / XFS|
 |Package manager|Composer (recent stable version)|
 |Asset manager|`Node.js` 10.15.3 LTS</br>`yarn` 1.15.2 or higher|
 
 ### Other supported setups
 
-For security and performance we generally recommend (unless otherwise noted and marked with \*) using the newer versions of components below.
+For security and performance we generally recommend (unless otherwise noted) using the newer versions of components below.
 
 -   OS: Linux
 -   Web Servers:
     -   Apache 2.4, with required modules `mod_rewrite`, `mod_env` and recommended: `mod_setenvif`, `mod_expires`
         - event MPM is recommended, if you need to use _prefork_ you'll also need the `mod_php` module
-    -   Nginx 1.12, 1.14
+    -   Nginx 1.12, 1.14, 1.16
 -   DBMS
-    -   MySQL 5.7\* or 8.0\* \**
-    -   MariaDB 10.0, 10.1, 10.2\*, 10.3\*
+    -   MySQL 5.7 or 8.0
+    -   MariaDB 10.2, 10.3, 10.4
     -   PostgreSQL 10+
 -   PHP
     -   7.3
 
 - Cluster
-    - Redis 3.2+ (preferably separate instances for session and cache, both using one of the `volatile-*` [eviction policies](https://redis.io/topics/lru-cache))
-    - Solr 6 (recommended over SQL based Search engine, especially on cluster, as SQL does not provide the same feature set or performance as Solr)
-    - NFS or S3
+    - Cache:
+        - Redis 4.0+ (5.0 recommended, using `volatile-*` [eviction policy](https://redis.io/topics/lru-cache) is required with default [Redis adapter](../guide/persistence_cache.md#redis))
+        - Memcached 1.5 or higher (See [Memcached adapter](../guide/persistence_cache.md##memcached) for comparison with Redis)
+    - Session: either own Redis instance with persistence turned on, or Database.
+    - Search: Solr 7 (recommended over SQL-based Search engine, especially on cluster, as SQL does not provide the same feature set or performance as Solr)
+    - IO: NFS or S3
     - HttpCache, using one of:
-        - [Varnish](http://varnish-cache.org/) 5.1 or 6.0LTS *(recommended)* with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst)
-        - [Fastly](https://www.fastly.com/) using [our bundle provided with eZ Platform Enterprise](../guide/http_cache.md#serving-varnish-through-fastly)
+        - [Varnish](http://varnish-cache.org/) 6.0LTS with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst)
+        - [Fastly](https://www.fastly.com/) using [the bundle provided with eZ Platform Enterprise](../guide/http_cache.md#serving-varnish-through-fastly)
 
 -   PHP extensions/modules
     -   curl
@@ -75,11 +78,8 @@ For security and performance we generally recommend (unless otherwise noted and 
     -   xml
     -   xsl
     -   zip
-    -   [php-redis](https://pecl.php.net/package/redis) *(3.1.3+)* *or* [php-memcached](https://pecl.php.net/package/memcached) *(3.x+)*
+    -   [php-redis](https://pecl.php.net/package/redis) *or* [php-memcached](https://pecl.php.net/package/memcached)
 
-<a id="mysql-versions-note"></a>
-_\* Note: MySQL 5.7+ and MariaDB 10.2+ change how certain queries are parsed and are known to have issues with content attribute sorting queries in legacy because of that. Because of this we generally recommend MariaDB 10.1 and 10.0 in use with Legacy Bridge setups._
-_\** For MySQL 8.0; either pick legacy authentication, or familiarize yourself with [requirements](https://secure.php.net/manual/en/mysqli.requirements.php) to use the new caching ssh2 authentication._
 
 ### Development and Experimental setups
 
@@ -97,8 +97,6 @@ Examples of Experimental setups:
 -   IO: Azure, (S)FTP, GridFS, [etc.](https://flysystem.thephpleague.com/docs/adapter/local/)
 -   Databases: MSSQL, Oracle (databases technically supported by Doctrine DBAL which we use, but not supported by our installer at the moment, and not covered by automated testing)
 
-Examples of experimental / deprecated bundles:
-- Assetic 2.8 *(As of eZ Platform 2.5LTS, [Webpack Encore](https://symfony.com/doc/5.0/frontend.html) is used for assets. Assetic is no longer actively supported by eZ besides help with migrating code base)*
 
 **While all these options are not actively supported by eZ Systems**, they are community supported. Meaning you can use them with both open source edition and enterprise edition, however if you encounter issues best way to handle them is via contribution, and any such efforts made to improve support for these technologies can contribute to the technology being supported by eZ Systems in the near future.
 
@@ -130,18 +128,14 @@ Please note that the user interface might not look or behave exactly the same ac
 
     For example:
 
-    - Platform.sh provides Redis support for versions 2.8, 3.0 and 3.2. eZ Platform supports Redis version 3.2 or higher. As a result, Redis is supported by eZ Platform Cloud versions 3.2.
+    - Platform.sh provides Redis support for versions 3.2, 4.0 and 5.0. eZ Platform supports Redis version 4.0 or higher, and recommends 5.0. As a result, Redis is supported on eZ Platform Cloud in versions 4.0 and 5.0, but 5.0 is recommended.
     - Platform.sh provides Elastic Search service (different versions supported). Elastic Search is not supported for use as search engine for eZ Platform.
 
     Features or services supported by eZ Platform but not covered by Platform.sh may be possible by means of a [custom integration](#custom-integrations).
 
     ### eZ Platform Cloud Setup support matrix
 
-    |Setup|Description|eZ Platform Cloud support|
-    |-----|-----|-----|
-    |Recommended setup|**eZ Platform**</br>eZ Platform setup, with no use of legacy.|eZ Platform software plus cloud hosting infrastructure is supported by eZ for version 1.13 and higher</br></br>Recommended configuration provided out of the box and fully supported, on-boarding help available.|
-    |Supported setup|**Legacy Bridge setup**</br>eZ Publish 5.x-like setup where web traffic goes to eZ Platform/Symfony and Legacy Bundle provides legacy fallback features.</br>Notably it allows among other things enabling a "Legacy mode" where legacy bundle lets legacy take over handling of URL aliases.|Installation and cloud is supported by eZ for version 1.13 and 2.x</br></br>Review and potential adaptation of the application configuration to be performed by eZ Systems technical services prior to deployments. The cost and effort of this review and potential adaptation is not included in eZ Platform Cloud subscription and will vary depending on each project's specificities.</br></br>*NOTE: Advanced legacy features like ezfind, Async publishing, ezodf, S3, and similar go under 'Experimental setup', to avoid this migrate to similar eZ Platform features.*|
-    |Experimental setup|**eZ Publish, eZ Publish Platform and other pure legacy setups**</br>eZ Publish (version 4.x) or eZ Publish Platform (version 5.x) standalone setup or an experimental setup with eZ Platform and Legacy Bridge.|Not covered by eZ Platform Cloud subscription.</br></br>The use of Platform.sh service is possible as a standalone service and can be used to bridge migration needs. We recommend involving an eZ business partner that has experience with setting up legacy projects on Platform.sh|
+    All eZ Platform features are supported in accordance with the example above. For example: As Legacy Bridge is not supported with v3, it is not supported on eZ Platform Cloud either.
 
     !!! note
 
@@ -156,40 +150,15 @@ Please note that the user interface might not look or behave exactly the same ac
 
     ### Supported eZ Platform Cloud setup
 
-    Because of the large range of possible configurations of eZ Publish legacy, there is no ready-made recommended setup.
+    Because of the large range of possible configurations of eZ Platform, there are many possiblities beyond what is provided in the default recommended configuration.
+
     Make sure to set aside time and budget for:
 
-    - Verifying your legacy configuration and ensuring it is supported by Platform.sh
-    - Additional time for adaptation and configuration work, and testing by your own team
-    - Additional consulting/onboarding time with Platform.sh, eZ Systems technical services, and/or one of the many partners with prior experience using Platform.sh with eZ Publish legacy
+    - Verifying your requirements and ensuring they are supported by Platform.sh
+    - Additional time for adaptation and configuration work, and testing by your development team
+    - Additional consulting/onboarding time with Platform.sh, eZ Systems technical services, and/or one of the many partners with prior experience using Platform.sh with eZ Platform
 
     The cost and effort of this is not included in eZ Platform Cloud subscription and will vary depending on the project.
-
-    ### Experimental/custom Platform.sh setups
-
-    Any use of experimental versions or setups is not eligible for use with eZ Platform Cloud.
-    However, it is possible to use an eZ Enterprise subscription in combination with a Platform.sh contract,
-    where you or a partner take ownership of the configuration to set up the project.
-
-    Such projects are possible by means of custom integrations/configuration,
-    but they may generate issues that won't be covered by eZ Enterprise subscription bug fix guarantee.
-
-    !!! tip "Use a partner with prior experience on legacy and Platform.sh"
-
-        If you are in need of setting up your legacy project on Platform.sh for a transitional period,
-        eZ can put you in contact with a partner experienced in setting up older projects on Platform.sh.
-        This will save you a lot of time and effort.
-
-    !!! tip "How to move to a supported setup with relatively low effort"
-
-        If you would like to use a supported setup but need to run legacy code,
-        consider upgrading to eZ Platform with Legacy Bridge, using PHP 7 to avoid legacy admin getting slower.
-
-        Until you are ready for full migration you can continue to use legacy admin
-        and operate your front end(s) in legacy mode or partial legacy mode (Symfony pagelayout with fallbacks to legacy)
-        This makes your project ready to perform a gradual migration to eZ Platform.
-
-        eZ Systems offers enablement and technical services to help you perform such an upgrade, and helps you plan for the follow-up migration.
 
     ### Custom integrations
 
