@@ -65,7 +65,7 @@
     
     ### Add templates configuration
     
-    Add thumbnails and names for your templates in `config/packages/ez_platform_site_factory.yaml`
+    Add thumbnails and names for your templates in `config/packages/ezplatform_site_factory.yaml`
     It will connect SiteAccesses with the templates.
     
     ```yaml
