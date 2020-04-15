@@ -159,16 +159,17 @@ you can specify its name in the `parameters.yml` file:
 ``` yaml
 ezrecommendation:
     system:
-        field:
-            identifiers:
-                intro:
-                    blog_post: intro
-                    article: lead
-                author:
-                    blog_post: author
-                    article: authors
-                image:
-                    <content_type_name>: <field_name>
+        <siteaccess>
+            field:
+                identifiers:
+                    intro:
+                        blog_post: intro
+                        article: lead
+                    author:
+                        blog_post: author
+                        article: authors
+                    image:
+                        <content_type_name>: <field_name>
 ```
 
 In case a content owner ID is missing, you can set up the default content author in the `default_settings.yaml` file:
@@ -185,17 +186,18 @@ You can edit advanced options for the Recommendation engine using the following 
 ``` yaml
 ezrecommendation:
     system:
-        api:
-            admin:
-                endpoint: 'https://admin.yoochoose.net'
-            recommendation:
-                endpoint: 'https://reco.yoochoose.net'
-                consume_timeout: 20
-            event_tracking:
-                endpoint: 'https://event.yoochoose.net'
-                script_url: 'cdn.yoochoose.net/yct.js'
-            notifier:
-                endpoint: 'https://admin.yoochoose.net'
+        <siteaccess>:
+            api:
+                admin:
+                    endpoint: 'https://admin.yoochoose.net'
+                recommendation:
+                    endpoint: 'https://reco.yoochoose.net'
+                    consume_timeout: 20
+                event_tracking:
+                    endpoint: 'https://event.yoochoose.net'
+                    script_url: 'cdn.yoochoose.net/yct.js'
+                notifier:
+                    endpoint: 'https://admin.yoochoose.net'
 ```
 
 !!! caution
@@ -452,14 +454,14 @@ This file is responsible for sending notifications to recommendation API after t
 To render recommended content, use a dedicated `showRecommendationsAction` from the `RecommendationController.php`:
 
 ``` html+twig
-render_esi(controller(‘EzRecommendationClientBundle:Recommendation:showRecommendations’, {
-               ‘contextItems’: content.id,
-               ‘scenario’: ‘front’,
-               ‘outputTypeId’: ‘blog_post’,
-               ‘limit’: 3,
-               ‘template’: ‘EzRecommendationClientBundle::recommendations.html.twig’,
-               ‘attributes’: [‘title’, ‘intro’, ‘image’, ‘uri’]
-           }))
+render_esi(controller('ez_recommendation::showRecommendationsAction', {
+        'contextItems': content.id,
+        'scenario': 'front',
+        'outputTypeId': 'blog_post',
+        'limit': 3,
+        'template': 'EzRecommendationClientBundle::recommendations.html.twig',
+        'attributes': ['title', 'intro', 'image', 'uri']
+      }))
 ```
 
 !!! tip
@@ -591,6 +593,22 @@ if the content Fields were previously exported by the export script.
         ]
     }
     ```
+
+### Modifying recommendation data
+
+You can retrieve data returned from the recommendation engine and modify if before displaying.
+To do it, subscribe to the `onRecommendationResponse` event from `Event/Subscriber/RecommendationEventSubscriber.php`:
+
+``` php
+public static function getSubscribedEvents(): array
+{
+    return [
+        RecommendationResponseEvent::class => ['onRecommendationResponse', -10],
+    ];
+}
+```
+
+The `-10` refers to priority, which must be negative so this action is performed before the main subscriber is run.
 
 ### Image variations
 
