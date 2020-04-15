@@ -187,7 +187,7 @@
         dbal:
             connections:
                 ...
-                # This connection is dedicated for SiteFactory to avoid known issues, should be the same as default
+                # This connection is dedicated for SiteFactory to avoid known issues
                 site_factory:
     ```
     
