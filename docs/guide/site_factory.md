@@ -20,7 +20,7 @@
     
     ## Enable Site Factory
     
-    To enable Site Factory you need to set `enabled` to `true` in `vendor/ezsystems/ezplatform-site-factory/src/bundle/Resources/config/settings.yaml`.
+    To enable Site Factory you need to set `enabled` to `true` in `config/packages/ezplatform_site_factory.yaml`.
     
     ### Configure designs
     
