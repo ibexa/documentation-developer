@@ -599,7 +599,7 @@ if the content Fields were previously exported by the export script.
 You can retrieve data returned from the recommendation engine and modify it before displaying.
 
 To do it, subscribe to `RecommendationResponseEvent`.
-See [`Event/Subscriber/RecommendationEventSubscriber.php`](https://github.com/ezsystems/ezrecommendation-client/blob/master/src/lib/Event/Subscriber/RecommendationEventSubscriber.php) for an example:
+See [`Event/Subscriber/RecommendationEventSubscriber.php`](https://github.com/ezsystems/ezrecommendation-client/blob/master/src/lib/Event/Subscriber/RecommendationEventSubscriber.php) for example:
 
 ``` php
 public static function getSubscribedEvents(): array
