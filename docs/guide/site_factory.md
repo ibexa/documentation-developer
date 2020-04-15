@@ -93,7 +93,7 @@
     ```
     
     You can check the results of your work in the Back Office by going to the **Site** tab.
-    There, you should be able to add a new site and choose a design for it.
+    There, you should be able to add a new site and choose a design for it.   
     
     ### Define domains 
     
@@ -151,6 +151,25 @@
     ```
     
     ![Site Factory enabled](img/site_factory_site_list.png "Site Factory enabled")
+    
+    ### Define site directory
+        
+     You can adjust the place where the directory of the new site will be created.
+     By default the Location for the site driectories is defined in ` src/bundle/Resources/config/default_settings.yaml`:
+     
+     ``` yaml
+     parameters:
+         ezsettings.default.site_factory.sites_location_id: 2
+     ```
+    
+    To change it to e.g. eZ Platform, go to `config/packages/ezplatform_site_factory.yaml`, and add the following parameter:
+    
+    ``` yaml
+    parameters:
+        ezsettings.default.site_factory.sites_location_id: 42
+    ```
+    
+    Now, all new directories will be created under eZ Platform.
     
     ### Provide access
     
