@@ -9,6 +9,7 @@
     - multisite configuration
     
     After [clean installation](../getting_started/install_ez_enterprise.md) the Site Factory will be disabled.
+    If you are not working on a clean installation, follow [Upgrading eZ Platform to v3](../updating/upgrading_to_v3.md#site-factory).
     This results in the following message on the **Site** tab:
     "There is a design configuration error, and you will not be able to create a new site. Please update the configuration."
     If you plan to use Site Factory you need to enable and configure it.
@@ -43,29 +44,39 @@
             example_site_factory_group_2:
     ```
     
-    Uncomment the `'@EzSystems\EzPlatformSiteFactory\SiteAccessMatcher': ~` SiteAccess matcher in `ezplatform.siteaccess.match`.
-     
-    Add `ezdesign` configuration and configure designs for empty SiteAccess groups:
+    Uncomment the SiteAccess matcher by removing the comment from `EzSystems\EzPlatformSiteFactory\SiteAccessMatcher` matcher under:
     
     ```yaml
+    ezplatform:
+        siteaccess:
+            match:
+                # '@EzSystems\EzPlatformSiteFactory\SiteAccessMatcher': ~
+    ```
+     
+    `ezdesign` defines templates for your sites, so add them before continuing.
+    Next, add the configuration for `ezdesign` on the same level as `ezplatform`:
+    
+    ```yaml
+    ezdesign:
+        design_list:
+            example_1: [example_1_template]
+            example_2: [example_2_template]
+    ```
+
+    Finally, configure designs for empty SiteAccess groups:
+    
+    ```
     ezplatform:
         system:
             example_site_factory_group_1:
                 design: example_1
             example_site_factory_group_2:
                 design: example_2
-    
-    ezdesign:
-        design_list:
-            example_1: [example_1_template]
-            example_2: [example_2_template]
     ```
-    
-    `ezdesign` defines templates for your sites, so remember to add them before continuing.
     
     ### Add templates configuration
     
-    Add thumbnails and names for your templates in `config/packages/ez_platform_site_factory.yaml`
+    Add thumbnails and names for your templates in `config/packages/ezplatform_site_factory.yaml`
     It will connect SiteAccesses with the templates.
     
     ```yaml
@@ -123,7 +134,7 @@
     0.0.0.0 site.example.com admin.example.com test.example.com www.admin.example.com
     ```
     
-    Then run `docker-compose up`: 
+    Then, run `docker-compose up`: 
     
     ```bash
     export COMPOSE_FILE="doc/docker/base-dev.yml:doc/docker/multihost.yml"
@@ -139,7 +150,40 @@
     http://test.example.com:8080/
     ```
     
-    ![Site Factory site list](img/site_factory_site_list.png)
+    ![Site Factory enabled](img/site_factory_site_list.png "Site Factory enabled")
+    
+    ### Define site directory
+        
+     You can adjust the place where the directory of the new site will be created.
+     By default the Location for the site directories is defined in bundle configuration `src/bundle/Resources/config/default_settings.yaml`:
+     
+     ``` yaml
+     parameters:
+         ezsettings.default.site_factory.sites_location_id: 2
+     ```
+    
+    To change it to e.g. eZ Platform, go to `config/packages/ezplatform_site_factory.yaml`, and add the following parameter:
+    
+    ``` yaml
+    parameters:
+        ezsettings.default.site_factory.sites_location_id: 42
+    ```
+    
+    Now, all new directories will be created under eZ Platform.
+    
+    ### Provide access
+    
+    The Site Factory is set up, now you can provide sufficient permissions to the Users.
+    
+    Set the below Policies to allow Users to:
+    
+    - `site/view` - enter the Site Factory interface
+    - `site/create` - create sites
+    - `site/edit` - edit sites
+    - `site/change_status` - change status of the public accesses to `Live` or `Offline`
+    - `site/delete` - delete sites
+
+    For full documentation on how Permissions work and how to set them up, see [the Permissions section](permissions.md).
     
     ## Disable Site Factory
     
@@ -151,11 +195,32 @@
     You can disable Site Factory to boost Config Resolver performance.
     Keep in mind that with disabled Site Factory you will not be able to add new sites or use existing ones.
     
-    1. In `vendor/ezsystems/ezplatform-site-factory/src/bundle/Resources/config/settings.yaml` change enabled to `false`
-    1. In `config/packages/ezplatform.yaml` comment the `ezplatform.siteaccess.match: '@EzSystems\EzPlatformSiteFactory\SiteAccessMatcher': ~` if it is uncommented.
-    1. Remove separate connection to database in `config/packages/doctrine.yaml`.
-    1. Remove separate cache pool in `config/packages/cache.yaml`.
+    1\. In `config/packages/ezplatform_site_factory.yaml` change enabled to `false`.
+
+    2\. In `config/packages/ezplatform.yaml` comment the `ezplatform.siteaccess.match: '@EzSystems\EzPlatformSiteFactory\SiteAccessMatcher': ~` if it is uncommented.
+
+    3\. Remove separate connection to database in `config/packages/doctrine.yaml`.
+    
+    ``` yaml
+    doctrine:
+        dbal:
+            connections:
+                ...
+                # This connection is dedicated for SiteFactory to avoid known issues
+                site_factory:
+    ```
+    
+    4\. Remove separate cache pool in `config/packages/cache.yaml`.
+    
+    ``` yaml
+    framework:
+        cache:
+            ...
+            pools:
+                # This pool should be used only by SiteFactory bundle
+                site_factory_pool:
+    ```
     
     The Site Factory should be disabled.
     
-    ![Site Factory disabled](img/site_factory_disabled.png)
+    ![Site Factory disabled](img/site_factory_disabled.png "Site Factory disabled")
