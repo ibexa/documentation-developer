@@ -230,34 +230,6 @@
     }
     ```
 
-    ## REST event visitor
-
-    Additionally, you need to add a REST event visitor in `src/Calendar/Holidays/RestEventVisitor.php`:
-
-    ``` php
-    <?php
-
-    namespace App\Calendar\Holidays;
-
-    use EzSystems\EzPlatformCalendarBundle\REST\ValueObjectVisitor\AbstractEventVisitor;
-
-    final class RestEventVisitor extends AbstractEventVisitor
-    {
-    }
-    ```
-
-    Register it as a service in `config/services.yaml`:
-
-    ``` yaml
-    App\Calendar\Holidays\RestEventVisitor:
-        autowire: false
-        autoconfigure: false
-        public: false
-        parent: ezpublish_rest.output.value_object_visitor.base
-        tags:
-            - { name: ezpublish_rest.output.value_object_visitor, type: App\Calendar\Holidays\Event }
-    ```
-
     ## Customizing colors and icons
 
     You can change the foreground and background color of a custom event or change the icon of an event or action.
