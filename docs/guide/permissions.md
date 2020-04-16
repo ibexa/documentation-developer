@@ -225,11 +225,11 @@ Users are treated like other content, so to create and modify them the User need
 |               | `install`            | unused                                                                                                                                  |
 |               | `setup`              | unused                                                                                                                                  |
 |               | `system_info`        | view the System Information tab in Admin                                                                                      |
-|`site`|`view`|view the Site Factory|
+|`site`|`view`|view the "Sites" in the top navigation|
 |               |`create`|create sites in the Site Factory|
 |               |`edit`|edit sites in the Site Factory|
 |               |`delete`|delete sites from the Site Factory|
-|               |`change_status`|change status of the Public Accesses of sites to `Live` or `Offline` in the Site Factory|
+|               |`change_status`|change status of the public accesses of sites to `Live` or `Offline` in the Site Factory|
 | `user`        | `login`              | log in to the application                                                                                                               |
 |               | `password`           | unused                                                                                                                                  |
 |               | `preferences`        | access and set user preferences                                                                                                                                  |

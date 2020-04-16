@@ -93,7 +93,7 @@
     ```
     
     You can check the results of your work in the Back Office by going to the **Site** tab.
-    There, you should be able to add a new site and choose a design for it.   
+    There, you should be able to add a new site and choose a design for it.
     
     ### Define domains 
     
@@ -180,7 +180,7 @@
     - `site/view` - enter the Site Factory interface
     - `site/create` - create sites
     - `site/edit` - edit sites
-    - `site/change_status` - change status of the sites to `Live` or `Offline`
+    - `site/change_status` - change status of the public accesses to `Live` or `Offline`
     - `site/delete` - delete sites
 
     For full documentation on how Permissions work and how to set them up, see [the Permissions section](permissions.md).
