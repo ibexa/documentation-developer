@@ -155,7 +155,7 @@
     ### Define site directory
         
      You can adjust the place where the directory of the new site will be created.
-     By default the Location for the site driectories is defined in ` src/bundle/Resources/config/default_settings.yaml`:
+     By default the Location for the site driectories is defined in bundle configuration `src/bundle/Resources/config/default_settings.yaml`:
      
      ``` yaml
      parameters:

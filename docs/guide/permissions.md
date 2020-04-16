@@ -229,7 +229,7 @@ Users are treated like other content, so to create and modify them the User need
 |               |`create`|create sites in the Site Factory|
 |               |`edit`|edit sites in the Site Factory|
 |               |`delete`|delete sites from the Site Factory|
-|               |`change_status`|change status of the sites to `Live` or `Offline` in the Site Factory|
+|               |`change_status`|change status of the Public Accesses of sites to `Live` or `Offline` in the Site Factory|
 | `user`        | `login`              | log in to the application                                                                                                               |
 |               | `password`           | unused                                                                                                                                  |
 |               | `preferences`        | access and set user preferences                                                                                                                                  |
