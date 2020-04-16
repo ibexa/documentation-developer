@@ -9,7 +9,7 @@
     - multisite configuration
     
     After [clean installation](../getting_started/install_ez_enterprise.md) the Site Factory will be disabled.
-    If you do not work on clean installation, follow [Upgrading eZ Platform to v3](../updating/upgrading_to_v3.md#site-factory).
+    If you are not working on a clean installation, follow [Upgrading eZ Platform to v3](../updating/upgrading_to_v3.md#site-factory).
     This results in the following message on the **Site** tab:
     "There is a design configuration error, and you will not be able to create a new site. Please update the configuration."
     If you plan to use Site Factory you need to enable and configure it.
@@ -155,7 +155,7 @@
     ### Define site directory
         
      You can adjust the place where the directory of the new site will be created.
-     By default the Location for the site driectories is defined in bundle configuration `src/bundle/Resources/config/default_settings.yaml`:
+     By default the Location for the site directories is defined in bundle configuration `src/bundle/Resources/config/default_settings.yaml`:
      
      ``` yaml
      parameters:
