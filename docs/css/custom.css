@@ -50,6 +50,11 @@ body {
     font-weight: 600;
 }
 
+.md-nav--primary > .md-nav__list > .md-nav__item:first-of-type {
+    font-weight: 700;
+    color: #f15a22;
+}
+
 .md-header-nav__button {
     padding: .5rem;
 }
