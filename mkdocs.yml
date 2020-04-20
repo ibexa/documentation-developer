@@ -328,6 +328,14 @@ theme:
 
 # theme_dir: material
 
+plugins:
+    - search
+    - macros:
+        j2_block_start_string: '[[%'
+        j2_block_end_string: '%]]'
+        j2_variable_start_string: '[[='
+        j2_variable_end_string: '=]]'
+
 extra:
   version_warning:
     latest: ['3.0']
