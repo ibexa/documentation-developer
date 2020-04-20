@@ -95,13 +95,18 @@ body {
 
 .md-typeset .codehilite code, .md-typeset .codehilite pre {
     background-color: #fff;
+    padding: 0;
+}
+
+.md-typeset .codehilite code, .md-typeset .codehilite pre code {
+    padding: 1.05rem 1.2rem;
 }
 
 .md-typeset .codehilitetable {
     border: 1px solid #999;
 }
 
-.md-typeset .codehilite pre::-webkit-scrollbar {
+.md-typeset .codehilite pre code::-webkit-scrollbar {
     height: 10px;
 }
 
