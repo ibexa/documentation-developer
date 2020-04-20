@@ -412,10 +412,6 @@ a.external:after {
     display: none;
 }
 
-table tr td:first-child:not(.linenos) {
-    width: 150px;
-}
-
 @media (max-width: 575px) {
     table tr td:first-child:not(.linenos) {
         min-width: 0 !important;
