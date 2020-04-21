@@ -77,6 +77,10 @@ body {
     color: #2a9dc7;
 }
 
+[data-md-color-primary=blue-grey] .md-typeset th a {
+    color: #fff;
+}
+
 [data-md-color-accent=deep-orange] .md-nav__link:focus,
 [data-md-color-accent=deep-orange] .md-nav__link:hover,
 [data-md-color-accent=deep-orange] .md-typeset .footnote li:hover .footnote-backref:hover,
