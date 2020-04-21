@@ -241,6 +241,8 @@ This section provides a list of deprecated features to be removed in eZ Platform
 
 - The `\EzSystems\PlatformInstallerBundle\Installer\CleanInstaller` class and its Service Container definition (`ezplatform.installer.clean_installer`) have been deprecated in favor of `EzSystems\PlatformInstallerBundle\Installer\CoreInstaller` which requires the [Doctrine Schema Bundle](https://github.com/ezsystems/doctrine-dbal-schema) to be enabled.
 - The `ezplatform.installer.db_based_installer` Service Container definition has been deprecated in favor of its FQCN-named equivalent (`EzSystems\PlatformInstallerBundle\Installer\DbBasedInstaller`).
+- `vendor/ezsystems/ezpublish-kernel/data/mysql/schema.sql` has been deprecated and is not used by the installation process anymore.
+
 
 ## eZ Platform v2.5.6
 
