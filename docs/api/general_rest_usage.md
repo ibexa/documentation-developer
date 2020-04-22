@@ -47,7 +47,7 @@ The API responded here with a standard `200 OK` HTTP response code, which is the
 Some GET requests, like [getting a Content item's current version,](https://ezsystems.github.io/ezplatform-rest-reference/#managing-content-get-current-version) may return a `301 Moved permanently` or `307 Temporary redirect` code.
 
 Errors are indicated with HTTP error codes, e.g. `404 Not Found` or `500 Internal Server Error`.
-The [REST specifications](https://doc.ezplatform.com/rest-api-reference) provide the list of every HTTP response code you can expect from implemented resources.
+The [REST reference](https://doc.ezplatform.com/rest-api-reference) provide the list of every HTTP response code you can expect from implemented resources.
 
 ###### Content-Type header
 
