@@ -50,6 +50,11 @@ body {
     font-weight: 600;
 }
 
+.md-nav--primary > .md-nav__list > .md-nav__item:first-of-type {
+    font-weight: 700;
+    color: #f15a22;
+}
+
 .md-header-nav__button {
     padding: .5rem;
 }
@@ -70,6 +75,10 @@ body {
 
 [data-md-color-primary=blue-grey] .md-typeset a {
     color: #2a9dc7;
+}
+
+[data-md-color-primary=blue-grey] .md-typeset th a {
+    color: #fff;
 }
 
 [data-md-color-accent=deep-orange] .md-nav__link:focus,
@@ -410,10 +419,6 @@ a.external:after {
 
 .injected {
     display: none;
-}
-
-table tr td:first-child:not(.linenos) {
-    width: 150px;
 }
 
 @media (max-width: 575px) {
