@@ -2,9 +2,10 @@
 
 The REST API v2 introduced in eZ Platform allows you to interact with an eZ Platform installation using the HTTP protocol, following a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) interaction model.
 
-!!! info "API"
+## REST API reference
 
-    An Application Programming Interface (API) allows you to connect your code to eZ Platform. You can learn the basic idea behind it from [the eZ Blog article](http://ez.no/Blog/How-would-you-explain-what-an-API-is-to-your-mom).
+See [REST API reference](https://doc.ezplatform.com/rest-api-reference) for detailed information about
+REST API resources and endpoints.
 
 !!! tip
 
@@ -58,7 +59,7 @@ Responses returned by the API will also use custom headers to indicate informati
 
 ### Installation
 
-No special preparations are necessary to use the REST API. As long as your eZ Platform is correctly configured, the REST API is available on your site using the URI `/api/ezp/v2/`. If you have installed eZ Platform in a subfolder, prepend the path with this subfolder: http://example.com/**sub/folder/ezpublish**/api/ezp/v2/.
+No special preparations are necessary to use the REST API. As long as your eZ Platform is correctly configured, the REST API is available on your site using the URI `/api/ezp/v2/`. If you have installed eZ Platform in a subfolder, prepend the path with this subfolder: `http://example.com/sub/folder/ezpublish/api/ezp/v2/`.
 
 !!! note
 
@@ -87,7 +88,7 @@ security:
 
 ### Testing the API
 
-A standard web browser is not sufficient to fully test the API. You can, however, try opening the root resource with it, using the session authentication: http://example.com/api/ezp/v2/. Depending on how your browser understands XML, it will either download the XML file, or open it in the browser.
+A standard web browser is not sufficient to fully test the API. You can, however, try opening the root resource with it, using the session authentication: `http://example.com/api/ezp/v2/`. Depending on how your browser understands XML, it will either download the XML file, or open it in the browser.
 
 To test further, you can use browser extensions, like [Advanced REST client for Chrome](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo) or [RESTClient for Firefox](https://addons.mozilla.org/firefox/addon/restclient/), or dedicated tools. For command line users, [HTTPie](https://github.com/jkbr/httpie) is a good tool.
 
