@@ -198,7 +198,7 @@ By default the Symfony reverse proxy, written in PHP, is used to handle cache, b
 
 For Varnish to work properly with eZ, you'll need to use one of the provided files as a basis:
 
-- [Varnish 4 VCL xkey example](https://github.com/ezsystems/ezplatform/blob/master/doc/varnish/vcl/varnish4_xkey.vcl)
+- [Varnish VCL example](https://github.com/ezsystems/ezplatform-http-cache/blob/2.0/docs/varnish/vcl/varnish5.vcl)
 
 !!! note
 
@@ -352,7 +352,7 @@ ezplatform:
 !!! note "Invalidating Varnish cache using tokens"
 
     In setups where the Varnish server IP can change (for example on platform.sh/eZ Platform Cloud),
-    you can use token-based cache invalidation via [ez_purge_acl](https://github.com/ezsystems/ezplatform-http-cache/blob/master/docs/varnish/vcl/varnish4.vcl#L166).
+    you can use token-based cache invalidation via [ez_purge_acl](https://github.com/ezsystems/ezplatform-http-cache/blob/2.0/docs/varnish/vcl/varnish5.vcl#L174).
 
     In such a case use a strong, secure hash and make sure to keep the token secret.
 
