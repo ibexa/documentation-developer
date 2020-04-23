@@ -352,7 +352,7 @@ ezplatform:
 !!! note "Invalidating Varnish cache using tokens"
 
     In setups where the Varnish server IP can change (for example on platform.sh/eZ Platform Cloud),
-    you can use token-based cache invalidation via [ez_purge_acl](https://github.com/ezsystems/ezplatform-http-cache/blob/master/docs/varnish/vcl/varnish5.vcl#L174).
+    you can use token-based cache invalidation via [ez_purge_acl](https://github.com/ezsystems/ezplatform-http-cache/blob/2.0/docs/varnish/vcl/varnish5.vcl#L174).
 
     In such a case use a strong, secure hash and make sure to keep the token secret.
 
