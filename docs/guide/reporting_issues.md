@@ -1,7 +1,7 @@
 # Reporting security issues in eZ Systems products
 
 The security of our software is a primary concern and we take it seriously. 
-For more information on security in our products, see [eZ Systems Security Policy](https://ez.no/Software-information/Security-policy).
+For more information on security in our products, see [eZ Systems Security Policy](https://www.ibexa.co/about-ibexa/security).
 
 No engineering team is perfect though, and if you do discover a security issue in one of our products we are very grateful for your help in reporting it to us privately, and refraining from public disclosure until we have found the solution and distributed it. Thank you!
 
@@ -9,7 +9,7 @@ No engineering team is perfect though, and if you do discover a security issue i
 
 - If you're a customer or partner, please log in to your Service Portal at <https://support.ez.no/> and, in the "eZ Support Services" section, follow the link to the "Open new ticket", and report the issue as you would report a normal support request. eZ Systems Product Support will respond, take care of the report, and keep you informed of the developments.
 - If you're not a customer or partner, please log in to the eZ Systems JIRA issue tracker: <https://jira.ez.no/> Create an account if you don't have one, it's free. Click the "Create" button in the top menu to create your report. For "Project", select either "eZ Publish / Platform" or "eZ Platform Enterprise Edition", depending on which product is affected by the bug. **Important: Use "Security Level": "Security"!** The engineering team will take care of your report.
-- It is also possible to report security issues by email to <security@ez.no> - this requires no account.
+- It is also possible to report security issues by email to <security@ibexa.co> - this requires no account.
 
 ## Verbosity
 
