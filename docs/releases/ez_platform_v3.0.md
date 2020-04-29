@@ -331,6 +331,8 @@ For the upgrade details, see [eZ Platform v3.0 project update instructions](../u
 
 ## eZ Platform v3.0.2
 
+### Sort Trash items
+
 Public PHP API `SortClause` has been exposed for `TrashService` queries:
 `eZ\Publish\API\Repository\Values\Content\Query\SortClause\Trash\DateTrashed`
 (to be used by `\eZ\Publish\API\Repository\TrashService::findTrashItems` only).
