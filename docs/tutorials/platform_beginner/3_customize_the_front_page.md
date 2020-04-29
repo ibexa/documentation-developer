@@ -179,7 +179,7 @@ Before proceeding, ensure that the structure of the added files looks like this:
 
 In eZ Platform, you can add assets by using [Symfony Webpack Encore](https://symfony.com/doc/5.0/frontend.html#webpack-encore) 
 — an integration of Webpack that enables you to build bundles of CSS stylesheets and JS scripts and add them to the project.
-For more details, see [importing assets from a bundle](../../guide/bundles.md#importing-assets-from-a-bundle).
+For more details, see [importing assets from a bundle](../../guide/organization.md#importing-assets-from-a-bundle).
 
 To create bundles, first, indicate which files to include in them.
 

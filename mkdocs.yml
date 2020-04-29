@@ -75,15 +75,17 @@ nav:
             - 'GraphQL operations': 'api/graphql_operations.md'
             - 'GraphQL customization': 'api/graphql_customization.md'
     - Guide:
-        - 'Architecture': 'guide/architecture.md'
-        - 'Bundles': 'guide/bundles.md'
+        - Project organization:
+            - 'Project organization': 'guide/organization.md'
+            - 'Architecture': 'guide/architecture.md'
+            - 'Bundles': 'guide/bundles.md'
+            - 'Content model': 'guide/content_model.md'
         - Configuration:
             - 'Configuration': 'guide/configuration.md'
             - 'Dynamic config': 'guide/config_dynamic.md'
             - 'Back Office config': 'guide/config_back_office.md'
             - 'Repository config': 'guide/config_repository.md'
         - 'Admin management': 'guide/admin_panel.md'
-        - 'Content model': 'guide/content_model.md'
         - Content rendering:
             - 'Content rendering': 'guide/content_rendering.md'
             - 'Controllers': 'guide/controllers.md'
