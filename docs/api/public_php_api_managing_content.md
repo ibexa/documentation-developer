@@ -130,6 +130,8 @@ $newParent = $this->locationService->loadLocation($location);
 $this->trashService->recover($trashItem, $newParent);
 ```
 
+To sort Trash items by date, use [`TrashService::findTrashItems`.](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.2/eZ/Publish/API/Repository/Values/Content/Query/SortClause/Trash/DateTrashed.php)
+
 ## Content Types
 
 ### Creating Content Types
