@@ -956,8 +956,7 @@ The following methods have been moved to EzPlatformUser Bundle:
 
 |Former method|Current method|
 |------------|-------------|
-|`EzSystems\EzPlatformAdminUi\Form\Factory\FormFactory::forgotUserPassword`|`EzSystems\EzPlatformUser\Form\Factory\FormFactory::forgotUserPassword`|
-|`EzSystems\EzPlatformAdminUi\Form\Factory\FormFactory::forgotUserPassword`|`EzSystems\EzPlatformUser\Form\Factory\FormFactory::forgotUserPassword`|
+|`EzSystems\EzPlatformAdminUi\Form\Factory\FormFactory::changeUserPassword`|`EzSystems\EzPlatformUser\Form\Factory\FormFactory::changeUserPassword`|
 |`EzSystems\EzPlatformAdminUi\Form\Factory\FormFactory::forgotUserPassword`|`EzSystems\EzPlatformUser\Form\Factory\FormFactory::forgotUserPassword`|
 |`EzSystems\EzPlatformAdminUi\Form\Factory\FormFactory::resetUserPassword`|`EzSystems\EzPlatformUser\Form\Factory\FormFactory::resetUserPassword`|
 |`EzSystems\EzPlatformAdminUi\Form\Factory\FormFactory::updateUserSetting`|`EzSystems\EzPlatformUser\Form\Factory\FormFactory::updateUserSetting`|
