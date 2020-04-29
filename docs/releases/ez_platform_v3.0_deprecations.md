@@ -935,7 +935,7 @@ To use this repository, you have to add the package manually to your `composer.j
 
 ### ezplatform-admin-ui v3.0.2
 
-The following classes have been moved to EzPlatformContentForms Bundle:
+The following classes have been moved to `EzPlatformContentFormsBundle`:
 
 |Former location|Current location|
 |------------|-------------|
@@ -952,7 +952,7 @@ The following classes have been moved to EzPlatformContentForms Bundle:
 |`EzSystems\EzPlatformAdminUi\Validator\Constraints\UserPasswordValidator`|`EzSystems\EzPlatformUser\Validator\Constraints\UserPasswordValidator\ValidationErrorsProcessor`|
 
 
-The following methods have been moved to EzPlatformUser Bundle:
+The following methods have been moved to `EzPlatformUserBundle`:
 
 |Former method|Current method|
 |------------|-------------|
@@ -962,7 +962,7 @@ The following methods have been moved to EzPlatformUser Bundle:
 |`EzSystems\EzPlatformAdminUi\Form\Factory\FormFactory::updateUserSetting`|`EzSystems\EzPlatformUser\Form\Factory\FormFactory::updateUserSetting`|
 
 
-The following classes have been moved to EzPlatformContentForms Bundle.
+The following classes have been moved to `EzPlatformContentFormsBundle`.
 
 |Former location|Current location|
 |------------|-------------|
