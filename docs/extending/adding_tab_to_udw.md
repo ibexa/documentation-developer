@@ -96,7 +96,7 @@ In `webpack.config.js`, add configuration for the new module:
 ```js
 eZConfigManager.add({
     eZConfig,
-    entryName: 'ezplatform-admin-ui-modules-udw-tabs-js',
+    entryName: 'ezplatform-admin-ui-udw-tabs-js',
     newItems: [path.resolve(__dirname, './assets/js/image-tab/image.tab.module.js')],
 });
 ```
@@ -455,7 +455,7 @@ Finally, add css in `webpack.config.js`:
 eZConfigManager.add({
     eZConfig,
     entryName: 'ezplatform-admin-ui-layout-css',
-    newItems: [path.resolve(__dirname, '../public/css/image.css'), path.resolve(__dirname, '../public/css/images.list.css')],
+    newItems: [path.resolve(__dirname, './assets/css/image.css'), path.resolve(__dirname, './assets/css/images.list.css')],
 });
 ```
 
@@ -480,7 +480,7 @@ eZConfigManager.add({
     
     eZConfigManager.add({
         eZConfig,
-        entryName: 'ezplatform-admin-ui-modules-udw-tabs-js',
+        entryName: 'ezplatform-admin-ui-udw-tabs-js',
         newItems: [path.resolve(__dirname, './assets/js/image-tab/image.tab.module.js')],
     });
     
