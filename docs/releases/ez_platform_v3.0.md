@@ -328,3 +328,10 @@ For the upgrade details, see [eZ Platform v3.0 project update instructions](../u
 |--------------|------------|
 | [List of changes for final of eZ Platform v3.0.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v3.0.0) | [List of changes for final for eZ Platform Enterprise Edition v3.0.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v3.0.0) |
 | [List of changes for rc1 of eZ Platform v3.0.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v3.0.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v3.0.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v3.0.0-rc1) |
+
+## eZ Platform v3.0.2
+
+Public PHP API `SortClause` has been exposed for `TrashService` queries:
+`eZ\Publish\API\Repository\Values\Content\Query\SortClause\Trash\DateTrashed`
+(to be used by `\eZ\Publish\API\Repository\TrashService::findTrashItems` only).
+It allows you to sort Trash items by date.
