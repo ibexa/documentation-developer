@@ -76,7 +76,7 @@ nav:
             - 'GraphQL customization': 'api/graphql_customization.md'
     - Guide:
         - Project organization:
-            - 'Project organization': 'guide/organization.md'
+            - 'Project organization': 'guide/project_organization.md'
             - 'Architecture': 'guide/architecture.md'
             - 'Bundles': 'guide/bundles.md'
             - 'Content model': 'guide/content_model.md'
