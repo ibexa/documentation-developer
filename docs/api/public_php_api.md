@@ -113,6 +113,10 @@ $user = $userService->loadUserByLogin('admin');
 $permissionResolver->setCurrentUserReference($user);
 ```
 
+!!! tip
+
+    `eZ\Publish\API\Repository\PermissionService` can be injected to have a Service which provides both `PermissionResolver` and `PermissionCriterionResolver`. It supports auto-wiring.    
+
 This is not required in template functions or controller code,
 as the HTTP layer takes care of identifying the user, and automatically sets it in the repository.
 
