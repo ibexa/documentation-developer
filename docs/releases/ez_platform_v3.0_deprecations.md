@@ -930,3 +930,41 @@ Forms for content creation have been moved to a new `ezplatform-content-forms` p
 
 `repository-forms` remains as an additional layer ensuring that your custom implementations that use the package will still work.
 To use this repository, you have to add the package manually to your `composer.json`.
+
+## eZ Platform v3.0.2
+
+### ezplatform-admin-ui v3.0.2
+
+The following classes have been moved to `EzPlatformContentFormsBundle`:
+
+|Former location|Current location|
+|------------|-------------|
+|`EzSystems\EzPlatformAdminUi\Form\Data\User\UserPasswordChangeData`|`EzSystems\EzPlatformUser\Form\Data\UserPasswordChangeData`|
+|`EzSystems\EzPlatformAdminUi\Form\Data\User\UserPasswordForgotData`|`EzSystems\EzPlatformUser\Form\Data\UserPasswordForgotData`|
+|`EzSystems\EzPlatformAdminUi\Form\Data\User\UserPasswordResetData`|`EzSystems\EzPlatformUser\Form\Data\UserPasswordResetData`|
+|`EzSystems\EzPlatformAdminUi\Form\Type\User\UserPasswordChangeType`|`EzSystems\EzPlatformUser\Form\Type\UserPasswordChangeType`|
+|`EzSystems\EzPlatformAdminUi\Form\Type\User\UserPasswordForgotType`|`EzSystems\EzPlatformUser\Form\Type\UserPasswordForgotType`|
+|`EzSystems\EzPlatformAdminUi\Form\Type\User\UserPasswordForgotWithLoginType`|`EzSystems\EzPlatformUser\Form\Type\UserPasswordForgotWithLoginType`|
+|`EzSystems\EzPlatformAdminUi\Form\Type\User\UserPasswordResetType`|`EzSystems\EzPlatformUser\Form\Type\UserPasswordResetType`|
+|`EzSystems\EzPlatformAdminUi\Validator\Constraints\Password`|`EzSystems\EzPlatformUser\Validator\Constraints\Password`|
+|`EzSystems\EzPlatformAdminUi\Validator\ConstraintsPasswordValidator`|`EzSystems\EzPlatformUser\Validator\Constraints\PasswordValidator`|
+|`EzSystems\EzPlatformAdminUi\Validator\Constraints\UserPassword`|`EzSystems\EzPlatformUser\Validator\Constraints\UserPassword`|
+|`EzSystems\EzPlatformAdminUi\Validator\Constraints\UserPasswordValidator`|`EzSystems\EzPlatformUser\Validator\Constraints\UserPasswordValidator\ValidationErrorsProcessor`|
+
+
+The following methods have been moved to `EzPlatformUserBundle`:
+
+|Former method|Current method|
+|------------|-------------|
+|`EzSystems\EzPlatformAdminUi\Form\Factory\FormFactory::changeUserPassword`|`EzSystems\EzPlatformUser\Form\Factory\FormFactory::changeUserPassword`|
+|`EzSystems\EzPlatformAdminUi\Form\Factory\FormFactory::forgotUserPassword`|`EzSystems\EzPlatformUser\Form\Factory\FormFactory::forgotUserPassword`|
+|`EzSystems\EzPlatformAdminUi\Form\Factory\FormFactory::resetUserPassword`|`EzSystems\EzPlatformUser\Form\Factory\FormFactory::resetUserPassword`|
+|`EzSystems\EzPlatformAdminUi\Form\Factory\FormFactory::updateUserSetting`|`EzSystems\EzPlatformUser\Form\Factory\FormFactory::updateUserSetting`|
+
+
+The following classes have been moved to `EzPlatformContentFormsBundle`.
+
+|Former location|Current location|
+|------------|-------------|
+|`EzSystems\EzPlatformAdminUi\Validator\ValidationErrorsProcessor`|`EzSystems\EzPlatformContentForms\Validator\ValidationErrorsProcessor`|
+|`EzSystems\EzPlatformAdminUi\Validator\Constraints\FieldTypeValidator`|`EzSystems\EzPlatformContentForms\Validator\Constraints\FieldTypeValidator`|
