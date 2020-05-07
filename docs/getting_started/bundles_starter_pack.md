@@ -1,6 +1,6 @@
 # Bundles starter pack
 
-eZ Platform application bundle system changed along with [Symfony 5 bundle system](http://symfony.com/doc/5.0/book/bundles.html).
+eZ Platform application bundle system changed along with the [Symfony 5 bundle system](http://symfony.com/doc/5.0/book/bundles.html).
 Clean installation comes with set of build in packages, which you can preview in [composer.json](https://github.com/ezsystems/ezplatform/blob/v3.0/composer.json).
 
 For more information about eZ Platform bundle structure, see [Bundle section](../guide/bundles.md) in our Guide.
