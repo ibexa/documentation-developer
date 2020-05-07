@@ -1,22 +1,22 @@
 # Project organization
 
-## Structuring your project
+eZ Platform is a Symfony application and follows the project structure used by Symfony.
 
+You can see an example of organizing a simple project in the [companion repository](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/tree/v3-master) for the [eZ Enterprise Beginner tutorial](../tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world.md).
 
-
-### PHP code
+## PHP code
 
 The project's PHP code (controllers, event listeners, etc.) should be placed in the `src` folder.
 
 Reusable libraries should be packaged so that they can easily be managed using Composer.
 
-### Templates
+## Templates
 
 Project templates should go into the `templates` folder.
 
 They can then be referenced in code without any prefix, for example `templates/full/article.html.twig` can be referenced in Twig templates or PHP as `full/article.html.twig`.
 
-### Assets
+## Assets
 
 Project assets should go into the `assets` folder.
 
@@ -33,11 +33,11 @@ All project assets are accessible through the `assets` path.
 	php bin/console bazinga:js-translation:dump assets --merge-domains
 	```
 
-#### Importing assets from a bundle
+### Importing assets from a bundle
 
 eZ Platform uses [Webpack Encore](https://symfony.com/doc/5.0/frontend.html#webpack-encore) for asset management.
 
-##### Configuration from a bundle
+#### Configuration from a bundle
 
 To import assets from a bundle, you need to configure them in the bundle's `Resources/encore/ez.config.js`:
 
@@ -64,7 +64,7 @@ To import CSS files only, use:
     After adding new files, run `php bin/console cache:clear`.
 
     For a full example of importing asset configuration,
-    see [`ez.config.js`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/encore/ez.config.js)
+    see [`ez.config.js`](https://github.com/ezsystems/ezplatform-admin-ui/blob/v2.0.2/src/bundle/Resources/encore/ez.config.js)
 
 To edit existing configuration entries, create a `Resources/encore/ez.config.manager.js` file:
 
@@ -107,9 +107,9 @@ module.exports = (eZConfig, eZConfigManager) => {
     After adding new files, run `php bin/console cache:clear`.
 
 	For a full example of overriding configuration,
-    see [`ez.config.manager.js`](https://github.com/ezsystems/ezplatform-matrix-fieldtype/blob/master/src/bundle/Resources/encore/ez.config.manager.js).
+    see [`ez.config.manager.js`](https://github.com/ezsystems/ezplatform-matrix-fieldtype/blob/v2.0.0/src/bundle/Resources/encore/ez.config.manager.js).
 
-To add new configuration under your own namespace and with its own dependencies,
+To add a new configuration under your own namespace and with its own dependencies,
 add a `Resources/encore/ez.webpack.custom.config.js` file, for example:
 
 ``` js
@@ -131,12 +131,15 @@ add a `Resources/encore/ez.webpack.custom.config.js` file, for example:
 
 !!! tip
 
-    If you don't plan to add multiple entry files on the same page in your custom config, use the `disableSingleRuntimeChunk()` funtion to avoid adding a separate `runtime.js` file. Otherwise, your JS code may be run multiple times. By default, the `enableSingleRuntimeChunk()` function is used.
+    If you don't plan to add multiple entry files on the same page in your custom config,
+    use the `disableSingleRuntimeChunk()` funtion to avoid adding a separate `runtime.js` file.
+    Otherwise, your JS code may be run multiple times.
+    By default, the `enableSingleRuntimeChunk()` function is used.
 
-##### Configuration from main project files
+#### Configuration from main project files
 
 If you prefer to include the asset configuration in the main project files,
-add it in [`webpack.config.js`](https://github.com/ezsystems/ezplatform/blob/master/webpack.config.js#L14).
+add it in [`webpack.config.js`](https://github.com/ezsystems/ezplatform/blob/v3.0.3/webpack.config.js#L15).
 
 To overwrite built-in assets, use the following configuration to replace, remove or add asset files
 in `webpack.config.js`:
@@ -168,12 +171,12 @@ eZConfigManager.add({
 });
 ```
 
-### Configuration
+## Configuration
 
 You project's configuration is placed in the respective files in `config/packages`.
 See [Configuration](configuration.md) for more information.
 
-#### Importing configuration from a bundle
+### Importing configuration from a bundle
 
 !!! tip
 
@@ -184,10 +187,12 @@ if you maintain it in the main `config/packages/ezplatform.yaml` configuration f
 
 You can import configuration from a bundle in two ways: [the manual way](#importing-configuration-manually) and [the implicit way](#importing-configuration-implicitly).
 
-##### Importing configuration manually
+#### Importing configuration manually
 
 Out of the two ways possible, importing configuration manually is the simplest and has the advantage of being explicit.
-It relies on using the `imports` statement in your main `config/packages/ezplatform.yaml`:
+
+It relies on using the `imports` statement in your main `config/packages/ezplatform.yaml`.
+If you want to import configuration for development use only, you can do so in `config/packages/dev/ezplatform.yaml`.
 
 ``` yaml
 imports:
@@ -198,7 +203,7 @@ ezplatform:
     # ...
 ```
 
-The `templates_rules.yaml` should then be placed in the `Resources/config` folder in `AcmeExampleBundle`.
+Place the `templates_rules.yaml` in the `Resources/config` folder in `AcmeExampleBundle`.
 The configuration tree from this file will be merged with the main one.
 
 ``` yaml
@@ -219,13 +224,9 @@ ezplatform:
 
 !!! caution
 
-    If both cover the same settings, the imported configuration overrides the main configuration files.
+    If both cover the same settings, the imported configuration overrides the main configuration files.  
 
-!!! tip
-
-    If you want to import configuration for development use only, you can do so in `config/packages/dev/ezplatform.yaml`.
-
-##### Importing configuration implicitly
+#### Importing configuration implicitly
 
 The following example shows how to implicitly load settings on the example of eZ Platform kernel.
 Note that this is also valid for any bundle.
@@ -280,9 +281,7 @@ class AcmeExampleExtension extends Extension implements PrependExtensionInterfac
 }
 ```
 
-!!! note
-
-    You must place your bundle before EzPlatformCoreBundle in `bundles.php`.
+Remember to place your bundle before `EzPlatformCoreBundle` in `bundles.php`.
 
 In `AcmeExampleBundle/Resources/config/template_rules.yaml`:
 
@@ -303,17 +302,9 @@ system:
                         Id\Content: 142
 ```
 
-!!! note "Performance"
+Service container extensions are called only when the container is being compiled,
+so performance is not affected.
 
-    Service container extensions are called only when the container is being compiled,
-    so performance will not be affected.
+## Versioning a project
 
-### Project example
-
-You can see an example of organizing a simple project in the [companion repository](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial) for the [eZ Enterprise Beginner tutorial](../tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world.md).
-
-### Versioning a project
-
-The recommended method is to version the whole ezplatform repository.
-
-
+The recommended method is to version the whole `ezplatform` repository.
