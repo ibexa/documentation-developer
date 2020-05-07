@@ -184,7 +184,7 @@ For development needs, the web user can be made the owner of all your files (for
 chown -R www-data:www-data <your installation directory>
 ```
 
-Directories `var` and `web/var` need to be writable by CLI and web server user.
+Directories `var` and `public/var` need to be writable by CLI and web server user.
 Future files and directories created by these two users will need to inherit those permissions.
 
 !!! caution
@@ -210,7 +210,7 @@ Copy `/<your installation directory>/doc/apache2/vhost.template` to `/etc/apache
 
 Modify it to fit your project.
 
-Specify `/<your installation directory>/web` as the `DocumentRoot` and `Directory`.
+Specify `/<your installation directory>/public` as the `DocumentRoot` and `Directory`.
 Uncomment the line that starts with `#if [SYMFONY_ENV]` and set the value to `prod` or `dev`,
 depending on the environment you want:
 
