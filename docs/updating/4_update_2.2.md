@@ -122,7 +122,7 @@ Landing Page blocks (from 2.1 and earlier) were defined using a class implementi
 In Page Builder (from 2.2 onwards), this interface is no longer present. Instead the logic of your block must be implemented in a [Listener](../extending/extending_page.md#block-rendering-events).
 Typically, what you previously would do in `getTemplateParameters()`, you'll now do in the `onBlockPreRender()` event handler.
 
-The definition of block parameters has to be moved from `createBlockDefinition()` to the [YAML configuration](../guide/extending_page.md#creating-page-blocks) for your custom blocks.
+The definition of block parameters has to be moved from `createBlockDefinition()` to the [YAML configuration](../extending/extending_page.md#creating-page-blocks) for your custom blocks.
 
 For more information about how custom blocks are implemented in Pagebuilder, have a look at [Creating custom Page blocks](../extending/extending_page.md)
 

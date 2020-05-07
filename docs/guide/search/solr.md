@@ -652,4 +652,4 @@ Next, restart Solr slave.
 
 Connect to the Solr slave interface (http://localhost:8983/solr), go to your core and check the replication status:
 
-![Solr Slave](../img/solr.png)
+![Solr Slave](../img/solr.PNG)
