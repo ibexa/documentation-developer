@@ -51,7 +51,7 @@ ezplatform:
 !!! tip
 
     You can define your template selection rules, alongside other settings, in a different bundle.
-    For details, see [Importing configuration from a bundle](bundles.md#importing-configuration-from-a-bundle).
+    For details, see [Importing configuration from a bundle](organization.md#importing-configuration-from-a-bundle).
 
     You can also [use your own custom controller to render a Content/Location](controllers.md##custom-rendering-logic).
 

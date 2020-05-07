@@ -51,7 +51,7 @@ Content of `app/Resources/assets` has been moved to `assets`.
 !!! note
 
     You also need to update paths that refer to the old location,
-    for example in [`webpack.config.js`](../guide/bundles.md#configuration-from-a-bundle).
+    for example in [`webpack.config.js`](../guide/organization.md#configuration-from-a-bundle).
 
 ## 3\. Check out and update the app
 
