@@ -2,8 +2,8 @@
 
 The Back Office interface is produced by the [`ezplatform-admin-ui` bundle](https://github.com/ezsystems/ezplatform-admin-ui).
 Additionally, it uses React-based modules that make each part of the UI extensible, and Bootstrap for styling.
-React modules can be found in [`ezplatform-admin-ui-modules`](https://github.com/ezsystems/ezplatform-admin-ui-modules)
-  that handle specific parts of the application.
+React modules that handle specific parts of the application
+can be found in [`ezplatform-admin-ui-modules`](https://github.com/ezsystems/ezplatform-admin-ui-modules)
 The interface is accessible in your browser at `http://<yourdomain>/admin`.
 
 To extend the Back Office with PHP code, you can use [events](https://symfony.com/doc/5.0/event_dispatcher.html),

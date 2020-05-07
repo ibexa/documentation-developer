@@ -26,12 +26,12 @@ All project assets are accessible through the `assets` path.
 
 ??? note "Removing `assets` manually"
 
-	If you ever remove the `assets` folder manually, you need to dump translations before performing
-	the `yarn encore <dev|prod>` command:
-
-	```
-	php bin/console bazinga:js-translation:dump assets --merge-domains
-	```
+    If you ever remove the `assets` folder manually, you need to dump translations before performing
+    the `yarn encore <dev|prod>` command:
+    
+    ```
+    php bin/console bazinga:js-translation:dump assets --merge-domains
+    ```
 
 ### Importing assets from a bundle
 
@@ -106,7 +106,7 @@ module.exports = (eZConfig, eZConfigManager) => {
 
     After adding new files, run `php bin/console cache:clear`.
 
-	For a full example of overriding configuration,
+    For a full example of overriding configuration,
     see [`ez.config.manager.js`](https://github.com/ezsystems/ezplatform-matrix-fieldtype/blob/v2.0.0/src/bundle/Resources/encore/ez.config.manager.js).
 
 To add a new configuration under your own namespace and with its own dependencies,

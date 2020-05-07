@@ -5,7 +5,7 @@ You can create bundles yourself or make use of available open-source bundles.
 You can also reuse the bundles you create in other projects or share them with the community.
 
 Many eZ Platform functionalities are provided through separate bundles included in the installation.
-You can see the bundles that are automatically installed with eZ Platform in [composer.json](https://github.com/ezsystems/ezplatform/blob/v3.0/composer.json).
+You can see the bundles that are automatically installed with eZ Platform in [composer.json](https://github.com/ezsystems/ezplatform/blob/3.0/composer.json).
 
 ## Working with bundles
 
@@ -45,7 +45,7 @@ The following tables give an overview of the main eZ Platform bundles.
 |[ezplatform-cron](https://github.com/ezsystems/ezplatform-cron)|exposes cron/cron package for use in eZ Platform (or just plain Symfony) via a simple command `ezplatform:cron:run`|
 |[ezplatform-graphql](https://github.com/ezsystems/ezplatform-graphql)|defines GraphQL server for eZ Platform|
 |[ezplatform-matrix-fieldtype](https://github.com/ezsystems/ezplatform-matrix-fieldtype)|dedicated to Matrix Field Type for eZ Platform, it replaces previous version found on `ezcommunity/EzMatrixFieldTypeBundle`|
-|[ezplatform-query-fieldtype](https://github.com/ezsystems/ezplatform-query-fieldtype)|field type that lists content items based by querying the repository|
+|[ezplatform-query-fieldtype](https://github.com/ezsystems/ezplatform-query-fieldtype)|Field Type that lists Content items based by querying the Repository|
 |[ezplatform-rest](https://github.com/ezsystems/ezplatform-rest)|contains REST API|
 |[ezplatform-richtext](https://github.com/ezsystems/ezplatform-richtext)|Field Type for supporting rich formatted text stored in a structured XML format|
 |[ezplatform-user](https://github.com/ezsystems/ezplatform-user)|dedicated to eZ Platform User management.|
@@ -57,7 +57,7 @@ The following tables give an overview of the main eZ Platform bundles.
     |---------|-----------|
     |date-based-publisher|provides the date based publishing functionality for the eZ Studio product|
     |ezplatform-workflow|implementation of a collaboration feature that lets you send content draft to any user for a review or rewriting|
-    |ezplatform-page-fieldtype|page handling Field Type|
+    |ezplatform-page-fieldtype|Page handling Field Type|
     |ezplatform-page-builder|contains eZ Platform Page editor|
     |ezplatform-ee-installer|provides `ezplatform:install` Symfony console command which is the installer for eZ Platform Enterprise v2|
     |ezplatform-http-cache-fastly|extends ezplatform-http-cache to support Fastly, for use on Platform.sh PE or standalone|
