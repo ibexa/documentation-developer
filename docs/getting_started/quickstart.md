@@ -34,7 +34,7 @@ Add `/admin` to access the Back Office. The default Administrator login is `admi
 
 eZ Platform is a Symfony app and follows the project structure used by Symfony.
 
-For more details see [Structuring a bundle](../guide/bundles.md#structuring-a-bundle).
+For more details see [Structuring a bundle](../guide/project_organization.md#structuring-a-bundle).
 
 ## First steps
 

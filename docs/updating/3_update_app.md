@@ -30,7 +30,7 @@ If you want to first test how the update proceeds without actually updating any 
     In v2.5 it is still possible to use Assetic, like in earlier versions.
     However, if you are using the latest Bootstrap version, [`scssphp`](https://github.com/leafo/scssphp)
     will not compile correctly with Assetic.
-    In this case, use Webpack Encore. See [Importing assets from a bundle](../guide/bundles.md#importing-assets-from-a-bundle) for more information.
+    In this case, use Webpack Encore. See [Importing assets from a bundle](../guide/organization.md#importing-assets-from-a-bundle) for more information.
 
 !!! caution "Common errors"
 
