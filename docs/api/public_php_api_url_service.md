@@ -37,18 +37,18 @@ $results = $this->URLService->findUrls($urlQuery);
 
 |URL criteria|URL based on|
 |------------|------------|
-|LogicalAnd||
-|LogicalNot||
-|LogicalOperator||
-|LogicalOr||
-|MatchAll||
-|MatchNone||
-|Matcher||
-|Pattern|Matches URLs which contain the pattern.|
-|SectionId|Matches URLs which used by content placed in specified section ids.|
-|SectionIdentifier|Matches URLs which used by content placed in specified section identifiers.|
-|Validity|Matches URLs based on validity flag.|
-|VisibleOnly|Matches URLs which are used in published content.|
+|[LogicalAnd](url_reference/logicaland_criterion.md)||
+|[LogicalNot](url_reference/logicalnot_criterion.md)||
+|[LogicalOperator](url_reference/logicaloperator_criterion.md)||
+|[LogicalOr](url_reference/logicalor_criterion.md)||
+|[MatchAll](url_reference/matchall_criterion.md)|Returns all URL results|
+|[MatchNone](url_reference/matchnone_criterion.md)|Returns no URL results|
+|[Matcher](url_reference/matcher_criterion.md)||
+|[Pattern](url_reference/pattern_criterion.md)|Matches URLs which contain the pattern.|
+|[SectionId](url_reference/sectionid_criterion.md)|Matches URLs which used by content placed in specified section ids.|
+|[SectionIdentifier](url_reference/sectionidentifier_criterion.md)|Matches URLs which used by content placed in specified section identifiers.|
+|[Validity](url_reference/validity_criterin.md)|Matches URLs based on validity flag.|
+|[VisibleOnly](url_reference/visibleonly_criterion.md)|Matches URLs which are used in published content.|
 
 ## URL sort clauses
 
