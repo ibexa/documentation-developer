@@ -25,8 +25,10 @@
     
     ### Configure designs
     
-    Next, configure Site Factory by adding empty SiteAccess groups, only one empty group is mandatory.
-    Under this group you will be able to configure all settings which do not expose UI, e.g. Content view.
+    Next, configure Site Factory by adding empty SiteAccess groups, only one empty group is mandatory. Number of empty SiteAccess groups must be equal to a number of templates you want to have when creating the new site.
+    
+    In this example, you will add two SiteAccess groups (`example_site_factory_group_1` and `example_site_factory_group_2`) that correspond to the two templates `ez_site1` and `ez_site2` which you will add in the next step.
+    Under this groups you will be able to configure all settings which do not expose UI, e.g. Content view.
     
     Add groups in `config/packages/ezplatform.yaml`:
     
