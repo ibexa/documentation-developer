@@ -13,7 +13,7 @@ This section provides information about the benefits you can draw from the commu
     - Downloads
     - Developer Blog
 - **[eZ Community Slack team](http://ez-community-on-slack.herokuapp.com/)**, the place to discuss eZ Platform with Community members, developers, and other like-minded individuals.
-- **[ez.no](http://ez.no) - The corporate website for eZ Systems**,
+- **[ibexa.co](http://ibexa.co) - The corporate website for Ibexa**,
     here you can find overviews of the products, contact information, and a wealth of additional [resources](http://ez.no/Resources/) such as use cases, webinars and e-books.
     - [eZ Blog](http://ez.no/Blog) - Current insights from the eZ world.
     - [Partner Portal](http://ez.no/Partner-Portal) - For eZ Business Partners with a knowledge and sales resource repository.
