@@ -13,7 +13,7 @@ Create a new Folder as a child of Location `2` with:
 ```
 mutation createFolder {
   createFolder(
-    languageCode: "eng-GB"
+    language: eng_GB
     parentLocationId: 2
     input: {
       name: "New Folder"
