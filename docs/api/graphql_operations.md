@@ -43,7 +43,7 @@ Modify the name of a Folder Content item with:
 ```
 mutation updateFolder {
   updateFolder(
-    language: eng-GB
+    language: eng_GB
     contentId: 64
     input: {
       name: "New Folder name"
@@ -162,7 +162,7 @@ mutation UploadMultipleFiles($files: [FileUpload]!) {
   uploadFiles(
     locationId: 51,
     files: $files,
-    language: eng-GB
+    language: eng_GB
   ) {
     files {
       _url
