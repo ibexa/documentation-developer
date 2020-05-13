@@ -1,4 +1,4 @@
-# Contribute to Documentation
+# Contribute to documentation
 
 While we are doing our best to make sure our documentation fulfills all your needs, there is always place for improvement. If you'd like to contribute to our docs, you can do the following:
 
