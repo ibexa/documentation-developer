@@ -2,7 +2,7 @@
 
 If you intend to change existing or introduce new code, start with a proper explanation.
 It should be placed in a public ticket.
-All the rules to follow can be found in [contribute documentation section](documentation.md).
+All the rules to follow can be found in [Contribute to documentation](documentation.md) section.
 
 Once you are done with describing your idea, focus on the main part - sharing the actual solution.
 eZ uses a regular git workflow, so if you are familiar with the concept, the whole procedure should be pretty straightforward.
