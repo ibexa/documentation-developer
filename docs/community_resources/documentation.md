@@ -1,4 +1,4 @@
-# Contribute to Documentation
+# Contribute to documentation
 
 While we are doing our best to make sure our documentation fulfills all your needs, there is always place for improvement. If you'd like to contribute to our docs, you can do the following:
 
@@ -11,21 +11,21 @@ Please create a Pull Request for any, even the smallest change you want to sugge
 
 ### Contributing through the GitHub website
 
-To quickly contribute a fix to a page, find the correct `*.md` files in the GitHub repository and select "Edit this file".
+To quickly contribute a fix to a page, find the correct `*.md` file in the GitHub repository and select "Edit this file".
 
 Introduce your changes, at the bottom of the page provide a title and a description of what you modified and select "Propose file change".
 
-This will lead to a screen for creating a Pull Request. Enter the name and description and select "Create pull request".
+This will lead to a screen for creating a Pull Request. Enter a name and description for the pull request and select "Create pull request".
 
 Your pull request will be reviewed by the team and, when accepted, merged with the rest of the repository.
 You will be notified of all activity related to the pull request by email.
 
 ### Contributing through git
 
-You can also contribute to the documentation using regular git workflow.
+You can also contribute to the documentation by using a regular git workflow.
 If you are familiar with it, this should be quick work.
 
-1. Assuming you have a GitHub account and a git command line tool installed,
+1. Assuming that you have a GitHub account and a git command line tool installed,
 fork the project and clone it into a folder: `git clone XXX .`
 
 1. Add your own fork as a remote: `git remote add fork <address of your fork>`.
@@ -71,6 +71,6 @@ git rebase origin/<branch name>
 Use gender-neutral language: the visitor has *their* account, not *his*, *her*, *his/her*, etc.
 
 **Do not be discouraged** if you are not a native speaker of English and/or are not sure about your style.
-Our team will proofread your contribution and make sure any problems are fixed. Any edits we do are not intended to be criticism of your work.
+Our team will proofread your contribution and make sure any problems are fixed. Any edits we do are not intended to be a criticism of your work.
 We may simply modify the language of your contributions according to our style guide,
 to make sure the terminology is consistent throughout the docs, and so on.

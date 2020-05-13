@@ -235,10 +235,10 @@ nav:
             - 'Install eZ Platform on macOS or Windows': 'community_resources/installing-on-mac-os-and-windows.md'
             - 'How to contribute': 'community_resources/contributing.md'
             - 'Report and follow issues': 'community_resources/report_follow_issues.md'
-            - 'Development guidelines': 'community_resources/development_guidelines.md'
             - 'Contribute code': 'community_resources/code.md'
+            - 'Development guidelines': 'community_resources/development_guidelines.md'
             - 'Contribute translations': 'community_resources/translations.md'
-            - 'Contribute documentation': 'community_resources/documentation.md'
+            - 'Contribute to documentation': 'community_resources/documentation.md'
         - UI Guidelines:
             - 'Introduction': 'guidelines/Introduction.md'
             - Components:
