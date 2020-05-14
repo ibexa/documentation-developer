@@ -107,7 +107,7 @@ Uploading files makes use of dedicated mutations per Content Type, for example:
 mutation CreateImage($file: FileUpload!) {
   createImage(
     parentLocationId: 51,
-    language: "eng-GB",
+    language: eng_GB,
     input: {
       name: "An image created over GraphQL",
       image: {
@@ -162,7 +162,7 @@ mutation UploadMultipleFiles($files: [FileUpload]!) {
   uploadFiles(
     locationId: 51,
     files: $files,
-    languageCode: "eng-GB"
+    language: eng_GB
   ) {
     files {
       _url
