@@ -215,3 +215,7 @@ All built-in Field Types are implemented with this approach. In that case overri
     {{ block('form_widget') }}
 {% endblock %}
 ```
+
+!!! tip
+
+    For more information on creating and overriding form type templates, see [Symfony documentation](https://symfony.com/doc/5.0/form/create_custom_field_type.html#creating-the-form-type-template).
