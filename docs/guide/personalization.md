@@ -27,23 +27,25 @@ composer require --no-update ezsystems/ezrecommendation-client
 composer update --prefer-dist
 ```
 
-Next, enable the bundle in `app/AppKernel.php`:
+Next, enable the bundle in `config/bundles.php`:
 
 ``` php
-$bundles = [
+<?php
+
+return [
     // existing bundles
-    new EzSystems\EzRecommendationClientBundle\EzRecommendationClientBundle()
+    EzSystems\EzRecommendationClientBundle\EzRecommendationClientBundle::class => ['all' => true],
 ];
 ```
 
 ### 2. Import additional routing
 
-Import additional routing by adding the following lines to your `routing.yaml` file:
+Import additional routing by adding the following lines to your `config/routes.yaml` file:
 
 ``` yaml
-recommendationBundleRestRoutes:
+ezplatform_recommendation_client_rest:
     resource: '@EzRecommendationClientBundle/Resources/config/routing_rest.yml'
-    prefix: %ezpublish_rest.path_prefix%
+    prefix: '%ezpublish_rest.path_prefix%'
 ```
 
 ### 3. Register an eZ Personalization account
