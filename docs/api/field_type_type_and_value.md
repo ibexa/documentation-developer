@@ -2,9 +2,9 @@
 
 A Field Type must contain a Type class which contains the logic of the Field Type: validating data, transforming from various formats, describing the validators, etc.
 A Type class must implement `eZ\Publish\SPI\FieldType\FieldType` ("Field Type interface").
-All native Field Types also extend the `eZ\Publish\SPI\FieldType\FieldType` abstract class that implements this interface and provides implementation facilities through a set of abstract methods of its own. 
+All native Field Types also extend the `eZ\Publish\SPI\FieldType\FieldType` abstract class that implements this interface and provides implementation facilities through a set of abstract methods of its own.
 
-You should also provide a Value object class for storing the custom Field value provided by the Field Type. 
+You should also provide a Value object class for storing the custom Field value provided by the Field Type.
 The Value is used to represent an instance of the Field Type within a Content item.
 Each Field will present its data using an instance of the Type's Value class.
 A Value class must implement the `eZ\Publish\SPI\FieldType\Value` interface.
@@ -25,7 +25,7 @@ Since the Public API cannot know anything about these, their handling is delegat
 #### `getFieldTypeIdentifier()`
 
 Returns a unique identifier for the custom Field Type which is used to assign the type to a Field definition.
-By convention it should be prefixed by a unique vendor shortcut (e.g. `ez` for eZ Systems).
+By convention it should be prefixed by a unique vendor shortcut (e.g. `ez` for Ibexa).
 
 #### `getSettingsSchema()`
 
@@ -100,7 +100,7 @@ When [REST API](rest_api_guide.md) is used, conversion needs to be done for Fiel
 
 ## Registration
 
-A Field Type needs to have an indexable class defined. 
+A Field Type needs to have an indexable class defined.
 If you are using Solr Bundle, each Field Type must be registered in `config/services.yml`:
 
 ``` yaml

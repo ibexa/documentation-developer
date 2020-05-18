@@ -185,7 +185,7 @@ You are now able to load multiple Locations at once, using `LocationService->loa
          $bundles = array(
              // ...
             new Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle(),
-             // eZ Systems
+             // Ibexa
              // ...
          );
      }
