@@ -2535,7 +2535,7 @@ $UrlValue = new Url\Value( "http://www.ibexa.co", "Ibexa" );
 |Key|Type|Description|Example|
 |------|------|------|------|
 |`link`|`string`|Link content.|"http://ibexa.co"|
-|`text`|`string`|Text content.|"ć"|
+|`text`|`string`|Text content.|"Ibexa"|
 
 ```php
 // Example of the hash value in PHP
