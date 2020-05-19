@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @copyright Copyright (C) eZ Systems AS. All rights reserved.
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 namespace EzSystems\DeveloperDocumentation\Test\Context;
@@ -50,7 +50,7 @@ class TutorialContentTypeContext implements Context
         $this->contentTypeContext->addFieldsTo($contentTypeIdentifier, $fieldDefinitions);
     }
 
-    private function getFieldDefinitionData(array $tableRow, int $position): array 
+    private function getFieldDefinitionData(array $tableRow, int $position): array
     {
         return [
             'fieldTypeIdentifier' => $this->fieldTypeMap[$tableRow['Field Type']],

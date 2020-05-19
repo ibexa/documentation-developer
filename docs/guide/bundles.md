@@ -78,7 +78,7 @@ The following tables give an overview of the main eZ Platform bundles.
 
     |Bundle|Description|
     |---------|-----------|   
-    |ezstudio-personalized-block|eZ Systems Personalized Block Bundle|
+    |ezstudio-personalized-block|Ibexa Personalized Block Bundle|
 
 ### Education
 
