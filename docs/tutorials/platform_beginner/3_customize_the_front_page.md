@@ -148,7 +148,7 @@ To add a template like this to your site, create a `main_layout.html.twig` file 
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-12">
-                            <p class="small">Website design &#38; content © copyright {{ "now"|date("Y") }} eZ Systems. This website was made with eZ Platform</p>
+                            <p class="small">Website design &#38; content © copyright {{ "now"|date("Y") }} Ibexa. This website was made with eZ Platform</p>
                         </div>
                     </div>
                 </div>
@@ -164,16 +164,62 @@ To add a template like this to your site, create a `main_layout.html.twig` file 
 </html>
 ```
 
+<<<<<<< HEAD
 For now the site has no stylesheets or assets. In the highlighted lines (12-14, 89-92) the template points to the path to store asset files, such as CSS stylesheets, JS scripts and images.
+=======
+Note that in the highlighted lines (12 and 89) the template takes advantage of [Symfony Webpack Encore](https://symfony.com/doc/5.0/frontend.html#webpack-encore).
+This tutorial will lead you through configuring Webpack, but first you need assets.
+
+### Adding assets
+
+The site has no stylesheets or assets yet. You need to download [`assets.zip`](img/assets.zip) which contains the prepared asset files.
+
+Then unpack its contents to the following directories:
+
+- `css`, `fonts`, and `js` folders to `assets/`
+- `images` folder to `public/assets/`
+
+Before proceeding, ensure that the structure of the added files looks like this:
+>>>>>>> d1aadcf4... eZ->Ibexa rebranding continued (#1055)
 
 !!! tip
 
     This code goes through all files in `web/assets/css` and `web/assets/js` and loads them as stylesheets and JS scripts respectively.
     See [Symfony assetic doc](https://symfony.com/doc/3.4/frontend/assetic/asset_management.html#assets) for more information.
 
+<<<<<<< HEAD
 [Download assets.zip](img/assets.zip) which contains the prepared asset files. Then unpack its contents to the `web/assets/` directory, so that the structure looks like this:
 
 ![File structure](img/bike_tutorial_listing_web.png)
+=======
+In eZ Platform, you can add assets by using [Symfony Webpack Encore](https://symfony.com/doc/5.0/frontend.html#webpack-encore)
+— an integration of Webpack that enables you to build bundles of CSS stylesheets and JS scripts and add them to the project.
+For more details, see [importing assets from a bundle](../../guide/project_organization.md#importing-assets-from-a-bundle).
+
+To create bundles, first, indicate which files to include in them.
+
+Open the `webpack.config.js` file located in the root folder of your project.
+Paste the following code right under `// Put your config here`:
+
+``` javascript hl_lines="2 8"
+Encore
+    .addStyleEntry('tutorial', [
+        path.resolve(__dirname, './assets/css/normalize.css'),
+        path.resolve(__dirname, './assets/css/bootstrap.min.css'),
+        path.resolve(__dirname, './assets/css/bootstrap-theme.css'),
+        path.resolve(__dirname, './assets/css/style.css')
+    ])
+    .addEntry('tutorial-js', [
+        path.resolve(__dirname, './assets/js/bootstrap.min.js')
+    ]);
+```
+
+Note that `.addStyleEntry('tutorial', [])` and `.addEntry('tutorial-js', [])` refer respectively to
+`{{  encore_entry_link_tags('tutorial') }}` and `{{ encore_entry_script_tags('tutorial-js') }}` from `main_layout.html.twig`.
+This configuration creates a bundle consisting of files to be added to a template.
+
+At this point the bundles are created and ready to be used.
+>>>>>>> d1aadcf4... eZ->Ibexa rebranding continued (#1055)
 
 ### Extending templates
 
@@ -299,6 +345,7 @@ Now you need to indicate when this template should be used.
     The code blocks shown here include the full structure of the YAML file to help you learn where to place new blocks.
     Be careful not to duplicate existing keys, because YAML does not allow it.
 
+<<<<<<< HEAD
 Go back to `app/config/ezplatform.yml` and add the following configuration (under the existing `content_view` and `full` keys:):
 
 ``` yaml
@@ -310,6 +357,12 @@ site_group:
                 template: full/ride.html.twig
                 match:
                     Identifier\ContentType: ride
+=======
+``` bash
+php bin/console cache:clear
+php bin/console assets:install
+yarn encore prod
+>>>>>>> d1aadcf4... eZ->Ibexa rebranding continued (#1055)
 ```
 
 This tells the application to use this template whenever it renders the full view of a Ride.

@@ -390,14 +390,14 @@ The following tables give an overview of the main eZ Platform bundles.
     |cloud-deployment-manager|dedicated cloud deployment manager|
     |EzLandingPageFieldTypeBundle|Landing Page that is at the heart of StudioUI|
     |ezstudio-demo-bundle|represents a demo front-end website with eZ Studio|
-    |ezstudio-personalized-block|eZ Systems Personalized Block Bundle|
+    |ezstudio-personalized-block|Ibexa Personalized Block Bundle|
 
 ### Education
 
 |Bundle|Description|
 |------|-----------|
 |[CookbookBundle](https://github.com/ezsystems/CookbookBundle)|working examples for using eZ Platform Public API|
-|[ezplatform-com](https://github.com/ezsystems/ezplatform-com)|the eZ Systems Developer Hub for the Open Source PHP CMS eZ Platform (example site)|
+|[ezplatform-com](https://github.com/ezsystems/ezplatform-com)|the Ibexa Developer Hub for the Open Source PHP CMS eZ Platform (example site)|
 |[ezplatform-ee-demo](https://github.com/ezsystems/ezplatform-ee-demo)|fork of the "ezplatform-ee" meta repository, contains changes to composer.json, AppKernel.php and config necessary to enable eZ Platform Enterprise Edition Demo. Not recommended for a clean install for new projects, but great for observation and learning (example site)|
 |[ezplatform-demo](https://github.com/ezsystems/ezplatform-demo)|fork of "ezplatform" meta repository, contains code and dependencies for demo distribution of eZ Platform. Not recommended for a clean installation for new projects, but great for observation and learning(example site)|
 |[TweetFieldTypeBundle](https://github.com/ezsystems/TweetFieldTypeBundle)|bundle that is created in the Field Type Tutorial (example field type)|

@@ -17,7 +17,7 @@ Since the Public API cannot know anything about these, their handling is delegat
 #### `getFieldTypeIdentifier()`
 
 Returns a unique identifier for the custom Field Type which is used to assign the type to a Field definition.
-By convention it should be prefixed by a unique vendor shortcut (e.g. `ez` for eZ Systems).
+By convention it should be prefixed by a unique vendor shortcut (e.g. `ez` for eZ Platform).
 
 #### `getSettingsSchema()`
 
@@ -75,7 +75,7 @@ For example: a user provides an HTTP link as a string, `acceptValue()` converts 
 
 #### `getEmptyValue()`
 
-The Field Type can specify that the user may define a default value for the `Field` of the type through settings. If no default value is provided, the Field Type is asked for an "empty value" as the final fallback. 
+The Field Type can specify that the user may define a default value for the `Field` of the type through settings. If no default value is provided, the Field Type is asked for an "empty value" as the final fallback.
 
 The value chain for filling a specific Field of the Field Type is as follows:
 
@@ -103,7 +103,12 @@ When [REST API](rest_api_guide.md) is used, conversion needs to be done for Fiel
 
 ## Registration
 
+<<<<<<< HEAD
 A Field Type must be registered as a service:
+=======
+A Field Type needs to have an indexable class defined.
+If you are using Solr Bundle, each Field Type must be registered in `config/services.yml`:
+>>>>>>> d1aadcf4... eZ->Ibexa rebranding continued (#1055)
 
 ``` yaml
 services:
@@ -155,7 +160,7 @@ The settings are mapped into Symfony forms via the [FormMapper](field_type_form_
 
 ## Extensibility points
 
-Some Field Types will require additional processing, for example a Field Type storing a binary file, or one having more complex settings or validator configuration. For this purpose specific implementations of an abstract class `eZ\Publish\Core\REST\Common\FieldTypeProcessor` are used. 
+Some Field Types will require additional processing, for example a Field Type storing a binary file, or one having more complex settings or validator configuration. For this purpose specific implementations of an abstract class `eZ\Publish\Core\REST\Common\FieldTypeProcessor` are used.
 
 This class provides the following methods:
 
