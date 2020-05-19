@@ -49,17 +49,17 @@ The following tables give an overview of the main eZ Platform bundles.
 |[ezplatform-rest](https://github.com/ezsystems/ezplatform-rest)|contains REST API|
 |[ezplatform-richtext](https://github.com/ezsystems/ezplatform-richtext)|Field Type for supporting rich formatted text stored in a structured XML format|
 |[ezplatform-user](https://github.com/ezsystems/ezplatform-user)|dedicated to eZ Platform User management.|
-|[BehatBundle](https://github.com/ezsystems/BehatBundle)|common reusable sentence implementations and other common needs for Behat testing in eZ bundles/projects|
+|[BehatBundle](https://github.com/ezsystems/BehatBundle)|common reusable sentence implementations and other common needs for Behat testing in bundles/projects|
 
 !!! Enterprise
 
     |Bundle|Description|
     |---------|-----------|
-    |date-based-publisher|provides the date based publishing functionality for the eZ Studio product|
+    |date-based-publisher|provides the date based publishing functionality for eZ Platform Enterprise Edition|
     |ezplatform-workflow|implementation of a collaboration feature that lets you send content draft to any user for a review or rewriting|
     |ezplatform-page-fieldtype|Page handling Field Type|
     |ezplatform-page-builder|contains eZ Platform Page editor|
-    |ezplatform-ee-installer|provides `ezplatform:install` Symfony console command which is the installer for eZ Platform Enterprise v2|
+    |ezplatform-ee-installer|provides `ezplatform:install` Symfony console command which is the installer for eZ Platform Enterprise Edition v2|
     |ezplatform-http-cache-fastly|extends ezplatform-http-cache to support Fastly, for use on Platform.sh PE or standalone|
     |ezplatform-calendar|extends the Back Office by adding the calendar tab with the calendar widget|
     |ezplatform-version-comparison|allows comparing between two versions of the same Field|
@@ -84,7 +84,7 @@ The following tables give an overview of the main eZ Platform bundles.
 
 |Bundle|Description|
 |------|-----------|
-|[ezplatform-com](https://github.com/ezsystems/ezplatform-com)|the eZ Systems Developer Hub for the Open Source PHP CMS eZ Platform (example site)|
+|[ezplatform-com](https://github.com/ezsystems/ezplatform-com)|the Ibexa Developer Hub for the Open Source PHP CMS eZ Platform (example site)|
 |[ezplatform-ee-demo](https://github.com/ezsystems/ezplatform-ee-demo)|fork of the "ezplatform-ee" meta repository, contains changes necessary to enable eZ Platform Enterprise Edition Demo. Not recommended for a clean install for new projects, but great for observation and learning (example site)|
 |[ezplatform-ee-beginner-tutorial](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial)|resources used in the eZ Platform Enterprise Edition Beginner Tutorial|
 |[docker-php](https://github.com/ezsystems/docker-php)|contains PHP docker image example|

@@ -146,7 +146,7 @@ To add a template like this to your site, create a `main_layout.html.twig` file 
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <p class="small">Website design &#38; content © copyright {{ "now"|date("Y") }} eZ Systems. This website was made with eZ Platform.</p>
+                    <p class="small">Website design &#38; content © copyright {{ "now"|date("Y") }} Ibexa. This website was made with eZ Platform.</p>
                 </div>
             </div>
         </div>
@@ -164,7 +164,7 @@ This tutorial will lead you through configuring Webpack, but first you need asse
 
 ### Adding assets
 
-The site has no stylesheets or assets yet. You need to download [`assets.zip`](img/assets.zip) which contains the prepared asset files. 
+The site has no stylesheets or assets yet. You need to download [`assets.zip`](img/assets.zip) which contains the prepared asset files.
 
 Then unpack its contents to the following directories:
 
@@ -177,7 +177,7 @@ Before proceeding, ensure that the structure of the added files looks like this:
 
 ### Configuring Webpack
 
-In eZ Platform, you can add assets by using [Symfony Webpack Encore](https://symfony.com/doc/5.0/frontend.html#webpack-encore) 
+In eZ Platform, you can add assets by using [Symfony Webpack Encore](https://symfony.com/doc/5.0/frontend.html#webpack-encore)
 — an integration of Webpack that enables you to build bundles of CSS stylesheets and JS scripts and add them to the project.
 For more details, see [importing assets from a bundle](../../guide/project_organization.md#importing-assets-from-a-bundle).
 
@@ -197,7 +197,7 @@ Encore
     .addEntry('tutorial-js', [
         path.resolve(__dirname, './assets/js/bootstrap.min.js')
     ]);
-``` 
+```
 
 Note that `.addStyleEntry('tutorial', [])` and `.addEntry('tutorial-js', [])` refer respectively to
 `{{  encore_entry_link_tags('tutorial') }}` and `{{ encore_entry_script_tags('tutorial-js') }}` from `main_layout.html.twig`.
@@ -233,7 +233,7 @@ Clear the cache and regenerate the assets by running the following commands:
 ``` bash
 php bin/console cache:clear
 php bin/console assets:install
-yarn encore prod 
+yarn encore prod
 ```
 
 Refresh the page and you should see the "Hello world" placed inside a styled layout.
