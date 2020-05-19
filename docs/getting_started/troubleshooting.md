@@ -26,6 +26,8 @@ For instance, if one of those Fields is configured to accept files up to 10MB, t
 
 You also need to define settings for uploading files in `php.ini`: `upload_max_filesize` and `post_max_size`.
 
+Still not working? If you are using PHP-FPM on e.g. Ubuntu, add an user.ini file in the /etc/php/7.X/fpm/conf.d/ directory and put your upload settings (`upload_max_filesize` and `post_max_size`) there.
+
 ## Cloning failed using an ssh key
 
 When dealing with Composer packages from [updates.ez.no](http://updates.ez.no), you may get a "Cloning failed using an ssh key" error
