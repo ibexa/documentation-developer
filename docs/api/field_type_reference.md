@@ -1,3 +1,19 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Field Types reference
 
 A Field Type is the underlying building block of the content model. It consists of two entities: Field value and Field definition. Field value is determined by values entered into the Content Field. Field definition is provided by the Content Type, and holds any user defined rules used by Field Type to determine how a Field Value is validated, stored, retrieved, formatted and so on.
@@ -6,7 +22,7 @@ eZ Platform comes with a collection of Field Types that can be used to build pow
 
 !!! tip
 
-    For general Field Type documentation, see [Field Type API](../api/field_type_api.md). 
+    For general Field Type documentation, see [Field Type API](../api/field_type_api.md).
     For the documentation on how to implement a custom Field Type, see the [Creating a Tweet Field Type](../tutorials/field_type/creating_a_tweet_field_type.md) tutorial.
 
 Custom Field Types have to be programmed in PHP. However, the built-in Field Types are usually sufficient enough for typical scenarios. The following table gives an overview of the supported Field Types that come with eZ Platform.
@@ -1166,7 +1182,7 @@ This Field Type stores one or several comma-separated keywords as a string or ar
 |------|------|
 |`string`|`"documentation"`|
 |`string`|`"php, eZ Platform, html5"`|
-|`string[]`|`[ "eZ Systems", "Enterprise", "User Experience Management" ]`|
+|`string[]`|`[ "Ibexa", "Enterprise", "User Experience Management" ]`|
 
 #### Value object
 
@@ -1340,7 +1356,7 @@ As input it expects three values:
 
 |Type|Example|
 |------|------|
-|`array`|`[ 'latitude' => 59.928732, 'longitude' => 10.777888, 'address' => "eZ Systems Norge" ]`|
+|`array`|`[ 'latitude' => 59.928732, 'longitude' => 10.777888, 'address' => "Ibexa Nordics" ]`|
 
 #### Value object
 
@@ -1366,7 +1382,7 @@ $MapLocationValue = new MapLocation\Value(
                         [
                             'latitude' => 59.928732,
                             'longitude' => 10.777888,
-                            'address' => "eZ Systems Norge"
+                            'address' => "Ibexa Nordics"
                         ]
                     );
 ```
@@ -1781,7 +1797,7 @@ Currently supported input formats are described in the table below:
 |------|------|
 |eZ Platform's DocBook variant|Field Type's internal format|
 |XHTML5 editing format|Typically used with in-browser HTML editor|
-|Legacy eZXML format|Compatibility with legacy eZXML format, used by [XmlText Field Type](#xmltext-field-type)|
+|Legacy eZXML format|Compatibility with legacy XML format, used by [XmlText Field Type](#xmltext-field-type)|
 
 ###### Example of the Field Type's internal format
 
@@ -1789,8 +1805,8 @@ Currently supported input formats are described in the table below:
 <?xml version="1.0" encoding="UTF-8"?>
 <section xmlns="http://docbook.org/ns/docbook"
          xmlns:xlink="http://www.w3.org/1999/xlink"
-         xmlns:ezxhtml="http://ez.no/xmlns/ezpublish/docbook/xhtml"
-         xmlns:ezcustom="http://ez.no/xmlns/ezpublish/docbook/custom"
+         xmlns:ezxhtml="http://ibexa.co/xmlns/ezpublish/docbook/xhtml"
+         xmlns:ezcustom="http://ibexa.co/xmlns/ezpublish/docbook/custom"
          version="5.0-variant ezpublish-1.0">
     <title ezxhtml:level="2">This is a title.</title>
     <para ezxhtml:class="paraClass">This is a paragraph.</para>
@@ -1803,7 +1819,7 @@ This format is used by eZ Platform's Online Editor.
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
-<section xmlns="http://ez.no/namespaces/ezpublish5/xhtml5/edit">
+<section xmlns="http://ibexa.co/namespaces/ezpublish5/xhtml5/edit">
     <h2>This is a title.</h2>
     <p class="paraClass">This is a paragraph.</p>
 </section>
@@ -1811,7 +1827,7 @@ This format is used by eZ Platform's Online Editor.
 
 For more information about internal format and input formats, see [Field Type's conversion test fixtures on GitHub](https://github.com/ezsystems/ezpublish-kernel/tree/v6.13.6/eZ/Publish/Core/FieldType/Tests/RichText/Converter/Xslt/_fixtures).
 
-For example, ezxml does not use explicit level attributes for `<header>` elements, instead `<header>` element levels are indicated through the level of nesting inside `<section>` elements.
+For example, eZXML does not use explicit level attributes for `<header>` elements, instead `<header>` element levels are indicated through the level of nesting inside `<section>` elements.
 
 ###### Example of using XML document in internal format as a string
 
@@ -1828,8 +1844,8 @@ $inputString = <<<DOCBOOK
 <?xml version="1.0" encoding="UTF-8"?>
 <section xmlns="http://docbook.org/ns/docbook"
          xmlns:xlink="http://www.w3.org/1999/xlink"
-         xmlns:ezxhtml="http://ez.no/xmlns/ezpublish/docbook/xhtml"
-         xmlns:ezcustom="http://ez.no/xmlns/ezpublish/docbook/custom"
+         xmlns:ezxhtml="http://ibexa.co/xmlns/ezpublish/docbook/xhtml"
+         xmlns:ezcustom="http://ibexa.co/xmlns/ezpublish/docbook/custom"
          version="5.0-variant ezpublish-1.0">
     <title ezxhtml:level="2">This is a title.</title>
     <para ezxhtml:class="paraClass">This is a paragraph.</para>
@@ -1858,7 +1874,7 @@ When creating RichText content with the REST API, it is possible to provide data
 ``` xml
 <fieldValue>
     <value key="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ezxhtml="http://ez.no/xmlns/ezpublish/docbook/xhtml" xmlns:ezcustom="http://ez.no/xmlns/ezpublish/docbook/custom" version="5.0-variant ezpublish-1.0"&gt;
+&lt;section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ezxhtml="http://ibexa.co/xmlns/ezpublish/docbook/xhtml" xmlns:ezcustom="http://ibexa.co/xmlns/ezpublish/docbook/custom" version="5.0-variant ezpublish-1.0"&gt;
 &lt;title ezxhtml:level="2"&gt;This is a title.&lt;/title&gt;
 &lt;/section&gt;
 </value>
@@ -2150,8 +2166,8 @@ This Field Type makes it possible to store and retrieve a URL. It is formed by t
 
 |Type|Description|Example|
 |------|------|------|
-|`string`|Link content provided to the value.|"http://www.ez.no"|
-|`string`|Text content that represents the stored link.|"eZ Systems"|
+|`string`|Link content provided to the value.|"http://www.ibexa.co"|
+|`string`|Text content that represents the stored link.|"Ibexa"|
 
 #### Value object
 
@@ -2167,8 +2183,8 @@ The Value class of this Field Type contains the following properties:
 ``` php
 // Value object content example
 
-$url->link = "http://www.ez.no";
-$url->text = "eZ Systems";
+$url->link = "http://www.ibexa.co";
+$url->text = "Ibexa";
 ```
 
 ###### Constructor
@@ -2179,20 +2195,20 @@ The `Url\Value` constructor initializes a new Value object with the provided va
 // Constructor example
 
 // Instantiates an Url Value object
-$UrlValue = new Url\Value( "http://www.ez.no", "eZ Systems" );
+$UrlValue = new Url\Value( "http://www.ibexa.co", "Ibexa" );
 ```
 #### Hash format
 
 |Key|Type|Description|Example|
 |------|------|------|------|
-|`link`|`string`|Link content.|"http://ez.no"|
-|`text`|`string`|Text content.|"eZ Systems"|
+|`link`|`string`|Link content.|"http://ibexa.co"|
+|`text`|`string`|Text content.|"Ibexa"|
 
 ```php
 // Example of the hash value in PHP
 $hash = [
-    "link" => "http://ez.no",
-    "text" => "eZ Systems"
+    "link" => "http://ibexa.co",
+    "text" => "Ibexa"
 ];
 
 ```
@@ -2240,7 +2256,7 @@ This Field Type validates and stores information about a user.
 
 The XmlText Field Type isn't officially supported by eZ Platform. It can be installed by requiring `ezsystems/ezplatform-xmltext-fieldtype`. PlatformUI does not support WYSIWYG editing of Fields of this type.
 
-This Field Type validates and stores formatted text using the eZ Publish legacy format, ezxml. 
+This Field Type validates and stores formatted text using the eZ Publish legacy format, eZXML. 
 
 | Name      | Internal name | Expected input |
 |-----------|---------------|----------------|
@@ -2259,16 +2275,16 @@ This Field Type validates and stores formatted text using the eZ Publish legacy 
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
 <section
-    xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/"
-    xmlns:image="http://ez.no/namespaces/ezpublish3/image/"
-    xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/">
+    xmlns:custom="http://ibexa.co/namespaces/ezpublish3/custom/"
+    xmlns:image="http://ibexa.co/namespaces/ezpublish3/image/"
+    xmlns:xhtml="http://ibexa.co/namespaces/ezpublish3/xhtml/">
     <paragraph>This is a paragraph.</paragraph>
 </section>
 ```
 
 #### For XHTML Input
 
-The eZ XML output uses `<strong>` and `<em>` by default, respecting the semantic XHTML notation.
+The XML output uses `<strong>` and `<em>` by default, respecting the semantic XHTML notation.
 
 Learn more about `<strong>`, `<b>`, `<em>`, `<i>`:
 
@@ -2304,9 +2320,9 @@ $contentCreateStruct = $contentService->newContentCreateStruct( $contentType, "e
 $inputString = <<<EZXML
 <?xml version="1.0" encoding="utf-8"?>
 <section
-    xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/"
-    xmlns:image="http://ez.no/namespaces/ezpublish3/image/"
-    xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/">
+    xmlns:custom="http://ibexa.co/namespaces/ezpublish3/custom/"
+    xmlns:image="http://ibexa.co/namespaces/ezpublish3/image/"
+    xmlns:xhtml="http://ibexa.co/namespaces/ezpublish3/xhtml/">
     <paragraph>This is a paragraph.</paragraph>
 </section>
 EZXML;

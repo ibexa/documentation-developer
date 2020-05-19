@@ -8,7 +8,7 @@ The following server requirements cover both running the software on-premise and
 
 ## Server
 
-eZ software is built to rely on existing technologies and standards. The minimal setup is `PHP`,  `MySQL/MariaDB`, and `Apache/Nginx`. Recommendation for production setups is to use `Varnish`/`Fastly`, `Memcached`/`Redis`, `NFS`/`EFS`/`S3` and `Solr` in a [clustered setup](../guide/clustering.md).
+Ibexa software is built to rely on existing technologies and standards. The minimal setup is `PHP`,  `MySQL/MariaDB`, and `Apache/Nginx`. Recommendation for production setups is to use `Varnish`/`Fastly`, `Memcached`/`Redis`, `NFS`/`EFS`/`S3` and `Solr` in a [clustered setup](../guide/clustering.md).
 
 For supported versions of these technologies see Recommended and Supported setups below.
 
@@ -81,7 +81,7 @@ _\* Note: Mysql 5.7+ and MariaDB 10.2+ changes how certain queries are parsed an
 
 ### Development and Experimental setups
 
-eZ Platform, the foundation of all eZ software, can theoretically run and execute on many more setups than the ones listed as recommended and supported, including any [operating system supported by PHP](https://wiki.php.net/platforms), on a PHP 7.0 version or higher that pass the [Symfony requirements](http://symfony.com/doc/2.8/reference/requirements.html), using cache solutions technically supported by [Stash](http://www.stashphp.com/Drivers.html), using databases supported by [Doctrine DBAL](https://www.doctrine-project.org/projects/doctrine-dbal/en/2.9/reference/configuration.html#driver), and using a binary file storage solution supported by [FlySystem](https://github.com/thephpleague/flysystem#adapters).
+eZ Platform, the foundation of all Ibexa software, can theoretically run and execute on many more setups than the ones listed as recommended and supported, including any [operating system supported by PHP](https://wiki.php.net/platforms), on a PHP 7.0 version or higher that pass the [Symfony requirements](http://symfony.com/doc/2.8/reference/requirements.html), using cache solutions technically supported by [Stash](http://www.stashphp.com/Drivers.html), using databases supported by [Doctrine DBAL](https://www.doctrine-project.org/projects/doctrine-dbal/en/2.9/reference/configuration.html#driver), and using a binary file storage solution supported by [FlySystem](https://github.com/thephpleague/flysystem#adapters).
 
 Examples of Development setups:
 
@@ -95,11 +95,11 @@ Examples of Experimental setups:
 -   IO: Azure, (S)FTP, GridFS, [etc.](https://flysystem.thephpleague.com/docs/adapter/local/)
 -   Databases: Postgres, MSSQL, Oracle *(As in technically supported by Doctrine DBAL which we use, but none supported by our installer at the moment, and Oracle and MSSQL is not covered by automated testing)*
 
-**While all these options are not actively supported by eZ Systems**, they are community supported. Meaning you can use them with both open source edition and enterprise edition, however if you encounter issues best way to handle them is via contribution, and any such efforts made to improve support for these technologies can contribute to the technology being supported by eZ Systems in the near future.
+**While all these options are not actively supported by Ibexa**, they are community supported. Meaning you can use them with both open source edition and enterprise edition, however if you encounter issues best way to handle them is via contribution, and any such efforts made to improve support for these technologies can contribute to the technology being supported by Ibexa in the near future.
 
 ## Client
 
-eZ software is developed to work with *any* web browser that support modern standards, on *any* screen resolution suitable for web, running on *any* device. However for the Editorial and Administration User Interfaces you'll need; a minimum of 1024-by-768 screen resolution, a desktop or tablet device, and a recommended/supported browsers found below.
+Ibexa software is developed to work with *any* web browser that support modern standards, on *any* screen resolution suitable for web, running on *any* device. However for the Editorial and Administration User Interfaces you'll need; a minimum of 1024-by-768 screen resolution, a desktop or tablet device, and a recommended/supported browsers found below.
 
 ### Recommended browsers
 
@@ -152,7 +152,7 @@ Please note that the user interface might not look or behave exactly the same ac
 
     - Verifying your legacy configuration and ensuring it is supported by Platform.sh
     - Additional time for adaptation and configuration work, and testing by your own team
-    - Additional consulting/onboarding time with Platform.sh, eZ Systems technical services, and/or one of the many partners with prior experience using Platform.sh with eZ Publish legacy
+    - Additional consulting/onboarding time with Platform.sh, Ibexa technical services, and/or one of the many partners with prior experience using Platform.sh with eZ Publish legacy
 
     The cost and effort of this is not included in eZ Platform Cloud subscription and will vary depending on the project.
 

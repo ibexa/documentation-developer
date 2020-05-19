@@ -146,7 +146,7 @@ To add a template like this to your site, create a `main_layout.html.twig` file 
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-12">
-                            <p class="small">Website design &#38; content © copyright {{ "now"|date("Y") }} eZ Systems. This website was made with eZ Platform</p>
+                            <p class="small">Website design &#38; content © copyright {{ "now"|date("Y") }} Ibexa. This website was made with eZ Platform</p>
                         </div>
                     </div>
                 </div>
