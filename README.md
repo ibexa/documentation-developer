@@ -8,7 +8,7 @@ an open source CMS based on the Symfony Full Stack Framework in PHP.
 1. eZ Platform Developer Hub: https://ezplatform.com/
 1. eZ Platform Repository: https://github.com/ezsystems/ezplatform
 1. Open JIRA board: https://jira.ez.no/
-1. eZ Systems Website: https://ez.no/
+1. Ibexa Website: https://ibexa.co/
 1. User documentation: https://doc.ezplatform.com/projects/userguide/en/latest/
 1. Personalization Solution: https://doc.ezplatform.com/projects/ezpersonalization/en/latest/
 
