@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 setup(
     name='mdx_ez_code_example',
     version='1.1.0',
-    author='Damian Zabawa / eZ Systems',
+    author='Damian Zabawa / Ibexa',
     author_email='damian.zabawa@ez.no',
     description='Markdown extension which allows to insert code examples as HTML escaped code and rendered code',
     url='https://github.com/damianz5/mdx_ez_code_example',
