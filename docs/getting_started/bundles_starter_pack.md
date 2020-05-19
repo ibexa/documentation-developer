@@ -25,5 +25,5 @@ These bundles are not necessarily something you would install, but they are usef
 
 |Bundle|Description|
 |------|-----------|
-|[ezplatform-com](https://github.com/ezsystems/ezplatform-com)|the eZ Systems Developer Hub for the Open Source PHP CMS eZ Platform (example site)|
+|[ezplatform-com](https://github.com/ezsystems/ezplatform-com)|the Ibexa Developer Hub for the Open Source PHP CMS eZ Platform (example site)|
 |[ezplatform-ee-demo](https://github.com/ezsystems/ezplatform-ee-demo)|fork of the "ezplatform-ee" meta repository, contains changes necessary to enable eZ Platform Enterprise Edition Demo. Not recommended for a clean install for new projects, but great for observation and learning (example site)|

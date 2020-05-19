@@ -8,7 +8,7 @@ The following server requirements cover both running the software on-premise and
 
 ## Server
 
-eZ software is built to rely on existing technologies and standards. The minimal setup is `PHP`,  `MySQL/MariaDB`, `Apache/Nginx`, `Node.js` and `yarn`. Recommendation for production setups is to use `Varnish`/`Fastly`, `Redis`/`Memcached`, `NFS`/`EFS`/`S3` and `Solr` in a [clustered setup](../guide/clustering.md).
+Ibexa software is built to rely on existing technologies and standards. The minimal setup is `PHP`,  `MySQL/MariaDB`, `Apache/Nginx`, `Node.js` and `yarn`. Recommendation for production setups is to use `Varnish`/`Fastly`, `Redis`/`Memcached`, `NFS`/`EFS`/`S3` and `Solr` in a [clustered setup](../guide/clustering.md).
 
 For supported versions of these technologies see Recommended and Supported setups below.
 
@@ -29,7 +29,7 @@ These setups are tested by QA and are generally recommended setups. For security
 |------|------|
 |Search|Solr (recommended; for performance, features and search quality):</br></br>Solr 7.x *Currently tested with Solr 7.7LTS*</br></br>Oracle Java/Open JDK: 8 or higher |
 |Graphic Handler|GraphicsMagick or ImageMagick or GD|
-|[Clustering](../guide/clustering.md)|Linux NFS *or* S3/EFS *(for IO, aka binary files stored in content repository, not supported with legacy)*</br>Redis 5.0 or higher *(separate instances for session & cache, both using a `volatile-*` [eviction policy](https://redis.io/topics/lru-cache), session instance configured for persistance)* *or* [Memcached](https://memcached.org/) 1.5 or higher</br>[Varnish](http://varnish-cache.org/) 6.0LTS with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst) *or* [Fastly](https://www.fastly.com/) using [our bundle provided with eZ Platform Enterprise](../guide/http_cache.md#serving-varnish-through-fastly) *(for HttpCache)*|
+|[Clustering](../guide/clustering.md)|Linux NFS *or* S3/EFS *(for IO, aka binary files stored in content repository, not supported with legacy)*</br>Redis 5.0 or higher *(separate instances for session & cache, both using a `volatile-*` [eviction policy](https://redis.io/topics/lru-cache), session instance configured for persistance)* *or* [Memcached](https://memcached.org/) 1.5 or higher</br>[Varnish](http://varnish-cache.org/) 6.0LTS with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst) *or* [Fastly](https://www.fastly.com/) using [the bundle provided with eZ Platform Enterprise Edition](../guide/http_cache.md#serving-varnish-through-fastly) *(for HttpCache)*|
 |Filesystem|Linux ext4 / XFS|
 |Package manager|Composer (recent stable version)|
 |Asset manager|`Node.js` 10.15.3 LTS</br>`yarn` 1.15.2 or higher|
@@ -59,7 +59,7 @@ For security and performance we generally recommend (unless otherwise noted) usi
     - IO: NFS or S3
     - HttpCache, using one of:
         - [Varnish](http://varnish-cache.org/) 6.0LTS with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst)
-        - [Fastly](https://www.fastly.com/) using [the bundle provided with eZ Platform Enterprise](../guide/http_cache.md#serving-varnish-through-fastly)
+        - [Fastly](https://www.fastly.com/) using [the bundle provided with eZ Platform Enterprise Edition](../guide/http_cache.md#serving-varnish-through-fastly)
 
 -   PHP extensions/modules
     -   curl
@@ -84,7 +84,7 @@ For security and performance we generally recommend (unless otherwise noted) usi
 
 ### Development and Experimental setups
 
-eZ Platform, the foundation of all eZ software, can theoretically run and execute on many more setups than the ones listed as recommended and supported, including any [operating system supported by PHP](https://wiki.php.net/platforms), on a PHP 7.3 version or higher that pass the [Symfony requirements](http://symfony.com/doc/5.0/reference/requirements.html), using cache solutions technically supported by [Symfony Cache component](https://symfony.com/doc/5.0/components/cache/cache_pools.html), using databases supported by [Doctrine DBAL](https://www.doctrine-project.org/projects/doctrine-dbal/en/2.9/reference/configuration.html#driver), and using a binary file storage solution supported by [FlySystem](https://github.com/thephpleague/flysystem#adapters).
+eZ Platform, the foundation of all Ibexa software, can theoretically run and execute on many more setups than the ones listed as recommended and supported, including any [operating system supported by PHP](https://wiki.php.net/platforms), on a PHP 7.3 version or higher that pass the [Symfony requirements](http://symfony.com/doc/5.0/reference/requirements.html), using cache solutions technically supported by [Symfony Cache component](https://symfony.com/doc/5.0/components/cache/cache_pools.html), using databases supported by [Doctrine DBAL](https://www.doctrine-project.org/projects/doctrine-dbal/en/2.9/reference/configuration.html#driver), and using a binary file storage solution supported by [FlySystem](https://github.com/thephpleague/flysystem#adapters).
 
 Examples of Development setups:
 
@@ -99,11 +99,11 @@ Examples of Experimental setups:
 -   Databases: MSSQL, Oracle (databases technically supported by Doctrine DBAL which we use, but not supported by our installer at the moment, and not covered by automated testing)
 
 
-**While all these options are not actively supported by eZ Systems**, they are community supported. Meaning you can use them with both open source edition and enterprise edition, however if you encounter issues best way to handle them is via contribution, and any such efforts made to improve support for these technologies can contribute to the technology being supported by eZ Systems in the near future.
+**While all these options are not actively supported by Ibexa**, they are community supported. Meaning you can use them with both open source edition and enterprise edition, however if you encounter issues best way to handle them is via contribution, and any such efforts made to improve support for these technologies can contribute to the technology being supported by Ibexa in the near future.
 
 ## Client
 
-eZ software is developed to work with *any* web browser that support modern standards, on *any* screen resolution suitable for web, running on *any* device. However for the Editorial and Administration User Interfaces you'll need; a minimum of 1366-by-768 screen resolution, a desktop or tablet device, and a recommended/supported browsers found below.
+Ibexa software is developed to work with *any* web browser that support modern standards, on *any* screen resolution suitable for web, running on *any* device. However for the Editorial and Administration User Interfaces you'll need; a minimum of 1366-by-768 screen resolution, a desktop or tablet device, and a recommended/supported browsers found below.
 
 ### Recommended browsers
 
@@ -151,13 +151,13 @@ Please note that the user interface might not look or behave exactly the same ac
 
     ### Supported eZ Platform Cloud setup
 
-    Because of the large range of possible configurations of eZ Platform, there are many possiblities beyond what is provided in the default recommended configuration.
+    Because of the large range of possible configurations of eZ Platform, there are many possibilities beyond what is provided in the default recommended configuration.
 
     Make sure to set aside time and budget for:
 
     - Verifying your requirements and ensuring they are supported by Platform.sh
     - Additional time for adaptation and configuration work, and testing by your development team
-    - Additional consulting/onboarding time with Platform.sh, eZ Systems technical services, and/or one of the many partners with prior experience using Platform.sh with eZ Platform
+    - Additional consulting/onboarding time with Platform.sh, Ibexa technical services, and/or one of the many partners with prior experience using Platform.sh with eZ Platform
 
     The cost and effort of this is not included in eZ Platform Cloud subscription and will vary depending on the project.
 
