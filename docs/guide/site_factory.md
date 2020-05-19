@@ -188,6 +188,44 @@
 
     For full documentation on how Permissions work and how to set them up, see [the Permissions section](permissions.md).
     
+    ## Configure Site skeleton
+    
+    The Site skeleton enables you to copy entire content structure of the site design to the defined Location.
+    
+    Site skeleton copying is one-off, it only happens during the site creation process.
+    After that, you cannot copy Site skeleton again, for example in the edit view.
+    
+    You can create as many skeletons as you need and assign them to templates.
+    Remember that one template can only have one Site skeleton assigned.
+    
+    If the design does not have defined Site skeleton, a directory of the new site is created in a standard Site Factory process.
+    
+    !!! caution "Update from v3.0"
+    
+        To be able to create Location for the Site skeletons run `ezplatform:site-factory:create-site-skeletons-container` during update procedure.
+    
+    To define Site skeleton add a new configuration key to the template definition.
+    This can be either a Location ID (e.g. `ez_site1`), or a remote Location ID (e.g. `ez_site2`).
+    
+    Add the configuration key to your template:
+    
+    ``` yaml hl_lines="7, 12"
+    ez_platform_site_factory:
+        templates:
+            ez_site1:
+                siteaccess_group: example_site_factory_group_1
+                name: example_site_1
+                thumbnail: /path/to/image/example-thumbnail_1.png
+                site_skeleton_id: 5966
+            ez_site2:
+                siteaccess_group: example_site_factory_group_2
+                name: example_site_2
+                thumbnail: /path/to/image/example-thumbnail_2.png
+                site_skeleton_remote_id: 3bed95afb1f8126f06a3c464e461e1ae66
+    ```
+    
+    Now, you should be able to see the Site skeletons in the Content Tree and choose them during the site creation in the **Site** tab.
+    
     ## Disable Site Factory
     
     Enabled Site Factory may cause following performance issues:
