@@ -1,6 +1,6 @@
 site_name: eZ Platform Developer Documentation
 repo_url: https://github.com/ezsystems/developer-documentation
-copyright: "Copyright 1999-2020 eZ Systems AS and others"
+copyright: "Copyright 1999-2020 Ibexa and others"
 nav:
     - 'eZ Platform Developer Documentation': 'index.md'
     - Getting started:

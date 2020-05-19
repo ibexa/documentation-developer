@@ -244,7 +244,7 @@ The following tables give an overview of the main eZ Platform bundles.
     |ezstudio-form-builder|Form Builder Bundle is a part of eZ Studio and is installed with eZ Studio meta repository in eZ Platform v1|
     |EzLandingPageFieldTypeBundle|Landing Page that is at the heart of StudioUI|
     |ezstudio-demo-bundle|represents a demo front-end website with eZ Studio|
-    |ezstudio-personalized-block|eZ Systems Personalized Block Bundle|
+    |ezstudio-personalized-block|Ibexa Personalized Block Bundle|
 
 ### Education
 
