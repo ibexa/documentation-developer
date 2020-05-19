@@ -6,7 +6,7 @@ eZ Platform comes with a native controller to display your content, known as the
 
 It can also be called straight by its direct URI: 
 
-`/view/content/<contentId>/full/true/<locationId>`
+`/view/content/<contentId>/full/1/<locationId>`
 
 `/view/content/<contentId>`
 
