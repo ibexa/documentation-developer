@@ -185,6 +185,8 @@
 
     For full documentation on how Permissions work and how to set them up, see [the Permissions section](permissions.md).
     
+    To learn how to use Site Factory, see [User documentation.](https://doc.ezplatform.com/projects/userguide/en/latest/site_organization/site_factory/#site-factory)
+    
     ## Configure Site skeleton
 
     The Site skeleton enables you to copy entire content structure of the site design to the defined Location.
