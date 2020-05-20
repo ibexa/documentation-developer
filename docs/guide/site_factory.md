@@ -189,7 +189,7 @@
     For full documentation on how Permissions work and how to set them up, see [the Permissions section](permissions.md).
     
     ## Configure Site skeleton
-    
+
     The Site skeleton enables you to copy entire content structure of the site design to the defined Location.
     
     Site skeleton copying is one-off, it only happens during the site creation process.
@@ -226,6 +226,8 @@
                 site_skeleton_remote_id: 3bed95afb1f8126f06a3c464e461e1ae66
     ```
     
+    Now, you can choose a design with defined Site skeleton, and decide if you want to use its skeleton by toggling **Generate site using site skeleton**.
+
     ## Disable Site Factory
     
     Enabled Site Factory may cause following performance issues:
