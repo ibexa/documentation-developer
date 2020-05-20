@@ -203,9 +203,11 @@
     !!! caution "Update from v3.0"
     
         To be able to create Location for the Site skeletons run `ezplatform:site-factory:create-site-skeletons-container` during update procedure.
+        
+        Now, you should be able to see **Site skeletons** tab under **Admin** tab. The tab is only visible after update procedure.
     
     To define Site skeleton add a new configuration key to the template definition.
-    This can be either a Location ID (e.g. `ez_site1`), or a remote Location ID (e.g. `ez_site2`).
+    This can be either a Location ID (e.g. `5966`), or a remote Location ID (e.g. `3bed95afb1f8126f06a3c464e461e1ae66`).
     
     Add the configuration key to your template:
     
@@ -223,8 +225,6 @@
                 thumbnail: /path/to/image/example-thumbnail_2.png
                 site_skeleton_remote_id: 3bed95afb1f8126f06a3c464e461e1ae66
     ```
-    
-    Now, you should be able to see the Site skeletons in the Content Tree and choose them during the site creation in the **Site** tab.
     
     ## Disable Site Factory
     
