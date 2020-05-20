@@ -128,14 +128,11 @@
               - site.example.com
               - admin.example.com
               - test.example.com
-    
     ```
     
-    Next, you must define the domains in `etc/hosts`.
+    Next, you must define the domains in `etc/hosts`:
     
-    ```bash
-    0.0.0.0 site.example.com admin.example.com test.example.com www.admin.example.com
-    ```
+    `0.0.0.0 site.example.com admin.example.com test.example.com www.admin.example.com`
     
     Then, run `docker-compose up`: 
     
@@ -211,7 +208,7 @@
     
     Add the configuration key to your template:
     
-    ``` yaml hl_lines="7, 12"
+    ```yaml hl_lines="7 12"
     ez_platform_site_factory:
         templates:
             ez_site1:
@@ -226,8 +223,8 @@
                 site_skeleton_remote_id: 3bed95afb1f8126f06a3c464e461e1ae66
     ```
     
-    Now, you can choose a design with defined Site skeleton, and decide if you want to use its skeleton by toggling **Generate site using site skeleton**.
-
+    Now, you can choose design with defined Site skeleton, and decide if you want to use its skeleton by toggling **Generate site using site skeleton**.
+    
     ## Disable Site Factory
     
     Enabled Site Factory may cause following performance issues:
