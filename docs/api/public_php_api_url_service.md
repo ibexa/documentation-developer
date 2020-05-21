@@ -33,7 +33,7 @@ $urlQuery->limit = 25;
 $results = $this->URLService->findUrls($urlQuery);
 ```
 
-## URL criteria
+## URL criteria reference
 
 |URL criteria|URL based on|
 |------------|------------|
@@ -49,5 +49,19 @@ $results = $this->URLService->findUrls($urlQuery);
 |[Validity](url_reference/validity_criterin.md)|Matches URLs based on validity flag.|
 |[VisibleOnly](url_reference/visibleonly_criterion.md)|Matches URLs which are used in published content.|
 
-## URL sort clauses
+## URL sort clauses reference
+
+Sort Clauses are the sorting options for URLs.
+Capabilities of individual Sort Clauses can depend on the search engine.
+
+All Sort Clauses can take the following optional argument:
+
+- `sortDirection` - the direction of the sorting, either `Query::SORT_ASC` (default) or `Query::SORT_DESC`
+
+#### Sort Clauses 
+
+| Sort Clause | Sorting based on |
+|-----|-----|
+|[Id](url_reference/id_sort_clause.md)|URL ID|
+|[URL](url_reference/url_sort_clause.md)|URL address|
 
