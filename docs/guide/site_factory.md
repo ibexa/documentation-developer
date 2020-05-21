@@ -201,7 +201,7 @@
     
     !!! caution "Update from v3.0"
     
-        To be able to create Location for the Site skeletons run `ezplatform:site-factory:create-site-skeletons-container` during update procedure.
+        To be able to create Location for the Site skeletons run `php ./bin/console ezplatform:site-factory:create-site-skeletons-container` during update procedure.
         
         Now, you should be able to see **Site skeletons** tab under **Admin** tab. The tab is only visible after update procedure.
     
