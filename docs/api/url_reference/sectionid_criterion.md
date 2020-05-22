@@ -1,0 +1,14 @@
+# SectionId Criterion
+
+The [`SectionId` URL Criterion](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/URL/Query/Criterion/SectionId.php)
+matches URLs based on the ID of the related content Section.
+
+## Arguments
+
+- `sectionIds` - int(s) representing the IDs of the related content Section(s)
+
+## Example
+
+``` php
+$query->query = new Criterion\SectionId(3);
+```

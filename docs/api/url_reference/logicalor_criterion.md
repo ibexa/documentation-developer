@@ -1,0 +1,18 @@
+# LogicalOr Criterion
+
+The [`LogicalOr` URL Criterion](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/URL/Query/Criterion/LogicalOr.php)
+matches a URL if at least one of the given criteria match.
+
+## Arguments
+
+- `criterion` - the set of criteria combined by the logical operator
+
+## Example
+
+``` php
+$query->query = new Criterion\LogicalOr([
+        new Criterion\SectionIdentifier(['sports', 'news'],
+        new Criterion\Pattern('ez.no')
+    ]
+);
+```

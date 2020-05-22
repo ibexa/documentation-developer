@@ -39,7 +39,6 @@ $results = $this->URLService->findUrls($urlQuery);
 |------------|------------|
 |[LogicalAnd](url_reference/logicaland_criterion.md)|This criterion implements a logical AND criterion and will only match if ALL of the given criteria match.|
 |[LogicalNot](url_reference/logicalnot_criterion.md)|Creates a new NOT logic criterion. It will match of the given criterion doesn't match|
-|[LogicalOperator](url_reference/logicaloperator_criterion.md)|Creates a Logic operation with the given criteria.|
 |[LogicalOr](url_reference/logicalor_criterion.md)|This criterion implements a logical OR criterion and will only match if AT LEAST ONE of the given criteria match.|
 |[MatchAll](url_reference/matchall_criterion.md)|Returns all URL results|
 |[MatchNone](url_reference/matchnone_criterion.md)|Returns no URL results|
