@@ -45,7 +45,7 @@ $results = $this->URLService->findUrls($urlQuery);
 |[Pattern](url_reference/pattern_criterion.md)|Matches URLs which contain the pattern.|
 |[SectionId](url_reference/sectionid_criterion.md)|Matches URLs which used by content placed in specified section ids.|
 |[SectionIdentifier](url_reference/sectionidentifier_criterion.md)|Matches URLs which used by content placed in specified section identifiers.|
-|[Validity](url_reference/validity_criterin.md)|Matches URLs based on validity flag.|
+|[Validity](url_reference/validity_criterion.md)|Matches URLs based on validity flag.|
 |[VisibleOnly](url_reference/visibleonly_criterion.md)|Matches URLs which are used in published content.|
 
 ## URL sort clauses reference
