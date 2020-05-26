@@ -1,7 +1,7 @@
 # LogicalOr Criterion
 
 The [`LogicalOr` URL Criterion](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/URL/Query/Criterion/LogicalOr.php)
-matches a URL if at least one of the given criteria match.
+matches a URL if at least one of the provided criteria match.
 
 ## Arguments
 

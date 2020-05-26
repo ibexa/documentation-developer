@@ -5,7 +5,7 @@ sorts search results by the URLs.
 
 ## Arguments
 
-- `sortDirection` (optional) - Query constant, either `Query::SORT_ASC` or `Query::SORT_DESC`.
+- `sortDirection` (optional) - Query constant, either `Query::SORT_ASC` or `Query::SORT_DESC`
 
 ## Example
 

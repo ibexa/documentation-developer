@@ -1,7 +1,7 @@
 # Pattern Criterion
 
 The [`Pattern` URL Criterion](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/URL/Query/Criterion/SectionId.php)
-URLs that contain the pattern.
+matches URLs that contain the provided pattern.
 
 ## Arguments
 

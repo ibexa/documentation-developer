@@ -1,7 +1,7 @@
 # LogicalNot Criterion
 
 The [`LogicalNot` URL Criterion](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/URL/Query/Criterion/LogicalNot.php)
-matches a URL if the given criterion does not match.
+matches a URL if the provided criterion does not match.
 
 It takes only one criterion in the array parameter.
 

@@ -37,18 +37,18 @@ $results = $this->URLService->findUrls($urlQuery);
 
 |URL criteria|URL based on|
 |------------|------------|
-|[LogicalAnd](url_reference/logicaland_criterion.md)|This criterion implements a logical AND criterion and will only match if ALL of the given criteria match.|
-|[LogicalNot](url_reference/logicalnot_criterion.md)|Creates a new NOT logic criterion. It will match of the given criterion doesn't match|
-|[LogicalOr](url_reference/logicalor_criterion.md)|This criterion implements a logical OR criterion and will only match if AT LEAST ONE of the given criteria match.|
-|[MatchAll](url_reference/matchall_criterion.md)|Returns all URL results|
-|[MatchNone](url_reference/matchnone_criterion.md)|Returns no URL results|
-|[Pattern](url_reference/pattern_criterion.md)|Matches URLs which contain the pattern.|
-|[SectionId](url_reference/sectionid_criterion.md)|Matches URLs which used by content placed in specified section ids.|
-|[SectionIdentifier](url_reference/sectionidentifier_criterion.md)|Matches URLs which used by content placed in specified section identifiers.|
+|[LogicalAnd](url_reference/logicaland_criterion.md)|This criterion implements a logical AND criterion. It matches if ALL of the provided criteria match.|
+|[LogicalNot](url_reference/logicalnot_criterion.md)|This criterion implements a logical NOT criterion. It matches if the provided criterion doesn't match.|
+|[LogicalOr](url_reference/logicalor_criterion.md)|This criterion implements a logical OR criterion. It matches if at least one of the provided criteria match.|
+|[MatchAll](url_reference/matchall_criterion.md)|Returns all URL results.|
+|[MatchNone](url_reference/matchnone_criterion.md)|Returns no URL results.|
+|[Pattern](url_reference/pattern_criterion.md)|Matches URLs that contain a pattern.|
+|[SectionId](url_reference/sectionid_criterion.md)|Matches URLs from a content placed in a specified Section ID.|
+|[SectionIdentifier](url_reference/sectionidentifier_criterion.md)|Matches URLs from a content placed in a specified Section identifiers.|
 |[Validity](url_reference/validity_criterion.md)|Matches URLs based on validity flag.|
-|[VisibleOnly](url_reference/visibleonly_criterion.md)|Matches URLs which are used in published content.|
+|[VisibleOnly](url_reference/visibleonly_criterion.md)|Matches URLs from published content.|
 
-## URL sort clauses reference
+## URL Sort Clauses reference
 
 Sort Clauses are the sorting options for URLs.
 Capabilities of individual Sort Clauses can depend on the search engine.
