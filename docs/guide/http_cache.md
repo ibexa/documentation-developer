@@ -165,24 +165,31 @@ Symfony proxy stores its cache in the Symfony cache directory, so a regular `cac
 php bin/console --env=prod cache:clear
 ```
 
-#### Purge by HTTP BAN request on Varnish
+#### Purge by HTTP request on Varnish
 
-If you use Varnish and need to purge content directly, use the following examples to see how this is done internally by the FOSPurgeClient, and in turn FOSHttpCache Varnish proxy client:
+If you use Varnish and need to purge content directly, use the following examples to see how this is done internally by the FOSPurgeClient, and in turn FOSHttpCache Varnish proxy client.
 
-For purging all:
+Purge all:
 
-```
-BAN / HTTP 1.1
+```http request
+PURGE / HTTP 1.1
 Host: localhost
-X-Location-Id: .*
 ```
 
-Or with given Location IDs (here 123 and 234):
+Purge the tagged content:
 
-```
-BAN / HTTP 1.1
+```http request
+PURGEKEYS / HTTP 1.1
 Host: localhost
-X-Location-Id: ^(123|234)$
+XKey-Purge : tags, separated, with, commas
+```
+
+Softpurge (expire) the tagged content:
+
+```http request
+PURGEKEYS / HTTP 1.1
+Host: localhost
+XKey-SoftPurge : tags, separated, with, commas
 ```
 
 ### Using Varnish
@@ -418,8 +425,8 @@ As eZ Platform uses [FOSHttpCacheBundle](http://foshttpcachebundle.readthedocs.o
 - User context hash
 
 Varnish proxy client from the FOSHttpCache library is used for clearing eZ Platform's HTTP cache, even when using Symfony HTTP cache.
-A single `BAN` request is sent to registered purge servers, containing an `X-Location-Id` header.
-This header contains all Location IDs for which objects in cache need to be cleared.
+A single HTTP request is sent to registered purge servers, containing a list of tags.
+This header contains all tags for which objects in cache need to be cleared.
 
 #### Workflow
 
