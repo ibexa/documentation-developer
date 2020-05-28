@@ -13,7 +13,7 @@ matches a URL if at least one of the provided criteria match.
 $query->filter = new Criterion\LogicalOr(
     [
         new Criterion\SectionIdentifier(['sports', 'news'],
-        new Criterion\Pattern('ez.no')
+        new Criterion\Pattern('ibexa.co')
     ]
 );
 ```

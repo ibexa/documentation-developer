@@ -13,7 +13,7 @@ matches a URL if all provided criteria match.
 $query->filter = new Criterion\LogicalAnd(
     [
         new Criterion\Validity(true),
-        new Criterion\Pattern('ez.no')
+        new Criterion\Pattern('ibexa.co')
     ]
 );
 ```

@@ -13,6 +13,6 @@ It takes only one criterion in the array parameter.
 
 ``` php
 $query->filter = new new Criterion\LogicalNot(
-        new Criterion\Pattern('ez.no')
+        new Criterion\Pattern('ibexa.co')
 );
 ```
