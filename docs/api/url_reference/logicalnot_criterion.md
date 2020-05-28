@@ -12,7 +12,7 @@ It takes only one criterion in the array parameter.
 ## Example
 
 ``` php
-$query->query = new new Criterion\LogicalNot(
+$query->filter = new new Criterion\LogicalNot(
         new Criterion\Pattern('ez.no')
 );
 ```

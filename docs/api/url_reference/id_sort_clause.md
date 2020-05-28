@@ -10,6 +10,11 @@ sorts search results by the ID of the URL.
 ## Example
 
 ``` php
-$query = new SortClause();
+use eZ\Publish\API\Repository\Values\URL\URLQuery;
+use eZ\Publish\API\Repository\Values\URL\Query\SortClause;
+
+// ...
+
+$query = new URLQuery();
 $query->sortClauses = [new SortClause\Id()];
 ```

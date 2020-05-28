@@ -9,5 +9,5 @@ The [Validity URL Criterion](https://github.com/ezsystems/ezplatform-kernel/blob
 ## Example
 
 ```php
-$query->query = new Criterion\Validity(true);
+$query->filter = new Criterion\Validity(true);
 ```

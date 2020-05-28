@@ -10,7 +10,8 @@ matches a URL if all provided criteria match.
 ## Example
 
 ``` php
-$query->query = new Criterion\LogicalAnd([
+$query->filter = new Criterion\LogicalAnd(
+    [
         new Criterion\Validity(true),
         new Criterion\Pattern('ez.no')
     ]

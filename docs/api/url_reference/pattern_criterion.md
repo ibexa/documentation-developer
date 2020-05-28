@@ -10,5 +10,5 @@ matches URLs that contain the provided pattern.
 ## Example
 
 ``` php
-$query->query = new Criterion\Pattern('ez.no');
+$query->filter = new Criterion\Pattern('ez.no');
 ```

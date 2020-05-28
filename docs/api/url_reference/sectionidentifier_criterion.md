@@ -10,5 +10,5 @@ matches URLs related to the content placed in a specified section identifier.
 ## Example
 
 ```php
-$query->query = new Criterion\SectionIdentifier(['sports', 'news']);
+$query->filter = new Criterion\SectionIdentifier(['sports', 'news']);
 ```

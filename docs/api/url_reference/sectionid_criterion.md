@@ -10,5 +10,5 @@ matches URLs based on the ID of the related content Section.
 ## Example
 
 ``` php
-$query->query = new Criterion\SectionId(3);
+$query->filter = new Criterion\SectionId(3);
 ```

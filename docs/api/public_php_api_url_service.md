@@ -14,6 +14,7 @@ in which you need to specify:
 - query limit. If value is `0`, search query will not return any search hits
 
 ```php
+use eZ\Publish\API\Repository\Values\URL\URLQuery;
 use eZ\Publish\API\Repository\Values\URL\Query\Criterion;
 use eZ\Publish\API\Repository\Values\URL\Query\SortClause; 
 
@@ -30,7 +31,7 @@ $urlQuery->sortClauses = [
 $urlQuery->offset = 0;
 $urlQuery->limit = 25;
 
-$results = $this->URLService->findUrls($urlQuery);
+$results = $urlService->findUrls($urlQuery);
 ```
 
 ## URL criteria reference
@@ -51,11 +52,10 @@ $results = $this->URLService->findUrls($urlQuery);
 ## URL Sort Clauses reference
 
 Sort Clauses are the sorting options for URLs.
-Capabilities of individual Sort Clauses can depend on the search engine.
 
 All Sort Clauses can take the following optional argument:
 
-- `sortDirection` - the direction of the sorting, either `Query::SORT_ASC` (default) or `Query::SORT_DESC`
+- `sortDirection` - the direction of the sorting, either `\eZ\Publish\API\Repository\Values\URL\Query\SortClause::SORT_ASC` (default) or `\eZ\Publish\API\Repository\Values\URL\Query\SortClause::SORT_DESC`
 
 #### Sort Clauses 
 
@@ -63,4 +63,3 @@ All Sort Clauses can take the following optional argument:
 |-----|-----|
 |[Id](url_reference/id_sort_clause.md)|URL ID|
 |[URL](url_reference/url_sort_clause.md)|URL address|
-
