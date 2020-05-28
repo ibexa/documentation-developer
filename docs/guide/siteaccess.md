@@ -82,14 +82,14 @@ The rule or set of rules by which SiteAccesses are matched. See [SiteAccess matc
                     siteaccess_list: [site, de]
     ```
     
-    If you are using multiple domains, list all those domains under `siteaccess_hosts`:
+    If you are using multiple domains, list all domains for an admin SiteAccess under `siteaccess_hosts`:
     
     ``` yaml
     ezpublish:
         system:
-            de:
+            admin:
                 page_builder:
-                    siteaccess_list: [site, de]
+                    siteaccess_list: [site, de, fr, no]
                     siteaccess_hosts:
                         - my_domain.com
                         - another_domain.org
