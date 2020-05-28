@@ -5,10 +5,10 @@ matches URLs based on the ID of the related content Section.
 
 ## Arguments
 
-- `sectionIds` - int(s) representing the IDs of the related content Section(s)
+- `sectionIds` - array of ints representing the IDs of the related content Sections
 
 ## Example
 
 ``` php
-$query->filter = new Criterion\SectionId(3);
+$query->filter = new Criterion\SectionId(['1', '3']);
 ```

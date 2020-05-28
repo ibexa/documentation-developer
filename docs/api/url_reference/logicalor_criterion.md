@@ -12,7 +12,7 @@ matches a URL if at least one of the provided criteria match.
 ``` php
 $query->filter = new Criterion\LogicalOr(
     [
-        new Criterion\SectionIdentifier(['sports', 'news'],
+        new Criterion\SectionIdentifier(['sports', 'news']),
         new Criterion\Pattern('ibexa.co')
     ]
 );
