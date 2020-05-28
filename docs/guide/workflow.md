@@ -138,7 +138,7 @@
                     notify_reviewer: ~
     ```
 
-    The notifications is displayed in the user menu:
+    The notification is displayed in the user menu:
 
     ![Notification about content to review](img/workflow_notification.png)
 
