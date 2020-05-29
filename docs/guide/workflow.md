@@ -124,31 +124,7 @@
 
     ## Sending notifications
 
-    There are two ways to send notifications about changes in the workflow.
-
-    First, you can notify whole User Groups or specific Users about a transition
-    by providing the User or User Group ID under the` notification` key.
-    
-    In this case, the User does not have to be selected as a reviewer.
-
-    ``` yaml
-    custom_workflow:
-        # ...
-        transitions:
-            # ...
-            done:
-                from: proofread
-                to: done
-                label: Done
-                color: '#88ad88'
-                notification:
-                    # Which User Group or User to notify about this transition
-                    user_group: 13
-                    user: 14
-    ```
-
-    Second, when an editor selects a reviewer in the Back Office,
-    your configuration can send a notification to the reviewer:
+    When an editor selects a reviewer in the Back Office, your configuration can send a notification to the reviewer:
     
     ``` yaml
     custom_workflow:
@@ -162,7 +138,7 @@
                     notify_reviewer: ~
     ```
 
-    In both cases, the notifications will be displayed in the user menu:
+    The notification is displayed in the user menu:
 
     ![Notification about content to review](img/workflow_notification.png)
 
