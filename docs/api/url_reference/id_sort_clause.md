@@ -5,7 +5,7 @@ sorts search results by the ID of the URL.
 
 ## Arguments
 
-- `sortDirection` (optional) - Query constant, either `Query::SORT_ASC` or `Query::SORT_DESC`.
+- `sortDirection` (optional) - the direction of the sorting, either `\eZ\Publish\API\Repository\Values\URL\Query\SortClause::SORT_ASC` (default) or `\eZ\Publish\API\Repository\Values\URL\Query\SortClause::SORT_DESC`
 
 ## Example
 
