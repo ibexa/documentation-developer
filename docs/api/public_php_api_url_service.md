@@ -21,10 +21,12 @@ use eZ\Publish\API\Repository\Values\URL\Query\SortClause;
 # ...
 
 $urlQuery = new URLQuery();
-$urlQuery->filter = new Criterion\LogicalAnd([
+$urlQuery->filter = new Criterion\LogicalAnd(
+    [
     new Criterion\SectionIdentifier(['standard']),
     new Criterion\Validity(true),
-]);
+    ]
+);
 $urlQuery->sortClauses = [
     new SortClause\URL(SortClause::SORT_DESC)
 ];
