@@ -206,7 +206,7 @@
         Now, you should be able to see **Site skeletons** tab under **Admin** tab. The tab is only visible after update procedure.
     
     To define Site skeleton add a new configuration key to the template definition.
-    This can be either a Location ID (e.g. `5966`), or a recomended remote Location ID (e.g. `3bed95afb1f8126f06a3c464e461e1ae66`).
+    This can be either a Location ID (e.g. `5966`), or a recommended remote Location ID (e.g. `3bed95afb1f8126f06a3c464e461e1ae66`).
     
     Add the configuration key to your template:
     
