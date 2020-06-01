@@ -155,8 +155,10 @@ class Hello extends ValueObjectVisitor
 {
     public function visit( Visitor $visitor, Generator $generator, $data )
     {
-        $generator->startValueElement( 'Hello', $data->name );
-        $generator->endValueElement( 'Hello' );
+        $generator->startObjectElement('Hello');
+        $generator->startValueElement( 'Name', $data->name );
+        $generator->endValueElement( 'Name' );
+        $generator->endObjectElement('Hello');
     }
 }
 ```
