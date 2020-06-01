@@ -171,22 +171,22 @@ If you use Varnish and need to purge content directly, use the following example
 
 Purge all:
 
-```http request
+```http
 PURGE / HTTP 1.1
 Host: localhost
 ```
 
 Purge the tagged content:
 
-```http request
+```http
 PURGEKEYS / HTTP 1.1
 Host: localhost
 XKey-Purge : tags, separated, with, commas
 ```
 
-Softpurge (expire) the tagged content:
+Soft purge (expire) the tagged content:
 
-```http request
+```http
 PURGEKEYS / HTTP 1.1
 Host: localhost
 XKey-SoftPurge : tags, separated, with, commas
@@ -262,6 +262,7 @@ fastcgi_param TRUSTED_PROXIES "193.22.44.22";
     
     Otherwise, you might notice incorrect schema (`http` instead of `https`) in the URLs for the images or other binary files
     when they are rendered inline by Symfony *(as used by file-based field templates)*, as opposed to via ESI.
+    
     For more information, see [How to Configure Symfony to work behind a Load Balancer or a Reverse Proxy](https://symfony.com/doc/5.0/deployment/proxies.html)
 
 #### Update YAML configuration
