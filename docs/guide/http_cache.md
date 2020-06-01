@@ -233,7 +233,7 @@ If you use fastcgi/fpm you can pass these directly to PHP process, but in all ca
 
     # Configure IP of your Varnish server to be trusted proxy
     # Replace fake IP address below by your Varnish IP address
-    SetEnv SYMFONY_TRUSTED_PROXIES "193.22.44.22"
+    SetEnv TRUSTED_PROXIES "193.22.44.22"
 </VirtualHost>
 ```
 
@@ -248,14 +248,21 @@ fastcgi_param HTTPCACHE_PURGE_SERVER "http://varnish:80";
 
 # Configure IP of your Varnish server to be trusted proxy
 # Replace fake IP address below by your Varnish IP address
-fastcgi_param SYMFONY_TRUSTED_PROXIES "193.22.44.22";
+fastcgi_param TRUSTED_PROXIES "193.22.44.22";
 ```
 
 !!! caution "Trusted proxies when using SSL offloader / loadbalancer in combination with Varnish"
 
-    If your installation works behind Varnish and SSL offloader (like HAProxy), you need to add `127.0.0.1` to `SYMFONY_TRUSTED_PROXIES`.
+    If your installation works behind Varnish and SSL offloader (like HAProxy), you need to set the `TRUSTED_PROXIES` env var:
+    
+    ```
+    # .env
+    TRUSTED_PROXIES=127.0.0.1,REMOTE_ADDR
+    ```
+    
     Otherwise, you might notice incorrect schema (`http` instead of `https`) in the URLs for the images or other binary files
     when they are rendered inline by Symfony *(as used by file-based field templates)*, as opposed to via ESI.
+    For more information, see [How to Configure Symfony to work behind a Load Balancer or a Reverse Proxy](https://symfony.com/doc/5.0/deployment/proxies.html)
 
 #### Update YAML configuration
 
