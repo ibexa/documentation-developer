@@ -192,6 +192,8 @@ Host: localhost
 XKey-SoftPurge : tags, separated, with, commas
 ```
 
+To make the most of the purge option, see [Available tags](#available-tags).
+
 ### Using Varnish
 
 As eZ Platform is built on top of Symfony, it uses standard HTTP cache headers.
@@ -257,7 +259,7 @@ fastcgi_param TRUSTED_PROXIES "193.22.44.22";
     
     ```
     # .env
-    TRUSTED_PROXIES=127.0.0.1,REMOTE_ADDR
+    TRUSTED_PROXIES=127.0.0.1
     ```
     
     Otherwise, you might notice incorrect schema (`http` instead of `https`) in the URLs for the images or other binary files
