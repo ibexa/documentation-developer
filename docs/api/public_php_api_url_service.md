@@ -40,14 +40,14 @@ $results = $urlService->findUrls($urlQuery);
 
 |URL criteria|URL based on|
 |------------|------------|
-|[LogicalAnd](url_reference/logicaland_criterion.md)|This criterion implements a logical AND criterion. It matches if ALL of the provided criteria match.|
-|[LogicalNot](url_reference/logicalnot_criterion.md)|This criterion implements a logical NOT criterion. It matches if the provided criterion doesn't match.|
-|[LogicalOr](url_reference/logicalor_criterion.md)|This criterion implements a logical OR criterion. It matches if at least one of the provided criteria match.|
+|[LogicalAnd](url_reference/logicaland_criterion.md)|Implements a logical AND Criterion. It matches if ALL of the provided Criteria match.|
+|[LogicalNot](url_reference/logicalnot_criterion.md)|Implements a logical NOT Criterion. It matches if the provided Criterion doesn't match.|
+|[LogicalOr](url_reference/logicalor_criterion.md)|Implements a logical OR Criterion. It matches if at least one of the provided Criteria match.|
 |[MatchAll](url_reference/matchall_criterion.md)|Returns all URL results.|
 |[MatchNone](url_reference/matchnone_criterion.md)|Returns no URL results.|
 |[Pattern](url_reference/pattern_criterion.md)|Matches URLs that contain a pattern.|
-|[SectionId](url_reference/sectionid_criterion.md)|Matches URLs from a content placed in a specified Section ID.|
-|[SectionIdentifier](url_reference/sectionidentifier_criterion.md)|Matches URLs from a content placed in a specified Section identifiers.|
+|[SectionId](url_reference/sectionid_criterion.md)|Matches URLs from content placed in the Section with the specified ID.|
+|[SectionIdentifier](url_reference/sectionidentifier_criterion.md)|Matches URLs from content placed in Sections with the specified identifiers.|
 |[Validity](url_reference/validity_criterion.md)|Matches URLs based on validity flag.|
 |[VisibleOnly](url_reference/visibleonly_criterion.md)|Matches URLs from published content.|
 

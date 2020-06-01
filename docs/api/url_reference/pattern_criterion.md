@@ -5,7 +5,7 @@ matches URLs that contain the provided pattern.
 
 ## Arguments
 
-- `pattern` - string representing pattern that needs to be a part of URL
+- `pattern` - string representing the pattern that needs to be a part of the URL
 
 ## Example
 

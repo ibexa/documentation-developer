@@ -1,11 +1,11 @@
 # LogicalAnd Criterion
 
 The [`LogicalAnd` URL Criterion](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/URL/Query/Criterion/LogicalAnd.php)
-matches a URL if all provided criteria match.
+matches a URL if all provided Criteria match.
 
 ## Arguments
 
-- `criterion` - the set of criteria combined by the logical operator
+- `criterion` - the set of Criteria combined by the logical operator
 
 ## Example
 
