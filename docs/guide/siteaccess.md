@@ -81,9 +81,19 @@ The rule or set of rules by which SiteAccesses are matched. See [SiteAccess matc
                 page_builder:
                     siteaccess_list: [site, de]
     ```
-
-    !!! caution
-        If you are using SiteAccesses configured for a different domain in the Page Builder, you need to update your installation to eZ Enterprise v2.4.2+ and [enable token-based authentication](../releases/ez_platform_v2.4.md#update-ez-enterprise-v24-to-v242).
+    
+    If you are using multiple domains, list all domains for an admin SiteAccess under `siteaccess_hosts`:
+    
+    ``` yaml
+    ezpublish:
+        system:
+            admin:
+                page_builder:
+                    siteaccess_list: [site, de, fr, no]
+                    siteaccess_hosts:
+                        - my_domain.com
+                        - another_domain.org
+    ```
 
 ### Settings per SiteAccess
 
