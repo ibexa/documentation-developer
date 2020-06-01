@@ -189,23 +189,23 @@
     
     ## Configure Site skeleton
 
-    The Site skeleton enables you to copy entire content structure of the site design to the defined Location.
+    The Site skeleton enables you to copy an entire content structure of the site design to the defined Location.
     
-    Site skeleton copying is one-off, it only happens during the site creation process.
-    After that, you cannot copy Site skeleton again, for example in the edit view.
+    Site skeleton copying is a one-off operation, it only happens during the site creation process.
+    After that, you cannot copy the Site skeleton again, for example in the edit view.
     
     You can create as many skeletons as you need and assign them to templates.
     Remember that one template can only have one Site skeleton assigned.
     
-    If the design does not have defined Site skeleton, a directory of the new site is created in a standard Site Factory process.
+    If the design does not have a defined Site skeleton, a directory of the new site is created in a standard Site Factory process.
     
     !!! caution "Update from v3.0"
     
-        To be able to create Location for the Site skeletons run `php ./bin/console ezplatform:site-factory:create-site-skeletons-container` during update procedure.
+        To be able to create a Location for the Site skeletons, run `php ./bin/console ezplatform:site-factory:create-site-skeletons-container` during the update procedure.
         
-        Now, you should be able to see **Site skeletons** tab under **Admin** tab. The tab is only visible after update procedure.
+        Now, you should be able to see **Site skeletons** tab under **Admin** tab. The tab is only visible after the update procedure.
     
-    To define Site skeleton add a new configuration key to the template definition.
+    To define a Site skeleton, add a new configuration key to the template definition.
     This can be either a Location ID (e.g. `5966`), or a recommended remote Location ID (e.g. `3bed95afb1f8126f06a3c464e461e1ae66`).
     
     Add the configuration key to your template:
@@ -225,7 +225,7 @@
                 site_skeleton_remote_id: 3bed95afb1f8126f06a3c464e461e1ae66
     ```
     
-    Now, you can choose design with defined Site skeleton, and decide if you want to use its skeleton by toggling **Generate site using site skeleton**.
+    Now, you can choose a design with a defined Site skeleton, and decide if you want to use its skeleton by toggling **Generate site using site skeleton**.
     
     ## Disable Site Factory
     
