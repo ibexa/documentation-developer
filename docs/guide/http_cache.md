@@ -137,7 +137,7 @@ Settings for purge servers can be configured per SiteAccess group or SiteAccess:
 ``` yaml
 ezplatform:
     http_cache:
-        purge_type: http
+        purge_type: varnish
 
     system:
         my_siteacess:
@@ -221,7 +221,7 @@ If you use fastcgi/fpm you can pass these directly to PHP process, but in all ca
 
     # Force front controller NOT to use built-in reverse proxy.
     SetEnv SYMFONY_HTTP_CACHE 0
-    SetEnv HTTPCACHE_PURGE_TYPE http
+    SetEnv HTTPCACHE_PURGE_TYPE varnish
     SetEnv HTTPCACHE_PURGE_SERVER "http://varnish:80"
 
     # Configure IP of your Varnish server to be trusted proxy
@@ -236,7 +236,7 @@ If you use fastcgi/fpm you can pass these directly to PHP process, but in all ca
 # mysite.com
 
 fastcgi_param SYMFONY_HTTP_CACHE 0;
-fastcgi_param HTTPCACHE_PURGE_TYPE http;
+fastcgi_param HTTPCACHE_PURGE_TYPE varnish;
 fastcgi_param HTTPCACHE_PURGE_SERVER "http://varnish:80";
 
 # Configure IP of your Varnish server to be trusted proxy
@@ -260,7 +260,7 @@ The following configuration is not required as eZ Platform will read the environ
 ``` yaml
 ezplatform:
     http_cache:
-        purge_type: http
+        purge_type: varnish
 
     system:
         # Assuming that my_siteaccess_group contains both your front-end and back-end SiteAccesses
