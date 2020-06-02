@@ -16,7 +16,7 @@ You can now manage URL addresses and URL wildcards with a comfortable user inter
 
 !!! note
 
-As of this release, the Link manager is no longer part of the Content panel, and now it belongs to the Admin panel of the Back Office.
+  As of this release, the Link manager is no longer part of the Content panel, and now it belongs to the Admin panel of the Back Office.
 
 ![Content Tree in the menu](img/3_1_URL_Management.png "URL Management UI")
 
