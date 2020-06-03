@@ -139,7 +139,7 @@ The configuration requires providing the following parameters:
 
 !!! caution
 
-    When using `.env.local` file with the mentioned `DATABASE_*` parameters, `DATABASE_URL` parameter needs to be re-defined for interpolation after overriding those parameters:
+    When using the `.env.local` file with the `DATABASE_*` parameters mentioned above, the `DATABASE_URL` parameter needs to be re-defined for interpolation after overriding those parameters:
     ```
     DATABASE_URL=${DATABASE_PLATFORM}://${DATABASE_USER}:${DATABASE_PASSWORD}@${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}
     ```
