@@ -1,18 +1,21 @@
 # URL management
 
+Manage external URL addresses and URL wildcards with a comfortable user interface that is available in the Back Office, Admin tab, the URL Manager node. Configure URL aliases to have human-readable URL addresses throughout your system.
+
+## Link manager
+
+When developing a site, users can enter links to external websites in either RichText or URL fields.  Each such link is then stored in the URL table. You can view and update all external links that exist within the site, without having to modify and re-publish the individual Content items.
+
+The Link manager tab contains all the information about each link, including its status (valid or invalid) and the time the system last attempted to validate the URL address. Click an entry in the list to display its details and check which Content items use this link. Edit the entry to update the URL address in all the occurrences throughout the website.
+
+!!! note
+
+    When you edit the details of an entry to update the URL address, the status automatically changes to valid.
+
+
 ## External URL validation
 
-Every link that is input into a RichText or URL Field is stored in the URL table.
-You can view and edit published URLs in the Link manager without having to modify the Content items.
-This means that you don't have to edit and re-publish your content if you just want to change a link.
-
-The Link manager contains all the necessary information about each address including its status (valid or invalid)
-and the time it was last checked (when the system attempted to validate the URL).
-By default, all URLs are valid.
-
-You can use the `ezplatform:check-urls` command to check all the addresses stored in the URL table.
-It validates the links by accessing them one by one.
-If a broken link is found, its status is set to "invalid". The last checked field is always updated.
+You can manually validate all the addresses from the URL table, by executing the `ezplatform:check-urls` command. It validates the links by accessing them one by one and updates the value in the Last checked field. If a broken link is found, its status is set to "invalid".
 
 The following protocols are currently supported:
 
@@ -20,9 +23,9 @@ The following protocols are currently supported:
 - `https`
 - `mailto`
 
-### Enable automatic URL validation
+### Enabling automatic URL validation
 
-To enable automatic URL validation, you need to set up cron to run the `ezplatform:check-urls` command periodically.
+To enable automatic URL validation, you set up cron to run the `ezplatform:check-urls` command periodically.
 
 For example, to check links every week, add the following script:
 
@@ -30,7 +33,7 @@ For example, to check links every week, add the following script:
 echo '0 0 * * 0 cd [path-to-ezplatform]; php bin/console ezplatform:check-urls --quiet --env=prod' > ezp_cron.txt
 ```
 
-Next, append the new cron to user's crontab without destroying existing crons. Assuming the web server user data is www-data:
+Next, append the new cron to user's crontab without destroying existing crons. Assuming that the web server user data is www-data:
 
 ```
 crontab -u www-data -l|cat - ezp_cron.txt | crontab -u www-data -
@@ -44,8 +47,7 @@ rm ezp_cron.txt
 
 ### Configuration
 
-Configuration of external URLs validation is SiteAccess-aware and is stored under `ezplatform.system.<SITEACCESS>.url_checker`.
-Example configuration (in `config/packages/ezplatform.yaml`):
+The configuration of external URLs validation is SiteAccess-aware and is stored in the `config/packages/ezplatform.yaml` file, under the `ezplatform.system.<SITEACCESS>.url_checker` key, for example:
 
 ```yaml
 ezplatform:
@@ -63,28 +65,29 @@ ezplatform:
                     	enabled: false
 ```
 
-Available options are protocol-specific.
+Available options are protocol-specific. For details, see the tables below.
 
 #### http/https protocol
 
-| Option             | Description                                                         | Default value |
-|--------------------|---------------------------------------------------------------------|---------------|
-| enabled            | Enables the validation                                              | true          |
-| timeout            | Maximum time the request is allowed to take (in seconds)            | 10            |
-| connection_timeout | Timeout for the connect phase (in seconds)                          | 5             |
-| batch_size         | Maximum number of asynchronous requests                             | 10            |
-| ignore_certificate | Verify the peer's SSL certificate / certificate's name against host | false         |
+| Option             | Description                                                                              |  Default value |
+|----------------------|----------------------------------------------------------------------------------------|-----------------------|
+| enabled            | Enables   link validation.                                                      | true          |
+| timeout            | Defines the time that the request is allowed to take (in seconds).                       | 10            |
+| connection_timeout | Defines the time that the connect phase is allowed to take (in seconds).                 | 5             |
+| batch_size         | Defines a maximum   number of asynchronous requests.                                     | 10            |
+| ignore_certificate | Decides if the peer's SSL certificate or the certificate's is verified against the host. | false         |
 
 #### mailto protocol
 
 | Option             | Description                                                         | Default value |
 |--------------------|---------------------------------------------------------------------|---------------|
-| enabled            | Enables the validation                                              | true          |
+| enabled            | Enables link validation.                                            | true          |
 
-## Custom protocol support
+For more information about configuration, see [Configuration](configuration).
 
-It's possible to extend external URLs validation with a custom protocol.
-You need to provide a service implementing the `\eZ\Bundle\EzPublishCoreBundle\URLChecker\URLHandlerInterface` interface:
+### Custom protocol support
+
+You can extend the external URL address validation with a custom protocol. To do this, you must provide a service that implements the `\eZ\Bundle\EzPublishCoreBundle\URLChecker\URLHandlerInterface` interface:
 
 ```php
 <?php
@@ -94,7 +97,7 @@ namespace eZ\Bundle\EzPublishCoreBundle\URLChecker;
 interface URLHandlerInterface
 {
     /**
-     * Validates given list of URLs.
+     * Validates a given list of URLs.
      *
      * @param \eZ\Publish\API\Repository\Values\URL\URL[] $urls
      */
@@ -109,7 +112,7 @@ interface URLHandlerInterface
 }
 ```
 
-and register it with an `ezpublish.url_handler` tag. For instance:
+Then you must register the service with an `ezpublish.url_handler` tag, like in the following example:
 
 ```yaml
 app.url_checker.handler.custom:
@@ -119,11 +122,63 @@ app.url_checker.handler.custom:
         - { name: ezpublish.url_handler, scheme: custom }
 ```
 
-The `scheme` attribute is mandatory and has to correspond to the name of the protocol, for instance `ftp`.
+The `scheme` attribute is mandatory and has to correspond to the name of the protocol, for instance, `ftp`.
 
-## URL alias patterns
 
-You can configure how eZ Platform generates URL aliases. The configuration is available under `ezplatform.url_alias.slug_converter`, for example:
+## URL wildcards
+
+With wildcards you have a simple way to display content under a specific URL address, for example, when you decide to reorganize the architecture and want to protect users from losing easy access to the content that they have bookmarked.
+
+For each wildcard you can decide whether the user will see the updated content at the original address (direct type), or will be redirected to the new address (forward type).
+
+For example, a URL wildcard called `pictures/*/*` can use `media/images/{1}/{2}` as destination.
+In this case, accessing `<yourdomain>/pictures/home/photo/` will load `<yourdomain>/media/images/home/photo/`.
+
+You configure URL wildcards either in the Back Office user interface, or with the Public API.
+
+!!! note
+
+   To be able to modify wildcard support settings, you must have content/IRLtranslator permissions. For more information about permissions, see [Permissions](permissions/#permissions).
+
+Before you configure URL wildcards, you must enable the feature URL wildcards must be enabled in configuration in the `config/packages/ezplatform.yaml` file:
+
+``` yaml
+ezplatform:
+    url_wildcards:
+        enabled: true
+```
+
+### Configuring URL wildcards in the Back Office
+
+The URL wildcards tab contains all the information about each URL wildcard. You can delete or modify existing entries, or create new ones.
+
+When you edit an existing wildcard URL or add a new one, you define the wildcard pattern and its destination. Also, you decide whether the user should see the updated content at the existing address (direct type), or should be redirected to the new address (forward type).
+
+### Configuring URL wildcards with the Public API
+
+You create URL wildcards with the Public API by using the `URLWildcardService` service:
+
+``` php
+$source = 'pictures/*/*';
+$destination = 'media/images/{1}/{2}';
+$redirect = true;
+
+$urlWildcardService = $repository->getURLWildcardService();
+$repository->sudo(function ($repository) use ($urlWildcardService, $source, $destination, $redirect) {
+    $urlWildcardService->create($source, $destination, $redirect);
+});
+```
+
+If `$redirect` is set to `true`, the redirection changes the URL address.
+If it is `false`, the old URL address is be used, with the new content.
+
+## URL aliases
+
+URL aliases are human-readable (meaningful) equivalents of URL addresses. You use them to help users navigate the website.
+
+### URL alias pattern configuration
+
+You can configure how eZ Platform generates URL aliases. The configuration is stored in the `config/packages/ezplatform.yaml` file, under the `ezplatform.url_alias.slug_converter` key, for example:
 
 ``` yaml
 ezplatform:
@@ -142,65 +197,40 @@ ezplatform:
                     cleanup_method: url_cleanup
 ```
 
-`transformation` indicates which pattern will be used by default.
-The `transformation_groups` key contains the available patterns for URL generation.
-There are three types of `separator` available: `dash`, `underscore` and `space`.
+| Option                | Description                                                                                               |
+|-----------------------|-----------------------------------------------------------------------------------------------------------|
+| transformation        | Indicates which pattern is used by default.                                                            |
+| separator             | Decides what separator is used. There are three types of separator available: dash, underscore and space. |
+| transformation_groups | Contains the available patterns for URL generation.                                                       |
 
 A transformation group consists of an array of commands (see [all available commands](https://github.com/ezsystems/ezplatform-kernel/tree/v1.0.0/eZ/Publish/Core/Persistence/Tests/TransformationProcessor/_fixtures/transformations)) and a [`cleanupMethod`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/Persistence/Legacy/Content/UrlAlias/SlugConverter.php#L288).
 
 You can make use of pre-defined transformation groups.
 You can also add your own, with your own set of commands.
-To add commands to an existing group, provide the group name and list the commands you want to add.
+To add commands to an existing group, provide the group name and list the commands that you want to add.
 
-## Regenerating URL aliases
+### Regenerating URL aliases
 
 You can use the `ezplatform:urls:regenerate-aliases` command to regenerate all URL aliases.
-After the command is applied, old aliases will redirect to the new ones.
+After the command is applied, old aliases redirect to the new ones.
 
 Use it when:
 
 - you change URL alias configuration and want to regenerate old aliases
 - you encounter database corruption
-- you have content that for whatever reason does not have a URL alias
+- you have content that does not have a URL alias
 
-Before applying the command, back up your database and make sure it is not modified while the command is running.
+!!! caution
+
+  Before you apply the command, back up your database and make sure it is not modified while the command is running.
+
+Execute the following command to regenerate aliases:
 
 ``` bash
 bin/console ezplatform:urls:regenerate-aliases
 ```
 
-You can also extend the command by the following parameters:
+You can also extend the command with the following parameters:
 
-- `--iteration-count` — to define how many Locations should be processed at once to reduce memory usage
-- `--location-id` — to regenerate URLs for specific Locations only, e.g. `ezplatform:urls:regenerate-aliases --location-id=1 --location-id=2`
-
-## URL wildcards
-
-Using the Public API you can set up global URL wildcards for redirections.
-
-For example, a URL wildcard called `pictures/*/*` can use `media/images/{1}/{2}` as destination.
-In this case, accessing `<yourdomain>/pictures/home/photo/` will load `<yourdomain>/media/images/home/photo/`.
-
-URL wildcards can be created with the Public API with the help of the `URLWildcardService`:
-
-``` php
-$source = 'pictures/*/*';
-$destination = 'media/images/{1}/{2}';
-$redirect = true;
-
-$urlWildcardService = $repository->getURLWildcardService();
-$repository->sudo(function ($repository) use ($urlWildcardService, $source, $destination, $redirect) {
-    $urlWildcardService->create($source, $destination, $redirect);
-});
-```
-
-If `$redirect` is set to `true`, the redirection will change the URL address.
-If it is `false`, the old URL address will be used, with the new content.
-
-URL wildcards must be enabled in configuration with:
-
-``` yaml
-ezplatform:
-    url_wildcards:
-        enabled: true
-```
+- `--iteration-count` — Defines how many Locations are processed at once to reduce memory usage
+- `--location-id` — Regenerates URL addresses for specific Locations only, e.g. `ezplatform:urls:regenerate-aliases --location-id=1 --location-id=2`
