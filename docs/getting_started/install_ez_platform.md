@@ -137,6 +137,13 @@ The configuration requires providing the following parameters:
 - `DATABASE_PLATFORM` —  prefix for distinguishing the database you are connecting to (e.g. `mysql` or `pgsql`)
 - `DATABASE_DRIVER` — driver used by Doctrine to connect to the database (e.g. `pdo_mysql` or `pdo_pgsql`)
 
+!!! caution
+
+    When using `.env.local` file with the mentioned `DATABASE_*` parameters, `DATABASE_URL` parameter needs to be re-defined for interpolation after overriding those parameters:
+    ```
+    DATABASE_URL=${DATABASE_PLATFORM}://${DATABASE_USER}:${DATABASE_PASSWORD}@${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}
+    ```
+
 !!! tip "Using PostgreSQL"
 
     If you want an installation with PostgreSQL instead of MySQL, refer to [Using PostgreSQL](../guide/databases.md#using-postgresql).
