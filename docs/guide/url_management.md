@@ -4,7 +4,7 @@ Manage external URL addresses and URL wildcards with a comfortable user interfac
 
 ## Link manager
 
-When developing a site, users can enter links to external websites in either RichText or URL fields.  Each such link is then stored in the URL table. You can view and update all external links that exist within the site, without having to modify and re-publish the individual Content items.
+When developing a site, users can enter links to external websites in either RichText or URL fields. Each such link is then displayed in the URL table. You can view and update all external links that exist within the site, without having to modify and re-publish the individual Content items.
 
 The Link manager tab contains all the information about each link, including its status (valid or invalid) and the time the system last attempted to validate the URL address. Click an entry in the list to display its details and check which Content items use this link. Edit the entry to update the URL address in all the occurrences throughout the website.
 
@@ -15,7 +15,7 @@ The Link manager tab contains all the information about each link, including its
 
 ## External URL validation
 
-You can manually validate all the addresses from the URL table, by executing the `ezplatform:check-urls` command. It validates the links by accessing them one by one and updates the value in the Last checked field. If a broken link is found, its status is set to "invalid".
+You can validate all the addresses from the URL table by executing the `ezplatform:check-urls` command. It validates the links by accessing them one by one and updates the value in the Last checked field. If a broken link is found, its status is set to "invalid".
 
 The following protocols are currently supported:
 
@@ -25,7 +25,7 @@ The following protocols are currently supported:
 
 ### Enabling automatic URL validation
 
-To enable automatic URL validation, you set up cron to run the `ezplatform:check-urls` command periodically.
+To enable automatic URL validation, set up cron to run the `ezplatform:check-urls` command periodically.
 
 For example, to check links every week, add the following script:
 
@@ -75,7 +75,7 @@ Available options are protocol-specific. For details, see the tables below.
 | timeout            | Defines the time that the request is allowed to take (in seconds).                       | 10            |
 | connection_timeout | Defines the time that the connect phase is allowed to take (in seconds).                 | 5             |
 | batch_size         | Defines a maximum   number of asynchronous requests.                                     | 10            |
-| ignore_certificate | Decides if the peer's SSL certificate or the certificate's is verified against the host. | false         |
+| ignore_certificate | Decides if the peer's SSL certificate or the certificate name are verified against the host. | false         |
 
 #### mailto protocol
 
@@ -129,14 +129,14 @@ The `scheme` attribute is mandatory and has to correspond to the name of the pro
 
 With wildcards you have a simple way to display content under a specific URL address, for example, when you decide to reorganize the architecture and want to protect users from losing easy access to the content that they have bookmarked.
 
-For each wildcard you can decide whether the user will see the updated content at the original address (direct type), or will be redirected to the new address (forward type).
+For each wildcard you can decide whether the user sees the updated content at the original address (Direct type), or is redirected to the new address (Forward type).
 
 For example, a URL wildcard called `pictures/*/*` can use `media/images/{1}/{2}` as destination.
-In this case, accessing `<yourdomain>/pictures/home/photo/` will load `<yourdomain>/media/images/home/photo/`.
+In this case, accessing `<yourdomain>/pictures/home/photo/` loads `<yourdomain>/media/images/home/photo/`.
 
-You configure URL wildcards either in the Back Office user interface, or with the Public API.
+You can configure URL wildcards either in the Back Office, or with the Public API.
 
-Before you configure URL wildcards, you must enable the feature URL wildcards must be enabled in configuration in the `config/packages/ezplatform.yaml` file:
+Before you configure URL wildcards, you must enable the feature in configuration in the `config/packages/ezplatform.yaml` file:
 
 ``` yaml
 ezplatform:
@@ -152,7 +152,7 @@ When you edit an existing wildcard URL or add a new one, you define the wildcard
 
 !!! note
 
-    To be able to modify wildcard support settings in the user interface, you must have `content/IRLtranslator` permissions. For more information about permissions, see [Permissions](permissions/#permissions).
+    To be able to modify wildcard support settings in the user interface, you must have the `content/urltranslator` Policy. For more information about permissions, see [Permissions](permissions.md).
 
 
 ### Configuring URL wildcards with the Public API
@@ -200,9 +200,9 @@ ezplatform:
 
 | Option                | Description                                                                                               |
 |-----------------------|-----------------------------------------------------------------------------------------------------------|
-| transformation        | Indicates which pattern is used by default.                                                            |
-| separator             | Decides what separator is used. There are three types of separator available: dash, underscore and space. |
-| transformation_groups | Contains the available patterns for URL generation.                                                       |
+| `transformation`        | Indicates which pattern is used by default.                                                            |
+| `separator`             | Decides what separator is used. There are three types of separator available: dash, underscore and space. |
+| `transformation_groups` | Contains the available patterns for URL generation.                                                       |
 
 A transformation group consists of an array of commands (see [all available commands](https://github.com/ezsystems/ezplatform-kernel/tree/v1.0.0/eZ/Publish/Core/Persistence/Tests/TransformationProcessor/_fixtures/transformations)) and a [`cleanupMethod`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/Persistence/Legacy/Content/UrlAlias/SlugConverter.php#L288).
 
