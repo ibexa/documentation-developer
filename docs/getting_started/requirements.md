@@ -27,7 +27,7 @@ These setups are tested by QA and are generally recommended setups. For security
 
 |||
 |------|------|
-|Search|Solr (recommended; for performance, features and search quality):</br></br>Solr 6.x *Currently tested with Solr 6.6LTS*</br></br>Oracle Java/Open JDK: 8</br></br>*NOTE: If your Java version is higher than 8, you need to downgrade it to Oracle Java/Open JDK: 8.* |
+|Search|Solr (recommended; for performance, features and search quality):</br></br>Solr 7.x</br></br>Oracle Java/Open JDK: 8</br></br>*Currently tested with Solr 7.7LTS and Java Runtime Environment (JRE) version 1.8*|
 |Graphic Handler|GraphicsMagick or ImageMagick or GD|
 |[Clustering](../guide/clustering.md)|Linux NFS *or* S3/EFS *(for IO, aka binary files stored in content repository; S3 is not supported with legacy)*</br>Redis 3.2 or higher *(preferably separate instances for session & cache, both using one of the `volatile-*` [eviction policies](https://redis.io/topics/lru-cache))*</br>[Varnish](http://varnish-cache.org/) 5.1 or 6.0LTS *(recommended)* with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst) *or* [Fastly](https://www.fastly.com/) using [our bundle provided with eZ Platform Enterprise](../guide/http_cache.md#serving-varnish-through-fastly) *(for HttpCache)*|
 |Filesystem|Linux ext4 / XFS|
@@ -54,7 +54,10 @@ For security and performance we generally recommend (unless otherwise noted and 
 
 - Cluster
     - Redis 3.2+ (preferably separate instances for session and cache, both using one of the `volatile-*` [eviction policies](https://redis.io/topics/lru-cache))
-    - Solr 6 (recommended over SQL based Search engine, especially on cluster, as SQL does not provide the same feature set or performance as Solr)
+    - Solr
+        - Recommended over SQL based Search engine, especially on cluster, as SQL does not provide the same feature set or performance as Solr
+        - Recommended with Solr 7.7 (Solr Bundle v2.0)
+        - Supported, but deprecated with Solr 6.6 (Solr Bundle 1.7)
     - NFS or S3
     - HttpCache, using one of:
         - [Varnish](http://varnish-cache.org/) 5.1 or 6.0LTS *(recommended)* with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst)
