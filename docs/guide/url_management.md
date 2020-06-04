@@ -136,10 +136,6 @@ In this case, accessing `<yourdomain>/pictures/home/photo/` will load `<yourdoma
 
 You configure URL wildcards either in the Back Office user interface, or with the Public API.
 
-!!! note
-
-   To be able to modify wildcard support settings, you must have content/IRLtranslator permissions. For more information about permissions, see [Permissions](permissions/#permissions).
-
 Before you configure URL wildcards, you must enable the feature URL wildcards must be enabled in configuration in the `config/packages/ezplatform.yaml` file:
 
 ``` yaml
@@ -153,6 +149,11 @@ ezplatform:
 The URL wildcards tab contains all the information about each URL wildcard. You can delete or modify existing entries, or create new ones.
 
 When you edit an existing wildcard URL or add a new one, you define the wildcard pattern and its destination. Also, you decide whether the user should see the updated content at the existing address (direct type), or should be redirected to the new address (forward type).
+
+!!! note
+
+    To be able to modify wildcard support settings in the user interface, you must have `content/IRLtranslator` permissions. For more information about permissions, see [Permissions](permissions/#permissions).
+
 
 ### Configuring URL wildcards with the Public API
 
@@ -222,7 +223,8 @@ Use it when:
 
 !!! caution
 
-  Before you apply the command, back up your database and make sure it is not modified while the command is running.
+    Before you apply the command, back up your database and make sure it is not modified while the command is running.
+
 
 Execute the following command to regenerate aliases:
 
