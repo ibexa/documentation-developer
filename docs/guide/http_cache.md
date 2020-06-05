@@ -255,7 +255,7 @@ fastcgi_param TRUSTED_PROXIES "193.22.44.22";
 
 !!! caution "Trusted proxies when using SSL offloader / loadbalancer in combination with Varnish"
 
-    If your installation works behind Varnish and SSL offloader (like HAProxy), you need to set the `TRUSTED_PROXIES` env var:
+    If your installation works behind Varnish and SSL offloader (like HAProxy), you need to set the `TRUSTED_PROXIES` env variable:
     
     ```
     # .env
