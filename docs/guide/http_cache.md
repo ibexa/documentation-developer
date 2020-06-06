@@ -17,7 +17,7 @@ This is done via it's own [ezplatform-http-cache](https://github.com/ezsystems/e
 which in turn extends [Symfony HTTP cache](http://symfony.com/doc/3.4/http_cache.html).
 
 For content view responses coming from eZ Platform itself, this means:
-- Cache is **[content-aware](#content-aware-http-cache)****, always kept up-to-date by invalidating using cache tags.
+- Cache is **[content-aware](#content-aware-http-cache)**, always kept up-to-date by invalidating using cache tags.
 - Cache is **[context-aware](#context-aware-http-cache)**, to cache request for logged in users by varying on user _rights_.
 
 All of this works across all the supported Reverse Proxies:
