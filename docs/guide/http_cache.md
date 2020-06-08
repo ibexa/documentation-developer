@@ -165,25 +165,34 @@ Symfony proxy stores its cache in the Symfony cache directory, so a regular `cac
 php bin/console --env=prod cache:clear
 ```
 
-#### Purge by HTTP BAN request on Varnish
+#### Purge by HTTP request on Varnish
 
-If you use Varnish and need to purge content directly, use the following examples to see how this is done internally by the FOSPurgeClient, and in turn FOSHttpCache Varnish proxy client:
+If you use Varnish and need to purge content directly, use the following examples to see how this is done internally by the FOSPurgeClient, and in turn FOSHttpCache Varnish proxy client.
 
-For purging all:
+Purge all:
 
-```
-BAN / HTTP 1.1
+```http
+PURGE / HTTP 1.1
 Host: localhost
-X-Location-Id: .*
 ```
 
-Or with given Location IDs (here 123 and 234):
+Purge the tagged content:
 
-```
-BAN / HTTP 1.1
+```http
+PURGEKEYS / HTTP 1.1
 Host: localhost
-X-Location-Id: ^(123|234)$
+XKey-Purge : tags, separated, with, commas
 ```
+
+Soft purge (expire) the tagged content:
+
+```http
+PURGEKEYS / HTTP 1.1
+Host: localhost
+XKey-SoftPurge : tags, separated, with, commas
+```
+
+To make the most of the purge option, see [Available tags](#available-tags).
 
 ### Using Varnish
 
@@ -226,7 +235,7 @@ If you use fastcgi/fpm you can pass these directly to PHP process, but in all ca
 
     # Configure IP of your Varnish server to be trusted proxy
     # Replace fake IP address below by your Varnish IP address
-    SetEnv SYMFONY_TRUSTED_PROXIES "193.22.44.22"
+    SetEnv TRUSTED_PROXIES "193.22.44.22"
 </VirtualHost>
 ```
 
@@ -241,14 +250,22 @@ fastcgi_param HTTPCACHE_PURGE_SERVER "http://varnish:80";
 
 # Configure IP of your Varnish server to be trusted proxy
 # Replace fake IP address below by your Varnish IP address
-fastcgi_param SYMFONY_TRUSTED_PROXIES "193.22.44.22";
+fastcgi_param TRUSTED_PROXIES "193.22.44.22";
 ```
 
 !!! caution "Trusted proxies when using SSL offloader / loadbalancer in combination with Varnish"
 
-    If your installation works behind Varnish and SSL offloader (like HAProxy), you need to add `127.0.0.1` to `SYMFONY_TRUSTED_PROXIES`.
+    If your installation works behind Varnish and SSL offloader (like HAProxy), you need to set the `TRUSTED_PROXIES` env variable:
+    
+    ```
+    # .env
+    TRUSTED_PROXIES=127.0.0.1
+    ```
+    
     Otherwise, you might notice incorrect schema (`http` instead of `https`) in the URLs for the images or other binary files
     when they are rendered inline by Symfony *(as used by file-based field templates)*, as opposed to via ESI.
+    
+    For more information, see [How to Configure Symfony to work behind a Load Balancer or a Reverse Proxy.](https://symfony.com/doc/5.0/deployment/proxies.html)
 
 #### Update YAML configuration
 
@@ -418,8 +435,8 @@ As eZ Platform uses [FOSHttpCacheBundle](http://foshttpcachebundle.readthedocs.o
 - User context hash
 
 Varnish proxy client from the FOSHttpCache library is used for clearing eZ Platform's HTTP cache, even when using Symfony HTTP cache.
-A single `BAN` request is sent to registered purge servers, containing an `X-Location-Id` header.
-This header contains all Location IDs for which objects in cache need to be cleared.
+A single HTTP request is sent to registered purge servers, containing a list of tags.
+This header contains all tags for which objects in cache need to be cleared.
 
 #### Workflow
 
