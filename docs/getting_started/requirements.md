@@ -51,6 +51,7 @@ For security and performance we generally recommend (unless otherwise noted and 
     -   7.1
     -   7.2
     -   7.3
+    -   7.4 (does not apply to eZ Platform Cloud)
 
 - Cluster
     - Redis 3.2+ (preferably separate instances for session and cache, both using one of the `volatile-*` [eviction policies](https://redis.io/topics/lru-cache))
