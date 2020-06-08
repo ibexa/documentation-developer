@@ -1,6 +1,6 @@
 # URL management
 
-Manage external URL addresses and URL wildcards with a comfortable user interface that is available in the Back Office, Admin tab, the URL Manager node. Configure URL aliases to have human-readable URL addresses throughout your system.
+You can manage external URL addresses and URL wildcards in the Back Office, **Admin** tab, the **URL Manager** node. Configure URL aliases to have human-readable URL addresses throughout your system.
 
 ## Link manager
 
@@ -157,7 +157,7 @@ When you edit an existing wildcard URL or add a new one, you define the wildcard
 
 ### Configuring URL wildcards with the Public API
 
-You create URL wildcards with the Public API by using the `URLWildcardService` service:
+You can create URL wildcards with the Public API by using the `URLWildcardService` service:
 
 ``` php
 $source = 'pictures/*/*';
