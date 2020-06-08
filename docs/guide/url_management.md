@@ -97,7 +97,7 @@ namespace eZ\Bundle\EzPublishCoreBundle\URLChecker;
 interface URLHandlerInterface
 {
     /**
-     * Validates a given list of URLs.
+     * Validates given list of URLs.
      *
      * @param \eZ\Publish\API\Repository\Values\URL\URL[] $urls
      */
