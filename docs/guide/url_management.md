@@ -201,7 +201,7 @@ You can also extend the command with the following parameters:
 
 ## URL wildcards
 
-With wildcards, you have a simple way to change the URL address for many content items at the same time, by replacing a portion of the destinaton's URL address.
+With wildcards, you can change the URL address for many Content items at the same time, by replacing a portion of the destination's URL address.
 For example, you might want to shorten the path, or make the path meaningful.
 
 For each wildcard you can decide whether the user sees the content at the address that uses wildcards (Direct type), or is redirected to the original URL address of the destination (Forward type).
