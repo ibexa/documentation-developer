@@ -204,7 +204,7 @@ You can also extend the command with the following parameters:
 With wildcards, you can change the URL address for many Content items at the same time, by replacing a portion of the destination's URL address.
 For example, you might want to shorten the path, or make the path meaningful.
 
-For each URL wildcard definition you set the wildcard pattern and its destination
+For each URL wildcard definition you set the wildcard pattern and its destination.
 Also, you can decide whether the user sees the content at the address that uses wildcards (Direct type), or is redirected to the original URL address of the destination (Forward type).
 
 For example, a URL wildcard called `pictures/*/*` can use `media/images/{1}/{2}` as destination.
