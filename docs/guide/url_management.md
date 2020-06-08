@@ -135,7 +135,7 @@ The `scheme` attribute is mandatory and has to correspond to the name of the pro
 
 ## URL aliases
 
-You can define URL aliases for individual content items, for example, when you reorganize the content, and want to provide users with continuity.
+You can define URL aliases for individual Content items, for example, when you reorganize the content, and want to provide users with continuity.
 For each URL alias definition the history of changes is preserved, so that users who have bookmarked the URL addresses of content items can still find he information they desire.
 
 ### URL alias pattern configuration
