@@ -204,7 +204,8 @@ You can also extend the command with the following parameters:
 With wildcards, you can change the URL address for many Content items at the same time, by replacing a portion of the destination's URL address.
 For example, you might want to shorten the path, or make the path meaningful.
 
-For each wildcard you can decide whether the user sees the content at the address that uses wildcards (Direct type), or is redirected to the original URL address of the destination (Forward type).
+For each URL wildcard definition you set the wildcard pattern and its destination
+Also, you can decide whether the user sees the content at the address that uses wildcards (Direct type), or is redirected to the original URL address of the destination (Forward type).
 
 For example, a URL wildcard called `pictures/*/*` can use `media/images/{1}/{2}` as destination.
 In this case, accessing `<yourdomain>/pictures/home/photo/` loads `<yourdomain>/media/images/home/photo/`.
@@ -222,9 +223,6 @@ ezplatform:
 ### Configuring URL wildcards in the Back Office
 
 The URL wildcards tab contains all the information about each URL wildcard. You can delete or modify existing entries, or create new ones.
-
-When you edit an existing wildcard URL or add a new one, you define the wildcard pattern and its destination.
-Also, you decide whether the user should see the updated content at the existing address (direct type), or should be redirected to the new address (forward type).
 
 !!! note
 
