@@ -1,6 +1,6 @@
 # URL management
 
-You can manage external URL addresses and URL wildcards in the Back Office, **Admin** tab, the **URL Manager** node.
+You can manage external URL addresses and URL wildcards in the Back Office, **Admin** tab, the **URL Management** node.
 Configure URL aliases to have human-readable URL addresses throughout your system.
 
 ## Link manager
