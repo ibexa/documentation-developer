@@ -18,9 +18,19 @@ You can now manage URL addresses and URL wildcards with a comfortable user inter
 
   As of this release, the Link manager is no longer part of the Content panel, and now it belongs to the Admin panel of the Back Office.
 
-![Content Tree in the menu](img/3_1_URL_Management.png "URL Management UI")
+![URL Management UI](img/3_1_URL_Management.png "URL Management UI")
 
 For more information about URL management, see [URL management](../guide/url_management) in the developer documentation.
+
+### Tree view in the Universal Discovery Widget
+
+The Universal Discovery Widget, referred to as the Content Browser in User Documentation, has been updated by adding the Tree view. 
+You can now switch between the Grid, Panels and Tree views to browse and manage user accounts, media files, content items and forms. 
+Selections that you make in one view survive when you switch to the other view.
+
+![Tree view in the Content Browser](img/3_1_Content_browser_Tree_view.png "Tree view in Content Browser")
+
+For more information about configuring the Universal Discovery Widget, see [URL management](../extending/extending_udw) in the developer documentation.
 
 ## New features
 
