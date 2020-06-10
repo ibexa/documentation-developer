@@ -46,7 +46,7 @@ class MyMenuSubscriber implements EventSubscriberInterface
 }
 ```
 
-This listener subscribes to the `ConfigureMenuEvent::MAIN_MENU` event (see line 14).
+This subscriber subscribes to the `ConfigureMenuEvent::MAIN_MENU` event (see line 14).
 
 Line 26 points to the new route that you need to add to the routing file.
 
