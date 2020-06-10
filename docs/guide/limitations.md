@@ -114,6 +114,7 @@ Beyond that the following Limitations are available:
 - [Location](limitation_reference.md#location-limitation)
 - [Subtree of Location](limitation_reference.md#subtree-of-location-limitation)
 - [State](limitation_reference.md#state-limitation)
+- [Language](limitation_reference.md#language-limitation)
 
 `content/versionread`:
 
