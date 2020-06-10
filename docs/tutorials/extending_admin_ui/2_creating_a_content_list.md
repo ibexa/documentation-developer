@@ -7,22 +7,22 @@ The next thing you will extend in this tutorial is the top menu.
 You will add a "Content list" item under "Content". It will list all Content items existing in the Repository.
 You will be able to filter the list by Content Types using a drop-down menu.
 
-## Add an event listener
+## Add an event subscriber
 
-The first step is to add an event listener.
+The first step is to add an event subscriber.
 
-Create a `MyMenuListener.php` file in `src/EventListener`. It will be registered automatically:
+Create a `MyMenuSubscriber.php` file in `src/EventSubscriber`. It will be registered automatically:
 
 ``` php hl_lines="14 26"
 <?php
 
-namespace App\EventListener;
+namespace App\EventSubscriber;
 
 use EzSystems\EzPlatformAdminUi\Menu\Event\ConfigureMenuEvent;
 use EzSystems\EzPlatformAdminUi\Menu\MainMenuBuilder;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-class MyMenuListener implements EventSubscriberInterface
+class MyMenuSubscriber implements EventSubscriberInterface
 {
     public static function getSubscribedEvents()
     {
@@ -46,7 +46,7 @@ class MyMenuListener implements EventSubscriberInterface
 }
 ```
 
-This listener subscribes to the `ConfigureMenuEvent::MAIN_MENU` event (see line 14).
+This subscriber subscribes to the `ConfigureMenuEvent::MAIN_MENU` event (see line 14).
 
 Line 26 points to the new route that you need to add to the routing file.
 
