@@ -122,6 +122,7 @@ A user with this Limitation is allowed to:
 This only applies to creating the first version of a Content item.
 - Edit content by adding a new translation or modifying an existing translation.
 - Publish content only when it results in adding or modifying an allowed translation.
+- Delete content only when it contains a translation into the specified language.
 
 |                 |                                                                         |
 |-----------------|-------------------------------------------------------------------------|
