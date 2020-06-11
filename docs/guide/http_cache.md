@@ -164,7 +164,7 @@ however in eZ Platform you can cover most use cases by setting supported environ
     Request::setTrustedProxies([$request->server->get('REMOTE_ADDR')], Request::HEADER_X_FORWARDED_ALL);
     ```
 
-    When trusting remote IP like this, make sure your application is not also accessible in other ways then via
+    When trusting remote IP like this, make sure your application is not also accessible in other ways than through
     Varnish, as it could mean you end up trusting i.e. IP of client browser instead which would be a serious security issue!
 
 
@@ -298,7 +298,7 @@ fastcgi_param HTTPCACHE_PURGE_SERVER "http://varnish:80";
 You can configure environment variables via [Platform.sh variables](https://docs.platform.sh/frameworks/ez/fastly.html).
 
 TIP: For Http Cache, you'll most likely *only* going to use this for configuring Fastly for production and optionally staging,
-allowing _variables:env:_ in `.platform.app.yaml` to i.e. specify varnish of Symfony proxy as default for dev environment.
+allowing _variables:env:_ in `.platform.app.yaml` to i.e. specify varnish or Symfony proxy as default for dev environment.
 
 ##### Example for Apache + Varnish
 
@@ -338,13 +338,13 @@ fastcgi_param FASTLY_KEY "token"
 
 Stale cache, or Grace mode in Varnish, is when cache continues to be served when expired _(by means of TTL or "Soft purge")_, or when backend server is not responding.
 
-This has several benefits for high traffic installations to reduce load to backend. Instead of suddenly several
-concurrent requests hitting the backend to refresh the given cache, the following happens instead:
-- First request hitting the cache will trigger a backend lookup
-- If cache is still within grace period, first and subsequent requests for the content will be served from cache
+This has several benefits for high traffic installations to reduce load to backend. Instead of creating several
+concurrent requests for the same page to the backend, the following happens when a page has been soft purged:
+- Next request hitting the cache will trigger an asynchronous lookup to a backend
+- If cache is still within grace period, first and subsequent requests for the content will be served from cache, not wait for the asynchronous lookup to finish
 - The backend lookup finishes and refreshed the cache so any subsequent requests gets fresh cache
 
-By default eZ Platform always "Soft Purges" content on reverse proxies where it's supported (Varnish and Fastly), with
+By default eZ Platform always "Soft Purges" content on reverse proxies that supports it (Varnish and Fastly), with
 the following logic in our out of the box VCL:
 - Cache is within grace
 - Either server is not responding, or request comes without session cookie (anonymous user)
@@ -496,7 +496,7 @@ Example:
 
     FOSHTTPCache documentation has an [example for how Paywall Authorization can be done](https://foshttpcache.readthedocs.io/en/1.4/user-context.html#alternative-for-paywalls-authorization-request).
 
-##### Does and don'ts when making custom vary by logic
+##### Dos and don'ts when making custom vary by logic
 
 Refer to [FOSHttpCacheBundle documentation on how user context hashes are generated](https://foshttpcachebundle.readthedocs.io/en/1.3/features/user-context.html#generating-hashes).
 
@@ -681,7 +681,7 @@ If the given content have several locations you'll see several `l<location-id>` 
     - View implements `eZ\Publish\Core\MVC\Symfony\View\CachableView`
     - Cache is not disabled on the individual view
 
-    If that checks out Response will be adapted with the following:
+    If that checks out, the Response will be adapted with the following:
     - `ResponseCacheConfigurator` will apply site access settings for enabled/disabled cache and default TTL
     - `DispatcherTagger` will dispatch the built in ResponseTaggers which will generate the tags as described above.
 
