@@ -694,9 +694,9 @@ For tagging needs in controllers, there are several options, here presented in r
 
 1. **Reusing DispatcherTagger to get it to pick correct tags for you**
 
-_Example for tagging everything needed for Content:_
+_Examples for tagging everything needed for Content using autowirable `ResponseTagger` interface:_
 ``` php
-/** @var \EzSystems\PlatformHttpCacheBundle\ResponseTagger\Delegator\DispatcherTagger $responseTagger */
+/** @var \EzSystems\PlatformHttpCacheBundle\ResponseTagger\ResponseTagger $responseTagger */
 
 // If you have a View object you can simply call:
 $responseTagger->tag($view);
@@ -706,24 +706,24 @@ $responseTagger->tag($contentInfo);
 $responseTagger->tag($location);
 ```
 
-2. **Use low level ContentTagInterface API for content related tags**
+2. **Use ContentTagInterface API for content related tags**
 
+_Examples for adding specific content tags using autowireable `ContentTagInterface`:_
 ``` php
-/** @var \EzSystems\PlatformHttpCacheBundle\Handler\ContentTagInterface $handler */
-// Specifically $handler would be instance of EzSystems\PlatformHttpCacheBundle\Handler\TagHandler
+/** @var \EzSystems\PlatformHttpCacheBundle\Handler\ContentTagInterface $tagHandler */
 
 // Example for tagging everything needed for Content:
-$handler->addContentTags([$content->id]);
-$handler->addLocationTags([$location->id]);
-$handler->addParentLocationTags([$location->parentLocationId]);
-$handler->addPathTags($location->path);
-$handler->addContentTypeTags([$content->getContentType()->id]);
+$tagHandler->addContentTags([$content->id]);
+$tagHandler->addLocationTags([$location->id]);
+$tagHandler->addParentLocationTags([$location->parentLocationId]);
+$tagHandler->addPathTags($location->path);
+$tagHandler->addContentTypeTags([$content->getContentType()->id]);
 
-// Example when using ESI as also shown below using FOS tag handler:
-$handler->addRelationTags([33, 44]);
+// Example when using ESI as also shown below using FOS tag handler (there is also a method for relation locations):
+$tagHandler->addRelationTags([33, 44]);
 ```
 
-3. **Manually add tags yourself using FOS TagHandler**
+3. **Manually add tags yourself using low level FOS TagHandler**
 
 In PHP, FOSHttpCache exposes the `fos_http_cache.handler.tag_handler` service which enables you to add tags to a response.
 
