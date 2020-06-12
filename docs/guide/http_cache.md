@@ -431,13 +431,14 @@ It also varies on `Authorization` to cover any possible basic auth headers in ca
 
 !!! warning "Known limitations of the user context hash"
 
-    If you are using URI-based SiteAccesses matching, the default SiteAccess on the domain needs to point to the same
-    repository, because `/_fos_user_context_hash` is not SiteAccess-aware by default (see `ezpublish.default_router.non_siteaccess_aware_routes` parameter).
+    If you are using URI-based SiteAccesses matching on a multi-repo installation (multiple databases). The default
+    SiteAccess on the domain needs to point to the same repository (database), because `/_fos_user_context_hash` is not
+    SiteAccess-aware by default (see `ezpublish.default_router.non_siteaccess_aware_routes` parameter). This in turn is
+    becasue reverse proxy does not have knowledge about SiteAccesses, and it's not passing whole url in order to be
+    able to cache the user context hash response.
 
-    As proxy does not have knowledge about SiteAccesses, it won't be able to get user content hash if the default SiteAccess relies on URI matching.
-
-    Only known workaround would be to have custom logic tied to your siteaccess matching in your VCL,
-    in order to send the URI with correct siteaccess prefix.
+    Only known workaround would be to make it siteaccess aware, and have custom VCL logic tied to your siteaccess
+    matching with Varnish/Fastly, in order to send siteaccess prefix as URI.
 
 ##### Default options for FOSHttpCacheBundle defined in eZ Platform
 
