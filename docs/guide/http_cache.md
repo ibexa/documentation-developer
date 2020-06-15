@@ -3,17 +3,17 @@
 !!! note "Documentation reflects ezplatform-http-cache v1.0 and up"
 
     This page reflects how `ezplatform-http-cache` v1.0 works, bundled with eZ Platform v2.5.9 and up.
-    To see documentation  on how `ezplatform-http-cache` v0.9 works, see 1.13LTS HttpCache documentation.
+    To see documentation on how `ezplatform-http-cache` v0.9 works, see eZ Platform 1.13LTS HttpCache documentation.
 
 
 ## Overview
 
-eZ Platform provides out of the box highly advance caching features needed for its own content views, taking advantage
-of sophisticated techniques to make Varnish & Fastly act as _the_ view cache for the system. This, and other features
-allows eZ Platform to be scaled up serve high traffic websites & applications, which also have busy publishing activity
+eZ Platform provides out of the box highly advanced caching features needed for its own content views, taking advantage
+of sophisticated techniques to make Varnish & Fastly act as _the_ view cache for the system. This and other features
+allow eZ Platform to be scaled up to serve high traffic websites & applications, which also have busy publishing activity
 by large editorial teams.
 
-This is done via it's own [ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache) bundle, which extends [friendsofsymfony/http-cache-bundle](https://foshttpcachebundle.readthedocs.io/en/1.3/)
+This is done via its own [ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache) bundle, which extends [friendsofsymfony/http-cache-bundle](https://foshttpcachebundle.readthedocs.io/en/1.3/)
 which in turn extends [Symfony HTTP cache](http://symfony.com/doc/3.4/http_cache.html).
 
 For content view responses coming from eZ Platform itself, this means:
@@ -51,8 +51,8 @@ As the system takes care of purges, the cache shouldn't become stale with except
 However, a few redirect and error pages are served via the ContentView system.
 If you set a high `default_ttl`, they could also be served from cache, which should be avoided.
 
-This is why installation ship with configuration to match those specific pages and set a much lower TTL.
-For this we use the [FOSHttpCacheBundle matching rules](http://foshttpcachebundle.readthedocs.io/en/1.3/reference/configuration/headers.html) feature to specify a different TTL:
+To avoid this, installation ships with configuration to match those specific pages and set a much lower TTL.
+[FOSHttpCacheBundle matching rules](http://foshttpcachebundle.readthedocs.io/en/1.3/reference/configuration/headers.html) feature  allows to specify a different TTL:
 
 ``` yaml
 fos_http_cache:
@@ -95,7 +95,7 @@ However, if the given block value has a since / till date,
 this will be taken into account for the TTL calculation for the block and also for the whole page.
 
 To overload this behavior, listen to [BlockResponseEvents::BLOCK_RESPONSE](extending/extending_page/#block-render-response),
-and set priority to for instance `-200` to adapt what Page Field type does by default. E.g. in order to disable cache
+and set priority to, for instance, `-200` to adapt what Page Field type does by default. E.g. in order to disable cache
 for the block use `$event->getResponse()->setPrivate()`.
 
 
@@ -111,7 +111,7 @@ You'll face this overhead when:
 - In development environment
 
 So while recommendations here depends a lot on your system, in general we recommend trying to stay below 2 - 5 ESI
-request per page, and only use them for parts that will be the same across whole site or larger parts of it.
+request per page and only use them for parts that will be the same across whole site or larger parts of it.
 
 You should preferably *not* use ESI for parts that are effectively uncached, as it will cause your reverse proxy to
 have to wait for backend and not be able to deliver cached pages directly.
@@ -124,7 +124,7 @@ have to wait for backend and not be able to deliver cached pages directly.
 ## Using Varnish or Fastly
 
 As eZ Platform is built on top of Symfony, it uses standard HTTP cache headers.
-By default the Symfony reverse proxy, written in PHP, is used to handle cache. But it can be easily replaced with a reverse proxies like Varnish or CDN like Fastly.
+By default, the Symfony reverse proxy, written in PHP, is used to handle cache. But it can be easily replaced with reverse proxies like Varnish or CDN like Fastly.
 
 This is highly recommended as they provide far better performance and more advance features like grace handling, configurable logic via VCL and much more.
 
@@ -141,11 +141,11 @@ For setup to work properly with eZ, you'll need to adapt one of the provided VCL
 
 !!! tip
 
-    As we extend [FOSHttpCacheBundle](https://foshttpcachebundle.readthedocs.io/en/1.3/). You can consider to adapt your VCL further according to [FOSHttpCache documentation](http://foshttpcache.readthedocs.org/en/latest/varnish-configuration.html) in order to use features supported by it.
+    As we extend [FOSHttpCacheBundle](https://foshttpcachebundle.readthedocs.io/en/1.3/), you can consider adapting your VCL further according to [FOSHttpCache documentation](http://foshttpcache.readthedocs.org/en/latest/varnish-configuration.html) in order to use features supported by it.
 
 ### Configure eZ Platform
 
-Configuring eZ Platform for Varnish or Fastly involves a few steps, starting configuring proxy.
+Configuring eZ Platform for Varnish or Fastly involves a few steps, starting with configuring proxy.
 
 #### Configuring Symfony Front Controller
 
@@ -359,7 +359,7 @@ Reason for not always serving grace by default is:
     If you want to use grace handling also for logged in users, you can adapt the provided VCL to add condition for
     opting out if request has cookie *and* path contains REST API prefix to make sure Admin UI is not negatively affected.
 
-    If you want to disable grace, you can adapt the VCL to do hard instead of soft purges, or set grace/stale time to `0s`.
+    If you want to disable grace mode, you can adapt the VCL to do hard instead of soft purges, or set grace/stale time to `0s`.
 
 
 ## Context-aware HTTP cache
@@ -367,7 +367,7 @@ Reason for not always serving grace by default is:
 eZ Platform allows caching request made by logged in users, this is what we refer to as (user) context aware cache.
 
 What it means is that HttpCache is unique per user permissions (roles and limitations), meaning there are variations of
-cache shared only among users that have the exact same permissions. So if user is browsing a list of children locations
+cache shared only among users that have the exact same permissions. So if user is browsing a list of children locations,
 for instance, he will only see what he has access to even if the system has taken care of caching the rendering for you.
 
 This is accomplished by varying on a header called `X-User-Hash`, which the system populates on the request for you.
@@ -434,7 +434,7 @@ It also varies on `Authorization` to cover any possible basic auth headers in ca
     If you are using URI-based SiteAccesses matching on a multi-repo installation (multiple databases). The default
     SiteAccess on the domain needs to point to the same repository (database), because `/_fos_user_context_hash` is not
     SiteAccess-aware by default (see `ezpublish.default_router.non_siteaccess_aware_routes` parameter). This in turn is
-    becasue reverse proxy does not have knowledge about SiteAccesses, and it's not passing whole url in order to be
+    because reverse proxy does not have knowledge about SiteAccesses and it's not passing the whole URL in order to be
     able to cache the user context hash response.
 
     Only known workaround would be to make it siteaccess aware, and have custom VCL logic tied to your siteaccess
@@ -443,7 +443,7 @@ It also varies on `Authorization` to cover any possible basic auth headers in ca
 ##### Default options for FOSHttpCacheBundle defined in eZ Platform
 
 The following configuration is defined in eZ Platform by default for FOSHttpCacheBundle.
-You should typically not override these settings unless you know what you are doing.
+Typically, you should not override these settings unless you know what you are doing.
 
 ``` yaml
 fos_http_cache:
@@ -580,7 +580,7 @@ To avoid overloading any application code, we'll take advantage of Symfony's eve
 ## Content-aware HTTP cache
 
 HttpCache in eZ Platform is "aware" about which content or entity it is connected to, this awareness is accomplished
-by means of "cache tagging". This is supported across all supported reverse proxies.
+by means of "cache tagging". All supported reverse proxies are content-aware.
 
 !!! note "Tag header is stripped in production for security reasons"
 
