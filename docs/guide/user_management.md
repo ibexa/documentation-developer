@@ -158,22 +158,38 @@ ezplatform:
 
 With this configuration you place the templates in `templates/user/registration_form.html.twig` and `templates/user/registration_confirmation.html.twig`.
 
-Here are default templates that you can reuse and/or modify:
-
-**Registration form:**
+Example registration form:
 
 ``` html+twig
 {% extends no_layout is defined and no_layout == true ? view_base_layout : page_layout %}
 {% block content %}
-     {% import "@EzSystemsRepositoryForms/Content/content_form.html.twig" as contentForms %}
+    <section class="ez-content-edit">
+        {{ form_start(form) }}
 
-     <section class="ez-content-edit">
-         {{ contentForms.display_form(form) }}
-     </section>
+        {% for fieldForm in form.fieldsData %}
+            {% set fieldIdentifier = fieldForm.vars.data.fieldDefinition.identifier %}
+            <div class="col-md-6">
+                {{ form_widget(fieldForm.value, {
+                    'contentData': form.vars.data
+                }) }}
+            </div>
+            {%- do fieldForm.setRendered() -%}
+        {% endfor %}
+
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                {{ form_widget(form.register, {'attr': {
+                    'class': 'btn btn-block btn-primary'
+                }}) }}
+            </div>
+        </div>
+
+        {{ form_end(form) }}
+    </section>
 {% endblock %}
 ```
 
-**Registration confirmation:**
+Example confirmation form:
 
 ``` html+twig
 {% extends no_layout is defined and no_layout == true ? view_base_layout : page_layout %}
