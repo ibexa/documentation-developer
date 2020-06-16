@@ -91,7 +91,7 @@ For details, see the tables below.
 |--------------------|---------------------------------------------------------------------|---------------|
 | enabled            | Enables link validation.                                            | true          |
 
-For more information about configuration, see [Configuration](configuration).
+For more information about ezPlatform configuration, see [Configuration](configuration.md).
 
 ### Custom protocol support
 
