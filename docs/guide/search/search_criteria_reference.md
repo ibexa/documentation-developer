@@ -52,3 +52,11 @@ Due to this storage limitation, searching content using the eZ Country Field Typ
 |[UserLogin](criteria_reference/userlogin_criterion.md)|User login|Content and Location|
 |[UserMetadata](criteria_reference/usermetadata_criterion.md)|The creator or modifier of a Content item|Content and Location|
 |[Visibility](criteria_reference/visibility_criterion.md)|Whether the Content item is visible or not|Content and Location|
+
+### Logical operators
+
+|Search Criterion|Search based on|Search type|
+|-----|-----|-----|
+|[LogicalAnd](criteria_reference/logicaland_criterion.md)|Implements a logical AND Criterion. It matches if ALL of the provided Criteria match.|Content and Location|
+|[LogicalNot](criteria_reference/logicalnot_criterion.md)|Implements a logical NOT Criterion. It matches if the provided Criterion doesn't match.|Content and Location|
+|[LogicalOr](criteria_reference/logicalor_criterion.md)|Implements a logical OR Criterion. It matches if at least one of the provided Criteria match.|Content and Location|
