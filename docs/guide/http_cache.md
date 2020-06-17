@@ -194,18 +194,20 @@ XKey-SoftPurge : tags, separated, with, commas
 
 To make the most of the purge option, see [Available tags](#available-tags).
 
-### Using Varnish
+## Using Varnish
 
 As eZ Platform is built on top of Symfony, it uses standard HTTP cache headers.
-By default the Symfony reverse proxy, written in PHP, is used to handle cache, but it can be easily replaced with any other reverse proxy like Varnish.
+The PHP-based Symfony reverse proxy is used by default to handle cache, but you can easily replace it with any other reverse proxy such as Varnish.
+
+With Varnish, you can perform cache purging with an http request. For more information, see [Purge types](#purge-types).
 
 !!! note
 
     Use of Varnish is a requirement for a [Clustering](clustering.md) setup.
 
-#### Recommended VCL base files
+### Recommended VCL base files
 
-For Varnish to work properly with eZ, you'll need to use one of the provided files as a basis:
+For Varnish to work properly with eZ Platform, you must use one of the provided files as a basis:
 
 - [Varnish VCL example](https://github.com/ezsystems/ezplatform-http-cache/blob/2.0/docs/varnish/vcl/varnish5.vcl)
 
@@ -213,14 +215,14 @@ For Varnish to work properly with eZ, you'll need to use one of the provided fil
 
     HTTP cache management is done with the help of [FOSHttpCacheBundle](http://foshttpcachebundle.readthedocs.org/). You may need to tweak your VCL further on according to [FOSHttpCache documentation](http://foshttpcache.readthedocs.org/en/latest/varnish-configuration.html) in order to use features supported by it.
 
-#### Configure eZ Platform
+### Configure eZ Platform
 
-##### Update your Virtual Host
+#### Update your Virtual Host
 
-You need to tell the PHP process that you are behind a Varnish proxy and not the built-in Symfony HTTP Proxy.
-If you use fastcgi/fpm you can pass these directly to PHP process, but in all cases you can also specify them in your web server config.
+You must inform the PHP process that you are behind a Varnish proxy and not the built-in Symfony HTTP Proxy.
+If you use fastcgi/fpm you can pass these directly to the PHP process, but in all cases you can also specify them in your web server config.
 
-###### On Apache
+##### On Apache
 
 ```
 # my_virtualhost.conf
@@ -239,7 +241,7 @@ If you use fastcgi/fpm you can pass these directly to PHP process, but in all ca
 </VirtualHost>
 ```
 
-###### On nginx
+##### On nginx
 
 ```
 # mysite.com
@@ -256,23 +258,23 @@ fastcgi_param TRUSTED_PROXIES "193.22.44.22";
 !!! caution "Trusted proxies when using SSL offloader / loadbalancer in combination with Varnish"
 
     If your installation works behind Varnish and SSL offloader (like HAProxy), you need to set the `TRUSTED_PROXIES` env variable:
-    
+
     ```
     # .env
     TRUSTED_PROXIES=127.0.0.1
     ```
-    
+
     Otherwise, you might notice incorrect schema (`http` instead of `https`) in the URLs for the images or other binary files
     when they are rendered inline by Symfony *(as used by file-based field templates)*, as opposed to via ESI.
-    
+
     For more information, see [How to Configure Symfony to work behind a Load Balancer or a Reverse Proxy.](https://symfony.com/doc/5.0/deployment/proxies.html)
 
 #### Update YAML configuration
 
-Secondly, you need to tell eZ Platform to use an HTTP-based purge client (specifically the FosHttpCache Varnish purge client),
-and specify the URL Varnish can be reached on:
+Secondly, you must instruct eZ Platform to use an HTTP-based purge client (specifically the FosHttpCache Varnish purge client),
+and specify the URL address that Varnish can be reached on:
 
-The following configuration is not required as eZ Platform will read the environment variables set above.
+eZ Platform reads the environment variables set above, therefore, the following configuration is not required.
 
 ``` yaml
 ezplatform:
@@ -289,7 +291,46 @@ ezplatform:
 
 !!! note "Multiple Purge Servers"
 
-    If you need to set multiple purge servers, then you need to configure them in the YAML file.
+    If you need to set multiple purge servers, you must configure them in the YAML file.
+
+!!! note "Invalidating Varnish cache using tokens"
+
+    In setups where the Varnish server IP can change (for example on platform.sh/eZ Platform Cloud),
+    you can use token-based cache invalidation via [ez_purge_acl](https://github.com/ezsystems/ezplatform-http-cache/blob/2.0/docs/varnish/vcl/varnish5.vcl#L174).
+
+    In such a case use a strong, secure hash and make sure to keep the token secret.
+
+#### Ensure proper captcha behavior
+
+If your installation uses Varnish and you want users to be able to configure and use captcha in their forms, you must enable the sending of captcha data as a response to an Ajax request.
+Otherwise, Varnish prohibits the transfer of captcha data to the form, and users see an empty image.
+
+To enable the captcha over Ajax feature, modify the configuration file, for example `config/packages/ezplatform.yaml`, by adding the following code:
+
+```
+ezpatform:
+    system:
+        default:
+            form_builder:
+                captcha:
+                    use_ajax: true/false
+```
+
+!!! note
+
+    If you created a custom captcha block for your site by modifying the default file (`vendor/gregwar/captcha-bundle/Resources/views/captcha.html.twig`) and saving it as `vendor/ezsystems/ezplatform-form-builder/src/bundle/Resources/views/themes/standard/fields/captcha.html.twig`, you must modify your custom file.
+    You must make the following changes to the twig file:
+    - change the name of the block to `name ajax_captcha_widget`
+    - include the JavaScript file:
+    ```
+    {{ encore_entry_script_tags('ezplatform-form-builder-ajax-captcha-js', null, 'ezplatform') }}
+    ```
+    - add a data attribute with a fieldId value:
+    ```
+    data-field-id="{{ field.id }}"
+    ```
+
+For more information about configuring captcha fields, see [Captcha field](../extending/extending_form_builder.md#captcha-field)
 
 !!! enterprise
 
@@ -297,13 +338,13 @@ ezplatform:
 
     [Fastly](https://www.fastly.com/) delivers Varnish as a service. See [Fastly documentation](https://docs.fastly.com/guides/basic-concepts/how-fastlys-cdn-service-works) to read how it works.
 
-    #### Configuring Fastly
+    ##### Configuring Fastly
 
-    ##### purge_type
+    ###### purge_type
 
     To use Fastly, set `purge_type` to `fastly`.
 
-    ##### purge_server
+    ###### purge_server
 
     `purge_server` must be set to `https://api.fastly.com`.
 
@@ -349,29 +390,22 @@ ezplatform:
 
     #### Configuration on Platform.sh
 
-    If using Platform.sh, it's best to configure the Fastly credentials via [Platform.sh variables](https://docs.platform.sh/frameworks/ez/fastly.html).
-    You'll also need to [disable Varnish](https://docs.platform.sh/frameworks/ez/fastly.html#remove-varnish-configuration) which is enabled by default in provided configuration for Platform.sh.
+    If you use Platform.sh, it's best to configure the Fastly credentials through the [Platform.sh variables](https://docs.platform.sh/frameworks/ez/fastly.html).
+    You must also [disable Varnish](https://docs.platform.sh/frameworks/ez/fastly.html#remove-varnish-configuration) that is enabled by default in the provided configuration for Platform.sh.
     See the [Platform.sh Professional documentation](https://docs.platform.sh/frameworks/ez.html)
-    for running eZ Platform Enterprise on Platform.sh.  If using Platform.sh Enterprise see the [Platform.sh Enterprise Documentation](https://ent.docs.platform.sh/frameworks/ez.html).
+    for more information about running the eZ Platform Enterprise on Platform.sh.  If you use Platform.sh Enterprise, see the [Platform.sh Enterprise Documentation](https://ent.docs.platform.sh/frameworks/ez.html).
 
 !!! enterprise
 
-    ### Setting Time-To-Live value for Page blocks
+    #### Setting Time-To-Live value for Page blocks
 
     Block cache by default respects `$content.ttl_cache$` and `$content.default_ttl$` settings.
     However, if the given block value has a since / till date,
     this will be taken into account for the TTL calculation for the block and also for the whole page.
 
-    To overload this behavior, listen to [BlockResponseEvents::BLOCK_RESPONSE](extending/extending_page/#block-render-response),
-    and set prioroty to for instance `-200` to adapt what Page Field type does by default. E.g. in order to disable cache
+    To overload this behavior, listen to [BlockResponseEvents::BLOCK_RESPONSE](../extending/extending_page.md#block-render-response),
+    and set priority to for instance `-200` to adapt what Page Field type does by default. E.g. in order to disable cache
     for the block use `$event->getResponse()->setPrivate()`.
-
-!!! note "Invalidating Varnish cache using tokens"
-
-    In setups where the Varnish server IP can change (for example on platform.sh/eZ Platform Cloud),
-    you can use token-based cache invalidation via [ez_purge_acl](https://github.com/ezsystems/ezplatform-http-cache/blob/2.0/docs/varnish/vcl/varnish5.vcl#L174).
-
-    In such a case use a strong, secure hash and make sure to keep the token secret.
 
 ## Context-aware HTTP cache
 
