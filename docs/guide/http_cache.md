@@ -320,7 +320,7 @@ ezpatform:
 
     If you created a custom captcha block for your site by modifying the default file (`vendor/gregwar/captcha-bundle/Resources/views/captcha.html.twig`), you must make the following changes to the custom block template file:
     
-    - change the name of the block to `name ajax_captcha_widget`
+    - change the name of the block to `ajax_captcha_widget`
     
     - include the JavaScript file:
     
