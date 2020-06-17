@@ -318,9 +318,7 @@ ezpatform:
 
 !!! note
 
-    If you created a custom captcha block for your site by modifying the default file (`vendor/gregwar/captcha-bundle/Resources/views/captcha.html.twig`) and saving it as `vendor/ezsystems/ezplatform-form-builder/src/bundle/Resources/views/themes/standard/fields/captcha.html.twig`, you must modify your custom file.
-    
-    You must make the following changes to the twig file:
+    If you created a custom captcha block for your site by modifying the default file (`vendor/gregwar/captcha-bundle/Resources/views/captcha.html.twig`), you must make the following changes to the custom block template file:
     
     - change the name of the block to `name ajax_captcha_widget`
     
@@ -335,6 +333,8 @@ ezpatform:
     ```
     data-field-id="{{ field.id }}"
     ```
+    
+    As a result, your file should be similar to [this example](https://github.com/ezsystems/ezplatform-form-builder/blob/master/src/bundle/Resources/views/themes/standard/fields/captcha.html.twig).
 
 For more information about configuring captcha fields, see [Captcha field](../extending/extending_form_builder.md#captcha-field).
 
