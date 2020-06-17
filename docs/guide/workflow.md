@@ -89,8 +89,8 @@
 
     ## Publishing content with workflow
 
-    You can automatically publish a Content item once it has reached a specific stage.
-    To do so, configure the `publish` action for a transition:
+    You can automatically publish a Content item once it goes through a specific transition.
+    To do so, configure the `publish` action for the transition:
     
     ``` yaml
     custom_workflow:
@@ -106,22 +106,6 @@
                     publish: ~
     ```
     
-    You can also add the action in stage configuration.
-    It will be performed when the Content item reaches this stage:
-    
-    ``` yaml
-    custom_workflow:
-        # ...
-        stages:
-            # ...
-            done:
-                label: Done
-                color: '#301203'
-                last_stage: true
-                actions:
-                    publish: ~
-    ```
-
     ## Sending notifications
 
     When an editor selects a reviewer in the Back Office, your configuration can send a notification to the reviewer:
