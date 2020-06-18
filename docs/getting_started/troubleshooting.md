@@ -63,3 +63,12 @@ If you increase your requirement to that version, the conflict is resolved.
 In the rare case when there is no fixed version, you can revert your requirement to an older version which does not have the bug.
 If you have to use the version with the bug (not recommended) you can use `composer remove roave/security-advisories`.
 In such case, require it again when the bug is fixed and the package is updated: `composer require roave/security-advisories:dev-master` 
+
+## Platform.sh HTTP access credentials with Varnish
+
+If you are using Platform.sh with Varnish for HTTP cache
+and you have [HTTP access control by login/password](https://docs.platform.sh/administration/web/configure-environment.html#http-access-control) enabled,
+configure the following variables in your Platform.sh environment:
+
+- `HTTPCACHE_USERNAME`
+- `HTTPCACHE_PASSWORD`
