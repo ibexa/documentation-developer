@@ -1,6 +1,6 @@
 # Step 3b - Adding Edit button to content list
 
-In this step you will add an edit button to the content list. The following tutorial is requires the completed [Step 2 - Creating a content list](2_creating_a_content_list.md).
+In this step you will add an edit button to the content list. The following tutorial is requires the completed [Step 2 - Creating a top menu item](2_creating_a_content_list.md).
 
 ## Modify the controller
 
