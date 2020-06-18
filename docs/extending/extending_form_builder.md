@@ -22,7 +22,7 @@
 
     !!! note
 
-        If your installation uses Varnish to manage content cache, you must modify the configuration to avoid issues with the captcha field. For more information, see [Ensure proper captcha behavior](../guide/http_cache.md#ensure-proper-captcha-behavior).
+        If your installation uses Varnish to manage content cache, you must modify the configuration to avoid issues with the Captcha field. For more information, see [Ensure proper captcha behavior](../guide/http_cache.md#ensure-proper-captcha-behavior).
 
     ## Extending Form fields
 

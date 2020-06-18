@@ -194,20 +194,18 @@ XKey-SoftPurge : tags, separated, with, commas
 
 To make the most of the purge option, see [Available tags](#available-tags).
 
-## Using Varnish
+### Using Varnish
 
 As eZ Platform is built on top of Symfony, it uses standard HTTP cache headers.
-The PHP-based Symfony reverse proxy is used by default to handle cache, but you can easily replace it with any other reverse proxy such as Varnish.
-
-With Varnish, you can perform cache purging with an http request. For more information, see [Purge types](#purge-types).
+By default the Symfony reverse proxy, written in PHP, is used to handle cache, but it can be easily replaced with any other reverse proxy like Varnish.
 
 !!! note
 
     Use of Varnish is a requirement for a [Clustering](clustering.md) setup.
 
-### Recommended VCL base files
+#### Recommended VCL base files
 
-For Varnish to work properly with eZ Platform, you must use one of the provided files as a basis:
+For Varnish to work properly with eZ, you'll need to use one of the provided files as a basis:
 
 - [Varnish VCL example](https://github.com/ezsystems/ezplatform-http-cache/blob/2.0/docs/varnish/vcl/varnish5.vcl)
 
@@ -215,14 +213,14 @@ For Varnish to work properly with eZ Platform, you must use one of the provided 
 
     HTTP cache management is done with the help of [FOSHttpCacheBundle](http://foshttpcachebundle.readthedocs.org/). You may need to tweak your VCL further on according to [FOSHttpCache documentation](http://foshttpcache.readthedocs.org/en/latest/varnish-configuration.html) in order to use features supported by it.
 
-### Configure eZ Platform
+#### Configure eZ Platform
 
-#### Update your Virtual Host
+##### Update your Virtual Host
 
-You must inform the PHP process that you are behind a Varnish proxy and not the built-in Symfony HTTP Proxy.
-If you use fastcgi/fpm you can pass these directly to the PHP process, but in all cases you can also specify them in your web server config.
+You need to tell the PHP process that you are behind a Varnish proxy and not the built-in Symfony HTTP Proxy.
+If you use fastcgi/fpm you can pass these directly to PHP process, but in all cases you can also specify them in your web server config.
 
-##### On Apache
+###### On Apache
 
 ```
 # my_virtualhost.conf
@@ -300,35 +298,34 @@ ezplatform:
 
     In such a case use a strong, secure hash and make sure to keep the token secret.
 
-#### Ensure proper captcha behavior
+#### Ensure proper Captcha behavior
 
-If your installation uses Varnish and you want users to be able to configure and use captcha in their forms, you must enable the sending of captcha data as a response to an Ajax request.
-Otherwise, Varnish prohibits the transfer of captcha data to the form, and users see an empty image.
+If your installation uses Varnish and you want users to be able to configure and use Captcha in their forms, you must enable the sending of Captcha data as a response to an Ajax request.
+Otherwise, Varnish prohibits the transfer of Captcha data to the form, and users see an empty image.
 
-To enable the captcha over Ajax feature, modify the configuration file, for example `config/packages/ezplatform.yaml`, by adding the following code:
+To enable sending Captcha over Ajax, modify the configuration file, for example `config/packages/ezplatform.yaml`, by adding the following code:
 
-```
-ezpatform:
+``` yaml
+ezplatform:
     system:
         default:
             form_builder:
                 captcha:
-                    use_ajax: true/false
+                    use_ajax: <true|false>
 ```
 
 !!! note
 
-    If you created a custom captcha block for your site by modifying the default file (`vendor/gregwar/captcha-bundle/Resources/views/captcha.html.twig`), you must make the following changes to the custom block template file:
+    If you created a custom Captcha block for your site by overriding the default file (`vendor/gregwar/captcha-bundle/Resources/views/captcha.html.twig`), you must make the following changes to the custom block template file:
     
     - change the name of the block to `ajax_captcha_widget`
-    
     - include the JavaScript file:
     
     ```
     {{ encore_entry_script_tags('ezplatform-form-builder-ajax-captcha-js', null, 'ezplatform') }}
     ```
     
-    - add a data attribute with a fieldId value:
+    - add a data attribute with a `fieldId` value:
     
     ```
     data-field-id="{{ field.id }}"
@@ -336,7 +333,7 @@ ezpatform:
     
     As a result, your file should be similar to [this example](https://github.com/ezsystems/ezplatform-form-builder/blob/master/src/bundle/Resources/views/themes/standard/fields/captcha.html.twig).
 
-For more information about configuring captcha fields, see [Captcha field](../extending/extending_form_builder.md#captcha-field).
+For more information about configuring Captcha fields, see [Captcha field](../extending/extending_form_builder.md#captcha-field).
 
 !!! enterprise
 
