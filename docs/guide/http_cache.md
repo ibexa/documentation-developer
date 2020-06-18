@@ -256,14 +256,15 @@ fastcgi_param TRUSTED_PROXIES "193.22.44.22";
 !!! caution "Trusted proxies when using SSL offloader / loadbalancer in combination with Varnish"
 
     If your installation works behind Varnish and SSL offloader (like HAProxy), you need to set the `TRUSTED_PROXIES` env variable:
+    
     ```
     # .env
     TRUSTED_PROXIES=127.0.0.1
     ```
-
+    
     Otherwise, you might notice incorrect schema (`http` instead of `https`) in the URLs for the images or other binary files
     when they are rendered inline by Symfony *(as used by file-based field templates)*, as opposed to via ESI.
-
+    
     For more information, see [How to Configure Symfony to work behind a Load Balancer or a Reverse Proxy.](https://symfony.com/doc/5.0/deployment/proxies.html)
 
 #### Update YAML configuration
@@ -386,7 +387,7 @@ For more information about configuring Captcha fields, see [Captcha field](../ex
     #### Configuration on Platform.sh
 
     If using Platform.sh, it's best to configure the Fastly credentials via [Platform.sh variables] (https://docs.platform.sh/frameworks/ez/fastly.html).
-    You'll also need to [disable Varnish](https://docs.platform.sh/frameworks/ez/fastly.html#remove-varnish-configuration) which is enabled by default in the provided configuration for Platform.sh.
+    You'll also need to [disable Varnish](https://docs.platform.sh/frameworks/ez/fastly.html#remove-varnish-configuration) which is enabled by default in provided configuration for Platform.sh.
     See the [Platform.sh Professional documentation](https://docs.platform.sh/frameworks/ez.html)
     for running eZ Platform Enterprise on Platform.sh.  If using Platform.sh Enterprise see the [Platform.sh Enterprise Documentation](https://ent.docs.platform.sh/frameworks/ez.html).
 
@@ -398,7 +399,7 @@ For more information about configuring Captcha fields, see [Captcha field](../ex
     However, if the given block value has a since / till date,
     this will be taken into account for the TTL calculation for the block and also for the whole page.
 
-    To overload this behavior, listen to [BlockResponseEvents::BLOCK_RESPONSE](../extending/extending_page/#block-render-response),
+    To overload this behavior, listen to [BlockResponseEvents::BLOCK_RESPONSE](extending/extending_page/#block-render-response),
     and set prioroty to for instance `-200` to adapt what Page Field type does by default. E.g. in order to disable cache
     for the block use `$event->getResponse()->setPrivate()`.
 
