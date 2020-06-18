@@ -60,7 +60,7 @@ ezrichtext:
 Remember to provide your own files for the template and the icon.
 Each custom tag can have any number of attributes.
 Supported attribute types are:
-`string`, `number`, `boolean` and `choice` (which requires a list of choices provided by the `choices` key).
+`string`, `number`, `boolean`, `link`, and `choice` (which requires a list of choices provided by the `choices` key).
 
 The configuration requires an `ezfactbox.html.twig` template for the custom tag that will be placed in `templates/field_type/ezrichtext/custom_tag`:
 
