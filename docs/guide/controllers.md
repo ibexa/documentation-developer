@@ -755,8 +755,8 @@ When pagination is enabled, `items` is an instance of PagerFanta:
 {% if isPaginationEnabled %}
     {{ pagerfanta( items, 'ez', {
         'pageParameter': pageParameter,
-        'routeName': '_ez_content_view',
-        'routeParams' : {'contentId': content.id, 'locationId': location.id }
+        'routeName': 'ez_urlalias',
+        'routeParams' : {'location': location }
     } ) }}
 {% endif %}
 ```
