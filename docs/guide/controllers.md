@@ -718,6 +718,12 @@ For example:
 {{ ez_render_field(content, 'posts', {'parameters': {'enablePagination': true, 'itemsPerPage': 8}}) }}
 ```
 
+You can also define an offset for the results. Provide an offset in the Query Type, or in parameters:
+
+```
+offset: 3
+```
+
 #### Content query Field Type view
 
 Configure the Content query Field Type's view using the `content_query_field` view type:
@@ -728,7 +734,7 @@ content_view:
         blog_posts:
             match:
                 Identifier\ContentType: blog
-                Identifier\FieldDefinition: posts
+                '@EzSystems\EzPlatformQueryFieldType\eZ\ContentView\FieldDefinitionIdentifierMatcher': posts
             template: "blog_posts.html.twig"
 ```
 
