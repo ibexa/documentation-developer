@@ -724,6 +724,12 @@ You can also define an offset for the results. Provide an offset in the Query Ty
 offset: 3
 ```
 
+If pagination is disabled and offset is defined, the query's offset is added to the offset calculated for a page
+(for example, with `offset = 5` and `itemsPerPage = 10`, first page starts with 5, second page starts with 15, etc.).
+
+Without offset defined, pagination defines the starting number for each page
+(for example, with `itemsPerPage = 10`, first page starts with 0, second page starts with 10, etc.).
+
 #### Content query Field Type view
 
 Configure the Content query Field Type's view using the `content_query_field` view type:
