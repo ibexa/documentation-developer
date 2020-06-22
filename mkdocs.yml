@@ -338,7 +338,6 @@ theme:
       accent: 'deep orange'
 
   font: false
-  logo: 'images/eZ-Brandmark.png'
   feature:
       tabs: false
   search_index_only: false
