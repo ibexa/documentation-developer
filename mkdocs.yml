@@ -162,6 +162,9 @@ nav:
                 - 'UserLogin': 'guide/search/criteria_reference/userlogin_criterion.md'
                 - 'UserMetadata': 'guide/search/criteria_reference/usermetadata_criterion.md'
                 - 'Visibility': 'guide/search/criteria_reference/visibility_criterion.md'
+                - 'LogicalAnd Criterion': 'guide/search/criteria_reference/logicaland_criterion.md'
+                - 'LogicalNot Criterion': 'guide/search/criteria_reference/logicalnot_criterion.md'
+                - 'LogicalOr Criterion': 'guide/search/criteria_reference/logicalor_criterion.md'
             - 'Sort Clause reference': 'guide/search/sort_clause_reference.md'
             - Sort Clause Reference:
                 - 'ContentId': 'guide/search/sort_clause_reference/contentid_sort_clause.md'
