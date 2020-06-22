@@ -30,3 +30,5 @@ Only after applying all changes your database will work properly.
     Always back up your data before running any database update scripts.
 
     After updating the database, clear the cache.
+    
+    Do not use `--force` on update queries. If there is any problem applying the updates, it is best if the query fails immediately, so you can fix the underlying problem before trying to execute the update again. If you leave this for later, you risk ending up with an incompatible database, and larger problems further down the road.
