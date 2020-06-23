@@ -535,11 +535,21 @@ If using eZ Platform 2.5, run:
 composer require "ezsystems/landing-page-fieldtype-bundle:1.7.7-alpha1" "ezsystems/ezflow-migration-toolkit:dev-migrate_on_2.5"
 ```
 
-**2.** Add `ezflow-migration-toolkit` to `AppKernel.php`.
+**2.** Add bundles to `AppKernel.php`.
+
+If using eZ Platform 1.7 :
 
 ``` php
 // AppKernel.php
 new EzSystems\EzFlowMigrationToolkitBundle\EzSystemsEzFlowMigrationToolkitBundle()
+```
+
+If using eZ Platform 2.5,
+
+``` php
+// AppKernel.php
+new EzSystems\EzFlowMigrationToolkitBundle\EzSystemsEzFlowMigrationToolkitBundle(),
+new EzSystems\LandingPageFieldTypeBundle\EzSystemsLandingPageFieldTypeBundle(),
 ```
 
 **3.** Clear cache.
