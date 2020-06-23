@@ -512,10 +512,27 @@ To use the script, do the following:
 
     Make a note of the paths to .ini files which define your legacy blocks. You will need these paths later.
 
+Previously, the ezflow-migration-toolkit script would only run on eZ Platform 1.7. However, it is now possible to run
+the migration script on 2.5 as well, using an alpha version of landing-page-fieldtype-bundle.
+
+!!! caution
+
+    The ezsystems/landing-page-fieldtype-bundle:1.7.7-alpha1 version is only suitable for running the ezflow migration
+    script. Don't install that version and expect to be able to use landing-page on eZ Platform 2.5.
+    This will not work!
+
 **1.** Add `ezflow-migration-toolkit` to `composer.json` in your clean Platform installation.
 
-``` json
-"ezsystems/ezflow-migration-toolkit": "^1.0.0"
+If using eZ Platform 1.7, run:
+
+``` bash
+composer require "ezsystems/ezflow-migration-toolkit": "^1.0.0"
+```
+
+If using eZ Platform 2.5, run:
+
+``` bash
+composer require "ezsystems/landing-page-fieldtype-bundle:1.7.7-alpha1" "ezsystems/ezflow-migration-toolkit:dev-migrate_on_2.5"
 ```
 
 **2.** Add `ezflow-migration-toolkit` to `AppKernel.php`.
