@@ -31,4 +31,4 @@ Only after applying all changes your database will work properly.
 
     After updating the database, clear the cache.
     
-    Do not use `--force` argument for `mysql` / `psql` commands when performing update queries. If there is any problem applying the updates, it is best if the query fails immediately, so you can fix the underlying problem before trying to execute the update again. If you leave this for later, you risk ending up with an incompatible database, that might not surface before further down the road.
+    Do not use `--force` argument for `mysql` / `psql` commands when performing update queries. If there is any problem applying the updates, it is best if the query fails immediately, so you can fix the underlying problem before trying to execute the update again. If you leave this for later you risk ending up with an incompatible database, though the problems might not surface until later.
