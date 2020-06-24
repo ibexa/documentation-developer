@@ -7,9 +7,9 @@
     ### Captcha field
 
     The Captcha Form field is based on [Gregwar/CaptchaBundle](https://github.com/Gregwar/CaptchaBundle).
-    
+
     You can customize the field by adding configuration to `app/config/config.yml` under `gregwar_captcha`:
-    
+
     ``` yaml
     gregwar_captcha:
         as_url: true
@@ -19,6 +19,10 @@
     ```
 
     For information about available options, see [the bundle's documentation](https://github.com/Gregwar/CaptchaBundle#options).
+
+    !!! note
+
+        If your installation uses Varnish to manage content cache, you must modify the configuration to avoid issues with the Captcha field. For more information, see [Ensure proper captcha behavior](../http_cache.md#ensure-proper-captcha-behavior).
 
     ## Extending Form fields
 
@@ -172,30 +176,30 @@
 
     - `\EzSystems\EzPlatformFormBuilder\Definition\FieldDefinitionFactory` in the back end
     - global variable `eZ.formBuilder.config.fieldsConfig` in the front end
-    
+
     ## Customizing email notifications
-        
+
     Email is one of the Submit button options you can choose from in the Form Builder.
     It allows you to list email addresses where notifications about newly filled forms should be sent to.
-    
+
     ![Email notification](img/email_notification.png)
-    
-    ### Override email template 
-        
+
+    ### Override email template
+
     To customize Form Builder submission notification, you need to override the `form_builder/form_submit_notification_email.html.twig` template.
     It contains two blocks: subject and body.
     Each of them is rendered independently and consists of three sets of parameters.
-        
+
     |Parameter|Type|Description|
     |---------|----|-----------|
     |`content`|`eZ\Publish\API\Repository\Values\Content\Content`|Name of the form, its Content Type|
     |`form`|`EzSystems\EzPlatformFormBuilder\FieldType\Model\Form`|Definition of the form|
     |`data`|`EzSystems\EzPlatformFormBuilder\FieldType\Model\FormSubmission`|Sent data|  
-    
+
     By adjusting them to your needs, you will change your email template.
-    
+
     ### Configure sender details
-    
+
     To send emails you also need to configure `sender_address` in `app/config/config.yml`.
     It acts as a sender address and a return address where all bounced messages will be returned to.
     You can learn more by visiting [Symfony Mailer Configuration Reference.](https://symfony.com/doc/3.4/reference/configuration/swiftmailer.html#sender-address)
