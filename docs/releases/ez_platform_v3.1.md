@@ -32,6 +32,17 @@ Selections that you make in one view survive when you switch to the other view.
 
 For more information about configuring the Universal Discovery Widget, see [URL management](../extending/extending_udw) in the developer documentation.
 
+### Search
+
+#### ezplatform-search
+
+[`ezplatform-search`](https://github.com/ezsystems/ezplatform-search) is a new repository
+that contains search functionalities that are not dependent on the search engine
+
+#### Search controller
+
+A customizable search controller has been extracted and placed in `ezplatform-search`.
+
 ## New features
 
 This release of eZ Platform introduces the following new features:
