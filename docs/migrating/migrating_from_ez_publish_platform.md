@@ -516,9 +516,8 @@ You can run the migration script on 2.5, using an alpha version of `landing-page
 
 !!! caution
 
-    The ezsystems/landing-page-fieldtype-bundle:1.7.7-alpha1 version is only suitable for running the ezflow migration
-    script. Don't install that version and expect to be able to use landing-page on eZ Platform 2.5.
-    This will not work!
+    Use `ezsystems/landing-page-fieldtype-bundle:1.7.7-alpha1` to run the ezflow migration script only.
+    Don't install this version to use landing-page on eZ Platform 2.5.
 
 **1.** Add `ezflow-migration-toolkit` to `composer.json` in your clean Platform installation.
 
