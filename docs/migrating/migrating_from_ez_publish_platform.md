@@ -542,7 +542,7 @@ If you are using eZ Platform 1.7:
 new EzSystems\EzFlowMigrationToolkitBundle\EzSystemsEzFlowMigrationToolkitBundle()
 ```
 
-If using eZ Platform 2.5,
+If you are using eZ Platform 2.5:
 
 ``` php
 // AppKernel.php
