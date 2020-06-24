@@ -374,7 +374,7 @@ extra:
     - title: 'eZ Personalization Documentation'
       url: '/projects/ezpersonalization'
     - title: 'eZ Commerce'
-      url: 'https://doc.ez.no/commerce'
+      url: '/projects/ezcommerce'
 
 extra_css:
   - fonts/MavenPro.css
