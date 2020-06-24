@@ -13,8 +13,8 @@ of sophisticated techniques to make Varnish & Fastly act as _the_ view cache for
 allow eZ Platform to be scaled up to serve high traffic websites & applications, which also have busy publishing activity
 by large editorial teams.
 
-This is done via its own [ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache) bundle, which extends [friendsofsymfony/http-cache-bundle](https://foshttpcachebundle.readthedocs.io/en/1.3/)
-which in turn extends [Symfony HTTP cache](http://symfony.com/doc/3.4/http_cache.html).
+This is done via its own [ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache) bundle, which extends [friendsofsymfony/http-cache-bundle](https://foshttpcachebundle.readthedocs.io/en/1.3/),
+a Symfony community bundle that in turn extends [Symfony HTTP cache](http://symfony.com/doc/3.4/http_cache.html).
 
 For content view responses coming from eZ Platform itself, this means:
 - Cache is **[content-aware](#content-aware-http-cache)**, always kept up-to-date by invalidating using cache tags.
