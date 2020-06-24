@@ -521,7 +521,7 @@ You can run the migration script on 2.5, using an alpha version of `landing-page
 
 **1.** Add `ezflow-migration-toolkit` to `composer.json` in your clean Platform installation.
 
-If using eZ Platform 1.7, run:
+If you are using eZ Platform 1.7, run:
 
 ``` bash
 composer require "ezsystems/ezflow-migration-toolkit": "^1.0.0"
