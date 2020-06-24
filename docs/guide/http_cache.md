@@ -25,7 +25,7 @@ All of this works across all the supported Reverse Proxies:
 - [Varnish](https://varnish-cache.org/)
 - [Fastly](https://www.fastly.com/) _(Varnish based CDN service)_
 
-These features can easily be taken advantage of in custom controllers as well.
+_As further documented on this page, all these features can easily be taken advantage of in custom controllers as well._
 
 ## Configuration
 
@@ -156,7 +156,7 @@ however in eZ Platform you can cover most use cases by setting supported environ
     - If not set, it is automatically disabled for Symfony ENV `dev` for local development needs.
 - `SYMFONY_TRUSTED_PROXIES`:  String with trusted IP, several can be configured with a comma, i.e. `SYMFONY_TRUSTED_PROXIES="192.0.0.1,10.0.0.0/8"`
 
-!!! caution "Careful when trusting remotes with trusted proxies"
+!!! caution "Careful when trusting dynamic IP using TRUST_REMOTE value or similar"
 
     On Platform.sh, Varnish does not have a static IP, like with [AWS LB](https://symfony.com/doc/3.4/deployment/proxies.html#but-what-if-the-ip-of-my-reverse-proxy-changes-constantly).
     For this `SYMFONY_TRUSTED_PROXIES` env variable supports being set to value "TRUST_REMOTE", which effectively means:
@@ -166,6 +166,9 @@ however in eZ Platform you can cover most use cases by setting supported environ
 
     When trusting remote IP like this, make sure your application is not also accessible in other ways than through
     Varnish, as it could mean you end up trusting i.e. IP of client browser instead which would be a serious security issue!
+
+    In other words, only do this if you are certain **all** traffic will always come from the trused proxy/load-balancer,
+    and there is no other way to configure it.
 
 
 _See [Examples for configuring eZ Platform](#Examples-for-configuring-eZ-Platform) for how these variables can be set._
@@ -674,7 +677,6 @@ xkey: ez-all c1 ct1 l2 pl1 p1 p2
 
 If the given content have several locations you'll see several `l<location-id>` and `p<location-id>` tags in the response.
 
-
 !!! note "How response tagging for ContentView is done internally"
 
     In `ezplatform-http-cache` there is a dedicated response listener `HttpCacheResponseSubscriber` that checks if:
@@ -771,7 +773,7 @@ For full content tagging when inline rendering, the following can be used:
 
 2. `ez_http_tag_relation_ids()` or `ez_http_tag_relation_location_ids()`
 
-When either wanting to reduce amount of tags, or the inline content is rendered using ESI a minimum set of tags can be set:
+When either wanting to reduce the amount of tags, or the inline content is rendered using ESI a minimum set of tags can be set:
 ``` html+twig
 {{ ez_http_tag_relation_ids(content.id) }}
 
@@ -782,7 +784,6 @@ When either wanting to reduce amount of tags, or the inline content is rendered 
 
 3. `{{ fos_httpcache_tag(['r33', 'r44']) }}`
 
-
 As a last resort you can also use function from FOS which lets you set low level tags directly:
 ``` html+twig
 {{ fos_httpcache_tag('r33') }}
@@ -792,7 +793,6 @@ As a last resort you can also use function from FOS which lets you set low level
 ```
 
 See [Tagging from Twig Templates](http://foshttpcachebundle.readthedocs.io/en/1.3/features/tagging.html#tagging-from-twig-templates) in FOSHttpCacheBundle doc.
-
 
 
 ### Tag purging
@@ -829,13 +829,15 @@ All Slots can be found in `ezplatform-http-cache/src/SignalSlot`.
 
 #### Custom purging from code
 
+While the system purges tags whenever API is used to change data, there are times you might have the need to purge directly from code.
+For that you can use the built in purge client when you need to do this from code:
 ```php
 /** @var \EzSystems\PlatformHttpCacheBundle\PurgeClient\PurgeClientInterface $purgeClient */
 
 // Example for purging by location id:
 $purgeClient->purge([ContentTagInterface::LOCATION_PREFIX . $location->id]);
 
-// Example for purging all cache for instance for full re-depoy casesd , usually this will trigger a expiry:
+// Example for purging all cache for instance for full re-deploy cases , usually this will trigger a expiry (soft purge):
 $purgeClient->purgeAll();
 ```
 
