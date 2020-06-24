@@ -290,6 +290,43 @@ ezplatform:
 !!! note "Multiple Purge Servers"
 
     If you need to set multiple purge servers, then you need to configure them in the YAML file.
+    
+#### Ensure proper Captcha behavior
+
+If your installation uses Varnish and you want users to be able to configure and use Captcha in their forms, you must enable the sending of Captcha data as a response to an Ajax request.
+Otherwise, Varnish prohibits the transfer of Captcha data to the form, and users see an empty image.
+
+To enable sending Captcha over Ajax, modify the configuration file, for example `config/packages/ezplatform.yaml`, by adding the following code:
+
+``` yaml
+ezplatform:
+    system:
+        default:
+            form_builder:
+                captcha:
+                    use_ajax: <true|false>
+```
+
+!!! note
+
+    If you created a custom Captcha block for your site by overriding the default file (`vendor/gregwar/captcha-bundle/Resources/views/captcha.html.twig`), you must make the following changes to the custom block template file:
+    
+    - change the name of the block to `ajax_captcha_widget`
+    - include the JavaScript file:
+    
+    ```
+    {{ encore_entry_script_tags('ezplatform-form-builder-ajax-captcha-js', null, 'ezplatform') }}
+    ```
+    
+    - add a data attribute with a `fieldId` value:
+    
+    ```
+    data-field-id="{{ field.id }}"
+    ```
+    
+    As a result, your file should be similar to [this example](https://github.com/ezsystems/ezplatform-form-builder/blob/master/src/bundle/Resources/views/themes/standard/fields/captcha.html.twig).
+
+For more information about configuring Captcha fields, see [Captcha field](../extending/extending_form_builder.md#captcha-field).
 
 !!! enterprise
 
