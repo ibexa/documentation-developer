@@ -512,8 +512,7 @@ To use the script, do the following:
 
     Make a note of the paths to .ini files which define your legacy blocks. You will need these paths later.
 
-Previously, the ezflow-migration-toolkit script would only run on eZ Platform 1.7. However, it is now possible to run
-the migration script on 2.5 as well, using an alpha version of landing-page-fieldtype-bundle.
+You can run the migration script on 2.5, using an alpha version of `landing-page-fieldtype-bundle`.
 
 !!! caution
 
