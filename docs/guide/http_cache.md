@@ -368,7 +368,7 @@ eZ Platform allows caching request made by logged in users, this is what we refe
 
 What it means is that HttpCache is unique per user permissions (roles and limitations), meaning there are variations of
 cache shared only among users that have the exact same permissions. So if user is browsing a list of children locations,
-for instance, he will only see what he has access to even if the system has taken care of caching the rendering for you.
+for instance, user will only see children locations he/she has access to even if the rendering of this is served from HttpCache.
 
 This is accomplished by varying on a header called `X-User-Hash`, which the system populates on the request for you.
 The logic for this _([see below](#Request-life-cycle-explained))_ is accomplished in our provided VCL for Varnish and Fastly.
