@@ -110,7 +110,7 @@ You'll face this overhead when:
 - With Symfony Proxy _(AppCache)_ even some overhead on warm cache (hits) on all sub requests
 - In development environment
 
-So while recommendations here depends a lot on your system, in general we recommend trying to stay below 2 - 5 ESI
+It may differ depending on your system, but in general, we recommend to stay below 5 ESI
 request per page and only use them for parts that will be the same across whole site or larger parts of it.
 
 You should preferably *not* use ESI for parts that are effectively uncached, as it will cause your reverse proxy to
