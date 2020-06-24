@@ -527,7 +527,7 @@ If you are using eZ Platform 1.7, run:
 composer require "ezsystems/ezflow-migration-toolkit": "^1.0.0"
 ```
 
-If using eZ Platform 2.5, run:
+If you are using eZ Platform 2.5, run:
 
 ``` bash
 composer require "ezsystems/landing-page-fieldtype-bundle:1.7.7-alpha1" "ezsystems/ezflow-migration-toolkit:dev-migrate_on_2.5"
