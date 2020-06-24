@@ -535,7 +535,7 @@ composer require "ezsystems/landing-page-fieldtype-bundle:1.7.7-alpha1" "ezsyste
 
 **2.** Add bundles to `AppKernel.php`.
 
-If using eZ Platform 1.7 :
+If you are using eZ Platform 1.7:
 
 ``` php
 // AppKernel.php
