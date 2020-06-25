@@ -103,12 +103,7 @@ When [REST API](rest_api_guide.md) is used, conversion needs to be done for Fiel
 
 ## Registration
 
-<<<<<<< HEAD
 A Field Type must be registered as a service:
-=======
-A Field Type needs to have an indexable class defined.
-If you are using Solr Bundle, each Field Type must be registered in `config/services.yml`:
->>>>>>> d1aadcf4... eZ->Ibexa rebranding continued (#1055)
 
 ``` yaml
 services:
