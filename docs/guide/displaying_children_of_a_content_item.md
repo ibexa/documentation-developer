@@ -38,7 +38,7 @@ content_query_field:
     folder_children:
         match:
             Identifier\ContentType: folder
-            Identifier\FieldDefinition: children
+            '@EzSystems\EzPlatformQueryFieldType\eZ\ContentView\FieldDefinitionIdentifierMatcher': children
         template: content_query/folder.html.twig
 ```
 
@@ -49,7 +49,7 @@ The query results are available in the `items` variable:
 <h1>{{ ez_content_name(content) }}</h1>
 
 {% for item in items %}
-    <h2><a href={{ ez_path(item.valueObject) }}>{{ ez_content_name(item.contentInfo) }}</a></h2>
+    <h2><a href={{ ez_path(item) }}>{{ ez_content_name(item.contentInfo) }}</a></h2>
 {% endfor %}
 
 {% if isPaginationEnabled %}
