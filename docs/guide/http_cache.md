@@ -370,8 +370,8 @@ Reason for not always serving grace by default is:
 eZ Platform allows caching request made by logged in users, this is what we refer to as (user) context aware cache.
 
 What it means is that HttpCache is unique per user permissions (roles and limitations), meaning there are variations of
-cache shared only among users that have the exact same permissions. So if user is browsing a list of children locations,
-for instance, user will only see children locations he/she has access to even if the rendering of this is served from HttpCache.
+cache shared only among users that have the exact same permissions. So if a user is browsing a list of for instance children locations,
+the user will only see children locations he/she has access to even if the rendering of this is served from HttpCache.
 
 This is accomplished by varying on a header called `X-User-Hash`, which the system populates on the request for you.
 The logic for this _([see below](#Request-life-cycle-explained))_ is accomplished in our provided VCL for Varnish and Fastly.
@@ -830,7 +830,7 @@ All Slots can be found in `ezplatform-http-cache/src/SignalSlot`.
 #### Custom purging from code
 
 While the system purges tags whenever API is used to change data, there are times you might have the need to purge directly from code.
-For that you can use the built in purge client when you need to do this from code:
+For that you can use the built in purge client when you need to do this:
 ```php
 /** @var \EzSystems\PlatformHttpCacheBundle\PurgeClient\PurgeClientInterface $purgeClient */
 
