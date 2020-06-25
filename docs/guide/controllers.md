@@ -718,14 +718,14 @@ For example:
 {{ ez_render_field(content, 'posts', {'parameters': {'enablePagination': true, 'itemsPerPage': 8}}) }}
 ```
 
-You can also define an offset for the results. Provide an offset in the Query Type, or in parameters:
+You can also define an offset for the results. Provide the offset in the Query Type, or in parameters:
 
 ```
 offset: 3
 ```
 
-If pagination is disabled and offset is defined, the query's offset is added to the offset calculated for a page
-(for example, with `offset = 5` and `itemsPerPage = 10`, first page starts with 5, second page starts with 15, etc.).
+If pagination is disabled and an offset value is defined, the query's offset is added to the offset calculated for a page
+(for example, with `offset = 5` and `itemsPerPage = 10`, the first page starts with 5, the second page starts with 15, etc.).
 
 Without offset defined, pagination defines the starting number for each page
 (for example, with `itemsPerPage = 10`, first page starts with 0, second page starts with 10, etc.).
