@@ -187,7 +187,39 @@
     
     To learn how to use Site Factory, see [User documentation.](https://doc.ezplatform.com/projects/userguide/en/latest/site_organization/site_factory/#site-factory)
     
-    ## Configure Site skeleton
+    ## Configuration
+    
+    ### Configure parent Location
+    
+    You can define parent Location for a new site in the configuration.
+    Each new site will be created in designeted Location.
+    
+    To define a parent Location, add a new configuration key to the template definition.
+    Each template is assigned its own Location.
+    This can be either a Location ID (e.g. `62`), or a recommended remote Location ID (e.g. `1548b8cd8dd4c6b5082e566615d45e91`).
+        
+    Add the configuration key to your template:
+    
+    ```yaml hl_lines="7 12"
+    ez_platform_site_factory:
+        templates:
+            ez_site1:
+                siteaccess_group: example_site_factory_group_1
+                name: example_site_1
+                thumbnail: /path/to/image/example-thumbnail_1.png
+                parent_location_id: 62
+            ez_site2:
+                siteaccess_group: example_site_factory_group_2
+                name: example_site_2
+                thumbnail: /path/to/image/example-thumbnail_2.png
+                parent_location_remote_id: 1548b8cd8dd4c6b5082e566615d45e91
+    ```
+    
+    Now, you can see a path to new site's parent Location under design selection.   
+    If you have sufficient permissions you can change defined Location during site creation process. 
+    If the parent Location is not defined, you will have to choose it from Universal Discovery Widget.
+    
+    ### Configure Site skeleton
 
     The Site skeleton enables you to copy an entire content structure of the site design to the defined Location.
     
