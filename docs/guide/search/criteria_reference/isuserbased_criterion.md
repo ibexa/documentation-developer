@@ -15,7 +15,7 @@ or non-User-based content
 
 ## Limitations
 
-The `IsUserBased` Criterion is not available in Solr search engine.
+The `IsUserBased` Criterion is not available in Solr or Elastic search engines.
 
 ## Example
 
