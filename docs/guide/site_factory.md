@@ -191,8 +191,8 @@
     
     ### Configure parent Location
     
-    You can define parent Location for a new site in the configuration.
-    Each new site will be created in designeted Location.
+    You can define the parent Location for a new site in the configuration.
+    Each new site is created in the designated Location.
     
     To define a parent Location, add a new configuration key to the template definition.
     Each template is assigned its own Location.
@@ -215,9 +215,9 @@
                 parent_location_remote_id: 1548b8cd8dd4c6b5082e566615d45e91
     ```
     
-    Now, you can see a path to new site's parent Location under design selection.   
-    If you have sufficient permissions you can change defined Location during site creation process. 
-    If the parent Location is not defined, you will have to choose it from Universal Discovery Widget.
+    Now, you can see the path to the new site's parent Location under design selection.   
+    If you have sufficient permissions you can change the defined Location during site creation. 
+    If the parent Location is not defined, you have to choose it from Universal Discovery Widget.
     
     ### Configure Site skeleton
 
