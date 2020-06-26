@@ -135,7 +135,7 @@
 
     class FieldDefinitionSubscriber implements EventSubscriberInterface
     {
-        public function onFieldDefinition(FieldDefinitionEvent $event): void
+        public function onSingleLineFieldDefinition(FieldDefinitionEvent $event): void
         {
             $isReadOnlyAttribute = new FieldAttributeDefinitionBuilder();
             $isReadOnlyAttribute->setIdentifier('readonly');
