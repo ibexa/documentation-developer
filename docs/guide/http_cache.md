@@ -859,5 +859,5 @@ bin/console fos:httpcache:invalidate:tag ez-all
 !!! tip "Purge is done on current repository"
 
     Just like when purging from code, tags you purge on will be prefixed for you to match the currently configured
-    siteaccess. So make sure to specify siteaccess argument when using this command in combination with multi repository
+    SiteAccess. So make sure to specify SiteAccess argument when using this command in combination with multi repository
     setup.
