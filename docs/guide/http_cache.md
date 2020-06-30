@@ -835,7 +835,7 @@ For that you can use the built in purge client:
 ```php
 /** @var \EzSystems\PlatformHttpCacheBundle\PurgeClient\PurgeClientInterface $purgeClient */
 
-// Example for purging by location id:
+// Example for purging by Location ID:
 $purgeClient->purge([ContentTagInterface::LOCATION_PREFIX . $location->id]);
 
 // Example for purging all cache for instance for full re-deploy cases , usually this will trigger a expiry (soft purge):
