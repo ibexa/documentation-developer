@@ -25,7 +25,7 @@ All of this works across all the supported Reverse Proxies:
 - [Varnish](https://varnish-cache.org/)
 - [Fastly](https://www.fastly.com/) - Varnish based CDN service
 
-_As further documented on this page, all these features can easily be taken advantage of in custom controllers as well._
+All above mentioned features can be easily taken advantage of in custom controllers as well.
 
 ## Configuration
 
