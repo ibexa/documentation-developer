@@ -851,6 +851,7 @@ bin/console fos:httpcache:invalidate:tag l44 c33
 ```
 
 Example for purging by all cache:
+
 ```bash
 bin/console fos:httpcache:invalidate:tag ez-all
 ```
