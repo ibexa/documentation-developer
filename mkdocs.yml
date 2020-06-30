@@ -256,6 +256,7 @@ nav:
             - 'Development guidelines': 'community_resources/development_guidelines.md'
             - 'Contribute translations': 'community_resources/translations.md'
             - 'Contribute to documentation': 'community_resources/documentation.md'
+            - 'Package structure specification': 'community_resources/package_structure.md'
         - UI Guidelines:
             - 'Introduction': 'guidelines/Introduction.md'
             - Components:
