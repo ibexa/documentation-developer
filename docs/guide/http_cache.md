@@ -272,7 +272,7 @@ ezpublish:
 #### Examples for configuring eZ Platform
 
 
-For configuring the system completely by environment variables, here are some of the most common:
+Below you will find the most common examples for configuring the system completely by environment variables.
 
 Example when using `.env` file:
 
@@ -374,40 +374,40 @@ Serving grace is not always allowed by default because:
 
 ## Context-aware HTTP cache
 
-eZ Platform allows caching request made by logged in users, this is what we refer to as (user) context aware cache.
+eZ Platform allows caching request made by logged in users, it is called (user) context aware cache.
 
-What it means is that HttpCache is unique per user permissions (roles and limitations), meaning there are variations of
-cache shared only among users that have the exact same permissions. So if a user is browsing a list of for instance children locations,
-the user will only see children locations he/she has access to even if the rendering of this is served from HttpCache.
+It means that HttpCache is unique per user permissions (roles and limitations), there are variations of
+cache shared only among users that have the exact same permissions. So if a user is browsing a list of children Locations,
+they will only see children Locations they have access to even if the rendering of this is served from HttpCache.
 
 This is accomplished by varying on a header called `X-User-Hash`, which the system populates on the request for you.
-The logic for this _([see below](#Request-life-cycle-explained))_ is accomplished in our provided VCL for Varnish and Fastly.
-Note: A similar but internal logic is done in the provided enhanced Symfony Proxy _(AppCache)_.
+The logic for this ([see Request life cycle](#request-life-cycle)) is accomplished in provided VCL for Varnish and Fastly.
+A similar but internal logic is done in the provided enhanced Symfony Proxy (AppCache).
 
-Originally a eZ Publish 5.x feature, this was contributed to FOSHttpCache (1.x) and today eZ Platform builds upon that.
 
 !!! tip "Prepare your custom controllers for v3"
 
-    In 2.5LTS (FOSHTTPCache 1.x) the system varies on this hash for **all** responses, not just built in eZ controllers (Content View, Page, ...).
+    In 2.5LTS (FOSHTTPCache 1.x) the system varies on this hash for **all** responses, not just built in eZ controllers (Content View, Page, etc.).
 
     However:
-    1. This becomes configurable in v3 (FOSHTTPCache 2.x), and we consider to disable it by default for better cache efficiency
-    2. The header name changes to FOSHttpCache default one: `X-User-Context-Hash`
+    1. This becomes configurable in v3 (FOSHTTPCache 2.x), and we consider disabling it by default for better cache efficiency
+    2. The header name changes to the FOSHttpCache default: `X-User-Context-Hash`
 
-    So in any custom controller you have that relies on eZ user permissions, i.e. rendering eZ content, best practice is to explicitly vary:
+    So in any custom controller that relies on eZ user permissions, i.e. rendering eZ content, best practice is to explicitly vary:
+    
     ```php
         // Inside a controller action, should be adapted to `X-User-Context-Hash` when upgrading to v3
         $response->setVary('X-User-Hash');
     ```
 
-#### Request life-cycle explained
+#### Request life-cycle
 
 To expand on steps covered in [FOSHttpCacheBundle documentation on how user context feature works](https://foshttpcachebundle.readthedocs.io/en/1.3/features/user-context.html#how-it-works):
 
-1. A client _(browser)_ requests URI `/foo`.
+1. A client (browser) requests URI `/foo`.
 2. The caching proxy receives the request and holds it. It first sends a hash request to the applications's context hash route: `/_fos_user_context_hash`.
-3. The application receives the hash request. An event subscriber _(`UserContextSubscriber`)_ aborts the request immediately after the Symfony firewall was applied.
-   The application calculates the hash _(`HashGenerator`)_ and then sends a response with the hash in a custom header _(`X-User-Hash` in eZ Platform)_.
+3. The application receives the hash request. An event subscriber (`UserContextSubscriber`) aborts the request immediately after the Symfony firewall is applied.
+   The application calculates the hash (`HashGenerator`) and then sends a response with the hash in a custom header (`X-User-Hash` in eZ Platform).
 4. The caching proxy receives the hash response, copies the hash header to the client’s original request for `/foo` and restarts the modified original request.
 5. If the response to `/foo` should differ per user context, the application sets a `Vary: X-User-Hash` header, which will make Proxy store the variations of this cache varying on the hash value.
 
@@ -416,9 +416,9 @@ The next time a request comes in from the same user, application lookup for the 
 hash lookup itself is cached by the cache proxy itself.
 
 
-##### User Context Hash caching explained
+##### User Context Hash caching
 
-Example of response sent to reverse proxy from `/_fos_user_context_hash` with [eZ Platform's default config](#Default-options-for-FOSHttpCacheBundle-defined-in-eZ-Platform):
+Example of response sent to reverse proxy from `/_fos_user_context_hash` with [eZ Platform's default config](#default-options-for-foshttpcachebundle-defined-in-ez-Platform):
 ```
 HTTP/1.1 200 OK
 X-User-Hash: <hash>
@@ -427,28 +427,28 @@ Cache-Control: public, max-age=600
 Vary: Cookie, Authorization
 ```
 
-As you can see, response is set to be cached for 10minutes. It varies on the `Cookie` header in order to be able to cache
-it for the given user. For cache efficiency reasons our default VCL strips any other cookie then session cookies to make
+As you can see, response is set to be cached for 10 minutes. It varies on the `Cookie` header in order to be able to cache
+it for the given user. For cache efficiency reasons the default VCL strips any other cookie then session cookies to make
 this work.
 
 It also varies on `Authorization` to cover any possible basic auth headers in case that is used over sessions for some requests.
 
-!!! note "In case you experience problems with stale user hash"
+!!! note "Problems with stale user hash"
 
-    In case you notice issues with stale hash usage, before you disable this cache make sure login/logout always
+    If you notice issues with stale hash usage, before you disable this cache make sure login/logout always
     generates new session IDs and performs a full redirect in order to make sure no requests are being made using stale
     user context hashes.
 
 !!! warning "Known limitations of the user context hash"
 
-    If you are using URI-based SiteAccesses matching on a multi-repo installation (multiple databases). The default
+    If you are using URI-based SiteAccesses matching on a multi-repository installation (multiple databases). The default
     SiteAccess on the domain needs to point to the same repository (database), because `/_fos_user_context_hash` is not
     SiteAccess-aware by default (see `ezpublish.default_router.non_siteaccess_aware_routes` parameter). This in turn is
     because reverse proxy does not have knowledge about SiteAccesses and it's not passing the whole URL in order to be
     able to cache the user context hash response.
 
-    Only known workaround would be to make it siteaccess aware, and have custom VCL logic tied to your siteaccess
-    matching with Varnish/Fastly, in order to send siteaccess prefix as URI.
+    Only known workaround would be to make it SiteAccess aware, and have custom VCL logic tied to your SiteAccess
+    matching with Varnish/Fastly, in order to send SiteAccess prefix as URI.
 
 ##### Default options for FOSHttpCacheBundle defined in eZ Platform
 
@@ -466,7 +466,7 @@ fos_http_cache:
 
     user_context:
         enabled: true
-        # User context hash lookup is cached for 10min, to avoid a extra lookup for every request
+        # User context hash lookup is cached for 10min, to avoid an extra lookup for every request
         hash_cache_ttl: 600
         user_hash_header: X-User-Hash
 ```
@@ -476,49 +476,52 @@ fos_http_cache:
 
 Here are some generic recommendations on how to approach personalized content with eZ Platform / Symfony:
 
-**1. ESI + Vary by Cookie**
+1\. ESI + Vary by Cookie
+
 - As default VCL strips everything but session cookie this means this will effectively be cached "per user".
-   - _TIP: If you are on single server setup with neither Varnish nor Fastly, you can do the same cookie logic on the Web server instead._
-- Low effort, and can be good enough for 1 fragment that are reused across whole site, for instance in header to show user name.
+   - If you are on single server setup with neither Varnish nor Fastly, you can do the same cookie logic on the Web server instead.
+- Low effort, and can be good enough for one fragment that is reused across whole site, for instance in header to show user name.
 
 Example:
+
 ```php
     // Inside a custom controller action, or even a Content View controller
     $response->setVary('Cookie');
 ```
 
+2\. Ajax/JS lookup to "uncached" custom Symfony Controller(s)
 
-**2. Ajax/JS lookup to “uncached” custom Symfony Controller(s)**
 - Does not consume memory in Varnish.
 - Can optionally be cached with custom logic: Symfony Cache on server side and/or with client side caching techniques.
 - Should be done as ajax/JS lookup to avoid the uncached request slowing down the whole delivery of Vanish if it’s done as ESI.
-- Somewhat more effort depending on project requirements _(traffic load, …)_.
+- More effort depending on project requirements (traffic load, etc.).
 
 
-**3. Custom vary by logic, i.e. “X-User-Preference-Hash” inspired by X-User-Hash**
+3\. Custom vary by logic, i.e. “X-User-Preference-Hash” inspired by X-User-Hash
+
 - Allows for fine-grained caching as you can explicitly vary on this in only the places that needs it.
-- More effort _(controller + VCL logic + adapt own code)_, see below for how.
+- More effort _(controller + VCL logic + adapt own code)_, see below for examples.
 
 
 !!! tip "Dealing with Paywall use cases"
 
-    If you need to handle a paywall on a per item basis, then you'll need to go a bit further by for instance doing a
-    lookup to backend for each and every url where this is relevant.
+    If you need to handle a Paywall on a per item basis, then you'll need to go a bit further by for instance doing a
+    lookup to backend for each and every URL where this is relevant.
 
-    FOSHTTPCache documentation has an [example for how Paywall Authorization can be done](https://foshttpcache.readthedocs.io/en/1.4/user-context.html#alternative-for-paywalls-authorization-request).
+    You can find an example for how Paywall Authorization can be done in [FOSHTTPCache documentation.](https://foshttpcache.readthedocs.io/en/1.4/user-context.html#alternative-for-paywalls-authorization-request)
 
-##### Dos and don'ts when making custom vary by logic
+##### Dos and don'ts when custom vary by logic
 
 Refer to [FOSHttpCacheBundle documentation on how user context hashes are generated](https://foshttpcachebundle.readthedocs.io/en/1.3/features/user-context.html#generating-hashes).
 
 eZ Platform implements a custom context provider in order to make user context hash reflect the current User's permissions
-and Limitations, this is needed given eZ's more complex permission model compared to Symfony's.
+and Limitations, this is needed given eZ Platform's more complex permission model compared to Symfony's.
 You can technically extend the user context hash by [implementing your own custom context provider(s)](https://foshttpcachebundle.readthedocs.io/en/1.3/reference/configuration/user-context.html#custom-context-providers),
 however **this is strongly discouraged** as it will mean you'll increase amount of cache variations stored in Proxy for
 every single cache item, lowering cache hit ratio and increasing memory use.
 
 Instead, it's recommended you create your own hash header for use cases where you need it, this way only controllers / views
-that really very by your custom logic will vary on it.
+that really vary by your custom logic will vary on it.
 
 There are several ways you can do this, all from completely custom VCL logic and dedicated controller to respond with hash
 to trusted proxy lookups, however this would mean additional lookup.
@@ -526,10 +529,10 @@ to trusted proxy lookups, however this would mean additional lookup.
 
 ##### Example for custom vary by logic
 
-So a clean way would be to "extend" `/_fos_user_context_hash` lookup to add another HTTP header with custom hash for your
+You can "extend" `/_fos_user_context_hash` lookup to add another HTTP header with custom hash for your
 needs, and adapt the user context hash VCL logic to use the additional header.
 
-To avoid overloading any application code, we'll take advantage of Symfony's event system to do this cleanly:
+To avoid overloading any application code, you will take advantage of Symfony's event system to do this cleanly:
 
 1. Add a Response [event listener or subscriber](https://symfony.com/doc/3.4/event_dispatcher.html) to add your own hash to `/_fos_user_context_hash`:
 
@@ -589,13 +592,12 @@ To avoid overloading any application code, we'll take advantage of Symfony's eve
 
 ## Content-aware HTTP cache
 
-HttpCache in eZ Platform is "aware" about which content or entity it is connected to, this awareness is accomplished
+HTTP cache in eZ Platform is "aware" of which content or entity it is connected to, this awareness is accomplished
 by means of "cache tagging". All supported reverse proxies are content-aware.
 
 !!! note "Tag header is stripped in production for security reasons"
 
-    For security reasons this header, and other internal cache headers, are stripped from output in production for security
-    reasons, by the reverse proxy _(in VCL for Varnish and Fastly)_.
+    For security reasons this header, and other internal cache headers are stripped from output in production by the reverse proxy _(in VCL for Varnish and Fastly)_.
 
 ### Understanding Cache tags
 
@@ -614,16 +616,16 @@ when someone requests them.
 - Content: `c<content-id>` - Purged on all smaller or larger changes to Content _(including it's meta data, fields and locations).
 - Content Type: `ct<content-type-id>` - Used when the Content Type changes, affecting Content of its type.
 - Location: `l<location-id>` - Used for clearing all cache relevant for a given Location.
-- Parent Location: `pl<[parent-]location-id>` - Used for clearing all children of a location (`pl<location-id>`), or all siblings (`pl<parent-location-id>`).
+- Parent Location: `pl<[parent-]location-id>` - Used for clearing all children of a Location (`pl<location-id>`), or all siblings (`pl<parent-location-id>`).
 - Path: `p<location-id>` - For operations that change the tree itself, like move, remove, etc.
 - Relation: `r<content-id>` - Only purged on when content updates are severe enough to also affect reverse relations.
-- Relation location: `rl<location-id>` - Same as relation, but by location id.
+- Relation location: `rl<location-id>` - Same as relation, but by Location ID.
 
 
 !!! note "Automatically repository prefixing of cache tags"
 
-    As eZ Platform support multi repository _(aka multi database)_ setups, who can have overlapping id's. it's shared
-    http cache sytems needs to distinguesh tags relevant to the different content reposioties.
+    As eZ Platform support multi repository (multi database) setups that can have overlapping ID's. It's shared
+    HTTP cache systems need to distinguish tags relevant to the different content repositories.
 
     This is why in multi repository setup you'll see cache tags such as `1p2`. Where `1` represents the index among
     configured repositories, meaning the second repository in the system.
@@ -632,8 +634,8 @@ when someone requests them.
 
 #### Troubleshooting - Cache header too long errors
 
-In case of complex Content, for instance Landing Pages with many blocks, or RichText with a lot of embeds/links, you
-might get into trouble with too long cache header on responses. Because of this, necessary cache entries may not be
+In case of complex content, for instance Landing Pages with many blocks, or RichText with a lot of embeds/links, you
+can encounter problems with too long cache header on responses. Because of this, necessary cache entries may not be
 tagged properly. You may also see `502 Headers too long` errors, and webserver refusing to serve the page.
 
 Here are some options on how to solve this issue:
@@ -651,20 +653,21 @@ Here are some options on how to solve this issue:
 - For [PHP-FPM](https://www.php.net/manual/en/install.fpm.php) setup using proxy module, configure [proxy_buffer_size](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_buffer_size)
 - For FastCGI setup using fastcgi module, configure [fastcgi_buffer_size](https://nginx.org/en/docs/http/ngx_http_fastcgi_module.html#fastcgi_buffer_size)
 
-*Fastly* has a `Surrogate-Key` header limit of *16kb*, this can *not* be changed.
+*Fastly* has a `Surrogate-Key` header limit of *16 kB*, this can *not* be changed.
 
-*Apache* has a [hard](https://github.com/apache/httpd/blob/5f32ea94af5f1e7ea68d6fca58f0ac2478cc18c5/server/util_script.c#L495) [coded](https://github.com/apache/httpd/blob/7e2d26eac309b2d79e467ef586526c10e0f226f8/include/httpd.h#L299-L303) limit of 8kb, so if you face this issue consider using nginx instead.
+*Apache* has a [hard](https://github.com/apache/httpd/blob/5f32ea94af5f1e7ea68d6fca58f0ac2478cc18c5/server/util_script.c#L495) [coded](https://github.com/apache/httpd/blob/7e2d26eac309b2d79e467ef586526c10e0f226f8/include/httpd.h#L299-L303) limit of 8 kB, so if you face this issue consider using Nginx instead.
 
 **B. Limit tags header output by system:**
 
-(1) For inline rendering just displaying the content name, image attribute, and/or link, then it would be enough to:
+1\. For inline rendering just displaying the content name, image attribute, and/or link, then it would be enough to:
 - Look into how many inline _(non ESI)_ render calls for content rendering you are doing, and see if you can organize it differently.
 - Consider to inline views not uses other places in template and [tag response in Twig](#Response-tagging-in-Twig) with "relation" tags.
     - Optionally: Set reduced cache TTL for the given view in order to reduce risk of stale cache on subtree operations affecting the inlined content.
 
-(2) If that is not an option, you can opt-in to set a max length parameter _(in bytes)_ and corresponding ttl _(in seconds)_
+2\. If that is not an option, you can opt-in to set a max length parameter _(in bytes)_ and corresponding ttl _(in seconds)_
 for cases when the limit is reached. The system will log a warning for cases where the limit is reached so you can optimize
 these cases as described above when needed.
+
 ```yaml
 parameters:
     # Warning, setting this means you risk losing tag information, risking stale cache. Here set below 8k:
@@ -682,7 +685,7 @@ Cache-Control: public, max-age=86400
 xkey: ez-all c1 ct1 l2 pl1 p1 p2
 ```
 
-If the given content have several locations you'll see several `l<location-id>` and `p<location-id>` tags in the response.
+If the given content have several Locations you'll see several `l<location-id>` and `p<location-id>` tags in the response.
 
 !!! note "How response tagging for ContentView is done internally"
 
@@ -691,17 +694,17 @@ If the given content have several locations you'll see several `l<location-id>` 
     - View implements `eZ\Publish\Core\MVC\Symfony\View\CachableView`
     - Cache is not disabled on the individual view
 
-    If that checks out, the Response will be adapted with the following:
+    If that checks out, the response will be adapted with the following:
     - `ResponseCacheConfigurator` will apply site access settings for enabled/disabled cache and default TTL
     - `DispatcherTagger` will dispatch the built in ResponseTaggers which will generate the tags as described above.
 
-    Further reading can be found in ezplatform-http-cache's `docs/response_taggers.md`.
+    Further information can be found in ezplatform-http-cache's `docs/response_taggers.md`.
 
 ### Response tagging in Controllers
 
 For tagging needs in controllers, there are several options, here presented in recommended order:
 
-1. **Reusing DispatcherTagger to get it to pick correct tags for you**
+1\. **Reusing DispatcherTagger to get it to pick correct tags for you**
 
 _Examples for tagging everything needed for Content using autowirable `ResponseTagger` interface:_
 ``` php
@@ -715,9 +718,10 @@ $responseTagger->tag($contentInfo);
 $responseTagger->tag($location);
 ```
 
-2. **Use ContentTagInterface API for content related tags**
+2\. **Use ContentTagInterface API for content related tags**
 
 _Examples for adding specific content tags using autowireable `ContentTagInterface`:_
+
 ``` php
 /** @var \EzSystems\PlatformHttpCacheBundle\Handler\ContentTagInterface $tagHandler */
 
@@ -732,11 +736,12 @@ $tagHandler->addContentTypeTags([$content->getContentType()->id]);
 $tagHandler->addRelationTags([33, 44]);
 ```
 
-3. **Manually add tags yourself using low level FOS TagHandler**
+3\. **Manually add tags yourself using low level FOS TagHandler**
 
 In PHP, FOSHttpCache exposes the `fos_http_cache.handler.tag_handler` service which enables you to add tags to a response.
 
-_Example for tagging minimal tags for when id 33 and 34 will be rendered in ESI, but parent response needs these tags to get refresh if they are deleted:_
+_Example for tagging minimal tags for when ID 33 and 34 will be rendered in ESI, but parent response needs these tags to get refresh if they are deleted:_
+
 ``` php
 /** @var \FOS\HttpCache\Handler\TagHandler $tagHandler */
 $tagHandler->addTags([ContentTagInterface::RELATION_PREFIX . '33', ContentTagInterface::RELATION_PREFIX . '44']);
@@ -752,7 +757,7 @@ See [Tagging from code](http://foshttpcachebundle.readthedocs.io/en/1.3/features
 4. **Use deprecated `X-Location-Id` header**
 
 For custom or eZ controllers _(e.g. REST)_ still using `X-Location-Id`, `XLocationIdResponseSubscriber` handles translating
-this header to tags for you. It supports singular and comma separated location id value(s):
+this header to tags for you. It supports singular and comma separated Location ID value(s):
 
 ```php
 /** @var \Symfony\Component\HttpFoundation\Response $response */
@@ -770,17 +775,19 @@ $response->headers->set('X-Location-Id', '123,212,42');
 
 ### Response tagging in Templates
 
-1. `ez_http_tag_location()`
+1\. `ez_http_tag_location()`
 
 For full content tagging when inline rendering, the following can be used:
+
 ``` html+twig
 {{ ez_http_tag_location(location) }}
 ```
 
 
-2. `ez_http_tag_relation_ids()` or `ez_http_tag_relation_location_ids()`
+2\. `ez_http_tag_relation_ids()` or `ez_http_tag_relation_location_ids()`
 
 When either wanting to reduce the amount of tags, or the inline content is rendered using ESI a minimum set of tags can be set:
+
 ``` html+twig
 {{ ez_http_tag_relation_ids(content.id) }}
 
@@ -789,9 +796,10 @@ When either wanting to reduce the amount of tags, or the inline content is rende
 ```
 
 
-3. `{{ fos_httpcache_tag(['r33', 'r44']) }}`
+3\. `{{ fos_httpcache_tag(['r33', 'r44']) }}`
 
 As a last resort you can also use function from FOS which lets you set low level tags directly:
+
 ``` html+twig
 {{ fos_httpcache_tag('r33') }}
 
@@ -799,7 +807,7 @@ As a last resort you can also use function from FOS which lets you set low level
 {{ fos_httpcache_tag(['r33', 'r44']) }}
 ```
 
-See [Tagging from Twig Templates](http://foshttpcachebundle.readthedocs.io/en/1.3/features/tagging.html#tagging-from-twig-templates) in FOSHttpCacheBundle doc.
+See [Tagging from Twig Templates](http://foshttpcachebundle.readthedocs.io/en/1.3/features/tagging.html#tagging-from-twig-templates) in FOSHttpCacheBundle documentation.
 
 
 ### Tag purging
