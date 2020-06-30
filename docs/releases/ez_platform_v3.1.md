@@ -28,8 +28,8 @@ For more information about URL management, see [URL management](../guide/url_man
 
 ### Tree view in the Universal Discovery Widget
 
-The Universal Discovery Widget, referred to as the Content Browser in User Documentation, has been updated by adding the Tree view. 
-You can now switch between the Grid, Panels and Tree views to browse and manage user accounts, media files, content items and forms. 
+The Universal Discovery Widget, referred to as the Content Browser in User Documentation, has been updated by adding the Tree view.
+You can now switch between the Grid, Panels and Tree views to browse and manage user accounts, media files, content items and forms.
 Selections that you make in one view survive when you switch to the other view.
 
 ![Tree view in the Content Browser](img/3_1_Content_browser_Tree_view.png "Tree view in Content Browser")
@@ -47,22 +47,28 @@ that contains search functionalities that are not dependent on the search engine
 
 A customizable search controller has been extracted and placed in `ezplatform-search`.
 
+#### Searching in trash
+
+You can now search through the contents of Trash and sort the search results based on a number of Search Criteria and Sort Clauses that can be used by the `\eZ\Publish\API\Repository\TrashService::findTrashItems` method only.
+
+For more information, see [Searching in trash](../api/public_php_api_search.md#searching-in-trash).
+
 !!! enterprise
 
     ### Site Factory
-    
+
     #### Site skeleton
-    
+
     You can now create multiple content structures that can be used as Site skeletons for the new sites.
-    
+
     For more information about Site skeleton, see [Configure Site skeleton](../guide/site_factory.md#configure-site-skeleton).
-    
+
     #### Defining parent Location
-    
+
     You can now define the parent Location for every new site in the template configuration.
-    
+
     For more information about defining parent Location, see [Configure parent Location](../guide/site_factory.md#configure-parent-location).
-      
+
 
 ## Requirement changes
 
