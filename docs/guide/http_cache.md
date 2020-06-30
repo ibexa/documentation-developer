@@ -2,21 +2,21 @@
 
 !!! note "Documentation reflects ezplatform-http-cache v1.0 and up"
 
-    This page reflects how `ezplatform-http-cache` v1.0 works, bundled with eZ Platform v2.5.9 and up.
+    This page describes `ezplatform-http-cache` v1.0, which is bundled with eZ Platform v2.5.9 and up.
     To learn how `ezplatform-http-cache` v0.9 works, see [eZ Platform 1.13LTS HttpCache documentation](https://doc.ezplatform.com/en/1.13/guide/http_cache/).
 
 
-## Overview
 
-eZ Platform provides out of the box highly advanced caching features needed for its own content views, taking advantage
+eZ Platform provides highly advanced caching features needed for its own content views, taking advantage
 of sophisticated techniques to make Varnish and Fastly act as the view cache for the system. This and other features
 allow eZ Platform to be scaled up to serve high traffic websites and applications, which also have busy publishing activity
 by large editorial teams.
 
-This is done via its own [ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache) bundle, which extends [friendsofsymfony/http-cache-bundle](https://foshttpcachebundle.readthedocs.io/en/1.3/),
+This is handled by the [ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache) bundle, which extends [friendsofsymfony/http-cache-bundle](https://foshttpcachebundle.readthedocs.io/en/1.3/),
 a Symfony community bundle that in turn extends [Symfony HTTP cache](http://symfony.com/doc/3.4/http_cache.html).
 
 For content view responses coming from eZ Platform itself, this means:
+
 - Cache is **[content-aware](#content-aware-http-cache)**, always kept up-to-date by invalidating using cache tags.
 - Cache is **[context-aware](#context-aware-http-cache)**, to cache request for logged in users by varying on user _rights_.
 
@@ -31,7 +31,7 @@ All above mentioned features can be easily taken advantage of in custom controll
 
 ### Content view configuration
 
-This is how cache can be configured in `ezplatform.yml`, globally for content views:
+You can configure cache globally for content views in `ezplatform.yml`:
 
 ``` yaml
 ezpublish:
@@ -52,7 +52,7 @@ However, a few redirect and error pages are served via the ContentView system.
 If you set a high `default_ttl`, they could also be served from cache, which should be avoided.
 
 To avoid this, installation ships with configuration to match those specific pages and set a much lower TTL.
-[FOSHttpCacheBundle matching rules](http://foshttpcachebundle.readthedocs.io/en/1.3/reference/configuration/headers.html) feature  allows to specify a different TTL:
+[FOSHttpCacheBundle matching rules](http://foshttpcachebundle.readthedocs.io/en/1.3/reference/configuration/headers.html) feature allows you to specify a different TTL:
 
 ``` yaml
 fos_http_cache:
@@ -69,7 +69,7 @@ fos_http_cache:
                         s_maxage: 20
 ```
 
-Similarly, to apply performance tuning to avoid crawlers affecting the setup too much, we also set up caching of generic 404s and similar error pages in the following way:
+Similarly, to apply performance tuning to avoid crawlers affecting the setup too much, set up caching of generic 404s and similar error pages in the following way:
 
 ``` yaml
 fos_http_cache:
@@ -90,12 +90,12 @@ fos_http_cache:
 
 ### Setting Time-To-Live value for Page blocks
 
-For Page Builder coming with eZ Platform Enterprise, Block cache by default respects `$content.ttl_cache$` and `$content.default_ttl$` settings.
+For the Page Builder, Block cache by default respects `$content.ttl_cache$` and `$content.default_ttl$` settings.
 However, if the given block value has a since / till date,
 this will be taken into account for the TTL calculation for the block and also for the whole page.
 
 To overload this behavior, listen to [BlockResponseEvents::BLOCK_RESPONSE](extending/extending_page/#block-render-response),
-and set priority to, for instance, `-200` to adapt what Page Field type does by default. E.g. in order to disable cache
+and set priority to `-200` to adapt what Page Field Type does by default. E.g. in order to disable cache
 for the block use `$event->getResponse()->setPrivate()`.
 
 
