@@ -9,7 +9,7 @@
 ## Overview
 
 eZ Platform provides out of the box highly advanced caching features needed for its own content views, taking advantage
-of sophisticated techniques to make Varnish & Fastly act as _the_ view cache for the system. This and other features
+of sophisticated techniques to make Varnish and Fastly act as the view cache for the system. This and other features
 allow eZ Platform to be scaled up to serve high traffic websites & applications, which also have busy publishing activity
 by large editorial teams.
 
