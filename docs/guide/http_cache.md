@@ -830,7 +830,8 @@ All Slots can be found in `ezplatform-http-cache/src/SignalSlot`.
 #### Custom purging from code
 
 While the system purges tags whenever API is used to change data, there are times you might have the need to purge directly from code.
-For that you can use the built in purge client when you need to do this:
+For that you can use the built in purge client:
+
 ```php
 /** @var \EzSystems\PlatformHttpCacheBundle\PurgeClient\PurgeClientInterface $purgeClient */
 
