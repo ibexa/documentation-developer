@@ -3,7 +3,7 @@
 !!! note "Documentation reflects ezplatform-http-cache v1.0 and up"
 
     This page reflects how `ezplatform-http-cache` v1.0 works, bundled with eZ Platform v2.5.9 and up.
-    To see documentation on how `ezplatform-http-cache` v0.9 works, see eZ Platform 1.13LTS HttpCache documentation.
+    To learn how `ezplatform-http-cache` v0.9 works, see [eZ Platform 1.13LTS HttpCache documentation](https://doc.ezplatform.com/en/1.13/guide/http_cache/).
 
 
 ## Overview
