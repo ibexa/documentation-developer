@@ -9,8 +9,7 @@
 
 eZ Platform provides highly advanced caching features needed for its own content views, taking advantage
 of sophisticated techniques to make Varnish and Fastly act as the view cache for the system. This and other features
-allow eZ Platform to be scaled up to serve high traffic websites and applications, which also have busy publishing activity
-by large editorial teams.
+allow eZ Platform to be scaled up to serve high traffic websites and applications.
 
 This is handled by the [ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache) bundle, which extends [friendsofsymfony/http-cache-bundle](https://foshttpcachebundle.readthedocs.io/en/1.3/),
 a Symfony community bundle that in turn extends [Symfony HTTP cache](http://symfony.com/doc/3.4/http_cache.html).
@@ -661,7 +660,7 @@ Here are some options on how to solve this issue:
 
 1\. For inline rendering just displaying the content name, image attribute, and/or link, then it would be enough to:
 - Look into how many inline _(non ESI)_ render calls for content rendering you are doing, and see if you can organize it differently.
-- Consider to inline views not uses other places in template and [tag response in Twig](#Response-tagging-in-Twig) with "relation" tags.
+- Consider inlining the views not used elsewhere in the given template and [tagging response in Twig](#Response-tagging-in-Twig) with "relation" tags.
     - Optionally: Set reduced cache TTL for the given view in order to reduce risk of stale cache on subtree operations affecting the inlined content.
 
 2\. If that is not an option, you can opt-in to set a max length parameter _(in bytes)_ and corresponding ttl _(in seconds)_
