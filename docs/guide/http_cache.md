@@ -21,7 +21,7 @@ For content view responses coming from eZ Platform itself, this means:
 - Cache is **[context-aware](#context-aware-http-cache)**, to cache request for logged in users by varying on user _rights_.
 
 All of this works across all the supported Reverse Proxies:
-- Symfony HttpCache Proxy _(Limited to single server, and limited performance/features)_
+- Symfony HttpCache Proxy - limited to a single server, and limited performance/features
 - [Varnish](https://varnish-cache.org/)
 - [Fastly](https://www.fastly.com/) _(Varnish based CDN service)_
 
