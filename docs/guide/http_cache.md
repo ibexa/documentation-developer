@@ -23,7 +23,7 @@ For content view responses coming from eZ Platform itself, this means:
 All of this works across all the supported Reverse Proxies:
 - Symfony HttpCache Proxy - limited to a single server, and limited performance/features
 - [Varnish](https://varnish-cache.org/)
-- [Fastly](https://www.fastly.com/) _(Varnish based CDN service)_
+- [Fastly](https://www.fastly.com/) - Varnish based CDN service
 
 _As further documented on this page, all these features can easily be taken advantage of in custom controllers as well._
 
