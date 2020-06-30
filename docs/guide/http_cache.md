@@ -844,7 +844,8 @@ $purgeClient->purgeAll();
 
 #### Purging from command line
 
-Example for purging by location and by content id:
+Example for purging by Location and by Content ID:
+
 ```bash
 bin/console fos:httpcache:invalidate:tag l44 c33
 ```
