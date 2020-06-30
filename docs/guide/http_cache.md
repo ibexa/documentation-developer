@@ -103,30 +103,30 @@ for the block use `$event->getResponse()->setPrivate()`.
 
 ESI are in theory great for splitting out the different parts of a web page into separate concerns that can be freely reused as pieces by Reverse proxy.
 
-However in practice ESI requests means every request needs to start over from scratch, and while you can tune your system to reduce this, there will always be some overhead to this.
+However, in practice ESI means every request needs to start over from scratch, and while you can tune your system to reduce this, it always causes additional overhead:
 
 You'll face this overhead when:
-- Cache is cold on all or some of the sub requests
-- With Symfony Proxy _(AppCache)_ even some overhead on warm cache (hits) on all sub requests
+- When cache is cold on all or some of the sub-requests
+- With Symfony Proxy (AppCache) even some overhead on warm cache (hits) on all sub requests
 - In development environment
 
 It may differ depending on your system, but in general, we recommend to stay below 5 ESI
-request per page and only use them for parts that will be the same across whole site or larger parts of it.
+request per page and only use them for parts that will be the same across the whole site or larger parts of it.
 
-You should preferably *not* use ESI for parts that are effectively uncached, as it will cause your reverse proxy to
+You should not use ESI for parts that are effectively uncached, as it will cause your reverse proxy to
 have to wait for backend and not be able to deliver cached pages directly.
 
-!!! note "ESI limitations with URIElement siteaccess matcher"
+!!! note "ESI limitations with the URIElement SiteAccess matcher"
 
     Note that sharing ESIs across SiteAccesses when using URI matching is not possible by design, as URI will
-    contain the siteaccess name encoded into it's path info. (see [EZP-22535](https://jira.ez.no/browse/EZP-22535) for details).
+    contain the SiteAccess name encoded into its path info.
 
 ## Using Varnish or Fastly
 
 As eZ Platform is built on top of Symfony, it uses standard HTTP cache headers.
 By default, the Symfony reverse proxy, written in PHP, is used to handle cache. But it can be easily replaced with reverse proxies like Varnish or CDN like Fastly.
 
-This is highly recommended as they provide far better performance and more advance features like grace handling, configurable logic via VCL and much more.
+This is highly recommended as they provide far better performance and more advance features like grace handling, configurable logic through VCL and much more.
 
 !!! note
 
@@ -134,14 +134,14 @@ This is highly recommended as they provide far better performance and more advan
 
 ### Recommended VCL base files
 
-For setup to work properly with eZ, you'll need to adapt one of the provided VCL files as a basis:
+For setup to work properly with your installation, you'll need to adapt one of the provided VCL files as a basis:
 
 - [Varnish 5+ VCL xkey example](https://github.com/ezsystems/ezplatform-http-cache/blob/1.0/docs/varnish/vcl/varnish5.vcl)
-- Fastly VCL can be found in `vendor/ezsystems/ezplatform-http-cache-fastly/fastly` on eZ Platform Enterprise installs.
+- Fastly VCL can be found in `vendor/ezsystems/ezplatform-http-cache-fastly/fastly` in Enterprise version
 
 !!! tip
 
-    As we extend [FOSHttpCacheBundle](https://foshttpcachebundle.readthedocs.io/en/1.3/), you can consider adapting your VCL further according to [FOSHttpCache documentation](http://foshttpcache.readthedocs.org/en/latest/varnish-configuration.html) in order to use features supported by it.
+    When you extend [FOSHttpCacheBundle](https://foshttpcachebundle.readthedocs.io/en/1.3/), you can also adapt your VCL further with [FOSHttpCache documentation](http://foshttpcache.readthedocs.org/en/latest/varnish-configuration.html) in order to use additional features.
 
 ### Configure eZ Platform
 
@@ -149,29 +149,29 @@ Configuring eZ Platform for Varnish or Fastly involves a few steps, starting wit
 
 #### Configuring Symfony Front Controller
 
-In a pure Symfony install you would normally adapt Front Controller (`web/app.php`) [in order to configure Symfony to work behind a Load Balancer or a Reverse Proxy](https://symfony.com/doc/3.4/deployment/proxies.html),
+In a pure Symfony installation you would normally adapt Front Controller (`web/app.php`) [in order to configure Symfony to work behind a Load Balancer or a Reverse Proxy](https://symfony.com/doc/3.4/deployment/proxies.html),
 however in eZ Platform you can cover most use cases by setting supported environment variables using:
-- `SYMFONY_HTTP_CACHE`: To enable(`"1"`) or disable(`"0"`) use of Symfony HttpCache reverse proxy
+- `SYMFONY_HTTP_CACHE`: To enable (`"1"`) or disable (`"0"`) use of Symfony HttpCache reverse proxy
     - *Must* be disabled when using Varnish or Fastly.
     - If not set, it is automatically disabled for Symfony ENV `dev` for local development needs.
-- `SYMFONY_TRUSTED_PROXIES`:  String with trusted IP, several can be configured with a comma, i.e. `SYMFONY_TRUSTED_PROXIES="192.0.0.1,10.0.0.0/8"`
+- `SYMFONY_TRUSTED_PROXIES`: String with trusted IP, multiple proxies can be configured with a comma, i.e. `SYMFONY_TRUSTED_PROXIES="192.0.0.1,10.0.0.0/8"`
 
 !!! caution "Careful when trusting dynamic IP using TRUST_REMOTE value or similar"
 
-    On Platform.sh, Varnish does not have a static IP, like with [AWS LB](https://symfony.com/doc/3.4/deployment/proxies.html#but-what-if-the-ip-of-my-reverse-proxy-changes-constantly).
+    On Platform.sh, Varnish does not have a static IP, like with [AWS LB.](https://symfony.com/doc/3.4/deployment/proxies.html#but-what-if-the-ip-of-my-reverse-proxy-changes-constantly)
     For this `SYMFONY_TRUSTED_PROXIES` env variable supports being set to value "TRUST_REMOTE", which effectively means:
     ```php
     Request::setTrustedProxies([$request->server->get('REMOTE_ADDR')], Request::HEADER_X_FORWARDED_ALL);
     ```
 
-    When trusting remote IP like this, make sure your application is not also accessible in other ways than through
+    When trusting remote IP like this, make sure your application is only accessible through Varnish.
     Varnish, as it could mean you end up trusting i.e. IP of client browser instead which would be a serious security issue!
 
-    In other words, only do this if you are certain **all** traffic will always come from the trused proxy/load-balancer,
+    Make sure that **all** traffic always comes from the trusted proxy/load-balancer,
     and there is no other way to configure it.
 
 
-_See [Examples for configuring eZ Platform](#Examples-for-configuring-eZ-Platform) for how these variables can be set._
+See [Examples for configuring eZ Platform](#Examples-for-configuring-eZ-Platform) for how these variables can be set.
 
 
 #### Update YML configuration
@@ -184,9 +184,9 @@ and specify the URL Varnish can be reached on (in `ezplatform.yml`):
 | ------------- |:--------------:|:------------------------:|:---------------------------:|
 | ezpublish.http_cache.purge_type | `purge_type` | `HTTPCACHE_PURGE_TYPE` | local, varnish/http, fastly |
 | ezpublish.system.(scope).http_cache.purge_servers | `purge_server`* | `HTTPCACHE_PURGE_SERVER`* | Array of URLs to proxies when using Varnish or Fastly (`https://api.fastly.com`) |
-| ezpublish.system.(scope).http_cache.varnish_invalidate_token | `varnish_invalidate_token` | `HTTPCACHE_VARNISH_INVALIDATE_TOKEN` | (Optional) For token based authentication. |
-| ezpublish.system.(scope).http_cache.fastly.service_id | `fastly_service_id` | `FASTLY_SERVICE_ID` | Service ID for authenticate with Fastly |
-| ezpublish.system.(scope).http_cache.fastly.key | `fastly_key` | `FASTLY_KEY` | Service key/token for authenticate with Fastly |
+| ezpublish.system.(scope).http_cache.varnish_invalidate_token | `varnish_invalidate_token` | `HTTPCACHE_VARNISH_INVALIDATE_TOKEN` | (Optional) For token based authentication |
+| ezpublish.system.(scope).http_cache.fastly.service_id | `fastly_service_id` | `FASTLY_SERVICE_ID` | Service ID to authenticate with Fastly |
+| ezpublish.system.(scope).http_cache.fastly.key | `fastly_key` | `FASTLY_KEY` | Service key/token to authenticate with Fastly |
 
 _\* If you need to set multiple purge servers configure them in the YAML configuration, instead of parameter or environment variable as they only take single string value._
 
