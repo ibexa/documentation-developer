@@ -105,7 +105,6 @@ ESI are in theory great for splitting out the different parts of a web page into
 
 However, in practice ESI means every request needs to start over from scratch, and while you can tune your system to reduce this, it always causes additional overhead:
 
-You'll face this overhead when:
 - When cache is cold on all or some of the sub-requests
 - With Symfony Proxy (AppCache) even some overhead on warm cache (hits) on all sub requests
 - In development environment
@@ -159,13 +158,14 @@ however in eZ Platform you can cover most use cases by setting supported environ
 !!! caution "Careful when trusting dynamic IP using TRUST_REMOTE value or similar"
 
     On Platform.sh, Varnish does not have a static IP, like with [AWS LB.](https://symfony.com/doc/3.4/deployment/proxies.html#but-what-if-the-ip-of-my-reverse-proxy-changes-constantly)
-    For this `SYMFONY_TRUSTED_PROXIES` env variable supports being set to value "TRUST_REMOTE", which effectively means:
+    For this `SYMFONY_TRUSTED_PROXIES` env variable supports being set to value "TRUST_REMOTE":
+  
     ```php
     Request::setTrustedProxies([$request->server->get('REMOTE_ADDR')], Request::HEADER_X_FORWARDED_ALL);
     ```
 
     When trusting remote IP like this, make sure your application is only accessible through Varnish.
-    Varnish, as it could mean you end up trusting i.e. IP of client browser instead which would be a serious security issue!
+    If it is accessible in other ways you may end up trusting e.g. IP of client browser instead which would be a serious security issue.
 
     Make sure that **all** traffic always comes from the trusted proxy/load-balancer,
     and there is no other way to configure it.
@@ -215,7 +215,8 @@ ezpublish:
 
 !!! enterprise "Using Fastly as HttpCache proxy"
 
-    [Fastly](https://www.fastly.com/) delivers Varnish as a CDN service and is supported with eZ Platform Enterprise. See [Fastly documentation](https://docs.fastly.com/guides/basic-concepts/how-fastlys-cdn-service-works) to read how it works.
+    [Fastly](https://www.fastly.com/) delivers Varnish as a CDN service and is supported with eZ Platform Enterprise.
+    See, [Fastly documentation](https://docs.fastly.com/guides/basic-concepts/how-fastlys-cdn-service-works) to learn how it works.
 
     ##### Configuring Fastly in YML
 
@@ -237,8 +238,9 @@ ezpublish:
 
     ##### Configuring Fastly using Environment variables
 
-    *Example when using `.env` file*:
-    ```shell script
+    Example when using `.env` file:
+    
+    ``` bash
     SYMFONY_HTTP_CACHE="0"
 
     HTTPCACHE_PURGE_TYPE="fastly"
@@ -249,13 +251,13 @@ ezpublish:
     FASTLY_KEY="token"
     ```
 
-    Tip: As of eZ Enterprise v1.13.6 and v2.5.10, you no longer need to set `HTTPCACHE_PURGE_SERVER` if you set `purge_type`
+    As of eZ Enterprise v2.5.10, you no longer need to set `HTTPCACHE_PURGE_SERVER` if you set `purge_type`
     via `HTTPCACHE_PURGE_TYPE`. If you set `purge_type` by any other means, you will still need to set `purge_server` too.
 
     ##### Configuration Fastly on Platform.sh
 
-    If using Platform.sh, it's best to configure all Environment variables via [Platform.sh variables](https://docs.platform.sh/frameworks/ez/fastly.html).
-    You'll also need to [disable Varnish](https://docs.platform.sh/frameworks/ez/fastly.html#remove-varnish-configuration) which is enabled by default in provided configuration for Platform.sh.
+    If you are using Platform.sh, it's best to configure all Environment variables via [Platform.sh variables](https://docs.platform.sh/frameworks/ez/fastly.html).
+    You also need to [disable Varnish](https://docs.platform.sh/frameworks/ez/fastly.html#remove-varnish-configuration) which is enabled by default in provided configuration for Platform.sh.
 
     ##### Obtaining Fastly service ID and API token
 
@@ -269,19 +271,20 @@ ezpublish:
 
 #### Examples for configuring eZ Platform
 
-There are several ways to configure HttpCache, examples on configuring it via YML can be found above.
 
 For configuring the system completely by environment variables, here are some of the most common:
 
-*Example when using `.env` file*:
-```shell script
+Example when using `.env` file:
+
+``` bash
 SYMFONY_HTTP_CACHE="0"
 SYMFONY_TRUSTED_PROXIES="127.0.0.1"
 HTTPCACHE_PURGE_TYPE="varnish"
 HTTPCACHE_PURGE_SERVER="http://varnish:80"
 ```
 
-*Example for Apache with `mod_env`*:
+Example for Apache with `mod_env`:
+
 ```apacheconfig
 SetEnv SYMFONY_HTTP_CACHE 0
 SetEnv SYMFONY_TRUSTED_PROXIES "127.0.0.1"
@@ -289,7 +292,8 @@ SetEnv HTTPCACHE_PURGE_TYPE varnish
 SetEnv HTTPCACHE_PURGE_SERVER "http://varnish:80"
 ```
 
-*Example for Nginx*:
+Example for Nginx:
+
 ```nginx
 fastcgi_param SYMFONY_HTTP_CACHE 0;
 fastcgi_param SYMFONY_TRUSTED_PROXIES "127.0.0.1";
@@ -297,11 +301,14 @@ fastcgi_param HTTPCACHE_PURGE_TYPE varnish;
 fastcgi_param HTTPCACHE_PURGE_SERVER "http://varnish:80";
 ```
 
-*Example for Platform.sh*:
+Example for Platform.sh:
+
 You can configure environment variables via [Platform.sh variables](https://docs.platform.sh/frameworks/ez/fastly.html).
 
-TIP: For Http Cache, you'll most likely *only* going to use this for configuring Fastly for production and optionally staging,
-allowing _variables:env:_ in `.platform.app.yaml` to i.e. specify varnish or Symfony proxy as default for dev environment.
+!!! tip
+
+    For Http Cache, you'll most likely only use this for configuring Fastly for production and optionally staging, allowing `variables:env:` in `.platform.app.yaml` to e.g. specify varnish or Symfony proxy as default for dev environment.
+
 
 ##### Example for Apache + Varnish
 
@@ -339,28 +346,28 @@ fastcgi_param FASTLY_KEY "token"
 
 ### Understanding Stale Cache
 
-Stale cache, or Grace mode in Varnish, is when cache continues to be served when expired _(by means of TTL or "Soft purge")_, or when backend server is not responding.
+Stale cache, or Grace mode in Varnish, is when cache continues to be served when expired (by means of TTL or "Soft purge"), or when backend server is not responding.
 
 This has several benefits for high traffic installations to reduce load to backend. Instead of creating several
 concurrent requests for the same page to the backend, the following happens when a page has been soft purged:
 - Next request hitting the cache will trigger an asynchronous lookup to a backend
-- If cache is still within grace period, first and subsequent requests for the content will be served from cache, not wait for the asynchronous lookup to finish
-- The backend lookup finishes and refreshed the cache so any subsequent requests gets fresh cache
+- If cache is still within grace period, first and subsequent requests for the content is served from cache, and doesn't wait for the asynchronous lookup to finish
+- The backend lookup finishes and refreshes the cache so any subsequent requests gets fresh cache
 
-By default eZ Platform always "Soft Purges" content on reverse proxies that supports it (Varnish and Fastly), with
-the following logic in our out of the box VCL:
+By default eZ Platform always "Soft Purges" content on reverse proxies that support it (Varnish and Fastly), with
+the following logic in the out-of-the-box VCL:
 - Cache is within grace
 - Either server is not responding, or request comes without session cookie (anonymous user)
 
-Reason for not always serving grace by default is:
-1. Safe default _(even if just for anonymous , stale cache can easily confuse your team during acceptance testing)_
-2. It would also mean REST API, which is used by Admin UI, would serve stales data, breaking the UI.
+Serving grace is not always allowed by default because:
+- It is a safe default. Even if just for anonymous, stale cache can easily confuse your team during acceptance testing.
+- It means REST API, which is used by Admin UI, would serve stales data, breaking the UI.
 
 
 !!! tip "Customizing stale cache handling"
 
     If you want to use grace handling also for logged in users, you can adapt the provided VCL to add condition for
-    opting out if request has cookie *and* path contains REST API prefix to make sure Admin UI is not negatively affected.
+    opting out if request has cookie and path contains REST API prefix to make sure the Back Office is not negatively affected.
 
     If you want to disable grace mode, you can adapt the VCL to do hard instead of soft purges, or set grace/stale time to `0s`.
 
