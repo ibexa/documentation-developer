@@ -2140,8 +2140,8 @@ Currently supported input formats are described in the table below:
 <?xml version="1.0" encoding="UTF-8"?>
 <section xmlns="http://docbook.org/ns/docbook"
          xmlns:xlink="http://www.w3.org/1999/xlink"
-         xmlns:ezxhtml="http://ibexa.co/xmlns/ezpublish/docbook/xhtml"
-         xmlns:ezcustom="http://ibexa.co/xmlns/ezpublish/docbook/custom"
+         xmlns:ezxhtml="http://ez.no/xmlns/ezpublish/docbook/xhtml"
+         xmlns:ezcustom="http://ez.no/xmlns/ezpublish/docbook/custom"
          version="5.0-variant ezpublish-1.0">
     <title ezxhtml:level="2">This is a title.</title>
     <para ezxhtml:class="paraClass">This is a paragraph.</para>
@@ -2154,7 +2154,7 @@ This format is used by eZ Platform's Online Editor.
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
-<section xmlns="http://ibexa.co/namespaces/ezpublish5/xhtml5/edit">
+<section xmlns="http://ez.no/namespaces/ezpublish5/xhtml5/edit">
     <h2>This is a title.</h2>
     <p class="paraClass">This is a paragraph.</p>
 </section>
@@ -2179,8 +2179,8 @@ $inputString = <<<DOCBOOK
 <?xml version="1.0" encoding="UTF-8"?>
 <section xmlns="http://docbook.org/ns/docbook"
          xmlns:xlink="http://www.w3.org/1999/xlink"
-         xmlns:ezxhtml="http://ibexa.co/xmlns/ezpublish/docbook/xhtml"
-         xmlns:ezcustom="http://ibexa.co/xmlns/ezpublish/docbook/custom"
+         xmlns:ezxhtml="http://ez.no/xmlns/ezpublish/docbook/xhtml"
+         xmlns:ezcustom="http://ez.no/xmlns/ezpublish/docbook/custom"
          version="5.0-variant ezpublish-1.0">
     <title ezxhtml:level="2">This is a title.</title>
     <para ezxhtml:class="paraClass">This is a paragraph.</para>
@@ -2209,7 +2209,7 @@ When creating RichText content with the REST API, it is possible to provide data
 ``` xml
 <fieldValue>
     <value key="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ezxhtml="http://ibexa.co/xmlns/ezpublish/docbook/xhtml" xmlns:ezcustom="http://ibexa.co/xmlns/ezpublish/docbook/custom" version="5.0-variant ezpublish-1.0"&gt;
+&lt;section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ezxhtml="http://ez.no/xmlns/ezpublish/docbook/xhtml" xmlns:ezcustom="http://ez.no/xmlns/ezpublish/docbook/custom" version="5.0-variant ezpublish-1.0"&gt;
 &lt;title ezxhtml:level="2"&gt;This is a title.&lt;/title&gt;
 &lt;/section&gt;
 </value>
@@ -2608,9 +2608,9 @@ This Field Type validates and stores formatted text using the eZ Publish legacy 
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
 <section
-    xmlns:custom="http://ibexa.co/namespaces/ezpublish3/custom/"
-    xmlns:image="http://ibexa.co/namespaces/ezpublish3/image/"
-    xmlns:xhtml="http://ibexa.co/namespaces/ezpublish3/xhtml/">
+    xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/"
+    xmlns:image="http://ez.no/namespaces/ezpublish3/image/"
+    xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/">
     <paragraph>This is a paragraph.</paragraph>
 </section>
 ```
@@ -2653,9 +2653,9 @@ $contentCreateStruct = $contentService->newContentCreateStruct( $contentType, "e
 $inputString = <<<EZXML
 <?xml version="1.0" encoding="utf-8"?>
 <section
-    xmlns:custom="http://ibexa.co/namespaces/ezpublish3/custom/"
-    xmlns:image="http://ibexa.co/namespaces/ezpublish3/image/"
-    xmlns:xhtml="http://ibexa.co/namespaces/ezpublish3/xhtml/">
+    xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/"
+    xmlns:image="http://ez.no/namespaces/ezpublish3/image/"
+    xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/">
     <paragraph>This is a paragraph.</paragraph>
 </section>
 EZXML;
