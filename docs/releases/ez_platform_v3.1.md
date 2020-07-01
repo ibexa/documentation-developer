@@ -36,6 +36,14 @@ Selections that you make in one view survive when you switch to the other view.
 
 For more information about configuring the Universal Discovery Widget, see [URL management](../extending/extending_udw.md) in the developer documentation.
 
+### Saving incomplete draft
+
+As of this release, when you create or edit a Content item or a Page, you can save it without completing all the required fields.
+You can then return to editing, or pass the content to another contributor.
+Validation that used to happen at each save operation now, by default, happens when you click the **Publish** button.
+
+Also, as part of this feature, the `ContentService::validate()` method has been added that you can use to control the validation of either individual fields, or whole Content items.
+
 ### Search
 
 #### ezplatform-search
