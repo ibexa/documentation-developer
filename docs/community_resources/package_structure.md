@@ -22,11 +22,11 @@ The general package directory structure and corresponding PHP namespace mapping 
 ```
 .
 +-- src
-|   +-- bundle (`Ibexa\Platform\Bundle\<PackageName>Bundle`)
+|   +-- bundle (`Ibexa\Platform\Bundle\<PackageName>`)
 |   +-- contracts (`Ibexa\Platform\Contracts\<PackageName>`)
 |   +-- lib (`Ibexa\Platform\<PackageName>`)
 +-- tests
-|   +-- bundle (`Ibexa\Platform\Tests\Bundle\<PackageName>Bundle`)
+|   +-- bundle (`Ibexa\Platform\Tests\Bundle\<PackageName>`)
 |   +-- integration (`Ibexa\Platform\Tests\Integration\<PackageName>`)
 |   +-- lib (`Ibexa\Platform\Tests\<PackageName>`)
 ```
@@ -58,14 +58,14 @@ namespace Ibexa\Commerce\Shop;
 The bundle class definition in the **`src/bundle`** directory MUST BE as follows:
 
 ```php
-namespace Ibexa\Platform\Bundle\<PackageName>Bundle;
+namespace Ibexa\Platform\Bundle\<PackageName>;
 
 class Ibexa<ProductName><PackageName>Bundle // ...
 ```
 
 Example:
 ```php
-namespace Ibexa\Platform\Bundle\SearchBundle;
+namespace Ibexa\Platform\Bundle\Search;
 
 class IbexaPlatformSearchBundle // ...
 ```
