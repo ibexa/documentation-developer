@@ -10,11 +10,16 @@ needs to follow the rules outlined here.
 
 ## Root PHP namespace
 
-eZ Platform by Ibexa core PHP code needs to be defined in a namespace with the following prefix:
+Ibexa core PHP code needs to be defined in a namespace with the following prefix:
 
 ```php
-namespace Ibexa\Platform;
+namespace Ibexa;
 ```
+
+Additionally each Product from Ibexa DXP should define its own prefix, e.g:
+* `namespace Ibexa\Platform;`
+* `namespace Ibexa\Commerce;`
+* `namespace Ibexa\Personalization;`
 
 ## Packages
 
@@ -46,8 +51,6 @@ Example:
 ```php
 namespace Ibexa\Platform\Search;
 ```
-
-A package which groups some DXP features MAY use an additional prefix, for example:
 
 ```php
 namespace Ibexa\Commerce\Shop;
