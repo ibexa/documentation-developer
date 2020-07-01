@@ -50,7 +50,7 @@ namespace Ibexa\Platform\Search;
 A package which groups some DXP features MAY use an additional prefix, for example:
 
 ```php
-namespace Ibexa\Platform\Commerce\Shop;
+namespace Ibexa\Commerce\Shop;
 ```
 
 ### Bundles
@@ -60,14 +60,14 @@ The bundle class definition in the **`src/bundle`** directory MUST BE as follows
 ```php
 namespace Ibexa\Platform\Bundle\<PackageName>Bundle;
 
-class <PackageName>Bundle // ...
+class Ibexa<ProductName><PackageName>Bundle // ...
 ```
 
 Example:
 ```php
 namespace Ibexa\Platform\Bundle\SearchBundle;
 
-class SearchBundle // ...
+class IbexaPlatformSearchBundle // ...
 ```
 
 ### Contracts
