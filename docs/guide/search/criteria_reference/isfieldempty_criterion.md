@@ -11,7 +11,9 @@ or non-empty Fields (`false`).
 
 ## Limitations
 
-The Richtext Field Type (`ezrichtext`) is not searchable in the Legacy search engine.   
+The `IsFieldEmpty` Criterion is not available in [Repository filtering](../../../api/public_php_api_search.md#repository-filtering).
+
+The Richtext Field Type (`ezrichtext`) is not searchable in the Legacy search engine.
 
 ## Example
 

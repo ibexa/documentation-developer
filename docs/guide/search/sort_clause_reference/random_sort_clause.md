@@ -8,6 +8,10 @@ orders search results randomly.
 - `seed` (optional) - int representing the random seed
 - `sortDirection` (optional) - Query or LocationQuery constant, either `Query::SORT_ASC` or `Query::SORT_DESC`.
 
+## Limitations
+
+The `Random` Sort Clause is not available in [Repository filtering](../../../api/public_php_api_search.md#repository-filtering).
+
 ## Example
 
 ``` php

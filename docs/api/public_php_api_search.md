@@ -147,6 +147,12 @@ $filter
     ->sliceBy(10, 2);
 ```
 
+!!! note "Search Criteria and Sort Clause availability"
+
+    Not all Search Criteria and Sort Clauses are available for use in Repository filtering.
+    See to [Search Criteria](../guide/search/search_criteria_reference.md)
+    and [Sort Clause reference](../guide/search/sort_clause_reference.md) for details.
+
 ## Searching in a controller
 
 You can use the `SearchService` or Repository filtering in a controller, as long as you provide the required parameters.

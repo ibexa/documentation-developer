@@ -9,6 +9,10 @@ Locations that are not main Locations are ranked as lower values (e.g. with asce
 
 - `sortDirection` (optional) - Query or LocationQuery constant, either `Query::SORT_ASC` or `Query::SORT_DESC`.
 
+## Limitations
+
+The `Location\IsMainLocation` Sort Clause is not available in [Repository filtering](../../../api/public_php_api_search.md#repository-filtering).
+
 ## Example
 
 ``` php
