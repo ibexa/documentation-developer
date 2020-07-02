@@ -103,4 +103,8 @@ namespace Ibexa\Platform\Contracts\Kernel;
 namespace Ibexa\Platform\Contracts\SiteFactory;
 ```
 
+```php
+namespace Ibexa\Platform\Contracts\Commerce\Shop;
+```
+
 That namespace needs to be mapped to the **`src/contracts`** directory of a package.
