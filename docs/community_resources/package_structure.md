@@ -16,6 +16,16 @@ eZ Platform by Ibexa core PHP code needs to be defined in a namespace with the f
 namespace Ibexa\Platform;
 ```
 
+A package which groups some DXP features MAY use an additional prefix, for example:
+
+```php
+namespace Ibexa\Platform\Commerce;
+```
+
+```php
+namespace Ibexa\Platform\Personalization;
+```
+
 ## Packages
 
 The general package directory structure and corresponding PHP namespace mapping is as follows.
@@ -41,16 +51,14 @@ namespace Ibexa\Platform\<PackageName>;
 ```
 is meant for internal implementation not tied to the Symfony Framework.
 
-Example:
+Examples:
 
 ```php
 namespace Ibexa\Platform\Search;
 ```
 
-A package which groups some DXP features MAY use an additional prefix, for example:
-
 ```php
-namespace Ibexa\Commerce\Shop;
+namespace Ibexa\Platform\Commerce\Shop;
 ```
 
 ### Bundles
@@ -60,14 +68,20 @@ The bundle class definition in the **`src/bundle`** directory MUST BE as follows
 ```php
 namespace Ibexa\Platform\Bundle\<PackageName>;
 
-class Ibexa<ProductName><PackageName>Bundle // ...
+class IbexaPlatform[ProductGroup]<PackageName>Bundle // ...
 ```
 
-Example:
+Examples:
 ```php
 namespace Ibexa\Platform\Bundle\Search;
 
 class IbexaPlatformSearchBundle // ...
+```
+
+```php
+namespace Ibexa\Platform\Bundle\Commerce\Shop;
+
+class IbexaPlatformCommerceShopBundle // ...
 ```
 
 ### Contracts
