@@ -172,7 +172,7 @@ Aside from the Field Type, the Field definition in a Content Type provides the f
 **Required** – a flag which indicates if the Field is required for the system to accept the Content item. By default, if a Field is flagged as Required, a user will not be able to publish a Content item without filling in this Field.
 
 !!! note
-    You can use the `ContentService::validate()` method to decide whether the required fields or whole Content items are checked for completeness in other places of the workflow.
+    You can use the `ContentService::validate()` method to decide whether the required fields or whole Content items are checked for completeness at other stages of the workflow.
 
     The Required flag is in no way related to Field validation. A Field's value is validated whether the Field is set as required or not.
 
