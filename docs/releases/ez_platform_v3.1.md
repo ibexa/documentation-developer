@@ -42,7 +42,8 @@ As of this release, when users create or edit a Content item or a Page, they can
 They can then return to editing, or pass the content to another contributor.
 Validation that used to happen at each save operation now, by default, happens when you click the **Publish** button.
 
-Also, as part of this feature, the `ContentService::validate()` method has been added that you can use to trigger validation of individual fields or whole Content items for completeness at other stages of the workflow.
+Also, as part of this feature, the `ContentService::validate()` method has been added that you can use to trigger validation of individual fields 
+or whole Content items for completeness at other stages of the editing process.
 
 ### Search
 
