@@ -1,5 +1,11 @@
 # Content search
 
+You can search for content with the PHP API in two ways.
+
+To do this, you can use the [`SearchService`](#searchservice) or [Repository filtering](#repository-filtering).
+
+## SearchService
+
 [`SearchService`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/SearchService.php)
 enables you to perform search queries using the PHP API.
 
@@ -10,7 +16,7 @@ The service should be [injected into the constructor of your command or controll
     `SearchService` is also used in the Back Office of eZ Platform,
     in components such as Universal Discovery Widget or Sub-items List.
 
-## Performing a search
+### Performing a search
 
 To search through content you need to create a [`LocationQuery`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/LocationQuery.php)
 and provide your search criteria as a series of Criterion objects.
@@ -70,7 +76,7 @@ $output->writeln($result->getName());
     $query->limit = 100;
     ```
 
-### Search with `query` and `filter`
+#### Search with `query` and `filter`
 
 You can use two properties of the `Query` object to search for content: `query` and `filter`.
 
@@ -81,10 +87,70 @@ As such, `query` is recommended when the search is based on user input.
 The difference between `query` and `filter` is only relevant when using Solr search engine.
 With the Legacy search engine both properties will give identical results.
 
+## Repository filtering
+
+You can use the `ContentService::find()` method to search for content or Locations using a defined Filter.
+
+[`Filter`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.1.0/eZ/Publish/API/Repository/Values/Filter/Filter.php) enables you to configure a query using chained methods to select criteria, sorting, limit and offset.
+
+For example, the following command lists all Content items under the specified parent Location
+and sorts them in descending order by name:
+
+``` php hl_lines="13 14 15 16"
+// ...
+use eZ\Publish\API\Repository\ContentService;
+use eZ\Publish\API\Repository\Values\Filter\Filter;
+use eZ\Publish\API\Repository\Values\Content\Query;
+use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
+use eZ\Publish\API\Repository\Values\Content\Query\SortClause;
+
+class FilterCommand extends Command
+{
+    // ...
+    protected function execute(InputInterface $input, OutputInterface $output)
+    {
+        $filter = new Filter();
+        $filter
+            ->withCriterion(new Criterion\ParentLocationId($parentLocationId))
+            ->withSortClause(new SortClause\ContentName(Query::SORT_DESC));
+
+        $result = $this->contentService->find($filter, []);
+
+        $output->writeln('Found ' . $result->getTotalCount() . ' items');
+
+        foreach ($result->getIterator() as $content)
+        {
+            $output->writeln($content->getName());
+        }
+    }
+}
+```
+
+You can use the following methods of the Filter:
+
+- `withCriterion` - add the first Criterion to the Filter
+- `andWithCriterion` - add another Criterion to the Filter using a LogicalAnd operation. If this is the first Criterion, this method works like `withCriterion`
+- `orWithCriterion` - add a Criterion using a LogicalOr operation. If this is the first Criterion, this method works like `withCriterion`
+- `withSortClause` - add a Sort Clause to the Filter
+- `sliceBy` - set limit and offset for pagination
+- `reset` - remove all Criteria, Sort Clauses, and pagination settings
+
+The following example filters for Folder Content items under the parent Location 2,
+sorts them by publication date and returns 10 results, starting from the third one:
+
+``` php
+$filter = new Filter();
+$filter
+    ->withCriterion(new Criterion\ContentTypeIdentifier('folder'))
+    ->andWithCriterion(new Criterion\ParentLocationId(2))
+    ->withSortClause(new SortClause\DatePublished(Query::SORT_ASC))
+    ->sliceBy(10, 2);
+```
+
 ## Searching in a controller
 
-You can use the `SearchService` similarly in a controller, as long as you provide the required parameters.
-For example, in the code below `locationId` is provided to list all children of a Location.
+You can use the `SearchService` or Repository filtering in a controller, as long as you provide the required parameters.
+For example, in the code below `locationId` is provided to list all children of a Location using the `SearchService`.
 
 ``` php hl_lines="20 21 22"
 //...
@@ -114,6 +180,36 @@ class CustomController extends Controller
 ```
 
 The rendering of results is then relegated to [templates](../guide/templates.md) (lines 20-22).
+
+When using Repository filtering, provide the results of `ContentService::find()` as parameters to the view:
+
+``` php hl_lines="19"
+// ...
+use eZ\Publish\API\Repository\ContentService;
+use eZ\Publish\API\Repository\Values\Content\Query;
+use eZ\Publish\API\Repository\Values\Content\Query\Criterion\ParentLocationId;
+use eZ\Publish\API\Repository\Values\Filter\Filter;
+use eZ\Publish\Core\MVC\Symfony\View\ContentView;
+
+class CustomController extends Controller
+{
+    // ...
+    public function showChildrenAction(ContentView $view): ContentView
+    {
+        $filter = new Filter();
+        $filter
+            ->withCriterion(new ParentLocationId($view->getLocation()->id))
+
+        $view->setParameters(
+            [
+                'items' => $this->contentService->find($filter, []),
+            ]
+        );
+
+        return $view;
+    }
+}
+```
 
 ### Paginating search results
 
