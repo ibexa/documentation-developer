@@ -69,6 +69,7 @@ class IbexaPlatform[ProductGroup]<PackageName>Bundle // ...
 
 Examples:
 
+
 ```php
 namespace Ibexa\Platform\Bundle\Search;
 
