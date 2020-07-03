@@ -1,22 +1,21 @@
-# Package and bundle structure, namespaces
+# Package and bundle structure and namespaces
 
-**Target audience**: Symfony backend Ibexa Community Contributors and Ibexa Engineers.
+The following conventions apply to contributions to Ibexa core code, not to third party packages.
 
-This specification **IS NOT meant** for 3rd party packages or projects.
+!!! note
 
-What needs to be emphasised is that the conventions described here are meant to be applied as an evolution.
-It means that while the existing code won't be changed at once (or at all in some cases), the new code
-needs to follow the rules outlined here.
+    New code needs to follow the rules outlined here.
+    They are being applied progressively to existing code.
 
 ## Root PHP namespace
 
-eZ Platform by Ibexa core PHP code needs to be defined in a namespace with the following prefix:
+Define eZ Platform by Ibexa core PHP code in a namespace with the following prefix:
 
 ```php
 namespace Ibexa\Platform;
 ```
 
-A package which groups some DXP features MAY use an additional prefix, for example:
+A package which groups some DXP features can use an additional prefix, for example:
 
 ```php
 namespace Ibexa\Platform\Commerce;
@@ -28,7 +27,8 @@ namespace Ibexa\Platform\Personalization;
 
 ## Packages
 
-The general package directory structure and corresponding PHP namespace mapping is as follows.
+The general package directory structure and corresponding PHP namespace mapping are:
+
 ```
 .
 +-- src
@@ -41,15 +41,11 @@ The general package directory structure and corresponding PHP namespace mapping 
 |   +-- lib (`Ibexa\Platform\Tests\<PackageName>`)
 ```
 
-If a package does not contain some of the described parts, those directories MAY BE skipped.
+If a package does not contain some of the described parts, you can skip those directories.
 
 ### Implementation (lib)
 
-The **`src/lib`** directory and its corresponding namespace:
-```php
-namespace Ibexa\Platform\<PackageName>;
-```
-is meant for internal implementation not tied to the Symfony Framework.
+The `src/lib` directory and its corresponding `Ibexa\Platform\<PackageName>` namespace are meant for internal implementation not tied to the Symfony Framework.
 
 Examples:
 
@@ -63,7 +59,7 @@ namespace Ibexa\Platform\Commerce\Shop;
 
 ### Bundles
 
-The bundle class definition in the **`src/bundle`** directory MUST BE as follows:
+The bundle class definition in the `src/bundle` directory must be:
 
 ```php
 namespace Ibexa\Platform\Bundle\<PackageName>;
@@ -72,6 +68,7 @@ class IbexaPlatform[ProductGroup]<PackageName>Bundle // ...
 ```
 
 Examples:
+
 ```php
 namespace Ibexa\Platform\Bundle\Search;
 
@@ -86,8 +83,8 @@ class IbexaPlatformCommerceShopBundle // ...
 
 ### Contracts
 
-A package MAY introduce a namespace for contracts, to be consumed by 1st and 3rd party packages
-and projects, which MUST be prefixed as:
+A package may introduce a namespace for contracts, to be consumed by first and third party packages
+and projects, which must be prefixed as:
 
 ```php
 namespace Ibexa\Platform\Contracts;
@@ -107,4 +104,4 @@ namespace Ibexa\Platform\Contracts\SiteFactory;
 namespace Ibexa\Platform\Contracts\Commerce\Shop;
 ```
 
-That namespace needs to be mapped to the **`src/contracts`** directory of a package.
+That namespace needs to be mapped to the `src/contracts` directory of a package.
