@@ -166,8 +166,10 @@ nav:
             - Sort Clause Reference:
                 - 'ContentId': 'guide/search/sort_clause_reference/contentid_sort_clause.md'
                 - 'ContentName': 'guide/search/sort_clause_reference/contentname_sort_clause.md'
+                - 'ContentTypeName': 'guide/search/sort_clause_reference/contenttypename_sort_clause.md'
                 - 'DateModified': 'guide/search/sort_clause_reference/datemodified_sort_clause.md'
                 - 'DatePublished': 'guide/search/sort_clause_reference/datepublished_sort_clause.md'
+                - 'DateTrashed': 'guide/search/sort_clause_reference/datetrashed_sort_clause.md'
                 - 'Depth': 'guide/search/sort_clause_reference/depth_sort_clause.md'
                 - 'Field': 'guide/search/sort_clause_reference/field_sort_clause.md'
                 - 'Id': 'guide/search/sort_clause_reference/id_sort_clause.md'
@@ -178,6 +180,7 @@ nav:
                 - 'Random': 'guide/search/sort_clause_reference/random_sort_clause.md'
                 - 'SectionIdentifier': 'guide/search/sort_clause_reference/sectionidentifier_sort_clause.md'
                 - 'SectionName': 'guide/search/sort_clause_reference/sectionname_sort_clause.md'
+                - 'UserLogin': 'guide/search/sort_clause_reference/userlogin_sort_clause.md'
                 - 'Visibility': 'guide/search/sort_clause_reference/visibility_sort_clause.md'
             - 'Searching in trash reference': 'guide/search/search_in_trash_reference.md'
             - 'Solr search engine': 'guide/search/solr.md'

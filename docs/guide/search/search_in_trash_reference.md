@@ -23,10 +23,10 @@ They can be used by `\eZ\Publish\API\Repository\TrashService::findTrashItems` on
 | Sort Clause | Sorting based on | Search type|
 |-----|-----|-----|
 |[ContentName](sort_clause_reference/contentname_sort_clause.md)|Content names|Content and Location|
-|[SectionName](sort_clause_reference/sectionname_sort_clause.md)|Name of the Section that content was assigned to|Content and Location|
+|[ContentTypeName](sort_clause_reference/contenttypename_sort_clause.md)|Name of the Content Item's Content Type|Trash only|
+|[DateTrashed](sort_clause_reference/datetrashed_sort_clause.md)|Date when content was sent to trash|Trash only|
 |[Depth](sort_clause_reference/depth_sort_clause.md)|Location depth in the Content tree|Location only|
 |[Path](sort_clause_reference/path_sort_clause.md)|PathString of the Location|Location only|
 |[Priority](sort_clause_reference/priority_sort_clause.md)|Location priority|Location only|
-|[ContentTypeName](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Query/SortClause/Trash/ContentTypeName.php)|Name of the Content Item's Content Type|Trash only|
-|[DateTrashed](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.2/eZ/Publish/API/Repository/Values/Content/Query/SortClause/Trash/DateTrashed.php)|Date when content was sent to trash|Trash only|
-|[UserLogin](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Query/SortClause/Trash/UserLogin.php)|Login of the Content Item's creator|Trash only|
+|[SectionName](sort_clause_reference/sectionname_sort_clause.md)|Name of the Section that content was assigned to|Content and Location|
+|[UserLogin](sort_clause_reference/userlogin_sort_clause.md)|Login of the Content Item's creator|Trash only|
