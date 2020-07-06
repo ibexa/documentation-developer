@@ -29,6 +29,12 @@ This release of eZ Platform introduces the following new features:
     You can now define the parent Location for every new site in the template configuration.
 
     For more information about defining parent Location, see [Configure parent Location](../guide/site_factory.md#configure-parent-location).
+    
+    ### Page Builder
+    
+    You can now filter elements in the sidebar during site creation process to get to the desired blocks faster.
+
+    ![](img/3_1_filter_elements.png)
 
 ### URL management UI
 
