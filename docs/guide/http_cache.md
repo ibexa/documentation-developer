@@ -208,9 +208,8 @@ ezpublish:
 
     In setups where the Varnish server IP can change (for example on platform.sh/eZ Platform Cloud),
     you can use token-based cache invalidation via [ez_purge_acl.](https://github.com/ezsystems/ezplatform-http-cache/blob/v1.0.0/docs/varnish/vcl/varnish5.vcl#L160)
-
+ 
     In such a case use a strong, secure hash and make sure to keep the token secret.
-
 
 !!! enterprise "Using Fastly as HttpCache proxy"
 
@@ -267,6 +266,42 @@ ezpublish:
     instructions on how to generate a Fastly API token.
     The token needs `purge_select` and `purge_all` scope.
 
+    #### Ensure proper Captcha behavior
+
+    If your installation uses Varnish and you want users to be able to configure and use Captcha in their forms, you must enable the sending of Captcha data as a response to an Ajax request.
+    Otherwise, Varnish prohibits the transfer of Captcha data to the form, and users see an empty image.
+
+    To enable sending Captcha over Ajax, modify the configuration file, for example `config/packages/ezplatform.yaml`, by adding the following code:
+
+    ``` yaml
+    ezplatform:
+        system:
+            default:
+                form_builder:
+                    captcha:
+                        use_ajax: <true|false>
+    ```
+
+    !!! note
+
+        If you created a custom Captcha block for your site by overriding the default file (`vendor/gregwar/captcha-bundle/Resources/views/captcha.html.twig`), you must make the following changes to the custom block template file:
+
+        - change the name of the block to `ajax_captcha_widget`
+        - include the JavaScript file:
+
+        ```
+        {{ encore_entry_script_tags('ezplatform-form-builder-ajax-captcha-js', null, 'ezplatform') }}
+        ```
+
+        - add a data attribute with a `fieldId` value:
+
+        ```
+        data-field-id="{{ field.id }}"
+        ```
+
+        As a result, your file should be similar to [this example](https://github.com/ezsystems/ezplatform-form-builder/blob/master/src/bundle/Resources/views/themes/standard/fields/captcha.html.twig).
+
+    For more information about configuring Captcha fields, see [Captcha field](../extending/extending_form_builder.md#captcha-field).
 
 #### Examples for configuring eZ Platform
 

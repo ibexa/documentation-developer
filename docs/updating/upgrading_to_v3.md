@@ -8,6 +8,14 @@ but you will also need to make changes to your code.
 To simplify the process of adapting your code to Symfony 5, you can use [Rector, a reconstructor tool](https://github.com/rectorphp/rector)
 that will automatically refactor your Symfony and PHPunit code.
 
+!!! tip
+
+    To properly refactor your code you might need to run the Rector `process` command for each Symfony version from 4.0 to 5.0 in turn:
+    
+    `vendor/bin/rector process src --set symfony40`
+    
+    You can find all available sets in [the Rector repository](https://github.com/rectorphp/rector/tree/master/config/set/symfony). Keep in mind that after finishing automatic refactoring there might be some code chunks that you need to fix manually.
+
 ## 2\. Adapt project structure
 
 !!! tip
