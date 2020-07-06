@@ -14,6 +14,22 @@
 
 This release of eZ Platform introduces the following new features:
 
+!!! enterprise
+
+    ### Site Factory
+
+    #### Site skeleton
+
+    You can now create multiple content structures that can be used as Site skeletons for the new sites.
+
+    For more information about Site skeleton, see [Configure Site skeleton](../guide/site_factory.md#configure-site-skeleton).
+
+    #### Defining parent Location
+
+    You can now define the parent Location for every new site in the template configuration.
+
+    For more information about defining parent Location, see [Configure parent Location](../guide/site_factory.md#configure-parent-location).
+
 ### URL management UI
 
 You can now manage URL addresses and URL wildcards with a comfortable user interface that is available in the Back Office. You can create, modify and delete URL wildcards, as well as decide if the user should be redirected to the new address on clicking the link.
@@ -62,22 +78,9 @@ You can now search through the contents of Trash and sort the search results bas
 
 For more information, see [Searching in trash](../api/public_php_api_search.md#searching-in-trash).
 
-!!! enterprise
+### PermissionResolver
 
-    ### Site Factory
-
-    #### Site skeleton
-
-    You can now create multiple content structures that can be used as Site skeletons for the new sites.
-
-    For more information about Site skeleton, see [Configure Site skeleton](../guide/site_factory.md#configure-site-skeleton).
-
-    #### Defining parent Location
-
-    You can now define the parent Location for every new site in the template configuration.
-
-    For more information about defining parent Location, see [Configure parent Location](../guide/site_factory.md#configure-parent-location).
-
+You can now have a Service that provides both `PermissionResolver` and `PermissionCriterionResolver` by injecting `eZ\Publish\API\Repository\PermissionService`.
 
 ## Requirement changes
 
