@@ -5,8 +5,6 @@
     This page describes `ezplatform-http-cache` v1.0, which is bundled with eZ Platform v2.5.9 and up.
     To learn how `ezplatform-http-cache` v0.9 works, see [eZ Platform 1.13LTS HttpCache documentation](https://doc.ezplatform.com/en/1.13/guide/http_cache/).
 
-
-
 eZ Platform provides highly advanced caching features needed for its own content views, taking advantage
 of sophisticated techniques to make Varnish and Fastly act as the view cache for the system. This and other features
 allow eZ Platform to be scaled up to serve high traffic websites and applications.
@@ -20,6 +18,7 @@ For content view responses coming from eZ Platform itself, this means:
 - Cache is **[context-aware](#context-aware-http-cache)**, to cache request for logged in users by varying on user _rights_.
 
 All of this works across all the supported Reverse Proxies:
+
 - Symfony HttpCache Proxy - limited to a single server, and limited performance/features
 - [Varnish](https://varnish-cache.org/)
 - [Fastly](https://www.fastly.com/) - Varnish based CDN service
@@ -93,10 +92,9 @@ For the Page Builder, Block cache by default respects `$content.ttl_cache$` and 
 However, if the given block value has a since / till date,
 this will be taken into account for the TTL calculation for the block and also for the whole page.
 
-To overload this behavior, listen to [BlockResponseEvents::BLOCK_RESPONSE](extending/extending_page/#block-render-response),
+To overload this behavior, listen to [BlockResponseEvents::BLOCK_RESPONSE](extending/extending_page.md#block-render-response),
 and set priority to `-200` to adapt what Page Field Type does by default. E.g. in order to disable cache
 for the block use `$event->getResponse()->setPrivate()`.
-
 
 ### When to use ESI
 
@@ -149,6 +147,7 @@ Configuring eZ Platform for Varnish or Fastly involves a few steps, starting wit
 
 In a pure Symfony installation you would normally adapt Front Controller (`web/app.php`) [in order to configure Symfony to work behind a Load Balancer or a Reverse Proxy](https://symfony.com/doc/3.4/deployment/proxies.html),
 however in eZ Platform you can cover most use cases by setting supported environment variables using:
+
 - `SYMFONY_HTTP_CACHE`: To enable (`"1"`) or disable (`"0"`) use of Symfony HttpCache reverse proxy
     - *Must* be disabled when using Varnish or Fastly.
     - If not set, it is automatically disabled for Symfony ENV `dev` for local development needs.
@@ -179,8 +178,8 @@ Secondly, you need to tell eZ Platform to use an HTTP-based purge client (specif
 and specify the URL Varnish can be reached on (in `ezplatform.yml`):
 
 
-| Configuration | Parameter      | Environment variable     | Possible values             |
-| ------------- |:--------------:|:------------------------:|:---------------------------:|
+| Configuration | Parameter| Environment variable| Possible values|
+|---------|--------|--------|----------|
 | ezpublish.http_cache.purge_type | `purge_type` | `HTTPCACHE_PURGE_TYPE` | local, varnish/http, fastly |
 | ezpublish.system.(scope).http_cache.purge_servers | `purge_server`* | `HTTPCACHE_PURGE_SERVER`* | Array of URLs to proxies when using Varnish or Fastly (`https://api.fastly.com`) |
 | ezpublish.system.(scope).http_cache.varnish_invalidate_token | `varnish_invalidate_token` | `HTTPCACHE_VARNISH_INVALIDATE_TOKEN` | (Optional) For token based authentication |
@@ -189,8 +188,8 @@ and specify the URL Varnish can be reached on (in `ezplatform.yml`):
 
 _\* If you need to set multiple purge servers configure them in the YAML configuration, instead of parameter or environment variable as they only take single string value._
 
-
 Example for configuring varnish as reverse proxy, [assuming front controller has been configured](#Configuring-Symfony-Front-Controller):
+
 ``` yaml
 ezpublish:
     http_cache:
@@ -211,7 +210,46 @@ ezpublish:
  
     In such a case use a strong, secure hash and make sure to keep the token secret.
 
-!!! enterprise "Using Fastly as HttpCache proxy"
+!!! enterprise
+
+    #### Ensure proper Captcha behavior
+
+    If your installation uses Varnish and you want users to be able to configure and use Captcha in their forms, you must enable the sending of Captcha data as a response to an Ajax request.
+    Otherwise, Varnish prohibits the transfer of Captcha data to the form, and users see an empty image.
+
+    To enable sending Captcha over Ajax, modify the configuration file, for example `config/packages/ezplatform.yaml`, by adding the following code:
+
+    ``` yaml
+    ezplatform:
+        system:
+            default:
+                form_builder:
+                    captcha:
+                        use_ajax: <true|false>
+    ```
+
+    !!! note
+
+        If you created a custom Captcha block for your site by overriding the default file (`vendor/gregwar/captcha-bundle/Resources/views/captcha.html.twig`), you must make the following changes to the custom block template file:
+
+        - change the name of the block to `ajax_captcha_widget`
+        - include the JavaScript file:
+
+        ```
+        {{ encore_entry_script_tags('ezplatform-form-builder-ajax-captcha-js', null, 'ezplatform') }}
+        ```
+
+        - add a data attribute with a `fieldId` value:
+
+        ```
+        data-field-id="{{ field.id }}"
+        ```
+
+        As a result, your file should be similar to [this example](https://github.com/ezsystems/ezplatform-form-builder/blob/master/src/bundle/Resources/views/themes/standard/fields/captcha.html.twig).
+
+    For more information about configuring Captcha fields, see [Captcha field](extending/extending_form_builder.md#captcha-field).
+
+    #### Using Fastly as HttpCache proxy
 
     [Fastly](https://www.fastly.com/) delivers Varnish as a CDN service and is supported with eZ Platform Enterprise.
     See, [Fastly documentation](https://docs.fastly.com/guides/basic-concepts/how-fastlys-cdn-service-works) to learn how it works.
@@ -265,43 +303,6 @@ ezpublish:
     See [this Fastly guide](https://docs.fastly.com/guides/account-management-and-security/using-api-tokens) for
     instructions on how to generate a Fastly API token.
     The token needs `purge_select` and `purge_all` scope.
-
-    #### Ensure proper Captcha behavior
-
-    If your installation uses Varnish and you want users to be able to configure and use Captcha in their forms, you must enable the sending of Captcha data as a response to an Ajax request.
-    Otherwise, Varnish prohibits the transfer of Captcha data to the form, and users see an empty image.
-
-    To enable sending Captcha over Ajax, modify the configuration file, for example `config/packages/ezplatform.yaml`, by adding the following code:
-
-    ``` yaml
-    ezplatform:
-        system:
-            default:
-                form_builder:
-                    captcha:
-                        use_ajax: <true|false>
-    ```
-
-    !!! note
-
-        If you created a custom Captcha block for your site by overriding the default file (`vendor/gregwar/captcha-bundle/Resources/views/captcha.html.twig`), you must make the following changes to the custom block template file:
-
-        - change the name of the block to `ajax_captcha_widget`
-        - include the JavaScript file:
-
-        ```
-        {{ encore_entry_script_tags('ezplatform-form-builder-ajax-captcha-js', null, 'ezplatform') }}
-        ```
-
-        - add a data attribute with a `fieldId` value:
-
-        ```
-        data-field-id="{{ field.id }}"
-        ```
-
-        As a result, your file should be similar to [this example](https://github.com/ezsystems/ezplatform-form-builder/blob/master/src/bundle/Resources/views/themes/standard/fields/captcha.html.twig).
-
-    For more information about configuring Captcha fields, see [Captcha field](../extending/extending_form_builder.md#captcha-field).
 
 #### Examples for configuring eZ Platform
 
@@ -384,16 +385,19 @@ Stale cache, or Grace mode in Varnish, is when cache continues to be served when
 
 This has several benefits for high traffic installations to reduce load to backend. Instead of creating several
 concurrent requests for the same page to the backend, the following happens when a page has been soft purged:
+
 - Next request hitting the cache will trigger an asynchronous lookup to a backend
 - If cache is still within grace period, first and subsequent requests for the content is served from cache, and doesn't wait for the asynchronous lookup to finish
-- The backend lookup finishes and refreshes the cache so any subsequent requests gets fresh cache
+- The backend lookup finishes and refreshes the cache so any subsequent requests gets a fresh cache
 
-By default eZ Platform always "Soft Purges" content on reverse proxies that support it (Varnish and Fastly), with
+By default, eZ Platform always "Soft Purges" content on reverse proxies that support it (Varnish and Fastly), with
 the following logic in the out-of-the-box VCL:
+
 - Cache is within grace
 - Either server is not responding, or request comes without session cookie (anonymous user)
 
 Serving grace is not always allowed by default because:
+
 - It is a safe default. Even if just for anonymous, stale cache can easily confuse your team during acceptance testing.
 - It means REST API, which is used by Admin UI, would serve stales data, breaking the UI.
 
@@ -424,8 +428,9 @@ A similar but internal logic is done in the provided enhanced Symfony Proxy (App
     In 2.5LTS (FOSHTTPCache 1.x) the system varies on this hash for **all** responses, not just built in eZ controllers (Content View, Page, etc.).
 
     However:
+    
     1. This becomes configurable in v3 (FOSHTTPCache 2.x), and we consider disabling it by default for better cache efficiency
-    2. The header name changes to the FOSHttpCache default: `X-User-Context-Hash`
+    1. The header name changes to the FOSHttpCache default: `X-User-Context-Hash`
 
     So in any custom controller that relies on eZ user permissions, i.e. rendering eZ content, best practice is to explicitly vary:
     
@@ -439,11 +444,11 @@ A similar but internal logic is done in the provided enhanced Symfony Proxy (App
 To expand on steps covered in [FOSHttpCacheBundle documentation on how user context feature works](https://foshttpcachebundle.readthedocs.io/en/1.3/features/user-context.html#how-it-works):
 
 1. A client (browser) requests URI `/foo`.
-2. The caching proxy receives the request and holds it. It first sends a hash request to the applications's context hash route: `/_fos_user_context_hash`.
-3. The application receives the hash request. An event subscriber (`UserContextSubscriber`) aborts the request immediately after the Symfony firewall is applied.
+1. The caching proxy receives the request and holds it. It first sends a hash request to the applications's context hash route: `/_fos_user_context_hash`.
+1. The application receives the hash request. An event subscriber (`UserContextSubscriber`) aborts the request immediately after the Symfony firewall is applied.
    The application calculates the hash (`HashGenerator`) and then sends a response with the hash in a custom header (`X-User-Hash` in eZ Platform).
-4. The caching proxy receives the hash response, copies the hash header to the client’s original request for `/foo` and restarts the modified original request.
-5. If the response to `/foo` should differ per user context, the application sets a `Vary: X-User-Hash` header, which will make Proxy store the variations of this cache varying on the hash value.
+1. The caching proxy receives the hash response, copies the hash header to the client’s original request for `/foo` and restarts the modified original request.
+1. If the response to `/foo` should differ per user context, the application sets a `Vary: X-User-Hash` header, which will make Proxy store the variations of this cache varying on the hash value.
 
 
 The next time a request comes in from the same user, application lookup for the hash (step 3) won't happen anymore as the
@@ -452,7 +457,8 @@ hash lookup itself is cached by the cache proxy itself.
 
 ##### User Context Hash caching
 
-Example of response sent to reverse proxy from `/_fos_user_context_hash` with [eZ Platform's default config](#default-options-for-foshttpcachebundle-defined-in-ez-Platform):
+Example of response sent to reverse proxy from `/_fos_user_context_hash` with [eZ Platform's default config](#default-options-for-foshttpcachebundle-defined-in-ez-platform):
+
 ```
 HTTP/1.1 200 OK
 X-User-Hash: <hash>
@@ -505,12 +511,11 @@ fos_http_cache:
         user_hash_header: X-User-Hash
 ```
 
-
 #### How to Personalize Responses
 
 Here are some generic recommendations on how to approach personalized content with eZ Platform / Symfony:
 
-1\. ESI + Vary by Cookie
+1\. ESI + Vary by Cookie:
 
 - As default VCL strips everything but session cookie this means this will effectively be cached "per user".
    - If you are on single server setup with neither Varnish nor Fastly, you can do the same cookie logic on the Web server instead.
@@ -523,19 +528,17 @@ Example:
     $response->setVary('Cookie');
 ```
 
-2\. Ajax/JS lookup to "uncached" custom Symfony Controller(s)
+2\. Ajax/JS lookup to "uncached" custom Symfony Controller(s):
 
 - Does not consume memory in Varnish.
 - Can optionally be cached with custom logic: Symfony Cache on server side and/or with client side caching techniques.
 - Should be done as ajax/JS lookup to avoid the uncached request slowing down the whole delivery of Vanish if it’s done as ESI.
 - More effort depending on project requirements (traffic load, etc.).
 
-
-3\. Custom vary by logic, i.e. “X-User-Preference-Hash” inspired by X-User-Hash
+3\. Custom vary by logic, i.e. “X-User-Preference-Hash” inspired by X-User-Hash:
 
 - Allows for fine-grained caching as you can explicitly vary on this in only the places that needs it.
-- More effort _(controller + VCL logic + adapt own code)_, see below for examples.
-
+- More effort (controller + VCL logic + adapt own code), see below for examples.
 
 !!! tip "Dealing with Paywall use cases"
 
@@ -568,7 +571,7 @@ needs, and adapt the user context hash VCL logic to use the additional header.
 
 To avoid overloading any application code, you will take advantage of Symfony's event system to do this cleanly:
 
-1. Add a Response [event listener or subscriber](https://symfony.com/doc/3.4/event_dispatcher.html) to add your own hash to `/_fos_user_context_hash`:
+1\. Add a Response [event listener or subscriber](https://symfony.com/doc/3.4/event_dispatcher.html) to add your own hash to `/_fos_user_context_hash`:
 
 ```php
     public function addPreferenceHash(FilterResponseEvent $event)
@@ -582,7 +585,7 @@ To avoid overloading any application code, you will take advantage of Symfony's 
     }
 ```
 
-2. Adapt VCL logic to pass the header to requests:
+2\. Adapt VCL logic to pass the header to requests:
 
 ```diff
 @@ -174,6 +174,7 @@ sub ez_user_context_hash {
@@ -615,12 +618,12 @@ To avoid overloading any application code, you will take advantage of Symfony's 
      if (resp.http.Vary ~ "X-User-Hash") {
 ```
 
-3. Add `Vary` in your custom controller or content view controller:
+3\. Add `Vary` in your custom controller or content view controller:
 
 ```php
     $response->setVary('X-User-Preference-Hash');
 
-    // If you _also_ need to very on eZ permissions, instead use:
+    // If you _also_ need to vary on eZ permissions, instead use:
     //$response->setVary(['X-User-Hash', 'X-User-Preference-Hash']);
 ```
 
@@ -645,7 +648,7 @@ As a practical example, system will tag every article response, and when the art
 it will tell Varnish that all articles should be considered stale and be updated in the background
 when someone requests them.
 
-**Current content tags** _(and when the system purges on them)_:
+**Current content tags** (and when the system purges on them):
 
 - Content: `c<content-id>` - Purged on all smaller or larger changes to Content _(including it's meta data, fields and locations).
 - Content Type: `ct<content-type-id>` - Used when the Content Type changes, affecting Content of its type.
@@ -654,7 +657,6 @@ when someone requests them.
 - Path: `p<location-id>` - For operations that change the tree itself, like move, remove, etc.
 - Relation: `r<content-id>` - Only purged on when content updates are severe enough to also affect reverse relations.
 - Relation location: `rl<location-id>` - Same as relation, but by Location ID.
-
 
 !!! note "Automatically repository prefixing of cache tags"
 
@@ -676,29 +678,32 @@ Here are some options on how to solve this issue:
 
 **A. Configure to allow larger header:**
 
-*Varnish* config:
+**Varnish** config:
+
 - [http_resp_hdr_len](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-resp-hdr-len) (default 8k, change to i.e. 32k)
 - [http_max_hdr](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-max-hdr) (default 64, change to i.e. 128)
 - [http_resp_size](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-resp-size) (default 23k, change to i.e. 96k)
 - [workspace_backend](https://varnish-cache.org/docs/6.0/reference/varnishd.html#workspace-backend) (default 64k, change to i.e. 128k)
 - Also to see these headers in the `varnishlog`, adapt [vsl_reclen](https://varnish-cache.org/docs/6.0/reference/varnishd.html#vsl-reclen)
 
-*Nginx* has a default limit of 4k/8k when buffering responses:
+**Nginx** has a default limit of 4k/8k when buffering responses:
+
 - For [PHP-FPM](https://www.php.net/manual/en/install.fpm.php) setup using proxy module, configure [proxy_buffer_size](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_buffer_size)
 - For FastCGI setup using fastcgi module, configure [fastcgi_buffer_size](https://nginx.org/en/docs/http/ngx_http_fastcgi_module.html#fastcgi_buffer_size)
 
-*Fastly* has a `Surrogate-Key` header limit of *16 kB*, this can *not* be changed.
+**Fastly** has a `Surrogate-Key` header limit of 16 kB, this cannot be changed.
 
-*Apache* has a [hard](https://github.com/apache/httpd/blob/5f32ea94af5f1e7ea68d6fca58f0ac2478cc18c5/server/util_script.c#L495) [coded](https://github.com/apache/httpd/blob/7e2d26eac309b2d79e467ef586526c10e0f226f8/include/httpd.h#L299-L303) limit of 8 kB, so if you face this issue consider using Nginx instead.
+**Apache** has a [hard](https://github.com/apache/httpd/blob/5f32ea94af5f1e7ea68d6fca58f0ac2478cc18c5/server/util_script.c#L495) [coded](https://github.com/apache/httpd/blob/7e2d26eac309b2d79e467ef586526c10e0f226f8/include/httpd.h#L299-L303) limit of 8 kB, so if you face this issue consider using Nginx instead.
 
 **B. Limit tags header output by system:**
 
 1\. For inline rendering just displaying the content name, image attribute, and/or link, then it would be enough to:
-- Look into how many inline _(non ESI)_ render calls for content rendering you are doing, and see if you can organize it differently.
+
+- Look into how many inline (non ESI) render calls for content rendering you are doing, and see if you can organize it differently.
 - Consider inlining the views not used elsewhere in the given template and [tagging response in Twig](#Response-tagging-in-Twig) with "relation" tags.
     - Optionally: Set reduced cache TTL for the given view in order to reduce risk of stale cache on subtree operations affecting the inlined content.
 
-2\. If that is not an option, you can opt-in to set a max length parameter _(in bytes)_ and corresponding ttl _(in seconds)_
+2\. If that is not an option, you can opt-in to set a max length parameter (in bytes) and corresponding ttl (in seconds)
 for cases when the limit is reached. The system will log a warning for cases where the limit is reached so you can optimize
 these cases as described above when needed.
 
@@ -713,6 +718,7 @@ parameters:
 ### Response tagging done with Content View
 
 For Content views response tagging is done for you, and cache system will output headers like the following:
+
 ```
 HTTP/1.1 200 OK
 Cache-Control: public, max-age=86400
@@ -724,11 +730,13 @@ If the given content have several Locations you'll see several `l<location-id>` 
 !!! note "How response tagging for ContentView is done internally"
 
     In `ezplatform-http-cache` there is a dedicated response listener `HttpCacheResponseSubscriber` that checks if:
+    
     - Response has attribute `view`
     - View implements `eZ\Publish\Core\MVC\Symfony\View\CachableView`
     - Cache is not disabled on the individual view
 
     If that checks out, the response will be adapted with the following:
+    
     - `ResponseCacheConfigurator` will apply site access settings for enabled/disabled cache and default TTL
     - `DispatcherTagger` will dispatch the built in ResponseTaggers which will generate the tags as described above.
 
@@ -738,9 +746,10 @@ If the given content have several Locations you'll see several `l<location-id>` 
 
 For tagging needs in controllers, there are several options, here presented in recommended order:
 
-1\. **Reusing DispatcherTagger to get it to pick correct tags for you**
+1\. Reusing DispatcherTagger to get it to pick correct tags for you.
 
-_Examples for tagging everything needed for Content using autowirable `ResponseTagger` interface:_
+Examples for tagging everything needed for Content using autowirable `ResponseTagger` interface:
+
 ``` php
 /** @var \EzSystems\PlatformHttpCacheBundle\ResponseTagger\ResponseTagger $responseTagger */
 
@@ -752,9 +761,9 @@ $responseTagger->tag($contentInfo);
 $responseTagger->tag($location);
 ```
 
-2\. **Use ContentTagInterface API for content related tags**
+2\. Use ContentTagInterface API for content related tags.
 
-_Examples for adding specific content tags using autowireable `ContentTagInterface`:_
+Examples for adding specific content tags using autowireable `ContentTagInterface`:
 
 ``` php
 /** @var \EzSystems\PlatformHttpCacheBundle\Handler\ContentTagInterface $tagHandler */
@@ -770,11 +779,11 @@ $tagHandler->addContentTypeTags([$content->getContentType()->id]);
 $tagHandler->addRelationTags([33, 44]);
 ```
 
-3\. **Manually add tags yourself using low level FOS TagHandler**
+3\. Manually add tags yourself using low level FOS TagHandler.
 
 In PHP, FOSHttpCache exposes the `fos_http_cache.handler.tag_handler` service which enables you to add tags to a response.
 
-_Example for tagging minimal tags for when ID 33 and 34 will be rendered in ESI, but parent response needs these tags to get refresh if they are deleted:_
+Example for tagging minimal tags for when ID 33 and 34 will be rendered in ESI, but parent response needs these tags to get refresh if they are deleted:
 
 ``` php
 /** @var \FOS\HttpCache\Handler\TagHandler $tagHandler */
@@ -788,9 +797,9 @@ See [Tagging from code](http://foshttpcachebundle.readthedocs.io/en/1.3/features
     Be aware that the service name and type hint will change once we move to FOSHttpCache 2.x, so in this case
     you can alternatively consider adding a tag in Twig template or using `X-Location-Id` for the time being.
 
-4. **Use deprecated `X-Location-Id` header**
+4\. Use deprecated `X-Location-Id` header.
 
-For custom or eZ controllers _(e.g. REST)_ still using `X-Location-Id`, `XLocationIdResponseSubscriber` handles translating
+For custom or eZ controllers (e.g. REST) still using `X-Location-Id`, `XLocationIdResponseSubscriber` handles translating
 this header to tags for you. It supports singular and comma separated Location ID value(s):
 
 ```php
@@ -829,7 +838,6 @@ When either wanting to reduce the amount of tags, or the inline content is rende
 {{ ez_http_tag_relation_ids([field1.value.destinationContentId, field2.value.destinationContentId]) }}
 ```
 
-
 3\. `{{ fos_httpcache_tag(['r33', 'r44']) }}`
 
 As a last resort you can also use function from FOS which lets you set low level tags directly:
@@ -842,7 +850,6 @@ As a last resort you can also use function from FOS which lets you set low level
 ```
 
 See [Tagging from Twig Templates](http://foshttpcachebundle.readthedocs.io/en/1.3/features/tagging.html#tagging-from-twig-templates) in FOSHttpCacheBundle documentation.
-
 
 ### Tag purging
 
