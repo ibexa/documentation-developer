@@ -84,6 +84,11 @@ You can now search through the contents of Trash and sort the search results bas
 
 For more information, see [Searching in trash](../api/public_php_api_search.md#searching-in-trash).
 
+### Repository filtering
+
+[Repository filtering](../api/public_php_api_search.md#repository-filtering) enables you to filter content and Locations using a defined Filter,
+without the `SearchService`.
+
 ### PermissionResolver
 
 You can now have a Service that provides both `PermissionResolver` and `PermissionCriterionResolver` by injecting `eZ\Publish\API\Repository\PermissionService`.
