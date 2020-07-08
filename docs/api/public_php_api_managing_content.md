@@ -130,7 +130,7 @@ $newParent = $this->locationService->loadLocation($location);
 $this->trashService->recover($trashItem, $newParent);
 ```
 
-You can also search through Trash items and sort the results based on several public PHP API search criteria and sort clauses that have been exposed for `TrashService` queries.
+You can also search through Trash items and sort the results using several public PHP API search criteria and sort clauses that have been exposed for `TrashService` queries.
 For more information, see [Searching in trash](public_php_api_search.md#searching-in-trash).
 
 ## Content Types
