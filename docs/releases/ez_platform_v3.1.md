@@ -58,6 +58,18 @@ Selections that you make in one view survive when you switch to the other view.
 
 For more information about configuring the Universal Discovery Widget, see [URL management](../extending/extending_udw.md) in the developer documentation.
 
+### Field group display
+
+Display of Field groups has been improved in content preview and editing.
+
+When editing, Field groups are now presented in tabs:
+
+![Field group tabls in Content editing](img/3.1_collapsible_fields_edit.png)
+
+In Content preview, the group sections are collapsible:
+
+![Collapsible Field groups in Content view](img/3.1_collapsible_fields.png)
+
 ### Saving incomplete draft
 
 As of this release, when users create or edit a Content item or a Page, they can save it without completing all the required fields.
