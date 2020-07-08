@@ -93,6 +93,12 @@ without the `SearchService`.
 
 You can now have a Service that provides both `PermissionResolver` and `PermissionCriterionResolver` by injecting `eZ\Publish\API\Repository\PermissionService`.
 
+## Behavior changes
+
+### Landing Page drafts
+
+When you start editing a Landing Page, a new draft is now automatically created.
+
 ## Requirement changes
 
 This release changes support for ...
