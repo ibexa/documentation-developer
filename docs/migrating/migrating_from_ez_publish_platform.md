@@ -6,27 +6,25 @@ eZ Publish Platform (5.x) introduced a new Symfony-based technology stack that c
 
 ## Upgrade process
 
-An upgrade from eZ Publish Platform 5.4.x (Enterprise edition) or 2014.11 (Community edition) to newer versions of eZ Platform must be performed in stages. It can be done in many different ways, but a recommended approach is to:
+An upgrade from eZ Publish Platform 5.4.x (Enterprise edition) or 2014.11 (Community edition) to 2.5 can be done in many different ways, two main approches:
 
-1. _If you need to migrate ezflow data:_ Migrate from eZ Publish Platform directly to the v1.7LTS release _(covered on this page)_.
-    - Optional; Add legacy bridge to be able to gradual migrate your legacy code if you have it
-    - 1.1 Once ready; Migrate eZ Flow to eZ Landing page
-2. You can then proceed with consecutive upgrades to v2.5LTS version, covered on [Updating eZ Platform](../updating/updating_ez_platform.md) section, including:
-    - 2.1. Migrate eZ Landing page to eZ Page Builder
-    - 2.2. Migrate XmlText to RichText _(using latest version of `ezplatform-xmltext-fieldtype` and eZ Platform)_
-    - _Recommended: Once these steps are done, all legacy packages and xmltext-fieldtype can be uninstalled._
-    
-!!! tip
+A. Setup clean eZ Platform 2.5 install and move over your project specific code, config and packages _(covered on this page)_.
+    - Optional; Add legacy bridge to continue to run legacy for certian parts and be able to gradual perform the migrations below
+    - Migrate eZ Flow to eZ Landing page, and eZ Landing page to eZ Page Builder
+    - Migrate XmlText to RichText _(using latest version of `ezplatform-xmltext-fieldtype` and eZ Platform)_
+    - Once these steps are done; _All legacy packages, flow, landingpage and xmltext-fieldtype can be uninstalled._
 
-    Work is being done to iterativly simplify this further, and contributions are more then welcome on that. However all the tools needed to bring you from 4.x and 5.x to eZ Platform, with or withouth legacy bridge, already exists so you can safly consider it supported and ready for use already.
+B. Update _your_ install [Updating eZ Platform](../updating/updating_ez_platform.md) section.
+    - Can be more error prone as it's Git based and you might run into many conflicts.
+    - This also does not cover migration topics, so you'll need to return to this page for steps needed for that.
 
 !!! caution "Things to be aware of when planning a migration"
 
     1. While the instructions below are fully supported, we are aware that the community, partners and customers come from a wide range of different versions of eZ Publish, some with issues that do not surface before attempting a migration. That's why we and the community are actively gathering feedback on Slack and/or support channels for Enterprise customers to gradually improve the migration scripts and instructions. Reach out before you start so others who have done this before you can support you.
 
-    2. "Hybrid setup" using Legacy Bridge is a supported option for 1.13LTS and 2.5LTS series. This means you can plan for a more gradual migration if you want, just like you could on eZ Publish Platform 5.x, with a more feature-mature version of eZ Platform, Symfony and even Legacy bridge itself. This is a great option for those who want the latest features. The downside is a more complex setup to develop and maintian, given you run two systems in paralell, and the overall migration might take much longer doing using an iterative/gradual approach. 
+    1. "Hybrid setup" using Legacy Bridge is a supported option for 1.13LTS and 2.5LTS series. This means you can plan for a more gradual migration if you want, just like you could on eZ Publish Platform 5.x, with a more feature-mature version of eZ Platform, Symfony and even Legacy bridge itself. This is a great option for those who want the latest features. The downside is a more complex setup to develop and maintian, given you continue run two systems in paralell, and the overall migration might take much longer when using an iterative/gradual approach. 
 
-    3. Additionally there are some other topics to be aware of for the code migration from eZ Publish to eZ Platform:
+    1. Additionally there are some other topics to be aware of for the code migration from eZ Publish to eZ Platform:
 
         - Symfony deprecations. The recommended version to migrate to is eZ Platform v2.5 LTS, which is using Symfony 3.4 LTS.
         - [Field Types reference](../api/field_type_reference.md) for overview of Field Types that do and don't exist in eZ Platform
@@ -34,9 +32,9 @@ An upgrade from eZ Publish Platform 5.4.x (Enterprise edition) or 2014.11 (Commu
 
 !!! note
 
-    If you are migrating from a legacy eZ Publish version, this page contains the information you need. However, first have a look at an overview of the process in [Migrating from eZ Publish](migrating_from_ez_publish.md).
+    If you are migrating from a legacy eZ Publish (4.x or older) version , this page contains the information you need. However, first have a look at an overview of the process in [Migrating from eZ Publish](migrating_from_ez_publish.md).
 
-This section describes how to upgrade your existing  eZ Publish Platform  5.4/2014.11 installation to eZ Platform and eZ Enterprise. Make sure that you have a working [backup](../guide/backup.md) of the site before you do the actual upgrade, and that the installation you are performing the upgrade on is offline.
+This section describes how to upgrade your existing eZ Publish Platform  5.4/2014.11 installation to eZ Platform and eZ Enterprise 2.5LTS. Make sure that you have a working [backup](../guide/backup.md) of the site before you do the actual upgrade, and that the installation you are performing the upgrade on is offline.
 
 ### Note on Paths
 
@@ -53,7 +51,7 @@ This section describes how to upgrade your existing  eZ Publish Platform  5.4
 
 ## Upgrade steps
 
-### Step 1: Extract latest eZ Platform/Enterprise v1.7.x
+### Step 1: Extract latest eZ Platform/Enterprise v2.5.x
 
 The easiest way to upgrade the distribution files is to extract a clean installation of eZ Platform / eZ Enterprise to a separate directory.
 
@@ -75,11 +73,15 @@ Assuming you have own composer packages *(libraries and bundles, but not eZ Publ
 
 Adapt the command with your `vendor`, `package`, version number, and add `"–dev"` if a given package is for dev use only. Also check if there are other changes in `composer.json` you should move over.
 
+!!! note
+
+    For your own and thirdparty packages, make sure to pick  versions that work with eZ Platform 2.5 and Symfony 3.x.
+
 ###### 2.2.2 Install XmlText Field Type
 
 While no longer bundled, the XmlText Field Type still exists and is needed to perform a migration from eZ Publish's XmlText to the new docbook-based format used by the RichText Field Type. If you plan to use Legacy Bridge for a while before migrating content, you'll also need this for rendering content with XMLText. From `<new-ez-root>` execute:
 
-`composer require --no-update "ezsystems/ezplatform-xmltext-fieldtype:^1.7.3"`
+`composer require --no-update "ezsystems/ezplatform-xmltext-fieldtype:^1.9.2"`
 
 !!! note
 
@@ -171,7 +173,7 @@ Move over registration of _your_ bundles you have from src and from composer pac
 
 ##### 2.5. Optional: Install Legacy Bridge
 
-If you don't plan to migrate content directly to newer eZ Platform Field Types, you can optionally install Legacy Bridge and gradually handle code and subsequent content migration afterwards. For installation instructions see [here](https://github.com/ezsystems/LegacyBridge/blob/v2.1.5/INSTALL.md).
+If you don't plan to migrate content _(ezxmltext and ezflow)_ directly to newer eZ Platform Field Types, you can optionally install Legacy Bridge and gradually handle code and subsequent content migration afterwards. For installation instructions see [here](https://github.com/ezsystems/LegacyBridge/blob/v2.1.5/INSTALL.md).
 
 !!! note
 
@@ -181,7 +183,7 @@ If you don't plan to migrate content directly to newer eZ Platform Field Types, 
 
 As eZ Publish legacy is installed via composer, we need to take care of placing some files outside its generated `<new-ez-root>/ezpublish_legacy/` folder, and for instance use symlink to place them inside during installation.
 
-A lot of folders where automatically setup for you in step above, however once was notably not:
+A lot of folders where automatically setup for you in step above, however one was notably not:
 - `<new-ez-root>/ezpublish_legacy/var/[<site>/]storage`: This is typically not versioned in git, so there's no predefined convention for this. But to not loose it during composer update of `ezpublish-legacy`, you should strongly consider automaticaly symlinking this from a folder outside the project directory, and make sure to mark this folder as ignored by git once it and a corresponding `.keep` file have been added to your checkout. The example below will assume `<new-ez-root>/src/legacy_files/storage` was created for this purpose, if you opt for something else, just adjust the instructions.
 
 ###### 2.5.2 Upgrade the legacy distribution files
@@ -195,7 +197,7 @@ The easiest way to upgrade the distribution files is to copy the directories tha
 - Custom extensions: `<old-ez-root>/ezpublish_legacy/extension/*` => `<new-ez-root>/src/AppBundle/ezpublish_legacy/` *(do NOT include the built-in / composer provided ones, like: ezflow, ezjscore, ezoe, ezodf, ezie, ezmultiupload, ezmbpaex, ez_network, ezprestapiprovider, ezscriptmonitor, ezsi, ezfind)*
 - Other folders to move over *(or potentially set up symlinks for)* if applicable:
     - ezpublish_legacy/var/storage/packages
-    - ezpublish_legacy/config.php and ezpublish_legacy/config.cluster.php
+    - `ezpublish_legacy/config.php` and `ezpublish_legacy/config.cluster.php`
 
 #####  2.6 Binary files
 
@@ -234,6 +236,8 @@ Import to your database the changes provided in one of the following files. It's
 `MySQL: <new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-5.4.0-to-6.13.0.sql`
 
 `Postgres: <new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-5.4.0-to-6.13.0.sql`
+
+TODO: Add a 6.13.0 to 7.5.7 file
 
 ##### 3.2. Once you are ready to migrate content to Platform Field Types
 
@@ -443,13 +447,15 @@ Below is a table of the tags that are currently supported, and their correspondi
 
 ###### 3.2.2 Migrate Page field to Page (eZ Enterprise only)
 
-**If** you use Page field (ezflow) and an eZ Enterprise subscription, and are ready to migrate your eZ Publish Flow content to the eZ Enterprise Page format, you can use a script to migrate your old Page content to new Page, to start using a pure eZ Enterprise setup. See [Migrating legacy Page field (ezflow) to new Page (Enterprise)](#migrating-legacy-page-field-ezflow-to-new-page-enterprise) for more information.
+**If** you use Page field (ezflow) and an eZ Enterprise subscription, and are ready to migrate your eZ Publish Flow content to the eZ Enterprise Page Builder, you can use a script to migrate your old Page content to new Page, to start using a pure eZ Enterprise setup. See [Migrating legacy Page field (ezflow) to new Page (Enterprise)](#migrating-legacy-page-field-ezflow-to-new-page-enterprise) for more information.
 
 ###### 3.2.3 Add other eZ Enterprise schemas (eZ Enterprise only)
 
 For date-based publisher and form builder, there are additional tables, you can import them to your database using the following sql files:
 `<new-ez-root>/vendor/ezsystems/date-based-publisher/bundle/Resources/install/datebasedpublisher_scheduled_version.sql`,
 `<new-ez-root>/vendor/ezsystems/ezstudio-form-builder/bundle/Resources/install/form_builder.sql`, `<new-ez-root>/vendor/ezsystems/ezstudio-notifications/bundle/Resources/install/ezstudio-notifications.sql`
+
+TODO: Check for 2.5 if new things should be mentioned
 
 ### Step 4: Re-configure web server and proxy
 
@@ -513,6 +519,11 @@ The script will automatically migrate only data – to move custom views, layou
     The migration script will operate on your current database.
 
     Make sure to **back up your database** in case of an unexpected error.
+    
+!!! caution
+
+    Steps here use `ezsystems/landing-page-fieldtype-bundle:1.7.7-alpha1` to run the ezflow migration script only.
+    Don't install this version to use landing-page on eZ Platform 2.5.
 
 To use the script, do the following:
 
@@ -520,17 +531,19 @@ To use the script, do the following:
 
     Make a note of the paths to .ini files which define your legacy blocks. You will need these paths later.
 
-**1.** Add `ezflow-migration-toolkit` to `composer.json` in your clean Platform installation.
+**1.** Add `ezflow-migration-toolkit` package to your clean Platform installation.
 
-``` json
-"ezsystems/ezflow-migration-toolkit": "^1.0.0"
+Run:
+```bash
+composer require "ezsystems/landing-page-fieldtype-bundle:1.7.7-alpha1" "ezsystems/ezflow-migration-toolkit:dev-migrate_on_2.5"
 ```
 
-**2.** Add `ezflow-migration-toolkit` to `AppKernel.php`.
+**2.** Add the new bundles to `AppKernel.php`.
 
 ``` php
 // AppKernel.php
-new EzSystems\EzFlowMigrationToolkitBundle\EzSystemsEzFlowMigrationToolkitBundle()
+new EzSystems\EzFlowMigrationToolkitBundle\EzSystemsEzFlowMigrationToolkitBundle(),
+new EzSystems\LandingPageFieldTypeBundle\EzSystemsLandingPageFieldTypeBundle(),
 ```
 
 **3.** Clear cache.
