@@ -9,6 +9,8 @@ They can be used by `\eZ\Publish\API\Repository\TrashService::findTrashItems` on
 |-----|-----|-----|
 |[ContentTypeId](criteria_reference/contenttypeid_criterion.md)|ID of the Content Item's Content Type|Content and Location|
 |[DateMetadata](criteria_reference/datemetadata_criterion.md)|The date when Content Item was created or last modified|Content and Location|
+|[MatchAll](criteria_reference/matchall_criterion.md)|Returns all search results|Content and Location|
+|[MatchNone](criteria_reference/matchnone_criterion.md)|Returns no search results|Content and Location|
 |[SectionId](criteria_reference/sectionid_criterion.md)|ID of the Section the Content Item was assigned to|Content and Location|
 |[UserMetadata](criteria_reference/usermetadata_criterion.md)|The creator or modifier of a Content Item|Content and Location|
 
@@ -17,7 +19,8 @@ They can be used by `\eZ\Publish\API\Repository\TrashService::findTrashItems` on
 |Search Criterion|Search based on|Search type|
 |-----|-----|-----|
 |[LogicalAnd](criteria_reference/logicaland_criterion.md)|Implements a logical AND Criterion. It matches if ALL of the provided Criteria match.|Content and Location|
-
+|[LogicalNot](criteria_reference/logicalor_criterion.md)|Implements a logical NOT Criterion. It matches if the provided Criterion doesn't match.|Content and Location|
+|[LogicalOr](criteria_reference/logicalor_criterion.md)|Implements a logical OR Criterion. It matches if at least one of the provided Criteria matches.|Content and Location|
 ## Supported Sort Clauses
 
 | Sort Clause | Sorting based on | Search type|
