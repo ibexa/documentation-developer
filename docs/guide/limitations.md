@@ -13,7 +13,7 @@ Certain Limitations also serve as Role Limitations, which means they can be used
 Currently this covers [Subtree of Location](limitation_reference.md#subtree-of-location-limitation) and [Section](limitation_reference.md#section-limitation) Limitations.
 
 `Limitation` represents the value, while `LimitationType` deals with the business logic surrounding how it actually works and is enforced.
-`LimitationTypes` have two modes of operation in regards to permission logic (see [`eZ\Publish\SPI\Limitation\Type`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/SPI/Limitation/Type.php) interface for more info):
+`LimitationTypes` have two modes of operation in regards to permission logic (see [`eZ\Publish\SPI\Limitation\Type`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/SPI/Limitation/Type.php) interface for more info):
 
 | Method | Use |
 |--------|-----|
@@ -24,7 +24,7 @@ Currently this covers [Subtree of Location](limitation_reference.md#subtree-of-l
 
 !!! tip
 
-    Core Policies with Limitations are defined in [`EzPublishCoreBundle/Resources/config/policies.yml`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/Core/settings/policies.yml).
+    Core Policies with Limitations are defined in [`EzPublishCoreBundle/Resources/config/policies.yml`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/Core/settings/policies.yml).
 
 Each function in one of the five modules (content, section, state, user, workflow) can be assigned different Limitations.
 
@@ -114,6 +114,7 @@ Beyond that the following Limitations are available:
 - [Location](limitation_reference.md#location-limitation)
 - [Subtree of Location](limitation_reference.md#subtree-of-location-limitation)
 - [State](limitation_reference.md#state-limitation)
+- [Language](limitation_reference.md#language-limitation)
 
 `content/versionread`:
 

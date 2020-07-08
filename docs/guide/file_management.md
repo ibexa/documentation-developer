@@ -59,6 +59,22 @@ Default values are 0644 for files and 0755 for directories.
 
     Make sure to configure permissions using a number and *not* a string. If you write "0644" it will *not* be interpreted by PHP as an octal number, and unexpected permissions will be applied.
 
+!!! note
+
+    When using the NFS [adapter](file_management.md#adapter), configure file permissions under the `oneup_flysystem` key instead, as follows:
+    
+    ``` yaml
+    oneup_flysystem:
+        adapters:
+            nfs_adapter:
+                local:
+                    permissions:
+                        file:
+                            public: 0750
+                        dir:
+                            public: 0640
+    ```
+    
 ### The native Flysystem handler
 
 [league/flysystem](http://flysystem.thephpleague.com/) (along with [FlysystemBundle](https://github.com/1up-lab/OneupFlysystemBundle/)) is an abstract file handling library.
@@ -99,6 +115,17 @@ It also accepts optional query parameters:
 - `inLanguage`: The language the file should be downloaded in. If not specified, the most prioritized language for the SiteAccess will be used.
 
 The [ez\_render\_field](twig_functions_reference.md#ez_render_field) Twig helper will by default generate a working link.
+
+### Download link generation
+
+To generate a direct download link for the `File` Field Type you have to create
+a Route Reference with the `ez_route` helper, passing `content` and `File` Field identifier as parameters.
+Optional parameter `inLanguage` may be used to specify File content translation.
+
+```twig
+  {% set routeReference = ez_route( 'ez_content_download', {'content': content, 'fieldIdentifier': 'file', 'inLanguage': content.prioritizedFieldLanguageCode  } ) %}
+  <a href="{{ path( routeReference ) }}">Download</a>
+```
 
 ### REST API: `uri` property
 
@@ -254,5 +281,3 @@ Using `location_mappings` you can define which Content Types will have their own
 If no rule is specified for a Content Type, the `default_mappings` will be used. Unspecified MIME types are covered by the `fallback_content_type` setting.
 
 You can also define the maximum permitted uploaded file size under `max_file_size`.
-
-Default setting for multi-file upload are defined in [default\_settings.yml](https://github.com/ezsystems/ezplatform-ee-multi-file-upload/blob/master/bundle/Resources/config/default_settings.yml).

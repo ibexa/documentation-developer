@@ -40,7 +40,7 @@ With the LTS release, the [new product naming](http://ez.no/Blog/eZ-Announces-Na
 -   Search:
     -   Solr Search Engine: Plugins, extend the Solr index with custom data on Content, Translation and Location block level ([EZP-26368](https://jira.ez.no/browse/EZP-26368))
         -   For when you need to extend the index with additional data not applicable for FieldType custom fields feature
-        -   *[See Solr Bundle documentation for more info ](../guide/solr.md)*
+        -   *[See Solr Bundle documentation for more info ](../guide/search/solr.md)*
     -   Solr Search Engine: Support for FieldRelation on location search ([EZP-26756](http://jira.ez.no/browse/EZP-26756))
     -   Legacy Search Engine: Improve word boundaries detection ([EZP-26499](http://jira.ez.no/browse/EZP-26499))
     -   ezplatform:reindex added, a generic command for reindexing search index on the SiteAccess configured search engine ([EZP-26098](http://jira.ez.no/browse/EZP-26098))

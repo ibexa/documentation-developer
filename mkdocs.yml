@@ -1,8 +1,8 @@
 site_name: eZ Platform Developer Documentation
 repo_url: https://github.com/ezsystems/developer-documentation
-copyright: "Copyright 1999-2019 eZ Systems AS and others"
-pages:
-    - 'Documentation': 'index.md'
+copyright: "Copyright 1999-2020 Ibexa and others"
+nav:
+    - 'eZ Platform Developer Documentation': 'index.md'
     - Getting started:
         - 'Quickstart': 'getting_started/quickstart.md'
         - 'Requirements': 'getting_started/requirements.md'
@@ -62,6 +62,20 @@ pages:
             - 'Creating Content': 'api/public_php_api_creating_content.md'
             - 'Managing Content': 'api/public_php_api_managing_content.md'
             - 'Managing Repository': 'api/public_php_api_managing_repository.md'
+            - 'URL Service': 'api/public_php_api_url_service.md'
+            - URL reference:
+                - 'Id Sort Clause': 'api/url_reference/id_sort_clause.md'
+                - 'Url Sort Clause': 'api/url_reference/url_sort_clause.md'
+                - 'MatchAll Criterion': 'api/url_reference/matchall_criterion.md'
+                - 'MatchNone Criterion': 'api/url_reference/matchnone_criterion.md'
+                - 'Pattern Criterion': 'api/url_reference/pattern_criterion.md'
+                - 'SectionId Criterion': 'api/url_reference/sectionid_criterion.md'
+                - 'SectionIdentifier Criterion': 'api/url_reference/sectionidentifier_criterion.md'
+                - 'Validity Criterion': 'api/url_reference/validity_criterion.md'
+                - 'VisibleOnly Criterion': 'api/url_reference/visibleonly_criterion.md'
+                - 'LogicalAnd Criterion': 'api/url_reference/logicaland_criterion.md'
+                - 'LogicalNot Criterion': 'api/url_reference/logicalnot_criterion.md'
+                - 'LogicalOr Criterion': 'api/url_reference/logicalor_criterion.md'
         - Field Type:
             - 'Field Type API': 'api/field_type_api.md'
             - 'Type and Value': 'api/field_type_type_and_value.md'
@@ -110,9 +124,56 @@ pages:
             - 'Custom Policies': 'guide/custom_policies.md'
         - 'Backup': 'guide/backup.md'
         - Search:
-            - 'Search': 'guide/search.md'
-            - 'Solr search engine': 'guide/solr.md'
-            - 'Other search engines': 'guide/search_engines.md'
+            - 'Search': 'guide/search/search.md'
+            - 'Search Criteria reference': 'guide/search/search_criteria_reference.md'
+            - Search Criteria reference:
+                - 'Ancestor': 'guide/search/criteria_reference/ancestor_criterion.md'
+                - 'ContentId': 'guide/search/criteria_reference/contentid_criterion.md'
+                - 'ContentTypeGroupId': 'guide/search/criteria_reference/contenttypegroupid_criterion.md'
+                - 'ContentTypeId': 'guide/search/criteria_reference/contenttypeid_criterion.md'
+                - 'ContentTypeIdentifier': 'guide/search/criteria_reference/contenttypeidentifier_criterion.md'
+                - 'DateMetadata': 'guide/search/criteria_reference/datemetadata_criterion.md'
+                - 'Depth': 'guide/search/criteria_reference/depth_criterion.md'
+                - 'Field': 'guide/search/criteria_reference/field_criterion.md'
+                - 'FieldRelation': 'guide/search/criteria_reference/fieldrelation_criterion.md'
+                - 'FullText': 'guide/search/criteria_reference/fulltext_criterion.md'
+                - 'IsFieldEmpty': 'guide/search/criteria_reference/isfieldempty_criterion.md'
+                - 'IsMainLocation': 'guide/search/criteria_reference/ismainlocation_criterion.md'
+                - 'LanguageCode': 'guide/search/criteria_reference/languagecode_criterion.md'
+                - 'LocationId': 'guide/search/criteria_reference/locationid_criterion.md'
+                - 'LocationRemoteId': 'guide/search/criteria_reference/locationremoteid_criterion.md'
+                - 'MapLocationDistance': 'guide/search/criteria_reference/maplocationdistance_criterion.md'
+                - 'MatchAll': 'guide/search/criteria_reference/matchall_criterion.md'
+                - 'MatchNone': 'guide/search/criteria_reference/matchnone_criterion.md'
+                - 'ObjectStateId': 'guide/search/criteria_reference/objectstateid_criterion.md'
+                - 'ParentLocationId': 'guide/search/criteria_reference/parentlocationid_criterion.md'
+                - 'Priority': 'guide/search/criteria_reference/priority_criterion.md'
+                - 'RemoteId': 'guide/search/criteria_reference/remoteid_criterion.md'
+                - 'SectionId': 'guide/search/criteria_reference/sectionid_criterion.md'
+                - 'Subtree': 'guide/search/criteria_reference/subtree_criterion.md'
+                - 'UserMetadata': 'guide/search/criteria_reference/usermetadata_criterion.md'
+                - 'Visibility': 'guide/search/criteria_reference/visibility_criterion.md'
+                - 'LogicalAnd Criterion': 'guide/search/criteria_reference/logicaland_criterion.md'
+                - 'LogicalNot Criterion': 'guide/search/criteria_reference/logicalnot_criterion.md'
+                - 'LogicalOr Criterion': 'guide/search/criteria_reference/logicalor_criterion.md'
+            - 'Sort Clause reference': 'guide/search/sort_clause_reference.md'
+            - Sort Clause Reference:
+                - 'ContentId': 'guide/search/sort_clause_reference/contentid_sort_clause.md'
+                - 'ContentName': 'guide/search/sort_clause_reference/contentname_sort_clause.md'
+                - 'DateModified': 'guide/search/sort_clause_reference/datemodified_sort_clause.md'
+                - 'DatePublished': 'guide/search/sort_clause_reference/datepublished_sort_clause.md'
+                - 'Depth': 'guide/search/sort_clause_reference/depth_sort_clause.md'
+                - 'Field': 'guide/search/sort_clause_reference/field_sort_clause.md'
+                - 'Id': 'guide/search/sort_clause_reference/id_sort_clause.md'
+                - 'IsMainLocation': 'guide/search/sort_clause_reference/ismainlocation_sort_clause.md'
+                - 'MapLocationDistance': 'guide/search/sort_clause_reference/maplocationdistance_sort_clause.md'
+                - 'Path': 'guide/search/sort_clause_reference/path_sort_clause.md'
+                - 'Priority': 'guide/search/sort_clause_reference/priority_sort_clause.md'
+                - 'SectionIdentifier': 'guide/search/sort_clause_reference/sectionidentifier_sort_clause.md'
+                - 'SectionName': 'guide/search/sort_clause_reference/sectionname_sort_clause.md'
+                - 'Visibility': 'guide/search/sort_clause_reference/visibility_sort_clause.md'
+            - 'Solr search engine': 'guide/search/solr.md'
+            - 'Other search engines': 'guide/search/search_engines.md'
         - Multisite:
             - 'Multisite': 'guide/multisite.md'
             - 'SiteAccess': 'guide/siteaccess.md'
@@ -150,10 +211,11 @@ pages:
             - 'Extending settings': 'guide/extending/extending_settings.md'
             - 'Extending modules': 'guide/extending/extending_modules.md'
             - 'Extending the Online Editor': 'guide/extending/extending_online_editor.md'
+            - 'Creating Online Editor plugin': 'guide/extending/online_editor_plugin.md'
             - 'Extending Form Builder': 'guide/extending/extending_form_builder.md'
             - 'Extending Workflow': 'guide/extending/extending_workflow.md'
             - 'Creating custom Page blocks': 'guide/extending/extending_page.md'
-            - 'Creating custom richtext blocks': 'guide/extending/richtext_block.md'
+            - 'Creating custom RichText blocks': 'guide/extending/richtext_block.md'
             - 'Creating custom drop-downs': 'guide/extending/creating_custom_dropdowns.md'
             - 'Creating drag and drop interface': 'guide/extending/drag_and_drop.md'
         - 'Service container': 'guide/service_container.md'
@@ -166,10 +228,10 @@ pages:
             - 'Install eZ Platform on macOS or Windows': 'community_resources/installing-on-mac-os-and-windows.md'
             - 'How to contribute': 'community_resources/contributing.md'
             - 'Report and follow issues': 'community_resources/report_follow_issues.md'
-            - 'Development guidelines': 'community_resources/development_guidelines.md'
             - 'Contribute code': 'community_resources/code.md'
+            - 'Development guidelines': 'community_resources/development_guidelines.md'
             - 'Contribute translations': 'community_resources/translations.md'
-            - 'Contribute documentation': 'community_resources/documentation.md'
+            - 'Contribute to documentation': 'community_resources/documentation.md'
         - UI Guidelines:
             - 'Introduction': 'guidelines/Introduction.md'
             - Components:
@@ -190,8 +252,10 @@ pages:
     - Migrating to eZ Platform:
         - 'Migrating from eZ Publish Platform': 'migrating/migrating_from_ez_publish_platform.md'
         - 'Migrating from eZ Publish': 'migrating/migrating_from_ez_publish.md'
+        - 'Legacy Bridge': 'migrating/legacy_bridge.md'
         - 'Common issues': 'migrating/common_issues.md'
     - Updating eZ Platform:
+        - 'Upgrading to eZ Platform v3': 'updating/upgrading_to_v3.md'
         - 'Updating eZ Platform': 'updating/updating_ez_platform.md'
         - '1. Check out a tagged version': 'updating/1_check_out_version.md'
         - '2. Merge composer.json': 'updating/2_merge_composer.md'
@@ -208,6 +272,8 @@ pages:
         - '6. Dump assets': 'updating/6_dump_assets.md'
         - '7. Commit, test and merge': 'updating/7_commit_test_merge.md'
     - Releases:
+        - 'eZ Platform v3.0': 'releases/ez_platform_v3.0.md'
+        - 'eZ Platform v3.0 deprecations and BC breaks': 'releases/ez_platform_v3.0_deprecations.md'
         - 'eZ Platform v2.5 LTS': 'releases/ez_platform_v2.5.md'
         - 'eZ Platform v2.4': 'releases/ez_platform_v2.4.md'
         - 'eZ Platform v2.3': 'releases/ez_platform_v2.3.md'
@@ -255,17 +321,26 @@ theme:
       tabs: false
   search_index_only: false
 
-theme_dir: material
+# theme_dir: material
+
+plugins:
+    - search
+    - macros:
+        j2_block_start_string: '[[%'
+        j2_block_end_string: '%]]'
+        j2_variable_start_string: '[[='
+        j2_variable_end_string: '=]]'
 
 extra:
   version_warning:
-    latest: ['2.5']
+    latest: ['3.0']
     previous_lts: ['1.7','1.13']
     lts: ['2.5']
-    ft: ['2.2', '2.3','2.4']
+    ft: []
     dev: ['master']
   append_bootstrap:
-    - '/guidelines/'
+    - '/guidelines/components/'
+    - '/guidelines/resources/'
     - '/index.md'
   related_docs:
     - title: 'eZ Platform Developer Documentation'
@@ -275,7 +350,7 @@ extra:
     - title: 'eZ Personalization Documentation'
       url: '/projects/ezpersonalization'
     - title: 'eZ Commerce'
-      url: 'https://doc.ez.no/commerce'
+      url: '/projects/ezcommerce'
 
 extra_css:
   - fonts/MavenPro.css

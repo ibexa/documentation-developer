@@ -6,7 +6,7 @@ It is also good practice to provide a Value object class for storing the custom 
 
 ## Type class
 
-The Type class of a Field Type provides an implementation of the [`eZ\Publish\SPI\FieldType\FieldType`](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/SPI/FieldType/FieldType.php) interface.
+The Type class of a Field Type provides an implementation of the [`eZ\Publish\SPI\FieldType\FieldType`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/SPI/FieldType/FieldType.php) interface.
 
 ### Field Definition handling
 
@@ -17,7 +17,7 @@ Since the Public API cannot know anything about these, their handling is delegat
 #### `getFieldTypeIdentifier()`
 
 Returns a unique identifier for the custom Field Type which is used to assign the type to a Field definition.
-By convention it should be prefixed by a unique vendor shortcut (e.g. `ez` for eZ Systems).
+By convention it should be prefixed by a unique vendor shortcut (e.g. `ez` for eZ Platform).
 
 #### `getSettingsSchema()`
 
@@ -75,7 +75,7 @@ For example: a user provides an HTTP link as a string, `acceptValue()` converts 
 
 #### `getEmptyValue()`
 
-The Field Type can specify that the user may define a default value for the `Field` of the type through settings. If no default value is provided, the Field Type is asked for an "empty value" as the final fallback. 
+The Field Type can specify that the user may define a default value for the `Field` of the type through settings. If no default value is provided, the Field Type is asked for an "empty value" as the final fallback.
 
 The value chain for filling a specific Field of the Field Type is as follows:
 
@@ -115,7 +115,7 @@ services:
 
 #### `parent`
 
-As described in the [Symfony Dependency Injection Component documentation](http://symfony.com/doc/master/components/dependency_injection/parentservices.html), the `parent` config key indicates that you want your service to inherit from the parent's dependencies, including constructor arguments and method calls. This helps avoiding repetition in your Field Type configuration and keeps consistency between all Field Types.
+As described in the [Symfony Dependency Injection Component documentation](https://symfony.com/doc/3.4/service_container/parent_services.html), the `parent` config key indicates that you want your service to inherit from the parent's dependencies, including constructor arguments and method calls. This helps avoiding repetition in your Field Type configuration and keeps consistency between all Field Types.
 
 #### `tags`
 
@@ -155,7 +155,7 @@ The settings are mapped into Symfony forms via the [FormMapper](field_type_form_
 
 ## Extensibility points
 
-Some Field Types will require additional processing, for example a Field Type storing a binary file, or one having more complex settings or validator configuration. For this purpose specific implementations of an abstract class `eZ\Publish\Core\REST\Common\FieldTypeProcessor` are used. 
+Some Field Types will require additional processing, for example a Field Type storing a binary file, or one having more complex settings or validator configuration. For this purpose specific implementations of an abstract class `eZ\Publish\Core\REST\Common\FieldTypeProcessor` are used.
 
 This class provides the following methods:
 

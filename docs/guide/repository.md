@@ -31,7 +31,7 @@ The Public API exposes Symfony services for all of its Repository services.
 Every Public API Service interface and Value object defined in `eZ\Publish\API` namespace strictly follows [Semantic Versioning](https://semver.org/) backward compatibility (BC) promise for API consumers.
 It means that every usage of API (API call) is guaranteed to work between minor releases.
 
-What can change between minor releases is API method signature. Because of that, implementation of API interfaces by third party packages (except the ones implemented by eZ Systems bundles) is not directly supported.
+What can change between minor releases is the API method signature. Because of that, implementation of API interfaces by third party packages (except for the ones implemented with built-in bundles) is not directly supported.
 API method signatures should not change between bug-fix releases (e.g. from 2.5.1 to 2.5.2).
 
 You should always check full list of changes for each release in corresponding release notes.
@@ -43,7 +43,7 @@ eZ Platform SPI is a Service Provider Interface which defines contracts for impl
  - persistence layer (`SPI\Persistence`)
  - custom Field Types
  - custom Limitations
- - limited portions of IO 
+ - limited portions of IO
  - image variation handling
  - Search Engine layer for custom Search Engine implementations (e.g. Legacy SQL Search Engine, Solr Search Engine and in the future Elasticsearch)
 

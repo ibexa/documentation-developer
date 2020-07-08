@@ -148,7 +148,7 @@ To add a template like this to your site, create a `main_layout.html.twig` file 
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-12">
-                            <p class="small">Website design &#38; content © copyright {{ "now"|date("Y") }} eZ Systems. This website was made with eZ Platform</p>
+                            <p class="small">Website design &#38; content © copyright {{ "now"|date("Y") }} Ibexa. This website was made with eZ Platform</p>
                         </div>
                     </div>
                 </div>
@@ -169,7 +169,7 @@ For now the site has no stylesheets or assets. In the highlighted lines (12-14, 
 !!! tip
 
     This code goes through all files in `web/assets/css` and `web/assets/js` and loads them as stylesheets and JS scripts respectively.
-    See [Symfony assetic doc](http://symfony.com/doc/2.8/frontend/assetic/asset_management.html#assets) for more information.
+    See [Symfony assetic doc](https://symfony.com/doc/3.4/frontend/assetic/asset_management.html#assets) for more information.
 
 [Download assets.zip](img/assets.zip) which contains the prepared asset files. Then unpack its contents to the `web/assets/` directory, so that the structure looks like this:
 

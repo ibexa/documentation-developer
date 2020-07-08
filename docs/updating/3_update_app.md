@@ -10,13 +10,13 @@ If you want to first test how the update proceeds without actually updating any 
 
 `composer update --dry-run`
 
-??? note "When updating from <1.13"
+??? note "When updating from <2.2"
 
     ##### Adding EzSystemsPlatformEEAssetsBundle
 
     !!! enterprise "EZ ENTERPRISE"
 
-        When upgrading to v1.10, you need to enable the new `EzSystemsPlatformEEAssetsBundle` by adding:
+        When upgrading from releases between (and including) v1.10 and v2.1 to v2.2 and higher, you need to disable `EzSystemsPlatformEEAssetsBundle` by removing:
 
         `new EzSystems\PlatformEEAssetsBundle\EzSystemsPlatformEEAssetsBundle(),`
 

@@ -50,6 +50,11 @@ body {
     font-weight: 600;
 }
 
+.md-nav--primary > .md-nav__list > .md-nav__item:first-of-type {
+    font-weight: 700;
+    color: #f15a22;
+}
+
 .md-header-nav__button {
     padding: .5rem;
 }
@@ -70,6 +75,10 @@ body {
 
 [data-md-color-primary=blue-grey] .md-typeset a {
     color: #2a9dc7;
+}
+
+[data-md-color-primary=blue-grey] .md-typeset th a {
+    color: #fff;
 }
 
 [data-md-color-accent=deep-orange] .md-nav__link:focus,
@@ -95,13 +104,18 @@ body {
 
 .md-typeset .codehilite code, .md-typeset .codehilite pre {
     background-color: #fff;
+    padding: 0;
+}
+
+.md-typeset .codehilite code, .md-typeset .codehilite pre code {
+    padding: 1.05rem 1.2rem;
 }
 
 .md-typeset .codehilitetable {
     border: 1px solid #999;
 }
 
-.md-typeset .codehilite pre::-webkit-scrollbar {
+.md-typeset .codehilite pre code::-webkit-scrollbar {
     height: 10px;
 }
 
@@ -405,10 +419,6 @@ a.external:after {
 
 .injected {
     display: none;
-}
-
-table tr td:first-child:not(.linenos) {
-    width: 150px;
 }
 
 @media (max-width: 575px) {

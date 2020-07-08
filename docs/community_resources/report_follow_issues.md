@@ -36,6 +36,11 @@ This way you can get and provide feedback during the issue's life. You are also 
 
 ## How to report an issue
 
+!!! enterprise "Issues in eZ Platform Enterprise Edition"
+
+    If you have an Enterprise subscription, report your issues through the [support portal](https://support.ez.no)
+    instead of JIRA. This ensures the issue can be quickly prioritized according to its impact.
+
 If you cannot find an issue matching what you are about to report using the search page, you can create a new one.
 Click **Create** at the top of the bugtracker window and fill in the form:
 
@@ -56,4 +61,3 @@ Click **Create** at the top of the bugtracker window and fill in the form:
 |**Labels**|Leave blank.|
 |**Epic Link**|Leave blank.|
 |**Sprint**|Leave blank.|
- 

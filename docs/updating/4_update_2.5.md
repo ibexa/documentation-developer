@@ -14,9 +14,13 @@ Apply the following database update script:
 
 `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.4.0-to-7.5.0.sql`
 
+### v2.5.3
+
 To update to v2.5.3, additionally run the following script:
 
 `mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.5.2-to-7.5.3.sql`
+
+### v2.5.6
 
 To update to v2.5.6, additionally run the following script:
 
@@ -26,11 +30,27 @@ or for PostgreSQL:
 
 `psql <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-7.5.4-to-7.5.5.sql`
 
+### v2.5.9
+
+To update to v2.5.9, additionally run the following script:
+
+`mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.5.6-to-7.5.7.sql`
+
+or for PostgreSQL:
+
+`psql <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-7.5.6-to-7.5.7.sql`
+
+Additionally, reindex the content:
+
+``` bash
+php bin/console ezplatform:reindex
+```
+
 ## Changes to database schema
 
 The introduction of [support for PostgreSQL](../guide/databases.md#using-postgresql) includes a change in the way database schema is generated.
 
-It is now created based on [YAML configuration](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage/legacy/schema.yaml), using the new [`DoctrineSchemaBundle`](https://github.com/ezsystems/doctrine-dbal-schema).
+It is now created based on [YAML configuration](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage/legacy/schema.yaml), using the new [`DoctrineSchemaBundle`](https://github.com/ezsystems/doctrine-dbal-schema).
 
 If you are updating your application according to the usual procedure, no additional actions are required.
 However, if you do not update your meta-repository, you need to take two additional steps:
@@ -86,7 +106,7 @@ bin/console cache:pool:clear cache.redis
 
 ## Updating to 2.5.6
 
-### Password recovery
+### Password expiration
 
 Run the following script to update the database:
 

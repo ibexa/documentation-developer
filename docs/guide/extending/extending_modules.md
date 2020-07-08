@@ -113,13 +113,14 @@ Optionally, Universal Discovery module can take a following list of props:
     - **panel** _{Element}_ - any kind of React component,
     - **attrs** _{Object}_ - any optional list of props that should applied to the panel component.
 })),
-- **labels** _{Object}_ - a hash containing text messages to be placed across many places in a component. It contains text labels for child components, see [universal.discovery.module.js](https://github.com/ezsystems/ezplatform-admin-ui-modules/blob/master/src/modules/universal-discovery/universal.discovery.module.js#L438) for details,
+- **labels** _{Object}_ - a hash containing text messages to be placed across many places in a component. It contains text labels for child components, see [universal.discovery.module.js](https://github.com/ezsystems/ezplatform-admin-ui-modules/blob/v1.5.5/src/modules/universal-discovery/universal.discovery.module.js#L994) for details,
 - **selectedItemsLimit** _{Number}_ - the limit of items that can be selected. Should be combined with the `multiple` attribute set to `true`. Default value is `0`, which means no limit,
 - **allowContainersOnly** _{Boolean}_ - when true, only containers can be selected. Default value: `false`,
 - **cotfPreselectedLanguage** _{String}_ - language that is preselected in Content on the Fly,
 - **cotfAllowedLanguages** _{Array}_ - languages that are available in Content on the Fly,
 - **cotfPreselectedContentType** _{String}_ - Content Type that is preselected in Content on the Fly,
 - **cotfAllowedContentTypes** _{Array}_ - Content Types that are available in Content on the Fly,
+- **allowedContentTypes** _{Array}_ - Content Types that are available in other UDW tabs,
 - **cotfPreselectedLocation** _{Number}_ - Location that is preselected in Content on the Fly,
 - **cotfAllowedLocations** _{Array}_ - Locations that are available in Content on the Fly
 
@@ -131,7 +132,7 @@ The following props are deprecated:
 
 ### Configuration
 
-You can configure Universal Discovery module in [universal_discovery_widget.yml file.](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/config/universal_discovery_widget.yml)
+You can configure Universal Discovery module in [universal_discovery_widget.yml file.](https://github.com/ezsystems/ezplatform-admin-ui/blob/v1.5.7/src/bundle/Resources/config/universal_discovery_widget.yml)
 There you can set e.g. visible tabs, allowed Content Types, search limits etc.
 
 ```yaml
@@ -329,7 +330,7 @@ Optionally, Sub-items module can take a following list of props:
 - **items** _{Array}_ - list of location sub items
 - **limit** _{Number}_ - items limit count
 - **offset** _{Number}_ - items limit offset
-- **labels** _{Object}_ - list of module labels, see [sub.items.module.js](https://github.com/ezsystems/ezplatform-admin-ui-modules/blob/master/src/modules/sub-items/sub.items.module.js#L371) for details. Contains definitions for sub components:
+- **labels** _{Object}_ - list of module labels, see [sub.items.module.js](https://github.com/ezsystems/ezplatform-admin-ui-modules/blob/v1.5.5/src/modules/sub-items/sub.items.module.js) for details. Contains definitions for sub components:
     - **subItems** _{Object}_ - list of sub items module labels
     - **tableView** _{Object}_ - list of table view component labels
     - **tableViewItem** _{Object}_ - list of table item view component labels

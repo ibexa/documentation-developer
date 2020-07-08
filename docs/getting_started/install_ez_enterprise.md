@@ -55,6 +55,15 @@ They are available via [updates.ez.no](https://updates.ez.no).
         composer config --global http-basic.updates.ez.no <installation-key> <token-password>
         ```
 
+    !!! cloud
+
+        If you are using Platform.sh, you can set the token as an environment variable.
+
+        When you do, make sure the **Visible during runtime** box in Platform.sh configuration is unchecked.
+        This will ensure that the token is not exposed.
+        
+        ![Setting token to be invisible during runtime](img/psh_addvariable.png)
+
     After this, when running Composer to get updates, you will be asked for a username and password. Use:
 
     - as username – your Installation key found on the **Maintenance and Support agreement details** page in the service portal
@@ -96,7 +105,7 @@ They are available via [updates.ez.no](https://updates.ez.no).
 
     !!! note
 
-        You can now refer back to [Installing eZ Platform](install_ez_platform/#provide-installation-parameters) for finishing steps of the installation process.
+        You can now refer back to [Installing eZ Platform](install_ez_platform.md#change-installation-parameters) for finishing steps of the installation process.
 
     ## Enable Date-based Publisher
 

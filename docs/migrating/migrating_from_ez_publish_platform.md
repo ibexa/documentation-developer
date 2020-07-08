@@ -28,9 +28,8 @@ An upgrade from eZ Publish Platform 5.4.x (Enterprise edition) or 2014.11 (Commu
 
     3. Additionally there are some other topics to be aware of for the code migration from eZ Publish to eZ Platform:
 
+        - Symfony deprecations. The recommended version to migrate to is eZ Platform v2.5 LTS, which is using Symfony 3.4 LTS.
         - [Field Types reference](../api/field_type_reference.md) for overview of Field Types that do and don't exist in eZ Platform
-        - eZ Platform RichText Field Type capabilities: You'll need latests v2.5LTS for all migration capabilities.
-        - Symfony upgrade, 1.x uses Symfony 2.8LTS, and 2.x uses Symfony 3.4LTS
         - API changes. While we have a strict backwards compatibility focus, some deprecated API features were removed and some changes were done to internal parts of the system. See [ezpublish-kernel:doc/bc/changes-6.0.md](https://github.com/ezsystems/ezpublish-kernel/blob/7.5/doc/bc/changes-6.0.md)
 
 !!! note
@@ -120,6 +119,49 @@ To move over your own custom configurations, follow the conventions below and ma
 
     In the default configurations in **ezplatform.yml** you'll find existing SiteAccesses like `site`, and depending on installation perhaps a few others, all under a site group called `site\_group`. Make sure to change those to what you had in **ezpublish.yml** to avoid issues with having to log in to your website, given user/login policy rules will need to be updated if you change names of SiteAccess as part of the upgrade.
 
+###### 2.3.1 Image aliases
+
+Image aliases defined in legacy must also be defined for eZ Platform. Since image aliases in legacy may be scattered around
+in different `image.ini` files in various extensions, you may find it easier to find all image alias definitions using
+the legacy admin (**Setup** > **Ini settings**).
+
+See [Image documentation page](../../guide/images/) for information about how to define image aliases.
+
+For an example, see a legacy image alias defined as follows in `ezpublish_legacy/settings/siteaccess/ezdemo_site/image.ini.append.php`:
+
+```
+[articleimage]
+Reference=
+Filters[]
+Filters[]=geometry/scalewidth=770
+
+[articlethumbnail]
+Reference=
+Filters[]
+Filters[]=geometry/scaledownonly=170;220
+```
+
+The corresponding image alias configuration for eZ Platform would be:
+
+``` yaml
+ezpublish:
+    siteaccess:
+        groups:
+            # Define the siteaccesses where given image aliases are in use
+            image_aliases_group: [ezdemo_site, eng, ezdemo_site_admin, admin]
+    system:
+        image_aliases_group:
+            image_variations:
+                articleimage:
+                    reference: null
+                    filters:
+                        - { name: geometry/scalewidth, params: [770] }
+                articlethumbnail:
+                    reference: null
+                    filters:
+                        - { name: geometry/scaledownonly, params: [170, 220] }
+```
+
 ##### 2.4. Bundles
 
 Move over registration of _your_ bundles you have from src and from composer packages, from old to new kernel:
@@ -129,7 +171,7 @@ Move over registration of _your_ bundles you have from src and from composer pac
 
 ##### 2.5. Optional: Install Legacy Bridge
 
-If you don't plan to migrate content directly to newer eZ Platform Field Types, you can optionally install Legacy Bridge and gradually handle code and subsequent content migration afterwards. For installation instructions see [here](https://github.com/ezsystems/LegacyBridge/blob/1.5/INSTALL.md).
+If you don't plan to migrate content directly to newer eZ Platform Field Types, you can optionally install Legacy Bridge and gradually handle code and subsequent content migration afterwards. For installation instructions see [here](https://github.com/ezsystems/LegacyBridge/blob/v2.1.5/INSTALL.md).
 
 !!! note
 
@@ -370,6 +412,34 @@ The `<literal>` tag is not yet supported in eZ Platform. For more information ab
 When you are ready to migrate your eZ Publish XmlText content to the eZ Platform RichText format and start using pure eZ Platform setup, start the conversion script without the `--dry-run` option. Execute the following from &lt;new-ez-root&gt;:
 
 `php -d memory_limit=1536M bin/console ezxmltext:convert-to-richtext --export-dir=ezxmltext-export --export-dir-filter=notice,warning,error --concurrency 4 -v`
+
+**Custom tags and attributes**
+
+eZ Platform now supports custom tags, including inline custom tags, and limited use of custom tag attributes.
+After migrating to RichText, you need to adapt your custom tag config for eZ Platform and rewrite the custom tags in Twig.
+See [Custom tag documentation](../guide/extending/extending_online_editor.md#custom-tags) for more info.
+
+If you configured custom attributes in legacy in OE using [ezoe_attributes.ini](https://github.com/ezsystems/ezpublish-legacy/blob/master/extension/ezoe/settings/ezoe_attributes.ini#L33-L48), note that not all types are supported.
+
+Below is a table of the tags that are currently supported, and their corresponding names in eZ Platform.
+
+| [XmlText](https://github.com/ezsystems/ezpublish-legacy/blob/2019.03/extension/ezoe/settings/ezoe_attributes.ini#L33-L48) | [RichText](https://github.com/ezsystems/ezplatform-richtext/blob/v1.1.5/src/bundle/DependencyInjection/Configuration.php#L17) | Note  |
+| ------------- | ------------- | ----- |
+| `link`        | [`link`](../guide/extending/extending_online_editor.md#example-link-tag) |  |
+| `number`      | `number`      |  |
+| `int`         | `number`      |  |
+| `checkbox`    | `boolean`     |  |
+| `select`      | `choice`      |  |
+| `text`        | `string`      |  |
+| `textarea`    | Not supported |   Use `string` as workaround |
+| `email`       | Not supported |   Use `string` as workaround |
+| `hidden`      | Not supported |   Use `string` as workaround |
+| `color`       | Not supported |   Use `string` as workaround |
+| `htmlsize`    | Not supported |   Use `string` as workaround |
+| `csssize`     | Not supported |   Use `string` as workaround |
+| `csssize4`    | Not supported |   Use `string` as workaround |
+| `cssborder`   | Not supported |   Use `string` as workaround |
+
 
 ###### 3.2.2 Migrate Page field to Page (eZ Enterprise only)
 

@@ -13,7 +13,7 @@ Create a new Folder as a child of Location `2` with:
 ```
 mutation createFolder {
   createFolder(
-    languageCode: "eng-GB"
+    language: eng_GB
     parentLocationId: 2
     input: {
       name: "New Folder"
@@ -43,7 +43,7 @@ Modify the name of a Folder Content item with:
 ```
 mutation updateFolder {
   updateFolder(
-    languageCode: "eng-GB"
+    language: eng_GB
     contentId: 64
     input: {
       name: "New Folder name"
@@ -107,7 +107,7 @@ Uploading files makes use of dedicated mutations per Content Type, for example:
 mutation CreateImage($file: FileUpload!) {
   createImage(
     parentLocationId: 51,
-    language: "eng-GB",
+    language: eng_GB,
     input: {
       name: "An image created over GraphQL",
       image: {
@@ -162,7 +162,7 @@ mutation UploadMultipleFiles($files: [FileUpload]!) {
   uploadFiles(
     locationId: 51,
     files: $files,
-    languageCode: "eng-GB"
+    language: eng_GB
   ) {
     files {
       _url

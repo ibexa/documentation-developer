@@ -46,6 +46,11 @@ The `_repository` field also enables you to query e.g. Object states configured 
 
 You can also use your own [custom schema](graphql_customization.md#custom-schema).
 
+### Multiple repositories
+
+GraphQL is SiteAccess-aware, but can have only one schema per installation.
+This means you cannot use GraphQL with multiple repositories.
+
 ## Authentication
 
 GraphQL for eZ Platform supports session-based authentication.
@@ -61,6 +66,11 @@ The [GraphiQL interactive client](https://github.com/graphql/graphiql) is includ
 Access it through `<yourdomain>/graphiql`.
 
 Here you can run your queries and preview the results in an easy-to-read format.
+
+!!! note
+
+    Selected queries and mutations require administrator permission to be executed properly.
+    In such case, access the GraphiQL through `<yourdomain>/admin/graphiql`.
 
 ### Reference
 

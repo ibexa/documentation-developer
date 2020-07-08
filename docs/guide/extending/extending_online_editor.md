@@ -17,7 +17,7 @@ They are configured under the `ezrichtext` key.
 
 If you want to learn how to apply them to your installation follow [Creating a custom tag tutorial](../../tutorials/extending_admin_ui/6_adding_a_custom_tag).
 
-**Example: YouTube tag**
+#### Example: YouTube tag
 
 Preparation of the tag always starts with the configuration file that should be added to `app/Resources/config`. This is sample configuration for the YouTube tag, `custom_tags.yml`:
 
@@ -65,7 +65,15 @@ ezrichtext:
 Remember to provide your own files for the template and the icon.
 Each custom tag can have any number of attributes.
 Supported attribute types are:
-`string`, `number`, `boolean` and `choice` (which requires a list of choices provided by the `choices` key).
+`string`, `number`, `boolean`, `link`, and `choice` (which requires a list of choices provided by the `choices` key).
+
+Next, add `custom_tags.yml` to `app/config/config.yml` under the `imports` key:
+
+``` yaml
+imports:
+# ...
+    - { resource: custom_tags.yml }
+```
 
 The configuration requires an `ezyoutube.html.twig` template for the custom tag that will be placed in `/Resources/views/field_type/ezrichtext/custom_tag`:
 
@@ -100,7 +108,13 @@ ezrichtext.custom_tags.ezyoutube.attributes.width.label: Width
 ezrichtext.custom_tags.ezyoutube.attributes.align.label: Align
 ```
 
-**Example: FactBox tag**
+Now you can use the tag.
+In the Back Office, create or edit a Content item that has a RichText Field Type.
+In the Online Editor, click **Add**, and from the list of available tags select the YouTube tag icon.
+
+![YouTube Tag](img/custom_tag_ezyt.png "YouTube Tag in the Online Editor" )
+
+#### Example: FactBox tag
 
 FactBox tag is a good example for showcasing possibilities of `ezcontent` property.
 Each custom tag has an `ezcontent` property that contains the tag's main content.
@@ -136,7 +150,9 @@ Remember to provide your own files for the template and the icon.
 Line 10 points to `ezfactbox.html.twig` template described below.
 Attributes listed below the custom tag can be set when adding the tag to a RichText Field.
 
-The configuration requires an `ezfactbox.html.twig` template for the custom tag that will be placed in `/Resources/views/field_type/ezrichtext/custom_tag`:
+Ensure that the `custom_tags.yml` file is added to `app/config/config.yml` under the `imports` key.
+
+Now, the configuration requires an `ezfactbox.html.twig` template for the custom tag that will be placed in `/Resources/views/field_type/ezrichtext/custom_tag`:
 
 ```html+twig
 <div class="ez-factbox ez-factbox--{{ params.style }}">
@@ -169,6 +185,12 @@ ezrichtext.custom_tags.ezfactbox.attributes.style.choices.light.label: Light sty
 ezrichtext.custom_tags.ezfactbox.attributes.style.choices.dark.label: Dark style
 ```
 
+Now you can use the tag.
+In the Back Office, create or edit a Content item that has a RichText Field Type.
+In the Online Editor, click **Add**, and from the list of available tags select the FactBox tag icon.
+
+![FactBox Tag](img/custom_tag_factbox.png "FactBox Tag in the Online Editor" )
+
 ### Inline custom tags
 
 Custom tags can also be placed inline with the following configuration:
@@ -177,7 +199,7 @@ Custom tags can also be placed inline with the following configuration:
 ezrichtext:
     custom_tags:
         badge:
-            template: AppBundle:field_type/ezrichtext/custom_tag:badge.html.twig
+            template: field_type/ezrichtext/custom_tag/badge.html.twig
             icon: '/bundles/ezplatformadminui/img/ez-icons.svg#bookmark'
             is_inline: true
             attributes:
@@ -190,9 +212,146 @@ The default value is `false`, so if it is not set, the custom tag will be treate
 !!! caution "Incorrect configuration"
 
     Newer configuration options, such as `is_inline`, only work with the configuration provided above.
-    If your project uses [old configuration](../updating/4_update_2.4.md#changes-to-custom-tags),
+    If your project uses [configuration from version prior to 2.4](../../updating/4_update_2.4.md#changes-to-custom-tags),
     these options will not work.
     You need to update your configuration to be placed under the `ezrichtext` key.
+
+### Use cases
+
+#### Link tag
+
+You can also configure a custom tag with a `link` attribute that offers a basic UI with text input.
+It is useful when migrating from eZ Publish to eZ Platform.
+
+The configuration in `app/config/custom_tags.yml` is:
+
+```yaml hl_lines="24 25"
+ezpublish:
+    system:
+        admin_group:
+            fieldtypes:
+                ezrichtext:
+                    custom_tags: [linktag]
+
+ezrichtext:
+    custom_tags:
+        linktag:
+            template: '@ezdesign/custom_tags/vcustom.html.twig'
+            icon: '/bundles/ezplatformadminui/img/ez-icons.svg#link'
+            attributes:
+                attrTitle:
+                    type: string
+                    required: false
+                attrDesc:
+                    type: string
+                    required: false
+                attrColor:
+                    type: choice
+                    required: false
+                    choices: [Red, Blue, Green]
+                attrUrl:
+                    type: link
+                    required: false
+```
+
+Remember to provide your own files for the template and the icon.
+In this example, the tag has the `attrUrl` attribute with the `type` parameter set as `link`. (lines 24-25).
+
+Before proceeding, ensure that the `custom_tags.yml` file is added to `app/config/config.yml` under the `imports` key:
+
+``` yaml
+imports:
+# ...
+    - { resource: custom_tags.yml }
+```
+
+Next, create a `app/Resources/views/field_type/ezrichtext/linktag.html.twig` template:
+
+``` html+twig
+<h2>vcustom</h2>
+{% for attr_name, attr_value in params %}
+    <div><strong>{{ attr_name }}</strong>: {{ attr_value }}</div>
+{% endfor %}
+```
+
+Lastly, provide the translations in a `app/Resources/translations/linktag.en.yaml` file:
+
+``` yaml
+ezrichtext.custom_tags.linktag.label: 'Link Tag'
+ezrichtext.custom_tags.linktag.attributes.attrTitle.label: 'Title'
+ezrichtext.custom_tags.linktag.attributes.attrDesc.label: 'Description'
+ezrichtext.custom_tags.linktag.attributes.attrColor.label: 'Color'
+ezrichtext.custom_tags.linktag.attributes.attrUrl.label: 'URL'
+```
+
+Now you can use the tag.
+In the Back Office, create or edit a Content item that has a RichText Field Type.
+In the Online Editor, click **Add**, and from the list of available tags select the Link tag icon.
+
+![Link Tag](img/custom_tag_link.png "Link Tag in the Online Editor") 
+
+#### Acronym
+
+You can create an inline custom tag that will display a hovering tooltip with an explanation of an acronym.
+
+``` yaml
+ezpublish:
+    system:
+        admin_group:
+            fieldtypes:
+                ezrichtext:
+                    custom_tags: [acronym]
+
+ezrichtext:
+    custom_tags:
+        acronym:
+            template: AppBundle::field_type/ezrichtext/custom_tag/acronym.html.twig
+            icon: '/bundles/ezplatformadminui/img/ez-icons.svg#information'
+            is_inline: true
+            attributes:
+                explanation:
+                    type: 'string'
+```
+
+The `explanation` attribute will contain the meaning of the acronym that will be provided
+while editing in the Online Editor.
+
+Label translations can be provided in `app/Resources/translations/custom_tags.en.yaml`:
+
+``` yaml
+ezrichtext.custom_tags.acronym.label: 'Acronym'
+ezrichtext.custom_tags.acronym.attributes.meaning.label: 'Explanation'
+```
+
+![Adding an explanation to an Acronym custom tag](img/oe_custom_tag_add_acronym.png)
+
+In the template file `acronym.html.twig` provide the explanation as `attr_value`
+to the title of the `abbr` tag:
+
+``` html+twig
+<abbr title="{{ params.explanation }}">{{ content }}</abbr>
+```
+
+![Acronym custom tag](img/oe_custom_tag_acronym.png)
+
+## Custom toolbars
+
+You can extend the Online Editor with the custom toolbars.
+The feature depends on [Alloy Editor](https://alloyeditor.com/).
+
+Preparation of the custom toolbar starts with creating a new toolbar config.
+If you want to learn how to do it, see [Creating a Toolbar.](https://alloyeditor.com/docs/develop/create_toolbars.html)
+
+Next, add the toolbar config to the `ezplatform-admin-ui-alloyeditor-js` entry using encore.
+Finally, add the toolbar JavaScript class to `ezAlloyEditor.customSelections.<TOOLBAR_NAME>` eZ config.
+
+You can do it at the bottom of the toolbar config file:
+
+```js
+eZ.addConfig('ezAlloyEditor.customSelections.ContentVariableEdit', ContentVariableEditConfig);
+```
+
+With this step, the `ContentVariableEditConfig` toolbar is injected and ready to be used.
 
 ## Custom styles
 
@@ -263,6 +422,102 @@ In the example above, the template files for the front end could be:
 ```
 
 Templates for Content View in the Back Office would be `app/Resources/views/themes/admin/field_type/ezrichtext/custom_style/highlighted_word.html.twig` and `app/Resources/views/themes/admin/field_type/ezrichtext/custom_style/highlighted_block.html.twig` respectively (assuming Admin SiteAccess uses the `admin` theme).
+
+### Use cases
+
+#### Note box
+
+You can create a custom style that will place a paragraph in a note box:
+
+![Example of a note box custom style](img/oe_custom_style_note_box.png)
+
+``` yaml
+ezpublish:
+    system:
+        admin_group:
+            fieldtypes:
+                ezrichtext:
+                    custom_styles: [note_box]
+
+ezrichtext:
+    custom_styles:
+        note_box:
+            template: field_type/ezrichtext/custom_style/note_box.html.twig
+```
+
+The indicated `note_box.html.twig` template wraps the content of the selected text (`{{ content }}`)
+in a custom CSS class:
+
+``` html+twig
+<div class="note">{{ content }}</div>
+```
+
+``` css
+.note {
+    display: block;
+    background-color: #faa015;
+    border-left: solid 5px #353535;
+    line-height: 18px;
+    padding: 15px;
+    color: #fff;
+    font-weight: bold;
+}
+```
+
+Label translation can be provided in `app/Resources/translations/custom_styles.en.yaml`:
+
+``` yaml
+ezrichtext.custom_styles.note_box.label: 'Note box'
+```
+
+![Adding a Note box custom style](img/oe_custom_style_note_box_select.png)
+
+!!! tip
+
+    You can also create a similar note box using [custom classes](#note-box_1).
+
+#### Text highlight
+
+You can create an inline custom style that highlights a part of a text:
+
+![Example of a custom style highlighting a portion of text](img/oe_custom_style_highlight.png)
+
+``` yaml
+ezpublish:
+    system:
+        admin_group:
+            fieldtypes:
+                ezrichtext:
+                    custom_styles: [highlight]
+                    
+ezrichtext:
+    custom_styles:
+        highlight:
+            template: field_type/ezrichtext/custom_style/highlight.html.twig
+            inline: true
+```
+
+The indicated `highlight.html.twig` template wraps the content of the selected text (`{{ content }}`)
+in a custom CSS class:
+
+``` html+twig
+<span class="highlight">{{ content }}</span>
+```
+
+``` css
+.highlight {
+    background-color: #fcc672;
+    border-radius: 25% 40% 25% 40%;
+}
+```
+
+Label translation can be provided in `app/Resources/translations/custom_styles.en.yaml`:
+
+``` yaml
+ezrichtext.custom_styles.highlight.label: 'Highlight'
+```
+
+![Adding a Highlight custom style](img/oe_custom_style_highlight_select.png)
 
 ## Custom data attributes and classes
 
@@ -368,16 +623,47 @@ php ./bin/console translation:extract --enable-extractor=ez_online_editor_attrib
     --dir=./app/Resources/views --output-dir=./app/Resources/translations/ --output-format=yaml
 ```
 
-## Plugins configuration
+### Use cases
 
-If you develop your plugin, you need to add it to the CKEditor plugins by `add` method.
-For more information, follow [Creating a CKEditor Plugin tutorial.](https://ckeditor.com/docs/ckeditor4/latest/guide/plugin_sdk_sample.html)
-If you downloaded a plugin from the CKEditor, you need to include it in a page after AlloyEditor is loaded.
+#### Note box
 
-To enable your new CKEditor plugin in, define it in the RichText AlloyEditor Semantic Configuration.
-The configuration is available at:
+You can create a custom class that will enable you to place a paragraph element in a note box:
 
-```yaml
+![Example of a note box custom style](img/oe_custom_style_note_box.png)
+
+``` yaml
+ezpublish:
+    system:
+        admin_group:
+            fieldtypes:
+                ezrichtext:
+                    classes:
+                        paragraph:
+                            choices: [regular, tip_box, warning_box]
+                            default_value: regular
+                            required: false
+                            multiple: false
+```
+
+This enables you to choose one of the following classes for each paragraph element: `regular`, `tip_box`, or `warning_box`
+that you can then style individually using CSS.
+
+![Selecting a custom style for a paragraph](img/oe_custom_class_note_box_select.png)
+
+!!! tip
+
+    You can also create a similar note box using [custom styles](#note-box).
+
+## Custom plugins
+
+You can add your own plugins to the Online Editor.
+
+For more information, follow [Creating Online Editor plugin](online_editor_plugin.md).
+
+You can also download an existing plugin from the CKEditor.
+In this case, include it in a page after AlloyEditor is loaded:
+
+``` yaml
 ezrichtext:
     alloy_editor:
         extra_plugins: [plugin1, plugin2]

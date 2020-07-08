@@ -74,4 +74,4 @@ Now you can reload your eZ Platform administration page which will be translated
 
 ## Full translation workflow
 
-You can read a full description of how new translations are prepared and distributed in [the documentation of GitHub](https://github.com/ezsystems/ezplatform/blob/master/doc/i18n/translation_workflow.md).
+You can read a full description of how new translations are prepared and distributed in [the documentation of GitHub](https://github.com/ezsystems/ezplatform/blob/v2.5.6/doc/i18n/translation_workflow.md).

@@ -256,7 +256,7 @@ The view's controller action is set to the QueryController's `locationQuery` act
 The QueryController is configured in the `query` array, inside the `params` of the `content_view` block:
 
 - `query_type` specifies the QueryType to use, based on its name.
-- `parameters` is a hash where parameters from the QueryType are set. Arbitrary values can be used, as well as properties from the currently viewed [Location](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Location.php) and [ContentInfo](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/ContentInfo.php). In that case, the id of the currently viewed Location is mapped to the QueryType's `parentLocationId` parameter: `parentLocationId: "@=location.id"`
+- `parameters` is a hash where parameters from the QueryType are set. Arbitrary values can be used, as well as properties from the currently viewed [Location](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/Values/Content/Location.php) and [ContentInfo](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/Values/Content/ContentInfo.php). In that case, the id of the currently viewed Location is mapped to the QueryType's `parentLocationId` parameter: `parentLocationId: "@=location.id"`
 - `assign_results_to` sets which Twig variable the search results will be assigned to.
 
 #### The view template
@@ -282,7 +282,7 @@ Three Controller Actions are available, each for a different type of search:
 - `contentQueryAction` runs a Content Search
 - `contentInfoQueryAction` runs a Content Info search
 
-See the [Search](search.md) documentation page for more details about different types of search.
+See the [Search](search/search.md) documentation page for more details about different types of search.
 
 #### `params`
 
@@ -439,7 +439,7 @@ The LatestContentQueryType from the [example above](#querytype-example-latest-co
 
 !!! note
 
-    For further information see the [Symfony's Options Resolver documentation page](http://symfony.com/doc/current/components/options_resolver.html)
+    For further information see the [Symfony's Options Resolver documentation page](https://symfony.com/doc/3.4/components/options_resolver.html)
 
 ``` php
 <?php
@@ -506,3 +506,93 @@ class MyCommand extends ContainerAwareCommand
     }
 }
 ```
+
+### Content query Field Type
+
+The [Content query Field Type](../api/field_type_reference.md#content-query-field-type)
+enables you to configure a content query that will use parameters from a Field definition.
+The results will be available in a Content item's Field.
+
+The Content query Field Type is available via the eZ Platform Query Field Type Bundle
+provided by the [ezplatform-query-fieldtype](https://github.com/ezsystems/ezplatform-query-fieldtype) package.
+You need to add the package manually to your project.
+
+Use it by adding a Content query Field Type to your Content Type.
+
+Select a predefined [Query Type](#query-controller) from a list
+and provide the parameters that are required by the Query Type, e.g.:
+
+```
+parentLocationId: '@=mainLocation.id'
+```
+
+Select the Content Type of items you want to return in the **Returned type** dropdown.
+To take it into account, your Query Type must filter on the Content Type.
+Provide the selected Content Type through the `returnedType` variable:
+
+```
+contentType: '@=returnedType'
+```
+
+The following variables are available in parameter expressions:
+
+- `returnedType` - the identifier of the Content Type selected in the **Returned type** dropdown
+- `content` - the current Content item
+- `contentInfo` - the current Content item's ContentInfo
+- `mainLocation` - the current Content item's main Location
+
+#### Pagination
+
+You can paginate the query results by checking the **Enable pagination** box and selecting a limit of results per page.
+
+The following optional parameters are available:
+
+- `enablePagination` - when true, pagination will be enabled even if it is disabled in the Field definition
+- `disablePagination` - when true, pagination will be disabled even if it is enabled in the Field definition
+- `itemsPerPage` - limit of results per page, overriding the limit set in Field definition. It is required if `enablePagination` is set to true and pagination is disabled in the Field definition
+
+For example:
+
+```
+{{ ez_render_field(content, 'posts', {'parameters': {'enablePagination': true, 'itemsPerPage': 8}}) }}
+```
+
+#### Content query Field Type view
+
+Configure the Content query Field Type's view using the `content_query_field` view type:
+
+``` yaml
+content_view:
+    content_query_field:
+        blog_posts:
+            match:
+                Identifier\ContentType: blog
+                Identifier\FieldDefinition: posts
+            template: "blog_posts.html.twig"
+```
+
+Query results are provided to the template in the `items` variable:
+
+``` html+twig
+{% for item in items %}
+    {{ render(controller("ez_content:viewAction", {
+        "contentId": item.id,
+        "content": item,
+        "viewType": itemViewType
+    })) }}
+{% endfor %}
+```
+
+The default view type is `line`, defined under `itemViewType`.
+You can change it by passing a different view to `viewType` in the template, e.g.:
+`"viewType": "list"`.
+
+The `isPaginationEnabled` parameter indicates if pagination is enabled.
+When pagination is enabled, `items` is an instance of PagerFanta:
+
+```
+{% if isPaginationEnabled %}
+    {{ pagerfanta( items, 'ez', {'routeName': location, 'pageParameter': pageParameter } ) }}
+{% endif %}
+```
+In case of pagination, `pageParameter` contains the page parameter to use as the PagerFanta `pageParameter` argument.

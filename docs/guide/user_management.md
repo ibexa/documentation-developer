@@ -105,8 +105,12 @@ You can also modify the following form templates:
 **Changing user password:**
 
 ``` yaml
-ezsettings.<siteaccess>.user_change_password.templates.form
-ezsettings.<siteaccess>.user_change_password.templates.success
+ezpublish:
+    system:
+        <siteaccess>:
+            user_change_password:
+                templates:
+                    form: <path_to_template>
 ```
 
 **Password recovery forms:**

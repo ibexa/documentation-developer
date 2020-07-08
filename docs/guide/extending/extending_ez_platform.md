@@ -13,7 +13,7 @@ This interface is accessible in your browser at `http://<yourdomain>/admin`.
 The Back Office uses React-based modules that make each part of the UI extensible,
 and Bootstrap for styling.
 
-To extend the Back Office with PHP code, you can use [events](https://symfony.com/doc/current/event_dispatcher.html),
+To extend the Back Office with PHP code, you can use [events](https://symfony.com/doc/3.4/event_dispatcher.html),
 either built-in Symfony events or events dispatched by the application.
 See [Extending menus](extending_menus.md) for an example on how to use an event subscriber
 to extend one of the menus in the Back Office.
