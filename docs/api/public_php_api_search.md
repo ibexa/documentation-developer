@@ -89,7 +89,9 @@ With the Legacy search engine both properties will give identical results.
 
 ## Repository filtering
 
-You can use the `ContentService::find()` method to search for content or Locations using a defined Filter.
+You can use the `ContentService::find()` method to find content or Locations using a defined Filter.
+
+Filtering differs from search. It does not use the `SearchService` and is not based on indexed data.
 
 [`Filter`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.1.0/eZ/Publish/API/Repository/Values/Filter/Filter.php) enables you to configure a query using chained methods to select criteria, sorting, limit and offset.
 
