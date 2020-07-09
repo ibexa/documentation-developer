@@ -111,6 +111,17 @@ Available tags for Sort Clause handlers in Legacy Storage Engine are:
 
     You will find all the native handlers and the tags for the Legacy Storage Engine in files located in `eZ/Publish/Core/settings/storage_engines/legacy/`.
 
+!!! tip
+
+    When you search in trash, use the following service tags:
+
+    - for Criterion handlers: `ezplatform.trash.search.legacy.gateway.criterion_handler`
+    - for Sort Clause handlers: `ezplatform.trash.search.legacy.gateway.sort_clause_handler`
+
+    For more information about searching for Content items in Trash, see [Searching in trash](../../api/public_php_api_search.md#searching-in-trash).
+
+    For more information about the Criteria and Sort Clauses that are supported when searching for trashed Content items, see [Searching in trash reference](search_in_trash_reference.md).
+
 ##### Example of registering a ContentId Criterion handler, common for both Content and Location Search
 
 ``` yaml
