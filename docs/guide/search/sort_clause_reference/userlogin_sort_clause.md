@@ -1,7 +1,7 @@
 # UserLogin Sort Clause
 
-The [`UserLogin` Sort Clause](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Query/SortClause/Trash/UserLogin.php)
-sorts the results of searching in Trash by the login of the Content Item's creator.
+The [`UserLogin` Sort Clause](https://github.com/ezsystems/ezplatform-kernel/blob/v1.1.0-rc2/eZ/Publish/API/Repository/Values/Content/Query/SortClause/Trash/UserLogin.php)
+sorts the results of searching in Trash by the login of the Content item's creator.
 
 ## Arguments
 
