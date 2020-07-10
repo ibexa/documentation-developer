@@ -130,6 +130,91 @@ services:
             - { name: kernel.event_subscriber }
 ```
 
+## Custom Search Criterion
+
+To provide support for a custom Search Criterion, you need to implement `Ibexa\Platform\Contracts\ElasticSearchEngine\Query\CriterionVisitor`:
+
+``` php
+<?php
+
+declare(strict_types=1);
+
+namespace App\Query\Criterion;
+
+use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
+use Ibexa\Platform\Contracts\ElasticSearchEngine\Query\CriterionVisitor;
+use Ibexa\Platform\Contracts\ElasticSearchEngine\Query\LanguageFilter;
+
+final class CameraManufacturerVisitor implements CriterionVisitor
+{
+    public function supports(Criterion $criterion, LanguageFilter $languageFilter): bool
+    {
+        return $criterion instanceof CameraManufacturer;
+    }
+
+    public function visit(CriterionVisitor $dispatcher, Criterion $criterion, LanguageFilter $languageFilter): array
+    {
+        return [
+            'terms' => [
+                'exif_camera_manufacturer_id' => (array)$criterion->value
+            ]
+        ];
+    }
+}
+```
+
+Next, add the Search Criterion class itself in src/Query/Criterion/CameraManufacturerCriterion.php
+
+``` php
+<?php
+
+declare(strict_types=1);
+
+namespace App\Query\Criterion;
+
+use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
+use eZ\Publish\API\Repository\Values\Content\Query\Criterion\Operator;
+use eZ\Publish\API\Repository\Values\Content\Query\Criterion\Operator\Specifications;
+
+final class CameraManufacturer extends Criterion
+{
+    /**
+     * @param string|string[] $value One or more manufacturer names that must be matched.
+     */
+    public function __construct($value)
+    {
+        parent::__construct(null, null, $value);
+    }
+
+    public function getSpecifications(): array
+    {
+        return [
+            new Specifications(
+                Operator::IN,
+                Specifications::FORMAT_ARRAY,
+                Specifications::TYPE_STRING
+            ),
+            new Specifications(
+                Operator::EQ,
+                Specifications::FORMAT_SINGLE,
+                Specifications::TYPE_STRING
+            ),
+        ];
+    }
+}
+```
+
+Search Criteria can be valid for both content and Location search.
+To choose the search type, use either `content` or `location` in the tag when registering the visitor as a service:
+
+``` yaml
+services:
+    App\Query\Criterion\CameraManufacturerVisitor:
+        tags:
+            - { name: ezplatform.search.elasticsearch.query.content.criterion_visitor }
+            - { name: ezplatform.search.elasticsearch.query.location.criterion_visitor }
+```
+
 ## Custom Sort Clause
 
 To create a custom Sort Clause for use with Elastic search,
