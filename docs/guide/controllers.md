@@ -353,7 +353,7 @@ Results from the search are assigned to the `blog_posts` variable as a `SearchRe
 Beyond the built-in Query Types, you can create your own.
 
 For example, this Query Type returns a Query that searches for the last ten published Content items, ordered by reverse publishing date.
-It accepts an optional `type` parameter [lines 13-15] that can be set to a Content Type identifier (e.g. `article`):
+It accepts an optional `contentType` parameter [lines 13-15] that can be set to a Content Type identifier (e.g. `article`):
 
 ``` php
 <?php
@@ -368,8 +368,8 @@ class LatestContentQueryType implements QueryType
     public function getQuery(array $parameters = [])
     {
         $criteria[] = new Query\Criterion\Visibility(Query\Criterion\Visibility::VISIBLE);
-        if (isset($parameters['type'])) {
-            $criteria[] = new Query\Criterion\ContentTypeIdentifier($parameters['type']);
+        if (isset($parameters['contentType'])) {
+            $criteria[] = new Query\Criterion\ContentTypeIdentifier($parameters['contentType']);
         }
         // 10 is the default limit we set, but you can have one defined in the parameters
         return new LocationQuery([
@@ -388,7 +388,7 @@ class LatestContentQueryType implements QueryType
      */
     public function getSupportedParameters()
     {
-        return ['type', 'limit'];
+        return ['contentType', 'limit'];
     }
 }
 ```
@@ -400,7 +400,7 @@ content_view:
     full:
         latest:
             controller: ez_query:locationQueryAction
-            template: content/view/full/latest.html.twig
+            template: full/latest.html.twig
             match:
                 Identifier\ContentType: "latest"
             params:
@@ -408,6 +408,7 @@ content_view:
                     query_type: LatestContent
                     parameters:
                         parentLocationId: '@=location.id'
+                        contentType: article
                     assign_results_to: latest
 ```
 
