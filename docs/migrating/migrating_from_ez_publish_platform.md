@@ -2,25 +2,24 @@
 
 eZ Publish Platform (5.x) was a transitional version of the eZ CMS, bridging the gap between the earlier generation called eZ Publish (sometimes referred to as *legacy*), and the current eZ Platform and eZ Platform Enterprise Edition for developers.
 
-eZ Publish Platform (5.x) introduced a new Symfony-based technology stack that could be run along the old (*legacy*) one. This bridging is still possible using something called Legacy Bridge, an optional package for eZ Platform. This fluid change allows eZ Publish users to migrate to eZ Platform gradually, using the bridging as an intermediary stepping stone.
+eZ Platform contains a newer, far more mature version of the Symfony-based technology stack first introduced in eZ Publish Platform (5.x). And while it no longer bundles "Legacy bridge" to connect with the older legacy 4.x stack, this still possible as an improved optional package. This page covers migration both with and without using this package.
+
 
 ## Upgrade process
 
-An upgrade from eZ Publish Platform 5.4.x (Enterprise edition) or 2014.11 (Community edition) to 2.5 can be done in many different ways, two main approches:
+An upgrade from eZ Publish Platform 5.4.x (Enterprise edition) or 2014.11 (Community edition) to 2.5 can be done in many ways, this page describes the recommended approach:
 
-A. Setup clean eZ Platform 2.5 install and move over your project specific code, config and packages _(covered on this page)_.
-    - Optional; Add legacy bridge to continue to run legacy for certian parts and be able to gradual perform the migrations below
-    - Migrate eZ Flow to eZ Landing page, and eZ Landing page to eZ Page Builder
-    - Migrate XmlText to RichText _(using latest version of `ezplatform-xmltext-fieldtype` and eZ Platform)_
-    - Once these steps are done; _All legacy packages, flow, landingpage and xmltext-fieldtype can be uninstalled._
-
-B. Update _your_ install [Updating eZ Platform](../updating/updating_ez_platform.md) section.
-    - Can be more error prone as it's Git based and you might run into many conflicts.
-    - This also does not cover migration topics, so you'll need to return to this page for steps needed for that.
+Setup clean eZ Platform 2.5 install and move over your project specific code, config and packages, then perform the following steps:
+- _Optional; Add legacy bridge to continue to run legacy for certain parts and be able to gradual perform the migrations below_
+- Migrate eZ Flow to eZ Landing page _(1.x)_, and eZ Landing page to eZ Page Builder _(2.2 and higher)_
+- Migrate XmlText content to RichText
+- Once these steps are done; _All legacy, ezflow-, landingpage- and ezxmltext-fieldtype packages can be uninstalled._
 
 !!! caution "Things to be aware of when planning a migration"
 
-    1. While the instructions below are fully supported, we are aware that the community, partners and customers come from a wide range of different versions of eZ Publish, some with issues that do not surface before attempting a migration. That's why we and the community are actively gathering feedback on Slack and/or support channels for Enterprise customers to gradually improve the migration scripts and instructions. Reach out before you start so others who have done this before you can support you.
+    1. While the instructions below are fully supported, we are aware that the community, partners and customers come from a wide range of different versions of eZ Publish, some with issues that do not surface before attempting a migration. That's why we and the community are actively gathering feedback on Slack and/or support channels for Enterprise customers to gradually improve the migration scripts and instructions.
+
+        - A good tip is to test out the content migration scripts early in the process to look for possible warnings given by them, and report these if it is considered as bugs in the migration scripts.
 
     1. "Hybrid setup" using Legacy Bridge is a supported option for 1.13LTS and 2.5LTS series. This means you can plan for a more gradual migration if you want, just like you could on eZ Publish Platform 5.x, with a more feature-mature version of eZ Platform, Symfony and even Legacy bridge itself. This is a great option for those who want the latest features. The downside is a more complex setup to develop and maintian, given you continue run two systems in paralell, and the overall migration might take much longer when using an iterative/gradual approach. 
 
@@ -32,9 +31,39 @@ B. Update _your_ install [Updating eZ Platform](../updating/updating_ez_platform
 
 !!! note
 
-    If you are migrating from a legacy eZ Publish (4.x or older) version , this page contains the information you need. However, first have a look at an overview of the process in [Migrating from eZ Publish](migrating_from_ez_publish.md).
+    If you are migrating from a legacy eZ Publish (4.x or older) version, this page contains the information you need. However, first have a look at an overview of the process in [Migrating from eZ Publish](migrating_from_ez_publish.md).
 
-This section describes how to upgrade your existing eZ Publish Platform  5.4/2014.11 installation to eZ Platform and eZ Enterprise 2.5LTS. Make sure that you have a working [backup](../guide/backup.md) of the site before you do the actual upgrade, and that the installation you are performing the upgrade on is offline.
+
+!!! tip "Automate refactoring of your code for new Symfony and PHP versions"
+
+    For using [Rector](https://github.com/rectorphp/rector), here is an example config for upgrading to PHP 7.1 and Symfony 3.4:
+    ```yaml
+    parameters:
+        auto_import_names: true
+        import_short_classes: false
+        import_doc_blocks: true
+        paths:
+            - 'src'
+        sets:
+          - 'php70'
+          - 'php71'
+          - 'symfony30'
+          - 'symfony31'
+          - 'symfony32'
+          - 'symfony33'
+          - 'symfony34'
+          - 'code-quality'
+    # For more sets, see: https://github.com/rectorphp/rector/tree/master/config/set/
+    ```
+
+    Keep in mind that after finishing automatic refactoring there might be some code chunks that you need to fix manually.
+
+
+!!! caution "Take a Backup, and only perform on offline install"
+
+    The migration script will operate on your current database, so only performe the upgrade on an offline installation.
+    Make sure you have a working [backup](../guide/backup.md) of the site before you do the actual upgrade, in case of an unexpected error.
+
 
 ### Note on Paths
 
@@ -231,23 +260,21 @@ Add the following new bundle to your new kernel file, `<new-ez-root>/app/AppKern
 
 ##### 3.1. Execute update SQL
 
-Import to your database the changes provided in one of the following files. It's also recommended to read inline comments as you might not need to run some of the queries *(if you for instance upgrade from 5.4.11)*:
+Import to your database the changes provided in one of the following files. It's also recommended reading inline comments as you might not need to run some queries *(if you for instance upgrade from 5.4.11)*:
 
-`MySQL: <new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-5.4.0-to-6.13.0.sql`
+MySQL:
+- `<new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-5.4.0-to-6.13.0.sql`
+- `<new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.13.0-to-7.5.7.sql`
 
-`Postgres: <new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-5.4.0-to-6.13.0.sql`
-
-TODO: Add a 6.13.0 to 7.5.7 file
+Postgres:
+- `<new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-5.4.0-to-6.13.0.sql`
+- `<new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-6.13.0-to-7.5.7.sql`
 
 ##### 3.2. Once you are ready to migrate content to Platform Field Types
 
 Steps here should only be done once you are ready to move away from legacy and Legacy Bridge, as the following Field Types are not supported by legacy. In other words, content you have migrated will not be editable in legacy admin interface anymore, but rather in the more modern eZ Platform back-end UI, allowing you to take full advantage of what the Platform has to offer.
 
 ###### 3.2.1 Migrate XmlText content to RichText
-
-!!! note
-
-    If you are using XmlText custom attributes you should postpone this part of the migration until you have completed upgrading to 2.5LTS _(eZ Platform 2.5.1+ and `ezsystems/ezplatform-xmltext-fieldtype` 1.9+)_. However you can already while on 1.13LTS perform this, or try it out with `--dry-run` option.
 
 You should test the XmlText to RichText conversion before you apply it to a production database. RichText has a stricter validation compared to XmlText and you may have to fix some of your XmlText before you are able to convert it to RichText.
 Run the conversion script on a copy of your production database as the script is rather resource-intensive.
@@ -259,7 +286,7 @@ Run the conversion script on a copy of your production database as the script is
 - `--export-dir` specifies a directory where it will dump the `ezxmltext` for content object attributes which the conversion script finds problems with
 - `--export-dir-filter` specifies what severity the problems found needs to be before the script dumps the `ezxmltext`:
     - `notice`: `ezxmltext` contains problems which the conversion tool was able to fix automatically and likely do not need manual intervention
-    - `warning`: the conversion tool was able to convert the `ezxmltext` to valid `richtext`, but data could have been altered/removed/added in the process. Manual supervision recommended
+    - `warning`: the conversion tool was able to convert the `ezxmltext` to valid `richtext`, but data could have been altered/removed/added in the process. Manual supervision strongly recommended.
     - `error`: the `ezxmltext` text cannot be converted and manual changes are required.
 - `--concurrency 4` specifies that the conversion script will spawn four child processes which run the conversion. If you have dedicated hardware for running the conversion, you should use concurrency level that matches the number of logical CPUs on your system. If your system needs to do other tasks while running the conversion, you should run with a smaller number.
 - `-v` specifies verbosity level. You may increase the verbosity level by supplying `-vv`, but `-v` will be sufficient in most cases.
@@ -280,15 +307,10 @@ If the `--image-content-types` option is not specified, the default setting `ima
 
 !!! note
 
-    Version of the migration script in ezplatform-xmltext-fieldtype prior to v1.6.0 would fail to convert embedded images correctly. If you have a database which you have already converted with an old version, you may rerun the `convert-to-richtext` command with the following options:
+    There is no corresponding `ImagesClassList[]` setting in eZ Platform, images is rather an editorial choice. So even though you have custom image classes, you don't need to configure this in the eZ Platform configuration when migrating.
 
-    `php bin/console ezxmltext:convert-to-richtext --fix-embedded-images-only -v`
 
-    The use of `--image-content-types` is also supported together with `--fix-embedded-images-only`. Use it to specify custom image Content Types.
-
-!!! note
-
-    There is no corresponding `ImagesClassList[]` setting in eZ Platform. So even though you have customer image classes, you don't need to configure this in the eZ Platform configuration when migrating.
+**Fixing wrong image type afterwards**
 
 If you later realize that you provided the convert script with incorrect image Content Type identifiers, it is perfectly safe to re-execute the command as long as you use the `--fix-embedded-images-only`.
 
@@ -298,10 +320,12 @@ So, if you first ran the command:
 
 But later realize the last identifier should be `profile`, not ``custom_image``, you may execute :
 
-`php bin/console ezxmltext:convert-to-richtext --image-content-types=image,profile -v`
+`php bin/console ezxmltext:convert-to-richtext --image-content-types=image,profile --fix-embedded-images-only -v`
 
-The last command would then ensure embedded objects with Content Type identifier `custom_image` are no longer tagged as images, while embedded objects with Content Type identifier `profile` are.
+The last command would then ensure embedded objects with Content Type identifier `custom_image` are no longer tagged as images, while embedded objects with Content Type identifier `profile` and `image` are.
 
+
+**Example on how to deal with conversion warnings and errors**
 
 Using the option `--export-dir`, the conversion will export problematic `ezxmltext` to files with the name pattern `[export-dir]/ezxmltext_[contentobject_id]_[contentobject_attribute_id]_[version]_[language].xml`. A corresponding `.log` file will also be created which includes information about why the conversion failed. Be aware that the reported location of the problem may not be accurate or may be misleading.
 
@@ -379,7 +403,7 @@ Once you have fixed all the dump files in `ezxmltext-export/`, you may skip the 
 
 `php -d memory_limit=1536M bin/console ezxmltext:import-xml --export-dir=ezxmltext-export -v`
 
-Typical problems that needs manual fixing:
+Other typical problems that needs manual fixing:
 
 **Duplicate xhtml IDs**
 
@@ -409,17 +433,9 @@ In older eZ Publish databases you may also have invalid links due to lack of ref
 
 When the conversion tool detects links with no reference it will issue a warning and rewrite the URL to point to current page (`href="#"`).
 
-**`<literal>`**
-
-The `<literal>` tag is not yet supported in eZ Platform. For more information about this, please have a look at [EZP-29328](https://jira.ez.no/browse/EZP-29328) and [EZP-29027](https://jira.ez.no/browse/EZP-29027).
-
-When you are ready to migrate your eZ Publish XmlText content to the eZ Platform RichText format and start using pure eZ Platform setup, start the conversion script without the `--dry-run` option. Execute the following from &lt;new-ez-root&gt;:
-
-`php -d memory_limit=1536M bin/console ezxmltext:convert-to-richtext --export-dir=ezxmltext-export --export-dir-filter=notice,warning,error --concurrency 4 -v`
-
 **Custom tags and attributes**
 
-eZ Platform now supports custom tags, including inline custom tags, and limited use of custom tag attributes.
+eZ Platform 2 supports custom tags, including inline custom tags, and limited use of custom tag attributes.
 After migrating to RichText, you need to adapt your custom tag config for eZ Platform and rewrite the custom tags in Twig.
 See [Custom tag documentation](../guide/extending/extending_online_editor.md#custom-tags) for more info.
 
@@ -452,10 +468,11 @@ Below is a table of the tags that are currently supported, and their correspondi
 ###### 3.2.3 Add other eZ Enterprise schemas (eZ Enterprise only)
 
 For date-based publisher and form builder, there are additional tables, you can import them to your database using the following sql files:
-`<new-ez-root>/vendor/ezsystems/date-based-publisher/bundle/Resources/install/datebasedpublisher_scheduled_version.sql`,
-`<new-ez-root>/vendor/ezsystems/ezstudio-form-builder/bundle/Resources/install/form_builder.sql`, `<new-ez-root>/vendor/ezsystems/ezstudio-notifications/bundle/Resources/install/ezstudio-notifications.sql`
+- `<new-ez-root>/vendor/ezsystems/date-based-publisher/bundle/Resources/install/datebasedpublisher_scheduled_version.sql`
+- `<new-ez-root>/vendor/ezsystems/ezstudio-form-builder/bundle/Resources/install/form_builder.sql`
+- `<new-ez-root>/vendor/ezsystems/ezstudio-notifications/bundle/Resources/install/ezstudio-notifications.sql`
 
-TODO: Check for 2.5 if new things should be mentioned
+TODO: Is this really all and up-to-date? Check for 2.5 if new things should be mentioned
 
 ### Step 4: Re-configure web server and proxy
 
@@ -477,6 +494,8 @@ Assets from the various bundles need to be made available for the webserver thro
 php bin/console assets:install --env=prod --symlink
 php bin/console assetic:dump --env=prod
 ```
+
+TODO: This should rather point out migration to Webpack Encore right?
 
 ## Potential pitfalls
 
@@ -507,23 +526,19 @@ In case of URLs with extended UTF-encoded names, the workaround must make use of
             - { transformation: urlalias_iri }
 ```
 
+TODO: Don't we have a global config for this now?
+
 
 ## Migrating legacy Page field (ezflow) to new Page (Enterprise)
 
 To move your legacy Page field / eZ Flow configuration to eZ Platform Enterprise Edition you can use a script that will aid in the migration process.
 
 The script will automatically migrate only data – to move custom views, layouts, blocks etc., you will have to provide their business logic again.
-
-!!! caution
-
-    The migration script will operate on your current database.
-
-    Make sure to **back up your database** in case of an unexpected error.
     
 !!! caution
 
     Steps here use `ezsystems/landing-page-fieldtype-bundle:1.7.7-alpha1` to run the ezflow migration script only.
-    Don't install this version to use landing-page on eZ Platform 2.5.
+    Don't install this version to use landing-page field type on eZ Platform 2.5.
 
 To use the script, do the following:
 
@@ -589,3 +604,6 @@ At this point you can already view the initial effects of the migration, but the
 The `MigrationBundle` generates placeholders for layouts in the form of frames with a data dump.
 
 For blocks that could not be mapped to existing Page blocks, it will also generate PHP file templates that you need to fill with your own business logic.
+
+
+TODO: Link or section on migration to PageBuilder seems to be missing?
