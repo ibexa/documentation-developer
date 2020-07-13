@@ -66,6 +66,7 @@ Beyond that the following Limitations are available:
 - [Content Type Group of Parent](limitation_reference.md#content-type-group-of-parent-limitation)
 - [Content Type of Parent](limitation_reference.md#content-type-of-parent-limitation)
 - [Parent Depth](limitation_reference.md#parent-depth-limitation)
+- [Field Group](limitation_reference.md#field-group-limitation)
 
 `content/edit`:
 
@@ -76,6 +77,7 @@ Beyond that the following Limitations are available:
 - [Language](limitation_reference.md#language-limitation)
 - [State](limitation_reference.md#state-limitation)
 - [Workflow Stage](limitation_reference.md#workflow-stage-limitation)
+- [Field Group](limitation_reference.md#field-group-limitation)
 
 `content/publish`:
 
