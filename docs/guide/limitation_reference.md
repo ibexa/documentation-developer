@@ -118,7 +118,7 @@ This Limitation combined with `ContentType` Limitation allows you to define busi
 
     A Limitation to specify if the User can work with content Fields belonging to a specific group.
     A user with this Limitation is allowed to edit Fields belonging to the indicated group.
-    Otherwise, the Fields are inactive and filled with the default value.
+    Otherwise, the Fields are inactive and filled with the default value (if set).
 
     |                 |                                                                                |
     |-----------------|--------------------------------------------------------------------------------|
