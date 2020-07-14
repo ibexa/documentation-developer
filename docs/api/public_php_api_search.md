@@ -102,7 +102,7 @@ Filtering differs from search. It does not use the `SearchService` and is not ba
 For example, the following command lists all Content items under the specified parent Location
 and sorts them in descending order by name:
 
-``` php hl_lines="15-18"
+``` php hl_lines="15 16 17 18"
 // ...
 use eZ\Publish\API\Repository\ContentService;
 use eZ\Publish\API\Repository\Values\Filter\Filter;
@@ -169,18 +169,16 @@ class FilterCommand extends Command
 }
 ```
 
-Notice that the total number of items is retrieved differently depending on whether we're dealing
-with `ContentList` or `LocationList`. 
+Notice that the total number of items is retrieved differently for `ContentList` and `LocationList`. 
 
 !!! caution
 
-    The total count is **a total number of matched items**, regardless of pagination settings.
+    The total count is the total number of matched items, regardless of pagination settings.
     
-!!! tip "Repository Filtering is SiteAccess-aware."
+!!! tip "Repository filtering is SiteAccess-aware"
 
-    Repository Filtering is SiteAccess-aware, which means that the second argument of its respective
-    `find` methods can be skipped. In that case languages from a current context are injected and
-    added as a LanguageCode Criterion filter. 
+    Repository filtering is SiteAccess-aware, which means you can skip the second argument the `find` methods.
+    In that case languages from a current context are injected and added as a LanguageCode Criterion filter. 
     
 You can use the following methods of the Filter:
 
@@ -216,8 +214,8 @@ $filter
     
 !!! tip
 
-    It's recommended to use an IDE capable of recognizing type hints when working with Repository Filtering.
-    In case of using unsupported Criterion or Sort Clause, such IDE will immediately hint an issue. 
+    It is recommended to use an IDE that can recognize type hints when working with Repository Filtering.
+    If you try to use an unsupported Criterion or Sort Clause, the IDE will indicate an issue. 
 
 ## Searching in a controller
 
