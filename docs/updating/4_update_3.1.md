@@ -20,6 +20,17 @@ If you are updating from a version prior to 3.0, you have to implement all the c
 
 To be able to create a Location for the Site skeletons, run `php ./bin/console ezplatform:site-factory:create-site-skeletons-container` during the update procedure.
 
+Additionally, you can specify:
+
+- `--section-name asd` - a name of a section to which Site skeleton container will be assigned to.
+- `--section-identifier qwe` - an identifier of the section to which Site skeleton container will be assigned to. 
+
+If a section with provided name or identifier does not exist it will be created in the update process.
+
+`bin/console ezplatform:site-factory:create-site-skeletons-container --section-identifier qwe --section-name asd`
+
+If you do not provide a section name, or an identifier the default values will be used: `site_skeleton` and `Site skeleton`.
+
 ## Continue update procedure
 
 At this point you can continue with the standard update procedure:
