@@ -233,7 +233,7 @@
     
     !!! caution "Update from v3.0"
     
-        To be able to create a Location for the Site skeletons, run [update procedure](../updating/4_update_3.1.md).
+        To be able to create a Location for the Site skeletons, run the [update procedure](../updating/4_update_3.1.md#site-factory).
         
         Now, you should be able to see **Site skeletons** tab under **Admin** tab. The tab is only visible after the update procedure.
     

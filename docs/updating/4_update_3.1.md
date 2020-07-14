@@ -22,14 +22,14 @@ To be able to create a Location for the Site skeletons, run `php ./bin/console e
 
 Additionally, you can specify:
 
-- `--section-name asd` - a name of a section to which Site skeleton container will be assigned to.
-- `--section-identifier qwe` - an identifier of the section to which Site skeleton container will be assigned to. 
+- `--section-name "Custom section"` - a name of the Section to which the Site skeleton container will be assigned.
+- `--section-identifier custom_section_identifier` - an identifier of the Ssection to which the Site skeleton container will be assigned.
 
-If a section with provided name or identifier does not exist it will be created in the update process.
+If a section with the provided name or identifier does not exist, it is created in the update process.
 
-`bin/console ezplatform:site-factory:create-site-skeletons-container --section-identifier qwe --section-name asd`
+`bin/console ezplatform:site-factory:create-site-skeletons-container --section-identifier "Custom section" --section-name custom_section_identifier`
 
-If you do not provide a section name, or an identifier the default values will be used: `site_skeleton` and `Site skeleton`.
+If you do not provide a Section name or an identifier, the default values will be used: `Site skeleton` and `site_skeleton`.
 
 ## Continue update procedure
 
