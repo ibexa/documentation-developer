@@ -285,7 +285,9 @@ nav:
         - 'Migrating from eZ Publish': 'migrating/migrating_from_ez_publish.md'
         - 'Common issues': 'migrating/common_issues.md'
     - Updating eZ Platform:
-        - 'Upgrading to eZ Platform v3': 'updating/upgrading_to_v3.md'
+        - Upgrading to eZ Platform v3:
+          - 'Upgrading to eZ Platform v3': 'updating/upgrading_to_v3.md'
+          - 'Updating from <3.1': 'updating/4_update_3.1.md'
         - 'Updating eZ Platform': 'updating/updating_ez_platform.md'
         - '1. Check out a tagged version': 'updating/1_check_out_version.md'
         - '2. Merge composer.json': 'updating/2_merge_composer.md'
@@ -298,6 +300,7 @@ nav:
           - 'Updating from <2.3': 'updating/4_update_2.3.md'
           - 'Updating from <2.4': 'updating/4_update_2.4.md'
           - 'Updating from <2.5': 'updating/4_update_2.5.md'
+
         - '5. Platform.sh changes': 'updating/5_platform_sh_changes.md'
         - '6. Dump assets': 'updating/6_dump_assets.md'
         - '7. Commit, test and merge': 'updating/7_commit_test_merge.md'
