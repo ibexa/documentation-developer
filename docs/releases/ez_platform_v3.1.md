@@ -40,7 +40,18 @@ This release of eZ Platform introduces the following new features:
 
     The new [Field Group Limitation](../guide/limitation_reference.md#field-group-limitation)
     enables you to control who can edit content Fields per Field group.
-
+    
+    ### Version comparison
+    
+    You can now compare additional Fields in version comparison of Content item:
+    
+    - Content Relation and Content Relations
+    - Image Asset and Image
+    - Matrix
+    - Media
+    
+    For overview of additional Fields, see [User documentation on Comparing versions.](https://doc.ezplatform.com/projects/userguide/en/3.1/publishing/publishing/#comparing-versions)
+    
 ### URL management UI
 
 You can now manage URL addresses and URL wildcards with a comfortable user interface that is available in the Back Office. You can create, modify and delete URL wildcards, as well as decide if the user should be redirected to the new address on clicking the link.
