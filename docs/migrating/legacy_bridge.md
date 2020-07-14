@@ -8,7 +8,7 @@ Legacy Bridge v1 is supported on eZ Platform 1.13LTS, and Legacy Bridge v2 is su
 
 !!! note
 
-    Legacy Bridge will not be supported on eZ Platform v3
+    Legacy Bridge will _not_ be supported on eZ Platform v3
     due to future plans to enhance the storage engine and other parts of the architecture.
 
 ### Installation
@@ -23,7 +23,7 @@ To upgrade from eZ Publish 5.x, or from eZ Platform 1.x with Legacy Bridge, see 
 
 Legacy Bridge contains all [Legacy code and features](https://doc.ez.no/display/EZP/Legacy+code+and+features) known from eZ Publish Platform 5.x to help you with migration.
 
-In addition it contains the following features:
+In addition, it contains some performance improvements, and the following _new_ features:
 
 #### `ezpublish:legacy:symlink`
 

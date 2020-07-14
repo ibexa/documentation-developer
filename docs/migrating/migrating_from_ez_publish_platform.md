@@ -1,19 +1,25 @@
 # Migrating from eZ Publish Platform
 
-eZ Publish Platform (5.x) was a transitional version of the eZ CMS, bridging the gap between the earlier generation called eZ Publish (sometimes referred to as *legacy*), and the current eZ Platform and eZ Platform Enterprise Edition for developers.
+Migration overview:
+- [eZ Publish 4.x to eZ Publish Platform 5.x](migrating_from_ez_publish.md)
+- eZ Publish Platform 5.4/2014.11 to 2.5 _(this page)_
+- [eZ Platform 2.5 to 3.x](../updating/upgrading_to_v3.md)
 
-eZ Platform contains a newer, far more mature version of the Symfony-based technology stack first introduced in eZ Publish Platform (5.x). And while it no longer bundles "Legacy bridge" to connect with the older legacy 4.x stack, this still possible as an improved optional package. This page covers migration both with and without using this package.
+## Differences between eZ Publish Platform (5.x) and eZ Platform
 
+eZ Publish Platform (5.x) was a transitional version of the eZ CMS, bridging the gap between the earlier generation called eZ Publish _(sometimes referred to as "legacy")_, and the current eZ Platform and eZ Platform Enterprise Edition for developers.
+
+eZ Platform on the other hand contains a newer, far more mature version of the Symfony-based technology stack first introduced in eZ Publish Platform (5.x). And while it no longer bundles [Legacy bridge](legacy_bridge.md) to connect with eZ Publish, this still possible and supported with newer legacy packages.
 
 ## Upgrade process
 
 An upgrade from eZ Publish Platform 5.4.x (Enterprise edition) or 2014.11 (Community edition) to 2.5 can be done in many ways, this page describes the recommended approach:
 
-Setup clean eZ Platform 2.5 install and move over your project specific code, config and packages, then perform the following steps:
+Setup clean eZ Platform 2.5 install using latest available version, and move over your project specific code, config and packages, then perform the following steps:
 - _Optional; Add legacy bridge to continue to run legacy for certain parts and be able to gradual perform the migrations below_
 - Migrate eZ Flow to eZ Landing page _(1.x)_, and eZ Landing page to eZ Page Builder _(2.2 and higher)_
 - Migrate XmlText content to RichText
-- Once these steps are done; _All legacy, ezflow-, landingpage- and ezxmltext-fieldtype packages can be uninstalled._
+- Once these steps are done; _All legacy, migration, older fieldtypes (ezflow, landingpage and ezxmltext) packages can be uninstalled._
 
 !!! caution "Things to be aware of when planning a migration"
 
@@ -202,7 +208,7 @@ Move over registration of _your_ bundles you have from src and from composer pac
 
 ##### 2.5. Optional: Install Legacy Bridge
 
-If you don't plan to migrate content _(ezxmltext and ezflow)_ directly to newer eZ Platform Field Types, you can optionally install Legacy Bridge and gradually handle code and subsequent content migration afterwards. For installation instructions see [here](https://github.com/ezsystems/LegacyBridge/blob/v2.1.5/INSTALL.md).
+If you don't plan to migrate content _(ezxmltext and ezflow)_ directly to newer eZ Platform Field Types, you can optionally install [Legacy bridge](legacy_bridge.md) and gradually handle code and subsequent content migration afterwards. For installation instructions see [here](https://github.com/ezsystems/LegacyBridge/blob/v2.1.5/INSTALL.md).
 
 !!! note
 

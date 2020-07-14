@@ -1,5 +1,12 @@
 # Migrating from eZ Publish
 
+Migration overview:
+- eZ Publish 4.x to eZ Publish Platform 5.x _(this page)_
+- [eZ Publish Platform 5.4/2014.11 to 2.5](migrating_from_ez_publish_platform.md)
+- [eZ Platform 2.5 to 3.x](../updating/upgrading_to_v3.md)
+
+## Differences between eZ Publish and eZ Platform
+
 eZ Publish was eZ Platform's predecessor, a CMS in development for five major versions and several years.
 
 Users of eZ Publish will find eZ Platform largely similar to what they know. The improvements and enhancements did not turn the fundamental concepts underlying the system, such as the content model, upside down. However, specific features, solutions and recipes may work differently between the two versions.
@@ -12,12 +19,10 @@ The release of eZ Platform brought about an inevitable disruption in backwards c
 
 eZ Platform represents the 6th generation of eZ Publish, and while the 5th generation had* *a major focus on backwards code compatibility with the 3rd and 4th generations *(legacy)*, the 6th generation does not.
 
-The 6th generation is aimed at being fully backwards compatible on the following:
+The 6th generation is aimed at being backwards compatible on the following:
 
 - **Content** from 4th and later 5th generation installation
 - **Code** from 5th generation system when written for *Platform (Symfony) stack*
-
-The specific incompatibilities
 
 The specific changes that will be migrated and are incompatible with legacy are: 
 
@@ -36,7 +41,7 @@ If you are coming directly from legacy (4.x), you need to follow the best practi
 - Rewrite custom Field Types for the new Platform stack, see [Field Type Tutorial](../tutorials/field_type/creating_a_tweet_field_type.md). Alternatively you can use Null Field Type as a dummy implementation for the custom FieldTypes that you don't want to migrate. Using Null Field Type will prevent errors from the Platform Stack, see [Null Field Type Reference](../api/field_type_reference.md#null-field-type)
 - Rewrite custom web front end to use the new Platform/Symfony stack, see [Beginner Tutorial](../tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md)
 - Rewrite custom admin modules to use the new Platform/Symfony stack
-    - And if you do this while on 5.x, you can use several of the [available legacy migration features](https://doc.ez.no/display/EZP/Legacy+code+and+features) to make the new code appear in legacy admin
+    - And if you do this while on 5.x, you can use several of the [available legacy migration features](legacy_bridge.md) to make the new code appear in legacy admin
 
 See Upgrade documentation on how to perform the actual upgrade: [Upgrade (eZ Publish Platform page)](https://doc.ez.no/display/EZP/Upgrade)
 
@@ -47,4 +52,4 @@ As eZ Platform introduced completely new user interfaces with greatly improved u
 - Write UI code for custom Field Types for the new JavaScript-based editorial interface, see  [Extending Admin UI](../tutorials/extending_admin_ui/extending_admin_ui.md)) and [Page blocks](../guide/page_rendering.md#page-blocks)
 - Adjust custom admin modules for the new Symfony-based admin interface
 
-For a detailed guide through these developments see [Upgrading from 5.4.x and 2014.11 to 16.xx](migrating_from_ez_publish_platform.md#upgrading-from-54x-and-201411-to-16xx) 
+For a detailed guide through these developments see [Upgrading from 5.4.x and 2014.11 to 2.5LTS](migrating_from_ez_publish_platform.md).
