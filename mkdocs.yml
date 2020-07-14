@@ -58,7 +58,6 @@ nav:
             - 'Public PHP API': 'api/public_php_api.md'
             - 'Browsing Content': 'api/public_php_api_browsing.md'
             - 'Content search': 'api/public_php_api_search.md'
-            - 'Repository Filtering': 'api/public_php_api_filtering.md'
             - 'Creating Content': 'api/public_php_api_creating_content.md'
             - 'Managing Content': 'api/public_php_api_managing_content.md'
             - 'Managing Repository': 'api/public_php_api_managing_repository.md'

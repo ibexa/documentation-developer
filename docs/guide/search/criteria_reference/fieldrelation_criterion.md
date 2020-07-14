@@ -13,7 +13,7 @@ Use of IN means the Relation needs to have one of the provided IDs, while CONTAI
 
 ## Limitations
 
-The `FieldRelation` Criterion is not available in [Repository filtering](../../../api/public_php_api_filtering.md).
+The `FieldRelation` Criterion is not available in [Repository filtering](../../../api/public_php_api_search.md#repository-filtering).
 
 ## Example
 

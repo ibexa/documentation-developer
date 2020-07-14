@@ -14,7 +14,7 @@ Results of the query that do not belong to the Content Type are ranked lower.
 
 ## Limitations
 
-The `Field` Sort Clause is not available in [Repository filtering](../../../api/public_php_api_filtering.md).
+The `Field` Sort Clause is not available in [Repository filtering](../../../api/public_php_api_search.md#repository-filtering).
 
 ## Example
 
