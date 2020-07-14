@@ -15,7 +15,9 @@ eZ Platform on the other hand contains a newer, far more mature version of the S
 
 An upgrade from eZ Publish Platform 5.4.x (Enterprise edition) or 2014.11 (Community edition) to newer versions of eZ Platform must be performed in stages.
 
-Setup clean eZ Platform 2.5 install using latest available version, and move over your project specific code, config and packages, then perform the following steps:
+This page will take you true the following steps:
+- Setup clean eZ Platform 2.5 install using the latest available version
+- Move over your project specific code, config and packages, adapt for changes in newer versions.
 - _Optional; Add legacy bridge to continue to run legacy for certain parts and be able to gradual perform the migrations below_
 - Migrate eZ Flow to eZ Landing page _(1.x)_, and eZ Landing page to eZ Page Builder _(2.2 and higher)_
 - Migrate XmlText content to RichText
@@ -34,36 +36,6 @@ Setup clean eZ Platform 2.5 install using latest available version, and move ove
         - Symfony deprecations. The recommended version to migrate to is eZ Platform v2.5 LTS, which is using Symfony 3.4 LTS.
         - [Field Types reference](../api/field_type_reference.md) for overview of Field Types that do and don't exist in eZ Platform
         - API changes. While we have a strict backwards compatibility focus, some deprecated API features were removed and some changes were done to internal parts of the system. See [ezpublish-kernel:doc/bc/changes-6.0.md](https://github.com/ezsystems/ezpublish-kernel/blob/7.5/doc/bc/changes-6.0.md)
-
-!!! note
-
-    If you are migrating from a legacy eZ Publish (4.x or older) version, this page contains the information you need. However, first have a look at an overview of the process in [Migrating from eZ Publish](migrating_from_ez_publish.md).
-
-
-!!! tip "Automate refactoring of your code for new Symfony and PHP versions"
-
-    For using [Rector](https://github.com/rectorphp/rector), here is an example config for upgrading to PHP 7.1 and Symfony 3.4:
-    ```yaml
-    parameters:
-        auto_import_names: true
-        import_short_classes: false
-        import_doc_blocks: true
-        paths:
-            - 'src'
-        sets:
-          - 'php70'
-          - 'php71'
-          - 'symfony30'
-          - 'symfony31'
-          - 'symfony32'
-          - 'symfony33'
-          - 'symfony34'
-          - 'code-quality'
-    # For more sets, see: https://github.com/rectorphp/rector/tree/master/config/set/
-    ```
-
-    Keep in mind that after finishing automatic refactoring there might be some code chunks that you need to fix manually.
-
 
 !!! caution "Take a Backup, and only perform on offline install"
 
@@ -97,6 +69,31 @@ The easiest way to upgrade the distribution files is to extract a clean installa
 If you have code in src folder, move that over:
 
 `<old-ez-root>/src =>  <new-ez-root>/src`
+
+
+!!! tip "Automate refactoring of your code for new Symfony and PHP versions"
+
+    For using [Rector](https://github.com/rectorphp/rector), here is an example config for upgrading to PHP 7.1 and Symfony 3.4:
+    ```yaml
+    parameters:
+        auto_import_names: true
+        import_short_classes: false
+        import_doc_blocks: true
+        paths:
+            - 'src'
+        sets:
+          - 'php70'
+          - 'php71'
+          - 'symfony30'
+          - 'symfony31'
+          - 'symfony32'
+          - 'symfony33'
+          - 'symfony34'
+          - 'code-quality'
+    # For more sets, see: https://github.com/rectorphp/rector/tree/master/config/set/
+    ```
+
+    Keep in mind that after finishing automatic refactoring there might be some code chunks that you need to fix manually.
 
 ##### 2.2. Composer
 
@@ -268,13 +265,24 @@ Add the following new bundle to your new kernel file, `<new-ez-root>/app/AppKern
 
 Import to your database the changes provided in one of the following files. It's also recommended reading inline comments as you might not need to run some queries *(if you for instance upgrade from 5.4.11)*:
 
-MySQL:
-- `<new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-5.4.0-to-6.13.0.sql`
-- `<new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.13.0-to-7.5.7.sql`
-
 Postgres:
 - `<new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-5.4.0-to-6.13.0.sql`
 - `<new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-6.13.0-to-7.5.7.sql`
+
+MySQL/MariaDB:
+- `<new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-5.4.0-to-6.13.0.sql`
+- `<new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.13.0-to-7.5.7.sql`
+
+
+!!! note  "Change to UTF8mb4 for MySQL/MariaDB"
+
+    Since v2.2 the character set for MySQL/MariaDB database tables changed from `utf8` to `utf8mb4` to support 4-byte characters.
+
+    Update database script above takes care about shortening indexes to make space for the longer strings, however you'll also need to:
+    - Change character set and collate
+    - Change Doctrine DBAL connection setting
+
+    You can find instructions for that as part of [7.2 upgrade guide](https://github.com/ezsystems/ezpublish-kernel/blob/7.5/doc/upgrade/7.2.md#mysqlmariadb-database-tables-character-set-change) provided with kernel package.
 
 ##### 3.2. Once you are ready to migrate content to Platform Field Types
 
@@ -467,18 +475,24 @@ Below is a table of the tags that are currently supported, and their correspondi
 | `cssborder`   | Not supported |   Use `string` as workaround |
 
 
-###### 3.2.2 Migrate Page field to Page (eZ Enterprise only)
+###### 3.2.2 Migrate eZ Matrix
 
-**If** you use Page field (ezflow) and an eZ Enterprise subscription, and are ready to migrate your eZ Publish Flow content to the eZ Enterprise Page Builder, you can use a script to migrate your old Page content to new Page, to start using a pure eZ Enterprise setup. See [Migrating legacy Page field (ezflow) to new Page (Enterprise)](#migrating-legacy-page-field-ezflow-to-new-page-enterprise) for more information.
+**If** you use Matrix field (ezmatrix), you'll need to [migrate the storage format](../updating/4_update_2.5.md#changes-to-matrix-field-type)
+as it has changed to json internally for new eZ Platform field type.
 
 ###### 3.2.3 Add other eZ Enterprise schemas (eZ Enterprise only)
 
-For date-based publisher and form builder, there are additional tables, you can import them to your database using the following sql files:
-- `<new-ez-root>/vendor/ezsystems/date-based-publisher/bundle/Resources/install/datebasedpublisher_scheduled_version.sql`
-- `<new-ez-root>/vendor/ezsystems/ezstudio-form-builder/bundle/Resources/install/form_builder.sql`
-- `<new-ez-root>/vendor/ezsystems/ezstudio-notifications/bundle/Resources/install/ezstudio-notifications.sql`
+In eZ Platform, the system ships with additional enterprise features that need to be installed.
 
-TODO: Is this really all and up-to-date? Check for 2.5 if new things should be mentioned
+1. First add all tables needed by eZ Platform Enterprise:
+   - https://github.com/ezsystems/ezplatform-ee-installer/blob/2.4/Resources/sql/schema.sql#L198
+
+1. Apply [additional indexes added to Page Builder as of 2.5.3](../updating/4_update_2.5.md#page-builder).
+
+###### 3.2.4 Migrate Page field to Page (eZ Enterprise only)
+
+**If** you use Page field (ezflow) and an eZ Enterprise subscription, and are ready to migrate your eZ Publish Flow content to the eZ Enterprise Page Builder, you can use a script to migrate your old Page content to new Page, to start using a pure eZ Enterprise setup. See [Migrating legacy Page field (ezflow) to new Page (Enterprise)](#migrating-legacy-page-field-ezflow-to-new-page-enterprise) for more information.
+
 
 ### Step 4: Re-configure web server and proxy
 
@@ -505,39 +519,40 @@ TODO: This should rather point out migration to Webpack Encore right?
 
 ## Potential pitfalls
 
+Some frequent migration issues are covered on [common issues page](common_issues.md), the following are specific to migration to 2.5.
+
 ##### Unstyled login screen after upgrade
 
 It is possible that after the upgrade your admin screen will be unstyled. This may happen because the new SiteAccess will not be available in the database. You can fix it by editing the permissions for the Anonymous user. Go to Roles in the Admin Panel and edit the Limitations of the Anonymous user's user/login policy. Add all SiteAccesses to the Limitation, save, and clear the browser cache. The login screen should now show proper styling.
 
 ##### Translating URLs
 
-If your legacy site uses old-style URL aliases, to upgrade them successfully you need to apply a workaround to the slug converter. Where the slug converter service is defined, set second config parameter to use `urlalias_compat` by adding a new argument to the existing settings:
+eZ Platform by default uses transformation rule `urlalias` when generating URL aliases, same as was default in 5.x.
+However, as of eZ Platform 2.x the configuration shipped in `ezplatform.yaml` is set to `urlalias_lowercase`, lower casing the URL for improved SEO.
+
+Like in eZ Publish this is configurable, and can still also be set to `urlalias_compat` and `urlalias_iri` if you had that from before:
 
 ``` yaml
-# in vendor/ezsystems/ezpublish-kernel/eZ/Publish/Core/settings/storage\_engines/common.yml
-    ezpublish.persistence.slug_converter:
-        class: '%ezpublish.persistence.slug_converter.class%'
-        arguments:
-            - '@ezpublish.api.storage_engine.transformation_processor'
-            - { transformation: urlalias_compat }
+ezplatform:
+    url_alias:
+        slug_converter:
+            transformation: 'urlalias_compat'
 ```
 
-In case of URLs with extended UTF-encoded names, the workaround must make use of `urlalias_iri`:
+!!! note
 
-``` yaml
-    ezpublish.persistence.slug_converter:
-        class: '%ezpublish.persistence.slug_converter.class%'
-        arguments:
-            - '@ezpublish.api.storage_engine.transformation_processor'
-            - { transformation: urlalias_iri }
-```
+    Make sure to [re-generate URL aliases](../guide/url_management.md#regenerating-url-aliases) if you choose to change this setting.
+    Implicit as part of the upgrade, or if you change it in the future.
 
-TODO: Don't we have a global config for this now?
+!!! tip
 
+    eZ Platform also lets you define own [transformation groups](../guide/url_management.md#url-alias-patterns).
 
 ## Migrating legacy Page field (ezflow) to new Page (Enterprise)
 
-To move your legacy Page field / eZ Flow configuration to eZ Platform Enterprise Edition you can use a script that will aid in the migration process.
+To move your legacy Page field / eZ Flow configuration to eZ Platform Enterprise Edition you can use scripts that will aid in the migration process.
+
+### First from eZ Flow (5.x) to Landing Pages (1.x)
 
 The script will automatically migrate only data – to move custom views, layouts, blocks etc., you will have to provide their business logic again.
 
@@ -612,4 +627,6 @@ The `MigrationBundle` generates placeholders for layouts in the form of frames w
 For blocks that could not be mapped to existing Page blocks, it will also generate PHP file templates that you need to fill with your own business logic.
 
 
-TODO: Link or section on migration to PageBuilder seems to be missing?
+### Lastly from Landing Pages (1.x) to Page Builder (2.x)
+
+For the last part of this migration, please follow the existing upgrade guide for [migrating to Page Builder](../updating/4_update_2.2.md#migrate-landing-pages).
