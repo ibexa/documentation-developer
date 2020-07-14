@@ -177,7 +177,7 @@ Notice that the total number of items is retrieved differently for `ContentList`
     
 !!! tip "Repository filtering is SiteAccess-aware"
 
-    Repository filtering is SiteAccess-aware, which means you can skip the second argument the `find` methods.
+    Repository filtering is SiteAccess-aware, which means you can skip the second argument of the `find` methods.
     In that case languages from a current context are injected and added as a LanguageCode Criterion filter. 
     
 You can use the following methods of the Filter:
