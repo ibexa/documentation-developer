@@ -7,13 +7,13 @@ Migration overview:
 
 ## Differences between eZ Publish Platform (5.x) and eZ Platform
 
-eZ Publish Platform (5.x) was a transitional version of the eZ CMS, bridging the gap between the earlier generation called eZ Publish _(sometimes referred to as "legacy")_, and the current eZ Platform and eZ Platform Enterprise Edition for developers.
+eZ Publish Platform (5.x) was a transitional version of the eZ CMS, bridging the gap between the earlier generation called eZ Publish (sometimes referred to as *legacy*), and the current eZ Platform and eZ Platform Enterprise Edition for developers.
 
 eZ Platform on the other hand contains a newer, far more mature version of the Symfony-based technology stack first introduced in eZ Publish Platform (5.x). And while it no longer bundles [Legacy bridge](legacy_bridge.md) to connect with eZ Publish, this still possible and supported with newer legacy packages.
 
 ## Upgrade process
 
-An upgrade from eZ Publish Platform 5.4.x (Enterprise edition) or 2014.11 (Community edition) to 2.5 can be done in many ways, this page describes the recommended approach:
+An upgrade from eZ Publish Platform 5.4.x (Enterprise edition) or 2014.11 (Community edition) to newer versions of eZ Platform must be performed in stages.
 
 Setup clean eZ Platform 2.5 install using latest available version, and move over your project specific code, config and packages, then perform the following steps:
 - _Optional; Add legacy bridge to continue to run legacy for certain parts and be able to gradual perform the migrations below_
@@ -27,7 +27,7 @@ Setup clean eZ Platform 2.5 install using latest available version, and move ove
 
         - A good tip is to test out the content migration scripts early in the process to look for possible warnings given by them, and report these if it is considered as bugs in the migration scripts.
 
-    1. "Hybrid setup" using Legacy Bridge is a supported option for 1.13LTS and 2.5LTS series. This means you can plan for a more gradual migration if you want, just like you could on eZ Publish Platform 5.x, with a more feature-mature version of eZ Platform, Symfony and even Legacy bridge itself. This is a great option for those who want the latest features. The downside is a more complex setup to develop and maintian, given you continue run two systems in paralell, and the overall migration might take much longer when using an iterative/gradual approach. 
+    1. "Hybrid setup" using Legacy Bridge is a supported option for 1.13LTS and 2.5LTS series. This means you can plan for a more gradual migration if you want, just like you could on eZ Publish Platform 5.x, with a more feature-mature version of eZ Platform, Symfony and even Legacy bridge itself. This is a great option for those who want the latest features. The downside is a more complex setup to develop and maintian, given you continue run two systems in paralell, and the overall migration might take much longer when using an iterative/gradual approach.
 
     1. Additionally there are some other topics to be aware of for the code migration from eZ Publish to eZ Platform:
 
@@ -540,7 +540,7 @@ TODO: Don't we have a global config for this now?
 To move your legacy Page field / eZ Flow configuration to eZ Platform Enterprise Edition you can use a script that will aid in the migration process.
 
 The script will automatically migrate only data – to move custom views, layouts, blocks etc., you will have to provide their business logic again.
-    
+
 !!! caution
 
     Steps here use `ezsystems/landing-page-fieldtype-bundle:1.7.7-alpha1` to run the ezflow migration script only.
