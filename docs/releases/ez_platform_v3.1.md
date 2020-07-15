@@ -2,7 +2,7 @@
 
 **Version number**: v3.1
 
-**Release date**: June XX, 2020
+**Release date**: July 15, 2020
 
 **Release type**: Fast Track
 
@@ -34,15 +34,22 @@ This release of eZ Platform introduces the following new features:
 
     For more information about defining parent Location, see [Configure parent Location](../guide/site_factory.md#configure-parent-location).
     
+    ### Elasticsearch
+    
+    You can now use [Elasticsearch](https://www.elastic.co/) in you eZ Platform installation
+    through the `PlatformElasticSearchEngineBundle`.
+    
+    See [Elasticsearch documentation](../guide/search/elastic.md) to learn how to set up, configure and user Elasticsearch with eZ Platform.
+    
     ### Page Builder
     
     You can now filter elements in the sidebar during site creation process to get to the desired blocks faster.
 
     ![](img/3_1_filter_elements.png)
 
-    ### Field Group permissions
+    ### Field group permissions
 
-    The new [Field Group Limitation](../guide/limitation_reference.md#field-group-limitation)
+    The new [Field group Limitation](../guide/limitation_reference.md#field-group-limitation)
     enables you to control who can edit content Fields per Field group.
     
     ### Version comparison
@@ -62,7 +69,7 @@ You can now manage URL addresses and URL wildcards with a comfortable user inter
 
 !!! note
 
-  As of this release, the Link manager is no longer part of the Content panel, and now it belongs to the Admin panel of the Back Office.
+    As of this release, the Link manager is no longer part of the Content panel, and now it belongs to the Admin panel of the Back Office.
 
 ![URL Management UI](img/3_1_URL_Management.png "URL Management UI")
 
@@ -131,14 +138,11 @@ You can now have a Service that provides both `PermissionResolver` and `Permissi
 
 When you start creating a Landing Page, a new draft is now automatically created.
 
-## Requirement changes
-
-This release changes support for ...
-
-For full list of supported versions, see [Requirements](../getting_started/requirements.md).
-
 ## Full changelog
 
 | eZ Platform  | eZ Enterprise  |
 |--------------|------------|
 | [eZ Platform v3.1.0](https://github.com/ezsystems/ezplatform/releases/tag/v3.1.0) | [eZ Enterprise v3.1.0](https://github.com/ezsystems/ezplatform-ee/releases/tag/v3.1.0) |
+| [eZ Platform v3.1.0-rc2](https://github.com/ezsystems/ezplatform/releases/tag/v3.1.0-rc2) | [eZ Enterprise v3.1.0-rc2](https://github.com/ezsystems/ezplatform-ee/releases/tag/v3.1.0-rc2) |
+| [eZ Platform v3.1.0-rc1](https://github.com/ezsystems/ezplatform/releases/tag/v3.1.0-rc1) | [eZ Enterprise v3.1.0-rc1](https://github.com/ezsystems/ezplatform-ee/releases/tag/v3.1.0-rc1) |
+| [eZ Platform v3.1.0-beta1](https://github.com/ezsystems/ezplatform/releases/tag/v3.1.0-beta1) | [eZ Enterprise v3.1.0-beta1](https://github.com/ezsystems/ezplatform-ee/releases/tag/v3.1.0-beta1) |
