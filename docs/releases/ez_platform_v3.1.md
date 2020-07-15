@@ -99,11 +99,11 @@ In Content preview, the group sections are collapsible:
 
 ### Saving incomplete draft
 
-As of this release, when users create or edit a Content item or a Page, they can save it without completing all the required fields.
+When users create or edit a Content item or a Page, they can now save it without completing all the required fields.
 They can then return to editing, or pass the content to another contributor.
 Validation that used to happen at each save operation now, by default, happens when you click the **Publish** button.
 
-Also, as part of this feature, the `ContentService::validate()` method has been added that you can use to trigger validation of individual fields 
+The `ContentService::validate()` method has been added that you can use to trigger validation of individual fields 
 or whole Content items for completeness at other stages of the editing process.
 
 ### Search
@@ -111,7 +111,7 @@ or whole Content items for completeness at other stages of the editing process.
 #### ezplatform-search
 
 [`ezplatform-search`](https://github.com/ezsystems/ezplatform-search) is a new repository
-that contains search functionalities that are not dependent on the search engine
+that contains search functionalities that are not dependent on the search engine.
 
 #### Search controller
 
