@@ -128,14 +128,11 @@
               - site.example.com
               - admin.example.com
               - test.example.com
-    
     ```
     
-    Next, you must define the domains in `etc/hosts`.
+    Next, you must define the domains in `etc/hosts`:
     
-    ```bash
-    0.0.0.0 site.example.com admin.example.com test.example.com www.admin.example.com
-    ```
+    `0.0.0.0 site.example.com admin.example.com test.example.com www.admin.example.com`
     
     Then, run `docker-compose up`: 
     
@@ -187,6 +184,80 @@
     - `site/delete` - delete sites
 
     For full documentation on how Permissions work and how to set them up, see [the Permissions section](permissions.md).
+    
+    To learn how to use Site Factory, see [User documentation.](https://doc.ezplatform.com/projects/userguide/en/latest/site_organization/site_factory/#site-factory)
+    
+    ## Configuration
+    
+    ### Configure parent Location
+    
+    You can define the parent Location for a new site in the configuration.
+    Each new site is created in the designated Location.
+    
+    To define a parent Location, add a new configuration key to the template definition.
+    Each template is assigned its own Location.
+    This can be either a Location ID (e.g. `62`), or a recommended remote Location ID (e.g. `1548b8cd8dd4c6b5082e566615d45e91`).
+        
+    Add the configuration key to your template:
+    
+    ```yaml hl_lines="7 12"
+    ez_platform_site_factory:
+        templates:
+            ez_site1:
+                siteaccess_group: example_site_factory_group_1
+                name: example_site_1
+                thumbnail: /path/to/image/example-thumbnail_1.png
+                parent_location_id: 62
+            ez_site2:
+                siteaccess_group: example_site_factory_group_2
+                name: example_site_2
+                thumbnail: /path/to/image/example-thumbnail_2.png
+                parent_location_remote_id: 1548b8cd8dd4c6b5082e566615d45e91
+    ```
+    
+    Now, you can see the path to the new site's parent Location under design selection.   
+    If you have sufficient permissions you can change the defined Location during site creation. 
+    If the parent Location is not defined, you have to choose it from Universal Discovery Widget.
+    
+    ### Configure Site skeleton
+
+    The Site skeleton enables you to copy an entire content structure of the site design to the defined Location.
+    
+    Site skeleton copying is a one-off operation, it only happens during the site creation process.
+    After that, you cannot copy the Site skeleton again, for example in the edit view.
+    
+    You can create as many skeletons as you need and assign them to templates.
+    Remember that one template can only have one Site skeleton assigned.
+    
+    If the design does not have a defined Site skeleton, a directory of the new site is created in a standard Site Factory process.
+    
+    !!! caution "Update from v3.0"
+    
+        To be able to create a Location for the Site skeletons, run `php ./bin/console ezplatform:site-factory:create-site-skeletons-container` during the update procedure.
+        
+        Now, you should be able to see **Site skeletons** tab under **Admin** tab. The tab is only visible after the update procedure.
+    
+    To define a Site skeleton, add a new configuration key to the template definition.
+    This can be either a Location ID (e.g. `5966`), or a recommended remote Location ID (e.g. `3bed95afb1f8126f06a3c464e461e1ae66`).
+    
+    Add the configuration key to your template:
+    
+    ```yaml hl_lines="7 12"
+    ez_platform_site_factory:
+        templates:
+            ez_site1:
+                siteaccess_group: example_site_factory_group_1
+                name: example_site_1
+                thumbnail: /path/to/image/example-thumbnail_1.png
+                site_skeleton_id: 5966
+            ez_site2:
+                siteaccess_group: example_site_factory_group_2
+                name: example_site_2
+                thumbnail: /path/to/image/example-thumbnail_2.png
+                site_skeleton_remote_id: 3bed95afb1f8126f06a3c464e461e1ae66
+    ```
+    
+    Now, you can choose a design with a defined Site skeleton, and decide if you want to use its skeleton by toggling **Generate site using site skeleton**.
     
     ## Disable Site Factory
     

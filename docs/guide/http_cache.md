@@ -137,7 +137,7 @@ Settings for purge servers can be configured per SiteAccess group or SiteAccess:
 ``` yaml
 ezplatform:
     http_cache:
-        purge_type: http
+        purge_type: varnish
 
     system:
         my_siteacess:
@@ -165,25 +165,34 @@ Symfony proxy stores its cache in the Symfony cache directory, so a regular `cac
 php bin/console --env=prod cache:clear
 ```
 
-#### Purge by HTTP BAN request on Varnish
+#### Purge by HTTP request on Varnish
 
-If you use Varnish and need to purge content directly, use the following examples to see how this is done internally by the FOSPurgeClient, and in turn FOSHttpCache Varnish proxy client:
+If you use Varnish and need to purge content directly, use the following examples to see how this is done internally by the FOSPurgeClient, and in turn FOSHttpCache Varnish proxy client.
 
-For purging all:
+Purge all:
 
-```
-BAN / HTTP 1.1
+```http
+PURGE / HTTP 1.1
 Host: localhost
-X-Location-Id: .*
 ```
 
-Or with given Location IDs (here 123 and 234):
+Purge the tagged content:
 
-```
-BAN / HTTP 1.1
+```http
+PURGEKEYS / HTTP 1.1
 Host: localhost
-X-Location-Id: ^(123|234)$
+XKey-Purge : tags, separated, with, commas
 ```
+
+Soft purge (expire) the tagged content:
+
+```http
+PURGEKEYS / HTTP 1.1
+Host: localhost
+XKey-SoftPurge : tags, separated, with, commas
+```
+
+To make the most of the purge option, see [Available tags](#available-tags).
 
 ### Using Varnish
 
@@ -221,12 +230,12 @@ If you use fastcgi/fpm you can pass these directly to PHP process, but in all ca
 
     # Force front controller NOT to use built-in reverse proxy.
     SetEnv SYMFONY_HTTP_CACHE 0
-    SetEnv HTTPCACHE_PURGE_TYPE http
+    SetEnv HTTPCACHE_PURGE_TYPE varnish
     SetEnv HTTPCACHE_PURGE_SERVER "http://varnish:80"
 
     # Configure IP of your Varnish server to be trusted proxy
     # Replace fake IP address below by your Varnish IP address
-    SetEnv SYMFONY_TRUSTED_PROXIES "193.22.44.22"
+    SetEnv TRUSTED_PROXIES "193.22.44.22"
 </VirtualHost>
 ```
 
@@ -236,19 +245,27 @@ If you use fastcgi/fpm you can pass these directly to PHP process, but in all ca
 # mysite.com
 
 fastcgi_param SYMFONY_HTTP_CACHE 0;
-fastcgi_param HTTPCACHE_PURGE_TYPE http;
+fastcgi_param HTTPCACHE_PURGE_TYPE varnish;
 fastcgi_param HTTPCACHE_PURGE_SERVER "http://varnish:80";
 
 # Configure IP of your Varnish server to be trusted proxy
 # Replace fake IP address below by your Varnish IP address
-fastcgi_param SYMFONY_TRUSTED_PROXIES "193.22.44.22";
+fastcgi_param TRUSTED_PROXIES "193.22.44.22";
 ```
 
 !!! caution "Trusted proxies when using SSL offloader / loadbalancer in combination with Varnish"
 
-    If your installation works behind Varnish and SSL offloader (like HAProxy), you need to add `127.0.0.1` to `SYMFONY_TRUSTED_PROXIES`.
+    If your installation works behind Varnish and SSL offloader (like HAProxy), you need to set the `TRUSTED_PROXIES` env variable:
+    
+    ```
+    # .env
+    TRUSTED_PROXIES=127.0.0.1
+    ```
+    
     Otherwise, you might notice incorrect schema (`http` instead of `https`) in the URLs for the images or other binary files
     when they are rendered inline by Symfony *(as used by file-based field templates)*, as opposed to via ESI.
+    
+    For more information, see [How to Configure Symfony to work behind a Load Balancer or a Reverse Proxy.](https://symfony.com/doc/5.0/deployment/proxies.html)
 
 #### Update YAML configuration
 
@@ -260,7 +277,7 @@ The following configuration is not required as eZ Platform will read the environ
 ``` yaml
 ezplatform:
     http_cache:
-        purge_type: http
+        purge_type: varnish
 
     system:
         # Assuming that my_siteaccess_group contains both your front-end and back-end SiteAccesses
@@ -273,6 +290,43 @@ ezplatform:
 !!! note "Multiple Purge Servers"
 
     If you need to set multiple purge servers, then you need to configure them in the YAML file.
+    
+#### Ensure proper Captcha behavior
+
+If your installation uses Varnish and you want users to be able to configure and use Captcha in their forms, you must enable the sending of Captcha data as a response to an Ajax request.
+Otherwise, Varnish prohibits the transfer of Captcha data to the form, and users see an empty image.
+
+To enable sending Captcha over Ajax, modify the configuration file, for example `config/packages/ezplatform.yaml`, by adding the following code:
+
+``` yaml
+ezplatform:
+    system:
+        default:
+            form_builder:
+                captcha:
+                    use_ajax: <true|false>
+```
+
+!!! note
+
+    If you created a custom Captcha block for your site by overriding the default file (`vendor/gregwar/captcha-bundle/Resources/views/captcha.html.twig`), you must make the following changes to the custom block template file:
+    
+    - change the name of the block to `ajax_captcha_widget`
+    - include the JavaScript file:
+    
+    ```
+    {{ encore_entry_script_tags('ezplatform-form-builder-ajax-captcha-js', null, 'ezplatform') }}
+    ```
+    
+    - add a data attribute with a `fieldId` value:
+    
+    ```
+    data-field-id="{{ field.id }}"
+    ```
+    
+    As a result, your file should be similar to [this example](https://github.com/ezsystems/ezplatform-form-builder/blob/master/src/bundle/Resources/views/themes/standard/fields/captcha.html.twig).
+
+For more information about configuring Captcha fields, see [Captcha field](../extending/extending_form_builder.md#captcha-field).
 
 !!! enterprise
 
@@ -418,8 +472,8 @@ As eZ Platform uses [FOSHttpCacheBundle](http://foshttpcachebundle.readthedocs.o
 - User context hash
 
 Varnish proxy client from the FOSHttpCache library is used for clearing eZ Platform's HTTP cache, even when using Symfony HTTP cache.
-A single `BAN` request is sent to registered purge servers, containing an `X-Location-Id` header.
-This header contains all Location IDs for which objects in cache need to be cleared.
+A single HTTP request is sent to registered purge servers, containing a list of tags.
+This header contains all tags for which objects in cache need to be cleared.
 
 #### Workflow
 

@@ -3,6 +3,7 @@
 }
 
 .ez-docs-switcher__selected-item {
+    padding-top: 6px;
     line-height: calc(33 / 19.8);
     position: relative;
     cursor: pointer;

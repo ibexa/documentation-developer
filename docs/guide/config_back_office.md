@@ -16,6 +16,16 @@ You can copy subtree from CLI using the command: `bin/console ezplatform:copy-su
 Default pagination limits for different sections of the Back Office can be defined through respective settings in
 [`ezplatform_default_settings.yaml`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/config/ezplatform_default_settings.yaml#L7)
 
+You can set the pagination limit for user settings with the following configuration:
+
+``` yaml
+ezplatform:
+    system:
+        default:
+            pagination_user:
+                user_settings_limit: 6
+```
+
 ## Default Locations
 
 Default Location IDs for Content structure, Media and Users in the menu are configured using the following settings:

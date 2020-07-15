@@ -253,6 +253,16 @@ $query->sortClauses = [
 
     For the full list and details of available Sort Clauses, see [Sort Clause reference](../guide/search/sort_clause_reference.md).
 
+## Searching in trash
+
+To search the trash, use the `TrashService::findInTrash` method to submit a query for Content items that are held in trash.
+Searching in trash supports a limited set of Criteria and Sort Clauses.
+For a list of supported Criteria and Sort Clauses, see [Searching in trash reference](../guide/search/sort_clause_reference.md).
+
+!!! note
+
+    Searching through the trashed Content items operates directly on the database, therefore you cannot use external search engines, such as Solr or Elasticsearch, and it is impossible to reindex the data.
+
 ## Faceted search
 
 !!! tip "Checking feature support per search engine"

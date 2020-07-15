@@ -112,6 +112,28 @@ This Limitation combined with `ContentType` Limitation allows you to define busi
 |------|------|------|
 |`<ContentType_id>`|`<ContentType_name>`|All valid Content Type IDs can be set as value(s)|
 
+!!! enterprise
+
+    ## Field Group Limitation
+
+    A Limitation to specify if the User can work with content Fields belonging to a specific group.
+    A user with this Limitation is allowed to edit Fields belonging to the indicated group.
+    Otherwise, the Fields are inactive and filled with the default value (if set).
+
+    |                 |                                                                                |
+    |-----------------|--------------------------------------------------------------------------------|
+    | Identifier      | `Field Group`                                                                  |
+    | Value Class     | `Ibexa\Platform\Contracts\Permissions\Repository\Values\User\Limitation\FieldGroupLimitation` |
+    | Type Class      | `Ibexa\Platform\Permissions\Security\Limitation\FieldGroupLimitationType ` |
+    | Criterion used  | n/a                                                                            |
+    | Role Limitation | no                                                                             |
+
+    ### Possible values
+
+    |Value|UI value|Description|
+    |------|------|------|
+    |`<FieldGroup_identifier>`|`<FieldGroup_identifier>`|All valid Field group identifiers can be set as value(s)|
+
 ## Language Limitation
 
 A Limitation to specify if the User has access to work on the specified translation.
@@ -122,6 +144,7 @@ A user with this Limitation is allowed to:
 This only applies to creating the first version of a Content item.
 - Edit content by adding a new translation or modifying an existing translation.
 - Publish content only when it results in adding or modifying an allowed translation.
+- Delete content only when it contains a translation into the specified language.
 
 |                 |                                                                         |
 |-----------------|-------------------------------------------------------------------------|

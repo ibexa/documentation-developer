@@ -178,10 +178,6 @@ body {
     padding: .5rem;
 }
 
-.md-icon--home:before {
-    content: url('../images/eZ-Brandmark.png');
-}
-
 .md-typeset .admonition, .md-typeset details {
     font-size: 16px;
 }

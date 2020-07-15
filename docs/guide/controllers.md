@@ -353,7 +353,7 @@ Results from the search are assigned to the `blog_posts` variable as a `SearchRe
 Beyond the built-in Query Types, you can create your own.
 
 For example, this Query Type returns a Query that searches for the last ten published Content items, ordered by reverse publishing date.
-It accepts an optional `type` parameter [lines 13-15] that can be set to a Content Type identifier (e.g. `article`):
+It accepts an optional `contentType` parameter [lines 13-15] that can be set to a Content Type identifier (e.g. `article`):
 
 ``` php
 <?php
@@ -368,8 +368,8 @@ class LatestContentQueryType implements QueryType
     public function getQuery(array $parameters = [])
     {
         $criteria[] = new Query\Criterion\Visibility(Query\Criterion\Visibility::VISIBLE);
-        if (isset($parameters['type'])) {
-            $criteria[] = new Query\Criterion\ContentTypeIdentifier($parameters['type']);
+        if (isset($parameters['contentType'])) {
+            $criteria[] = new Query\Criterion\ContentTypeIdentifier($parameters['contentType']);
         }
         // 10 is the default limit we set, but you can have one defined in the parameters
         return new LocationQuery([
@@ -388,7 +388,7 @@ class LatestContentQueryType implements QueryType
      */
     public function getSupportedParameters()
     {
-        return ['type', 'limit'];
+        return ['contentType', 'limit'];
     }
 }
 ```
@@ -400,7 +400,7 @@ content_view:
     full:
         latest:
             controller: ez_query:locationQueryAction
-            template: content/view/full/latest.html.twig
+            template: full/latest.html.twig
             match:
                 Identifier\ContentType: "latest"
             params:
@@ -408,6 +408,7 @@ content_view:
                     query_type: LatestContent
                     parameters:
                         parentLocationId: '@=location.id'
+                        contentType: article
                     assign_results_to: latest
 ```
 
@@ -718,6 +719,18 @@ For example:
 {{ ez_render_field(content, 'posts', {'parameters': {'enablePagination': true, 'itemsPerPage': 8}}) }}
 ```
 
+You can also define an offset for the results. Provide the offset in the Query Type, or in parameters:
+
+```
+offset: 3
+```
+
+If pagination is disabled and an offset value is defined, the query's offset is added to the offset calculated for a page
+(for example, with `offset = 5` and `itemsPerPage = 10`, the first page starts with 5, the second page starts with 15, etc.).
+
+Without offset defined, pagination defines the starting number for each page
+(for example, with `itemsPerPage = 10`, first page starts with 0, second page starts with 10, etc.).
+
 #### Content query Field Type view
 
 Configure the Content query Field Type's view using the `content_query_field` view type:
@@ -728,7 +741,7 @@ content_view:
         blog_posts:
             match:
                 Identifier\ContentType: blog
-                Identifier\FieldDefinition: posts
+                '@EzSystems\EzPlatformQueryFieldType\eZ\ContentView\FieldDefinitionIdentifierMatcher': posts
             template: "blog_posts.html.twig"
 ```
 
