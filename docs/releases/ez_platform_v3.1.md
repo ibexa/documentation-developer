@@ -36,7 +36,7 @@ This release of eZ Platform introduces the following new features:
     
     ### Elasticsearch
     
-    You can now use [Elasticsearch](https://www.elastic.co/) in you eZ Platform installation
+    You can now use [Elasticsearch](https://www.elastic.co/) in your eZ Platform installation
     through the `PlatformElasticSearchEngineBundle`.
     
     See [Elasticsearch documentation](../guide/search/elastic.md) to learn how to set up, configure and user Elasticsearch with eZ Platform.
@@ -47,9 +47,9 @@ This release of eZ Platform introduces the following new features:
 
     ![](img/3_1_filter_elements.png)
 
-    ### Field group permissions
+    ### Field Group permissions
 
-    The new [Field group Limitation](../guide/limitation_reference.md#field-group-limitation)
+    The new [Field Group Limitation](../guide/limitation_reference.md#field-group-limitation)
     enables you to control who can edit content Fields per Field group.
     
     ### Version comparison
@@ -73,7 +73,7 @@ You can now manage URL addresses and URL wildcards with a comfortable user inter
 
 ![URL Management UI](img/3_1_URL_Management.png "URL Management UI")
 
-For more information about URL management, see [URL management](../guide/url_management.md) in the developer documentation.
+For more information on how to manage URLs, see [URL management](../guide/url_management.md).
 
 ### Tree view in the Universal Discovery Widget
 
@@ -83,7 +83,7 @@ Selections that you make in one view survive when you switch to the other view.
 
 ![Tree view in the Content Browser](img/3_1_Content_browser_Tree_view.png "Tree view in Content Browser")
 
-For more information about configuring the Universal Discovery Widget, see [URL management](../extending/extending_udw.md) in the developer documentation.
+For more information about configuring the Universal Discovery Widget, see [Extending Universal Discovery Widget](../extending/extending_udw.md).
 
 ### Field group display
 
