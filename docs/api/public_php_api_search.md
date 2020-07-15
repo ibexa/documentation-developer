@@ -92,15 +92,15 @@ With the Legacy search engine both properties will give identical results.
 You can use the `ContentService::find(Filter)` method to find Content items or 
 `LocationService::find(Filter)` to find Locations using a defined Filter.
 
-`ContentService::find` returns iterable [`ContentList`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.1.0/eZ/Publish/API/Repository/Values/Content/ContentList)
-while `LocationService::find` returns iterable [`LocationList`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.1.0/eZ/Publish/API/Repository/Values/Content/LocationList).
+`ContentService::find` returns an iterable [`ContentList`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.1.0/eZ/Publish/API/Repository/Values/Content/ContentList)
+while `LocationService::find` returns an iterable [`LocationList`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.1.0/eZ/Publish/API/Repository/Values/Content/LocationList).
 
 Filtering differs from search. It does not use the `SearchService` and is not based on indexed data.
 
 [`Filter`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.1.0/eZ/Publish/API/Repository/Values/Filter/Filter.php) enables you to configure a query using chained methods to select criteria, sorting, limit and offset.
 
 For example, the following command lists all Content items under the specified parent Location
-and sorts them in descending order by name:
+and sorts them by name in descending order:
 
 ``` php hl_lines="15 16 17 18"
 // ...
@@ -209,7 +209,7 @@ $filter
     and Sort Clauses implementing [`FilteringSortClause`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.1.0/eZ/Publish/SPI/Repository/Values/Filter/FilteringSortClause.php)
     are supported.
 
-    See to [Search Criteria](../guide/search/search_criteria_reference.md)
+    See [Search Criteria](../guide/search/search_criteria_reference.md)
     and [Sort Clause reference](../guide/search/sort_clause_reference.md) for details.
     
 !!! tip
@@ -220,7 +220,7 @@ $filter
 ## Searching in a controller
 
 You can use the `SearchService` or Repository filtering in a controller, as long as you provide the required parameters.
-For example, in the code below `locationId` is provided to list all children of a Location using the `SearchService`.
+For example, in the code below, `locationId` is provided to list all children of a Location by using the `SearchService`.
 
 ``` php hl_lines="20 21 22"
 //...
