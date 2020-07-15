@@ -16,6 +16,10 @@ The `distance` argument requires:
 - a list of floats for `Operator::IN` or `Operator::BETWEEN`
 - a single float for other Operators
 
+## Limitations
+
+The `MapLocationDistance` Criterion is not available in [Repository filtering](../../../api/public_php_api_search.md#repository-filtering).
+
 ## Example
 
 ``` php

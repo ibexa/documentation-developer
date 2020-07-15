@@ -11,6 +11,10 @@ sorts search results by the distance of the indicated MapLocation Field to the p
 - `longitude`- float representing the longitude of the location to calculate distance to
 - `sortDirection` (optional) - Query or LocationQuery constant, either `Query::SORT_ASC` or `Query::SORT_DESC`.
 
+## Limitations
+
+The `MapLocationDistance` Sort Clause is not available in [Repository filtering](../../../api/public_php_api_search.md#repository-filtering).
+
 ## Example
 
 ``` php

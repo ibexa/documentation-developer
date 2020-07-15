@@ -21,6 +21,10 @@ Querying for a collection with the `EQ` operator will return result only when th
 $query->query = new Criterion\Field('name', Criterion\Operator::CONTAINS, 'Platform');
 ```
 
+## Limitations
+
+The `Field` Criterion is not available in [Repository filtering](../../../api/public_php_api_search.md#repository-filtering).
+
 ## Use case
 
 You can use the `Field` Criterion to search for articles that contain the word "featured":
