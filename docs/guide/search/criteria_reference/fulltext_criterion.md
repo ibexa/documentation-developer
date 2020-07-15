@@ -23,6 +23,8 @@ It additionally enables the use of:
 - Phrases using double quotes
 - Wild cards using asterisks also in the middle of a query
 
+The `FullText` Criterion is not available in [Repository filtering](../../../api/public_php_api_search.md#repository-filtering).
+
 ## Example
 
 ``` php

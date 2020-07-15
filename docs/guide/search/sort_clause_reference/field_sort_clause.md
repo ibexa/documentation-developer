@@ -12,6 +12,10 @@ Results of the query that do not belong to the Content Type are ranked lower.
 - `fieldIdentifier` - string representing the identifier of the Field to sort by
 - `sortDirection` (optional) - Query or LocationQuery constant, either `Query::SORT_ASC` or `Query::SORT_DESC`.
 
+## Limitations
+
+The `Field` Sort Clause is not available in [Repository filtering](../../../api/public_php_api_search.md#repository-filtering).
+
 ## Example
 
 ``` php
