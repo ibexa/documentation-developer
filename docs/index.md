@@ -4,7 +4,7 @@
 
 <div class="card">
     <div class="card-body">
-        <h4 class="card-title text-center"><a href="releases/ez_platform_v3.0/" class="card-link"><strong>The latest release is v3.0</strong></a></h4>
+        <h4 class="card-title text-center"><a href="releases/ez_platform_v3.1/" class="card-link"><strong>The latest release is v3.1</strong></a></h4>
     </div>
 </div>
 
@@ -66,17 +66,15 @@
   <div class="card">
       <div class="card-body">
           <ul>
-            <li>Symfony 5</li>
-            <li>Site Factory</li>
-            <li>Content Query Field Type</li>
-            <li>Generic Field Type</li>
-            <li>Schedule Calendar</li>
-            <li>Version comparison</li>
-            <li>Workflow improvements</li>
-            <li>Universal Discovery Widget improvements</li>
-            <li>New API reference</li>
+            <li>eZ Commerce integration</li>
+            <li>Site skeleton</li>
+            <li>Elasticsearch support</li>
+            <li>Saving incomplete drafts</li>
+            <li>Repository filtering</li>
+            <li>Field group permissions</li>
+            <li>URL management UI</li>
           </ul>
-          <p>See <a href="releases/ez_platform_v3.0/" class="card-link">3.0 release notes</a> for more information</p>
+          <p>See <a href="releases/ez_platform_v3.1/" class="card-link">3.1 release notes</a> for more information</p>
       </div>
   </div>
 </div>
