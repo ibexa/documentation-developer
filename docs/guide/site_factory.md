@@ -65,7 +65,7 @@
             example_1: [example_1_template]
             example_2: [example_2_template]
     ```
-
+    
     Finally, configure designs for empty SiteAccess groups:
     
     ```
@@ -95,7 +95,10 @@
                 thumbnail: /path/to/image/example-thumbnail_2.png
     ```
     
-    You can check the results of your work in the Back Office by going to the **Site** tab.
+    You can check the results of your work in the Back Office by going to the **Site** tab and selecting the **List** icon.
+    
+    ![Site Factory icon](img/site_factory_icon.png "Site Factory icon")
+    
     There, you should be able to add a new site and choose a design for it.
     
     ### Define domains 
@@ -182,7 +185,7 @@
     - `site/edit` - edit sites
     - `site/change_status` - change status of the public accesses to `Live` or `Offline`
     - `site/delete` - delete sites
-
+    
     For full documentation on how Permissions work and how to set them up, see [the Permissions section](permissions.md).
     
     To learn how to use Site Factory, see [User documentation.](https://doc.ezplatform.com/projects/userguide/en/latest/site_organization/site_factory/#site-factory)
@@ -220,7 +223,7 @@
     If the parent Location is not defined, you have to choose it from Universal Discovery Widget.
     
     ### Configure Site skeleton
-
+    
     The Site skeleton enables you to copy an entire content structure of the site design to the defined Location.
     
     Site skeleton copying is a one-off operation, it only happens during the site creation process.
@@ -270,9 +273,9 @@
     Keep in mind that with disabled Site Factory you will not be able to add new sites or use existing ones.
     
     1\. In `config/packages/ezplatform_site_factory.yaml` change enabled to `false`.
-
+    
     2\. In `config/packages/ezplatform.yaml` comment the `ezplatform.siteaccess.match: '@EzSystems\EzPlatformSiteFactory\SiteAccessMatcher': ~` if it is uncommented.
-
+    
     3\. Remove separate connection to database in `config/packages/doctrine.yaml`.
     
     ``` yaml
@@ -296,5 +299,3 @@
     ```
     
     The Site Factory should be disabled.
-    
-    ![Site Factory disabled](img/site_factory_disabled.png "Site Factory disabled")
