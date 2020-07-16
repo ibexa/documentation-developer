@@ -1,6 +1,6 @@
 # Updating from <2.5
     
-If you are updating from a version prior to 2.4, you have implement all the changes from [Updating from <2.4](4_update_2.4.md) before following the steps below.
+If you are updating from a version prior to 2.4, you have to implement all the changes from [Updating from <2.4](4_update_2.4.md) before following the steps below.
 
 !!! note
 
