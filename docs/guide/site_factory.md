@@ -95,7 +95,7 @@
                 thumbnail: /path/to/image/example-thumbnail_2.png
     ```
     
-    You can check the results of your work in the Back Office by going to the **Site** tab and selecting **List** icon.
+    You can check the results of your work in the Back Office by going to the **Site** tab and selecting the **List** icon.
     
     ![Site Factory icon](img/site_factory_icon.png "Site Factory icon")
     
