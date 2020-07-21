@@ -21,7 +21,6 @@ They can be used by `eZ\Publish\API\Repository\TrashService::findTrashItems` onl
 |[LogicalAnd](criteria_reference/logicaland_criterion.md)|Implements a logical AND Criterion. It matches if ALL of the provided Criteria match.|Content and Location|
 |[LogicalNot](criteria_reference/logicalor_criterion.md)|Implements a logical NOT Criterion. It matches if the provided Criterion doesn't match.|Content and Location|
 |[LogicalOr](criteria_reference/logicalor_criterion.md)|Implements a logical OR Criterion. It matches if at least one of the provided Criteria matches.|Content and Location|
-
 ## Supported Sort Clauses
 
 | Sort Clause | Sorting based on | Search type|
