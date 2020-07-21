@@ -52,13 +52,9 @@
     First, you decide how eZ Platform connects to Elasticsearch, as well as configure other settings that control the way Elasticsearch operates.
     For more information, see [Configure connections](#configure-connections).
 
-    Then, you define a field type mappings template that instructs Elasticsearch to interpret eZ Platform fields as specific types. For more information, see [Configure field type mappings](#configure-field-type-mapping).
+    Then, you define a field type mappings template that instructs Elasticsearch to interpret eZ Platform fields as specific types. For more information, see [Configure field type mappings](#configure-field-type-mappings).
 
-    When ready, you push the template to the Elasticsearch engine by running the following command:
-
-    ``` bash
-    run php bin/console ezplatform:elasticsearch:put-index-template
-    ```
+    When ready, you [push the template to the Elasticsearch engine](#step-4- push-the--template).
 
     #### Configure connections
 
@@ -366,9 +362,175 @@
 
     	Make sure that you disable debugging in a production environment.
 
-    ### Step 4: Reindex the database
+    #### Configure field type mappings
 
-    Once you have created a field mapping template that satisfies your needs, run the following command to reindex your data:
+    Before you can re-index the eZ Platform data, so that Elasticsearch can search through its contents, you must define an index template.
+    Templates instruct Elasticsearch to recognise eZ Platform fields as specific data types, based on, for example, a field name.
+    They help you prevent Elasticsearch from using the dynamic field mapping feature to create type mappings automatically.
+    You can create several field type mapping templates for each index, for example, to define settings that are specific for different languages.
+    When you establish a relationship between a field mapping template and a connection, you can apply several templates, too.
+
+    ##### Define a template
+
+    To define a field mapping template, you must provide a number of settings under the `index_templates` key.
+    The structure of the template is as follows:
+
+    ``` yaml
+    ez_platform_elastic_search_engine:
+      # ...
+      index_templates:
+        <index_template_name>:
+            patterns:
+              # ...
+            settings:
+              # ...
+            mappings:            
+    ```
+
+    You first set a unique name for the template, then the keys, which have the following meaning:
+
+    - `patterns` - A list of wildcards that Elasticsearch uses to match the field mapping template to an index.
+    If you use the `_location_*` wildcard as a pattern, the settings and mappings listed belowapply to all indexes, whose names are prefixed with the word "location".
+
+      The `patterns` setting proves useful when your data contains content in different languages, you can create index templates with settings that apply to a specific language only, for example, to eliminate stop words from the index, or help divide concatenations.
+      You use patterns to identify index templates that contain settings specific for a given language:
+
+      ``` yaml
+      ez_platform_elastic_search_engine:
+        # ...
+        index_templates:
+          default_en_us:
+            patterns: ['default_*', '*eng_us*'']
+            # ...
+      ```
+
+    - `settings` - Settings under this key control all aspects related to an index.
+    For more information and a list of available settings, see [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/index-modules.html#index-modules-settings).
+
+      For example, you can define settings that convert text into a format that is optimized for search, like a normalizer that changes a case of all phrases in the index:
+
+      ``` yaml
+      ez_platform_elastic_search_engine:
+        # ...
+        index_templates:
+          default:
+            # ...
+            settings:
+              analysis:
+                normalizer:
+                  lowercase_normalizer:
+                    type: custom
+                    char_filter: []
+                    filter: lowercase
+            # ...
+      ```
+
+    - `mappings` - Settings under this key define mapping for fields in the index.
+    For more information about mappings, see [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/mapping.html).
+
+      When you create a custom index template, with settings for your own field and document types, make sure that it contains mappings for all searchable fields that are available in eZ Platform. For an example of default configuration with a list of searchable fields, see [Default configuration](https://github.com/ezsystems/ezplatform-elastic-search-engine/blob/v1.0.0/src/bundle/Resources/config/default-config.yaml).
+
+    ##### Fine-tune the search results
+
+    Your search results can be adjusted by configuring additional parameters. For a list of available mapping parameters and their usage, see [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/mapping-params.html).
+
+    For example, you can apply a mapping parameter, in this case, a normalizer, to a specific mapping under the `dynamic_templates` key:
+
+    ``` yaml
+    ez_platform_elastic_search_engine:
+      # ...
+      index_templates:
+        default:
+          # ...
+          mappings:
+            # ...
+            dynamic_templates:
+              - ez_string:
+                  match: "*_s"
+                  mapping:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+              # ...
+    ```
+
+    You can also set a boosting factor for a specific field.
+    Boosting increases the relevance of hits, for example, to help you account for the fact that keywords from the title are more relevant than the ones from other places of the document.
+    You set the boosting factor under the `properties` key:
+
+    ``` yaml
+    ez_platform_elastic_search_engine:
+      # ...
+      index_templates:
+        default:
+          # ...
+          mappings:
+            properties:
+              content_name_s:
+                boost: 2.0
+              # ...
+    ```
+
+    You can even copy contents of existing fields, process them and then paste into another field, which than can be queried:
+
+    ``` yaml
+    ez_platform_elastic_search_engine:
+      # ...
+      index_templates:
+        default:
+          # ...
+          mappings:
+            properties:
+              user_first_name_s:
+                type: keyword
+                normalizer: lowercase_normalizer
+                copy_to: custom_field
+              # ...
+    ```
+
+    ##### Bind templates with connections
+
+    Once you have created the field mapping template(s), you must establish a relationship between the templates and a connection. You do this by adding a "index_templates" key to a connection definition.
+
+    If your configuration file contains several connection definitions, you can reuse the same template for different connections.
+    If you have several index templates, you can apply different combinations of templates to different connections.
+
+    ``` yaml
+    <connection_name>:
+      # ...
+      index_templates:
+        - default
+        - default_en_us
+    ```
+
+    ### Step 4: Push the templates
+
+    You push the templates to the Elasticsearch engine by running the following command:
+
+    ``` bash
+    run php bin/console ezplatform:elasticsearch:put-index-template
+    ```
+
+    You can modify the behaviour of the command with a number of switches:
+
+    | Switch | meaning |
+    |---|---|
+    | -c, --connection[=CONNECTION] | Elasticsearch connection name |
+    | --overwrite | Overwrite existing index template |
+    | -h, --help | Display a help message |
+    | -q, --quiet | Do not output messages |
+    | -V, --version | Display application version |
+    | --ansi | Force ANSI output |
+    | --no-ansi | Disable ANSI output |
+    | -n, --no-interaction | Do not ask interactive questions |
+    | -e, --env=ENV | Environment name (default value is "dev") |
+    | --no-debug | Switch off debug mode |
+    | --siteaccess[=SITEACCESS] | SiteAccess to be uses for operations. If not provided, default siteaccess is used |
+    | -v/vv/vvv, --verbose | Increase the verbosity of messages (1 is normal output, 2 is verbose output, 3 is debug) |
+    |---|---|
+
+    ### Step 5: Reindex the database
+
+    Once you have created index templates that satisfy your needs, run the following command to reindex your data:
 
     ``` bash
     run php bin/console ezplatform:reindex
@@ -379,7 +541,7 @@
         Do not reindex your data before you create custom templates.
         Otherwise Elasticsearch attempts to use its [dynamic field mapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.7/dynamic-field-mapping.html) feature to create type mappings automatically.
 
-    ### Step 5: Verify that your Elasticsearch instance is up
+    ### Step 6: Verify that your Elasticsearch instance is up
 
     To make sure that the Elasticsearch instance operates properly, in the address bar of your browser, enter the address of the instance:
 
@@ -391,32 +553,21 @@
     It should be similar to the following example:
 
     ``` Java
-    	{
-    		"name" : "doej-MacPro-mTkBe",
-    		"cluster_name" : "elasticsearch",
-    		"cluster_uuid" : "WLYqnQ_lSZGbX-vDIe_vZQ",
-    		"version" : {
-    		  "number" : "7.7.0",
-    		  "build_flavor" : "default",
-    		  "build_type" : "tar",
-    		  "build_hash" : "5b1fea5",
-    		  "build_date" : "2020-05-10T02:35:59.208Z",
-    		  "build_snapshot" : false,
-    		  "lucene_version" : "8.5.1",
-    		  "minimum_wire_compatibility_version" : "6.8.0",
-    		  "minimum_index_compatibility_version" : "6.0.0-beta1"
-    		},
-    		"tagline" : "You Know, for Search"
-    	}
+  	{
+  		"name" : "doej-MacPro-mTkBe",
+  		"cluster_name" : "elasticsearch",
+  		"cluster_uuid" : "WLYqnQ_lSZGbX-vDIe_vZQ",
+  		"version" : {
+  		  "number" : "7.7.0",
+  		  "build_flavor" : "default",
+  		  "build_type" : "tar",
+  		  "build_hash" : "5b1fea5",
+  		  "build_date" : "2020-05-10T02:35:59.208Z",
+  		  "build_snapshot" : false,
+  		  "lucene_version" : "8.5.1",
+  		  "minimum_wire_compatibility_version" : "6.8.0",
+  		  "minimum_index_compatibility_version" : "6.0.0-beta1"
+  		},
+  		"tagline" : "You Know, for Search"
+  	}
     ```
-
-    ### Configure field type mapping
-
-    Before you can re-index the eZ Platform data, so that Elasticsearch can search through its contents, you must define a template.
-    Templates instruct Elasticsearch to recognise eZ Platform fields as specific data types, for example, based on a field name.
-    You can create several field type mapping templates, for example, to define settings that are specific for different languages.
-    If you have defined different connections to Elasticsearch in , you can
-
-    https://www.elastic.co/guide/en/elasticsearch/reference/7.x/index-modules.html#index-modules-settings
-
-    https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping.html
