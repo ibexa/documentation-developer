@@ -30,7 +30,38 @@
 
         eZ Platform is optimised to work with Elasticsearch in version 7.7.
 
-    ### Step 2: Set the default search engine
+    ### Step 2: Verify that your Elasticsearch instance is up
+
+    To make sure that the Elasticsearch instance operates properly, in the address bar of your browser, enter the address of the instance:
+
+    ```
+    localhost:9200
+    ```
+
+    If Elasticsearch operates properly, an object with cluster details is displayed.
+    It should be similar to the following example:
+
+    ``` Java
+  	{
+  		"name" : "doej-MacPro-mTkBe",
+  		"cluster_name" : "elasticsearch",
+  		"cluster_uuid" : "WLYqnQ_lSZGbX-vDIe_vZQ",
+  		"version" : {
+  		  "number" : "7.7.0",
+  		  "build_flavor" : "default",
+  		  "build_type" : "tar",
+  		  "build_hash" : "5b1fea5",
+  		  "build_date" : "2020-05-10T02:35:59.208Z",
+  		  "build_snapshot" : false,
+  		  "lucene_version" : "8.5.1",
+  		  "minimum_wire_compatibility_version" : "6.8.0",
+  		  "minimum_index_compatibility_version" : "6.0.0-beta1"
+  		},
+  		"tagline" : "You Know, for Search"
+  	}
+    ```
+
+    ### Step 3: Set the default search engine
 
     In your `.env` file, change the setting of the following environment variable:
 
@@ -38,7 +69,7 @@
     SEARCH_ENGINE=elasticsearch
     ```
 
-    ### Step 3: Configure the search engine
+    ### Step 4: Configure the search engine
 
     eZ Platform comes pre-configured to work with an Elasticsearch cluster that uses default settings, and you can use this initial setup for testing purposes.
     However, to effectively search through actual data, you must provide specific settings.
@@ -502,7 +533,7 @@
         - default_en_us
     ```
 
-    ### Step 4: Push the templates
+    ### Step 5: Push the templates
 
     You push the templates to the Elasticsearch engine by running the following command:
 
@@ -528,7 +559,7 @@
     | -v/vv/vvv, --verbose | Increase the verbosity of messages (1 is normal output, 2 is verbose output, 3 is debug) |
     |---|---|
 
-    ### Step 5: Reindex the database
+    ### Step 6: Reindex the database
 
     Once you have created index templates that satisfy your needs, run the following command to reindex your data:
 
@@ -540,34 +571,3 @@
 
         Do not reindex your data before you create custom templates.
         Otherwise Elasticsearch attempts to use its [dynamic field mapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.7/dynamic-field-mapping.html) feature to create type mappings automatically.
-
-    ### Step 6: Verify that your Elasticsearch instance is up
-
-    To make sure that the Elasticsearch instance operates properly, in the address bar of your browser, enter the address of the instance:
-
-    ```
-    localhost:9200
-    ```
-
-    If Elasticsearch operates properly, an object with cluster details is displayed.
-    It should be similar to the following example:
-
-    ``` Java
-  	{
-  		"name" : "doej-MacPro-mTkBe",
-  		"cluster_name" : "elasticsearch",
-  		"cluster_uuid" : "WLYqnQ_lSZGbX-vDIe_vZQ",
-  		"version" : {
-  		  "number" : "7.7.0",
-  		  "build_flavor" : "default",
-  		  "build_type" : "tar",
-  		  "build_hash" : "5b1fea5",
-  		  "build_date" : "2020-05-10T02:35:59.208Z",
-  		  "build_snapshot" : false,
-  		  "lucene_version" : "8.5.1",
-  		  "minimum_wire_compatibility_version" : "6.8.0",
-  		  "minimum_index_compatibility_version" : "6.0.0-beta1"
-  		},
-  		"tagline" : "You Know, for Search"
-  	}
-    ```
