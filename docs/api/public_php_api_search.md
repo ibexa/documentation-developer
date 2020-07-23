@@ -421,7 +421,8 @@ $query->sortClauses = [
 
 ## Searching in trash
 
-To search the trash, use the `TrashService::findInTrash` method to submit a query for Content items that are held in trash.
+In the user interface, on the Trash screen, you can search for Content items, and then sort the results based on different criteria.
+To search the trash with the API, use the `TrashService::findInTrash` method to submit a query for Content items that are held in trash.
 Searching in trash supports a limited set of Criteria and Sort Clauses.
 For a list of supported Criteria and Sort Clauses, see [Searching in trash reference](../guide/search/search_in_trash_reference.md).
 
