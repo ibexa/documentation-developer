@@ -476,7 +476,7 @@
     ```
 
     You can also set a boosting factor for a specific field.
-    Boosting increases the relevance of hits, for example, to help you account for the fact that keywords from the title are more relevant than the ones from other places of the document.
+    Boosting increases the relevance of hits, for example making keywords from the title more relevant than the ones from other places of the document.
     Set the boosting factor under the `properties` key:
 
     ``` yaml
