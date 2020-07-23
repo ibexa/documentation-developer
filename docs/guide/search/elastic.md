@@ -5,43 +5,32 @@
     Elasticsearch is an open-source, distributed, Java-based search engine that responds to queries
     in real-time and is easily scalable in reaction to changing processing needs.
 
-    With this document you learn to configure Elastic and eZ Platform to work together.
     For a detailed description of advanced settings that you might require in a specific
     production environment, see the documentation provided by Elastic, beginning with the [Set up Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/7.7/setup.html) section.
 
     !!! tip "**Prerequisite**"
 
-        Before you proceed to configuring the integration between Elasticsearch and eZ Platform, make sure
-      	that you install a standalone instance of Elasticsearch locally and experiment with it
-      	to become familiar with how indexing, filtering and queries work.
+        Before you configure Elasticsearch in eZ Platform, install a standalone instance of Elasticsearch locally.
+        To proceed you need to be familiar with how indexing, filtering and queries work.
 
     ## How to set up the Elasticsearch search engine
 
-    Elasticsearch integration requires that you do the following steps:
-
     ### Step 1: Download and install Elasticsearch
 
-    Download an Elasticsearch installation package for the system platform of your choice and install it on a dedicated machine using out-of-the-box settings.
-    For example, download the `tar.gz` file and execute the `bin/elasticsearch` command.
-
-    For more information, see [Install Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/7.7/install-elasticsearch.html).
+    [Install Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/7.7/install-elasticsearch.html) on your server.
 
     !!! note
 
         eZ Platform is optimised to work with Elasticsearch in version 7.7.
 
-    ### Step 2: Verify that your Elasticsearch instance is up
+    ### Step 2: Verify that the Elasticsearch instance is up
 
-    To make sure that the Elasticsearch instance operates properly, in the address bar of your browser, enter the address of the instance:
-
-    ```
-    localhost:9200
-    ```
+    To make sure that the Elasticsearch instance operates properly, access the instance (e.g. `localhost:9200`) in a browser.
 
     If Elasticsearch operates properly, an object with cluster details is displayed.
     It should be similar to the following example:
 
-    ``` Java
+    ``` json
   	{
   		"name" : "doej-MacPro-mTkBe",
   		"cluster_name" : "elasticsearch",
@@ -77,64 +66,64 @@
 
     !!! note
 
-    		All the settings, their order and meaning, correspond to the settings that are described in the Elasticsearch documentation.
+        All the settings, their order and meaning, correspond to the settings that are described in the Elasticsearch documentation.
         However, in eZ Platform you provide the settings in a form of a YAML file, instead of a JSON file.
 
-    First, you decide how eZ Platform connects to Elasticsearch, as well as configure other settings that control the way Elasticsearch operates.
+    First, decide how eZ Platform connects to Elasticsearch and configure other connection settings.
     For more information, see [Configure connections](#configure-connections).
 
-    Then, you define a field type mappings template that instructs Elasticsearch to interpret eZ Platform fields as specific types. For more information, see [Configure field type mappings](#configure-field-type-mappings).
+    Then, define a field type mappings template that instructs Elasticsearch to interpret eZ Platform fields as specific types. For more information, see [Configure field type mappings](#configure-field-type-mappings).
 
-    When ready, you [push the template to the Elasticsearch engine](#step-4- push-the--template).
+    When ready, [push the template to the Elasticsearch engine](#step-4- push-the--template).
 
     #### Configure connections
 
     When you configure the Elasticsearch integration, you must first configure the connections.
     You either connect to a [cluster of Elasticsearch nodes](#configure-a-cluster) or the [Elasticsearch Cloud](#Configure-Elasticsearch-Cloud).
 
-    You define the connection settings under the `connections` key. First, you set a name of the connection:
+    Define the connection settings under the `connections` key. First, set a name of the connection:
 
     ``` yaml
     ez_platform_elastic_search_engine:
-      	connections:
-          	<connection_name>:
+        connections:
+            <connection_name>:
     ```
 
-    Then you decide whether to add a cluster that you administer and manage yourself, or resort to a cloud solution from Elastic, as well as configure additional parameters.
+    Then decide whether to add a cluster that you administer and manage yourself, or use a cloud solution from Elastic, as well as configure additional parameters.
     You can then decide how the cluster [handles communication with individual nodes](#configure-the-multi-node-cluster-behaviour), and configure the [security settings](#configure-security).
 
     !!! tip "A default connection"
 
-        If you define more than one connection in the YAML file, for example, for testing purposes,
+        If you define more than one connection, for example for testing purposes,
     	  you must select the one that eZ Platform should use with the following setting:
 
-    	  ``` yaml
-    		ez_platform_elastic_search_engine:
-              # ...
-              default_connection: <connection_name>
-    	  ```
+        ``` yaml
+        ez_platform_elastic_search_engine:
+            # ...
+            default_connection: <connection_name>
+        ```
 
     ##### Configure a cluster
 
     A cluster consists of a number of nodes.
     You might start with just one node, and add more nodes if you need more processing power.
 
-    When configuring a node, you set the following parameters:
+    When configuring a node, set the following parameters:
 
     - `host` - An IP number or URL address of the host.
     The default value is `localhost`.
     - `port` - A port to connect to.
-    The efault value is `9200`.
+    The default value is `9200`.
     If you have several Elasticsearch instances that run on the same host, and want to differentiate them, you can change the default number.
-    - `scheme` - A protocol to be used to access the node.  Default value is `http`.
+    - `scheme` - A protocol to be used to access the node. Default value is `http`.
     - `path` - By default, path is not used.
     The default value is `null`.
     If you have several Elasticsearch instances that run on the same host, and want to differentiate
     them, you can define a path for each instance.  
-    - `user`/`pass` - Credentials, if needed to login to the host.
+    - `user`/`pass` - Credentials, if needed to log in to the host.
     Default values are `null`.
 
-    You list the addresses of cluster nodes under the `hosts` key:
+    List the addresses of cluster nodes under the `hosts` key:
 
     ``` yaml
     ez_platform_elastic_search_engine:
@@ -159,7 +148,7 @@
     - { host: '<my.elasticsearch.domain>', scheme: 'http', port: 9200, path: '/', user: <username>, pass: <password> }
     ```
 
-    Your cluster connection configurations should be similar to the following examples:
+    Cluster connection configuration should have the following structure:
 
     ``` yaml
     ezplatform_elastic_search_engine:
@@ -185,7 +174,7 @@
     	  default_connection: simple
     ```
 
-    ###### Configure the multi-node cluster behaviour
+    ###### Configure the multi-node cluster behavior
 
     When you configure a cluster-based connection, and the cluster consists of many nodes, you can
     choose strategies that govern how the cluster reacts to changing operating conditions, or how
@@ -216,14 +205,14 @@
 
     !!! tip "Load tests recommendation"
 
-    		It is recommended that you to perform load tests to check whether the change does not negatively impact the performance of your environment.
+        It is recommended that you to perform load tests to check whether the change does not negatively impact the performance of your environment.
 
     Connection selector
 
-    When the cluster consists of many hosts, with this setting you decide what strategy is used to pick a node to send a query requests to.
+    When the cluster consists of many hosts, the `connection_selector` setting decides what strategy is used to pick a node to send a query requests to.
     By default, the `RoundRobinSelector` setting is used.
 
-    If you prefer a different strategy, or have created your own, proprietary strategy, you can change the default setting with the following key:
+    If you prefer a different strategy, or have created your own, custom strategy, you can change the default setting with the following key:
 
     ``` yaml
     <connection_name>:
@@ -235,9 +224,9 @@
 
     Number of retries
 
-    With this setting you can configure the number of attempts that eZ platform makes to connect
+    The `retries` setting configures the number of attempts that eZ Platform makes to connect
     to the nodes of the cluster before it throws an exception.
-    By default, the `null` setting is used, which means that the number of retries equals to the number of nodes in the cluster.
+    By default, `null` is used, which means that the number of retries equals to the number of nodes in the cluster.
 
     ``` yaml
     <connection_name>:
@@ -251,7 +240,7 @@
 
     ##### Configure Elasticsearch Cloud
 
-    As an alternative, you might decide to use Elasticsearch Cloud, a commercial SaaS solution.
+    As an alternative to using your own cluster, you can use Elasticsearch Cloud, a commercial SaaS solution.
     With Elasticsearch Cloud you do not have to build or manage your own Elasticsearch cluster.
     Also, you do all the configuration and administration in a graphical user interface.
 
@@ -281,8 +270,8 @@
 
     #### Configure basic authentication
 
-    If your Elasticsearch server is protected by HTTP authentication, you must provide eZ Platform with the credentials, so that eZ Platform requests can be authenticated by the server.
-    Basic authentication support requires that you pass a set of parameters that is similar to the following example:
+    If your Elasticsearch server is protected by HTTP authentication, you must provide eZ Platform with the credentials.
+    When using basic authentication you must pass the following parameters:
 
     ``` yaml
     <connection_name>
@@ -307,14 +296,14 @@
 
     #### Configure API key authentication
 
-    If your Elasticsearch cluster is protected by API keys, you must use the values described below to
+    If your Elasticsearch cluster is protected by API keys, you must provide the key and secret in authentication configuration to
     connect eZ Platform with the cluster. With API key authentication you can define different
     authorisation levels, such as [`create_index`, `index`, etc.](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/security-privileges.html#privileges-list-indices). Such approach
     proves useful if the cluster is available to the public.
 
     For more information, see [Create API key](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/security-api-create-api-key.html).
 
-    API key authentication support requires that you provide the following set of parameters to
+    When using API key authentication you must pass the following parameters to
     authenticate access to the cluster:
 
     ``` yaml
@@ -342,7 +331,7 @@
 
     When you need to protect your communication with the Elasticsearch server, you can use SSL encryption.
     When configuring SSL for your internal infrastructure, you can use your own certificates.
-    You configure ssl by passing the path-passwords pairs for both the certificate and the certificate key.
+    Configure SSL by passing the path-passwords pairs for both the certificate and the certificate key.
 
     For example:
 
@@ -364,8 +353,8 @@
               pass: ~
     ```
 
-    After you have configured SLL, you can still disable it, for example, when the certificates expire, or you are migrating to a new set of certificates.
-    To do this, you must pass the following setting under the `ssl` key:
+    After you have configured SLL, you can still disable it, for example when the certificates expire, or you are migrating to a new set of certificates.
+    To do this, pass the following setting under the `ssl` key:
 
     ``` yaml
     verification: false
@@ -375,7 +364,7 @@
 
     #### Enable debugging
 
-    In a staging environment, you can decide that eZ Platform populates its logs with messages about the status of communication with Elasticsearch. You can then use Symfony Profiler to review the logs.
+    In a staging environment, you can log messages about the status of communication with Elasticsearch. You can then use Symfony Profiler to review the logs.
 
     By default, debugging is disabled. To enable debugging, you can toggle either of the following two settings:
 
@@ -386,8 +375,8 @@
       trace:	<true/false>
     ```
 
-    Enabling the `debug` setting results in logging basic information about a request, such as request status and time.
-    Enabling the `trace` setting results in logging additional information, such as steps to reproduce an an exact copy of a query.
+    - `debug` logs basic information about a request, such as request status and time.
+    - `trace` logs additional information, such as steps to reproduce an an exact copy of a query.
 
     !!! tip
 
@@ -396,7 +385,7 @@
     #### Configure field type mappings
 
     Before you can re-index the eZ Platform data, so that Elasticsearch can search through its contents, you must define an index template.
-    Templates instruct Elasticsearch to recognise eZ Platform fields as specific data types, based on, for example, a field name.
+    Templates instruct Elasticsearch to recognise eZ Platform Fields as specific data types, based on, for example, a field name.
     They help you prevent Elasticsearch from using the dynamic field mapping feature to create type mappings automatically.
     You can create several field type mapping templates for each index, for example, to define settings that are specific for different languages.
     When you establish a relationship between a field mapping template and a connection, you can apply several templates, too.
@@ -418,12 +407,14 @@
             mappings:            
     ```
 
-    You first set a unique name for the template, then the keys, which have the following meaning:
+    Set a unique name for the template and configure the following keys:
 
     - `patterns` - A list of wildcards that Elasticsearch uses to match the field mapping template to an index.
-    If you use the `_location_*` wildcard as a pattern, the settings and mappings listed belowapply to all indexes, whose names are prefixed with the word "location".
+    If you use the `_location_*` wildcard as a pattern, the settings and mappings listed below apply to all indexes whose names are prefixed with the word "location".
 
-      The `patterns` setting proves useful when your data contains content in different languages, you can create index templates with settings that apply to a specific language only, for example, to eliminate stop words from the index, or help divide concatenations.
+      You can use the `patterns` setting when your data contains content in different languages.
+      You can create index templates with settings that apply to a specific language only,
+      for example to eliminate stop words from the index, or help divide concatenations.
       You use patterns to identify index templates that contain settings specific for a given language:
 
       ``` yaml
@@ -486,7 +477,7 @@
 
     You can also set a boosting factor for a specific field.
     Boosting increases the relevance of hits, for example, to help you account for the fact that keywords from the title are more relevant than the ones from other places of the document.
-    You set the boosting factor under the `properties` key:
+    Set the boosting factor under the `properties` key:
 
     ``` yaml
     ez_platform_elastic_search_engine:
@@ -535,10 +526,10 @@
 
     ### Step 5: Push the templates
 
-    You push the templates to the Elasticsearch engine by running the following command:
+    Push the templates to the Elasticsearch engine by running the following command:
 
     ``` bash
-    run php bin/console ezplatform:elasticsearch:put-index-template
+    php bin/console ezplatform:elasticsearch:put-index-template
     ```
 
     You can modify the behaviour of the command with a number of switches:
@@ -561,10 +552,10 @@
 
     ### Step 6: Reindex the database
 
-    Once you have created index templates that satisfy your needs, run the following command to reindex your data:
+    After creating index templates, run the following command to reindex your data:
 
     ``` bash
-    run php bin/console ezplatform:reindex
+    php bin/console ezplatform:reindex
     ```
 
     !!! caution "Risks of premature indexing"
