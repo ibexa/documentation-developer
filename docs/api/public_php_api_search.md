@@ -89,7 +89,7 @@ With the Legacy search engine both properties will give identical results.
 
 ## Repository filtering
 
-You can use the `ContentService::find(Filter)` method to find Content items or 
+You can use the `ContentService::find(Filter)` method to find Content items or
 `LocationService::find(Filter)` to find Locations using a defined Filter.
 
 `ContentService::find` returns an iterable [`ContentList`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.1.0/eZ/Publish/API/Repository/Values/Content/ContentList)
@@ -169,17 +169,17 @@ class FilterCommand extends Command
 }
 ```
 
-Notice that the total number of items is retrieved differently for `ContentList` and `LocationList`. 
+Notice that the total number of items is retrieved differently for `ContentList` and `LocationList`.
 
 !!! caution
 
     The total count is the total number of matched items, regardless of pagination settings.
-    
+
 !!! tip "Repository filtering is SiteAccess-aware"
 
     Repository filtering is SiteAccess-aware, which means you can skip the second argument of the `find` methods.
-    In that case languages from a current context are injected and added as a LanguageCode Criterion filter. 
-    
+    In that case languages from a current context are injected and added as a LanguageCode Criterion filter.
+
 You can use the following methods of the Filter:
 
 - `withCriterion` - add the first Criterion to the Filter
@@ -204,18 +204,18 @@ $filter
 !!! note "Search Criteria and Sort Clause availability"
 
     Not all Search Criteria and Sort Clauses are available for use in Repository filtering.
-    
+
     Only Criteria implementing [`FilteringCriterion`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.1.0/eZ/Publish/SPI/Repository/Values/Filter/FilteringCriterion.php)
     and Sort Clauses implementing [`FilteringSortClause`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.1.0/eZ/Publish/SPI/Repository/Values/Filter/FilteringSortClause.php)
     are supported.
 
     See [Search Criteria](../guide/search/search_criteria_reference.md)
     and [Sort Clause reference](../guide/search/sort_clause_reference.md) for details.
-    
+
 !!! tip
 
     It is recommended to use an IDE that can recognize type hints when working with Repository Filtering.
-    If you try to use an unsupported Criterion or Sort Clause, the IDE will indicate an issue. 
+    If you try to use an unsupported Criterion or Sort Clause, the IDE will indicate an issue.
 
 ## Searching in a controller
 
@@ -421,13 +421,34 @@ $query->sortClauses = [
 
 ## Searching in trash
 
-To search the trash, use the `TrashService::findInTrash` method to submit a query for Content items that are held in trash.
+In the user interface, on the Trash screen, you can search for Content items, and then sort the results based on different criteria.
+To search the trash with the API, use the `TrashService::findInTrash` method to submit a query for Content items that are held in trash.
 Searching in trash supports a limited set of Criteria and Sort Clauses.
-For a list of supported Criteria and Sort Clauses, see [Searching in trash reference](../guide/search/sort_clause_reference.md).
+For a list of supported Criteria and Sort Clauses, see [Searching in trash reference](../guide/search/search_in_trash_reference.md).
 
 !!! note
 
     Searching through the trashed Content items operates directly on the database, therefore you cannot use external search engines, such as Solr or Elasticsearch, and it is impossible to reindex the data.
+
+``` php
+use eZ\Publish\API\Repository\Values\Content\Query;
+
+    // ...
+
+    $query = new Query();
+    // find trashed folders
+    $query->filter = new Query\Criterion\ContentTypeId([1]);
+    $results = $this->trashService->findTrashItems($query);
+    foreach ($results->items as $trashedLocation) {
+        /** @var \eZ\Publish\API\Repository\Values\Content\TrashItem[] $trashedLocation */
+        // ...
+    }
+```
+
+!!! caution
+
+    Make sure that you set the Criterion on the `filter` property.
+    It is impossible to use the `query` property, because the search in trash operation filters the database instead of querying.
 
 ## Faceted search
 
