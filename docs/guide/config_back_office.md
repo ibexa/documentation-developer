@@ -181,21 +181,3 @@ ezplatform:
 ## Universal Discovery Widget (UDW) configuration
 
 The Universal Discovery Widget (UDW) can be found in [Extending UDW.](../extending/extending_udw.md)
-
-## Search results configuration
-
-You can set a template to be used for search results in the Back Office under the `search_view` key
-and set the pagination limit under `search.pagination`:
-
-``` yaml
-system:
-    admin_group:
-        search_view:
-            full:
-                ezplatform_admin_ui:
-                    template: 'custom_search_template.html.twig'
-                    match: true
-        search:
-            pagination:
-                limit: 12
-```
