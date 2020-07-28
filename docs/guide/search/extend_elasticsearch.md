@@ -165,7 +165,7 @@
     }
     ```
 
-    Next, add the Search Criterion class itself in src/Query/Criterion/CameraManufacturerCriterion.php
+    Next, add the Search Criterion class itself in `src/Query/Criterion/CameraManufacturerCriterion.php`:
 
     ``` php
     <?php
