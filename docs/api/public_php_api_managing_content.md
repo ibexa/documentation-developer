@@ -130,7 +130,8 @@ $newParent = $this->locationService->loadLocation($location);
 $this->trashService->recover($trashItem, $newParent);
 ```
 
-To sort Trash items by date, use [`TrashService::findTrashItems`.](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.2/eZ/Publish/API/Repository/Values/Content/Query/SortClause/Trash/DateTrashed.php)
+You can also search through Trash items and sort the results using several public PHP API search criteria and sort clauses that have been exposed for `TrashService` queries.
+For more information, see [Searching in trash](public_php_api_search.md#searching-in-trash).
 
 ## Content Types
 

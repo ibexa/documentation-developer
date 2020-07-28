@@ -23,6 +23,8 @@ Start with the version closest to your current version:
 - [Updating from <2.3](4_update_2.3.md)
 - [Updating from <2.4](4_update_2.4.md)
 - [Updating from <2.5](4_update_2.5.md)
+- [Updating from <3.0](upgrading_to_v3.md)
+- [Updating from <3.1](4_update_3.1.md)
 
 Only after applying all changes your database will work properly.
 
@@ -31,3 +33,7 @@ Only after applying all changes your database will work properly.
     Always back up your data before running any database update scripts.
 
     After updating the database, clear the cache.
+    
+    Do not use `--force` argument for `mysql` / `psql` commands when performing update queries.
+    If there is any problem during the update, it is best if the query fails immediately, so you can fix the underlying problem before you execute the update again.
+    If you leave this for later you risk ending up with an incompatible database, though the problems might not surface immediately.
