@@ -7,6 +7,10 @@ searches for content based on the User ID.
 
 - `value` - int(s) representing the User ID(s).
 
+## Limitations
+
+The `UserIdentifier` Criterion is not available in Elastic search engine.
+
 ## Example
 
 ``` php

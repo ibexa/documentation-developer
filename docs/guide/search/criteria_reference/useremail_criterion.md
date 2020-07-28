@@ -8,6 +8,10 @@ searches for content based on the email assigned to the User account.
 - `value` - string(s) representing the User email(s).
 - `operator` - operator constant (IN, EQ, LIKE).
 
+## Limitations
+
+The `UserEmail` Criterion is not available in Elastic search engine.
+
 ## Example
 
 ``` php

@@ -8,6 +8,10 @@ searches for content based on the User ID.
 - `value` - string(s) representing the User logins(s).
 - `operator` - operator constant (IN, EQ, LIKE).
 
+## Limitations
+
+The `UserLogin` Criterion is not available in Elastic search engine.
+
 ## Example
 
 ``` php
