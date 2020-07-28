@@ -502,8 +502,7 @@ These can be used on the extension points by registering them with the container
 The following example shows how to index data from the parent Location content, in order to make it available for full-text search on the children content.
 It is based on the use case of indexing webinar data on the webinar events, which are children of the webinar. Field mapper could then look like this:
 
-
-``` php
+```php
  <?php
 
 namespace My\WebinarApp;
