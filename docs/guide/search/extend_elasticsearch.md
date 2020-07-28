@@ -134,9 +134,9 @@
 
     ## Custom Search Criterion
 
-    To provide support for a custom Search Criterion, you need to implement `Ibexa\Platform\Contracts\ElasticSearchEngine\Query\CriterionVisitor`:
+    To provide support for a custom Search Criterion, you need to implement `CriterionVisitor`:
 
-    ``` php
+    ``` php hl_lines="8"
     <?php
 
     declare(strict_types=1);
@@ -220,10 +220,10 @@
     ## Custom Sort Clause
 
     To create a custom Sort Clause for use with Elasticsearch,
-    implement `Ibexa\Platform\Contracts\ElasticSearchEngine\Query\SortClauseVisitor`
+    implement `SortClauseVisitor`
     in `src/Query/SortClause/ScoreVisitor.php`:
 
-    ``` php
+    ``` php hl_lines="10"
     <?php
 
     declare(strict_types=1);
