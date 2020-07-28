@@ -502,10 +502,9 @@ These can be used on the extension points by registering them with the container
 The following example shows how to index data from the parent Location content, in order to make it available for full-text search on the children content.
 It is based on the use case of indexing webinar data on the webinar events, which are children of the webinar. Field mapper could then look like this:
 	
-	!!! caution "checking permissions"
+	!!! caution "Permission issues when using Repository API in document field mappers"
 
-You may face some permissions issue when trying to load contents using contentService. To avoid this, use [sudo](https://doc.ezplatform.com/en/2.5/api/public_php_api/#using-sudo).
-If you dont want to use sudo, you can use internalLoadContentById (SPI layer) that dont check permissions.
+Document field mappers are low level, they expect to be able to index all content regardless of current user permissions. For indexing Content the system itself is thus using SPI Persistence layer, so you you use API in your custom document field mappers you'll need to use [sudo](https://doc.ezplatform.com/en/2.5/api/public_php_api/#using-sudo).
 ``` php
  <?php
 
