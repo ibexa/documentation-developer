@@ -437,11 +437,13 @@
     - `patterns` - A list of wildcards that Elasticsearch uses to match the field mapping template to an index.
     Index names use the following pattern:
 
-        `<repository>_contenttype_<language_code>_<content_type_id>`
+        `<repository>_<document_type>_<language_code>_<content_type_id>`
 
-        By default, repository name is set to `default`, however, in the context of a [site access](https://doc.ezplatform.com/en/latest/guide/siteaccess/#siteaccess),
-        there can be several repositories with different names.
-        In a language code, hyphens are replaced with underscores, and all characters must be lowercase. An index name can therefore look like this:
+        By default, repository name is set to `default`, however, in the context of a site access,
+        there can be [several repositories with different names](https://doc.ezplatform.com/en/latest/guide/config_repository/#defining-custom-connection).
+        Document type can be either `content` or `location`.
+        In a language code, hyphens are replaced with underscores, and all characters must be lowercase.
+        An index name can therefore look like this:
 
         `default_content_eng_gb_2`
 
