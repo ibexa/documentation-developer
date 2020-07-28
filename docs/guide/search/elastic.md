@@ -439,7 +439,7 @@
 
         `<repository>_<document_type>_<language_code>_<content_type_id>`
 
-        By default, repository name is set to `default`, however, in the context of a site access,
+        By default, repository name is set to `default`, however, in the context of an eZ Platform instance,
         there can be [several repositories with different names](https://doc.ezplatform.com/en/latest/guide/config_repository/#defining-custom-connection).
         Document type can be either `content` or `location`.
         In a language code, hyphens are replaced with underscores, and all characters must be lowercase.
