@@ -186,6 +186,7 @@ nav:
                 - 'UserLogin': 'guide/search/sort_clause_reference/userlogin_sort_clause.md'
                 - 'Visibility': 'guide/search/sort_clause_reference/visibility_sort_clause.md'
             - 'Searching in trash reference': 'guide/search/search_in_trash_reference.md'
+            - 'Elasticsearch search engine': 'guide/search/elastic.md'
             - 'Solr search engine': 'guide/search/solr.md'
             - 'Other search engines': 'guide/search/search_engines.md'
         - Multisite:
