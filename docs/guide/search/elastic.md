@@ -565,3 +565,8 @@
     ```
 
     For more information about how Elasticsearch handles settings and mappings from multiple templates that match the same index, see [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/indices-templates-v1.html#multiple-templates-v1).
+    
+    ## Extending Elasticsearch
+    
+    To learn how to create custom Search Criteria, Sort Clauses and Facets for use with Elasticsearch,
+    and how to index custom data and manipulate the query, see [Elasticsearch extensibility](extend_elasticsearch.md).
