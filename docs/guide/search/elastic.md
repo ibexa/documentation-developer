@@ -569,4 +569,4 @@
     ## Extending Elasticsearch
     
     To learn how to create custom Search Criteria, Sort Clauses and Facets for use with Elasticsearch,
-    and ho to index custom data and manipulate the query, see [Elasticsearch extensibility](extend_elasticsearch.md).
+    and how to index custom data and manipulate the query, see [Elasticsearch extensibility](extend_elasticsearch.md).

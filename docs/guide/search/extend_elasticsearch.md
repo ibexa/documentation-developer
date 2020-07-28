@@ -16,7 +16,7 @@
 
     You can pass the event to a subscriber which gives you access to the document that you can modify.
 
-    In the following example when an index in created for a content or a Location document,
+    In the following example, when an index in created for a content or a Location document,
     the event subscriber adds a `custom_field` of the type `StringField` to the index:
 
     ``` php hl_lines="19 20 21"
@@ -80,7 +80,7 @@
 
     The following example shows how to add an additional Search Criterion to all queries.
 
-    Note that depending on your configuration, this will impact all search queries,
+    Depending on your configuration, this might impact all search queries,
     including those used for search and content tree in the Back Office.
 
     ``` php hl_lines="35"
@@ -127,7 +127,7 @@
 
     ``` yaml
     services:
-        App\EventSubscriber\CustomQueryFilerSubscriber:
+        App\EventSubscriber\CustomQueryFilterSubscriber:
             tags:
                 - { name: kernel.event_subscriber }
     ```
@@ -257,7 +257,7 @@
 
     The `supports()` method checks if the implementation can handle the given Sort Clause.
     The `visit()` method contains the logic that translates Sort Clause information into data understandable by Elasticsearch.
-    The `visit()` method takes the Sort Clause visitor, the Sort Clasue itself and the language filter as arguments.
+    The `visit()` method takes the Sort Clause visitor, the Sort Clause itself and the language filter as arguments.
 
     Next, add the Sort Clause class itself in `src/Query/SortClause/ScoreSortClause.php`:
 
