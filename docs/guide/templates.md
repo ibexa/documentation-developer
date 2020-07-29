@@ -494,6 +494,24 @@ Just like for regular Symfony controllers, you can take advantage of [ESI](https
 
 Only scalar variables (not objects) can be sent via `render_esi`.
 
+## Rendering search results
+
+You can set a template to be used for search results under the `search_view` key
+and set the pagination limit under `search.pagination`:
+
+``` yaml
+system:
+    <siteaccess>:
+        search_view:
+            full:
+                search:
+                    template: 'custom_search_template.html.twig'
+                    match: true
+        search:
+            pagination:
+                limit: 12
+```
+
 ## Rendering in preview
 
 When previewing content in the back office, the draft view is rendered using the [PreviewController](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/MVC/Symfony/Controller/Content/PreviewController.php).

@@ -220,3 +220,7 @@ php bin/console ezplatform:reindex --content-ids=3,45,33
 ```
 
 For further info on possible options, see `php bin/console ezplatform:reindex --help`.
+
+## Search view
+
+You can extend the search view by overwriting or extending `Ibexa\Platform\Search\View\SearchViewFilter` and `Ibexa\Platform\Search\View\SearchViewBuilder`.
