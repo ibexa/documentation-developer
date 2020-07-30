@@ -22,7 +22,7 @@ Next, define **point2d** with the following Fields:
 
 |Field Type|Name|Identifier|Position|Required|Translatable|
 |----------|----|----------|--------|--------|------------|
-| point2d  |Point 2D|`point_2d` | 1 | no | no|
+| point2d  |Point 2D|`point_2d` | 1 | yes | no|
 
 ![Defining Point 2D](img/new_field_definition.png)
 

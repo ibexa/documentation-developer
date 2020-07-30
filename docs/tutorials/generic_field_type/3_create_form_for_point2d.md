@@ -50,6 +50,8 @@ Final version of the Type class should have the following statements and functio
 
 ```php hl_lines="16 17 18 19 20 21 22 23"
 <?php
+declare(strict_types=1);
+
 namespace App\FieldType\Point2D;
 
 use App\Form\Type\Point2DType;
