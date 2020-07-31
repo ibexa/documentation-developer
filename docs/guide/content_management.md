@@ -7,9 +7,13 @@ When a new Content item is published, it is automatically placed in a new Locati
 All Locations form a tree which is the basic way of organizing content in the system.
 Every published Content item has a Location and, as a consequence, also a place in this tree.
 
+![Content Tree](img/content_management_tree.png "Content Tree")
+
 A Content item receives a Location only once it has been published.
 This means that a new unpublished draft does not have a Location yet.
 Drafts cannot be found in the Content browser. You can find them in the Dashboard or in your user menu under **Drafts**.
+
+![Drafts](img/content_management_drafts.png "Drafts")
 
 A Content item can have more than one Location. It is then present in two or more places in the tree.
 For example, an article can be at the same time under "Local news" and "Sports news".
@@ -17,6 +21,8 @@ Even in such a case, one of these places is always the main Location.
 
 You can change the main Location in the Back Office in the Locations tab,
 or [through the API](../api/public_php_api_managing_content.md#changing-the-main-location).
+
+![Locations](img/content_management_locations.png "Locations")
 
 ### Top level Locations
 
@@ -34,6 +40,9 @@ Under this root there are preset top level Locations in each installation which 
 
 The top level Location for the actual contents of a site
 can be viewed by selecting the **Content structure** tab in the Content mode interface.
+
+![Content structure](img/content_management_tree.png "Content structure")
+
 This part of the tree is typically used for organizing folders, articles, information pages, etc.
 The default ID number of this Location is 2, but it can be [modified via configuration](config_repository.md#top-level-locations).
 It contains a Folder Content item.
@@ -42,17 +51,22 @@ It contains a Folder Content item.
 
 **Media** is the top level Location which stores and organizes information
 that is frequently used by Content items located below the **Content** node.
+
+![Media](img/content_management_media.png "Media")
+
 It usually contains images, animations, documents and other files.
 The default ID number of the **Media** Location is 43, but it can be [modified via configuration](config_repository.md#top-level-locations).
 It contains a Folder Content item.
 
 #### Users
 
+**Users** is the top level Location that contains the built-in system for managing User accounts.
+
 ![Users in admin panel](img/admin_panel_users.png)
 
-**Users** is the top level Location that contains the built-in system for managing User accounts.
 A User is simply a Content item of the User account Content Type.
 The Users are organized within User Group Content items below this Location.
+
 In other words, the **Users** Location contains the actual Users and User Groups,
 which can be viewed by selecting the **Users** tab in the Admin Panel.
 The default ID number of the **Users** Location is 5, but it can be [modified via configuration](config_repository.md#top-level-locations).
@@ -63,6 +77,8 @@ It contains a User Group Content item.
     #### Forms
 
     **Forms** is the top level Location that is intended for Forms created using the [Form Builder](https://doc.ezplatform.com/projects/userguide/en/master/creating_content_advanced/#forms).
+    
+    ![Forms](img/content_management_forms.png "Forms")
 
 #### Other top level Locations
 
@@ -71,6 +87,8 @@ You should not add any more content directly below Location 1, but instead store
 ### Location visibility
 
 Location visibility allows you to control which parts of the content tree are available on the front page.
+
+![Location visibility](img/content_management_visibility.png "Location visibility")
 
 Once a Content item is published, it cannot be un-published.
 Limiting visibility is the only way to withdraw content from the website without moving it to Trash.
@@ -202,6 +220,8 @@ posts in other languages.
 
 Content items are located in a tree structure through the Locations they are placed in.
 However, Content items themselves can also be related to one another.
+
+![Content Relations](img/content_management_relations.png "Content Relations")
 
 A **Relation** can exist between any two Content items in the Repository.
 For example, images are linked to news articles they are used in.
