@@ -222,7 +222,6 @@ nav:
     - Extending eZ Platform:
         - Extending Back Office:
             - 'Extending Back Office': 'extending/extending_back_office.md'
-            - 'Extending Dashboard': 'extending/extending_dashboard.md'
             - 'Extending Menus': 'extending/extending_menus.md'
             - 'Extending tabs': 'extending/extending_tabs.md'
             - 'Extending settings': 'extending/extending_settings.md'
