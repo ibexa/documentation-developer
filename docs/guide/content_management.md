@@ -62,7 +62,7 @@ It contains a Folder Content item.
 
 **Users** is the top level Location that contains the built-in system for managing User accounts.
 
-![Users in admin panel](img/admin_panel_users.png)
+![Users in admin panel](img/admin_panel_users.png "Users in admin panel")
 
 A User is simply a Content item of the User account Content Type.
 The Users are organized within User Group Content items below this Location.
@@ -189,7 +189,7 @@ The Default content availability flag enables you to control whether content is 
 You can set the flag in Content Type definition by checking the "Make content available even with missing translations" option.
 It is automatically applied to any new Content item of this Type.
 
-![Default content availability](img/availability_flag.png)
+![Default content availability](img/availability_flag.png "Default content availability")
 
 A Content item with this flag will be available in its main language
 even if it is not translated into the language of the current SiteAccess.
