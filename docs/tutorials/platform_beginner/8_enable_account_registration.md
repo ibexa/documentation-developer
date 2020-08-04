@@ -6,11 +6,11 @@ In this step you will enable other users to create accounts on your site, access
 
 From **Admin**, go to the **Roles** management screen and click on the **Anonymous** Role.
 
-![Available Roles](img/step_6_role_mgmt_screen.png)
+![Available Roles](img/step_8_role_mgmt_screen.png)
 
 Add the `User/Register` Policy to the Anonymous User. This will allow any visitor to the website to access the registration form.
 
-![Policies for the Anynomous Role](img/step6_admin_anonymous_policies.png)
+![Policies for the Anynomous Role](img/step8_admin_anonymous_policies.png)
 
 Then go to `<yourdomain>/register`. The registration form is unstyled, so you need to add templates to it.
 
@@ -150,7 +150,7 @@ Then create the `templates/user/registration_confirmation.html.twig` template:
 
 Now return to `<yourdomain>/register`:
 
-![Complete Register page with the layout](img/step6_register_page.png)
+![Complete Register page with the layout](img/step8_register_page.png)
 
 Fill in the form and register a user.
 
