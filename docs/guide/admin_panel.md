@@ -17,7 +17,7 @@ There you will also find basic system information such as versions of all instal
 Sections are used to divide Content items in the tree into groups that are more easily manageable by content editors.
 Division into Sections allows you, among others, to set permissions for only a part of the tree.
 
-![Sections screen](img/admin_panel_sections.png)
+![Sections screen](img/admin_panel_sections.png "Sections screen")
 
 Technically, a Section is a number, a name and an identifier.
 Content items are placed in Sections by being assigned the Section ID. One item can be in only one Section.
@@ -255,11 +255,11 @@ If a state group contains any states, each Content item is automatically assigne
 
 You can assign states to content in the Back Office in the Content item's Details tab.
 
-![Assigning an Object state to a Content item](img/assigning_an_object_state.png)
+![Assigning an Object state to a Content item](img/assigning_an_object_state.png "Assigning an Object state to a Content item")
 
 By default, eZ Platform contains one Object state group: **Lock**, with states **Locked** and **Not locked**.
 
-![**Lock** Object state](img/object_state_lock.png)
+![**Lock** Object state](img/object_state_lock.png "Lock Object state")
 
 Object states can be used in conjunction with permissions, in particular with the [State Limitation](limitation_reference.md#state-limitation).
 Their specific use cases depend on your needs and the setup of your permission system.
