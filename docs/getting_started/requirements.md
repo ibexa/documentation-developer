@@ -27,7 +27,7 @@ These setups are tested by QA and are generally recommended setups. For security
 
 |||
 |------|------|
-|Search|Solr 7.x - currently tested with Solr 7.7LTS, using Oracle Java/Open JDK 8 or higher</br>*or*</br>Elasticsearch 7.7 |
+|Search|Solr 7.7LTS *or* Elasticsearch 7.7, using Oracle Java/Open JDK 8 or higher |
 |Graphic Handler|GraphicsMagick or ImageMagick or GD|
 |[Clustering](../guide/clustering.md)|Linux NFS *or* S3/EFS *(for IO, aka binary files stored in content repository, not supported with legacy)*</br>Redis 5.0 or higher *(separate instances for session & cache, both using a `volatile-*` [eviction policy](https://redis.io/topics/lru-cache), session instance configured for persistance)* *or* [Memcached](https://memcached.org/) 1.5 or higher</br>[Varnish](http://varnish-cache.org/) 6.0LTS with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst) *or* [Fastly](https://www.fastly.com/) using [the bundle provided with eZ Platform Enterprise Edition](../guide/http_cache.md#serving-varnish-through-fastly) *(for HttpCache)*|
 |Filesystem|Linux ext4 / XFS|
