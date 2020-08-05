@@ -28,6 +28,7 @@ If you use PostgreSQL, the following parameters need to be set differently in th
 - `DATABASE_PORT`
 - `DATABASE_PLATFORM` must be set to `pgsql` instead of `mysql`
 - `DATABASE_DRIVER` must be set to `pdo_pgsql` instead of the default `pdo_mysql`
+- `DATABASE_VERSION`
 - `DATABASE_CHARSET` must be set to `utf8`, because the default value of `utf8mb4` is MySQL-specific.
 
 The rest of the installation procedure is the same as when using MySQL.
