@@ -4,6 +4,8 @@
 
     The code created in this tutorial is available on GitHub: (https://github.com/ezsystems/TweetFieldTypeBundle).
 
+# This tutorial is only processable in EZ Platform version < 3.x 
+
 This tutorial covers the creation and development of a custom eZ Platform [Field Type](../../api/field_type_reference/).
 Field Types are the smallest building blocks of content. eZ Platform comes with about 30 native types that cover most common needs (Text line, Rich text, Email, Author list, Content relation, Map location, Float, etc.)
 
