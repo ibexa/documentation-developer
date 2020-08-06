@@ -3,15 +3,21 @@
 Once you set up your environment you can start your work as an administrator.
 Your most useful tools can be found in **Admin Panel**.
 
+![Admin Panel](img/admin_panel.png "Admin Panel")
+
 ## System Information
 
 The System Information panel in the Back Office is sourced in a [ezsystems/ez-support-tools repository](https://github.com/ezsystems/ez-support-tools).
 There you will also find basic system information such as versions of all installed packages.
 
+![System Information](img/admin_panel_system_info.png "System Information")
+
 ## Sections
 
 Sections are used to divide Content items in the tree into groups that are more easily manageable by content editors.
 Division into Sections allows you, among others, to set permissions for only a part of the tree.
+
+![Sections screen](img/admin_panel_sections.png "Sections screen")
 
 Technically, a Section is a number, a name and an identifier.
 Content items are placed in Sections by being assigned the Section ID. One item can be in only one Section.
@@ -34,14 +40,13 @@ Other references to the Section will remain and thus the system will most likely
 
 Section ID numbers are not recycled. If a Section is removed, its ID number will not be reused when a new Section is created.
 
-![Sections screen](img/admin_panel_sections.png)
-
-
 ## Users
 
 Users in eZ Platform are treated the same way as [Content Types](#content-types).
 They are organized in groups such as *Guests*, *Editors*, *Anonymous*, which makes it easier to manage them and their permissions.
 All User Groups and Users can be accessed in the Admin panel by selecting Users.
+
+![Users and User Groups](img/admin_panel_users.png "Users and User Groups")
 
 !!! caution
 
@@ -56,9 +61,14 @@ If you want to give your users possibility to register themselves follow a tutor
 ## Roles
 
 To give users an access to your website you need to assign them Roles in the Admin Panel.
+
+![Roles](img/admin_panel_roles.png "Roles")
+
 Each Role consists of:
 
 **Policies**
+
+![Policies](img/admin_panel_policies.png "Policies")
 
 Rules that give users access to different function in a module.
 You can restrict what user can do with Limitations.
@@ -72,6 +82,8 @@ See [example below](#restrict-editing-to-part-of-the-tree).
     A `Location` Limitation, for example, gives the User access to content with a specific Location, not prohibits it. See [Available Limitations](limitations.md#available-limitations) for further information.
 
 **Assignments**
+
+![Assignments](img/admin_panel_assignments.png "Assignments")
 
 After you created all Policies, you can assign the Role to Users and/or User Groups with possible additional Limitations.
 Every User or User Group can have multiple Roles.
@@ -100,15 +112,17 @@ To allow the User to enter the Back Office interface and view all content, you n
 
 These Policies will be necessary for all other cases below that require access to the content structure.
 
-#### Create content without publishing
+!!! enterprise
 
-This option can be used together with eZ Enterprise's content review options.
-Using the following Policies, the User is able to create content, but can't publish it; instead, they must send it for review to another User with proper permissions (for example, senior editor, proofreader, etc.).
-
-- `content/create`
-- `content/edit`
-
-Note that without eZ Enterprise this setup should not be used, as it will not allow the User to continue working with their content.
+    #### Create content without publishing
+    
+    This option can be used together with eZ Enterprise's content review options.
+    Using the following Policies, the User is able to create content, but can't publish it; instead, they must send it for review to another User with proper permissions (for example, senior editor, proofreader, etc.).
+    
+    - `content/create`
+    - `content/edit`
+    
+    Note that without eZ Enterprise this setup should not be used, as it will not allow the User to continue working with their content.
 
 #### Create and publish content
 
@@ -202,7 +216,9 @@ For more examples, see [Permissions use cases](permissions/#use-cases).
 eZ Platform offers the ability to create multiple translations of your website.
 Which version is shown to a visitor depends on the way your installation is set up.
 A new language version for the website can be added in the Admin Panel in the Languages tab.
-Every new language must have a name and a language code, written in the `xxx-XX` format, for example `eng-US` etc.
+Every new language must have a name and a language code, written in the `xxx-XX` format, for example `eng-GB` etc.
+
+![Languages](img/admin_panel_languages.png "Languages")
 
 The multilanguage system operates based on a global translation list that contains all languages available in the installation.
 After adding a language you may have to reload the application to be able to use it.
@@ -214,9 +230,15 @@ See [Languages](internationalization.md) for further information.
 
 A Content Type is a base for new Content items.
 It defines what Fields will be available in the Content item.
+
+![Content Types](img/admin_panel_content_types.png "Content Types")
+
 For example, a new Content Type called *Article* can have Fields such as title, author, body, image, etc.
 Based on this Content Type, you can create any number of Content items.
 Content Types are organized into groups.
+
+![Content Type groups](img/admin_panel_content_type_groups.png "Content Type groups")
+
 You can add your own groups here to keep your Content Types in better order.
 
 For a full tutorial, see [Create a Content Type](../getting_started/first_steps/#create-a-content-type) or follow [user documentation](https://doc.ezplatform.com/projects/userguide/en/latest/organizing_the_site/#content-types).
@@ -226,15 +248,18 @@ For a detailed overview of the content model, see [Content model overview](conte
 
 Object states are user-defined states that can be assigned to Content items.
 They are contained in groups.
+
+![Object State group](img/admin_panel_object_state_groups.png "Object State group")
+
 If a state group contains any states, each Content item is automatically assigned a state from this group.
 
 You can assign states to content in the Back Office in the Content item's Details tab.
 
-![Assigning an Object state to a Content item](img/assigning_an_object_state.png)
+![Assigning an Object state to a Content item](img/assigning_an_object_state.png "Assigning an Object state to a Content item")
 
 By default, eZ Platform contains one Object state group: **Lock**, with states **Locked** and **Not locked**.
 
-![**Lock** Object state](img/object_state_lock.png)
+![**Lock** Object state](img/object_state_lock.png "Lock Object state")
 
 Object states can be used in conjunction with permissions, in particular with the [State Limitation](limitation_reference.md#state-limitation).
 Their specific use cases depend on your needs and the setup of your permission system.
