@@ -108,7 +108,7 @@ Alternatively, you can also change individual installation parameters in `.env`.
 
     It is recommended to store the database credentials in your `.env.local` file and not commit it to the Version Control System.
 
-The configuration requires providing the following parameters:
+The [configuration](https://symfony.com/doc/current/reference/configuration/doctrine.html#doctrine-dbal-configuration) requires providing the following parameters:
 
 - `DATABASE_USER`
 - `DATABASE_PASSWORD`
