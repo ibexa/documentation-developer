@@ -6,7 +6,7 @@ This page explains how to install eZ Platform on macOS or Windows.
 
     This procedure is **for development purposes only**.
     Installing eZ Platform for production purposes is supported only on Linux.
-    
+
     If you want to use eZ Platform in the production environment, see [Installing eZ Platform](../getting_started/install_ez_platform.md).  
 
 ### Prepare work environment
@@ -14,7 +14,7 @@ This page explains how to install eZ Platform on macOS or Windows.
 To install eZ Platform, you need a stack with MySQL and PHP.
 Additionally, you need [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/lang/en/docs/install/) for asset management.
 If you want to use a web server, you need to install it as well:
- 
+
 - For Windows: Apache
 - For macOS: Apache/nginx
 
@@ -108,7 +108,7 @@ Alternatively, you can also change individual installation parameters in `.env`.
 
     It is recommended to store the database credentials in your `.env.local` file and not commit it to the Version Control System.
 
-The configuration requires providing the following parameters:
+The [configuration](https://symfony.com/doc/current/reference/configuration/doctrine.html#doctrine-dbal-configuration) requires providing the following parameters:
 
 - `DATABASE_USER`
 - `DATABASE_PASSWORD`
@@ -117,6 +117,7 @@ The configuration requires providing the following parameters:
 - `DATABASE_PORT`
 - `DATABASE_PLATFORM` —  prefix for distinguishing the database you are connecting to (e.g. `mysql` or `pgsql`)
 - `DATABASE_DRIVER` — driver used by Doctrine to connect to the database (e.g. `pdo_mysql` or `pdo_pgsql`)
+- `DATABASE_VERSION` - database server version (for a MariaDB database, prefix the value with `mariadb-`)
 
 !!! tip "Using PostgreSQL"
 
@@ -138,7 +139,7 @@ php ./bin/console doctrine:database:create
 
 Before executing the following command, ensure that the user set during `composer install` has sufficient permissions.
 
-Install eZ Platform by running: 
+Install eZ Platform by running:
 
 ``` bash
 composer ezplatform-install
