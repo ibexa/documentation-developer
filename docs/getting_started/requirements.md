@@ -18,7 +18,7 @@ These setups are tested by QA and are generally recommended setups. For security
 
 ||Debian|Ubuntu|RHEL / CentOS|
 |------|------|------|------|
-|Operating system|10.x "Buster"|20.05 "Focal Fossa"|8.1+|
+|Operating system|10.x "Buster"|20.04 "Focal Fossa"|8.1+|
 |Web Server|Nginx 1.14</br>Apache 2.4|Nginx 1.18</br>Apache 2.4|Nginx 1.14</br>Apache 2.4|
 |DBMS|MariaDB 10.3|MariaDB 10.3</br>MySQL 8.0|MariaDB 10.3</br>MySQL 8.0|
 |PHP|PHP 7.3|PHP 7.4|PHP 7.3|
