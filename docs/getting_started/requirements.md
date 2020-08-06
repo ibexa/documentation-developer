@@ -46,7 +46,7 @@ For security and performance we generally recommend (unless otherwise noted) usi
 -   DBMS
     -   MySQL 5.7 or 8.0
     -   MariaDB 10.2, 10.3, 10.4
-    -   PostgreSQL 12.2
+    -   PostgreSQL 10+
 -   PHP
     -   7.3
 
