@@ -204,9 +204,11 @@ $this->contentTypeService->publishContentTypeDraft($copyDraft);
 
 ## Calendar events
 
+You can handle the calendar using `CalendarServiceInterface` (`EzSystems\EzPlatformCalendar\Calendar\CalendarServiceInterface`).
+
 ### Getting events
 
-To get a list of all events for a specified time period, use the `CalendarService::getEvents` method.
+To get a list of events for a specified time period, use the `CalendarServiceInterface::getEvents` method.
 You need to provide the method with an EventQuery, which takes a date range and a count as the minimum of parameters:
 
 ``` php
@@ -223,14 +225,14 @@ foreach ($eventList as $event) {
 }
 ```
 
-You can also get the first and last event in the list by using the `first()` and `last()` methods of an `EventCollection` respectively:
+You can also get the first and last event in the list by using the `first()` and `last()` methods of an `EventCollection` (`EzSystems\EzPlatformCalendar\Calendar\EventCollection`) respectively:
 
 ``` php
 $eventCollection = $eventList->getEvents();
 $output->writeln('First event: ' . $eventCollection->first()->getName() . '; date: ' . $eventCollection->first()->getDateTime()->format('T Y-m-d H:i:s') );
 ```
 
-You can modify the events in a collection using the `find(Closure $predicate)`, `filter(Closure $predicate)`,
+You can process the events in a collection using the `find(Closure $predicate)`, `filter(Closure $predicate)`,
 `map(Closure $callback)` or `slice(int $offset, ?int $length = null)` methods of `EventCollection`, for example:
 
 ``` php
@@ -242,10 +244,9 @@ foreach ($newCollection as $event) {
 
 ### Performing calendar actions
 
-You can reschedule or unschedule calendar events using the `CalendarService::executeAction()` method.
-You must pass an `RescheduleEventActionContext` or `UnscheduleEventActionContext` object to the method.
-The context takes an event collection as parameter, and in case of `RescheduleEventActionContext`
-also a new `DateTime`.
+You can perform a calendar action (e.g. reschedule or unschedule calendar events) using the `CalendarServiceInterface::executeAction()` method.
+You must pass an `EzSystems\EzPlatformCalendar\Calendar\EventAction\EventActionContext` instance as argument.
+`EventActionContext` defines events on which the action is performed, as well as action-specific parameters e.g. a new date:
 
 ``` php
 $newDate = new \DateTimeImmutable('2020-08-12T10:10:01+00:00');
