@@ -103,14 +103,8 @@ ezplatform:
 
 ```
 # .env.local
-DATABASE_USER=ezplatform
-DATABASE_PASSWORD=password
-DATABASE_NAME=ezplatform
-DATABASE_HOST=localhost
-DATABASE_PORT=3306
-DATABASE_PLATFORM=mysql
 
-SECOND_DATABASE_URL=${DATABASE_PLATFORM}://${DATABASE_USER}:${DATABASE_PASSWORD}@${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}
+SECOND_DATABASE_URL=otherdb://otheruser:otherpasswd@otherhost:3306/otherdbname
 ```
 
 ## Field groups configuration
