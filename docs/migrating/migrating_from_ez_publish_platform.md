@@ -300,7 +300,7 @@ Run the conversion script on a copy of your production database as the script is
 - `--export-dir` specifies a directory where it will dump the `ezxmltext` for content object attributes which the conversion script finds problems with
 - `--export-dir-filter` specifies what severity the problems found needs to be before the script dumps the `ezxmltext`:
     - `notice`: `ezxmltext` contains problems which the conversion tool was able to fix automatically and likely do not need manual intervention
-    - `warning`: the conversion tool was able to convert the `ezxmltext` to valid `richtext`, but data could have been altered/removed/added in the process. Manual supervision strongly recommended.
+    - `warning`: the conversion tool was able to convert the `ezxmltext` to valid `richtext`, but data could have been altered/removed/added in the process. Manual supervision is strongly recommended.
     - `error`: the `ezxmltext` text cannot be converted and manual changes are required.
 - `--concurrency 4` specifies that the conversion script will spawn four child processes which run the conversion. If you have dedicated hardware for running the conversion, you should use concurrency level that matches the number of logical CPUs on your system. If your system needs to do other tasks while running the conversion, you should run with a smaller number.
 - `-v` specifies verbosity level. You may increase the verbosity level by supplying `-vv`, but `-v` will be sufficient in most cases.
