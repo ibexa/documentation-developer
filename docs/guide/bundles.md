@@ -65,7 +65,7 @@ The following tables give an overview of the main eZ Platform bundles.
     |ezplatform-version-comparison|allows comparing between two versions of the same Field|
     |ezplatform-form-builder|enables creating Form Content items with multiple form fields|
     |ezplatform-site-factory|enables configuration of sites from UI|
-    |ezplatform-elastic-search-engine|provides integration with ElasticSearch |
+    |ezplatform-elastic-search-engine|provides integration with Elasticsearch search engine |
 
 ### Optional bundles
 
