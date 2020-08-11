@@ -455,6 +455,91 @@
     }
     ```
 
+    ### Block name translation
+
+    A practical example of how you can use the `BlockDefinitionEvents` API is translating the block name.
+    You can modify the `name` attribute of the Page block, so that it displays a translation
+    in one of the defined languages.
+
+    The example uses a (Symfony Translator)[https://symfony.com/doc/current/translation.html] module and its `trans()` method.
+    The method takes three arguments: an identifier of the block name label, an array of parameters,
+    and the domain of the translation.
+
+    Start with registering a new service with the `name: event_subscriber` tag in the `config/services.yaml` file:
+
+    ``` yaml
+    App\Event\Subscriber\TranslateBlockNameSubscriber:
+        tags:
+            - { name: event_subscriber }
+	```
+
+    Next, implement an event subscriber that listens to the block definition event. For example, create a `src/Event/Subscriber/TranslateBlockNameSubscriber.php` file that contains the following code:
+
+    ``` php
+    <?php declare(strict_types=1);
+
+    namespace App\Event\Subscriber;
+
+    use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Definition\BlockDefinitionEvents;
+    use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Definition\Event\BlockDefinitionEvent;
+    use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+    use Symfony\Component\Translation\TranslatorInterface;
+
+    class TranslateBlockNameSubscriber implements EventSubscriberInterface
+    {
+        /** @var \Symfony\Component\Translation\TranslatorInterface */
+        private $translator;
+
+        public function __construct(TranslatorInterface $translator)
+        {
+            $this->translator = $translator;
+        }
+
+        public static function getSubscribedEvents()
+        {
+            return [
+                BlockDefinitionEvents::getBlockDefinitionEventName("example_block") => 'onExampleBlockDefinition'
+            ];
+        }
+
+        public function onExampleBlockDefinition(BlockDefinitionEvent $event)
+        {
+            $event->getDefinition()->setName(
+                $this->translator->trans('example_block.name', [], 'example_block')
+            );
+        }
+    }
+    ```
+
+    You provide the translations in XLIFF files, one for each language.
+    The files are stored in the `translations` directory at the root of your project.
+    A name of the translation file corresponds to the domain that you defined above, and the language, for example `example_block.fr.xlf`.
+
+    ``` xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+        <file source-language="en" target-language="fr" datatype="plaintext" original="not.available">
+            <header>
+                <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+                <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+            </header>
+            <body>
+                <trans-unit id="1ea2690f8eed8fc946f92cf94ac56b8b93e46afe" resname="example.block.name">
+                    <source>My custom block</source>
+                    <target state="new">Mon bloc personnalisé</target>
+                    <note>key: example.block.name</note>
+                </trans-unit>
+            </body>
+        </file>
+    </xliff>
+    ```
+
+    !!! note
+
+        After you add new files with translations, run `php bin/console cache:clear` to clear the cache.
+
+    The language to display is selected automatically based on [user preferences or browser setup](../../guide/back_office_translations/#selecting-back-office-language).
+
     ## Block rendering events
 
     The following events are available to influence Page block rendering:
