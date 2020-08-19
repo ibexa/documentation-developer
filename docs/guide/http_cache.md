@@ -24,7 +24,7 @@ All above mentioned features can be easily taken advantage of in custom controll
 
 ### Content view configuration
 
-You can configure cache globally for content views in `ezplatform.yml`:
+You can configure cache globally for content views in `config/packages/ezplatform.yaml`:
 
 ``` yaml
 ezplatform:
@@ -146,12 +146,12 @@ however in eZ Platform you can cover most use cases by setting supported environ
 - `SYMFONY_HTTP_CACHE`: To enable (`"1"`) or disable (`"0"`) use of Symfony HttpCache reverse proxy
     - *Must* be disabled when using Varnish or Fastly.
     - If not set, it is automatically disabled for Symfony ENV `dev` for local development needs.
-- `SYMFONY_TRUSTED_PROXIES`: String with trusted IP, multiple proxies can be configured with a comma, i.e. `SYMFONY_TRUSTED_PROXIES="192.0.0.1,10.0.0.0/8"`
+- `TRUSTED_PROXIES`: String with trusted IP, multiple proxies can be configured with a comma, i.e. `TRUSTED_PROXIES="192.0.0.1,10.0.0.0/8"`
 
 !!! caution "Careful when trusting dynamic IP using TRUST_REMOTE value or similar"
 
     On Platform.sh, Varnish does not have a static IP, like with [AWS LB.](https://symfony.com/doc/5.1/deployment/proxies.html#but-what-if-the-ip-of-my-reverse-proxy-changes-constantly)
-    For this `SYMFONY_TRUSTED_PROXIES` env variable supports being set to value "TRUST_REMOTE":
+    For this `TRUSTED_PROXIES` env variable supports being set to value "TRUST_REMOTE":
   
     ```php
     Request::setTrustedProxies([$request->server->get('REMOTE_ADDR')], Request::HEADER_X_FORWARDED_ALL);
@@ -170,7 +170,7 @@ See [Examples for configuring eZ Platform](#Examples-for-configuring-eZ-Platform
 #### Update YML configuration
 
 Secondly, you need to tell eZ Platform to use an HTTP-based purge client (specifically the FosHttpCache Varnish purge client),
-and specify the URL Varnish can be reached on (in `ezplatform.yml`):
+and specify the URL Varnish can be reached on (in `config/packages/ezplatform.yaml`):
 
 
 | Configuration | Parameter| Environment variable| Possible values|
@@ -275,15 +275,13 @@ ezplatform:
     SYMFONY_HTTP_CACHE="0"
 
     HTTPCACHE_PURGE_TYPE="fastly"
+    # Optional
     HTTPCACHE_PURGE_SERVER="https://api.fastly.com"
 
     # See below for obtaining service ID and application key/token
     FASTLY_SERVICE_ID="ID"
     FASTLY_KEY="token"
     ```
-
-    As of eZ Enterprise v2.5.10, you no longer need to set `HTTPCACHE_PURGE_SERVER` if you set `purge_type`
-    via `HTTPCACHE_PURGE_TYPE`. If you set `purge_type` by any other means, you will still need to set `purge_server` too.
 
     ##### Configuration Fastly on Platform.sh
 
@@ -308,7 +306,7 @@ Example when using `.env` file:
 
 ``` bash
 SYMFONY_HTTP_CACHE="0"
-SYMFONY_TRUSTED_PROXIES="127.0.0.1"
+TRUSTED_PROXIES="127.0.0.1"
 HTTPCACHE_PURGE_TYPE="varnish"
 HTTPCACHE_PURGE_SERVER="http://varnish:80"
 ```
@@ -317,7 +315,7 @@ Example for Apache with `mod_env`:
 
 ```apacheconfig
 SetEnv SYMFONY_HTTP_CACHE 0
-SetEnv SYMFONY_TRUSTED_PROXIES "127.0.0.1"
+SetEnv TRUSTED_PROXIES "127.0.0.1"
 SetEnv HTTPCACHE_PURGE_TYPE varnish
 SetEnv HTTPCACHE_PURGE_SERVER "http://varnish:80"
 ```
@@ -326,7 +324,7 @@ Example for Nginx:
 
 ```nginx
 fastcgi_param SYMFONY_HTTP_CACHE 0;
-fastcgi_param SYMFONY_TRUSTED_PROXIES "127.0.0.1";
+fastcgi_param TRUSTED_PROXIES "127.0.0.1";
 fastcgi_param HTTPCACHE_PURGE_TYPE varnish;
 fastcgi_param HTTPCACHE_PURGE_SERVER "http://varnish:80";
 ```
@@ -354,7 +352,7 @@ You can configure environment variables via [Platform.sh variables.](https://doc
 
     # Configure IP of your Varnish server to be trusted proxy
     # !! Replace IP with the real one used by Varnish
-    SetEnv SYMFONY_TRUSTED_PROXIES "193.22.44.22"
+    SetEnv TRUSTED_PROXIES "193.22.44.22"
 ```
 
 ##### Example for Nginx + Fastly
@@ -662,7 +660,8 @@ Here are some options on how to solve this issue:
 - [http_max_hdr](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-max-hdr) (default 64, change to i.e. 128)
 - [http_resp_size](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-resp-size) (default 23k, change to i.e. 96k)
 - [workspace_backend](https://varnish-cache.org/docs/6.0/reference/varnishd.html#workspace-backend) (default 64k, change to i.e. 128k)
-- Also to see these headers in the `varnishlog`, adapt [vsl_reclen](https://varnish-cache.org/docs/6.0/reference/varnishd.html#vsl-reclen)
+
+If you need to see these long headers in the `varnishlog` adapt the [vsl_reclen](https://varnish-cache.org/docs/6.0/reference/varnishd.html#vsl-reclen) setting.
 
 **Nginx** has a default limit of 4k/8k when buffering responses:
 
@@ -828,33 +827,27 @@ See [Tagging from Twig Templates](https://foshttpcachebundle.readthedocs.io/en/2
 
 #### How purge tagging is done by default
 
-This bundle uses Repository API Slots to listen to Signals emitted on Repository operations, and depending on the
-operation triggers expiry on a specific tag or set of tags.
+This bundle uses Repository API Event Subscribers to listen to Events emitted on Repository operations,
+and depending on the operation triggers expiry on a specific tag or set of tags.
 
-For example on Move Location Signal the following tags will be purged:
+For example on Move Location Event the following tags will be purged:
 
 ```php
-/**
- * @param \eZ\Publish\Core\SignalSlot\Signal\LocationService\MoveSubtreeSignal $signal
- */
-protected function generateTags(Signal $signal)
-{
-    return [
-        // The tree itself being moved (all children will have this tag)
-        ContentTagInterface::PATH_PREFIX            . $signal->locationId,
-        // old parent
-        ContentTagInterface::LOCATION_PREFIX        . $signal->oldParentLocationId,
-        // old siblings
-        ContentTagInterface::PARENT_LOCATION_PREFIX . $signal->oldParentLocationId,
-        // new parent
-        ContentTagInterface::LOCATION_PREFIX        . $signal->newParentLocationId,
-        // new siblings
-        ContentTagInterface::PARENT_LOCATION_PREFIX . $signal->newParentLocationId,
-    ];
-}
+[
+    // The tree itself being moved (all children will have this tag)
+    ContentTagInterface::PATH_PREFIX . $event->getLocation()->id,
+    // old parent
+    ContentTagInterface::LOCATION_PREFIX . $event->getLocation()->parentLocationId,
+    // old siblings
+    ContentTagInterface::PARENT_LOCATION_PREFIX . $event->getLocation()->parentLocationId,
+    // new parent
+    ContentTagInterface::LOCATION_PREFIX . $event->getNewParentLocation()->id,
+    // new siblings
+    ContentTagInterface::PARENT_LOCATION_PREFIX . $event->getNewParentLocation()->id,
+];
 ```
 
-All Slots can be found in `ezplatform-http-cache/src/SignalSlot`.
+All Event Subscribers can be found in `ezplatform-http-cache/src/EventSubscriber/CachePurge`.
 
 #### Custom purging from code
 
