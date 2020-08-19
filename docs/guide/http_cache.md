@@ -422,7 +422,7 @@ A similar but internal logic is done in the provided enhanced Symfony Proxy (App
 To expand on steps covered in [FOSHttpCacheBundle documentation on how user context feature works](https://foshttpcachebundle.readthedocs.io/en/2.8.0/features/user-context.html#how-it-works):
 
 1. A client (browser) requests URI `/foo`.
-1. The caching proxy receives the request and holds it. It first sends a hash request to the applications's context hash route: `/_fos_user_context_hash`.
+1. The caching proxy receives the request and holds it. It first sends a hash request to the application's context hash route: `/_fos_user_context_hash`.
 1. The application receives the hash request. An event subscriber (`UserContextSubscriber`) aborts the request immediately after the Symfony firewall is applied.
    The application calculates the hash (`HashGenerator`) and then sends a response with the hash in a custom header (`X-Context-User-Hash`).
 1. The caching proxy receives the hash response, copies the hash header to the client’s original request for `/foo` and restarts the modified original request.
