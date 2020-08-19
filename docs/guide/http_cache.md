@@ -27,7 +27,7 @@ All above mentioned features can be easily taken advantage of in custom controll
 You can configure cache globally for content views in `ezplatform.yml`:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         my_siteaccess:
             content:
@@ -175,7 +175,7 @@ and specify the URL Varnish can be reached on (in `ezplatform.yml`):
 
 | Configuration | Parameter| Environment variable| Possible values|
 |---------|--------|--------|----------|
-| ezpublish.http_cache.purge_type | `purge_type` | `HTTPCACHE_PURGE_TYPE` | local, varnish/http, fastly |
+| ezpublish.http_cache.purge_type | `purge_type` | `HTTPCACHE_PURGE_TYPE` | local, varnish, fastly |
 | ezpublish.system.(scope).http_cache.purge_servers | `purge_server`* | `HTTPCACHE_PURGE_SERVER`* | Array of URLs to proxies when using Varnish or Fastly (`https://api.fastly.com`) |
 | ezpublish.system.(scope).http_cache.varnish_invalidate_token | `varnish_invalidate_token` | `HTTPCACHE_VARNISH_INVALIDATE_TOKEN` | (Optional) For token based authentication |
 | ezpublish.system.(scope).http_cache.fastly.service_id | `fastly_service_id` | `FASTLY_SERVICE_ID` | Service ID to authenticate with Fastly |
@@ -186,7 +186,7 @@ _\* If you need to set multiple purge servers configure them in the YAML configu
 Example for configuring varnish as reverse proxy, [assuming front controller has been configured](#Configuring-Symfony-Front-Controller):
 
 ``` yaml
-ezpublish:
+ezplatform:
     http_cache:
         purge_type: varnish
 
@@ -252,7 +252,7 @@ ezpublish:
     ##### Configuring Fastly in YML
 
     ``` yaml
-    ezpublish:
+    ezplatform:
         http_cache:
             purge_type: fastly
 
