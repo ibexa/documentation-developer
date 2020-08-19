@@ -1,16 +1,11 @@
 # HTTP cache
 
-!!! note "Documentation reflects ezplatform-http-cache v1.0 and up"
-
-    This page describes `ezplatform-http-cache` v1.0, which is bundled with eZ Platform v2.5.9 and up.
-    To learn how `ezplatform-http-cache` v0.9 works, see [eZ Platform 1.13LTS HttpCache documentation](https://doc.ezplatform.com/en/1.13/guide/http_cache/).
-
 eZ Platform provides highly advanced caching features needed for its own content views, taking advantage
 of sophisticated techniques to make Varnish and Fastly act as the view cache for the system. This and other features
 allow eZ Platform to be scaled up to serve high traffic websites and applications.
 
-This is handled by the [ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache) bundle, which extends [friendsofsymfony/http-cache-bundle](https://foshttpcachebundle.readthedocs.io/en/1.3/),
-a Symfony community bundle that in turn extends [Symfony HTTP cache](http://symfony.com/doc/3.4/http_cache.html).
+This is handled by the [ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache) bundle, which extends [friendsofsymfony/http-cache-bundle](https://foshttpcachebundle.readthedocs.io/en/2.8.0/),
+a Symfony community bundle that in turn extends [Symfony HTTP cache](http://symfony.com/doc/5.1/http_cache.html).
 
 For content view responses coming from eZ Platform itself, this means:
 
@@ -50,7 +45,7 @@ However, a few redirect and error pages are served via the ContentView system.
 If you set a high `default_ttl`, they could also be served from cache, which should be avoided.
 
 To avoid this, installation ships with configuration to match those specific pages and set a much lower TTL.
-[FOSHttpCacheBundle matching rules](http://foshttpcachebundle.readthedocs.io/en/1.3/reference/configuration/headers.html) feature allows you to specify a different TTL:
+[FOSHttpCacheBundle matching rules](http://foshttpcachebundle.readthedocs.io/en/2.8.0/reference/configuration/headers.html) feature allows you to specify a different TTL:
 
 ``` yaml
 fos_http_cache:
@@ -132,12 +127,12 @@ This is highly recommended as they provide far better performance and more advan
 
 For setup to work properly with your installation, you'll need to adapt one of the provided VCL files as a basis:
 
-- [Varnish 5+ VCL xkey example](https://github.com/ezsystems/ezplatform-http-cache/blob/1.0/docs/varnish/vcl/varnish5.vcl)
+- [Varnish 5+ VCL xkey example](https://github.com/ezsystems/ezplatform-http-cache/blob/2.0/docs/varnish/vcl/varnish5.vcl)
 - Fastly VCL can be found in `vendor/ezsystems/ezplatform-http-cache-fastly/fastly` in Enterprise version
 
 !!! tip
 
-    When you extend [FOSHttpCacheBundle](https://foshttpcachebundle.readthedocs.io/en/1.3/), you can also adapt your VCL further with [FOSHttpCache documentation](http://foshttpcache.readthedocs.org/en/latest/varnish-configuration.html) in order to use additional features.
+    When you extend [FOSHttpCacheBundle](https://foshttpcachebundle.readthedocs.io/en/2.8.0/), you can also adapt your VCL further with [FOSHttpCache documentation](http://foshttpcache.readthedocs.org/en/latest/varnish-configuration.html) in order to use additional features.
 
 ### Configure eZ Platform
 
@@ -145,7 +140,7 @@ Configuring eZ Platform for Varnish or Fastly involves a few steps, starting wit
 
 #### Configuring Symfony Front Controller
 
-In a pure Symfony installation you would normally adapt Front Controller (`web/app.php`) [in order to configure Symfony to work behind a Load Balancer or a Reverse Proxy](https://symfony.com/doc/3.4/deployment/proxies.html),
+In a pure Symfony installation you would normally adapt Front Controller (`web/app.php`) [in order to configure Symfony to work behind a Load Balancer or a Reverse Proxy](https://symfony.com/doc/5.1/deployment/proxies.html),
 however in eZ Platform you can cover most use cases by setting supported environment variables using:
 
 - `SYMFONY_HTTP_CACHE`: To enable (`"1"`) or disable (`"0"`) use of Symfony HttpCache reverse proxy
@@ -155,7 +150,7 @@ however in eZ Platform you can cover most use cases by setting supported environ
 
 !!! caution "Careful when trusting dynamic IP using TRUST_REMOTE value or similar"
 
-    On Platform.sh, Varnish does not have a static IP, like with [AWS LB.](https://symfony.com/doc/3.4/deployment/proxies.html#but-what-if-the-ip-of-my-reverse-proxy-changes-constantly)
+    On Platform.sh, Varnish does not have a static IP, like with [AWS LB.](https://symfony.com/doc/5.1/deployment/proxies.html#but-what-if-the-ip-of-my-reverse-proxy-changes-constantly)
     For this `SYMFONY_TRUSTED_PROXIES` env variable supports being set to value "TRUST_REMOTE":
   
     ```php
@@ -206,7 +201,7 @@ ezpublish:
 !!! note "Invalidating Varnish cache using tokens"
 
     In setups where the Varnish server IP can change (for example on platform.sh/eZ Platform Cloud),
-    you can use token-based cache invalidation via [ez_purge_acl.](https://github.com/ezsystems/ezplatform-http-cache/blob/v1.0.0/docs/varnish/vcl/varnish5.vcl#L160)
+    you can use token-based cache invalidation via [ez_purge_acl.](https://github.com/ezsystems/ezplatform-http-cache/blob/v2.1.0/docs/varnish/vcl/varnish5.vcl#L174)
  
     In such a case use a strong, secure hash and make sure to keep the token secret.
 
@@ -422,26 +417,9 @@ This is accomplished by varying on a header called `X-User-Hash`, which the syst
 The logic for this ([see Request life cycle](#request-life-cycle)) is accomplished in provided VCL for Varnish and Fastly.
 A similar but internal logic is done in the provided enhanced Symfony Proxy (AppCache).
 
-
-!!! tip "Prepare your custom controllers for v3"
-
-    In 2.5LTS (FOSHTTPCache 1.x) the system varies on this hash for **all** responses, not just built in eZ controllers (Content View, Page, etc.).
-
-    However:
-    
-    1. This becomes configurable in v3 (FOSHTTPCache 2.x), and we consider disabling it by default for better cache efficiency
-    1. The header name changes to the FOSHttpCache default: `X-User-Context-Hash`
-
-    So in any custom controller that relies on eZ user permissions, i.e. rendering eZ content, best practice is to explicitly vary:
-    
-    ```php
-        // Inside a controller action, should be adapted to `X-User-Context-Hash` when upgrading to v3
-        $response->setVary('X-User-Hash');
-    ```
-
 #### Request life-cycle
 
-To expand on steps covered in [FOSHttpCacheBundle documentation on how user context feature works](https://foshttpcachebundle.readthedocs.io/en/1.3/features/user-context.html#how-it-works):
+To expand on steps covered in [FOSHttpCacheBundle documentation on how user context feature works](https://foshttpcachebundle.readthedocs.io/en/2.8.0/features/user-context.html#how-it-works):
 
 1. A client (browser) requests URI `/foo`.
 1. The caching proxy receives the request and holds it. It first sends a hash request to the applications's context hash route: `/_fos_user_context_hash`.
@@ -545,15 +523,15 @@ Example:
     If you need to handle a Paywall on a per item basis, then you'll need to go a bit further by for instance doing a
     lookup to backend for each and every URL where this is relevant.
 
-    You can find an example for how Paywall Authorization can be done in [FOSHTTPCache documentation.](https://foshttpcache.readthedocs.io/en/1.4/user-context.html#alternative-for-paywalls-authorization-request)
+    You can find an example for how Paywall Authorization can be done in [FOSHTTPCache documentation.](https://foshttpcache.readthedocs.io/en/latest/user-context.html#alternative-for-paywalls-authorization-request)
 
 ##### Dos and don'ts when custom vary by logic
 
-Refer to [FOSHttpCacheBundle documentation on how user context hashes are generated](https://foshttpcachebundle.readthedocs.io/en/1.3/features/user-context.html#generating-hashes).
+Refer to [FOSHttpCacheBundle documentation on how user context hashes are generated](https://foshttpcachebundle.readthedocs.io/en/2.8.0/features/user-context.html#generating-hashes).
 
 eZ Platform implements a custom context provider in order to make user context hash reflect the current User's permissions
 and Limitations, this is needed given eZ Platform's more complex permission model compared to Symfony's.
-You can technically extend the user context hash by [implementing your own custom context provider(s)](https://foshttpcachebundle.readthedocs.io/en/1.3/reference/configuration/user-context.html#custom-context-providers),
+You can technically extend the user context hash by [implementing your own custom context provider(s)](https://foshttpcachebundle.readthedocs.io/en/2.8.0/reference/configuration/user-context.html#custom-context-providers),
 however **this is strongly discouraged** as it will mean you'll increase amount of cache variations stored in Proxy for
 every single cache item, lowering cache hit ratio and increasing memory use.
 
@@ -571,7 +549,7 @@ needs, and adapt the user context hash VCL logic to use the additional header.
 
 To avoid overloading any application code, you will take advantage of Symfony's event system to do this cleanly:
 
-1\. Add a Response [event listener or subscriber](https://symfony.com/doc/3.4/event_dispatcher.html) to add your own hash to `/_fos_user_context_hash`:
+1\. Add a Response [event listener or subscriber](https://symfony.com/doc/5.1/event_dispatcher.html) to add your own hash to `/_fos_user_context_hash`:
 
 ```php
     public function addPreferenceHash(FilterResponseEvent $event)
@@ -781,21 +759,16 @@ $tagHandler->addRelationTags([33, 44]);
 
 3\. Manually add tags yourself using low level FOS TagHandler.
 
-In PHP, FOSHttpCache exposes the `fos_http_cache.handler.tag_handler` service which enables you to add tags to a response.
+In PHP, FOSHttpCache exposes the `fos_http_cache.http.symfony_response_tagger` service which enables you to add tags to a response.
 
 Example for tagging minimal tags for when ID 33 and 34 will be rendered in ESI, but parent response needs these tags to get refresh if they are deleted:
 
 ``` php
-/** @var \FOS\HttpCache\Handler\TagHandler $tagHandler */
-$tagHandler->addTags([ContentTagInterface::RELATION_PREFIX . '33', ContentTagInterface::RELATION_PREFIX . '44']);
+/** @var \FOS\HttpCacheBundle\Http\SymfonyResponseTagger $responseTagger */
+$responseTagger->addTags([ContentTagInterface::RELATION_PREFIX . '33', ContentTagInterface::RELATION_PREFIX . '44']);
 ```
 
-See [Tagging from code](http://foshttpcachebundle.readthedocs.io/en/1.3/features/tagging.html#tagging-from-code) in FOSHttpCacheBundle doc.
-
-!!! caution
-
-    Be aware that the service name and type hint will change once we move to FOSHttpCache 2.x, so in this case
-    you can alternatively consider adding a tag in Twig template or using `X-Location-Id` for the time being.
+See [Tagging from code](https://foshttpcachebundle.readthedocs.io/en/2.8.0/features/tagging.html#tagging-and-invalidating-from-php-code) in FOSHttpCacheBundle doc.
 
 4\. Use deprecated `X-Location-Id` header.
 
@@ -849,7 +822,7 @@ As a last resort you can also use function from FOS which lets you set low level
 {{ fos_httpcache_tag(['r33', 'r44']) }}
 ```
 
-See [Tagging from Twig Templates](http://foshttpcachebundle.readthedocs.io/en/1.3/features/tagging.html#tagging-from-twig-templates) in FOSHttpCacheBundle documentation.
+See [Tagging from Twig Templates](https://foshttpcachebundle.readthedocs.io/en/2.8.0/features/tagging.html#tagging-from-twig-templates) in FOSHttpCacheBundle documentation.
 
 ### Tag purging
 
