@@ -413,7 +413,7 @@ It means that HttpCache is unique per user permissions (roles and limitations), 
 cache shared only among users that have the exact same permissions. So if a user is browsing a list of children Locations,
 they will only see children Locations they have access to even if the rendering of this is served from HttpCache.
 
-This is accomplished by varying on a header called `X-User-Hash`, which the system populates on the request for you.
+This is accomplished by varying on a header called `X-Context-User-Hash`, which the system populates on the request for you.
 The logic for this ([see Request life cycle](#request-life-cycle)) is accomplished in provided VCL for Varnish and Fastly.
 A similar but internal logic is done in the provided enhanced Symfony Proxy (AppCache).
 
@@ -424,9 +424,9 @@ To expand on steps covered in [FOSHttpCacheBundle documentation on how user cont
 1. A client (browser) requests URI `/foo`.
 1. The caching proxy receives the request and holds it. It first sends a hash request to the applications's context hash route: `/_fos_user_context_hash`.
 1. The application receives the hash request. An event subscriber (`UserContextSubscriber`) aborts the request immediately after the Symfony firewall is applied.
-   The application calculates the hash (`HashGenerator`) and then sends a response with the hash in a custom header (`X-User-Hash` in eZ Platform).
+   The application calculates the hash (`HashGenerator`) and then sends a response with the hash in a custom header (`X-Context-User-Hash`).
 1. The caching proxy receives the hash response, copies the hash header to the client’s original request for `/foo` and restarts the modified original request.
-1. If the response to `/foo` should differ per user context, the application sets a `Vary: X-User-Hash` header, which will make Proxy store the variations of this cache varying on the hash value.
+1. If the response to `/foo` should differ per user context, the application sets a `Vary: X-Context-User-Hash` header, which will make Proxy store the variations of this cache varying on the hash value.
 
 
 The next time a request comes in from the same user, application lookup for the hash (step 3) won't happen anymore as the
@@ -439,7 +439,7 @@ Example of response sent to reverse proxy from `/_fos_user_context_hash` with [e
 
 ```
 HTTP/1.1 200 OK
-X-User-Hash: <hash>
+X-Context-User-Hash: <hash>
 Content-Type: application/vnd.fos.user-context-hash
 Cache-Control: public, max-age=600
 Vary: Cookie, Authorization
@@ -476,17 +476,17 @@ Typically, you should not override these settings unless you know what you are d
 ``` yaml
 fos_http_cache:
     proxy_client:
-        # "varnish" is used, even when using Symfony HTTP cache.
         default: varnish
         varnish:
-            # Means http_cache.purge_servers defined for current SiteAccess.
-            servers: ['$http_cache.purge_servers$']
+            http:
+                servers: ['$http_cache.purge_servers$']
+            tag_mode: 'purgekeys'
 
     user_context:
         enabled: true
-        # User context hash lookup is cached for 10min, to avoid an extra lookup for every request
         hash_cache_ttl: 600
-        user_hash_header: X-User-Hash
+        # NOTE: These are also defined/used in AppCache, in Varnish VCL, and Fastly VCL
+        session_name_prefix: eZSESSID
 ```
 
 #### How to Personalize Responses
@@ -513,7 +513,7 @@ Example:
 - Should be done as ajax/JS lookup to avoid the uncached request slowing down the whole delivery of Vanish if it’s done as ESI.
 - More effort depending on project requirements (traffic load, etc.).
 
-3\. Custom vary by logic, i.e. “X-User-Preference-Hash” inspired by X-User-Hash:
+3\. Custom vary by logic, i.e. “X-User-Preference-Hash” inspired by X-Context-User-Hash:
 
 - Allows for fine-grained caching as you can explicitly vary on this in only the places that needs it.
 - More effort (controller + VCL logic + adapt own code), see below for examples.
@@ -569,7 +569,7 @@ To avoid overloading any application code, you will take advantage of Symfony's 
 @@ -174,6 +174,7 @@ sub ez_user_context_hash {
      if (req.restarts == 0
          && (req.http.accept ~ "application/vnd.fos.user-context-hash"
-             || req.http.x-user-hash
+             || req.http.X-Context-User-Hash
 +            || req.http.x-user-preference-hash
          )
      ) {
@@ -577,7 +577,7 @@ To avoid overloading any application code, you will take advantage of Symfony's 
 @@ -263,12 +264,19 @@ sub vcl_deliver {
          && resp.http.content-type ~ "application/vnd.fos.user-context-hash"
      ) {
-         set req.http.x-user-hash = resp.http.x-user-hash;
+         set req.http.X-Context-User-Hash = resp.http.X-Context-User-Hash;
 +        set req.http.x-user-preference-hash = resp.http.x-user-preference-hash;
 
          return (restart);
@@ -593,7 +593,7 @@ To avoid overloading any application code, you will take advantage of Symfony's 
 +
      // Remove the vary on user context hash, this is nothing public. Keep all
      // other vary headers.
-     if (resp.http.Vary ~ "X-User-Hash") {
+     if (resp.http.Vary ~ "X-Context-User-Hash") {
 ```
 
 3\. Add `Vary` in your custom controller or content view controller:
@@ -602,7 +602,7 @@ To avoid overloading any application code, you will take advantage of Symfony's 
     $response->setVary('X-User-Preference-Hash');
 
     // If you _also_ need to vary on eZ permissions, instead use:
-    //$response->setVary(['X-User-Hash', 'X-User-Preference-Hash']);
+    //$response->setVary(['X-Context-User-Hash', 'X-User-Preference-Hash']);
 ```
 
 ## Content-aware HTTP cache
