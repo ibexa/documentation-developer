@@ -1,27 +1,16 @@
-# Upgrading eZ Platform to v3
+# Upgrading eZ Platform to v3.0
 
-To upgrade your v2 project to v3, you need to follow the [standard update procedure](../updating/updating_ez_platform.md),
-but you will also need to make changes to your code.
+The following upgrade documentation describes how to perform upgrade from v2.5 to v3.0.
 
-## 1\. Automatically refactor your code
+If you are starting upgrade from a version lower than v2.5, follow the [standard update procedure](../updating/updating_ez_platform.md) first.
+Only after completing update to v2.5 you can proceed with the upgrade to v3.0.
 
-To simplify the process of adapting your code to Symfony 5, you can use [Rector, a reconstructor tool](https://github.com/rectorphp/rector)
-that will automatically refactor your Symfony and PHPunit code.
-
-!!! tip
-
-    To properly refactor your code you might need to run the Rector `process` command for each Symfony version from 4.0 to 5.0 in turn:
-    
-    `vendor/bin/rector process src --set symfony40`
-    
-    You can find all available sets in [the Rector repository](https://github.com/rectorphp/rector/tree/master/config/set/symfony). Keep in mind that after finishing automatic refactoring there might be some code chunks that you need to fix manually.
-
-## 2\. Adapt project structure
+## 1\. Familiarize yourself with a new project structure
 
 !!! tip
 
     For details on all changes related to the switch to Symfony 5,
-    see [Symfony upgrade guide for 4.0](https://github.com/symfony/symfony/blob/5.0/UPGRADE-4.0.md)
+    see [Symfony upgrade guide for 4.0](https://github.com/symfony/symfony/blob/4.4/UPGRADE-4.0.md)
     and [for 5.0](https://github.com/symfony/symfony/blob/5.0/UPGRADE-5.0.md)
 
 The latest Symfony versions changed the organization of your project into folders and bundles.
@@ -59,9 +48,9 @@ Content of `app/Resources/assets` has been moved to `assets`.
 !!! note
 
     You also need to update paths that refer to the old location,
-    for example in [`webpack.config.js`](../guide/organization.md#configuration-from-a-bundle).
+    for example in [`webpack.config.js`](../guide/project_organization.md#importing-configuration-from-a-bundle).
 
-## 3\. Check out and update the app
+## 2\. Check out and update the app
 
 1\. [Check out a tagged version](../updating/1_check_out_version.md)
 
@@ -69,13 +58,24 @@ Content of `app/Resources/assets` has been moved to `assets`.
 
 3\. [Update the app](../updating/3_update_app.md)
 
-## 4\. Make changes to your code
+## 3\. Make changes to your code
 
 !!! note "Full list of deprecations"
 
     If you encounter any issue during the upgrade,
     see [eZ Platform v3.0 deprecations](../releases/ez_platform_v3.0_deprecations.md#template-organization)
-    for details of all required changes to your code.    
+    for details of all required changes to your code.
+    
+### Automatic code refactoring - non-essential step
+
+To simplify the process of adapting your code to Symfony 5, you can use [Rector, a reconstructor tool](https://github.com/rectorphp/rector)
+that will automatically refactor your Symfony and PHPunit code.
+
+To properly refactor your code you might need to run the Rector `process` command for each Symfony version from 4.0 to 5.0 in turn:
+
+`vendor/bin/rector process src --set symfony40`
+
+You can find all available sets in [the Rector repository](https://github.com/rectorphp/rector/tree/v0.7.65/config/set). Keep in mind that after finishing automatic refactoring there might be some code chunks that you need to fix manually.
 
 ### Third-party dependencies
 
@@ -517,7 +517,7 @@ Make sure that you Apache/Nginx configuration is up to date with Symfony 5.
 Refer to [the provided `vhost.template`](https://github.com/ezsystems/ezplatform/blob/master/doc/apache2/vhost.template)
 for an example.
 
-## 5\. Update the database
+## 4\. Update the database
 
 Apply the following database update script:
 
@@ -557,7 +557,7 @@ or for PostgreSQL:
     COMMIT;
     ```
 
-## 6\. Continue update procedure
+## 5\. Continue update procedure
 
 At this point you can continue with the standard update procedure:
 
