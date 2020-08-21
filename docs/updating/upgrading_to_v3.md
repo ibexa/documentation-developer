@@ -9,7 +9,7 @@ Do not proceed with an upgrade to v3.0 before you complete an update to v2.5.
 
 !!! tip
 
-    For details on all changes related to the switch to Symfony 5,
+    If you are running into issues, for details on all changes related to the switch to Symfony 5,
     see [Symfony upgrade guide for 4.0](https://github.com/symfony/symfony/blob/4.4/UPGRADE-4.0.md)
     and [for 5.0](https://github.com/symfony/symfony/blob/5.0/UPGRADE-5.0.md)
 
