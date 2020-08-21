@@ -71,11 +71,12 @@ Content of `app/Resources/assets` has been moved to `assets`.
 To simplify the process of adapting your code to Symfony 5, you can use [Rector, a reconstructor tool](https://github.com/rectorphp/rector)
 that will automatically refactor your Symfony and PHPunit code.
 
-To properly refactor your code you might need to run the Rector `process` command for each Symfony version from 4.0 to 5.0 in turn:
+To properly refactor your code, you might need to run the Rector `process` command for each Symfony version from 4.0 to 5.0 in turn:
 
 `vendor/bin/rector process src --set symfony40`
 
-You can find all available sets in [the Rector repository](https://github.com/rectorphp/rector/tree/v0.7.65/config/set). Keep in mind that after finishing automatic refactoring there might be some code chunks that you need to fix manually.
+You can find all the available sets in [the Rector repository](https://github.com/rectorphp/rector/tree/v0.7.65/config/set). 
+Keep in mind that after automatic refactoring finishes there might be some code chunks that you need to fix manually.
 
 ### Third-party dependencies
 
@@ -557,7 +558,7 @@ or for PostgreSQL:
     COMMIT;
     ```
 
-## 5\. Continue update procedure
+## 5\. Continue with the update procedure
 
 At this point you can continue with the standard update procedure:
 
