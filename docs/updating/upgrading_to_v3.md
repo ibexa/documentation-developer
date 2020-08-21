@@ -1,9 +1,9 @@
 # Upgrading eZ Platform to v3.0
 
-The following upgrade documentation describes how to perform upgrade from v2.5 to v3.0.
+The following upgrade documentation describes how to perform upgrade eZ Platform from v2.5 to v3.0.
 
-If you are starting upgrade from a version lower than v2.5, follow the [standard update procedure](../updating/updating_ez_platform.md) first.
-Only after completing update to v2.5 you can proceed with the upgrade to v3.0.
+If you are upgrading from a version lower than v2.5, follow the [standard update procedure](../updating/updating_ez_platform.md) first.
+Do not proceed with an upgrade to v3.0 before you complete an update to v2.5.
 
 ## 1\. Familiarize yourself with a new project structure
 
