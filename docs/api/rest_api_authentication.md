@@ -16,7 +16,7 @@ For more information, see [OAuth 2.0 protocol for authorization.](https://oauth.
 ## Session based Authentication
 
 The sessions are only created to re-authenticate the user (and perform authorization) and not to hold session state in the service.
-Because of that we consider this method to support AJAX based applications even if this approach violates the principles of RESTful services.
+Because of that, we consider this method supports AJAX based applications even if it violates the principles of RESTful services.
 
 For more information, see [REST API authentication introduction](general_rest_usage.md#rest-api-authentication).
 
@@ -27,11 +27,11 @@ The name (`sessionName`) and value (`sessionID`) of the header are defined  in a
 
 Example request header: `Cookie: <SessionName> : <sessionID>`.
 
-### CSRF
+### CSRF token
 
-A CSRF token needs to be sent in every request using "unsafe" methods (as in: not GET or HEAD) when a session has been established.
-It should be sent with header X-CSRF-Token.
-The token (csrfToken) is defined in response during logging in through POST `/user/sessions`.
+A CSRF token needs to be sent in every request using "unsafe" methods (not GET or HEAD) when a session has been established.
+It should be sent with `X-CSRF-Token` header.
+The token (`csrfToken`) is defined in a response during logging in through the POST `/user/sessions`.
 
 Example request headers:
 
@@ -50,7 +50,8 @@ If an unsafe request is missing the CSRF token, or the token has incorrect value
 ### Rich client application security concerns
 
 The purpose of CSRF protection is to prevent users accidentally running harmful operations by being tricked into executing a http(s) request against a web applications they are logged into.
-In case of browsers this will then be blocked by lack of CSRF token.
+In browsers this action will be blocked by lack of CSRF token.
+
 However, if you develop a rich client application (JavaScript, JAVA, Flash, Silverlight, iOS, Android, etc.) that is:
 
 - Registering itself as a protocol handler
