@@ -1,4 +1,7 @@
-# REST API best practices
+# REST API reference best practices
+
+This page refers to [REST API reference](https://doc.ezplatform.com/rest-api-reference), where you can get detailed information about
+REST API resources and endpoints.
 
 ## Specifying SiteAccess
 
@@ -14,17 +17,14 @@ Accept: application/vnd.ez.api.Root+json
 X-Siteaccess: admin
 ```
 
-## Media Types
+## Media types
 
 The methods on resources provide multiple media types in their responses.
-A media type can be selected in the Accept Header.
-For each xml media type there is a unique name e.g. `application/vnd.ez.api.User+xml`. In this case the returned xml response
-conforms with the complex type definition with name vnd.ez.api.User in the user.xsd (see User_) xml schema definition file.
-Each JSON schema is implicit derived from the xml schema by making a uniform transformation from XML to JSON as shown below.
+A media type can be selected in the `Accept` Header.
+For each XML media type there is a unique name e.g. `application/vnd.ez.api.User+xml`.
+The returned XML response conforms with the complex type definition with a name e.g. `vnd.ez.api.User` in the `user.xsd` XML schema definition file (see `User_`).
+To derive the implicit schema of the JSON from the XML schema a uniform transformation from XML to JSON is performed as shown below.
 
-Example:
-
-.. code:: xml
 ```xml
 <test attr1="attr1">
    <value attr2="attr2">value</value>
@@ -36,9 +36,9 @@ Example:
 </test>
 ```
 
-transforms to:
+Transforms to:
 
-```javascript
+```json
 {
   "test":{
     "_attr1":"attr1",
@@ -54,8 +54,7 @@ transforms to:
 }
 ```
 
-Different schemas which induce different media types one on resource can be used to allow to make specific
-representations optimized for purposes of clients.
+Different schemas that induce different media types on resource can be used to allow making specific representations optimized for purposes of clients.
 It is possible to make a new schema for mobile devices for retrieving e.g. an article.
 
 ```xml
@@ -77,14 +76,14 @@ It is possible to make a new schema for mobile devices for retrieving e.g. an ar
 </xsd:schema>
 ```
 
-so that
+So that:
 
 ```
 GET /content/objects/23 HTTP/1.1
 Accept: application/vnd.ez.api.MobileContent+xml
 ```
 
-returns:
+Returns:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -94,38 +93,34 @@ returns:
 </MobileContent>
 ```
 
-However in this specification only the standard schemas and media types are defined (see InputOutput_).
-If there is only one media type defined for xml or json, it is also possible to specify
-application/xml or application/json.
+In this specification, only the standard schemas and media types are defined (see `InputOutput_`).
+If there is only one media type defined for XML or JSON, it is also possible to specify `application/xml` or `application/json`.
 
 ## URIs
 
-The REST API is designed so that the client need not construct any URIs to resources by itself.
-Starting from the root resources (ListRoot_) every response includes further links to related resources.
-The URIs should be used directly as identifiers on the client side and the client should not
-construct an URI by using an id.
+The REST API is designed in such way that the client doesn't need to  construct any URIs to resources.
+Starting from the root resources (`ListRoot_`) every response includes further links to related resources.
+The URIs should be used directly as identifiers on the client side and the client should not construct any URIs by using an ID.
 
 ### URIs prefix
 
-In this document, for the sake of readability, no prefix is used in the URIs. In real life, /api/ezp/v2
-prefixes all REST hrefs.
+In [eZ Platform REST reference](https://doc.ezplatform.com/rest-api-reference), for the sake of readability, there are no prefixes used in the URIs.
+In practise, the `/api/ezp/v2` prefixes are all REST hrefs.
 
-Remember that URIs to REST resources should never be generated manually, but obtained from earlier REST
- calls.
+Remember that the URIs to REST resources should never be generated manually, but obtained from earlier REST calls.
 
-## OPTIONS requests
+### OPTIONS requests
 
-Any resource URI the REST API responds to will respond to an OPTIONS request.
+Any URI resource that the REST API responds to will respond to an OPTIONS request.
 
-The Response will contain an Allow header, that as specified in chapter 14.7 of RFC 2616 will list the methods
-accepted by the resource.
-
-Example:
+The response contains an `Allow` header, that as specified in [chapter 14.7 of RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.7) lists the methods accepted by the resource.
 
 ```
 OPTIONS /content/objects/1 HTTP/1.1
 Host: api.example.net
+```
 
+```
 HTTP/1.1 200 OK
 Allow: PATCH,GET,DELETE,COPY
 ```
