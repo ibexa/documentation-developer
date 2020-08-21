@@ -562,8 +562,6 @@ or for PostgreSQL:
 
 At this point you can continue with the standard update procedure:
 
-5\. [Platform.sh changes](../updating/5_platform_sh_changes.md)
-
-6\. [Dump assets](../updating/../updating/6_dump_assets.md)
-
-7\. [Commit, test and merge](../updating/7_commit_test_merge.md)
+1. [Platform.sh changes](../updating/5_platform_sh_changes.md)
+1. [Dump assets](../updating/../updating/6_dump_assets.md)
+1. [Commit, test and merge](../updating/7_commit_test_merge.md)
