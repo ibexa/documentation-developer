@@ -41,10 +41,9 @@ As the system takes care of purges, the cache shouldn't become stale with except
 
 ### Cache header rules
 
-However, a few redirect and error pages are served via the ContentView system.
-If you set a high `default_ttl`, they could also be served from cache, which should be avoided.
+A few redirect and error pages are served via the ContentView system, and if you set a high `default_ttl`, they could also end up being served from cache.
 
-To avoid this, installation ships with configuration to match those specific pages and set a much lower TTL.
+To avoid this, installation ships with configuration to match those specific situations and set a much lower TTL.
 [FOSHttpCacheBundle matching rules](http://foshttpcachebundle.readthedocs.io/en/2.8.0/reference/configuration/headers.html) feature allows you to specify a different TTL:
 
 ``` yaml
@@ -62,7 +61,7 @@ fos_http_cache:
                         s_maxage: 20
 ```
 
-Similarly, to apply performance tuning to avoid crawlers affecting the setup too much, set up caching of generic 404s and similar error pages in the following way:
+Similarly, by default we apply performance tuning to avoid crawlers affecting the setup too much, by caching of generic 404s and similar error pages in the following way:
 
 ``` yaml
 fos_http_cache:
@@ -93,12 +92,13 @@ for the block use `$event->getResponse()->setPrivate()`.
 
 ### When to use ESI
 
-ESI are in theory great for splitting out the different parts of a web page into separate concerns that can be freely reused as pieces by Reverse proxy.
+[Edge Side Includes](https://en.wikipedia.org/wiki/Edge_Side_Includes) (ESI) are in theory great for splitting out the different parts of a web page into separate concerns that can be freely reused as pieces by Reverse proxy.
 
-However, in practice ESI means every request needs to start over from scratch, and while you can tune your system to reduce this, it always causes additional overhead:
+However, in practice ESI means every sub request needs to start over from scratch from application perspective
+And while you can tune your system to reduce this, it always causes additional overhead:
 
 - When cache is cold on all or some of the sub-requests
-- With Symfony Proxy (AppCache) even some overhead on warm cache (hits) on all sub requests
+- With Symfony Proxy (AppCache) there is always some overhead, even on warm cache (hits)
 - In development environment
 
 It may differ depending on your system, but in general, we recommend to stay below 5 ESI
@@ -121,13 +121,14 @@ This is highly recommended as they provide far better performance and more advan
 
 !!! note
 
-    Use of Varnish or Fastly is a requirement for a [Clustering](clustering.md) setup.
+    Use of Varnish or Fastly is a requirement for a [Clustering](clustering.md) setup, as Symfony Proxy does not support
+    sharing cache between several application servers.
 
 ### Recommended VCL base files
 
 For setup to work properly with your installation, you'll need to adapt one of the provided VCL files as a basis:
 
-- [Varnish 5+ VCL xkey example](https://github.com/ezsystems/ezplatform-http-cache/blob/2.0/docs/varnish/vcl/varnish5.vcl)
+- [Varnish VCL xkey example](https://github.com/ezsystems/ezplatform-http-cache/blob/2.0/docs/varnish/vcl/varnish5.vcl)
 - Fastly VCL can be found in `vendor/ezsystems/ezplatform-http-cache-fastly/fastly` in Enterprise version
 
 !!! tip
@@ -143,15 +144,15 @@ Configuring eZ Platform for Varnish or Fastly involves a few steps, starting wit
 In a pure Symfony installation you would normally adapt Front Controller (`web/app.php`) [in order to configure Symfony to work behind a Load Balancer or a Reverse Proxy](https://symfony.com/doc/5.1/deployment/proxies.html),
 however in eZ Platform you can cover most use cases by setting supported environment variables using:
 
-- `SYMFONY_HTTP_CACHE`: To enable (`"1"`) or disable (`"0"`) use of Symfony HttpCache reverse proxy
+- `APP_HTTP_CACHE`: To enable (`"1"`) or disable (`"0"`) use of Symfony HttpCache reverse proxy
     - *Must* be disabled when using Varnish or Fastly.
-    - If not set, it is automatically disabled for Symfony ENV `dev` for local development needs.
+    - If not set, it is automatically disabled for `APP_ENV=dev` for local development needs, otherwise enabled.
 - `TRUSTED_PROXIES`: String with trusted IP, multiple proxies can be configured with a comma, i.e. `TRUSTED_PROXIES="192.0.0.1,10.0.0.0/8"`
 
 !!! caution "Careful when trusting dynamic IP using TRUST_REMOTE value or similar"
 
     On Platform.sh, Varnish does not have a static IP, like with [AWS LB.](https://symfony.com/doc/5.1/deployment/proxies.html#but-what-if-the-ip-of-my-reverse-proxy-changes-constantly)
-    For this `TRUSTED_PROXIES` env variable supports being set to value "TRUST_REMOTE":
+    For this `TRUSTED_PROXIES` env variable supports being set to value "TRUST_REMOTE", which is equal to:
   
     ```php
     Request::setTrustedProxies([$request->server->get('REMOTE_ADDR')], Request::HEADER_X_FORWARDED_ALL);
@@ -428,7 +429,7 @@ To expand on steps covered in [FOSHttpCacheBundle documentation on how user cont
 
 
 The next time a request comes in from the same user, application lookup for the hash (step 3) won't happen anymore as the
-hash lookup itself is cached by the cache proxy itself.
+hash lookup itself is cached by the cache proxy as well as described below.
 
 
 ##### User Context Hash caching
