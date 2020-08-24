@@ -26,10 +26,23 @@ This folder also contains `config/packages/ezplatform.yaml`, which contains all 
 
 #### PHP code and bundle organization
 
-Since Symfony 4 your code is no longer organized in bundles.
-`AppBundle` has been removed from eZ Platform.
-You need to move all your PHP code, such as controllers or event listeners, to the `src` folder.
-Use the `App` namespace for your custom code instead.
+Since Symfony 4 `src/` code is no longer organized in bundles, `AppBundle` has been removed from the default eZ Platform install.
+In order to adapt, you'll need to move all your PHP code, such as controllers or event listeners, to the `src` folder and use the `App` namespace for your custom code instead.
+
+!!! tip "How to make AppBundle continue to work, for now"
+
+    Refactoring bundles for `src/` folder can involve extensive changes, if you want to make your `src/AppBundle` continue to work, follow [an Autoloading src/AppBundle guide on Symfony Casts](https://symfonycasts.com/screencast/symfony4-upgrade/flex-composer.json#autoloading-src-amp-src-appbundle).
+    
+    You can also follow [Using a "path" Repository guide,](https://symfonycasts.com/screencast/symfony-bundle/extracting-bundle#using-a-path-repository) to create a [composer path repository.](https://getcomposer.org/doc/05-repositories.md#path)
+    If you have several bundles you can move them into a `packages/` directory and load them all with:
+    
+    ```
+    "repositories": [
+        { "type": "path", "url": "packages/*" },
+    ],
+    ```
+    
+    Once you are ready to refactor the code to `App` namespace, follow [Bye Bye AppBundle chapter.](https://symfonycasts.com/screencast/symfony4-upgrade/bye-appbundle)
 
 #### View templates
 
