@@ -29,9 +29,9 @@ This folder also contains `config/packages/ezplatform.yaml`, which contains all 
 Since Symfony 4 `src/` code is no longer organized in bundles, `AppBundle` has been removed from the default eZ Platform install.
 In order to adapt, you'll need to move all your PHP code, such as controllers or event listeners, to the `src` folder and use the `App` namespace for your custom code instead.
 
-!!! tip "How to make AppBundle contiune to work, for now"
+!!! tip "How to make AppBundle continue to work, for now"
 
-    Refactoring bundles for `src/` folder can involed quite some changes, if you'd like to make your `src/AppBundle` continue to work you can follow a guide on [Symfony Casts](https://symfonycasts.com/screencast/symfony4-upgrade/flex-composer.json#autoloading-src-amp-src-appbundle) on how to do that.
+    Refactoring bundles for `src/` folder can involve quite some changes, if you'd like to make your `src/AppBundle` continue to work you can follow a guide on [Symfony Casts](https://symfonycasts.com/screencast/symfony4-upgrade/flex-composer.json#autoloading-src-amp-src-appbundle) on how to do that.
     
     Or if you have several bundles you can move them into a `packages/` directory, and setup a [composer path repository](https://getcomposer.org/doc/05-repositories.md#path):
     ```
