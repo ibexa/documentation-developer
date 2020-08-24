@@ -508,14 +508,10 @@ As was the case starting 5.4, one notable change is that `SetEnvIf` is now use
 
 ### Step 5: Link assets
 
-Assets from the various bundles need to be made available for the webserver through the web/ document root. Execute the following commands from `<new-ez-root>`:
+As of 2.5 WebPack Encore from Symfony is prefered for handling assets, while Assetic is deprecated. To dump assets is hence a bit different as shown in update guide:
 
-``` bash
-php bin/console assets:install --env=prod --symlink
-php bin/console assetic:dump --env=prod
-```
+- [Dump assets](../updating/6_dump_assets.md)
 
-TODO: This should rather point out migration to Webpack Encore right?
 
 ## Potential pitfalls
 
