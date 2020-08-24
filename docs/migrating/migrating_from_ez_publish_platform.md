@@ -485,7 +485,7 @@ as it has changed to json internally for new eZ Platform field type.
 In eZ Platform, the system ships with additional enterprise features that need to be installed.
 
 1. First add all tables needed by eZ Platform Enterprise:
-   - https://github.com/ezsystems/ezplatform-ee-installer/blob/2.4/Resources/sql/schema.sql#L198
+   - https://github.com/ezsystems/ezplatform-ee-installer/blob/2.4/Resources/sql/schema.sql
 
 1. Apply [additional indexes added to Page Builder as of 2.5.3](../updating/4_update_2.5.md#page-builder).
 
