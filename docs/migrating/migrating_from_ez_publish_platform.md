@@ -267,11 +267,11 @@ Import to your database the changes provided in one of the following files. It's
 
 Postgres:
 - `<new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-5.4.0-to-6.13.0.sql`
-- `<new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-6.13.0-to-7.5.7.sql`
+- `<new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-6.13.0-to-7.5.0.sql`
 
 MySQL/MariaDB:
 - `<new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-5.4.0-to-6.13.0.sql`
-- `<new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.13.0-to-7.5.7.sql`
+- `<new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.13.0-to-7.5.0.sql`
 
 
 !!! note  "Change to UTF8mb4 for MySQL/MariaDB"
