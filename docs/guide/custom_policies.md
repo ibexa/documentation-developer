@@ -118,6 +118,32 @@ class AcmeExampleBundle extends Bundle
 }
 ```
 
+If you are using eZ Platform in version 3.1 or newer, you must use the `App\Kernel` to register a new policy provider:
+
+```php
+namespace App;
+
+use App\Security\AppPolicyProvider;
+use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
+use Symfony\Component\HttpKernel\Kernel as BaseKernel;
+
+class Kernel extends BaseKernel
+{
+    use MicroKernelTrait;
+
+    protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader): void
+    {
+        // ...
+        
+        // Retrieve "ezpublish" container extension
+        $eZExtension = $container->getExtension('ezpublish');
+        // Add the policy provider
+        $eZExtension->addPolicyProvider(new AppPolicyProvider());
+    }
+}
+```
+
+
 ## Integrating custom Limitation types with the UI
 
 To provide support for editing custom policies in the Back Office, you need to implement [`EzSystems\EzPlatformAdminUi\Limitation\LimitationFormMapperInterface`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/lib/Limitation/LimitationFormMapperInterface.php).
