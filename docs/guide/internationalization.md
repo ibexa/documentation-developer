@@ -5,7 +5,7 @@
 eZ Platform offers the ability to create multiple language versions (translations) of a Content item.
 Translations are created per version of the item, so each version of the content can have a different set of translations.
 
-A version always has at least one translation which by default is the *initial/main* translation. Further versions can be added, but only for languages that have previously been [added to the global translation list](#adding-available-languages), that is a list of all languages available in the system. The maximum number of languages in the system is 64.
+A version always has at least one translation which by default is the *initial/main* translation. Further versions can be added, but only for languages that have previously been [added to the global translation list](#adding-available-languages), that is a list of all languages available in the system. The maximum number of languages in the system is 62.
 
 Different translations of the same Content item can be edited separately. This means that different users can work on translations into different languages at the same time.
 
