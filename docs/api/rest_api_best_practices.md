@@ -5,8 +5,8 @@ REST API resources and endpoints.
 
 ## Specifying SiteAccess
 
-In order to specify SiteAccess, when talking to the REST API, provide a custom header `X-Siteaccess`.
-If it is not provided, the default one will be used.
+In order to specify a SiteAccess when communicating with the REST API, provide a custom `X-Siteaccess` header.
+If it is not provided, the default SiteAccess is be used.
 
 Example:
 
@@ -20,9 +20,9 @@ X-Siteaccess: admin
 ## Media types
 
 The methods on resources provide multiple media types in their responses.
-A media type can be selected in the `Accept` Header.
-Each XML media type has a unique name e.g. `application/vnd.ez.api.User+xml`.
-The returned XML response conforms with the complex type definition with a name e.g. `vnd.ez.api.User` in the `user.xsd` XML schema definition file (see `User_`).
+A media type can be selected in the `Accept` header.
+Each XML media type has a unique name, e.g. `application/vnd.ez.api.User+xml`.
+The returned XML response conforms with the complex type definition with a name, e.g. `vnd.ez.api.User` in the `user.xsd` XML schema definition file (see `User_`).
 
 To derive the implicit schema of the JSON from the XML schema a uniform transformation from XML to JSON is performed as shown below.
 
@@ -99,14 +99,14 @@ If there is only one media type defined for XML or JSON, it is also possible to 
 
 ## URIs
 
-The REST API is designed in such a way that the client doesn't need to  construct any URIs to resources.
+The REST API is designed in such a way that the client doesn't need to construct any URIs to resources.
 Starting from the root resources (`ListRoot_`) every response includes further links to related resources.
 The URIs should be used directly as identifiers on the client side and the client should not construct any URIs by using an ID.
 
 ### URIs prefix
 
 In [eZ Platform REST reference](https://doc.ezplatform.com/rest-api-reference), for the sake of readability, there are no prefixes used in the URIs.
-In practise, the `/api/ezp/v2` prefixes are all REST hrefs.
+In practice, the `/api/ezp/v2` prefixes are all REST hrefs.
 
 Remember that the URIs to REST resources should never be generated manually, but obtained from earlier REST calls.
 
