@@ -51,7 +51,7 @@ The following tags used to register Field Type features in the dependency inject
 |`ezpublish.fieldType.externalStorageHandler.gateway`|`ezplatform.field_type.external_storage_handler.gateway`|
 
 Deprecated method `eZ\Publish\SPI\FieldType\FieldType::getName` is now supported with a new signature similar to `eZ\Publish\SPI\FieldType\Nameable::getFieldName()`, which has been removed.
-See [eZ Platform v3.0 project update](../upgrading/upgrading_to_v3.md#field-types) for further information.
+See [eZ Platform v3.0 project update](../upgrading/4_3_upgrade_field_types.md) for further information.
 
 The deprecated `eZ\Publish\Core\FieldType\RichText` namespace has been removed, as it was moved to a separate bundle in v2.4.
 
@@ -86,7 +86,7 @@ The `ezstudio.installer.studio_installer` service has been renamed to the FQCN-n
 service `EzSystems\EzPlatformEnterpriseEditionInstallerBundle\Installer\Installer`.
 Deprecated `ezplatform.ee.installer.class` DIC parameter has been removed.
 
-See [eZ Platform v3.0 project update instructions](../upgrading/upgrading_to_v3.md#custom-installers) for upgrade details.
+See [eZ Platform v3.0 project update instructions](../upgrading/4_8_upgrade_rest.md#custom-installers) for upgrade details.
 
 ## ezplatform-admin-ui
 
