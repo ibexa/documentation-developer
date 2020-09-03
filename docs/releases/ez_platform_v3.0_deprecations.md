@@ -16,7 +16,7 @@ as well as [Symfony upgrade guides for 4.0](https://github.com/symfony/symfony/b
 and [for 5.0](https://github.com/symfony/symfony/blob/master/UPGRADE-5.0.md)
 to learn about all changes it entails.
 
-See [v3.0 project update](../updating/upgrading_to_v3.md) for the steps you need to take to update your project to Symfony 5.
+See [v3.0 project update](../upgrading/upgrading_to_v3.md) for the steps you need to take to update your project to Symfony 5.
 See also [full requirements for installing eZ Platform](../getting_started/requirements.md).
 
 ### Template configuration
@@ -51,7 +51,7 @@ The following tags used to register Field Type features in the dependency inject
 |`ezpublish.fieldType.externalStorageHandler.gateway`|`ezplatform.field_type.external_storage_handler.gateway`|
 
 Deprecated method `eZ\Publish\SPI\FieldType\FieldType::getName` is now supported with a new signature similar to `eZ\Publish\SPI\FieldType\Nameable::getFieldName()`, which has been removed.
-See [eZ Platform v3.0 project update](../updating/upgrading_to_v3.md#field-types) for further information.
+See [eZ Platform v3.0 project update](../upgrading/upgrading_to_v3.md#field-types) for further information.
 
 The deprecated `eZ\Publish\Core\FieldType\RichText` namespace has been removed, as it was moved to a separate bundle in v2.4.
 
@@ -86,7 +86,7 @@ The `ezstudio.installer.studio_installer` service has been renamed to the FQCN-n
 service `EzSystems\EzPlatformEnterpriseEditionInstallerBundle\Installer\Installer`.
 Deprecated `ezplatform.ee.installer.class` DIC parameter has been removed.
 
-See [eZ Platform v3.0 project update instructions](../updating/upgrading_to_v3.md#custom-installers) for upgrade details.
+See [eZ Platform v3.0 project update instructions](../upgrading/upgrading_to_v3.md#custom-installers) for upgrade details.
 
 ## ezplatform-admin-ui
 
