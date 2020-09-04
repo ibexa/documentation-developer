@@ -29,7 +29,7 @@ Example request header: `Cookie: <SessionName> : <sessionID>`.
 
 ### CSRF token
 
-A CSRF token must be sent in every request that uses unsafe methods (not GET or HEAD), when a session has been established.
+A CSRF token must be sent in every request that uses unsafe methods (not GET or HEAD or OPTIONS), when a session has been established.
 It should be sent with an `X-CSRF-Token` header.
 The token (`csrfToken`) is defined in a response during logging in through the POST `/user/sessions`.
 
@@ -49,10 +49,10 @@ If an unsafe request is missing the CSRF token, or the token has incorrect value
 
 ### Rich client application security concerns
 
-The purpose of CSRF protection is to prevent users from accidentally running harmful operations by being tricked into executing an http(s) request against a web applications they are logged into.
+The purpose of CSRF protection is to prevent users from accidentally running harmful operations by being tricked into executing an HTTP(S) request against a web applications they are logged into.
 In browsers this action will be blocked by lack of CSRF token.
 
-However, if you develop a rich client application (JavaScript, JAVA, Flash, Silverlight, iOS, Android, etc.), that is:
+However, if you develop a rich client application (JavaScript, JAVA, iOS, Android, etc.), that is:
 
 - Registering itself as a protocol handler:
     - Exposes unsafe methods in any way
