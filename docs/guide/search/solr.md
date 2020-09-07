@@ -576,7 +576,9 @@ my_webinar_app.webinar_event_title_fulltext_field_mapper:
 	
 !!! caution "Permission issues when using Repository API in document field mappers"
 
-    Document field mappers are low level, they expect to be able to index all content regardless of current user permissions. If you use Repository API in your custom document field mappers you'll need to use [sudo](https://doc.ezplatform.com/en/2.5/api/public_php_api/#using-sudo), alternativly use Persistance SPI layer as showcased in example above.
+    Document field mappers are low level. They expect to be able to index all content regardless of current user permissions.
+    If you use PHP API in your custom document field mappers, you need to apply [`sudo()`](../../api/public_php_api.md#using-sudo),
+    otherwise use the Persistence SPI layer as in the example above.
 
 ## Configuring Solr Replication (master/slave)
 
