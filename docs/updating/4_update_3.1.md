@@ -1,6 +1,6 @@
 # Updating from <3.1
     
-If you are updating from a version prior to 3.0, you have to implement all the changes from [Upgrading eZ Platform to v3](upgrading_to_v3.md) before following the steps below.
+If you are updating from a version prior to 3.0, you have to implement all the changes from [Upgrading eZ Platform to v3](../upgrading/upgrading_to_v3.md) before following the steps below.
 
 !!! note
 
