@@ -502,7 +502,7 @@ These can be used on the extension points by registering them with the container
 The following example shows how to index data from the parent Location content, in order to make it available for full-text search on the children content.
 It is based on the use case of indexing webinar data on the webinar events, which are children of the webinar. Field mapper could then look like this:
 
-``` php
+```php
  <?php
 
 namespace My\WebinarApp;
@@ -572,6 +572,13 @@ my_webinar_app.webinar_event_title_fulltext_field_mapper:
     tags:
         - {name: ezpublish.search.solr.field_mapper.content}
 ```
+
+	
+!!! caution "Permission issues when using Repository API in document field mappers"
+
+    Document field mappers are low level. They expect to be able to index all content regardless of current user permissions.
+    If you use PHP API in your custom document field mappers, you need to apply [`sudo()`](../../api/public_php_api.md#using-sudo),
+    otherwise use the Persistence SPI layer as in the example above.
 
 ## Configuring Solr Replication (master/slave)
 
