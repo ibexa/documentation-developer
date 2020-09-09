@@ -320,7 +320,7 @@ eZ Platform now requires using PHP 7.3. For full list of, see [eZ Platform requi
 
 ## Updating
 
-For the upgrade details, see [eZ Platform v3.0 project update instructions](../updating/upgrading_to_v3.md).
+For the upgrade details, see [eZ Platform v3.0 project update instructions](../upgrading/upgrading_to_v3.md).
 
 ## Full changelog
 

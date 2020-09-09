@@ -22,7 +22,7 @@ Start with the version closest to your current version:
 - [Updating from <2.3](4_update_2.3.md)
 - [Updating from <2.4](4_update_2.4.md)
 - [Updating from <2.5](4_update_2.5.md)
-- [Updating from <3.0](upgrading_to_v3.md)
+- [Updating from <3.0](../upgrading/upgrading_to_v3.md)
 - [Updating from <3.1](4_update_3.1.md)
 
 Only after applying all changes your database will work properly.
