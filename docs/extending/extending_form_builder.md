@@ -7,6 +7,8 @@
     ### Captcha field
 
     The Captcha Form field is based on [Gregwar/CaptchaBundle](https://github.com/Gregwar/CaptchaBundle).
+    
+    ![Captcha field](img/extending_form_builder_captcha_default.png)
 
     You can customize the field by adding configuration to `config/packages/gregwar_captcha.yaml` under `gregwar_captcha`:
 
@@ -14,9 +16,13 @@
     gregwar_captcha:
         as_url: true
         width: 150
-        invalid_message: Retry.
+        invalid_message: Code doed not match, please retry.
         reload: true
     ```
+    
+    The configuration resizes the CAPTCHA image (line 3), changes the error message (line 4), enables the user to reload the code (line 5).
+    
+    ![Custom captcha field](img/extending_form_builder_captcha_result.png)
 
     For information about available options, see [the bundle's documentation.](https://github.com/Gregwar/CaptchaBundle#options)
 
@@ -29,14 +35,14 @@
     You can extend the Form Builder by adding new Form fields or modifying existing ones.
     Form fields are defined in YAML configuration.
 
-    For example, to create a Country Form field:
+    For example, to create a Country Form field in Custom ford fields category provide the block configuration in `config/packages/ez_platform_form_builder.yaml`:
 
     ``` yaml
     ez_platform_form_builder:
         fields:
             country:
                 name: Country
-                category: Default
+                category: Custom form fields
                 thumbnail: `/bundles/ezplatformadminui/img/ez-icons.svg#input-line`
                 attributes:
                     label:
@@ -81,7 +87,8 @@
     - `upload_size`
     - `extensions`
 
-    New types of fields require a mapper which implements `\EzSystems\EzPlatformFormBuilder\FieldType\Field\FieldMapperInterface`:
+    New types of fields require a mapper which implements `EzSystems\EzPlatformFormBuilder\FieldType\Field\FieldMapperInterface`.
+    Implement a `FieldMapperInterface` interface in the src/FormBuilder/Field/Mapper/CountryFieldMapper.php.:
 
     ``` php
     namespace App\FormBuilder\Field\Mapper;
@@ -105,7 +112,7 @@
     }
     ```
 
-    The mapper must be registered as a service:
+    The mapper must be registered as a service in `config/services.yaml`:
 
     ``` yaml
     services:
@@ -117,6 +124,15 @@
             tags:
                 - { name: ezplatform.form_builder.field_mapper }
     ```
+    
+    Now you can go to Back Office and build a new form.
+    You should be able to see the new section in the list of available fields:
+    
+    ![Custom form fields](img/extending_form_builder_custom_form_fields.png)
+    
+    And a new Country Form field:
+    
+    ![Country field](img/extending_form_builder_country_field.png)
 
     ## Changing field and field attribute definitions dynamically
 

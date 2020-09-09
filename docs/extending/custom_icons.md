@@ -3,6 +3,7 @@
 ## Custom Content Type icons
 
 To add custom icons for existing Content Types or custom Content Types in eZ Platform, follow the instructions below.
+For more information on icons used in eZ Platform, see [the Icons section](../guidelines/resources/icons.md).
 
 ### Configuration
 

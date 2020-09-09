@@ -2,8 +2,8 @@
 
 !!! enterprise
 
-    To create a Page block, use the following YAML configuration in an application or a bundle,
-    under the `ezplatform_page_fieldtype` key.
+    To create an Example Page block, use the following YAML configuration in an application or a bundle,
+    under the `ezplatform_page_fieldtype` key e.g. `config/packages/ezplatform_page_fieldtype.yaml`:
 
     !!! caution
 
@@ -62,6 +62,10 @@
 
         Default views have a `priority` of -255.
         It's good practice to keep the value between -255 and 255.
+
+    Now, you can add your example block in the Site tab.
+
+    ![Example Block](img/extending_example_page_block.png)
 
     ## Block attributes
 
