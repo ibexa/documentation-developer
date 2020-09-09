@@ -176,11 +176,11 @@ and specify the URL Varnish can be reached on (in `config/packages/ezplatform.ya
 
 | Configuration | Parameter| Environment variable| Possible values|
 |---------|--------|--------|----------|
-| ezpublish.http_cache.purge_type | `purge_type` | `HTTPCACHE_PURGE_TYPE` | local, varnish, fastly |
-| ezpublish.system.(scope).http_cache.purge_servers | `purge_server`* | `HTTPCACHE_PURGE_SERVER`* | Array of URLs to proxies when using Varnish or Fastly (`https://api.fastly.com`) |
-| ezpublish.system.(scope).http_cache.varnish_invalidate_token | `varnish_invalidate_token` | `HTTPCACHE_VARNISH_INVALIDATE_TOKEN` | (Optional) For token based authentication |
-| ezpublish.system.(scope).http_cache.fastly.service_id | `fastly_service_id` | `FASTLY_SERVICE_ID` | Service ID to authenticate with Fastly |
-| ezpublish.system.(scope).http_cache.fastly.key | `fastly_key` | `FASTLY_KEY` | Service key/token to authenticate with Fastly |
+| ezplatform.http_cache.purge_type | `purge_type` | `HTTPCACHE_PURGE_TYPE` | local, varnish, fastly |
+| ezplatform.system.(scope).http_cache.purge_servers | `purge_server`* | `HTTPCACHE_PURGE_SERVER`* | Array of URLs to proxies when using Varnish or Fastly (`https://api.fastly.com`) |
+| ezplatform.system.(scope).http_cache.varnish_invalidate_token | `varnish_invalidate_token` | `HTTPCACHE_VARNISH_INVALIDATE_TOKEN` | (Optional) For token based authentication |
+| ezplatform.system.(scope).http_cache.fastly.service_id | `fastly_service_id` | `FASTLY_SERVICE_ID` | Service ID to authenticate with Fastly |
+| ezplatform.system.(scope).http_cache.fastly.key | `fastly_key` | `FASTLY_KEY` | Service key/token to authenticate with Fastly |
 
 _\* If you need to set multiple purge servers configure them in the YAML configuration, instead of parameter or environment variable as they only take single string value._
 
@@ -460,7 +460,7 @@ It also varies on `Authorization` to cover any possible basic auth headers in ca
 
     If you are using URI-based SiteAccesses matching on a multi-repository installation (multiple databases). The default
     SiteAccess on the domain needs to point to the same repository (database), because `/_fos_user_context_hash` is not
-    SiteAccess-aware by default (see `ezpublish.default_router.non_siteaccess_aware_routes` parameter). This in turn is
+    SiteAccess-aware by default (see `ezplatform.default_router.non_siteaccess_aware_routes` parameter). This in turn is
     because reverse proxy does not have knowledge about SiteAccesses and it's not passing the whole URL in order to be
     able to cache the user context hash response.
 
