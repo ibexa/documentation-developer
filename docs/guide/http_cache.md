@@ -478,7 +478,7 @@ fos_http_cache:
         default: varnish
         varnish:
             http:
-                servers: ['%purge_server%']
+                servers: ['$http_cache.purge_servers$']
             tag_mode: 'purgekeys'
 
     user_context:
