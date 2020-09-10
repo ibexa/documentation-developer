@@ -3,7 +3,7 @@
 !!! enterprise
 
     To create an Example Page block, use the following YAML configuration in an application or a bundle,
-    under the `ezplatform_page_fieldtype` key e.g. `config/packages/ezplatform_page_fieldtype.yaml`:
+    under the `ezplatform_page_fieldtype` key, e.g. in `config/packages/ezplatform_page_fieldtype.yaml`:
 
     !!! caution
 

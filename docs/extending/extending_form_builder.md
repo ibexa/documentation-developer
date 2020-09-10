@@ -16,7 +16,7 @@
     gregwar_captcha:
         as_url: true
         width: 150
-        invalid_message: Code doed not match, please retry.
+        invalid_message: Code does not match, please retry.
         reload: true
     ```
     
@@ -35,7 +35,8 @@
     You can extend the Form Builder by adding new Form fields or modifying existing ones.
     Form fields are defined in YAML configuration.
 
-    For example, to create a Country Form field in Custom ford fields category provide the block configuration in `config/packages/ez_platform_form_builder.yaml`:
+    For example, to create a Country Form field in the "Custom form fields" category,
+    provide the block configuration in `config/packages/ez_platform_form_builder.yaml`:
 
     ``` yaml
     ez_platform_form_builder:
@@ -87,8 +88,8 @@
     - `upload_size`
     - `extensions`
 
-    New types of fields require a mapper which implements `EzSystems\EzPlatformFormBuilder\FieldType\Field\FieldMapperInterface`.
-    Implement a `FieldMapperInterface` interface in the src/FormBuilder/Field/Mapper/CountryFieldMapper.php.:
+    New types of fields require a mapper which implements the `EzSystems\EzPlatformFormBuilder\FieldType\Field\FieldMapperInterface` interface.
+    Implement the `FieldMapperInterface` interface in `src/FormBuilder/Field/Mapper/CountryFieldMapper.php`:
 
     ``` php
     namespace App\FormBuilder\Field\Mapper;

@@ -116,7 +116,7 @@ ezplatform:
                             Identifier: [ unit ]
 ```
 
-The `Tempaltes/User/Settings/update_unit.html.twig` template must extend the `@ezdesign/account/settings/update.html.twig` template:
+The `Templates/User/Settings/update_unit.html.twig` template must extend the `@ezdesign/account/settings/update.html.twig` template:
 
 ``` html+twig
 {% extends '@ezdesign/account/settings/update.html.twig' %}

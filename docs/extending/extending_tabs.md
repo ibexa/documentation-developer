@@ -14,7 +14,7 @@ Register your tab group as a service in `config/services.yaml`:
 
 ``` yaml
 services:
-    //
+    # ...
     app.my_tabs.custom_group:
         parent: EzSystems\EzPlatformAdminUi\Component\TabsComponent
         autowire: true
@@ -86,7 +86,7 @@ Before you add a tab to a group you must create the tab's PHP class and define i
 
 ``` yaml
 services:
-    //
+    # ...
     App\Custom\Tab:
         parent: EzSystems\EzPlatformAdminUi\Tab\AbstractTab
         autowire: true
