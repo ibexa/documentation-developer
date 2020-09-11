@@ -8,12 +8,28 @@ To add a new tooltip you have to add a `title` attribute with the custom tooltip
 ```html
 <button type="button" class="class" title="your custom tooltip text">click me</button>
 ```
+Additionally, you can add following attributes:
+
+- `data-extra-classes` - an additional class for tooltip container `.tooltip`
+- `data-tooltip-container-selector` - a css selector for a tooltip container (Bootstrap tooltip `data-container` attribute)
+
+Example of a tooltip with additional attributes:
+
+```html
+<button type="button" class="class" title="your custom tooltip text" data-extra-classes="additional_class" data-tooltip-container-selector="selector">
+	click me
+</button>
+```
+
+You can also add tooltip helpers to the JavaScript `eZ.helpers` object:
+
+- `eZ.helpers.tooltips.parse(optional HTMLnode)` - creates a tooltip. Equivalent of `$(selector).tooltip()`. HTMLnode will execute `querySelectorAll` on this object, a `window.document` is default value.
+- `eZ.helpers.tooltips.hideAll(optional HTMLnode)` - closes all tooltips. Equivalent of `$(selector).tooltip('hide')`. HTMLnode will execute `querySelectorAll` on this object, a `window.document` is default value.
 
 A tooltip is displayed automatically when the user hovers the pointer over an action button, and removed when the user clicks the control or move the mouse. The tooltip can also be triggered by focusing on that specific element with the keyboard (tab key), or tapping on it.
 
 !!! note
-    Our application relies on [Bootstrap's tooltips](https://getbootstrap.com/docs/4.1/components/tooltips/). Check our their documentation for basic aspects regarding Tooltips configuration.</br>
-    <div class="mgt-2">If you are interested in customizing or extending this component, check out [Extending Back Office](../../extending/extending_tooltips.md).</div>
+    Our application relies on [Bootstrap's tooltips](https://getbootstrap.com/docs/4.1/components/tooltips/). Check out their documentation for basic aspects regarding Tooltips configuration.
 
 **<div class="mgt-3">Behavior & motion</div>**
 A tooltip is displayed upon hovering over an action button. It shows up over 150ms and fades out over 75ms.
