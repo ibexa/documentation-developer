@@ -171,6 +171,10 @@
         tags:
             - { name: ezplatform.calendar.event_source }
     ```
+    
+    Now you will be able to see the bank holidays in the **Calendar** tab.
+    
+    ![Custom events list view](img/extending_calendar_list_view.png)
 
     ### Importing events from external sources
 
@@ -245,7 +249,7 @@
                     event_types:
                         holiday:
                             icon: /assets/images/event_icon.svg
-                            color: '#aa0000'
+                            color: '#FF0000'
                             actions:
                                 action_name:
                                     icon: /assets/images/action_icon.svg
@@ -254,3 +258,5 @@
     Note that line 6 contains the name of the event type defined in `EventType.php`.
 
     After modifying the assets, for the new configuration to take effect, run: `yarn encore <dev|prod>`.
+    
+    ![Bank holiday with custom color](img/extending_calendar_view.png)
