@@ -36,7 +36,7 @@ git pull upstream <version>
 
 !!! tip
 
-    Don't forget the `v` parameter here. You want to pull the tag `<version>` and not the branch `<version>` (i.e.: `v3.0.0`, and NOT `3.0.0` which is dev branch).
+    Don't forget the `v` prefix here. You want to pull the tag `<version>` and not the branch `<version>` (i.e.: `v3.0.0`, and NOT `3.0.0` which is dev branch).
 
 At this stage you may get conflicts, which are a normal part of the procedure and no reason to worry.
 The most common ones will be on `composer.json` and `composer.lock`.
