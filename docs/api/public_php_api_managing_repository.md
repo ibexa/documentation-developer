@@ -64,6 +64,19 @@ Note that assigning a Section to content does not automatically assign it to the
 [Object states](../guide/admin_panel.md#object-states)  enable you to set a custom state to any content.
 States are grouped into Object state groups.
 
+### Getting Object state information
+
+You can use the [`ObjectStateService`](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/API/Repository/ObjectStateService.php)
+to get information about Object state groups or Object states.
+
+``` php
+$objectStateGroup = $this->objectStateService->loadObjectStateGroupByIdentifier('ez_lock');
+$output->writeln($objectStateGroup->getName());
+
+$objectState = $this->objectStateService->loadObjectStateByIdentifier($objectStateGroup, 'locked');
+$output->writeln($objectState->getName());
+```
+
 ### Creating Object states
 
 To create an Object state group and add Object states to it,
