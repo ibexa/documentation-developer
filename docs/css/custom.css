@@ -189,10 +189,6 @@ html .md-footer-meta.md-typeset a {
 
 /* Enterprise */
 
-.admonition.enterprise .admonition-title:before {
-    content: "";
-}
-
 .admonition.enterprise .admonition-title {
     padding-left: 1.2rem;
 }
@@ -227,14 +223,31 @@ html .md-footer-meta.md-typeset a {
     border-color: var(--note-border);
 }
 
-.md-typeset .admonition.tip>.admonition-title:before, .md-typeset details.tip>summary:before {
-    color: var(--note-border);
-    content: "lightbulb_outline";
+.md-typeset .admonition.note>.admonition-title:before, .md-typeset .admonition.tip>.admonition-title:before,
+.md-typeset .admonition.caution>.admonition-title:before, .md-typeset .admonition.enterprise>.admonition-title:before {
+    content: "";
 }
 
-.md-typeset .admonition.note>.admonition-title:before, .md-typeset details.note>summary:before {
-    color: var(--note-border);
+.md-typeset .admonition.note>.admonition-title {
+    background: url("../images/notes-edit.svg");
 }
+
+.md-typeset .admonition.tip>.admonition-title {
+    background: url("../images/light-bulb-shine.svg");
+}
+
+.md-typeset .admonition.caution>.admonition-title {
+    background: url("../images/alert-triangle.svg");
+}
+
+.md-typeset .admonition.note>.admonition-title, .md-typeset .admonition.tip>.admonition-title,
+.md-typeset .admonition.caution>.admonition-title, .md-typeset .admonition.enterprise>.admonition-title {
+    background-repeat: no-repeat;
+    background-size: 24px;
+    background-origin: content-box;
+    background-position-x: -3rem;
+}
+
 
 /* General admonitions */
 
@@ -522,4 +535,8 @@ a.external:after {
 
 .tabbed-set input:nth-child(n+1):checked + label + .tabbed-content {
   display: block;
+}
+
+.github-icon {
+    padding: 1rem;
 }
