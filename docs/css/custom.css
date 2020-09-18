@@ -25,6 +25,20 @@
     --link: rgb(56,152,175);
 }
 
+@font-face {
+    font-family: "Noto Sans";
+    src: url("../fonts/Noto_Sans/NotoSans-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Work Sans";
+    src: url("../fonts/Work_Sans/WorkSans-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
 body, input {
     font-family: "Noto Sans", sans-serif;
     color: var(--ibexa-dusk-black);
@@ -80,6 +94,10 @@ body {
 
 .md-header-nav__button {
     padding: .5rem;
+}
+
+.md-sidebar__inner {
+    font-family: "Work Sans", sans-serif;
 }
 
 .md-logo {
@@ -405,6 +423,22 @@ a.external:after {
     box-sizing: border-box;
 }
 
+.md-search__input  {
+    background-color: rgb(66,73,81);
+}
+
+.md-search__input::placeholder, .md-search__input:-ms-input-placeholder {
+    color: var(--white);
+}
+
+.md-search__input:hover  {
+    background-color: rgb(84,91,98);
+}
+
+.md-search__icon {
+    color: var(--white);
+}
+
 .ds-dataset-1 {
     max-height: calc(100vh - 5.5rem);
 }
@@ -412,10 +446,6 @@ a.external:after {
 .algolia-autocomplete {
     display: block !important;
     box-sizing: border-box;
-}
-
-.md-search__icon {
-    z-index: 0;
 }
 
 /* Image enlagement Modal */
