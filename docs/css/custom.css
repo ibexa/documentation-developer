@@ -191,6 +191,10 @@ html .md-footer-meta.md-typeset a:hover
     color: var(--ibexa-dusk-black);
 }
 
+.md-footer-nav span:hover {
+    color: var(--ibexa-orange);
+}
+
 .md-footer-copyright, .md-footer-copyright__highlight {
     color: var(--ibexa-dusk-black);
 }
