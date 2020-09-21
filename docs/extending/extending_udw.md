@@ -26,7 +26,7 @@ const config = /* fetch the config somewhere */;
 ReactDOM.render(React.createElement(eZ.modules.UniversalDiscovery, {
     onConfirm: {Function},
     onCancel: {Function},
-    {...config}
+    ...config
 }), container);
 ```
 
