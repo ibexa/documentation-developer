@@ -13,7 +13,7 @@ UDW requires that you provide configuration by using the `ez_udw_config` Twig he
 </button>
 ```
 
-> `simple` configuration is one of the default configuration provided. You can also do your [own configuration](#Adding-new-configuration).
+> `single` configuration is one of the default configuration provided. You can also do your [own configuration](#Adding-new-configuration).
 
 With vanilla JS:
 
