@@ -37,7 +37,7 @@ ez_io:
                 adapter: default
 ```
 
-The 'default' Flysystem adapter's directory is based on your site settings, and will automatically be set to `%ezpublish_legacy.root_dir%/$var_dir$/$storage_dir$` (for example: `/path/to/ezpublish_legacy/var/ezdemo_site/storage`).
+The 'default' Flysystem adapter's directory is based on your site settings, and will automatically be set to `%webroot_dir%/$var_dir$/$storage_dir$` (for example: `/path/to/ezplatform/web/var/site/storage`).
 
 #### Configure the permissions of generated files
 
@@ -137,7 +137,7 @@ For [more information about REST API see the documentation](../api/rest_api_guid
 
 ### IO URL decoration
 
-By default, images and binary files referenced by content will be served from the same server as the application, for example `/var/ezdemo_site/storage/images/3/6/4/6/6463-1-eng-GB/kidding.png`. This is the default semantic configuration:
+By default, images and binary files referenced by content will be served from the same server as the application, for example `/var/site/storage/images/3/6/4/6/6463-1-eng-GB/kidding.png`. This is the default semantic configuration:
 
 ``` yaml
 ezpublish:
@@ -151,7 +151,7 @@ ezpublish:
 
 ### Using a static server for images
 
-One common use case is to use an optimized nginx to serve images in an optimized way. The example image above could be made available as `http://static.example.com/images/3/6/4/6/6463-1-eng-GB/kidding.png` by setting up a server that uses `ezpublish/ezpublish_legacy/var/ezdemo_site/storage`. The configuration would be as follows:
+One common use case is to use an optimized nginx to serve images in an optimized way. The example image above could be made available as `http://static.example.com/images/3/6/4/6/6463-1-eng-GB/kidding.png` by setting up a server that uses `/path/to/ezplatform/web/var/site/storage`. The configuration would be as follows:
 
 ``` yaml
 ezpublish:
@@ -168,7 +168,7 @@ Any `BinaryFile` returned by the public API is prefixed with the value of this 
 #### `io.url_prefix` dynamic container setting
 
 Default value: `$var_dir$/$storage_dir$`
-Example: `/var/ezdemo_site/storage`
+Example: `/var/site/storage`
 
 Used to configure the default URL decorator service (`ezpublish.core.io.default_url_decorator`), used by all binary data handlers to generate the URI of loaded files. It is always interpreted as an absolute URI, meaning that unless it contains a scheme (http://, ftp://), it will be prepended with a '/'.
 
