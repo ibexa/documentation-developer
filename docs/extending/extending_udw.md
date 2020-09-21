@@ -5,7 +5,7 @@ using an interactive interface: browse, search, create, and bookmarks view.
 
 ## How to use UDW?
 
-UDW requires configuration that you can provide using the `ez_udw_config` Twig helper. This configuration must be spread to the props of the component itself.
+UDW requires that you provide configuration by using the `ez_udw_config` Twig helper. This configuration must be spread to the props of the component itself.
 
 ```html+twig
 <button data-udw-config="{{ ez_udw_config('single') }}">
