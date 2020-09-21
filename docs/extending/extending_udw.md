@@ -21,7 +21,7 @@ With vanilla JS:
 const container = document.querySelector('#react-udw');
 
 const config = /* fetch the config somewhere */;
-//const config = JSON.parse(somewhere.dataset.udwConfig);
+//const config = JSON.parse(document.querySelector('.btn-udw-trigger).dataset.udwConfig);
 
 ReactDOM.render(React.createElement(eZ.modules.UniversalDiscovery, {
     onConfirm: {Function},
