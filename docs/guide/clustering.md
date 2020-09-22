@@ -52,7 +52,7 @@ On eZ Platform Cloud (and Platform.sh) Redis is preferred and supported.
 
 ### Shared binary files
 
-eZ Platform supports multi-server setups by means of [custom IO handlers](file_management#the-dfs-cluster-handler).
+eZ Platform supports multi-server setups by means of [custom IO handlers](file_management.md#the-dfs-cluster-handler).
 They make sure that files are correctly synchronized among the multiple clients using the data.
 
 ## DFS IO handler

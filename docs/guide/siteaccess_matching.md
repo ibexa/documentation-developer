@@ -61,11 +61,11 @@ Every custom matcher can be specified with a fully qualified class name (e.g. `\
 - [URIText](#uritext)
 - [HostElement](#hostelement)
 - [HostText](#hosttext)
-- [Map\Host](#map92host)
-- [Map\URI](#map92uri)
-- [Map\Port](#map92port)
-- [Regex\Host](#regex92host) (deprecated)
-- [Regex\URI](#regex92uri) (deprecated)
+- [Map\Host](#maphost)
+- [Map\URI](#mapuri)
+- [Map\Port](#mapport)
+- [Regex\Host](#regexhost) (deprecated)
+- [Regex\URI](#regexuri) (deprecated)
 
 ### URIElement
 
