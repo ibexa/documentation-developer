@@ -204,14 +204,14 @@ You can read more about that on [Binary files URL handling](file_management.md#u
 ### Web server rewrite rules
 
 The default eZ Platform rewrite rules will let image requests be served directly from disk.
-In a cluster setup, files matching `^/var/([^/]+/)?storage/images(-versioned)?/.*` have to be passed through `/web/app.php` instead.
+In a cluster setup, files matching `^/var/([^/]+/)?storage/images(-versioned)?/.*` have to be passed through `/web/index.php` instead.
 
 In any case, this specific rewrite rule must be placed before the ones that "ignore" image files and just let the web server serve the files directly.
 
 #### Apache
 
 ```
-RewriteRule ^/var/([^/]+/)?storage/images(-versioned)?/.* /app.php [L]
+RewriteRule ^/var/([^/]+/)?storage/images(-versioned)?/.* /index.php [L]
 ```
 
 Place this before the standard image rewrite rule in your vhost config (or uncomment if already there).
@@ -219,7 +219,7 @@ Place this before the standard image rewrite rule in your vhost config (or uncom
 #### nginx
 
 ```
-rewrite "^/var/([^/]+/)?storage/images(-versioned)?/(.*)" "/app.php" break;
+rewrite "^/var/([^/]+/)?storage/images(-versioned)?/(.*)" "/index.php" break;
 ```
 
 Place this before the include of `ez_params.d`/`ez_rewrite_params` in your vhost config (or uncomment if already there).

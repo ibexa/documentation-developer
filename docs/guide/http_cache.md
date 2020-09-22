@@ -229,7 +229,7 @@ If you use fastcgi/fpm you can pass these directly to PHP process, but in all ca
     # Configure your VirtualHost with rewrite rules and stuff
 
     # Force front controller NOT to use built-in reverse proxy.
-    SetEnv SYMFONY_HTTP_CACHE 0
+    SetEnv APP_HTTP_CACHE 0
     SetEnv HTTPCACHE_PURGE_TYPE varnish
     SetEnv HTTPCACHE_PURGE_SERVER "http://varnish:80"
 
@@ -244,7 +244,7 @@ If you use fastcgi/fpm you can pass these directly to PHP process, but in all ca
 ```
 # mysite.com
 
-fastcgi_param SYMFONY_HTTP_CACHE 0;
+fastcgi_param APP_HTTP_CACHE 0;
 fastcgi_param HTTPCACHE_PURGE_TYPE varnish;
 fastcgi_param HTTPCACHE_PURGE_SERVER "http://varnish:80";
 
@@ -256,15 +256,15 @@ fastcgi_param TRUSTED_PROXIES "193.22.44.22";
 !!! caution "Trusted proxies when using SSL offloader / loadbalancer in combination with Varnish"
 
     If your installation works behind Varnish and SSL offloader (like HAProxy), you need to set the `TRUSTED_PROXIES` env variable:
-    
+
     ```
     # .env
     TRUSTED_PROXIES=127.0.0.1
     ```
-    
+
     Otherwise, you might notice incorrect schema (`http` instead of `https`) in the URLs for the images or other binary files
     when they are rendered inline by Symfony *(as used by file-based field templates)*, as opposed to via ESI.
-    
+
     For more information, see [How to Configure Symfony to work behind a Load Balancer or a Reverse Proxy.](https://symfony.com/doc/5.0/deployment/proxies.html)
 
 #### Update YAML configuration
@@ -290,7 +290,7 @@ ezplatform:
 !!! note "Multiple Purge Servers"
 
     If you need to set multiple purge servers, then you need to configure them in the YAML file.
-    
+
 #### Ensure proper Captcha behavior
 
 If your installation uses Varnish and you want users to be able to configure and use Captcha in their forms, you must enable the sending of Captcha data as a response to an Ajax request.
@@ -310,20 +310,20 @@ ezplatform:
 !!! note
 
     If you created a custom Captcha block for your site by overriding the default file (`vendor/gregwar/captcha-bundle/Resources/views/captcha.html.twig`), you must make the following changes to the custom block template file:
-    
+
     - change the name of the block to `ajax_captcha_widget`
     - include the JavaScript file:
-    
+
     ```
     {{ encore_entry_script_tags('ezplatform-form-builder-ajax-captcha-js', null, 'ezplatform') }}
     ```
-    
+
     - add a data attribute with a `fieldId` value:
-    
+
     ```
     data-field-id="{{ field.id }}"
     ```
-    
+
     As a result, your file should be similar to [this example](https://github.com/ezsystems/ezplatform-form-builder/blob/master/src/bundle/Resources/views/themes/standard/fields/captcha.html.twig).
 
 For more information about configuring Captcha fields, see [Captcha field](../extending/extending_form_builder.md#captcha-field).
