@@ -229,7 +229,7 @@ If you use fastcgi/fpm you can pass these directly to PHP process, but in all ca
     # Configure your VirtualHost with rewrite rules and stuff
 
     # Force front controller NOT to use built-in reverse proxy.
-    SetEnv SYMFONY_HTTP_CACHE 0
+    SetEnv APP_HTTP_CACHE 0
     SetEnv HTTPCACHE_PURGE_TYPE varnish
     SetEnv HTTPCACHE_PURGE_SERVER "http://varnish:80"
 
@@ -244,7 +244,7 @@ If you use fastcgi/fpm you can pass these directly to PHP process, but in all ca
 ```
 # mysite.com
 
-fastcgi_param SYMFONY_HTTP_CACHE 0;
+fastcgi_param APP_HTTP_CACHE 0;
 fastcgi_param HTTPCACHE_PURGE_TYPE varnish;
 fastcgi_param HTTPCACHE_PURGE_SERVER "http://varnish:80";
 
@@ -256,15 +256,15 @@ fastcgi_param TRUSTED_PROXIES "193.22.44.22";
 !!! caution "Trusted proxies when using SSL offloader / loadbalancer in combination with Varnish"
 
     If your installation works behind Varnish and SSL offloader (like HAProxy), you need to set the `TRUSTED_PROXIES` env variable:
-    
+
     ```
     # .env
     TRUSTED_PROXIES=127.0.0.1
     ```
-    
+
     Otherwise, you might notice incorrect schema (`http` instead of `https`) in the URLs for the images or other binary files
     when they are rendered inline by Symfony *(as used by file-based field templates)*, as opposed to via ESI.
-    
+
     For more information, see [How to Configure Symfony to work behind a Load Balancer or a Reverse Proxy.](https://symfony.com/doc/5.0/deployment/proxies.html)
 
 #### Update YAML configuration
