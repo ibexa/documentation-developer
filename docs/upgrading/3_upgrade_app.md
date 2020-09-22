@@ -10,28 +10,6 @@ If you want to first test how the update proceeds without actually updating any 
 
 `composer update --dry-run`
 
-??? note "When updating from <2.2"
-
-    ##### Adding EzSystemsPlatformEEAssetsBundle
-
-    !!! enterprise "EZ ENTERPRISE"
-
-        When upgrading from releases between (and including) v1.10 and v2.1 to v2.2 and higher, you need to disable `EzSystemsPlatformEEAssetsBundle` by removing:
-
-        `new EzSystems\PlatformEEAssetsBundle\EzSystemsPlatformEEAssetsBundle(),`
-
-        in `app/AppKernel.php`.
-
-!!! note "Updating from <2.5"
-
-    Since v2.5 eZ Platform uses [Webpack Encore](https://symfony.com/doc/5.0/frontend.html#webpack-encore) for asset management.
-    You need to install [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/lang/en/docs/install) to update to this version.
-
-    In v2.5 it is still possible to use Assetic, like in earlier versions.
-    However, if you are using the latest Bootstrap version, [`scssphp`](https://github.com/leafo/scssphp)
-    will not compile correctly with Assetic.
-    In this case, use Webpack Encore. See [Importing assets from a bundle](../guide/organization.md#importing-assets-from-a-bundle) for more information.
-
 !!! caution "Common errors"
 
     If you experienced issues during the update, please check [Common errors](../getting_started/troubleshooting.md#cloning-failed-using-an-ssh-key) section on the Composer about page.
