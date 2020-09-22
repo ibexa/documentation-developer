@@ -6,10 +6,10 @@ nav:
     - Getting started:
         - 'Requirements': 'getting_started/requirements.md'
         - 'Install eZ Platform': 'getting_started/install_ez_platform.md'
-        - 'Install eZ Enterprise': 'getting_started/install_ez_enterprise.md'
+        - 'Install eZ Enterprise': 'getting_started/install_ez_enterprise.md' # merge with Installation from COM
         - 'First steps': 'getting_started/first_steps.md'
         - 'Bundles starter pack': 'getting_started/bundles_starter_pack.md'
-        - 'Troubleshooting': 'getting_started/troubleshooting.md'
+        - 'Troubleshooting': 'getting_started/troubleshooting.md' #mergde with Installation FAQ from COM
     - Tutorials:
         - eZ Platform beginner:
             - 'eZ Platform beginner tutorial': 'tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md'
@@ -54,6 +54,7 @@ nav:
             - 'Accept header-based REST API response': 'api/creating_custom_rest_api_response.md'
             - 'Binary attachments via REST API': 'api/creating_content_with_binary_attachments_via_rest_api.md'
             - 'Cross-origin HTTP requests': 'api/making_cross_origin_http_requests.md'
+            - 'Commerce REST API': 'api/commerce_rest_api.md'
         - Public PHP API:
             - 'Public PHP API': 'api/public_php_api.md'
             - 'Browsing Content': 'api/public_php_api_browsing.md'
@@ -88,6 +89,45 @@ nav:
             - 'GraphQL queries': 'api/graphql_queries.md'
             - 'GraphQL operations': 'api/graphql_operations.md'
             - 'GraphQL customization': 'api/graphql_customization.md'
+        - Commerce API:
+            - Field Type:
+                - Field Type reference:
+                    - 'Field Type reference': 'api/commerce_api/field_type_reference/field_type_reference.md'
+                    - 'ProductSelection': 'api/commerce_api/field_type_reference/productselection.md'
+                    - 'SesExternalData': 'api/commerce_api/field_type_reference/sesexternaldata.md'
+                    - 'SesProfileData': 'api/commerce_api/field_type_reference/sesprofiledata.md'
+                    - 'SesSelection': 'api/commerce_api/field_type_reference/sesselection.md'
+                    - 'SpecificationsType': 'api/commerce_api/field_type_reference/specificationstype.md'
+                    - 'VariantType': 'api/commerce_api/field_type_reference/varianttype.md'
+                    - 'silver.module': 'api/commerce_api/field_type_reference/silver.module.md'
+                - Fields for eCommerce data:
+                    - 'Fields for eCommerce data': 'api/commerce_api/fields_for_ecommerce_data/fields_for_ecommerce_data.md'
+                    - 'ArrayField': 'api/commerce_api/fields_for_ecommerce_data/arrayfield.md'
+                    - 'FileField': 'api/commerce_api/fields_for_ecommerce_data/filefield.md'
+                    - 'ImageField': 'api/commerce_api/fields_for_ecommerce_data/imagefield.md'
+                    - 'PriceField': 'api/commerce_api/fields_for_ecommerce_data/pricefield.md'
+                    - 'StockField': 'api/commerce_api/fields_for_ecommerce_data/stockfield.md'
+                    - 'TextBlockField': 'api/commerce_api/fields_for_ecommerce_data/textblockfield.md'
+                    - 'TextLineField': 'api/commerce_api/fields_for_ecommerce_data/textlinefield.md'
+            - Helper services:
+                - 'CountryService': 'api/commerce_api/helper_services/country_service.md'
+                - 'EzHelperService': 'api/commerce_api/helper_services/ezhelperservice.md'
+                - 'MailHelperService': 'api/commerce_api/helper_services/mailhelperservice.md'
+                - 'Mail Logging': 'api/commerce_api/helper_services/mail_logging.md'
+            - Business API:
+                - 'Business API': 'api/commerce_api/business_api/business_api.md'
+                - 'Business API Invocation Service': 'api/commerce_api/business_api/businessapi_invocation_service.md'
+                - Base operation:
+                    - 'BaseOperation': 'api/commerce_api/business_api/baseoperation/baseoperation.md'
+                    - 'addProducts': 'api/commerce_api/business_api/baseoperation/addproducts.md'
+                    - 'getBasket': 'api/commerce_api/business_api/baseoperation/getbasket.md'
+                    - 'loadProducts': 'api/commerce_api/business_api/baseoperation/loadproducts.md'
+            - 'SisoRestApiBundle':
+                - 'SisoRestApiBundle': 'api/commerce_api/sisorestapibundle/sisorestapibundle.md'
+                - 'Basket functions': 'api/commerce_api/sisorestapibundle//basket_functions.md'
+                - 'Checkout functions': 'api/commerce_api/sisorestapibundle/checkout_functions.md'
+                - 'Common': 'api/commerce_api/sisorestapibundle/common.md'
+                - 'Customer functions': 'api/commerce_api/sisorestapibundle/customer_functions.md'
     - Guide:
         - Project organization:
             - 'Project organization': 'guide/project_organization.md'
@@ -99,6 +139,16 @@ nav:
             - 'Dynamic config': 'guide/config_dynamic.md'
             - 'Back Office config': 'guide/config_back_office.md'
             - 'Repository config': 'guide/config_repository.md'
+            - Shop configuration:
+                - 'Shop configuration': 'guide/shop_configuration/shop_configuration.md'
+                - 'Session handling': 'guide/shop_configuration/session_handling.md'
+                - 'Storing sessions in Memcache': 'guide/shop_configuration/storing_sessions_in_memcache.md'
+                - 'Set up a new language': 'guide/shop_configuration/set_up_a_new_language.md'
+                - 'Required crontab tasks': 'guide/shop_configuration/required_crontab_tasks.md'
+                - 'Rotation for logfiles': 'guide/shop_configuration/rotation_for_logfiles.md'
+                - 'Advanced configuration': 'guide/shop_configuration/advanced_configuration.md'
+                - 'Email server': 'guide/shop_configuration/email_server.md'
+                - 'Configure ERP connection': 'guide/shop_configuration/configure_erp_connection.md'
         - 'Admin management': 'guide/admin_panel.md'
         - Content rendering:
             - 'Content rendering': 'guide/content_rendering.md'
@@ -109,6 +159,18 @@ nav:
             - 'Displaying Content children': 'guide/displaying_children_of_a_content_item.md'
             - 'Retrieving root Location': 'guide/retrieving_root_location.md'
             - 'Twig functions reference': 'guide/twig_functions_reference.md'
+            - Shop templates:
+                - 'Shop templates': 'guide/shop_templates/shop_templates.md'
+                - 'Reusable address template': 'guide/shop_templates/reusable_address_template.md'
+                - 'Reusable message template': 'guide/shop_templates/reusable_message_template.md'
+                - 'Template resolver': 'guide/shop_templates/template_resolver.md'
+                - Twig extension:
+                    - 'Twig extension': 'guide/shop_templates/twig_extension.md'
+                    - 'st_tag selector': 'guide/shop_templates/st_tag_selector.md'
+                - Design engine:
+                    - 'Design engine': 'guide/shop_templates/design_engine.md'
+                    - 'Setting up new project design': 'guide/shop_templates/set_up_new_project_design.md'
+                - 'Product images': 'guide/shop_templates/product_images.md'
         - Content management:
             - 'Content management': 'guide/content_management.md'
             - 'Images': 'guide/images.md'
@@ -121,9 +183,279 @@ nav:
             - 'Permissions': 'guide/permissions.md'
             - 'Limitations': 'guide/limitations.md'
             - 'Limitation reference': 'guide/limitation_reference.md'
-            - 'User management': 'guide/user_management.md'
             - 'Custom Policies': 'guide/custom_policies.md'
-        - 'Backup': 'guide/backup.md'
+        - User management:
+            - 'User management': 'guide/user_management/user_management.md'
+            - Shop user management:
+                - 'Access control': 'guide/user_management/access_control.md'
+                - Token:
+                    - 'Token': 'guide/user_management/token/token.md'
+                    - 'TokenController': 'guide/user_management/token/tokencontroller.md'
+                - 'Tracking': 'guide/user_management/tracking.md'
+            - Customers:
+                - 'Customers': 'guide/customers/customers.md'
+                - Customers API:
+                    - 'Customers API': 'guide/customers/customers_api/customers_api.md'
+                    - 'Customer fields in the CMS': 'guide/customers/customers_api/customer_fields_in_the_cms.md'
+                    - Customer profile data components:
+                        - 'Customer profile data components': 'guide/customers/customers_api/customer_profile_data_components/customer_profile_data_components.md'
+                        - 'Customer profile data model': 'guide/customers/customers_api/customer_profile_data_components/customer_profile_data_model.md'
+                        - 'Customer profile data services': 'guide/customers/customers_api/customer_profile_data_components/customer_profile_data_services.md'
+                        - 'Customer profile data events': 'guide/customers/customers_api/customer_profile_data_components/customer_profile_data_events.md'
+                        - 'Customer profile data listeners': 'guide/customers/customers_api/customer_profile_data_components/customer_profile_data_listeners.md'
+                    - 'Configuration for customer data': 'guide/customers/customers_api/configuration_for_customer_data.md'
+                    - 'Customer profile data controller': 'guide/customers/customers_api/customer_profile_data_controller.md'
+                - 'Customers templating': 'guide/customers/customers_templating.md'
+                - 'Customers FAQ': 'guide/customers/customers_faq.md'
+                - 'Managing delivery addresses': 'guide/customers/managing_delivery_addresses.md'
+                - 'VAT handling': 'guide/customers/vat_handling.md'
+            - Login and registration:
+                - 'Login and registration': 'guide/login_and_registration/login_and_registration.md'
+                - 'Forgot / Change password': 'guide/login_and_registration/forgot_change_password.md'
+                - 'Login and registration configuration': 'guide/login_and_registration/login_and_registration_configuration.md'
+                - 'Login and registration cookbook': 'guide/login_and_registration/login_and_registration_cookbook.md'
+                - 'Login and registration FAQ': 'guide/login_and_registration/login_and_registration_faq.md'
+                - 'Login and registration templates': 'guide/login_and_registration/login_and_registration_templates.md'
+            - 'Delegate function': 'guide/delegate_function.md'
+            - 'Job system': 'guide/job_system.md'
+            - Newsletter:
+                - 'Newsletter': 'guide/newsletter/newsletter.md'
+                - 'Newsletter configuration': 'guide/newsletter/newsletter_configuration.md'
+                - 'Newsletter interface': 'guide/newsletter/newsletter_interface.md'
+                - 'Additional newsletter data': 'guide/newsletter/additional_newsletter_data.md'
+                - 'Newsletter templates': 'guide/newsletter/newsletter_templates.md'
+        - Shop features:
+            - 'Shop features': 'guide/shop_features/shop_features.md'
+            - 'Product management': 'guide/shop_features/content_management.md'
+            - 'Catalog': 'guide/shop_features/catalog.md'
+            - 'Shop search': 'guide/shop_features/search.md'
+            - 'Pricing': 'guide/shop_features/pricing.md'
+            - 'Payment and shipping': 'guide/shop_features/payment_and_shipping.md'
+            - 'User management': 'guide/shop_features/user_management.md'
+            - 'ERP integration': 'guide/shop_features/erp_integration.md'
+        - Shop process:
+            - Basket:
+                - 'Basket': 'guide/basket/basket.md'
+                - Basket features:
+                    - 'Product quantity validation': 'guide/basket/basket_features/product_quantity_validation.md'
+                    - 'Basket messages': 'guide/basket/basket_features/basket_messages.md'
+                    - 'Calculating prices': 'guide/basket/basket_features/calculating_prices.md'
+                    - 'Storing parts of the product in the basket line': 'guide/basket/basket_features/storing_parts_of_the_product_in_the_basket_line.md'
+                    - 'Additional data in the basket line': 'guide/basket/basket_features/additional_data_in_the_basket_line.md'
+                    - 'Basket storage time': 'guide/basket/basket_features/basket_storage_time.md'
+                    - 'Discontinued products': 'guide/basket/basket_features/discontinued_products.md'
+                - Basket API:
+                    - 'Basket API': 'guide/basket/basket_api/basket_api.md'
+                    - 'Basket data model': 'guide/basket/basket_api/basket_data_model.md'
+                    - 'BasketService': 'guide/basket/basket_api/basketservice.md'
+                    - Basket events:
+                        - 'Basket Events': 'guide/basket/basket_api/basket_events/basket_events.md'
+                        - 'Basket - Eventlistener in the standard': 'guide/basket/basket_api/basket_events/basket_eventlistener_in_the_standard.md'
+                    - 'Basket routing': 'guide/basket/basket_api/basket_routing.md'
+                - Basket UI:
+                    - 'Basket UI': 'guide/basket/basket_ui/basket_ui.md'
+                    - 'Adding products to a stored basket or wishlist': 'guide/basket/basket_ui/adding_products_to_a_stored_basket_or_wishlist.md'
+                    - 'Adding products to the basket': 'guide/basket/basket_ui/adding_products_to_the_basket.md'
+                - 'Basket FAQ': 'guide/basket/basket_faq.md'
+            - Checkout:
+                - 'Checkout': 'guide/checkout/checkout.md'
+                - Checkout features:
+                    - Order:
+                        - 'Order confirmation email': 'guide/checkout/checkout_features/order/order_confirmation.md'
+                        - 'Local order process': 'guide/checkout/checkout_features/order/local_order_process_with_invoice_in_pdf.md'
+                        - 'Order splitting for multishop': 'guide/checkout/checkout_features/order/order_splitting_for_multishop.md'
+                    - 'RMA process': 'guide/checkout/checkout_features/rma_process.md'
+                    - 'Simple checkout': 'guide/checkout/checkout_features/simple_checkout.md'
+                - Checkout API:
+                    - 'CheckoutController': 'guide/checkout/checkout_api/checkoutcontroller.md'
+                    - 'AjaxCheckoutController': 'guide/checkout/checkout_api/ajaxcheckoutcontroller.md'
+                    - 'Checkout events': 'guide/checkout/checkout_api/checkout_events.md'
+                    - Forms:
+                        - 'Configuration for checkout forms': 'guide/checkout/checkout_api/forms/configuration_for_checkout_forms.md'
+                        - 'Invoice address form': 'guide/checkout/checkout_api/forms/checkout_invoice_address_form.md'
+                        - 'Delivery address form': 'guide/checkout/checkout_api/forms/checkout_delivery_address_form.md'
+                        - 'Shipping payment form': 'guide/checkout/checkout_api/forms/checkout_shipping_payment_form.md'
+                        - Summary form:
+                            - 'Summary form': 'guide/checkout/checkout_api/forms/checkout_summary_form/checkout_summary_form.md'
+                            - 'Order summary': 'guide/checkout/checkout_api/forms/checkout_summary_form/order_summary.md'
+                        - Services for checkout forms:
+                            - 'Interfaces for checkout services': 'guide/checkout/checkout_api/forms/services_for_checkout_forms/interfaces_for_checkout_services.md'
+                            - 'InvoiceAddressCheckoutFormService': 'guide/checkout/checkout_api/forms/services_for_checkout_forms/invoiceaddresscheckoutformservice.md'
+                            - 'DeliveryAddressCheckoutFormService': 'guide/checkout/checkout_api/forms/services_for_checkout_forms/deliveryaddresscheckoutformservice.md'
+                            - 'ShippingPaymentCheckoutFormService': 'guide/checkout/checkout_api/forms/services_for_checkout_forms/shippingpaymentcheckoutformservice.md'
+                            - 'SummaryCheckoutFormService': 'guide/checkout/checkout_api/forms/services_for_checkout_forms/summarycheckoutformservice.md'
+                - Checkout cookbook:
+                    - 'Express checkout': 'guide/checkout/checkout_cookbook/express_checkout.md'
+                    - 'Restricting payment options': 'guide/checkout/checkout_cookbook/restricting_payment_options.md'
+                - 'Checkout templates': 'guide/checkout/checkout_templates.md'
+                - 'Checkout FAQ': 'guide/checkout/checkout_faq.md'
+            - Payment:
+                - 'Payment': 'guide/payment/payment.md'
+                - 'Payment API': 'guide/payment/payment_api.md'
+                - 'Building new payment plugins': 'guide/payment/building_new_payment_plugins.md'
+                - 'Payment FAQ': 'guide/payment/payment_faq.md'
+                - Payment configuration:
+                    - 'Telecash': 'guide/payment/payment_configuration/telecash.md'
+                    - 'Paypal': 'guide/payment/payment_configuration/paypal.md'
+                    - 'Invoice': 'guide/payment/payment_configuration/invoice.md'
+                    - 'Ogone': 'guide/payment/payment_configuration/ogone.md'
+            - Pricing:
+                - 'Price engine': 'guide/pricing/price_engine.md'
+                - Price engine API:
+                    - 'Data model for prices': 'guide/pricing/price_engine_api/data_model_for_prices.md'
+                    - Price engine services:
+                        - 'StandardPriceFactory': 'guide/pricing/price_engine_api/price_engine_services/standardpricefactory.md'
+                        - 'Ez5ScaledPriceService': 'guide/pricing/price_engine_api/price_engine_services/ez5scaledpriceservice.md'
+                        - 'LocalVatService': 'guide/pricing/price_engine_api/price_engine_services/localvatservice.md'
+                        - Chainpriceservice:
+                            - 'ChainPriceService': 'guide/pricing/price_engine_api/price_engine_services/chainpriceservice/chainpriceservice.md'
+                            - Price providers:
+                                - 'Price providers': 'guide/pricing/price_engine_api/price_engine_services/chainpriceservice/price_providers/price_providers.md'
+                                - 'LocalPriceProvider': 'guide/pricing/price_engine_api/price_engine_services/chainpriceservice/price_providers/localpriceprovider.md'
+                        - 'StandardCountryZoneService': 'guide/pricing/price_engine_api/price_engine_services/standardcountryzoneservice.md'
+                        - 'StandardTemplateDebitorService': 'guide/pricing/price_engine_api/price_engine_services/standardtemplatedebitorservice.md'
+                    - 'Price engine constants': 'guide/pricing/price_engine_api/price_engine_constants.md'
+                - Price engine cookbook:
+                    - 'Price engine cookbook': 'guide/pricing/price_engine_cookbook/price_engine_cookbook.md'
+                    - 'Implementing new price provider': 'guide/pricing/price_engine_cookbook/recipe_how_to_implement_new_price_provider.md'
+                    - 'Working with PriceRequest and PriceResponse': 'guide/pricing/price_engine_cookbook/recipe_how_to_work_with_pricerequest_and_priceresponse.md'
+                - Price engine templates:
+                    - 'Price engine templates': 'guide/pricing/price_engine_templates/price_engine_templates.md'
+                    - 'Rendering for prices': 'guide/pricing/price_engine_templates/rendering_for_prices.md'
+                - 'Price engine FAQ': 'guide/pricing/price_engine_faq.md'
+            - Quick order:
+                - 'Quick order': 'guide/quickorder/quickorder.md'
+                - 'Quick order API': 'guide/quickorder/quickorder_api.md'
+                - 'Quick order templates': 'guide/quickorder/quickorder_templates.md'
+                - 'Quick order FAQ': 'guide/quickorder/quickorder_faq.md'
+            - Order history:
+                - 'Orderhistory': 'guide/order_history/orderhistory.md'
+                - Order history features:
+                    - 'ERP messages': 'guide/order_history/order_history_features/orderhistory_erp_messages.md'
+                    - 'Local orders': 'guide/order_history/order_history_features/orderhistory_local_orders.md'
+                - 'Orderhistory configuration': 'guide/order_history/orderhistory_configuration.md'
+                - 'Orderhistory API': 'guide/order_history/orderhistory_api.md'
+                - 'Orderhistory templates': 'guide/order_history/orderhistory_templates.md'
+                - 'Displaying custom column': 'guide/order_history/displaying_custom_column.md'
+                - 'Overriding semantic configuration': 'guide/order_history/overriding_semantic_configuration.md'
+            - Vouchers from ERP:
+                - 'Vouchers from ERP': 'guide/vouchers_from_erp/vouchers_from_erp.md'
+                - 'Voucher templates': 'guide/vouchers_from_erp/vouchers_templates.md'
+                - 'Voucher FAQ': 'guide/vouchers_from_erp/vouchers_faq.md'
+        - Shop elements:
+            - Catalog:
+                - 'Catalog ': 'guide/catalog/catalog.md'
+                - 'Catalog templates': 'guide/catalog/catalog_templates.md'
+                - 'Product rendering': 'guide/catalog/product_rendering.md'
+                - Product variants:
+                    - 'Product variants': 'guide/catalog/product_variants/product_variants.md'
+                    - 'Product variant API': 'guide/catalog/product_variants/product_variant_api.md'
+                    - 'Setting up variants from external source': 'guide/catalog/product_variants/setting_up_variants_from_external_source.md'
+                - Catalog API:
+                    - 'Catalog element': 'guide/catalog/catalog_api/catalog_element.md'
+                    - 'ProductNode': 'guide/catalog/catalog_api/productnode.md'
+                    - 'ProductType': 'guide/catalog/catalog_api/producttype.md'
+                    - 'Routing system': 'guide/catalog/catalog_api/routing_system.md'
+                    - 'Customer SKUs': 'guide/catalog/catalog_api/customer_skus.md'
+                    - 'Extending a CatalogFactory': 'guide/catalog/catalog_api/extending_a_catalogfactory.md'
+            - Product comparison:
+                - 'Product comparison ': 'guide/product_comparison/product_comparison.md'
+                - 'Product comparison API': 'guide/product_comparison/product_comparison_api.md'
+                - 'Product comparison templates': 'guide/product_comparison/product_comparison_templates.md'
+            - Navigation:
+                - 'Navigation': 'guide/navigation/navigation.md'
+                - 'Navigation configuration': 'guide/navigation/navigation_configuration.md'
+                - 'Navigation templates': 'guide/navigation/navigation_templates.md'
+            - 'Bestsellers': 'guide/bestsellers.md'
+            - Breadcrumbs:
+                - 'Breadcrumbs': 'guide/breadcrumbs/breadcrumbs.md'
+                - 'Breadcrumb templates': 'guide/breadcrumbs/breadcrumbs_templates.md'
+                - 'Breadcrumb API': 'guide/breadcrumbs/breadcrumbs_api.md'
+                - 'Custom breadcrumbs': 'guide/breadcrumbs/custom_breadcrumbs.md'
+            - 'Page': 'guide/page.md'
+            - Forms:
+                - 'Forms': 'guide/forms/forms.md'
+                - Form API:
+                    - 'Form API': 'guide/forms/form_api/form_api.md'
+                    - 'Data processors': 'guide/forms/form_api/dataprocessors.md'
+                    - 'Pre-data processors': 'guide/forms/form_api/predataprocessors.md'
+                    - 'Data processor events': 'guide/forms/form_api/data_processor_events.md'
+                - 'Form templates': 'guide/forms/form_templates.md'
+                # - 'Implement custom one-page form': 'guide/forms/implement_custom_one_page_form.md'
+                - 'Using reCAPTCHA': 'guide/forms/using_recaptcha.md'
+        - ERP integration:
+            - 'ERP integration': 'guide/erp_integration/erp_integration.md'
+            - 'Connecting shop to ERP': 'guide/erp_integration/connecting_shop_to_erp.md'
+            - ERP communication:
+                - 'ERP communication': 'guide/erp_integration/erp_communication/erp_communication.md'
+                - Guides:
+                    - 'Getting productsdata from ERP': 'guide/erp_integration/erp_communication/guides/getting_product_data_from_the_erp.md'
+                    - Creating new ERP message:
+                        - 'Creating new ERP message': 'guide/erp_integration/erp_communication/guides/creating_a_new_erp_message/creating_a_new_erp_message.md'
+                        - 'Create standard message': 'guide/erp_integration/erp_communication/guides/creating_a_new_erp_message/create_standard_message.md'
+                        - 'Create project-specific message': 'guide/erp_integration/erp_communication/guides/creating_a_new_erp_message/create_project_specific_message.md'
+                    - 'Implementing ERP delivery address creation and updates': 'guide/erp_integration/erp_communication/guides/implementing_erp_delivery_address_creation_and_updates.md'
+                - 'ERP Logging': 'guide/erp_integration/erp_communication/erp_logging.md'
+                - 'AdditionalLines': 'guide/erp_integration/erp_communication/additionallines.md'
+                - ERP components:
+                    - 'ERP Components': 'guide/erp_integration/erp_communication/erp_components/erp_components.md'
+                    - 'ERP mapping component': 'guide/erp_integration/erp_communication/erp_components/erp_component_mapping.md'
+                    - ERP component messages:
+                        - 'ERP messages component': 'guide/erp_integration/erp_communication/erp_components/erp_component_messages/erp_component_messages.md'
+                        - 'ERP Message Instantiation': 'guide/erp_integration/erp_communication/erp_components/erp_component_messages/erp_message_instantiation.md'
+                        - 'ERP Message-Class-Generator': 'guide/erp_integration/erp_communication/erp_components/erp_component_messages/erp_message_class_generator.md'
+                        - 'ERP Message: CalculateSalesOrder / CreateSalesOrder': 'guide/erp_integration/erp_communication/erp_components/erp_component_messages/erp_message_calculatesalesorder_createsalesorder.md'
+                        - 'ERP Message: SelectContact': 'guide/erp_integration/erp_communication/erp_components/erp_component_messages/erp_message_selectcontact.md'
+                        - 'ERP Message: SelectCustomer': 'guide/erp_integration/erp_communication/erp_components/erp_component_messages/erp_message_select_customer.md'
+                        - 'ERP Message: InvoiceDetail': 'guide/erp_integration/erp_communication/erp_components/erp_component_messages/erp_message_invoice_detail.md'
+                        - 'ERP Message: UpdateCustomer': 'guide/erp_integration/erp_communication/erp_components/erp_component_messages/erp_message_updatecustomer.md'
+                        - 'ERP Messages: ReadDeliveryAddress, UpdateDeliveryAddress, CreateDeliveryAddress, DeleteDeliveryAddress': 'guide/erp_integration/erp_communication/erp_components/erp_component_messages/erp_messages_addresses.md'
+                    - 'ERP service component': 'guide/erp_integration/erp_communication/erp_components/erp_component_service.md'
+                    - 'ERP transport component': 'guide/erp_integration/erp_communication/erp_components/erp_component_transport.md'
+                - 'ERP FAQ': 'guide/erp_integration/erp_communication/erp_faq.md'
+                - ERP configuration:
+                    - Adapt the mappings for ERP functions:
+                        - 'Adapt the mappings for ERP functions': 'guide/erp_integration/erp_communication/erp_configuration/adapt_the_mappings_for_erp_functions/adapt_the_mappings_for_erp_functions.md'
+                        - 'Example UBL for price calculation': 'guide/erp_integration/erp_communication/erp_configuration/adapt_the_mappings_for_erp_functions/example_ubl_for_price_calculation.md'
+                    - 'Configuration for Webservice based ERPs': 'guide/erp_integration/erp_communication/erp_configuration/configuration_for_webservice_based_erps.md'
+                    - 'cURL configuration': 'guide/erp_integration/erp_communication/erp_configuration/curl_configuration.md'
+                    - 'Web.Connector configuration': 'guide/erp_integration/erp_communication/erp_configuration/web_connector_configuration.md'
+            - 'RemotePriceProvider': 'guide/erp_integration/remotepriceprovider.md'
+            - Checkout order:
+                - Failed order process:
+                    - 'Failed order process': 'guide/erp_integration/checkout_order/failed_order_process/failed_order_process.md'
+                    - 'Lost orders': 'guide/erp_integration/checkout_order/failed_order_process/lost_orders.md'
+                - Order submission:
+                    - 'Order submission': 'guide/erp_integration/checkout_order/order_submission/order_submission.md'
+                    - 'Order format': 'guide/erp_integration/checkout_order/order_submission/order_format.md'        
+        - Data providers:
+            - 'Data providers': 'guide/data_providers/data_providers.md'
+            - 'Content model data provider': 'guide/data_providers/content_model_dataprovider.md'
+            - 'Accessing data provider via PHP': 'guide/data_providers/access_dataprovider_via_php.md'
+            - eContent:
+                - 'eContent': 'guide/econtent/econtent.md'
+                - eContent features:
+                    - 'eContent database model': 'guide/econtent/econtent_features/econtent_database_model.md'
+                    - 'Catalog segmentation': 'guide/econtent/econtent_features/catalog_segmentation.md'
+                    - 'Variants in eContent': 'guide/econtent/econtent_features/variants_in_econtent.md'
+                    - Indexing eContent data:
+                        - 'Indexing eContent data': 'guide/econtent/econtent_features/indexing_econtent_data/indexing_econtent_data.md'
+                        - 'Solr cores for eContent': 'guide/econtent/econtent_features/indexing_econtent_data/solr_cores_for_econtent.md'
+                        - 'eContent indexer': 'guide/econtent/econtent_features/indexing_econtent_data/econtent_indexer.md'
+                    - 'Staging system': 'guide/econtent/econtent_features/staging_system.md'
+                    - 'eContent Back Office': 'guide/econtent/econtent_features/econtent_back_office.md'
+                - 'eContent API': 'guide/econtent/econtent_api.md'
+                - 'eContent FAQ': 'guide/econtent/econtent_faq.md'
+                - eContent cookbook:
+                    - 'Extending EcontentCatalogFactory': 'guide/econtent/econtent_cookbook/extending_econtentcatalogfactory.md'
+                    - eContent search:
+                        - 'Custom sorting handler for eContent': 'guide/econtent/econtent_cookbook/econtent_search_cookbook/custom_sorting_handler_for_econtent.md'
+                        - 'Solr Minimum Should Match': 'guide/econtent/econtent_cookbook/econtent_search_cookbook/solr_minimum_should_match.md'
+                        - 'Custom indexer plugin for eContent': 'guide/econtent/econtent_cookbook/econtent_search_cookbook/custom_indexer_plugin_for_econtent.md'
+                    - Importing products:
+                        - 'Import products (API)': 'guide/econtent/econtent_cookbook/econtent_how_to_import_products/importing_products_api.md'
+                        - 'Importing and indexing data (SQL)': 'guide/econtent/econtent_cookbook/econtent_how_to_import_products/importing_and_indexing_data_sql.md'
+                - 'eContent configuration': 'guide/econtent/econtent_configuration.md'
         - Search:
             - 'Search': 'guide/search/search.md'
             - 'Search Criteria reference': 'guide/search/search_criteria_reference.md'
@@ -190,6 +522,25 @@ nav:
             - 'Elasticsearch extensibility': 'guide/search/extend_elasticsearch.md'
             - 'Solr search engine': 'guide/search/solr.md'
             - 'Other search engines': 'guide/search/search_engines.md'
+            - Shop search:
+                - 'Shop search': 'guide/search/commerce_search/search.md'
+                - 'Search templates': 'guide/search/commerce_search/search_templates.md'
+                - 'Search configuration': 'guide/search/commerce_search/search_configuration.md'
+                - 'Search API': 'guide/search/commerce_search/search_api.md'
+                - 'Product search': 'guide/search/commerce_search/searching_for_products.md'
+                - 'Search indexing': 'guide/search/commerce_search/search_indexing.md'
+                - 'Search synonyms': 'guide/search/commerce_search/search_synonyms.md'
+                - 'Autosuggestion': 'guide/search/commerce_search/search_autosuggest.md'
+                - 'Solr spellcheck': 'guide/search/commerce_search/using_solr_spellcheck.md'
+                # - Extending search:
+                #     - 'Adding elements to autosuggestion': 'guide/search/commerce_search/extending_search/adding_elements_to_autosuggestion.md'
+                #     - 'Indexing file content': 'guide/search/commerce_search/extending_search/indexing_file_content.md'
+                #     - 'Indexing email data': 'guide/search/commerce_search/extending_search/indexing_email_data.md'
+                #     - 'Implement custom search': 'guide/search/commerce_search/extending_search/custom_search.md'
+                #     - 'Implement custom search condition': 'guide/search/commerce_search/extending_search/custom_search_conditions.md'
+                #     - 'Implement custom sorting option for search': 'guide/search/commerce_search/extending_search/custom_sorting_options.md'
+                #     - 'Modifying the search query': 'guide/search/commerce_search/extending_search/modifying_the_search_query.md'
+                #     - 'Implement an indexer plugin for custom Field Types': 'guide/search/commerce_search/extending_search/indexer_plugin_for_custom_field_types.md'
         - Multisite:
             - 'Multisite': 'guide/multisite.md'
             - 'Site Factory': 'guide/site_factory.md'
@@ -199,26 +550,56 @@ nav:
         - Languages:
             - 'Languages': 'guide/internationalization.md'
             - 'Back Office translations': 'guide/back_office_translations.md'
+            - 'Shop translations': 'guide/shop_translations.md'
+        - Personalization:
+            - 'About personalization': 'guide/personalization/about_personalization.md'
+            - 'Quickstart guide': 'guide/personalization/quickstart_guide.md'
+            - Developer guide:
+                - 'Tracking API': 'guide/personalization/developer_guide/tracking_api.md'
+                - 'Importing historical user tracking data': 'guide/personalization/developer_guide/importing_historical_user_tracking_data.md'
+                - 'Tracking with yct.js': 'guide/personalization/developer_guide/tracking_with_yct.md'
+                - 'Recommendation API': 'guide/personalization/developer_guide/recommendation_api.md'
+                - 'Legacy Recommendation API': 'guide/personalization/developer_guide/legacy_recommendation_api.md'
+                - 'Content API': 'guide/personalization/developer_guide/content_api.md'
+                - 'User API': 'guide/personalization/developer_guide/user_api.md'
+            - Best practices:
+                - 'Tracking integration': 'guide/personalization/best_practices/tracking_integration.md'
+                - 'Recommendation integration': 'guide/personalization/best_practices/recommendation_integration.md'
+            - 'Recommendation cliend': 'guide/personalization/recommendation_client.md'
+            - 'Definitions': 'definitions.md'
         - Repository:
             - 'Repository': 'guide/repository.md'
             - 'Databases': 'guide/databases.md'
         - Cache:
             - 'HTTP cache': 'guide/http_cache.md'
             - 'Persistence cache': 'guide/persistence_cache.md'
+            - Shop caching:
+                - 'Shop caching': 'guide/cache/cache.md'
+                - Content cache refresh:
+                    - 'Content cache refresh': 'guide/cache/content_cache_refresh/content_cache_refresh.md'
+                    - 'HTTP caching': 'guide/cache/content_cache_refresh/http_caching.md'
+                - 'Caching FAQ': 'guide/cache/caching_faq.md'
+                - 'Translation cache for Text modules': 'guide/cache/translations_cache_for_textmodules.md'
+                - 'Basketpreview cache and user-specific data': 'guide/cache/basketpreview_cache_and_user_specific_data.md'
         - Clustering:
             - 'Clustering': 'guide/clustering.md'
             - 'AWS S3 clustering': 'guide/clustering_aws_s3.md'
         - DevOps:
             - 'DevOps': 'guide/devops.md'
+            - 'Backup': 'guide/backup.md'
             - 'Performance': 'guide/performance.md'
             - 'Environments': 'guide/environments.md'
             - 'Sessions': 'guide/sessions.md'
+            - Logging:
+                - 'Logging': 'guide/logging/logging.md'
+                - 'Logging API': 'guide/logging/logging_api.md'
+                - 'Logging FAQ': 'guide/logging/logging_faq.md'
+                - 'TokenController logging': 'guide/logging/tokencontroller_logging.md'
         - Security:
             - 'Development Security': 'guide/security.md'
             - 'Reporting Issues': 'guide/reporting_issues.md'
         - 'Notifications': 'guide/sending_notifications.md'
         - 'Service container': 'guide/service_container.md'
-        - 'Recommendation': 'guide/personalization.md'
     - Extending eZ Platform:
         - Extending Back Office:
             - 'Extending Back Office': 'extending/extending_back_office.md'
