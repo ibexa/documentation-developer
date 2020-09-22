@@ -2,10 +2,6 @@
 
 ## Manual merging
 
-!!! note "Sorted packages since 2.4 changes"
-
-    Because the 2.4 packages in `composer.json` are sorted, there will be more conflicts when updating to 2.4, but far fewer conflicts in the future. This is controlled by [sort-packages](https://getcomposer.org/doc/06-config.md#sort-packages) config in `composer.json`.
-
 Conflicts in `composer.json` need to be fixed manually. If you're not familiar with the diff output, you may checkout the tag's version and inspect the changes. It should be readable for most:
 
 **From your new update branch**

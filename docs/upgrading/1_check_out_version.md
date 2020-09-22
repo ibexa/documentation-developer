@@ -24,59 +24,7 @@ or
 git remote add upstream http://github.com/ezsystems/ezcommerce.git
 ```
 
-**1.3.** Prepare for pulling changes
-
-??? note "Adding `sort-packages` option when updating from <=1.7.8, 1.13.4, 2.2.3, 2.3.2"
-
-    To reduce the number of conflicts in the future, [EZP-29835](https://jira.ez.no/browse/EZP-29835) adds a setting to
-    Composer to make it sort packages listed in `composer.json`. If you don't already do this, you should prepare for
-    this update to make it clearer which changes you introduce.
-
-    Assuming you have installed packages on your installation (`composer install`), do the following steps:
-
-    1\. Add [sort-packages](https://getcomposer.org/doc/06-config.md#sort-packages) to the `config` section in `composer.json` as shown in the highlighted line:
-
-    ``` json hl_lines="3"
-    "config": {
-        "bin-dir": "bin",
-        "sort-packages": true,
-        "preferred-install": {
-            "ezsystems/*": "dist"
-        }
-    },
-    ```
-
-    2\. Use `composer require` to get Composer to sort your packages:
-
-    With this new option you should ideally always use `composer require` to add or adjust packages to make sure they
-    are sorted. The following code example updates a few requirements with what you can also expect in the upcoming
-    change:
-
-    ``` bash hl_lines="1 2 4"
-    composer require --no-scripts --no-update doctrine/doctrine-bundle:^1.9.1
-    composer require --dev --no-scripts --no-update  behat/behat:^3.5.0
-    # The upcoming change also moves security-advisories to dev as advised by the package itself
-    composer require --dev --no-scripts --no-update roave/security-advisories:dev-master
-    ```
-
-    3\. Check that you can install/update packages:
-
-    ``` bash
-    composer update
-    ```
-
-    You can consider the result a success if Composer says there were no updates, or if it updated packages without stopping with conflicts.
-
-    4\. Now that packages are sorted, save your work.
-
-    With packages sorted you are ready to pull in changes
-    As they will also be sorted, it will be easier to see which changes are relevant to your `composer.json`.
-
-    ``` bash
-    git commit -am "Sort my existing composer packages in anticipation of update with sorted merge"
-    ```
-
-**1.4.** Then pull the tag into your branch.
+**1.3.** Pull the tag into your branch.
 
 If you are unsure which version to pull, run `git ls-remote --tags upstream` to list all possible tags.
 
@@ -88,7 +36,7 @@ git pull upstream <version>
 
 !!! tip
 
-    Don't forget the `v` parameter here. You want to pull the tag `<version>` and not the branch `<version>` (i.e.: `v1.11.0`, and NOT `1.11.0` or `1.10` which is dev branch).
+    Don't forget the `v` prefix here. You want to pull the tag `<version>` and not the branch `<version>` (i.e.: `v3.0.0`, and NOT `3.0.0` which is dev branch).
 
 At this stage you may get conflicts, which are a normal part of the procedure and no reason to worry.
 The most common ones will be on `composer.json` and `composer.lock`.
