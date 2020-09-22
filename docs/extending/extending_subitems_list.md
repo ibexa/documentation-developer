@@ -55,7 +55,6 @@ Without all the following properties the Sub-items module will not work.
     - **siteaccess** _{String}_ - SiteAccess identifier
 - **handleEditItem** _{Function}_ - callback to handle edit content action
 - **generateLink** _{Function}_ - callback to handle view content action
-- **languageContainerSelector** _{String}_ - selector where the language selector should be rendered
 
 ### Optional properties
 
@@ -96,6 +95,7 @@ Optionally, Sub-items module can take a following list of props:
     - **tableViewItem** _{Object}_ - list of table item view component labels
     - **loadMore** _{Object}_ - list of load more component labels
     - **gridViewItem** _{Object}_ - list of grid item view component labels
+- **languageContainerSelector** _{String}_ - selector where the language selector should be rendered
 
 ## Reusing Sub-items list
 
