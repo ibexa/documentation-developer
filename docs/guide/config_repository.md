@@ -104,7 +104,7 @@ ezplatform:
 ```
 # .env.local
 
-SECOND_DATABASE_URL=otherdb://otheruser:otherpasswd@otherhost:3306/otherdbname?serverVersion=mariadb-10.3.0
+SECOND_DATABASE_URL=otherdb://otheruser:otherpasswd@otherhost:otherport/otherdbname?otherdbserversion
 ```
 
 ## Field groups configuration
