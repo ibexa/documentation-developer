@@ -55,6 +55,7 @@ Without all the following properties the Sub-items module will not work.
     - **siteaccess** _{String}_ - SiteAccess identifier
 - **handleEditItem** _{Function}_ - callback to handle edit content action
 - **generateLink** _{Function}_ - callback to handle view content action
+- **languageContainerSelector** _{String}_ - selector where the language selector should be rendered
 
 ### Optional properties
 
