@@ -200,5 +200,5 @@ See [AWS S3 clustering](clustering_aws_s3.md).
 
 ## Binary files clustering
 
-eZ Platform supports multi-server setups by means of [custom IO handlers](file_management#the-dfs-cluster-handler).
+eZ Platform supports multi-server setups by means of [custom IO handlers](file_management.md#the-dfs-cluster-handler).
 They make sure that files are correctly synchronized among the multiple clients that might use the data.
