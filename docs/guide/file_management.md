@@ -156,7 +156,9 @@ ezpublish:
 
 ### Using a static server for images
 
-One common use case is to use an optimized nginx to serve images in an optimized way. The example image above could be made available as `http://static.example.com/var/site/storage/images/3/6/4/6/6463-1-eng-GB/kidding.png` by setting up a separate server that uses `/path/to/ezplatform/web` as its Document Root. The configuration would be as follows:
+One common use case is to use an optimized nginx to serve images in an optimized way. The example image
+above could be made available as `http://static.example.com/var/site/storage/images/3/6/4/6/6463-1-eng-GB/kidding.png`
+by setting up a separate server that maps `/path/to/ezplatform/web/var` directory. The configuration would be as follows:
 
 ``` yaml
 ezpublish:
@@ -165,6 +167,12 @@ ezpublish:
             io:
                 url_prefix: 'http://static.example.com/$var_dir$/$storage_dir$'
 ```
+
+!!! caution
+
+    For security reasons it is recommended not to map `/path/to/ezplatform/web/` as a static server
+    Document Root. `/var/` directory should be mapped to `/path/to/ezplatform/web/var` directly instead.
+
 
 !!! note
 
