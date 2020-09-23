@@ -162,7 +162,7 @@ however in eZ Platform you can cover most use cases by setting supported environ
     If it is accessible in other ways you may end up trusting e.g. IP of client browser instead which would be a serious security issue.
 
     Make sure that **all** traffic always comes from the trusted proxy/load-balancer,
-    and there is no other way to configure it.
+    and that there is no other way to configure it.
 
 
 See [Examples for configuring eZ Platform](#Examples-for-configuring-eZ-Platform) for how these variables can be set.
