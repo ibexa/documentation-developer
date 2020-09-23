@@ -39,6 +39,11 @@ ez_io:
 
 The 'default' Flysystem adapter's directory is based on your site settings, and will automatically be set to `%webroot_dir%/$var_dir$/$storage_dir$` (for example: `/path/to/ezplatform/public/var/site/storage`).
 
+!!! note
+
+    When Legacy Bridge is enabled, the path will be automatically set to
+    `%ezpublish_legacy.root_dir%/$var_dir$/$storage_dir$` instead.
+
 #### Configure the permissions of generated files
 
 ``` yaml
@@ -137,7 +142,8 @@ For [more information about REST API see the documentation](../api/rest_api_guid
 
 ### IO URL decoration
 
-By default, images and binary files referenced by content will be served from the same server as the application, for example `/var/site/storage/images/3/6/4/6/6463-1-eng-GB/kidding.png`. This is the default semantic configuration:
+By default, images and binary files that are referenced by the content will be served from the same server as the application, for example `/var/site/storage/images/3/6/4/6/6463-1-eng-GB/kidding.png`. 
+This is the default semantic configuration:
 
 ``` yaml
 ezplatform:
@@ -153,7 +159,8 @@ ezplatform:
 
 One common use case is to use an optimized nginx to serve images in an optimized way. The example image
 above could be made available as `http://static.example.com/var/site/storage/images/3/6/4/6/6463-1-eng-GB/kidding.png`
-by setting up a separate server that maps `/path/to/ezplatform/public/var` directory. The configuration would be as follows:
+by setting up a separate server that maps the `/path/to/ezplatform/public/var` directory. 
+The configuration would be as follows:
 
 ``` yaml
 ezplatform:
@@ -165,8 +172,9 @@ ezplatform:
 
 !!! caution
 
-    For security reasons it is recommended not to map `/path/to/ezplatform/public/` as a static server
-    Document Root. `/var/` directory should be mapped to `/path/to/ezplatform/public/var` directly instead.
+    For security reasons, do not map `/path/to/ezplatform/public/` as
+    Document Root of the static server. 
+    Map the `/var/` directory directly to `/path/to/ezplatform/public/var` instead.
 
 ### Internals
 
