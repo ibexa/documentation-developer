@@ -37,7 +37,7 @@ ez_io:
                 adapter: default
 ```
 
-The 'default' Flysystem adapter's directory is based on your site settings, and will automatically be set to `%webroot_dir%/$var_dir$/$storage_dir$` (for example: `/path/to/ezplatform/web/var/site/storage`).
+The 'default' Flysystem adapter's directory is based on your site settings, and will automatically be set to `%webroot_dir%/$var_dir$/$storage_dir$` (for example: `/path/to/ezplatform/public/var/site/storage`).
 
 #### Configure the permissions of generated files
 
