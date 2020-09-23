@@ -352,7 +352,7 @@
     #### Configuring SSL
 
     When you need to protect your communication with the Elasticsearch server, you can use SSL encryption.
-    When configuring SSL for your internal infrastructure, you can use your own client certificates signed by public CA.
+    When configuring SSL for your internal infrastructure, you can use your own client certificates signed by a public CA.
     Configure SSL by passing the path-passwords pairs for both the certificate and the certificate key.
 
     For example:
