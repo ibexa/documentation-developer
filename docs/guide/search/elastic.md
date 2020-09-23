@@ -390,7 +390,7 @@
                         path: '/path/to/ca_cert.pem'
     ```
         
-    If you configure both `ca_cert` and `cert` entries the `ca_cert` parameter will take precedence over the `cert` parameter.
+    If you configure both `ca_cert` and `cert` entries, the `ca_cert` parameter takes precedence over the `cert` parameter.
 
     After you have configured SSL, you can still disable it, for example when the certificates
     expire, or you are migrating to a new set of certificates.
