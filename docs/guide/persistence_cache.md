@@ -202,7 +202,8 @@ With that in mind, the following configurations of Redis are possible:
     - Typically used with a load balancer (e.g. HAproxy) in the front in order to only speak to elected master
         - An alternative is that application logic itself speaks to Sentinel in order to always ask for elected master before talking to cache.
 
-For best performance we recommend use of Redis Sentinel if it fits your needs. However different cloud providers have managed services that are easier to set up, and might perform better. Notable Services:
+For best performance we recommend use of Redis Sentinel if it fits your needs. But know that you can not setup RedisAdapter to make Platform 2.5 communicate with Sentinel since Symfony 3 does not support Redis sentinel. We are not aware of any bundle that can allow you to perform this case.
+Feel free to use a custom solution in order to make it work. However different cloud providers have managed services that are easier to set up, and might perform better. Notable Services:
 
 - [Amazon ElastiCache](https://aws.amazon.com/elasticache/)
 - [Azure Redis Cache](https://azure.microsoft.com/en-us/services/cache/)
