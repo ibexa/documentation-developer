@@ -207,9 +207,10 @@ See [Custom rendering logic](controllers.md#custom-rendering-logic) for more in
 ## Rendering Rich Text
 
 ### Alignment of images
-Images that have been added to rich text and has set alignment, have one of three class: align-left, align-right, or align-center. By default, these classes have no implementation on the Front, so for the alignment to work properly, you need to implement them in your styles. 
 
-Below is an example styles of classes implementation for alignment
+Images that have been added to Rich Text with alignment set have one of following classes: `align-left`, `align-right`, or `align-center`.
+
+By default, these classes have no specific styling, so for the alignment to work properly, you need to add them to your styles, for example:
 
 ``` css
 .align-left {
