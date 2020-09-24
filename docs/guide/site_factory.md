@@ -8,7 +8,7 @@
     - SiteAccess configuration
     - multisite configuration
     
-    After [clean installation](../getting_started/install_ez_enterprise.md) the Site Factory will be disabled.
+    After [clean installation](../getting_started/install_ez_platform.md) the Site Factory will be disabled.
     If you are not working on a clean installation, follow [Upgrading eZ Platform to v3](../updating/upgrading_to_v3.md#site-factory).
     This results in the following message on the **Site** tab:
     "There is a design configuration error, and you will not be able to create a new site. Please update the configuration."
