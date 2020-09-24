@@ -204,6 +204,30 @@ While it is possible to template a whole website using only Twig, a custom PHP c
 
 See [Custom rendering logic](controllers.md#custom-rendering-logic) for more information.
 
+## Rendering Rich Text
+
+### Alignment of images
+Images that have been added to rich text and has set alignment, have one of 3 classes: align-left, align-right, or align-center. By default, these classes have no implementation on the Front, so for the alignment to work properly, you need to implement them in your styles. 
+
+Below is an example of classes implementation for alignment
+
+``` css
+.align-left {
+    float: left;
+    padding-right: 20px;
+}
+
+.align-right {
+    float: right;
+    padding-left: 20px;
+}
+
+.align-center {
+    text-align: center;
+    padding-bottom: 10px;
+}
+```
+
 ## Rendering Content items
 
 By default (without any configuration), a Content item is rendered without any template. 
