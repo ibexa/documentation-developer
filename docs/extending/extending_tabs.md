@@ -13,14 +13,16 @@ New tab groups are created using the [`TabsComponent`](https://github.com/ezsyst
 Register your tab group as a service in `config/services.yaml`:
 
 ``` yaml
-app.my_tabs.custom_group:
-    parent: EzSystems\EzPlatformAdminUi\Component\TabsComponent
-    autowire: true
-    autoconfigure: false
-    arguments:
-        $groupIdentifier: 'custom_group'
-    tags:
-        - { name: ezplatform.admin_ui.component, group: 'dashboard-blocks' }
+services:
+    # ...
+    app.my_tabs.custom_group:
+        parent: EzSystems\EzPlatformAdminUi\Component\TabsComponent
+        autowire: true
+        autoconfigure: false
+        arguments:
+            $groupIdentifier: 'custom_group'
+        tags:
+            - { name: ezplatform.admin_ui.component, group: 'dashboard-blocks' }
 ```
 
 The tab group must be tagged with `ezplatform.admin_ui.component`.
@@ -67,6 +69,10 @@ class CustomTabGroupPass implements CompilerPassInterface
 You also need to add the compiler pass to `src/Kernel.php`:
 
 ``` php
+use App\DependencyInjection\Compiler\CustomTabGroupPass;
+
+//
+
 protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader): void
 {
     //
@@ -79,12 +85,14 @@ protected function configureContainer(ContainerBuilder $container, LoaderInterfa
 Before you add a tab to a group you must create the tab's PHP class and define it as a Symfony service with the `ezplatform.tab` tag in `config/services.yaml`:
 
 ``` yaml
-App\Custom\Tab:
-    parent: EzSystems\EzPlatformAdminUi\Tab\AbstractTab
-    autowire: true
-    autoconfigure: false
-    tags:
-        - { name: ezplatform.tab, group: dashboard-everyone }
+services:
+    # ...
+    App\Custom\Tab:
+        parent: EzSystems\EzPlatformAdminUi\Tab\AbstractTab
+        autowire: true
+        autoconfigure: false
+        tags:
+            - { name: ezplatform.tab, group: dashboard-everyone }
 ```
 
 This configuration also assigns the new tab to `dashboard-everyone`.
@@ -125,6 +133,8 @@ Beyond the `AbstractTab` used in the example above you can use two specialized t
 
 - `AbstractControllerBasedTab` enables you to embed the results of a controller action in the tab.
 - `AbstractRouteBasedTab` embeds the results of the selected routing, passing applicable parameters.
+
+![Custom Tab](img/extending_custom_tab.png)
 
 ## Modifying tab display
 

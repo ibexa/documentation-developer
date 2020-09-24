@@ -344,8 +344,8 @@ You can configure environment variables via [Platform.sh variables.](https://doc
 ```apacheconfig
     # mysite_com.conf
 
-    # Force front controller (web/app.php) NOT to use Symfony's built-in reverse proxy.
-    SetEnv SYMFONY_HTTP_CACHE 0
+    # Force front controller (public/index.php) NOT to use Symfony's built-in reverse proxy.
+    SetEnv APP_HTTP_CACHE 0
 
     # Configure Varnish
     SetEnv HTTPCACHE_PURGE_TYPE varnish
@@ -361,8 +361,8 @@ You can configure environment variables via [Platform.sh variables.](https://doc
 ```nginx
 # mysite_com.conf
 
-# Force front controller (web/app.php) NOT to use Symfony's built-in reverse proxy.
-fastcgi_param SYMFONY_HTTP_CACHE 0;
+# Force front controller (public/index.php) NOT to use Symfony's built-in reverse proxy.
+fastcgi_param APP_HTTP_CACHE 0;
 
 # Configure Fastly
 fastcgi_param HTTPCACHE_PURGE_TYPE fastly;
@@ -394,7 +394,6 @@ Serving grace is not always allowed by default because:
 
 - It is a safe default. Even if just for anonymous, stale cache can easily confuse your team during acceptance testing.
 - It means REST API, which is used by Admin UI, would serve stales data, breaking the UI.
-
 
 !!! tip "Customizing stale cache handling"
 

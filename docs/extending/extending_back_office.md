@@ -12,10 +12,10 @@ either built-in Symfony events or events dispatched by the application.
 Some extensibility, such as [adding custom tags](extending_online_editor.md#custom-tags),
 is possible without writing your own code, with configuration and templating only.
 
-To learn more, take a look at the [Extending Admin UI tutorial](../../tutorials/extending_admin_ui/extending_admin_ui.md)
+To learn more, take a look at the [Extending Admin UI tutorial](../tutorials/extending_admin_ui/extending_admin_ui.md)
 or at the more specific cases in Extending Back Office section.
 
 !!! note "String translations"
 
-    Refer to [Custom string translations](../back_office_translations.md#custom-string-translations)
+    Refer to [Custom string translations](../guide/back_office_translations.md#custom-string-translations)
     to learn how to provide string translations when extending the Back Office.

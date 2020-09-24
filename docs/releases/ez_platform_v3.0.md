@@ -194,7 +194,7 @@ You can now use the Sub-items list to quickly hide, reveal, to add Locations to 
 ### Tooltips
 
 You can now add custom tooltips to provide more information for the users when they hover over, focus on, or tap an element.
-For more information, see [Tooltips UI documentation](../guidelines/components/tooltips.md) and [Guide to adding tooltips](../extending/extending_tooltips.md).
+For more information, see [Tooltips UI documentation](../guidelines/components/tooltips.md).
 
 ### Thumbnails
 
@@ -320,7 +320,7 @@ eZ Platform now requires using PHP 7.3. For full list of, see [eZ Platform requi
 
 ## Updating
 
-For the upgrade details, see [eZ Platform v3.0 project update instructions](../updating/upgrading_to_v3.md).
+For the upgrade details, see [eZ Platform v3.0 project update instructions](../upgrading/upgrading_to_v3.md).
 
 ## Full changelog
 

@@ -52,7 +52,7 @@ On eZ Platform Cloud (and Platform.sh) Redis is preferred and supported.
 
 ### Shared binary files
 
-eZ Platform supports multi-server setups by means of [custom IO handlers](file_management#the-dfs-cluster-handler).
+eZ Platform supports multi-server setups by means of [custom IO handlers](file_management.md#the-dfs-cluster-handler).
 They make sure that files are correctly synchronized among the multiple clients using the data.
 
 ## DFS IO handler
@@ -204,14 +204,14 @@ You can read more about that on [Binary files URL handling](file_management.md#u
 ### Web server rewrite rules
 
 The default eZ Platform rewrite rules will let image requests be served directly from disk.
-In a cluster setup, files matching `^/var/([^/]+/)?storage/images(-versioned)?/.*` have to be passed through `/web/app.php` instead.
+In a cluster setup, files matching `^/var/([^/]+/)?storage/images(-versioned)?/.*` have to be passed through `/web/index.php` instead.
 
 In any case, this specific rewrite rule must be placed before the ones that "ignore" image files and just let the web server serve the files directly.
 
 #### Apache
 
 ```
-RewriteRule ^/var/([^/]+/)?storage/images(-versioned)?/.* /app.php [L]
+RewriteRule ^/var/([^/]+/)?storage/images(-versioned)?/.* /index.php [L]
 ```
 
 Place this before the standard image rewrite rule in your vhost config (or uncomment if already there).
@@ -219,7 +219,7 @@ Place this before the standard image rewrite rule in your vhost config (or uncom
 #### nginx
 
 ```
-rewrite "^/var/([^/]+/)?storage/images(-versioned)?/(.*)" "/app.php" break;
+rewrite "^/var/([^/]+/)?storage/images(-versioned)?/(.*)" "/index.php" break;
 ```
 
 Place this before the include of `ez_params.d`/`ez_rewrite_params` in your vhost config (or uncomment if already there).

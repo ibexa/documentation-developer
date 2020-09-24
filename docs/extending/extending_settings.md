@@ -85,13 +85,15 @@ class Unit implements ValueDefinitionInterface, FormMapperInterface
 }
 ```
 
-Add new service definitions:
+Add new service definitions in `config/services.yaml`:
 
 ``` yaml
-App\Setting\Unit:
-    tags:
-        - { name: ezplatform.admin_ui.user_setting.value, identifier: unit, priority: 50 }
-        - { name: ezplatform.admin_ui.user_setting.form_mapper, identifier: unit }
+services:
+    //
+    App\Setting\Unit:
+        tags:
+            - { name: ezplatform.admin_ui.user_setting.value, identifier: unit, priority: 50 }
+            - { name: ezplatform.admin_ui.user_setting.form_mapper, identifier: unit }
 ```
 
 You can order the settings in the User menu by setting their `priority`.
@@ -109,15 +111,15 @@ ezplatform:
             user_settings_update_view:
                 full:
                     unit:
-                        template: AppBundle:user:settings/update_unit.html.twig
+                        template: User/Settings/update_unit.html.twig
                         match:
                             Identifier: [ unit ]
 ```
 
-The template must extend the `@ezdesign/user/settings/update.html.twig` template:
+The `Templates/User/Settings/update_unit.html.twig` template must extend the `@ezdesign/account/settings/update.html.twig` template:
 
 ``` html+twig
-{% extends '@ezdesign/user/settings/update.html.twig' %}
+{% extends '@ezdesign/account/settings/update.html.twig' %}
 
 {% block form %}
     {{ parent() }}

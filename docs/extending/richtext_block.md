@@ -125,4 +125,9 @@
                 - { name: kernel.event_subscriber }
     ```
 
+
+    Now, you can add your custom RichText block in the Site tab.
+    
+    ![RichText block](img/extending_richtext_block.png)
+
     For details on customizing additional options of the block or creating custom blocks with other attribute types, see [Creating custom Page blocks](extending_page.md).
