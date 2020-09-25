@@ -212,6 +212,15 @@ html .md-footer-meta.md-typeset a {
 
 /* Admonitions */
 
+.md-typeset details {
+    font-size: 16px;
+    box-shadow: none;
+}
+
+.md-typeset details {
+    border: .4rem solid;
+}
+
 /* Enterprise */
 
 .admonition.enterprise .admonition-title {
@@ -243,30 +252,32 @@ html .md-footer-meta.md-typeset a {
 .md-typeset .admonition.tip>.admonition-title,
 .md-typeset .admonition.note,
 .md-typeset .admonition.note>.admonition-title,
-.md-typeset details
+.md-typeset details.tip, .md-typeset details.note
 {
     border-color: var(--note-border);
 }
 
 .md-typeset .admonition.note>.admonition-title:before, .md-typeset .admonition.tip>.admonition-title:before,
-.md-typeset .admonition.caution>.admonition-title:before, .md-typeset .admonition.enterprise>.admonition-title:before {
+.md-typeset .admonition.caution>.admonition-title:before, .md-typeset .admonition.enterprise>.admonition-title:before,
+.md-typeset details.note>summary:before, .md-typeset details.tip>summary:before, .md-typeset details.caution>summary:before {
     content: "";
 }
 
-.md-typeset .admonition.note>.admonition-title {
+.md-typeset .admonition.note>.admonition-title, .md-typeset details.note>summary {
     background: url("../images/notes-edit.svg");
 }
 
-.md-typeset .admonition.tip>.admonition-title {
+.md-typeset .admonition.tip>.admonition-title, .md-typeset details.tip>summary {
     background: url("../images/light-bulb-shine.svg");
 }
 
-.md-typeset .admonition.caution>.admonition-title {
+.md-typeset .admonition.caution>.admonition-title, .md-typeset details.caution>summary {
     background: url("../images/alert-triangle.svg");
 }
 
 .md-typeset .admonition.note>.admonition-title, .md-typeset .admonition.tip>.admonition-title,
-.md-typeset .admonition.caution>.admonition-title, .md-typeset .admonition.enterprise>.admonition-title {
+.md-typeset .admonition.caution>.admonition-title, .md-typeset .admonition.enterprise>.admonition-title,
+.md-typeset details.tip>summary, .md-typeset details.note>summary, .md-typeset details.caution>summary {
     background-repeat: no-repeat;
     background-size: 24px;
     background-origin: content-box;
@@ -276,16 +287,19 @@ html .md-footer-meta.md-typeset a {
 
 /* General admonitions */
 
-.md-typeset .admonition.caution>.admonition-title, .md-typeset .admonition.note>.admonition-title, .md-typeset .admonition.tip>.admonition-title, .md-typeset .admonition.enterprise>.admonition-title, .md-typeset details>summary {
+.md-typeset .admonition.caution>.admonition-title, .md-typeset .admonition.note>.admonition-title,
+.md-typeset .admonition.tip>.admonition-title, .md-typeset .admonition.enterprise>.admonition-title,
+.md-typeset details.tip, .md-typeset details.tip>summary,
+.md-typeset details.note, .md-typeset details.note>summary {
     background-color: #ffffff;
 }
 
-.md-typeset .admonition, .md-typeset details {
+.md-typeset .admonition {
     font-size: 16px;
     box-shadow: none;
 }
 
-.admonition, .md-typeset details {
+.admonition {
     border: .4rem solid;
 }
 
