@@ -204,7 +204,7 @@ You can read more about that on [Binary files URL handling](file_management.md#u
 ### Web server rewrite rules
 
 The default eZ Platform rewrite rules will let image requests be served directly from disk.
-In a cluster setup, files matching `^/var/([^/]+/)?storage/images(-versioned)?/.*` have to be passed through `/web/index.php` instead.
+In a cluster setup, files matching `^/var/([^/]+/)?storage/images(-versioned)?/.*` have to be passed through `/public/index.php` instead.
 
 In any case, this specific rewrite rule must be placed before the ones that "ignore" image files and just let the web server serve the files directly.
 
