@@ -477,7 +477,7 @@
       ```
 
     Then, create a translatable Page block by adding the following YAML configuration
-    in an application or a bundle, under the `ezplatform_page_fieldtype` key...
+    in an application or a bundle, under the `ezplatform_page_fieldtype` key:
 
     ``` yaml
     ezplatform_page_fieldtype:
@@ -508,9 +508,9 @@
                                 message: Provide a valid e-mail address
     ```
 
-    ... and, in the `blocks` directory, a corresponding Twig template called `translate_block.html.twig`:
+    In the `blocks` directory, add a corresponding Twig template called `translate_block.html.twig`:
 
-    ```
+    ``` html+twig
     <h1>{{ name|default('Hello stranger') }}!</h1>
     ```
 
@@ -520,7 +520,7 @@
     App\Event\Subscriber\TranslateBlockNameSubscriber:
         tags:
             - { name: event_subscriber }
-	  ```
+    ```
 
     Then, implement an event subscriber that listens to the block definition event. For example, create a `src/Event/Subscriber/TranslateBlockNameSubscriber.php` file that contains the following code:
 
