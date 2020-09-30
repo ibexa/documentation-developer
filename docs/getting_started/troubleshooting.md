@@ -72,3 +72,39 @@ configure the following variables in your Platform.sh environment:
 
 - `HTTPCACHE_USERNAME`
 - `HTTPCACHE_PASSWORD`
+
+## Configuration required to communicate with ERP
+
+To communicate with ERP, make sure that:
+
+- You have the correct web connector URL configured: `webconnector_url: ''`
+- You have created the symlinks for the mapping
+
+``` bash
+cd app/Resources
+ln -s ../../vendor/silversolutions/silver.e-shop/src/Silversolutions/Bundle/EshopBundle/Resources/xslbase
+ln -s ../../src/<Company>/Bundle/ProjectBundle/Resources/xsl
+```
+
+- Make sure that you have the correct version of `vendor/moyarada`.
+
+## Images in shop are not converted.
+
+Make sure that you have set up correct rights for the image folder:
+
+``` bash
+sudo chmod -R g+w web/var/ecommerce/storage/
+```
+
+## `Defuse\Crypto\Exception\BadFormatException` after installation
+
+if you are seeing the following error after installation:
+
+`[Defuse\Crypto\Exception\BadFormatException] Encoding::hexToBin() input is not a hex string`
+
+Generate a secret using `./vendor/defuse/php-encryption/bin/generate-defuse-key` and
+configure it in `parameters.yml`:
+
+```
+env(JMS_PAYMENT_SECRET): 'def000004cb9c9f5edb77182df64b3d572162a47ec971a9a8beb00459b49fd9a1f9df6991ffc817c8585f59b8c5a032b796ab520eae126c77d8a304b36af0c9acdbfa9b9'
+```
