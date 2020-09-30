@@ -1,4 +1,4 @@
-# Step 3a - Filtering the content list
+# Step 3a - Filtering query results
 
 In this step you will enable the content list to be filtered by Content Types.  The following tutorial requires the completed [Step 2 - Creating a top menu item](2_creating_a_content_list.md).
 

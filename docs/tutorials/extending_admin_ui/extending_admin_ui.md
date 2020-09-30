@@ -23,6 +23,6 @@ In this tutorial you will go through the following steps:
 
 - [1. Creating a Dashboard tab](1_creating_a_dashboard_tab.md)
 - [2. Creating a top menu item](2_creating_a_content_list.md)
-- [3a. Filtering the content list](3_filtering_the_content_list.md)
-- [3b. Adding Edit button to content list](3b_adding_edit_button_content_list.md)
+- [3a. Filtering query results](3_filtering_the_content_list.md)
+- [3b. Adding an edit button](3b_adding_edit_button_content_list.md)
 - [4. Creating a custom tag](4_adding_a_custom_tag.md)
