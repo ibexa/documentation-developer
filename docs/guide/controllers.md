@@ -754,7 +754,11 @@ When pagination is enabled, `items` is an instance of PagerFanta:
 
 ```
 {% if isPaginationEnabled %}
-    {{ pagerfanta( items, 'ez', {'routeName': location, 'pageParameter': pageParameter } ) }}
+    {{ pagerfanta( items, 'ez', {
+        'pageParameter': pageParameter,
+        'routeName': 'ez_urlalias',
+        'routeParams' : {'location': location }
+    } ) }}
 {% endif %}
 ```
 In case of pagination, `pageParameter` contains the page parameter to use as the PagerFanta `pageParameter` argument.
