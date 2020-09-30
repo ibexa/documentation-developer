@@ -1,4 +1,4 @@
-# Step 2 - Creating a content list
+# Step 2 - Creating a top menu item
 
 The next thing you will extend in this tutorial is the top menu.
 
