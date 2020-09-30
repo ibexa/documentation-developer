@@ -49,6 +49,7 @@ For security and performance we generally recommend (unless otherwise noted) usi
     -   PostgreSQL 10+
 -   PHP
     -   7.3
+    -   7.4
 
 - Cluster
     - Cache:
