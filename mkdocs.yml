@@ -42,8 +42,8 @@ nav:
             - 'Extending Admin UI': 'tutorials/extending_admin_ui/extending_admin_ui.md'
             - '1. Creating a bundle': 'tutorials/extending_admin_ui/1_creating_a_bundle.md'
             - '2. Creating a Dashboard tab': 'tutorials/extending_admin_ui/2_creating_a_dashboard_tab.md'
-            - '3. Creating a content list': 'tutorials/extending_admin_ui/3_creating_a_content_list.md'
-            - '4. Filtering the content list': 'tutorials/extending_admin_ui/4_filtering_the_content_list.md'
+            - '3. Creating a top menu item': 'tutorials/extending_admin_ui/3_creating_a_content_list.md'
+            - '4. Filtering query results': 'tutorials/extending_admin_ui/4_filtering_the_content_list.md'
             - '5. Creating a UDW tab': 'tutorials/extending_admin_ui/5_creating_a_udw_tab.md'
             - '6. Creating a custom tag': 'tutorials/extending_admin_ui/6_adding_a_custom_tag.md'
     - API:

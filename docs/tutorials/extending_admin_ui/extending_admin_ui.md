@@ -24,7 +24,7 @@ In this tutorial you will go through the following steps:
 
 - [1. Creating a bundle](1_creating_a_bundle.md)
 - [2. Creating a Dashboard tab](2_creating_a_dashboard_tab.md)
-- [3. Creating a content list](3_creating_a_content_list.md)
-- [4. Filtering the content list](4_filtering_the_content_list.md)
+- [3. Creating a top menu item](3_creating_a_content_list.md)
+- [4. Filtering query results](4_filtering_the_content_list.md)
 - [5. Creating a UDW tab](5_creating_a_udw_tab.md)
 - [6. Creating a custom tag](6_adding_a_custom_tag.md)
