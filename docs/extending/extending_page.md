@@ -458,11 +458,11 @@
     ### Block name translation
 
     A practical example of how you can use the `BlockDefinitionEvents` API is translating the block name.
-    You can modify the `name` attribute of the Page block, so that it displays a translation
+    You can modify the `name` attribute of the Page block so that it displays a translation
     in one of the defined languages.
 
     The example uses a [Symfony Translator](https://github.com/symfony/symfony/blob/5.1/src/Symfony/Component/Translation/Translator.php) module and its `trans()` method.
-    The method takes three arguments: an identifier of the block name label, an array of parameters,
+    The method takes three arguments: an identifier of the block name, an array of parameters,
     and the domain of the translation.
 
     Start with adding the requirement to install the language package to the `composer.json` file,
@@ -477,7 +477,7 @@
       ```
 
     Then, create a translatable Page block by adding the following YAML configuration
-    in an application or a bundle, under the `ezplatform_page_fieldtype` key:
+    under the `ezplatform_page_fieldtype` key:
 
     ``` yaml
     ezplatform_page_fieldtype:
@@ -522,7 +522,7 @@
             - { name: event_subscriber }
     ```
 
-    Then, implement an event subscriber that listens to the block definition event. For example, create a `src/Event/Subscriber/TranslateBlockNameSubscriber.php` file that contains the following code:
+    Then, implement an event subscriber that listens to the block definition event. For example, create an `src/Event/Subscriber/TranslateBlockNameSubscriber.php` file that contains the following code:
 
     ``` php
     <?php
@@ -607,9 +607,7 @@
         For more information, see the following articles:
 
         - [Back office translations](../guide/back_office_translations.md)
-
         - [Symfony translations](https://symfony.com/doc/current/translation.html)
-
         - [Setting language preferences in a browser](https://www.w3.org/International/questions/qa-lang-priorities)
 
     ## Block rendering events
