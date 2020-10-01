@@ -465,16 +465,10 @@
     The method takes three arguments: an identifier of the block name, an array of parameters,
     and the domain of the translation.
 
-    Start with adding the requirement to install the language package to the `composer.json` file,
-    under the `require` field, for example:
+    Start with adding a new language package to your project.
+    For example, to translate your application into French, run the following command:
 
-      ``` json
-      "require": {
-          (...)
-          "ezplatform-i18n/ezplatform-i18n-fr_fr": "^3.0",
-          (...)
-        }
-      ```
+      `composer require ezplatform-i18n/ezplatform-i18n-fr_fr`
 
     Then, create a translatable Page block by adding the following YAML configuration
     under the `ezplatform_page_fieldtype` key:
