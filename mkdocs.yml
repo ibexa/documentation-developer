@@ -777,10 +777,6 @@ extra:
       url: '/'
     - title: 'eZ Platform User Documentation'
       url: '/projects/userguide'
-    - title: 'eZ Personalization Documentation'
-      url: '/projects/ezpersonalization'
-    - title: 'eZ Commerce'
-      url: '/projects/ezcommerce'
 
 extra_css:
   - fonts/MavenPro.css
