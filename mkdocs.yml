@@ -91,15 +91,14 @@ nav:
             - 'GraphQL customization': 'api/graphql_customization.md'
         - Commerce API:
             - Field Type:
-                - Field Type reference:
-                    - 'Field Type reference': 'api/commerce_api/field_type_reference/field_type_reference.md'
-                    - 'ProductSelection': 'api/commerce_api/field_type_reference/productselection.md'
-                    - 'SesExternalData': 'api/commerce_api/field_type_reference/sesexternaldata.md'
-                    - 'SesProfileData': 'api/commerce_api/field_type_reference/sesprofiledata.md'
-                    - 'SesSelection': 'api/commerce_api/field_type_reference/sesselection.md'
-                    - 'SpecificationsType': 'api/commerce_api/field_type_reference/specificationstype.md'
-                    - 'VariantType': 'api/commerce_api/field_type_reference/varianttype.md'
-                    - 'silver.module': 'api/commerce_api/field_type_reference/silver.module.md'
+                - 'Commerce Field Types': 'api/commerce_api/field_type_reference/field_type_reference.md'
+                - 'ProductSelection': 'api/commerce_api/field_type_reference/productselection.md'
+                - 'SesExternalData': 'api/commerce_api/field_type_reference/sesexternaldata.md'
+                - 'SesProfileData': 'api/commerce_api/field_type_reference/sesprofiledata.md'
+                - 'SesSelection': 'api/commerce_api/field_type_reference/sesselection.md'
+                - 'SpecificationsType': 'api/commerce_api/field_type_reference/specificationstype.md'
+                - 'VariantType': 'api/commerce_api/field_type_reference/varianttype.md'
+                - 'silver.module': 'api/commerce_api/field_type_reference/silver.module.md'
                 - Fields for eCommerce data:
                     - 'Fields for eCommerce data': 'api/commerce_api/fields_for_ecommerce_data/fields_for_ecommerce_data.md'
                     - 'ArrayField': 'api/commerce_api/fields_for_ecommerce_data/arrayfield.md'
@@ -126,7 +125,7 @@ nav:
                 - 'SisoRestApiBundle': 'api/commerce_api/sisorestapibundle/sisorestapibundle.md'
                 - 'Basket functions': 'api/commerce_api/sisorestapibundle//basket_functions.md'
                 - 'Checkout functions': 'api/commerce_api/sisorestapibundle/checkout_functions.md'
-                - 'Common': 'api/commerce_api/sisorestapibundle/common.md'
+                - 'Common functions': 'api/commerce_api/sisorestapibundle/common.md'
                 - 'Customer functions': 'api/commerce_api/sisorestapibundle/customer_functions.md'
     - Guide:
         - Project organization:
@@ -167,8 +166,8 @@ nav:
                 - Twig extension:
                     - 'Twig extension': 'guide/shop_templates/twig_extension.md'
                     - 'st_tag selector': 'guide/shop_templates/st_tag_selector.md'
-                - Design engine:
-                    - 'Design engine': 'guide/shop_templates/design_engine.md'
+                - Design engine in the shop:
+                    - 'Design engine in the shop': 'guide/shop_templates/design_engine.md'
                     - 'Setting up new project design': 'guide/shop_templates/set_up_new_project_design.md'
                 - 'Product images': 'guide/shop_templates/product_images.md'
         - Content management:
@@ -216,8 +215,8 @@ nav:
                 - 'Login and registration cookbook': 'guide/login_and_registration/login_and_registration_cookbook.md'
                 - 'Login and registration FAQ': 'guide/login_and_registration/login_and_registration_faq.md'
                 - 'Login and registration templates': 'guide/login_and_registration/login_and_registration_templates.md'
-            - 'Delegate function': 'guide/delegate_function.md'
-            - 'Job system': 'guide/job_system.md'
+            - 'Delegate function': 'guide/user_management/delegate_function.md'
+            - 'Job system': 'guide/user_management/job_system.md'
             - Newsletter:
                 - 'Newsletter': 'guide/newsletter/newsletter.md'
                 - 'Newsletter configuration': 'guide/newsletter/newsletter_configuration.md'
@@ -257,6 +256,7 @@ nav:
                     - 'Adding products to a stored basket or wishlist': 'guide/basket/basket_ui/adding_products_to_a_stored_basket_or_wishlist.md'
                     - 'Adding products to the basket': 'guide/basket/basket_ui/adding_products_to_the_basket.md'
                 - 'Basket FAQ': 'guide/basket/basket_faq.md'
+            - 'Wishlist and stored baskets': 'guide/basket/wishlist_and_stored_baskets.md'
             - Checkout:
                 - 'Checkout': 'guide/checkout/checkout.md'
                 - Checkout features:
@@ -324,10 +324,10 @@ nav:
                     - 'Rendering for prices': 'guide/pricing/price_engine_templates/rendering_for_prices.md'
                 - 'Price engine FAQ': 'guide/pricing/price_engine_faq.md'
             - Quick order:
-                - 'Quick order': 'guide/quickorder/quickorder.md'
-                - 'Quick order API': 'guide/quickorder/quickorder_api.md'
-                - 'Quick order templates': 'guide/quickorder/quickorder_templates.md'
-                - 'Quick order FAQ': 'guide/quickorder/quickorder_faq.md'
+                - 'Quick order': 'guide/quick_order/quick_order.md'
+                - 'Quick order API': 'guide/quick_order/quick_order_api.md'
+                - 'Quick order templates': 'guide/quick_order/quick_order_templates.md'
+                - 'Quick order FAQ': 'guide/quick_order/quick_order_faq.md'
             - Order history:
                 - 'Orderhistory': 'guide/order_history/orderhistory.md'
                 - Order history features:
@@ -372,7 +372,7 @@ nav:
                 - 'Breadcrumb templates': 'guide/breadcrumbs/breadcrumbs_templates.md'
                 - 'Breadcrumb API': 'guide/breadcrumbs/breadcrumbs_api.md'
                 - 'Custom breadcrumbs': 'guide/breadcrumbs/custom_breadcrumbs.md'
-            - 'Page': 'guide/page.md'
+            - 'Pages in the shop': 'guide/page.md'
             - Forms:
                 - 'Forms': 'guide/forms/forms.md'
                 - Form API:
@@ -523,24 +523,24 @@ nav:
             - 'Solr search engine': 'guide/search/solr.md'
             - 'Other search engines': 'guide/search/search_engines.md'
             - Shop search:
-                - 'Shop search': 'guide/search/commerce_search/search.md'
-                - 'Search templates': 'guide/search/commerce_search/search_templates.md'
-                - 'Search configuration': 'guide/search/commerce_search/search_configuration.md'
-                - 'Search API': 'guide/search/commerce_search/search_api.md'
-                - 'Product search': 'guide/search/commerce_search/searching_for_products.md'
-                - 'Search indexing': 'guide/search/commerce_search/search_indexing.md'
-                - 'Search synonyms': 'guide/search/commerce_search/search_synonyms.md'
-                - 'Autosuggestion': 'guide/search/commerce_search/search_autosuggest.md'
-                - 'Solr spellcheck': 'guide/search/commerce_search/using_solr_spellcheck.md'
+                - 'Shop search': 'guide/search/shop_search/shop_search.md'
+                - 'Search templates': 'guide/search/shop_search/search_templates.md'
+                - 'Search configuration': 'guide/search/shop_search/search_configuration.md'
+                - 'Search API': 'guide/search/shop_search/search_api.md'
+                - 'Product search': 'guide/search/shop_search/searching_for_products.md'
+                - 'Search indexing': 'guide/search/shop_search/search_indexing.md'
+                - 'Search synonyms': 'guide/search/shop_search/search_synonyms.md'
+                - 'Autosuggestion': 'guide/search/shop_search/search_autosuggest.md'
+                - 'Solr spellcheck': 'guide/search/shop_search/using_solr_spellcheck.md'
                 # - Extending search:
-                #     - 'Adding elements to autosuggestion': 'guide/search/commerce_search/extending_search/adding_elements_to_autosuggestion.md'
-                #     - 'Indexing file content': 'guide/search/commerce_search/extending_search/indexing_file_content.md'
-                #     - 'Indexing email data': 'guide/search/commerce_search/extending_search/indexing_email_data.md'
-                #     - 'Implement custom search': 'guide/search/commerce_search/extending_search/custom_search.md'
-                #     - 'Implement custom search condition': 'guide/search/commerce_search/extending_search/custom_search_conditions.md'
-                #     - 'Implement custom sorting option for search': 'guide/search/commerce_search/extending_search/custom_sorting_options.md'
-                #     - 'Modifying the search query': 'guide/search/commerce_search/extending_search/modifying_the_search_query.md'
-                #     - 'Implement an indexer plugin for custom Field Types': 'guide/search/commerce_search/extending_search/indexer_plugin_for_custom_field_types.md'
+                #     - 'Adding elements to autosuggestion': 'guide/search/shop_search/extending_search/adding_elements_to_autosuggestion.md'
+                #     - 'Indexing file content': 'guide/search/shop_search/extending_search/indexing_file_content.md'
+                #     - 'Indexing email data': 'guide/search/shop_search/extending_search/indexing_email_data.md'
+                #     - 'Implement custom search': 'guide/search/shop_search/extending_search/custom_search.md'
+                #     - 'Implement custom search condition': 'guide/search/shop_search/extending_search/custom_search_conditions.md'
+                #     - 'Implement custom sorting option for search': 'guide/search/shop_search/extending_search/custom_sorting_options.md'
+                #     - 'Modifying the search query': 'guide/search/shop_search/extending_search/modifying_the_search_query.md'
+                #     - 'Implement an indexer plugin for custom Field Types': 'guide/search/shop_search/extending_search/indexer_plugin_for_custom_field_types.md'
         - Multisite:
             - 'Multisite': 'guide/multisite.md'
             - 'Site Factory': 'guide/site_factory.md'
@@ -552,8 +552,8 @@ nav:
             - 'Back Office translations': 'guide/back_office_translations.md'
             - 'Shop translations': 'guide/shop_translations.md'
         - Personalization:
-            - 'About personalization': 'guide/personalization/about_personalization.md'
-            - 'Quickstart guide': 'guide/personalization/quickstart_guide.md'
+            - 'Personalization': 'guide/personalization/personalization.md'
+            - 'Personalization quickstart': 'guide/personalization/personalization_quickstart.md'
             - Developer guide:
                 - 'Tracking API': 'guide/personalization/developer_guide/tracking_api.md'
                 - 'Importing historical user tracking data': 'guide/personalization/developer_guide/importing_historical_user_tracking_data.md'
@@ -565,8 +565,7 @@ nav:
             - Best practices:
                 - 'Tracking integration': 'guide/personalization/best_practices/tracking_integration.md'
                 - 'Recommendation integration': 'guide/personalization/best_practices/recommendation_integration.md'
-            - 'Recommendation cliend': 'guide/personalization/recommendation_client.md'
-            - 'Definitions': 'definitions.md'
+            - 'Recommendation client': 'guide/personalization/recommendation_client.md'
         - Repository:
             - 'Repository': 'guide/repository.md'
             - 'Databases': 'guide/databases.md'
@@ -578,6 +577,7 @@ nav:
                 - Content cache refresh:
                     - 'Content cache refresh': 'guide/cache/content_cache_refresh/content_cache_refresh.md'
                     - 'HTTP caching': 'guide/cache/content_cache_refresh/http_caching.md'
+                - 'Navigation cache': 'guide/cache/navigation_cache.md'
                 - 'Caching FAQ': 'guide/cache/caching_faq.md'
                 - 'Translation cache for Text modules': 'guide/cache/translations_cache_for_textmodules.md'
                 - 'Basketpreview cache and user-specific data': 'guide/cache/basketpreview_cache_and_user_specific_data.md'
