@@ -185,10 +185,16 @@ This operation is performed only once when you install eZ Platform Enterprise Ed
 For development you can use built-in PHP SAPI.
 
 ```bash
-php -S 127.0.0.1:8000 -t public .
+php -S 127.0.0.1:8000 -t public
 ```
 
 Your PHP webserver will be accessible at http://127.0.0.1:8000
+
+You can also use [Symfony CLI](https://symfony.com/download):
+
+```bash
+symfony serve
+```
 
 ## Prepare installation for production
 
