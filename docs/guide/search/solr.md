@@ -307,7 +307,8 @@ Here are the most common issues you may encounter:
 
 !!! caution "Index time boosting"
 
-    Index time boosting was deprecated in Solr 6.5 and removed in Solr 7.0. Until query time boosting is implemented there is no way to boost currently in the bundle out of the box.
+    Index time boosting was deprecated in Solr 6.5 and removed in Solr 7.0.
+    Until query time boosting is implemented, there is no way to boost in the bundle out of the box.
 
 !!! tip "How boosting interacts with Search API"
 
