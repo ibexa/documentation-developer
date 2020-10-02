@@ -21,7 +21,7 @@ See also [full requirements for installing eZ Platform](../getting_started/requi
 
 ### Template configuration
 
-Following the [upgrade to Symfony 5](#symfony-5), [the templating component integration is now deprecated.](https://symfony.com/blog/new-in-symfony-4-3-deprecated-the-templating-component-integration)
+Following the upgrade to Symfony 5, [the templating component integration is now deprecated.](https://symfony.com/blog/new-in-symfony-4-3-deprecated-the-templating-component-integration)
 As a result, the way to indicate a template path has changed.
 
 Example 1:
@@ -33,6 +33,12 @@ Example 2:
 
 - Now: `{% extends "@EzPublishCore/content_fields.html.twig" %}`
 - Formerly: `{% extends "EzPublishCoreBundle::content_fields.html.twig" %}`
+
+### Clustering configuration
+
+Following the upgrade to Symfony 5, the DFS IO handler must be configured in a different way.
+
+For more information, see the Doctrine connection configuration example in the [Clustering](../../guide/clustering/#configuring-the-dfs-io-handler) article.
 
 ## Field Types
 
@@ -57,7 +63,7 @@ The deprecated `eZ\Publish\Core\FieldType\RichText` namespace has been removed, 
 
 The following classes and namespaces have been deprecated and dropped:
 
-- `eZ\Publish\SPI\FieldType\EventListener` 
+- `eZ\Publish\SPI\FieldType\EventListener`
 - `eZ\Publish\SPI\FieldType\Event`
 - `eZ\Publish\SPI\FieldType\Events\**`
 
@@ -295,7 +301,7 @@ has been moved to `ezplatform-admin-ui` from `repository-forms`.
 
 ### Code cleanup in Admin UI
 
-The following deprecated items have been removed: 
+The following deprecated items have been removed:
 
 |Removed code|Belongs to|Use instead|
 |------------|----------|-----------|
@@ -375,7 +381,7 @@ The following event names have been changed:
 
 ### FOS Cache Bundle v2
 
-HTTP cache bundle now uses FOS Cache Bundle v2. 
+HTTP cache bundle now uses FOS Cache Bundle v2.
 
 This entails that:
 
@@ -478,7 +484,7 @@ The `Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand` is deprecated
 
 Deprecated `viewLocation` and `embedLocation` actions of the `ViewController` have been removed, along with related route `_ezpublishLocation`.
 Use:
- 
+
 - `viewAction` instead of `viewLocation`
 - `embedAction` instead of `embedLocation`
 
@@ -676,14 +682,14 @@ Subscribe to eZ Platform Symfony Events to handle deferring of updating of Conte
 
 ### Symfony Services
 
-The `date_based_publisher.permission_resolver` Symfony Service deprecated in v2.5 has been removed. 
+The `date_based_publisher.permission_resolver` Symfony Service deprecated in v2.5 has been removed.
 Instead, you can inject `eZ\Publish\API\Repository\PermissionResolver` and rely on auto-wiring.
 
 ### Symfony MIME component
 
 The deprecated `Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesserInterface` has been replaced with `Symfony\Component\Mime\MimeTypesInterface`.
 
-### Symfony Dependency Injection Container 
+### Symfony Dependency Injection Container
 
 The deprecated Symfony Dependency Injection Container parameters ending with `.class` have been removed, services relying on them now have their classes defined explicitly.
 To properly decorate a Symfony service, use the `decorates` attribute instead.
@@ -770,12 +776,12 @@ use \eZ\Publish\Core\Persistence\Legacy\URL\Query\CriteriaConverter;
 use \eZ\Publish\API\Repository\Values\URL\Query\Criterion;
 public function handle(CriteriaConverter $converter, QueryBuilder $query, Criterion $criterion);
 ```
-  
+
 `ezpublish.api.search_engine.legacy.dbhandler` and `ezpublish.api.storage_engine.legacy.dbhandler`
 have been removed.
 Inject `\Doctrine\DBAL\Connection` via `ezpublish.persistence.connection` instead.
 
-#### Field Type External Storage Handlers 
+#### Field Type External Storage Handlers
 
 The Field Type External Storage Handlers `$context` arrays no longer have the "connection" key.
 You should rely on injected Connection instead.

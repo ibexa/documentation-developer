@@ -130,13 +130,13 @@ doctrine:
     dbal:
         connections:
             dfs:
+                # configure these settings to match your database server
                 driver: pdo_mysql
-                host: 127.0.0.1
-                port: 3306
-                dbname: ezdfs
-                user: root
-                password: rootpassword
-                charset: UTF8MB4
+                charset: utf8mb4
+                default_table_options:
+                    charset: utf8mb4
+                    collate: utf8mb4_unicode_520_ci
+                url: mysql://root:rootpassword@127.0.0.1:3306/ezdfs
 
 # define the Flysystem handler
 oneup_flysystem:
