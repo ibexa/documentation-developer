@@ -55,7 +55,7 @@ They are available via [updates.ez.no](https://updates.ez.no).
         composer config --global http-basic.updates.ez.no <installation-key> <token-password>
         ```
 
-    !!! cloud
+    !!! note "eZ Platform Cloud"
 
         If you are using Platform.sh, you can set the token as an environment variable.
 
