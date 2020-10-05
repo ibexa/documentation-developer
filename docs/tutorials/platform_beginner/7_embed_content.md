@@ -1,5 +1,10 @@
 # Step 7 — Embed content
 
+Creating lists and detailed views of Content Types and their respective items often involves also loading their related resources.
+In the following steps Rides will receive additional, related object: a Landmark, which will be displayed on Ride pages.
+
+You can add as many or as little related resources as you like.
+
 ## Create the Landmark Content Type
 
 Now you need to create the second Content Type needed in the site, Landmark.
@@ -107,6 +112,9 @@ landmark_list:
 
 ### Create the RideController
 
+Since we will need to add additional information when Ride object is displayed, we will need to create a custom controller.
+In this controller we will use `ContentService` to load related resources (Landmarks) for a particular Ride, and place it under `landmarksList` variable in template.
+
 Create a `src/Controller/RideController.php` file:
 
 ``` php
@@ -180,5 +188,10 @@ Add the following lines at the end of `templates/full/ride.html.twig`, before th
 ```
 
 You can now check the Ride page again to see all the connected Landmarks.
+
+
+!!! tip
+
+    You can use `dump()` in Twig templates to display all available variables.
 
 ![Ride full view with Landmarks](img/bike_tutorial_ride_with_landmarks.png)
