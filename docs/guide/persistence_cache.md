@@ -201,10 +201,10 @@ With that in mind, the following configurations of Redis are possible:
     - [Slaves are asynchronously replicated](https://redis.io/topics/sentinel#fundamental-things-to-know-about-sentinel-before-deploying), so they can't be used for reads
     - Typically used with a load balancer (e.g. HAproxy) in the front in order to only speak to elected master
         - An alternative is that application logic itself speaks to Sentinel in order to always ask for elected master before talking to cache.
-        - In Symfony 5 this is done for you with support for Redis Sentinel in Redis Adapters theme-selves, but for 2.5 you'll need to do this yourself.
+        - In Symfony 5 this is done for you with support for Redis Sentinel in Redis Adapters themselves, but in 2.5 you need to do this yourself.
 
 
-Several cloud providers have managed services that are easier to set up, handles replication and scalability for you, and might perform better. Notable Services:
+Several cloud providers have managed services that are easier to set up, handle replication and scalability for you, and might perform better. Notable services include:
 
 - [Amazon ElastiCache](https://aws.amazon.com/elasticache/)
 - [Azure Redis Cache](https://azure.microsoft.com/en-us/services/cache/)
