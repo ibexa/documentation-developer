@@ -112,7 +112,7 @@ Alternatively if you have needs to configure Redis servers dynamically:
 - Set `%ezplatform.session.handler_id%` (or `SESSION_HANDLER_ID` env var) to `ezplatform.core.session.handler.native_redis`
 - Set `%ezplatform.session.save_path%` (or `SESSION_SAVE_PATH` env var) to [save_path config for Redis](https://github.com/phpredis/phpredis/#php-session-handler)
 
-!!! cloud "eZ Platform Cloud"
+!!! note "eZ Platform Cloud"
 
     For eZ Platform Cloud (and Platform.sh), this is already configured in `app/config/env/platformsh.php` based on `.platform.yml` config.
 
