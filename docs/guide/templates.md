@@ -179,10 +179,10 @@ This renders the value of the Field with identifier "description" of the current
 Another way of embedding Content items is using the `render_esi` function (which is not an eZ-specific function, but a Symfony standard). This function lets you easily select a different Content item and embed it in the current page. This can be used, for instance, if you want to list the children of a Content item in its parent.
 
 ``` html+twig
-{{ render_esi(controller('ez_content:viewAction', {locationId: 33, viewType: 'line'} )) }}
+{{ render_esi(controller('ez_content::viewAction', {locationId: 33, viewType: 'line'} )) }}
 ```
 
-This example renders the Content item with Location ID 33 using the line view. To do this, the function applies the `ez_content:viewAction` controller. This is the default controller for rendering content, but can be substituted here with any custom controller of your choice.
+This example renders the Content item with Location ID 33 using the line view. To do this, the function applies the `ez_content::viewAction` controller. This is the default controller for rendering content, but can be substituted here with any custom controller of your choice.
 
 #### Assets
 
@@ -432,7 +432,7 @@ This controller is exactly the same as [the ViewController presented above](cont
 You can use this controller from templates with the following syntax:
 
 ``` html+twig
-{{ render(controller("ez_content:viewAction", {"contentId": 123, "viewType": "line"})) }}
+{{ render(controller("ez_content::viewAction", {"contentId": 123, "viewType": "line"})) }}
 ```
 
 The example above renders the Content item whose ID is **123** with the view type **line**.
@@ -441,7 +441,7 @@ Referencing the `ez_content` controller follows the syntax of *controllers as a 
 
 ##### Available arguments
 
-As with any controller, you can pass arguments to `ez_content:viewAction` to fit your needs.
+As with any controller, you can pass arguments to `ez_content::viewAction` to fit your needs.
 You must provide `contentId` (and, optionally, `locationId`) for the action to work.
 
 |Name|Description|Type|Default value|
@@ -457,7 +457,7 @@ For example:
 ``` html+twig
 {{ render(
       controller(
-          "ez_content:viewAction",
+          "ez_content::viewAction",
           {
               "contentId": 123,
               "viewType": "line",
@@ -514,7 +514,7 @@ Using this function does not require adding anything to your content view config
 Just like for regular Symfony controllers, you can take advantage of [ESI](https://symfony.com/doc/5.0/http_cache/esi.html) and use different cache levels:
 
 ``` html+twig
-{{ render_esi(controller("ez_content:viewAction", {"contentId": 123, "viewType": "line"})) }}
+{{ render_esi(controller("ez_content::viewAction", {"contentId": 123, "viewType": "line"})) }}
 ```
 
 Only scalar variables (not objects) can be sent via `render_esi`.

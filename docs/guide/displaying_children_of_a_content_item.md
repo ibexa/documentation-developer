@@ -69,7 +69,7 @@ In your [standard view configuration](../guide/content_rendering.md#configuring-
 
 ``` yaml
 folder:
-    controller: ez_query:contentQueryAction
+    controller: ez_query::contentQueryAction
     template: full/folder.html.twig
     match:
         Identifier\ContentType: folder
