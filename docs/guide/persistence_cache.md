@@ -157,7 +157,7 @@ Depending on the number of lookups and latency to cache server this might affect
 
 Out of the box in `config/packages/cache_pool/cache.redis.yaml` you'll find a default example that can be used.
 
-!!! cloud "eZ Platform Cloud"
+!!! note "eZ Platform Cloud"
 
     For eZ Platform Cloud/Platform.sh: This is automatically configured in `app/config/env/platformsh.php` if you have enabled Redis as `rediscache` Platform.sh service.
 
@@ -208,7 +208,7 @@ For best performance we recommend use of Redis Sentinel if it fits your needs. H
 
 ###### eZ Platform Cloud / Platform.sh usage
 
-!!! cloud "eZ Platform Cloud"
+!!! note "eZ Platform Cloud"
 
     If you use Platform.sh Enterprise you can benefit from the Redis Sentinel across three nodes for great fault tolerance.
     Platform.sh Professional and lower versions offer Redis in single instance mode only.
@@ -235,7 +235,7 @@ There is one Memcached adapter available out of the box.
 
 Out of the box in `config/packages/cache_pool/cache.memcached.yaml` you'll find a default example that can be used.
 
-!!! cloud "eZ Platform Cloud"
+!!! note "eZ Platform Cloud"
 
     For eZ Platform Cloud/Platform.sh: This is automatically configured in `config/env/platformsh.php` if you have enabled Memcached as `cache` Platform.sh service.
 
