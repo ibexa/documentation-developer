@@ -182,13 +182,13 @@ This operation is performed only once when you install eZ Platform Enterprise Ed
 
 ## Use PHPs built-in server
 
-For development you can use built-in PHP SAPI.
+For development you can use the built-in PHP server.
 
 ```bash
 php -S 127.0.0.1:8000 -t public
 ```
 
-Your PHP webserver will be accessible at http://127.0.0.1:8000
+Your PHP web server will be accessible at `http://127.0.0.1:8000`
 
 You can also use [Symfony CLI](https://symfony.com/download):
 
