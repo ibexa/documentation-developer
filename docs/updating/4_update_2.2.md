@@ -112,7 +112,7 @@ After the migration is finished, you need to clear the cache.
 
 #### Migrate layouts
 
-The `ez_block:renderBlockAction` controller used in layout templates has been replaced by `EzPlatformPageFieldTypeBundle:Block:render`. This controller has two additional parameters, `locationId` and `languageCode`. Only `languageCode` is required.
+The `ez_block::renderBlockAction` controller used in layout templates has been replaced by `EzPlatformPageFieldTypeBundle:Block:render`. This controller has two additional parameters, `locationId` and `languageCode`. Only `languageCode` is required.
 Also, the HTML class `data-studio-zone` has been replaced with `data-ez-zone-id`
 See [documentation](../guide/page_rendering.md#layout-template) for an example on usage of the new controller.
 
@@ -158,7 +158,7 @@ defined in the [Enterprise Beginner tutorial](../tutorials/enterprise_beginner/e
             {% if zones[0].blocks %}
                 {% for block in zones[0].blocks %}
                     <div class="landing-page__block block_{{ block.type }}">
-                        {{ render_esi(controller('ez_block:renderBlockAction', {
+                        {{ render_esi(controller('ez_block::renderBlockAction', {
                             'contentId': contentInfo.id,
                             'blockId': block.id,
                             'versionNo': versionInfo.versionNo
@@ -171,7 +171,7 @@ defined in the [Enterprise Beginner tutorial](../tutorials/enterprise_beginner/e
             {% if zones[1].blocks %}
                 {% for block in zones[1].blocks %}
                     <div class="landing-page__block block_{{ block.type }}">
-                        {{ render_esi(controller('ez_block:renderBlockAction', {
+                        {{ render_esi(controller('ez_block::renderBlockAction', {
                             'contentId': contentInfo.id,
                             'blockId': block.id,
                             'versionNo': versionInfo.versionNo
