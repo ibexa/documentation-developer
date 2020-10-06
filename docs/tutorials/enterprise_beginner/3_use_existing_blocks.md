@@ -135,7 +135,7 @@ Create the new file `templates/blocks/schedule/featured.html.twig`:
                 {% for idx in 0..2 %}
                     <div class="col-md-4 featured-article-container">
                         {% if items[idx] is defined %}
-                        {{ render(controller('ez_content:viewAction', {
+                        {{ render(controller('ez_content::viewAction', {
                             'locationId': items[idx].id,
                             'viewType': 'featured'
                             })) }}
