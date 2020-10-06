@@ -64,10 +64,10 @@ It will use a database to manipulate metadata, making up for the potential incon
 
 You need to configure both metadata and binarydata handlers.
 
-EZ Platform ships with a custom local adapter (`ibexa.platform.io.nfs.adapter.site_access_aware`), which
-decorates the Flysystem local adapter to enable support for SiteAccess-aware settings.
-The custom local adapter must be used instead of the Flysystem local adapter if an NFS path relies on
-SiteAccess-aware dynamic parameters.
+eZ Platform ships with a custom local adapter (`ibexa.platform.io.nfs.adapter.site_access_aware`), 
+which decorates the Flysystem local adapter to enable support for SiteAccess-aware settings.
+If an NFS path relies on SiteAccess-aware dynamic parameters, you must use the custom local adapter 
+instead of the Flysystem local adapter.
 Configure the custom local adapter to read/write to the NFS mount point on each local server.
 As metadata handler, create a DFS one, configured with a Doctrine connection.
 
@@ -129,6 +129,14 @@ manually importing its schema definition:
 This example uses Doctrine connection named `dfs`:
 
 ``` yaml
+parameters:
+    ibexa.platform.io.nfs.adapter.config:
+        root: '%dfs_nfs_path%'
+        path: '$var_dir$/$storage_dir$/'
+        writeFlags: ~
+        linkHandling: ~
+        permissions: [ ]
+
 # new Doctrine connection for the DFS legacy_dfs_cluster metadata handler.
 doctrine:
     dbal:
@@ -146,8 +154,8 @@ doctrine:
 oneup_flysystem:
     adapters:
         nfs_adapter:
-            local:
-                directory: '/<path to nfs>/$var_dir$/$storage_dir$'
+            custom:
+                service: ibexa.platform.io.nfs.adapter.site_access_aware
 
 # define the eZ Platform handlers
 ez_io:
