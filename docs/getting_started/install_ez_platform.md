@@ -85,6 +85,11 @@ composer -V
         composer config --global http-basic.updates.ez.no <installation-key> <token-password>
         ```
 
+    After this, when running Composer to get updates, you will be asked for a username and password. Use:
+
+    - as username - your Installation key found on the **Maintenance and Support agreement details** page in the service portal
+    - as password - the token password you retrieved in step 3.
+
     !!! cloud
 
         If you are using Platform.sh, you can set the token as an environment variable.
@@ -93,11 +98,6 @@ composer -V
         This will ensure that the token is not exposed.
 
         ![Setting token to be invisible during runtime](img/psh_addvariable.png)
-
-    After this, when running Composer to get updates, you will be asked for a username and password. Use:
-
-    - as username - your Installation key found on the **Maintenance and Support agreement details** page in the service portal
-    - as password - the token password you retrieved in step 3.
 
     !!! note "Authentication token validation delay"
 
