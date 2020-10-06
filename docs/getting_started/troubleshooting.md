@@ -98,7 +98,7 @@ sudo chmod -R g+w web/var/ecommerce/storage/
 
 ## `Defuse\Crypto\Exception\BadFormatException` after installation
 
-if you are seeing the following error after installation:
+If you see the following error after installation:
 
 `[Defuse\Crypto\Exception\BadFormatException] Encoding::hexToBin() input is not a hex string`
 

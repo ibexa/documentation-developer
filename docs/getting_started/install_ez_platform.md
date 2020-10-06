@@ -17,7 +17,7 @@ Additional requirements:
 
 - [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/lang/en/docs/install/#debian-stable) for asset management.
 - `git` for version control.
-- to use search in the shop front end, you need to have [Solr installed](#install-solr).
+- to use search in the shop front end, you must [install Solr](#install-solr).
 
 [For production](#prepare-installation-for-production) you also need Apache or nginx as the HTTP server (Apache is used as an example below).
 
@@ -57,7 +57,8 @@ composer -V
     ### Set up authentication tokens
 
     Enterprise and Commerce subscribers have access to commercial packages at [updates.ez.no/bul/](https://updates.ez.no/bul/).
-    The site is password-protected. You will need to set up authentication tokens to get access to it.
+    The site is password-protected. 
+    You must set up authentication tokens to access the site.
 
     Log in to your service portal on [support.ez.no](https://support.ez.no), go to your **Service Portal**, and look for the following on the **Maintenance and Support agreement details** screen:
 
@@ -67,12 +68,12 @@ composer -V
     2. Fill in a label describing the use of the token. This will allow you to revoke access later.
     3. Save the password, **you will not get access to it again**!
 
-    !!! tip "Save authentication token in `auth.json` to avoid repeatedly typing it"
+    !!! tip "Save the authentication token in `auth.json` to avoid re-typing it"
 
-        Composer will ask to do this for you on updates.
-        If you decline, you can create an `auth.json` file manually in one of the following ways:
+        Composer will ask whether you want to save the token every time you perform an update.
+        If you prefer, you can decline and create an `auth.json` file manually in one of the following ways:
 
-        - A: Store your credentials in the project directory (for security reasons do not check it in to git):
+        - A: Store your credentials in the project directory (for security reasons, do not check them in to git):
 
         ``` bash
         composer config http-basic.updates.ez.no <installation-key> <token-password>
@@ -102,7 +103,7 @@ composer -V
 
         You can encounter some delay between creating the token and being able to use it in Composer. It might take up to 15 minutes.
 
-    !!! note "Support agreement expiry"
+    !!! caution "Support agreement expiry"
 
         If your Support agreement expires, your authentication token(s) will no longer work.
         They will become active again if the agreement is renewed, but this process may take up to 24 hours.
@@ -110,7 +111,8 @@ composer -V
 
 ## Create project
 
-There are two ways to get eZ Platform. The result is the same, so you can use the way you prefer:
+There are two ways to get an instance of eZ Platform. 
+The result is the same, so you can use the way you prefer:
 
 - [Download or clone](#a-download-or-clone)
 - [Create a project with Composer](#b-create-project-with-composer)
@@ -128,7 +130,7 @@ There are two ways to get eZ Platform. The result is the same, so you can use th
     git clone https://github.com/ezsystems/ezplatform .
     ```
 
-    Check out a tag (e.g. `git checkout v1.13.4`) for use in a project.
+    Check out a tag (e.g. `git checkout v1.13.4`) that you want to use in a project.
     Use branches (e.g. `master` or `1.13`) only when contributing.
 
 === "Enterprise and Commerce"
@@ -137,21 +139,21 @@ There are two ways to get eZ Platform. The result is the same, so you can use th
 
     Extract the archive into the location where you want your project root directory to be.
 
-Next, install dependencies with Composer.
 
-Composer looks inside the `composer.json` file and installs all packages required to run eZ Platform.
 
-From the folder into which you downloaded eZ Platform, run:
+Next, install dependencies with Composer. From the folder into which you downloaded the files, run:
 
 ``` bash
 composer install
 ```
 
+Composer looks inside the `composer.json` file and installs all packages required to run the product.
+
 ### B. Create a project with Composer
 
 === "eZ Platform"
 
-    To use Composer to instantly create a project in the current folder with all the dependencies, run:
+    To use Composer to instantly create a project in the current folder with all the dependencies, run the following command:
 
     ``` bash
     composer create-project --keep-vcs ezsystems/ezplatform .
@@ -159,42 +161,38 @@ composer install
 
 === "Enterprise"
 
-    In order to install a new project using `composer create-project` to get latest version of eZ Enterprise,
+    To install a new project with the `composer create-project` command to get latest version of eZ Enterprise,
     you must first inform the Composer, which token to use before the project folder is created.
 
-    To do this, select the correct updates.ez.no channel:
-
-    The following channels are available:
+    To do this, select the correct updates.ez.no channel. The following channels are available:
 
     - Trial (limited access to try for up to 120 days): [ttl](https://updates.ez.no/ttl/)
     - Enterprise Business User License (requires valid subscription): [bul](https://updates.ez.no/bul/)
 
-    This can be done in the following way:
+    For example, you select the `bul` channel in the following way:
 
     ``` bash
     COMPOSER_AUTH='{"http-basic":{"updates.ez.no":{"username":"<installation-key>","password":"<token-password>"}}}' composer create-project --keep-vcs --repository=https://updates.ez.no/bul/ ezsystems/ezplatform-ee my-new-ee-project
     ```
 
-    Edit `composer.json` in your project root and change the URL defined in the `repositories` section to `https://updates.ez.no/bul_com/`.
+    Edit `composer.json` in your project root and change the URL defined in the `repositories` section to `https://updates.ez.no/bul/`.
     Once that is done, you can execute `composer update` to get packages with the correct license.
 
     !!! note "Moving from trial"
 
-        If you started with a trial installation, you must adjust the channel(s) you use in order to get software under [BUL license instead of a TTL license](https://ibexa.co/About-our-Software/Licenses-and-agreements/).
+        If you started with a trial installation and want to use the software under the [BUL license instead of a TTL license](https://ibexa.co/About-our-Software/Licenses-and-agreements/), you must change the channel setting that you have just made.
 
 === "Commerce"
 
     In order to install a new project using `composer create-project` to get the latest version of eZ Commerce,
     you must first inform the Composer, which token to use before the project folder is created.
 
-    To do this, select the correct updates.ez.no channel:
-
-    The following channels are available:
+    To do this, select the correct updates.ez.no channel. The following channels are available:
 
     - Trial (limited access to try for up to 120 days): [ttl_com](https://updates.ez.no/ttl_com/)
     - Enterprise Business User License (requires valid subscription): [bul_com](https://updates.ez.no/bul_com/)
 
-    This can be done in the following way:
+    For example, you select the `bul_com` channel in the following way:
 
     ``` bash
     COMPOSER_AUTH='{"http-basic":{"updates.ez.no":{"username":"<installation-key>","password":"<token-password>"}}}' composer create-project --keep-vcs --repository=https://updates.ez.no/bul_com/ ezsystems/ezcommerce my-new-com-project
@@ -205,7 +203,7 @@ composer install
 
     !!! note "Moving from trial"
 
-        If you started with a trial installation, you must adjust the channel(s) you use in order to get software under [BUL license instead of a TTL license](https://ibexa.co/About-our-Software/Licenses-and-agreements/).
+        If you started with a trial installation and want to use the software under the [BUL license instead of a TTL license](https://ibexa.co/About-our-Software/Licenses-and-agreements/), you must change the channel setting that you have just made.
 
 !!! tip
 
@@ -217,10 +215,10 @@ composer install
     composer create-project --keep-vcs ezsystems/ezplatform . ^2.3.1
     ```
 
-!!! tip "Usage of authentication token with `composer create-project`"
+!!! tip "Different tokens for different projects on a single host"
 
-    If you have several projects set up on your machine,
-    they should all use different tokens set in `auth.json` file in project directory.
+    If you configure several projects on one machine, make sure that
+    you set different tokens for each of the projects in their respective `auth.json` files.
 
 ## Change installation parameters
 
@@ -253,7 +251,7 @@ The configuration requires providing the following parameters:
 
 !!! caution
 
-    When using the `.env.local` file with the `DATABASE_*` parameters mentioned above, the `DATABASE_URL` parameter needs to be re-defined for interpolation after overriding those parameters:
+    When you use the `.env.local` file with the `DATABASE_*` parameters mentioned above, you must re-define the `DATABASE_URL` parameter for interpolation after overriding those parameters:
 
     ```
     DATABASE_URL=${DATABASE_PLATFORM}://${DATABASE_USER}:${DATABASE_PASSWORD}@${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}
@@ -296,7 +294,7 @@ composer ezplatform-install
 Before executing the command make sure that the database user has sufficient permissions.
 
 If Composer asks for your token, you must log in to your GitHub account and generate a new token
-(edit your profile, go to Developer settings > Personal access tokens and Generate new token with default settings).
+(edit your profile and go to **Developer settings** > **Personal access tokens** > **Generate new token** with default settings).
 This operation is performed only once, when you install eZ Platform for the first time.
 
 ## Prepare the installation for production
@@ -311,14 +309,15 @@ For development needs, the web user can be made the owner of all your files (for
 chown -R www-data:www-data <your installation directory>
 ```
 
-Directories `var` and `public/var` need to be writable by CLI and the web server user.
+Directories `var` and `public/var` must be writable by CLI and the web server user.
 Future files and directories created by these two users will need to inherit those permissions.
 
 !!! caution
 
-    For security reasons, in production, the web server should not have write access to other directories than `var`. Skip the step above and follow the link below for production needs instead.
+    For security reasons, in production, the web server cannot have write access to other directories than `var`. 
+    Skip the step above and follow the link below for production needs instead.
 
-    You must also make sure that the web server cannot interpret files in the `var` directory through PHP.
+    You must also make sure that the web server cannot interpret the files in the `var` directory through PHP.
     To do so, follow the instructions on [setting up a virtual host below](#set-up-virtual-host).
 
 To set up permissions for production, it is recommended to use an ACL (Access Control List).
@@ -377,7 +376,7 @@ Open your project in the browser and you should see the welcome page.
 
     ### Enable Date-based Publisher
 
-    To enable delayed publishing of Content using the Date-based Publisher, you need to set up cron to run the command `bin/console ezplatform:scheduled:run` periodically.
+    To enable delayed publishing of Content using the Date-based Publisher, you must set up cron to run the `bin/console ezplatform:scheduled:run` command periodically.
 
     For example, to check for publishing every minute, add the following script:
 
