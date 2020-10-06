@@ -12,4 +12,14 @@ git checkout master
 git merge <branch_name>
 ```
 
+!!! note "Insecure password hashes"
+
+    To ensure that no users have unsupported, insecure password hashes, run the following command:
+    
+    ``` bash
+    php bin/console ezplatform:user:validate-password-hashes
+    ```
+    
+    This command checks if all user hashes are up-to-date and informs you if any of them need to be updated.
+
 **Your eZ Platform should now be up-to-date with the chosen version!**
