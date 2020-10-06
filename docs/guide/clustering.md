@@ -64,7 +64,11 @@ It will use a database to manipulate metadata, making up for the potential incon
 
 You need to configure both metadata and binarydata handlers.
 
-As the binarydata handler, create a new Flysystem local adapter configured to read/write to the NFS mount point on each local server.
+eZ Platform ships with a custom local adapter (`ibexa.platform.io.nfs.adapter.site_access_aware`), 
+which decorates the Flysystem local adapter to enable support for SiteAccess-aware settings.
+If an NFS path relies on SiteAccess-aware dynamic parameters, you must use the custom local adapter 
+instead of the Flysystem local adapter.
+Configure the custom local adapter to read/write to the NFS mount point on each local server.
 As metadata handler, create a DFS one, configured with a Doctrine connection.
 
 !!! tip
@@ -125,25 +129,33 @@ manually importing its schema definition:
 This example uses Doctrine connection named `dfs`:
 
 ``` yaml
+parameters:
+    ibexa.platform.io.nfs.adapter.config:
+        root: '%dfs_nfs_path%'
+        path: '$var_dir$/$storage_dir$/'
+        writeFlags: ~
+        linkHandling: ~
+        permissions: [ ]
+
 # new Doctrine connection for the DFS legacy_dfs_cluster metadata handler.
 doctrine:
     dbal:
         connections:
             dfs:
+                # configure these settings to match your database server
                 driver: pdo_mysql
-                host: 127.0.0.1
-                port: 3306
-                dbname: ezdfs
-                user: root
-                password: rootpassword
-                charset: UTF8MB4
+                charset: utf8mb4
+                default_table_options:
+                    charset: utf8mb4
+                    collate: utf8mb4_unicode_520_ci
+                url: mysql://root:rootpassword@127.0.0.1:3306/ezdfs
 
 # define the Flysystem handler
 oneup_flysystem:
     adapters:
         nfs_adapter:
-            local:
-                directory: '/<path to nfs>/$var_dir$/$storage_dir$'
+            custom:
+                service: ibexa.platform.io.nfs.adapter.site_access_aware
 
 # define the eZ Platform handlers
 ez_io:
