@@ -21,7 +21,7 @@ Additional requirements:
 
 [For production](#prepare-installation-for-production) you also need Apache or nginx as the HTTP server (Apache is used as an example below).
 
-Before getting started, make sure you review the [requirements](requirements.md) page to see the systems we support and use for testing.
+Before getting started, make sure you review other [requirements](requirements.md) to see the systems we support and use for testing.
 
 ## Get Composer
 
