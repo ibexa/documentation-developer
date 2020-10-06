@@ -316,7 +316,7 @@ ezplatform:
                 content_view:
                     full:
                         blog:
-                            controller: ez_query:contentQueryAction
+                            controller: ez_query::contentQueryAction
                             template: content/view/full/blog.html.twig
                             match:
                                 Identifier\ContentType: "blog"
@@ -328,7 +328,7 @@ ezplatform:
                                     assign_results_to: blog_posts
 ```
 
-The view's controller action is set to the QueryController's `contentQuery` action (`ez_query:contentQueryAction`). Other actions are available that run a different type of search (contentInfo or location).
+The view's controller action is set to the QueryController's `contentQuery` action (`ez_query::contentQueryAction`). Other actions are available that run a different type of search (contentInfo or location).
 
 The QueryController is configured in the `query` array, inside the `params` of the `content_view` block:
 
@@ -399,7 +399,7 @@ In content view configuration, use the name of the Query Types as defined in `ge
 content_view:
     full:
         latest:
-            controller: ez_query:locationQueryAction
+            controller: ez_query::locationQueryAction
             template: full/latest.html.twig
             match:
                 Identifier\ContentType: "latest"
@@ -519,13 +519,13 @@ App\QueryType\LatestContent:
 
 ### Paginating with QueryTypes
 
-Using the `ez_query:pagingQueryAction` you can quickly get paginated results of a query:
+Using the `ez_query::pagingQueryAction` you can quickly get paginated results of a query:
 
 ``` yaml hl_lines="4 13"
 content_view:
     full:
         folder:
-            controller: ez_query:pagingQueryAction
+            controller: ez_query::pagingQueryAction
             template: full/folder.html.twig
             match:
                 Identifier\ContentType: folder
@@ -749,7 +749,7 @@ Query results are provided to the template in the `items` variable:
 
 ``` html+twig
 {% for item in items %}
-    {{ render(controller("ez_content:viewAction", {
+    {{ render(controller("ez_content::viewAction", {
         "contentId": item.id,
         "content": item,
         "viewType": itemViewType

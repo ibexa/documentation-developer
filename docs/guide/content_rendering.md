@@ -179,10 +179,10 @@ Templates for the most common view types (content/full, line, embed, or block) c
 
 | Controller                                              | ViewType | Parameter                                         | Default value                                           |
 |---------------------------------------------------------|----------|---------------------------------------------------|---------------------------------------------------------|
-| `ez_content:viewAction`                                 | `full`   | `ezplatform.default_view_templates.content.full`  | `'@@EzPublishCore/default/content/full.html.twig'`      |
-| `ez_content:viewAction`                                 | `line`   | `ezplatform.default_view_templates.content.line`  | `'@@EzPublishCore/default/content/line.html.twig'`      |
-| `ez_content:viewAction`                                 | `embed`  | `ezplatform.default_view_templates.content.embed` | `'@@EzPublishCore/default/content/embed.html.twig'`     |
-| `ez_page:viewAction`                                    | `n/a`    | `ezplatform.default_view_templates.block`         | `'@@EzPublishCore/default/block/block.html.twig'`       |
+| `ez_content::viewAction`                                | `full`   | `ezplatform.default_view_templates.content.full`  | `'@@EzPublishCore/default/content/full.html.twig'`      |
+| `ez_content::viewAction`                                | `line`   | `ezplatform.default_view_templates.content.line`  | `'@@EzPublishCore/default/content/line.html.twig'`      |
+| `ez_content::viewAction`                                | `embed`  | `ezplatform.default_view_templates.content.embed` | `'@@EzPublishCore/default/content/embed.html.twig'`     |
+| `ez_page::viewAction`                                   | `n/a`    | `ezplatform.default_view_templates.block`         | `'@@EzPublishCore/default/block/block.html.twig'`       |
 
 ###### Example
 
