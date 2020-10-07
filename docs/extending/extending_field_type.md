@@ -61,7 +61,7 @@ final class Value implements ValueInterface
 ## Define fields and configuration
 
 In this step you will implement a definition of a Field Type extending the Generic Field Type in the `src/FieldType/HelloWorld/Type.php` class.
-It provides settings for the Field Type and an implementation of the `eZ\Publish\SPI\FieldType\FieldType` interface.
+It provides settings for the Field Type and an implementation of the `eZ\Publish\SPI\FieldType\FieldType` abstract class.
 
 ```php
 <?php
@@ -69,7 +69,7 @@ namespace App\FieldType\HelloWorld;
 
 use eZ\Publish\SPI\FieldType\Generic\Type as GenericType;
 
-final class Type extends GenericType implements FieldValueFormMapperInterface
+final class Type extends GenericType
 {
     public function getFieldTypeIdentifier(): string
     {
@@ -130,7 +130,7 @@ namespace App\FieldType\HelloWorld;
 
 use App\Form\Type\HelloWorldType;
 use eZ\Publish\SPI\FieldType\Generic\Type as GenericType;
-use EzSystems\EzPlatformContentForms\Data\Content\FieldDataa;
+use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
 use EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface;
 use Symfony\Component\Form\FormInterface;
 
