@@ -92,6 +92,11 @@ Content view templates use the [Twig templating engine](https://twig.symfony.com
 
 1\. Go to the Back Office, activate Content/Content structure and create a new Content item using the button in the right menu.
 
+!!! tip "Default credentials"
+
+    Default login to Back Office is "admin".
+    Default password is "publish".
+
 ![Creating a Blog Post](img/first-steps-create-content.png)
 
 2\. Select a Blog Post Content Type. Fill in the Content item and publish it.
