@@ -10,8 +10,7 @@ To set up the starter website, you need to follow these steps:
 
 To begin the tutorial, you need a clean installation of eZ Platform Enterprise Edition.
 
-Get it by following the [Install eZ Platform](../../getting_started/install_ez_platform.md)
-and [Install eZ Enterprise](../../getting_started/install_ez_enterprise.md) guides.
+Get it by following the [Install eZ Platform](../../getting_started/install_ez_platform.md) guide.
 
 ## Create Content Types
 
