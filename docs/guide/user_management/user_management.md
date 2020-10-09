@@ -33,7 +33,7 @@ To access the password settings:
 !!! tip
 
     There can be other Content Types that function as users, beyond the built-in User Content Type.
-    For details, see [User Identifiers](config_repository.md#user-identifiers).
+    For details, see [User Identifiers](../config_repository.md#user-identifiers).
 
 ### Password attributes
 
@@ -50,7 +50,7 @@ You can also set the minimum password length.
 
 In the **User account (ezuser)** Field definition, you can set password expiration rules, which will force users to change their passwords periodically.
 
-![Password expiry settings](img/password_expiry.png)
+![Password expiry settings](../img/password_expiry.png)
 
 You can also decide when the user will be notified that they need to change their password.
 The notification will be displayed in the Back Office after login and in the User Content item's preview.
@@ -118,7 +118,7 @@ The rules are set using regular expressions.
 For example, to ensure that User names can only contain lowercase letters,
 set `[a-z]+$` as **Username pattern**:
 
-![Setting a User name pattern](img/username_pattern.png)
+![Setting a User name pattern](../img/username_pattern.png)
 
 To check that all existing User accounts have names that fit the current pattern,
 run the `ezplatform:user:audit_database` command.
@@ -268,7 +268,7 @@ final class LoginFormViewSubscriber implements EventSubscriberInterface
 ```
 
 In the provided example, in line 23, the `PRE_CONTENT_VIEW` event is used
-(for details, see [eZ Publish Core events](content_rendering.md#ez-publish-core)).
+(for details, see [eZ Publish Core events](../content_rendering.md#ez-publish-core)).
 You can also pass additional parameters to the view (line 35).
 In this case, at the instance of exception (line 40), the subscriber displays the `expired_credentials.html.twig` template (line 42).
 
