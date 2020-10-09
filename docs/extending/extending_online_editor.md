@@ -122,6 +122,8 @@ ezrichtext:
 `is_inline` is an optional key.
 The default value is `false`, so if it is not set, the custom tag will be treated as a block tag.
 
+You can only use inline custom tags in the `text` toolbar.
+
 !!! caution "Incorrect configuration"
 
     Newer configuration options, such as `is_inline`, only work with the configuration provided above.
