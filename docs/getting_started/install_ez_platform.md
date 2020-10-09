@@ -90,7 +90,7 @@ composer -V
     - as username - your Installation key found on the **Maintenance and Support agreement details** page in the service portal
     - as password - the token password you retrieved in step 3.
 
-    !!! cloud
+    !!! note
 
         If you are using Platform.sh, you can set the token as an environment variable.
 
@@ -122,6 +122,7 @@ The result is the same, so you can use the way you prefer:
 === "eZ Platform"
 
     You can either:
+
     - download an archive from [ezplatform.com](https://ezplatform.com/#download-option)
     and extract the archive into the location where you want your project root directory to be, or
     - clone the [`ezplatform` GitHub repository](https://github.com/ezsystems/ezplatform).
@@ -138,8 +139,6 @@ The result is the same, so you can use the way you prefer:
     Download an archive from the [Support portal](https://support.ez.no/Downloads).
 
     Extract the archive into the location where you want your project root directory to be.
-
-
 
 Next, install dependencies with Composer. From the folder into which you downloaded the files, run:
 
@@ -161,7 +160,7 @@ Composer looks inside the `composer.json` file and installs all packages require
 
 === "Enterprise"
 
-    To install a new project with the `composer create-project` command to get latest version of eZ Enterprise,
+    To install a new project with the `composer create-project` command to get the latest version of eZ Enterprise,
     you must first inform the Composer, which token to use before the project folder is created.
 
     To do this, select the correct updates.ez.no channel. The following channels are available:
@@ -184,7 +183,7 @@ Composer looks inside the `composer.json` file and installs all packages require
 
 === "Commerce"
 
-    In order to install a new project using `composer create-project` to get the latest version of eZ Commerce,
+    To install a new project with the `composer create-project` command to get the latest version of eZ Commerce,
     you must first inform the Composer, which token to use before the project folder is created.
 
     To do this, select the correct updates.ez.no channel. The following channels are available:
