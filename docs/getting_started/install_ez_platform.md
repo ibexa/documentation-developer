@@ -297,6 +297,22 @@ If Composer asks for your token, you must log in to your GitHub account and gene
 (edit your profile and go to **Developer settings** > **Personal access tokens** > **Generate new token** with default settings).
 This operation is performed only once, when you install eZ Platform for the first time.
 
+## Use PHPs built-in server
+
+For development you can use the built-in PHP server.
+
+```bash
+php -S 127.0.0.1:8000 -t public
+```
+
+Your PHP web server will be accessible at `http://127.0.0.1:8000`
+
+You can also use [Symfony CLI](https://symfony.com/download):
+
+```bash
+symfony serve
+```
+
 ## Prepare the installation for production
 
 To use eZ Platform with an HTTP server, you need to [set up directory permissions](#set-up-permissions) and [prepare a virtual host](#set-up-virtual-host).

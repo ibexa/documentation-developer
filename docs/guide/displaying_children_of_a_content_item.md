@@ -53,7 +53,11 @@ The query results are available in the `items` variable:
 {% endfor %}
 
 {% if isPaginationEnabled %}
-    {{ pagerfanta( items, 'ez', {'routeName': location, 'pageParameter': pageParameter } ) }}
+    {{ pagerfanta( items, 'ez', {
+        'pageParameter': pageParameter,
+        'routeName': '_ez_content_view',
+        'routeParams' : {'contentId': content.id, 'locationId': location.id }
+    } ) }}
 {% endif %}
 ```
 
@@ -65,7 +69,7 @@ In your [standard view configuration](../guide/content_rendering.md#configuring-
 
 ``` yaml
 folder:
-    controller: ez_query:contentQueryAction
+    controller: ez_query::contentQueryAction
     template: full/folder.html.twig
     match:
         Identifier\ContentType: folder
