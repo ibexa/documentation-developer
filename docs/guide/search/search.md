@@ -42,6 +42,10 @@ or [`ContentId` Criterion handler](https://github.com/ezsystems/ezplatform-solr-
 
 ## Search Facet reference
 
+!!! caution "Deprecated"
+
+    Search Facets are deprecated since version v3.2.
+
 Search Facets enable you to apply [faceted search](../../api/public_php_api_search.md#faceted-search)
 to get a count of search results for each Facet value.
 

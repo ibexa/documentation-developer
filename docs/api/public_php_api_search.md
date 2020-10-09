@@ -450,7 +450,53 @@ use eZ\Publish\API\Repository\Values\Content\Query;
     Make sure that you set the Criterion on the `filter` property.
     It is impossible to use the `query` property, because the search in trash operation filters the database instead of querying.
 
+## Aggregation
+
+!!! caution "Feature support"
+
+    Aggregation is only available in the Solr and Elasticsearch search engines.
+
+Aggregation enables you to find the count of search results for each Aggregation type.
+
+To do this, you need to make use of the query's `$aggregations` property:
+
+``` php
+$query->aggregations[] = new ContentTypeTermAggregation('content_type');
+```
+
+The name of the aggregation must be unique in the given query.
+
+Access the results by using the `get()` method of the aggregation:
+
+``` php
+$contentByType = $results->aggregations->get('content_type');
+```
+
+Aggregation results contain the name of the result and the count of found items:
+
+``` php
+foreach ($contentByType as $contentType => $count) {
+    $output->writeln($contentType->getName() . ': ' . $count);
+}
+```
+
+Field aggregations enable you to group search results according to the value of a specific Field.
+In this case the aggregation takes the Content Type identifier and the Field identifier as parameters.
+
+The following example creates an aggregation named `selection` that groups results
+according to the value of the `topic` Field in the `article` Content Type:
+
+``` php
+$query->aggregations[] = new SelectionTermAggregation('selection', 'article', 'topic');
+```
+
+See [Agrregation reference](../guide/search/aggregation_reference.md) for details of all available aggregations.
+
 ## Faceted search
+
+!!! caution "Deprecated"
+
+    Search Facets are deprecated since version v3.2.
 
 !!! tip "Checking feature support per search engine"
 

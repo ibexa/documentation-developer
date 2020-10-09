@@ -518,6 +518,7 @@ nav:
                 - 'SectionName': 'guide/search/sort_clause_reference/sectionname_sort_clause.md'
                 - 'UserLogin': 'guide/search/sort_clause_reference/userlogin_sort_clause.md'
                 - 'Visibility': 'guide/search/sort_clause_reference/visibility_sort_clause.md'
+            - 'Aggregation reference': 'guide/search/aggregation_reference.md'
             - 'Searching in trash reference': 'guide/search/search_in_trash_reference.md'
             - 'Elasticsearch search engine': 'guide/search/elastic.md'
             - 'Elasticsearch extensibility': 'guide/search/extend_elasticsearch.md'
