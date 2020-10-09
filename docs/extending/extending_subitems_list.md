@@ -95,3 +95,12 @@ Optionally, Sub-items module can take a following list of props:
     - **tableViewItem** _{Object}_ - list of table item view component labels
     - **loadMore** _{Object}_ - list of load more component labels
     - **gridViewItem** _{Object}_ - list of grid item view component labels
+- **languageContainerSelector** _{String}_ - selector where the language selector should be rendered
+
+## Reusing Sub-items list
+
+To add a Sub-items list on a page that does not have the (right) action sidebar, you need to do one of the following things:
+
+- add a `<div>` element with the `.ez-extra-actions-container` selector
+- change the selector in the Sub-items settings by sending the `languageContainerSelector` prop
+which takes the selector for the element that renders the `languageSelector`.

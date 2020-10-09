@@ -157,7 +157,7 @@ Depending on the number of lookups and latency to cache server this might affect
 
 Out of the box in `config/packages/cache_pool/cache.redis.yaml` you'll find a default example that can be used.
 
-!!! cloud "eZ Platform Cloud"
+!!! note "eZ Platform Cloud"
 
     For eZ Platform Cloud/Platform.sh: This is automatically configured in `app/config/env/platformsh.php` if you have enabled Redis as `rediscache` Platform.sh service.
 
@@ -197,10 +197,10 @@ With that in mind, the following configurations of Redis are possible:
 - [Redis Sentinel](https://redis.io/topics/sentinel)
     - Provides high availability by providing one or several slaves (ideally 2 slaves or more, e.g. minimum 3 servers), and handle failover
     - [Slaves are asynchronously replicated](https://redis.io/topics/sentinel#fundamental-things-to-know-about-sentinel-before-deploying), so they can't be used for reads
-    - Typically used with a load balancer (e.g. HAproxy) in the front in order to only speak to elected master
-        - An alternative is that application logic itself speaks to Sentinel in order to always ask for elected master before talking to cache.
+    - Typically used with a load balancer (e.g. HAproxy with occasional calls to Redis Sentinel API) in the front in order to only speak to elected master
+    - As of v3 you can also configure this [directly on the connection string](https://symfony.com/doc/current/components/cache/adapters/redis_adapter.html#configure-the-connection), **if** you use `Predis` instead of `php-redis` 
 
-For best performance we recommend use of Redis Sentinel if it fits your needs. However different cloud providers have managed services that are easier to set up, and might perform better. Notable Services:
+Several cloud providers have managed services that are easier to set up, handle replication and scalability for you, and might perform better. Notable services include:
 
 - [Amazon ElastiCache](https://aws.amazon.com/elasticache/)
 - [Azure Redis Cache](https://azure.microsoft.com/en-us/services/cache/)
@@ -208,7 +208,7 @@ For best performance we recommend use of Redis Sentinel if it fits your needs. H
 
 ###### eZ Platform Cloud / Platform.sh usage
 
-!!! cloud "eZ Platform Cloud"
+!!! note "eZ Platform Cloud"
 
     If you use Platform.sh Enterprise you can benefit from the Redis Sentinel across three nodes for great fault tolerance.
     Platform.sh Professional and lower versions offer Redis in single instance mode only.
@@ -235,7 +235,7 @@ There is one Memcached adapter available out of the box.
 
 Out of the box in `config/packages/cache_pool/cache.memcached.yaml` you'll find a default example that can be used.
 
-!!! cloud "eZ Platform Cloud"
+!!! note "eZ Platform Cloud"
 
     For eZ Platform Cloud/Platform.sh: This is automatically configured in `config/env/platformsh.php` if you have enabled Memcached as `cache` Platform.sh service.
 

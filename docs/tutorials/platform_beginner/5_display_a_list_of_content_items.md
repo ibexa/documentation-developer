@@ -24,7 +24,7 @@ In `templates/full/home_page.html.twig` replace the "Hello world" with a table t
             </thead>
             <tbody>
             {% for ride in rides.currentPageResults %}
-                {{ render( controller( 'ez_content:viewAction', { 'location': ride.valueObject, 'viewType': 'line' } )) }}
+                {{ render( controller( 'ez_content::viewAction', { 'location': ride.valueObject, 'viewType': 'line' } )) }}
             {% endfor %}
             </tbody>
         </table>
@@ -95,7 +95,7 @@ site:
         full:
             # existing keys, do not change them
             home_page:
-                controller: ez_query:pagingQueryAction
+                controller: ez_query::pagingQueryAction
                 template: full/home_page.html.twig
                 match:
                     Id\Location: 2
