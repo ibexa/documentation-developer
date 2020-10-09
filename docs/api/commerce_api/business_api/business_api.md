@@ -20,5 +20,5 @@ All data which is returned by the Business API calls (output) must also be an in
 
 All input and output classes are located in:
 
-- `Silversolutions\Bundle\EshopBundle\Entities\BusinessLayer\InputValueObjects\InputValueObjects\*`
-- `Silversolutions\Bundle\EshopBundle\Entities\BusinessLayer\InputValueObjects\OutputValueObjects\*`
+- `Silversolutions\Bundle\EshopBundle\Entities\BusinessLayer\InputValueObjects\*`
+- `Silversolutions\Bundle\EshopBundle\Entities\BusinessLayer\OutputValueObjects\*`
