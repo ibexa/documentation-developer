@@ -23,6 +23,8 @@ including eCommerce administration.
 
 ### Autosave
 
+eZ Platform can now save your edits in a Content item or product automatically to help you preserve the progress in an event of a failure. For more information, see [Autosave](../publishing/publishing.md#autosave).
+
 ### Aggregation API
 
 ### Segmentation API
