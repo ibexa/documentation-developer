@@ -1,8 +1,8 @@
-# Extending Dashboard
+# Extending the dashboard
 
-To extend the Dashboard, make use of an event subscriber.
+To extend the **My dashboard** page, make use of an event subscriber.
 
-In the following example, the `DashboardEventSubscriber.php` reverses the order of sections of the Dashboard
+In the following example, the `DashboardEventSubscriber.php` reverses the order of sections of the **My dashboard** page
 (in a default installation this makes the **Common content** block appear above the **My content** block):
 
 ``` php

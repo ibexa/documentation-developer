@@ -11,7 +11,8 @@ Every published Content item has a Location and, as a consequence, also a place 
 
 A Content item receives a Location only once it has been published.
 This means that a new unpublished draft does not have a Location yet.
-Drafts cannot be found in the Content browser. You can find them in the Dashboard or in your user menu under **Drafts**.
+Drafts cannot be found in the Content browser. You can find them on the **My dashboard** page, 
+or in your user menu under **Drafts**.
 
 ![Drafts](img/content_management_drafts.png "Drafts")
 

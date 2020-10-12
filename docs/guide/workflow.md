@@ -40,7 +40,7 @@
                             done:
                                 label: Done
                                 color: '#301203'
-                                # Content items in this stage don't appear on the Dashboard and in Review Queue.
+                                # Content items in this stage don't appear on My dashboard and in Review Queue.
                                 last_stage: true
                         initial_stage: draft
                         # Available transitions between stages
