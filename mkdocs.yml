@@ -61,6 +61,7 @@ nav:
             - 'Creating Content': 'api/public_php_api_creating_content.md'
             - 'Managing Content': 'api/public_php_api_managing_content.md'
             - 'Managing Repository': 'api/public_php_api_managing_repository.md'
+            - 'Managing Users': 'api/public_php_api_managing_users.md'
             - 'URL Service': 'api/public_php_api_url_service.md'
             - URL reference:
                 - 'Id Sort Clause': 'api/url_reference/id_sort_clause.md'
