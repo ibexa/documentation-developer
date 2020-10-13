@@ -31,6 +31,14 @@ eZ Platform can now save your edits in a Content item or product automatically t
 
 ### Twig helpers for content rendering
 
+Three new Twig helpers are available to make rendering content easier.
+
+Use `ez_render_content(content)` and `ez_render_location(location)` to render the selected Content item in `embed` view.
+
+You can also use `ez_render()` and provide it with either a content or Location object.
+
+See [Using `ez_render` Twig helpers](../guide/templates.md#using-ez_render-twig-helpers) for more information.
+
 ### Further Elastic search support
 
 ## Other changes
