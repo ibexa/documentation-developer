@@ -35,7 +35,6 @@ See [Major changes in Solr 7](https://lucene.apache.org/solr/guide/7_2/major-cha
 
 _**** Elasticsearch offers query time boosting instead._
 
-## Install
 
 ## Search Criteria and Sort Clauses
 
