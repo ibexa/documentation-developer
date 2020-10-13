@@ -179,7 +179,7 @@ This renders the value of the Field with identifier "description" of the current
 Another way of embedding Content items is using the `render_esi` function (which is not an eZ-specific function, but a Symfony standard). This function lets you easily select a different Content item and embed it in the current page. This can be used, for instance, if you want to list the children of a Content item in its parent.
 
 ``` html+twig
-{{ render_esi(controller('ez_content::viewAction', {locationId: 33, viewType: 'line'} )) }}
+{{ render_esi(controller('ez_content:viewAction', {locationId: 33, viewType: 'line'} )) }}
 ```
 
 This example renders the Content item with Location ID 33 using the line view. To do this, the function applies the `ez_content::viewAction` controller. This is the default controller for rendering content, but can be substituted here with any custom controller of your choice.
