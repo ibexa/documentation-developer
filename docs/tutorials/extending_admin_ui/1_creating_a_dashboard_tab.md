@@ -1,12 +1,12 @@
-# Step 1 - Creating a Dashboard tab
+# Step 1 - Creating a My dashboard tab
 
-The Dashboard is the front page that you visit after logging in to the Back Office.
+**My dashboard** is the front page that you visit after logging in to the Back Office.
 You can also get to it from any other page by selecting the site logo in the top left corner.
-By default, the Dashboard contains following blocks: "My content" and "Common content", which list Content items and Media.
+By default, the **My dashboard** page contains following blocks: "My content" and "Common content", which list Content items and Media.
 
 ![Unmodified dashboard](img/dashboard.png)
 
-In this step you will add a new tab to the "Common content" block in the Dashboard.
+In this step you will add a new tab to the "Common content" block in the dashboard.
 This tab, called "Articles", will list ten most recently modified Content items of the Content Type `article`.
 
 !!! tip
@@ -26,7 +26,7 @@ App\Tab\Dashboard\Everyone\EveryoneArticleTab:
         - { name: ezplatform.tab, group: dashboard-everyone }
 ```
 
-The tags indicate that this is a Dashboard tab that will be placed in the "Common content" block.
+The tags indicate that this is a tab on the **My dashboard** page that will be placed in the "Common content" block.
 
 This configuration points to the `EveryoneArticleTab.php` file, which you now need to create.
 
@@ -118,7 +118,7 @@ class EveryoneArticleTab extends AbstractTab implements OrderedTabInterface
     The tab extends `AbstractTab`.
     There are also [other tab types that you can extend](../../extending/extending_tabs.md).
 
-The tab also implements `OrderedTabInterface` (see line 17), which enables you to define the order in which the tab is displayed in the Dashboard.
+The tab also implements `OrderedTabInterface` (see line 17), which enables you to define the order in which the tab is displayed on the **My dashboard** page.
 This is done using the `getOrder` method (see line 47).
 
 The rendering is done using the built-in `all_content.html.twig` template,
@@ -130,7 +130,7 @@ which ensures the tab looks the same as the existing tabs.
 
     If you cannot see the results or encounter an error, clear the cache and reload the application.
 
-At this point you can go to the Dashboard in the Back Office, select the site logo in the top left corner.
+At this point you can go to the **My dashboard** page in the Back Office: select the site logo in the top left corner.
 In the "Common content" block you can see the new "Articles" tab with the first ten articles in the Repository.
 
-![Articles tab in the Dashboard](img/dashboard_articles_tab.png "Articles tab in the Dashboard")
+![Articles tab in My dashboard](img/dashboard_articles_tab.png "Articles tab in My dashboard")

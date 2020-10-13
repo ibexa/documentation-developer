@@ -2,7 +2,7 @@
 
 The Back Office has designated places where you can use your own components.
 
-Components enable you to inject widgets (e.g. Dashboard blocks) and HTML code (e.g. a tag for loading JS or CSS files).
+Components enable you to inject widgets (e.g. **My dashboard** blocks) and HTML code (e.g. a tag for loading JS or CSS files).
 A component is any class that implements the `Renderable` interface.
 It must be tagged as a service in `config/services.yaml`:
 
