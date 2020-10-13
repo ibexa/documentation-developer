@@ -34,7 +34,7 @@ code_example]]
 !!! note
     Standard tabs component will have a darker background, `ez-header`, in the application that will enhance active tab's color contrast.
 
-###<div class="mgt-1">Dashboard tabs</div>
+###<div class="mgt-1">My dashboard tabs</div>
 <div class="mgt-2 ez-guidelines-tabs ez-guidelines-tabs--dashboard">
 [[code_example {html}
 <ul class="nav nav-tabs ez-tabs" role="tablist" id="ez-tab-list-dashboard-my">
@@ -58,4 +58,4 @@ code_example]]
 </div>
 
 !!! note
-    Specific styling classes for Dashboard tabs component will be applied automatically.
+    Specific styling classes for **My dashboard** tabs component will be applied automatically.
