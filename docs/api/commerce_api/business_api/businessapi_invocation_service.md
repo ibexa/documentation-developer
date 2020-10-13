@@ -76,6 +76,9 @@ For example:
 ``` php
 namespace Example\Bundle\ExtensionBundle\Services\BusinessLayer\Operations;
 
+use Silversolutions\Bundle\EshopBundle\Entities\BusinessLayer\InputValueObjects\AddItemToBasket as InputAddItemToBasket;
+use Silversolutions\Bundle\EshopBundle\Entities\BusinessLayer\OutputValueObjects\AddItemToBasket as OutputAddItemToBasket;
+
 class NewBasketApi extends Silversolutions\Bundle\EshopBundle\Services\BusinessLayer\Operations\Basket
 {
     public function newBasketOperation(InputBasketOperation $operationInput) {
