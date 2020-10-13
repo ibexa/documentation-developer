@@ -35,7 +35,12 @@ module.exports = [ eZConfig, ...customConfigs ];
 
 ## Create a Content Type
 
-1\. Go to the Back Office: `<your_domain>/admin`.
+1\. In your browser, go to the Back Office: `<your_domain>/admin`, and use the default credentials to log in: `admin/publish`.
+
+!!! note "Password change"
+
+    You will be requested to change your password at first login. 
+    For more information about passwords, see [Passwords](../guide/user_management.md#passwords).
 
 2\. Select Admin and go to Content Types.
 
@@ -91,11 +96,6 @@ Content view templates use the [Twig templating engine](https://twig.symfony.com
 ## Create content and test view templates
 
 1\. Go to the Back Office, activate Content/Content structure and create a new Content item using the button in the right menu.
-
-!!! tip "Default credentials"
-
-    Default login to Back Office is "admin".
-    Default password is "publish".
 
 ![Creating a Blog Post](img/first-steps-create-content.png)
 

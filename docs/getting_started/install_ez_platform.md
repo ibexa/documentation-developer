@@ -257,7 +257,8 @@ Finally, restart the Apache server. The command may vary depending on your Linux
 service apache2 restart
 ```
 
-Open your project in the browser and you should see the welcome page.
+Open your project in the browser by visiting the domain address, for example `http://localhost:8080`.
+You should see the welcome page.
 
 !!! enterprise
 
