@@ -27,6 +27,14 @@ eZ Platform can now save your edits in a Content item or product automatically t
 
 ### Aggregation API
 
+When using Solr or Elasticsearch search engines you can now use aggregations
+to group search results and get the count of results per aggregation type.
+
+You can aggregate results by general conditions such as Content Type or Section,
+or by Field aggregations such as the value of specific Fields.
+
+See [Aggregation API](../api/public_php_api_search.md#aggregation-api) for more information.
+
 ### Segmentation API
 
 ### Twig helpers for content rendering
