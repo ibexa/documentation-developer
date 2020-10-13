@@ -26,14 +26,14 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 final class ValueNormalizer implements NormalizerInterface
 {
-    public function normalize($object, $format = null, array $context = [])
+    public function normalize($object, string $format = null, array $context = [])
     {
         return [
             $object->getX(),
             $object->getY()
         ];
     }
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization($data, string $format = null)
     {
         return $data instanceof Value;
     }
@@ -67,7 +67,7 @@ use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 
 final class ValueDenormalizer implements DenormalizerInterface
 {
-    public function denormalize($data, $class, $format = null, array $context = [])
+    public function denormalize($data, string $class, string $format = null, array $context = [])
     {
         if (isset($data['x']) && isset($data['y'])) {
             // Support for old format
@@ -75,7 +75,7 @@ final class ValueDenormalizer implements DenormalizerInterface
         }
         return new $class($data);
     }
-    public function supportsDenormalization($data, $type, $format = null)
+    public function supportsDenormalization($data, string $type, string $format = null)
     {
         return $type === Value::class;
     }

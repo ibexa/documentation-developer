@@ -15,7 +15,7 @@ You will also specify coordinates as placeholder values `%x%` and `%y%`.
 
 Open `src/FieldType/Point2D/Type.php` and add a `getSettingsSchema` method according to the following code block:
 
-```php hl_lines="24 25 26 27 28 29 30 31 32"
+```php hl_lines="23 24 25 26 27 28 29 30 31"
 <?php
 declare(strict_types=1);
 
@@ -32,7 +32,6 @@ use EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface;
 use Symfony\Component\Form\FormInterface;
 
 final class Type extends GenericType
-
 {
     public function getFieldTypeIdentifier(): string
     {
@@ -134,7 +133,6 @@ final class Type extends GenericType implements FieldValueFormMapperInterface, F
     use Symfony\Component\Form\FormInterface;
     
     final class Type extends GenericType implements FieldValueFormMapperInterface, FieldDefinitionFormMapperInterface
-    
     {
         public function getFieldTypeIdentifier(): string
         {
@@ -207,7 +205,7 @@ ezplatform:
 
 ## Redefine template
 
-Finally, redefine the Point 2D template so it accommodates the new `format` field.
+Finally, redefine the Point 2D template, so it accommodates the new `format` field.
 
 In `templates/point2d_field.html.twig` replace the content with:
 
