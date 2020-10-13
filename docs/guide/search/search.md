@@ -2,10 +2,40 @@
 
 eZ Platform exposes a very powerful [Search API](../../api/public_php_api_search.md), allowing both full-text search and querying the content Repository using several built-in Search Criteria and Sort Clauses. These are supported across different search engines, allowing you to plug in another search engine without changing your code.
 
-Currently two search engines exist in their own eZ Platform Bundles:
+Currently, the following search engines exist in their own eZ Platform Bundles:
 
 1.  [Legacy search engine](search_engines.md#legacy-search-engine-bundle), a database-powered search engine for basic needs.
-1.  [Solr](solr.md), an integration providing better overall performance, much better scalability and support for more advanced search capabilities **(recommended)**
+1.  [Solr](solr.md), an integration providing better overall performance, much better scalability and support for more advanced search capabilities.
+1.  [Elasticsearch](elastic.md), available for eZ Enterprise customers, a document-oriented engine providing even better performance and scalability.
+
+### Feature comparison
+
+| **Feature** | **Elasticsearch** | **Apache Solr** | **Legacy Search Engine** _**(SQL)**_ |
+| --- | --- | --- | --- |
+| Filtering | Yes | Yes | Yes, but limited\* |
+| Query _(filter with scoring)_ | Yes | Yes | Only filters, no scoring |
+| Fulltext | Yes | Yes, incl. advanced features | Partly\*\* |
+| Faceting | Partly (deprecated) | [Partly as of v1.4](https://doc.ezplatform.com/en/latest/api/public_php_api_browsing/#performing-a-faceted-search) | No |
+| Spellchecking | Planned _(TBD when)_ | Planned _(TBD when)_ | No |
+| Highlighting | Planned _(TBD when)_ | Planned _(TBD when)_ | No |
+| Index time boosting | ?\*\*\*\* | [Yes, in \&gt;= v1.4,\&lt; v2.0](https://github.com/ezsystems/ezplatform-solr-search-engine/releases/tag/v1.4.0)\*\*\* | No |
+| Aggregations | Yes | Yes | No |
+
+
+_* Usage of Criterion and SortClause for Fields does not perform well on medium to larger 
+amount of data with Legacy Search Engine (SQL), use Solr for this._
+
+_** Does not include full set of full text features includes: Scoring/Ranking (Solr performs 
+sorting on scoring by default, for location search available as of [v1.3][3] with Solr 6.x), 
+and as of [Solr Search Engine v1.5](https://github.com/ezsystems/ezplatform-solr-search-engine/releases/tag/v1.5.0) supports advanced 
+full text capabilities such as `word "phrase" (group) +mandatory -prohibited AND && OR || NOT !`._
+
+_*** As of Solr 7, index-time boosting is no longer available. Query time boosting is planned to be introduced instead in future 2.x and 3.x release.
+See [Major changes in Solr 7](https://lucene.apache.org/solr/guide/7_2/major-changes-in-solr-7.html) for more information._
+
+_**** Elasticsearch offers query time boosting instead._
+
+## Install
 
 ## Search Criteria and Sort Clauses
 
