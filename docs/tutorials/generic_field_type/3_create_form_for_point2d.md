@@ -48,7 +48,7 @@ Next, implement a `mapFieldValueForm()` method and invoke `FormInterface::add` m
 
 Final version of the Type class should have the following statements and functions:
 
-```php hl_lines="16 17 18 19 20 21 22 23"
+```php hl_lines="7 10 18 19 20 21 22 23 24 25"
 <?php
 declare(strict_types=1);
 
