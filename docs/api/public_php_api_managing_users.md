@@ -56,7 +56,7 @@
     Each Segment must be assigned to a Segment Group.
 
     To create a Segment Group, use `SegmentationService::createSegmentGroup()`
-    and provide it with a SegmentGroupCreateStruct:
+    and provide it with a `SegmentGroupCreateStruct`:
 
     ``` php
     $segmentGroupCreateStruct = new SegmentGroupCreateStruct([
@@ -68,7 +68,7 @@
     ```
 
     To create a Segment, use `SegmentationService::createSegment()`
-    and provide it a SegmentCreateStruct, which takes the group as one of the parameters:
+    and provide it a `SegmentCreateStruct`, which takes the group as one of the parameters:
 
     ``` php
     $segmentCreateStruct = new SegmentCreateStruct([
