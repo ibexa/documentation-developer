@@ -35,7 +35,17 @@ or by Field aggregations such as the value of specific Fields.
 
 See [Aggregation API](../api/public_php_api_search.md#aggregation-api) for more information.
 
-### Segmentation API
+### Targeting block and Segmentation API
+
+Targeting block for the Page Builder enables you to display different Content items to different users
+depending on the Segments they belong to.
+
+![Targeting block](img/3.2_targeting_block.png)
+
+You can [configure Segments](../guide/admin_panel.md#segments) in the Back Office.
+
+[Segmentation API](../api/public_php_api_managing_users.md#segments) enables you to create and edit Segments and Segment Groups,
+as well as assign Users to Segments.
 
 ### Twig helpers for content rendering
 
