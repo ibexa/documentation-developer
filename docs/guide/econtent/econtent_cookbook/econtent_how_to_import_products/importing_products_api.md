@@ -98,7 +98,7 @@ $productNodeId = $objectRepo->getNextNodeId();
 
 $econtentProduct = new SveObject();
 $econtentProduct->setClassId(2); // 2 = product, 1 = category
-$econtentProduct->setParentId(3); // node_id of the category
+$econtentProduct->setParentId($categoryNodeId);
 $econtentProduct->setMainNodeId($productNodeId);
 $econtentProduct->setBlocked(false);
 $econtentProduct->setHidden(false);
