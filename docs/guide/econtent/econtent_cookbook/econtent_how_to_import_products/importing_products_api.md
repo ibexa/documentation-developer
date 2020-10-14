@@ -35,6 +35,7 @@ For example:
 
 ``` php
 $categoryName = 'My category';
+$categoryNodeId = $objectRepo->getNextNodeId();
 
 $econtentCategory = new SveObject();
 $econtentCategory->setClassId(1); // 2 = product, 1 = category
@@ -48,7 +49,7 @@ $this->em->persist($econtentCategory);
 $this->em->flush();
 // import an attribute for the new category
 $econtentAttribute = new SveObjectAttributes();
-$econtentAttribute->setNodeId($nodeId);
+$econtentAttribute->setNodeId($categoryNodeId);
 $econtentAttribute->setAttributeId(101); // 201 = ses_name
 $econtentAttribute->setLanguage('eng-GB');
 
@@ -111,7 +112,7 @@ $this->em->flush();
 
 // import an attribute for the new product
 $econtentAttribute = new SveObjectAttributes();
-$econtentAttribute->setNodeId($nodeId);
+$econtentAttribute->setNodeId($productNodeId);
 $econtentAttribute->setAttributeId(201); // 201 = ses_name
 $econtentAttribute->setLanguage('eng-GB');
 
