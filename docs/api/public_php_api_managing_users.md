@@ -62,6 +62,7 @@
     $segmentGroupCreateStruct = new SegmentGroupCreateStruct([
         'name' => 'Custom Group',
         'identifier' => 'custom_group',
+        'createSegments' => []
     ]);
 
     $newSegmentGroup = $this->segmentationService->createSegmentGroup($segmentGroupCreateStruct);
