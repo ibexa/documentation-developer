@@ -6,12 +6,12 @@
 
     Segments enable you to profile the content displayed to specific users.
 
-    To manage segments, use the `SegmentationService`.
+    To manage Segments, use the `SegmentationService`.
 
-    ### Getting segment information
+    ### Getting Segment information
 
-    To load a segment group, use `SegmentationService::loadSegmentGroup()`.
-    Get all segments assigned to the group with `SegmentationService::loadSegmentsAssignedToGroup()`:
+    To load a Segment Group, use `SegmentationService::loadSegmentGroup()`.
+    Get all Segments assigned to the group with `SegmentationService::loadSegmentsAssignedToGroup()`:
 
     ``` php
     $segmentGroup = $this->segmentationService->loadSegmentGroup(1);
@@ -23,7 +23,7 @@
     }
     ```
 
-    Similarly, you can load a segment in a group using `SegmentationService::loadSegmentGroup()`:
+    Similarly, you can load a Segment in a group using `SegmentationService::loadSegmentGroup()`:
 
     ``` php
     $segment = $this->segmentationService->loadSegment(12);
@@ -31,7 +31,7 @@
 
     ### Checking assignation
 
-    You can check whether a User is assigned to a segment with `SegmentationService::isUserAssignedToSegment()`:
+    You can check whether a User is assigned to a Segment with `SegmentationService::isUserAssignedToSegment()`:
 
     ``` php
     $user = $this->userService->loadUserByLogin('admin');
@@ -42,7 +42,7 @@
 
     ### Assigning Users
 
-    To assign a User to a segment, use `SegmentationService::assignUserToSegment()`:
+    To assign a User to a Segment, use `SegmentationService::assignUserToSegment()`:
 
     ``` php
     $user = $this->userService->loadUserByLogin('admin');
@@ -51,11 +51,11 @@
     $this->segmentationService->assignUserToSegment($user, $segment);
     ```
 
-    ### Creating segments
+    ### Creating Segments
 
-    Each segment must be assigned to a segment group.
+    Each Segment must be assigned to a Segment Group.
 
-    To create a segment group, use `SegmentationService::createSegmentGroup()`
+    To create a Segment Group, use `SegmentationService::createSegmentGroup()`
     and provide it with a SegmentGroupCreateStruct:
 
     ``` php
@@ -67,7 +67,7 @@
     $newSegmentGroup = $this->segmentationService->createSegmentGroup($segmentGroupCreateStruct);
     ```
 
-    To create a segment, use `SegmentationService::createSegment()`
+    To create a Segment, use `SegmentationService::createSegment()`
     and provide it a SegmentCreateStruct, which takes the group as one of the parameters:
 
     ``` php
@@ -80,15 +80,15 @@
     $newSegment = $this->segmentationService->createSegment($segmentCreateStruct);
     ```
 
-    ### Updating segments
+    ### Updating Segments
 
-    To update a segment or a segment group, use `SegmentationService::updateSegment()`
+    To update a Segment or a Segment Group, use `SegmentationService::updateSegment()`
     or `SegmentationService::updateSegmentGroup()` and provide it with `SegmentUpdateStruct`
     or `SegmentGroupUpdateStruct` respectively.
 
-    ### Deleting segments
+    ### Deleting Segments
 
-    To delete a segment or a segment group, use `SegmentationService::removeSegment()`
+    To delete a Segment or a Segment Group, use `SegmentationService::removeSegment()`
     or `SegmentationService::removeSegmentGroup()` respectively:
 
     ``` php
