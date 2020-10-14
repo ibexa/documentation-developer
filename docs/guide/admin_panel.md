@@ -263,3 +263,18 @@ By default, eZ Platform contains one Object state group: **Lock**, with states *
 
 Object states can be used in conjunction with permissions, in particular with the [State Limitation](limitation_reference.md#state-limitation).
 Their specific use cases depend on your needs and the setup of your permission system.
+
+## Segments
+
+Segments are used to display specific content to specific Users.
+They are used out of the box in the Targeting block in the Page.
+
+Segments are collected in Segment Groups:
+
+![](img/admin_panel_segment_groups.png)
+
+Each Segment Group can contain Segments that you can target content for.
+
+![](img/admin_panel_segment.png)
+
+You can assign Users to Segments [through the API](../api/public_php_api_managing_users.md#assigning-users).

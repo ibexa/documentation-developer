@@ -238,6 +238,15 @@ Users are treated like other content, so to create and modify them the User need
 |               | `activation`         | unused                                                                                                                                  |
 | `workflow`    | `change_stage`       | change stage in the specified workflow                                                                                                  |
 | `comparison` | `view` | view version comparison |
+| `segment` | `read`|load Segment information|
+|| `create`|create Segments|
+|| `update`|update Segments|
+|| `remove`|remove Segments|
+|| `assign_to_user` |assign Segments to Users|
+| `segment_group` | `read` |load Segment Group information|
+|| `create` |create Segment Groups|
+|| `update` |update Segment Groups|
+|| `remove` |remove Segment Groups|
 
 ## Permissions for custom controllers
 

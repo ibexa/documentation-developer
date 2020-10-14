@@ -310,6 +310,24 @@ A Limitation to specify if the User has access to content within a specific Sect
 |------|------|------|
 |`<Session_id>`|`<Session_name>`|All valid session IDs can be set as value(s)|
 
+## Segment Group Limitation
+
+A Limitation to specify if the User has access Segments within a specific Segment Group.
+
+|                 |                                                                      |
+|-----------------|----------------------------------------------------------------------|
+| Identifier      | `SegmentGroup`                                                       |
+| Value Class     | `Ibexa\Platform\Segmentation\Permission\Limitation\Value\SegmentGroupLimitation` |
+| Type Class      | `Ibexa\Platform\Segmentation\Permission\Limitation\SegmentGroupLimitationType ` |
+| Criterion used  | n/a |
+| Role Limitation | yes                                                                  |
+
+### Possible values
+
+|Value|UI value|Description|
+|------|------|------|
+|`<Segment_group_id>`|`<Segment_group_name>`|All valid Segment Group IDs can be set as value(s)|
+
 ## SiteAccess Limitation
 
 A Limitation to specify to which SiteAccesses a certain permission applies, used by `user/login`.
