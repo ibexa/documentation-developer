@@ -55,6 +55,10 @@ Then create all Fields with the following information: 
 
 Confirm the creation of the Content Type by selecting Save.
 
+!!! note "Image Asset Field Type"
+
+    The Image Asset Field Type does upload and store the Assets in the Media Section of eZ Platform. This requires special user policies to enable auto publishing of uploaded Assets. This will be described in Step 8.
+
 ## Create Rides
 
 Go back to the Content structure page by selecting **Content** in the top bar. 

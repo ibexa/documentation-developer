@@ -190,10 +190,12 @@ Now add the following Policies to the Contributors Role.
 
 - User/Login
 - User/Password
-- Content/Read
+- Content/Read with Limitation: Section `Standard` and `Media`
 - Content/Versionread
-- Content/Create with Limitations: Content Type limited to Ride and Landmark Content Types and Subtree to the `Member Rides`
-- Content/Publish with Limitations: Content Type limited to Ride and Landmark Content Types and Subtree to the `Member Rides`
+- Content/Create with Limitations: Content Type limited to `Ride` and `Landmark` Content Types and Subtree to the `Member Rides`
+- Content/Create with Limitations: Content Type limited to `Image` Content Type and Section `Media`
+- Content/Publish with Limitations: Content Type limited to `Ride` and `Landmark` Content Types and Subtree to the `Member Rides`
+- Content/Publish with Limitations: Content Type limited to `Image` Content Type and Section `Media`
 - Content/Edit with Limitation: Owner limited to `Self`
 - Section/View
 - Content/Reverserelatedlist
