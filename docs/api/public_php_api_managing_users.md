@@ -69,13 +69,13 @@
     ```
 
     To create a Segment, use `SegmentationService::createSegment()`
-    and provide it a `SegmentCreateStruct`, which takes the group as one of the parameters:
+    and provide it with a `SegmentCreateStruct`, which takes an existing group as one of the parameters:
 
     ``` php
     $segmentCreateStruct = new SegmentCreateStruct([
         'name' => 'Segment 1',
         'identifier' => 'segment_1',
-        'group' => $newSegmentGroup,
+        'group' => $segmentGroup,
     ]);
 
     $newSegment = $this->segmentationService->createSegment($segmentCreateStruct);
