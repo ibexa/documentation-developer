@@ -14,7 +14,7 @@ Currently, the following search engines exist in their own eZ Platform Bundles:
 | --- | --- | --- | --- |
 | Filtering | Yes | Yes | Yes, limited\* |
 | Query (filter with scoring) | Yes | Yes | Only filters, no scoring |
-| Fulltext | Yes | Yes, incl. advanced features | Partial support |
+| Fulltext search | Yes | Yes, incl. advanced features | Partial support |
 | Index-time boosting | \*\* | No | No |
 | Aggregations | Yes | Yes | No |
 
