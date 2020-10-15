@@ -53,7 +53,7 @@ Register an account (customerID) with your eZ Sales manager.
 !!! tip
 
     If you want to use the Recommendation engine with the open source version of eZ Platform,
-    send an email to support@yoochoose.com.
+    send an email to support@yoochoose.com.
 
 ### 4. Allow public HTTP(S) access
 
@@ -121,7 +121,7 @@ Visitor events (clicks, buys, etc.) on the site need to be sent to the Recommend
 The Content Types that are tracked are also exported to the engine.
 Tracking Content Types is required for displaying recommendations.
 
-You define Content Types to track in the local `app/config/config.yml` file.
+You define Content Types to track in the local `app/config/config.yml` file.
 The content will then be initially exported by a script.
 After this, it will be kept in sync with the Personalization Solution every time a change occurs in the eZ Platform Back Office.
 
@@ -171,7 +171,7 @@ ezrecommendation:
                     <content_type_name>: <field_name>
 ```
 
-In case a content owner ID is missing, you can set up the default content author in the `default_settings.yml` file:
+In case a content owner ID is missing, you can set up the default content author in the `default_settings.yml` file:
 
 ``` yaml
 ezrecommendation:
@@ -225,7 +225,7 @@ Place the following code snippet in the `<head>` section of your header template
 You can verify the import controller of the bundle by calling the local API.
 You should use the `Accept` header and may need to add an `Authorization` header if authentication is required.
 
-To check if the `content` endpoint is working as expected, perform the following request:
+To check if the `content` endpoint is working as expected, perform the following request:
 
 ```
 GET http://<yourdomain>/api/ezp/v2/ez_recommendation/v1/content/{contentId}
@@ -233,11 +233,11 @@ Accept application/vnd.ez.api.Content+json
 Authorization Basic xxxxxxxx
 ```
 
-Additionally you should check if the `contenttypes` endpoint is working with the following request:
+Additionally you should check if the `contenttypes` endpoint is working with the following request:
 
 ```
 GET http://<yourdomain>/api/ezp/v2/ez_recommendation/v1/contenttypes/38?page=1&page_size=10
-Accept application/vnd.ez.api.Content+json
+Accept application/vnd.ez.api.Content+json
 Authorization Basic xxxxxxxx
 ```
 
@@ -325,7 +325,7 @@ There are three ways to check if content was transferred and stored successfully
 
 To get the content of an imported item you can request the following REST resource:
 
-`GET https://admin.yoochoose.net/api/<your_customer_id>/item/<your_content_type_id>/<your_content_id>`
+`GET https://admin.yoochoose.net/api/<your_customer_id>/item/<your_content_type_id>/<your_content_id>`
 
 This way requires BASIC Auth. BASIC Auth username is the customerID and the password is the license key.
 
@@ -372,7 +372,7 @@ This way requires BASIC Auth. BASIC Auth username is the customerID and the pass
 
 #### Recommender Backend
 
-You can log in to [admin.yoochoose.net](https://admin.yoochoose.net/),
+You can log in to [admin.yoochoose.net](https://admin.yoochoose.net/),
 switch to the Item Import tab and check if a FULL import was successful.
 
 ![Item Import tab with full import results](img/reco_full_import.png)
@@ -501,7 +501,7 @@ This response data can be used in templates to render and style recommendations.
 For example, the following GET request should deliver the response below
 if the content Fields were previously exported by the export script.
 
-`GET https://reco.yoochoose.net/api/v2/<your_customer_id>/someuser/popular.json?contextitems=71&numrecs=5&categorypath=/&outputtypeid=<your_content_type>&attribute=name,author,uri,image`
+`GET https://reco.yoochoose.net/api/v2/<your_customer_id>/someuser/popular.json?contextitems=71&numrecs=5&categorypath=/&outputtypeid=<your_content_type>&attribute=name,author,uri,image`
 
 ??? note "Example response"
 
@@ -599,8 +599,8 @@ Displaying image variations is not currently supported out of the box.
 You can work around this limitation by creating your own template
 (based on [recommendations.html.twig](https://github.com/ezsystems/ezrecommendation-client/blob/v1.1.2/src/bundle/Resources/views/recommendations.html.twig)).
 
-If you want to access a specific image variation through API, you need to add the `image` parameter to the request URL with the name of the variation as its value.
-For example, to retrieve the `rss` variation of the image, use:
+If you want to access a specific image variation through API, you need to add the `image` parameter to the request URL with the name of the variation as its value.
+For example, to retrieve the `rss` variation of the image, use:
 
 `/api/ezp/v2/ez_recommendation/v1/contenttypes/16?lang=eng-GB&fields=title,description,image,intro,name&page=1&page_size=20&image=rss`
 
