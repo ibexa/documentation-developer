@@ -193,6 +193,21 @@ nav:
         - Languages:
             - 'Languages': 'guide/internationalization.md'
             - 'Back Office translations': 'guide/back_office_translations.md'
+        - Personalization:
+            - 'Personalization': 'guide/personalization/personalization.md'
+            - 'Personalization quickstart': 'guide/personalization/personalization_quickstart.md'
+            - Developer guide:
+                - 'Tracking API': 'guide/personalization/developer_guide/tracking_api.md'
+                - 'Importing historical user tracking data': 'guide/personalization/developer_guide/importing_historical_user_tracking_data.md'
+                - 'Tracking with yct.js': 'guide/personalization/developer_guide/tracking_with_yct.md'
+                - 'Recommendation API': 'guide/personalization/developer_guide/recommendation_api.md'
+                - 'Legacy Recommendation API': 'guide/personalization/developer_guide/legacy_recommendation_api.md'
+                - 'Content API': 'guide/personalization/developer_guide/content_api.md'
+                - 'User API': 'guide/personalization/developer_guide/user_api.md'
+            - Best practices:
+                - 'Tracking integration': 'guide/personalization/best_practices/tracking_integration.md'
+                - 'Recommendation integration': 'guide/personalization/best_practices/recommendation_integration.md'
+            - 'Recommendation client': 'guide/personalization/recommendation_client.md'
         - Repository:
             - 'Repository': 'guide/repository.md'
             - 'Databases': 'guide/databases.md'
@@ -212,7 +227,6 @@ nav:
             - 'Reporting Issues': 'guide/reporting_issues.md'
         - 'Notifications': 'guide/sending_notifications.md'
         - 'Service container': 'guide/service_container.md'
-        - 'Recommendation': 'guide/personalization.md'
     - Extending eZ Platform:
         - Extending Back Office:
             - 'Extending Back Office': 'extending/extending_back_office.md'
@@ -394,8 +408,6 @@ extra:
       url: '/'
     - title: 'eZ Platform User Documentation'
       url: '/projects/userguide'
-    - title: 'eZ Personalization Documentation'
-      url: '/projects/ezpersonalization'
     - title: 'eZ Commerce'
       url: '/projects/ezcommerce'
 
