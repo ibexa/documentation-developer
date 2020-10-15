@@ -10,31 +10,19 @@ Currently, the following search engines exist in their own eZ Platform Bundles:
 
 ### Feature comparison
 
-| **Feature** | **Elasticsearch** | **Apache Solr** | **Legacy Search Engine** _**(SQL)**_ |
+| Feature | Elasticsearch | Apache Solr | Legacy Search Engine (SQL) |
 | --- | --- | --- | --- |
-| Filtering | Yes | Yes | Yes, but limited\* |
-| Query _(filter with scoring)_ | Yes | Yes | Only filters, no scoring |
-| Fulltext | Yes | Yes, incl. advanced features | Partly\*\* |
-| Faceting | Partly (deprecated) | [Partly as of v1.4](https://doc.ezplatform.com/en/latest/api/public_php_api_browsing/#performing-a-faceted-search) | No |
-| Spellchecking | Planned _(TBD when)_ | Planned _(TBD when)_ | No |
-| Highlighting | Planned _(TBD when)_ | Planned _(TBD when)_ | No |
-| Index time boosting | ?\*\*\*\* | [Yes, in \&gt;= v1.4,\&lt; v2.0](https://github.com/ezsystems/ezplatform-solr-search-engine/releases/tag/v1.4.0)\*\*\* | No |
+| Filtering | Yes | Yes | Yes, limited\* |
+| Query (filter with scoring) | Yes | Yes | Only filters, no scoring |
+| Fulltext | Yes | Yes, incl. advanced features | Partial support |
+| Index-time boosting | \*\* | No | No |
 | Aggregations | Yes | Yes | No |
 
 
-_* Usage of Criterion and SortClause for Fields does not perform well on medium to larger 
-amount of data with Legacy Search Engine (SQL), use Solr for this._
+\* Usage of Criteria and Sort Clauses for Fields does not perform well on medium to larger 
+amount of data with Legacy Search Engine (SQL), use Solr for this.
 
-_** Does not include full set of full text features includes: Scoring/Ranking (Solr performs 
-sorting on scoring by default, for location search available as of [v1.3][3] with Solr 6.x), 
-and as of [Solr Search Engine v1.5](https://github.com/ezsystems/ezplatform-solr-search-engine/releases/tag/v1.5.0) supports advanced 
-full text capabilities such as `word "phrase" (group) +mandatory -prohibited AND && OR || NOT !`._
-
-_*** As of Solr 7, index-time boosting is no longer available. Query time boosting is planned to be introduced instead in future 2.x and 3.x release.
-See [Major changes in Solr 7](https://lucene.apache.org/solr/guide/7_2/major-changes-in-solr-7.html) for more information._
-
-_**** Elasticsearch offers query time boosting instead._
-
+\*\* Elasticsearch offers query-time boosting instead.
 
 ## Search Criteria and Sort Clauses
 
