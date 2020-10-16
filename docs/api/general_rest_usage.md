@@ -421,7 +421,7 @@ Accept: application/vnd.ez.api.JWT+xml
 Content-Type: application/vnd.ez.api.JWTInput+xml
 ```
 
-Provide the user and password in the request body:
+Provide the user name and password in the request body:
 
 ``` xml
 <JWTInput>
