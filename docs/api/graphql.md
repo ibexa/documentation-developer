@@ -59,6 +59,33 @@ This means you cannot use GraphQL with multiple repositories.
 GraphQL for eZ Platform supports session-based authentication.
 You can get your session cookie by logging in through the interface or through a REST request.
 
+### JWT authentication
+
+If you have [JWT authentication](../guide/security.md#jwt-authentication) enabled,
+you can use the following query to get your authentication token:
+
+```
+mutation CreateToken {
+  createToken(username: "admin", password: "publish") {
+    token
+    message
+  }
+}
+```
+
+Response:
+
+```
+{
+  "data": {
+    "createToken": {
+      "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MDI4MzU5MTksImV4cCI6MTYwMjgzOTUxOSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoiYWRtaW4ifQ.QtDjPU6q68fdvgm6O_1-aEoe-s7s-VQr-9CTMC9ba6E",
+      "message": null
+    }
+  }
+}
+```
+
 ## Usage
 
 You can access GraphQL with `<yourdomain>/graphql`.

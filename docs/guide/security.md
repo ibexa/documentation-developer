@@ -89,6 +89,53 @@ Symfony provides native support for [multiple user providers](https://symfony.co
 
 See [Authenticating a user with multiple user provider](user_management/user_management.md#authenticating-user-with-multiple-user-providers) for more information.
 
+## JWT authentication
+
+To use [JWT authentication](https://jwt.io/) with eZ Platform, in the provided ` config/packages/lexik_jwt_authentication.yaml` file,
+modify the existing configuration by setting `authorization_header` to `enabled`.:
+
+``` yaml hl_lines="8"
+lexik_jwt_authentication:
+    secret_key: '%env(APP_SECRET)%'
+    encoder:
+        signature_algorithm: HS256
+    # Disabled by default, because Page builder uses a custom extractor
+    token_extractors:
+        authorization_header:
+            enabled: true
+        cookie:
+            enabled: false
+        query_parameter:
+            enabled: false
+```
+
+You also need new Symfony firewall configuration for REST and GraphQL APIs.
+It is already provided in `config/packages/security.yaml`, you only need to uncomment it:
+
+``` yaml
+security:
+    firewalls:
+        ezplatform_rest:
+            request_matcher: EzSystems\EzPlatformAdminUi\REST\Security\NonAdminRESTRequestMatcher
+            user_checker: eZ\Publish\Core\MVC\Symfony\Security\UserChecker
+            anonymous: ~
+            guard:
+                authenticators:
+                    - lexik_jwt_authentication.jwt_token_authenticator
+                entry_point: lexik_jwt_authentication.jwt_token_authenticator
+            stateless: true
+
+        ezplatform_graphql:
+            request_matcher: EzSystems\EzPlatformGraphQL\Security\NonAdminGraphQLRequestMatcher
+            user_checker: eZ\Publish\Core\MVC\Symfony\Security\UserChecker
+            anonymous: ~
+            guard:
+                authenticators:
+                    - lexik_jwt_authentication.jwt_token_authenticator
+                entry_point: lexik_jwt_authentication.jwt_token_authenticator
+            stateless: true
+```
+
 ## Security advisories
 
 !!! caution
