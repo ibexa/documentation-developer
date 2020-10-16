@@ -5,14 +5,28 @@ using an interactive interface: browse, search, create, and bookmarks view.
 
 ## How to use UDW?
 
+UDW requires that you provide configuration by using the `ez_udw_config` Twig helper. This configuration must be spread to the props of the component itself.
+
+```html+twig
+<button data-udw-config="{{ ez_udw_config('single') }}">
+    Open My UDW
+</button>
+```
+
+> `single` configuration is one of the default configuration provided. You can also do your [own configuration](#Adding-new-configuration).
+
 With vanilla JS:
 
 ``` js
 const container = document.querySelector('#react-udw');
 
+const config = /* fetch the config somewhere */;
+//const config = JSON.parse(document.querySelector('.btn-udw-trigger).dataset.udwConfig);
+
 ReactDOM.render(React.createElement(eZ.modules.UniversalDiscovery, {
     onConfirm: {Function},
     onCancel: {Function},
+    ...config
 }), container);
 ```
 
@@ -23,8 +37,9 @@ const props = {
     onConfirm: {Function},
     onCancel: {Function}
 };
+const config = /* fetch the config somewhere */;
 
-<UniversalDiscoveryModule {...props} />
+<UniversalDiscoveryModule {...props} {...config} />
 ```
 
 ## Adding new tabs to the UDW
@@ -77,7 +92,7 @@ General configuration for tabs e.g. browse, search, bookmarks etc.
 ### Configuration available only through JS
 
 |React props|Values|Required|Definition|
-|-----------|------|--------|----------|	
+|-----------|------|--------|----------|
 |`onConfirm`|function|yes|A callback to be invoked when a user clicks on the confirm button in a Universal Discovery Widget.|
 |`onCancel`|function|yes|A callback to be invoked when a user clicks on the cancel button in a Universal Discovery Widget.|
 |`title`|string|yes|The title of Universal Discovery Widget.|
