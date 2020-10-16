@@ -59,6 +59,13 @@ See [Using `ez_render` Twig helpers](../guide/templates.md#using-ez_render-twig-
 
 ### Further Elastic search support
 
+### JWT authentication
+
+You can now use JWT tokens to authenticate in [REST API](../api/general_rest_usage.md#jwt-authentication)
+and [GraphQL](../api/graphql.md#jwt-authentication).
+
+See [JWT authentication](../guide/security.md#jwt-authentication) to learn for to configure this authentication method.
+
 ## Other changes
 
 ### Site Factory improvements
