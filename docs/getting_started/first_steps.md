@@ -40,7 +40,7 @@ module.exports = [ eZConfig, ...customConfigs ];
 !!! note "Password change"
 
     You will be requested to change your password at first login. 
-    For more information about passwords, see [Passwords](../guide/user_management.md#passwords).
+    For more information about passwords, see [Passwords](../guide/user_management/user_management.md#passwords).
 
 2\. Select Admin and go to Content Types.
 
