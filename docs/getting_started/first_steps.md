@@ -35,7 +35,12 @@ module.exports = [ eZConfig, ...customConfigs ];
 
 ## Create a Content Type
 
-1\. Go to the Back Office: `<your_domain>/admin`.
+1\. In your browser, go to the Back Office: `<your_domain>/admin`, and use the default credentials to log in: `admin/publish`.
+
+!!! note "Password change"
+
+    You will be requested to change your password at first login. 
+    For more information about passwords, see [Passwords](../guide/user_management.md#passwords).
 
 2\. Select Admin and go to Content Types.
 

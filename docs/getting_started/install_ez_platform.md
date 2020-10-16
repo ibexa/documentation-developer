@@ -377,7 +377,8 @@ For example, on Ubuntu use:
 service apache2 restart
 ```
 
-Open your project in the browser and you should see the welcome page.
+Open your project in the browser by visiting the domain address, for example `http://localhost:8080`.
+You should see the welcome page.
 
 !!! tip "eZ Launchpad for quick deployment"
 
