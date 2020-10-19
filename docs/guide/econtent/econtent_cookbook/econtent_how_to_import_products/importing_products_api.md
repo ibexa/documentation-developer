@@ -50,7 +50,7 @@ $this->em->flush();
 // import an attribute for the new category
 $econtentAttribute = new SveObjectAttributes();
 $econtentAttribute->setNodeId($categoryNodeId);
-$econtentAttribute->setAttributeId(101); // 201 = ses_name
+$econtentAttribute->setAttributeId(101); // 101 = ses_name
 $econtentAttribute->setLanguage('eng-GB');
 
 $econtentAttribute->setDataText($categoryName);
