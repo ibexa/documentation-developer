@@ -334,7 +334,7 @@ If the Content item does not have a translation in the current language, the mai
 #### Description
 
 `ez_render()` is a Twig helper that renders the indicated Content item.
-It is rendered using the `embed` view.
+It is rendered by default using the `embed` view.
 
 The helper automatically selects and uses either [`ez_render_content()`](#ez_render_content)
 or [`ez_render_location()`](#ez_render_location) depending on the provided parameter.
@@ -343,13 +343,15 @@ or [`ez_render_location()`](#ez_render_location) depending on the provided param
 
 `ez_render ( eZ\Publish\API\Repository\Values\Content\Content content|
              eZ\Publish\API\Repository\Values\Content\Location location
-             [, string method] ) : string`
+             [, string method,
+             string viewType] ) : string`
 
 |Argument name|Type|Description|
 |------|------|------|
 |`content`|`eZ\Publish\API\Repository\Values\Content\Content`|Content item to render.|
 |`location`|`eZ\Publish\API\Repository\Values\Content\Location`|Location of the Content item to render.|
 |`method`|`string`|Rendering method. One of: `inline`, `subrequest`, `esi`. Default is `inline`.|
+|`viewType`|`string`|[View type](templates.md#full-line-and-other-views).|
 
 #### Rendering methods
 
@@ -365,32 +367,34 @@ and `ez_render_location()` functions:
 #### Description
 
 `ez_render_content()` is a Twig helper that renders the indicated Content item.
-It is rendered using the `embed` view.
+It is rendered by default using the `embed` view.
 
 #### Prototype and Arguments
 
-`ez_render_content ( eZ\Publish\API\Repository\Values\Content\Content content [, string method] ) : string`
+`ez_render_content ( eZ\Publish\API\Repository\Values\Content\Content content [, string method, string viewType] ) : string`
 
 |Argument name|Type|Description|
 |------|------|------|
 |`content`|`eZ\Publish\API\Repository\Values\Content\Content`|Content item to render.|
 |`method`|`string`|[Rendering method](#rendering-methods). One of: `inline`, `subrequest`, `esi`. Default is `inline`.|
+|`viewType`|`string`|[View type](templates.md#full-line-and-other-views).|
 
 ### `ez_render_location`
 
 #### Description
 
 `ez_render_location()` is a Twig helper that renders the Content item from the indicated Location.
-It is rendered using the `embed` view.
+It is rendered by default using the `embed` view.
 
 #### Prototype and Arguments
 
-`ez_render_location ( eZ\Publish\API\Repository\Values\Content\Location location [, string method] ) : string`
+`ez_render_location ( eZ\Publish\API\Repository\Values\Content\Location location [, string method, string viewType] ) : string`
 
 |Argument name|Type|Description|
 |------|------|------|
 |`location`|`eZ\Publish\API\Repository\Values\Content\Location`|Location of the Content item to render.|
 |`method`|`string`|[Rendering method](#rendering-methods). One of: `inline`, `subrequest`, `esi`. Default is `inline`.|
+|`viewType`|`string`|[View type](templates.md#full-line-and-other-views).|
 
 ### `ez_render_field`
 

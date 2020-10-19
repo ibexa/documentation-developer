@@ -432,7 +432,7 @@ To render an embedded Content from a Twig template you can:
 
 You can use the `ez_render()`, `ez_render_content()`, and `ez_render_location()` functions
 to render the provided Content item.
-It is rendered using the `embed` view.
+It is rendered by default using the `embed` view.
 
 `ez_render_content()`, and `ez_render_location()` take the Content object and the Location object
 as parameters, respectively.
@@ -447,10 +447,16 @@ You can also use `ez_render()`, which automatically selects and uses either of t
 {{ ez_render_location(location) }}
 ```
 
-You can also specify one of the available [rendering method](twig_functions_reference.md#rendering-methods):
+You can also specify one of the available [rendering methods](twig_functions_reference.md#rendering-methods):
 
 ``` html+twig
 {{ ez_render(location, {method: "esi"}) }}
+```
+
+To change the [view type](#full-line-and-other-views), provide it in an optional parameter:
+
+``` html+twig
+{{ ez_render(location, {method: "esi", viewType: "line"}) }}
 ```
 
 #### Using the `ez_content` controller
