@@ -412,6 +412,28 @@ $countryValue = new Country\Value(
 );
 ```
 
+!!! dxp
+
+    ## DAM Field Type
+
+    This Field Type stores asset information from a DAM system.
+
+    | Name   | Internal name | Expected input type |
+    |--------|---------------|---------------------|
+    | `DAM` | `dam`      | mixed             |
+
+    #### Value object
+
+    ###### Properties
+
+    Value object of `dam` contains the following properties:
+
+    | Property | Type  | Description|
+    |----------|-------|------------|
+    | `destinationContentId`  |  `int` | Related content ID. |
+    | `alternativeText`  |  `string` |  The alternative image text . |
+    | `source` | `string` | Source of the DAM asset. |
+
 ## Date Field Type
 
 This Field Type represents a date without time information.
