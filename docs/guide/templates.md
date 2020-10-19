@@ -423,7 +423,7 @@ See also: [Cross-SiteAccess links](siteaccess.md#cross-siteaccess-links)
 
 ### Embedding Content items
 
-To render an embedded Content from a Twig template you can:
+To render an embedded Content from a Twig template, you can do one of the following things:
 
 - use [`ez_render` Twig helper](#using-ez_render-twig-helpers) 
 - do a [subrequest with the `ez_content` controller](#using-the-ez_content-controller)
@@ -432,9 +432,9 @@ To render an embedded Content from a Twig template you can:
 
 You can use the `ez_render()`, `ez_render_content()`, and `ez_render_location()` functions
 to render the provided Content item.
-It is rendered by default using the `embed` view.
+It is rendered by default with the `embed` view.
 
-`ez_render_content()`, and `ez_render_location()` take the Content object and the Location object
+`ez_render_content()` and `ez_render_location()` take the Content object and the Location object
 as parameters, respectively.
 
 You can also use `ez_render()`, which automatically selects and uses either of those functions depending on the provided parameter.

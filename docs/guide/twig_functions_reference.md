@@ -334,7 +334,7 @@ If the Content item does not have a translation in the current language, the mai
 #### Description
 
 `ez_render()` is a Twig helper that renders the indicated Content item.
-It is rendered by default using the `embed` view.
+It is rendered by default with the `embed` view.
 
 The helper automatically selects and uses either [`ez_render_content()`](#ez_render_content)
 or [`ez_render_location()`](#ez_render_location) depending on the provided parameter.
@@ -350,7 +350,7 @@ or [`ez_render_location()`](#ez_render_location) depending on the provided param
 |------|------|------|
 |`content`|`eZ\Publish\API\Repository\Values\Content\Content`|Content item to render.|
 |`location`|`eZ\Publish\API\Repository\Values\Content\Location`|Location of the Content item to render.|
-|`method`|`string`|Rendering method. One of: `inline`, `subrequest`, `esi`. Default is `inline`.|
+|`method`|`string`|[Rendering method](#rendering-methods). One of: `inline`, `subrequest`, `esi`.|
 |`viewType`|`string`|[View type](templates.md#full-line-and-other-views).|
 
 #### Rendering methods
@@ -358,7 +358,7 @@ or [`ez_render_location()`](#ez_render_location) depending on the provided param
 The following rendering methods are available out of the box for the `ez_render()`, `ez_render_content()`,
 and `ez_render_location()` functions:
 
-- `inline` - renders the Content item without using a request
+- `inline` - (default) renders the Content item without using a request
 - `subrequest` - sends a request to the server and inserts the response
 - `esi` - uses the Edge Side Include mechanism to render the correct tag that is handled by reverse proxy
 
@@ -376,7 +376,7 @@ It is rendered by default using the `embed` view.
 |Argument name|Type|Description|
 |------|------|------|
 |`content`|`eZ\Publish\API\Repository\Values\Content\Content`|Content item to render.|
-|`method`|`string`|[Rendering method](#rendering-methods). One of: `inline`, `subrequest`, `esi`. Default is `inline`.|
+|`method`|`string`|[Rendering method](#rendering-methods). One of: `inline`, `subrequest`, `esi`.|
 |`viewType`|`string`|[View type](templates.md#full-line-and-other-views).|
 
 ### `ez_render_location`
@@ -393,7 +393,7 @@ It is rendered by default using the `embed` view.
 |Argument name|Type|Description|
 |------|------|------|
 |`location`|`eZ\Publish\API\Repository\Values\Content\Location`|Location of the Content item to render.|
-|`method`|`string`|[Rendering method](#rendering-methods). One of: `inline`, `subrequest`, `esi`. Default is `inline`.|
+|`method`|`string`|[Rendering method](#rendering-methods). One of: `inline`, `subrequest`, `esi`.|
 |`viewType`|`string`|[View type](templates.md#full-line-and-other-views).|
 
 ### `ez_render_field`
