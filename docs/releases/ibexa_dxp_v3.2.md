@@ -21,6 +21,9 @@ including eCommerce administration.
 
 ### DAM connector
 
+You can now [connect your installation to a Digital Asset Management (DAM) system](../guide/config_connector.md#dam-cofniguration)
+and use assets such as images directly from the DAM in your content.
+
 ### Autosave
 
 eZ Platform can now save your edits in a Content item or product automatically to help you preserve the progress in an event of a failure. For more information, see [Autosave](https://doc.ezplatform.com/projects/userguide/en/latest/publishing/publishing/#autosave).
