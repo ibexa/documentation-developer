@@ -7,7 +7,7 @@ After the processes are finished, the temporary cores are swapped with the produ
 
 ## Adapt configuration for two Solr eContent cores
 
-The standard configuration for eZ Commerce supports two Solr eContent cores by default (see `app/config/ezcommerce_advanced.yml`).
+The standard configuration for [[= product_name_com =]] supports two Solr eContent cores by default (see `app/config/ezcommerce_advanced.yml`).
 
 In `ezpublish/config/config.yml`:
 
@@ -62,7 +62,7 @@ parameters:
 
 ## Manual changes in Solr
 
-eZ Commerce comes with an bash script which installs the Solr engine and adapts the configuration for Solr:
+[[= product_name_com =]] comes with an bash script which installs the Solr engine and adapts the configuration for Solr:
 
 ``` bash
 bash ./install-solr.sh 8983

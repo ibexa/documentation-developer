@@ -46,7 +46,7 @@ Also make the corresponding change in `app/config/dfs/dfs.yml`.
 
 ## Page builder
 
-!!! enterprise
+!!! dxp
 
     To update to v2.2, you need to run a script to add database tables for the Page Builder.
     You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/2.2/Resources/sql/schema.sql#L58

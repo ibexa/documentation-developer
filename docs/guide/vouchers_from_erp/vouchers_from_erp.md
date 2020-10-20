@@ -1,6 +1,6 @@
 # Vouchers from ERP
 
-eZ Commerce supports vouchers that are managed in ERP. The customer can enter a voucher number in the basket.
+[[= product_name_com =]] supports vouchers that are managed in ERP. The customer can enter a voucher number in the basket.
 Then the voucher is sent to the ERP and, if valid, the customer gets a discount.
 
 ## Configuration

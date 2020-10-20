@@ -1,6 +1,6 @@
 # RMA process
 
-eZ Commerce offers a simple RMA (return merchandise authorization) process.
+[[= product_name_com =]] offers a simple RMA (return merchandise authorization) process.
 The goal is to inform the user about the cancellation policies and give them the possible to return their goods - online as well.
 
 The cancellation process validates the input and sends an email to the shop administrator. 
@@ -46,7 +46,7 @@ parameters:
 
 ## Online RMA form
 
-eZ Commerce also offers an online RMA form. 
+[[= product_name_com =]] also offers an online RMA form. 
 After a user submits the form, an email is sent to the admin by using [SendRmaEmailDataProcessor](../../forms/form_api/dataprocessors.md#sendrmaemaildataprocessor).
 
 The email recipient has to generate a delivery note with a return number and send it to the customer.

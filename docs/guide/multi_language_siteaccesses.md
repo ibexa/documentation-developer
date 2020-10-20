@@ -123,7 +123,7 @@ You should now be able to reload your site in the `en` and `fr` SiteAccess.
 
 ## Replace the `site` SiteAccess
 
-eZ Platform ships with a pre-configured SiteAccess named `site`.
+[[= product_name_oss =]] ships with a pre-configured SiteAccess named `site`.
 As you have now successfully introduced two new SiteAccesses, remove the `site` SiteAccess as it is no longer required.
 It was not possible to remove `site` before, as you first needed to give the appropriate permissions to the new SiteAccesses (`en` and `fr`),
 without which your site would not have loaded correctly.
@@ -148,4 +148,4 @@ siteaccess:
 
 Clear the cache by running: `php bin/console cache:clear`.
 
-Now you should be able to load your eZ Platform site using the `en` and `fr` SiteAccess to display content in English and French.
+Now you should be able to load your [[= product_name_oss =]] site using the `en` and `fr` SiteAccess to display content in English and French.

@@ -5,7 +5,7 @@
 For more information about the HTTP server configuration,
 see [the installation guide](../../getting_started/install_ez_platform.md#prepare-installation-for-production).
 
-eZ Commerce requires one more rule in order to display images. The following examples show the settings for Apache:
+[[= product_name_com =]] requires one more rule in order to display images. The following examples show the settings for Apache:
 
 ``` 
 RewriteRule ^/var/assets/.* - [L]
@@ -138,7 +138,7 @@ siso_paypal_api.password: 'paypal api password'
 siso_paypal_api.signature: 'paypal-api-signature'
 ```
 
-## Changing the logo for eZ Commerce
+## Changing the logo for [[= product_name_com =]]
 
 If you want to change the logo in the Back Office, provide a link to the assets located in the `web/*` folder:
 

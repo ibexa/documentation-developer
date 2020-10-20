@@ -1,6 +1,6 @@
 # Elasticsearch extensibility
 
-!!! enterprise
+!!! dxp
 
     ## Indexing custom data
 

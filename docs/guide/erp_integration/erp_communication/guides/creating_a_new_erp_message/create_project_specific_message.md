@@ -144,7 +144,7 @@ php bin/console silversolutions:generatemessages --message selectModifiedData --
     There should be a symlink to the mapping in `app/Resources`:
     
     `xsl` - project symlink for the specific project - always has a higher priority
-    `xslbase` - standard symlink for eZ Commerce as a default
+    `xslbase` - standard symlink for [[= product_name_com =]] as a default
     
     ``` bash
     cd app/Resources

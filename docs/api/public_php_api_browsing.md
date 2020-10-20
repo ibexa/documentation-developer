@@ -314,7 +314,7 @@ the Content will also be loaded in bulk for the whole Location result set.
 
 To learn more about this functionality see [Lazy object properties.](https://github.com/ezsystems/ezpublish-kernel/blob/v8.0.0-beta5/doc/specifications/api/lazy_properties.md)
 
-!!! enterprise
+!!! dxp
 
     ## Comparing content versions
 

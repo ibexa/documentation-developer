@@ -14,7 +14,7 @@
 
 ## Display the content of a basket
 
-The basket can be displayed using a standard controller of eZ Commerce (`/basket/show`).
+The basket can be displayed using a standard controller of [[= product_name_com =]] (`/basket/show`).
 The controller provides a variable basket containing the content of the current basket.
 
 You can access all basket attributes from a template:

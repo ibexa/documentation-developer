@@ -1,13 +1,13 @@
 # Newsletter
 
-eZ Commerce offers a newsletter interface. This allows the user to subscribe to newsletters
+[[= product_name_com =]] offers a newsletter interface. This allows the user to subscribe to newsletters
 and see the newsletter status or update newsletter details information in their profile.
 
 There is no specific newsletter provider connection configured out of the box.
 The standard offers only processes, templates, routes, configurations and an interface which can be used for newsletter integration.
 A newsletter provider service with specific API implementation of this provider has to be implemented separately.
 
-## Newsletter features in eZ Commerce
+## Newsletter features in [[= product_name_com =]]
 
 - Double-opt-in process when a user subscribes to the newsletter
 - User can subscribe from the newsletter box

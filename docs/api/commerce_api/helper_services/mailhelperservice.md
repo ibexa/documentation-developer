@@ -1,6 +1,6 @@
 # MailHelperService
 
-`MailHelperService` is used to create, render and send emails from eZ Commerce.
+`MailHelperService` is used to create, render and send emails from [[= product_name_com =]].
 
 ## Interface and implementations
 

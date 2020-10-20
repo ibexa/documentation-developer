@@ -1,27 +1,27 @@
-# eZ Platform release process and roadmap
+# [[= product_name_oss =]] release process and roadmap
 
 ## Release process
 
-eZ Platform has two distributions:
+[[= product_name_oss =]] has three distributions:
 
-- eZ Platform is an open source Content Management System (CMS) developed by Ibexa together with the open source community. eZ Platform's code base is available on GitHub under the GPLv2 license. eZ Platform comes with no commercial support and maintenance services. It is supported by the community on public channels.
-- eZ Platform Enterprise Edition (EE) is commercial software available under eZ Business User License (BUL) to eZ Enterprise subscribers. It is comprised of eZ Platform Open Source edition, additional enterprise support and maintenance services, as well as additional features which are not available in the open source software.
+- [[= product_name_oss =]] is an open source Content Management System (CMS) developed by Ibexa together with the open source community. [[= product_name_oss =]]'s code base is available on GitHub under the GPLv2 license. [[= product_name_oss =]] comes with no commercial support and maintenance services. It is supported by the community on public channels.
+- [[= product_name_ee =]] is commercial software available under eZ Business User License (BUL) to [[= product_name_ee =]] subscribers. It is comprised of [[= product_name_oss =]], additional enterprise support and maintenance services, as well as additional features which are not available in the open source software.
 
-We manage the release of eZ Platform using an agile iterative process and a continuous software development model, which is why we provide two kinds of eZ Platform releases:
+We manage the release of [[= product_name_oss =]] using an agile iterative process and a continuous software development model, which is why we provide two kinds of [[= product_name_oss =]] releases:
 
-- Long Term Support releases (LTS) which are supported by Ibexa for a long period of time (see [support lifecycle below](#support-lifecycle)), for eZ Enterprise subscribers.
-- Fast Track releases (FT) give access to the latest features and are supported for a short period of time. They are maintained only until the next FT release is introduced. These are supported for both the open source community and eZ Enterprise subscribers.
+- Long Term Support releases (LTS) which are supported by Ibexa for a long period of time (see [support lifecycle below](#support-lifecycle)), for [[= product_name_ee =]] subscribers.
+- Fast Track releases (FT) give access to the latest features and are supported for a short period of time. They are maintained only until the next FT release is introduced. These are supported for both the open source community and [[= product_name_ee =]] subscribers.
 
 FT releases are tailored for those who want to stay up-to-date with newest functionalities,
 while LTS releases are suitable for highly stable enterprise rollouts.
 
-We usually release eZ Platform four times a year following the seasons (winter, spring, summer and fall). This usually includes one LTS release and three FT releases.
+We usually release [[= product_name_oss =]] four times a year following the seasons (winter, spring, summer and fall). This usually includes one LTS release and three FT releases.
 
 ## Versioning conventions
 
-Both eZ Platform editions use [semantic versioning](http://semver.org/).  
+Both [[= product_name_oss =]] editions use [semantic versioning](http://semver.org/).  
 
-The version number of eZ Platform and all its internal components follows the semantic versioning conventions: vX.Y.Z.
+The version number of [[= product_name_oss =]] and all its internal components follows the semantic versioning conventions: vX.Y.Z.
 
 - Changes to X indicate breaking changes. They usually concern mostly internal things, but developers should check in our change logs if they need to adjust their code to continue using the API or features. If there are larger breaks (like the new Back Office in v2), this is announced well in advance of the upcoming release.
 - Y represents new features and functionalities.
@@ -29,8 +29,8 @@ The version number of eZ Platform and all its internal components follows the se
 
 Distribution files of our two editions are as follows:
 
-- for eZ Platform: ezplatform-vX.Y.Z.tgz
-- for eZ Platform Enterprise: ezplatformenterprise-vX.Y.Z.tgz
+- for [[= product_name_oss =]]: ezplatform-vX.Y.Z.tgz
+- for [[= product_name_ee =]]: ezplatformenterprise-vX.Y.Z.tgz
 
 ## Support lifecycle
 
@@ -40,7 +40,7 @@ This means there is need for software maintenance services to provide bug fixes 
 As our products constantly provide new features and possibilities, our documentation and user forums may not always be able to provide an answer to all questions that may arise.
 
 That is why our support and consulting professional services teams are available to assist
-as part of an eZ Enterprise subscription or as part of a specific statement of work.
+as part of an [[= product_name_ee =]] subscription or as part of a specific statement of work.
 [Contact our Sales team](https://ez.no/Forms/Request-a-Consultation) for more information.
 
 Over time, existing product versions mature and new versions become the center of attention for customers looking for the latest features.

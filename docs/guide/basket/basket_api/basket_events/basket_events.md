@@ -9,7 +9,7 @@ They can be used for example to:
 - perform a detailed check if the stock is still available
 - check if the minimum quantity has to be checked. For an example, see [Product quantity validation](../../basket_features/product_quantity_validation.md)
 
-Some [standard Eventlisteners](basket_eventlistener_in_the_standard.md) in eZ Commerce  will take care that e.g. a basket preview cache is updated correctly. 
+Some [standard Eventlisteners](basket_eventlistener_in_the_standard.md) in [[= product_name_com =]]  will take care that e.g. a basket preview cache is updated correctly. 
 
 ## BasketLine Events
 

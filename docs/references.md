@@ -3,11 +3,11 @@
 ## Getting started
 
 - Starter pack:
-    - [Install eZ Platform](getting_started/install_ez_platform.md)
+    - [Install [[= product_name_oss =]]](getting_started/install_ez_platform.md)
     - [Bundles starter pack](getting_started/bundles_starter_pack.md)
     - [First steps](getting_started/first_steps.md)
-    - [eZ Platform beginner tutorial](tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md)
-    - [eZ Enterprise beginner tutorial](tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world.md)
+    - [[[= product_name_oss =]] beginner tutorial](tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md)
+    - [[[= product_name_ee =]] beginner tutorial](tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world.md)
 
 ## Back end
 

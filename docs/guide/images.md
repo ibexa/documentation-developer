@@ -56,7 +56,7 @@ The following parameters are set for each variation:
 
 ### Built-in image variations
 
-A few basic image variations are included by default in eZ Platform in the `default_settings.yaml` config file:
+A few basic image variations are included by default in [[= product_name_oss =]] in the `default_settings.yaml` config file:
 
 ``` yaml
 ezsettings.default.image_variations:
@@ -103,7 +103,7 @@ Please refer to [post-processor documentation in LiipImagineBundle](http://symfo
 
 ## Configuration examples
 
-### Scaling with an eZ Platform filter
+### Scaling with an [[= product_name_oss =]] filter
 
 This configuration defines a `medium` image variation that is scaled to a width of 700 px.
 
@@ -123,7 +123,7 @@ ezplatform:
 
 This configuration adds a limit to the image quality using a liip filter.
 
-You can use both an eZ Platform and a liip filter for the same image variation, in this case `medium`.
+You can use both an [[= product_name_oss =]] and a liip filter for the same image variation, in this case `medium`.
 
 ``` yaml
 ezplatform:
@@ -186,7 +186,7 @@ The first example will clear the image files for the `large` variation. The sec
 
 !!! caution "Code injection in image EXIF"
 
-    EXIF metadata of an image may contain e.g. HTML, JavaScript, or PHP code. eZ Platform is itself does not parse EXIF metadata, but third-party bundles need to be secured against this eventuality. Images should be treated like any other user-submitted data - make sure the metadata is properly escaped before use.
+    EXIF metadata of an image may contain e.g. HTML, JavaScript, or PHP code. [[= product_name_oss =]] is itself does not parse EXIF metadata, but third-party bundles need to be secured against this eventuality. Images should be treated like any other user-submitted data - make sure the metadata is properly escaped before use.
 
 ### Resolving image URLs
 
@@ -221,7 +221,7 @@ LiipImagineBundle supports additional settings, it is possible to combine filter
 
 ### Discarded filters
 
-The following filters exist in the Imagine library but are not used in eZ Platform due to incompatibility:
+The following filters exist in the Imagine library but are not used in [[= product_name_oss =]] due to incompatibility:
 
 - `flatten`. Obsolete, images are automatically flattened.
 - `bordercolor`
@@ -239,7 +239,7 @@ Placeholder generator enables you to download or use generated image placeholder
 
 `PlaceholderAliasGenerator::getVariation` method generates placeholder (by delegating it to the implementation of `PlaceholderProvider` interface) if original image cannot be resolved and saves it under the original path.
 
-In eZ Platform there are two implementations of `PlaceholderProvider` interface:
+In [[= product_name_oss =]] there are two implementations of `PlaceholderProvider` interface:
 
 - [GenericProvider](#genericprovider)
 - [RemoteProvider](#remoteprovider)

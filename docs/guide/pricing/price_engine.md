@@ -2,7 +2,7 @@
 
 The price engine is responsible for calculating prices in the shop.
 It can, for example, calculate prices based on imported prices and rules,
-and use the business logic of the ERP system which is connected to the eZ Commerce. 
+and use the business logic of the ERP system which is connected to the [[= product_name_com =]]. 
 
 It can combine the logic of an ERP system and a local price provider
 to get the best compromise between real-time data and shop performance.
@@ -33,7 +33,7 @@ since the ERP systems usually provide this information in the price request.
 
 |Provider|Logic|Note|
 |--- |--- |--- |
-|Local price provider|A simple provider which gets the price from the product itself|Do not use this provider for eZ Commerce. Use ShopPriceEngine instead|
+|Local price provider|A simple provider which gets the price from the product itself|Do not use this provider for [[= product_name_com =]]. Use ShopPriceEngine instead|
 |Shop price provider|A more sophisticated price provider. Offers currency and customer group support||
 |Remote price engine|Gets prices from the ERP||
 

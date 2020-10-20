@@ -1,6 +1,6 @@
 # Twig extension
 
-eZ Commerce offers the following Twig functions and filter for use in templates:
+[[= product_name_com =]] offers the following Twig functions and filter for use in templates:
 
 ## Functions
 

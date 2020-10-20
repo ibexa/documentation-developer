@@ -19,7 +19,7 @@ It also uses the content model as source for account data and target for fallbac
 ## DeprecatedCustomerMappingService
 
 `DeprecatedCustomerMappingService` (`Silversolutions\Bundle\EshopBundle\Services\CustomerProfileData\DeprecatedCustomerMappingService`)
-is the concrete customer profile data service which implements the deprecated `AbstracCustomerService` to use with eZ Commerce components,
+is the concrete customer profile data service which implements the deprecated `AbstracCustomerService` to use with [[= product_name_com =]] components,
 which depend on the deprecated model.
 
 ## Using customer profile data services in source code

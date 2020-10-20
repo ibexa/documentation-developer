@@ -16,7 +16,7 @@ stash:
 
 ## Settings for Users
 
-eZ Commerce uses specific User groups where new Users are placed.
+[[= product_name_com =]] uses specific User groups where new Users are placed.
 You can configure the Location IDs of these User groups in the following way:
 
 ``` yaml
@@ -27,7 +27,7 @@ siso_core.default.user_group_location.private: 106
 
 ## Supported country list
 
-This configuration controls which countries will be offered in eZ Commerce (e.g. in registration forms or in the checkout).
+This configuration controls which countries will be offered in [[= product_name_com =]] (e.g. in registration forms or in the checkout).
 
 ``` yaml
 siso_tools.default.countries: ['DE','US','NO']

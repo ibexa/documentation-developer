@@ -1,6 +1,6 @@
 # Step 4 - Creating a custom tag
 
-eZ Platform's RichText Field contains some built-in elements you can use, such as an image or a table.
+The RichText Field contains some built-in elements you can use, such as an image or a table.
 You can also add custom tags that will enable you to add additional elements to RichText Fields.
 
 In this step you will add a custom tag, which will enable you to create a special note box called a Factbox.

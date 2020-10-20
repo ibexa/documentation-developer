@@ -53,7 +53,7 @@ The customer can order the same products again:
 
 ## GDPR compliance
 
-eZ Commerce offers tools to set up a shop that is compliant with GDPR (General Data Protection Regulation):
+[[= product_name_com =]] offers tools to set up a shop that is compliant with GDPR (General Data Protection Regulation):
 
 - Prepared articles with dummy text for T&C, data privacy and cancellation policy
 - Important legal documents (e.g. T&C or data privacy) can be linked using permanent URLs

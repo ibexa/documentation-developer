@@ -29,7 +29,7 @@ These setups are tested by QA and are generally recommended setups. For security
 |------|------|
 |Search|Solr 7.7LTS *or* Elasticsearch 7.7 (excluding eZ Commerce), using Oracle Java/Open JDK 8 or higher |
 |Graphic Handler|GraphicsMagick or ImageMagick or GD|
-|[Clustering](../guide/clustering.md)|Linux NFS *or* S3/EFS *(for IO, aka binary files stored in content repository, not supported with legacy)*</br>Redis 5.0 or higher *(separate instances for session & cache, both using a `volatile-*` [eviction policy](https://redis.io/topics/lru-cache), session instance configured for persistance)* *or* [Memcached](https://memcached.org/) 1.5 or higher</br>[Varnish](http://varnish-cache.org/) 6.0LTS with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst) *or* [Fastly](https://www.fastly.com/) using [the bundle provided with eZ Platform Enterprise Edition](../guide/http_cache.md#serving-varnish-through-fastly) *(for HttpCache)*|
+|[Clustering](../guide/clustering.md)|Linux NFS *or* S3/EFS *(for IO, aka binary files stored in content repository, not supported with legacy)*</br>Redis 5.0 or higher *(separate instances for session & cache, both using a `volatile-*` [eviction policy](https://redis.io/topics/lru-cache), session instance configured for persistance)* *or* [Memcached](https://memcached.org/) 1.5 or higher</br>[Varnish](http://varnish-cache.org/) 6.0LTS with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst) *or* [Fastly](https://www.fastly.com/) using [the bundle provided with [[= product_name_ee =]]](../guide/http_cache.md#serving-varnish-through-fastly) *(for HttpCache)*|
 |Filesystem|Linux ext4 / XFS|
 |Package manager|Composer (recent stable version)|
 |Asset manager|`Node.js` 10.15.3 LTS</br>`yarn` 1.15.2 or higher|
@@ -60,7 +60,7 @@ For security and performance we generally recommend (unless otherwise noted) usi
     - IO: NFS or S3
     - HttpCache, using one of:
         - [Varnish](http://varnish-cache.org/) 6.0LTS with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst)
-        - [Fastly](https://www.fastly.com/) using [the bundle provided with eZ Platform Enterprise Edition](../guide/http_cache.md#serving-varnish-through-fastly)
+        - [Fastly](https://www.fastly.com/) using [the bundle provided with [[= product_name_ee =]]](../guide/http_cache.md#serving-varnish-through-fastly)
 
 -   PHP extensions/modules
     -   curl
@@ -126,17 +126,17 @@ Please note that the user interface might not look or behave exactly the same ac
 
     ### Cloud hosting with eZ Platform Cloud and Platform.sh
 
-    In general, eZ Platform Cloud supports all features and services of [Platform.sh](https://platform.sh/hosting/php/ez) that are compatible and supported by the eZ Platform version you use.  
+    In general, eZ Platform Cloud supports all features and services of [Platform.sh](https://platform.sh/hosting/php/ez) that are compatible and supported by the [[= product_name_oss =]] version you use.  
 
     For example:
 
-    - Platform.sh provides Redis support for versions 3.2, 4.0 and 5.0. eZ Platform supports Redis version 4.0 or higher, and recommends 5.0. As a result, Redis is supported on eZ Platform Cloud in versions 4.0 and 5.0, but 5.0 is recommended.
+    - Platform.sh provides Redis support for versions 3.2, 4.0 and 5.0. [[= product_name_oss =]] supports Redis version 4.0 or higher, and recommends 5.0. As a result, Redis is supported on eZ Platform Cloud in versions 4.0 and 5.0, but 5.0 is recommended.
 
-    Features or services supported by eZ Platform but not covered by Platform.sh may be possible by means of a [custom integration](#custom-integrations).
+    Features or services supported by [[= product_name_oss =]] but not covered by Platform.sh may be possible by means of a [custom integration](#custom-integrations).
 
     ### eZ Platform Cloud Setup support matrix
 
-    All eZ Platform features are supported in accordance with the example above. For example: As Legacy Bridge is not supported with v3, it is not supported on eZ Platform Cloud either.
+    All [[= product_name_oss =]] features are supported in accordance with the example above. For example: As Legacy Bridge is not supported with v3, it is not supported on eZ Platform Cloud either.
 
     !!! note
 
@@ -151,20 +151,20 @@ Please note that the user interface might not look or behave exactly the same ac
 
     ### Supported eZ Platform Cloud setup
 
-    Because of the large range of possible configurations of eZ Platform, there are many possibilities beyond what is provided in the default recommended configuration.
+    Because of the large range of possible configurations of [[= product_name_oss =]], there are many possibilities beyond what is provided in the default recommended configuration.
 
     Make sure to set aside time and budget for:
 
     - Verifying your requirements and ensuring they are supported by Platform.sh
     - Additional time for adaptation and configuration work, and testing by your development team
-    - Additional consulting/onboarding time with Platform.sh, Ibexa technical services, and/or one of the many partners with prior experience using Platform.sh with eZ Platform
+    - Additional consulting/onboarding time with Platform.sh, Ibexa technical services, and/or one of the many partners with prior experience using Platform.sh with [[= product_name_oss =]]
 
     The cost and effort of this is not included in eZ Platform Cloud subscription and will vary depending on the project.
 
     ### Custom integrations
 
-    Features supported by eZ Platform, but not natively by Platform.sh, can in many cases be used by means of custom integrations with external services.
+    Features supported by [[= product_name_oss =]], but not natively by Platform.sh, can in many cases be used by means of custom integrations with external services.
 
-    For example, you can create an integration with S3 by means of setting up your own S3 bucket and configuring the relevant parts of eZ Platform.
+    For example, you can create an integration with S3 by means of setting up your own S3 bucket and configuring the relevant parts of [[= product_name_oss =]].
     We recommend giving the development team working on the project access to the bucket
     to ensure work is done in a DevOps way without depending on external teams when changes are needed.
