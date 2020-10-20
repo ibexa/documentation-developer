@@ -273,10 +273,11 @@ X-Siteaccess: ezdemo_site_admin
 
 ## REST API authentication
 
-The REST API supports two authentication methods:
+The REST API supports the following authentication methods:
 
 - **Session-based authentication** for AJAX operations that lets you re-use the visitor's session to execute operations with their permissions.
 - **Basic authentication** for writing cross-server procedures, when one remote application executes operations on one/several [[= product_name_oss =]] instances (remote publishing, maintenance, etc).
+- [**JWT authentication**](#jwt-authentication)
 
 Session-based is the default authentication method as it is needed for UI.
 
@@ -406,6 +407,27 @@ GET / HTTP/1.1
 Host: api.example.com
 Accept: application/vnd.ez.api.Root+json
 Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
+```
+
+### JWT authentication
+
+After you [configure JWT authentication](../guide/security.md#jwt-authentication)
+you can get the JWT token through the following request:
+
+```
+POST /user/token/jwt HTTP/1.1
+Host: <yourdomain>
+Accept: application/vnd.ez.api.JWT+xml
+Content-Type: application/vnd.ez.api.JWTInput+xml
+```
+
+Provide the user name and password in the request body:
+
+``` xml
+<JWTInput>
+    <password>publish</password>
+    <username>admin</username>
+</JWTInput>
 ```
 
 ### Error handling
