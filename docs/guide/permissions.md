@@ -63,13 +63,13 @@ This also lets the user copy and move content, as well as add new Locations to a
 
 #### Create content without publishing
 
-This option can be used together with eZ Enterprise's content review options.
+This option can be used together with [[= product_name_ee =]]'s content review options.
 Using the following Policies, the User is able to create content, but can't publish it; instead, they must send it for review to another User with proper permissions (for example, senior editor, proofreader, etc.).
 
 - `content/create`
 - `content/edit`
 
-Note that without eZ Enterprise this setup should not be used, as it will not allow the User to continue working with their content.
+Note that without [[= product_name_ee =]] this setup should not be used, as it will not allow the User to continue working with their content.
 
 #### Restrict editing to part of the tree
 
@@ -195,7 +195,7 @@ Users are treated like other content, so to create and modify them the User need
 |               | `view_embed`         | view content embedded in another Content item (even when the User is not allowed to view it as an individual Content item)              |
 |               | `create`             | create new content. Note: even without this Policy the User is able to enter edit mode, but cannot finalize work with the Content item. |
 |               | `edit`               | edit existing content                                                                                                                   |
-|               | `publish`            | publish content. Without this Policy, the User can only save drafts or send them for review (in eZ Enterprise)                          |
+|               | `publish`            | publish content. Without this Policy, the User can only save drafts or send them for review (in [[= product_name_ee =]])                          |
 |               | `manage_locations`   | remove Locations and send content to Trash                                                                                              |
 |               | `hide`               | hide and reveal content Locations                                                                                                       |
 |               | `reverserelatedlist` | see all content that a Content item relates to (even when the User is not allowed to view it as an individual Content items)            |

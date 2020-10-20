@@ -1,6 +1,6 @@
 # Basket - Eventlistener in the standard
 
-eZ Commerce offers two standard event listeners.
+[[= product_name_com =]] offers two standard event listeners.
 
 ## StandardBasketListener
 

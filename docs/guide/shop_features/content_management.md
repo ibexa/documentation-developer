@@ -2,7 +2,7 @@
 
 ## Product
 
-eZ Commerce offers a built-in Product Content Type.
+[[= product_name_com =]] offers a built-in Product Content Type.
 
 Any content of this type can be automatically used for all shop functionalities,
 such as adding to basket, price calculation and ordering,

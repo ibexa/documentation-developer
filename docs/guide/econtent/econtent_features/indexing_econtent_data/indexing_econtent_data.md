@@ -1,6 +1,6 @@
 # Indexing eContent data
 
-If eZ Commerce is configured to use eContent as data provider, the following things have to be taken into consideration when indexing.
+If [[= product_name_com =]] is configured to use eContent as data provider, the following things have to be taken into consideration when indexing.
 
 ## Default indexing
 

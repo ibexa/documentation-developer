@@ -78,7 +78,7 @@ siso_core.default.forget_password_token_valid: 1 hour
 ```
 
 The shop allows registrations of more than one account with the same email address.
-This is useful when eZ Commerce runs a B2B and a B2C shop in one installation.
+This is useful when [[= product_name_com =]] runs a B2B and a B2C shop in one installation.
 
 ## Change password
 

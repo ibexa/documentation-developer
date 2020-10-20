@@ -18,7 +18,7 @@
 
     !!! note
 
-        eZ Platform supports Elasticsearch in version 7.7.
+        [[= product_name_ee =]] supports Elasticsearch in version 7.7.
 
     ## Step 2: Verify that the Elasticsearch instance is up
 
@@ -57,7 +57,7 @@
 
     ## Step 4: Configure the search engine
 
-    eZ Platform comes pre-configured to work with an Elasticsearch cluster that uses default settings, and you can use this initial setup for testing purposes.
+    [[= product_name_ee =]] comes pre-configured to work with an Elasticsearch cluster that uses default settings, and you can use this initial setup for testing purposes.
     However, to effectively search through actual data, you must provide specific settings.
     All configuration is made in the `/config/packages/ezplatform_elastic_search_engine.yaml` file.
 
@@ -66,7 +66,7 @@
         All the settings, their order and meaning, correspond to the settings that are described in
         the Elasticsearch documentation.
 
-    First, decide how eZ Platform connects to Elasticsearch and configure other connection settings.
+    First, decide how [[= product_name_ee =]] connects to Elasticsearch and configure other connection settings.
     For more information, see [Configuring connections](#configuring-connections).
 
     Then, define a field type mappings template that instructs Elasticsearch to interpret eZ
@@ -118,7 +118,7 @@
     !!! tip "A default connection"
 
         If you define more than one connection, for example, to create a separate connection for
-        each repository, you must select the one that eZ Platform should use with the following setting:
+        each repository, you must select the one that [[= product_name_ee =]] should use with the following setting:
 
         ``` yaml
         ez_platform_elastic_search_engine:
@@ -245,7 +245,7 @@
 
     ##### Number of retries
 
-    The `retries` setting configures the number of attempts that eZ Platform makes to connect
+    The `retries` setting configures the number of attempts that [[= product_name_ee =]] makes to connect
     to the nodes of the cluster before it throws an exception.
     By default, `null` is used, which means that the number of retries equals to the number of nodes in the cluster.
 
@@ -255,7 +255,7 @@
         retries: null
     ```
 
-    Depending on the connection pool that you select, eZ Platform's reaction to reaching the maximum
+    Depending on the connection pool that you select, [[= product_name_ee =]]'s reaction to reaching the maximum
     number of retries might differ.
 
     For more information, see [Set retries](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.x/configuration.html#_set_retries).
@@ -266,7 +266,7 @@
     With Elasticsearch Cloud you do not have to build or manage your own Elasticsearch cluster.
     Also, you do all the configuration and administration in a graphical user interface.
 
-    To connect to a cloud solution with eZ Platform, you must set the `elastic_cloud_id` parameter by
+    To connect to a cloud solution with [[= product_name_ee =]], you must set the `elastic_cloud_id` parameter by
     providing an alphanumerical ID string that you obtain from the cloud's user interface, for example:
 
     ``` yaml
@@ -292,7 +292,7 @@
 
     #### Configuring basic authentication
 
-    If your Elasticsearch server is protected by HTTP authentication, you must provide eZ Platform with the credentials.
+    If your Elasticsearch server is protected by HTTP authentication, you must provide [[= product_name_ee =]] with the credentials.
     When using basic authentication, you must pass the following parameters:
 
     ``` yaml
@@ -319,7 +319,7 @@
     #### Configuring API key authentication
 
     If your Elasticsearch cluster is protected by API keys, you must provide the key and secret in authentication configuration to
-    connect eZ Platform with the cluster. With API key authentication you can define different
+    connect [[= product_name_ee =]] with the cluster. With API key authentication you can define different
     authorization levels, such as [`create_index`, `index`, etc.](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/security-privileges.html#privileges-list-indices). Such approach
     proves useful if the cluster is available to the public.
 
@@ -425,8 +425,8 @@
 
     ### Configuring field type mapping templates
 
-    Before you can re-index the eZ Platform data, so that Elasticsearch can search through its contents, you must define an index template.
-    Templates instruct Elasticsearch to recognize eZ Platform Fields as specific data types, based on, for example, a field name.
+    Before you can re-index the [[= product_name_ee =]] data, so that Elasticsearch can search through its contents, you must define an index template.
+    Templates instruct Elasticsearch to recognize [[= product_name_ee =]] Fields as specific data types, based on, for example, a field name.
     They help you prevent Elasticsearch from using the dynamic field mapping feature to create type mappings automatically.
     You can create several field type mapping templates for each index, for example, to define settings that are specific for different languages.
     When you establish a relationship between a field mapping template and a connection, you can apply several templates, too.
@@ -456,7 +456,7 @@
 
         `<repository>_<document_type>_<language_code>_<content_type_id>`
 
-        By default, repository name is set to `default`, however, in the context of an eZ Platform instance,
+        By default, repository name is set to `default`, however, in the context of an [[= product_name_ee =]] instance,
         there can be [several repositories with different names](https://doc.ezplatform.com/en/latest/guide/config_repository/#defining-custom-connection).
         Document type can be either `content` or `location`.
         In a language code, hyphens are replaced with underscores, and all characters must be lowercase.
@@ -504,7 +504,7 @@
     For more information about mappings, see [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/mapping.html).
 
         When you create a custom index template, with settings for your own field and document
-        types, make sure that it contains mappings for all searchable fields that are available in eZ Platform.
+        types, make sure that it contains mappings for all searchable fields that are available in [[= product_name_ee =]].
         For an example of default configuration with a list of searchable fields, see [Default configuration](https://github.com/ezsystems/ezplatform-elastic-search-engine/blob/v1.0.0/src/bundle/Resources/config/default-config.yaml).
 
     #### Fine-tuning the search results

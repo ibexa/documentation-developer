@@ -2,13 +2,13 @@
 
 A Field Type is the underlying building block of the content model. It consists of two entities: Field value and Field definition. Field value is determined by values entered into the Content Field. Field definition is provided by the Content Type, and holds any user defined rules used by Field Type to determine how a Field Value is validated, stored, retrieved, formatted and so on.
 
-eZ Platform comes with a collection of Field Types that can be used to build powerful and complex content structures. In addition, it is possible to extend the system by creating custom types for special needs.
+[[= product_name_oss =]] comes with a collection of Field Types that can be used to build powerful and complex content structures. In addition, it is possible to extend the system by creating custom types for special needs.
 
 !!! tip
 
     For general Field Type documentation, see [Field Type API](../api/field_type_api.md).
 
-Custom Field Types have to be programmed in PHP. However, the built-in Field Types are usually sufficient enough for typical scenarios. The following table gives an overview of the supported Field Types that come with eZ Platform.
+Custom Field Types have to be programmed in PHP. However, the built-in Field Types are usually sufficient enough for typical scenarios. The following table gives an overview of the supported Field Types that come with [[= product_name_oss =]].
 
 
 ## Available Field Types
@@ -37,7 +37,7 @@ Custom Field Types have to be programmed in PHP. However, the built-in Field Ty
 | [Rating](#rating-field-type) | **Deprecated** | N/A | N/A |
 | [Relation](#relation-field-type) | Validates and stores a relation to a Content item. | Yes, with both [`Field`](../guide/search/criteria_reference/field_criterion.md) and [`FieldRelation`](../guide/search/criteria_reference/fieldrelation_criterion.md) Criteria | Yes |
 | [RelationList](#relationlist-field-type) | Validates and stores a list of relations to Content items. | Yes, with [`FieldRelation` Criterion](../guide/search/criteria_reference/fieldrelation_criterion.md) | Yes |
-| [RichText](#richtext-field-type) | Validates and stores structured rich text in DocBook xml format, and exposes it in several formats. Available via [eZ Platform RichTextBundle](https://github.com/ezsystems/ezplatform-richtext). | Yes[^1^](#1-note-on-legacy-search-engine)  | Yes |
+| [RichText](#richtext-field-type) | Validates and stores structured rich text in DocBook xml format, and exposes it in several formats. Available via [RichTextBundle](https://github.com/ezsystems/ezplatform-richtext). | Yes[^1^](#1-note-on-legacy-search-engine)  | Yes |
 | [Selection](#selection-field-type) | Validates and stores a single selection or multiple choices from a list of options. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
 | [TextBlock](#textblock-field-type) | Validates and stores a larger block of text. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
 | [TextLine](#textline-field-type) | Validates and stores a single line of text. | Yes | Yes |
@@ -57,7 +57,7 @@ Proper indexing of these Field Types is done with [Solr Search Bundle](../guide/
 
 |FieldType|Description|Searchable|Editing support in Platform UI|Planned to be included in the future|
 |------|------|------|------|------|
-| [XmlText](#xmltext-field-type)|Validates and stores multiple lines of formatted text using XML format.|Yes|Partial *(Raw XML editing)*|No *(has been superseded by [RichText](#richtext-field-type))*</br>The XmlText Field Type is not enabled by default in eZ Platform.|
+| [XmlText](#xmltext-field-type)|Validates and stores multiple lines of formatted text using XML format.|Yes|Partial *(Raw XML editing)*|No *(has been superseded by [RichText](#richtext-field-type))*</br>The XmlText Field Type is not enabled by default in [[= product_name_oss =]].|
 
 ### Field Types provided by Community
 
@@ -308,7 +308,7 @@ This Field Type maps an executable Repository query to a Field.
 |-----------|---------------|----------------|
 | `Content query` | `ezcontentquery`   | `string`        |
 
-The Content query Field Type is available via the eZ Platform Query Field Type Bundle
+The Content query Field Type is available via the Query Field Type Bundle
 provided by the [ezplatform-query-fieldtype](https://github.com/ezsystems/ezplatform-query-fieldtype) package.
 
 For information on the Field Type's usage, see [Query Field Type in controller documentation](../guide/controllers.md#query-field-type).
@@ -342,7 +342,7 @@ When you set an array directly on a Content field you don't need to provide all 
 
 #### Validation
 
-This Field Type validates whether multiple countries are allowed by the Field definition, and whether the [Alpha2](https://www.iso.org/iso-3166-country-codes.html) is valid according to the countries configured in eZ Platform.
+This Field Type validates whether multiple countries are allowed by the Field definition, and whether the [Alpha2](https://www.iso.org/iso-3166-country-codes.html) is valid according to the countries configured in [[= product_name_oss =]].
 
 #### Settings
 
@@ -1317,7 +1317,7 @@ This Field Type stores one or several comma-separated keywords as a string or ar
 |Type|Example|
 |------|------|
 |`string`|`"documentation"`|
-|`string`|`"php, eZ Platform, html5"`|
+|`string`|`"php, Ibexa Platform, html5"`|
 |`string[]`|`[ "Ibexa", "Enterprise", "User Experience Management" ]`|
 
 #### Value object
@@ -1338,7 +1338,7 @@ use eZ\Publish\Core\FieldType\Keyword\Value;
 $keywordValue = new Value();
  
 // Sets an array of keywords as a value
-$keyword->value = [ "php", "css3", "html5", "eZ Platform" ];
+$keyword->value = [ "php", "css3", "html5", "Ibexa Platform" ];
 ```
 
 ##### Constructor
@@ -1458,7 +1458,7 @@ This Field represents and handles a table of rows and columns of data.
 |----------|---------------|----------------|
 | `Matrix` | `ezmatrix`    | `array`        |
 
-The Matrix Field Type is available via the eZ Platform Matrix Bundle
+The Matrix Field Type is available via the Matrix Bundle
 provided by the [ezplatform-matrix-fieldtype](https://github.com/ezsystems/ezplatform-matrix-fieldtype) package.
 
 ### PHP API Field Type
@@ -1793,7 +1793,7 @@ This Field Type is used as fallback for migration scenarios, and for testing pur
 
 ### Description
 
-The Null Field Type serves as an aid when migrating from eZ Publish Platform and earlier legacy versions. It is a dummy for legacy Field Types that are not implemented in eZ Platform.
+The Null Field Type serves as an aid when migrating from eZ Publish Platform and earlier legacy versions. It is a dummy for legacy Field Types that are not implemented in [[= product_name_oss =]].
 
 Null Field Type will accept anything provided as a value and is usually combined with:
 - NullConverter: Makes it not store anything to the legacy storage engine (database), nor will it read any data.
@@ -1828,7 +1828,7 @@ services:
 
     Page Field Type represents a Page with a layout consisting of multiple zones. Each zone can in turn contain blocks.
 
-    Page Field Type is only used in the Page Content Type that is included in eZ Enterprise.
+    Page Field Type is only used in the Page Content Type that is included in [[= product_name_ee =]].
 
     | Name           | Internal name   | Expected input  |
     |----------------|-----------------|-----------------|
@@ -2104,7 +2104,7 @@ $validators = [
 
 ## RichText Field Type
 
-The RichText Field Type is available via the eZ Platform RichText Field Type Bundle provided by the [ezplatform-richtext](https://github.com/ezsystems/ezplatform-richtext) package.
+The RichText Field Type is available via the RichText Field Type Bundle provided by the [ezplatform-richtext](https://github.com/ezsystems/ezplatform-richtext) package.
 
 This Field Type validates and stores structured rich text, and exposes it in several formats.
 
@@ -2130,7 +2130,7 @@ Currently supported input formats are described in the table below:
 
 |Name|Description|
 |------|------|
-|eZ Platform's DocBook variant|Field Type's internal format|
+|[[= product_name_oss =]]'s DocBook variant|Field Type's internal format|
 |XHTML5 editing format|Typically used with in-browser HTML editor|
 |Legacy eZXML format|Compatibility with legacy XML format, used by [XmlText Field Type](#xmltext-field-type)|
 
@@ -2150,7 +2150,7 @@ Currently supported input formats are described in the table below:
 
 ###### Example of the Field Type's XHTML5 edit format
 
-This format is used by eZ Platform's Online Editor.
+This format is used by [[= product_name_oss =]]'s Online Editor.
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -2587,7 +2587,7 @@ This Field Type validates and stores information about a user.
 
 ## XmlText Field Type
 
-The XmlText Field Type isn't officially supported by eZ Platform. It can be installed by requiring `ezsystems/ezplatform-xmltext-fieldtype`. PlatformUI does not support WYSIWYG editing of Fields of this type.
+The XmlText Field Type isn't officially supported by [[= product_name_oss =]]. It can be installed by requiring `ezsystems/ezplatform-xmltext-fieldtype`. PlatformUI does not support WYSIWYG editing of Fields of this type.
 
 This Field Type validates and stores formatted text using the eZ Publish legacy format, eZXML. 
 

@@ -18,7 +18,7 @@ The user stays in the delegate role until they click **Undelegate**.
 
 ## Configuration
 
-The delegate function is disabled by default. To enable it, add the following configuration in your eZ Platform project folder, the `config\packages\ezplatform.yaml` file, under the `parameters` key:
+The delegate function is disabled by default. To enable it, add the following configuration in your [[= product_name_oss =]] project folder, the `config\packages\ezplatform.yaml` file, under the `parameters` key:
 
 ``` yaml
 silver_eshop.default.enable_delegate: true    

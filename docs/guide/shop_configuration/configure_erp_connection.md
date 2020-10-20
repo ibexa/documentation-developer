@@ -1,6 +1,6 @@
 # Configure ERP connection
 
-By default eZ Commerce uses the `TsoWebconnectorLayer` which enables the shop to communicate with a Microsoft Dynamics NAV System.
+By default [[= product_name_com =]] uses the `TsoWebconnectorLayer` which enables the shop to communicate with a Microsoft Dynamics NAV System.
 
 ## Requirements
 

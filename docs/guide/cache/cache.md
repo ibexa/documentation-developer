@@ -1,6 +1,6 @@
 # Cache
 
-eZ Commerce uses different caches, including HTTP cache, which can greatly increase shop performance.
+[[= product_name_com =]] uses different caches, including HTTP cache, which can greatly increase shop performance.
 Dynamic parts of the shop such as basket preview or prices are displayed using dynamic caching features such as ESI or JavaScript.
 
 This ensures that only small parts of a page have to be generated in real time.
@@ -24,7 +24,7 @@ Caching strategies are defined in configuration, see: [HTTP caching](content_cac
 
 ## Usage of cache tags
 
-eZ Commerce uses cache tags to tag and purge content.
+[[= product_name_com =]] uses cache tags to tag and purge content.
 
 |Tag|Used for|Purged|
 |--- |--- |--- |

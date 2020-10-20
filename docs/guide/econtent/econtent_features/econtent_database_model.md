@@ -17,7 +17,7 @@ For more information, see [eContent staging system](staging_system.md).
 
 !!! note
 
-    eZ Commerce uses Doctrine entities to create these tables.
+    [[= product_name_com =]] uses Doctrine entities to create these tables.
 
     It is impossible to create indexes for the table `sve_object_attributes` for the `data_text` attribute with Doctrine. You must create the indexes manually every time you run
     `php bin/console doctrine:schema:update --force`
@@ -26,7 +26,7 @@ For more information, see [eContent staging system](staging_system.md).
 
 The table `sve_object` contains one entry for each product group, product, etc.
 You can arrange data in a tree structure by using the field `parent_id`, which is the Location ID of the parent.
-Location IDs start from 2 due to compatibility with the eZ Platform data structure.
+Location IDs start from 2 due to compatibility with the [[= product_name_oss =]] data structure.
 
 This table contains several other pieces of information in addition to Content Type ID and Location ID, for example:
 

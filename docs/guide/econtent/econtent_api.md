@@ -2,7 +2,7 @@
 
 eContent provides a flexible way to define project-specific attributes for products and categories (and other product-related types of data).
 
-eZ Commerce requires that some of the attributes use predefined identifiers.
+[[= product_name_com =]] requires that some of the attributes use predefined identifiers.
 
 ## Categories
 

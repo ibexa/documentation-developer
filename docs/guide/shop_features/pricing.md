@@ -13,7 +13,7 @@ The currency is configured per country in the [configuration settings](../shop_c
 
 If a product has a price for a currency this price is displayed in the shop.
 
-If there is no price set in a shop for the given currency, eZ Commerce offers two options that can be set in the shop configuration:
+If there is no price set in a shop for the given currency, [[= product_name_com =]] offers two options that can be set in the shop configuration:
 
 - Calculate the price for the requested currency using the base price defined in the product (using the base currency setup for the installation) and an exchange rate defined in the configuration
 - Display an error in the frontend that no price is available

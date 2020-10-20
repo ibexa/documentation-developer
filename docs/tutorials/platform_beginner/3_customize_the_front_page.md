@@ -24,7 +24,7 @@ ezplatform:
                             Id\Location: 2
 ```
 
-This tells eZ Platform to use the `template` when rendering content with Location ID `2`.
+This tells [[= product_name_oss =]] to use the `template` when rendering content with Location ID `2`.
 `2` is the default Location for the root Content item.
 
 `Id\Location` is one of several [view matchers](../../guide/content_rendering.md#configuring-views-the-viewprovider) that you can use to customize rendering depending on different criteria.
@@ -72,9 +72,9 @@ To add a template like this to your site, create a `main_layout.html.twig` file 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="eZ Platform beginner tutorial">
+    <meta name="description" content="Ibexa Platform beginner tutorial">
 
-    <title>eZ Platform Beginner Tutorial</title>
+    <title>Ibexa Platform Beginner Tutorial</title>
 
     <script src="{{ asset('bundles/ezplatformadminuiassets/vendors/jquery/dist/jquery.min.js') }}"></script>
 
@@ -146,7 +146,7 @@ To add a template like this to your site, create a `main_layout.html.twig` file 
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <p class="small">Website design &#38; content © copyright {{ "now"|date("Y") }} Ibexa. This website was made with eZ Platform.</p>
+                    <p class="small">Website design &#38; content © copyright {{ "now"|date("Y") }} Ibexa. This website was made with Ibexa Platform.</p>
                 </div>
             </div>
         </div>
@@ -177,7 +177,7 @@ Before proceeding, ensure that the structure of the added files looks like this:
 
 ### Configuring Webpack
 
-In eZ Platform, you can add assets by using [Symfony Webpack Encore](https://symfony.com/doc/5.0/frontend.html#webpack-encore)
+In [[= product_name_oss =]], you can add assets by using [Symfony Webpack Encore](https://symfony.com/doc/5.0/frontend.html#webpack-encore)
 — an integration of Webpack that enables you to build bundles of CSS stylesheets and JS scripts and add them to the project.
 For more details, see [importing assets from a bundle](../../guide/project_organization.md#importing-assets-from-a-bundle).
 

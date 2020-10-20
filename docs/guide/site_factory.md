@@ -165,14 +165,14 @@
          ezsettings.default.site_factory.sites_location_id: 2
      ```
 
-    To change it to e.g. eZ Platform, go to `config/packages/ezplatform_site_factory.yaml`, and add the following parameter:
+    To change it to e.g. [[= product_name_oss =]], go to `config/packages/ezplatform_site_factory.yaml`, and add the following parameter:
 
     ``` yaml
     parameters:
         ezsettings.default.site_factory.sites_location_id: 42
     ```
 
-    Now, all new directories will be created under eZ Platform.
+    Now, all new directories will be created under [[= product_name_oss =]].
 
     ### Provide access
 

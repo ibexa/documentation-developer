@@ -365,7 +365,7 @@
 
     Some blocks can have slightly more complex configuration. An example is the Collection block, which requires an `options` key.
     This key defines which Content Types can be added to it.
-    See [this example from the eZ Enterprise Demo](https://github.com/ezsystems/ezplatform-ee-demo/blob/master/config/packages/default_layouts.yml#L186):
+    See [this example from the Demo](https://github.com/ezsystems/ezplatform-ee-demo/blob/master/config/packages/default_layouts.yml#L186):
 
     ``` yaml
     blocks:

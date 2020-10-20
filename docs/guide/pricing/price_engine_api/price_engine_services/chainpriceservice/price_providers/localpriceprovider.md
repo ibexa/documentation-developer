@@ -1,6 +1,6 @@
 # LocalPriceProvider
 
-The local price provider can calculate prices based on product data imported to eZ Commerce.
+The local price provider can calculate prices based on product data imported to [[= product_name_com =]].
 It uses the information provided by the catalog element.
 
 The Local price provider supports the following price models:

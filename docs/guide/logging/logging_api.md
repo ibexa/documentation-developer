@@ -1,6 +1,6 @@
 # Logging API
 
-Logging in eZ Commerce is based on Monolog. There is no separate logging API definition.
+Logging in [[= product_name_com =]] is based on Monolog. There is no separate logging API definition.
 For the purpose of persisting logs within a database,
 the Monolog API implementation has been extended by Doctrine-based classes and an interface.
 

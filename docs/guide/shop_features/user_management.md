@@ -1,6 +1,6 @@
 # User management
 
-eZ Commerce by default adds the Shop users User Group, containing subgroups Business customers and Private customers.
+[[= product_name_com =]] by default adds the Shop users User Group, containing subgroups Business customers and Private customers.
 
 These groups are assigned Roles that allow them to use the shop as customers.
 
@@ -16,7 +16,7 @@ The built-in Roles than allow using the shop are:
 - Ecommerce checkout
 - Ecommerce registered users
 
-eZ Commerce adds [special shop-related Policies](../user_management/access_control.md#ez-commerce-policies).
+[[= product_name_com =]] adds [special shop-related Policies](../user_management/access_control.md#ez-commerce-policies).
 
 ## User registration
 
@@ -30,7 +30,7 @@ A newly registered account is not active by default. The shop owner or administr
 
 ### Existing customers
 
-Customers who are set up in the connected ERP can activate their eZ Commerce accounts themselves by entering their customer number and one invoice number.
+Customers who are set up in the connected ERP can activate their [[= product_name_com =]] accounts themselves by entering their customer number and one invoice number.
 The data is sent to the ERP. If the data in ERP and the entered data match, the customer gets access to the shop immediately.
 A User Content item is created automatically with the customer number from the ERP.
 

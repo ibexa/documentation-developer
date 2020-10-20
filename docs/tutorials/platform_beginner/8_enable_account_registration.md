@@ -214,14 +214,14 @@ You now have the ability to create new Rides and Landmarks in the selected folde
 
 ## Congratulations!
 
-Now you have created your first website with eZ Platform.
+Now you have created your first website with [[= product_name_oss =]].
 
 **You learned how to:**
 
 - create a content model
-- organize files in an eZ Platform project
+- organize files in an [[= product_name_oss =]] project
 - configure views for different Content Types
-- add assets to an eZ Platform project
+- add assets to an [[= product_name_oss =]] project
 - use and configure Webpack Encore
 - use Twig templates and controllers to display content
 - enable user registration

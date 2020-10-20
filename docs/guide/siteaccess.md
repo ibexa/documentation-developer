@@ -2,7 +2,7 @@
 
 ## Introduction
 
-eZ Platform enables you to maintain multiple sites in one installation using a feature called **SiteAccesses**.
+[[= product_name_oss =]] enables you to maintain multiple sites in one installation using a feature called **SiteAccesses**.
 
 In short, a SiteAccess is a set of configuration settings that is used when you reach the site through a specific address.
 When the user visits the site, the system analyzes the URI and compares it to rules specified in the configuration. If it finds a set of fitting rules, this SiteAccess is used.
@@ -29,7 +29,7 @@ Typical uses of a SiteAccess are:
 
 #### `admin` SiteAccess
 
-The back-office UI of eZ Platform is housed in a predefined `admin` SiteAccess in `admin_group`.
+The back-office UI of [[= product_name_oss =]] is housed in a predefined `admin` SiteAccess in `admin_group`.
 
 If you have a multisite setup with a separate back-office interface for each site,
 you need to create your own admin SiteAccesses and add them to this group. In cases where the sites are on separate databases they will need their own [repository](configuration.md#configuration-examples) (including their own storage and search connection), var dir, [cache pool](persistence_cache.md#persistence-cache-configuration), and ideally also separate Varnish/Fastly config for each site individually.
@@ -186,7 +186,7 @@ ezplatform:
 
 Note that you should avoid defining a setting twice within the same scope, as this will cause a [silent failure](https://github.com/symfony/symfony/issues/11538).
 
-This mechanism is not limited to eZ Platform internal settings (the `ezsettings` namespace) and is applicable for specific needs (bundle-related, project-related, etc.).
+This mechanism is not limited to [[= product_name_oss =]] internal settings (the `ezsettings` namespace) and is applicable for specific needs (bundle-related, project-related, etc.).
 
 Always prefer semantic configuration especially for internal eZ settings.
 Manually editing internal eZ settings is possible, but at your own risk, as unexpected behavior can occur.
@@ -262,7 +262,7 @@ The SiteAccess router has been added a `matchByName()` method to reflect this ad
 
 #### Navigating between SiteAccesses - limitations
 
-There are two known limitations to moving between SiteAccesses in eZ Enterprise's Pages:
+There are two known limitations to moving between SiteAccesses in [[= product_name_ee =]]'s Pages:
 
 1. On a Page you can encounter a 404 error when clicking a relative link which points to a different SiteAccess (if the Content item being previewed does not exist in the previously used SiteAccess). This is because detecting SiteAccesses when navigating in preview is not functional yet. This is a known limitation that is awaiting resolution.
 
@@ -328,7 +328,7 @@ The [Symfony Config component](https://symfony.com/doc/5.0/components/config.htm
 This configuration is validated by rules you define, e.g. validating type (string, array, integer, boolean, etc.).
 Usually, once validated and processed, this semantic configuration is then mapped to internal *key/value* parameters stored in the `ServiceContainer`.
 
-eZ Platform uses this for its core configuration, but adds another configuration level, the **SiteAccess**.
+[[= product_name_oss =]] uses this for its core configuration, but adds another configuration level, the **SiteAccess**.
 For each defined SiteAccess, you need to be able to use the same configuration tree in order to define SiteAccess-specific config.
 
 These settings then need to be mapped to SiteAccess-aware internal parameters that you can retrieve via the `ConfigResolver`.
@@ -338,9 +338,9 @@ For this, internal keys need to follow the format `<namespace>.<scope>.<paramet
 - `scope` is the SiteAccess, SiteAccess group, `default` or `global`
 - `parameter_name` is the actual setting *identifier*
 
-For more information on ConfigResolver, namespaces and scopes, see [eZ Platform configuration basics](../guide/configuration.md).
+For more information on ConfigResolver, namespaces and scopes, see [[[= product_name_oss =]] configuration basics](../guide/configuration.md).
 
-The goal of this feature is to make it easy to implement a SiteAccess-aware semantic configuration and its mapping to internal config for any eZ Platform bundle developer.
+The goal of this feature is to make it easy to implement a SiteAccess-aware semantic configuration and its mapping to internal config for any [[= product_name_oss =]] bundle developer.
 
 ### Semantic configuration parsing
 

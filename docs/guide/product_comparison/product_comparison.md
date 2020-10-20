@@ -1,6 +1,6 @@
 # Product comparison
 
-eZ Commerce offers the option to compare products on a single page.
+[[= product_name_com =]] offers the option to compare products on a single page.
 Customers can save products on their own comparison lists.
 Comparison lists are divided per kind of product (separately for, e.g. sofas, tables, etc.). 
 

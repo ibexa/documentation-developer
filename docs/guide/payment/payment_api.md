@@ -87,7 +87,7 @@ and the related payment instruction for further processing in the returning URL 
 It is impossible to configure the URLs via the Symfony container, as the basket ID is determined dynamically.
 
 This interface is used to provide an adaptable way to integrate the various data fields which can be used by the different payment plugins for storing e.g. URL information.
-You must implement this interface for every payment plugin that should be available in the eZ Commerce,
+You must implement this interface for every payment plugin that should be available in the [[= product_name_com =]],
 if more than the standard fields like amount, are necessary for the payment process.
 
 The interface defines a single method, `createExtendedDataForOrder($orderReference)`,
