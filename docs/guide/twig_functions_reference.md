@@ -23,6 +23,9 @@ In addition to the [native functions provided by Twig](http://twig.sensiolabs.or
 |[`ez_short_datetime`](#ez_short_datetime-ez_short_date-ez_short_time)|Outputs date and time in short format.|
 |[`ez_short_date`](#ez_short_datetime-ez_short_date-ez_short_time)|Outputs date in short format.|
 |[`ez_short_time`](#ez_short_datetime-ez_short_date-ez_short_time)|Outputs time in short format.|
+|[`ez_render`](#ez_render)|Renders the indicated Content item.|
+|[`ez_render_content`](#ez_render_content)|Renders the indicated Content item.|
+|[`ez_render_location`](#ez_render_location)|Renders the Content item in the indicated Location.|
 |[`ez_render_field`](#ez_render_field)|Displays a Content item's Field value, taking advantage of the template block exposed by the Field Type used.|
 |[`ez_urlalias`](#ez_urlalias)|It is a special route name for generating URLs for a Location from the given parameters.|
 
@@ -325,6 +328,74 @@ If the Content item does not have a translation in the current language, the mai
     </div>
 {% endif %}
 ```
+
+### `ez_render`
+
+#### Description
+
+`ez_render()` is a Twig helper that renders the indicated Content item.
+It is rendered by default with the `embed` view.
+
+The helper automatically selects and uses either [`ez_render_content()`](#ez_render_content)
+or [`ez_render_location()`](#ez_render_location) depending on the provided parameter.
+
+#### Prototype and Arguments
+
+`ez_render ( eZ\Publish\API\Repository\Values\Content\Content content|
+             eZ\Publish\API\Repository\Values\Content\Location location
+             [, string method,
+             string viewType] ) : string`
+
+|Argument name|Type|Description|
+|------|------|------|
+|`content`|`eZ\Publish\API\Repository\Values\Content\Content`|Content item to render.|
+|`location`|`eZ\Publish\API\Repository\Values\Content\Location`|Location of the Content item to render.|
+|`method`|`string`|[Rendering method](#rendering-methods). One of: `direct`, inline`, `esi`, `ssi`.|
+|`viewType`|`string`|[View type](templates.md#full-line-and-other-views).|
+
+#### Rendering methods
+
+The following rendering methods are available out of the box for the `ez_render()`, `ez_render_content()`,
+and `ez_render_location()` functions:
+
+- `direct` - (default) renders the Content item without using a request
+- `inline` - Symfony inline rendering method, sends a request to the server and inserts the response
+- `esi` - uses the Symfony [Edge Side Include mechanism](https://symfony.com/doc/current/http_cache/esi.html) to render the correct tag that is handled by reverse proxy
+- `ssi` - uses the Symfony [Server Side Include mechanism](https://symfony.com/doc/current/http_cache/ssi.html) to render the correct tag that is handled by the web server
+
+### `ez_render_content`
+
+#### Description
+
+`ez_render_content()` is a Twig helper that renders the indicated Content item.
+It is rendered by default using the `embed` view.
+
+#### Prototype and Arguments
+
+`ez_render_content ( eZ\Publish\API\Repository\Values\Content\Content content [, string method, string viewType] ) : string`
+
+|Argument name|Type|Description|
+|------|------|------|
+|`content`|`eZ\Publish\API\Repository\Values\Content\Content`|Content item to render.|
+|`method`|`string`|[Rendering method](#rendering-methods). One of: `direct`, inline`, `esi`, `ssi`.|
+|`viewType`|`string`|[View type](templates.md#full-line-and-other-views).|
+
+### `ez_render_location`
+
+#### Description
+
+`ez_render_location()` is a Twig helper that renders the Content item from the indicated Location.
+It is rendered by default using the `embed` view.
+
+#### Prototype and Arguments
+
+`ez_render_location ( eZ\Publish\API\Repository\Values\Content\Location location [, string method, string viewType] ) : string`
+
+|Argument name|Type|Description|
+|------|------|------|
+|`location`|`eZ\Publish\API\Repository\Values\Content\Location`|Location of the Content item to render.|
+|`method`|`string`|[Rendering method](#rendering-methods). One of: `direct`, inline`, `esi`, `ssi`.|
+|`viewType`|`string`|[View type](templates.md#full-line-and-other-views).|
 
 ### `ez_render_field`
 
