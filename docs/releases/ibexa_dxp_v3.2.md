@@ -8,16 +8,16 @@
 
 ## Notable changes
 
-![New login page]()
+![New login page](img/3.2_new_login_page.png)
 
 ### New UI
 
 This version offers a completely reworked user interface, covering all of the Back Office,
 including eCommerce administration.
 
-![New Content structure]()
+![New Content structure](img/3.2_new_ui_content_structure.png "New Back Office interface")
 
-![Commerce administration]()
+![Commerce administration](img/3.2_commerce_cockpit.png "Commerce cockpit")
 
 ### DAM connector
 
