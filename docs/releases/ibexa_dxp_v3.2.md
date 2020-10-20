@@ -88,7 +88,7 @@ Also, you can now apply new filters that are intended to help you declutter the 
 
 For more information, see [Calendar widget](https://doc.ibexa.co/projects/userguide/en/latest/publishing/advanced_publishing_options/#calendar-widget).
 
-### Cloning content types
+### Cloning Content Types
 
 When creating Content Types in the Back Office, you do not have to start from scratch.
 You can now clone an existing Content Type instead.
