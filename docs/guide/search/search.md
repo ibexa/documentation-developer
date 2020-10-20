@@ -2,10 +2,27 @@
 
 eZ Platform exposes a very powerful [Search API](../../api/public_php_api_search.md), allowing both full-text search and querying the content Repository using several built-in Search Criteria and Sort Clauses. These are supported across different search engines, allowing you to plug in another search engine without changing your code.
 
-Currently two search engines exist in their own eZ Platform Bundles:
+Currently, two search engines exist in their own eZ Platform Bundles:
 
 1.  [Legacy search engine](search_engines.md#legacy-search-engine-bundle), a database-powered search engine for basic needs.
-1.  [Solr](solr.md), an integration providing better overall performance, much better scalability and support for more advanced search capabilities **(recommended)**
+1.  [Solr](solr.md), an integration that provides better overall performance, much better scalability and support for more advanced search capabilities **(recommended)**.
+
+### Feature comparison
+
+| Feature | Apache Solr | Legacy Search Engine (SQL) |
+| --- | --- | --- |
+| Filtering | Yes | Yes, limited\* |
+| Query (filter with scoring) | Yes | Only filters, no scoring |
+| Fulltext search | Yes, incl. advanced features\*\* | Partial support |
+| Index time boosting | Yes\*\*\* | No |
+| Faceting | Partial support | No |
+
+\* Usage of Criteria and Sort Clauses for Fields does not perform well on medium to larger 
+amount of data with Legacy Search Engine (SQL).
+
+\*\* Solr supports advanced full text capabilities such as `word "phrase" (group) +mandatory -prohibited AND && OR || NOT !`.
+
+\*\*\* In bundle versions &lt;v2.0.
 
 ## Search Criteria and Sort Clauses
 
