@@ -34,6 +34,9 @@ The root node of the tree is 2 (the parent of the first category).
 For example:
 
 ``` php
+// get the doctrine repository
+$objectRepo = $this->em->getRepository(SveObject::class);
+
 $categoryName = 'My category';
 $categoryNodeId = $objectRepo->getNextNodeId();
 
@@ -42,11 +45,13 @@ $econtentCategory->setClassId(1); // 2 = product, 1 = category
 $econtentCategory->setParentId(2); // root node
 $econtentCategory->setBlocked(false);
 $econtentCategory->setHidden(false);
+$econtentCategory->setSection(1); // 1 = Standard
 
 $econtentCategory->setChangeDate(new \DateTime());
 $objectRepo->generateMetaData($econtentCategory, $categoryNodeId, $categoryName);
 $this->em->persist($econtentCategory);
 $this->em->flush();
+
 // import an attribute for the new category
 $econtentAttribute = new SveObjectAttributes();
 $econtentAttribute->setNodeId($categoryNodeId);
@@ -76,24 +81,6 @@ It creates attributes and associates them with the object.
 Different attributes have different data types (text is default).
 
 ``` php
-// get the doctrine repository
-$objectRepo = $this->em->getRepository(SveObject::class);
-
-// create a category
-$categoryNodeId = $objectRepo->getNextNodeId();
-
-$econtentCategory = new SveObject();
-$econtentCategory->setClassId(1); // 2 = product, 1 = category
-$econtentCategory->setParentId(2); // root node
-$econtentCategory->setBlocked(false);
-$econtentCategory->setHidden(false);
-
-$econtentCategory->setChangeDate(new \DateTime());
-$objectRepo->generateMetaData($econtentCategory, $categoryNodeId, 'Products');
-
-$this->em->persist($econtentCategory);
-$this->em->flush();
-
 // create a product and set its data fields
 $productNodeId = $objectRepo->getNextNodeId();
 
@@ -103,6 +90,7 @@ $econtentProduct->setParentId($categoryNodeId);
 $econtentProduct->setMainNodeId($productNodeId);
 $econtentProduct->setBlocked(false);
 $econtentProduct->setHidden(false);
+$econtentProduct->setSection(1); // 1 = Standard
 
 $econtentProduct->setChangeDate(new \DateTime());
 $objectRepo->generateMetaData($econtentProduct, $productNodeId, 'New Product');
