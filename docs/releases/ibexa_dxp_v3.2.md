@@ -77,7 +77,7 @@ You can now define User Group skeletons where you define policies and limitation
 You can then associate a number of such skeletons with a site template. 
 User Group skeletons survive deleting a site.
 
-See [JWT authentication](../guide/site_factory.md#configure-user-group-skeleton) for more information.
+See [Configure User Group skeleton](../guide/site_factory.md#configure-user-group-skeleton) for more information.
 
 ### Calendar widget improvements
 
