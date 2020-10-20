@@ -112,11 +112,16 @@ After a moment the installer will ask you to provide a few parameters:
 
 !!! caution
 
-    The app secret is crucial to the security of your installation. Be careful about how you generate it, and how you store it. Here's one way to generate a 64 characters long, secure random string as your secret, in PHP:
+    The app secret is crucial to the security of your installation. Be careful about how you generate it, and how you store it.
+    Here's one way to generate a 64 characters long, secure random string as your secret, in PHP:
+    
     ``` php
     print bin2hex(random_bytes(32));
     ```
-    Make sure you do not commit the secret to version control systems, or share it with anyone who does not strictly need it. If you have any suspicion that it may have been exposed, replace it with a new secret. The same goes for other secrets, like database password, Varnish invalidate token, JWT passphrase, etc.
+
+    Do not commit the secret to version control systems, or share it with anyone who does not strictly need it.
+    If you have any suspicion that the secret may have been exposed, replace it with a new one.
+    The same goes for other secrets, like database password, Varnish invalidate token, JWT passphrase, etc.
 
 !!! tip
 
