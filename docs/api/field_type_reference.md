@@ -432,7 +432,7 @@ $countryValue = new Country\Value(
     | Property | Type  | Description|
     |----------|-------|------------|
     | `destinationContentId`  |  `string` | Related content ID. |
-    | `alternativeText`  |  `string` |  The alternative image text . |
+    | `alternativeText`  |  `string` |  The alternative image text. |
     | `source` | `string` | Source of the DAM asset. |
 
 ## Date Field Type

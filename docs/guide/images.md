@@ -12,7 +12,7 @@ LiipImagineBundle only works on image blobs (no command line tool is needed). Se
 
     ## Images from a DAM system
 
-    If your installation is connected to a DAM to your system, you can use images directly from a DAM system in your content.
+    If your installation is connected to a DAM system, you can use images directly from a DAM system in your content.
 
     The [specific configuration](config_connector.md#dam-configuration) will depend on the DAM system in question.
 
