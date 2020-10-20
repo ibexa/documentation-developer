@@ -36,7 +36,7 @@ This way you can get and provide feedback during the issue's life. You are also 
 
 ## How to report an issue
 
-!!! enterprise "Issues in [[= product_name_ee =]]"
+!!! dxp "Issues in [[= product_name_ee =]]"
 
     If you have an Enterprise subscription, report your issues through the [support portal](https://support.ez.no)
     instead of JIRA. This ensures the issue can be quickly prioritized according to its impact.

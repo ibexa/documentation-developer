@@ -112,7 +112,7 @@ This Limitation combined with `ContentType` Limitation allows you to define busi
 |------|------|------|
 |`<ContentType_id>`|`<ContentType_name>`|All valid Content Type IDs can be set as value(s)|
 
-!!! enterprise
+!!! dxp
 
     ## Field Group Limitation
 

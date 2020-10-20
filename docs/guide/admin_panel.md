@@ -112,7 +112,7 @@ To allow the User to enter the Back Office interface and view all content, you n
 
 These Policies will be necessary for all other cases below that require access to the content structure.
 
-!!! enterprise
+!!! dxp
 
     #### Create content without publishing
     
@@ -192,7 +192,7 @@ Note that when a Policy has more than one Limitation, all of them have to apply,
 For example, a `Location` Limitation on Location `1/2` and `Subtree of Location` Limitation on `1/2/55` cannot work together, because no Location can satisfy both those requirements at the same time.
 If you want to combine more than one Limitation with the *or* relation, not *and*, you can split your Policy in two, each with one of these Limitations.
 
-!!! enterprise
+!!! dxp
 
     #### Editorial workflows
 

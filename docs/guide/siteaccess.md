@@ -23,7 +23,7 @@ Typical uses of a SiteAccess are:
 - different language versions of the same site identified by a uri part; one SiteAccess for one language
 - two different versions of a website: one SiteAccess with a public interface for visitors and one with a restricted interface for administrators
 
-!!! enterprise
+!!! dxp
 
     If you need to change between SiteAccesses in Site mode, do not use any functions in the page itself (for example, a language switcher). This may cause unexpected errors. Instead, switch between SiteAccesses using the SiteAccess bar above the page.
 
@@ -55,7 +55,7 @@ Collects SiteAccesses into groups that can be used later for configuration.
 
 The rule or set of rules by which SiteAccesses are matched. See [SiteAccess matching](siteaccess_matching.md) for more information.
 
-!!! enterprise
+!!! dxp
 
     ### SiteAccess selection in Page Builder
 

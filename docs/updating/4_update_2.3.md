@@ -26,7 +26,7 @@ mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-k
 
 ## Form builder
 
-!!! enterprise
+!!! dxp
 
     To create the *Forms* container under the content tree root use the following command:
 

@@ -221,8 +221,9 @@ html .md-footer-meta.md-typeset a {
     border: .4rem solid;
 }
 
-/* Enterprise */
+/* DXP */
 
+.admonition.dxp .admonition-title,
 .admonition.enterprise .admonition-title {
     padding-left: 1.2rem;
 }
@@ -231,6 +232,7 @@ html .md-footer-meta.md-typeset a {
     padding-left: 3.8rem;
 }
 
+.admonition.dxp, .admonition.dxp>.admonition-title, 
 .admonition.enterprise, .admonition.enterprise>.admonition-title {
     border-color: var(--enterprise-border);
     background-color: #ffffff;
@@ -258,7 +260,8 @@ html .md-footer-meta.md-typeset a {
 }
 
 .md-typeset .admonition.note>.admonition-title:before, .md-typeset .admonition.tip>.admonition-title:before,
-.md-typeset .admonition.caution>.admonition-title:before, .md-typeset .admonition.enterprise>.admonition-title:before,
+.md-typeset .admonition.caution>.admonition-title:before, .md-typeset .admonition.dxp>.admonition-title:before,
+.md-typeset .admonition.enterprise>.admonition-title:before,
 .md-typeset details.note>summary:before, .md-typeset details.tip>summary:before, .md-typeset details.caution>summary:before {
     content: "";
 }
@@ -276,7 +279,8 @@ html .md-footer-meta.md-typeset a {
 }
 
 .md-typeset .admonition.note>.admonition-title, .md-typeset .admonition.tip>.admonition-title,
-.md-typeset .admonition.caution>.admonition-title, .md-typeset .admonition.enterprise>.admonition-title,
+.md-typeset .admonition.caution>.admonition-title, .md-typeset .admonition.dxp>.admonition-title,
+.md-typeset .admonition.enterprise>.admonition-title,
 .md-typeset details.tip>summary, .md-typeset details.note>summary, .md-typeset details.caution>summary {
     background-repeat: no-repeat;
     background-size: 24px;
@@ -288,7 +292,8 @@ html .md-footer-meta.md-typeset a {
 /* General admonitions */
 
 .md-typeset .admonition.caution>.admonition-title, .md-typeset .admonition.note>.admonition-title,
-.md-typeset .admonition.tip>.admonition-title, .md-typeset .admonition.enterprise>.admonition-title,
+.md-typeset .admonition.tip>.admonition-title, .md-typeset .admonition.dxp>.admonition-title,
+.md-typeset .admonition.enterprise>.admonition-title,
 .md-typeset details.tip, .md-typeset details.tip>summary,
 .md-typeset details.note, .md-typeset details.note>summary {
     background-color: #ffffff;

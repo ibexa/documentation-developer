@@ -168,7 +168,7 @@ Additional Policies are needed for each section of the Admin.
 
 Users are treated like other content, so to create and modify them the User needs to have the same permissions as for managing other Content items.
 
-!!! enterprise
+!!! dxp
 
     #### Editorial workflows
 

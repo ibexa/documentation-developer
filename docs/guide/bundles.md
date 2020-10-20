@@ -51,7 +51,7 @@ The following tables give an overview of the main [[= product_name_oss =]] bundl
 |[ezplatform-user](https://github.com/ezsystems/ezplatform-user)|dedicated to [[= product_name_oss =]] User management.|
 |[BehatBundle](https://github.com/ezsystems/BehatBundle)|common reusable sentence implementations and other common needs for Behat testing in bundles/projects|
 
-!!! Enterprise
+!!! dxp
 
     |Bundle|Description|
     |---------|-----------|
@@ -75,7 +75,7 @@ The following tables give an overview of the main [[= product_name_oss =]] bundl
 |[ezplatform-multi-file-upload](https://github.com/ezsystems/ezplatform-multi-file-upload)|allows uploading multiple files as new content items at once|
 |[ezplatform-demo-assets](https://github.com/ezsystems/ezplatform-demo-assets)|contains binary install data for ezsystems/ezplatform-demo|
 
-!!! Enterprise
+!!! dxp
 
     |Bundle|Description|
     |---------|-----------|   

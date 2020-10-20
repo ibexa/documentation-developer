@@ -85,7 +85,7 @@ bin/console cache:pool:clear cache.redis
 
 ### Page builder
 
-!!! enterprise
+!!! dxp
 
     This step is only **required when updating from versions higher than 2.2 and lower than 2.5.3**.
     In case of versions lower than 2.2, please skip this step or ignore the information that indexes from a script below already exist.

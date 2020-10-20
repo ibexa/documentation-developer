@@ -1,6 +1,6 @@
 # Site Factory
 
-!!! enterprise
+!!! dxp
 
     Site Factory is a site management User Interface, integrated with Admin UI.
     It enables you to configure sites without editing:

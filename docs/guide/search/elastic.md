@@ -1,6 +1,6 @@
 # Elasticsearch search engine
 
-!!! enterprise
+!!! dxp
 
     Elasticsearch is an open-source, distributed, Java-based search engine that responds to queries
     in real-time and is easily scalable in reaction to changing processing needs.

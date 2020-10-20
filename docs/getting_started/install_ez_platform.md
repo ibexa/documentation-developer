@@ -52,7 +52,7 @@ composer -V
 
 ## Get [[= product_name_oss =]]
 
-!!! enterprise "[[= product_name_ee =]] and [[= product_name_commerce =]]"
+!!! dxp "[[= product_name_ee =]] and [[= product_name_commerce =]]"
 
     ### Set up authentication tokens
 
@@ -260,7 +260,7 @@ The configuration requires providing the following parameters:
 
     If you want an installation with PostgreSQL instead of MySQL, refer to [Using PostgreSQL](../guide/databases.md#using-postgresql).
 
-!!! enterprise "[[= product_name_commerce =]]"
+!!! dxp "[[= product_name_commerce =]]"
 
     ## Install and configure Solr for [[= product_name_commerce =]]
 
@@ -388,7 +388,7 @@ You should see the welcome page.
 
 ## Post-installation steps
 
-!!! enterprise
+!!! dxp
 
     ### Enable Date-based Publisher
 
@@ -411,13 +411,13 @@ You should see the welcome page.
 
     `rm ezp_cron.txt`
 
-!!! enterprise
+!!! dxp
 
     ### Enable the Link manager
 
     To make use of the [Link Manager](../guide/url_management.md), you must [set up cron](../guide/url_management.md#enable-automatic-url-validation).
 
-!!! enterprise "[[= product_name_commerce =]]"
+!!! dxp "[[= product_name_commerce =]]"
 
     #### JMS payment secret
 

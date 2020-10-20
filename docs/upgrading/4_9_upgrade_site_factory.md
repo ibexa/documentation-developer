@@ -1,6 +1,6 @@
 # 4.9. Upgrade Site Factory
 
-!!! enterprise
+!!! dxp
 
     For production, it is recommended to create the `ezsite` and `ezsite_public_access` tables manually importing their schemas definition:
     

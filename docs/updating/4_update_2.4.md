@@ -10,14 +10,14 @@ If you are updating from a version prior to 2.3, you have implement all the chan
 
 ## Workflow
 
-!!! enterprise
+!!! dxp
 
     When updating an Enterprise installation, you need to run a script to add database tables for the Editorial Workflow.
     You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/2.4/Resources/sql/schema.sql#L198
 
 ## Changes to the Forms folder
 
-!!! enterprise
+!!! dxp
 
     The built-in Forms folder is located in the Form Section in versions 2.4+.
 

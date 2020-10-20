@@ -1,6 +1,6 @@
 # Editorial workflow
 
-!!! enterprise
+!!! dxp
 
     The workflow functionality passes a Content item version through a series of stages.
 

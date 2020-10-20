@@ -206,7 +206,7 @@ ezplatform:
  
     In such a case use a strong, secure hash and make sure to keep the token secret.
 
-!!! enterprise
+!!! dxp
 
     #### Ensure proper Captcha behavior
 

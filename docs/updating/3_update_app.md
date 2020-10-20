@@ -14,7 +14,7 @@ If you want to first test how the update proceeds without actually updating any 
 
     ##### Adding EzSystemsPlatformEEAssetsBundle
 
-    !!! enterprise "EZ ENTERPRISE"
+    !!! dxp "EZ ENTERPRISE"
 
         When upgrading from releases between (and including) v1.10 and v2.1 to v2.2 and higher, you need to disable `EzSystemsPlatformEEAssetsBundle` by removing:
 

@@ -8,7 +8,7 @@ or for PostgreSQL:
 
 `psql <database_name> < upgrade/db/postgresql/ezplatform-2.5.latest-to-3.0.0.sql`
 
-!!! enterprise
+!!! dxp
 
     ### Date-based publisher database update
 

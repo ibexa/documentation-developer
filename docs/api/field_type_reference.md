@@ -790,7 +790,7 @@ $floatFieldCreateStruct->validatorConfiguration = [
 
 This Field Type does not support settings.
 
-!!! enterprise
+!!! dxp
 
     ## Form Field Type
 
@@ -1822,7 +1822,7 @@ services:
         tags: [{name: ezplatform.field_type.indexable, alias: example}]
 ```
 
-!!! enterprise
+!!! dxp
 
     ## Page Field Type
 
