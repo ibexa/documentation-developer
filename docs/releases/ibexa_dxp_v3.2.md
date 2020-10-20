@@ -73,7 +73,20 @@ See [JWT authentication](../guide/security.md#jwt-authentication) to learn for t
 
 ### Site Factory improvements
 
-### Scheduled blocks in calendar
+You can now define User Group skeletons where you define policies and limitations that apply to a specific User Group. 
+You can then associate a number of such skeletons with a site template. 
+User Group skeletons survive deleting a site.
+
+See [JWT authentication](../guide/site_factory.md#configure-user-group-skeleton) for more information.
+
+### Calendar widget improvements
+
+You can now see the scheduled blocks in the calendar after you configure the reveal and/or hide dates for them. 
+This way you can envision what content will be available in the future.
+
+Also, you can now apply new filters that are intended to help you declutter the calendar view.
+
+For more information, see [Calendar widget](https://doc.ibexa.co/projects/userguide/en/latest/publishing/advanced_publishing_options/#calendar-widget).
 
 ### Object state API improvements
 
