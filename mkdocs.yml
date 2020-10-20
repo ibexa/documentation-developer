@@ -137,6 +137,7 @@ nav:
             - 'Dynamic config': 'guide/config_dynamic.md'
             - 'Back Office config': 'guide/config_back_office.md'
             - 'Repository config': 'guide/config_repository.md'
+            - 'Connector config': 'guide/config_connector.md'
             - Shop configuration:
                 - 'Shop configuration': 'guide/shop_configuration/shop_configuration.md'
                 - 'Session handling': 'guide/shop_configuration/session_handling.md'

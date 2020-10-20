@@ -8,6 +8,14 @@ Image variations are generated with [LiipImagineBundle](https://github.com/liip
 
 LiipImagineBundle only works on image blobs (no command line tool is needed). See the [bundle's documentation to learn more on that topic](http://symfony.com/doc/master/bundles/LiipImagineBundle/configuration.html).
 
+!!! dxp
+
+    ## Images from a DAM system
+
+    If your installation is connected to a DAM system, you can use images directly from a DAM system in your content.
+
+    The [specific configuration](config_connector.md#dam-configuration) will depend on the DAM system in question.
+
 ## Configuring image variations
 
 Custom image variations are defined in `ezplatform.yaml` or any imported semantic configuration file. The definition is [dynamic](configuration.md#dynamic-configuration-with-the-configresolver), so it can be configured per SiteAccess and all the other scopes.
