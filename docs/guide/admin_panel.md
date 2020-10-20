@@ -266,7 +266,7 @@ Their specific use cases depend on your needs and the setup of your permission s
 
 ## Segments
 
-Segments are used to display specific content to specific Users.
+You can use Segments to display specific content to specific Users.
 They are used out of the box in the Targeting block in the Page.
 
 Segments are collected in Segment Groups:

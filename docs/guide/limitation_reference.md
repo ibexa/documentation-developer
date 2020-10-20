@@ -312,7 +312,7 @@ A Limitation to specify if the User has access to content within a specific Sect
 
 ## Segment Group Limitation
 
-A Limitation to specify if the User has access Segments within a specific Segment Group.
+A Limitation to specify whether the User has access Segments within a specific Segment Group.
 
 |                 |                                                                      |
 |-----------------|----------------------------------------------------------------------|
@@ -326,7 +326,7 @@ A Limitation to specify if the User has access Segments within a specific Segmen
 
 |Value|UI value|Description|
 |------|------|------|
-|`<Segment_group_id>`|`<Segment_group_name>`|All valid Segment Group IDs can be set as value(s)|
+|`<Segment_group_id>`|`<Segment_group_name>`|All valid Segment Group IDs can be set as value(s).|
 
 ## SiteAccess Limitation
 

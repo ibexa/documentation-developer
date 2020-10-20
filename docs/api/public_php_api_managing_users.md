@@ -23,13 +23,13 @@
     }
     ```
 
-    Similarly, you can load a Segment in a group using `SegmentationService::loadSegmentGroup()`:
+    Similarly, you can load a Segment in a group by using `SegmentationService::loadSegmentGroup()`:
 
     ``` php
     $segment = $this->segmentationService->loadSegment(12);
     ```
 
-    ### Checking assignation
+    ### Checking assignment
 
     You can check whether a User is assigned to a Segment with `SegmentationService::isUserAssignedToSegment()`:
 
@@ -85,12 +85,12 @@
 
     To update a Segment or a Segment Group, use `SegmentationService::updateSegment()`
     or `SegmentationService::updateSegmentGroup()` and provide it with `SegmentUpdateStruct`
-    or `SegmentGroupUpdateStruct` respectively.
+    or `SegmentGroupUpdateStruct`, respectively.
 
     ### Deleting Segments
 
     To delete a Segment or a Segment Group, use `SegmentationService::removeSegment()`
-    or `SegmentationService::removeSegmentGroup()` respectively:
+    or `SegmentationService::removeSegmentGroup()`, respectively:
 
     ``` php
     $this->segmentationService->removeSegmentGroup($group);
