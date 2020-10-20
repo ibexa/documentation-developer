@@ -18,11 +18,3 @@ Refer to their respective pages for instructions on how to install them.
 |Bundle|Description|
 |------|-----------|
 |[RepositoryProfilerBundle](https://github.com/ezsystems/RepositoryProfilerBundle)| profiles Platform API/SPI and sets up scenarios to be able to continuously test to keep track of performance regressions of repository and underlying storage engines|
-
-## Educational
-
-These bundles are not necessarily something you would install, but they are useful for learning process:
-
-|Bundle|Description|
-|------|-----------|
-|[ezplatform-com](https://github.com/ezsystems/ezplatform-com)|the Ibexa Developer Hub for [[= product_name_oss =]] (example site)|
