@@ -116,7 +116,7 @@ After a moment the installer will ask you to provide a few parameters:
     ``` php
     print bin2hex(random_bytes(32));
     ```
-    Make sure you do not commit the secret to version control systems, or share it with anyone who does not strictly need it. If you have any suspicion that it may have been exposed, replace it with a new secret.
+    Make sure you do not commit the secret to version control systems, or share it with anyone who does not strictly need it. If you have any suspicion that it may have been exposed, replace it with a new secret. The same goes for other secrets, like database password, Varnish invalidate token, JWT passphrase, etc.
 
 !!! tip
 
