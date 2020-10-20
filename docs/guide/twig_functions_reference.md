@@ -350,7 +350,7 @@ or [`ez_render_location()`](#ez_render_location) depending on the provided param
 |------|------|------|
 |`content`|`eZ\Publish\API\Repository\Values\Content\Content`|Content item to render.|
 |`location`|`eZ\Publish\API\Repository\Values\Content\Location`|Location of the Content item to render.|
-|`method`|`string`|[Rendering method](#rendering-methods). One of: `inline`, `subrequest`, `esi`.|
+|`method`|`string`|[Rendering method](#rendering-methods). One of: `direct`, inline`, `esi`, `ssi`.|
 |`viewType`|`string`|[View type](templates.md#full-line-and-other-views).|
 
 #### Rendering methods
@@ -358,9 +358,10 @@ or [`ez_render_location()`](#ez_render_location) depending on the provided param
 The following rendering methods are available out of the box for the `ez_render()`, `ez_render_content()`,
 and `ez_render_location()` functions:
 
-- `inline` - (default) renders the Content item without using a request
-- `subrequest` - sends a request to the server and inserts the response
-- `esi` - uses the Edge Side Include mechanism to render the correct tag that is handled by reverse proxy
+- `direct` - (default) renders the Content item without using a request
+- `inline` - Symfony inline rendering method, sends a request to the server and inserts the response
+- `esi` - uses the Symfony [Edge Side Include mechanism](https://symfony.com/doc/current/http_cache/esi.html) to render the correct tag that is handled by reverse proxy
+- `ssi` - uses the Symfony [Server Side Include mechanism](https://symfony.com/doc/current/http_cache/ssi.html) to render the correct tag that is handled by the web server
 
 ### `ez_render_content`
 
@@ -376,7 +377,7 @@ It is rendered by default using the `embed` view.
 |Argument name|Type|Description|
 |------|------|------|
 |`content`|`eZ\Publish\API\Repository\Values\Content\Content`|Content item to render.|
-|`method`|`string`|[Rendering method](#rendering-methods). One of: `inline`, `subrequest`, `esi`.|
+|`method`|`string`|[Rendering method](#rendering-methods). One of: `direct`, inline`, `esi`, `ssi`.|
 |`viewType`|`string`|[View type](templates.md#full-line-and-other-views).|
 
 ### `ez_render_location`
@@ -393,7 +394,7 @@ It is rendered by default using the `embed` view.
 |Argument name|Type|Description|
 |------|------|------|
 |`location`|`eZ\Publish\API\Repository\Values\Content\Location`|Location of the Content item to render.|
-|`method`|`string`|[Rendering method](#rendering-methods). One of: `inline`, `subrequest`, `esi`.|
+|`method`|`string`|[Rendering method](#rendering-methods). One of: `direct`, inline`, `esi`, `ssi`.|
 |`viewType`|`string`|[View type](templates.md#full-line-and-other-views).|
 
 ### `ez_render_field`
