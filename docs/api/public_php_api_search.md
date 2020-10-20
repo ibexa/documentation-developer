@@ -490,6 +490,23 @@ according to the value of the `topic` Field in the `article` Content Type:
 $query->aggregations[] = new SelectionTermAggregation('selection', 'article', 'topic');
 ```
 
+Tu use a range aggregation you additionally must provide a `ranges` array containing a set of `Range` objects
+that define the borders of the specific range sets.
+
+``` php
+$query->aggregations[] = new IntegerRangeAggregation('range', 'person', 'age',
+[
+    new Query\Aggregation\Range(1,30),
+    new Query\Aggregation\Range(30,60),
+    new Query\Aggregation\Range(60,null),
+]);
+```
+
+!!! note
+
+    The beginning of the range is included and the end is excluded,
+    so a range between 1 and 30 will include value `1`, but not include `30`.
+
 See [Agrregation reference](../guide/search/aggregation_reference.md) for details of all available aggregations.
 
 ## Faceted search

@@ -12,12 +12,14 @@ There are three types of aggregations:
 
 |Name | Type | Based on|
 |---|---|---|
+|AuthorTermAggregation | Term | Content Type  |
 |ContentTypeTermAggregation | Term | Content Type  |
 |ContentTypeGroupTermAggregation | Term | Content Type group |
 |DateMetadataRangeAggregation | Range | Content creation/modification/publication date |
 |LanguageTermAggregation | Term | Content language |
 |ObjectStateTermAggregation | Term | Object state |
 |SectionTermAggregation | Term | Section |
+|SubtreeTermAggregation | Term | Content Type  |
 |UserMetadataTermAggregation | Term | Content owner/owner group or modifier |
 |VisibilityTermAggregation | Term | Content/Location visibility |
 
