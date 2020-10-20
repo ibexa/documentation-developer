@@ -88,6 +88,14 @@ Also, you can now apply new filters that are intended to help you declutter the 
 
 For more information, see [Calendar widget](https://doc.ibexa.co/projects/userguide/en/latest/publishing/advanced_publishing_options/#calendar-widget).
 
+### Cloning content types
+
+When creating Content Types in the Back Office, you do not have to start from scratch.
+You can now clone an existing Content Type instead.
+
+To do this, click the **Copy** icon located next to the Content Type that you want to clone.
+Then, refresh the view to see an updated list of Content Types.
+
 ### Object state API improvements
 
 You can now use `ObjectStateService::loadObjectStateByIdentifier()` and `ObjectStateService::loadObjectStateGroupByIdentifier()`
