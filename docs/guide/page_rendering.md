@@ -1,6 +1,6 @@
 # Page rendering
 
-!!! enterprise
+!!! dxp
 
     ### Page layouts
 

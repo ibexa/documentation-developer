@@ -1,6 +1,6 @@
 # Routing system
 
-eZ Commerce uses its own routing/URL matching solution to avoid conflicting with the eZ Platform routing system
+[[= product_name_com =]] uses its own routing/URL matching solution to avoid conflicting with the [[= product_name_oss =]] routing system
 and to enable using Platform API in commerce routes.
 
 !!! note

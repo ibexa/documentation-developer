@@ -1,6 +1,6 @@
 # Catalog
 
-eZ Commerce generates the shop catalog automatically from the products and content in the installation or an ERP/PIM system.
+[[= product_name_com =]] generates the shop catalog automatically from the products and content in the installation or an ERP/PIM system.
 
 The source of products depends on the data provider you have configured.
 
@@ -40,6 +40,6 @@ to learn how to change the data provider.
 
 ![product catalog](img/product_catalog_2.png)
 
-A category represents a product group. eZ Commerce enables showing a product category page using different layouts (by default sub-categories only, products only or both on the entry page of a category). In the Back Office you can also configure if bestsellers of the group should be displayed.
+A category represents a product group. [[= product_name_com =]] enables showing a product category page using different layouts (by default sub-categories only, products only or both on the entry page of a category). In the Back Office you can also configure if bestsellers of the group should be displayed.
 
 ![both](img/catalog_categories_and_products.png)

@@ -1,6 +1,6 @@
 # Newsletter interface
 
-eZ Commerce provides a common interface for newsletter providers: `Siso\Bundle\NewsletterBundle\Api\NewsletterInterface`. If another newsletter provider is used, the following methods have to be implemented.
+[[= product_name_com =]] provides a common interface for newsletter providers: `Siso\Bundle\NewsletterBundle\Api\NewsletterInterface`. If another newsletter provider is used, the following methods have to be implemented.
 
 ## subscribeNewsletter/unsubscribeNewsletter
 

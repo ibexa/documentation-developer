@@ -6,11 +6,11 @@
 
 To set up the starter website, you need to follow these steps:
 
-## Get a clean eZ Enterprise installation
+## Get a clean [[= product_name_ee =]] installation
 
-To begin the tutorial, you need a clean installation of eZ Platform Enterprise Edition.
+To begin the tutorial, you need a clean installation of [[= product_name_ee =]].
 
-Get it by following the [Install eZ Platform](../../getting_started/install_ez_platform.md) guide.
+Get it by following the [Install [[= product_name_oss =]]](../../getting_started/install_ez_platform.md) guide.
 
 ## Create Content Types
 
@@ -55,7 +55,7 @@ Edit it to remove the Image Field that has a Content Relation (ezobjectrelation)
 
 !!! tip
 
-    For an introduction on how to use templates in eZ Platform, take a look at the [Building a Bicycle Route Tracker in eZ Platform tutorial](../platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md)
+    For an introduction on how to use templates in [[= product_name_oss =]], take a look at the [Building a Bicycle Route Tracker in [[= product_name_oss =]] tutorial](../platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md)
 
 First, delete the `config/packages/ezplatform_welcome_page.yaml` file to remove the welcome page.
 
@@ -110,7 +110,7 @@ Next, create a few Content items of proper Content Types in each of these folder
 - 3 Dog Breeds
 - 3 Tips
 
-Finally, remove the "eZ Platform" folder. You will not need it for this tutorial.
+Finally, remove the "Ibexa Platform" folder. You will not need it for this tutorial.
 
 ### Add images
 

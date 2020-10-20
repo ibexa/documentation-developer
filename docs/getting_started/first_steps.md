@@ -1,12 +1,12 @@
 # First steps
 
-This page lists first steps you can take after installing eZ Platform.
+This page lists first steps you can take after installing [[= product_name_oss =]].
 These are most common actions you may need to take in a new installation.
 
 !!! tip "Beginner tutorial"
 
     To go through a full tutorial that leads from a clean installation to creating a full site,
-    see [Building a bicycle route tracker in eZ Platform](../tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md).
+    see [Building a bicycle route tracker in [[= product_name_oss =]]](../tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md).
 
 ## Remove welcome page
 
@@ -35,7 +35,12 @@ module.exports = [ eZConfig, ...customConfigs ];
 
 ## Create a Content Type
 
-1\. Go to the Back Office: `<your_domain>/admin`.
+1\. In your browser, go to the Back Office: `<your_domain>/admin`, and use the default credentials to log in: `admin/publish`.
+
+!!! note "Password change"
+
+    You will be requested to change your password at first login. 
+    For more information about passwords, see [Passwords](../guide/user_management/user_management.md#passwords).
 
 2\. Select Admin and go to Content Types.
 

@@ -10,7 +10,7 @@
 
 ### Content scheduling
 
-!!! enterprise
+!!! dxp
 
     You can now schedule content on a Page to become visible at a specific time in the future.
 
@@ -37,7 +37,7 @@
 
 ### Form Builder
 
-!!! enterprise
+!!! dxp
 
     The new Form Builder enables you to create Form Content items with multiple form fields.
 

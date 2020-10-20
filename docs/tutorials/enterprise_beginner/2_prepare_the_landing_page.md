@@ -35,7 +35,7 @@ Remove the Tag block. Hover over it and select the trash icon from the menu.
 Switch to editing Page Fields and change the Title of the page to "Home".
 
 The design for the website you are making needs a layout with two zones: a main column and a narrower sidebar.
-eZ Enterprise provides only a one-zone default layout, so you need to create a new one.
+[[= product_name_ee =]] provides only a one-zone default layout, so you need to create a new one.
 
 Preparing a new layout requires three things:
 

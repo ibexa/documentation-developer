@@ -1,12 +1,12 @@
-# eZ Enterprise Beginner Tutorial - It's a Dog's World
+# [[= product_name_ee =]] Beginner Tutorial - It's a Dog's World
 
-This tutorial is a step-by-step guide to building a website with eZ Platform Enterprise Edition.
+This tutorial is a step-by-step guide to building a website with [[= product_name_ee =]].
 It focuses on creating a front page using a feature called **Page Builder**. 
 
 ### Intended audience
 
-This tutorial is intended for users who have basic knowledge of eZ Platform.
-Ideally, you should be familiar with the concepts covered in the [Building a Bicycle Route Tracker in eZ Platform tutorial](../platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md).
+This tutorial is intended for users who have basic knowledge of [[= product_name_oss =]].
+Ideally, you should be familiar with the concepts covered in the [Building a Bicycle Route Tracker in [[= product_name_oss =]] tutorial](../platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md).
 
 ### Learning outcomes
 

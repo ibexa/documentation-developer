@@ -126,7 +126,7 @@ Example:
 php bin/console silversolutions:http-cache:purge 1056 222 --env="prod"
 ```
 
-### Purging using eZ Platform service
+### Purging using [[= product_name_oss =]] service
 
 If you programmatically updated product data, basket or some other cached content,
 you need to update caches to show users current information.

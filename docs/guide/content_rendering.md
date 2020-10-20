@@ -2,7 +2,7 @@
 
 ## The ViewController
 
-eZ Platform comes with a native controller to display your content, known as the **`ViewController`**. It is called each time you try to reach a Content item from its **URL alias** (human-readable, translatable URI generated for any content based on URL patterns defined per Content Type). It is able to render any content created in the admin interface or via the [Public API Guide](../api/public_php_api.md).
+[[= product_name_oss =]] comes with a native controller to display your content, known as the **`ViewController`**. It is called each time you try to reach a Content item from its **URL alias** (human-readable, translatable URI generated for any content based on URL patterns defined per Content Type). It is able to render any content created in the admin interface or via the [Public API Guide](../api/public_php_api.md).
 
 It can also be called straight by its direct URI: 
 
@@ -283,7 +283,7 @@ class MyViewProvider implements ViewProvider
 
 ## Events
 
-This section presents the events that are triggered by eZ Platform.
+This section presents the events that are triggered by [[= product_name_oss =]].
 
 ### eZ Publish Core
 
@@ -297,7 +297,7 @@ This section presents the events that are triggered by eZ Platform.
 
 ### Twig Helper
 
-eZ Platform comes with a Twig helper as a [global variable](http://symfony.com/doc/5.0/cookbook/templating/global_variables.html) named `ezplatform`.
+[[= product_name_oss =]] comes with a Twig helper as a [global variable](http://symfony.com/doc/5.0/cookbook/templating/global_variables.html) named `ezplatform`.
 
 This helper is accessible from all Twig templates and allows you to easily retrieve useful information.
 

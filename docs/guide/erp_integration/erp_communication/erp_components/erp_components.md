@@ -12,7 +12,7 @@ Although this is also a Symfony service, it does not mean that all Symfony servi
 It includes an event-observer pattern which provides a hook into the message creation and data feeding.
 - Transport - The transport component is responsible for the serialization and network communication to the remote system.
 - Mapping - The mapping API is used to transform a specific message format into another.
-This may be necessary if the remote system expects a different data structure than the one which is used in the eZ Commerce.
+This may be necessary if the remote system expects a different data structure than the one which is used in the [[= product_name_com =]].
 
 The general process looks like this:
 

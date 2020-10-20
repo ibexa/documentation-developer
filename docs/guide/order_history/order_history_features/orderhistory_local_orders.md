@@ -14,7 +14,7 @@ siso_order_history.default.use_local_documents: false
 
 The feature uses event listeners, so the standard logic does not change if this value is set to false.
 
-eZ Commerce offers an event listener which uses the `ConfigurationEvents::READ_CONFIGURATION` event.
+[[= product_name_com =]] offers an event listener which uses the `ConfigurationEvents::READ_CONFIGURATION` event.
 This listener is disabled by default, so you need to activate it in your project:
 
 ``` yaml

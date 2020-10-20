@@ -1,6 +1,6 @@
 # Fields for eCommerce data
 
-eZ Commerce uses custom Fields to store eCommerce related data, for example for the catalog or basket.
+[[= product_name_com =]] uses custom Fields to store eCommerce related data, for example for the catalog or basket.
 
 The shop provides a flexible way to store data using concrete instances of classes implementing `FieldInterface` and inheriting from the `AbstractField` class.
 Fields are used for fixed attributes of a product/catalog and for flexible attributes (property `dataMap` in [`CatalogElement`](../../../guide/catalog/catalog_api/catalog_element.md)).

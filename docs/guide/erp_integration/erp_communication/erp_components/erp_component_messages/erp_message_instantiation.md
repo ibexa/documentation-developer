@@ -3,7 +3,7 @@
 Message creation uses the mechanics of the [Symfony event dispatcher system.](https://symfony.com/doc/3.4/components/event_dispatcher.html)
 
 When a new message is required, a specific service delivers a message object of specific type (e.g. `calculate_sales_order`).
-eZ Commerce then dispatches an `InquireMessageEvent` event within that service,
+[[= product_name_com =]] then dispatches an `InquireMessageEvent` event within that service,
 containing the requested message type and a reference to an `AbstractMessage` object.
 Specific listeners which can create messages can register/subscribe to that event and check if they can create that type of message.
 In Symfony you can register new listeners for events as services via configuration.

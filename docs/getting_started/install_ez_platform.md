@@ -1,15 +1,15 @@
-# Install eZ Platform
+# Install [[= product_name_oss =]]
 
 !!! note
 
     Installation for production is only supported on Linux.
 
-    To install eZ Platform for development on macOS or Windows,
+    To install [[= product_name_oss =]] for development on macOS or Windows,
     see [Install on macOS or Windows](../community_resources/installing-on-mac-os-and-windows.md).
 
 ## Prepare the work environment
 
-To install eZ Platform you need a stack with your operating system, MySQL and PHP.
+To install [[= product_name_oss =]] you need a stack with your operating system, MySQL and PHP.
 
 You can install it by following your favorite tutorial, for example: [Install LAMP stack on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04).
 
@@ -50,13 +50,13 @@ composer -V
 
     If you do so, you must replace `composer` with `php -d memory_limit=-1 composer.phar` in all commands below.
 
-## Get eZ Platform
+## Get [[= product_name_oss =]]
 
-!!! enterprise "Enterprise and Commerce"
+!!! dxp "[[= product_name_ee =]] and [[= product_name_com =]]"
 
     ### Set up authentication tokens
 
-    Enterprise and Commerce subscribers have access to commercial packages at [updates.ez.no/bul/](https://updates.ez.no/bul/).
+    [[= product_name_ee =]] and [[= product_name_com =]] subscribers have access to commercial packages at [updates.ez.no/bul/](https://updates.ez.no/bul/).
     The site is password-protected. 
     You must set up authentication tokens to access the site.
 
@@ -111,7 +111,7 @@ composer -V
 
 ## Create project
 
-There are two ways to get an instance of eZ Platform. 
+There are two ways to get an instance of [[= product_name_oss =]]. 
 The result is the same, so you can use the way you prefer:
 
 - [Download or clone](#a-download-or-clone)
@@ -119,7 +119,7 @@ The result is the same, so you can use the way you prefer:
 
 ### A. Download or clone
 
-=== "eZ Platform"
+=== "[[= product_name_oss =]]"
 
     You can either:
 
@@ -134,7 +134,7 @@ The result is the same, so you can use the way you prefer:
     Check out a tag (e.g. `git checkout v1.13.4`) that you want to use in a project.
     Use branches (e.g. `master` or `1.13`) only when contributing.
 
-=== "Enterprise and Commerce"
+=== "[[= product_name_ee =]] and [[= product_name_com =]]"
 
     Download an archive from the [Support portal](https://support.ez.no/Downloads).
 
@@ -150,7 +150,7 @@ Composer looks inside the `composer.json` file and installs all packages require
 
 ### B. Create a project with Composer
 
-=== "eZ Platform"
+=== "[[= product_name_oss =]]"
 
     To use Composer to instantly create a project in the current folder with all the dependencies, run the following command:
 
@@ -158,9 +158,9 @@ Composer looks inside the `composer.json` file and installs all packages require
     composer create-project --keep-vcs ezsystems/ezplatform .
     ```
 
-=== "Enterprise"
+=== "[[= product_name_ee =]]"
 
-    To install a new project with the `composer create-project` command to get the latest version of eZ Enterprise,
+    To install a new project with the `composer create-project` command to get the latest version of [[= product_name_ee =]],
     you must first inform the Composer, which token to use before the project folder is created.
 
     To do this, select the correct updates.ez.no channel. The following channels are available:
@@ -181,9 +181,9 @@ Composer looks inside the `composer.json` file and installs all packages require
 
         If you started with a trial installation and want to use the software under the [BUL license instead of a TTL license](https://ibexa.co/About-our-Software/Licenses-and-agreements/), you must change the channel setting that you have just made.
 
-=== "Commerce"
+=== "[[= product_name_com =]]"
 
-    To install a new project with the `composer create-project` command to get the latest version of eZ Commerce,
+    To install a new project with the `composer create-project` command to get the latest version of [[= product_name_com =]],
     you must first inform the Composer, which token to use before the project folder is created.
 
     To do this, select the correct updates.ez.no channel. The following channels are available:
@@ -260,9 +260,9 @@ The configuration requires providing the following parameters:
 
     If you want an installation with PostgreSQL instead of MySQL, refer to [Using PostgreSQL](../guide/databases.md#using-postgresql).
 
-!!! enterprise "Commerce"
+!!! dxp "[[= product_name_com =]]"
 
-    ## Install and configure Solr for Commerce
+    ## Install and configure Solr for [[= product_name_com =]]
 
     Search in the shop front end requires Solr as search engine. To install it, run the included script:
 
@@ -282,9 +282,9 @@ The configuration requires providing the following parameters:
     SEARCH_ENGINE=solr
     ```
 
-## Install eZ Platform
+## Install [[= product_name_oss =]]
 
-Install eZ Platform and create a database with:
+Install [[= product_name_oss =]] and create a database with:
 
 ``` bash
 composer ezplatform-install
@@ -294,7 +294,7 @@ Before executing the command make sure that the database user has sufficient per
 
 If Composer asks for your token, you must log in to your GitHub account and generate a new token
 (edit your profile and go to **Developer settings** > **Personal access tokens** > **Generate new token** with default settings).
-This operation is performed only once, when you install eZ Platform for the first time.
+This operation is performed only once, when you install [[= product_name_oss =]] for the first time.
 
 ## Use PHPs built-in server
 
@@ -314,7 +314,7 @@ symfony serve
 
 ## Prepare the installation for production
 
-To use eZ Platform with an HTTP server, you need to [set up directory permissions](#set-up-permissions) and [prepare a virtual host](#set-up-virtual-host).
+To use [[= product_name_oss =]] with an HTTP server, you need to [set up directory permissions](#set-up-permissions) and [prepare a virtual host](#set-up-virtual-host).
 
 ### Set up permissions
 
@@ -377,17 +377,18 @@ For example, on Ubuntu use:
 service apache2 restart
 ```
 
-Open your project in the browser and you should see the welcome page.
+Open your project in the browser by visiting the domain address, for example `http://localhost:8080`.
+You should see the welcome page.
 
 !!! tip "eZ Launchpad for quick deployment"
 
-    To get your eZ Platform installation up and running quickly,
+    To get your [[= product_name_oss =]] installation up and running quickly,
     use the Docker-based [eZ Launchpad](https://ezsystems.github.io/launchpad/), which takes care of the whole setup for you.
-    eZ Launchpad is supported by the eZ Community.
+    eZ Launchpad is supported by the Ibexa Community.
 
 ## Post-installation steps
 
-!!! enterprise
+!!! dxp
 
     ### Enable Date-based Publisher
 
@@ -410,15 +411,15 @@ Open your project in the browser and you should see the welcome page.
 
     `rm ezp_cron.txt`
 
-!!! enterprise
+!!! dxp
 
     ### Enable the Link manager
 
     To make use of the [Link Manager](../guide/url_management.md), you must [set up cron](../guide/url_management.md#enable-automatic-url-validation).
 
-!!! enterprise "Commerce"
+!!! dxp "[[= product_name_com =]]"
 
     #### JMS payment secret
 
-    To provide the `JMS_PAYMENT_SECRET` secret for the Commerce payment system, run `./vendor/defuse/php-encryption/bin/generate-defuse-key`
+    To provide the `JMS_PAYMENT_SECRET` secret for the [[= product_name_com =]] payment system, run `./vendor/defuse/php-encryption/bin/generate-defuse-key`
     and use the generated secret.
