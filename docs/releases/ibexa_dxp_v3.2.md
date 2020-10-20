@@ -26,7 +26,8 @@ and use assets such as images directly from the DAM in your content.
 
 ### Autosave
 
-eZ Platform can now save your edits in a Content item or product automatically to help you preserve the progress in an event of a failure. For more information, see [Autosave](https://doc.ezplatform.com/projects/userguide/en/latest/publishing/publishing/#autosave).
+[[= product_name_oss =]] can now save your edits in a Content item or product automatically to help you preserve the progress in an event of a failure.
+For more information, see [Autosave](https://doc.ibexa.co/projects/userguide/en/latest/publishing/publishing/#autosave).
 
 ### Aggregation API
 
@@ -54,26 +55,24 @@ as well as assign Users to Segments.
 
 Three new Twig helpers are available to make rendering content easier.
 
-Use `ez_render_content(content)` and `ez_render_location(location)` to render the selected Content item in `embed` view.
+Use `ez_render_content(content)` and `ez_render_location(location)` to render the selected Content item.
 
 You can also use `ez_render()` and provide it with either a content or Location object.
 
 See [Using `ez_render` Twig helpers](../guide/templates.md#using-ez_render-twig-helpers) for more information.
-
-### Further Elastic search support
 
 ### JWT authentication
 
 You can now use JWT tokens to authenticate in [REST API](../api/general_rest_usage.md#jwt-authentication)
 and [GraphQL](../api/graphql.md#jwt-authentication).
 
-See [JWT authentication](../guide/security.md#jwt-authentication) to learn for to configure this authentication method.
+See [JWT authentication](../guide/security.md#jwt-authentication) to learn how to configure this authentication method.
 
 ## Other changes
 
 ### Site Factory improvements
 
-You can now define User Group skeletons where you define policies and limitations that apply to a specific User Group. 
+You can now define User Group skeletons where you define Policies and Limitations that apply to a specific User Group. 
 You can then associate a number of such skeletons with a site template. 
 User Group skeletons survive deleting a site.
 
@@ -103,6 +102,6 @@ to [get Object states and Object state groups](../api/public_php_api_managing_re
 
 ## Full changelog
 
-| eZ Platform  | eZ Enterprise  | eZ Commerce |
+| [[= product_name_oss =]]  | [[= product_name_ee =]]  | [[= product_name_com =]] |
 |--------------|------------|------------|
-| [eZ Platform v3.2.0](https://github.com/ezsystems/ezplatform/releases/tag/v3.2.0) | [eZ Enterprise v3.2.0](https://github.com/ezsystems/ezplatform-ee/releases/tag/v3.2.0) | [eZ Commerce v3.2.0](https://github.com/ezsystems/ezplatform/releases/tag/v3.2.0)
+| [[[= product_name_oss =]] v3.2.0](https://github.com/ezsystems/ezplatform/releases/tag/v3.2.0) | [[[= product_name_ee =]] v3.2.0](https://github.com/ezsystems/ezplatform-ee/releases/tag/v3.2.0) | [[[= product_name_com =]] v3.2.0](https://github.com/ezsystems/ezplatform/releases/tag/v3.2.0)
