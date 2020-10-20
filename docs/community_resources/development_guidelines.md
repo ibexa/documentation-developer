@@ -1,12 +1,12 @@
 # Development guidelines
 
-These are the development/coding guidelines for eZ Platform kernel, they are the same if you intend to write Bundles, hack on eZ Platform itself or create new functionality for or on top of eZ Platform.
+These are the development/coding guidelines for [[= product_name_oss =]] kernel, they are the same if you intend to write Bundles, hack on [[= product_name_oss =]] itself or create new functionality for or on top of [[= product_name_oss =]].
 
-Like most development guidelines these aims to improve security, maintainability, performance and readability of our software. They follow industry standards but sometimes extend them to cater specifically to our needs for eZ Platform ecosystem. The next sections will cover all relevant technologies from a high level point of view.
+Like most development guidelines these aims to improve security, maintainability, performance and readability of our software. They follow industry standards but sometimes extend them to cater specifically to our needs for [[= product_name_oss =]] ecosystem. The next sections will cover all relevant technologies from a high level point of view.
 
 ## HTTP
 
-eZ Platform is a web software that is reached via HTTP in most cases, out of the box in eZ Platform kernel this is specifically: web (usually HTML) or REST.
+[[= product_name_oss =]] is a web software that is reached via HTTP in most cases, out of the box in [[= product_name_oss =]] kernel this is specifically: web (usually HTML) or REST.
 
 We aim to follow the [latest](http://trac.tools.ietf.org/wg/httpbis/trac/wiki#HTTP1.1Deliverables) stable HTTP specification, and industry best practice:
 
@@ -57,13 +57,13 @@ For now see the living [REST v2 specification](https://doc.ezplatform.com/rest-a
 
 ## UI
 
-eZ Platform is often used as a web content management software, so we always strive to use the HTML/CSS/EcmaScript specifications correctly, and keep new releases up to date on new revisions of those. We furthermore always try to make sure our software gracefully degrades making sure it is useful even on older or less capable web clients (browsers), the industry terms for this approach are:
+[[= product_name_oss =]] is often used as a web content management software, so we always strive to use the HTML/CSS/EcmaScript specifications correctly, and keep new releases up to date on new revisions of those. We furthermore always try to make sure our software gracefully degrades making sure it is useful even on older or less capable web clients (browsers), the industry terms for this approach are:
 
 - [Progressive enhancement](http://en.wikipedia.org/wiki/Progressive_enhancement "Progressive enhancement")
 - [Unobtrusive JavaScript](http://en.wikipedia.org/wiki/Unobtrusive_JavaScript)
 - [Responsive Design](http://en.wikipedia.org/wiki/Responsive_Web_Design "Responsive Web Design")
 
-All these terms in general recommends aiming for the minimum standard first, and enhance with additional features/styling if the client is capable of doing so. In essence this allows eZ Platform to be "Mobile first" if the design allows for it, which is recommended. But eZ Platform should always also be fully capable of having different sets of web presentations for different devices using one or several sets of SiteAccess matching rules for the domain, port or URI, so any kind of device detection can be used together with eZ Platform, making it fully possible to write for instance [WAP](http://en.wikipedia.org/wiki/Wireless_Application_Protocol) based websites and interfaces on top of eZ Platform.
+All these terms in general recommends aiming for the minimum standard first, and enhance with additional features/styling if the client is capable of doing so. In essence this allows [[= product_name_oss =]] to be "Mobile first" if the design allows for it, which is recommended. But [[= product_name_oss =]] should always also be fully capable of having different sets of web presentations for different devices using one or several sets of SiteAccess matching rules for the domain, port or URI, so any kind of device detection can be used together with [[= product_name_oss =]], making it fully possible to write for instance [WAP](http://en.wikipedia.org/wiki/Wireless_Application_Protocol) based websites and interfaces on top of [[= product_name_oss =]].
 
 ### WEB Forms/Ajax
 
@@ -84,7 +84,7 @@ Admin operations that can have a severe impact on the web applications should re
 
 ### Public API
 
-The [Public PHP API](../api/public_php_api) provided in eZ Platform is in most cases in charge of checking permissions to data for you, but some API's are not documented to throw `UnauthorizedException`, which means that it is the consumer of the API's who is responsible for checking permissions.
+The [Public PHP API](../api/public_php_api) provided in [[= product_name_oss =]] is in most cases in charge of checking permissions to data for you, but some API's are not documented to throw `UnauthorizedException`, which means that it is the consumer of the API's who is responsible for checking permissions.
 
 The following example shows how this is done in the case of loading users:
 

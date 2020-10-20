@@ -95,7 +95,7 @@ For more details, see [View provider configuration](content_rendering.md#config
 
 ### Template file
 
-Templates in eZ Platform are written in the Twig templating language.
+Templates in [[= product_name_oss =]] are written in the Twig templating language.
 
 !!! note "Twig templates in short"
 

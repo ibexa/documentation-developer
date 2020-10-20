@@ -2,7 +2,7 @@
 
 ![](../img/basket_1.jpg)
 
-eZ Commerce provides a flexible basket system. A basket is identified by: 
+[[= product_name_com =]] provides a flexible basket system. A basket is identified by: 
 
 - session ID (if the user is not logged in)
 - user ID (if the user is logged in)
@@ -85,7 +85,7 @@ The basket contains a flag that controls if a recalculation has to be done (time
 
 ## Merging of baskets
 
-After the user logs in, eZ Commerce merges the products from the existing basket (filled as an anonymous user) and a basket which is already stored for the given user ID.
+After the user logs in, [[= product_name_com =]] merges the products from the existing basket (filled as an anonymous user) and a basket which is already stored for the given user ID.
 
 If an SKU is already present in a basket, a new line is created in the user's basket.
 

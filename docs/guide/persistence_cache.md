@@ -13,8 +13,8 @@ For details on how to reuse this Cache service in your own custom code, see belo
 
 ## Transparent cache
 
-With the persistence cache, just like with the HTTP cache, eZ Platform tries to follow principles of transparent caching.
-This can shortly be described as a cache which is invisible to the end user (admin/editors) of eZ Platform where content
+With the persistence cache, just like with the HTTP cache, [[= product_name_oss =]] tries to follow principles of transparent caching.
+This can shortly be described as a cache which is invisible to the end user (admin/editors) of [[= product_name_oss =]] where content
 is always returned *fresh*. In other words, there should be no need to manually clear the cache like it was frequently
 the case with eZ Publish 4.x. This is possible thanks to an interface that follows CRUD (Create Read Update Delete)
 operations per domain.
@@ -46,7 +46,7 @@ To see where and how to contribute additional caches, refer to the [source code]
 
     Current implementation uses Symfony cache. It technically supports the following cache backends:
     [APCu, Array, Chain, Doctrine, Filesystem, Memcached, PDO & Doctrine DBAL, Php Array, Proxy, Redis](https://symfony.com/doc/5.0/components/cache/cache_pools.html#creating-cache-pools).
-    eZ Platform officially supports only using Filesystem for single server and Redis or Memcached for clustered setups.
+    [[= product_name_oss =]] officially supports only using Filesystem for single server and Redis or Memcached for clustered setups.
 
 Use of Memcached or Redis as shared cache back end is a requirement for use in clustering setup.
 For an overview of this feature, see [Clustering](clustering.md).
@@ -157,9 +157,9 @@ Depending on the number of lookups and latency to cache server this might affect
 
 Out of the box in `config/packages/cache_pool/cache.redis.yaml` you'll find a default example that can be used.
 
-!!! note "eZ Platform Cloud"
+!!! note "Ibexa Cloud"
 
-    For eZ Platform Cloud/Platform.sh: This is automatically configured in `app/config/env/platformsh.php` if you have enabled Redis as `rediscache` Platform.sh service.
+    For Ibexa Cloud/Platform.sh: This is automatically configured in `app/config/env/platformsh.php` if you have enabled Redis as `rediscache` Platform.sh service.
 
 For anything else, you can enable it with environment variables detected automatically by `app/config/env/generic.php`.
 For instance, if you set the following environment variables `export CACHE_POOL="cache.redis" CACHE_DSN="secret@example.com:1234/13"`, it will result in config like this:
@@ -206,9 +206,9 @@ Several cloud providers have managed services that are easier to set up, handle 
 - [Azure Redis Cache](https://azure.microsoft.com/en-us/services/cache/)
 - [Google Cloud Memorystore](https://cloud.google.com/memorystore/)
 
-###### eZ Platform Cloud / Platform.sh usage
+###### Ibexa Cloud / Platform.sh usage
 
-!!! note "eZ Platform Cloud"
+!!! note "Ibexa Cloud"
 
     If you use Platform.sh Enterprise you can benefit from the Redis Sentinel across three nodes for great fault tolerance.
     Platform.sh Professional and lower versions offer Redis in single instance mode only.
@@ -235,9 +235,9 @@ There is one Memcached adapter available out of the box.
 
 Out of the box in `config/packages/cache_pool/cache.memcached.yaml` you'll find a default example that can be used.
 
-!!! note "eZ Platform Cloud"
+!!! note "Ibexa Cloud"
 
-    For eZ Platform Cloud/Platform.sh: This is automatically configured in `config/env/platformsh.php` if you have enabled Memcached as `cache` Platform.sh service.
+    For Ibexa Cloud/Platform.sh: This is automatically configured in `config/env/platformsh.php` if you have enabled Memcached as `cache` Platform.sh service.
 
 For anything else, you can enable it with environment variables detected automatically by `config/env/generic.php`.
 For instance, if you set the following environment variables `export CACHE_POOL="cache.memcached" CACHE_DSN="user:pass@localhost?weight=33"`, it will result in config like this:
@@ -282,7 +282,7 @@ See `config/default_parameters.yaml` and `config/cache_pool/cache.memcached.yaml
 ## Using Cache Service
 
 Using the internal cache service allows you to use an interface and without caring whether the system is configured to place the cache in Memcached or on File system.
-And as eZ Platform requires that instances use a cluster-aware cache in Cluster setup, you can safely assume your cache is shared *(and invalidated)* across all web servers.
+And as [[= product_name_oss =]] requires that instances use a cluster-aware cache in Cluster setup, you can safely assume your cache is shared *(and invalidated)* across all web servers.
 
 !!! note
 

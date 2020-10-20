@@ -1,8 +1,8 @@
 # Access control
 
-eZ Commerce uses Policies to control access to some specific pages and functions.
+[[= product_name_com =]] uses Policies to control access to some specific pages and functions.
 
-## eZ Commerce policies
+## [[= product_name_com =]] policies
 
 |Module|Function|Description|
 |--- |--- |--- |

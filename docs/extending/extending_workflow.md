@@ -1,6 +1,6 @@
 # Extending Workflow
 
-!!! enterprise
+!!! dxp
 
     ## Adding custom actions
     

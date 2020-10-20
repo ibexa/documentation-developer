@@ -1,6 +1,6 @@
 # Tracking
 
-eZ Commerce comes with a simple extensible system for tracking tools. Any tracking tool can be plugged in.
+[[= product_name_com =]] comes with a simple extensible system for tracking tools. Any tracking tool can be plugged in.
 
 The tracking tools can output the tracking code in the template where they are included (product detail, basket, etc.)
 in the selected position on the page (top/bottom).

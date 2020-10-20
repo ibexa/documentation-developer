@@ -140,7 +140,7 @@ For each URL alias definition the history of changes is preserved, so that users
 
 ### URL alias pattern configuration
 
-You can configure how eZ Platform generates URL aliases.
+You can configure how [[= product_name_oss =]] generates URL aliases.
 The configuration is stored in the `config/packages/ezplatform.yaml` file, under the `ezplatform.url_alias.slug_converter` key, for example:
 
 ``` yaml

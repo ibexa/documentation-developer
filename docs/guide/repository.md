@@ -38,7 +38,7 @@ You should always check full list of changes for each release in corresponding r
 
 ## SPI
 
-eZ Platform SPI is a Service Provider Interface which defines contracts for implementing various parts of the system, including:
+[[= product_name_oss =]] SPI is a Service Provider Interface which defines contracts for implementing various parts of the system, including:
 
  - persistence layer (`SPI\Persistence`)
  - custom Field Types

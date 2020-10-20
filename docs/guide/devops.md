@@ -27,9 +27,9 @@ For a [cluster](clustering.md) setup, the content cache ([HTTP cache](http_cache
 
 ## Web Debug Toolbar
 
-When running eZ Platform in the `dev` environment you have access to the standard Symfony Web Debug Toolbar. It is extended with some eZ Platform-specific information:
+When running [[= product_name_oss =]] in the `dev` environment you have access to the standard Symfony Web Debug Toolbar. It is extended with some [[= product_name_oss =]]-specific information:
 
-![eZ Platform info in Web Debug Toolbar](img/web_debug_toolbar.png "eZ Platform info in Web Debug Toolbar")
+![[[= product_name_oss =]] info in Web Debug Toolbar](img/web_debug_toolbar.png "[[= product_name_oss =]] info in Web Debug Toolbar")
 
 #### SPI (persistence)
 
@@ -41,7 +41,7 @@ Here you can see the name of the current SiteAccess and how it was matched. For 
 
 ## Logging and debug configuration
 
-Logging in eZ Platform consists of two parts.
+Logging in [[= product_name_oss =]] consists of two parts.
 One are several debug systems that integrate with Symfony developer toolbar to give you detailed information about what is going on.
 The other is the standard [PSR-3](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md) logger, as provided by Symfony using [Monolog](https://github.com/Seldaek/monolog).
 
@@ -65,7 +65,7 @@ parameters:
 
 ### Error logging and rotation
 
-eZ Platform uses the [Monolog](https://github.com/Seldaek/monolog) component to log errors, and it has a `RotatingFileHandler` that allows for file rotation.
+[[= product_name_oss =]] uses the [Monolog](https://github.com/Seldaek/monolog) component to log errors, and it has a `RotatingFileHandler` that allows for file rotation.
 
 According to [their documentation](https://seldaek.github.io/monolog/doc/02-handlers-formatters-processors.html#log-to-files-and-syslog), it "logs records to a file and creates one logfile per day. It will also delete files older than `$maxFiles`".
 

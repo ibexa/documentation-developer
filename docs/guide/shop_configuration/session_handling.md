@@ -18,7 +18,7 @@ CREATE TABLE session
 
 ## Set up name for SiteAccesses
 
-It is very important to set a session name. Otherwise eZ Platform will generate a unique name per SiteAccess.
+It is very important to set a session name. Otherwise [[= product_name_oss =]] will generate a unique name per SiteAccess.
 This can cause issues - for example if you switch the language/SiteAccess, users cannot share a basket and login across SiteAccesses.
 
 ``` yaml

@@ -238,7 +238,7 @@ silver_econtent.default.mapping.product:
 
 This definition is used by this plugin: `SisoNavEcontentImporterPlugin`
 
-It defines the prefix of the field name that Fields from eZ Platform have in eContent.
+It defines the prefix of the field name that Fields from [[= product_name_oss =]] have in eContent.
 
 ``` yaml
 silver_econtent.default.ez_datatype_attribute_prefix: ezdata_

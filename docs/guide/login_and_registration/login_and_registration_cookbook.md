@@ -1,6 +1,6 @@
 # Login and registration cookbook
 
-eZ Commerce is able to check credentials not only specified by username and password,
+[[= product_name_com =]] is able to check credentials not only specified by username and password,
 but also using customer number (which could be taken from ERP system). 
 
 ## Services

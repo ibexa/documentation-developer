@@ -18,7 +18,7 @@ Refer to [eZ Commerce documentation](https://doc.ezplatform.com/projects/ezcomme
 
 This release of eZ Platform introduces the following new features:
 
-!!! enterprise
+!!! dxp
 
     ### Site Factory
 

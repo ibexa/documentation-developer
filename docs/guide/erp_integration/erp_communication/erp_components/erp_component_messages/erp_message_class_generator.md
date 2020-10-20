@@ -51,7 +51,7 @@ The value represents a space-separated list of child element names that are supp
 
 The names of the types should be prefixed with either `ses:` or `cust:`
 
-- `ses:` type classes are stored in the eZ Commerce path. XML definition files are always read from the eZ Commerce path.
+- `ses:` type classes are stored in the [[= product_name_com =]] path. XML definition files are always read from the [[= product_name_com =]] path.
 - `cust:` type classes are stored in the defined target directory. XML definition files are always read from the source path.
 
 For each type an XML file must be stored in the `src` folder which defines the reusable datatype which is named <elementName>.xml

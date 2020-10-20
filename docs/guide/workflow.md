@@ -1,6 +1,6 @@
 # Editorial workflow
 
-!!! enterprise
+!!! dxp
 
     The workflow functionality passes a Content item version through a series of stages.
 
@@ -142,7 +142,7 @@
     ## Workflow service
 
     Workflow makes use of the Symfony [Workflow Component](https://symfony.com/doc/5.0/components/workflow.html),
-    but special eZ Platform treatment is covered in the Workflow service.
+    but special [[= product_name_oss =]] treatment is covered in the Workflow service.
 
     The service implements the following methods:
 

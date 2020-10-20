@@ -2,7 +2,7 @@
 
 Indexing the content of files stored in the content model uses an additional component called Apache Tika.
 
-Apache Tika has two available modes: Server Mode and App Mode. eZ Commerce uses Apache Tika in App mode.
+Apache Tika has two available modes: Server Mode and App Mode. [[= product_name_com =]] uses Apache Tika in App mode.
 
 You can specify which MIME types are indexed in configuration.
 If you need additional file types to be indexed, add them to this configuration, for example:

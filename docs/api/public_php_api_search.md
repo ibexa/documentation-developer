@@ -13,7 +13,7 @@ The service should be [injected into the constructor of your command or controll
 
 !!! tip "SearchService in the Back Office"
 
-    `SearchService` is also used in the Back Office of eZ Platform,
+    `SearchService` is also used in the Back Office of [[= product_name_oss =]],
     in components such as Universal Discovery Widget or Sub-items List.
 
 ### Performing a search
@@ -283,7 +283,7 @@ class CustomController extends Controller
 
 ### Paginating search results
 
-To paginate search results, it is recommended to use the [Pagerfanta library](https://github.com/whiteoctober/Pagerfanta) and [eZ Platform's adapters for it.](https://github.com/ezsystems/ezplatform-kernel/tree/v1.0.0/eZ/Publish/Core/Pagination/Pagerfanta)
+To paginate search results, it is recommended to use the [Pagerfanta library](https://github.com/whiteoctober/Pagerfanta) and [[[= product_name_oss =]]'s adapters for it.](https://github.com/ezsystems/ezplatform-kernel/tree/v1.0.0/eZ/Publish/Core/Pagination/Pagerfanta)
 
 ``` php
 //...

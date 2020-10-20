@@ -6,8 +6,8 @@ To successfully add products to the basket you need to provide the required para
 
 |Fixed parameters|Required|Value|Description|
 |--- |--- |--- |--- |
-|ses_basket[0][quantity]|YES||The quantity to be ordered. If empty the eZ Commerce will use 1 instead, as long as the parameter ses_basket[0][ses_ignore_quantity] is not set.|
-|ses_basket[0][ses_ignore_quantity]||1|If set, eZ Commerce will not use 1 instead of empty quantity.|
+|ses_basket[0][quantity]|YES||The quantity to be ordered. If empty the [[= product_name_com =]] will use 1 instead, as long as the parameter ses_basket[0][ses_ignore_quantity] is not set.|
+|ses_basket[0][ses_ignore_quantity]||1|If set, [[= product_name_com =]] will not use 1 instead of empty quantity.|
 |ses_basket[0][sku]|YES||The SKU to be ordered. A valid `CatalogElement` must exist for the given SKU.|
 |ses_basket[0][isVariant]|YES FOR VARIANTS|isVariant|Should be set if product is a variant.|
 |ses_basket[0][ses_variant_code]|YES FOR VARIANTS||Variant code of the ordered variant.|
