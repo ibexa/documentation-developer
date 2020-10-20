@@ -226,14 +226,25 @@ At this point you can configure your database via the `DATABASE_URL` in the `.en
 
 Choose a [secret](http://symfony.com/doc/5.0/reference/configuration/framework.html#secret)
 and provide it in the `APP_SECRET` parameter in `.env`.
-It should be a random string, made up of up to 32 characters, numbers, and symbols.
+It should be a random string, made up of at least 32 characters, numbers, and symbols.
 This is used by Symfony when generating [CSRF tokens](https://symfony.com/doc/5.0/security/csrf.html),
 [encrypting cookies](http://symfony.com/doc/5.0/cookbook/security/remember_me.html),
 and for creating signed URIs when using [ESI (Edge Side Includes)](https://symfony.com/doc/5.0/http_cache/esi.html).
 
 Instead of setting `DATABASE_URL`, you can change individual installation parameters in `.env`.
 
-!!! tip
+!!! caution
+
+    The app secret is crucial to the security of your installation. Be careful about how you generate it, and how you store it.
+    Here's one way to generate a 64 characters long, secure random string as your secret, in PHP:
+    
+    ``` php
+    print bin2hex(random_bytes(32));
+    ```
+
+    Do not commit the secret to version control systems, or share it with anyone who does not strictly need it.
+    If you have any suspicion that the secret may have been exposed, replace it with a new one.
+    The same goes for other secrets, like database password, Varnish invalidate token, JWT passphrase, etc.
 
     It is recommended to store the database credentials in your `.env.local` file and not commit it to the Version Control System.
 
