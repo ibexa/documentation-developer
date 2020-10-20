@@ -417,10 +417,11 @@ $countryValue = new Country\Value(
     ## DAM Field Type
 
     This Field Type stores asset information from a DAM system.
+    It replaces the [ImageAsset Field Type](#imageasset-field-type).
 
     | Name   | Internal name | Expected input type |
     |--------|---------------|---------------------|
-    | `DAM` | `dam`      | mixed             |
+    | `Image Asset` | `ezimageasset`      | mixed             |
 
     #### Value object
 
@@ -430,7 +431,7 @@ $countryValue = new Country\Value(
 
     | Property | Type  | Description|
     |----------|-------|------------|
-    | `destinationContentId`  |  `int` | Related content ID. |
+    | `destinationContentId`  |  `string` | Related content ID. |
     | `alternativeText`  |  `string` |  The alternative image text . |
     | `source` | `string` | Source of the DAM asset. |
 
