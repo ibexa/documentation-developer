@@ -703,6 +703,7 @@ nav:
         - '6. Dump assets': 'updating/6_dump_assets.md'
         - '7. Commit, test and merge': 'updating/7_commit_test_merge.md'
     - Releases:
+        - 'Ibexa DXP v3.2': 'releases/ibexa_dxp_v3.2.md'
         - 'eZ Platform v3.1': 'releases/ez_platform_v3.1.md'
         - 'eZ Platform v3.0': 'releases/ez_platform_v3.0.md'
         - 'eZ Platform v3.0 deprecations and BC breaks': 'releases/ez_platform_v3.0_deprecations.md'
