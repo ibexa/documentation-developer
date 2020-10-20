@@ -109,7 +109,7 @@ lexik_jwt_authentication:
             enabled: false
 ```
 
-You also need new Symfony firewall configuration for REST and GraphQL APIs.
+You also need a new Symfony firewall configuration for REST and/or GraphQL APIs.
 It is already provided in `config/packages/security.yaml`, you only need to uncomment it:
 
 ``` yaml
