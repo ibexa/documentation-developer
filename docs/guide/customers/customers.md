@@ -1,7 +1,7 @@
 # Customers
 
 Customers are stored as User Content items in the database.
-eZ Commerce uses the following features that are connected to users:
+[[= product_name_com =]] uses the following features that are connected to users:
 
 - Roles and Policies
 - extensible User model
@@ -10,9 +10,9 @@ eZ Commerce uses the following features that are connected to users:
 - activation of accounts
 - session handling
 
-In addition, eZ Commerce supports multiple user accounts with the same email address (e.g. for a multi-shop setup).
+In addition, [[= product_name_com =]] supports multiple user accounts with the same email address (e.g. for a multi-shop setup).
 
-eZ Commerce adds the following new Fields to the User Content Type that are required for the shop:
+[[= product_name_com =]] adds the following new Fields to the User Content Type that are required for the shop:
 
 - first name, last name
 - salutation
@@ -79,7 +79,7 @@ E-Mail address:          {{ ses.profile.sesUser.email }}
     An example would be a CLI tool, or processes that happen in background,
     like sending out the order if a customer paid via a payment service provider.
 
-eZ Commerce uses the UBL standard to model customer data. The most important type is the Party which describes an address. 
+[[= product_name_com =]] uses the UBL standard to model customer data. The most important type is the Party which describes an address. 
 
 For each user, the following information is stored. If the user has a customer number, the following information is updated from the ERP after login: 
 

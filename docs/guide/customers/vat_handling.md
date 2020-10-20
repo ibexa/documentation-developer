@@ -1,6 +1,6 @@
 # VAT handling
 
-The VAT handling for customers inside eZ Commerce is controlled by:
+The VAT handling for customers inside [[= product_name_com =]] is controlled by:
 
 - The ERP system
 - The settings from the User Content item 

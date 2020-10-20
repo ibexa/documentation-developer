@@ -2,7 +2,7 @@
 
 eContent supports a staging area. The product catalog can exist either as a live version which is used for the customer, or a staging (temporary) version, which can be used for staging and importing purposes.
 
-eZ Commerce offers tools to switch between the production and staging versions. 
+[[= product_name_com =]] offers tools to switch between the production and staging versions. 
 
 ## Best practice
 

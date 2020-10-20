@@ -162,7 +162,7 @@ In this case the product is identified by the SKU and the `variantCode`: `SKU_AN
 These "variants" can be grouped by a PIM system or a special field in the ERP system. 
 In this case, the `variantCode` from the catalog is the actual SKU that is sent to the ERP: `SKU_ONLY`
 
-eZ Commerce supports both methods. 
+[[= product_name_com =]] supports both methods. 
 To select a method, use the following configuration:
 
 ``` yaml

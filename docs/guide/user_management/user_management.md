@@ -339,23 +339,23 @@ ezsettings.<siteaccess>.user_settings.templates.update
 Symfony provides native support for [multiple user providers](https://symfony.com/doc/5.0/security/multiple_user_providers.html).
 This makes it easy to integrate any kind of login handlers, including SSO and existing third party bundles (e.g. [FR3DLdapBundle](https://github.com/Maks3w/FR3DLdapBundle), [HWIOauthBundle](https://github.com/hwi/HWIOAuthBundle), [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle), [BeSimpleSsoAuthBundle](http://github.com/BeSimple/BeSimpleSsoAuthBundle), etc.).
 
-However, to be able to use *external* user providers with eZ Platform, a valid Platform user needs to be injected into the Repository.
+However, to be able to use *external* user providers with [[= product_name_oss =]], a valid Platform user needs to be injected into the Repository.
 This is mainly for the kernel to be able to manage content-related permissions (but not limited to this).
 
 Depending on your context, you will either want to create a Platform User, return an existing User, or even always use a generic User.
 
-Whenever an *external* user is matched (i.e. one that does not come from Platform repository, like coming from LDAP), eZ Platform kernel initiates an `MVCEvents::INTERACTIVE_LOGIN` event.
+Whenever an *external* user is matched (i.e. one that does not come from Platform repository, like coming from LDAP), [[= product_name_oss =]] kernel initiates an `MVCEvents::INTERACTIVE_LOGIN` event.
 Every service listening to this event receives an `eZ\Publish\Core\MVC\Symfony\Event\InteractiveLoginEvent` object which contains the original security token (that holds the matched user) and the request.
 
 Then, it is up to the listener to retrieve a Platform User from the Repository and to assign it back to the event object.
 This user will be injected into the repository and used for the rest of the request.
 
-If no eZ Platform User is returned, the Anonymous User will be used.
+If no [[= product_name_oss =]] User is returned, the Anonymous User will be used.
 
 ### User exposed and security token
 
 When an *external* user is matched, a different token will be injected into the security context, the `InteractiveLoginToken`.
-This token holds a `UserWrapped` instance which contains the originally matched User and the *API user* (the one from the eZ Platform Repository).
+This token holds a `UserWrapped` instance which contains the originally matched User and the *API user* (the one from the [[= product_name_oss =]] Repository).
 
 Note that the *API user* is mainly used for permission checks against the repository and thus stays *under the hood*.
 
@@ -399,7 +399,7 @@ services:
             - { name: kernel.event_subscriber } 
 ```
 
-Do not mix `MVCEvents::INTERACTIVE_LOGIN` event (specific to eZ Platform) and `SecurityEvents::INTERACTIVE_LOGIN` event (fired by Symfony security component).
+Do not mix `MVCEvents::INTERACTIVE_LOGIN` event (specific to [[= product_name_oss =]]) and `SecurityEvents::INTERACTIVE_LOGIN` event (fired by Symfony security component).
 
 ``` php
 <?php

@@ -1,13 +1,13 @@
 # HTTP cache
 
-eZ Platform provides highly advanced caching features needed for its own content views, taking advantage
+[[= product_name_oss =]] provides highly advanced caching features needed for its own content views, taking advantage
 of sophisticated techniques to make Varnish and Fastly act as the view cache for the system. This and other features
-allow eZ Platform to be scaled up to serve high traffic websites and applications.
+allow [[= product_name_oss =]] to be scaled up to serve high traffic websites and applications.
 
 This is handled by the [ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache) bundle, which extends [friendsofsymfony/http-cache-bundle](https://foshttpcachebundle.readthedocs.io/en/2.8.0/),
 a Symfony community bundle that in turn extends [Symfony HTTP cache](http://symfony.com/doc/5.1/http_cache.html).
 
-For content view responses coming from eZ Platform itself, this means:
+For content view responses coming from [[= product_name_oss =]] itself, this means:
 
 - Cache is **[content-aware](#content-aware-http-cache)**, always kept up-to-date by invalidating using cache tags.
 - Cache is **[context-aware](#context-aware-http-cache)**, to cache request for logged in users by varying on user _rights_.
@@ -50,7 +50,7 @@ To avoid this, installation ships with configuration to match those specific sit
 fos_http_cache:
     cache_control:
         rules:
-            # Make sure cacheable (fresh) responses from eZ Platform which are errors/redirects get lower TTL than default_ttl
+            # Make sure cacheable (fresh) responses from Ibexa Platform which are errors/redirects get lower TTL than default_ttl
             -
                 match:
                     match_response: 'response.isFresh() && ( response.isServerError() || response.isClientError() || response.isRedirect() )'
@@ -114,7 +114,7 @@ have to wait for backend and not be able to deliver cached pages directly.
 
 ## Using Varnish or Fastly
 
-As eZ Platform is built on top of Symfony, it uses standard HTTP cache headers.
+As [[= product_name_oss =]] is built on top of Symfony, it uses standard HTTP cache headers.
 By default, the Symfony reverse proxy, written in PHP, is used to handle cache. But it can be easily replaced with reverse proxies like Varnish or CDN like Fastly.
 
 This is highly recommended as they provide far better performance and more advance features like grace handling, configurable logic through VCL and much more.
@@ -135,14 +135,14 @@ For setup to work properly with your installation, you'll need to adapt one of t
 
     When you extend [FOSHttpCacheBundle](https://foshttpcachebundle.readthedocs.io/en/2.8.0/), you can also adapt your VCL further with [FOSHttpCache documentation](http://foshttpcache.readthedocs.org/en/latest/varnish-configuration.html) in order to use additional features.
 
-### Configure eZ Platform
+### Configure [[= product_name_oss =]]
 
-Configuring eZ Platform for Varnish or Fastly involves a few steps, starting with configuring proxy.
+Configuring [[= product_name_oss =]] for Varnish or Fastly involves a few steps, starting with configuring proxy.
 
 #### Configuring Symfony Front Controller
 
 In a pure Symfony installation you would normally adapt Front Controller (`web/app.php`) [in order to configure Symfony to work behind a Load Balancer or a Reverse Proxy](https://symfony.com/doc/5.1/deployment/proxies.html),
-however in eZ Platform you can cover most use cases by setting supported environment variables using:
+however in [[= product_name_oss =]] you can cover most use cases by setting supported environment variables using:
 
 - `APP_HTTP_CACHE`: To enable (`"1"`) or disable (`"0"`) use of Symfony HttpCache reverse proxy
     - *Must* be disabled when using Varnish or Fastly.
@@ -165,12 +165,12 @@ however in eZ Platform you can cover most use cases by setting supported environ
     and that there is no other way to configure it.
 
 
-See [Examples for configuring eZ Platform](#Examples-for-configuring-eZ-Platform) for how these variables can be set.
+See [Examples for configuring [[= product_name_oss =]]](#Examples-for-configuring-Ibexa-Platform) for how these variables can be set.
 
 
 #### Update YML configuration
 
-Secondly, you need to tell eZ Platform to use an HTTP-based purge client (specifically the FosHttpCache Varnish purge client),
+Secondly, you need to tell [[= product_name_oss =]] to use an HTTP-based purge client (specifically the FosHttpCache Varnish purge client),
 and specify the URL Varnish can be reached on (in `config/packages/ezplatform.yaml`):
 
 
@@ -201,12 +201,12 @@ ezplatform:
 
 !!! note "Invalidating Varnish cache using tokens"
 
-    In setups where the Varnish server IP can change (for example on platform.sh/eZ Platform Cloud),
+    In setups where the Varnish server IP can change (for example on platform.sh/Ibexa Cloud),
     you can use token-based cache invalidation via [ez_purge_acl.](https://github.com/ezsystems/ezplatform-http-cache/blob/v2.1.0/docs/varnish/vcl/varnish5.vcl#L174)
  
     In such a case use a strong, secure hash and make sure to keep the token secret.
 
-!!! enterprise
+!!! dxp
 
     #### Ensure proper Captcha behavior
 
@@ -247,7 +247,7 @@ ezplatform:
 
     #### Using Fastly as HttpCache proxy
 
-    [Fastly](https://www.fastly.com/) delivers Varnish as a CDN service and is supported with eZ Platform Enterprise.
+    [Fastly](https://www.fastly.com/) delivers Varnish as a CDN service and is supported with [[= product_name_ee =]].
     See, [Fastly documentation](https://docs.fastly.com/guides/basic-concepts/how-fastlys-cdn-service-works) to learn how it works.
 
     ##### Configuring Fastly in YML
@@ -298,7 +298,7 @@ ezplatform:
     instructions on how to generate a Fastly API token.
     The token needs `purge_select` and `purge_all` scope.
 
-#### Examples for configuring eZ Platform
+#### Examples for configuring [[= product_name_oss =]]
 
 
 Below you will find the most common examples for configuring the system completely by environment variables.
@@ -384,7 +384,7 @@ concurrent requests for the same page to the backend, the following happens when
 - If cache is still within grace period, first and subsequent requests for the content is served from cache, and doesn't wait for the asynchronous lookup to finish
 - The backend lookup finishes and refreshes the cache so any subsequent requests gets a fresh cache
 
-By default, eZ Platform always "Soft Purges" content on reverse proxies that support it (Varnish and Fastly), with
+By default, [[= product_name_oss =]] always "Soft Purges" content on reverse proxies that support it (Varnish and Fastly), with
 the following logic in the out-of-the-box VCL:
 
 - Cache is within grace
@@ -405,7 +405,7 @@ Serving grace is not always allowed by default because:
 
 ## Context-aware HTTP cache
 
-eZ Platform allows caching request made by logged in users, it is called (user) context aware cache.
+[[= product_name_oss =]] allows caching request made by logged in users, it is called (user) context aware cache.
 
 It means that HttpCache is unique per user permissions (roles and limitations), there are variations of
 cache shared only among users that have the exact same permissions. So if a user is browsing a list of children Locations,
@@ -433,7 +433,7 @@ hash lookup itself is cached by the cache proxy as well as described below.
 
 ##### User Context Hash caching
 
-Example of response sent to reverse proxy from `/_fos_user_context_hash` with [eZ Platform's default config](#default-options-for-foshttpcachebundle-defined-in-ez-platform):
+Example of response sent to reverse proxy from `/_fos_user_context_hash` with [[[= product_name_oss =]]'s default config](#default-options-for-foshttpcachebundle-defined-in-ez-platform):
 
 ```
 HTTP/1.1 200 OK
@@ -466,9 +466,9 @@ It also varies on `Authorization` to cover any possible basic auth headers in ca
     Only known workaround would be to make it SiteAccess aware, and have custom VCL logic tied to your SiteAccess
     matching with Varnish/Fastly, in order to send SiteAccess prefix as URI.
 
-##### Default options for FOSHttpCacheBundle defined in eZ Platform
+##### Default options for FOSHttpCacheBundle defined in [[= product_name_oss =]]
 
-The following configuration is defined in eZ Platform by default for FOSHttpCacheBundle.
+The following configuration is defined in [[= product_name_oss =]] by default for FOSHttpCacheBundle.
 Typically, you should not override these settings unless you know what you are doing.
 
 ``` yaml
@@ -489,7 +489,7 @@ fos_http_cache:
 
 #### How to Personalize Responses
 
-Here are some generic recommendations on how to approach personalized content with eZ Platform / Symfony:
+Here are some generic recommendations on how to approach personalized content with [[= product_name_oss =]] / Symfony:
 
 1\. ESI + Vary by Cookie:
 
@@ -530,8 +530,8 @@ Example:
 
 Refer to [FOSHttpCacheBundle documentation on how user context hashes are generated](https://foshttpcachebundle.readthedocs.io/en/2.8.0/features/user-context.html#generating-hashes).
 
-eZ Platform implements a custom context provider in order to make user context hash reflect the current User's permissions
-and Limitations, this is needed given eZ Platform's more complex permission model compared to Symfony's.
+[[= product_name_oss =]] implements a custom context provider in order to make user context hash reflect the current User's permissions
+and Limitations, this is needed given [[= product_name_oss =]]'s more complex permission model compared to Symfony's.
 You can technically extend the user context hash by [implementing your own custom context provider(s)](https://foshttpcachebundle.readthedocs.io/en/2.8.0/reference/configuration/user-context.html#custom-context-providers),
 however **this is strongly discouraged** as it will mean you'll increase amount of cache variations stored in Proxy for
 every single cache item, lowering cache hit ratio and increasing memory use.
@@ -608,7 +608,7 @@ To avoid overloading any application code, you will take advantage of Symfony's 
 
 ## Content-aware HTTP cache
 
-HTTP cache in eZ Platform is "aware" of which content or entity it is connected to, this awareness is accomplished
+HTTP cache in [[= product_name_oss =]] is "aware" of which content or entity it is connected to, this awareness is accomplished
 by means of "cache tagging". All supported reverse proxies are content-aware.
 
 !!! note "Tag header is stripped in production for security reasons"
@@ -639,7 +639,7 @@ when someone requests them.
 
 !!! note "Automatically repository prefixing of cache tags"
 
-    As eZ Platform support multi repository (multi database) setups that can have overlapping ID's. It's shared
+    As [[= product_name_oss =]] support multi repository (multi database) setups that can have overlapping ID's. It's shared
     HTTP cache systems need to distinguish tags relevant to the different content repositories.
 
     This is why in multi repository setup you'll see cache tags such as `1p2`. Where `1` represents the index among

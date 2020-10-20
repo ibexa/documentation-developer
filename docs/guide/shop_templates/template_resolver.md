@@ -15,7 +15,7 @@ An override is activated by a template resolver configuration. You can configure
 ## Overriding templates
 
 In this example you have a project with a bundle `src/Client/Bundle/WebsiteBundle`, a SiteAccess `website_de_de`
-and you want to override eZ Commerce bundle templates.
+and you want to override [[= product_name_com =]] bundle templates.
 
 ### Step 1. Change `config_{env}.yml` or `parameters.yml`
 
@@ -42,7 +42,7 @@ parameters:
 
 ### Step 2. Create new templates
 
-To override templates, you have to reflect the structure of eZ Commerce vendor bundles, e.g.:  
+To override templates, you have to reflect the structure of [[= product_name_com =]] vendor bundles, e.g.:  
 
 |                   |     |
 | ----------------- | --- |

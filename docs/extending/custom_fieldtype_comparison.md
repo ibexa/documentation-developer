@@ -1,6 +1,6 @@
 # Creating custom version comparison of Field Types
 
-!!! enterprise
+!!! dxp
     
     In the Back Office, you can compare the contents of Fields.
     Comparing is possible only between two versions of the same Field that are in the same language.

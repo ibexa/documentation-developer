@@ -1,6 +1,6 @@
 # Commerce Field Types
 
-eZ Commerce uses special ecommerce-related Field Types:
+[[= product_name_com =]] uses special ecommerce-related Field Types:
 
 - [sesselection](sesselection.md) - offers a selection using options from a YAML file
 - [sesexternaldata](sesexternaldata.md)

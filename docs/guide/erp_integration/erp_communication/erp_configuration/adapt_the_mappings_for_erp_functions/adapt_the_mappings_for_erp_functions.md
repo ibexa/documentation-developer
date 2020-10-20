@@ -1,8 +1,8 @@
 # Adapt the mappings for ERP functions
 
-eZ Commerce uses a flexible way to map the request and response between the shop and the ERP system.
+[[= product_name_com =]] uses a flexible way to map the request and response between the shop and the ERP system.
 
-By default eZ Commerce comes with a prepared mapping stored in the vendor bundle.
+By default [[= product_name_com =]] comes with a prepared mapping stored in the vendor bundle.
 The mappings can be extended in your project bundles.
 
 Your bundle has to be registered as a mapping bundle:

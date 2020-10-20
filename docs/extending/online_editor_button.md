@@ -77,7 +77,7 @@ eZConfigManager.add({
 
 ## Adding the button to configuration
 
-Finally, add the button to your eZ Platform configuration:
+Finally, add the button to your [[= product_name_oss =]] configuration:
 
 ``` yaml
 ezplatform:

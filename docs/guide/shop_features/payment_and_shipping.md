@@ -1,6 +1,6 @@
 # Payment and shipping
 
-eZ Commerce offers the following payment methods:
+[[= product_name_com =]] offers the following payment methods:
 
 - invoice
 - PayPal Express
@@ -13,7 +13,7 @@ The payment and shipping methods can be enabled or disabled per SiteAccess.
 
 ## Shipping costs
 
-eZ Commerce offers a flexible way to define shipping costs, if they are not set in the ERP system.
+[[= product_name_com =]] offers a flexible way to define shipping costs, if they are not set in the ERP system.
 
 Shipping costs can be set up per:
 

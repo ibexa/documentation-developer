@@ -125,7 +125,7 @@ $objectState = $this->objectStateService->loadObjectState($objectStateId);
 $this->objectStateService->setContentState($contentInfo, $objectStateGroup, $objectState);
 ```
 
-!!! enterprise
+!!! dxp
 
     ## Workflow
 

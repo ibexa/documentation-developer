@@ -41,7 +41,7 @@ For details, see [Bundles](../guide/bundles.md).
 
 ## New features
 
-!!! enterprise
+!!! dxp
 
     ### Site Factory
     

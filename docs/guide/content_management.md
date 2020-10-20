@@ -73,7 +73,7 @@ which can be viewed by selecting the **Users** tab in the Admin Panel.
 The default ID number of the **Users** Location is 5, but it can be [modified via configuration](config_repository.md#top-level-locations).
 It contains a User Group Content item.
 
-!!! enterprise
+!!! dxp
 
     #### Forms
 

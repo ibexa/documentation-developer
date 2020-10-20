@@ -215,7 +215,7 @@ The default fallback order is:
 
 In addition to the convention described above, it is also possible to add arbitrary Twig template directories
 to a theme from configuration. This can be useful when you want to define templates from third-party bundles
-as part of one of your themes, or when upgrading your application in order to use eZ Platform design engine,
+as part of one of your themes, or when upgrading your application in order to use [[= product_name_oss =]] design engine,
 when your existing templates are not yet following the convention.
 
 ```yaml

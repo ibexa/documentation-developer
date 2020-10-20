@@ -7,7 +7,7 @@ All the rules to follow can be found in [Contribute to documentation](documentat
 Once you are done with describing your idea, focus on the main part - sharing the actual solution.
 eZ uses a regular git workflow, so if you are familiar with the concept, the whole procedure should be pretty straightforward.
 
-eZ Platform is divided into meta-repositories.
+[[= product_name_oss =]] is divided into meta-repositories.
 The core of our system is [`ezplatform-kernel`](https://github.com/ezsystems/ezplatform-kernel)
 containing an advanced Content Model and aiming to provide additional features for the MVC layer (Symfony).
 On the other hand, e.g. `ezplatform-admin-ui` is strictly dedicated to the Admin Panel purposes.
@@ -19,7 +19,7 @@ Now you need to determine which version of the package your changes should targe
 If you plan to fix something in your current project, check `composer.json` for the version of the package and pick proper branch.
 
 For example: you added a `try { } catch () {}` statement fixing an annoying error in `ezplatform-admin-ui`
-and you are using eZ Platform 2.5. You should aim for branch `1.5` then, as version `1.5.0` is used.
+and you are using version 2.5. You should aim for branch `1.5` then, as version `1.5.0` is used.
 
 Now you can follow the same procedure as in [Contributing through git](documentation/#contributing-through-git).
 

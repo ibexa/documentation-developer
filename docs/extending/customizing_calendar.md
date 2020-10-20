@@ -1,6 +1,6 @@
 # Customizing Calendar widget
 
-!!! enterprise
+!!! dxp
 
     By default, the Calendar widget enables you to display all scheduled events and perform basic actions on them.
     You can also configure it to display your custom event types or display them from [custom sources](#configuring-event-sources).

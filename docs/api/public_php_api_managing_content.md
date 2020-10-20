@@ -202,7 +202,7 @@ $this->contentTypeService->updateContentTypeDraft($copyDraft, $copyUpdateStruct)
 $this->contentTypeService->publishContentTypeDraft($copyDraft);
 ```
 
-!!! enterprise
+!!! dxp
 
     ## Calendar events
 

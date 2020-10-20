@@ -1,13 +1,13 @@
 # Customers templating
 
-eZ Commerce provides a global Twig variable `ses` which is available in all templates.
+[[= product_name_com =]] provides a global Twig variable `ses` which is available in all templates.
 The variable provides the `profile` method which contains information about the current customer.
 
-If the user has a customer number, eZ Commerce automatically fetches customer information from the ERP.
+If the user has a customer number, [[= product_name_com =]] automatically fetches customer information from the ERP.
 The data is stored in the session and is provided by the variable `ses.profile`.
 Subsequent calls do not initiate a new request to the ERP because the data from the ERP is cached and handled by the Symfony session handlers.
 
-eZ Commerce provides a standard template for displaying customer data:
+[[= product_name_com =]] provides a standard template for displaying customer data:
 `SilversolutionsEshopBundle/Resources/views/details.html.twig`.
 
 ## Getting customer profile data

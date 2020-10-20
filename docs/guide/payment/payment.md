@@ -1,13 +1,13 @@
 # Payment
 
-Payments in eZ Commerce depends on the [JMSPaymentCoreBundle.](http://jmsyst.com/bundles/JMSPaymentCoreBundle)
+Payments in [[= product_name_com =]] depends on the [JMSPaymentCoreBundle.](http://jmsyst.com/bundles/JMSPaymentCoreBundle)
 
 !!! note
 
     If `JMSPaymentCoreBundle` is not installed due to composer dependencies,
     [installed it manually.](http://jmsyst.com/bundles/JMSPaymentCoreBundle/master/installation)
     
-The eZ Commerce supports the following payment providers out of the box:
+The [[= product_name_com =]] supports the following payment providers out of the box:
 
 |Payment provider|Code used in Basket|
 |--- |--- |

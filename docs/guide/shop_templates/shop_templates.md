@@ -1,10 +1,10 @@
 # Shop templates
 
-eZ Commerce offers additional Twig functions and filters you can use in templates.
+[[= product_name_com =]] offers additional Twig functions and filters you can use in templates.
 
 ## Template resolver
 
-eZ Commerce comes with a [template resolver](template_resolver.md) system which enables overriding templates on a SiteAccess and design base. 
+[[= product_name_com =]] comes with a [template resolver](template_resolver.md) system which enables overriding templates on a SiteAccess and design base. 
 
 ## Design engine
 

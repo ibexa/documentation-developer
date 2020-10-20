@@ -1,6 +1,6 @@
 # Checkout
 
-eZ Commerce provides one-page checkout with a varying number of steps.
+[[= product_name_com =]] provides one-page checkout with a varying number of steps.
 
 If a user is not logged in, they see two more steps: one with a login form and a second one for the invoice address.
 Customers who already have a customer number is forwarded to step 3. 

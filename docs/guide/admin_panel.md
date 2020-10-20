@@ -42,7 +42,7 @@ Section ID numbers are not recycled. If a Section is removed, its ID number will
 
 ## Users
 
-Users in eZ Platform are treated the same way as [Content Types](#content-types).
+Users in [[= product_name_oss =]] are treated the same way as [Content Types](#content-types).
 They are organized in groups such as *Guests*, *Editors*, *Anonymous*, which makes it easier to manage them and their permissions.
 All User Groups and Users can be accessed in the Admin panel by selecting Users.
 
@@ -112,17 +112,17 @@ To allow the User to enter the Back Office interface and view all content, you n
 
 These Policies will be necessary for all other cases below that require access to the content structure.
 
-!!! enterprise
+!!! dxp
 
     #### Create content without publishing
     
-    This option can be used together with eZ Enterprise's content review options.
+    This option can be used together with [[= product_name_ee =]]'s content review options.
     Using the following Policies, the User is able to create content, but can't publish it; instead, they must send it for review to another User with proper permissions (for example, senior editor, proofreader, etc.).
     
     - `content/create`
     - `content/edit`
     
-    Note that without eZ Enterprise this setup should not be used, as it will not allow the User to continue working with their content.
+    Note that without [[= product_name_ee =]] this setup should not be used, as it will not allow the User to continue working with their content.
 
 #### Create and publish content
 
@@ -192,7 +192,7 @@ Note that when a Policy has more than one Limitation, all of them have to apply,
 For example, a `Location` Limitation on Location `1/2` and `Subtree of Location` Limitation on `1/2/55` cannot work together, because no Location can satisfy both those requirements at the same time.
 If you want to combine more than one Limitation with the *or* relation, not *and*, you can split your Policy in two, each with one of these Limitations.
 
-!!! enterprise
+!!! dxp
 
     #### Editorial workflows
 
@@ -213,7 +213,7 @@ For more examples, see [Permissions use cases](permissions/#use-cases).
 
 ## Languages
 
-eZ Platform offers the ability to create multiple translations of your website.
+[[= product_name_oss =]] offers the ability to create multiple translations of your website.
 Which version is shown to a visitor depends on the way your installation is set up.
 A new language version for the website can be added in the Admin Panel in the Languages tab.
 Every new language must have a name and a language code, written in the `xxx-XX` format, for example `eng-GB` etc.
@@ -257,7 +257,7 @@ You can assign states to content in the Back Office in the Content item's Detail
 
 ![Assigning an Object state to a Content item](img/assigning_an_object_state.png "Assigning an Object state to a Content item")
 
-By default, eZ Platform contains one Object state group: **Lock**, with states **Locked** and **Not locked**.
+By default, [[= product_name_oss =]] contains one Object state group: **Lock**, with states **Locked** and **Not locked**.
 
 ![**Lock** Object state](img/object_state_lock.png "Lock Object state")
 

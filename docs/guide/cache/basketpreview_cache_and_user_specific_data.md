@@ -1,6 +1,6 @@
 # Basketpreview cache and user-specific data
 
-eZ Commerce uses a lot of dynamic data which has to be displayed in the shop:
+[[= product_name_com =]] uses a lot of dynamic data which has to be displayed in the shop:
 
 - basket preview shows the number of products and a list of products
 - the name of the customer
@@ -56,7 +56,7 @@ The alias `mydata` is used as a key in the modules section.
 ### Working with HTML fragments
 
 Each service implementing `SessionDataInterface` can return HTML fragments.
-The keys should use the ID of a container inside your site. eZ Commerce automatically replaces this container with the indicated HTML.
+The keys should use the ID of a container inside your site. [[= product_name_com =]] automatically replaces this container with the indicated HTML.
 
 Example for providing the data in a service:
 

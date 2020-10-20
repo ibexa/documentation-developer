@@ -8,7 +8,7 @@
 
 ## Notable changes
 
-!!! enterprise
+!!! dxp
 
     ### Editorial workflow
 
@@ -88,7 +88,7 @@ New multi-file content management functionalities enable you to move and delete 
 
 See [Multi-file content management](https://doc.ezplatform.com/projects/userguide/en/latest/multi_file_content_management/) for more information.
 
-!!! enterprise
+!!! dxp
 
     ### Forms
 
@@ -168,7 +168,7 @@ You are now able to load multiple Locations at once, using `LocationService->loa
 
 ## eZ Platform v2.4.2
 
-!!! enterprise
+!!! dxp
 
     ### Update eZ Enterprise v2.4 to v2.4.2
 

@@ -1,8 +1,8 @@
 # Project organization
 
-eZ Platform is a Symfony application and follows the project structure used by Symfony.
+[[= product_name_oss =]] is a Symfony application and follows the project structure used by Symfony.
 
-You can see an example of organizing a simple project in the [companion repository](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/tree/v3-master) for the [eZ Enterprise Beginner tutorial](../tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world.md).
+You can see an example of organizing a simple project in the [companion repository](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/tree/v3-master) for the [[[= product_name_ee =]] Beginner tutorial](../tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world.md).
 
 ## PHP code
 
@@ -35,7 +35,7 @@ All project assets are accessible through the `assets` path.
 
 ### Importing assets from a bundle
 
-eZ Platform uses [Webpack Encore](https://symfony.com/doc/5.0/frontend.html#webpack-encore) for asset management.
+[[= product_name_oss =]] uses [Webpack Encore](https://symfony.com/doc/5.0/frontend.html#webpack-encore) for asset management.
 
 #### Configuration from a bundle
 

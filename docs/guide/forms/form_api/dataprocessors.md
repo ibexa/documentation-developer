@@ -69,7 +69,7 @@ The data processor sets the following fields in the User Content item:
 - `ses_hastopay_vat`
 - `ses_display_vat`
 
-eZ Commerce provides a standard event for this handler which adds a prefix to the login name of the user.
+[[= product_name_com =]] provides a standard event for this handler which adds a prefix to the login name of the user.
 The prefix can be defined in the configuration key `data_processor_ez_user_login_prefix`.
 
 ``` xml

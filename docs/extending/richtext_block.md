@@ -1,6 +1,6 @@
 # Creating custom RichText blocks
 
-!!! enterprise
+!!! dxp
 
     To create a RichText [custom Page block](extending_page.md), you need to define its layout, provide templates, add a subscriber and register it as a service.
 
