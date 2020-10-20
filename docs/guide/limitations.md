@@ -168,6 +168,10 @@ Beyond that the following Limitations are available:
 
 - [Workflow Transition](limitation_reference.md#workflow-transition-limitation)
 
+#### Segment
+
+- [Segment Group](limitation_reference.md#segment-group-limitation)
+
 ## Limitation reference
 
 See [Limitation reference](limitation_reference.md) for detailed information about individual Limitations.
