@@ -262,6 +262,29 @@
 
     Now, you can choose a design with a defined Site skeleton, and decide if you want to use its skeleton by toggling **Generate site using site skeleton**.
 
+    ### Configure User Group skeleton
+
+    With the User Group skeleton you can define policies and limitations that apply to a select group of users who can access the site.
+
+    User Group skeletons and their limitations can be location-based.
+    You must use a remote ID instead. 
+    User Group skeletons cannot contain individual User content items either.
+    
+    You can create many User Group skeletons and associate them with many templates.
+    One template can have many User Group skeletons assigned.
+
+    To define a User Group skeleton, add a configuration key to the template definition:
+
+    ```yaml
+    ez_platform_site_factory:
+        templates:
+            <site_name>:
+                (...)
+                user_group_skeleton_ids: [ <id1>, <id2>, ... ]
+    ```
+
+    User Group skeletons survive deleting the site.
+    
     ## Disable Site Factory
 
     Enabled Site Factory may cause following performance issues:
