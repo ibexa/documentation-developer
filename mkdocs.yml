@@ -779,7 +779,7 @@ extra:
   # Global variables
   product_name_oss: 'Ibexa Platform'
   product_name_ee: 'Ibexa DXP'
-  product_name_commerce: 'Ibexa Commerce'
+  product_name_com: 'Ibexa Commerce'
 
 extra_css:
   - fonts/MavenPro.css

@@ -52,11 +52,11 @@ composer -V
 
 ## Get [[= product_name_oss =]]
 
-!!! dxp "[[= product_name_ee =]] and [[= product_name_commerce =]]"
+!!! dxp "[[= product_name_ee =]] and [[= product_name_com =]]"
 
     ### Set up authentication tokens
 
-    [[= product_name_ee =]] and [[= product_name_commerce =]] subscribers have access to commercial packages at [updates.ez.no/bul/](https://updates.ez.no/bul/).
+    [[= product_name_ee =]] and [[= product_name_com =]] subscribers have access to commercial packages at [updates.ez.no/bul/](https://updates.ez.no/bul/).
     The site is password-protected. 
     You must set up authentication tokens to access the site.
 
@@ -134,7 +134,7 @@ The result is the same, so you can use the way you prefer:
     Check out a tag (e.g. `git checkout v1.13.4`) that you want to use in a project.
     Use branches (e.g. `master` or `1.13`) only when contributing.
 
-=== "[[= product_name_ee =]] and [[= product_name_commerce =]]"
+=== "[[= product_name_ee =]] and [[= product_name_com =]]"
 
     Download an archive from the [Support portal](https://support.ez.no/Downloads).
 
@@ -181,9 +181,9 @@ Composer looks inside the `composer.json` file and installs all packages require
 
         If you started with a trial installation and want to use the software under the [BUL license instead of a TTL license](https://ibexa.co/About-our-Software/Licenses-and-agreements/), you must change the channel setting that you have just made.
 
-=== "[[= product_name_commerce =]]"
+=== "[[= product_name_com =]]"
 
-    To install a new project with the `composer create-project` command to get the latest version of [[= product_name_commerce =]],
+    To install a new project with the `composer create-project` command to get the latest version of [[= product_name_com =]],
     you must first inform the Composer, which token to use before the project folder is created.
 
     To do this, select the correct updates.ez.no channel. The following channels are available:
@@ -260,9 +260,9 @@ The configuration requires providing the following parameters:
 
     If you want an installation with PostgreSQL instead of MySQL, refer to [Using PostgreSQL](../guide/databases.md#using-postgresql).
 
-!!! dxp "[[= product_name_commerce =]]"
+!!! dxp "[[= product_name_com =]]"
 
-    ## Install and configure Solr for [[= product_name_commerce =]]
+    ## Install and configure Solr for [[= product_name_com =]]
 
     Search in the shop front end requires Solr as search engine. To install it, run the included script:
 
@@ -417,9 +417,9 @@ You should see the welcome page.
 
     To make use of the [Link Manager](../guide/url_management.md), you must [set up cron](../guide/url_management.md#enable-automatic-url-validation).
 
-!!! dxp "[[= product_name_commerce =]]"
+!!! dxp "[[= product_name_com =]]"
 
     #### JMS payment secret
 
-    To provide the `JMS_PAYMENT_SECRET` secret for the [[= product_name_commerce =]] payment system, run `./vendor/defuse/php-encryption/bin/generate-defuse-key`
+    To provide the `JMS_PAYMENT_SECRET` secret for the [[= product_name_com =]] payment system, run `./vendor/defuse/php-encryption/bin/generate-defuse-key`
     and use the generated secret.
