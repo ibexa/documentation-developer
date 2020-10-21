@@ -56,7 +56,7 @@ composer -V
 
     ### Set up authentication tokens
 
-    [[= product_name_ee =]] and [[= product_name_com =]] subscribers have access to commercial packages at [updates.ez.no/bul/](https://updates.ez.no/bul/).
+    [[= product_name_ee =]] and [[= product_name_com =]] subscribers have access to commercial packages at [updates.ez.no/](https://updates.ez.no/).
     The site is password-protected. 
     You must set up authentication tokens to access the site.
 
