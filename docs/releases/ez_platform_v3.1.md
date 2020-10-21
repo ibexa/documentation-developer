@@ -6,6 +6,8 @@
 
 **Release type**: Fast Track
 
+## Overview
+
 ## Notable changes
 
 [eZ Commerce](https://github.com/ezsystems/ezcommerce) now uses Symfony 5 and is fully integrated into the eZ Platform Back Office.
