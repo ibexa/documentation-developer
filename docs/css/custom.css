@@ -259,35 +259,18 @@ html .md-footer-meta.md-typeset a {
     border-color: var(--note-border);
 }
 
-.md-typeset .admonition.note>.admonition-title:before, .md-typeset .admonition.tip>.admonition-title:before,
-.md-typeset .admonition.caution>.admonition-title:before, .md-typeset .admonition.dxp>.admonition-title:before,
-.md-typeset .admonition.enterprise>.admonition-title:before,
-.md-typeset details.note>summary:before, .md-typeset details.tip>summary:before, .md-typeset details.caution>summary:before {
+.md-typeset .admonition.dxp>.admonition-title:before, .md-typeset .admonition.enterprise>.admonition-title:before {
     content: "";
 }
 
-.md-typeset .admonition.note>.admonition-title, .md-typeset details.note>summary {
-    background: url("../images/notes-edit.svg");
+.md-typeset .admonition.tip>.admonition-title:before, .md-typeset details.tip>summary:before {
+    content: "lightbulb_outline";
 }
 
-.md-typeset .admonition.tip>.admonition-title, .md-typeset details.tip>summary {
-    background: url("../images/light-bulb-shine.svg");
+.md-typeset .admonition.tip>.admonition-title:before, .md-typeset details.tip>summary:before,
+.md-typeset .admonition.note>.admonition-title:before, .md-typeset details.note>summary:before {
+    color: var(--ibexa-dusk-black);
 }
-
-.md-typeset .admonition.caution>.admonition-title, .md-typeset details.caution>summary {
-    background: url("../images/alert-triangle.svg");
-}
-
-.md-typeset .admonition.note>.admonition-title, .md-typeset .admonition.tip>.admonition-title,
-.md-typeset .admonition.caution>.admonition-title, .md-typeset .admonition.dxp>.admonition-title,
-.md-typeset .admonition.enterprise>.admonition-title,
-.md-typeset details.tip>summary, .md-typeset details.note>summary, .md-typeset details.caution>summary {
-    background-repeat: no-repeat;
-    background-size: 24px;
-    background-origin: content-box;
-    background-position-x: -3rem;
-}
-
 
 /* General admonitions */
 
