@@ -1,6 +1,6 @@
 # Basket
 
-![](../img/basket_1.jpg)
+![](../img/basket_1.png)
 
 [[= product_name_com =]] provides a flexible basket system. A basket is identified by: 
 

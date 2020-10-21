@@ -25,4 +25,4 @@ The customer must accept the terms and conditions to complete the order.
 
 Terms and conditions content is loaded via Ajax. You can implement this functionality in the whole shop.
 
-![](../../../../img/order_summary.png)
+![](../../../../img/checkout_6.png)

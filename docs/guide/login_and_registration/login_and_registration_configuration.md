@@ -52,8 +52,6 @@ It is needed to build the link to the Back Office.
 
 You have to adapt the success message of the private registration. The default one uses a text module with the identifier `success_register_private`.
 
-![Example email with an activation link](../img/login_3.png)
-
 ## Account activation email
 
 When the `info_email_after_user_activation` parameter is set to true,
@@ -62,5 +60,3 @@ the customer receives an email when the account is enabled using the activation 
 ``` yaml
 siso_core.default.info_email_after_user_activation: false
 ```
-
-![Example account activation email](../img/login_4.png)

@@ -76,16 +76,12 @@ parameters:
     siso_quickorder.default.autosuggest_delimiters: [' ', '/', '-', '::']
 ```
 
-![](../img/quickorder_7.png "Searching for a variant")
-
 Autosuggestion results contain the SKU and the variant code separated by a configurable delimiter.
 
 ``` yaml
 parameters:
     siso_quickorder.default.sku_variant_code_delimiter: '::'
 ```
-
-![](../img/quickorder_8.png)
 
 !!! caution
 
@@ -98,11 +94,7 @@ parameters:
 If a customer leaves the SKU field (for example by choosing one of the autosuggestion result) and sets the cursor on another field (e.g. quantity field or next line), a background search starts. It displays the product name (and variant code) and the unit price.
 This visible feedback is a confirmation for users that the entered SKU is correct.
 
-![](../img/quickorder_9.png)
-
 If the SKU is not correct, the customer sees an error message.
-
-![](../img/quickorder_10.png)
 
 In order to see the real prices and the availability, users must click **Refresh quickorder**.
 
@@ -177,8 +169,6 @@ parameters:
 ### Uploading CSV file
 
 Users can upload only one CSV file at once. They can drag and drop the file to the upload area or browse to the file.
-
-![](../img/quickorder_12.png)
 
 ### Entering CSV file content into a textarea
 

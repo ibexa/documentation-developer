@@ -83,8 +83,6 @@ parameters:
     siso_checkout.default.tests.price_shipping_listener_active: false
 ```
 
-![](../../img/checkout_events_1.png "Default shipping options from the configuration")
-
 ![](../../img/checkout_events_2.png "Shipping options coming form the PriceShippingListener")
 
 ## Post-form-checkout event

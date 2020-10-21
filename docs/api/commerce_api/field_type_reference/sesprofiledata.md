@@ -31,6 +31,4 @@ services:
 The name of the customer (taken from the contact section) can be used for lists.
 To do it, use the name pattern in the Content Type definition of the User Content Type:
 
-![](../img/additional_ez_fieldtypes_7.png)
-
 `customer_profile_data` is the identifier of the Field where the profile data is stored.

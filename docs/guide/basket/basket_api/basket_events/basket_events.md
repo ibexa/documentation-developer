@@ -192,8 +192,4 @@ class="%siso_customer_center.check_budget_event_listener.class%">
     <tag name="kernel.event_listener" event="silver_eshop.pre_basket_show" method="onPreBasketShow" />
 </service>
 ```
-
-#### Result
-
-![](../../../img/basket_events.png)
  
