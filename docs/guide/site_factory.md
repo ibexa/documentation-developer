@@ -264,7 +264,7 @@
 
     ### Configure User Group skeletons
 
-    With User Group skeletons you can define policies and limitations that apply to select groupa of users who can access the site.
+    With User Group skeletons you can define policies and limitations that apply to select groups of users who can access the site.
 
     You can create many User Group skeletons and associate them with many templates.
     One template can have many User Group skeletons assigned.
