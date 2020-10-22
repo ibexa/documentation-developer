@@ -262,26 +262,28 @@
 
     Now, you can choose a design with a defined Site skeleton, and decide if you want to use its skeleton by toggling **Generate site using site skeleton**.
 
-    ### Configure User Group skeleton
+    ### Configure User Group skeletons
 
-    With the User Group skeleton you can define policies and limitations that apply to a select group of users who can access the site.
+    With User Group skeletons you can define policies and limitations that apply to select groupa of users who can access the site.
 
-    User Group skeletons and their limitations can be location-based.
-    You must use a remote ID instead. 
-    User Group skeletons cannot contain individual User content items either.
-    
     You can create many User Group skeletons and associate them with many templates.
     One template can have many User Group skeletons assigned.
 
-    To define a User Group skeleton, add a configuration key to the template definition:
+    To create a User Group skeleton, first go to **Admin** -> **Site skeletons** and add a User Group to a list of available skeletons.
+    Then, review the detailed information of the newly created User Group skeleton,
+    copy the Location ID or the the Location remote ID value, and add a configuration key to the template definition:
 
     ```yaml
     ez_platform_site_factory:
         templates:
             <site_name>:
                 (...)
-                user_group_skeleton_ids: [ <id1>, <id2>, ... ]
+                user_group_skeleton_ids: [ <id_skeleton1>, <id_skeleton2>, ... ]
     ```
+
+    Manage the permissions associated to the User Group skeleton by [assigning Roles](https://doc.ibexa.co/projects/userguide/en/latest/site_organization/organizing_the_site/#managing-permissions).
+    Make sure that the roles that you assign to the User Group skeleton do not contain location-based limitations. 
+    User Group skeletons cannot contain individual User content items either.
 
     User Group skeletons survive deleting the site.
     
