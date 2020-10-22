@@ -264,7 +264,7 @@
 
     ### Configure User Group skeletons
 
-    With User Group skeletons you can define policies and limitations that apply to select groups of users who can access the site.
+    With User Group skeletons you can define Policies and Limitations that apply to selected groups of users who can access the site.
 
     You can create many User Group skeletons and associate them with many templates.
     One template can have many User Group skeletons assigned.
@@ -277,15 +277,15 @@
     ez_platform_site_factory:
         templates:
             <site_name>:
-                (...)
+                # ...
                 user_group_skeleton_ids: [ <id_skeleton1>, <id_skeleton2>, ... ]
     ```
 
     Manage the permissions associated to the User Group skeleton by [assigning Roles](https://doc.ibexa.co/projects/userguide/en/latest/site_organization/organizing_the_site/#managing-permissions).
-    Make sure that the roles that you assign to the User Group skeleton do not contain location-based limitations. 
-    User Group skeletons cannot contain individual User content items either.
+    Make sure that the Roles that you assign to the User Group skeleton do not contain Location-based Limitations. 
+    User Group skeletons cannot contain individual User Content items either.
 
-    User Group skeletons survive deleting the site.
+    User Group skeletons are retained after deleting the site.
     
     ## Disable Site Factory
 
