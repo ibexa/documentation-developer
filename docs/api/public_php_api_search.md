@@ -456,9 +456,9 @@ use eZ\Publish\API\Repository\Values\Content\Query;
 
     Aggregation is only available in the Solr and Elasticsearch search engines.
 
-Aggregation enables you to find the count of search results for each Aggregation type.
+With aggregations you can find the count of search results for each Aggregation type.
 
-To do this, you need to make use of the query's `$aggregations` property:
+To do this, you use of the query's `$aggregations` property:
 
 ``` php
 $query->aggregations[] = new ContentTypeTermAggregation('content_type');
@@ -480,7 +480,7 @@ foreach ($contentByType as $contentType => $count) {
 }
 ```
 
-Field aggregations enable you to group search results according to the value of a specific Field.
+With field aggregations you can group search results according to the value of a specific Field.
 In this case the aggregation takes the Content Type identifier and the Field identifier as parameters.
 
 The following example creates an aggregation named `selection` that groups results
@@ -490,7 +490,7 @@ according to the value of the `topic` Field in the `article` Content Type:
 $query->aggregations[] = new SelectionTermAggregation('selection', 'article', 'topic');
 ```
 
-Tu use a range aggregation you additionally must provide a `ranges` array containing a set of `Range` objects
+To use a range aggregation, you must provide a `ranges` array containing a set of `Range` objects
 that define the borders of the specific range sets.
 
 ``` php
@@ -505,7 +505,7 @@ $query->aggregations[] = new IntegerRangeAggregation('range', 'person', 'age',
 !!! note
 
     The beginning of the range is included and the end is excluded,
-    so a range between 1 and 30 will include value `1`, but not include `30`.
+    so a range between 1 and 30 will include value `1`, but not `30`.
 
 See [Agrregation reference](../guide/search/aggregation_reference.md) for details of all available aggregations.
 

@@ -294,7 +294,7 @@
     ## Custom Aggregation
     
     To create a custom aggregation for use with Elasticsearch, create an aggregation class.
-    In the following example it is an aggregation that groups Location query results according to the Location priority:
+    In the following example, an aggregation groups Location query results according to the Location priority:
     
     ``` php
     <?php
@@ -337,7 +337,7 @@
     
     Tag the service with `ezplatform.search.elasticsearch.query.location.aggregation_visitor`.
     
-    For the result extractor you can use the built-in `RangeAggregationResultExtractor`
+    For the result extractor, you can use the built-in `RangeAggregationResultExtractor`
     and provide it with the aggregation class in the `aggregationClass` parameter.
     
     Tag the service with `ezplatform.search.elasticsearch.query.location.aggregation_result_extractor`.
@@ -470,7 +470,7 @@
     }
     ```
     
-    The `supports()` method check whether the provided aggregation is of the supported type
+    The `supports()` method checks whether the provided aggregation is of the supported type
     (in this case, your custom `PriorityRangeAggregation`).
     
     The `extract()` method converts the [JSON-encoded data provided by the search engine](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations.html) to a `RangeAggregationResult` object.
