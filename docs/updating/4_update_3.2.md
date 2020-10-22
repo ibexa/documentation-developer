@@ -5,8 +5,8 @@ If you are updating from a version prior to 3.0, you have to implement all the c
 !!! note
 
     During database update, you have to go through all the changes between your current version and your final version
-    **e.g. during update from v2.2 to v2.5 you have to perform all the steps from: <2.3, <2.4 and <2.5**.
-    Only after applying all changes your database will work properly.
+    **for example, when you update from v2.2 to v2.5, you have to perform all the steps from: <2.3, <2.4 and <2.5**.
+    The database will work properly only if you apply all the required changes.
     
 ## Check out and update the app
 
@@ -16,19 +16,21 @@ If you are updating from a version prior to 3.0, you have to implement all the c
 
 3\. [Update the app](../updating/3_update_app.md)
 
-## Database update script
+## Run the database update script
 
 !!! dxp "Ibexa DXP or Ibexa Commerce"
 
-    If you are using Ibexa DXP or Ibexa Commerce, apply the following database update script:
+    If you are using Ibexa DXP or Ibexa Commerce, apply one of the following database update scripts:
+    
+    - for MySQL:
 
     `mysql -u <username> -p <password> <database_name> < upgrade/db/mysql/dbupdate-7.2.0-to-7.3.0.sql`
 
-    or for PostgreSQL:
+    - for PostgreSQL:
 
     `psql <database_name> < upgrade/db/postgresql/ezplatform-3.1.0-to-3.2.0.sql`
 
-## Continue update procedure
+## Continue with the update procedure
 
 At this point you can continue with the standard update procedure:
 
