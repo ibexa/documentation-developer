@@ -2255,6 +2255,14 @@ This Field Type validates and stores information about a user.
 |`eZ\Publish\Core\Repository\Values\User\User::PASSWORD_HASH_MD5_SITE`|MD5 hash of the password, username and site name. Deprecated in v1.13, removed in v3.0.|
 |`eZ\Publish\Core\Repository\Values\User\User::PASSWORD_HASH_PLAINTEXT`|Passwords are stored in plaintext, should not be used for real sites. Deprecated in v1.13, removed in v3.0.|
 
+!!! caution
+
+    Using the MD5-based deprecated hash types is a security risk, because if the hashes are leaked, they are too easily broken by brute force attacks. The plaintext type offers no security. It was only ever intended for testing, and should never be used now.
+
+    We strongly recommend switching to one of the new hash types. If you do, it will be used for new users. Existing users will also have their hashes updated to the new type when they log in. (A mass update of all hashes is not possible, because this requires knowing the passwords, which only the users themselves do.)
+
+    Removal notice: https://doc.ibexa.co/en/latest/releases/ez_platform_v3.0_deprecations/#password-hashes
+
 ## XmlText Field Type
 
 The XmlText Field Type isn't officially supported by eZ Platform. It can be installed by requiring `ezsystems/ezplatform-xmltext-fieldtype`. PlatformUI does not support WYSIWYG editing of Fields of this type.
