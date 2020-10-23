@@ -34,7 +34,7 @@ The root node of the tree is 2 (the parent of the first category).
 For example:
 
 ``` php
-// get the doctrine repository
+// get the Doctrine repository
 $objectRepo = $this->em->getRepository(SveObject::class);
 
 $categoryName = 'My category';
