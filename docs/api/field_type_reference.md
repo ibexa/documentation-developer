@@ -2428,17 +2428,31 @@ This Field Type validates and stores information about a user.
 |`login`|`string`|Username.|`john`|
 |`email`|`string`|The user's email address.|`john@smith.com`|
 |`passwordHash`|`string`|Hash of the user's password.|`1234567890abcdef`|
-|`passwordHashType`|`mixed`|Algorithm user for generating password hash as a `PASSWORD_HASH_*` constant defined in `eZ\Publish\Core\Repository\Values\User\User` class.|`User::PASSWORD_HASH_MD5_USER`|
+|`passwordHashType`|`mixed`|Algorithm user for generating password hash as a `PASSWORD_HASH_*` constant defined in `eZ\Publish\Core\Repository\Values\User\User` class.|`User::PASSWORD_HASH_PHP_DEFAULT`|
 |`maxLogin`|`int`|Maximum number of concurrent logins.|`1000`|
 
 ###### Available password hash types
 
 |Constant|Description|
 |------|------|
-|`eZ\Publish\Core\Repository\Values\User\User::PASSWORD_HASH_MD5_PASSWORD`|MD5 hash of the password, not recommended.|
-|`eZ\Publish\Core\Repository\Values\User\User::PASSWORD_HASH_MD5_USER`|MD5 hash of the password and username.|
-|`eZ\Publish\Core\Repository\Values\User\User::PASSWORD_HASH_MD5_SITE`|MD5 hash of the password, username and site name.|
-|`eZ\Publish\Core\Repository\Values\User\User::PASSWORD_HASH_PLAINTEXT`|Passwords are stored in plaintext, should not be used for real sites.|
+|`eZ\Publish\Core\Repository\Values\User\User::DEFAULT_PASSWORD_HASH`|Default password hash, used when none is specified, may change over time.|
+|`eZ\Publish\Core\Repository\Values\User\User::PASSWORD_HASH_PHP_DEFAULT`|Passwords hashed by PHP's default algorithm, which may change over time.|
+|`eZ\Publish\Core\Repository\Values\User\User::PASSWORD_HASH_BCRYPT`|Bcrypt hash of the password.|
+|`eZ\Publish\Core\Repository\Values\User\User::PASSWORD_HASH_MD5_PASSWORD`|MD5 hash of the password, not recommended. Deprecated in v1.13, removed in v3.0.|
+|`eZ\Publish\Core\Repository\Values\User\User::PASSWORD_HASH_MD5_USER`|MD5 hash of the password and username. Deprecated in v1.13, removed in v3.0.|
+|`eZ\Publish\Core\Repository\Values\User\User::PASSWORD_HASH_MD5_SITE`|MD5 hash of the password, username and site name. Deprecated in v1.13, removed in v3.0.|
+|`eZ\Publish\Core\Repository\Values\User\User::PASSWORD_HASH_PLAINTEXT`|Passwords are stored in plaintext, should not be used for real sites. Deprecated in v1.13, removed in v3.0.|
+
+!!! caution
+
+    Using the MD5-based deprecated hash types is a security risk, because if the hashes are leaked, they are too easily broken by brute-force attacks.
+    The plaintext type offers no security. It was only ever intended for testing, and should never be used now.
+
+    We strongly recommend switching to one of the new hash types. If you do, it will be used for new users.
+    Existing users will also have their hashes updated to the new type when they log in.
+    (A mass update of all hashes is not possible, because this requires knowing the passwords, which only the users themselves do.)
+
+    Removal notice: https://doc.ibexa.co/en/latest/releases/ez_platform_v3.0_deprecations/#password-hashes
 
 ## XmlText Field Type
 
