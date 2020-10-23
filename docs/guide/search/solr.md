@@ -4,15 +4,15 @@
 
 ## How to set up Solr search engine
 
-!!! note "Enable the bundle"
+!!! note "Installing the bundle"
 
-    If you have previously disabled the bundle, add/update composer dependencies:
+    If you have previously removed the bundle, add/update composer dependencies:
     ``` bash
-    composer require --no-update ezsystems/ezplatform-solr-search-engine:~2.0
+    composer require --no-update ezsystems/ezplatform-solr-search-engine:~3.0
     composer update
     ```
-
-    Make sure `EzPublishSolrSearchEngineBundle` is activated with the following line in the `app/AppKernel.php` file: `new EzSystems\EzPlatformSolrSearchEngineBundle\EzSystemsEzPlatformSolrSearchEngineBundle()`
+    
+    Symfony Flex should enable the bundle for you when installing the package.
 
 ### Step 1: Configuring and starting Solr
 
@@ -22,12 +22,11 @@ The example presents a configuration with a single core. For configuring Solr in
 
 !!! note "Solr versions"
 
-    `ezplatform-solr-search-engine` v1 still supports Solr 6.
-    Since v2 `ezplatform-solr-search-engine` works only with Solr 7.
+    For v3 `ezplatform-solr-search-engine` works with Solr 7 and 8, using an supported LTS versions of Solr is recommended.
 
 ##### Solr 7
 
-Download and extract Solr. Solr Bundle 2 and higher supports Solr 7 *(currently tested and recommended with Solr 7.7)*:
+Download and extract Solr *(currently recommended with Solr 7.7LTS, so that is what example here is showing)*:
 
 - [solr-7.7.2.tgz](http://archive.apache.org/dist/lucene/solr/7.7.2/solr-7.7.2.tgz) or [solr-7.7.2.zip](http://archive.apache.org/dist/lucene/solr/7.7.2/solr-7.7.2.zip)
 
