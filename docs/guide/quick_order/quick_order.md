@@ -28,8 +28,6 @@ If a customer stores items in the quick order, they can see the real prices and 
 
 If the ERP system is offline, customers see list prices and an error message. There is also no information about product availability.
 
-![](../img/quickorder_4.png)
-
 Customers can remove the items from the quick order by checking the delete checkbox or entering 0 into the quantity field and then clicking **Refresh quickorder**.
 
 ### Storage time

@@ -39,8 +39,4 @@ A fallback price provider (e.g. using imported prices) can be configured. It is 
 
 You can review all communication (request- and response messages) sent between shop and ERP system.
 
-![](img/erp_request_log.png)
-
 You can also check the efficiency of the connection between the shop and the ERP system, including the number of the different requests per date and time.
-
-![](img/erp_performance.png)
