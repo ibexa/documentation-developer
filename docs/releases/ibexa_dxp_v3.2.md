@@ -2,7 +2,7 @@
 
 **Version number**: v3.2
 
-**Release date**: October 20, 2020
+**Release date**: October 23, 2020
 
 **Release type**: Fast Track
 
@@ -26,7 +26,7 @@ and use assets such as images directly from the DAM in your content.
 
 ### Autosave
 
-[[= product_name_oss =]] can now save your edits in a Content item or product automatically to help you preserve the progress in an event of a failure.
+Ibexa Platform can now save your edits in a Content item or product automatically to help you preserve the progress in an event of a failure.
 For more information, see [Autosave](https://doc.ibexa.co/projects/userguide/en/latest/publishing/publishing/#autosave).
 
 ### Aggregation API
@@ -102,6 +102,6 @@ to [get Object states and Object state groups](../api/public_php_api_managing_re
 
 ## Full changelog
 
-| [[= product_name_oss =]]  | [[= product_name_ee =]]  | [[= product_name_com =]] |
+| Ibexa Platform  | Ibexa DXP  | Ibexa Commerce |
 |--------------|------------|------------|
-| [[[= product_name_oss =]] v3.2.0](https://github.com/ezsystems/ezplatform/releases/tag/v3.2.0) | [[[= product_name_ee =]] v3.2.0](https://github.com/ezsystems/ezplatform-ee/releases/tag/v3.2.0) | [[[= product_name_com =]] v3.2.0](https://github.com/ezsystems/ezplatform/releases/tag/v3.2.0)
+| [Ibexa Platform v3.2.0](https://github.com/ezsystems/ezplatform/releases/tag/v3.2.0) | [Ibexa DXP v3.2.0](https://github.com/ezsystems/ezplatform-ee/releases/tag/v3.2.0) | [Ibexa Commerce v3.2.0](https://github.com/ezsystems/ezcommerce/releases/tag/v3.2.0)
