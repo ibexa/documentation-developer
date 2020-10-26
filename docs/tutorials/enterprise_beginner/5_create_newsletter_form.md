@@ -9,7 +9,7 @@ The final step of this tutorial assists you in adding to the home page a Form bl
 
 Start with creating a Form Content item.
 In the **Forms** panel, click **Create** and select **Form**.
-Provide the title, e.g. "Sign up for Newsletter" and click **Create a form**.
+Provide the title, e.g. "Sign up for Newsletter" and click **Build form**.
 
 In the Form Builder, add and configure (using the **Basic** and **Validation** tabs) the following form fields:
 

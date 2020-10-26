@@ -21,18 +21,19 @@ Go to the front page of your website (`<yourdomain>`). You can see that it looks
     `yarn encore <dev|prod>`
 
 Log in to the Back Office. Go to Content &gt; Content Structure.
-The **Home** Content item is the first page that is shown to the visitor.
+The **Ibexa Digital Experience Platform** Content item is the first page that is shown to the visitor.
 Here you can check what Content Type it belongs to: it is a Landing Page.
 
-![Home Content item is a Landing Page](img/enterprise_tut_home_is_an_lp.png)
+![Ibexa Digital Experience Platform is a Landing Page](img/enterprise_tut_home_is_an_lp.png)
 
 The page contains one Code block and is displayed without any template.
-Now go to the Site tab and click **site**. This is the mode that enables you to work with Pages. Click Edit and you will see that the Home Page has only one zone with the block.
+Now go to the Site tab and click **site**. This is the mode that enables you to work with Pages. Click Edit and you will see that the home Page has only one zone with the block.
 
 ![Empty Page with default layout](img/enterprise_tut_empty_single_block.png)
 
 Remove the Tag block. Hover over it and select the trash icon from the menu.
 Switch to editing Page Fields and change the Title of the page to "Home".
+Then, publish the Page to update its name.
 
 The design for the website you are making needs a layout with two zones: a main column and a narrower sidebar.
 [[= product_name_ee =]] provides only a one-zone default layout, so you need to create a new one.
@@ -63,7 +64,7 @@ ezplatform_page_fieldtype:
                     name: Second zone
 ```
 
-#### Add Content Type icon
+#### Add thumbnail
 
 !!! tip
 
@@ -71,7 +72,7 @@ ezplatform_page_fieldtype:
 
 The `sidebar` (line 3) is the internal key of the layout. `name` (line 5) is displayed in the interface when the user selects a layout.
 The `thumbnail` (line 7) points to an image file that is shown when creating a new Landing Page next to the name.
-Use the [supplied Content Type icon file](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step2/public/assets/images/layouts/sidebar.png) and place it in the `public/assets/images/layouts/` folder.
+Use the [supplied thumbnail file](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step2/public/assets/images/layouts/sidebar.png) and place it in the `public/assets/images/layouts/` folder.
 
 The `template` (line 8) points to the Twig file containing the template for this layout.
 
