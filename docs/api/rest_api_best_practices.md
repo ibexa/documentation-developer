@@ -1,4 +1,4 @@
-# REST API reference best practices
+# REST API best practices
 
 This page refers to [REST API reference](https://doc.ezplatform.com/rest-api-reference), where you can find detailed information about
 REST API resources and endpoints.
