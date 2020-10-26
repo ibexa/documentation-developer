@@ -279,6 +279,7 @@
             <site_name>:
                 # ...
                 user_group_skeleton_ids: [ <id_skeleton1>, <id_skeleton2>, ... ]
+                user_group_skeleton_remote_ids: [ <id_skeleton3>, <id_skeleton4>, ... ]
     ```
 
     Manage the permissions associated to the User Group skeleton by [assigning Roles](https://doc.ibexa.co/projects/userguide/en/latest/site_organization/organizing_the_site/#managing-permissions).
