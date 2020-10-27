@@ -35,7 +35,7 @@
         </svg>
         </a></div>
         <div class="card-footer bg-transparent">
-            <p class="card-text"><a href="guide/architecture/" class="card-link">Guide to eZ Platform</a></p>
+            <p class="card-text"><a href="guide/architecture/" class="card-link">Guide to Ibexa DXP</a></p>
         </div>
     </div>
 </div>
