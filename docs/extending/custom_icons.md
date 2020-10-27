@@ -7,32 +7,22 @@ For more information on icons used in [[= product_name_oss =]], see [the Icons s
 
 ### Configuration
 
-A configuration of the default icon for Content Type is possible via the `default-config` key in `config/packages/ezplatform.yaml`, e.g.:
+To configure a custom icon for a Content Type, use the following configuration in `config/packages/ezplatform.yaml`, e.g.:
 
 ```yaml
 ezplatform:
     system:
-       default:
-           content_type:
-              default-config:
-                 thumbnail: /assets/images/mydefaulticon.svg
+        default:
+            content_type:
+                article:
+                    thumbnail: /assets/images/custom_icon.svg#custom
 ```
 
-To configure a custom icon, you need to replace the `default-config` key with a Content Type identifier.
-For example:
-
-```yaml
-ezplatform:
-    system:
-       default:
-           content_type:
-              article:
-                 thumbnail: /assets/images/customicon.svg
-```
+Place the icon in `public/assets/images` and remember to run `yarn encore <dev|prod>` after adding it.
 
 !!! note "Icons format"
 
-    All icons should be in SVG format so they can display properly in Back Office.
+    All icons should be in SVG format with `symbol` so they can display properly in Back Office.
 
 ### Custom icons in Twig templates
 
@@ -40,12 +30,10 @@ Content Type icons are accessible in Twig templates via the `ez_content_type_ico
 It requires Content Type identifier as an argument. The function returns the path to a Content Type icon.
 
 ```twig
-<svg class="ez-icon ez-icon-{{ contentType.identifier }}">
-    <use xlink:href="{{ ez_content_type_icon(contentType.identifier) }}"></use>
+<svg class="ez-icon ez-icon-{{ content.contentType.identifier }}">
+    <use xlink:href="{{ ez_content_type_icon(content.contentType.identifier) }}"></use>
 </svg>
 ```
-
-If the icon for a given Content Type is **not specified** in the configuration, the default icon is returned.
 
 ### Custom icons in JavaScript
 
