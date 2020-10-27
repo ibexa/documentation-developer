@@ -13,6 +13,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 final class Value implements ValueInterface
 
+{  
    /**
      * @var float|null
      *
@@ -28,6 +29,7 @@ final class Value implements ValueInterface
     private $y;
     
  // ...   
+}
 ```
 
 As a result, if a user tries to publish the Point 2D with just one value, they will receive an error message.
