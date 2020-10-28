@@ -45,7 +45,7 @@ To get this list, you will use a Query Type.
 ## QueryType overview
 
 QueryType objects are used to limit and sort results for Content Item queries. 
-They can also define parameters to dynamically control them, allowing changing the resultset based on external factors.
+QueryTypes can define parameters, allowing changing the resultset based on external factors.
 For example, you can control the sorting direction with a URL parameter (`order=DESC`) or narrow the results.
 QueryType objects can also control which Content Type objects are queried.
 
