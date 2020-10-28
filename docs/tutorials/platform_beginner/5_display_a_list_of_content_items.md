@@ -48,7 +48,7 @@ QueryType objects are used to limit and sort results for Content Item queries.
 
 For more information about QueryTypes, see [Built-In Query Types](../../guide/controllers/#built-in-query-types)
 
-Here, you want to display `ride` objects that have been published (are visible).
+Here, you need to display `ride` objects that have been published (are visible).
 Create a `RideQueryType.php` file in `src/QueryType`:
 
 ``` php hl_lines="21 22"
