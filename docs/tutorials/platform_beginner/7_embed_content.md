@@ -170,7 +170,7 @@ ezplatform:
 
 ### Add the Landmark in the Ride full view
 
-Now modify the Ride full view template to include a list of Landmarks.
+Now modify the Ride full view template to include a list of Landmarks, and the controller that you just created.
 Add the following lines at the end of `templates/full/ride.html.twig`, before the last `</div>` and the closing tag `{% endblock %}`:
 
 ``` html+twig
