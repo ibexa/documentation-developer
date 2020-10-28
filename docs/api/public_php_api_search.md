@@ -456,7 +456,7 @@ use eZ\Publish\API\Repository\Values\Content\Query;
 
     Aggregation is only available in the Solr and Elasticsearch search engines.
 
-With aggregations you can find the count of search results for each Aggregation type.
+With aggregations you can find the count of search results or other result information for each Aggregation type.
 
 To do this, you use of the query's `$aggregations` property:
 
@@ -506,6 +506,9 @@ $query->aggregations[] = new IntegerRangeAggregation('range', 'person', 'age',
 
     The beginning of the range is included and the end is excluded,
     so a range between 1 and 30 will include value `1`, but not `30`.
+    
+    `null` means that a range does not have an end.
+    In the example all values above (and including) 60 are included in the last range.
 
 See [Agrregation reference](../guide/search/aggregation_reference.md) for details of all available aggregations.
 

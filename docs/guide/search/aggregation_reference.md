@@ -12,7 +12,6 @@ There are three types of aggregations:
 
 |Name | Type | Based on|
 |---|---|---|
-|AuthorTermAggregation | Term | Content Type  |
 |ContentTypeTermAggregation | Term | Content Type  |
 |ContentTypeGroupTermAggregation | Term | Content Type group |
 |DateMetadataRangeAggregation | Range | Content creation/modification/publication date |
@@ -27,6 +26,7 @@ There are three types of aggregations:
 
 |Name | Type | Based on Field|
 |---|---|---|
+|AuthorTermAggregation | Term | [Author](../../api/field_type_reference.md#author-field-type) |
 |CheckboxTermAggregation | Term |[Checkbox](../../api/field_type_reference.md#checkbox-field-type)|
 |CountryTermAggregation | Term |[Country](../../api/field_type_reference.md#country-field-type)|
 |DateRangeAggregation | Range |[Date](../../api/field_type_reference.md#date-field-type)|
