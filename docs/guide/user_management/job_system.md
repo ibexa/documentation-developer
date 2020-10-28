@@ -16,8 +16,6 @@ The list is automatically updated every 10 seconds.
 You can [add your own jobs](#configure-jobs-for-the-backend) to the eContent menu.
 The user can then click **Start** and the job is executed. 
 
-![](../img/configure_jobs.png)
-
 ## Starting jobs
 
 The job system requires executing the `jms-job-queue:run` command (see [Required crontab tasks](../shop_configuration/required_crontab_tasks.md)).

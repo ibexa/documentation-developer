@@ -15,5 +15,3 @@ For each eContent Field Type the list of attributes is displayed:
 - Mapping: shows where the field can be found when using the `CatalogElement`.
 The mapping is defined in a yml file: `silver_econtent.default.mapping.product`
 (For more information, see [econtent - Configuration](../econtent_configuration.md)).
-
-![](../../img/econtent_backend_features.png)

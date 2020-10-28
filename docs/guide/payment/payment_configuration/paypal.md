@@ -32,8 +32,6 @@ _siso_paypal_payment:
 
 The configuration for PayPal Express has to be set up for each admin SiteAccess.
 
-![](../../img/payment_11.png)
-
 ## How to get the API credentials
 
 ``` yaml

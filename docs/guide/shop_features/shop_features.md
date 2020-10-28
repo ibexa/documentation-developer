@@ -44,12 +44,7 @@ When an ERP system is connected, the customer can browse and search past orders,
 This applies to all channels of making an order, including phone, fax, email, or online shop. 
 The documents for the chosen dates are fetched in real time.
 If the ERP provides a tracking link, this information is displayed as well.
-
-![](img/order_history_list.png)
-
-The customer can order the same products again:
-
-![](img/order_history.png)
+The customer can order the same products again.
 
 ## GDPR compliance
 

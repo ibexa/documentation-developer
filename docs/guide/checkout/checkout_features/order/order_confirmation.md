@@ -70,7 +70,3 @@ $basket = $this->getBasket($request, BasketService::STATE_CONFIRMED, $basketId);
 | --------------- | ------ |
 | Plain text email | `vendor/silversolutions/silver.e-shop/src/Silversolutions/Bundle/EshopBundle/Resources/views/Checkout/Email/order_confirmation.txt.twig`  |
 | HTML email       | `vendor/silversolutions/silver.e-shop/src/Silversolutions/Bundle/EshopBundle/Resources/views/Checkout/Email/order_confirmation.html.twig` |
-
-#### Example email
-
-![](../../../img/confirmation_email.png)
