@@ -7,7 +7,7 @@ For more information on icons used in [[= product_name_oss =]], see [the Icons s
 
 ### Configuration
 
-To configure a custom icon for a Content Type, use the following configuration in `config/packages/ezplatform.yaml`, e.g.:
+To configure a custom icon for a Content Type, use the following configuration in `config/packages/ezplatform.yaml`, for example:
 
 ```yaml
 ezplatform:
@@ -22,7 +22,7 @@ Place the icon in `public/assets/images` and remember to run `yarn encore <dev|p
 
 !!! note "Icons format"
 
-    All icons should be in SVG format with `symbol` so they can display properly in Back Office.
+    All icons should be in SVG format with `symbol` so they can display properly in the Back Office.
 
 ### Custom icons in Twig templates
 
