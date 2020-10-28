@@ -42,16 +42,11 @@ In `templates/full/home_page.html.twig` replace the "Hello world" with a table t
 The `rides` variable you use in line 15 above needs to contain a list of all Rides.
 To get this list, you will use a Query Type.
 
-## QueryType overview
+## Create a QueryType for the home page
 
-QueryType objects are used to limit and sort results for Content Item queries. 
-QueryTypes can define parameters, allowing changing the resultset based on external factors.
-For example, you can control the sorting direction with a URL parameter (`order=DESC`) or narrow the results.
-QueryType objects can also control which Content Type objects are queried.
+QueryType objects are used to limit and sort results for Content Item queries.
 
 For more information about QueryTypes, see [Built-In Query Types](../../guide/controllers/#built-in-query-types)
-
-## Create a QueryType for the home page
 
 Here, you want to display `ride` objects that have been published (are visible).
 Create a `RideQueryType.php` file in `src/QueryType`:
