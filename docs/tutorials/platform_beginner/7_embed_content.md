@@ -1,7 +1,7 @@
 # Step 7 — Embed content
 
-Creating lists and detailed views of Content Types and their respective items often involves also loading their related resources.
-In the following steps Rides will receive additional, related object: a Landmark, which will be displayed on Ride pages.
+Creating lists and detailed views of Content Types and their respective items often involves loading related resources.
+In this step, you add a related object, a Landmark, which will be displayed on Ride pages.
 
 You can add as many or as little related resources as you like.
 
@@ -112,8 +112,9 @@ landmark_list:
 
 ### Create the RideController
 
-Since we will need to add additional information when Ride object is displayed, we will need to create a custom controller.
-In this controller we will use `ContentService` to load related resources (Landmarks) for a particular Ride, and place it under `landmarksList` variable in template.
+You must provide additional information when the Ride object is displayed. 
+This requires creating a custom controller.
+The controller uses `ContentService` to load related resources (Landmarks) for a particular Ride.
 
 Create a `src/Controller/RideController.php` file:
 
