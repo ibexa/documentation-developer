@@ -15,8 +15,6 @@ The newsletter box can be rendered as an ESI block and can be rendered in the Pa
 
 All parameters from the block template are available in the box.
 
-![](../img/newsletter_1.png)
-
 ## Rendering a newsletter form
 
 You can use a render statement to render the newsletter form in a template:

@@ -118,10 +118,6 @@ You can extend the Product Content Type with the `sesexternaldata` Field.
 
 If the `ses_externaldata` table is filled properly with the data, you can create the connection with the appropriate product by typing the SKU.
 
-![](../img/additional_ez_fieldtypes_4.png)
-
-![](../img/additional_ez_fieldtypes_5.png)
-
 ### Handling the fetched data
 
 The data from `sesexternaldata` is converted in the shop and an array of [Field Types](../fields_for_ecommerce_data/fields_for_ecommerce_data.md) or simple types is returned.
