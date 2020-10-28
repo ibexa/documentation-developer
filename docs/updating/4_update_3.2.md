@@ -24,7 +24,7 @@ If you are updating from a version prior to 3.0, you have to implement all the c
     
     - for MySQL:
 
-    `mysql -u <username> -p <password> <database_name> < upgrade/db/mysql/dbupdate-7.2.0-to-7.3.0.sql`
+    `mysql -u <username> -p <password> <database_name> < upgrade/db/mysql/ezplatform-3.1.0-to-3.2.0.sql`
 
     - for PostgreSQL:
 
