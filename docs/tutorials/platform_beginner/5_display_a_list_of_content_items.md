@@ -46,14 +46,14 @@ To get this list, you will use a Query Type.
 
 QueryType objects are used to limit and sort results for Content Item queries. 
 They can also define parameters to dynamically control them, allowing changing the resultset based on external factors.
-As an example you can allow sorting direction to be controlled by URL parameter (`order=DESC`) or narrow the results.
-QueryType objects can also dictate which Content Type objects are queried.
+For example, you can control the sorting direction with a URL parameter (`order=DESC`) or narrow the results.
+QueryType objects can also control which Content Type objects are queried.
 
-You can read more about them [here](../../guide/controllers/#creating-custom-query-types)
+For more information about QueryTypes, see [Built-In Query Types](../../guide/controllers/#built-in-query-types)
 
 ## Create a QueryType for the home page
 
-In our case we want to display `ride` objects that have been published (are visible).
+Here, you want to display `ride` objects that have been published (are visible).
 Create a `RideQueryType.php` file in `src/QueryType`:
 
 ``` php hl_lines="21 22"
