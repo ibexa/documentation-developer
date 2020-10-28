@@ -44,9 +44,8 @@ To get this list, you will use a Query Type.
 
 ## Create a QueryType for the home page
 
-QueryType objects are used to limit and sort results for Content Item queries.
-
-For more information about QueryTypes, see [Built-In Query Types](../../guide/controllers/#built-in-query-types)
+QueryType objects are used to limit and sort results for Content Item queries. 
+For more information, see [Built-In Query Types](../../guide/controllers/#built-in-query-types)
 
 Here, you need to display `ride` objects that have been published (are visible).
 Create a `RideQueryType.php` file in `src/QueryType`:
