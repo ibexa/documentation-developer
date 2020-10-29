@@ -49,7 +49,10 @@ nav:
             - 'REST API guide': 'api/rest_api_guide.md'
             - 'REST API usage': 'api/general_rest_usage.md'
             - 'Extending the REST API': 'api/extending_the_rest_api.md'
-            - 'REST API reference': 'https://doc.ezplatform.com/rest-api-reference'
+            - REST API reference:
+                - 'REST API reference': 'https://doc.ezplatform.com/rest-api-reference'
+                - 'REST API best practices': 'api/rest_api_best_practices.md'
+                - 'REST API authentication': 'api/rest_api_authentication.md'
             - 'Accept header-based REST API response': 'api/creating_custom_rest_api_response.md'
             - 'Binary attachments via REST API': 'api/creating_content_with_binary_attachments_via_rest_api.md'
             - 'Cross-origin HTTP requests': 'api/making_cross_origin_http_requests.md'

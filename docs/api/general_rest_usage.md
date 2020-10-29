@@ -1,6 +1,5 @@
 # General REST usage
 
-
 As explained in the [introduction](rest_api_guide.md), the REST API is based on a limited list of general principles:
 
 - Each resource (URI) interacts with a part of the system (content, URL aliases, User Groups, etc.).
