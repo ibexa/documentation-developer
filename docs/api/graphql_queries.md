@@ -325,6 +325,12 @@ You can sort query results using `sortBy`:
 }
 ```
 
+You can use an array of clauses as well. To reverse the item list you have to add `_desc` after the clause
+
+```
+articles(sortBy:[_datePublished,_desc])
+```
+
 ## Pagination
 
 GraphQL offers [cursor-based pagination](https://graphql.org/learn/pagination/) for paginating query results.
