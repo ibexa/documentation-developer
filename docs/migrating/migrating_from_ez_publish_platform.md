@@ -18,7 +18,7 @@ An upgrade from eZ Publish Platform 5.4.x (Enterprise edition) or 2014.11 (Commu
 This page will take you true the following steps:
 - Setup clean eZ Platform 2.5 install using the latest available version
 - Move over your project specific code, config and packages, adapt for changes in newer versions.
-- _Optional; Add legacy bridge to continue to run legacy for certain parts and be able to gradual perform the migrations below_
+- _Optional; Add legacy bridge to continue to run legacy for certain parts and be able to gradual perform the migrations below later_
 - Migrate eZ Flow to eZ Landing page _(1.x)_, and eZ Landing page to eZ Page Builder _(2.2 and higher)_
 - Migrate XmlText content to RichText
 - Once these steps are done; _All legacy, migration, older fieldtypes (ezflow, landingpage and ezxmltext) packages can be uninstalled._
@@ -29,7 +29,7 @@ This page will take you true the following steps:
 
         - A good tip is to test out the content migration scripts early in the process to look for possible warnings given by them, and report these if it is considered as bugs in the migration scripts.
 
-    1. "Hybrid setup" using Legacy Bridge is a supported option for 1.13LTS and 2.5LTS series. This means you can plan for a more gradual migration if you want, just like you could on eZ Publish Platform 5.x, with a more feature-mature version of eZ Platform, Symfony and even Legacy bridge itself. This is a great option for those who want the latest features. The downside is a more complex setup to develop and maintian, given you continue run two systems in paralell, and the overall migration might take much longer when using an iterative/gradual approach.
+    1. "Hybrid setup" using Legacy Bridge is a supported option for 1.13LTS and 2.5LTS series. This means you can plan for a more gradual migration if you want, just like you could on eZ Publish Platform 5.x, with a more feature-mature version of eZ Platform, Symfony and even Legacy bridge itself. This is a great option for those who want acces to some of the latest features. The downside is a more complex setup to develop and maintian, given you continue run two systems in paralell, and the overall migration might take much longer when using an iterative/gradual approach.
 
     1. Additionally there are some other topics to be aware of for the code migration from eZ Publish to eZ Platform:
 
@@ -50,7 +50,7 @@ This page will take you true the following steps:
 
 ## Check for requirements
 
-- Information regarding system requirements for v2 can be found on the [Requirements documentation page](../getting_started/requirements.md); notable changes include:
+- Information regarding system requirements can be found on the [Requirements documentation page](../getting_started/requirements.md); notable changes include:
     - PHP 7.1 or higher
     - MariaDB 10.0+ or MySQL 5.7+ or PostgreSQL 10+
     - Browser from 2018 or newer for use with eZ Platform Admin UI
