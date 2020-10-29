@@ -2,8 +2,8 @@
 
 To extend the **My dashboard** page, make use of an event subscriber.
 
-In the following example, the `DashboardEventSubscriber.php` reverses the order of sections of the **My dashboard** page
-(in a default installation this makes the **Common content** block appear above the **My content** block):
+In the following example, the `DashboardEventSubscriber.php` removes the **Common content** section of the **My dashboard** page,
+identified by the `ezplatform.adminui.dashboard.all` key:
 
 ``` php
 <?php
@@ -30,10 +30,8 @@ class DashboardEventSubscriber implements EventSubscriberInterface
 
         $components = $event->getComponents();
 
-        $reverseOrder = array_reverse($components);
-
-        $event->setComponents($reverseOrder);
-
+        unset($components['ezplatform.adminui.dashboard.all']);
+        $event->setComponents($components);
     }
 }
 ```

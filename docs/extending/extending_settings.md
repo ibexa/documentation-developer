@@ -27,7 +27,6 @@ use EzSystems\EzPlatformUser\UserSetting\ValueDefinitionInterface;
 use eZ\Publish\Core\Base\Exceptions\InvalidArgumentException;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
-use EzSystems\EzPlatformAdminUi\UserSetting as AdminUiUserSettings;
 
 class Unit implements ValueDefinitionInterface, FormMapperInterface
 {
@@ -64,7 +63,7 @@ class Unit implements ValueDefinitionInterface, FormMapperInterface
         return 'metric';
     }
 
-    public function mapFieldForm(FormBuilderInterface $formBuilder, AdminUiUserSettings\ValueDefinitionInterface $value): FormBuilderInterface
+    public function mapFieldForm(FormBuilderInterface $formBuilder, ValueDefinitionInterface $value): FormBuilderInterface
     {
         $choices = [
             'Metric' => self::METRIC_OPTION,
@@ -116,7 +115,7 @@ ezplatform:
                             Identifier: [ unit ]
 ```
 
-The `Templates/User/Settings/update_unit.html.twig` template must extend the `@ezdesign/account/settings/update.html.twig` template:
+The `templates/User/Settings/update_unit.html.twig` template must extend the `@ezdesign/account/settings/update.html.twig` template:
 
 ``` html+twig
 {% extends '@ezdesign/account/settings/update.html.twig' %}
