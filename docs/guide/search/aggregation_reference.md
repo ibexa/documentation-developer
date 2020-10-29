@@ -12,29 +12,28 @@ There are three types of aggregations:
 
 |Name | Type | Based on|
 |---|---|---|
-|ContentTypeTermAggregation | Term | Content Type  |
-|ContentTypeGroupTermAggregation | Term | Content Type group |
-|DateMetadataRangeAggregation | Range | Content creation/modification/publication date |
-|LanguageTermAggregation | Term | Content language |
-|ObjectStateTermAggregation | Term | Object state |
-|SectionTermAggregation | Term | Section |
-|SubtreeTermAggregation | Term | Content Type  |
-|UserMetadataTermAggregation | Term | Content owner/owner group or modifier |
-|VisibilityTermAggregation | Term | Content/Location visibility |
+|[ContentTypeTermAggregation](aggregation_reference/contenttypeterm_aggregation.md) | Term | Content Type  |
+|[ContentTypeGroupTermAggregation](aggregation_reference/contenttypegroupterm_aggregation.md) | Term | Content Type group |
+|[LanguageTermAggregation](aggregation_reference/languageterm_aggregation.md) | Term | Content language |
+|[ObjectStateTermAggregation](aggregation_reference/objectstateterm_aggregation.md) | Term | Object state |
+|[SectionTermAggregation](aggregation_reference/sectionterm_aggregation.md) | Term | Section |
+|[SubtreeTermAggregation](aggregation_reference/subtreeterm_aggregation.md) | Term | Content Type  |
+|[UserMetadataTermAggregation](aggregation_reference/usermetadataterm_aggregation.md) | Term | Content owner/owner group or modifier |
+|[VisibilityTermAggregation](aggregation_reference/visibilityterm_aggregation.md) | Term | Content/Location visibility |
 
 ## Field aggregations
 
 |Name | Type | Based on Field|
 |---|---|---|
-|AuthorTermAggregation | Term | [Author](../../api/field_type_reference.md#author-field-type) |
-|CheckboxTermAggregation | Term |[Checkbox](../../api/field_type_reference.md#checkbox-field-type)|
-|CountryTermAggregation | Term |[Country](../../api/field_type_reference.md#country-field-type)|
-|DateRangeAggregation | Range |[Date](../../api/field_type_reference.md#date-field-type)|
-|DateTimeRangeAggregation | Range |[DateTime](../../api/field_type_reference.md#dateandtime-field-type)|
-|FloatRangeAggregation | Range |[Float](../../api/field_type_reference.md#float-field-type)|
-|FloatStatsAggregation | Stats |[Float](../../api/field_type_reference.md#float-field-type)|
-|IntegerRangeAggregation | Range |[Integer](../../api/field_type_reference.md#integer-field-type)|
-|IntegerStatsAggregation | Stats |[Integer](../../api/field_type_reference.md#integer-field-type)|
-|KeywordTermAggregation | Term |[Keyword](../../api/field_type_reference.md#keyword-field-type)|
-|SelectionTermAggregation | Term |[Selection](../../api/field_type_reference.md#selection-field-type)|
-|TimeRangeAggregation | Range |[Time](../../api/field_type_reference.md#time-field-type)|
+|[AuthorTermAggregation](aggregation_reference/authorterm_aggregation.md) | Term | [Author](../../api/field_type_reference.md#author-field-type) |
+|[CheckboxTermAggregation](aggregation_reference/checkboxterm_aggregation.md) | Term |[Checkbox](../../api/field_type_reference.md#checkbox-field-type)|
+|[CountryTermAggregation](aggregation_reference/countryterm_aggregation.md) | Term |[Country](../../api/field_type_reference.md#country-field-type)|
+|[DateRangeAggregation](aggregation_reference/daterange_aggregation.md) | Range |[Date](../../api/field_type_reference.md#date-field-type)|
+|[DateTimeRangeAggregation](aggregation_reference/datetimerange_aggregation.md) | Range |[DateTime](../../api/field_type_reference.md#dateandtime-field-type)|
+|[FloatRangeAggregation](aggregation_reference/floatrange_aggregation.md) | Range |[Float](../../api/field_type_reference.md#float-field-type)|
+|[FloatStatsAggregation](aggregation_reference/floatstats_aggregation.md) | Stats |[Float](../../api/field_type_reference.md#float-field-type)|
+|[IntegerRangeAggregation](aggregation_reference/integerrange_aggregation.md) | Range |[Integer](../../api/field_type_reference.md#integer-field-type)|
+|[IntegerStatsAggregation](aggregation_reference/integerstats_aggregation.md) | Stats |[Integer](../../api/field_type_reference.md#integer-field-type)|
+|[KeywordTermAggregation](aggregation_reference/keywordterm_aggregation.md) | Term |[Keyword](../../api/field_type_reference.md#keyword-field-type)|
+|[SelectionTermAggregation](aggregation_reference/selectionterm_aggregation.md) | Term |[Selection](../../api/field_type_reference.md#selection-field-type)|
+|[TimeRangeAggregation](aggregation_reference/timerange_aggregation.md) | Range |[Time](../../api/field_type_reference.md#time-field-type)|
