@@ -42,8 +42,8 @@ nav:
             - 'Extending Admin UI': 'tutorials/extending_admin_ui/extending_admin_ui.md'
             - '1. Creating a bundle': 'tutorials/extending_admin_ui/1_creating_a_bundle.md'
             - '2. Creating a Dashboard tab': 'tutorials/extending_admin_ui/2_creating_a_dashboard_tab.md'
-            - '3. Creating a content list': 'tutorials/extending_admin_ui/3_creating_a_content_list.md'
-            - '4. Filtering the content list': 'tutorials/extending_admin_ui/4_filtering_the_content_list.md'
+            - '3. Creating a top menu item': 'tutorials/extending_admin_ui/3_creating_a_content_list.md'
+            - '4. Filtering query results': 'tutorials/extending_admin_ui/4_filtering_the_content_list.md'
             - '5. Creating a UDW tab': 'tutorials/extending_admin_ui/5_creating_a_udw_tab.md'
             - '6. Creating a custom tag': 'tutorials/extending_admin_ui/6_adding_a_custom_tag.md'
     - API:
@@ -182,6 +182,21 @@ nav:
         - Languages:
             - 'Languages': 'guide/internationalization.md'
             - 'Back Office translations': 'guide/back_office_translations.md'
+        - Personalization:
+            - 'Personalization': 'guide/personalization/personalization.md'
+            - 'Personalization quickstart': 'guide/personalization/personalization_quickstart.md'
+            - Developer guide:
+                - 'Tracking API': 'guide/personalization/developer_guide/tracking_api.md'
+                - 'Importing historical user tracking data': 'guide/personalization/developer_guide/importing_historical_user_tracking_data.md'
+                - 'Tracking with yct.js': 'guide/personalization/developer_guide/tracking_with_yct.md'
+                - 'Recommendation API': 'guide/personalization/developer_guide/recommendation_api.md'
+                - 'Legacy Recommendation API': 'guide/personalization/developer_guide/legacy_recommendation_api.md'
+                - 'Content API': 'guide/personalization/developer_guide/content_api.md'
+                - 'User API': 'guide/personalization/developer_guide/user_api.md'
+            - Best practices:
+                - 'Tracking integration': 'guide/personalization/best_practices/tracking_integration.md'
+                - 'Recommendation integration': 'guide/personalization/best_practices/recommendation_integration.md'
+            - 'Recommendation client': 'guide/personalization/recommendation_client.md'
         - Repository:
             - 'Repository': 'guide/repository.md'
             - 'Databases': 'guide/databases.md'
@@ -219,7 +234,6 @@ nav:
             - 'Creating custom drop-downs': 'guide/extending/creating_custom_dropdowns.md'
             - 'Creating drag and drop interface': 'guide/extending/drag_and_drop.md'
         - 'Service container': 'guide/service_container.md'
-        - 'Recommendation': 'guide/personalization.md'
     - Resources and community:
         - 'Resources': 'community_resources/resources.md'
         - 'Release process and roadmap': 'community_resources/release_process.md'
@@ -254,8 +268,28 @@ nav:
         - 'Migrating from eZ Publish': 'migrating/migrating_from_ez_publish.md'
         - 'Legacy Bridge': 'migrating/legacy_bridge.md'
         - 'Common issues': 'migrating/common_issues.md'
+    - Upgrading eZ Platform:
+        - 'Upgrading to eZ Platform v3': 'upgrading/upgrading_to_v3.md'
+        - '1. Check out a tagged version': 'upgrading/1_check_out_version.md'
+        - '2. Merge composer.json': 'upgrading/2_merge_composer.md'
+        - '3. Update the app': 'upgrading/3_upgrade_app.md'
+        - '4. Upgrade the code':
+            - '4. Upgrade the code': 'upgrading/4_upgrade_the_code.md'
+            - '4.1. Upgrade templates': 'upgrading/4_1_upgrade_templates.md'
+            - '4.2. Upgrade configuration': 'upgrading/4_2_upgrade_configuration.md'
+            - '4.3. Upgrade Field Types': 'upgrading/4_3_upgrade_field_types.md'
+            - '4.4. Upgrade Signal Slots': 'upgrading/4_4_upgrade_signal_slots.md'
+            - '4.5. Upgrade Online Editor': 'upgrading/4_5_upgrade_online_editor.md'
+            - '4.6. Upgrade workflow': 'upgrading/4_6_upgrade_workflow.md'
+            - '4.7. Upgrade extended code': 'upgrading/4_7_upgrade_extensions.md'
+            - '4.8. Upgrade REST': 'upgrading/4_8_upgrade_rest.md'
+            - '4.9. Upgrade Site Factory': 'upgrading/4_9_upgrade_site_factory.md'
+            - '4.10 Other code upgrades': 'upgrading/4_10_upgrade_other.md'
+        - '5. Upgrade the database': 'upgrading/5_upgrade_database.md'
+        - '6. Platform.sh changes': 'upgrading/6_platform_sh_changes.md'
+        - '7. Dump assets': 'upgrading/7_dump_assets.md'
+        - '8. Commit, test and merge': 'upgrading/8_commit_test_merge.md'
     - Updating eZ Platform:
-        - 'Upgrading to eZ Platform v3': 'updating/upgrading_to_v3.md'
         - 'Updating eZ Platform': 'updating/updating_ez_platform.md'
         - '1. Check out a tagged version': 'updating/1_check_out_version.md'
         - '2. Merge composer.json': 'updating/2_merge_composer.md'
@@ -268,10 +302,14 @@ nav:
           - 'Updating from <2.3': 'updating/4_update_2.3.md'
           - 'Updating from <2.4': 'updating/4_update_2.4.md'
           - 'Updating from <2.5': 'updating/4_update_2.5.md'
+          - 'Updating from <3.1': 'updating/4_update_3.1.md'
+          - 'Updating from <3.2': 'updating/4_update_3.2.md'
         - '5. Platform.sh changes': 'updating/5_platform_sh_changes.md'
         - '6. Dump assets': 'updating/6_dump_assets.md'
         - '7. Commit, test and merge': 'updating/7_commit_test_merge.md'
     - Releases:
+        - 'Ibexa DXP v3.2': 'releases/ibexa_dxp_v3.2.md'
+        - 'eZ Platform v3.1': 'releases/ez_platform_v3.1.md'
         - 'eZ Platform v3.0': 'releases/ez_platform_v3.0.md'
         - 'eZ Platform v3.0 deprecations and BC breaks': 'releases/ez_platform_v3.0_deprecations.md'
         - 'eZ Platform v2.5 LTS': 'releases/ez_platform_v2.5.md'
@@ -333,10 +371,10 @@ plugins:
 
 extra:
   version_warning:
-    latest: ['3.0']
-    previous_lts: ['1.7','1.13']
+    latest: ['3.2']
+    previous_lts: ['1.13']
     lts: ['2.5']
-    ft: []
+    ft: ['3.0','3.1']
     dev: ['master']
   append_bootstrap:
     - '/guidelines/components/'
@@ -347,8 +385,6 @@ extra:
       url: '/'
     - title: 'eZ Platform User Documentation'
       url: '/projects/userguide'
-    - title: 'eZ Personalization Documentation'
-      url: '/projects/ezpersonalization'
     - title: 'eZ Commerce'
       url: '/projects/ezcommerce'
 
@@ -394,6 +430,7 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.superfences
+  - pymdownx.tabbed
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde

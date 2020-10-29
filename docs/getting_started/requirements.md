@@ -2,7 +2,7 @@
 
 The following server requirements cover both running the software on-premise and on third-party PaaS providers.
 
-!!! cloud "eZ Platform Cloud"
+!!! note "eZ Platform Cloud"
 
     For running on [eZ Platform Cloud](https://ez.no/Products/eZ-Platform-Cloud), where recommended configuration and support is provided out of the box, see separate [eZ Platform Cloud section](#ez-platform-cloud-requirements-and-setup) for further reading on its requirements.
 
@@ -51,6 +51,7 @@ For security and performance we generally recommend (unless otherwise noted and 
     -   7.1
     -   7.2
     -   7.3
+    -   7.4
 
 - Cluster
     - Redis 3.2+ (preferably separate instances for session and cache, both using one of the `volatile-*` [eviction policies](https://redis.io/topics/lru-cache))
@@ -128,7 +129,7 @@ Please note that the user interface might not look or behave exactly the same ac
 
 ## eZ Platform Cloud requirements and setup
 
-!!! cloud "eZ Platform Cloud"
+!!! note "eZ Platform Cloud"
 
     ### Cloud hosting with eZ Platform Cloud and Platform.sh
 

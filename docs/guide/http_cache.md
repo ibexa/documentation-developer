@@ -518,8 +518,11 @@ Here are some generic recommendations on how to approach personalized content wi
 1\. ESI + Vary by Cookie:
 
 - As default VCL strips everything but session cookie this means this will effectively be cached "per user".
-   - If you are on single server setup with neither Varnish nor Fastly, you can do the same cookie logic on the Web server instead.
+    - With Symfony Proxy you must modify web server (Nginx/Apache) configuration to implement cookie stripping.
 - Low effort, and can be good enough for one fragment that is reused across whole site, for instance in header to show user name.
+- Limitations:
+    - On Fastly you are limited to [200 variations in cache at the same time](https://docs.fastly.com/en/guides/resource-limits)
+    - Cache efficiency goes down, so for larger installs you should rather consider other options
 
 Example:
 

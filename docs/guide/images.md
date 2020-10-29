@@ -175,7 +175,7 @@ GD will be used by default if no driver is specified.
 You can use the Liip Imagine console tool to clear generated variations.
 
 ``` bash
-$ php bin/console liip:imagine:cache:remove --filters=large
+$ php bin/console liip:imagine:cache:remove --filter=large
 $ php bin/console liip:imagine:cache:remove -v
 ```
 

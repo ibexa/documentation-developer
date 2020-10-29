@@ -1,4 +1,4 @@
-# Step 4 - Filtering the content list
+# Step 4 - Filtering query results
 
 In this step you will enable the content list to be filtered by Content Types.
 
