@@ -12,7 +12,7 @@
     composer update
     ```
     
-    Symfony Flex should enable the bundle for you when installing the package.
+    Symfony Flex will enable the bundle for you when installing the package.
 
 ### Step 1: Configuring and starting Solr
 
@@ -22,11 +22,11 @@ The example presents a configuration with a single core. For configuring Solr in
 
 !!! note "Solr versions"
 
-    For v3 `ezplatform-solr-search-engine` works with Solr 7 and 8, using an supported LTS versions of Solr is recommended.
+    For v3 `ezplatform-solr-search-engine` works with Solr 7 and 8, using most recent version of Solr 7.7 or 8.6 is recommended.
 
 ##### Solr 7
 
-Download and extract Solr *(currently recommended with Solr 7.7LTS, so that is what example here is showing)*:
+Download and extract Solr *(here using 7.72 as an example)*:
 
 - [solr-7.7.2.tgz](http://archive.apache.org/dist/lucene/solr/7.7.2/solr-7.7.2.tgz) or [solr-7.7.2.zip](http://archive.apache.org/dist/lucene/solr/7.7.2/solr-7.7.2.zip)
 
