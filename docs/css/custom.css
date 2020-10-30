@@ -48,6 +48,20 @@ body {
     -webkit-font-smoothing: initial;
 }
 
+@media (min-width: 1600px) {
+    .md-grid {
+        max-width: 1600px;
+    }
+
+    .md-sidebar--secondary {
+        margin-left: 1600px
+    }
+
+    [dir=rtl] .md-sidebar--secondary {
+        margin-right: 1600px;
+    }
+}
+
 .md-typeset {
     font-size: 16px;
     line-height: 1.5;
@@ -370,7 +384,7 @@ html .md-footer-meta.md-typeset a {
 }
 
 .md-nav__link[data-md-state=blur] {
-    color: rgba(0, 0, 0, 0.36);
+    color: rgb(19, 28, 38);
 }
 
 div.rst-versions {
@@ -378,6 +392,13 @@ div.rst-versions {
     border-top: 0;
     background: var(--ibexa-dusk-black);
     font-size: 10pt;
+    padding-top: 6px;
+    position: relative;
+}
+
+.rst-versions span.rst-current-version {
+    background-color: rgb(66,73,81);
+    height: 3.6rem;
 }
 
 .rst-versions div.rst-other-versions {
