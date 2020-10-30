@@ -26,7 +26,7 @@ The example presents a configuration with a single core. For configuring Solr in
 
 ##### Solr 7
 
-Download and extract Solr *(here using 7.72 as an example)*:
+Download and extract Solr *(here using 7.7.2 as an example)*:
 
 - [solr-7.7.2.tgz](http://archive.apache.org/dist/lucene/solr/7.7.2/solr-7.7.2.tgz) or [solr-7.7.2.zip](http://archive.apache.org/dist/lucene/solr/7.7.2/solr-7.7.2.zip)
 
