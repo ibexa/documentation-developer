@@ -52,7 +52,8 @@ $(document).ready(function () {
     var update = setInterval(function() {
         if ($('.injected .rst-versions').length) {
             clearInterval(update);
-            $('.rst-current-version span:first').html(' Change version');
+            var version = $('.rst-other-versions strong dd a').text();
+            $('.rst-current-version span:first').html(' ' + (version != '' ? version : 'Change version'));
             $('.rst-other-versions').html($('.injected dl:first').clone());
             $('.injected').remove();
 
@@ -121,7 +122,6 @@ $(document).ready(function () {
 
     $("#imageModal").click(function(){ $(this).hide() });
 
-    $('.md-nav__permlink').attr('href', '#' + $('h1').attr('id'));
-    $('.md-nav__permlink').html($('h1').text().replace('¶', ''));
+    $('.md-sidebar--primary .md-sidebar__scrollwrap')[0].scrollTop = $('.md-sidebar--primary .md-nav__item--active:not(.md-nav__item--nested)')[0].offsetTop - 33;
 
 });
