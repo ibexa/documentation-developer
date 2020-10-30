@@ -193,9 +193,9 @@ ezpublish:
             var_dir: var/site
 ```
 
-Be aware that the `default` scope overrides both back and front views.
-For example, the following configuration overrides both the front template for articles
-and the template used in the Back Office:
+Be aware that the `default` scope concerns both back and front views.
+For example, the following configuration defines both the front template for articles
+and the template used in the Back Office, unless other templates are configured for specific a SiteAccess or SiteAccess group:
 
 ``` yaml
 ezpublish:

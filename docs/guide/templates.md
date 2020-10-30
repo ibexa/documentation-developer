@@ -60,7 +60,7 @@ ezpublish:
 This is what individual keys in the configuration mean:
 
 - `ezpublish` and `system` are obligatory at the start of any configuration file which defines views.
-- `site_group` defines the scope for which the configuration will be used. `site_group` is a SiteAccess group used out of the box for all front pages.
+- `site_group` defines the scope for which the configuration will be used. `site_group` is a SiteAccess group used out of the box for all front-end SiteAccesses.
 See [Scope](siteaccess.md#scope) for other available keys.            
 - `user` and `layout` point to the main template file that is used in any situation where no other template is defined. All other templates extend this one.
 - `content_view` defines the view provider.
