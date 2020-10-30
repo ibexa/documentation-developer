@@ -399,6 +399,11 @@ You should see the welcome page.
 
 ## Post-installation steps
 
+!!! note "Security checklist"
+
+    See the [Security checklist](../guide/security_checklist.md) for a list of all security-related issues
+    you should take care of before going live with a project.
+
 !!! dxp
 
     ### Enable Date-based Publisher
