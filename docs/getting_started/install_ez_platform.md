@@ -401,7 +401,7 @@ You should see the welcome page.
 
 !!! note "Security checklist"
 
-    See the [Security checklist](../guide/security_checklist.md) for a list of all security-related issues
+    See the [Security checklist](../guide/security_checklist.md) for a list of security-related issues
     you should take care of before going live with a project.
 
 !!! dxp
