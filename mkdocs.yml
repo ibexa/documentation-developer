@@ -247,23 +247,23 @@ nav:
             - 'Development guidelines': 'community_resources/development_guidelines.md'
             - 'Contribute translations': 'community_resources/translations.md'
             - 'Contribute to documentation': 'community_resources/documentation.md'
-        - UI Guidelines:
-            - 'Introduction': 'guidelines/Introduction.md'
-            - Components:
-                - 'Buttons': 'guidelines/components/buttons.md'
-                - 'Form components': 'guidelines/components/form_components.md'
-                - 'Modals': 'guidelines/components/modals.md'
-                - 'Pagination': 'guidelines/components/pagination.md'
-                - 'Switchers': 'guidelines/components/switchers.md'
-                - 'Tables': 'guidelines/components/tables.md'
-                - 'Tabs': 'guidelines/components/tabs.md'
-            - Resources:
-                - 'Typography': 'guidelines/resources/typography.md'
-                - 'Colors': 'guidelines/resources/colors.md'
-                - 'Icons': 'guidelines/resources/icons.md'
-            - Design Principles:
-                - 'Philosophy': 'guidelines/design_principles/Philosophy.md'
-                - 'Accessibility': 'guidelines/design_principles/Accessibility.md'
+        # - UI Guidelines:
+        #     - 'Introduction': 'guidelines/Introduction.md'
+        #     - Components:
+        #         - 'Buttons': 'guidelines/components/buttons.md'
+        #         - 'Form components': 'guidelines/components/form_components.md'
+        #         - 'Modals': 'guidelines/components/modals.md'
+        #         - 'Pagination': 'guidelines/components/pagination.md'
+        #         - 'Switchers': 'guidelines/components/switchers.md'
+        #         - 'Tables': 'guidelines/components/tables.md'
+        #         - 'Tabs': 'guidelines/components/tabs.md'
+        #     - Resources:
+        #         - 'Typography': 'guidelines/resources/typography.md'
+        #         - 'Colors': 'guidelines/resources/colors.md'
+        #         - 'Icons': 'guidelines/resources/icons.md'
+        #     - Design Principles:
+        #         - 'Philosophy': 'guidelines/design_principles/Philosophy.md'
+        #         - 'Accessibility': 'guidelines/design_principles/Accessibility.md'
     - Migrating to eZ Platform:
         - 'Migrating from eZ Publish Platform': 'migrating/migrating_from_ez_publish_platform.md'
         - 'Migrating from eZ Publish': 'migrating/migrating_from_ez_publish.md'
