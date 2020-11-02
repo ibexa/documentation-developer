@@ -25,7 +25,7 @@ make sure that your setup is secure.
     
     `print bin2hex(random_bytes(32));`
     
-!!! tip
+!!! note
 
     On Ibexa Cloud, if `APP_SECRET` is not set, the system sets it to [`PLATFORM_PROJECT_ENTROPY`](https://docs.platform.sh/development/variables.html#platformsh-provided-variables)
 
