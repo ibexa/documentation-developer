@@ -15,7 +15,7 @@ make sure that your setup is secure.
 
 `APP_SECRET` needs to be a strong, random, securely stored value.
 
-- Do not use a default value like `ff6dc61a329dc96652bb092ec58981f7` or `ThisTokenIsNotSoSecretChangeIt`
+- Do not use a default value like `ff6dc61a329dc96652bb092ec58981f7` or `ThisTokenIsNotSoSecretChangeIt`.
 - The secret must be secured against unwanted access. Do not commit it to version control.
 - The secret must be long enough. 32 characters is minimum, longer is better.
 
