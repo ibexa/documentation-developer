@@ -31,7 +31,8 @@ make sure that your setup is secure.
 
 ### Symfony production mode
 
-Only expose Symfony production mode openly on the internet. If you have exposed dev mode, secure and change all passwords/secrets.
+Only expose Symfony production mode openly on the internet.
+Do not expose the dev mode on the internet, otherwise you may disclose things like `phpinfo` and environment variables.
 Exposing the dev mode exposes things like `phpinfo`, environment variables and so on.
 
 !!! tip "More information about Symfony security"
