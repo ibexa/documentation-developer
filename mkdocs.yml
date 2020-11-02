@@ -553,25 +553,25 @@ nav:
             - 'Contribute translations': 'community_resources/translations.md'
             - 'Contribute to documentation': 'community_resources/documentation.md'
             - 'Package structure': 'community_resources/package_structure.md'
-        - UI Guidelines:
-            - 'Introduction': 'guidelines/Introduction.md'
-            - Components:
-                - 'Badges': 'guidelines/components/badges.md'
-                - 'Buttons': 'guidelines/components/buttons.md'
-                - 'Form components': 'guidelines/components/form_components.md'
-                - 'Modals': 'guidelines/components/modals.md'
-                - 'Pagination': 'guidelines/components/pagination.md'
-                - 'Switchers': 'guidelines/components/switchers.md'
-                - 'Tables': 'guidelines/components/tables.md'
-                - 'Tabs': 'guidelines/components/tabs.md'
-                - 'Tooltips': 'guidelines/components/tooltips.md'
-            - Resources:
-                - 'Typography': 'guidelines/resources/typography.md'
-                - 'Colors': 'guidelines/resources/colors.md'
-                - 'Icons': 'guidelines/resources/icons.md'
-            - Design Principles:
-                - 'Philosophy': 'guidelines/design_principles/Philosophy.md'
-                - 'Accessibility': 'guidelines/design_principles/Accessibility.md'
+        # - UI Guidelines:
+        #     - 'Introduction': 'guidelines/Introduction.md'
+        #     - Components:
+        #         - 'Badges': 'guidelines/components/badges.md'
+        #         - 'Buttons': 'guidelines/components/buttons.md'
+        #         - 'Form components': 'guidelines/components/form_components.md'
+        #         - 'Modals': 'guidelines/components/modals.md'
+        #         - 'Pagination': 'guidelines/components/pagination.md'
+        #         - 'Switchers': 'guidelines/components/switchers.md'
+        #         - 'Tables': 'guidelines/components/tables.md'
+        #         - 'Tabs': 'guidelines/components/tabs.md'
+        #         - 'Tooltips': 'guidelines/components/tooltips.md'
+        #     - Resources:
+        #         - 'Typography': 'guidelines/resources/typography.md'
+        #         - 'Colors': 'guidelines/resources/colors.md'
+        #         - 'Icons': 'guidelines/resources/icons.md'
+        #     - Design Principles:
+        #         - 'Philosophy': 'guidelines/design_principles/Philosophy.md'
+        #         - 'Accessibility': 'guidelines/design_principles/Accessibility.md'
     - Migrating to eZ Platform:
         - 'Migrating from eZ Publish Platform': 'migrating/migrating_from_ez_publish_platform.md'
         - 'Migrating from eZ Publish': 'migrating/migrating_from_ez_publish.md'
