@@ -193,6 +193,22 @@ ezpublish:
             var_dir: var/site
 ```
 
+Be aware that the `default` scope concerns both back and front views.
+For example, the following configuration defines both the front template for articles
+and the template used in the Back Office, unless other templates are configured for specific a SiteAccess or SiteAccess group:
+
+``` yaml
+ezpublish:
+    system:
+        default:
+            content_view:
+                full:
+                    article:
+                        template: full/article.html.twig
+                        match:
+                            Identifier\ContentType: [article]
+```                          
+
 Note that you should avoid defining a setting twice within the same scope, as this will cause a [silent failure](https://github.com/symfony/symfony/issues/11538).
 
 This mechanism is not limited to eZ Platform internal settings (the `ezsettings` namespace) and is applicable for specific needs (bundle-related, project-related, etc.).
