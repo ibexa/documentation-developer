@@ -75,7 +75,7 @@ Introduce a measure in place against brute force login attacks (captcha, etc.).
 If you are using Fastly, disable Varnish.
 See [Security advisory: EZSA-2020-002.](https://developers.ibexa.co/security-advisories/ezsa-2020-002-unauthorised-cache-purge-with-misconfigured-fastly)
 
-### Block execution of scripts in the `var` directory
+### Block the execution of scripts in the `var` directory
 
 Make sure the web server blocks execution of PHP files and other scripts in the `var` directory.
 See [vhost.template.](https://github.com/ezsystems/ezplatform/blob/master/doc/apache2/vhost.template#L80)
