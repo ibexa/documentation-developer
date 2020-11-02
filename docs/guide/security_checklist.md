@@ -1,7 +1,7 @@
 # Security checklist
 
 When getting ready to go live with your project for the first time, or when re-launching it,
-you need to make sure your setup is secure.
+make sure that your setup is secure.
 
 !!! caution
 
