@@ -68,7 +68,7 @@ and any other application-specific secrets.
 
 ### Protect against brute force attacks
 
-Introduce a measure in place against brute force login attacks (captcha, etc.).
+Introduce a measure against brute force login attacks (captcha, etc.).
 
 ### Disable Fastly when using Varnish
 
