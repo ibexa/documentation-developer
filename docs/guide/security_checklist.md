@@ -53,7 +53,8 @@ and also to user data, Role editing, and many other critical aspects.
 
 ### Strong passwords
 
-Enforce strong passwords for all users. This is specially important for admin accounts and other privileged users.
+Enforce strong passwords for all users. 
+This is specially important for admin accounts and other privileged users.
 
 - Never go online with admin password set to `publish` or any other default value.
 - Introduce password quality checks. Make sure they are secure enough (length/complexity).
