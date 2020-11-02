@@ -111,7 +111,7 @@ Use the following checklist to ensure the Roles and Policies are secure:
 ## Underlying stack
 
 - Avoid exposing servers on the open internet when not strictly required.
-- Ensure any servers, services, ports and virtual hosts opened for testing purposes are locked down before going live.
+- Ensure any servers, services, ports and virtual hosts that were opened for testing purposes are locked down before going live.
 - Secure the database with a good password, keys, firewall, etc.
 - Run the server on a recent operating system and dependencies with security patches installed.
 - Configure the server to alert you about security updates from vendors.
