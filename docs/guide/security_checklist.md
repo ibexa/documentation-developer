@@ -34,7 +34,7 @@ make sure that your setup is secure.
 Only expose Symfony production mode openly on the internet. If you have exposed dev mode, secure and change all passwords/secrets.
 Exposing the dev mode exposes things like `phpinfo`, environment variables and so on.
 
-!!! tip "More about Symfony security"
+!!! tip "More information about Symfony security"
 
     - [Authentication and authorisation](https://symfony.com/doc/current/security.html), and [more on this subject](https://symfony.com/doc/current/security.html#learn-more)
     - Symfony's [secrets management system](https://symfony.com/doc/current/configuration/secrets.html)
