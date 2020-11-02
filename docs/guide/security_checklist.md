@@ -21,7 +21,7 @@ make sure that your setup is secure.
 
 !!! tip
     
-    This will generate a 64-character-long secure random secret:
+    The following command will generate a 64-character-long secure random value:
     
     `print bin2hex(random_bytes(32));`
     
