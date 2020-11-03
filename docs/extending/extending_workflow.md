@@ -31,6 +31,7 @@
     ```
     
     ??? tip "Complete `custom_workflow` configuration"    
+        ``` yaml
         ezplatform:
             system:
                 # Workflow configuration is SiteAccess-aware
@@ -79,6 +80,7 @@
                                     label: Done
                                     color: '#88ad88'
                                     icon: '/bundles/ezplatformadminui/img/ez-icons.svg#comment'
+        ```
     
     The configuration indicates the name of the custom action (`proofread_transition_action`) that will call the action.
     `data` contains additional data that can be passed to the action. In this case, a message to display.

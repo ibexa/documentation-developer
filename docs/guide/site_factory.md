@@ -97,8 +97,6 @@
 
     You can check the results of your work in the Back Office by going to the **Site** tab and selecting the **List** icon.
 
-    ![Site Factory icon](img/site_factory_icon.png "Site Factory icon")
-
     There, you should be able to add a new site and choose a design for it.
 
     ### Define domains
