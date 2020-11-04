@@ -4,6 +4,11 @@
 
     See [Permissions](permissions.md) for information about the permissions system in [[= product_name_oss =]].
 
+!!! note "Security checklist"
+
+    See the [Security checklist](security_checklist.md) for a list of security-related issues
+    you should take care of before going live with a project.
+
 ## Symfony authentication
 
 To use Symfony authentication with [[= product_name_oss =]], use the following configuration (in `config/packages/security.yaml`):
