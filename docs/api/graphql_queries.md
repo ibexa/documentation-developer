@@ -325,7 +325,7 @@ You can sort query results using `sortBy`:
 }
 ```
 
-You can use an array of clauses as well. To reverse the item list you have to add `_desc` after the clause
+You can use an array of clauses as well. To reverse the item list, add `_desc` after the clause:
 
 ```
 articles(sortBy:[_datePublished,_desc])
