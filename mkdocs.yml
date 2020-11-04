@@ -601,6 +601,7 @@ nav:
                 - 'TokenController logging': 'guide/logging/tokencontroller_logging.md'
         - Security:
             - 'Development Security': 'guide/security.md'
+            - 'Security checklist': 'guide/security_checklist.md'
             - 'Reporting Issues': 'guide/reporting_issues.md'
         - 'Notifications': 'guide/sending_notifications.md'
         - 'Service container': 'guide/service_container.md'
