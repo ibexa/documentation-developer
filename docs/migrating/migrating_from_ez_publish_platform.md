@@ -246,6 +246,7 @@ Postgres:
 MySQL/MariaDB:
 - `<new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-5.4.0-to-6.13.0.sql`
 - `<new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.13.0-to-7.5.0.sql`
+- If you use DFS Cluster, also execute the following database update script from same folder: `dbupdate-7.1.0-to-7.2.0-dfs.sql`
 
 
 !!! note  "Change to UTF8mb4 for MySQL/MariaDB"
@@ -257,6 +258,10 @@ MySQL/MariaDB:
     - Change Doctrine DBAL connection setting
 
     You can find instructions for that as part of [7.2 upgrade guide](https://github.com/ezsystems/ezpublish-kernel/blob/7.5/doc/upgrade/7.2.md#mysqlmariadb-database-tables-character-set-change) provided with kernel package.
+
+##### 3.1.1. Update database steps for 2.5.x releases
+
+You'll at this point need to apply [2.5.x database update scripts](../updating/4_update_2.5/#database-update-script to your corresponding 2.5.x version.
 
 ##### 3.2. Once you are ready to migrate content to Platform Field Types
 
