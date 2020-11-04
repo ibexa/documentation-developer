@@ -51,10 +51,9 @@ This page will take you true the following steps:
 ## Check for requirements
 
 - Information regarding system requirements can be found on the [Requirements documentation page](../getting_started/requirements.md); notable changes include:
-    - PHP 7.1 or higher
+    - PHP 7.1 or higher, and recent version of [Composer](https://getcomposer.org/)
     - MariaDB 10.0+ or MySQL 5.7+ or PostgreSQL 10+
     - Browser from 2018 or newer for use with eZ Platform Admin UI
-- This page assumes you have composer installed on the machine and that it is a recent version.
 
 ## Upgrade steps
 
@@ -70,40 +69,15 @@ If you have code in src folder, move that over:
 
 `<old-ez-root>/src =>  <new-ez-root>/src`
 
-
-!!! tip "Automate refactoring of your code for new Symfony and PHP versions"
-
-    For using [Rector](https://github.com/rectorphp/rector), here is an example config for upgrading to PHP 7.1 and Symfony 3.4:
-    ```yaml
-    parameters:
-        auto_import_names: true
-        import_short_classes: false
-        import_doc_blocks: true
-        paths:
-            - 'src'
-        sets:
-          - 'php70'
-          - 'php71'
-          - 'symfony30'
-          - 'symfony31'
-          - 'symfony32'
-          - 'symfony33'
-          - 'symfony34'
-          - 'code-quality'
-    # For more sets, see: https://github.com/rectorphp/rector/tree/master/config/set/
-    ```
-
-    Keep in mind that after finishing automatic refactoring there might be some code chunks that you need to fix manually.
-
 ##### 2.2. Composer
 
 ###### 2.2.1 Move over own packages
 
-Assuming you have own composer packages *(libraries and bundles, but not eZ Publish legacy packages)*, execute commands like below to add them to new install in `<new-ez-root>`:
+Assuming you have own composer packages *(libraries and bundles, but not eZ Publish legacy packages)*, execute commands like below to add them to new install in `<new-ez-root>`:
 
-`composer require --no-update "vendor/package:~1.3.0"`
+`composer require --no-update "vendor/package:~1.3.0"`
 
-Adapt the command with your `vendor`, `package`, version number, and add `"–dev"` if a given package is for dev use only. Also check if there are other changes in `composer.json` you should move over.
+Adapt the command with your `vendor`, `package`, version number, and add `"–dev"` if a given package is for dev use only. Also check if there are other changes in `composer.json` you should move over.
 
 !!! note
 
@@ -111,9 +85,9 @@ Adapt the command with your `vendor`, `package`, version number, and add `"–d
 
 ###### 2.2.2 Install XmlText Field Type
 
-While no longer bundled, the XmlText Field Type still exists and is needed to perform a migration from eZ Publish's XmlText to the new docbook-based format used by the RichText Field Type. If you plan to use Legacy Bridge for a while before migrating content, you'll also need this for rendering content with XMLText. From `<new-ez-root>` execute:
+While no longer bundled, the XmlText Field Type still exists and is needed to perform a migration from eZ Publish's XmlText to the new docbook-based format used by the RichText Field Type. If you plan to use Legacy Bridge for a while before migrating content, you'll also need this for rendering content with XMLText. From `<new-ez-root>` execute:
 
-`composer require --no-update "ezsystems/ezplatform-xmltext-fieldtype:^1.9.2"`
+`composer require --no-update "ezsystems/ezplatform-xmltext-fieldtype:^1.9.2"`
 
 !!! note
 
@@ -124,7 +98,7 @@ While no longer bundled, the XmlText Field Type still exists and is needed to p
 
 To move over your own custom configurations, follow the conventions below and manually move the settings over:
 
-- `<old-ez-root>/ezpublish/config/parameters.yml => <new-ez-root>/app/config/parameters.yml`
+- `<old-ez-root>/ezpublish/config/parameters.yml => <new-ez-root>/app/config/parameters.yml`
     -  *For parameters like before, for new parameters you'll be prompted on later step.*
 - `<old-ez-root>/ezpublish/config/config.yml =>  <new-ez-root>/app/config/config.yml`
     -  *For system/framework config, and for defining global db, cache, search settings.*
@@ -200,7 +174,7 @@ ezpublish:
 
 Move over registration of _your_ bundles you have from src and from composer packages, from old to new kernel:
 
-`<old-ez-root>/ezpublish/EzPublishKernel.php => <new-ez-root>/app/AppKernel.php`
+`<old-ez-root>/ezpublish/EzPublishKernel.php => <new-ez-root>/app/AppKernel.php`
 
 
 ##### 2.5. Optional: Install Legacy Bridge
@@ -235,7 +209,7 @@ The easiest way to upgrade the distribution files is to copy the directories tha
 
 Binary files can simply be copied from the old to the new installation:
 
-`<old-ez-root>/web/var[/<site_name>]/storage => <new-ez-root>/web/var[/<site_name>]/storage`
+`<old-ez-root>/web/var[/<site_name>]/storage => <new-ez-root>/web/var[/<site_name>]/storage`
 
 !!! note
 
@@ -245,19 +219,19 @@ Binary files can simply be copied from the old to the new installation:
 
 Since writable directories and files have been replaced / copied, their permissions might have changed. You need to re-apply them.
 
-When that is done, execute the following to update and install all packages from within `<new-ez-root>`:
+When that is done, execute the following to update and install all packages from within `<new-ez-root>`:
 
-`composer update --prefer-dist`
+`composer update --prefer-dist`
 
 !!! note
 
     At the end of the process, you will be asked for values for parameters.yml not already moved from old installation, or new *(as defined in parameters.yml.dist)*.
 
-##### 2.8 Register EzSystemsEzPlatformXmlTextFieldTypeBundle
+##### 2.8 Register EzSystemsEzPlatformXmlTextFieldTypeBundle
 
 Add the following new bundle to your new kernel file, `<new-ez-root>/app/AppKernel.php`:
 
-`new EzSystems\EzPlatformXmlTextFieldTypeBundle\EzSystemsEzPlatformXmlTextFieldTypeBundle(),` 
+`new EzSystems\EzPlatformXmlTextFieldTypeBundle\EzSystemsEzPlatformXmlTextFieldTypeBundle(),`
 
 ### Step 3: Upgrade the database
 
@@ -498,13 +472,13 @@ In eZ Platform, the system ships with additional enterprise features that need t
 
 #### Varnish *(optional)*
 
-If you use Varnish, the recommended Varnish (4 or higher) VCL configuration can be found in the `doc/varnish` folder. See also the [Using Varnish](../guide/http_cache.md#using-varnish) page.
+If you use Varnish, the recommended Varnish (4 or higher) VCL configuration can be found in the `doc/varnish` folder. See also the [Using Varnish](../guide/http_cache.md#using-varnish) page.
 
 #### Web server configuration
 
-The officially recommended virtual configuration is now shipped in the `doc` folder, for both apache2 (`doc/apache2`) and nginx (`doc/nginx`). Both are built to be easy to understand and use, but aren't meant as drop-in replacements for your existing configuration.
+The officially recommended virtual configuration is now shipped in the `doc` folder, for both apache2 (`doc/apache2`) and nginx (`doc/nginx`). Both are built to be easy to understand and use, but aren't meant as drop-in replacements for your existing configuration.
 
-As was the case starting 5.4, one notable change is that `SetEnvIf` is now used to dynamically change rewrite rules depending on the Symfony environment. It is currently used for the assetic production rewrite rules.
+As was the case starting 5.4, one notable change is that `SetEnvIf` is now used to dynamically change rewrite rules depending on the Symfony environment. It is currently used for the assetic production rewrite rules.
 
 ### Step 5: Link assets
 
@@ -519,7 +493,7 @@ Some frequent migration issues are covered on [common issues page](common_issues
 
 ##### Unstyled login screen after upgrade
 
-It is possible that after the upgrade your admin screen will be unstyled. This may happen because the new SiteAccess will not be available in the database. You can fix it by editing the permissions for the Anonymous user. Go to Roles in the Admin Panel and edit the Limitations of the Anonymous user's user/login policy. Add all SiteAccesses to the Limitation, save, and clear the browser cache. The login screen should now show proper styling.
+It is possible that after the upgrade your admin screen will be unstyled. This may happen because the new SiteAccess will not be available in the database. You can fix it by editing the permissions for the Anonymous user. Go to Roles in the Admin Panel and edit the Limitations of the Anonymous user's user/login policy. Add all SiteAccesses to the Limitation, save, and clear the browser cache. The login screen should now show proper styling.
 
 ##### Translating URLs
 
@@ -550,7 +524,7 @@ To move your legacy Page field / eZ Flow configuration to eZ Platform Enterprise
 
 ### First from eZ Flow (5.x) to Landing Pages (1.x)
 
-The script will automatically migrate only data – to move custom views, layouts, blocks etc., you will have to provide their business logic again.
+The script will automatically migrate only data – to move custom views, layouts, blocks etc., you will have to provide their business logic again.
 
 !!! caution
 
