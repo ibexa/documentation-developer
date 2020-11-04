@@ -24,10 +24,6 @@ make sure that your setup is secure.
     The following command will generate a 64-character-long secure random value:
     
     `print bin2hex(random_bytes(32));`
-    
-!!! note
-
-    On eZ Platform Cloud, if `APP_SECRET` is not set, the system sets it to [`PLATFORM_PROJECT_ENTROPY`](https://docs.platform.sh/development/variables.html#platformsh-provided-variables)
 
 ### Symfony production mode
 
@@ -60,10 +56,6 @@ This is specially important for admin accounts and other privileged users.
 - Never go online with admin password set to `publish` or any other default value.
 - Introduce password quality checks. Make sure the checks are strict enough (length/complexity).
 - 16 characters is a quite secure minimum length. Do not go below 10.
-
-!!! tip "Password rules"
-
-    See [setting up password rules](user_management/user_management.md#password-rules).
 
 ### Secure secrets
 
@@ -120,3 +112,20 @@ Use the following checklist to ensure the Roles and Policies are secure:
 - Run the server on a recent operating system and dependencies with security patches installed.
 - Configure the server to alert you about security updates from vendors.
 Pay special attention to dependencies used by your project directly, or by PHP.
+
+## eZ Publish Legacy
+
+If you are using Legacy Bridge, there are a few more things to check:
+
+- Is there a measure in place against brute force login attacks? `MaxNumberOfFailedLogin > 0` will do.
+- Do `MinPasswordLength` and `GeneratePasswordLength` (if used) have sane values? The default values are low.
+A secure minimum is 16. Do not use  value below 10.
+- Is verification of user email enabled? See `VerifyUserType=email`.
+- If the site is from the era of MD5 hashes, is `UpdateHash=true` set?
+This will update hashes as they are used, to the much more secure bcrypt algorithm.
+- Do you require unique emails? You should, if emails are allowed to be used when logging in. See `site.ini`:
+
+```
+AuthenticateMatch=login;email
+RequireUniqueEmail=true
+```
