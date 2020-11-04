@@ -113,10 +113,10 @@ After a moment the installer will ask you to provide a few parameters:
 !!! caution
 
     The app secret is crucial to the security of your installation. Be careful about how you generate it, and how you store it.
-    Here's one way to generate a 64 characters long, secure random string as your secret, in PHP:
+    Here's one way to generate a 64 characters long, secure random string as your secret, from command line:
     
-    ``` php
-    print bin2hex(random_bytes(32));
+    ``` bash
+    php -r "print bin2hex(random_bytes(32));"
     ```
 
     Do not commit the secret to version control systems, or share it with anyone who does not strictly need it.
