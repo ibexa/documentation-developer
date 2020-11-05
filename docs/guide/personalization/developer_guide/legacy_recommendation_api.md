@@ -16,7 +16,7 @@ Before recommendation can be fetched from the recommendation controller, a suffi
     The license key is displayed in the upper right in the Admin GUI ([https://admin.yoochoose.net](https://admin.yoochoose.net/)) after logging with your registration credentials.
 
     If you plan to use [JSONP](https://en.wikipedia.org/wiki/JSONP), authentication must be disabled.
-    If it is enabled in your solution (can be easily tested with a recommendation request in a browser), please contact the eZ Recommender support (<support@yoochoose.com>) for further information and disabling.
+    If it is enabled in your solution (can be easily tested with a recommendation request in a browser), please contact the eZ Recommender support (<support@ibexa.co>) for further information and disabling.
 
 ## Getting recommendations
 
@@ -152,7 +152,7 @@ Item's attribute, e.g. color, price, etc.
 These are customer specific and can only be understood by the recommender system if the item attributes are imported by using the YOOCHOOSE content import APIs.
 There can be multiple attributename and attributevalue pairs.
 
-Legacy Recommendation API and [Submodel configuration](https://doc.ezplatform.com/projects/userguide/en/master/personalization/recommendation_models.md#submodels) is required for taking an advantage from this parameter.
+Legacy Recommendation API and [Submodel configuration](https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models/#submodels) is required for taking an advantage from this parameter.
 
 **Values**: alphanumeric=alphanumeric [&alphanumeric=alphanumeric]
 
