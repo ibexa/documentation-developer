@@ -163,3 +163,8 @@ Directories `var` and `web/var` need to be writable by CLI and web server user.
 Future files and directories created by these two users will need to inherit those permissions.
 
 For more information, see [Setting up or Fixing File Permissions.](http://symfony.com/doc/2.8/setup/file_permissions.html)
+
+!!! note "Security checklist"
+
+    See the [Security checklist](../guide/security_checklist.md) for a list of security-related issues
+    that you should take care of before going live with a project.

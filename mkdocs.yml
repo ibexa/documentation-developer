@@ -184,6 +184,7 @@ nav:
             - 'Sessions': 'guide/sessions.md'
         - Security:
             - 'Development Security': 'guide/security.md'
+            - 'Security checklist': 'guide/security_checklist.md'
             - 'Reporting Issues': 'guide/reporting_issues.md'
         - 'Notifications': 'guide/custom_notifications_for_flex_workflow.md'
         - Extending eZ Platform:
