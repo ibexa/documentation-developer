@@ -119,7 +119,7 @@ If you are using Legacy Bridge, there are a few more things to check:
 
 - Is there a measure in place against brute force login attacks? `MaxNumberOfFailedLogin > 0` will do.
 - Do `MinPasswordLength` and `GeneratePasswordLength` (if used) have sane values? The default values are low.
-A secure minimum is 16. Do not use  value below 10.
+16 characters is a secure minimum. Do not go below 10.
 - Is verification of user email enabled? See `VerifyUserType=email`.
 - If the site is from the era of MD5 hashes, is `UpdateHash=true` set?
 This will update hashes as they are used, to the much more secure bcrypt algorithm.

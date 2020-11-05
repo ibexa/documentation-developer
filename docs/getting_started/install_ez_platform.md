@@ -258,4 +258,3 @@ Open your project in the browser and you should see the welcome page.
 
     See the [Security checklist](../guide/security_checklist.md) for a list of security-related issues
     you should take care of before going live with a project.
-    
