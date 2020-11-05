@@ -164,8 +164,9 @@
     ``` yaml
     system:
         default:
-            field_templates:
-                - { template: AppBundle:ezform_field.html.twig, priority: 0 }
+            page_builder_forms:
+                block_edit_form_templates:
+                    - { template: AppBundle:custom_form_templates.html.twig, priority: 0 }
     ```
 
     At this point, the attribute type configuration is complete, but it requires a mapper.
