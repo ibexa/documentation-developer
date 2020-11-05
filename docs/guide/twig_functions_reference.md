@@ -258,7 +258,7 @@ The filters also accept an optional `timezone` parameter for displaying date and
 
 ### `ez_icon_path`
 
-`ez_icon_path()` is a Twig helper that generates the path to the selected icon from an [icon set](config_back_office.md#icon-sets).
+`ez_icon_path()` is a Twig helper that generates a path to the selected icon from an [icon set](config_back_office.md#icon-sets).
 
 #### Prototype and Arguments
 
@@ -266,7 +266,7 @@ The filters also accept an optional `timezone` parameter for displaying date and
 
 | Argument name | Type | Description |
 | ----- | ----- | ----- |
-| `icon` | string | Identifier of an icon in the icon set |
+| `icon` | string | Identifier of an icon in the icon set. |
 | `set` | string | Identifier of the configured icon set. If empty, the default icon set is used. |
 
 #### Usage
