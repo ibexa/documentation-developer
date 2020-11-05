@@ -25,6 +25,7 @@ All Sort Clauses can take the following optional argument:
 |[Path](sort_clause_reference/path_sort_clause.md)|PathString of the Location|Location Search, Filtering|
 |[Priority](sort_clause_reference/priority_sort_clause.md)|Location priority|Location Search, Filtering|
 |[Random](sort_clause_reference/random_sort_clause.md)|Random seed|Content and Location Search|
+|[Score](sort_clause_reference/score_sort_clause.md)|Score of the search result|Content and Location Search|
 |[SectionIdentifier](sort_clause_reference/sectionidentifier_sort_clause.md)|ID of the Section content is assigned to|Content and Location Search, and Filtering|
 |[SectionName](sort_clause_reference/sectionname_sort_clause.md)|Name of the Section content is assigned to|Content and Location Search, and Filtering|
 |[Visibility](sort_clause_reference/visibility_sort_clause.md)|Whether the Location is visible or not|Location Search, Filtering|

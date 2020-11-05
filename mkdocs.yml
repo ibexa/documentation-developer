@@ -517,6 +517,7 @@ nav:
                 - 'Path': 'guide/search/sort_clause_reference/path_sort_clause.md'
                 - 'Priority': 'guide/search/sort_clause_reference/priority_sort_clause.md'
                 - 'Random': 'guide/search/sort_clause_reference/random_sort_clause.md'
+                - 'Score': 'guide/search/sort_clause_reference/score_sort_clause.md'
                 - 'SectionIdentifier': 'guide/search/sort_clause_reference/sectionidentifier_sort_clause.md'
                 - 'SectionName': 'guide/search/sort_clause_reference/sectionname_sort_clause.md'
                 - 'UserLogin': 'guide/search/sort_clause_reference/userlogin_sort_clause.md'
