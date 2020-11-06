@@ -12,7 +12,7 @@ In order to provide recommendations a tracking process needs to collect user beh
 - "Login" if a user logs in on a website and
 - "Clickrecommended" if a user decides to click on a recommendation
 
-See user guide chapter [4. Event Types](https://doc.ezplatform.com/projects/userguide/en/master/personalization/event_types.md) for a brief introduction to different types of events. Depending on the event type, some additional parameters like item price or user rating must be provided.
+See user guide chapter [Event Types](https://doc.ibexa.co/projects/userguide/en/latest/personalization/event_types) for a brief introduction to different types of events. Depending on the event type, some additional parameters like item price or user rating must be provided.
 
 ## Wording of products, articles and the generic term items
 
@@ -60,7 +60,7 @@ High quality recommendations can only be delivered if the underlying data is cor
 
     The user identifier is required in tracking requests, otherwise it is discarded from the tracking servers.
 
-    If a browser has JavaScript or cookies disabled, please verify that you put some "dummy" value as identifier in the tracking request to avoid losing tracking information. Even if the event is not user-specific, it is still useful for popularity models (e.g. Topsellers, see [6. Recommendation Models](https://doc.ezplatform.com/projects/userguide/en/master/personalization/recommendation_models.md)).
+    If a browser has JavaScript or cookies disabled, please verify that you put some "dummy" value as identifier in the tracking request to avoid losing tracking information. Even if the event is not user-specific, it is still useful for popularity models (e.g. Topsellers, see [Recommendation Models](https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models)).
 
 Internally the recommendation engine creates a hash of every user ID. The original ID is not saved. It is still possible that the original ID appears in the log files for debug purposes but log files are are purged regularly. The user ID is case sensitive.
 
@@ -91,7 +91,7 @@ The "categorypath" parameter plays an important role as it offers the possibilit
 
 !!! note "|Category Paths"
 
-    If you import your own item metadata over the recommendation engine import interface, you do not necessarily need to provide the category path in the "click" event. As this is activated by default, please contact <support@yoochoose.com> to set the desired configuration.
+    If you import your own item metadata over the recommendation engine import interface, you do not necessarily need to provide the category path in the "click" event. As this is activated by default, please contact <support@ibexa.co> to set the desired configuration.
 
 ## Tracking Events
 
@@ -117,7 +117,7 @@ The URL to track user clicks has the following format:
 |customerid|Your customer ID, a.k.a. "mandator ID" (for example "00000").|alphanumeric|
 |userid|A user's ID on the website of the customer. It could be an internal customer code, a session code or a cookie for anonymous users. See chapter "Request Format and Parameters" below in this document for more information on user ID.|URL-encoded alphanumeric|
 |itemtypeid|Item type ID. See the chapter Item Type ID for more information. See chapter "Request Format and Parameters" bellow in this document for more information to the item type ID.|1 – 5|
-|itemid|Unique ID of the item the user has clicked.</br>Product IDs based on string identifiers: We also support string identifiers for item IDs to track content on a website but it is discouraged due to fraud and security issues. If you are not able to provide numeric identifiers for the tracking process, please get in touch with us under support@yoochoose.com for further information and implementation notes.|1 to 2147483647|
+|itemid|Unique ID of the item the user has clicked.</br>Product IDs based on string identifiers: We also support string identifiers for item IDs to track content on a website but it is discouraged due to fraud and security issues. If you are not able to provide numeric identifiers for the tracking process, please get in touch with us under support@ibexa.co for further information and implementation notes.|1 to 2147483647|
 
 All embedded parameters are required for the request. Some optional request parameters can be set over query string parameters (GET parameters).
 
@@ -125,7 +125,7 @@ All embedded parameters are required for the request. Some optional request para
 
 |Name|Description|Values|
 |---|---|---|
-|categorypath|The forward slash-separated path of categories of the item. Like all other parameters it must be URL-encoded, for example `%2FCameras%26Foto%2FCompact%20Cameras%2FCanon`</br>See chapter [Category Filter](https://doc.ezplatform.com/projects/userguide/en/master/personalization/filters.md#category-filter) of the user guide for additional use cases of the category path.|URL-encoded string.</br>Forward and trailing slash is ignored; "/Cameras/" is the same as "Cameras"|
+|categorypath|The forward slash-separated path of categories of the item. Like all other parameters it must be URL-encoded, for example `%2FCameras%26Foto%2FCompact%20Cameras%2FCanon`</br>See chapter [Category Filter](https://doc.ibexa.co/projects/userguide/en/latest/personalization/filters/#category-filter) of the user guide for additional use cases of the category path.|URL-encoded string.</br>Forward and trailing slash is ignored; "/Cameras/" is the same as "Cameras"|
 
 ### Consume Event
 
@@ -197,7 +197,7 @@ The format of the URL is: 
 
 !!! note "Deprecated 'transfer' event"
 
-    Based on feedback of our customers and to make the purpose a bit clearer, we renamed the formerly named 'transfer' event to 'login'. As the name implies, it should be used when a user logs in. It covers exactly the same functionality as the transfer event. There is no need to change anything on the customer's side for existing implementations as the transfer event https://event.yoochoose.net/\[solutionid\]/\[customerid\]/transfer/\[sourceuserid\]/\[targetuserid\] will still be supported but should be considered as deprecated!
+    Based on feedback of our customers and to make the purpose a bit clearer, we renamed the formerly named 'transfer' event to 'login'. As the name implies, it should be used when a user logs in. It covers exactly the same functionality as the transfer event. There is no need to change anything on the customer's side for existing implementations as the transfer event `https://event.yoochoose.net/[solutionid]/[customerid]/transfer/[sourceuserid]/[targetuserid]` will still be supported but should be considered as deprecated!
 
 ### Basket Event
 
@@ -243,7 +243,7 @@ In a recommendation response, the requests to generate a Clickrecommended or Ren
 
 Example of a recommendation response:
 
-``` jsonp
+``` json
 "recommendationItems": [
     {
       "relevance": 23,
@@ -259,6 +259,8 @@ Example of a recommendation response:
          "clickRecommended" : "//event.yoochoose.net/clickrecommended/johndoe/1/100175717?scenario=also_clicked&modelId=37",
          "rendered" : "//event.yoochoose.net/rendered/johndoe/1/100175717"
       },
+    }
+]
 ```
 
 In the field "links" you can see the delivered request string to be executed when displaying or clicking on recommendations. See [Recommendation API](recommendation_api.md) for more details.
@@ -295,7 +297,7 @@ The render event has the same embedded parameters as a click event except for th
 
 Below are examples for the translation of user actions on a website into tracking requests:
 
-User "Js79009234YU7" navigates to an item with the id 123 and type "1" which is located under Shoes -&gt; Children:
+User "Js79009234YU7" navigates to an item with the id 123 and type "1" which is located under Shoes -> Children:
 
 `GET https://event.yoochoose.net/api/00000/click/Js79009234YU7/1/123?categorypath=%2FShoes%2FChildren`
 
@@ -345,6 +347,6 @@ The following HTTP response codes are used by the event tracker.  
 |401 Unauthorized|Illegal authentication credentials.|
 |403 Forbidden|Access denied (not implemented yet).|
 |404 Not Found|The customer ID (a.k.a. mandator ID) was not found. The event code was not found.|
-|500 Internal Server Error|	Some unspecified error. Please inform support@yoochoose.com if it you get this error repeatedly.|
+|500 Internal Server Error|	Some unspecified error. Please inform support@ibexa.co if it you get this error repeatedly.|
 
 In case of errors the body of the response contains human-readable error messages. Human-readable error messages can be changed and should not be used for automated processing.
