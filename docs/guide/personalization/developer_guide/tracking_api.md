@@ -197,7 +197,7 @@ The format of the URL is: 
 
 !!! note "Deprecated 'transfer' event"
 
-    Based on feedback of our customers and to make the purpose a bit clearer, we renamed the formerly named 'transfer' event to 'login'. As the name implies, it should be used when a user logs in. It covers exactly the same functionality as the transfer event. There is no need to change anything on the customer's side for existing implementations as the transfer event `https://event.yoochoose.net/\[solutionid\]/\[customerid\]/transfer/\[sourceuserid\]/\[targetuserid\]` will still be supported but should be considered as deprecated!
+    Based on feedback of our customers and to make the purpose a bit clearer, we renamed the formerly named 'transfer' event to 'login'. As the name implies, it should be used when a user logs in. It covers exactly the same functionality as the transfer event. There is no need to change anything on the customer's side for existing implementations as the transfer event `https://event.yoochoose.net/[solutionid]/[customerid]/transfer/[sourceuserid]/[targetuserid]` will still be supported but should be considered as deprecated!
 
 ### Basket Event
 
