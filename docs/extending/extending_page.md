@@ -483,7 +483,7 @@
                 thumbnail: assets/images/ez-icons.svg#block-visible-recurring
                 views:
                     default:
-                        template: blocks/translate_block.html.twig
+                        template: @ezdesign/blocks/translate_block.html.twig
                         name: Default view
                         priority: -255
                 attributes:
@@ -502,21 +502,16 @@
                                 message: Provide a valid e-mail address
     ```
 
-    In the `blocks` directory, add a corresponding Twig template called `translate_block.html.twig`:
+    Create the `templates/themes/standard/blocks` folder. 
+    In that folder, add a Twig template called `translate_block.html.twig`:
 
     ``` html+twig
     <h1>{{ name|default('Hello stranger') }}!</h1>
     ```
 
-    Next, implement the logic that is responsible for label translation. Begin with registering a new service in the `config/services.yaml` file:
-
-    ``` yaml
-    App\Event\Subscriber\TranslateBlockNameSubscriber:
-        tags:
-            - { name: event_subscriber }
-    ```
-
-    Then, implement an event subscriber that listens to the block definition event. For example, create an `src/Event/Subscriber/TranslateBlockNameSubscriber.php` file that contains the following code:
+    Next, implement the logic that is responsible for label translation. 
+    Begin with implementing an event subscriber that listens to the block definition event. 
+    For example, create an `src/Event/Subscriber/TranslateBlockNameSubscriber.php` file that contains the following code:
 
     ``` php
     <?php
@@ -527,6 +522,7 @@
 
     use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Definition\BlockDefinitionEvents;
     use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Definition\Event\BlockDefinitionEvent;
+    use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Definition\Event\BlockAttributeDefinitionEvent;
     use Symfony\Component\EventDispatcher\EventSubscriberInterface;
     use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -564,26 +560,61 @@
     }
     ```
 
-    You provide the translations in XLIFF files, one for each language.
-    The files are stored in the `translations` directory at the root of your project.
-    A name of the translation file corresponds to the domain that you defined above, and the language, for example `translate_block.fr.xlf`.
+    Then, register a new service in the `config/services.yaml` file:
 
+    ``` yaml
+    App\Event\Subscriber\TranslateBlockNameSubscriber:
+        tags:
+            - { name: event_subscriber }
+    ```
+
+    You provide the translations of custom block labels in XLIFF files, one for the original language of the site, and one for each intended translation language.
+    You create the XLIFF files with an editor of your choice, for example [JMSTranslationBundle](https://github.com/schmittjoh/JMSTranslationBundle). 
+    The XLIFF files are stored in the `translations` directory at the root of your project.
+    A name of the translation file corresponds to the domain that you defined above, and the language, for example `translate_block.en.xlf` for English and `translate_block.fr.xlf` for French.
+
+    A file that contains English translations might look as follows:
+
+    ``` xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+        <file source-language="en" target-language="en" datatype="plaintext" original="not.available">
+            <header>
+                <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+            </header>
+            <body>
+                <trans-unit id="1ea2690f8eed8fc946f92cf94ac56b8b93e46afe" resname="translate_block.name">
+                    <source>My translatable block</source>
+                    <target state="new">My translatable block</target>
+                    <note>key: translate_block.name</note>
+                </trans-unit>
+                <trans-unit id="1ea2690f8efd8fc946f92cf94ac56b8b93e46afe" resname="translate_block.attribute.name.name">
+                    <source>Hello stranger</source>
+                    <target state="new">Hello stranger</target>
+                    <note>key: translate_block.attribute.name.name</note>
+                </trans-unit>
+            </body>
+        </file>
+    </xliff>
+    ```
+
+    To provide strings in French, add them in the <target> tags of the `translate_block.fr.xlf` file. For example:
+    
     ``` xml
     <?xml version="1.0" encoding="utf-8"?>
     <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
         <file source-language="en" target-language="fr" datatype="plaintext" original="not.available">
             <header>
                 <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
-                <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
             </header>
             <body>
-                <trans-unit id="1ea2690f8eed8fc946f92cf94ac56b8b93e46afe" resname="translate_block.name">
+                <trans-unit id="1ea2690f8eecffc946f92cf94ac56b8b93e46afe" resname="translate_block.name">
                     <source>My translatable block</source>
                     <target state="new">Mon bloc traduisible</target>
                     <note>key: translate_block.name</note>
                 </trans-unit>
-                <trans-unit id="1ea2690f8efd8fc946f92cf94ac56b8b93e46afe" resname="translate_block.attribute.name.name">
-                    <source>My translatable block</source>
+                <trans-unit id="1ea2690f8efd8fc912392cf94ac56b8b93e46afe" resname="translate_block.attribute.name.name">
+                    <source>Hello stranger</source>
                     <target state="new">Bonjour étranger</target>
                     <note>key: translate_block.attribute.name.name</note>
                 </trans-unit>
@@ -594,7 +625,7 @@
 
     After you add new files with translations, run `php bin/console cache:clear` to clear the cache.
 
-    The language to display is selected automatically based on [user preferences or browser setup](../../guide/back_office_translations/#selecting-back-office-language).
+    A language to be displayed is selected automatically based on [user preferences or browser setup](../../guide/back_office_translations/#selecting-back-office-language).
 
     !!! note "Additional information"
 
