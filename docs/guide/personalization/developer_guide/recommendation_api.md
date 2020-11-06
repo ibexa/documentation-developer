@@ -6,7 +6,7 @@
 
     **BASIC Authentication** for fetching recommendations is disabled by default. If enabled, use the customerid as username and the license key as password. The license key is displayed in the upper right corner in the Admin GUI ([https://admin.yoochoose.net](https://admin.yoochoose.net/)) after logging in with your registration credentials.
 
-    If you plan to use [JSONP](https://en.wikipedia.org/wiki/JSONP), authentication must be disabled. If it is enabled in your solution and you want to remove authentication for recommendation requests, please contact <support@yoochoose.com> for further information and disabling.
+    If you plan to use [JSONP](https://en.wikipedia.org/wiki/JSONP), authentication must be disabled. If it is enabled in your solution and you want to remove authentication for recommendation requests, please contact <support@ibexa.co> for further information and disabling.
 
 Recommendations are retrieved from the Recommendation Engine via RESTful requests using the HTTP GET method. The result is at least a list of item IDs that can be used to call the underlying CMS or shop system in order to postload the necessary information for the rendering process.
 
@@ -14,7 +14,7 @@ Recommendations are retrieved from the Recommendation Engine via RESTful request
 
     If a data import via the [Content API](content_api.md) has been successful, it is also possible to fetch rendering data like e.g. "title", "description" or "deeplink" from the recommendation response.
 
-To allow a customer to get recommendations based on predefined configurations, so-called "scenarios" are used. Scenarios are a combination of models and filters that should be applied to recommendation results including possible fallbacks. See [8. Scenarios](https://doc.ezplatform.com/projects/userguide/en/master/personalization/scenarios.md), [6. Recommendation Models](https://doc.ezplatform.com/projects/userguide/en/master/personalization/recommendation_models.md) and [7. Filters](https://doc.ezplatform.com/projects/userguide/en/master/personalization/filters.md) for more information about scenario configuration.
+To allow a customer to get recommendations based on predefined configurations, so-called "scenarios" are used. Scenarios are a combination of models and filters that should be applied to recommendation results including possible fallbacks. See [Scenarios](https://doc.ibexa.co/projects/userguide/en/latest/personalization/scenarios/), [Recommendation Models](https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models/) and [Filters](https://doc.ibexa.co/projects/userguide/en/latest/personalization/filters/) for more information about scenario configuration.
 
 A recommendation request looks like this:
 
@@ -133,7 +133,7 @@ Example JSON response:
 
 Example JSONP response:
 
-``` jsonp
+``` json
 jsonpCallback({
   "contextItems": [ // information about the request's contextitem(s)
     {

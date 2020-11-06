@@ -3,13 +3,11 @@
 [`ezrecommendation-client`](https://github.com/ezsystems/ezrecommendation-client) adds a personalization solution to eZ Platform.
 
 It enables you to track the way visitors use your website and recommends content based on their behavior.
-You can also use the personalized search (content suggestions)
-and personalized newsletter features (embedding personalized content in your newsletters).
 
 !!! tip "More information"
 
     This page covers the `ezrecommentation-client`, which communicates with the Recommendation engine.
-    To learn more about the engine itself, see [eZ Personalizarion documentation](https://doc.ezplatform.com/projects/ezpersonalization).
+    To learn more about the engine itself, see [Personalization](personalization.md).
 
 ## Installation
 
@@ -53,7 +51,7 @@ Register an account (customerID) with your eZ Sales manager.
 !!! tip
 
     If you want to use the Recommendation engine with the open source version of eZ Platform,
-    send an email to support@yoochoose.com.
+    send an email to support@ibexa.co.
 
 ### 4. Allow public HTTP(S) access
 
@@ -216,9 +214,9 @@ Place the following code snippet in the `<head>` section of your header template
 
 !!! tip "How tracking works"
 
-    In the eZ Personalization documentation you can find more information
-    about [tracking in general](https://doc.ezplatform.com/projects/ezpersonalization/en/latest/personalization/developer_guide/tracking_api/)
-    and about the [generic asynchronous JavaScript tracker](https://doc.ezplatform.com/projects/ezpersonalization/en/latest/personalization/developer_guide/tracking_with_yct/).
+    For more information
+    about tracking in general, see (Tracking API)](developer_guide/tracking_api.md)
+    and about the [generic asynchronous JavaScript tracker](developer_guide/tracking_with_yct.md).
 
 ### Checking if the bundle provides REST data
 
@@ -377,53 +375,12 @@ switch to the Item Import tab and check if a FULL import was successful.
 
 ![Item Import tab with full import results](img/reco_full_import.png)
 
-#### Personalized Search Requests
-
-Since the search functionality is included by default,
-you can also create and perform a search request to look for content that matches certain criteria.
-The easiest way to do this is to assign the content ID to the request parameter `q`.
-Make sure that the content ID is at least 2 characters long (for example, `&q=73`).
-
-`GET https://reco.yoochoose.net/api/v4/search/<your_customer_id>/get_suggestions.json?item=5&itemtype=<your_content_type>&q=<your_content_id>&attribute=name&attribute=author&attribute=uri&attribute=<your_custom_attribute>`
-
-??? note "Example response"
-
-    ``` json
-    {
-        "ITEM": [
-            {
-                "yc_score": 2.209763288497925,
-                "yc_id": "72",
-                "yc_itemtype": "38",
-                "name": "Kochin, India",
-                "uri": "/Places-Tastes/Places/Kochin-India",
-                "author": "Sandip Patel"
-            },
-            {
-                "yc_score": 1.152622938156128,
-                "yc_id": "73",
-                "yc_itemtype": "38",
-                "name": "Santo Domingo, Dominican Republic",
-                "uri": "/Places-Tastes/Places/Santo-Domingo-Dominican-Republic",
-                "author": "Michael Wang"
-            }
-        ],
-        "details": [
-            {
-                "scope": "ITEM",
-                "itemType": 38,
-                "count": 2
-            }
-        ]
-    }
-    ```
-
 ### Subsequent content exports
 
 The Recommendation engine is automatically kept in sync with the content in eZ Platform.
 
 Every time an editor creates, updates or deletes content in the Back Office (1),
-a notification is sent to https://admin.yoochoose.net (2).
+  a notification is sent to https://admin.yoochoose.net (2).
 The recommendation service also notifies other components of the Recommendation engine (3)
 and it eventually fetches the affected content (4) and updates it internally (5).
 
