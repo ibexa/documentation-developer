@@ -68,6 +68,12 @@ and [GraphQL](../api/graphql.md#jwt-authentication).
 
 See [JWT authentication](../guide/security.md#jwt-authentication) to learn how to configure this authentication method.
 
+### Searching in Ibexa Commerce with Elasticsearch
+
+You can now use Elasticsearch for searching in Ibexa Commerce.
+
+See [Install Ibexa Platform](../getting_started/install_ez_platform.md#install-and-configure-a-search-engine) to learn how to install and configure the search engine.
+
 ## Other changes
 
 ### Site Factory improvements

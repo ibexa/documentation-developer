@@ -17,7 +17,7 @@ Additional requirements:
 
 - [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/lang/en/docs/install/#debian-stable) for asset management.
 - `git` for version control.
-- to use search in the shop front end, you must [install Solr](#install-solr).
+- to use search in the shop front end, you must [install a search engine](#install-and-configure-a-search-engine).
 
 [For production](#prepare-installation-for-production) you also need Apache or nginx as the HTTP server (Apache is used as an example below).
 
@@ -273,25 +273,45 @@ The configuration requires providing the following parameters:
 
 !!! dxp "[[= product_name_com =]]"
 
-    ## Install and configure Solr for [[= product_name_com =]]
+    ## Install and configure a search engine
 
-    Search in the shop front end requires Solr as search engine. To install it, run the included script:
+    Search in the shop front end requires that you have either Solr or Elasticsearch installed as a search engine.
 
-    ``` bash
-    bash ./install-solr.sh
-    ```
+    === "Solr"
 
-    Configure the following parameters in the `.env` file:
+        Run the included script to install Solr:
 
-    - `SISO_SEARCH_SOLR_HOST`
-    - `SISO_SEARCH_SOLR_PORT`
-    - `SISO_SEARCH_SOLR_CORE`
+        ``` bash
+        bash ./install-solr.sh
+        ```
 
-    Also in the `.env` file, set Solr as the search engine:
+        Configure the following parameters in the `.env` file:
 
-    ```
-    SEARCH_ENGINE=solr
-    ```
+        - `SISO_SEARCH_SOLR_HOST`
+        - `SISO_SEARCH_SOLR_PORT`
+        - `SISO_SEARCH_SOLR_CORE`
+
+        Also in the `.env` file, set Solr as the search engine:
+
+        ```
+        SEARCH_ENGINE=solr
+        ```
+
+    === "Elasticsearch"
+
+        Do the following steps to enable Elasticsearch:
+
+        1. [Download and install Elasticsearch](../guide/search/elastic.md#step-1-download-and-install-elasticsearch)
+        2. [Verify that the Elasticsearch instance is up](../guide/search/elastic.md#step-2-verify-that-the-elasticsearch-instance-is-up)
+        3. [Set the default search engine](../guide/search/elastic.md#step-3-set-the-default-search-engine)
+        4. [Configure the search engine](../guide/search/elastic.md#step-4-configure-the-search-engine)
+        5. [Push the templates](../guide/search/elastic.md#step-5-push-the-templates)
+
+        Configure the following parameter in the `.env` file:
+
+        ```
+        ELASTICSEARCH_DSN=http://localhost:9200
+        ```
 
 ## Install [[= product_name_oss =]]
 
