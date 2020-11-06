@@ -20,11 +20,11 @@ extends `AbstractFormEntity` and implements `CheckoutAddressInterface`.
 |`phone`|Phone number|`SesAssert\Phone`|
 |`email`|Email address|`SesAssert\Email`|
 |`invoiceSameAsDelivery`|`true` if the user wants to use this address as delivery address|boolean|
-|`forceStep`|`true` if the user wants to force move to the next step with event errors|boolean|
+|`forceStep`|`true` if the user wants to force moving to the next step with event errors|boolean|
 
 ## Configuration
 
-The parameters are set in the [Configuration for Checkout Forms](configuration_for_checkout_forms.md).
+The parameters are set in the [configuration for checkout forms](configuration_for_checkout_forms.md).
 
 ## Form Type
 
@@ -44,8 +44,8 @@ and to be able to read configuration settings.
 
 |                              |        |
 | ---------------------------- | -------|
-| Main template                | `vendor/silversolutions/silver.e-shop/src/Silversolutions/Bundle/EshopBundle/Resources/views/Checkout/checkout_invoice_address.html.twig` |
-| Sidebar template for invoice | `vendor/silversolutions/silver.e-shop/src/Silversolutions/Bundle/EshopBundle/Resources/views/Checkout/sidebar_invoice_address.html.twig`  |
+| Main template                | `EshopBundle/Resources/views/Checkout/checkout_invoice_address.html.twig` |
+| Sidebar template for invoice | `EshopBundle/Resources/views/Checkout/sidebar_invoice_address.html.twig`  |
 
 ### Exceptions in validation process for invoice
 

@@ -9,13 +9,13 @@ extends `AbstractFormEntity` and implements `CheckoutAddressInterface`.
 
 |Name|Description|Assertions|
 |--- |--- |--- |
-|shippingMethod|method of the shipping|String</br>Not blank|
-|paymentMethod|method of the payment|String</br>Not blank|
-|forceStep|True if user wants to force to next step with event errors|Boolean|
+|`shippingMethod`|Method for shipping|String</br>Not blank|
+|`paymentMethod`|Method for payment|String</br>Not blank|
+|`forceStep`|`true` if the user wants to force moving to the next step with event errors|Boolean|
 
 ## Configuration
 
-The parameters are set in the [Configuration for Checkout Forms](configuration_for_checkout_forms.md).
+The parameters are set in the [configuration for checkout forms](configuration_for_checkout_forms.md).
 
 ## Form Type
 
@@ -34,8 +34,4 @@ This class is defined as a service to take advantage from `TransService`.
 
 |               |           |
 | ------------- | --------- |
-| Main template | `vendor/silversolutions/silver.e-shop/src/Silversolutions/Bundle/EshopBundle/Resources/views/Checkout/checkout_shipping_payment.html.twig` |
-
-### Select value configuration
-
-You can set other configuration values in [Configuration for checkout forms](configuration_for_checkout_forms.md).
+| Main template | `EshopBundle/Resources/views/Checkout/checkout_shipping_payment.html.twig` |

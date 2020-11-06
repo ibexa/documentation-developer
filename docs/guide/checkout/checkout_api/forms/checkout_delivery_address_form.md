@@ -23,7 +23,7 @@ It manages the form for choosing delivery address in checkout process.
 |`email`|Email address|`SesAssert\Email`|
 |`saveAddress`|`true` if the user wants to store this address in their address list|boolean|
 |`partyId`|Party ID in ERP system|string|
-|`forceStep`|`true` if the user wants to force move to the next step with event errors|boolean|
+|`forceStep`|`true` if the user wants to force moving to the next step with event errors|boolean|
 
 ## Form Type
 
@@ -41,14 +41,14 @@ and to be able to read configuration settings.
 
 ## Configuration
 
-see [Checkout Forms Configuration](configuration_for_checkout_forms.md).
+The parameters are set in the [configuration for checkout forms](configuration_for_checkout_forms.md).
 
 ## Templates
 
 |                              |        |
 | ---------------------------- | ------ |
-| Main template                | `vendor/silversolutions/silver.e-shop/src/Silversolutions/Bundle/EshopBundle/Resources/views/Checkout/checkout_delivery_address.html.twig` |
-| Sidebar template for invoice | `vendor/silversolutions/silver.e-shop/src/Silversolutions/Bundle/EshopBundle/Resources/views/Checkout/sidebar_delivery_address.html.twig`  |
+| Main template                | `EshopBundle/Resources/views/Checkout/checkout_delivery_address.html.twig` |
+| Sidebar template for invoice | `EshopBundle/Resources/views/Checkout/sidebar_delivery_address.html.twig`  |
 
 ## Exceptions in validation process for delivery
 
