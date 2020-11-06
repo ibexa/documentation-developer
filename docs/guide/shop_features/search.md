@@ -1,6 +1,6 @@
 # Search
 
-[[= product_name_com =]] uses Solr to index products together with content.
+[[= product_name_com =]] uses Elasticsearch or Solr to index products together with content.
 
 ![Search](img/search_1.png)
 
