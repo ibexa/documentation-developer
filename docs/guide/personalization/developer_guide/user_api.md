@@ -10,7 +10,7 @@ It is useful to add metadata to users in order to classify them and attach them 
 
 !!! note
 
-    Please contact <support@yoochoose.com> if you are planning to import user metadata in order to be compliant with privacy regulations.
+    Please contact <support@ibexa.co> if you are planning to import user metadata in order to be compliant with privacy regulations.
 
 Following is an example user metadata in xml format. All attribute keys and values are chosen arbitrarily.
 
