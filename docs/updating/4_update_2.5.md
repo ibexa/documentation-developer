@@ -106,12 +106,13 @@ bin/console cache:pool:clear cache.redis
 
 ## Updating to 2.5.15
 
-### Powered By Header
+### Powered-By header
 
-In order to be able to promote use of eZ Platform, `ezsystems/ez-support-tools` v1.0.9 adds capability to set powered by header.
-By default this is enabed, and will generate a header like `Powereed-By: eZ Platform Enterprise 2.5`.
+In order to promote use of eZ Platform, `ezsystems/ez-support-tools` v1.0.9, as of eZ Platform v2.5.15, sets the Powered-By header.
+It is enabled by default and generates a header like `Powered-By: eZ Platform Enterprise 2.5`.
 
-If you'd like to ommit version number, for instance if you are stuck on a fast track release beyond it's maintenance window:
+To omit the version number, for instance if you are stuck on a fast track release beyond its maintenance window,
+use the following configuration:
 ``` yaml
 ezplatform_support_tools:
     system_info:
@@ -119,7 +120,8 @@ ezplatform_support_tools:
             release: "none"
 ```
 
-If you however want to ommit the whole feature, you can likewise do that by disabling it:
+To opt out of the whole feature, by disabling it with the following configuration:
+
 ``` yaml
 ezplatform_support_tools:
     system_info:
