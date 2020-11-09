@@ -94,22 +94,23 @@ It is not possible to remove an existing module, function or limitation from a P
 
 ## Integrating the `PolicyProvider` into EzPublishCoreBundle
 
-For a `PolicyProvider` to be active, it must be properly declared in EzPublishCoreBundle.
-A bundle just has to retrieve CoreBundle's DIC extension and call `addPolicyProvider()`. This must be done in the bundle's `build()` method.
+For a `PolicyProvider` to be active, you have to register it in the class `src/Kernel.php`:
 
-``` php
-namespace Acme\ExampleBundle\AcmeExampleBundle;
+```php
+namespace App;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+use App\Security\MyPolicyProvider;
+use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
+use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 
-class AcmeExampleBundle extends Bundle
+class Kernel extends BaseKernel
 {
-    public function build(ContainerBuilder $container)
-    {
-        parent::build($container);
+    use MicroKernelTrait;
 
+    protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader): void
+    {
         // ...
- 
+        
         // Retrieve "ezpublish" container extension
         $eZExtension = $container->getExtension('ezpublish');
         // Add the policy provider
@@ -122,11 +123,10 @@ class AcmeExampleBundle extends Bundle
 
 To provide support for editing custom policies in the Back Office, you need to implement [`EzSystems\EzPlatformAdminUi\Limitation\LimitationFormMapperInterface`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/lib/Limitation/LimitationFormMapperInterface.php).
 
-Next, register the service in DIC (Dependency Injection Container) with the `ez.limitation.formMapper` tag and set the `limitationType` attribute to the Limitation type's identifier:
+Next, register the service with the `ez.limitation.formMapper` tag and set the `limitationType` attribute to the Limitation type's identifier:
 
 ```yaml
-app.security.limitation.custom_limitation.mapper:
-    class: 'App\Security\Limitation\Mapper\CustomLimitationFormMapper'
+App\Security\Limitation\Mapper\CustomLimitationFormMapper:
     arguments:
         # ...
     tags:
@@ -135,11 +135,10 @@ app.security.limitation.custom_limitation.mapper:
 
 If you want to provide human-readable names of the custom Limitation values, you need to implement [`EzSystems\EzPlatformAdminUi\Limitation\LimitationValueMapperInterface`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/lib/Limitation/LimitationValueMapperInterface.php).
 
-Then register the service in DIC with the `ez.limitation.valueMapper` tag and set the `limitationType` attribute to Limitation type's identifier:
+Then register the service with the `ez.limitation.valueMapper` tag and set the `limitationType` attribute to Limitation type's identifier:
 
 ```yaml
-app.security.limitation.custom_limitation.mapper:
-    class: 'App\Security\Limitation\Mapper\CustomLimitationValueMapper'
+App\Security\Limitation\Mapper\CustomLimitationValueMapper:
     arguments:
         # ...
     tags:
