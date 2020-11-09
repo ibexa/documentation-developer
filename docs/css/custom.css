@@ -595,3 +595,27 @@ a.external:after {
 .github-icon {
     padding: 1rem;
 }
+
+.badge {
+    border-radius: 2.18px;
+    padding: 3px 8px;
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.experience-badge::after {
+    content: "Experience";
+}
+
+.experience-badge {
+    background-color: var(--ibexa-orange);
+}
+
+.commerce-badge::after {
+    content: "Commerce";
+}
+
+.commerce-badge {
+    background-color: var(--ibexa-jazzberry);
+}
