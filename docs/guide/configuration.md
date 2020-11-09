@@ -71,7 +71,6 @@ For specific configuration settings, see:
 - [Multisite](multisite.md#configuring-multisite)
 - [SiteAccess](siteaccess.md#configuring-siteaccesses)
 - [Image variations](images.md#configuring-image-variations)
-- [Multi-file upload](file_management.md#multi-file-upload)
 - [Logging and debug](devops.md#logging-and-debug-configuration)
 - [Authentication](security.md#symfony-authentication)
 - [Sessions](sessions.md#configuration)
