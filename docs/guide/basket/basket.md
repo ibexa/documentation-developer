@@ -19,9 +19,9 @@ A standard basket (type `basket`) can have different states during the checkout 
 
 ## Basket structure
 
-The [basket data model](basket_api/basket_data_model.md) contains, beside identifying information:
+Apart from the identifying information, the [basket data model](basket_api/basket_data_model.md) contains the following elements:
 
 - additional fields (`dataMap` Field)
-- basket lines specifying information for each row of the basket
+- basket lines with information for each row of the basket
 - information about basket parties (buyer, invoice and delivery)
 - additional costs (such as shipping, packaging, discounts etc.)

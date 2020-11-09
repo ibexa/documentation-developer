@@ -4,7 +4,7 @@
 
 ### StandardBasketListener
 
-The basket comes with a standard event listener which provides the following checks:
+The basket comes with a standard event listener that provides the following checks:
 
 - check whether the quantity is valid for a `catalogElement`
 - check for a minimum quantity 

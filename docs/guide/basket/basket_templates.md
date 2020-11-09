@@ -10,12 +10,12 @@
 |`SilversolutionsEshopBundle:parts:stock_legend.html.twig`|Renders the legend of symbols used to indicate product availability|
 |`ezcommerce-base-design/Resources/views/themes/standard/basket/widget.html.twig`|Renders the basket preview in the upper right corner of the shop screen|
 |`ezcommerce-base-design/Resources/views/themes/standard/basket/row.html.twig`|Renders one row of basket preview|
-|`SilversolutionsEshopBundle:Basket:stored_basket_preview_wish_list.html.twig`|Renders the wishlist row with  the number of products in the "My Shop" menu|
-|`SilversolutionsEshopBundle:Basket:stored_basket_preview_comparison.html.twig`|Renders the comparison row with the number of products in the "My Shop" menu|
+|`SilversolutionsEshopBundle:Basket:stored_basket_preview_wish_list.html.twig`|Renders the wishlist row with a number of products in the "My Shop" menu|
+|`SilversolutionsEshopBundle:Basket:stored_basket_preview_comparison.html.twig`|Renders the comparison row with a number of products in the "My Shop" menu|
 
 ## Display the content of a basket
 
-The `BasketController` provides the [`basket`](basket_api/basket_data_model.md) variable containing the content of the current basket.
+The `BasketController` provides the [`basket`](basket_api/basket_data_model.md) variable that contains the content of the current basket.
 
 You can access all basket attributes from a template.
 
@@ -40,9 +40,9 @@ You can access the basket total value (net or gross) using `basket.totalsSum`:
 {{ basket.totalsSum.totalGross }}
 ```
 
-To get the catalog element from a basket line, use `line.catalogElement`.
+To get the catalog element from the basket line, use `line.catalogElement`.
 
-If a basket line does not provide product data (e.g. the caching life time of a product has been exceeded) the product can be fetched using the `ses_product` function, providing it with the product SKU ibtained through `line.sku`.
+If a basket line does not provide product data (for example, the caching life time of a product has been exceeded), the product can be fetched with the `ses_product` function, by providing it with the product SKU obtained through `line.sku`.
 
 ``` html+twig
 {% if line.catalogElement|default is not empty %}
@@ -54,7 +54,7 @@ If a basket line does not provide product data (e.g. the caching life time of a 
 
 ## Adding a product to the basket
 
-To create a button which adds the current product to the basket, use the following form:
+To create a button that adds the current product to the basket, use the following form:
 
 ``` html+twig
 <form method="post" action="{{ path('silversolutions_add_to_basket') }}">
@@ -66,7 +66,7 @@ To create a button which adds the current product to the basket, use the followi
 </form>
 ```
 
-You can add more than one product to the basket (e.g. in a product list) by using the index:
+You can add more than one product to the basket (for example, in a product list) by using the index:
 
 ```
 ses_basket[0]
@@ -76,8 +76,9 @@ ses_basket[1]
 
 !!! note
 
-    If you want to add more products to the basket (e.g. from the wishlist),
-    you need one form around all lines that adds all lines to the basket at once,
-    but you might also need to add only one single product from the list.
+    If you want to add more products to the basket (for example, from the wishlist),
+    you need one form around all the lines.
+    The form adds all the lines to the basket at once.
+    However, you might also need to add only one product from the list.
 
     To add a single product to the basket, you need to define parent elements with the class `.js-product-line`.

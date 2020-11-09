@@ -4,10 +4,10 @@ The basket provides the following routes:
 
 | Route          | Controller     | Description |
 | -------------- | -------------- | ----------- |
-| `/basket/show`   | `showAction()`   | shows a basket with all basket lines |
-| `/basket/add`    | `addAction()`    | adds a product (product list) to the basket |
-| `/basket/update` | `updateAction()` | changes attributes (e.g. quantity) of a basket line in the basket |
-| `/basket/delete` | `deleteAction()` | removes a basket line from the basket by the given basket line ID |
+| `/basket/show`   | `showAction()`   | Shows a basket with all basket lines |
+| `/basket/add`    | `addAction()`    | Adds a product (product list) to the basket |
+| `/basket/update` | `updateAction()` | Changes attributes (for example, quantity) of a basket line in the basket |
+| `/basket/delete` | `deleteAction()` | Removes a basket line from the basket by the given basket line ID |
 
 ## `/basket/show`
 
@@ -22,8 +22,8 @@ Parameters provided in the basket template `show.html.twig`:
 | Parameter | Type | Description |
 | --------- | -------------------------------------------- | --------------------------------------------------- |
 | `basket`    | Basket                                       | The current basket of the user                      |
-| `error`     | array                                        | A list of error messages.                           |
-| `success`   | array                                        | A list of success messages.                         |
+| `error`     | array                                        | A list of error messages                           |
+| `success`   | array                                        | A list of success messages                         |
 | `notice`    | array                                        | A list of notice messages                           |
 
 ## `/basket/add`
@@ -52,4 +52,4 @@ Removes one line from the basket. After deleting the line, the basket is display
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
-| `id` | int  | ID of basket line that should be deleted |
+| `id` | int  | ID of the basket line that should be deleted |

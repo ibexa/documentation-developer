@@ -2,7 +2,7 @@
 
 The basket recalculates the prices after each change of its content.
 The request to the price engine is sent when the basket is stored.
-This avoids the price engine being triggered several times (e.g. if more than one product has been updated or added).
+This avoids the price engine being triggered several times (for example, if more than one product has been updated or added).
 The prices provided by the price engine (and ERP) are stored in the basket for each line.
 
 The price engine is also triggered when the basket is fetched from the database and the last price calculation is older than the provided time.
@@ -13,7 +13,8 @@ The time is set in the configuration in minutes:
 ses_basket.default.recalculatePricesAfter: 60
 ```
 
-By default the attributes from the `ProductNode` entity are used. The price engine sets the following fields:
+By default, the attributes from the `ProductNode` entity are used. 
+The price engine sets the following fields:
 
 |Field|Value|
 |--- |--- |

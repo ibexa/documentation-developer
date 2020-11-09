@@ -6,7 +6,7 @@ Each basket item can contain an additional line of data.
 
 ![](../img/basket_additional_data_1.png)
 
-You can enable this additional line and set its length in **Configuration Settings** in the **eCommerce** tab in the backend:
+You can enable this additional line and set its length in the Back Office, the **eCommerce** tab, **Configuration Settings**:
 
 ![](../img/basket_additional_data_2.png)
 
@@ -46,7 +46,7 @@ php bin/console silversolutions:baskets:clear 720
 
 ## Discontinued products
 
-A listener can check if a product is still available, or discontinued.
+A listener can check if the product is still available, or discontinued.
 You can disable this setting in configuration:
 
 ``` yaml
@@ -57,9 +57,9 @@ The listener checks if the current stock is greater than or equal to the quantit
 In this case the order is allowed.
 
 The optional setting `discontinued_products_listener_consider_packaging_unit` enables ignoring the packaging unit
-in order to sell the remaining products even if the remaining stock does not fit the packing unit rule
-(e.g. packing unit contains 10 pieces but 9 are left in stock).
-The listener reduces the quantity in the order to the number of products which are in stock. 
+in order to sell the remaining products, even if the remaining stock does not fit the packing unit rule
+(for example, the packing unit is 10 pieces but 9 are left in stock).
+The listener reduces the quantity in the order to the number of products that are in stock. 
 
 ``` yaml
 siso_basket.default.discontinued_products_listener_consider_packaging_unit: true
