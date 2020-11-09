@@ -76,6 +76,7 @@
     |`type`|Type of attribute.|
     |`name`|The displayed name for the attribute. You can omit it, block identifier will then be used as the name.|
     |`value`|The default value for the attribute.|
+    |`category`|The tab where the attribute is displayed in the block edit modal.|
     |`validators`|Available validators are `not_blank` and `regexp`.|
     |`options`|Additional options, dependent on the attribute type.|
 
