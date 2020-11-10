@@ -316,9 +316,8 @@ nav:
                 - 'Price engine FAQ': 'guide/pricing/price_engine_faq.md'
             - Quick order:
                 - 'Quick order': 'guide/quick_order/quick_order.md'
-                - 'Quick order API': 'guide/quick_order/quick_order_api.md'
+                - 'Quick order configuration': 'guide/quick_order/quick_order_configuration.md'
                 - 'Quick order templates': 'guide/quick_order/quick_order_templates.md'
-                - 'Quick order FAQ': 'guide/quick_order/quick_order_faq.md'
             - Order history:
                 - 'Orderhistory': 'guide/order_history/orderhistory.md'
                 - Order history features:
