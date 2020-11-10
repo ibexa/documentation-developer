@@ -321,7 +321,7 @@
     - `eZ\Publish\API\Repository\Values\Content\Query\Aggregation\AbstractStatsAggregation`
     - `eZ\Publish\API\Repository\Values\Content\Query\Aggregation\AbstractTermAggregation`
     
-    An aggregation should also implement one of the following interfaces:
+    An aggregation can also implement one of the following interfaces:
     
     - `eZ\Publish\API\Repository\Values\Content\Query\Aggregation\FieldAggregation`, based on a content Field
     - `eZ\Publish\API\Repository\Values\Content\Query\Aggregation\LocationAggregation`, based on content Location
