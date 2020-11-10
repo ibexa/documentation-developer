@@ -237,27 +237,14 @@ nav:
         - Shop process:
             - Basket:
                 - 'Basket': 'guide/basket/basket.md'
-                - Basket features:
-                    - 'Product quantity validation': 'guide/basket/basket_features/product_quantity_validation.md'
-                    - 'Basket messages': 'guide/basket/basket_features/basket_messages.md'
-                    - 'Calculating prices': 'guide/basket/basket_features/calculating_prices.md'
-                    - 'Storing parts of the product in the basket line': 'guide/basket/basket_features/storing_parts_of_the_product_in_the_basket_line.md'
-                    - 'Additional data in the basket line': 'guide/basket/basket_features/additional_data_in_the_basket_line.md'
-                    - 'Basket storage time': 'guide/basket/basket_features/basket_storage_time.md'
-                    - 'Discontinued products': 'guide/basket/basket_features/discontinued_products.md'
+                - 'Basket configuration': 'guide/basket/basket_configuration.md'
+                - 'Basket templates': 'guide/basket/basket_templates.md'
+                - 'Calculating prices': 'guide/basket/calculating_prices.md'
                 - Basket API:
-                    - 'Basket API': 'guide/basket/basket_api/basket_api.md'
                     - 'Basket data model': 'guide/basket/basket_api/basket_data_model.md'
                     - 'BasketService': 'guide/basket/basket_api/basketservice.md'
-                    - Basket events:
-                        - 'Basket Events': 'guide/basket/basket_api/basket_events/basket_events.md'
-                        - 'Basket - Eventlistener in the standard': 'guide/basket/basket_api/basket_events/basket_eventlistener_in_the_standard.md'
+                    - 'Basket Events': 'guide/basket/basket_api/basket_events.md'
                     - 'Basket routing': 'guide/basket/basket_api/basket_routing.md'
-                - Basket UI:
-                    - 'Basket UI': 'guide/basket/basket_ui/basket_ui.md'
-                    - 'Adding products to a stored basket or wishlist': 'guide/basket/basket_ui/adding_products_to_a_stored_basket_or_wishlist.md'
-                    - 'Adding products to the basket': 'guide/basket/basket_ui/adding_products_to_the_basket.md'
-                - 'Basket FAQ': 'guide/basket/basket_faq.md'
             - 'Wishlist and stored baskets': 'guide/basket/wishlist_and_stored_baskets.md'
             - Checkout:
                 - 'Checkout': 'guide/checkout/checkout.md'
