@@ -483,7 +483,7 @@
                 thumbnail: assets/images/ez-icons.svg#block-visible-recurring
                 views:
                     default:
-                        template: @ezdesign/blocks/translate_block.html.twig
+                        template: "@ezdesign/blocks/translate_block.html.twig"
                         name: Default view
                         priority: -255
                 attributes:
