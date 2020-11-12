@@ -1,6 +1,6 @@
 # ObjectStateTermAggregation
 
-The [ObjectStateTermAggregation](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Query/Aggregation/ObjectStateTermAggregation.php) aggregates search results by the Location's subtree path.
+The [ObjectStateTermAggregation](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Query/Aggregation/ObjectStateTermAggregation.php) aggregates search results by the Content item's Object state.
 
 ## Arguments
 
