@@ -292,8 +292,8 @@ ezpublish:
 
     ##### Configuration Fastly on Platform.sh
 
-    If you are using Platform.sh, it's best to configure all Environment variables via [Platform.sh variables](https://docs.platform.sh/frameworks/ez/fastly.html).
-    You also need to [disable Varnish](https://docs.platform.sh/frameworks/ez/fastly.html#remove-varnish-configuration) which is enabled by default in provided configuration for Platform.sh.
+    If you are using Platform.sh, it's best to configure all Environment variables via [Platform.sh variables](https://docs.platform.sh/frameworks/ibexa/fastly.html).
+    You also need to [disable Varnish](https://docs.platform.sh/frameworks/ibexa/fastly.html#remove-varnish-configuration) which is enabled by default in provided configuration for Platform.sh.
 
     ##### Obtaining Fastly service ID and API token
 
@@ -338,7 +338,7 @@ fastcgi_param HTTPCACHE_PURGE_SERVER "http://varnish:80";
 
 Example for Platform.sh:
 
-You can configure environment variables via [Platform.sh variables.](https://docs.platform.sh/frameworks/ez/fastly.html)
+You can configure environment variables via [Platform.sh variables.](https://docs.platform.sh/frameworks/ibexa/fastly.html)
 
 !!! tip
 
