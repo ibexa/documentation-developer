@@ -283,13 +283,8 @@ nav:
             - Payment:
                 - 'Payment': 'guide/payment/payment.md'
                 - 'Payment API': 'guide/payment/payment_api.md'
-                - 'Building new payment plugins': 'guide/payment/building_new_payment_plugins.md'
-                - 'Payment FAQ': 'guide/payment/payment_faq.md'
-                - Payment configuration:
-                    - 'Telecash': 'guide/payment/payment_configuration/telecash.md'
-                    - 'Paypal': 'guide/payment/payment_configuration/paypal.md'
-                    - 'Invoice': 'guide/payment/payment_configuration/invoice.md'
-                    - 'Ogone': 'guide/payment/payment_configuration/ogone.md'
+                - 'Payment troubleshooting': 'guide/payment/payment_troubleshooting.md'
+                - 'Paypal': 'guide/payment/paypal.md'
             - Pricing:
                 - 'Price engine': 'guide/pricing/price_engine.md'
                 - Price engine API:
