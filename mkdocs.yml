@@ -328,10 +328,9 @@ nav:
                 - 'Orderhistory templates': 'guide/order_history/orderhistory_templates.md'
                 - 'Displaying custom column': 'guide/order_history/displaying_custom_column.md'
                 - 'Overriding semantic configuration': 'guide/order_history/overriding_semantic_configuration.md'
-            - Vouchers from ERP:
-                - 'Vouchers from ERP': 'guide/vouchers_from_erp/vouchers_from_erp.md'
-                - 'Voucher templates': 'guide/vouchers_from_erp/vouchers_templates.md'
-                - 'Voucher FAQ': 'guide/vouchers_from_erp/vouchers_faq.md'
+            - Vouchers:
+                - 'Vouchers': 'guide/vouchers/vouchers.md'
+                - 'Voucher templates': 'guide/vouchers/voucher_templates.md'
         - Shop elements:
             - Catalog:
                 - 'Catalog ': 'guide/catalog/catalog.md'
