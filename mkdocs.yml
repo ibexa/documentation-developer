@@ -513,8 +513,12 @@ nav:
             - Aggregation reference:
                 - 'ContentTypeTermAggregation': 'guide/search/aggregation_reference/contenttypeterm_aggregation.md'
                 - 'ContentTypeGroupTermAggregation': 'guide/search/aggregation_reference/contenttypegroupterm_aggregation.md'
+                - 'DateMetadataRangeAggregation': 'guide/search/aggregation_reference/datemetadatarange_aggregation.md'
                 - 'LanguageTermAggregation': 'guide/search/aggregation_reference/languageterm_aggregation.md'
                 - 'ObjectStateTermAggregation': 'guide/search/aggregation_reference/objectstateterm_aggregation.md'
+                - 'RawRangeAggregation': 'guide/search/aggregation_reference/rawrange_aggregation.md'
+                - 'RawStatsAggregation': 'guide/search/aggregation_reference/rawstats_aggregation.md'
+                - 'RawTermAggregation': 'guide/search/aggregation_reference/rawterm_aggregation.md'
                 - 'SectionTermAggregation': 'guide/search/aggregation_reference/sectionterm_aggregation.md'
                 - 'SubtreeTermAggregation': 'guide/search/aggregation_reference/subtreeterm_aggregation.md'
                 - 'UserMetadataTermAggregation': 'guide/search/aggregation_reference/usermetadataterm_aggregation.md'

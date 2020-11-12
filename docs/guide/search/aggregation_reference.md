@@ -14,10 +14,14 @@ There are three types of aggregations:
 |---|---|---|
 |[ContentTypeTermAggregation](aggregation_reference/contenttypeterm_aggregation.md) | Term | Content Type  |
 |[ContentTypeGroupTermAggregation](aggregation_reference/contenttypegroupterm_aggregation.md) | Term | Content Type group |
+|[DateMetadataRangeAggregation](aggregation_reference/datemetadatarange_aggregation.md) | Range | Date metadata |
 |[LanguageTermAggregation](aggregation_reference/languageterm_aggregation.md) | Term | Content language |
 |[ObjectStateTermAggregation](aggregation_reference/objectstateterm_aggregation.md) | Term | Object state |
+|[RawRangeAggregation](aggregation_reference/rawrange_aggregation.md) | Range | Search index field |
+|[RawStatsAggregation](aggregation_reference/rawstats_aggregation.md) | Stats | Search index field |
+|[RawTermAggregation](aggregation_reference/rawterm_aggregation.md) | Term | Search index field |
 |[SectionTermAggregation](aggregation_reference/sectionterm_aggregation.md) | Term | Section |
-|[SubtreeTermAggregation](aggregation_reference/subtreeterm_aggregation.md) | Term | Content Type  |
+|[SubtreeTermAggregation](aggregation_reference/subtreeterm_aggregation.md) | Term | Location subtree path |
 |[UserMetadataTermAggregation](aggregation_reference/usermetadataterm_aggregation.md) | Term | Content owner/owner group or modifier |
 |[VisibilityTermAggregation](aggregation_reference/visibilityterm_aggregation.md) | Term | Content/Location visibility |
 
