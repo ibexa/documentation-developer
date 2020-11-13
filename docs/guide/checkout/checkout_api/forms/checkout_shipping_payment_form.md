@@ -15,7 +15,7 @@ extends `AbstractFormEntity` and implements `CheckoutAddressInterface`.
 
 ## Configuration
 
-The parameters are set in the [configuration for checkout forms](configuration_for_checkout_forms.md).
+You set the parameters in the [configuration for checkout forms](configuration_for_checkout_forms.md).
 
 ## Form Type
 

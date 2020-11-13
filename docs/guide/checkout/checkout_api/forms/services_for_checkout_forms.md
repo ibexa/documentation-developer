@@ -3,7 +3,7 @@
 ## CheckoutFormServiceInterface
 
 `CheckoutFormServiceInterface` (`Silversolutions\Bundle\EshopBundle\Service\CheckoutFormServiceInterface`)
-is an interface for checkout forms which defines a common way to prefill the form and store the data in basket.
+is an interface for checkout forms that defines a common way to prefill the form and store the data in basket.
 
 |Method|Parameters|Usage|
 |--- |--- |--- |
@@ -35,7 +35,7 @@ is an interface for checkout forms that handles addresses and defines a way to c
 
 `DeliveryAddressCheckoutFormService` (`Siso\Bundle\CheckoutBundle\Service\DeliveryAddressCheckoutFormService`)
 implements the logic for the `CheckoutDeliveryAddress` form.
-This service is assigned to the `CheckoutDeliveryAddress` form in the [configuration](configuration_for_checkout_forms.md).
+You assign this service to the `CheckoutDeliveryAddress` form in the [configuration](configuration_for_checkout_forms.md).
 
 This service implements both [`CheckoutFormServiceInterface`](#checkoutformserviceinterface) and [`CheckoutAddressFormServiceInterface`](#checkoutaddressformserviceinterface).
 
@@ -45,7 +45,7 @@ The service ID is `siso_checkout.checkout_form.delivery_address`.
 
 `InvoiceAddressCheckoutFormService` (`Siso\Bundle\CheckoutBundle\Service\InvoiceAddressCheckoutFormService`)
 implements the logic for the `CheckoutInvoiceAddress` form.
-This service is assigned to the `CheckoutInvoiceAddress` form in the [configuration](configuration_for_checkout_forms.md).
+You assign this service to the `CheckoutInvoiceAddress` form in the [configuration](configuration_for_checkout_forms.md).
 
 This service implements both [`CheckoutFormServiceInterface`](#checkoutformserviceinterface) and [`CheckoutAddressFormServiceInterface`](#checkoutaddressformserviceinterface)
 
@@ -54,7 +54,7 @@ The service ID is `siso_checkout.checkout_form.invoice_address`.
 ## ShippingPaymentCheckoutFormService
 
 `ShippingPaymentCheckoutFormService` (`Siso\Bundle\CheckoutBundle\Service\ShippingPaymentCheckoutFormService`) implements the logic for the `CheckoutShippingPayment` form.
-This service is assigned to the `CheckoutShippingPayment` form in the [configuration](configuration_for_checkout_forms.md).
+You assign this service to the `CheckoutShippingPayment` form in the [configuration](configuration_for_checkout_forms.md).
 
 This service implements [`CheckoutFormServiceInterface`](#checkoutformserviceinterface).
 
@@ -63,7 +63,7 @@ The service ID is `siso_checkout.checkout_form.shipping_payment`.
 ## SummaryCheckoutFormService
 
 `SummaryCheckoutFormService` (`Siso\Bundle\CheckoutBundle\Service\SummaryCheckoutFormService`) implements the logic for the `CheckoutSummary` form.
-This service is assigned to the `CheckoutSummary` form in the [configuration](configuration_for_checkout_forms.md).
+You assign this service to the `CheckoutSummary` form in the [configuration](configuration_for_checkout_forms.md).
 
 This service implements [`CheckoutFormServiceInterface`](#checkoutformserviceinterface) and  [`CheckoutSummaryFormServiceInterface`](#checkoutsummaryformserviceinterface).
 
@@ -71,7 +71,7 @@ The service ID is `siso_checkout.checkout_form.summary`.
 
 ### Comment limit
 
-In the summary there is a comment field that the user can fill in.
+In the summary, there is a comment field that the user can fill in.
 
 By default, the comment box does not have a limit, but you can set a limit in configuration:
 

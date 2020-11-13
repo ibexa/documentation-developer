@@ -1,6 +1,6 @@
 # Checkout
 
-[[= product_name_com =]] provides a multi-step checkout process taking place on one page.
+[[= product_name_com =]] provides a multi-step checkout process that takes place on one page.
 
 ![](../img/checkout_1.png)
 

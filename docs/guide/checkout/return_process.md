@@ -1,7 +1,7 @@
 # Return process
 
 [[= product_name_com =]] offers a simple RMA (return merchandise authorization) process.
-The goal is to inform the user about the cancellation policies and give them the possible to return their goods, including online returns.
+The goal is to inform the user about the cancellation policies and give them the possibility to return their goods, including online returns.
 
 The cancellation process validates the input and sends an email to the shop administrator. 
 

@@ -6,13 +6,13 @@ If the customer has a customer number, customer data is fetched from the ERP aga
 
 ## Confirmation email
 
-The `Siso\Bundle\CheckoutBundle\EventListener\OrderConfirmationListener` event listener sends order confirmation
+The `Siso\Bundle\CheckoutBundle\EventListener\OrderConfirmationListener` event listener sends the order confirmation
 as soon as the ERP accepts the order.
 
-Both the customer and a sales contact (if configured) receive confirmation emails.
+Both the customer and a sales contact (if configured) should receive confirmation emails.
 The confirmation is sent using `MailHelperService`.  
 
-In case of a failure (e.g. if the mail server is unreachable) the issue is logged into `var/log/<env>/dev-siso.mails.log`.
+In case of a failure (for example, when the mail server is unreachable), the issue is logged into `var/log/<env>/dev-siso.mails.log`.
 
 Processing the confirmation email address is handled in `Siso\Bundle\CheckoutBundle\Service\SummaryCheckoutFormService`.
 
@@ -20,13 +20,14 @@ Processing the confirmation email address is handled in `Siso\Bundle\CheckoutBun
 
 The customer's confirmation email address depends on the user type and is stored in the basket object during the checkout process.
 
-For an anonymous customer the email address is taken from the invoice address of the basket object.
-For a logged-in customer the address is taken from customer profile data.
+For an anonymous customer, the email address is taken from the invoice address of the basket object.
+For a logged-in customer, the address is taken from customer profile data.
 
 ### Sales contact confirmation
 
 A second confirmation email can be sent to a sales contact.
-This address is also stored in the basket object next to the customer's address. The behavior is configurable:
+This address is also stored in the basket object, next to the customer's address. 
+The behavior is configurable:
 
 #### `sales_email_mode`
 
@@ -59,4 +60,4 @@ if `is_shop_owner` is set to `true`.
 This email contains a special message and subject.
 
 - `shop_owner_mail_subject` (set in the email configuration)
-- `email_shop_owner_intro_text` (textmodule inside the backend)
+ `email_shop_owner_intro_text` (text module in the Back Office)
