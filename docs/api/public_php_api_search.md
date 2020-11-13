@@ -490,6 +490,15 @@ according to the value of the `topic` Field in the `article` Content Type:
 $query->aggregations[] = new SelectionTermAggregation('selection', 'article', 'topic');
 ```
 
+With term aggregation you can define additional limits to the results.
+The following example limits the number of terms returned to 5
+and only considers terms that have 10 or more results:
+
+``` php
+$query->aggregations[0]->setLimit(5);
+$query->aggregations[0]->setMinCount(10);
+```
+
 To use a range aggregation, you must provide a `ranges` array containing a set of `Range` objects
 that define the borders of the specific range sets.
 
