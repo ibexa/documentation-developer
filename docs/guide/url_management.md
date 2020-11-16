@@ -140,7 +140,7 @@ For each URL alias definition the history of changes is preserved, so that users
 
 URL aliases are not SiteAccess-aware. When creating an alias, you can select a SiteAccess to base it on.
 If the SiteAccess root path (configured in `content.tree_root.location_id`) is different than the default,
-the path is appended to the alias path.
+the prefix path that results from the configured content root is prepended to the final alias path.
 
 ### URL alias pattern configuration
 
