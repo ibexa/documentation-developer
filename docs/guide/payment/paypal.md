@@ -11,7 +11,7 @@ php composer.phar update -- jms/payment-paypal-bundle
 
 See [How to get the API credentials](#how-to-get-the-api-credentials) to learn where you can find the values for the `JMSPaymentPaypalBundle` configuration in the PayPal merchant's administration.
 
-Additionally, `SisoPaypalPaymentBundle` must be activated in the kernel and the routes must be included:
+Additionally, you must activate `SisoPaypalPaymentBundle` in the kernel, and include the routes:
 
 ``` php
 return [

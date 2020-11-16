@@ -32,8 +32,8 @@ class ExamplePaymentService extends StandardPaymentService
 
 ## Timeout in redirection to the paygate
 
-During the encryption of the transaction data, the PHP process can run into an execution timeout.
-This can occur after clicking the **Buy now** button at the order summary page.
+At the transaction data encryption stage, the PHP process can run into an execution timeout.
+This can happen when the user clicks the **Buy now** button on the order summary page.
 The exception in the AJAX Response can look like this:
 
 ```
@@ -44,9 +44,9 @@ Error: Maximum execution time of 60 seconds exceeded
 Occured in file /var/www/project/vendor/jms/payment-core-bundle/JMS/Payment/CoreBundle/Cryptography/MCryptEncryptionService.php line 91
 ```
 
-The problem is the usage of the PHP function [`mcrypt_create_iv`](http://php.net/manual/en/function.mcrypt-create-iv.php) in that line.
+The problem is with the usage of the PHP function [`mcrypt_create_iv`](http://php.net/manual/en/function.mcrypt-create-iv.php) in that line.
 The default implementation uses the `/dev/urandom` device to determine a random number.
-This can take a long time if the hosting system doesn't generate enough random events per time.
+This can take a long time if the hosting system doesn't generate random events fast enough.
 Then the call runs into a timeout.
 
 To solve this, check the currently available entropy on the system:
@@ -57,7 +57,7 @@ cat /proc/sys/kernel/random/entropy_avail
 
 The result should be a number greater than 300. If it is less, the entropy is not enough to generate random numbers.
 
-To increase the entropy you have to install the `haveged` application.
+To increase the entropy, you have to install the `haveged` application.
 
 Install the package with apt-get:
 

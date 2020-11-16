@@ -15,7 +15,7 @@ If the ERP system is offline, customers see list prices and an error message. Th
 
 ## Storage time
 
-A quick order is stored as long as the session exists for anonymous users,
+A quick order is stored for the duration of the session for anonymous users,
 and indefinitely for logged-in users.
 
 ## Autosuggestions
@@ -32,7 +32,7 @@ Customers can type the product name or SKU and/or a variant code (or parts of it
 The customer can also add items to the quick order by providing a list of CSV data. 
 They can either upload a CSV file, or manually enter CSV data.
 
-By default the CSV has 1-3 columns, containing mandatory SKU as well as optional variant code and quantity.
+By default, the CSV record has 1-3 columns, containing mandatory SKU as well as optional variant code and quantity.
 
 For example, to provide SKU only:
 
@@ -52,10 +52,10 @@ To provide SKU, variant code and quantity:
 SE0101,VAR-BLK,3
 ```
 
-You can set a different order of data and  add  [additional text](../basket/basket_configuration.md#additional-data-in-the-basket-line)
+You can set a different order of data and add [additional text](../basket/basket_configuration.md#additional-data-in-the-basket-line)
 in [configuration](quick_order_configuration.md#csv-data-order).
 
-Following MIME types are supported:
+The following MIME types are supported:
 
 ```
 'text/csv',

@@ -9,16 +9,16 @@ The main interface is represented by `PaymentServiceInterface`, which is the pub
 
 `PaymentServiceInterface::processPayment()` starts all payment processes.
 It tries to process the payment and throws a `RedirectionRequiredException`
-if the payment method represented by `paymentMethodIdentifier` needs an HTTP redirection to a payment portal site to progress in the payment
+if the payment method represented by `paymentMethodIdentifier` needs an HTTP redirection to a payment portal site to advance the payment
 (for example for an input of critical data like a credit card number).
 The calling instance must take responsibility for this exception and handle the redirection accordingly.
 
 The following data is necessary to start the payment process:
 
-- `orderId` is a valid identifier for the instance which holds the order data
-- `paymentMethodIdentifier` is a string which uniquely identifies a payment plugin implementation
+- `orderId` is a valid identifier for the instance that holds the order data
+- `paymentMethodIdentifier` is a string that uniquely identifies a payment plugin implementation
 - `amount` holds the amount to be paid (in the lowest available unit of currency, e.g. euro cents)
-- `currency` holds a string which identifies the currency of the `amount`
+- `currency` holds a string that identifies the currency of the `amount`
 - `extendedData` (optional) can be used for specific configuration of the given `paymentMethodIdentifier` and thus the respective payment plugin
 
 If more user interaction is needed (e.g. to authorize the transaction at a payment gateway),
@@ -26,7 +26,7 @@ the `finalizePayment()` method ends the payment process.
 This method can also throw the `RedirectionRequiredException`.
 The `orderId` parameter must pass the identifier of the order instance that was also passed to `processPayment()`.
 The optional `additionalData` parameter can be used to pass further information to the payment external data.
-For example, it can extract important fields from the payment gateways response.
+For example, it can extract important fields from the payment gateway's response.
 
 After the payment process is successfully processed, you can get the respective transaction ID
 that was provided by the payment gateway. For this, the interface provides the `determinePaymentTransactionId()` method.

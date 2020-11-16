@@ -2,7 +2,7 @@
 
 ## Disable autosuggestion
 
-If you want to disable autosuggestions in quick order, use the `auto_suggest_limit` setting:
+To disable autosuggestions in quick orders, use the `auto_suggest_limit` setting:
 
 ``` yaml
 siso_search.default.search.auto_suggest_limit: 0
@@ -19,7 +19,7 @@ parameters:
     siso_quickorder.default.sku_variant_code_delimiter: '::'
 ```
 
-`autosuggest_delimiters` defines the possible delimiters the customer can use when typing into the quick order form field:
+`autosuggest_delimiters` defines the delimiters that the customer can use when typing into the quick order form field:
 
 ``` yaml
 parameters:
@@ -67,4 +67,4 @@ siso_search.default.search.auto_suggest_fields:
     - ses_variant_desc_ms
 ```
 
-The `ses_variant_*` fields are additional fields indexed in the Solr.
+The `ses_variant_*` fields are additional fields that are indexed in Solr.

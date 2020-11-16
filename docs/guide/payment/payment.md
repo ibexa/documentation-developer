@@ -16,12 +16,12 @@ The following payment providers are available out of the box:
 
 ## Activating payment options
 
-Individual payment options / payment methods are implemented in Symfony bundles.
+You implement individual payment options / payment methods in Symfony bundles.
 As soon as they are registered in the kernel, they are displayed in the checkout payment form.
-The respective options are registered in the checkout form by a DIC compiler pass and must fulfill some requirements:
+The respective options are registered in the checkout form and must fulfill some requirements:
 
-- The bundle must define a form type service
-- The form type must define the `payment.method_form_type` tag
+- The bundle must define a form type service.
+- The form type must define the `payment.method_form_type` tag.
 - The form type must define the `form.type` tag with an alias attribute that is used as text in the payment choice.
 
-The compiler pass is defined in the checkout bundle: `Siso\Bundle\CheckoutBundle\DependencyInjection\Compiler\PaymentMethodsPass`
+You define the compiler pass in the checkout bundle: `Siso\Bundle\CheckoutBundle\DependencyInjection\Compiler\PaymentMethodsPass`

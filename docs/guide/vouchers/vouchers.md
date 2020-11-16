@@ -3,13 +3,14 @@
 [[= product_name_com =]] supports vouchers that are managed in ERP. The customer can enter a voucher number in the basket.
 Then the voucher is sent to the ERP and, if it is valid, the customer gets a discount.
 
-Voucher data is sent to ERP in `PriceRequest` and `CreateOrderRequest`.
+Voucher data is sent to the ERP in `PriceRequest` and `CreateOrderRequest`.
 The price request contains the voucher code.
 
 If enabled in the [configuration](#configuration), an additional line with negative quantity is also sent.
 The ERP must respond with negative cost.
 
-The ERP can send a message that the voucher is invalid. In that case this message is displayed in the basket.
+The ERP can send a message that the voucher is invalid. 
+When this happens, a message is displayed in the basket.
 
 ## Configuration
 
@@ -19,7 +20,7 @@ twig:
         voucher_active: true
 ```
 
-Using the `send_vouchers_as_lines` setting you can configure whether the voucher is sent to ERP as additional line with negative quantity (`true`)
+With the `send_vouchers_as_lines` setting, you can configure whether the voucher is sent to ERP as an additional line with negative quantity (`true`)
 or in the header (`false`):
 
 ``` yaml
