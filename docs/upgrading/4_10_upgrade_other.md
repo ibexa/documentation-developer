@@ -1,9 +1,9 @@
-# 4.10 Other code upgrades
+# 4.9 Other code upgrades
 
 ## HTTP cache
 
 HTTP cache bundle now uses FOS Cache Bundle v2.
-If your code makes use of HTTP cache bundle, see [the list of changes and deprecations](../releases/ez_platform_v3.0_deprecations.md#http-cache-bundle).
+If your code makes use of HTTP cache bundle, see [the list of changes and deprecations](../releases/ez_platform_v3.0_deprecations.md#ezplatform-http-cache).
 
 ## User checker
 
@@ -59,4 +59,3 @@ for an example.
 ## Deprecations
 
 For a full list of changes, see [Deprecations and backwards compatibility breaks](../releases/ez_platform_v3.0_deprecations.md).
-
