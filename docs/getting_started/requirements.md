@@ -55,10 +55,7 @@ For security and performance we generally recommend (unless otherwise noted and 
 
 - Cluster
     - Redis 3.2+ (preferably separate instances for session and cache, both using one of the `volatile-*` [eviction policies](https://redis.io/topics/lru-cache))
-    - Solr
-        - Recommended over SQL based Search engine, especially on cluster, as SQL does not provide the same feature set or performance as Solr
-        - Recommended with Solr 7.7 (Solr Bundle v2.0)
-        - Supported, but deprecated with Solr 6.6 (Solr Bundle 1.7)
+    - Search: Solr 7 or Solr 8 (recommended over SQL-based Search engine, especially on cluster, as SQL does not provide the same feature set or performance)
     - NFS or S3
     - HttpCache, using one of:
         - [Varnish](http://varnish-cache.org/) 5.1 or 6.0LTS *(recommended)* with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst)
