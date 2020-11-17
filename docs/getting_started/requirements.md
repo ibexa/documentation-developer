@@ -56,7 +56,7 @@ For security and performance we generally recommend (unless otherwise noted) usi
         - Redis 4.0+ (5.0 recommended, using `volatile-*` [eviction policy](https://redis.io/topics/lru-cache) is required with default [Redis adapter](../guide/persistence_cache.md#redis))
         - Memcached 1.5 or higher (See [Memcached adapter](../guide/persistence_cache.md##memcached) for comparison with Redis)
     - Session: either own Redis instance with persistence turned on, or Database.
-    - Search: Solr 7 or Elasticsearch 7.7 (recommended over SQL-based Search engine, especially on cluster, as SQL does not provide the same feature set or performance as the other two).
+    - Search: Solr 7, Solr 8, or Elasticsearch 7.7 (recommended over SQL-based Search engine, especially on cluster, as SQL does not provide the same feature set or performance as the other two).
     - IO: NFS or S3
     - HttpCache, using one of:
         - [Varnish](http://varnish-cache.org/) 6.0LTS with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst)
