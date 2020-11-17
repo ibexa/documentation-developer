@@ -292,28 +292,14 @@ nav:
                     - 'Ogone': 'guide/payment/payment_configuration/ogone.md'
             - Pricing:
                 - 'Price engine': 'guide/pricing/price_engine.md'
-                - Price engine API:
-                    - 'Data model for prices': 'guide/pricing/price_engine_api/data_model_for_prices.md'
-                    - Price engine services:
-                        - 'StandardPriceFactory': 'guide/pricing/price_engine_api/price_engine_services/standardpricefactory.md'
-                        - 'Ez5ScaledPriceService': 'guide/pricing/price_engine_api/price_engine_services/ez5scaledpriceservice.md'
-                        - 'LocalVatService': 'guide/pricing/price_engine_api/price_engine_services/localvatservice.md'
-                        - Chainpriceservice:
-                            - 'ChainPriceService': 'guide/pricing/price_engine_api/price_engine_services/chainpriceservice/chainpriceservice.md'
-                            - Price providers:
-                                - 'Price providers': 'guide/pricing/price_engine_api/price_engine_services/chainpriceservice/price_providers/price_providers.md'
-                                - 'LocalPriceProvider': 'guide/pricing/price_engine_api/price_engine_services/chainpriceservice/price_providers/localpriceprovider.md'
-                        - 'StandardCountryZoneService': 'guide/pricing/price_engine_api/price_engine_services/standardcountryzoneservice.md'
-                        - 'StandardTemplateDebitorService': 'guide/pricing/price_engine_api/price_engine_services/standardtemplatedebitorservice.md'
-                    - 'Price engine constants': 'guide/pricing/price_engine_api/price_engine_constants.md'
-                - Price engine cookbook:
-                    - 'Price engine cookbook': 'guide/pricing/price_engine_cookbook/price_engine_cookbook.md'
-                    - 'Implementing new price provider': 'guide/pricing/price_engine_cookbook/recipe_how_to_implement_new_price_provider.md'
-                    - 'Working with PriceRequest and PriceResponse': 'guide/pricing/price_engine_cookbook/recipe_how_to_work_with_pricerequest_and_priceresponse.md'
-                - Price engine templates:
-                    - 'Price engine templates': 'guide/pricing/price_engine_templates/price_engine_templates.md'
-                    - 'Rendering for prices': 'guide/pricing/price_engine_templates/rendering_for_prices.md'
-                - 'Price engine FAQ': 'guide/pricing/price_engine_faq.md'
+                - 'Price templates': 'guide/pricing/price_templates.md'
+                - Price API:
+                    - 'Price data model': 'guide/pricing/price_api/price_data_model.md'
+                    - 'Price providers': 'guide/pricing/price_api/price_providers.md'
+                    - 'StandardPriceFactory': 'guide/pricing/price_api/standardpricefactory.md'
+                    - 'LocalVatService': 'guide/pricing/price_api/localvatservice.md'
+                    - 'StandardCountryZoneService': 'guide/pricing/price_api/standardcountryzoneservice.md'
+                    - 'StandardTemplateDebitorService': 'guide/pricing/price_api/standardtemplatedebitorservice.md'
             - Quick order:
                 - 'Quick order': 'guide/quick_order/quick_order.md'
                 - 'Quick order API': 'guide/quick_order/quick_order_api.md'

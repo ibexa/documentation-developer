@@ -8,7 +8,7 @@ To request prices from ERP, you must provide customer and optional contact numbe
 1. If the customer and contact numbers are set directly in the price request, they are used.
 1. If not, and the customer and contact numbers are set in the BuyerParty, they are used.
 1. If neither customer nor contact number is set and the usage of the template debitor is allowed in the configuration,
-the customer and/or contact number are determined from the [StandardTemplateDebitorService](../pricing/price_engine_api/price_engine_services/standardtemplatedebitorservice.md) and used.
+the customer and/or contact number are determined from the [StandardTemplateDebitorService](../pricing/price_api/standardtemplatedebitorservice.md) and used.
 
 ``` yaml
 siso_core.default.use_template_debitor_customer_number: true
@@ -162,7 +162,7 @@ This might have several reasons:
 #### VAT
 
 If the ERP System does not provide information about VAT, the VAT can be determined in the shop.
-In that case the shop uses [VatService](../pricing/price_engine_api/price_engine_services/localvatservice.md) to get the `vatPercent` by the `vatCode`.
+In that case the shop uses [VatService](../pricing/price_api/localvatservice.md) to get the `vatPercent` by the `vatCode`.
 
 ### SesExtension Fields
 
