@@ -44,28 +44,6 @@ doctrine:
 
 Also make the corresponding change in `app/config/dfs/dfs.yml`.
 
-## Page builder
-
-!!! enterprise
-
-    To update to v2.2, you need to run a script to add database tables for the Page Builder.
-    You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/2.2/Resources/sql/schema.sql#L58
-
-    When updating an Enterprise installation, you also need to run the following script due to changes in the `eznotification` table:
-
-    ```
-    ALTER TABLE `eznotification`
-    CHANGE COLUMN `data` `data` BLOB NULL ;
-
-    ALTER TABLE `eznotification`
-    DROP INDEX `owner_id` ,
-    ADD INDEX `eznotification_owner` (`owner_id` ASC);
-
-    ALTER TABLE `eznotification`
-    DROP INDEX `is_pending` ,
-    ADD INDEX `eznotification_owner_is_pending` (`owner_id` ASC, `is_pending` ASC);
-    ```
-
 ## Migrate Landing Pages
 
 To update to v2.2 with existing Landing Pages, you need to use a dedicated script.
