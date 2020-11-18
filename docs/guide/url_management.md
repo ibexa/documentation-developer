@@ -121,6 +121,12 @@ app.url_checker.handler.custom:
 
 The `scheme` attribute is mandatory and has to correspond to the name of the protocol, for instance `ftp`.
 
+## URL aliases
+
+URL aliases are not SiteAccess-aware. When creating an alias, you can select a SiteAccess to base it on.
+If the SiteAccess root path (configured in `content.tree_root.location_id`) is different than the default,
+the prefix path that results from the configured content root is prepended to the final alias path.
+
 ## URL alias patterns
 
 You can configure how eZ Platform generates URL aliases. The configuration is available under `ezpublish.url_alias.slug_converter`, for example:
