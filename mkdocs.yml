@@ -266,13 +266,8 @@ nav:
             - Payment:
                 - 'Payment': 'guide/payment/payment.md'
                 - 'Payment API': 'guide/payment/payment_api.md'
-                - 'Building new payment plugins': 'guide/payment/building_new_payment_plugins.md'
-                - 'Payment FAQ': 'guide/payment/payment_faq.md'
-                - Payment configuration:
-                    - 'Telecash': 'guide/payment/payment_configuration/telecash.md'
-                    - 'Paypal': 'guide/payment/payment_configuration/paypal.md'
-                    - 'Invoice': 'guide/payment/payment_configuration/invoice.md'
-                    - 'Ogone': 'guide/payment/payment_configuration/ogone.md'
+                - 'Payment troubleshooting': 'guide/payment/payment_troubleshooting.md'
+                - 'Paypal': 'guide/payment/paypal.md'
             - Pricing:
                 - 'Price engine': 'guide/pricing/price_engine.md'
                 - Price engine API:
@@ -299,9 +294,8 @@ nav:
                 - 'Price engine FAQ': 'guide/pricing/price_engine_faq.md'
             - Quick order:
                 - 'Quick order': 'guide/quick_order/quick_order.md'
-                - 'Quick order API': 'guide/quick_order/quick_order_api.md'
+                - 'Quick order configuration': 'guide/quick_order/quick_order_configuration.md'
                 - 'Quick order templates': 'guide/quick_order/quick_order_templates.md'
-                - 'Quick order FAQ': 'guide/quick_order/quick_order_faq.md'
             - Order history:
                 - 'Orderhistory': 'guide/order_history/orderhistory.md'
                 - Order history features:
@@ -312,10 +306,9 @@ nav:
                 - 'Orderhistory templates': 'guide/order_history/orderhistory_templates.md'
                 - 'Displaying custom column': 'guide/order_history/displaying_custom_column.md'
                 - 'Overriding semantic configuration': 'guide/order_history/overriding_semantic_configuration.md'
-            - Vouchers from ERP:
-                - 'Vouchers from ERP': 'guide/vouchers_from_erp/vouchers_from_erp.md'
-                - 'Voucher templates': 'guide/vouchers_from_erp/vouchers_templates.md'
-                - 'Voucher FAQ': 'guide/vouchers_from_erp/vouchers_faq.md'
+            - Vouchers:
+                - 'Vouchers': 'guide/vouchers/vouchers.md'
+                - 'Voucher templates': 'guide/vouchers/voucher_templates.md'
         - Shop elements:
             - Catalog:
                 - 'Catalog ': 'guide/catalog/catalog.md'

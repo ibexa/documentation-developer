@@ -1,14 +1,6 @@
 # Voucher templates
 
-## Template list
-
-The block with vouchers is included in `Silversolutions/Bundle/EshopBundle/Resources/views/Basket/show.html.twig`:
-
-``` html+twig
-{% block vouchers %}
-...
-{% endblock %}
-```
+Vouchers are rendered in the `vouchers` Twig block that is included in `Silversolutions/Bundle/EshopBundle/Resources/views/Basket/show.html.twig`.
 
 ## Twig functions
 
@@ -36,18 +28,4 @@ The block with vouchers is included in `Silversolutions/Bundle/EshopBundle/Resou
     <i class="fa fa-times"></i> {{ 'button.remove_voucher'|st_translate }}
   </a>  
 {% endfor %}
-```
-
-## Routes
-
-``` yaml
-siso_redeem_voucher:
-    pattern: /voucher/redeem
-    defaults: { _controller: SisoVoucherBundle:Voucher:redeemVoucher }
-
-siso_remove_voucher:
-    pattern: /voucher/remove/{voucherNumber}
-    defaults:
-        _controller: SisoVoucherBundle:Voucher:removeVoucher
-        voucherNumber: null 
 ```
