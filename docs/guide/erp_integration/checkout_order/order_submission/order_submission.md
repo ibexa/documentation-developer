@@ -2,7 +2,7 @@
 
 Depending on the chosen payment method, the order is completed after:
 
-- submitting the [order summary](../../../checkout/checkout_api/forms/checkout_summary_form/order_summary.md)
+- submitting the [order summary](../../../checkout/checkout_api/forms/order_summary.md)
 - receiving a notification from the payment gateway
 - returning from the payment gateway
 

@@ -1,19 +1,23 @@
 # Checkout events
 
-There are three kinds of events that can be thrown during checkout process:
+The following events are dispatched during the checkout process:
 
-| Event                                  | Description                                                                   |
+| Event                                  | Dispatched                                                                   |
 | -------------------------------------- | ----------------------------------------------------------------------------- |
-| [`siso_checkout.pre_checkout`](#pre-checkout-event) | This event must be dispatched before user enters the checkout process         |
-| [`siso_checkout.pre_form_checkout`](#pre-form-checkout-event)) | This event must be dispatched before form preparation in the checkout process |
-| [`siso_checkout.post_form_checkout`](#post-form-checkout-event) | This event must be dispatched after form preparation in the checkout process  |
+| [`siso_checkout.pre_checkout`](#pre-checkout-event) | Before user enters the checkout process         |
+| [`siso_checkout.pre_form_checkout`](#pre-form-checkout-event) | Before form preparation in the checkout process |
+| [`siso_checkout.post_form_checkout`](#post-form-checkout-event) | After form preparation in the checkout process  |
+| `silver_eshop.response_message` | After an event has been placed, without ERP connection |
+| `silver_eshop.exception_message`| After an event has been placed, with ERP connection |
 
 ## Pre-checkout event
 
-Before the user enters the checkout process, the shop throws the `siso_checkout.pre_checkout` event to enable checking the basket.
+Before the user enters the checkout process,
+the shop throws the `siso_checkout.pre_checkout` event to enable checking the basket.
 You can use it, for example, to check for invalid items in the basket.
 
-If the event listener needs to interrupt the checkout process, it sets the event status to `failed` and sets a custom error message in the basket.
+If the event listener needs to interrupt the checkout process,
+it sets the event status to `failed` and sets a custom error message in the basket.
 It then redirects the user back to the basket and displays the error message.
 
 ### ValidBasketListener
@@ -25,7 +29,7 @@ You can allow making an order with invalid prices (for example for B2B), by sett
 
 ``` yaml
 parameters:
-    siso_checkout.default.invalid_prices_allowed: false
+    siso_checkout.default.invalid_prices_allowed: true
 ```
 
 ### MinOrderAmountListener
