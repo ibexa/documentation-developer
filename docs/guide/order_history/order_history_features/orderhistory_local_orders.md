@@ -82,7 +82,7 @@ protected function createOrderDetailResponseDocument(OrderDetailRequest $request
 
 ## Generating an invoice
 
-For information about generating a PDF invoice from a local order, see [Local order process](../../../guide/checkout/checkout_features/order/local_order_process_with_invoice_in_pdf.md).
+For information about generating a PDF invoice from a local order, see [Local order process](../../../guide/checkout/local_orders.md).
 
 `SisoLocalOrderManagementBundle` handles orders without an ERP connection.
 
