@@ -10,14 +10,14 @@ or for PostgreSQL:
 
 ### Solr configuration
 
-If you use Solr as a search engine, make sure that Solr configuration is set to commit Solr index changes directly on Repository updates.
+If you use Solr as the search engine, make sure that Solr configuration is set to commit Solr index changes directly during Repository updates.
 For more information, see [Solr configuration](../guide/search/solr/#further-configuration).
 
 !!! dxp
 
     ### Site Factory upgrade
 
-    For production, it is recommended that you create the `ezsite` and `ezsite_public_access` tables and manually importing their schema definitions.
+    For production, create the `ezsite` and `ezsite_public_access` tables and manually import their schema definitions.
     
     For MySQL:
     

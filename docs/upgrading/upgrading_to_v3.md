@@ -42,7 +42,7 @@ In order to adapt, you'll need to move all your PHP code, such as controllers or
     ],
     ```
     
-    Once you are ready to refactor the code to `App` namespace, follow [Bye Bye AppBundle chapter.](https://symfonycasts.com/screencast/symfony4-upgrade/bye-appbundle)
+    Once you are ready to refactor the code to `App` namespace, follow [Bye Bye AppBundle](https://symfonycasts.com/screencast/symfony4-upgrade/bye-appbundle) article.
 
 ### View templates
 

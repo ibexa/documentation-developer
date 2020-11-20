@@ -10,6 +10,11 @@ If you want to first test how the update proceeds without actually updating any 
 
 `composer update --dry-run`
 
-!!! caution "Common errors"
+!!! caution "Upgrading packages"
 
-    If you experienced issues during the update, please check [Common errors](../getting_started/troubleshooting.md#cloning-failed-using-an-ssh-key) section on the Composer about page.
+    If your application consists of several packages that are placed in locations other than the `src/` folder, 
+    make sure that you apply the suggestions from the upgrade documentation to all the packages before you run `composer update`.
+
+!!! tip "Common errors"
+
+    If you experience issues during the update, such as [Cloning failure](../getting_started/troubleshooting.md#cloning-failed-using-an-ssh-key), see the Common errors section on the Composer about page.
