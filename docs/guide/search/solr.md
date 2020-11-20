@@ -8,11 +8,11 @@
 
     If you have previously removed the bundle, add/update composer dependencies:
     ``` bash
-    composer require --no-update ezsystems/ezplatform-solr-search-engine:~3.0
+    composer require --no-update ezsystems/ezplatform-solr-search-engine:~2.0
     composer update
     ```
     
-    Symfony Flex will enable the bundle for you when installing the package.
+    Make sure `EzPublishSolrSearchEngineBundle` is activated with the following line in the `app/AppKernel.php` file: `new EzSystems\EzPlatformSolrSearchEngineBundle\EzSystemsEzPlatformSolrSearchEngineBundle()`
 
 ### Step 1: Configuring and starting Solr
 
@@ -22,7 +22,8 @@ The example presents a configuration with single core, look to [Solr](https://cw
 
 !!! note "Solr versions"
 
-    For v3 `ezplatform-solr-search-engine` works with Solr 7 and 8, using most recent version of Solr 7.7 or 8.6 is recommended.
+    For v2 `ezplatform-solr-search-engine` works with Solr 7 and 8, using most recent version of Solr 7.7 or 8.6 is recommended.
+    The now deprecated v1 of the bundle work with Solr 6.6. 
 
 ##### Solr 7
 
