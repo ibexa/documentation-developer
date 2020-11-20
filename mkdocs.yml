@@ -248,36 +248,21 @@ nav:
             - 'Wishlist and stored baskets': 'guide/basket/wishlist_and_stored_baskets.md'
             - Checkout:
                 - 'Checkout': 'guide/checkout/checkout.md'
-                - Checkout features:
-                    - Order:
-                        - 'Order confirmation email': 'guide/checkout/checkout_features/order/order_confirmation.md'
-                        - 'Local order process': 'guide/checkout/checkout_features/order/local_order_process_with_invoice_in_pdf.md'
-                        - 'Order splitting for multishop': 'guide/checkout/checkout_features/order/order_splitting_for_multishop.md'
-                    - 'RMA process': 'guide/checkout/checkout_features/rma_process.md'
-                    - 'Simple checkout': 'guide/checkout/checkout_features/simple_checkout.md'
+                - 'Checkout templates': 'guide/checkout/checkout_templates.md'
+                - 'Order confirmation': 'guide/checkout/order_confirmation.md'
+                - 'Local orders': 'guide/checkout/local_orders.md'
+                - 'Return process': 'guide/checkout/return_process.md'
                 - Checkout API:
-                    - 'CheckoutController': 'guide/checkout/checkout_api/checkoutcontroller.md'
-                    - 'AjaxCheckoutController': 'guide/checkout/checkout_api/ajaxcheckoutcontroller.md'
+                    - 'Checkout controllers': 'guide/checkout/checkout_api/checkout_controllers.md'
                     - 'Checkout events': 'guide/checkout/checkout_api/checkout_events.md'
                     - Forms:
                         - 'Configuration for checkout forms': 'guide/checkout/checkout_api/forms/configuration_for_checkout_forms.md'
                         - 'Invoice address form': 'guide/checkout/checkout_api/forms/checkout_invoice_address_form.md'
                         - 'Delivery address form': 'guide/checkout/checkout_api/forms/checkout_delivery_address_form.md'
                         - 'Shipping payment form': 'guide/checkout/checkout_api/forms/checkout_shipping_payment_form.md'
-                        - Summary form:
-                            - 'Summary form': 'guide/checkout/checkout_api/forms/checkout_summary_form/checkout_summary_form.md'
-                            - 'Order summary': 'guide/checkout/checkout_api/forms/checkout_summary_form/order_summary.md'
-                        - Services for checkout forms:
-                            - 'Interfaces for checkout services': 'guide/checkout/checkout_api/forms/services_for_checkout_forms/interfaces_for_checkout_services.md'
-                            - 'InvoiceAddressCheckoutFormService': 'guide/checkout/checkout_api/forms/services_for_checkout_forms/invoiceaddresscheckoutformservice.md'
-                            - 'DeliveryAddressCheckoutFormService': 'guide/checkout/checkout_api/forms/services_for_checkout_forms/deliveryaddresscheckoutformservice.md'
-                            - 'ShippingPaymentCheckoutFormService': 'guide/checkout/checkout_api/forms/services_for_checkout_forms/shippingpaymentcheckoutformservice.md'
-                            - 'SummaryCheckoutFormService': 'guide/checkout/checkout_api/forms/services_for_checkout_forms/summarycheckoutformservice.md'
-                - Checkout cookbook:
-                    - 'Express checkout': 'guide/checkout/checkout_cookbook/express_checkout.md'
-                    - 'Restricting payment options': 'guide/checkout/checkout_cookbook/restricting_payment_options.md'
-                - 'Checkout templates': 'guide/checkout/checkout_templates.md'
-                - 'Checkout FAQ': 'guide/checkout/checkout_faq.md'
+                        - 'Summary form': 'guide/checkout/checkout_api/forms/checkout_summary_form.md'
+                        - 'Order summary': 'guide/checkout/checkout_api/forms/order_summary.md'
+                        - 'Services for checkout forms': 'guide/checkout/checkout_api/forms/services_for_checkout_forms.md'
             - Payment:
                 - 'Payment': 'guide/payment/payment.md'
                 - 'Payment API': 'guide/payment/payment_api.md'
