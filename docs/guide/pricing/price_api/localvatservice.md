@@ -1,9 +1,9 @@
 # LocalVatService
 
-Typically the ERP can provide the VAT percent during a price request.
+Typically, the ERP can provide the VAT percent during a price request.
 If that does not happen, `LocalVatService` can be used as a fallback.
 
-If the ERP does not provide the VAT percent, the VAT code stored in the product node can be used to determine the current VAT percent using configuration.
+If the ERP does not provide the VAT percent, the VAT code stored in the product node can be used to determine the current VAT percent, based on configuration.
 
 ## Configuration
 

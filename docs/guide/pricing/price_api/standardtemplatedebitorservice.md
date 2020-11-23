@@ -17,4 +17,4 @@ Customer groups from the BuyerParty are also considered when determining the tem
 |Method|Description|
 |--- |--- |
 |`getTemplateCustomerNumber()`|Returns the template customer number depending on the given parties. If no parties are provided, configuration is used to provide fallback template customer number.|
-|`getTemplateContactNumber()`|Returns template contact number depending on the given parties. If no parties are provided, configuration is be used to provide fallback template contact number.|
+|`getTemplateContactNumber()`|Returns template contact number depending on the given parties. If no parties are provided, configuration is used to provide fallback template contact number.|

@@ -68,7 +68,8 @@ If set, schema `itemprop="price"` is used:
 ```
 
 The following example outputs the value of the `priceExclVat` property from the price field in German standard format (locale: `de`),
-with enforced use of the Euro sign (currency: `EUR`). The CSS class `price_med` is added to the price `<p>` tag.
+with enforced use of the Euro sign (currency: `EUR`). 
+The CSS class `price_med` is added to the price `<p>` tag.
 A VAT label is shown below the price (`show: true`) with defined text `Excluding VAT` and CSS classes `price_info` and `smaller` added to the VAT `<p>` tag:
 
 ``` html+twig
