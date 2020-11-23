@@ -1,6 +1,6 @@
 # StandardCountryZoneService
 
-`StandardCountryZoneService` is uses as a helper to resolve settings based on a region or zone.
+`StandardCountryZoneService` is used as a helper to resolve settings based on a region or zone.
 It uses simple configuration to determine the zone by given country.
 
 It is used for example to select template debitors in [`StandardTemplateDebitorService`](standardtemplatedebitorservice.md).
@@ -9,7 +9,7 @@ It is used for example to select template debitors in [`StandardTemplateDebitorS
 
 Service ID: `siso_core.country_zone.standard`
 
-Default zones configuration:
+Default zone configuration:
 
 ``` yaml
 #values for the siso_core.country_zone.standard service
@@ -21,5 +21,5 @@ silver_eshop.zone_country:
 
 |Method|Description|
 |--- |--- |
-|`public function getCountries($zone);`|This method returns a list of countries for the given zone|
-|`public function getZone($country);`|This method returns zone for the given country|
+|`getCountries()`|This method returns a list of countries for the given zone|
+|`getZone()`|This method returns the zone for the given country|

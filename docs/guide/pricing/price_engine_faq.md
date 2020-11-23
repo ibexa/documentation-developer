@@ -10,60 +10,6 @@ The remote price engine provides volume-based prices as defined in the ERP.
 
 The price provider returns such information as additional lines with a special type.
 
-``` php
-$additionalLines = array();
-$additionalLines[] = $this->createShippingPriceLine();
-$priceResponse?setAdditionalLines($additionalLines);
-/**
-     * creates a PriceLine for shipping costs
-     *
-     * @return PriceLine
-     */
-    protected function createShippingPriceLine()
-    {
-        $priceLine = new PriceLine();
-        $priceLine->setType(PriceConstants::PRICE_RESPONSE_LINE_TYPE_SHIPPING);
-        $shippingCost = $this->shippingCostCalculator->calculateShipping();
-        $shippingVatCountry = $this->configResolver->getParameter('shipping_vat_country', 'siso_core');
-        $shippingVatCode = $this->configResolver->getParameter('shipping_vat_code', 'siso_core');
-        $vatPercent = $this->vatService->getVatPercent($shippingVatCountry, $shippingVatCode);
-
-        //create PriceLineAmounts
-        $shippingPrice = new PriceLineAmounts();
-        $shippingCostVat = ($shippingCost * $vatPercent) / 100;
-        $shippingCostNet = $shippingCost - $shippingCostVat;
-        $shippingPrice->setLineAmountGross($shippingCost);
-        $shippingPrice->setLineAmountNet($shippingCostNet);
-        $shippingPrice->setLineAmountVat($shippingCostVat);
-        $shippingPrice->setUnitPriceGross($shippingCost);
-        $shippingPrice->setUnitPriceNet($shippingCostNet);
-        $shippingPrice->setUnitPriceVat($shippingCostVat);
-        // ToDo: Should we create a new price constant?
-        $shippingPrice->setSource(PriceConstants::PRICE_ENGINE_SOURCE_LOCAL);
-        $prices[PriceConstants::PRICE_RESPONSE_PRICE_TYPE_CUSTOM] = $shippingPrice;
-        $prices[PriceConstants::PRICE_RESPONSE_PRICE_TYPE_LIST] = $shippingPrice;
-        $priceLine->setPrices($prices);
-        // ToDO: check if we need to get the VAT for shipping costs.
-        $priceLine->setVatPercent($vatPercent);
-        $extendedData = array(
-            'LineType' => 1,
-            'CostType' => PriceConstants::PRICE_RESPONSE_LINE_TYPE_SHIPPING,
-            'StockNumeric' => '',
-            'AvailabilityColor' => '',
-            'VatPercent' => $vatPercent,
-            'PriceAmountGross' => $shippingCost,
-            'PriceIsIncVat' => 1,
-            'BelongsToLine' => '',
-            'name' => 'msg.shipping_cost_name'
-        );
-        $priceLine->setExtendedData($extendedData);
-
-        return $priceLine;
-    }
-```
-
-![](../img/price_engine_1.png)
-
 ## How can I access stock information?
 
 You can get stock information from `PriceLine` in `PriceResponse`:
@@ -87,43 +33,6 @@ It depends on the price provider.
 
 - Local price provider uses the customer currency that is set in the price request.
 - Remote price provider uses the currency returned from the ERP and if not set, also uses the customer currency.
-
-## How can I pass additional information to the price provider?
-
-If the price provider needs additional information, you can provide it in several ways:
-
-- On the top level in `extendedData`:
-
-``` php
-$priceRequest = new PriceRequest();
-$extendedData = array(
-    'customerId' => 126,
-    'email' => 'test@testaccount.com'
-);
-
-$priceRequest->setExtendedData($extendedData);
-```
-
-- On line level in `extendedData`:
-
-``` php
-$priceLine = new PriceLine();
-$extendedData = array(
-   'remark'  => $customerRemark
-);
-
-$priceLine->setExtendedData($extendedData);
-```
-
-- You can also pass additional data in the parties, if they are connected to a customer:
-
-``` php
-$priceRequest = new PriceRequest();
-$buyerParty = $customerProfileDataService->getDefaultBuyerParty();
-$buyerParty->SesExtension->value['customerGroup'] = 'WIKI';
-
-$priceRequest->setBuyerParty($buyerParty);
-```
 
 ## How can I find out which provider calculates my prices?
 
