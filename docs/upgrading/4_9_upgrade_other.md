@@ -20,7 +20,7 @@ security:
 
 ## Commands
 
-The `ContainerAwareCommand` class is not available in Symfony 5. Therefore, ff your custom commands use `Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand`
+The `ContainerAwareCommand` class is not available in Symfony 5. Therefore, if your custom commands use `Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand`
 as a base class, you must rewrite them to use `Symfony\Component\Console\Command\Command` instead. 
 
 ## Permissions
@@ -33,7 +33,7 @@ If your code uses them, you must rewrite it to use the permission resolver.
 A number of Symfony Dependency Injection Container parameters [have been dropped](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/doc/bc/1.0/dropped-container-parameters.md).
 
 Check if your code uses such invalid parameters: search for them by using the `ezpublish\..*\.class` regular expression pattern. 
-When found, replace all the occurrences with fully qualified class names.
+When found, replace all the occurrences with fully-qualified class names.
 
 ## QueryTypes
 
@@ -54,7 +54,7 @@ For more information, search for removed classes in Symfony [version 4.0](https:
 
 ## Apache/Nginx configuration
 
-Make sure that you Apache/Nginx configuration is up to date with Symfony 5.
+Make sure that your Apache/Nginx configuration is up to date with Symfony 5.
 Refer to [the provided `vhost.template`](https://github.com/ezsystems/ezplatform/blob/master/doc/apache2/vhost.template)
 for an example.
 
